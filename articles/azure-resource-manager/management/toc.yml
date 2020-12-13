@@ -75,7 +75,7 @@
               href: ../../batch/best-practices.md?toc=/azure/azure-resource-manager/management/toc.json#moving-batch-accounts-across-regions
             - name: Azure Cognitive Search
               href: ../../search/search-howto-move-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
-            - name: "Azure Cosmos\_DB"
+            - name: Azure Cosmos DB
               href: ../../cosmos-db/how-to-move-regions.md?toc=/azure/azure-resource-manager/management/toc.json
             - name: Azure Dev Spaces
               href: ../../dev-spaces/faq.md?toc=/azure/azure-resource-manager/management/toc.json#can-i-migrate-my-aks-cluster-with-azure-dev-spaces-to-another-region
@@ -121,7 +121,7 @@
           href: tag-support.md
     - name: Administración de grupos de recursos
       items:
-        - name: Azure Portal
+        - name: Azure portal
           displayName: 'create,list,open,delete,deploy,move,lock,tag,export'
           href: manage-resource-groups-portal.md
         - name: Azure CLI
@@ -132,7 +132,7 @@
           href: manage-resource-groups-powershell.md
     - name: Administrar recursos
       items:
-        - name: Azure Portal
+        - name: Azure portal
           displayName: 'open,delete,deploy,move,lock,tag,monitor'
           href: manage-resources-portal.md
         - name: Azure CLI
@@ -180,6 +180,8 @@
       href: ./policy-reference.md
 - name: Recursos
   items:
+    - name: Desarrollo de aptitudes con Microsoft Learn
+      href: /learn/browse/?products=azure-resource-manager
     - name: Azure Roadmap
       href: 'https://azure.microsoft.com/roadmap/?category=monitoring-management'
     - name: Calculadora de precios

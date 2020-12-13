@@ -389,7 +389,7 @@
           items:
             - name: Resource group
               href: deploy-to-resource-group.md
-            - name: Suscripción
+            - name: Subscription
               href: deploy-to-subscription.md
             - name: Grupo de administración
               href: deploy-to-management-group.md
@@ -515,6 +515,8 @@
       href: /python/api/overview/azure/resources?view=azure-python
 - name: Recursos
   items:
+    - name: Desarrollo de aptitudes con Microsoft Learn
+      href: /learn/paths/deploy-manage-resource-manager-templates/
     - name: Plantillas de inicio rápido de Azure
       href: 'https://azure.microsoft.com/resources/templates/'
     - name: Azure Roadmap
