@@ -1095,9 +1095,9 @@
         - name: Uso del Asistente para puntuación para los grupos de SQL dedicados
           href: machine-learning/tutorial-sql-pool-model-scoring-wizard.md
           displayname: machine learning
-        - name: Entrenamiento de un modelo sin código con Azure AutoML
+        - name: Entrenamiento de un modelo sin código con AutoML
           href: ./machine-learning/tutorial-automl.md
-        - name: Entrenamiento de un modelo en Python con Azure AutoML
+        - name: Entrenamiento de un modelo en Python con AutoML
           href: ./spark/apache-spark-azure-machine-learning-tutorial.md
           displayname: machine learning
         - name: Creación de un modelo con Apache Spark MLlib

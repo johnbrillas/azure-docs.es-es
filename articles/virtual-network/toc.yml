@@ -39,6 +39,8 @@
       href: template-samples.md
 - name: Conceptos
   items:
+    - name: Conceptos y procedimientos recomendados
+      href: concepts-and-best-practices.md
     - name: Continuidad empresarial
       href: virtual-network-disaster-recovery-guidance.md
     - name: Conectividad
@@ -47,7 +49,7 @@
           items:
             - name: Información general
               href: nat-overview.md
-            - name: Recurso
+            - name: Resource
               href: nat-gateway-resource.md
             - name: Métricas y alertas
               href: nat-metrics.md
