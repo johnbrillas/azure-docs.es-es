@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 11/19/2020
+ms.date: 12/02/2020
 ms.author: aahi
-ms.openlocfilehash: 2977946b2e1f37aa356ee075d2caac237170df0f
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 3d3c452dd883316520e0c28f01c241af74d597c8
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "95993326"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602791"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Cómo llamar a la API REST de Text Analytics
 
@@ -52,11 +52,11 @@ En la tabla siguiente puede ver qué características se pueden usar de forma as
 
 
 > [!NOTE]
-> Necesitará un recurso de Text Analytics mediante un [plan de tarifa](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) Estándar (S) si desea utilizar los puntos de conexión `/analyze` o `/health`.
+> * Necesitará un recurso de Text Analytics mediante un [plan de tarifa](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) Estándar (S) si desea utilizar los puntos de conexión `/analyze` o `/health`.
 
-1.  En primer lugar, vaya a [Azure Portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) y cree un recurso de Text Analytics, en caso de que no tenga ninguno. Elija el plan de tarifa Estándar (S) si desea utilizar los puntos de conexión `/analyze` o `/health`.
+1.  En primer lugar, vaya a [Azure Portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) y cree un recurso de Text Analytics, en caso de que no tenga ninguno. Elija el **plan de tarifa Estándar (S)** si desea utilizar los puntos de conexión `/analyze` o `/health`. El punto de conexión `/analyze` está incluido en el [plan de tarifa](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
 
-2.  Seleccione la región que desee que use su punto de conexión.
+2.  Seleccione la región que quiera que use su punto de conexión.  Tenga en cuenta que los puntos de conexión de `/analyze` y `/health` solo están disponibles en las siguientes regiones: Oeste de EE. UU. 2, este de EE. UU. 2, centro de EE. UU., Norte de Europa y Oeste de Europa.
 
 3.  Cree el recurso de Text Analytics y vaya a la "hoja de claves y puntos de conexión" a la izquierda de la página. Copie la clave que va a usar más adelante cuando llame a las API. La agregará más adelante como valor en el encabezado `Ocp-Apim-Subscription-Key` .
 
@@ -260,6 +260,8 @@ Si realizó la llamada a los puntos de conexión `/analyze` o `/health` asincró
 3. Agregue `Operation-Location` a la solicitud.
 
 4. La respuesta será un solo documento JSON, con un elemento para cada identificador de documento proporcionado en la solicitud.
+
+Tenga en cuenta que para las operaciones asincrónicas `/analyze` o `/health`, los resultados de la solicitud GET en el paso 2 anterior están disponibles durante 24 horas desde el momento en que se creó el trabajo.  Esta hora se indica mediante el valor `expirationDateTime` de la respuesta de GET.  Después de este período de tiempo, los resultados se purgan y ya no están disponibles para la recuperación.    
 
 ## <a name="example-api-responses"></a>Respuestas de ejemplo de la API
  

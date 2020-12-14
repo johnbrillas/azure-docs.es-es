@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/04/2020
+ms.date: 12/07/2020
 ms.author: alexeyo
-ms.openlocfilehash: a304628e05054124fde6ffe5c2b63177991d8cfd
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 9b923ba208dd2a5111a59f67401b1e4f080b7187
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93345404"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754171"
 ---
 # <a name="speech-services-quotas-and-limits"></a>Límites y cuotas de los servicios de voz
 
@@ -104,7 +104,7 @@ Los límites de solicitudes simultáneas de los modelos **base** y **personaliza
 El valor existente del parámetro de límite de solicitudes simultáneas **no** es visible en Azure Portal, en las herramientas de línea de comandos o las solicitudes de API. Para comprobar el valor existente, cree una solicitud de soporte técnico de Azure.
 
 >[!NOTE]
->Los [contenedores de voz](speech-container-howto.md) no requieren aumentos en los límites de solicitudes simultáneas, ya que solo están restringidos por las CPU del hardware en el que se hospedan.
+>Los [contenedores de voz](speech-container-howto.md) no requieren aumentos en los límites de solicitudes simultáneas, ya que solo están restringidos por las CPU del hardware en el que se hospedan. Sin embargo, los contenedores de voz tienen sus propias limitaciones de capacidad que deben tenerse en cuenta. Vea la pregunta *"¿Puede ayudarme a planear la capacidad y estimar los costos de los contenedores de voz a texto locales?"* de las [Preguntas frecuentes sobre los contenedores del servicio de voz](speech-container-faq.md).
 
 #### <a name="have-the-required-information-ready"></a>Tenga lista la información necesaria:
 - Para el **modelo base**:

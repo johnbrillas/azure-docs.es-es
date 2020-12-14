@@ -10,14 +10,14 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: pafarley
-ms.openlocfilehash: 3e58be4b94457d95d28cf6528b9151e4be1802cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 79749533d636f4b73ff3bef6b12d9e842ac485ea
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "72754182"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905182"
 ---
-# <a name="define-and-use-moderation-workflows-rest"></a>Definición y uso de los flujos de trabajo de moderación (REST)
+# <a name="define-and-use-moderation-workflows-api-console"></a>Definición y uso de los flujos de trabajo de moderación (consola de API)
 
 Los flujos de trabajo son filtros personalizados basados en la nube que puede usar para controlar el contenido de forma más eficaz. Los flujos de trabajo pueden conectarse a diversos servicios para filtrar el contenido de maneras diferentes y luego realizar la acción apropiada. En esta guía se le muestra cómo usar las API de REST de flujo de trabajo, a través de la consola de API, para crear y usar flujos de trabajo. Una vez que comprenda la estructura de las API, podrá migrar fácilmente estas llamadas a cualquier plataforma compatible con REST.
 
@@ -27,7 +27,7 @@ Los flujos de trabajo son filtros personalizados basados en la nube que puede us
 
 ## <a name="create-a-workflow"></a>Creación de un flujo de trabajo
 
-Para crear o actualizar un flujo de trabajo, vaya a la página de referencia de API **[Workflow - Create Or Update](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59)** (Flujo de trabajo: Crear o actualizar) y seleccione el botón para su región clave (lo encontrará en la dirección URL de punto de conexión en la página **Credenciales** de la [herramienta de revisión](https://contentmoderator.cognitive.microsoft.com/)). Esto inicia la consola de API, donde puede crear y ejecutar llamadas API REST con facilidad.
+Para crear o actualizar un flujo de trabajo, vaya a la página de referencia de API **[Flujo de trabajo: Crear o actualizar](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59)** y seleccione el botón para su región clave. Puede encontrar la región en la dirección URL de punto de conexión en la página **Credenciales** de la [herramienta de revisión](https://contentmoderator.cognitive.microsoft.com/). Esto inicia la consola de API, donde puede crear y ejecutar llamadas API REST con facilidad.
 
 ![Selección de región para Workflow - Create Or Update (Flujo de trabajo: Crear o actualizar)](images/test-drive-region.png)
 
@@ -102,7 +102,7 @@ Escriba los parámetros de llamada de REST como en la sección anterior. Asegúr
 
 ![Obtención de parámetros y encabezados de consulta](images/workflow-get-default.PNG)
 
-Seleccione **Enviar**. Si la operación se realiza correctamente, el **estado de la respuesta** es `200 OK` y el cuadro **Contenido de la respuesta** muestra el flujo de trabajo en formato JSON, como el siguiente:
+Seleccione **Enviar**. Si la operación se realiza correctamente, el **estado de la respuesta** es `200 OK` y el cuadro **Contenido de la respuesta** muestra el flujo de trabajo en formato JSON, como el siguiente ejemplo:
 
 ```json
 {

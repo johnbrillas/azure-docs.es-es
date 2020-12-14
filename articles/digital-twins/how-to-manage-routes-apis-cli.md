@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 11/18/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 3db475b5eb0c584f86c8810e9c993e4d5d7b497e
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 7016abc9d52aa12b497d29f605fe351ee3f6a2dd
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452905"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96519120"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Administración de puntos de conexión y rutas en Azure Digital Twins (API y CLI)
 
@@ -90,47 +90,59 @@ az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --event
 
 Cuando un punto de conexión no puede entregar un evento en un período de tiempo determinado o después de haber intentado entregarlo un número determinado de veces, podrá enviar el evento sin entregar a una cuenta de almacenamiento. Este proceso se conoce como **colas de mensajes fallidos**.
 
-Para obtener más información acerca de la opción para poner en cola los mensajes fallidos, consulte [*Conceptos: rutas de eventos*](concepts-route-events.md#dead-letter-events).
+Para obtener más información acerca de la opción para poner en cola los mensajes fallidos, consulte [*Conceptos: rutas de eventos*](concepts-route-events.md#dead-letter-events). Para obtener instrucciones sobre cómo configurar un punto de conexión con mensajes fallidos, continúe con el resto de esta sección.
 
 #### <a name="set-up-storage-resources"></a>Configuración de recursos de almacenamiento
 
-Antes de establecer la ubicación de mensajes fallidos, debe tener una [cuenta de almacenamiento](../storage/common/storage-account-create.md?tabs=azure-portal) con un [contenedor](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) configurado en la cuenta de Azure. La dirección URL de este contenedor la especificará más tarde, cuando cree el punto de conexión.
-La cola de mensajes fallidos se suministra en forma de dirección URL del contenedor con un [token de SAS](../storage/common/storage-sas-overview.md). Ese token solo necesita permiso `write` para el contenedor de destino dentro de la cuenta de almacenamiento. La dirección URL totalmente estructurada tendrá este formato: `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`.
+Antes de establecer la ubicación de mensajes fallidos, debe tener una [cuenta de almacenamiento](../storage/common/storage-account-create.md?tabs=azure-portal) con un [contenedor](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) configurado en la cuenta de Azure. 
+
+La dirección URL de este contenedor la especificará más tarde, cuando cree el punto de conexión. La ubicación de los mensajes fallidos se proporcionará al punto de conexión como una dirección URL de contenedor con un [token de SAS](../storage/common/storage-sas-overview.md). Ese token necesita permiso `write` para el contenedor de destino dentro de la cuenta de almacenamiento. La dirección URL totalmente estructurada tendrá este formato: `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`.
 
 Siga los pasos que se indican a continuación para configurar estos recursos de almacenamiento en su cuenta de Azure, con el fin de preparar la configuración de la conexión del punto de conexión en la siguiente sección.
 
-1. Siga [este artículo](../storage/common/storage-account-create.md?tabs=azure-portal) para crear una cuenta de almacenamiento y guardar su nombre para usarla más adelante.
-2. Lea [este artículo](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) para crear un contenedor y guarde su nombre para usarlo más adelante, cuando configure la conexión entre el contenedor y el punto de conexión.
-3. Luego, cree un token de SAS para la cuenta de almacenamiento. Para empezar, vaya a la cuenta de almacenamiento en [Azure Portal](https://ms.portal.azure.com/#home) (puede buscarla por su nombre en la barra de búsqueda del portal).
-4. En la página de la cuenta de almacenamiento, elija el vínculo _Firma de acceso compartido_ en la barra de navegación izquierda para seleccionar los permisos correctos para generar el token de SAS.
-5. En _Servicios permitidos_ y _Tipos de recursos permitidos_, seleccione la configuración que desee. Es preciso que seleccione al menos una casilla en cada categoría. En el caso de Permisos permitidos, elija **Escritura** (también puede seleccionar otros permisos si lo desea).
-Si lo desea, configure los restantes valores.
-6. Luego, seleccione el botón _Generate SAS and connection string_ (Generar SAS y cadena de conexión) para generar el token de SAS. Se generarán varios valores de cadena de conexión y SAS en la parte inferior de la misma página, debajo de las selecciones de configuración. Desplácese hacia abajo para ver los valores y use el icono Copiar al portapapeles para copiar el valor del **token de SAS**. Guárdela para usarla más adelante.
+1. Siga los pasos descritos en [*Creación de una cuenta de Storage*](../storage/common/storage-account-create.md?tabs=azure-portal) para crear una **cuenta de almacenamiento** en la suscripción de Azure. Anote el nombre de la cuenta de almacenamiento para usarlo más adelante.
+2. Siga los pasos descritos en [*Creación de un contenedor de blobs de Azure*](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) para crear un **contenedor** en la nueva cuenta de almacenamiento. Anote el nombre de contenedor para usarlo más adelante.
+3. A continuación, cree un **token de SAS** para la cuenta de almacenamiento que el punto de conexión pueda usar para acceder a ella. Para empezar, vaya a la cuenta de almacenamiento en [Azure Portal](https://ms.portal.azure.com/#home) (puede buscarla por su nombre en la barra de búsqueda del portal).
+4. En la página de la cuenta de almacenamiento, elija el vínculo _Firma de acceso compartido_ en la barra de navegación izquierda para empezar a configurar el token de SAS.
 
-:::image type="content" source="./media/how-to-manage-routes-apis-cli/generate-sas-token.png" alt-text="Página de la cuenta de almacenamiento en Azure Portal que muestra la selección de todos los valores para generar un token de SAS." lightbox="./media/how-to-manage-routes-apis-cli/generate-sas-token.png":::
+    :::image type="content" source="./media/how-to-manage-routes-apis-cli/generate-sas-token-1.png" alt-text="Página de la cuenta de almacenamiento en Azure Portal" lightbox="./media/how-to-manage-routes-apis-cli/generate-sas-token-1.png":::
 
-:::image type="content" source="./media/how-to-manage-routes-apis-cli/copy-sas-token.png" alt-text="Copie el token de SAS que se va a usar en el secreto de mensajes fallidos." lightbox="./media/how-to-manage-routes-apis-cli/copy-sas-token.png":::
+1. En la página *Firma de acceso compartido*, en *Servicios permitidos* y *Tipos de recursos permitidos*, seleccione la configuración que quiera. Es preciso que seleccione al menos una casilla en cada categoría. En *Permisos permitidos*, elija **Escritura** (también puede seleccionar otros permisos si lo desea).
+1. Establezca los valores que quiera para el resto de la configuración.
+1. Cuando finalice, seleccione el botón _Generar SAS y cadena de conexión_ para generar el token de SAS. 
 
+    :::image type="content" source="./media/how-to-manage-routes-apis-cli/generate-sas-token-2.png" alt-text="Página de la cuenta de almacenamiento en Azure Portal que muestra la selección de todos los valores para generar un token de SAS y resalta el botón &quot;Generar SAS y cadena de conexión&quot;" lightbox="./media/how-to-manage-routes-apis-cli/generate-sas-token-2.png"::: 
+
+1. Se generarán varios valores de cadena de conexión y SAS en la parte inferior de la misma página, debajo de las selecciones de configuración. Desplácese hacia abajo para ver los valores y use el icono *Copiar al portapapeles* para copiar el valor del **token de SAS**. Guárdela para usarla más adelante.
+
+    :::image type="content" source="./media/how-to-manage-routes-apis-cli/copy-sas-token.png" alt-text="Copie el token de SAS que se va a usar en el secreto de mensajes fallidos." lightbox="./media/how-to-manage-routes-apis-cli/copy-sas-token.png":::
+    
 #### <a name="configure-the-endpoint"></a>Configuración del punto de conexión
 
-Los puntos de conexión de los mensajes fallidos se crean mediante las API de Azure Resource Manager. Al crear un punto de conexión, use la [documentación de las API de Azure Resource Manager](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) para rellenar los parámetros de la solicitud necesarios. Agregue también un valor `deadLetterSecret` al objeto de propiedades del **cuerpo** de la solicitud, que contiene una dirección URL del contenedor y un token de SAS para la cuenta de almacenamiento.
+Para crear un punto de conexión con mensajes fallidos habilitados, debe crear el punto de conexión mediante las API de Azure Resource Manager. 
+
+1. En primer lugar, use la [documentación de las API de Azure Resource Manager](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) para configurar una solicitud para crear un punto de conexión y rellenar los parámetros de la solicitud necesarios. 
+
+1. A continuación, agregue un campo de `deadLetterSecret` al objeto de propiedades en el **cuerpo** de la solicitud. Establezca este valor de acuerdo con la plantilla siguiente, que elabora una dirección URL a partir del nombre de la cuenta de almacenamiento, el nombre del contenedor y el valor del token de SAS que recopiló en la [sección anterior](#set-up-storage-resources).
       
-```json
-{
-  "properties": {
-    "endpointType": "EventGrid",
-    "TopicEndpoint": "https://contosoGrid.westus2-1.eventgrid.azure.net/api/events",
-    "accessKey1": "xxxxxxxxxxx",
-    "accessKey2": "xxxxxxxxxxx",
-    "deadLetterSecret":"https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>"
-  }
-}
-```
+    ```json
+    {
+      "properties": {
+        "endpointType": "EventGrid",
+        "TopicEndpoint": "https://contosoGrid.westus2-1.eventgrid.azure.net/api/events",
+        "accessKey1": "xxxxxxxxxxx",
+        "accessKey2": "xxxxxxxxxxx",
+        "deadLetterSecret":"https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>"
+      }
+    }
+    ```
+1. Envíe la solicitud para crear el punto de conexión.
+
 Para más información sobre cómo estructurar esta solicitud, consulte la documentación de la API REST de Azure Digital Twins: [Puntos de conexión: DigitalTwinsEndpoint CreateOrUpdate](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate).
 
 ### <a name="message-storage-schema"></a>Esquema de almacenamiento de mensajes
 
-Los mensajes fallidos que están en cola se almacenarán con el formato siguiente en la cuenta de almacenamiento:
+Una vez configurado el punto de conexión con mensajes fallidos, los mensajes fallidos que están en cola se almacenarán con el formato siguiente en la cuenta de almacenamiento:
 
 `{container}/{endpointName}/{year}/{month}/{day}/{hour}/{eventId}.json`
 

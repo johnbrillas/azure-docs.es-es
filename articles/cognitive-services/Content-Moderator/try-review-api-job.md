@@ -10,16 +10,16 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
-ms.openlocfilehash: 83ee8e0c0583cba72da8702e196f0f38128f8d8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 924c21037a464770fac13c9b45ddcf261ff5a058
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "72935933"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905186"
 ---
-# <a name="define-and-use-moderation-jobs-rest"></a>Definición y uso de trabajos de moderación (REST)
+# <a name="define-and-use-moderation-jobs-api-console"></a>Definición y uso de trabajos de moderación (consola de API)
 
-Un trabajo de moderación actúa como un tipo de contenedor para la funcionalidad de moderación de contenido, los flujos de trabajo y las revisiones. Esta guía muestra cómo usar las API REST de trabajos para iniciar y comprobar trabajos de moderación de contenido. Una vez que comprenda la estructura de las API, podrá migrar fácilmente estas llamadas a cualquier plataforma compatible con REST.
+Un trabajo de moderación actúa como un tipo de contenedor para la funcionalidad de moderación de contenido, flujos de trabajo y revisiones. Esta guía muestra cómo usar las API REST de trabajos para iniciar y comprobar trabajos de moderación de contenido. Una vez que comprenda la estructura de las API, podrá migrar fácilmente estas llamadas a cualquier plataforma compatible con REST.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -28,7 +28,7 @@ Un trabajo de moderación actúa como un tipo de contenedor para la funcionalida
 
 ## <a name="create-a-job"></a>Creación de un trabajo
 
-Para crear o actualizar un trabajo de moderación, vaya a la página de referencia de API [Job - Create](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5) (Trabajo: crear) y seleccione el botón para su región de suscripción (lo encontrará en la dirección URL de punto de conexión en la página de **credenciales** de la [herramienta de revisión](https://contentmoderator.cognitive.microsoft.com/)). Esto inicia la consola de API, donde puede crear y ejecutar llamadas API REST con facilidad.
+Para crear un trabajo de moderación, vaya a la página de referencia de API [Trabajo: crear](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5) y seleccione el botón correspondiente a su región de suscripción. Puede encontrar la región en la dirección URL de punto de conexión en la página **Credenciales** de la [herramienta de revisión](https://contentmoderator.cognitive.microsoft.com/). Esto inicia la consola de API, donde puede crear y ejecutar llamadas API REST con facilidad.
 
 ![Selección de la región en la página Job - Create (Trabajo: crear)](images/test-drive-job-1.png)
 

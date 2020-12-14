@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: pafarley
-ms.openlocfilehash: e2d87d4322ac6b91a19a4775c23ceec75d528030
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 43c39c40af6e02861211a8666fefa57c34072f32
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325339"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905203"
 ---
 # <a name="content-moderation-reviews-workflows-and-jobs"></a>Revisiones, flujos de trabajo y trabajos de moderación de contenido
 
@@ -42,7 +42,7 @@ Use la barra de herramientas de **búsqueda** para ordenar las revisiones por di
 > [!div class="mx-imgBorder"]
 > ![Se muestra la barra de herramientas de búsqueda. Tiene varios cuadros combinados para especificar criterios de búsqueda, como el estado de la revisión y las etiquetas.](./Review-Tool-user-Guide/images/review-search.png)
 
-Consulte la [guía de la herramienta de revisión](./review-tool-user-guide/review-moderated-images.md) para empezar a crear revisiones o la [guía de la API REST](./try-review-api-review.md) si quiere aprender a hacerlo mediante programación.
+Consulte la [guía de la herramienta de revisión](./review-tool-user-guide/review-moderated-images.md) para empezar a crear revisiones o la [guía de la consola de API](./try-review-api-review.md) si quiere aprender a hacerlo mediante programación.
 
 ## <a name="workflows"></a>Workflows
 
@@ -80,13 +80,13 @@ Los flujos de trabajo se definen como cadenas JSON, lo que hace que sean accesib
 }
 ```
 
-Consulte la [guía de la herramienta de revisión](./review-tool-user-guide/workflows.md) para empezar a crear y usar flujos de trabajo o la [guía de la API REST](./try-review-api-workflow.md) si quiere aprender a hacerlo mediante programación.
+Consulte la [guía de la herramienta de revisión](./review-tool-user-guide/workflows.md) para empezar a crear y usar flujos de trabajo o la [guía de la consola de API](./try-review-api-workflow.md) si quiere aprender a hacerlo mediante programación.
 
 ## <a name="jobs"></a>Trabajos
 
 Un trabajo de moderación actúa como un tipo de contenedor para la funcionalidad de moderación de contenido, flujos de trabajo y revisiones. El trabajo de moderación examina el contenido con Content Moderator Image Moderation API o Text Moderation API y luego lo compara con el flujo de trabajo designado. En función de los resultados del flujo de trabajo, tal vez pueda crear una revisión del contenido en la [herramienta de revisión](./review-tool-user-guide/human-in-the-loop.md). Mientras que tanto las revisiones como los flujos de trabajo pueden crearse y configurarse con sus respectivas API, la API de trabajos le permite obtener un informe detallado de todo el proceso (que puede enviarse a un punto final de devolución de llamada especificado).
 
-Consulte la [guía de la API REST](./try-review-api-job.md) para empezar a usar los trabajos.
+Consulte la [guía de la consola de API](./try-review-api-job.md) para empezar a usar los trabajos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

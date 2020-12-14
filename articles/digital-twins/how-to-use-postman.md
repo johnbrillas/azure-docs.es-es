@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: how-to
 ms.date: 11/10/2020
-ms.openlocfilehash: f9be9dd94aad8c206b562f2c984ec944f70d3957
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: fe79797aeef2b0c148aece0319d6b340b663b184
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96188044"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763730"
 ---
 # <a name="how-to-use-postman-to-send-requests-to-the-azure-digital-twins-apis"></a>Uso de Postman para enviar solicitudes a las API de Azure Digital Twins
 
@@ -130,7 +130,7 @@ Para realizar una solicitud de Postman en una de las API de Azure Digital Twins,
 
 Para continuar con una consulta de ejemplo, en este artículo se usará Query API (y su [documentación de referencia](/rest/api/digital-twins/dataplane/query/querytwins)) para consultar todos los gemelos digitales de una instancia.
 
-1. Obtenga la dirección URL y el tipo de la solicitud en la documentación de referencia. En el caso de Query API, es *POST https://digitaltwins-name.digitaltwins.azure.net/query?api-version=2020-10-31* .
+1. Obtenga la dirección URL y el tipo de la solicitud en la documentación de referencia. En el caso de Query API, actualmente es *POST `https://digitaltwins-hostname/query?api-version=2020-10-31`* .
 1. En Postman, establezca el tipo de la solicitud y escriba la dirección URL de la solicitud, rellenando los marcadores de posición en la dirección URL según sea necesario. Aquí es donde usará el **nombre de host** de la instancia de la sección [*Requisitos previos*](#prerequisites).
     
    :::image type="content" source="media/how-to-use-postman/postman-request-url.png" alt-text="En los detalles de la nueva solicitud, la dirección URL de la consulta de la documentación de referencia se ha rellenado en el cuadro de la dirección URL de la solicitud." lightbox="media/how-to-use-postman/postman-request-url.png":::
