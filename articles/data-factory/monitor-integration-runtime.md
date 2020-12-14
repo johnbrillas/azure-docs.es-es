@@ -10,12 +10,12 @@ ms.date: 08/11/2020
 author: dcstwh
 ms.author: weetok
 manager: anandsub
-ms.openlocfilehash: 4eb9b0077d1d0591953a40d98a220d7aa0683de7
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: fa71dc1e6b3a09827f2ad3d9f714622da5a36222
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96497952"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862452"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Supervisión de Integration Runtime en Azure Data Factory
 
@@ -104,7 +104,7 @@ En la tabla siguiente se proporcionan los estados posibles de los nodos de una i
 | En línea | Nodo conectado al servicio Data Factory. |
 | Sin conexión | El nodo está sin conexión. |
 | Actualizando | El nodo se está actualizando automáticamente. |
-| Limitado | Debido a un problema de conectividad. Puede ser debido a un problema en el puerto HTTP 8050, a un problema de conectividad de Service Bus o a un problema de sincronización de credenciales. |
+| Limitado | Debido a un problema de conectividad. Puede ser debido a un problema en el puerto HTTP 8060, a un problema de conectividad de Service Bus o a un problema de sincronización de credenciales. |
 | Inactivo | El nodo tiene una configuración diferente de la configuración de la mayoría de los otros nodos. |
 
 Un nodo puede estar inactivo cuando no se puede conectar a otros nodos.

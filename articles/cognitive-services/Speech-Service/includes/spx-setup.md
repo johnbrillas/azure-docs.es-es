@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: 6f80d41001d11c52a00454ea2a593f3f1fce32db
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 6011bf90d5a97dcc027f8a9a0916c28226c5c354
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96025625"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96584586"
 ---
 ## <a name="download-and-install"></a>Descargar e instalar
 
@@ -53,15 +53,19 @@ Siga estos pasos para instalar la CLI de Voz en Linux en una CPU x64:
 
 Escriba `spx` para ver la ayuda de la CLI de Voz.
 
-#### <a name="docker-install"></a>[Instalación de Docker](#tab/dockerinstall)
+#### <a name="docker-install-windows-linux-macos"></a>[Instalación de Docker (Windows, Linux, macOS)](#tab/dockerinstall)
 
-> [!NOTE]
-> Debe estar instalado el <a href="https://www.docker.com/get-started" target="_blank">escritorio de Docker para su plataforma <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+Siga estos pasos para instalar la CLI de Voz en un contenedor de Docker:
 
-Siga estos pasos para instalar la CLI de Voz dentro de un contenedor de Docker:
-
-1. En un nuevo símbolo del sistema o terminal, escriba este comando: `docker pull msftspeech/spx`
-2. Escriba este comando. Debería ver la información de ayuda de la CLI de Voz: `docker run -it --rm msftspeech/spx help`
+1. <a href="https://www.docker.com/get-started" target="_blank">Instale Docker Desktop<span class="docon docon-navigate-external x-hidden-focus"></span></a> para su plataforma si aún no está instalado.
+2. En un nuevo símbolo del sistema o terminal, escriba este comando: 
+   ```shell   
+   docker pull msftspeech/spx
+   ```
+3. Escriba este comando. Debería ver la información de ayuda de la CLI de Voz: 
+   ```shell 
+   docker run -it --rm msftspeech/spx help
+   ```
 
 ### <a name="mount-a-directory-in-the-container"></a>Montaje de un directorio en el contenedor
 
@@ -72,7 +76,7 @@ En Windows, escriba este comando para crear un directorio local que la CLI de Vo
 
 `mkdir c:\spx-data`
 
-En n Linux o Mac, escriba este comando en un terminal para crear un directorio y ver su ruta de acceso absoluta:
+En Linux o Mac, escriba este comando en un terminal para crear un directorio y ver su ruta de acceso absoluta:
 
 ```bash
 mkdir ~/spx-data
@@ -86,27 +90,63 @@ Usará la ruta de acceso absoluta al llamar a la CLI de Voz.
 
 En esta documentación se muestra el comando `spx` de la CLI de Voz que se usa en instalaciones que no son de Docker.
 Al llamar al comando `spx` en un contenedor de Docker, debe montar un directorio en el contenedor para el sistema de archivos donde la CLI de Voz pueda almacenar y buscar los valores de configuración, y leer y escribir los archivos.
+
 En Windows, los comandos se iniciarán de la siguiente manera:
 
-`docker run -it -v c:\spx-data:/data --rm msftspeech/spx`
+```shell
+docker run -it -v c:\spx-data:/data --rm msftspeech/spx
+```
 
-En Linux o Mac, se iniciarán de forma similar a la siguiente:
+En Linux o macOS, los comandos tendrán un aspecto similar al del ejemplo siguiente. Reemplace `ABSOLUTE_PATH` por la ruta de acceso absoluta del directorio montado. El comando `pwd` de la sección anterior devolvió esta ruta de acceso. 
 
-`sudo docker run -it -v /ABSOLUTE_PATH:/data --rm msftspeech/spx`
-
-> [!NOTE]
-> Reemplace `/ABSOLUTE_PATH` por la ruta de acceso absoluta que el comando `pwd` muestra en la sección anterior.
+Si ejecuta este comando antes de establecer la clave y la región, recibirá un error indicándole que las establezca:
+```shell   
+sudo docker run -it -v ABSOLUTE_PATH:/data --rm msftspeech/spx
+```
 
 Para usar el comando `spx` instalado en un contenedor, escriba siempre el comando completo mostrado anteriormente, seguido de los parámetros de la solicitud.
 Por ejemplo, en Windows, este comando establece la clave:
 
-`docker run -it -v c:\spx-data:/data --rm msftspeech/spx config @key --set SUBSCRIPTION-KEY`
+```shell
+docker run -it -v c:\spx-data:/data --rm msftspeech/spx config @key --set SUBSCRIPTION-KEY
+```
 
-> [!NOTE]
-> No puede usar el micrófono ni el altavoz del equipo al ejecutar la CLI de Voz dentro de un contenedor de Docker.
-> Para usar estos dispositivos, use archivos de audio con la CLI de Voz para grabar y reproducir fuera del contenedor de Docker.
-> La herramienta CLI de Voz puede acceder al directorio local que configuró en los pasos anteriores.
+> [!WARNING]
+> No puede usar el micrófono del equipo al ejecutar la CLI de Voz dentro de un contenedor de Docker. Sin embargo, puede leer y guardar archivos de audio en el directorio montado local. 
 
+<!-- Need to troubleshoot issues with docker pull image
+
+### Optional: Create a command line shortcut
+
+If you're running the the Speech CLI from a Docker container on Linux or macOS you can create a shortcut. 
+
+Follow these instructions to create a shortcut:
+1. Open `.bash_profile` with your favorite text editor. For example:
+   ```shell
+   nano ~/.bash_profile
+   ```
+2. Next, add this function to your `.bash_profile`. Make sure you update this function with the correct path to your mounted directory:
+   ```shell   
+   spx(){
+       sudo docker run -it -v ABSOLUTE_PATH:/data --rm msftspeech/spx
+   }
+   ```
+3. Source your profile:
+   ```shell
+   source ~/.bash_profile
+   ```
+4. Now instead of running `sudo docker run -it -v ABSOLUTE_PATH:/data --rm msftspeech/spx`, you can just type `spx` followed by arguments. For example: 
+   ```shell
+   // Get some help
+   spx help recognize
+
+   // Recognize speech from an audio file 
+   spx recognize --file /mounted/directory/file.wav
+   ```
+
+> [!WARNING]
+> If you change the mounted directory that Docker is referencing, you need to update the function in `.bash_profile`.
+--->
 ***
 
 ## <a name="create-subscription-config"></a>Creación de la configuración de la suscripción

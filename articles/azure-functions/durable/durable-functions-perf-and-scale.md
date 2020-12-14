@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 56a9861f0e25e1dcdf741cfdf5c8830dd9b6fc1f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b9fc465b5e5f132264fd36e004fa3ee7623b87a5
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325817"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96854995"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Rendimiento y escalado horizontal en Durable Functions (Azure Functions)
 
@@ -20,13 +20,13 @@ Para entender el comportamiento de escalado, tendrá que comprender algunos de l
 
 ## <a name="history-table"></a>Tabla del historial
 
-La tabla **History** es una tabla de Azure Storage que contiene los eventos del historial de todas las instancias de orquestación dentro de una central de tareas. El nombre de esta tabla está en formato *TaskHubName*History. Según se ejecutan las instancias, se van agregando nuevas filas a esta tabla. La clave de partición de esta tabla proviene del identificador de instancia de la orquestación. El identificador de instancia es aleatorio en la mayoría de los casos, lo que garantiza una distribución óptima de las particiones internas en Azure Storage.
+La tabla **History** es una tabla de Azure Storage que contiene los eventos del historial de todas las instancias de orquestación dentro de una central de tareas. El nombre de esta tabla está en formato *TaskHubName* History. Según se ejecutan las instancias, se van agregando nuevas filas a esta tabla. La clave de partición de esta tabla proviene del identificador de instancia de la orquestación. El identificador de instancia es aleatorio en la mayoría de los casos, lo que garantiza una distribución óptima de las particiones internas en Azure Storage.
 
 Cuando sea necesario ejecutar una instancia de orquestación, las filas correspondientes de la tabla History se cargan en memoria. Estos *eventos del historial* se reproducen luego en el código de función de orquestación para regresar a su estado de punto de control previo. El uso del historial de ejecución para reconstruir el estado de esta manera se ve influenciado por el [patrón Event Sourcing](/azure/architecture/patterns/event-sourcing).
 
 ## <a name="instances-table"></a>Tabla Instances
 
-La tabla **Instances** es otra tabla de Azure Storage que contiene los estados de todas las instancias de orquestación y entidad dentro de una central de tareas. Según se crean las instancias, se van agregando nuevas filas a esta tabla. La clave de partición de esta tabla es el identificador de instancia de orquestación o clave de entidad, y la clave de fila es una constante fija. Hay una fila por cada instancia de orquestación o entidad.
+La tabla **Instances** es otra tabla de Azure Storage que contiene los estados de todas las instancias de orquestación y entidad dentro de una central de tareas. Según se crean las instancias, se van agregando nuevas filas a esta tabla. La clave de partición de esta tabla es el identificador de instancia de orquestación o la clave de entidad, y la clave de fila es una cadena vacía. Hay una fila por cada instancia de orquestación o entidad.
 
 Esta tabla se usa para satisfacer las solicitudes de consulta de instancias de las API `GetStatusAsync` (.NET) y `getStatus` (JavaScript), así como de la [API HTTP de consulta de estado](durable-functions-http-api.md#get-instance-status). Se mantiene coherente en última instancia con el contenido de la tabla **History** mencionada anteriormente. El uso de una tabla de Azure Storage independiente para satisfacer con eficiencia operaciones de consulta de instancias de esta manera se ve influenciada por el [patrón Command and Query Responsibility Segregation (CQRS)](/azure/architecture/patterns/cqrs).
 

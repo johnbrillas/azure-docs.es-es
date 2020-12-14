@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/20/2018
 ms.author: genli
-ms.openlocfilehash: 063ebc40fd845fe6300b008e7ca048357a2fce49
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: d2e5996da5a1fe3f5b154d57ee509f25e54e30ac
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95806669"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862367"
 ---
 # <a name="troubleshoot-outbound-smtp-connectivity-issues-in-azure"></a>Solución de problemas de conectividad SMTP saliente en Azure
 
@@ -39,7 +39,7 @@ Para los usuarios de Azure de Contrato Enterprise, no hay ningún cambio en la c
 
 Si se suscribió antes del 15 de noviembre de 2017 en la suscripción de Pago por uso, no habrá ningún cambio en la capacidad técnica de probar la entrega de correo electrónico saliente. Seguirá teniendo la posibilidad de probar la entrega de correo electrónico saliente desde máquinas virtuales de Azure dentro de estas suscripciones directamente a proveedores de correo electrónico externos sin ninguna restricción desde la plataforma de Azure. Como ya se indicó, no se garantiza que los proveedores de correo electrónico acepten el correo electrónico entrante de un usuario cualquiera y los usuarios deberán trabajar directamente con proveedores de correo electrónico para corregir cualquier problema de entrega de mensaje o filtrado de correo no deseado que implique a proveedores específicos.
 
-Para las suscripciones a Pago por uso creadas después del 15 de noviembre de 2017, habrá restricciones técnicas para bloquear el correo electrónico que se envía directamente desde máquinas virtuales dentro de estas suscripciones. Si quiere la capacidad de enviar correo electrónico desde máquinas virtuales de Azure directamente a proveedores de correo electrónico externos (que no usan retransmisión SMTP autenticada), puede realizar una solicitud para quitar la restricción en la sección **Conectividad** de la hoja **Diagnosticar y solucionar** de un recurso de Azure Virtual Network en Azure Portal. Si cumple los requisitos, se habilitará la suscripción o recibirá las instrucciones sobre los pasos siguientes.
+Para las suscripciones a Pago por uso creadas después del 15 de noviembre de 2017, habrá restricciones técnicas para bloquear el correo electrónico que se envía directamente desde máquinas virtuales dentro de estas suscripciones. Si quiere poder enviar correo electrónico desde máquinas virtuales de Azure directamente a proveedores de correo electrónico externos (que no usan retransmisión SMTP autenticada) y tiene una cuenta en vigor con un historial de pagos, puede realizar una solicitud para quitar la restricción en la sección **Conectividad** de la hoja **Diagnosticar y solucionar** de un recurso de Azure Virtual Network en Azure Portal. Si cumple los requisitos, se habilitará la suscripción o recibirá las instrucciones sobre los pasos siguientes. 
 
 Después de que una suscripción de pago por uso esté exenta y las VM hayan sido detenidas e iniciadas desde Azure Portal, todas las VM en esa suscripción quedan exentas en el futuro. La exención solo se aplica a la suscripción solicitada y al tráfico de la máquina virtual que se enruta directamente a Internet.
 
@@ -54,13 +54,13 @@ Si usa estos tipos de suscripción, se recomienda que use los servicios de retra
 
 ## <a name="cloud-service-provider-csp"></a>Proveedor de servicios en la nube (CSP)
 
-Si usa recursos de Azure a través de CSP, puede realizar una solicitud para quitar la restricción en la sección "Conectividad" de la hoja "Diagnosticar y solucionar" de un recurso de Virtual Network en Azure Portal. Si cumple los requisitos, se habilitará la suscripción o recibirá las instrucciones sobre los pasos siguientes.
+Si usa recursos de Azure a través de un CSP, puede realizar una solicitud para quitar la restricción en la sección **Conectividad** de la hoja **Diagnosticar y solucionar** de un recurso de Virtual Network en Azure Portal. Si cumple los requisitos, se habilitará la suscripción o recibirá las instrucciones sobre los pasos siguientes.
 
 ## <a name="microsoft-partner-network-mpn-bizspark-plus-or-azure-sponsorship"></a>Microsoft Partner Network (MPN), BizSpark Plus o Patrocinio de Azure
 
 Para las suscripciones a Microsoft Partner Network, BizSpark Plus o Patrocinio de Azure creadas después del 15 de noviembre de 2017, habrá restricciones técnicas para bloquear el correo electrónico que se envía directamente desde máquinas virtuales de estas suscripciones. Si quiere poder enviar correo electrónico desde máquinas virtuales de Azure directamente a proveedores de correo electrónico externos (sin usar retransmisión SMTP autenticada), puede realizar una solicitud mediante la apertura de un caso de soporte técnico con el siguiente tipo de incidencia: **Técnico** > **Red virtual** > **Conectividad** > **No se puede enviar correo (SMTP/Puerto 25)** . Asegúrese de agregar detalles sobre por qué la implementación tiene que enviar correo directamente a los proveedores de correo en lugar de usar una retransmisión autenticada. Las solicitudes se revisarán y aprobarán a discreción de Microsoft. Las solicitudes se pueden conceder solo después de completar comprobaciones antifraudes adicionales. 
 
-Después de que una suscripción de pago por uso esté exenta y las VM hayan sido detenidas e iniciadas desde Azure Portal, todas las VM en esa suscripción quedan exentas en el futuro. La exención solo se aplica a la suscripción solicitada y al tráfico de la máquina virtual que se enruta directamente a Internet.
+Después de que una suscripción quede exenta y las VM hayan sido detenidas e iniciadas desde Azure Portal, todas las VM de esa suscripción quedan exentas en el futuro. La exención solo se aplica a la suscripción solicitada y al tráfico de la máquina virtual que se enruta directamente a Internet.
 
 ## <a name="restrictions-and-limitations"></a>Restricciones y limitaciones
 
@@ -68,4 +68,4 @@ Después de que una suscripción de pago por uso esté exenta y las VM hayan sid
 
 ## <a name="need-help-contact-support"></a>¿Necesita ayuda? Ponerse en contacto con soporte técnico
 
-Si aún necesita ayuda, [póngase en contacto con el soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver su problema rápidamente; para ello, use el siguiente tipo de problema: Tipo de problema **Administración de suscripciones**: **Solicitud para habilitar el flujo de correo electrónico del puerto 25**.
+Si aún necesita ayuda, [póngase en contacto con el soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver su problema rápidamente; para ello, use el siguiente tipo de problema: **Técnico** > **Red virtual** > **Conectividad** > **No se puede enviar correo (SMTP/Puerto 25)** .

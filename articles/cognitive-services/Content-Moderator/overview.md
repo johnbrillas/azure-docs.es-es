@@ -12,12 +12,12 @@ ms.date: 09/15/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: content moderator, azure content moderator, online moderator, content filtering software, content moderation service, content moderation
-ms.openlocfilehash: aa1f4c1fab9b3d8a1b5db0e965f1608e694646b2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c7c996ae49bdf7aa72873322f11af754843fd835
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91596848"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905254"
 ---
 # <a name="what-is-azure-content-moderator"></a>¿Qué es Azure Content Moderator?
 
@@ -81,4 +81,4 @@ Al igual que sucede con todas las instancias de Cognitive Services, los desarrol
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para empezar a usar Content Moderator en el portal web, siga [Cómo familiarizarse con Content Moderator](quick-start.md). O bien, complete un [inicio rápido de la biblioteca cliente](client-libraries.md) para implementar los escenarios básicos en el código.
+Para empezar a usar Content Moderator en el portal web, siga [Cómo familiarizarse con Content Moderator](quick-start.md). O bien, complete un [inicio rápido de la biblioteca cliente o API REST](client-libraries.md) para implementar los escenarios básicos en el código.

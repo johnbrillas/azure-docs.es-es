@@ -10,16 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: bead348e64fcee4cc5b790f975c9da5200ee796b
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: acc19d9a04909dcf0e79c93e0c8a3fb8225ee1b4
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422406"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546922"
 ---
 # <a name="learn-the-basics-of-the-speech-cli"></a>Conozca los aspectos básicos de la CLI de Voz.
 
-En este artículo, conocerá los patrones de uso básicos de la CLI de Voz, una herramienta de línea de comandos que permite usar el servicio de voz sin necesidad de escribir código. Puede probar rápidamente las características principales del servicio de voz sin crear entornos de desarrollo ni escribir código, para ver si los casos de uso se pueden satisfacer adecuadamente. Además, la CLI de Voz está lista para producción y se puede usar para automatizar flujos de trabajo sencillos en el servicio de voz mediante scripts de shell o `.bat`.
+En este artículo, conocerá los patrones de uso básicos de la CLI de Voz, una herramienta de línea de comandos que permite usar el servicio de voz sin necesidad de escribir código. Puede probar rápidamente las características principales del servicio de voz sin crear entornos de desarrollo ni escribir código, para ver si los casos de uso se pueden satisfacer adecuadamente. La CLI de Voz está lista para producción y se puede usar para automatizar flujos de trabajo sencillos en el servicio Voz mediante scripts de shell o `.bat`.
+
+En este artículo se supone que tiene conocimientos prácticos del símbolo del sistema, el terminal o PowerShell.
 
 [!INCLUDE [](includes/spx-setup.md)]
 
@@ -45,11 +47,24 @@ Escriba el siguiente comando para ver las opciones del comando recognize:
 spx help recognize
 ```
 
-Ahora, use el servicio de voz para realizar un reconocimiento de la voz con el micrófono predeterminado, para lo que se debe ejecutar el siguiente comando.
+Ahora, vamos a usar la CLI de Voz para realizar el reconocimiento de voz con el micrófono predeterminado del sistema. 
+
+>[!WARNING]
+> Si usa un contenedor de Docker, este comando no funcionará.
+
+Ejecute este comando:
 
 ```shell
 spx recognize --microphone
 ```
+
+Con la CLI de Voz también puede reconocer la voz a partir de un archivo de audio.
+
+```shell
+spx recognize --file /path/to/file.wav
+```
+> [!TIP]
+> Si va a reconocer la voz a partir de un archivo de audio en un contenedor de Docker, asegúrese de que el archivo de audio se encuentra en el directorio que ha montado en el paso anterior.
 
 Después de escribir el comando, SPX comenzará a escuchar el audio en el dispositivo de entrada activo actual y se detendrá después de presionar `ENTER`. La voz grabada se reconoce y se convierte a texto en la salida de la consola. La síntesis de texto a voz también es fácil de usar con la CLI de Voz. 
 

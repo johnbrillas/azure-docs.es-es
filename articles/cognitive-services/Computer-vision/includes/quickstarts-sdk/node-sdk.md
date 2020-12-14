@@ -10,14 +10,19 @@ ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
 ms.custom: devx-track-js
-ms.openlocfilehash: 4f82665afbf3cd83041e59a8b10ef2a731566fc0
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: e0767e50ac6d88922281b10389b77c5cf0c481be
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95098526"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96912110"
 ---
 <a name="HOLTop"></a>
+
+La biblioteca cliente de Computer Vision se usa para:
+
+* Analizar una imagen para ver las etiquetas, la descripción de texto, las caras, el contenido para adultos, etc.
+* Lea texto impreso y manuscrito con Read API.
 
 [Documentación de referencia](/javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-computervision) | [Paquete (npm)](https://www.npmjs.com/package/@azure/cognitiveservices-computervision) | [Ejemplos](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
 
@@ -71,6 +76,9 @@ Cree variables para el punto de conexión y la clave de Azure del recurso.
 >
 > Recuerde quitar la clave del código cuando haya terminado y no hacerla nunca pública. En el caso de producción, considere la posibilidad de usar alguna forma segura de almacenar las credenciales, y acceder a ellas. Para más información, consulte el artículo sobre la [seguridad](../../../cognitive-services-security.md) de Cognitive Services.
 
+> [!div class="nextstepaction"]
+> [Configuro el cliente](?success=set-up-client#object-model) [He tenido un problema](https://www.research.net/r/7QYZKHL?issue=set-up-client)
+
 ## <a name="object-model"></a>Modelo de objetos
 
 Las siguientes clases e interfaces controlan algunas de las características principales del SDK de Node.js para Computer Vision.
@@ -100,6 +108,9 @@ Luego, defina una función `computerVision` y declare una serie asincrónica con
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_functiondef_begin)]
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_functiondef_end)]
+
+> [!div class="nextstepaction"]
+> [He autenticado el cliente](?success=authenticate-client#analyze-an-image) [He tenido un problema](https://www.research.net/r/7QYZKHL?issue=authenticate-client)
 
 ## <a name="analyze-an-image"></a>Análisis de una imagen
 
@@ -214,6 +225,9 @@ Defina la función auxiliar `describeType`:
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_imagetype_describe)]
 
+> [!div class="nextstepaction"]
+> [He analizado una imagen](?success=analyze-image#read-printed-and-handwritten-text) [He tenido un problema](https://www.research.net/r/7QYZKHL?issue=analyze-image)
+
 ## <a name="read-printed-and-handwritten-text"></a>Lectura de texto manuscrito e impreso
 
 Computer Vision puede leer texto visible de una imagen y convertirlo en un flujo de caracteres. Este ejemplo utiliza las operaciones de lectura.
@@ -233,7 +247,6 @@ Defina los campos siguientes en la función para indicar los valores de estado d
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_statuses)]
 
-
 Agregue el código siguiente, que llama a la función `readTextFromURL` para las imágenes proporcionadas.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_read_call)]
@@ -246,6 +259,9 @@ Seguidamente, defina la función auxiliar `printRecText`, que imprime los result
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_read_print)]
 
+> [!div class="nextstepaction"]
+> [He leído un texto](?success=read-printed-handwritten-text#run-the-application) [He tenido un problema](https://www.research.net/r/7QYZKHL?issue=read-printed-handwritten-text)
+
 ## <a name="run-the-application"></a>Ejecución de la aplicación
 
 Ejecute la aplicación con el comando `node` en el archivo de inicio rápido.
@@ -254,6 +270,9 @@ Ejecute la aplicación con el comando `node` en el archivo de inicio rápido.
 node index.js
 ```
 
+> [!div class="nextstepaction"]
+> [He ejecutado la aplicación](?success=run-the-application#clean-up-resources) [He tenido un problema](https://www.research.net/r/7QYZKHL?issue=run-the-application)
+
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
 Si quiere limpiar y eliminar una suscripción a Cognitive Services, puede eliminar el recurso o grupo de recursos. Al eliminar el grupo de recursos, también se elimina cualquier otro recurso que esté asociado a él.
@@ -261,10 +280,14 @@ Si quiere limpiar y eliminar una suscripción a Cognitive Services, puede elimin
 * [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [CLI de Azure](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
+> [!div class="nextstepaction"]
+> [He limpiado los recursos](?success=clean-up-resources#next-steps) [He tenido un problema](https://www.research.net/r/7QYZKHL?issue=clean-up-resources)
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
 >[Referencia de la API Computer Vision (Node.js)](/javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest)
+
 
 * [¿Qué es Computer Vision?](../../overview.md)
 * El código fuente de este ejemplo está disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js).

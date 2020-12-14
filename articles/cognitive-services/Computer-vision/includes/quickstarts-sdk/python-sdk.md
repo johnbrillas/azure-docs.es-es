@@ -9,14 +9,19 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 0fd094b7364263acb2abbe7bed2d65392155a930
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 91bc9def06b7b9844e32dbc0d2654d03c5b72389
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95097437"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96912127"
 ---
 <a name="HOLTop"></a>
+
+La biblioteca cliente de Computer Vision se usa para:
+
+* Analizar una imagen para ver las etiquetas, la descripción de texto, las caras, el contenido para adultos, etc.
+* Lea texto impreso y manuscrito con Read API.
 
 [Documentación de referencia](/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-computervision) | [Paquete (PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-computervision/) | [Ejemplos](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
 
@@ -29,7 +34,7 @@ ms.locfileid: "95097437"
     * Puede usar el plan de tarifa gratis (`F0`) para probar el servicio y actualizarlo más adelante a un plan de pago para producción.
 
 ## <a name="setting-up"></a>Instalación
- 
+
 ### <a name="install-the-client-library"></a>Instalación de la biblioteca cliente
 
 Puede instalar la biblioteca cliente con lo siguiente:
@@ -56,6 +61,8 @@ A continuación, cree variables para el punto de conexión y la clave de Azure d
 >
 > Recuerde quitar la clave del código cuando haya terminado y no hacerla nunca pública. En el caso de producción, considere la posibilidad de usar alguna forma segura de almacenar las credenciales, y acceder a ellas. Por ejemplo, [Azure Key Vault](../../../../key-vault/general/overview.md).
 
+> [!div class="nextstepaction"]
+> [He configurado el cliente](?success=set-up-client#object-model) [He tenido un problema](https://www.research.net/r/7QYZKHL?issue=set-up-client)
 
 ## <a name="object-model"></a>Modelo de objetos
 
@@ -80,6 +87,9 @@ En estos fragmentos de código se muestra cómo realizar las siguientes tareas c
 Cree una instancia de un cliente con la clave y el punto de conexión. Cree un objeto [CognitiveServicesCredentials](/python/api/msrest/msrest.authentication.cognitiveservicescredentials?view=azure-python) con la clave y úselo con el punto de conexión para crear un objeto [ComputerVisionClient](/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python).
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_client)]
+
+> [!div class="nextstepaction"]
+> [He autenticado el cliente](?success=authenticate-client#analyze-an-image) [He tenido un problema](https://www.research.net/r/7QYZKHL?issue=authenticate-client)
 
 ## <a name="analyze-an-image"></a>Análisis de una imagen
 
@@ -156,6 +166,9 @@ El código siguiente imprime información sobre el tipo de imagen (si es una ima
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_type)]
 
+> [!div class="nextstepaction"]
+> [He analizado una imagen](?success=analyze-image#read-printed-and-handwritten-text) [He tenido un problema](https://www.research.net/r/7QYZKHL?issue=analyze-image)
+
 ## <a name="read-printed-and-handwritten-text"></a>Lectura de texto manuscrito e impreso
 
 Computer Vision puede leer texto visible de una imagen y convertirlo en un flujo de caracteres. Esto se hace en dos partes.
@@ -175,6 +188,9 @@ A continuación, obtenga el identificador de operación devuelto por la llamada 
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_read_response)]
 
+> [!div class="nextstepaction"]
+> [He leído un texto](?success=read-printed-handwritten-text#run-the-application) [He tenido un problema](https://www.research.net/r/7QYZKHL?issue=read-printed-handwritten-text)
+
 ## <a name="run-the-application"></a>Ejecución de la aplicación
 
 Ejecute la aplicación con el comando `python` en el archivo de inicio rápido.
@@ -183,6 +199,9 @@ Ejecute la aplicación con el comando `python` en el archivo de inicio rápido.
 python quickstart-file.py
 ```
 
+> [!div class="nextstepaction"]
+> [He ejecutado la aplicación](?success=run-the-application#clean-up-resources) [He tenido un problema](https://www.research.net/r/7QYZKHL?issue=run-the-application)
+
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
 Si quiere limpiar y eliminar una suscripción a Cognitive Services, puede eliminar el recurso o grupo de recursos. Al eliminar el grupo de recursos, también se elimina cualquier otro recurso que esté asociado a él.
@@ -190,11 +209,12 @@ Si quiere limpiar y eliminar una suscripción a Cognitive Services, puede elimin
 * [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [CLI de Azure](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
+> [!div class="nextstepaction"]
+> [He limpiado los recursos](?success=clean-up-resources#next-steps) [He tenido un problema](https://www.research.net/r/7QYZKHL?issue=clean-up-resources)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este inicio rápido, ha aprendido a usar la biblioteca de Computer Vision para Python para realizar tareas básicas. A continuación, consulte la documentación de referencia para más información sobre la biblioteca.
-
 
 > [!div class="nextstepaction"]
 >[Referencia de la API Computer Vision (Python)](/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision)

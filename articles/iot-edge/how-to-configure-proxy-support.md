@@ -10,12 +10,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - contperfq1
-ms.openlocfilehash: ae0c4c69cf500fb352cc889e068888084d1d8f8b
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: c39ce2bed63b6efb6224e0e27fdb1104ef7a5ec8
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92045965"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862401"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>Configuración de un dispositivo de IoT Edge para que se comunique a través de un servidor proxy
 
@@ -23,25 +23,25 @@ Los dispositivos de IoT Edge envían solicitudes HTTPS para comunicarse con IoT 
 
 Este artículo le guiará por los cuatro pasos que se describen a continuación para configurar y administrar un dispositivo de IoT Edge situado detrás de un servidor proxy:
 
-1. [**Instale el entorno de ejecución de Azure IoT Edge en el dispositivo.** ](#install-the-runtime-through-a-proxy)
+1. [**Instale el entorno de ejecución de Azure IoT Edge en el dispositivo.**](#install-the-runtime-through-a-proxy)
 
    Los scripts de instalación de IoT Edge extraen paquetes y archivos de Internet, por lo que es necesario que la comunicación con el dispositivo pueda atravesar el servidor proxy para realizar esas solicitudes. En el caso de los dispositivos Windows, el script de instalación también dispone de una opción de instalación sin conexión.
 
    Este paso es un proceso que solamente tiene que realizarse una vez para configurar el dispositivo de IoT Edge al establecer la configuración inicial. Estas mismas conexiones también son necesarias para actualizar el entorno de ejecución de IoT Edge.
 
-2. [**Configure los demonios de Docker y de IoT Edge en el dispositivo.** ](#configure-the-daemons)
+2. [**Configure los demonios de Docker y de IoT Edge en el dispositivo.**](#configure-the-daemons)
 
    IoT Edge utiliza dos demonios en el dispositivo. Estos dos demonios tienen que realizar solicitudes web capaces de atravesar el servidor proxy. El demonio de IoT Edge es responsable de las comunicaciones con IoT Hub. El demonio Moby es responsable de la administración de contenedores, por lo que se comunica con los registros del contenedor.
 
    Este paso es un proceso que solamente tiene que realizarse una vez para configurar el dispositivo de IoT Edge al establecer la configuración inicial.
 
-3. [**Configure las propiedades del agente de IoT Edge en el archivo config.yaml del dispositivo.** ](#configure-the-iot-edge-agent)
+3. [**Configure las propiedades del agente de IoT Edge en el archivo config.yaml del dispositivo.**](#configure-the-iot-edge-agent)
 
    El demonio de IoT Edge inicia el módulo edgeAgent inicialmente. Después, el módulo edgeAgent recupera el manifiesto de implementación de IoT Hub e inicia todos los demás módulos. Para que el agente de IoT Edge realice la conexión inicial con IoT Hub, configure manualmente las variables de entorno del módulo edgeAgent en el propio dispositivo. Una vez establecida la conexión inicial, puede configurar el módulo de edgeAgent de forma remota.
 
    Este paso es un proceso que solamente tiene que realizarse una vez para configurar el dispositivo de IoT Edge al establecer la configuración inicial.
 
-4. [**En el futuro, siempre que implemente un módulo, defina las variables de entorno de todos los módulos que se comuniquen a través del proxy.** ](#configure-deployment-manifests)
+4. [**En el futuro, siempre que implemente un módulo, defina las variables de entorno de todos los módulos que se comuniquen a través del proxy.**](#configure-deployment-manifests)
 
    Una vez que el dispositivo IoT Edge esté configurado y conectado a IoT Hub a través del servidor proxy, deberá mantener la conexión en todas las implementaciones de módulos que se realicen en el futuro.
 
@@ -270,6 +270,12 @@ Si incluyó la variable de entorno **UpstreamProtocol** en el archivo confige.ya
     }
 }
 ```
+
+## <a name="working-with-traffic-inspecting-proxies"></a>Trabajo con proxies de inspección de tráfico
+
+Si el proxy que intenta usar realiza inspección de tráfico en conexiones protegidas por TLS, es importante tener en cuenta que la autenticación con certificados X.509 no funciona. IoT Edge establece un canal TLS cifrado de un extremo a otro con el certificado y la clave proporcionados. Si ese canal se interrumpe para la inspección de tráfico, el proxy no puede restablecerlo con las credenciales correctas e IoT Hub y el servicio de aprovisionamiento de dispositivos de IoT Hub devuelven un error `Unauthorized`.
+
+Para usar un proxy que realice inspección de tráfico, debe emplear autenticación de firma de acceso compartido o tener IoT Hub y el servicio de aprovisionamiento de dispositivos de IoT Hub agregados a una lista de permitidos para evitar la inspección.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

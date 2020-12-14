@@ -6,12 +6,12 @@ ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 4280932787cfb2220dab1da84dca41ca0c40e302
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: cf7c5fa8563544add55a7fad5075848eb5116fe1
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92485263"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96901939"
 ---
 # <a name="networking-overview---azure-database-for-postgresql---flexible-server"></a>Información general sobre redes: Servidor flexible de Azure Database for PostgreSQL
 
@@ -53,12 +53,12 @@ El acceso privado con la integración de red virtual (vnet) proporciona una comu
 ### <a name="virtual-network-concepts"></a>Conceptos de redes virtuales
 Estos son algunos conceptos que debe conocer al usar redes virtuales con servidores flexibles de PostgreSQL.
 
-* **Red virtual** : una instancia de Azure Virtual Network (VNet) contiene un espacio de direcciones IP privadas que se configura para su uso. Para obtener más información sobre las redes virtuales de Azure, visite la [Información general sobre Azure Virtual Network](../../virtual-network/virtual-networks-overview.md).
+* **Red virtual**: una instancia de Azure Virtual Network (VNet) contiene un espacio de direcciones IP privadas que se configura para su uso. Para obtener más información sobre las redes virtuales de Azure, visite la [Información general sobre Azure Virtual Network](../../virtual-network/virtual-networks-overview.md).
 
     La red virtual debe estar en la misma región de Azure que el servidor flexible.
 
 
-* **Subred delegada** : una red virtual contiene subredes. Las subredes permiten segmentar la red virtual en espacios de direcciones más pequeños. Los recursos de Azure se implementan en subredes específicas dentro de una red virtual. 
+* **Subred delegada**: una red virtual contiene subredes. Las subredes permiten segmentar la red virtual en espacios de direcciones más pequeños. Los recursos de Azure se implementan en subredes específicas dentro de una red virtual. 
 
    El servidor flexible de PostgreSQL debe estar en una subred **delegada** para uso exclusivo del servidor flexible de PostgreSQL. Esta delegación significa que solo los servidores flexibles de Azure Database for PostgreSQL pueden usar esa subred. No puede haber otros tipos de recursos de Azure en la subred delegada. Puede delegar una subred si asigna su propiedad de delegación como Microsoft.DBforPostgreSQL/flexibleServers.
 
@@ -107,6 +107,7 @@ Tenga en cuenta los siguientes puntos cuando el acceso al servicio del servidor 
    * Pida a su proveedor de acceso a Internet (ISP) el intervalo de direcciones IP asignado a los equipos cliente que acceden al servidor de Azure Database for PostgreSQL y agréguelo como regla de firewall.
    * Obtenga el direccionamiento IP estático en su lugar para los equipos cliente y luego agregue la dirección IP estática como regla de firewall.
 
+* **La regla de firewall no está disponible en formato IPv6:** las reglas de firewall deben estar en formato IPv4. Si especifica reglas de firewall en formato IPv6, aparece el error de validación.
 
 ## <a name="hostname"></a>Nombre de host
 Con independencia de la opción de red que elija, se recomienda usar siempre un nombre de dominio completo (FQDN) como nombre de host al conectarse al servidor flexible. No se garantiza que la dirección IP del servidor permanezca estática. El uso del FQDN le ayudará a evitar realizar cambios en la cadena de conexión. 

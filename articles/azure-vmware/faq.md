@@ -4,12 +4,12 @@ description: En este artículo se ofrecen respuestas a algunas de las preguntas 
 ms.topic: conceptual
 ms.date: 11/19/2020
 ms.author: dikamath
-ms.openlocfilehash: 0bc3e0ab5b3017c2d051113a57d79214ffce0836
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 3033df2021a8d1780caf9b0b7cd4dbe8de2a6050
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967353"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861415"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Preguntas frecuentes sobre Azure VMware Solution
 
@@ -188,7 +188,7 @@ En Azure Portal, habilite la conectividad a Internet para una nube privada. Con 
 
 #### <a name="do-i-need-to-restrict-access-from-the-internet-to-vms-on-logical-networks-in-a-private-cloud"></a>¿Es necesario restringir el acceso desde Internet a las VM en redes lógicas en una nube privada?
 
-No. No se permite el tráfico de red entrante desde Internet directamente a nubes privadas.
+No. No se permite el tráfico de red entrante desde Internet directamente a nubes privadas de manera predeterminada.  Pero puede exponer máquinas virtuales de Azure VMware Solution a Internet mediante la opción [IP pública](public-ip-usage.md) de Azure Portal de la nube privada de Azure VMware Solution.
 
 #### <a name="do-i-need-to-restrict-internet-access-from-vms-on-logical-networks-to-the-internet"></a>¿Es necesario restringir el acceso a Internet desde VM en redes lógicas?
 

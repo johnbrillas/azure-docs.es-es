@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 11/11/2020
+ms.date: 12/02/2020
 ms.author: aahi
-ms.openlocfilehash: 2c592a959dfb9d4e93f97488a9ac1b1f6683c23e
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 0437704709e863cdbc62321c8a4b79015564e362
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968278"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558766"
 ---
 # <a name="how-to-sentiment-analysis-and-opinion-mining"></a>Procedimiento: análisis de sentimiento y minería de opiniones
 
-La característica Análisis de sentimiento de la API Text Analytics proporciona dos formas de detectar sentimiento positivo y negativo. Si envía una solicitud de Análisis de sentimiento, la API devolverá etiquetas de sentimiento (como "negative", "neutral" y "positive") y puntuaciones de confianza en el nivel de oración y de documento. También puede enviar solicitudes de minería de opiniones mediante el punto de conexión de Análisis de sentimiento, que proporciona información detallada sobre las opiniones relacionadas con los aspectos (como los atributos de los productos o servicios) en el texto.
+La característica Análisis de sentimiento de la API Text Analytics proporciona dos formas de detectar sentimiento positivo y negativo. Si envía una solicitud de Análisis de sentimiento, la API devolverá etiquetas de sentimiento (como "negative", "neutral" y "positive") y puntuaciones de confianza en el nivel de oración y de documento. También puede enviar solicitudes de minería de opiniones mediante el punto de conexión de Análisis de sentimiento, que proporciona información detallada sobre las opiniones relacionadas con los aspectos (como los atributos de los productos o servicios) en el texto. 
 
 El servicio proporciona los modelos de AI que usa la API, el usuario solo tiene que enviar contenido para su análisis.
 
@@ -51,13 +51,14 @@ Las puntuaciones de confianza oscilan entre 1 y 0. Las puntuaciones más pró
 
 ## <a name="opinion-mining"></a>Minería de opiniones
 
-La minería de opiniones es una característica de Análisis de sentimiento, a partir de la versión 3.1-preview.1. Esta característica, también conocida como Análisis de sentimiento basada en aspectos en el procesamiento de lenguaje natural (NLP), proporciona información más detallada sobre las opiniones relacionadas con los aspectos (como los atributos de los productos o servicios) en el texto.
+La minería de opiniones es una característica de Análisis de sentimiento, a partir de la versión 3.1-preview.1. Esta característica, también conocida como Análisis de sentimiento basada en aspectos en el procesamiento de lenguaje natural (NLP), proporciona información más detallada sobre las opiniones relacionadas con los aspectos (como los atributos de los productos o servicios) en el texto. 
 
 Por ejemplo, si un cliente deja comentarios sobre un hotel, como "La habitación era fantástica, pero el personal era antipático", la minería de opiniones ubicará aspectos en el texto, así como sus opiniones y sentimientos asociados. Análisis de sentimiento solo puede informar de las opiniones negativas.
 
 :::image type="content" source="../media/how-tos/opinion-mining.png" alt-text="Diagrama del ejemplo de minería de opiniones" lightbox="../media/how-tos/opinion-mining.png":::
 
-Para obtener minería de opiniones en los resultados, es preciso incluir la marca `opinionMining=true` en las solicitudes de análisis de sentimiento. Los resultados de la minería de opiniones se incluirán en la respuesta del análisis de sentimiento.
+Para obtener minería de opiniones en los resultados, es preciso incluir la marca `opinionMining=true` en las solicitudes de análisis de sentimiento. Los resultados de la minería de opiniones se incluirán en la respuesta del análisis de sentimiento. La minería de opiniones es una extensión de Análisis de sentimiento y se incluye en el [plan de tarifa](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) actual.
+
 
 ## <a name="sending-a-rest-api-request"></a>Envío de una solicitud de API REST 
 

@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 87e33940d927fc9116c03345011e21398384d484
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: e9334d222d443679362514481ecd83b90bbda0ac
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024422"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96855080"
 ---
 # <a name="sampling-in-application-insights"></a>Muestreo en Application Insights.
 
@@ -54,7 +54,7 @@ Hay tres métodos de muestreo diferentes:
 * El **muestreo de ingesta** se produce en el punto de conexión de servicio de Application Insights. Lo que hace es descartar algunos de los datos de telemetría que llegan desde su aplicación según la frecuencia de muestreo establecida. Aunque no reduce el tráfico de telemetría enviado desde su aplicación, le ayuda a mantenerse dentro de su cuota mensual. La principal ventaja del muestreo de ingesta es que puede establecer la frecuencia de muestreo sin volver a implementar la aplicación. El muestreo de ingesta funciona uniformemente para todos los servidores y clientes, pero no se aplica cuando están en funcionamiento otros tipos de muestreo.
 
 > [!IMPORTANT]
-> Si los métodos de muestreo adaptable o de frecuencia fija están en funcionamiento, el muestreo de ingesta se deshabilita.
+> Si se habilitan los métodos de muestreo de frecuencia fija o adaptable para un tipo de telemetría, el muestreo de ingesta queda deshabilitado para esa telemetría. Pero los tipos de telemetría que se excluyen del muestreo en el nivel de SDK siguen sujetos al muestreo de ingesta a la frecuencia establecida en el portal.
 
 ## <a name="adaptive-sampling"></a>muestreo adaptable
 
@@ -315,18 +315,12 @@ De manera predeterminada, no hay ningún muestreo habilitado en el agente ni en 
 
 1. Descargue [applicationinsights-agent-3.0.0-PREVIEW.5.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.5/applicationinsights-agent-3.0.0-PREVIEW.5.jar).
 
-1. Para habilitar el muestreo, agregue lo siguiente al archivo `ApplicationInsights.json`:
+1. Para habilitar el muestreo, agregue lo siguiente al archivo `applicationinsights.json`:
 
 ```json
 {
-  "instrumentationSettings": {
-    "preview": {
-      "sampling": {
-        "fixedRate": {
-          "percentage": 10 //this is just an example that shows you how to enable only only 10% of transaction 
-        }
-      }
-    }
+  "sampling": {
+    "percentage": 10 //this is just an example that shows you how to enable only only 10% of transaction 
   }
 }
 ```
@@ -559,7 +553,7 @@ La precisión de la aproximación depende en gran medida del porcentaje de muest
 
 * El muestreo de ingesta puede producirse automáticamente cuando cualquier dato de telemetría se sitúa por encima de un determinado volumen, si el SDK no realiza muestreo. Esta configuración funcionaría, por ejemplo, si usa una versión antigua del SDK de ASP.NET o del SDK de Java.
 * Si usa los SDK de ASP.NET o ASP.NET Core actuales (hospedado en Azure o en su propio servidor), obtendrá de forma predeterminada el muestreo adaptable, pero puede cambiar al de frecuencia fija como se ha descrito anteriormente. Con el muestreo de frecuencia fija, el SDK del explorador se sincroniza automáticamente con los eventos relacionados con el muestreo. 
-* Si usa el agente de Java actual, puede configurar `ApplicationInsights.json` (para el SDK de Java, configure `ApplicationInsights.xml`) para activar el muestreo de frecuencia fija. De manera predeterminada, el muestreo está desactivado. Con el muestreo de frecuencia fija, el SDK del explorador y el servidor se sincronizan automáticamente para muestrear los eventos relacionados.
+* Si usa el agente de Java actual, puede configurar `applicationinsights.json` (para el SDK de Java, configure `ApplicationInsights.xml`) para activar el muestreo de frecuencia fija. De manera predeterminada, el muestreo está desactivado. Con el muestreo de frecuencia fija, el SDK del explorador y el servidor se sincronizan automáticamente para muestrear los eventos relacionados.
 
 *Hay ciertos eventos excepcionales que siempre quiero ver. ¿Cómo se consigue que el módulo de muestreo los reconozca?*
 

@@ -12,12 +12,12 @@ ms.date: 09/29/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: content moderator, moderación de contenido
-ms.openlocfilehash: d1d9315986f7a6c57c1da012b9034e4f1a3730bc
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: c026c42fe3c7a7f3f0d6b80e3123904077c104cf
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93143741"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905220"
 ---
 # <a name="quickstart-try-content-moderator-on-the-web"></a>Inicio rápido: Cómo familiarizarse con Content Moderator
 
@@ -49,7 +49,7 @@ Si decide cifrar los datos mediante una clave administrada por el cliente (CMK),
 
 ## <a name="upload-sample-content"></a>Carga del contenido de ejemplo
 
-Ahora está listo para cargar el contenido de ejemplo. Seleccione **Probar > Imagen** , **Probar > Texto** o **Probar > Vídeo**.
+Ahora está listo para cargar el contenido de ejemplo. Seleccione **Probar > Imagen**, **Probar > Texto** o **Probar > Vídeo**.
 
 > [!div class="mx-imgBorder"]
 > ![Probar moderación de imagen o texto](images/tryimagesortext.png)
@@ -88,6 +88,6 @@ O bien continúe con los pasos siguientes para empezar a usar las API de moderac
 ## <a name="next-steps"></a>Pasos siguientes
 
 Obtenga información sobre cómo usar las API de moderación en su aplicación.
-- Implementación de la moderación de imágenes. Use la [consola de API](try-image-api.md) o siga el [inicio rápido de la biblioteca cliente](client-libraries.md) para examinar imágenes y detectar posible contenido explícito y para adultos mediante etiquetas, puntuaciones de confianza y otra información extraída.
-- Implementación de la moderación de texto. Use la [consola de API](try-text-api.md) o el [inicio rápido de biblioteca cliente](client-libraries.md) para examinar el contenido de texto con el fin de buscar posibles palabras soeces, clasificación de texto no deseado asistida por máquina (versión preliminar) y datos personales.
+- Implementación de la moderación de imágenes. Use la [consola de API](try-image-api.md) o siga un [inicio rápido de la biblioteca cliente o API REST](client-libraries.md) para examinar imágenes y detectar posible contenido explícito y para adultos mediante etiquetas, puntuaciones de confianza y otra información extraída.
+- Implementación de la moderación de texto. Use la [consola de API](try-text-api.md) o un [inicio rápido de la biblioteca cliente o API REST](client-libraries.md) para examinar el contenido de texto con el fin de buscar posibles palabras soeces, clasificación de texto no deseado asistida por máquina (versión preliminar) y datos personales.
 - Implementación de la moderación de vídeo. Consulte la [guía de procedimientos de moderación en vídeo para C#](video-moderation-api.md) para buscar vídeos y detectar posible contenido para adultos y subido de tono. 

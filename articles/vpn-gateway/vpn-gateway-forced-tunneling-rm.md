@@ -1,49 +1,39 @@
 ---
 title: Configuración de la tunelización forzada para conexiones de sitio a sitio
-description: Cómo redirigir o forzar todo el tráfico vinculado a Internet a la ubicación local.
+description: Procedimiento para redirigir (forzar) todo el tráfico de Internet a la ubicación local.
 services: vpn-gateway
 titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/02/2020
+ms.date: 12/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 00f98a5086b9a9bf21054138cf01d26a550338da
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: c12297019b49d7b3cb644ae9c7a904e4ca697f0b
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92673842"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96855046"
 ---
-# <a name="configure-forced-tunneling-using-the-azure-resource-manager-deployment-model"></a>Configuración de la tunelización forzada mediante el modelo de implementación de Azure Resource Manager
+# <a name="configure-forced-tunneling"></a>Configuración de la tunelización forzada
 
-La tunelización forzada permite redirigir o forzar todo el tráfico vinculado a Internet de vuelta a su ubicación local a través de un túnel VPN de sitio a sitio con fines de inspección y auditoría. Se trata de un requisito de seguridad crítico en la mayoría de las directivas de las empresas de TI. Sin la tunelización forzada, el tráfico vinculado a Internet desde las máquinas virtuales en Azure siempre atravesará desde la infraestructura de red de Azure directamente a Internet, sin la opción que permite inspeccionar o auditar el tráfico. Un acceso no autorizado a Internet puede provocar la divulgación de información u otros tipos de infracciones de seguridad.
+La tunelización forzada permite redirigir o forzar todo el tráfico vinculado a Internet de vuelta a su ubicación local a través de un túnel VPN de sitio a sitio con fines de inspección y auditoría. Se trata de un requisito de seguridad crítico en la mayoría de las directivas de las empresas de TI. Si no configura la tunelización forzada, el tráfico de Internet desde las máquinas virtuales de Azure siempre va desde la infraestructura de red de Azure directamente a Internet, sin la opción que permite inspeccionarlo o auditarlo. Un acceso no autorizado a Internet puede provocar la divulgación de información u otros tipos de infracciones de seguridad.
 
-
-
-[!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
-
-Este artículo lo guiará a través del proceso de configuración de la tunelización forzada para redes virtuales creadas mediante el modelo de implementación de Resource Manager. La tunelización forzada puede configurarse mediante el uso de PowerShell, no a través del portal. Si desea configurar la tunelización forzada para el modelo de implementación clásica, seleccione el artículo clásico de la lista desplegable siguiente:
-
-> [!div class="op_single_selector"]
-> * [PowerShell: clásico](vpn-gateway-about-forced-tunneling.md)
-> * [PowerShell: administrador de recursos](vpn-gateway-forced-tunneling-rm.md)
-> 
-> 
+La tunelización forzada puede configurarse mediante Azure PowerShell. No se puede configurar con Azure Portal. Este artículo ayuda a configurar la tunelización forzada en las redes virtuales creadas mediante el modelo de implementación de Resource Manager. Si quiere configurar la tunelización forzada en el modelo de implementación clásico, vea [Tunelización forzada: clásica](vpn-gateway-about-forced-tunneling.md).
 
 ## <a name="about-forced-tunneling"></a>Información acerca de la tunelización forzada
 
-El siguiente diagrama ilustra cómo funciona la tunelización forzada. 
+El siguiente diagrama ilustra cómo funciona la tunelización forzada.
 
-![Tunelización forzada](./media/vpn-gateway-forced-tunneling-rm/forced-tunnel.png)
+:::image type="content" source="./media/vpn-gateway-forced-tunneling-rm/forced-tunnel.png" alt-text="Diagrama que muestra la tunelización forzada.":::
 
-En el ejemplo anterior, la subred Frontend no usa la tunelización forzada. Las cargas de trabajo de la subred Frontend pueden continuar para aceptar y responder a las solicitudes de los clientes directamente desde Internet. Las subredes Mid-tier y Backend usan la tunelización forzada. Las conexiones salientes desde estas dos subredes a Internet se fuerzan o redirigen a un sitio local a través de uno de los túneles VPN de sitio a sitio.
+En este ejemplo, la subred de front-end no usa tunelización forzada. Las cargas de trabajo de la subred Frontend pueden continuar para aceptar y responder a las solicitudes de los clientes directamente desde Internet. Las subredes Mid-tier y Backend usan la tunelización forzada. Las conexiones salientes desde estas dos subredes a Internet se fuerzan o redirigen a un sitio local a través de uno de los túneles VPN de sitio a sitio (S2S).
 
 Esto permite restringir e inspeccionar el acceso a Internet desde sus máquinas virtuales o servicios en la nube en Azure, al tiempo que continúa posibilitando la arquitectura de varios niveles de servicio necesaria. Si no hay ninguna carga de trabajo a través de Internet en las redes virtuales, también tiene la opción de aplicar la tunelización forzada a redes virtuales completas.
 
 ## <a name="requirements-and-considerations"></a>Requisitos y consideraciones
 
-La tunelización forzada en Azure se configura a través de rutas definidas por el usuario de redes virtuales. La redirección del tráfico a un sitio local se expresa como una ruta predeterminada a la puerta de enlace de VPN de Azure. Para obtener más información sobre las redes virtuales y las rutas definidas por el usuario, consulte [Rutas definidas por el usuario y reenvío IP](../virtual-network/virtual-networks-udr-overview.md).
+La tunelización forzada en Azure se configura mediante rutas personalizadas definidas por el usuario de redes virtuales. La redirección del tráfico a un sitio local se expresa como una ruta predeterminada a la puerta de enlace de VPN de Azure. Para obtener más información sobre las redes virtuales y las rutas definidas por el usuario, vea [Rutas personalizadas definidas por el usuario](../virtual-network/virtual-networks-udr-overview.md#user-defined).
 
 * Cada subred de la red virtual tiene una tabla de enrutamiento del sistema integrada. La tabla de enrutamiento del sistema tiene los siguientes tres grupos de rutas:
   
@@ -70,9 +60,9 @@ Instale la versión más reciente de los cmdlets de PowerShell de Azure Resource
 >
 >
 
-### <a name="to-log-in"></a>Para iniciar sesión
+### <a name="to-sign-in"></a>Para iniciar sesión
 
-[!INCLUDE [To log in](../../includes/vpn-gateway-cloud-shell-ps-login.md)]
+[!INCLUDE [Sign in](../../includes/vpn-gateway-cloud-shell-ps-login.md)]
 
 ## <a name="configure-forced-tunneling"></a>Configuración de la tunelización forzada
 

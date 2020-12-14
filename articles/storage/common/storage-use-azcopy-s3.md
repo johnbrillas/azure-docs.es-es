@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 022b6eb6595f25af4189d783a6a91031f95c7216
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 07a8d2b394e8ca690925c677af676643064a9ba8
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92479364"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96901837"
 ---
 # <a name="copy-data-from-amazon-s3-to-azure-storage-by-using-azcopy"></a>Copia de datos desde Amazon S3 a Azure Storage con AzCopy
 
@@ -38,7 +38,7 @@ Vea el artículo [Introducción a AzCopy](storage-use-azcopy-v10.md) para descar
 
 ### <a name="authorize-with-aws-s3"></a>Autorización con AWS S3
 
-Obtenga la clave de acceso de AWS y la clave de acceso secreta y, después, establezca estas variables de entorno:
+Obtenga la clave de acceso de AWS y la clave de acceso secreta y luego establezca estas variables de entorno:
 
 | Sistema operativo | Get-Help  |
 |--------|-----------|
@@ -167,7 +167,7 @@ Puede encontrar más ejemplos en cualquiera de estos artículos:
 
 - [Introducción a AzCopy](storage-use-azcopy-v10.md)
 
-- [Transferencia de datos con AzCopy y Blob Storage](storage-use-azcopy-blobs.md)
+- [Transferencia de datos](storage-use-azcopy-v10.md#transfer-data)
 
 - [Transferencia de datos con AzCopy y File Storage](storage-use-azcopy-files.md)
 

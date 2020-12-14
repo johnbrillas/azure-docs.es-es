@@ -4,16 +4,16 @@ description: AzCopy es una utilidad de línea de comandos que puede usar para co
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/09/2020
+ms.date: 12/08/2020
 ms.author: normesta
 ms.subservice: common
 ms.custom: contperfq2
-ms.openlocfilehash: ad9b40b448b48500cd6882ac614611f91370ec9e
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 9379417fcb96dce8a59f7d81335cec44e1bb5e6a
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410279"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96901779"
 ---
 # <a name="get-started-with-azcopy"></a>Introducción a AzCopy
 
@@ -95,19 +95,20 @@ azcopy copy "C:\local\path" "https://account.blob.core.windows.net/mycontainer1/
 
 Para más información sobre los tokens de SAS y de cómo obtener uno, consulte [Uso de firmas de acceso compartido (SAS)](./storage-sas-overview.md).
 
+<a id="transfer-data"></a>
+
 ## <a name="transfer-data"></a>Transferencia de datos
 
 Después de autorizar la identidad o de obtener un token de SAS, puede comenzar la transferencia de datos.
 
 Para obtener ejemplos de comandos, consulte cualquiera de estos artículos.
 
-- [Transferencia de datos con AzCopy y Blob Storage](storage-use-azcopy-blobs.md)
-
-- [Transferencia de datos con AzCopy y File Storage](storage-use-azcopy-files.md)
-
-- [Transferencia de datos con AzCopy y cubos de Amazon S3](storage-use-azcopy-s3.md)
-
-- [Transferencia de datos con AzCopy y Azure Stack Storage](/azure-stack/user/azure-stack-storage-transfer#azcopy)
+| Servicio | Artículo |
+|--------|-----------|
+|Azure Blob Storage |[Carga de archivos en Azure Blob Storage](storage-use-azcopy-blobs-upload.md)<br><br>[Descarga de blobs desde Azure Blob Storage](storage-use-azcopy-blobs-download.md)<br><br>[Copia de blobs entre cuentas de Azure Storage](storage-use-azcopy-blobs-download.md)<br><br>[Sincronización con Azure Blob Storage](storage-use-azcopy-blobs-download.md)|
+|Azure Files |[Transferencia de datos con AzCopy y File Storage](storage-use-azcopy-files.md)|
+|Amazon S3|[Transferencia de datos con AzCopy y cubos de Amazon S3](storage-use-azcopy-s3.md)|
+|Almacenamiento de Azure Stack|[Transferencia de datos con AzCopy y Azure Stack Storage](/azure-stack/user/azure-stack-storage-transfer#azcopy)|
 
 ## <a name="use-in-a-script"></a>Uso en un script
 
