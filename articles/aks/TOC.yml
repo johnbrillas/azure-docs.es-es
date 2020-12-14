@@ -179,7 +179,7 @@
         - name: Implementación de AKS con Terraform
           href: /azure/developer/terraform/create-k8s-cluster-with-tf-and-aks
           maintainContext: true
-        - name: Uso del visor de recursos de Kubernetes (versión preliminar)
+        - name: Vista de recursos de Azure Portal Kubernetes
           href: kubernetes-portal.md
         - name: Uso del panel de Kubernetes
           href: kubernetes-dashboard.md

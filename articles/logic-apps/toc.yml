@@ -67,8 +67,14 @@
           href: logic-apps-move-from-mabs.md
         - name: Exportación de flujos desde Power Automate y su implementación en Azure Logic Apps
           href: export-from-microsoft-flow-logic-app-template.md
-        - name: Creación de flujos de trabajo con estado o sin estado en Visual Studio Code
-          href: create-stateful-stateless-workflows-visual-studio-code.md
+        - name: Versión preliminar de Azure Logic Apps
+          items:
+            - name: Introducción a la versión preliminar de Azure Logic Apps
+              href: logic-apps-overview-preview.md
+            - name: 'Creación de flujos de trabajo con estado y sin estado: Azure Portal'
+              href: create-stateful-stateless-workflows-azure-portal.md
+            - name: "Creación de flujos de trabajo con estado o sin estado: Visual Studio\_Code"
+              href: create-stateful-stateless-workflows-visual-studio-code.md
         - name: Llamada a aplicaciones lógicas desde Power Automate y Power Apps
           href: call-from-power-automate-power-apps.md
         - name: Control de la ejecución del flujo de trabajo

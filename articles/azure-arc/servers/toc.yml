@@ -55,6 +55,8 @@
               href: manage-vm-extensions-powershell.md
             - name: Implementación de extensiones mediante la plantilla de Resource Manager
               href: manage-vm-extensions-template.md
+        - name: Identidades administradas utilizadas en el servidor
+          href: managed-identity-authentication.md
         - name: Administración de agente
           href: manage-agent.md
     - name: Escenarios
