@@ -239,7 +239,7 @@
           items:
             - name: Desencadenador HTTP
               items:
-                - name: Azure portal
+                - name: Azure Portal
                   href: functions-create-first-azure-function.md
                 - name: Línea de comandos
                   href: ./create-first-function-cli-csharp.md
@@ -533,7 +533,16 @@
               href: functions-bindings-storage-queue-output.md
               displayName: Queue storage
         - name: RabbitMQ
-          href: 'https://github.com/azure/azure-functions-rabbitmq-extension'
+          items:
+            - name: Información general
+              href: functions-bindings-rabbitmq.md
+              displayName: RabbitMQ
+            - name: Desencadenador
+              href: functions-bindings-rabbitmq-trigger.md
+              displayName: RabbitMQ
+            - name: Output
+              href: functions-bindings-rabbitmq-output.md
+              displayName: RabbitMQ
         - name: SendGrid
           href: functions-bindings-sendgrid.md
         - name: Azure Service Bus
