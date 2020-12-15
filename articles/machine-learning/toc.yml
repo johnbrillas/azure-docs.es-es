@@ -503,7 +503,7 @@
       displayName: pipelines
       items:
         - name: Creación de canalizaciones de Machine Learning (Python)
-          href: how-to-create-your-first-pipeline.md
+          href: how-to-create-machine-learning-pipelines.md
         - name: Movimiento de datos a los pasos de canalización de Machine Learning (Python) y entre ellos
           href: how-to-move-data-in-out-of-pipelines.md
         - name: Implementación de canalizaciones de Machine Learning (Python)
