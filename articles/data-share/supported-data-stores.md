@@ -5,13 +5,13 @@ ms.service: data-share
 author: jifems
 ms.author: jife
 ms.topic: conceptual
-ms.date: 11/12/2020
-ms.openlocfilehash: 6289395b5d508de8da3e5c8c89caebb4b0e9b817
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.date: 12/7/2020
+ms.openlocfilehash: 566fd2c9c31933420769f7200a0434cc53f8c2f3
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592437"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96853156"
 ---
 # <a name="supported-data-stores-in-azure-data-share"></a>Almacenes de datos admitidos en Azure Data Share
 
@@ -30,7 +30,7 @@ La siguiente tabla detalla los orígenes de datos admitidos en Azure Data Share.
 | Azure Data Lake Storage Gen2 |✓ |✓ ||
 | Azure SQL Database |✓ | | |
 | Azure Synapse Analytics (anteriormente Azure SQL DW) |✓ | | |
-| Grupo de SQL de Azure Synapse Analytics (área de trabajo) | Vista previa pública | | |
+| Grupo de SQL dedicado de Azure Synapse Analytics (área de trabajo) |✓ | | |
 | Explorador de datos de Azure | | |✓ |
 
 ## <a name="data-store-support-matrix"></a>Matriz de soporte de almacén de datos
@@ -39,14 +39,14 @@ Azure Data Share ofrece a los consumidores de datos flexibilidad a la hora de de
 
 La siguiente tabla detalla las diferentes combinaciones y opciones que tienen los consumidores de datos cuando aceptan y configuran sus datos compartidos. Para más información sobre cómo configurar asignaciones de conjuntos de datos, consulte [cómo configurar asignaciones de conjuntos de datos](how-to-configure-mapping.md).
 
-| Almacén de datos | Azure Blob Storage | Azure Data Lake Storage Gen1 | Azure Data Lake Storage Gen2 | Azure SQL Database | Azure Synapse Analytics (anteriormente Azure SQL DW) | Grupo de SQL de Azure Synapse Analytics (área de trabajo) | Explorador de datos de Azure
+| Almacén de datos | Azure Blob Storage | Azure Data Lake Storage Gen1 | Azure Data Lake Storage Gen2 | Azure SQL Database | Azure Synapse Analytics (anteriormente Azure SQL DW) | Grupo de SQL dedicado de Azure Synapse Analytics (área de trabajo) | Explorador de datos de Azure
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- | :--- |
 | Azure Blob Storage | ✓ || ✓ |||
 | Azure Data Lake Storage Gen1 | ✓ | | ✓ |||
 | Azure Data Lake Storage Gen2 | ✓ | | ✓ |||
 | Azure SQL Database | ✓ | | ✓ | ✓ | ✓ | ✓ ||
 | Azure Synapse Analytics (anteriormente Azure SQL DW) | ✓ | | ✓ | ✓ | ✓ | ✓ ||
-| Grupo de SQL de Azure Synapse Analytics (área de trabajo) | ✓ | | ✓ | ✓ | ✓ | ✓ ||
+| Grupo de SQL dedicado de Azure Synapse Analytics (área de trabajo) | ✓ | | ✓ | ✓ | ✓ | ✓ ||
 | Explorador de datos de Azure ||||||| ✓ |
 
 ## <a name="share-from-a-storage-account"></a>Uso compartido desde una cuenta de almacenamiento

@@ -1,6 +1,6 @@
 ---
 title: Creación de un volumen SMB para Azure NetApp Files | Microsoft Docs
-description: En este artículo se muestra cómo crear un volumen SMBv3 en Azure NetApp Files. Obtenga información acerca de los requisitos para las conexiones de Active Directory y Domain Services.
+description: En este artículo se muestra cómo crear un volumen SMB3 en Azure NetApp Files. Obtenga información acerca de los requisitos para las conexiones de Active Directory y Domain Services.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/24/2020
+ms.date: 12/01/2020
 ms.author: b-juche
-ms.openlocfilehash: 9740506da2c03996db756175551867ed43575a7c
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: cd2a293ebcc35d4884211f50783738a502dcc7de
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94488186"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96854832"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Creación de un volumen de SMB para Azure NetApp Files
 
-Azure NetApp Files admite la creación de volúmenes con NFS (NFSv3 y NFSv4.1), SMBv3 o el protocolo dual (NFSv3 y SMB). El consumo de la capacidad de un volumen se descuenta de la capacidad aprovisionada de su grupo. En este artículo se muestra cómo crear un volumen SMBv3.
+Azure NetApp Files admite la creación de volúmenes con NFS (NFSv3 y NFSv4.1), SMB3 o el protocolo dual (NFSv3 y SMB). El consumo de la capacidad de un volumen se descuenta de la capacidad aprovisionada de su grupo. En este artículo se muestra cómo crear un volumen SMB3.
 
 ## <a name="before-you-begin"></a>Antes de empezar 
 Debe haber configurado un grupo de capacidad.   
@@ -84,7 +84,7 @@ Debe haber una subred delegada en Azure NetApp Files.
 
 * Azure NetApp Files admite [Firma LDAP](/troubleshoot/windows-server/identity/enable-ldap-signing-in-windows-server), lo que permite una transmisión segura del tráfico LDAP entre el servicio Azure NetApp Files y los [controladores de dominio de Active Directory](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) de destino. Si sigue las instrucciones del aviso de Microsoft [ADV190023](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023) para la firma LDAP, debe habilitar la característica de firma LDAP en Azure NetApp Files activando la casilla **Firma LDAP** en la ventana [Unir Active Directory](#create-an-active-directory-connection). 
 
-    La configuración del [enlace de canal LDAP](https://support.microsoft.com/help/4034879/how-to-add-the-ldapenforcechannelbinding-registry-entry) no tiene ningún efecto en el servicio Azure NetApp Files. 
+    La configuración del [enlace de canal LDAP](https://support.microsoft.com/help/4034879/how-to-add-the-ldapenforcechannelbinding-registry-entry) por sí sola no tiene ningún efecto en el servicio Azure NetApp Files. Pero si usa el enlace de canal LDAP y LDAP seguro (por ejemplo, LDAPS o `start_tls`), se produce un error en la creación del volumen SMB.
 
 Consulte las [Preguntas más frecuentes de SMB](./azure-netapp-files-faqs.md#smb-faqs) de Azure NetApp Files para obtener información adicional de AD. 
 

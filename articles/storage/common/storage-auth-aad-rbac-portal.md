@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/23/2020
+ms.date: 12/07/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: e2d577261a1cea0bad9aab549b3669f8fdef5751
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 40003db9c3bd2c736f9cedd73b8b7a31a77f625f
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91715854"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96854587"
 ---
 # <a name="use-the-azure-portal-to-assign-an-azure-role-for-access-to-blob-and-queue-data"></a>Uso de Azure Portal para asignar un rol de Azure para el acceso a datos de blobs y colas
 
@@ -39,14 +39,14 @@ Después de determinar el ámbito adecuado de una asignación de roles, vaya a e
 
 1. Asigne el rol de Azure de Azure Storage adecuado para conceder acceso a una entidad de seguridad de Azure AD.
 
-1. Asigne el rol [Lector](../../role-based-access-control/built-in-roles.md#reader) de Azure Resource Manager a aquellos usuarios que necesiten tener acceso a los contenedores o colas a través de Azure Portal con sus credenciales de Azure AD. 
+1. Asigne el rol [Lector](../../role-based-access-control/built-in-roles.md#reader) de Azure Resource Manager a aquellos usuarios que necesiten tener acceso a los contenedores o colas a través de Azure Portal con sus credenciales de Azure AD.
 
 En las siguientes secciones se describe cada uno de estos pasos con más detalle.
 
 > [!NOTE]
-> Como propietario de la cuenta de Azure Storage, no se le asignan automáticamente permisos para tener acceso a datos. Tiene que asignarse a sí mismo de forma explícita un rol de Azure para Azure Storage. Puede asignarlo al nivel de su suscripción, grupo de recursos, cuenta de almacenamiento o un contenedor o cola.
+> Al crear una cuenta de Azure Storage, no se le asignan automáticamente permisos para tener acceso a datos a través de Azure AD. Tiene que asignarse a sí mismo de forma explícita un rol de Azure para Azure Storage. Puede asignarlo al nivel de su suscripción, grupo de recursos, cuenta de almacenamiento o un contenedor o cola.
 >
-> No se puede asignar un rol que tenga como ámbito un contenedor o una cola si la cuenta de almacenamiento tiene habilitados los espacios de nombres jerárquicos.
+> Antes de asignarse a sí mismo un rol para el acceso a los datos, puede acceder a los datos de la cuenta de almacenamiento mediante Azure Portal, ya que este también puede usar la clave de cuenta para el acceso a los datos. Para obtener más información, vea [Elección de la forma de autorizar el acceso a los datos de blob en Azure Portal](../blobs/authorize-data-operations-portal.md).
 
 ### <a name="assign-an-azure-built-in-role"></a>Asignación de un rol integrado de Azure
 
@@ -64,11 +64,11 @@ El procedimiento mostrado aquí asigna un rol limitado a un contenedor, pero pue
 1. Haga clic en el botón **Agregar asignación de roles** para agregar un rol nuevo.
 1. En la ventana **Agregar asignación de roles**, seleccione el rol de Azure Storage que quiera asignar. Después, realice una búsqueda para localizar la entidad de seguridad a la que quiere asignar ese rol.
 
-    :::image type="content" source="media/storage-auth-aad-rbac-portal/add-rbac-role.png" alt-text="Captura de pantalla que muestra la configuración de control de acceso del contenedor":::
+    :::image type="content" source="media/storage-auth-aad-rbac-portal/add-rbac-role.png" alt-text="Captura de pantalla que muestra cómo asignar un rol de Azure":::
 
 1. Haga clic en **Save**(Guardar). La identidad a la que ha asignado el rol aparece enumerada debajo de ese rol. Por ejemplo, la siguiente imagen muestra que el usuario agregado tiene ahora permisos de lectura para los datos del contenedor llamado *sample-container*.
 
-    :::image type="content" source="media/storage-auth-aad-rbac-portal/container-scoped-role.png" alt-text="Captura de pantalla que muestra la configuración de control de acceso del contenedor":::
+    :::image type="content" source="media/storage-auth-aad-rbac-portal/container-scoped-role.png" alt-text="Captura de pantalla con una lista de los usuarios asignados a un rol":::
 
 Puede realizar este mismo procedimiento para asignar un rol que tenga como ámbito una cuenta de almacenamiento, un grupo de recursos o una suscripción.
 

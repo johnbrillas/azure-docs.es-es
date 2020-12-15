@@ -6,12 +6,12 @@ ms.assetid: e34d405e-c5d4-46ad-9b26-2a1eda86ce80
 ms.topic: article
 ms.date: 03/04/2016
 ms.custom: seodec18
-ms.openlocfilehash: b9e43cb9188df8274d5bafa7fd9bc90c24339237
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 81782f63199a9fe8f43f56aeefcd1c68951d57a4
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93286831"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96852259"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Información general de caché local de Azure App Service
 
@@ -36,7 +36,7 @@ La característica de caché local de Azure App Service proporciona una vista de
 
 ## <a name="how-the-local-cache-changes-the-behavior-of-app-service"></a>Cómo la memoria caché local cambia el comportamiento de App Service
 * _D:\home_ apunta a la memoria caché local, que se crea en la instancia de la VM cuando se inicia la aplicación. _D:\local_ sigue apuntando al almacenamiento específico de la VM temporal.
-* La memoria caché local contiene una copia única de las carpetas _/site_ y _/siteextensions_ del almacén de contenido compartido, en _D:\home\site_ y _D:\home\siteextensions_ , respectivamente. Los archivos se copian en la memoria caché local cuando se inicia la aplicación. El tamaño de las dos carpetas para cada aplicación se limita a 1 GB de forma predeterminada, pero se puede aumentar hasta 2 GB. Tenga en cuenta que, a medida que aumente el tamaño de la memoria caché, se tardará más tiempo en cargarla. Si se ha aumentado el límite de la memoria caché local a 2 GB y los archivos copiados superan el tamaño máximo de 2 GB, App Service omitirá en modo silencioso la memoria caché local y leerá desde el recurso compartido de archivos remoto. Si no hay ningún límite definido o el límite se establece en un valor inferior a 2 GB y los archivos copiados superan el límite, la implementación o el intercambio pueden generar un error.
+* La memoria caché local contiene una copia única de las carpetas _/site_ y _/siteextensions_ del almacén de contenido compartido, en _D:\home\site_ y _D:\home\siteextensions_, respectivamente. Los archivos se copian en la memoria caché local cuando se inicia la aplicación. El tamaño de las dos carpetas para cada aplicación se limita a 1 GB de forma predeterminada, pero se puede aumentar hasta 2 GB. Tenga en cuenta que, a medida que aumente el tamaño de la memoria caché, se tardará más tiempo en cargarla. Si se ha aumentado el límite de la memoria caché local a 2 GB y los archivos copiados superan el tamaño máximo de 2 GB, App Service omitirá en modo silencioso la memoria caché local y leerá desde el recurso compartido de archivos remoto. Si no hay ningún límite definido o el límite se establece en un valor inferior a 2 GB y los archivos copiados superan el límite, la implementación o el intercambio pueden generar un error.
 * La caché local es de lectura y escritura. Sin embargo, se descartará cualquier modificación cuando la aplicación mueva máquinas virtuales o se reinicie. No use la memoria caché local para las aplicaciones que almacenan datos críticos en el almacén de contenido.
 * _D:\home\LogFiles_ y _D:\home\Data_ contienen archivos de registro y datos de la aplicación. Las dos subcarpetas se almacenan localmente en la instancia de la VM y se copian periódicamente en el almacén de contenido compartido. Las aplicaciones pueden conservar los archivos de registro y los datos al escribirlos en estas carpetas. Sin embargo, la copia en el almacén de contenido compartido es de mejor esfuerzo, por lo que es posible que los archivos de registro y datos se pierdan debido a un bloqueo repentino de una instancia de la VM.
 * Las [secuencias de registro](troubleshoot-diagnostic-logs.md#stream-logs) se ve afectada por la copia de mejor esfuerzo. Esto podría provocar un retraso de hasta un minuto en los registros en secuencia.
@@ -120,3 +120,6 @@ La caché local ayuda a evitar que la aplicación relacionada con el almacenamie
 
 ### <a name="does-local-cache-exclude-any-directories-from-being-copied-to-the-faster-local-drive"></a>¿La caché local evita que los directorios se copien en la unidad local con mayor rapidez?
 Como parte del paso que copia el contenido de almacenamiento, se excluye cualquier carpeta que se denomine "repositorio". Esto es útil con escenarios donde el contenido del sitio puede contener un repositorio de control de código fuente que es posible que no sea necesario en el funcionamiento rutinario de la aplicación. 
+
+### <a name="how-to-flush-the-local-cache-logs-after-a-site-management-operation"></a>¿Cómo se vacían los registros de la caché local después de una operación de administración del sitio?
+Para vaciar los registros de la caché local, detenga y reinicie la aplicación. Esta acción borra la memoria caché antigua. 

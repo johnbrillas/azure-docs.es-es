@@ -13,12 +13,12 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-js
-ms.openlocfilehash: 3295815be035544d27da52926e5271c2c5551f28
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 58891bdb4601744129c97454f43202d3ba07b709
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076052"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96852564"
 ---
 # <a name="create-an-advanced-device-model"></a>Creación de un modelo de dispositivo avanzado
 
@@ -30,15 +30,11 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Para seguir los pasos de esta guía de procedimientos, necesitará una instancia implementada de Simulación de dispositivo en la suscripción de Azure.
 
-Si aún no la ha implementado, debe completar primero la [Guía de inicio rápido: Implementación y ejecución de una simulación de dispositivo IoT en Azure](quickstart-device-simulation-deploy.md).
+Si aún no ha implementado Simulación de dispositivo, vea [Implementación de Simulación de dispositivo](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md) en GitHub.
 
 ### <a name="open-device-simulation"></a>Abrir Simulación de dispositivo
 
-Para ejecutar Simulación de dispositivo en el explorador, primero vaya a [Aceleradores de soluciones de Microsoft Azure IoT](https://www.azureiotsolutions.com).
-
-Se le pedirá que inicie sesión con sus credenciales de suscripción de Azure.
-
-A continuación, haga clic en **Iniciar** en el icono de Simulación de dispositivo que ha implementado en la [Guía de inicio rápido: Implementación y ejecución de una simulación de dispositivo IoT en Azure](quickstart-device-simulation-deploy.md).
+Si aún no ha implementado Simulación de dispositivo, vea [Implementación de Simulación de dispositivo](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md) en GitHub.
 
 ## <a name="device-models"></a>Modelos de dispositivos
 

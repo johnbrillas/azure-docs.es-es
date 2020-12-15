@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: jmartens
 author: nishankgu
 ms.author: nigup
-ms.date: 10/13/2020
+ms.date: 12/1/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4, contperfq2
-ms.openlocfilehash: d82cbafbbdeb379c8eb97494ca8d3243f356b7a1
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 30859593e240c4143dc298cff446ce8bc116a993
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542123"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780593"
 ---
 # <a name="manage-and-increase-quotas-for-resources-with-azure-machine-learning"></a>Administración y aumento de las cuotas de los recursos con Azure Machine Learning
 
@@ -45,28 +45,32 @@ Además de administrar cuotas, puede obtener información sobre el [Planeamiento
 
 En esta sección, obtendrá información acerca de los límites de cuota predeterminados y máximos para los siguientes recursos:
 
++ Recursos de Azure Machine Learning
+  + Proceso de Azure Machine Learning
+  + Canalizaciones de Azure Machine Learning
 + Máquinas virtuales
-+ Proceso de Azure Machine Learning
-+ Canalizaciones de Azure Machine Learning
 + Azure Container Instances
 + Azure Storage
 
 > [!IMPORTANT]
 > Los límites están sujetos a cambios. Para obtener la información más reciente, vea [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-resource-manager/management/azure-subscription-service-limits.md) de todo Azure.
 
-### <a name="virtual-machines"></a>Máquinas virtuales
-Cada suscripción de Azure tiene un límite en el número de máquinas virtuales que pueden tenerse entre todos los servicios. Los núcleos de las máquinas virtuales tienen un límite regional total y un límite regional por serie de tamaño. Ambos límites se aplican por separado.
+### <a name="azure-machine-learning-assets"></a>Recursos de Azure Machine Learning
+En cada área de trabajo se aplican los límites siguientes a los recursos. 
 
-Por ejemplo, considere una suscripción con un límite total de núcleos de máquinas virtuales de Este de EE. UU. de 30, un límite de núcleos de serie A de 30 y un límite de núcleos de serie D de 30. Esta suscripción podría volver a implementar 30 máquinas virtuales A1, 30 máquinas virtuales D1 o una combinación de las dos que no superen los 30 núcleos.
+| **Recurso** | **Límite máximo** |
+| --- | --- |
+| Conjuntos de datos | 10 millones |
+| Ejecuciones | 10 millones |
+| Modelos | 10 millones|
+| Artifacts | 10 millones |
 
-No se pueden aumentar los límites de las máquinas virtuales por encima de los valores que se muestran en la siguiente tabla.
-
-[!INCLUDE [azure-subscription-limits-azure-resource-manager](../../includes/azure-subscription-limits-azure-resource-manager.md)]
+Además, el **tiempo de ejecución** máximo es de 30 días y el número máximo de **métricas registradas por ejecución** es de 1 millón.
 
 ### <a name="azure-machine-learning-compute"></a>Proceso de Azure Machine Learning
-El [proceso de Azure Machine Learning](concept-compute-target.md#azure-machine-learning-compute-managed) tiene un límite de cuota predeterminado sobre el número de núcleos y sobre el número de recursos de proceso únicos permitidos por región en una suscripción. Esta cuota es independiente de la cuota de núcleos de máquinas virtuales de la sección anterior.
+[Proceso de Azure Machine Learning](concept-compute-target.md#azure-machine-learning-compute-managed) tiene un límite de cuota predeterminado sobre el número de núcleos (dividido entre la familia de máquinas virtuales y los núcleos totales acumulados) y sobre el número de recursos de proceso únicos permitidos por región en una suscripción. Esta cuota es independiente de la cuota de núcleos de máquina virtual indicada en la sección anterior, ya que solo se aplica a los recursos de proceso administrados de Azure Machine Learning.
 
-[Solicite un aumento de cuota](#request-quota-increases) para aumentar los límites de esta sección hasta el límite máximo que se muestra en la tabla.
+[Solicite un aumento de la cuota](#request-quota-increases) para incrementar los límites de las cuotas de núcleos de la familia de máquinas virtuales, las cuotas de núcleos totales de la suscripción y los recursos de esta sección.
 
 Recursos disponibles:
 + Los **núcleos dedicados por región** tienen un límite predeterminado de 24 a 300, según el tipo de oferta de la suscripción. Es posible aumentar el número de núcleos dedicados por suscripción de cada familia de máquinas virtuales. Las familias de máquinas virtuales especializadas, como las series NCv2, NCv3 o ND, comienzan con un valor predeterminado de cero núcleos.
@@ -75,12 +79,19 @@ Recursos disponibles:
 
 + Los **clústeres por región** tienen un límite predeterminado de 200. Se comparten entre un clúster de entrenamiento y una instancia de proceso. (Una instancia de proceso se considera un clúster de un solo nodo para los fines de la cuota).
 
-En la siguiente tabla se muestran los límites adicionales que no pueden superarse.
+> [!TIP]
+> Para obtener más información sobre la familia de máquinas virtuales para la que se va a solicitar un aumento de cuota, vea [Tamaños de las máquinas virtuales en Azure](https://docs.microsoft.com/azure/virtual-machines/sizes). Por ejemplo, las familias de máquinas virtuales de GPU comienzan por una "N" en su nombre de familia (por ejemplo, serie NCv3)
 
-| **Recurso** | **Límite máximo** |
+En la siguiente tabla se muestran los límites adicionales en la plataforma. Póngase en contacto con el equipo del producto de AzureML por medio de una incidencia de soporte **técnico** para solicitar una excepción.
+
+| **Recurso o acción** | **Límite máximo** |
 | --- | --- |
 | Número de áreas de trabajo por grupo de recursos | 800 |
-| Nodos de un solo recurso de proceso de Azure Machine Learning (AmlCompute) | 100 nodos |
+| Nodos de una única configuración de **clúster** de Proceso de Azure Machine Learning (AmlCompute) como un grupo no habilitado para la comunicación (es decir, que no puede ejecutar trabajos de MPI) | 100 nodos, pero configurable hasta 65 000 nodos |
+| Los nodos en un único paso de ejecución paralelo se **ejecutan** en un clúster de Proceso de Azure Machine Learning (AmlCompute) | 100 nodos, pero configurable hasta 65 000 nodos si el clúster está configurado para escalar por encima |
+| Nodos de una única configuración de **clúster** de Proceso de Azure Machine Learning (AmlCompute) como un grupo habilitado para la comunicación | 300 nodos, pero configurable hasta 4000 nodos |
+| Nodos de una única configuración de **clúster** de Proceso de Azure Machine Learning (AmlCompute) como un grupo habilitado para la comunicación en una familia de máquinas virtuales habilitada para RDMA | 100 nodos |
+| Los nodos en una única interfaz de paso de mensajes se **ejecutan** en un clúster de Proceso de Azure Machine Learning (AmlCompute) | 100 nodos, pero se puede aumentar a 300 nodos |
 | Número de procesos MPI de GPU por nodo | 1-4 |
 | Número de trabajos de GPU por nodo | 1-4 |
 | Vigencia del trabajo | 21 días<sup>1</sup> |
@@ -90,13 +101,22 @@ En la siguiente tabla se muestran los límites adicionales que no pueden superar
 <sup>1</sup> La vigencia máxima es la duración entre el inicio y la finalización de una ejecución. Las ejecuciones completadas se mantienen de forma indefinida. Los datos de las ejecuciones no completadas dentro de la duración máxima no son accesibles.
 <sup>2</sup> Los trabajos en un nodo de prioridad baja pueden adelantarse siempre que haya una restricción de capacidad. Se recomienda implementar puntos de comprobación en el trabajo.
 
-### <a name="azure-machine-learning-pipelines"></a>Canalizaciones de Azure Machine Learning
+#### <a name="azure-machine-learning-pipelines"></a>Canalizaciones de Azure Machine Learning
 Las [canalizaciones de Azure Machine Learning](concept-ml-pipelines.md) tienen los siguientes límites.
 
 | **Recurso** | **Límite** |
 | --- | --- |
 | Pasos en una canalización | 30,000 |
 | Número de áreas de trabajo por grupo de recursos | 800 |
+
+### <a name="virtual-machines"></a>Máquinas virtuales
+Cada suscripción de Azure tiene un límite en el número de máquinas virtuales que pueden tenerse entre todos los servicios. Los núcleos de las máquinas virtuales tienen un límite regional total y un límite regional por serie de tamaño. Ambos límites se aplican por separado.
+
+Por ejemplo, considere una suscripción con un límite total de núcleos de máquinas virtuales de Este de EE. UU. de 30, un límite de núcleos de serie A de 30 y un límite de núcleos de serie D de 30. Esta suscripción podría volver a implementar 30 máquinas virtuales A1, 30 máquinas virtuales D1 o una combinación de las dos que no superen los 30 núcleos.
+
+No se pueden aumentar los límites de las máquinas virtuales por encima de los valores que se muestran en la siguiente tabla.
+
+[!INCLUDE [azure-subscription-limits-azure-resource-manager](../../includes/azure-subscription-limits-azure-resource-manager.md)]
 
 ### <a name="container-instances"></a>Azure Container Instances
 
@@ -174,7 +194,7 @@ Para solicitar una asignación para dichos casos, siga estos pasos:
 
 1. [Cree una solicitud de soporte técnico de Azure](../azure-portal/supportability/how-to-create-azure-support-request.md#create-a-support-request) y seleccione las siguientes opciones en la sección __Conceptos básicos__:
 
-    | Campo | Selección |
+    | Campo | Número de selección |
     | ----- | ----- |
     | Tipo de problema | **Técnico** |
     | Servicio | **Mis servicios**. Luego seleccione __Machine Learning__ en la lista desplegable. |

@@ -1,17 +1,17 @@
 ---
 title: Uso de Azure Private Link para conectar redes a Azure Monitor de forma segura
 description: Uso de Azure Private Link para conectar redes a Azure Monitor de forma segura
-author: nkiest
-ms.author: nikiest
+author: noakup
+ms.author: noakuper
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.subservice: ''
-ms.openlocfilehash: 61073ce7e8d3abc43d1db031608da72e6d3e0791
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: a85619b4947808ba1c13df3c1543102eea7273fd
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92926808"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96853941"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Uso de Azure Private Link para conectar redes a Azure Monitor de forma segura
 
@@ -43,7 +43,7 @@ El Ámbito de Private Link de Azure Monitor es un recurso de agrupación para co
 Antes de configurar los recursos de AMPLS, tenga en cuenta los requisitos de aislamiento de la red. Evalúe el acceso de las redes virtuales a Internet pública y las restricciones de acceso de cada uno de los recursos de Azure Monitor (es decir, los componentes de Application Insights y las áreas de trabajo de Log Analytics).
 
 > [!NOTE]
-> Las redes de concentrador y radio, o cualquier otra topología de redes emparejadas, pueden configurar un vínculo Private Link entre la red virtual central (principal) y los recursos de Azure Monitor pertinentes, en lugar de configurar un vínculo Private Link en cada una de las redes virtuales. Esto es especialmente útil si se comparten los recursos de Azure Monitor usados por estas redes. Sin embargo, si desea permitir que cada red virtual tenga acceso a un conjunto independiente de recursos de supervisión, cree un vínculo Private Link a un AMPLS dedicado para cada red.
+> Las redes en estrella tipo hub-and-spoke, o cualquier otra topología de redes emparejadas, pueden configurar un vínculo Private Link entre la red virtual central (principal) y los recursos de Azure Monitor pertinentes, en lugar de configurar un vínculo Private Link en cada una de las redes virtuales. Esto es especialmente útil si se comparten los recursos de Azure Monitor usados por estas redes. Sin embargo, si desea permitir que cada red virtual tenga acceso a un conjunto independiente de recursos de supervisión, cree un vínculo Private Link a un AMPLS dedicado para cada red.
 
 ### <a name="evaluate-which-virtual-networks-should-connect-to-a-private-link"></a>Evaluación de qué redes virtuales deben conectarse a Private Link
 
@@ -79,12 +79,17 @@ Hay una serie de límites que se deben tener en cuenta al planear la configuraci
 * Un objeto de AMPLS puede conectarse a 10 puntos de conexión privados como máximo.
 
 En la topología siguiente:
-* Cada red virtual se conecta a 1 objeto de AMPLS, por lo que no se puede conectar a otros AMPLS.
-* AMPLS B se conecta a 2 redes virtuales: usa 2 de sus 10 conexiones posibles de punto de conexión privado.
-* AMPLS A se conecta a dos áreas de trabajo y a un componente de Application Insights: usa 3 de sus 50 recursos posibles de Azure Monitor.
-* El área de trabajo 2 se conecta a AMPLS A y AMPLS B: usa 2/5 de sus posibles conexiones AMPLS.
+* Cada red virtual solo se conecta a **1** objeto AMPLS.
+* AMPLS B está conectado a puntos de conexión privados de dos redes virtuales (VNet2 y VNet3) y utiliza 2/10 (20 %) de sus posibles conexiones de puntos de conexión privados.
+* AMPLS A se conecta a dos áreas de trabajo y a un componente de Application Insights y utiliza 3/50 (6 %) de sus posibles conexiones de recursos de Azure Monitor.
+* Workspace2 se conecta a AMPLS A y AMPLS B y utiliza 2/5 (40 %) de sus posibles conexiones de AMPLS.
 
 ![Diagrama de límites de AMPLS](./media/private-link-security/ampls-limits.png)
+
+> [!NOTE]
+> En algunas topologías de red (principalmente en estrella tipo hub-and-spoke), puede alcanzar rápidamente el límite de 10 redes virtuales para un único AMPLS. En tales casos, se recomienda usar una conexión de vínculo privado compartida en lugar de conexiones independientes. Cree un punto de conexión privado único en la red central, vincúlelo al AMPLS y empareje las redes pertinentes a la red central.
+
+![Punto de conexión privado único en estrella tipo hub-and-spoke](./media/private-link-security/hub-and-spoke-with-single-private-endpoint.png)
 
 ## <a name="example-connection"></a>Conexión de ejemplo
 
@@ -103,9 +108,9 @@ Empiece por crear un recurso de Ámbito de Private Link de Azure Monitor.
 
 6. Deje que se supere la validación y luego haga clic en **Crear**.
 
-## <a name="connect-azure-monitor-resources"></a>Conexión de recursos de Azure Monitor
+### <a name="connect-azure-monitor-resources"></a>Conexión de recursos de Azure Monitor
 
-Puede conectar su AMPLS primero a los puntos de conexión privados y luego a los recursos de Azure Monitor, o viceversa, pero el proceso de conexión es más rápido si comienza con los recursos de Azure Monitor. A continuación se describe cómo conectamos las áreas de trabajo de Log Analytics de Azure Monitor y los componentes de Application Insights a un AMPLS.
+Conecte los recursos de Azure Monitor (las áreas de trabajo de Log Analytics y los componentes de Application Insights) a AMPLS.
 
 1. En el ámbito de Private Link de Azure Monitor, haga clic en **Azure Monitor Resources**  (Recursos de Azure Monitor) en el menú de la izquierda. Haga clic en el botón **Agregar**.
 2. Agregue el área de trabajo o el componente. Al hacer clic en el botón **Agregar** aparece un cuadro de diálogo en el que puede seleccionar los recursos de Azure Monitor. Puede examinar las suscripciones y los grupos de recursos, o puede escribir su nombre para filtrarlos. Seleccione el área de trabajo o componente y haga clic en **Aplicar** para agregarlos al ámbito.
@@ -129,11 +134,11 @@ Ahora que tiene recursos conectados a su AMPLS, cree un punto de conexión priva
 
 4. En la pantalla Recurso,
 
-   a. En **Suscripción** , seleccione la suscripción que contiene el recurso de Ámbito de Private Link de Azure Monitor. 
+   a. En **Suscripción**, seleccione la suscripción que contiene el recurso de Ámbito de Private Link de Azure Monitor. 
 
-   b. Para **Tipo de recurso** , elija **Microsoft.insights/privateLinkScopes**. 
+   b. Para **Tipo de recurso**, elija **Microsoft.insights/privateLinkScopes**. 
 
-   c. En la lista desplegable **Recurso** , elija el ámbito de Private Link que creó anteriormente. 
+   c. En la lista desplegable **Recurso**, elija el ámbito de Private Link que creó anteriormente. 
 
    d. Haga clic en **Siguiente: Configuración >** .
       ![Captura de pantalla de selección de creación de punto de conexión privado](./media/private-link-security/ampls-select-private-endpoint-create-4.png)
@@ -144,7 +149,7 @@ Ahora que tiene recursos conectados a su AMPLS, cree un punto de conexión priva
  
    b.    Elija **Sí** para **Integrar con la zona DNS privada** y permita que cree automáticamente una nueva zona DNS privada. Las zonas DNS reales pueden ser distintas de las que se muestran en la siguiente captura de pantalla. 
    > [!NOTE]
-   > Si elige **No** y prefiere administrar los registros de DNS manualmente, complete primero la configuración de Private Link, incluido este punto de conexión privado y la configuración de AMPLS. A continuación, configure DNS según las instrucciones que se indican en [Configuración de DNS para puntos de conexión privados de Azure](https://docs.microsoft.com/azure/private-link/private-endpoint-dns). Asegúrese de no crear registros vacíos como preparación para la configuración de Private Link. Los registros de DNS que se crean pueden invalidar la configuración existente e influir en la conectividad con Azure Monitor.
+   > Si elige **No** y prefiere administrar los registros de DNS manualmente, complete primero la configuración de Private Link, incluido este punto de conexión privado y la configuración de AMPLS. A continuación, configure DNS según las instrucciones que se indican en [Configuración de DNS para puntos de conexión privados de Azure](../../private-link/private-endpoint-dns.md). Asegúrese de no crear registros vacíos como preparación para la configuración de Private Link. Los registros de DNS que se crean pueden invalidar la configuración existente e influir en la conectividad con Azure Monitor.
  
    c.    Haga clic en **Revisar + crear**.
  
@@ -158,16 +163,19 @@ Ahora ha creado un nuevo punto de conexión privado que está conectado a este �
 
 ## <a name="configure-log-analytics"></a>Configuración de Log Analytics
 
-Vaya a Azure Portal. En el recurso del área de trabajo de Log Analytics, hay un elemento de menú **Network Isolation** (Aislamiento de red) en el lado izquierdo. En este menú puede controlar dos estados diferentes. 
+Vaya a Azure Portal. En el recurso del área de trabajo de Log Analytics, hay un elemento de menú **Network Isolation** (Aislamiento de red) en el lado izquierdo. En este menú puede controlar dos estados diferentes.
 
 ![Aislamiento de red de Log Analytics](./media/private-link-security/ampls-log-analytics-lan-network-isolation-6.png)
 
-En primer lugar, puede conectar este recurso de Log Analytics a cualquier ámbito de Private Link de Azure Monitor al que tenga acceso. Haga clic en **Agregar** y seleccione el Ámbito de Private Link de Azure Monitor.  Haga clic en **Aplicar** para conectarlo. Todos los ámbitos conectados aparecen en esta pantalla. Gracias a esta conexión, el tráfico de red de las redes virtuales conectadas llega a esta área de trabajo. La creación de la conexión tiene el mismo efecto realizar la conexión desde el ámbito que creamos en [Conexión de recursos de Azure Monitor](#connect-azure-monitor-resources).  
+### <a name="connected-azure-monitor-private-link-scopes"></a>Ámbitos de Private Link de Azure Monitor conectados
+Todos los ámbitos conectados a esta área de trabajo aparecen en esta pantalla. La conexión a ámbitos (AMPLS) permite que el tráfico de red de la red virtual conectada a cada AMPLS llegue a esta área de trabajo. La creación de una conexión como aquí tiene el mismo efecto que configurarla en el ámbito, tal como hemos hecho en [Conexión de recursos de Azure Monitor](#connect-azure-monitor-resources). Haga clic en **Agregar** y seleccione el Ámbito de Private Link de Azure Monitor. Haga clic en **Aplicar** para conectarlo. Tenga en cuenta que un área de trabajo puede conectarse a 5 objetos AMPLS, tal como se explica en [Consideración de los límites](#consider-limits). 
 
-En segundo lugar, puede controlar cómo se puede acceder a este recurso desde fuera de los ámbitos de Private Link enumerados anteriormente. Si establece **Allow public network access for ingestion** (Permitir el acceso de la red pública para la ingesta) en **No** , las máquinas que se encuentren fuera de los ámbitos conectados no podrán cargar datos en esta área de trabajo. Si establece **Allow public network access for queries** (Permitir el acceso a la red pública para las consultas) en **No** , las máquinas que se encuentren fuera de los ámbitos no podrán acceder a los datos de esta área de trabajo. Estos datos incluyen el acceso a libros, paneles, experiencias de cliente basadas en la API de consulta, conclusiones en el Azure Portal, etc. Las experiencias que se ejecutan fuera de Azure Portal y que consultan los datos de Log Analytics también deben ejecutarse dentro de la red virtual vinculada privada.
+### <a name="access-from-outside-of-private-links-scopes"></a>Acceso desde fuera de los ámbitos de vínculos privados
+La configuración de la parte inferior de esta página controla el acceso desde las redes públicas, lo que significa las redes no conectadas mediante los ámbitos enumerados anteriormente. Si establece **Allow public network access for ingestion** (Permitir el acceso de la red pública para la ingesta) en **No**, las máquinas que se encuentren fuera de los ámbitos conectados no podrán cargar datos en esta área de trabajo. Si establece **Allow public network access for queries** (Permitir el acceso a la red pública para las consultas) en **No**, las máquinas que se encuentren fuera de los ámbitos no podrán acceder a los datos de esta área de trabajo, lo que significa que no podrán consultar los datos del área de trabajo. Esto incluye consultas a libros, paneles, experiencias de cliente basadas en API, conclusiones en Azure Portal, etc. Las experiencias que se ejecutan fuera de Azure Portal y que consultan los datos de Log Analytics también deben ejecutarse dentro de la red virtual vinculada privada.
 
-Restringir el acceso de esta manera no se aplica a Azure Resource Manager y, por lo tanto, tiene las siguientes limitaciones:
-* Acceso a los datos: mientras que las consultas de bloqueo de redes públicas se aplican a la mayoría de las experiencias de Log Analytics, algunas experiencias consultan los datos a través de Azure Resource Manager; por lo tanto, no podrán consultar los datos a menos que también se aplique la configuración de Private Link en Resource Manager (esta característica estará disponible en breve). Esto incluye, por ejemplo, soluciones Azure Monitor, libros y detalles y el conector de LogicApp.
+### <a name="exceptions"></a>Excepciones
+Restringir el acceso tal como lo hemos explicado anteriormente no se aplica a Azure Resource Manager y, por lo tanto, tiene las siguientes limitaciones:
+* Acceso a los datos: mientras que el bloqueo o la habilitación de consultas de redes públicas se aplica a la mayoría de las experiencias de Log Analytics, algunas experiencias consultan los datos mediante Azure Resource Manager; por lo tanto, no podrán consultar los datos a menos que también se aplique la configuración de Private Link a Resource Manager (esta característica estará disponible en breve). Esto incluye, por ejemplo, soluciones Azure Monitor, libros y detalles y el conector de LogicApp.
 * Administración de áreas de trabajo: la configuración del área de trabajo y los cambios de configuración (incluida la activación o desactivación de esta configuración de acceso) se administran mediante Azure Resource Manager. Restrinja el acceso a la administración del área de trabajo mediante los roles, los permisos, los controles de red y la auditoría adecuados. Para más información, consulte [Roles, permisos y seguridad en Azure Monitor](roles-permissions-security.md).
 
 > [!NOTE]
@@ -192,7 +200,7 @@ Vaya a Azure Portal. En el recurso del componente de Application Insights de Azu
 
 En primer lugar, puede conectar este recurso de Application Insights a ámbitos de Private Link de Azure Monitor a los que tenga acceso. Haga clic en **Agregar** y seleccione el **Ámbito de Private Link de Azure Monitor**. Haga clic en Aplicar para conectarlo. Todos los ámbitos conectados aparecen en esta pantalla. Gracias a esta conexión, el tráfico de red de las redes virtuales conectadas llega a este componente. La creación de la conexión tiene el mismo efecto realizar la conexión desde el ámbito que creamos en [Conexión de recursos de Azure Monitor](#connect-azure-monitor-resources). 
 
-En segundo lugar, puede controlar cómo se puede acceder a este recurso desde fuera de los ámbitos de Private Link enumerados anteriormente. Si establece **Allow public network access for ingestion** (Permitir el acceso de la red pública para la ingesta) en **No** , las máquinas o los SDK que se encuentren fuera de los ámbitos conectados no podrán cargar datos en este componente. Si establece **Allow public network access for queries** (Permitir el acceso a la red pública para las consultas) en **No** , las máquinas que se encuentren fuera de los ámbitos no podrán acceder a los datos de este recurso de Application Insights. Estos datos incluyen el acceso a los registros de APM, las métricas y la transmisión de métricas en directo, así como experiencias basadas en ellos, como libros, paneles, experiencias de cliente basadas en API de consulta, conclusiones de Azure Portal, etc. 
+En segundo lugar, puede controlar cómo se puede acceder a este recurso desde fuera de los ámbitos de Private Link enumerados anteriormente. Si establece **Allow public network access for ingestion** (Permitir el acceso de la red pública para la ingesta) en **No**, las máquinas o los SDK que se encuentren fuera de los ámbitos conectados no podrán cargar datos en este componente. Si establece **Allow public network access for queries** (Permitir el acceso a la red pública para las consultas) en **No**, las máquinas que se encuentren fuera de los ámbitos no podrán acceder a los datos de este recurso de Application Insights. Estos datos incluyen el acceso a los registros de APM, las métricas y la transmisión de métricas en directo, así como experiencias basadas en ellos, como libros, paneles, experiencias de cliente basadas en API de consulta, conclusiones de Azure Portal, etc. 
 
 Tenga en cuenta que las experiencias de consumo que no son del portal también tienen que ejecutarse dentro de la red virtual vinculada privada que incluye las cargas de trabajo supervisadas. 
 
@@ -240,7 +248,7 @@ $ sudo /opt/microsoft/omsagent/bin/omsadmin.sh -w <workspace id> -s <workspace k
 
 ### <a name="azure-portal"></a>Azure portal
 
-Para usar las experiencias del portal de Azure Monitor, como Application Insights y Log Analytics, debe permitir que se pueda acceder a las extensiones de Azure Portal y Azure Monitor en las redes privadas. Agregue las [etiquetas de servicio](../../firewall/service-tags.md) **AzureActiveDirectory** , **AzureResourceManager** , **AzureFrontDoor.FirstParty** y **AzureFrontdoor.Frontend** al grupo de seguridad de red.
+Para usar las experiencias del portal de Azure Monitor, como Application Insights y Log Analytics, debe permitir que se pueda acceder a las extensiones de Azure Portal y Azure Monitor en las redes privadas. Agregue las [etiquetas de servicio](../../firewall/service-tags.md) **AzureActiveDirectory**, **AzureResourceManager**, **AzureFrontDoor.FirstParty** y **AzureFrontdoor.Frontend** al grupo de seguridad de red.
 
 ### <a name="programmatic-access"></a>Acceso mediante programación
 

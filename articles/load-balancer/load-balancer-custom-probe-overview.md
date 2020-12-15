@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: 605692d15a08246dd574b0724a550b4543a237a3
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: a008d7b26738b9552a7a43ab026391bd9afe0aa8
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94695527"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780950"
 ---
 # <a name="load-balancer-health-probes"></a>Sondeos de estado de Load Balancer
 
@@ -66,7 +66,7 @@ Los valores de intervalo y tiempo de espera especificados determinan si una inst
 
 Se puede ilustrar mejor el comportamiento con un ejemplo. Si ha establecido el número de respuestas de sondeo en 2 y el intervalo en 5 segundos, esto significa que se deben observar dos errores de tiempo de espera expirado de sondeo en un intervalo de 10 segundos.  Dado que la hora a la que se envía un sondeo no está sincronizada cuando la aplicación puede cambiar de estado, se puede enlazar el tiempo con la detección mediante dos escenarios:
 
-1. Si la aplicación comienza a producir una respuesta de sondeo con tiempo de espera expirado justo antes de que llegue el primer sondeo, la detección de estos eventos tardará 10 segundos (intervalos de 2 x 5 segundos) más lo que tarda la aplicación en empezar a señalar un error de tiempo de espera expirado cuando llega el primer sondeo.  Puede suponer que esta detección tarda algo más de 10 segundos.
+1. Si la aplicación comienza a producir una respuesta de sondeo con tiempo de espera expirado justo antes de que llegue el primer sondeo, la detección de estos eventos tardará 10 segundos (intervalos de 2 x 5 segundos) más lo que tarda la aplicación en empezar a señalar un error de tiempo de espera expirado cuando llega el primer sondeo.  Puede suponer que esta detección tarda algo más de 10 segundos.
 2. Si la aplicación comienza a producir una respuesta de sondeo con tiempo de espera expirado justo después de que llegue el primer sondeo, la detección de estos eventos no comenzará hasta que llegue el siguiente sondeo (con el tiempo de espera expirado) más otros 10 segundos (intervalos de 2 x 5 segundos).  Puede suponer que esta detección tarda poco menos de 15 segundos.
 
 En este ejemplo, una vez que se ha producido la detección, la plataforma tarda una pequeña cantidad de tiempo en reaccionar a este cambio.  Esto significa que, dependiendo de: 

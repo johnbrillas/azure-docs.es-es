@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: dobett
-ms.openlocfilehash: 6585718a549c0e0a6eac1ab50788798e1021fef9
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: b05ed6e1239721bcf3c1cf33d3ee63a992fd9843
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96446822"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96853239"
 ---
 # <a name="use-the-azureiotsolutionscom-site-to-deploy-your-solution-accelerator"></a>Uso del sitio azureiotsolutions.com para implementar el acelerador de soluciones
 
@@ -22,7 +22,7 @@ Puede implementar los aceleradores de soluciones de Azure IoT en su suscripción
 ![AzureIoTSolutions.com](media/iot-accelerators-permissions/iotsolutionscom.png)
 
 > [!TIP]
-> Si necesita más control sobre el proceso de implementación, puede usar la [CLI para implementar un acelerador de soluciones](iot-accelerators-remote-monitoring-deploy-cli.md).
+> Si necesita más control sobre el proceso de implementación, puede usar la CLI para implementar un acelerador de soluciones.
 
 Puede implementar los aceleradores de soluciones en las siguientes configuraciones:
 
@@ -64,9 +64,4 @@ Si es un fabricante de hardware, haga clic en **Convertirse en partner** para ob
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para probar uno de los aceleradores de soluciones de IoT, consulte las siguientes guías de inicio rápido:
-
-* [Prueba de una solución de supervisión remota](quickstart-remote-monitoring-deploy.md)
-* [Prueba de una solución de fábrica conectada](quickstart-connected-factory-deploy.md)
-* [Prueba de una solución de mantenimiento predictivo](quickstart-predictive-maintenance-deploy.md)
-* [Prueba de una solución de simulación de dispositivos](quickstart-device-simulation-deploy.md)
+Para probar alguno de los aceleradores de soluciones de IoT, vea el siguiente inicio rápido: [Prueba de una solución de fábrica conectada](quickstart-connected-factory-deploy.md).

@@ -6,12 +6,12 @@ ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 08/13/2019
 ms.custom: devx-track-csharp, seodec18, devx-track-azurecli
-ms.openlocfilehash: 1ab6f5e9c7b602ce124116c02584c5a48a3f597f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 76cfefa3f104ecef69e28fecd1c37fc336b0ce8c
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95999984"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96854655"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Configurar una aplicación de App Service en Azure Portal
 
@@ -29,7 +29,7 @@ En el menú izquierdo de la aplicación, haga clic en **Configuración** > **Con
 
 ![Configuración de la aplicación](./media/configure-common/open-ui.png)
 
-Para los desarrolladores de ASP.NET y ASP.NET Core, la configuración de las opciones de aplicación en App Service es como configurarlas en `<appSettings>` en *Web.config* o *appsettings.json*, pero los valores de App Service reemplazan a los de *Web.config* o *appsettings.json*. Puede mantener segura la configuración de desarrollo (por ejemplo, la contraseña de MySQL local) en *Web.config* o *appsettings.json*, excepto los secretos de producción (por ejemplo, la contraseña de base de datos de Azure MySQL) en App Service. El mismo código usa la configuración de desarrollo cuando se depura localmente, y utiliza los secretos de producción cuando se implementa en Azure.
+Para los desarrolladores de ASP.NET y ASP.NET Core, la configuración de las opciones de aplicación en App Service es como configurarlas en `<appSettings>` en *Web.config* o *appsettings.json*, pero los valores de App Service reemplazan a los de *Web.config* o *appsettings.json*. Puede mantener la configuración de desarrollo (por ejemplo, la contraseña de MySQL local) de *Web.config* o *appsettings.json* y los secretos de producción (por ejemplo, la contraseña de base de datos de Azure MySQL) de forma segura en App Service. El mismo código usa la configuración de desarrollo cuando se depura localmente, y utiliza los secretos de producción cuando se implementa en Azure.
 
 Del mismo modo, otras pilas de lenguaje obtienen la configuración de la aplicación como variables de entorno en tiempo de ejecución. Para obtener pasos específicos de la pila de lenguaje, consulte:
 
