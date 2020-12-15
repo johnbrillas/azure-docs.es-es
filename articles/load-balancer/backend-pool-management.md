@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 07/07/2020
 ms.author: allensu
-ms.openlocfilehash: 3934946dd8e20b7888fc41a4fd6ecc233381f1ff
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 8887474f07928462afe7863ffe2b3667ece536dc
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96029734"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575306"
 ---
 # <a name="backend-pool-management"></a>Administración de grupos de back-end
 El grupo de back-end es un componente esencial del equilibrador de carga. Define el grupo de recursos que atenderán el tráfico de una regla de equilibrio de carga determinada.
@@ -254,14 +254,8 @@ En escenarios con grupos de back-end rellenados previamente, use dirección IP y
 Toda la administración del grupo de back-end se realiza directamente en el objeto de grupo de back-end, como se resalta en los ejemplos siguientes.
 
   >[!IMPORTANT] 
-  >Esta característica se encuentra actualmente en versión preliminar y tiene las siguientes limitaciones:
-  >* Solo se puede utilizar con el equilibrador de carga estándar.
-  >* Límite de 100 direcciones IP en el grupo de back-end
-  >* Los recursos de back-end deben estar en la misma red virtual que el equilibrador de carga.
-  >* Esta característica no se admite actualmente en Azure Portal.
-  >* Los contenedores ACI no admiten esta característica actualmente
-  >* Los equilibradores de carga o los servicios precedidos por equilibradores de carga no se pueden colocar en el grupo de back-end del equilibrador de carga
-  
+  >Esta funcionalidad actualmente está en su versión preliminar. Consulta la [sección de limitaciones](#limitations) para ver los límites actuales de esta característica.
+
 ### <a name="powershell"></a>PowerShell
 Cree un nuevo grupo de back-end:
 
@@ -522,324 +516,17 @@ Cuerpo de la solicitud JSON:
 }
 ```
 
-### <a name="resource-manager-template"></a>Plantilla de Resource Manager
-Cree el equilibrador de carga y el grupo de back-end, y rellene el grupo de back-end con las direcciones de back-end:
-```
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "loadBalancers_myLB_location": {
-            "type": "SecureString"
-        },
-        "loadBalancers_myLB_location_1": {
-            "type": "SecureString"
-        },
-        "backendAddressPools_myBackendPool_location": {
-            "type": "SecureString"
-        },
-        "backendAddressPools_myBackendPool_location_1": {
-            "type": "SecureString"
-        },
-        "loadBalancers_myLB_name": {
-            "defaultValue": "myLB",
-            "type": "String"
-        },
-        "virtualNetworks_myVNET_externalid": {
-            "defaultValue": "/subscriptions/6bb4a28a-db84-4e8a-b1dc-fabf7bd9f0b2/resourceGroups/ErRobin4/providers/Microsoft.Network/virtualNetworks/myVNET",
-            "type": "String"
-        }
-    },
-    "variables": {},
-    "resources": [
-        {
-            "type": "Microsoft.Network/loadBalancers",
-            "apiVersion": "2020-04-01",
-            "name": "[parameters('loadBalancers_myLB_name')]",
-            "location": "eastus",
-            "sku": {
-                "name": "Standard"
-            },
-            "properties": {
-                "frontendIPConfigurations": [
-                    {
-                        "name": "LoadBalancerFrontEnd",
-                        "properties": {
-                            "privateIPAddress": "10.0.0.7",
-                            "privateIPAllocationMethod": "Dynamic",
-                            "subnet": {
-                                "id": "[concat(parameters('virtualNetworks_myVNET_externalid'), '/subnets/Subnet-1')]"
-                            },
-                            "privateIPAddressVersion": "IPv4"
-                        }
-                    }
-                ],
-                "backendAddressPools": [
-                    {
-                        "name": "myBackendPool",
-                        "properties": {
-                            "loadBalancerBackendAddresses": [
-                                {
-                                    "name": "addr1",
-                                    "properties": {
-                                        "ipAddress": "10.0.0.4",
-                                        "virtualNetwork": {
-                                            "location": "[parameters('loadBalancers_myLB_location')]"
-                                        }
-                                    }
-                                },
-                                {
-                                    "name": "addr2",
-                                    "properties": {
-                                        "ipAddress": "10.0.0.5",
-                                        "virtualNetwork": {
-                                            "location": "[parameters('loadBalancers_myLB_location_1')]"
-                                        }
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                ],
-                "loadBalancingRules": [],
-                "probes": [],
-                "inboundNatRules": [],
-                "outboundRules": [],
-                "inboundNatPools": []
-            }
-        },
-        {
-            "type": "Microsoft.Network/loadBalancers/backendAddressPools",
-            "apiVersion": "2020-04-01",
-            "name": "[concat(parameters('loadBalancers_myLB_name'), '/myBackendPool')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_myLB_name'))]"
-            ],
-            "properties": {
-                "loadBalancerBackendAddresses": [
-                    {
-                        "name": "addr1",
-                        "properties": {
-                            "ipAddress": "10.0.0.4",
-                            "virtualNetwork": {
-                                "location": "[parameters('backendAddressPools_myBackendPool_location')]"
-                            }
-                        }
-                    },
-                    {
-                        "name": "addr2",
-                        "properties": {
-                            "ipAddress": "10.0.0.5",
-                            "virtualNetwork": {
-                                "location": "[parameters('backendAddressPools_myBackendPool_location_1')]"
-                            }
-                        }
-                    }
-                ]
-            }
-        }
-    ]
-}
-```
-
-Cree una máquina virtual y una interfaz de red conectada. Establezca la dirección IP de la interfaz de red en una de las direcciones de back-end:
-```
-{
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "storageAccountName": {
-      "type": "String",
-      "metadata": {
-        "description": "Name of storage account"
-      }
-    },
-    "storageAccountDomain": {
-      "type": "String",
-      "metadata": {
-        "description": "The domain of the storage account to be created."
-      }
-    },
-    "adminUsername": {
-      "type": "String",
-      "metadata": {
-        "description": "Admin username"
-      }
-    },
-    "adminPassword": {
-      "type": "SecureString",
-      "metadata": {
-        "description": "Admin password"
-      }
-    },
-    "vmName": {
-      "defaultValue": "myVM",
-      "type": "String",
-      "metadata": {
-        "description": "Prefix to use for VM names"
-      }
-    },
-    "imagePublisher": {
-      "type": "String",
-      "metadata": {
-        "description": "Image Publisher"
-      }
-    },
-    "imageOffer": {
-      "defaultValue": "WindowsServer",
-      "type": "String",
-      "metadata": {
-        "description": "Image Offer"
-      }
-    },
-    "imageSKU": {
-      "defaultValue": "2012-R2-Datacenter",
-      "type": "String",
-      "metadata": {
-        "description": "Image SKU"
-      }
-    },
-    "lbName": {
-      "defaultValue": "myLB",
-      "type": "String",
-      "metadata": {
-        "description": "Load Balancer name"
-      }
-    },
-    "nicName": {
-      "defaultValue": "nic",
-      "type": "String",
-      "metadata": {
-        "description": "Network Interface name prefix"
-      }
-    },
-    "privateIpAddress": {
-      "defaultValue": "10.0.0.5",
-      "type": "String",
-      "metadata": {
-        "description": "Private IP Address of the VM"
-      }
-    },
-    "vnetName": {
-      "defaultValue": "myVNET",
-      "type": "String",
-      "metadata": {
-        "description": "VNET name"
-      }
-    },
-    "vmSize": {
-      "defaultValue": "Standard_A1",
-      "type": "String",
-      "metadata": {
-        "description": "Size of the VM"
-      }
-    },
-    "storageLocation": {
-      "type": "String",
-      "metadata": {
-        "description": "Location of the Storage Account."
-      }
-    },
-    "location": {
-      "type": "String",
-      "metadata": {
-        "description": "Location to deploy all the resources in."
-      }
-    }
-  },
-  "variables": {
-    "networkSecurityGroupName": "networkSecurityGroup1",
-    "storageAccountType": "Standard_LRS",
-    "subnetName": "Subnet-1",
-    "publicIPAddressType": "Static",
-    "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',parameters('vnetName'))]",
-    "subnetRef": "[concat(variables('vnetID'),'/subnets/',variables ('subnetName'))]"
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2015-05-01-preview",
-      "name": "[parameters('storageAccountName')]",
-      "location": "[parameters('storageLocation')]",
-      "properties": {
-        "accountType": "[variables('storageAccountType')]"
-      }
-    },
-    {
-      "type": "Microsoft.Network/networkSecurityGroups",
-      "apiVersion": "2016-03-30",
-      "name": "[variables('networkSecurityGroupName')]",
-      "location": "[parameters('location')]",
-      "properties": {
-        "securityRules": []
-      }
-    },
-    {
-      "type": "Microsoft.Network/networkInterfaces",
-      "apiVersion": "2015-05-01-preview",
-      "name": "[parameters('nicName')]",
-      "location": "[parameters('location')]",
-      "properties": {
-        "ipConfigurations": [
-          {
-            "name": "ipconfig1",
-            "properties": {
-              "privateIPAllocationMethod": "Static",
-              "privateIpAddress": "[parameters('privateIpAddress')]",
-              "subnet": {
-                "id": "[variables('subnetRef')]"
-              }
-            }
-          }
-        ]
-      }
-    },
-    {
-      "type": "Microsoft.Compute/virtualMachines",
-      "apiVersion": "2015-05-01-preview",
-      "name": "[parameters('vmName')]",
-      "location": "[parameters('location')]",
-      "dependsOn": [
-        "[concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName'))]",
-        "[parameters('nicName')]"
-      ],
-      "properties": {
-        "hardwareProfile": {
-          "vmSize": "[parameters('vmSize')]"
-        },
-        "osProfile": {
-          "computername": "[parameters('vmName')]",
-          "adminUsername": "[parameters('adminUsername')]",
-          "adminPassword": "[parameters('adminPassword')]"
-        },
-        "storageProfile": {
-          "imageReference": {
-            "publisher": "[parameters('imagePublisher')]",
-            "offer": "[parameters('imageOffer')]",
-            "sku": "[parameters('imageSKU')]",
-            "version": "latest"
-          },
-          "osDisk": {
-            "name": "osdisk",
-            "vhd": {
-              "uri": "[concat('http://',parameters('storageAccountName'),'.blob.',parameters('storageAccountDomain'),'/vhds/','osdisk', '.vhd')]"
-            },
-            "caching": "ReadWrite",
-            "createOption": "FromImage"
-          }
-        },
-        "networkProfile": {
-          "networkInterfaces": [
-            {
-              "id": "[resourceId('Microsoft.Network/networkInterfaces',parameters('nicName'))]"
-            }
-          ]
-        }
-      }
-    }
-  ]
-}
-```
+## <a name="limitations"></a>Limitaciones
+Un grupo de back-end configurado por la dirección IP tiene las siguientes limitaciones:
+  * Solo se puede utilizar con el equilibrador de carga estándar.
+  * Límite de 100 direcciones IP en el grupo de back-end
+  * Los recursos de back-end deben estar en la misma red virtual que el equilibrador de carga.
+  * Un equilibrador de carga con un grupo de back-end basado en IP no puede funcionar como servicio de Private Link.
+  * Esta característica no se admite actualmente en Azure Portal.
+  * Los contenedores ACI no admiten esta característica actualmente
+  * Los equilibradores de carga o los servicios precedidos por equilibradores de carga no se pueden colocar en el grupo de back-end del equilibrador de carga
+  * No se pueden especificar reglas NAT de entrada mediante la dirección IP
+  
 ## <a name="next-steps"></a>Pasos siguientes
 En este artículo, ha conocido la administración de grupos de back-end de Azure Load Balancer y ha aprendido a configurar un grupo de back-end mediante una combinación de dirección IP y red virtual.
 

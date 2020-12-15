@@ -9,12 +9,12 @@ ms.date: 11/17/2020
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 34fe909c7fca3c91845c58b41abb0d8885e156e6
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 0cdd25b2937dd1fb2cc70ef7b1c5a9e9ddaef375
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94850947"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780627"
 ---
 # <a name="programmatically-create-azure-enterprise-agreement-subscriptions-with-the-latest-apis"></a>Creación de suscripciones de Contrato Enterprise de Azure mediante programación con las API más recientes
 
@@ -89,7 +89,7 @@ La respuesta de la API muestra todas las cuentas de inscripción a las que tiene
 
 ```
 
-Tenga en cuenta el `id` de una de las `enrollmentAccounts`. Es el ámbito de facturación en el que se inicia una solicitud de creación de suscripción. 
+El valor para un ámbito de facturación y `id` son lo mismo. El `id` de la cuenta de inscripción es el ámbito de facturación en el que se inicia la solicitud de suscripción. Es importante conocer el identificador porque es un parámetro necesario que se usará más adelante en el artículo para crear una suscripción.
 
 <!-- 
 ### [PowerShell](#tab/azure-powershell-getEnrollments)
@@ -130,6 +130,8 @@ En el cuerpo de la solicitud, proporcione el `billingScope` como el `id` de una 
   }
 }
 ```
+
+Los valores permitidos de `Workload` son `Production` y `DevTest`.
 
 #### <a name="response"></a>Response
 

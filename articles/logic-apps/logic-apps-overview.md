@@ -1,20 +1,20 @@
 ---
-title: Tareas automatizadas para la integración empresarial
-description: Aprenda a automatizar flujos de trabajo que integran aplicaciones, datos, servicios y sistemas con un código mínimo para la integración empresarial mediante el uso de Azure Logic Apps.
+title: Introducción a Azure Logic Apps
+description: Azure Logic Apps es una solución en la nube para la compilación y organización de flujos de trabajo automatizados que integren aplicaciones, datos, servicios y sistemas con un código mínimo para escenarios de nivel empresarial.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: overview
 ms.custom: mvc
 ms.date: 03/11/2020
-ms.openlocfilehash: 3496dfd7813818ced8963175d73ec0f8ef6892d4
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4c4e8c8f809452286fee493e20dbef2cc538c8bd
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86536239"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921530"
 ---
-# <a name="overview---what-is-azure-logic-apps"></a>Introducción: ¿Qué es Azure Logic Apps?
+# <a name="what-is-azure-logic-apps"></a>¿Qué es Azure Logic Apps?
 
 [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) es un servicio en la nube que le ayuda a programar, automatizar y organizar tareas, procesos empresariales y [flujos de trabajo](#logic-app-concepts) cuando tiene que integrar aplicaciones, datos, sistemas y servicios en empresas u organizaciones. Logic Apps simplifica el diseño y la compilación de soluciones escalables de [integración](https://azure.microsoft.com/product-categories/integration/) de aplicaciones, integración de datos, integración de sistemas, Enterprise Application Integration (EAI) y comunicación de negocio a negocio (B2B), ya sea en la nube, localmente o en ambos entornos.
 

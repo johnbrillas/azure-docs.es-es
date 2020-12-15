@@ -8,12 +8,12 @@ ms.date: 3/24/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b9a29e890553d15d19853ec836f8c4296869e143
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 757e34fd45b7d3d9703aa09daa7f040c5f605637
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94959635"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932394"
 ---
 # <a name="tutorial-train-and-deploy-an-azure-machine-learning-model"></a>Tutorial: Entrenamiento e implementación de un modelo de Azure Machine Learning
 
@@ -26,6 +26,14 @@ En este artículo, realizará las tareas siguientes:
 Azure Notebooks hace uso de un área de trabajo de Azure Machine Learning, un bloque fundamental para experimentar, entrenar e implementar modelos de Machine Learning.
 
 Normalmente, los científicos de datos se encargan de los pasos descritos en este artículo.
+
+En esta sección del tutorial, aprenderá a:
+
+> [!div class="checklist"]
+>
+> * Crear un proyecto de Azure Notebooks para entrenar un modelo de aprendizaje automático.
+> * Contenedorizar el modelo de aprendizaje automático entrenado.
+> * Crear un módulo de Azure IoT Edge a partir del modelo de aprendizaje automático contenedorizado.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -179,6 +187,10 @@ Para confirmar que los cuadernos se han completado correctamente, compruebe si s
 Puede insertar instrucciones de Python en el cuaderno para su depuración, como por ejemplo, el comando `print()` para mostrar valores. Si ve variables u objetos que no están definidos, ejecute las celdas en las que se declaren o se hayan creado instancias de ellos primero.
 
 Si necesita poner al día los cuadernos, es posible que tenga que eliminar tanto los archivos como los recursos de Azure.
+
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+Este tutorial forma parte de una serie en la que cada artículo complementa el trabajo realizado en los anteriores. No borre ningún recurso hasta que complete el tutorial final.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

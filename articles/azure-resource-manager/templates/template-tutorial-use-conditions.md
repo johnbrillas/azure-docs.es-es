@@ -5,12 +5,12 @@ author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 64767f83dfad2b0c2909e8a89b55c849d5c5a9a9
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 1f4e8c0bc6a066e0d82d393474bfc804be5e3fb3
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896997"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931374"
 ---
 # <a name="tutorial-use-condition-in-arm-templates"></a>Tutorial: Uso de condiciones en plantillas de Resource Manager
 
@@ -41,7 +41,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Para completar este artículo, necesitará lo siguiente:
 
-* Visual Studio Code con la extensión Resource Manager Tools. Consulte [Quickstart: Creación de plantillas de Azure Resource Manager con Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+* Visual Studio Code con la extensión Resource Manager Tools. Consulte [Quickstart: Creación de plantillas de ARM mediante Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 * Para aumentar la seguridad, utilice una contraseña generada para la cuenta de administrador de máquina virtual. Este es un ejemplo para generar una contraseña:
 
     ```console
@@ -55,7 +55,7 @@ Para completar este artículo, necesitará lo siguiente:
 Plantillas de inicio rápido de Azure es un repositorio de plantillas de Azure Resource Manager. En lugar de crear una plantilla desde cero, puede buscar una plantilla de ejemplo y personalizarla. La plantilla que se usa en este tutorial se denomina [Deploy a simple Windows VM](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
 
 1. En Visual Studio Code, seleccione **Archivo**>**Abrir archivo**.
-1. En **Nombre de archivo** , pegue el código URL siguiente:
+1. En **Nombre de archivo**, pegue el código URL siguiente:
 
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
@@ -117,7 +117,7 @@ Realice dos cambios en la plantilla existente:
     "condition": "[equals(parameters('newOrExisting'),'new')]",
     ```
 
-    La condición comprueba el valor de un parámetro llamado **newOrExisting**. Si el valor del parámetro es **new** , en la implementación se crea la cuenta de almacenamiento.
+    La condición comprueba el valor de un parámetro llamado **newOrExisting**. Si el valor del parámetro es **new**, en la implementación se crea la cuenta de almacenamiento.
 
     La definición de la cuenta de almacenamiento actualizada se parece a esta:
 
@@ -172,7 +172,7 @@ Realice dos cambios en la plantilla existente:
     ```
 
     > [!NOTE]
-    > Se produce un error en la implementación si **newOrExisting** es **new** , pero la cuenta de almacenamiento con el nombre especificado ya existe.
+    > Se produce un error en la implementación si **newOrExisting** es **new**, pero la cuenta de almacenamiento con el nombre especificado ya existe.
 
 Pruebe otra implementación con **newOrExisting** establecido en "existing" y especifique una cuenta de almacenamiento existente. Para crear una cuenta de almacenamiento con antelación, consulte [Creación de una cuenta de almacenamiento](../../storage/common/storage-account-create.md).
 

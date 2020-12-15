@@ -1,21 +1,21 @@
 ---
 title: 'Tutorial: Adición de una variable a una plantilla'
-description: Agregue variables a la plantilla de Azure Resource Manager para simplificar la sintaxis.
+description: Agregue variables a la plantilla de Azure Resource Manager (ARM) para simplificar la sintaxis.
 author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 482608172ac9e6e2b9765f236a4b6d655e2455fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d259510d880cbfc60e9ae80b533af6792cc95536
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613159"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96930735"
 ---
 # <a name="tutorial-add-variables-to-your-arm-template"></a>Tutorial: Incorporación de variables a la plantilla de Resource Manager
 
-En este tutorial, aprenderá a agregar una variable a la plantilla de Resource Manager. Las variables simplifican las plantillas al permitirle escribir una expresión una vez y reutilizarla en toda la plantilla. Este tutorial se realiza en **7 minutos**.
+En este tutorial, aprenderá a agregar una variable a su plantilla de Azure Resource Manager (ARM). Las variables simplifican las plantillas al permitirle escribir una expresión una vez y reutilizarla en toda la plantilla. Este tutorial se realiza en **7 minutos**.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 

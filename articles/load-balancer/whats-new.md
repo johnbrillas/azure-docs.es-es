@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: anavin
-ms.openlocfilehash: 3a20b69189226486de8cfceb95e2fa79a976cb12
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a30a42e8a8c4049b53274da512089dd29965e775
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91841040"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573160"
 ---
 # <a name="whats-new-in-azure-load-balancer"></a>Novedades de Azure Load Balancer
 
@@ -42,7 +42,7 @@ El grupo de productos funciona activamente en la resolución de los siguientes p
 
 |Incidencia |Descripción  |Mitigación  |
 | ---------- |---------|---------|
-| Exportación en Log Analytics | Log Analytics no pueden exportar las métricas de los equilibradores de carga estándar ni los registros de estado de los sondeos de estado de un equilibrador de carga básico  | [Utilice Azure Monitor para métricas multidimensionales para cualquier equilibrador de carga estándar](load-balancer-standard-diagnostics.md). Aunque Log Analytics no se puede usar para la supervisión, Azure Monitor permite ver un amplio conjunto de métricas multidimensionales. Puede aprovechar el panel de métricas preconfiguradas a través de la subhoja Información de su equilibrador de carga. Si usa la [actualización a la versión Estándar](upgrade-basic-standard.md) de un equilibrador de carga básico para la supervisión de métricas de nivel de producción.
+| Eventos de alerta de Load Balancer y registros de estado de los sondeos de estado | El registro no funciona con los eventos de alerta de Load Balancer para la versión básica de Load Balancer y Standard Load Balancer ni con los registros de estado de los sondeos de estado para la versión básica de Load Balancer.  | [Utilice Azure Monitor para métricas multidimensionales para cualquier equilibrador de carga estándar](load-balancer-standard-diagnostics.md). Azure Monitor permite ver un amplio conjunto de métricas multidimensionales que también se pueden exportar como registros. Puede aprovechar el panel de métricas preconfiguradas a través de la subhoja Información de su equilibrador de carga. Si usa la [actualización a la versión Estándar](upgrade-basic-standard.md) de un equilibrador de carga básico para la supervisión de métricas de nivel de producción.
 
   
 

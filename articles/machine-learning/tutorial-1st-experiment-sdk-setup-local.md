@@ -11,16 +11,16 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 1b4ee9f06e8ed8bd47be1075070dea71b42b1cef
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 05ac0f78345e1c1d7643f24410d53b209ab7c375
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93349076"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96574163"
 ---
 # <a name="tutorial-get-started-with-azure-machine-learning-in-your-development-environment-part-1-of-4"></a>Tutorial: Introducción a Azure Machine Learning en el entorno de desarrollo (parte 1 de 4)
 
-En esta *serie de tutoriales de cuatro partes* , aprenderá los aspectos básicos de Azure Machine Learning y completará tareas de Machine Learning de Python basadas en trabajos en la plataforma de la nube de Azure. 
+En esta *serie de tutoriales de cuatro partes*, aprenderá los aspectos básicos de Azure Machine Learning y completará tareas de Machine Learning de Python basadas en trabajos en la plataforma de la nube de Azure. 
 
 En la parte 1 de esta serie de tutoriales, deberá realizar lo siguiente:
 
@@ -52,7 +52,10 @@ Puede usar las herramientas con las que esté más familiarizado (por ejemplo, C
 pip install azureml-sdk
 ```
 
-## <a name="create-a-directory-structure-for-code"></a>Creación de una estructura de directorio del código
+> [!div class="nextstepaction"]
+> [He instalado el SDK](?success=install-sdk#dir) [He tenido un problema](https://www.research.net/r/7C8Z3DN?issue=install-sdk)
+
+## <a name="create-a-directory-structure-for-code"></a><a name="dir"></a>Creación de una estructura de directorio del código
 Se recomienda configurar la siguiente estructura de directorio sencilla para este tutorial:
 
 ```markdown
@@ -63,7 +66,11 @@ tutorial
 - `tutorial`: directorio de nivel superior del proyecto.
 - `.azureml`: subdirectorio oculto para almacenar archivos de configuración de Azure Machine Learning.
 
-## <a name="create-an-azure-machine-learning-workspace"></a>Creación de un área de trabajo de Azure Machine Learning
+
+> [!div class="nextstepaction"]
+> [He creado un directorio](?success=create-dir#workspace) [He tenido un problema](https://www.research.net/r/7C8Z3DN?issue=create-dir)
+
+## <a name="create-an-azure-machine-learning-workspace"></a><a name="workspace"></a>Creación de un área de trabajo de Azure Machine Learning
 
 Un área de trabajo es un recurso de nivel superior de Azure Machine Learning y es un lugar centralizado para:
 
@@ -103,7 +110,7 @@ python ./01-create-workspace.py
 > Si la ejecución de este código genera un error que indica que no tiene acceso a la suscripción, consulte [Creación de un área de trabajo](how-to-manage-workspace.md?tab=python#create-multi-tenant) para informarse sobre las opciones de autenticación.
 
 
-Después de que haya ejecutado correctamente *01-create-workspace.py* , la estructura de carpetas tendrá el siguiente aspecto:
+Después de que haya ejecutado correctamente *01-create-workspace.py*, la estructura de carpetas tendrá el siguiente aspecto:
 
 ```markdown
 tutorial
@@ -119,7 +126,10 @@ El archivo `.azureml/config.json` contiene los metadatos necesarios para conecta
 >
 > Todavía se requiere autenticación para interactuar con el área de trabajo de Azure Machine Learning.
 
-## <a name="create-an-azure-machine-learning-compute-cluster"></a>Creación de un clúster de proceso de Azure Machine Learning
+> [!div class="nextstepaction"]
+> [He creado un área de trabajo](?success=create-workspace#cluster) [He tenido un problema](https://www.research.net/r/7C8Z3DN?issue=create-workspace)
+
+## <a name="create-an-azure-machine-learning-compute-cluster"></a><a name="cluster"></a> Creación de un clúster de proceso de Azure Machine Learning
 
 Cree un script de Python en el directorio de nivel superior `tutorial` denominado `02-create-compute.py`. Rellénelo con el código siguiente para crear un clúster de proceso de Azure Machine Learning que se escalará automáticamente entre cero y cuatro nodos:
 
@@ -167,6 +177,9 @@ tutorial
 └──01-create-workspace.py
 └──02-create-compute.py
 ```
+
+> [!div class="nextstepaction"]
+> [He creado un clúster de proceso](?success=create-compute-cluster#next-steps) [He tenido un problema](https://www.research.net/r/7C8Z3DN?issue=create-compute-cluster)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -1,6 +1,6 @@
 ---
-title: 'Inicio rápido: Escalado del proceso para grupos de SQL de Synapse (Azure Portal)'
-description: Se puede escalar el proceso para grupos de SQL de Synapse (almacenamiento de datos) mediante Azure PowerShell.
+title: 'Inicio rápido: Escalado del proceso para el grupo de SQL dedicado (anteriormente SQL DW) (Azure PowerShell)'
+description: El proceso para el grupo de SQL dedicado (anteriormente SQL DW) mediante Azure PowerShell.
 services: synapse-analytics
 author: Antvgski
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 04/17/2018
 ms.author: anvang
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, devx-track-azurepowershell
-ms.openlocfilehash: 8077b1a52e44ce3a5160309c92288f756bed1014
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 87e10740e6081431bad96daa930f61238ca495bd
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91566149"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921911"
 ---
-# <a name="quickstart-scale-compute-for-synapse-sql-pool-with-azure-powershell"></a>Inicio rápido: Escalado del proceso para grupos de SQL de Synapse con Azure PowerShell
+# <a name="quickstart-scale-compute-for-dedicated-sql-pool-formerly-sql-dw-with-azure-powershell"></a>Inicio rápido: Escalado del proceso para el grupo de SQL dedicado (anteriormente SQL DW) con Azure PowerShell
 
-Se puede escalar el proceso para grupos de SQL de Synapse (almacenamiento de datos) mediante Azure PowerShell. [Escale horizontalmente un proceso](sql-data-warehouse-manage-compute-overview.md) para aumentar el rendimiento, o bien revierta la escalabilidad del proceso para ahorrar costos.
+El proceso para el grupo de SQL dedicado (anteriormente SQL DW) mediante Azure PowerShell. [Escale horizontalmente un proceso](sql-data-warehouse-manage-compute-overview.md) para aumentar el rendimiento, o bien revierta la escalabilidad del proceso para ahorrar costos.
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
@@ -28,7 +28,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-En este inicio rápido se da por supuesto que ya tiene un grupo de SQL que puede escalar. Si tiene que crear uno, use el artículo sobre la [creación y conexión desde el portal](create-data-warehouse-portal.md) para crear un grupo de SQL llamado **mySampleDataWarehouse**.
+En este inicio rápido se da por supuesto que ya tiene un grupo de SQL dedicado (anteriormente SQL DW) que puede escalar. Si tiene que crearlo, siga las instrucciones del artículo sobre la [creación y conexión desde Azure Portal](create-data-warehouse-portal.md) para crear un grupo de SQL dedicado (anteriormente SQL DW) llamado **mySampleDataWarehouse**.
 
 ## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
 
@@ -67,7 +67,7 @@ Siga estos pasos para buscar información de ubicación para el almacenamiento d
 
 ## <a name="scale-compute"></a>Escalado de proceso
 
-En el grupo de SQL, puede aumentar o reducir los recursos de procesos mediante el ajuste de las unidades del almacenamiento de datos. En [Guía de inicio rápido: Creación de una instancia de Azure SQL Data Warehouse en Azure Portal, y realización de consultas en ella](create-data-warehouse-portal.md) creó **mySampleDataWarehouse** y lo inició con 400 DWU. En los siguientes pasos se ajustan las DWU para **mySampleDataWarehouse**.
+En un grupo de SQL dedicado (anteriormente SQL DW), se pueden aumentar o disminuir los recursos de procesos mediante el ajuste de las unidades de almacenamiento de datos. En [Guía de inicio rápido: Creación de una instancia de Azure SQL Data Warehouse en Azure Portal, y realización de consultas en ella](create-data-warehouse-portal.md) creó **mySampleDataWarehouse** y lo inició con 400 DWU. En los siguientes pasos se ajustan las DWU para **mySampleDataWarehouse**.
 
 Para cambiar las unidades de almacenamiento de datos, use el cmdlet de PowerShell [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). En el ejemplo siguiente se establecen las unidades de almacenamiento de datos en DW300c para la base de datos **mySampleDataWarehouse**, que se hospeda en el grupo de recursos **resourcegroupname** del servidor **sqlpoolservername**.
 
@@ -121,7 +121,7 @@ $database | Select-Object DatabaseName,Status
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ya ha aprendido a escalar proceso del grupo de SQL. Para más información sobre el grupo de SQL, continúe con el tutorial sobre la carga de datos.
+Ya ha aprendido cómo escalar el proceso para el grupo de SQL dedicado (anteriormente SQL DW). Para más información sobre el grupo de SQL dedicado (anteriormente SQL DW), continúe con el tutorial sobre la carga de datos.
 
 > [!div class="nextstepaction"]
->[Carga de datos en un grupo de SQL](load-data-from-azure-blob-storage-using-polybase.md)
+>[Carga de datos en un grupo de SQL dedicado](load-data-from-azure-blob-storage-using-copy.md)

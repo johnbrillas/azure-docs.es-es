@@ -3,12 +3,12 @@ title: Planificación de la implementación de Azure VMware Solution
 description: En este artículo se describe el flujo de trabajo de implementación de Azure VMware Solution.  El resultado final es un entorno listo para la creación y migración de máquinas virtuales (VM).
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: 1ef83a568e41fe99f1e8e385a599de9c5ab7c0ca
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 1d1deebd56717c63a745500198eb8df9e3687b49
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "95529740"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558698"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>Planificación de la implementación de Azure VMware Solution
 
@@ -25,7 +25,7 @@ Los procesos de este inicio rápido generan un entorno listo para producción pa
 Identifique la suscripción que piensa usar para implementar Azure VMware Solution.  Puede crear una nueva suscripción o reutilizar una existente.
 
 >[!NOTE]
->La suscripción debe estar asociada a un Contrato Enterprise de Microsoft.
+>La suscripción debe estar asociada a un plan de Contrato Enterprise de Microsoft o a un plan de Proveedor de soluciones en la nube de Azure. Para más información, consulte [Habilitación del recurso de Azure VMware Solution](enable-azure-vmware-solution.md).
 
 ## <a name="resource-group"></a>Resource group
 

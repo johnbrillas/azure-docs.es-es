@@ -10,16 +10,18 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 07/01/2020
 ms.author: kenwith
-ms.openlocfilehash: 9ea4ec748ca37f93e9711970b10746a009543d00
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: c0253dc3c9dc029cd964fb32b148be1405e7fbad
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94656605"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780185"
 ---
 # <a name="quickstart-set-up-oidc-based-single-sign-on-sso-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Inicio rápido: Configuración del inicio de sesión único (SSO) basado en OIDC de una aplicación en el inquilino de Azure Active Directory (Azure AD)
 
 Comience a usar inicios de sesión de usuario simplificados mediante la configuración del inicio de sesión único (SSO) para una aplicación que haya agregado al inquilino de Azure Active Directory (Azure AD). Después de configurar el inicio de sesión único, los usuarios podrán iniciar sesión en una aplicación con sus credenciales de Azure AD. El inicio de sesión único se incluye en la edición gratuita de Azure AD.
+
+Para más información sobre el inicio de sesión único basado en OIDC, consulte [Descripción del inicio de sesión único basado en OIDC](configure-oidc-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -52,7 +54,7 @@ Para configurar el inicio de sesión único de una aplicación:
    > [!IMPORTANT]
     > Si ya tiene una suscripción a la aplicación, se producirá la validación de los detalles del usuario y la información del directorio o del inquilino. Si la aplicación no puede comprobar el usuario, se le redirigirá a registrarse en el servicio de aplicación o a la página de error.
 
-3. Después de la autenticación aparece un cuadro de diálogo que solicita el consentimiento del administrador. Seleccione **Consentimiento en nombre de la organización** y, luego, **Aceptar**. 
+3. Después de la autenticación aparece un cuadro de diálogo que solicita el consentimiento del administrador. Seleccione **Consentimiento en nombre de la organización** y, luego, **Aceptar**. Para más información sobre el consentimiento del usuario y del administrador, consulte [Consentimiento del usuario y del administrador](../develop/howto-convert-app-to-be-multi-tenant.md#understand-user-and-admin-consent).
 
     :::image type="content" source="media/add-application-portal-setup-oidc-sso/consent.png" alt-text="Captura de pantalla que muestra la pantalla de consentimiento de una aplicación." lightbox="media/add-application-portal-setup-oidc-sso/consent.png":::
 
@@ -62,6 +64,11 @@ Para configurar el inicio de sesión único de una aplicación:
 > [!TIP]
 > La administración de aplicaciones se puede automatizar mediante Graph API, consulte el artículo sobre la [automatización de la administración de aplicaciones con Microsoft Graph API](/graph/application-saml-sso-configure-api).
 
+Este es un vídeo en el que se explica de forma más detallada cómo agregar una aplicación basada en OIDC a Azure AD.
+
+Adición de una aplicación basada en OIDC en Azure Active Directory
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4HoNI]
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

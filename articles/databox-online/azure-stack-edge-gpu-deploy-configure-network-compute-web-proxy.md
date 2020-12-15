@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 09/03/2020
+ms.date: 12/07/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: a6b72c9e6cc366d04937598f653f8ba887ce1b85
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 640098e118db87214d7364132a5119e35cb94c0a
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91952189"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96778723"
 ---
 # <a name="tutorial-configure-network-for-azure-stack-edge-pro-with-gpu"></a>Tutorial: Configuración de la red para Azure Stack Edge Pro con GPU
 
@@ -119,7 +119,7 @@ Siga estos pasos para habilitar el proceso y configurar la red de proceso.
 
     ![Página Proceso en la interfaz de usuario local 3](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/compute-network-3.png)
 
-1. La configuración tarda un par de minutos en aplicarse y puede que tenga que actualizar el explorador. Puede ver que el puerto especificado está habilitado para el proceso. 
+1. La configuración tarda algunos minutos en aplicarse, y es posible que tenga que actualizar el explorador. Puede ver que el puerto especificado está habilitado para el proceso. 
  
     ![Página Proceso en la interfaz de usuario local 4](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/compute-network-4.png)
 

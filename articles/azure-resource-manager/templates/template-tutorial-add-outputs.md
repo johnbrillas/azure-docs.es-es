@@ -1,21 +1,21 @@
 ---
 title: 'Tutorial: Adición de salidas a una plantilla'
-description: Agregue salidas a la plantilla de Azure Resource Manager para simplificar la sintaxis.
+description: Agregue salidas a la plantilla de Azure Resource Manager (ARM) para simplificar la sintaxis.
 author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: abd5fbed4ab19135fb30ec5adda387d839df3ab6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e55638e20bceb6df4b8e74375d67836123167162
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613873"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931748"
 ---
 # <a name="tutorial-add-outputs-to-your-arm-template"></a>Tutorial: Incorporación de salidas a la plantilla de Resource Manager
 
-En este tutorial, aprenderá a devolver un valor a partir de una plantilla de Resource Manager. Las salidas se usan cuando necesita un valor de un recurso implementado. Este tutorial se realiza en **7 minutos**.
+En este tutorial, aprenderá a devolver un valor de la plantilla de Azure Resource Manager (ARM). Las salidas se usan cuando necesita un valor de un recurso implementado. Este tutorial se realiza en **7 minutos**.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 

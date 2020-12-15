@@ -1,20 +1,20 @@
 ---
 title: Solución de problemas de implementaciones
-description: Aprenda a supervisar y solucionar los problemas que puedan aparecer al implementar plantillas de Azure Resource Manager. Muestra registros de actividad y el historial de implementación.
+description: Aprenda a supervisar y solucionar los problemas asociados a las implementaciones de las plantillas de Azure Resource Manager (ARM). Muestra registros de actividad y el historial de implementación.
 author: mumian
 ms.date: 01/15/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 0da6c614572e73a00db1087621eaca3bd790aad6
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 7a44edc7cd09709f14415fa0a92e63558001d46d
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92891812"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928535"
 ---
 # <a name="tutorial-troubleshoot-arm-template-deployments"></a>Tutorial: Solución de problemas de las implementaciones de plantillas de Resource Manager
 
-Aprenda a solucionar errores en las implementaciones de plantillas de Azure Resource Manager. En este tutorial, se configuran dos errores en una plantilla y se aprende a usar los registros de actividad y el historial de implementación para resolver los problemas.
+Aprenda a solucionar errores de implementación de las plantillas de Azure Resource Manager (ARM). En este tutorial, se configuran dos errores en una plantilla y se aprende a usar los registros de actividad y el historial de implementación para resolver los problemas.
 
 Hay dos tipos de errores relacionados con la implementación de plantillas:
 
@@ -37,14 +37,14 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Para completar este artículo, necesitará lo siguiente:
 
-- Visual Studio Code con la extensión Resource Manager Tools. Consulte [Quickstart: Creación de plantillas de Azure Resource Manager con Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+- Visual Studio Code con la extensión Resource Manager Tools. Consulte [Quickstart: Creación de plantillas de ARM mediante Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
 ## <a name="create-a-problematic-template"></a>Creación de una plantilla problemática
 
 Abra una plantilla llamada [Create a standard storage account](https://azure.microsoft.com/resources/templates/101-storage-account-create/) (Crear una cuenta de almacenamiento estándar) desde [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/) y configure dos problemas de plantilla.
 
 1. En Visual Studio Code, seleccione **Archivo**>**Abrir archivo**.
-2. En **Nombre de archivo** , pegue el código URL siguiente:
+2. En **Nombre de archivo**, pegue el código URL siguiente:
 
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json

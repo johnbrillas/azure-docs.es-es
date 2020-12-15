@@ -1,21 +1,21 @@
 ---
 title: Implementación de extensiones de máquina virtual con una plantilla
-description: Aprenda a implementar extensiones de máquina virtual con plantillas de Azure Resource Manager.
+description: Aprenda a implementar extensiones de máquina virtual con plantillas de Azure Resource Manager (ARM).
 author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f82e0eb45f4bc7c3260554b1b1120025029336bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49bc1a77e2e25cb069a89812603ff562b8a4c1cd
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89073649"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931459"
 ---
 # <a name="tutorial-deploy-virtual-machine-extensions-with-arm-templates"></a>Tutorial: Implementación de extensiones de máquina virtual con plantillas de Resource Manager
 
-Aprenda a usar [extensiones de máquina virtual de Azure](../../virtual-machines/extensions/features-windows.md) para realizar tareas de automatización y configuración posteriores a la implementación en máquinas virtuales de Azure. Hay muchas extensiones de máquina virtual diferentes disponibles para su uso con máquinas virtuales de Azure. En este tutorial se implementa una extensión de Custom Script desde una plantilla de Azure Resource Manager para ejecutar un script de PowerShell en una máquina virtual de Windows.  El script instala un servidor web en la máquina virtual.
+Aprenda a usar [extensiones de máquina virtual de Azure](../../virtual-machines/extensions/features-windows.md) para realizar tareas de automatización y configuración posteriores a la implementación en máquinas virtuales de Azure. Hay muchas extensiones de máquina virtual diferentes disponibles para su uso con máquinas virtuales de Azure. En este tutorial se implementará una extensión de script personalizado desde una plantilla de Azure Resource Manager (ARM) para ejecutar un script de PowerShell en una máquina virtual Windows. El script instala un servidor web en la máquina virtual.
 
 En este tutorial se describen las tareas siguientes:
 
@@ -31,14 +31,14 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Para completar este artículo, necesitará lo siguiente:
 
-* Visual Studio Code con la extensión Resource Manager Tools. Consulte [Quickstart: Creación de plantillas de Azure Resource Manager con Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+* Visual Studio Code con la extensión Resource Manager Tools. Consulte [Quickstart: Creación de plantillas de ARM mediante Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 * Para aumentar la seguridad, utilice una contraseña generada para la cuenta de administrador de máquina virtual. Este es un ejemplo para generar una contraseña:
 
     ```console
     openssl rand -base64 32
     ```
 
-    Azure Key Vault está diseñado para proteger las claves criptográficas y otros secretos. Para más información, consulte el [Tutorial: Integración de Azure Key Vault en la implementación de la plantilla de Resource Manager](./template-tutorial-use-key-vault.md). También se recomienda actualizar la contraseña cada tres meses.
+    Azure Key Vault está diseñado para proteger las claves criptográficas y otros secretos. Para más información, consulte el [Tutorial: Integración de Azure Key Vault en una implementación de plantilla de ARM](./template-tutorial-use-key-vault.md). También se recomienda actualizar la contraseña cada tres meses.
 
 ## <a name="prepare-a-powershell-script"></a>Preparación de un script de PowerShell.
 

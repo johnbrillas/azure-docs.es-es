@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/06/2020
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 7246375468b3419c3d52ee3d5a51a95aa20050a9
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 2f3e4bf640b8da31a7fa4d818b94b0372d3026b8
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876722"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763438"
 ---
 La aplicación de ejemplo incluye dos dispositivos simulados y una puerta de enlace IoT Edge. En los siguientes tutoriales se muestran dos enfoques para experimentar y comprender las funcionalidades de la puerta de enlace:
 
@@ -36,6 +36,6 @@ Para completar esta serie de tutoriales, necesitará lo siguiente:
 
 ## <a name="initial-setup"></a>Instalación inicial
 
-En estos tutoriales, se actualizan y se usan varios archivos de configuración. Las versiones iniciales de estos archivos están disponibles en el repositorio de GitHub [LVA-gateway](https://github.com/Azure/live-video-analytics/tree/master/ref-apps/lva-edge-iot-central-gateway). El repositorio también incluye un archivo de texto para anotaciones rápidas que puede descargar y usar para registrar los valores de configuración de los servicios que implemente.
+En estos tutoriales, se actualizan y se usan varios archivos de configuración. Las versiones iniciales de estos archivos están disponibles en el repositorio de GitHub [LVA-gateway](https://github.com/Azure/live-video-analytics/tree/master/ref-apps/lva-edge-iot-central-gateway). El repositorio incluye un archivo de texto para [anotaciones rápidas](https://github.com/Azure/live-video-analytics/blob/master/ref-apps/lva-edge-iot-central-gateway/setup/Scratchpad.txt) que puede descargar y usar para registrar los valores de configuración de los servicios que implemente. Este archivo le ayuda a completar los pasos posteriores de los tutoriales.
 
 Cree una carpeta llamada *lva-configuration* en el equipo local para guardar copias de estos archivos. A continuación, haga clic con el botón derecho en cada uno de los vínculos siguientes y elija **Guardar como** para guardar el archivo en la carpeta *lva-configuration*:

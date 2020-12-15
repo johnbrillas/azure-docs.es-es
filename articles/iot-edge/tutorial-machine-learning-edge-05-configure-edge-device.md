@@ -9,18 +9,26 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: amqp, devx-track-azurecli
-ms.openlocfilehash: f57e809373a8bd06c4b4afbb9b193464315e788f
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: bc62590b9517b2c6d16fdf2637990b845248d2ec
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94959584"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932360"
 ---
 # <a name="tutorial-configure-an-iot-edge-device"></a>Tutorial: Configure un dispositivo IoT Edge
 
 En este artículo, se configurará una máquina virtual de Azure que ejecuta Linux para que sea un dispositivo IoT Edge que actúa como puerta de enlace transparente. La configuración de una puerta de enlace transparente permite que los dispositivos se conecten a Azure IoT Hub a través de la puerta de enlace sin necesidad de saber que dicha puerta existe. Al mismo tiempo, un usuario que interactúa con los dispositivos de Azure IoT Hub no es consciente del dispositivo de puerta de enlace intermedio. En última instancia, se agregará análisis de Edge a nuestro sistema mediante la adición de módulos de IoT Edge a la puerta de enlace transparente.
 
 Los pasos descritos en este artículo los realiza normalmente un desarrollador en la nube.
+
+En esta sección del tutorial, aprenderá a:
+
+> [!div class="checklist"]
+>
+> * Crear certificados para permitir que el dispositivo de puerta de enlace se conecte de forma segura a los dispositivos de nivel inferior.
+> * Crear un dispositivo IoT Edge.
+> * Crear una máquina virtual de Azure para simular el dispositivo IoT Edge.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -295,6 +303,10 @@ A continuación, actualizará los certificados y el nombre de host editando dire
     ```bash
     journalctl -u iotedge --no-pager --no-full
     ```
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+Este tutorial forma parte de una serie en la que cada artículo complementa el trabajo realizado en los anteriores. No borre ningún recurso hasta que complete el tutorial final.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 Se acaba de completar la configuración de una VM de Azure como puerta de enlace transparente de Azure IoT Edge. Comenzamos con la generación de certificados de prueba, que se cargaron en Azure Key Vault. A continuación, usamos un script y una plantilla de Resource Manager para implementar la máquina virtual con la imagen "Ubuntu Server 16.04 LTS + Entorno de ejecución de Azure IoT Edge" desde Azure Marketplace. Con la máquina virtual en funcionamiento, nos conectamos mediante SSH, iniciamos sesión en Azure y descargamos certificados de Key Vault. Realizamos varias actualizaciones en la configuración del entorno de ejecución de Azure IoT Edge actualizando el archivo config.yaml.

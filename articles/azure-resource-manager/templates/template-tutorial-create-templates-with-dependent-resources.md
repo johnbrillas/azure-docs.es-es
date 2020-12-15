@@ -1,20 +1,20 @@
 ---
 title: Plantilla con recursos dependientes
-description: Aprenda a crear una plantilla de Azure Resource Manager con varios recursos y a implementarla mediante Azure Portal.
+description: Aprenda a crear una plantilla de Azure Resource Manager (ARM) con varios recursos y a implementarla mediante Azure Portal.
 author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 3ed653c511dbd775d124e1abd6f4bb02923edb25
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a43fa12e72484e97b828648cd7d610f5cf15ea4e
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86102079"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931595"
 ---
 # <a name="tutorial-create-arm-templates-with-dependent-resources"></a>Tutorial: Creación de plantillas de Resource Manager con recursos dependientes
 
-Aprenda a crear una plantilla de Azure Resource Manager para implementar varios recursos y configurar la orden de implementación. Después de crear la plantilla, puede implementarla mediante Cloud Shell en Azure Portal.
+Aprenda a crear una plantilla de Azure Resource Manager (ARM) para implementar varios recursos y configurar la orden de implementación. Después de crear la plantilla, puede implementarla mediante Cloud Shell en Azure Portal.
 
 En este tutorial, creará una cuenta de almacenamiento, una máquina virtual, una red virtual y algunos otros recursos dependientes. Algunos de los recursos no se pueden implementar hasta que existe otro recurso. Por ejemplo, no se puede crear la máquina virtual hasta que existe su cuenta de almacenamiento y la interfaz de red. Esta relación se define al marcar un recurso como dependiente de los otros. Administrador de recursos evalúa las dependencias entre recursos y los implementa en su orden dependiente. Cuando no hay recursos dependientes entre sí, Resource Manager los implementa en paralelo. Para más información consulte [Definición del orden de implementación de recursos en plantillas de Azure Resource Manager](./define-resource-dependency.md).
 
@@ -33,7 +33,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Para completar este artículo, necesitará lo siguiente:
 
-* Visual Studio Code con la extensión Resource Manager Tools. Consulte [Quickstart: Creación de plantillas de Azure Resource Manager con Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+* Visual Studio Code con la extensión Resource Manager Tools. Consulte [Quickstart: Creación de plantillas de ARM mediante Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 * Para aumentar la seguridad, utilice una contraseña generada para la cuenta de administrador de máquina virtual. Este es un ejemplo para generar una contraseña:
 
     ```console
@@ -67,7 +67,7 @@ Al explorar la plantilla de esta sección, intente responder estas preguntas:
 
 1. En Visual Studio Code, contraiga los elementos hasta que vea únicamente los elementos de primer nivel y los de segundo nivel dentro de **Recursos**:
 
-    ![Plantillas de Azure Resource Manager en Visual Studio Code](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code.png)
+    ![Plantillas de ARM de Visual Studio Code](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code.png)
 
     La plantilla define seis recursos:
 
@@ -82,19 +82,19 @@ Al explorar la plantilla de esta sección, intente responder estas preguntas:
 
 1. Expanda el primer recurso. Es una cuenta de almacenamiento. Compare la definición del recurso con la [referencia de la plantilla](/azure/templates/Microsoft.Storage/storageAccounts).
 
-    ![Definición de la cuenta de almacenamiento de las plantillas de Azure Resource Manager en Visual Studio Code](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-storage-account-definition.png)
+    ![Definición de la cuenta de almacenamiento de las plantilla de ARM de Visual Studio Code](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-storage-account-definition.png)
 
 1. Expanda el segundo recurso. El tipo de recurso es `Microsoft.Network/publicIPAddresses`. Compare la definición del recurso con la [referencia de la plantilla](/azure/templates/microsoft.network/publicipaddresses).
 
-    ![Definición de dirección IP pública de las plantillas de Azure Resource Manager en Visual Studio Code](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-public-ip-address-definition.png)
+    ![Definición de la dirección IP pública de las plantilla de ARM de Visual Studio Code](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-public-ip-address-definition.png)
 
 1. Expanda el tercer recurso. El tipo de recurso es `Microsoft.Network/networkSecurityGroups`. Compare la definición del recurso con la [referencia de la plantilla](/azure/templates/microsoft.network/networksecuritygroups).
 
-    ![Definición del grupo de seguridad de red de las plantillas de Azure Resource Manager en Visual Studio Code](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-network-security-group-definition.png)
+    ![Definición de grupo de seguridad de red de las plantilla de ARM de Visual Studio Code](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-network-security-group-definition.png)
 
 1. Expanda el cuarto recurso. El tipo de recurso es `Microsoft.Network/virtualNetworks`:
 
-    ![Elemento dependsOn de la red virtual de las plantillas de Azure Resource Manager en Visual Studio Code](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-virtual-network-definition.png)
+    ![Elemento dependsOn de la red virtual de las plantillas de ARM de Visual Studio Code](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-virtual-network-definition.png)
 
     El elemento dependsOn le permite definir un recurso como dependiente de uno o varios recursos. Este recurso depende de otro recurso:
 
@@ -112,7 +112,7 @@ Al explorar la plantilla de esta sección, intente responder estas preguntas:
 
 El siguiente diagrama muestra los recursos y la información de dependencia de esta plantilla:
 
-![Diagrama de dependencias de las plantillas de Azure Resource Manager en Visual Studio Code](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code-dependency-diagram.png)
+![Diagrama de dependencia de las plantilla de ARM de Visual Studio Code](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code-dependency-diagram.png)
 
 Mediante la especificación de las dependencias, Resource Manager implementa de forma eficaz la solución. Este implementa la cuenta de almacenamiento, la dirección IP pública y la red virtual en paralelo porque no tienen ninguna dependencia. Una vez implementadas la dirección IP y la red virtual, se crea la interfaz de red. Cuando se han implementado los recursos restantes, Resource Manager implementa la máquina virtual.
 

@@ -7,12 +7,12 @@ ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 11/24/2020
-ms.openlocfilehash: fe335b00df23ff132ad61b27efd733d195ee3bfb
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 7ee203595a796529ae0aefe8b0c52a689ac29968
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96030978"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96762336"
 ---
 # <a name="tutorial-create-a-cross-region-azure-load-balancer-using-the-azure-portal"></a>Tutorial: Creación de una instancia de Azure Load Balancer entre regiones mediante Azure Portal
 
@@ -28,7 +28,11 @@ En este tutorial, aprenderá a:
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+> [!IMPORTANT]
+> Azure Load Balancer entre regiones se encuentra actualmente en versión preliminar pública.
+> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Suscripción a Azure.
 - Dos instancias de Azure Load Balancer con SKU **Estándar** con grupos de back-end implementados en dos regiones de Azure diferentes.
@@ -37,8 +41,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="sign-in-to-azure-portal"></a>Inicio de sesión en Azure Portal
 
-> [!IMPORTANT]
-> El equilibrador de carga entre regiones se encuentra actualmente en versión preliminar y está oculto en el portal de versión preliminar.  Inicie sesión en **https://preview.portal.azure.com/?feature.globallb=true** para ver e implementar la característica.
+[Inicie sesión](https://preview.portal.azure.com) en el portal de vista previa de Azure.
 
 ## <a name="create-cross-region-load-balancer"></a>Creación de un equilibrador de carga entre regiones
 
@@ -48,9 +51,9 @@ En esta sección, va a crear un equilibrador de carga entre regiones y una direc
 
 2. En la pestaña **Conceptos básicos** de la página **Crear equilibrador de carga**, escriba o seleccione la siguiente información: 
 
-    | Configuración                 | Value                                              |
+    | Configuración                 | Valor                                              |
     | ---                     | ---                                                |
-    | Suscripción               | Seleccione su suscripción.    |    
+    | Subscription               | Seleccione su suscripción.    |    
     | Resource group         | Seleccione **Crear nuevo** y escriba **CreateCRLBTutorial-rg** en el cuadro de texto.|
     | Nombre                   | Escriba **myLoadBalancer-CR**.                                   |
     | Region         | Seleccione **Oeste de EE. UU.**                                        |
@@ -117,7 +120,7 @@ En esta sección va a crear un sondeo de estado para crear la regla de equilibri
 
 3. Use estos valores para configurar el sondeo de estado:
 
-    | Configuración | Value |
+    | Configuración | Valor |
     | ------- | ----- |
     | Nombre | Escriba **myHealthProbe**. |
     | Protocolo | seleccione **TCP**. |
@@ -148,7 +151,7 @@ En esta sección va a crear una regla de equilibrador de carga:
 
 3. Use estos valores para configurar la regla de equilibrio de carga:
     
-    | Configuración | Value |
+    | Configuración | Valor |
     | ------- | ----- |
     | Nombre | Escriba **myHTTPRule**. |
     | Versión de la dirección IP | Seleccione **IPv4**. |

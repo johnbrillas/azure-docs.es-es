@@ -4,23 +4,22 @@ titleSuffix: Azure App Configuration
 description: En este tutorial aprenderá a actualizar dinámicamente los datos de configuración de aplicaciones de ASP.NET Core
 services: azure-app-configuration
 documentationcenter: ''
-author: lisaguthrie
-manager: maiye
+author: AlexandraKemperMS
 editor: ''
 ms.assetid: ''
 ms.service: azure-app-configuration
 ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 02/24/2019
-ms.author: lcozzens
+ms.date: 09/1/2020
+ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: f98ec384876da1d30952d1c4edc1d00049e44682
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 1fd495083f5f9be367dd0f125883b181e3bed27b
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92077004"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96930558"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>Tutorial: Uso de la configuración dinámica en una aplicación de ASP.NET Core
 
@@ -57,7 +56,7 @@ Una clave de *Sentinel* es una clave especial que se usa para indicar cuándo ha
 1. Seleccione **Aplicar**.
 
 > [!NOTE]
-> Si no está utilizando una clave de Sentinel, deberá registrar manualmente cada clave que quiera ver.
+> Si no está utilizando una clave de Sentinel, deberá registrar manualmente cada clave que quiera ver.
 
 ## <a name="reload-data-from-app-configuration"></a>Recarga de datos de App Configuration
 
@@ -161,7 +160,7 @@ Una clave de *Sentinel* es una clave especial que se usa para indicar cuándo ha
     ```
     ---
     > [!Tip]
-    > Para más información sobre el patrón de opciones al leer valores de configuración, consulte  [Patrón de opciones en ASP.NET Core](/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1).
+    > Para obtener más información sobre el patrón de opciones al leer valores de configuración, consulte [Patrón de opciones en ASP.NET Core](/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1).
 
 4. Actualice el método `Configure` para agregar un middleware `UseAzureAppConfiguration` que permita actualizar los valores de la configuración mientras que la aplicación web de ASP.NET Core sigue recibiendo solicitudes.
 
@@ -221,6 +220,9 @@ Una clave de *Sentinel* es una clave especial que se usa para indicar cuándo ha
     ---
     
     El middleware utiliza la configuración de actualización especificada en el método `AddAzureAppConfiguration` de `Program.cs` para desencadenar una actualización para cada solicitud recibida por la aplicación web de ASP.NET Core. Para cada solicitud, se desencadena una operación de actualización y la biblioteca cliente comprueba si el valor en caché de los ajustes de configuración registrados ha expirado. Si ha expirado, se actualiza.
+
+    > [!NOTE]
+    > Para asegurarse de que la configuración se ha actualizado, agregue el middleware tan pronto como sea posible a la canalización de solicitudes para que no se vea cortocircuitada por otro middleware en la aplicación.
 
 ## <a name="use-the-latest-configuration-data"></a>Uso de los datos de configuración más recientes
 

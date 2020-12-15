@@ -9,14 +9,14 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 09/03/2019
+ms.date: 12/08/2020
 ms.author: mbaldwin
-ms.openlocfilehash: e1c780d1eb9535343373701e6dfe4899a9cba366
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: b5f4f3d2b3eda9f00049cee26ae95850d65257d6
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91803932"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96778876"
 ---
 # <a name="quickstart-create-a-key-vault-using-the-azure-portal"></a>Inicio rápido: Creación de un almacén de claves mediante Azure Portal
 
@@ -67,7 +67,7 @@ Cuando ya no lo necesite, elimine el grupo de recursos; de este modo se eliminar
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este inicio rápido ha creado una instancia de Key Vault y ha almacenado un secreto en ella. Para más información sobre Key Vault y cómo integrarlo con las aplicaciones, continúe con los artículos siguientes.
+En este inicio rápido, ha creado una instancia de Key Vault mediante Azure Portal. Para más información sobre Key Vault y cómo integrarlo con las aplicaciones, continúe con los artículos siguientes.
 
 - Lea una [introducción a Azure Key Vault](overview.md).
 - Consulte la [guía del desarrollador de Azure Key Vault](developers-guide.md).

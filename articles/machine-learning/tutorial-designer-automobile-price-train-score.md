@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 09/28/2020
 ms.custom: designer
-ms.openlocfilehash: 0475e7a7b9bb40e77fe23362ff098350037bdd30
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: ca812fc7548e3c70f1faa1e1ed6a34afda3872af
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555284"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575982"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer"></a>Tutorial: Predicción del precio de un automóvil con el diseñador
 
@@ -48,7 +48,10 @@ Para crear una canalización de Azure Machine Learning, necesita un área de tra
 
 ### <a name="create-a-new-workspace"></a>Crear un área de trabajo
 
-Para usar el diseñador, primero necesita un área de trabajo de Azure Machine Learning. El área de trabajo es el recurso de nivel superior de Azure Machine Learning y proporciona un lugar centralizado para trabajar con todos los artefactos que crea con Azure Machine Learning.
+Para usar el diseñador, necesita un área de trabajo de Azure Machine Learning. El área de trabajo es el recurso de nivel superior de Azure Machine Learning y proporciona un lugar centralizado para trabajar con todos los artefactos que crea con Azure Machine Learning. Para más información sobre cómo crear un área de trabajo, consulte [Creación y administración de áreas de trabajo de Azure Machine Learning](how-to-manage-workspace.md).
+
+> [!NOTE]
+> Si el área de trabajo utiliza una red virtual, hay pasos de configuración adicionales que debe realizar para usar el diseñador. Para más información, consulte el artículo sobre el [uso de Azure Machine Learning Studio en una red virtual de Azure](how-to-enable-studio-virtual-network.md).
 
 ### <a name="create-the-pipeline"></a>Creación de la canalización
 
@@ -275,13 +278,13 @@ Ahora que ya ha configurado la canalización, puede enviar una ejecución de can
     
     Puede ver el estado y los detalles de la ejecución en la parte superior derecha del lienzo.
     
-    Si es la primera ejecución, la canalización puede tardar hasta 20 minutos en finalizar. La configuración del proceso predeterminada tiene un tamaño de nodo mínimo de 0, lo que significa que el diseñador debe asignar recursos después de estar inactivo. Las ejecuciones de canalización repetidas tardarán menos en terminar, dado que los recursos del proceso ya están asignados. Además, el diseñador usa resultados almacenados en la caché en cada módulo para mejorar aún más la eficiencia.
+    Si esta es la primera ejecución, la canalización puede tardar hasta 20 minutos en finalizar la ejecución. La configuración del proceso predeterminada tiene un tamaño de nodo mínimo de 0, lo que significa que el diseñador debe asignar recursos después de estar inactivo. Las ejecuciones de canalización repetidas tardarán menos en terminar, dado que los recursos del proceso ya están asignados. Además, el diseñador usa resultados almacenados en la caché en cada módulo para mejorar aún más la eficiencia.
 
 ### <a name="view-scored-labels"></a>Visualización de etiquetas con puntuación
 
 Una vez finalizada la ejecución, puede ver los resultados de la ejecución de la canalización. En primer lugar, examine las predicciones generadas por el modelo de regresión.
 
-1. Haga clic con el botón derecho en el módulo **Score Model** (Puntuar modelo) y seleccione **Visualizar** para ver el resultado.
+1. Haga clic con el botón derecho en el módulo **Score Model** (Puntuar modelo) y seleccione **Visualizar** para ver la salida.
 
     Aquí puede ver los precios previstos y los precios reales de los datos de prueba.
 

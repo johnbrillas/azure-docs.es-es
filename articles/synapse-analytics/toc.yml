@@ -96,8 +96,6 @@
           href: ./cicd/continuous-integration-deployment.md
         - name: Seguridad
           items:
-            - name: Línea de base de seguridad
-              href: security-baseline.md
             - name: Cifrado
               href: ./security/workspaces-encryption.md
             - name: Seguridad de redes
@@ -394,7 +392,7 @@
                   displayname: 'transparent, data, encryption'
         - name: Administración de cargas de trabajo
           items:
-            - name: Información general
+            - name: Introducción
               href: ./sql-data-warehouse/sql-data-warehouse-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
               displayname: 'workload, management'
             - name: Clasificación de la carga de trabajo
@@ -566,7 +564,7 @@
           href: ./spark/apache-spark-delta-lake-overview.md
         - name: Administración de bibliotecas
           href: ./spark/apache-spark-azure-portal-add-libraries.md
-        - name: Uso de cuadernos
+        - name: Uso de cuadernos y de herramientas IDE
           items:
             - name: Administración de cuadernos
               href: ./spark/apache-spark-development-using-notebooks.md

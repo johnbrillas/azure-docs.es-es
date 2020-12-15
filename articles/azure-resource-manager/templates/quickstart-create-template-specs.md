@@ -2,15 +2,15 @@
 title: Creación e implementación de una especificación de plantilla
 description: Obtenga información sobre cómo crear una especificación de plantilla a partir de una plantilla de Resource Manager. A continuación, implemente la especificación de plantilla en un grupo de recursos de su suscripción.
 author: tfitzmac
-ms.date: 11/17/2020
+ms.date: 12/01/2020
 ms.topic: quickstart
 ms.author: tomfitz
-ms.openlocfilehash: 8439b1de5a69b3e5bfc22e10f089938da921c1cb
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 03cf2013f1cec9722af5d7e72285d9f11d8a6bc1
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94747509"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518964"
 ---
 # <a name="quickstart-create-and-deploy-template-spec-preview"></a>Inicio rápido: Creación e implementación de una especificación de plantilla (versión preliminar)
 
@@ -21,15 +21,37 @@ En esta guía de inicio rápido se muestra cómo empaquetar una plantilla de Azu
 Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> Las especificaciones de plantilla se encuentran actualmente en versión preliminar. Para usarlo, debe instalar la versión más reciente de PowerShell o la CLI de Azure. En Azure PowerShell, use la [versión 5.0.0 o posterior](/powershell/azure/install-az-ps). En la CLI de Azure, use la [versión 2.14.2 o posterior](/cli/azure/install-azure-cli).
+> Las especificaciones de plantilla se encuentran actualmente en versión preliminar. Para usarlas con Azure PowerShell, debe instalar la [versión 5.0.0 o posterior](/powershell/azure/install-az-ps). Para usarlas con la CLI de Azure, use la [versión 2.14.2 o posterior](/cli/azure/install-azure-cli).
 
 ## <a name="create-template-spec"></a>Creación de una especificación de plantilla
 
-La especificación de plantilla es un tipo de recurso llamado **Microsoft.Resources/templateSpecs**. Para crear la especificación de plantilla, puede usar Azure PowerShell, la CLI de Azure o una plantilla de ARM. En todas las opciones, necesita una plantilla de Resource Manager que esté empaquetada en la especificación de la plantilla.
+La especificación de plantilla es un tipo de recurso llamado **Microsoft.Resources/templateSpecs**. Para crear la especificación de plantilla, puede usar Azure Portal, Azure PowerShell, la CLI de Azure o una plantilla de Resource Manager. En todas las opciones, necesita una plantilla de Resource Manager que esté empaquetada en la especificación de la plantilla.
 
 Con PowerShell y la CLI, la plantilla de ARM se pasa como un parámetro al comando. Con la plantilla de Resource Manager, la que se empaquetará dentro de la especificación de plantilla se inserta dentro de la definición de la especificación de plantilla.
 
 Estas opciones se muestran a continuación.
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. En la parte superior de la pantalla, en **Buscar recursos, servicios y documentos**, escriba **especificaciones de plantilla** y, luego, seleccione **Especificaciones de plantilla**.
+1. Seleccione **Create template spec** (Crear una especificación de plantilla).
+1. Seleccione o escriba los siguientes valores:
+
+    - **Nombre**: escriba un nombre para la especificación de plantilla.  Por ejemplo, **storageSpec**.
+    - **Suscripción**: seleccione la suscripción de Azure usada para crear la especificación de plantilla.
+    - **Grupo de recursos**: seleccione **Crear nuevo** y especifique un nuevo nombre de grupo de recursos.  Por ejemplo, **templateSpecRG**.
+    - **Ubicación**: seleccione una ubicación para el grupo de recursos. Por ejemplo, **Oeste de EE. UU. 2**.
+    - **Versión**: escriba una versión para la especificación de plantilla. Por ejemplo, **1.0** o **v1.0**.
+
+1. Seleccione **Siguiente: Editar plantilla**.
+1. Reemplace el contenido de la plantilla por el siguiente código JSON:
+
+    :::code language="json" source="~/quickstart-templates/101-storage-account-create/azuredeploy.json":::
+
+    Esta es la plantilla que se empaquetará dentro de la especificación de plantilla.
+1. Seleccione **Revisar + crear**.
+1. Seleccione **Crear**.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -203,7 +225,23 @@ Estas opciones se muestran a continuación.
 
 ## <a name="deploy-template-spec"></a>Implementación de la especificación de plantilla
 
-Ahora puede implementar la especificación de plantilla. La implementación de la especificación de plantilla es similar a la implementación de la plantilla que contiene, con la excepción de que se pasa el identificador de recurso de la especificación de plantilla. Puede usar los mismos comandos de implementación y, si es necesario, pasar los valores de parámetro para la especificación de plantilla.
+Ahora puede implementar la especificación de plantilla. Implementar la especificación de plantilla es muy parecido a implementar la plantilla que contiene, excepto que se pasa el identificador de recurso de la especificación de plantilla en Azure PowerShell o la CLI de Azure. Puede usar los mismos comandos de implementación y, si es necesario, pasar los valores de parámetro para la especificación de plantilla.
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
+
+1. En Azure Portal, abra el grupo de recursos que creó en el último procedimiento.  Por ejemplo, **templateSpecRG**.
+1. Seleccione la especificación de plantilla que creó. Por ejemplo, **storageSpec**.
+1. Seleccione **Implementar**.
+1. Seleccione o escriba los siguientes valores:
+
+    - **Suscripción**: seleccione una suscripción de Azure para crear el recurso.
+    - **Grupo de recursos**: seleccione **Crear nuevo** y, luego, escriba **storageRG**.
+    - **Tipo de cuenta de almacenamiento**: seleccione **Standard_GRS**.
+
+    Se crea un grupo de recursos y se implementa la plantilla que hay en la especificación de plantilla en el nuevo grupo de recursos.
+
+1. Seleccione **Revisar + crear**.
+1. Seleccione **Crear**.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

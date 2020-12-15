@@ -1,21 +1,27 @@
 ---
-title: 'Tutorial: Uso de Creator para crear planos interiores'
-description: Tutorial sobre el uso de Azure Maps Creator para crear mapas de interiores
+title: 'Tutorial: Uso de Creator (versión preliminar) de Microsoft Azure Maps para crear mapas de interiores'
+description: Tutorial sobre cómo usar Creator (versión preliminar) de Microsoft Azure Maps para crear mapas de interiores
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 09/22/2020
+ms.date: 12/07/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 80d61e69b5e8d666406c378c2d3fece28c822491
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: eab8a2729209bb0023662b652f862b4fa678470e
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896786"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905730"
 ---
-# <a name="tutorial-use-creator-to-create-indoor-maps"></a>Tutorial: Uso de Creator para crear planos interiores
+# <a name="tutorial-use-creator-preview-to-create-indoor-maps"></a>Tutorial: Uso de Creator (versión preliminar) para crear mapas de interiores
+
+> [!IMPORTANT]
+> El servicio Creator de Azure Maps se encuentra actualmente en versión preliminar pública.
+> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+
 
 En este tutorial verá cómo crear planos interiores. En este tutorial, aprenderá a usar la API para realizar lo siguiente:
 
@@ -34,7 +40,7 @@ Para crear planos interiores:
 
 1. [Cree una cuenta de Azure Maps](quick-demo-map-app.md#create-an-azure-maps-account).
 2. [Obtenga una clave de suscripción principal](quick-demo-map-app.md#get-the-primary-key-for-your-account), también conocida como clave principal o clave de suscripción.
-3. [Cree un recurso de Creator](how-to-manage-creator.md)
+3. [Cree un recurso de Creator (versión preliminar)](how-to-manage-creator.md).
 4. Descargue el [paquete de dibujo de ejemplo](https://github.com/Azure-Samples/am-creator-indoor-data-examples/blob/master/Sample%20-%20Contoso%20Drawing%20Package.zip).
 
 En este tutorial se usa la aplicación [Postman](https://www.postman.com/), pero puede elegir un entorno de desarrollo de API diferente.
@@ -58,7 +64,7 @@ Data Upload API es una transacción de larga duración que implementa el patrón
     https://atlas.microsoft.com/mapData/upload?api-version=1.0&dataFormat=zip&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-4. En la pestaña de **encabezados** , especifique un valor para la clave `Content-Type`. El paquete de dibujo es una carpeta comprimida, por lo que debe usar el valor `application/octet-stream`. En la pestaña **Body** (Cuerpo), seleccione **binary** (binario). Haga clic en **Select File** (Seleccionar archivo) y elija un paquete de dibujo.
+4. En la pestaña de **encabezados**, especifique un valor para la clave `Content-Type`. El paquete de dibujo es una carpeta comprimida, por lo que debe usar el valor `application/octet-stream`. En la pestaña **Body** (Cuerpo), seleccione **binary** (binario). Haga clic en **Select File** (Seleccionar archivo) y elija un paquete de dibujo.
 
      ![administración de datos](./media/tutorial-creator-indoor-maps/enter-content-type-dialog.png)
 
@@ -102,7 +108,7 @@ Data Upload API es una transacción de larga duración que implementa el patrón
 
  Cuando se haya cargado el paquete de dibujo, usaremos `udid` en el paquete cargado con el fin de convertirlo en datos de plano. Conversion API usa una transacción de larga duración que implementa el patrón que se define [aquí](creator-long-running-operation.md). Una vez completada la operación, usaremos el valor `conversionId` para obtener acceso los datos convertidos. Siga estos pasos para obtener el valor `conversionId`.
 
-1. Seleccione **Nuevo** . En la ventana **Create New** (Crear nuevo), seleccione **Request** (Solicitud). Escriba un **nombre de solicitud** y seleccione una colección. Haga clic en **Save** (Guardar).
+1. Seleccione **Nuevo**. En la ventana **Create New** (Crear nuevo), seleccione **Request** (Solicitud). Escriba un **nombre de solicitud** y seleccione una colección. Haga clic en **Save**(Guardar).
 
 2. Seleccione el método HTTP **POST** en la pestaña del generador y escriba la siguiente dirección URL para convertir el paquete de dibujo cargado en los datos del plano. Use el valor `udid` en el paquete cargado.
 
@@ -111,7 +117,7 @@ Data Upload API es una transacción de larga duración que implementa el patrón
     ```
 
     >[!IMPORTANT]
-    > Es posible que las direcciones URL de la API de este documento tengan que ajustarse según la ubicación del recurso del Creador. Para más información, consulte [Acceso a Servicios del creador](how-to-manage-creator.md#access-to-creator-services).
+    > Es posible que las direcciones URL de la API de este documento tengan que ajustarse según la ubicación del recurso del Creador. Para más información, consulte [Acceso a los servicios de Creator](how-to-manage-creator.md#access-to-creator-services).
 
 3. Haga clic en el botón **Send** (Enviar) y espere a que se procese la solicitud. Una vez finalizada la solicitud, vaya a la pestaña **Headers** (Encabezados) de la respuesta y busque la clave **Location** (Ubicación). Copie el valor de la clave **Location** (Ubicación), que es `status URL` en la solicitud de conversión. Dicha clave se usará en el paso siguiente.
 
@@ -310,7 +316,7 @@ Un conjunto de mosaicos es un conjunto de mosaicos vectoriales que se representa
     https://atlas.microsoft.com/featureState/stateset?api-version=1.0&datasetId={datasetId}&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-3. En el **encabezado** de la solicitud **POST** , establezca `Content-Type` en `application/json`. En el **cuerpo** , proporcione los siguientes estilos para reflejar los cambios en los *estados* `occupied` y `temperature`. Cuando haya terminado, haga clic en **Send** (Enviar).
+3. En el **encabezado** de la solicitud **POST**, establezca `Content-Type` en `application/json`. En el **cuerpo**, proporcione los siguientes estilos para reflejar los cambios en los *estados* `occupied` y `temperature`. Cuando haya terminado, haga clic en **Send** (Enviar).
 
     ```json
     {
@@ -383,7 +389,7 @@ Un conjunto de mosaicos es un conjunto de mosaicos vectoriales que se representa
     https://atlas.microsoft.com/featureState/state?api-version=1.0&statesetID={statesetId}&featureID={featureId}&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-6. En el **encabezado** de la solicitud **POST** , establezca `Content-Type` en `application/json`. En el **CUERPO** de la solicitud **POST** , copie y pegue el archivo JSON del ejemplo siguiente.
+6. En el **encabezado** de la solicitud **POST**, establezca `Content-Type` en `application/json`. En el **CUERPO** de la solicitud **POST**, copie y pegue el archivo JSON del ejemplo siguiente.
 
     ```json
     {
@@ -404,7 +410,7 @@ Un conjunto de mosaicos es un conjunto de mosaicos vectoriales que se representa
 
 [Feature Get States API](/rest/api/maps/featurestate/getstatespreview) permite recuperar el estado de una característica mediante el `ID` de la característica. También puede eliminar el conjunto de estados y sus recursos mediante [Feature State Delete API](/rest/api/maps/featurestate/deletestatesetpreview).
 
-Para obtener más información sobre los diferentes servicios de Azure Maps Creator que se describen en este artículo, consulte [Mapas de interiores de Creator](creator-indoor-maps.md).
+Para más información sobre los diferentes servicios de Creator (versión preliminar) de Azure Maps que se describen en este artículo, consulte [Uso de Creator para planos interiores](creator-indoor-maps.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

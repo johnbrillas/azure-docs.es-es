@@ -11,12 +11,12 @@ ms.custom:
 - cli-validate
 - devx-track-python
 - devx-track-azurecli
-ms.openlocfilehash: 348721304970a5d1d697ecf546a8c5039e81afc1
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: b106b403022f3407a3838b7f65222baf41cbfff5
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94506114"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96852972"
 ---
 # <a name="tutorial-deploy-a-django-web-app-with-postgresql-in-azure-app-service"></a>Tutorial: Implementación de una aplicación web de Django de Python con PostgreSQL en Azure App Service
 
@@ -35,7 +35,7 @@ En este tutorial, se usa la CLI de Azure para completar las siguientes tareas:
 También puede usar la [versión de Azure Portal de este tutorial](/azure/developer/python/tutorial-python-postgresql-app-portal).
 
 
-## <a name="set-up-your-initial-environment"></a>Configuración del entorno inicial
+## <a name="1-set-up-your-initial-environment"></a>1. Configuración del entorno inicial
 
 1. Disponga de una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 1. Instale <a href="https://www.python.org/downloads/" target="_blank">Python 3.6 o una versión posterior</a>.
@@ -81,7 +81,7 @@ Una vez que haya iniciado sesión, puede ejecutar comandos de Azure con la CLI d
 
 ¿Tiene problemas? [Póngase en contacto con nosotros](https://aka.ms/DjangoCLITutorialHelp).
 
-## <a name="clone-or-download-the-sample-app"></a>Clonación o descarga de la aplicación de ejemplo
+## <a name="2-clone-or-download-the-sample-app"></a>2. Clonación o descarga de la aplicación de ejemplo
 
 # <a name="git-clone"></a>[Clonación de Git](#tab/clone)
 
@@ -118,7 +118,7 @@ Los valores de producción son específicos de la configuración de Django para 
 
 ¿Tiene problemas? [Póngase en contacto con nosotros](https://aka.ms/DjangoCLITutorialHelp).
 
-## <a name="create-postgres-database-in-azure"></a>Creación de una base de datos de Postgres en Azure
+## <a name="3-create-postgres-database-in-azure"></a>3. Creación de una base de datos de Postgres en Azure
 
 <!-- > [!NOTE]
 > Before you create an Azure Database for PostgreSQL server, check which [compute generation](../postgresql/concepts-pricing-tiers.md#compute-generations-and-vcores) is available in your region. -->
@@ -129,7 +129,7 @@ Instale la extensión `db-up` para la CLI de Azure:
 az extension add --name db-up
 ```
 
-Si no se reconoce el comando `az`, asegúrese de que tiene instalada la CLI de Azure tal y como se describe en [Configuración del entorno inicial](#set-up-your-initial-environment).
+Si no se reconoce el comando `az`, asegúrese de que tiene instalada la CLI de Azure tal y como se describe en [Configuración del entorno inicial](#1-set-up-your-initial-environment).
 
 A continuación, cree la base de datos de Postgres en Azure con el comando [`az postgres up`](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up):
 
@@ -137,8 +137,9 @@ A continuación, cree la base de datos de Postgres en Azure con el comando [`az 
 az postgres up --resource-group DjangoPostgres-tutorial-rg --location westus2 --sku-name B_Gen5_1 --server-name <postgres-server-name> --database-name pollsdb --admin-user <admin-username> --admin-password <admin-password> --ssl-enforcement Enabled
 ```
 
-- Reemplace *\<postgres-server-name>* por un nombre que sea único en todo Azure (el punto de conexión del servidor será `https://<postgres-server-name>.postgres.database.azure.com`). Un buen patrón es usar una combinación del nombre de la empresa y otro valor exclusivo.
-- Para *\<admin-username>* y *\<admin-password>* , especifique las credenciales para crear un usuario administrador de este servidor Postgres. No use el carácter `$` en el nombre de usuario ni la contraseña. Más adelante creará variables de entorno con estos valores, donde el carácter `$` tiene un significado especial dentro del contenedor de Linux que se usa para ejecutar aplicaciones de Python.
+- **Reemplace** *\<postgres-server-name>* por un nombre que sea **único en Azure** (el punto de conexión de servidor será `https://<postgres-server-name>.postgres.database.azure.com`). Un buen patrón es usar una combinación del nombre de la empresa y otro valor exclusivo.
+- Para *\<admin-username>* y *\<admin-password>* , especifique las credenciales para crear un usuario administrador de este servidor Postgres. El nombre de inicio de sesión del administrador no puede ser *azure_superuser*, *azure_pg_admin*, *admin*, *administrator*, *root*, *guest* ni *public*. No puede empezar por *pg_* . La contraseña debe contener entre **8 y 128 caracteres** de tres de las categorías siguientes: letras del alfabeto inglés mayúsculas, letras del alfabeto inglés minúsculas, números (0 a 9) y caracteres no alfanuméricos (por ejemplo, !, $, #, %). La contraseña no puede contener el nombre de usuario.
+- No use el carácter `$` en el nombre de usuario ni la contraseña. Más adelante creará variables de entorno con estos valores, donde el carácter `$` tiene un significado especial dentro del contenedor de Linux que se usa para ejecutar aplicaciones de Python.
 - El [plan de tarifa](../postgresql/concepts-pricing-tiers.md) B_Gen5_1 (Básico, Gen5 y 1 núcleo) que se usa aquí es el menos costoso. En el caso de las bases de datos de producción, omita el argumento `--sku-name` para usar el nivel GP_Gen5_2 (De uso general, gen. 5, 2 núcleos) en su lugar.
 
 Este comando realiza las siguientes acciones, que pueden tardar algunos minutos:
@@ -153,7 +154,7 @@ Este comando realiza las siguientes acciones, que pueden tardar algunos minutos:
 
 Puede realizar todos los pasos por separado con otros comandos `az postgres` y `psql`, pero `az postgres up` realiza todos los pasos juntos.
 
-Cuando el comando se completa, genera un objeto JSON que contiene cadenas de conexión diferentes para la base de datos, junto con la dirección URL del servidor, un nombre de usuario generado (como "joyfulKoala@msdocs-djangodb-12345") y una contraseña de GUID. Copie el nombre de usuario corto (antes de la @) y la contraseña en un archivo de texto temporal, ya que los necesitará más adelante en este tutorial.
+Cuando el comando se completa, genera un objeto JSON que contiene cadenas de conexión diferentes para la base de datos, junto con la dirección URL del servidor, un nombre de usuario generado (como "joyfulKoala@msdocs-djangodb-12345") y una contraseña de GUID. **Copie el nombre de usuario y la contraseña en un archivo de texto temporal**, ya que los necesitará más adelante en este tutorial.
 
 <!-- not all locations support az postgres up -->
 > [!TIP]
@@ -161,11 +162,11 @@ Cuando el comando se completa, genera un objeto JSON que contiene cadenas de con
 
 ¿Tiene problemas? [Póngase en contacto con nosotros](https://aka.ms/DjangoCLITutorialHelp).
 
-## <a name="deploy-the-code-to-azure-app-service"></a>Implementación del código en Azure App Service
+## <a name="4-deploy-the-code-to-azure-app-service"></a>4. Implementación del código en Azure App Service
 
 En esta sección, creará un host de aplicación en la aplicación de App Service, conectará esta aplicación a la base de datos de Postgres y, a continuación, implementará el código en ese host.
 
-### <a name="create-the-app-service-app"></a>Creación de la aplicación de App Service
+### <a name="41-create-the-app-service-app"></a>4.1 Creación de la aplicación de App Service
 
 En el terminal, asegúrese de estar en la carpeta del repositorio *djangoapp* que contiene el código de la aplicación.
 
@@ -177,7 +178,7 @@ az webapp up --resource-group DjangoPostgres-tutorial-rg --location westus2 --pl
 <!-- without --sku creates PremiumV2 plan -->
 
 - Para el argumento `--location`, use la misma ubicación que usó para la base de datos en la sección anterior.
-- Reemplace *\<app-name>* por un nombre exclusivo en todo Azure (el punto de conexión del servidor es `https://<app-name>.azurewebsites.net`). Los caracteres permitidos para *\<app-name>* son `A`-`Z`, `0`-`9` y `-`. Un buen patrón es usar una combinación del nombre de la empresa y un identificador de la aplicación.
+- **Reemplace** *\<app-name>* por un nombre que sea único en Azure (el punto de conexión del servidor es `https://<app-name>.azurewebsites.net`). Los caracteres permitidos para *\<app-name>* son `A`-`Z`, `0`-`9` y `-`. Un buen patrón es usar una combinación del nombre de la empresa y un identificador de la aplicación.
 
 Este comando realiza las siguientes acciones, que pueden tardar algunos minutos:
 
@@ -196,7 +197,7 @@ Tras una implementación correcta, el comando genera la salida JSON como en el e
 
 ¿Tiene problemas? Consulte primero la [Guía de solución de problemas](configure-language-python.md#troubleshooting) y, si eso no funciona, [háganoslo saber](https://aka.ms/DjangoCLITutorialHelp).
 
-### <a name="configure-environment-variables-to-connect-the-database"></a>Configuración de las variables de entorno para conectarse a la base de datos
+### <a name="42-configure-environment-variables-to-connect-the-database"></a>4.2 Configuración de variables de entorno para conectar la base de datos
 
 Con el código ahora implementado en App Service, el paso siguiente consiste en conectar la aplicación a la base de datos de Postgres en Azure.
 
@@ -216,11 +217,11 @@ En el código de Python, tiene acceso a esta configuración como variables de en
 
 ¿Tiene problemas? Consulte primero la [Guía de solución de problemas](configure-language-python.md#troubleshooting) y, si eso no funciona, [háganoslo saber](https://aka.ms/DjangoCLITutorialHelp).
 
-### <a name="run-django-database-migrations"></a>Ejecución de migraciones de base de datos de Django
+### <a name="43-run-django-database-migrations"></a>4.3 Ejecución de migraciones de la base de datos de Django
 
 Las migraciones de bases de datos de Django aseguran que el esquema de la base de datos de PostgreSQL en Azure coincida con las descritas en el código.
 
-1. Abra una sesión de SSH en el explorador. Para ello, vaya a la siguiente dirección URL e inicie sesión con las credenciales de su cuenta de Azure (no las credenciales del servidor de bases de datos).
+1. Abra una sesión de SSH **en el explorador**. Para ello, vaya a la siguiente dirección URL e inicie sesión con las credenciales de su cuenta de Azure (no las credenciales del servidor de bases de datos).
 
     ```
     https://<app-name>.scm.azurewebsites.net/webssh/host
@@ -230,7 +231,7 @@ Las migraciones de bases de datos de Django aseguran que el esquema de la base d
 
     En macOS y Linux, puede conectarse alternativamente una sesión SSH mediante el comando de [`az webapp ssh`](/cli/azure/webapp?view=azure-cli-latest&preserve-view=true#az_webapp_ssh).
 
-    Si no puede conectarse a la sesión SSH, significa que no se pudo iniciar la propia aplicación. [Compruebe los registros de diagnóstico](#stream-diagnostic-logs) para más información. Por ejemplo, si no ha creado la configuración de la aplicación necesaria en la sección anterior, los registros indicarán `KeyError: 'DBNAME'`.
+    Si no puede conectarse a la sesión SSH, significa que no se pudo iniciar la propia aplicación. [Compruebe los registros de diagnóstico](#6-stream-diagnostic-logs) para más información. Por ejemplo, si no ha creado la configuración de la aplicación necesaria en la sección anterior, los registros indicarán `KeyError: 'DBNAME'`.
 
 1. En la sesión de SSH, ejecute los siguientes comandos (puede pegar los comandos con **CTRL**+**Mayús**+**V**):
 
@@ -257,11 +258,11 @@ Las migraciones de bases de datos de Django aseguran que el esquema de la base d
 
 ¿Tiene problemas? Consulte primero la [Guía de solución de problemas](configure-language-python.md#troubleshooting) y, si eso no funciona, [háganoslo saber](https://aka.ms/DjangoCLITutorialHelp).
     
-### <a name="create-a-poll-question-in-the-app"></a>Creación de una pregunta de sondeo en la aplicación
+### <a name="44-create-a-poll-question-in-the-app"></a>4.4 Creación de una pregunta de sondeo en la aplicación
 
 1. En un explorador, abra la dirección URL `http://<app-name>.azurewebsites.net`. La aplicación debe mostrar el mensaje "No polls are available" (No hay sondeos disponibles) porque todavía no hay sondeos específicos en la base de datos.
 
-    Si ve el mensaje "Application Error" (Error de aplicación), es probable que no haya creado la configuración necesaria en el paso anterior, [Configuración de las variables de entorno para conectarse a la base de datos](#configure-environment-variables-to-connect-the-database), o que dichos valores contengan errores. Ejecute el comando `az webapp config appsettings list` para comprobar la configuración. También puede [comprobar los registros de diagnóstico](#stream-diagnostic-logs) para ver errores específicos durante el inicio de la aplicación. Por ejemplo, si no ha creado la configuración, los registros mostrarán el error `KeyError: 'DBNAME'`.
+    Si ve el mensaje "Application Error" (Error de aplicación), es probable que no haya creado la configuración necesaria en el paso anterior, [Configuración de las variables de entorno para conectarse a la base de datos](#42-configure-environment-variables-to-connect-the-database), o que dichos valores contengan errores. Ejecute el comando `az webapp config appsettings list` para comprobar la configuración. También puede [comprobar los registros de diagnóstico](#6-stream-diagnostic-logs) para ver errores específicos durante el inicio de la aplicación. Por ejemplo, si no ha creado la configuración, los registros mostrarán el error `KeyError: 'DBNAME'`.
 
     Después de actualizar la configuración para corregir los errores, espere un minuto para que la aplicación se reinicie y, después, actualice el explorador.
 
@@ -276,11 +277,11 @@ Las migraciones de bases de datos de Django aseguran que el esquema de la base d
 > [!NOTE]
 > App Service detecta un proyecto de Django mediante la búsqueda de un archivo *wsgi.py* en cada subcarpeta, que `manage.py startproject` crea de forma predeterminada. Cuando App Service encuentra ese archivo, carga la aplicación web de Django. Para obtener más información, consulte [Configuración de una imagen de Python integrada](configure-language-python.md).
 
-## <a name="make-code-changes-and-redeploy"></a>Cambios en el código y reimplementación
+## <a name="5-make-code-changes-and-redeploy"></a>5. Cambios en el código y reimplementación
 
 En esta sección, realizará cambios locales en la aplicación y volverá a implementar el código en App Service. En el proceso, se configura un entorno virtual de Python que admite el trabajo en curso.
 
-### <a name="run-the-app-locally"></a>Ejecución de la aplicación de forma local
+### <a name="51-run-the-app-locally"></a>5.1 Ejecución de la aplicación de forma local
 
 Ejecute los siguientes comandos en una ventana de terminal. Asegúrese de seguir las indicaciones al crear el superusuario:
 
@@ -355,7 +356,7 @@ Cuando se ejecute localmente, la aplicación usará una base de datos de Sqlite3
 
 ¿Tiene problemas? [Póngase en contacto con nosotros](https://aka.ms/DjangoCLITutorialHelp).
 
-### <a name="update-the-app"></a>Actualización de la aplicación
+### <a name="52-update-the-app"></a>5.2 Actualización de la aplicación
 
 En `polls/models.py`, busque la línea que comienza con `choice_text` y cambie el parámetro `max_length` a 100:
 
@@ -377,7 +378,7 @@ Vuelva a detener el servidor web de Django con **CTRL**+**C**.
 
 ¿Tiene problemas? Consulte primero la [Guía de solución de problemas](configure-language-python.md#troubleshooting) y, si eso no funciona, [háganoslo saber](https://aka.ms/DjangoCLITutorialHelp).
 
-### <a name="redeploy-the-code-to-azure"></a>Nueva implementación del código en Azure
+### <a name="53-redeploy-the-code-to-azure"></a>5.3 Nueva implementación del código en Azure
 
 Ejecute el comando siguiente en la raíz del repositorio:
 
@@ -389,7 +390,7 @@ Este comando usa los parámetros almacenados en la memoria caché del archivo *.
 
 ¿Tiene problemas? Consulte primero la [Guía de solución de problemas](configure-language-python.md#troubleshooting) y, si eso no funciona, [háganoslo saber](https://aka.ms/DjangoCLITutorialHelp).
 
-### <a name="rerun-migrations-in-azure"></a>Nueva ejecución de migraciones en Azure
+### <a name="54-rerun-migrations-in-azure"></a>5.4 Nueva ejecución de migraciones en Azure
 
 Dado que ha realizado cambios en el modelo de datos, debe volver a ejecutar las migraciones de base de datos en App Service.
 
@@ -406,13 +407,13 @@ python manage.py migrate
 
 ¿Tiene problemas? Consulte primero la [Guía de solución de problemas](configure-language-python.md#troubleshooting) y, si eso no funciona, [háganoslo saber](https://aka.ms/DjangoCLITutorialHelp).
 
-### <a name="review-app-in-production"></a>Revisión de la aplicación en producción
+### <a name="55-review-app-in-production"></a>5.5 Revisión de la aplicación en producción
 
 Vaya a `http://<app-name>.azurewebsites.net` y vuelva a probar la aplicación en el entorno de producción. (Dado que solo ha cambiado la longitud de un campo de la base de datos, el cambio solo se aprecia si intenta especificar una respuesta más larga al crear una pregunta).
 
 ¿Tiene problemas? Consulte primero la [Guía de solución de problemas](configure-language-python.md#troubleshooting) y, si eso no funciona, [háganoslo saber](https://aka.ms/DjangoCLITutorialHelp).
 
-## <a name="stream-diagnostic-logs"></a>Transmisión de registros de diagnóstico
+## <a name="6-stream-diagnostic-logs"></a>6. Transmisión de registros de diagnóstico
 
 Puede acceder a los registros de la consola generados desde dentro del contenedor que hospeda la aplicación en Azure.
 
@@ -437,7 +438,7 @@ Para detener el streaming de registro en cualquier momento, escriba **Ctrl**+**C
 > az webapp log config --docker-container-logging filesystem
 > ```
 
-## <a name="manage-your-app-in-the-azure-portal"></a>Administración de una aplicación en Azure Portal
+## <a name="7-manage-your-app-in-the-azure-portal"></a>7. Administración de una aplicación en Azure Portal
 
 En [Azure Portal](https://portal.azure.com), busque el nombre de la aplicación y seleccione la aplicación en los resultados.
 
@@ -449,7 +450,7 @@ De forma predeterminada, el portal muestra la página **Información general** d
 
 ¿Tiene problemas? Consulte primero la [Guía de solución de problemas](configure-language-python.md#troubleshooting) y, si eso no funciona, [háganoslo saber](https://aka.ms/DjangoCLITutorialHelp).
 
-## <a name="clean-up-resources"></a>Limpieza de recursos
+## <a name="8-clean-up-resources"></a>8. Limpieza de recursos
 
 Si desea mantener la aplicación o continuar con los tutoriales adicionales, vaya a [Pasos siguientes](#next-steps). De lo contrario, para evitar incurrir en cargos adicionales, puede eliminar la creación del grupo de recursos para este tutorial:
 

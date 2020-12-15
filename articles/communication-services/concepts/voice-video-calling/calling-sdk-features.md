@@ -9,18 +9,18 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 44365dec247b9f3135a090cee397cad32598fd29
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: f621d11553101c2c0bcfce804b26c218ae58670c
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977874"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576475"
 ---
 # <a name="calling-client-library-overview"></a>Información general de la biblioteca cliente de llamadas
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-Hay dos familias independientes de bibliotecas cliente de llamadas, la de *clientes* y la de *servicios* . Las bibliotecas cliente disponibles actualmente están pensadas para experiencias de usuario final: sitios web y aplicaciones nativas.
+Hay dos familias independientes de bibliotecas cliente de llamadas, la de *clientes* y la de *servicios*. Las bibliotecas cliente disponibles actualmente están pensadas para experiencias de usuario final: sitios web y aplicaciones nativas.
 
 Las bibliotecas cliente de servicio aún no están disponibles. Estas proporcionan acceso a los planos de datos de vídeo y de voz sin procesar, que son adecuados para la integración con bots y otros servicios.
 
@@ -70,6 +70,26 @@ En la tabla siguiente se representa el conjunto de exploradores y versiones comp
 *Tenga en cuenta que se admite la versión más reciente de Chrome además de las dos versiones anteriores.<br/>
 
 **Tenga en cuenta que se admiten las versiones de Safari 13.1 y posteriores. Todavía no se admite el vídeo de salida para Safari macOS, pero es compatible con iOS. El uso compartido de pantalla saliente solo se admite en iOS de escritorio.
+
+## <a name="calling-client---browser-security-model"></a>Cliente que llama: modelo de seguridad del explorador
+
+### <a name="user-webrtc-over-https"></a>WebRTC de usuario sobre HTTPS
+
+Las API de WebRTC, como `getUserMedia`, requieren que la aplicación que llama a estas API se atienda a través de HTTPS.
+
+Para el desarrollo local, puede usar `http://localhost`.
+
+### <a name="embed-the-communication-services-calling-sdk-in-an-iframe"></a>Inserción de Calling SDK de Communication Services en un iframe
+
+Una nueva [directiva de permisos (también denominado directiva de características)](https://www.w3.org/TR/permissions-policy-1/#iframe-allow-attribute) se está adoptando en diversos exploradores. Esta directiva afecta a los escenarios de llamada al controlar cómo las aplicaciones pueden acceder a la cámara y el micrófono de un dispositivo mediante un elemento iframe entre orígenes.
+
+Si quiere usar un iframe para hospedar parte de la aplicación desde un dominio diferente, debe agregar el atributo `allow` con el valor correcto a su iframe.
+
+Por ejemplo, este iframe permite el acceso a la cámara y el micrófono:
+
+```html
+<iframe allow="camera *; microphone *">
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

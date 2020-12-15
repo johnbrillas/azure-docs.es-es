@@ -7,16 +7,16 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 240b27f897d8e7a34026701cf7fdc844eb9d4086
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 09d793f3d8ed544a386a362677f24be6d18673d7
+ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89237105"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96748743"
 ---
 # <a name="workflow"></a>Flujo de trabajo
 
-Microsoft Azure Attestation recibe la evidencia de los enclaves y la evalúa con respecto a las directivas de base de referencia y configurables de seguridad de Azure. Tras una verificación correcta, Azure Attestation genera un token de atestación para confirmar la confiabilidad del enclave.
+Microsoft Azure Attestation recibe la evidencia de los enclaves y la evalúa con respecto a las directivas configurables y de base de referencia de seguridad de Azure. Tras una verificación correcta, Azure Attestation genera un token de atestación para confirmar la confiabilidad del enclave.
 
 En el flujo de trabajo de Azure Attestation participan los siguientes actores:
 
@@ -25,18 +25,19 @@ En el flujo de trabajo de Azure Attestation participan los siguientes actores:
 - **Azure Attestation**: componente que acepta la evidencia de enclave del cliente, la valida y devuelve el token de atestación al cliente.
 
 
-## <a name="enclave-validation-work-flow"></a>Flujo de trabajo de validación del enclave
+## <a name="intel-software-guard-extensions-sgx-enclave-validation-work-flow"></a>Flujo de trabajo de validación del enclave Software Guard Extensions (SGX) de Intel®
 
 Estos son los pasos generales de un flujo de trabajo típico de atestación de un enclave SGX (mediante Azure Attestation):
 
 1. El cliente recopila la evidencia de un enclave. Esta evidencia consiste en información sobre el entorno del enclave y la biblioteca cliente que se ejecuta en el enclave.
-1. El cliente tiene un URI que hace referencia a una instancia de Azure Attestation. El cliente se autentica en Azure AD y obtiene un token de acceso.
-1. El cliente envía la evidencia a Azure Attestation, junto con el token de acceso. La información exacta que se envía al proveedor depende del tipo de enclave.
+1. El cliente tiene un URI que hace referencia a una instancia de Azure Attestation. El cliente envía evidencias a Azure Attestation. La información exacta que se envía al proveedor depende del tipo de enclave.
 1. Azure Attestation valida la información enviada y la evalúa con respecto a una directiva configurada. Si la comprobación finaliza correctamente, Azure Attestation emite un token de atestación y lo devuelve al cliente. Si se produce un error en este paso, Azure Attestation notifica este error al cliente. 
 1. El cliente envía el token de atestación al usuario de confianza. El usuario de confianza llama al punto de conexión de metadatos de clave pública de Azure Attestation para recuperar certificados de firma. Después, el usuario de confianza comprueba la firma del token de atestación y garantiza la confiabilidad del enclave. 
 
-![Flujo de validación del enclave](./media/validation-flow.png)
+![Flujo de validación del enclave SGX](./media/sgx-validation-flow.png)
 
+> [!Note]
+> Cuando se envían solicitudes de atestación en la versión de API [2018-09-01-Preview](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/attestation/data-plane/Microsoft.Attestation/stable/2018-09-01-preview), el cliente debe enviar evidencias a Azure Attestation junto con el token de acceso de Azure AD.
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Creación y firma de una directiva de atestación](author-sign-policy.md)

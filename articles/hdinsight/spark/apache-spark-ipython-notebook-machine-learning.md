@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Creación de una aplicación de aprendizaje automático de Spark en Azure HDInsight'
-description: 'Tutorial: Instrucciones detalladas acerca de cómo compilar una aplicación de aprendizaje automático de Apache Spark en clústeres Spark de HDInsight mediante Jupyter Notebook.'
+description: 'Tutorial: Instrucciones detalladas acerca de cómo compilar una aplicación de aprendizaje automático de Apache Spark en clústeres de HDInsight Spark mediante Jupyter Notebook.'
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,mvc, devx-track-python
 ms.date: 04/07/2020
-ms.openlocfilehash: 753f45257f820f87f2e4bfb1893f581bee167a4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6af50bae075e88ac3bbba39cba9c9042eee2000e
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89230932"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932252"
 ---
 # <a name="tutorial-build-an-apache-spark-machine-learning-application-in-azure-hdinsight"></a>Tutorial: Compilación de aplicaciones de aprendizaje automático de Apache Spark en Azure HDInsight
 
@@ -41,7 +41,7 @@ La aplicación usa los datos de ejemplo de **HVAC.csv**, que están disponibles 
 
 En esta aplicación se usa una [canalización de Machine Learning](https://spark.apache.org/docs/2.2.0/ml-pipeline.html) de Spark para realizar una clasificación de documentos. Las canalizaciones de Machine Learning proporcionan un conjunto uniforme de API de alto nivel basadas en DataFrames. Mediante DataFrames, los usuarios pueden crear y ajustar prácticas canalizaciones de aprendizaje automático. En la canalización, se divide el documento en palabras, se convierten las palabras en un vector numérico de característica y finalmente se genera un modelo de predicción que use los vectores de característica y las etiquetas. Realice los siguientes pasos para crear la aplicación:
 
-1. Cree un cuaderno de Jupyter Notebook con el kernel de PySpark. Para las instrucciones, consulte [Creación de un archivo de Jupyter Notebook](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook-file).
+1. Cree un cuaderno de Jupyter Notebook mediante el kernel de PySpark. Para obtener instrucciones, consulte [Creación de un archivo de Jupyter Notebook](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook-file).
 
 1. Importe los tipos necesarios para este escenario. Pegue el siguiente fragmento de código en una celda vacía y presione **MAYÚS + ENTRAR**.
 
@@ -186,7 +186,7 @@ En esta aplicación se usa una [canalización de Machine Learning](https://spark
 
 ## <a name="use-anaconda-scikit-learn-library-for-spark-machine-learning"></a>Uso de la biblioteca scikit-learn de Anaconda para el aprendizaje automático de Spark
 
-Los clústeres Apache Spark de HDInsight incluyen bibliotecas de Anaconda. También incluyen la biblioteca **scikit-learn** para el aprendizaje automático. La biblioteca también contiene diversos conjuntos de datos que puede usar para crear aplicaciones de ejemplo directamente a partir de un cuaderno de Jupyter. Para obtener ejemplos sobre el uso de la biblioteca scikit-learn, consulte [https://scikit-learn.org/stable/auto_examples/index.html](https://scikit-learn.org/stable/auto_examples/index.html).
+Los clústeres Apache Spark de HDInsight incluyen bibliotecas de Anaconda. También incluyen la biblioteca **scikit-learn** para el aprendizaje automático. La biblioteca también contiene diversos conjuntos de datos que se pueden usar para crear aplicaciones de ejemplo directamente desde Jupyter Notebook. Para obtener ejemplos sobre el uso de la biblioteca scikit-learn, consulte [https://scikit-learn.org/stable/auto_examples/index.html](https://scikit-learn.org/stable/auto_examples/index.html).
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

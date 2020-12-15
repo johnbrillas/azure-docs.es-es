@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: f6026680dd566bf7a13c83b37883341bff8b4570
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 6845923d65b5fbe5a9f010474330ce2bbed948e1
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96354843"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780100"
 ---
 # <a name="tutorial-provision-multiple-x509-devices-using-enrollment-groups"></a>Tutorial: Aprovisionamiento de varios dispositivos X.509 mediante grupos de inscripción
 
@@ -26,7 +26,7 @@ Azure IoT Hub Device Provisioning Service admite dos tipos de inscripciones:
 
 Este tutorial es similar a los tutoriales anteriores que muestran cómo usar los grupos de inscripción para aprovisionar conjuntos de dispositivos. Sin embargo, en este tutorial se utilizarán certificados X.509 en lugar de las claves simétricas. Revise los tutoriales anteriores de esta sección para obtener un enfoque sencillo mediante [claves simétricas](./concepts-symmetric-key-attestation.md).
 
-En este tutorial se muestra el [ejemplo de HSM personalizado](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client/samples/custom_hsm_example) que proporciona una implementación de código auxiliar para interactuar con el almacenamiento seguro basado en hardware. Se usa un [módulo de seguridad de hardware (HSM)](./concepts-service.md#hardware-security-module) para el almacenamiento seguro basado en hardware de secretos de dispositivos. Un HSM se puede utilizar con una clave simétrica, un certificado X.509 o una atestación de TPM para proporcionar almacenamiento seguro para los secretos. Se recomienda el almacenamiento basado en hardware de los secretos del dispositivo.
+En este tutorial se muestra el [ejemplo de HSM personalizado](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client/samples/custom_hsm_example) que proporciona una implementación de código auxiliar para interactuar con el almacenamiento seguro basado en hardware. Se usa un [módulo de seguridad de hardware (HSM)](./concepts-service.md#hardware-security-module) para el almacenamiento seguro basado en hardware de secretos de dispositivos. Un HSM se puede utilizar con una clave simétrica, un certificado X.509 o una atestación de TPM para proporcionar almacenamiento seguro para los secretos. No se requiere el almacenamiento en hardware de los secretos de dispositivo, pero es muy recomendable proteger la información confidencial, como la clave privada del certificado de dispositivo.
 
 Si no está familiarizado con el proceso de aprovisionamiento automático, revise la información general sobre [Aprovisionamiento](about-iot-dps.md#provisioning-process). Además, asegúrese de completar los pasos descritos en [Configuración de Azure IoT Hub Device Provisioning Service con Azure Portal](quick-setup-auto-provision.md) antes de continuar con este tutorial. 
 
@@ -56,7 +56,7 @@ En esta sección, preparará un entorno de desarrollo para compilar el [SDK de A
 
 1. Descargue el [sistema de compilación CMake](https://cmake.org/download/).
 
-    **Antes** de comenzar la instalación de `CMake`, es importante que los requisitos previos de Visual Studio ([Visual Studio](https://visualstudio.microsoft.com/vs/) y la carga de trabajo[ "Desarrollo para el escritorio con C++"](https://docs.microsoft.com/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development)) estén instalados en la máquina. Una vez que los requisitos previos están en su lugar, y se ha comprobado la descarga, instale el sistema de compilación de CMake.
+    **Antes** de comenzar la instalación de `CMake`, es importante que los requisitos previos de Visual Studio ([Visual Studio](https://visualstudio.microsoft.com/vs/) y la carga de trabajo [ "Desarrollo para el escritorio con C++"](https://docs.microsoft.com/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development)) estén instalados en la máquina. Una vez que los requisitos previos están en su lugar, y se ha comprobado la descarga, instale el sistema de compilación de CMake.
 
 2. Busque el nombre de etiqueta de la [versión más reciente](https://github.com/Azure/azure-iot-sdk-c/releases/latest) del SDK de C de IoT de Azure.
 
@@ -225,7 +225,9 @@ Para crear la cadena de certificados:
 
 ## <a name="configure-the-custom-hsm-stub-code"></a>Configuración del código auxiliar del HSM personalizado
 
-Los detalles de la interacción con el almacenamiento seguro real basado en hardware varían en función del hardware. Como resultado, la cadena de certificados usada por el dispositivo en este tutorial estará codificada en el código auxiliar del HSM personalizado. En un escenario real, la cadena de certificados se almacenaría en el hardware del HSM real para proporcionar una mejor seguridad para la información confidencial. A continuación, se implementarán métodos similares a los métodos de código auxiliar mostrados en este ejemplo para leer los secretos de ese almacenamiento basado en hardware.
+Los detalles de la interacción con el almacenamiento seguro real basado en hardware varían en función del hardware. Como resultado, la cadena de certificados usada por el dispositivo en este tutorial estará codificada en el código auxiliar del HSM personalizado. En un escenario real, la cadena de certificados se almacenaría en el hardware del HSM real para proporcionar una mejor seguridad para la información confidencial. A continuación, se implementarán métodos similares a los métodos de código auxiliar mostrados en este ejemplo para leer los secretos de ese almacenamiento basado en hardware. 
+
+Aunque el hardware de HSM no sea un requisito, no se recomienda incluir información confidencial, como la clave privada del certificado, en el código fuente. De lo contrario, la clave quedaría expuesta a cualquier persona que pueda ver el código. Únicamente se ha hecho así en este artículo con fines de aprendizaje.
 
 Para actualizar el código auxiliar del HSM personalizado para este tutorial:
 
@@ -287,7 +289,7 @@ Para actualizar el código auxiliar del HSM personalizado para este tutorial:
 
 ## <a name="verify-ownership-of-the-root-certificate"></a>Verificación de la propiedad del certificado raíz
 
-1. Cargue el certificado raíz y obtenga un código de verificación de DPS con las instrucciones descritas en [Registro de la parte pública de un certificado X.509 y obtención de un código de verificación](how-to-verify-certificates.md#register-the-public-part-of-an-x509-certificate-and-get-a-verification-code).
+1. Cargue el certificado raíz (`./certs/azure-iot-test-only.root.ca.cert.pem`) y obtenga un código de verificación de DPS siguiendo las instrucciones descritas en [Registro de la parte pública de un certificado X.509 y obtención de un código de verificación](how-to-verify-certificates.md#register-the-public-part-of-an-x509-certificate-and-get-a-verification-code).
 
 2. Una vez que tenga un código de verificación de DPS para el certificado raíz, ejecute el siguiente comando desde el directorio de trabajo de los scripts de certificado para generar un certificado de verificación.
  
@@ -297,7 +299,7 @@ Para actualizar el código auxiliar del HSM personalizado para este tutorial:
     ./certGen.sh create_verification_certificate 1B1F84DE79B9BD5F16D71E92709917C2A1CA19D5A156CB9F    
     ```    
 
-    Este script crea un certificado firmado por el certificado raíz con el nombre de firmante establecido en el código de verificación. Este certificado permite a DPS verificar que tiene acceso a la clave privada del certificado raíz. Observe la ubicación del certificado de verificación en la salida del script.
+    Este script crea un certificado firmado por el certificado raíz con el nombre de firmante establecido en el código de verificación. Este certificado permite a DPS verificar que tiene acceso a la clave privada del certificado raíz. Observe la ubicación del certificado de verificación en la salida del script. Este certificado se genera con el formato `.pfx`.
 
     ```output
     Leaf Device PFX Certificate Generated At:

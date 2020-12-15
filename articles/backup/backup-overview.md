@@ -4,12 +4,12 @@ description: Proporciona información general del servicio Azure Backup, y cómo
 ms.topic: overview
 ms.date: 04/24/2019
 ms.custom: mvc
-ms.openlocfilehash: 537605498fe166b24bd4e24673cfa1542bc449ea
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 805fa81362b9f90c1d6ba468caaf4b6745e42c62
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172474"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746121"
 ---
 # <a name="what-is-the-azure-backup-service"></a>¿Qué es el servicio Azure Backup?
 
@@ -43,7 +43,7 @@ Azure Backup proporciona las siguientes ventajas principales:
 - **Obtención de copias de seguridad coherentes de la aplicación**: una copia de seguridad coherente con la aplicación significa un punto de recuperación que tiene todos los datos necesarios para restaurar la copia de seguridad. Azure Backup proporciona copias de seguridad coherentes con las aplicaciones, lo que garantiza que no se van a necesitar correcciones adicionales para restaurar los datos. La restauración de datos coherentes con la aplicación reduce el tiempo de restauración, lo que permite volver rápidamente a un estado de ejecución.
 - **Retención de los datos a corto y largo plazo**: puede usar los [almacenes de Recovery Services](backup-azure-recovery-services-vault-overview.md) para la retención de datos tanto a corto como a largo plazo.
 - **Administración de almacenamiento automática**: los entornos híbridos requieren con frecuencia almacenamiento heterogéneo, unos local y otros en la nube. Con Azure Backup, el uso de dispositivos de almacenamiento local no supone ningún costo. Azure Backup asigna y administra automáticamente almacenamiento de copia de seguridad y emplea un modelo de pago por uso. Solo tiene que pagar el almacenamiento que consuma. [Más información](https://azure.microsoft.com/pricing/details/backup) sobre precios.
-- **Varias opciones de almacenamiento**: Azure Backup ofrece dos tipos de replicación para mantener la alta disponibilidad de los datos o del almacenamiento.
+- **Varias opciones de almacenamiento**: Azure Backup ofrece tres tipos de replicación para mantener la alta disponibilidad de los datos o del almacenamiento.
   - El [almacenamiento con redundancia local (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) replica los datos tres veces (crea tres copias de los datos) en una unidad de escalado de almacenamiento de un centro de datos. Todas las copias de los datos se encuentran en la misma región. LRS es una opción de bajo costo para proteger los datos contra errores de hardware local.
   - El [almacenamiento con redundancia geográfica (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage) es la opción de replicación predeterminada y recomendada. GRS replica los datos en una región secundaria (a cientos de kilómetros de la ubicación principal de los datos de origen). GRS cuesta más que LRS, pero proporciona un mayor nivel de durabilidad de los datos, aunque se produzca una interrupción regional.
   - El [almacenamiento con redundancia de zona (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) replica los datos en [zonas de disponibilidad](../availability-zones/az-overview.md#availability-zones), garantizando así la residencia de datos y la resistencia en la misma región. El almacenamiento con redundancia de zona no tiene ningún tiempo de inactividad. Por lo tanto, de las cargas de trabajo críticas que requieren [residencia de datos](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/), y que no deben tener ningún tiempo de inactividad, se pueden realizar copias de seguridad en el almacenamiento con redundancia de zona.

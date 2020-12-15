@@ -6,16 +6,16 @@ ms.author: cherylmc
 ms.service: vpn-gateway
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: e2df34b7897ee2543d967d147317859ab26971e9
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 933b71d75eacdca015a38524870f25a345e76d22
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96510497"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746172"
 ---
 # <a name="tutorial-create-and-manage-a-vpn-gateway-using-azure-portal"></a>Tutorial: Creación y administración de una puerta de enlace de VPN mediante Azure Portal
 
-Las puertas de enlace de VPN de Azure proporcionan conectividad entre locales entre el entorno local del cliente y Azure. En este tutorial se tratan los elementos básicos de implementación de Azure VPN Gateway, como crear y administrar una puerta de enlace de VPN.
+Las puertas de enlace de VPN de Azure proporcionan conectividad entre locales entre el entorno local del cliente y Azure. En este tutorial se tratan los elementos básicos de implementación de Azure VPN Gateway, como crear y administrar una puerta de enlace de VPN. También puede crear una puerta de enlace con [Azure PowerShell](create-routebased-vpn-gateway-cli.md) o la [CLI de Azure](create-routebased-vpn-gateway-powershell.md).
 
 En este tutorial, aprenderá a:
 

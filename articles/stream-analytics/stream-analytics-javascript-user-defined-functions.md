@@ -8,16 +8,16 @@ ms.topic: tutorial
 ms.reviewer: mamccrea
 ms.custom: mvc, devx-track-js
 ms.date: 06/16/2020
-ms.openlocfilehash: aac85fdab157d581285af91c4c818258a5f1790b
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 092e07ed01fb870cdcd9a3fd63d46d30cef96007
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124788"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780848"
 ---
 # <a name="javascript-user-defined-functions-in-azure-stream-analytics"></a>Funciones definidas por el usuario de JavaScript en Azure Stream Analytics
  
-Azure Stream Analytics admite funciones definidas por el usuario escritas en JavaScript. Con el conjunto completo de métodos **String** , **RegExp** , **Math** , **Array** y **Date** que proporciona JavaScript, las transformaciones de datos complejas con trabajos de Stream Analytics son más fáciles de crear.
+Azure Stream Analytics admite funciones definidas por el usuario escritas en JavaScript. Con el conjunto completo de métodos **String**, **RegExp**, **Math**, **Array** y **Date** que proporciona JavaScript, las transformaciones de datos complejas con trabajos de Stream Analytics son más fáciles de crear.
 
 ## <a name="overview"></a>Información general
 
@@ -184,6 +184,35 @@ INTO
     output
 FROM
     input A
+```
+
+### <a name="tolocalestring"></a>toLocaleString()
+El método **toLocaleString** de JavaScript se puede usar para devolver una cadena de lenguaje confidencial que represente los datos de fecha y hora desde donde se llama a este método.
+Aunque Azure Stream Analytics solo acepta la fecha y hora UTC como marca de tiempo del sistema, este método convierte la marca de tiempo del sistema en otra configuración regional y zona horaria.
+Este método sigue el mismo comportamiento de implementación que el que está disponible en Internet Explorer.
+
+**Definición de funciones definidas por el usuario en JavaScript:**
+
+```javascript
+function main(datetime){
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    return event.toLocaleDateString('de-DE', options);
+}
+```
+
+**Consulta de ejemplo: Fecha y hora que pasan como valor de entrada.**
+```SQL
+SELECT
+    udf.toLocaleString(input.datetime) as localeString
+INTO
+    output
+FROM
+    input
+```
+
+La salida de esta consulta será el valor de datetime de entrada en **de-DE** con las opciones proporcionadas.
+```
+Samstag, 28. Dezember 2019
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

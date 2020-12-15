@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: d2b90db18a31fff4190be4f84625ad52fcaae578
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: cd3ca4d3ddf73469cd1f1fc065eccb369cf765af
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94657319"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905686"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Introducción a Azure Cost Management para los asociados
 
@@ -262,7 +262,7 @@ También puede agrupar y filtrar por la propiedad **PartnerEarnedCreditApplied**
 
 ## <a name="export-cost-data-to-azure-storage"></a>Exportación de datos de costos a Azure Storage
 
-Los asociados con acceso a los ámbitos de facturación de un inquilino de asociado pueden exportar sus datos de costo y uso a un blob de Azure Storage. El blob debe estar en una suscripción del inquilino del asociado que no sea una suscripción de servicio compartido o una suscripción de cliente. Para habilitar la exportación de datos de costos, se recomienda configurar una suscripción de pago por uso independiente en el inquilino de asociado para hospedar los datos de costos exportados. La cuenta de almacenamiento de exportación se crea en el blob de Azure Storage hospedado en la suscripción de pago por uso. En función del ámbito en el que el asociado crea la exportación, los datos asociados se exportan automáticamente a la cuenta de almacenamiento de forma periódica.
+Los asociados con acceso a los ámbitos de facturación de un inquilino de asociado pueden exportar sus datos de costo y uso a un blob de Azure Storage. El blob debe estar en una suscripción del inquilino del asociado que no sea una [suscripción de servicio compartido](/partner-center/shared-services) o una suscripción de cliente. Para habilitar la exportación de datos de costos, se recomienda configurar una suscripción de pago por uso independiente en el inquilino de asociado para hospedar los datos de costos exportados. La cuenta de almacenamiento de exportación se crea en el blob de Azure Storage hospedado en la suscripción de pago por uso. En función del ámbito en el que el asociado crea la exportación, los datos asociados se exportan automáticamente a la cuenta de almacenamiento de forma periódica.
 
 Los usuarios con acceso Azure RBAC a la suscripción también pueden exportar los datos de costos a un blob de Azure Storage hospedado en cualquier suscripción del inquilino del cliente.
 

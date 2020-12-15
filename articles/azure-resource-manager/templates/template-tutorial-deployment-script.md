@@ -1,6 +1,6 @@
 ---
 title: Uso de scripts de implementación de plantillas | Microsoft Docs
-description: Aprenda a usar scripts de implementación en plantillas de Azure Resource Manager.
+description: Aprenda a usar scripts de implementación en plantillas de Azure Resource Manager (ARM).
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.date: 08/25/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e1094befcc6b3a6e9d56ba3b603dc45fcb91ba13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc19222cf1e610c6c65d7c721a54f9949bed70ae
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88825501"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931442"
 ---
 # <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate-preview"></a>Tutorial: Uso de scripts de implementación para crear un certificado autofirmado (versión preliminar)
 
-Aprenda a usar scripts de implementación en plantillas de Azure Resource Manager. Los scripts de implementación se pueden usar para realizar pasos personalizados que no se pueden llevar a cabo con plantillas de Resource Manager. Por ejemplo, para crear un certificado autofirmado.  En este tutorial, creará una plantilla para implementar un almacén de claves de Azure, usará un recurso `Microsoft.Resources/deploymentScripts` en la misma plantilla para crear un certificado y agregará el certificado al almacén de claves. Para más información sobre el script de implementación, consulte cómo [usar los scripts de implementación en las plantillas de Azure Resource Manager](./deployment-script-template.md).
+Aprenda a usar scripts de implementación en plantillas de Azure Resource Manager (ARM). Los scripts de implementación se pueden usar para realizar pasos personalizados que no se pueden llevar a cabo con plantillas de Resource Manager. Por ejemplo, para crear un certificado autofirmado.  En este tutorial, creará una plantilla para implementar un almacén de claves de Azure, usará un recurso `Microsoft.Resources/deploymentScripts` en la misma plantilla para crear un certificado y agregará el certificado al almacén de claves. Para más información sobre el script de implementación, consulte cómo [usar los scripts de implementación en las plantillas de Azure Resource Manager](./deployment-script-template.md).
 
 > [!IMPORTANT]
 > En el mismo grupo de recursos que se usa para la ejecución de scripts y la solución de problemas, se crean dos recursos de script de implementación, una cuenta de almacenamiento y una instancia de contenedor. Estos recursos los suele eliminar el servicio del script cuando el script llega a un estado terminal de ejecución. Los recursos se le facturarán hasta que se eliminen. Para más información, consulte [Limpieza de los recursos del script de implementación](./deployment-script-template.md#clean-up-deployment-script-resources).
@@ -40,7 +40,7 @@ En este tutorial se describen las tareas siguientes:
 
 Para completar este artículo, necesitará lo siguiente:
 
-* **[Visual Studio Code](https://code.visualstudio.com/) con la extensión Resource Manager Tools**. Consulte [Quickstart: Creación de plantillas de Azure Resource Manager con Visual Studio Code](./quickstart-create-templates-use-visual-studio-code.md).
+* **[Visual Studio Code](https://code.visualstudio.com/) con la extensión Resource Manager Tools**. Consulte [Quickstart: Creación de plantillas de ARM mediante Visual Studio Code](./quickstart-create-templates-use-visual-studio-code.md).
 
 * **Una identidad administrada asignada por el usuario con el rol de colaborador en el nivel de suscripción**. Esta identidad se usa para ejecutar scripts de implementación. Para crear una, consulte [Identidad administrada asignada por el usuario](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md). Necesitará el identificador de identidad al implementar la plantilla. El formato de la identidad es:
 

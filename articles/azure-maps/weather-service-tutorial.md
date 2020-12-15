@@ -1,24 +1,28 @@
 ---
-title: 'Tutorial: Combinación de datos de sensores con datos de previsión meteorológica mediante Azure Notebooks (Python) | Microsoft Azure Maps'
-description: En este tutorial se muestra cómo combinar datos de sensores con datos de previsión meteorológica del servicio meteorológico de Microsoft Azure Maps mediante Azure Notebooks (Python).
+title: 'Tutorial: Combinación de datos del sensor con datos de previsión meteorológica mediante Azure Notebooks (Python) con Microsoft Azure Maps'
+description: En este tutorial se muestra cómo combinar datos del sensor con datos de previsión meteorológica del servicio Weather de Microsoft Azure Maps mediante Azure Notebooks (Python).
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 01/29/2020
+ms.date: 12/07/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: f020f3d9e23b9f834fd203f6d030656581fb4416
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 6d2ede8ab49b22a22d8959ce296182a2210640d0
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896606"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905475"
 ---
 # <a name="tutorial-join-sensor-data-with-weather-forecast-data-by-using-azure-notebooks-python"></a>Tutorial: Combinación de datos de sensores con datos de previsión meteorológica mediante Azure Notebooks (Python)
 
-La energía eólica es una fuente de energía alternativa a los combustibles fósiles para combatir el cambio climático. Dado que el viento no es coherente por naturaleza, los operadores de energía eólica necesitan crear modelos de aprendizaje automático (ML) para predecir la capacidad de la energía del viento. Esta predicción es necesaria para satisfacer la demanda de electricidad y garantizar la estabilidad de la red. En este tutorial, veremos cómo se combinan los datos de previsión meteorológica de Azure Maps con los datos de demostración de las lecturas meteorológicas. Los datos de previsión meteorológica se solicitan mediante una llamada al servicio meteorológico de Azure Maps.
+> [!IMPORTANT]
+> El servicio Weather de Azure Maps se encuentra actualmente en versión preliminar pública.
+> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+La energía eólica es una fuente de energía alternativa a los combustibles fósiles para combatir el cambio climático. Dado que el viento no es coherente por naturaleza, los operadores de energía eólica necesitan crear modelos de aprendizaje automático (ML) para predecir la capacidad de la energía del viento. Esta predicción es necesaria para satisfacer la demanda de electricidad y garantizar la estabilidad de la red. En este tutorial, veremos cómo se combinan los datos de previsión meteorológica de Azure Maps con los datos de demostración de las lecturas meteorológicas. Los datos de previsión meteorológica se solicitan mediante una llamada al servicio Weather de Azure Maps (versión preliminar).
 
 En este tutorial, aprenderá lo siguiente:
 
@@ -68,7 +72,7 @@ df = pd.read_csv("./data/weather_dataset_demo.csv")
 
 ## <a name="request-daily-forecast-data"></a>Solicitud de los datos de previsión diarios
 
-En nuestro escenario, nos gustaría solicitar la previsión diaria de cada ubicación de sensores. El siguiente script llama a [Daily Forecast API](/rest/api/maps/weather/getdailyforecastpreview) del servicio de climatología de Azure Maps. Esta API devuelve el pronóstico meteorológico de cada molino de viento para los próximos 15 días a partir de la fecha actual.
+En nuestro escenario, nos gustaría solicitar la previsión diaria de cada ubicación de sensores. El siguiente script llama a [Daily Forecast API](/rest/api/maps/weather/getdailyforecastpreview) del servicio Weather de Azure Maps (versión preliminar). Esta API devuelve el pronóstico meteorológico de cada molino de viento para los próximos 15 días a partir de la fecha actual.
 
 
 ```python
@@ -82,7 +86,7 @@ years,months,days = [],[],[]
 dates_check=set()
 wind_speeds, wind_direction = [], []
 
-# Call azure maps weather service to get daily forecast data for 15 days from current date
+# Call azure maps Weather services (Preview) to get daily forecast data for 15 days from current date
 session = aiohttp.ClientSession()
 j=-1
 for i in range(0, len(coords), 2):

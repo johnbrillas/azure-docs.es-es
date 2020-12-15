@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 09/03/2020
 ms.author: allensu
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: f4803cc9871b71e65e4d94ed37d3f9771be1cae0
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: adc08e978be699ea6ea3dd00beae1762d48644c0
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96454962"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96781069"
 ---
 # <a name="what-is-azure-private-link"></a>¿Qué es Azure Private Link? 
 Azure Private Link le permite acceder a los servicios PaaS de Azure (por ejemplo, Azure Storage y SQL Database) y a los servicios hospedados en Azure que son propiedad de los clientes, o a los servicios de asociados, a través de un [punto de conexión privado](private-endpoint-overview.md) de la red virtual.
@@ -70,6 +70,7 @@ Azure Private Link proporciona las ventajas siguientes:
 | Azure Monitor <br/>(Log Analytics y Application Insights) | Todas las regiones públicas      |  | Disponibilidad general   <br/> [Aprenda a crear un punto de conexión privado para Azure Monitor.](../azure-monitor/platform/private-link-security.md)   | 
 | Azure Batch | Todas las regiones públicas, excepto: CENTRO DE Alemania, NORDESTE DE Alemania <br/> Todas las regiones de Azure Government  | | Disponibilidad general <br/> [Aprenda a crear un punto de conexión privado para Azure Batch.](../batch/private-connectivity.md) |
 |Azure Data Factory | Todas las regiones públicas<br/> Todas las regiones de Azure Government<br/>Todas las regiones de China    | Las credenciales deben almacenarse en un almacén de claves de Azure| Disponibilidad general   <br/> [Aprenda a crear un punto de conexión privado para Azure Data Factory.](../data-factory/data-factory-private-link.md)   |
+|Azure Managed Disks | Todas las regiones públicas<br/> Todas las regiones de Azure Government<br/>Todas las regiones de China    | [Haga clic aquí para ver las limitaciones conocidas](https://docs.microsoft.com/azure/virtual-machines/disks-enable-private-links-for-import-export-portal#limitations) | GA   <br/> [Aprenda a crear un punto de conexión privado para Azure Managed Disks.](https://docs.microsoft.com/azure/virtual-machines/disks-enable-private-links-for-import-export-portal)   |
 
 
 

@@ -8,12 +8,12 @@ ms.date: 1/20/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ef6e86bbb55a2c51779f2dcf60f802ce549516cb
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: eef5e60b06eedb1fb07c57aa2e369dd3830fcad5
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94959686"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932411"
 ---
 # <a name="tutorial-generate-simulated-device-data"></a>Tutorial: Generación de datos de dispositivos simulados
 
@@ -42,6 +42,14 @@ El proyecto DeviceHarness es un proyecto de .NET Core escrito en C# que consta d
 Las tareas descritas en este artículo deberían tardar unos 20 minutos en completarse.
 
 En un contexto real, el trabajo de este paso seguramente lo realizarían desarrolladores de dispositivos y desarrolladores de nube.
+
+En esta sección del tutorial, aprenderá a:
+
+> [!div class="checklist"]
+>
+> * Agregar un proyecto externo al entorno de desarrollo.
+> * Usar el proyecto DeviceHarness de ejemplo para generar datos de dispositivo IoT simulados.
+> * Ver los datos generados en su centro de IoT.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -157,6 +165,10 @@ Los datos que acabamos de enviar a IoT Hub se han enrutado al contenedor de alma
 1. Los archivos se escriben en el formato [Avro](https://avro.apache.org/). Haga doble clic en uno de estos archivos para abrir otra pestaña del explorador y representar los datos parcialmente. Si se le pide que abra el archivo en un programa, puede elegir VS Code y se representará correctamente.
 
 1. Ahora no es necesario que intente leer ni interpretar los datos; esto se hará en el siguiente artículo.
+
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+Este tutorial forma parte de una serie en la que cada artículo complementa el trabajo realizado en los anteriores. No borre ningún recurso hasta que complete el tutorial final.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

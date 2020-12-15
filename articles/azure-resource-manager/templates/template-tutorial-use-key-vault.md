@@ -1,21 +1,21 @@
 ---
 title: Uso de Azure Key Vault en plantillas
-description: Aprenda a usar Azure Key Vault para pasar valores de parámetros seguros durante la implementación de la plantilla de Resource Manager
+description: Aprenda a usar Azure Key Vault para pasar valores de parámetros seguros durante la implementación de la plantilla de Azure Resource Manager (ARM).
 author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 73a50c282eee023bff525bc737bd2170938de1dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75eb977559573b72883de3ddbc27391c7e299a6f
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86119283"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929324"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-your-arm-template-deployment"></a>Tutorial: Integración de Azure Key Vault en la implementación de la plantilla de Resource Manager
 
-Aprenda a recuperar los secretos de Azure Key Vault y a pasarlos como parámetros durante la implementación de una plantilla de Azure Resource Manager. El valor del parámetro nunca se expone, ya que solo se hace referencia a su identificador de almacén de claves. Puede hacer referencia al secreto del almacén de claves mediante un identificador estático o un identificador dinámico. En este tutorial se usa un identificador estático. Con el método del identificador estático, se hace referencia al almacén de claves en el archivo de parámetros de plantilla, no en el archivo de plantilla. Para más información acerca de ambos métodos, consulte [Uso de Azure Key Vault para pasar el valor de parámetro seguro durante la implementación](./key-vault-parameter.md).
+Aprenda a recuperar los secretos de un almacén de claves de Azure y a pasarlos como parámetros durante la implementación de una plantilla de Azure Resource Manager (ARM). El valor del parámetro nunca se expone, ya que solo se hace referencia a su identificador de almacén de claves. Puede hacer referencia al secreto del almacén de claves mediante un identificador estático o un identificador dinámico. En este tutorial se usa un identificador estático. Con el método del identificador estático, se hace referencia al almacén de claves en el archivo de parámetros de plantilla, no en el archivo de plantilla. Para más información acerca de ambos métodos, consulte [Uso de Azure Key Vault para pasar el valor de parámetro seguro durante la implementación](./key-vault-parameter.md).
 
 En el tutorial [Establecimiento del orden de implementación de los recursos](./template-tutorial-create-templates-with-dependent-resources.md), se crea una máquina virtual (VM). Deberá proporcionar el nombre de usuario y la contraseña de administrador de la VM. En lugar de proporcionar la contraseña, puede almacenar previamente la contraseña en Azure Key Vault y luego personalizar la plantilla para recuperar la contraseña desde el almacén de claves durante la implementación.
 
@@ -37,7 +37,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Para completar este artículo, necesitará lo siguiente:
 
-* Visual Studio Code con la extensión Resource Manager Tools. Consulte [Quickstart: Creación de plantillas de Azure Resource Manager con Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+* Visual Studio Code con la extensión Resource Manager Tools. Consulte [Quickstart: Creación de plantillas de ARM mediante Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 * Para mejorar la seguridad, use una contraseña generada para la cuenta de administrador de la VM. Este es un ejemplo para generar una contraseña:
 
     ```console

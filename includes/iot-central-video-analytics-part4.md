@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/06/2020
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: de916fcbe0623185821e2f5da15a8f9cf71dfd4e
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 0b3ccc31c9159b5d7b1615add89e8fdc308bf8df
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94426784"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763460"
 ---
 ### <a name="publish-the-device-template"></a>Publicación de la plantilla de dispositivo
 
@@ -40,6 +40,12 @@ Para migrar el dispositivo **gateway-001**:
 1. En la lista del cuadro de diálogo **Migrate** (Migrar), seleccione **LVA Edge Gateway v2** y, después, seleccione **Migrate** (Migrar).
 
 Pocos segundos después la migración finaliza. El dispositivo usa ahora la plantilla de dispositivo **LVA Edge Gateway v2** con el manifiesto de implementación personalizado.
+
+Ahora no hay ningún dispositivo que use la plantilla de dispositivo **LVA Edge Gateway** (Puerta de enlace LVA Edge). Elimine esta plantilla de dispositivo:
+
+1. Vaya a la página **Device templates** (Plantillas de dispositivos) y seleccione la plantilla de dispositivo **LVA Edge Gateway** (Puerta de enlace LVA Edge).
+
+1. Seleccione **Delete** (Eliminar) para eliminar dicha plantilla.
 
 ### <a name="get-the-device-credentials"></a>Obtención de las credenciales del dispositivo
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 10/25/2018
 ms.author: troyhop
-ms.openlocfilehash: 7ddd1aa9865cb4061212ce77b31efc82ad339283
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 1fe86aef832223a7485036343b4b12d8bb526e06
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165577"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96852394"
 ---
 # <a name="tutorial-create-a-custom-simulated-device"></a>Tutorial: Creación de un dispositivo simulado personalizado
 
@@ -34,15 +34,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Para seguir este tutorial, necesitará una instancia implementada de Simulación de dispositivo en la suscripción de Azure.
 
-Si aún no la ha implementado, debe completar primero la [Guía de inicio rápido: Implementación y ejecución de una simulación de dispositivo IoT en Azure](quickstart-device-simulation-deploy.md).
-
-## <a name="open-device-simulation"></a>Abrir Simulación de dispositivo
-
-Para ejecutar Simulación de dispositivo en el explorador, primero vaya a [Aceleradores de soluciones de Microsoft Azure IoT](https://www.azureiotsolutions.com).
-
-Se le pedirá que inicie sesión con sus credenciales de suscripción de Azure.
-
-A continuación, haga clic en **Iniciar** en el icono de Simulación de dispositivo que ha implementado en la guía de inicio rápido [Implementación y ejecución de simulación de dispositivo de IoT en Azure](quickstart-device-simulation-deploy.md).
+Si aún no ha implementado la simulación de dispositivo, consulte [Implementación de la simulación de dispositivo](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md) en GitHub.
 
 ## <a name="view-your-device-models"></a>Ver los modelos de dispositivo
 

@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 20173c4ba02f53a526167a5a8e22bd0cedc85594
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 971bac8a0b0951d4e07e139aea6c465a9159b8db
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93393225"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96570967"
 ---
 # <a name="tutorial-run-a-hello-world-python-script-part-2-of-4"></a>Tutorial: Ejecución de un script "Hola mundo" (parte 2 de 4)
 
@@ -61,7 +61,8 @@ tutorial
 └──02-create-compute.py
 ```
 
-### <a name="test-your-script-locally"></a>Prueba del script de forma local
+
+### <a name="test-your-script-locally"></a><a name="test"></a>Prueba del script de forma local
 
 Puede ejecutar el código localmente mediante su IDE favorito o un terminal. Ejecutar el código localmente tiene la ventaja de la depuración interactiva del código.
 
@@ -70,7 +71,10 @@ cd <path/to/tutorial>
 python ./src/hello.py
 ```
 
-## <a name="create-a-control-script"></a>Creación de un script de control
+> [!div class="nextstepaction"]
+> [He ejecutado el script localmente](?success=run-local#control-script) [He tenido un problema](https://www.research.net/r/7C2NTH7?issue=run-local)
+
+## <a name="create-a-control-script"></a><a name="control-script"></a> Creación de un script de control
 
 Un *script de control* le permite ejecutar el script de `hello.py` en la nube. El script de control se usa para controlar cómo y dónde se ejecuta el código de aprendizaje automático.  
 
@@ -89,6 +93,8 @@ run = experiment.submit(config)
 aml_url = run.get_portal_url()
 print(aml_url)
 ```
+
+
 
 ### <a name="understand-the-code"></a>Comprendiendo el código
 
@@ -135,7 +141,10 @@ Esta es una descripción de cómo funciona el script de control:
    :::column-end:::
 :::row-end:::
 
-## <a name="submit-and-run-your-code-in-the-cloud"></a>Envío y ejecución del código en la nube
+> [!div class="nextstepaction"]
+> [He creado el script de control](?success=create-control-script#submit) [He tenido un problema](https://www.research.net/r/7C2NTH7?issue=create-control-script)
+
+## <a name="submit-and-run-your-code-in-the-cloud"></a><a name="submit"></a> Envío y ejecución del código en la nube
 
 Ejecute el script de control, que a su vez ejecuta `hello.py` en el clúster de proceso que creó en el [tutorial de configuración](tutorial-1st-experiment-sdk-setup-local.md).
 
@@ -154,7 +163,10 @@ python 03-run-hello.py
 > [!TIP]
 > Si la ejecución de este código genera un error que indica que no tiene acceso a la suscripción, consulte [Conexión a un área de trabajo](how-to-manage-workspace.md?tab=python#connect-multi-tenant) para información sobre las opciones de autenticación.
 
-## <a name="monitor-your-code-in-the-cloud-by-using-the-studio"></a>Supervisión del código en la nube con Studio
+> [!div class="nextstepaction"]
+> [He enviado código en la nube](?success=submit-to-cloud#monitor) [He tenido un problema](https://www.research.net/r/7C2NTH7?issue=submit-to-cloud)
+
+## <a name="monitor-your-code-in-the-cloud-by-using-the-studio"></a><a name="monitor"></a>Supervisión del código en la nube con Studio
 
 La salida contendrá un vínculo a Studio que tiene un aspecto similar al siguiente: `https://ml.azure.com/experiments/hello-world/runs/<run-id>?wsid=/subscriptions/<subscription-id>/resourcegroups/<resource-group>/workspaces/<workspace-name>`.
 
@@ -185,6 +197,9 @@ Siga el vínculo y navegue hasta la pestaña **Resultados y registros**. Allí p
 En la línea 8, verá el resultado "Hola mundo" .
 
 El archivo de `70_driver_log.txt` contiene la salida estándar de una ejecución. Este archivo puede ser útil al depurar ejecuciones remotas en la nube.
+
+> [!div class="nextstepaction"]
+> [He visto el registro en Studio](?success=monitor-in-studio#next-steps) [He tenido un problema](https://www.research.net/r/7C2NTH7?issue=monitor-in-studio)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

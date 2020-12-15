@@ -1,20 +1,20 @@
 ---
-title: 'Tutorial: Migración de una aplicación web desde Google Maps | Microsoft Azure Maps'
+title: 'Tutorial: Migración de una aplicación web desde Google Maps a Microsoft Azure Maps'
 description: Tutorial sobre cómo migrar de una aplicación web de Google Maps a Microsoft Azure Maps
 author: rbrundritt
 ms.author: richbrun
-ms.date: 08/18/2020
+ms.date: 12/07/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: devx-track-js
-ms.openlocfilehash: b95800bea4bceffabad56aa29b68a57b310c5518
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 4dee8de8f42b78ecdab9d9e15bb277d58fa8ba70
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896453"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905067"
 ---
 # <a name="tutorial---migrate-a-web-app-from-google-maps"></a>Tutorial: Migración de una aplicación web desde Google Maps
 
@@ -27,9 +27,9 @@ La mayoría de las aplicaciones web que usan Google Maps usan el SDK de Google M
 > * Mostrar información en una ventana emergente o informativa
 > * Cargar y mostrar datos de KML y GeoJSON
 > * Agrupar marcadores
-> * Superponer una capa de mosaicos
+> * Superposición de una capa de mosaicos
 > * Mostrar datos del tráfico
-> * Agregar una superposición de suelo
+> * Adición de una superposición de suelo
 
 También aprenderá lo siguiente: 
 
@@ -75,7 +75,7 @@ En esta tabla se enumeran las principales características de API del SDK de Goo
 | Servicio de codificador geográfico        | ✓                          |
 | Servicio de direcciones      | ✓                          |
 | Servicio de matriz de distancia | ✓                          |
-| Servicio de elevación       | Planeado                     |
+| Servicio de elevación       | ✓                          |
 
 ## <a name="notable-differences-in-the-web-sdks"></a>Diferencias notables en los SDK web
 
@@ -332,9 +332,9 @@ map.setStyle({
 
 En Azure Maps hay varias maneras de representar los datos de punto en el mapa:
 
-- **Marcadores HTML** : representan los puntos mediante los elementos DOM tradicionales. Los marcadores HTML admiten el arrastre.
-- **Capa de símbolos** : representa los puntos con un icono o texto dentro del contexto WebGL.
-- **Capa de burbujas** : representa los puntos como círculos en el mapa. Los radios de los círculos se pueden escalar en función de las propiedades de los datos.
+- **Marcadores HTML**: representan los puntos mediante los elementos DOM tradicionales. Los marcadores HTML admiten el arrastre.
+- **Capa de símbolos**: representa los puntos con un icono o texto dentro del contexto WebGL.
+- **Capa de burbujas**: representa los puntos como círculos en el mapa. Los radios de los círculos se pueden escalar en función de las propiedades de los datos.
 
 Las capas de símbolos y las capas de burbujas se representan dentro del contexto WebGL. Ambas capas pueden representar grandes conjuntos de puntos en el mapa. Estas capas requieren que los datos se almacenen en un origen de datos. Los orígenes de datos y las capas de representación deben agregarse al mapa una vez activado el evento `ready`. Los marcadores HTML se representan como elementos DOM dentro de la página y no usan un origen de datos. Cuanto más elementos DOM tenga una página, más lenta es. Si se representan más de unos cientos de puntos en un mapa, se recomienda usar en su lugar una de las capas de representación.
 
@@ -1162,7 +1162,7 @@ Los mapas térmicos, también conocidos como mapas de densidad de puntos, son un
 
 En los siguientes ejemplos se carga del USGS una fuente GeoJSON de todos los terremotos del último mes y se representan como un mapa térmico ponderado. Para la ponderación se utiliza la propiedad `"mag"`.
 
-#### <a name="before-google-maps"></a>Antes: Google Maps
+#### <a name="before-google-maps"></a>Antes: Google Maps
 
 Para crear un mapa térmico, agregue `&libraries=visualization` a la dirección URL del script de la API para cargar la biblioteca de "visualización". La capa de mapa térmico de Google Maps no admite directamente datos GeoJSON. En primer lugar, descargue los datos y conviértalos en una matriz de puntos de datos ponderados:
 

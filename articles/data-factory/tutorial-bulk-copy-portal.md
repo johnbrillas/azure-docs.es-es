@@ -10,19 +10,19 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 11/09/2020
-ms.openlocfilehash: ae96a81485064637db9e23b7164021bfbc952162
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.date: 12/09/2020
+ms.openlocfilehash: 8594250d72754e6b7d2a6d8c27d3d5bcd0e9c8e4
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555951"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920876"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory-in-the-azure-portal"></a>Copia masiva de varias tablas mediante Azure Data Factory en Azure Portal
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-En este tutorial se muestra cómo puede **copiar varias tablas de Azure SQL Database a Azure Synapse Analytics (anteriormente, SQL DW)** . Además, puede aplicar el mismo patrón en otros escenarios de copia. Por ejemplo, para copiar tablas de SQL Server u Oracle a Azure SQL Database, Azure Synapse Analytics (anteriormente SQL DW) o el blob de Azure, o bien para copiar diferentes rutas de acceso de blob a tablas de Azure SQL Database.
+En este tutorial se muestra cómo puede **copiar varias tablas de Azure SQL Database a Azure Synapse Analytics**. Además, puede aplicar el mismo patrón en otros escenarios de copia. Por ejemplo, para copiar tablas de SQL Server u Oracle a Azure SQL Database, Azure Synapse Analytics o Azure Blob, o bien para copiar diferentes rutas de acceso de tablas de blob a tablas de Azure SQL Database.
 
 > [!NOTE]
 > - Si no está familiarizado con Azure Data Factory, consulte [Introducción a Azure Data Factory](introduction.md).
@@ -31,8 +31,8 @@ A grandes rasgos, este tutorial incluye los pasos siguientes:
 
 > [!div class="checklist"]
 > * Creación de una factoría de datos.
-> * Cree los servicios vinculados de Azure SQL Database, Azure Synapse Analytics (anteriormente SQL DW) y Azure Storage.
-> * Cree los conjuntos de datos de Azure SQL Database y Azure Synapse Analytics (anteriormente SQL DW).
+> * Creación de los servicios vinculados de Azure SQL Database, Azure Synapse Analytics y Azure Storage.
+> * Creación de los conjuntos de datos de Azure SQL Database y Azure Synapse Analytics.
 > * Cree una canalización para buscar las tablas que se deben copiar y otra canalización para realizar la operación de copia real. 
 > * Inicio de la ejecución de una canalización.
 > * Supervisión de las ejecuciones de canalización y actividad.
@@ -40,35 +40,35 @@ A grandes rasgos, este tutorial incluye los pasos siguientes:
 En este tutorial se usa Azure Portal. Para obtener información sobre el uso de otras herramientas o SDK para crear una factoría de datos, consulte los [inicios rápidos](quickstart-create-data-factory-dot-net.md). 
 
 ## <a name="end-to-end-workflow"></a>Flujo de trabajo de un extremo a otro
-En este escenario, tenemos varias tablas en Azure SQL Database que queremos copiar en Azure Synapse Analytics (anteriormente, SQL DW). Esta es la secuencia lógica de pasos del flujo de trabajo que se realiza en las canalizaciones:
+En este escenario, hay una serie de tablas de Azure SQL Database que desea copiar a Azure Synapse Analytics. Esta es la secuencia lógica de pasos del flujo de trabajo que se realiza en las canalizaciones:
 
 ![Flujo de trabajo](media/tutorial-bulk-copy-portal/tutorial-copy-multiple-tables.png)
 
 * La primera canalización busca la lista de tablas que debe copiarse en los almacenes de datos del receptor.  También puede mantener una tabla de metadatos que muestre todas las tablas que se deben copiar en el almacén de datos receptor. A continuación, la canalización desencadena otra canalización, que itera en todas las tablas de la base de datos y realiza la operación de copia de datos.
-* La segunda canalización realiza la copia real. Toma la lista de tablas como un parámetro. Para cada tabla de la lista, copie la tabla específica de Azure SQL Database a la tabla correspondiente de Azure Synapse Analytics (anteriormente, SQL DW) con la [copia almacenada provisionalmente mediante Blob Storage y PolyBase](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-synapse-analytics) a fin de obtener el mejor rendimiento. En este ejemplo, la primera canalización pasa la lista de tablas como un valor para el parámetro. 
+* La segunda canalización realiza la copia real. Toma la lista de tablas como un parámetro. Para cada tabla de la lista, copie la tabla específica de Azure SQL Database a la tabla correspondiente de Azure Synapse Analytics con la [copia almacenada provisionalmente mediante Blob Storage y PolyBase](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-synapse-analytics) a fin de obtener el mejor rendimiento. En este ejemplo, la primera canalización pasa la lista de tablas como un valor para el parámetro. 
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
 * **Cuenta de Azure Storage**. La cuenta de Azure Storage se usa como almacenamiento de blobs de almacenamiento provisional en la operación de copia masiva. 
 * **Azure SQL Database**. Esta base de datos contiene los datos de origen. 
-* **Azure Synapse Analytics (anteriormente SQL DW)** . Este almacén de datos contiene los datos que se copian de SQL Database. 
+* **Azure Synapse Analytics**. Este almacén de datos contiene los datos que se copian de SQL Database. 
 
-### <a name="prepare-sql-database-and-azure-synapse-analytics-formerly-sql-dw"></a>Preparación de SQL Database y Azure Synapse Analytics (anteriormente SQL DW)
+### <a name="prepare-sql-database-and-azure-synapse-analytics"></a>Preparación de SQL Database y Azure Synapse Analytics 
 
 **Preparación de la base de datos de Azure SQL de origen**:
 
-Cree una base de datos en SQL Database con los datos de ejemplo de Adventure Works LT siguiendo el artículo [Creación de una base de datos en Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md). En este tutorial se copian todas las tablas de esta base de datos de ejemplo a una instancia de Azure Synapse Analytics (anteriormente SQL DW).
+Cree una base de datos en SQL Database con los datos de ejemplo de Adventure Works LT siguiendo el artículo [Creación de una base de datos en Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md). En este tutorial se copiarán todas las tablas de esta base de datos de ejemplo a una de Azure Synapse Analytics.
 
-**Prepare el receptor de Azure Synapse Analytics (anteriormente SQL DW)** :
+**Preparación de la instancia receptora de Azure Synapse Analytics**:
 
-1. Si no tiene un área de trabajo de Azure Synapse Analytics (anteriormente SQL DW), consulte el artículo [Introducción a Azure Synapse Analytics](..\synapse-analytics\get-started.md) para conocer los pasos para crear una.
+1. Si no tiene un área de trabajo de Azure Synapse Analytics, consulte el artículo [Introducción a Azure Synapse Analytics](..\synapse-analytics\get-started.md) para conocer los pasos para crear una.
 
-1. Cree los esquemas de tabla correspondientes en Azure Synapse Analytics (anteriormente SQL DW). Debe usar Azure Data Factory para migrar o copiar datos en un paso posterior.
+1. Cree los esquemas de tabla correspondientes en Azure Synapse Analytics. Debe usar Azure Data Factory para migrar o copiar datos en un paso posterior.
 
 ## <a name="azure-services-to-access-sql-server"></a>Servicios de Azure para acceder a SQL Server
 
-En el caso de SQL Database y Azure Synapse Analytics (anteriormente SQL DW), permita que los servicios de Azure accedan a SQL Server. Asegúrese de que la opción **Permitir que los servicios y recursos de Azure accedan a este servidor** esté **activada** para el servidor. Esta configuración permite al servicio Data Factory leer los datos de Azure SQL Database y escribir datos en la instancia de Azure Synapse Analytics (anteriormente SQL DW). 
+Para SQL Database y Azure Synapse Analytics, permita que los servicios de Azure accedan a SQL Server. Asegúrese de que la opción **Permitir que los servicios y recursos de Azure accedan a este servidor** esté **activada** para el servidor. Esta configuración permite al servicio Data Factory leer datos de Azure SQL Database y escribir datos en Azure Synapse Analytics. 
 
 Para comprobar y activar esta configuración, vaya al servidor > Seguridad > Firewalls y redes virtuales, y establezca la opción **Permitir que los servicios y recursos de Azure accedan a este servidor** en **Activada**.
 
@@ -106,7 +106,7 @@ Para comprobar y activar esta configuración, vaya al servidor > Seguridad > Fir
 ## <a name="create-linked-services"></a>Crear servicios vinculados
 Los servicios vinculados se crean para vincular los almacenes de datos y los procesos con una factoría de datos. Un servicio vinculado tiene la información de conexión que usa el servicio Data Factory para conectarse al almacén de datos en el runtime. 
 
-En este tutorial se vinculan sus almacenes de datos de Azure SQL Database, Azure Synapse Analytics (anteriormente SQL DW) y Azure Blob Storage a la factoría de datos. El almacén de datos de origen es el de Azure SQL Database. Azure Synapse Analytics (anteriormente SQL DW) es el almacén de datos receptor o destino. Azure Blob Storage sirve para almacenar provisionalmente los datos antes de cargarlos en Azure Synapse Analytics (anteriormente SQL DW) mediante PolyBase. 
+En este tutorial se vincularán los almacenes de datos de Azure SQL Database, Azure Synapse Analytics y Azure Blob Storage a la factoría de datos. El almacén de datos de origen es el de Azure SQL Database. Azure Synapse Analytics es el almacén de datos receptor o de destino. Azure Blob Storage sirve para almacenar provisionalmente los datos antes de cargarlos en Azure Synapse Analytics mediante PolyBase. 
 
 ### <a name="create-the-source-azure-sql-database-linked-service"></a>Creación del servicio vinculado de Azure SQL Database de origen
 En este paso, creará un servicio vinculado para vincular la base de datos de Azure SQL Database con la factoría de datos. 
@@ -134,11 +134,11 @@ En este paso, creará un servicio vinculado para vincular la base de datos de Az
     g. Haga clic en **Create** (Crear) para guardar el servicio vinculado.
 
 
-### <a name="create-the-sink-azure-synapse-analytics-formerly-sql-dw-linked-service"></a>Creación del servicio vinculado de Azure Synapse Analytics (anteriormente SQL DW) de receptor
+### <a name="create-the-sink-azure-synapse-analytics-linked-service"></a>Creación del servicio vinculado receptor de Azure Synapse Analytics
 
 1. En la pestaña **Connections** (Conexiones), haga clic en **+ New** (+ Nuevo) en la barra de herramientas de nuevo. 
-1. En la ventana **New Linked Service** (Nuevo servicio vinculado), seleccione **Azure Synapse Analytics (anteriormente SQL DW)** y haga clic en **Continue** (Continuar). 
-1. En la ventana **New Linked Service (Azure Synapse Analytics (formerly SQL DW))** (Nuevo servicio vinculado [Azure Synapse Analytics (Anteriormente SQL DW)]), siga estos pasos: 
+1. En la ventana **Nuevo servicio vinculado**, seleccione **Azure Synapse Analytics** y haga clic en **Continuar**. 
+1. En la ventana **New Linked Service (Azure Synapse Analytics)** (Nuevo servicio vinculado [Azure Synapse Analytics]), siga estos pasos: 
    
     a. Escriba **AzureSqlDWLinkedService** en **Name** (Nombre).
      
@@ -171,7 +171,7 @@ En este tutorial creará los conjuntos de datos de origen y recepción, que espe
 
 El conjunto de datos de entrada **AzureSqlDatabaseDataset** hace referencia a **AzureSqlDatabaseLinkedService**. El servicio vinculado especifica la cadena de conexión para conectarse a la base de datos. El conjunto de datos especifica el nombre de la base de datos y la tabla que contienen los datos de origen. 
 
-El conjunto de datos de salida **AzureSqlDWDataset** hace referencia a **AzureSqlDWLinkedService**. El servicio vinculado especifica la cadena de conexión para conectarse a Azure Synapse Analytics (anteriormente SQL DW). El conjunto de datos especifica la base de datos y la tabla donde se copian los datos. 
+El conjunto de datos de salida **AzureSqlDWDataset** hace referencia a **AzureSqlDWLinkedService**. El servicio vinculado especifica la cadena de conexión para conectarse a Azure Synapse Analytics. El conjunto de datos especifica la base de datos y la tabla donde se copian los datos. 
 
 En este tutorial, las tablas de origen y destino SQL no están codificadas en las definiciones de los conjuntos de datos. En su lugar, la actividad ForEach (Para cada uno) pasa el nombre de la tabla en tiempo de ejecución a la actividad de copia. 
 
@@ -187,10 +187,10 @@ En este tutorial, las tablas de origen y destino SQL no están codificadas en la
 1. Cambie a la pestaña **Connection** (Conexión) y seleccione cualquier tabla para **Table** (Tabla). Esta tabla es ficticia. Especifique una consulta en el conjunto de datos de origen al crear una canalización. La consulta se utilizará para extraer datos de la base de datos. Como alternativa, puede hacer clic en la casilla **Edit** (Editar) y escribir **dbo.dummyName** como nombre de la tabla. 
  
 
-### <a name="create-a-dataset-for-sink-azure-synapse-analytics-formerly-sql-dw"></a>Creación de un conjunto de datos para el receptor de Azure Synapse Analytics (anteriormente SQL DW)
+### <a name="create-a-dataset-for-sink-azure-synapse-analytics"></a>Creación de un conjunto de datos para la instancia receptora de Azure Synapse Analytics 
 
 1. Haga clic en el **signo + (más)** en el panel izquierdo y en **Dataset** (Conjunto de datos). 
-1. En la ventana **New Dataset** (Nuevo conjunto de datos), seleccione **Azure Synapse Analytics (formerly SQL DW)** (Azure Synapse Analytics [anteriormente SQL DW]) y haga clic en **Continue** (Continuar).
+1. En la ventana **New Dataset** (Nuevo conjunto de datos), seleccione **Azure Synapse Analytics** (Azure Synapse Analytics ) y haga clic en **Continue** (Continuar).
 1. En la ventana **Set properties** (Establecer propiedades), en **Name** (Nombre), escriba **AzureSqlDWDataset**. En **Linked service** (Servicio vinculado), seleccione **AzureSqlDWLinkedService**. A continuación, haga clic en **Aceptar**.
 1. Vaya a la pestaña **Parameters** (Parámetros), haga clic en **+ New** (+ Nuevo) y escriba **DWTableName** como nombre del parámetro. Haga clic de nuevo en **+ New** (+ Nuevo) y escriba **DWSchema** como nombre del parámetro. Si copia y pega este nombre desde la página, asegúrese de que no haya ningún **carácter de espacio final** al final de *DWTableName* y *DWSchema*. 
 1. Cambie a la pestaña **Connection** (Conexión), 
@@ -212,7 +212,7 @@ La canalización **GetTableListAndTriggerCopyData** lleva a cabo dos acciones:
 * Busca la tabla del sistema de Azure SQL Database para obtener la lista de tablas que se copiará.
 * Desencadena la canalización **IterateAndCopySQLTables** para realizar la copia de datos real.
 
-La canalización **IterateAndCopySQLTables** toma una lista de tablas como parámetro. Para cada tabla de la lista, copia datos de la tabla de Azure SQL Database a Azure Synapse Analytics (anteriormente SQL DW) mediante la copia almacenada provisionalmente y PolyBase.
+La canalización **IterateAndCopySQLTables** toma una lista de tablas como parámetro. Para cada tabla de la lista, copia los datos de la tabla de Azure SQL Database a Azure Synapse Analytics mediante la copia almacenada provisionalmente y PolyBase.
 
 ### <a name="create-the-pipeline-iterateandcopysqltables"></a>Creación de la canalización IterateAndCopySQLTables
 
@@ -393,15 +393,15 @@ Esta canalización realiza dos acciones:
     ```    
 1. Para volver a la vista **Pipeline Runs** (Ejecuciones de canalización), haga clic en el vínculo **All Pipeline runs** (Todas las ejecuciones de canalización) en la parte superior del menú de la ruta de navegación. Haga clic en el vínculo **IterateAndCopySQLTables**, bajo la columna **PIPELINE NAME** (NOMBRE DE CANALIZACIÓN), para ver las ejecuciones de actividad de la canalización. Tenga en cuenta que hay una ejecución de la actividad **Copy** (Copiar) para cada tabla de la salida de la actividad **Lookup** (Búsqueda). 
 
-1. Confirme que los datos se copiaron en la instancia de Azure Synapse Analytics (anteriormente SQL DW) de destino que se usó en este tutorial. 
+1. Confirme que los datos se han copiado en la instancia de destino de Azure Synapse Analytics que ha usado en este tutorial. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este tutorial, realizó los pasos siguientes: 
 
 > [!div class="checklist"]
 > * Creación de una factoría de datos.
-> * Cree los servicios vinculados de Azure SQL Database, Azure Synapse Analytics (anteriormente SQL DW) y Azure Storage.
-> * Cree los conjuntos de datos de Azure SQL Database y Azure Synapse Analytics (anteriormente SQL DW).
+> * Creación de los servicios vinculados de Azure SQL Database, Azure Synapse Analytics y Azure Storage.
+> * Creación de los conjuntos de datos de Azure SQL Database y Azure Synapse Analytics.
 > * Creación de una canalización para buscar las tablas que se deben copiar y otra canalización para realizar la operación de copia real. 
 > * Inicio de la ejecución de una canalización.
 > * Supervisión de las ejecuciones de canalización y actividad.

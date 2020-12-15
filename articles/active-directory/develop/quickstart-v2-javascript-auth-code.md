@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: 18b62e34ab57d1d7e937eb21b9ed2a7feffa758c
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: f7bd3822a0acaffe98c1a86eda5e10fe97ab4361
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95758955"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96762591"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa-using-the-auth-code-flow"></a>Inicio rápido: Inicio de sesión de los usuarios y obtención de un token de acceso en una SPA de JavaScript mediante el flujo de código de autorización
 
@@ -52,10 +52,10 @@ En este inicio rápido se usa MSAL.js 2.0 con el flujo de código de autorizaci�
 > #### <a name="step-1-register-your-application"></a>Paso 1: Registrar su aplicación
 >
 > 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-> 1. Si la cuenta proporciona acceso a más de un inquilino, seleccione la cuenta en la esquina superior derecha y establezca la sesión del portal en el inquilino de Azure AD que desee utilizar.
-> 1. Seleccione [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) (Registros de aplicaciones).
-> 1. Seleccione **Nuevo registro**.
-> 1. Cuando se abra la página **Registrar una aplicación**, escriba el nombre de su aplicación.
+> 1. Si tiene acceso a varios inquilinos, use el filtro **Directorio + suscripción** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: del menú superior para seleccionar el inquilino en el que desea registrar una aplicación.
+> 1. Busque y seleccione **Azure Active Directory**.
+> 1. En **Administrar**, seleccione **Registros de aplicaciones** >  y, luego, **Nuevo registro**.
+> 1. Escriba el **nombre** de la aplicación. Los usuarios de la aplicación pueden ver este nombre, el cual se puede cambiar más tarde.
 > 1. En **Supported account types** (Tipos de cuenta compatibles), seleccione **Accounts in any organizational directory and personal Microsoft accounts** (Cuentas en cualquier directorio de organización y cuentas personales de Microsoft).
 > 1. Seleccione **Registrar**. En la página de **información general** de la aplicación, anote el valor del **Identificador de aplicación (cliente)** para su uso posterior.
 > 1. En el panel izquierdo de la aplicación registrada, seleccione **Autenticación**.

@@ -6,12 +6,12 @@ ms.date: 11/10/2020
 ms.custom: seo-python-october2019, cli-validate, devx-track-python, devx-track-azurecli
 zone_pivot_groups: python-frameworks-01
 adobe-target: true
-ms.openlocfilehash: b32977ac1c8cfe0c461bcd1628c08a0ca215ba93
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 7eebbe5605c0b4d70ea15c1605cff5416965e535
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94506199"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780780"
 ---
 # <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>Inicio rápido: Creación de una aplicación de Python en Azure App Service en Linux
 
@@ -74,23 +74,11 @@ Ejecute el comando siguiente para clonar el repositorio de ejemplo y vaya a la c
 ```terminal
 git clone https://github.com/Azure-Samples/python-docs-hello-world
 ```
-
-Después, vaya a esa carpeta:
-
-```terminal
-cd python-docs-hello-world
-```
 ::: zone-end
 
 ::: zone pivot="python-framework-django"
 ```terminal
 git clone https://github.com/Azure-Samples/python-docs-hello-django
-```
-
-Después, vaya a esa carpeta:
-
-```terminal
-cd python-docs-hello-django
 ```
 ::: zone-end
 
@@ -101,7 +89,11 @@ El ejemplo contiene código específico del marco que Azure App Service reconoce
 ## <a name="run-the-sample"></a>Ejecución del ejemplo
 
 ::: zone pivot="python-framework-flask"
-1. Asegúrese de que se encuentra en la carpeta *python-docs-hello-world*. 
+1. Vaya a la carpeta *python-docs-hello-world*:
+
+    ```terminal
+    cd python-docs-hello-world
+    ```
 
 1. Cree un entorno virtual e instale las dependencias:
 
@@ -115,7 +107,11 @@ El ejemplo contiene código específico del marco que Azure App Service reconoce
     flask run
     ```
     
-    De forma predeterminada, el servidor supone que el módulo de entrada de la aplicación está en *app.py*, como se usa en el ejemplo. (Si usa un nombre de módulo diferente, establezca la variable de entorno `FLASK_APP` en ese nombre).
+    De forma predeterminada, el servidor supone que el módulo de entrada de la aplicación está en *app.py*, como se usa en el ejemplo.
+
+    (Si usa un nombre de módulo diferente, establezca la variable de entorno `FLASK_APP` en ese nombre).
+
+    Si se produce un error que dice que no se ha podido encontrar una aplicación Flask, y que no ha proporcionado la variable de entorno "FLASK_APP" y no se ha encontrado un módulo "wsgi.py" o "app.py" en el directorio actual, asegúrese de que se encuentra en la carpeta `python-docs-hello-world` que contiene el ejemplo.
 
 1. Abra un explorador web y vaya a la aplicación de ejemplo en `http://localhost:5000/`. La aplicación muestra el mensaje **Hola mundo**.
 
@@ -125,7 +121,11 @@ El ejemplo contiene código específico del marco que Azure App Service reconoce
 ::: zone-end
 
 ::: zone pivot="python-framework-django"
-1. Asegúrese de que se encuentra en la carpeta *python-docs-hello-django*. 
+1. Vaya a la carpeta *python-docs-hello-django*:
+
+    ```terminal
+    cd python-docs-hello-django
+    ```
 
 1. Cree un entorno virtual e instale las dependencias:
 
@@ -259,7 +259,7 @@ Al seleccionar la aplicación, se abre la página **Información general**, dond
 
 El menú de App Service proporciona distintas páginas para configurar la aplicación.
 
-¿Tiene problemas? Consulte primero la [Guía de solución de problemas](configure-language-python.md#troubleshooting), de lo contrario, [háganoslo saber](https://aka.ms/FlaskCLIQuickstartHelp).
+¿Tiene problemas? Consulte primero la [Guía de solución de problemas](configure-language-python.md#troubleshooting) y, si eso no funciona, [háganoslo saber](https://aka.ms/FlaskCLIQuickstartHelp).
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -275,7 +275,7 @@ Este comando usa el nombre del grupo de recursos almacenado en la memoria caché
 
 El argumento `--no-wait` permite la devolución del comando antes de que se complete la operación.
 
-¿Tiene problemas? [Háganoslo saber](https://aka.ms/FlaskCLIQuickstartHelp).
+¿Tiene problemas? [Póngase en contacto con nosotros](https://aka.ms/FlaskCLIQuickstartHelp).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

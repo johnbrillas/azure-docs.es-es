@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/25/2020
 ms.author: glenga
-ms.openlocfilehash: 951dbb6c1a44e3c081f682db49458be165e9e930
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: f102a5dd5b7dccba6643176d06d17a2a65171c90
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95557174"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904085"
 ---
 ## <a name="configure-your-local-environment"></a>Configuración del entorno local
 
@@ -17,8 +17,8 @@ Antes de empezar, debe disponer de lo siguiente:
 
 + Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-java"  
-+ [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#v2), versión 2.7.1846, o cualquier versión 2.x posterior.
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-java,programming-language-other"  
++ [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#v2), versión 2.7.1846 u otra posterior.
 ::: zone-end  
 ::: zone pivot="programming-language-python"
 + La versión de Azure Functions Core Tools correspondiente a la versión instalada de Python:
@@ -46,4 +46,7 @@ Antes de empezar, debe disponer de lo siguiente:
 
 + [Apache Maven](https://maven.apache.org), versión 3.0 o posterior.
 
+::: zone-end
+::: zone pivot="programming-language-other"
++ Herramientas de desarrollo para el lenguaje que utilice. En este tutorial se usa el [lenguaje de programación R](https://www.r-project.org/) como ejemplo.
 ::: zone-end

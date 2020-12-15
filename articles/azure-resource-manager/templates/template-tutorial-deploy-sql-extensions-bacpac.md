@@ -1,20 +1,20 @@
 ---
 title: Importación de archivos BACPAC de SQL con plantillas
-description: Aprenda a usar las extensiones de Azure SQL Database para importar archivos BACPAC de SQL con plantillas de Azure Resource Manager.
+description: Aprenda a usar las extensiones de Azure SQL Database para importar archivos BACPAC de SQL con plantillas de Azure Resource Manager (ARM).
 author: mumian
 ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 6a56602ad5217af07d9e35872a26ddb478146d0e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b798e5ceb72ece3989fb81014555f2bc0fea5926
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86101892"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931408"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-arm-templates"></a>Tutorial: Importación de archivos BACPAC de SQL con plantillas de Resource Manager
 
-Aprenda a usar las extensiones de Azure SQL Database para importar un archivo BACPAC con las plantillas de Azure Resource Manager. Los artefactos de implementación son cualquier archivo, además de los archivos de la plantilla principal, que se necesitan para completar una implementación. El archivo BACPAC es un artefacto.
+Aprenda a usar las extensiones de Azure SQL Database para importar un archivo BACPAC con las plantillas de Azure Resource Manager (ARM). Los artefactos de implementación son cualquier archivo, además de los archivos de la plantilla principal, que se necesitan para completar una implementación. El archivo BACPAC es un artefacto.
 
 En este tutorial creará una plantilla para implementar un [servidor SQL lógico](../../azure-sql/database/logical-servers.md) y una base de datos única, e importar un archivo BACPAC. Para más información sobre la implementación de extensiones de máquina virtual de Azure mediante plantillas de Azure Resource Manager, consulte [Tutorial: Implementación de extensiones de máquina virtual con plantillas de Resource Manager](./template-tutorial-deploy-vm-extensions.md).
 
@@ -34,7 +34,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Para completar este artículo, necesitará lo siguiente:
 
-* Visual Studio Code con la extensión Herramientas de Resource Manager. Consulte [Quickstart: Creación de plantillas de Azure Resource Manager con Visual Studio Code](./quickstart-create-templates-use-visual-studio-code.md).
+* Visual Studio Code con la extensión Herramientas de Resource Manager. Consulte [Quickstart: Creación de plantillas de ARM mediante Visual Studio Code](./quickstart-create-templates-use-visual-studio-code.md).
 * Para aumentar la seguridad, utilice una contraseña generada para la cuenta de administrador del servidor. A continuación se muestra un ejemplo de generación de contraseña:
 
     ```console

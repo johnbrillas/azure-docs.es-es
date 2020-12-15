@@ -1,20 +1,20 @@
 ---
-title: 'Tutorial: Enrutamiento de vehículos eléctricos mediante Azure Notebooks (Python) | Microsoft Azure Maps'
+title: 'Tutorial: Enrutamiento de vehículos eléctricos mediante Azure Notebooks (Python) con Microsoft Azure Maps'
 description: Tutorial sobre el enrutamiento de vehículos eléctricos mediante las API de enrutamiento de Microsoft Azure Maps y Azure Notebooks.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 11/12/2019
+ms.date: 12/07/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 6dde7abef1769b9441c037f3727e7fd9d83ab172
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: f30b99a1d9c8303d5b2ed4b02819d0ca837946d2
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896825"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905747"
 ---
 # <a name="tutorial-route-electric-vehicles-by-using-azure-notebooks-python"></a>Tutorial: Enrutamiento de vehículos eléctricos mediante Azure Notebooks (Python)
 
@@ -62,7 +62,7 @@ Para seguir este tutorial, tendrá que crear un proyecto de Azure Notebooks y de
  
     ![Panel Create New Project (Crear nuevo proyecto)](./media/tutorial-ev-routing/create-project-window.png)
 
-1. Seleccione **Crear** .
+1. Seleccione **Crear**.
 
 1. Una vez creado el proyecto, descargue este [archivo del documento de Jupyter Notebook](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/EVrouting.ipynb) del [repositorio de Jupyter Notebook para Azure Maps](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook).
 
@@ -86,10 +86,10 @@ Para ejecutar el código de Jupyter Notebook, instale los paquetes en el nivel d
 1. En el panel del proyecto, seleccione **Project Settings** (Configuración del proyecto). 
 1. En el panel **Project Settings** (Configuración del proyecto), seleccione la pestaña **Environment** (Entorno) y, después, seleccione **Add** (Agregar).
 1. En **Environment Setup Steps** (Pasos para la configuración del entorno), haga lo siguiente:   
-    a. En la primera lista desplegable, seleccione **Requirements.txt** .  
-    b. En la segunda lista desplegable, seleccione el archivo *requirements.txt* .  
-    c. En la tercera lista desplegable, seleccione la versión **Python Version 3.6** .
-1. Seleccione **Guardar** .
+    a. En la primera lista desplegable, seleccione **Requirements.txt**.  
+    b. En la segunda lista desplegable, seleccione el archivo *requirements.txt*.  
+    c. En la tercera lista desplegable, seleccione la versión **Python Version 3.6**.
+1. Seleccione **Guardar**.
 
     ![Instalar paquetes](./media/tutorial-ev-routing/install-packages.png)
 
@@ -108,7 +108,7 @@ from IPython.display import Image, display
 
 Una empresa de entrega de paquetes tiene algunos vehículos eléctricos en su flota. Durante el día, los vehículos eléctricos deben recargarse sin tener que volver al almacén. Cada vez que la carga restante cae a menos de una hora, se busca un conjunto de estaciones de carga que estén dentro de un alcance accesible. Básicamente, se busca una estación de carga cuando la batería tiene poca carga, y se obtiene la información sobre el límite del alcance de las estaciones de carga. 
 
-Dado que la compañía prefiere el uso de rutas equilibradas por economía y velocidad, el valor de routeType solicitado es *eco* . El siguiente script llama a [Get Route Range API](/rest/api/maps/route/getrouterange) del servicio de enrutamiento de Azure Maps. Usa parámetros para el modelo de consumo del vehículo. Después, el script analiza la respuesta para crear un objeto de tipo polígono con el formato GeoJSON, que representa el intervalo máximo de alcance del automóvil.
+Dado que la compañía prefiere el uso de rutas equilibradas por economía y velocidad, el valor de routeType solicitado es *eco*. El siguiente script llama a [Get Route Range API](/rest/api/maps/route/getrouterange) del servicio de enrutamiento de Azure Maps. Usa parámetros para el modelo de consumo del vehículo. Después, el script analiza la respuesta para crear un objeto de tipo polígono con el formato GeoJSON, que representa el intervalo máximo de alcance del automóvil.
 
 Para determinar los límites del intervalo de alcance del vehículo eléctrico, ejecute el script de la siguiente celda:
 
@@ -171,11 +171,11 @@ for loc in range(len(searchPolyResponse["results"])):
                 reachableLocations.append(location)
 ```
 
-## <a name="upload-the-reachable-range-and-charging-points-to-azure-maps-data-service"></a>Carga del intervalo de alcance y de los puntos de carga en el servicio de datos de Azure Maps
+## <a name="upload-the-reachable-range-and-charging-points-to-azure-maps-data-service-preview"></a>Carga del rango de alcance y los puntos de carga en el servicio Data de Azure Maps (versión preliminar)
 
-Querrá visualizar en un mapa las estaciones de carga y el límite del alcance máximo al que puede llegar el vehículo eléctrico. Para ello, cargue los datos de límites y los datos de las estaciones de carga como objetos GeoJSON en el servicio de datos de Azure Maps. Use [Data Upload API](/rest/api/maps/data/uploadpreview). 
+Querrá visualizar en un mapa las estaciones de carga y el límite del alcance máximo al que puede llegar el vehículo eléctrico. Para ello, cargue los datos de límite y de estaciones de carga a modo de objetos geojson en el servicio Data de Azure Maps (versión preliminar). Use [Data Upload API](/rest/api/maps/data/uploadpreview). 
 
-Ejecute las dos celdas siguientes para cargar los datos del límite y los datos de puntos de carga en el servicio de datos de Azure Maps:
+Para cargar los datos de límite y de puntos de carga en el servicio Data de Azure Maps, ejecute las dos celdas siguientes:
 
 ```python
 rangeData = {
@@ -194,7 +194,7 @@ rangeData = {
   ]
 }
 
-# Upload the range data to Azure Maps Data Service.
+# Upload the range data to Azure Maps Data service (Preview).
 uploadRangeResponse = await session.post("https://atlas.microsoft.com/mapData/upload?subscription-key={}&api-version=1.0&dataFormat=geojson".format(subscriptionKey), json = rangeData)
 
 rangeUdidRequest = uploadRangeResponse.headers["Location"]+"&subscription-key={}".format(subscriptionKey)
@@ -223,7 +223,7 @@ poiData = {
   ]
 }
 
-# Upload the electric vehicle charging station data to Azure Maps Data Service.
+# Upload the electric vehicle charging station data to Azure Maps Data service (Preview).
 uploadPOIsResponse = await session.post("https://atlas.microsoft.com/mapData/upload?subscription-key={}&api-version=1.0&dataFormat=geojson".format(subscriptionKey), json = poiData)
 
 poiUdidRequest = uploadPOIsResponse.headers["Location"]+"&subscription-key={}".format(subscriptionKey)
@@ -336,12 +336,12 @@ routeData = {
 
 ## <a name="visualize-the-route"></a>Visualización de la ruta
 
-Para ayudar a visualizar la ruta, primero debe cargar los datos de la ruta como un objeto GeoJSON en el servicio de datos de Azure Maps. Para ello, use [Data Upload API](/rest/api/maps/data/uploadpreview) de Azure Maps. A continuación, llame al servicio de representación, [Get Map Image API](/rest/api/maps/render/getmapimage), para representar la ruta en el mapa y visualizarla.
+Para ayudar a ver la ruta, primero cargue los datos de ruta como un objeto geojson en el servicio Data de Azure Maps (versión preliminar). Para ello, use [Data Upload API](/rest/api/maps/data/uploadpreview) de Azure Maps. A continuación, llame al servicio de representación, [Get Map Image API](/rest/api/maps/render/getmapimage), para representar la ruta en el mapa y visualizarla.
 
 Ejecute el siguiente script para obtener una imagen de la ruta representada en el mapa:
 
 ```python
-# Upload the route data to Azure Maps Data Service.
+# Upload the route data to Azure Maps Data service (Preview).
 routeUploadRequest = await session.post("https://atlas.microsoft.com/mapData/upload?subscription-key={}&api-version=1.0&dataFormat=geojson".format(subscriptionKey), json = routeData)
 
 udidRequestURI = routeUploadRequest.headers["Location"]+"&subscription-key={}".format(subscriptionKey)
@@ -401,7 +401,7 @@ Para explorar las API de Azure Maps que se usan en este tutorial, consulte:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre Azure Notebooks, consulte:
+Para más información sobre Azure Notebooks, consulte
 
 > [!div class="nextstepaction"]
 > [Azure Notebooks](../notebooks/index.yml)

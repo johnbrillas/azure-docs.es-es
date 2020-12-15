@@ -2,17 +2,17 @@
 title: Conexión de ExpressRoute a la puerta de enlace de red virtual
 description: Pasos para conectar ExpressRoute a la puerta de enlace de red virtual.
 ms.topic: include
-ms.date: 09/28/2020
-ms.openlocfilehash: 214ef9c01193b238c8e456ef2809f7a2edbdb6c7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/08/2020
+ms.openlocfilehash: 5f9a565a7662041dbd85e61388129496fa376962
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91598159"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861529"
 ---
 <!-- Used in deploy-azure-vmware-solution.md and tutorial-configure-networking.md -->
 
-1. Vaya a la nube privada que creó en el tutorial anterior y seleccione **Conectividad**  en **Administrar** y seleccione la pestaña **ExpressRoute**.
+1. Vaya a la nube privada que creó en el tutorial de [implementación del clúster de vSphere en Azure](../tutorial-create-private-cloud.md). Elija **Conectividad** en **Administrar** y, a continuación, seleccione la pestaña **ExpressRoute**.
 
 1. Copie la clave de autorización. Si no hay ninguna clave de autorización, debe crearla; para ello, seleccione **+ Solicitar una clave de autorización**.
 
@@ -22,7 +22,7 @@ ms.locfileid: "91598159"
 
 1. En la página **Agregar conexión**, proporcione valores para los campos y seleccione **Aceptar**. 
 
-   | Campo | Value |
+   | Campo | Valor |
    | --- | --- |
    | **Nombre**  | Escriba un nombre para la conexión.  |
    | **Tipo de conexión**  | seleccione **ExpressRoute**.  |
@@ -31,6 +31,6 @@ ms.locfileid: "91598159"
    | **Clave de autorización**  | Copie y pegue la clave de autorización de la pestaña de ExpressRoute para el grupo de recursos. |
    | **URI de circuito del mismo nivel**  | Copie y pegue el identificador de ExpressRoute de la pestaña de ExpressRoute para el grupo de recursos.  |
 
-   :::image type="content" source="../media/expressroute-global-reach/open-cloud-shell.png" alt-text="Copie la clave de autorización. Si no hay ninguna clave de autorización, debe crearla; para ello, seleccione + Solicitar una clave de autorización." border="true" lightbox="../media/expressroute-global-reach/open-cloud-shell.png":::
+   :::image type="content" source="../media/expressroute-global-reach/open-cloud-shell.png" alt-text="En la página Agregar conexión, proporcione valores para los campos y seleccione Aceptar." border="true" lightbox="../media/expressroute-global-reach/open-cloud-shell.png":::
 
 Se crea la conexión entre el circuito ExpressRoute y la red virtual.

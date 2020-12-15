@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: sample
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: b52bfc14906d8e47c804ae15ee898f6ca00784af
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 8642f4284770df54704a4e7066054d3bb4640486
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92503851"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96545880"
 ---
 # <a name="azure-active-directory-b2c-code-samples"></a>Ejemplos de código de Azure Active Directory B2C
 
@@ -68,15 +68,25 @@ En las tablas siguientes se proporcionan vínculos a ejemplos de código para ap
 | [Node.js](https://github.com/Azure-Samples/active-directory-nodejs-external-identities-api-connector-azure-function-validate)   | Este ejemplo de Azure Functions con Node.js muestra cómo limitar los registros a dominios de correo electrónico específicos y validar la información proporcionada por el usuario.  |
 | [Python](https://github.com/Azure-Samples/active-directory-python-external-identities-api-connector-azure-function-validate)    | Este ejemplo de Azure Functions con Python muestra cómo limitar los registros a dominios de correo electrónico específicos y validar la información proporcionada por el usuario.    |
 
-### <a name="identity-verification-with-api-connectors"></a>Verificación de identidad con conectores de API
+
+### <a name="automated-fraud-protection-services--captcha"></a>Servicios automatizados de protección contra el fraude y CAPTCHA
+| Muestra                                                                                                            | Descripción                                                                                                                          |
+| ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| [Protección de Arkose Labs contra el fraude y el uso indebido](https://github.com/Azure-Samples/active-directory-b2c-node-sign-up-user-flow-arkose) | En este ejemplo se muestra cómo proteger los registros de usuario mediante el servicio de protección de Arkose Labs contra el fraude y el uso indebido. |
+| [reCAPTCHA](https://github.com/Azure-Samples/active-directory-b2c-node-sign-up-user-flow-captcha) | En este ejemplo se muestra cómo proteger los registros de usuario mediante un desafío reCAPTCHA para impedir tipos de uso indebido automatizados. |
+
+
+### <a name="identity-verification"></a>Verificación de identidad
 
 | Muestra                                                                                                            | Descripción                                                                                                                          |
 | ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| [IDology](https://github.com/Azure-Samples/active-directory-dotnet-external-identities-idology-identity-verification) | En este ejemplo se muestra cómo comprobar una identidad de usuario como parte de su suscripción de autoservicio mediante un conector de API para integrarse con IDology. |
-| [Experian](https://github.com/Azure-Samples/active-directory-dotnet-external-identities-experian-identity-verification) | En este ejemplo se muestra cómo comprobar una identidad de usuario como parte de su registro de autoservicio mediante un conector de API para integrarse con Experian. |
+| [IDology](https://github.com/Azure-Samples/active-directory-dotnet-external-identities-idology-identity-verification) | En este ejemplo se muestra cómo comprobar una identidad de usuario como parte de los flujos de registro mediante un conector de API para integrarse con IDology. |
+| [Experian](https://github.com/Azure-Samples/active-directory-dotnet-external-identities-experian-identity-verification) | En este ejemplo se muestra cómo comprobar una identidad de usuario como parte de los flujos de registro mediante un conector de API para integrarse con Experian. |
 
-### <a name="community-samples"></a>Ejemplos de la comunidad
+
+### <a name="other"></a>Otros
 
 | Muestra                                                                                                            | Descripción                                                                                                                          |
 | ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| [Código de invitación](https://github.com/Azure-Samples/active-directory-b2c-node-sign-up-user-flow-invitation-code) | Este ejemplo muestra cómo limitar los registros a públicos específicos mediante códigos de invitación.|
 | [Ejemplos de la comunidad del conector de API](https://github.com/azure-ad-b2c/api-connector-samples) | Este repositorio incluye ejemplos de escenarios mantenidos por la comunidad habilitados por los conectores de API.|

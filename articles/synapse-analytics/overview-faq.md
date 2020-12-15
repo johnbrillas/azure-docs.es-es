@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 10/25/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 838276c47085a3c7ad0f7c0a35a2578b13eb5026
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: a427c77ec23bb933f96d8aec54ca33169aee84d4
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96511274"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576033"
 ---
 # <a name="azure-synapse-analytics-frequently-asked-questions"></a>Preguntas frecuentes sobre Azure Synapse Analytics
 
@@ -22,7 +22,7 @@ En esta guía, encontrará las preguntas más frecuentes sobre Azure Synapse Ana
 
 ## <a name="general"></a>General
 
-### <a name="q-what-rbac-roles-exist-and-how-do-i-use-them-to-secure-a-synapse-workspace"></a>P: ¿Qué roles de RBAC existen y cómo se usan para proteger áreas de trabajo de Synapse?
+### <a name="q-how-can-i-use-rbac-roles-to-secure-my-workspace"></a>P: ¿Cómo se pueden usar los roles RBAC para proteger un área de trabajo?
 
 A. Azure Synapse introduce varios roles y ámbitos para asignarlos, lo que simplificará la protección del área de trabajo.
 
@@ -36,16 +36,16 @@ Roles de Synapse RBAC:
 * Operador de proceso de Synapse (versión preliminar)
 * Usuario de credenciales Synapse (versión preliminar)
 
-Ámbitos de Synapse RBAC:
-* Área de trabajo 
-* Grupo de Spark
-* Tiempo de ejecución de integración
-* Servicio vinculado
-* Credential:
+Para proteger el área de trabajo de Synapse, asigne los roles RBAC a estos ámbitos de RBAC:
+* Áreas de trabajo
+* Grupos de Spark
+* Entornos de ejecución de integración
+* Servicios vinculados
+* Credenciales
 
 Además, con los grupos de SQL dedicados tiene las mismas características de seguridad que conoce y tanto le gusta.
 
-### <a name="q-how-can-i-cost-control-for-the-capabilities-inside-a-synapse-workspace-such-as-dedicated-sql-pools-serverless-spark-pools-and-serverless-sql-pools"></a>P: ¿Cómo puedo controlar el costo de las funcionalidades de las áreas de trabajo de Synapse, como los grupos de SQL dedicados, los grupos de Spark sin servidor y los grupos de SQL sin servidor?
+### <a name="q-how-do-i-control-cont-dedicated-sql-pools-serverless-sql-pools-and-serverless-spark-pools"></a>P: ¿Cómo se controlan los grupos de SQL dedicados, grupos de SQL sin servidor y grupos de Spark?
 
 R: Como punto de partida, Azure Synapse funciona con las alertas de costos y el análisis de costos integrados disponibles en el nivel de suscripción de Azure.
 
@@ -83,7 +83,7 @@ R: No en este momento.
 
 ### <a name="q-how-do-i-migrate-existing-pipelines-from-azure-data-factory-to-an-azure-synapse-workspace"></a>P: ¿Cómo se migran las canalizaciones existentes de Azure Data Factory a un área de trabajo de Azure Synapse?
 
-R: Actualmente, tanto las canalizaciones de Azure Data Factory como los artefactos relacionados se deben volver a crear manualmente. 
+A. En este momento, es preciso volver a crear manualmente las canalizaciones de Azure Data Factory y los artefactos relacionados mediante la exportación del archivo JSON de la canalización original y su posterior importación en el área de trabajo de Synapse.
 
 ## <a name="apache-spark"></a>Spark de Apache
 

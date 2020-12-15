@@ -1,15 +1,18 @@
 ---
 title: Detección de las máquinas virtuales de Hyper-V con Azure Migrate Server Assessment
 description: Obtenga información acerca de cómo detectar las máquinas virtuales locales de Hyper-V con la herramienta Azure Migrate Server Assessment.
+author: vineetvikram
+ms.author: vivikram
+ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: 0643a13a07572dc24ef895062593e00188a0752f
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 1b860c739ab9ed9737f9f946cb13c731fa4722db
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92317163"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753066"
 ---
 # <a name="tutorial-discover-hyper-v-vms-with-server-assessment"></a>Tutorial: Detección de máquinas virtuales de Hyper-V con Server Assessment
 
@@ -149,7 +152,7 @@ Compruebe que el archivo comprimido es seguro, antes de implementarlo.
 
     - Para Azure Government:
 
-        **Escenario*** | **Descargar** | **SHA256**
+        **Escenario** _ | _ *Descarga** | **SHA256**
         --- | --- | ---
         Hyper-V (85,8 MB) | [La versión más reciente](https://go.microsoft.com/fwlink/?linkid=2140424) |  cfed44bb52c9ab3024a628dc7a5d0df8c624f156ec1ecc3507116bae330b257f
 

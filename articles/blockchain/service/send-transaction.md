@@ -1,17 +1,17 @@
 ---
 title: 'Tutorial de creación, compilación e implementación de contratos inteligentes: Azure Blockchain Service'
 description: Tutorial sobre cómo usar el kit de desarrollo de Azure Blockchain para la extensión Ethereum en Visual Studio Code a fin de crear, compilar e implementar un contrato inteligente en Azure Blockchain Service.
-ms.date: 04/22/2020
+ms.date: 11/30/2020
 ms.topic: tutorial
 ms.reviewer: caleteet
-ms.openlocfilehash: dc23c680dfb2ed33cae2a251af16e1b1f25c6ac7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f7605a0c118a40e52210582d2411569795fb25ee
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82086664"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763696"
 ---
-# <a name="tutorial-create-buildanddeploysmartcontracts-on-azure-blockchain-service"></a>Tutorial: Creación, compilación e implementación de contratos inteligentes en Azure Blockchain Service
+# <a name="tutorial-create-build-and-deploy-smart-contracts-on-azure-blockchain-service"></a>Tutorial: Creación, compilación e implementación de contratos inteligentes en Azure Blockchain Service
 
 En este tutorial, usará el kit de desarrollo de Azure Blockchain para la extensión Ethereum en Visual Studio Code a fin de crear, compilar e implementar un contrato inteligente en Azure Blockchain Service. También puede usar el kit de desarrollo para ejecutar una función de contrato inteligente mediante una transacción.
 
@@ -31,7 +31,6 @@ Use el kit de desarrollo de Azure Blockchain para Ethereum para:
 * [Kit de desarrollo de Azure Blockchain para la extensión de Ethereum](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain)
 * [Node.js 10.15.x o superior](https://nodejs.org/download)
 * [Git 2.10.x o superior](https://git-scm.com)
-* [Python 2.7.15](https://www.python.org/downloads/release/python-2715/) Agregue python.exe a la ruta de acceso. Se necesita la versión 2.7.15 de Python en la ruta de acceso de Azure Blockchain Development Kit.
 * [Truffle 5.0.0](https://www.trufflesuite.com/docs/truffle/getting-started/installation)
 * [CLI de Ganache 6.0.0](https://github.com/trufflesuite/ganache-cli)
 
@@ -47,7 +46,7 @@ Para más información sobre node-gyp, consulte el [repositorio de node-gyp en G
 
 El kit de desarrollo de Azure Blockchain para Ethereum usa plantillas de proyecto y herramientas de Truffle para ayudar a preparar, compilar e implementar contratos. Antes de empezar, debe cumplir los siguientes requisitos previos [Inicio rápido: Uso de Visual Studio Code para conectarse a una red del consorcio de Azure Blockchain Service](connect-vscode.md). El inicio rápido le guía en la instalación y configuración del Kit de desarrollo de Azure Blockchain para Ethereum.
 
-1. En la paleta de comandos de VS Code, elija **Azure Blockchain: New Solidity Project** (Azure Blockchain: nuevo proyecto de Solidity).
+1. En la paleta de comandos de VS Code, seleccione **Blockchain: New Solidity Project** (Azure Blockchain: nuevo proyecto de Solidity).
 1. Elija **Create basic project** (Crear proyecto básico).
 1. Cree una nueva carpeta denominada `HelloBlockchain` y seleccione **New project path** (Nueva ruta de acceso de proyecto).
 
@@ -76,7 +75,7 @@ Truffle usa scripts de migración para implementar los contratos en una red de E
 
 1. Para implementar el contrato inteligente, haga clic con el botón derecho en **HelloBlockchain.sol** y elija **Deploy Contracts** (Implementar contratos) en el menú.
 1. Elija su red de consorcio de Azure Blockchain en la paleta de comandos. La red de consorcio de la red de la cadena de bloques se agregó al archivo de configuración Truffle del proyecto al crearlo.
-1. Elija **Generate mnemonic** (Generar mnemotécnico). Elija un nombre de archivo y guarde el archivo mnemotécnico en la carpeta del proyecto. Por ejemplo, `myblockchainmember.env`. El archivo mnemotécnico se usa para generar una clave privada de Ethereum para el miembro de la cadena de bloques.
+1. Elija **Generate mnemonic** (Generar mnemotécnico). Elija un nombre de archivo y guarde el archivo mnemotécnico en la carpeta del proyecto. Por ejemplo: `myblockchainmember.env`. El archivo mnemotécnico se usa para generar una clave privada de Ethereum para el miembro de la cadena de bloques.
 
 El kit de desarrollo de Azure Blockchain usa Truffle para ejecutar el script de migración con el fin de implementar los contratos en la cadena de bloques.
 

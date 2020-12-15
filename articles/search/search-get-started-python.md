@@ -1,7 +1,7 @@
 ---
 title: 'Inicio rápido: Creación de un índice de búsqueda en Python'
 titleSuffix: Azure Cognitive Search
-description: Explica cómo crear un índice, cargar datos y ejecutar consultas mediante Python, instancias de Jupyter Notebook y la biblioteca Azure.Documents.Search.
+description: Explica cómo crear un índice, cargar datos y ejecutar consultas mediante Python, cuadernos de Jupyter Notebook y la biblioteca Azure.Documents.Search.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
@@ -9,14 +9,14 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/19/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 528d29f3b285c2583fd1bb52e1de7c24fdc9e28a
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 126fc69678148d4d478c96ff8d05f194c7e3d1b3
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917093"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861874"
 ---
-# <a name="quickstart-create-an-azure-cognitive-search-index-in-python-using-jupyter-notebooks"></a>Inicio rápido: Creación de un índice de Azure Cognitive Search en Python mediante Jupyter Notebook
+# <a name="quickstart-create-an-azure-cognitive-search-index-in-python-using-jupyter-notebooks"></a>Inicio rápido: Creación de un índice de Azure Cognitive Search en Python mediante cuadernos de Jupyter Notebook
 
 > [!div class="op_single_selector"]
 > * [Python](search-get-started-python.md)

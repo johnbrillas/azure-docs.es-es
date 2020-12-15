@@ -9,18 +9,18 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 97a90284ad8d195751eb5dd90675822d00243ea8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 11c20f3f79a4fceafaca9b1a948f1b4a425dad87
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91665215"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96572718"
 ---
 # <a name="voice-and-video-concepts"></a>Conceptos de voz y vídeo
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-Puede usar Azure Communication Services para hacer y recibir llamadas de voz y vídeo, analizar metadatos de las llamadas, registrar llamadas e, incluso, crear árboles de llamadas. Las llamadas se pueden hacer a otros dispositivos conectados a Internet y en teléfonos convencionales. Puede usar las bibliotecas cliente JavaScript, Android o iOS de Communication Services para compilar aplicaciones que permitan a los usuarios hablar entre sí en conversaciones privadas o en discusiones grupales. Azure Communication Services admite hacer y recibir llamadas desde servicios o bots.
+Puede usar Azure Communication Services para hacer y recibir llamadas de voz o videollamadas individuales o de grupo. Las llamadas se pueden hacer a otros dispositivos conectados a Internet y en teléfonos convencionales. Puede usar las bibliotecas cliente JavaScript, Android o iOS de Communication Services para compilar aplicaciones que permitan a los usuarios hablar entre sí en conversaciones privadas o en discusiones grupales. Azure Communication Services admite hacer y recibir llamadas desde servicios o bots.
 
 ## <a name="call-types-in-azure-communication-services"></a>Tipos de llamada en Azure Communication Services
 

@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc, contperfq1
-ms.date: 11/10/2020
+ms.date: 12/03/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: e714e88e47ec20adec44a104c659d03e62d8010a
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: fc68170a89a3d9a359ae9cb2c0d5543af301e738
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658390"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573041"
 ---
 # <a name="what-is-azure-firewall"></a>¿Qué es Azure Firewall?
 
@@ -72,7 +72,8 @@ Las reglas de filtrado de red para protocolos que no son TCP/UDP (por ejemplo, I
 |El inicio o la detención no funcionan con los firewalls configurados en modo de túnel forzado|El inicio o la detención no funcionan con Azure Firewall configurado en modo de túnel forzado. Si se intenta iniciar Azure Firewall con la tunelización forzada configurada, aparece el siguiente error:<br><br>*Set-AzFirewall: AzureFirewall FW-xx management IP configuration cannot be added to an existing firewall. Redeploy with a management IP configuration if you want to use forced tunneling support.<br>StatusCode: 400<br>ReasonPhrase: Solicitud incorrecta* (Set-AzFirewall: la configuración de la IP de administración de AzureFirewall FW-xx no se puede agregar a un firewall existente. Vuelva a realizar la implementación de desea usar el soporte técnico de la tunelización forzada.
 StatusCode: 400
 ReasonPhrase: solicitud incorrecta).|Bajo investigación.<br><br>Como solución alternativa, puede eliminar el firewall existente y crear otro con los mismos parámetros.|
-|No se pueden agregar etiquetas de directiva de firewall mediante el portal.|La directiva de Azure Firewall tiene una limitación de compatibilidad de revisión que impide agregar una etiqueta mediante Azure Portal. Se genera el siguiente error: *No se pudieron guardar las etiquetas del recurso*.|Se está investigando una solución. Como alternativa, puede usar el cmdlet Azure PowerShell `Set-AzFirewallPolicy` para actualizar etiquetas.
+|No se pueden agregar etiquetas de directiva de firewall mediante el portal.|La directiva de Azure Firewall tiene una limitación de compatibilidad de revisión que impide agregar una etiqueta mediante Azure Portal. Se genera el siguiente error: *No se pudieron guardar las etiquetas del recurso*.|Se está investigando una solución. Como alternativa, puede usar el cmdlet Azure PowerShell `Set-AzFirewallPolicy` para actualizar etiquetas.|
+|IPv6 no se admite aún.|Si agrega una dirección IPv6 a una regla, se produce un error en el firewall.|Use solo direcciones IPv4. La compatibilidad con IPv6 está en proceso de investigación.|
 
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -1,19 +1,19 @@
 ---
 title: Integración continua con Azure Pipelines
-description: Aprende a compilar, probar e implementar plantillas de Azure Resource Manager de manera continua.
+description: Aprenda a compilar, probar e implementar continuamente plantillas de Azure Resource Manager (ARM).
 ms.date: 08/24/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 433811cb632aae0d7370fc8e401c01fe36621a5b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d7688a4e4838cb591bcd3ac0045a5ed22180c063
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333244"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906359"
 ---
-# <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>Tutorial: Integración continua de plantillas de Azure Resource Manager en Azure Pipelines
+# <a name="tutorial-continuous-integration-of-arm-templates-with-azure-pipelines"></a>Tutorial: Integración continua de plantillas de ARM con Azure Pipelines
 
-En el [tutorial anterior](./deployment-tutorial-linked-template.md), implementó una plantilla vinculada.  En este tutorial, aprenderá a usar Azure Pipelines para compilar e implementar proyectos de plantillas de Azure Resource Manager de manera continua.
+En el [tutorial anterior](./deployment-tutorial-linked-template.md), implementó una plantilla vinculada.  En este tutorial, aprenderá a usar Azure Pipelines para compilar e implementar continuamente proyectos de plantillas de Azure Resource Manager (ARM).
 
 Azure DevOps proporciona servicios para desarrolladores para apoyar a los equipos de soporte técnico a planear el trabajo, colaborar en el desarrollo de código, y compilar e implementar aplicaciones. Los desarrolladores pueden trabajar en la nube con Azure DevOps Services. Azure DevOps proporciona un conjunto integrado de características a las que puedes acceder a través de tu explorador web o cliente IDE. Azure Pipelines es una de estas características. Azure Pipelines es un servicio completo de integración continua (CI) y entrega continua (CD). Funciona con tu proveedor de Git preferido y puede implementarse en la mayoría de los servicios en la nube principales. A continuación, puedes automatizar la compilación, las pruebas y la implementación del código en Microsoft Azure, Google Cloud Platform o Amazon Web Services.
 
@@ -40,7 +40,7 @@ Para completar este artículo, necesitará lo siguiente:
 * **Una cuenta de GitHub**, que usarás para crear un repositorio para las plantillas. Si no tiene ninguna, [puede crear una gratis](https://github.com). Para más información sobre el uso de los repositorios de GitHub, consulta [Build GitHub repositories](/azure/devops/pipelines/repos/github) (Compilar repositorios de GitHub).
 * **Instale Git**. En las instrucciones de este tutorial se usa *Git Bash* o *Git Shell*. Para instrucciones, consulta [Install Git]( https://www.atlassian.com/git/tutorials/install-git) (Instalar Git).
 * **Una organización de Azure DevOps**. Si no tienes una, puedes crear una gratis. Consulte [Create an organization or project collection](/azure/devops/organizations/accounts/create-organization?view=azure-devops) (Crear una organización o colección de proyectos).
-* (Opcional) **Visual Studio Code con la extensión de herramientas de Resource Manager**. Consulte [Quickstart: Creación de plantillas de Azure Resource Manager con Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+* (Opcional) **Visual Studio Code con la extensión de herramientas de Resource Manager**. Consulte [Quickstart: Creación de plantillas de ARM mediante Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
 ## <a name="prepare-a-github-repository"></a>Preparación de un repositorio de GitHub
 

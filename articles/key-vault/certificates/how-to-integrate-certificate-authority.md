@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: how-to
 ms.date: 06/02/2020
 ms.author: sebansal
-ms.openlocfilehash: 4d29d7401cf944e8d999db847ce2e1266169ea34
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 4635bcc51d2ab626b16ddcf02e772bf3df3cad4d
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96448410"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763747"
 ---
 # <a name="integrating-key-vault-with-digicert-certificate-authority"></a>Integración de Key Vault con la entidad de certificación DigiCert
 
@@ -127,6 +127,9 @@ La entidad de certificación DigiCert ha emitido correctamente el certificado de
 Si el certificado emitido se encuentra en el estado "deshabilitado" en Azure Portal, continúe para ver la **Operación de certificados** y revisar el mensaje de error de DigiCert para ese certificado.
 
  ![Operación de certificados](../media/certificates/how-to-integrate-certificate-authority/certificate-operation-select.png)
+
+Mensaje de error "Realice una operación de combinación para completar esta solicitud de certificado".
+Necesitaría combinar el CSR firmado por la entidad de certificación para completar esta solicitud. Obtenga más información [aquí](https://docs.microsoft.com/azure/key-vault/certificates/create-certificate-signing-request).
 
 Para más información, consulte las [operaciones con certificados en la referencia de la API REST de Key Vault](/rest/api/keyvault). Para obtener información sobre cómo establecer permisos, vea [Almacenes: crear o actualizar](/rest/api/keyvault/vaults/createorupdate) y [Almacenes: actualizar directiva de acceso](/rest/api/keyvault/vaults/updateaccesspolicy).
 

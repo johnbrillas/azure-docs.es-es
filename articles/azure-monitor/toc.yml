@@ -129,7 +129,7 @@
           href: app/data-retention-privacy.md
     - name: Alertas
       items:
-        - name: Información general
+        - name: Introducción
           href: platform/alerts-overview.md
         - name: Alertas de métricas
           href: platform/alerts-metric-overview.md
@@ -382,7 +382,7 @@
               href: insights/solution-agenthealth.md
         - name: Extensión de Diagnósticos de Azure
           items:
-            - name: Información general
+            - name: Introducción
               href: platform/diagnostics-extension-overview.md
             - name: Windows
               displayname: diagnostics extension
@@ -1058,7 +1058,7 @@
       items:
         - name: Azure Cache for Redis (versión preliminar)
           href: insights/redis-cache-insights-overview.md
-        - name: "Azure Cosmos\_DB"
+        - name: Azure Cosmos DB
           href: insights/cosmosdb-insights-overview.md
         - name: Redes
           href: insights/network-insights-overview.md
@@ -1175,6 +1175,8 @@
               href: platform/workbooks-automate.md
             - name: Grupos
               href: platform/workbooks-groups.md
+            - name: Traiga su propio almacenamiento
+              href: platform/workbooks-bring-your-own-storage.md
             - name: Transformación de datos JSON con JSONPath
               href: platform/workbooks-jsonpath.md
             - name: Traslado de libros a otra región

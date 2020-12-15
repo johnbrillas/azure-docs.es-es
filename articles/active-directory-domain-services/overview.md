@@ -2,21 +2,21 @@
 title: Información general de Azure Active Directory Domain Services | Microsoft Docs
 description: En esta introducción, sabrá lo que ofrece Azure Active Directory Domain Services y cómo usarlo en su organización para ofrecer servicios de identidad a las aplicaciones y los servicios en la nube.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: overview
-ms.date: 08/14/2020
-ms.author: joflore
+ms.date: 12/03/2020
+ms.author: justinha
 ms.custom: contperfq1
-ms.openlocfilehash: 988119c34ab0a8ef0e20ec86a7552fb7b4643cd1
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 141b59e400154ef40ebced25c69eaf162ac1787a
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967994"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619120"
 ---
 # <a name="what-is-azure-active-directory-domain-services"></a>¿Qué es Azure Active Directory Domain Services?
 
@@ -33,7 +33,7 @@ Azure AD DS se integra con el inquilino de Azure AD existente. Esta integraci
 
 Cuando cree un dominio administrado de Azure AD DS, defina un espacio de nombres único. Este espacio de nombres es el nombre de dominio, por ejemplo, *aaddscontoso.com*. A continuación, se implementan dos controladores de dominio de Windows Server en la región de Azure seleccionada. Esta implementación de controladores de dominio se conoce como "conjunto de réplicas".
 
-No es necesario administrar, configurar ni actualizar estos controladores de dominio. La plataforma Azure los administra como parte del dominio administrado, incluidas las copias de seguridad.
+No es necesario administrar, configurar ni actualizar estos controladores de dominio. La plataforma Azure administra los controladores de dominio como parte del dominio administrado, incluidas las copias de seguridad y el cifrado en reposo mediante Azure Disk Encryption.
 
 Un dominio administrado está configurado para realizar una sincronización unidireccional desde Azure AD y proporcionar acceso a un conjunto central de usuarios, grupos y credenciales. Puede crear los recursos directamente en el dominio administrado, pero no se vuelven a sincronizar con Azure AD. Las aplicaciones, los servicios y las máquinas virtuales de Azure que se conectan al dominio administrado pueden usar las características de AD DS comunes, como unión a un dominio, directiva de grupo, LDAP y autenticación Kerberos o NTLM.
 

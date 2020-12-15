@@ -8,18 +8,47 @@ ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 965c420fa29c4cf82517148c01e17d6d7dd6ea97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b23324a7226d4b3de4908bd78a8f19c799e59f06
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74106511"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932190"
 ---
 # <a name="tutorial-an-end-to-end-solution-using-azure-machine-learning-and-iot-edge"></a>Tutorial: Una solución integral con Azure Machine Learning y IoT Edge
 
 Con frecuencia, las aplicaciones de IoT buscan aprovechar las ventajas de la nube inteligente y la inteligencia perimetral. En este tutorial, te guiaremos por el entrenamiento de un modelo de Machine Learning con datos recopilados de los dispositivos de IoT en la nube, la implementación de ese modelo en IoT Edge y el mantenimiento y ajuste periódicos del modelo.
 
 El objetivo principal de este tutorial es presentar el procesamiento de datos de IoT con aprendizaje automático, específicamente en el borde. Si bien se abordan muchos aspectos de un flujo de trabajo de aprendizaje automático general, este tutorial no está pensado como una introducción detallada del aprendizaje automático. En este caso puntual, no intentamos crear un modelo muy optimizado para el caso de uso, sino que hacemos lo suficiente para ilustrar el proceso de creación y uso de un modelo viable para el procesamiento de datos de IoT.
+
+En esta sección del tutorial se tratan los siguientes aspectos:
+
+> [!div class="checklist"]
+>
+> * Los requisitos previos para completar las siguientes secciones del tutorial.
+> * El público de destino del tutorial.
+> * El caso de uso que el tutorial aborda.
+> * El proceso general que el tutorial sigue para completar el caso de uso.
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+## <a name="prerequisites"></a>Prerrequisitos
+
+Para completar el tutorial, necesitas acceso a una suscripción a Azure en la que tengas derechos para crear recursos. Varios de los servicios usados en este tutorial incurrirán en cargos de Azure. Si no dispones de una suscripción a Azure, es posible que puedas empezar a trabajar con un [cuenta gratuita de Azure](https://azure.microsoft.com/offers/ms-azr-0044p/).
+
+También necesitas una máquina con PowerShell instalado, donde puede ejecutar scripts para configurar una máquina virtual de Azure como equipo de desarrollo.
+
+En el documento se usan los conjuntos de herramientas siguientes:
+
+* Azure IoT Hub para la captura de datos.
+
+* Azure Notebooks como front-end principal para la preparación de datos y la experimentación de aprendizaje automático. Ejecutar código de python en un cuaderno en un subconjunto de los datos de ejemplo es una excelente manera de obtener una respuesta rápida iterativa e interactiva durante la preparación de datos. Las instancias de Jupyter Notebook también pueden usarse para preparar scripts para ejecutarlos a escala en un back-end de proceso.
+
+* Azure Machine Learning como back-end para el aprendizaje automático a escala y para generación de imágenes de aprendizaje automático. Controlamos el back-end de Azure Machine Learning mediante scripts preparados y probados en instancias de Jupyter Notebook.
+
+* Azure IoT Edge para aplicación fuera de la nube de una imagen de aprendizaje automático.
+
+Evidentemente, hay otras opciones disponibles. En determinados escenarios, por ejemplo, IoT Central puede usarse como alternativa sin código para capturar datos iniciales de aprendizaje de dispositivos IoT.
 
 ## <a name="target-audience-and-roles"></a>Público y roles de destino
 
@@ -40,9 +69,9 @@ Los datos usados en este tutorial se toman del [conjunto de datos de simulación
 
 Del archivo Léame:
 
-***Escenarios experimentales***
+***Escenario experimental**
 
-*Los conjuntos de datos constan de varias series temporales multivariantes. Cada conjunto de datos se divide en subconjuntos de entrenamiento y prueba. Cada serie temporal procede de un motor diferente, es decir, los datos se pueden considerar como provenientes de una flota de motores del mismo tipo. Cada motor se inicia con diferentes grados de desgaste inicial y variación de fabricación desconocida para el usuario. Este desgaste y variación se consideran normales, es decir, no se consideran una condición de error. Hay tres configuraciones operativas que tienen un efecto considerable en el rendimiento del motor. Estas configuraciones también se incluyen en los datos. Los datos están contaminados con ruido de los sensores.*
+Los conjuntos de datos constan de varias series temporales multivariantes. Cada conjunto de datos se divide en subconjuntos de entrenamiento y prueba. Cada serie temporal procede de un motor diferente, es decir, los datos se pueden considerar como provenientes de una flota de motores del mismo tipo. Cada motor se inicia con diferentes grados de desgaste inicial y variación de fabricación desconocida para el usuario. Este desgaste y variación se consideran normales, es decir, no se consideran una condición de error. Hay tres configuraciones operativas que tienen un efecto considerable en el rendimiento del motor. Estas configuraciones también se incluyen en los datos. Los datos están contaminados con ruido de sensores.*
 
 *El motor funciona con normalidad al comienzo de cada serie temporal y desarrolla un error en algún momento durante la serie. En el conjunto de entrenamiento, el error aumenta en magnitud hasta convertirse en error del sistema. En el conjunto de prueba, la serie temporal finaliza un tiempo antes de un error del sistema. El objetivo de la competición es predecir el número de ciclos operativos restantes antes de un error en el conjunto de pruebas, es decir, el número de ciclos operativos después del último ciclo en los que el motor seguirá en funcionamiento. También proporciona un vector de valores verdaderos de vida útil restante (RUL) para los datos de prueba.*
 
@@ -74,23 +103,9 @@ En la siguiente imagen se ilustran los pasos generales que se siguen en este tut
 
 1. **Mantén y perfecciona el modelo**. Nuestro trabajo no termina una vez que se implementa el modelo. En muchos casos, queremos seguir recopilando datos y cargar esos datos periódicamente a la nube. A continuación, podemos usar estos datos para volver a entrenar y refinar nuestro modelo, que luego podemos volver a implementar en IoT Edge.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Para completar el tutorial, necesitas acceso a una suscripción a Azure en la que tengas derechos para crear recursos. Varios de los servicios usados en este tutorial incurrirán en cargos de Azure. Si no dispones de una suscripción a Azure, es posible que puedas empezar a trabajar con un [cuenta gratuita de Azure](https://azure.microsoft.com/offers/ms-azr-0044p/).
-
-También necesitas una máquina con PowerShell instalado, donde puede ejecutar scripts para configurar una máquina virtual de Azure como equipo de desarrollo.
-
-En el documento se usan los conjuntos de herramientas siguientes:
-
-* Azure IoT Hub para la captura de datos.
-
-* Azure Notebooks como front-end principal para la preparación de datos y la experimentación de aprendizaje automático. Ejecutar código de python en un cuaderno en un subconjunto de los datos de ejemplo es una excelente manera de obtener una respuesta rápida iterativa e interactiva durante la preparación de datos. Las instancias de Jupyter Notebook también pueden usarse para preparar scripts para ejecutarlos a escala en un back-end de proceso.
-
-* Azure Machine Learning como back-end para el aprendizaje automático a escala y para generación de imágenes de aprendizaje automático. Controlamos el back-end de Azure Machine Learning mediante scripts preparados y probados en instancias de Jupyter Notebook.
-
-* Azure IoT Edge para aplicación fuera de la nube de una imagen de aprendizaje automático.
-
-Evidentemente, hay otras opciones disponibles. En determinados escenarios, por ejemplo, IoT Central puede usarse como alternativa sin código para capturar datos iniciales de aprendizaje de dispositivos IoT.
+Este tutorial forma parte de una serie en la que cada artículo complementa el trabajo realizado en los anteriores. No borre ningún recurso hasta que complete el tutorial final.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -106,4 +121,4 @@ Este tutorial se divide en las secciones siguientes:
 Continúa con el siguiente artículo para configurar una máquina de desarrollo y aprovisionar los recursos de Azure.
 
 > [!div class="nextstepaction"]
-> [Configurar un entorno de aprendizaje automático en IoT Edge](tutorial-machine-learning-edge-02-prepare-environment.md)
+> [Configuración de un entorno de aprendizaje automático en IoT Edge](tutorial-machine-learning-edge-02-prepare-environment.md)

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/08/2019
 ms.author: troyhop
-ms.openlocfilehash: 09a6920e0d3a50da1bdacbf2bc7a80396c885897
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e0d7310c4863c8dd431b991a2c249f2d8e257aeb
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "61448557"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96852360"
 ---
 # <a name="tutorial-create-and-run-an-iot-device-simulation"></a>Tutorial: Creación y ejecución de una simulación de dispositivo IoT
 
@@ -34,15 +34,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Para seguir este tutorial, necesitará una instancia implementada de Simulación de dispositivo en la suscripción de Azure.
 
-Si aún no la ha implementado, debe completar primero la [Guía de inicio rápido: Implementación y ejecución de una simulación de dispositivo IoT en Azure](quickstart-device-simulation-deploy.md).
-
-## <a name="open-device-simulation"></a>Abrir Simulación de dispositivo
-
-Para ejecutar Simulación de dispositivo en el explorador, primero vaya a [Aceleradores de soluciones de Microsoft Azure IoT](https://www.azureiotsolutions.com). 
-
-Se le pedirá que inicie sesión con sus credenciales de suscripción de Azure.
-
-A continuación, haga clic en **Iniciar** en el icono de Simulación de dispositivo que ha implementado en la [guía de inicio rápido](quickstart-device-simulation-deploy.md).
+Si aún no ha implementado la simulación de dispositivo, consulte [Implementación de la simulación de dispositivo](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md) en GitHub.
 
 ## <a name="view-simulations"></a>Ver simulaciones
 
@@ -77,4 +69,4 @@ Para detener una simulación, haga clic en **Detener simulación** en la barra d
 En este tutorial, aprendió a crear, ejecutar y detener una simulación. También ha aprendido a ver los detalles de la simulación. Para más información sobre cómo ejecutar simulaciones, continúe con el tutorial siguiente:
 
 > [!div class="nextstepaction"]
-> [Creación de un dispositivo simulado personalizado](iot-accelerators-device-simulation-create-custom-device.md)
+> [Creación de dispositivo simulado personalizado](iot-accelerators-device-simulation-create-custom-device.md)

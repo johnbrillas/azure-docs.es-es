@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: a4ab8372e23e3621f7d73f8dbc38957c809acc9c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8ae5bcf103bbb2d2b952fa647ba591e49002f2ff
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89237049"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921624"
 ---
 # <a name="basic-concepts"></a>Conceptos básicos
 
@@ -30,7 +30,7 @@ La [clave web de JSON](https://tools.ietf.org/html/rfc7517) (JWK) es una estruct
 
 El proveedor de atestación pertenece al proveedor de recursos de Azure denominado Microsoft.Attestation. El proveedor de recursos es un punto de conexión de servicio que proporciona el contrato REST de Azure Attestation y se implementa mediante [Azure Resource Manager](../azure-resource-manager/management/overview.md). Cada proveedor de atestación respeta una directiva específica y reconocible. 
 
-Los proveedores de atestación se crean con una directiva predeterminada para cada tipo de TEE (tenga en cuenta que el enclave de VBS no tiene ninguna directiva predeterminada). Consulte los [ejemplos de directivas de atestación](policy-examples.md) para más información sobre la directiva predeterminada de SGX.
+Los proveedores de atestación se crean con una directiva predeterminada para cada tipo de atestación (tenga en cuenta que el enclave de VBS no tiene ninguna directiva predeterminada). Consulte los [ejemplos de directivas de atestación](policy-examples.md) para más información sobre la directiva predeterminada de SGX.
 
 ### <a name="regional-default-provider"></a>Proveedor predeterminado regional
 
@@ -38,11 +38,11 @@ Azure Attestation proporciona un proveedor predeterminado en cada región. Los c
 
 | Region | URI de atestación | 
 |--|--|
-| Sur de Reino Unido | https://shareduks.uks.attest.azure.net | 
-| Este de EE. UU. 2 | https://sharedeus2.eus2.attest.azure.net | 
-| Centro de EE. UU. | https://sharedcus.cus.attest.azure.net | 
-| Este de EE. UU.| https://sharedeus.eus.attest.azure.net | 
-| Centro de Canadá | https://sharedcac.cac.attest.azure.net | 
+| Sur de Reino Unido | `https://shareduks.uks.attest.azure.net` | 
+| Este de EE. UU. 2 | `https://sharedeus2.eus2.attest.azure.net` | 
+| Centro de EE. UU. | `https://sharedcus.cus.attest.azure.net` | 
+| Este de EE. UU.| `https://sharedeus.eus.attest.azure.net` | 
+| Centro de Canadá | `https://sharedcac.cac.attest.azure.net` | 
 
 ## <a name="attestation-request"></a>Solicitud de atestación
 
@@ -50,13 +50,13 @@ La solicitud de atestación es un objeto JSON serializado que la aplicación cli
 - "Quote": el valor de la propiedad "Quote" es una cadena que contiene una representación codificada en Base64URL de la oferta de atestación.
 - "EnclaveHeldData": el valor de la propiedad "EnclaveHeldData" es una cadena que contiene una representación codificada en Base64URL de los datos contenidos en el enclave.
 
-Azure Attestation validará el valor de "Quote" proporcionado en TEE y, a continuación, garantizará que el hash SHA256 de los datos contenidos en el enclave proporcionado se expresa en los primeros 32 bytes del campo reportData de la oferta. 
+Azure Attestation validará el valor de "Quote" proporcionado y, luego, garantizará que el hash SHA256 de los datos contenidos en el enclave proporcionado se expresa en los primeros 32 bytes del campo reportData de la oferta. 
 
 ## <a name="attestation-policy"></a>Directiva de atestación
 
 La directiva de atestación se usa para procesar la evidencia de atestación. Los clientes pueden configurarla. En el núcleo de Azure Attestation se encuentra un motor de directivas que procesa las notificaciones que constituyen la evidencia. Las directivas se usan para determinar si Azure Attestation emitirá o no un token de atestación en función de la evidencia y, por tanto, aprobará o no el atestador. En consecuencia, si no se superan todas las directivas, no se emitirá ningún token JWT.
 
-Si la directiva de TEE predeterminada en el proveedor de atestación no satisface las necesidades, los clientes podrán crear directivas personalizadas en cualquiera de las regiones que Azure Attestation admita. La administración de directivas es una característica clave que se proporciona a los clientes mediante Azure Attestation. Las directivas serán específicas del TEE y se pueden usar para identificar enclaves, agregar notificaciones al token de salida o para modificar notificaciones en un token de salida. 
+Si la directiva predeterminada del proveedor de atestación no satisface las necesidades, los clientes podrán crear directivas personalizadas en cualquiera de las regiones que Azure Attestation admita. La administración de directivas es una característica clave que se proporciona a los clientes mediante Azure Attestation. Las directivas serán específicas del tipo de atestación y se pueden usar para identificar enclaves, agregar notificaciones al token de salida o modificar notificaciones en un token de salida. 
 
 Consulte [ejemplos de una directiva de atestación](policy-examples.md) para obtener ejemplos y contenido predeterminados para las directivas.
 
@@ -99,6 +99,15 @@ Ejemplo de JWT generado para un enclave de SGX:
 }.[Signature]
 ```
 Las notificaciones como "exp", "iat", "iss" o "nbf" se definen mediante el [RFC de JWT](https://tools.ietf.org/html/rfc7517) y el resto las genera Azure Attestation. Para más información, consulte las [notificaciones emitidas por Azure Attestation](claim-sets.md).
+
+## <a name="encryption-of-data-at-rest"></a>Cifrado de datos en reposo
+
+Para proteger los datos de clientes, Azure Attestation conserva sus datos en Azure Storage. Azure Storage proporciona cifrado de los datos en reposo a medida que se escriben en los centros de datos, y los descifra para que los clientes puedan acceder a ellos. Este cifrado se produce mediante una clave de cifrado administrada de Microsoft. 
+
+Además de proteger los datos en Azure Storage, Azure Attestation también aprovecha Azure Disk Encryption (ADE) para cifrar las máquinas virtuales del servicio. Si Azure Attestation se ejecuta en un enclave en entornos informáticos confidenciales de Azure, la extensión ADE no se admite actualmente. En estos escenarios, para evitar que los datos se almacenen en memoria, el archivo de paginación está deshabilitado. 
+
+No se conservan datos de clientes en las unidades de disco duro locales de Azure Attestation.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

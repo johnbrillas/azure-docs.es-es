@@ -5,15 +5,15 @@ description: En este artículo se proporciona una introducción al firewall de a
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 09/16/2020
+ms.date: 12/04/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: d3e38de191557f0602d1b544c6590018f98405b0
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 36f04b02774a01814811ea131388629de27e9f07
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94560798"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621032"
 ---
 # <a name="what-is-azure-web-application-firewall-on-azure-application-gateway"></a>¿Qué es el firewall de aplicaciones web de Azure en Azure Application Gateway?
 
@@ -22,9 +22,6 @@ El firewall de aplicaciones web (WAF) de Azure en Azure Application Gateway ofre
 El firewall de aplicaciones web de Application Gateway se basa en el [conjunto de reglas básicas (CRS)](https://owasp.org/www-project-modsecurity-core-rule-set/) 3.1, 3.0 o 2.2.9 de OWASP (Open Web Application Security Project). El WAF se actualiza automáticamente para incluir protección frente a nuevas vulnerabilidades sin necesidad de configuración adicional. 
 
 Todas las características de WAF que se enumeran a continuación existen dentro de una directiva de WAF. Puede crear múltiples directivas y se pueden asociar a una instancia de Application Gateway, a clientes de escucha individuales o a reglas de enrutamiento basadas en rutas de acceso en una instancia de Application Gateway. De este modo, puede tener directivas independientes para cada sitio detrás de la instancia Application Gateway si es necesario. Para más información sobre las directivas de WAF, consulte [Creación de una directiva de WAF](create-waf-policy-ag.md).
-
-   > [!NOTE]
-   > Las directivas de WAF por URI se encuentran en Versión preliminar pública. Esto significa que esta característica está sujeta a las Condiciones de uso complementarias de Microsoft. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ![Diagrama de WAF de Application Gateway](../media/ag-overview/waf1.png)
 
@@ -146,7 +143,7 @@ En el modo de puntuación de anomalías, el tráfico que coincide con alguna reg
 Hay un umbral de 5 para que la puntuación de anomalías bloquee el tráfico. Por lo tanto, solo hace falta una coincidencia con la regla *Crítica* para que el WAF de Application Gateway bloquee una solicitud, includo en modo de prevención. Pero una coincidencia con la regla *Advertencia* solo aumenta la puntuación de anomalías en 3, lo que no es suficiente para bloquear por sí misma el tráfico.
 
 > [!NOTE]
-> El mensaje que se registra cuando una regla de WAF coincide con el tráfico incluye el valor de acción "Blocked" (Bloqueado), pero el tráfico en realidad solo se bloquea con una puntuación de anomalías de 5 o más.  
+> El mensaje que se registra cuando una regla de WAF coincide con el tráfico incluye el valor de acción "Blocked" (Bloqueado), pero el tráfico en realidad solo se bloquea con una puntuación de anomalías de 5 o más. Para más información, consulte [Solución de problemas del firewall de aplicaciones web (WAF) de Azure Application Gateway](web-application-firewall-troubleshoot.md#understanding-waf-logs). 
 
 ### <a name="waf-monitoring"></a>Supervisión de WAF
 

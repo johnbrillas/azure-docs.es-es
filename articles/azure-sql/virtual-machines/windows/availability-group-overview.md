@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: d04f689dec3a3c182c0da23007247c20c4f8063d
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 8573e45270dfd1ff984eae3dc5fbf1dc5f2fc6da
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94504397"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96600870"
 ---
 # <a name="always-on-availability-group-on-sql-server-on-azure-vms"></a>Grupos de disponibilidad Always On para SQL Server en Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -39,7 +39,9 @@ En el diagrama siguiente se muestra un grupo de disponibilidad para SQL Server 
 
 Para aumentar la redundancia y la alta disponibilidad, las máquinas virtuales de SQL Server deben estar en el mismo [conjunto de disponibilidad](../../../virtual-machines/windows/tutorial-availability-sets.md#availability-set-overview) o en distintas [zonas de disponibilidad](../../../availability-zones/az-overview.md).
 
-Un conjunto de disponibilidad es una agrupación de recursos que se configuran de tal forma que no haya dos en la misma zona de disponibilidad. Esto evita que varios recursos del grupo se vean afectados durante las implementaciones. 
+La colocación de un conjunto de máquinas virtuales en el mismo conjunto de disponibilidad protege frente a interrupciones en un centro de datos provocadas por un error de equipo (las máquinas virtuales dentro de un conjunto de disponibilidad no comparten recursos) o por actualizaciones (las máquinas virtuales de un conjunto de disponibilidad no se actualizan al mismo tiempo). Las zonas de disponibilidad protegen contra el error de un centro de datos completo, y cada zona representa un conjunto de centros de datos dentro de una región.  Al asegurarse de que los recursos se colocan en diferentes zonas de disponibilidad, ninguna interrupción a nivel de centro de datos podrá desconectar todas las máquinas virtuales.
+
+Al crear máquinas virtuales de Azure, debe elegir entre configurar conjuntos de disponibilidad y zonas de disponibilidad.  Una máquina virtual de Azure no puede participar en ambos.
 
 
 ## <a name="connectivity"></a>Conectividad 

@@ -1,21 +1,21 @@
 ---
 title: Uso de referencia de plantilla
-description: Use la referencia de plantilla de Azure Resource Manager para crear una plantilla.
+description: Use la referencia de plantilla de Azure Resource Manager (ARM) para crear una plantilla.
 author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 3709511fa8da0a40f4faf4ab2dac9505d69003ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dfd6311fab8d9c65fa7c82d2f707ac96549a32a9
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86118518"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931425"
 ---
-# <a name="tutorial-utilize-the-resource-manager-template-reference"></a>Tutorial: Uso de la referencia de plantilla de Resource Manager
+# <a name="tutorial-utilize-the-arm-template-reference"></a>Tutorial: Utilización de la referencia de la plantilla de Resource Manager
 
-Aprenda a encontrar la información del esquema de la plantilla y a usar esa información para crear plantillas de Azure Resource Manager.
+Aprenda cómo encontrar la información del esquema de la plantilla y a usarla para crear plantillas de Azure Resource Manager (ARM).
 
 En este tutorial se usa una plantilla base de las plantillas de inicio rápido de Azure. Use la documentación de referencia de la plantilla para personalizar la plantilla.
 
@@ -36,7 +36,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Para completar este artículo, necesitará lo siguiente:
 
-* Visual Studio Code con la extensión Resource Manager Tools. Consulte [Quickstart: Creación de plantillas de Azure Resource Manager con Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+* Visual Studio Code con la extensión Resource Manager Tools. Consulte [Quickstart: Creación de plantillas de ARM mediante Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
 ## <a name="open-a-quickstart-template"></a>Abra una plantilla de inicio rápido.
 
@@ -76,7 +76,7 @@ Para completar este artículo, necesitará lo siguiente:
 ## <a name="find-the-template-reference"></a>Búsqueda de la referencia de la plantilla
 
 1. Vaya a la [referencia sobre las plantillas de Azure](/azure/templates/).
-1. En el cuadro**Filter by title** (Filtrar por título), escriba **storage accounts** (cuentas de almacenamiento) y seleccione la primera **cuenta de almacenamiento** en **Reference > Storage** (Referencia > Almacenamiento).
+1. En el cuadro **Filter by title** (Filtrar por título), escriba **storage accounts** (cuentas de almacenamiento) y seleccione la primera **cuenta de almacenamiento** en **Reference > Storage** (Referencia > Almacenamiento).
 
     ![Cuenta de almacenamiento de referencia de plantilla de Resource Manager](./media/template-tutorial-use-template-reference/resource-manager-template-resources-reference-storage-accounts.png)
 

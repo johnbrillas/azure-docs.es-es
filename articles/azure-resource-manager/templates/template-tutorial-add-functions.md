@@ -1,21 +1,21 @@
 ---
 title: 'Tutorial: Adición de funciones de plantilla'
-description: Agregue funciones de plantilla a una plantilla de Azure Resource Manager para construir valores.
+description: Agregue funciones de plantilla a la plantilla de Azure Resource Manager (ARM) para construir valores.
 author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: c6ced832cad6809e7cd016eee132713c6b266480
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 67c88e98d966a21163aafefcad8363086d5b3bf4
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613856"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931051"
 ---
 # <a name="tutorial-add-template-functions-to-your-arm-template"></a>Tutorial: Adición de funciones de plantilla a una plantilla de Resource Manager
 
-En este tutorial, aprenderá a agregar [funciones de plantilla](template-functions.md) a la plantilla de Resource Manager. Las funciones se usan para construir valores de forma dinámica. Además de estas funciones de plantilla proporcionadas por el sistema, también puede crear [funciones definidas por el usuario](./template-user-defined-functions.md). Este tutorial se realiza en **7 minutos**.
+En este tutorial, aprenderá a agregar [funciones de plantilla](template-functions.md) a la plantilla de Resource Manager (ARM). Las funciones se usan para construir valores de forma dinámica. Además de estas funciones de plantilla proporcionadas por el sistema, también puede crear [funciones definidas por el usuario](./template-user-defined-functions.md). Este tutorial se realiza en **7 minutos**.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -33,7 +33,7 @@ La ubicación de la cuenta de almacenamiento está codificada de forma rígida e
 
 ## <a name="use-function"></a>Uso de una función
 
-Si ha completado el tutorial anterior de esta serie, ya ha usado una función. Cuando agregó **"[parameters('storageName')]"** , usó la función [parameters](template-functions-deployment.md#parameters). Los corchetes indican que la sintaxis incluida entre ellos es una expresión [template](template-expressions.md). Resource Manager resuelve la sintaxis en lugar de tratarla como un valor literal.
+Si ha completado el tutorial anterior de esta serie, ya ha usado una función. Cuando agregó `"[parameters('storageName')]"` , usó la función [parameters](template-functions-deployment.md#parameters). Los corchetes indican que la sintaxis incluida entre ellos es una expresión [template](template-expressions.md). Resource Manager resuelve la sintaxis en lugar de tratarla como un valor literal.
 
 Las funciones agregan flexibilidad a la plantilla mediante la obtención dinámica de valores durante la implementación. En este tutorial, usará una función para obtener la ubicación del grupo de recursos que está usando para la implementación.
 

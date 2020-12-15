@@ -8,12 +8,12 @@ ms.topic: tutorial
 author: KishorIoT
 ms.author: nandab
 ms.date: 10/06/2020
-ms.openlocfilehash: 3994b05f613cbebcf6daa05cf8db3ef429b52407
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: ecc32908aea2fb474d2ebe5bd94f556527eda814
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94428069"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763453"
 ---
 # <a name="tutorial-create-a-video-analytics---object-and-motion-detection-application-in-azure-iot-central-yolo-v3"></a>Tutorial: Creación de una aplicación de análisis de vídeo con detección de objetos y movimiento en Azure IoT Central (YOLO v3)
 
@@ -24,10 +24,10 @@ Como creador de soluciones, aprenda a crear una aplicación de análisis de víd
 
 [!INCLUDE [iot-central-video-analytics-part1](../../../includes/iot-central-video-analytics-part1.md)]
 
-- [Scratchpad.txt](https://raw.githubusercontent.com/Azure/live-video-analytics/master/ref-apps/lva-edge-iot-central-gateway/setup/Scratchpad.txt)
+- [Scratchpad.txt](https://raw.githubusercontent.com/Azure/live-video-analytics/master/ref-apps/lva-edge-iot-central-gateway/setup/Scratchpad.txt): este archivo le permite registrar las distintas opciones de configuración que necesitará a medida que avance en los tutoriales.
 - [deployment.amd64.json](https://raw.githubusercontent.com/Azure/live-video-analytics/master/ref-apps/lva-edge-iot-central-gateway/setup/deployment.amd64.json)
 - [LvaEdgeGatewayDcm.json](https://raw.githubusercontent.com/Azure/live-video-analytics/master/ref-apps/lva-edge-iot-central-gateway/setup/LvaEdgeGatewayDcm.json)
-- [state.json](https://raw.githubusercontent.com/Azure/live-video-analytics/master/ref-apps/lva-edge-iot-central-gateway/setup/state.json)
+- [state.json](https://raw.githubusercontent.com/Azure/live-video-analytics/master/ref-apps/lva-edge-iot-central-gateway/setup/state.json): solo debe descargar este archivo si tiene previsto usar el dispositivo Intel NUC en el segundo tutorial.
 
 > [!NOTE]
 > El repositorio de GitHub también incluye el código fuente de los módulos IoT Edge **LvaEdgeGatewayModule** y **lvaYolov3**. Para más información sobre cómo trabajar con el código fuente, consulte [Compilación de los módulos de la puerta de enlace de LVA](tutorial-video-analytics-build-module.md).
@@ -42,7 +42,7 @@ Para preparar el manifiesto de implementación:
 
 1. Abra el archivo *deployment.amd64.json*, que guardó en la carpeta *lva-configuration*, con un editor de texto.
 
-1. Busque la configuración `LvaEdgeGatewayModule` y cambie el nombre de la imagen como se muestra en el siguiente fragmento de código:
+1. Busque la opción de configuración `LvaEdgeGatewayModule` y compruebe que el nombre de la imagen coincida con el que se muestra en el siguiente fragmento de código:
 
     ```json
     "LvaEdgeGatewayModule": {
@@ -50,7 +50,7 @@ Para preparar el manifiesto de implementación:
             "image": "mcr.microsoft.com/lva-utilities/lva-edge-iotc-gateway:1.0-amd64",
     ```
 
-1. Agregue el nombre de la cuenta de Media Services en el nodo `env` de la sección `LvaEdgeGatewayModule`. Anotó este nombre de cuenta en el archivo *scratchpad.txt*:
+1. Agregue el nombre de la cuenta de Media Services en el nodo `env` de la sección `LvaEdgeGatewayModule`. El nombre de la cuenta de Media Services se registró en el archivo *scratchpad.txt*:
 
     ```json
     "env": {
@@ -58,7 +58,7 @@ Para preparar el manifiesto de implementación:
             "value": "lvaEdge"
         },
         "amsAccountName": {
-            "value": "<YOUR_AZURE_MEDIA_ACCOUNT_NAME>"
+            "value": "<YOUR_AZURE_MEDIA_SERVICES_ACCOUNT_NAME>"
         }
     }
     ```
@@ -67,7 +67,16 @@ Para preparar el manifiesto de implementación:
 
     El elemento `azureMediaServicesArmId` es el **identificador de recurso** que anotó en el archivo *scratchpad.txt* cuando creó la cuenta de Media Services.
 
-    Anotó los valores de `aadTenantId`, `aadServicePrincipalAppId` y `aadServicePrincipalSecret` en el archivo *scratchpad.txt* cuando creó la entidad de servicio para la cuenta de Media Services:
+    La tabla siguiente incluye los valores de **Connect to Media Services API (JSON)** en el archivo *scratchpad.txtscratchpad.txt* que se debe usar en el manifiesto de implementación:
+
+    | Manifiesto de implementación       | Scratchpad  |
+    | ------------------------- | ----------- |
+    | aadTenantId               | AadTenantId |
+    | aadServicePrincipalAppId  | AadClientId |
+    | aadServicePrincipalSecret | AadSecret   |
+
+    > [!CAUTION]
+    > Use la tabla anterior para asegurarse de agregar los valores correctos en el manifiesto de implementación. De lo contrario, el dispositivo no funcionará.
 
     ```json
     {

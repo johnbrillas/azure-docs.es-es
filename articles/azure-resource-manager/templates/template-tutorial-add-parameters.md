@@ -1,21 +1,21 @@
 ---
 title: 'Tutorial: Adición de parámetros a la plantilla'
-description: Agregue parámetros a su plantilla de Azure Resource Manager para poder volver a utilizarla.
+description: Agregue parámetros a su plantilla de Azure Resource Manager (ARM) para hacerla reutilizable.
 author: mumian
 ms.date: 03/31/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9e860941c3d782498c12afa12f285f44e7e68f37
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d0743d316b9d879017f3b0fbe08ee4dc2b3e1c2
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90069448"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931068"
 ---
 # <a name="tutorial-add-parameters-to-your-arm-template"></a>Tutorial: Adición de parámetros a la plantilla de Resource Manager
 
-En el [tutorial anterior](template-tutorial-add-resource.md), aprendió a agregar una cuenta de almacenamiento a la plantilla y a implementarla. En este tutorial, aprenderá a mejorar la plantilla de Resource Manager mediante la adición de parámetros. Este tutorial se realiza en unos **14 minutos**.
+En el [tutorial anterior](template-tutorial-add-resource.md), aprendió a agregar una cuenta de almacenamiento a la plantilla y a implementarla. En este tutorial, aprenderá a mejorar la plantilla de Azure Resource Manager (ARM) con ayuda de parámetros. Este tutorial se realiza en unos **14 minutos**.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 

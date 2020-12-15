@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f0695af6922182aa8be7acfb4b0a931bed35ef7d
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 50df3424892594a6817d481aa4a3d540a342854f
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94959312"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932326"
 ---
 # <a name="tutorial-send-data-via-transparent-gateway"></a>Tutorial: Envío de datos mediante una puerta de enlace transparente
 
@@ -23,6 +23,14 @@ En este artículo usaremos de nuevo la máquina virtual de desarrollo como un di
 Supervisamos el funcionamiento del dispositivo de IoT Edge mientras el dispositivo simulado envía datos. Una vez que el dispositivo termina de ejecutarse, nos centramos en los datos en nuestra cuenta de almacenamiento para validar que todo haya funcionado según lo previsto.
 
 Normalmente, este paso está a cargo de un desarrollador de nube o de dispositivo.
+
+En esta sección del tutorial, aprenderá a:
+
+> [!div class="checklist"]
+>
+> * Compilar y ejecutar un dispositivo hoja.
+> * Comprobar que los datos generados se almacenan en Azure Blob Storage.
+> * Comprobar que el modelo de aprendizaje automático ha clasificado los datos del dispositivo.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -237,10 +245,7 @@ Si tienes previsto explorar los recursos usados por este tutorial completo, espe
 
 En este artículo, hemos usado la máquina virtual de desarrollo para simular un dispositivo hoja que envía dados operativos y de sensores al dispositivo IoT Edge. Hemos validado que los módulos en el dispositivo enrutaran, clasificaran, persistieran y cargaran los datos mediante el examen de la operación en tiempo real del dispositivo perimetral y echando un vistazo a los archivos cargados en la cuenta de almacenamiento.
 
-Puedes encontrar más información en las páginas siguientes:
+Para aprender más sobre la funcionalidad de IoT Edge, siga este tutorial a continuación:
 
 > [!div class="nextstepaction"]
-> [Conexión de un dispositivo de bajada a una puerta de enlace Azure IoT Edge](how-to-connect-downstream-device.md)
-
-> [!div class="nextstepaction"]
-> [Almacene datos en el perímetro con Azure Blob Storage en IoT Edge (versión preliminar)](how-to-store-data-blob.md)
+> [Creación de una jerarquía de dispositivos IoT Edge (versión preliminar)](tutorial-nested-iot-edge.md?view=iotedge-2020-11&preserve-view=true)

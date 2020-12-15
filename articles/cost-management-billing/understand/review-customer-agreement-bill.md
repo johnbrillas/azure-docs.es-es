@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: tutorial
-ms.date: 08/20/2020
+ms.date: 12/02/2020
 ms.author: banders
-ms.openlocfilehash: 619dec1b2246b7e74b058e570df4021888196b0c
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: b5de81f5eaf76c16c1ea8fc78075c4567c77aeee
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91447539"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96531992"
 ---
 # <a name="tutorial-review-your-microsoft-customer-agreement-invoice"></a>Tutorial: Revisión de la factura relativa al Contrato de cliente de Microsoft
 
@@ -54,6 +54,8 @@ Si tiene acceso a un solo ámbito de facturación, seleccione **Propiedades** en
 ![Captura de pantalla que muestra el Contrato de cliente de Microsoft en la página de propiedades](./media/review-customer-agreement-bill/billing-mca-property.png)
 
 Si tiene acceso a varios ámbitos de facturación, compruebe el tipo en la columna de la cuenta de facturación. Tiene acceso a una cuenta de facturación para un contrato de cliente de Microsoft si el tipo de cuenta de facturación de los ámbitos es **Contrato de cliente de Microsoft**.
+
+En la página de ámbitos de facturación, seleccione **Ámbitos de facturación** y, después, la cuenta de facturación que se utilizará para pagar el uso de las suscripciones. La cuenta de facturación será del tipo **Contrato de cliente de Microsoft**.
 
 ![Captura de pantalla que muestra el Contrato de cliente de Microsoft en la página de la lista de la cuenta de facturación](./media/review-customer-agreement-bill/billing-mca-in-the-list.png)
 
@@ -146,7 +148,7 @@ Utilice el archivo .csv de cargos y de uso de Azure para analizar los cargos bas
 
 ### <a name="download-your-invoice-and-usage-details"></a>Descarga de la factura y los detalles de uso
 
-Dependiendo del acceso, en Administración de costos + facturación deberá seleccionar una cuenta de facturación o un perfil de facturación. En el menú de la izquierda, seleccione **Facturas** en **Facturación**. En la cuadrícula de la factura, busque la fila de la factura que desea descargar. Haga clic en el símbolo de descarga o los puntos suspensivos (...) al final de la fila. En el cuadro **Descargar**, descargue los detalles de uso y la factura.
+Dependiendo del acceso, en Administración de costos + facturación deberá seleccionar una cuenta de facturación o un perfil de facturación. En el menú de la izquierda, seleccione **Facturas** en **Facturación**. En la cuadrícula de la factura, busque la fila de la factura que desea descargar. Seleccione el símbolo de descarga o los puntos suspensivos (...) al final de la fila. En el cuadro **Descargar**, descargue los detalles de uso y la factura.
 
 ### <a name="view-detailed-usage-by-invoice-section"></a>Visualización del uso detallado por sección de factura
 

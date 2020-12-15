@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/11/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: 98d2b4ed4b0d3cef2cde156dc05ebb314edff365
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 085ebcc147082ac78de9f8b97c810dee5bb1e96a
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592267"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96762812"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Inicio rápido: Adición del inicio de sesión con Microsoft a una aplicación web de ASP.NET Core
 
@@ -50,7 +50,7 @@ Para ilustrar este tema, consulte el apartado en el que se explica el [funcionam
 > 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 > 1. Si tiene acceso a varios inquilinos, use el filtro **Directorio + suscripción** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: del menú superior para seleccionar el inquilino en el que desea registrar una aplicación.
 > 1. Busque y seleccione **Azure Active Directory**.
-> 1. En **Administrar**, seleccione **Registros de aplicaciones** y luego **Nuevo registro**.
+> 1. En **Administrar**, seleccione **Registros de aplicaciones** >  y, luego, **Nuevo registro**.
 > 1. Escriba el **Nombre** de la aplicación, por ejemplo `AspNetCore-Quickstart`. Los usuarios de la aplicación pueden ver este nombre, el cual se puede cambiar más tarde.
 > 1. Escriba un **URI de redirección** de `https://localhost:44321/`.
 > 1. Seleccione **Registrar**.

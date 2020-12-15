@@ -12,12 +12,12 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, contperfq1, contentperfq2
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: ed4e3c54bd4aa6be314fe7ec12d6ba6e7cf949d9
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 860cd24c623cb6db407c82aa81e2c3662da289ed
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93083327"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96762982"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Inicio rápido: Registro de una aplicación en la plataforma de identidad de Microsoft
 
@@ -37,15 +37,15 @@ El registro de la aplicación establece una relación de confianza entre la apli
 Siga estos pasos para crear el registro de la aplicación:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-1. Si tiene acceso a varios inquilinos, use el filtro **Directorio + suscripción** :::image type="icon" source="./media/quickstart-register-app/portal-01-directory-subscription-filter.png" border="false"::: del menú superior para seleccionar el inquilino en el que desea registrar una aplicación.
+1. Si tiene acceso a varios inquilinos, use el filtro **Directorio + suscripción** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: del menú superior para seleccionar el inquilino en el que desea registrar una aplicación.
 1. Busque y seleccione **Azure Active Directory**.
-1. En **Administrar** , seleccione **Registros de aplicaciones** y luego **Nuevo registro**.
+1. En **Administrar**, seleccione **Registros de aplicaciones** >  y, luego, **Nuevo registro**.
 1. Escriba el **nombre** de la aplicación. Los usuarios de la aplicación pueden ver este nombre, el cual se puede cambiar más tarde.
 1. Especifique qué personas pueden usar la aplicación. A veces, se conoce a estas personas como *público de inicio de sesión*.
 
     | Tipos de cuenta admitidos | Descripción |
     |-------------------------|-------------|
-    | **Solo las cuentas de este directorio organizativo** | Seleccione esta opción si va a desarrollar una aplicación para que la utilicen usuarios (o invitados) de *su* inquilino.<br><br>A menudo denominada aplicación de *línea de negocio* , se trata de una aplicación de **un solo inquilino** en la plataforma de identidad de Microsoft. |
+    | **Solo las cuentas de este directorio organizativo** | Seleccione esta opción si va a desarrollar una aplicación para que la utilicen usuarios (o invitados) de *su* inquilino.<br><br>A menudo denominada aplicación de *línea de negocio*, se trata de una aplicación de **un solo inquilino** en la plataforma de identidad de Microsoft. |
     | **Cuentas en cualquier directorio organizativo** | Seleccione esta opción si desea que los usuarios de *cualquier* inquilino de Azure AD puedan usar la aplicación. Esta opción es adecuada si, por ejemplo, va a desarrollar una aplicación de software como servicio (SaaS) que desea proporcionar a varias organizaciones.<br><br>Esta aplicación se denomina **multiinquilino** en la plataforma de identidad de Microsoft. |
     | **Cuentas en cualquier directorio organizativo y cuentas Microsoft personales** | Seleccione esta opción para establecer como destino el mayor conjunto posible de clientes.<br><br>Al seleccionar esta opción, estará registrando una aplicación **multiinquilino** que también admite usuarios con **cuentas personales de Microsoft** (MSA). |
     | **Cuentas personales de Microsoft** | Seleccione esta opción si va a desarrollar una aplicación para que la utilicen usuarios con cuentas personales de Microsoft. Las cuentas personales de Microsoft abarcan las cuentas de Skype, Xbox, Live y Hotmail. |
@@ -55,7 +55,7 @@ Siga estos pasos para crear el registro de la aplicación:
 
     :::image type="content" source="media/quickstart-register-app/portal-02-app-reg-01.png" alt-text="Captura de pantalla de Azure Portal en un explorador web que muestra el panel Registrar una aplicación":::.
 
-Cuando se completa el registro, Azure Portal muestra el panel de **información general** de registro de la aplicación, que incluye el **Id. de aplicación (cliente)** . Este valor, también conocido como *Id. de cliente* , identifica de forma única la aplicación en la plataforma de identidad de Microsoft.
+Cuando se completa el registro, Azure Portal muestra el panel de **información general** de registro de la aplicación, que incluye el **Id. de aplicación (cliente)** . Este valor, también conocido como *Id. de cliente*, identifica de forma única la aplicación en la plataforma de identidad de Microsoft.
 
 El código de la aplicación, o más habitualmente una biblioteca de autenticación empleada en la aplicación, también utiliza la identificación del cliente como un aspecto de la validación de los tokens de seguridad que recibe de la plataforma de identidad.
 
@@ -71,14 +71,14 @@ Para agregar y modificar los URI de redirección de las aplicaciones registradas
 
 ### <a name="configure-platform-settings"></a>Configuración de los valores de plataforma
 
-Los valores de cada tipo de aplicación, incluidos los URI de redirección, se especifican en **Configuraciones de plataforma** en Azure Portal. Algunas plataformas, como las de **aplicaciones web** y **aplicaciones de página única** , requieren que se especifique manualmente un URI de redirección. Para otras plataformas, como las de aplicaciones móviles y de escritorio, es posible elegir entre los URI de redirección que se generan automáticamente cuando configura las demás opciones.
+Los valores de cada tipo de aplicación, incluidos los URI de redirección, se especifican en **Configuraciones de plataforma** en Azure Portal. Algunas plataformas, como las de **aplicaciones web** y **aplicaciones de página única**, requieren que se especifique manualmente un URI de redirección. Para otras plataformas, como las de aplicaciones móviles y de escritorio, es posible elegir entre los URI de redirección que se generan automáticamente cuando configura las demás opciones.
 
 Para configurar los valores de la aplicación según la plataforma o el dispositivo de destino:
 
 1. Seleccione la aplicación en **Registros de aplicaciones** en Azure Portal.
-1. En **Administrar** , seleccione **Autenticación**.
-1. En **Configuraciones de plataforma** , seleccione **Agregar una plataforma**.
-1. En **Configurar plataformas** , seleccione el icono del tipo de aplicación (plataforma) para configurar los valores.
+1. En **Administrar**, seleccione **Autenticación**.
+1. En **Configuraciones de plataforma**, seleccione **Agregar una plataforma**.
+1. En **Configurar plataformas**, seleccione el icono del tipo de aplicación (plataforma) para configurar los valores.
 
     :::image type="content" source="media/quickstart-register-app/portal-04-app-reg-03-platform-config.png" alt-text="Captura de pantalla del panel Configuración de la plataforma en Azure Portal" border="false":::
 
@@ -86,7 +86,7 @@ Para configurar los valores de la aplicación según la plataforma o el disposit
     | -------- | ---------------------- |
     | **Web** | Escriba un **URI de redirección** para la aplicación, es decir, la ubicación a la que la plataforma de identidad de Microsoft redirigirá el cliente de un usuario y enviará los tokens de seguridad tras la autenticación.<br/><br/>Seleccione esta plataforma para las aplicaciones web estándar que se ejecuten en un servidor. |
     | **Aplicación de página única** | Escriba un **URI de redirección** para la aplicación, es decir, la ubicación a la que la plataforma de identidad de Microsoft redirigirá el cliente de un usuario y enviará los tokens de seguridad tras la autenticación.<br/><br/>Seleccione esta plataforma si va a desarrollar una aplicación web de cliente en JavaScript, o bien con un marco de trabajo como Angular, Vue.js, React.js o Blazor WebAssembly. |
-    | **iOS/macOS** | Especifique el **identificador de paquete** de la aplicación, que está disponible en XCode en *Info.plist* , o bien en Configuración de compilación.<br/><br/>Al especificar un identificador de paquete, se genera un URI de redirección. |
+    | **iOS/macOS** | Especifique el **identificador de paquete** de la aplicación, que está disponible en XCode en *Info.plist*, o bien en Configuración de compilación.<br/><br/>Al especificar un identificador de paquete, se genera un URI de redirección. |
     | **Android** | Especifique el **nombre del paquete** de la aplicación, que encontrará en el archivo *AndroidManifest.xml*. A continuación, genere e indique el **hash de firma**.<br/><br/>Al especificar estos valores, se genera un URI de redirección. |
     | **Aplicaciones móviles y de escritorio** | Seleccione uno de los **URI de redirección sugeridos** o especifique un **URI de redirección personalizado**.<br/>En el caso de las aplicaciones de escritorio, se recomienda utilizar:<br/>`https://login.microsoftonline.com/common/oauth2/nativeclient`<br/><br/>Seleccione esta plataforma para las aplicaciones móviles que no utilicen la biblioteca de autenticación de Microsoft (MSAL) más reciente o que no usen un agente. Seleccione también esta plataforma para las aplicaciones de escritorio. |
 1. Seleccione **Configurar** para completar la configuración de la plataforma.
@@ -105,7 +105,7 @@ Puede agregar certificados y secretos de cliente (una cadena) como credenciales 
 
 ### <a name="add-a-certificate"></a>Incorporación de un certificado
 
-Los certificados, a veces denominados *claves públicas* , son el tipo de credenciales que se recomienda, ya que proporcionan un mayor nivel de seguridad que un secreto de cliente.
+Los certificados, a veces denominados *claves públicas*, son el tipo de credenciales que se recomienda, ya que proporcionan un mayor nivel de seguridad que un secreto de cliente.
 
 1. Seleccione la aplicación en **Registros de aplicaciones** en Azure Portal.
 1. Seleccione **Certificados y secretos** > **Cargar certificado**.
@@ -114,7 +114,7 @@ Los certificados, a veces denominados *claves públicas* , son el tipo de creden
 
 ### <a name="add-a-client-secret"></a>Agregar un secreto de cliente
 
-El secreto de cliente, conocido también como *contraseña de aplicación* , es un valor de cadena que la aplicación puede usar en lugar de un certificado a fin de identificarse. Este es el tipo de credenciales más fácil de usar y, con frecuencia, se emplea en la fase de desarrollo, pero se considera menos seguro que un certificado. Debería utilizar los certificados cuando las aplicaciones se ejecuten en el entorno de producción.
+El secreto de cliente, conocido también como *contraseña de aplicación*, es un valor de cadena que la aplicación puede usar en lugar de un certificado a fin de identificarse. Este es el tipo de credenciales más fácil de usar y, con frecuencia, se emplea en la fase de desarrollo, pero se considera menos seguro que un certificado. Debería utilizar los certificados cuando las aplicaciones se ejecuten en el entorno de producción.
 
 1. Seleccione la aplicación en **Registros de aplicaciones** en Azure Portal.
 1. Seleccione **Certificados y secretos** >  **Nuevo secreto de cliente**.

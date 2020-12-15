@@ -1,6 +1,6 @@
 ---
-title: 'Inicio rápido: Creación y consulta de un grupo de SQL dedicado (Azure Portal)'
-description: Creación y consulta de un grupo de SQL dedicado mediante Azure Portal
+title: 'Inicio rápido: Creación y consulta de un grupo de SQL dedicado (anteriormente SQL DW) (Azure Portal)'
+description: Creación y consulta de un grupo de SQL dedicado (anteriormente SQL DW) mediante Azure Portal
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,23 +11,23 @@ ms.date: 05/28/2019
 ms.author: pimorano
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 3d4884fd64c773647f78a98dc7aeb1063d539edf
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 78a0982081b8e34461fb2910cc7ce21be622cb6a
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96456746"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922838"
 ---
-# <a name="quickstart-create-and-query-a-dedicated-sql-pool-in-azure-synapse-analytics-using-the-azure-portal"></a>Inicio rápido: Creación y consulta de un grupo de SQL dedicado en Azure Synapse Analytics mediante Azure Portal
+# <a name="quickstart-create-and-query-a-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-using-the-azure-portal"></a>Inicio rápido: Creación y consulta de un grupo de SQL dedicado (anteriormente SQL DW) en Azure Synapse Analytics mediante Azure Portal
 
-Cree y consulte rápidamente un grupo de Synapse SQL (almacenamiento de datos) en Azure Synapse Analytics mediante Azure Portal.
+Cree y consulte rápidamente un grupo de SQL dedicado (anteriormente SQL DW) en Azure Synapse Analytics mediante Azure Portal.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 1. Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
    > [!NOTE]
-   > La creación de un grupo de SQL en Azure Synapse puede dar lugar a un nuevo servicio facturable. Para más información, consulte los [precios de Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/synapse-analytics/).
+   > La creación de un grupo de SQL dedicado (anteriormente SQL DW) en Azure Synapse puede dar lugar a un nuevo servicio facturable. Para más información, consulte los [precios de Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/synapse-analytics/).
 
 2. Descargue e instale la versión más reciente de [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS).
 
@@ -37,25 +37,25 @@ Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-sql-pool"></a>Creación de un grupo de SQL
 
-Los almacenamientos de datos se crean mediante un grupo de SQL en Azure Synapse Analytics. Se crea un grupo de SQL con un conjunto definido de [recursos de proceso](memory-concurrency-limits.md). La base de datos se crea dentro de un [grupo de recursos de Azure](../../azure-resource-manager/management/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) y en un [servidor lógico de SQL](../../azure-sql/database/logical-servers.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+Las bases de datos de almacenamiento de datos se crean mediante un grupo de SQL dedicado (anteriormente SQL DW) en Azure Synapse Analytics. Se crea un grupo de SQL dedicado (anteriormente SQL DW) con un conjunto definido de [recursos de proceso](memory-concurrency-limits.md). La base de datos se crea dentro de un [grupo de recursos de Azure](../../azure-resource-manager/management/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) y en un [servidor lógico de SQL](../../azure-sql/database/logical-servers.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
-Siga estos pasos para crear un grupo de SQL que contenga los datos de ejemplo **AdventureWorksDW**.
+Siga estos pasos para crear un grupo de SQL dedicado (anteriormente SQL DW) que contenga los datos del ejemplo **AdventureWorksDW**.
 
-1. Seleccione **Crear un recurso** en la esquina superior izquierda de Azure Portal.
+1. Haga clic en **Crear un recurso** en la esquina superior izquierda de Azure Portal.
 
    ![creación de un recurso en Azure Portal](./media/create-data-warehouse-portal/create-a-resource.png)
 
-2. Seleccione **Bases de datos** en la página **Nuevo** y, después, seleccione **Azure Synapse Analytics (formerly SQL DW)** en la lista **Destacados**.
+2. En la barra de búsqueda, escriba "grupo de SQL dedicado" y seleccione el grupo de SQL dedicado (anteriormente SQL DW). Seleccione **Crear** en la página que se abre.
 
    ![creación de un almacenamiento de datos vacío](./media/create-data-warehouse-portal/create-a-data-warehouse.png)
 
-3. En **Básicos**, especifique su suscripción, grupo de recursos, nombre de grupo de SQL y nombre de servidor:
+3. En **Datos básicos**, especifique su suscripción, grupo de recursos, nombre de grupo de SQL dedicado (anteriormente SQL DW) y nombre de servidor:
 
    | Configuración | Valor sugerido | Descripción |
    | :------ | :-------------- | :---------- |
    | **Suscripción** | Su suscripción | Para más información acerca de sus suscripciones, consulte [Suscripciones](https://account.windowsazure.com/Subscriptions). |
    | **Grupos de recursos** | myResourceGroup | Para conocer cuáles son los nombres de grupo de recursos válidos, consulte el artículo [Convenciones de nomenclatura](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). |
-   | **Nombre del grupo de SQL** | Cualquier nombre globalmente único (un ejemplo es *mySampleDataWarehouse*) | Para conocer los nombres de base de datos válidos, consulte [Database Identifiers](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (Identificadores de base de datos). Tenga en cuenta que un grupo de SQL es un tipo de base de datos. |
+   | **Nombre del grupo de SQL** | Cualquier nombre globalmente único (un ejemplo es *mySampleDataWarehouse*) | Para conocer los nombres de base de datos válidos, consulte [Database Identifiers](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (Identificadores de base de datos).  |
    | **Server** | Cualquier nombre globalmente único | Seleccione un servidor existente o cree uno. Para ello debe seleccionar **Crear nuevo**. Para conocer cuáles son los nombres de servidor válidos, consulte el artículo [Naming conventions](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) (Convenciones de nomenclatura). |
 
    ![creación de los detalles básicos del almacenamiento de datos](./media/create-data-warehouse-portal/create-sql-pool-basics.png)
@@ -68,7 +68,7 @@ Siga estos pasos para crear un grupo de SQL que contenga los datos de ejemplo **
 
 5. Seleccione **Configuración adicional**, en **Usar datos existentes**, elija **Ejemplo** para que AdventureWorksDW se cree como la base de datos de ejemplo.
 
-    ![Seleccionar Usar datos existentes](./media/create-data-warehouse-portal/create-sql-pool-additional-1.png) 
+    ![Seleccionar Usar datos existentes](./media/create-data-warehouse-portal/create-sql-pool-additional-1.png)
 
 6. Una vez completada la pestaña Basics (Aspectos básicos) del formulario de Azure Synapse Analytics, seleccione **Review + Create** (Revisar y crear) y, después, **Create** (Crear) para crear el grupo de SQL. El aprovisionamiento tarda unos minutos.
 
@@ -124,7 +124,7 @@ En Azure Portal encontrará el nombre completo del servidor. Más adelante usar�
 
 3. En el panel **Essentials** de la página de Azure Portal de la base de datos, busque y copie el **nombre del servidor**. En este ejemplo, el nombre completo es sqlpoolservername.database.windows.net.
 
-    ![información sobre la conexión](./media/create-data-warehouse-portal/find-server-name-copy.png)
+    ![información sobre la conexión](./media/create-data-warehouse-portal/find-server-name.png)
 
 ## <a name="connect-to-the-server-as-server-admin"></a>Conexión al servidor como administrador del mismo
 
@@ -180,21 +180,21 @@ Azure Synapse Analytics usa T-SQL como lenguaje de consulta. Para abrir una vent
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Se le está cobrando por unidades de almacenamiento de datos y por los datos almacenados en el grupo de SQL. Estos recursos de proceso y de almacenamiento se facturan por separado.
+Se le cobran las unidades de almacenamiento de datos y los datos almacenados en el grupo de SQL dedicado (anteriormente SQL DW). Estos recursos de proceso y de almacenamiento se facturan por separado.
 
-- Si quiere conservar los datos en almacenamiento, puede pausar el proceso cuando no use el grupo de SQL. Si se hace una pausa en el proceso, solo se carga el almacenamiento de datos. Puede reanudar el proceso siempre que esté listo para trabajar con los datos.
+- Si quiere conservar los datos en el almacenamiento, puede pausar el proceso cuando no use el grupo de SQL dedicado (anteriormente SQL DW). Si se hace una pausa en el proceso, solo se carga el almacenamiento de datos. Puede reanudar el proceso siempre que esté listo para trabajar con los datos.
 
-- Si quiere eliminar cobros futuros, puede eliminar el grupo de SQL.
+- Si quiere eliminar futuros cargos, puede eliminar el grupo de SQL dedicado (anteriormente SQL DW).
 
 Siga estos pasos para limpiar los recursos que ya no necesite.
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) y seleccione el grupo de SQL.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) y seleccione un grupo de SQL dedicado (anteriormente SQL DW).
 
    ![Limpieza de recursos](./media/create-data-warehouse-portal/clean-up-resources.png)
 
-2. Para pausar el proceso, seleccione el botón **Pausar**. Cuando el grupo de SQL esté en pausa, verá un botón **Reanudar**. Para reanudar el proceso, seleccione **Reanudar**.
+2. Para pausar el proceso, seleccione el botón **Pausar**. Cuando el grupo de SQL dedicado (anteriormente SQL DW) esté en pausa, verá un botón **Reanudar**. Para reanudar el proceso, seleccione **Reanudar**.
 
-3. Para quitar el grupo de SQL para que no se le cobre por el proceso o almacenamiento, seleccione **Eliminar**.
+3. Para quitar el grupo de SQL dedicado (anteriormente SQL DW) para que no se le cobre por proceso o almacenamiento, seleccione **Eliminar**.
 
 4. Para eliminar el servidor que ha creado, seleccione **sqlpoolservername.database.windows.net** en la imagen anterior y, después, **Eliminar**. Debe tener cuidado con este procedimiento, ya que la eliminación del servidor elimina también todas las bases de datos asignadas al servidor.
 
@@ -206,4 +206,4 @@ Siga estos pasos para limpiar los recursos que ya no necesite.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre la carga de datos en el grupo de SQL, continúe con el artículo [Carga de datos en un grupo de SQL](load-data-from-azure-blob-storage-using-polybase.md).
+Para más información sobre la carga de datos en un grupo de SQL dedicado (anteriormente SQL DW), continúe con el artículo [Carga de datos en un grupo de SQL dedicado](load-data-from-azure-blob-storage-using-copy.md).

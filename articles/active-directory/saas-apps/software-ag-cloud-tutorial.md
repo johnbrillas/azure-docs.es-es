@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/23/2020
+ms.date: 11/20/2020
 ms.author: jeedes
-ms.openlocfilehash: ccf945f8bfec85a18493d515dce48f4cb3e3b612
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 4acc4c0cec530b8f83648042cd7a417992257543
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182377"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602077"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-software-ag-cloud"></a>Tutorial: Integración de inicio de sesión único (SSO) de Azure Active Directory con Software AG Cloud
 
@@ -77,9 +77,9 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En la sección **Configuración básica de SAML**, especifique los valores de los siguientes campos:
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.softwareag.cloud/auth/realms/TENANT-NAME/broker/IDENTITY-PROVIDER-NAME/endpoint`
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://*.softwareag.cloud/auth/realms/TENANT-NAME/broker/IDENTITY-PROVIDER-NAME/endpoint`
 
-    b. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.softwareag.cloud/auth/realms/TENANT-NAME`
+    b. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón: `https://*.softwareag.cloud/auth/realms/TENANT-NAME`
 
     > [!NOTE]
     > Estos valores no son reales. Actualice estos valores con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de Software AG Cloud](mailto:support@softwareag.com) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
@@ -121,19 +121,19 @@ En esta sección, va a permitir que B.Simon acceda a Software AG Cloud mediante 
 
 1.  Haga clic en **Administration** (Administración).
 
-    ![Configuración de Software AG Cloud 1](./media/software-ag-cloud-tutorial/admin.png)
+    ![Configuración de la administración de Software AG Cloud](./media/software-ag-cloud-tutorial/admin.png)
 
 1. Vaya a **Single-sign on > Add identity provider** (Inicio de sesión único > Agregar proveedor de identidades).
 
-    ![Configuración de Software AG Cloud 2](./media/software-ag-cloud-tutorial/add-identity-provider.png)
+    ![Configuración del proveedor de identidades de Software AG Cloud](./media/software-ag-cloud-tutorial/add-identity-provider.png)
 
 1. En la página siguiente, realice estos pasos.
 
-    ![Configuración de Software AG Cloud 3](./media/software-ag-cloud-tutorial/saml-1.png)
+    ![Pasos de configuración de Software AG Cloud](./media/software-ag-cloud-tutorial/saml-1.png)
 
     a. En el cuadro **Identity provider display name** (Nombre para mostrar del proveedor de identidades), proporcione un nombre válido como `azure ad`.
 
-    b. En el cuadro de texto **Identity provider unique identifier for use in Software AG Cloud redirect URI** (Identificador único del proveedor de identidades para usar en el URI de redirección de Software AG Cloud), pegue el valor de **Entity ID** (Identificador de entidad) que ha copiado de Azure Portal.
+    b. En el cuadro de texto **Identity provider unique identifier for use in Software AG Cloud redirect URI** (Identificador único del proveedor de identidades para su uso en el identificador URI de redirección de Software AG Cloud), escriba un nombre único para el proveedor de identidades. El campo **Software AG Cloud redirect URI** (Identificador URI de redirección de Software AG Cloud) se actualizará y rellenará con el identificador URI. Copie este identificador URI y úselo para configurar el campo **Id. de entidad** y otra información en Azure Portal según los patrones definidos.
 
     c. Importe el archivo **Federation Metadata XML** (XML de metadatos de federation) en **Identity provider configuration** (Configuración del proveedor de identidades) y haga clic en **Next** (Siguiente).
 
@@ -147,11 +147,12 @@ En esta sección creará un usuario llamado Britta Simon en Software AG Cloud. S
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
 
-1. Haga clic en **Probar esta aplicación** en Azure Portal. Esta acción le redirigirá a la dirección URL de inicio de sesión de Software AG Cloud, donde puede iniciar el flujo de inicio de sesión. 
+* Suponiendo que Microsoft Azure esté configurado como un proveedor en Software AG Cloud, vaya a `www.softwareag.cloud`, haga clic en el botón de inicio de sesión y escriba el nombre del entorno. En la siguiente pantalla, haga clic en el vínculo "Log in with <IDP NAME>" (Iniciar sesión con <nombre_del_IdP>) y escriba las credenciales. Una vez autenticado, se iniciará sesión y se le dirigirá a la página principal de Software AG Cloud.
 
-2. Vaya directamente a la dirección URL de inicio de sesión de Software AG Cloud e inicie el flujo de inicio de sesión desde allí.
+* Vaya directamente a la dirección URL de inicio de sesión de Software AG Cloud e inicie el flujo de inicio de sesión desde allí.
 
-3. Puede usar el Panel de acceso de Microsoft. Al hacer clic en el icono de Software AG Cloud en el Panel de acceso, se le redirigirá a la dirección URL de inicio de sesión de Software AG Cloud. Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Software AG Cloud en Aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de Software AG Cloud. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

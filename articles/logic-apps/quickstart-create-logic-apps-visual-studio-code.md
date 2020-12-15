@@ -7,12 +7,12 @@ ms.reviewer: jonfan, deli, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/28/2020
-ms.openlocfilehash: 0b777fdef344ce1a60ed00ee46eeaa8cee23b8c0
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: c4d4c659fd1c33c9ffc1b833b92d0727b5c17bf7
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099196"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922895"
 ---
 # <a name="quickstart-create-and-manage-logic-app-workflow-definitions-by-using-visual-studio-code"></a>Inicio rápido: Creación y administración de definiciones de flujo de trabajo de aplicaciones lógicas mediante Visual Studio Code
 
@@ -58,7 +58,7 @@ Antes de empezar, asegúrese de que dispone de estos elementos:
 
    ![Seleccione el icono de Azure en la barra de herramientas de Visual Studio Code](./media/quickstart-create-logic-apps-visual-studio-code/open-extensions-visual-studio-code.png)
 
-1. En la ventana de Azure, en **Logic Apps** , seleccione **Iniciar sesión en Azure**. Cuando la página de inicio de sesión de Microsoft se lo solicite, inicie sesión con su cuenta de Azure.
+1. En la ventana de Azure, en **Logic Apps**, seleccione **Iniciar sesión en Azure**. Cuando la página de inicio de sesión de Microsoft se lo solicite, inicie sesión con su cuenta de Azure.
 
    ![Seleccionar "Iniciar sesión en Azure"](./media/quickstart-create-logic-apps-visual-studio-code/sign-in-azure-visual-studio-code.png)
 
@@ -74,7 +74,7 @@ Antes de empezar, asegúrese de que dispone de estos elementos:
 
       ![Confirmar la apertura de un explorador e ir al sitio web de autenticación.](./media/quickstart-create-logic-apps-visual-studio-code/confirm-open-link.png)
 
-   1. En la página **Iniciar sesión en tu cuenta** , escriba el código de autenticación y seleccione **Siguiente**.
+   1. En la página **Iniciar sesión en tu cuenta**, escriba el código de autenticación y seleccione **Siguiente**.
 
       ![Escribir el código de autenticación para el inicio de sesión en Azure](./media/quickstart-create-logic-apps-visual-studio-code/authentication-code-azure-sign-in.png)
 
@@ -88,12 +88,12 @@ Antes de empezar, asegúrese de que dispone de estos elementos:
 
    1. En la lista que aparece, seleccione las suscripciones que quiere que aparezcan.
 
-1. En **Logic Apps** , seleccione la suscripción que quiera. El nodo de la suscripción se expande y muestra las aplicaciones lógicas que existen en esa suscripción.
+1. En **Logic Apps**, seleccione la suscripción que quiera. El nodo de la suscripción se expande y muestra las aplicaciones lógicas que existen en esa suscripción.
 
    ![Selección de su suscripción a Azure](./media/quickstart-create-logic-apps-visual-studio-code/select-azure-subscription.png)
 
    > [!TIP]
-   > En **Cuentas de integración** , al seleccionar su suscripción, se muestran todas las cuentas de integración que existen en esa suscripción.
+   > En **Cuentas de integración**, al seleccionar su suscripción, se muestran todas las cuentas de integración que existen en esa suscripción.
 
 <a name="create-logic-app"></a>
 
@@ -101,7 +101,7 @@ Antes de empezar, asegúrese de que dispone de estos elementos:
 
 1. Si aún no ha iniciado sesión en su cuenta y suscripción de Azure desde dentro de Visual Studio Code, siga los [pasos anteriores para iniciar sesión ahora](#access-azure).
 
-1. En Visual Studio Code, en **Logic Apps** , abra el menú contextual de la suscripción y seleccione **Crear aplicación lógica**.
+1. En Visual Studio Code, en **Logic Apps**, abra el menú contextual de la suscripción y seleccione **Crear aplicación lógica**.
 
    ![Desde el menú de la suscripción, seleccione "Crear aplicación lógica"](./media/quickstart-create-logic-apps-visual-studio-code/create-logic-app-visual-studio-code.png)
 
@@ -204,7 +204,7 @@ Antes de empezar, asegúrese de que dispone de estos elementos:
 
 En Visual Studio Code, puede abrir la aplicación lógica en una vista de diseño de solo lectura. Aunque no puede editar la aplicación lógica en el diseñador, puede comprobar visualmente el flujo de trabajo de la aplicación lógica mediante la vista del diseñador.
 
-En la ventana de Azure, en **Logic Apps** , abra el menú contextual de la aplicación lógica y seleccione **Abrir en el diseñador**.
+En la ventana de Azure, en **Logic Apps**, abra el menú contextual de la aplicación lógica y seleccione **Abrir en el diseñador**.
 
 El diseñador de solo lectura se abre en una ventana independiente y muestra el flujo de trabajo de la aplicación lógica, por ejemplo:
 
@@ -228,7 +228,7 @@ En Visual Studio Code, si edita una aplicación lógica publicada y guarda los 
 
 1. Si aún no ha iniciado sesión en su cuenta y suscripción de Azure desde dentro de Visual Studio Code, siga los [pasos anteriores para iniciar sesión ahora](#access-azure).
 
-1. En la ventana de Azure, en **Logic Apps** , expanda su suscripción a Azure para poder ver todas las aplicaciones lógicas de la suscripción.
+1. En la ventana de Azure, en **Logic Apps**, expanda su suscripción a Azure para poder ver todas las aplicaciones lógicas de la suscripción.
 
    1. Para deshabilitar la aplicación lógica que quiera, abra el menú de la aplicación lógica y seleccione **Deshabilitar**.
 
@@ -249,7 +249,7 @@ En Visual Studio Code, puede abrir y editar la definición de flujo de trabajo 
 
 1. Si aún no ha iniciado sesión en su cuenta y suscripción de Azure desde dentro de Visual Studio Code, siga los [pasos anteriores para iniciar sesión ahora](#access-azure).
 
-1. En la ventana de Azure, en **Logic Apps** , expanda su suscripción de Azure y seleccione la aplicación lógica que quiera.
+1. En la ventana de Azure, en **Logic Apps**, expanda su suscripción de Azure y seleccione la aplicación lógica que quiera.
 
 1. En el menú de la aplicación lógica, seleccione **Abrir en el editor**. O bien, junto al nombre de la aplicación lógica, seleccione el icono de edición.
 
@@ -276,7 +276,7 @@ En Visual Studio Code, puede abrir y revisar las versiones anteriores de la apl
 > [!IMPORTANT] 
 > Antes de modificar una aplicación lógica que se ejecuta activamente en producción, evite el riesgo de interrumpir esa aplicación lógica y minimice la interrupción mediante la [deshabilitación de la aplicación lógica en primer lugar](#disable-enable-logic-app).
 
-1. En la ventana de Azure, en **Logic Apps** , expanda su suscripción a Azure para poder ver todas las aplicaciones lógicas de la suscripción.
+1. En la ventana de Azure, en **Logic Apps**, expanda su suscripción a Azure para poder ver todas las aplicaciones lógicas de la suscripción.
 
 1. En su suscripción, expanda la aplicación lógica y, a continuación, **Versiones**.
 
@@ -286,7 +286,7 @@ En Visual Studio Code, puede abrir y revisar las versiones anteriores de la apl
 
 1. Para ver una versión anterior, seleccione uno de estos pasos:
 
-   * Para ver la definición de JSON, en **Versiones** , seleccione el número de versión de esa definición. O bien, abra el menú contextual de la versión y seleccione **Abrir en el editor**.
+   * Para ver la definición de JSON, en **Versiones**, seleccione el número de versión de esa definición. O bien, abra el menú contextual de la versión y seleccione **Abrir en el editor**.
 
      Se abre un nuevo archivo en el equipo local y se muestra la definición de JSON de la versión.
 
@@ -294,7 +294,7 @@ En Visual Studio Code, puede abrir y revisar las versiones anteriores de la apl
 
 1. Para promover una versión anterior a la versión actual, siga estos pasos:
 
-   1. En **Versiones** , abra el menú contextual de la versión anterior y seleccione **Promover**.
+   1. En **Versiones**, abra el menú contextual de la versión anterior y seleccione **Promover**.
 
       ![Promover una versión anterior](./media/quickstart-create-logic-apps-visual-studio-code/promote-earlier-version.png)
 
@@ -307,4 +307,4 @@ En Visual Studio Code, puede abrir y revisar las versiones anteriores de la apl
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Creación de aplicaciones lógicas con o sin estado en Visual Studio Code (versión preliminar)](../logic-apps/create-stateful-stateless-workflows-visual-studio-code.md)
+> [Creación de aplicaciones lógicas con y sin estado en Visual Studio Code (versión preliminar)](../logic-apps/create-stateful-stateless-workflows-visual-studio-code.md)

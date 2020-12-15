@@ -11,16 +11,16 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/15/2020
 ms.author: Zhchia
-ms.openlocfilehash: 90e3464ac9ddf1e839c3a731f79ac2c0771c37ea
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: a6aa4ad009d037e6ea0d1ade3cc9735351bd634a
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96532713"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558868"
 ---
 # <a name="tutorial-configure-8x8-for-automatic-user-provisioning"></a>Tutorial: Configuración de 8x8 para el aprovisionamiento automático de usuarios
 
-En este tutorial se describen los pasos que debe realizar en Configuration Manager 8x8 y Azure Active Directory (Azure AD) para configurar el aprovisionamiento automático de usuarios. Cuando se configura, Azure AD aprovisiona y cancela el aprovisionamiento de usuarios y grupos de manera automática en [8x8](https://www.8x8.com) mediante el servicio de aprovisionamiento de Azure AD. Para obtener información importante acerca de lo que hace este servicio, cómo funciona y ver preguntas frecuentes al respecto, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md). 
+En este tutorial se describen los pasos que debe realizar en la consola de administración de 8x8 y Azure Active Directory (Azure AD) para configurar el aprovisionamiento automático de usuarios. Cuando se configura, Azure AD aprovisiona y cancela el aprovisionamiento de usuarios y grupos de manera automática en [8x8](https://www.8x8.com) mediante el servicio de aprovisionamiento de Azure AD. Para obtener información importante acerca de lo que hace este servicio, cómo funciona y ver preguntas frecuentes al respecto, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 ## <a name="capabilities-supported"></a>Funcionalidades admitidas
 > [!div class="checklist"]
@@ -36,7 +36,7 @@ En el escenario descrito en este tutorial se supone que ya cuenta con los requis
 * [Un inquilino de Azure AD](../develop/quickstart-create-new-tenant.md) 
 * Una cuenta de usuario en Azure AD con [permiso](../roles/permissions-reference.md) para configurar el aprovisionamiento (por ejemplo, Administrador de aplicaciones, Administrador de aplicaciones en la nube, Propietario de la aplicación o Administrador global).
 * Una suscripción de serie 8x8 X de cualquier nivel.
-* Una cuenta de usuario de 8x8 con permiso de administrador en [Configuration Manager](https://vo-cm.8x8.com).
+* Una cuenta de usuario de 8x8 con permisos de administrador en la [consola de administración](https://vo-cm.8x8.com).
 * Ya se ha configurado el [Inicio de sesión único con Azure AD](./8x8virtualoffice-tutorial.md).
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Paso 1. Planeación de la implementación de aprovisionamiento
@@ -48,7 +48,7 @@ En el escenario descrito en este tutorial se supone que ya cuenta con los requis
 
 Esta sección le guía por los pasos para configurar 8x8 para asistir el aprovisionamiento con Azure AD.
 
-### <a name="to-configure-a-user-provisioning-access-token-in-8x8-configuration-manager"></a>Para configurar un token de acceso de aprovisionamiento de usuarios en 8x8 Configuration Manager:
+### <a name="to-configure-a-user-provisioning-access-token-in-8x8-admin-console"></a>Para configurar un token de acceso de aprovisionamiento de usuarios en la consola de administración de 8x8:
 
 1. Iniciar sesión en la [Consola de administración](https://admin.8x8.com). Seleccione **Administración de identidades**.
 
@@ -102,7 +102,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador**, copie la **dirección URL de 8x8** desde Configuration Manager a **URL de inquilino**. Copie el **Token de API de 8x8** desde Configuration Manager en **Token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a 8x8. Si la conexión no se establece, asegúrese de que la cuenta de 8x8 tiene permisos de administrador y pruebe de nuevo.
+5. En la sección **Credenciales de administrador**, copie la **dirección URL de 8x8** desde la consola de administración al campo **URL de inquilino**. Copie el **Token de API de 8x8** desde la consola de administración en el campo **Token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a 8x8. Si la conexión no se establece, asegúrese de que la cuenta de 8x8 tiene permisos de administrador y pruebe de nuevo.
 
     ![Captura de pantalla que muestra el cuadro de diálogo Credenciales de administrador, en el que se puede especificar el URL de inquilino y el secreto de inquilino.](./media/8x8-provisioning-tutorial/provisioning.png)
 

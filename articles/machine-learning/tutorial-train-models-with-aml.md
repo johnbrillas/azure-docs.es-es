@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial de clasificación de imágenes: Entrenamiento de modelos'
 titleSuffix: Azure Machine Learning
-description: Use Azure Machine Learning para entrenar un modelo de clasificación de imágenes con scikit-learn en un cuaderno de Jupyter en Python. Este tutorial es la primera parte de una serie de dos.
+description: Use Azure Machine Learning para entrenar un modelo de clasificación de imágenes con scikit-learn en un cuaderno de Jupyter Notebook en Python. Este tutorial es la primera parte de una serie de dos.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,17 +10,17 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 09/28/2020
 ms.custom: seodec18, devx-track-python
-ms.openlocfilehash: 003056ae9d3f236d37ddc10764812c15a3c6c695
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: d1dbe51dd095290c296699bbb4bc6bd3a8caf7bf
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321289"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862435"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn"></a>Tutorial: Entrenamiento de modelos de clasificación de imágenes con los datos MNIST y scikit-learn 
 
 
-En este tutorial, entrenará un modelo de aprendizaje automático en los recursos de proceso remotos. Usará el flujo de trabajo de entrenamiento e implementación de Azure Machine Learning en un cuaderno de Jupyter en Python.  A continuación, puede utilizar el cuaderno como plantilla para entrenar su propio modelo de Machine Learning con sus propios datos. Este tutorial es la **primera de dos partes**.  
+En este tutorial, entrenará un modelo de aprendizaje automático en los recursos de proceso remotos. Usará el flujo de trabajo de entrenamiento e implementación de Azure Machine Learning en un cuaderno de Jupyter Notebook en Python.  A continuación, puede utilizar el cuaderno como plantilla para entrenar su propio modelo de Machine Learning con sus propios datos. Este tutorial es la **primera de dos partes**.  
 
 En este tutorial se entrena una regresión logística simple con el conjunto de datos de [MNIST](http://yann.lecun.com/exdb/mnist/) y [scikit-learn](https://scikit-learn.org) con Azure Machine Learning. MNIST es un conjunto de datos popular que consta de 70 000 imágenes en escala de grises. Cada imagen es un dígito escrito a mano de 28×28 píxeles, que representa un número de 0 a 9. El objetivo es crear un clasificador multiclase para identificar el dígito que representa una imagen determinada.
 
@@ -368,15 +368,15 @@ En total, la primera ejecución tarda **aproximadamente 10 minutos**. Pero para
 
 ¿Qué sucede mientras espera?:
 
-- **Creación de imágenes** : se crea una imagen de Docker que coincide con el entorno de Python especificado por el entorno de Azure Machine Learning. La imagen se carga en el área de trabajo. La creación y carga de la imagen tarda **aproximadamente 5 minutos**.
+- **Creación de imágenes**: se crea una imagen de Docker que coincide con el entorno de Python especificado por el entorno de Azure Machine Learning. La imagen se carga en el área de trabajo. La creación y carga de la imagen tarda **aproximadamente 5 minutos**.
 
   Esta fase se produce una vez para cada entorno de Python, puesto que el contenedor se almacena en caché para las ejecuciones posteriores. Durante la creación de la imagen, los registros se transmiten al historial de ejecución. Puede supervisar el progreso de la creación de la imagen con estos registros.
 
-- **Escalado** : si el clúster remoto requiere más nodos para la ejecución que los que hay disponibles actualmente, se agregan nodos adicionales de manera automática. El escalado suele tardar **aproximadamente 5 minutos.**
+- **Escalado**: si el clúster remoto requiere más nodos para la ejecución que los que hay disponibles actualmente, se agregan nodos adicionales de manera automática. El escalado suele tardar **aproximadamente 5 minutos.**
 
-- **En ejecución** : En esta fase, los archivos y scripts necesarios se envían al destino de proceso. A continuación, se montan o copian almacenes de datos. Y, luego, se ejecuta **entry_script**. Mientras se ejecuta el trabajo, **stdout** y el directorio **./logs** se transmiten al historial de ejecución. Puede supervisar el progreso de la ejecución con estos registros.
+- **En ejecución**: En esta fase, los archivos y scripts necesarios se envían al destino de proceso. A continuación, se montan o copian almacenes de datos. Y, luego, se ejecuta **entry_script**. Mientras se ejecuta el trabajo, **stdout** y el directorio **./logs** se transmiten al historial de ejecución. Puede supervisar el progreso de la ejecución con estos registros.
 
-- **Posprocesamiento** : el directorio **./outputs** de la ejecución se copia en el historial de ejecución del área de trabajo para que pueda acceder a estos resultados.
+- **Posprocesamiento**: el directorio **./outputs** de la ejecución se copia en el historial de ejecución del área de trabajo para que pueda acceder a estos resultados.
 
 Puede comprobar el progreso de un trabajo en ejecución de varias maneras. En este tutorial se usa un widget de Jupyter, así como un método `wait_for_completion`.
 

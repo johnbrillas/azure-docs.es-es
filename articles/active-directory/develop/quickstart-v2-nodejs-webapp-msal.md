@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/22/2020
 ms.author: amikuma
 ms.custom: aaddev, scenarios:getting-started, languages:js, devx-track-js
-ms.openlocfilehash: ac400efe66ab740f5fb87977ac531cbe465e3f91
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: e860a33ba44743dcc5a96d7656f22fd952a1d0b8
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95995169"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96762574"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-node-web-app-using-the-auth-code-flow"></a>Inicio rápido: Inicio de sesión de los usuarios y obtención de un token de acceso en una aplicación web de Node mediante el flujo de código de autorización
 
@@ -42,15 +42,14 @@ En este inicio rápido se usa la biblioteca de autenticación de Microsoft para 
 > #### <a name="step-1-register-your-application"></a>Paso 1: Registrar su aplicación
 >
 > 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-> 1. Si la cuenta proporciona acceso a más de un inquilino, seleccione la cuenta en la esquina superior derecha y establezca la sesión del portal en el inquilino de Azure AD que desee utilizar.
-> 1. Seleccione [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) (Registros de aplicaciones).
-> 1. Seleccione **Nuevo registro**.
-> 1. Cuando se abra la página **Registrar una aplicación**, escriba el nombre de su aplicación.
+> 1. Si tiene acceso a varios inquilinos, use el filtro **Directorio + suscripción** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: del menú superior para seleccionar el inquilino en el que desea registrar una aplicación.
+> 1. En **Administrar**, seleccione **Registros de aplicaciones** >  y, luego, **Nuevo registro**.
+> 1. Escriba el **nombre** de la aplicación. Los usuarios de la aplicación pueden ver este nombre, el cual se puede cambiar más tarde.
 > 1. En **Supported account types** (Tipos de cuenta compatibles), seleccione **Accounts in any organizational directory and personal Microsoft accounts** (Cuentas en cualquier directorio de organización y cuentas personales de Microsoft).
 > 1. Establezca el valor de **URI de redireccionamiento** en `http://localhost:3000/redirect`.
 > 1. Seleccione **Registrar**. 
 > 1. En la página de **información general** de la aplicación, anote el valor del **Identificador de aplicación (cliente)** para su uso posterior.
-> 1. En **Certificados y secretos**, seleccione **Nuevo secreto de cliente**.  Deje la descripción en blanco y la expiración predeterminada y haga clic en **Agregar**.
+> 1. En **Administrar**, seleccione **Certificados y secretos** > **Nuevo secreto de cliente**.  Deje la descripción en blanco y la expiración predeterminada y, luego, seleccione **Agregar**.
 > 1. Anote el **valor** de **Secreto de cliente** para usarlo más adelante.
 
 #### <a name="step-2-download-the-project"></a>Paso 2: Descarga del proyecto

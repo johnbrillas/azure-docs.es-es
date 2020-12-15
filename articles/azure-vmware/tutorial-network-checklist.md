@@ -3,12 +3,12 @@ title: 'Tutorial: Lista de comprobación del planeamiento de red'
 description: Obtenga información sobre los requisitos previos de red y los detalles sobre la conectividad de red y los puertos de red para Azure VMware Solution.
 ms.topic: tutorial
 ms.date: 09/21/2020
-ms.openlocfilehash: 5ee70b8a297e1b8418049ff229b3c1869819145b
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 52f973ada23576fd6d542c40c9a9e63e6f270df3
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91948211"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575166"
 ---
 # <a name="networking-planning-checklist-for-azure-vmware-solution"></a>Lista de comprobación del planeamiento de red para Azure VMware Solution 
 
@@ -47,9 +47,19 @@ Las subredes:
 | Uso de red             | Subnet | Ejemplo          |
 | ------------------------- | ------ | ---------------- |
 | Administración de la nube privada  | `/26`  | `10.10.0.0/26`   |
-| Red vMotion           | `/25`  | `10.10.1.128/25` |
-| Cargas de trabajo de máquinas virtuales              | `/24`  | `10.10.2.0/24`   |
-| Emparejamiento de ExpressRoute      | `/29`  | `10.10.3.8/29`   |
+| Migraciones de administración de HCX       | `/26`  | `10.10.0.64/26`  |
+| Global Reach reservado     | `/26`  | `10.10.0.128/26` |
+| ExpressRoute reservado     | `/27`  | `10.10.0.192/27` |
+| Emparejamiento de ExpressRoute      | `/27`  | `10.10.0.224/27` |
+| Administración de ESXi           | `/25`  | `10.10.1.0/25`   |
+| Red de vMotion           | `/25`  | `10.10.1.128/25` |
+| Red de replicación       | `/25`  | `10.10.2.0/25`   |
+| vSAN                      | `/25`  | `10.10.2.128/25` |
+| Vínculo superior de HCX                | `/26`  | `10.10.3.0/26`   |
+| Reservado                  | `/26`  | `10.10.3.64/26`  |
+| Reservado                  | `/26`  | `10.10.3.128/26` |
+| Reservado                  | `/26`  | `10.10.3.192/26` |
+
 
 
 ## <a name="required-network-ports"></a>Puertos de red necesarios

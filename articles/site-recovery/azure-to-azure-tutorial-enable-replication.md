@@ -4,12 +4,12 @@ description: En este tutorial, aprenderá a configurar la recuperación ante des
 ms.topic: tutorial
 ms.date: 11/03/2020
 ms.custom: mvc
-ms.openlocfilehash: 90527ad39055e438e4970ad4686f204f72d20cd2
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 6d07082b4a9c18461d5cc74de8844be803da7168
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93394180"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922484"
 ---
 # <a name="tutorial-set-up-disaster-recovery-for-azure-vms"></a>Tutorial: Configuración de la recuperación ante desastres de máquinas virtuales de Azure
 
@@ -56,7 +56,7 @@ Su cuenta de Azure necesita permisos para crear un almacén de Recovery Services
 
 ### <a name="verify-target-settings"></a>Comprobación de la configuración del destino
 
-Durante la recuperación de la detección, cuando se realiza la conmutación por error desde la región de origen, se crean máquinas virtuales en la región de destino. 
+Durante la recuperación ante desastres, cuando se realiza la conmutación por error desde la región de origen, se crean máquinas virtuales en la región de destino. 
 
 Compruebe que su suscripción tiene suficientes recursos en la región de destino. Necesita poder crear máquinas virtuales con tamaños que coincidan con las máquinas virtuales de la región de origen. Cuando se configura una recuperación ante desastres, Site Recovery elige el mismo tamaño para la máquina virtual de destino (o el más cercano posible).
 

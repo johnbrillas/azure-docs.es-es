@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: d175ac75ce76836d012cdd04d4dbd7d81ffda584
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: b6f4610887092b1dac5cdc85622739318d5921d7
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460706"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96852241"
 ---
 # <a name="tutorial-deploying-hsms-into-an-existing-virtual-network-using-the-azure-cli"></a>Tutorial: Implementación de HSM en una red virtual existente con la CLI de Azure
 
@@ -233,14 +233,14 @@ La salida será similar a la de la imagen que se muestra a continuación:
 
 ![Captura de pantalla que muestra la salida en la ventana de PowerShell.](media/tutorial-deploy-hsm-cli/hsm-show-output.png)
 
-Hasta este momento ha asignado todos los recursos necesarios para una implementación de alta disponibilidad, con dos HSM, y ha validado el acceso y el estado operativo. Ya no hay ninguna configuración o prueba que implique más tareas con el dispositivo HSM en sí. Para esto, debe seguir las instrucciones que aparecen en la guía de administración de Gemalto Luna Network HSM 7, capítulo 7, para inicializar el HSM y crear particiones. Toda la documentación y el software estarán disponibles directamente desde Gemalto para su descarga una vez que se haya registrado en el portal de atención al cliente de Gemalto y haya obtenido un identificador de cliente. Descargue la versión 7.2 del software cliente para obtener todos los componentes necesarios.
+Hasta este momento ha asignado todos los recursos necesarios para una implementación de alta disponibilidad, con dos HSM, y ha validado el acceso y el estado operativo. Ya no hay ninguna configuración o prueba que implique más tareas con el dispositivo HSM en sí. Para inicializar el dispositivo HSM y crear particiones, siga las instrucciones del capítulo 7 de la guía de administración de Thales Luna Network HSM 7. Toda la documentación y el software se pueden descargar directamente del sitio web de Thales una vez que se haya registrado en el portal de atención al cliente de Thales y haya obtenido un identificador de cliente. Descargue la versión 7.2 del software cliente para obtener todos los componentes necesarios.
 
 ## <a name="delete-or-clean-up-resources"></a>Eliminación y limpieza de los recursos
 
 Si ya ha terminado con el dispositivo HSM, puede eliminarlo como un recurso y devolverlo al grupo disponible. La preocupación más obvia a la hora de hacer esto es la información confidencial del cliente que se encuentra en el dispositivo. La mejor manera de "poner a cero" un dispositivo es escribir la contraseña de administrador de HSM equivocada 3 veces (nota: no el administrador de la aplicación, el administrador de HSM real). Como medida de seguridad para proteger el material clave, el dispositivo no se puede eliminar como recurso de Azure hasta que se encuentre en estado "a cero".
 
 > [!NOTE]
-> Si tiene algún problema con la configuración de cualquier dispositivo de Gemalto, debe ponerse en contacto con el departamento de [asistencia al cliente de Gemalto](https://safenet.gemalto.com/technical-support/).
+> Si tiene algún problema con alguna configuración del dispositivo de Thales, póngase en contacto con el [servicio de asistencia al cliente de Thales](https://safenet.gemalto.com/technical-support/).
 
 Si ya ha terminado con todos los recursos de este grupo de recursos, puede quitarlos con el siguiente comando:
 

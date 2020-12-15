@@ -6,13 +6,13 @@ ms.author: weetok
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 01/08/2020
-ms.openlocfilehash: 0a578f1edb51efd5f0905e663d42bf5a6fbfc783
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 12/09/2020
+ms.openlocfilehash: bdf9cbfef7dfdcf80976641b527ddeb61368d50b
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96489061"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921041"
 ---
 # <a name="data-integration-using-azure-data-factory-and-azure-data-share"></a>Integración de datos mediante Azure Data Factory y Azure Data Share
 
@@ -34,7 +34,7 @@ En este laboratorio se usan datos de taxis de la ciudad de Nueva York. Para impo
 
 * **Cuenta de almacenamiento de Azure Data Lake Storage Gen2**: si no la tiene, aprenda a [crear una cuenta de almacenamiento de ADLS Gen2](../storage/common/storage-account-create.md).
 
-* **Azure Synapse Analytics (anteriormente SQL DW)** : si no la tiene, aprenda a [crear una instancia de Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md).
+* **Azure Synapse Analytics**: si aún no la tiene, aprenda a [crear una instancia de Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md).
 
 * **Azure Data Factory**: si no la ha creado, consulte cómo [crear una factoría de datos](./quickstart-create-data-factory-portal.md).
 
@@ -79,7 +79,7 @@ En Azure Data Factory, los servicios vinculados definen la información de conex
 
 ### <a name="create-an-azure-synapse-analytics-linked-service"></a>Creación de un servicio vinculado de Azure Synapse Analytics
 
-1. Repita el mismo proceso para agregar un servicio vinculado de Azure Synapse Analytics. En la pestaña Connections (Conexiones), haga clic en **New** (Nuevo). Seleccione el icono **Azure Synapse Analytics (formerly SQL DW)** (Azure Synapse Analytics [anteriormente SQL DW]) y haga clic en Continue (Continuar).
+1. Repita el mismo proceso para agregar un servicio vinculado de Azure Synapse Analytics. En la pestaña Connections (Conexiones), haga clic en **New** (Nuevo). Seleccione el icono de **Azure Synapse Analytics** y haga clic en Continue (Continuar).
 
     ![Configuración en el portal 6](media/lab-data-flow-data-share/configure6.png)
 1. En el panel de configuración del servicio vinculado, escriba "SQLDW" como nombre del servicio vinculado. Escriba las credenciales para permitir que la factoría de datos se conecte a la base de datos. Si utiliza la autenticación de SQL, escriba el nombre del servidor, la base de datos, el nombre de usuario y la contraseña. Para comprobar que la información de conexión es correcta, haga clic en **Test connection** (Probar conexión). Cuando haya terminado, haga clic en **Create** (Crear).
@@ -155,7 +155,7 @@ Ha creado correctamente el conjunto de datos de origen. Asegúrese de que la con
 1. Para comprobar que la actividad de copia funciona correctamente, haga clic en **Debug** (Depurar) en la parte superior del lienzo de la canalización para realizar una ejecución de depuración. Este tipo de ejecución permite probar la canalización completa o hasta un punto de interrupción, antes de publicarla en el servicio de Azure Data Factory.
 
     ![Copia en el portal 11](media/lab-data-flow-data-share/copy11.png)
-1. Para supervisar la ejecución de depuración, vaya a la pestaña **Output** (Salida) del lienzo de la canalización. La pantalla de supervisión se actualizará automáticamente cada 20 segundos o cuando haga clic manualmente en el botón de actualización. La actividad de copia tiene una vista de supervisión especial a la que se puede acceder haciendo clic en el icono con forma de gafas de la columna **Actions** (Acciones).
+1. Para supervisar la ejecución de depuración, vaya a la pestaña **Output** (Salida) del lienzo de la canalización. La pantalla de supervisión se actualizará automáticamente cada 20 segundos o cuando haga clic manualmente en el botón de actualización. La actividad de copia tiene una vista de supervisión especial a la que se puede acceder haciendo clic en el icono de gafas de la columna **Actions** (Acciones).
 
     ![Copia en el portal 12](media/lab-data-flow-data-share/copy12.png)
 1. La vista de supervisión de la copia proporciona los detalles de ejecución y las características de rendimiento de la actividad. Puede ver información como los datos leídos y escritos, las filas leídas y escritas, los archivos leídos y escritos, y el rendimiento. Si ha configurado todo correctamente, debería ver 49 999 filas escritas en un archivo del receptor de ADLS.
@@ -226,7 +226,7 @@ El flujo de datos creado en este paso realiza una combinación interna del conju
     ![Combinación en el portal 1](media/lab-data-flow-data-share/join1.png)
 1. Asigne a la transformación de combinación el nombre "InnerJoinWithTripFares". Seleccione "TripFaresSQL" en la lista desplegable del flujo derecho. Seleccione **Inner** (Interna) como tipo de combinación. Para más información sobre los diferentes tipos de combinación en el flujo de datos de asignación, consulte [Tipos de combinación](./data-flow-join.md#join-types).
 
-    Seleccione en cada flujo las columnas con las que desea establecer coincidencias, a través de la lista desplegable **Join conditions** (Condiciones de combinación). Para agregar otra condición de combinación, haga clic en el icono de signo más junto a una condición existente. De forma predeterminada, todas las condiciones de combinación se unen con un operador AND, lo que significa que se deben cumplir todas las condiciones para establecer una coincidencia. En este laboratorio, deseamos establecer las coincidencias de las columnas `medallion`, `hack_license`, `vendor_id` y `pickup_datetime`.
+    Seleccione en cada flujo las columnas con las que desea establecer coincidencias, a través de la lista desplegable **Join conditions** (Condiciones de combinación). Para agregar otra condición de combinación, haga clic en el icono de signo más junto a una condición existente. De forma predeterminada, todas las condiciones de combinación se unen mediante un operador AND, lo que significa que se deben cumplir todas las condiciones para establecer una coincidencia. En este laboratorio, deseamos establecer las coincidencias de las columnas `medallion`, `hack_license`, `vendor_id` y `pickup_datetime`.
 
     ![Combinación en el portal 2](media/lab-data-flow-data-share/join2.png)
 1. Compruebe que ha combinado correctamente 25 columnas junto con una vista previa de los datos.
@@ -261,7 +261,7 @@ El flujo de datos creado en este paso realiza una combinación interna del conju
     Para obtener la distancia total de la carrera, utilice la función de agregación `sum()` para agregar la columna `trip_distance` convertida en un entero con `toInteger()`. En el lenguaje de expresiones de flujo de datos, esta operación se define como `sum(toInteger(trip_distance))`. Haga clic en **Save and finish** (Guardar y finalizar) cuando haya terminado.
 
     ![Agregación en el portal 6](media/lab-data-flow-data-share/agg6.png)
-1. Pruebe la lógica de la transformación en la pestaña **Data Preview** (Vista previa de datos). Como puede ver, hay bastantes menos filas y columnas que antes. Solo continúan las tres columnas de agrupación y agregación definidas en esta transformación. Dado que solo hay cinco grupos de tipos de pago en el ejemplo, solo se genera una salida de cinco filas.
+1. Pruebe la lógica de la transformación en la pestaña **Data Preview** (Vista previa de datos). Como puede ver, hay bastantes menos filas y columnas que antes. Solo las tres columnas de agrupación y agregación definidas en esta transformación continúan en sentido descendente. Dado que solo hay cinco grupos de tipos de pago en el ejemplo, solo se genera una salida de cinco filas.
 
     ![Agregación en el portal 7](media/lab-data-flow-data-share/agg7.png)
 
@@ -274,7 +274,7 @@ El flujo de datos creado en este paso realiza una combinación interna del conju
 
     ![Receptor en el portal 2](media/lab-data-flow-data-share/sink2.png)
 
-1. Seleccione el icono **Azure Synapse Analytics (formerly SQL DW)** (Azure Synapse Analytics [anteriormente SQL DW]) y haga clic en Continue (Continuar).
+1. Seleccione el icono de **Azure Synapse Analytics** y haga clic en Continue (Continuar).
 
     ![Receptor en el portal 3](media/lab-data-flow-data-share/sink3.png)
 1. Llame al conjunto de datos "AggregatedTaxiData". Seleccione "SQLDW" como servicio vinculado. Seleccione **Create new table** (Crear nueva tabla) y asigne a la nueva tabla el nombre dbo.AggregateTaxiData. Haga clic en OK (Aceptar) cuando haya finalizado.

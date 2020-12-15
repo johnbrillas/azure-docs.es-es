@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 12/02/2020
 ms.author: banders
-ms.openlocfilehash: 070d105785ee3ab9811188406bda56dbe6ceb558
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 874d5cb022a38b172bb37009bd86b5e6988f3204
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350898"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96545611"
 ---
 # <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>Obtención del uso y los costos de reservas de Contrato Enterprise
 
@@ -139,6 +139,8 @@ Obtenga los datos de los costos amortizados y filtre los datos para una instanci
 1. Obtenga los costos de pago por uso estimado. Multiplique el valor _UnitPrice_ por los valores de _cantidad_ para obtener los costos de pago por uso estimado, si no se ha aplicado el descuento de reserva al uso.
 2. Obtenga los costos de la reserva. Sume los valores de _costo_ para obtener el valor monetario de lo que ha pagado por la instancia reservada. Se incluyen los costos utilizados y no utilizados de la reserva.
 3. Reste los costos de reserva de los costos de pago por uso estimado para obtener el ahorro estimado.
+
+Tenga en cuenta que si tiene una reserva infrautilizada, la entrada _UnusedReservation_ de _ChargeType_ pasa a ser un factor que se debe tener en cuenta. Si tiene una reserva completamente utilizada, recibirá el máximo ahorro posible. Cualquier cantidad de _UnusedReservation_ reduce el ahorro.
 
 ## <a name="reservation-purchases-and-amortization-in-cost-analysis"></a>Compras de reserva y amortización en el análisis de costos
 
