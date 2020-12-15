@@ -1,21 +1,27 @@
 ---
-title: Trabajo con planos interiores en Azure Maps Creator
-description: En este artículo se presentan los conceptos que se aplican a los servicios de Azure Maps Creator.
+title: Trabajo con mapas de interiores en Creator de Azure Maps (versión preliminar)
+description: En este artículo se presentan los conceptos que se aplican a los servicios de Creator de Azure Maps (versión preliminar).
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 05/18/2020
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 558903ead572363c5545a4a3121f7cf61f549df6
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 4ab00317e71f832bb677c4c7587e2356a37cb7a1
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895909"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903571"
 ---
-# <a name="creator-for-indoor-maps"></a>Uso de Creator para planos interiores
+# <a name="creator-preview-for-indoor-maps"></a>Creator (versión preliminar) para mapas de interiores
+
+
+> [!IMPORTANT]
+> Los servicios de Creator de Azure Maps se encuentran actualmente en versión preliminar pública.
+> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 En este artículo se presentan los conceptos y herramientas que se aplican a los servicios de Azure Maps Creator. Le recomendamos que lea este artículo antes de empezar a usar la API y el SDK de Azure Maps Creator.
 
@@ -23,15 +29,15 @@ Puede usar Creator para desarrollar aplicaciones con características de plano b
 
 ![Flujo de trabajo de datos del plano de Creator](./media/creator-indoor-maps/workflow.png)
 
-## <a name="create-azure-maps-creator"></a>Creación de Azure Maps Creator
+## <a name="create-azure-maps-creator-preview"></a>Creación de Creator de Azure Maps (versión preliminar) 
 
-Para usar los servicios de Creator, debe crear Azure Maps Creator en una cuenta de Azure Maps. Para obtener información sobre cómo crear Azure Maps Creator en Azure Maps, consulte [Administrar Azure Maps Creator](how-to-manage-creator.md).
+Para usar los servicios de Creator (versión preliminar), se deben crear en una cuenta de Azure Maps. Para obtener información sobre cómo crear Azure Maps Creator en Azure Maps, consulte [Administrar Azure Maps Creator](how-to-manage-creator.md).
 
 ## <a name="upload-a-drawing-package"></a>Carga de un paquete de dibujo
 
-La instancia de Creator recopila datos de planos interiores mediante la conversión de un paquete de dibujo que esté cargado. El paquete de dibujo representa una instalación construida o remodelada. Para obtener información sobre los requisitos de los paquetes de dibujo, consulte [Requisitos de los paquetes de dibujo](drawing-requirements.md).
+Creator (versión preliminar) recopila datos de mapas de interiores mediante la conversión de un paquete de dibujo cargado. El paquete de dibujo representa una instalación construida o remodelada. Para obtener información sobre los requisitos de los paquetes de dibujo, consulte [Requisitos de los paquetes de dibujo](drawing-requirements.md).
 
-Use la [API de carga de datos de Azure Maps](/rest/api/maps/data/uploadpreview) para cargar un paquete de dibujo.  Tras una carga correcta, la API de carga de datos devolverá un identificador de datos de usuario (`udid`). El valor `udid` se usará en el paso siguiente para convertir el paquete cargado en datos del plano interior.
+Use [Upload API de Azure Maps Data (versión preliminar)](/rest/api/maps/data/uploadpreview) para cargar un paquete de dibujo.  Tras una carga correcta, la API de carga de datos devolverá un identificador de datos de usuario (`udid`). El valor `udid` se usará en el paso siguiente para convertir el paquete cargado en datos del plano interior.
 
 ## <a name="convert-a-drawing-package"></a>Conversión de un paquete de dibujo
 
@@ -41,7 +47,7 @@ Cuando se produce un error, el servicio de conversión proporciona un vínculo a
 
 ## <a name="create-indoor-map-data"></a>Creación de datos de los planos interiores
 
-Azure Maps Creator proporciona tres servicios:
+Creator (versión preliminar) de Azure Maps proporciona tres servicios:
 
 * [Servicio de conjunto de datos](/rest/api/maps/dataset/createpreview).
 Use el servicio de conjunto de datos para crear un conjunto de datos a partir de los datos de un paquete de dibujo convertido.
@@ -72,9 +78,9 @@ Si un conjunto de mosaicos se queda obsoleto y ya no es útil, puede eliminar es
 
 ### <a name="feature-statesets"></a>Conjuntos de estados de características
 
-Los conjunto de estados de características son colecciones de propiedades dinámicas ( *estados* ) asignadas a las características del conjunto de datos, como salas o equipamiento. Un ejemplo de un *estado* podría ser la temperatura o la ocupación. Cada *estado* es un par clave-valor que contiene el nombre de la propiedad, el valor y la marca de tiempo de la última actualización.
+Los conjunto de estados de características son colecciones de propiedades dinámicas (*estados*) asignadas a las características del conjunto de datos, como salas o equipamiento. Un ejemplo de un *estado* podría ser la temperatura o la ocupación. Cada *estado* es un par clave-valor que contiene el nombre de la propiedad, el valor y la marca de tiempo de la última actualización.
 
-El [servicio de estado de características](/rest/api/maps/featurestate/createstatesetpreview) le permite crear y administrar un conjunto de estados de características para un conjunto de datos. El conjunto de estados se define en uno o varios *estados* . Cada característica, como una sala, puede tener un *estado* adjunto.
+El [servicio de estado de características](/rest/api/maps/featurestate/createstatesetpreview) le permite crear y administrar un conjunto de estados de características para un conjunto de datos. El conjunto de estados se define en uno o varios *estados*. Cada característica, como una sala, puede tener un *estado* adjunto.
 
 El valor de cada *estado* en un conjunto de estados se puede actualizar o recuperar en dispositivos IoT u otras aplicaciones.  Por ejemplo, al usar [Feature State Update API](/rest/api/maps/featurestate/updatestatespreview), los dispositivos que miden la ocupación de espacio pueden publicar sistemáticamente el cambio de estado de una habitación.
 
@@ -87,9 +93,9 @@ Una aplicación puede usar un conjunto de estados de características para repre
 
 ### <a name="render-v2-service"></a>Representación del servicio V2
 
-[Get Map Tile API del servicio Render V2](/rest/api/maps/renderv2/getmaptilepreview) de Azure Maps se ha ampliado para admitir los conjuntos de mosaicos de Creator.
+[Get Map Tile API del servicio Render V2 (versión preliminar)](/rest/api/maps/renderv2/getmaptilepreview) de Azure Maps se ha ampliado para admitir los conjuntos de mosaicos de Creator (versión preliminar).
 
-[Get Map State Tile API del servicio Render V2](/rest/api/maps/renderv2/getmaptilepreview) permite que las aplicaciones soliciten conjuntos de mosaicos. El conjunto de mosaicos se puede integrar en un control de plano o un SDK. Para obtener un ejemplo de un control de mapa que use el servicio Render V2, consulte el [módulo de Indoor Maps](#indoor-maps-module).
+Get Map State Tile API del servicio Render V2 permite que las aplicaciones soliciten conjuntos de mosaicos. El conjunto de mosaicos se puede integrar en un control de plano o un SDK. Para obtener un ejemplo de un control de mapa que use el servicio Render V2, consulte el [módulo de Indoor Maps](#indoor-maps-module).
 
 ### <a name="web-feature-service-api"></a>API del servicio de características web
 
@@ -97,7 +103,7 @@ Los conjuntos de datos se pueden consultar mediante la [API del servicio de cara
 
 ### <a name="indoor-maps-module"></a>Módulo de Indoor Maps
 
-El [SDK web de Azure Maps](./index.yml) incluye el módulo Indoor Maps. Este módulo ofrece funcionalidades extendidas para la biblioteca del *control de mapa* de Azure Maps. El módulo Indoor Maps representa los planos interiores creados en Creator. Integra widgets como el *selector de piso* , que ayuda a los usuarios a visualizar las distintas plantas.
+El [SDK web de Azure Maps](./index.yml) incluye el módulo Indoor Maps. Este módulo ofrece funcionalidades extendidas para la biblioteca del *control de mapa* de Azure Maps. El módulo Mapas de interiores representa los mapas de interiores creados en Creator (versión preliminar). Integra widgets como el *selector de piso*, que ayuda a los usuarios a visualizar las distintas plantas.
 
 Igualmente, el módulo Indoor Maps permite crear aplicaciones web que integren datos de planos interiores con otros [servicios de Azure Maps](./index.yml). Las configuraciones de aplicaciones más comunes pueden incluir la adición de conocimiento a planos interiores desde otros planos, como carreteras, imágenes, el tiempo y el tránsito.
 
@@ -109,7 +115,7 @@ Cuando empiece a desarrollar soluciones para planos interiores, puede descubrir 
 
 ### <a name="data-maintenance"></a>Mantenimiento de datos
 
- Creator List, Update, y Delete API de Azure Maps le permitirán crear listas, actualizar y eliminar conjuntos de datos, conjuntos de mosaicos y conjuntos de estados de características.
+ Las instancias de List, Update y Delete API de Creator de Azure Maps le permiten enumerar, actualizar y eliminar conjuntos de datos, conjuntos de mosaicos y conjuntos de estados de características.
 
 >[!NOTE]
 >Siempre que revise una lista de elementos y decida eliminarlos, debe tener en cuenta el impacto que esa eliminación tendrá en todas las aplicaciones o API dependientes. Por ejemplo, si tiene que eliminar un conjunto de mosaicos que esté usando una aplicación mediante [Get Map Tile API de Render V2](/rest/api/maps/renderv2/getmaptilepreview), tenga en cuenta que si elimina ese conjunto de mosaicos se producirá un error de aplicación al representar ese conjunto de mosaicos.
@@ -129,4 +135,4 @@ En el ejemplo siguiente se muestra cómo actualizar un conjunto de datos, crear 
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Tutorial: creación de un plano interior de Creator](tutorial-creator-indoor-maps.md)
+> [Tutorial: Creación de un mapa de interiores de Creator (versión preliminar)](tutorial-creator-indoor-maps.md)

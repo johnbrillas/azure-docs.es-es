@@ -1,26 +1,26 @@
 ---
 title: Implementación de varias instancias de recursos
-description: Use la operación de copia y las matrices en una plantilla de Azure Resource Manager para realizar varias iteraciones al implementar recursos.
+description: Use la operación de copia y las matrices de una plantilla de Azure Resource Manager (plantilla de ARM) para realizar varias iteraciones al implementar recursos.
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 411c92061826a6e8bc59380d0440fb69816557a4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 47f3d693b84347973889a6003360d7113c427f4d
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91293975"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905917"
 ---
 # <a name="resource-iteration-in-arm-templates"></a>Iteración de recursos en las plantillas de ARM
 
-En este artículo se explica cómo se crean varias instancias de un recurso en su plantilla de Azure Resource Manager (ARM). Al agregar el elemento **copy** a la sección de recursos de la plantilla, puede establecer de forma dinámica el número de elementos de los recursos que va a implementar. Asimismo, evitará tener que repetir la sintaxis de la plantilla.
+En este artículo se explica cómo se crean varias instancias de un recurso en la plantilla de Azure Resource Manager (plantilla de ARM). Al agregar el elemento `copy` a la sección de recursos de la plantilla, puede establecer de forma dinámica el número de elementos de los recursos que va a implementar. Asimismo, evitará tener que repetir la sintaxis de la plantilla.
 
-También puede usar el elemento copy con [propiedades](copy-properties.md), [variables](copy-variables.md) y [salidas](copy-outputs.md).
+También puede usar `copy` con [propiedades](copy-properties.md), [variables](copy-variables.md) y [salidas](copy-outputs.md).
 
 Si tiene que especificar si un recurso se implementa, consulte [Elemento condition](conditional-resource-deployment.md).
 
 ## <a name="syntax"></a>Sintaxis
 
-El elemento copy tiene el siguiente formato general:
+El elemento `copy` tiene el siguiente formato general:
 
 ```json
 "copy": {
@@ -31,9 +31,9 @@ El elemento copy tiene el siguiente formato general:
 }
 ```
 
-La propiedad **name** es cualquier valor que identifique el bucle. La propiedad **count** especifica el número de iteraciones que desea realizar en el tipo de recurso.
+La propiedad `name` es cualquier valor que identifique el bucle. La propiedad `count` especifica el número de iteraciones que desea realizar en el tipo de recurso.
 
-Utilice las propiedades **mode** y **batchSize** para especificar si los recursos van a implementarse simultáneamente o por orden. Estas propiedades se describen en el artículo [En serie o en paralelo](#serial-or-parallel).
+Utilice las propiedades `mode` y `batchSize` para especificar si los recursos van a implementarse simultáneamente o por orden. Estas propiedades se describen en el artículo [En serie o en paralelo](#serial-or-parallel).
 
 ## <a name="copy-limits"></a>Límites de copia
 
@@ -52,7 +52,7 @@ Tenga cuidado al usar la [implementación de modo completo](deployment-modes.md)
 
 ## <a name="resource-iteration"></a>Iteración de recursos
 
-En el ejemplo siguiente, se crea el número de cuentas de almacenamiento especificado en el parámetro **storageCount**.
+En el ejemplo siguiente, se crea el número de cuentas de almacenamiento especificado en el parámetro `storageCount`.
 
 ```json
 {
@@ -97,7 +97,7 @@ Crea estos nombres:
 * storage1
 * storage2.
 
-Para desplazar el valor de índice, puede pasar un valor de la función copyIndex(). El número de iteraciones que se especifica en el elemento copy, pero el valor de copyIndex se desplaza el valor especificado. Así, en el ejemplo siguiente:
+Para desplazar el valor de índice, puede pasar un valor en la función `copyIndex()`. El número de iteraciones se sigue especificando en el elemento copy, pero el valor de `copyIndex` se desplaza el valor especificado. Así, en el ejemplo siguiente:
 
 ```json
 "name": "[concat('storage', copyIndex(1))]",
@@ -187,7 +187,7 @@ Por ejemplo, para implementar en serie dos cuentas de almacenamiento a la vez, u
 }
 ```
 
-La propiedad mode también acepta **parallel**, que es el valor predeterminado.
+La propiedad `mode` también acepta **parallel**, que es el valor predeterminado.
 
 ## <a name="depend-on-resources-in-a-loop"></a>Dependencia de los recursos de un bucle
 
@@ -291,12 +291,11 @@ En los ejemplos siguientes se muestran escenarios comunes para crear más de una
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para seguir los pasos de un tutorial, consulte [Tutorial: Creación de varias instancias de recursos con plantillas de ARM](template-tutorial-create-multiple-instances.md).
+* Para realizar un tutorial, consulte [Tutorial: Creación de varias instancias de recursos con plantillas de Resource Manager](template-tutorial-create-multiple-instances.md).
 * Para otros usos del elemento copy, consulte:
   * [Iteración de propiedades en las plantillas de ARM](copy-properties.md)
   * [Iteración de variables en las plantillas de ARM](copy-variables.md)
   * [Iteración de salida en las plantillas de ARM](copy-outputs.md)
 * Para obtener información acerca del uso de copy con plantillas anidadas, consulte [Uso de copy](linked-templates.md#using-copy).
-* Para más información sobre las secciones de una plantilla, consulte el artículo sobre cómo [crear plantillas de ARM](template-syntax.md).
-* Para más información sobre cómo implementar su plantilla, consulte el artículo [Implementación de recursos con las plantillas de Resource Manager y Azure PowerShell](deploy-powershell.md).
-
+* Si quiere obtener más información sobre las secciones de una plantilla, vea [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](template-syntax.md).
+* Para aprender a implementar su plantilla, vea [Implementación de recursos con las plantillas de Resource Manager y Azure PowerShell](deploy-powershell.md).

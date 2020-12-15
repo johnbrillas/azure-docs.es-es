@@ -1,5 +1,5 @@
 ---
-title: Uso del módulo de mapas de Azure Maps Indoor
+title: Uso del módulo Indoor Maps de Azure Maps con los servicios de Microsoft Creator (versión preliminar)
 description: Obtenga información sobre cómo usar el módulo de mapas de Microsoft Azure Maps Indoor para representar mapas mediante la inserción de las bibliotecas de JavaScript del módulo.
 author: anastasia-ms
 ms.author: v-stharr
@@ -9,21 +9,25 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: d852d17bdf11ea45f833e3d59cacb435166827fe
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: bc80b7dfd433911ef13906db38f59a76827db258
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895467"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905288"
 ---
 # <a name="use-the-azure-maps-indoor-maps-module"></a>Uso del módulo de mapas de Azure Maps Indoor
 
-El SDK web de Azure Maps incluye el módulo de *Azure Maps Indoor* . El módulo de *Azure Maps Indoor* permite representar planos interiores creados en Azure Maps Creator.
+> [!IMPORTANT]
+> Los servicios de Azure Maps Creator se encuentran actualmente en versión preliminar pública.
+> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+El SDK web de Azure Maps incluye el módulo de *Azure Maps Indoor*. El módulo *Indoor Maps de Azure Maps* permite representar mapas de interiores creados en servicios de Azure Maps Creator (versión preliminar) 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 1. [Cree una cuenta de Azure Maps](quick-demo-map-app.md#create-an-azure-maps-account).
-2. [Cree un recurso de Creator](how-to-manage-creator.md).
+2. [Cree un recurso de Creator (versión preliminar)](how-to-manage-creator.md)
 3. [Obtenga una clave de suscripción principal](quick-demo-map-app.md#get-the-primary-key-for-your-account), también conocida como clave principal o clave de suscripción.
 4. Complete el [tutorial de creación de planos interiores](tutorial-creator-indoor-maps.md) para obtener `tilesetId` y `statesetId`.
  Deberá utilizar estos identificadores para representar planos interiores con el módulo de mapas de Azure Maps Indoor.
@@ -32,14 +36,14 @@ El SDK web de Azure Maps incluye el módulo de *Azure Maps Indoor* . El módulo 
 
 Puede instalar e insertar el módulo de *Azure Maps Indoor* de una de estas dos maneras.
 
-Para usar la versión de Azure Content Delivery Network hospedada globalmente del módulo de *Azure Maps Indoor* , consulte las siguientes referencias de la hoja de estilos y JavaScript en el elemento `<head>` del archivo HTML:
+Para usar la versión de Azure Content Delivery Network hospedada globalmente del módulo de *Azure Maps Indoor*, consulte las siguientes referencias de la hoja de estilos y JavaScript en el elemento `<head>` del archivo HTML:
 
 ```html
 <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.css" type="text/css"/>
 <script src="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.js"></script>
 ```
 
- También puede descargar el módulo de *Azure Maps Indoor* . El módulo de *Azure Maps Indoor* contiene una biblioteca cliente para tener acceso a los servicios de Azure Maps. Siga los pasos que se indican a continuación para instalar y cargar el módulo de *Indoor* en la aplicación web.  
+ También puede descargar el módulo de *Azure Maps Indoor*. El módulo de *Azure Maps Indoor* contiene una biblioteca cliente para tener acceso a los servicios de Azure Maps. Siga los pasos que se indican a continuación para instalar y cargar el módulo de *Indoor* en la aplicación web.  
   
   1. Descargue el [paquete azure-maps-indoor](https://www.npmjs.com/package/azure-maps-indoor).
   
@@ -56,7 +60,7 @@ Para usar la versión de Azure Content Delivery Network hospedada globalmente de
 
 ## <a name="instantiate-the-map-object"></a>Creación de una instancia del objeto de mapa
 
-En primer lugar, cree un *objeto de mapa* . El *objeto de mapa* se usará en el paso siguiente para crear una instancia del objeto de *Indoor Manager* .  En el código siguiente se muestra cómo crear una instancia del *objeto de mapa* :
+En primer lugar, cree un *objeto de mapa*. El *objeto de mapa* se usará en el paso siguiente para crear una instancia del objeto de *Indoor Manager*.  En el código siguiente se muestra cómo crear una instancia del *objeto de mapa*:
 
 ```javascript
 const subscriptionKey = "<Your Azure Maps Primary Subscription Key>";
@@ -77,7 +81,7 @@ const map = new atlas.Map("map-id", {
 
 ## <a name="instantiate-the-indoor-manager"></a>Creación de una instancia de Indoor Manager
 
-Para cargar el conjunto de mosaicos de interior y el estilo de mapa de los mosaicos, debe crear una instancia de *Indoor Manager* . Para crear una instancia de *Indoor Manager* , proporcione el *objeto de mapa* y el `tilesetId` correspondiente. Si quiere admitir el [estilo de mapa dinámico](indoor-map-dynamic-styling.md), debe pasar el `statesetId`. El nombre de la variable `statesetId` distingue mayúsculas de minúsculas. El código debe ser como el JavaScript siguiente.
+Para cargar el conjunto de mosaicos de interior y el estilo de mapa de los mosaicos, debe crear una instancia de *Indoor Manager*. Para crear una instancia de *Indoor Manager*, proporcione el *objeto de mapa* y el `tilesetId` correspondiente. Si quiere admitir el [estilo de mapa dinámico](indoor-map-dynamic-styling.md), debe pasar el `statesetId`. El nombre de la variable `statesetId` distingue mayúsculas de minúsculas. El código debe ser como el JavaScript siguiente.
 
 ```javascript
 const tilesetId = "";
@@ -89,7 +93,7 @@ const indoorManager = new atlas.indoor.IndoorManager(map, {
 });
 ```
 
-Para habilitar el sondeo de los datos de estado que facilite, debe proporcionar `statesetId` y llamar a `indoorManager.setDynamicStyling(true)`. El sondeo de los datos de estado le permite actualizar dinámicamente el estado de las propiedades dinámicas o los *estados* . Por ejemplo, una característica como una sala puede tener una propiedad dinámica ( *estado* ) denominada `occupancy`. Es posible que la aplicación quiera sondear los cambios de *estado* para reflejar el cambio en el mapa visual. En el código siguiente se muestra cómo habilitar el sondeo de estado:
+Para habilitar el sondeo de los datos de estado que facilite, debe proporcionar `statesetId` y llamar a `indoorManager.setDynamicStyling(true)`. El sondeo de los datos de estado le permite actualizar dinámicamente el estado de las propiedades dinámicas o los *estados*. Por ejemplo, una característica como una sala puede tener una propiedad dinámica (*estado*) denominada `occupancy`. Es posible que la aplicación quiera sondear los cambios de *estado* para reflejar el cambio en el mapa visual. En el código siguiente se muestra cómo habilitar el sondeo de estado:
 
 ```javascript
 const tilesetId = "";
@@ -107,7 +111,7 @@ if (statesetId.length > 0) {
 
 ## <a name="indoor-level-picker-control"></a>Control de selector de nivel de Indoor
 
- El control de *selector de nivel de Indoor* le permite cambiar el nivel del mapa representado. Opcionalmente, puede inicializar el control de *selector de nivel de Indoor* a través de *Indoor Manager* . Este es el código para inicializar el selector de control de nivel:
+ El control de *selector de nivel de Indoor* le permite cambiar el nivel del mapa representado. Opcionalmente, puede inicializar el control de *selector de nivel de Indoor* a través de *Indoor Manager*. Este es el código para inicializar el selector de control de nivel:
 
 ```javascript
 const levelControl = new atlas.control.LevelControl({ position: "top-right" });
@@ -116,7 +120,7 @@ indoorManager.setOptions({ levelControl });
 
 ## <a name="indoor-events"></a>Eventos de Indoor
 
- El módulo de *Azure Maps Indoor* admite eventos de *objeto de mapa* . Los clientes de escucha de eventos de *objeto de mapa* se invocan cuando cambia un nivel o una instalación. Si quiere ejecutar código cuando cambie un nivel o una instalación, coloque el código dentro del cliente de escucha de eventos. En el código siguiente se muestra cómo se pueden agregar clientes de escucha de eventos al *objeto de mapa* .
+ El módulo de *Azure Maps Indoor* admite eventos de *objeto de mapa*. Los clientes de escucha de eventos de *objeto de mapa* se invocan cuando cambia un nivel o una instalación. Si quiere ejecutar código cuando cambie un nivel o una instalación, coloque el código dentro del cliente de escucha de eventos. En el código siguiente se muestra cómo se pueden agregar clientes de escucha de eventos al *objeto de mapa*.
 
 ```javascript
 map.events.add("levelchanged", indoorManager, (eventData) => {
@@ -136,26 +140,26 @@ La variable `eventData` contiene información sobre el nivel o la instalación q
 
 ## <a name="example-use-the-indoor-maps-module"></a>Ejemplo: Uso del módulo de mapas de Indoor
 
-En este ejemplo se muestra cómo usar el módulo de *Azure Maps Indoor* en la aplicación web. Aunque el ejemplo está limitado en el ámbito, trata los aspectos básicos de lo que necesita para empezar a usar el módulo de *Azure Maps Indoor* . El código HTML completo está después de estos pasos.
+En este ejemplo se muestra cómo usar el módulo de *Azure Maps Indoor* en la aplicación web. Aunque el ejemplo está limitado en el ámbito, trata los aspectos básicos de lo que necesita para empezar a usar el módulo de *Azure Maps Indoor*. El código HTML completo está después de estos pasos.
 
-1. Use la [opción](#embed-the-indoor-maps-module) de Azure Content Delivery Network para instalar el módulo de *Azure Maps Indoor* .
+1. Use la [opción](#embed-the-indoor-maps-module) de Azure Content Delivery Network para instalar el módulo de *Azure Maps Indoor*.
 
 2. Cree un archivo HTML.
 
-3. En el encabezado HTML, haga referencia a los estilos de la hoja de estilos y JavaScript del módulo de *Azure Maps Indoor* .
+3. En el encabezado HTML, haga referencia a los estilos de la hoja de estilos y JavaScript del módulo de *Azure Maps Indoor*.
 
-4. Inicialice un *objeto de mapa* . El *objeto de mapa* admite las siguientes opciones:
+4. Inicialice un *objeto de mapa*. El *objeto de mapa* admite las siguientes opciones:
     - `Subscription key` es la clave de suscripción principal de Azure Maps.
     - `center` define la latitud y la longitud de la ubicación del centro del plano interior. Proporcione un valor para `center` si no quiere proporcionar un valor para `bounds`. El formato debe mostrarse como `center`: [-122.13315, 47.63637].
     - `bounds` es la forma rectangular más pequeña que incluye los datos del mapa de conjunto de mosaicos. Establezca un valor para `bounds` si no quiere establecer un valor para `center`. Puede buscar los límites del mapa mediante una llamada a [Tileset List API](/rest/api/maps/tileset/listpreview). Tileset List API devuelve `bbox`, que puede analizar y asignar a `bounds`. El formato debe aparecer como `bounds`: [# west, # south, # east, # north].
     - `style` le permite establecer el color del fondo. Para mostrar un fondo blanco, defina `style` como "en blanco".
     - `zoom` permite especificar los niveles mínimo y máximo de zoom para el mapa.
 
-5. A continuación, cree el módulo de *Indoor Manager* . Asigne `tilesetId` de *Azure Maps Indoor* y, opcionalmente, agregue `statesetId`.
+5. A continuación, cree el módulo de *Indoor Manager*. Asigne `tilesetId` de *Azure Maps Indoor* y, opcionalmente, agregue `statesetId`.
 
-6. Cree una instancia del control de *selector de nivel de Indoor* .
+6. Cree una instancia del control de *selector de nivel de Indoor*.
 
-7. Agregue clientes de escucha de eventos de *objeto de mapa* .  
+7. Agregue clientes de escucha de eventos de *objeto de mapa*.  
 
 Ahora el archivo debería ser similar al HTML siguiente.
 
@@ -243,13 +247,13 @@ Para ver el plano interior, cárguelo en un explorador web. Debería mostrarse l
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga información acerca de las API relacionadas con el módulo de *Azure Maps Indoor* :
+Obtenga información acerca de las API relacionadas con el módulo de *Azure Maps Indoor*:
 
 > [!div class="nextstepaction"]
 > [Requisitos de paquetes de dibujos](drawing-requirements.md)
 
 >[!div class="nextstepaction"]
-> [Creator para planos interiores](creator-indoor-maps.md)
+> [Creator (versión preliminar) para mapas de interiores](creator-indoor-maps.md)
 
 Obtenga más información sobre cómo agregar más datos al mapa:
 

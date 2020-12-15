@@ -1,6 +1,6 @@
 ---
-title: Conceptos de servicios meteorológicos en Microsoft Azure Maps
-description: En este artículo, obtendrá información sobre los conceptos que se aplican a los servicios meteorológicos de Microsoft Azure Maps.
+title: Conceptos del servicio Weather (versión preliminar) de Microsoft Azure Maps
+description: En este artículo obtendrá información sobre los conceptos que se aplican al servicio Weather de Microsoft Azure Maps (versión preliminar).
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 09/10/2020
@@ -8,20 +8,24 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: ea8698b7bf402850e506ec126cd2a7bb6ce05823
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 657cb6a86122d267b86e82b6f02eb58e968cddd3
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896734"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904744"
 ---
-# <a name="weather-services-in-azure-maps"></a>Servicios meteorológicos de Azure Maps
+# <a name="weather-services-preview-in-azure-maps"></a>Servicio Weather (versión preliminar) de Azure Maps
 
-En este artículo se presentan los conceptos que se aplican a los [Servicios meteorológicos de Azure Maps](/rest/api/maps/weather). Se recomienda consultar este artículo antes de empezar a usar las API meteorológicas.
+> [!IMPORTANT]
+> El servicio Weather de Azure Maps se encuentra actualmente en versión preliminar pública.
+> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+En este artículo se presentan los conceptos que se aplican al [servicio Weather](/rest/api/maps/weather) de Azure Maps. Se recomienda consultar este artículo antes de empezar a usar las API meteorológicas.
 
 ## <a name="unit-types"></a>Tipos de unidad
 
-Algunas de las API del servicio meteorológico permiten al usuario especificar si los datos se devuelven en unidades métricas o imperiales. La respuesta devuelta para estas API también incluye unitType, un valor numérico que se puede usar para las conversiones de unidades. Consulte la tabla siguiente para interpretar estos valores.
+Algunas de las API del servicio Weather (versión preliminar) permiten al usuario especificar si los datos se devuelven en unidades métricas o imperiales. La respuesta devuelta para estas API también incluye unitType, un valor numérico que se puede usar para las conversiones de unidades. Consulte la tabla siguiente para interpretar estos valores.
 
 |unitType|Descripción         |
 |--------|--------------------|
@@ -52,7 +56,7 @@ Algunas de las API del servicio meteorológico permiten al usuario especificar s
 
 ## <a name="weather-icons"></a>Iconos meteorológicos
 
-Algunas de las API del servicio Weather devuelven `iconCode` en la respuesta. `iconCode` es un valor numérico que se usa para definir el icono. No cree vínculos directos a estas imágenes desde las aplicaciones, ya que las direcciones URL pueden cambiar.
+Algunas de las API del servicio Weather (versión preliminar) devuelven `iconCode` en la respuesta. `iconCode` es un valor numérico que se usa para definir el icono. No cree vínculos directos a estas imágenes desde las aplicaciones, ya que las direcciones URL pueden cambiar.
 
 | Número de icono |Icono| Día | Noche | Texto |
 |-------------|:----:|-----|-------|------|

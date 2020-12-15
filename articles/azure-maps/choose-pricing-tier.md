@@ -3,17 +3,17 @@ title: Elección del plan de tarifa adecuado para Microsoft Azure Maps
 description: Obtenga información sobre los planes de tarifa de Azure Maps. Vea qué características se ofrecen en qué niveles y consulte las consideraciones clave para elegir un plan de tarifa.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 08/12/2020
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 3603a4f5d103987b25bd5f976b89f943f98565a8
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: cb57e424642141e73588a61d026d1ff2f1a8b096
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96003691"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905305"
 ---
 # <a name="choose-the-right-pricing-tier-in-azure-maps"></a>Elección del plan de tarifa adecuado de Azure Maps
 
@@ -48,6 +48,7 @@ Si las API geoespaciales básicas satisfacen los requisitos del servicio, elija 
 | Movilidad (versión preliminar)                       |                     | ✓        |
 | Meteorología (versión preliminar)                        |✓                    |✓        |
 |  Creator (versión preliminar)                         |                   |✓        |
+|  Elevation (versión preliminar)                        |                   |✓        |
 
 Tenga en cuenta también estos otros aspectos:
 

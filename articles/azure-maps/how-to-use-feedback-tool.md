@@ -3,24 +3,24 @@ title: Aportar comentarios sobre datos en Azure Maps | Microsoft Azure Maps
 description: Aporte sus comentarios sobre los datos mediante la herramienta de comentarios de Microsoft Azure Maps.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 08/19/2019
+ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: b53ea7cf3ec29d7bad7e65a535cd140877bcea09
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 4be775d8a6a8c476bcc659a902c7f43c12a6d6d0
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895518"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905339"
 ---
 # <a name="provide-data-feedback-to-azure-maps"></a>Aportar comentarios sobre datos en Azure Maps
 
 Azure Maps ha estado disponible desde mayo de 2018. Azure Maps ha estado proporcionando nuevos datos de mapas, API de REST fáciles de usar y SDK eficaces que ofrecen a nuestros clientes empresariales una gran variedad de casos de uso empresarial. El mundo real cambia cada segundo, y es fundamental para nosotros ofrecer una representación digital objetiva a nuestros clientes. Nuestros clientes que planean abrir o cerrar instalaciones necesitan que nuestros mapas se actualicen rápidamente. Por lo tanto, pueden planear de forma eficaz la entrega, el mantenimiento o el servicio al cliente en las instalaciones adecuadas. Hemos creado el sitio de comentarios sobre los datos de Azure Maps para que nuestros clientes puedan facilitarnos comentarios directamente. Los comentarios sobre los datos de los clientes van directamente a nuestros proveedores de datos y sus editores de mapas. Estos pueden evaluar e incorporar rápidamente comentarios en nuestros productos de creación de mapas.  
 
-El [sitio de comentarios sobre los datos de Azure Maps](https://feedback.azuremaps.com) ofrece a nuestros clientes una forma sencilla de proporcionar comentarios relativos a los datos de mapas, principalmente sobre puntos de interés empresarial y direcciones residenciales. En este artículo se explica cómo aportar diferentes tipos de comentarios mediante el sitio de comentarios de Azure Maps.
+El [sitio de comentarios sobre los datos de Azure Maps (versión preliminar)](https://feedback.azuremaps.com) ofrece a los clientes una forma sencilla de proporcionar comentarios relativos a los datos de los mapas, principalmente sobre puntos de interés empresariales y direcciones residenciales. En este artículo se explica cómo aportar diferentes tipos de comentarios mediante el sitio de comentarios de Azure Maps.
 
 ## <a name="add-a-business-place-or-a-residential-address"></a>Adición de un lugar empresarial o una dirección residencial 
 

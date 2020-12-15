@@ -3,22 +3,22 @@ title: Introducción al objeto visual de Azure Maps en Power BI | Microsoft Azur
 description: En este artículo, aprenderá a usar el objeto visual de Microsoft Azure Maps para Power BI.
 author: rbrundritt
 ms.author: richbrun
-ms.date: 06/26/2020
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 5c89922aef1ba802ee694aaed9bae2ac2dd273ee
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: a563a7776e84289e38743057778e8fe10fd17503
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896249"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904710"
 ---
 # <a name="getting-started-with-the-azure-maps-power-bi-visual"></a>Introducción al objeto visual de Azure Maps en Power BI
 
-<Token>**SE APLICA A:** ![Marca de verificación verde.](media/power-bi-visual/yes.png) Servicio Power BI para * *_consumidores_* _ ![Marca de verificación verde.](media/power-bi-visual/yes.png) Servicio Power BI para diseñadores y desarrolladores ![Marca de verificación verde.](media/power-bi-visual/yes.png) Power BI Desktop ![X que indica no.](media/power-bi-visual/no.png) Requiere licencia Pro o Premium </Token>
+<Token>**SE APLICA A:** ![Marca de verificación verde.](media/power-bi-visual/yes.png) Servicio Power BI para **_consumidores_* _ ![Marca de verificación verde.](media/power-bi-visual/yes.png) Servicio Power BI para diseñadores y desarrolladores ![Marca de verificación verde.](media/power-bi-visual/yes.png) Power BI Desktop ![X que indica no.](media/power-bi-visual/no.png) Requiere licencia Pro o Premium</Token>
 
 En este artículo se muestra cómo usar el objeto visual de Microsoft Azure Maps para Power BI.
 
@@ -45,15 +45,15 @@ Usted o su administrador pueden tener que actualizar el firewall para permitir e
 
 Para obtener más información sobre la privacidad y las condiciones de uso en relación con el objeto visual de Azure Maps, consulte [Información legal de Microsoft Azure](https://azure.microsoft.com/support/legal/).
 
-## <a name="preview-behavior-and-requirements"></a>Comportamiento y requisitos de la versión preliminar
+## <a name="azure-maps-visual-preview-behavior-and-requirements"></a>Comportamiento y requisitos del objeto visual de Azure Maps (versión preliminar)
 
-Existen algunas consideraciones y requisitos para esta versión preliminar de _*Azure Maps**:
+El objeto visual de *Azure Maps** presenta algunas consideraciones y requisitos que es necesario tener en cuenta. :
 
--   El objeto visual de **Azure Maps** se encuentra en versión preliminar y debe habilitarse en Power BI Desktop. Para habilitar **Azure Maps** , seleccione **Archivo** &gt; **Opciones y configuración** &gt; **Opciones** &gt; **Características de versión preliminar** y, a continuación, seleccione la casilla **Azure Maps Visual** (Objeto visual de Azure Maps). Si el objeto visual de Azure Maps no está disponible después de hacer esto, es probable que sea necesario habilitar un conmutador de administrador de inquilinos en el portal de administración.
+-   El objeto visual de **Azure Maps** (versión preliminar) debe estar habilitado en Power BI Desktop. Para habilitar el objeto visual de **Azure Maps**, seleccione **Archivo** &gt; **Opciones y configuración** &gt; **Opciones** &gt; **Características de versión preliminar** y active la casilla **Azure Maps Visual** (Objeto visual de Azure Maps). Si el objeto visual de Azure Maps no está disponible después de hacer esto, es probable que sea necesario habilitar un conmutador de administrador de inquilinos en el portal de administración.
 -   El conjunto de datos debe tener campos que contengan información de **latitud** y **longitud**. La geocodificación de los campos de ubicación se agregará en una actualización futura.
 -   Actualmente, el control de leyendas integrado para Power BI no aparece en esta versión preliminar. Se agregará en una actualización futura.
 
-## <a name="use-the-azure-maps-visual"></a>Uso del objeto visual de Azure Maps
+## <a name="use-the-azure-maps-visual-preview"></a>Uso del objeto visual de Azure Maps (versión preliminar)
 
 Una vez que el objeto visual de **Azure Maps** esté habilitado, seleccione el icono **Azure Maps** en el panel **Visualizaciones**.
 
@@ -65,7 +65,7 @@ Power BI crea un lienzo de diseño de objeto visual de Azure Maps vacío. En ver
 
 Siga los pasos a continuación para cargar el objeto visual de Azure Maps:
 
-1.  En el panel **Campos** , arrastre los campos de datos que contengan la información de las coordenadas de latitud y longitud a los cubos **Latitud** o **Longitud**. Estos son los datos mínimos necesarios para cargar el objeto visual de Azure Maps.
+1.  En el panel **Campos**, arrastre los campos de datos que contengan la información de las coordenadas de latitud y longitud a los cubos **Latitud** o **Longitud**. Estos son los datos mínimos necesarios para cargar el objeto visual de Azure Maps.
     
     > [!div class="mx-imgBorder"]
     > ![Objeto visual de Azure Maps que muestra puntos como burbujas en el mapa después de indicar los campos de latitud y longitud](media/power-bi-visual/bubble-layer.png)
@@ -106,7 +106,7 @@ La sección **Configuración del mapa** del panel Formato proporciona opciones p
 
 | Configuración             | Descripción  |
 |---------------------|--------------|
-| Ampliar automáticamente           | Amplía automáticamente en el mapa los datos cargados a través del panel **Campos** del objeto visual. A medida que cambian los datos, el mapa actualiza su posición en consecuencia. Cuando el control deslizante está en la posición **Desactivado** , se muestra la configuración de la vista de mapa adicional para la vista de mapa predeterminada. |
+| Ampliar automáticamente           | Amplía automáticamente en el mapa los datos cargados a través del panel **Campos** del objeto visual. A medida que cambian los datos, el mapa actualiza su posición en consecuencia. Cuando el control deslizante está en la posición **Desactivado**, se muestra la configuración de la vista de mapa adicional para la vista de mapa predeterminada. |
 | World wrap (Envolvente mundial)          | Permite al usuario desplazar el mapa horizontalmente de forma infinita. |
 | Selector de estilos        | Agrega un botón al mapa para permitir a los lectores de informes cambiar el estilo del mapa. |
 | Controles de navegación | Agrega botones al mapa como otro método para permitir que los lectores de informes acerquen, alejen, roten y cambien la inclinación del mapa. Para obtener más información, consulte este documento sobre la [Navegación por el mapa](map-accessibility.md#navigating-the-map) para obtener detalles sobre las distintas formas en que los usuarios pueden navegar por el mapa. |
@@ -114,7 +114,7 @@ La sección **Configuración del mapa** del panel Formato proporciona opciones p
 
 ### <a name="map-view-settings"></a>Configuración de la vista de mapa
 
-Si el control deslizante **Ampliar automáticamente** está en la posición **Desactivado** , se muestra la siguiente configuración, que permite al usuario especificar la información de la vista de mapa predeterminada.
+Si el control deslizante **Ampliar automáticamente** está en la posición **Desactivado**, se muestra la siguiente configuración, que permite al usuario especificar la información de la vista de mapa predeterminada.
 
 | Configuración          | Descripción   |
 |------------------|---------------|
@@ -130,7 +130,7 @@ El objeto visual de Azure Maps está disponible en los siguientes servicios y ap
 
 | Servicio/aplicación                              | Disponibilidad |
 |------------------------------------------|--------------|
-| Power BI Desktop                         | Sí          |
+| Power BI Desktop                         | Sí          |
 | Servicio Power BI (app.powerbi.com)       | Sí          |
 | Aplicaciones móviles de Power BI             | Sí          |
 | Publicar en la web desde Power BI                  | No           |

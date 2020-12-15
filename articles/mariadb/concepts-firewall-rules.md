@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 7/17/2020
-ms.openlocfilehash: f8233e9974964e5d760d6b0b388278ff4eee7b34
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 452ef4787812dbdf88eb541cf5a164f2888dddcc
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94534490"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905441"
 ---
 # <a name="azure-database-for-mariadb-server-firewall-rules"></a>Reglas de firewall del servidor de Azure Database for MariaDB
 Los firewalls impiden todo acceso al servidor de bases de datos, excepto a aquellos equipos a los que haya concedido permiso. Asimismo, otorgan acceso al servidor según la dirección IP de origen de cada solicitud.
@@ -72,6 +72,7 @@ Tenga en cuenta los siguientes puntos cuando el acceso al servicio del servidor 
 
    Por ejemplo, puede ver el siguiente error si se conecta desde una máquina virtual de Azure en una subred con **Microsoft.Sql** habilitado, pero sin ninguna regla de red virtual correspondiente: `FATAL: Client from Azure Virtual Networks is not allowed to access the server`
 
+* **La regla de firewall no está disponible en formato IPv6:** Las reglas de firewall deben estar en formato IPv4. Si especifica reglas de firewall en formato IPv6, aparece el error de validación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Create and manage Azure Database for MariaDB firewall rules using the Azure portal](./howto-manage-firewall-portal.md) (Creación y administración de reglas de firewall de Azure Database for MariaDB mediante Azure Portal)

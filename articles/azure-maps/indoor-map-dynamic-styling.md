@@ -1,21 +1,25 @@
 ---
-title: Implementación de estilos dinámicos para planos interiores de Azure Maps Creator
-description: Aprenda a implementar estilos dinámicos para planos interiores de Creator
+title: Implementación de estilos dinámicos para mapas de interiores de Creator de Azure Maps (versión preliminar)
+description: Aprenda a implementar estilos dinámicos para mapas de interiores de Creator (versión preliminar).
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 05/18/2020
+ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: b9ce0d0770c7e6c4579469cc16d8c76c309a33d1
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 266dc5d62f6224495075546528ad71d806d415ac
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895382"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903452"
 ---
-# <a name="implement-dynamic-styling-for-creator-indoor-maps"></a>Implementación de estilos dinámicos para planos interiores de Creator
+# <a name="implement-dynamic-styling-for-creator-preview-indoor-maps"></a>Implementación de estilos dinámicos para mapas de interiores de Creator (versión preliminar)
+
+> [!IMPORTANT]
+> Los servicios de Creator de Azure Maps se encuentran actualmente en versión preliminar pública.
+> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 El [servicio de estado de características](/rest/api/maps/featurestate) de Azure Maps Creator le permite aplicar estilos basados en las propiedades dinámicas de las características de datos de los planos interiores.  Por ejemplo, puede representar las salas de reuniones de la instalación con un color específico para reflejar el estado de ocupación. En este artículo, le mostraremos cómo representar dinámicamente las características de los mapas interiores con el [servicio de estado de características](/rest/api/maps/featurestate) y el [módulo web de interiores](how-to-use-indoor-module.md).
 
@@ -23,7 +27,7 @@ El [servicio de estado de características](/rest/api/maps/featurestate) de Azur
 
 1. [Cree una cuenta de Azure Maps](quick-demo-map-app.md#create-an-azure-maps-account)
 2. [Obtenga una clave de suscripción principal](quick-demo-map-app.md#get-the-primary-key-for-your-account), también conocida como clave principal o clave de suscripción.
-3. [Cree un recurso de Creator](how-to-manage-creator.md)
+3. [Creación de un recurso de Creator (versión preliminar)](how-to-manage-creator.md)
 4. Descargue el [paquete de dibujos de ejemplo](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
 5. [Cree un plano interior](tutorial-creator-indoor-maps.md) para obtener un `tilesetId` y un `statesetId`.
 6. Cree una aplicación web siguiendo los pasos descritos en [Cómo usar el módulo de planos interiores](how-to-use-indoor-module.md).
@@ -74,7 +78,7 @@ En la siguiente sección, estableceremos el *estado* de ocupación de la oficina
     https://atlas.microsoft.com/featureState/state?api-version=1.0&statesetID={statesetId}&featureID=UNIT26&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-3. En el **encabezado** de la solicitud **POST** , establezca `Content-Type` en `application/json`. En el **cuerpo** de la solicitud **POST** , escriba el siguiente JSON con las actualizaciones de características. La actualización se guardará solo si la marca de tiempo enviada es posterior a la marca de tiempo usada en las solicitudes de actualización de estado de características anteriores para el mismo `ID` de característica. Pase el `keyName` "ocupado" para actualizar su valor.
+3. En el **encabezado** de la solicitud **POST**, establezca `Content-Type` en `application/json`. En el **cuerpo** de la solicitud **POST**, escriba el siguiente JSON con las actualizaciones de características. La actualización se guardará solo si la marca de tiempo enviada es posterior a la marca de tiempo usada en las solicitudes de actualización de estado de características anteriores para el mismo `ID` de característica. Pase el `keyName` "ocupado" para actualizar su valor.
 
     ```json
     {
@@ -113,7 +117,7 @@ La aplicación web que abrió anteriormente en un explorador debería reflejar a
 Para obtener más información, vea:
 
 > [!div class="nextstepaction"]
-> [Uso de Creator para mapas interiores](creator-indoor-maps.md)
+> [Creator (versión preliminar) para mapas de interiores](creator-indoor-maps.md)
 
 Consulte las referencias de las API mencionadas en este artículo:
 

@@ -1,20 +1,20 @@
 ---
 title: 'Implementación de plantilla: IntelliJ IDEA'
-description: Aprenda cómo crear su primera plantilla de Azure Resource Manager mediante IntelliJ IDEA y cómo implementarla.
+description: Aprenda cómo crear su primera plantilla de Azure Resource Manager (plantilla de ARM) mediante IntelliJ IDEA y cómo implementarla.
 ms.devlang: java
 ms.date: 08/01/2019
 ms.topic: conceptual
 ms.custom: devx-track-java
-ms.openlocfilehash: 6a596eff70bfc20b5a6752ef47398bd14d527c97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f0e007fe8930b30cee1c95159d7e964e3792449f
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90973336"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905968"
 ---
 # <a name="create-and-deploy-arm-templates-by-using-the-intellij-idea"></a>Creación e implementación de plantillas de ARM mediante IntelliJ IDEA
 
-Aprenda a implementar una plantilla de Azure Resource Manager (ARM) en Azure con IntelliJ IDEA y a realizar el proceso de edición y actualización de dicha plantilla directamente desde el entorno de desarrollo integrado. Las plantillas de ARM son archivos JSON que definen los recursos que necesita para implementar la solución. Para entender los conceptos asociados a la implementación y administración de sus soluciones de Azure, consulte la [introducción a la implementación de plantillas](overview.md).
+Aprenda a implementar una plantilla de Azure Resource Manager (plantilla de ARM) en Azure con IntelliJ IDEA y a realizar el proceso de edición y actualización de dicha plantilla directamente desde el entorno de desarrollo integrado. Las plantillas de ARM son archivos JSON que definen los recursos que necesita para implementar la solución. Para entender los conceptos asociados a la implementación y administración de sus soluciones de Azure, vea la [introducción a la implementación de plantillas](overview.md).
 
 ![Diagrama de la plantilla de Resource Manager desde el portal](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-export-deploy-template-portal.png)
 

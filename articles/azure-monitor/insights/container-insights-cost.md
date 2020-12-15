@@ -3,12 +3,12 @@ title: Costos de supervisión por Azure Monitor para contenedores | Microsoft Do
 description: En este artículo se describe los costos de supervisión de las métricas y los datos de inventario recopilados por Azure Monitor para contenedores, que ayudan a los clientes a administrar su uso y los costos asociados.
 ms.topic: conceptual
 ms.date: 05/29/2020
-ms.openlocfilehash: a03e94fa7650c56a4d3b3beda3c27283329aebbe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 81a20f564af68c3da6d63394e4cffe7caed91b46
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84204657"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903230"
 ---
 # <a name="understand-monitoring-costs-for-azure-monitor-for-containers"></a>Descripción de los costos de supervisión por Azure Monitor para contenedores
 
@@ -127,19 +127,21 @@ Si utiliza los [precios](https://azure.microsoft.com/pricing/details/monitor/) p
 
 ## <a name="controlling-ingestion-to-reduce-cost"></a>Control de la ingesta para reducir los costos
 
-Tenga en cuenta la posibilidad de un escenario en el que las distintas unidades de negocio de su organización compartieran la infraestructura de Kubernetes y un área de trabajo de Log Analytics. Con cada unidad de negocio separada por un espacio de nombres de Kubernetes. Puede visualizar la cantidad de datos que se ingieren en cada área de trabajo mediante un libro publicado recientemente. El libro **Container Insights Usage** (Uso de Container Insights), que se encuentra en la [Galería de libros](../platform/workbooks-overview.md#getting-started), le ayuda a visualizar el origen de los datos sin tener que crear su propia biblioteca de consultas a partir de lo que compartimos en nuestra documentación. En este libro, hay gráficos con los que puede ver los datos facturables desde perspectivas como:
+Tenga en cuenta la posibilidad de un escenario en el que las distintas unidades de negocio de su organización compartieran la infraestructura de Kubernetes y un área de trabajo de Log Analytics. Con cada unidad de negocio separada por un espacio de nombres de Kubernetes. Puede visualizar la cantidad de datos que se ingieren en cada área de trabajo con el runbook **Uso de datos** que está disponible en el menú desplegable **Ver libros**.
+
+[![Lista desplegable Ver libros](media/container-insights-cost/workbooks-dropdown.png)](media/container-insights-cost/workbooks-dropdown.png#lightbox)
+
+
+Este libro le ayuda a visualizar el origen de los datos sin tener que crear su propia biblioteca de consultas desde lo que compartimos nuestra documentación. En este libro, hay gráficos con los que puede ver los datos facturables desde perspectivas como:
 
 - Datos facturables totales ingeridos en GB por solución
-
 - Datos facturables ingeridos por registros de contenedor (registros de aplicación)
-
 - Datos de registros de contenedores facturables ingeridos por espacio de nombres de Kubernetes
-
 - Datos de registros de contenedores facturables ingeridos segregados por nombre de clúster
-
 - Datos de registros de contenedores facturables ingeridos por entrada de origen de registro
-
 - Datos de diagnóstico facturables ingeridos por registros de nodo maestro de diagnóstico
+
+[![Libro de uso de datos](media/container-insights-cost/data-usage-workbook.png)](media/container-insights-cost/data-usage-workbook.png#lightbox)
 
 Para más información sobre cómo administrar derechos y permisos en el libro, consulte [Control de acceso](../platform/workbooks-access-control.md).
 

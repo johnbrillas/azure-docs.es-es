@@ -15,106 +15,112 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2020
 ms.author: Zhchia
-ms.openlocfilehash: 45b84b2531e08233db56f190e2517519744f4eba
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 3c7efca5e052c2d0680aa7ca3e1b6d27bfdd7d11
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181836"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862486"
 ---
 # <a name="tutorial-configure-playvox-for-automatic-user-provisioning"></a>Tutorial: Configuración de Playvox para el aprovisionamiento automático de usuarios
 
-En este tutorial, se describen los pasos que debe realizar en Playvox y Azure Active Directory (Azure AD) para configurar el aprovisionamiento automático de usuarios. Cuando se configura, Azure AD aprovisiona y cancela el aprovisionamiento de usuarios o grupos de manera automática en [Playvox](https://www.playvox.com) mediante el servicio de aprovisionamiento de Azure AD. Para obtener información importante acerca de lo que hace este servicio, cómo funciona y ver preguntas frecuentes al respecto, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md). 
-
+En este tutorial, se describen los pasos que debe realizar en Playvox y Azure Active Directory (Azure AD) para configurar el aprovisionamiento automático de usuarios. Cuando está configurado, Azure AD aprovisiona y desaprovisiona automáticamente usuarios o grupos en [Playvox](https://www.playvox.com) mediante el servicio de aprovisionamiento de Azure AD. Para información importante sobre lo que hace este servicio y cómo funciona, y acceder a las preguntas frecuentes, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md).
 
 ## <a name="capabilities-supported"></a>Funcionalidades admitidas
 > [!div class="checklist"]
-> * Creación de usuarios en Playvox
-> * Eliminación de usuarios de Playvox cuando ya no necesiten acceso
-> * Mantenimiento de los atributos de usuario sincronizados entre Azure AD y Playvox
+> * Creación de usuarios en Playvox.
+> * Eliminación de usuarios de Playvox cuando ya no necesiten acceso.
+> * Mantenimiento de la sincronización de los atributos de usuario entre Azure AD y Playvox.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-En el escenario descrito en este tutorial se supone que ya cuenta con los requisitos previos siguientes:
+En el escenario de este tutorial se supone que ya cuenta con los requisitos previos siguientes:
 
-* [Un inquilino de Azure AD](../develop/quickstart-create-new-tenant.md) 
-* Una cuenta de usuario en Azure AD con [permiso](../roles/permissions-reference.md) para configurar el aprovisionamiento (por ejemplo, Administrador de aplicaciones, Administrador de aplicaciones en la nube, Propietario de la aplicación o Administrador global). 
+* [Un inquilino de Azure AD](../develop/quickstart-create-new-tenant.md).
+* Una cuenta de usuario en Azure AD con [permisos](../roles/permissions-reference.md) para configurar el aprovisionamiento. Por ejemplo, una cuenta podría tener el rol de administrador de aplicaciones, administrador de aplicaciones en la nube, propietario de aplicaciones o administrador global.
 * Una cuenta de usuario en [Playvox](https://www.playvox.com) con permisos de superadministrador.
 
-## <a name="step-1-plan-your-provisioning-deployment"></a>Paso 1. Planeación de la implementación de aprovisionamiento
-1. Obtenga información sobre [cómo funciona el servicio de aprovisionamiento](../app-provisioning/user-provisioning.md).
+## <a name="step-1-plan-your-provisioning-deployment"></a>Paso 1: Planeación de la implementación de aprovisionamiento
+
+1. Conozca [cómo funciona el servicio de aprovisionamiento](../app-provisioning/user-provisioning.md).
+
 2. Determine quién estará en el [ámbito de aprovisionamiento](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
-3. Determine qué datos se van a [asignar entre Azure AD y Playvox](../app-provisioning/customize-application-attributes.md). 
 
-## <a name="step-2-configure-playvox-to-support-provisioning-with-azure-ad"></a>Paso 2. Configuración de Playvox para admitir el aprovisionamiento con Azure AD
+3. Determine qué datos se van a [asignar entre Azure AD y Playvox](../app-provisioning/customize-application-attributes.md).
 
-1. Inicie sesión en la consola de administración de Playvox. Vaya a **Settings > API Keys** (Configuración > Claves de API).
+## <a name="step-2-configure-playvox-to-support-provisioning-by-using-azure-ad"></a>Paso 2: Configuración de Playvox para admitir el aprovisionamiento con Azure AD
 
-2. Haga clic en **Crear clave de API**.
+1. Inicie sesión en la consola de administración de Playvox y vaya a **Settings > API Keys** (Configuración > Claves de API).
 
-    ![Clave de API](media/playvox-provisioning-tutorial/create.png)
+2. Elija **Create API Key** (Crear clave de API).
 
-3. Escriba un nombre descriptivo para la clave de API y haga clic en **Save** (Guardar). Se genera la clave de API. Haga clic en **Cerrar**.
+    ![Captura de pantalla parcial que muestra la ubicación del botón Create API Key (Crear clave de API) en la interfaz de usuario de Playvox.](media/playvox-provisioning-tutorial/create.png)
 
-4. Haga clic en **Details** (Detalles) en la clave de API que creó en el paso anterior.
+3. Escriba un nombre descriptivo para la clave de API y seleccione **Save** (Guardar). Una vez generada la clave de API, seleccione **Close** (Cerrar).
 
-    ![Detalles](media/playvox-provisioning-tutorial/api.png)
+4. En la clave de API que ha creado, seleccione el icono **Details** (Detalles).
 
-5. Copie y guarde el valor de **BASE64 KEY** (CLAVE EN BASE64). Este valor se escribirá en el campo **Secret Token** (Token secreto) de la pestaña de aprovisionamiento en la aplicación Playvox de Azure Portal.
+    ![Captura de pantalla parcial que muestra la ubicación del icono de detalles, que es una lupa, en la interfaz de usuario de Playvox.](media/playvox-provisioning-tutorial/api.png)
 
-    ![Token SCIM](media/playvox-provisioning-tutorial/token.png)
+5. Copie y guarde el valor **BASE64 KEY** (CLAVE BASE64). Más adelante, en Azure Portal, especificará este valor en el cuadro de texto **Secret Token** (Token de secreto) en la pestaña **Provisioning** (Aprovisionamiento) de la aplicación Playvox.
 
-## <a name="step-3-add-playvox-from-the-azure-ad-application-gallery"></a>Paso 3. Adición de Playvox desde la galería de aplicaciones de Azure AD
+    ![Captura de pantalla del cuadro de mensaje API Key (Clave de API) de la sección Details (Detalles) con el valor BASE64 KEY (Clave BASE64) resaltado.](media/playvox-provisioning-tutorial/token.png)
 
-Para empezar a administrar el aprovisionamiento de Playvox, agregue Playvox desde la galería de aplicaciones de Azure AD. Si ha configurado previamente Playvox para el inicio de sesión único, puede usar la misma aplicación. Sin embargo, se recomienda que cree una aplicación independiente al probar la integración inicialmente. Puede encontrar más información sobre cómo agregar una aplicación desde la galería [aquí](../manage-apps/add-application-portal.md). 
+## <a name="step-3-add-playvox-from-the-azure-ad-application-gallery"></a>Paso 3: Adición de Playvox desde la galería de aplicaciones de Azure AD
 
-## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Paso 4. Determinar quién estará en el ámbito de aprovisionamiento 
+Para empezar a administrar el aprovisionamiento en Playvox, agregue Playvox a su inquilino de Azure AD desde la galería de aplicaciones. Para más información, vea esta [Inicio rápido: Incorporación de una aplicación al inquilino de Azure Active Directory (Azure AD)](../manage-apps/add-application-portal.md)
 
-El servicio de aprovisionamiento de Azure AD le permite definir quién se aprovisionará, en función de la asignación a la aplicación y de los atributos del usuario o grupo. Si elige el ámbito del que se aprovisionará en la aplicación en función de la asignación, puede usar los pasos [siguientes](../manage-apps/assign-user-or-group-access-portal.md) para asignar usuarios o grupos a la aplicación. Si elige el ámbito del que se aprovisionará en función únicamente de los atributos del usuario o grupo, puede usar un filtro de ámbito, tal como se describe [aquí](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
+Si ha configurado previamente Playvox para el inicio de sesión único (SSO), puede usar la misma aplicación. Sin embargo, se recomienda crear una aplicación independiente al probar inicialmente la integración.
 
-* Al asignar usuarios a Playvox, debe seleccionar un rol que no sea **Acceso predeterminado**. Los usuarios con el rol de acceso predeterminado se excluyen del aprovisionamiento y se marcarán como no autorizados en los registros de aprovisionamiento. Si el único rol disponible en la aplicación es el rol de acceso predeterminado, puede [actualizar el manifiesto de aplicación](../develop/howto-add-app-roles-in-azure-ad-apps.md) para agregar roles adicionales. 
+## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Paso 4: Determinar quién estará en el ámbito de aprovisionamiento
 
-* Empiece por algo pequeño. Pruebe con un pequeño conjunto de usuarios o grupos antes de implementarlo en todos. Cuando el ámbito del aprovisionamiento se define en los usuarios y grupos asignados, puede controlarlo asignando uno o dos usuarios o grupos a la aplicación. Cuando el ámbito se establece en todos los usuarios y grupos, puede especificar un [filtro de ámbito basado en atributos](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
+Usará el servicio de aprovisionamiento de Azure AD para definir quién se aprovisionará, en función de la asignación a la aplicación o según los atributos del usuario o el grupo. Para determinar quién se aprovisionará en la aplicación en función de la asignación, siga los pasos descritos en [Administración de la asignación de usuarios para una aplicación en Azure Active Directory](../manage-apps/assign-user-or-group-access-portal.md) para aprender a asignar usuarios y grupos a la aplicación. Para determinar quién se aprovisionará en función únicamente de los atributos del usuario o el grupo, use un filtro de ámbito, tal como se describe en [Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
+Recuerde estos puntos:
 
-## <a name="step-5-configure-automatic-user-provisioning-to-playvox"></a>Paso 5. Configuración del aprovisionamiento automático de usuarios en Playvox 
+* Al asignar usuarios a Playvox, debe seleccionar un rol que no sea Acceso predeterminado. Los usuarios con el rol de acceso predeterminado se excluyen del aprovisionamiento y se marcarán como no autorizados en los registros de aprovisionamiento. Si el único rol disponible en la aplicación es el de acceso predeterminado, puede [actualizar el manifiesto de aplicación](../develop/howto-add-app-roles-in-azure-ad-apps.md) para agregar otros roles.
 
-Esta sección le guía por los pasos necesarios para configurar el servicio de aprovisionamiento de Azure AD a fin de crear, actualizar y deshabilitar usuarios o grupos en TestApp en función de las asignaciones de grupos o usuarios de Azure AD.
+* Empiece por algo pequeño. Pruebe con un pequeño conjunto de usuarios o grupos antes de implementarlo en todos. Cuando el ámbito de aprovisionamiento se basa en usuarios o grupos asignados, puede controlar el tamaño del conjunto asignando solo uno o dos usuarios o grupos a la aplicación. Cuando el ámbito de aprovisionamiento incluye todos los usuarios y grupos, puede especificar un [filtro de ámbito basado en atributos](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md) para limitar el tamaño del conjunto de prueba.
 
-### <a name="to-configure-automatic-user-provisioning-for-playvox-in-azure-ad"></a>Para configurar el aprovisionamiento automático de usuarios para Playvox en Azure AD:
+## <a name="step-5-configure-automatic-user-provisioning-to-playvox"></a>Paso 5: Configuración del aprovisionamiento automático de usuarios en Playvox
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com). Seleccione **Aplicaciones empresariales** y luego **Todas las aplicaciones**.
+Esta sección le guía por los pasos necesarios para configurar el servicio de aprovisionamiento de Azure AD para crear, actualizar y deshabilitar usuarios o grupos en función de las asignaciones de usuarios o grupos en Azure AD.
 
-    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
+Para configurar el aprovisionamiento automático de usuarios para Playvox en Azure AD:
 
-2. En la lista de aplicaciones, seleccione **Playvox**.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com). Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
 
-    ![Vínculo a Playvox en la lista de aplicaciones](common/all-applications.png)
+    ![Captura de pantalla parcial de Azure Portal, con los elementos Aplicaciones empresariales y Todas las aplicaciones resaltados.](common/enterprise-applications.png)
+
+2. En la lista de aplicaciones, busque y seleccione **Playvox**.
+
+    ![Captura de pantalla parcial de la lista de aplicaciones, con el cuadro de búsqueda de aplicaciones resaltado.](common/all-applications.png)
 
 3. Seleccione la pestaña **Aprovisionamiento**.
 
-    ![Pestaña Aprovisionamiento](common/provisioning.png)
+    ![Captura de pantalla parcial que muestra el elemento de menú Aprovisionamiento.](common/provisioning.png)
 
 4. Establezca el **modo de aprovisionamiento** en **Automático**.
 
-    ![Pestaña de aprovisionamiento automático](common/provisioning-automatic.png)
+    ![Captura de pantalla parcial de la pestaña Aprovisionamiento, que muestra la opción Automático seleccionada en el cuadro de lista desplegable Modo de aprovisionamiento.](common/provisioning-automatic.png)
 
-5. En la sección Credenciales de administrador, escriba la **dirección URL de inquilino** de Playvox como
-    * `https://{tenant}.playvox.com/scim/v1`
+5. En la sección **Credenciales de administrador**, escriba la **dirección URL de inquilino** de Playvox de la forma siguiente:
 
-    Escriba el **Token secreto** como se recuperó en el paso 2 anterior. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Playvox. Si la conexión no se establece, asegúrese de que la cuenta de Playvox tiene permisos de administrador y pruebe otra vez.
+    `https://{tenant}.playvox.com/scim/v1`
 
-    ![Token](common/provisioning-testconnection-tenanturltoken.png)
+    Escriba el **token secreto** que copió anteriormente en el paso 2. A continuación, seleccione **Probar conexión** para asegurarse de que Azure AD puede conectarse a Playvox. Si la conexión no se establece, asegúrese de que la cuenta de Playvox tenga permisos de administrador y pruebe otra vez.
 
-6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que deba recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+    ![Captura de pantalla parcial que muestra la sección Credenciales de administrador, incluidos los cuadros de texto URL de inquilino y Token secreto, y con el vínculo Probar conexión resaltado.](common/provisioning-testconnection-tenanturltoken.png)
 
-    ![Correo electrónico de notificación](common/provisioning-notification-email.png)
+6. En el cuadro de texto **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que recibirá las notificaciones de error de aprovisionamiento. A continuación, seleccione la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+
+    ![Captura de pantalla parcial que muestra el cuadro de texto Correo electrónico de notificación y la casilla Notificación por correo electrónico.](common/provisioning-notification-email.png)
 
 7. Seleccione **Guardar**.
 
-8. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to Playvox**. (Sincronizar usuarios de Azure Active Directory con Playvox).
+8. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to Playvox** (Sincronizar usuarios de Azure Active Directory con Playvox).
 
-9. Examine los atributos de usuario que se sincronizan entre Azure AD y Playvox en la sección de **asignación de atributos**. Los atributos seleccionados como propiedades **Matching** (Coincidencia) se usan para buscar coincidencias con las cuentas de usuario de Playvox con el objetivo de realizar operaciones de actualización. Si decide cambiar el [atributo de destino coincidente](../app-provisioning/customize-application-attributes.md), deberá asegurarse de que la API de Playvox admite el filtrado de usuarios basado en ese atributo. Seleccione el botón **Guardar** para confirmar los cambios.
+9. Examine los atributos de usuario que se sincronizan entre Azure AD y Playvox en la sección de **asignación de atributos**. Los atributos seleccionados como propiedades **Matching** (Coincidencia) se usan para buscar coincidencias con las cuentas de usuario de Playvox con el objetivo de realizar operaciones de actualización. Si decide cambiar el [atributo de destino coincidente](../app-provisioning/customize-application-attributes.md), deberá asegurarse de que la API de Playvox admita el filtrado de usuarios basado en ese atributo. Para confirmar los cambios, seleccione **Guardar**.
 
    |Atributo|Tipo|Compatible con el filtrado|
    |---|---|---|
@@ -126,30 +132,30 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
    |name.familyName|String|
    |name.formatted|String|
    |externalId|String|
-   
 
-10. Para configurar filtros de ámbito, consulte las siguientes instrucciones, que se proporcionan en el artículo [Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+10. Para configurar los filtros de ámbito, consulte las instrucciones que se describen en [Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 11. Para habilitar el aprovisionamiento del servicio de aprovisionamiento de Azure AD para Playvox, cambie el **estado de aprovisionamiento** a **Activado** en la sección **Configuración**.
 
-    ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
+    ![Captura de pantalla parcial de la sección Configuración, que muestra el estado de aprovisionamiento establecido en Activado.](common/provisioning-toggle-on.png)
 
-12. Elija los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que desea que se aprovisionen en Playvox.
+12. Todavía en **Configuración**, defina los usuarios o grupos que se van a aprovisionar en Playvox eligiendo los valores que quiera en **Ámbito**.
 
-    ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
+    ![Captura de pantalla parcial de la sección Configuración, que muestra el cuadro de lista desplegable Ámbito.](common/provisioning-scope.png)
 
-13. Cuando esté listo para realizar el aprovisionamiento, haga clic en **Guardar**.
+13. Cuando esté listo para realizar el aprovisionamiento, seleccione **Guardar**.
 
-    ![Guardar la configuración de aprovisionamiento](common/provisioning-configuration-save.png)
+    ![Captura de pantalla parcial que muestra las opciones Guardar y Descartar.](common/provisioning-configuration-save.png)
 
-Esta operación inicia el ciclo de sincronización inicial de todos los usuarios y grupos definidos en **Ámbito** en la sección **Configuración**. El ciclo de sincronización inicial tarda más tiempo en realizarse que los ciclos posteriores, que se producen aproximadamente cada 40 minutos si el servicio de aprovisionamiento de Azure AD está ejecutándose. 
+Esta operación inicia el ciclo de sincronización inicial de todos los usuarios y grupos definidos en **Ámbito** en la sección **Configuración**. El ciclo inicial tarda más que los ciclos posteriores. Las sincronizaciones se producen aproximadamente cada 40 minutos, siempre y cuando el servicio de aprovisionamiento de Azure AD esté en ejecución.
 
-## <a name="step-6-monitor-your-deployment"></a>Paso 6. Supervisión de la implementación
+## <a name="step-6-monitor-your-deployment"></a>Paso 6: Supervisión de la implementación
+
 Una vez configurado el aprovisionamiento, use los recursos siguientes para supervisar la implementación:
 
-1. Use los [registros de aprovisionamiento](../reports-monitoring/concept-provisioning-logs.md) para determinar qué usuarios se han aprovisionado correctamente o sin éxito.
-2. Consulte la [barra de progreso](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) para ver el estado del ciclo de aprovisionamiento y cuánto falta para que finalice.
-3. Si la configuración de aprovisionamiento parece estar en mal estado, la aplicación pasará a estar en cuarentena. Más información sobre los estados de cuarentena [aquí](../app-provisioning/application-provisioning-quarantine-status.md).  
+* Use los [registros de aprovisionamiento](../reports-monitoring/concept-provisioning-logs.md) para determinar qué usuarios se han aprovisionado correctamente y los que no.
+* Consulte la [barra de progreso](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) para ver el estado del ciclo de aprovisionamiento y cuánto falta para que finalice.
+* Si la configuración de aprovisionamiento parece estar en mal estado, la aplicación pasará a estar en cuarentena. Para más información sobre los estados de cuarentena, consulte [Aprovisionamiento de aplicaciones en el estado de cuarentena](../app-provisioning/application-provisioning-quarantine-status.md).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

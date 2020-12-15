@@ -4,12 +4,12 @@ description: Configure las herramientas de análisis del rendimiento, la disponi
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: contperfq1
-ms.openlocfilehash: 861a9f53c2f149268e06005053206a7411e842f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 970971082e684ebcb6efce07bb707ffbb20ed228
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91838949"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904183"
 ---
 # <a name="configure-application-insights-for-your-aspnet-website"></a>Configuración de Application Insights para un sitio web de ASP.NET
 
@@ -25,6 +25,10 @@ Para agregar Application Insights al sitio web de ASP.NET, necesita:
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 - Cree un [recurso basado en el área de trabajo de Application Insights](create-workspace-resource.md).
+
+> [!IMPORTANT]
+> Las nuevas regiones de Azure **requieren** el uso de cadenas de conexión en lugar de claves de instrumentación. La [cadena de conexión](./sdk-connection-string.md?tabs=net) identifica el recurso con el que se quieren asociar los datos de telemetría. También permite modificar los puntos de conexión que va a usar el recurso como destino de la telemetría. Tiene que copiar la cadena de conexión y agregarla al código de la aplicación o a una variable de entorno.
+
 
 ## <a name="create-a-basic-aspnet-web-app"></a>Creación de una aplicación web de ASP.NET básica
 

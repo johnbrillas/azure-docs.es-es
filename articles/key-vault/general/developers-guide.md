@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 6fa9f5d86d3640bf3ae0233e7d6d8a00752f5b6d
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 895b8441f340d085932cade513c9f8929491b374
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460811"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904268"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guía del desarrollador de Azure Key Vault
 
@@ -22,7 +22,7 @@ Key Vault le permite acceder de forma segura a información confidencial desde s
 - Las claves y los secretos y los certificados están protegidos sin tener que escribir el código manualmente, y puede usarlos fácilmente en sus aplicaciones.
 - Permite a los clientes poseer y administrar sus propios secretos, claves y certificados, para poder así concentrarse en proporcionar las características de software principales. De este modo, las aplicaciones no serán responsables de las claves, secretos y certificados del inquilino de sus clientes.
 - La aplicación puede usar claves para la firma y el cifrado, pero también mantiene la opción de administrar de forma externa las claves de la aplicación. Para obtener más información sobre las claves, consulte [Acerca de las claves.](../keys/about-keys.md)
-- Puede administrar credenciales, como contraseñas, claves de acceso y tokens de SAS almacenándolas en Key Vault como secretos; consulte [Acerca de los secretos](../secrets/about-secrets.md) para obtener más información.
+- Puede administrar credenciales, como contraseñas, claves de acceso y tokens de SAS almacenándolas en Key Vault como secretos; consulte [Acerca de los secretos](../secrets/about-secrets.md) para más información.
 - Administrar certificados. Para obtener más información, consulte [Acerca de los certificados](../certificates/about-certificates.md).
 
 Para obtener más información sobre Azure Key Vault, consulte [¿Qué es Key Vault?](overview.md).

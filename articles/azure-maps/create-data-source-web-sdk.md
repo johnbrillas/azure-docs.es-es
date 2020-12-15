@@ -1,27 +1,27 @@
 ---
-title: Creación de un origen de datos para un mapa | Microsoft Azure Maps
+title: Creación de un origen de datos para un mapa en Microsoft Azure Maps
 description: 'Obtenga información sobre cómo crear un origen de datos para un mapa. Aprenda sobre los orígenes de datos que usa el SDK Web de Azure Maps: Orígenes GeoJSON e iconos vectoriales.'
 author: rbrundritt
 ms.author: richbrun
-ms.date: 08/08/2019
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 9c82b74ffdc8672dc3d84a98a036c6083bc6c309
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: d09dddbceed773cd723897cc9730198b68be0ff7
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895926"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903622"
 ---
 # <a name="create-a-data-source"></a>Creación de un origen de datos
 
 El SDK web de Azure Maps almacena los datos en orígenes de datos. El uso de orígenes de datos optimiza las operaciones de datos en las consultas y representaciones. Actualmente hay dos tipos de orígenes de datos:
 
-- **Origen GeoJSON** : administra localmente los datos de ubicación sin procesar en formato GeoJSON. Adecuado para conjuntos de datos de tamaño pequeño a medio (con cientos de miles de formas).
-- **Origen de mosaico vectorial** : carga los datos con formato de mosaico vectorial para la vista del mapa actual, en función del sistema de mosaico de mapas. Ideal para conjuntos de datos grandes o masivos (millones o miles de millones de formas).
+- **Origen GeoJSON**: administra localmente los datos de ubicación sin procesar en formato GeoJSON. Adecuado para conjuntos de datos de tamaño pequeño a medio (con cientos de miles de formas).
+- **Origen de mosaico vectorial**: carga los datos con formato de mosaico vectorial para la vista del mapa actual, en función del sistema de mosaico de mapas. Ideal para conjuntos de datos grandes o masivos (millones o miles de millones de formas).
 
 ## <a name="geojson-data-source"></a>Origen de datos de GeoJSON
 
@@ -74,7 +74,7 @@ dataSource.setShapes(geoJsonData);
 
 ## <a name="vector-tile-source"></a>Origen de mosaico vectorial
 
-Un origen de mosaico vectorial describe cómo acceder a una capa de mosaico vectorial. Use la clase [VectorTileSource](/javascript/api/azure-maps-control/atlas.source.vectortilesource) para crear una instancia de un origen de mosaico vectorial. Las capas de mosaico vectorial son similares a las de mosaico, pero no son iguales. Una capa de mosaico es una imagen de trama. Las capas de mosaico vectorial son un archivo comprimido, en formato **PBF** . Este archivo comprimido contiene datos de mapas vectoriales y una o varias capas. El archivo se puede representar en el cliente, y aplicarle un estilo, en función del estilo de cada capa. Los datos de un mosaico vectorial contienen características geográficas en forma de puntos, líneas y polígonos. El uso de capas de mosaico vectorial en lugar de capas de mosaico de trama presenta varias ventajas:
+Un origen de mosaico vectorial describe cómo acceder a una capa de mosaico vectorial. Use la clase [VectorTileSource](/javascript/api/azure-maps-control/atlas.source.vectortilesource) para crear una instancia de un origen de mosaico vectorial. Las capas de mosaico vectorial son similares a las de mosaico, pero no son iguales. Una capa de mosaico es una imagen de trama. Las capas de mosaico vectorial son un archivo comprimido, en formato **PBF**. Este archivo comprimido contiene datos de mapas vectoriales y una o varias capas. El archivo se puede representar en el cliente, y aplicarle un estilo, en función del estilo de cada capa. Los datos de un mosaico vectorial contienen características geográficas en forma de puntos, líneas y polígonos. El uso de capas de mosaico vectorial en lugar de capas de mosaico de trama presenta varias ventajas:
 
  - Un tamaño de archivo de un mosaico vectorial suele ser mucho menor que el de un mosaico de trama equivalente. Como tal, se usa menos ancho de banda. Esto significa una menor latencia, un mapa más rápido y una mejor experiencia de usuario.
  - Como los mosaicos vectoriales se representan en el cliente, pueden adaptarse a la resolución del dispositivo en el que se muestran. Como resultado, los mapas representados aparecen mejor definidos, con etiquetas nítidas.
@@ -86,7 +86,7 @@ Azure Maps se adhiere a la [especificación de mosaicos vectoriales de Mapbox](h
 - [Documentación](/rest/api/maps/renderv2/getmaptilepreview) | [Detalles del formato de datos](https://developer.tomtom.com/maps-api/maps-api-documentation-vector/tile) de mosaicos de carreteras
 - [Documentación](/rest/api/maps/traffic/gettrafficincidenttile) | [Detalles del formato de datos](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-incidents/vector-incident-tiles) de incidentes de tráfico
 - [Documentación](/rest/api/maps/traffic/gettrafficflowtile) | [Detalles del formato de datos](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-flow/vector-flow-tiles) de flujo de tráfico
-- El Creador de Azure Maps también permite crear mosaicos vectoriales personalizados y acceder a ellos a través de [Render V2 de obtención de mosaicos](/rest/api/maps/renderv2/getmaptilepreview).
+- El servicio Creator de Azure Maps (versión preliminar) también permite crear mosaicos vectoriales personalizados y acceder a ellos a través de [Get Tile de Render V2](/rest/api/maps/renderv2/getmaptilepreview).
 
 > [!TIP]
 > Al usar mosaicos de imagen vectoriales o de trama del servicio de representación de Azure Maps con el SDK web, puede reemplazar `atlas.microsoft.com` por el marcador de posición `{azMapsDomain}`. Este marcador de posición se reemplazará por el mismo dominio usado por el mapa y también anexará automáticamente los mismos detalles de autenticación. Esto simplifica considerablemente la autenticación con el servicio de representación al usar la autenticación de Azure Active Directory.

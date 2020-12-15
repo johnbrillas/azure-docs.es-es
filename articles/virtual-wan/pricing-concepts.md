@@ -6,15 +6,15 @@ services: virtual-wan
 author: reyandap
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 12/08/2020
 ms.author: reyandap
 ms.custom: references_pricing
-ms.openlocfilehash: b4025990a1a62351d3971d788558dea8ecb390ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ced9bb33be341d35904967092414676a6ffe3ac
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91327964"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905543"
 ---
 # <a name="about-virtual-wan-pricing"></a>Acerca de los precios de Virtual WAN
 
@@ -38,7 +38,7 @@ Una **unidad de escalado** proporciona la unidad de la capacidad agregada de sit
 
 ### <a name="what-is-a-connection-unit"></a><a name="connection-unit">¿Qué es una unidad de conexión?</a>
 
-Una **unidad de conexión** se aplica a cualquier punto de conexión local o que no sea de Microsoft que se conecte a las puertas de enlace de Azure. Para la VPN de sitio a sitio, esto implica ramas. Para la VPN de usuario (de punto a sitio), esto implica a los usuarios remotos. Para ExpressRoute, esto implica conexiones del circuito ExpressRoute.<br>Por ejemplo:
+Una **unidad de conexión** se aplica a cualquier punto de conexión local o que no sea de Microsoft que se conecte a las puertas de enlace de Azure. Para la VPN de sitio a sitio, el valor implica ramas. Para la VPN de usuario (de punto a sitio), el valor implica usuarios remotos. Para ExpressRoute, el valor implica conexiones del circuito ExpressRoute.<br>Por ejemplo:
 
 * Una conexión de rama que se conecta a la VPN de Azure en un centro virtual cuesta de 0,05 USD por hora. Por lo tanto, 100 conexiones de rama que se conectan a un centro virtual de Azure costarían 0,05 USD*100 por hora.
 
@@ -50,32 +50,7 @@ Una **unidad de conexión** se aplica a cualquier punto de conexión local o que
 
 * No se cobra ningún tráfico entrante de Azure. El tráfico que sale de Azure (a través de VPN, ExpressRoute o conexiones VPN de usuario de punto a sitio) está sujeto a los [cargos de transferencia de datos estándar de Azure](https://azure.microsoft.com/pricing/details/bandwidth/).
 
-* En el caso de los cargos de transferencia de datos entre un centro de Virtual WAN y un centro de Virtual WAN remoto o una red virtual en una región distinta a la del centro de origen, se aplican cargos por transferencia de datos para el tráfico que sale de un centro. Ejemplo: Al tráfico que sale de un centro de Este de EE. UU. se le cobrarán 0,02 USD por GB al centro de Oeste de EE. UU. No se aplica ningún cargo por el tráfico que entra en el centro de Oeste de EE. UU. Las siguientes tablas muestran los cargos.
-
-En las tablas siguientes se usan las siguientes abreviaturas: {NAM: Norteamérica}, {EU: Europa}, {MEA: Oriente Medio y África}, {OC: Oceanía (Centro de Australia y Centro de Australia 2)}, {LATAM: América Latina} 
-
-**Precios dentro del continente (*)**
-
-| Dentro del continente| Precio (USD/GB)|
-|---|---|
-| NAM a NAM|0,02 USD |
-| EU a EU |0,02 USD |
-| ASIA-ASIA (excepto China)|0,10 USD |
-| MEA a MEA|0,16 USD |
-| LATAM-LATAM |0,16 USD |
-| OC-OC|0,12 USD |
-
-**Precios entre continentes (*)**
-
-| Entre continentes| Precio (USD/GB)|
-|---|---|
-| De NAM a EU o EU a NAM |0,07 USD |
-| De LATAM a cualquier lugar |0,17 USD |
-| De MEA a cualquier lugar |0,17 USD |
-| De Oceanía a cualquier lugar |0,12 USD |
-| De ASIA (excepto CHINA) a cualquier lugar |0,12 USD |
-
-(*) Pueden aplicarse algunos cargos a partir del 1 de agosto de 2020.
+* En el caso de los cargos de transferencia de datos entre un centro de Virtual WAN y un centro de Virtual WAN remoto o una red virtual en una región distinta a la del centro de origen, se aplican cargos por transferencia de datos para el tráfico que sale de un centro. Ejemplo: Al tráfico que sale de un centro de Este de EE. UU. se le cobrarán 0,02 USD por GB al centro de Oeste de EE. UU. No se aplica ningún cargo por el tráfico que entra en el centro de Oeste de EE. UU. Todo el tráfico de centro a centro está sujeto a cargos interregionales (intra/intercontinentales), [Cargos de transferencia de datos de Azure](https://azure.microsoft.com/pricing/details/bandwidth/). 
 
 ### <a name="what-is-the-difference-between-a-standard-hub-fee-and-a-standard-hub-processing-fee"></a><a name="fee"></a>¿Cuál es la diferencia entre una tarifa de centro estándar y una tarifa de procesamiento de centro estándar?
 

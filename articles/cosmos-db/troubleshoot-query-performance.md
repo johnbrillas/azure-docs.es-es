@@ -8,12 +8,12 @@ ms.date: 10/12/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 012e155737b9251827c668b3a9cacbbe8d59ae77
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 42f01b140a44d7aa6d75dece9a4398fd7b41bf5a
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94411361"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905118"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Solución de problemas de consulta al usar Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -196,9 +196,7 @@ Puede agregar propiedades a la directiva de indexación en cualquier momento, si
 
 ### <a name="understand-which-system-functions-use-the-index"></a>Conocimiento de las funciones del sistema que usan el índice
 
-Si la expresión se puede traducir en un intervalo de valores de cadena, puede usar el índice; de lo contrario, no puede.
-
-Esta es la lista de funciones de cadena comunes que puede utilizar el índice:
+La mayoría de las funciones del sistema usan índices. Esta es una lista de funciones de cadena comunes que usan índices:
 
 - STARTSWITH(str_expr1, str_expr2, bool_expr)  
 - CONTAINS(str_expr, str_expr, bool_expr)
@@ -214,7 +212,26 @@ A continuación se indican algunas funciones del sistema comunes que no usa el �
 
 ------
 
-Otras partes de la consulta pueden seguir usando el índice, aunque las funciones del sistema no.
+Si una función del sistema usa índices y todavía tiene un cargo por RU elevado, puede intentar agregar `ORDER BY` a la consulta. En algunos casos, agregar `ORDER BY` puede mejorar el uso del índice de funciones del sistema, especialmente si la consulta es de larga duración o abarca varias páginas.
+
+Por ejemplo, considere la siguiente consulta con `CONTAINS`. `CONTAINS` debería usar un índice, pero supongamos que, después de agregar el índice pertinente, se observa aún un cargo por RU muy elevado al ejecutar la siguiente consulta:
+
+Consulta original:
+
+```sql
+SELECT *
+FROM c
+WHERE CONTAINS(c.town, "Sea")
+```
+
+Consulta actualizada con `ORDER BY`:
+
+```sql
+SELECT *
+FROM c
+WHERE CONTAINS(c.town, "Sea")
+ORDER BY c.town
+```
 
 ### <a name="understand-which-aggregate-queries-use-the-index"></a>Conocimiento de las consultas agregadas que usan el índice
 

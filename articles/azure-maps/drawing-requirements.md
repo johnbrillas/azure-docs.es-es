@@ -1,21 +1,26 @@
 ---
-title: Requisitos de paquetes de dibujos en Azure Maps Creator
+title: Requisitos del paquete de dibujo de Creator de Microsoft Azure Maps (versión preliminar)
 description: Información sobre los requisitos de paquetes de dibujos para convertir los archivos de diseño de las instalaciones a datos de mapa
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 6/12/2020
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: 2c3e46bf386e70cbe35d96728ede896d6bf0dc7d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 26b6273b4dd2371790025515e35b71d1fc863ebe
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013129"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903469"
 ---
 # <a name="drawing-package-requirements"></a>Requisitos de paquetes de dibujos
+
+
+> [!IMPORTANT]
+> Los servicios de Creator de Azure Maps se encuentran actualmente en versión preliminar pública.
+> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Puede convertir paquetes de dibujo cargados en datos de mapa mediante el [servicio de conversión de Azure Maps](/rest/api/maps/conversion). En este artículo se describen los requisitos de los paquetes de dibujos para la API de conversión. Para ver un paquete de ejemplo, puede descargar el [paquete de dibujos](https://github.com/Azure-Samples/am-creator-indoor-data-examples) de ejemplo.
 
@@ -188,7 +193,7 @@ En las secciones siguientes se detallan los requisitos de cada objeto.
 
 ### `directoryInfo`
 
-| Propiedad  | Tipo | Obligatorio | Descripción |
+| Propiedad  | Tipo | Requerido | Descripción |
 |-----------|------|----------|-------------|
 | `name`      | string | true   |  Nombre del edificio. |
 | `streetAddress`|    string |    false    | Dirección del edificio. |
@@ -209,7 +214,7 @@ En las secciones siguientes se detallan los requisitos de cada objeto.
 
 El objeto `buildingLevels` contiene una matriz JSON de los niveles del edificio.
 
-| Propiedad  | Tipo | Obligatorio | Descripción |
+| Propiedad  | Tipo | Requerido | Descripción |
 |-----------|------|----------|-------------|
 |`levelName`    |string    |true |    Nombre descriptivo del nivel. Por ejemplo: Piso 1, Vestíbulo, Aparcamiento o Sótano.|
 |`ordinal` | integer |    true | Determina el orden vertical de los niveles. Cada instalación debe tener un nivel con el ordinal 0. |
@@ -219,7 +224,7 @@ El objeto `buildingLevels` contiene una matriz JSON de los niveles del edificio.
 
 ### `georeference`
 
-| Propiedad  | Tipo | Obligatorio | Descripción |
+| Propiedad  | Tipo | Requerido | Descripción |
 |-----------|------|----------|-------------|
 |`lat`    | NUMERIC |    true |    Representación decimal de los grados de latitud en el origen del dibujo de la instalación. Las coordenadas de origen deben estar en el formato WGS84 Web Mercator (`EPSG:3857`).|
 |`lon`    |NUMERIC|    true|    Representación decimal de los grados de longitud en el origen del dibujo de la instalación. Las coordenadas de origen deben estar en el formato WGS84 Web Mercator (`EPSG:3857`). |
@@ -227,7 +232,7 @@ El objeto `buildingLevels` contiene una matriz JSON de los niveles del edificio.
 
 ### `dwgLayers`
 
-| Propiedad  | Tipo | Obligatorio | Descripción |
+| Propiedad  | Tipo | Requerido | Descripción |
 |-----------|------|----------|-------------|
 |`exterior`    |Matriz de cadenas|    true|    Nombres de las capas que definen el perfil exterior del edificio.|
 |`unit`|    Matriz de cadenas|    true|    Nombres de las capas que definen las unidades.|
@@ -241,7 +246,7 @@ El objeto `buildingLevels` contiene una matriz JSON de los niveles del edificio.
 
 El objeto `unitProperties` contiene una matriz JSON de las propiedades de la unidad.
 
-| Propiedad  | Tipo | Obligatorio | Descripción |
+| Propiedad  | Tipo | Requerido | Descripción |
 |-----------|------|----------|-------------|
 |`unitName`    |string    |true    |Nombre de la unidad que se asociará a este registro `unitProperty`. Este registro solo es válido cuando se encuentra una etiqueta que coincida con `unitName` en las capas de `unitLabel`. |
 |`categoryName`|    string|    false    |Nombre de la categoría. Para obtener una lista completa de las categorías, consulte las [categorías](https://aka.ms/pa-indoor-spacecategories). |
@@ -261,7 +266,7 @@ El objeto `unitProperties` contiene una matriz JSON de las propiedades de la uni
 
 El objeto `zoneProperties` contiene una matriz JSON de las propiedades de la zona.
 
-| Propiedad  | Tipo | Obligatorio | Descripción |
+| Propiedad  | Tipo | Requerido | Descripción |
 |-----------|------|----------|-------------|
 |zoneName        |string    |true    |Nombre de la zona que se asociará al registro `zoneProperty`. Este registro solo es válido cuando se encuentra una etiqueta que coincida con `zoneName` en la capa de `zoneLabel` de la zona.  |
 |categoryName|    string|    false    |Nombre de la categoría. Para obtener una lista completa de las categorías, consulte las [categorías](https://aka.ms/pa-indoor-spacecategories). |
@@ -407,10 +412,10 @@ A continuación se muestra un archivo de manifiesto de ejemplo para el paquete d
 Cuando el paquete de dibujos cumple los requisitos, puede usar el [servicio de conversión de Azure Maps](/rest/api/maps/conversion) para convertir el paquete en un conjunto de datos de mapa. Después, puede utilizar el conjunto de datos para generar un mapa de interiores mediante el módulo de mapas de interiores.
 
 > [!div class="nextstepaction"]
->[Uso de Creator para planos interiores](creator-indoor-maps.md)
+>[Creator (versión preliminar) para mapas de interiores](creator-indoor-maps.md)
 
 > [!div class="nextstepaction"]
-> [Tutorial: Creación de un plano interior de Creator](tutorial-creator-indoor-maps.md)
+> [Tutorial: Creación de un mapa de interiores de Creator (versión preliminar)](tutorial-creator-indoor-maps.md)
 
 > [!div class="nextstepaction"]
 > [Estilo dinámico para mapas de interiores](indoor-map-dynamic-styling.md)

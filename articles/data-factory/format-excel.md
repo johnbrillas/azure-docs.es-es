@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/29/2020
+ms.date: 12/08/2020
 ms.author: jingwang
-ms.openlocfilehash: b1f95cf0a62aa68fe86f37cea137251553458a1d
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 8f19ccc90c44ef90cee7bb1ae881086321e863b6
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348891"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96902049"
 ---
 # <a name="excel-format-in-azure-data-factory"></a>Formato Excel en Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -33,7 +33,8 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 | ---------------- | ------------------------------------------------------------ | -------- |
 | type             | La propiedad type del conjunto de datos debe establecerse en **Excel**.   | Sí      |
 | ubicación         | Configuración de ubicación de los archivos. Cada conector basado en archivos tiene su propio tipo de ubicación y propiedades compatibles en `location`. | Sí      |
-| sheetName        | Nombre de la hoja de cálculo de Excel para leer los datos.                       | Sí      |
+| sheetName        | Nombre de la hoja de cálculo de Excel para leer los datos.                       | Especifique `sheetName` o `sheetIndex`. |
+| sheetIndex | Índice de hojas de cálculo de Excel para leer datos, empezando por 0. | Especifique `sheetName` o `sheetIndex`. |
 | range            | Intervalo de celdas de la hoja de cálculo especificada para localizar los datos selectivos, por ejemplo:<br>- Sin especificar: lee toda la hoja de cálculo como una tabla desde la primera fila y columna que no están vacías.<br>- `A3`: lee una tabla a partir de la celda dada y detecta dinámicamente todas las filas debajo y todas las columnas a la derecha.<br>- `A3:H5`: lee este intervalo fijo como una tabla.<br>- `A3:A3`: lee esta celda sola. | No       |
 | firstRowAsHeader | Especifica si se debe tratar la primera fila del rango o la hoja de cálculo determinados como una línea de encabezado con nombres de columnas.<br>Los valores permitidos son **true** y **false** (predeterminado). | No       |
 | nullValue        | Especifica la representación de cadena del valor null. <br>El valor predeterminado es una **cadena vacía**. | No       |

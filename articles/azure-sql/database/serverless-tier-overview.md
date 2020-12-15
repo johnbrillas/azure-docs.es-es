@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein
-ms.date: 9/17/2020
-ms.openlocfilehash: 1a51d2140528e3f6ed6da0ca699d7b71b91638ec
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.date: 12/8/2020
+ms.openlocfilehash: bd8f5a28b709a45e99e846fb4e242f774aca80c5
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92743158"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96902517"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database sin servidor
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -135,9 +135,10 @@ La reanudación automática se desencadena si se cumple cualquiera de las siguie
 |Clasificación y detección de datos|Adición, modificación, eliminación o visualización de las etiquetas de confidencialidad|
 |Auditoría|Visualización de registros de auditoría<br>Actualización o visualización de la directiva de auditoría.|
 |Enmascaramiento de datos|Adición, modificación, eliminación o visualización de reglas de enmascaramiento de datos|
-|Cifrado de datos transparente|Visualización del estado de cifrado de datos transparente|
+|Cifrado de datos transparente|Visualización del estado del cifrado de datos transparente|
 |Evaluación de vulnerabilidades|Exámenes ad hoc y exámenes periódicos si están habilitados|
 |Almacén de datos de consulta (rendimiento)|Modificación o visualización de la configuración del almacén de consulta|
+|Recomendaciones de rendimiento|Visualización o aplicación de recomendaciones de rendimiento|
 |Ajuste automático|Aplicación y comprobación de recomendaciones de ajuste automático, como la indexación automática|
 |Copia de base de datos|Creación de base de datos como copia.<br>Exportación a un archivo BACPAC.|
 |Sincronización de datos SQL|Sincronización entre la base de datos central y las bases de datos miembro que se ejecutan según una programación configurable o bien de forma manual|
@@ -314,17 +315,17 @@ Para ver los límites de recursos, consulte [Nivel de proceso sin servidor](reso
 
 La cantidad de proceso que se factura es el máximo de CPU y memoria usado en cada segundo. Si la cantidad de CPU y memoria usadas es inferior a la cantidad mínima aprovisionada para cada una, se factura la cantidad aprovisionada. Para comparar la CPU y la memoria con fines de facturación, la memoria se normaliza en unidades de núcleos virtuales cambiando la escala de la cantidad de GB de memoria en 3 GB por núcleo virtual.
 
-- **Recurso facturado** : CPU y memoria
-- **Importe facturado** : precio de la unidad de núcleo virtual * máx. (mínimo de núcleos virtuales, núcleos virtuales usados, GB de memoria mínima * 1/3, GB de memoria usada * 1/3) 
-- **Frecuencia de facturación** : Por segundo
+- **Recurso facturado**: CPU y memoria
+- **Importe facturado**: precio de la unidad de núcleo virtual * máx. (mínimo de núcleos virtuales, núcleos virtuales usados, GB de memoria mínima * 1/3, GB de memoria usada * 1/3) 
+- **Frecuencia de facturación**: Por segundo
 
 El precio de unidad de núcleo virtual es el costo por núcleo virtual por segundo. Consulte la [página de precios de Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/single/) para conocer los precios de unidad específicos de una región determinada.
 
 La cantidad de proceso facturada se expone mediante la métrica siguiente:
 
-- **Métrica** : app_cpu_billed (segundos de núcleo virtual)
-- **Definición** : máx. (mínimo de núcleos virtuales, núcleos virtuales usados, GB de memoria mínima * 1/3, GB de memoria usada * 1/3)
-- **Frecuencia de informes** : Por minuto
+- **Métrica**: app_cpu_billed (segundos de núcleo virtual)
+- **Definición**: máx. (mínimo de núcleos virtuales, núcleos virtuales usados, GB de memoria mínima * 1/3, GB de memoria usada * 1/3)
+- **Frecuencia de informes**: Por minuto
 
 Esta cantidad se calcula cada segundo y se agrega en un intervalo de 1 minuto.
 

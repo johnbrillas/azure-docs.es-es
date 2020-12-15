@@ -6,12 +6,12 @@ ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: e677aef7a90e7372c5af4bfa48c6160c439b3ee8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 08c0d05ac10d9e61497d36793740c8e827fbeca1
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91707972"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903690"
 ---
 # <a name="firewall-rules-in-azure-database-for-postgresql---single-server"></a>Reglas de firewall de Azure Database for PostgreSQL con un único servidor
 El firewall del servidor de Azure Database for PostgreSQL impide todo acceso al servidor de base de datos, excepto a aquellos equipos a los que haya concedido permiso. Asimismo, otorgan acceso al servidor según la dirección IP de origen de cada solicitud.
@@ -40,7 +40,7 @@ Si no hay ninguna dirección IP saliente fija disponible para su servicio de Azu
 > La opción **Permitir el acceso a servicios de Azure** configura el firewall para permitir todas las conexiones desde Azure, lo que incluye conexiones desde las suscripciones de otros clientes. Al seleccionar esta opción, asegúrese de que los permisos de usuario y el inicio de sesión limiten el acceso solamente a los usuarios autorizados.
 > 
 
-:::image type="content" source="media/concepts-firewall-rules/allow-azure-services.png" alt-text="Ejemplo de flujo de cómo funciona el firewall":::
+:::image type="content" source="media/concepts-firewall-rules/allow-azure-services.png" alt-text="Configurar el permiso de acceso a los servicios de Azure en el portal":::
 
 ### <a name="connecting-from-a-vnet"></a>Conexión desde una red virtual
 Para conectarse de forma segura a Azure Database for PostgreSQL desde una red virtual, considere la posibilidad de usar [puntos de conexión de servicio de red virtual](./concepts-data-access-and-security-vnet.md). 
@@ -70,6 +70,9 @@ Tenga en cuenta los siguientes puntos cuando el acceso al servicio del servidor 
 * **No se puede conectar desde el recurso de Azure con la dirección IP permitida:** Compruebe si el punto de conexión de servicio **Microsoft.Sql** está habilitado para la subred desde la que se conecta. Si **Microsoft.Sql** está habilitado, indica que solo desea usar [reglas de punto de conexión de servicio de una red virtual](concepts-data-access-and-security-vnet.md) en esa subred.
 
    Por ejemplo, puede ver el siguiente error si se conecta desde una máquina virtual de Azure en una subred con **Microsoft.Sql** habilitado, pero sin ninguna regla de red virtual correspondiente: `FATAL: Client from Azure Virtual Networks is not allowed to access the server`
+
+* **La regla de firewall no está disponible en formato IPv6:** las reglas de firewall deben estar en formato IPv4. Si especifica reglas de firewall en formato IPv6, aparece el error de validación.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Create and manage Azure Database for PostgreSQL firewall rules using the Azure portal](howto-manage-firewall-using-portal.md) (Creación y administración de reglas de firewall de Azure Database for PostgreSQL mediante Azure Portal)

@@ -4,12 +4,12 @@ description: Supervise la disponibilidad, el rendimiento y el uso de las aplicac
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 04/30/2020
-ms.openlocfilehash: 825cd451120f06597922c142dfc6bf8c10f5c700
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 2921c6379b34e002013b5f0087cefd502ab0ab84
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91875128"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904540"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights para aplicaciones de ASP.NET Core
 
@@ -35,6 +35,10 @@ El [SDK de Application Insights para ASP.NET Core](https://nuget.org/packages/Mi
 
 - Una aplicación de ASP.NET Core en funcionamiento. Si necesita crear una aplicación de ASP .NET Core, siga este [tutorial de ASP.NET Core](/aspnet/core/getting-started/).
 - Una clave de instrumentación de Application Insights válida. Esta clave es necesaria para enviar los datos de telemetría a Application Insights. Si necesita crear un nuevo recurso de Application Insights para obtener un clave de instrumentación, consulte [Creación de recursos en Application Insights](./create-new-resource.md).
+
+> [!IMPORTANT]
+> Las nuevas regiones de Azure **requieren** el uso de cadenas de conexión en lugar de claves de instrumentación. La [cadena de conexión](./sdk-connection-string.md?tabs=net) identifica el recurso con el que se quieren asociar los datos de telemetría. También permite modificar los puntos de conexión que va a usar el recurso como destino de la telemetría. Tiene que copiar la cadena de conexión y agregarla al código de la aplicación o a una variable de entorno.
+
 
 ## <a name="enable-application-insights-server-side-telemetry-visual-studio"></a>Habilitación de la telemetría de Application Insights del lado servidor (Visual Studio)
 
@@ -142,7 +146,7 @@ La recopilación de dependencias está habilitada de manera predeterminada. En [
 
 ### <a name="performance-counters"></a>Contadores de rendimiento
 
-La compatibilidad con los [contadores de rendimiento](./web-monitor-performance.md) en ASP.Net Core es limitada:
+La compatibilidad con los [contadores de rendimiento](./performance-counters.md) en ASP.Net Core es limitada:
 
 * Las versiones 2.4.1 y posteriores del SDK recopilan contadores de rendimiento si la aplicación se ejecuta en Azure Web Apps (Windows).
 * Las versiones 2.7.1 y posteriores del SDK recopilan contadores de rendimiento si la aplicación se ejecuta en Windows y tiene como destino `NETSTANDARD2.0` o una versión posterior.
@@ -261,6 +265,9 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
+> [!NOTE]
+> `services.AddSingleton<ITelemetryInitializer, MyCustomTelemetryInitializer>();` funciona con inicializadores simples. Para otros, es necesario lo siguiente: `services.AddSingleton(new MyCustomTelemetryInitializer() { fieldName = "myfieldName" });`.
+    
 ### <a name="removing-telemetryinitializers"></a>Eliminación de Telemetryinitializer
 
 Los inicializadores de telemetría están presentes de forma predeterminada. Para quitar todos los inicializadores de telemetría o solo algunos específicos, use el siguiente código de ejemplo *después* de llamar a `AddApplicationInsightsTelemetry()`.

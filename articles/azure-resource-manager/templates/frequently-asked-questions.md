@@ -1,39 +1,39 @@
 ---
 title: Preguntas más frecuentes sobre las plantillas de Resource Manager
-description: Preguntas más frecuentes (P+F) sobre las plantillas de Azure Resource Manager.
+description: Preguntas frecuentes sobre las plantillas de Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 09/17/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: af6a46e16cd888e3ff6a382be2b1a4264fcc2941
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 5a23cf031b5d7cf40e2077f2e5287e10de563207
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96184015"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903010"
 ---
 # <a name="frequently-asked-questions-about-arm-templates"></a>Preguntas más frecuentes sobre las plantillas de Resource Manager
 
-En este artículo se responde a preguntas frecuentes sobre las plantillas de Azure Resource Manager (ARM).
+En este artículo se responde a preguntas frecuentes sobre las plantillas de Azure Resource Manager.
 
 ## <a name="getting-started"></a>Introducción
 
 * **¿Qué son las plantillas de Resource Manager y por qué deben usarse?**
 
   Las plantillas de Resource Manager son archivos JSON en los que se define lo que se va a implementar en Azure. Las plantillas le ayudan a implementar una solución de infraestructura como código para Azure. Su organización puede implementar de forma repetida y confiable la infraestructura necesaria en diferentes entornos.
-  
+
   Consulte [¿Qué son las plantillas de Resource Manager?](overview.md) para más información sobre cómo las plantillas de Resource Manager le ayudan a administrar la infraestructura de Azure.
 
 * **¿Cómo empezar con las plantillas?**
 
-  Para simplificar la creación de plantillas de Resource Manager, necesita las herramientas adecuadas. Se recomienda instalar [Visual Studio Code](https://code.visualstudio.com/) y la [extensión de herramientas de Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools). Para obtener una introducción rápida a estas herramientas, consulte [Inicio rápido: Creación de plantillas de Azure Resource Manager con Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+  Para simplificar la creación de plantillas de Resource Manager, necesita las herramientas adecuadas. Se recomienda instalar [Visual Studio Code](https://code.visualstudio.com/) y la [extensión de herramientas de Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools). Para obtener una introducción rápida a estas herramientas, consulte [Inicio rápido: Creación de plantillas de Resource Manager Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
   Cuando esté a punto para aprender a crear plantillas de Resource Manager, inicie la [serie de tutoriales para principiantes sobre las plantillas de Resource Manager](template-tutorial-create-first-template.md). Estos tutoriales le llevan paso a paso por el proceso de creación de una plantilla de Resource Manager. Obtendrá información sobre las diferentes secciones de la plantilla y cómo funcionarán en conjunto. Este contenido también está disponible como [módulo de Microsoft Learn](/learn/modules/authoring-arm-templates/).
 
 * **¿Debo usar plantillas de Resource Manager o Terraform para realizar implementaciones en Azure?**
 
   Use la opción que más le guste. Ambos servicios son útiles para automatizar las implementaciones en Azure.
-  
+
   Creemos que existen ventajas al usar plantillas de Resource Manager en otros servicios de infraestructura como código. Consulte [¿Por qué elegir plantillas de Resource Manager?](overview.md#why-choose-arm-templates) para más información sobre estas ventajas.
 
 ## <a name="build-2020"></a>Build 2020
@@ -59,7 +59,7 @@ En este artículo se responde a preguntas frecuentes sobre las plantillas de Azu
 * **He configurado mi entorno a través del portal. ¿Hay alguna manera de obtener la plantilla de un grupo de recursos existente?**
 
   Sí, puede [exportar la plantilla](export-template-portal.md) desde un grupo de recursos. La plantilla exportada es un buen punto de partida para obtener información sobre las plantillas, pero probablemente querrá revisarla antes de usarla en un entorno de producción.
-  
+
   Al exportar la plantilla, puede seleccionar los recursos que quiera incluir en ella.
 
 * **¿Puedo crear un grupo de recursos en una plantilla de Resource Manager e implementar recursos en él?**
@@ -182,11 +182,11 @@ En este artículo se responde a preguntas frecuentes sobre las plantillas de Azu
 
 * **¿Puedo integrar plantillas de Resource Manager en Azure Pipelines?**
 
-  Sí. Para obtener una explicación de cómo usar la plantilla y las canalizaciones, consulte [Tutorial: Integración continua de plantillas de Azure Resource Manager en Azure Pipelines](deployment-tutorial-pipeline.md) e [Integración de plantillas Integración continua de plantillas de Azure Resource Manager con Azure Pipelines](add-template-to-azure-pipelines.md).
+  Sí. Para obtener una explicación de cómo usar la plantilla y las canalizaciones, consulte [Tutorial: Integración continua de plantillas de Resource Manager con Azure Pipelines](deployment-tutorial-pipeline.md) e [Integración de plantillas de Resource Manager con Azure Pipelines](add-template-to-azure-pipelines.md).
 
 * **¿Puedo usar las acciones de GitHub para implementar una plantilla?**
 
-  Sí, consulte [Implementación de plantillas de Azure Resource Manager mediante Acciones de GitHub](deploy-github-actions.md).
+  Sí, consulte [Implementación de plantillas de Resource Manager con Acciones de GitHub](deploy-github-actions.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

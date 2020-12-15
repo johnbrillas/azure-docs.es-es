@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f6c30dffbc8f97273ee59ce33ae3fe75ed730763
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: b2ce3b362d02e7acb0a11e6d93b8e94ca8e4d04e
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93356644"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903537"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management"></a>Creación de un paquete de acceso en la administración de derechos de Azure AD
 
@@ -106,6 +106,9 @@ En la pestaña **Roles de recurso**, se seleccionan los recursos que se incluir�
     ![Paquete de acceso: selección del rol del recurso](./media/entitlement-management-access-package-create/resource-roles-role.png)
 
 1. Haga clic en **Next**.
+
+>[!NOTE]
+>Puede agregar grupos dinámicos a catálogos y paquetes de acceso. Sin embargo, solo podrá seleccionar el rol de propietario al administrar un recurso de grupo dinámico de un paquete de acceso.
 
 ## <a name="requests"></a>Requests
 

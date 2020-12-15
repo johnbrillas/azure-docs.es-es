@@ -1,20 +1,20 @@
 ---
 title: Definición de varias instancias de una propiedad
-description: Utilice la operación de copia en una plantilla de Azure Resource Manager para realizar varias iteraciones cuando cree una propiedad en un recurso.
+description: Use la operación de copia en una plantilla de Azure Resource Manager (plantilla de ARM) para realizar varias iteraciones cuando cree una propiedad en un recurso.
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.openlocfilehash: f199872d5bb8a0333bf7bedb9501a6ca1b884691
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 446a303104e6b538129cd22d1f1fbbba6282b2ee
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90605250"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905934"
 ---
 # <a name="property-iteration-in-arm-templates"></a>Iteración de propiedades en las plantillas de ARM
 
-En este artículo, se explica cómo se crean varias instancias de una propiedad en la plantilla de Azure Resource Manager (plantilla de ARM). Al agregar el elemento **copy** a la sección de propiedades de un recurso, puede establecer de forma dinámica el número de elementos de una variable durante la implementación. Asimismo, evitará tener que repetir la sintaxis de la plantilla.
+En este artículo, se explica cómo se crean varias instancias de una propiedad en la plantilla de Azure Resource Manager (plantilla de ARM). Al agregar el elemento `copy` a la sección de propiedades de un recurso, puede establecer de forma dinámica el número de elementos de una variable durante la implementación. Asimismo, evitará tener que repetir la sintaxis de la plantilla.
 
-Solo se puede usar la copia con recursos de nivel superior, incluso cuando se aplica la copia a una propiedad. Para obtener información sobre cómo cambiar un recurso secundario a un recurso de nivel superior, vea [Iteración para un recurso secundario](copy-resources.md#iteration-for-a-child-resource).
+Solo se puede usar `copy` con recursos de nivel superior, incluso al aplicar `copy` a una propiedad. Para obtener información sobre cómo cambiar un recurso secundario a un recurso de nivel superior, vea [Iteración para un recurso secundario](copy-resources.md#iteration-for-a-child-resource).
 
 También puede usar el elemento copy con [recursos](copy-resources.md), [variables](copy-variables.md) y [salidas](copy-outputs.md).
 
@@ -32,11 +32,11 @@ El elemento copy tiene el siguiente formato general:
 ]
 ```
 
-En **nombre**, especifique el nombre de la propiedad del recurso que desea crear.
+En `name`, especifique el nombre de la propiedad del recurso que desea crear.
 
-La propiedad **count** especifica el número de iteraciones que desea realizar en la propiedad.
+La propiedad `count` especifica el número de iteraciones que desea realizar en la propiedad.
 
-La propiedad **input** especifica las propiedades que desea repetir. Tiene que crear una matriz de elementos construida a partir del valor de la propiedad **input**.
+La propiedad `input` especifica las propiedades que desea repetir. Tiene que crear una matriz de elementos construida a partir del valor de la propiedad `input`.
 
 ## <a name="copy-limits"></a>Límites de copia
 
@@ -53,7 +53,7 @@ Las versiones anteriores de PowerShell, la CLI y API REST no admiten un valor de
 
 ## <a name="property-iteration"></a>Iteración de propiedades
 
-En el ejemplo siguiente se muestra cómo aplicar `copy` a la propiedad dataDisks en una máquina virtual:
+En el ejemplo siguiente se muestra cómo aplicar `copy` a la propiedad `dataDisks` en una máquina virtual:
 
 ```json
 {
@@ -97,7 +97,7 @@ En el ejemplo siguiente se muestra cómo aplicar `copy` a la propiedad dataDisks
 }
 ```
 
-Tenga en cuenta que, cuando se usa `copyIndex` dentro de una iteración de propiedad, debe proporcionar el nombre de la iteración. La iteración de propiedades también admite un argumento de desplazamiento. El desplazamiento debe aparecer después del nombre de la iteración, como copyIndex ("dataDisks", 1).
+Tenga en cuenta que, cuando se usa `copyIndex` dentro de una iteración de propiedad, debe proporcionar el nombre de la iteración. La iteración de propiedades también admite un argumento de desplazamiento. El desplazamiento debe aparecer después del nombre de la iteración, como `copyIndex('dataDisks', 1)`.
 
 Resource Manager expande la matriz `copy` durante la implementación. El nombre de la matriz se convierte en el nombre de la propiedad. Los valores de entrada se convierten en las propiedades del objeto. La plantilla implementada se convierte en:
 
@@ -188,7 +188,7 @@ En la plantilla de ejemplo siguiente se crea un grupo de conmutación por error 
 }
 ```
 
-El elemento de copia es una matriz por lo que puede especificar más de una propiedad para el recurso.
+El elemento `copy` es una matriz, por lo que puede especificar más de una propiedad para el recurso.
 
 ```json
 {
@@ -260,11 +260,10 @@ En los ejemplos siguientes, se muestran escenarios comunes en los que se crean v
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para seguir los pasos de un tutorial, consulte [Tutorial: Creación de varias instancias de recursos con plantillas de ARM](template-tutorial-create-multiple-instances.md).
+* Para realizar un tutorial, consulte [Tutorial: Creación de varias instancias de recursos con plantillas de Resource Manager](template-tutorial-create-multiple-instances.md).
 * Para otros usos del elemento copy, consulte:
   * [Iteración de recursos en las plantillas de ARM](copy-resources.md)
   * [Iteración de variables en las plantillas de ARM](copy-variables.md)
   * [Iteración de salida en las plantillas de ARM](copy-outputs.md)
-* Para más información sobre las secciones de una plantilla, consulte el artículo sobre cómo [crear plantillas de ARM](template-syntax.md).
-* Para más información sobre cómo implementar su plantilla, consulte el artículo [Implementación de recursos con las plantillas de Resource Manager y Azure PowerShell](deploy-powershell.md).
-
+* Si quiere obtener más información sobre las secciones de una plantilla, vea [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](template-syntax.md).
+* Para aprender a implementar su plantilla, vea [Implementación de recursos con las plantillas de Resource Manager y Azure PowerShell](deploy-powershell.md).

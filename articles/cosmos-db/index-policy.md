@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 11/03/2020
+ms.date: 12/07/2020
 ms.author: tisande
-ms.openlocfilehash: 9e62d6c475a4aeb366d034af1c80fc728f1a9211
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 2d99e0e2b65f7131e564e6ab64e454d2947c58a6
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93335830"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903028"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Directivas de indexación en Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -28,8 +28,8 @@ En algunas situaciones, puede que quiera invalidar este comportamiento automáti
 
 Azure Cosmos DB admite dos modos de indexación:
 
-- **Coherente** : El índice se actualiza de forma sincrónica al crear, actualizar o eliminar elementos. Esto significa que la coherencia de las consultas de lectura será la [coherencia configurada para la cuenta](consistency-levels.md).
-- **Ninguna** : La indexación está deshabilitada en el contenedor. Esto se utiliza normalmente cuando se usa un contenedor como un almacén de pares clave-valor puro sin necesidad de índices secundarios. También se puede usar para mejorar el rendimiento de las operaciones masivas. Una vez completadas las operaciones masivas, el modo de índice se puede establecer en Coherente y supervisarse mediante [IndexTransformationProgress](how-to-manage-indexing-policy.md#dotnet-sdk) hasta que se complete.
+- **Coherente**: El índice se actualiza de forma sincrónica al crear, actualizar o eliminar elementos. Esto significa que la coherencia de las consultas de lectura será la [coherencia configurada para la cuenta](consistency-levels.md).
+- **Ninguna**: La indexación está deshabilitada en el contenedor. Esto se utiliza normalmente cuando se usa un contenedor como un almacén de pares clave-valor puro sin necesidad de índices secundarios. También se puede usar para mejorar el rendimiento de las operaciones masivas. Una vez completadas las operaciones masivas, el modo de índice se puede establecer en Coherente y supervisarse mediante [IndexTransformationProgress](how-to-manage-indexing-policy.md#dotnet-sdk) hasta que se complete.
 
 > [!NOTE]
 > Azure Cosmos DB también admite un modo de indexación diferida. La indexación diferida realiza actualizaciones en el índice con un nivel de prioridad mucho menor cuando el motor no realiza ningún otro trabajo. Esto puede producir resultados de consulta **incoherentes o incompletos**. Si tiene previsto consultar un contenedor de Cosmos, no debe seleccionar la indexación diferida. Los nuevos contenedores no pueden seleccionar la indexación diferida. Puede ponerse en contacto con el [servicio de soporte técnico de Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para solicitar una exención (excepto si usa una cuenta de Azure Cosmos en modo [sin servidor](serverless.md), que no admite la indexación diferida).
@@ -79,7 +79,7 @@ Cualquier directiva de indexación tiene que incluir la ruta de acceso raíz `/*
 
 - De forma predeterminada, la propiedad del sistema `_etag` se excluye de la indexación, a menos que la ETag se agregue a la ruta de acceso incluida para la indexación.
 
-- Si el modo de indexación se establece en **Coherente** , las propiedades del sistema `id` y `_ts` se indexan automáticamente.
+- Si el modo de indexación se establece en **Coherente**, las propiedades del sistema `id` y `_ts` se indexan automáticamente.
 
 Al incluir y excluir las rutas de acceso, puede encontrar los atributos siguientes:
 
@@ -105,9 +105,9 @@ Si las rutas de acceso incluidas y las rutas de acceso excluidas tienen un confl
 
 Este es un ejemplo:
 
-**Ruta de acceso incluida** : `/food/ingredients/nutrition/*`
+**Ruta de acceso incluida**: `/food/ingredients/nutrition/*`
 
-**Ruta de acceso excluida** : `/food/ingredients/*`
+**Ruta de acceso excluida**: `/food/ingredients/*`
 
 En este caso, la ruta de acceso incluida tiene prioridad sobre la ruta de acceso excluida porque es más precisa. En función de estas rutas de acceso, los datos de la ruta de acceso `food/ingredients` o anidados dentro de ella se excluirán del índice. La excepción serían los datos dentro de la ruta de acceso incluida: `/food/ingredients/nutrition/*`, que se indexaría.
 
@@ -201,6 +201,7 @@ Las consideraciones siguientes se usan cuando se crean índices compuestos para 
 - Al crear un índice compuesto para optimizar las consultas con varios filtros, el valor de `ORDER` del índice compuesto no tendrá ningún impacto en los resultados. Esta propiedad es opcional.
 - Si no define ningún índice compuesto para una consulta con filtros en varias propiedades, la consulta se realizará correctamente de todos modos. Sin embargo, el costo de RU de la consulta se puede reducir con un índice compuesto.
 - Las consultas que tengan tanto agregados (por ejemplo, COUNT o SUM) como filtros también se benefician de los índices compuestos.
+- Las expresiones de filtro pueden utilizar varios índices compuestos.
 
 Tenga en cuenta los ejemplos siguientes, en los que se define un índice compuesto en las propiedades name, age y timestamp:
 
@@ -213,6 +214,7 @@ Tenga en cuenta los ejemplos siguientes, en los que se define un índice compues
 | ```(name ASC, age ASC)```     | ```SELECT * FROM c WHERE c.name != "John" AND c.age > 18``` | ```No```             |
 | ```(name ASC, age ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.name = "John" AND c.age = 18 AND c.timestamp > 123049923``` | ```Yes```            |
 | ```(name ASC, age ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.name = "John" AND c.age < 18 AND c.timestamp = 123049923``` | ```No```            |
+| ```(name ASC, age ASC) and (name ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.name = "John" AND c.age < 18 AND c.timestamp > 123049923``` | ```Yes```            |
 
 ### <a name="queries-with-a-filter-as-well-as-an-order-by-clause"></a>Consultas con un filtro y una cláusula ORDER BY
 

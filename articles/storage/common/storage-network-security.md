@@ -5,16 +5,16 @@ services: storage
 author: santoshc
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/08/2020
+ms.date: 12/08/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 2eed5a8ad783d325ef040b3a358e80a6517f08e8
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 07ad0714d0294ad90150acb9df14f17bfc1f5f0d
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92783647"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905373"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configuración de redes virtuales y firewalls de Azure Storage
 
@@ -54,7 +54,7 @@ Puede usar discos no administrados en cuentas de almacenamiento con reglas de re
 De forma predeterminada, las cuentas de almacenamiento aceptan conexiones de clientes en cualquier red. Para limitar el acceso a redes seleccionadas, primero debe cambiar la acción predeterminada.
 
 > [!WARNING]
-> La realización de cambios en reglas de red puede afectar a la capacidad de las aplicaciones de conexión a Azure Storage. Si se establece la regla de red predeterminada en **denegar** , se bloquea el acceso a los datos, a no ser que se apliquen también las reglas de red específicas para **conceder** acceso. Asegúrese de conceder acceso a las redes permitidas con reglas de red antes de cambiar la regla predeterminada para denegar el acceso.
+> La realización de cambios en reglas de red puede afectar a la capacidad de las aplicaciones de conexión a Azure Storage. Si se establece la regla de red predeterminada en **denegar**, se bloquea el acceso a los datos, a no ser que se apliquen también las reglas de red específicas para **conceder** acceso. Asegúrese de conceder acceso a las redes permitidas con reglas de red antes de cambiar la regla predeterminada para denegar el acceso.
 
 ### <a name="managing-default-network-access-rules"></a>Administración de las reglas de acceso de red predeterminadas
 
@@ -152,7 +152,7 @@ Puede administrar las reglas de red virtual para las cuentas de almacenamiento a
 
 1. Compruebe haber elegido permitir el acceso desde **Redes seleccionadas**.
 
-1. Para conceder acceso a una red virtual con una nueva regla de red, en **Redes virtuales** , haga clic en **Agregar red virtual existente** , seleccione las opciones **Redes virtuales** y **Subredes** y, luego, haga clic en **Agregar**. Para crear una nueva red virtual y concederle acceso, haga clic en **Agregar nueva red virtual**. Proporcione la información necesaria para crear la nueva red virtual y, luego, haga clic en **Crear**.
+1. Para conceder acceso a una red virtual con una nueva regla de red, en **Redes virtuales**, haga clic en **Agregar red virtual existente**, seleccione las opciones **Redes virtuales** y **Subredes** y, luego, haga clic en **Agregar**. Para crear una nueva red virtual y concederle acceso, haga clic en **Agregar nueva red virtual**. Proporcione la información necesaria para crear la nueva red virtual y, luego, haga clic en **Crear**.
 
     > [!NOTE]
     > Si un punto de conexión de servicio para Azure Storage no se ha configurado previamente para la red virtual y las subredes seleccionadas, se puede configurar como parte de esta operación.
@@ -358,7 +358,7 @@ Puede administrar las reglas de red IP para las cuentas de almacenamiento a trav
 
 ## <a name="exceptions"></a>Excepciones
 
-Las reglas de red ayudan a crear un entorno seguro para las conexiones entre las aplicaciones y los datos para la mayoría de los escenarios. Sin embargo, algunas aplicaciones dependen de servicios de Azure que no se pueden aislar de forma exclusiva a través de las reglas de red virtual o de dirección IP. Pero estos servicios se deben conceder al almacenamiento para habilitar toda la funcionalidad de la aplicación. En tales situaciones, puede usar la opción * *_Permitir servicios de Microsoft de confianza…_* para habilitar el acceso de dichos servicios a los datos, registros o análisis.
+Las reglas de red ayudan a crear un entorno seguro para las conexiones entre las aplicaciones y los datos para la mayoría de los escenarios. Sin embargo, algunas aplicaciones dependen de servicios de Azure que no se pueden aislar de forma exclusiva a través de las reglas de red virtual o de dirección IP. Pero estos servicios se deben conceder al almacenamiento para habilitar toda la funcionalidad de la aplicación. En tales situaciones, puede usar la opción **_Permitir servicios de Microsoft de confianza…_* para habilitar el acceso de dichos servicios a los datos, registros o análisis.
 
 ### <a name="trusted-microsoft-services"></a>Servicios de Microsoft de confianza
 
@@ -390,16 +390,17 @@ El valor **Permitir servicios de Microsoft de confianza...** también permite qu
 | :----------------------------- | :------------------------------------- | :----------------- |
 | Azure API Management           | Microsoft.ApiManagement/service        | Habilita el acceso del servicio API Management a las cuentas de almacenamiento detrás del firewall mediante directivas. [Más información](../../api-management/api-management-authentication-policies.md#use-managed-identity-in-send-request-policy). |
 | Azure Cognitive Search         | Microsoft.Search/searchServices        | Habilita los servicios de Cognitive Search para acceder a las cuentas de almacenamiento con fines de indexación, proceso y consulta. |
+| Azure Cognitive Services       | Microsoft.CognitiveService             | Habilita Cognitive Services para acceder a las cuentas de almacenamiento. |
 | Tareas de Azure Container Registry | Microsoft.ContainerRegistry/registries | ACR Tasks puede acceder a las cuentas de almacenamiento al compilar imágenes de contenedor. |
 | Azure Data Factory             | Microsoft.DataFactory/factories        | Permite el acceso a las cuentas de almacenamiento a través del tiempo de ejecución de ADF. |
 | Azure Data Share               | Microsoft.DataShare/accounts           | Permite el acceso a las cuentas de almacenamiento a través de Data Share. |
 | Azure IoT Hub                  | Microsoft.Devices/IotHubs              | Permite que los datos de un centro de IoT se escriban en almacenamiento de blobs. [Más información](../../iot-hub/virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing) |
 | Azure Logic Apps               | Microsoft.Logic/workflows              | Permite a las aplicaciones lógicas acceder a las cuentas de almacenamiento. [Más información](../../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity). |
 | Servicio Azure Machine Learning | Microsoft.MachineLearningServices      | Las áreas de trabajo autorizadas de Azure Machine Learning escriben los resultados del experimento, los modelos y los registros en Blob Storage y leen los datos. [Más información](../../machine-learning/how-to-network-security-overview.md#secure-the-workspace-and-associated-resources). | 
-| Azure Synapse Analytics (anteriormente SQL Data Warehouse)       | Microsoft.Sql                          | Permite importar y exportar los datos de instancias de SQL Database específicas mediante la instrucción COPY o con PolyBase. [Más información](../../azure-sql/database/vnet-service-endpoint-rule-overview.md). |
+| Azure Synapse Analytics       | Microsoft.Sql                          | Permite importar y exportar los datos de instancias de SQL Database específicas mediante la instrucción COPY o con PolyBase. [Más información](../../azure-sql/database/vnet-service-endpoint-rule-overview.md). |
 | Azure SQL Database       | Microsoft.Sql                          | Permite [importar](/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) de datos de cuentas de almacenamiento y [escribir datos de auditoría de](../../azure-sql/database/audit-write-storage-account-behind-vnet-firewall.md) en cuentas de almacenamiento detrás del firewall. |
 | Azure Stream Analytics         | Microsoft.StreamAnalytics             | Permite que los datos de un trabajo de streaming se escriban en Blob Storage. [Más información](../../stream-analytics/blob-output-managed-identity.md). |
-| Azure Synapse Analytics        | Microsoft.Synapse/workspaces          | Permite el acceso a los datos de Azure Storage desde Synapse Analytics. |
+| Azure Synapse Analytics        | Microsoft.Synapse/workspaces          | Permite el acceso a los datos de Azure Storage desde Azure Synapse Analytics. |
 
 
 ### <a name="storage-analytics-data-access"></a>Acceso a datos de análisis de almacenamiento
@@ -410,7 +411,7 @@ En algunos casos, se requiere acceso para leer registros recursos y métricas de
 
 Puede administrar las excepciones de reglas de red a través de Azure Portal, PowerShell o la CLI de Azure v2.
 
-#### <a name="azure-portal"></a>Azure Portal
+#### <a name="azure-portal"></a>Azure portal
 
 1. Vaya a la cuenta de almacenamiento que quiere proteger.
 
@@ -418,7 +419,7 @@ Puede administrar las excepciones de reglas de red a través de Azure Portal, Po
 
 1. Compruebe haber elegido permitir el acceso desde **Redes seleccionadas**.
 
-1. En **Excepciones** , seleccione las excepciones que quiere conceder.
+1. En **Excepciones**, seleccione las excepciones que quiere conceder.
 
 1. Haga clic en **Guardar** para aplicar los cambios.
 
