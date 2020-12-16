@@ -3,12 +3,12 @@ title: Cambio de la configuración de un clúster de Azure Service Fabric
 description: En este artículo se describe la configuración de Fabric y las directivas de actualización de Fabric que se pueden personalizar.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: 1f16e89dd1131f6aea64e5e72a342b3b737f3728
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: c055ad1dad8b9574c8d811284a34619ee3648a10
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187228"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095277"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalización de la configuración de un clúster de Service Fabric
 En este documento se describen las distintas configuraciones de tejido para el clúster de Service Fabric que puede personalizar. Para clústeres hospedados en Azure, puede personalizar la configuración en [Azure Portal](https://portal.azure.com) o mediante una plantilla de Azure Resource Manager. Para más información, consulte el artículo sobre la [actualización de la configuración de un clúster de Azure](service-fabric-cluster-config-upgrade-azure.md). En clústeres independientes, para personalizar la configuración debe actualizar el archivo *ClusterConfig.json* y realizar una actualización de la configuración en el clúster. Para más información, consulte el artículo sobre la [actualización de la configuración de un clúster independiente](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -877,7 +877,7 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 | --- | --- | --- | --- |
 |ConnectionOpenTimeout|TimeSpan, el valor predeterminado es Common::TimeSpan::FromSeconds(60)|estática|Especifique el intervalo de tiempo en segundos. Tiempo de espera para la configuración de la conexión en los lados de aceptación y entrada (incluida la negociación de seguridad en el modo seguro). |
 |FrameHeaderErrorCheckingEnabled|bool, el valor predeterminado es TRUE|estática|Configuración predeterminada para la comprobación de errores del encabezado de la estructura en modo no seguro; la configuración del componente invalida esta configuración. |
-|MessageErrorCheckingEnabled|bool, el valor predeterminado es FALSE.|estática|Configuración predeterminada para la comprobación de errores del encabezado y el cuerpo del mensaje en modo no seguro; la configuración del componente invalida esta configuración. |
+|MessageErrorCheckingEnabled|bool, el valor predeterminado es TRUE.|estática|Configuración predeterminada para la comprobación de errores del encabezado y el cuerpo del mensaje en modo no seguro; la configuración del componente invalida esta configuración. |
 |ResolveOption|string, el valor predeterminado es "unspecified".|estática|Determina cómo se resuelve el FQDN.  Los valores válidos son "sin especificar/ipv4/ipv6". |
 |SendTimeout|TimeSpan, el valor predeterminado es Common::TimeSpan::FromSeconds(300)|Dinámica|Especifique el intervalo de tiempo en segundos. Tiempo de expiración del envío para detectar la conexión bloqueada. Los informes de errores TCP no son confiables en algunos entornos. Puede que sea necesario ajustar esto según el ancho de banda de red disponible y el tamaño de datos de salida (\*MaxMessageSize\/\*SendQueueSizeLimit). |
 

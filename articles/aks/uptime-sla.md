@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 06/24/2020
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: dd1836220b5fd5a0af2d4ece3d9bc3932f1ae554
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 51430a37f34600d3191a646df7c1890b6d94f481
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748866"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033024"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>Acuerdo de nivel de servicio de tiempo de actividad de Azure Kubernetes Service (AKS)
 
@@ -27,11 +27,7 @@ Los clientes todavía pueden crear un número ilimitado de clústeres gratuitos 
 
 El Acuerdo de Nivel de Servicio de tiempo de actividad está disponible en las regiones públicas y de Azure Government en las que [se admite AKS](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
 
-* Azure China 21Vianet no se admite actualmente.
-
 ## <a name="limitations"></a>Limitaciones
-
-* Por el momento no se admiten los clústeres privados.
 
 ## <a name="sla-terms-and-conditions"></a>Términos y condiciones del acuerdo de nivel de servicio
 
@@ -39,7 +35,7 @@ El acuerdo de nivel de servicio de tiempo de actividad es una característica de
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-* Instale la versión 2.8.0 de la [CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest), o cualquier versión posterior.
+* Instale la versión 2.8.0 de la [CLI de Azure](/cli/azure/install-azure-cli), o cualquier versión posterior.
 
 ## <a name="creating-a-new-cluster-with-uptime-sla"></a>Creación de un clúster con un Acuerdo de Nivel de Servicio de tiempo de actividad
 
@@ -48,7 +44,7 @@ El acuerdo de nivel de servicio de tiempo de actividad es una característica de
 
 Para crear un nuevo clúster con el acuerdo de nivel de servicio de tiempo de actividad, use la CLI de Azure.
 
-En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus* :
+En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*:
 
 ```azurecli-interactive
 # Create a resource group
@@ -136,9 +132,9 @@ Configure el clúster para [limitar el tráfico de salida](limit-egress-traffic.
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [faq]: ./faq.md
 [availability-zones]: ./availability-zones.md
-[az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
+[az-aks-create]: /cli/azure/aks?#az-aks-create
 [limit-egress-traffic]: ./limit-egress-traffic.md
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
-[az-aks-nodepool-update]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-update
+[az-aks-nodepool-update]: /cli/azure/aks/nodepool?#az-aks-nodepool-update
 [az-group-delete]: /cli/azure/group#az-group-delete

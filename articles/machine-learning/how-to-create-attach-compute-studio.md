@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 08/06/2020
 ms.topic: conceptual
-ms.custom: how-to, contperfq1
-ms.openlocfilehash: 6cb455880852295d7176e813208a93919a2c14bb
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: how-to, contperf-fy21q1
+ms.openlocfilehash: ab7a74166e85f2ba9fd73e7323cf9cd200cf32e4
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93318266"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97031035"
 ---
 # <a name="create-compute-targets-for-model-training-and-deployment-in-azure-machine-learning-studio"></a>Creación de destinos de proceso para la implementación y el entrenamiento de modelos en Azure Machine Learning Studio
 
@@ -45,7 +45,7 @@ Para ver todos los destinos de proceso del área de trabajo, siga estos pasos:
 
 1. Vaya a [Azure Machine Learning Studio](https://ml.azure.com).
  
-1. En __Administrar__ , seleccione __Proceso__.
+1. En __Administrar__, seleccione __Proceso__.
 
 1. Seleccione las pestañas de la parte superior para mostrar cada tipo de destino de proceso.
 
@@ -93,7 +93,7 @@ Utilice los [pasos anteriores](#portal-create) para crear la instancia de proces
 |Tipo de máquina virtual |  Elija CPU o GPU. Este tipo no se puede cambiar después de la creación     |
 |Tamaño de la máquina virtual     |  Los tamaños de máquina virtual admitidos podrían estar restringidos en su región. Comprobación de la [lista de disponibilidad](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
 |Habilitación o deshabilitación del acceso SSH     |   El acceso SSH está deshabilitado de forma predeterminada.  El acceso SSH no se puede. cambiar después de la creación. Asegúrese de habilitar el acceso si tiene previsto depurar de forma interactiva con [VS Code Remote](how-to-set-up-vs-code-remote.md)   |
-|Configuración avanzada     |  Opcional. Configurar una red virtual. Especifique el **Grupo de recursos** , **Red virtual** y **Subred** para crear la instancia de proceso dentro de una Azure Virtual Network (vnet). Para más información, consulte estos [requisitos de red](./how-to-secure-training-vnet.md) para la red virtual.  |
+|Configuración avanzada     |  Opcional. Configurar una red virtual. Especifique el **Grupo de recursos**, **Red virtual** y **Subred** para crear la instancia de proceso dentro de una Azure Virtual Network (vnet). Para más información, consulte estos [requisitos de red](./how-to-secure-training-vnet.md) para la red virtual.  |
 
 ### <a name="compute-clusters"></a><a name="amlcompute"></a> Clústeres de proceso
 
@@ -108,13 +108,13 @@ Cree un clúster de proceso de uno o varios nodos para el entrenamiento, la infe
 |Tamaño de la máquina virtual     |  Los tamaños de máquina virtual admitidos podrían estar restringidos en su región. Comprobación de la [lista de disponibilidad](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
 |Número mínimo de nodos | Número mínimo de nodos que quiere aprovisionar. Si quiere un número de nodos dedicado, establezca este número aquí. Ahorre dinero estableciendo el valor mínimo en 0, por lo que no pagará por ningún nodo cuando el clúster esté inactivo. |
 |Número máximo de nodos | Número máximo de nodos que quiere aprovisionar. El proceso se escala automáticamente hasta este número máximo de nodos cuando se envía un trabajo. |
-|Configuración avanzada     |  Opcional. Configurar una red virtual. Especifique el **Grupo de recursos** , **Red virtual** y **Subred** para crear la instancia de proceso dentro de una Azure Virtual Network (vnet). Para más información, consulte estos [requisitos de red](./how-to-secure-training-vnet.md) para la red virtual.   Adjunte también [identidades administradas](#managed-identity) para conceder acceso a los recursos.     |
+|Configuración avanzada     |  Opcional. Configurar una red virtual. Especifique el **Grupo de recursos**, **Red virtual** y **Subred** para crear la instancia de proceso dentro de una Azure Virtual Network (vnet). Para más información, consulte estos [requisitos de red](./how-to-secure-training-vnet.md) para la red virtual.   Adjunte también [identidades administradas](#managed-identity) para conceder acceso a los recursos.     |
 
 #### <a name="set-up-managed-identity"></a><a name="managed-identity"></a> Configuración de la identidad administrada
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-managed-identity-intro.md)]
 
-Durante la creación del clúster de proceso o la edición de los detalles del clúster de proceso, en **Configuración avanzada** , cambie a **Assign a managed identity** (Asignar una identidad administrada) y especifique una identidad asignada por el sistema o una identidad asignada por el usuario.
+Durante la creación del clúster de proceso o la edición de los detalles del clúster de proceso, en **Configuración avanzada**, cambie a **Assign a managed identity** (Asignar una identidad administrada) y especifique una identidad asignada por el sistema o una identidad asignada por el usuario.
 
 #### <a name="managed-identity-usage"></a>Uso de la identidad administrada
 

@@ -3,16 +3,16 @@ title: Definición de varias instancias de una variable
 description: Utilice la operación de copia en una plantilla de Azure Resource Manager para realizar varias iteraciones al crear una variable.
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: aca69dd858c7a940592e74123b97b8d364d9e11c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b8acd85659b843cb482e1ccc61e28da03431db1b
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84678450"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905900"
 ---
 # <a name="variable-iteration-in-arm-templates"></a>Iteración de variables en las plantillas de ARM
 
-En este artículo, se explica cómo puede crear varios valores para una variable de una plantilla de Azure Resource Manager (ARM). Al agregar el elemento **copy** a la sección de variables de la plantilla, puede establecer de forma dinámica el número de elementos de una variable durante la implementación. Asimismo, evitará tener que repetir la sintaxis de la plantilla.
+En este artículo, se explica cómo crear varios valores para una variable de una plantilla de Azure Resource Manager. Al agregar el elemento `copy` a la sección de variables de la plantilla, puede establecer de forma dinámica el número de elementos de una variable durante la implementación. Asimismo, evitará tener que repetir la sintaxis de la plantilla.
 
 También puede utilizar el elemento copy con [recursos](copy-resources.md), [propiedades de un recurso](copy-properties.md) y [salidas](copy-outputs.md).
 
@@ -30,9 +30,9 @@ El elemento copy tiene el siguiente formato general:
 ]
 ```
 
-La propiedad **name** es cualquier valor que identifique el bucle. La propiedad **count** especifica el número de iteraciones que desea realizar en la variable.
+La propiedad `name` es cualquier valor que identifique el bucle. La propiedad `count` especifica el número de iteraciones que desea realizar en la variable.
 
-La propiedad **input** especifica las propiedades que desea repetir. Tiene que crear una matriz de elementos construida a partir del valor de la propiedad **input**. Puede tratarse de una propiedad única (como una cadena) o de un objeto con varias propiedades.
+La propiedad `input` especifica las propiedades que desea repetir. Tiene que crear una matriz de elementos construida a partir del valor de la propiedad `input`. Puede tratarse de una propiedad única (como una cadena) o de un objeto con varias propiedades.
 
 ## <a name="copy-limits"></a>Límites de copia
 
@@ -92,7 +92,7 @@ La plantilla anterior devuelve una matriz con los siguientes valores:
 ]
 ```
 
-En el ejemplo siguiente, se muestra cómo se crea una matriz de objetos con tres propiedades: name, diskSizeGB y diskIndex.
+En el ejemplo siguiente, se muestra cómo se crea una matriz de objetos con tres propiedades: `name`, `diskSizeGB` y `diskIndex`.
 
 ```json
 {
@@ -160,10 +160,10 @@ El ejemplo anterior devuelve una matriz con los valores siguientes:
 ```
 
 > [!NOTE]
-> La iteración de variables admite argumentos de desplazamiento. El desplazamiento debe aparecer después del nombre de la iteración, como copyIndex ("diskNames", 1). Si no proporciona un valor de desplazamiento, este se establece en 0 de forma predeterminada en la primera instancia.
+> La iteración de variables admite argumentos de desplazamiento. El desplazamiento debe aparecer después del nombre de la iteración, por ejemplo, `copyIndex('diskNames', 1)`. Si no proporciona un valor de desplazamiento, este se establece en 0 de forma predeterminada en la primera instancia.
 >
 
-También puede usar el elemento copy dentro de una variable. En el ejemplo siguiente, se crea un objeto en el que uno de los valores es una matriz.
+También puede usar el elemento `copy` dentro de una variable. En el ejemplo siguiente, se crea un objeto en el que uno de los valores es una matriz.
 
 ```json
 {
@@ -236,7 +236,7 @@ El ejemplo anterior devuelve un objeto con los valores siguientes:
 }
 ```
 
-En el ejemplo siguiente, se muestran las distintas formas en que puede usar el elemento copy con las variables.
+En el ejemplo siguiente, se muestran las distintas formas en que puede usar `copy` con las variables.
 
 ```json
 {
@@ -321,11 +321,10 @@ En los ejemplos siguientes, se muestran escenarios comunes en los que se crean v
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para seguir los pasos de un tutorial, consulte [Tutorial: Creación de varias instancias de recursos con plantillas de ARM](template-tutorial-create-multiple-instances.md).
+* Para realizar un tutorial, consulte [Tutorial: Creación de varias instancias de recursos con plantillas de Resource Manager](template-tutorial-create-multiple-instances.md).
 * Para otros usos del elemento copy, consulte:
   * [Iteración de recursos en las plantillas de ARM](copy-resources.md)
   * [Iteración de propiedades en las plantillas de ARM](copy-properties.md)
   * [Iteración de salida en las plantillas de ARM](copy-outputs.md)
-* Para más información sobre las secciones de una plantilla, consulte el artículo sobre cómo [crear plantillas de ARM](template-syntax.md).
-* Para más información sobre cómo implementar su plantilla, consulte el artículo [Implementación de recursos con las plantillas de Resource Manager y Azure PowerShell](deploy-powershell.md).
-
+* Si quiere conocer las secciones de una plantilla, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](template-syntax.md).
+* Para información sobre cómo implementar una plantilla, consulte [Implementación de recursos con las plantillas de Resource Manager y Azure PowerShell](deploy-powershell.md).

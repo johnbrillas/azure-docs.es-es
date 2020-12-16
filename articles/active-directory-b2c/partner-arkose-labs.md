@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 333bb42643539cedec04d37680749c749a003536
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: cf0437b985865248393e9f68da264fcae5af7f12
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994067"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108559"
 ---
 # <a name="tutorial-for-configuring-arkose-labs-with-azure-active-directory-b2c"></a>Tutorial para configurar Arkose Labs con Azure Active Directory B2C
 
@@ -147,7 +147,7 @@ Descargue Git Bash y siga estos pasos:
 
 1. Cree un flujo de usuario en función de la información disponible [aquí](tutorial-create-user-flows.md). Deténgase cuando llegue a la sección **Prueba del flujo de usuario**.
 
-2. Habilite JavaScript en el [flujo de usuario](user-flow-javascript-overview.md).
+2. Habilite JavaScript en el [flujo de usuario](javascript-and-page-layout.md).
 
 3. En la misma página del flujo de usuario, habilite la dirección URL de la página personalizada: Vaya a **Flujo de usuario** > **Diseño de página** > **Usar contenido de la página personalizada** = **Sí** > **insert custom page URL** (Insertar la dirección URL de la página personalizada).
 Esta dirección URL de página personalizada se obtiene de la ubicación del archivo index.html dentro de Blob Storage.  

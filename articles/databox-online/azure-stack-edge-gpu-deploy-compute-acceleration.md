@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 11/05/2020
 ms.author: alkohli
-ms.openlocfilehash: 0aaad18ba5bf98ca2ad53bd86605dfc6cce3e52c
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: cf70b24dae70ad2e64f3443e4c4d959d46fb4ea4
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96465786"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095039"
 ---
 # <a name="use-compute-acceleration-on-azure-stack-edge-pro-gpu-for-kubernetes-deployment"></a>Uso de la aceleración de proceso en Azure Stack Edge Pro con GPU para la implementación de Kubernetes
 
@@ -28,8 +28,8 @@ La aceleración de proceso es un término que se utiliza específicamente para d
 
 En este artículo se describe la aceleración de proceso solo con GPU o VPU para los siguientes dispositivos:
 
-- **Azure Stack Edge Pro con GPU**: estos dispositivos pueden tener 1 o 2 GPU NVIDIA T4 con núcleo Tensor. Para obtener más información, consulte [NVIDIA T4](https://www.nvidia.com/data-center/tesla-t4/).
-- **Azure Stack Edge Pro R**: estos dispositivos tienen 1 GPU NVIDIA T4 con núcleo Tensor. Para obtener más información, consulte [NVIDIA T4](https://www.nvidia.com/data-center/tesla-t4/).
+- **Azure Stack Edge Pro con GPU**: estos dispositivos pueden tener 1 o 2 GPU NVIDIA T4 con núcleo Tensor. Para obtener más información, consulte [NVIDIA T4](https://www.nvidia.com/en-us/data-center/tesla-t4/).
+- **Azure Stack Edge Pro R**: estos dispositivos tienen 1 GPU NVIDIA T4 con núcleo Tensor. Para obtener más información, consulte [NVIDIA T4](https://www.nvidia.com/en-us/data-center/tesla-t4/).
 - **Azure Stack Edge Mini R**: estos dispositivos tienen 1 VPU Intel Movidius Myriad X. Para obtener más información, consulte [VPU Intel Movidius Myriad X](https://www.movidius.com/MyriadX).
 
 

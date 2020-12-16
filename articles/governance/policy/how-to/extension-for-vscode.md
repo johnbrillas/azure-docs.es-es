@@ -3,12 +3,12 @@ title: Extensión de Azure Policy para Visual Studio Code
 description: Obtenga información acerca de cómo usar la extensión de Azure Policy para Visual Studio Code para buscar alias de Azure Resource Manager.
 ms.date: 10/20/2020
 ms.topic: how-to
-ms.openlocfilehash: 233c9158c30d6c373dd6147090894dc83b83da3d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 8c7357d70323fa74ec77cf43bd11f149a2f99154
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96022435"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906308"
 ---
 # <a name="use-azure-policy-extension-for-visual-studio-code"></a>Use la extensión de Azure Policy para Visual Studio Code
 
@@ -16,10 +16,7 @@ ms.locfileid: "96022435"
 
 Aprenda a usar la extensión de Azure Policy para Visual Studio Code y así poder buscar [alias](../concepts/definition-structure.md#aliases), revisar recursos y directivas, exportar objetos y evaluar definiciones de directivas. Primero, describiremos cómo instalar la extensión de Azure Policy en Visual Studio Code. Después, veremos cómo buscar alias.
 
-La extensión de Azure Policy de Visual Studio Code se puede instalar en todas las plataformas compatibles con Visual Studio Code. Esta compatibilidad incluye Windows, Linux y macOS.
-
-> [!NOTE]
-> Los cambios realizados localmente en las directivas que se ven en la extensión de Azure Policy para Visual Studio Code no se sincronizan con Azure.
+La extensión de Azure Policy para Visual Studio Code se puede instalar en todas las plataformas compatibles con Visual Studio Code. Esta compatibilidad incluye Windows, Linux y macOS.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -28,33 +25,30 @@ Los elementos siguientes son necesarios para completar los pasos indicados en es
 - Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 - [Visual Studio Code](https://code.visualstudio.com).
 
-## <a name="install-azure-policy-extension"></a>Instalar la extensión de Azure Policy
+## <a name="install-and-configure-the-azure-policy-extension"></a>Instalación y configuración de la extensión de Azure Policy
 
 Después de completar los requisitos previos, puede instalar la extensión de Azure Policy para Visual Studio Code siguiendo estos pasos:
 
 1. Abra Visual Studio Code.
-
 1. En la barra de menús, vaya a **Vista** > **Extensiones**.
-
 1. En el cuadro de búsqueda, escriba **Azure Policy**.
-
 1. Seleccione **Azure Policy** en los resultados de la búsqueda, luego haga clic en **Instalar**.
-
 1. Seleccione **Recargar** cuando sea necesario.
-
-## <a name="set-the-azure-environment"></a>Establecimiento del entorno de Azure
 
 Para usuarios de la nube nacional, siga estos pasos para configurar el entorno de Azure en primer lugar:
 
 1. Seleccione **Archivo\Preferencias\Configuración**.
-
 1. Busque la siguiente cadena: _Azure: Cloud_ (Nube)
-
 1. Seleccione la nube nacional de la lista:
 
    :::image type="content" source="../media/extension-for-vscode/set-default-azure-cloud-sign-in.png" alt-text="Captura de pantalla de la selección del inicio de sesión en la nube de Azure nacional para Visual Studio Code." border="false":::
 
-## <a name="connect-to-an-azure-account"></a>Conexión a la cuenta de Azure
+## <a name="using-the-policy-extension"></a>Uso de la extensión de Policy
+
+> [!NOTE]
+> Los cambios realizados localmente en las directivas que se ven en la extensión de Azure Policy para Visual Studio Code no se sincronizan con Azure.
+
+### <a name="connect-to-an-azure-account"></a>Conexión a la cuenta de Azure
 
 Para evaluar los recursos y los alias de búsqueda, debe conectarse a su cuenta de Azure. Siga estos pasos para conectarse a Azure desde Visual Studio Code:
 
@@ -74,13 +68,13 @@ Para evaluar los recursos y los alias de búsqueda, debe conectarse a su cuenta 
 
 1. Siga las instrucciones para iniciar sesión en Azure. Una vez establecida la conexión, el nombre de la cuenta de Azure se muestra en la barra de estado en la parte inferior de la ventana de Visual Studio Code.
 
-## <a name="select-subscriptions"></a>Selección de suscripciones
+### <a name="select-subscriptions"></a>Selección de suscripciones
 
 La primera vez que inicia sesión, la extensión de Azure Policy carga los recursos y las directivas predeterminados de la suscripción. Para agregar o quitar suscripciones de los recursos y directivas que se muestran, siga estos pasos:
 
 1. Inicie el comando de suscripción desde la paleta de comandos o el pie de página de la ventana.
 
-   - Paleta de comandos: 
+   - Paleta de comandos:
 
      En la barra de menús, vaya a **Vista** > **Paleta de comandos** y escriba **Azure: Selección de suscripciones**.
 
@@ -90,7 +84,7 @@ La primera vez que inicia sesión, la extensión de Azure Policy carga los recur
 
 1. Utilice el cuadro de filtro para buscar rápidamente las suscripciones por nombre. Luego, active o desactive la casilla de cada suscripción para establecer las suscripciones que se muestran en la extensión de Azure Policy. Cuando haya terminado de agregar o quitar las suscripciones que se van a mostrar, seleccione **Aceptar**.
 
-## <a name="search-for-and-view-resources"></a>Buscar y ver recursos
+### <a name="search-for-and-view-resources"></a>Buscar y ver recursos
 
 La extensión de Azure Policy enumera los recursos de las suscripciones seleccionadas por el proveedor de recursos y por el grupo de recursos en el panel **Recursos**. La vista de árbol incluye las siguientes agrupaciones de recursos dentro de la suscripción seleccionada o en el nivel de suscripción:
 
@@ -119,7 +113,7 @@ Los clientes con cientos o miles de recursos en una sola suscripción pueden pre
 
 1. Use el filtro para seleccionar el recurso que se va a mostrar. El filtro funciona para el nombre del recurso y el tipo de recurso.
 
-## <a name="discover-aliases-for-resource-properties"></a>Detección de alias para propiedades de recursos
+### <a name="discover-aliases-for-resource-properties"></a>Detección de alias para propiedades de recursos
 
 Cuando se selecciona un recurso, ya sea mediante la interfaz de búsqueda o al seleccionarlo en la vista de árbol, la extensión de Azure Policy abre el archivo JSON que representa ese recurso y todos sus valores de propiedad de Azure Resource Manager.
 
@@ -128,9 +122,9 @@ Una vez que se abre un recurso, al mantener el mouse sobre el nombre o valor de 
 :::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Captura de pantalla de la extensión Azure Policy para Visual Studio Code al mantener el puntero sobre una propiedad para mostrar los nombres de alias." border="false":::
 
 > [!NOTE]
-> La extensión de VS Code solo expone las propiedades del modo Administrador de recursos y no muestra ninguna propiedad del modo [Proveedor de recursos](../concepts/definition-structure.md#mode).
+> La extensión de VS Code solo admite la evaluación de propiedades del modo de Resource Manager. Para más información sobre los modos, consulte las [definiciones de modo](../concepts/definition-structure.md#mode).
 
-## <a name="search-for-and-view-policies-and-assignments"></a>Búsqueda y visualización de directivas y asignaciones
+### <a name="search-for-and-view-policies-and-assignments"></a>Búsqueda y visualización de directivas y asignaciones
 
 La extensión de Azure Policy enumera los tipos de directivas y las asignaciones de directivas como una vista de árbol para las suscripciones seleccionadas que se mostrarán en el panel **Directivas**. Los clientes con cientos o miles de directivas o asignaciones una sola suscripción pueden preferir una forma de búsqueda para localizar sus directivas o asignaciones. La extensión de Azure Policy permite buscar una directiva o asignación específica con los pasos siguientes:
 
@@ -152,7 +146,7 @@ La extensión de Azure Policy enumera los tipos de directivas y las asignaciones
 
 Cuando se selecciona una asignación o directiva, ya sea a través de la interfaz de búsqueda o al seleccionarla en la vista de árbol, la extensión de Azure Policy abre el archivo JSON que representa esa asignación o directiva y todos sus valores de propiedad de administrador de recursos. La extensión puede validar el esquema JSON abierto de Azure Policy.
 
-## <a name="export-objects"></a>Exportación de objetos
+### <a name="export-objects"></a>Exportación de objetos
 
 Los objetos de las suscripciones se pueden exportar a un archivo JSON local. En el panel de **Recursos** o **Directivas**, mantenga el mouse sobre el contenido o seleccione un objeto exportable. Al final de la fila resaltada, seleccione el icono de guardar y, a continuación, seleccione una carpeta para guardar los recursos JSON.
 
@@ -167,7 +161,7 @@ Los objetos siguientes se pueden exportar de forma local:
   - Definiciones de directivas personalizadas
   - Iniciativas
 
-## <a name="on-demand-evaluation-scan"></a>Examen de evaluación a petición
+### <a name="on-demand-evaluation-scan"></a>Examen de evaluación a petición
 
 Un examen de evaluación se puede iniciar con la extensión de Azure Policy para Visual Studio Code. Para iniciar una evaluación, seleccione y ancle cada uno de los objetos siguientes: un recurso, una definición de directiva y una asignación de directiva.
 
@@ -176,7 +170,7 @@ Un examen de evaluación se puede iniciar con la extensión de Azure Policy para
 1. En la parte superior del panel **Evaluación**, seleccione el icono "Run evaluation" (Ejecutar evaluación). Se abrirá un nuevo panel en Visual Studio Code con los detalles de evaluación resultantes en formato JSON.
 
 > [!NOTE]
-> Si la definición de la directiva seleccionada es [AuditIfNotExists](../concepts/effects.md#auditifnotexists) o [DeployIfNotExists](../concepts/effects.md#deployifnotexists), en el panel de **Evaluación** use el icono que tiene el signo más para seleccionar un recurso _relacionado_ y así poder realizar la comprobación de existencia.
+> Con las definiciones de directiva [AuditIfNotExists](../concepts/effects.md#auditifnotexists) o [DeployIfNotExists](../concepts/effects.md#deployifnotexists), use el icono con el signo de más del panel **Evaluación** para seleccionar un recurso _relacionado_ para la comprobación de la existencia.
 
 Los resultados de la evaluación proporcionan información sobre la definición y asignación de directivas junto con la propiedad **policyEvaluations.evaluationResult**. El resultado es similar al ejemplo siguiente:
 
@@ -197,7 +191,12 @@ Los resultados de la evaluación proporcionan información sobre la definición 
 }
 ```
 
-## <a name="sign-out"></a>Cerrar sesión
+> [!NOTE]
+> La extensión de VS Code solo admite la evaluación de propiedades del modo de Resource Manager. Para más información sobre los modos, consulte las [definiciones de modo](../concepts/definition-structure.md#mode).
+>
+> La característica de evaluación no funciona en instalaciones de macOS y Linux de la extensión.
+
+### <a name="sign-out"></a>Cerrar sesión
 
 En la barra de menús, vaya a **Vista** > **Paleta de comandos** y escriba **Azure: Sign Out** (Cerrar sesión).
 

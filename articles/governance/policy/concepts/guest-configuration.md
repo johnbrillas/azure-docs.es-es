@@ -3,12 +3,12 @@ title: Información sobre cómo auditar el contenido de máquinas virtuales
 description: Obtenga información sobre cómo Azure Policy usa Guest Configuration para auditar la configuración dentro de las máquinas virtuales.
 ms.date: 10/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: e941938fce09e8729856322a5b6572b46a3714be
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: a956d5e8dcfa82f85020928e1427a08ac8fe7a69
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075491"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906257"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Información sobre Guest Configuration de Azure Policy
 
@@ -62,7 +62,7 @@ Las definiciones de directivas de configuración de invitado son inclusivas de n
 
 |Publicador|Nombre|Versiones|
 |-|-|-|
-|Canonical|Ubuntu Server|14.04 y versiones posteriores|
+|Canonical|Ubuntu Server|14.04 - 18.04|
 |Credativ|Debian|8 y versiones posteriores|
 |Microsoft|Windows Server|2012 y versiones posteriores|
 |Microsoft|Cliente Windows|Windows 10|

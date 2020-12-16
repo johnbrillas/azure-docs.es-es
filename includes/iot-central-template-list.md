@@ -8,14 +8,16 @@ ms.topic: include
 ms.date: 02/11/2020
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 182296793b46f1900744bf629625906b2d6e9b2a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 08e4fd82bea6bb1b510b127db8dee7803ee112f5
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91377144"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96912216"
 ---
 **Plantillas de aplicación**
+
+**Plantillas de aplicación de IoT Central**
 
 | Plantilla                 | Nombre        | Descripción |
 | ------------------------ | ----------- | ----------- |
@@ -33,3 +35,7 @@ ms.locfileid: "91377144"
 | iotc-quality             | Supervisión de la calidad del agua | Permite crear una aplicación para supervisar digitalmente la calidad del agua. |
 | iotc-store               | Análisis en el almacén: finalización de la compra | Permite crear una aplicación para supervisar y administrar el flujo de finalización de compra en su tienda. |
 | iotc-waste               | Administración de residuos conectada | Permite crear una aplicación para supervisar contenedores de residuos y operadores de campo de distribución. |
+
+**Plantilla de aplicación personalizada**
+
+Si ha creado su propia plantilla de aplicación, puede usarla para crear una aplicación. Cuando se le pida una plantilla de aplicación, escriba el identificador de la aplicación que se muestra en el vínculo compartible de la dirección URL de la aplicación exportada en la sección [Exportación de plantillas de la aplicación](../articles/iot-central/core/howto-use-app-templates.md#create-an-application-template). 

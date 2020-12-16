@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/07/2020
+ms.date: 12/08/2020
 ms.author: blehr
 ms.custom: references_regions , devx-track-azurecli
-ms.openlocfilehash: 0c248149694c2bf66b8c94e9c0a29a8f7da9f4e4
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 9ea29c47349fd7ccee469188f8929a864cf7bbef
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843747"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905798"
 ---
 # <a name="upgrade-public-ip-addresses"></a>Actualización de direcciones IP públicas
 
@@ -159,6 +159,7 @@ Norte de China 2
 
 * Para actualizar una dirección IP pública básica, no se puede asociar con ningún recurso de Azure.  Examine [esta página](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address#view-modify-settings-for-or-delete-a-public-ip-address) para más información sobre cómo desasociar las direcciones IP públicas.  Del mismo modo, para migrar una dirección IP reservada, no se puede asociar con ningún servicio en la nube.  Revise [esta página](https://docs.microsoft.com/azure/virtual-network/remove-public-ip-address-vm) para más información sobre cómo desasociar direcciones IP reservadas.  
 * Las direcciones IP públicas actualizadas de la SKU de nivel básico a estándar seguirán sin tener [zonas de disponibilidad](https://docs.microsoft.com/azure/availability-zones/az-overview?toc=/azure/virtual-network/toc.json#availability-zones) y, por lo tanto, no se pueden asociar a un recurso de Azure con redundancia de zona o zonal.  Tenga en cuenta que esto solo se aplica a las regiones que ofrecen zonas de disponibilidad.
+* No se puede cambiar de estándar a básico.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

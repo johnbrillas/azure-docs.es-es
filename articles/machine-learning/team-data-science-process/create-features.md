@@ -10,20 +10,20 @@ ms.subservice: team-data-science-process
 ms.topic: conceptual
 ms.date: 05/14/2020
 ms.author: tdsp
-ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, contperfq4
-ms.openlocfilehash: 44b5baa074b62a072873d8097de184a2813b54ec
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, contperf-fy20q4
+ms.openlocfilehash: 7cf97edcb2f2f7a23d5c899194d497deade1f507
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322014"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97031868"
 ---
 # <a name="feature-engineering-in-data-science"></a>Ingeniería de características en ciencia de datos
 
 En este artículo, obtendrá información sobre la ingeniería de características y su rol en la mejora de los datos en el aprendizaje automático. Obtenga información de los ejemplos ilustrativos extraídos de los experimentos de [Azure Machine Learning Studio (clásico)](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio). 
 
-* **Diseño de características** : El proceso de crear nuevas características a partir de datos sin procesar para aumentar la eficacia predictiva del algoritmo de aprendizaje. La ingeniería de características debe capturar información adicional que no se pueda obviar fácilmente en el conjunto de características originales.
-* **Selección de características** : El proceso de seleccionar el subconjunto de claves de las características en un intento por reducir la dimensionalidad del problema de entrenamiento.
+* **Diseño de características**: El proceso de crear nuevas características a partir de datos sin procesar para aumentar la eficacia predictiva del algoritmo de aprendizaje. La ingeniería de características debe capturar información adicional que no se pueda obviar fácilmente en el conjunto de características originales.
+* **Selección de características**: El proceso de seleccionar el subconjunto de claves de las características en un intento por reducir la dimensionalidad del problema de entrenamiento.
 
 Normalmente, la **ingeniería de características** se aplica primero para generar características adicionales y, a continuación, se realiza **selección de características** para eliminar aquellas que son irrelevantes, redundantes o altamente correlacionadas.
 

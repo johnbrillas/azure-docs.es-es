@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 ms.date: 05/27/2020
-ms.openlocfilehash: be33c968499052b2b254754f37e5163012bcadd0
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: a0a693b2dc2c236cbac79ec4789b2a480ce65427
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547595"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97028944"
 ---
 # <a name="connect-to-apache-beeline-on-hdinsight-or-install-it-locally"></a>Conexión a Apache Beeline en HDInsight o instalación local
 
@@ -128,7 +128,7 @@ Aunque Beeline se incluye en los nodos principales, puede que desee instalarlo l
         export JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64
         ```
 
-        Para guardar el archivo, presione **Ctrl+x** , luego **Y** y después Entrar.
+        Para guardar el archivo, presione **Ctrl+x**, luego **Y** y después Entrar.
 
 1. Descargue los archivos de Hadoop y Beeline, y escriba los siguientes comandos:
 
@@ -156,7 +156,7 @@ Aunque Beeline se incluye en los nodos principales, puede que desee instalarlo l
         PATH=$PATH:$HIVE_HOME/bin
         ```
 
-    1. Para guardar el archivo, presione **Ctrl+x** , luego **Y** y después Entrar.
+    1. Para guardar el archivo, presione **Ctrl+x**, luego **Y** y después Entrar.
 
 1. Cierre y vuelva a abrir la sesión de Bash.
 

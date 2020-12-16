@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: noakup
 ms.author: noakuper
 ms.date: 09/03/2020
-ms.openlocfilehash: f424a2c3102f7b270a64c612a91d645ab71461fc
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: f221237bee441ec78d726dabf476d1085a27071d
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96184100"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095311"
 ---
 # <a name="using-customer-managed-storage-accounts-in-azure-monitor-log-analytics"></a>Uso de cuentas de almacenamiento administradas por el cliente en Log Analytics de Azure Monitor
 
@@ -22,7 +22,7 @@ Log Analytics se basa en Azure Storage en diversos escenarios. Normalmente, este
 
 ## <a name="ingesting-azure-diagnostics-extension-logs-wadlad"></a>Ingesta de registros de extensión de Azure Diagnostics (WAD/LAD)
 Los agentes de extensión de Azure Diagnostics (también denominados WAD y LAD para los agentes de Windows y Linux, respectivamente) recopilan varios registros del sistema operativo y los almacenan en una cuenta de almacenamiento administrada por el cliente. Después, puede ingerir estos registros en Log Analytics para revisarlos y analizarlos.
-Procedimiento para la recopilación de registros de extensión de Azure Diagnostics de la cuenta de almacenamiento: conecte la cuenta de almacenamiento a su área de trabajo de Log Analytics como origen de datos de almacenamiento mediante [Azure Portal](./diagnostics-extension-logs.md#collect-logs-from-azure-storage) o mediante una llamada a la [API de Storage Insights](/rest/api/loganalytics/connectedsources/storage%20insights/createorupdate).
+Procedimiento para la recopilación de registros de extensión de Azure Diagnostics de la cuenta de almacenamiento: conecte la cuenta de almacenamiento a su área de trabajo de Log Analytics como origen de datos de almacenamiento mediante [Azure Portal](./diagnostics-extension-logs.md#collect-logs-from-azure-storage) o mediante una llamada a la [API de Storage Insights](/rest/api/loganalytics/storage%20insights/createorupdate).
 
 Tipos de datos admitidos:
 * syslog

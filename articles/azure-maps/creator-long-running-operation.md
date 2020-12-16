@@ -3,20 +3,24 @@ title: API de operaciones de larga duración de Azure Maps
 description: Obtenga información sobre el procesamiento en segundo plano asincrónico de larga duración en Azure Maps
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 05/18/2020
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 69c5b9d15c0ba3c7c8b6b01643beac1905c404ad
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: f5fb7c8059c8b98e8ec514a4159e96f48db7b1ad
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895875"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906206"
 ---
-# <a name="creator-long-running-operation-api"></a>API de operaciones de larga duración de Creator
+# <a name="creator-preview-long-running-operation-api"></a>Long-Running Operation API de Creator (versión preliminar)
+
+> [!IMPORTANT]
+> Los servicios de Creator de Azure Maps se encuentran actualmente en versión preliminar pública.
+> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Algunas API de Azure Maps usan un [patrón de respuesta a solicitudes asincrónico](/azure/architecture/patterns/async-request-reply). Este patrón permite que Azure Maps proporcione servicios de gran disponibilidad y capacidad de respuesta. En este artículo se explica la implementación específica de Azure Maps de la operación de procesamiento en segundo plano asincrónico de larga duración.
 

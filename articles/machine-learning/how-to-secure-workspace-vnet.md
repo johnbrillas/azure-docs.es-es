@@ -10,13 +10,13 @@ ms.author: peterlu
 author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
-ms.custom: how-to, contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: 8082694b9f08023653d47e1f7fb442219cf8b475
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: how-to, contperf-fy20q4, tracking-python, contperf-fy21q1
+ms.openlocfilehash: 07b8c130a2a22554e4cd5b33996d5a5ee967d47f
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93316705"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97029539"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>Protección de un área de trabajo de Azure Machine Learning con redes virtuales
 
@@ -78,16 +78,16 @@ Para usar una cuenta de Azure Storage para el área de trabajo en una red virtua
 
    ![El área "Firewalls y redes virtuales" de la página de Azure Storage de Azure Portal](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks.png)
 
-1. En la página __Firewalls y redes virtuales__ , realice las acciones siguientes:
+1. En la página __Firewalls y redes virtuales__, realice las acciones siguientes:
     1. Seleccione __Redes seleccionadas__.
-    1. En __Redes virtuales__ , seleccione el vínculo __Agregar red virtual existente__. Esta acción agrega la red virtual en la que reside el proceso (vea el paso 1).
+    1. En __Redes virtuales__, seleccione el vínculo __Agregar red virtual existente__. Esta acción agrega la red virtual en la que reside el proceso (vea el paso 1).
 
         > [!IMPORTANT]
         > La cuenta de almacenamiento debe estar en la misma red virtual y subred que las instancias de proceso o clústeres usados para entrenamiento o inferencia.
 
     1. Seleccione la casilla __Permitir que los servicios de Microsoft de confianza accedan a esta cuenta de almacenamiento__. Esto no concede a todos los servicios de Azure acceso a su cuenta de almacenamiento.
     
-        * Los recursos de algunos servicios, cuando **están registrados en la suscripción** , pueden obtener acceso a la cuenta de almacenamiento **de la misma suscripción** para ciertas operaciones. Por ejemplo, operaciones de escritura de registros o creación de copias de seguridad.
+        * Los recursos de algunos servicios, cuando **están registrados en la suscripción**, pueden obtener acceso a la cuenta de almacenamiento **de la misma suscripción** para ciertas operaciones. Por ejemplo, operaciones de escritura de registros o creación de copias de seguridad.
         * Los recursos de algunos servicios pueden conceder acceso explícito a su cuenta de almacenamiento. Para ello, __asignan un rol de Azure__ a su identidad administrada asignada por el sistema.
 
         Para más información, vea [Configuración de Firewalls y redes virtuales de Azure Storage](../storage/common/storage-network-security.md#trusted-microsoft-services).
@@ -175,11 +175,11 @@ Para usar las funcionalidades de experimentación de Azure Machine Learning con 
 
 1. Vaya a la instancia de Key Vault asociada al área de trabajo.
 
-1. En la página de __Key Vault__ , en el panel izquierdo, seleccione __Redes__.
+1. En la página de __Key Vault__, en el panel izquierdo, seleccione __Redes__.
 
-1. En la pestaña __Firewalls y redes virtuales__ , realice las acciones siguientes:
-    1. En __Permitir el acceso desde__ , seleccione __Punto de conexión privado y redes seleccionadas__.
-    1. En __Redes virtuales__ , seleccione __Agregar redes virtuales existentes__ para agregar la red virtual donde reside el proceso de experimentación.
+1. En la pestaña __Firewalls y redes virtuales__, realice las acciones siguientes:
+    1. En __Permitir el acceso desde__, seleccione __Punto de conexión privado y redes seleccionadas__.
+    1. En __Redes virtuales__, seleccione __Agregar redes virtuales existentes__ para agregar la red virtual donde reside el proceso de experimentación.
     1. En __¿Quiere permitir que los servicios de confianza de Microsoft puedan omitir este firewall?__ , seleccione __Sí__.
 
    [![Sección "Firewalls y redes virtuales" del panel de Key Vault](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png#lightbox)

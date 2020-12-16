@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/11/2020
-ms.openlocfilehash: 5aa379f6601bc324bd08c53f251b2097141eec69
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 87cdecd29d684c712853970c8246002132d274ac
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95911641"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97094342"
 ---
 # <a name="log-analytics-data-security"></a>Seguridad de datos de Log Analytics
 Este documento está diseñado para proporcionar información específica sobre Log Analytics, que es una característica de Azure Monitor, para complementar la información que se halla en el [Centro de confianza de Azure](https://www.microsoft.com/en-us/trust-center?rtc=1).  
@@ -127,7 +127,7 @@ Azure Log Analytics cumple los requisitos siguientes:
 * [ISO 22301](https://azure.microsoft.com/blog/iso22301/)
 * [Conformidad con la norma Data Security Standard de PCI (PCI DSS)](https://www.microsoft.com/en-us/TrustCenter/Compliance/PCI) del PCI Security Standards Council.
 * [Conformidad con Service Organization Control (SOC) 1, tipo 1 y SOC 2, tipo 1](https://www.microsoft.com/en-us/TrustCenter/Compliance/SOC1-and-2)
-* [HIPAA y HITECH](https://www.microsoft.com/en-us/TrustCenter/Compliance/hipaa) para aquellas empresas que posean un contrato de asociación comercial según las normas HIPAA.
+* [HIPAA y HITECH](/compliance/regulatory/offering-hipaa-hitech) para aquellas empresas que posean un contrato de asociación comercial según las normas HIPAA.
 * Criterios de ingeniería comunes de Windows
 * Microsoft Trustworthy Computing
 * Como se trata de un servicio de Azure, los componentes que usa Log Analytics cumplen los requisitos de cumplimiento normativo de Azure. Puede obtener más información en el artículo [Microsoft Trust Center Compliance](https://www.microsoft.com/en-us/trustcenter/compliance/default.aspx) (Cumplimiento normativo del Centro de confianza de Microsoft Azure).

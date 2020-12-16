@@ -11,12 +11,12 @@ ms.date: 05/25/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 16b5814835ec5cad6b66087fee37676155196339
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 7c9e3344ed819f607feeab88ac43a9dc286a61e0
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94952087"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109103"
 ---
 # <a name="the-new-app-registrations-experience-for-azure-active-directory-b2c"></a>La nueva experiencia Registros de aplicaciones para Azure Active Directory B2C
 
@@ -63,7 +63,7 @@ En la experiencia heredada, las aplicaciones siempre se crean como aplicaciones 
 > [!NOTE]
 > Esta opción es necesaria para poder ejecutar flujos de usuario de Azure AD B2C para autenticar a los usuarios de esta aplicación. Aprenda [cómo registrar una aplicación para usarla con flujos de usuario.](tutorial-register-applications.md)
 
-También puede utilizar esta opción para usar Azure AD B2C como proveedor de servicios SAML. [Más información](identity-provider-adfs2016-custom.md).
+También puede utilizar esta opción para usar Azure AD B2C como proveedor de servicios SAML. [Más información](identity-provider-adfs.md).
 
 ## <a name="applications-for-devops-scenarios"></a>Aplicaciones para escenarios de DevOps
 Puede usar los otros tipos de cuenta para crear una aplicación a fin de administrar los escenarios de DevOps, como el uso de Microsoft Graph para cargar directivas de Identity Experience Framework o aprovisionar usuarios. Aprenda [cómo registrar una aplicación de Microsoft Graph para administrar recursos de Azure AD B2C](microsoft-graph-get-started.md).
@@ -97,7 +97,7 @@ En la experiencia nueva, en lugar de **Claves**, se usa la hoja **Certificados y
 ## <a name="features-not-applicable-in-azure-ad-b2c-tenants"></a>Características no aplicables en inquilinos de Azure AD B2C
 Las funcionalidades de registros de aplicaciones de Azure AD siguientes no son aplicables o no están disponibles en los inquilinos de Azure AD B2C:
 - **Roles y administradores**: no disponibles actualmente para Azure AD B2C.
-- **Personalización de marca**: la personalización de la interfaz de usuario o la experiencia del usuario se configura en la experiencia **Personalización de marca de empresa** o como parte de un flujo de usuario. Aprenda a [personalizar la interfaz de usuario en Azure Active Directory B2C](customize-ui-overview.md).
+- **Personalización de marca**: la personalización de la interfaz de usuario o la experiencia del usuario se configura en la experiencia **Personalización de marca de empresa** o como parte de un flujo de usuario. Aprenda a [personalizar la interfaz de usuario en Azure Active Directory B2C](customize-ui-with-html.md).
 - **Comprobación del dominio del publicador**: la aplicación está registrada en *.onmicrosoft.com*, que no es un dominio comprobado. Además, el dominio del publicador se usa principalmente para conceder el consentimiento del usuario, que no se aplica a las aplicaciones de Azure AD B2C para la autenticación de usuarios. [Más información sobre el dominio de publicador](../active-directory/develop/howto-configure-publisher-domain.md).
 - **Configuración de token**: el token se configura como parte de un flujo de usuario en lugar de una aplicación.
 - Actualmente, la experiencia **Inicios rápidos** no está disponible para inquilinos de Azure AD B2C.
@@ -116,5 +116,5 @@ Para empezar a trabajar con la nueva experiencia de registro:
 * Aprenda a [registrar una API web](add-web-api-application.md).
 * Aprenda a [registrar una aplicación cliente nativa](add-native-application.md).
 * Aprenda a [registrar una aplicación de Microsoft Graph para administrar recursos de Azure AD B2C](microsoft-graph-get-started.md).
-* Aprenda a [usar Azure AD B2C como proveedor de servicios SAML.](identity-provider-adfs2016-custom.md)
+* Aprenda a [usar Azure AD B2C como proveedor de servicios SAML.](identity-provider-adfs.md)
 * Más información sobre los [tipos de aplicación](application-types.md).

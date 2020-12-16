@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
 ms.date: 08/25/2020
-ms.openlocfilehash: 70ce1807ea6080e3efc0cf3266a9940c9ddb9cd3
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 71b9c96c1855180106f7dfa9a31f0ee8b06ceb67
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489359"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347870"
 ---
 # <a name="use-azure-table-storage-to-manage-commercial-marketplace-leads"></a>Uso de Azure Table Storage para administrar clientes potenciales de marketplace comercial
 
@@ -55,7 +55,7 @@ Si el sistema de administración de relaciones con clientes (CRM) no es una opci
 
     ![Tablas de Azure](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-tables.png)
 
-    Puede usar el [Explorador de Azure Storage](https://archive.codeplex.com/?p=azurestorageexplorer) o cualquier otra herramienta para ver los datos de la tabla de almacenamiento. También puede exportar los datos en la tabla de Azure.
+    Puede usar el [Explorador de Azure Storage](https://www.storageexplorer.com) o cualquier otra herramienta para ver los datos de la tabla de almacenamiento. También puede exportar los datos en la tabla de Azure.
 
 ## <a name="optional-use-power-automate-to-get-lead-notifications"></a>(Opcional) Uso de Power Automate para recibir notificaciones de clientes potenciales
 
@@ -79,12 +79,12 @@ En este ejemplo se crea un flujo que envía automáticamente una notificación p
 
    ![Creación de un flujo programado](./media/commercial-marketplace-lead-management-instructions-azure-table/build-scheduled-flow.png)
 
-1. Seleccione **+ New step** (+ Nuevo paso).
-1. En la ventana **Elegir una acción** , busque **Obtener la hora pasada**. A continuación, en **Acciones** , seleccione **Obtener la hora pasada**.
+1. Seleccione **+ New step**(+ Nuevo paso).
+1. En la ventana **Elegir una acción**, busque **Obtener la hora pasada**. A continuación, en **Acciones**, seleccione **Obtener la hora pasada**.
 
    ![Elegir una acción](./media/commercial-marketplace-lead-management-instructions-azure-table/choose-an-action.png)
 
-1. En la ventana **Obtener la hora pasada** , establezca el valor de **Intervalo** en **1**. En la lista desplegable **Unidad de tiempo** , seleccione **Hora**.
+1. En la ventana **Obtener la hora pasada**, establezca el valor de **Intervalo** en **1**. En la lista desplegable **Unidad de tiempo**, seleccione **Hora**.
 
     >[!IMPORTANT]
     >Asegúrese de que el intervalo y la unidad de tiempo que ha enviado en el paso 8 coincidan con el intervalo y la frecuencia que ha configurado para la periodicidad en el paso 5.
@@ -96,33 +96,33 @@ En este ejemplo se crea un flujo que envía automáticamente una notificación p
 
    En el siguiente conjunto de pasos, se conectará a la tabla y configurará la lógica de procesamiento para controlar nuevos clientes potenciales.
 
-1. Seleccione **+ New step** (+ Nuevo paso). En la ventana **Elegir una acción** , busque **Obtener entidades**.
-1. En **Acciones** ,seleccione **Obtener entidades (Almacenamiento de tablas de Azure)** .
-1. En la ventana **Azure Table Storage** , proporcione información en los cuadros siguientes y seleccione **Crear** :
+1. Seleccione **+ New step**(+ Nuevo paso). En la ventana **Elegir una acción**, busque **Obtener entidades**.
+1. En **Acciones**,seleccione **Obtener entidades (Almacenamiento de tablas de Azure)** .
+1. En la ventana **Azure Table Storage**, proporcione información en los cuadros siguientes y seleccione **Crear**:
 
-    * **Nombre de la conexión** : proporcione un nombre descriptivo para la conexión que va a establecer entre este flujo y la tabla.
-    * **Nombre de cuenta de almacenamiento** : proporcione el nombre de la cuenta de almacenamiento para la tabla. Puede encontrarlo en la página **Claves de acceso** de la cuenta de almacenamiento.
-    * **Clave de almacenamiento compartida** : proporcione el valor de clave de la cuenta de almacenamiento de la tabla. Puede encontrar este valor en la página **Claves de acceso** de la cuenta de almacenamiento.
+    * **Nombre de la conexión**: proporcione un nombre descriptivo para la conexión que va a establecer entre este flujo y la tabla.
+    * **Nombre de cuenta de almacenamiento**: proporcione el nombre de la cuenta de almacenamiento para la tabla. Puede encontrarlo en la página **Claves de acceso** de la cuenta de almacenamiento.
+    * **Clave de almacenamiento compartida**: proporcione el valor de clave de la cuenta de almacenamiento de la tabla. Puede encontrar este valor en la página **Claves de acceso** de la cuenta de almacenamiento.
 
       ![Ventana de Azure Table Storage](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-storage.png)
 
-   Después de seleccionar **Crear** , aparece la ventana **Obtener entidades**. Aquí, seleccione **Mostrar opciones avanzadas** y proporcione información en los cuadros siguientes:
+   Después de seleccionar **Crear**, aparece la ventana **Obtener entidades**. Aquí, seleccione **Mostrar opciones avanzadas** y proporcione información en los cuadros siguientes:
 
-   * **Tabla** : seleccione el nombre de la tabla (desde [Crear una tabla](#create-a-table-in-your-storage-account)). En la captura de pantalla siguiente se muestra el símbolo del sistema cuando se selecciona la tabla `marketplaceleads` en este ejemplo.
+   * **Tabla**: seleccione el nombre de la tabla (desde [Crear una tabla](#create-a-table-in-your-storage-account)). En la captura de pantalla siguiente se muestra el símbolo del sistema cuando se selecciona la tabla `marketplaceleads` en este ejemplo.
 
      ![Ventana Obtener entidades](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities.png)
 
-   * **Consulta de filtro** : seleccione este cuadro y pegue esta función en el cuadro: `Timestamp gt datetime'@{body('Get_past_time')}'`.
+   * **Consulta de filtro**: seleccione este cuadro y pegue esta función en el cuadro: `Timestamp gt datetime'@{body('Get_past_time')}'`.
 
      ![Obtener entidades, cuadro Consulta de filtro](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities-filter-query.png)
 
 1. Ahora que ha completado la configuración de la conexión a la tabla de Azure, seleccione **Nuevo paso** para agregar una condición para examinar la tabla de Azure para los nuevos clientes potenciales.
 
-1. En la ventana **Elegir una acción** , seleccione **Acciones**. Luego, elija **Control de condiciones**.
+1. En la ventana **Elegir una acción**, seleccione **Acciones**. Luego, elija **Control de condiciones**.
 
     ![Ventana Elegir una acción](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-choose-an-action.png)
 
-1. En la ventana **Condición** , seleccione **Elegir un valor**. Luego, seleccione **Expresión** en la ventana emergente.
+1. En la ventana **Condición**, seleccione **Elegir un valor**. Luego, seleccione **Expresión** en la ventana emergente.
 
 1. Pegue `length(body('Get_entities')?['value'])` en el cuadro **fx**. Seleccione **Aceptar** para agregar esta función.
 
@@ -134,8 +134,8 @@ En este ejemplo se crea un flujo que envía automáticamente una notificación p
 
    En los pasos siguientes, va a configurar la acción que se realizará según el resultado de la condición:
 
-   * Si la condición se resuelve como **En caso negativo** , no haga nada.
-   * Si la condición se resuelve como **En caso positivo** , desencadene una acción asociada a la cuenta profesional o educativa para enviar un correo electrónico. 
+   * Si la condición se resuelve como **En caso negativo**, no haga nada.
+   * Si la condición se resuelve como **En caso positivo**, desencadene una acción asociada a la cuenta profesional o educativa para enviar un correo electrónico. 
 
 1. Seleccione **Agregar una acción** en **En caso positivo**.
 
@@ -150,9 +150,9 @@ En este ejemplo se crea un flujo que envía automáticamente una notificación p
 
 1. En la ventana de Office 365 Outlook, proporcione información en los cuadros siguientes:
 
-    1. **Para** : escriba una dirección de correo electrónico para todos los usuarios que reciban esta notificación.
-    1. **Firmante** : proporcione un asunto para el correo electrónico. Por ejemplo, **Nuevos clientes potenciales**.
-    1. **Cuerpo** : agregue el texto que quiera incluir en cada correo electrónico (opcional) y, luego, péguelo en `body('Get_entities')?['value']`.
+    1. **Para**: escriba una dirección de correo electrónico para todos los usuarios que reciban esta notificación.
+    1. **Firmante**: proporcione un asunto para el correo electrónico. Por ejemplo, **Nuevos clientes potenciales**.
+    1. **Cuerpo**: agregue el texto que quiera incluir en cada correo electrónico (opcional) y, luego, péguelo en `body('Get_entities')?['value']`.
 
     >[!NOTE]
     >Puede insertar puntos de datos estáticos o dinámicos adicionales en el cuerpo de este correo electrónico.
@@ -183,17 +183,17 @@ Cuando esté listo para configurar la información de administración de cliente
 
 1. Vaya a la página **Configuración de la oferta** de su oferta.
 
-1. En la sección **Clientes potenciales** , seleccione **Conectar**.
+1. En la sección **Clientes potenciales**, seleccione **Conectar**.
 
     :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-azure-table/customer-leads.png" alt-text="Clientes potenciales":::
 
-1. En la ventana emergente **Detalles de la conexión** , seleccione **Azure Table** como **destino de clientes potenciales**. 
+1. En la ventana emergente **Detalles de la conexión**, seleccione **Azure Table** como **destino de clientes potenciales**. 
      ![Administración de clientes potenciales, detalles de la conexión](./media/commercial-marketplace-lead-management-instructions-azure-table/connection-details.png)
 
-1. En el cuadro **Cadena de conexión de cuenta de almacenamiento** , pegue la cadena de conexión de la cuenta de almacenamiento de Azure que creó siguiendo los pasos anteriores.
+1. En el cuadro **Cadena de conexión de cuenta de almacenamiento**, pegue la cadena de conexión de la cuenta de almacenamiento de Azure que creó siguiendo los pasos anteriores.
      ![Administración de clientes potenciales, cuenta de almacenamiento de detalles de conexión](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-connection-details.png)
 
-1. **Dirección de correo electrónico de contacto** : proporcione los correos electrónicos de las personas de su empresa que deban recibir notificaciones por correo electrónico cuando se reciba un nuevo cliente potencial. Puede proporcionar varias direcciones de correo electrónico separadas con punto y coma.
+1. **Dirección de correo electrónico de contacto**: proporcione los correos electrónicos de las personas de su empresa que deban recibir notificaciones por correo electrónico cuando se reciba un nuevo cliente potencial. Puede proporcionar varias direcciones de correo electrónico separadas con punto y coma.
 
 1. Seleccione **Aceptar**.
 

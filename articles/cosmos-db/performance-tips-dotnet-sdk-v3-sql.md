@@ -7,13 +7,13 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: jawilley
-ms.custom: devx-track-dotnet, contperfq2
-ms.openlocfilehash: ab9fc4f08b96fc10a20125c30af2d6b8050c7606
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.custom: devx-track-dotnet, contperf-fy21q2
+ms.openlocfilehash: f503f132794f6d04b587a78b8f838acba26f9ac3
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341746"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032021"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Sugerencias de rendimiento para Azure Cosmos DB y .NET
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -41,13 +41,13 @@ En el caso de Linux y otras plataformas no compatibles en las que ServiceInterop
 
 Los cuatro tipos de aplicaciones que se enumeran aquí usan el procesamiento de host de 32 bits de forma predeterminada. Para cambiar el procesamiento de host al procesamiento de 64 bits para el tipo de aplicación, haga lo siguiente:
 
-- **Para aplicaciones ejecutables** : en la ventana **Propiedades del proyecto** , en el panel **Compilación** , establezca la [plataforma de destino](/visualstudio/ide/how-to-configure-projects-to-target-platforms?preserve-view=true&view=vs-2019) en **x64**.
+- **Para aplicaciones ejecutables**: en la ventana **Propiedades del proyecto**, en el panel **Compilación**, establezca la [plataforma de destino](/visualstudio/ide/how-to-configure-projects-to-target-platforms?preserve-view=true&view=vs-2019) en **x64**.
 
-- **Para proyectos de prueba basados en VSTest** : en el menú **Prueba** de Visual Studio, seleccione **Probar** > **Configuración de pruebas** y, a continuación, establezca **Arquitectura de procesador predeterminada** en **x64**.
+- **Para proyectos de prueba basados en VSTest**: en el menú **Prueba** de Visual Studio, seleccione **Probar** > **Configuración de pruebas** y, a continuación, establezca **Arquitectura de procesador predeterminada** en **x64**.
 
-- **Para aplicaciones web de ASP.NET implementadas localmente** : seleccione **Herramientas** > **Opciones** > **Proyectos y soluciones** > **Proyectos web** y, a continuación, seleccione **Usar la versión de 64 bits de IIS Express para proyectos y sitios web**.
+- **Para aplicaciones web de ASP.NET implementadas localmente**: seleccione **Herramientas** > **Opciones** > **Proyectos y soluciones** > **Proyectos web** y, a continuación, seleccione **Usar la versión de 64 bits de IIS Express para proyectos y sitios web**.
 
-- **Para aplicaciones web de ASP.NET implementadas en Azure** : en Azure Portal, en **Configuración de la aplicación** , seleccione la plataforma **64 bits**.
+- **Para aplicaciones web de ASP.NET implementadas en Azure**: en Azure Portal, en **Configuración de la aplicación**, seleccione la plataforma **64 bits**.
 
 > [!NOTE] 
 > De forma predeterminada, los nuevos proyectos de Visual Studio se establecen en **cualquier CPU**. Se recomienda establecer el proyecto en **x64** para que no cambie a **x86**. Un proyecto establecido en **Cualquier CPU** puede cambiar fácilmente a **x86** si se agrega una dependencia solo para x86.<br/>
@@ -156,13 +156,13 @@ El SDK de .NET para SQL admite las consultas paralelas, que permiten consultar 
 
 Las consultas paralelas proporcionan dos parámetros que se pueden adaptar para ajustarse a sus requisitos: 
 
-- **MaxConcurrency** : controla el número máximo de particiones que se pueden consultar en paralelo.
+- **MaxConcurrency**: controla el número máximo de particiones que se pueden consultar en paralelo.
 
    La consulta en paralelo funciona consultando varias particiones en paralelo. Sin embargo, los datos de una partición individual se capturan en serie con respecto a la consulta. Al establecer `MaxConcurrency` en [SDK V3](https://github.com/Azure/azure-cosmos-dotnet-v3) en el número de particiones, tiene la mejor posibilidad de lograr la consulta de mayor rendimiento, siempre y cuando todas las demás condiciones del sistema sigan siendo las mismas. Si no conoce el número de particiones, puede establecer el grado de paralelismo en un número alto. El sistema elegirá el mínimo (número de particiones, entrada proporcionada por el usuario) como el grado de paralelismo.
 
     Las consultas paralelas son las que mayor ventaja ofrecen si los datos se distribuyen de manera uniforme entre todas las particiones con respecto a la consulta. Si la colección con particiones tiene particiones para que todos o la mayoría de los datos devueltos por una consulta se concentren en algunas particiones (una partición es el peor caso), esas particiones producirán cuellos de botella en el rendimiento de la consulta.
    
-- **MaxBufferedItemCount** : controla el número de resultados capturados previamente.
+- **MaxBufferedItemCount**: controla el número de resultados capturados previamente.
 
    Las consultas en paralelo están diseñadas para capturar previamente los resultados mientras el cliente procesa el lote actual de resultados. Esta captura previa ayuda a mejorar la latencia general de una consulta. El parámetro `MaxBufferedItemCount` limita el número de resultados capturados previamente. Establezca `MaxBufferedItemCount` en el número esperado de resultados devueltos (o un número más alto) para permitir que la consulta reciba el máximo beneficio de la captura previa.
 

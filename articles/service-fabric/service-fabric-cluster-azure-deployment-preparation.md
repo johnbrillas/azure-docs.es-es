@@ -3,12 +3,12 @@ title: Planeación de una implementación de clúster de Azure Service Fabric
 description: Obtenga información sobre la planificación y preparación de la implementación de un clúster de producción de Service Fabric.
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: 1064e59491b7144aafade24bd50131478fe025eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9de59811397eb47809c6d71f608e43beae5bfadb
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87281334"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109630"
 ---
 # <a name="plan-and-prepare-for-a-cluster-deployment"></a>Planeamiento y preparación de la implementación de un clúster
 
@@ -89,8 +89,6 @@ Los discos del sistema operativo efímeros no son una característica específic
 
 > [!NOTE]
 > Las aplicaciones de usuario no deben tener ninguna dependencia, archivo o artefacto en el disco del sistema operativo, ya que este se perdería en caso de una actualización del sistema operativo.
-> Por lo tanto, no se recomienda usar [PatchOrchestrationApplication](https://github.com/microsoft/Service-Fabric-POA) con discos efímeros.
->
 
 > [!NOTE]
 > Los VMSS no efímeros existentes no se pueden actualizar en contexto para usar discos efímeros.

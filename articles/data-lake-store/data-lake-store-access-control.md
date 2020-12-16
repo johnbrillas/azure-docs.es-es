@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: d889c82142cda60b920f7b29bd91755cbc34f525
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 48ff32655b107958a3e8e42dbd7de0f405a6fffa
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701456"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97094869"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Control de acceso en Azure Data Lake Storage Gen1
 
@@ -33,8 +33,6 @@ Hay dos tipos de listas de control de acceso (ACL): **ACL de acceso** y **ACL pr
 
 
 Tanto las ACL de acceso como las ACL predeterminadas tienen la misma estructura.
-
-
 
 > [!NOTE]
 > El cambio de la ACL predeterminada en un elemento primario no afecta a la ACL de acceso o a la ACL predeterminada de los elementos secundarios que ya existen.
@@ -74,7 +72,7 @@ A continuación, hay algunos escenarios comunes para ayudarle a entender qué pe
 | Operación | Object              |    /      | Seattle/   | Portland/   | Data.txt       |
 |-----------|---------------------|-----------|------------|-------------|----------------|
 | Lectura      | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
-| Anexar a | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
+| Anexar a | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `-W-`          |
 | Eliminar    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
 | Crear    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
 | List      | /                   |   `R-X`   |   `---`    |  `---`      | `---`          |

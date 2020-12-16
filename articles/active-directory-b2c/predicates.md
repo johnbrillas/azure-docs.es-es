@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b01f1edd4305c09a874b177e4bca373991c9162e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46f04c55b40d4f1bdbbf5fd55eb648d1d3294056
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85203816"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108423"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predicates y PredicateValidations
 
@@ -428,4 +428,4 @@ En el tipo de notificación, agregue el elemento **PredicateValidationReference*
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga más información sobre la [Configuración de la complejidad de contraseñas mediante directivas personalizadas en Azure Active Directory B2C](custom-policy-password-complexity.md) con validaciones de predicado.
+- Obtenga más información sobre la [Configuración de la complejidad de contraseñas mediante directivas personalizadas en Azure Active Directory B2C](password-complexity.md) con validaciones de predicado.

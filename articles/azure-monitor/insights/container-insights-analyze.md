@@ -3,12 +3,12 @@ title: Supervisión de Kubernetes con Azure Monitor para contenedores | Microsof
 description: En este artículo se describe cómo puede ver y analizar el rendimiento de un clúster de Kubernetes con Azure Monitor para contenedores.
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.openlocfilehash: de61e8e5b2716a3ca212a0a830a4d48b8bd2c3ef
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a1f661089b3a6357abb3eed584401e6a8ae2e2fb
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96011088"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905713"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>Supervisión del rendimiento del clúster de Kubernetes con Azure Monitor para contenedores
 
@@ -228,7 +228,7 @@ La jerarquía de filas comienza con un controlador. Al expandir un controlador, 
 
 Seleccione el valor de la columna **Nodo** del nodo específico.
 
-![Ejemplo de exploración en profundidad del nodo al controlador en la vista de rendimiento](./media/container-insights-analyze/drill-down-controller-node.png)
+![Ejemplo de exploración en profundidad del controlador al nodo en la vista de rendimiento](./media/container-insights-analyze/drill-down-controller-node.png)
 
 La información que se muestra al ver los controladores se describe en la siguiente tabla.
 
@@ -297,31 +297,8 @@ El administrador de directivas de red de Azure incluye métricas informativas de
 
 ## <a name="workbooks"></a>Workbooks
 
-Los libros combinan texto, [consultas de registros](/azure/data-explorer/kusto/query/), [métricas ](../platform/data-platform-metrics.md)y parámetros para crear informes interactivos avanzados. Otros miembros del equipo con acceso a los mismos recursos de Azure pueden editar los libros.
+Los libros combinan texto, consultas de registros, métricas y parámetros en informes interactivos enriquecidos que permiten analizar el rendimiento del clúster. Consulte [Libros en Azure Monitor para contenedores](container-insights-reports.md) para ver una descripción de los libros disponibles para Azure Monitor para contenedores.
 
-Azure Monitor para contenedores incluye cuatro libros introductorios:
-
-- **Capacidad de disco**: Presenta gráficos interactivos del uso de cada uno de los discos que se presenta en el nodo dentro de un contenedor por las siguientes perspectivas:
-
-    - Porcentaje de uso de disco (para todos los discos).
-    - Espacio libre en disco (para todos los discos).
-    - Una cuadrícula que muestra el disco de cada nodo, su porcentaje de espacio usado, la tendencia del porcentaje de espacio usado, el espacio libre en el disco (GiB) y la tendencia de espacio libre en el disco (GiB). Cuando se selecciona una fila de la tabla, a continuación se muestran debajo de dicha fila el porcentaje de espacio usado y el espacio libre en el disco (GiB).
-
-- **E/S de disco**: Presenta gráficos interactivos del uso de cada uno de los discos que se presenta en el nodo dentro de un contenedor por las siguientes perspectivas:
-
-    - Resumen de E/S de disco en todos los discos por bytes de lectura por segundo, bytes de escritura por segundo y tendencias de lectura y escritura en bytes por segundo.
-    - Ocho gráficos de rendimiento que muestran indicadores clave de rendimiento que le ayudarán a medir e identificar los cuellos de botella de E/S de disco.
-
-- **Kubelet**: incluye dos cuadrículas que muestran las estadísticas operativas del nodo principal:
-
-    - La información general sobre la cuadrícula de nodos resume el número total de operaciones, errores y operaciones correctas en porcentaje, junto con la tendencia de cada nodo.
-    - La información general por tipo de operación resume para cada operación el número total de operaciones, de errores y de operaciones correctas en porcentaje, y la tendencia.
-
-- **Network** (Red): Presenta gráficos interactivos de uso de red para cada adaptador de red de nodos y una cuadrícula que presenta los indicadores clave de rendimiento para ayudar a medir el rendimiento de los adaptadores de red.
-
-Para acceder a estos libros, seleccione cada uno de ellos en la lista desplegable **Ver libros**.
-
-![Lista desplegable Ver libros](./media/container-insights-analyze/view-workbooks-dropdown-list.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

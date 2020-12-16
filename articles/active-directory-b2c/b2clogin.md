@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/27/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b82edf39185067e4c761c7598b159a655dfc370c
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 20df5fc3a4d7c392be62df2b7778854d1e2e1cba
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92735406"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109069"
 ---
 # <a name="set-redirect-urls-to-b2clogincom-for-azure-active-directory-b2c"></a>Establecimiento de direcciones URL de redireccionamiento en b2clogin.com para Azure Active Directory B2C
 
@@ -53,15 +53,15 @@ Cuando use *b2clogin.com* como la dirección URL de redireccionamiento:
 
 * Se reduce el espacio que los servicios de Microsoft consumen en el encabezado de las cookies.
 * Las direcciones URL ya no incluyen una referencia a Microsoft.
-* El código de cliente de JavaScript se admite (actualmente en [versión preliminar](user-flow-javascript-overview.md)) en páginas personalizadas. Debido a las restricciones de seguridad, el código JavaScript y los elementos de formulario HTML se quitan de las páginas personalizadas si se usa *login.microsoftonline.com*.
+* El código de cliente de JavaScript se admite (actualmente en [versión preliminar](javascript-and-page-layout.md)) en páginas personalizadas. Debido a las restricciones de seguridad, el código JavaScript y los elementos de formulario HTML se quitan de las páginas personalizadas si se usa *login.microsoftonline.com*.
 
 ## <a name="overview-of-required-changes"></a>Información general de los cambios necesarios
 
-Puede que tenga que realizar varias modificaciones para migrar las aplicaciones a *b2clogin.com* :
+Puede que tenga que realizar varias modificaciones para migrar las aplicaciones a *b2clogin.com*:
 
 * Cambie las direcciones URL de redireccionamiento en las aplicaciones del proveedor de identidades para hacer referencia a *b2clogin.com*.
 * Actualice la aplicación Azure AD B2C para que utilice *b2clogin.com* como referencias de flujos de usuario y puntos de conexión de token. Esto puede incluir la actualización del uso de una biblioteca de autenticación, como la biblioteca de autenticación de Microsoft (MSAL).
-* Actualice cualquier **origen permitido** que haya definido en la configuración de CORS para la [personalización de la interfaz de usuario](custom-policy-ui-customization.md).
+* Actualice cualquier **origen permitido** que haya definido en la configuración de CORS para la [personalización de la interfaz de usuario](customize-ui-with-html.md).
 
 Un punto de conexión anterior puede tener el siguiente aspecto:
 - <b><code>https://login.microsoft.com/</b>\<tenant-name\>.onmicrosoft.com/\<policy-name\>/oauth2/v2.0/authorize</code>

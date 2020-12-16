@@ -11,12 +11,12 @@ ms.date: 12/04/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f308f46fc021a1d08f4065d48558a6dd71786c7c
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 5c6ed106462d7dcac3f31a2ab157e5b634391006
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96860362"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093458"
 ---
 # <a name="inbound-synchronization-for-cloud-provisioning-using-ms-graph-api"></a>Sincronización de entrada para el aprovisionamiento en la nube mediante MS Graph API
 
@@ -43,7 +43,7 @@ Use estos comandos del [Módulo Microsoft Azure Active Directory para Windows Po
 El primero de estos dos comandos requiere las credenciales de Azure Active Directory. Estos commandlets identifican de manera implícita el inquilino y permiten que se sincronice.
 
 ## <a name="create-service-principals"></a>Creación de entidades de servicio
-A continuación, es necesario crear la [aplicación o la entidad de servicio de AD2AAD](https://docs.microsoft.com/graph/apiapplicationtemplate-instantiate?view=graph-rest-beta&tabs=http).
+A continuación, es necesario crear la [aplicación o la entidad de servicio de AD2AAD](/graph/api/applicationtemplate-instantiate?view=graph-rest-beta&tabs=http).
 
 Debe usar el identificador de aplicación 1a4721b3-e57f-4451-ae87-ef078703ec94. El valor de displayName es la dirección URL del dominio de AD, si se usa en el portal (por ejemplo, contoso.com), pero puede tener un nombre diferente.
 

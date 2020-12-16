@@ -3,12 +3,12 @@ title: 'Preparación para la producción y procedimientos recomendados: Azure'
 description: En este artículo se ofrecen instrucciones sobre cómo configurar e implementar el módulo Live Video Analytics on IoT Edge en entornos de producción.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: c34e05e184cfa6f0933701a76177fae3eed70c0a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 215427e3524861a842349b197668d92167960e5c
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87071931"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906342"
 ---
 # <a name="production-readiness-and-best-practices"></a>Preparación para la producción y procedimientos recomendados
 
@@ -62,7 +62,7 @@ Después, en el manifiesto de implementación, puede establecer las variables de
 
 Para el módulo Live Video Analytics on IoT Edge se necesita la capacidad de escribir archivos en el sistema de archivos local al:
 
-* Usar una propiedad del módulo gemelo [[applicationDataDirectory](module-twin-configuration-schema.md#module-twin-properties)], donde debe especificar un directorio en el sistema de archivos local para almacenar los datos de configuración.
+* Usar una propiedad del módulo gemelo [`applicationDataDirectory`](module-twin-configuration-schema.md#module-twin-properties), donde debe especificar un directorio en el sistema de archivos local para almacenar los datos de configuración.
 * Usar un gráfico multimedia para grabar vídeo en la nube; en este caso, el módulo necesita el uso de un directorio en el dispositivo perimetral como memoria caché. Vea el artículo [Grabación de vídeo continua](continuous-video-recording-concept.md) para más información.
 * [Grabar en un archivo local](event-based-video-recording-concept.md#video-recording-based-on-events-from-other-sources), donde debe especificar una ruta de acceso de archivo para el vídeo grabado.
 
@@ -124,7 +124,7 @@ En el caso de los recursos generados mediante grabación de vídeo basada en eve
 Si está ejecutando varias instancias del mismo gráfico, puede usar el nombre de la topología de gráfico y el nombre de instancia para diferenciarlos. Por ejemplo, puede establecer assetNamePattern en el receptor de recursos como se indica aquí:
 
 ```
-"assetNamePattern": "sampleAssetFromEVR-${System.GraphTopologyName}-${System.GraphInstanceName} -${System.DateTime}"
+"assetNamePattern": "sampleAssetFromEVR-${System.GraphTopologyName}-${System.GraphInstanceName}-${System.DateTime}"
 ```
 
 En el caso de los clips de vídeo mp4 generados por grabación de vídeo basada en eventos, el patrón de nomenclatura recomendado debe incluir DateTime y, para varias instancias del mismo gráfico, se recomienda usar las variables del sistema GraphTopologyName y GraphInstanceName. Por ejemplo, puede establecer filePathPattern en el receptor de archivos como se indica aquí: 

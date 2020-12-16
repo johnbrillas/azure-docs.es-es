@@ -3,18 +3,18 @@ title: Representación de datos personalizados en un mapa de trama | Microsoft A
 description: Aprenda a agregar chinchetas, etiquetas y formas geométricas a un mapa de tramas. Vea cómo usar el servicio de imágenes estáticas de Azure Maps para este fin.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 01/23/2020
+ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 88afb380f1aabf0c91e9d5abb0430972743eb6c2
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 5c70835c11bafb3fd06645ba51099b33d1eb6149
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895756"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906087"
 ---
 # <a name="render-custom-data-on-a-raster-map"></a>Representación de datos personalizados en un mapa de trama
 
@@ -43,7 +43,7 @@ Para representar los marcadores con etiquetas y una imagen personalizada, siga e
 
 1. Cree una colección en la que vaya a almacenar las solicitudes. En la aplicación Postman, seleccione **New** (Nuevo). En la ventana **Create New** (Crear nuevo), seleccione **Collection** (Colección). Asigne un nombre a la colección y seleccione el botón **Create** (Crear). 
 
-2. Para crear la solicitud, seleccione **New** (Nuevo) otra vez. En la ventana **Create New** (Crear nuevo), seleccione **Request** (Solicitud). Escriba un valor de **Request name** (Nombre de solicitud) para los marcadores. Seleccione la colección que creó en el paso anterior como ubicación en la que se va a guardar la solicitud. Después, seleccione **Guardar** .
+2. Para crear la solicitud, seleccione **New** (Nuevo) otra vez. En la ventana **Create New** (Crear nuevo), seleccione **Request** (Solicitud). Escriba un valor de **Request name** (Nombre de solicitud) para los marcadores. Seleccione la colección que creó en el paso anterior como ubicación en la que se va a guardar la solicitud. Después, seleccione **Guardar**.
     
     ![Creación de una solicitud en Postman](./media/how-to-render-custom-data/postman-new.png)
 
@@ -223,4 +223,4 @@ Del mismo modo, puede cambiar, agregar y quitar otros modificadores de estilo.
 
 
 * Explore la documentación sobre [Get Map Image API de Azure Maps Get](/rest/api/maps/render/getmapimage).
-* Para más información sobre las funcionalidades Azure Maps Data Service, consulte la [documentación sobre el servicio](/rest/api/maps/data).
+* Para más información sobre el servicio Data de Azure Maps (versión preliminar), consulte la [documentación del servicio](/rest/api/maps/data).

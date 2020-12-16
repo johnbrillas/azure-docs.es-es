@@ -1,24 +1,29 @@
 ---
-title: Solicitud de datos públicos de tránsito en tiempo real | Microsoft Azure Maps
-description: Obtenga información acerca de cómo solicitar datos de tránsito público en tiempo real, como las llegadas en una parada de transporte público. Consulte cómo usar el servicio Mobility de Azure Maps para este fin.
+title: Solicitud de datos de transporte público en tiempo real con los servicios de Mobility de Microsoft Azure Maps (versión preliminar)
+description: Obtenga información acerca de cómo solicitar datos de tránsito público en tiempo real, como las llegadas en una parada de transporte público. Consulte cómo usar los servicios de Mobility de Azure Maps (versión preliminar) para este fin.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 09/06/2019
+ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: e6f6d0738cb1673b752e35761a112f2ca22a409e
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: d3e3dc4b0e3bc64a38856da8344583b744ea62b6
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895722"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906053"
 ---
-# <a name="request-real-time-public-transit-data-using-the-azure-maps-mobility-service"></a>Solicitud de datos públicos de tránsito en tiempo real mediante Mobility Service de Azure Maps
+# <a name="request-real-time-public-transit-data-using-the-azure-maps-mobility-services-preview"></a>Solicitud de datos de transporte público en tiempo real mediante los servicios de Mobility de Azure Maps (versión preliminar) 
 
-En este artículo se muestra cómo usar [Mobility Service](/rest/api/maps/mobility) de Azure Maps para solicitar datos públicos de tránsito en tiempo real.
+> [!IMPORTANT]
+> Los servicios de Mobility de Azure Maps se encuentran actualmente en versión preliminar pública.
+> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+
+En este artículo se muestra cómo usar los [servicios de Mobility](/rest/api/maps/mobility) de Azure Maps para solicitar datos de transporte público en tiempo real.
 
 En este artículo, aprenderá a solicitar las siguientes llegadas en tiempo real de todas las líneas que llegan a una parada determinada.
 
@@ -30,13 +35,13 @@ Este artículo utiliza la [aplicación Postman](https://www.getpostman.com/apps)
 
 ## <a name="request-real-time-arrivals-for-a-stop"></a>Solicitud de llegadas en tiempo real en una parada
 
-Para solicitar datos de las llegadas en tiempo real para una parada de transporte público determinada, deberá realizar una solicitud a la [API de llegadas en tiempo real](/rest/api/maps/mobility/getrealtimearrivalspreview) de [Mobility Service](/rest/api/maps/mobility) de Azure Maps. Necesitará los valores de **metroID** y **stopID** para completar la solicitud. Para más información sobre cómo solicitar estos parámetros, consulte nuestra guía para [solicitar rutas de transporte público](./how-to-request-transit-data.md).
+Para solicitar datos en tiempo real de las llegadas de una parada de transporte público determinada, deberá realizar una solicitud a [Real-time Arrivals API](/rest/api/maps/mobility/getrealtimearrivalspreview) de los [servicios de Mobility (versión preliminar)](/rest/api/maps/mobility) de Azure Maps. Necesitará los valores de **metroID** y **stopID** para completar la solicitud. Para más información sobre cómo solicitar estos parámetros, consulte nuestra guía para [solicitar rutas de transporte público](./how-to-request-transit-data.md).
 
 Vamos a usar "522" como metroID, que es el identificador de metro del área "Seattle – Tacoma – Bellevue, WA". Use "522---2060603" como stopID, esta parada de autobús está en "Ne 24th St & 162nd Ave Ne, Bellevue WA". Para solicitar los datos de las siguientes cinco llegadas en tiempo real de esta parada, complete los pasos siguientes:
 
 1. Abra la aplicación Postman y cree una colección para almacenar las solicitudes. Cerca de la parte superior de la aplicación Postman, seleccione **New** (Nuevo). En la ventana **Create New** (Crear nuevo), seleccione **Collection** (Colección).  Asigne un nombre a la colección y seleccione el botón **Create** (Crear).
 
-2. Para crear la solicitud, seleccione **New** (Nuevo) otra vez. En la ventana **Create New** (Crear nuevo), seleccione **Request** (Solicitud). Escriba un valor de **Request name** (Nombre de solicitud) para la solicitud. Seleccione la colección que creó en el paso anterior, como la ubicación en la que se va a guardar la solicitud. Después, seleccione **Guardar** .
+2. Para crear la solicitud, seleccione **New** (Nuevo) otra vez. En la ventana **Create New** (Crear nuevo), seleccione **Request** (Solicitud). Escriba un valor de **Request name** (Nombre de solicitud) para la solicitud. Seleccione la colección que creó en el paso anterior, como la ubicación en la que se va a guardar la solicitud. Después, seleccione **Guardar**.
 
     ![Creación de una solicitud en Postman](./media/how-to-request-transit-data/postman-new.png)
 
@@ -113,12 +118,12 @@ Vamos a usar "522" como metroID, que es el identificador de metro del área "Sea
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Aprenda a solicitar datos de tránsito mediante Mobility Service:
+Aprenda a solicitar datos de transporte público mediante los servicios de Mobility (versión preliminar):
 
 > [!div class="nextstepaction"]
 > [Cómo solicitar datos de tránsito](how-to-request-transit-data.md)
 
-Explore la documentación de la API de Azure Maps Mobility Service:
+Explore la documentación de las API de los servicios de Mobility de Azure Maps (versión preliminar):
 
 > [!div class="nextstepaction"]
-> [Documentación de Mobility Service API](/rest/api/maps/mobility)
+> [Documentación de las API de los servicios de Mobility](/rest/api/maps/mobility)

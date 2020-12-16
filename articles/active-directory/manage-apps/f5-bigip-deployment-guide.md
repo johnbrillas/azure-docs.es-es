@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/12/2020
 ms.author: gasinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7555a0b9d7b3336b1020e8f1d9c3445e09afc6f0
-ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
+ms.openlocfilehash: 6c03009b08dcf33bf4b84bc91232af96e7ba2c71
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96317746"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095192"
 ---
 # <a name="tutorial-to-deploy-f5-big-ip-virtual-edition-vm-in-azure-iaas-for-secure-hybrid-access"></a>Tutorial para implementar la máquina virtual de F5 BIG-IP Virtual Edition en IaaS de Azure para el acceso híbrido seguro
 
@@ -44,7 +44,7 @@ No se necesita experiencia ni conocimientos previos de F5 BIG-IP, aunque es reco
 
 - Un certificado comodín o de nombre alternativo del firmante (SAN), para publicar aplicaciones web a través de la capa de sockets seguros (SSL). [Let's Encrypt](https://letsencrypt.org/) ofrece un certificado gratis de 90 días para las pruebas.
 
-- Un certificado SSL para proteger la interfaz de administración de BIG-IPs. Se puede utilizar un certificado que se usa para publicar aplicaciones web, si su asunto se corresponde con el nombre de dominio completo de BIG-IP. Por ejemplo, un certificado comodín definido con un asunto *.contoso.com sería adecuado para https://big-ip-vm.contoso.com:8443
+- Un certificado SSL para proteger la interfaz de administración de BIG-IPs. Se puede utilizar un certificado que se usa para publicar aplicaciones web, si su asunto se corresponde con el nombre de dominio completo de BIG-IP. Por ejemplo, un certificado comodín definido con un asunto *.contoso.com sería adecuado para `https://big-ip-vm.contoso.com:8443`
 
 La implementación de la máquina virtual y las configuraciones del sistema base tardan aproximadamente 30 minutos, momento en el cual la plataforma BIG-IP estará lista para implementar cualquiera de los escenarios de acceso híbrido seguro que se muestran [aquí](f5-aad-integration.md).
 

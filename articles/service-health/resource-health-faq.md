@@ -3,12 +3,12 @@ title: P+F sobre Azure Resource Health
 description: Introducción a Azure Resource Health
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: c8089e907f555ac970fea06361a2ab1bbc944778
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5ad8867b110039e4dcc34b20c8a61fccfd39eaf
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91536501"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032871"
 ---
 # <a name="azure-resource-health-faq"></a>P+F sobre Azure Resource Health
 Aprenda las respuestas a las preguntas más frecuentes sobre Azure Resource Health.
@@ -52,7 +52,6 @@ Resource Health [admite](resource-health-alert-arm-template-guide.md) las alerta
 Después de iniciar sesión en Azure Portal, puede acceder a Resource Health de varias maneras:
 - Vaya al recurso. En el panel de navegación de la izquierda, seleccione **Resource Health**
 - Vaya a la hoja de Azure Service Health.  En el panel de navegación de la izquierda, seleccione **Resource Health**.
-- Seleccione el signo de interrogación que se encuentra en la esquina superior derecha del portal y seleccione **Ayuda y soporte técnico** para abrir la hoja **Ayuda y soporte técnico**. Cuando se abra la hoja, seleccione **Resource Health**
 
 También puede usar la API de Resource Health para obtener información sobre el estado de los recursos.
 
@@ -69,8 +68,6 @@ Resource Health está disponible en todas las zonas geográficas de Azure.
 La información que Resource Health proporciona es más específica que la que proporciona el estado de Azure o el panel de Service Health.
 
 Mientras que el [estado de Azure](https://status.azure.com) y el panel de Service Health le informan sobre problemas de servicio que afectan a un amplio conjunto de clientes (por ejemplo, una región de Azure), Resource Health expone eventos más pormenorizados que solo afectan a un recurso específico. Por ejemplo, si un host se reinicia de improviso, Resource Health solo alerta a los clientes cuyas máquinas virtuales se ejecutaban en ese host.
-
-Es importante tener en cuenta que, para proporcionar visibilidad completa de los eventos que afectan a los recursos, Resource Health también expone los eventos publicados en el panel de Service Health.
 
 ## <a name="do-i-need-to-activate-resource-health-for-each-resource"></a>¿Es necesario activar Resource Health para cada recurso?
 No, la información de estado está disponible para todos los tipos de recursos a través de Resource Health. 

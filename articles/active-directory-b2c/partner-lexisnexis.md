@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 07/22/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 9bec7ffe28fbcdafd365f9867ebecaee5d2647e5
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 5f408699cae9580188a3780fc8f8654eaa97c26b
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94953699"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108440"
 ---
 # <a name="tutorial-for-configuring-lexisnexis-with-azure-active-directory-b2c"></a>Tutorial para configurar LexisNexis con Azure Active Directory B2C
 
@@ -73,7 +73,7 @@ Una vez creada la cuenta, recibirá la información que necesita para la configu
 
 ### <a name="part-1---deploy-the-api"></a>Parte 1: implementación de la API
 
-Implemente el [código de la API](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/Api) proporcionado en un servicio de Azure. El código se puede publicar desde Visual Studio siguiendo estas [instrucciones](/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
+Implemente el [código de la API](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/Api) proporcionado en un servicio de Azure. El código se puede publicar desde Visual Studio siguiendo estas [instrucciones](/visualstudio/deployment/quickstart-deploy-to-azure).
 
 >[!NOTE]
 >Necesitará la dirección URL del servicio implementado para configurar Azure AD con la configuración necesaria.
@@ -95,7 +95,7 @@ La configuración de la aplicación se puede [configurar en App Service en Azure
 
 Esta solución utiliza plantillas de interfaz de usuario personalizadas que se cargan mediante Azure AD B2C. Estas plantillas de interfaz de usuario realizan la generación de perfiles que se envía directamente al servicio ThreatMetrix.
 
-Consulte estas [instrucciones](./custom-policy-ui-customization.md#custom-page-content-walkthrough) para implementar los [archivos de interfaz de usuario](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/ui-template) incluidos en una cuenta de almacenamiento de blobs. Las instrucciones incluyen la configuración de una cuenta de almacenamiento de blobs, la configuración de CORS y la habilitación del acceso público.
+Consulte estas [instrucciones](./customize-ui-with-html.md#custom-page-content-walkthrough) para implementar los [archivos de interfaz de usuario](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/ui-template) incluidos en una cuenta de almacenamiento de blobs. Las instrucciones incluyen la configuración de una cuenta de almacenamiento de blobs, la configuración de CORS y la habilitación del acceso público.
 
 La interfaz de usuario se basa en la [plantilla azul océano](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/ui-template/ocean_blue). Todos los vínculos dentro de la interfaz de usuario deben actualizarse para hacer referencia a la ubicación implementada. En la carpeta de la interfaz de usuario, busque y reemplace https://yourblobstorage/blobcontainer por la ubicación implementada.
 

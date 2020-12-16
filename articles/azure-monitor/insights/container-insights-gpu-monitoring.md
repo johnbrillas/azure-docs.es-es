@@ -3,12 +3,12 @@ title: Configuración de la supervisión de GPU con Azure Monitor para contenedo
 description: En este artículo se describe cómo puede configurar los clústeres de Kubernetes de supervisión con nodos habilitados para GPU NVIDIA y AMD con Azure Monitor para contenedores.
 ms.topic: conceptual
 ms.date: 03/27/2020
-ms.openlocfilehash: 4c6044d407dc4abd0e69bac0190cc19c901022c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e391117ab57211aa5d178d11c27b934b4ccd37f8
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89569703"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905594"
 ---
 # <a name="configure-gpu-monitoring-with-azure-monitor-for-containers"></a>Configuración de la supervisión de GPU con Azure Monitor para contenedores
 
@@ -39,7 +39,7 @@ Azure Monitor para contenedores inicia automáticamente la supervisión del uso
 
 ## <a name="gpu-performance-charts"></a>Gráficos de rendimiento de GPU 
 
-Azure Monitor para contenedores incluye gráficos preconfigurados para las métricas indicadas anteriormente en la tabla como libro de GPU para cada clúster. Puede encontrar el libro de GPU **GPU de nodo** directamente de un clúster de AKS. Para ello, seleccione **Libros** en el panel izquierdo y, en la lista desplegable **Ver libros** de Conclusión.
+Azure Monitor para contenedores incluye gráficos preconfigurados para las métricas indicadas anteriormente en la tabla como libro de GPU para cada clúster. Consulte [Libros en Azure Monitor para contenedores](container-insights-reports.md) para ver una descripción de los libros disponibles para Azure Monitor para contenedores.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

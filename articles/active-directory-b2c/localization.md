@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 27a00c69a4423e45b46b9c3d0340bb7cd1a35d65
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 88244ec3ba4bbebe7d6096fa3ac49bd4f1b8f661
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92095907"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108628"
 ---
 # <a name="localization-element"></a>Elemento Localization
 
@@ -114,7 +114,7 @@ El elemento **Item** contiene los atributos siguientes:
 | Value | Sí | Valor de notificación de cadena asociado a la selección de esta opción. |
 | SelectByDefault | No | Indica si esta opción se puede seleccionar o no de forma predeterminada en la interfaz de usuario. Valores posibles: True o False. |
 
-En el ejemplo siguiente, se muestra cómo usar el elemento **LocalizedCollections** . Contiene dos elementos **LocalizedCollection** , uno para inglés y otro para español. Ambos establecen la colección **Restriction** de la notificación `Gender` con una lista de elementos para inglés y español.
+En el ejemplo siguiente, se muestra cómo usar el elemento **LocalizedCollections**. Contiene dos elementos **LocalizedCollection**, uno para inglés y otro para español. Ambos establecen la colección **Restriction** de la notificación `Gender` con una lista de elementos para inglés y español.
 
 ```xml
 <LocalizedResources Id="api.selfasserted.en">
@@ -354,5 +354,5 @@ En la sección Metadatos de un perfil técnico autoafirmado, el elemento Content
 
 Consulte los siguientes artículos para obtener ejemplos de localización:
 
-- [Personalización de idioma con directiva personalizada en Azure Active Directory B2C](custom-policy-localization.md)
-- [Personalización de idioma con flujos de usuario en Azure Active Directory B2C](user-flow-language-customization.md)
+- [Personalización de idioma con directiva personalizada en Azure Active Directory B2C](language-customization.md)
+- [Personalización de idioma con flujos de usuario en Azure Active Directory B2C](language-customization.md)

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: juergent
-ms.openlocfilehash: 6c1b19927207e1accb4ae6c47625eed41a6b0b92
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 83c149e92276265b5b5236ae56c475d7307c18e4
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967795"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093917"
 ---
 # <a name="installation-of-sap-hana-on-azure-virtual-machines"></a>Instalación de SAP HANA en máquinas virtuales de Azure
 ## <a name="introduction"></a>Introducción
@@ -88,7 +88,7 @@ Uno de los requisitos específicos de Azure es la instalación de una extensión
 -  [Implementación de Azure Virtual Machines para SAP NetWeaver](./deployment-guide.md#d98edcd3-f2a1-49f7-b26a-07448ceb60ca)
 
 ## <a name="sap-hana-installation"></a>Instalación de SAP HANA
-Una vez que las máquinas virtuales se hayan implementado y los sistemas operativos se hayan registrado y configurado, podrá instalar SAP HANA en función de la instalación de SAP. Como buen punto de partida con esta documentación, comience con el sitio web de SAP para [recursos de HANA](https://www.sap.com/products/hana/implementation/resources.html).
+Una vez que las máquinas virtuales se hayan implementado y los sistemas operativos se hayan registrado y configurado, podrá instalar SAP HANA en función de la instalación de SAP. Como buen punto de partida con esta documentación, comience con el sitio web de SAP para [recursos de HANA](https://www.sap.com/products/s4hana-erp.html?btp=9d3e6f82-d8ab-4122-8d2d-bf4971217afd).
 
 Para obtener configuraciones de escalabilidad horizontal para SAP HANA que usan discos de Azure Premium Storage o Ultra conectados directamente, consulte los detalles en el documento [Configuraciones y operaciones de infraestructura de SAP HANA en Azure](./hana-vm-operations.md#configuring-azure-infrastructure-for-sap-hana-scale-out).
 

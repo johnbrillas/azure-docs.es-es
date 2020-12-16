@@ -7,13 +7,13 @@ ms.topic: how-to
 author: trkeya
 ms.author: trkeya
 ms.date: 10/27/2020
-ms.custom: contperfq2
-ms.openlocfilehash: 3d96973d4d1e37ae3fee21eb70e3e32a45867f0c
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: 26ceee828bae7ea3fe2d78ec1393f308556b8401
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491960"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033364"
 ---
 # <a name="update-existing-offers-in-the-commercial-marketplace"></a>Actualización de ofertas existentes en el Marketplace comercial
 
@@ -24,12 +24,12 @@ En este artículo se explica cómo hacer actualizaciones de ofertas y planes exi
 Use estos pasos para actualizar una oferta que se ha publicado correctamente en estado Versión preliminar o En directo.
 
 1. Seleccione el nombre de la oferta que desea actualizar. El estado de la oferta puede aparecer como **Preview** (Versión preliminar), **Live** (Activa), **Publish in progress** (Publicación en curso), **Draft** (Borrador), **Attention needed** (Requiere atención) o **Not available** (No disponible) (si anteriormente ha elegido dejar de vender la oferta). Una vez seleccionado, se abrirá la página **Información general de la oferta** para dicha oferta.
-1. Seleccione la página de la oferta que quiere actualizar, como **Propiedades** , **Descripción de la oferta** o **Versión preliminar** (o seleccione **Actualizar** en la tarjeta correspondiente de la página **Información general de la oferta** ).
+1. Seleccione la página de la oferta que quiere actualizar, como **Propiedades**, **Descripción de la oferta** o **Versión preliminar** (o seleccione **Actualizar** en la tarjeta correspondiente de la página **Información general de la oferta**).
 1. Realice los cambios y, después seleccione **Save draft** (Guardar borrador). Repita este proceso hasta que completar todos los cambios.
 1. Revise los cambios en la página **[Comparar](#compare-changes-to-your-offer)** .
 1. Cuando esté listo para publicar la oferta actualizada, seleccione **Review and publish** (Revisar y publicar) en cualquier página. Se abrirá la página **Review and publish** (Revisar y publicar). En esta página verá el estado de finalización de las secciones de la oferta que ha actualizado: 
-    - **Cambios sin publicar** : La sección se ha actualizado y completado. Se han proporcionado todos los datos necesarios y no ha habido errores en las actualizaciones.
-    - **Incompletos** : Las actualizaciones realizadas en la sección han introducido errores que tienen que corregirse o es necesario proporcionar más información.
+    - **Cambios sin publicar**: La sección se ha actualizado y completado. Se han proporcionado todos los datos necesarios y no ha habido errores en las actualizaciones.
+    - **Incompletos**: Las actualizaciones realizadas en la sección han introducido errores que tienen que corregirse o es necesario proporcionar más información.
 2. Seleccione **Publicar** para publicar la oferta actualizada. Luego, la oferta pasará por los [pasos de validación y publicación](../review-publish-offer.md#validation-and-publishing-steps) estándar.
 
 > [!IMPORTANT]
@@ -48,7 +48,7 @@ Siga estos pasos para agregar un plan nuevo a una oferta que ya ha publicado.
 
 Siga estos pasos para realizar cambios en un plan para una oferta que ya haya publicado.
 
-1. Con la página de **Información general de la oferta** de la oferta existente abierta, elija el plan que quiera cambiar. Si el plan no es accesible desde la lista de **Información general del plan** , seleccione **Ver todos los planes**.
+1. Con la página de **Información general de la oferta** de la oferta existente abierta, elija el plan que quiera cambiar. Si el plan no es accesible desde la lista de **Información general del plan**, seleccione **Ver todos los planes**.
 1. Seleccione los valores de **Name** (Nombre), **Pricing model** (Modelo de precios) o **Availability** (Disponibilidad) del plan. *En la actualidad, los planes solo están disponibles en inglés (Estados Unidos)* .
 1. Seleccione **Save draft** (Guardar borrador) después de realizar los cambios necesarios en el nombre, la descripción, el público o la disponibilidad del plan.
 1. Si está listo para publicar sus actualizaciones, seleccione **Review and publish** (Revisar y publicar). Se abrirá la página **[Revisar y publicar](../review-publish-offer.md)** proporcionando un estado de finalización para las actualizaciones.
@@ -58,7 +58,7 @@ Siga estos pasos para realizar cambios en un plan para una oferta que ya haya pu
 
 Una vez publicado un plan de máquina virtual, no se puede cambiar su precio. Para ofrecer el mismo plan a un precio diferente, debe ocultar el plan y crear otro con el precio actualizado. En primer lugar, oculte el plan con el precio que quiere cambiar:
 
-1. Con la página de **Información general de la oferta** de la oferta existente abierta, elija el plan que quiera cambiar. Si el plan no es accesible desde la lista de **Información general del plan** , seleccione **Ver todos los planes**.
+1. Con la página de **Información general de la oferta** de la oferta existente abierta, elija el plan que quiera cambiar. Si el plan no es accesible desde la lista de **Información general del plan**, seleccione **Ver todos los planes**.
 1. Active la casilla **Ocultar plan**. Guarde el borrador antes de continuar.
 
 Ahora que ha ocultado el plan con el precio anterior, cree una copia de ese plan con el precio actualizado:

@@ -1,22 +1,27 @@
 ---
-title: Cobertura de meteorología en Microsoft Azure Maps
-description: Obtenga información sobre la cobertura de meteorología en Microsoft Azure Maps.
+title: Cobertura de los servicios de Weather de Azure Maps (versión preliminar)
+description: Más información sobre la cobertura de los servicios de Weather (versión preliminar) de Microsoft Azure Maps.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 09/17/2020
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 ms.custom: references_regions
 manager: philmea
-ms.openlocfilehash: 61e529e44f48343027457f18ba503e4bbb5930f1
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 6c4e9eb765a72b7a0b495f81a954b484ef6aa2b7
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896623"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905492"
 ---
-# <a name="azure-maps-weather-coverage"></a>Cobertura de meteorología de Azure Maps
+# <a name="azure-maps-weather-services-preview-coverage"></a>Cobertura de los servicios de Weather de Azure Maps
+
+> [!IMPORTANT]
+> Los servicios de Weather de Azure Maps se encuentran actualmente en versión preliminar pública.
+> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 En este artículo se proporciona información sobre la cobertura de Azure Maps [Weather Services](/rest/api/maps/weather). Los servicios de datos meteorológicos de Azure Maps devuelven detalles como mosaicos de radar, condiciones meteorológicas actuales, previsiones meteorológicas y el tiempo a lo largo de una ruta.
 
@@ -248,7 +253,7 @@ La tabla siguiente proporciona información acerca de qué tipo de información 
 | Armenia                | ✓ |   | | ✓| 
 | Austria                | ✓ | ✓ | ✓ | ✓|
 | Azerbaiyán             | ✓ |   | | ✓| 
-| Belarús                | ✓ |   | | ✓| 
+| Bielorrusia                | ✓ |   | | ✓| 
 | Bélgica                | ✓ | ✓ |  ✓| ✓| 
 | Bosnia y Herzegovina | ✓ | ✓ | ✓ | ✓| 
 | Bulgaria               | ✓ |   |  ✓| ✓| 

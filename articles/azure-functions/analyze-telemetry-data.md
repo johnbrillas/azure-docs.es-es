@@ -3,13 +3,13 @@ title: Análisis de la telemetría de Azure Functions en Application Insights
 description: Obtenga información sobre cómo ver y consultar los datos de telemetría de Azure Functions que Azure Application Insights recopila y almacena.
 ms.topic: how-to
 ms.date: 10/14/2020
-ms.custom: contperfq2
-ms.openlocfilehash: 9091d59cbc3a4cf841e28505531c89c83e705c46
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: 1d8d9cc9a7a4111e98b1d9141957769d6f157d45
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217310"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97027737"
 ---
 # <a name="analyze-azure-functions-telemetry-in-application-insights"></a>Análisis de la telemetría de Azure Functions en Application Insights 
 
@@ -21,7 +21,7 @@ Para más información sobre la retención de datos y los posibles costos de alm
 
 ## <a name="viewing-telemetry-in-monitor-tab"></a>Visualización de la telemetría en la pestaña Supervisar
 
-Con la [integración de Application Insights habilitada](configure-monitoring.md#enable-application-insights-integration), puede ver los datos de telemetría en la pestaña **Supervisar** .
+Con la [integración de Application Insights habilitada](configure-monitoring.md#enable-application-insights-integration), puede ver los datos de telemetría en la pestaña **Supervisar**.
 
 1. En la página de la aplicación de función, seleccione una función que se haya ejecutado por lo menos una vez después de que se configurase Application Insights. A continuación, seleccione **Supervisar** en el panel izquierdo. Seleccione **Actualizar** periódicamente hasta que aparezca la lista de las invocaciones de funciones.
 
@@ -63,7 +63,7 @@ Las siguientes áreas de Application Insights pueden ser útiles al evaluar el c
 | Investigación | Descripción |
 | ---- | ----------- |
 | **[Errores](../azure-monitor/app/asp-net-exceptions.md)** |  Cree alertas y gráficos basados en errores de funciones y excepciones del servidor. **Nombre de la operación** es el nombre de la función. Los errores en las dependencias no se muestran, a no ser que se implemente telemetría personalizada para las dependencias. |
-| **[Rendimiento](../azure-monitor/app/performance-counters.md)** | Analice los problemas de rendimiento mediante la visualización del uso de recursos y el rendimiento por **instancias de rol de nube** . Estos datos de rendimiento pueden ser útiles para la depuración de escenarios en los que las funciones atascan los recursos subyacentes. |
+| **[Rendimiento](../azure-monitor/app/performance-counters.md)** | Analice los problemas de rendimiento mediante la visualización del uso de recursos y el rendimiento por **instancias de rol de nube**. Estos datos de rendimiento pueden ser útiles para la depuración de escenarios en los que las funciones atascan los recursos subyacentes. |
 | **[Métricas](../azure-monitor/platform/metrics-charts.md)** | Cree gráficos y alertas basados en métricas. Las métricas incluyen el número de invocaciones de función, el tiempo de ejecución y las tasas de éxito. |
 | **[Live Metrics](../azure-monitor/app/live-stream.md)** | Vea los datos de métricas a medida que se crean casi en tiempo real. |
 
@@ -108,7 +108,7 @@ El tiempo de ejecución proporciona los campos `customDimensions.LogLevel` y `cu
 
 ## <a name="consumption-plan-specific-metrics"></a>Métricas específicas del plan de consumo
 
-Cuando se ejecuta un [Plan de consumo](functions-scale.md#consumption-plan), el *costo* de la ejecución de una única función se mide en *GB-segundos* . El costo de ejecución se calcula mediante la combinación del uso de memoria con el tiempo de ejecución. Para más información, consulte [Estimación de los costos según el plan de consumo](functions-consumption-costs.md).
+Cuando se ejecuta un [Plan de consumo](functions-scale.md#consumption-plan), el *costo* de la ejecución de una única función se mide en *GB-segundos*. El costo de ejecución se calcula mediante la combinación del uso de memoria con el tiempo de ejecución. Para más información, consulte [Estimación de los costos según el plan de consumo](functions-consumption-costs.md).
 
 Las siguientes consultas de telemetría son específicas de las métricas que afectan al costo de la ejecución de funciones en el plan de consumo.
 
