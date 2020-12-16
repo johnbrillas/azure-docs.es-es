@@ -4,12 +4,12 @@ description: Configure pruebas web en Application Insights. Obtenga alertas si u
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 56644a4eb2f91dcce3bc2ee557542da75408ca83
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 82b433407906c09d38a46c842334153525fb3c17
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93075150"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007932"
 ---
 # <a name="monitor-the-availability-of-any-website"></a>Supervisión de la disponibilidad de un sitio web
 
@@ -60,7 +60,7 @@ Para crear la primera solicitud de disponibilidad, abra el panel Disponibilidad 
 
 |Configuración| Explicación
 |----|----|----|
-| **Tiempo de espera de prueba** |reduzca este valor para recibir una alerta sobre las respuestas lentas. La prueba se considera un error si no se han recibido respuestas de su sitio dentro de este período. Si seleccionó **Analizar solicitudes dependientes** , todas las imágenes, archivos de estilo, scripts y otros recursos dependientes se deben haber recibido durante este período.|
+| **Tiempo de espera de prueba** |reduzca este valor para recibir una alerta sobre las respuestas lentas. La prueba se considera un error si no se han recibido respuestas de su sitio dentro de este período. Si seleccionó **Analizar solicitudes dependientes**, todas las imágenes, archivos de estilo, scripts y otros recursos dependientes se deben haber recibido durante este período.|
 | **Respuesta HTTP** | el código de estado devuelto que se considera correcto. 200 es el código que indica que se ha devuelto una página web normal.|
 | **Coincidencia de contenido** | Una cadena, como "Bienvenido". Probamos que se produce una coincidencia exacta entre mayúsculas y minúsculas en todas las respuestas. Debe ser una cadena sin formato, sin caracteres comodín. No se olvide de que si el contenido cambia, es posible que tenga que actualizarla. **En la coincidencia de contenido solo se admiten caracteres en inglés** |
 
@@ -85,20 +85,6 @@ Se pueden usar las siguientes etiquetas para rellenar el atributo de ubicación 
 | USGov Texas    | usgov-tx-azr        |
 | Departamento de Defensa del este de EE. UU     | usgov-ddeast-azr    |
 | Departamento de Defensa de centro de EE. UU.  | usgov-ddcentral-azr |
-
-#### <a name="us-sec"></a>US SEC
-
-| Display Name (Nombre para mostrar) | Nombre de rellenado |
-|--------------|-----------------|
-| USSec occidental   | ussec-west-azr  |
-| USSec oriental   | ussec-east-azr  |
-
-#### <a name="us-nat"></a>US Nat
-
-| Display Name (Nombre para mostrar) | Nombre de rellenado |
-|--------------|-----------------|
-| USNat East   | usnat-east-azr  |
-| USNat West   | usnat-west-azr  |
 
 #### <a name="azure"></a>Azure
 

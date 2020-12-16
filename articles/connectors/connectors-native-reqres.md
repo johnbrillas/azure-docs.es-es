@@ -7,12 +7,12 @@ ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 11/19/2020
 tags: connectors
-ms.openlocfilehash: b8f95e7e173dd6d1ad43301aab8ff3ec7cf78018
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 4997853fea97d14491bd9e9101f79f324807a6a1
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94981007"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920825"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Recepción y respuesta de solicitudes HTTPS entrantes en Azure Logic Apps
 
@@ -42,7 +42,7 @@ Para más información sobre el cifrado, la seguridad y la autorización de llam
 
 Este desencadenador integrado crea un punto de conexión invocable manualmente que *solo* puede administrar solicitudes entrantes través de HTTPS. Cuando un autor de llamada envía una solicitud a este punto de conexión, el [desencadenador de solicitud](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) se activa y ejecuta la aplicación lógica. Para más información sobre cómo llamar a este desencadenador, consulte [Llamada, desencadenamiento o anidamiento de aplicaciones lógicas con puntos de conexión HTTPS en Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md).
 
-La aplicación lógica solo mantiene abierta una solicitud entrante durante un [tiempo limitado](../logic-apps/logic-apps-limits-and-config.md#request-limits). Suponiendo que la aplicación lógica incluya una [acción de respuesta](#add-response), si la aplicación lógica no envía ninguna respuesta al autor de la llamada después de que transcurra este tiempo, la aplicación lógica devuelve un estado `504 GATEWAY TIMEOUT` al autor de la llamada. Si la aplicación lógica no incluye ninguna acción de respuesta, la aplicación lógica devuelve inmediatamente un estado `202 ACCEPTED` al autor de la llamada.
+La aplicación lógica solo mantiene abierta una solicitud entrante durante un [tiempo limitado](../logic-apps/logic-apps-limits-and-config.md#http-limits). Suponiendo que la aplicación lógica incluya una [acción de respuesta](#add-response), si la aplicación lógica no envía ninguna respuesta al autor de la llamada después de que transcurra este tiempo, la aplicación lógica devuelve un estado `504 GATEWAY TIMEOUT` al autor de la llamada. Si la aplicación lógica no incluye ninguna acción de respuesta, la aplicación lógica devuelve inmediatamente un estado `202 ACCEPTED` al autor de la llamada.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com). Crear una aplicación lógica en blanco.
 
@@ -179,7 +179,7 @@ La aplicación lógica solo mantiene abierta una solicitud entrante durante un [
 
    Por ejemplo, puede responder a la solicitud [agregando una acción de respuesta](#add-response), que puede usar para devolver una respuesta personalizada y se describe más adelante en este tema.
 
-   La aplicación lógica solo mantiene abierta la solicitud entrante durante un [tiempo limitado](../logic-apps/logic-apps-limits-and-config.md#request-limits). Suponiendo que el flujo de trabajo de la aplicación lógica incluye una acción de respuesta, si la aplicación lógica no devuelve ninguna respuesta después de que transcurra este tiempo, la aplicación lógica devuelve `504 GATEWAY TIMEOUT` al autor de llamada. De lo contrario, si la aplicación lógica no incluye ninguna acción de respuesta, dicha aplicación lógica devuelve inmediatamente una respuesta `202 ACCEPTED` al autor de la llamada.
+   La aplicación lógica solo mantiene abierta la solicitud entrante durante un [tiempo limitado](../logic-apps/logic-apps-limits-and-config.md#http-limits). Suponiendo que el flujo de trabajo de la aplicación lógica incluye una acción de respuesta, si la aplicación lógica no devuelve ninguna respuesta después de que transcurra este tiempo, la aplicación lógica devuelve `504 GATEWAY TIMEOUT` al autor de llamada. De lo contrario, si la aplicación lógica no incluye ninguna acción de respuesta, dicha aplicación lógica devuelve inmediatamente una respuesta `202 ACCEPTED` al autor de la llamada.
 
 1. Cuando haya terminado, guarde la aplicación lógica. En la barra de herramientas del diseñador, seleccione **Save** (Guardar).
 

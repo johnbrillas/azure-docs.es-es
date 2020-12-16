@@ -3,12 +3,12 @@ title: Comparación de colas de Azure Storage con colas de Service Bus
 description: Analiza las diferencias y similitudes entre dos tipos de colas que se ofrecen en Azure.
 ms.topic: article
 ms.date: 11/04/2020
-ms.openlocfilehash: 5c65cf5ef2d572417ea70d0e0259cf2c03ab590e
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 31992aa2012009c51cbeae78010ae8ced65fc872
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93379577"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928314"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Colas de Storage y de Service Bus: comparación y diferencias
 En este artículo se analizan las diferencias y similitudes entre los dos tipos de cola que ofrece Microsoft Azure: las colas de Storage y las colas de Service Bus. Con esta información, puede tomar una decisión más fundamentada sobre la solución que mejor se adapta a sus necesidades.
@@ -131,7 +131,7 @@ En esta sección se comparan las colas de Storage y las colas de Service Bus des
 | Tamaño de mensaje máximo |**64 KB**<br/><br/>(48 K cuando se usa la codificación **Base64**)<br/><br/>Azure admite mensajes de gran tamaño mediante la combinación de colas y blobs, momento en el que puede poner en cola hasta 200 GB para un solo elemento. |**256 KB** o **1 MB**<br/><br/>(incluidos tanto el encabezado como el cuerpo, el tamaño máximo de encabezado es: 64 KB).<br/><br/>Depende del [nivel de servicio](service-bus-premium-messaging.md). |
 | TTL de mensaje máximo |**Infinito** (api-version 2017-07-27 o posterior) |**TimeSpan.Max** |
 | Número máximo de colas |**Sin límite** |**10.000**<br/><br/>(por espacio de nombres de servicio) |
-| Número máximo de clientes simultáneos |**Sin límite** |**Sin límite**<br/><br/>(el límite de 100 conexiones simultáneas solo se aplica a la comunicación basada en protocolo TCP) |
+| Número máximo de clientes simultáneos |**Sin límite** |**5\.000** |
 
 ### <a name="additional-information"></a>Información adicional
 * Service Bus aplica límites de tamaño de cola. El tamaño máximo de cola se especifica al crear una cola. Puede ser de entre 1 GB y 80 GB. Si el tamaño de la cola alcanza este límite, se rechazan los mensajes entrantes adicionales y el autor de la llamada recibe una excepción. Para obtener más información sobre las cuotas en el Service Bus, vea [Cuotas de Service Bus](service-bus-quotas.md).

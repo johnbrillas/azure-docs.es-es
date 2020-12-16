@@ -10,12 +10,12 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 04/09/2020
-ms.openlocfilehash: 77b5b52153c552008406b4b85083bcba5542cebe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba85bda1e322d3efd467527b48bd4cd90eb7ce8c
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87012729"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922620"
 ---
 # <a name="prevent-overfitting-and-imbalanced-data-with-automated-machine-learning"></a>Evitar el sobreajuste y los datos desequilibrados con el aprendizaje automático automatizado
 
@@ -84,8 +84,8 @@ Además, las ejecuciones de ML automatizado generan automáticamente los gráfic
 Gráfico| Descripción
 ---|---
 [Matriz de confusión](how-to-understand-automated-ml.md#confusion-matrix)| Evalúa las etiquetas clasificadas correctamente con respecto a las etiquetas reales de los datos. 
-[Precisión-coincidencia](how-to-understand-automated-ml.md#precision-recall-chart)| Evalúa la proporción de etiquetas correctas con respecto a la de las instancias de etiquetas encontradas de los datos. 
-[Curvas ROC](how-to-understand-automated-ml.md#roc)| Evalúa la proporción de etiquetas correctas con respecto a la de etiquetas de falsos positivos.
+[Precisión-coincidencia](how-to-understand-automated-ml.md#precision-recall-curve)| Evalúa la proporción de etiquetas correctas con respecto a la de las instancias de etiquetas encontradas de los datos. 
+[Curvas ROC](how-to-understand-automated-ml.md#roc-curve)| Evalúa la proporción de etiquetas correctas con respecto a la de etiquetas de falsos positivos.
 
 ## <a name="handle-imbalanced-data"></a>Manejo de datos no equilibrados 
 

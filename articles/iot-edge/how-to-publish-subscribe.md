@@ -10,12 +10,12 @@ ms.date: 11/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: acde6f401404596212b713f248bb6d11c25b4671
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 005830575ba7f45d30fed71a73e7a419e4d98220
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461412"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922591"
 ---
 # <a name="publish-and-subscribe-with-azure-iot-edge"></a>Publicación y suscripción con Azure IoT Edge
 
@@ -177,7 +177,6 @@ Las autorizaciones para los temas de IoT Hub se tratan de forma ligeramente dife
 
 - Los dispositivos o módulos de Azure IoT necesitan una regla de autorización explícita para conectarse al agente MQTT del centro de IoT Edge. A continuación se proporciona una directiva de autorización de conexión predeterminada.
 - Los dispositivos o módulos Azure IoT pueden acceder a sus propios temas de IoT Hub de manera predeterminada sin ninguna regla de autorización explícita. Sin embargo, las autorizaciones proceden de relaciones de elementos primarios y secundarios en ese caso, y estas relaciones deben estar establecidas. Los módulos de IoT Edge se establecen automáticamente como elementos secundarios de su dispositivo IoT Edge, pero los dispositivos deben establecerse explícitamente como elementos secundarios de su puerta de enlace IoT Edge.
-- Los dispositivos o módulos de Azure IoT pueden acceder a los temas, incluidos los temas de IoT Hub, de otros dispositivos o módulos, siempre que se definan las reglas de autorización explícitas adecuadas.
 
 Esta es una directiva de autorización predeterminada que se puede usar para habilitar todos los dispositivos o módulos de Azure IoT para **conectarse** al agente:
 
@@ -275,7 +274,7 @@ Para autorizar al publicador y suscriptor, edite el gemelo del centro de IoT Edg
                },
                {
                   "identities": [
-                     "sub_client"
+                     "<iot_hub_name>.azure-devices.net/sub_client"
                   ],
                   "allow":[
                      {
@@ -284,13 +283,13 @@ Para autorizar al publicador y suscriptor, edite el gemelo del centro de IoT Edg
                         ],
                         "resources":[
                            "test_topic"
-                        ],
+                        ]
                      }
                   ],
                },
                {
                   "identities": [
-                     "pub_client"
+                     "<iot_hub_name>.azure-devices.net/pub_client"
                   ],
                   "allow":[
                      {
@@ -299,9 +298,9 @@ Para autorizar al publicador y suscriptor, edite el gemelo del centro de IoT Edg
                         ],
                         "resources":[
                            "test_topic"
-                        ],
+                        ]
                      }
-                  ],
+                  ]
                }
             ]
          }

@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 05/21/2020
 ms.custom: devx-track-csharp
 ms.reviewer: lmolkova
-ms.openlocfilehash: 98f1ea8a4994515b437841174ae95563ea53ed88
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa39a1eca04621fc4db75f755402d3679403e814
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88933348"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920592"
 ---
 # <a name="application-insights-for-net-console-applications"></a>Application Insights para aplicaciones de consola .NET
 
@@ -22,6 +22,9 @@ Necesita una suscripción a [Microsoft Azure](https://azure.com). Inicie sesión
 > Es *muy recomendable* utilizar el paquete de [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) y las instrucciones asociadas que se especifican [aquí](./worker-service.md) para cualquier aplicación de consola. Este paquete va dirigido a [`NetStandard2.0`](/dotnet/standard/net-standard) y, por lo tanto, se puede usar en .NET Core 2.1 o una versión posterior, y .NET Framework 4.7.2 o una versión posterior.
 
 ## <a name="getting-started"></a>Introducción
+
+> [!IMPORTANT]
+> Las nuevas regiones de Azure **requieren** el uso de cadenas de conexión en lugar de claves de instrumentación. La [cadena de conexión](./sdk-connection-string.md?tabs=net) identifica el recurso con el que se quieren asociar los datos de telemetría. También permite modificar los puntos de conexión que va a usar el recurso como destino de la telemetría. Tiene que copiar la cadena de conexión y agregarla al código de la aplicación o a una variable de entorno.
 
 * En [Azure Portal](https://portal.azure.com), [cree un recurso de Application Insights](./create-new-resource.md). Para el tipo de aplicación, elija **General**.
 * Realice una copia de la clave de instrumentación. Busque la clave en la lista desplegable **Essentials** del recurso que creó.

@@ -11,22 +11,37 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 506f6a2025a61b4d9d16918b2a95de620171c46b
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 9f81d059c1a71bf6349d0ef9b4aae8f7a47c161f
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147845"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938790"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Configuración de un dispositivo IoT Edge para que actúe como puerta de enlace transparente
 
 Este artículo proporciona instrucciones detalladas para configurar un dispositivo IoT Edge de modo que funcione como una puerta de enlace transparente para que otros dispositivos se comuniquen con IoT Hub. En este artículo, el término *puerta de enlace IoT Edge* hace referencia a un dispositivo IoT Edge configurado como una puerta de enlace transparente. Para más información, consulte [Uso de un dispositivo IoT Edge como puerta de enlace](./iot-edge-as-gateway.md).
+
+<!-- 1.0.10 -->
+::: moniker range="iotedge-2018-06"
 
 >[!NOTE]
 >Actualmente:
 >
 > * Los dispositivos habilitados para Edge no pueden conectarse a puertas de enlace de IoT Edge.
 > * Los dispositivos de bajada no pueden usar la carga de archivos.
+
+::: moniker-end
+
+<!-- 1.2.0 -->
+::: moniker range=">=iotedge-2020-11"
+
+>[!NOTE]
+>Actualmente:
+>
+> * Los dispositivos de bajada no pueden usar la carga de archivos.
+
+::: moniker-end
 
 Hay tres pasos generales para configurar una conexión de puerta de enlace transparente correcta. En este artículo se describe el primer paso:
 
@@ -86,9 +101,9 @@ En escenarios de producción, debe generar estos archivos con su propia entidad 
    * Linux: `/etc/iotedge/config.yaml`
 
 4. Busque la sección **Configuración de certificado** del archivo. Quite la marca de comentario de las cuatro líneas que empiezan por **certificates:** y proporcione los URI de archivo a los tres archivos como valores de las siguientes propiedades:
-   * **device_ca_cert** : certificado de CA de dispositivo
-   * **device_ca_pk** : clave privada de CA de dispositivo
-   * **trusted_ca_certs** : certificado de CA raíz
+   * **device_ca_cert**: certificado de CA de dispositivo
+   * **device_ca_pk**: clave privada de CA de dispositivo
+   * **trusted_ca_certs**: certificado de CA raíz
 
    Asegúrese de que la línea **certificates:** no tenga ningún espacio en blanco delante y de que las otras líneas tengan una sangría de dos espacios.
 
@@ -118,27 +133,27 @@ Para implementar el módulo del centro de IoT Edge y configurarlo con rutas para
 
 3. Seleccione **Set modules** (Establecer módulos).
 
-4. En la página **Módulos** , puede agregar cualquier módulo que desee implementar en el dispositivo de puerta de enlace. Para los fines de este artículo, nos centramos en la configuración e implementación del módulo edgeHub, que no es necesario establecer explícitamente en esta página.
+4. En la página **Módulos**, puede agregar cualquier módulo que desee implementar en el dispositivo de puerta de enlace. Para los fines de este artículo, nos centramos en la configuración e implementación del módulo edgeHub, que no es necesario establecer explícitamente en esta página.
 
-5. Seleccione **Siguiente: Rutas** .
+5. Seleccione **Siguiente: Rutas**.
 
-6. En la página **Rutas** , asegúrese de que hay una ruta para controlar los mensajes procedentes de los dispositivos de nivel inferior. Por ejemplo:
+6. En la página **Rutas**, asegúrese de que hay una ruta para controlar los mensajes procedentes de los dispositivos de nivel inferior. Por ejemplo:
 
    * Ruta que envía todos los mensajes, ya sea desde un módulo o desde un dispositivo de nivel inferior, a IoT Hub:
-       * **Nombre** : `allMessagesToHub`
-       * **Valor** : `FROM /messages/* INTO $upstream`
+       * **Nombre**: `allMessagesToHub`
+       * **Valor**: `FROM /messages/* INTO $upstream`
 
    * Una ruta que envía todos los mensajes de todos los dispositivos de nivel inferior a IoT Hub:
-      * **Nombre** : `allDownstreamToHub`
-      * **Valor** : `FROM /messages/* WHERE NOT IS_DEFINED ($connectionModuleId) INTO $upstream`
+      * **Nombre**: `allDownstreamToHub`
+      * **Valor**: `FROM /messages/* WHERE NOT IS_DEFINED ($connectionModuleId) INTO $upstream`
 
       Esta ruta funciona porque, a diferencia de los mensajes de Ios módulos de IoT Edge, los mensajes de los dispositivos de nivel inferior no tienen un identificador de módulo asociado. El uso de la cláusula **WHERE** de la ruta nos permite filtrar los mensajes que contengan esa propiedad del sistema.
 
       Para obtener más información sobre el enrutamiento de mensajes, vea [Implementar módulos y establecer rutas](./module-composition.md#declare-routes).
 
-7. Una vez creadas las rutas, seleccione **Revisar y crear** .
+7. Una vez creadas las rutas, seleccione **Revisar y crear**.
 
-8. En la página **Revisar y crear** , seleccione **Crear** .
+8. En la página **Revisar y crear**, seleccione **Crear**.
 
 ## <a name="open-ports-on-gateway-device"></a>Apertura de puertos en el dispositivo de puerta de enlace
 

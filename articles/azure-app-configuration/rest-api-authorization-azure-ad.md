@@ -1,17 +1,17 @@
 ---
 title: 'API REST de Azure App Configuration: autorización de Azure Active Directory'
 description: Use Azure Active Directory para la autorización en Azure App Configuration mediante la API REST
-author: lisaguthrie
-ms.author: lcozzens
+author: AlexandraKemperMS
+ms.author: alkemper
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: 0229b1941e40345f35cb7409533e54b0c4ea7d5d
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: f144c1f09f87e0b915daf86ba0391c2934e60095
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182621"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932683"
 ---
 # <a name="azure-active-directory-authorization---rest-api-reference"></a>Autorización de Azure Active Directory: referencia de API REST
 

@@ -1,17 +1,17 @@
 ---
 title: Uso de claves administradas por el cliente para cifrar los datos de configuración
 description: Cifrado de los datos de configuración mediante claves administradas por el cliente
-author: lisaguthrie
-ms.author: lcozzens
-ms.date: 02/18/2020
+author: AlexandraKemperMS
+ms.author: alkemper
+ms.date: 07/28/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: 8942c93b7346613b8cfdc97d9afe09f1c473fb10
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46a1e99a7bc75efa85fcb5eff649c14af5abd17b
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87384878"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96930507"
 ---
 # <a name="use-customer-managed-keys-to-encrypt-your-app-configuration-data"></a>Uso de claves administradas por el cliente para cifrar los datos de configuración de App Configuration
 Azure App Configuration [cifra la información confidencial en reposo](../security/fundamentals/encryption-atrest.md). El uso de claves administradas por el cliente proporciona una mejor protección de los datos al permitirle administrar las claves de cifrado.  Cuando se usa el cifrado de claves administradas, toda la información confidencial de App Configuration se cifra con una clave de Azure Key Vault proporcionada por el usuario.  De esta manera, existe la posibilidad de rotar la clave de cifrado a petición.  También existe la posibilidad de revocar el acceso de Azure App Configuration a información confidencial mediante la revocación del acceso de la instancia de Azure App Configuration a la clave.

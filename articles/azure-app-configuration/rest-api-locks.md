@@ -1,17 +1,17 @@
 ---
 title: 'API REST de Azure App Configuration: bloqueos'
 description: Páginas de referencia para trabajar con bloqueos de clave y valor mediante la API REST de Azure App Configuration
-author: lisaguthrie
-ms.author: lcozzens
+author: AlexandraKemperMS
+ms.author: alkemper
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: 7e63b48f2119c48cd43717acee7b13b1701e0032
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: e99ce5595bae8ed64285317d9249da60e0fc1b83
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95241274"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932530"
 ---
 # <a name="locks"></a>Bloqueos
 

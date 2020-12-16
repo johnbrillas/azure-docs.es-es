@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/22/2020
+ms.date: 12/10/2020
 ms.author: memildin
-ms.openlocfilehash: 68fa63bf42b7577402d8c58ebe22a0a16b5776fb
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 4254288a85b3b57afbdd6833242a6f4ad0eb0afc
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96751009"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97005144"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Alertas de seguridad: una guía de referencia
 
@@ -372,7 +372,7 @@ En la parte inferior de esta página, hay una tabla que describe la cadena de el
 [Más detalles y notas](defender-for-dns-introduction.md)
 
 | Alerta                                                                                                                | Descripción                                                                                                                                                                                                                                                                                                                                                                                      | Intención<br>([Más información](#intentions)) | severity |
-|----------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|---------------------------------------|
+|----------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------:|
 | **Uso de protocolo de red anómalo (versión preliminar)**<br>(AzureDNS_ProtocolAnomaly)                                         | El análisis de transacciones DNS de %{CompromisedEntity} ha detectado un uso de protocolo anómalo. Dicho tráfico, aunque posiblemente benigno, puede indicar un abuso de este protocolo común para omitir el filtrado del tráfico de red. La actividad de atacante relacionada típica incluye la copia de herramientas de administración remota en un host en peligro y la extracción de los datos del usuario a partir de dicha copia.                                          | Exfiltración                          | -        |
 | **Actividad de red de anonimato (versión preliminar)**<br>(AzureDNS_DarkWeb)                                                       | El análisis de transacciones DNS de %{CompromisedEntity} ha detectado una actividad de red de anonimato. Esta actividad, aunque posiblemente legítima, suele ser utilizada por los atacantes para eludir el rastreo y la huella digital de las comunicaciones de red. Entre las actividades típicas de los atacantes suelen incluirse la descarga y la ejecución de software malintencionado o herramientas de administración remota. | Exfiltración                          | -        |
 | **Actividad de red de anonimato mediante proxy web (versión preliminar)**<br>(AzureDNS_DarkWebProxy)                                  | El análisis de transacciones DNS de %{CompromisedEntity} ha detectado una actividad de red de anonimato. Esta actividad, aunque posiblemente legítima, suele ser utilizada por los atacantes para eludir el rastreo y la huella digital de las comunicaciones de red. Entre las actividades típicas de los atacantes suelen incluirse la descarga y la ejecución de software malintencionado o herramientas de administración remota. | Exfiltración                          | -        |

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/08/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 8a51fbcb7b7504b9a16e8d0025856c2b007070a9
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: e879d8370821ea465147e344d0fe95836c843ff4
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92928015"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008017"
 ---
 # <a name="continuous-deployment-with-web-app-for-containers"></a>Implementación continua con Web App for Containers
 
@@ -26,7 +26,7 @@ En este tutorial, configurará una implementación continua para una imagen de c
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Seleccione la opción **App Service** del lado izquierdo de la página.
 3. Seleccione el nombre de la aplicación para la que quiere configurar una implementación continua.
-4. En la página **Configuración del contenedor** , seleccione **Contenedor único**
+4. En la página **Configuración del contenedor**, seleccione **Contenedor único**
 5. Seleccione **Azure Container Registry**.
 6. Seleccione **Implementación continua > Activar**
 7. Seleccione **Guardar** para habilitar la implementación continua.
@@ -44,7 +44,7 @@ En Container Registry, haga clic en Webhooks para ver los webhooks actuales.
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Seleccione la opción **App Service** del lado izquierdo de la página.
 3. Seleccione el nombre de la aplicación para la que quiere configurar una implementación continua.
-4. En la página **Configuración del contenedor** , seleccione **Contenedor único**
+4. En la página **Configuración del contenedor**, seleccione **Contenedor único**
 5. Seleccione **Docker Hub**
 6. Seleccione **Implementación continua > Activar**
 7. Seleccione **Guardar** para habilitar la implementación continua.
@@ -55,7 +55,7 @@ Copie la dirección URL del webhook. Para agregar un webhook para Docker Hub, si
 
 ## <a name="automate-with-cli"></a>Automatización con la interfaz de la línea de comandos
 
-Para configurar CI/CD con la CLI de Azure, ejecute el comando [az webapp deployment container config](/cli/azure/webapp/deployment/container?view=azure-cli-latest#az-webapp-deployment-container-config) para generar la dirección URL del webhook. Esta dirección URL se puede usar para configurar su instancia de Azure Container Registry o DockerHub.
+Para configurar CI/CD con la CLI de Azure, ejecute el comando [az webapp deployment container config](/cli/azure/webapp/deployment/container#az-webapp-deployment-container-config) para generar la dirección URL del webhook. Esta dirección URL se puede usar para configurar su instancia de Azure Container Registry o DockerHub.
 
 ```azurecli-interactive
 az webapp deployment container config --name <app-name> --resource-group <group-name> --enable-cd true

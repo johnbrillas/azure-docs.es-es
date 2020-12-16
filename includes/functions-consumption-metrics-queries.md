@@ -8,7 +8,7 @@ ms.locfileid: "92168124"
 ---
 #### <a name="determine-memory-usage"></a>Determinación del uso de memoria 
 
-En **Supervisión** , seleccione **Registros (Analytics)** , copie la siguiente consulta de telemetría y péguela en la ventana de consulta y seleccione **Ejecutar** . Esta consulta devuelve el uso de memoria total en cada tiempo muestreado.
+En **Supervisión**, seleccione **Registros (Analytics)** , copie la siguiente consulta de telemetría y péguela en la ventana de consulta y seleccione **Ejecutar**. Esta consulta devuelve el uso de memoria total en cada tiempo muestreado.
 
 ```
 performanceCounters

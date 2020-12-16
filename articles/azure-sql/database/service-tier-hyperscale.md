@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/19/2020
-ms.openlocfilehash: ee9bcedea15b039982e73304a25073c85b496635
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 56c3475ae6a03600723e7a12b3f3809f003ce7c4
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92780060"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922258"
 ---
 # <a name="hyperscale-service-tier"></a>Nivel de servicio Hiperescala
 
@@ -67,11 +67,11 @@ El nivel de servicio Hiperescala admite una amplia gama de cargas de trabajo de 
 
 El nivel de servicio Hiperescala solo está disponible en el [modelo de núcleo virtual](service-tiers-vcore.md). Para alinearse con la nueva arquitectura, el modelo de precios es ligeramente diferente de los niveles de servicio Se uso general o Crítico para la empresa:
 
-- **Proceso** :
+- **Proceso**:
 
   El precio de la unidad de proceso de Hiperescala es por réplica. El precio de la [Ventaja híbrida de Azure](https://azure.microsoft.com/pricing/hybrid-benefit/) se aplica automáticamente a las réplicas de escalado de lectura. De manera predeterminada, creamos una réplica principal y una réplica de solo lectura por base de datos Hiperescala.  Los usuarios pueden ajustar el número total de réplicas, incluida la principal, de 1 a 5.
 
-- **Almacenamiento** :
+- **Almacenamiento**:
 
   No es necesario especificar el tamaño máximo de datos al configurar una base de datos Hiperescala. En el nivel Hiperescala, se le cobra por el almacenamiento de su base de datos según la asignación real. El almacenamiento se asigna automáticamente entre 40 GB y 100 TB, en incrementos de 10 GB. Si es necesario, pueden crecer simultáneamente varios archivos de datos. Se crea una base de datos de Hiperescala con un tamaño inicial de 10 GB y empieza a crecer 10 GB cada 10 minutos, hasta que alcanza el tamaño de 40 GB.
 
@@ -231,7 +231,6 @@ Estas son las limitaciones actuales para el nivel de servicio Hiperescala en dis
 | Migración de bases de datos con objetos OLTP en memoria | Hiperescala admite un subconjunto de objetos OLTP en memoria, incluidos los tipos de tablas optimizadas para memoria, las variables de tablas y los módulos compilados de forma nativa. Sin embargo, cuando hay presente cualquier tipo de objeto OLTP en memoria en la base de datos que se está migrando, no se admite la migración desde los niveles de servicio Premium y Crítico para la empresa a Hiperescala. Para migrar este tipo de base de datos a Hiperescala, se deben quitar todos los objetos OLTP en memoria y sus dependencias. Después de migrar la base de datos, estos objetos se pueden volver a crear. En la actualidad, no se admiten tablas optimizadas para memoria duraderas y no duraderas en Hiperescala, y deben volver a crearse como tablas de disco.|
 | Replicación geográfica  | Todavía no se puede configurar la replicación geográfica activa para Azure SQL Database Hiperescala. |
 | Copia de base de datos | La copia de la base de datos en Hiperescala está ahora en versión preliminar pública. |
-| Integración de TDE/AKV | El cifrado de base de datos transparente mediante Azure Key Vault (comúnmente conocido como Bring Your Own Key o BYOK) se encuentra actualmente en versión preliminar pública. |
 | Características de bases de datos inteligentes | Con la excepción de la opción "Forzar plan", todas las demás opciones de ajuste automático no se admiten aún en Hiperescala: puede parecer que las opciones están habilitadas, pero no se realizarán recomendaciones ni acciones. |
 | Información del rendimiento de las consultas | La información de rendimiento de consultas no se admite actualmente para las bases de datos de Hiperescala. |
 | Reducir base de datos | DBCC SHRINKDATABASE o DBCC SHRINKFILE no se admite actualmente con las bases de datos de Hiperescala. |

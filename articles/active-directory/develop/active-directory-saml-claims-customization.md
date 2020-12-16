@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/22/2019
+ms.date: 12/09/2020
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: f462a78790e73f3e0f67f55b6417589c7826a75d
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 1c88b9f77513021609b99c81ea572c2b5b3d365b
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96173675"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96936801"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Cómo: personalizar las notificaciones emitidas en el token SAML para aplicaciones empresariales
 
@@ -60,7 +60,6 @@ En el menú desplegable **Elija el formato del identificador de nombre**, puede 
 | **Persistent** | La Plataforma de identidad de Microsoft usará el valor Persistent como formato de NameID. |
 | **EmailAddress** | La Plataforma de identidad de Microsoft usará el valor EmailAddress como formato de NameID. |
 | **Unspecified** | La Plataforma de identidad de Microsoft usará el valor Unspecified como formato de NameID. |
-| **Nombre completo del dominio de Windows** | La Plataforma de identidad de Microsoft usará el valor WindowsDomainQualifiedName como formato de NameID. |
 
 También se admite NameID transitorio, pero no está disponible en la lista desplegable y no se puede configurar en Azure. Para obtener más información sobre el atributo NameIDPolicy, consulte [Protocolo SAML de inicio de sesión único](single-sign-on-saml-protocol.md).
 

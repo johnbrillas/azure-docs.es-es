@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: d46aacc441b412a117d906e0201a9bed6046a338
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7178b8079bbb2411e0b38c3ef59a9981fb2d55be
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88961612"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97005246"
 ---
 # <a name="open-an-ssh-session-to-a-linux-container-in-azure-app-service"></a>Apertura de una sesión de SSH en un contenedor Linux en Azure App Service
 
@@ -39,9 +39,9 @@ Vea [Configuración de SSH en un contenedor personalizado](configure-custom-cont
 
 Mediante la tunelización TCP puede crear una conexión de red entre la máquina de desarrollo y Web App for Containers a través de una conexión de WebSocket autenticada. Permite abrir una sesión SSH con el contenedor que se ejecuta en App Service desde el cliente de su elección.
 
-Para empezar, es preciso instalar la [CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest). Para ver cómo funciona sin instalar la CLI de Azure, abra [Azure Cloud Shell](../cloud-shell/overview.md). 
+Para empezar, es preciso instalar la [CLI de Azure](/cli/azure/install-azure-cli). Para ver cómo funciona sin instalar la CLI de Azure, abra [Azure Cloud Shell](../cloud-shell/overview.md). 
 
-Abra una conexión remota a la aplicación mediante el comando [az webapp remote-connection create](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create). Especifique _\<subscription-id>_ , _\<group-name>_ y \_\<app-name>_ de la aplicación.
+Abra una conexión remota a la aplicación mediante el comando [az webapp remote-connection create](/cli/azure/ext/webapp/webapp/remote-connection#ext-webapp-az-webapp-remote-connection-create). Especifique _\<subscription-id>_ , _\<group-name>_ y \_\<app-name>_ de la aplicación.
 
 ```azurecli-interactive
 az webapp create-remote-connection --subscription <subscription-id> --resource-group <resource-group-name> -n <app-name> &
