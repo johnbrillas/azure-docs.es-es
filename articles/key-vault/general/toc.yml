@@ -114,10 +114,6 @@
           href: developers-guide.md
         - name: Uso de Azure Resource Manager para implementar Key Vault
           href: vault-create-template.md
-        - name: Guardar secretos de Web Apps
-          href: /previous-versions/azure/key-vault/vs-secure-secret-appsettings?toc=/azure/key-vault/general/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
-        - name: Autenticación de servicio a servicio con .NET
-          href: service-to-service-authentication.md
         - name: Uso del servicio conectado Key Vault
           href: vs-key-vault-add-connected-service.md
     - name: Supervisión y control
@@ -166,7 +162,7 @@
       href: versions.md
     - name: Azure PowerShell
       href: /powershell/module/az.keyvault/?view=azps-1.2.0#key_vault
-    - name: CLI de Azure
+    - name: Azure CLI
       href: /cli/azure/keyvault
     - name: .NET
       href: /dotnet/api/overview/azure/keyvault/management?view=azure-dotnet

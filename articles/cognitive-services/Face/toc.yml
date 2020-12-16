@@ -5,6 +5,8 @@
   items:
     - name: ¿Qué es el servicio Face?
       href: Overview.md
+    - name: Novedades
+      href: releasenotes.md
 - name: Guías de inicio rápido
   items:
     - name: Uso de la biblioteca cliente o de la API REST
@@ -97,5 +99,3 @@
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Cifrado
       href: face-encryption-of-data-at-rest.md
-    - name: Notas de la versión
-      href: ReleaseNotes.md

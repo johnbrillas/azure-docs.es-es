@@ -7,19 +7,19 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.custom: contperfq2
-ms.openlocfilehash: bd8fec0ae5b6ece1626049953b1f4afd3a581d97
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: 90a425fe64424c946a02f3c113889b62b58fbeb4
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280596"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032327"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Configuración de una instancia de Azure Digital Twins y autenticación (portal)
 
 [!INCLUDE [digital-twins-setup-selector.md](../../includes/digital-twins-setup-selector.md)]
 
-En este artículo se describen los pasos para **configurar una nueva instancia de Azure Digital Twins** , incluidas la creación de la instancia y la configuración de la autenticación. Después de completar este artículo, tendrá una instancia de Azure Digital Twins lista para empezar a programar.
+En este artículo se describen los pasos para **configurar una nueva instancia de Azure Digital Twins**, incluidas la creación de la instancia y la configuración de la autenticación. Después de completar este artículo, tendrá una instancia de Azure Digital Twins lista para empezar a programar.
 
 En esta versión de este artículo se realizan los pasos manualmente, uno por uno, mediante Azure Portal. Azure Portal es una consola unificada basada en web que proporciona una alternativa a las herramientas de línea de comandos.
 * Para realizar estos pasos manualmente mediante la CLI, consulte la versión de CLI de este artículo: [*Procedimiento: Configuración de una instancia y autenticación (CLI)*](how-to-set-up-instance-cli.md).
@@ -40,11 +40,11 @@ Busque *Azure Digital Twins* en el cuadro de búsqueda y elija el servicio **Azu
 
 :::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins.png" alt-text="Selección de Crear en la página del servicio de Azure Digital Twins":::
 
-En la siguiente página *Crear recurso* , rellene los valores indicados a continuación:
-* **Suscripción** : la suscripción de Azure que está usando.
-  - **Grupo de recursos** : grupo de recursos en el que implementar la instancia. Si aún no tiene un grupo de recursos existente en mente, puede crear uno aquí mediante la selección del vínculo *Crear nuevo* y la introducción de un nombre para el nuevo grupo de recursos.
-* **Ubicación** : región habilitada para Azure Digital Twins para la implementación. Para obtener más información sobre la compatibilidad regional, visite [*Productos de Azure disponibles por región (Azure Digital Twins)*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
-* **Nombre del recurso** : nombre para la instancia de Azure Digital Twins. El nombre de la nueva instancia debe ser único dentro de la región de la suscripción (lo que significa que si la suscripción tiene otra instancia de Azure Digital Twins en la región que ya usa el nombre elegido, se le solicitará que elija otro nombre).
+En la siguiente página *Crear recurso*, rellene los valores indicados a continuación:
+* **Suscripción**: la suscripción de Azure que está usando.
+  - **Grupo de recursos**: grupo de recursos en el que implementar la instancia. Si aún no tiene un grupo de recursos existente en mente, puede crear uno aquí mediante la selección del vínculo *Crear nuevo* y la introducción de un nombre para el nuevo grupo de recursos.
+* **Ubicación**: región habilitada para Azure Digital Twins para la implementación. Para obtener más información sobre la compatibilidad regional, visite [*Productos de Azure disponibles por región (Azure Digital Twins)*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
+* **Nombre del recurso**: nombre para la instancia de Azure Digital Twins. El nombre de la nueva instancia debe ser único dentro de la región de la suscripción (lo que significa que si la suscripción tiene otra instancia de Azure Digital Twins en la región que ya usa el nombre elegido, se le solicitará que elija otro nombre).
 
 :::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins-2.png" alt-text="Paso para rellenar los valores descritos para crear un recurso de Azure Digital Twins":::
 
@@ -52,7 +52,7 @@ Cuando termine, seleccione _Revisar y crear_. Esta acción le llevará a una pá
 
 ### <a name="verify-success-and-collect-important-values"></a>Comprobación de que la operación es correcta y recopilación de valores importantes
 
-Después de pulsar *Crear* , puede ver el estado de la implementación de la instancia en las notificaciones de Azure junto con la barra de iconos del portal. La notificación le indicará cuándo se ha realizado la implementación correctamente y podrá seleccionar el botón _Ir al recurso_ para ver la instancia creada.
+Después de pulsar *Crear*, puede ver el estado de la implementación de la instancia en las notificaciones de Azure junto con la barra de iconos del portal. La notificación le indicará cuándo se ha realizado la implementación correctamente y podrá seleccionar el botón _Ir al recurso_ para ver la instancia creada.
 
 :::image type="content" source="media/how-to-set-up-instance/portal/notifications-deployment.png" alt-text="Vista de las notificaciones de Azure que muestra una implementación correcta y resalta el botón Ir al recurso":::
 
@@ -61,7 +61,7 @@ Como alternativa, si se produce un error con la implementación, la notificació
 >[!TIP]
 >Una vez creada la instancia, para volver a su página en cualquier momento, busque el nombre de la instancia en la barra de búsqueda de Azure Portal.
 
-A partir de la página *Información general* de la instancia, anote su *Nombre* , *Grupo de recursos* y *Nombre de host*. Estos son todos los valores importantes que puede necesitar a medida que sigue trabajando con la instancia de Azure Digital Twins. Si otros usuarios van a programar en la instancia, debe compartirlos con ellos.
+A partir de la página *Información general* de la instancia, anote su *Nombre*, *Grupo de recursos* y *Nombre de host*. Estos son todos los valores importantes que puede necesitar a medida que sigue trabajando con la instancia de Azure Digital Twins. Si otros usuarios van a programar en la instancia, debe compartirlos con ellos.
 
 :::image type="content" source="media/how-to-set-up-instance/portal/instance-important-values.png" alt-text="Resaltado de los valores importantes en la página de información general de la instancia":::
 
@@ -76,9 +76,9 @@ En primer lugar, abra la página de la instancia de Azure Digital Twins en Azure
 :::image type="content" source="media/how-to-set-up-instance/portal/add-role-assignment-1.png" alt-text="Selección de la opción para agregar una asignación de roles en la página Control de acceso (IAM)":::.
 
 En la siguiente página *Add role assignment* (Agregar asignación de roles), rellene los valores (el usuario que los complete debe tener [permisos suficientes](#prerequisites-permission-requirements) en la suscripción de Azure):
-* **Rol** : seleccione *Propietario de datos de Azure Digital Twins* en el menú desplegable.
-* **Asignar acceso a** : seleccione *Usuario, grupo o entidad de servicio de Azure AD* en el menú desplegable.
-* **Select** : busque el nombre o la dirección de correo electrónico del usuario para realizar la asignación. Cuando seleccione el resultado, el usuario aparecerá en la sección *Miembros seleccionados*.
+* **Rol**: seleccione *Propietario de datos de Azure Digital Twins* en el menú desplegable.
+* **Asignar acceso a**: seleccione *Usuario, grupo o entidad de servicio de Azure AD* en el menú desplegable.
+* **Select**: busque el nombre o la dirección de correo electrónico del usuario para realizar la asignación. Cuando seleccione el resultado, el usuario aparecerá en la sección *Miembros seleccionados*.
 
 :::row:::
     :::column:::

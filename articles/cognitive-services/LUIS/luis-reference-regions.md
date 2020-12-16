@@ -5,14 +5,16 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 11/09/2020
-ms.openlocfilehash: f7c6c3f9c3f468c7b55baf2b0cc45c094d693de5
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 5f65c5e1e1c8d306a70be3fdd7a07f18f8ebbd9f
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95018657"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368654"
 ---
 # <a name="authoring-and-publishing-regions-and-the-associated-keys"></a>Creación y publicación de regiones y las claves asociadas
+
+[!INCLUDE [LUIS Free account](includes/luis-portal-note.md)]
 
 Tres regiones de creación son compatibles con los portales correspondientes de LUIS. Para publicar una aplicación de LUIS en más de una región, necesitará al menos una clave por región.
 

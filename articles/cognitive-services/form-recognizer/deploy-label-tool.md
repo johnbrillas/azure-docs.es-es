@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: abc8cffa3d5b9dffb55beabc90cdaecb3adc647f
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 985f9e741a1491a812c1d2b20de96381f8af3fa4
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96852530"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359853"
 ---
 # <a name="deploy-the-sample-labeling-tool"></a>Implementación de la herramienta de etiquetado de ejemplo
 
@@ -86,7 +86,7 @@ Siga estos pasos para crear un recurso mediante Azure Portal:
    * URL de servidor: establézcalo en `https://mcr.microsoft.com`.
    * Nombre de usuario (opcional): cree un nombre de usuario. 
    * Contraseña (opcional): cree una contraseña segura que recuerde.
-   * Imagen y etiqueta: establézcalo en `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:2.1.012970002-amd64-preview`.
+   * Imagen y etiqueta: establézcalo en `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview`.
    * Implementación continua: establezca esta opción en **Activado** si quiere recibir actualizaciones automáticas cuando el equipo de desarrollo realice cambios en la herramienta de etiquetado de ejemplo.
    * Comando de inicio: establézcalo en `./run.sh eula=accept`.
     

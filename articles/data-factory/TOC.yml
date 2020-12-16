@@ -758,6 +758,8 @@
           href: data-factory-troubleshoot-guide.md
         - name: Conectores
           href: connector-troubleshoot-guide.md
+        - name: Desencadenadores de la canalización
+          href: pipeline-trigger-troubleshoot-guide.md
         - name: Flujos de datos
           href: data-flow-troubleshoot-guide.md
         - name: Integración e implementación continuas

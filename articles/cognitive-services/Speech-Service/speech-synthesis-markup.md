@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 6b522f234343cc6a50d76607d1629c46cd180b7d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: df6a4053eb70c02e27599bbd9086dfa32b0bcc65
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95894021"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97508839"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Mejora de la síntesis con el Lenguaje de marcado de síntesis de voz (SSML)
 
@@ -200,6 +200,7 @@ Actualmente, los ajustes de estilo de habla son compatibles con estas voces neur
 * `en-US-GuyNeural`
 * `zh-CN-XiaoxiaoNeural`
 * `zh-CN-YunyangNeural`
+* `zh-CN-YunyeNeural`
 * `zh-CN-YunxiNeural` (versión preliminar)
 * `zh-CN-XiaohanNeural` (versión preliminar)
 * `zh-CN-XiaomoNeural` (versión preliminar)
@@ -271,7 +272,14 @@ Utilice esta tabla para determinar qué estilos de habla son compatibles para ca
 |                         | `style="gentle"`          | Expresa un tono dulce, educado y agradable, con un tono más grave y energía vocal.         |   
 |                         | `style="lyrical"`         | Expresa emociones de forma melódica y sentimental         |   
 | `zh-CN-YunyangNeural`   | `style="customerservice"` | Expresa un tono amistoso y servicial para atender a clientes  | 
-| `zh-CN-YunxiNeural`    | `style="cheerful"`        | Expresa un tono animado y entusiasta, agudo y enérgico.                         |
+| `zh-CN-YunyeNeural`     | `style="calm"`            | Expresa una actitud interesante, recolectada y compuesta al hablar. El tono, la intensidad y la prosodia son mucho más uniformes en comparación con otros tipos de voz.    | 
+|                         | `style="cheerful"`        | Expresa un tono animado y entusiasta, agudo y enérgico.                         |
+|                         | `style="sad"`             | Expresa un tono afligido, agudo, con menos intensidad y poco enérgico. Los indicadores comunes de esta emoción serían lloriqueos o gimoteos al hablar.            |
+|                         | `style="angry"`           | Expresa un tono enfadado y molesto, grave, con mayor intensidad y energía vocal más alta. El hablante está en un estado de ira, disgustado y ofendido.       |
+|                         | `style="fearful"`         | Expresa un tono asustado y nervioso, agudo, con energía vocal alta y más velocidad. El hablante está en un estado de tensión y ansiedad.                          |
+|                         | `style="disgruntled"`     | Expresa desdén y un tono de queja. La voz de esta emoción muestra desagrado y desprecio.              |
+|                         | `style="serious"`         | Expresa un tono estricto e imponente. A menudo, el hablante suena rígido y mucho menos relajado, con una cadencia firme.          |
+| `zh-CN-YunxiNeural`     | `style="cheerful"`        | Expresa un tono animado y entusiasta, agudo y enérgico.                         |
 |                         | `style="sad"`             | Expresa un tono afligido, agudo, con menos intensidad y poco enérgico. Los indicadores comunes de esta emoción serían lloriqueos o gimoteos al hablar.            |
 |                         | `style="angry"`           | Expresa un tono enfadado y molesto, grave, con mayor intensidad y energía vocal más alta. El hablante está en un estado de ira, disgustado y ofendido.       |
 |                         | `style="fearful"`         | Expresa un tono asustado y nervioso, agudo, con energía vocal alta y más velocidad. El hablante está en un estado de tensión y ansiedad.                          |

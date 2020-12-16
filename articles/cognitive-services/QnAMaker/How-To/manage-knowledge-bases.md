@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 03/18/2020
-ms.openlocfilehash: 8c13dc0854fb29467b0fe8a1ce5f2dfc1c19bd78
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: c7bb79cbd67ba2fb151641ddeeb31b54e399b906
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352344"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938263"
 ---
 # <a name="create-knowledge-base-and-manage-settings"></a>Creación de base de conocimiento y administración de la configuración
 
@@ -46,7 +46,7 @@ QnA Maker permite administrar las bases de conocimiento al proporcionar acceso a
     |--|--|
     |**Enable multi-turn extraction from URLs, .pdf or .docx files** (Habilitar extracción en varios turnos de direcciones URL, archivos .pdf o .docx).|Activado|
     |**Texto de respuesta predeterminado**| `Quickstart - default answer not found.`|
-    |**+ Agregar dirección URL**|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting`|
+    |**+ Agregar dirección URL**|`https://azure.microsoft.com/en-us/support/faq/`|
     |**Charla**|Seleccione **Professional**|
 
 1. En el **paso 5**, seleccione **Create your KB** (Crear base de conocimiento).
