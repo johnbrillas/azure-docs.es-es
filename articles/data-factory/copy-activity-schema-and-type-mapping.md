@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: jingwang
-ms.openlocfilehash: 96667dcdd43eb801542a4be8fa4f21ff8d1317b7
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 2b54ee29b1b03bab5af8410a3fae06438180299d
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637265"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507530"
 ---
 # <a name="schema-and-data-type-mapping-in-copy-activity"></a>Asignación de esquemas y tipos de datos en la actividad de copia
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -182,13 +182,13 @@ Puede definir dicha asignación en la interfaz de usuario de creación de Data F
 
 1. En actividad de copia > pestaña Asignación, haga clic en el botón **Importar esquema** para importar los esquemas de origen y de receptor. Ya que Data Factory muestrea los objetos más importantes al importar el esquema, si no aparece algún campo, puede agregarlo a la capa correcta en la jerarquía; para ello, mantenga el puntero sobre un nombre de campo existente y elija la opción para agregar un nodo, un objeto o una matriz.
 
-2. Seleccione la matriz en la que quiere iterar y extraer datos. Se cumplimentará automáticamente como una **referencia de colecciones** . Nota: Solo se admite una matriz única para esta operación.
+2. Seleccione la matriz en la que quiere iterar y extraer datos. Se cumplimentará automáticamente como una **referencia de colecciones**. Nota: Solo se admite una matriz única para esta operación.
 
 3. Asigne los campos necesarios al receptor. Data Factory determina automáticamente las rutas de acceso JSON correspondientes para el lado jerárquico.
 
 ![Asignación de datos jerárquicos a tabulares mediante la interfaz de usuario](media/copy-activity-schema-and-type-mapping/map-hierarchical-to-tabular-ui.png)
 
-También puede cambiar al **Editor avanzado** , en cuyo caso puede ver y editar directamente las rutas de acceso JSON de los campos. Si decide agregar una nueva asignación en esta vista, especifique la ruta de acceso JSON.
+También puede cambiar al **Editor avanzado**, en cuyo caso puede ver y editar directamente las rutas de acceso JSON de los campos. Si decide agregar una nueva asignación en esta vista, especifique la ruta de acceso JSON.
 
 ![Asignación de datos jerárquicos a tabulares mediante el editor avanzado](media/copy-activity-schema-and-type-mapping/map-hierarchical-to-tabular-advanced-editor.png)
 
@@ -319,7 +319,7 @@ Las siguientes propiedades son compatibles con la actividad de copia para la con
 | timeSpanFormat                   | Da formato a la cadena al realizar conversiones entre intervalos de tiempo y cadenas; por ejemplo, `dd\.hh\:mm`. Consulte [Cadenas con formato de intervalo de tiempo personalizado](/dotnet/standard/base-types/custom-timespan-format-strings) para obtener información detallada. | No       |
 | culture                          | Información de referencia cultural que se va a usar al convertir tipos; por ejemplo, `en-us` o `fr-fr`. | No       |
 
-**Ejemplo** :
+**Ejemplo**:
 
 ```json
 {
@@ -411,7 +411,7 @@ En este ejemplo, el conjunto de datos de salida tiene una estructura y apunta a 
 }
 ```
 
-El siguiente fragmento JSON define una actividad de copia en una canalización. Las columnas del origen se asignan a columnas del receptor mediante la propiedad **translator** -> **columnMappings** .
+El siguiente fragmento JSON define una actividad de copia en una canalización. Las columnas del origen se asignan a columnas del receptor mediante la propiedad **translator** -> **columnMappings**.
 
 ```json
 {
@@ -455,7 +455,7 @@ Puede especificar actividad de copia -> `translator` -> `schemaMapping` para rea
 | Propiedad            | Descripción                                                  | Obligatorio |
 | :------------------ | :----------------------------------------------------------- | :------- |
 | type                | La propiedad type del traductor de la actividad de copia debe establecerse en: **TabularTranslator** | Sí      |
-| schemaMapping       | Colección de pares clave-valor, que representa la relación de la asignación **del lado origen al lado receptor** .<br/>- **Clave:** representa el origen. Para un **origen tabular** , especifique el nombre de columna tal como se define en la estructura del conjunto de datos; para un **origen jerárquico** , especifique la expresión de ruta de acceso JSON para todos los campos que va a extraer y asignar.<br>- **Valor:** representa el receptor. Para un **receptor tabular** , especifique el nombre de columna tal como se define en la estructura del conjunto de datos; para un **receptor jerárquico** , especifique la expresión de ruta de acceso JSON para todos los campos que va a extraer y asignar. <br>En el caso de los datos jerárquicos, para los campos en el objeto raíz, la ruta de acceso JSON comienza con root $; para los campos dentro de la matriz elegida mediante la propiedad `collectionReference`, la ruta de acceso JSON empieza desde el elemento de matriz. | Sí      |
+| schemaMapping       | Colección de pares clave-valor, que representa la relación de la asignación **del lado origen al lado receptor**.<br/>- **Clave:** representa el origen. Para un **origen tabular**, especifique el nombre de columna tal como se define en la estructura del conjunto de datos; para un **origen jerárquico**, especifique la expresión de ruta de acceso JSON para todos los campos que va a extraer y asignar.<br>- **Valor:** representa el receptor. Para un **receptor tabular**, especifique el nombre de columna tal como se define en la estructura del conjunto de datos; para un **receptor jerárquico**, especifique la expresión de ruta de acceso JSON para todos los campos que va a extraer y asignar. <br>En el caso de los datos jerárquicos, para los campos en el objeto raíz, la ruta de acceso JSON comienza con root $; para los campos dentro de la matriz elegida mediante la propiedad `collectionReference`, la ruta de acceso JSON empieza desde el elemento de matriz. | Sí      |
 | collectionReference | Si desea iterar y extraer datos de los objetos **dentro de un campo de matriz** con el mismo patrón y convertir al modo por fila por objeto, especifique la ruta de acceso JSON de esa matriz para realizar la aplicación cruzada. Esta propiedad solo se admite si el origen son datos jerárquicos. | No       |
 
 **Ejemplo: copia de MongoDB a Oracle:**

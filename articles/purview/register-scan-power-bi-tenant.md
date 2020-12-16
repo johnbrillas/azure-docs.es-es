@@ -7,19 +7,19 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/19/2020
-ms.openlocfilehash: ce23119e568347fff2ad270cfea7f8b563cae529
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 1f08bfd6b7c0439dd08a3091b5ea927781af9b84
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96904999"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387588"
 ---
 # <a name="register-and-scan-a-power-bi-tenant-preview"></a>Registro y examen de un inquilino de Power BI (versión preliminar)
 
 En este artículo se muestra cómo usar el portal de Azure Purview para registrar y examinar un inquilino de Power BI.
 
 > [!Note]
-> Si la instancia de Purview y el inquilino de Power BI están en el mismo inquilino de Azure, solo puede usar la autenticación de identidad administrada (MSI) para configurar un examen de un inquilino de Power BI. Si la instancia de Purview y el inquilino de Power BI están en inquilinos de Azure distintos, debe autenticarse con la autenticación delegada y debe usar PowerShell para configurar los exámenes. Vea [Uso de PowerShell para registrar y examinar Power BI](powershell-register-scan-power-bi.md).
+> Si la instancia de Purview y el inquilino de Power BI están en el mismo inquilino de Azure, solo puede usar la autenticación de identidad administrada (MSI) para configurar un examen de un inquilino de Power BI. 
 
 ## <a name="create-a-security-group-for-permissions"></a>Creación de un grupo de seguridad de permisos
 

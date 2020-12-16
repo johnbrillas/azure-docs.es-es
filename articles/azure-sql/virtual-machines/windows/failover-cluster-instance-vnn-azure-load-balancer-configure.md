@@ -7,6 +7,7 @@ author: MashaMSFT
 manager: jroth
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
@@ -14,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 8f8513746271fff0ab52603e31b75304d5ebc1bf
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 5670a29e86eb201a707e5ceef28043aafe4839d9
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168765"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97357983"
 ---
 # <a name="configure-azure-load-balancer-for-failover-cluster-instance-vnn"></a>Configuración de Azure Load Balancer para un VNN de instancia de clúster de conmutación por error
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -46,23 +47,23 @@ Utilice [Azure Portal](https://portal.azure.com) para crear del equilibrador de 
 
 1. En Azure Portal, vaya al grupo de recursos que contiene las máquinas virtuales.
 
-1. Seleccione **Agregar** . Busque **Equilibrador de carga** en Azure Marketplace. Seleccione **Equilibrador de carga** .
+1. Seleccione **Agregar**. Busque **Equilibrador de carga** en Azure Marketplace. Seleccione **Equilibrador de carga**.
 
-1. Seleccione **Crear** .
+1. Seleccione **Crear**.
 
 1. Configure el equilibrador de carga con los siguientes valores:
 
-   - **Suscripción** : Su suscripción de Azure.
-   - **Grupo de recursos** : El grupo de recursos que contiene las máquinas virtuales.
-   - **Name** : un nombre que identifica el equilibrador de carga.
-   - **Región** : La ubicación de Azure que contiene las máquinas virtuales.
-   - **Tipo** : Pública o privada. A los equilibradores de carga privados se puede acceder desde la red virtual. La mayoría de las aplicaciones de Azure pueden usar un equilibrador de carga privado. Si la aplicación necesita acceder a SQL Server directamente a través de Internet, utilice un equilibrador de carga público.
-   - **SKU** : Estándar.
-   - **Red virtual** : la misma red que la de las máquinas virtuales.
-   - **Asignación de dirección IP** : Estática. 
-   - **Dirección IP privada** : la dirección IP que asignó al recurso de red en clúster.
+   - **Suscripción**: Su suscripción de Azure.
+   - **Grupo de recursos**: El grupo de recursos que contiene las máquinas virtuales.
+   - **Name**: un nombre que identifica el equilibrador de carga.
+   - **Región**: La ubicación de Azure que contiene las máquinas virtuales.
+   - **Tipo**: Pública o privada. A los equilibradores de carga privados se puede acceder desde la red virtual. La mayoría de las aplicaciones de Azure pueden usar un equilibrador de carga privado. Si la aplicación necesita acceder a SQL Server directamente a través de Internet, utilice un equilibrador de carga público.
+   - **SKU**: Estándar.
+   - **Red virtual**: la misma red que la de las máquinas virtuales.
+   - **Asignación de dirección IP**: Estática. 
+   - **Dirección IP privada**: la dirección IP que asignó al recurso de red en clúster.
 
-   En la imagen siguiente se muestra la interfaz de usuario **Crear un equilibrador de carga** :
+   En la imagen siguiente se muestra la interfaz de usuario **Crear un equilibrador de carga**:
 
    ![Configuración del equilibrador de carga](./media/failover-cluster-instance-premium-file-share-manually-configure/30-load-balancer-create.png)
    
@@ -71,49 +72,49 @@ Utilice [Azure Portal](https://portal.azure.com) para crear del equilibrador de 
 
 1. Vuelva al grupo de recursos de Azure que contiene las máquinas virtuales y busque el equilibrador de carga nuevo. Es posible que tenga que actualizar la vista en el grupo de recursos. Seleccione el equilibrador de carga.
 
-1. Seleccione **Grupos de back-end** y, a continuación, seleccione **Agregar** .
+1. Seleccione **Grupos de back-end** y, a continuación, seleccione **Agregar**.
 
 1. Asocie el grupo de back-end con el conjunto de disponibilidad que contiene las máquinas virtuales.
 
-1. En **Configuraciones IP de red de destino** , active **MÁQUINA VIRTUAL** y seleccione las máquinas virtuales que participarán como nodos de clúster. No olvide incluir todas las máquinas virtuales que hospedarán la FCI o el grupo de disponibilidad.
+1. En **Configuraciones IP de red de destino**, active **MÁQUINA VIRTUAL** y seleccione las máquinas virtuales que participarán como nodos de clúster. No olvide incluir todas las máquinas virtuales que hospedarán la FCI o el grupo de disponibilidad.
 
 1. Seleccione **Aceptar** para crear el grupo de back-end.
 
 ## <a name="configure-health-probe"></a>Configuración de sondeo de estado
 
-1. En el panel del equilibrador de carga, seleccione **Sondeos de estado** .
+1. En el panel del equilibrador de carga, seleccione **Sondeos de estado**.
 
-1. Seleccione **Agregar** .
+1. Seleccione **Agregar**.
 
-1. En el panel **Agregar sondeo de estado** , <span id="probe"></span>establezca los parámetros del sondeo de estado siguientes:
+1. En el panel **Agregar sondeo de estado**, <span id="probe"></span>establezca los parámetros del sondeo de estado siguientes:
 
-   - **Name** : nombre del sondeo de estado.
-   - **Protocolo** : TCP.
-   - **Puerto** : el puerto que creó en el firewall para el sondeo de estado al [preparar la máquina virtual](failover-cluster-instance-prepare-vm.md#uninstall-sql-server-1). En este artículo, el ejemplo usa el puerto TCP `59999`.
-   - **Intervalo** : 5 segundos.
-   - **Umbral incorrecto** : 2 errores consecutivos.
+   - **Name**: nombre del sondeo de estado.
+   - **Protocolo**: TCP.
+   - **Puerto**: el puerto que creó en el firewall para el sondeo de estado al [preparar la máquina virtual](failover-cluster-instance-prepare-vm.md#uninstall-sql-server-1). En este artículo, el ejemplo usa el puerto TCP `59999`.
+   - **Intervalo**: 5 segundos.
+   - **Umbral incorrecto**: 2 errores consecutivos.
 
-1. Seleccione **Aceptar** .
+1. Seleccione **Aceptar**.
 
 ## <a name="set-load-balancing-rules"></a>Establecimiento de reglas de equilibrio de carga
 
-1. En el panel del equilibrador de carga, seleccione **Reglas de equilibrio de carga** .
+1. En el panel del equilibrador de carga, seleccione **Reglas de equilibrio de carga**.
 
-1. Seleccione **Agregar** .
+1. Seleccione **Agregar**.
 
 1. Establezca los parámetros de la regla de equilibrio de carga:
 
-   - **Name** : nombre de las reglas de equilibrio de carga.
-   - **Dirección IP de front-end** : La dirección IP del recurso de red en clúster del cliente de escucha del grupo de disponibilidad o de la FCI de SQL Server.
-   - **Puerto** : el puerto TCP de SQL Server. El puerto de la instancia predeterminado es 1433.
-   - **Puerto back-end** : el mismo puerto que el valor **Puerto** cuando se habilita **IP flotante (Direct Server Return)** .
-   - **Grupo de back-end** : el nombre del grupo de back-end que configuró anteriormente.
-   - **Sondeo de mantenimiento** : el sondeo de estado que configuró anteriormente.
-   - **Persistencia de la sesión** : Ninguno.
+   - **Name**: nombre de las reglas de equilibrio de carga.
+   - **Dirección IP de front-end**: La dirección IP del recurso de red en clúster del cliente de escucha del grupo de disponibilidad o de la FCI de SQL Server.
+   - **Puerto**: el puerto TCP de SQL Server. El puerto de la instancia predeterminado es 1433.
+   - **Puerto back-end**: el mismo puerto que el valor **Puerto** cuando se habilita **IP flotante (Direct Server Return)** .
+   - **Grupo de back-end**: el nombre del grupo de back-end que configuró anteriormente.
+   - **Sondeo de mantenimiento**: el sondeo de estado que configuró anteriormente.
+   - **Persistencia de la sesión**: Ninguno.
    - **Tiempo de espera de inactividad (minutos)** : 4.
    - **IP flotante (Direct Server Return)** : Habilitado.
 
-1. Seleccione **Aceptar** .
+1. Seleccione **Aceptar**.
 
 ## <a name="configure-cluster-probe"></a>Configuración del clúster de sondeo
 
@@ -137,8 +138,8 @@ En la tabla siguiente se describen los valores que debe actualizar:
 
 |**Valor**|**Descripción**|
 |---------|---------|
-|`Cluster Network Name`| el nombre del clúster de conmutación por error de Windows Server para la red. En **Administrador de clústeres de conmutación por error** > **Redes** , haga clic con el botón derecho en la red y después seleccione **Propiedades** . El valor correcto está debajo del campo **Nombre** en la pestaña **General** .|
-|`SQL Server FCI/AG listener IP Address Resource Name`|El nombre del recurso para la dirección IP del cliente de escucha del grupo de disponibilidad o de la FCI de SQL Server. En **Administrador de clústeres de conmutación por error** > **Roles** , en el rol FCI de SQL Server, en **Nombre del servidor** , haga clic con el botón derecho en el recurso de la dirección IP y después seleccione **Propiedades** . El valor correcto está debajo del campo **Nombre** en la pestaña **General** .|
+|`Cluster Network Name`| el nombre del clúster de conmutación por error de Windows Server para la red. En **Administrador de clústeres de conmutación por error** > **Redes**, haga clic con el botón derecho en la red y después seleccione **Propiedades**. El valor correcto está debajo del campo **Nombre** en la pestaña **General**.|
+|`SQL Server FCI/AG listener IP Address Resource Name`|El nombre del recurso para la dirección IP del cliente de escucha del grupo de disponibilidad o de la FCI de SQL Server. En **Administrador de clústeres de conmutación por error** > **Roles**, en el rol FCI de SQL Server, en **Nombre del servidor**, haga clic con el botón derecho en el recurso de la dirección IP y después seleccione **Propiedades**. El valor correcto está debajo del campo **Nombre** en la pestaña **General**.|
 |`ILBIP`|La dirección IP del equilibrador de carga interno (ILB). Esta dirección se configura en Azure Portal como la dirección front-end de ILB. También es la dirección IP de FCI de SQL Server. Puede encontrarla en **Administrador de clústeres de conmutación por error** en la misma página de propiedades donde encuentra `<SQL Server FCI/AG listener IP Address Resource Name>`.|
 |`nnnnn`|El puerto de sondeo configurado en el sondeo de estado del equilibrador de carga. Cualquier puerto TCP no utilizado es válido.|
 |"SubnetMask"| Máscara de subred para el parámetro de clúster. Debe ser la dirección de difusión TCP IP: `255.255.255.255`.| 
@@ -159,9 +160,9 @@ Pruebe la conmutación por error del recurso en clúster para validar la funcion
 Siga estos pasos.
 
 1. Conéctese a uno de los nodos de clúster de SQL Server con RDP.
-1. Abra el **Administrador de clústeres de conmutación por error** . Seleccione **Roles** . Observe qué nodo posee el rol de FCI de SQL Server.
+1. Abra el **Administrador de clústeres de conmutación por error**. Seleccione **Roles**. Observe qué nodo posee el rol de FCI de SQL Server.
 1. Haga clic con el botón derecho en el rol de FCI de SQL Server. 
-1. Seleccione **Mover** y, después, seleccione **Mejor nodo posible** .
+1. Seleccione **Mover** y, después, seleccione **Mejor nodo posible**.
 
 El **Administrador de clústeres de conmutación por error** muestra el rol y sus recursos pierden su conexión. Después, los recursos se mueven y vuelven a conectarse en el otro nodo.
 

@@ -7,20 +7,20 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: sngun
-ms.custom: devx-track-dotnet, contperfq2
-ms.openlocfilehash: f2da2047469f342814ff349cfa059ed61e3adc25
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.custom: devx-track-dotnet, contperf-fy21q2
+ms.openlocfilehash: 47e20e89c8eaef59b9acd6cf7e31244afd4bcf60
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339689"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359054"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net-sdk-v2"></a>Sugerencias de rendimiento para Azure Cosmos DB y el SDK de .NET v2
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET SDK v3](performance-tips-dotnet-sdk-v3-sql.md)
-> * [SDK de .NET v2](performance-tips.md)
+> * [SDK de .NET v2](performance-tips.md)
 > * [SDK de Java v4](performance-tips-java-sdk-v4-sql.md)
 > * [Versión 2 del SDK de Java asincrónico](performance-tips-async-java.md)
 > * [SDK de Java v2 sincrónico](performance-tips-java.md)
@@ -44,7 +44,7 @@ Se publicó el [SDK de .NET v3](https://github.com/Azure/azure-cosmos-dotnet-v3
 
 Se recomienda el procesamiento de host de Windows de 64 bits para mejorar el rendimiento. El SDK de SQL incluye un archivo ServiceInterop.dll nativo para analizar y optimizar consultas localmente. ServiceInterop.dll solo se admite en la plataforma Windows x64. En el caso de Linux y otras plataformas no compatibles en las que ServiceInterop.dll no está disponible, se realiza una llamada de red adicional a la puerta de enlace para obtener la consulta optimizada. Los siguientes tipos de aplicaciones utilizan el procesamiento de host de 32 bits de forma predeterminada. Para cambiar el procesamiento de host al procesamiento de 64 bits, siga estos pasos según el tipo de la aplicación:
 
-- En el caso de las aplicaciones ejecutables, puede cambiar el procesamiento de host estableciendo el [destino de la plataforma](/visualstudio/ide/how-to-configure-projects-to-target-platforms?preserve-view=true&view=vs-2019) en **x64** en la ventana **Propiedades del proyecto** , en la pestaña **Compilar**.
+- En el caso de las aplicaciones ejecutables, puede cambiar el procesamiento de host estableciendo el [destino de la plataforma](/visualstudio/ide/how-to-configure-projects-to-target-platforms?preserve-view=true&view=vs-2019) en **x64** en la ventana **Propiedades del proyecto**, en la pestaña **Compilar**.
 
 - Para proyectos de prueba basados en VSTest, puede cambiar el procesamiento del host seleccionando **Prueba** >  **Configuración de prueba** >  **Arquitectura de procesador predeterminada como X64** en el menú de **Prueba** de Visual Studio.
 
@@ -133,7 +133,7 @@ Las solicitudes de Azure Cosmos DB se realizan a través de HTTPS o REST cuando 
 
 **Optimizar consultas paralelas para colecciones con particiones**
 
-El SDK de .NET para SQL 1.9.0 y versiones posteriores admiten consultas paralelas, que permiten consultar una colección con particiones en paralelo. Para obtener más información, consulte [ejemplos de código](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) relacionados para trabajar con los SDK. Las consultas paralelas están diseñadas para proporcionar una mejor latencia de consulta y rendimiento que su homólogo en serie. Las consultas paralelas proporcionan dos parámetros que se pueden adaptar para ajustarse a sus requisitos: 
+El SDK de .NET para SQL 1.9.0 y versiones posteriores admiten consultas paralelas, que permiten consultar una colección con particiones en paralelo. Para obtener más información, consulte [ejemplos de código](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/samples/code-samples/Queries/Program.cs) relacionados para trabajar con los SDK. Las consultas paralelas están diseñadas para proporcionar una mejor latencia de consulta y rendimiento que su homólogo en serie. Las consultas paralelas proporcionan dos parámetros que se pueden adaptar para ajustarse a sus requisitos: 
 - `MaxDegreeOfParallelism` controla el número máximo de particiones que se pueden consultar en paralelo. 
 - `MaxBufferedItemCount` controla el número de resultados capturados previamente.
 

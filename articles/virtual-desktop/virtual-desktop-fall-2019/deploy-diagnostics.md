@@ -3,25 +3,20 @@ title: Implementación de la herramienta de diagnósticos para Windows Virtual D
 description: Procedimiento para implementar la herramienta de diagnósticos de experiencia de usuario para Windows Virtual Desktop (clásico).
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/30/2020
+ms.date: 12/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 729e22f8ad94d2119d0f3f3e9fc474cc83a493a8
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 9672d18fe99d8baae3c73fa3782531eb84114713
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95023078"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97515643"
 ---
 # <a name="deploy-the-windows-virtual-desktop-classic-diagnostics-tool"></a>Implementación de la herramienta de diagnósticos para Windows Virtual Desktop (clásico)
 
 >[!IMPORTANT]
 >Este contenido se aplica a Windows Virtual Desktop (clásico), que no admite objetos de Windows Virtual Desktop para Azure Resource Manager.
-
->[!IMPORTANT]
->A partir del 16 de marzo de 2020, se deshabilitaron temporalmente las consultas de diagnóstico que afectan a la experiencia del usuario debido al aumento de demanda en el servicio. Por este motivo, la herramienta dejará de funcionar, ya que depende de dichas consultas. Este artículo se actualizará cuando las consultas de diagnóstico vuelvan a estar disponibles.
->
->Hasta entonces, se recomienda [usar Log Analytics](diagnostics-log-analytics-2019.md) para la supervisión continuada.
 
 Esto es lo que la herramienta de diagnósticos para Windows Virtual Desktop puede hacer:
 
@@ -43,8 +38,8 @@ Debe crear un registro de aplicaciones de Azure Active Directory y un área de 
 
 También debe instalar estos dos módulos de PowerShell antes de empezar:
 
-- [Módulo de Azure PowerShell](/powershell/azure/install-az-ps?view=azps-2.4.0/)
-- [Módulo de Azure AD](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0/)
+- [Módulo de Azure PowerShell](/powershell/azure/install-az-ps?view=azps-2.4.0/&preserve-view=true)
+- [Módulo de Azure AD](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0/&preserve-view=true)
 
 Asegúrese de que tiene el identificador de suscripción preparado para cuando inicie sesión.
 

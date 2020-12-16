@@ -5,18 +5,21 @@ ms.topic: how-to
 author: abhirockzz
 ms.author: abhishgu
 ms.date: 08/11/2020
-ms.openlocfilehash: a13713f01a6bdb0ffcd787ef9c1d2f9a0336f63c
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: ae3ef2e1f35be432558769c512845543867ef27a
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369563"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505416"
 ---
 # <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-preview-with-debezium-for-change-data-capture"></a>Integración de la compatibilidad de Apache Kafka Connect en Azure Event Hubs (versión preliminar) con Debezium para operaciones de captura de datos modificados
 
 La **captura de datos modificados (CDC)** es una técnica que se usa para realizar un seguimiento de los cambios de nivel de fila en tablas de base de datos como respuesta a las operaciones de creación, actualización y eliminación. [Debezium](https://debezium.io/) es una plataforma distribuida que se basa en las características de captura de datos modificados que hay disponibles en distintas bases de datos (por ejemplo, la [descodificación lógica en PostgreSQL](https://www.postgresql.org/docs/current/static/logicaldecoding-explanation.html)). Proporciona un conjunto de [conectores Kafka Connect](https://debezium.io/documentation/reference/1.2/connectors/index.html) que aprovechan los cambios de nivel de fila en tablas de base de datos y los convierten en secuencias de eventos que se envían a [Apache Kafka](https://kafka.apache.org/).
 
 Este tutorial lo guiará a través de la configuración de un sistema basado en la captura de datos modificados en Azure con [Azure Event Hubs](./event-hubs-about.md?WT.mc_id=devto-blog-abhishgu) (para Kafka), [Azure Database for PostgreSQL](../postgresql/overview.md) y Debezium. Usará el [conector de PostgreSQL de Debezium ](https://debezium.io/documentation/reference/1.2/connectors/postgresql.html) para transmitir modificaciones de base de datos desde PostgreSQL a temas de Kafka en Azure Event Hubs.
+
+> [!NOTE]
+> Este artículo contiene referencias al término *lista blanca*, un término que Microsoft ya no usa. Cuando se elimine el término del software, se eliminará también de este artículo.
 
 En este tutorial, realizará los siguientes pasos:
 
@@ -36,7 +39,7 @@ Para completar este tutorial, necesitará lo siguiente:
 - Lea el artículo de introducción [Event Hubs para Apache Kafka](./event-hubs-for-kafka-ecosystem-overview.md).
 
 ## <a name="create-an-event-hubs-namespace"></a>Creación de un espacio de nombres de Event Hubs
-Se requiere un espacio de nombres de Event Hubs para enviar y recibir de cualquier servicio de Event Hubs. Vea [Creación de un centro de eventos](event-hubs-create.md) para obtener instrucciones sobre cómo crear un espacio de nombres y un centro de eventos. Obtenga la cadena de conexión de Event Hubs y el nombre de dominio completo (FQDN) para su uso posterior. Para obtener instrucciones, consulte [Get an Event Hubs connection string](event-hubs-get-connection-string.md) (Obtención de una cadena de conexión de Event Hubs). 
+Se requiere un espacio de nombres de Event Hubs para enviar y recibir de cualquier servicio de Event Hubs. Consulte [Creación de un centro de eventos](event-hubs-create.md) para obtener instrucciones sobre cómo crear un espacio de nombres y un centro de eventos. Obtenga la cadena de conexión de Event Hubs y el nombre de dominio completo (FQDN) para su uso posterior. Para obtener instrucciones, consulte [Get an Event Hubs connection string](event-hubs-get-connection-string.md) (Obtención de una cadena de conexión de Event Hubs). 
 
 ## <a name="setup-and-configure-azure-database-for-postgresql"></a>Instalación y configuración de Azure Database for PostgreSQL
 [Azure Database for PostgreSQL](../postgresql/overview.md) es un servicio de base de datos relacional basado en la versión de la comunidad del motor de base de datos PostgreSQL de código abierto, y se encuentra disponible en dos opciones de implementación: Un solo servidor e Hiperescala (Citus) [Siga las instrucciones](../postgresql/quickstart-create-server-database-portal.md) para crear un servidor de Azure Database for PostgreSQL a través de Azure Portal. 
@@ -100,7 +103,7 @@ plugin.path={KAFKA.DIRECTORY}/libs # path to the libs directory within the Kafka
 ```
 
 > [!IMPORTANT]
-> Reemplace `{YOUR.EVENTHUBS.CONNECTION.STRING}` por la cadena de conexión para el espacio de nombres de Event Hubs. Para obtener instrucciones sobre cómo obtener la cadena de conexión, consulte [Obtención de la cadena de conexión de un centro de eventos](event-hubs-get-connection-string.md). A continuación se muestra un ejemplo de configuración: `sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://mynamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXX";`
+> Reemplace `{YOUR.EVENTHUBS.CONNECTION.STRING}` por la cadena de conexión para el espacio de nombres de Event Hubs. Para obtener instrucciones sobre cómo obtener la cadena de conexión, consulte [Obtención de una cadena de conexión de Event Hubs](event-hubs-get-connection-string.md). A continuación se muestra un ejemplo de configuración: `sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://mynamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXX";`
 
 
 ### <a name="run-kafka-connect"></a>Ejecución de Kafka Connect

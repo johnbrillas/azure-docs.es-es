@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 60dff717fbd86fa83821575ac90c9dac36dbc4d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d680da7a5f09a55bec5d791642b80fd76c6088e
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85383978"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509621"
 ---
 # <a name="migrate-users-to-azure-ad-b2c"></a>Migrar usuarios a Azure AD B2C
 
@@ -90,7 +90,7 @@ No toda la información del proveedor de identidades heredado debe migrarse al d
 
 Antes de comenzar el proceso de migración, aproveche la oportunidad para limpiar el directorio.
 
-- Identifique el conjunto de atributos de usuario que se van a almacenar en Azure AD B2C y migre solo lo que necesite. Si es necesario, puede crear [atributos personalizados](custom-policy-custom-attributes.md) para almacenar más datos sobre un usuario.
+- Identifique el conjunto de atributos de usuario que se van a almacenar en Azure AD B2C y migre solo lo que necesite. Si es necesario, puede crear [atributos personalizados](user-flow-custom-attributes.md) para almacenar más datos sobre un usuario.
 - Si va a migrar desde un entorno con varios orígenes de autenticación (por ejemplo, cada aplicación tiene su propio directorio de usuario), migre a una cuenta unificada en Azure AD B2C.
 - Si varias aplicaciones tienen distintos nombres de usuario, puede almacenarlas todas en una cuenta de usuario de Azure AD B2C mediante la colección de identidades. Con respecto a la contraseña, permita que el usuario elija una y establézcala en el directorio. Por ejemplo, con la migración de conexión directa, solo la contraseña elegida debe almacenarse en la cuenta de Azure AD B2C.
 - Quite las cuentas de usuario no utilizadas antes de la migración o no migre cuentas obsoletas.

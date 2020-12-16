@@ -8,18 +8,19 @@ editor: ''
 tags: azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-sql
+ms.subservice: management
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/09/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 12ba0900f2499965f7843672183310dfecfbab2b
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 42d7760d25f6ab591c19889eb2159711d6de1b07
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146678"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97356759"
 ---
 # <a name="migrate-log-disk-to-ultra-disk"></a>Migración del disco de registro al disco Ultra
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -84,7 +85,7 @@ Configure SQL Server para usar la nueva unidad de registro. Para ello, puede us
 1. Vaya a su nuevo disco. 
 1. Cree una carpeta (o varias carpetas) que se usarán para el archivo de registro. 
 1. Haga clic con el botón derecho en la carpeta y seleccione **Propiedades**.
-1. En la pestaña **Seguridad** , conceda acceso de control total a la cuenta de servicio de SQL Server. 
+1. En la pestaña **Seguridad**, conceda acceso de control total a la cuenta de servicio de SQL Server. 
 1. Seleccione **Aceptar** para guardar la configuración. 
 1. Repita este paso para cada carpeta de nivel raíz donde tenga previsto tener datos SQL. 
 

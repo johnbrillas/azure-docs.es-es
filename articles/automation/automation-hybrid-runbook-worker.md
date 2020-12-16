@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 11/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7bd9560399a2b2b377cb543a4f829883bcbdf7c8
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 7feac3ccb94cd8b4b0fab509477d4dbf772df2ae
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183777"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505535"
 ---
 # <a name="hybrid-runbook-worker-overview"></a>Introducción a Hybrid Runbook Worker
 
@@ -92,7 +92,7 @@ Hybrid Runbook Worker de Azure Automation se puede usar en Azure Government para
 
 * [Máquina virtual aislada](../azure-government/documentation-government-impact-level-5.md#isolated-virtual-machines). Cuando se implementa, consume todo el host físico de esa máquina, lo que proporciona el nivel necesario de aislamiento para admitir las cargas de trabajo IL5.
 
-* [Azure Dedicated Host](../azure-government/documentation-government-impact-level-5.md#azure-dedicated-hosts), proporciona servidores físicos capaces de hospedar una o varias máquinas virtuales, dedicados a una suscripción de Azure.
+* [Azure Dedicated Host](../azure-government/documentation-government-impact-level-5.md#azure-dedicated-host), proporciona servidores físicos capaces de hospedar una o varias máquinas virtuales, dedicados a una suscripción de Azure.
 
 >[!NOTE]
 >El aislamiento de proceso mediante el rol Hybrid Runbook Worker está disponible para las nubes de Azure Commercial y US Government. 

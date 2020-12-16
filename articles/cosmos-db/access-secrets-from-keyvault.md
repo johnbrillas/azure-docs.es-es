@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: how-to
 ms.date: 05/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 6c5ef4f0ee0d68e2eae755f000423db4620b834d
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: a9bea0664f99a21ac734de666c802e9875ff00b5
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341389"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359334"
 ---
 # <a name="secure-azure-cosmos-keys-using-azure-key-vault"></a>Protección de las claves de Azure Cosmos con Azure Key Vault 
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -35,7 +35,7 @@ Los pasos siguientes son necesarios para almacenar y leer las claves de acceso d
 
 1. Inicie sesión en el [portal de Azure](https://portal.azure.com/).  
 2. Seleccione **Crear un recurso > Seguridad > Key Vault**.  
-3. En la sección **Crear Key Vault** , proporcione la siguiente información:  
+3. En la sección **Crear Key Vault**, proporcione la siguiente información:  
    * **Nombre:** proporcione un nombre único para el almacén de claves.  
    * **Subscription** (Suscripción): elija la suscripción que va a utilizar.  
    * En **Grupo de recursos** elija **Crear nuevo** y escriba un nombre para el grupo de recursos.  
@@ -59,7 +59,7 @@ Los pasos siguientes son necesarios para almacenar y leer las claves de acceso d
 
 ## <a name="create-an-azure-web-application"></a>Creación de una aplicación web de Azure
 
-1. Cree una aplicación web de Azure o puede descargar la aplicación del [repositorio de GitHub](https://github.com/Azure/azure-cosmosdb-dotnet/tree/master/Demo/keyvaultdemo). Es una sencilla aplicación de MVC.  
+1. Cree una aplicación web de Azure o puede descargar la aplicación del [repositorio de GitHub](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/Demo/keyvaultdemo). Es una sencilla aplicación de MVC.  
 
 2. Descomprima la aplicación descargada y abra el archivo **HomeController.cs**. Actualice el identificador secreto en la siguiente línea:
 
@@ -82,7 +82,7 @@ En esta sección, registre la aplicación en Azure Active Directory y conceda pe
 
 1. Vaya a Azure Portal y abra el **almacén de claves** creado en la sección anterior.  
 
-2. Abra **Directivas de acceso** , seleccione **+ Agregar nuevo** , busque la aplicación web que implementó, seleccione los permisos y seleccione **Aceptar**.  
+2. Abra **Directivas de acceso**, seleccione **+ Agregar nuevo**, busque la aplicación web que implementó, seleccione los permisos y seleccione **Aceptar**.  
 
    :::image type="content" source="./media/access-secrets-from-keyvault/add-access-policy.png" alt-text="Agregar directiva de acceso":::
 

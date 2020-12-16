@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/12/2020
+ms.date: 12/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 950c159ed4d2c57796f33b9505e6931dbec983ba
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 441a77823c77305e567e9e1436715bc51ca48c11
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94532382"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387061"
 ---
 # <a name="display-controls"></a>Controles de visualización
 
@@ -53,9 +53,9 @@ El elemento **DisplayControl** contiene los elementos siguientes:
 
 | Elemento | Repeticiones | Descripción |
 | ------- | ----------- | ----------- |
-| InputClaims | 0:1 | **InputClaims** se usa para rellenar previamente el valor de las notificaciones que se van a recopilar del usuario. Para obtener más información, vea el elemento [InputClaims](technicalprofiles.md#inputclaims). |
+| InputClaims | 0:1 | **InputClaims** se usa para rellenar previamente el valor de las notificaciones que se van a recopilar del usuario. Para obtener más información, vea el elemento [InputClaims](technicalprofiles.md#input-claims). |
 | DisplayClaims | 0:1 | Las **DisplayClaims** se usan para representar las notificaciones que se van a recopilar del usuario. Para obtener más información, vea el elemento [DisplayClaim](technicalprofiles.md#displayclaim).|
-| OutputClaims | 0:1 | **OutputClaims** se usa para representar notificaciones que se van a guardar temporalmente para este **DisplayControl**. Para obtener más información, vea el elemento [OutputClaims](technicalprofiles.md#outputclaims).|
+| OutputClaims | 0:1 | **OutputClaims** se usa para representar notificaciones que se van a guardar temporalmente para este **DisplayControl**. Para obtener más información, vea el elemento [OutputClaims](technicalprofiles.md#output-claims).|
 | Acciones | 0:1 | **Actions** se usa para enumerar los perfiles técnicos de validación que se van a invocar para las acciones del usuario que se producen en front-end. |
 
 ### <a name="input-claims"></a>Notificaciones de entrada

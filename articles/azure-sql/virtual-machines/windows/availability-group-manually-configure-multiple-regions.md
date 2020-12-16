@@ -8,18 +8,19 @@ editor: monicar
 tags: azure-service-management
 ms.assetid: 388c464e-a16e-4c9d-a0d5-bb7cf5974689
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 335cc707cb1192d3dbf08f51e78d4e82441dd05a
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 60bb5ac652a80b5ae52c91f91fa0c80440e9cc82
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93094475"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359088"
 ---
 # <a name="configure-a-sql-server-always-on-availability-group-across-different-azure-regions"></a>Configuración de un grupo de disponibilidad AlwaysOn de SQL Server en distintas regiones de Azure
 
@@ -96,11 +97,11 @@ Para crear una réplica en un centro de datos remoto, siga estos pasos:
 
 1. Agregue un recurso de dirección IP al clúster.
 
-   Puede crear el recurso de dirección IP en el Administrador de clústeres de conmutación por error. Seleccione el nombre del clúster y, después, haga clic en él con el botón derecho en **Recursos principales de clúster** y seleccione **Propiedades** : 
+   Puede crear el recurso de dirección IP en el Administrador de clústeres de conmutación por error. Seleccione el nombre del clúster y, después, haga clic en él con el botón derecho en **Recursos principales de clúster** y seleccione **Propiedades**: 
 
    ![Captura de pantalla que muestra el "administrador del clúster de conmutación por error" con un nombre de clúster, el "nombre del servidor" y las "propiedades" seleccionadas.](./media/availability-group-manually-configure-multiple-regions/cluster-name-properties.png)
 
-   En el cuadro de diálogo **Propiedades** , seleccione **Agregar** en **Dirección IP** y, después, agregue la dirección IP del nombre de clúster de la región de red remota. Seleccione **Aceptar** en el cuadro de diálogo **Dirección IP** y, después, seleccione de nuevo **Aceptar** en el cuadro de diálogo **Propiedades de clúster** para guardar la nueva dirección IP. 
+   En el cuadro de diálogo **Propiedades**, seleccione **Agregar** en **Dirección IP** y, después, agregue la dirección IP del nombre de clúster de la región de red remota. Seleccione **Aceptar** en el cuadro de diálogo **Dirección IP** y, después, seleccione de nuevo **Aceptar** en el cuadro de diálogo **Propiedades de clúster** para guardar la nueva dirección IP. 
 
    ![Adición de una dirección IP al clúster](./media/availability-group-manually-configure-multiple-regions/add-cluster-ip-address.png)
 
@@ -113,7 +114,7 @@ Para crear una réplica en un centro de datos remoto, siga estos pasos:
 
 1. Agregue un recurso de dirección IP al rol del grupo de disponibilidad en el clúster. 
 
-   Haga clic con el botón derecho en el rol de grupo de disponibilidad en Administrador de clústeres de conmutación por error, elija **Agregar recurso** , **Más recursos** y seleccione **Dirección IP**.
+   Haga clic con el botón derecho en el rol de grupo de disponibilidad en Administrador de clústeres de conmutación por error, elija **Agregar recurso**, **Más recursos** y seleccione **Dirección IP**.
 
    ![Crear dirección IP](./media/availability-group-manually-configure-multiple-regions/20-add-ip-resource.png)
 
@@ -169,17 +170,17 @@ Si no puede modificar las cadenas de conexión, puede configurar el almacenamien
 
 Para probar la conectividad del agente de escucha con la región remota, puede conmutar por error a la réplica de la región remota. Aunque la réplica sea asincrónica, la conmutación por error es vulnerable a posibles pérdidas de datos. Para conmutar por error sin pérdida de datos, cambie el modo de disponibilidad a sincrónico y establezca el modo de conmutación por error en automático. Siga estos pasos:
 
-1. En el **Explorador de objetos** , conéctese a la instancia de SQL Server que hospeda la réplica principal.
-1. En **Grupos de disponibilidad AlwaysOn** , **Grupos de disponibilidad** , haga clic con el botón derecho en el grupo de disponibilidad y seleccione **Propiedades**.
-1. En la página **General** , en **Réplicas de disponibilidad** , establezca la réplica secundaria en el sitio de recuperación ante desastres para que utilice el modo de disponibilidad **Confirmación sincrónica** y el modo de conmutación por error **Automático**.
+1. En el **Explorador de objetos**, conéctese a la instancia de SQL Server que hospeda la réplica principal.
+1. En **Grupos de disponibilidad AlwaysOn**, **Grupos de disponibilidad**, haga clic con el botón derecho en el grupo de disponibilidad y seleccione **Propiedades**.
+1. En la página **General**, en **Réplicas de disponibilidad**, establezca la réplica secundaria en el sitio de recuperación ante desastres para que utilice el modo de disponibilidad **Confirmación sincrónica** y el modo de conmutación por error **Automático**.
 1. Si tiene una réplica secundaria en el mismo sitio que la réplica principal para alta disponibilidad, establezca esta réplica en **Confirmación asincrónica** y **Manual**.
 1. Seleccione Aceptar.
-1. En el **Explorador de objetos** , haga clic con el botón derecho en el grupo de disponibilidad y luego seleccione **Mostrar panel**.
+1. En el **Explorador de objetos**, haga clic con el botón derecho en el grupo de disponibilidad y luego seleccione **Mostrar panel**.
 1. En el panel, compruebe que la réplica en el sitio de recuperación ante desastres esté sincronizada.
-1. En el **Explorador de objetos** , haga clic con el botón derecho en el grupo de disponibilidad y luego seleccione **Conmutación por error...** SQL Server Management Studios abre un asistente para conmutar por error a SQL Server.  
+1. En el **Explorador de objetos**, haga clic con el botón derecho en el grupo de disponibilidad y luego seleccione **Conmutación por error...** SQL Server Management Studios abre un asistente para conmutar por error a SQL Server.  
 1. Seleccione **Siguiente** y la instancia de SQL Server en el sitio de recuperación ante desastres. Seleccione **Siguiente** de nuevo.
 1. Conéctese a la instancia de SQL Server en el sitio de recuperación ante desastres y seleccione **Siguiente**.
-1. En la página **Resumen** , revise la configuración y seleccione **Finalizar**.
+1. En la página **Resumen**, revise la configuración y seleccione **Finalizar**.
 
 Después de probar la conectividad, mueva la réplica principal de nuevo a su centro de datos principal y vuelva a establecer el modo de disponibilidad en su configuración de funcionamiento normal. En la tabla siguiente se muestra la configuración de funcionamiento normal de la arquitectura descrita en este documento:
 

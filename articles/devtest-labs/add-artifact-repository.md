@@ -3,12 +3,12 @@ title: Adición de un repositorio de artefactos a un laboratorio en Azure DevTes
 description: Obtenga información sobre cómo especificar su propio repositorio de artefactos para el laboratorio en Azure DevTest Labs, a fin de almacenar herramientas que no están disponibles en el repositorio de artefactos públicos.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 7553f6b1afa416a5428577a8313bdadb669e32c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5dd7d89020bf077e29b177f6871f43b52467b0d8
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88270995"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97512018"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>Agregar un repositorio de artefactos a un laboratorio en Azure DevTest Labs
 DevTest Labs permite especificar que se agregue un artefacto a una máquina virtual en el mismo momento de crear la máquina virtual o después de que se haya creado. Este artefacto puede ser una herramienta o una aplicación que desee instalar en la máquina virtual. Los artefactos se definen en un archivo JSON que se carga desde un repositorio GitHub o un repositorio GIT de Azure DevOps.
@@ -49,7 +49,7 @@ Para agregar un repositorio al laboratorio, obtenga cierta información clave de
    3. En la lista **Expiración (UTC)** , seleccione **90 días** o un período de expiración definido personalizado.
    4. Seleccione la opción **Acceso Completo** para los ámbitos.
    5. Seleccione **Crear**.
-9. El nuevo token aparece en la lista **Tokens de acceso personal** . Seleccione **token**y luego guarde el valor del token para usarlo más adelante.
+9. El nuevo token aparece en la lista **Tokens de acceso personal** . Seleccione **token** y luego guarde el valor del token para usarlo más adelante.
 10. Vaya a la sección Conexión de un laboratorio con el repositorio.
 
 ## <a name="use-azure-portal"></a>Usar Azure Portal

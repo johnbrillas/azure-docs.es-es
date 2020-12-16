@@ -12,12 +12,12 @@ ms.date: 12/3/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: cb629b80958ed2897f76eb099f738c33b48c3696
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7de97fd775853f64803ab62ac397e754d065e4df
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88119613"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509332"
 ---
 # <a name="admin-consent-on-the-microsoft-identity-platform"></a>Consentimiento del administrador en la Plataforma de identidad de Microsoft
 
@@ -44,14 +44,13 @@ https://graph.microsoft.com/calendars.read
 https://graph.microsoft.com/mail.send
 ```
 
-
-| Parámetro     | Condición     | Descripción                                                                               |
-|--------------:|--------------:|:-----------------------------------------------------------------------------------------:|
+| Parámetro | Condición | Descripción |
+| ---: | ---: | :---: |
 | `tenant` | Obligatorio | El inquilino de directorio al que quiere solicitar permiso. Puede proporcionarse en formato de GUID o de nombre descriptivo, O puede hacerse referencia genéricamente con `organizations`, como se muestra en el ejemplo. No use "común", ya que las cuentas personales no pueden proporcionar consentimiento del administrador salvo en el contexto de un inquilino. Para garantizar una mejor compatibilidad con las cuentas personales que administran los inquilinos, use el identificador de inquilino cuando sea posible. |
 | `client_id` | Obligatorio | El **identificador de aplicación (cliente)** que la experiencia [Azure Portal: Registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908) asignó a la aplicación. |
 | `redirect_uri` | Obligatorio |El URI de redireccionamiento adonde desea que se envíe la respuesta para que la controle la aplicación. Debe coincidir exactamente con uno de los identificadores URI de redirección que registró el Portal de registro de aplicaciones. |
 | `state` | Recomendado | Un valor incluido en la solicitud que se devolverá también en la respuesta del token. Puede ser una cadena de cualquier contenido que desee. Use el estado para codificar información sobre el estado del usuario en la aplicación antes de que se produzca la solicitud de autenticación, por ejemplo, la página o vista en la que estaba. |
-|`scope`        | Obligatorio      | Define el conjunto de permisos que la aplicación solicita. Puede ser estático (mediante /.default) o ámbitos dinámicos.  Puede incluir ámbitos de OIDC (`openid`, `profile`, `email`). |
+|`scope` | Obligatorio | Define el conjunto de permisos que la aplicación solicita. Puede ser estático (mediante /.default) o ámbitos dinámicos. Puede incluir ámbitos de OIDC (`openid`, `profile`, `email`). |
 
 
 En este momento, Azure AD requiere que un administrador de inquilinos inicie sesión para completar la solicitud. Se solicita al administrador que apruebe todos los permisos solicitados en el parámetro `scope`.  Si ha usado un valor estático (`/.default`), funcionará como el punto de conexión de consentimiento del administración de la versión v1.0 y el consentimiento de solicitud para todos los ámbitos que se encuentran en los permisos necesarios para la aplicación.
@@ -64,12 +63,12 @@ Si el administrador aprueba los permisos para la aplicación, la respuesta corre
 http://localhost/myapp/permissions?admin_consent=True&tenant=fa00d692-e9c7-4460-a743-29f2956fd429&state=12345&scope=https%3a%2f%2fgraph.microsoft.com%2fCalendars.Read+https%3a%2f%2fgraph.microsoft.com%2fMail.Send
 ```
 
-| Parámetro         | Descripción                                                                                       |
-|------------------:|:-------------------------------------------------------------------------------------------------:|
+| Parámetro | Descripción |
+| ---: | :---: |
 | `tenant`| El inquilino del directorio que concedió los permisos solicitados, en formato GUID.|
-| `state`           | Un valor incluido en la solicitud que también se devolverá en la respuesta del token. Puede ser una cadena de cualquier contenido que desee. El estado se usa para codificar información sobre el estado del usuario en la aplicación antes de que se haya producido la solicitud de autenticación, por ejemplo, la página o vista en la que estaban.|
-| `scope`          | Conjunto de permisos al que se concedió acceso a la aplicación.|
-| `admin_consent`   | Se establecerá en `True`.|
+| `state` | Un valor incluido en la solicitud que también se devolverá en la respuesta del token. Puede ser una cadena de cualquier contenido que desee. El estado se usa para codificar información sobre el estado del usuario en la aplicación antes de que se haya producido la solicitud de autenticación, por ejemplo, la página o vista en la que estaban.|
+| `scope` | Conjunto de permisos al que se concedió acceso a la aplicación.|
+| `admin_consent` | Se establecerá en `True`.|
 
 ### <a name="error-response"></a>Respuesta de error
 
@@ -77,13 +76,13 @@ http://localhost/myapp/permissions?admin_consent=True&tenant=fa00d692-e9c7-4460-
 
 Cuando se agregan a los parámetros que se ven en una respuesta correcta, los parámetros de error se ven como se muestra a continuación.
 
-| Parámetro          | Descripción                                                                                      |
+| Parámetro | Descripción |
 |-------------------:|:-------------------------------------------------------------------------------------------------:|
-| `error`            | Una cadena de código de error que puede utilizarse para clasificar los tipos de errores que se producen y para reaccionar ante ellos.|
-| `error_description`| Un mensaje de error específico que puede ayudar a un desarrollador a identificar la causa de un error.|
+| `error` | Una cadena de código de error que puede utilizarse para clasificar los tipos de errores que se producen y para reaccionar ante ellos.|
+| `error_description` | Un mensaje de error específico que puede ayudar a un desarrollador a identificar la causa de un error.|
 | `tenant`| El inquilino del directorio que concedió los permisos solicitados, en formato GUID.|
-| `state`           | Un valor incluido en la solicitud que también se devolverá en la respuesta del token. Puede ser una cadena de cualquier contenido que desee. El estado se usa para codificar información sobre el estado del usuario en la aplicación antes de que se haya producido la solicitud de autenticación, por ejemplo, la página o vista en la que estaban.|
-| `admin_consent`   | Se establecerá en `True` para indicar que esta respuesta se produjo en un flujo de consentimiento del administrador.|
+| `state` | Un valor incluido en la solicitud que también se devolverá en la respuesta del token. Puede ser una cadena de cualquier contenido que desee. El estado se usa para codificar información sobre el estado del usuario en la aplicación antes de que se haya producido la solicitud de autenticación, por ejemplo, la página o vista en la que estaban.|
+| `admin_consent` | Se establecerá en `True` para indicar que esta respuesta se produjo en un flujo de consentimiento del administrador.|
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Consulte [Conversión de una aplicación de inquilino único en una aplicación multiinquilino](howto-convert-app-to-be-multi-tenant.md)

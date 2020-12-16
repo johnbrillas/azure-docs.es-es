@@ -12,12 +12,12 @@ ms.subservice: sql-dw
 ms.date: 05/11/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 3ab0188fa44eeb09e3981b8e1809832948963d47
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 456d7eb0cabd7ebede6415e3ce92d7403ecef7ef
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96511648"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368761"
 ---
 # <a name="getting-started-with-visual-studio-2019"></a>Introducción a Visual Studio 2019
 
@@ -45,7 +45,7 @@ En ocasiones, es posible que las versiones de actualización de características
   - Envíe una [incidencia de soporte técnico o vote](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/39040048-ssdt-support-dynamic-data-masking) para obtener la característica admitida.
 - Tablas con una [columna de identidad](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql-identity-property?view=sql-server-ver15)
 - Ciertas características de T-SQL, como:
-   - Cláusula *WITHIN GROUP* de la función de cadena [STRING_AGG](/sql/t-sql/functions/string-agg-transact-sql?view=sqlallproducts-allversions).
+   - Cláusula *WITHIN GROUP* de la función de cadena [STRING_AGG](/sql/t-sql/functions/string-agg-transact-sql).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

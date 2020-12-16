@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 05/21/2019
 ms.author: sngun
-ms.openlocfilehash: 3b47c7e8f31b51d51f5fad20cc068debb1dc2927
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: b27bab9ea3029264143caaacf094f0a799894356
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339740"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359870"
 ---
 # <a name="visualize-azure-cosmos-db-data-by-using-the-power-bi-connector"></a>Visualizar datos de Azure Cosmos DB mediante el conector de Power BI
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -32,7 +32,7 @@ Antes de seguir las instrucciones de este tutorial de Power BI, asegúrese de qu
 
 * [Descargue la versión más reciente de Power BI Desktop](https://powerbi.microsoft.com/desktop).
 
-* Descargue los [datos de volcanes de ejemplo](https://github.com/Azure-Samples/azure-cosmos-db-sample-data/blob/master/SampleData/VolcanoData.json) de GitHub.
+* Descargue los [datos de volcanes de ejemplo](https://github.com/Azure-Samples/azure-cosmos-db-sample-data/blob/main/SampleData/VolcanoData.json) de GitHub.
 
 * [Cree una cuenta de base de datos de Azure Cosmos](create-cosmosdb-resources-portal.md#create-an-azure-cosmos-db-account) e importe los datos de volcanes mediante la [herramienta de migración de datos de Azure Cosmos DB](import-data.md). Al importar datos, tenga en cuenta las opciones siguientes para el origen y los destinos en la herramienta de migración de datos:
 
@@ -76,17 +76,17 @@ Recuperará los datos de los volcanes de la cuenta de Azure Cosmos DB y visualiz
 
 1. Ejecute Power BI Desktop.
 
-2. También puede **obtener datos** , consultar **orígenes recientes** o **abrir otros informes** directamente desde la pantalla de bienvenida. Haga clic en la X de la esquina superior derecha para cerrar la pantalla. Se muestra la vista **Informe** de Power BI Desktop.
+2. También puede **obtener datos**, consultar **orígenes recientes** o **abrir otros informes** directamente desde la pantalla de bienvenida. Haga clic en la X de la esquina superior derecha para cerrar la pantalla. Se muestra la vista **Informe** de Power BI Desktop.
    
    :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbireportview.png" alt-text="Vista de informes de Power BI Desktop: conector de Power BI":::
 
 3. Seleccione la cinta de opciones **Inicio** y haga clic en **Obtener datos**.  Se muestra la pantalla **Obtener datos** .
 
-4. Haga clic en **Azure** , seleccione **Azure Cosmos DB (beta)** y, a continuación, haga clic en **Conectar**. 
+4. Haga clic en **Azure**, seleccione **Azure Cosmos DB (beta)** y, a continuación, haga clic en **Conectar**. 
 
    :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbigetdata.png" alt-text="Obtención de datos de Power BI Desktop: conector de Power BI":::
 
-5. En la página **Vista previa del conector** , haga clic en **Continuar**. Aparece la ventana de **Azure Cosmos DB**.
+5. En la página **Vista previa del conector**, haga clic en **Continuar**. Aparece la ventana de **Azure Cosmos DB**.
 
 6. Especifique la dirección URL del punto de conexión de la cuenta de Azure Cosmos DB de la que desea recuperar los datos, tal como se muestra a continuación, y haga clic en **Aceptar**. Para usar su propia cuenta, puede recuperar la dirección URL del cuadro te texto Identificador URI de la hoja **Claves** de Azure Portal. Si lo prefiere, puede indicar el nombre de la base de datos, el nombre de la colección o usar el navegador para seleccionar la base de datos y la colección para identificar la procedencia de los datos.
    

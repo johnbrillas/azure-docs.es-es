@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 39b61815c33f933e0cdf08bd46382e74eea2f806
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 682b83d7016a89b27b5c936853abda1438f59c28
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93040466"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97508023"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Acerca de los solucionadores de notificaciones en las directivas personalizadas de Azure Active Directory B2C
 
@@ -88,7 +88,7 @@ Las secciones siguientes enumeran los solucionadores de notificaciones disponibl
 | {Context:DateTimeInUtc} |Hora y fecha en UTC.  | 10/10/2018 12:00:00 p. m. |
 | {Context:DeploymentMode} |Modo de implementación de la directiva.  | Producción |
 | {Context:IPAddress} | Dirección IP del usuario. | 11.111.111.11 |
-| {Context:KMSI} | Indica si se ha seleccionado la casilla [Mantener la sesión iniciada](custom-policy-keep-me-signed-in.md). |  true |
+| {Context:KMSI} | Indica si se ha seleccionado la casilla [Mantener la sesión iniciada](session-behavior.md?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi). |  true |
 
 ### <a name="claims"></a>Notificaciones 
 
@@ -185,7 +185,7 @@ Al usar solucionadores de notificaciones, puede rellenar previamente el nombre d
 
 ### <a name="dynamic-ui-customization"></a>Personalización de la interfaz de usuario dinámica
 
-Azure AD B2C le permite pasar parámetros de cadena de consulta a los puntos de conexión de la definición de contenido HTML para representar dinámicamente el contenido de la página. Por ejemplo, esta característica permite cambiar la imagen de fondo en la página de inicio de sesión o de registro de Azure AD B2C en función de un parámetro personalizado que se pasa desde la aplicación web o dispositivo móvil. Para más información, consulte [Azure Active Directory B2C: configuración de la interfaz de usuario con contenido dinámico utilizando directivas personalizadas](custom-policy-ui-customization.md#configure-dynamic-custom-page-content-uri). También puede localizar la página HTML basándose en un parámetro de idioma, o bien puede cambiar el contenido basándose en el identificador de cliente.
+Azure AD B2C le permite pasar parámetros de cadena de consulta a los puntos de conexión de la definición de contenido HTML para representar dinámicamente el contenido de la página. Por ejemplo, esta característica permite cambiar la imagen de fondo en la página de inicio de sesión o de registro de Azure AD B2C en función de un parámetro personalizado que se pasa desde la aplicación web o dispositivo móvil. Para más información, consulte [Azure Active Directory B2C: configuración de la interfaz de usuario con contenido dinámico utilizando directivas personalizadas](customize-ui-with-html.md#configure-dynamic-custom-page-content-uri). También puede localizar la página HTML basándose en un parámetro de idioma, o bien puede cambiar el contenido basándose en el identificador de cliente.
 
 El ejemplo siguiente pasa en la cadena de consulta un parámetro denominado **campaignId** con un valor de `Hawaii`, un código de **idioma** de `en-US` y una **aplicación** que representa el identificador de cliente:
 

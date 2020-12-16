@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/24/2020
+ms.date: 12/11/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: b7faec5023abe37802d8b08980f216934d70a6ac
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c8d07e53e259fff28e662f0c1ca3934eabf015e8
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96005559"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97357456"
 ---
 # <a name="create-a-storage-account"></a>Creación de una cuenta de Storage
 
@@ -286,3 +286,4 @@ Como alternativa, puede eliminar el grupo de recursos, que elimina la cuenta de 
 - [Introducción a las cuentas de almacenamiento](storage-account-overview.md)
 - [Actualización a una cuenta de almacenamiento de uso general v2](storage-account-upgrade.md)
 - [Traslado de una cuenta de Azure Storage a otra región](storage-account-move.md)
+- [recuperar una cuenta de almacenamiento eliminada](storage-account-recover.md)

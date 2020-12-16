@@ -6,6 +6,7 @@ documentationcenter: na
 author: MashaMSFT
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
+ms.subservice: management
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
@@ -13,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/12/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: bb80abc35aedcdf0b46cefa279e477739cf1df6b
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 957e458bf21eb4a95b1faba1daf0459271648310
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789801"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358697"
 ---
 # <a name="run-sql-server-vm-on-an-azure-dedicated-host"></a>Ejecución de VM con SQL Server en una instancia de Azure Dedicated Host 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -36,8 +37,8 @@ En este artículo se especifican los detalles del uso de una máquina virtual (V
 
 Al colocar una VM con SQL Server en una instancia de Azure Dedicated Host, puede elegir entre dos opciones de licencia diferentes. 
 
-  - **Licencia de máquina virtual de SQL** : es la opción de licencia existente, en la que se paga por cada licencia de VM con SQL Server existente individualmente. 
-  - **Licencia de host dedicado** : el nuevo modelo de licencia disponible para Azure Dedicated Host, donde las licencias de SQL Server se agrupan y pagan en el nivel de host. 
+  - **Licencia de máquina virtual de SQL**: es la opción de licencia existente, en la que se paga por cada licencia de VM con SQL Server existente individualmente. 
+  - **Licencia de host dedicado**: el nuevo modelo de licencia disponible para Azure Dedicated Host, donde las licencias de SQL Server se agrupan y pagan en el nivel de host. 
 
 
 Opciones de nivel de host para usar licencias de SQL Server existentes: 

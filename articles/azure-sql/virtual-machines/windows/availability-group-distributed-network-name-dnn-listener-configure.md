@@ -7,6 +7,7 @@ author: MashaMSFT
 manager: jroth
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
@@ -14,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: abfcd6a13bc5e8ad262fe47111eb680ad00a34df
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 07ce01304f27ded4e0a566777fcf7027f7a15e4b
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168764"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359445"
 ---
 # <a name="configure-a-dnn-listener-for-an-availability-group"></a>Configuración de un cliente de escucha de DNN para un grupo de disponibilidad
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -136,7 +137,7 @@ SELECT * FROM SYS.AVAILABILITY_GROUP_LISTENERS
 
 Un valor de `1` para `is_distributed_network_name` indica que el cliente de escucha es un cliente de escucha de nombre de red distribuida (DNN): 
 
-:::image type="content" source="media/availability-group-distributed-network-name-dnn-listener-configure/dnn-listener-tsql.png" alt-text="Vea el cliente de escucha de DNN en Agentes de escucha del grupo de disponibilidad en SQL Server Management Studio (SSMS)":::
+:::image type="content" source="media/availability-group-distributed-network-name-dnn-listener-configure/dnn-listener-tsql.png" alt-text="Use sys.availability_group_listeners para identificar los clientes de escucha de DNN que tienen un valor de 1 en is_distributed_network_name":::
 
 
 ## <a name="update-connection-string"></a>Actualización de la cadena de conexión
@@ -150,8 +151,8 @@ Pruebe la conmutación por error del grupo de disponibilidad para asegurar la fu
 Para probar la conmutación por error, siga estos pasos: 
 
 1. Conéctese al cliente de escucha de DNN o a una de las réplicas mediante [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms). 
-1. Expanda **Always On Availability Group** (Grupo de disponibilidad Always On) en el **Explorador de objetos** . 
-1. Haga clic con el botón derecho en el grupo de disponibilidad y elija **Conmutación por error** para abrir el **Asistente para la conmutación por error** . 
+1. Expanda **Always On Availability Group** (Grupo de disponibilidad Always On) en el **Explorador de objetos**. 
+1. Haga clic con el botón derecho en el grupo de disponibilidad y elija **Conmutación por error** para abrir el **Asistente para la conmutación por error**. 
 1. Siga las notificaciones para elegir un destino de conmutación por error y conmutar por error el grupo de disponibilidad en una réplica secundaria. 
 1. Confirme que la base de datos se encuentre en un estado sincronizado en la nueva réplica principal. 
 1. (Opcional) Conmute por recuperación en la réplica principal o en otra réplica secundaria. 

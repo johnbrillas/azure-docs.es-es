@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 04852e3081807930ced9fdacc75c956d9a15ff23
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 68e282f192b87b9f2217e0727753e7d37ff1aeb1
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94840736"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516091"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Notas para desarrolladores sobre directivas personalizadas en Azure Active Directory B2C
 
@@ -116,7 +116,7 @@ Las directivas personalizadas y las funcionalidades de Identity Experience Frame
 | Parámetro `login_hint` de cadena de consulta |  |  | X | Disponible como notificación, puede pasarse al IDP. |
 | Inserción de JSON en el recorrido del usuario a través de `client_assertion` | X |  |  | En desuso. |
 | Inserción de JSON en el recorrido del usuario como `id_token_hint` |  | X |  | Enfoque de avance para pasar a JSON. |
-| [Paso del token del proveedor de identidades a la aplicación](idp-pass-through-custom.md) |  | X |  | Por ejemplo, de Facebook a la aplicación. |
+| [Paso del token del proveedor de identidades a la aplicación](idp-pass-through-user-flow.md) |  | X |  | Por ejemplo, de Facebook a la aplicación. |
 
 
 ### <a name="session-management"></a>Administración de sesiones
@@ -127,7 +127,7 @@ Las directivas personalizadas y las funcionalidades de Identity Experience Frame
 | [Proveedor externo de sesión de inicio de sesión](custom-policy-reference-sso.md#externalloginssosessionprovider) |  |  | X |  |
 | [Proveedor de sesión de SSO de SAML](custom-policy-reference-sso.md#samlssosessionprovider) |  |  | X |  |
 | [OAuthSSOSessionProvider](custom-policy-reference-sso.md#oauthssosessionprovider)  |  | X |  |  |
-| [Cierre de sesión único](session-overview.md#sign-out)  |  | X |  |  |
+| [Cierre de sesión único](session-behavior.md#sign-out)  |  | X |  |  |
 
 ### <a name="security"></a>Seguridad
 

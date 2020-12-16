@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/23/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: f915652110524aac06d641d636155bc6a5fcd256
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 52071b964412071d820745b173e8835c6f9e7d0e
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927930"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97510998"
 ---
 # <a name="ephemeral-os-disks-for-azure-vms"></a>Discos de SO efímeros para máquinas virtuales de Azure
 
@@ -34,7 +34,7 @@ Principales diferencias entre discos del sistema operativo efímeros y persisten
 
 |                             | Disco del sistema operativo persistente                          | Disco de sistema operativo efímero                              |
 |-----------------------------|---------------------------------------------|------------------------------------------------|
-| **Límite de tamaño del disco del sistema operativo**      | 2 TiB                                                                                        | El tamaño de caché para el tamaño de máquina virtual o 2 TiB, el que sea menor. Para el **tamaño de caché en GiB** , consulte [DS](sizes-general.md), [ES](sizes-memory.md), [M](sizes-memory.md), [FS](sizes-compute.md) y [GS](sizes-previous-gen.md#gs-series).              |
+| **Límite de tamaño del disco del sistema operativo**      | 2 TiB                                                                                        | El tamaño de caché para el tamaño de máquina virtual o 2 TiB, el que sea menor. Para el **tamaño de caché en GiB**, consulte [DS](sizes-general.md), [ES](sizes-memory.md), [M](sizes-memory.md), [FS](sizes-compute.md) y [GS](sizes-previous-gen.md#gs-series).              |
 | **Tamaños de máquina virtual admitidos**          | All                                                                                          | Tamaños de máquina virtual que admiten Premium Storage, como DSv1, DSv2, DSv3, Esv3, Fs, FsV2, GS y M                                               |
 | **Compatibilidad con los tipos de discos**           | Disco del sistema operativo administrado y no administrado                                                                | Solo disco del sistema operativo administrado                                                               |
 | **Regiones admitidas**              | Todas las regiones                                                                                  | Todas las regiones                              |
@@ -86,7 +86,7 @@ az vm create \
 
 Para los conjuntos de escalado, use el mismo parámetro `--ephemeral-os-disk true` para [az vmss create](/cli/azure/vmss#az-vmss-create) y establezca el parámetro `--os-disk-caching` en `ReadOnly`.
 
-## <a name="portal"></a>Portal   
+## <a name="portal"></a>Portal
 
 En Azure Portal, puede elegir usar discos efímeros al implementar una máquina virtual, abra la sección **Advanced** (Avanzadas) de la pestaña **Disks** (Discos). Para **Use ephemeral OS disk** (Utilizar disco de sistema operativo efímero) seleccione **Yes** (Sí).
 
@@ -120,7 +120,7 @@ El proceso para crear un conjunto de escalado que use un disco del sistema opera
        "storageProfile": { 
         "osDisk": { 
           "diffDiskSettings": { 
-                "option": "Local" 
+            "option": "Local" 
           }, 
           "caching": "ReadOnly", 
           "createOption": "FromImage" 

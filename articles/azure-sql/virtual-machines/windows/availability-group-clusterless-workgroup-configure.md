@@ -8,17 +8,18 @@ editor: ''
 tags: azure-service-management
 ms.assetid: 53981f7e-8370-4979-b26a-93a5988d905f
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/29/2020
 ms.author: mathoma
-ms.openlocfilehash: 5714a2fd79d01f4cbc445c1ec1a726209ab6d427
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 0f194101720481f71434709c467d0e3130a0f1f9
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124941"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359462"
 ---
 # <a name="configure-a-workgroup-availability-group"></a>Configuración de un grupo de disponibilidad de grupo de trabajo 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -60,7 +61,7 @@ Para configurar el sufijo DNS, siga estos pasos:
    ![Cambiar el nombre del grupo de trabajo](./media/availability-group-clusterless-workgroup-configure/1-change-workgroup-name.png)
 
 1. Seleccione **Más** para abrir el cuadro de diálogo **Sufijo DNS y nombre NetBIOS del equipo**. 
-1. Escriba el nombre del sufijo DNS en **Sufijo DNS principal de este equipo** (por ejemplo, `ag.wgcluster.example.com`) y, a continuación, seleccione **Aceptar** : 
+1. Escriba el nombre del sufijo DNS en **Sufijo DNS principal de este equipo** (por ejemplo, `ag.wgcluster.example.com`) y, a continuación, seleccione **Aceptar**: 
 
    ![Captura de pantalla que muestra el sufijo DNS y el cuadro de diálogo Nombre NetBIOS del equipo en el que puede escribir el valor.](./media/availability-group-clusterless-workgroup-configure/2-add-dns-suffix.png)
 
@@ -115,12 +116,12 @@ Diferencias importantes entre el tutorial y lo que se debe hacer para un clúste
 
 Una vez creado el clúster, asigne una dirección IP de clúster estática. Para hacerlo, siga estos pasos:
 
-1. En uno de los nodos, abra **Administrador de clústeres de conmutación por error** , seleccione el clúster, haga clic con el botón derecho en **Nombre: \<ClusterNam>** en **Recursos principales de clúster** y, luego, seleccione **Propiedades**. 
+1. En uno de los nodos, abra **Administrador de clústeres de conmutación por error**, seleccione el clúster, haga clic con el botón derecho en **Nombre: \<ClusterNam>** en **Recursos principales de clúster** y, luego, seleccione **Propiedades**. 
 
    ![Abrir propiedades del nombre del clúster](./media/availability-group-clusterless-workgroup-configure/5-launch-cluster-name-properties.png)
 
 1. Seleccione la dirección IP en **Direcciones IP** y seleccione **Editar**. 
-1. Seleccione **Usar estática** , proporcione la dirección IP del clúster y, después, seleccione **Aceptar** : 
+1. Seleccione **Usar estática**, proporcione la dirección IP del clúster y, después, seleccione **Aceptar**: 
 
    ![Proporcionar una dirección IP estática para el clúster](./media/availability-group-clusterless-workgroup-configure/6-provide-static-ip-for-cluster.png)
 
@@ -184,8 +185,8 @@ Para configurar el primer nodo, siga estos pasos:
 
 Para configurar el segundo nodo, siga estos pasos: 
 
-1. Conéctese al segundo nodo con **SQL Server Management Studio** , como `AGNode2`. 
-1. En una ventana **Nueva consulta** , ejecute la siguiente instrucción Transact-SQL (T-SQL) después de actualizar a una contraseña compleja y segura: 
+1. Conéctese al segundo nodo con **SQL Server Management Studio**, como `AGNode2`. 
+1. En una ventana **Nueva consulta**, ejecute la siguiente instrucción Transact-SQL (T-SQL) después de actualizar a una contraseña compleja y segura: 
 
    ```sql
    USE master;  

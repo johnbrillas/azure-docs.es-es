@@ -7,6 +7,7 @@ author: MashaMSFT
 manager: jroth
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
@@ -14,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: dff6d69a107091a0ce030065da0f70a3d68c5841
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 8549592ace00e712929ebc76045a32531b9db659
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168754"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358323"
 ---
 # <a name="configure-a-dnn-for-failover-cluster-instance"></a>Configuración de un DNN para la instancia de clúster de conmutación por error
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -125,13 +126,13 @@ De forma predeterminada, el clúster enlaza el nombre DNS del nombre de red dist
 Para actualizar los propietarios posibles, siga estos pasos:
 
 1. Vaya al recurso DNN en el Administrador de clústeres de conmutación por error. 
-1. Haga clic con el botón derecho en el recurso DNN y seleccione **Propiedades** . 
+1. Haga clic con el botón derecho en el recurso DNN y seleccione **Propiedades**. 
 
    :::image type="content" source="media/hadr-distributed-network-name-dnn-configure/fci-dnn-properties.png" alt-text="Menú contextual del recurso DNN, con el comando Propiedades resaltado.":::
 
 1. Desactive la casilla de los nodos que no participen en la instancia del clúster de conmutación por error. La lista de propietarios posibles del recurso DNN debe coincidir con la del recurso de la instancia de SQL Server. Por ejemplo, suponiendo que Data3 no participe en la FCI, la imagen siguiente es un ejemplo de cómo quitar Data3 de la lista de propietarios posibles del recurso DNN: 
 
-   :::image type="content" source="media/hadr-distributed-network-name-dnn-configure/clear-check-for-nodes-not-in-fci.png" alt-text="Menú contextual del recurso DNN, con el comando Propiedades resaltado.":::
+   :::image type="content" source="media/hadr-distributed-network-name-dnn-configure/clear-check-for-nodes-not-in-fci.png" alt-text="Desactivación de la casilla situada junto a los nodos que no participen en la FCI para los propietarios posibles del recurso DNN":::
 
 1. Seleccione **Aceptar** para guardar la configuración. 
 
@@ -159,9 +160,9 @@ Pruebe la conmutación por error del recurso en clúster para validar la funcion
 Para probar la conmutación por error, siga estos pasos: 
 
 1. Conéctese a uno de los nodos de clúster de SQL Server con RDP.
-1. Abra el **Administrador de clústeres de conmutación por error** . Seleccione **Roles** . Observe qué nodo posee el rol de FCI de SQL Server.
+1. Abra el **Administrador de clústeres de conmutación por error**. Seleccione **Roles**. Observe qué nodo posee el rol de FCI de SQL Server.
 1. Haga clic con el botón derecho en el rol de FCI de SQL Server. 
-1. Seleccione **Mover** y, después, seleccione **Mejor nodo posible** .
+1. Seleccione **Mover** y, después, seleccione **Mejor nodo posible**.
 
 El **Administrador de clústeres de conmutación por error** muestra el rol y sus recursos pierden su conexión. Después, los recursos se mueven y vuelven a conectarse en el otro nodo.
 

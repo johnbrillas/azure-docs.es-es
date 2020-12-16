@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/19/2020
-ms.openlocfilehash: f591a9781cb81ec735d22f4f687f8d413923dc93
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 9d351bc945c08c82e96791059b00dc94eb94b918
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96349136"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368763"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Cuotas de servicio de Azure Cosmos DB
 
@@ -70,7 +70,7 @@ Para calcular el rendimiento mínimo necesario de una base de datos de rendimien
 * El mayor valor de RU/s aprovisionado en la base de datos / 100
 * 400 + MAX (cantidad de contenedores: 25, 0) * 100 RU/s
 
-Ejemplo: Supongamos que tiene una base de datos aprovisionada con 400 RU/s, 15 GB de almacenamiento y 10 contenedores. El valor mínimo de RU/s es `MAX(400, 15 * 10 RU/s per GB, 400 / 100, 400 + 0 )` = 400 RU/s. Si hubiera 30 contenedores en la base de datos, el valor mínimo de RU/s sería `400 + MAX(30 - 5, 0) * 100 RU/s` = 900 RU/s. 
+Ejemplo: Supongamos que tiene una base de datos aprovisionada con 400 RU/s, 15 GB de almacenamiento y 10 contenedores. El valor mínimo de RU/s es `MAX(400, 15 * 10 RU/s per GB, 400 / 100, 400 + 0 )` = 400 RU/s. Si hubiera 30 contenedores en la base de datos, el valor mínimo de RU/s sería `400 + MAX(30 - 25, 0) * 100 RU/s` = 900 RU/s. 
 
 **Nota:** Si el contenedor o la base de datos contienen más de 1 TB de datos, la cuenta puede ser válida para nuestro [programa de "almacenamiento alto/rendimiento bajo"](set-throughput.md#high-storage-low-throughput-program).
 
