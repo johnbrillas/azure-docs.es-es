@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: 766da55f2589e2a8eb09e0f1b1c9a0a5027c8c3c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 09a4dc8467b9b3c11c8daeb5ca8c62a0e26e79de
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96002772"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575013"
 ---
 # <a name="data-science-with-a-windows-data-science-virtual-machine"></a>Ciencia de datos con una instancia de Data Science Virtual Machine para Windows
 
@@ -252,8 +252,8 @@ Los datos se leen como una trama de datos:
 ![Captura de pantalla de las primeras 10 filas de datos](./media/vm-do-ten-things/IPNB_data_readin.png)
 
 
-### <a name="azure-synapse-analytics-formerly-sql-dw-and-databases"></a>Azure Synapse Analytics (anteriormente SQL DW) y bases de datos
-Azure Synapse Analytics (anteriormente SQL DW) es un almacén de datos elástico que funciona como un servicio con una experiencia de SQL Server de clase empresarial.
+### <a name="azure-synapse-analytics-and-databases"></a>Azure Synapse Analytics y bases de datos
+Azure Synapse Analytics es un almacén de datos elástico que funciona como un servicio con una experiencia de SQL Server de clase empresarial.
 
 Puede aprovisionar Azure Synapse Analytics siguiendo las instrucciones de [este artículo](../../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md). Después de aprovisionar Azure Synapse Analytics, puede usar [este tutorial](../team-data-science-process/sqldw-walkthrough.md) para cargar, examinar y modelar los datos mediante datos de Azure Synapse Analytics.
 

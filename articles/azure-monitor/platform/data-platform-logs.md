@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 10/22/2020
 ms.author: bwren
-ms.openlocfilehash: 3c3a20d8401affc519e118c7f2295339990e7dee
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 69fda41249ced8518e430af8305c0cb10822b214
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186514"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96559072"
 ---
 # <a name="azure-monitor-logs-overview"></a>Introducción a los registros de Azure Monitor
 Los registros de Azure Monitor son una característica de Azure Monitor que recopila y organiza los datos de registro y rendimiento de los [recursos supervisados](../monitor-reference.md). Los datos de orígenes diferentes, como los [registros de la plataforma](platform-logs-overview.md) de los servicios de Azure, los datos de registro y de rendimiento de los [agentes de máquinas virtuales](agents-overview.md), y los datos de uso y rendimiento de las[aplicaciones](../app/app-insights-overview.md) se pueden consolidar en una sola área de trabajo para que se puedan analizar juntos con un lenguaje de consulta sofisticado que sea capaz de analizar rápidamente millones de registros. Puede realizar una consulta simple que solo recupere un conjunto específico de registros o realizar un análisis de datos sofisticado para identificar patrones críticos en los datos de supervisión. Trabaje con consultas de registros y sus resultados de forma interactiva mediante Log Analytics, úselas en una regla de alertas para recibir notificaciones proactivas de los problemas o visualice los resultados en un libro o panel.

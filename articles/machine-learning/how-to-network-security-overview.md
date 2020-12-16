@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions, contperfq1
-ms.openlocfilehash: fdfaef554e4e641656abd3fd2b4a5d3bbc519ccd
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 6398d23aeb0e26fbc336c0c1066078f327fa2f73
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325425"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576577"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Información general sobre la privacidad y el aislamiento de la red virtual
 
@@ -48,12 +48,12 @@ En la tabla siguiente se compara el modo en que los servicios acceden a diferent
 |**Sin red virtual**| Dirección IP pública | Dirección IP pública | Dirección IP pública | Dirección IP pública |
 |**Protección de recursos en una red virtual**| IP privada (punto de conexión privado) | IP pública (punto de conexión de servicio) <br> **- o -** <br> IP privada (punto de conexión privado) | Dirección IP privada | Dirección IP privada  | 
 
-* **Área de trabajo** : cree un punto de conexión privado desde la red virtual para conectarse a Private Link en el área de trabajo. El punto de conexión privado conecta el área de trabajo a la red virtual a través de varias direcciones IP privadas.
-* **Recurso asociado** : use puntos de conexión de servicio o puntos de conexión privados para conectarse a recursos del área de trabajo como Azure Storage, Azure Key Vault y Azure Container Services.
+* **Área de trabajo**: cree un punto de conexión privado desde la red virtual para conectarse a Private Link en el área de trabajo. El punto de conexión privado conecta el área de trabajo a la red virtual a través de varias direcciones IP privadas.
+* **Recurso asociado**: use puntos de conexión de servicio o puntos de conexión privados para conectarse a recursos del área de trabajo como Azure Storage, Azure Key Vault y Azure Container Services.
     * Los **puntos de conexión de servicio** proporcionan la identidad de la red virtual al servicio de Azure. Una vez que habilita puntos de conexión de servicio en su red virtual, puede agregar una regla de red virtual para proteger los recursos de los servicios de Azure en la red virtual. Los puntos de conexión de servicio usan direcciones IP públicas.
     * Los **puntos de conexión privados** son interfaces de red que le permiten conectarse de forma segura a un servicio con la tecnología de Azure Private Link. El punto de conexión privado usa una dirección IP privada de la red virtual, y coloca el servicio de manera eficaz en su red virtual.
-* **Acceso al proceso de entrenamiento** : acceda a destinos de proceso de entrenamiento como la instancia de proceso y los clústeres de proceso de Azure Machine Learning de forma segura con direcciones IP privadas. 
-* **Acceso al proceso de inferencia** : acceda a los clústeres de proceso de Azure Kubernetes Services (AKS) con direcciones IP privadas.
+* **Acceso al proceso de entrenamiento**: acceda a destinos de proceso de entrenamiento como la instancia de proceso y los clústeres de proceso de Azure Machine Learning de forma segura con direcciones IP privadas. 
+* **Acceso al proceso de inferencia**: acceda a los clústeres de proceso de Azure Kubernetes Services (AKS) con direcciones IP privadas.
 
 
 En las cinco secciones siguientes se muestra cómo proteger el escenario de red descrito anteriormente. Para proteger la red, debe hacer lo siguiente:
@@ -145,10 +145,11 @@ Si el almacenamiento se encuentra en una red virtual, primero debe realizar paso
 
 * Vista previa de los datos en Studio.
 * Visualización de los datos en el diseñador.
+* Implementación de un modelo en el diseñador.
 * Envío de un experimento de AutoML.
 * Inicio de un proyecto de etiquetado.
 
-Para habilitar la funcionalidad de Studio completa desde una red virtual, consulte [Uso de Azure Machine Learning Studio en una red virtual](how-to-enable-studio-virtual-network.md#access-data-using-the-studio). Studio admite cuentas de almacenamiento que usan puntos de conexión de servicio o puntos de conexión privados.
+Para habilitar la funcionalidad de Studio completa desde una red virtual, consulte [Uso de Azure Machine Learning Studio en una red virtual](how-to-enable-studio-virtual-network.md#configure-data-access-in-the-studio). Studio admite cuentas de almacenamiento que usan puntos de conexión de servicio o puntos de conexión privados.
 
 ### <a name="limitations"></a>Limitaciones
 - [El etiquetado de datos asistido por ML](how-to-create-labeling-projects.md#use-ml-assisted-labeling) no es compatible con las cuentas de almacenamiento predeterminadas que están protegidas en una red virtual. Debe usar una cuenta de almacenamiento no predeterminada para el etiquetado de datos asistidos por ML. No obstante, la cuenta de almacenamiento no predeterminada se puede proteger en la red virtual. 

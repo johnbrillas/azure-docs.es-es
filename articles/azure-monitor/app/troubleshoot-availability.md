@@ -4,48 +4,44 @@ description: Solucione problemas de pruebas web en Azure Application Insights. O
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
-ms.date: 04/28/2020
+ms.date: 11/19/2020
 ms.reviewer: sdash
-ms.openlocfilehash: 0ac8dd189bee1c1d4f5a7a4d0f7de68b085fbc56
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 368c45433247c441631bdf79bfc9caa28a41f1b4
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96015339"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546763"
 ---
 # <a name="troubleshooting"></a>Solución de problemas
 
 En este artículo se proporciona ayuda para solucionar problemas comunes que pueden producirse al usar la supervisión de disponibilidad.
 
-## <a name="ssltls-errors"></a>Errores SSL o TLS
+## <a name="troubleshooting-report-steps-for-ping-tests"></a>Pasos del informe de solución de problemas en las pruebas de ping
 
-|Síntoma/mensaje de error| Causas posibles|
-|--------|------|
-|No se pudo crear el canal SSL o TLS seguro  | Versión de SSL. Solo se admiten TLS 1.0, 1.1 y 1.2. **SSLv3 no se admite.**
-|Capa de registro de TLSv1.2: Alerta (Nivel: irrecuperable, Descripción: registro MAC incorrecto)| Consulte la conversación sobre StackExchange para [más información](https://security.stackexchange.com/questions/39844/getting-ssl-alert-write-fatal-bad-record-mac-during-openssl-handshake).
-|La dirección URL en la que se produce un error se encuentra en una red CDN (Content Delivery Network) | Esto puede deberse a una configuración incorrecta en la red CDN |  
+El informe de solución de problemas le permite diagnosticar fácilmente los problemas más comunes que provocan errores en las **pruebas de ping**.
 
-### <a name="possible-workaround"></a>Posible solución alternativa
+![En esta animación el cursor se desplaza desde la pestaña de disponibilidad al seleccionar un error en los detalles de la transacción de un extremo a otro, para así poder ver el informe de solución de problemas.](./media/troubleshoot-availability/availability-to-troubleshooter.gif)
 
-* Si las direcciones URL que presentan el problema son siempre a recursos dependientes, se recomienda deshabilitar la opción **Analizar solicitudes dependientes** para la prueba web.
-
-## <a name="test-fails-only-from-certain-locations"></a>La prueba muestra un error solo desde determinadas ubicaciones
-
-|Síntoma/mensaje de error| Causas posibles|
-|----|---------|
-|Se produjo un error en el intento de conexión porque la parte conectada no respondió correctamente después de un período de tiempo  | Un firewall está bloqueando los agentes de prueba en determinadas ubicaciones.|
-|    |Se están redirigiendo determinadas direcciones IP a través de equilibradores de carga, administradores de tráfico geográfico o Azure Express Route. 
-|    |Si usa Azure ExpressRoute, hay escenarios en los que los paquetes se podrían descartar cuando se produce un [enrutamiento asimétrico](../../expressroute/expressroute-asymmetric-routing.md).|
-
-## <a name="test-failure-with-a-protocol-violation-error"></a>Error de prueba con un error de infracción de protocolo.
-
-|Síntoma/mensaje de error| Causas posibles| Posibles resoluciones |
-|----|---------|-----|
-|El servidor confirmó una infracción del protocolo. Section=ResponseHeader Detail=CR debe ir seguido de LF. | Esto sucede cuando se detectan encabezados mal formados. En concreto, algunos encabezados podrían no estar usando CRLF para indicar el final de línea, lo que provoca una infracción de la especificación HTTP. Application Insights aplica esta especificación HTTP y devuelve errores para las respuestas que tienen encabezados con un formato incorrecto.| a. Póngase en contacto con el proveedor del host del sitio web o el proveedor de CDN para corregir los servidores con errores. <br> b. En caso de que las solicitudes con error sean recursos (p. ej., archivos de estilo, imágenes o scripts), puede considerar la posibilidad de deshabilitar el análisis de las solicitudes dependientes. Tenga en cuenta que, si lo hace, perderá la capacidad de supervisar la disponibilidad de esos archivos.
+1. En la pestaña de disponibilidad del recurso de Application Insights, seleccione todas o una de las pruebas de disponibilidad.
+2. Seleccione **Errónea** y una prueba de la sección "Drill into" (Obtener más detalles) en la parte izquierda, o seleccione uno de los puntos del gráfico de dispersión.
+3. En la página de detalles de la transacción de un extremo a otro, seleccione un evento y, a continuación, en "Resumen del informe de solución de problemas", seleccione **[Go to step]** (Ir al paso) para ver el informe de solución de problemas.
 
 > [!NOTE]
-> La dirección URL podría no dar error en los exploradores que tienen una validación poco minuciosa de encabezados HTTP. Consulte esta entrada del blog para obtener una explicación detallada del problema: http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/  
+>  Si el paso para reutilizar la conexión está presente, los pasos de resolución de DNS, establecimiento de conexión y transporte de TLS no estarán presentes.
 
+|Paso | Mensaje de error | Causa posible |
+|-----|---------------|----------------|
+| Reutilización de conexiones | N/D | Normalmente depende de una conexión establecida previamente, lo que significa que el paso de prueba web es dependiente. Por lo tanto, no se requiere ningún paso de DNS, conexión o SSL. |
+| Resolución DNS | No se ha podido resolver el nombre remoto "Su dirección URL". | Se produjo un error en el proceso de resolución de DNS, probablemente debido a errores de configuración de DNS o del servidor DNS temporal. |
+| Establecimiento de la conexión | Se ha producido un error en el intento de conexión porque la parte conectada no respondió correctamente después de un período de tiempo. | En general, esto significa que el servidor no responde a la solicitud HTTP. Una causa común es que un firewall del servidor haya bloqueado nuestros agentes de pruebas. Si quiere realizar pruebas en una instancia de Azure Virtual Network, debe agregar la etiqueta del servicio de disponibilidad al entorno.|
+| Transporte TLS  | El cliente y el servidor no pueden comunicarse, ya que no poseen un algoritmo común".| Solo se admiten TLS 1.0, 1.1 y 1.2. SSL no se admite. Este paso no valida los certificados SSL y solo establece una conexión segura. Este paso solo se muestra cuando se produce un error. |
+| Recepción del encabezado de respuesta | No se pueden leer los datos de la conexión de transporte. La conexión se cerró. | El servidor confirmó un error de protocolo en el encabezado de respuesta. Por ejemplo, la conexión que cerró el servidor cuando la respuesta no está completa. |
+| Recepción del cuerpo de la respuesta | No se pueden leer los datos de la conexión de transporte: La conexión se cerró. | El servidor confirmó un error de protocolo en el cuerpo de la respuesta. Por ejemplo, el servidor cierra la conexión cuando la respuesta no se lee completamente o el tamaño del fragmento es incorrecto en el cuerpo de respuesta fragmentado. |
+| Validación del límite de redirección | Esta página web tiene demasiadas redirecciones. El bucle finalizará aquí, ya que esta solicitud superó el límite de redirecciones automáticas. | Hay un límite de 10 redirecciones por prueba. |
+| Validación del código de estado | `200 - OK` no coincide con el estado esperado `400 - BadRequest`. | el código de estado devuelto que se considera correcto. 200 es el código que indica que se ha devuelto una página web normal. |
+| Validación del contenido | El texto necesario "hello" no aparece en la respuesta. | Por lo tanto, la cadena no es una coincidencia exacta con distinción de mayúsculas y minúsculas en la respuesta; por ejemplo, la cadena "Welcome!". Esta debe ser una cadena sin formato ni caracteres comodín (por ejemplo, un asterisco). Tenga en cuenta que, si cambia el contenido de la página, es posible que tenga que actualizar la cadena. En la coincidencia de contenido solo se admiten caracteres en inglés. |
+  
 ## <a name="common-troubleshooting-questions"></a>Preguntas habituales sobre la solución de problemas
 
 ### <a name="site-looks-okay-but-i-see-test-failures-why-is-application-insights-alerting-me"></a>Este sitio parece correcto, pero se ven errores de pruebas. ¿Por qué recibo alertas de Application Insights?
@@ -54,7 +50,7 @@ En este artículo se proporciona ayuda para solucionar problemas comunes que pue
 
    * Para reducir las probabilidades de ruido de señales de red transitorias etc., asegúrese de que se compruebe la configuración "Habilitar reintentos para errores de pruebas". También puede realizar pruebas desde más ubicaciones y administrar el umbral de la regla de alertas en consecuencia para evitar problemas específicos de ubicación que causan las alertas innecesarias.
 
-   * Haga clic en cualquiera de los puntos rojos de la experiencia de disponibilidad o en cualquier error de disponibilidad desde el Explorador de búsqueda para ver los detalles de por qué se notificó el error. El resultado de la prueba, junto con la telemetría del lado servidor correlacionada (si la opción está habilitada) ayudará a comprender el motivo del error de la prueba. Los problemas de conexión o red son las causas más comunes de los problemas transitorios.
+   * Para ver los detalles de por qué se notificó el error, haga clic en cualquiera de los puntos rojos del gráfico de dispersión de la experiencia de disponibilidad o en cualquier error de disponibilidad del Explorador de búsqueda. El resultado de la prueba, junto con la telemetría del lado servidor correlacionada (si la opción está habilitada) ayudará a comprender el motivo del error de la prueba. Los problemas de conexión o red son las causas más comunes de los problemas transitorios.
 
    * ¿Se agotó el tiempo de espera de la prueba? Las pruebas se anulan después de 2 minutos. Si la prueba de ping o de varios pasos tarda más de 2 minutos, se notificará como un error. Considere la posibilidad de dividir la prueba en varias partes más pequeñas que puedan completarse en lapsos más cortos.
 
@@ -134,4 +130,3 @@ Use la nueva experiencia de alertas o las alertas prácticamente en tiempo real 
 
 * [Pruebas web de varios pasos](availability-multistep.md)
 * [Pruebas de ping de dirección URL](monitor-web-app-availability.md)
-

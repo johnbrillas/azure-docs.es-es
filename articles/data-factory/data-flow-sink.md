@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/17/2020
-ms.openlocfilehash: 63be912986542741359cd5e88227f06905d42647
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: da89d4fbc3f9e03e76d901c2215e4f16c5273013
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350881"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621117"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Transformación de receptor en el flujo de datos de asignación
 
@@ -103,6 +103,10 @@ De forma predeterminada, los datos se escriben en varios receptores en un orden 
 > Al usar las [búsquedas almacenadas en caché](./concepts-data-flow-expression-builder.md#cached-lookup), asegúrese de que la ordenación del receptor tenga los receptores almacenado en caché establecidos en 1, el calor más bajo (o el primer valor) del orden.
 
 ![Ordenación de receptores personalizada](media/data-flow/cache-2.png "Ordenación de receptores personalizados")
+
+### <a name="sink-groups"></a>Grupos de receptores
+
+Si desea agrupar receptores, puede aplicar el mismo número de pedido para una serie de receptores. ADF tratará esos receptores como grupos que se pueden ejecutar en paralelo. Las opciones para la ejecución en paralelo se mostrarán en la actividad de flujo de datos de la canalización.
 
 ## <a name="error-row-handling"></a>Control de filas de errores
 

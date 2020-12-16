@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/20/2018
-ms.openlocfilehash: 947b509468857b98b868881bdd48adf67a5d60db
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7bdea9239faa4ec66fffa236bea40afd5e628e62
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994643"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96607150"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Recopilación de información sobre la infraestructura de DNS con la solución DNS Analytics
 
@@ -57,13 +57,13 @@ La solución empezará a recopilar datos sin necesidad de ninguna configuración
 
 En el panel de soluciones, haga clic en **Configuración** para abrir la página de configuración de DNS Analytics. Hay dos tipos de cambios de configuración que puede realizar:
 
-- **Nombres de dominio de la lista de permitidos**. La solución no procesa todas las consultas de búsqueda. Tiene una lista de los sufijos de nombres de dominio permitidos. Las consultas de búsqueda que se resuelven en los nombres de dominio que coinciden con los sufijos de nombres de dominio de esta lista de permitidos no las procesa la solución. No procesar los nombres de dominio de la lista de permitidos ayuda a optimizar los datos enviados a Azure Monitor. La lista de permitidos predeterminada incluye nombres de dominio público populares, como www.google.com y www.facebook.com. Puede ver la lista predeterminada completa si se desplaza.
+- **Nombres de dominio de la lista de permitidos**. La solución no procesa todas las consultas de búsqueda. Mantiene una lista de permitidos de los sufijos de nombres de dominio. Las consultas de búsqueda que se resuelven en los nombres de dominio que coinciden con los sufijos de nombres de dominio de esta lista de permitidos no las procesa la solución. No procesar los nombres de dominio de la lista de permitidos ayuda a optimizar los datos enviados a Azure Monitor. La lista de permitidos predeterminada incluye nombres de dominio público populares, como www.google.com y www.facebook.com. Puede ver la lista predeterminada completa si se desplaza.
 
   Puede modificar la lista para agregar cualquier sufijo de nombre de dominio del que no le interese ver información de búsqueda. También puede quitar cualquier sufijo de nombre de dominio del que no le interese ver información de búsqueda.
 
 - **Umbral de clientes participativos**. Los clientes DNS que superan el umbral del número de solicitudes de búsqueda se resaltan en la hoja **Clientes DNS**. El umbral predeterminado es 1000. Puede modificar el umbral.
 
-    ![Nombre de dominio de la lista de permitidos](./media/dns-analytics/dns-config.png)
+    ![Nombres de dominio de la lista de permitidos](./media/dns-analytics/dns-config.png)
 
 ## <a name="management-packs"></a>Módulos de administración
 
@@ -110,7 +110,7 @@ La información puede ayudarle a identificar:
 - Las direcciones IP en las que se resuelve el nombre de dominio.
 - La dirección IP malintencionada.
 - La gravedad del problema.
-- El motivo para incluir en la lista de denegadas la dirección IP malintencionada.
+- Motivo para incluir la dirección IP malintencionada en la lista de bloqueados.
 - La hora de detección.
 
 **Dominios consultados**. Proporciona los nombres de los dominios que los clientes DNS consultan con más frecuencia en el entorno. Puede ver la lista de todos los nombres de dominios consultados. También puede profundizar en los detalles de la solicitud de búsqueda de un nombre de dominio específico en Búsqueda de registros.

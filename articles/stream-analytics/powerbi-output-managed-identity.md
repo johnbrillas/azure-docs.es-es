@@ -6,14 +6,14 @@ ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 3/10/2020
-ms.openlocfilehash: 469610d7195835a4b68e4d887c5be57a8926ba37
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: dd667202a329148e498d0e25ee15110de5d7448a
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489512"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573415"
 ---
-# <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-power-bi"></a>Uso de la identidad administrada para autenticar el trabajo de Azure Stream Analytics en Power BI
+# <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-power-bi-preview"></a>Uso de la identidad administrada para autenticar el trabajo de Azure Stream Analytics en Power BI (versión preliminar)
 
 [Autenticación de identidad administrada](../active-directory/managed-identities-azure-resources/overview.md) para la salida a Power BI proporciona a los trabajos de Stream Analytics acceso directo a un área de trabajo dentro de la cuenta de Power BI. Esta característica permite que las implementaciones de los trabajos de Stream Analytics se automaticen de manera completa, dado que ya no es necesario que un usuario inicie sesión de forma interactiva en Power BI a través de Azure Portal. Además, los trabajos de larga duración que escriben en Power BI ahora se admiten mejor, ya que no será necesario volver a autorizar el trabajo de forma periódica.
 
@@ -212,7 +212,7 @@ Cuerpo de la solicitud
 
 ## <a name="remove-managed-identity"></a>Eliminación de una identidad administrada
 
-La identidad administrada creada para un trabajo de Stream Analytics se elimina solo cuando se elimina el trabajo. No hay ninguna manera de eliminar la identidad administrada sin eliminar el trabajo. Si ya no va a usar la identidad administrada, puede cambiar el método de autenticación de la salida. La identidad administrada seguirá existiendo hasta que se elimine el trabajo y se usará si decide usar de nuevo la autenticación de identidad administrada.
+La identidad administrada creada para un trabajo de Stream Analytics se elimina solo cuando se elimina el trabajo. No hay ninguna manera de eliminar la identidad administrada sin eliminar el trabajo. Si ya no va a usar la identidad administrada, puede cambiar el método de autenticación de la salida. La identidad administrada seguirá existiendo hasta que se elimine el trabajo y se utilizará si decide usar de nuevo la autenticación de identidad administrada.
 
 ## <a name="limitations"></a>Limitaciones
 A continuación se muestran las limitaciones de esta característica:

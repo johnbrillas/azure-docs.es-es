@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/16/2020
-ms.openlocfilehash: 09f5d61984d5802184d70867f94815fac8fe2b7d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4a3d0ef3c112da87e73f83c6c87de8f3fce1fea0
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86103575"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621372"
 ---
 # <a name="how-to-get-featured-in-appsource-and-azure-marketplace"></a>Cómo aparecer como destacado en Azure Marketplace y AppSource
 
@@ -29,8 +29,8 @@ Para mejorar su puntuación, puede tomar las siguientes medidas:
 
 1. *Asegurarse de que la aplicación o el servicio está clasificado adecuadamente*: elija tres categorías que representen las funcionalidades del servicio o la aplicación.
 2. *Aplicaciones de Azure Marketplace: aumente el consumo de Azure mes a mes.* Si es capaz de lograr 1000 horas de uso de Azure por mes, aumentará considerablemente las posibilidades de aparecer como destacado.
-3. *Aplicaciones de AppSource: aumente las adquisiciones de su oferta.* Si es capaz de lograr 10 adquisiciones por mes, aumentará considerablemente las posibilidades de aparecer como destacado. 
-4. *Conseguir el nivel Co-Sell Ready*: complete los requisitos para Co-Sell Ready.
+3. *Aplicaciones de AppSource: aumente las adquisiciones de su oferta.* Si es capaz de lograr 10 adquisiciones por mes, aumentará considerablemente las posibilidades de aparecer como destacado.
+4. *Conseguir el nivel Co-Sell Ready* (Preparado para la venta conjunta): complete los [requisitos de preparación para la venta conjunta](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status).
 5. *Mejorar la calidad de la oferta*: consulte las [Instrucciones de descripción de Azure Marketplace](marketplace-criteria-content-validation.md) para obtener información sobre cómo modificar la oferta.
 6. Publicar varias ofertas en Marketplace: ¿todas sus aplicaciones y servicios principales tienen una descripción? ¿Cuenta con una experiencia de evaluación?
 7. Animar a sus clientes a que escriban reseñas.

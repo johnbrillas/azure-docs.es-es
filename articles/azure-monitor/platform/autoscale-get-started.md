@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo escalar Web Apps, Cloud Services, 
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 5af60befeda9f0ed4ed76f7ab8449e94950352fb
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 364309301b403234936da1bac6e1b74af24c2fdb
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186582"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573313"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Introducción al escalado automático en Azure
 Este artículo describe cómo configurar el escalado automático de recursos en Microsoft Azure Portal.
@@ -131,12 +131,12 @@ A menudo, los equipos de desarrollo de grandes empresas necesitan cumplir los re
 
 ### <a name="behavior"></a>Comportamiento
 
-Cuando se proporciona la ruta de acceso de comprobación de estado, App Service hace ping a la ruta de acceso en todas las instancias. Si después de cinco pings no se recibe un código de respuesta correcto, esa instancia se considera "incorrecta". Las instancias incorrectas se excluyen de la rotación del equilibrador de carga. Puede configurar el número necesario de pings con errores con la configuración de aplicación `WEBSITE_HEALTHCHECK_MAXPINGFAILURES`. Esta configuración de aplicación se puede establecer en cualquier número entero entre 2 y 10. Por ejemplo, si se establece en `2`, las instancias se quitarán del equilibrador de carga después de dos ping con errores. Además, al escalar vertical u horizontalmente, App Service hace ping a la ruta de acceso de comprobación de estado para asegurarse de que las nuevas instancias están listas para las solicitudes antes de que se agreguen al equilibrador de carga.
+Cuando se proporciona la ruta de acceso de comprobación de estado, App Service hace ping a la ruta de acceso en todas las instancias. Si después de cinco pings no se recibe un código de respuesta correcto, esa instancia se considera "incorrecta". Las instancias incorrectas se excluirán de la rotación del equilibrador de carga si se escala horizontalmente a 2 o más instancias y se usa el [nivel básico](../../app-service/overview-hosting-plans.md) o superior. Puede configurar el número necesario de pings con errores con la configuración de aplicación `WEBSITE_HEALTHCHECK_MAXPINGFAILURES`. Esta configuración de aplicación se puede establecer en cualquier número entero entre 2 y 10. Por ejemplo, si se establece en `2`, las instancias se quitarán del equilibrador de carga después de dos ping con errores. Además, al escalar vertical u horizontalmente, App Service hace ping a la ruta de acceso de comprobación de estado para asegurarse de que las nuevas instancias están listas para las solicitudes antes de que se agreguen al equilibrador de carga.
 
 > [!NOTE]
-> Recuerde que el plan de App Service se debe escalar horizontalmente a dos o más instancias para que se produzca la exclusión del equilibrador de carga. Si solo tiene una instancia, no se quitará del equilibrador de carga aunque sea incorrecta. 
+> Recuerde que el plan de App Service se debe escalar horizontalmente a dos o más instancias y ser de **nivel básico o superior** para que se produzca la exclusión del equilibrador de carga. Si solo tiene una instancia, no se quitará del equilibrador de carga aunque sea incorrecta. 
 
-El resto de instancias en buen estado pueden experimentar un aumento de la carga. Para evitar saturarlas, se excluyen no más de la mitad de las instancias. Por ejemplo, si un plan de App Service se escala horizontalmente a cuatro instancias y tres de ellas están en mal estado, hasta dos se pueden excluir de la rotación del equilibrador de carga. Las otras dos instancias (una en buen estado y otra en mal estado) siguen recibiendo solicitudes. En el peor de los escenarios, cuando todas las instancias están en estado incorrecto, no se excluirá ninguna. Si desea invalidar este comportamiento, puede establecer la configuración de aplicación `WEBSITE_HEALTHCHECK_MAXUNHEALTYWORKERPERCENT` en un valor entre `0` y `100`. Si se establece en un valor mayor, se eliminarán más instancias incorrectas (el valor predeterminado es 50).
+El resto de instancias en buen estado pueden experimentar un aumento de la carga. Para evitar saturarlas, se excluyen no más de la mitad de las instancias. Por ejemplo, si un plan de App Service se escala horizontalmente a cuatro instancias y tres de ellas están en mal estado, hasta dos se pueden excluir de la rotación del equilibrador de carga. Las otras dos instancias (una en buen estado y otra en mal estado) siguen recibiendo solicitudes. En el peor de los escenarios, cuando todas las instancias están en estado incorrecto, no se excluirá ninguna. Si desea invalidar este comportamiento, puede establecer la configuración de aplicación `WEBSITE_HEALTHCHECK_MAXUNHEALTHYWORKERPERCENT` en un valor entre `0` y `100`. Si se establece en un valor mayor, se eliminarán más instancias incorrectas (el valor predeterminado es 50).
 
 Si una instancia permanece en mal estado durante una hora, se reemplaza por una nueva. A lo sumo, se reemplaza una instancia por hora, con un máximo de tres instancias al día por plan de App Service.
 

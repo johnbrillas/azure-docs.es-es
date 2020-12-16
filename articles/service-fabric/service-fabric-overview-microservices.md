@@ -3,13 +3,12 @@ title: Introducción a los microservicios de Azure
 description: Información general sobre por qué la creación de aplicaciones de nube con un enfoque de microservicios es importante para el desarrollo de aplicaciones modernas y cómo Azure Service Fabric proporciona una plataforma para lograrlo.
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.custom: sfrev
-ms.openlocfilehash: 4345c919e73e57667fb3b9c90c42224326bc3552
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d20e04820c87a7390d9c20e511259ee9860c27f5
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91300775"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575659"
 ---
 # <a name="why-use-a-microservices-approach-to-building-applications"></a>¿Por qué usar un enfoque de microservicios para crear aplicaciones?
 
@@ -43,7 +42,7 @@ La desventaja de los microservicios surge al tener que administrar un mayor núm
 
 Los estándares hacen que el enfoque de microservicios funcione al especificar un acuerdo sobre cómo llevar a cabo la comunicación y tolerar únicamente lo que se necesita de un servicio, en lugar de usar contratos rígidos. Es importante definir estos contratos por adelantado en el diseño, ya que los servicios se actualizan de forma independiente entre sí. Otra descripción acuñada para el diseño con el enfoque de microservicios es "arquitectura orientada a servicios (SOA) específica".
 
-***En su forma más simple, el enfoque de diseño de microservicios consiste en una federación desacoplada de servicios, con cambios independientes en cada uno, y estándares acordados para la comunicación.***
+***En su forma más simple, el enfoque de diseño de microservicios consiste en una federación desacoplada de servicios, con cambios independientes en cada uno, y estándares acordados para la comunicación.**
 
 A medida que se producen más aplicaciones en la nube, se ha descubierto que la descomposición de la aplicación global en servicios independientes centrados en escenarios es a largo plazo un mejor enfoque.
 
@@ -67,7 +66,7 @@ Cuando se usa un enfoque de microservicios, la aplicación se compone de muchos 
 
 Hay distintas definiciones de microservicios. No obstante, se suelen aceptar la mayoría de estas características de microservicios:
 
-* Encapsulan un escenario de cliente o negocio. Qué problema está resolviendo
+Encapsulan un escenario de cliente o negocio. Qué problema está resolviendo
 * Desarrollados por un pequeño equipo de ingenieros.
 * Escritos en cualquier lenguaje de programación y usando cualquier plataforma.
 * Constan de código y, opcionalmente, de un estado, ambos de los cuales se controlan para versiones, implementan y escalan de forma independiente.
@@ -77,7 +76,7 @@ Hay distintas definiciones de microservicios. No obstante, se suelen aceptar la 
 
 Para resumirlo:
 
-***Las aplicaciones de microservicios se componen de servicios pequeños centrados en el cliente, escalables y con control de versiones independiente que se comunican entre sí mediante protocolos estándar con interfaces bien definidas.***
+***Las aplicaciones de microservicios se componen de servicios pequeños centrados en el cliente, escalables y con control de versiones independiente que se comunican entre sí mediante protocolos estándar con interfaces bien definidas.**
 
 ### <a name="written-in-any-programming-language-using-any-framework"></a>Escritos en cualquier lenguaje de programación y usando cualquier plataforma.
 
@@ -95,9 +94,9 @@ Volvamos por un momento a nuestra comparación de los enfoques monolíticos y de
 
 ![Almacenamiento de estados de la plataforma Service Fabric][Image2]
 
-***El enfoque monolítico de la izquierda tiene una base de datos única y niveles de tecnologías específicas.***
+_*_El enfoque monolítico de la izquierda tiene una base de datos única y niveles de tecnologías específicas._*_
 
-***El enfoque de microservicios de la derecha tiene un gráfico de microservicios interconectados donde el estado normalmente tiene como ámbito el microservicio y se usan diversas tecnologías.***
+_*_El enfoque de microservicios de la derecha tiene un gráfico de microservicios interconectados donde el estado normalmente tiene como ámbito el microservicio y se usan diversas tecnologías._*_
 
 En un enfoque monolítico, normalmente la aplicación usa una base de datos única. La ventaja de usar una base de datos es que está en una única ubicación, lo que facilita la implementación. Cada componente puede tener una única tabla para almacenar su estado. Los equipos tienen que separar el estado estrictamente, lo cual supone un reto. Inevitablemente, existe la tentación de agregar una columna a una tabla de clientes existente, realizar una combinación entre tablas y crear dependencias en la capa de almacenamiento. Tras esto, no es posible escalar los componentes individuales.
 
@@ -137,18 +136,18 @@ Visite el Centro de arquitectura de Azure para una guía sobre el [diseño y cre
 
 Azure Service Fabric surgió cuando Microsoft pasó de ofrecer productos embalados, que eran habitualmente monolíticos, a ofrecer servicios. La experiencia de crear y operar servicios grandes, como Azure SQL Database y Azure Cosmos DB, dio forma a Service Fabric. La plataforma evolucionó con el tiempo a medida que la fueron adoptando más servicios. Service Fabric tenía que ejecutarse no solo en Azure, sino también en implementaciones independientes de Windows Server.
 
-***El objetivo de Service Fabric es resolver las complicaciones que conlleva crear y ejecutar un servicio y usar de forma eficiente los recursos de infraestructura, para que los equipos puedan resolver problemas de negocios con un enfoque de microservicios.***
+_*_El objetivo de Service Fabric es resolver las complicaciones que conlleva crear y ejecutar un servicio y usar de forma eficiente los recursos de infraestructura, para que los equipos puedan resolver problemas de negocios con un enfoque de microservicios._*_
 
 En este breve vídeo se presentan Service Fabric y los microservicios:
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Service-Fabric/player]
 
 Service Fabric ayuda a crear aplicaciones que usan un enfoque de microservicios al ofrecer:
 
-* Una plataforma que proporciona servicios del sistema para implementar, actualizar, detectar y reiniciar servicios con errores, detectar servicios, enrutar mensajes, administrar el estado y supervisar el mantenimiento.
+Una plataforma que proporciona servicios del sistema para implementar, actualizar, detectar y reiniciar servicios con errores, detectar servicios, enrutar mensajes, administrar el estado y supervisar el mantenimiento.
 * La posibilidad de implementar aplicaciones que se ejecuten en contenedores o como procesos. Service Fabric es un organizador de contenedores y proceso.
 * API de programación productivas que le ayudan a crear aplicaciones como microservicios: [ASP.NET Core, Reliable Actors y Reliable Services](service-fabric-choose-framework.md). Por ejemplo, es posible obtener información de estado y de diagnóstico, o se puede aprovechar la alta disponibilidad integrada.
 
-***Service Fabric es independiente de la forma en que cree el servicio y permite usar cualquier tecnología. Sin embargo, proporciona API de programación integradas que facilitan la creación de microservicios.***
+***Service Fabric es independiente de la forma en que cree el servicio y permite usar cualquier tecnología. Sin embargo, proporciona API de programación integradas que facilitan la creación de microservicios.**
 
 ### <a name="migrating-existing-applications-to-service-fabric"></a>Migración de aplicaciones existentes a Service Fabric
 
@@ -162,7 +161,7 @@ Service Fabric permite reutilizar código existente y modernizarse con nuevos mi
 
 ![Migración a microservicios][Image3]
 
-Recuerde que puede *iniciar y detenerse en cualquiera de estas fases*. No tiene que avanzar a la siguiente fase. 
+Recuerde que puede iniciar y detenerse en cualquiera de estas fases. No tiene que avanzar a la siguiente fase. 
 
 Veamos ejemplos de cada una de las fases.
 

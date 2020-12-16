@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: 5374871a51586a573e9ab41121f3f2dd95baf876
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: ead878daaab977c77b3ab36f42ccfe4d01d7bc03
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94695255"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548637"
 ---
 # <a name="step-1-deploy-the-log-forwarder"></a>Paso 1: Implementación del reenviador de registros
 
@@ -57,6 +57,9 @@ En este paso, designará y configurará la máquina Linux que reenviará los reg
 1. Mientras se ejecuta el script, asegúrese de que no recibe ningún mensaje de error o de advertencia.
     - Es posible que reciba un mensaje que le indique que debe ejecutar un comando para corregir un problema con la asignación del campo *Equipo*. Consulte la [explicación en el script de implementación](#mapping-command) para obtener más detalles.
 
+1. Diríjase al [PASO 2: Configurar la solución de seguridad para reenviar mensajes CEF](connect-cef-solution-config.md).
+
+
 > [!NOTE]
 > **Uso de la misma máquina para reenviar Syslog sin formato *y* mensajes de CEF**
 >
@@ -67,7 +70,16 @@ En este paso, designará y configurará la máquina Linux que reenviará los reg
 > 1. Debe ejecutar el siguiente comando en esas máquinas para deshabilitar la sincronización del agente con la configuración de Syslog en Azure Sentinel. Esto garantiza que el cambio de configuración que ha realizado en el paso anterior no se sobrescriba.<br>
 > `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable'`
 
-Diríjase al [PASO 2: Configurar la solución de seguridad para reenviar mensajes CEF](connect-cef-solution-config.md).
+> [!NOTE]
+> **Cambio del origen del campo TimeGenerated**
+>
+> - De forma predeterminada, el agente de Log Analytics rellena el campo *TimeGenerated* en el esquema con la hora en la que el agente recibió el evento del demonio de Syslog. Como resultado, la hora a la que se generó el evento en el sistema de origen no se registra en Azure Sentinel.
+>
+> - Sin embargo, puede ejecutar el siguiente comando que descargará y ejecutará el script `TimeGenerated.py`. Este script configura el agente de Log Analytics para rellenar el campo *TimeGenerated* con la hora original del evento en su sistema de origen, en lugar de usar la hora a la que lo recibió el agente.
+>
+>    ```bash
+>    wget -O TimeGenerated.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/TimeGenerated.py && python TimeGenerated.py {ws_id}
+>    ```
 
 ## <a name="deployment-script-explained"></a>Explicación del script de implementación
 

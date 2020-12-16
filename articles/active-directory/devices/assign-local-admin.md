@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0903828b04922104a9dd93ac79459bf73644f35c
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: cfd7b5ac981fcb87d0fc929d944205dec9432b74
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92365840"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575829"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Administración del grupo de administradores locales en dispositivos unidos a Azure AD
 
 Para administrar un dispositivo Windows, debe ser miembro del grupo de administradores locales. Como parte del proceso de unión a Azure Active Directory (Azure AD), Azure AD actualiza la pertenencia de este grupo en un dispositivo. Puede personalizar la actualización de la pertenencia para satisfacer los requisitos de su negocio. Una actualización de pertenencia es, por ejemplo, útil si desea permitir que el personal del soporte técnico realice tareas que requieran derechos de administrador en un dispositivo.
 
-En este artículo se explica cómo funciona la actualización de la pertenencia de los administradores locales y cómo puede personalizarla durante una unión a Azure AD. El contenido de este artículo no se aplica a dispositivos **unidos a Azure AD híbrido** .
+En este artículo se explica cómo funciona la actualización de la pertenencia de los administradores locales y cómo puede personalizarla durante una unión a Azure AD. El contenido de este artículo no se aplica a dispositivos **unidos a Azure AD híbrido**.
 
 ## <a name="how-it-works"></a>Funcionamiento
 
@@ -45,14 +45,14 @@ Para ver y actualizar la pertenencia al rol de administrador global, consulte:
 
 ## <a name="manage-the-device-administrator-role"></a>Administración del rol de administrador de dispositivos 
 
-En Azure Portal, puede administrar el rol de administrador de dispositivos en la página **Dispositivos** . Para abrir la página **Dispositivos** :
+En Azure Portal, puede administrar el rol de administrador de dispositivos en la página **Dispositivos**. Para abrir la página **Dispositivos**:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador global.
-1. Busque y seleccione *Azure Active Directory* .
-1. En la sección **Administrar** , haga clic en **Dispositivos** .
-1. En la página **Dispositivos** , haga clic en **Configuración del dispositivo** .
+1. Busque y seleccione *Azure Active Directory*.
+1. En la sección **Administrar**, haga clic en **Dispositivos**.
+1. En la página **Dispositivos**, haga clic en **Configuración del dispositivo**.
 
-Para modificar el rol de administrador de dispositivos, configure **Administradores locales adicionales en dispositivos unidos a Azure AD** .  
+Para modificar el rol de administrador de dispositivos, configure **Administradores locales adicionales en dispositivos unidos a Azure AD**.  
 
 ![Otros administradores locales](./media/assign-local-admin/10.png)
 
@@ -72,14 +72,19 @@ Los administradores de dispositivos se asignan a todos los dispositivos unidos a
 >[!NOTE]
 > Esta funcionalidad actualmente está en su versión preliminar.
 
+
 A partir de la actualización de 2004 de Windows 10, se pueden usar grupos de Azure AD para administrar los privilegios de administrador en dispositivos unidos a Azure AD con la directiva de MDM [Grupos restringidos](/windows/client-management/mdm/policy-csp-restrictedgroups). Esta directiva permite asignar usuarios individuales o grupos de Azure AD al grupo de administradores locales en un dispositivo unido a Azure AD, lo que le proporciona la granularidad para configurar diferentes administradores para distintos grupos de dispositivos. 
 
-Actualmente, no hay ninguna interfaz de usuario en Intune para administrar esta directiva y debe configurarse mediante [Configuración OMA-URI personalizada](/mem/intune/configuration/custom-settings-windows-10). A continuación, se indican algunas consideraciones para esta directiva: 
+>[!NOTE]
+> A partir de la actualización de Windows 10 20H2, se recomienda usar la directiva de [usuarios y grupos locales](/windows/client-management/mdm/policy-csp-localusersandgroups) en lugar de la directiva de grupos restringidos
 
-- La adición de grupos de Azure AD a través de la directiva requiere el SID del grupo, que se puede obtener mediante la ejecución de la API de grupos. El SID se define mediante la propiedad `securityIdentifier` de la API de grupos.
-- Cuando se aplica la directiva de grupos restringidos, se quita cualquier miembro actual del grupo que no esté en la lista de miembros. Por lo tanto, la aplicación de esta directiva con nuevos miembros o grupos quitará a los administradores existentes, es decir, al usuario que se unió al dispositivo, el rol de administrador de dispositivos y el rol de administrador global del dispositivo. Para evitar la eliminación de los miembros existentes, debe configurarlos como parte de la lista de miembros en la Directiva de grupos restringidos. 
-- Esta directiva solo se aplica a los siguientes grupos conocidos en un dispositivo con Windows 10: administradores, usuarios, invitados, usuarios avanzados, usuarios de Escritorio remoto y usuarios de Administración remota. 
-- La administración de los administradores locales mediante la directiva de grupos restringidos no es aplicable a los dispositivos unidos a Azure AD híbrido o dispositivos registrados de Azure AD.
+
+Actualmente, no hay ninguna interfaz de usuario en Intune para administrar estas directivas y deben configurarse mediante [Configuración OMA-URI personalizada](/mem/intune/configuration/custom-settings-windows-10). Algunas consideraciones para usar cualquiera de estas directivas: 
+
+- La adición de grupos de Azure AD a través de la directiva requiere el SID del grupo, que se puede obtener mediante la ejecución de la [API de Microsoft Graph para grupos](/graph/api/resources/group?view=graph-rest-beta). El SID se define mediante la propiedad `securityIdentifier` de la respuesta de la API.
+- Cuando se aplica la directiva de grupos restringidos, se quita cualquier miembro actual del grupo que no esté en la lista de miembros. Por lo tanto, la aplicación de esta directiva con nuevos miembros o grupos quitará a los administradores existentes, es decir, al usuario que se unió al dispositivo, el rol de administrador de dispositivos y el rol de administrador global del dispositivo. Para evitar la eliminación de los miembros existentes, debe configurarlos como parte de la lista de miembros en la Directiva de grupos restringidos. Esta limitación se soluciona si usa la directiva de usuarios y grupos locales que permite actualizaciones incrementales a la pertenencia a grupos
+- Los privilegios de administrador que usan ambas directivas solo se evalúan para los siguientes grupos conocidos en un dispositivo con Windows 10: administradores, usuarios, invitados, usuarios avanzados, usuarios de Escritorio remoto y usuarios de Administración remota. 
+- La administración de los administradores locales mediante grupos de Azure AD no es aplicable a los dispositivos unidos a Azure AD híbrido o dispositivos registrados de Azure AD.
 - Aunque la directiva de grupos restringidos existía antes de la actualización de 2004 de Windows 10, no admitía grupos de Azure AD como miembros del grupo de administradores locales de un dispositivo. 
 
 ## <a name="manage-regular-users"></a>Administración de los usuarios normales
@@ -93,7 +98,7 @@ De forma predeterminada, Azure AD agrega el usuario que realiza la unión a Azur
 
 Además de usar el proceso de unión a Azure AD, también puede elevar manualmente un usuario regular para que se convierta en un administrador local en un dispositivo específico. Este paso requiere que ya sea miembro del grupo de administradores locales. 
 
-A partir de la versión **Windows 10 1709** , puede realizar esta tarea en **Configuración -> Cuentas -> Otros usuarios** . Seleccione **Agregar un usuario de trabajo o escuela** , escriba el UPN del usuario en **Cuenta de usuario** y seleccione *Administrador* en **Tipo de cuenta**  
+A partir de la versión **Windows 10 1709**, puede realizar esta tarea en **Configuración -> Cuentas -> Otros usuarios**. Seleccione **Agregar un usuario de trabajo o escuela**, escriba el UPN del usuario en **Cuenta de usuario** y seleccione *Administrador* en **Tipo de cuenta**  
  
 Además, también puede agregar usuarios mediante el símbolo del sistema:
 

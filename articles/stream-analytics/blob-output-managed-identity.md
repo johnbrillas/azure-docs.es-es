@@ -6,16 +6,16 @@ ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/11/2020
-ms.openlocfilehash: f14ded89ad294abbfaf9861e5f4caf17dd82fb98
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: f1aad2464e4979ecbf35deceaad4de70e05b3004
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94490719"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573670"
 ---
-# <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage-output"></a>Uso de identidad administrada para autenticar su trabajo de Azure Stream Analytics en la salida de Azure Blob Storage
+# <a name="use-managed-identity-preview-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage-output"></a>Uso de la identidad administrada (versión preliminar) para autenticar su trabajo de Azure Stream Analytics en la salida de Azure Blob Storage
 
-[Autenticación de identidad administrada](../active-directory/managed-identities-azure-resources/overview.md) para la salida a Azure Blob Storage proporciona a los trabajos de Stream Analytics acceso directo a una cuenta de almacenamiento en lugar de tener que usar una cadena de conexión. Además de mejorar la seguridad, esta característica también le permite escribir datos en una cuenta de almacenamiento de una red virtual (VNET) en Azure.
+[Autenticación de identidad administrada](../active-directory/managed-identities-azure-resources/overview.md) (versión preliminar) para la salida a Azure Blob Storage proporciona a los trabajos de Stream Analytics acceso directo a una cuenta de almacenamiento en lugar de tener que usar una cadena de conexión. Además de mejorar la seguridad, esta característica también le permite escribir datos en una cuenta de almacenamiento de una red virtual (VNET) en Azure.
 
 En este artículo se muestra cómo habilitar la identidad administrada para las salidas del blob de un trabajo de Stream Analytics a través de Azure Portal y a través de una implementación de Azure Resource Manager.
 
@@ -226,7 +226,7 @@ Al configurar el panel **Firewalls y redes virtuales** de la cuenta de almacenam
 
 ## <a name="remove-managed-identity"></a>Eliminación de una identidad administrada
 
-La identidad administrada creada para un trabajo de Stream Analytics se elimina solo cuando se elimina el trabajo. No hay ninguna manera de eliminar la identidad administrada sin eliminar el trabajo. Si ya no va a usar la identidad administrada, puede cambiar el método de autenticación de la salida. La identidad administrada seguirá existiendo hasta que se elimine el trabajo y se usará si decide usar de nuevo la autenticación de identidad administrada.
+La identidad administrada creada para un trabajo de Stream Analytics se elimina solo cuando se elimina el trabajo. No hay ninguna manera de eliminar la identidad administrada sin eliminar el trabajo. Si ya no va a usar la identidad administrada, puede cambiar el método de autenticación de la salida. La identidad administrada seguirá existiendo hasta que se elimine el trabajo y se utilizará si decide usar de nuevo la autenticación de identidad administrada.
 
 ## <a name="limitations"></a>Limitaciones
 A continuación, detallamos las limitaciones actuales de esta característica:

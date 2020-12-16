@@ -3,15 +3,15 @@ title: 'Introducción a la solución de problemas de Windows Virtual Desktop: Az
 description: Información general para solucionar problemas al configurar un entorno de Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 06/05/2020
+ms.date: 12/04/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 171322fbec099aa9fafc36c4f951213b33007976
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d051594572f742b290867d12e0fb148f2abbf370
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88009365"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621321"
 ---
 # <a name="troubleshooting-overview-feedback-and-support-for-windows-virtual-desktop"></a>Información general, comentarios y soporte técnico para la solución de problemas de Windows Virtual Desktop
 
@@ -45,7 +45,7 @@ Use la siguiente tabla para identificar y resolver los problemas que puedan surg
 | Conexión de clientes                                                                    | Consulte [Conexiones de servicios de Windows Virtual Desktop](troubleshoot-service-connection.md) y, si no se soluciona el problema, consulte [Configuración de máquina virtual de host de sesión](troubleshoot-vm-configuration.md). |
 | Capacidad de respuesta del escritorio o de las aplicaciones remotas                                      | Si los problemas están asociados a una aplicación o producto específicos, póngase en contacto con el equipo responsable de dicho producto. |
 | Errores o mensajes de las licencias                                                          | Si los problemas están asociados a una aplicación o producto específicos, póngase en contacto con el equipo responsable de dicho producto. |
-| Problemas con los métodos de autenticación de terceros | Compruebe que su proveedor de terceros admite escenarios de Windows Virtual Desktop y contacte con ellos en relación con cualquier problema conocido. |
+| Problemas con las herramientas o los métodos de autenticación de terceros | Compruebe que su proveedor de terceros admite escenarios de Windows Virtual Desktop y contacte con ellos en relación con cualquier problema conocido. |
 | Problemas en el uso de Log Analytics para Windows Virtual Desktop | Para problemas relacionados con el esquema de diagnóstico, [abra una solicitud de soporte técnico de Azure](https://azure.microsoft.com/support/create-ticket/).<br><br>Para consultas, problemas de visualización o de cualquier otro tipo en Log Analytics, seleccione el tipo de problema adecuado en Log Analytics. |
 | Problemas con el uso de las aplicaciones de M365 | Póngase en contacto con el centro de administración de M365 con una de las [opciones de ayuda del centro de administración de M365](/microsoft-365/admin/contact-support-for-business-products/). |
 

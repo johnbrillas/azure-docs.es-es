@@ -4,21 +4,18 @@ description: Descubra cómo interactuar con recursos de Kubernetes para administ
 services: container-service
 ms.topic: article
 ms.date: 09/21/2020
-ms.openlocfilehash: ae617615a8ba83e311a416581fb41d3cb6ca1b05
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: cfd09e469de68a1eee7440773347e9fe58bf8619
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635616"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571630"
 ---
 # <a name="access-kubernetes-resources-from-the-azure-portal-preview"></a>Acceso a recursos de Kubernetes en Azure Portal (versión preliminar)
 
 Azure Portal incluye un visor de recursos de Kubernetes (versión preliminar) para facilitar el acceso a los recursos de Kubernetes en el clúster de Azure Kubernetes Service (AKS). Ver los recursos de Kubernetes en Azure Portal reduce la necesidad de cambiar de contexto entre el Azure Portal y la herramienta de línea de comandos `kubectl`. De este modo, se simplifican la visualización y edición de recursos de Kubernetes. El visor de recursos actualmente incluye varios tipos de recursos, como implementaciones, pods y conjuntos de réplicas.
 
 La vista de recursos de Kubernetes en Azure Portal reemplaza al [complemento del panel de AKS][kubernetes-dashboard], que ha quedado obsoleto.
-
->[!NOTE]
->Esta funcionalidad no es compatible actualmente en [los clústeres privados de Azure Kubernetes Service](./private-clusters.md).
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -46,21 +43,21 @@ En este ejemplo, usaremos el clúster de AKS de ejemplo para implementar la apli
 
 Una vez que se añade el archivo YAML, el visor de recursos muestra los dos servicios de Kubernetes creados: el servicio interno (azure-vote-back) y el servicio externo (azure-vote-front) para acceder a la aplicación Azure Vote. El servicio externo incluye una dirección IP externa vinculada para que pueda ver fácilmente la aplicación en el explorador.
 
-:::image type="content" source="media/kubernetes-portal/portal-services.png" alt-text="Información del pod de Kubernetes en Azure Portal." lightbox="media/kubernetes-portal/portal-services.png":::
+:::image type="content" source="media/kubernetes-portal/portal-services.png" alt-text="Información de la aplicación Azure Vote mostrada en Azure Portal." lightbox="media/kubernetes-portal/portal-services.png":::
 
 ### <a name="monitor-deployment-insights"></a>Supervisión de la información de implementación
 
 Los clústeres de AKS que tengan activado [Azure Monitor para contenedores][enable-monitor] pueden ver rápidamente la información de implementación. En la vista de recursos de Kubernetes, los usuarios pueden ver el estado activo de implementaciones individuales, incluido el uso de la CPU y de la memoria, además de cambiar a Azure Monitor para ver información más detallada. A continuación, se incluye un ejemplo de información de implementación de un clúster de AKS de ejemplo:
 
-:::image type="content" source="media/kubernetes-portal/deployment-insights.png" alt-text="Información del pod de Kubernetes en Azure Portal." lightbox="media/kubernetes-portal/deployment-insights.png":::
+:::image type="content" source="media/kubernetes-portal/deployment-insights.png" alt-text="Información de implementación en Azure Portal." lightbox="media/kubernetes-portal/deployment-insights.png":::
 
 ## <a name="edit-yaml"></a>Edición de YAML
 
 La vista de recursos de Kubernetes también incluye un editor YAML. Tener un editor YAML integrado significa que puede actualizar o crear servicios e implementaciones desde el portal y aplicar los cambios inmediatamente.
 
-:::image type="content" source="media/kubernetes-portal/service-editor.png" alt-text="Información del pod de Kubernetes en Azure Portal.":::
+:::image type="content" source="media/kubernetes-portal/service-editor.png" alt-text="Editor YAML para un servicio de Kubernetes en Azure Portal.":::
 
-Después de editar el archivo YAML, los cambios se aplicarán al seleccionar **revisar + guardar** , confirmarlos y, a continuación, volver a guardar.
+Después de editar el archivo YAML, los cambios se aplicarán al seleccionar **revisar + guardar**, confirmarlos y, a continuación, volver a guardar.
 
 >[!WARNING]
 > No se recomienda hacer cambios de producción directamente a través de la interfaz de usuario o la CLI. Siga los [procedimientos recomendados de integración continua (CI) y de implementación continua (CD)](kubernetes-action.md). La funcionalidad de administración de Kubernetes en Azure Portal y el editor YAML se han creado para aprender sobre nuevas implementaciones y lanzarlas en una configuración de desarrollo y pruebas.
@@ -80,7 +77,7 @@ Para acceder a recursos de Kubernetes, debe tener acceso al clúster, la API y l
 
 En el caso de clústeres existentes, es posible que tenga que activar la vista de recursos de Kubernetes. Para activar la vista de recursos, siga las indicaciones del portal para el clúster.
 
-:::image type="content" source="media/kubernetes-portal/enable-resource-view.png" alt-text="Información del pod de Kubernetes en Azure Portal." lightbox="media/kubernetes-portal/enable-resource-view.png":::
+:::image type="content" source="media/kubernetes-portal/enable-resource-view.png" alt-text="Mensaje de Azure Portal para activar la vista de recursos Kubernetes." lightbox="media/kubernetes-portal/enable-resource-view.png":::
 
 > [!TIP]
 > La característica de [**intervalos de IP autorizados del servidor de API**](api-server-authorized-ip-ranges.md) de AKS se puede agregar para limitar el acceso del servidor de API solo al punto de conexión público del firewall. Otra opción para estos clústeres es actualizar `--api-server-authorized-ip-ranges` para incluir el acceso de un equipo cliente local o un intervalo de direcciones IP (desde la que se examina el portal). Para permitir este acceso, necesita la dirección IPv4 pública del equipo. Para encontrar esta dirección, use el siguiente comando o busque "cuál es mi dirección IP" en un explorador de Internet.

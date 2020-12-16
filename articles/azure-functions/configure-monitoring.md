@@ -4,12 +4,12 @@ description: Aprenda a conectar la aplicación de funciones a Application Insigh
 ms.date: 8/31/2020
 ms.topic: how-to
 ms.custom: contperfq2, devx-track-azurecli
-ms.openlocfilehash: 0b8aae707f0fb055677af111f1e88c0a2e19b227
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 02d5ad2e9697c14818a985325267d7caea80f65e
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96175753"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96607133"
 ---
 # <a name="how-to-configure-monitoring-for-azure-functions"></a>Configuración de la supervisión para Azure Functions
 
@@ -38,6 +38,9 @@ El registrador de Azure Functions incluye una *categoría* para cada registro. L
 | **`Host.Results`** | **requests** | Estos registros generados en tiempo de ejecución indican si una función se ha realizado correctamente o no. Todos estos registros se escriben en el nivel `Information`. Si filtra por `Warning` o superior, no verá ninguno de estos datos. |
 | **`Microsoft`** | **traces** | Categoría de registro completa que refleja un componente de .NET en tiempo de ejecución invocado por el host.  |
 | **`Worker`** | **traces** | Registros generados por el proceso de trabajo de los lenguajes que no son .NET. Estos registros también se pueden crear en una categoría `Microsoft.*`, como `Microsoft.Azure.WebJobs.Script.Workers.Rpc.RpcFunctionInvocationDispatcher`. Se escriben en el nivel `Information`.|
+
+> [!NOTE]
+> En el caso de las funciones de la biblioteca de clases de .NET, estas categorías suponen que usa `ILogger` y no `ILogger<T>`. Para más información, consulte la [documentación de ILogger de Functions](functions-dotnet-class-library.md#ilogger). 
 
 # <a name="v1x"></a>[v1.x](#tab/v1)
 

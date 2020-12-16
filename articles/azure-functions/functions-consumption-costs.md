@@ -28,7 +28,7 @@ Durable Functions también puede ejecutarse en un plan de consumo. Para más inf
 
 ## <a name="consumption-plan-costs"></a>Costos según el plan de consumo
 
-El *costo* de ejecución de una única ejecución de función se mide en *GB por segundo* . El costo de ejecución se calcula mediante la combinación del uso de memoria con el tiempo de ejecución. Una función que se ejecuta durante más tiempo cuesta más, al igual que una función que consume más memoria. 
+El *costo* de ejecución de una única ejecución de función se mide en *GB por segundo*. El costo de ejecución se calcula mediante la combinación del uso de memoria con el tiempo de ejecución. Una función que se ejecuta durante más tiempo cuesta más, al igual que una función que consume más memoria. 
 
 Considere un caso en el que la cantidad de memoria que usa la función permanece constante. En este caso, el cálculo del costo es una multiplicación simple. Por ejemplo, suponga que la función ha consumido 0,5 GB durante tres segundos. Después, el costo de ejecución es `0.5GB * 3s = 1.5 GB-seconds`. 
 
@@ -57,13 +57,13 @@ Al calcular los costos generales de la aplicación de funciones y los servicios 
 
 Los siguientes comportamientos de las funciones pueden afectar al tiempo de ejecución:
 
-+ **Desencadenadores y enlaces** : El tiempo necesario para leer la entrada y escribir la salida en los [enlaces de funciones](functions-triggers-bindings.md) se cuenta como tiempo de ejecución. Por ejemplo, cuando la función usa un enlace de salida para escribir un mensaje en una cola de almacenamiento de Azure, el tiempo de ejecución incluye el tiempo necesario para escribir el mensaje en la cola, que se incluye en el cálculo del costo de la función. 
++ **Desencadenadores y enlaces**: El tiempo necesario para leer la entrada y escribir la salida en los [enlaces de funciones](functions-triggers-bindings.md) se cuenta como tiempo de ejecución. Por ejemplo, cuando la función usa un enlace de salida para escribir un mensaje en una cola de almacenamiento de Azure, el tiempo de ejecución incluye el tiempo necesario para escribir el mensaje en la cola, que se incluye en el cálculo del costo de la función. 
 
-+ **Ejecución asincrónica** : El tiempo que la función espera los resultados de una solicitud asincrónica (`await` en C#) se cuenta como tiempo de ejecución. El cálculo de GB por segundo se basa en la hora de inicio y finalización de la función y el uso de memoria durante ese período. Lo que sucede durante ese tiempo en términos de actividad de la CPU no se factoriza en el cálculo. Es posible que pueda reducir los costos durante las operaciones asincrónicas mediante el uso de [Durable Functions](durable/durable-functions-overview.md). No se le facturará por el tiempo de espera en las funciones del orquestador.
++ **Ejecución asincrónica**: El tiempo que la función espera los resultados de una solicitud asincrónica (`await` en C#) se cuenta como tiempo de ejecución. El cálculo de GB por segundo se basa en la hora de inicio y finalización de la función y el uso de memoria durante ese período. Lo que sucede durante ese tiempo en términos de actividad de la CPU no se factoriza en el cálculo. Es posible que pueda reducir los costos durante las operaciones asincrónicas mediante el uso de [Durable Functions](durable/durable-functions-overview.md). No se le facturará por el tiempo de espera en las funciones del orquestador.
 
 ## <a name="viewing-cost-related-data"></a>Visualización de datos relacionados con los costos
 
-En la [factura](../cost-management-billing/understand/download-azure-invoice.md), puede ver los datos relacionados con los costos del **total de ejecuciones: Funciones** y el **tiempo de ejecución: Funciones** , junto con los costos facturados reales. Sin embargo, estos datos de factura son un agregado mensual para un período de facturación anterior. 
+En la [factura](../cost-management-billing/understand/download-azure-invoice.md), puede ver los datos relacionados con los costos del **total de ejecuciones: Funciones** y el **tiempo de ejecución: Funciones**, junto con los costos facturados reales. Sin embargo, estos datos de factura son un agregado mensual para un período de facturación anterior. 
 
 ### <a name="function-app-level-metrics"></a>Métricas del nivel de la aplicación de funciones
 
@@ -73,7 +73,7 @@ Para comprender mejor el impacto en el costo de las funciones, puede usar Azure 
 
 Use el [explorador de métricas de Azure Monitor](../azure-monitor/platform/metrics-getting-started.md) para ver los datos relacionados con los costos de las aplicaciones de funciones del plan de consumo en un formato gráfico. 
 
-1. En la parte superior de [Azure Portal], en **Buscar recursos, servicios y documentos** , busque `monitor` y seleccione **Monitor** en **Servicios** .
+1. En la parte superior de [Azure Portal], en **Buscar recursos, servicios y documentos**, busque `monitor` y seleccione **Monitor** en **Servicios**.
 
 1. A la izquierda, seleccione **Métricas** > **Seleccionar un recurso** y, después, use la configuración que se encuentra debajo de la imagen para elegir la aplicación de funciones.
 
@@ -82,14 +82,14 @@ Use el [explorador de métricas de Azure Monitor](../azure-monitor/platform/metr
       
     |Configuración  |Valor sugerido  |Descripción  |
     |---------|---------|---------|
-    | Subscription    |  Su suscripción  | La suscripción con la aplicación de funciones.  |
+    | Suscripción    |  Su suscripción  | La suscripción con la aplicación de funciones.  |
     | Resource group     | Su grupo de recursos  | El grupo de recursos que contiene la aplicación de funciones.   |
     | Tipo de recurso     |  Servicios de aplicaciones | Las aplicaciones de funciones se muestran como instancias de App Services en Monitor. |
     | Resource     |  Su aplicación de función  | La aplicación de funciones que se va a supervisar.        |
 
 1. Seleccione **Aplicar** para elegir la aplicación de funciones como el recurso que se va a supervisar.
 
-1. En **Métrica** , elija **Recuento de la ejecución de la función** y **Suma** en **Agregación** . Esto agrega al gráfico la suma de los recuentos de ejecución durante el período elegido.
+1. En **Métrica**, elija **Recuento de la ejecución de la función** y **Suma** en **Agregación**. Esto agrega al gráfico la suma de los recuentos de ejecución durante el período elegido.
 
     ![Definición de una métrica de aplicación de funciones para agregarla al gráfico](media/functions-consumption-costing/monitor-metrics-add-metric.png)
 

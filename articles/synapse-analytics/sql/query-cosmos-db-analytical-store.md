@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 12/04/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 129534727248ff05b5d38da60dead7903d9a5815
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 22103ad580fa474f44eaf42c696d19bbbd137c8e
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96744472"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095107"
 ---
 # <a name="query-azure-cosmos-db-data-with-a-serverless-sql-pool-in-azure-synapse-link-preview"></a>Consulta de datos de Azure Cosmos DB con un grupo de SQL sin servidor en Azure Synapse Link (versión preliminar)
 
@@ -222,7 +222,7 @@ FROM OPENROWSET(
     ) with ( date_rep varchar(20), cases bigint, geo_id varchar(6) ) as rows
 ```
 
-No utilice `OPENROWSET` sin un esquema definido explícitamente, ya que podría afectar al rendimiento. Asegúrese de usar los tamaños más pequeños posibles para las columnas; por ejemplo, VARCHAR(100) en lugar de la opción VARCHAR(8000) predeterminada. Debe usar una intercalación UTF-8 como intercalación de base de datos predeterminada o establecerla como intercalación de columna explícita para evitar un [problema de conversión UTF-8](/troubleshoot/reading-utf8-text). La intercalación `Latin1_General_100_BIN2_UTF8` proporciona el mejor rendimiento cuando se filtran los datos mediante algunas columnas de cadena.
+No utilice `OPENROWSET` sin un esquema definido explícitamente, ya que podría afectar al rendimiento. Asegúrese de usar los tamaños más pequeños posibles para las columnas; por ejemplo, VARCHAR(100) en lugar de la opción VARCHAR(8000) predeterminada. Debe usar una intercalación UTF-8 como intercalación de base de datos predeterminada o establecerla como intercalación de columna explícita para evitar un [problema de conversión UTF-8](/azure/synapse-analytics/troubleshoot/reading-utf8-text). La intercalación `Latin1_General_100_BIN2_UTF8` proporciona el mejor rendimiento cuando se filtran los datos mediante algunas columnas de cadena.
 
 ## <a name="query-nested-objects-and-arrays"></a>Consulta de objetos y matrices anidados
 

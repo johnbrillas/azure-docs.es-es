@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 01/14/2019
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1245010ae0b21c5bb8e3ebd93a9fe851d48c858b
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 77a43d5bd5f2b228d5ed4384fc1efdca76f8ea0b
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94835516"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573891"
 ---
 # <a name="use-the-ad-fs-application-activity-report-preview-to-migrate-applications-to-azure-ad"></a>Uso del informe de actividades de aplicaciones de AD FS (versión preliminar) para migrar aplicaciones a Azure AD
 
@@ -26,9 +26,10 @@ Muchas organizaciones usan Servicios de federación de Active Directory (AD FS)
 
 El informe de actividades de aplicaciones de AD FS (versión preliminar) de Azure Portal permite identificar rápidamente qué aplicaciones se pueden migrar a Azure AD. Evalúa todas las aplicaciones de AD FS con respecto a la compatibilidad con Azure AD, comprueba si hay problemas y proporciona instrucciones sobre cómo preparar aplicaciones concretas para su migración. Con del informe de actividades de aplicaciones de AD FS puede hacer lo siguiente:
 
-* **Descubrir aplicaciones de AD FS y definir el ámbito de su migración.** En el informe de actividades de aplicaciones de AD FS se enumeran todas las aplicaciones de AD FS de su organización y se indica su grado de preparación para la migración a Azure AD.
+* **Descubrir aplicaciones de AD FS y definir el ámbito de su migración.** En el informe de actividades de aplicaciones de AD FS se enumeran todas las aplicaciones de AD FS de su organización en las que un usuario activo ha iniciado sesión en los últimos 30 días. El informe indica el grado de preparación de una aplicación para la migración a Azure AD. El informe no muestra los usuarios de confianza relacionados con Microsoft en AD FS como Office 365. Por ejemplo, los usuarios de confianza con el nombre 'urn:federation:MicrosoftOnline'.
+
 * **Establecer prioridades de aplicaciones para la migración.** Obtenga el número de usuarios únicos que han iniciado sesión en la aplicación en los últimos 1, 7 o 30 días para ayudar a determinar la importancia o el riesgo de migrar la aplicación.
-* **Ejecutar pruebas de migración y solucionar problemas.** El servicio de informes ejecuta automáticamente las pruebas para determinar si una aplicación está preparada para la migración. Los resultados se muestran en el informe de actividades de aplicaciones de AD FS como estado de la migración. Si se identifican posibles problemas de migración, obtendrá instrucciones específicas sobre cómo solucionar los problemas.
+* **Ejecutar pruebas de migración y solucionar problemas.** El servicio de informes ejecuta automáticamente las pruebas para determinar si una aplicación está preparada para la migración. Los resultados se muestran en el informe de actividades de aplicaciones de AD FS como estado de la migración. Si la configuración de AD FS no es compatible con una configuración de Azure AD, obtendrá instrucciones específicas sobre cómo abordar la configuración en Azure AD.
 
 Los datos de actividad de aplicaciones de AD FS están disponibles para los usuarios que tienen asignados cualquiera de estos roles de administrador: administrador global, lector de informes, lector de seguridad, administrador de aplicaciones o administrador de aplicaciones en la nube.
 
@@ -39,6 +40,9 @@ Los datos de actividad de aplicaciones de AD FS están disponibles para los usu
 * El agente de Azure AD Connect Health para AD FS debe estar instalado.
    * [Más información sobre Azure AD Connect Health](../hybrid/how-to-connect-health-adfs.md)
    * [Introducción a la configuración de Azure AD Connect Health e instalación del agente de AD FS](../hybrid/how-to-connect-health-agent-install.md)
+
+>[!IMPORTANT] 
+>Hay un par de razones por las que no verá todas las aplicaciones que espera después de haber instalado Azure Active Directory Connect Health. El informe de actividades de aplicaciones solo muestra usuarios de confianza de AD FS con inicios de sesión de usuario en los últimos 30 días. Además, el informe no mostrará los usuarios de confianza relacionados con Microsoft como Office 365.
 
 ## <a name="discover-ad-fs-applications-that-can-be-migrated"></a>Descubrimiento de aplicaciones de AD FS que se pueden migrar 
 
@@ -121,6 +125,17 @@ En la tabla siguiente se enumeran todas las pruebas de reglas de notificaciones 
 |EXTERNAL_ATTRIBUTE_STORE      | La instrucción de emisión usa un almacén de atributos que no es Active Directory. Actualmente, Azure AD no procesa las notificaciones de los almacenes que no sean de Active Directory o Azure AD. Si esto le impide migrar aplicaciones a Azure AD, [háganoslo saber](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/38695717-allow-to-source-user-attributes-from-external-dire).          |
 |UNSUPPORTED_ISSUANCE_CLASS      | La instrucción de emisión usa AAD para agregar notificaciones al conjunto de notificaciones entrantes. En Azure AD esto puede configurarse como varias transformaciones de notificaciones.  Para obtener más información, consulte [Personalización de las notificaciones emitidas en el token SAML para aplicaciones empresariales](../develop/active-directory-claims-mapping.md).         |
 |UNSUPPORTED_ISSUANCE_TRANSFORMATION      | La instrucción de emisión utiliza expresiones regulares para transformar el valor de la notificación que se va a emitir. Para lograr una funcionalidad similar en Azure AD, puede usar la transformación predefinida como Extract(), Trim() o ToLower. Para obtener más información, consulte [Personalización de las notificaciones emitidas en el token SAML para aplicaciones empresariales](../develop/active-directory-saml-claims-customization.md).          |
+
+## <a name="troubleshooting"></a>Solución de problemas
+
+### <a name="cant-see-all-my-ad-fs-applications-in-the-report"></a>No se pueden ver todas las aplicaciones de AD FS en el informe
+
+ Si ha instalado Azure AD Connect Health, pero sigue viendo el aviso de instalación o no ve todas las aplicaciones de AD FS en el informe, puede que no tenga aplicaciones de AD FS activas o que las aplicaciones de AD FS sean aplicaciones de Microsoft.
+ 
+ En el informe de actividades de aplicaciones de AD FS se enumeran todas las aplicaciones de AD FS de su organización en las que usuarios activos han iniciado sesión en los últimos 30 días. Además, el informe no muestra los usuarios de confianza relacionados con Microsoft en AD FS como Office 365. Por ejemplo, los usuarios de confianza con el nombre 'urn:federation:MicrosoftOnline', 'microsoftonline', 'microsoft:winhello:cert:prov:server' no se mostrarán en la lista.
+
+
+
 
 
 ## <a name="next-steps"></a>Pasos siguientes

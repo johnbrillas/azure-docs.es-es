@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/13/2019
 ms.author: allensu
-ms.openlocfilehash: 90fc35249daea51a08cb83143c6be024e78964a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b86f9bcbc863a78fd5f8f748e973a20ea709636
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91804017"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573177"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>Creación, modificación o eliminación del prefijo de una dirección IP pública
 
@@ -60,6 +60,9 @@ Los prefijos de las direcciones IP públicas tienen un cargo. Para obtener infor
 |---|---|
 |CLI|[az network public-ip prefix create](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-create)|
 |PowerShell|[New-AzPublicIpPrefix](/powershell/module/az.network/new-azpublicipprefix)|
+
+>[!NOTE]
+>En las regiones con zonas de disponibilidad, puede usar comandos de PowerShell o de la CLI para crear un prefijo de dirección IP pública como no zonal, asociada a una zona específica o para usar la redundancia de zona.  En la versión de API 2020-08-01 o posterior, si no se proporciona un parámetro de zona, se crea un prefijo de dirección IP pública no zonal. En el caso de las versiones de la API anteriores a 2020-08-01, se crea un prefijo de dirección IP pública con redundancia de zona. 
 
 ## <a name="create-a-static-public-ip-address-from-a-prefix"></a>Creación de una dirección IP pública estática a partir de un prefijo
 Una vez que cree un prefijo, debe crear las direcciones IP estáticas a partir del prefijo. Para ello, siga estos pasos.

@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 06/18/2019
 ms.reviewer: dariac
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 84e257111e8da0546cf104e0cc5d3ac95a9294ba
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: 26fd8bc73fad3ea313641fc4b1e0f454ee2c0813
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96558681"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347785"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Implementación de Git local en Azure App Service
 
@@ -45,7 +45,7 @@ La manera más fácil de habilitar la implementación de Git local para la aplic
 
 ### <a name="get-the-deployment-url"></a>Obtener la dirección URL de implementación
 
-Para obtener la URL para habilitar la implementación de Git local de una aplicación existente, ejecute [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-local-git) en Cloud Shell. Reemplace \<app-name> y \<group-name> por los nombres de la aplicación y su grupo de recursos de Azure.
+Para obtener la URL para habilitar la implementación de Git local de una aplicación existente, ejecute [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source#az-webapp-deployment-source-config-local-git) en Cloud Shell. Reemplace \<app-name> y \<group-name> por los nombres de la aplicación y su grupo de recursos de Azure.
 
 ```azurecli-interactive
 az webapp deployment source config-local-git --name <app-name> --resource-group <group-name>
@@ -54,7 +54,7 @@ az webapp deployment source config-local-git --name <app-name> --resource-group 
 > Si usa un plan de servicio de aplicaciones de Linux, debe agregar este parámetro:--runtime python|3.7
 
 
-Igualmente, para crear una aplicación habilitada para Git, ejecute [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) en Cloud Shell con el parámetro `--deployment-local-git`. Reemplace \<app-name>, \<group-name> y \<plan-name> por los nombres de la nueva aplicación de Git, su grupo de recursos de Azure y su plan de Azure App Service.
+Igualmente, para crear una aplicación habilitada para Git, ejecute [`az webapp create`](/cli/azure/webapp#az-webapp-create) en Cloud Shell con el parámetro `--deployment-local-git`. Reemplace \<app-name>, \<group-name> y \<plan-name> por los nombres de la nueva aplicación de Git, su grupo de recursos de Azure y su plan de Azure App Service.
 
 ```azurecli-interactive
 az webapp create --name <app-name> --resource-group <group-name> --plan <plan-name> --deployment-local-git
@@ -80,7 +80,7 @@ Use la dirección URL que vuelve a implementar la aplicación en el siguiente pa
    git remote add azure <url>
    ```
    
-1. Acceda a la instancia remota de Azure con `git push azure main`. 
+1. Acceda a la instancia remota de Azure con `git push azure master`. 
    
 1. En la ventana del **administrador de credenciales de Git**, escriba su [contraseña de usuario de implementación](#configure-a-deployment-user), no la contraseña de inicio de sesión de Azure.
    
@@ -131,7 +131,7 @@ Para habilitar la implementación de Git local para la aplicación con Azure Pip
    git remote add azure <url>
    ```
    
-1. Acceda a la instancia remota de Azure con `git push azure main`. 
+1. Acceda a la instancia remota de Azure con `git push azure master`. 
    
 1. En la página del **administrador de credenciales de GIT**, inicie sesión con su nombre de usuario de visualstudio.com. Para ver otros métodos de autenticación, consulte la [información general sobre autenticación de Azure DevOps Services](/vsts/git/auth-overview?view=vsts).
    
@@ -149,8 +149,8 @@ Puede ver los siguientes mensajes de error comunes cuando usa Git para publicar 
 ---|---|---|
 |`Unable to access '[siteURL]': Failed to connect to [scmAddress]`|La aplicación no está funcionando.|inicie la aplicación en Azure Portal. La implementación de GIT no está disponible cuando la aplicación web está detenida.|
 |`Couldn't resolve host 'hostname'`|La información de dirección del repositorio remoto de "azure" es incorrecta.|use el comando `git remote -v` para obtener un listado de todos los remotos, junto con la dirección URL asociada. Compruebe que la URL para el repositorio correcto "azure" es correcta. Si lo necesita, suprima y vuelva a crear este repositorio remoto utilizando la URL correcta.|
-|`No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'main'.`|No especificó una rama durante `git push`, o no ha establecido el valor `push.default` en `.gitconfig`.|Vuelva a ejecutar `git push` y especifique la rama principal: `git push azure main`.|
-|`src refspec [branchname] does not match any.`|Ha intentado agregar una rama que no es la principal en el repositorio remoto "azure".|Vuelva a ejecutar `git push` y especifique la rama principal: `git push azure main`.|
+|`No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'main'.`|No especificó una rama durante `git push`, o no ha establecido el valor `push.default` en `.gitconfig`.|Vuelva a ejecutar `git push` y especifique la rama principal: `git push azure master`.|
+|`src refspec [branchname] does not match any.`|Ha intentado agregar una rama que no es la principal en el repositorio remoto "azure".|Vuelva a ejecutar `git push` y especifique la rama principal `git push azure master`.|
 |`RPC failed; result=22, HTTP code = 5xx.`|este error puede producirse si se trata de insertar un repositorio Git de gran tamaño a través de HTTPS.|Cambie la configuración de Git en la máquina local para aumentar el tamaño de `postBuffer`. Por ejemplo: `git config --global http.postBuffer 524288000`.|
 |`Error - Changes committed to remote repository but your web app not updated.`|Implementó una aplicación Node.js con un archivo _package.json_ que especifica los módulos adicionales requeridos.|Revise los mensajes de error `npm ERR!` anteriores a este error para obtener más contexto sobre el error. A continuación se indican las causas conocidas de este error y los mensajes `npm ERR!`:<br /><br />**El archivo package.json tiene una estructura incorrecta**: `npm ERR! Couldn't read dependencies.`<br /><br />**Módulo nativo que no tiene una distribución binaria para Windows**:<br />`npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1` <br />or <br />`npm ERR! [modulename@version] preinstall: \make || gmake\ `|
 

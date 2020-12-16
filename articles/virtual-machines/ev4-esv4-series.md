@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 6/8/2020
-ms.openlocfilehash: b8f6768ebf988ff568739c86303b52ea5b0a9234
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 38020b38ebd879bf19c243c2055e73198e9fcc7c
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018719"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96606929"
 ---
 # <a name="ev4-and-esv4-series"></a>Series Ev4 y Esv4
 
@@ -58,7 +58,7 @@ Los tamaños de la serie Esv4 se ejecutan en Intel&reg; Xeon&reg; Platinum 8272C
 [Almacenamiento en caché de Premium Storage](premium-storage-performance.md): Compatible<br>
 [Migración en vivo](maintenance-and-updates.md): Compatible<br>
 [Actualizaciones con conservación de memoria](maintenance-and-updates.md): Compatible<br>
-[Compatibilidad con generación de VM](generation-2.md): Generación 1<br>
+[Compatibilidad con generación de VM](generation-2.md): Generación 1 y 2<br>
 <br>
 
 | Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo del disco sin almacenamiento en la caché: IOPS/Mbps | Nº máx. NIC|Ancho de banda de red esperado (Mbps) |
@@ -71,8 +71,11 @@ Los tamaños de la serie Esv4 se ejecutan en Intel&reg; Xeon&reg; Platinum 8272C
 | Standard_E32s_v4 | 32 | 256 | Solo almacenamiento remoto | 32 | 51200/768  | 8|16000 |
 | Standard_E48s_v4 | 48 | 384 | Solo almacenamiento remoto | 32 | 76800/1152 | 8|24000 |
 | Standard_E64s_v4 <sup>1</sup> | 64 | 504| Solo almacenamiento remoto | 32 | 80000/1200 | 8|30000 |
+| Standard_E80is_v4 <sup>2</sup> | 80 | 504 | Solo almacenamiento remoto | 32 | 80000/1200 | 8|30000 |
 
 <sup>1</sup> [Tamaños de núcleos restringidos disponibles](./constrained-vcpu.md).
+
+<sup>2</sup> La instancia está aislada en el hardware dedicado a un solo cliente.
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

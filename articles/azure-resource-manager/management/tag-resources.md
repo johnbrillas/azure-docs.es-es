@@ -2,14 +2,14 @@
 title: Etiquetado de recursos, grupos de recursos y suscripciones para una organización lógica
 description: Muestra cómo aplicar etiquetas para organizar los recursos de Azure para la facturación y administración.
 ms.topic: conceptual
-ms.date: 11/20/2020
+ms.date: 12/03/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9e9ef96a712e5ac2ba483170fb8ef9c89115b4f8
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: e47d3acf15ce5e4f5cb70444419b76beb21ae98b
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95972575"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558154"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Uso de etiquetas para organizar los recursos de Azure y la jerarquía de administración
 
@@ -26,9 +26,11 @@ Para recomendaciones sobre cómo implementar una estrategia de etiquetado, consu
 
 ## <a name="required-access"></a>Acceso necesario
 
-Para aplicar etiquetas a un recurso, debe tener acceso de escritura al tipo de recurso **Microsoft.Resources/tags**. El rol [Colaborador de etiquetas](../../role-based-access-control/built-in-roles.md#tag-contributor) le permite aplicar etiquetas a una entidad sin tener acceso a la entidad misma. Actualmente, el rol colaborador de etiquetas no puede aplicar etiquetas a recursos o grupos de recursos a través del portal. Puede aplicar etiquetas a las suscripciones a través del portal. Este admite todas las operaciones de etiqueta a través de PowerShell y la API REST.  
+Hay dos maneras de obtener el acceso necesario a los recursos de etiqueta.
 
-El rol [Colaborador](../../role-based-access-control/built-in-roles.md#contributor) también concede el acceso necesario para aplicar etiquetas a cualquier entidad. Para aplicar etiquetas a un solo tipo de recurso, use el rol de colaborador para ese recurso. Por ejemplo, para aplicar etiquetas a las máquinas virtuales, use [Colaborador de la máquina virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
+- Puede tener acceso de escritura al tipo de recurso **Microsoft.Resources/tags**. Este acceso permite etiquetar cualquier recurso, incluso si no tiene acceso al propio recurso. El rol [Colaborador de etiquetas](../../role-based-access-control/built-in-roles.md#tag-contributor) concede este acceso. Actualmente, el rol colaborador de etiquetas no puede aplicar etiquetas a recursos o grupos de recursos a través del portal. Puede aplicar etiquetas a las suscripciones a través del portal. Este admite todas las operaciones de etiqueta a través de PowerShell y la API REST.  
+
+- Puede tener acceso de escritura al propio recurso. El rol [Colaborador](../../role-based-access-control/built-in-roles.md#contributor) concede el acceso necesario para aplicar etiquetas a cualquier entidad. Para aplicar etiquetas a un solo tipo de recurso, use el rol de colaborador para ese recurso. Por ejemplo, para aplicar etiquetas a las máquinas virtuales, use [Colaborador de la máquina virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
 
 ## <a name="powershell"></a>PowerShell
 
@@ -277,7 +279,7 @@ az tag create --resource-id $resource --tags Team=Compliance Environment=Product
 },
 ```
 
-Para agregar etiquetas a un recurso que ya tiene etiquetas, use **az tag update**. Establezca el parámetro **--operation** en **Merge**.
+Para agregar etiquetas a un recurso que ya tiene etiquetas, use `az tag update`. Establezca el parámetro `--operation` en `Merge`.
 
 ```azurecli-interactive
 az tag update --resource-id $resource --operation Merge --tags Dept=Finance Status=Normal
@@ -313,7 +315,7 @@ az tag update --resource-id $resource --operation Merge --tags Status=Green
 },
 ```
 
-Al establecer el parámetro **--operation** en **Replace**, el nuevo conjunto de etiquetas reemplaza a las etiquetas existentes.
+Al establecer el parámetro `--operation` en `Replace`, el nuevo conjunto de etiquetas reemplaza a las etiquetas existentes.
 
 ```azurecli-interactive
 az tag update --resource-id $resource --operation Replace --tags Project=ECommerce CostCenter=00123 Team=Web
@@ -406,7 +408,7 @@ az group list --tag Dept=Finance
 
 ### <a name="remove-tags"></a>Eliminación de etiquetas
 
-Para quitar etiquetas específicas, use **az tag update** y establezca **--operation** en **Delete**. Pase las etiquetas que quiere eliminar.
+Para quitar etiquetas específicas, use `az tag update` y establezca `--operation` en `Delete`. Pase las etiquetas que quiere eliminar.
 
 ```azurecli-interactive
 az tag update --resource-id $resource --operation Delete --tags Project=ECommerce Team=Web

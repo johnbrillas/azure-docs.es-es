@@ -1,7 +1,7 @@
 ---
 title: Supervisión de operaciones, eventos y contadores para una instancia pública de Load Balancer
 titleSuffix: Azure Load Balancer
-description: Aprenda como habilitar eventos de alerta y el registro del estado del sondeo de estado una instancia pública de Basic Load Balancer
+description: Obtenga información acerca de cómo habilitar el registro para Azure Load Balancer
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -13,23 +13,25 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2020
 ms.author: allensu
-ms.openlocfilehash: f24ab2c646757f0241748336243b0d5f977d081c
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 6742723e24df83ac8112e224f1999f116ab82c94
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94698332"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96572786"
 ---
-# <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>Registros de Azure Monitor para el equilibrador de carga básica público
+# <a name="azure-monitor-logs-for-the-standard-azure-load-balancer"></a>Registros de Azure Monitor para Azure Standard Load Balancer
 
-Puede usar diferentes tipos de registros en Azure para administrar y solucionar problemas de Basic Load Balancer. Se puede acceder a algunos de estos registros a través del portal. Los registros se pueden transmitir a un centro de eventos o a un área de trabajo de Log Analytics. Se pueden extraer todos los registros desde Azure Blob Storage y visualizarse en distintas herramientas, como Excel y Power BI.  Puede obtener más información acerca de los diferentes tipos de registros en la lista siguiente.
+Puede usar diferentes tipos de registros en Azure para administrar y solucionar problemas de Standard Load Balancer. Los registros se pueden transmitir a un centro de eventos o a un área de trabajo de Log Analytics. Se pueden extraer todos los registros desde Azure Blob Storage y visualizarse en distintas herramientas, como Excel y Power BI.  Puede obtener más información acerca de los diferentes tipos de registros en la lista siguiente.
 
-* **Registros de actividad:** Puede usar [Visualización de registros de actividad para supervisar acciones sobre recursos](../azure-resource-manager/management/view-activity-logs.md) para ver toda la actividad que se está enviado a las suscripciones de Azure y sus estados. Los registros de actividad están habilitados de manera predeterminada y se pueden ver en Azure Portal.
-* **Registro de eventos de alerta:** puede utilizar este registro para las alertas generadas por el equilibrador de carga. El estado del equilibrador de carga se recopila cada cinco minutos. Este registro se escribe solo si se produce un evento de alerta del equilibrador de carga.
-* **Registro de sondeo de estado:** puede utilizar este registro para ver los problemas detectados por el sondeo de estado, como el número de instancias en el grupo back-end que no reciben las solicitudes del equilibrador de carga debido a errores de sondeo de estado. Este registro se escribe cuando se produce un cambio en el estatus del sondeo de estado.
+* **Registros de actividad:** Puede usar [Visualización de registros de actividad para supervisar acciones sobre recursos](../azure-resource-manager/management/view-activity-logs.md) para ver toda la actividad que se está enviado a las suscripciones de Azure y sus estados. Los registros de actividad están habilitados de manera predeterminada y se pueden ver en Azure Portal. Estos registros están disponibles tanto para instancias de Load Balancer de nivel básico como para instancias de nivel estándar.
+* **Métricas de Standard Load Balancer:** Puede usar este registro para consultar las métricas exportadas como registros de su instancia de Azure Standard Load Balancer. Estos registros solo están disponible para Standard Load Balancer.
 
 > [!IMPORTANT]
-> **Los registros de eventos de sondeo de estado no funcionan en la actualidad y aparecen listados en los [problemas conocidos de Azure Load Balancer](whats-new.md#known-issues).** Los registros solo están disponibles para los recursos implementados en el modelo de implementación del Administrador de recursos. No puede usar los registros de recursos del modelo de implementación clásica. Para más información sobre estos modelos de implementación, consulte [Understanding Resource Manager deployment and classic deployment](../azure-resource-manager/management/deployment-models.md) (Descripción de la implementación de Resource Manager y la implementación clásica).
+> **Los registros de eventos de sondeo de estado o de alerta de Load Balancer no funcionan en la actualidad y aparecen listados en los [problemas conocidos de Azure Load Balancer](whats-new.md#known-issues).** 
+
+> [!IMPORTANT]
+> Los registros solo están disponibles para los recursos implementados en el modelo de implementación del Administrador de recursos. No puede usar los registros de recursos del modelo de implementación clásica. Para más información sobre estos modelos de implementación, consulte [Understanding Resource Manager deployment and classic deployment](../azure-resource-manager/management/deployment-models.md) (Descripción de la implementación de Resource Manager y la implementación clásica).
 
 ## <a name="enable-logging"></a>Habilitar registro
 
@@ -75,94 +77,30 @@ Inicie sesión en [Azure Portal](https://portal.azure.com). Si aún no tiene un 
     3. Seleccione el **área de trabajo de Log Analytics** en el cuadro desplegable.
 
 
-8. En la sección **LOG** del panel **Configuración de diagnóstico**, active la casilla junto a:
-   * **LoadBalancerAlertEvent**
-   * **LoadBalancerProbeHealthStatus**
+8.  En la sección **METRIC** del panel **Configuración de diagnóstico**, active la casilla junto a: **AllMetrics**
 
-9.  En la sección **METRIC** del panel **Configuración de diagnóstico**, active la casilla junto a:
-   * **AllMetrics**
-
-11. Compruebe que todo esté correcto y haga clic en **Guardar** en la parte superior del panel de creación de **Configuración de diagnóstico**.
+9. Compruebe que todo esté correcto y haga clic en **Guardar** en la parte superior del panel de creación de **Configuración de diagnóstico**.
 
 ## <a name="activity-log"></a>Registro de actividades
 
-El registro de actividad se genera de manera predeterminada. Los registros se conservan durante 90 días en el almacén de registros de eventos de Azure. Obtenga más información sobre estos registros en el artículo [Visualización de registros de actividad para supervisar acciones sobre recursos](../azure-resource-manager/management/view-activity-logs.md).
-
-## <a name="archive-to-storage-account-logs"></a>Archivado en los registros de la cuenta de almacenamiento
-
-### <a name="alert-event-log"></a>Registro de eventos de alerta
-
-Este registro solo se genera si lo habilitó para cada uno de los equilibradores de carga. Los eventos se registran en formato JSON y se almacenan en la cuenta de almacenamiento que especificó cuando habilitó el registro. El ejemplo siguiente es de un evento.
-
-```json
-{
-    "time": "2016-01-26T10:37:46.6024215Z",
-    "systemId": "32077926-b9c4-42fb-94c1-762e528b5b27",
-    "category": "LoadBalancerAlertEvent",
-    "resourceId": "/SUBSCRIPTIONS/XXXXXXXXXXXXXXXXX-XXXX-XXXX-XXXXXXXXX/RESOURCEGROUPS/RG7/PROVIDERS/MICROSOFT.NETWORK/LOADBALANCERS/WWEBLB",
-    "operationName": "LoadBalancerProbeHealthStatus",
-    "properties": {
-        "eventName": "Resource Limits Hit",
-        "eventDescription": "Ports exhausted",
-        "eventProperties": {
-            "public ip address": "40.117.227.32"
-        }
-    }
-}
-```
-
-El resultado de JSON muestra la propiedad *eventname* que describirá el motivo de creación de una alerta por parte del equilibrador de carga. En este caso, la alerta generada se debió al agotamiento de puertos TCP causado por los límites de IP NAT de origen (SNAT).
-
-### <a name="health-probe-log"></a>Registro de sondeo de estado
-
-Este registro solo se genera si lo habilitó para cada uno de los equilibradores de carga, tal como se indicó anteriormente. Los datos se almacenan en la cuenta de almacenamiento que especificó cuando habilitó el registro. Se crea un contenedor denominado "insights-logs-loadbalancerprobehealthstatus" y se registran los datos siguientes:
-
-```json
-{
-    "records":[
-    {
-        "time": "2016-01-26T10:37:46.6024215Z",
-        "systemId": "32077926-b9c4-42fb-94c1-762e528b5b27",
-        "category": "LoadBalancerProbeHealthStatus",
-        "resourceId": "/SUBSCRIPTIONS/XXXXXXXXXXXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXX/RESOURCEGROUPS/RG7/PROVIDERS/MICROSOFT.NETWORK/LOADBALANCERS/WWEBLB",
-        "operationName": "LoadBalancerProbeHealthStatus",
-        "properties": {
-            "publicIpAddress": "40.83.190.158",
-            "port": "81",
-            "totalDipCount": 2,
-            "dipDownCount": 1,
-            "healthPercentage": 50.000000
-        }
-    },
-    {
-        "time": "2016-01-26T10:37:46.6024215Z",
-        "systemId": "32077926-b9c4-42fb-94c1-762e528b5b27",
-        "category": "LoadBalancerProbeHealthStatus",
-        "resourceId": "/SUBSCRIPTIONS/XXXXXXXXXXXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXX/RESOURCEGROUPS/RG7/PROVIDERS/MICROSOFT.NETWORK/LOADBALANCERS/WWEBLB",
-        "operationName": "LoadBalancerProbeHealthStatus",
-        "properties": {
-            "publicIpAddress": "40.83.190.158",
-            "port": "81",
-            "totalDipCount": 2,
-            "dipDownCount": 0,
-            "healthPercentage": 100.000000
-        }
-    }]
-}
-```
-
-El resultado JSON muestra en el campo de propiedades la información básica del estado de mantenimiento del sondeo. La propiedad *dipDownCount* muestra el número total de instancias en el back-end que no están recibiendo tráfico de red debido a las respuestas de sondeo con error.
+El registro de actividad se genera de manera predeterminada. Se puede configurar para que se exporte a nivel de suscripción [siguiendo las instrucciones de este artículo](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log). Obtenga más información sobre estos registros en el artículo [Visualización de registros de actividad para supervisar acciones sobre recursos](../azure-resource-manager/management/view-activity-logs.md).
 
 ### <a name="view-and-analyze-the-activity-log"></a>Visualización y análisis del registro de actividades
 
 Puede ver y analizar los datos del registro de actividades mediante el uso de cualquiera de los métodos siguientes:
 
 * **Herramientas de Azure:** puede recuperar información de los registros de actividad mediante Azure PowerShell, la interfaz de la línea de comandos (CLI) de Azure, la API REST de Azure o Azure Portal. En el artículo [Operaciones de auditoría con el Administrador de recursos](../azure-resource-manager/management/view-activity-logs.md) se detallan instrucciones paso a paso de cada método.
-* **Power BI:** si todavía no tiene una cuenta de [Power BI](https:// .microsoft.com/pricing), puede probarlo gratis. Con el [paquete de contenido de los registros de auditoría de Azure para Power BI](https:// .microsoft.com/documentation/ -content-pack-azure-audit-logs) puede analizar los datos con los paneles preconfigurados o puede personalizar las vistas para que se adapten a sus necesidades.
+* **Power BI:** si todavía no tiene una cuenta de [Power BI](https://powerbi.microsoft.com/pricing), puede probarlo gratis. Con la [integración de los registros de auditoría de Azure para Power BI](https://powerbi.microsoft.com/integrations/azure-audit-logs/) puede analizar los datos con los paneles preconfigurados o puede personalizar las vistas para que se adapten a sus necesidades.
 
-### <a name="view-and-analyze-the-health-probe-and-event-log"></a>Visualización y análisis del registro de eventos y de sondeos de estado
+## <a name="metrics-as-logs"></a>Métricas como registros
+Mediante el uso de la funcionalidad de exportación de métricas a registros proporcionada por Azure Monitor, es posible exportar las métricas de Load Balancer. Estas métricas generarán una entrada de registro para cada intervalo de muestreo de un minuto.
 
-Conéctese a la cuenta de almacenamiento y recupere las entradas del registro JSON para los registros de eventos y de sondeos de estado. Cuando descargue los archivos JSON, se pueden convertir a CSV y consultarlos en Excel, Power BI o cualquier otra herramienta de visualización de datos.
+La exportación de métricas a registros está habilitada a nivel de cada recurso. Puede habilitar estos registros en la hoja de configuración de diagnóstico, filtrando por grupo de recursos y seleccionando la instancia de Load Balancer para la que desea habilitar la exportación de métricas. Cuando esté activa la página de configuración de diagnóstico de Load Balancer, seleccione AllMetrics para exportar las métricas válidas como registros.
+
+Consulte la sección [Limitaciones](#limitations) de este artículo para conocer las limitaciones de la exportación de métricas.
+
+### <a name="view-and-analyze-metrics-as-logs"></a>Visualización y análisis de las métricas como registros
+Después de habilitar AllMetrics en la configuración de diagnóstico de Standard Load Balancer, si usa un centro de eventos o un área de trabajo de Log Analytics, estos registros se rellenarán en la tabla AzureMonitor. Si va a exportar al almacenamiento, conéctese a la cuenta de almacenamiento y recupere las entradas del registro JSON para los registros de eventos y de sondeos de estado. Cuando descargue los archivos JSON, se pueden convertir a CSV y consultarlos en Excel, Power BI o cualquier otra herramienta de visualización de datos. 
 
 > [!TIP]
 > Si está familiarizado con Visual Studio y con los conceptos básicos de cambio de los valores de constantes y variables de C#, puede usar las [herramientas convertidoras de registros](https://github.com/Azure-Samples/networking-dotnet-log-converter) que encontrará en GitHub.
@@ -173,6 +111,13 @@ Cuando se transmite información de diagnóstico a un centro de eventos, se pued
 ## <a name="send-to-log-analytics"></a>Enviar a Log Analytics
 Los recursos de Azure pueden hacer que su información de diagnóstico se envíe directamente a un área de trabajo de Log Analytics, donde se pueden ejecutar consultas complejas en la información para la solución de problemas y el análisis.  Para más información, consulte [Recopilación de registros de recursos de Azure en el área de trabajo de Log Analytics en Azure Monitor](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="limitations"></a>Limitaciones
+Actualmente, existen las siguientes limitaciones cuando se usa la característica de exportación de métricas a registros para Load Balancer:
+* Las métricas se muestran actualmente mediante nombres internos cuando se exportan como registros. Puede encontrar la asignación en la tabla siguiente
+* No se conserva la dimensionalidad de las métricas. Por ejemplo, con métricas como DipAvailability (estado del sondeo de mantenimiento), no podrá dividir o ver por dirección IP de back-end
+* Los puertos SNAT usados y las métricas de puertos SNAT asignados no están disponibles actualmente para exportarse como registros
 
-[Descripción de los sondeos del equilibrador de carga](load-balancer-custom-probe-overview.md)
+## <a name="next-steps"></a>Pasos siguientes
+* [Revise las métricas disponibles de Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics)
+* [Cree y pruebe consultas siguiendo las instrucciones de Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)
+* Proporcione comentarios sobre este artículo o la funcionalidad de Load Balancer mediante los vínculos siguientes

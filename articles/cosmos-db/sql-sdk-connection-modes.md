@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: maquaran
 ms.custom: devx-track-dotnet, contperfq2
-ms.openlocfilehash: 892d73c2b23a9806cd38b188f594f129fda9303d
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 7901ad4f67f6f3243a2d3b8dc25733ac68b612db
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340726"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608374"
 ---
 # <a name="azure-cosmos-db-sql-sdk-connectivity-modes"></a>Modos de conectividad de SDK de SQL de Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -47,7 +47,7 @@ En la tabla siguiente se muestra un resumen de los modos de conectividad disponi
 |Modo de conexión  |Protocolo admitido  |SDK admitidos  |API o puerto de servicio  |
 |---------|---------|---------|---------|
 |Puerta de enlace  |   HTTPS    |  Todos los SDK    |   SQL (443), MongoDB (10250, 10255, 10256), Tabla (443), Cassandra (10350), Graph (443) <br> El puerto 10250 se asigna a una instancia de API de Azure Cosmos DB para MongoDB predeterminada sin replicación geográfica. Mientras que los puertos 10255 y 10256 se asignan a la instancia que tiene replicación geográfica.   |
-|Directo    |     TCP    |  .NET SDK    | Al usar puntos de conexión de servicio o públicos: puertos en el intervalo de 10000 a 20000<br>Al usar puntos de conexión privados: puertos en el intervalo de 0 a 65535 |
+|Directo    |     TCP    |  SDK de .NET SDK de Java    | Al usar puntos de conexión de servicio o públicos: puertos en el intervalo de 10000 a 20000<br>Al usar puntos de conexión privados: puertos en el intervalo de 0 a 65535 |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

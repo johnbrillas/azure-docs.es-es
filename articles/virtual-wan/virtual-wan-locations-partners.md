@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to find a Virtual WAN partner
-ms.openlocfilehash: c689c83e50a42885900f62d1a65d0aa75f36f2ec
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 188bc14de502640ae05f1d1eb55330d86cee50b4
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92014040"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621486"
 ---
 # <a name="virtual-wan-partners-and-virtual-hub-locations"></a>Ubicaciones de concentradores virtuales y asociados de Azure Virtual WAN
 
@@ -60,7 +60,7 @@ Estos asociados tienen ofertas de **Aplicaciones administradas** que ahora está
 |[Barracuda Networks](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/barracudanetworks.barracuda_cloudgenwan_gateway?tab=Overviewus/marketplace/apps/barracudanetworks.barracuda_cloudgenwan_gateway?tab=Overview)| [Guía de implementación de WAN de Barracuda CloudGen](https://campus.barracuda.com/product/cloudgenwan/doc/91980640/deployment/)|
 |[VWAN del enrutador del servicio en la nube de Cisco (CSR)](https://aka.ms/ciscoMarketPlaceOffer)| Durante la versión preliminar pública de la instancia de WAN de Cisco Cloud Services (CSR) en el Centro de VWAN, Cisco requiere que el cliente final se registre como un cliente de Cisco EFT (versión de prueba temprana); para ello, debe enviar un correo electrónico a vwan_public_preview@external.cisco.com y la solicitud de la guía de implementación de vManage. |
 
-Los siguientes asociados están preparados para agregar NVA en las ofertas del Centro virtual en un futuro próximo: Citrix, Versa Networks y VeloCloud.
+Los siguientes asociados están preparados para agregar NVA en las ofertas del Centro virtual en un futuro próximo: Redes de Aviatrix, Citrix, VeloCloud y Versa.
 
 ## <a name="locations"></a><a name="locations"></a>Ubicaciones
 

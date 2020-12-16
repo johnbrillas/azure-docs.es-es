@@ -12,12 +12,12 @@ ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: baf2734c2f3c4de86b75a20239ecf7440c61a632
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 0cad8fcdf58f4827f28b40550ae93e607e0c0858
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96534053"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97369011"
 ---
 # <a name="dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-release-notes"></a>Notas de la versión del grupo de SQL dedicado (anteriormente SQL DW) en Azure Synapse Analytics
 
@@ -59,7 +59,7 @@ Para obtener mejoras de las herramientas, asegúrese de tener instalada la versi
 | Mejoras en el servicio | Detalles |
 | --- | --- |
 |**Administración de cargas de trabajo: experiencia del portal**|Los usuarios pueden configurar y administrar su configuración de administración de cargas de trabajo a través de Azure Portal. Se pueden configurar [grupos de cargas de trabajo](/azure/synapse-analytics/sql-data-warehouse/quickstart-configure-workload-isolation-portal) y [clasificadores de cargas de trabajo](/azure/synapse-analytics/sql-data-warehouse/quickstart-create-a-workload-classifier-portal) con importancia.|
-|**Vista de catálogo de asignaciones de tablas mejorada**|La nueva vista de catálogo [sys.pdw_permanent_table_mappings](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql?view=sqlallproducts-allversions) asigna **object_ids** de tablas de usuario permanentes a sus nombres de tabla físicos.|
+|**Vista de catálogo de asignaciones de tablas mejorada**|La nueva vista de catálogo [sys.pdw_permanent_table_mappings](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql) asigna **object_ids** de tablas de usuario permanentes a sus nombres de tabla físicos.|
 
 ## <a name="july-2020"></a>Julio de 2020
 

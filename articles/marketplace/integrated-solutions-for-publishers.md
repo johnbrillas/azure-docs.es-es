@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 04/16/2020
-ms.openlocfilehash: 705b0f02682b6aa41cb5c8e77d8da39faa5edb1f
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 70dfccb32389d2f1fb492669c9f84a3e6ae77bbb
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96450124"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621355"
 ---
 # <a name="publish-an-integrated-solution"></a>Publicación de una solución integrada
 
@@ -32,18 +32,17 @@ Para obtener información general sobre el programa de soluciones integradas, ve
 ## <a name="eligibility-criteria"></a>Criterios de elegibilidad
 
 * Todos los partners participantes deben tener un identificador de MPN.
-* Los proveedores de servicios participantes deben estar preparados para la venta conjunta.
-* Los proveedores de software participantes deben estar preparados para la venta conjunta de IP.
+* Los proveedores de servicios participantes deben estar [preparados para la venta conjunta](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status).
+* Los proveedores de software participantes deben estar [preparados para la venta conjunta de IP](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status).
 * Al menos un socio participante debe tener una competencia Gold en una de las siguientes áreas:
-
-    * Desarrollo de aplicaciones
-    * Integración de aplicaciones
-    * Administración del ciclo de vida de las aplicaciones
-    * Plataforma de nube
-    * Análisis de datos
-    * Centro de datos
-    * Plataforma de datos
-    * DevOps
+    - Desarrollo de aplicaciones
+    - Integración de aplicaciones
+    - Administración del ciclo de vida de las aplicaciones
+    - Plataforma de nube
+    - Análisis de datos
+    - Centro de datos
+    - Plataforma de datos
+    - DevOps
 
 * La solución debe incluir al menos dos organizaciones asociadas, que conjuguen IP y servicios a fin de ofrecer una solución y una experiencia completas para el cliente.
 * La IP del partner se debe basar en Azure, Dynamics 365 o Power Platform.

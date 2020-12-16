@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/12/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 900021e258bb96c0d0c83ef182262515449ad5df
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 58a907a2ae17966f50a037f49a807ac0a3ad6867
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95912593"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96545841"
 ---
 # <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Características de Blob Storage disponibles en Azure Data Lake Storage Gen2
 
@@ -31,7 +31,7 @@ En la tabla siguiente se muestra la compatibilidad de cada característica de Bl
 |Nivel de acceso esporádico|Disponibilidad general|No compatible|[Azure Blob Storage: niveles de acceso frecuente, esporádico y de archivo](storage-blob-storage-tiers.md)|
 |Eventos|Disponibilidad general|Disponibilidad general|[Reacción a eventos de Blob Storage](storage-blob-event-overview.md)|
 |Métricas (clásica)|Disponibilidad general|Disponibilidad general|[Métricas de Azure Storage Analytics (clásicas)](../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
-|Métricas en Azure Monitor|Disponibilidad general|Vista previa|[Métricas de Azure Storage en Azure Monitor](./monitor-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|Métricas en Azure Monitor|Disponibilidad general|Versión preliminar|[Métricas de Azure Storage en Azure Monitor](./monitor-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Comandos de PowerShell de Blob Storage|Disponibilidad general|Disponibilidad general|[Inicio rápido: Carga, descarga y enumeración de blobs mediante PowerShell](storage-quickstart-blobs-powershell.md)|
 |Comandos de la CLI de Azure de Blob Storage|Disponibilidad general|Disponibilidad general|[Inicio rápido: Creación, descarga y enumeración de blobs mediante la CLI de Azure](storage-quickstart-blobs-cli.md)|
 |API de Blob Storage|Disponibilidad general|Disponibilidad general|[Inicio rápido: Biblioteca cliente de Azure Blob Storage v12 para .NET](storage-quickstart-blobs-dotnet.md)<br>[Inicio rápido: Administración de blobs con el SDK de Java v12](storage-quickstart-blobs-java.md)<br>[Inicio rápido: Administración de blobs con el SDK de Python v12](storage-quickstart-blobs-python.md)<br>[Inicio rápido: Administración de blobs con el SDK de JavaScript v12 en Node.js](storage-quickstart-blobs-nodejs.md)|
@@ -39,15 +39,16 @@ En la tabla siguiente se muestra la compatibilidad de cada característica de Bl
 |Nivel de acceso de archivo|Disponibilidad general|No compatible|[Azure Blob Storage: niveles de acceso frecuente, esporádico y de archivo](storage-blob-storage-tiers.md)|
 |Directivas de administración del ciclo de vida (niveles)|Disponibilidad general|Todavía no se admite|[Administración del ciclo de vida de Azure Blob Storage](storage-lifecycle-management-concepts.md)|
 |Directivas de administración del ciclo de vida (eliminar blob)|Disponibilidad general|Disponibilidad general|[Administración del ciclo de vida de Azure Blob Storage](storage-lifecycle-management-concepts.md)|
-|Registro en Azure Monitor|Vista previa |Vista previa|[Supervisión de Azure Storage](./monitor-blob-storage.md)|
-|Instantáneas|Versión preliminar|Vista previa|[Instantáneas de blob](snapshots-overview.md)|
-|Sitios web estáticos|Versión preliminar|Vista previa|[Hospedaje de sitios web estáticos en Azure Storage](storage-blob-static-website.md)|
-|Almacenamiento inmutable|Versión preliminar|Vista previa|[Almacenamiento inmutable de los datos críticos para la empresa en Azure Blob Storage](storage-blob-immutable-storage.md)|
+|Registro en Azure Monitor|Versión preliminar |Vista previa|[Supervisión de Azure Storage](./monitor-blob-storage.md)|
+|Instantáneas|Versión preliminar<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|Versión preliminar<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|[Instantáneas de blob](snapshots-overview.md)|
+|Sitios web estáticos|Versión preliminar<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|Versión preliminar<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|[Hospedaje de sitios web estáticos en Azure Storage](storage-blob-static-website.md)|
+|Almacenamiento inmutable|Versión preliminar<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|Versión preliminar<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|[Almacenamiento inmutable de los datos críticos para la empresa en Azure Blob Storage](storage-blob-immutable-storage.md)|
 |Eliminación temporal de contenedores|Versión preliminar|Versión preliminar|[Eliminación temporal para contenedores (versión preliminar)](soft-delete-container-overview.md)|
-|Eliminación temporal de blobs|Todavía no se admite|Todavía no se admite|[Eliminación temporal para blobs](./soft-delete-blob-overview.md)|
+|Inventario de Azure Storage|Versión preliminar|Versión preliminar|[Uso del inventario de Azure Storage para administrar datos de blobs (versión preliminar)](blob-inventory.md)|
+|Eliminación temporal de blobs|Todavía no se admite|Todavía no se admite|[Eliminación temporal para blobs](storage-blob-soft-delete.md)|
 |Blobfuse|Disponibilidad general|Disponibilidad general|[Cómo montar el almacenamiento de blobs como sistema de archivos con blobfuse](storage-how-to-mount-container-linux.md)|
-|Conmutación por error de cuenta|Todavía no se admite|Todavía no se admite|[Recuperación ante desastres y conmutación por error de la cuenta](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
-|ACL del contenedor de blobs|No compatible<div role="complementary" aria-labelledby="blob-container-ACL"><sup>1</sup></div>|No compatible<div role="complementary" aria-labelledby="blob-container-ACL"><sup>2</sup></div>|Consulte la nota relacionada que aparece debajo de esta tabla.|
+|Acceso anónimo (público) |Disponibilidad general|Disponibilidad general| Consulte [Configuración de acceso de lectura público anónimo a contenedores y blobs](anonymous-read-access-configure.md).|
+|Conmutación por error de cuenta administrada por el cliente|Todavía no se admite|Todavía no se admite|[Recuperación ante desastres y conmutación por error de la cuenta](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Claves proporcionadas por el cliente|Todavía no se admite|Todavía no se admite|[Especificación de una clave de cifrado en una solicitud a Blob Storage](encryption-customer-provided-keys.md)|
 |Dominios personalizados|Todavía no se admite|Todavía no se admite|[Asignación de un dominio personalizado a un punto de conexión de Azure Blob Storage](storage-custom-domain-name.md)|
 |Ámbitos de cifrado|Todavía no se admite|Todavía no se admite|[Creación y administración de ámbitos de cifrado (versión preliminar)](encryption-scope-manage.md)|
@@ -55,9 +56,7 @@ En la tabla siguiente se muestra la compatibilidad de cada característica de Bl
 |Replicación de objetos|Todavía no se admite|Todavía no se admite|[Configuración de la replicación de objetos para blobs en bloques](object-replication-configure.md)|
 |Control de versiones de blobs|Todavía no se admite|Todavía no se admite|[Habilitar y administrar las versiones de blob](versioning-enable.md)|
 
-<div id="blob-container-ACL"><sup>1</sup> Puede establecer las ACL en la carpeta raíz del contenedor, pero no en el propio contenedor.</div><br>
-
-<div id="preview-form"><sup>2</sup> Para usar instantáneas, almacenamiento inmutable o sitios web estáticos con Data Lake Storage Gen2, debe completar este <a href=https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VUOUc3NTNQSUdOTjgzVUlVT1pDTzU4WlRKRy4u>formulario</a> para inscribirse en la versión preliminar.  </div>
+<div id="preview-form"><sup>1</sup> Para usar instantáneas, el almacenamiento inmutable o sitios web estáticos con Data Lake Storage Gen2, debe completar este <a href=https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VUOUc3NTNQSUdOTjgzVUlVT1pDTzU4WlRKRy4u>formulario</a> para inscribirse en la versión preliminar.  </div>
 
 ## <a name="see-also"></a>Consulte también
 

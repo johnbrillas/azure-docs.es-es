@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: lcozzens
-ms.openlocfilehash: 936be917d5b494c9d71386440c711ef6c29ffb45
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 7c0f886f23bc24eeed54043e9a7ee5fb1f645172
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183505"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96572514"
 ---
 # <a name="push-settings-to-app-configuration-with-azure-pipelines"></a>Envío de configuraciones a App Configuration con Azure Pipelines
 
@@ -27,7 +27,7 @@ La tarea [Azure App Configuration Push](https://marketplace.visualstudio.com/ite
 
 ## <a name="create-a-service-connection"></a>Creación de una conexión de servicio
 
-Una conexión de servicio permite acceder a los recursos en la suscripción de Azure desde el proyecto de Azure DevOps.
+Una [conexión de servicio](/azure/devops/pipelines/library/service-endpoints) permite acceder a los recursos en la suscripción de Azure desde el proyecto de Azure DevOps.
 
 1. En Azure DevOps, vaya al proyecto que contiene la canalización de destino y abra la **Configuración del proyecto** en la parte inferior izquierda.
 1. En **Canalizaciones**, seleccione **Conexiones de servicio** y seleccione **Nueva conexión de servicio** en la parte superior derecha.

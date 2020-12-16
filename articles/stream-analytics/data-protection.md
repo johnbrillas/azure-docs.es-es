@@ -5,13 +5,13 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 09/23/2020
-ms.openlocfilehash: 72566987068729efef4310ce145c30584c4895b0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 12/03/2020
+ms.openlocfilehash: 4436289d544de057acef132117346ac53c20b5a7
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96011411"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576521"
 ---
 # <a name="data-protection-in-azure-stream-analytics"></a>Protección de datos en Azure Stream Analytics 
 
@@ -41,7 +41,7 @@ Asimismo, puede almacenar todos los recursos de datos (por ejemplo, datos de cli
 
 Stream Analytics emplea automáticamente los mejores estándares de cifrado de su infraestructura para cifrar y proteger sus datos. Puede confiar a ciegas en Stream Analytics para almacenar de forma segura todos sus datos, ya que no tiene que preocuparse de administrar la infraestructura.
 
-Si desea usar claves administradas por el cliente (CMK) para cifrar sus datos, puede usar su propia cuenta de almacenamiento (de uso general V1 o V2) para almacenar todos los recursos de datos privados que necesita el runtime de Stream Analytics. La cuenta de almacenamiento se puede cifrar tanto como sea necesario. La infraestructura de Stream Analytics no almacena ninguno de los recursos de datos privados. 
+Si desea usar claves administradas por el cliente para cifrar sus datos, puede usar su propia cuenta de almacenamiento (de uso general V1 o V2) para almacenar todos los recursos de datos privados que necesita el runtime de Stream Analytics. La cuenta de almacenamiento se puede cifrar tanto como sea necesario. La infraestructura de Stream Analytics no almacena ninguno de los recursos de datos privados. 
 
 Este valor se debe configurar en el momento en que se crea el trabajo de Stream Analytics y no se puede modificar a lo largo del ciclo de vida de este. No se recomienda modificar o eliminar el almacenamiento que usa Stream Analytics. Si elimina su cuenta de almacenamiento, eliminará todos los recursos de datos privados de forma permanentemente, lo que provocará un error en el trabajo. 
 
@@ -50,12 +50,9 @@ Ni la actualización ni la rotación de claves de su cuenta de almacenamiento se
 
 ### <a name="configure-storage-account-for-private-data"></a>Configuración de una cuenta de almacenamiento para los datos privados 
 
-
 Cifre su cuenta de almacenamiento para proteger todos los datos y elija explícitamente la ubicación de los datos privados. 
 
 Para ayudarle a cumplir las obligaciones de cumplimiento normativo de cualquier entorno o sector regulado, puede leer más sobre las [ofertas de cumplimiento de Microsoft](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942). 
-
-
 
 Siga estos pasos para configurar su cuenta de almacenamiento para recursos de datos privados. Esta configuración se realiza desde el trabajo de Stream Analytics, no desde su cuenta de almacenamiento.
 
@@ -69,9 +66,15 @@ Siga estos pasos para configurar su cuenta de almacenamiento para recursos de da
 
 1. Active la casilla *Secure all private data assets needed by this job in my Storage account* (Proteger los recursos de datos privados que necesita este trabajo en mi cuenta de Storage).
 
-1. Seleccione una cuenta de almacenamiento en su suscripción. Tenga en cuenta que este valor no se puede modificar a lo largo del ciclo de vida del trabajo. 
+1. Seleccione una cuenta de almacenamiento en su suscripción. Tenga en cuenta que este valor no se puede modificar a lo largo del ciclo de vida del trabajo. Tampoco puede agregar esta opción una vez creado el trabajo.
+
+1. Para autenticar mediante una cadena de conexión, seleccione **cadena de conexión** en la lista desplegable Modo de autenticación. La clave de la cuenta de almacenamiento se rellena automáticamente con su suscripción.
 
    ![Configuración de una cuenta de almacenamiento de datos privados](./media/data-protection/storage-account-create.png)
+
+1. Para autenticar mediante una identidad administrada (versión preliminar), seleccione **Identidad administrada** en la lista desplegable Modo de autenticación. Si elige Identidad administrada, debe agregar el trabajo de Stream Analytics a la lista de control de acceso de la cuenta de almacenamiento. Si no proporciona acceso al trabajo, este no podrá realizar ninguna operación. Para obtener más información sobre cómo conceder acceso, consulte [Uso de Azure RBAC para asignar el acceso de una identidad administrada a otro recurso](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md#use-azure-rbac-to-assign-a-managed-identity-access-to-another-resource).
+
+   :::image type="content" source="media/data-protection/storage-account-create-msi.png" alt-text="Configuración de una cuenta de almacenamiento de datos privados con autenticación de identidad administrada":::
 
 ## <a name="private-data-assets-that-are-stored-by-stream-analytics"></a>Recursos de datos privados que almacena Stream Analytics
 

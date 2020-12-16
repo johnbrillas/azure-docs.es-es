@@ -1,14 +1,14 @@
 ---
 title: Quitar el acceso a una delegación
 description: Obtenga información sobre cómo quitar el acceso a los recursos que se han delegado a un proveedor de Azure Lighthouse.
-ms.date: 08/12/2020
+ms.date: 12/03/2020
 ms.topic: how-to
-ms.openlocfilehash: 72a2c49dde8cccfcc298d4128384a10bb7e8840f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d3442bb9fd2f6e7423fd4bf28cace1f7fd91ad80
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88167238"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608459"
 ---
 # <a name="remove-access-to-a-delegation"></a>Quitar el acceso a una delegación
 
@@ -99,3 +99,4 @@ az managedservices assignment delete --assignment <id or full resourceId>
 
 - Más información sobre la [administración de recursos delegados de Azure](../concepts/azure-delegated-resource-management.md).
 - Puede [ver y administrar clientes](view-manage-customers.md) desde **Mis clientes**, en Azure Portal.
+- Obtenga información acerca de cómo [actualizar una delegación anterior](update-delegation.md).

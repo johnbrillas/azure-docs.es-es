@@ -3,12 +3,12 @@ title: Límites y cuotas de suscripción de Azure
 description: Se proporciona una lista de límites, cuotas y restricciones de suscripción y servicio comunes de Azure. Este artículo incluye información acerca de cómo aumentar los límites junto con los valores máximos.
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 810d503f1abdc14ad2d255a89aebe7c10954a889
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 4d56c5c3fd33d1cda05e23d5bc53e7540428671b
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186208"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96547855"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure
 
@@ -311,6 +311,10 @@ La tabla siguiente se aplica a v1, v2 y estándar y a SKU de WAF, a menos que se
 ### <a name="private-link-limits"></a>Límites de Private Link
 
 [!INCLUDE [private-link-limits](../../../includes/private-link-limits.md)]
+
+## <a name="purview-limits"></a>Límites de Purview
+
+Los valores más recientes de las cuotas de Azure Purview se pueden encontrar en la [página de cuotas de Azure Purview](../../purview/how-to-manage-quotas.md).
 
 ### <a name="traffic-manager-limits"></a>Límites de Traffic Manager
 

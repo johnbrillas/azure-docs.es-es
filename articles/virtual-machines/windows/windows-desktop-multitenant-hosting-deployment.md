@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 1/24/2018
 ms.author: xujing
-ms.openlocfilehash: ceb8b8b31963317ccbbd1aee9f1b2606afc5a5db
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 101f2cfe57624502764d145351a6343cfdd2a334
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96010256"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96572871"
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>Implementación de Windows 10 en Azure con derechos de hospedaje multiinquilino 
 Para los clientes con Windows 10 Enterprise E3/E5 por usuario o con acceso a escritorios virtuales de Windows por usuario (licencias de suscripción de usuarios o licencias de suscripción de usuario de complemento), los derechos de hospedaje multiinquilino de Windows 10 le permiten llevar sus licencias de Windows 10 a la nube y ejecutar máquinas virtuales de Windows 10 en Azure sin pagar por otra licencia. Para más información, consulte [Multitenant Hosting for Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx) (Hospedaje multiinquilino para Windows 10).
@@ -32,6 +32,17 @@ Para las implementaciones de plantilla de Powershell, CLI y Azure Resource Manag
 | Windows 10 Pro N  | MicrosoftWindowsDesktop | Windows-10  | RS2-ProN  |
 | Windows 10 Pro    | MicrosoftWindowsDesktop | Windows-10  | RS3-Pro   |
 | Windows 10 Pro N  | MicrosoftWindowsDesktop | Windows-10  | RS3-ProN  |
+
+## <a name="qualify-for-multi-tenant-hosting-rights"></a>Cualificación para los derechos de hospedaje multiinquilino 
+Para optar a los derechos de hospedaje multiinquilino y ejecutar imágenes en Azure, los usuarios deben tener una de las siguientes suscripciones: 
+
+-   Microsoft 365 E3/E5 
+-   Microsoft 365 F3 
+-   Microsoft 365 A3/A5 
+-   Windows 10 Enterprise E3/E5
+-   Windows 10 Education A3/A5 
+-   Windows VDA E3/E5
+
 
 ## <a name="uploading-windows-10-vhd-to-azure"></a>Carga del disco duro virtual de Windows 10 en Azure
 Si va a cargar un disco duro virtual generalizado de Windows 10, tenga en cuenta que Windows 10 no tiene una cuenta de administrador integrada habilitada de forma predeterminada. Para habilitar la cuenta de administrador integrada, incluya el siguiente comando como parte de la extensión de script personalizada.
@@ -101,7 +112,7 @@ LicenseType              :
 
 ## <a name="additional-information-about-joining-azure-ad"></a>Información adicional sobre la unión con Azure AD
 >[!NOTE]
->Azure aprovisiona todas las máquinas virtuales Windows con la cuenta de administrador integrada, que no se puede usar para unirse con AAD. Por ejemplo, *Configuración > Cuenta > Obtener acceso a trabajo o escuela > +Conectar* no funcionará. Debe crear e iniciar sesión como una segunda cuenta de administrador para unirse de forma manual a Azure AD. También puede configurar Azure AD mediante un paquete de aprovisionamiento. Use el vínculo de la sección *Pasos siguientes* para más información.
+>Azure aprovisiona todas las máquinas virtuales Windows con la cuenta de administrador integrada, que no se puede usar para unirse con AAD. Por ejemplo, *Configuración > Cuenta > Obtener acceso a trabajo o escuela > +Conectar* no funcionará. Debe crear e iniciar sesión como una segunda cuenta de administrador para unirse de forma manual a Azure AD. También puede configurar Azure AD mediante un paquete de aprovisionamiento. Use el vínculo de la sección *Pasos siguientes* para obtener más información.
 >
 >
 

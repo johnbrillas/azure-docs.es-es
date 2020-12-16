@@ -7,14 +7,14 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/18/2020
+ms.date: 12/03/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: d93ced4b45befec207494909de61d30a98d2a67e
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: eddab12e8ecf2e4757998bbd1e6e07c4c4d85f3c
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "91333739"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573869"
 ---
 # <a name="collect-telemetry-data-for-search-traffic-analytics"></a>Recopilación de datos de telemetría para análisis del tráfico de búsqueda
 
@@ -29,7 +29,7 @@ Este patrón depende de [Application Insights](../azure-monitor/app/app-insights
 
 Para contar con métricas útiles para el análisis del tráfico de búsqueda, es necesario registrar algunas de las señales de los usuarios de la aplicación de búsqueda. Estas señales indican el contenido en el que los usuarios están interesados y que consideran relevantes. Para el análisis del tráfico de búsqueda, se incluyen:
 
-+ Eventos de búsqueda generados por el usuario: Solo las consultas de búsqueda iniciadas por un usuario son interesantes. Las solicitudes de búsqueda usadas para rellenar las facetas, el contenido adicional o cualquier información interna, no son importantes y sesgan y desvían los resultados.
++ Eventos de búsqueda generados por el usuario: Solo las consultas de búsqueda iniciadas por un usuario son interesantes. Otras solicitudes de búsqueda, como las que se usan para rellenar las facetas o recuperar información interna, no son importantes. Asegúrese de instrumentar solo eventos iniciados por el usuario para evitar la distorsión o el sesgo en los resultados.
 
 + Eventos de clic generados por el usuario: En una página de resultados de la búsqueda, un evento de clic generalmente significa que un documento es un resultado pertinente para una consulta de búsqueda específica.
 
@@ -37,7 +37,7 @@ Al vincular los eventos de búsqueda y clic con un id. de correlación, comprend
 
 ## <a name="add-search-traffic-analytics"></a>Incorporación de los análisis del tráfico de búsqueda
 
-En la página del [portal](https://portal.azure.com) para el servicio Azure Cognitive Search, la página de análisis del tráfico de búsqueda contiene una hoja de referencia para seguir este modelo de telemetría. Desde esta página, puede seleccionar o crear un recurso de Application Insights, obtener la clave de instrumentación, copiar fragmentos de código que se puedan adaptar a la solución y descargar un informe de Power BI que se base en el esquema que se refleja en el patrón.
+En la página del [portal](https://portal.azure.com) para el servicio Azure Cognitive Search, abra la página de análisis del tráfico de búsqueda para acceder a una hoja de referencia con la que podrá seguir este patrón de telemetría. Desde esta página, puede seleccionar o crear un recurso de Application Insights, obtener la clave de instrumentación, copiar fragmentos de código que se puedan adaptar a la solución y descargar un informe de Power BI que se base en el esquema que se refleja en el patrón.
 
 ![Página Análisis del tráfico de búsqueda en el portal](media/search-traffic-analytics/azuresearch-trafficanalytics.png "Página Análisis del tráfico de búsqueda en el portal")
 
@@ -71,7 +71,7 @@ En el cliente, es posible que tenga código adicional que manipule las entradas 
 
 **Uso de C#**
 
-En C#, **InstrumentationKey** se encuentra en la configuración de la aplicación, como appsettings.json si el proyecto es ASP.NET. Consulte las instrucciones de registro si no está seguro de la ubicación de la clave.
+En C#, **InstrumentationKey** debe definirse en la configuración de la aplicación, como appsettings.json si el proyecto es ASP.NET. Consulte las instrucciones de registro si no está seguro de la ubicación de la clave.
 
 ```csharp
 private static TelemetryClient _telemetryClient;
@@ -98,9 +98,26 @@ window.appInsights=appInsights;
 
 Para correlacionar las solicitudes de búsqueda con clics, es necesario tener un identificador de correlación que relacione estos dos eventos distintos. Azure Cognitive Search proporciona un identificador de búsqueda cuando lo solicita con un encabezado HTTP.
 
-Tener el identificador de búsqueda permite la correlación de las métricas emitidas por Azure Cognitive Search para la solicitud en sí, con las métricas personalizadas que está registrando en Application Insights.  
+Tener el identificador de búsqueda permite la correlación de las métricas emitidas por Azure Cognitive Search para la solicitud en sí, con las métricas personalizadas que está registrando en Application Insights.
 
-**Uso de C#**
+**Uso de C# (SDK de V11 más reciente)**
+
+```csharp
+// This sample uses the .NET SDK https://www.nuget.org/packages/Azure.Search.Documents
+
+var client = new SearchClient(<SearchServiceName>, <IndexName>, new AzureKeyCredentials(<QueryKey>)
+
+// Use HTTP headers so that you can get the search ID from the response
+var headers = new Dictionary<string, List<string>>() { { "x-ms-azs-return-searchid", new List<string>() { "true" } } };
+var response = await client.searchasync(searchText: searchText, searchOptions: options, customHeaders: headers);
+string searchId = string.Empty;
+if (response.Response.Headers.TryGetValues("x-ms-azs-searchid", out IEnumerable<string> headerValues))
+{
+    searchId = headerValues.FirstOrDefault();
+}
+```
+
+**Uso de C# (SDK de V10 anterior)**
 
 ```csharp
 // This sample uses the .NET SDK https://www.nuget.org/packages/Microsoft.Azure.Search
@@ -129,12 +146,12 @@ var searchId = request.getResponseHeader('x-ms-azs-searchid');
 
 Cada vez que un usuario emite una solicitud de búsqueda, debe registrarla como un evento de búsqueda con el esquema siguiente en un evento personalizado de Application Insights. Recuerde registrar solo las consultas de búsqueda generadas por el usuario.
 
-+ **SearchServiceName** : (cadena) nombre del servicio de búsqueda
-+ **SearchId** : (guid) identificador único de la consulta de búsqueda (se incluye en la respuesta de la búsqueda)
-+ **IndexName** : (cadena) índice del servicio de búsqueda que se va a consultar
-+ **QueryTerms** : (cadena) términos de búsqueda especificados por el usuario
-+ **ResultCount** : (int) número de documentos devueltos (se incluye en la respuesta de la búsqueda)
-+ **ScoringProfile** : (cadena) nombre del perfil de puntuación usado, si existe
++ **SearchServiceName**: (cadena) nombre del servicio de búsqueda
++ **SearchId**: (guid) identificador único de la consulta de búsqueda (se incluye en la respuesta de la búsqueda)
++ **IndexName**: (cadena) índice del servicio de búsqueda que se va a consultar
++ **QueryTerms**: (cadena) términos de búsqueda especificados por el usuario
++ **ResultCount**: (int) número de documentos devueltos (se incluye en la respuesta de la búsqueda)
++ **ScoringProfile**: (cadena) nombre del perfil de puntuación usado, si existe
 
 > [!NOTE]
 > Solicite el recuento de consultas generadas por el usuario agregando $count=true a la consulta de búsqueda. Para más información, consulte [Búsqueda de documentos (REST)](/rest/api/searchservice/search-documents#counttrue--false).
@@ -172,10 +189,10 @@ appInsights.trackEvent("Search", {
 
 Cada vez que un usuario hace clic en un documento, es una señal de que debe registrarse para fines de análisis de búsqueda. Utilice eventos personalizados de Application Insights para registrar estos eventos con el siguiente esquema:
 
-+ **ServiceName** : (cadena) nombre del servicio de búsqueda
-+ **SearchId** : (guid) identificador único de la consulta de búsqueda relacionada
-+ **DocId** : (cadena) identificador del documento
-+ **Position** : (int) clasificación del documento en la página de resultados de la búsqueda
++ **ServiceName**: (cadena) nombre del servicio de búsqueda
++ **SearchId**: (guid) identificador único de la consulta de búsqueda relacionada
++ **DocId**: (cadena) identificador del documento
++ **Position**: (int) clasificación del documento en la página de resultados de la búsqueda
 
 > [!NOTE]
 > La posición hace referencia al orden cardinal en la aplicación. Puede establecer este número, siempre que en todo momento sea el mismo, para permitir la comparación.
@@ -209,9 +226,9 @@ appInsights.trackEvent("Click", {
 
 Una vez que haya instrumentado la aplicación y comprobado que esta se ha conectado correctamente a Application Insights, debe descargar una plantilla de informe predefinida para analizar los datos en Power BI Desktop. El informe contiene tablas y gráficos predefinidos útiles para analizar los datos adicionales que se capturaron para los análisis de tráfico de búsqueda.
 
-1. En el panel de navegación izquierdo de Azure Cognitive Search, en **Configuración** , haga clic en **Análisis de tráfico de búsqueda**.
+1. En el panel de navegación izquierdo de Azure Cognitive Search, en **Configuración**, haga clic en **Análisis de tráfico de búsqueda**.
 
-1. En la página **Análisis de tráfico de búsqueda** , en el paso 3, haga clic en **Obtener Power BI Desktop** para instalar Power BI.
+1. En la página **Análisis de tráfico de búsqueda**, en el paso 3, haga clic en **Obtener Power BI Desktop** para instalar Power BI.
 
    ![Obtención de informes de Power BI](./media/search-traffic-analytics/get-use-power-bi.png "Obtención de informes de Power BI")
 

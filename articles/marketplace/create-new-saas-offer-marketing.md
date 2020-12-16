@@ -1,5 +1,5 @@
 ---
-title: Comercialización de una oferta de SaaS en el Centro de partners de Microsoft
+title: Venta de una oferta de SaaS en el Centro de partners de Microsoft
 description: Obtenga información sobre la venta conjunta con Microsoft y las opciones del programa de reventa a través de proveedores de soluciones en la nube (CSP) para su oferta de software como servicio (SaaS) en el marketplace comercial de Microsoft.
 author: mingshen-ms
 ms.author: mingshen
@@ -8,22 +8,22 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: c8fa2efe708823ff4154edfd58f1b18e0176a990
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e61d85b5f02cb73d078888badc2fa24c4506fe64
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89380542"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620891"
 ---
-# <a name="how-to-market-your-saas-offer"></a>Comercialización de ofertas de SaaS
+# <a name="how-to-sell-your-saas-offer"></a>Venta de una oferta de SaaS
 
-En este artículo se describen varias opciones de marketing que puede elegir si va a vender una oferta de software como servicio (SaaS) a través de Microsoft. Puede realizar una venta conjunta con Microsoft, revenderla a través de [programa de proveedores de soluciones en la nube (CSP)](cloud-solution-providers.md), o bien usar ambas opciones.
+En este artículo se describen opciones adicionales para vender una oferta de software como servicio (SaaS) a través de Microsoft. Puede realizar una venta conjunta con Microsoft, revenderla a través de [programa de proveedores de soluciones en la nube (CSP)](cloud-solution-providers.md), o bien usar ambas opciones.
 
 ## <a name="co-sell-with-microsoft"></a>Venta conjunta con Microsoft
 
 Proporcionar información en la página **Venta conjunta con Microsoft** es totalmente opcional. Sin embargo, es necesario para lograr los estados _Co-sell Ready_ (Preparado para la venta conjunta) e _IP Co-sell Ready_ (Preparado para la venta conjunta por IP). Los equipos de ventas de Microsoft usa esta información para obtener más datos sobre su solución al evaluar su idoneidad para las necesidades de los clientes. Los clientes no pueden acceder directamente a la información de esta pestaña.
 
-Para más información e instrucciones para configurar la pestaña **Venta conjunta con Microsoft**, consulte el artículo [Opción de venta conjunta en el Centro de partners](partner-center-portal/commercial-marketplace-co-sell.md).
+Para más información e instrucciones para configurar la pestaña **Venta conjunta con Microsoft**, consulte el artículo [Opción de venta conjunta en el marketplace comercial](commercial-marketplace-co-sell.md).
 
 ## <a name="resell-through-csps"></a>Revender mediante los CSP
 

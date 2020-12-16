@@ -4,12 +4,12 @@ description: Aprenda a configurar un contenedor personalizado en Azure App Servi
 ms.topic: article
 ms.date: 09/22/2020
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 9f71efbf7cc606efd598880e90ade3a549402245
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 2aece0550d7b78ac4312e71b2671de4a64e4b86b
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787064"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96557933"
 ---
 # <a name="configure-a-custom-container-for-azure-app-service"></a>Configuración de un contenedor de Linux personalizado para Azure App Service
 
@@ -139,7 +139,17 @@ Puede usar el directorio *C:\home* del sistema de archivos de la aplicación par
 
 Cuando se deshabilita el almacenamiento persistente, las operaciones de escritura del directorio `C:\home` no se conservan. [Los registros de contenedor y los registros del host de Docker](#access-diagnostic-logs) se guardan en un almacenamiento compartido persistente predeterminado que no está asociado al contenedor. Cuando se habilita el almacenamiento persistente, todas las operaciones de escritura que se realizan en el directorio `C:\home` se conservan y están accesibles para todas las instancias de una aplicación escalada horizontalmente. Los registros están disponibles en `C:\home\LogFiles`.
 
-De forma predeterminada, el almacenamiento persistente está *deshabilitado* y esta opción no aparece en la configuración de la aplicación. Para habilitarlo, defina la opción `WEBSITES_ENABLE_APP_SERVICE_STORAGE` de la aplicación mediante [Cloud Shell](https://shell.azure.com). En Bash:
+::: zone-end
+
+::: zone pivot="container-linux"
+
+Puede usar el directorio */home* en el sistema de archivos de la aplicación para conservar archivos entre reinicios y compartirlos entre instancias. El directorio `/home` de la aplicación se proporciona para permitir a la aplicación de contenedor el acceso al almacenamiento persistente.
+
+Si se deshabilita el almacenamiento persistente, no se conservarán las escrituras en el directorio `/home` entre reinicios de aplicación ni entre varias instancias. La única excepción es el directorio `/home/LogFiles`, que se usa para almacenar los registros de Docker y del contenedor. Cuando se habilita el almacenamiento persistente, se conservan todas las escrituras en el directorio `/home` y todas las instancias de una aplicación escalada horizontalmente podrán acceder a ellas.
+
+::: zone-end
+
+De manera predeterminada, el almacenamiento persistente está deshabilitado y esta opción no aparece en la configuración de la aplicación. Para habilitarlo, defina la opción `WEBSITES_ENABLE_APP_SERVICE_STORAGE` de la aplicación mediante [Cloud Shell](https://shell.azure.com). En Bash:
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=true
@@ -150,28 +160,6 @@ En PowerShell:
 ```azurepowershell-interactive
 Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -AppSettings @{"WEBSITES_ENABLE_APP_SERVICE_STORAGE"=true}
 ```
-
-::: zone-end
-
-::: zone pivot="container-linux"
-
-Puede usar el directorio */home* en el sistema de archivos de la aplicación para conservar archivos entre reinicios y compartirlos entre instancias. El directorio `/home` de la aplicación se proporciona para permitir a la aplicación de contenedor el acceso al almacenamiento persistente.
-
-Si se deshabilita el almacenamiento persistente, no se conservarán las escrituras en el directorio `/home` entre reinicios de aplicación ni entre varias instancias. La única excepción es el directorio `/home/LogFiles`, que se usa para almacenar los registros de Docker y del contenedor. Cuando se habilita el almacenamiento persistente, se conservan todas las escrituras en el directorio `/home` y todas las instancias de una aplicación escalada horizontalmente podrán acceder a ellas.
-
-De forma predeterminada, el almacenamiento persistente está *habilitado* y la configuración no está expuesta en la configuración de la aplicación. Para deshabilitarlo, establezca la opción `WEBSITES_ENABLE_APP_SERVICE_STORAGE` mediante [Cloud Shell](https://shell.azure.com). En Bash:
-
-```azurecli-interactive
-az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=false
-```
-
-En PowerShell:
-
-```azurepowershell-interactive
-Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -AppSettings @{"WEBSITES_ENABLE_APP_SERVICE_STORAGE"=false}
-```
-
-::: zone-end
 
 > [!NOTE]
 > También puede [configurar su propio almacenamiento persistente](configure-connect-to-azure-storage.md).
@@ -216,7 +204,7 @@ Los registros de Docker aparecen en el portal, en la página **Configuración de
 
 ### <a name="from-the-kudu-console"></a>Desde la consola de Kudu
 
-Vaya a `https://<app-name>.scm.azurewebsites.net/DebugConsole` y haga clic en la carpeta **LogFiles** para ver archivos de registro específicos. Para descargar todo el directorio **LogFiles** , haga clic en el icono **Descargar** situado a la izquierda del nombre del directorio. También puede acceder a esta carpeta utilizando un cliente FTP.
+Vaya a `https://<app-name>.scm.azurewebsites.net/DebugConsole` y haga clic en la carpeta **LogFiles** para ver archivos de registro específicos. Para descargar todo el directorio **LogFiles**, haga clic en el icono **Descargar** situado a la izquierda del nombre del directorio. También puede acceder a esta carpeta utilizando un cliente FTP.
 
 Desde el terminal de la consola, no se puede acceder a la carpeta `C:\home\LogFiles` de forma predeterminada, ya que el almacenamiento compartido persistente no está habilitado. Para habilitar este comportamiento en el terminal de la consola, [habilite el almacenamiento compartido persistente](#use-persistent-shared-storage).
 
@@ -318,7 +306,7 @@ SSH habilita la comunicación segura entre un contenedor y un cliente. Para que 
 
     Esta configuración no permite realizar conexiones externas al contenedor. SSH solo está disponible en `https://<app-name>.scm.azurewebsites.net` y después de autenticarse con las credenciales de publicación.
 
-- Agregue [este archivo sshd_config](https://github.com/Azure-App-Service/node/blob/master/10.14/sshd_config) al repositorio de imágenes y use la instrucción [COPY](https://docs.docker.com/engine/reference/builder/#copy) para copiar el archivo en el directorio */etc/ssh/* . Para más información acerca de los archivos *sshd_config* , consulte la [documentación de OpenBSD](https://man.openbsd.org/sshd_config).
+- Agregue [este archivo sshd_config](https://github.com/Azure-App-Service/node/blob/master/10.14/sshd_config) al repositorio de imágenes y use la instrucción [COPY](https://docs.docker.com/engine/reference/builder/#copy) para copiar el archivo en el directorio */etc/ssh/* . Para más información acerca de los archivos *sshd_config*, consulte la [documentación de OpenBSD](https://man.openbsd.org/sshd_config).
 
     ```Dockerfile
     COPY sshd_config /etc/ssh/
@@ -363,7 +351,7 @@ Para habilitar el almacenamiento persistente, establezca la opción `WEBSITES_EN
 az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=TRUE
 ```
 
-En el archivo *docker-compose.yml* , asigne la opción `volumes` a `${WEBAPP_STORAGE_HOME}`. 
+En el archivo *docker-compose.yml*, asigne la opción `volumes` a `${WEBAPP_STORAGE_HOME}`. 
 
 `WEBAPP_STORAGE_HOME` es una variable de entorno en App Service que se asigna al almacenamiento persistente para la aplicación. Por ejemplo:
 

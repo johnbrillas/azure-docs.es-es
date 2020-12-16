@@ -11,18 +11,18 @@ ms.topic: reference
 ms.date: 12/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 30f110c3955315f560eef9972b1e3e4a956bdd8a
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 3f8ba563345f5aa4f35bcf07546abdad05c3b6ed
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96750533"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509791"
 ---
 # <a name="define-a-saml-identity-provider-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico de proveedor de identidades de SAML en una directiva personalizada en Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory B2C (Azure AD B2C) proporciona compatibilidad con el proveedor de identidades SAML 2.0. En este artículo se describen los detalles para que un perfil técnico interactúe con un proveedor de notificaciones que admita este protocolo estandarizado. Con un perfil técnico de SAML puede federarse con un proveedor de identidades basado en SAML, como [ADFS](identity-provider-adfs2016-custom.md) y [Salesforce](identity-provider-salesforce-custom.md). Esta federación permite a sus usuarios iniciar sesión con sus identidades de redes sociales o de empresa existentes.
+Azure Active Directory B2C (Azure AD B2C) proporciona compatibilidad con el proveedor de identidades SAML 2.0. En este artículo se describen los detalles para que un perfil técnico interactúe con un proveedor de notificaciones que admita este protocolo estandarizado. Con un perfil técnico de SAML puede federarse con un proveedor de identidades basado en SAML, como [ADFS](identity-provider-adfs2016-custom.md) y [Salesforce](identity-provider-salesforce.md). Esta federación permite a sus usuarios iniciar sesión con sus identidades de redes sociales o de empresa existentes.
 
 ## <a name="metadata-exchange"></a>Intercambio de metadatos
 
@@ -168,7 +168,7 @@ El elemento **OutputClaimsTransformations** puede contener una colección de ele
 | IncludeAuthnContextClassReferences | No | Especifica una o varias referencias de URI que identifican las clases de contexto de autenticación. Por ejemplo, para permitir que un usuario inicie sesión solo con el nombre de usuario y la contraseña, establezca el valor en `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`. Para permitir el inicio de sesión mediante el nombre de usuario y la contraseña a través de una sesión protegida (SSL/TLS), especifique `PasswordProtectedTransport`. Examine la documentación del proveedor de identidades para obtener instrucciones sobre las URI de **AuthnContextClassRef** que se admiten. Especifique varios URI como una lista delimitada por comas. |
 | IncludeKeyInfo | No | Indica si la solicitud de autenticación SAML contiene la clave pública del certificado cuando el enlace se establece en `HTTP-POST`. Valores posibles: `true` o `false`. |
 | IncludeClaimResolvingInClaimsHandling  | No | En el caso de las notificaciones de entrada y salida, especifica si se incluye la [resolución de notificaciones](claim-resolver-overview.md) en el perfil técnico. Valores posibles: `true` o `false` (valor predeterminado). Si desea utilizar un solucionador de notificaciones en el perfil técnico, establézcalo en `true`. |
-|SingleLogoutEnabled| No| Indica si durante el inicio de sesión el perfil técnico intenta cerrar sesión desde proveedores de identidades federados. Para más información, consulte [Cierre de sesión de Azure AD B2C](session-overview.md#sign-out).  Valores posibles: `true` (opción predeterminada) o `false`.|
+|SingleLogoutEnabled| No| Indica si durante el inicio de sesión el perfil técnico intenta cerrar sesión desde proveedores de identidades federados. Para más información, consulte [Cierre de sesión de Azure AD B2C](session-behavior.md#sign-out).  Valores posibles: `true` (opción predeterminada) o `false`.|
 
 ## <a name="cryptographic-keys"></a>Claves de cifrado
 
@@ -216,5 +216,5 @@ Ejemplo:
 
 Vea los artículos siguientes para obtener ejemplos de cómo trabajar con proveedores de identidades SAML en Azure AD B2C:
 
-- [Agregar ADFS como proveedor de identidades de SAML mediante las directivas personalizadas](identity-provider-adfs2016-custom.md)
-- [Inicio de sesión mediante cuentas de Salesforce a través de SAML](identity-provider-salesforce-custom.md)
+- [Agregar ADFS como proveedor de identidades de SAML mediante las directivas personalizadas](identity-provider-adfs.md)
+- [Inicio de sesión mediante cuentas de Salesforce a través de SAML](identity-provider-salesforce.md)

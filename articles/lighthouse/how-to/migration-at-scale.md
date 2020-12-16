@@ -3,12 +3,12 @@ title: Administración de proyectos de migración a gran escala con Azure Migrat
 description: Obtenga información sobre cómo usar Azure Migrate con eficacia en recursos delegados de clientes.
 ms.date: 12/4/2020
 ms.topic: how-to
-ms.openlocfilehash: d1a01149c80b30f279f7d68551946c3ffe404d5e
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 16b92f3aa4dc3bfcb71eb232170c4df30348f8db
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96621576"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095396"
 ---
 # <a name="manage-migration-projects-at-scale-with-azure-migrate"></a>Administración de proyectos de migración a gran escala con Azure Migrate
 
@@ -39,7 +39,7 @@ Este enfoque minimiza el cambio de contexto para los proveedores de servicios qu
 El flujo de trabajo de este modelo será similar al siguiente:
 
 1. El cliente se [incorpora a Azure Lighthouse](onboard-customer.md). El rol integrado de colaborador es necesario para la identidad que se usará con Azure Migrate. Para ver un ejemplo de uso de este rol, vea la plantilla de ejemplo [delegated-resource-management-azmigrate](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/delegated-resource-management-azmigrate).
-1. El usuario designado inicia sesión en el inquilino de administración en Azure Portal y, después, pasa a Azure Migrate. Este usuario [crea un proyecto de Azure Migrate](/migrate/create-manage-projects.md), mediante selección de la suscripción de cliente delegada adecuada.
+1. El usuario designado inicia sesión en el inquilino de administración en Azure Portal y, después, pasa a Azure Migrate. Este usuario [crea un proyecto de Azure Migrate](/azure/migrate/create-manage-projects), mediante selección de la suscripción de cliente delegada adecuada.
 1. A continuación, el usuario [realiza pasos de detección y evaluación](../../migrate/tutorial-discover-vmware.md).
 
    Si se trata de máquinas virtuales de VMware, antes de configurar el dispositivo, puede limitar la detección a centros de datos, clústeres, una carpeta de clústeres, hosts, una carpeta de hosts o VM concretas de vCenter Server. Para establecer el ámbito, asigne permisos en la cuenta que usa el dispositivo para acceder a vCenter Server. Esto resulta útil si se hospedan varias máquinas virtuales de clientes en el hipervisor. No se puede limitar el ámbito de detección de Hyper-V.
@@ -61,7 +61,7 @@ Este enfoque permite a los proveedores de servicios iniciar rápidamente proyect
 El flujo de trabajo de este modelo será similar al siguiente:
 
 1. El cliente se [incorpora a Azure Lighthouse](onboard-customer.md). El rol integrado de colaborador es necesario para la identidad que se usará con Azure Migrate. Para ver un ejemplo de uso de este rol, vea la plantilla de ejemplo [delegated-resource-management-azmigrate](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/delegated-resource-management-azmigrate).
-1. El usuario designado inicia sesión en el inquilino de administración en Azure Portal y, después, pasa a Azure Migrate. Este usuario [crea un proyecto de Azure Migrate](/migrate/create-manage-projects.md) en una suscripción que pertenece al inquilino de administración.
+1. El usuario designado inicia sesión en el inquilino de administración en Azure Portal y, después, pasa a Azure Migrate. Este usuario [crea un proyecto de Azure Migrate](/azure/migrate/create-manage-projects) en una suscripción que pertenece al inquilino de administración.
 1. A continuación, el usuario [realiza pasos de detección y evaluación](../../migrate/tutorial-discover-vmware.md). Las máquinas virtuales locales se detectarán y evaluarán dentro del proyecto de migración creado en el inquilino de administración y, después, se migrarán desde allí.
 
    Si administra varios clientes en el mismo host de Hyper-V, puede detectar todas las cargas de trabajo a la vez. Las máquinas virtuales específicas del cliente se pueden seleccionar en el mismo grupo, se puede crear una evaluación y se puede realizar la migración seleccionando la suscripción del cliente adecuada como destino específico. No es necesario limitar el ámbito de detección, y se puede mantener una visión general completa de todas las cargas de trabajo de cliente en un proyecto de migración.

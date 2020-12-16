@@ -7,14 +7,14 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 04/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: b20391c4d856a5c52b6017ae892ec0b86873dbca
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 82c5a246dca69c0723394e41058c4fc123bbb84e
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491892"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571953"
 ---
-# <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities"></a>Autenticación de Stream Analytics en Azure Data Lake Storage Gen1 mediante entidades administradas
+# <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities-preview"></a>Autenticación de Stream Analytics en Azure Data Lake Storage Gen1 mediante las entidades administradas (versión preliminar)
 
 Azure Stream Analytics admite la autenticación de identidades administradas con la salida de Azure Data Lake Storage (ADLS) Gen1. La identidad es una aplicación administrada registrada en Azure Active Directory que representa un trabajo de Stream Analytics determinado y que puede usarse para autenticar un recurso de destino. Las identidades administradas eliminan las limitaciones de los métodos de autenticación basada en usuario, como la necesidad de volver a realizar la autenticación debido a los cambios de contraseña o la expiración de tokens de usuario que se produce cada 90 días. Además, las identidades administradas sirven de ayuda en la automatización de las implementaciones de trabajos de Stream Analytics cuya salida es Azure Data Lake Storage Gen1.
 
@@ -84,7 +84,7 @@ En este artículo, se muestran tres maneras de habilitar la identidad administra
 
    * Establecen automáticamente los permisos **Escritura** y **Ejecución** para la ruta de acceso del prefijo de ADLS Gen1 usada en el trabajo, y los asignan a esta carpeta y a todos los elementos secundarios.
 
-5. Puede generar las plantillas de Resource Manager con la siguiente propiedad mediante el [paquete Nuget Stream Analytics CI.CD](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/), versión 1.5.0 o posteriores, en una máquina de compilación (fuera de Visual Studio). Siga los pasos de implementación de la plantilla de Resource Manager indicados en la sección siguiente para obtener la entidad de servicio y conceda acceso a la entidad de servicio mediante PowerShell.
+5. Puede generar las plantillas de Resource Manager con la siguiente propiedad mediante el [paquete NuGet Stream Analytics CI.CD](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/), versión 1.5.0 o posteriores, en una máquina de compilación (fuera de Visual Studio). Siga los pasos de implementación de la plantilla de Resource Manager indicados en la sección siguiente para obtener la entidad de servicio y conceda acceso a la entidad de servicio mediante PowerShell.
 
 ## <a name="resource-manager-template-deployment"></a>Implementación de plantillas del Administrador de recursos
 

@@ -92,8 +92,18 @@
           href: diagnostics-log-analytics.md
     - name: Publicación de aplicaciones integradas
       href: publish-apps.md
-    - name: Configuración de la asociación de aplicaciones en formato .MSIX
-      href: app-attach.md
+    - name: Uso de la asociación de aplicaciones en formato .MSIX
+      items:
+        - name: Configuración de la asociación de aplicaciones en formato .MSIX con Azure Portal
+          href: app-attach-azure-portal.md
+        - name: Configuración de la asociación de aplicaciones en formato .MSIX con PowerShell
+          href: app-attach-powershell.md
+        - name: Creación de scripts de PowerShell
+          href: app-attach.md
+        - name: Preparación de una imagen en formato .MSIX
+          href: app-attach-image-prep.md
+        - name: Configuración de un recurso compartido de archivos
+          href: app-attach-file-share.md
     - name: Uso de Microsoft Teams
       href: teams-on-wvd.md
     - name: Configuración de Azure AD Multi-Factor Authentication
@@ -112,6 +122,8 @@
       href: disaster-recovery.md
 - name: Conceptos
   items:
+    - name: Roles integrados
+      href: rbac.md
     - name: Autenticación
       href: authentication.md
     - name: Entorno de Windows Virtual Desktop

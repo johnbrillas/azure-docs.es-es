@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 9db4328ce6519bef05017ba697d8f0f029f2096a
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 26615b82bb9dcbc1247bec9b7a06b579dfa1eb2b
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967421"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571647"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Uso de directivas de asignación personalizadas
 
@@ -44,11 +44,11 @@ En este artículo, llevará a cabo los siguientes pasos:
 
 Los siguientes requisitos previos corresponden a un entorno de desarrollo de Windows. En el caso de Linux o macOS, consulte la sección correspondiente en [Preparación del entorno de desarrollo](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) en la documentación del SDK.
 
-* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 con la carga de trabajo ["Desarrollo para el escritorio con C++"](/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) habilitada. También se admiten Visual Studio 2015 y Visual Studio 2017.
+- [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 con la carga de trabajo ["Desarrollo para el escritorio con C++"](/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) habilitada. También se admiten Visual Studio 2015 y Visual Studio 2017.
 
-* Tener instalada la versión más reciente de [Git](https://git-scm.com/download/).
+- Tener instalada la versión más reciente de [Git](https://git-scm.com/download/).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="create-the-provisioning-service-and-two-divisional-iot-hubs"></a>Creación del servicio de aprovisionamiento y dos centros de IoT de división
 
@@ -133,7 +133,7 @@ En esta sección, creará una función de Azure que implementa la directiva de a
 
 7. En la página siguiente, en el paso **Crear una función**, seleccione el icono **Webhook y API** y, luego, seleccione **Crear**. Se crea una función denominada **HttpTrigger1** y el portal muestra el contenido del archivo de código **run.csx**.
 
-8. Haga referencia a los paquetes Nuget necesarios. Para crear el dispositivo gemelo inicial, la función de asignación personalizada usa las clases que se definen en dos paquetes Nuget que se deben cargar en el entorno de hospedaje. Con Azure Functions, se hace referencia a los paquetes Nuget mediante un archivo *function.host*. En este paso, guardará y cargará un archivo *function.host*.
+8. Haga referencia a los paquetes NuGet necesarios. Para crear el dispositivo gemelo inicial, la función de asignación personalizada usa las clases que se definen en dos paquetes NuGet que se deben cargar en el entorno de hospedaje. Con Azure Functions, se hace referencia a los paquetes NuGet mediante un archivo *function.host*. En este paso, guardará y cargará un archivo *function.host*.
 
     1. Copie las siguientes líneas en su editor favorito y guarde el archivo en el equipo como *function.host*.
 

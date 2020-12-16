@@ -2,16 +2,16 @@
 title: Configuración de clúster en Azure Kubernetes Service (AKS)
 description: Aprenda a configurar un clúster en Azure Kubernetes Service (AKS).
 services: container-service
-ms.topic: conceptual
+ms.topic: article
 ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 88774450fb196da5de24bcad047ecdb8c424f653
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: dcd9ec52992da8037bb498dc09701879c4c94667
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95736544"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96572582"
 ---
 # <a name="configure-an-aks-cluster"></a>Configuración de un clúster de AKS
 
@@ -302,7 +302,7 @@ Cuando trabaje con el grupo de recursos del nodo, tenga en cuenta que no puede:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Aprenda a usar `Kured` para [aplicar actualizaciones de seguridad y kernel a los nodos de Linux](node-updates-kured.md) en el clúster.
+- Aprenda a [actualizar las imágenes del nodo](node-image-upgrade.md) del clúster.
 - Consulte [Actualización de un clúster de Azure Kubernetes Service (AKS)](upgrade-cluster.md) para más información sobre cómo actualizar el clúster a la versión más reciente de Kubernetes.
 - Más información sobre [`containerd` y Kubernetes](https://kubernetes.io/blog/2018/05/24/kubernetes-containerd-integration-goes-ga/)
 - Consulte la lista de [Preguntas más frecuentes sobre AKS](faq.md) para encontrar respuestas a algunas preguntas comunes sobre AKS.
