@@ -3,12 +3,12 @@ title: Detección de movimiento y grabación de vídeo en Azure Media Services
 description: En este inicio rápido se muestra cómo usar Live Video Analytics en IoT Edge para detectar movimiento en una secuencia de vídeo en directo y grabar clips de vídeo en Azure Media Services.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 861351e16120c3f46612ba35518135fbfaf4c81b
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 8872c9aefa0ed748cbed93d0f7376586859be9df
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91776483"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97511899"
 ---
 # <a name="quickstart-detect-motion-record-video-to-media-services"></a>Inicio rápido: Detección de movimiento y grabación de vídeo en Media Services
 
@@ -44,10 +44,11 @@ Puede usar el módulo para analizar secuencias de vídeo en directo mediante la 
 1. Haga clic con el botón derecho y seleccione la **Configuración de la extensión**.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Grabación de vídeo basada en eventos en recursos que se basan en eventos de movimiento" (Mostrar mensaje detallado).
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Configuración de la extensión":::
+1. Busque y habilite "Show Verbose Message" (Mostrar mensaje detallado).
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Grabación de vídeo basada en eventos en recursos que se basan en eventos de movimiento"::: (Mostrar mensaje detallado)
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Show Verbose Message"::: (Mostrar mensaje detallado)
 
 ### <a name="invoke-graphtopologylist"></a>Invocación de GraphTopologyList
 En este paso se enumeran todas las [topologías de grafos](media-graph-concept.md#media-graph-topologies-and-instances) del módulo.
@@ -58,7 +59,7 @@ En este paso se enumeran todas las [topologías de grafos](media-graph-concept.m
     
 ```
 {
-    "@apiVersion" : "1.0"
+    "@apiVersion" : "2.0"
 }
 ```
 
@@ -83,7 +84,7 @@ Con los mismos pasos descritos para la invocación de GraphTopologyList, puede i
 
 ```
 {
-    "@apiVersion": "1.0",
+    "@apiVersion": "2.0",
     "name": "EVRtoAssetsOnMotionDetection",
     "properties": {
       "description": "Event-based video recording to Assets based on motion events",
@@ -330,7 +331,7 @@ Ahora, invoque a GraphTopologyGet con la carga siguiente
 ```
 
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "EVRtoAssetsOnMotionDetection"
 }
 ```
@@ -473,7 +474,7 @@ Ahora, invoque el método directo GraphInstanceSet con la carga siguiente:
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "Sample-Graph-2",
     "properties" : {
         "topologyName" : "EVRtoAssetsOnMotionDetection",
@@ -555,7 +556,7 @@ Ahora active la instancia de grafo que inicia el flujo de vídeo en directo a tr
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "Sample-Graph-2"
 }
 ```
@@ -579,7 +580,7 @@ Ahora, invoque el método directo GraphInstanceGet con la carga siguiente:
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "Sample-Graph-2"
 }
 ```
@@ -758,7 +759,7 @@ Invoque el método directo GraphInstanceDeactivate con la carga siguiente:
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "Sample-Graph-2"
 }
 ```
@@ -786,7 +787,7 @@ Ahora, invoque el método directo GraphInstanceDelete con la carga siguiente:
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "Sample-Graph-2"
 }
 ```
@@ -810,7 +811,7 @@ Invoque el método directo GraphTopologyDelete con la carga siguiente:
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "EVRtoAssetsOnMotionDetection"
 }
 ```

@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 6732fe364ba67bb2c4ea8fb2543c576166f8a110
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 304f62def117d1b1a803b2f604151c5e52dbe7be
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91829034"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97531808"
 ---
 ### <a name="examine-and-edit-the-sample-files"></a>Examen y edición de los archivos de ejemplo
 
@@ -15,18 +15,18 @@ Como parte de los requisitos previos, ha descargado el código de ejemplo en una
     La plantilla de implementación hace referencia al manifiesto de implementación del dispositivo perimetral. Incluye algunos valores de marcador de posición. El archivo *.env* incluye los valores de esas variables.
 1. Vaya a la carpeta *src/cloud-to-device-console-app*. Aquí verá tanto su archivo *appsettings.json* como otros archivos:
 
-    * ***c2d-console-app.csproj***: el archivo de proyecto de Visual Studio Code.
-    * ***operations.json***: una lista de las operaciones que desea que ejecute el programa.
-    * ***Program.cs***: el código del programa de ejemplo. Este código:
+    * ***c2d-console-app.csproj** _: archivo del proyecto de Visual Studio Code.
+    _ ***operations.json** _: lista de las operaciones que desea que ejecute el programa.
+    _ ***Program.cs** _: código del programa de ejemplo. Este código:
 
-        * Carga la configuración de la aplicación.
+        _ Carga la configuración de la aplicación.
         * Invoca los métodos directos que expone el módulo Live Video Analytics en IoT Edge. Puede usar el módulo para analizar secuencias de vídeo en directo mediante la invocación de sus [métodos directos](../../../direct-methods.md).
         * Se pone en pausa para que pueda examinar la salida del programa en la ventana **TERMINAL** y los eventos generados por el módulo en la ventana **SALIDA**.
         * Invoca los métodos directos para limpiar los recursos.
 1. Edite el archivo *operations.json*:
     * Cambie el vínculo a la topología del grafo:
 
-        `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/httpExtension/topology.json"`
+        `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/httpExtension/2.0/topology.json"`
 
     * En `GraphInstanceSet`, edite el nombre de la topología del grafo para que coincida con el valor del vínculo anterior:
 
@@ -76,12 +76,11 @@ Como parte de los requisitos previos, ha descargado el código de ejemplo en una
 1. Haga clic con el botón derecho y seleccione la **Configuración de la extensión**.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="../../../media/run-program/extensions-tab.png" alt-text="Configuración de la extensión&quot;:::
-1. Busque y habilite &quot;Show Verbose Message" (Mostrar mensaje detallado).
+    > :::image type="content" source="../../../media/run-program/extensions-tab.png" alt-text="Configuración de la extensión":::
+1. Busque y habilite "Show Verbose Message" (Mostrar mensaje detallado).
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="../../../media/run-program/show-verbose-message.png" alt-text="Configuración de la extensión&quot;:::
-1. Busque y habilite &quot;Show Verbose Message"::: (Mostrar mensaje detallado)
+    > :::image type="content" source="../../../media/run-program/show-verbose-message.png" alt-text="Show Verbose Message"::: (Mostrar mensaje detallado)
 1. Haga clic con el botón derecho en el dispositivo de Live Video Analytics y seleccione **Start Monitoring Built-in Event Endpoint** (Iniciar supervisión del punto de conexión de eventos integrado). Este paso es necesario para supervisar los eventos de IoT Hub en la ventana **SALIDA** de Visual Studio Code. 
 
    ![Iniciar supervisión](../../../media/quickstarts/start-monitoring-iothub-events.png) 
@@ -96,7 +95,7 @@ Como parte de los requisitos previos, ha descargado el código de ejemplo en una
    Executing operation GraphTopologyList
    -----------------------  Request: GraphTopologyList  --------------------------------------------------
    {
-   "@apiVersion": "1.0"
+   "@apiVersion": "2.0"
    }
    ---------------  Response: GraphTopologyList - Status: 200  ---------------
    {
@@ -114,7 +113,7 @@ Como parte de los requisitos previos, ha descargado el código de ejemplo en una
 
          ```
          {
-           "@apiVersion": "1.0",
+           "@apiVersion": "2.0",
            "name": "Sample-Graph-1",
            "properties": {
              "topologyName": "InferencingWithHttpExtension",

@@ -1,21 +1,63 @@
 ---
-ms.openlocfilehash: f5e180cb85e65cf832ffe0a3746e25790644e1ba
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: c99d2489efe7c46b8d50b08861fcbbcd6f8a1966
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91828987"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97532030"
 ---
 1. En Visual Studio Code, abra la pestaña **Extensiones** (o presione Ctrl + Mayús + X) y busque Azure IoT Hub.
 1. Haga clic con el botón derecho y seleccione la **Configuración de la extensión**.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="../../../media/run-program/extensions-tab.png" alt-text="Configuración de la extensión&quot;:::
-1. Busque y habilite &quot;Show Verbose Message" (Mostrar mensaje detallado).
+    > :::image type="content" source="../../../media/run-program/extensions-tab.png" alt-text="Configuración de la extensión":::
+1. Busque y habilite "Show Verbose Message" (Mostrar mensaje detallado).
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="../../../media/run-program/show-verbose-message.png" alt-text="Configuración de la extensión&quot;:::
-1. Busque y habilite &quot;Show Verbose Message"
+    > :::image type="content" source="../../../media/run-program/show-verbose-message.png" alt-text="Show Verbose Message"::: (Mostrar mensaje detallado)
+1. Para iniciar una sesión de depuración, seleccione la tecla F5. La ventana **TERMINAL** muestra algunos mensajes.
+1. El código de *operations.json* llama a los métodos directos `GraphTopologyList` y `GraphInstanceList`. Si ha limpiado los recursos después de los inicios rápidos anteriores, este proceso devolverá listas vacías y, a continuación, se pausará. Seleccione la tecla Entrar.
+    
+    ```
+    --------------------------------------------------------------------------
+    Executing operation GraphTopologyList
+    -----------------------  Request: GraphTopologyList  --------------------------------------------------
+    {
+      "@apiVersion": "2.0"
+    }
+    ---------------  Response: GraphTopologyList - Status: 200  ---------------
+    {
+      "value": []
+    }
+    --------------------------------------------------------------------------
+    Executing operation WaitForInput
+    Press Enter to continue
+    ```
+  
+  La ventana **TERMINAL** muestra el siguiente conjunto de llamadas al método directo:  
+  
+  * Una llamada a `GraphTopologySet` que utiliza `topologyUrl`. 
+  * Una llamada a `GraphInstanceSet` que usa el cuerpo siguiente:
+  
+  ```
+  {
+    "@apiVersion": "2.0",
+    "name": "Sample-Graph",
+    "properties": {
+      "topologyName": "EVRToFilesOnMotionDetection",
+      "description": "Sample graph description",
+      "parameters": [
+        {
+          "name": "rtspUrl",
+          "value": "rtsp://rtspsim:554/media/lots_015.mkv"
+        },
+        {
+          "name": "rtspUserName",
+          "value": "testuser"
+        },
+        {
+          "name": "rtspPassword",
+          "value": "testpassword"
         }
       ]
     }

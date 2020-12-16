@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 2349939d4997ddc57d0c0c56a21eeec0357bf0ec
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: 766dd13f58268c044435a22fb30c1de816d4d151
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91829250"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97532155"
 ---
 Para ejecutar el código de ejemplo, siga estos pasos:
 
@@ -12,12 +12,61 @@ Para ejecutar el código de ejemplo, siga estos pasos:
 1. Haga clic con el botón derecho y seleccione la **Configuración de la extensión**.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="../../../media/run-program/extensions-tab.png" alt-text="Configuración de la extensión&quot;:::
-1. Busque y habilite &quot;Show Verbose Message" (Mostrar mensaje detallado).
+    > :::image type="content" source="../../../media/run-program/extensions-tab.png" alt-text="Configuración de la extensión":::
+1. Busque y habilite "Show Verbose Message" (Mostrar mensaje detallado).
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="../../../media/run-program/show-verbose-message.png" alt-text="Configuración de la extensión&quot;:::
-1. Busque y habilite &quot;Show Verbose Message"
+    > :::image type="content" source="../../../media/run-program/show-verbose-message.png" alt-text="Show Verbose Message"::: (Mostrar mensaje detallado)
+1. En Visual Studio Code, vaya a *src/cloud-to-device-console-app/operations.json*.
+1. En el nodo **GraphTopologySet**, asegúrese de que vea el siguiente valor:
+
+    `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/motion-detection/2.0/topology.json"`
+1. En los nodos **GraphInstanceSet** y **GraphTopologyDelete**, asegúrese de que el valor de `topologyName` coincida con el valor de la propiedad `name` en la topología del grafo:
+
+    `"topologyName" : "MotionDetection"`
+    
+1. Para iniciar una sesión de depuración, seleccione la tecla F5. La ventana **TERMINAL** mostrará algunos mensajes.
+1. El archivo *operations.json* se inicia con llamadas a `GraphTopologyList` y `GraphInstanceList`. Si ha limpiado los recursos tras haber finalizado los inicios rápidos anteriores, este proceso devolverá listas vacías y, después, se pausará. Para continuar, seleccione la tecla Entrar.
+
+    ```
+    --------------------------------------------------------------------------
+    Executing operation GraphTopologyList
+    -----------------------  Request: GraphTopologyList  --------------------------------------------------
+    {
+        "@apiVersion": "2.0"
+    }
+    ---------------  Response: GraphTopologyList - Status: 200  ---------------
+    {
+        "value": []
+    }
+    --------------------------------------------------------------------------
+    Executing operation WaitForInput
+    Press Enter to continue
+    ```
+    
+    La ventana **TERMINAL** muestra el siguiente conjunto de llamadas al método directo:
+     * Una llamada a `GraphTopologySet` que utiliza la instancia anterior de `topologyUrl`.
+     * Una llamada a `GraphInstanceSet` que usa el cuerpo siguiente:
+         
+    ```
+    {
+      "@apiVersion": "2.0",
+      "name": "Sample-Graph",
+      "properties": {
+        "topologyName": "MotionDetection",
+        "description": "Sample graph description",
+        "parameters": [
+          {
+            "name": "rtspUrl",
+            "value": "rtsp://rtspsim:554/media/camera-300s.mkv"
+          },
+          {
+            "name": "rtspUserName",
+            "value": "testuser"
+          },
+          {
+            "name": "rtspPassword",
+            "value": "testpassword"
           }
         ]
       }
