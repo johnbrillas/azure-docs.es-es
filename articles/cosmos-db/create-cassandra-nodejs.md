@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 05/18/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 6b05e8fbd2f688b4dd5611302c8df1b1deb16ab3
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: b9e036df91eecadc701664a19905a92c142b7585
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099800"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591912"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-nodejs-sdk-and-azure-cosmos-db"></a>Inicio rápido: Creación de una aplicación de Cassandra con Node.js SDK y Azure Cosmos DB
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -107,7 +107,7 @@ Este paso es opcional. Si le interesa aprender cómo el código crea los recurso
 
    ```javascript
    function createTable(next) {
-    var query = "CREATE TABLE IF NOT EXISTS uprofile.user (user_id int PRIMARY KEY, user_name text, user_bcity text)";
+       var query = "CREATE TABLE IF NOT EXISTS uprofile.user (user_id int PRIMARY KEY, user_name text, user_bcity text)";
         client.execute(query, next);
         console.log("created table");
    },
@@ -149,7 +149,7 @@ Este paso es opcional. Si le interesa aprender cómo el código crea los recurso
             });
         },
     ```  
-    
+
 * Realice una consulta para obtener un valor de clave.
 
     ```javascript
@@ -189,7 +189,7 @@ Ahora vuelva a Azure Portal para obtener la información de la cadena de conexi�
     La línea 2 ahora debe ser similar a 
 
     `config.username = 'cosmos-db-quickstart';`
-    
+
 1. Copie el valor de CONTRASEÑA del portal y péguelo en `<FillMEIN>` en la línea 3.
 
     La línea 3 ahora debe ser similar a
@@ -197,12 +197,12 @@ Ahora vuelva a Azure Portal para obtener la información de la cadena de conexi�
     `config.password = '2Ggkr662ifxz2Mg==';`
 
 1. Guarde el archivo `config.js`.
-    
+
 ## <a name="use-the-x509-certificate"></a>Uso del certificado X509
 
 1. Descargue el certificado Baltimore CyberTrust Root de forma loca desde [https://cacert.omniroot.com/bc2025.crt](https://cacert.omniroot.com/bc2025.crt). Cambie el nombre del archivo con la extensión de archivo `.cer`.
 
-   El certificado tiene el número de serie `02:00:00:b9` y la huella digital SHA1 `d4🇩🇪20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74`.
+   El certificado tiene el número de serie `02:00:00:b9` y la huella digital SHA1 `d4:de:20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74`.
 
 2. Abra `uprofile.js` y cambie el `path\to\cert` para que apunte al nuevo certificado.
 

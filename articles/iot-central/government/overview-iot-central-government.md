@@ -3,20 +3,18 @@ title: Creación de soluciones gubernamentales con Azure IoT Central
 description: Aprenda a crear soluciones inteligentes para la ciudad con plantillas de la aplicación de Azure IoT Central.
 author: miriambrus
 ms.author: miriamb
-ms.date: 10/23/2019
+ms.date: 12/11/2020
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 5f92750217dd0bcf5d7a5074a6187d994f19722a
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 72b0e3c3cee0ed9131fe6ee1f50cee10ec03a7b7
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126573"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590824"
 ---
 # <a name="building-government-solutions-with-azure-iot-central"></a>Creación de soluciones gubernamentales con Azure IoT Central
-
-
 
 Empiece con la creación de soluciones inteligentes para la ciudad mediante las plantillas de aplicación de Azure IoT Central. Empiece ahora con la **supervisión de la calidad del agua**, la **supervisión del consumo de agua** y la **administración de residuos conectados**.
 
@@ -41,7 +39,6 @@ Empiece a trabajar con el tutorial de la aplicación [Water Quality Monitoring](
 ## <a name="what-is-water-consumption-monitoring-application-template"></a>¿Qué es la plantilla de la aplicación Water Consumption Monitoring? 
 
 Tradicionalmente, para realizar el seguimiento del consumo de agua las empresas distribuidoras de agua leen manualmente los contadores de consumo de agua en los sitios de medición. Cada vez más ciudades están reemplazando los contadores tradicionales por contadores inteligentes avanzados, lo que permite la supervisión remota del consumo y el control remoto de las válvulas que controlan el flujo de agua. La supervisión del consumo de agua, junto con el mensaje de comentarios digitales al ciudadano, pueden aumentar la concienciación y reducir el consumo de agua. 
-
 
 La aplicación Water Consumption Monitoring es una plantilla de aplicación de IoT Central que le ayuda a iniciar el desarrollo de su solución de IoT para que los servicios de agua y las ciudades supervisen y controlen de forma remota el flujo de agua para reducir el consumo. 
 

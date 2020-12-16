@@ -9,13 +9,13 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 10/26/2020
 ms.author: banders
-ms.custom: contentperfq2
-ms.openlocfilehash: c9f344ec6eae40db2c76f3712df6f1f9d8cead37
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: bd46e7b2f0713da67842def47dfeadc837027d8f
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92668862"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97027975"
 ---
 # <a name="account-administrator-tasks-in-the-azure-portal"></a>Tareas de administrador de cuenta en Azure Portal
 
@@ -30,18 +30,18 @@ Debe ser el administrador de cuenta para realizar cualquiera de estas tareas.
 
 1. Inicie sesión en Azure Portal como administrador de la cuenta.
 
-1. Busque **Administración de costos + facturación** .
+1. Busque **Administración de costos + facturación**.
 
     ![Captura de pantalla que muestra la búsqueda para la administración de costos y facturación ](./media/account-admin-tasks/search-bar.png)
 
-1. En **Mis suscripciones** , seleccione la suscripción a la que quiere agregar la tarjeta de crédito.
+1. En **Mis suscripciones**, seleccione la suscripción a la que quiere agregar la tarjeta de crédito.
 
    ![Captura de pantalla que muestra la página Cost Management + Billing, donde puede seleccionar una suscripción.](./media/account-admin-tasks/cost-management-billing-overview-x.png)
 
    > [!NOTE]
    > Si no ve aquí alguna de sus suscripciones, puede deberse a que haya cambiado el directorio de suscripción en algún momento. Para estas suscripciones, debe cambiar el directorio al directorio original (el directorio en el que se registró inicialmente). A continuación, repita el paso 2.
 
-1. Seleccione **Métodos de pago** .
+1. Seleccione **Métodos de pago**.
 
     ![Captura de pantalla que muestra la página Métodos de pago, donde puede agregar un método de pago.](./media/account-admin-tasks/subscription-payment-methods-blade.png)
 
@@ -81,7 +81,7 @@ Para editar los detalles de la tarjeta de crédito, como la fecha de expiración
 
 ![Captura de pantalla que muestra la tarjeta de crédito seleccionada](./media/account-admin-tasks/subscription-edit-payment-method-x.png)
 
-Actualice los detalles de la tarjeta de crédito y haga clic en **Guardar** .
+Actualice los detalles de la tarjeta de crédito y haga clic en **Guardar**.
 
 ### <a name="remove-a-credit-card-from-the-account"></a>Eliminación de una tarjeta de crédito de la cuenta
 
@@ -89,7 +89,7 @@ Actualice los detalles de la tarjeta de crédito y haga clic en **Guardar** .
 
     ![Captura de pantalla que muestra el cuadro activado junto a la tarjeta de crédito](./media/account-admin-tasks/subscription-checked-payment-method-x.png)
 
-1. En la barra de comandos, haga clic en **Eliminar** .
+1. En la barra de comandos, haga clic en **Eliminar**.
 
     ![Captura de pantalla que muestra el botón Eliminar](./media/account-admin-tasks/subscription-checked-payment-method-delete.png)
 
@@ -104,7 +104,7 @@ Si tiene la opción de pagar mediante factura (cheque o transferencia bancaria),
     ![Captura de pantalla que muestra la página Métodos de pago con la opción Pago mediante factura seleccionada.](./media/account-admin-tasks/subscription-payment-methods-pay-by-invoice.png)
 
 1. Escriba la dirección del método de pago mediante factura.
-1. Haga clic en **Next** .
+1. Haga clic en **Next**.
 
 Si quiere que se le apruebe el pago mediante factura, consulte [Pago mediante factura](pay-by-invoice.md).
 
@@ -119,11 +119,11 @@ El límite de gasto de Azure evita los gastos por encima del importe de crédito
 El límite de gasto no está disponible para las suscripciones con planes de compromiso o con precios de pago por uso.
 
 1. Inicie sesión en Azure Portal como administrador de la cuenta.
-1. Busque **Administración de costos + facturación** .
+1. Busque **Administración de costos + facturación**.
 
     ![Captura de pantalla que muestra la búsqueda para la administración de costos y facturación ](./media/account-admin-tasks/search-bar.png)
 
-1. En la lista **Mis suscripciones** , seleccione su suscripción de Visual Studio Enterprise.
+1. En la lista **Mis suscripciones**, seleccione su suscripción de Visual Studio Enterprise.
 
    ![Captura de pantalla que muestra el área Mis suscripciones, donde se puede seleccionar la suscripción de Visual Studio Enterprise.](./media/account-admin-tasks/cost-management-overview-msdn-x.png)
 
@@ -147,18 +147,18 @@ El límite de gasto no está disponible para las suscripciones con planes de com
 Si tiene una suscripción a Azure bajo licencia Open, puede agregar créditos a su suscripción en Azure Portal mediante el canje de una clave de producto o la compra de créditos con una tarjeta de crédito.
 
 1. Inicie sesión en Azure Portal como administrador de la cuenta.
-1. Busque **Administración de costos + facturación** .
+1. Busque **Administración de costos + facturación**.
 
     ![Captura de pantalla que muestra la búsqueda para la administración de costos y facturación ](./media/account-admin-tasks/search-bar.png)
 
-1. En la lista **Mis suscripciones** , seleccione su suscripción de Azure bajo licencia Open.
+1. En la lista **Mis suscripciones**, seleccione su suscripción de Azure bajo licencia Open.
 
     ![Captura de pantalla que muestra el área Mis suscripciones, donde puede seleccionar la suscripción de Azure bajo licencia Open.](./media/account-admin-tasks/cost-management-overview-aio-x.png)
 
    > [!NOTE]
    > Si no ve aquí su suscripción, puede deberse a que haya cambiado el directorio en algún momento. Debe cambiar el directorio de la suscripción al directorio original (el directorio en el que se registró inicialmente). A continuación, repita el paso 2.
 
-1. Seleccione **Historial de crédito** .
+1. Seleccione **Historial de crédito**.
 
     ![Captura de pantalla que muestra el historial de crédito](./media/account-admin-tasks/aio-credit-history-blade.png)
 
@@ -172,13 +172,13 @@ Si tiene una suscripción a Azure bajo licencia Open, puede agregar créditos a 
 
 1. Si seleccionó la clave de producto:
     - Especificación de la clave de producto
-    - Haga clic en **Validar** .
+    - Haga clic en **Validar**.
 
 1. Si eligió la tarjeta de crédito:
     - Haga clic en **Seleccionar método de pago** para agregar una tarjeta de crédito o seleccionar una existente.
     - Especifique la cantidad de créditos que desea agregar.
 
-1. Haga clic en **Aplicar** .
+1. Haga clic en **Aplicar**.
 
 ## <a name="troubleshooting"></a>Solución de problemas
 No se admiten tarjetas virtuales ni prepago. Si aparecen errores al agregar o actualizar una tarjeta de crédito válida, pruebe a abrir el explorador en modo privado.
