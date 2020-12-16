@@ -6,13 +6,13 @@ ms.topic: how-to
 author: markjbrown
 ms.author: mjbrown
 ms.date: 09/22/2020
-ms.custom: devx-track-csharp, contperfq1
-ms.openlocfilehash: bfab099c3b81164e0d9ffaa009ea13f42aefb875
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.custom: devx-track-csharp, contperf-fy21q1
+ms.openlocfilehash: 89e82e210dbf7c404ebd5978d87bf391d8565ee2
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96608646"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033976"
 ---
 # <a name="install-and-use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Instalación y uso del emulador de Azure Cosmos DB para desarrollo y pruebas locales
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -467,7 +467,7 @@ Utilice los pasos siguientes para desinstalar el emulador:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, ha aprendido a usar el emulador local para el desarrollo gratuito de aplicaciones en un entorno local. Ahora puede continuar en los siguientes artículos:
+En este artículo, ha aprendido a usar el emulador local para el desarrollo gratuito de aplicaciones en un entorno local. Ahora puede avanzar a los siguientes artículos:
 
 * [Exportación de los certificados del emulador de Azure Cosmos DB para su uso con aplicaciones en Java, Python y Node.js](local-emulator-export-ssl-certificates.md)
 * [Uso de parámetros de línea de comandos y comandos de PowerShell para controlar el emulador](emulator-command-line-parameters.md)

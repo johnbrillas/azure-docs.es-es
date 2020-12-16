@@ -6,24 +6,23 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: d261640dfdb59b2b06cfe3066fca26640a0bed54
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: d2446e866c0e12d50a0759373682f4f62bc4bba0
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94874651"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512229"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Clústeres dedicados de registros de Azure Monitor
 
-Los clústeres dedicados de registros de Azure Monitor son una opción de implementación que está disponible para ofrecer mejor servicio a los clientes de gran volumen. Los clientes que ingieren más de 4 TB de datos al día usarán clústeres dedicados. Los clientes con clústeres dedicados pueden elegir las áreas de trabajo que se van a hospedar en estos clústeres.
+Los clústeres dedicados de registros de Azure Monitor son una opción de implementación que habilita las funcionalidades avanzadas para los clientes de registros de Azure Monitor. Los clientes con clústeres dedicados pueden elegir las áreas de trabajo que se van a hospedar en estos clústeres.
 
-Además de la posibilidad de un gran volumen, existen otras ventajas al usar clústeres dedicados:
+Las funcionalidades que requieren clústeres dedicados son las siguientes:
 
-- **Límite de frecuencia**: Un cliente puede tener [límites de tasa de ingesta](../service-limits.md#data-ingestion-volume-rate) superiores solo en un clúster dedicado.
-- **Características**: Algunas características empresariales solo están disponibles en clústeres dedicados, en concreto, las claves administradas por el cliente (CMK) y la compatibilidad con Caja de seguridad. 
-- **Coherencia**: Los clientes tienen sus propios recursos dedicados y, por lo tanto, no hay influencia de otros clientes que funcionen en la misma infraestructura compartida.
-- **Rentabilidad**: Puede ser más rentable usar un clúster dedicado, ya que los niveles de reserva de capacidad asignados tienen en cuenta toda la ingesta del clúster y se aplican a todas sus áreas de trabajo, incluso si algunas de ellas son pequeñas y no son válidas para el descuento de la reserva de capacidad.
-- Las consultas **entre áreas de trabajo** se ejecutan más rápido si todas las áreas de trabajo están en el mismo clúster.
+- **[Claves administradas por el cliente](../platform/customer-managed-keys.md)** : cifre los datos del clúster mediante las claves proporcionadas y controladas por el cliente.
+- **[Caja de seguridad](../platform/customer-managed-keys.md#customer-lockbox-preview)** : los clientes pueden controlar las solicitudes de acceso a los datos de los ingenieros de soporte técnico de Microsoft.
+- **[Cifrado doble](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption)** : protege en caso de que uno de los algoritmos o claves de cifrado puedan estar en peligro. En este caso, la capa adicional de cifrado también protege los datos.
+- **[Varias áreas de trabajo](../log-query/cross-workspace-query.md)** : si un cliente usa más de un área de trabajo para producción, puede que tenga sentido usar un clúster dedicado. Las consultas entre áreas de trabajo se ejecutarán más rápido si todas las áreas de trabajo están en el mismo clúster. Puede ser más rentable también usar un clúster dedicado, ya que los niveles de reserva de capacidad asignados tienen en cuenta toda la ingesta del clúster y se aplican a todas sus áreas de trabajo, incluso si algunas de ellas son pequeñas y no son válidas para el descuento de la reserva de capacidad.
 
 Los clústeres dedicados requieren que los clientes confirmen el uso de una capacidad de al menos 1 TB de ingesta de datos al día. La migración a un clúster dedicado es sencilla. No se produce ninguna pérdida de datos ni interrupción del servicio. 
 
@@ -53,7 +52,7 @@ Hay dos modos de facturación para el uso en un clúster. Estos pueden especific
 
 2. **Áreas de trabajo**: los costos de reserva de capacidad para el clúster se atribuyen proporcionalmente a las áreas de trabajo del clúster (después de tener en cuenta las asignaciones por nodo de [Azure Security Center](../../security-center/index.yml) para cada área de trabajo).
 
-Tenga en cuenta que, si el área de trabajo usa el plan de tarifa heredado por nodo, cuando esté vinculado a un clúster se le facturará en función de los datos ingeridos en relación con la reserva de capacidad del clúster y ya no por nodo. Se seguirán aplicando las asignaciones de datos por nodo de Azure Security Center.
+Si el área de trabajo usa el plan de tarifa heredado por nodo, cuando esté vinculado a un clúster se le facturará en función de los datos ingeridos en relación con la reserva de capacidad del clúster en lugar de por nodo. Se seguirán aplicando las asignaciones de datos por nodo de Azure Security Center.
 
 Encontrará más detalles sobre la facturación de los clústeres dedicados de Log Analytics [aquí]( https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-dedicated-clusters).
 

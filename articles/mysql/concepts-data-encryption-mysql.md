@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 23cf8a79c4978ccb3a65ad968b2ed5a01bb3d0ec
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: f9b9681b08f5864dc34bbf1c35dc6919129c24cb
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242337"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518811"
 ---
 # <a name="azure-database-for-mysql-data-encryption-with-a-customer-managed-key"></a>Cifrado de datos de Azure Database for MySQL con una clave administrada por el cliente
 
@@ -48,9 +48,9 @@ Las DEK, cifradas con las KEK, se almacenan por separado. Solo una entidad con a
 
 Para que un servidor de MySQL pueda usar claves administradas por el cliente almacenadas en Key Vault para el cifrado de la DEK, un administrador de Key Vault debe conceder los siguientes derechos de acceso al servidor:
 
-* **get** : para recuperar la parte pública y las propiedades de la clave del almacén de claves.
-* **wrapKey** : para poder cifrar la DEK. La DEK cifrada se almacena en Azure Database for MySQL.
-* **unwrapKey** : para poder descifrar la DEK. Azure Database for MySQL necesita la DEK descifrada para cifrar o descifrar los datos.
+* **get**: para recuperar la parte pública y las propiedades de la clave del almacén de claves.
+* **wrapKey**: para poder cifrar la DEK. La DEK cifrada se almacena en Azure Database for MySQL.
+* **unwrapKey**: para poder descifrar la DEK. Azure Database for MySQL necesita la DEK descifrada para cifrar o descifrar los datos.
 
 El administrador del almacén de claves también puede [habilitar el registro de eventos de auditoría de Key Vault](../azure-monitor/insights/key-vault-insights-overview.md), de forma que se puedan auditar más adelante.
 
@@ -61,15 +61,18 @@ Cuando el servidor está configurado para usar la clave administrada por el clie
 A continuación se indican los requisitos para configurar Key Vault:
 
 * Key Vault y Azure Database for MySQL deben pertenecer al mismo inquilino de Azure Active Directory (Azure AD). No se admiten las interacciones de servidor y Key Vault entre inquilinos. Para mover los recursos de Key Vault posteriormente, es necesario volver a configurar el cifrado de datos.
-* Habilita la característica de eliminación temporal en el almacén de claves para protegerse frente a la pérdida de datos en caso de una eliminación accidental de claves (o de Key Vault). Los recursos eliminados temporalmente se conservan durante 90 días, a menos que el usuario los recupere o los purgue mientras tanto. Las acciones de recuperación y purga tienen permisos propios asociados a una directiva de acceso a Key Vault. La característica de eliminación temporal está desactivada de forma predeterminada, pero puede habilitarla mediante PowerShell o la CLI de Azure (tenga en cuenta que no puede habilitarla mediante Azure Portal).
+* Habilite la característica de [eliminación temporal](../key-vault/general/soft-delete-overview.md) en el almacén de claves con un período de retención establecido en **90 días**, para contar con protección frente a la pérdida de datos en caso de que se produzca una eliminación accidental de claves (o de Key Vault). Los recursos eliminados temporalmente se conservan durante 90 días de forma predeterminada, a menos que el período de retención se establezca explícitamente en 90 días o menos. Las acciones de recuperación y purga tienen permisos propios asociados a una directiva de acceso a Key Vault. La característica de eliminación temporal está desactivada de forma predeterminada, pero puede habilitarla mediante PowerShell o la CLI de Azure (tenga en cuenta que no puede habilitarla mediante Azure Portal).
+* Habilite la característica [Protección de purga](../key-vault/general/soft-delete-overview.md#purge-protection) en el almacén de claves con el período de retención establecido en **90 días**. La protección de purga solo se puede habilitar una vez habilitada la eliminación temporal. Se puede activar mediante la CLI de Azure o con PowerShell. Cuando la protección de purgas está activada, un almacén o un objeto en estado eliminado no se pueden purgar hasta que haya transcurrido el período de retención. Los objetos y los almacenes de eliminación temporal todavía se pueden recuperar, lo que garantiza que se seguirá la directiva de retención. 
 * Conceda a Azure Database for MySQL acceso al almacén de claves con los permisos get, wrapKey y unwrapKey mediante su identidad administrada única. En Azure Portal, la identidad única "Servicio" se crea automáticamente cuando se habilita el cifrado de datos en MySQL. Consulte [Configuración del cifrado de datos para MySQL](howto-data-encryption-portal.md) para obtener instrucciones paso a paso al usar Azure Portal.
 
 A continuación se indican los requisitos para configurar la clave administrada por el cliente:
 
 * La clave administrada por el cliente que se va a usar para cifrar las DEK solo puede ser asimétrica, RSA 2048.
-* La fecha de activación de la clave (si se establece) debe ser una fecha y hora del pasado. La fecha de expiración (si se establece) debe ser una fecha y hora del futuro.
+* La fecha de activación de la clave (si se establece) debe ser una fecha y hora del pasado. La fecha de expiración no está establecida.
 * El estado de la clave debe ser *Habilitada*.
-* Si va a [importar una clave existente](/rest/api/keyvault/ImportKey/ImportKey) en el almacén de claves, asegúrese de proporcionarla en uno de los formatos de archivo compatibles (`.pfx`, `.byok`, `.backup`).
+* La clave debe tener la [eliminación temporal](../key-vault/general/soft-delete-overview.md) con el período de retención establecido en **90 días**. De este modo, se establece implícitamente el atributo de clave necesario recoveryLevel: "Recoverable". Si la retención se establece en un valor superior a 90 días, recoveryLevel será "CustomizedRecoverable" y no cumplirá con el requisito. Por este motivo, asegúrese de establecer el período de retención en **90 días**.
+* La clave debe tener la [protección de purgas habilitada](../key-vault/general/soft-delete-overview.md#purge-protection).
+* Si va a [importar una clave existente](/rest/api/keyvault/ImportKey/ImportKey) en el almacén de claves, asegúrese de proporcionarla en los formatos de archivo admitidos (`.pfx`, `.byok`, `.backup`).
 
 ## <a name="recommendations"></a>Recomendaciones
 
@@ -94,8 +97,8 @@ Cuando se configura el cifrado de datos con una clave administrada por el client
 
 * Si creamos un servidor de restauración a un momento dado para el Azure Database for MySQL, que tiene habilitado el cifrado de datos, el servidor recién creado estará en estado de *inaccesible*. Puede solucionar este paso a través de [Azure Portal](howto-data-encryption-portal.md#using-data-encryption-for-restore-or-replica-servers) o [CLI](howto-data-encryption-cli.md#using-data-encryption-for-restore-or-replica-servers).
 * Si creamos una réplica de lectura para el Azure Database for MySQL, que tiene habilitado el cifrado de datos, el servidor de réplica estará en estado de *inaccesible*. Puede solucionar este paso a través de [Azure Portal](howto-data-encryption-portal.md#using-data-encryption-for-restore-or-replica-servers) o [CLI](howto-data-encryption-cli.md#using-data-encryption-for-restore-or-replica-servers).
-* Si elimina el KeyVault, el Azure Database for MySQL no podrá tener acceso a la clave y se moverá a estado de *inaccesible*. Recupere el [Key Vault](../key-vault/general/soft-delete-cli.md#deleting-and-purging-key-vault-objects) y vuelva a validar el cifrado de datos para que el servidor esté *disponible*.
-* Si elimina la clave del KeyVault, el Azure Database for MySQL no podrá tener acceso a la clave y se moverá a estado de *inaccesible*. Recupere la [clave](../key-vault/general/soft-delete-cli.md#deleting-and-purging-key-vault-objects) y vuelva a validar el cifrado de datos para que el servidor esté *disponible*.
+* Si elimina el KeyVault, el Azure Database for MySQL no podrá tener acceso a la clave y se moverá a estado de *inaccesible*. Recupere el [Key Vault](../key-vault/general/key-vault-recovery.md) y vuelva a validar el cifrado de datos para que el servidor esté *disponible*.
+* Si elimina la clave del KeyVault, el Azure Database for MySQL no podrá tener acceso a la clave y se moverá a estado de *inaccesible*. Recupere la [clave](../key-vault/general/key-vault-recovery.md) y vuelva a validar el cifrado de datos para que el servidor esté *disponible*.
 * Si expira la clave almacenada en Azure KeyVault, la clave dejará de ser válida y el Azure Database for MySQL pasará a estado de *inaccesible*. Extienda la fecha de expiración de la clave mediante [CLI](/cli/azure/keyvault/key#az-keyvault-key-set-attributes) y, después, vuelva a validar el cifrado de datos para que el servidor esté *disponible*.
 
 ### <a name="accidental-key-access-revocation-from-key-vault"></a>Revocación accidental del acceso a la clave de Key Vault
@@ -142,4 +145,4 @@ En el caso de Azure Database for MySQL, la compatibilidad con el cifrado de dato
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Más información sobre cómo [configurar el cifrado de datos con una clave administrada por el cliente en Azure Database for MySQL mediante Azure Portal](howto-data-encryption-portal.md).
+Más información sobre cómo configurar el cifrado de datos con una clave administrada por el cliente en Azure Database for MySQL mediante [Azure Portal](howto-data-encryption-portal.md) y la [CLI de Azure](howto-data-encryption-cli.md).

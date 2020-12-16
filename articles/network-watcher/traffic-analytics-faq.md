@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: damendo
-ms.openlocfilehash: 25f4ae0dbfd7827a36dede6a889c342ea490e273
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: f27f2a6319bf2648546a62c2566d938db657738f
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94948483"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518471"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Preguntas frecuentes sobre Análisis de tráfico
 
@@ -401,3 +401,6 @@ La página de topología de subredes virtuales contiene dos secciones principale
 - Para moverse a otros nodos resaltados de la vista de topología, use la tecla `Shift+Right arrow` para avanzar hacia delante. 
 - Cuando se selecciona uno de estos nodos, el foco se desplaza al **cuadro de herramientas de información** del nodo. De forma predeterminada, el foco se desplaza al botón **Más información** del **cuadro de herramientas de información**. Si desea moverse dentro de la vista del **cuadro**, utilice las teclas `Right arrow` y `Left arrow` para moverse hacia delante y hacia atrás, respectivamente. Si presiona `Enter`, conseguirá el mismo efecto que si selecciona el botón con el foco en el **cuadro de herramientas de información**.
 - En la selección de cualquiera de estos nodos, puede visitar todas sus conexiones, una a una, presionando la tecla `Shift+Left arrow`. El foco se mueve al **cuadro de herramientas de información** de esa conexión. En cualquier momento, el foco se puede desplazar hacia el nodo presionando `Shift+Right arrow` de nuevo.
+
+## <a name="are-classic-nsgs-supported"></a>¿Se admiten los grupos de seguridad de red clásicos?
+No, Análisis de tráfico no admite los grupos de seguridad de red clásicos. Se recomienda migrar los recursos de IaaS del modelo clásico a Azure Resource Manager, ya que los recursos clásicos [dejarán de estar en uso](https://docs.microsoft.com/azure/virtual-machines/classic-vm-deprecation). Consulte este artículo para comprender [cómo realizar la migración](https://docs.microsoft.com/azure/virtual-machines/migration-classic-resource-manager-overview).

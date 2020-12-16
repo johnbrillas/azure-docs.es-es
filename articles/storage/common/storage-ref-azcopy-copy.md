@@ -8,12 +8,12 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: a5c0d8bb47b337b0415565a0b6dad5c6822d0b94
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: fd71f4eb56974b93637c23eddc81e5f33ce788b8
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92781743"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512161"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -107,6 +107,14 @@ Carga de archivos y directorios mediante un token de SAS y caracteres comodín (
 ```azcopy
 azcopy cp "/path/*foo/*bar*" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive
 ```
+
+Cargue archivos y directorios en la cuenta de Azure Storage y establezca las etiquetas codificadas en la cadena de consulta del blob. 
+
+- Para establecer las etiquetas {key = "bla bla", val = "foo"} y {key = "bla bla 2", val = "bar"}, use la sintaxis siguiente: `azcopy cp "/path/*foo/*bar*" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --blob-tags="bla%20bla=foo&bla%20bla%202=bar"`
+    
+- Las claves y los valores están codificados como dirección URL y los pares clave-valor se separan con una y comercial ("&")
+
+- Al establecer etiquetas en los blobs, hay permisos adicionales ("t" para etiquetas) en SAS sin que el servicio devuelva un error de autorización.
 
 Descarga de un solo archivo mediante la autenticación de OAuth. Si aún no ha iniciado sesión en AzCopy, ejecute el comando `azcopy login` antes de ejecutar el siguiente comando.
 
@@ -214,9 +222,19 @@ Copia de un subconjunto de cubos mediante un símbolo comodín (*) en el nombre 
 - azcopy cp "https://s3.amazonaws.com/[bucket*name]/" "https://[destaccount].blob.core.windows.net?[SAS]" --recursive
 ```
 
+Transfiera archivos y directorios a la cuenta de Azure Storage y establezca las etiquetas codificadas de la cadena de consulta determinadas en el blob. 
+
+- Para establecer las etiquetas {key = "bla bla", val = "foo"} y {key = "bla bla 2", val = "bar"}, use la sintaxis siguiente: `azcopy cp "https://[account].blob.core.windows.net/[source_container]/[path/to/directory]?[SAS]" "https://[account].blob.core.windows.net/[destination_container]/[path/to/directory]?[SAS]" --blob-tags="bla%20bla=foo&bla%20bla%202=bar"`
+        
+- Las claves y los valores están codificados como dirección URL y los pares clave-valor se separan con una y comercial ("&")
+    
+- Al establecer etiquetas en los blobs, hay permisos adicionales ("t" para etiquetas) en SAS sin que el servicio devuelva un error de autorización.
+
 ## <a name="options"></a>Opciones
 
 **--backup** activa los privilegios SeBackupPrivilege de Windows para cargas, o SeRestorePrivilege para descargas, para que AzCopy pueda ver y leer todos los archivos, independientemente de los permisos del sistema de archivos, y restaurar todos los permisos. Requiere que la cuenta que ejecuta AzCopy ya tenga estos permisos (por ejemplo, que tenga derechos de administrador o que sea miembro del grupo `Backup Operators`). Esta marca activa los privilegios que ya tiene la cuenta.
+
+Cadena **--blob-tags**: establece etiquetas en blobs para clasificar los datos de la cuenta de almacenamiento.
 
 **--blob-type** string. Define el tipo de blob del destino. Se usa para cargar blobs y al copiar entre cuentas (el valor predeterminado es `Detect`). Los valores válidos son `Detect`, `BlockBlob`, `PageBlob` y `AppendBlob`. Al copiar entre cuentas, un valor `Detect` hace que AzCopy use el tipo de blob de origen para determinar el tipo del blob de destino. Al cargar un archivo, `Detect` determina si el archivo es un VHD o VHDX en función de la extensión del archivo. Si el archivo es VHD o VHDX, AzCopy lo trata como un blob en páginas. (el valor predeterminado es "Detect")
 

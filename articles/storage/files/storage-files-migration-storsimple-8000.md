@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 046cca4e683a8f14893bf48ac8601b138a7c28a7
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: daa7c657a47414b01197bed3644caefeda98af1c
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630284"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512178"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>Migración de las series 8100 y 8600 de StorSimple a Azure File Sync
 
@@ -448,7 +448,7 @@ En este momento, hay diferencias entre el servidor de la instancia de Windows S
 RoboCopy tiene varios parámetros. El siguiente ejemplo muestra un comando terminado y una lista de razones para elegir estos parámetros.
 
 ```console
-Robocopy /MT:16 /UNILOG:<file name> /TEE /B /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
+Robocopy /MT:16 /UNILOG:<file name> /TEE /NP /B /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
 ```
 
 Fondo:
@@ -475,6 +475,14 @@ Fondo:
    :::column-end:::
    :::column span="1":::
       Envía la salida a la ventana de la consola. Se usa junto con el envío a un archivo de registro.
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      /NP
+   :::column-end:::
+   :::column span="1":::
+      Omite el registro del progreso para mantener el registro legible.
    :::column-end:::
 :::row-end:::
 :::row:::

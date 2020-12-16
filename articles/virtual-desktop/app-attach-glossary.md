@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6107ffea4fe4d615a42973ab1b231ca9f6b5241f
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 7132eae073f3d53a104536076ae801ec9ff93e5f
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92674958"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518675"
 ---
 # <a name="msix-app-attach-glossary"></a>Glosario sobre la conexión de aplicaciones en formato MSIX
 
@@ -109,6 +109,18 @@ El desalmacenamiento notifica al sistema operativo que un paquete MSIX o una apl
 ## <a name="cim"></a>CIM
 
 .CIM es una nueva extensión de archivo asociada con el sistema de archivos de imagen compuesta (CimFS). El montaje y desmontaje de archivos CIM es más rápido que los archivos VHD. CIM también consume menos CPU y memoria que VHD.
+
+Un archivo CIM es un archivo con la extensión .CIM que contiene metadatos y al menos seis archivos adicionales que contienen datos reales. Los archivos del archivo CIM no tienen extensiones. En la tabla siguiente se muestra una lista de archivos de ejemplo que se encuentran en un archivo CIM:
+
+| Nombre de archivo | Extensión | Size |
+|-----------|-----------|------|
+| VSC | CIM | 1 KB |
+| objectid_b5742e0b-1b98-40b3-94a6-9cb96f497e56_0 | N/D | 27 KB |
+| objectid_b5742e0b-1b98-40b3-94a6-9cb96f497e56_1 | N/D | 20 KB |
+| objectid_b5742e0b-1b98-40b3-94a6-9cb96f497e56_2 | N/D | 42 KB |
+| region_b5742e0b-1b98-40b3-94a6-9cb96f497e56_0 | N/D | 428 KB |
+| region_b5742e0b-1b98-40b3-94a6-9cb96f497e56_1 | N/D | 217 KB |
+| region_b5742e0b-1b98-40b3-94a6-9cb96f497e56_2 | N/D | 264 132 KB |
 
 La tabla siguiente es una comparación de rendimiento entre VHD y CimFS. Estos números fueron el resultado de una serie de pruebas con archivos de 300 MB en cada formato ejecutado en un equipo DSv4.
 

@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 01/13/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8dfc34699bb973dc1f5b74807043e9f208d64f4c
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 00670746c1686bca354adc989ddce6c9dd336491
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242154"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96519066"
 ---
 # <a name="data-encryption-for-azure-database-for-mysql-by-using-the-azure-portal"></a>Cifrado de datos para Azure Database for MySQL mediante Azure Portal
 
@@ -34,11 +34,24 @@ Aprenda a usar Azure Portal para configurar y administrar el cifrado de datos de
     ```azurecli-interactive
     az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --enable-purge-protection true
     ```
+  * Los días de retención se han establecido en 90 días
+  
+    ```azurecli-interactive
+    az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --retention-days 90
+    ```
 
 * La clave debe tener los siguientes atributos para que se pueda usar como clave administrada por el cliente:
   * Sin fecha de expiración
   * No deshabilitado
-  * Poder realizar operaciones get, wrap key, unwrap key
+  * Poder realizar las operaciones **get**, **wrap** y **unwrap**
+  * El atributo recoverylevel debe estar establecido en **Recoverable** (requiere habilitar la eliminación temporal con el período de retención establecido en 90 días).
+  * Habilitación de la protección de purgas
+
+Puede comprobar los atributos de la clave con el siguiente comando:
+
+```azurecli-interactive
+az keyvault key show --vault-name <key_vault_name> -n <key_name>
+```
 
 ## <a name="set-the-right-permissions-for-key-operations"></a>Establecer los permisos adecuados para las operaciones de clave
 
@@ -74,7 +87,7 @@ Después de cifrar Azure Database for MySQL con la clave administrada de un clie
 
    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/show-restore.png" alt-text="Captura de pantalla de Azure Database for MySQL, las opciones información general y Restaurar resaltadas":::
 
-   O bien, en el caso de un servidor habilitado para la replicación, en el encabezado **Configuración** , seleccione **Replicación**.
+   O bien, en el caso de un servidor habilitado para la replicación, en el encabezado **Configuración**, seleccione **Replicación**.
 
    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/mysql-replica.png" alt-text="Captura de pantalla de Azure Database for MySQL, con la opción Replicación resaltada":::
 

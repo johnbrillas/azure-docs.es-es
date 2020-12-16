@@ -2,15 +2,15 @@
 title: Introducción a las especificaciones de plantilla
 description: Describe cómo crear especificaciones de plantilla y compartirlas con otros usuarios de la organización.
 ms.topic: conceptual
-ms.date: 11/17/2020
+ms.date: 11/25/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 83d5a210a5af538173ad0ca5e4c718363639c40a
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: dd7616bdc07aee86ac56a2f2fe0ac282838c58b4
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94747407"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518862"
 ---
 # <a name="azure-resource-manager-template-specs-preview"></a>Especificaciones de plantilla de Azure Resource Manager (versión preliminar)
 
@@ -21,7 +21,7 @@ Una especificación de plantilla es un tipo de recurso para almacenar una planti
 Para implementar la especificación de plantilla, use herramientas estándar de Azure como PowerShell, la CLI de Azure, Azure Portal, REST, y otros SDK y clientes compatibles. Utilice los mismos comandos que utilizaría para la plantilla.
 
 > [!NOTE]
-> Las especificaciones de plantilla se encuentran actualmente en versión preliminar. Para usarlas, debe instalar la última versión de PowerShell o la CLI de Azure. En Azure PowerShell, use la [versión 5.0.0 o posterior](/powershell/azure/install-az-ps). En la CLI de Azure, use la [versión 2.14.2 o posterior](/cli/azure/install-azure-cli).
+> Las especificaciones de plantilla se encuentran actualmente en versión preliminar. Para usarlas con Azure PowerShell, debe instalar la [versión 5.0.0 o posterior](/powershell/azure/install-az-ps). Para usarlas con la CLI de Azure, utilice la [versión 2.14.2 o posterior](/cli/azure/install-azure-cli).
 
 ## <a name="why-use-template-specs"></a>¿Por qué usar especificaciones de plantilla?
 
@@ -73,7 +73,7 @@ Cree una especificación de plantilla mediante:
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-New-AzTemplateSpec -Name storageSpec -Version 1.0 -ResourceGroupName templateSpecsRg -Location westus2 -TemplateFile ./mainTemplate.json
+New-AzTemplateSpec -Name storageSpec -Version 1.0a -ResourceGroupName templateSpecsRg -Location westus2 -TemplateFile ./mainTemplate.json
 ```
 
 # <a name="cli"></a>[CLI](#tab/azure-cli)
@@ -81,7 +81,7 @@ New-AzTemplateSpec -Name storageSpec -Version 1.0 -ResourceGroupName templateSpe
 ```azurecli
 az ts create \
   --name storageSpec \
-  --version "1.0" \
+  --version "1.0a" \
   --resource-group templateSpecRG \
   --location "westus2" \
   --template-file "./mainTemplate.json"
@@ -119,7 +119,7 @@ Get-AzTemplateSpec -ResourceGroupName templateSpecsRG -Name storageSpec
 az ts show \
     --name storageSpec \
     --resource-group templateSpecRG \
-    --version "1.0"
+    --version "1.0a"
 ```
 
 ---
@@ -134,14 +134,14 @@ En lugar de pasar una ruta de acceso o un URI para una plantilla, para implement
 
 **/subscriptions/{id-de-suscripción}/resourceGroups/{grupo-de-recursos}/providers/Microsoft.Resources/templateSpecs/{nombre-de-especificación-de-plantilla}/versions/{versión-de-especificación-de-plantilla}**
 
-Observe que el identificador de recurso incluye un número de versión para la especificación de plantilla.
+Observe que el identificador de recurso incluye un nombre de versión para la especificación de plantilla.
 
 Por ejemplo, puede implementar una especificación de plantilla mediante el siguiente comando.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-$id = "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/templateSpecsRG/providers/Microsoft.Resources/templateSpecs/storageSpec/versions/1.0"
+$id = "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/templateSpecsRG/providers/Microsoft.Resources/templateSpecs/storageSpec/versions/1.0a"
 
 New-AzResourceGroupDeployment `
   -TemplateSpecId $id `
@@ -151,7 +151,7 @@ New-AzResourceGroupDeployment `
 # <a name="cli"></a>[CLI](#tab/azure-cli)
 
 ```azurecli
-id = "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/templateSpecsRG/providers/Microsoft.Resources/templateSpecs/storageSpec/versions/1.0"
+id = "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/templateSpecsRG/providers/Microsoft.Resources/templateSpecs/storageSpec/versions/1.0a"
 
 az deployment group create \
   --resource-group demoRG \
@@ -160,12 +160,12 @@ az deployment group create \
 
 ---
 
-En la práctica, normalmente ejecutará `Get-AzTemplateSpec` para obtener el identificador de la especificación de plantilla que quiere implementar.
+En la práctica, normalmente ejecutará `Get-AzTemplateSpec` o `az ts show` para obtener el identificador de la especificación de plantilla que quiere implementar.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-$id = (Get-AzTemplateSpec -Name storageSpec -ResourceGroupName templateSpecsRg -Version 1.0).Versions.Id
+$id = (Get-AzTemplateSpec -Name storageSpec -ResourceGroupName templateSpecsRg -Version 1.0a).Versions.Id
 
 New-AzResourceGroupDeployment `
   -ResourceGroupName demoRG `
@@ -175,7 +175,7 @@ New-AzResourceGroupDeployment `
 # <a name="cli"></a>[CLI](#tab/azure-cli)
 
 ```azurecli
-id = $(az ts show --name storageSpec --resource-group templateSpecRG --version "1.0" --query "id")
+id = $(az ts show --name storageSpec --resource-group templateSpecRG --version "1.0a" --query "id")
 
 az deployment group create \
   --resource-group demoRG \
@@ -309,7 +309,7 @@ El ejemplo siguiente es similar al anterior, pero se usa la propiedad `id` para 
       "properties": {
         "mode": "Incremental",
         "templateLink": {
-          "id": "[resourceId('templateSpecsRG', 'Microsoft.Resources/templateSpecs/versions', 'networkingSpec', '1.0')]"
+          "id": "[resourceId('templateSpecsRG', 'Microsoft.Resources/templateSpecs/versions', 'networkingSpec', '1.0a')]"
         }
       }
     },
@@ -321,7 +321,7 @@ El ejemplo siguiente es similar al anterior, pero se usa la propiedad `id` para 
       "properties": {
         "mode": "Incremental",
         "templateLink": {
-          "id": "[resourceId('templateSpecsRG', 'Microsoft.Resources/templateSpecs/versions', 'storageSpec', '1.0')]"
+          "id": "[resourceId('templateSpecsRG', 'Microsoft.Resources/templateSpecs/versions', 'storageSpec', '1.0a')]"
         }
       }
     }
@@ -334,7 +334,7 @@ Para obtener más información acerca de la vinculación de especificaciones de 
 
 ## <a name="versioning"></a>Control de versiones
 
-Cuando se crea una especificación de plantilla, se debe proporciona un número de versión para esta. A medida que realiza la iteración en el código de plantilla, puede actualizar una versión existente (para revisiones) o publicar una nueva versión. La versión es una cadena de texto. Puede optar por seguir cualquier sistema de control de versiones, incluido el control de versiones semántico. Los usuarios de la especificación de plantilla pueden proporcionar el número de versión que quieren usar al implementarla.
+Cuando se crea una especificación de plantilla, se debe proporcionar un nombre de versión para ella. A medida que realiza la iteración en el código de plantilla, puede actualizar una versión existente (para revisiones) o publicar una nueva versión. La versión es una cadena de texto. Puede optar por seguir cualquier sistema de control de versiones, incluido el control de versiones semántico. Los usuarios de la especificación de plantilla pueden proporcionar el nombre de versión que quieren usar al implementarla.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

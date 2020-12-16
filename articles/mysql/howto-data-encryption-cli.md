@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 07d2e9fa98c24695a119c651539d4003ecd8524a
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 6d9abc67035b4581a028d8e59ef080b4f1ffa5b9
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242099"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96519049"
 ---
 # <a name="data-encryption-for-azure-database-for-mysql-by-using-the-azure-cli"></a>Cifrado de datos para Azure Database for MySQL mediante la CLI de Azure
 
@@ -24,7 +24,7 @@ Aprenda a usar la CLI de Azure para configurar y administrar el cifrado de datos
 * Cree un almacén de claves y una clave que se usará como clave administrada por el cliente. Habilite también la protección de purga y la eliminación temporal en el almacén de claves.
 
   ```azurecli-interactive
-  az keyvault create -g <resource_group> -n <vault_name> --enable-soft-delete true -enable-purge-protection true
+  az keyvault create -g <resource_group> -n <vault_name> --enable-soft-delete true --enable-purge-protection true
   ```
 
 * En la instancia de Azure Key Vault creada, cree la clave que se usará para el cifrado de datos de Azure Database for MySQL.
@@ -46,11 +46,23 @@ Aprenda a usar la CLI de Azure para configurar y administrar el cifrado de datos
     ```azurecli-interactive
     az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --enable-purge-protection true
     ```
+  * Los días de retención se han establecido en 90 días
+  ```azurecli-interactive
+    az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --retention-days 90
+    ```
 
 * La clave debe tener los siguientes atributos para que se pueda usar como clave administrada por el cliente:
   * Sin fecha de expiración
   * No deshabilitado
-  * Poder realizar las operaciones **get** , **wrap** y **unwrap**
+  * Poder realizar las operaciones **get**, **wrap** y **unwrap**
+  * El atributo recoverylevel debe estar establecido en **Recoverable** (requiere habilitar la eliminación temporal con el período de retención establecido en 90 días).
+  * Habilitación de la protección de purgas
+
+Puede comprobar los atributos de la clave con el siguiente comando:
+
+```azurecli-interactive
+az keyvault key show --vault-name <key_vault_name> -n <key_name>
+```
 
 ## <a name="set-the-right-permissions-for-key-operations"></a>Establecer los permisos adecuados para las operaciones de clave
 
@@ -68,7 +80,7 @@ Aprenda a usar la CLI de Azure para configurar y administrar el cifrado de datos
    az mysql server update --name  <server name>  -g <resource_group> --assign-identity
    ```
 
-2. Establezca los **Permisos de clave** ( **Get** , **Wrap** y **Unwrap** ) para la **Entidad de seguridad** , que es el nombre del servidor MySQL.
+2. Establezca los **Permisos de clave** (**Get**, **Wrap** y **Unwrap**) para la **Entidad de seguridad**, que es el nombre del servidor MySQL.
 
     ```azurecli-interactive
     az keyvault set-policy --name -g <resource_group> --key-permissions get unwrapKey wrapKey --object-id <principal id of the server>
@@ -112,7 +124,7 @@ az mysql server key list --name  '<server_name>'  -g '<resource_group_name>'
 az keyvault set-policy --name <keyvault> -g <resoure_group> --key-permissions get unwrapKey wrapKey --object-id <principl id of the server returned by the step 1>
 ```
 
-* Vuelva a validar el servidor restaurado o el servidor Réplica con la clave de cifrado.
+* Vuelva a validar el servidor restaurado o el servidor Réplica con la clave de cifrado
 
 ```azurecli-interactive
 az mysql server key create –name  <server name> -g <resource_group> --kid <key url>
@@ -154,7 +166,7 @@ Esta plantilla de Azure Resource Manager crea un servidor de Azure Database for 
 
 Además, puede usar plantillas de Azure Resource Manager para habilitar el cifrado de datos en los servidores existentes de Azure Database for MySQL.
 
-* Pase el URI del recurso de la clave de Azure Key Vault que copió anteriormente en la propiedad `Uri` en el objeto properties.
+* Pase el id. de recurso de la clave de Azure Key Vault que copió anteriormente en la propiedad `Uri` en el objeto properties.
 
 * Use *2020-01-01-preview* como la versión de API.
 

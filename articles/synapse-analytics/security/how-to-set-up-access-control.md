@@ -1,187 +1,288 @@
 ---
-title: Protección del área de trabajo de Synapse (versión preliminar)
-description: En este artículo se explica cómo usar roles y el control de acceso para controlar las actividades y el acceso a los datos en el área de trabajo de Synapse.
+title: Cómo configurar el control de acceso para el área de trabajo de Synapse
+description: En este artículo aprenderá controlar el acceso a un área de trabajo de Synapse con roles de Azure y Synapse y permisos de SQL y GIT.
 services: synapse-analytics
-author: matt1883
+author: billgib
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: security
-ms.date: 04/15/2020
-ms.author: mahi
+ms.date: 12/03/2020
+ms.author: billgib
 ms.reviewer: jrasnick
-ms.openlocfilehash: 79a4db1f7d4be88260ea41ce1090007bc66cc7c8
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 7243d24204c8e15ae4246718cafb24d31f804d02
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94556036"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96519185"
 ---
-# <a name="secure-your-synapse-workspace-preview"></a>Protección del área de trabajo de Synapse (versión preliminar) 
+# <a name="how-to-set-up-access-control-for-your-synapse-workspace"></a>Cómo configurar el control de acceso para el área de trabajo de Synapse 
 
-En este artículo se explica cómo usar roles y el control de acceso para controlar las actividades y el acceso a los datos. Si sigue estas instrucciones, se simplificará el control de acceso en Azure Synapse Analytics. Solo debe agregar y quitar usuarios de uno de los tres grupos de seguridad.
+En este artículo aprenderá controlar el acceso a un área de trabajo de Synapse con roles de Azure y Synapse y permisos de SQL y GIT.   
 
-## <a name="overview"></a>Información general
+En esta guía, configurará un área de trabajo y un sistema de control de acceso básico adecuado para muchos proyectos de Synapse.  A continuación, se describen opciones más avanzadas para que pueda realizar un control más preciso en caso necesario.  
 
-Para proteger un área de trabajo de Synapse (versión preliminar), debe seguir un patrón de configuración para los siguientes elementos:
+Para simplificar el control de acceso de Synapse, se pueden usar grupos de seguridad que estén alineados con los roles y las personas de la organización.  Para administrar el acceso solo hay que agregar y quitar usuarios de los grupos de seguridad.
 
-- Roles de Azure (como los roles integrados de propietario, colaborador, etc.)
-- Roles de Synapse: estos roles son exclusivos de Synapse y no están basados en los roles de Azure. Hay tres roles de este tipo:
-  - Administrador del área de trabajo de Synapse
-  - Administrador de SQL de Synapse
-  - Apache Spark para el administrador de Azure Synapse Analytics
-- Control de acceso a los datos de Azure Data Lake Storage Gen 2 (ADLSGEN2).
-- Control de acceso a las bases de datos de SQL y Spark de Synapse
+Antes de comenzar este tutorial, lea la [información general sobre el control de acceso de Synapse](./synapse-workspace-access-control-overview.md) para familiarizarse con los mecanismos de control de acceso que usa Synapse.   
 
+## <a name="access-control-mechanisms"></a>Mecanismos de control de acceso
+
+> [!NOTE]
+> El enfoque que se toma en esta guía es la creación de varios grupos de seguridad y, a continuación, la asignación de roles a estos grupos. Una vez configurados los grupos, solo necesita administrar la pertenencia en los grupos de seguridad a fin de controlar el acceso al área de trabajo.
+
+Para proteger un área de trabajo de Synapse, debe seguir un patrón de configuración para los siguientes elementos:
+
+- **Grupos de seguridad**, para agrupar usuarios con requisitos de acceso similares.
+- **Roles de Azure**, para controlar quién puede crear y administrar grupos de SQL, grupos de Apache Spark y entornos de ejecución de integración, y acceder al almacenamiento de ADLS Gen2.
+- **Roles de Synapse**, para controlar el acceso a los artefactos de código publicados, el uso de recursos de proceso de Apache Spark y los entornos de ejecución de integración. 
+- **Permisos de SQL**, para controlar el acceso administrativo y del plano de datos a los grupos de SQL. 
+- **Permisos de GIT**, para controlar quién puede acceder a los artefactos de código en el control de código fuente si configura la compatibilidad con GIT para el área de trabajo. 
+ 
 ## <a name="steps-to-secure-a-synapse-workspace"></a>Pasos para proteger un área de trabajo de Synapse
 
 En este documento se usan nombres estándar para simplificar las instrucciones. Reemplácelos por los nombres de su preferencia.
 
-|Configuración | Valor de ejemplo | Descripción |
+|Configuración | Nombre estándar | Descripción |
 | :------ | :-------------- | :---------- |
-| **Área de trabajo de Synapse** | WS1 |  Nombre que tendrá el área de trabajo de Synapse. |
-| **Cuenta de ADLSGEN2** | STG1 | Cuenta de ADLS que se usará con el área de trabajo. |
-| **Contenedor** | CNT1 | Contenedor en STG1 que el área de trabajo usará de forma predeterminada. |
-| **Inquilino de Active Directory** | contoso | Nombre del inquilino de Active Directory.|
+| **Área de trabajo de Synapse** | `workspace1` |  Nombre que tendrá el área de trabajo de Synapse. |
+| **Cuenta de ADLSGEN2** | `storage1` | Cuenta de ADLS que se usará con el área de trabajo. |
+| **Contenedor** | `container1` | Contenedor en STG1 que el área de trabajo usará de forma predeterminada. |
+| **Inquilino de Active Directory** | `contoso` | Nombre del inquilino de Active Directory.|
 ||||
 
 ## <a name="step-1-set-up-security-groups"></a>PASO 1: Configuración de los grupos de seguridad
 
-Cree y rellene tres grupos de seguridad para el área de trabajo:
+>[!Note] 
+>Durante la versión preliminar, le recomendamos que cree grupos de seguridad asignados a los roles de **Administrador de SQL de Synapse SQL** y **Administrador de Apache Spark de Synapse**.  Con la introducción de nuevos ámbitos y roles de RBAC de Synapse más precisos, ahora le recomendamos que use estas nuevas funcionalidades para controlar el acceso al área de trabajo.  Estos nuevos roles y ámbitos proporcionan más flexibilidad de configuración y reconocen que los desarrolladores a menudo usan una combinación de SQL y Spark en la creación de aplicaciones de análisis. Así mismo, puede que se les deba conceder acceso a recursos específicos dentro del área de trabajo. [Más información](./synapse-workspace-synapse-rbac.md).
 
-- **WS1\_WSAdmins**: para los usuarios que necesitan control completo sobre el área de trabajo.
-- **WS1\_SparkAdmins**: para aquellos usuarios que necesitan control completo sobre las características de Spark del área de trabajo.
-- **WS1\_SQLAdmins**: para aquellos usuarios que necesitan control completo sobre las características de SQL del área de trabajo.
+Cree los siguientes grupos de seguridad para su área de trabajo:
 
-## <a name="step-2-prepare-your-data-lake-storage-gen2-account"></a>PASO 2: Preparación de una cuenta de Azure Data Lake Storage Gen2
+- **`workspace1_SynapseAdministrators`** , para los usuarios que necesitan control completo sobre el área de trabajo.  Agréguese a usted mismo a este grupo de seguridad, al menos inicialmente.
+- **`workspace1_SynapseContributors`** , para los desarrolladores que necesitan desarrollar, depurar y publicar código en el servicio.   
+- **`workspace1_SynapseComputeOperators`** , para los usuarios que necesitan administrar y supervisar los grupos de Apache Spark y los entornos de ejecución de integración.
+- **`workspace1_SynapseCredentialUsers`** , para los usuarios que necesitan depurar y ejecutar canalizaciones de orquestación mediante la credencial de las identidades administradas para recursos de Azure del área de trabajo, así como cancelar ejecuciones de canalización.   
 
-Identifique esta información sobre su instancia de almacenamiento:
+En breve, asignará roles de Synapse a estos grupos en el ámbito del área de trabajo.  
 
-- La cuenta de ADLSGEN2 que usará para el área de trabajo. En este documento, se llama STG1.  STG1 se considera la cuenta de almacenamiento "principal" del área de trabajo.
-- El contenedor dentro de WS1 que el área de trabajo de Synapse usará de forma predeterminada. En este documento, se llama CNT1.  Este contenedor se usa para lo siguiente:
+Cree también este grupo de seguridad: 
+- **`workspace1_SQLAdministrators`** , grupo para los usuarios que necesitan autoridad de administrador de Active Directory en los grupos de SQL del área de trabajo. 
+
+El grupo de `workspace1_SynapseSQLAdministrators` se usará al configurar permisos SQL en grupos de SQL a medida que se creen. 
+
+En el caso de una configuración básica, estos cinco grupos son suficientes. Más adelante, podrá agregar grupos de seguridad para administrar los usuarios que necesiten acceso más especializado o para proporcionar acceso a los usuarios solo a recursos específicos.
+
+> [!NOTE]
+>- Obtenga información sobre cómo crear un grupo de seguridad en [este artículo](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal).
+>- Obtenga información sobre cómo agregar un grupo de seguridad de otro grupo de seguridad en [este artículo](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-membership-azure-portal).
+
+>[!Tip]
+>Los usuarios individuales de Synapse pueden usar Azure Active Directory en Azure Portal para ver las pertenencias a grupos y determinar qué roles se les han concedido.
+
+## <a name="step-2-prepare-your-adls-gen2-storage-account"></a>PASO 2: Prepare la cuenta de almacenamiento de ADLS Gen2.
+
+Un área de trabajo de Synapse usa un contenedor de almacenamiento predeterminado para lo siguiente:
   - Almacenar los archivos de datos de copia de seguridad para las tablas de Spark
   - Los registros de ejecución de los trabajos de Spark
 
-- Mediante Azure Portal, asigne los grupos de seguridad a los siguientes roles de CNT1.
+Identifique la siguiente información sobre su almacenamiento:
 
-  - Asigne el grupo **WS1\_WSAdmins** al rol **Colaborador de datos de Storage Blob**.
-  - Asigne el grupo **WS1\_SparkAdmins** al rol **Colaborador de datos de Storage Blob**.
-  - Asigne el grupo **WS1\_SQLAdmins** al rol **Colaborador de datos de Storage Blob**.
+- Cuenta de ADLS Gen2 que usará para el área de trabajo. En este documento, se llama `storage1`. `storage1` se considera la cuenta de almacenamiento "principal" del área de trabajo.
+- Contenedor dentro de `workspace1` que el área de trabajo de Synapse usará de forma predeterminada. En este documento, se llama `container1`. 
+
+- Mediante Azure Portal, asigne los grupos de seguridad a los siguientes roles de Azure en `container1`. 
+
+  - Asigne el rol **Colaborador de datos de Storage Blob** a `workspace1_SynapseAdmins`. 
+  - Asigne el rol **Colaborador de datos de Storage Blob** a `workspace1_SynapseContributors`.
+  - Asigne el rol **Colaborador de datos de Storage Blob** a `workspace1_SynapseComputeOperators` **<< VALIDATE**
 
 ## <a name="step-3-create-and-configure-your-synapse-workspace"></a>PASO 3: Creación y configuración del área de trabajo de Synapse
 
- En Azure Portal, cree un área de trabajo de Synapse:
+En Azure Portal, cree un área de trabajo de Synapse:
 
 - Seleccione su suscripción.
-- Seleccione el grupo de recursos: debe tener acceso a un grupo de recursos en el que tenga asignado el rol **Propietario**.
-- Asigne el nombre WS1 al área de trabajo.
-- Seleccione STG1 en la cuenta de almacenamiento. Elija CNT1 para el contenedor que se usará como "sistema de archivos".
+- Seleccione o cree un grupo de recursos para el que tenga el rol **Propietario** de Azure.
+- Asigne el nombre `workspace1` al área de trabajo.
+- Seleccione `storage1` en la cuenta de almacenamiento.
+- Elija `container1` para el contenedor que se usará como "sistema de archivos".
 - Abra WS1 en Synapse Studio.
-- Seleccione **Administrar** > **Control de acceso** y asigne los grupos de seguridad a los siguientes roles de Synapse.
-  - Asigne **WS1\_WSAdmins** a los administradores del área de trabajo de Synapse.
-  - Asigne **WS1\_SparkAdmins** a los administradores de Spark de Synapse.
-  - Asigne **WS1\_SQLAdmins** a los administradores de SQL de Synapse.
+- Seleccione **Administrar** > **Control de acceso** y asigne los siguientes roles de Synapse del *ámbito del área de trabajo* a los grupos de seguridad.
+  - Asigne el rol **Administrador de Synapse** en `workspace1_SynapseAdministrators`. 
+  - Asigne el rol **Colaborador de Synapse** en `workspace1_SynapseContributors`. 
+  - Asigne el rol **Operador de proceso de Synapse** en `workspace1_SynapseComputeOperators`.
 
-## <a name="step-4-configure-data-lake-storage-gen2-for-use-by-synapse-workspace"></a>PASO 4: Configuración de Data Lake Storage Gen2 para que lo use el área de trabajo de Synapse
+## <a name="step-4-grant-the-workspace-msi-access-to-the-default-storage-container"></a>PASO 4: Concesión de acceso a las identidades administradas para recursos de Azure del área de trabajo al contenedor de almacenamiento predeterminado
 
-El área de trabajo de Synapse necesita acceso a STG1 y CNT1 para que ejecutar canalizaciones y realizar tareas del sistema.
+Para ejecutar canalizaciones y realizar tareas del sistema, Synapse requiere que las identidades administradas para recursos de Azure del área de trabajo tenga acceso a `container1` de la cuenta de ADLS Gen2 predeterminada.
 
 - Abra Azure Portal.
-- Busque la cuenta STG1.
-- Navegue al contenedor CNT1.
-- Asegúrese de que el archivo MSI (Managed Service Identity) para WS1 esté asignado al rol **Colaborador de datos de Storage Blob** en CNT1.
+- Busque la cuenta de almacenamiento, `storage1`, y, luego, `container1`.
+- Con **Access Control (IAM)** , asegúrese de que el rol **Colaborador de datos de blobs de almacenamiento** esté asignado a las identidades administradas para recursos de Azure del área de trabajo.
   - Si no lo está, asígnelo.
-  - El MSI tiene el mismo nombre que el área de trabajo. En este caso, sería &quot;WS1&quot;.
+  - El MSI tiene el mismo nombre que el área de trabajo. En este ejemplo, sería `workspace1`.
 
-## <a name="step-5-configure-admin-access-for-synapse-sql"></a>PASO 5: Configuración del acceso de administrador para Synapse SQL
+## <a name="step-5-grant-the-synapse-administrators-the-azure-contributor-role-on-the-workspace"></a>PASO 5: Concesión del rol Colaborador de Azure a los administradores de Synapse en el área de trabajo 
+
+Para crear grupos de SQL, grupos de Apache Spark y entornos de ejecución de integración, los usuarios deben tener como mínimo acceso de colaborador de Azure en el área de trabajo. El rol Colaborador también permite a estos usuarios administrar los recursos, incluidas la pausa y el escalado.
 
 - Abra Azure Portal.
-- Vaya a al área de trabajo WS1.
+- Busque el área de trabajo `workspace1`.
+- Asigne el rol **Colaborador de Azure** de `workspace1` en `workspace1_SynapseAdministrators`. 
+
+## <a name="step-6-assign-sql-active-directory-admin-role"></a>PASO 6: Asignación del rol Administrador de SQL Active Directory
+
+El creador de la estación de trabajo se configura automáticamente como el administrador de Active Directory para el área de trabajo.  Este rol solo se puede conceder a un solo usuario o grupo. En este paso, asignará el administrador de Active Directory del área de trabajo al grupo de seguridad `workspace1_SynapseSQLAdministrators`.  La asignación de este rol proporciona a este grupo acceso de administrador con privilegios elevados a todos los grupos de SQL.   
+
+- Abra Azure Portal.
+- Vaya a `workspace1`.
 - En **Configuración**, seleccione **Administrador de SQL Active Directory**.
-- Seleccione **Establecer administrador** y seleccione WS1\_SQLAdmins.
+- Seleccione **Establecer administrador** y elija **`workspace1_SynapseSQLAdministrators`** .
 
-## <a name="step-6-maintain-access-control"></a>PASO 6: Mantenimiento del control de acceso
+>[!Note]
+>Este paso es opcional.  Puede optar por conceder al grupo de administradores de SQL un rol con menos privilegios. Para asignar `db_owner` u otros roles de SQL, debe ejecutar scripts en cada base de datos SQL. 
 
-La configuración se ha finalizado.
+## <a name="step-7-grant-access-to-sql-pools"></a>PASO 7: Concesión de acceso a grupos de SQL
 
-Ahora, para administrar el acceso de los usuarios, puede agregar y quitar usuarios de los tres grupos de seguridad.
+De forma predeterminada, a todos los usuarios a los que se asigna el rol Administrador de Synapse también se les asigna el rol `db_owner` de SQL en el grupo de SQL sin servidor ("integrado").
 
-Aunque puede asignar los usuarios manualmente a los roles de Synapse, al hacerlo no configurará las cosas de forma coherente. En su lugar, solo tiene que agregar o quitar usuarios de los grupos de seguridad.
+El acceso a los grupos de SQL para otros usuarios y para las identidades administradas para recursos de Azure del área de trabajo se controla mediante permisos SQL.  La asignación de permisos de SQL requiere que los scripts de SQL se ejecuten en cada grupo de SQL después de la creación.  Hay tres casos en los que es necesario ejecutar estos scripts:
+1. Al conceder a otros usuarios acceso al grupo SQL sin servidor ("integrado").
+2. Al conceder acceso a cualquier usuario a grupos dedicados
+3. Al conceder acceso a las identidades administradas para recursos de Azure del área de trabajo a un grupo de SQL a fin de habilitar canalizaciones que requieran que el acceso al grupo de SQL se ejecute correctamente.
 
-## <a name="step-7-verify-access-for-users-in-the-roles"></a>PASO 7: Comprobación del acceso para los usuarios de los roles
+A continuación, se incluyen scripts SQL de ejemplo.
 
-Los usuarios de cada rol deben completar los siguientes pasos:
+Para conceder acceso a un grupo de SQL dedicado, el creador del área de trabajo o cualquier miembro del grupo `workspace1_SynapseSQL Administrators` puede ejecutar los scripts.  
 
-| Number | Paso | Administradores de áreas de trabajo | Administradores de Spark | Administradores de SQL |
-| --- | --- | --- | --- | --- |
-| 1 | Cargar un archivo Parquet en CNT1 | SÍ | SÍ | SÍ |
-| 2 | Leer el archivo Parquet mediante un grupo de SQL sin servidor | SÍ | No | SÍ |
-| 3 | Crear un grupo de Apache Spark sin servidor | SÍ [1] | SÍ [1] | No  |
-| 4 | Leer el archivo Parquet con una instancia de Notebook | SÍ | SÍ | No |
-| 5 | Crear una canalización desde la instancia de Notebook y desencadenar la canalización para ejecutarse ahora | SÍ | No | No |
-| 6 | Crear un grupo de SQL dedicado y ejecutar un script de SQL como &quot;SELECT 1&quot; | SÍ [1] | No | SÍ [1] |
+Para conceder acceso al grupo de SQL sin servidor ("integrado"), cualquier miembro del grupo `workspace1_SynapseAdministrators` también puede ejecutar los scripts. 
+
+> [!TIP]
+> Los pasos siguientes se deben realizar para **cada** grupo de SQL con el fin de conceder a los usuarios acceso a todas las bases de datos SQL, excepto en la sección [Permiso de ámbito de área de trabajo](#workspace-scoped-permission), en que puede asignar un rol sysadmin a un usuario.
+
+### <a name="step-71-serverless-sql-pools"></a>PASO 7.1: Grupos de SQL sin servidor
+
+En esta sección, puede encontrar ejemplos sobre cómo conceder a un usuario un permiso para una base de datos determinada o permisos de servidor completos.
 
 > [!NOTE]
-> [1] Para crear grupos de SQL o Spark, el usuario debe tener como mínimo el rol de Colaborador en el área de trabajo de Synapse.
->
- 
->[!TIP]
-> - Algunos de los pasos no estarán permitidos de forma deliberada en función del rol.
-> - Tenga en cuenta que pueden producirse errores en algunas tareas si la seguridad no se configuró por completo. Dichas tareas se indican en la tabla.
+> En los ejemplos de script, reemplace *alias* por el alias del usuario o grupo al que se concede el acceso y *dominio* por el dominio de la empresa que usa.
 
-## <a name="step-8-network-security"></a>PASO 8: Seguridad de redes
+#### <a name="pool-scoped-permission"></a>Permiso de ámbito de grupo
 
-Para configurar el firewall del área de trabajo, la red virtual y la instancia de [Private Link](../../azure-sql/database/private-endpoint-overview.md).
+Para conceder acceso a un usuario a un grupo de SQL sin servidor **único**, siga los pasos de este ejemplo:
 
-## <a name="step-9-completion"></a>PASO 9: Completion
+1. Cree LOGIN
+
+    ```sql
+    use master
+    go
+    CREATE LOGIN [alias@domain.com] FROM EXTERNAL PROVIDER;
+    go
+    ```
+
+2. Cree USER
+
+    ```sql
+    use yourdb -- Use your DB name
+    go
+    CREATE USER alias FROM LOGIN [alias@domain.com];
+    ```
+
+3. Agregue USER a los miembros del rol especificado
+
+    ```sql
+    use yourdb -- Use your DB name
+    go
+    alter role db_owner Add member alias -- Type USER name from step 2
+    ```
+
+#### <a name="workspace-scoped-permission"></a>Permiso de ámbito de área de trabajo
+
+Para conceder acceso completo a **todos** los grupos de SQL sin servidor en el área de trabajo, use el script en este ejemplo:
+
+```sql
+CREATE LOGIN [alias@domain.com] FROM EXTERNAL PROVIDER;
+ALTER SERVER ROLE  sysadmin  ADD MEMBER [alias@domain.com];
+```
+
+### <a name="step-72-dedicated-sql-pools"></a>PASO 7.2: Grupos de SQL dedicados
+
+Para conceder acceso a un **solo** grupo de SQL dedicado, siga estos pasos en el editor de scripts de Synapse SQL.
+
+1. Cree el usuario en la base de datos. Para ello, ejecute el siguiente comando en la base de datos de destino, que seleccionó mediante la lista desplegable *Conectar a*:
+
+    ```sql
+    --Create user in SQL DB
+    CREATE USER [<alias@domain.com>] FROM EXTERNAL PROVIDER;
+    ```
+
+2. Conceda al usuario un rol para acceder a la base de datos:
+
+    ```sql
+    --Create user in SQL DB
+    EXEC sp_addrolemember 'db_owner', '<alias@domain.com>';
+    ```
+
+> [!IMPORTANT]
+> *db_datareader* y *db_datawriter* pueden funcionar para los permisos de lectura y escritura si no se quiere conceder el permiso *db_owner*.
+> Para que los usuarios de Spark lean el contenido directamente desde Spark de un grupo de SQL o escriban en él, se requiere el permiso *db_owner*.
+
+Después de crear los usuarios, compruebe que el grupo de SQL sin servidor pueda realizar consultas a la cuenta de almacenamiento.
+
+### <a name="step-73-sl-access-control-for-workspace-pipeline-runs"></a>PASO 7.3: Control de acceso SL a las ejecuciones de canalización del área de trabajo
+
+### <a name="workspace-managed-identity"></a>Identidad administrada del área de trabajo
+
+> [!IMPORTANT]
+> Para ejecutar correctamente canalizaciones que incluyen conjuntos de datos o actividades que hacen referencia a un grupo de SQL, es preciso que se conceda a la identidad del área de trabajo acceso al grupo de SQL.
+
+Ejecute los siguientes comandos en cada grupo de SQL para permitir que la identidad administrada del área de trabajo ejecute canalizaciones en la base de datos del grupo de SQL:
+
+```sql
+--Create user in DB
+CREATE USER [<workspacename>] FROM EXTERNAL PROVIDER;
+
+--Granting permission to the identity
+GRANT CONTROL ON DATABASE::<SQLpoolname> TO <workspacename>;
+```
+
+Este permiso se puede quitar. Para ello, es preciso ejecutar el siguiente script en el mismo grupo de SQL:
+
+```sql
+--Revoking permission to the identity
+REVOKE CONTROL ON DATABASE::<SQLpoolname> TO <workspacename>;
+
+--Deleting the user in the DB
+DROP USER [<workspacename>];
+```
+
+## <a name="step-8-add-users-to-security-groups"></a>PASO 8: Adición de usuarios a grupos de seguridad
+
+La configuración inicial del sistema de control de acceso está completa.
+
+Para administrar el acceso, puede agregar y quitar usuarios de los grupos de seguridad que configuró.  Aunque puede asignar los usuarios manualmente a los roles de Synapse, al hacerlo no configurará los permisos de forma coherente. En su lugar, solo tiene que agregar o quitar usuarios de los grupos de seguridad.
+
+## <a name="step-9-network-security"></a>PASO 9: Seguridad de redes
+
+Como paso final para proteger el área de trabajo, debe proteger el acceso a la red mediante lo siguiente:
+- [Firewall del área de trabajo](./synapse-workspace-ip-firewall.md)
+- [Red virtual administrada](./synapse-workspace-managed-vnet.md) 
+- [Puntos de conexión privados](./synapse-workspace-managed-private-endpoints.md)
+- [Private Link](../../azure-sql/database/private-endpoint-overview.md)
+
+## <a name="step-10-completion"></a>PASO 10: Completion
 
 El área de trabajo ahora está completamente configurada y protegida.
 
-## <a name="how-roles-interact-with-synapse-studio"></a>Cómo interactúan los roles con Synapse Studio
+## <a name="supporting-more-advanced-scenarios"></a>Compatibilidad con escenarios más avanzados
 
-Synapse Studio se comportará de forma diferente en función de los roles de usuario. Algunos elementos pueden estar ocultos o deshabilitados si un usuario no tiene asignados los roles que proporcionan el acceso adecuado. En la siguiente tabla se resumen los efectos en Synapse Studio.
+Esta guía se centra en la configuración de un sistema de control de acceso básico. Para admitir escenarios más avanzados, puede crear grupos de seguridad adicionales y asignarles roles más precisos en ámbitos más específicos. Considere los casos siguientes:
 
-| Tarea | Administradores de áreas de trabajo | Administradores de Spark | Administradores de SQL |
-| --- | --- | --- | --- |
-| Abrir Synapse Studio | SÍ | SÍ | SÍ |
-| Ver el centro de Inicio | SÍ | SÍ | SÍ |
-| Ver el centro de datos | SÍ | SÍ | SÍ |
-| Centro de datos / ver los contenedores y las cuentas de ADLS Gen2 vinculados | SÍ [1] | SÍ [1] | SÍ [1] |
-| Centro de datos: ver las bases de datos | SÍ | SÍ | SÍ |
-| Centro de datos: ver los objetos en las bases de datos | SÍ | SÍ | SÍ |
-| Centro de datos: acceso a datos en las bases de datos de Synapse SQL | SÍ   | No   | SÍ   |
-| Centro de datos: acceso a datos en las bases de datos del grupo de SQL sin servidor | SÍ [2]  | No  | SÍ [2]  |
-| Centro de datos: acceso a datos en las bases de datos de Spark | SÍ [2] | SÍ [2] | SÍ [2] |
-| Usar el centro de desarrollo | SÍ | SÍ | SÍ |
-| Centro de desarrollo: crear scripts de SQL | SÍ | No | SÍ |
-| Centro de desarrollo: crear definiciones de trabajos de Spark | SÍ | SÍ | No |
-| Centro de desarrollo: crear instancias de Notebook | SÍ | SÍ | No |
-| Centro de desarrollo: crear flujos de datos | SÍ | No | No |
-| Usar el centro de orquestación | SÍ | SÍ | SÍ |
-| Centro de orquestación: usar las canalizaciones | SÍ | No | No |
-| Usar el centro de administración | SÍ | SÍ | SÍ |
-| Centro de administración: Synapse SQL | SÍ | No | SÍ |
-| Centro de administración: grupos de Spark | SÍ | SÍ | No |
-| Centro de administración: desencadenadores | SÍ | No | No |
-| Centro de administración: servicios vinculados | SÍ | SÍ | SÍ |
-| Centro de administración: control de acceso (asignar usuarios a los roles del área de trabajo de Synapse) | SÍ | No | No |
-| Centro de administración: entornos de ejecución de integración | SÍ | SÍ | SÍ |
-| Uso del concentrador de supervisión | SÍ | SÍ | SÍ |
-| Concentrador de supervisión/orquestación/ejecuciones de canalizaciones  | SÍ | No | No |
-| Concentrador de supervisión/orquestación/ejecuciones de desencadenadores  | SÍ | No | No |
-| Concentrador de supervisión/orquestación/tiempo de ejecución de integraciones  | SÍ | SÍ | SÍ |
-| Concentrador de supervisión/actividades/aplicaciones de Spark | SÍ | SÍ | No  |
-| Concentrador de supervisión/actividades/solicitudes SQL | SÍ | No | SÍ |
-| Concentrador de supervisión/actividades/grupos de Spark | SÍ | SÍ | No  |
-| Concentrador de supervisión/desencadenadores | SÍ | No | No |
-| Centro de administración: servicios vinculados | SÍ | SÍ | SÍ |
-| Centro de administración: control de acceso (asignar usuarios a los roles del área de trabajo de Synapse) | SÍ | No | No |
-| Centro de administración: entornos de ejecución de integración | SÍ | SÍ | SÍ |
+**Habilite la compatibilidad con GIT** para el área de trabajo a fin de obtener escenarios de desarrollo más avanzados, como CI/CD.  En el modo GIT, los permisos de GIT determinarán si un usuario puede confirmar los cambios en su rama de trabajo.  La publicación en el servicio solo tiene lugar desde la rama de colaboración.  Considere la posibilidad de crear un grupo de seguridad para los desarrolladores que necesitan desarrollar y depurar las actualizaciones en una rama de trabajo, pero que no necesitan publicar los cambios en el servicio en directo.
 
+**Restrinja el acceso de desarrollador** a recursos específicos.  Cree otros grupos de seguridad adicionales más precisos para los desarrolladores que solo necesitan acceder a recursos específicos.  Asigne a estos grupos roles de Synapse adecuados que tengan como ámbito grupos de Spark específicos, entornos de ejecución de integración o credenciales.
 
-> [!NOTE]
-> [1] El acceso a los datos de los contenedores depende del control de acceso en ADLS Gen2. </br>
-> [2] Las tablas de SQL a petición y las tablas de Spark almacenan datos en ADLS Gen2, por lo que el acceso requiere los permisos adecuados en ADLS Gen2.
+**Restrinja el acceso a los artefactos de código a los operadores**.  Cree grupos de seguridad para los operadores que deban supervisar el estado operativo de los recursos de proceso de Synapse y ver los registros, pero que no necesitan acceder al código ni publicar actualizaciones en el servicio. Asigne a estos grupos el rol Operador de proceso en el ámbito de grupos de Spark y de entornos de ejecución de integración específicos.  
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Creación de un [área de trabajo de Synapse](../quickstart-create-workspace.md)
+Aprenda a [administrar asignaciones de roles RBAC de Synapse](./how-to-manage-synapse-rbac-role-assignments.md). Cree una [área de trabajo de Synapse](../quickstart-create-workspace.md).

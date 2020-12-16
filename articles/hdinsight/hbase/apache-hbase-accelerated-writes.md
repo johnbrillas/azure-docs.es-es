@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 01/24/2020
-ms.openlocfilehash: 99253aa2e7e2e1f3f58f2ab7d5c40a695c2b9690
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 27b0485fdd7b3c352a85fe7eb39fba33c53bf727
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88654861"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96519219"
 ---
 # <a name="azure-hdinsight-accelerated-writes-for-apache-hbase"></a>Escrituras aceleradas de Azure HDInsight para Apache HBase
 
@@ -36,9 +36,9 @@ La característica Escrituras aceleradas soluciona el problema de mayores latenc
 
 ## <a name="how-to-enable-accelerated-writes-for-hbase-in-hdinsight"></a>Cómo habilitar Escrituras aceleradas para HBase en HDInsight
 
-Para crear un nuevo clúster de HBase con la característica Escrituras aceleradas, siga los pasos de [Configuración de clústeres en HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) hasta llegar al **Paso 3, almacenamiento**. En **Configuración de tienda de metadatos**, seleccione la casilla junto a **Enable HBase Accelerated Writes** (Habilitar escrituras aceleradas de HBase). A continuación, continúe con los pasos restantes para crear un clúster.
+Para crear un nuevo clúster de HBase con la característica Escrituras aceleradas, siga los pasos de [Configuración de clústeres en HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). En la pestaña **Conceptos básicos**, seleccione el tipo de clúster como HBase, especifique una versión de componente y, a continuación, haga clic en la casilla situada junto a **Habilitar escrituras aceleradas de HBase**. A continuación, continúe con los pasos restantes para crear un clúster.
 
-![Habilitar la opción de escrituras aceleradas para Apache HBase de HDInsight](./media/apache-hbase-accelerated-writes/azure-portal-cluster-storage-hbase.png)
+![Habilitar la opción de escrituras aceleradas para Apache HBase de HDInsight](./media/apache-hbase-accelerated-writes/azure-portal-create-hbase-wals.png)
 
 ## <a name="other-considerations"></a>Otras consideraciones
 

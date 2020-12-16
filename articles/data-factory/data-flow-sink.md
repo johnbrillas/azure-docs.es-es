@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 11/17/2020
-ms.openlocfilehash: da89d4fbc3f9e03e76d901c2215e4f16c5273013
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.date: 12/08/2020
+ms.openlocfilehash: 242249e3ab7fbedf9f19f3cb9a49fc4a8359f4ae
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96621117"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929351"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Transformación de receptor en el flujo de datos de asignación
 
@@ -41,13 +41,14 @@ El flujo de datos de asignación sigue un enfoque de extracción, carga y transf
 
 | Conector | Formato | Conjunto de datos/insertado |
 | --------- | ------ | -------------- |
-| [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties) | [JSON](format-json.md#mapping-data-flow-properties) <br> [Avro](format-avro.md#mapping-data-flow-properties) <br> [Texto delimitado](format-delimited-text.md#mapping-data-flow-properties) <br> [Delta (versión preliminar)](format-delta.md) <br> [ORC](format-orc.md#mapping-data-flow-properties)<br> [Parquet](format-parquet.md#mapping-data-flow-properties) | ✓/- <br> ✓/- <br> ✓/- <br> -/✓ <br>✓/✓<br> ✓/- |
-| [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties) | [JSON](format-json.md#mapping-data-flow-properties) <br> [Avro](format-avro.md#mapping-data-flow-properties) <br> [Texto delimitado](format-delimited-text.md#mapping-data-flow-properties) <br> [ORC](format-orc.md#mapping-data-flow-properties)<br/> [Parquet](format-parquet.md#mapping-data-flow-properties) | ✓/- <br> ✓/- <br> ✓/- <br>✓/✓<br> ✓/- |
-| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties) | [JSON](format-json.md#mapping-data-flow-properties) <br> [Avro](format-avro.md#mapping-data-flow-properties) <br> [Texto delimitado](format-delimited-text.md#mapping-data-flow-properties) <br> [Delta (versión preliminar)](format-delta.md) <br> [ORC](format-orc.md#mapping-data-flow-properties)<br/> [Parquet](format-parquet.md#mapping-data-flow-properties)  <br> [Common Data Model (versión preliminar)](format-common-data-model.md#sink-properties) | ✓/- <br> ✓/- <br> ✓/- <br> -/✓ <br>✓/✓<br> ✓/- <br> -/✓ |
-| [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#mapping-data-flow-properties) | | ✓/- |
+| [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties) | [Avro](format-avro.md#mapping-data-flow-properties) <br>[Texto delimitado](format-delimited-text.md#mapping-data-flow-properties) <br>[Delta](format-delta.md) <br>[JSON](format-json.md#mapping-data-flow-properties) <br/>[ORC](format-orc.md#mapping-data-flow-properties)<br>[Parquet](format-parquet.md#mapping-data-flow-properties) | ✓/- <br>✓/- <br>-/✓ <br>✓/- <br>✓/✓<br>✓/- |
+| [Azure Cosmos DB (API de SQL)](connector-azure-cosmos-db.md#mapping-data-flow-properties) | | ✓/- |
+| [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties) | [Avro](format-avro.md#mapping-data-flow-properties) <br>[Texto delimitado](format-delimited-text.md#mapping-data-flow-properties) <br>[JSON](format-json.md#mapping-data-flow-properties) <br/>[ORC](format-orc.md#mapping-data-flow-properties)<br/>[Parquet](format-parquet.md#mapping-data-flow-properties) | ✓/- <br>✓/- <br>✓/- <br>✓/✓<br>✓/- |
+| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties) | [Avro](format-avro.md#mapping-data-flow-properties) <br/>[Common Data Model](format-common-data-model.md#sink-properties)<br>[Texto delimitado](format-delimited-text.md#mapping-data-flow-properties) <br>[Delta](format-delta.md) <br>[JSON](format-json.md#mapping-data-flow-properties) <br/>[ORC](format-orc.md#mapping-data-flow-properties)<br/>[Parquet](format-parquet.md#mapping-data-flow-properties) | ✓/- <br>-/✓ <br>✓/- <br>-/✓ <br>✓/-<br>✓/✓ <br>✓/- |
+| [Azure Database para PostgreSQL](connector-azure-database-for-postgresql.md) |  | ✓/✓ |
 | [Azure SQL Database](connector-azure-sql-database.md#mapping-data-flow-properties) | | ✓/- |
 | [Azure SQL Managed Instance (versión preliminar)](connector-azure-sql-managed-instance.md#mapping-data-flow-properties) | | ✓/- |
-| [Azure Cosmos DB (API de SQL)](connector-azure-cosmos-db.md#mapping-data-flow-properties) | | ✓/- |
+| [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#mapping-data-flow-properties) | | ✓/- |
 | [Snowflake](connector-snowflake.md) | | ✓/✓ |
 
 La configuración específica de estos conectores se encuentra en la pestaña **Configuración**. La información y algunos ejemplos de script de flujo de datos sobre esta configuración se encuentran en la documentación del conector.
@@ -71,7 +72,7 @@ En el siguiente vídeo se explican varias opciones de receptor diferentes para l
 ## <a name="cache-sink"></a>Receptor de caché
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4HKt1]
- 
+
 Un *receptor de caché* se utiliza cuando un flujo de datos escribe datos en la memoria caché de Spark en lugar de en un almacén de datos. En los flujos de datos de asignación, puede hacer referencia a estos datos en el mismo flujo muchas veces con una *búsqueda en caché*. Esto resulta útil si desea hacer referencia a los datos como parte de una expresión, pero no desea unir explícitamente las columnas. Algunos ejemplos comunes en los que un receptor de caché puede ayudar son: buscar un valor máximo en un almacén de datos y buscar coincidencias de códigos de error en una base de datos de mensajes de error. 
 
 Para escribir en un receptor de caché, agregue una transformación de receptor y seleccione **Caché** como el tipo de receptor. A diferencia de otros tipos de receptor, no es necesario seleccionar un conjunto de datos ni un servicio vinculado porque no está escribiendo en un almacén externo. 

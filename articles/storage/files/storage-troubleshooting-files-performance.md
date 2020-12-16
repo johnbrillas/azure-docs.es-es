@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 5a35d939c12639770e25c3096c77f13d31310f85
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 90942e4deebdc65fe26ce94f04a15fe2b8c0684c
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492019"
+ms.locfileid: "96512076"
 ---
 # <a name="troubleshoot-azure-file-shares-performance-issues"></a>Solución de problemas de rendimiento de recursos compartidos de archivos de Azure
 
@@ -74,11 +74,12 @@ Si la aplicación que usa tiene un único subproceso, esta configuración puede 
 
 ### <a name="cause"></a>Causa
 
-La máquina virtual (VM) del cliente podría encontrarse en una región diferente de la del recurso compartido de archivos.
+La máquina virtual (VM) del cliente podría encontrarse en una región diferente de la del recurso compartido de archivos. Otro motivo por el que la latencia es alta podría ser por la latencia causada por el cliente o la red.
 
 ### <a name="solution"></a>Solución
 
 - Ejecute la aplicación desde una máquina virtual que se encuentre en la misma región que el recurso compartido de archivos.
+- En la cuenta de almacenamiento, revise las métricas de transacción **SuccessE2ELatency** y **SuccessServerLatency** a través **Azure Monitor** en Azure Portal. Si hay una gran diferencia entre las métricas SuccessE2ELatency y SuccessServerLatency, significa que probablemente la latencia es debido a la red y el cliente. Consulte [Métricas de transacción](storage-files-monitoring-reference.md#transaction-metrics) en la referencia de datos de supervisión de Azure Files.
 
 ## <a name="client-unable-to-achieve-maximum-throughput-supported-by-the-network"></a>El cliente no puede lograr el rendimiento máximo admitido por la red
 
