@@ -1,18 +1,18 @@
 ---
 title: Procedimientos recomendados de implementación
-description: En este artículo se proporcionan los procedimientos recomendados para implementar Azure Purview. Azure Purview permite a cualquier usuario registrar, detectar, comprender y consumir orígenes de datos.
-author: hophan
+description: En este artículo se proporcionan los procedimientos recomendados para implementar Azure Purview. Azure Purview permite a cualquier usuario registrar, detectar, conocer y consumir orígenes de datos.
+author: hophanms
 ms.author: hophan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/23/2020
-ms.openlocfilehash: cae4904d0b3dacc608c7b41b638dc507b3cda6b5
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 1b2841f69ebe91dac748a4b2e24dc0c33756b1da
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96551158"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400699"
 ---
 # <a name="azure-purview-deployment-best-practices"></a>Procedimientos recomendados de implementación de Azure Purview
 
@@ -165,7 +165,7 @@ En esta fase, Purview debe crearse y configurarse para un conjunto muy pequeño 
 
 ### <a name="tasks-to-complete"></a>Tareas a completar
 
-|Tarea|Detail|Duration|
+|Tarea|Detail|Duración|
 |---------|---------|---------|
 |Recopilación y acuerdo de los requisitos|Debate con todas las partes interesadas para recopilar un conjunto completo de requisitos. Los distintos roles deben participar para aceptar un subconjunto de requisitos para cada fase del proyecto.|1 semana|
 |Configuración de Starter Kit|Vaya al [Inicio rápido de Purview](create-catalog-portal.md) y configure el [Starter Kit de Purview](tutorial-scan-data.md) para demostrar cómo funciona a todas las partes interesadas.|1 día|
@@ -192,7 +192,7 @@ Una vez que tenga los requisitos acordados y las unidades de negocio que partici
 
 ### <a name="tasks-to-complete"></a>Tareas a completar
 
-|Tarea|Detail|Duration|
+|Tarea|Detail|Duración|
 |---------|---------|---------|
 |[Examen de Azure Synapse Analytics](register-scan-azure-synapse-analytics.md)|Empiece a incorporar los orígenes de base de datos y examínelos para rellenar recursos clave.|2 días|
 |[Creación de clasificaciones y reglas personalizadas](create-a-custom-classification-and-classification-rule.md)|Una vez que se han examinado los recursos, es posible que los usuarios observen que hay casos de uso adicionales en más clasificaciones, junto a las clasificaciones predeterminadas de Purview.|2 a 4 semanas|
@@ -217,7 +217,7 @@ Una vez que haya pasado la fase MVP, es el momento de planificar el hito de prep
 
 ### <a name="tasks-to-complete"></a>Tareas a completar
 
-|Tarea|Detail|Duration|
+|Tarea|Detail|Duración|
 |---------|---------|---------|
 |Refinar el examen con el conjunto de reglas de examen|Su organización tendrá muchos orígenes de datos para la preproducción. Es importante definir previamente los criterios clave para el examen, y que así las clasificaciones y la extensión de archivo se puedan aplicar de forma coherente en todo el panel.|1 a 2 días|
 |Evaluar la disponibilidad de la región para el examen|En función de la región de los orígenes de datos y de los requisitos de la organización según el cumplimiento y la seguridad, es posible que quiera considerar qué regiones deben estar disponibles en el examen.|1 día|
@@ -243,7 +243,7 @@ Se deben seguir las fases anteriores para crear una gobernanza eficaz de la info
 
 ### <a name="tasks-to-complete"></a>Tareas a completar
 
-|Tarea|Detail|Duration|
+|Tarea|Detail|Duración|
 |---------|---------|---------|
 |Examinar orígenes de datos de producción con el firewall habilitado|Esto es opcional cuando el firewall está implementado, pero es importante explorar las opciones que le ayuden a proteger la infraestructura.|1 a 5 días|
 |Habilitación de Private Link|Esto es opcional cuando se usa Private Link. De lo contrario, puede omitir este paso, ya que es un criterio de debe tener en cuenta cuando está habilitada la opción privada.|1 a 5 días|

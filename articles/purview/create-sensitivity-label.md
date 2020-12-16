@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 12/03/2020
-ms.openlocfilehash: 195ddfcc3c781c1866a7751f989c9460463edbb9
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: c824e0abea7320a20441e51caa2a05d534ff61b3
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96558171"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97092693"
 ---
 # <a name="automatically-label-your-data-in-azure-purview"></a>Etiquetado automático de los datos en Azure Purview
 
@@ -189,8 +189,7 @@ Para obtener más información sobre cómo configurar exámenes en varios recurs
 |---------|---------|
 |**Azure Blob Storage**     |[Registro y examen de Azure Blob Storage](register-scan-azure-blob-storage-source.md)         |
 |**Almacén de Azure Data Lake**     |[Registro y examen de Azure Data Lake Storage Gen1](register-scan-adls-gen1.md) </br>[Registro y examen de Azure Data Lake Storage Gen2](register-scan-adls-gen2.md)         |
-|**Instancias de Azure SQL Database**|[Registro y examen de una instancia de Azure SQL Database](register-scan-azure-sql-database.md) </br>[Registro y examen de una Instancia administrada de Azure SQL Database](register-scan-azure-sql-database-managed-instance.md)|
-|**Cuentas de almacenamiento detrás de firewalls**     |[Examen de cuentas de almacenamiento detrás de un firewall en Azure Purview](scan-sqlresource-firewall.md)         |
+|**Azure SQL Database**|[Registro y examen de una instancia de Azure SQL Database](register-scan-azure-sql-database.md) </br>[Registro y examen de una Instancia administrada de Azure SQL Database](register-scan-azure-sql-database-managed-instance.md)|
 | | |
 
 ## <a name="view-labels-on-assets"></a>Visualización de las etiquetas en los recursos
