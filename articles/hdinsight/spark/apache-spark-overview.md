@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 ms.topic: overview
 ms.date: 09/21/2020
-ms.openlocfilehash: f581f7bc2f67093afc26dd2c2f15916841a106e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 176b89c9fc80b198a8a639afdd14185ab0008aed
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91854348"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97029447"
 ---
 # <a name="what-is-apache-spark-in-azure-hdinsight"></a>Qué es Apache Spark en Azure HDInsight
 
@@ -23,7 +23,7 @@ Apache Spark es una plataforma de procesamiento paralelo que admite el procesami
 
 ## <a name="what-is-apache-spark"></a>¿Qué es Apache Spark?
 
-Spark proporciona primitivas de computación de clúster en memoria. Un trabajo de Spark puede cargar y almacenar en la memoria caché datos, y repetir consultas sobre ellos. La informática en memoria es mucho más rápida que las aplicaciones basadas en disco, como Hadoop, que comparten datos mediante el sistema de archivos distribuido de Hadoop. Spark también se integra en el lenguaje de programación de Scala para que pueda manipular conjuntos de datos distribuidos, como las colecciones locales. No se necesita estructurar todo como operaciones de asignación y reducción.
+Spark proporciona primitivas de computación de clúster en memoria. Un trabajo de Spark puede cargar y almacenar en la memoria caché datos, y repetir consultas sobre ellos. La informática en memoria es mucho más rápida que las aplicaciones basadas en disco, como Hadoop, que comparten datos mediante el sistema de archivos distribuido de Hadoop. Spark también se integra en el lenguaje de programación de Scala para que pueda manipular conjuntos de datos distribuidos como colecciones locales. No se necesita estructurar todo como operaciones de asignación y reducción.
 
 ![Comparación del tradicional MapReduce y Spark](./media/apache-spark-overview/map-reduce-vs-spark1.png)
 

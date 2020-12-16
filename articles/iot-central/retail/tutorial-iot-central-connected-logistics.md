@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 10/20/2019
-ms.openlocfilehash: 0206c111be7cd6441d9de32af498e961833d214f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 398441123d5ad309d9c2d506a75b80b58a6d56d0
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90980696"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97346221"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-connected-logistics-application-template"></a>Tutorial: implementación y recorrido por la plantilla de aplicación de logística conectada
 
@@ -41,9 +41,9 @@ Cree la aplicación mediante los pasos siguientes:
 
     :::image type="content" source="media/tutorial-iot-central-connected-logistics/iotc-retail-homepage.png" alt-text="Plantilla de logística conectada":::
 
-2. Seleccione **Crear aplicación** en **Logística conectada**.
+1. Seleccione **Crear aplicación** en **Logística conectada**.
 
-3. Con la opción **Crear aplicación** se abre el formulario **Nueva aplicación**. Escriba la siguiente información:
+1. Con la opción **Crear aplicación** se abre el formulario **Nueva aplicación**. Escriba la siguiente información:
 
 
     * **Nombre de la aplicación**: puede usar el nombre sugerido predeterminado o escribir el nombre descriptivo de la aplicación.
@@ -51,9 +51,9 @@ Cree la aplicación mediante los pasos siguientes:
     * **Información de facturación**: Los detalles del directorio, la suscripción de Azure y la región son necesarios para aprovisionar los recursos.
     * **Crear**: Seleccione Crear en la parte inferior de la página para implementar la aplicación.
 
-    :::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-app-create.png" alt-text="Plantilla de logística conectada":::
+    :::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-app-create.png" alt-text="Plantilla de aplicación de logística conectada":::
 
-    :::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-app-create-billinginfo.png" alt-text="Plantilla de logística conectada":::
+    :::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-app-create-billinginfo.png" alt-text="Información de facturación de logística conectada":::
 
 ## <a name="walk-through-the-application"></a>Recorrido por la aplicación.
 
@@ -81,13 +81,13 @@ El panel habilita dos operaciones diferentes de administración de dispositivos 
 * Visualización de las rutas de logística para los envíos por carretera y los detalles de ubicación de los envíos por mar.
 * Visualización del estado de la puerta de enlace y otros datos pertinentes.
 
-:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-dashboard1.png" alt-text="Plantilla de logística conectada":::
+:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-dashboard1.png" alt-text="Panel de logística conectada":::
 
 * Puede supervisar el número total de puertas de enlace, así como las etiquetas activas y desconocidas.
 * Puede realizar operaciones de administración de dispositivos, como actualizar el firmware, deshabilitar y habilitar sensores, actualizar el umbral de los sensores, actualizar los intervalos de telemetría y actualizar los contratos de servicio de los dispositivos.
 * Visualización del consumo de batería del dispositivo.
 
-:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-dashboard2.png" alt-text="Plantilla de logística conectada":::
+:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-dashboard2.png" alt-text="Estado del panel de logística conectada":::
 
 #### <a name="device-template"></a>Plantilla de dispositivo
 
@@ -95,11 +95,11 @@ Seleccione **Device templates** (Plantillas de dispositivo) para ver el modelo d
 
 **Gateway Telemetry & Property** (Telemetría y propiedades de la puerta de enlace): en esta interfaz se definen todos los datos de telemetría relacionados con los sensores, la ubicación y la información del dispositivo. La interfaz también define las funcionalidades de las propiedades del dispositivo gemelo, como los umbrales de los sensores y los intervalos de actualización.
 
-:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-devicetemplate1.png" alt-text="Plantilla de logística conectada":::
+:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-devicetemplate1.png" alt-text="Interfaz de telemetría y propiedades":::
 
 **Gateway commands** (Comandos de la puerta de enlace): en esta interfaz se organizan todas las funcionalidades de los comandos de la puerta de enlace:
 
-:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-devicetemplate2.png" alt-text="Plantilla de logística conectada":::
+:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-devicetemplate2.png" alt-text="Interfaz de comandos de la puerta de enlace":::
 
 ### <a name="rules"></a>Reglas
 
@@ -109,13 +109,13 @@ Seleccione la pestaña **Reglas** para ir a las reglas de esta plantilla de apli
 
 **Puerta de enlace sin respuesta**: esta regla se desencadena si la puerta de enlace no se comunica con la nube durante un período prolongado. La puerta de enlace podría no responder por batería baja, pérdida de conectividad o daños en el dispositivo.
 
-:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-rules.png" alt-text="Plantilla de logística conectada":::
+:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-rules.png" alt-text="Definiciones de las reglas":::
 
 ### <a name="jobs"></a>Trabajos
 
 Seleccione la pestaña **Trabajos** para ver los trabajos de esta aplicación:
 
-:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-jobs.png" alt-text="Plantilla de logística conectada":::
+:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-jobs.png" alt-text="Trabajos para ejecutar":::
 
 Puede usar trabajos para realizar operaciones en toda la aplicación. Los trabajos de esta aplicación usan los comandos de dispositivo y la funcionalidad de gemelos para realizar tareas como la deshabilitación de sensores específicos en todas las puertas de enlace o la modificación del umbral de los sensores según el modo y la ruta de envío:
 
@@ -127,7 +127,7 @@ Puede usar trabajos para realizar operaciones en toda la aplicación. Los trabaj
 
 Si no va a seguir usando esta aplicación, elimine la plantilla de aplicación. Para ello, vaya a **Administración** > **Configuración de la aplicación** y seleccione **Eliminar**.
 
-:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-cleanup.png" alt-text="Plantilla de logística conectada":::
+:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-cleanup.png" alt-text="Limpieza de la plantilla":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Más información acerca de 

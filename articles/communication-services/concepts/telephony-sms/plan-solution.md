@@ -10,21 +10,22 @@ ms.date: 10/05/2020
 ms.topic: overview
 ms.custom: references_regions
 ms.service: azure-communication-services
-ms.openlocfilehash: 0420360b70485e49dc6cd06dbeb19400c0f73ef5
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 271d7ce38d50fd21975327eb1f21528aeacc485e
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070357"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96937243"
 ---
 # <a name="plan-your-telephony-and-sms-solution"></a>Planeación de la solución de telefonía y SMS
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
+[!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
 Azure Communication Services le permite usar números de teléfono para realizar llamadas de voz y enviar mensajes SMS con la red telefónica conmutada pública (RTC). En este documento revisaremos los tipos de número de teléfono, las opciones de configuración y la disponibilidad de regiones para planear la solución de telefonía y SMS con Communication Services.
 
-[!INCLUDE [Emergency Calling Notice](../../includes/emergency-calling-notice-include.md)]
+
+
 
 
 ## <a name="phone-number-types-in-azure-communication-services"></a>Tipos de número de teléfono en Azure Communication Services
@@ -52,6 +53,8 @@ En la tabla siguiente se resumen estos tipos de números de teléfono:
 
 
 ## <a name="phone-number-features-in-azure-communication-services"></a>Características de los números de teléfono en Azure Communication Services 
+
+[!INCLUDE [Emergency Calling Notice](../../includes/emergency-calling-notice-include.md)]
 
 Para la mayoría de los números de teléfono, puede configurar un conjunto de características "a la carta". Estas características se pueden seleccionar a medida que alquila los números de teléfono en Azure Communication Services.
 

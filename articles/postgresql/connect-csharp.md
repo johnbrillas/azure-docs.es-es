@@ -8,12 +8,12 @@ ms.custom: mvc, devcenter, devx-track-csharp
 ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 10/18/2020
-ms.openlocfilehash: 8820fd7b0812d925af6aca923a2b205d5bc92f3e
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: a06d07a7d54b6399ab5f83c41284fb2fab7217fb
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341457"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97360278"
 ---
 # <a name="quickstart-use-net-c-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Inicio rápido: Uso de .NET (C#) para conectarse y consultar datos en Azure Database for PostgreSQL: servidor único
 
@@ -32,7 +32,7 @@ Para esta guía de inicio rápido, necesitará lo siguiente:
   | **Configurar el punto de conexión de servicio** | Público | [Portal](./howto-manage-vnet-using-portal.md) <br/> [CLI](./howto-manage-vnet-using-cli.md)|
   | **Configuración del vínculo privado** | Private | [Portal](./howto-configure-privatelink-portal.md) <br/> [CLI](./howto-configure-privatelink-cli.md) |
 
-- Instale [.NET Framework](https://www.microsoft.com/net/download) para su plataforma (Windows, Ubuntu Linux o macOS). 
+- Instale [.NET Framework](https://www.microsoft.com/net/download) para su plataforma (Windows, Ubuntu Linux o macOS).
 - Instale [Visual Studio](https://www.visualstudio.com/downloads/) para compilar el proyecto.
 - Instale el paquete NuGet [Npgsql](https://www.nuget.org/packages/Npgsql/) en Visual Studio.
 
@@ -46,13 +46,13 @@ Obtenga la información de conexión necesaria para conectarse a Azure Database 
  :::image type="content" source="./media/connect-csharp/1-connection-string.png" alt-text="Nombre de servidor de Azure Database for PostgreSQL":::
 
 ## <a name="step-1-connect-and-insert-data"></a>Paso 1: Conexión e inserción de datos
-Use el código siguiente para conectarse y cargar los datos mediante las instrucciones SQL **CREATE TABLE** e **INSERT INTO**. El código usa la clase NpgsqlCommand con el método: 
+Use el código siguiente para conectarse y cargar los datos mediante las instrucciones SQL **CREATE TABLE** e **INSERT INTO**. El código usa la clase NpgsqlCommand con el método:
 - [()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) para establecer una conexión a la base de datos de PostgreSQL.
 - [CreateCommand()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand) establece la propiedad CommandText.
-- [ExecuteNonQuery()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery) para ejecutar los comandos de base de datos. 
+- [ExecuteNonQuery()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery) para ejecutar los comandos de base de datos.
 
 > [!IMPORTANT]
-> Reemplace los parámetros host, dbname, user y password por los valores especificados al crear el servidor y la base de datos. 
+> Reemplace los parámetros host, dbname, user y password por los valores especificados al crear el servidor y la base de datos.
 
 ```csharp
 using System;
@@ -91,7 +91,7 @@ namespace Driver
                 conn.Open();
 
                 using (var command = new NpgsqlCommand("DROP TABLE IF EXISTS inventory", conn))
-                { 
+                {
                     command.ExecuteNonQuery();
                     Console.Out.WriteLine("Finished dropping table (if existed)");
 
@@ -111,7 +111,7 @@ namespace Driver
                     command.Parameters.AddWithValue("q2", 154);
                     command.Parameters.AddWithValue("n3", "apple");
                     command.Parameters.AddWithValue("q3", 100);
-                    
+
                     int nRows = command.ExecuteNonQuery();
                     Console.Out.WriteLine(String.Format("Number of rows inserted={0}", nRows));
                 }
@@ -134,7 +134,7 @@ Use el código siguiente para conectarse y leer los datos mediante la instrucci�
 - [GetInt32()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlDataReader.html#Npgsql_NpgsqlDataReader_GetInt32_System_Int32_) y [GetString()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlDataReader.html#Npgsql_NpgsqlDataReader_GetString_System_Int32_) para analizar los valores del registro.
 
 > [!IMPORTANT]
-> Reemplace los parámetros host, dbname, user y password por los valores especificados al crear el servidor y la base de datos. 
+> Reemplace los parámetros host, dbname, user y password por los valores especificados al crear el servidor y la base de datos.
 
 ```csharp
 using System;
@@ -187,6 +187,7 @@ namespace Driver
                                 )
                             );
                     }
+                    reader.Close();
                 }
             }
 
@@ -201,12 +202,12 @@ namespace Driver
 
 ## <a name="step-3-update-data"></a>Paso 3: Actualización de datos
 Use el código siguiente para conectarse y actualizar los datos mediante la instrucción SQL **UPDATE**. El código usa la clase NpgsqlCommand con el método:
-- [()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) para establecer una conexión con PostgreSQL. 
+- [()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) para establecer una conexión con PostgreSQL.
 - [CreateCommand()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand) para establecer la propiedad CommandText.
 - [ExecuteNonQuery()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery) para ejecutar los comandos de base de datos.
 
 > [!IMPORTANT]
-> Reemplace los parámetros host, dbname, user y password por los valores especificados al crear el servidor y la base de datos. 
+> Reemplace los parámetros host, dbname, user y password por los valores especificados al crear el servidor y la base de datos.
 
 ```csharp
 using System;
@@ -247,7 +248,6 @@ namespace Driver
                 {
                     command.Parameters.AddWithValue("n", "banana");
                     command.Parameters.AddWithValue("q", 200);
-                    
                     int nRows = command.ExecuteNonQuery();
                     Console.Out.WriteLine(String.Format("Number of rows updated={0}", nRows));
                 }
@@ -265,12 +265,12 @@ namespace Driver
 [¿Tiene problemas? Háganoslo saber.](https://aka.ms/postgres-doc-feedback)
 
 ## <a name="step-4-delete-data"></a>Paso 4: Eliminación de datos
-Utilice el código siguiente para conectarse y eliminar los datos mediante una instrucción SQL **DELETE**. 
+Utilice el código siguiente para conectarse y eliminar los datos mediante una instrucción SQL **DELETE**.
 
 El código usa la clase NpgsqlCommand con el método [Open()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) para establecer una conexión a la base de datos PostgreSQL. A continuación, el código usa el método [CreateCommand()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand), establece la propiedad CommandText y llama al método [ExecuteNonQuery()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery) para ejecutar los comandos de base de datos.
 
 > [!IMPORTANT]
-> Reemplace los parámetros host, dbname, user y password por los valores especificados al crear el servidor y la base de datos. 
+> Reemplace los parámetros host, dbname, user y password por los valores especificados al crear el servidor y la base de datos.
 
 ```csharp
 using System;

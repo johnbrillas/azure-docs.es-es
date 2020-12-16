@@ -9,12 +9,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: b0d030240ebe22886826b7a25bd5ca7b8f54e358
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9a0d91677770e89f3e249fc699057332cccaa323
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "81001114"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347479"
 ---
 # <a name="micro-fulfillment-center-architecture"></a>Arquitectura del centro de micrologística
 
@@ -22,11 +22,11 @@ Las soluciones del centro de micrologística le permiten conectar, supervisar y 
 
 ![Análisis de tienda de Azure IoT Central](./media/architecture/micro-fulfillment-center-architecture-frame.png)
 
-- Conjunto de sensores de IoT que envían datos de telemetría a un dispositivo de puerta de enlace
-- Dispositivos de puerta de enlace que envían telemetría y conclusiones agregadas a IoT Central
-- Exportación continua de datos al servicio de Azure que se quiera para su manipulación
-- Los datos se pueden estructurar en el formato que se quiera y enviarse a un servicio de almacenamiento
-- Las aplicaciones empresariales pueden consultar datos y generar conclusiones que impulsen las operaciones comerciales
+1. Conjunto de sensores de IoT que envían datos de telemetría a un dispositivo de puerta de enlace
+2. Dispositivos de puerta de enlace que envían telemetría y conclusiones agregadas a IoT Central
+3. Exportación continua de datos al servicio de Azure que se quiera para su manipulación
+4. Los datos se pueden estructurar en el formato que se quiera y enviarse a un servicio de almacenamiento
+5. Las aplicaciones empresariales pueden consultar datos y generar conclusiones que impulsen las operaciones comerciales
  
 Echemos un vistazo a los componentes clave que generalmente desempeñan algún papel en una solución de centro de micrologística.
 

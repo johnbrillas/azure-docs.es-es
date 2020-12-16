@@ -11,23 +11,23 @@ ms.topic: quickstart
 ms.date: 05/06/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 4a69a9fa712aaa9d4c02243d28dcae8b72c3db73
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 03545aafa1cbf6efa82ae063e7e966443b1d5e8b
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348286"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106128"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-nodejs"></a>Inicio rápido: Sugerencia de consultas de búsqueda con la API REST Bing Autosuggest y Node.js
 
 > [!WARNING]
-> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del **30 de octubre de 2020** las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
-> El aprovisionamiento de las Bing Search API mediante Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que antes suceda.
+> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del **30 de octubre de 2020**, las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> El aprovisionamiento de Bing Search APIs con Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que suceda primero.
 > Puede encontrar instrucciones sobre la migración en [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Siga este inicio rápido para aprender a realizar llamadas a la API Bing Autosuggest y a leer la respuesta JSON. Esta sencilla aplicación de Node.js envía una consulta de búsqueda parcial a la API y devuelve sugerencias para búsquedas. Si bien esta aplicación está escrita en Java, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación. El código fuente de este ejemplo está disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingAutosuggestv7.js).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * [Node.js 6](https://nodejs.org/en/download/) o posterior
 
@@ -86,14 +86,13 @@ Siga este inicio rápido para aprender a realizar llamadas a la API Bing Autosug
         //...
         let req = https.request(request_params, response_handler);
         req.end();
-        ```
+    ```
 
-## Create a search handler
+## <a name="create-a-search-handler"></a>Creación de un controlador de búsqueda
 
-1. Define a function named `response_handler` that takes an HTTP call, `response`, as a parameter. 
-Do the following steps within this function:
+1. Defina una función denominada `response_handler` que toma una llamada HTTP, `response`, como un parámetro. Con esta función, lleve a cabo los pasos siguientes:
     
-    1. Define a variable to contain the body of the JSON response.  
+    1. Defina una variable para que contenga el cuerpo de la respuesta JSON.  
 
         ```javascript
         let response_handler = function (response) {
@@ -101,7 +100,7 @@ Do the following steps within this function:
         };
         ```
 
-    2. Store the body of the response when the `data` flag is called
+    2. Almacene el cuerpo de la respuesta cuando se llame a la marca `data`.
         
         ```javascript
         response.on ('data', function (d) {
@@ -109,7 +108,7 @@ Do the following steps within this function:
         });
         ```
 
-    3. When an `end` flag is signaled, use `JSON.parse()` and `JSON.stringify()` to print the response.
+    3. Cuando se señale una marca de `end`, use `JSON.parse()` y `JSON.stringify()` para imprimir la respuesta.
     
         ```javascript
         response.on ('end', function () {
@@ -122,11 +121,11 @@ Do the following steps within this function:
         });
         ```
 
-2. Call `get_suggestions()` to send the request to the Bing Autosuggest API.
+2. Llame a `get_suggestions()` para enviar la solicitud a Bing Autosuggest API.
 
-## Example JSON response
+## <a name="example-json-response"></a>Ejemplo de respuesta JSON
 
-A successful response is returned in JSON, as shown in the following example: 
+Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejemplo: 
 
 ```json
 {

@@ -5,12 +5,12 @@ ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.topic: overview
 ms.date: 07/06/2020
 ms.custom: devx-track-dotnet, mvc, seodec18
-ms.openlocfilehash: 1b72224441741990a1fc94400dfe718ea9d1b0b3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e9c49d472f6cf0b9f0e5b3e2f7728417034059b1
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88961489"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007100"
 ---
 # <a name="app-service-overview"></a>Información general de App Service
 
@@ -44,7 +44,7 @@ App Service también puede hospedar las aplicaciones Web de forma nativa en Linu
 
 ### <a name="built-in-languages-and-frameworks"></a>Lenguajes y marcos integrados
 
-App Service en Linux admite varias imágenes integradas específicas del lenguaje. Solo implemente el código. Los lenguajes compatibles incluyen: Node.js, Java (JRE 8 y JRE 11), PHP, Python, .NET Core y Ruby. Ejecute [`az webapp list-runtimes --linux`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes) para ver los idiomas y las versiones admitidas más recientes. Si el motor de tiempo de ejecución que requiere la aplicación no se admite en las imágenes integradas, puede implementarlo con un contenedor personalizado.
+App Service en Linux admite varias imágenes integradas específicas del lenguaje. Solo implemente el código. Los lenguajes compatibles incluyen: Node.js, Java (JRE 8 y JRE 11), PHP, Python, .NET Core y Ruby. Ejecute [`az webapp list-runtimes --linux`](/cli/azure/webapp#az-webapp-list-runtimes) para ver los idiomas y las versiones admitidas más recientes. Si el motor de tiempo de ejecución que requiere la aplicación no se admite en las imágenes integradas, puede implementarlo con un contenedor personalizado.
 
 ### <a name="limitations"></a>Limitaciones
 

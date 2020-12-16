@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 05/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 519e2da902e1121220bcbb28c4cb18a68001293b
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: fef192ab273a0e53958cda315932f91b427a5d7d
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94840561"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108390"
 ---
 # <a name="technical-and-feature-overview-of-azure-active-directory-b2c"></a>Introducción a los aspectos técnicos y las características de Azure Active Directory B2C
 
@@ -162,7 +162,7 @@ En Azure AD B2C, puede crear las experiencias de identidad de sus usuarios para
 
 ![Capturas de pantallas de la página de inicio de sesión o registro con personalización de marca](media/technical-overview/seamless-ux.png)
 
-Para información sobre la personalización de la interfaz de usuario, consulte [Acerca de la personalización de la interfaz de usuario en Azure Active Directory B2C](customize-ui-overview.md).
+Para información sobre la personalización de la interfaz de usuario, consulte [Acerca de la personalización de la interfaz de usuario en Azure Active Directory B2C](customize-ui-with-html.md).
 
 ## <a name="localization"></a>Localización
 
@@ -170,7 +170,7 @@ La personalización del idioma en Azure AD B2C permite albergar distintos idiom
 
 ![Tres páginas de inicio de sesión o registro que muestran texto de la interfaz de usuario en distintos idiomas](media/technical-overview/localization.png)
 
-Vea cómo funciona la localización en [Personalización de idioma en Azure Active Directory B2C](user-flow-language-customization.md).
+Vea cómo funciona la localización en [Personalización de idioma en Azure Active Directory B2C](language-customization.md).
 
 ## <a name="add-your-own-business-logic"></a>Agregar su propia lógica de negocios
 
@@ -221,7 +221,7 @@ Para más información sobre los roles de Azure AD, incluida la compatibilidad 
 
 La autenticación multifactor (MFA) de Azure AD B2C ayuda a proteger el acceso a los datos y las aplicaciones, al tiempo que mantiene la simplicidad para los usuarios. Ofrece seguridad adicional al exigir una segunda forma de autenticación y proporciona autenticación segura con una oferta de métodos de autenticación fáciles de usar. Puede que a los usuarios no se les muestre el desafío de MFA, ya que depende de las decisiones de configuración que pueda tomar como administrador.
 
-Consulte cómo se habilita MFA en los flujos de usuario en [Habilitación de la autenticación multifactor en Azure Active Directory B2C](custom-policy-multi-factor-authentication.md).
+Consulte cómo se habilita MFA en los flujos de usuario en [Habilitación de la autenticación multifactor en Azure Active Directory B2C](multi-factor-authentication.md).
 
 ### <a name="smart-account-lockout"></a>Bloqueo inteligente de la cuenta
 
@@ -235,7 +235,7 @@ Para más información sobre la administración de configuraciones de protecció
 
 Durante el registro o el restablecimiento de la contraseña, los usuarios deben proporcionar una contraseña que cumpla las reglas de complejidad. De forma predeterminada, Azure AD B2C aplica una directiva de contraseñas seguras. Azure AD B2C también proporciona opciones de configuración para especificar los requisitos de complejidad de las contraseñas que usan los clientes.
 
-Puede configurar los requisitos de complejidad de la contraseña en los [flujos de usuario](user-flow-password-complexity.md) y las [directivas personalizadas](custom-policy-password-complexity.md).
+Puede configurar los requisitos de complejidad de la contraseña en los [flujos de usuario](password-complexity.md) y las [directivas personalizadas](password-complexity.md).
 
 ## <a name="auditing-and-logs"></a>Auditoría y registros
 

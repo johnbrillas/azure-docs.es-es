@@ -8,12 +8,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: quickstart
 ms.date: 03/10/2020
-ms.openlocfilehash: 97283a096d1b1549b2c7fa8f34a32b4bb4dca1eb
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 4a414b706dffae76eaa9841ee7b1fe6bcc1ac0d3
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93349059"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109851"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-linux-ubuntu"></a>Inicio rápido: Configuración de Data Science Virtual Machine para Linux (Ubuntu)
 
@@ -73,8 +73,6 @@ Puede acceder a la instancia de Data Science Virtual Machine para Ubuntu de una 
   * SSH para sesiones de terminal
   * X2Go para sesiones de gráficas
   * JupyterHub y JupyterLab para instancias de Jupyter Notebook
-
-También puede conectar una instancia de Data Science Virtual Machine a Azure Notebooks para ejecutar cuadernos de Jupyter en la máquina virtual y omitir las limitaciones del nivel de servicio gratuito. Para más información, consulte [Administración y configuración de proyectos de Azure Notebooks](../../notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
 
 ### <a name="ssh"></a>SSH
 

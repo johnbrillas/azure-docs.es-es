@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/07/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:UWP
-ms.openlocfilehash: ab8942b473ad980da22d451116bea6a759aeb461
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 0398056c3182ec50a1ec170f64ff079633f70c68
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95995121"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97030559"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Inicio rápido: Llamar a Microsoft Graph API desde una aplicación de la Plataforma universal de Windows (UWP)
 
@@ -40,20 +40,19 @@ Para ilustrar este tema, consulte el apartado en el que se explica el [funcionam
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opción 1: registrar y configurar de modo automático la aplicación y, a continuación, descargar el código de ejemplo
 >
 > 1. Vaya al nuevo panel de [Azure Portal: Registros de aplicaciones](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/UwpQuickstartPage/sourceType/docs).
-> 1. Escriba un nombre para la aplicación y haga clic en **Registrar**.
+> 1. Escriba un nombre para la aplicación y seleccione **Registrar**.
 > 1. Siga las instrucciones para descargar y configurar automáticamente la nueva aplicación en un solo clic.
 >
 > ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Opción 2: registrar y configurar manualmente la aplicación y el código de ejemplo
 > [!div renderon="docs"]
 > #### <a name="step-1-register-your-application"></a>Paso 1: Registrar su aplicación
 > Para registrar la aplicación y agregar la información de registro de la aplicación a la solución, siga estos pasos:
-> 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta personal, profesional o educativa de Microsoft.
-> 1. Si la cuenta proporciona acceso a más de un inquilino, haga clic en la cuenta en la esquina superior derecha y establezca la sesión del portal en el inquilino de Azure AD deseado.
-> 1. Vaya a la página [Registros de aplicaciones](https://aka.ms/MobileAppReg) de la plataforma de identidad de Microsoft para desarrolladores.
-> 1. Seleccione **Nuevo registro**.
-> 1. En **Registrar una aplicación**, escriba la información de registro de la aplicación:
->      - En la sección **Nombre**, escriba un nombre significativo para la aplicación, que se mostrará a los usuarios de la aplicación, por ejemplo, `UWP-App-calling-MsGraph`.
->      - En **Tipos de cuenta admitidos**, seleccione **Cuentas en cualquier directorio de organización y cuentas personales de Microsoft (por ejemplo, Skype, Xbox o Outlook.com)** .
+> 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+> 1. Si tiene acceso a varios inquilinos, use el filtro **Directorio + suscripción** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: del menú superior para seleccionar el inquilino en el que desea registrar una aplicación.
+> 1. Busque y seleccione **Azure Active Directory**.
+> 1. En **Administrar**, seleccione **Registros de aplicaciones** >  y, luego, **Nuevo registro**.
+> 1. Escriba el **Nombre** de la aplicación, por ejemplo `UWP-App-calling-MsGraph`. Los usuarios de la aplicación pueden ver este nombre, el cual se puede cambiar más tarde.
+> 1. En **Tipos de cuenta admitidos**, seleccione **Cuentas en cualquier directorio de organización y cuentas personales de Microsoft (por ejemplo, Skype, Xbox o Outlook.com)** .
 > 1. Seleccione **Registrar** para crear la aplicación y anote el valor de **Id. del cliente de aplicación**, lo usará en un paso posterior.
 > 1. En **Administrar**, seleccione **Autenticación**.
 > 1. Selecciones **Agregar una plataforma** > **Aplicaciones móviles y de escritorio**.

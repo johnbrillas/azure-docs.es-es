@@ -8,12 +8,12 @@ author: gvashishtha
 ms.author: gopalv
 ms.topic: quickstart
 ms.date: 12/31/2019
-ms.openlocfilehash: 3b5f96e60e088f94561bf3398469ec913a71bba6
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: e876ddc9b4df32cad5bbf15215da5ce2f912bba1
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322447"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109732"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-windows"></a>Inicio rápido: Configuración de Data Science Virtual Machine para Windows
 
@@ -35,15 +35,15 @@ Para crear una instancia de DSVM:
 
 1. Debería ser redirigido a la hoja "Crear una máquina virtual".
 
-1. Rellene la pestaña **Aspectos básicos** :
-      * **Suscripción** : si tiene más de una suscripción, seleccione aquella en la que se creará y facturará la máquina. Debe tener privilegios de creación de recursos en esta suscripción.
-      * **Grupo de recursos** : cree un grupo o use uno existente.
-      * **Nombre de la máquina virtual** : escriba el nombre de la máquina virtual. Así es como aparecerá en Azure Portal.
-      * **Ubicación** : seleccione el centro de datos más adecuado. Para disfrutar de un acceso más rápido a la red, elija el centro de datos que tenga la mayoría de los datos o el que esté más cerca de su ubicación física. Más información sobre las [regiones de Azure](https://azure.microsoft.com/global-infrastructure/regions/).
-      * **Imagen** : Deje el valor predeterminado.
-      * **Size** : debería rellenarse automáticamente con un tamaño adecuado para cargas de trabajo generales. Más información sobre los [tamaños de máquina virtual Windows en Azure](../../virtual-machines/sizes.md).
-      * **Nombre de usuario** : escriba el nombre de usuario del administrador. Es el nombre de usuario que usará para iniciar sesión en la máquina virtual y no necesariamente debe ser el mismo que el nombre de usuario de Azure.
-      * **Contraseña** : escriba la contraseña que utilizará para iniciar sesión en la máquina virtual.    
+1. Rellene la pestaña **Aspectos básicos**:
+      * **Suscripción**: si tiene más de una suscripción, seleccione aquella en la que se creará y facturará la máquina. Debe tener privilegios de creación de recursos en esta suscripción.
+      * **Grupo de recursos**: cree un grupo o use uno existente.
+      * **Nombre de la máquina virtual**: escriba el nombre de la máquina virtual. Así es como aparecerá en Azure Portal.
+      * **Ubicación**: seleccione el centro de datos más adecuado. Para disfrutar de un acceso más rápido a la red, elija el centro de datos que tenga la mayoría de los datos o el que esté más cerca de su ubicación física. Más información sobre las [regiones de Azure](https://azure.microsoft.com/global-infrastructure/regions/).
+      * **Imagen**: Deje el valor predeterminado.
+      * **Size**: debería rellenarse automáticamente con un tamaño adecuado para cargas de trabajo generales. Más información sobre los [tamaños de máquina virtual Windows en Azure](../../virtual-machines/sizes.md).
+      * **Nombre de usuario**: escriba el nombre de usuario del administrador. Es el nombre de usuario que usará para iniciar sesión en la máquina virtual y no necesariamente debe ser el mismo que el nombre de usuario de Azure.
+      * **Contraseña**: escriba la contraseña que utilizará para iniciar sesión en la máquina virtual.    
 1. Seleccione **Revisar + crear**.
 1. **Revisar y crear**
    * Compruebe que toda la información que ha especificado es correcta. 
@@ -59,8 +59,6 @@ Para crear una instancia de DSVM:
 Después de que la máquina virtual se crea y se aprovisiona, siga los pasos que se indican para [conectar con una máquina virtual basada en Azure](../../marketplace/azure-vm-create-using-approved-base.md). Use las credenciales de la cuenta de administrador que configuró en el paso **Aspectos básicos** de la creación de una máquina virtual. 
 
 Ya está listo para empezar a usar las herramientas que están instaladas y configuradas en la máquina virtual. Se puede acceder a muchas de las herramientas mediante los iconos del menú **Inicio** y de los iconos del escritorio.
-
-También puede conectar una instancia de DSVM a Azure Notebooks para ejecutar cuadernos de Jupyter en la máquina virtual y omitir las limitaciones del nivel de servicio gratuito. Para más información, consulte [Administración y configuración de proyectos de Azure Notebooks](../../notebooks/configure-manage-azure-notebooks-projects.md#manage-and-configure-projects).
 
 <a name="tools"></a>
 

@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 09/03/2020
 ms.author: marsma
-ms.custom: aaddev, contperfq1
+ms.custom: aaddev, contperf-fy21q1
 ms.reviewer: lenalepa, aragra, sureshja
-ms.openlocfilehash: fc2f3202ac88e3ee6c24db21dd9072a13a8deef9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2630984d54134ca8fca94fdc1960265ba71935a6
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89442314"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97031307"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-a-web-api"></a>Inicio rápido: Configuración de una aplicación cliente para acceder a las API web
 
@@ -59,7 +59,7 @@ Una vez que haya registrado la aplicación cliente y la API web, y haya expuesto
 
 Después de agregar permisos a la API, debería ver los permisos seleccionados en **Permisos configurados**. En la imagen siguiente se muestra el permiso delegado *Employees.Read.All* de ejemplo agregado al registro de la aplicación cliente.
 
-:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-02-configured-permissions-pane.png" alt-text="Diagrama de líneas que muestra una API web con ámbitos expuestos a la derecha y una aplicación cliente a la izquierda con los ámbitos seleccionados como permisos":::
+:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-02-configured-permissions-pane.png" alt-text="Panel de permisos configurados en Azure Portal que muestra el permiso recién agregado":::
 
 También puede observar el permiso *User.Read* para Microsoft Graph API. Este permiso se agrega automáticamente al registrar una aplicación en Azure Portal.
 
@@ -136,11 +136,11 @@ Puede agregar el conjunto de permisos de API entero o permisos individuales de e
 
 El botón **Conceder consentimiento de administrador para {su inquilino}** permite a un administrador conceder su consentimiento a los permisos configurados para la aplicación. Al seleccionar el botón, se muestra un cuadro de diálogo que le solicita que confirme el consentimiento.
 
-:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-03-grant-admin-consent-button.png" alt-text="Diagrama de líneas que muestra una API web con ámbitos expuestos a la derecha y una aplicación cliente a la izquierda con los ámbitos seleccionados como permisos":::
+:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-03-grant-admin-consent-button.png" alt-text="Botón Conceder consentimiento de administrador resaltado en el panel Permisos configurados de Azure Portal":::
 
 Después de conceder el consentimiento, los permisos que requerían el consentimiento del administrador lo muestran como concedido:
 
-:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-04-admin-consent-granted.png" alt-text="Diagrama de líneas que muestra una API web con ámbitos expuestos a la derecha y una aplicación cliente a la izquierda con los ámbitos seleccionados como permisos":::
+:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-04-admin-consent-granted.png" alt-text="Tabla Permisos configurados en Azure Portal que muestra el consentimiento de administrador concedido para el permiso Files.Read.All":::
 
 El botón **Conceder consentimiento de administrador** está *deshabilitado* si no es el administrador o si no se han configurado permisos para la aplicación. Si tiene permisos que se han concedido pero no configurado aún, el botón de consentimiento del administrador le pedirá que los administre. Puede agregarlos a los permisos configurados o quitarlos.
 
