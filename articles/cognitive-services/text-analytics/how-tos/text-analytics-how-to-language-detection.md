@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 10/16/2020
 ms.author: aahi
-ms.openlocfilehash: a3ef198c79683786a7d6fb36a46cd0c989071c9e
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 0ff6bcd2e50b64993966f2780c6c8118aea2694f
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93346900"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505178"
 ---
 # <a name="example-detect-language-with-text-analytics"></a>Ejemplo: Detectar idioma con Text Analytics
 
@@ -303,5 +303,5 @@ En este artículo, ha aprendido los conceptos y el flujo de trabajo de la detecc
 ## <a name="see-also"></a>Consulte también
 
 * [Información general de Text Analytics](../overview.md)
-* [Uso de la biblioteca cliente de Text Analytics](../quickstarts/text-analytics-sdk.md)
+* [Uso de la biblioteca cliente de Text Analytics](../quickstarts/client-libraries-rest-api.md)
 * [Novedades](../whats-new.md)
