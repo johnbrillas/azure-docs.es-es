@@ -5,14 +5,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 09/01/2020
+ms.date: 12/02/2020
 ms.author: yushwang
-ms.openlocfilehash: 92f589e6a587febc10a4b407fe3616aca42d27d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae498b39a421db19f0d4e0a8daca58730321b58c
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89318954"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546818"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>Acerca de los dispositivos VPN y los parámetros de IPsec/IKE para conexiones de VPN Gateway de sitio a sitio
 
@@ -112,13 +112,11 @@ Después de descargar el ejemplo de configuración del dispositivo VPN proporcio
 | &lt;SP_AzureGatewayIpAddress&gt; |Esta información es específica de la red virtual y se encuentra en el Portal de administración como **Dirección IP de puerta de enlace**. |
 | &lt;SP_PresharedKey&gt; |Esta información es específica de la red virtual y se encuentra en el Portal de administración, en Administrar clave. |
 
-## <a name="ipsecike-parameters"></a><a name="ipsec"></a>Parámetros de IPsec/IKE
+## <a name="default-ipsecike-parameters"></a><a name="ipsec"></a>Parámetros de IPsec/IKE predeterminados
 
-> [!IMPORTANT]
-> 1. Las tablas siguientes contienen las combinaciones de algoritmos y parámetros que usan las puertas de enlace de VPN de Azure en la configuración predeterminada. Para puertas de enlace de VPN basadas en enrutamiento creadas mediante el modelo de implementación de Azure Resource Management, puede especificar una directiva personalizada en cada conexión individual. Consulte [Configuración de directiva IPsec/IKE](vpn-gateway-ipsecikepolicy-rm-powershell.md) para obtener instrucciones detalladas.
->
-> 2. Además, tiene que fijar el **MSS** de TCP en **1350**. O, si los dispositivos VPN no admiten la fijación de MSS, también puede establecer el **MTU** en la interfaz de túnel en **1400** bytes.
->
+Las tablas siguientes contienen las combinaciones de algoritmos y parámetros que usan las puertas de enlace de VPN de Azure en la configuración predeterminada (**Directivas predeterminadas**). Para puertas de enlace de VPN basadas en enrutamiento creadas mediante el modelo de implementación de Azure Resource Management, puede especificar una directiva personalizada en cada conexión individual. Consulte [Configuración de directiva IPsec/IKE](vpn-gateway-ipsecikepolicy-rm-powershell.md) para obtener instrucciones detalladas.
+
+Además, debe fijar el **MSS** de TCP en **1350**. O, si los dispositivos VPN no admiten la fijación de MSS, también puede establecer el **MTU** en la interfaz de túnel en **1400** bytes.
 
 En las tablas siguientes:
 

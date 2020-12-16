@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: 0fda0b659dd2500e811fac1f53c99a9987276185
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: ef284661d44f700cf0b5282efcd2e6f7b94fa3b6
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92537480"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621525"
 ---
 # <a name="azure-cache-for-redis-network-isolation-options"></a>Opciones de aislamiento de red de Azure Cache for Redis 
 En este artículo, obtendrá información sobre cómo determinar la mejor solución de aislamiento de red para sus necesidades. Analizaremos los aspectos básicos de Azure Private Link, la inserción de Azure Virtual Network (VNet) y las reglas de Azure Firewall con sus ventajas y limitaciones.  
@@ -22,7 +22,7 @@ Azure Private Link proporciona conectividad privada desde una red virtual a los 
 ### <a name="advantages"></a>Ventajas
 * Se admite en las instancias Básica, Estándar y Premium de Azure Cache for Redis. 
 * Mediante el uso de [Azure Private Link](../private-link/private-link-overview.md), puede conectarse a una instancia de Azure Cache desde la red virtual a través de un punto de conexión privado, al que se le asigna una dirección IP privada en una subred dentro de la red virtual. Con esto, las instancias de caché están disponibles tanto dentro de VNet como de forma pública.  
-* Una vez creado un punto de conexión privado, el acceso a la red pública se puede restringir a través de la marca `publicNetworkAccess`. Esta marca se establece en `Enabled` de forma predeterminada, lo que le brinda la opción de permitir el acceso de vínculo público y privado a la memoria caché. Si se establece en `Disabled`, solo permitirá el acceso de vínculo privado. Puede establecer el valor en `Disabled` con una solicitud PATCH. Para más información, consulte [Azure Cache for Redis con Azure Private Link (versión preliminar)](cache-private-link.md). 
+* Una vez creado un punto de conexión privado, el acceso a la red pública se puede restringir a través de la marca `publicNetworkAccess`. Esta marca se establece en `Disabled` de forma predeterminada, lo que solo permitirá el acceso de vínculos privados. Puede establecer el valor en `Enabled` o `Disabled` con una solicitud PATCH. Para más información, consulte [Azure Cache for Redis con Azure Private Link (versión preliminar)](cache-private-link.md). 
 * Ninguna dependencia de caché externa afectará a las reglas de NSG de VNet.
 
 ### <a name="limitations"></a>Limitaciones 
@@ -54,7 +54,7 @@ VNet es el bloque de creación básico de una red privada en Azure. VNet permite
 [Azure Firewall](../firewall/overview.md) es un servicio de seguridad de red administrado y basado en la nube que protege los recursos de Azure VNet. Se trata de un firewall como servicio con estado completo que incorpora alta disponibilidad y escalabilidad en la nube sin restricciones. Puede crear, aplicar y registrar directivas de aplicaciones y de conectividad de red a nivel central en suscripciones y redes virtuales.  
 
 ### <a name="advantages"></a>Ventajas
-* Cuando se configuran las reglas de firewall, solo las conexiones de cliente de los intervalos de direcciones IP especificados pueden conectarse a la memoria caché. Siempre se permiten las conexiones de los sistemas de supervisión de Azure Cache for Redis, incluso si se configuran reglas de firewall. También se permiten las reglas de NSG que defina.  
+* Cuando se configuran las reglas de firewall, solo las cone Siempre se permiten las conexiones de los sistemas de supervisión de Azure Cache for Redis, incluso si se configuran reglas de firewall. También se permiten las reglas de NSG que defina.  
 
 ### <a name="limitations"></a>Limitaciones
 * Las reglas de firewall se pueden usar junto con memorias caché insertadas en VNet, pero actualmente no con puntos de conexión privados. 

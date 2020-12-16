@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/15/2020
 ms.author: radeltch
-ms.openlocfilehash: f4693af9c29a36aad60b7b525fec024509a4d586
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: d2cc8487f9864a27c1a2b02ef6e846bc43727e27
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94958760"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608544"
 ---
 # <a name="deploy-a-sap-hana-scale-out-system-with-standby-node-on-azure-vms-by-using-azure-netapp-files-on-red-hat-enterprise-linux"></a>Implementación de un sistema de escalabilidad horizontal de SAP HANA con nodo en espera en VM de Azure mediante Azure NetApp Files en Red Hat Enterprise Linux 
 
@@ -59,6 +59,10 @@ ms.locfileid: "94958760"
 En este artículo se describe cómo implementar un sistema SAP HANA de alta disponibilidad en una configuración de escalabilidad horizontal con modo de espera en máquinas virtuales (VM) de Azure Red Hat Enterprise Linux mediante [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md) para los volúmenes de almacenamiento compartido.  
 
 En las configuraciones de ejemplo, como en los comandos de instalación, la instancia de HANA es **03** y el identificador del sistema de HANA es **HN1**. Los ejemplos se basan en HANA 2.0 SP4 y Red Hat Enterprise Linux para SAP 7.6. 
+
+> [!NOTE]
+> Este artículo contiene referencias a los términos *maestro* y *esclavo*, unos términos que Microsoft ya no usa. Cuando se eliminen estos términos del software, se eliminarán también de este artículo.
+
 
 Antes de comenzar, consulte las siguientes notas y documentos de SAP:
 

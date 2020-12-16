@@ -8,19 +8,19 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: ed0c7ef98e70774350c9a3ff12b0cc3f4186e1bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 041df9b77e85f09d2cf680773edc995c6288acaa
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89380533"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746427"
 ---
 # <a name="how-to-add-a-preview-audience-for-your-saas-offer"></a>Incorporación de una audiencia preliminar a la oferta de SaaS
 
 Cuando se crea una oferta de software como servicio (SaaS) en el Centro de partners, es necesario definir una audiencia preliminar que pueda revisar la descripción de la oferta antes de publicarla. En este artículo se explica cómo configurar una audiencia preliminar.
 
 > [!NOTE]
-> Si elige procesar las transacciones de forma independiente, no verá esta opción. En lugar de ello, vaya a [Comercialización de una oferta de SaaS](create-new-saas-offer-marketing.md).
+> Si elige procesar las transacciones de forma independiente, no verá esta opción. En lugar de ello, vaya a [Comercialización de ofertas de SaaS](create-new-saas-offer-marketing.md).
 
 ## <a name="define-a-preview-audience"></a>Definición de una audiencia preliminar
 

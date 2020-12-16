@@ -14,12 +14,12 @@ ms.date: 04/01/2020
 ms.author: kenwith
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab3b655d59e2cb8c6773fa1a34a08638e6926475
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: e15009dd935d91971ce4212ff44b67a1ca6fa363
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96180666"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745390"
 ---
 # <a name="moving-application-authentication-from-active-directory-federation-services-to-azure-active-directory"></a>Traslado de la autenticación de las aplicaciones de los Servicios de federación de Active Directory (AD FS) a Azure Active Directory
 
@@ -293,7 +293,7 @@ En [Azure Portal](https://portal.azure.com/), primero [creará un grupo de usuar
 
 Autorización explícita de un usuario en AD FS:
 
-![Captura de pantalla que muestra el cuadro de diálogo Editar regla de la regla de notificaciones para permitir de administradores de dominio con un tipo de notificación entrante de SID principal.](media/migrate-adfs-apps-to-azure/authorize-a-specific-user-1.png)
+![Captura de pantalla que muestra el cuadro de diálogo Editar regla para permitir un usuario especifico para una regla de notificaciones, con un tipo de notificación entrante de SID principal.](media/migrate-adfs-apps-to-azure/authorize-a-specific-user-1.png)
 
 La regla se asigna a Azure AD de la siguiente manera:
 

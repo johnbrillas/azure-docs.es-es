@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.custom: contperfq1
 ms.date: 10/13/2020
 ms.author: allensu
-ms.openlocfilehash: 3f4791c5cbcf731e118bac4bf692adcad7e9ff44
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d0fad3a257b6d1b3723cdf337179573b4667b054
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96483596"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780117"
 ---
 # <a name="using-snat-for-outbound-connections"></a>Uso de SNAT para conexiones salientes
 
-Las direcciones IP de front-end de un equilibrador de carga público de Azure se pueden usar para proporcionar conectividad saliente a Internet para las instancias de back-end. Esta configuración usa la **traducción de direcciones de red de origen (SNAT)** . SNAT reescribe la dirección IP del back-end en la IP pública del equilibrador de carga. 
+Las direcciones IP de front-end de un equilibrador de carga público de Azure se pueden usar para proporcionar conectividad saliente a Internet para las instancias de back-end. Esta configuración usa **traducción de direcciones de red de origen (SNAT)** . SNAT reescribe la dirección IP del back-end en la IP pública del equilibrador de carga. 
 
 SNAT habilita el **enmascaramiento de IP** de la instancia de back-end. Esta enmascaramiento impide que los orígenes externos tengan una dirección directa a las instancias de back-end. El hecho de compartir una dirección IP entre instancias de back-end reduce el costo de las direcciones IP públicas estáticas y admite escenarios como la simplificación de listas de direcciones IP permitidas con tráfico procedente de direcciones IP públicas conocidas. 
 

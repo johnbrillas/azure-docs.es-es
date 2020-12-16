@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo actualizar un clúster de Azure Ku
 services: container-service
 ms.topic: article
 ms.date: 11/17/2020
-ms.openlocfilehash: 262905c9f840850795ba9555912e81eca61369d1
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: c5de1a02a077ccb5f46b685572c6c43f5951b224
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94683240"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751502"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Actualización de un clúster de Azure Kubernetes Service (AKS)
 
@@ -93,7 +93,7 @@ az aks nodepool update -n mynodepool -g MyResourceGroup --cluster-name MyManaged
 
 ## <a name="upgrade-an-aks-cluster"></a>Actualización de un clúster de AKS
 
-Con una lista de las versiones disponibles para el clúster de AKS, use el comando [az aks upgrade][az-aks-upgrade] para realizar la actualización. Durante el proceso de actualización, AKS agrega un nuevo nodo de búfer (o tantos nodos como los configurados en la [sobrecarga máxima](#customize-node-surge-upgrade)) al clúster que ejecuta la versión de Kubernetes especificada. A continuación, [acordonará y purgará][kubernetes-drain] uno de los nodos antiguos para minimizar la interrupción de las aplicaciones en ejecución (si usa la sobrecarga máxima, [acordonará y purgará][kubernetes-drain] tantos nodos al mismo tiempo como el número de nodos de búfer especificados). Cuando el nodo anterior se ha purgado por completo, se restablecerá la imagen inicial para recibir la nueva versión y se convertirá en el nodo de búfer para el siguiente nodo que se va a actualizar. Este proceso se repite hasta que se hayan actualizado todos los nodos del clúster. Al final del proceso, se eliminará el último nodo purgado, manteniendo el número de nodos de agente existentes.
+Con una lista de las versiones disponibles para el clúster de AKS, use el comando [az aks upgrade][az-aks-upgrade] para realizar la actualización. Durante el proceso de actualización, AKS agrega un nuevo nodo de búfer (o tantos nodos como los configurados en la [sobrecarga máxima](#customize-node-surge-upgrade)) al clúster que ejecuta la versión de Kubernetes especificada. A continuación, [acordonará y purgará][kubernetes-drain] uno de los nodos antiguos para minimizar la interrupción de las aplicaciones en ejecución (si usa la sobrecarga máxima, [acordonará y purgará][kubernetes-drain] tantos nodos al mismo tiempo como el número de nodos de búfer especificados). Cuando el nodo anterior se ha purgado por completo, se restablecerá la imagen inicial para recibir la nueva versión y se convertirá en el nodo de búfer para el siguiente nodo que se va a actualizar. Este proceso se repite hasta que se hayan actualizado todos los nodos del clúster. Al final del proceso, se eliminará el último nodo del búfer, manteniendo el número de nodos de agente existentes, así como el equilibrio de zona.
 
 ```azurecli-interactive
 az aks upgrade \
@@ -104,8 +104,9 @@ az aks upgrade \
 
 Dicha actualización tarda varios minutos. El tiempo exacto dependerá del número de nodos que tenga.
 
-> [!NOTE]
-> Hay un tiempo total permitido para que se complete la actualización de un clúster. Este tiempo se calcula tomando el producto de `10 minutes * total number of nodes in the cluster`. Por ejemplo, en un clúster de 20 nodos, las operaciones de actualización deben realizarse correctamente en 200 minutos o AKS producirá un error en la operación para evitar un estado de clúster irrecuperable. Para la recuperación en caso de error de actualización, vuelva a intentar la operación una vez alcanzado el tiempo de espera.
+> [!IMPORTANT]
+> Asegúrese de que cualquier `PodDisruptionBudgets` (PDB) permita que se mueva al menos una réplica de pod a la vez; en caso contrario, se producirá un error en la operación de purga o expulsión.
+> Si se produce un error en la operación de purga, se producirá un error por diseño en la operación de actualización para garantizar que no se interrumpan las aplicaciones. Corrija lo que hizo que se detuviese la operación (PDB incorrectos, falta de cuota, etc.) y vuelva a intentar la operación.
 
 Para confirmar que la actualización se ha realizado correctamente, use el comando [az aks show][az-aks-show]:
 
@@ -119,6 +120,64 @@ En la salida de ejemplo siguiente se muestra que el clúster ahora ejecuta la ve
 Name          Location    ResourceGroup    KubernetesVersion    ProvisioningState    Fqdn
 ------------  ----------  ---------------  -------------------  -------------------  ---------------------------------------------------------------
 myAKSCluster  eastus      myResourceGroup  1.13.10               Succeeded            myaksclust-myresourcegroup-19da35-90efab95.hcp.eastus.azmk8s.io
+```
+
+## <a name="set-auto-upgrade-channel-preview"></a>Establecimiento de un canal de actualización automática (versión preliminar)
+
+Además de actualizar manualmente un clúster, puede establecer un canal de actualización automática en el clúster. Están disponibles los siguientes canales de actualización:
+
+* *none*, que deshabilita las actualizaciones automáticas y mantiene el clúster en su versión actual de Kubernetes. Este es el valor predeterminado y se usa si no se especifica ninguna opción.
+* *patch*, que actualizará automáticamente el clúster a la última versión de revisión compatible cuando esté disponible mientras se mantiene la misma versión secundaria. Por ejemplo, si un clúster ejecuta la versión *1.17.7* y las versiones *1.17.9*, *1.18.4*, *1.18.6* y *1.19.1* están disponibles, el clúster se actualiza a *1.17.9*.
+* *stable*, que actualizará automáticamente el clúster a la última versión de revisión compatible en la versión secundaria *N-1*, donde *N* es la última versión secundaria compatible. Por ejemplo, si un clúster ejecuta la versión *1.17.7* y las versiones *1.17.9*, *1.18.4*, *1.18.6* y *1.19.1* están disponibles, el clúster se actualiza a *1.18.6*.
+* *rapid*, que actualizará automáticamente el clúster a la última versión de revisión compatible en la última versión secundaria compatible. En los casos en los que el clúster está en una versión de Kubernetes que se encuentra en una versión secundaria *N-2* donde *N* es la última versión secundaria, el clúster se actualiza primero a la última versión de revisión compatible en la versión secundaria *N-1*. Por ejemplo, si un clúster ejecuta la versión *1.17.7* y las versiones *1.17.9*, *1.18.4*, *1.18.6* y *1.19.1* están disponibles, el clúster se actualiza primero a *1.18.6* y, a continuación, se actualiza a *1.19.1*.
+
+> [!NOTE]
+> La actualización automática del clúster solo se actualiza a las versiones de disponibilidad general de Kubernetes y no se actualizará a las versiones preliminares.
+
+La actualización automática de un clúster sigue el mismo proceso que la manual. Para obtener más detalles, consulte [Actualización de un clúster de Azure Kubernetes Service (AKS)][upgrade-cluster].
+
+La actualización automática del clúster para los clústeres de AKS es una característica en vista previa (GB).
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
+Registre la marca de la característica `AutoUpgradePreview` con el comando [az feature register][az-feature-register], como se muestra en el siguiente ejemplo:
+
+```azurecli-interactive
+az feature register --namespace Microsoft.ContainerService -n AutoUpgradePreview
+```
+
+Tarda unos minutos en que el estado muestre *Registrado*. Puede comprobar el estado de registro con el comando [az feature list][az-feature-list]:
+
+```azurecli-interactive
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AutoUpgradePreview')].{Name:name,State:properties.state}"
+```
+
+Cuando haya terminado, actualice el registro del proveedor de recursos *Microsoft.ContainerService* con el comando [az provider register][az-provider-register]:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
+
+Use el comando [az extension add][az-extension-add] para instalar la extensión *aks-preview* y, a continuación, busque las actualizaciones disponibles con el comando [az extension update][az-extension-update]:
+
+```azurecli-interactive
+# Install the aks-preview extension
+az extension add --name aks-preview
+
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
+
+Para establecer el canal de actualización automática al crear un clúster, use el parámetro *auto-upgrade-channel*, similar al ejemplo siguiente.
+
+```azurecli-interactive
+az aks create --resource-group myResourceGroup --name myAKSCluster --auto-upgrade-channel stable --generate-ssh-keys
+```
+
+Para establecer el canal de actualización automática en el clúster existente, actualice el parámetro *auto-upgrade-channel*, similar al ejemplo siguiente.
+
+```azurecli-interactive
+az aks update --resource-group myResourceGroup --name myAKSCluster --auto-upgrade-channel stable
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -137,6 +196,10 @@ En este artículo se ha mostrado cómo actualizar un clúster de AKS existente. 
 [az-aks-get-upgrades]: /cli/azure/aks#az-aks-get-upgrades
 [az-aks-upgrade]: /cli/azure/aks#az-aks-upgrade
 [az-aks-show]: /cli/azure/aks#az-aks-show
-[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
+[az-feature-list]: /cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-provider-register]: /cli/azure/provider?view=azure-cli-latest#az-provider-register&preserve-view=true
+[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
+[upgrade-cluster]:  #upgrade-an-aks-cluster

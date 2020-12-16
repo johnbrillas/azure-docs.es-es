@@ -6,22 +6,22 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/24/2020
+ms.date: 12/02/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: fbc24db21ee43e3c2aef3d0164e8510a79508fd2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57cde2c5c0a1caf7ad5182cad8db72ab8aa7c908
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89658575"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96531790"
 ---
 # <a name="azure-storage-redundancy"></a>Redundancia de Azure Storage
 
-Azure Storage siempre almacena varias copias de los datos, con el fin de protegerlos de eventos planeados y no planeados, como errores transitorios del hardware, interrupciones del suministro eléctrico o cortes de la red y desastres naturales masivos. La redundancia garantiza que la cuenta de almacenamiento cumpla el [contrato de nivel de servicio (SLA) para Azure Storage](https://azure.microsoft.com/support/legal/sla/storage/), incluso en caso de errores.
+Azure Storage siempre almacena varias copias de los datos, con el fin de protegerlos de eventos planeados y no planeados, como errores transitorios del hardware, interrupciones del suministro eléctrico o cortes de la red y desastres naturales masivos. La redundancia garantiza que la cuenta de almacenamiento cumple sus objetivos de disponibilidad y durabilidad, aunque se produzcan errores.
 
-A la hora de decidir qué opción de redundancia es la más adecuada para su escenario, tenga en cuenta la solución intermedia entre los costos más bajos y disponibilidad y durabilidad más altas. Entre los factores que ayudan a determinar qué opción de redundancia debe elegir se incluye:  
+A la hora de decidir qué opción de redundancia es la más adecuada para su escenario, intente buscar un equilibrio entre bajo costo y alta disponibilidad. Entre los factores que ayudan a determinar qué opción de redundancia debe elegir se incluye:  
 
 - Cómo se replican los datos en la región primaria.
 - Si los datos se replicarán en una segunda ubicación que está alejada geográficamente de la región primaria, para protegerse frente a desastres regionales.
@@ -51,7 +51,7 @@ LRS es una buena opción para los siguientes escenarios:
 
 El almacenamiento con redundancia de zona (ZRS) replica los datos de Azure Storage de forma sincrónica en tres zonas de disponibilidad de Azure en la región primaria. Cada zona de disponibilidad es una ubicación física individual con alimentación, refrigeración y redes independientes. ZRS proporciona a los objetos de datos de Azure Storage una durabilidad de al menos el 99,9999999999 % (doce nueves) durante un año determinado.
 
-Con ZRS, los datos son accesibles para las operaciones de escritura y lectura incluso si una zona deja de estar disponible. Si alguna zona deja de estar disponible, Azure realiza las actualizaciones de la red, como el redireccionamiento de DNS. Estas actualizaciones pueden afectar a la aplicación si se accede a los datos antes de que se completen dichas actualizaciones. Al diseñar aplicaciones para ZRS, siga los procedimientos para el control de errores transitorios, incluida la implementación de directivas de reintentos con retroceso exponencial.
+Con ZRS, los datos son accesibles para las operaciones de escritura y lectura incluso si una zona deja de estar disponible. Si una zona pasa a no estar disponible, Azure realiza actualizaciones de red, como el redireccionamiento de DNS. Estas actualizaciones pueden afectar a la aplicación si se accede a los datos antes de que se completen dichas actualizaciones. Al diseñar aplicaciones para ZRS, siga los procedimientos para el control de errores transitorios, incluida la implementación de directivas de reintentos con retroceso exponencial.
 
 Las solicitudes de escritura a una cuenta de almacenamiento que usa ZRS se producen de forma sincrónica. Las operaciones de escritura se devuelven correctamente solo después de que los datos se escriben en todas las réplicas de las tres zonas de disponibilidad.
 
@@ -104,7 +104,7 @@ El almacenamiento con redundancia de zona geográfica (GZRS) combina la alta dis
 
 Con una cuenta de almacenamiento de GZRS, puede seguir leyendo y escribiendo datos si una zona de disponibilidad deja de estar disponible o es irrecuperable. Además, los datos se mantienen en caso de un apagón completo de una región o de un desastre tras el que la región primaria no se puede recuperar. El almacenamiento con redundancia de zona geográfica (GZRS) está diseñado para proporcionar una durabilidad mínima del 99,99999999999999 % (dieciséis nueves) de los objetos en un año determinado.
 
-Solo las cuentas de almacenamiento de uso general v2 son compatibles con GZRS y RA-GZRS. Para más información sobre los tipos de cuentas de almacenamiento, consulte [Introducción a las cuentas de Azure Storage](storage-account-overview.md). GZRS y RA-GZRS admiten blobs en bloques, blobs en páginas (salvo para discos VHD), archivos, tablas y colas.
+Solo las cuentas de almacenamiento de uso general v2 son compatibles con GZRS y RA-GZRS. Para más información acerca de los tipos de cuentas de almacenamiento, consulte la [Introducción a la cuenta de Azure Storage](storage-account-overview.md). GZRS y RA-GZRS admiten blobs en bloques, blobs en páginas (salvo para discos VHD), archivos, tablas y colas.
 
 GZRS y RA-GZRS se admiten en las siguientes regiones:
 
@@ -153,11 +153,9 @@ En la tabla siguiente se describen los parámetros clave de cada opción de redu
 
 | Parámetro | LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
 |:-|:-|:-|:-|:-|
-| Porcentaje de durabilidad de los objetos a lo largo de un año determinado<sup>1</sup> | al menos 99,999999999 % (once nueves) | al menos 99,9999999999 % (doce nueves) | Como mínimo 99,99999999999999 % (dieciséis nueves) | Como mínimo 99,99999999999999 % (dieciséis nueves) |
-| SLA de disponibilidad para las solicitudes de lectura<sup>1</sup> | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) para GRS<br /><br />Al menos un 99,9 % (99,99 % para el nivel de acceso esporádico) para RA-GRS | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) para GZRS<br /><br />Al menos un 99,9 % (99,99 % para el nivel de acceso esporádico) para RA-GZRS |
-| SLA de disponibilidad para las solicitudes de escritura<sup>1</sup> | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) |
-
-<sup>1</sup> Para más información sobre las garantías de durabilidad y disponibilidad de Azure Storage, consulte el [Acuerdo de Nivel de Servicio de Azure Storage](https://azure.microsoft.com/support/legal/sla/storage/).
+| Porcentaje de durabilidad de los objetos a lo largo de un año determinado | al menos 99,999999999 % (once nueves) | al menos 99,9999999999 % (doce nueves) | Como mínimo 99,99999999999999 % (dieciséis nueves) | Como mínimo 99,99999999999999 % (dieciséis nueves) |
+| Disponibilidad de las solicitudes de lectura | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) para GRS<br /><br />Al menos un 99,9 % (99,99 % para el nivel de acceso esporádico) para RA-GRS | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) para GZRS<br /><br />Al menos un 99,9 % (99,99 % para el nivel de acceso esporádico) para RA-GZRS |
+| Disponibilidad de las solicitudes de escritura | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) |
 
 ### <a name="durability-and-availability-by-outage-scenario"></a>Durabilidad y disponibilidad por escenario de interrupción
 

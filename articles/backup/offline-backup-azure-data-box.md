@@ -3,12 +3,12 @@ title: Copia de seguridad sin conexión con Azure Data Box
 description: Aprenda a usar Azure Data Box para propagar los datos de grandes copias de seguridad iniciales sin conexión desde el agente de MARS hasta un almacén de Recovery Services.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: 5a4aeebeddcca4adcac511c7c225c8809dd29c93
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e789b6c9f4ff2e8cd168e6b5c138d423911d4743
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89180939"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96752590"
 ---
 # <a name="azure-backup-offline-backup-by-using-azure-data-box"></a>Copia de seguridad sin conexión de Azure Backup con Azure Data Box
 
@@ -277,7 +277,7 @@ Como solución alternativa para resolver este problema, siga los pasos a continu
 
 #### <a name="step-1-of-workaround"></a>Paso 1 de la solución alternativa
 
-Inicie sesión en la instancia de PowerShell que aparece en la interfaz de usuario de MAB con una cuenta diferente con acceso de administrador en la suscripción en la que se creará el trabajo de importación o exportación.
+Inicie sesión en la instancia de PowerShell que aparece en la interfaz de usuario de MAB con una cuenta diferente que tenga acceso de administrador en la suscripción en la que se creará el trabajo de Data Box.
 
 #### <a name="step-2-of-workaround"></a>Paso 2 de la solución alternativa
 

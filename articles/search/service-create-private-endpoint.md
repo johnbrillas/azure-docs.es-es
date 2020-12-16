@@ -8,12 +8,12 @@ ms.author: mcarter
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/19/2020
-ms.openlocfilehash: 043020abd44bc1f8e671cf386149d6a818136de9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 6ee72a25fc8435159ae75ac3296742eda58617b6
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96014370"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779947"
 ---
 # <a name="create-a-private-endpoint-for-a-secure-connection-to-azure-cognitive-search"></a>Creación de un punto de conexión privado para una conexión segura a Azure Cognitive Search
 
@@ -22,7 +22,7 @@ En este artículo, usará Azure Portal para crear una nueva instancia del servi
 Los puntos de conexión privados se proporcionan mediante [Azure Private Link](../private-link/private-link-overview.md), como un servicio independiente. Para más información sobre los costos, consulte la [página de precios](https://azure.microsoft.com/pricing/details/private-link/).
 
 > [!Important]
-> El soporte técnico del punto de conexión privado de Azure Cognitive Search se puede configurar con Azure Portal o la [API REST de administración, versión 2020-03-13](/rest/api/searchmanagement/). Cuando el punto de conexión de servicio es privado, se deshabilitan algunas características del portal. Podrá ver y administrar información de nivel de servicio, pero, por motivos de seguridad, se ha restringido el acceso del portal a los datos del índice y de los distintos componentes de este servicio, como índice, indizador y definiciones del conjunto de aptitudes.
+> El soporte técnico del punto de conexión privado de Azure Cognitive Search se puede configurar con Azure Portal o la [API REST de administración, versión 2020-03-13](/rest/api/searchmanagement/). Cuando el punto de conexión de servicio es privado, se deshabilitan algunas características del portal. Podrá ver y administrar información de nivel de servicio, pero, por motivos de seguridad, se ha restringido el acceso del portal a los datos del índice y de los distintos componentes de este servicio, como índice, indizador y definiciones del conjunto de aptitudes. Como alternativa al portal, puede usar la [extensión de VS Code](https://aka.ms/vscode-search) para interactuar con los distintos componentes del servicio.
 
 ## <a name="why-use-a-private-endpoint-for-secure-access"></a>¿Por qué usar un punto de conexión privado para obtener un acceso seguro?
 

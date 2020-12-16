@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 11/05/2020
 ms.topic: conceptual
 ms.custom: how-to, has-adal-ref, devx-track-js, devx-track-azurecli, contperfq2
-ms.openlocfilehash: ca8a36584c09d850ed1daab8cba301b244f76526
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: a9bf03fd59e6088ce1c1b09a41b2bf55d1f45455
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96447025"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532965"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Configuración de la autenticación para recursos y flujos de trabajo de Azure Machine Learning
 
@@ -27,7 +27,7 @@ Obtenga información sobre cómo configurar la autenticación en el área de tra
 
 * __Entidad de servicio__: el usuario crea una cuenta de entidad de servicio en Azure Active Directory y la usa para autenticarse u obtener un token. Una entidad de servicio se usa cuando se necesita un _proceso automatizado para autenticarse_ en el servicio sin necesidad de interacción del usuario. Por ejemplo, un script de implementación e integración continua que entrena y prueba un modelo cada vez que cambia el código de entrenamiento.
 
-* __Identidad administrada__: Cuando se usa el SDK de Azure Machine Learning _en una máquina virtual de Azure_, se puede usar una identidad administrada para Azure. Este flujo de trabajo permite a la máquina virtual conectarse al área de trabajo mediante la identidad administrada, sin almacenar las credenciales en el código de Python ni pedir al usuario que se autentique. Los clústeres de proceso de Azure Machine Learning también se pueden configurar para usar una identidad administrada para acceder al área de trabajo cuando se _entrenen modelos_.
+* __Identidad administrada__: Si utiliza el SDK de Azure Machine Learning _en una máquina virtual de Azure_, puede usar una identidad administrada para Azure. Este flujo de trabajo permite a la máquina virtual conectarse al área de trabajo mediante la identidad administrada, sin almacenar las credenciales en el código de Python ni pedir al usuario que se autentique. Los clústeres de proceso de Azure Machine Learning también se pueden configurar para usar una identidad administrada para acceder al área de trabajo cuando se _entrenen modelos_.
 
 > [!IMPORTANT]
 > Independientemente del flujo de trabajo de autenticación que se use, el control de acceso basado en roles de Azure (Azure RBAC) se usa para limitar el nivel de acceso (autorización) permitido a los recursos. Por ejemplo, un proceso de administración o de automatización podría acceder para crear una instancia de proceso, pero no usarla, mientras que un científico de datos podría usarla, pero no eliminarla ni crearla. Para obtener más información, consulte [Administración del acceso a un área de trabajo de Azure Machine Learning](how-to-assign-roles.md).

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 09/01/2020
 ms.author: azhussai
-ms.openlocfilehash: 1d88379726cfb6c4218c38b9ccc87005609a9aba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89ba6b7a69c95951a083628f23be68d811c7768c
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89460752"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96601618"
 ---
 # <a name="understanding-pricing-for-azure-application-gateway-and-web-application-firewall"></a>Descripción de los precios de Azure Application Gateway y el firewall de aplicaciones web
 
@@ -254,9 +254,19 @@ Si había capacidad de procesamiento disponible equivalente a 10 unidades de ca
 
 Precio fijo = 0,246 $ * 730 horas = 179,58 $
 
-Costos variables = 0,008 $ * (3 unidades de instancia * 10 unidades de capacidad + 5 unidades de capacidad adicionales) * 730 horas = 204,4 $
+Costos variables = 0,008 $ * 3 (unidades de instancia) * 10 (unidades de capacidad) + 10 (unidades de capacidad adicionales) * 730 (horas) = 233,6 $
 
-Costos totales = 179,58 $ + 204,4 $ = 383,98 $
+Costos totales = 179,58 $ + 233,6 $ = 413,18 $
+
+Sin embargo, si había capacidad de procesamiento disponible equivalente a 7 unidades de capacidad adicionales para utilizar en las 3 instancias reservadas.
+En este escenario, el recurso de Application Gateway está en escalado y podría provocar un aumento de la latencia o la desestimación de solicitudes.
+
+Precio fijo = 0,246 $ * 730 horas = 179,58 $
+
+Costos variables = 0,008 $ * 3 (unidades de instancia) * 10 (unidades de capacidad) + 7 (unidades de capacidad adicionales) * 730 (horas) = 216,08 $
+
+Costos totales = 179,58 $ + 216,08 $ = 395,66 $
+
 
 ![Diagrama de escalado manual 2.](./media/pricing/manual-scale-2.png)
 

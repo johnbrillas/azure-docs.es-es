@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 11/06/2020
-ms.openlocfilehash: 61ee0b769664d1f574177e27b5b1fb10e9845035
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: a67a721b8d94112347282e1cd9be4d43f4ac85da
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96463105"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96744642"
 ---
 # <a name="configure-a-managed-application-plan"></a>Configuración de un plan de una aplicación administrada
 
@@ -73,7 +73,7 @@ Para establecer precios personalizados en un mercado individual, exporte, modifi
 
 ## <a name="choose-who-can-see-your-plan"></a>Selección de quién puede ver el plan
 
-Tiene la opción de configurar cada plan para que lo pueda ver todo el mundo o solo un público concreto. Puede conceder acceso a un público privado con los identificadores de la suscripción de Azure con la opción de incluir una descripción de cada identificador de suscripción que asigne. Puede agregar hasta 10 identificadores de suscripción manualmente o hasta 10 000 mediante un archivo .csv. Los identificadores de suscripción de Azure se representan como GUID y las letras deben estar en minúsculas.
+Tiene la opción de configurar cada plan para que lo pueda ver todo el mundo o solo un público concreto. Puede conceder acceso a un público privado con los identificadores de la suscripción de Azure con la opción de incluir una descripción de cada identificador de suscripción que asigne. Puede agregar hasta 10 identificadores de suscripción manualmente o hasta 10 000 mediante un archivo .csv. Los identificadores de suscripción de Azure se representan como GUID y las letras deben estar en minúsculas.
 
 > [!NOTE]
 > Si publica un plan privado, puede cambiar su visibilidad a público más adelante. Sin embargo, una vez que se publica un plan público, no se puede cambiar su visibilidad a privado.
@@ -188,4 +188,4 @@ Las acciones que están disponibles en la columna **Acción** de la pestaña **I
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Prueba y publicación de la oferta de Aplicación de Azure](create-new-azure-apps-offer-test-publish.md).
-- Aprenda a [comercializar su oferta de Aplicación de Azure](create-new-azure-apps-offer-marketing.md) mediante los programas de venta conjunta con Microsoft y reventa a través de los CSP.
+- Aprenda a [vender su oferta de Aplicación de Azure](create-new-azure-apps-offer-marketing.md) mediante los programas de venta conjunta con Microsoft y reventa a través de los CSP.

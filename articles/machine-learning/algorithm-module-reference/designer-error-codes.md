@@ -9,13 +9,13 @@ ms.topic: reference
 ms.custom: troubleshooting
 author: likebupt
 ms.author: keli19
-ms.date: 04/16/2020
-ms.openlocfilehash: 569cf130b464d97e0ac10904ffd86365b57610a5
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.date: 11/25/2020
+ms.openlocfilehash: 846c5519dced06ed16f5a0d12b0bb25443961f93
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420842"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753916"
 ---
 # <a name="exceptions-and-error-codes-for-the-designer"></a>Excepciones y códigos de error para el diseñador
 
@@ -279,13 +279,22 @@ Si el modelo se entrenó con cualquiera de los módulos de entrenamiento especia
 ## <a name="error-0014"></a>Error 0014  
  Se produce una excepción si el recuento de valores únicos de columna es mayor que lo permitido.  
 
- Este error se produce cuando una columna contiene demasiados valores únicos.  Por ejemplo, podría ver este error si especifica que una columna se trate como datos de categoría, pero hay demasiados valores únicos en la columna como para permitir que se complete el procesamiento. También puede ver este error si hay una discrepancia entre el número de valores únicos de dos entradas.   
+ Este error se produce cuando una columna contiene demasiados valores únicos, como una columna de identificador o una columna de texto. Podría ver este error si especifica que una columna se trate como datos de categoría, pero hay demasiados valores únicos en la columna como para permitir que se complete el procesamiento. También puede ver este error si hay una discrepancia entre el número de valores únicos de dos entradas.   
+
+El error de que el número de valores únicos es mayor de lo permitido ocurrirá si se cumplen **las dos** condiciones siguientes:
+
+- Más de 97 % de las instancias de una columna son valores únicos, lo que significa que casi todas las categorías son diferentes entre sí.
+- Una columna tiene más de 1000 valores únicos.
 
 **Resolución:**
 
 Abra el módulo que generó el error e identifique las columnas que se usan como entradas. En el caso de algunos módulos, puede hacer clic en la entrada del conjunto de datos y seleccionar **Visualizar** para obtener las estadísticas de columnas individuales, incluido el número de valores únicos y su distribución.
 
 En el caso de las columnas que va a utilizar para agrupación o clasificación, tome medidas para reducir el número de valores únicos de las columnas. Puede reducirlo de maneras diferentes, según el tipo de datos de la columna. 
+
+En el caso de las columnas de identificador que no sean características significativas durante el entrenamiento de un modelo, podrá usar [Editar metadatos](../algorithm-module-reference/edit-metadata.md) para marcar esa columna como **Borrar característica** y no se usará durante el entrenamiento de un modelo. 
+
+En el caso de las columnas de texto, podrá usar [Hash de características](../algorithm-module-reference/feature-hashing.md) o el [módulo Extract N-Gram Features from Text (Extracción de características de n-gramas a partir de texto)](../algorithm-module-reference/extract-n-gram-features-from-text.md) para el preprocesamiento de estas.
 <!--
 + For text data, you might be able to use [Preprocess Text](preprocess-text.md) to collapse similar entries. 
 + For numeric data, you can create a smaller number of bins using [Group Data into Bins](group-data-into-bins.md), remove or truncate values using [Clip Values](clip-values.md), or use machine learning methods such as [Principal Component Analysis](principal-component-analysis.md) or [Learning with Counts](data-transformation-learning-with-counts.md) to reduce the dimensionality of the data.  

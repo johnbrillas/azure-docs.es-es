@@ -8,25 +8,25 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020, devx-track-python
 ms.date: 04/23/2020
-ms.openlocfilehash: 96b2e7deff464f00ced4457a514ac833a90bd42d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 16cb8a9c2a951c9f60640248ef74757d1e5ee200
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95999899"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518930"
 ---
-# <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>Instalación de un cuaderno de Jupyter Notebook en el equipo y conexión al clúster de Apache Spark en HDInsight Linux
+# <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>Instalación de Jupyter Notebook en el equipo y conexión a Apache Spark en HDInsight
 
-En este artículo obtendrá información sobre cómo instalar un cuaderno de Jupyter Notebook con PySpark personalizado (para Python) y los kernels de Apache Spark (para Scala) con Sparkmagic. A continuación, conecte el cuaderno a un clúster de HDInsight.
+En este artículo, aprenderá a instalar Jupyter Notebook con los kernels personalizados de PySpark (para Python) y Apache Spark (para Scala) utilizando Sparkmagic. A continuación, conecte el cuaderno a un clúster de HDInsight.
 
 Hay cuatro pasos principales implicados en la instalación de Jupyter y la conexión a Apache Spark en HDInsight.
 
 * Configuración de un clúster de Spark.
-* Instalación de cuadernos de Jupyter Notebook.
+* Instalación de Jupyter Notebook.
 * Instalación de los kernels de PySpark y Spark con Sparkmagic.
 * Configuración de Sparkmagic para obtener acceso al clúster de Spark en HDInsight.
 
-Para más información sobre los kernels personalizados y Sparkmagic, vea [Kernels disponibles para cuadernos de Jupyter con clústeres Apache Spark basados en Linux en HDInsight](apache-spark-jupyter-notebook-kernels.md).
+Para más información sobre los kernels personalizados y Sparkmagic, consulte este artículo sobre los [kernels disponibles para Jupyter Notebook con clústeres Apache Spark basados en Linux en HDInsight](apache-spark-jupyter-notebook-kernels.md).
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -34,9 +34,9 @@ Para más información sobre los kernels personalizados y Sparkmagic, vea [Kerne
 
 * Experiencia en el uso de Jupyter Notebooks con Spark en HDInsight.
 
-## <a name="install-jupyter-notebook-on-your-computer"></a>Instalación de cuadernos de Jupyter Notebook en el equipo
+## <a name="install-jupyter-notebook-on-your-computer"></a>Instalación de Jupyter Notebook en el equipo
 
-Instale Python para poder instalar cuadernos de Jupyter. La [distribución Anaconda](https://www.anaconda.com/download/) instalará ambas soluciones: Python y Jupyter Notebook.
+Instale Python para poder instalar los cuadernos de Jupyter Notebook. La [distribución Anaconda](https://www.anaconda.com/download/) instalará ambas soluciones: Python y Jupyter Notebook.
 
 Descargue el [instalador de Anaconda](https://www.anaconda.com/download/) para su plataforma y ejecute el programa de instalación. Durante la ejecución del Asistente para instalación, asegúrese de seleccionar la opción para agregar Anaconda a la variable PATH.  Consulte también el tema sobre la [instalación de Jupyter con Anaconda](https://jupyter.readthedocs.io/en/latest/install.html).
 
@@ -170,7 +170,7 @@ En esta sección, configurará el conjunto de Sparkmagic que instaló anteriorme
 
 Motivos para instalar Jupyter en el equipo y, a continuación, conectarlo a un clúster Apache Spark en HDInsight:
 
-* Ofrece la opción de crear sus cuadernos localmente, probar la aplicación en un clúster en ejecución y, después, cargar los cuadernos en el clúster. Para cargar los cuadernos en el clúster, puede hacerlo mediante el cuaderno de Jupyter Notebook en ejecución o el clúster, o bien guardarlos en la carpeta `/HdiNotebooks` de la cuenta de almacenamiento asociada al clúster. Para obtener más información sobre cómo se almacenan los cuadernos en el clúster, consulte la sección [Where are Jupyter notebooks stored](apache-spark-jupyter-notebook-kernels.md#where-are-the-notebooks-stored)? (Almacenamiento de los cuadernos de Jupyter Notebook).
+* Ofrece la opción de crear sus cuadernos localmente, probar la aplicación en un clúster en ejecución y, después, cargar los cuadernos en el clúster. Para cargar los cuadernos en el clúster, puede utilizar la instancia de Jupyter Notebook en ejecución o el clúster, o bien guardarlos en la carpeta `/HdiNotebooks` de la cuenta de almacenamiento asociada al clúster. Para más información acerca de cómo se almacenan los cuadernos en el clúster, consulte la sección [Almacenamiento de los cuadernos](apache-spark-jupyter-notebook-kernels.md#where-are-the-notebooks-stored).
 * Con los cuadernos disponibles localmente, puede conectarse a diferentes clústeres de Spark según los requisitos de la aplicación.
 * Puede usar GitHub para implementar un sistema de control de código fuente y tener el control de las versiones de los cuadernos. También puede tener un entorno de colaboración donde varios usuarios pueden trabajar con el mismo cuaderno.
 * Puede trabajar con cuadernos localmente sin necesidad de un clúster activo. Solo necesita un clúster para probar los cuadernos, no para administrar manualmente los cuadernos o un entorno de desarrollo.

@@ -3,15 +3,15 @@ title: Configuración de claves administradas por el cliente para cifrar datos e
 description: Cree y administre sus propias claves de cifrado para proteger los datos en reposo para los entornos de servicio de integración (ISE) en Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, rarayudu, logicappspm
+ms.reviewer: mijos, rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 03/11/2020
-ms.openlocfilehash: 30b09d43cbe510318ac4f48e0655d5483491c215
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.date: 11/20/2020
+ms.openlocfilehash: 0057a4671dbc63bf53bafa8d2d742d4edcda1e5e
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94682781"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96741055"
 ---
 # <a name="set-up-customer-managed-keys-to-encrypt-data-at-rest-for-integration-service-environments-ises-in-azure-logic-apps"></a>Configure claves administradas por el cliente para cifrar los datos en reposo para los entornos de servicio de integración (ISE) en Azure Logic Apps
 
@@ -27,13 +27,17 @@ En este tema se muestra cómo configurar y especificar su propia clave de cifrad
 
 * Solo puede especificar una clave administrada por el cliente *cuando cree su ISE*, no después. No se puede deshabilitar esta clave una vez creado el ISE. Actualmente, no existe compatibilidad para rotar una clave administrada por el cliente para un ISE.
 
-* Para admitir las claves administradas por el cliente, el ISE requiere tener su [identidad administrada asignada por el sistema](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) habilitada. Esta identidad permite que el ISE autentique el acceso a los recursos de otros inquilinos de Azure Active Directory (Azure AD), de modo que no tenga que iniciar sesión con sus credenciales.
+* Para admitir las claves administradas por el cliente, el ISE requiere habilitar la [identidad administrada asignada pro el sistema o por el usuario](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types). Esta identidad permite al ISE autenticar el acceso a recursos seguros, como máquinas virtuales y otros sistemas o servicios que están dentro de una red virtual de Azure o conectados a ella. De este modo, no tiene que iniciar sesión con sus credenciales.
 
-* Actualmente, para crear un ISE que admita claves administradas por el cliente y tenga habilitada la identidad asignada por el sistema, debe llamar a la API de REST de Logic Apps mediante una solicitud HTTPS PUT.
+* Actualmente, para crear un ISE que admita claves administradas por el cliente y tenga habilitado el tipo de identidad administrada, debe llamar a la API de REST de Logic Apps mediante una solicitud HTTPS PUT.
 
-* En un plazo de *30 minutos* después de enviar la solicitud HTTPS PUT que crea su ISE, debe [proporcionar acceso al almacén de claves a la identidad asignada por el sistema de ISE](#identity-access-to-key-vault). En caso contrario, se produce un error en la creación de ISE que tendrá como consecuencia un error de permisos.
+* Debe [proporcionar acceso al almacén de claves a la identidad administrada del ISE](#identity-access-to-key-vault), pero el tiempo depende de la identidad administrada que use.
 
-## <a name="prerequisites"></a>Prerrequisitos
+  * **Identidad administrada asignada por el sistema**: En un plazo de *30 minutos* después de enviar la solicitud HTTPS PUT que crea su ISE, debe [proporcionar acceso al almacén de claves a la identidad administrada del ISE](#identity-access-to-key-vault). En caso contrario, se produce un error en la creación del ISE y, como consecuencia, se producirá otro error con los permisos.
+
+  * **Identidad administrada asignada por el usuario**: Antes de enviar la solicitud HTTPS PUT que crea su ISE, [proporcione acceso al almacén de claves a la identidad administrada del ISE](#identity-access-to-key-vault).
+
+## <a name="prerequisites"></a>Requisitos previos
 
 * Los mismos [requisitos previos](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#prerequisites) y [requisitos para habilitar el acceso a su ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access) que cuando se crea un ISE en Azure Portal
 
@@ -56,7 +60,7 @@ En este tema se muestra cómo configurar y especificar su propia clave de cifrad
 
 * Una herramienta que puede usar para crear su ISE mediante una llamada a la API de REST de Logic Apps con una solicitud HTTPS PUT. Por ejemplo, puede usar [Postman](https://www.getpostman.com/downloads/) o puede compilar una aplicación lógica que realice esta tarea.
 
-<a name="enable-support-key-system-identity"></a>
+<a name="enable-support-key-managed-identity"></a>
 
 ## <a name="create-ise-with-key-vault-and-managed-identity-support"></a>Creación de ISE con almacén de claves y compatibilidad con identidades administradas
 
@@ -65,7 +69,7 @@ Para crear su ISE mediante una llamada a la API de REST de Logic Apps, realice e
 `PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationServiceEnvironments/{integrationServiceEnvironmentName}?api-version=2019-05-01`
 
 > [!IMPORTANT]
-> La versión 2019-05-01 de la API de REST de Logic Apps requiere que realice su propia solicitud HTTP PUT para conectores ISE.
+> La versión 2019-05-01 de la API de REST de Logic Apps requiere que realice su propia solicitud HTTPS PUT para conectores ISE.
 
 Normalmente, la implementación tarda un máximo de dos horas en completarse. En ocasiones, la implementación puede tardar hasta cuatro horas. Para comprobar el estado de implementación, en [Azure Portal](https://portal.azure.com), en la barra de herramientas de Azure, seleccione el icono de notificaciones, que abre el panel de notificaciones.
 
@@ -88,7 +92,7 @@ En el encabezado de solicitud, incluya estas propiedades:
 
 En el cuerpo de la solicitud, habilite la compatibilidad con estos elementos adicionales proporcionando su información en la definición de ISE:
 
-* La identidad administrada asignada por el sistema que el ISE usa para acceder al almacén de claves
+* La identidad administrada que el ISE usa para acceder al almacén de claves
 * El almacén de claves y la clave administrada por el cliente que desea usar
 
 #### <a name="request-body-syntax"></a>Sintaxis del cuerpo de la solicitud
@@ -97,7 +101,7 @@ Esta es la sintaxis del cuerpo de la solicitud, que describe las propiedades que
 
 ```json
 {
-   "id": "/subscriptions/{Azure-subscription-ID/resourceGroups/{Azure-resource-group}/providers/Microsoft.Logic/integrationServiceEnvironments/{ISE-name}",
+   "id": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group}/providers/Microsoft.Logic/integrationServiceEnvironments/{ISE-name}",
    "name": "{ISE-name}",
    "type": "Microsoft.Logic/integrationServiceEnvironments",
    "location": "{Azure-region}",
@@ -106,7 +110,14 @@ Esta es la sintaxis del cuerpo de la solicitud, que describe las propiedades que
       "capacity": 1
    },
    "identity": {
-      "type": "SystemAssigned"
+      "type": <"SystemAssigned" | "UserAssigned">,
+      // When type is "UserAssigned", include the following "userAssignedIdentities" object:
+      "userAssignedIdentities": {
+         "/subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{user-assigned-managed-identity-object-ID}": {
+            "principalId": "{principal-ID}",
+            "clientId": "{client-ID}"
+         }
+      }
    },
    "properties": {
       "networkConfiguration": {
@@ -153,7 +164,13 @@ En este cuerpo de solicitud de ejemplo se muestran los valores de ejemplo:
    "type": "Microsoft.Logic/integrationServiceEnvironments",
    "location": "WestUS2",
    "identity": {
-      "type": "SystemAssigned"
+      "type": "UserAssigned",
+      "userAssignedIdentities": {
+         "/subscriptions/********************/resourceGroups/Fabrikam-RG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/*********************************": {
+            "principalId": "*********************************",
+            "clientId": "*********************************"
+         }
+      }
    },
    "sku": {
       "name": "Premium",
@@ -197,7 +214,11 @@ En este cuerpo de solicitud de ejemplo se muestran los valores de ejemplo:
 
 ## <a name="grant-access-to-your-key-vault"></a>Concesión de acceso al almacén de claves
 
-En un plazo de *30 minutos* después de enviar la solicitud HTTPS PUT que crea su ISE, debe proporcionar una directiva de acceso para el almacén de claves para la identidad asignada por el sistema de ISE. De lo contrario, se producirá un error en la creación del ISE y que tendrá como consecuencia un error de permisos. 
+Aunque el tiempo varía en función de la identidad administrada que use, debe [conceder acceso al almacén de claves a la identidad administrada del ISE](#identity-access-to-key-vault).
+
+* **Identidad administrada asignada por el sistema**: En un plazo de *30 minutos después* de enviar la solicitud HTTPS PUT que crea el ISE, debe agregar una directiva de acceso al almacén de claves para la identidad administrada asignada por el sistema del ISE. De lo contrario, se producirá un error en la creación del ISE y que tendrá como consecuencia un error de permisos.
+
+* **Identidad administrada asignada por el usuario**: Antes de enviar la solicitud HTTPS PUT que crea el ISE, agregue una directiva de acceso al almacén de claves para la identidad administrada asignada por el usuario del ISE.
 
 Para esta tarea, puede usar el comando de Azure PowerShell [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy), o bien puede seguir estos pasos en el Azure Portal:
 

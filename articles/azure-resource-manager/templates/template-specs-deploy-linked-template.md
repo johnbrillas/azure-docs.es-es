@@ -3,12 +3,12 @@ title: Implementación de una especificación de plantilla como una plantilla vi
 description: Obtenga información sobre cómo implementar una especificación de plantilla existente en una implementación vinculada.
 ms.topic: conceptual
 ms.date: 11/17/2020
-ms.openlocfilehash: 65ad5767817457133d0fbc34c7735cf52ff2c3f3
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: b30a99a469ec010dcc2e128bbeb446b493631608
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94747475"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518879"
 ---
 # <a name="tutorial-deploy-a-template-spec-as-a-linked-template-preview"></a>Tutorial: Implementación de una especificación de plantilla como una plantilla vinculada (versión preliminar)
 
@@ -19,7 +19,7 @@ Obtenga información sobre cómo implementar una [especificación de plantilla](
 Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> Las especificaciones de plantilla se encuentran actualmente en versión preliminar. Para usarlas, debe instalar la última versión de PowerShell o la CLI de Azure. En Azure PowerShell, use la [versión 5.0.0 o posterior](/powershell/azure/install-az-ps). En la CLI de Azure, use la [versión 2.14.2 o posterior](/cli/azure/install-azure-cli).
+> Las especificaciones de plantilla se encuentran actualmente en versión preliminar. Para usarlas con Azure PowerShell, debe instalar la [versión 5.0.0 o posterior](/powershell/azure/install-az-ps). Para usarlas con la CLI de Azure, utilice la [versión 2.14.2 o posterior](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-template-spec"></a>Creación de una especificación de plantilla
 

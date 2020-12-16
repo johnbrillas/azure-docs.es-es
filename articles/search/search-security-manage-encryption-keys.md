@@ -9,18 +9,18 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/02/2020
 ms.custom: references_regions
-ms.openlocfilehash: 4fb20b221858c4717d67e0777afbe5c067c00a69
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 8295e619cfda0d4b83a7356d5fd21d4b80f83849
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499618"
+ms.locfileid: "96530891"
 ---
 # <a name="configure-customer-managed-keys-for-data-encryption-in-azure-cognitive-search"></a>Configuración de claves administradas por el cliente para el cifrado de datos en Azure Cognitive Search
 
-Azure Cognitive Search cifra automáticamente el contenido indexado en reposo con [claves administradas por el servicio](../security/fundamentals/encryption-atrest.md#azure-encryption-at-rest-components). Si se necesita más protección, puede complementar el cifrado predeterminado con un nivel de cifrado adicional con las claves que se crean y administran en Azure Key Vault. Este artículo le guía por los pasos necesarios para configurar el cifrado de CMK.
+Azure Cognitive Search cifra automáticamente el contenido indexado en reposo con [claves administradas por el servicio](../security/fundamentals/encryption-atrest.md#azure-encryption-at-rest-components). Si se necesita más protección, puede complementar el cifrado predeterminado con un nivel de cifrado adicional con las claves que se crean y administran en Azure Key Vault. Este artículo le guía por los pasos necesarios para configurar el cifrado con clave administrada por el cliente.
 
-El cifrado de CMK depende de [Azure Key Vault](../key-vault/general/overview.md). Puede crear sus propias claves de cifrado y almacenarlas en un almacén de claves, o puede usar las API de Azure Key Vault para generar las claves de cifrado. Con Azure Key Vault, también puede auditar el uso de claves si [habilita el registro](../key-vault/general/logging.md).  
+El cifrado con clave administrada por el cliente depende de [Azure Key Vault](../key-vault/general/overview.md). Puede crear sus propias claves de cifrado y almacenarlas en un almacén de claves, o puede usar las API de Azure Key Vault para generar las claves de cifrado. Con Azure Key Vault, también puede auditar el uso de claves si [habilita el registro](../key-vault/general/logging.md).  
 
 El cifrado con claves administradas por el cliente se aplica a los índices individuales o mapas de sinónimos cuando se crean esos objetos y no se especifica en el nivel del servicio de búsqueda. Solo se pueden cifrar los objetos nuevos. No se puede cifrar el contenido que ya existe.
 
@@ -31,7 +31,7 @@ No es necesario que todas las claves estén en el mismo almacén de claves. Un s
 
 ## <a name="double-encryption"></a>Doble cifrado
 
-En el caso de los servicios creados después del 1 de agosto de 2020 y en regiones específicas, el ámbito del cifrado de CMK incluye discos temporales y se consigue un [doble cifrado completo](search-security-overview.md#double-encryption), disponible actualmente en estas regiones: 
+En el caso de los servicios creados después del 1 de agosto de 2020 y en regiones específicas, el ámbito del cifrado con clave administrada por el cliente incluye discos temporales y se consigue un [doble cifrado completo](search-security-overview.md#double-encryption), disponible actualmente en estas regiones: 
 
 + Oeste de EE. UU. 2
 + Este de EE. UU.
@@ -39,13 +39,13 @@ En el caso de los servicios creados después del 1 de agosto de 2020 y en region
 + US Gov - Virginia
 + US Gov: Arizona
 
-Si usa una región diferente o un servicio creado antes del 1 de agosto, el cifrado de CMK se limita solo al disco de datos y se excluyen los discos temporales que usa el servicio.
+Si usa una región diferente o un servicio creado antes del 1 de agosto, el cifrado con claves administradas se limita solo al disco de datos y se excluyen los discos temporales que usa el servicio.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 En este escenario se usan los servicios y las herramientas siguientes.
 
-+ [Azure Cognitive Search](search-create-service-portal.md) en un [nivel de servicio facturable](search-sku-tier.md#tiers) (básico o superior, en cualquier región).
++ [Azure Cognitive Search](search-create-service-portal.md) en un [nivel de servicio facturable](search-sku-tier.md#tier-descriptions) (básico o superior, en cualquier región).
 + [Azure Key Vault](../key-vault/general/overview.md), puede crear un almacén de claves mediante [Azure Portal](../key-vault//general/quick-create-portal.md), la [CLI de Azure](../key-vault//general/quick-create-cli.md) o [Azure PowerShell](../key-vault//general/quick-create-powershell.md). en la misma suscripción que Azure Cognitive Search. El almacén de claves debe tener la **eliminación temporal** y la **protección contra purgas** habilitada.
 + [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md). Si no tiene una, [configure un nuevo inquilino](../active-directory/develop/quickstart-create-new-tenant.md).
 
@@ -56,7 +56,7 @@ Debe tener una aplicación de búsqueda que pueda crear el objeto cifrado. En es
 
 ## <a name="1---enable-key-recovery"></a>1\. Habilitación de la recuperación de claves
 
-Debido a la naturaleza del cifrado con claves administradas por el cliente, ninguna podrá recuperar sus datos si se elimina la clave de Azure Key Vault. Para evitar la pérdida de datos causada por las eliminaciones accidentales de claves de Key Vault, debe habilitar las opciones de eliminación temporal y de protección de purgas en el almacén de claves. La eliminación temporal está habilitada de forma predeterminada, por lo que solo tendrá problemas si la deshabilitó intencionadamente. La protección de purga no está habilitada de forma predeterminada, pero es necesaria para el cifrado de CMK de Azure Cognitive Search. Para obtener más información, consulte las introducciones a la [eliminación temporal](../key-vault/general/soft-delete-overview.md) y la [protección de purga](../key-vault/general/soft-delete-overview.md#purge-protection).
+Debido a la naturaleza del cifrado con claves administradas por el cliente, ninguna podrá recuperar sus datos si se elimina la clave de Azure Key Vault. Para evitar la pérdida de datos causada por las eliminaciones accidentales de claves de Key Vault, debe habilitar las opciones de eliminación temporal y de protección de purgas en el almacén de claves. La eliminación temporal está habilitada de forma predeterminada, por lo que solo tendrá problemas si la deshabilitó intencionadamente. La protección de purga no está habilitada de forma predeterminada, pero es necesaria para el cifrado con clave administrada por el cliente de Cognitive Search. Para obtener más información, consulte las introducciones a la [eliminación temporal](../key-vault/general/soft-delete-overview.md) y la [protección de purga](../key-vault/general/soft-delete-overview.md#purge-protection).
 
 Puede establecer ambas propiedades mediante el portal, PowerShell o los comandos de la CLI de Azure.
 
@@ -377,7 +377,7 @@ Entre las condiciones que impedirán adoptar este enfoque simplificado se incluy
 
 ## <a name="work-with-encrypted-content"></a>Trabajo con contenido cifrado
 
-Con el cifrado de CMK, observará una latencia para la indexación y las consultas debido al trabajo de cifrado o descifrado adicional. Azure Cognitive Search no registra la actividad de cifrado, pero puede supervisar el acceso a la clave mediante el registro del almacén de claves. Se recomienda [habilitar el registro](../key-vault/general/logging.md) como parte de la configuración del almacén de claves.
+Con el cifrado de clave administrada por el cliente, observará una latencia para la indexación y las consultas debido al trabajo de cifrado o descifrado adicional. Azure Cognitive Search no registra la actividad de cifrado, pero puede supervisar el acceso a la clave mediante el registro del almacén de claves. Se recomienda [habilitar el registro](../key-vault/general/logging.md) como parte de la configuración del almacén de claves.
 
 Se espera que se produzca una rotación de claves con el tiempo. Cuando se realice la rotación de claves, es importante seguir esta secuencia:
 

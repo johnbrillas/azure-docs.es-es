@@ -8,19 +8,19 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: 63629f32c97611fa8bc57ecdac968552375125f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 238ef9ec80b01470e28535d0eb42dbb3a377b005
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89380538"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746444"
 ---
 # <a name="how-to-create-plans-for-your-saas-offer"></a>Creación de planes para la oferta de SaaS
 
 Las ofertas vendidas mediante el marketplace comercial de Microsoft deben tener al menos un plan. Puede crear una variedad de planes con diferentes opciones dentro de la misma oferta. Estos planes (a veces denominados SKU) pueden diferir en lo tocante a versión, monetización o niveles de servicio. Para obtener instrucciones detalladas sobre los planes, consulte [Planes y precios de las ofertas del marketplace comercial](plans-pricing.md).
 
 > [!NOTE]
-> Si elige procesar las transacciones de forma independiente, no verá esta opción. En lugar de ello, vaya a [Comercialización de una oferta de SaaS](create-new-saas-offer-marketing.md).
+> Si elige procesar las transacciones de forma independiente, no verá esta opción. En lugar de ello, vaya a [Comercialización de ofertas de SaaS](create-new-saas-offer-marketing.md).
 
 ## <a name="create-a-plan"></a>Creación de un plan
 
@@ -152,5 +152,5 @@ Las acciones que están disponibles en la columna **Acción** de la pestaña **I
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Aprenda a [comercializar su oferta de SaaS](create-new-saas-offer-marketing.md) mediante los programas de **venta conjunta con Microsoft** y de **reventa mediante los CSP**.
+- Aprenda a [vender su oferta de SaaS](create-new-saas-offer-marketing.md) mediante los programas de **venta conjunta con Microsoft** y de **reventa mediante los CSP**.
 - [Prueba y publicación de una oferta de SaaS en el marketplace comercial](test-publish-saas-offer.md)

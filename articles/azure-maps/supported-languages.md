@@ -1,19 +1,19 @@
 ---
-title: Soporte de localización | Microsoft Azure Maps
+title: Soporte de localización con Microsoft Azure Maps
 description: Vea qué regiones admite Azure Maps con servicios como los de mapas, búsqueda, enrutamiento, meteorología e incidentes de tráfico. Obtenga información sobre cómo configurar el parámetro View.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 11/20/2019
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: a6664b5a2c0c6b4de2435ee5c8bb29f63560c342
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50e5d0721eb14d1fcdfad26aaf081bfa370e954e
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88037701"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904523"
 ---
 # <a name="localization-support-in-azure-maps"></a>Soporte de localización en Azure Maps
 
@@ -22,7 +22,7 @@ Azure Maps admite varios idiomas y vistas según el país o región. En este art
 
 ## <a name="azure-maps-supported-languages"></a>Idiomas admitidos en Azure Maps
 
-Los servicios de Azure Maps se han localizado en una variedad de idiomas. En la tabla siguiente se proporcionan los códigos de idioma admitidos para cada servicio.  
+Los servicios de Azure Maps se han localizado en una variedad de idiomas. En la tabla siguiente se proporcionan los códigos de idioma admitidos para cada servicio.  
   
 
 | ID         | Nombre                   |  Mapas | Search | Enrutamiento | Tiempo | Incidentes de tráfico | Control de mapa JS |
@@ -129,10 +129,10 @@ Servicios REST de Azure Maps afectados:
  * Obtener la dirección de búsqueda inversa
  * Obtener la dirección de búsqueda inversa entre calles
  * Búsqueda de POST dentro de geometría
- * Búsqueda de POST de la vista previa del lote de direcciones
- * Búsqueda de POST de la vista previa del lote de direcciones inversas
+ * Búsqueda de POST del lote de direcciones
+ * Búsqueda de POST del lote de direcciones inversas
  * Búsqueda de POST a lo largo de la ruta
- * Búsqueda de POST aproximada de la vista previa del lote
+ * Búsqueda de POST aproximada del lote
 
  
 ### <a name="sdks"></a>SDK

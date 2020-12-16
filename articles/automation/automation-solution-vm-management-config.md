@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 3fdb3b2b23d07b79a8e9979450bee653d646196c
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 552cac01cd492229a19bdbc297665eb7d3ccb401
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182808"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751298"
 ---
 # <a name="configure-startstop-vms-during-off-hours"></a>Configuración de la solución Start/Stop VMs during off-hours
 
@@ -48,7 +48,7 @@ Puede habilitar que el destino de la acción sea una suscripción y un grupo de 
 
 2. Agregue una lista separada por comas de máquinas virtuales (sin espacios) en el campo de parámetro **VMList**. Una lista de ejemplo es `vm1,vm2,vm3`.
 
-3. Establezca el campo de parámetro **WHATIF** en True.
+3. Establezca el campo de parámetro **WHATIF** en True para obtener una vista previa de los cambios.
 
 4. Configure la variable `External_ExcludeVMNames` con una lista separada por comas de máquinas virtuales (VM1, VM2, VM3), sin espacios entre los valores separados por comas.
 
@@ -79,7 +79,7 @@ En un entorno que incluya dos, o más, componentes de varias máquinas virtuales
 
 3. Agregue una lista separada por comas de máquinas virtuales (sin espacios) en el campo de parámetro **VMList**. Una lista de ejemplo es `vm1,vm2,vm3`.
 
-4. Establezca **WHATIF** en True. 
+4. Establezca **WHATIF** en True para obtener una vista previa de los cambios. 
 
 5. Configure la variable `External_ExcludeVMNames` con una lista separada por comas de máquinas virtuales, sin espacios entre los valores separados por comas.
 

@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/12/2020
-ms.openlocfilehash: d4983ecd1b8afe1ec6bd3cc31df8b711cebaddf1
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 00b5d220cdbc511a309d55cfca2049508049fa30
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350269"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96549011"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Notas de la versión de Azure HDInsight
 
@@ -46,8 +46,9 @@ El soporte técnico del tipo de clúster de servicios de Machine Learning de HDI
 ### <a name="disabled-vm-sizes"></a>Tamaños de máquina virtual deshabilitados
 A partir del 16 de noviembre de 2020, HDInsight impide que los nuevos clientes creen clústeres con los tamaños de máquina virtual standand_A8, standand_A9, standand_A10 y standand_A11. Esta medida no afectará a los clientes existentes que hayan usado estos tamaños de máquina virtual en los últimos tres meses. A partir del 9 de enero de 2021, HDInsight impedirá que todos los clientes creen clústeres con los tamaños de máquina virtual standand_A8, standand_A9, standand_A10 y standand_A11. Los clústeres existentes se ejecutarán tal cual. Considere pasar a HDInsight 4.0 para evitar la posible interrupción del sistema o del soporte técnico.
 
-### <a name="behavior-changes"></a>Cambios de comportamiento
-No hay cambios de comportamiento en esta versión.
+## <a name="behavior-changes"></a>Cambios de comportamiento
+### <a name="add-nsg-rule-checking-before-scaling-operation"></a>Incorporación de comprobaciones de las reglas de NSG antes de la operación de escalado
+HDInsight ha incorporado comprobaciones de los grupos de seguridad de red (NSG) y las rutas definidas por el usuario (UDR) en la operación de escalado. Esta misma validación se realiza durante el escalado de clústeres, así como durante su creación. Gracias a estas pruebas, se pueden evitar errores imprevisibles. Si no se superan correctamente, se producirán errores en el escalado. Para más información acerca de cómo configurar correctamente los NSG y las UDR, consulte este artículo sobre las [direcciones IP de administración de HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses).
 
 ## <a name="upcoming-changes"></a>Próximos cambios
 En las próximas versiones, se realizarán los siguientes cambios.

@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 11/06/2020
-ms.openlocfilehash: b54e965188be51ec54110bb85d8cda8f01256836
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 461f9354bb3a6eae0af186de8fe9f39c6b5fff2c
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369862"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620926"
 ---
 # <a name="how-to-test-and-publish-an-azure-application-offer"></a>Prueba y publicación de una oferta de Aplicación de Azure
 
@@ -72,4 +72,4 @@ Si tiene errores en uno o varios de los pasos de publicación, corríjalos antes
 ## <a name="next-step"></a>Paso siguiente
 
 - [Acceso a los informes de análisis de marketplace comercial en el Centro de partners](partner-center-portal/analytics.md)
-- Aprenda a [comercializar su oferta de Aplicación de Azure](create-new-azure-apps-offer-marketing.md) mediante los programas de venta conjunta con Microsoft y reventa a través de los CSP.
+- Aprenda a [vender su oferta de Aplicación de Azure](create-new-azure-apps-offer-marketing.md) mediante los programas de venta conjunta con Microsoft y reventa a través de los CSP.

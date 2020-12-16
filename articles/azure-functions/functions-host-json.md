@@ -3,12 +3,12 @@ title: Referencia de host.json para Azure Functions 2.x
 description: Documentación de referencia para el archivo host.json de Azure Functions con el entorno en tiempo de ejecución de la versión 2.
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: c12a9244cdc1a76f678578e281532c73bc9385ba
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 96d6b884e9e2c835316af01140c6fc7208ee5ab9
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917246"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746087"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Referencia de host.json para Azure Functions 2.x y versiones posteriores 
 
@@ -218,6 +218,28 @@ Para obtener más información sobre las instantáneas, vea los artículos sobre
 ## <a name="cosmosdb"></a>cosmosDb
 
 Las opciones de configuración se pueden encontrar en los [desencadenadores y enlaces de Cosmos DB](functions-bindings-cosmosdb-v2-output.md#host-json).
+
+## <a name="customhandler"></a>customHandler
+
+Opciones de configuración para un controlador personalizado. Para más información, consulte [Controladores personalizados de Azure Functions](functions-custom-handlers.md#configuration).
+
+```json
+"customHandler": {
+  "description": {
+    "defaultExecutablePath": "server",
+    "workingDirectory": "handler",
+    "arguments": [ "--port", "%FUNCTIONS_CUSTOMHANDLER_PORT%" ]
+  },
+  "enableForwardingHttpRequest": false
+}
+```
+
+|Propiedad | Valor predeterminado | Descripción |
+| --------- | --------- | --------- |
+| defaultExecutablePath | N/D | Ejecutable que se va a iniciar como el proceso del controlador personalizado. Es una configuración obligatoria cuando se usan controladores personalizados y su valor es relativo a la raíz de la aplicación de funciones. |
+| workingDirectory | *raíz de aplicación de funciones* | El directorio de trabajo en el que iniciar el proceso del controlador personalizado. Es una configuración opcional y su valor es relativo a la raíz de la aplicación de funciones. |
+| argumentos | N/D | Matriz de argumentos de la línea de comandos que se van a pasar al proceso del controlador personalizado. |
+| enableForwardingHttpRequest | false | Si se establece, todas las funciones que se componen solo de un desencadenador HTTP y la salida HTTP se reenvían a la solicitud HTTP original en lugar de la [carga útil de solicitud](functions-custom-handlers.md#request-payload) del controlador personalizado. |
 
 ## <a name="durabletask"></a>durableTask
 

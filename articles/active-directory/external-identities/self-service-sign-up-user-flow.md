@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ffb1d5eb756c7bc316a6d8e1de30a95eb1ac5194
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f76f4a3e5fc87420c242c693e3c48a91244641e0
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91287056"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97560040"
 ---
 # <a name="add-a-self-service-sign-up-user-flow-to-an-app-preview"></a>Incorporación de un flujo de usuario de registro de autoservicio a una aplicación (versión preliminar)
 > [!NOTE]
@@ -53,7 +53,7 @@ Para poder agregar un flujo de usuario de registro de autoservicio a las aplicac
 4. Establezca la alternancia **Habilitación del registro de invitados de autoservicio mediante flujos de usuario (versión preliminar)** en **Sí**.
 
    ![Habilitación del registro de invitados de autoservicio](media/self-service-sign-up-user-flow/enable-self-service-sign-up.png)
-
+5. Seleccione **Guardar**.
 ## <a name="create-the-user-flow-for-self-service-sign-up"></a>Creación del flujo de usuario para el registro de autoservicio
 
 A continuación, debe crear el flujo de usuario para el registro de autoservicio y agregarlo a una aplicación.

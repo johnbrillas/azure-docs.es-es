@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/14/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.date: 12/07/2020
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fae9872593b48355d4ad3711e8e5092481b16213
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: e5bcc6503af5f5f685ee589ed7671b4715834fef
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96174537"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779369"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Funcionamiento: Autoservicio de restablecimiento de contraseña de Azure AD
 
@@ -69,11 +69,8 @@ Para empezar a trabajar con SSPR, complete el siguiente tutorial:
 > [!div class="nextstepaction"]
 > [Tutorial: Habilitación del autoservicio de restablecimiento de contraseña (SSPR)](tutorial-enable-sspr.md)
 
-## <a name="registration-options"></a>Opciones de registro
 
-Antes de que los usuarios puedan restablecer o cambiar la contraseña mediante SSPR, es necesario que se registren, junto con los métodos de autenticación que se van a utilizar. Como se mencionó en la sección anterior, el usuario debe estar registrado para SSPR y tener aplicada la licencia adecuada.
-
-### <a name="require-users-to-register-when-they-sign-in"></a>Exigir a los usuarios que se registren al iniciar sesión
+## <a name="require-users-to-register-when-they-sign-in"></a>Exigir a los usuarios que se registren al iniciar sesión
 
 Esta opción se puede habilitar para exigir que un usuario complete el registro SSPR al iniciar sesión en cualquier aplicación mediante Azure AD. Este flujo de trabajo incluye las siguientes aplicaciones:
 
@@ -92,7 +89,7 @@ Cuando el registro no sea un requisito, no se instará a los usuarios a completa
 >
 > Esta interrupción para solicitar el registro no afecta a la conexión del usuario si ya ha iniciado sesión.
 
-### <a name="set-the-number-of-days-before-users-are-asked-to-reconfirm-their-authentication-information"></a>Establecer el número de días que pasan hasta que se pide a los usuarios que vuelvan a confirmar su información de autenticación
+## <a name="reconfirm-authentication-information"></a>Volver a confirmar la información de autenticación
 
 Para asegurarse de que los métodos de autenticación sean correctos cuando es necesario restablecer o cambiar la contraseña de los usuarios, puede exigir que estos confirmen la información que hayan registrado transcurrido un periodo de tiempo determinado. Esta opción solo está disponible si habilita la opción **Exigir a los usuarios que se registren al iniciar sesión**.
 

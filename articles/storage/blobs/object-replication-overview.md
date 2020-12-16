@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/08/2020
+ms.date: 11/13/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 4105698198e6fb7f4e3d3526ff9590ebca4898f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47a2aae39be93361e1e0e581efb56cc678b444cd
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91612173"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96549096"
 ---
 # <a name="object-replication-for-block-blobs"></a>Replicación de objetos para blobs en bloques
 
@@ -43,14 +43,36 @@ La replicación de objetos requiere que también estén habilitadas las caracter
 
 Habilitar la fuente de cambios y el control de versiones de blob puede suponer costos adicionales. Para más información, consulte la página [Precios de Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
 
+## <a name="how-object-replication-works"></a>Funcionamiento de la replicación de objetos
+
+La replicación asincrónica de objetos copia blobs en bloques en un contenedor según las reglas que configure. El contenido del blob, las versiones asociadas al blob y los metadatos y las propiedades del blob se copian desde el contenedor de origen al contenedor de destino.
+
+> [!IMPORTANT]
+> Debido a que los datos de blob en bloques se replican asincrónicamente, la cuenta de origen y la de destino no están inmediatamente sincronizadas. Actualmente no hay ningún acuerdo de nivel de servicio sobre cuánto tiempo se tarda en replicar los datos en la cuenta de destino. Puede comprobar el estado de replicación en el blob de origen para determinar si se ha completado la replicación. Para más información, consulte el apartado [Comprobación del estado de replicación de un blob](object-replication-configure.md#check-the-replication-status-of-a-blob).
+
+### <a name="blob-versioning"></a>Control de versiones de blobs
+
+La replicación de objetos requiere que el control de versiones de los blobs esté habilitado en las cuentas de origen y de destino. Cuando se modifica un blob replicado de la cuenta de origen, se crea una nueva versión del blob en la cuenta de origen que refleja el estado anterior del mismo antes de la modificación. La versión actual (o el blob base) de la cuenta de origen refleja las actualizaciones más recientes. Tanto la versión actual actualizada como la nueva versión anterior se replican en la cuenta de destino. Para más información sobre la forma en que las operaciones de escritura afectan a las versiones del blob, consulte [Control de versiones en operaciones de escritura](versioning-overview.md#versioning-on-write-operations).
+
+Cuando se elimina un blob de la cuenta de origen, la versión actual del blob se captura en una versión anterior y, después, se elimina. Todas las versiones anteriores del blob se conservan incluso después de que se elimine la versión actual. Este estado se replica en la cuenta de destino. Para más información sobre la forma en que las operaciones de eliminación afectan a las versiones del blob, consulte [Control de versiones en operaciones de eliminación](versioning-overview.md#versioning-on-delete-operations).
+
+### <a name="snapshots"></a>Instantáneas
+
+La replicación de objetos no admite instantáneas de blobs. Las instantáneas de un blob de la cuenta de origen no se replican en la cuenta de destino.
+
+### <a name="blob-tiering"></a>Niveles de blob
+
+La replicación de objetos se admite cuando las cuentas de origen y de destino se encuentran en el nivel de acceso frecuente o esporádico. Las cuentas de origen y destino pueden estar en niveles diferentes. Sin embargo, se producirá un error en la replicación de objetos si un blob de las cuentas de origen o destino se ha movido al nivel de archivo. Para más información sobre los niveles de blobs, consulte [Niveles de acceso de Azure Blob Storage: niveles de acceso frecuente, esporádico y de archivo](storage-blob-storage-tiers.md).
+
+### <a name="immutable-blobs"></a>Blobs inalterables
+
+La replicación de objetos no admite blobs inmutables. Si un contenedor de origen o de destino tiene una directiva de retención basada en tiempo o una retención legal, se produce un error en la replicación de objetos. Para más información sobre los blobs inmutables, vea [Almacenamiento de datos críticos para la empresa con almacenamiento inmutable](storage-blob-immutable-storage.md).
+
 ## <a name="object-replication-policies-and-rules"></a>Reglas y directivas de replicación de objetos
 
 Al configura la replicación de objetos, se crea una política de replicación que especifica la cuenta de almacenamiento de origen y la cuenta de destino. Una directiva de replicación incluye una o más reglas que especifican un contenedor de origen y un contenedor de destino e indican qué blob en bloques del contenedor de origen se replicarán.
 
 Después de configurar la replicación de objetos, Azure Storage comprueba periódicamente la fuente de cambios de la cuenta de origen y replica asincrónicamente cualquier operación de escritura o borrada a la cuenta de destino. La latencia de replicación depende del tamaño del blob en bloques que se está replicando.
-
-> [!IMPORTANT]
-> Debido a que los datos de blob en bloques se replican asincrónicamente, la cuenta de origen y la de destino no están inmediatamente sincronizadas. Actualmente no hay ningún acuerdo de nivel de servicio sobre cuánto tiempo se tarda en replicar los datos en la cuenta de destino.
 
 ### <a name="replication-policies"></a>Directivas de replicación
 

@@ -5,25 +5,25 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 07/20/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.date: 12/04/2020
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8c67f72a7f0d77284dbb34104754793b36bb8d4
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 29a577b50a561cb5b829e453c523e0bd18a70e1a
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94838151"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96741684"
 ---
 # <a name="enable-combined-security-information-registration-in-azure-active-directory"></a>Habilitación del registro de información de seguridad combinado en Azure Active Directory
 
 Antes del registro combinado, los usuarios se registraban a los métodos de autenticación para Azure AD Multi-factor Authentication y el autoservicio de restablecimiento de contraseña (SSPR) por separado. La gente estaba confundida por el hecho de que se usaban métodos parecidos para Azure AD Multi-Factor Authentication y SSPR pero, aún así, se tenían que registrar en las dos características. Ahora, con el registro combinado, los usuarios pueden registrarse una vez y obtener las ventajas de Azure AD Multi-Factor Authentication y SSPR.
 
 > [!NOTE]
-> A partir del 15 de agosto de 2020, todos los nuevos inquilinos de Azure AD se habilitarán automáticamente para el registro combinado.
+> A partir del 15 de agosto de 2020, todos los nuevos inquilinos de Azure AD se habilitarán automáticamente para el registro combinado. A partir del 14 de diciembre de 2020, todos los inquilinos de Azure AD con un usuario se habilitarán automáticamente para el registro combinado.
 
 Para asegurarse de comprender la funcionalidad y los efectos antes de habilitar la nueva experiencia, consulte los [conceptos del registro de información de seguridad combinado](concept-registration-mfa-sspr-combined.md).
 

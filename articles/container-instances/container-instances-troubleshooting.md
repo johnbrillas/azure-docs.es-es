@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo solucionar problemas comunes en la
 ms.topic: article
 ms.date: 06/25/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: ac75fff3b088a7d595de2b27c92126ce592aff47
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: d8e7fb85e369f5f278436370944eafeb1fb6a50e
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746920"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779522"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Solución de problemas habituales de Azure Container Instances
 
@@ -155,7 +155,7 @@ La API de Container Instances y Azure Portal incluyen una propiedad `restartCoun
 ```
 
 > [!NOTE]
-> La mayoría de las imágenes de contenedor para las distribuciones de Linux establecen una shell, como bash, como el comando predeterminado. Puesto que un shell por sí mismo no es un servicio de ejecución prolongada, estos contenedores se cierran inmediatamente y caen en un bucle de reinicio cuando se configuran con la directiva de reinicio predeterminada **Always** .
+> La mayoría de las imágenes de contenedor para las distribuciones de Linux establecen una shell, como bash, como el comando predeterminado. Puesto que un shell por sí mismo no es un servicio de ejecución prolongada, estos contenedores se cierran inmediatamente y caen en un bucle de reinicio cuando se configuran con la directiva de reinicio predeterminada **Always**.
 
 ### <a name="container-takes-a-long-time-to-start"></a>El contenedor tarda mucho tiempo en iniciar
 
@@ -187,7 +187,7 @@ Otra forma de reducir el impacto de la extracción de la imagen en el tiempo de 
 
 #### <a name="cached-images"></a>Imágenes en caché
 
-Azure Container Instances usa un mecanismo de almacenamiento en caché para acelerar el tiempo de inicio del contenedor para las imágenes creadas con [imágenes de base de Windows](container-instances-faq.md#what-windows-base-os-images-are-supported), incluidas `nanoserver:1809`, `servercore:ltsc2019` y `servercore:1809`. También se almacenan en caché las imágenes de Linux usadas comúnmente, como `ubuntu:1604` y `alpine:3.6`. Para obtener una lista actualizada de imágenes y etiquetas en caché, use la API [List Cached Images][list-cached-images].
+Azure Container Instances usa un mecanismo de almacenamiento en caché para acelerar el tiempo de inicio del contenedor para las imágenes creadas con [imágenes de base de Windows](container-instances-faq.md#what-windows-base-os-images-are-supported), incluidas `nanoserver:1809`, `servercore:ltsc2019` y `servercore:1809`. También se almacenan en caché las imágenes de Linux usadas comúnmente, como `ubuntu:1604` y `alpine:3.6`. En el caso de las imágenes de Windows y Linux, evite usar la etiqueta `latest`. Revise los [procedimientos recomendados de etiquetas de imágenes](../container-registry/container-registry-image-tag-version.md) de Container Registry para obtener instrucciones. Para obtener una lista actualizada de imágenes y etiquetas en caché, use la API [List Cached Images][list-cached-images].
 
 > [!NOTE]
 > El uso de imágenes basadas en Windows Server 2019 en Azure Container Instances está en versión preliminar.
@@ -213,7 +213,7 @@ Si desea confirmar que Azure Container Instances escucha en el puerto que config
     --ip-address Public --ports 9000 \
     --environment-variables 'PORT'='9000'
     ```
-1. Busque la dirección IP del grupo de contenedores en la salida del comando de `az container create`. Busque el valor de **ip** . 
+1. Busque la dirección IP del grupo de contenedores en la salida del comando de `az container create`. Busque el valor de **ip**. 
 1. Una vez aprovisionado el contenedor correctamente, vaya a la dirección IP y al puerto de la aplicación contenedora en el explorador, por ejemplo, `192.0.2.0:9000`. 
 
     Debería ver el mensaje "Welcome to Azure Container Instances!" (Bienvenida a Azure Container Instances) que muestra la aplicación web.

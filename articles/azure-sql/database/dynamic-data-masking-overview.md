@@ -12,12 +12,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 08/04/2020
 tags: azure-synpase
-ms.openlocfilehash: 5442ddab5b4925e40250e63833a634006db7aead
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: f8d352dac98f953f7f6d8033d0d9e1376c4da313
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92781454"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532251"
 ---
 # <a name="dynamic-data-masking"></a>Enmascaramiento de datos dinámicos 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -30,7 +30,7 @@ Por ejemplo, un representante de servicio de un centro de llamadas podría ident
 
 ## <a name="dynamic-data-masking-basics"></a>Aspectos básicos del enmascaramiento dinámico de datos
 
-Para configurar una directiva de enmascaramiento de datos dinámicos en Azure Portal, se selecciona la hoja **Enmascaramiento de datos dinámicos** en **Seguridad** en el panel de configuración de SQL Database. Esta característica no se puede establecer para Azure Synapse mediante el portal (use PowerShell o la API de REST) o Instancia administrada de SQL. Para obtener más información, vea [Dynamic Data Masking](/sql/relational-databases/security/dynamic-data-masking).
+Para configurar una directiva de enmascaramiento de datos dinámicos en Azure Portal, se selecciona la hoja **Enmascaramiento de datos dinámicos** en **Seguridad** en el panel de configuración de SQL Database. Esta característica no se puede establecer para la instancia administrada de SQL mediante el portal (use PowerShell o la API REST). Para obtener más información, vea [Dynamic Data Masking](/sql/relational-databases/security/dynamic-data-masking).
 
 ### <a name="dynamic-data-masking-permissions"></a>Permisos de enmascaramiento de datos dinámicos
 
@@ -38,8 +38,8 @@ El enmascaramiento dinámico de datos se puede configurar mediante el administra
 
 ### <a name="dynamic-data-masking-policy"></a>Directiva de enmascaramiento de datos dinámicos
 
-* **Usuarios de SQL excluidos del enmascaramiento** : conjunto de usuarios de SQL o identidades de Azure AD que obtendrán datos sin máscara en los resultados de consulta SQL. Los usuarios con privilegios de administrador se excluirán siempre del enmascaramiento y verán los datos originales sin ninguna máscara.
-* **Reglas de enmascaramiento** : un conjunto de reglas que definen los campos designados para el enmascaramiento y la función de enmascaramiento que se va a usar. Los campos designados se pueden definir mediante un nombre de esquema de base de datos, un nombre de tabla y un nombre de columna.
+* **Usuarios de SQL excluidos del enmascaramiento**: conjunto de usuarios de SQL o identidades de Azure AD que obtendrán datos sin máscara en los resultados de consulta SQL. Los usuarios con privilegios de administrador se excluirán siempre del enmascaramiento y verán los datos originales sin ninguna máscara.
+* **Reglas de enmascaramiento**: un conjunto de reglas que definen los campos designados para el enmascaramiento y la función de enmascaramiento que se va a usar. Los campos designados se pueden definir mediante un nombre de esquema de base de datos, un nombre de tabla y un nombre de columna.
 * **Funciones de enmascaramiento** : un conjunto de métodos que controlan la exposición de datos para diferentes escenarios.
 
 | Función de enmascaramiento | Lógica de enmascaramiento |

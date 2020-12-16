@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba22745923f1b157c477dce0b5704c7e278e748e
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 6eb63a4a0b7b7fdefd636d3460b182f8d907dd36
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96176008"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558936"
 ---
 # <a name="frequently-asked-questions-identity-protection-in-azure-active-directory"></a>Preguntas más frecuentes sobre Identity Protection en Azure Active Directory
 
@@ -82,9 +82,11 @@ Todas las detecciones de riesgo se documentan en el artículo [¿Qué es el ries
 
 - Al recibir estos comentarios, pasamos el estado de riesgo del inicio de sesión (y no al usuario) a **Confirmado (en peligro)** y el nivel de riesgo a **-** .
 
-- Además, se proporcionará la información a los sistemas de aprendizaje automático para futuras mejoras en la evaluación de riesgos.
+- Además, se proporcionará la información a los sistemas de aprendizaje automático para futuras mejoras en la evaluación de riesgos. 
 
     > [!NOTE]
+    >En la actualidad, si se selecciona Confirmar que es seguro al iniciar una sesión, esto no evita que inicios de sesión posteriores con las mismas propiedades se identifiquen como de riesgo. La mejor manera de entrenar el sistema para aprender las propiedades del usuario es usar la directiva de inicio de sesión de riesgo con autenticación multifactor (MFA). Cuando se solicita MFA para los inicios de sesión de riesgo y el usuario responde correctamente a la solicitud, el inicio de sesión puede efectuarse correctamente y contribuir a entrenar el sistema sobre el comportamiento del usuario legítimo.
+    >
     > Si cree que el usuario no está en peligro, use **Descartar el riesgo del usuario** en el nivel de usuario en lugar de usar **Confirmado (seguro)** en el nivel de inicio de sesión. **Descartar el riesgo del usuario** en el nivel de usuario cierra el riesgo del usuario, así como todas las detecciones de riesgo y los inicios de sesión pasados.
 
 ### <a name="why-am-i-seeing-a-user-with-a-low-or-above-risk-score-even-if-no-risky-sign-ins-or-risk-detections-are-shown-in-identity-protection"></a>¿Por qué veo un usuario con una puntuación de riesgo baja (o superior) a pesar de que no hay inicios de sesión ni detecciones de riesgo en Identity Protection?

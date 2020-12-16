@@ -5,16 +5,16 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 09/10/2020
+ms.date: 12/02/2020
 ms.author: jingwang
 ms.reviewer: craigg
 ms.custom: has-adal-ref
-ms.openlocfilehash: 2e54c0b09c3dbe398b0522d0ad9ad2314e29ed26
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c90b7ce86e06669696a4b9f7e0b2f5287e9dd97e
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023847"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533203"
 ---
 # <a name="troubleshoot-azure-data-factory-connectors"></a>Solución de problemas de conectores en Azure Data Factory
 
@@ -205,7 +205,7 @@ En este artículo se exploran métodos comunes de solución de problemas de cone
 - **Solución:** Vuelva a ejecutar la actividad de copia después de unos minutos.
                   
 
-## <a name="azure-synapse-analytics-formerly-sql-data-warehouseazure-sql-databasesql-server"></a>Azure Synapse Analytics (anteriormente SQL Data Warehouse)/Azure SQL Database/SQL Server
+## <a name="azure-synapse-analyticsazure-sql-databasesql-server"></a>Azure Synapse Analytics/Azure SQL Database/SQL Server
 
 ### <a name="error-code--sqlfailedtoconnect"></a>Código de error:  SqlFailedToConnect
 
@@ -440,7 +440,7 @@ En este artículo se exploran métodos comunes de solución de problemas de cone
 
 - **Mensaje**: `The name of column index %index; is empty. Make sure column name is properly specified in the header row.`
 
-- **Causa**: cuando establezca "firstRowAsHeader" en la actividad, se usará la primera fila como nombre de columna. Este error significa que la primera fila contiene un valor vacío. Por ejemplo: 'ColumnA,, ColumnB'.
+- **Causa**: cuando establezca "firstRowAsHeader" en la actividad, se usará la primera fila como nombre de columna. Este error significa que la primera fila contiene un valor vacío. Por ejemplo: "ColumnA, ColumnB".
 
 - **Recomendación:**  compruebe la primera fila y corrija el valor si está vacío.
 
@@ -488,7 +488,28 @@ En este artículo se exploran métodos comunes de solución de problemas de cone
 
 - **Recomendación:**  vuelva a ejecutar la canalización. Si sigue sin funcionar, intente reducir el paralelismo. Si esto no funciona, póngase en contacto con el soporte técnico de Dynamics.
 
+## <a name="excel-format"></a>Formato Excel
 
+### <a name="timeout-or-slow-performance-when-parsing-large-excel-file"></a>Tiempo de espera o rendimiento lento al analizar un archivo de Excel de gran tamaño
+
+- **Síntomas**:
+
+    1. Al crear un conjunto de datos de Excel e importar el esquema de conexión/almacenamiento, obtener una vista previa de los datos, enumerar o actualizar las hojas de cálculo, es posible que se produzca un error de tiempo de espera si el tamaño del archivo de Excel es grande.
+    2. Cuando utilice la actividad de copia para copiar datos de un archivo de Excel de gran tamaño (> = 100 MB) en otro almacén de datos, puede experimentar un rendimiento lento o un problema de memoria insuficiente.
+
+- **Causa**: 
+
+    1. En el caso de operaciones como la importación de esquemas, la vista previa de datos y la enumeración de hojas de cálculo en un conjunto de datos de Excel, el tiempo de espera es de 100 s y es estático. Para un archivo de Excel de gran tamaño, es posible que estas operaciones no finalicen dentro del valor del tiempo de espera.
+
+    2. La actividad de copia de ADF lee el archivo de Excel completo en la memoria y, luego, busca la hoja de cálculo y las celdas especificadas para leer los datos. Este comportamiento se debe a que usa ADF del SDK subyacente.
+
+- **Solución**: 
+
+    1. Para importar el esquema, puede generar un archivo de ejemplo más pequeño que sea un subconjunto del archivo original y elegir "importar esquema de archivo de ejemplo" en lugar de "importar esquema desde conexión/almacén".
+
+    2. Para enumerar una hoja de cálculo, en la lista desplegable de hoja de cálculo, puede hacer clic en "Editar" e introducir en su lugar el nombre/índice de la hoja.
+
+    3. Para copiar un archivo de Excel de gran tamaño (> 100 MB) en otro almacén, puede utilizar el origen de Excel de Data Flow cuyo streaming de Sport lee y funciona mejor.
 
 ## <a name="json-format"></a>Formato JSON
 
@@ -645,6 +666,29 @@ En este artículo se exploran métodos comunes de solución de problemas de cone
 
 - **Recomendación:**  Quite "CompressionType" de la carga útil.
 
+
+## <a name="rest"></a>REST
+
+### <a name="unexpected-network-response-from-rest-connector"></a>Respuesta de red inesperada del conector REST
+
+- **Síntomas**: A veces, el punto de conexión recibe una respuesta inesperada (400/401/403/500) del conector REST.
+
+- **Causa**: El conector de origen REST utiliza la dirección URL y el método HTTP/encabezado/cuerpo del servicio vinculado/origen de copia como parámetros al crear una solicitud HTTP. Lo más probable es que el problema se deba a errores en uno o varios parámetros especificados.
+
+- **Solución**: 
+    - Utilice "curl" en la ventana cmd para comprobar si el parámetro es la causa o no (los encabezados **Accept** y **User-Agent** de usuario se deben incluir siempre):
+        ```
+        curl -i -X <HTTP method> -H <HTTP header1> -H <HTTP header2> -H "Accept: application/json" -H "User-Agent: azure-data-factory/2.0" -d '<HTTP body>' <URL>
+        ```
+      Si el comando devuelve la misma respuesta inesperada, corrija los parámetros anteriores con "curl" hasta que devuelva la respuesta esperada. 
+
+      También puede usar "curl --help" para obtener un uso más avanzado del comando.
+
+    - Si solo el conector REST de ADF devuelve una respuesta inesperada, póngase en contacto con el servicio de soporte técnico de Microsoft para solucionar el problema.
+    
+    - Tenga en cuenta que "curl" puede no ser adecuado para reproducir el problema de validación de certificados SSL. En algunos escenarios, el comando "curl" se ha ejecutado correctamente sin generar ningún problema de validación de certificados SSL. Pero cuando se ejecuta la misma dirección URL en el explorador, en realidad no se devuelve ningún certificado SSL en primer lugar para que el cliente establezca una relación de confianza con el servidor.
+
+      En el caso anterior, se recomiendan herramientas como **Postman** y **Fiddler**.
 
 
 ## <a name="general-copy-activity-error"></a>Error de actividad de copia general

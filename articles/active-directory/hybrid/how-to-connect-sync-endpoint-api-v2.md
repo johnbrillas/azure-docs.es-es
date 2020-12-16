@@ -1,5 +1,5 @@
 ---
-title: Versión preliminar pública del punto de conexión de Azure AD Connect Sync V2 | Microsoft Docs
+title: Punto de conexión de Azure AD Connect Sync v2 | Microsoft Docs
 description: En este documento se tratan las actualizaciones de la API de los puntos de conexión de Azure AD Connect Sync v2.
 services: active-directory
 author: billmath
@@ -8,38 +8,28 @@ editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/20/2020
+ms.date: 12/04/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 779b29c8d31dffa495926a7f2ca5e1f77870078c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 07acd71eb1a77592c82b80aa574d79b98c48f60e
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91319918"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608306"
 ---
-# <a name="azure-ad-connect-sync-v2-endpoint-api-public-preview"></a>API de los puntos de conexión de Azure AD Connect Sync V2 (versión preliminar pública) 
+# <a name="azure-ad-connect-sync-v2-endpoint-api"></a>API de punto de conexión de Azure AD Connect Sync V2 
 Microsoft ha implementado un nuevo punto de conexión (API) para Azure AD Connect que mejora el rendimiento de las operaciones del servicio de sincronización para Azure Active Directory. Al usar el nuevo punto de conexión V2, experimentará mejoras de rendimiento notables en la exportación y la importación respecto a Azure AD. Este nuevo punto de conexión admite lo siguiente:
     
- -  Grupos de sincronización de hasta 250 000 miembros
+ - Grupos de sincronización de hasta 250 000 miembros
  - Mejoras en el rendimiento de la exportación y la importación a Azure AD
  
 > [!NOTE]
 > Actualmente, el nuevo punto de conexión no tiene ningún límite de tamaño de grupo configurado para los grupos de Microsoft 365 que se escriben de manera diferida. Esto puede afectar a las latencias del ciclo de sincronización de Active Directory. Se recomienda aumentar los tamaños de grupo por incrementos.  
 
-
 ## <a name="pre-requisites"></a>Requisitos previos  
 Para poder usar el nuevo punto de conexión V2, debe usar [Azure AD Connect versión 1.5.30.0](https://www.microsoft.com/download/details.aspx?id=47594) o posterior y seguir los pasos de implementación que se proporcionan a continuación para habilitar el punto de conexión V2 para el servidor de Azure AD Connect.   
-
->[!NOTE]
->Actualmente, esta versión preliminar pública solo está disponible en la nube global de Azure y no está disponible para [nubes nacionales](../develop/authentication-national-cloud.md).
-
-### <a name="public-preview-limitations"></a>Limitaciones de la vista preliminar pública  
-Aunque esta versión se ha sometido a pruebas exhaustivas, es posible que se produzcan problemas. Uno de los objetivos de esta versión preliminar pública es encontrar y corregir dichos problemas.  
-
->[!IMPORTANT]
-> Aunque se proporciona soporte para esta versión preliminar pública, es posible que Microsoft no siempre pueda corregir de inmediato todos los problemas que pueda encontrar. Por esta razón, se recomienda utilizar el mejor criterio antes de implementar esta versión en el entorno de producción. 
 
 ## <a name="deployment-guidance"></a>Guía para la implementación 
 Tendrá que implementar [Azure AD Connect versión 1.5.30.0](https://www.microsoft.com/download/details.aspx?id=47594) o posterior para usar el punto de conexión V2. Use el vínculo que se proporciona para la descarga. 
@@ -184,17 +174,9 @@ Si ha habilitado el punto de conexión V2 y necesita revertirlo, siga estos pas
 > Al revertir de los puntos de conexión V2 a V1, los grupos sincronizados con más de 50 000 miembros se eliminarán después de ejecutar una sincronización completa, tanto en el caso de los grupos de AD aprovisionados en Azure AD como de los grupos unificados de Microsoft 365 aprovisionados en AD. 
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes  
-**P: ¿Puede un cliente usar esta característica en producción?**   
-</br>Sí, se puede usar en entornos de producción, con la salvedad que se mencionó antes.
  
-**P: ¿Con quién debe ponerse en contacto el cliente cuando hay algún problema?**   
-</br>Si necesita soporte técnico al usar esta característica, debe abrir un caso de soporte técnico. 
- 
-**P: ¿Se prevén actualizaciones frecuentes de la versión preliminar pública?**   
-</br>Hay un grado limitado de cambios continuos durante una versión preliminar pública. Debe evaluar este riesgo al implementar las características de la versión preliminar pública en producción.  
- 
-**P: ¿Cuánto tiempo hay hasta el siguiente hito?**   
-</br>Las funcionalidades de la versión preliminar pública se pueden retirar y posiblemente rediseñar antes de llegar a hitos adicionales.  
+**¿Cuándo se convertirá el nuevo punto de conexión en el valor predeterminado para las actualizaciones y las nuevas instalaciones?**   
+</br>Prevemos publicar la posibilidad de descargar una versión nueva de AADConnect en enero de 2021. Esta versión usará el punto de conexión v2 de forma predeterminada y habilitará los grupos de sincronización mayores de 50 KB sin necesidad de realizar ninguna configuración adicional. Esta versión se publicará posteriormente para la actualización automática a servidores válidos.
  
 ## <a name="next-steps"></a>Pasos siguientes
 

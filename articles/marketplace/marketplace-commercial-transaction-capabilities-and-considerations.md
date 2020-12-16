@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: 9a975ee863e81a9f542e717d734f12db850f749e
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 898c106fb961373889fbae87db6c755fe2495ff8
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94738329"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621270"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Capacidades de transacción de marketplace comercial
 
@@ -90,7 +90,7 @@ Esta opción permite que los precios sean mayores o menores que la oferta dispon
 
 Se cobra una cuota de servicio de almacenamiento estándar del 20 % cuando los clientes compran su oferta de transacción en Marketplace comercial. Para obtener más información sobre esta cuota, consulte la sección 5c del [Contrato de Microsoft Publisher](https://go.microsoft.com/fwlink/?LinkID=699560).
 
-En el caso de ciertas ofertas procesables que publique en Marketplace comercial, puede optar por una tarifa de servicio reducida en tienda del 10 %. Para que una oferta sea apta, Microsoft debe designarla como incentivo de venta conjunta de Azure IP. Para recibir el precio reducido del servicio Marketplace durante el mes, se deben cumplir los criterios de idoneidad al menos cinco días hábiles antes del final de cada mes natural.
+En el caso de ciertas ofertas procesables que publique en Marketplace comercial, puede optar por una tarifa de servicio reducida en tienda del 10 %. Para que una oferta sea apta, Microsoft debe designarla como incentivo de venta conjunta de Azure IP. Para recibir el precio reducido del servicio Marketplace durante el mes, se deben cumplir los criterios de idoneidad al menos cinco días hábiles antes del final de cada mes natural. Para obtener más información sobre la elegibilidad de la venta conjunta de IP, vea [Requisitos para el estado de la venta conjunta](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status).
 
 La cuota reducida del servicio Marketplace se aplica a SaaS, VM y aplicaciones administradas con incentivos de venta conjunta de Azure IP, así como a cualquier otra solución de IaaS en la que se pueda llevar a cabo una transacción cualificada que esté disponible a través de Marketplace comercial. Las ofertas de SaaS de pago asociadas con una aplicación de Microsoft Teams o al menos con dos complementos de Microsoft 365 (Excel, PowerPoint, Word, Outlook y SharePoint) y publicadas en Microsoft AppSource también reciben este descuento.
 

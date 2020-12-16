@@ -4,12 +4,12 @@ description: Cree la primera aplicación contenedora en Linux en Azure Service F
 ms.topic: conceptual
 ms.date: 1/4/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: d085f8704850cdbb03e21b15b3cca7c8998b96fb
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0481cc2d36f7882bbd8eea9b984c3dc388de5dee
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004235"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96534087"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Cree la primera aplicación contenedora de Service Fabric en Linux
 > [!div class="op_single_selector"]
@@ -87,10 +87,17 @@ if __name__ == "__main__":
     app.run(host='0.0.0.0', port=80)
 ```
 
-## <a name="build-the-image"></a>Compilación de la imagen
-Ejecute el comando `docker build` para crear la imagen que ejecuta la aplicación web. Abra una ventana de PowerShell y navegue hasta *c:\temp\helloworldapp*. Ejecute el siguiente comando:
+## <a name="login-to-docker-and-build-the-image"></a>Inicio de sesión en Docker y compilación de la imagen
 
-```bash
+A continuación, se creará la imagen que ejecuta la aplicación web. Al extraer imágenes públicas de Docker (como `python:2.7-slim` en nuestro Dockerfile), se recomienda realizar la autenticación con una cuenta de Docker Hub, en lugar de realizar una solicitud de incorporación de cambios anónima.
+
+> [!NOTE]
+> Al realizar solicitudes de incorporación de cambios anónimas frecuentes, es posible que vea errores de Docker similares a `ERROR: toomanyrequests: Too Many Requests.` o `You have reached your pull rate limit.`. Autentíquese en Docker Hub para evitar estos errores. Para más información, consulte [Administración del contenido público con Azure Container Registry](../container-registry/buffer-gate-public-content.md).
+
+Abra una ventana de PowerShell y navegue hasta el directorio que contiene el archivo Dockerfile. Luego, ejecute los siguientes comandos:
+
+```
+docker login
 docker build -t helloworldapp .
 ```
 

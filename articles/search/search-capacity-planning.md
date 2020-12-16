@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.openlocfilehash: 76084a9ddd6842194bb4c6b25d62e62c2ed2d4a8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 92dcbfd360938724bb65b734d7c69ea61d7826b0
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89660320"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533050"
 ---
 # <a name="adjust-the-capacity-of-an-azure-cognitive-search-service"></a>Ajuste de la capacidad de un servicio de Azure Cognitive Search
 
 Antes de [aprovisionar un servicio de búsqueda](search-create-service-portal.md) y de adquirir un plan de tarifa específico, dedique unos minutos a comprender cómo funciona la capacidad y cómo se pueden ajustar las réplicas y las particiones para acomodar la fluctuación de cargas de trabajo.
 
-La capacidad depende del [plan que elija](search-sku-tier.md) (los planes determinan las características del hardware) y la combinación de réplicas y particiones necesaria para las cargas de trabajo proyectadas. Puede aumentar o reducir el número de réplicas o particiones de forma individual. Según el plan y el tamaño del ajuste, el aumento o reducción de la capacidad puede tardar desde 15 minutos a varias horas.
+La capacidad depende del [plan que elija](search-sku-tier.md) (los planes determinan las características del hardware) y la combinación de réplicas y particiones necesaria para las cargas de trabajo proyectadas. Una vez creado un servicio, puede aumentar o reducir el número de réplicas o particiones de forma independiente. Los costos aumentarán con cada recurso físico adicional, pero una vez finalizadas las cargas de trabajo de gran tamaño, puede reducir la escala para reducir la factura. Según el plan y el tamaño del ajuste, el aumento o reducción de la capacidad puede tardar desde 15 minutos a varias horas.
 
 Al modificar la asignación de réplicas y particiones, se recomienda usar Azure Portal. El portal aplica límites a las combinaciones permitidas que se mantengan por debajo de los límites máximos de un plan. No obstante, si necesita un enfoque de aprovisionamiento basado en script o en código, [Azure PowerShell](search-manage-powershell.md) o la [API REST de administración](/rest/api/searchmanagement/services) son soluciones alternativas.
 
@@ -36,7 +36,7 @@ La capacidad se expresa en *unidades de búsqueda*, que se pueden asignar en com
 
 En el siguiente diagrama se muestra la relación entre réplicas, particiones, particiones de base de datos y unidades de búsqueda. Muestra un ejemplo de cómo se distribuye un solo índice entre cuatro unidades de búsqueda de un servicio con dos réplicas y dos particiones. Cada una de las cuatro unidades de búsqueda almacena solo la mitad de las particiones de base de datos del índice. Las unidades de búsqueda de la columna izquierda almacenan la primera mitad de las particiones de base de datos, que comprende la primera partición, mientras que las de la columna derecha almacenan la segunda mitad de las particiones de base de datos, que comprende la segunda partición. Dado que hay dos réplicas, hay dos copias de cada partición de base de datos del índice. Las unidades de búsqueda de la fila superior almacenan una copia, que comprende la primera réplica, mientras que las de la fila inferior almacenan otra copia, que comprende la segunda réplica.
 
-:::image type="content" source="media/search-capacity-planning/shards.png" alt-text="Los índices de búsqueda se particionan entre particiones.&quot;:::
+:::image type="content" source="media/search-capacity-planning/shards.png" alt-text="Los índices de búsqueda se particionan entre particiones.":::
 
 El diagrama anterior es solo un ejemplo. Hay muchas combinaciones de particiones y réplicas posibles, hasta un máximo de 36 unidades de búsqueda totales.
 
@@ -44,7 +44,7 @@ En Cognitive Search, la administración de particiones de base de datos es un d
 
 + Anomalías de clasificación: las puntuaciones de búsqueda se calculan primero en el nivel de partición de base de datos y luego se suman en un único conjunto de resultados. En función de las características del contenido de la partición de base de datos, las coincidencias de una partición de base de datos pueden tener una clasificación mayor que las de otra. Si observa clasificaciones no intuitivas en los resultados de búsqueda, lo más probable es que se deba a los efectos del particionamiento, especialmente si los índices son pequeños. Puede evitar estas anomalías de clasificación si opta por [calcular las puntuaciones de forma global en todo el índice](index-similarity-and-scoring.md#scoring-statistics-and-sticky-sessions), aunque esto conlleva una penalización de rendimiento.
 
-+ Anomalías de Autocompletar: las consultas de tipo Autocompletar, donde las coincidencias se realizan según los primeros caracteres de un término especificado parcialmente, aceptan un parámetro aproximado que perdona pequeñas desviaciones de ortografía. En Autocompletar, la coincidencia aproximada se restringe a los términos de la partición de base de datos actual. Por ejemplo, si una partición de base de datos contiene &quot;Microsoft&quot; y se escribe un término parcial &quot;micor&quot;, el motor de búsqueda combinará con &quot;Microsoft" en esa partición de base de datos, pero no en otras particiones de base de datos que contengan las partes restantes del índice.
++ Anomalías de Autocompletar: las consultas de tipo Autocompletar, donde las coincidencias se realizan según los primeros caracteres de un término especificado parcialmente, aceptan un parámetro aproximado que perdona pequeñas desviaciones de ortografía. En Autocompletar, la coincidencia aproximada se restringe a los términos de la partición de base de datos actual. Por ejemplo, si una partición de base de datos contiene "Microsoft" y se escribe un término parcial "micor", el motor de búsqueda combinará con "Microsoft" en esa partición de base de datos, pero no en otras particiones de base de datos que contengan las partes restantes del índice.
 
 ## <a name="when-to-add-nodes"></a>Cuándo agregar nodos
 

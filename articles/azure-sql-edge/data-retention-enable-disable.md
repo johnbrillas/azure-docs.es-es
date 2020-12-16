@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/04/2020
-ms.openlocfilehash: 9408aaa8fd5b677f012392ef4bd51c8826650eee
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 5b8dd911952a63ba8775f27a6128ff61e849e823
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93395162"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861432"
 ---
 # <a name="enable-and-disable-data-retention-policies"></a>Habilitación y deshabilitación de directivas de retención de datos
 
@@ -88,7 +88,7 @@ where is_data_deletion_filter_column =1
 and object_id = object_id(N'dbo.data_retention_table', N'U')
 ```
 
-## <a name="corelating-db-and-table-data-retention-settings"></a>Correlación de la configuración de la retención de la información en las bases de datos y en las tablas
+## <a name="correlating-db-and-table-data-retention-settings"></a>Correlación de la configuración de la retención de datos en las bases de datos y en las tablas
 
 La configuración de la retención de la información en la base de datos y la tabla se usa conjuntamente para determinar si la limpieza automática de las filas antiguas se ejecutará en las tablas. 
 

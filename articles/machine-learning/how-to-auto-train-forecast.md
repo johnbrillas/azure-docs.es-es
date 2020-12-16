@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, contperfq1, automl
 ms.date: 08/20/2020
-ms.openlocfilehash: 0bbb18a82de508f79cd2fd5dde58c1cf33520950
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 605e8cd57ab5863c1011082f0f2dbd93d078980b
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94887406"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518947"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Entrenamiento automático de un modelo de previsión de series temporales
 
@@ -146,6 +146,7 @@ En la tabla siguiente se resumen estos parámetros adicionales. Consulte la [doc
 |`forecast_horizon`|Define el número de períodos futuros que le gustaría pronosticar. El horizonte está en las unidades de la frecuencia de la serie temporal. Las unidades se basan en el intervalo de tiempo de los datos de entrenamiento (por ejemplo, semanales, mensuales) que debe predecir el pronosticador.|✓|
 |`enable_dnn`|[Habilitar las DNN de previsión]().||
 |`time_series_id_column_names`|Nombres de columna que se usan para identificar de forma única la serie temporal en los datos que tienen varias filas con la misma marca de tiempo. Si no se definen los identificadores de serie temporal, el conjunto de datos se presupone una serie temporal. Para más información sobre las series temporales únicas, consulte [energy_demand_notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand).||
+|`freq`| Frecuencia del conjunto de datos de la serie temporal. Este parámetro representa el período según el cual se espera que se produzcan eventos, y cuenta con valores como "diario", "semanal", "anual", etc. La frecuencia debe ser un [alias de desplazamiento de Pandas](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects).||
 |`target_lags`|Número de filas para retrasar los valores de destino en función de la frecuencia de los datos. El retraso se representa como una lista o un entero único. El retraso se debe usar cuando la relación entre las variables independientes y la variable dependiente no coincide o está en correlación de forma predeterminada. ||
 |`feature_lags`| El ML automatizado decidirá automáticamente las características que se van a retardar cuando se establezcan `target_lags` y `feature_lags` se establezca en `auto`. Habilitar los retardos de características puede ayudarle a mejorar la precisión. Los retardos de características están deshabilitados de forma predeterminada. ||
 |`target_rolling_window_size`|*n* períodos históricos que se utilizarán para generar valores previstos, < = tamaño del conjunto de entrenamiento. Si se omite, *n* es el tamaño total del conjunto de entrenamiento. Especifique este parámetro si solo desea tener en cuenta una determinada cantidad de historial al entrenar el modelo. Más información sobre [agregación de ventanas con desplazamiento de objetivo](#target-rolling-window-aggregation).||
@@ -153,7 +154,7 @@ En la tabla siguiente se resumen estos parámetros adicionales. Consulte la [doc
 
 
 El código siguiente: 
-* Usa la clase [`ForecastingParameters`](https://docs.microsoft.com/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters?preserve-view=true&view=azure-ml-py) para definir los parámetros de previsión que se van a emplear en el entrenamiento del experimento.
+* Usa la clase [`ForecastingParameters`](/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters?preserve-view=true&view=azure-ml-py) para definir los parámetros de previsión que se van a emplear en el entrenamiento del experimento.
 * Establece `time_column_name` en el campo `day_datetime` en el conjunto de datos. 
 * Define el parámetro `time_series_id_column_names` en `"store"`. Esto garantiza que se creen **dos grupos de series temporales independientes** para los datos, uno para los almacenes A y B.
 * Establece el `forecast_horizon` en 50 para predecir el conjunto de pruebas completo. 
@@ -285,19 +286,19 @@ Vea un ejemplo de código de Python que aprovecha las [características para agr
 
 ### <a name="short-series-handling"></a>Control de series breves
 
-El ML automatizado considera una serie temporal como **serie breve** si no hay suficientes puntos de datos para llevar a cabo las fases de entrenamiento y validación del desarrollo del modelo. El número de puntos de datos varía para cada experimento y depende de max_horizon, el número de divisiones de validación cruzada y la longitud de la retrospectiva del modelo, que es el máximo de historial necesario para construir las características de la serie temporal. Para ver el cálculo exacto, consulte la [documentación de referencia de short_series_handling_config](/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters?preserve-view=true&view=azure-ml-py#short-series-handling-configuration).
+El ML automatizado considera una serie temporal como **serie breve** si no hay suficientes puntos de datos para llevar a cabo las fases de entrenamiento y validación del desarrollo del modelo. El número de puntos de datos varía para cada experimento y depende de max_horizon, el número de divisiones de validación cruzada y la longitud de la retrospectiva del modelo, que es el máximo de historial necesario para construir las características de la serie temporal. Para ver el cálculo exacto, consulte la [documentación de referencia de short_series_handling_configuration](/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters?preserve-view=true&view=azure-ml-py#short-series-handling-configuration).
 
-El aprendizaje automático automatizado ofrece un control de series breves de manera predeterminada con el parámetro `short_series_handling_config` en el objeto `ForecastingParameters`. 
+El aprendizaje automático automatizado ofrece un control de series breves de manera predeterminada con el parámetro `short_series_handling_configuration` en el objeto `ForecastingParameters`. 
 
-Para habilitar el control de series breves, también se debe definir el parámetro `freq`. Para cambiar el comportamiento predeterminado, `short_series_handling_config = auto`, actualice el parámetro `short_series_handling_config` en el objeto `ForecastingParameter`.  
+Para habilitar el control de series breves, también se debe definir el parámetro `freq`. Para definir una frecuencia por hora, estableceremos `freq='H'`. Consulte [aquí](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects) las opciones de cadenas de frecuencia. Para cambiar el comportamiento predeterminado, `short_series_handling_configuration = 'auto'`, actualice el parámetro `short_series_handling_configuration` en el objeto `ForecastingParameter`.  
 
 ```python
 from azureml.automl.core.forecasting_parameters import ForecastingParameters
 
 forecast_parameters = ForecastingParameters(time_column_name='day_datetime', 
                                             forecast_horizon=50,
-                                            short_series_handling_config='auto',
-                                            freq = 50
+                                            short_series_handling_configuration='auto',
+                                            freq = 'H',
                                             target_lags='auto')
 ```
 En la siguiente tabla se resumen las opciones disponibles para `short_series_handling_config`.
@@ -305,7 +306,7 @@ En la siguiente tabla se resumen las opciones disponibles para `short_series_han
 |Configuración|Descripción
 |---|---
 |`auto`| El siguiente es el comportamiento predeterminado para el control de series breves: <li> *Si todas las series son breves*, se rellenan los datos. <br> <li> *Si no todas las series son breves*, se anulan las series breves. 
-|`pad`| Si `short_series_handling_config = pad`, el aprendizaje automático automatizado agrega valores ficticios a cada serie breve que se encuentra. A continuación se enumeran los tipos de columna y con qué se rellenan: <li>Columnas de objetos con NaN <li> Columnas numéricas con 0 <li> Columnas booleanas o lógicas con False <li> La columna de destino se rellena con valores aleatorios con una media de cero y una desviación estándar de 1. 
+|`pad`| Si `short_series_handling_config = pad`, el aprendizaje automático automatizado agrega valores aleatorios a cada serie breve que se encuentra. A continuación se enumeran los tipos de columna y con qué se rellenan: <li>Columnas de objetos con NaN <li> Columnas numéricas con 0 <li> Columnas booleanas o lógicas con False <li> La columna de destino se rellena con valores aleatorios con una media de cero y una desviación estándar de 1. 
 |`drop`| Si `short_series_handling_config = drop`, el aprendizaje automático automatizado quita las series breves, y no se usarán para el entrenamiento ni la predicción. Las predicciones para estas series devolverán NaN.
 |`None`| No se rellena ni anula ninguna serie
 

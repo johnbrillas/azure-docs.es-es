@@ -10,12 +10,12 @@ ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 09/22/2020
 ms.custom: contperfq1
-ms.openlocfilehash: 43b03abb2aac13358a2187a0a5dc570c1e45934e
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: c612e2a95e2596b2732ed8282037c8ded908a0a0
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96458495"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571392"
 ---
 # <a name="deep-learning-vs-machine-learning-in-azure-machine-learning"></a>Aprendizaje profundo frente a aprendizaje automático en Azure Machine Learning
 
@@ -93,8 +93,6 @@ El análisis de texto basado en métodos de aprendizaje profundo implica el aná
 
 Las empresas usan el aprendizaje profundo para realizar análisis de texto con el fin de detectar negociaciones en el mercado de valores y el cumplimiento normativo gubernamental. Otro ejemplo común es el fraude en los seguros: el análisis de texto se ha usado a menudo para analizar grandes cantidades de documentos y reconocer las posibilidades de reclamaciones de seguros fraudulentas. 
 
-Aprenda a usar un modelo de TensorFlow en Azure Machine Learning: [Clasificación de dígitos manuscritos mediante un modelo TensorFlow](./how-to-train-tensorflow.md?WT.mc_id=docs-article-lazzeri)
-
 ## <a name="artificial-neural-networks"></a>Redes neuronales artificiales
 
 Las redes neuronal artificiales se forman con capas de nodos conectados. Los modelos de aprendizaje profundo usan redes neuronales que tienen un gran número de capas. 
@@ -107,7 +105,7 @@ La red neuronal de tipo feedforward es el tipo más simple de red neuronal artif
 
 ### <a name="recurrent-neural-network"></a>Redes neuronales recurrentes
 
-Las redes neuronales recurrentes son una red neuronal artificial que se usa ampliamente. Estas redes guardan la salida de una capa y la reenvían a la capa de entrada para poder predecir el resultado de esa capa. Las redes neuronales recurrentes tienen grandes capacidades de aprendizaje. Se usan ampliamente en tareas complejas, como la previsión de series temporales, el aprendizaje de la escritura a mano y el reconocimiento de idiomas.
+Las redes neuronales recurrentes son una red neuronal artificial que se usa ampliamente. Estas redes guardan la salida de una capa y la reenvían a la capa de entrada para poder predecir el resultado de esa capa. Las redes neuronales recurrentes tienen grandes capacidades de aprendizaje. Suelen utilizarse en tareas complejas, como la predicción de series temporales, el aprendizaje de escritura a mano y el reconocimiento de idiomas.
 
 ### <a name="convolutional-neural-networks"></a>Redes neuronal convolucionales
 
@@ -118,6 +116,9 @@ Las redes neuronales circunvolucionadas se han usado en áreas como el reconocim
 ## <a name="next-steps"></a>Pasos siguientes
 
 En los artículos siguientes se muestran más opciones para usar modelos de aprendizaje profundo de código abierto en [Azure Machine Learning](./index.yml?WT.mc_id=docs-article-lazzeri):
+
+
+- [Clasificación de dígitos manuscritos mediante un modelo TensorFlow](./how-to-train-tensorflow.md?WT.mc_id=docs-article-lazzeri) 
 
 - [Clasificación de dígitos manuscritos mediante un estimador de TensorFlow y Keras](./how-to-train-keras.md?WT.mc_id=docs-article-lazzeri)
 

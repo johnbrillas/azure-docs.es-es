@@ -7,12 +7,12 @@ ms.date: 11/06/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: aeb1e5ee00bd52ebb4bd93dec2f4a1eacb002fb9
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: a517f7a796b6543c8d60f0d1ebdba16afa0bc4b7
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94986538"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751434"
 ---
 # <a name="use-properties-in-an-azure-iot-central-solution"></a>Uso de las propiedades en una solución de Azure IoT Central
 
@@ -79,7 +79,7 @@ En este ejemplo se muestran dos propiedades. Estas se relacionan con la definici
 
 * `@type` especifica el tipo de funcionalidad: `Property`. En el ejemplo anterior también se muestra el tipo semántico `Temperature` para ambas propiedades.
 * `name` para la propiedad.
-* `schema` especifica el tipo de datos de la propiedad. Este valor puede ser un tipo primitivo, como doble, entero, booleano o cadena. También se admiten tipos de objetos complejos, matrices y mapas.
+* `schema` especifica el tipo de datos de la propiedad. Este valor puede ser un tipo primitivo, como doble, entero, booleano o cadena. También se admiten tipos de objetos complejos y mapas.
 * `writable` De forma predeterminada, las propiedades son de solo lectura. Puede marcar una propiedad como editable mediante este campo.
 
 Los campos opcionales, como el nombre para mostrar y la descripción, permiten agregar más detalles a la interfaz y las funcionalidades.
@@ -160,11 +160,7 @@ hubClient.getTwin((err, twin) => {
 });
 ```
 
-En este artículo se usa Node.js por motivos de simplicidad. Para obtener información completa sobre los ejemplos de aplicaciones de dispositivos, consulte los siguientes tutoriales:
-
-* [Creación y conexión de un aplicación cliente a una aplicación de Azure IoT Central (Node.js)](tutorial-connect-device-nodejs.md)
-* [Creación y conexión de un aplicación cliente a una aplicación de Azure IoT Central (Python)](tutorial-connect-device-python.md)
-* [Creación y conexión de un aplicación cliente a una aplicación de Azure IoT Central (Java)](tutorial-connect-device-java.md)
+En este artículo se usa Node.js por motivos de simplicidad. Para información completa sobre los ejemplos de aplicaciones de dispositivo, consulte el tutorial [Creación y conexión de un aplicación cliente a una aplicación de Azure IoT Central](tutorial-connect-device.md).
 
 En la siguiente vista de la aplicación de Azure IoT Central se muestran las propiedades que puede ver. La vista hace que la propiedad **modelo del dispositivo** pase a ser _propiedad de dispositivo de solo lectura_.
 
@@ -236,4 +232,4 @@ En la vista siguiente se muestran las propiedades editables. Al escribir el valo
 Ahora que ha aprendido a usar propiedades en una aplicación de Azure IoT Central, consulte:
 
 * [Cargas de telemetría, propiedades y comandos](concepts-telemetry-properties-commands.md)
-* [Creación y conexión de un aplicación cliente a una aplicación de Azure IoT Central (Node.js)](tutorial-connect-device-nodejs.md)
+* [Creación y conexión de un aplicación cliente a una aplicación de Azure IoT Central](tutorial-connect-device.md)

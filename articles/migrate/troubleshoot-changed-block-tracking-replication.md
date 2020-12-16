@@ -2,16 +2,16 @@
 title: Solución de problemas de replicación en la migración de máquinas virtuales VMware sin agente
 description: Obtenga ayuda para los errores del ciclo de replicación
 author: anvar-ms
-ms.manager: bsiva
 ms.author: anvar
+ms.manager: bsiva
 ms.topic: troubleshooting
 ms.date: 08/17/2020
-ms.openlocfilehash: da1f7ce1474513fd9de286495f59aca63d8628b6
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: e19c5064dd69538dfc025b0d244baf4fa74706b2
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377266"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753542"
 ---
 # <a name="troubleshooting-replication-issues-in-agentless-vmware-vm-migration"></a>Solución de problemas de replicación en la migración de máquinas virtuales VMware sin agente
 
@@ -242,7 +242,7 @@ Este error se puede resolver de las dos maneras siguientes:
 
 Un problema conocido que puede provocar un restablecimiento de CBT de la máquina virtual en VMware vSphere 5.5 se describe en el artículo [VMware KB 2048201: Se restablece el seguimiento de bloques cambiados](https://go.microsoft.com/fwlink/?linkid=2138888) tras una operación de almacenamiento de vMotion en vSphere 5.x. Si se encuentra en VMware vSphere 5.5 asegúrese de que aplica las actualizaciones descritas en este artículo de KB.
 
-O bien, puede [restablecer el seguimiento de bloques cambiados de VMware en una máquina virtual con PowerCLI de VMware.
+O bien, puede restablecer el seguimiento de bloques cambiados de VMware en una máquina virtual con PowerCLI de VMware.
 
 ## <a name="an-internal-error-occurred"></a>Error interno.
 

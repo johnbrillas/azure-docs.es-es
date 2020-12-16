@@ -10,12 +10,12 @@ ms.date: 11/03/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
-ms.openlocfilehash: a808a6bb0d4dc75f02147bbfdd74d17b34e96f6e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: feac7b890c973b1541c5362f860432687082953f
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93313976"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533883"
 ---
 # <a name="configure-anonymous-public-read-access-for-containers-and-blobs"></a>Configuración de acceso de lectura público anónimo a contenedores y blobs
 
@@ -53,7 +53,7 @@ No permitir el acceso público para la cuenta de almacenamiento impide el acceso
 
 Para permitir o denegar el acceso público a una cuenta de almacenamiento, configure la propiedad **AllowBlobPublicAccess** de la cuenta. Esta propiedad está disponible para todas las cuentas de almacenamiento que se crean con el modelo de implementación de Azure Resource Manager. Para más información, consulte [Introducción a las cuentas de almacenamiento](../common/storage-account-overview.md).
 
-La propiedad **AllowBlobPublicAccess** no se establece de forma predeterminada y no devuelve un valor hasta que se establece de forma explícita. La cuenta de almacenamiento permite el acceso público cuando el valor de la propiedad es **NULL** o **true**.
+De manera predeterminada la propiedad **AllowBlobPublicAccess** no se establece para una cuenta de almacenamiento y no devuelve ningún valor hasta que se establece de forma explícita. La cuenta de almacenamiento permite el acceso público cuando el valor de la propiedad es **NULL** o **true**.
 
 # <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
@@ -132,7 +132,7 @@ az storage account show \
 Para permitir o denegar el acceso público de una cuenta de almacenamiento con una plantilla, cree una plantilla con la propiedad **AllowBlobPublicAccess** establecida en **true** o **false**. En los siguientes pasos se muestra cómo crear una plantilla en Azure Portal.
 
 1. En Azure Portal, elija **Crear un recurso**.
-1. En **Buscar en Marketplace** , escriba **implementación de plantillas** y, después, presione **ENTRAR**.
+1. En **Buscar en Marketplace**, escriba **implementación de plantillas** y, después, presione **ENTRAR**.
 1. Elija la opción de **implementación de plantillas (implementación con plantillas personalizadas; versión preliminar)** , seleccione **Crear** y, a continuación, elija **Compilar su propia plantilla en el editor**.
 1. En el editor de plantillas, pegue el siguiente código JSON para crear una cuenta nueva y establecer la propiedad **AllowBlobPublicAccess** en **true** o **false**. No olvide reemplazar los valores de los marcadores de posición entre corchetes angulares con sus propios valores.
 

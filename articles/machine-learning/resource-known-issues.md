@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: troubleshooting
 ms.custom: troubleshooting, contperfq4
 ms.date: 11/09/2020
-ms.openlocfilehash: 46763bddd0f173ccf73edc54e5f2688d3bf6efc0
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 55ac11b7888a8e351b52554f76fb44af35633c16
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445411"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780984"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Problemas conocidos y solución de problemas en Azure Machine Learning
 
@@ -211,7 +211,10 @@ Si usa un recurso compartido de archivos para otras cargas de trabajo, como la t
     Si no incluye la barra diagonal inicial ("/"), tendrá que prefijar el directorio de trabajo (por ejemplo, `/mnt/batch/.../tmp/dataset`) en el destino de proceso para indicar dónde quiere que se monte el conjunto de datos.
 
 ### <a name="mount-dataset"></a>Montaje del conjunto de datos
-* **Error al inicializar el conjunto de datos:  se ha agotado el tiempo de espera a que el punto de montaje estuviera listo**: para mitigar el problema, se ha agregado lógica de reintento en `azureml-sdk >=1.12.0`. Si tiene versiones anteriores de azureml-sdk, actualice a la versión más reciente. Si ya tiene `azureml-sdk>=1.12.0`, vuelva a crear el entorno para que disponga de la revisión más reciente con la corrección.
+* **Error al inicializar el conjunto de datos:  se ha agotado el tiempo de espera a que el punto de montaje estuviera listo**: 
+  * Si no tiene ninguna [regla de grupos de seguridad de red](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview) y usa `azureml-sdk>=1.12.0`, actualice `azureml-dataset-runtime` y sus dependencias a las más recientes para la versión secundaria específica, o bien, si la usa en una ejecución, vuelva a crear el entorno para que pueda tener la revisión más reciente con la corrección. 
+  * Si usa `azureml-sdk<1.12.0`, actualice a la versión más reciente.
+  * Si tiene reglas de grupos de seguridad de red de salida, asegúrese de que haya una regla de salida que permita todo el tráfico de la etiqueta de servicio `AzureResourceMonitor`.
 
 ### <a name="data-labeling-projects"></a>Proyecto de etiquetado de datos
 
@@ -423,7 +426,7 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
 
 Realice estas acciones para los siguientes errores:
 
-|Error  | Solución  |
+|Error  | Resolución  |
 |---------|---------|
 |Error de creación de imágenes al implementar el servicio web     |  Agregar "pynacl==1.2.1" como una dependencia pip al archivo de Conda para la configuración de la imagen.       |
 |`['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`     |   Cambie la SKU de las máquinas virtuales usadas en la implementación por otra que tenga más memoria. |

@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/16/2020
-ms.openlocfilehash: c4ddffa5f9e9ff4b313f05c9cedb3cb207695225
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 4765c0c43cfd9760eb5b4392604bfaeedc69c388
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129710"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96511447"
 ---
 # <a name="introduction-to-stream-analytics-windowing-functions"></a>Introducción a las funciones de ventana de Stream Analytics
 
@@ -20,7 +20,7 @@ En los escenarios de streaming en tiempo real, realizar operaciones en los datos
 
 Hay cinco tipos de ventanas temporales para elegir: ventanas de [**saltos de tamaño constante**](/stream-analytics-query/tumbling-window-azure-stream-analytics), de [**salto**](/stream-analytics-query/hopping-window-azure-stream-analytics), [**deslizantes**](/stream-analytics-query/sliding-window-azure-stream-analytics), de [**sesión**](/stream-analytics-query/session-window-azure-stream-analytics) y de [**instantánea**](/stream-analytics-query/snapshot-window-azure-stream-analytics).  Utilice las funciones de ventana en la cláusula [**GROUP BY**](/stream-analytics-query/group-by-azure-stream-analytics) de la sintaxis de consulta en los trabajos de Stream Analytics. También puede agregar eventos a través de varias ventanas mediante la función [**Windows()**](/stream-analytics-query/windows-azure-stream-analytics).
 
-Todas las operaciones de [ventana](/stream-analytics-query/windowing-azure-stream-analytics) generan resultados al **final** de la ventana. Tenga en cuenta que al iniciar un trabajo de Stream Analytics puede especificar la *Hora de inicio de salida del trabajo* para que el sistema capture automáticamente los eventos anteriores de los flujos entrantes para generar la primera ventana a la hora especificada; por ejemplo, al empezar con la opción *Ahora* , comienza a emitir datos inmediatamente. La salida de la ventana será un solo evento basado en la función agregada que se usa. El evento de salida tendrá la marca de tiempo del final de la ventana y todas las funciones de ventana están definidas con una longitud fija. 
+Todas las operaciones de [ventana](/stream-analytics-query/windowing-azure-stream-analytics) generan resultados al **final** de la ventana. Tenga en cuenta que al iniciar un trabajo de Stream Analytics puede especificar la *Hora de inicio de salida del trabajo* para que el sistema capture automáticamente los eventos anteriores de los flujos entrantes para generar la primera ventana a la hora especificada; por ejemplo, al empezar con la opción *Ahora*, comienza a emitir datos inmediatamente. La salida de la ventana será un solo evento basado en la función agregada que se usa. El evento de salida tendrá la marca de tiempo del final de la ventana y todas las funciones de ventana están definidas con una longitud fija. 
 
 ![Conceptos de las funciones de ventana de Stream Analytics](media/stream-analytics-window-functions/stream-analytics-window-functions-conceptual.png)
 
@@ -36,7 +36,7 @@ Las funciones de ventana de salto saltan hacia adelante en el tiempo un período
 
 ## <a name="sliding-window"></a>Ventana deslizante
 
-Las ventanas deslizantes, a diferencia de las ventanas de salto o de salto de tamaño constante, solo generan eventos para puntos en el tiempo cuando el contenido de la ventana cambia realmente. En otras palabras, cuando un evento entra o sale de la ventana. Cada ventana tiene al menos un evento, como en el caso de las ventanas de salto, y los eventos pueden pertenecer a más de una ventana deslizante.
+Las ventanas deslizantes, a diferencia de las ventanas de salto o de salto de tamaño constante, solo generan eventos para puntos en el tiempo cuando el contenido de la ventana cambia realmente. En otras palabras, cuando un evento entra o sale de la ventana. Por tanto, cada ventana tiene al menos un evento. De forma similar a lo que sucede en las ventanas de salto, los eventos pueden pertenecer a más de una ventana deslizante.
 
 ![Ventana deslizante de Stream Analytics](media/stream-analytics-window-functions/stream-analytics-window-functions-sliding-intro.png)
 

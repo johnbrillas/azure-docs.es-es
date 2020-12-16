@@ -7,19 +7,43 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/14/2020
-ms.openlocfilehash: 0acd0d1d463280cddc8c1f4bb389a056d474ea38
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.date: 12/01/2020
+ms.openlocfilehash: 3f2cbd7afe206866ae4d5b7c0925c8f3be9ab785
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92101280"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558817"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Selección de un plan de tarifa de Azure Cognitive Search
 
-Al crear un servicio de Azure Cognitive Search, [se crea un recurso](search-create-service-portal.md) en el plan de tarifa que se ha fijado para el período de vigencia del servicio. Los niveles incluyen Gratis, Básico, Estándar y Almacenamiento optimizado. Estándar y Almacenamiento optimizado están disponibles con varias configuraciones y capacidades.
+Al [crear un servicio de búsqueda](search-create-service-portal.md), debe elegir un plan de tarifa que es fijo para el período de vigencia del servicio. El plan que seleccione determina:
 
-La mayoría de los clientes empiezan con el nivel Gratis para poder evaluar el servicio. Después de la evaluación, es habitual crear un segundo servicio en uno de los niveles más altos para las implementaciones de desarrollo y producción.
++ Cantidad de índices y otros objetos (límites máximos)
++ Tamaño y velocidad de particiones (almacenamiento físico)
++ Tarifa facturable, un costo mensual fijo, pero también un costo incremental si agrega particiones o réplicas
+
+Además, algunas [características Premium](#premium-features) tienen requisitos de plan.
+
+## <a name="tier-descriptions"></a>Descripciones de los planes
+
+Los planes incluyen **Gratis**, **Básico**, **Estándar** y **Almacenamiento optimizado**. Estándar y Almacenamiento optimizado están disponibles con varias configuraciones y capacidades.
+
+En la siguiente captura de pantalla de Azure Portal se muestran los niveles disponibles, menos los precios (que puede encontrar en el portal y en la [página de precios](https://azure.microsoft.com/pricing/details/search/). 
+
+![Planes de tarifa de Azure Cognitive Search](media/search-sku-tier/tiers.png "Planes de tarifa de Azure Cognitive Search")
+
+El plan de tarifa **Gratis** crea un servicio de búsqueda limitado para proyectos más pequeños, como la ejecución de tutoriales y ejemplos de código. Internamente, las réplicas y las particiones se comparten entre varios suscriptores. No se puede escalar el servicio gratis, ni se pueden ejecutar grandes cargas de trabajo.
+
+**Básico** y **Estándar** son los niveles facturables usados con mayor frecuencia, mientras que el valor predeterminado es **Estándar**. Con recursos dedicados bajo su control, puede implementar proyectos más grandes, optimizar el rendimiento y aumentar la capacidad.
+
+Algunos niveles están optimizados para determinados tipos de trabajo. Por ejemplo, **Estándar 3 Alta densidad (S3 HD)** es un *modo de hospedaje* para S3, donde el hardware subyacente está optimizado para un gran número de índices más pequeños y está pensado para escenarios de varios inquilinos. S3 HD tiene el mismo cargo por unidad que S3, pero el hardware está optimizado para lecturas de archivos rápidas en un gran número de índices más pequeños.
+
+Los niveles **Almacenamiento optimizado** ofrecen mayor capacidad de almacenamiento a un precio menor por TB que los niveles Estándar. El principal inconveniente es una mayor latencia de consulta, lo cual debe validar para sus requisitos de aplicación específica. Para saber más sobre las consideraciones de rendimiento de este nivel, vea [Estrategias de implementación y procedimientos recomendados para optimizar el rendimiento en Azure Search](search-performance-optimization.md).
+
+Encontrará más información sobre los distintos niveles en la [página de precios](https://azure.microsoft.com/pricing/details/search/) del artículo [Límites de servicio en Azure Cognitive Search](search-limits-quotas-capacity.md) y en la página del portal cuando vaya a aprovisionar un servicio.
+
+<a name="premium-features"></a>
 
 ## <a name="feature-availability-by-tier"></a>Disponibilidad de características por nivel
 
@@ -35,34 +59,13 @@ En la tabla siguiente se describen las restricciones de características relacio
 
 La mayoría de las características están disponibles en todos los niveles, incluido el nivel Gratis, pero es posible que las características que usen muchos recursos no funcionen bien, a menos que se les proporcione capacidad suficiente. Por ejemplo, el [enriquecimiento con IA](cognitive-search-concept-intro.md) contiene funciones de ejecución prolongada que agotan el tiempo de espera en un servicio Gratis, a menos que el conjunto de datos sea pequeño.
 
-## <a name="tiers"></a>Niveles
-
-Los niveles se diferencian por:
-
-+ Cantidad de índices e indizadores (límites máximos)
-+ Tamaño y velocidad de particiones (almacenamiento físico)
-
-El nivel que se seleccione determina la tasa facturable. En la siguiente captura de pantalla de Azure Portal se muestran los niveles disponibles, menos los precios (que puede encontrar en el portal y en la [página de precios](https://azure.microsoft.com/pricing/details/search/). **Gratis** , **Básico** y **Estándar** son los niveles más comunes.
-
-El nivel **Gratis** crea un servicio de búsqueda limitado para proyectos más pequeños, que incluye los inicios rápidos y los tutoriales. Internamente, las réplicas y las particiones se comparten entre varios suscriptores. No se puede escalar el servicio gratis, ni se pueden ejecutar grandes cargas de trabajo.
-
-**Básico** y **Estándar** son los niveles facturables usados con mayor frecuencia, mientras que el valor predeterminado es **Estándar** . Con recursos dedicados bajo su control, puede implementar proyectos más grandes, optimizar el rendimiento y configurar la capacidad.
-
-![Planes de tarifa de Azure Cognitive Search](media/search-sku-tier/tiers.png "Planes de tarifa de Azure Cognitive Search")
-
-Algunos niveles están optimizados para determinados tipos de trabajo. Por ejemplo, **Estándar 3 Alta densidad (S3 HD)** es un *modo de hospedaje* para S3, donde el hardware subyacente está optimizado para un gran número de índices más pequeños y está pensado para escenarios de varios inquilinos. S3 HD tiene el mismo cargo por unidad que S3, pero el hardware está optimizado para lecturas de archivos rápidas en un gran número de índices más pequeños.
-
-Los niveles **Almacenamiento optimizado** ofrecen mayor capacidad de almacenamiento a un precio menor por TB que los niveles Estándar. El principal inconveniente es una mayor latencia de consulta, lo cual debe validar para sus requisitos de aplicación específica.  Para saber más sobre las consideraciones de rendimiento de este nivel, vea [Estrategias de implementación y procedimientos recomendados para optimizar el rendimiento en Azure Search](search-performance-optimization.md).
-
-Encontrará más información sobre los distintos niveles en la [página de precios](https://azure.microsoft.com/pricing/details/search/) del artículo [Límites de servicio en Azure Cognitive Search](search-limits-quotas-capacity.md) y en la página del portal cuando vaya a aprovisionar un servicio.
-
 ## <a name="billable-events"></a>Eventos facturables
 
 Una solución basada en Azure Cognitive Search puede incurrir en costos de las siguientes maneras:
 
-+ Costo del mismo servicio, que se ejecuta de forma ininterrumpida con una configuración mínima (una partición y una réplica)
++ [Costo del propio servicio](#service-costs), que se ejecuta de forma ininterrumpida con una configuración mínima (una partición y una réplica) a la tasa base
 
-+ Adición de capacidad (réplicas o particiones)
++ Adición de capacidad (réplicas o particiones), donde los costos aumentan en incrementos de la tasa facturable
 
 + Cargos de ancho de banda (transferencia de datos salientes)
 
@@ -138,7 +141,7 @@ En lo que respecta al propio servicio, la única manera de reducir la factura es
 
 ## <a name="how-to-evaluate-capacity-requirements"></a>Cómo evaluar los requisitos de capacidad
 
-En Azure Cognitive Search, la capacidad se estructura como *réplicas* y *particiones* .
+En Azure Cognitive Search, la capacidad se estructura como *réplicas* y *particiones*.
 
 + Las réplicas son instancias del servicio de búsqueda. Cada réplica hospeda una copia de carga equilibrada de un índice. Por ejemplo, un servicio con seis réplicas tiene seis copias de todos los índices cargados en el servicio.
 
@@ -149,7 +152,7 @@ En Azure Cognitive Search, la capacidad se estructura como *réplicas* y *partic
 
 ### <a name="evaluating-capacity"></a>Evaluar la capacidad
 
-La capacidad y los costos de ejecución del servicio están relacionados. Los niveles imponen límites tanto en el almacenamiento como en los recursos. Debe tener en cuenta estos dos aspectos, porque el límite real será el que se alcance primero.
+La capacidad y los costos de ejecución del servicio están relacionados. Los planes de tarifa imponen límites en dos niveles: almacenamiento y contenido (número de índices, por ejemplo). Debe tener en cuenta estos dos aspectos, porque el límite real será el que se alcance primero.
 
 Los requisitos empresariales suelen imponer el número de índices que se necesitará. Por ejemplo, podría necesitar un índice global para un repositorio de documentos de gran tamaño. O podría necesitar varios índices en función de la región, la aplicación o el nicho de negocio.
 

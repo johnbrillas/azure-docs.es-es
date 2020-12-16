@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 8f46c402c8c25a144cd4c12137aeabfdfa31e096
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 50d0119b08d2c76a5f6111e485408ebcdace83c6
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96463157"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96549028"
 ---
 # <a name="manage-your-bill-in-an-iot-central-application"></a>Administrar la factura en una aplicación de IoT Central
 
@@ -34,11 +34,11 @@ Para completar el proceso de autoservicio, siga estos pasos:
 
 1. Vaya a la página **Precios** de la sección **Administración**.
 
-    ![Evaluación gratuita](media/howto-view-bill/freetrialbilling.png)
+    :::image type="content" source="media/howto-view-bill/freetrialbilling.png" alt-text="Evaluación gratuita":::
 
 1. Seleccione **Convert to a paid plan** (Convertir en plan de pago).
 
-    ![Conversión de la evaluación gratuita](media/howto-view-bill/convert.png)
+    :::image type="content" source="media/howto-view-bill/convert.png" alt-text="Conversión de la evaluación gratuita":::
 
 1. Seleccione la instancia de Azure Active Directory correspondiente y, a continuación, la suscripción de Azure que se usará con la aplicación sujeta a un plan de pago.
 
@@ -55,7 +55,7 @@ En la sección de precios, puede actualizar o degradar el plan de tarifa de Azur
 
 1. Vaya a la página **Precios** de la sección **Administración**.
 
-    ![Actualización del plan de tarifa](media/howto-view-bill/pricing.png)
+    :::image type="content" source="media/howto-view-bill/pricing.png" alt-text="Actualización del plan de precios":::
 
 1. Seleccione el **Plan** y, luego, seleccione **Guardar** para actualizarlo o degradarlo.
 

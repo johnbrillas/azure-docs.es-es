@@ -3,12 +3,12 @@ title: Copia de seguridad sin conexión con Azure Data Box para DPM y MABS
 description: Puede usar Azure Data Box para propagar datos de copia de seguridad inicial sin conexión desde DPM y MABS.
 ms.topic: conceptual
 ms.date: 08/12/2020
-ms.openlocfilehash: 80b3977a9fb886b90c3d48d54f4cda1abfd77df9
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 1cfd9131099ad6a8ccd3d43e93f3d97641514f03
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172226"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96752556"
 ---
 # <a name="offline-seeding-using-azure-data-box-for-dpm-and-mabs-preview"></a>Propagación sin conexión mediante Azure Data Box para DPM y MABS (versión preliminar)
 
@@ -230,7 +230,7 @@ Compruebe si aparece el siguiente mensaje de error en la consola de DPM o MABS e
 
 Para solucionar este problema, siga estos pasos y vuelva a intentar la configuración de la directiva.
 
-1. Inicie sesión en la página de inicio de sesión de Azure que aparece en la interfaz de usuario del servidor de DPM o MABS con otra cuenta con acceso de administrador en la suscripción en la que se va a crear el trabajo de importación y exportación.
+1. Inicie sesión en la página de inicio de sesión de Azure que aparece en la interfaz de usuario del servidor de DPM o MABS con otra cuenta que tenga acceso de administrador en la suscripción en la que se va a crear el trabajo de Data Box.
 2. Si ningún otro servidor tiene configurada la propagación sin conexión y ningún otro depende de la aplicación `AzureOfflineBackup_<Azure User Id>`, elimine esta aplicación de **Azure Portal> Azure Active Directory > Registros de aplicaciones**.
 
    > [!NOTE]

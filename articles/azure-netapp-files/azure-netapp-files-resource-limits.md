@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/14/2020
+ms.date: 12/01/2020
 ms.author: b-juche
-ms.openlocfilehash: 6963a1f39534573bca39431febe391e89d462875
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: aaffc63690894f43329763064ae89a105274953c
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072788"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96511940"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Límites de recursos para Azure NetApp Files
 
@@ -31,7 +31,7 @@ En la tabla siguiente se describen los límites de recursos de Azure NetApp File
 
 |  Recurso  |  Límite predeterminado  |  Ajustable a través de la solicitud de soporte técnico  |
 |----------------|---------------------|--------------------------------------|
-|  Número de cuentas de NetApp por región de Azure   |  10    |  Sí   |
+|  Número de cuentas de NetApp por región de Azure por suscripción  |  10    |  Sí   |
 |  Número de grupos de capacidad por cuenta de NetApp   |    25     |   Sí   |
 |  Número de volúmenes por suscripción   |    500     |   Sí   |
 |  Número de volúmenes por grupo de capacidad     |    500   |    Sí     |
@@ -89,7 +89,7 @@ Desde el plano de navegación de Azure Portal:
         |  grupo    |  *Identificador de suscripción, URI de la cuenta de NetApp*  |  *Nuevo número máximo de **grupos** solicitado*   |  *¿Qué escenario o caso de uso motivó la solicitud?*  |
         |  Volumen  |  *Identificador de suscripción, URI de la cuenta de NetApp, URI del grupo de capacidad*   |  *Nuevo número máximo de **volúmenes** solicitado*     |  *¿Qué escenario o caso de uso motivó la solicitud?*  |
         |  Maxfiles  |  *Identificador de suscripción, URI de la cuenta de NetApp, URI del grupo de capacidad, URI del volumen*   |  *Nuevo número máximo de **maxfiles** solicitado*     |  *¿Qué escenario o caso de uso motivó la solicitud?*  |    
-        |  Volúmenes de protección de datos de replicación entre regiones  |  *Identificador de suscripción, URI de la cuenta de NetApp de destino, URI del grupo de capacidad de destino, URI de la cuenta de NetApp de origen, URI del grupo de capacidad de origen, URI del volumen de origen*   |  *Se ha solicitado un nuevo número máximo de **volúmenes de protección de datos de replicación entre regiones (volúmenes de destino)***     |  *¿Qué escenario o caso de uso motivó la solicitud?*  |    
+        |  Volúmenes de protección de datos de replicación entre regiones  |  *Identificador de suscripción, URI de la cuenta de NetApp de destino, URI del grupo de capacidad de destino, URI de la cuenta de NetApp de origen, URI del grupo de capacidad de origen, URI del volumen de origen*   |  *Se ha solicitado un nuevo número máximo de **volúmenes de protección de datos de replicación entre regiones (volúmenes de destino)** _     |  _¿Qué escenario o caso de uso motivó la solicitud?*  |    
 
     2. Especifique admite el método de soporte técnico adecuado y proporcione la información del contrato.
 

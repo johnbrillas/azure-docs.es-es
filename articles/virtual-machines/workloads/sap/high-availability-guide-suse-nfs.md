@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 5976649ee396d897b76713b7863668d92279612e
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 6b0504f5e4199ee3cd8e86660b866fddf2568485
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96484318"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608578"
 ---
 # <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>Alta disponibilidad para NFS en máquinas virtuales de Azure en SUSE Linux Enterprise Server
 
@@ -53,6 +53,10 @@ ms.locfileid: "96484318"
 
 En este artículo se describe cómo implementar y configurar las máquinas virtuales, instalar el marco de trabajo del clúster e instalar un servidor NFS de alta disponibilidad que se puede usar para almacenar los datos compartidos de un sistema SAP con alta disponibilidad.
 En esta guía se describe cómo configurar un servidor NFS de alta disponibilidad que se usa en dos sistemas SAP: NW1 y NW2. En los nombres de los recursos (por ejemplo, máquinas virtuales, redes virtuales) del ejemplo se da por supuesto que ha usado la [plantilla del servidor de archivos de SAP][template-file-server] con el prefijo de recursos **prod**.
+
+
+> [!NOTE]
+> Este artículo contiene referencias a los términos *esclavo* y *maestro*, unos términos que Microsoft ya no usa. Cuando se eliminen los términos del software, se eliminarán también de este artículo.
 
 Lea primero las notas y los documentos de SAP siguientes:
 
@@ -214,7 +218,7 @@ En primer lugar, debe crear las máquinas virtuales de este clúster NFS. Despu�
             * Repita los pasos anteriores con el puerto 2049 y UDP de NW2.
 
 > [!IMPORTANT]
-> La dirección IP flotante no se admite en una configuración de IP secundaria de NIC en escenarios de equilibrio de carga. Para obtener detalles, vea [Limitaciones de Azure Load Balancer](../../../load-balancer/load-balancer-multivip-overview.md#limitations). Si necesita una dirección IP adicional para la VM, implemente una segunda NIC.  
+> La dirección IP flotante no se admite en una configuración de IP secundaria de NIC en escenarios de equilibrio de carga. Para obtener más información, consulte [Limitaciones de Azure Load Balancer](../../../load-balancer/load-balancer-multivip-overview.md#limitations). Si necesita una dirección IP adicional para la VM, implemente una segunda NIC.  
 
 > [!Note]
 > Cuando las máquinas virtuales sin direcciones IP públicas se colocan en el grupo de back-end de Standard Load Balancer interno (sin dirección IP pública), no hay conectividad saliente de Internet, a menos que se realice una configuración adicional para permitir el enrutamiento a puntos de conexión públicos. Para obtener más información sobre cómo obtener conectividad saliente, vea [Conectividad de punto de conexión público para máquinas virtuales con Azure Standard Load Balancer en escenarios de alta disponibilidad de SAP](./high-availability-guide-standard-load-balancer-outbound-connections.md).  

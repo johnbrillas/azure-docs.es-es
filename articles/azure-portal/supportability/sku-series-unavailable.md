@@ -1,18 +1,16 @@
 ---
-title: 'Serie de SKU o región no disponibles: Azure'
+title: Serie de SKU o región no disponibles
 description: Algunas series de SKU no están disponibles para la suscripción seleccionada de esta región, lo que puede requerir una solicitud de soporte técnico de administración de suscripciones.
-services: Azure Supportability
 author: stevendotwang
-ms.service: azure-supportability
 ms.topic: troubleshooting
 ms.date: 01/27/2020
 ms.author: xingwan
-ms.openlocfilehash: fccde344a06d39bd4bb8e3178444ec20677e2f50
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 2bbe1dff6bbf8fed481300db95482c46b0e8a7b7
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078517"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745288"
 ---
 # <a name="region-or-sku-unavailable"></a>Región o SKU no disponible
 

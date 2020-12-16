@@ -2,21 +2,21 @@
 title: 'Azure Event Grid: Habilitación de los registros de diagnóstico de temas o dominios'
 description: En este artículo se proporcionan instrucciones paso a paso sobre cómo habilitar los registros de diagnóstico para un tema de Azure Event Grid.
 ms.topic: how-to
-ms.date: 07/07/2020
-ms.openlocfilehash: 2d76d3ededd6d241197b26ac357c3b5406f43f02
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 12/03/2020
+ms.openlocfilehash: ff00c1438c49cbc9f9e67eba0cf0acef7991a5a4
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91297528"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576458"
 ---
 #  <a name="enable-diagnostic-logs-for-azure-event-grid-topics-or-domains"></a>Habilitación de registros de diagnóstico para los temas o dominios de Azure Event Grid
-La configuración de diagnóstico permite a los usuarios de Event Grid capturar y ver los registros de **error de publicación y entrega** en una cuenta de almacenamiento, un centro de eventos o un área de trabajo de Log Analytics. En este artículo se proporcionan instrucciones paso a paso sobre cómo habilitar estas opciones en un tema de Event Grid.
+En este artículo, se proporcionan instrucciones paso a paso acerca de cómo habilitar los registros de diagnóstico en un dominio o tema de Event Grid.  Esta configuración permite capturar y ver los registros de **errores de publicación y entrega**. 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Un tema de Event Grid aprovisionado.
-- Un destino aprovisionado para capturar registros de diagnóstico. Puede tener uno de los siguientes destinos en la misma ubicación que el tema de Event Grid:
+- Un destino aprovisionado para capturar registros de diagnóstico. Puede ser uno de los siguientes destinos que se encuentran en la misma ubicación que el tema de Event Grid:
     - Cuenta de almacenamiento de Azure
     - Centro de eventos
     - Área de trabajo de Log Analytics
@@ -87,10 +87,10 @@ La configuración de diagnóstico permite a los usuarios de Event Grid capturar 
 
 ## <a name="view-diagnostic-logs-in-azure-storage"></a>Visualización de registros de diagnóstico en Azure Storage 
 
-1. Una vez que habilite una cuenta de almacenamiento como destino de captura y Event Grid comience a emitir registros de diagnóstico, debería ver nuevos contenedores denominados **insights-logs-deliveryfailures** e **insights-logs-publishfailures** en la cuenta de almacenamiento. 
+1. Una vez que se ha habilitado una cuenta de almacenamiento como destino de captura, Event Grid comienza a emitir registros de diagnóstico. Debería ver dos nuevos contenedores, **insights-logs-deliveryfailures** e **insights-logs-publishfailures**, en la cuenta de almacenamiento. 
 
     ![Almacenamiento: contenedores para registros de diagnóstico](./media/enable-diagnostic-logs-topic/storage-containers.png)
-2. A medida que se desplace con uno de los contenedores, terminará en un blob en formato JSON. El archivo contiene entradas de registro para un error de entrega o un error de publicación. La ruta de navegación representa el **ResourceId** del tema de Event Grid y la marca de tiempo (nivel de minuto) como cuando se emitieron las entradas de registro. El archivo blob/JSON, que se puede descargar, al final se adhiere al esquema descrito en la sección siguiente. 
+2. Cuando se desplace por uno de los contenedores, terminará en un blob en formato JSON. El archivo contiene entradas de registro para un error de entrega o un error de publicación. La ruta de navegación representa el **ResourceId** del tema de Event Grid y la marca de tiempo (nivel de minuto) como cuando se emitieron las entradas de registro. El archivo blob/JSON, que se puede descargar, al final se adhiere al esquema descrito en la sección siguiente. 
 
     [ ![Archivo JSON en el almacenamiento](./media/enable-diagnostic-logs-topic/select-json.png) ](./media/enable-diagnostic-logs-topic/select-json.png)
 3. Debería ver el contenido en el archivo JSON similar al ejemplo siguiente: 
@@ -102,9 +102,8 @@ La configuración de diagnóstico permite a los usuarios de Event Grid capturar 
         "eventSubscriptionName": "SAMPLEDESTINATION",
         "category": "DeliveryFailures",
         "operationName": "Deliver",
-        "message": "Message:outcome=NotFound, latencyInMs=2635, systemId=17284f7c-0044-46fb-84b7-59fda5776017, state=FilteredFailingDelivery, deliveryTime=11/1/2019 12:17:10 AM, deliveryCount=0, probationCount=0, deliverySchema=EventGridEvent, eventSubscriptionDeliverySchema=EventGridEvent, fields=InputEvent, EventSubscriptionId, DeliveryTime, State, Id, DeliverySchema, LastDeliveryAttemptTime, SystemId, fieldCount=, requestExpiration=1/1/0001 12:00:00 AM, delivered=False publishTime=11/1/2019 12:17:10 AM, eventTime=11/1/2019 12:17:09 AM, eventType=Type, deliveryTime=11/1/2019 12:17:10 AM, filteringState=FilteredWithRpc, inputSchema=EventGridEvent, publisher=DIAGNOSTICLOGSTEST-EASTUS.EASTUS-1.EVENTGRID.AZURE.NET, size=363, fields=Id, PublishTime, SerializedBody, EventType, Topic, Subject, FilteringHashCode, SystemId, Publisher, FilteringTopic, TopicCategory, DataVersion, MetadataVersion, InputSchema, EventTime, fieldCount=15, url=sb://diagnosticlogstesting-eastus.servicebus.windows.net/, deliveryResponse=NotFound: The messaging entity 'sb://diagnosticlogstesting-eastus.servicebus.windows.net/eh-diagnosticlogstest' could not be found. TrackingId:c98c5af6-11f0-400b-8f56-c605662fb849_G14, SystemTracker:diagnosticlogstesting-eastus.servicebus.windows.net:eh-diagnosticlogstest, Timestamp:2019-11-01T00:17:13, referenceId: ac141738a9a54451b12b4cc31a10dedc_G14:"
+        "message": "Message:outcome=NotFound, latencyInMs=2635, id=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx, systemId=xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx, state=FilteredFailingDelivery, deliveryTime=11/1/2019 12:17:10 AM, deliveryCount=0, probationCount=0, deliverySchema=EventGridEvent, eventSubscriptionDeliverySchema=EventGridEvent, fields=InputEvent, EventSubscriptionId, DeliveryTime, State, Id, DeliverySchema, LastDeliveryAttemptTime, SystemId, fieldCount=, requestExpiration=1/1/0001 12:00:00 AM, delivered=False publishTime=11/1/2019 12:17:10 AM, eventTime=11/1/2019 12:17:09 AM, eventType=Type, deliveryTime=11/1/2019 12:17:10 AM, filteringState=FilteredWithRpc, inputSchema=EventGridEvent, publisher=DIAGNOSTICLOGSTEST-EASTUS.EASTUS-1.EVENTGRID.AZURE.NET, size=363, fields=Id, PublishTime, SerializedBody, EventType, Topic, Subject, FilteringHashCode, SystemId, Publisher, FilteringTopic, TopicCategory, DataVersion, MetadataVersion, InputSchema, EventTime, fieldCount=15, url=sb://diagnosticlogstesting-eastus.servicebus.windows.net/, deliveryResponse=NotFound: The messaging entity 'sb://diagnosticlogstesting-eastus.servicebus.windows.net/eh-diagnosticlogstest' could not be found. TrackingId:c98c5af6-11f0-400b-8f56-c605662fb849_G14, SystemTracker:diagnosticlogstesting-eastus.servicebus.windows.net:eh-diagnosticlogstest, Timestamp:2019-11-01T00:17:13, referenceId: ac141738a9a54451b12b4cc31a10dedc_G14:"
     }
     ```
-
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener el esquema de registro y otra información conceptual sobre los registros de diagnóstico de temas o dominios, consulte [Registros de diagnóstico](diagnostic-logs.md).

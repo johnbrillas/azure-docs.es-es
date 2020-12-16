@@ -5,14 +5,14 @@ author: harelbr
 ms.author: harelbr
 services: monitoring
 ms.topic: conceptual
-ms.date: 9/30/2020
+ms.date: 12/3/2020
 ms.subservice: alerts
-ms.openlocfilehash: d1a1a31d5894338e0deeed27fabcde9fdbf6f588
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: dfcc1f15ebec1337cfa7d484319c7b942ff052b2
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566493"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548246"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Recursos compatibles para las alertas de métricas de Azure Monitor
 
@@ -85,19 +85,20 @@ Esta es la lista completa de los orígenes de métricas de Azure Monitor que se 
 |Microsoft.Network/applicationGateways | Sí | No | [Puertas de enlace de aplicaciones](./metrics-supported.md#microsoftnetworkapplicationgateways) |
 |Microsoft.Network/azurefirewalls | Sí | Sin | [Firewalls](./metrics-supported.md#microsoftnetworkazurefirewalls) |
 |Microsoft.Network/dnsZones | Sin | No | [Zonas DNS](./metrics-supported.md#microsoftnetworkdnszones) |
-|Microsoft.Network/expressRouteCircuits | N/D | Sin |[Circuitos ExpressRoute](./metrics-supported.md#microsoftnetworkexpressroutecircuits) |
-|Microsoft.Network/loadBalancers (solo para SKU estándar)| Sí| No | [Equilibradores de carga](./metrics-supported.md#microsoftnetworkloadbalancers) |
+|Microsoft.Network/expressRouteCircuits | Sí | Sin |[Circuitos ExpressRoute](./metrics-supported.md#microsoftnetworkexpressroutecircuits) |
+|Microsoft.Network/expressRoutePorts | Sí | No |[ExpressRoute Direct](./metrics-supported.md#microsoftnetworkexpressrouteports) |
+|Microsoft.Network/loadBalancers (solo para SKU estándar)| Sí| Sin | [Equilibradores de carga](./metrics-supported.md#microsoftnetworkloadbalancers) |
 |Microsoft.Network/natGateways| No | Sin | |
 |Microsoft.Network/privateEndpoints| No | Sin | |
-|Microsoft.Network/privateLinkServices| Sin | Sin |
-|Microsoft.Network/publicipaddresses | Sin | No |[Direcciones IP públicas](./metrics-supported.md#microsoftnetworkpublicipaddresses)|
-|Microsoft.Network/trafficManagerProfiles | Sí | Sin | [Perfiles de Traffic Manager](./metrics-supported.md#microsoftnetworktrafficmanagerprofiles) |
+|Microsoft.Network/privateLinkServices| No | Sin |
+|Microsoft.Network/publicipaddresses | Sin | Sin |[Direcciones IP públicas](./metrics-supported.md#microsoftnetworkpublicipaddresses)|
+|Microsoft.Network/trafficManagerProfiles | Sí | No | [Perfiles de Traffic Manager](./metrics-supported.md#microsoftnetworktrafficmanagerprofiles) |
 |Microsoft.OperationalInsights/workspaces| Sí | No | [Áreas de trabajo de Log Analytics](./metrics-supported.md#microsoftoperationalinsightsworkspaces)|
 |Microsoft.Peering/peerings | Sí | No | [Emparejamientos](./metrics-supported.md#microsoftpeeringpeerings) |
 |Microsoft.Peering/peeringServices | Sí | No | [Instancias de Peering Service](./metrics-supported.md#microsoftpeeringpeeringservices) |
 |Microsoft.PowerBIDedicated/capacities | Sin | No | [Capacidades](./metrics-supported.md#microsoftpowerbidedicatedcapacities) |
 |Microsoft.Relay/namespaces | Sí | No | [Retransmisiones](./metrics-supported.md#microsoftrelaynamespaces) |
-|Microsoft.Search/searchServices | Sin | No | [Servicios de búsqueda](./metrics-supported.md#microsoftsearchsearchservices) |
+|Microsoft.Search/searchServices | No | No | [Servicios de búsqueda](./metrics-supported.md#microsoftsearchsearchservices) |
 |Microsoft.ServiceBus/namespaces | Sí | No | [Service Bus](./metrics-supported.md#microsoftservicebusnamespaces) |
 |Microsoft.Sql/managedInstances | No | Sí | [Instancias administradas de SQL](./metrics-supported.md#microsoftsqlmanagedinstances) |
 |Microsoft.Sql/servers/databases | No | Sí | [Bases de datos SQL Database](./metrics-supported.md#microsoftsqlserversdatabases) |
@@ -107,6 +108,9 @@ Esta es la lista completa de los orígenes de métricas de Azure Monitor que se 
 |Microsoft.StorageCache/caches | Sí | No | |
 |Microsoft.StorageSync/storageSyncServices | Sí | No | [Servicios de sincronización de almacenamiento](./metrics-supported.md#microsoftstoragesyncstoragesyncservices) |
 |Microsoft.StreamAnalytics/streamingjobs | Sí | No | [Stream Analytics](./metrics-supported.md#microsoftstreamanalyticsstreamingjobs) |
+|Microsoft.Synapse/workspaces | Sí | No | [Synapse Analytics](./metrics-supported.md#microsoftsynapseworkspaces) |
+|Microsoft.Synapse/workspaces/bigDataPools | Sí | No | [Grupos de Apache Spark en Synapse Analytics](./metrics-supported.md#microsoftsynapseworkspacesbigdatapools) |
+|Microsoft.Synapse/workspaces/sqlPools | Sí | No | [Grupos de SQL de Synapse Analytics](./metrics-supported.md#microsoftsynapseworkspacessqlpools) |
 |Microsoft.VMWareCloudSimple/virtualMachines | Sí | No | [Máquinas virtuales de CloudSimple](./metrics-supported.md#microsoftvmwarecloudsimplevirtualmachines) |
 |Microsoft.Web/hostingEnvironments/multiRolePools | Sí | No | [Grupos de varios roles de App Service Environment](./metrics-supported.md#microsoftwebhostingenvironmentsmultirolepools)|
 |Microsoft.Web/hostingEnvironments/workerPools | Sí | No | [Grupos de trabajo de App Service Environment](./metrics-supported.md#microsoftwebhostingenvironmentsworkerpools)|

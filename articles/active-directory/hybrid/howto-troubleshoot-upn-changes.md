@@ -1,5 +1,5 @@
 ---
-title: Planeamiento y solución de problemas de los cambios de nombre principal de usuario (UPN) de Azure
+title: Planeamiento y solución de problemas asociados a cambios del nombre principal de usuario (UPN) en Azure
 description: Descripción de los problemas conocidos y sus mitigaciones relacionadas con los cambios de UPN
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46ecc2cba96b07d9105020e69ae3198a3765be7c
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 19e40d135316c1c7cd270d2804fff1f487937685
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96172238"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96858542"
 ---
 # <a name="plan-and-troubleshoot-user-principal-name-changes-in-azure-active-directory"></a>Planeamiento y solución de problemas de los cambios de nombre principal de usuario en Azure Active Directory
 
@@ -135,7 +135,7 @@ Los usuarios pueden experimentar problemas con el inicio de sesión único en ap
 Los problemas que se mencionan en esta sección se han corregido en la actualización 2020 de Windows 10 (2004).
 
 **Solución alternativa** <br>
-Deje tiempo suficiente para que el cambio de UPN se sincronice con Azure AD. Una vez que compruebe que el UPN nuevo se refleja en el portal de Azure AD, pídale al usuario que seleccione el icono "Otro usuario" para iniciar sesión con el UPN nuevo. También puede realizar la comprobación mediante [PowerShell](/powershell/module/azuread/get-azureaduser?view=azureadps-2.0). Después de iniciar sesión con el UPN nuevo, es posible que las referencias al UPN anterior sigan apareciendo en la opción de Windows "Obtener acceso a trabajo o escuela".
+Deje tiempo suficiente para que el cambio de UPN se sincronice con Azure AD. Una vez que compruebe que el UPN nuevo se refleja en el portal de Azure AD, pídale al usuario que seleccione el icono "Otro usuario" para iniciar sesión con el UPN nuevo. También puede realizar la comprobación mediante [PowerShell](/powershell/module/azuread/get-azureaduser). Después de iniciar sesión con el UPN nuevo, es posible que las referencias al UPN anterior sigan apareciendo en la opción de Windows "Obtener acceso a trabajo o escuela".
 
 ![Captura de pantalla de los dominios comprobados](./media/howto-troubleshoot-upn-changes/other-user.png)
 

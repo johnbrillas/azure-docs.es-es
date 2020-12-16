@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 08/11/2020
-ms.openlocfilehash: 35f2f82b4fe6862f0d023a70b32c964698b0c0eb
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 9fa38e045bbe29e5d45587adf0d277c1414fee4c
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547816"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96549045"
 ---
 # <a name="hdinsight-management-ip-addresses"></a>Direcciones IP de administración de HDInsight
 
-En este artículo se enumeran las direcciones IP que usan los servicios de mantenimiento y administración de Azure HDInsight. Si usa grupos de seguridad de red o rutas definidas por el usuario, es posible que tenga que agregar algunas de estas direcciones IP a la lista de permitidos para el tráfico de red entrante.
+En este artículo se enumeran las direcciones IP que usan los servicios de mantenimiento y administración de Azure HDInsight. Si usa grupos de seguridad de red (NSG) o rutas definidas por el usuario (UDR), es posible que tenga que agregar algunas de estas direcciones IP a la lista de permitidos para admitir el tráfico de red de entrada.
 
 ## <a name="introduction"></a>Introducción
  
@@ -28,11 +28,13 @@ Si usa grupos de seguridad de red (NSG) o rutas definidas por el usuario (UDR) p
 
 Si necesita direcciones IP para una región que no aparece aquí, puede usar la [Service Tag Discovery API](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) para buscar las direcciones IP de su región. Si no puede usar la API, descargue el [archivo JSON de la etiqueta de servicio](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) y busque la región deseada.
 
+HDInsight valida estas reglas cuando se crean y escalan clústeres para evitar que se produzcan errores. Si no se supera la validación, las operaciones de creación y escalado no se realizan correctamente.
+
 En las secciones siguientes se describen las direcciones IP específicas que se deben permitir.
 
 ## <a name="azure-dns-service"></a>Servicio de Azure DNS
 
-Si usa el servicio DNS proporcionado por Azure, debe permitir el acceso desde __168.63.129.16__ en el puerto 53. Para más información, vea el documento [Resolución de nombres para las máquinas virtuales e instancias de rol](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md). Si usa DNS personalizado, omita este paso.
+Si usa el servicio DNS proporcionado por Azure, permita el acceso a __168.63.129.16__ en el puerto 53 para TCP y UDP. Para más información, vea el documento [Resolución de nombres para las máquinas virtuales e instancias de rol](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md). Si usa DNS personalizado, omita este paso.
 
 ## <a name="health-and-management-services-all-regions"></a>Servicios de mantenimiento y administración: Todas las regiones
 

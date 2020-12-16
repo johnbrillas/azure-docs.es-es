@@ -4,12 +4,12 @@ description: Inserte unas cuantas líneas de código en su aplicación de dispos
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: e9f175e2585a5254922c9e859cf5ece2afbbc3e3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ae64888669fb9a3c053802ee4f7ad7db6316265d
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96011358"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780508"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API de Application Insights para eventos y métricas personalizados
 
@@ -531,6 +531,9 @@ Si el [muestreo](./sampling.md) está en uso, en la propiedad itemCount se muest
 
 Utilice la llamada de TrackDependency para realizar un seguimiento de los tiempos de respuesta y las tasas de éxito de las llamadas a un fragmento de código externo. Los resultados se muestran en los gráficos de dependencia del portal. Es necesario agregar el fragmento de código siguiente siempre que se realice una llamada de dependencia.
 
+> [!NOTE]
+> En el caso de .NET y .NET Core, también puede usar el método `TelemetryClient.StartOperation` (extensión) que rellena las propiedades `DependencyTelemetry` que son necesarias para la correlación y otras propiedades como la hora de inicio y la duración, por lo que no es necesario crear un temporizador personalizado como con los ejemplos siguientes. Para obtener más información, consulte la sección [ de este artículo sobre el seguimiento de dependencias salientes](https://docs.microsoft.com/azure/azure-monitor/app/custom-operations-tracking#outgoing-dependencies-tracking).
+
 *C#*
 
 ```csharp
@@ -566,8 +569,8 @@ finally {
     Instant endTime = Instant.now();
     Duration delta = Duration.between(startTime, endTime);
     RemoteDependencyTelemetry dependencyTelemetry = new RemoteDependencyTelemetry("My Dependency", "myCall", delta, success);
-    RemoteDependencyTelemetry.setTimeStamp(startTime);
-    RemoteDependencyTelemetry.trackDependency(dependencyTelemetry);
+    dependencyTelemetry.setTimeStamp(startTime);
+    telemetry.trackDependency(dependencyTelemetry);
 }
 ```
 

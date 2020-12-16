@@ -1,14 +1,17 @@
 ---
-title: Selección de una opción de migración de VMware con Azure Migrate Server Migration | Microsoft Docs
+title: Selección de una opción de migración de VMware con Azure Migrate Server Migration
 description: Proporciona información general sobre las opciones para migrar máquinas virtuales de VMware a Azure con Azure Migrate Server Migration.
+author: anvar-ms
+ms.author: anvar
+ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: ac08075212d885a1aca755f94906b50754e23b9d
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 5e4aaea5b565e126f633b04215bbc3a24faf2cde
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92534114"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753610"
 ---
 # <a name="select-a-vmware-migration-option"></a>Selección de una opción de migración de VMware
 
@@ -45,7 +48,7 @@ Después de revisar las limitaciones, una descripción de los pasos necesarios p
 **Preparación de VMware para la migración** | Defina la configuración en máquinas virtuales y servidores de VMware. | Obligatorio | Obligatorio
 **Instalación de Mobility Service en máquinas virtuales** | El servicio Mobility se ejecuta en cada máquina que quiera replicar. | No se requiere | Obligatorio
 **Implementación del dispositivo de replicación** | El [dispositivo de replicación](migrate-replication-appliance.md) se usa para la migración basada en agente. Se conecta entre el servicio Mobility que se ejecuta en las máquinas virtuales y Server Migration. | No se requiere | Obligatorio
-**Replicación de máquinas virtuales** , habilitación de la replicación de máquinas virtuales | Configure las opciones de replicación y seleccione las máquinas virtuales que se van a replicar. | Obligatorio | Obligatorio
+**Replicación de máquinas virtuales**, habilitación de la replicación de máquinas virtuales | Configure las opciones de replicación y seleccione las máquinas virtuales que se van a replicar. | Obligatorio | Obligatorio
 **Ejecución de una migración de prueba** | Ejecute una migración de prueba para asegurarse de que todo funciona de la forma esperada. | Obligatorio | Obligatorio
 **Ejecución de una migración completa** | Migre las máquinas virtuales. | Obligatorio | Obligatorio
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/08/2020
 ms.author: rkarlin
-ms.openlocfilehash: 4189cb8628db58343c816535836af82825014b7e
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: a8697094a3366e3b82ca65f1b962101243b22f84
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096324"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548926"
 ---
 # <a name="azure-defender-for-iot-architecture"></a>Arquitectura de Azure Defender para IoT
 
@@ -82,7 +82,7 @@ La administración de Azure Defender para IoT en entornos híbridos se realiza a
 - Azure Portal
 
 #### <a name="sensor-console"></a>La consola del sensor
-Las detecciones del sensor se muestran en la consola del sensor; allí puede ver, investigar y analizarlas en un mapa de red, un inventario de recursos y una amplia gama de informes, como informes de evaluación de riesgos, consultas de minería de datos y vectores de ataque. También puede usar la consola para ver y controlar las amenazas detectadas por los motores del sensor, reenviar información a sistemas de terceros, administrar usuarios, etc.
+Las detecciones del sensor se muestran en la consola del sensor; allí puede ver, investigar y analizarlas en un mapa de red, un inventario de recursos y una amplia gama de informes, como informes de evaluación de riesgos, consultas de minería de datos y vectores de ataque. También puede usar la consola para ver y administrar las amenazas detectadas por los motores del sensor, reenviar información a sistemas de terceros, administrar usuarios, etc.
 
 ![Consola de sensores de Defender para IoT](./media/architecture/sensor-console.png)
 
@@ -101,11 +101,11 @@ El portal de Defender para IoT en Azure se usa para ayudarle a: ·   Comprar dis
 
 ## <a name="embedded-security-agent-built-in-mode"></a>Agente de seguridad incrustado: modo integrado
 
-En el modo **Integrado** , Azure Defender para IoT se habilita al elegir la activación de la opción **Seguridad** en IoT Hub. Con la oferta de alertas, recomendaciones y supervisión en tiempo real, el modo integrado proporciona una seguridad sin precedentes y una visibilidad de los dispositivos en un solo paso. El modo de integración no requiere la instalación del agente en ningún dispositivo y usa el análisis avanzado en las actividades registradas para analizar y proteger el dispositivo de campo y el centro de IoT.
+En el modo **Integrado**, Azure Defender para IoT se habilita al elegir la activación de la opción **Seguridad** en IoT Hub. Con la oferta de alertas, recomendaciones y supervisión en tiempo real, el modo integrado proporciona una seguridad sin precedentes y una visibilidad de los dispositivos en un solo paso. El modo de integración no requiere la instalación del agente en ningún dispositivo y usa el análisis avanzado en las actividades registradas para analizar y proteger el dispositivo de campo y el centro de IoT.
 
 ## <a name="embedded-security-agent-enhanced-mode"></a>Agente de seguridad incrustado: modo mejorado
 
-En el modo **Mejorado** , después de activar la opción **Seguridad** en IoT Hub e instalar los agentes de dispositivos de Defender para IoT en los dispositivos, los agentes recopilan, agregan y analizan eventos de seguridad sin procesar de estos. Los eventos de seguridad sin procesar pueden incluir las conexiones de IP, la creación de procesos, los inicios de sesión de los usuarios y otra información relacionada con la seguridad. Además, los agentes de dispositivo de Azure Defender para IoT controlan la agregación de eventos para ayudar a evitar un alta tasa de rendimiento de la red. Los agentes son altamente personalizables, lo que le permite usarlos para tareas específicas, como enviar solo información importante a los SLA más rápidos, o para agregar información de seguridad exhaustiva y contexto en segmentos más grandes, lo que evita mayores costos de servicio.
+En el modo **Mejorado**, después de activar la opción **Seguridad** en IoT Hub e instalar los agentes de dispositivos de Defender para IoT en los dispositivos, los agentes recopilan, agregan y analizan eventos de seguridad sin procesar de estos. Los eventos de seguridad sin procesar pueden incluir las conexiones de IP, la creación de procesos, los inicios de sesión de los usuarios y otra información relacionada con la seguridad. Además, los agentes de dispositivo de Azure Defender para IoT controlan la agregación de eventos para ayudar a evitar un alta tasa de rendimiento de la red. Los agentes son altamente personalizables, lo que le permite usarlos para tareas específicas, como enviar solo información importante a los SLA más rápidos, o para agregar información de seguridad exhaustiva y contexto en segmentos más grandes, lo que evita mayores costos de servicio.
 
 Los agentes de dispositivos y otra aplicaciones usan el **SDK de Send Security Message de Azure** para enviar información de seguridad a Azure IoT Hub. IoT Hub obtiene esta información y la reenvía al servicio de Defender para IoT.
 

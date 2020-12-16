@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 8d982d06bd100313d643033294b6d14e6383d5df
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 7a2b2344bbb110cd4b35cc1f6428f61e48552b01
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424713"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563014"
 ---
 # <a name="configure-dns-for-name-resolution-for-private-cloud-vcenter-access-from-on-premises-workstations"></a>Configuración de DNS para la resolución de nombres en el acceso a vCenter de la nube privada desde estaciones de trabajo en el entorno local
 
@@ -25,7 +25,7 @@ Para acceder a vCenter Server en una nube privada de CloudSimple desde estacione
 
 2. Vaya a **Recursos** > **Nubes privadas** y seleccione la nube privada a la que desee conectarse.
 
-3. En la página **Resumen** de la nube privada, en **Información básica** , copie la dirección IP del servidor DNS de la nube privada.
+3. En la página **Resumen** de la nube privada, en **Información básica**, copie la dirección IP del servidor DNS de la nube privada.
 
     ![Servidores DNS de la nube privada](media/private-cloud-dns-server.png)
 
@@ -44,6 +44,9 @@ Puede configurar una zona como zona de rutas internas y apuntar a los servidores
 El archivo específico y los parámetros que se van a configurar pueden variar en función de la configuración de DNS individual.
 
 Por ejemplo, para la configuración predeterminada del servidor BIND, edite el archivo /etc/named.conf en el servidor DNS y agregue la siguiente información de zona.
+
+> [!NOTE]
+>Este artículo contiene referencias al término esclavo, un término que Microsoft ya no usa. Cuando se quite el término del software, se quitará también del artículo.
 
 ```
 zone "az.cloudsimple.io"

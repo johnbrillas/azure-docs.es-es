@@ -7,12 +7,12 @@ ms.topic: article
 author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 11/02/2020
-ms.openlocfilehash: 8b372cc0fc19c6bf163d9d4e61cde6ce74cb3f28
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: cc853285e193dd3ac4e348525b8bf0db9f8cb023
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95538393"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533951"
 ---
 # <a name="manage-your-commercial-marketplace-account-in-partner-center"></a>Administración de la cuenta de marketplace comercial en el Centro de partners
 
@@ -293,7 +293,7 @@ Si la aplicación de Azure AD lee y escribe datos en Microsoft Azure AD, necesit
 Se pueden asignar a los usuarios de la empresa los siguientes roles y permisos en el programa Marketplace comercial del Centro de partners:
 
 - **Propietario**
-  - "Esta es la persona que creó la cuenta en primer lugar y tiene acceso completo a ella, incluida la capacidad de crear y editar a todos los usuarios de la cuenta y cambiar toda la configuración financiera y de la cuenta. Normalmente, una cuenta solo tiene un propietario".
+  - Es la persona que creó la cuenta en primer lugar y tiene acceso completo a ella, incluida la capacidad de crear y editar todos los usuarios y cambiar toda la configuración financiera y de la cuenta. Normalmente, una cuenta solo tiene un propietario.
 - **Administrador**
   - Puede acceder a todas las características de la cuenta Microsoft, excepto a la configuración fiscal y de pagos.
   - Puede administrar usuarios, roles y cuentas profesionales (inquilinos).

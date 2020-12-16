@@ -1,23 +1,14 @@
 ---
 title: Creación mediante programación de paneles de Azure
 description: Use un panel de Azure Portal como plantilla para crear paneles de Azure mediante programación. Incluye referencia JSON.
-services: azure-portal
-documentationcenter: ''
-author: adamabmsft
-manager: mtillman
-ms.service: azure-portal
-ms.devlang: NA
 ms.topic: how-to
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 03/23/2020
-ms.author: mblythe
-ms.openlocfilehash: 7f52bd94a0286ea50d09ab7c77dce339e8a3ebf3
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.date: 12/4/2020
+ms.openlocfilehash: e69d3f3cea0ff63f94e797047eb10b9583678b1b
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089373"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745815"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Creación mediante programación de paneles de Azure
 
@@ -658,3 +649,49 @@ En este ejemplo se implementa un panel por sí mismo, pero el lenguaje de planti
 ```
 
 Ahora que ha visto un ejemplo del uso de una plantilla con parámetros para implementar un panel, puede probar a implementar la plantilla mediante las [ API REST de Azure Resource Manager](/rest/api/), la [CLI de Azure](/cli/azure) o los [comandos de Azure PowerShell](/powershell/azure/get-started-azureps).
+
+## <a name="programmatically-create-a-dashboard-by-using-azure-cli"></a>Creación mediante programación de un panel mediante la CLI de Azure
+
+Prepare el entorno para la CLI de Azure.
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+- En estos ejemplos se utiliza el siguiente panel: [portal-dashboard-template-testvm.json](https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/azure-portal/portal-dashboard-template-testvm.json). Reemplace el contenido entre corchetes angulares por sus valores.
+
+Ejecute el comando [az portal dashboard create](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_create) para crear un panel:
+
+```azurecli
+az portal dashboard create --resource-group myResourceGroup --name 'Simple VM Dashboard' \
+   --input-path portal-dashboard-template-testvm.json --location centralus
+```
+
+Puede actualizar un panel mediante el comando [az portal dashboard update](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_update):
+
+```azurecli
+az portal dashboard update --resource-group myResourceGroup --name 'Simple VM Dashboard' \
+--input-path portal-dashboard-template-testvm.json --location centralus
+```
+
+Consulte los detalles de un panel ejecutando el comando [az portal dashboard show](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_show):
+
+```azurecli
+az portal dashboard show --resource-group myResourceGroup --name 'Simple VM Dashboard'
+```
+
+Para ver todos los paneles de la suscripción actual, use [az portal dashboard list](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_list):
+
+```azurecli
+az portal dashboard list
+```
+
+También puede ver todos los paneles de un grupo de recursos:
+
+```azurecli
+az portal dashboard list --resource-group myResourceGroup
+```
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Para más información acerca de los escritorios, consulte [Administración de las preferencias y la configuración de Azure Portal](set-preferences.md).
+
+Para más información sobre la compatibilidad de la CLI de Azure con los paneles, consulte [az portal dashboard](/cli/azure/ext/portal/portal/dashboard).

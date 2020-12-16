@@ -2,15 +2,15 @@
 title: Casos de prueba del kit de herramientas para pruebas
 description: En este artículo se describen las pruebas que se ejecutan en el kit de herramientas para pruebas de plantillas de Resource Manager.
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 12/03/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: dda8e92c17029126e7f473a6aee03acfc970e04b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff9ad659e15a88725e4c3905ab6c623fda7610fd
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89378124"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96600911"
 ---
 # <a name="default-test-cases-for-arm-template-test-toolkit"></a>Casos de prueba predeterminados del kit de herramientas para pruebas de plantillas de Resource Manager
 
@@ -137,9 +137,11 @@ En el ejemplo siguiente **se supera** esta prueba.
 
 Nombre de la prueba: **La ubicación no debe estar codificada de forma rígida**
 
-Es posible que los usuarios de la plantilla tengan a su disposición un número limitado de regiones. Al establecer la ubicación del recurso en `"[resourceGroup().location]"`, puede que el grupo de recursos se haya creado en una región a la que otros usuarios no puedan acceder. A esos usuarios se le impide usar la plantilla.
+Las plantillas deben tener un parámetro denominado location. Use este parámetro para establecer la ubicación de los recursos en la plantilla. En la plantilla principal (denominada azuredeploy.json o mainTemplate.json), este parámetro puede tener como valor predeterminado la ubicación del grupo de recursos. En las plantillas vinculadas o anidadas, el parámetro location no debe tener una ubicación predeterminada.
 
-Al definir la ubicación de cada recurso, use un parámetro que tenga como valor predeterminado la ubicación del grupo de recursos. Al proporcionar este parámetro, los usuarios pueden usar el valor predeterminado cuando sea conveniente, pero también especificar otra ubicación.
+Es posible que los usuarios de la plantilla tengan a su disposición un número limitado de regiones. Al codificar de forma rígida la ubicación del recurso, es posible que se bloquee a los usuarios para que no puedan crear un recurso en dicha región. Se podría bloquear a los usuarios incluso si establece la ubicación del recurso en `"[resourceGroup().location]"`. Puede que el grupo de recursos se haya creado en una región a la que otros usuarios no pueden acceder. A esos usuarios se le impide usar la plantilla.
+
+Al proporcionar un parámetro location cuyo valor predeterminado es la ubicación del grupo de recursos, los usuarios pueden usar el valor predeterminado cuando sea conveniente, pero también especificar otra ubicación.
 
 En el siguiente ejemplo **no se supera** esta prueba porque la ubicación en el recurso está establecida en `resourceGroup().location`.
 
@@ -195,7 +197,7 @@ En el ejemplo siguiente se usa un parámetro de ubicación, pero **no se supera*
 }
 ```
 
-En su lugar, cree un parámetro que tenga como valor predeterminado la ubicación del grupo de recursos, pero que permita a los usuarios proporcionar otro valor. En el ejemplo siguiente **se supera** esta prueba.
+En su lugar, cree un parámetro que tenga como valor predeterminado la ubicación del grupo de recursos, pero que permita a los usuarios proporcionar otro valor. En el ejemplo siguiente, se **pasa** esta prueba cuando se usa la plantilla como principal.
 
 ```json
 {
@@ -227,6 +229,8 @@ En su lugar, cree un parámetro que tenga como valor predeterminado la ubicació
     "outputs": {}
 }
 ```
+
+Sin embargo, si el ejemplo anterior se usa como una plantilla vinculada, la prueba genera un **error**. Cuando se usa como plantilla vinculada, quite el valor predeterminado.
 
 ## <a name="resources-should-have-location"></a>Los recursos deben tener ubicación
 

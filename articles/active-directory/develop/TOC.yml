@@ -32,8 +32,10 @@
       items:
         - name: ASP.NET
           href: quickstart-v2-aspnet-webapp.md
-        - name: ASP.NET Core
+        - name: ASP.NET Core (iniciar sesión usuarios)
           href: quickstart-v2-aspnet-core-webapp.md
+        - name: ASP.NET Core (llamar a Microsoft Graph)
+          href: quickstart-v2-aspnet-core-webapp-calls-graph.md
         - name: 'Node.js: MSAL | versión preliminar'
           href: quickstart-v2-nodejs-webapp-msal.md
         - name: 'Node.js: Passport.js'

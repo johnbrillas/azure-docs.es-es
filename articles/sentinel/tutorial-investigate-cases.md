@@ -14,19 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: c1873e21db1c586453dc9e9fe890268d8797303a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: aa9160f01ed0040123bd8ac932cfd2443f557bb6
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367013"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96511736"
 ---
 # <a name="tutorial-investigate-incidents-with-azure-sentinel"></a>Tutorial: Investigación de incidentes con Azure Sentinel
 
 > [!IMPORTANT]
-> El gráfico de investigación está actualmente en versión preliminar pública.
-> Esta característica se ofrece sin contrato de nivel de servicio y no se recomienda para cargas de trabajo de producción.
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> El grafo de investigación está actualmente en **VERSIÓN PRELIMINAR**. Consulte [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para conocer los términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado para que estén disponibles con carácter general.
 
 
 Este tutorial le ayuda a investigar incidentes con Azure Sentinel. Después de conectar los orígenes de datos a Azure Sentinel, querrá recibir una notificación cuando suceda algo sospechoso. Para ello, Azure Sentinel le permite crear reglas de alerta avanzadas, que generan incidentes que se pueden asignar e investigar.
@@ -37,7 +35,7 @@ En este artículo se describe:
 > * Uso del gráfico de investigación
 > * Respuesta a amenazas
 
-Un incidente puede incluir varias alertas, a modo de agregado de todas las pruebas relevantes en una investigación en concreto. Los incidentes se crearán en función de las reglas de análisis que haya creado en la página **Análisis** . Las propiedades relacionadas con alertas, como la gravedad y el estado, se establecen en el nivel de incidente. Después de indicar a Azure Sentinel qué tipos de amenazas está buscando y cómo detectarlas, puede supervisar las amenazas que se detecten investigando cada incidente.
+Un incidente puede incluir varias alertas, a modo de agregado de todas las pruebas relevantes en una investigación en concreto. Los incidentes se crearán en función de las reglas de análisis que haya creado en la página **Análisis**. Las propiedades relacionadas con alertas, como la gravedad y el estado, se establecen en el nivel de incidente. Después de indicar a Azure Sentinel qué tipos de amenazas está buscando y cómo detectarlas, puede supervisar las amenazas que se detecten investigando cada incidente.
 
 ## <a name="prerequisites"></a>Requisitos previos
 - Solo podrá investigar el incidente si ha usado los campos de asignación de entidades al configurar la regla de análisis. El gráfico de investigación requiere que el incidente original incluya entidades.
@@ -46,7 +44,7 @@ Un incidente puede incluir varias alertas, a modo de agregado de todas las prueb
 
 ## <a name="how-to-investigate-incidents"></a>Investigación de incidentes
 
-1. Seleccione **Incidentes** . La página **Incidentes** le permite saber cuántos incidentes tiene, cuántos están abiertos, cuántos están establecidos en **En curso** y cuántos se han cerrado. De cada incidente puede ver la hora a la que tuvo lugar y su estado. Valore la gravedad para decidir qué incidentes abordar primero.
+1. Seleccione **Incidentes**. La página **Incidentes** le permite saber cuántos incidentes tiene, cuántos están abiertos, cuántos están establecidos en **En curso** y cuántos se han cerrado. De cada incidente puede ver la hora a la que tuvo lugar y su estado. Valore la gravedad para decidir qué incidentes abordar primero.
 
     ![Ver gravedad del incidente](media/tutorial-investigate-cases/incident-severity.png)
 
@@ -54,7 +52,7 @@ Un incidente puede incluir varias alertas, a modo de agregado de todas las prueb
 
 1. Para iniciar una investigación, seleccione un incidente específico. A la derecha, puede ver información detallada del incidente, como la gravedad o un resumen del número de entidades implicadas, los eventos sin procesar que desencadenaron este incidente y el identificador único del mismo.
 
-1. Para ver más detalles sobre las alertas y las entidades del incidente, seleccione **View full details** (Ver detalles completos) en la página del incidente y revise las pestañas correspondientes donde se resume la información del incidente. En la pestaña **Alertas** , revise la alerta en sí. Puede ver toda la información relevante sobre la alerta: la consulta que la ha desencadenado, el número de resultados devueltos por consulta y la capacidad de ejecutar cuadernos de estrategias en las alertas. Para explorar el incidente más en profundidad, seleccione el número de **eventos** . Esto abre la consulta que ha generado los resultados y los eventos que han desencadenado la alerta en Log Analytics. En la pestaña **Entities** (Entidades), puede ver todas las entidades que ha asignado como parte de la definición de regla de alerta.
+1. Para ver más detalles sobre las alertas y las entidades del incidente, seleccione **View full details** (Ver detalles completos) en la página del incidente y revise las pestañas correspondientes donde se resume la información del incidente. En la pestaña **Alertas**, revise la alerta en sí. Puede ver toda la información relevante sobre la alerta: la consulta que la ha desencadenado, el número de resultados devueltos por consulta y la capacidad de ejecutar cuadernos de estrategias en las alertas. Para explorar el incidente más en profundidad, seleccione el número de **eventos**. Esto abre la consulta que ha generado los resultados y los eventos que han desencadenado la alerta en Log Analytics. En la pestaña **Entities** (Entidades), puede ver todas las entidades que ha asignado como parte de la definición de regla de alerta.
 
     ![Ver detalles de la alerta](media/tutorial-investigate-cases/alert-details.png)
 
@@ -72,18 +70,20 @@ El gráfico de investigación permite a los analistas formular las preguntas ade
   
 El gráfico de investigación le proporciona:
 
-- **Contexto visual de datos sin procesar** : El gráfico visual y dinámico, muestra las relaciones de entidad extraídas automáticamente de los datos sin procesar. Esto le permite ver fácilmente las conexiones entre distintos orígenes de datos.
+- **Contexto visual de datos sin procesar**: El gráfico visual y dinámico, muestra las relaciones de entidad extraídas automáticamente de los datos sin procesar. Esto le permite ver fácilmente las conexiones entre distintos orígenes de datos.
 
-- **Detección del ámbito completo de la investigación** : Amplíe el ámbito de la investigación mediante consultas de exploración integradas para exponer el ámbito completo de una infracción de seguridad.
+- **Detección del ámbito completo de la investigación**: Amplíe el ámbito de la investigación mediante consultas de exploración integradas para exponer el ámbito completo de una infracción de seguridad.
 
-- **Pasos de investigación integrados** : Use opciones de exploración predefinidas para asegurarse de que está formulando las preguntas adecuadas en caso de una amenaza.
+- **Pasos de investigación integrados**: Use opciones de exploración predefinidas para asegurarse de que está formulando las preguntas adecuadas en caso de una amenaza.
 
 Para usar el gráfico de investigación:
 
-1. Seleccione un incidente y, a continuación, seleccione **Investigar** . Esto le llevará al gráfico de investigación. El gráfico proporciona un mapa ilustrativo de las entidades conectadas directamente a la alerta y de cada recurso conectado más allá.
+1. Seleccione un incidente y, a continuación, seleccione **Investigar**. Esto le llevará al gráfico de investigación. El gráfico proporciona un mapa ilustrativo de las entidades conectadas directamente a la alerta y de cada recurso conectado más allá.
 
    > [!IMPORTANT] 
-   > Solo podrá investigar el incidente si ha usado los campos de asignación de entidades al configurar la regla de análisis. El gráfico de investigación requiere que el incidente original incluya entidades.
+   > - Solo podrá investigar el incidente si ha usado los campos de asignación de entidades al configurar la regla de análisis. El gráfico de investigación requiere que el incidente original incluya entidades.
+   >
+   > - Actualmente, Azure Sentinel admite la investigación de **incidentes cuya antigüedad no supere los 30 días**.
 
    ![Visualización de mapas](media/tutorial-investigate-cases/map1.png)
 
@@ -91,7 +91,7 @@ Para usar el gráfico de investigación:
 
     ![Ver entidades en el mapa](media/tutorial-investigate-cases/map-entities.png)
   
-1. Amplíe su investigación manteniendo el puntero sobre cada entidad para mostrar una lista de preguntas diseñadas por nuestros expertos y analistas en seguridad clasificadas por tipo de entidad para profundizar en la investigación. Llamamos a estas opciones **consultas de exploración** .
+1. Amplíe su investigación manteniendo el puntero sobre cada entidad para mostrar una lista de preguntas diseñadas por nuestros expertos y analistas en seguridad clasificadas por tipo de entidad para profundizar en la investigación. Llamamos a estas opciones **consultas de exploración**.
 
     ![Ver más detalles](media/tutorial-investigate-cases/exploration-cases.png)
 
@@ -111,7 +111,7 @@ Para usar el gráfico de investigación:
 
 ## <a name="closing-an-incident"></a>Cierre de un incidente
 
-Una vez que haya resuelto un incidente en particular (por ejemplo, cuando la investigación haya alcanzado su conclusión), debe establecer el estado del incidente en **Cerrado** . Al hacerlo, a los efectos de clasificar el incidente, se le pedirá que indique el motivo por el que lo cierra. Este paso es obligatorio. Haga clic en **Seleccionar clasificación** y elija una de las siguientes opciones de la lista desplegable:
+Una vez que haya resuelto un incidente en particular (por ejemplo, cuando la investigación haya alcanzado su conclusión), debe establecer el estado del incidente en **Cerrado**. Al hacerlo, a los efectos de clasificar el incidente, se le pedirá que indique el motivo por el que lo cierra. Este paso es obligatorio. Haga clic en **Seleccionar clasificación** y elija una de las siguientes opciones de la lista desplegable:
 
 - Verdadero positivo: actividad sospechosa
 - Positivo inofensivo: sospechoso, pero esperado
@@ -121,9 +121,9 @@ Una vez que haya resuelto un incidente en particular (por ejemplo, cuando la inv
 
 :::image type="content" source="media/tutorial-investigate-cases/closing-reasons-dropdown.png" alt-text="Captura de pantalla que destaca las clasificaciones disponibles en la lista Seleccionar clasificación.":::
 
-Después de elegir la clasificación adecuada, agregue texto descriptivo en el campo **Comentario** . Esto será útil en el caso de que tenga que volver a consultar este incidente. Haga clic en **Aplicar** cuando haya terminado, y el incidente se cerrará.
+Después de elegir la clasificación adecuada, agregue texto descriptivo en el campo **Comentario**. Esto será útil en el caso de que tenga que volver a consultar este incidente. Haga clic en **Aplicar** cuando haya terminado, y el incidente se cerrará.
 
-:::image type="content" source="media/tutorial-investigate-cases/closing-reasons-comment-apply.png" alt-text="Captura de pantalla que destaca las clasificaciones disponibles en la lista Seleccionar clasificación.":::
+:::image type="content" source="media/tutorial-investigate-cases/closing-reasons-comment-apply.png" alt-text="{alt-text}":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este tutorial ha aprendido cómo empezar a investigar incidentes mediante Azure Sentinel. Siga con el tutorial sobre [cómo responder a amenazas usando cuadernos de estrategias automatizados](tutorial-respond-threats-playbook.md).

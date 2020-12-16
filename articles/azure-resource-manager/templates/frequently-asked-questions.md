@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 09/17/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 5a23cf031b5d7cf40e2077f2e5287e10de563207
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 757dfa119649e21c6e1787671afa61ee18184300
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96903010"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97561909"
 ---
 # <a name="frequently-asked-questions-about-arm-templates"></a>Preguntas más frecuentes sobre las plantillas de Resource Manager
 
@@ -154,7 +154,7 @@ En este artículo se responde a preguntas frecuentes sobre las plantillas de Azu
 
 * **Cuando uso la característica de hipótesis, veo cambios en las propiedades que no están en mi plantilla. ¿Es previsible este "ruido"?**
 
-  La característica de hipótesis está en versión preliminar. Estamos trabajando para reducir el ruido. Para ayudarnos a mejorar, envíenos los problemas que tenga mediante nuestro repositorio de GitHub, en https://aka.ms/WhatIfIssues.
+  Estamos trabajando para reducir el ruido. Para ayudarnos a mejorar, envíenos los problemas que tenga mediante nuestro repositorio de GitHub, en https://aka.ms/WhatIfIssues.
 
 ## <a name="template-visualizer"></a>Visualizador de plantilla
 

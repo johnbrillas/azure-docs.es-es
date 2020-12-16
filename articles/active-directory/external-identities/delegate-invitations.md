@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 09/15/2020
+ms.date: 11/30/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5a983931bd372931eacff2f7b21f3358f536046
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 8a249102de6a5bff7354e339e604b7d2efebd4fb
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92362933"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546224"
 ---
 # <a name="enable-b2b-external-collaboration-and-manage-who-can-invite-guests"></a>Habilitación de la colaboración externa B2B y administración de quién puede invitar a otros usuarios
 
@@ -40,41 +40,58 @@ De manera predeterminada, todos los usuarios, incluidos los invitados, pueden in
 ### <a name="to-configure-external-collaboration-settings"></a>Para configurar los valores de colaboración externa B2B:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador de inquilinos.
-2. Seleccione **Azure Active Directory** .
-3. Seleccione **External Identities** > **Configuración de colaboración externa** .
+2. Seleccione **Azure Active Directory**.
+3. Seleccione **External Identities** > **Configuración de colaboración externa**.
 
 4. En **Restricciones de acceso de usuarios invitados (versión preliminar)** , elija el nivel de acceso que desea que tengan los usuarios invitados:
+  
+    ![Configuración de restricciones de acceso de usuarios invitados](./media/delegate-invitations/guest-user-access.png)
 
    - **Guest users have the same access as members (most inclusive)** (Los usuarios invitados tienen el mismo acceso que los miembros [principalmente inclusivo]): esta opción permite a los invitados tener el mismo acceso a los recursos de Azure AD y a los datos del directorio que los usuarios miembros.
 
    - **Guest users have limited access to properties and memberships of directory objects** (Los usuarios invitados tienen acceso limitado a las propiedades y pertenencias de los objetos de directorio): (predeterminada) Esta opción impide que los usuarios realicen determinadas tareas de directorio, como enumerar usuarios, grupos u otros recursos de directorio. Los invitados pueden ver la pertenencia de todos los grupos no ocultos.
 
    - **Guest user access is restricted to properties and memberships of their own directory objects (most restrictive)** (El acceso de los usuarios invitados está restringido a las propiedades y pertenencias de sus propios objetos de directorio [opción más restrictiva]): con esta configuración, los invitados solo pueden tener acceso a sus propios perfiles. No se permite a los invitados ver perfiles, grupos o pertenencias a grupos de otros usuarios.
-  
-    ![Configuración de restricciones de acceso de usuarios invitados](./media/delegate-invitations/guest-user-access.png)
 
-5. En **Configuración de la invitación de usuarios** , elija la configuración adecuada:
 
-   - **Los administradores y los usuarios del rol de invitador de usuarios invitados pueden invitar** : Para permitir que los administradores y usuarios del rol "Invitador de usuarios invitados" inviten a otros usuarios, establezca esta directiva en **Sí** .
-
-   - **Los miembros pueden invitar** : Para permitir que los miembros que no son administradores del directorio inviten a otros usuarios, establezca esta directiva en **Sí** .
-
-   - **Los invitados pueden invitar** : Para permitir que los invitados puedan invitar a otros usuarios, establezca esta directiva en **Sí** .
-
-   - **Habilitar el código de acceso de un solo uso de correo electrónico para invitados (versión preliminar)** : para más información sobre la característica de código de acceso de un solo uso, consulte [Autenticación con código de acceso de un solo uso de correo electrónico (versión preliminar)](one-time-passcode.md).
-
-   - **Enable guest self-service sign up via user flows (Preview)** (Habilitación del autoservicio de registro de invitados mediante flujos de usuario [versión preliminar]): para más información sobre esta opción, consulte [Incorporación de un flujo de usuario de registro de autoservicio a una aplicación (versión preliminar)](self-service-sign-up-user-flow.md).
-
-   > [!NOTE]
-   > Si **Los miembros pueden invitar** está establecido en **No** y **Los administradores y los usuarios del rol de invitador de personas pueden invitar** está establecido en **Sí** , los usuarios del rol **Invitador de usuarios invitados** todavía podrán invitar a usuarios invitados.
+5. En **Configuración de la invitación de usuarios**, elija la configuración adecuada:
 
     ![Configuración de la invitación de usuarios](./media/delegate-invitations/guest-invite-settings.png)
 
-6. En **Restricciones de colaboración** , elija si desea permitir o denegar las invitaciones a los dominios que especifique. Para obtener más información, consulte [Allow or block invitations to B2B users from specific organizations](allow-deny-list.md) (Permitir o bloquear invitaciones a usuarios de B2B procedentes de determinadas organizaciones).
+   - **Los administradores y los usuarios del rol de invitador de usuarios invitados pueden invitar**: Para permitir que los administradores y usuarios del rol "Invitador de usuarios invitados" inviten a otros usuarios, establezca esta directiva en **Sí**.
 
+   - **Los miembros pueden invitar**: Para permitir que los miembros que no son administradores del directorio inviten a otros usuarios, establezca esta directiva en **Sí**.
+
+   - **Los invitados pueden invitar**: Para permitir que los invitados puedan invitar a otros usuarios, establezca esta directiva en **Sí**.
+
+   > [!NOTE]
+   > Si **Los miembros pueden invitar** está establecido en **No** y **Los administradores y los usuarios del rol de invitador de personas pueden invitar** está establecido en **Sí**, los usuarios del rol **Invitador de usuarios invitados** todavía podrán invitar a usuarios invitados.
+
+6. En **Email one-time passcode for guests** (Código de acceso de un solo uso por correo electrónico para invitados), elija la configuración adecuada. Para más información, consulte [Autenticación con código de acceso de un solo uso por correo electrónico](one-time-passcode.md):
+
+   ![Configuración de código de acceso de un solo uso por correo electrónico](./media/delegate-invitations/email-otp-settings.png)
+
+   - **Automatically enable email one-time passcode for guests in March 2021** (Habilitar automáticamente el código de acceso de un solo uso por correo electrónico a partir de marzo de 2021). Valor predeterminado. Si la característica de código de acceso de un solo uso por correo electrónico no está habilitada para el inquilino, se activará automáticamente en marzo de 2021. Si desea que la característica se habilite desde ese momento, no tiene que hacer nada más. Si ya ha habilitado o deshabilitado la característica, esta opción no estará disponible.
+
+   - **Enable email one-time passcode for guests effective now** (Habilitar el código de acceso de un solo uso por correo electrónico para invitados desde este momento). Activa la característica de código de acceso de un solo uso por correo electrónico para el inquilino.
+
+   - **Disable email one-time passcode for guests** (Deshabilitar el código de acceso de un solo uso por correo electrónico para invitados). Desactiva la característica de código de acceso de un solo uso por correo electrónico para el inquilino y evita que la característica se active en marzo de 2021.
+
+   > [!NOTE]
+   > En lugar de las opciones anteriores, verá el siguiente botón si ha habilitado o deshabilitado esta característica, o bien si ha participado previamente en la versión preliminar:
+   >
+   >![Habilitación de la participación en el código de acceso de un solo uso por correo electrónico](media/delegate-invitations/enable-email-otp-opted-in.png)
+
+7. En **Enable guest self-service sign up via user flows (Preview)** (Habilitación del registro de invitados de autoservicio mediante flujos de usuario [versión preliminar]), seleccione **Yes** (Sí) si desea crear flujos de usuario que permitan a los usuarios suscribirse a aplicaciones. para más información sobre esta opción, consulte [Incorporación de un flujo de usuario de registro de autoservicio a una aplicación (versión preliminar)](self-service-sign-up-user-flow.md).
+
+    ![Configuración de la suscripción de autoservicio a través de flujos de usuario](./media/delegate-invitations/self-service-sign-up-setting.png)
+
+7. En **Restricciones de colaboración**, elija si desea permitir o denegar las invitaciones a los dominios que especifique. Para obtener más información, consulte [Allow or block invitations to B2B users from specific organizations](allow-deny-list.md) (Permitir o bloquear invitaciones a usuarios de B2B procedentes de determinadas organizaciones).
+
+    ![Configuración de restricciones de colaboración](./media/delegate-invitations/collaboration-restrictions.png)
 ## <a name="assign-the-guest-inviter-role-to-a-user"></a>Asignación del rol de invitador de usuarios invitados a un usuario
 
-Con el rol de invitador de usuarios invitados, puede conceder a usuarios individuales la capacidad de invitar a otros usuarios sin asignarles un rol de administrador global u otro rol de administrador. Asigne el rol de invitador de usuarios invitados a diferentes individuos. A continuación, asegúrese de establecer la opción **Los administradores y los usuarios del rol de invitador de usuarios invitados pueden invitar** en **Sí** .
+Con el rol de invitador de usuarios invitados, puede conceder a usuarios individuales la capacidad de invitar a otros usuarios sin asignarles un rol de administrador global u otro rol de administrador. Asigne el rol de invitador de usuarios invitados a diferentes individuos. A continuación, asegúrese de establecer la opción **Los administradores y los usuarios del rol de invitador de usuarios invitados pueden invitar** en **Sí**.
 
 Este es un ejemplo que muestra cómo usar PowerShell para agregar un usuario al rol Invitador de personas:
 

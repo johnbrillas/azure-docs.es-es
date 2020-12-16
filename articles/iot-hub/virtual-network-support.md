@@ -5,14 +5,14 @@ services: iot-hub
 author: jlian
 ms.service: iot-fundamentals
 ms.topic: conceptual
-ms.date: 11/09/2020
+ms.date: 12/02/2020
 ms.author: jlian
-ms.openlocfilehash: fdc106a1a446f51d309ac4317062c8fd20204bae
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: f79b03884109ffbd856ff4f60909565daeb0e792
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413401"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96549126"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>Compatibilidad de IoT Hub con redes virtuales mediante Private Link e identidad administrada
 
@@ -36,7 +36,7 @@ En este artículo se describe cómo lograr estos objetivos mediante el uso de [A
 
 ## <a name="ingress-connectivity-to-iot-hub-using-azure-private-link"></a>Conectividad de entrada a IoT Hub mediante Azure Private Link
 
-Un punto de conexión privado es una dirección IP privada asignada en una red virtual propiedad del cliente a través de la cual se puede acceder a un recurso de Azure. Con Azure Private Link, puede configurar un punto de conexión privado para su instancia de IoT Hub, para permitir así que los servicios que operan en la red virtual accedan a IoT Hub sin necesidad de enviar el tráfico al punto de conexión público de IoT Hub. Del mismo modo, los dispositivos locales pueden usar la [red privada virtual (VPN)](../vpn-gateway/vpn-gateway-about-vpngateways.md) o el emparejamiento de [ExpressRoute](https://azure.microsoft.com/services/expressroute/) para obtener conectividad con la red virtual y la instancia de IoT Hub (a través de su punto de conexión privado). Como resultado, puede restringir o bloquear por completo la conectividad a los puntos de conexión públicos de su instancia de IoT Hub mediante el uso de [filtros IP de IoT Hub](./iot-hub-ip-filtering.md) y la [configuración del enrutamiento para que no envíe datos al punto de conexión integrado](#built-in-event-hub-compatible-endpoint-doesnt-support-access-over-private-endpoint). Este enfoque mantiene la conectividad con la instancia de IoT Hub usando el punto de conexión privado para los dispositivos. El objetivo principal de esta configuración es para los dispositivos de una red local. No se recomienda esta configuración para los dispositivos implementados en una red de área extensa.
+Un punto de conexión privado es una dirección IP privada asignada en una red virtual propiedad del cliente a través de la cual se puede acceder a un recurso de Azure. Con Azure Private Link, puede configurar un punto de conexión privado para su instancia de IoT Hub, para permitir así que los servicios que operan en la red virtual accedan a IoT Hub sin necesidad de enviar el tráfico al punto de conexión público de IoT Hub. Del mismo modo, los dispositivos locales pueden usar la [red privada virtual (VPN)](../vpn-gateway/vpn-gateway-about-vpngateways.md) o el emparejamiento de [ExpressRoute](https://azure.microsoft.com/services/expressroute/) para obtener conectividad con la red virtual y la instancia de IoT Hub (a través de su punto de conexión privado). Por tanto, puede restringir o bloquear por completo la conectividad en los puntos de conexión públicos de la instancia de IoT Hub utilizando un [filtro de IP de IoT Hub](./iot-hub-ip-filtering.md) o [activando y desactivando el acceso a la red pública](iot-hub-public-network-access.md). Este enfoque mantiene la conectividad con la instancia de IoT Hub usando el punto de conexión privado para los dispositivos. El objetivo principal de esta configuración es para los dispositivos de una red local. No se recomienda esta configuración para los dispositivos implementados en una red de área extensa.
 
 ![Salida de red virtual de IoT Hub](./media/virtual-network-support/virtual-network-ingress.png)
 
@@ -64,17 +64,12 @@ El punto de conexión privado funciona para API de dispositivo de IoT Hub (como 
 
 1. Haga clic en **Revisar y crear** para crear el recurso de Private Link.
 
-### <a name="built-in-event-hub-compatible-endpoint-doesnt-support-access-over-private-endpoint"></a>El punto de conexión integrado compatible con Event Hubs no admite el acceso a través de un punto de conexión privado
+### <a name="built-in-event-hub-compatible-endpoint"></a>Punto de conexión integrado compatible con el centro de eventos 
 
-El [punto de conexión integrado compatible con Event Hubs](iot-hub-devguide-messages-read-builtin.md) no admite el acceso a través de un punto de conexión privado. Cuando se configura un punto de conexión privado de IoT Hub, es solo para la conectividad de entrada. El consumo de datos del punto de conexión integrado compatible con Event Hubs solo se puede realizar a través de la red pública de Internet. 
+El [punto de conexión integrado compatible con el centro de eventos](iot-hub-devguide-messages-read-builtin.md) también permite acceder con un punto de conexión privado. Cuando configure el vínculo privado, debería ver otra conexión de punto de conexión privado para el punto de conexión integrado. Es el que tiene `servicebus.windows.net` en FQDN.
 
-El [filtro IP](iot-hub-ip-filtering.md) de IoT Hub tampoco controla el acceso público al punto de conexión integrado. Para bloquear por completo el acceso a la red pública a su instancia de IoT Hub, debe hacer lo siguiente: 
+:::image type="content" source="media/virtual-network-support/private-built-in-endpoint.png" alt-text="Imagen de dos puntos de conexión privados, cada uno con un vínculo privado a IoT Hub":::
 
-1. Configurar el acceso del punto de conexión privado para IoT Hub
-1. [Desactivar el acceso a la red pública](iot-hub-public-network-access.md) o usar el filtro IP para bloquear todas las direcciones IP
-1. Dejar de usar el punto de conexión integrado de Event Hubs mediante la [configuración del enrutamiento para que no le envíe datos](iot-hub-devguide-messages-d2c.md)
-1. Desactivar la [ruta de reserva](iot-hub-devguide-messages-d2c.md#fallback-route)
-1. Configurar la salida a otros recursos de Azure mediante un [servicio de confianza de Microsoft](#egress-connectivity-from-iot-hub-to-other-azure-resources)
 
 ### <a name="pricing-for-private-link"></a>Precios de Private Link
 

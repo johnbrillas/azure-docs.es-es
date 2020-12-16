@@ -3,12 +3,12 @@ title: Preguntas más frecuentes sobre Azure Kubernetes Service (AKS)
 description: Encuentre respuestas a algunas de las preguntas comunes sobre Azure Kubernetes Service (AKS).
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.openlocfilehash: bbe4d43fde3746e6c992b7f03927f081d3814597
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 94cbaf417413b3e11071fb8c7237cbb3ac7b9a37
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92745753"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780355"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Preguntas más frecuentes sobre Azure Kubernetes Service (AKS)
 
@@ -43,9 +43,7 @@ Azure aplica automáticamente revisiones de seguridad a los nodos de Linux del c
 
 - Manualmente, mediante Azure Portal o la CLI de Azure.
 - Mediante la actualización del clúster de AKS. Las actualizaciones del clúster [acordonan y purgan los nodos][cordon-drain] automáticamente, y luego ponen un nuevo nodo en línea con la imagen de Ubuntu más reciente y una nueva versión de revisión o una versión secundaria de Kubernetes. Para más información, consulte [Actualización de un clúster de Azure Kubernetes Service (AKS)][aks-upgrade].
-- Mediante [Kured](https://github.com/weaveworks/kured), un demonio de reinicio de código abierto para Kubernetes. Kured se ejecuta como un elemento [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) y supervisa en todos los nodos la presencia de un archivo que indique que hace falta un reinicio. En el clúster, los reinicios del sistema operativo se administran con el mismo [proceso de acordonar y purgar][cordon-drain] que una actualización de clúster.
-
-Para obtener más información sobre el uso de Kured, consulte [Apply security and kernel updates to nodes in AKS][node-updates-kured] (Aplicación de actualizaciones de kernel y de seguridad en los nodos de AKS).
+- Mediante el uso de la [actualización de imágenes de nodo](node-image-upgrade.md).
 
 ### <a name="windows-server-nodes"></a>Nodos de Windows Server
 
@@ -58,18 +56,18 @@ AKS se basa en diversos recursos de infraestructura de Azure, como los conjuntos
 Para habilitar esta arquitectura, cada implementación de AKS abarca dos grupos de recursos:
 
 1. Debe cree el primer grupo de recursos. Este grupo solo contiene el recurso del servicio de Kubernetes. El proveedor de recursos de AKS crea automáticamente el segundo grupo de recursos durante la implementación. Un ejemplo del segundo grupo de recursos es *MC_myResourceGroup_myAKSCluster_eastus*. Para obtener información sobre cómo especificar el nombre de este segundo grupo de recursos, consulte la sección siguiente.
-1. El segundo grupo de recursos, conocido como el *grupo de recursos del nodo* , contiene todos los recursos de infraestructura asociados con el clúster. Estos recursos incluyen las máquinas virtuales de nodos de Kubernetes, las redes virtuales y el almacenamiento. De forma predeterminada, el grupo de recursos del nodo tiene un nombre como *MC_myResourceGroup_myAKSCluster_eastus*. AKS elimina automáticamente el recurso del nodo cada vez que se elimina el clúster, por lo que solo se debe usar para los recursos que comparten el ciclo de vida del clúster.
+1. El segundo grupo de recursos, conocido como el *grupo de recursos del nodo*, contiene todos los recursos de infraestructura asociados con el clúster. Estos recursos incluyen las máquinas virtuales de nodos de Kubernetes, las redes virtuales y el almacenamiento. De forma predeterminada, el grupo de recursos del nodo tiene un nombre como *MC_myResourceGroup_myAKSCluster_eastus*. AKS elimina automáticamente el recurso del nodo cada vez que se elimina el clúster, por lo que solo se debe usar para los recursos que comparten el ciclo de vida del clúster.
 
 ## <a name="can-i-provide-my-own-name-for-the-aks-node-resource-group"></a>¿Puedo proporcionar mi propio nombre para el grupo de recursos del nodo de AKS?
 
 Sí. De forma predeterminada, AKS asignará el nombre *MC_resourcegroupname_clustername_location* al grupo de recursos del nodo, pero también puede proporcionar su propio nombre.
 
-Para especificar un nombre de su elección para el grupo de recursos, instale la versión de la extensión de la CLI de Azure [aks-preview][aks-preview-cli]*0.3.2* o una posterior. Cuando cree un clúster de AKS mediante el comando [az aks create][az-aks-create], use el parámetro *--node-resource-group* y especifique un nombre para el grupo de recursos. Si [usa una plantilla de Azure Resource Manager][aks-rm-template] para implementar un clúster de AKS, puede definir el nombre del grupo de recursos mediante la propiedad *nodeResourceGroup*.
+Para especificar un nombre de su elección para el grupo de recursos, instale la versión de la extensión de la CLI de Azure [aks-preview][aks-preview-cli]*0.3.2* o una posterior. Cuando cree un clúster de AKS mediante el comando [az aks create][az-aks-create], use el parámetro `--node-resource-group` y especifique un nombre para el grupo de recursos. Si [usa una plantilla de Azure Resource Manager][aks-rm-template] para implementar un clúster de AKS, puede definir el nombre del grupo de recursos mediante la propiedad *nodeResourceGroup*.
 
 * El proveedor de recursos de Azure crea automáticamente el grupo de recursos secundario en su propia suscripción.
 * Solo puede especificar un nombre personalizado para el grupo de recursos cuando cree el clúster.
 
-Mientras trabaje con el grupo de recursos del nodo, tenga en cuenta que no puede realizar lo siguiente:
+Cuando trabaje con el grupo de recursos del nodo, tenga en cuenta que no puede:
 
 * Especificar un grupo de recursos existente para el grupo de recursos del nodo.
 * Especificar otra suscripción para el grupo de recursos del nodo.
@@ -81,7 +79,7 @@ Mientras trabaje con el grupo de recursos del nodo, tenga en cuenta que no puede
 
 Si modifica o elimina etiquetas creadas por Azure y otras propiedades de recursos en el grupo de recursos del nodo, es posible que obtenga resultados inesperados, como errores de escalado y actualización. AKS permite crear y modificar etiquetas personalizadas generadas por usuarios finales, que se pueden agregar al [crear un grupo de nodos](use-multiple-node-pools.md#specify-a-taint-label-or-tag-for-a-node-pool). Es posible que quiera crear o modificar etiquetas personalizadas, por ejemplo, para asignar un centro de costos o una unidad de negocio. Esto también puede conseguirse creando directivas de Azure cuyo ámbito sea el grupo de recursos administrado.
 
-Pero la modificación de las **etiquetas creadas por Azure** en los recursos del grupo de recursos del nodo en el clúster de AKS es una acción no admitida que interrumpe el objetivo de nivel de servicio (SLO). Para obtener más información, consulte [¿AKS ofrece un contrato de nivel de servicio?](#does-aks-offer-a-service-level-agreement)
+Sin embargo, la modificación de las **etiquetas creadas por Azure** en los recursos del grupo de recursos del nodo en el clúster de AKS es una acción no admitida que interrumpe el objetivo de nivel de servicio (SLO). Para obtener más información, consulte [¿AKS ofrece un contrato de nivel de servicio?](#does-aks-offer-a-service-level-agreement)
 
 ## <a name="what-kubernetes-admission-controllers-does-aks-support-can-admission-controllers-be-added-or-removed"></a>¿Qué controladores de admisión de Kubernetes admite AKS? ¿Se pueden agregar o eliminar los controladores de admisión?
 
@@ -116,7 +114,7 @@ AKS pasa por el firewall la salida del servidor de la API, por lo que los webhoo
 
 ## <a name="can-admission-controller-webhooks-impact-kube-system-and-internal-aks-namespaces"></a>¿Los webhooks de controlador de admisión pueden afectar a los espacios de nombres internos de kube-system y de AKS?
 
-Para proteger la estabilidad del sistema y evitar que los controladores de admisión personalizados afecten a los servicios internos de kube-system, el espacio de nombres de AKS tiene un **ejecutor de admisiones** , que excluye automáticamente los espacios de nombres internos de kube-system y de AKS. Este servicio garantiza que los controladores de admisión personalizados no afecten a los servicios que se ejecutan en kube-system.
+Para proteger la estabilidad del sistema y evitar que los controladores de admisión personalizados afecten a los servicios internos de kube-system, el espacio de nombres de AKS tiene un **ejecutor de admisiones**, que excluye automáticamente los espacios de nombres internos de kube-system y de AKS. Este servicio garantiza que los controladores de admisión personalizados no afecten a los servicios que se ejecutan en kube-system.
 
 Si tiene un caso de uso crítico por tener algo implementado en kube-system (no recomendado) que necesita que esté incluido en el webhook de admisión personalizado, puede agregar la siguiente etiqueta o anotación para que el factor de admisión lo omita.
 
@@ -162,7 +160,7 @@ La mayoría de los clústeres se eliminan en el momento de la solicitud del usua
 
 ## <a name="if-i-have-pod--deployments-in-state-nodelost-or-unknown-can-i-still-upgrade-my-cluster"></a>Si tengo un pod o implementaciones con el estado "NodeLost" (Nodo perdido) o "Unknown" (Desconocido), ¿puedo actualizar el clúster?
 
-Se puede, pero AKS no lo recomienda. Lo ideal es realizar las actualizaciones si el estado del clúster es conocido o correcto.
+Sí, pero no se recomienda en AKS. Las actualizaciones deberían realizarse si el estado del clúster es conocido o correcto.
 
 ## <a name="if-i-have-a-cluster-with-one-or-more-nodes-in-an-unhealthy-state-or-shut-down-can-i-perform-an-upgrade"></a>Si tengo un clúster con uno o varios nodos en un estado incorrecto o apagado, ¿puedo realizar una actualización?
 
@@ -176,29 +174,29 @@ Normalmente, esto se debe a usuarios que tienen uno o varios grupos de seguridad
 
 Confirme que la entidad de servicio no ha expirado.  Consulte: [Entidad de servicio de AKS](./kubernetes-service-principal.md) y [Credenciales de actualización de AKS](./update-credentials.md).
 
-## <a name="my-cluster-was-working-but-suddenly-cannot-provision-loadbalancers-mount-pvcs-etc"></a>Mi clúster estaba funcionando, pero, de repente, no puede aprovisionar LoadBalancers, montar PVC, etc. 
+## <a name="my-cluster-was-working-but-suddenly-cant-provision-loadbalancers-mount-pvcs-etc"></a>Mi clúster estaba funcionando, pero, de repente, no puede aprovisionar equilibradores de carga, montar PVC, etc. 
 
 Confirme que la entidad de servicio no ha expirado.  Consulte: [Entidad de servicio de AKS](./kubernetes-service-principal.md) y [Credenciales de actualización de AKS](./update-credentials.md).
 
 ## <a name="can-i-scale-my-aks-cluster-to-zero"></a>¿Puedo escalar el clúster de AKS a cero?
-Puede [detener completamente un clúster de AKS en ejecución](start-stop-cluster.md), lo que ahorrará los costos de proceso respectivos. Además, también puede optar por [escalar o escalar automáticamente todos los grupos de nodos `User` o algunos específicos](scale-cluster.md#scale-user-node-pools-to-0) a 0, manteniendo solo la configuración necesaria del clúster.
-No se puede escalar directamente [grupos de nodos del sistema](use-system-pools.md) a 0.
+Puede [detener completamente un clúster de AKS en ejecución](start-stop-cluster.md), lo que ahorrará los costos de proceso respectivos. Además, puede optar por [escalar manual o automáticamente todos los grupos de nodos `User` o algunos específicos](scale-cluster.md#scale-user-node-pools-to-0) a 0, manteniendo solo la configuración necesaria del clúster.
+No se pueden escalar directamente [grupos de nodos del sistema](use-system-pools.md) a 0.
 
 ## <a name="can-i-use-the-virtual-machine-scale-set-apis-to-scale-manually"></a>¿Puedo usar las API del conjunto de escalado de máquinas virtuales para escalar manualmente?
 
 No, no se admiten las operaciones de escalado mediante el uso de las API del conjunto de escalado de máquinas virtuales. Use las API de AKS (`az aks scale`).
 
-## <a name="can-i-use-virtual-machine-scale-sets-to-manually-scale-to-0-nodes"></a>¿Puedo usar conjuntos de escalado de máquinas virtuales para escalar manualmente a 0 nodos?
+## <a name="can-i-use-virtual-machine-scale-sets-to-manually-scale-to-zero-nodes"></a>¿Puedo usar conjuntos de escalado de máquinas virtuales para escalar manualmente a 0 nodos?
 
-No, no se admiten las operaciones de escalado mediante el uso de las API del conjunto de escalado de máquinas virtuales.
+No, no se admiten las operaciones de escalado mediante el uso de las API del conjunto de escalado de máquinas virtuales. Puede usar la API de AKS para escalar a 0 grupos de nodos que no sean del sistema, o bien [detener el clúster](start-stop-cluster.md) en su lugar.
 
 ## <a name="can-i-stop-or-de-allocate-all-my-vms"></a>¿Puedo detener o cancelar la asignación de todas las máquinas virtuales?
 
-Aunque AKS tiene mecanismos de resistencia para admitir este tipo de configuración y recuperarse de él, no es una configuración recomendada.
+Aunque AKS tiene mecanismos de resistencia para admitir este tipo de configuración y recuperarse de él, no se admite esta configuración. [Detenga el clúster](start-stop-cluster.md) en su lugar.
 
 ## <a name="can-i-use-custom-vm-extensions"></a>¿Puedo usar extensiones de máquina virtual personalizadas?
 
-Se admite el agente de Log Analytics porque es una extensión que administra Microsoft. De lo contrario, no, AKS es un servicio administrado y no se admite la manipulación de los recursos de IaaS. Para instalar componentes personalizados, etc., use los mecanismos y las API de Kubernetes. Por ejemplo, aproveche DaemonSets para instalar los componentes necesarios.
+Se admite el agente de Log Analytics porque es una extensión que administra Microsoft. De lo contrario, no, AKS es un servicio administrado y no se admite la manipulación de los recursos de IaaS. Para instalar componentes personalizados, use los mecanismos y las API de Kubernetes. Por ejemplo, aproveche DaemonSets para instalar los componentes necesarios.
 
 ## <a name="does-aks-store-any-customer-data-outside-of-the-clusters-region"></a>¿AKS guarda datos de los clientes fuera de la región del clúster?
 
@@ -210,6 +208,53 @@ Excepto en el caso de las dos imágenes siguientes, no es necesario que las imá
 
 - *mcr.microsoft.com/oss/kubernetes/coredns*
 - *mcr.microsoft.com/azuremonitor/containerinsights/ciprod*
+
+## <a name="what-is-azure-cni-transparent-mode-vs-bridge-mode"></a>¿Qué diferencias hay entre el modo transparente de Azure CNI y el modo puente?
+
+A partir de la versión 1.2.0, Azure CNI tendrá habilitado el modo transparente de manera predeterminada para las implementaciones CNI de un solo inquilino en Linux. El modo transparente va a reemplazar al modo puente. En esta sección, indagaremos en las diferencias entre ambos modos y cuáles son las ventajas y limitaciones de usar el modo transparente de Azure CNI.
+
+### <a name="bridge-mode"></a>Modo puente
+
+Tal y como sugiere el nombre, el modo puente de Azure CNI, mediante "just-in-time", creará un puente L2 denominado "azure0". Todas las interfaces de par `veth` de los pods del host se conectarán a este puente. Por lo tanto, la comunicación entre pods de las máquinas virtuales y el tráfico restante pasa a través de este puente. El puente en cuestión es un dispositivo virtual de capa 2 que, por su cuenta, no puede recibir ni transmitir nada, a menos que enlace uno o más dispositivos reales a él. Por este motivo, la interfaz eth0 de la máquina virtual Linux debe convertirse en un puente subordinado a "azure0". Esto crea una topología de red compleja dentro de la máquina virtual Linux y, como desventaja, CNI tenía que encargarse de otras funciones de red, como la actualización del servidor DNS, etc.
+
+:::image type="content" source="media/faq/bridge-mode.png" alt-text="Topología del modo puente":::
+
+A continuación se muestra un ejemplo de cuál es el aspecto de la configuración de la ruta IP en el modo puente. Independientemente del número de pods que tenga el nodo, solo habrá dos rutas. En la primera se indica que todo el tráfico, excluido el local en azure0, irá a la puerta de enlace predeterminada de la subred a través de la interfaz con la dirección IP "src 10.240.0.4" (que es la dirección IP principal del nodo). En la segunda, se indica que el espacio "10.20.x.x" es de pod a kernel, y el kernel toma la decisión.
+
+```bash
+default via 10.240.0.1 dev azure0 proto dhcp src 10.240.0.4 metric 100
+10.240.0.0/12 dev azure0 proto kernel scope link src 10.240.0.4
+172.17.0.0/16 dev docker0 proto kernel scope link src 172.17.0.1 linkdown
+root@k8s-agentpool1-20465682-1:/#
+```
+
+### <a name="transparent-mode"></a>Modo transparente
+El modo transparente adopta un enfoque directo para configurar redes de Linux. En este modo, Azure CNI no cambia las propiedades de la interfaz eth0 en la máquina virtual Linux. Este enfoque mínimo para cambiar las propiedades de red de Linux ayuda a reducir los problemas complejos que podrían encontrarse los clústeres en el modo puente. En el modo transparente, Azure CNI creará y agregará interfaces de par `veth` de los pods del host que se agregarán a la red del host. La comunicación entre pods de las máquinas virtuales se realiza a través de las rutas IP que CNI agregará. Básicamente, la comunicación entre pods se realiza a través de la capa 3 y el tráfico de los pods se enruta mediante reglas de enrutamiento L3.
+
+:::image type="content" source="media/faq/transparent-mode.png" alt-text="Topología del modo transparente":::
+
+A continuación se muestra un ejemplo de configuración de la ruta de IP del modo transparente, donde la interfaz de cada pod obtendrá una ruta estática asociada para que el tráfico con la misma dirección IP de destino que el pod se envíe directamente a la interfaz de par `veth` de los pods del host.
+
+```bash
+10.240.0.216 dev azv79d05038592 proto static
+10.240.0.218 dev azv8184320e2bf proto static
+10.240.0.219 dev azvc0339d223b9 proto static
+10.240.0.222 dev azv722a6b28449 proto static
+10.240.0.223 dev azve7f326f1507 proto static
+10.240.0.224 dev azvb3bfccdd75a proto static
+168.63.129.16 via 10.240.0.1 dev eth0 proto dhcp src 10.240.0.4 metric 100
+169.254.169.254 via 10.240.0.1 dev eth0 proto dhcp src 10.240.0.4 metric 100
+172.17.0.0/16 dev docker0 proto kernel scope link src 172.17.0.1 linkdown
+```
+
+### <a name="benefits-of-transparent-mode"></a>Ventajas del modo transparente
+
+- Proporciona mitigación para la condición de carrera paralela de DNS `conntrack` y evita los problemas de latencia de DNS de 5 segundos sin necesidad de configurar el DNS local del nodo (puede seguir usándolo por motivos de rendimiento).
+- Elimina la latencia inicial de 5 segundos de DNS que el modo puente de CNI causa actualmente debido a la configuración del puente "just in time".
+- Uno de los casos extremos del modo puente es que Azure CNI no puede actualizar constantemente las listas de servidores DNS personalizados que los usuarios agregan a la red virtual o la NIC. Como resultado, CNI recoge solo la primera instancia de la lista de servidores DNS. Este problema se resuelve en el modo transparente porque CNI no cambia las propiedades de eth0. Consulte más información [aquí](https://github.com/Azure/azure-container-networking/issues/713).
+- Se puede controlar mejor el tráfico UDP y se mitigan los desbordamientos de UDP cuando se agota el tiempo de espera de ARP. En el modo puente, cuando el puente no conoce una dirección MAC del pod de destino en la comunicación entre pods de las máquinas virtuales, de forma predeterminada, se genera una avalancha de paquetes en todos los puertos. Este problema se resuelve en el modo transparente, ya que no hay ningún dispositivo L2 en la ruta de acceso. Consulte más información [aquí](https://github.com/Azure/azure-container-networking/issues/704).
+- El modo transparente funciona mejor en la comunicación entre pods de las máquinas virtuales en términos de rendimiento y latencia, en comparación con el modo puente.
+
 
 <!-- LINKS - internal -->
 

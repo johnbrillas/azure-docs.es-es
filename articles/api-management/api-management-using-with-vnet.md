@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 07/22/2020
 ms.author: apimpm
 ms.custom: references_regions
-ms.openlocfilehash: 9714dd49e06dabf9fb4669475f96089fcfc97d73
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 7af15552a489f36d87204bfefe47e579cc19f6dc
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146746"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96778817"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Usar Azure API Management con redes virtuales
 Azure Virtual Network (redes virtuales) le permiten colocar cualquier recurso de Azure en una red distinta de Internet que se pueda enrutar y a la que controle el acceso. Después, estas redes se pueden conectar a sus redes locales mediante diversas tecnologías de VPN. Para más información sobre Azure Virtual Network, vea: [Información general sobre Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
@@ -53,7 +53,8 @@ Para seguir los pasos que se describen en este artículo, debe tener:
 3. Seleccione **Red virtual**.
 4. Configure la instancia de API Management que se va a implementar dentro de la red virtual.
 
-    ![Menú Red virtual de API Management][api-management-using-vnet-menu]
+    :::image type="content" source="media/api-management-using-with-vnet/api-management-menu-vnet.png" alt-text="Seleccione una red virtual en Azure Portal.":::
+    
 5. Seleccione el tipo de acceso que prefiera:
 
     * **Off**: Este es el valor predeterminado. API Management no se implementa en una red virtual.
@@ -73,7 +74,7 @@ Para seguir los pasos que se describen en este artículo, debe tener:
 
     Después, seleccione **Aplicar**. La página **Red virtual** de la instancia API Management se actualiza con las opciones de red virtual y subred nueva.
 
-    ![Selección de una VPN][api-management-setup-vpn-select]
+    :::image type="content" source="media/api-management-using-with-vnet/api-management-using-vnet-select.png" alt-text="Configuración de la red virtual en el portal.":::
 
 7. En la barra de navegación superior, seleccione **Guardar** y, luego, **Aplicar configuración de red**.
 
@@ -176,6 +177,15 @@ A continuación se muestra una lista de problemas de errores de configuración c
 
   > [!IMPORTANT]
   > Una vez que valide la conectividad, asegúrese de quitar todos los recursos implementados en la subred, antes de implementar API Management en ella.
+
+* **Compruebe el estado de conectividad de red**: después de implementar API Management en la subred, use el portal para comprobar la conectividad de la instancia a dependencias como Azure Storage. En el portal, en el menú izquierdo, en **Implementación e infraestructura**, seleccione **Estado de conectividad de red**.
+
+   :::image type="content" source="media/api-management-using-with-vnet/verify-network-connectivity-status.png" alt-text="Comprobación del estado de conectividad de red en el portal":::
+
+    * Seleccione **Requerido** para revisar la conectividad a los servicios de Azure necesarios para API Management. Un error indica que la instancia no puede realizar operaciones básicas para administrar API.
+    * Seleccione **Opcional** para revisar la conectividad a servicios opcionales. Cualquier error indica únicamente que la funcionalidad específica no funcionará (por ejemplo, SMTP). Un error puede provocar una degradación en la capacidad de usar y supervisar la instancia de API Management y proporcionar el Acuerdo de Nivel de Servicio confirmado.
+
+Para solucionar problemas de conectividad, revise [Problemas comunes de configuración de red](#network-configuration-issues) y corrija la configuración de red necesaria.
 
 * **Actualizaciones incrementales**: Al realizar cambios en la red, consulte [NetworkStatus API](/rest/api/apimanagement/2019-12-01/networkstatus) para validar si el servicio API Management no ha perdido el acceso a cualquiera de los recursos críticos de los que depende. El estado de conectividad debe actualizarse cada 15 minutos.
 

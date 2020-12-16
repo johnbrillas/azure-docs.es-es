@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: eb290b8c154c40388bfb3e7f9cbac7b645aa9609
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: bc1ae4bc2cf64c3e2f996709c086eb23cb8b8385
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452689"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602604"
 ---
 # <a name="troubleshoot-virtual-machine-certification"></a>Solución de problemas de certificación de máquina virtual
 
@@ -203,7 +203,7 @@ Consulte las siguientes reglas para conocer las limitaciones del tamaño del dis
 
 |SO|Tamaño recomendado del disco duro virtual|
 |---|---|
-|Linux|De 30 a 1023 GB|
+|Linux|De 1 GB a 1023 GB|
 |Windows|De 30 a 250 GB|
 
 Como las máquinas virtuales permiten acceder al sistema operativo subyacente, asegúrese de que el tamaño del disco duro virtual sea lo suficientemente grande. Los discos no se pueden expandir sin tiempo de inactividad. Use un tamaño de disco de 30 GB a 50 GB.
@@ -341,7 +341,7 @@ Estos pasos se aplican a Linux solamente.
 
 1. Cree cualquier tipo de máquina virtual de Linux, como Ubuntu, Cent OS u otro. Rellene los campos obligatorios y haga clic en **Siguiente: Discos >** .
 
-   ![Captura de pantalla que muestra la página Crear una máquina virtual con el botón del comando "Siguiente: Discos" resaltado.](./media/create-vm/vm-certification-issues-solutions-15.png)
+   ![Captura de pantalla que muestra la página Crear una máquina virtual con el botón "Siguiente: Discos" resaltado.](./media/create-vm/vm-certification-issues-solutions-15.png)
 
 1. Cree un disco no administrado para la máquina virtual.
 

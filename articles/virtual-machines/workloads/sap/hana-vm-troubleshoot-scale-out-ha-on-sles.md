@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
-ms.openlocfilehash: 7cf18e2d375d7a45c3641876b8a3ed5974882927
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 87758100299eb170a7950a1a7a2c6bd2029b27fb
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96010034"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621559"
 ---
 # <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>Verificación y solución de problemas de configuración de alta disponibilidad con escalabilidad horizontal de SAP HANA en SLES 12 SP3 
 
@@ -45,6 +45,9 @@ Todas las pruebas de SAP HANA de escalabilidad horizontal en combinación con SA
 SUSE ha publicado una [descripción detallada de esta configuración optimizada para el rendimiento][sles-hana-scale-out-ha-paper].
 
 Para conocer los tipos de máquina virtual que admiten el escalado horizontal de SAP HANA, consulte el [directorio de IaaS certificado para SAP HANA][sap-hana-iaas-list].
+
+> [!NOTE]
+> Este artículo contiene referencias a los términos *maestro* y *esclavo*, unos términos que Microsoft ya no usa. Cuando se eliminen estos términos del software, se eliminarán también de este artículo.
 
 Se produjo un problema técnico con el escalado horizontal de SAP HANA en combinación con varias subredes y NIC virtuales, así como al configurar HSR. Es obligatorio usar las últimas revisiones de SAP HANA 2.0 donde este problema está solucionado. Se admiten las siguientes versiones de SAP HANA: 
 

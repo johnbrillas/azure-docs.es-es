@@ -129,7 +129,7 @@
           href: app/data-retention-privacy.md
     - name: Alertas
       items:
-        - name: Introducción
+        - name: Información general
           href: platform/alerts-overview.md
         - name: Alertas de métricas
           href: platform/alerts-metric-overview.md
@@ -190,6 +190,8 @@
               href: platform/metrics-getting-started.md
             - name: Características avanzadas del Explorador de métricas
               href: platform/metrics-charts.md
+            - name: Visualización de varios recursos en el Explorador de métricas
+              href: platform/metrics-dynamic-scope.md
             - name: Ejemplos de gráficos de métricas
               href: platform/metric-chart-samples.md
             - name: Solución de problemas de gráficos de métricas
@@ -382,7 +384,7 @@
               href: insights/solution-agenthealth.md
         - name: Extensión de Diagnósticos de Azure
           items:
-            - name: Introducción
+            - name: Información general
               href: platform/diagnostics-extension-overview.md
             - name: Windows
               displayname: diagnostics extension
@@ -544,14 +546,14 @@
           items:
             - name: IT Service Management Connector
               href: platform/itsmc-overview.md
-            - name: Conexiones de IT Service Management
+            - name: "Conexiones de\_IT Service Management"
               href: platform/itsmc-connections.md
-            - name: Integración con exportación segura
-              href: platform/it-service-management-connector-secure-webhook-connections.md
             - name: Creación de aplicación web de Service Manager
               href: platform/itsmc-service-manager-script.md
             - name: Solución de problemas del Conector de Administración de servicios de TI
               href: platform/itsmc-resync-servicenow.md
+            - name: Integración con exportación segura
+              href: platform/it-service-management-connector-secure-webhook-connections.md
         - name: Migración de las reglas de alertas clásicas
           items:
             - name: Acerca de alertas clásicas
@@ -752,6 +754,8 @@
               href: app/pre-aggregated-metrics-log-metrics.md
             - name: Definiciones de métricas basadas en registros
               href: platform/app-insights-metrics.md
+            - name: Métricas estándar
+              href: app/standard-metrics.md
         - name: Search
           href: app/diagnostic-search.md
         - name: Generador de perfiles

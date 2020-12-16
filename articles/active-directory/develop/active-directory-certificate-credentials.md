@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/30/2020
+ms.date: 12/3/2020
 ms.author: hirsin
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 77e34e4a18012f15b9e907e3b9efc1965b98f824
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f3222c790ccd0cee936b246253a16b5c434c61c8
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91612127"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602213"
 ---
 # <a name="microsoft-identity-platform-application-authentication-certificate-credentials"></a>Credenciales de certificado para la autenticación de aplicaciones en la plataforma de identidad de Microsoft
 
@@ -36,7 +36,7 @@ Para calcular la aserción, puede usar una de las muchas bibliotecas de JWT en e
 | --- | --- |
 | `alg` | Debe ser **RS256** |
 | `typ` | Debe ser **JWT** |
-| `x5t` | Representación hexadecimal del hash del certificado X.509 (también conocido como *huella digital* SHA-1 del certificado) codificada como un valor de cadena Base 64. Por ejemplo, para un hash de certificado X.509 con el valor `84E05C1D98BCE3A5421D225B140B36E86A3D5534` (hexadecimal), la notificación `x5t` sería `hOBcHZi846VCHSJbFAs26Go9VTQ=` (Base 64). |
+| `x5t` | Representación hexadecimal del hash del certificado X.509 (también conocido como *huella digital* SHA-1 del certificado) codificada como un valor de cadena Base64url. Por ejemplo, para un hash de certificado X.509 con el valor `84E05C1D98BCE3A5421D225B140B36E86A3D5534` (hexadecimal), la notificación `x5t` sería `hOBcHZi846VCHSJbFAs26Go9VTQ=` (Base64url). |
 
 ### <a name="claims-payload"></a>Notificaciones (carga útil)
 

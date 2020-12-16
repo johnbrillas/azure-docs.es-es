@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 09/14/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d9c4dff1e4a3ba7c7a2b11311e97eb5e66a1585
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 8ac8cf172a13e7198233170634ee4a3954793cd2
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994254"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96743435"
 ---
 # <a name="enable-passwordless-security-key-sign-in-preview"></a>Habilitar el inicio de sesión con clave de seguridad sin contraseña (versión preliminar)
 
@@ -38,9 +38,9 @@ Para usar claves de seguridad para iniciar sesión en servicios y aplicaciones w
 
 ## <a name="prepare-devices-for-preview"></a>Preparar dispositivos para la versión preliminar
 
-Los dispositivos unidos a Azure AD que se usarán para la prueba piloto deben ejecutar Windows 10, versión 1909 o posterior. La mejor experiencia se logra con Windows 10 versión 1903 o superior.
+En el caso de los dispositivos unidos a Azure AD, la mejor experiencia está disponible en Windows 10, versión 1903 o posterior.
 
-Los dispositivos unidos a Azure AD híbrido deben ejecutar Windows 10, versión 2004 o una versión más reciente.
+Los dispositivos unidos a Azure AD híbrido deben ejecutar la versión 2004, o posterior, de Windows 10.
 
 ## <a name="enable-passwordless-authentication-method"></a>Habilitar métodos de autenticación sin contraseña
 
@@ -105,4 +105,4 @@ Estamos trabajando en la admisión de una característica que permite el cambio 
 
 [Más información sobre el registro de dispositivos](../devices/overview.md)
 
-[Más información sobre Azure AD Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)
+[Más información sobre Azure AD Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)

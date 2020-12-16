@@ -1,21 +1,24 @@
 ---
-title: 'Lista de direcciones URL seguras de Windows Virtual Desktop: Azure'
-description: Una lista de direcciones URL que debe desbloquear para garantizar que su implementación de Windows Virtual Desktop funcione según lo previsto.
+title: 'Lista de direcciones URL requeridas de Windows Virtual Desktop: Azure'
+description: Una lista de direcciones URL que debe desbloquear para garantizar que su implementación de Windows Virtual Desktop funcione según lo previsto.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 12/04/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3d19a60fd6a22eb9245722c6ff69d3b39c05d29e
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 70b7042e4006cc59419d0ea6798fe7626a82c086
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95023180"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621083"
 ---
-# <a name="safe-url-list"></a>Lista de direcciones URL seguras
+# <a name="required-url-list"></a>Lista de direcciones URL requeridas
 
-Deberá desbloquear ciertas direcciones URL para que la implementación de Windows Virtual Desktop funcione correctamente. En este artículo se enumeran estas direcciones URL para saber cuáles son seguras.
+Para implementar y usar Windows Virtual Desktop, debe desbloquear determinadas direcciones URL para que las máquinas virtuales (VM) puedan acceder a ellas en cualquier momento. En este artículo se enumeran las direcciones URL requeridas que se deben desbloquear para que Windows Virtual Desktop funcione correctamente. 
+
+>[!IMPORTANT]
+>Windows Virtual Desktop no admite implementaciones que bloqueen las direcciones URL que se muestran en este artículo.
 
 ## <a name="virtual-machines"></a>Máquinas virtuales
 
@@ -53,7 +56,7 @@ Las máquinas virtuales de Azure que cree para Windows Virtual Desktop deben ten
 |*.servicebus.usgovcloudapi.net|443|Tráfico de agente|AzureCloud|
 |*xt.table.core.usgovcloudapi.net|443|Tráfico de agente|AzureCloud|
 |Kms.core.usgovcloudapi.net|1688|Activación de Windows|Internet|
-|mrsglobalstugviffx.core.usgovcloudapi.net|443|Actualizaciones de la pila de agentes y SXS|AzureCloud|
+|mrsglobalstugviffx.blob.core.usgovcloudapi.net|443|Actualizaciones de la pila de agentes y SXS|AzureCloud|
 |wvdportalstorageblob.blob.core.usgovcloudapi.net|443|Soporte técnico de Azure Portal|AzureCloud|
 | 169.254.169.254 | 80 | [Punto de conexión de servicio de metadatos de instancias de Azure](../virtual-machines/windows/instance-metadata-service.md) | N/D |
 | 168.63.129.16 | 80 | [Seguimiento de estado del host de sesión](../virtual-network/network-security-groups-overview.md#azure-platform-considerations) | N/D |
@@ -69,9 +72,13 @@ En la tabla siguiente se enumeran las direcciones URL opcionales a las que puede
 |login.windows.net|443|Inicio de sesión en Microsoft Online Services, Microsoft 365|login.microsoftonline.us|
 |*.sfx.ms|443|Actualizaciones del software cliente de OneDrive|oneclient.sfx.ms|
 |*.digicert.com|443|Comprobación de revocación de certificados|None|
+|*.azure-dns.com|443|Resolución de Azure DNS|None|
+|*.azure-dns.net|443|Resolución de Azure DNS|None|
 
 >[!NOTE]
 >Windows Virtual Desktop actualmente no tiene una lista de intervalos de direcciones IP que puede desbloquear para permitir el tráfico de red. En este momento, solo se pueden desbloquear direcciones URL específicas.
+>
+>Si usa un firewall de última generación (NGFW), tendrá que usar una lista dinámica específica creada específicamente para las direcciones IP, a fin de asegurarse de que puede conectarse.
 >
 >Para obtener una lista de direcciones URL seguras relacionadas con Office, incluidas las direcciones URL requeridas relacionadas con Azure Active Directory, consulte [Direcciones URL e intervalos de direcciones IP de Office 365](/office365/enterprise/urls-and-ip-address-ranges).
 >

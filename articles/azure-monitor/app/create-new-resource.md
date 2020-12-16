@@ -3,16 +3,16 @@ title: Creación de un recurso de Azure Application Insights | Microsoft Docs
 description: Describe la configuración manual de la supervisión de Application Insights para una nueva aplicación activa.
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: d2e367e84aed7abac70d803f28d26070f7b0a85e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3fd05e6bd68be89b964fe1ad32029bf44f3352ea
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87323135"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906376"
 ---
 # <a name="create-an-application-insights-resource"></a>Creación de recursos en Application Insights
 
-Azure Application Insights muestra los datos de la aplicación en un *recurso*de Microsoft Azure. Por tanto, la creación de un nuevo recurso forma parte de la [configuración de Application Insights para supervisar una aplicación nueva][start]. Después de haber creado el recurso nuevo, puede obtener su clave de instrumentación y usarla para configurar el SDK de Application Insights. La clave de instrumentación vincula la telemetría al recurso.
+Azure Application Insights muestra los datos de la aplicación en un *recurso* de Microsoft Azure. Por tanto, la creación de un nuevo recurso forma parte de la [configuración de Application Insights para supervisar una aplicación nueva][start]. Después de haber creado el recurso nuevo, puede obtener su clave de instrumentación y usarla para configurar el SDK de Application Insights. La clave de instrumentación vincula la telemetría al recurso.
 
 ## <a name="sign-in-to-microsoft-azure"></a>Iniciar sesión en Microsoft Azure
 
@@ -44,7 +44,8 @@ Cuando se haya creado la aplicación, se abrirá un panel nuevo. En este panel p
 
 La clave de instrumentación identifica el recurso con el que quiere asociar los datos de telemetría. Necesitará copiar la clave de instrumentación y agregarla al código de la aplicación.
 
-![Hacer clic y copiar la clave de instrumentación](./media/create-new-resource/instrumentation-key.png)
+> [!IMPORTANT]
+> Las nuevas regiones de Azure **requieren** el uso de cadenas de conexión en lugar de claves de instrumentación. La [cadena de conexión](./sdk-connection-string.md?tabs=net) identifica el recurso con el que se quieren asociar los datos de telemetría. También permite modificar los puntos de conexión que va a usar el recurso como destino de la telemetría. Tiene que copiar la cadena de conexión y agregarla al código de la aplicación o a una variable de entorno.
 
 ## <a name="install-the-sdk-in-your-app"></a>Instalación del SDK en la aplicación
 
@@ -103,7 +104,7 @@ Para obtener acceso a los comandos de la CLI de Azure de Application Insights en
  az extension add -n application-insights
 ```
 
-Si no ejecuta el comando `az extension add`, verá un mensaje de error que indica: `az : ERROR: az monitor: 'app-insights' is not in the 'az monitor' command group. See 'az monitor --help'.`
+Si no ejecuta el comando `az extension add`, aparece un mensaje de error que indica: `az : ERROR: az monitor: 'app-insights' is not in the 'az monitor' command group. See 'az monitor --help'.`
 
 Ahora puede ejecutar lo siguiente para crear el recurso de Application Insights:
 

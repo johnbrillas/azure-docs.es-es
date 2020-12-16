@@ -1,37 +1,37 @@
 ---
 title: En lugar de ETL, diseño de ELT
-description: Implementación de estrategias flexibles de carga de datos para el grupo de SQL de Synapse en Azure Synapse Analytics
+description: Implementación de estrategias flexibles de carga de datos para grupos de SQL dedicados en Azure Synapse Analytics
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 05/13/2020
+ms.date: 11/20/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 0533e76863d01675cee7aaca79e32821e5efc749
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 64ba24eb0eab581310122908fc05d1d671ac1d40
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92507810"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96531580"
 ---
-# <a name="data-loading-strategies-for-synapse-sql-pool"></a>Estrategias de carga de datos para el grupo de SQL de Synapse
+# <a name="data-loading-strategies-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Estrategias de carga de datos para el grupo de SQL dedicado en Azure Synapse Analytics
 
-Los grupos de SQL de SMP tradicionales usan un proceso de extracción, transformación y carga (ETL) para cargar los datos. Synapse SQL, en Azure Synapse Analytics, usa una arquitectura de procesamiento de consultas distribuidas que aprovecha la escalabilidad y la flexibilidad de los recursos de proceso y almacenamiento.
+Los grupos de SQL dedicados de SMP tradicionales usan un proceso de extracción, transformación y carga (ETL) para cargar los datos. Synapse SQL, en Azure Synapse Analytics, usa una arquitectura de procesamiento de consultas distribuidas que aprovecha la escalabilidad y la flexibilidad de los recursos de proceso y almacenamiento.
 
 El uso de un proceso de extracción, carga y transformación (ELT) aprovecha las ventajas de las funcionalidades integradas de procesamiento de consultas distribuidas y elimina los recursos necesarios para transformar los datos antes de cargarlos.
 
-Aunque el grupo de SQL admite muchos métodos de carga, entre los que se incluyen las conocidas opciones de SQL Server como [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) y [SqlBulkCopy API](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json), la manera más rápida y escalable de cargar datos es mediante tablas externas de PolyBase y la [instrucción COPY](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+Aunque los grupos de SQL dedicados admiten muchos métodos de carga, entre los que se incluyen las conocidas opciones de SQL Server como [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) y [SqlBulkCopy API](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json), la manera más rápida y escalable de cargar datos es a través de tablas externas de PolyBase y la instrucción [COPY](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 Con PolyBase y la instrucción COPY, es posible acceder a datos externos almacenados en Azure Blob Storage o Azure Data Lake Store mediante el lenguaje T-SQL. Para obtener la máxima flexibilidad al realizar la carga, se recomienda usar la instrucción COPY.
 
 
 ## <a name="what-is-elt"></a>¿Qué es ELT?
 
-Extracción, carga y transformación (ELT) es un proceso mediante el que se extraen datos de un sistema de origen, se cargan en un grupo de SQL y, después, se transforman.
+Extracción, carga y transformación (ELT) es un proceso mediante el que se extraen datos de un sistema de origen, se cargan en un grupo de SQL dedicado y, después, se transforman.
 
 Los pasos básicos para implementar ELT son los siguientes:
 
@@ -62,7 +62,7 @@ Herramientas y servicios que puede usar para mover datos a Azure Storage:
 
 - El servicio [Azure ExpressRoute](../../expressroute/expressroute-introduction.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) mejora el rendimiento de la red, el rendimiento en general y la capacidad de predicción. ExpressRoute es un servicio que enruta los datos a Azure a través de una conexión privada dedicada. Las conexiones ExpressRoute no enrutan datos a través de la red pública de Internet. Estas conexiones son más fiables y ofrecen velocidades más altas, menores latencias y mayor seguridad que las conexiones habituales a través de Internet.
 - La [utilidad AZCopy](../../storage/common/storage-choose-data-transfer-solution.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) lleva los datos a Azure Storage a través de la red pública de Internet. Esto funciona si el tamaño de los datos es de menos de 10 TB. Para realizar cargas de forma regular con AZCopy, pruebe la velocidad de la red para ver si es aceptable.
-- [Azure Data Factory (ADF)](../../data-factory/introduction.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) tiene una puerta de enlace que se puede instalar en el servidor local. A continuación, puede crear una canalización para llevar los datos desde el servidor local hasta Azure Storage. Para usar Data Factory con el grupo de SQL, vea [Carga de datos para el grupo de SQL](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+- [Azure Data Factory (ADF)](../../data-factory/introduction.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) tiene una puerta de enlace que se puede instalar en el servidor local. A continuación, puede crear una canalización para llevar los datos desde el servidor local hasta Azure Storage. Para usar Data Factory con un grupo de SQL dedicado, consulte [Carga de datos en grupos de SQL dedicados](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ## <a name="3-prepare-the-data-for-loading"></a>3. Preparar los datos para la carga
 
@@ -70,9 +70,9 @@ Deberá preparar y limpiar los datos de la cuenta de almacenamiento antes de car
 
 ### <a name="define-the-tables"></a>Definición de las tablas
 
-En primer lugar, se deben definir las tablas que se van a cargar en el grupo de SQL cuando se use la instrucción COPY.
+En primer lugar, se deben definir las tablas que se van a cargar en el grupo de SQL dedicado cuando se use la instrucción COPY.
 
-Si usa PolyBase, tiene que definir tablas externas en el grupo de SQL antes de realizar la carga. PolyBase emplea tablas externas para obtener acceso y definir los datos en Azure Storage. Una tabla externa es similar a una vista de base de datos. La tabla externa contiene el esquema de tabla y apunta a los datos que se almacenan fuera del grupo de SQL.
+Si usa PolyBase, tiene que definir tablas externas en el grupo de SQL dedicado antes de realizar la carga. PolyBase emplea tablas externas para obtener acceso y definir los datos en Azure Storage. Una tabla externa es similar a una vista de base de datos. La tabla externa contiene el esquema de tabla y apunta a los datos que se almacenan fuera del grupo de SQL dedicado.
 
 Si define tablas externas debe especificar el origen de datos, el formato de los archivos de texto y las definiciones de tabla. Los artículos de referencia de sintaxis de T-SQL que necesitará son los siguientes:
 
@@ -119,8 +119,9 @@ Use la asignación siguiente de tipo de datos SQL al cargar archivos de Parquet:
 | [Tipo complejo](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgithub.com%2Fapache%2Fparquet-format%2Fblob%2Fmaster%2FLogicalTypes.md%23maps&data=02\|01\|kevin%40microsoft.com\|19f74d93f5ca45a6b73c08d7d7f5f111\|72f988bf86f141af91ab2d7cd011db47\|1\|0\|637215323617803168&sdata=FiThqXxjgmZBVRyigHzfh5V7Z%2BPZHjud2IkUUM43I7o%3D&reserved=0) |                  MAP                  |   ntext   |
 
 >[!IMPORTANT] 
-> - Los grupos dedicados de SQL no admiten actualmente tipos de datos Parquet con precisión MICROS y NANOS. 
-> - Puede experimentar el siguiente error si los tipos no coinciden entre Parquet y SQL, o si tiene tipos de datos Parquet no admitidos:  **"HdfsBridge::recordReaderFillBuffer: Error inesperado al rellenar el búfer del lector de registros: ClassCastException: ..."**
+>- Los grupos dedicados de SQL no admiten actualmente tipos de datos Parquet con precisión MICROS y NANOS. 
+>- Puede experimentar el siguiente error si los tipos no coinciden entre Parquet y SQL, o si tiene tipos de datos Parquet no admitidos: **"HdfsBridge::recordReaderFillBuffer: Error inesperado al rellenar el búfer del lector de registros: ClassCastException: ..."**
+>- No se admite la carga de un valor que no esté en el intervalo 0-127 en una columna tinyint para el formato de archivo Parquet y ORC.
 
 Para obtener un ejemplo de creación de objetos externos, vea [Creación de tablas externas](https://docs.microsoft.com/azure/synapse-analytics/sql/develop-tables-external-tables?tabs=sql-pool).
 
@@ -130,12 +131,12 @@ Si utiliza PolyBase, los objetos externos definidos necesitan alinear las filas 
 Para dar formato a los archivos de texto:
 
 - Si los datos provienen de un origen no relacional, debe transformarlos en filas y columnas. Si los datos son de un origen relacional o no relacional, se deben transformar para alinearlos con las definiciones de columna de la tabla en la que va a cargar los datos.
-- Debe dar formato a datos en el archivo de texto que se alineará con los tipos de datos y columnas en la tabla de destino. Si se desalinean los tipos de datos en los archivos de texto externos y la tabla del grupo de SQL, las filas se rechazarán durante la carga.
+- Debe dar formato a datos en el archivo de texto que se alineará con los tipos de datos y columnas en la tabla de destino. Si se desalinean los tipos de datos en los archivos de texto externos y la tabla del grupo de SQL dedicado, las filas se rechazarán durante la carga.
 - Debe separar los campos en el archivo de texto con un terminador.  Asegúrese de usar un carácter o una secuencia de caracteres que no se encuentre en los datos de origen. Use el terminador que especificó con la instrucción [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ## <a name="4-load-the-data-using-polybase-or-the-copy-statement"></a>4. Cargar los datos mediante PolyBase o la instrucción COPY
 
-Es una práctica recomendada para cargar datos en una tabla de almacenamiento provisional. Las tablas de almacenamiento provisional le permiten controlar los errores sin interferir con las tablas de producción. Asimismo, una tabla de almacenamiento provisional también ofrece la posibilidad de usar la arquitectura de procesamiento paralelo del grupo de SQL para transformaciones de datos antes de insertar estos datos en tablas de producción.
+Es una práctica recomendada para cargar datos en una tabla de almacenamiento provisional. Las tablas de almacenamiento provisional le permiten controlar los errores sin interferir con las tablas de producción. Asimismo, una tabla de almacenamiento provisional también ofrece la posibilidad de usar la arquitectura de procesamiento paralelo del grupo de SQL dedicado para transformaciones de datos antes de insertar estos datos en tablas de producción.
 
 ### <a name="options-for-loading"></a>Opciones de carga
 

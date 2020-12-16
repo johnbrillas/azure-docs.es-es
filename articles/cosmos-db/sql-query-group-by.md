@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: tisande
-ms.openlocfilehash: 71314e6999031f52ebbfc582b43684ab5a17a261
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: d9cafc100ddd4b553577c447e82334e6ee7d1b6d
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93338824"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96545458"
 ---
 # <a name="group-by-clause-in-azure-cosmos-db"></a>Cláusula GROUP BY en Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -41,7 +41,7 @@ La cláusula GROUP BY divide los resultados de la consulta de acuerdo con los va
 
 ## <a name="remarks"></a>Observaciones
   
-  Cuando una consulta utiliza una cláusula GROUP BY, la cláusula SELECT solo puede contener el subconjunto de propiedades y las funciones del sistema incluidas en la cláusula GROUP BY. Una excepción son las [funciones del sistema de agregado](sql-query-aggregates.md), que pueden aparecer en la cláusula SELECT sin incluirse en la cláusula GROUP BY. También puede incluir siempre valores literales en la cláusula SELECT.
+  Cuando una consulta utiliza una cláusula GROUP BY, la cláusula SELECT solo puede contener el subconjunto de propiedades y las funciones del sistema incluidas en la cláusula GROUP BY. Una excepción son las [funciones de agregado](sql-query-aggregate-functions.md), que pueden aparecer en la cláusula SELECT sin que se incluyan en la cláusula GROUP BY. También puede incluir siempre valores literales en la cláusula SELECT.
 
   La cláusula GROUP BY debe estar después de las cláusulas SELECT, FROM y WHERE y antes de la cláusula OFFSET LIMIT. Actualmente no se puede usar GROUP BY con una cláusula ORDER BY, si bien está previsto que sea posible hacerlo en el futuro.
 
@@ -192,4 +192,4 @@ Los resultados son:
 
 - [Introducción](sql-query-getting-started.md)
 - [Cláusula SELECT](sql-query-select.md)
-- [Funciones de agregado](sql-query-aggregates.md)
+- [Funciones de agregado](sql-query-aggregate-functions.md)

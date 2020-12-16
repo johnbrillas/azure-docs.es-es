@@ -2,15 +2,15 @@
 title: Resolución de problemas de Update Management de Azure Automation
 description: En este artículo se describe cómo solucionar y resolver problemas con Update Management de Azure Automation.
 services: automation
-ms.date: 10/14/2020
+ms.date: 12/04/2020
 ms.topic: conceptual
 ms.service: automation
-ms.openlocfilehash: 8818047dd4fef9c495c46b353e68841f83e9677c
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: e8fc2a840ce019282625f286a6d54b132a1806c8
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217225"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751264"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Solución de problemas de Update Management
 
@@ -18,6 +18,40 @@ En este artículo se describen los problemas que puede experimentar al implement
 
 >[!NOTE]
 >Si encuentra problemas al implementar Update Management en una máquina Windows, abra el Visor de eventos de Windows y compruebe el registro de eventos de **Operations Manager** en los **registros de aplicaciones y servicios** en la máquina local. Busque eventos con el id. de evento 4502 y detalles del evento que contengan `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent`.
+
+## <a name="scenario-linux-updates-shown-as-pending-and-those-installed-vary"></a>Escenario: Las actualizaciones de Linux se muestran como pendientes y las que se instalan varían
+
+### <a name="issue"></a>Incidencia
+
+En el caso de la máquina Linux, Update Management muestra actualizaciones específicas disponibles bajo la clasificación **Seguridad** y **Otras**. Pero cuando se ejecuta una programación de actualización en el equipo, por ejemplo, para instalar solo las actualizaciones que coincidan con la clasificación **Seguridad**, las actualizaciones instaladas son diferentes de un subconjunto de actualizaciones que se muestran anteriormente que coinciden con esa clasificación.
+
+### <a name="cause"></a>Causa
+
+Cuando se realiza una evaluación de las actualizaciones del sistema operativo pendientes para la máquina Linux, Update Management utiliza los archivos [Open Vulnerability and Assessment Language ](https://oval.mitre.org/) (OVAL) proporcionados por el proveedor de distribución de Linux para la clasificación. La categorización se realiza para las actualizaciones de Linux como **Seguridad** u **Otras**, en función de los archivos OVAL, que indica que las actualizaciones tratan problemas de seguridad o vulnerabilidades. Sin embargo, cuando se ejecuta la programación de actualización, lo hace en la máquina Linux mediante el administrador de paquetes adecuado, como YUM, APT o ZYPPER, para instalarlas. El administrador de paquetes para la distribución de Linux puede tener un mecanismo diferente para clasificar las actualizaciones, donde los resultados pueden diferir de los que se obtienen de los archivos OVAL mediante Update Management.
+
+### <a name="resolution"></a>Resolución
+
+Puede comprobar manualmente el equipo Linux, las actualizaciones aplicables y su clasificación según el administrador de paquetes de la distribución. Para saber qué actualizaciones clasifica el administrador de paquetes como **Seguridad**, ejecute los siguientes comandos.
+
+En el caso de YUM, el comando siguiente devuelve una lista de actualizaciones distinta de cero categorizadas como **Seguridad** por Red Hat. Tenga en cuenta que en el caso de CentOS, siempre devuelve una lista vacía y no se produce ninguna clasificación de seguridad.
+
+```bash
+sudo yum -q --security check-update
+```
+
+En el caso de ZYPPER, el siguiente comando devuelve una lista de actualizaciones distinta de cero categorizadas como **Seguridad** por SUSE.
+
+```bash
+sudo LANG=en_US.UTF8 zypper --non-interactive patch --category security --dry-run
+```
+
+En el caso de APT, el siguiente comando devuelve una lista de actualizaciones distinta de cero categorizadas como **Seguridad** por las distribuciones Canonical y Ubuntu Linux.
+
+```bash
+sudo grep security /etc/apt/sources.list > /tmp/oms-update-security.list LANG=en_US.UTF8 sudo apt-get -s dist-upgrade -oDir::Etc::Sourcelist=/tmp/oms-update-security.list
+```
+
+A partir de esta lista, después puede ejecutar el comando `grep ^Inst` para obtener todas las actualizaciones de seguridad pendientes.
 
 ## <a name="scenario-you-receive-the-error-failed-to-enable-the-update-solution"></a><a name="failed-to-enable-error"></a>Escenario: Recibe el error "No se pudo habilitar la solución de actualización"
 
@@ -600,4 +634,4 @@ Si su problema no aparece o no puede resolverlo, intente uno de los siguientes c
 
 * Obtenga respuestas de expertos de Azure en los [foros de Azure](https://azure.microsoft.com/support/forums/).
 * Póngase en contacto con [@AzureSupport](https://twitter.com/azuresupport), la cuenta oficial de Microsoft Azure para mejorar la experiencia del cliente.
-* Registrar un incidente de soporte técnico de Azure. Vaya al [sitio de Soporte técnico de Azure](https://azure.microsoft.com/support/options/) y seleccione **Obtener soporte**.
+* Registrar un incidente de soporte técnico de Azure. Vaya al [sitio de soporte técnico de Azure](https://azure.microsoft.com/support/options/) y seleccione **Obtener soporte**.

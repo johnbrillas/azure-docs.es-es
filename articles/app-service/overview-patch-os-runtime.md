@@ -4,12 +4,12 @@ description: Conozca cómo Azure App Service actualiza el sistema operativo y lo
 ms.topic: article
 ms.date: 02/02/2018
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 31b2d39f5d0d125d2bf23ac72718d9b386b48923
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 8b52223aea0f0bdfecf58906ac192e893da3b47d
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94833493"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558494"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>Aplicación de revisiones al sistema operativo y al entorno de tiempo de ejecución en Azure App Service
 
@@ -51,7 +51,7 @@ Las actualizaciones y el desuso de tiempo de ejecución se anuncian aquí:
 
 ### <a name="new-patch-updates"></a>Nuevas actualizaciones de revisiones
 
-Las actualizaciones de .NET, PHP, el SDK de Java o la versión de Tomcat/Jetty se aplican automáticamente al sobrescribir la instalación existente con la versión nueva. Las actualizaciones de revisión de Node.js se instalan en paralelo con las versiones existentes (de forma similar a las versiones principales y secundarias en la siguiente sección). Las nuevas versiones de revisión de Python pueden instalarse manualmente mediante [extensiones de sitio](https://azure.microsoft.com/blog/azure-web-sites-extensions/), en paralelo con las instalaciones de Python integradas.
+Las actualizaciones de .NET, PHP, SDK de Java o la versión de Tomcat se aplican automáticamente al sobrescribir la instalación existente con la versión más reciente. Las actualizaciones de revisión de Node.js se instalan en paralelo con las versiones existentes (de forma similar a las versiones principales y secundarias en la siguiente sección). Las nuevas versiones de revisión de Python pueden instalarse manualmente mediante [extensiones de sitio](https://azure.microsoft.com/blog/azure-web-sites-extensions/), en paralelo con las instalaciones de Python integradas.
 
 ### <a name="new-major-and-minor-versions"></a>Nuevas versiones principales y secundarias
 

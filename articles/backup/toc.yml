@@ -158,7 +158,7 @@
               href: backup-azure-vms-encryption.md
             - name: Restauración de la clave y el secreto para máquinas virtuales cifradas
               href: backup-azure-restore-key-secret.md
-        - name: Administrar
+        - name: Administración
           items:
             - name: Administración de copias de seguridad de máquinas virtuales de Azure
               href: backup-azure-manage-vms.md
@@ -216,7 +216,7 @@
               href: backup-afs.md
             - name: Restauración
               href: restore-afs.md
-            - name: Administrar
+            - name: Administración
               href: manage-afs-backup.md
         - name: Con la CLI de Azure
           items:
@@ -224,7 +224,7 @@
               href: backup-afs-cli.md
             - name: Restauración
               href: restore-afs-cli.md
-            - name: Administrar
+            - name: Administración
               href: manage-afs-backup-cli.md
         - name: Con PowerShell
           items:
@@ -423,6 +423,8 @@
       items:
         - name: Azure VM
           href: backup-azure-vms-troubleshoot.md
+        - name: Recuperación de archivos de máquina virtual de Azure
+          href: backup-azure-vm-file-recovery-troubleshoot.md
         - name: El agente de Azure Backup o la extensión de máquina virtual han agotado el tiempo de espera
           href: backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md
         - name: Agente de Azure Backup

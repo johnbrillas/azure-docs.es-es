@@ -2,14 +2,14 @@
 title: Cifrado del registro con una clave administrada por el cliente
 description: Obtenga información sobre el cifrado en reposo de una instancia de Azure Container Registry y sobre cómo cifrar el registro Premium con una clave administrada por el cliente almacenada en Azure Key Vault
 ms.topic: article
-ms.date: 11/17/2020
+ms.date: 12/03/2020
 ms.custom: ''
-ms.openlocfilehash: 6dac2239f223b5dee6ec728833caa01562873210
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 708a42a4f965f484060d42d89ea4f535c4365a10
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95255027"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620463"
 ---
 # <a name="encrypt-registry-using-a-customer-managed-key"></a>Cifrado del registro con una clave administrada por el cliente
 
@@ -45,9 +45,6 @@ Al configurar el cifrado del registro con una clave administrada por el cliente,
 * **Actualizar automáticamente la versión de la clave**: Para actualizar automáticamente una clave administrada por el cliente a una nueva versión disponible en Azure Key Vault, omita la versión de la clave al habilitar el cifrado del registro con una clave administrada por el cliente. Cuando un registro se cifra con una clave sin versión, Azure Container Registry comprueba periódicamente el almacén de claves para obtener una nueva versión de clave y actualiza la clave administrada por el cliente en un plazo de 1 hora. Azure Container Registry usa automáticamente la versión más reciente de la clave.
 
 * **Actualizar manualmente la versión de la clave**: Para usar una versión determinada de una clave para el cifrado del registro, especifique esa versión de la clave al habilitar el cifrado del registro con una clave administrada por el cliente. Cuando un registro se cifra con una versión de clave específica, Azure Container Registry usa esa versión para el cifrado hasta que se rota manualmente la clave administrada por el cliente.
-
-> [!NOTE]
-> Actualmente, solo puede usar la CLI de Azure para configurar el registro de forma que actualice automáticamente la versión de la clave administrada por el cliente. Al usar el portal para habilitar el cifrado, debe actualizar manualmente la versión de la clave.
 
 Para obtener más información, consulte [Elección del identificador de clave con o sin versión de clave](#choose-key-id-with-or-without-key-version) y [Actualización de la versión de la clave](#update-key-version), más adelante en este artículo.
 
@@ -279,13 +276,15 @@ También puede usar [Azure RBAC para Key Vault](../key-vault/general/rbac-guide.
     1. Asigne acceso a la **identidad administrada asignada por el usuario**.
     1. Seleccione el nombre de recurso de la identidad administrada asignada por el usuario y luego **Guardar**.
 
-### <a name="create-key"></a>Crear clave
+### <a name="create-key-optional"></a>Creación de la clave (opcional)
+
+Opcionalmente, puede crear una clave en el almacén de claves para su uso con el fin de cifrar el registro. Siga estos pasos si desea seleccionar una versión de clave específica como clave administrada por el cliente. 
 
 1. Vaya al almacén de claves.
 1. Seleccione **Configuración** > **Claves**.
 1. Seleccione **+Generar o importar** y escriba un nombre único para la clave.
 1. Acepte los restantes valores predeterminados y seleccione **Crear**.
-1. Tras la creación, seleccione la clave y anote la versión de la clave actual.
+1. Tras la creación, seleccione la clave y, después, la versión actual. Copie el **identificador de clave** de la versión de la clave.
 
 ### <a name="create-azure-container-registry"></a>Creación de una instancia de Azure Container Registry
 
@@ -293,10 +292,11 @@ También puede usar [Azure RBAC para Key Vault](../key-vault/general/rbac-guide.
 1. En la pestaña **Datos básicos**, seleccione o cree un grupo de recursos y escriba un nombre de registro. En **SKU**, seleccione **Premium**.
 1. En la pestaña **Cifrado**, en **Clave administrada por el cliente**, seleccione **Habilitado**.
 1. En **Identidad**, seleccione la identidad administrada que ha creado.
-1. En **Cifrado**, elija **Seleccionar de Key Vault**.
-1. En la ventana **Seleccione clave de Azure Key Vault**, seleccione el almacén de claves, la clave y la versión que ha creado en la sección anterior.
+1. En **Cifrado**, realice alguna de la siguientes acciones:
+    * Seleccione **Seleccionar de Key Vault** y seleccione un almacén de claves y una clave existentes, o bien **Crear nuevo**. La clave que seleccione no tiene versiones y permite la rotación automática de claves.
+    * Seleccione **Escribir el URI de la clave** y proporcione un identificador de clave directamente. Puede proporcionar un URI de clave con versión (para una clave que se debe rotar manualmente) o un URI de clave sin versión (que habilita la rotación automática de claves). 
 1. En la pestaña **Cifrado**, seleccione **Revisar y crear**.
-1. Seleccione **Crear** para crear la instancia del registro.
+1. Seleccione **Crear** para implementar la instancia del registro.
 
 :::image type="content" source="media/container-registry-customer-managed-keys/create-encrypted-registry.png" alt-text="Creación de un registro cifrado en Azure Portal":::
 
@@ -498,11 +498,11 @@ Por ejemplo, para configurar una nueva clave:
 
 1. En el portal, vaya al registro.
 1. En **Configuración**, seleccione **Cifrado** > **Cambiar clave**.
-1. Elija **Seleccionar clave**.
 
     :::image type="content" source="media/container-registry-customer-managed-keys/rotate-key.png" alt-text="Giro de clave en Azure Portal":::
-1. En la ventana **Seleccione clave de Azure Key Vault**, seleccione el almacén de claves y la clave configurados anteriormente y, en **Versión**, seleccione **Crear nueva**.
-1. En la ventana **Crear una clave**, seleccione **Generar** y luego **Crear**.
+1. En **Cifrado**, realice alguna de la siguientes acciones:
+    * Seleccione **Seleccionar de Key Vault** y seleccione un almacén de claves y una clave existentes, o bien **Crear nuevo**. La clave que seleccione no tiene versiones y permite la rotación automática de claves.
+    * Seleccione **Escribir el URI de la clave** y proporcione un identificador de clave directamente. Puede proporcionar un URI de clave con versión (para una clave que se debe rotar manualmente) o un URI de clave sin versión (que habilita la rotación automática de claves).
 1. Complete la selección de claves y seleccione **Guardar**.
 
 ## <a name="revoke-key"></a>Revocación de clave

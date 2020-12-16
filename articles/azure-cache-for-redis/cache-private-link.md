@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 1a9d5fe69cd9d853d0bf8ec971f31518bbf47c9a
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 31ae4605b6cc9e26c89beea692fe61fcbda49c4c
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94504703"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621508"
 ---
 # <a name="azure-cache-for-redis-with-azure-private-link-public-preview"></a>Azure Cache for Redis con Azure Private Link (versión preliminar pública)
 En este artículo, obtendrá información sobre cómo crear una red virtual y una instancia de Azure Cache for Redis con un punto de conexión privado mediante Azure Portal. También aprenderá a agregar un punto de conexión privado a una instancia de Azure Cache for Redis existente.
@@ -111,8 +111,8 @@ La caché tarda un tiempo en crearse. Puede supervisar el progreso en la página
     
 > [!IMPORTANT]
 > 
-> Hay una marca `publicNetworkAccess` que está establecida en `Enabled` de manera predeterminada. 
-> Esta marca está pensada para que pueda, de manera opcional, permitir el acceso de puntos de conexión públicos y privados a la memoria caché si está establecida en `Enabled`. Si se establece en `Disabled`, solo permitirá el acceso a puntos de conexión privados. Puede establecer el valor en `Disabled` con la siguiente solicitud PATCH.
+> Hay una marca `publicNetworkAccess` que está establecida en `Disabled` de manera predeterminada. 
+> Esta marca está pensada para que pueda, de manera opcional, permitir el acceso de puntos de conexión públicos y privados a la memoria caché si está establecida en `Enabled`. Si se establece en `Disabled`, solo permitirá el acceso a puntos de conexión privados. Puede establecer el valor en `Disabled` o `Enabled` con la siguiente solicitud PATCH. Edite el valor para que refleje la marca que desea para la memoria caché.
 > ```http
 > PATCH  https://management.azure.com/subscriptions/{subscription}/resourceGroups/{resourcegroup}/providers/Microsoft.Cache/Redis/{cache}?api-version=2020-06-01
 > {    "properties": {
@@ -212,8 +212,9 @@ Si la memoria caché ya está insertada en la red virtual, los puntos de conexi�
 ### <a name="what-features-are-not-supported-with-private-endpoints"></a>¿Qué características no son compatibles con los puntos de conexión privados?
 La replicación geográfica, las reglas de firewall, la compatibilidad con la consola del portal, varios puntos de conexión por memoria caché en clúster, la persistencia de las reglas de firewall y la redundancia de zona. 
 
-### <a name="how-can-i-change-my-private-endpoint-to-be-disabled-from-public-network-access"></a>¿Cómo puedo cambiar el punto de conexión privado para que esté deshabilitado el acceso desde la red pública?
-Hay una marca `publicNetworkAccess` que está establecida en `Enabled` de manera predeterminada. Esta marca está pensada para que pueda, de manera opcional, permitir el acceso de puntos de conexión públicos y privados a la memoria caché si está establecida en `Enabled`. Si se establece en `Disabled`, solo permitirá el acceso a puntos de conexión privados. Puede establecer el valor en `Disabled` con la siguiente solicitud PATCH.
+### <a name="how-can-i-change-my-private-endpoint-to-be-disabled-or-enabled-from-public-network-access"></a>¿Cómo puedo cambiar el punto de conexión privado para que esté deshabilitado o habilitado el acceso desde la red pública?
+Hay una marca `publicNetworkAccess` que está establecida en `Disabled` de manera predeterminada. Esta marca está pensada para que pueda, de manera opcional, permitir el acceso de puntos de conexión públicos y privados a la memoria caché si está establecida en `Enabled`. Si se establece en `Disabled`, solo permitirá el acceso a puntos de conexión privados. Puede establecer el valor en `Disabled` o `Enabled` con la siguiente solicitud PATCH. Edite el valor para que refleje la marca que desea para la memoria caché.
+
 ```http
 PATCH  https://management.azure.com/subscriptions/{subscription}/resourceGroups/{resourcegroup}/providers/Microsoft.Cache/Redis/{cache}?api-version=2020-06-01
 {    "properties": {

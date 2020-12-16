@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 09/01/2019
-ms.openlocfilehash: c4d9c7c2cb7a0a86824a373f1b64044b6dcd6c20
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.date: 12/08/2019
+ms.openlocfilehash: 37a10d90fa0e277fbe45d9f1377e365cb3d42996
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420808"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861467"
 ---
 # <a name="extract-n-gram-features-from-text-module-reference"></a>Referencia del módulo Extract N-Gram Features from Text (Extracción de características de n-gramas del texto)
 
@@ -28,7 +28,7 @@ El módulo admite los siguientes escenarios de uso de un diccionario de n-gramas
 
 * [Uso de un conjunto existente de características de texto](#use-an-existing-n-gram-dictionary) para caracterizar una columna de texto libre.
 
-* [Puntuación o publicación de un modelo](#score-or-publish-a-model-that-uses-n-grams) que usa n-gramas.
+* [Puntuación o implementación de un modelo](#build-inference-pipeline-that-uses-n-grams-to-deploy-a-real-time-endpoint) que usa n-gramas.
 
 ### <a name="create-a-new-n-gram-dictionary"></a>Creación de un nuevo diccionario de n-gramas
 
@@ -94,17 +94,23 @@ El módulo admite los siguientes escenarios de uso de un diccionario de n-gramas
 
 1.  Envíe la canalización.
 
-### <a name="score-or-publish-a-model-that-uses-n-grams"></a>Puntuación o publicación de un modelo que usa n-gramas
+### <a name="build-inference-pipeline-that-uses-n-grams-to-deploy-a-real-time-endpoint"></a>Creación de una canalización de inferencias que usa n-gramas para implementar un punto de conexión en tiempo real
 
-1.  Copie el módulo **Extract N-Gram Features from Text** del flujo de datos de entrenamiento al de puntuación.
+Las canalizaciones de entrenamiento que contienen **Extract N-Grams Feature From Text** (Extracción de características de n-gramas del texto) y **Score Model** (Puntuación de modelos) para hacer predicciones en el conjunto de pruebas se basa en la estructura siguiente:
 
-1.  Conecte la salida **Result Vocabulary** (Vocabulario resultante) del flujo de datos de entrenamiento a **Input Vocabulary** (Vocabulario de entrada) en el flujo de datos de puntuación.
+:::image type="content" source="./media/module/extract-n-gram-training-pipeline-score-model.png" alt-text="Ejemplo de canalización de entrenamiento de extracción de n-gramas" border="true":::
 
-1.  En el flujo de trabajo de puntuación, modifique el módulo Extract N-Gram Features from Text (Extracción de características de n-gramas del texto) y establezca el parámetro **Vocabulary mode** (Modo vocabulario) en **ReadOnly**. Deje todo lo demás igual.
+El **modo de vocabulario** del módulo **Extract N-Grams Feature From Text** (Extracción de características de n-gramas del texto) seleccionado es **Create** (Crear), mientras que el **modo de vocabulario** del módulo conectado con **Score Model** (Puntuación de modelos) es **ReadOnly** (Solo lectura).
 
-1.  Para publicar la canalización, guarde **Result Vocabulary** (Vocabulario resultante) como un conjunto de datos.
+Después de enviar correctamente la canalización de entrenamiento anterior, puede registrar la salida del módulo seleccionado como un conjunto de datos.
 
-1.  A continuación, conecte el conjunto de datos guardado al módulo Extract N-Gram Features from Text (Extracción de características de n-gramas del texto) en el gráfico de puntuación.
+:::image type="content" source="./media/module/extract-n-gram-output-voc-register-dataset.png" alt-text="Registro del conjunto de datos" border="true":::
+
+A continuación, puede crear una canalización de inferencias en tiempo real. Una vez creada la canalización de inferencias, tendrá que ajustarla manualmente tal y como se muestra a continuación:
+
+:::image type="content" source="./media/module/extract-n-gram-inference-pipeline.png" alt-text="Canalización de inferencias" border="true":::
+
+A continuación, envíe la canalización de inferencias e implemente un punto de conexión en tiempo real.
 
 ## <a name="results"></a>Results
 

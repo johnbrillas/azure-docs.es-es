@@ -9,18 +9,82 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: 03825e0f091df01b98355dd6789eb5c9cb2897b0
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 4998469fa353fef9e8a91d078349150d9f739ac2
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96444542"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779420"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de la versión de Azure Machine Learning
 
 En este artículo conocerá las versiones de Azure Machine Learning.  Para obtener el contenido completo de referencia del SDK, visite la página de referencia del [**SDK principal para Python**](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) de Azure Machine Learning.
 
 Para obtener información acerca de errores conocidos y soluciones alternativas, consulte [la lista de problemas conocidos](resource-known-issues.md).
+
+## <a name="2020-12-07"></a>2020-12-07
+
+### <a name="azure-machine-learning-sdk-for-python-v1190"></a>SDK de Azure Machine Learning para Python v1.19.0
++ **Mejoras y correcciones de errores**
+  + **azureml-automl-core**
+    + Se agregó compatibilidad experimental para los datos de prueba a AutoMLStep.
+    + Se agregó la implementación básica inicial de la característica de ingestión del conjunto de prueba.
+    + Se han pasado referencias a sklearn.externals.joblib para depender directamente de joblib.
+    + presente un nuevo tipo de tarea AutoML de "image-instance-segmentation".
+  + **azureml-automl-runtime**
+    + Se agregó la implementación básica inicial de la característica de ingestión del conjunto de prueba.
+    + Cuando todas las cadenas de una columna de texto tienen una longitud de exactamente 1 carácter, el caracterizador TfIdf word-gram no funcionará porque su tokenizador omite las cadenas con menos de 2 caracteres. El cambio de código actual permitirá a AutoML controlar este caso de uso.
+    + presente un nuevo tipo de tarea AutoML de "image-instance-segmentation".
+  + **azureml-contrib-automl-dnn-nlp**
+    + PR inicial para el nuevo paquete dnn-nlp
+  + **azureml-contrib-automl-dnn-vision**
+    + presente un nuevo tipo de tarea AutoML de "image-instance-segmentation".
+  + **azureml-contrib-automl-pipeline-steps**
+    + Este nuevo paquete es responsable de crear los pasos necesarios en muchos escenarios de inferencia o entrenamiento de modelos. -También traslada el código de inferencia o entrenamiento en el paquete azureml.train.automl.runtime, de modo que las correcciones futuras estarían disponibles automáticamente a través de las versiones de entorno mantenido.
+  + **azureml-contrib-dataset**
+    + presente un nuevo tipo de tarea AutoML de "image-instance-segmentation".
+  + **azureml-core**
+    + Se agregó la implementación básica inicial de la característica de ingestión del conjunto de prueba.
+    + Corrección de las advertencias xref para la documentación del paquete azureml-core
+    + Correcciones de cadena de documentación para la característica de compatibilidad con comandos en SDK
+    + Incorporación de una propiedad de comando a RunConfiguration. La característica permite a los usuarios ejecutar un comando real o archivos ejecutables en el proceso a través del SDK de AzureML.
+    + Los usuarios pueden eliminar un experimento vacío dado el identificador de ese experimento.
+  + **azureml-dataprep**
+    + Se ha agregado compatibilidad del conjunto de datos para Spark creada con Scala 2.12. Se agrega a la compatibilidad con 2.11 existente.
+  + **azureml-mlflow**
+    + AzureML-MLflow agrega medidas de seguridad en scripts remotos para evitar la finalización temprana de las ejecuciones enviadas.
+  + **azureml-pipeline-core**
+    + Se ha corregido un error en el establecimiento de una canalización predeterminada para el punto de conexión de canalización creado a través de la interfaz de usuario
+  + **azureml-pipeline-steps**
+    + Se agregó compatibilidad experimental para los datos de prueba a AutoMLStep.
+  + **azureml-tensorboard**
+    + Corrección de las advertencias xref para la documentación del paquete azureml-core
+  + **azureml-train-automl-client**
+    + Se agregó compatibilidad experimental para los datos de prueba a AutoMLStep.
+    + Se agregó la implementación básica inicial de la característica de ingestión del conjunto de prueba.
+    + presente un nuevo tipo de tarea AutoML de "image-instance-segmentation".
+  + **azureml-train-automl-runtime**
+    + Se agregó la implementación básica inicial de la característica de ingestión del conjunto de prueba.
+    + Corrija el cálculo de las explicaciones básicas del mejor modelo de AutoML si los modelos de AutoML se entrenan mediante la configuración de validation_size.
+    + Se han pasado referencias a sklearn.externals.joblib para depender directamente de joblib.
+  + **azureml-train-core**
+    + HyperDriveRun.get_children_sorted_by_primary_metric() should complete faster now
+    + Control de errores mejorado en el SDK de HyperDrive.
+    +  Se han dejado de utilizar todas las clases Estimator a favor del uso de ScriptRunConfig para configurar ejecuciones de experimento. Entre las clases en desuso se incluyen:
+        + MMLBaseEstimator
+        + Estimador
+        + PyTorch 
+        + TensorFlow 
+        + Chainer 
+        + SKLearn
+    + Se han dejado de utilizar Nccl y Gloo como tipos de entrada válidos para las clases Estimator a favor del uso de PyTorchConfiguration con ScriptRunConfig.
+    + Se ha dejado de utilizar Mpi como tipo de entrada válido para las clases Estimator a favor del uso de MpiConfiguration con ScriptRunConfig.
+    + Incorporación de una propiedad de comando a RunConfiguration. La característica permite a los usuarios ejecutar un comando real o archivos ejecutables en el proceso a través del SDK de AzureML.
+
+    +  Se han dejado de utilizar todas las clases Estimator a favor del uso de ScriptRunConfig para configurar ejecuciones de experimento. Entre las clases en desuso se incluyen: + MMLBaseEstimator + Estimator + PyTorch + TensorFlow + Chainer + SKLearn
+    + Se han dejado de utilizar Nccl y Gloo como tipo de entrada válido para las clases Estimator a favor del uso PyTorchConfiguration con ScriptRunConfig. 
+    + Se ha dejado de utilizar Mpi como tipo de entrada válido para las clases Estimator a favor del uso de MpiConfiguration con ScriptRunConfig.
+
 
 
 ## <a name="2020-11-09"></a>09-11-2020
@@ -47,12 +111,6 @@ Para obtener información acerca de errores conocidos y soluciones alternativas,
     + Se ha refinado la API del servicio vinculado. En lugar de proporcionar el identificador del recurso, tenemos tres parámetros independientes, sub_id, rg y name, definidos en la configuración.
     + Para permitir que los clientes resuelvan automáticamente los problemas de daños en los tokens, habilite la sincronización de tokens del área de trabajo para que sea un método público.
     + Este cambio permite usar una cadena vacía como valor de script_param.
-  + **azureml-pipeline-core**
-    + SDK para admitir el tipo SynapseCompute y SynapseSparkStep. Los clientes pueden ejecutar experimento y canalizaciones que se ejecutan en el grupo de Synapse Spark.
-  + **azureml-pipeline-steps**
-    + SDK para admitir el tipo SynapseCompute y SynapseSparkStep. Los clientes pueden ejecutar experimento y canalizaciones que se ejecutan en el grupo de Synapse Spark.
-  + **azureml-synapse**
-    + Adición de Synapse Magic y SparkMonitor para permitir que el usuario envíe el trabajo de Synapse y vea el progreso del trabajo en el cuaderno.
   + **azureml-train-automl-client**
     +  Se ha mejorado el control de las series temporales breves al permitir su relleno con ruido gaussiano.
   + **azureml-train-automl-runtime**
@@ -90,7 +148,6 @@ Obtenga más información sobre el [etiquetado de segmentación de instancias de
     + Se corrigió un problema por el que las predicciones de VotingRegressor podrían ser imprecisas después de reajustar el modelo.
   + **azureml-core**
     + Se agregaron detalles adicionales sobre la relación entre la configuración de implementación de AKS y los conceptos de Azure Kubernetes Service.
-    + El cliente puede usar el SDK del servicio vinculado para vincular el área de trabajo de Synapse al área de trabajo de AML. Se admite CRUD.
     + Compatibilidad con etiquetas de cliente del entorno. El usuario puede etiquetar entornos y hacer referencia a ellos mediante etiquetas.
   + **azureml-dataprep**
     + Se ha mejorado el mensaje de error al usar una versión de Spark que no es compatible actualmente con Scala 2.12.

@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 11/06/2020
-ms.openlocfilehash: 8a8b04501bf81f41fb87de8fc0ce42eb4e7fda93
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 8469cad02009d054bd8ba97fb4aabfdae84ef842
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369864"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96744625"
 ---
 # <a name="configure-a-solution-template-plan"></a>Configuración de un plan de plantilla de solución
 
@@ -21,7 +21,7 @@ Este artículo solo se aplica a los planes de plantilla de solución de una ofer
 
 ## <a name="choose-who-can-see-your-plan"></a>Selección de quién puede ver el plan
 
-Tiene la opción de configurar cada plan para que lo pueda ver todo el mundo o solo un público concreto. Puede conceder acceso a una audiencia privada con los identificadores de la suscripción de Azure con la opción de incluir una descripción de cada identificador de suscripción que asigne. Puede agregar hasta 10 identificadores de suscripción manualmente o hasta 10 000 mediante un archivo .csv. Los identificadores de suscripción de Azure se representan como GUID y las letras deben estar en minúsculas.
+Tiene la opción de configurar cada plan para que lo pueda ver todo el mundo o solo un público concreto. Puede conceder acceso a un público privado con los identificadores de la suscripción de Azure con la opción de incluir una descripción de cada identificador de suscripción que asigne. Puede agregar hasta 10 identificadores de suscripción manualmente o hasta 10 000 mediante un archivo .csv. Los identificadores de suscripción de Azure se representan como GUID y las letras deben estar en minúsculas.
 
 > [!NOTE]
 > Si publica un plan privado, puede cambiar su visibilidad a público más adelante. Sin embargo, una vez que se publica un plan público, no se puede cambiar su visibilidad a privado.
@@ -37,9 +37,9 @@ En la pestaña **Disponibilidad**, en **Plan visibility** (Visibilidad del plan)
 ### <a name="manually-add-azure-subscription-ids-for-a-private-plan"></a>Adición manual de los identificadores de la suscripción de Azure a un plan privado
 
 1. En **Plan visibility** (Visibilidad del plan), seleccione el botón de opción **Privado**.
-1. En el cuadro **Identificador de la suscripción de Azure** que aparece, escriba el identificador de la suscripción de Azure de la audiencia a la que quiere conceder acceso a este plan privado. Se requiere un identificador de suscripción como mínimo.
+1. En el cuadro **Identificador de la suscripción de Azure** que aparece, escriba el identificador de la suscripción de Azure del público al que quiere conceder acceso a este plan privado. Se requiere un identificador de suscripción como mínimo.
 1. (Opcional) Escriba una descripción de este público en el cuadro **Descripción**.
-1. Para agregar otro identificador de suscripción, seleccione el vínculo **Add ID (Max 10)** (Agregar identificador [10 como máximo]) y repita los pasos 2 y 3.
+1. Para agregar otro identificador de suscripción, seleccione el vínculo **Add ID (Max 10)** (Agregar identificador [10 como máximo]) y repita los pasos 2 y 3.
 
 ## <a name="use-a-csv-file-to-add-azure-subscription-ids-for-a-private-plan"></a>Uso de un archivo .csv para agregar los identificadores de la suscripción de Azure a un plan privado
 
@@ -72,7 +72,7 @@ En el cuadro **Versión**, proporcione la versión actual de la configuración t
 
 ### <a name="upload-a-package-file"></a>Carga de un archivo de paquete
 
-En **Package file (.zip)** (Archivo del paquete [zip]), arrastre el archivo de paquete al cuadro gris o seleccione el vínculo para **buscar los archivos**.
+En **Archivo de paquete (.zip)** , arrastre el archivo de paquete al cuadro gris o seleccione el vínculo para **buscar los archivos**.
 
 > [!NOTE]
 > Si tiene un problema al cargar archivos, asegúrese de que la red local no bloquee el servicio `https://upload.xboxlive.com` que usa el Centro de partners.
@@ -96,4 +96,4 @@ Las acciones que están disponibles en la columna **Acción** de la pestaña **I
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Prueba y publicación de la oferta de Aplicación de Azure](create-new-azure-apps-offer-test-publish.md).
-- Aprenda a [comercializar su oferta de Aplicación de Azure](create-new-azure-apps-offer-marketing.md) mediante los programas de venta conjunta con Microsoft y reventa a través de los CSP.
+- Aprenda a [vender su oferta de Aplicación de Azure](create-new-azure-apps-offer-marketing.md) mediante los programas de venta conjunta con Microsoft y reventa a través de los CSP.

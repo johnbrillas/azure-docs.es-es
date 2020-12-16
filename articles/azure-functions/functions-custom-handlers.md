@@ -1,18 +1,18 @@
 ---
-title: Controladores personalizados de Azure Functions (versión preliminar)
+title: Controladores personalizados de Azure Functions
 description: Aprenda a utilizar Azure Functions con cualquier versión de lenguaje o de tiempo de ejecución.
 author: anthonychu
 ms.author: antchu
-ms.date: 8/18/2020
+ms.date: 12/1/2020
 ms.topic: article
-ms.openlocfilehash: 402ce1e9e92ab87689abe9c18a503a479d7421f9
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 099f90ba8c5d9dabb6c4c505e50d8c077e3eaf0f
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164557"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746036"
 ---
-# <a name="azure-functions-custom-handlers-preview"></a>Controladores personalizados de Azure Functions (versión preliminar)
+# <a name="azure-functions-custom-handlers"></a>Controladores personalizados de Azure Functions
 
 Cada aplicación de Functions se ejecuta mediante un controlador específico de lenguaje. Aunque Azure Functions admite muchos [controladores de lenguajes](./supported-languages.md) de forma predeterminada, hay casos en los que es posible que desee usar otros lenguajes o runtimes.
 
@@ -20,10 +20,12 @@ Los controladores personalizados son servidores web ligeros que reciben eventos 
 
 Los controladores personalizados son más adecuados para las situaciones en las que desea:
 
-- Implemente una aplicación de funciones en un lenguaje que no se admite actualmente, como Go y Rust.
+- Implemente una aplicación de funciones en un lenguaje que no se admite actualmente, como Go o Rust.
 - Implemente una aplicación de funciones en un runtime que no se admite actualmente, como Deno.
 
 Con los controladores personalizados, puede usar [desencadenadores y enlaces de entrada y salida](./functions-triggers-bindings.md) mediante [conjuntos de extensiones](./functions-bindings-register.md).
+
+Introducción a los controladores personalizados de Azure Functions con [inicios rápidos en Go y Rust](create-first-function-vs-code-other.md).
 
 ## <a name="overview"></a>Información general
 
@@ -583,3 +585,7 @@ Los controladores personalizados se ejecutan en el mismo entorno que una aplicac
 Si necesita ayuda en una aplicación de funciones con controladores personalizados, puede enviar una solicitud a través de canales de soporte técnico normales. Sin embargo, debido a la amplia variedad de lenguajes posibles que se usan para compilar aplicaciones de controladores personalizados, el soporte técnico no es ilimitado.
 
 El soporte técnico estará disponible si el host de Functions tiene problemas para iniciarse o comunicarse con el proceso del controlador personalizado. En el caso de experimentar problemas específicos del funcionamiento interno del proceso del controlador personalizado, como, por ejemplo, problemas con el lenguaje o el marco elegidos, nuestro equipo de soporte técnico no puede proporcionar ayuda en este contexto.
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Comience a crear una aplicación de Azure Functions en Go o Rust en el [inicio rápido de controladores personalizados](create-first-function-vs-code-other.md).

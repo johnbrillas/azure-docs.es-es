@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/01/2020
-ms.openlocfilehash: c21b4d746d763f41f4360cf93f67939bcd6dc49f
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 5d13a6a77ede6277eebc7fdab7cd42165cb602fa
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92632692"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746376"
 ---
 # <a name="azure-private-link-for-azure-data-factory"></a>Azure Private Link para Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-xxx-md.md)]
 
-Con Azure Private Link, puede conectarse a varias implementaciones de plataforma como servicio (PaaS) en Azure a través de un punto de conexión privado. Un punto de conexión privado es una dirección IP privada dentro de una red virtual y una subred específicas. Para obtener una lista de las implementaciones PaaS que admiten la funcionalidad Private Link, vea la [documentación de Private Link](../private-link/index.yml). 
+Con Azure Private Link, puede conectarse a varias implementaciones de plataformas como servicio (PaaS) en Azure a través de un punto de conexión privado. Un punto de conexión privado es una dirección IP privada dentro de una red virtual y una subred específicas. Para obtener una lista de las implementaciones PaaS que admiten la funcionalidad Private Link, vea la [documentación de Private Link](../private-link/index.yml). 
 
 ## <a name="secure-communication-between-customer-networks-and-azure-data-factory"></a>Comunicación segura entre las redes del cliente y Azure Data Factory 
 Puede configurar una red virtual de Azure como una representación lógica de la red en la nube. Esta acción tiene estas ventajas derivadas:
@@ -53,10 +53,10 @@ Las comunicaciones con el servicio Azure Data Factory pasan a través de Private
 ![Diagrama de Private Link para la arquitectura de Azure Data Factory.](./media/data-factory-private-link/private-link-architecture.png)
 
 La habilitación del servicio Private Link para cada uno de los canales de comunicación anteriores ofrece la siguiente funcionalidad:
-- **Admitido** :
+- **Admitido**:
    - Puede crear y supervisar la factoría de datos en la red virtual, incluso si bloquea todas las comunicaciones salientes.
    - Las comunicaciones de comandos entre el entorno de ejecución de integración autohospedado y el servicio Azure Data Factory se pueden realizar de forma segura en un entorno de red privado. El tráfico entre el entorno de ejecución de integración autohospedado y el servicio Azure Data Factory pasa a través Private Link. 
-- **No admitido actualmente** :
+- **No admitido actualmente**:
    - La creación interactiva que usa el entorno de ejecución de integración autohospedado pasa a través de Private Link como, por ejemplo, en el caso de las pruebas de conexiones, el examen de la lista de carpetas y de tablas, la obtención de esquemas y la vista previa de los datos.
    - La nueva versión del entorno de ejecución de integración autohospedado se puede descargar automáticamente desde el Centro de descarga de Microsoft si habilita la actualización automática.
 
@@ -66,23 +66,56 @@ La habilitación del servicio Private Link para cada uno de los canales de comun
 > [!WARNING]
 > Cuando cree un servicio vinculado, asegúrese de que las credenciales se almacenan en un almacén de claves de Azure. De lo contrario, las credenciales no funcionarán al habilitar Private Link en Azure Data Factory.
 
+## <a name="dns-changes-for-private-endpoints"></a>Cambios de DNS en puntos de conexión privados
+Al crear un punto de conexión privado, el registro del recurso CNAME de DNS de Data Factory se actualiza a un alias de un subdominio con el prefijo "privatelink". De forma predeterminada, también se crea una [zona DNS privada](https://docs.microsoft.com/azure/dns/private-dns-overview), que se corresponde con el subdominio "privatelink", con los registros de recursos A de DNS para los puntos de conexión privados.
+
+Cuando se resuelve la dirección URL del punto de conexión de la factoría de datos desde fuera de VNet con el punto de conexión privado, se resuelve en el punto de conexión público del servicio de factoría de datos. Cuando se resuelve desde la red virtual que hospeda el punto de conexión privado, la dirección URL del punto de conexión de almacenamiento se resuelve en la dirección IP del punto de conexión privado.
+
+En el ejemplo anterior, los registros de recursos DNS de Data Factory "DataFactoryA", cuando se resuelven desde fuera de la red virtual que hospeda el punto de conexión privado, serán:
+
+| Nombre | Tipo | Value |
+| ---------- | -------- | --------------- |
+| DataFactoryA.{region}.datafactory.azure.net | CNAME   | DataFactoryA.{region}.privatelink.datafactory.azure.net |
+| DataFactoryA.{region}.privatelink.datafactory.azure.net | CNAME   | < punto de conexión público del servicio de factoría de datos > |
+| < punto de conexión público del servicio de factoría de datos >  | A | < dirección IP pública del servicio de factoría de datos > |
+
+Los registros de recursos DNS para DataFactoryA, cuando se resuelvan en la instancia de VNet que hospeda el punto de conexión privado, serán:
+
+| Nombre | Tipo | Value |
+| ---------- | -------- | --------------- |
+| DataFactoryA.{region}.datafactory.azure.net | CNAME   | DataFactoryA.{region}.privatelink.datafactory.azure.net |
+| DataFactoryA.{region}.privatelink.datafactory.azure.net   | A | < dirección IP del punto de conexión privado > |
+
+Si va a usar un servidor DNS personalizado en la red, los clientes deben ser capaces de resolver el FQDN del punto de conexión de Data Factory en la dirección IP del punto de conexión privado. Debería configurar el servidor DNS para delegar el subdominio del vínculo privado en la zona DNS privada de la red virtual o configurar los registros A para "DataFactoryA.{region}.privatelink.datafactory.azure.net" con la dirección IP del punto de conexión privado.
+
+Para más información sobre cómo configurar su propio servidor DNS para que admita puntos de conexión privados, consulte los siguientes artículos:
+- [Resolución de nombres de recursos en redes virtuales de Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
+- [Configuración de DNS para puntos de conexión privados](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration)
+
+
 ## <a name="set-up-private-link-for-azure-data-factory"></a>Configuración de Private Link para Azure Data Factory
 Puede crear puntos de conexión privados mediante [Azure Portal](../private-link/create-private-endpoint-portal.md).
+
+Puede elegir si desea conectar su entorno de ejecución de integración autohospedado a Azure Data Factory a través de un punto de conexión público o un punto de conexión privado. 
+
+![Captura de pantalla de bloqueo del acceso público de entorno de ejecución de integración autohospedado.](./media/data-factory-private-link/disable-public-access-shir.png)
+
 
 También puede ir a Azure Data Factory en Azure Portal y crear un punto de conexión privado, como se muestra aquí:
 
 ![Captura de pantalla del panel "Conexiones de punto de conexión privado" para crear un punto de conexión privado.](./media/data-factory-private-link/create-private-endpoint.png)
 
+En el paso de **Recurso**, seleccione **Microsoft.Datafactory/factories** como **Tipo de recurso**. Y si desea crear un punto de conexión privado para las comunicaciones de comandos entre el entorno de ejecución de integración autohospedado y el servicio Azure Data Factory, seleccione **DataFactory** para **Subrecurso de destino**.
 
-Si desea bloquear el acceso público a esta instancia de Azure Data Factory y solo permitir el acceso a través de Private Link, deshabilite el acceso de red para Azure Data Factory en Azure Portal, como se muestra aquí:
-
-![Captura de pantalla del panel "Acceso de red" para crear un punto de conexión privado.](./media/data-factory-private-link/disable-network-access.png)
+![Captura de pantalla del panel "Conexiones de punto de conexión privado" para seleccionar el recurso.](./media/data-factory-private-link/private-endpoint-resource.png)
 
 > [!NOTE]
 > Deshabilitar el acceso a la red pública solo es aplicable al entorno de ejecución de integración autohospedado, no a Azure Integration Runtime ni a SQL Server Integration Services (SSIS) Integration Runtime.
 
+Si desea crear un punto de conexión privado para la creación y supervisión de la factoría de datos en la red virtual, seleccione **Portal** para **Subrecurso de destino**.
+
 > [!NOTE]
-> Puede seguir accediendo al portal de Azure Data Factory a través de la red pública después de deshabilitar el acceso a la red pública.
+> Puede seguir accediendo al portal de Azure Data Factory a través de la red pública después de crear el punto de conexión privado para el portal.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -12,12 +12,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
 - devx-track-azurecli
-ms.openlocfilehash: 8f7baca94d653d9851c506068ccf7ecf84063641
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 3218df4601ef7a5e1b1e04c20c89eefc367b720b
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94832184"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746461"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-in-a-web-application"></a>Visualización de datos del sensor en tiempo real desde Azure IoT Hub en una aplicación web
 
@@ -184,7 +184,7 @@ En esta sección, aprovisiona una aplicación web en App Service e implementa el
 
 5. Para implementar el código en App Service, deberá usar sus [credenciales de implementación de nivel de usuario](../app-service/deploy-configure-credentials.md). Las credenciales de implementación de nivel de usuario son diferentes de las credenciales de Azure y se usan para las implementaciones de FTP y Git local en una aplicación web. Una vez establecidas, son válidas en todas las aplicaciones de App Service de todas las suscripciones de su cuenta de Azure. Si previamente ha configurado las credenciales de implementación de nivel de usuario, puede usarlas.
 
-   Si anteriormente no ha establecido las credenciales de implementación de nivel de usuario o si no recuerda su contraseña, ejecute el siguiente comando. El nombre de usuario de la implementación debe ser único dentro de Azure y no debe contener el símbolo ‘@’ para las inserciones de Git local. Cuando se le pida, escriba la nueva contraseña y confírmela. La contraseña debe tener al menos ocho caracteres y dos de los tres elementos siguientes: letras, números y símbolos.
+   Si anteriormente no ha establecido las credenciales de implementación de nivel de usuario o si no recuerda su contraseña, ejecute el siguiente comando. El nombre de usuario de la implementación debe ser único dentro de Azure y no debe contener el símbolo “\@” para las inserciones de Git local. Cuando se le pida, escriba la nueva contraseña y confírmela. La contraseña debe tener al menos ocho caracteres y dos de los tres elementos siguientes: letras, números y símbolos.
 
    ```azurecli-interactive
    az webapp deployment user set --user-name <your deployment user name>

@@ -1,14 +1,14 @@
 ---
 title: Solución de errores comunes
 description: Aprenda a solucionar problemas relacionados con la creación de definiciones de directivas, los diversos SDK y el complemento de Kubernetes.
-ms.date: 10/30/2020
+ms.date: 12/01/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 74b622dd41fb28e845a35780e5d06588189ec029
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: f3667988d527100507d308887338278e1200d454
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146286"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96511005"
 ---
 # <a name="troubleshoot-errors-using-azure-policy"></a>Solución de problemas mediante Azure Policy
 
@@ -34,13 +34,13 @@ Azure Policy usa [alias](../concepts/definition-structure.md#aliases) para asign
 
 Se ha utilizado un alias incorrecto o inexistente en una definición de directiva.
 
-#### <a name="resolution"></a>Solución
+#### <a name="resolution"></a>Resolución
 
 En primer lugar, compruebe que la propiedad de Resource Manager tiene un alias. Use la [extensión de Azure Policy para Visual Studio Code](../how-to/extension-for-vscode.md), [Azure Resource Graph](../../resource-graph/samples/starter.md#distinct-alias-values) o el SDK para buscar los alias disponibles. Si el alias de una propiedad de Resource Manager no existe, cree una incidencia de soporte técnico.
 
 ### <a name="scenario-evaluation-details-not-up-to-date"></a>Escenario: Detalles de evaluación no actualizados
 
-#### <a name="issue"></a>Problema
+#### <a name="issue"></a>Incidencia
 
 Un recurso tiene el estado "No iniciado" o los detalles de cumplimiento no son actuales.
 
@@ -48,7 +48,7 @@ Un recurso tiene el estado "No iniciado" o los detalles de cumplimiento no son a
 
 Cualquier nueva asignación de directiva o iniciativa tarda unos 30 minutos en aplicarse. Los recursos nuevos o actualizados dentro del ámbito de una asignación existente estarán disponibles unos 15 minutos más tarde. Un examen de cumplimiento estándar se produce cada 24 horas. Para más información, consulte los [desencadenadores de evaluación](../how-to/get-compliance-data.md#evaluation-triggers).
 
-#### <a name="resolution"></a>Solución
+#### <a name="resolution"></a>Resolución
 
 En primer lugar, espere la cantidad de tiempo adecuada para que se complete una evaluación y que los resultados de cumplimiento estén disponibles en Azure Portal o el SDK. Para iniciar un nuevo examen de evaluación con Azure PowerShell o la API REST, consulte [Examen de evaluación a petición](../how-to/get-compliance-data.md#on-demand-evaluation-scan).
 
@@ -56,7 +56,7 @@ En primer lugar, espere la cantidad de tiempo adecuada para que se complete una 
 
 #### <a name="issue"></a>Incidencia
 
-Un recurso no está en el estado de evaluación, ya sea _Compatible_ o _No compatible_ , que es lo que se espera de ese recurso.
+Un recurso no está en el estado de evaluación, ya sea _Compatible_ o _No compatible_, que es lo que se espera de ese recurso.
 
 #### <a name="cause"></a>Causa
 
@@ -82,7 +82,7 @@ Si todavía tiene un problema con la definición de la directiva integrada dupli
 
 ### <a name="scenario-enforcement-not-as-expected"></a>Escenario: La aplicación no es la esperada
 
-#### <a name="issue"></a>Problema
+#### <a name="issue"></a>Incidencia
 
 Un recurso en el que se espera que actúe Azure Policy no existe y no hay ninguna entrada en el [registro de actividad de Azure](../../../azure-monitor/platform/platform-logs-overview.md).
 
@@ -95,7 +95,7 @@ La asignación de directivas se ha configurado para un valor de [enforcementMode
 Siga estos pasos para solucionar los problemas de aplicación de la asignación de la directiva:
 
 1. En primer lugar, espere la cantidad de tiempo adecuada para que se complete una evaluación y que los resultados de cumplimiento estén disponibles en Azure Portal o el SDK. Para iniciar un nuevo examen de evaluación con Azure PowerShell o la API REST, consulte [Examen de evaluación a petición](../how-to/get-compliance-data.md#on-demand-evaluation-scan).
-1. Compruebe que los parámetros de asignación y el ámbito de asignación estén configurados correctamente y que **enforcementMode** esté _Habilitado_. 
+1. Compruebe que los parámetros de asignación y el ámbito de asignación estén configurados correctamente y que **enforcementMode** esté _Habilitado_.
 1. Compruebe el [modo de definición de directiva](../concepts/definition-structure.md#mode):
    - Modo "all" para todos los tipos de recursos.
    - Modo "indexed" si la definición de la directiva comprueba las etiquetas o la ubicación.
@@ -107,7 +107,7 @@ Si todavía tiene un problema con la definición de la directiva integrada dupli
 
 ### <a name="scenario-denied-by-azure-policy"></a>Escenario: Denegado por Azure Policy
 
-#### <a name="issue"></a>Problema
+#### <a name="issue"></a>Incidencia
 
 Se ha denegado la creación o actualización de un recurso.
 
@@ -115,7 +115,7 @@ Se ha denegado la creación o actualización de un recurso.
 
 Una asignación de directivas en el ámbito en el que se encuentra el recurso nuevo o actualizado cumple los criterios de una definición de directiva con un efecto de [denegación](../concepts/effects.md#deny). Se impide que los recursos que reúnan estas condiciones se creen o actualicen.
 
-#### <a name="resolution"></a>Solución
+#### <a name="resolution"></a>Resolución
 
 El mensaje de error de una asignación de directiva de denegación incluye los identificadores de definición de directiva y de asignación de directivas. Si se pierde la información de error en el mensaje, también está disponible en el [registro de actividad](../../../azure-monitor/platform/activity-log.md#view-the-activity-log). Use esta información para obtener más detalles para comprender las restricciones de recursos y ajustar las propiedades de los recursos de la solicitud para que coincidan con los valores permitidos.
 
@@ -131,7 +131,7 @@ Azure Policy admite varias funciones y funciones de plantilla de Azure Resource 
 
 El uso de funciones admitidas, como `parameter()` o `resourceGroup()`, da como resultado el resultado procesado de la función en el momento de la implementación en lugar de mantener la función para que la definición de la directiva y el motor de Azure Policy la procesen.
 
-#### <a name="resolution"></a>Solución
+#### <a name="resolution"></a>Resolución
 
 Para pasar una función para que forme parte de una definición de directiva, escape la cadena completa con `[` de forma que la propiedad se parezca a `[[resourceGroup().tags.myTag]`. El carácter de escape hace que Resource Manager trate el valor como una cadena al procesar la plantilla. Después, Azure Policy coloca la función en la definición de la directiva para que pueda ser dinámica según lo previsto. Para obtener más información, consulte [Sintaxis y expresiones de las plantillas de Azure Resource Manager](../../../azure-resource-manager/templates/template-expressions.md).
 
@@ -139,7 +139,7 @@ Para pasar una función para que forme parte de una definición de directiva, es
 
 ### <a name="scenario-install-using-helm-chart-fails-on-password"></a>Escenario: Error en la instalación mediante el gráfico de Helm al especificar la contraseña
 
-#### <a name="issue"></a>Problema
+#### <a name="issue"></a>Incidencia
 
 El comando `helm install azure-policy-addon` produce un error y muestra uno de los siguientes mensajes:
 
@@ -150,13 +150,13 @@ El comando `helm install azure-policy-addon` produce un error y muestra uno de l
 
 La contraseña generada incluye una coma (`,`) que hace que el gráfico de Helm se divida.
 
-#### <a name="resolution"></a>Solución
+#### <a name="resolution"></a>Resolución
 
 Use una barra diagonal inversa (`\`) como carácter de escape de la coma (`,`) cuando se ejecute `helm install azure-policy-addon`.
 
 ### <a name="scenario-install-using-helm-chart-fails-as-name-already-exists"></a>Escenario: Error en la instalación con el gráfico de Helm porque el nombre ya existe
 
-#### <a name="issue"></a>Problema
+#### <a name="issue"></a>Incidencia
 
 El comando `helm install azure-policy-addon` produce un error y muestra uno de los siguientes mensajes:
 
@@ -166,7 +166,7 @@ El comando `helm install azure-policy-addon` produce un error y muestra uno de l
 
 El gráfico de Helm llamado `azure-policy-addon` ya se ha instalado completa o parcialmente.
 
-#### <a name="resolution"></a>Solución
+#### <a name="resolution"></a>Resolución
 
 Siga las instrucciones para [quitar el complemento Azure Policy para Kubernetes](../concepts/policy-for-kubernetes.md#remove-the-add-on) y, a continuación, vuelva a ejecutar el comando `helm install azure-policy-addon`.
 
@@ -189,24 +189,6 @@ Para obtener una descripción detallada, consulte la siguiente entrada de blog:
 [Cambio importante publicado para las directivas de auditoría de configuración de invitado](https://techcommunity.microsoft.com/t5/azure-governance-and-management/important-change-released-for-guest-configuration-audit-policies/ba-p/1655316)
 
 ## <a name="add-on-for-kubernetes-general-errors"></a>Complemento para errores generales de Kubernetes
-
-### <a name="scenario-add-on-doesnt-work-with-aks-clusters-on-version-119-preview"></a>Escenario: El complemento no funciona con clústeres de AKS en la versión 1.19 (versión preliminar)
-
-#### <a name="issue"></a>Problema
-
-Los clústeres de la versión 1.19 devuelven este error a través del controlador de Gatekeeper y los pods de webhook de directiva:
-
-```
-2020/09/22 20:06:55 http: TLS handshake error from 10.244.1.14:44282: remote error: tls: bad certificate
-```
-
-#### <a name="cause"></a>Causa
-
-Los clústeres de AKS en la versión 1.19 (versión preliminar) todavía no son compatibles con el complemento de Azure Policy.
-
-#### <a name="resolution"></a>Solución
-
-Evite el uso de Kubernetes 1.19 (versión preliminar) con el complemento de Azure Policy. El complemento se puede usar con cualquier versión disponible con carácter general, como 1.16, 1.17 o 1.18.
 
 ### <a name="scenario-add-on-is-unable-to-reach-the-azure-policy-service-endpoint-due-to-egress-restrictions"></a>Escenario: El complemento no puede tener acceso al punto de conexión de servicio de Azure Policy debido a restricciones de salida.
 
@@ -277,10 +259,19 @@ spec:
 
 #### <a name="issue"></a>Problema
 
-El complemento puede tener acceso al extremo del servicio Azure Policy, pero ve el siguiente error:
+El complemento puede acceder al punto de conexión de servicio de Azure Policy, pero aparece el siguiente error:
 
 ```
-The resource provider 'Microsoft.PolicyInsights' is not registered in subscription '{subId}'. See https://aka.ms/policy-register-subscription for how to register subscriptions.
+The resource provider 'Microsoft.PolicyInsights' is not registered in subscription '{subId}'. See
+https://aka.ms/policy-register-subscription for how to register subscriptions.
+```
+
+or
+
+```
+policyinsightsdataplane.BaseClient#CheckDataPolicyCompliance: Failure responding to request:
+StatusCode=500 -- Original Error: autorest/azure: Service returned an error. Status=500
+Code="InternalServerError" Message="Encountered an internal server error."
 ```
 
 #### <a name="cause"></a>Causa
@@ -289,9 +280,9 @@ El proveedor de recursos `Microsoft.PolicyInsights` no está registrado y se deb
 
 #### <a name="resolution"></a>Solución
 
-Registre el proveedor de recursos `Microsoft.PolicyInsights`. Para obtener instrucciones, consulte [Registro del proveedor de recursos](../../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
+Registre el proveedor de recursos de `Microsoft.PolicyInsights` en la suscripción del clúster. Para obtener instrucciones, consulte [Registro del proveedor de recursos](../../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 
-### <a name="scenario-the-subscript-is-disabled"></a>Escenario: El subíndice está deshabilitado.
+### <a name="scenario-the-subscription-is-disabled"></a>Escenario: La suscripción está deshabilitada
 
 #### <a name="issue"></a>Problema
 
@@ -307,7 +298,7 @@ Este error significa que la suscripción se determinó como problemática y se a
 
 #### <a name="resolution"></a>Solución
 
-Póngase en contacto con el equipo de características en `azuredg@microsoft.com` para investigar y resolver este problema. 
+Póngase en contacto con el equipo de características en `azuredg@microsoft.com` para investigar y resolver este problema.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

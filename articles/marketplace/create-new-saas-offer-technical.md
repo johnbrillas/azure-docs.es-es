@@ -8,23 +8,23 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: d84e1508dec4d4a5802f7a2ac8c0e6ada5a8044c
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 28c0be40387f411286230f94c19fa23a80e650af
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93128698"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746410"
 ---
 # <a name="how-to-add-technical-details-for-your-saas-offer"></a>Incorporación de detalles técnicos a la oferta de SaaS
 
 En este artículo se describe cómo especificar detalles técnicos que ayuden al marketplace comercial de Microsoft a conectarse a su solución. Esta conexión nos permite aprovisionar su oferta para el cliente, en caso de que este elija adquirirla y administrarla. Para más información sobre esta configuración, consulte [Información técnica](plan-saas-offer.md#technical-information).
 
 > [!NOTE]
-> Si elige procesar las transacciones de forma independiente, no verá esta opción. En lugar de ello, vaya a [Comercialización de una oferta de SaaS](create-new-saas-offer-marketing.md).
+> Si elige procesar las transacciones de forma independiente, no verá esta opción. En lugar de ello, vaya a [Comercialización de ofertas de SaaS](create-new-saas-offer-marketing.md).
 
 ## <a name="technical-configuration"></a>Configuración técnica
 
-En la pestaña **Configuración técnica** , definirá los detalles técnicos que usa el marketplace comercial para comunicarse con la solución o la aplicación SaaS. 
+En la pestaña **Configuración técnica**, definirá los detalles técnicos que usa el marketplace comercial para comunicarse con la solución o la aplicación SaaS. 
 
 - **URL de la página de aterrizaje** (obligatorio): defina la dirección URL del sitio de SaaS (por ejemplo: `https://contoso.com/signup`) en la que los clientes finales aterrizarán después de adquirir la oferta del marketplace comercial y de desencadenar el proceso de configuración a partir de la suscripción de SaaS recién creada.
 
@@ -36,9 +36,9 @@ En la pestaña **Configuración técnica** , definirá los detalles técnicos qu
   > [!IMPORTANT]
   > El webhook debe estar en funcionamiento de forma ininterrumpida, ya que esta es la única vía por la que se le notificarán las actualizaciones de las suscripciones de SaaS de sus clientes adquiridas a través del marketplace comercial.
 
-- **Id. de inquilino de Azure Active Directory** (obligatorio): para buscar el identificador de inquilino de la aplicación Azure Active Directory (Azure AD), vaya a la hoja [Registros de aplicaciones](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) de Azure Active Directory. En la columna **Nombre para mostrar** , seleccione la aplicación. Luego, busque el número de **Id. de directorio (inquilino)** que se muestra (por ejemplo, `50c464d3-4930-494c-963c-1e951d15360e`).
+- **Id. de inquilino de Azure Active Directory** (obligatorio): para buscar el identificador de inquilino de la aplicación Azure Active Directory (Azure AD), vaya a la hoja [Registros de aplicaciones](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) de Azure Active Directory. En la columna **Nombre para mostrar**, seleccione la aplicación. Luego, busque el número de **Id. de directorio (inquilino)** que se muestra (por ejemplo, `50c464d3-4930-494c-963c-1e951d15360e`).
 
-- **Id. de aplicación de Azure Active Directory** (obligatorio): para encontrar el [identificador de aplicación](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in), vaya a la hoja [Registros de aplicaciones](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) de Azure Active Directory. En la columna **Nombre para mostrar** , seleccione la aplicación. Luego, busque el número de identificador de la aplicación (cliente) que se muestra (por ejemplo, `50c464d3-4930-494c-963c-1e951d15360e`).
+- **Id. de aplicación de Azure Active Directory** (obligatorio): para encontrar el [identificador de aplicación](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in), vaya a la hoja [Registros de aplicaciones](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) de Azure Active Directory. En la columna **Nombre para mostrar**, seleccione la aplicación. Luego, busque el número de identificador de la aplicación (cliente) que se muestra (por ejemplo, `50c464d3-4930-494c-963c-1e951d15360e`).
 
 Seleccione **Guardar borrador** antes de continuar con la siguiente pestaña: Información general del plan.
 

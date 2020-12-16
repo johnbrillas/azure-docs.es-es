@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/18/2020
+ms.date: 12/02/2020
 ms.author: mnayak
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: f6c4d0defbaeb484f66593e112587c16c46eed2f
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: c3ce69dc9364d71a501f122a7150ad4a59869422
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96491611"
+ms.locfileid: "96534019"
 ---
 # <a name="configure-routing-preference-for-a-public-ip-address-using-azure-cli"></a>Configuración de la preferencia de enrutamiento para una dirección IP pública mediante la CLI de Azure
 
@@ -52,7 +52,7 @@ Para crear un grupo de recursos, use el comando [az group create](/cli/azure/gro
 ```
 ## <a name="create-a-public-ip-address"></a>Crear una dirección IP pública
 
-Cree una dirección IP pública con preferencia de enrutamiento y de tipo "Internet" mediante el comando [az network public-ip create](/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create), con el formato que se muestra a continuación.
+Cree una dirección IP pública con preferencia de enrutamiento y de tipo **Internet** mediante el comando [az network public-ip create](/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create), con el formato que se muestra a continuación.
 
 El siguiente comando crea una nueva dirección IP pública con preferencia de enrutamiento de **Internet** en la región de Azure del **Este de EE. UU.** .
 

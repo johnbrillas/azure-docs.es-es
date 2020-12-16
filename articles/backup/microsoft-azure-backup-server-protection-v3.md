@@ -3,12 +3,12 @@ title: ¿Se pueden hacer copias de seguridad Azure Backup Server V3 RTM?
 description: En este artículo se incluye una matriz de protección en la que se indican todas las cargas de trabajo, los tipos de datos y las instalaciones que Azure Backup Server V3 RTM protege.
 ms.date: 11/13/2018
 ms.topic: conceptual
-ms.openlocfilehash: 21c5fbcdf8aa3454a9af968509cb4cbf76b31f9e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c1a1a876a9249a32c87c50d7f320a62b9c478caf
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88763616"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96752386"
 ---
 # <a name="azure-backup-server-v3-rtm-protection-matrix"></a>Matriz de protección de Azure Backup Server V3 RTM
 
@@ -78,7 +78,7 @@ En la siguiente matriz se indican los elementos que pueden protegerse con Azure 
 |Host de Hyper-V: agente de protección MABS en el servidor host de Hyper-V, clúster o máquina virtual|Windows Server 2008 SP2|Servidor físico<br /><br />Máquina virtual local de Hyper-V|No compatible|Protección: equipos Hyper-V y volúmenes compartidos de clúster (CSV)<br /><br />Recuperación: máquina virtual, recuperación a nivel de elemento de archivos y carpetas, volúmenes y discos duros virtuales|
 |Máquinas virtuales de VMware|Versión con licencia de VMware vCenter/vSphere ESX/ESXi 5.5/6.0/6.5 |Servidor físico, <br/>máquina virtual Hyper-V local, <br/> máquina virtual Windows en VMware|V3, V2|Máquinas virtuales de VMware en volúmenes compartidos de clúster (CSV), NFS y almacenamiento de SAN<br /> La recuperación de archivos y carpetas en el nivel de elemento solo está disponible para máquinas virtuales Windows, VMware vApps no está admitido.|
 |Máquinas virtuales de VMware|[Versión con licencia de VMware vSphere 6.7](backup-azure-backup-server-vmware.md#vmware-vsphere-67) |Servidor físico, <br/>máquina virtual Hyper-V local, <br/> máquina virtual Windows en VMware|V3|Máquinas virtuales de VMware en volúmenes compartidos de clúster (CSV), NFS y almacenamiento de SAN<br /> La recuperación de archivos y carpetas en el nivel de elemento solo está disponible para máquinas virtuales Windows, VMware vApps no está admitido.|
-|Linux|Linux ejecutado como invitado de Hyper-V o VMware|Servidor físico, <br/>máquina virtual Hyper-V local, <br/> máquina virtual Windows en VMware|V3, V2|Hyper-V debe ejecutarse en Windows Server 2012 R2 o Windows Server 2016. Protección: máquina virtual completa<br /><br />Recuperación: máquina virtual completa <br/><br/> Solo se admiten instantáneas coherentes con archivos. <br/><br/> Para obtener una lista completa de las distribuciones y las versiones de Linux compatibles, vea el artículo [Linux en distribuciones aprobadas por Azure](../virtual-machines/linux/endorsed-distros.md).|
+|Linux|Linux ejecutado como invitado de [Hyper-V](back-up-hyper-v-virtual-machines-mabs.md) o [VMware](backup-azure-backup-server-vmware.md)|Servidor físico, <br/>máquina virtual Hyper-V local, <br/> máquina virtual Windows en VMware|V3, V2|Hyper-V debe ejecutarse en Windows Server 2012 R2 o Windows Server 2016. Protección: máquina virtual completa<br /><br />Recuperación: máquina virtual completa <br/><br/> Solo se admiten instantáneas coherentes con archivos. <br/><br/> Para obtener una lista completa de las distribuciones y las versiones de Linux compatibles, vea el artículo [Linux en distribuciones aprobadas por Azure](../virtual-machines/linux/endorsed-distros.md).|
 
 ## <a name="azure-expressroute-support"></a>Compatibilidad con Azure ExpressRoute
 

@@ -10,12 +10,12 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
-ms.openlocfilehash: 1823de88597756ba3db9aee0dc29501b1ba914a4
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: d122cedbad41d6984614a0edccb2fd98269710f2
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94646243"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618083"
 ---
 # <a name="troubleshoot-password-based-single-sign-on-in-azure-ad"></a>Solución de problemas de inicio de sesión único basado en contraseña en Azure AD
 
@@ -150,6 +150,13 @@ Si experimenta alguno de estos problemas, haga lo siguiente:
 - Asegúrese de que los usuarios no intentan iniciar sesión en la aplicación desde Aplicaciones en los *modos incógnito*, *inPrivate* ni *privado*.
 - Vuelva a intentar el proceso de captura manual. Asegúrese de que los marcadores rojos se encuentren sobre los campos correctos.
 - Si el proceso de captura manual parece no responder o la página de inicio de sesión no responde, intente realizar el proceso de captura manual de nuevo. Sin embargo, esta vez, tras completar el proceso, presione la tecla F12 para abrir la consola del desarrollador del explorador. Seleccione la pestaña **Consola**. Escriba **window.location=" *&lt;escriba la dirección URL de inicio de sesión especificada al configurar la aplicación&gt;* "** y, luego, presione Entrar. De este modo, se forzará una redirección de página que finalizará el proceso de captura y almacenará los campos capturados.
+
+### <a name="i-cant-add-another-user-to-my-password-based-sso-app"></a>No puedo agregar otro usuario a mi aplicación de SSO basada en contraseña
+
+La aplicación de SSO basada en contraseña tiene un límite de 48 usuarios. Por lo tanto, tiene un límite de 48 claves para los pares de nombre de usuario y contraseña por aplicación.
+Si desea agregar más usuarios, puede hacer lo siguiente:
+-   Agregar otra instancia de la aplicación.
+-   Quitar usuarios que ya no usen la aplicación en primer lugar.
 
 ## <a name="request-support"></a>Solicitud de soporte técnico 
 Si recibe un mensaje de error al configurar el inicio de sesión único y asignar usuarios, abra una incidencia de soporte técnico. De la siguiente información, incluya tanta como sea posible:

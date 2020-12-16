@@ -7,17 +7,17 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/23/2020
-ms.openlocfilehash: 9f36502eb464f051cd50b51245db69fa76daa915
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 12/03/2020
+ms.openlocfilehash: 79ba186351cc145e012658abc30572e99b123dbb
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499550"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573993"
 ---
-# <a name="partial-term-search-and-patterns-with-special-characters-wildcard-regex-patterns"></a>Búsqueda de términos parciales y patrones con caracteres especiales (carácter comodín, expresión regular y patrones)
+# <a name="partial-term-search-and-patterns-with-special-characters-hyphens-wildcard-regex-patterns"></a>Búsqueda de términos parciales y patrones con caracteres especiales (guiones, carácter comodín, expresión regular y patrones)
 
-Una *búsqueda de términos parciales* hace referencia a las consultas que se componen de fragmentos de términos, en las que en lugar de un término completo, es posible que tenga solo el inicio, el centro o el final del término (a veces se denominan consultas de prefijo, infijo o sufijo). Una búsqueda de términos parciales podría ser una combinación de fragmentos, a menudo con caracteres especiales, como guiones o barras diagonales, que forman parte de la cadena de consulta. Entre los casos de uso comunes se incluyen partes de un número de teléfono, una dirección URL, códigos o palabras compuestas con guiones.
+Una *búsqueda de términos parciales* hace referencia a las consultas que se componen de fragmentos de términos, en las que en lugar de un término completo, es posible que tenga solo el inicio, el centro o el final del término (a veces se denominan consultas de prefijo, infijo o sufijo). Una búsqueda de términos parciales podría incluir una combinación de fragmentos, a menudo con caracteres especiales, como guiones o barras diagonales, que forman parte de la cadena de consulta. Entre los casos de uso comunes se incluyen partes de un número de teléfono, una dirección URL, códigos o palabras compuestas con guiones.
 
 La búsqueda de términos parciales y las cadenas de consulta que incluyen caracteres especiales pueden resultar problemáticas si el índice no tiene tokens con el formato esperado. Durante la [fase de análisis léxico](search-lucene-query-architecture.md#stage-2-lexical-analysis) de la indexación, con el analizador estándar predeterminado, los caracteres especiales se descartan, las palabras compuestas se dividen y los espacios en blanco se eliminan, lo que puede provocar un error en las consultas cuando no se encuentra ninguna coincidencia. Por ejemplo, un número de teléfono como `+1 (425) 703-6214` (tokenizado como `"1"`, `"425"`, `"703"`, `"6214"`) no se mostrará en una consulta `"3-62"` porque ese contenido no existe realmente en el índice. 
 
@@ -26,7 +26,7 @@ La solución consiste en invocar un analizador durante la indexación que conser
 > [!TIP]
 > Si está familiarizado con las API de Postman y REST, [descargue la colección de ejemplos de consultas](https://github.com/Azure-Samples/azure-search-postman-samples/) para consultar los términos parciales y caracteres especiales que se describen en este artículo.
 
-## <a name="what-is-partial-term-search-in-azure-cognitive-search"></a>Definición de la búsqueda de términos parciales en Azure Cognitive Search
+## <a name="about-partial-term-search"></a>Acerca de la búsqueda de términos parciales
 
 Azure Cognitive Search examina si hay términos con tokens completos en el índice y no encontrará una coincidencia en un término parcial a menos que incluya operadores de marcadores de posición de caracteres comodín (`*` y `?`), o aplique un formato de expresión regular a la consulta. Los términos parciales se especifican mediante estas técnicas:
 
@@ -45,15 +45,15 @@ En el caso de la búsqueda de términos parciales o patrones, y en algunos otros
 
 Si necesita buscar en fragmentos, patrones o caracteres especiales, puede invalidar el analizador predeterminado con un analizador personalizado que funcione con reglas de tokenización más sencillas y conserve toda la cadena en el índice. Si realiza un paso atrás, el enfoque tiene el siguiente aspecto:
 
-+ Defina un campo para almacenar una versión intacta de la cadena (suponiendo que desee texto analizado y no analizado en el momento de la consulta).
-+ Evalúe y elija entre los distintos analizadores que emiten tokens en el nivel de granularidad adecuado.
-+ Asigne el analizador al campo.
-+ Compile y pruebe el índice.
+1. Defina un campo para almacenar una versión intacta de la cadena (suponiendo que desee texto analizado y no analizado en el momento de la consulta).
+1. Evalúe y elija entre los distintos analizadores que emiten tokens en el nivel de granularidad adecuado.
+1. Asigne el analizador al campo.
+1. Compile y pruebe el índice.
 
 > [!TIP]
 > La evaluación de analizadores es un proceso iterativo que requiere recompilaciones frecuentes de índices. Para simplificar este paso, puede usar Postman y las API REST para [crear un índice](/rest/api/searchservice/create-index), [eliminar un índice](/rest/api/searchservice/delete-index),[cargar documentos](/rest/api/searchservice/addupdate-or-delete-documents)y [buscar documentos](/rest/api/searchservice/search-documents). Para la carga de documentos, el cuerpo de la solicitud debe contener un pequeño conjunto de datos representativo que quiera probar (por ejemplo, un campo con números de teléfono o códigos de producto). Con estas API en la misma colección de Postman, puede seguir estos pasos rápidamente.
 
-## <a name="duplicate-fields-for-different-scenarios"></a>Campos duplicados para diferentes escenarios
+## <a name="1---create-a-dedicated-field"></a>1\. Creación de un campo dedicado
 
 Los analizadores determinan cómo se acortan los términos en un índice. Dado que los analizadores se asignan por campo, puede crear campos en el índice para optimizar los distintos escenarios. Por ejemplo, puede definir "featureCode" y "featureCodeRegex" para admitir la búsqueda de texto completo normal en el primero y la coincidencia de patrones avanzada en el segundo. Los analizadores asignados a cada campo determinan cómo se acorta el contenido de cada campo en el índice.  
 
@@ -74,7 +74,9 @@ Los analizadores determinan cómo se acortan los términos en un índice. Dado q
 },
 ```
 
-## <a name="choose-an-analyzer"></a>Selección de un analizador
+<a name="set-an-analyzer"></a>
+
+## <a name="2---set-an-analyzer"></a>2\. Establecimiento de un analizador
 
 Al elegir un analizador que produce tokens de términos completos, los siguientes analizadores son opciones comunes:
 
@@ -98,7 +100,7 @@ Debe tener un índice relleno con el que trabajar. Si se da una situación en qu
    }
     ```
 
-1. Evalúe la respuesta para ver cómo se acorta el texto en el índice. Observe que cada término está en minúsculas y dividido. Solo las consultas que coincidan con estos tokens devolverán este documento en los resultados. Se producirá un error en una consulta que incluya "10-NOR".
+1. Evalúe la respuesta para ver cómo se acorta el texto en el índice. Observe cómo cada término está en minúsculas, sin guiones y las subcadenas divididas en tokens individuales. Solo las consultas que coincidan con estos tokens devolverán este documento en los resultados. Se producirá un error en una consulta que incluya "10-NOR".
 
     ```json
     {
@@ -152,7 +154,7 @@ Debe tener un índice relleno con el que trabajar. Si se da una situación en qu
 > [!Important]
 > Tenga en cuenta que los analizadores de consultas a menudo usan términos en minúsculas en una expresión de búsqueda al compilar el árbol de consulta. Si usa un analizador que no introduce las entradas de texto en minúsculas durante la indexación y no obtiene los resultados esperados, este podría ser el motivo. La solución consiste en agregar un filtro de tokens en minúsculas, tal como se describe en la sección "Uso de analizadores personalizados" más adelante.
 
-## <a name="configure-an-analyzer"></a>Configuración de un analizador
+## <a name="3---configure-an-analyzer"></a>3\. Configuración de un analizador
  
 Tanto si está evaluando analizadores como si avanza con una configuración concreta, tendrá que especificar el analizador en la definición del campo y, posiblemente, deberá configurar el analizador en sí si no usa ningún analizador integrado. Al intercambiar analizadores, normalmente debe volver a generar el índice (quitarlo, volverlo a crear y cargarlo de nuevo). 
 
@@ -216,7 +218,7 @@ En el ejemplo siguiente se muestra un analizador personalizado que proporciona e
 > [!NOTE]
 > El sistema conoce el tokenizador `keyword_v2` y el filtro de tokens `lowercase` y estos utilizan sus configuraciones predeterminadas, por lo que puede hacer referencia a ellos por su nombre sin tener que definirlos primero.
 
-## <a name="build-and-test"></a>Compilación y prueba
+## <a name="4---build-and-test"></a>4\. Compilación y prueba
 
 Una vez que haya definido un índice con analizadores y definiciones de campo que admitan su escenario, cargue documentos que tengan cadenas representativas para poder probar consultas de cadenas parciales. 
 
@@ -228,7 +230,7 @@ La lógica se explicó en las secciones anteriores. En esta sección se explican
 
 + [Carga de documentos](/rest/api/searchservice/addupdate-or-delete-documents) importa documentos que tienen la misma estructura que el índice, así como contenido que se puede buscar. Después de este paso, el índice está listo para realizar consultas o pruebas.
 
-+ El [analizador de pruebas](/rest/api/searchservice/test-analyzer) se presentó en [Selección de un analizador](#choose-an-analyzer). Pruebe algunas de las cadenas del índice con diversos analizadores para entender cómo se acortan los términos.
++ El [analizador de pruebas](/rest/api/searchservice/test-analyzer) se presentó en [Establecimiento de un analizador](#set-an-analyzer). Pruebe algunas de las cadenas del índice con diversos analizadores para entender cómo se acortan los términos.
 
 + [Búsqueda de documentos](/rest/api/searchservice/search-documents) explica cómo construir una solicitud de consulta mediante una [sintaxis simple](query-simple-syntax.md) o la [sintaxis de Lucene completa](query-lucene-syntax.md) para caracteres comodín y expresiones regulares.
 

@@ -1,14 +1,17 @@
 ---
 title: Compatibilidad con la migración de VMware en Azure Migrate
 description: Aprenda sobre la compatibilidad con la migración de máquinas virtuales de VMware en Azure Migrate.
+author: anvar-ms
+ms.author: anvar
+ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 7a7713021683c394e609a302a1aa6fcb282484e5
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0dfb518a22fd84e0280577382715d6e554e914e8
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96008300"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754001"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Matriz de compatibilidad para la migración de VMware
 
@@ -41,7 +44,7 @@ En la tabla se resumen los requisitos del hipervisor de VMware.
 --- | ---
 **VMware vCenter Server** | Versión 5.5, 6.0, 6.5, 6.7, 7.0.
 **Host ESXI de VMware vSphere** | Versión 5.5, 6.0, 6.5, 6.7, 7.0.
-**Permisos de vCenter Server** | La migración sin agentes utiliza el [dispositivo de Azure Migrate](migrate-appliance.md). El dispositivo necesita estos permisos en vCenter Server:<br/><br/> - **Datastore.Browse**: Permite examinar los archivos de registro de máquina virtual para solucionar problemas de creación y eliminación de instantáneas.<br/><br/> - **Datastore.FileManagement**: Permite operaciones de lectura, escritura, eliminación y cambio de nombre en el explorador del almacén de datos para solucionar problemas de creación y eliminación de instantáneas.<br/><br/> - **VirtualMachine.Config.ChangeTracking**: Permite habilitar o deshabilitar el seguimiento de cambios de los discos de máquina virtual para extraer los bloques de datos cambiados entre instantáneas.<br/><br/> - **VirtualMachine.Config.DiskLease**: Permite operaciones de concesión de discos para una máquina virtual, para leer el disco mediante el kit de desarrollo de discos virtuales de VMware vSphere (VDDK).<br/><br/> - **VirtualMachine.Provisioning.DiskAccess**: (específicamente para vSphere 6.0 y versiones posteriores) permite abrir un disco en una máquina virtual para obtener acceso de lectura aleatorio en el disco mediante VDDK.<br/><br/> - **VirtualMachine.Provisioning.DiskRandomRead**: Permite abrir un disco en una máquina virtual para leerlo mediante VDDK.<br/><br/> - **VirtualMachine.Provisioning.DiskRandomAccess**: Permite abrir un disco en una máquina virtual para leerlo mediante VDDK.<br/><br/> - **VirtualMachine.Provisioning.GetVmFiles**: Permite operaciones de lectura en los archivos asociados con una máquina virtual, para descargar los registros y solucionar problemas si se produce un error.<br/><br/> - **VirtualMachine.State.\* *: permite la creación y administración de instantáneas de máquinas virtuales para la replicación.<br/><br/> -* VirtualMachine.Interact.PowerOff**: Permite apagar la máquina virtual durante la migración a Azure.
+**Permisos de vCenter Server** | La migración sin agentes utiliza el [dispositivo de Azure Migrate](migrate-appliance.md). El dispositivo necesita estos permisos en vCenter Server:<br/><br/> - **Datastore.Browse** (Datastore -> Browse datastore): Permite examinar los archivos de registro de máquina virtual para solucionar problemas de creación y eliminación de instantáneas.<br/><br/> - **Datastore.FileManagement** (Datastore -> Low level file operations): Permite operaciones de lectura, escritura, eliminación y cambio de nombre en el explorador del almacén de datos para solucionar problemas de creación y eliminación de instantáneas.<br/><br/> - **VirtualMachine.Config.ChangeTracking** (Virtual machine -> Disk change tracking): Permite habilitar o deshabilitar el seguimiento de cambios de los discos de máquina virtual para extraer los bloques de datos cambiados entre instantáneas.<br/><br/> - **VirtualMachine.Config.DiskLease** (Virtual machine -> Disk lease): Permite operaciones de concesión de discos para una máquina virtual, para leer el disco mediante el kit de desarrollo de discos virtuales de VMware vSphere (VDDK).<br/><br/> - **VirtualMachine.Provisioning.DiskAccess**: (específicamente para vSphere 6.0 y versiones posteriores) permite abrir un disco en una máquina virtual para obtener acceso de lectura aleatorio en el disco mediante VDDK.<br/><br/> - **VirtualMachine.Provisioning.DiskRandomRead** (Virtual machine -> Provisioning -> Allow read-only disk access): Permite abrir un disco en una máquina virtual para leerlo mediante VDDK.<br/><br/> - **VirtualMachine.Provisioning.DiskRandomAccess** (Virtual machine -> Provisioning -> Allow disk access): Permite abrir un disco en una máquina virtual para leerlo mediante VDDK.<br/><br/> - **VirtualMachine.Provisioning.GetVmFiles** (Virtual machine -> Provisioning -> Allow virtual machine download): Permite operaciones de lectura en los archivos asociados con una máquina virtual, para descargar los registros y solucionar problemas si se produce un error.<br/><br/> - **VirtualMachine.State.\* *_ (Virtual machine -> Snapshot management): permite la creación y administración de instantáneas de máquinas virtuales para la replicación.<br/><br/> - _* VirtualMachine.Interact.PowerOff** (Virtual machine -> Interaction -> Power off): Permite apagar la máquina virtual durante la migración a Azure.
 
 
 

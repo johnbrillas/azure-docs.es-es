@@ -1,6 +1,6 @@
 - name: Documentación de Azure API Management
   href: index.yml
-- name: Información general
+- name: Introducción
   items:
     - name: Acerca de API Management
       href: api-management-key-concepts.md
@@ -42,6 +42,8 @@
       href: api-management-get-started-publish-versions.md
     - name: 9 - Personalización del portal para desarrolladores
       href: api-management-howto-developer-portal-customize.md
+    - name: "10 - Administración de API en Visual Studio\_Code"
+      href: visual-studio-code-tutorial.md
 - name: Ejemplos
   items:
     - name: Directivas
@@ -216,7 +218,7 @@
           href: api-management-sample-flexible-throttling.md
         - name: Usar servicios externos
           href: api-management-sample-send-request.md
-        - name: Administrar secretos mediante propiedades
+        - name: Administración de secretos mediante valores con nombre
           href: api-management-howto-properties.md
         - name: Directivas de restricción de acceso
           href: api-management-access-restriction-policies.md

@@ -6,13 +6,13 @@ ms.author: nimoolen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/29/2020
-ms.openlocfilehash: 69cc835b37d2405e15638d85309dc89d51c6d043
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.date: 12/03/2020
+ms.openlocfilehash: 69b2713e928707479945df0bb242ac2fbc001c32
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360282"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96600666"
 ---
 # <a name="data-flow-script-dfs"></a>Script de flujo de datos (DFS)
 
@@ -229,6 +229,22 @@ select(mapColumn(
     ),
     skipDuplicateMapInputs: true,
     skipDuplicateMapOutputs: true) ~> automap
+```
+
+### <a name="persist-column-data-types"></a>Tipos de datos de columna persistentes
+Agregue este script dentro de una definición de columna derivada para almacenar los nombres de columna y los tipos de datos del flujo de datos en un almacén persistente mediante un receptor.
+
+```
+derive(each(match(type=='string'), $$ = 'string'),
+    each(match(type=='integer'), $$ = 'integer'),
+    each(match(type=='short'), $$ = 'short'),
+    each(match(type=='complex'), $$ = 'complex'),
+    each(match(type=='array'), $$ = 'array'),
+    each(match(type=='float'), $$ = 'float'),
+    each(match(type=='date'), $$ = 'date'),
+    each(match(type=='timestamp'), $$ = 'timestamp'),
+    each(match(type=='boolean'), $$ = 'boolean'),
+    each(match(type=='double'), $$ = 'double')) ~> DerivedColumn1
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

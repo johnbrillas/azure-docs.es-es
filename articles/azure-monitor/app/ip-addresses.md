@@ -3,12 +3,12 @@ title: Direcciones IP que emplean Application Insights y Log Analytics | Microso
 description: Excepciones para el firewall del servidor requeridas por Application Insights
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.openlocfilehash: bf81cc863ab795ce9be5a9166d7dc68aeb3caeed
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 10328efa9b8b9cdbe1e57e1e982653aea7e39574
+ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96009966"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96748882"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Direcciones IP que emplean Application Insights y Log Analytics
 El servicio [Azure Application Insights](./app-insights-overview.md) usa diversas direcciones IP. Quizás deba conocer estas direcciones si la aplicación que está supervisando se hospeda bajo el amparo de un firewall.
@@ -46,6 +46,10 @@ Configuración del Monitor de estado; solo lo necesitará en caso de que tenga q
 
 ## <a name="availability-tests"></a>Pruebas de disponibilidad
 Esta es la lista de direcciones a partir de las cuales se ejecutan [pruebas web de disponibilidad](./monitor-web-app-availability.md) . Si quiere ejecutar pruebas web en su aplicación, pero su servidor web está restringido atender únicamente las solicitudes de clientes específicos, tendrá que permitir el tráfico entrante de nuestros servidores de pruebas de disponibilidad.
+
+
+> [!NOTE]
+> En el caso de los recursos ubicados en redes virtuales privadas que no pueden permitir la comunicación de entrada directa con los agentes de pruebas de disponibilidad en Azure público, la única opción es [crear y hospedar sus propias pruebas de disponibilidad personalizadas](availability-azure-functions.md).
 
 ### <a name="service-tag"></a>Etiqueta de servicio
 
@@ -239,7 +243,7 @@ Nota: El dominio *.loganalytics.io pertenece al equipo de Log Analytics.
 
 | Propósito | URI | IP | Puertos |
 | --- | --- | --- | --- |
-| Agente | ppe.azureserviceprofiler.net<br/>*.ppe.azureserviceprofiler.net | 20.190.60.38<br/>20.190.60.32<br/>52.173.196.230<br/>52.173.196.209<br/>23.102.44.211<br/>23.102.45.216<br/>13.69.51.218<br/>13.69.51.175<br/>138.91.32.98<br/>138.91.37.93<br/>40.121.61.208<br/>40.121.57.2<br/>51.140.60.235<br/>51.140.180.52<br/>52.138.31.112<br/>52.138.31.127<br/>104.211.90.234<br/>104.211.91.254<br/>13.70.124.27<br/>13.75.195.15<br/>52.185.132.101<br/>52.185.132.170<br/>20.188.36.28<br/>40.89.153.171<br/>52.141.22.239<br/>52.141.22.149<br/>102.133.162.233<br/>102.133.161.73<br/>191.232.214.6<br/>191.232.213.239 | 443
-| Portal | ppe.gateway.azureserviceprofiler.net | dinámico | 443
+| Agente | agent.azureserviceprofiler.net<br/>*.agent.azureserviceprofiler.net | 20.190.60.38<br/>20.190.60.32<br/>52.173.196.230<br/>52.173.196.209<br/>23.102.44.211<br/>23.102.45.216<br/>13.69.51.218<br/>13.69.51.175<br/>138.91.32.98<br/>138.91.37.93<br/>40.121.61.208<br/>40.121.57.2<br/>51.140.60.235<br/>51.140.180.52<br/>52.138.31.112<br/>52.138.31.127<br/>104.211.90.234<br/>104.211.91.254<br/>13.70.124.27<br/>13.75.195.15<br/>52.185.132.101<br/>52.185.132.170<br/>20.188.36.28<br/>40.89.153.171<br/>52.141.22.239<br/>52.141.22.149<br/>102.133.162.233<br/>102.133.161.73<br/>191.232.214.6<br/>191.232.213.239 | 443
+| Portal | gateway.azureserviceprofiler.net | dinámico | 443
 | Storage | *.core.windows.net | dinámico | 443
 

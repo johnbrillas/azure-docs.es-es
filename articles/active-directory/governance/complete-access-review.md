@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/18/2020
+ms.date: 12/07/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23266043d5efd65a4e6e79dd515a54a2c321b077
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e6491de18e65c5071ac0972e7ff49d1253cbd402
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87798841"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779557"
 ---
 # <a name="complete-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Realización de una revisión de acceso de los grupos y las aplicaciones en las revisiones de acceso de Azure AD
 
@@ -46,11 +46,19 @@ Puede hacer un seguimiento del progreso de las revisiones a medida que los revis
 
 1. En la lista, haga clic en una revisión de acceso.
 
-    Para ver una serie de revisiones de acceso, vaya a la revisión de acceso y encontrará los próximos eventos en Revisiones programadas.
+    Para ver las futuras instancias de una revisión de acceso, vaya a la revisión de acceso y seleccione las revisiones programadas.
 
     En la página **Información general**, puede ver el progreso. Los derechos de acceso no se cambian en el directorio hasta que la revisión finaliza.
 
     ![Progreso de las revisiones de acceso](./media/complete-access-review/overview-progress.png)
+    
+    Si ve una revisión de acceso que revisa el acceso de invitados en varios grupos de Microsoft 365 (versión preliminar), en la hoja Información general se mostrará cada grupo de la revisión.  
+
+   ![revisión del acceso de invitados en varios grupos de Microsoft 365](./media/complete-access-review/review-guest-access-across-365-groups.png)
+
+    Haga clic en un grupo para ver el progreso de la revisión en ese grupo.
+
+   ![revisión detallada del acceso de invitados en varios grupos de Microsoft 365](./media/complete-access-review/progress-group-review.png)
 
 1. Si quiere detener una revisión de acceso antes de que alcance la fecha de finalización programada, haga clic en el botón **Detener**.
 
@@ -74,7 +82,7 @@ Una revisión de aplicación automática configurada o la selección de **Aplica
 
 Para ver los resultados de una revisión de acceso de un solo uso, haga clic en la página **Resultados**. Para ver solo el acceso de un usuario, en el cuadro Buscar escriba el nombre para mostrar o el nombre principal de usuario de un usuario cuyo acceso se ha revisado.
 
-![Recuperación de los resultados de una revisión de acceso](./media/complete-access-review/retrieve-results.png)
+![Recuperación de los resultados de una revisión de acceso](./media/complete-access-review/retrieve-results.png) 
 
 Para ver el progreso de una revisión de acceso activa que es periódica, haga clic en la página **Resultados**.
 

@@ -3,14 +3,13 @@ title: Uso de identidades administradas en Azure Kubernetes Service
 description: Aprenda a utilizar identidades administradas en Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 07/17/2020
-ms.author: thomasge
-ms.openlocfilehash: 1f8cb98ea36fdad9a67eca26c6fbea7ede1f811a
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.date: 12/06/2020
+ms.openlocfilehash: e2a80ea869e17665e8a6d4fbd6960c3ccc8c1042
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94627887"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751281"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Uso de identidades administradas en Azure Kubernetes Service
 
@@ -22,14 +21,13 @@ Las *identidades administradas* son básicamente un contenedor relacionado con l
 
 Debe tener instalado el siguiente recurso:
 
-- La CLI de Azure, versión 2.8.0 o posterior
+- La CLI de Azure, versión 2.15.1 o posterior
 
 ## <a name="limitations"></a>Limitaciones
 
-* Los clústeres de AKS con identidades administradas solo se pueden habilitar durante la creación del clúster.
 * Durante las operaciones de **actualización** del clúster, la identidad administrada no está disponible temporalmente.
 * No se admite que los inquilinos trasladen o migren los clústeres habilitados para identidades administradas.
-* Si el clúster tiene habilitado `aad-pod-identity`, los pods de Identidad administrada del nodo (NMI) modifican las tablas de IP de los nodos para interceptar las llamadas que se realizan en el punto de conexión de Azure Instance Metadata Service. Esta configuración hace que NMI intercepte toda solicitud realizada al punto de conexión de Metadata, incluso aunque el pod no utilice `aad-pod-identity`. La CRD de AzurePodIdentityException se puede configurar para informar a `aad-pod-identity` de que las solicitudes dirigidas al punto de conexión de Metadata que se originen en un pod que coincida con las etiquetas definidas en la CRD deben pasar por el servidor proxy sin que se procesen en NMI. Los pods del sistema con la etiqueta `kubernetes.azure.com/managedby: aks` del espacio de nombres _kube-system_ deben excluirse en `aad-pod-identity` configurando la CRD de AzurePodIdentityException. Para obtener más información, consulte este artículo acerca de [cómo deshabilitar aad-pod-identity en una aplicación o pod específicos](https://azure.github.io/aad-pod-identity/docs/configure/application_exception).
+* Si el clúster tiene `aad-pod-identity` habilitado, los pods de Identidad administrada del nodo (NMI) modifican las tablas de IP de los nodos para interceptar las llamadas que se realizan en el punto de conexión de Azure Instance Metadata. Esta configuración hace que NMI intercepte toda solicitud realizada al punto de conexión de Metadata, incluso aunque el pod no utilice `aad-pod-identity`. La CRD de AzurePodIdentityException se puede configurar para informar a `aad-pod-identity` de que las solicitudes dirigidas al punto de conexión de Metadata que se originen en un pod que coincida con las etiquetas definidas en la CRD deben pasar por el servidor proxy sin que se procesen en NMI. Los pods del sistema con la etiqueta `kubernetes.azure.com/managedby: aks` del espacio de nombres _kube-system_ deben excluirse en `aad-pod-identity` configurando la CRD de AzurePodIdentityException. Para obtener más información, consulte este artículo acerca de [cómo deshabilitar aad-pod-identity en una aplicación o pod específicos](https://azure.github.io/aad-pod-identity/docs/configure/application_exception).
   Para configurar una excepción, instale [mic-exception.yaml](https://github.com/Azure/aad-pod-identity/blob/master/deploy/infra/mic-exception.yaml).
 
 ## <a name="summary-of-managed-identities"></a>Resumen de identidades administradas
@@ -38,12 +36,12 @@ AKS usa varias identidades administradas para servicios integrados y complemento
 
 | Identidad                       | Nombre    | Caso de uso | Permisos predeterminados | Traiga su propia identidad
 |----------------------------|-----------|----------|
-| Plano de control | no visible | Usada por AKS para los recursos de red administrados, incluidos los equilibradores de carga de entrada y las direcciones IP públicas administradas por AKS. | Rol de colaborador para un grupo de recursos de nodo | Versión preliminar
+| Plano de control | no visible | La usan los componentes del plano de control de AKS para administrar los recursos de clúster, incluidos los equilibradores de carga de entrada y las direcciones IP públicas administradas de AKS, y las operaciones del escalador automático del clúster. | Rol de colaborador para un grupo de recursos de nodo | Versión preliminar
 | Kubelet | Nombre de clúster de AKS-agentpool | Autenticación con Azure Container Registry (ACR) | N/D (para kubernetes 1.15 y versiones posteriores) | No se admite actualmente.
 | Complemento | AzureNPM | No se requiere ninguna identidad | N/D | No
 | Complemento | Supervisión de red AzureCNI | No se requiere ninguna identidad | N/D | No
-| Complemento | azurepolicy (operador de control) | No se requiere ninguna identidad | N/D | No
-| Complemento | azurepolicy | No se requiere ninguna identidad | N/D | No
+| Complemento | azure-policy (gatekeeper) | No se requiere ninguna identidad | N/D | No
+| Complemento | azure-policy | No se requiere ninguna identidad | N/D | No
 | Complemento | Calico | No se requiere ninguna identidad | N/D | No
 | Complemento | Panel | No se requiere ninguna identidad | N/D | No
 | Complemento | HTTPApplicationRouting | Administra los recursos de red necesarios | Rol de lector para grupo de recursos de nodo, rol colaborador para zona DNS | No
@@ -105,62 +103,44 @@ Por último, obtenga credenciales para acceder al clúster:
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myManagedCluster
 ```
-## <a name="update-an-existing-service-principal-based-aks-cluster-to-managed-identities"></a>Actualización de un clúster de AKS basado en una entidad de servicio existente a identidades administradas
+## <a name="update-an-aks-cluster-to-managed-identities-preview"></a>Actualización de un clúster de AKS a identidades administradas (versión preliminar)
 
-Ahora puede actualizar un clúster de AKS con identidades administradas utilizando los siguientes comandos de la CLI.
+Ahora puede actualizar un clúster de AKS que trabaja actualmente con entidades de servicio para trabajar con identidades administradas mediante los siguientes comandos de la CLI.
 
-En primer lugar, actualice la identidad asignada por el sistema:
+En primer lugar, registre la marca de características para la identidad asignada por el sistema:
+
+```azurecli-interactive
+az feature register --namespace Microsoft.ContainerService -n MigrateToMSIClusterPreview
+```
+
+Actualice la identidad asignada por el sistema:
 
 ```azurecli-interactive
 az aks update -g <RGName> -n <AKSName> --enable-managed-identity
 ```
 
-A continuación, quite la identidad asignada por el usuario:
+Actualice la identidad asignada por el usuario:
+
+```azurecli-interactive
+az feature register --namespace Microsoft.ContainerService -n UserAssignedIdentityPreview
+```
+
+Actualice la identidad asignada por el usuario:
 
 ```azurecli-interactive
 az aks update -g <RGName> -n <AKSName> --enable-managed-identity --assign-identity <UserAssignedIdentityResourceID> 
 ```
 > [!NOTE]
-> Una vez que se hayan actualizado a identidad administrada las identidades asignadas por el sistema o por el usuario, realice una operación `az nodepool upgrade --node-image-only` en los nodos para completar la actualización a la identidad administrada.
+> Una vez que se hayan actualizado las identidades asignadas por el sistema o por el usuario, realice una operación `az nodepool upgrade --node-image-only` en los nodos para completar la actualización a la identidad administrada.
 
-## <a name="bring-your-own-control-plane-mi-preview"></a>Traer su propia instancia administrada de plano de control (versión preliminar)
-Una identidad de plano de control personalizado permite que se conceda acceso a la identidad existente antes de la creación del clúster. Esto permite escenarios como el uso de una red virtual personalizada o outboundType de UDR con una identidad administrada.
+## <a name="bring-your-own-control-plane-mi"></a>Traer su propia instancia administrada de plano de control
+Una identidad de plano de control personalizado permite que se conceda acceso a la identidad existente antes de la creación del clúster. Esta característica permite escenarios como el uso de una red virtual personalizada o outboundType de UDR con una identidad administrada previamente creada.
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+Debe tener instalada la versión 2.15.1 de la CLI de Azure o una versión posterior.
 
-Debe tener instalados los siguientes recursos:
-- La CLI de Azure, versión 2.9.0 o posterior
-- La extensión aks-preview 0.4.57
-
-Limitaciones para traer su propia instancia administrada de plano de control (versión preliminar):
+### <a name="limitations"></a>Limitaciones
 * Azure Government no se admite actualmente.
 * Azure China 21Vianet no se admite actualmente.
-
-```azurecli-interactive
-az extension add --name aks-preview
-az extension list
-```
-
-```azurecli-interactive
-az extension update --name aks-preview
-az extension list
-```
-
-```azurecli-interactive
-az feature register --name UserAssignedIdentityPreview --namespace Microsoft.ContainerService
-```
-
-Pueden pasar unos minutos hasta que el estado aparezca como **Registrado**. Puede comprobar el estado del registro con el comando [az feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true):
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/UserAssignedIdentityPreview')].{Name:name,State:properties.state}"
-```
-
-Cuando el estado se muestre como Registrado, actualice el registro del proveedor de recursos `Microsoft.ContainerService` mediante el comando [az provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register&preserve-view=true):
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
 
 Si aún no tiene una identidad administrada, debería continuar y crear una, por ejemplo, mediante [az identity CLI][az-identity-create].
 

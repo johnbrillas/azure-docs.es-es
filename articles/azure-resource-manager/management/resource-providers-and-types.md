@@ -2,14 +2,14 @@
 title: Proveedores de recursos y tipos de recursos
 description: Describe los proveedores de recursos compatibles con Azure Resource Manager. Describe sus esquemas, versiones de API disponibles y las regiones que pueden hospedar los recursos.
 ms.topic: conceptual
-ms.date: 11/09/2020
+ms.date: 12/04/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 702836e0dc98b06ccf6e0eeb0d0f373374c4e783
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 6d114fdfae12dd9ee96a23e4dafc3847c6429d0c
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95972545"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745123"
 ---
 # <a name="azure-resource-providers-and-types"></a>Tipos y proveedores de recursos de Azure
 
@@ -32,9 +32,12 @@ Para obtener una lista que asigna proveedores de recursos con servicios de Azure
 
 ## <a name="register-resource-provider"></a>Registro del proveedor de recursos
 
-Antes de usar un proveedor de recursos, la suscripción de Azure debe registrarse para el proveedor de recursos. El registro configura su suscripción para así poder trabajar con el proveedor de recursos. Algunos proveedores de recursos están registrados de forma predeterminada. Otros proveedores de recursos están registrados automáticamente cuando toma determinadas medidas. Por ejemplo, cuando crea un recurso a través del portal, el proveedor de recursos normalmente se registra de forma automática. En otros escenarios, es posible que tenga que registrar manualmente un proveedor de recursos.
+Antes de usar un proveedor de recursos, la suscripción de Azure debe registrarse para el proveedor de recursos. El registro configura su suscripción para así poder trabajar con el proveedor de recursos. Algunos proveedores de recursos están registrados de forma predeterminada. Otros proveedores de recursos están registrados automáticamente cuando toma determinadas medidas. Por ejemplo, cuando crea un recurso a través del portal, el proveedor de recursos normalmente se registra de forma automática. En otros escenarios, es posible que tenga que registrar manualmente un proveedor de recursos. Para obtener una lista de los proveedores de recursos registrados de forma predeterminada, consulte [Proveedores de recursos para servicios de Azure](azure-services-resource-providers.md).
 
 En este artículo se muestra cómo comprobar el estado del registro de un proveedor de recursos y registrarlo según sea necesario. Debe tener permiso para realizar la operación `/register/action` para el proveedor de recursos. El permiso se incluye en los roles Colaborador y Propietario.
+
+> [!IMPORTANT]
+> Solo debe registrar un proveedor de recursos cuando esté listo para usarlo. El paso de registro permite mantener los privilegios mínimos dentro de la suscripción. Un usuario malintencionado no puede usar proveedores de recursos que no están registrados.
 
 El código de aplicación no debe bloquear la creación de recursos para un proveedor de recursos con el estado de **registro**. Al registrar el proveedor de recursos, la operación se realiza de forma individual para cada región admitida. Para crear recursos en una región, el registro solo debe completarse en dicha región. Si no se bloquea el proveedor de recursos con el estado de registro, la aplicación puede continuar mucho antes que si se espera a que se completen todas las regiones.
 
@@ -42,20 +45,28 @@ No se puede anular el registro de un proveedor de recursos si todavía dispone d
 
 ## <a name="azure-portal"></a>Portal de Azure
 
+### <a name="register-resource-provider"></a>Registro del proveedor de recursos
+
 Para ver todos los proveedores de recursos y el estado de registro de su suscripción:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-2. En el menú de Azure Portal, seleccione **Todos los servicios**.
+1. En el menú de Azure Portal, busque **Suscripciones**. Seleccione el servicio entre las opciones disponibles.
 
-    ![selección de suscripciones](./media/resource-providers-and-types/select-all-services.png)
+   :::image type="content" source="./media/resource-providers-and-types/search-subscriptions.png" alt-text="Búsqueda de suscripciones":::
 
-3. En el cuadro **Todos los servicios**, escriba **suscripción** y, a continuación, seleccione **Suscripciones**.
-4. Seleccione la suscripción en la lista de suscripción para verla.
-5. Seleccione **Proveedores de recursos** y consulte la lista de proveedores de recursos disponibles.
+1. Seleccione la suscripción que quiere ver.
 
-    ![vista de los proveedores de recursos](./media/resource-providers-and-types/show-resource-providers.png)
+   :::image type="content" source="./media/resource-providers-and-types/select-subscription.png" alt-text="selección de suscripciones":::
 
-6. Para registrar un proveedor de recursos, seleccione **Registro**. En la captura de pantalla anterior, el vínculo **Registrar** se resalta para **Microsoft.Blueprint**.
+1. En el menú de la izquierda, en **Configuración**, seleccione **Proveedores de recursos**.
+
+   :::image type="content" source="./media/resource-providers-and-types/select-resource-providers.png" alt-text="Selección de proveedores de recursos":::
+
+6. Busque el proveedor de recursos que desea registrar y seleccione **Registrar**. Para mantener los privilegios mínimos en su suscripción, registre solo los proveedores de recursos que esté listo para usar.
+
+   :::image type="content" source="./media/resource-providers-and-types/register-resource-provider.png" alt-text="Registro de proveedores de recursos":::
+
+### <a name="view-resource-provider"></a>Visualización del proveedor de recursos
 
 Para ver información de un proveedor de recursos concreto:
 
@@ -107,7 +118,7 @@ Para ver todos los proveedores de recursos registrados para la suscripción, use
  Get-AzResourceProvider -ListAvailable | Where-Object RegistrationState -eq "Registered" | Select-Object ProviderNamespace, RegistrationState | Sort-Object ProviderNamespace
 ```
 
-Para registrar un proveedor de recursos, use:
+Para mantener los privilegios mínimos en su suscripción, registre solo los proveedores de recursos que esté listo para usar. Para registrar un proveedor de recursos, use:
 
 ```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
@@ -216,7 +227,7 @@ Para ver todos los proveedores de recursos registrados para la suscripción, use
 az provider list --query "sort_by([?registrationState=='Registered'].{Provider:namespace, Status:registrationState}, &Provider)" --out table
 ```
 
-Para registrar un proveedor de recursos, use:
+Para mantener los privilegios mínimos en su suscripción, registre solo los proveedores de recursos que esté listo para usar. Para registrar un proveedor de recursos, use:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.Batch
