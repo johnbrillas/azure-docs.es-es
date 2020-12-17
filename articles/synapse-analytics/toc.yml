@@ -86,8 +86,8 @@
                 - name: Script de SQL
                   href: ./sql/author-sql-script.md
                   displayname: author
-                - name: Flujo de datos de asignación
-                  href: ../data-factory/concepts-data-flow-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                - name: Data Flow
+                  href: concepts-data-flow-overview.md
         - name: Programación de mantenimiento
           href: ./sql-data-warehouse/maintenance-scheduling.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Control de código fuente
@@ -660,8 +660,8 @@
           href: ../data-factory/concepts-integration-runtime.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Flujos de datos
           items:
-            - name: Introducción a Mapping Data Flow
-              href: ../data-factory/concepts-data-flow-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Introducción al flujo de datos
+              href: concepts-data-flow-overview.md
             - name: Modo de depuración
               href: ../data-factory/concepts-data-flow-debug-mode.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Desfase de esquema

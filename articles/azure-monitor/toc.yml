@@ -129,7 +129,7 @@
           href: app/data-retention-privacy.md
     - name: Alertas
       items:
-        - name: Información general
+        - name: Introducción
           href: platform/alerts-overview.md
         - name: Alertas de métricas
           href: platform/alerts-metric-overview.md
@@ -384,7 +384,7 @@
               href: insights/solution-agenthealth.md
         - name: Extensión de Diagnósticos de Azure
           items:
-            - name: Información general
+            - name: Introducción
               href: platform/diagnostics-extension-overview.md
             - name: Windows
               displayname: diagnostics extension
@@ -546,6 +546,8 @@
           items:
             - name: IT Service Management Connector
               href: platform/itsmc-overview.md
+            - name: Definición de Conector de Administración de servicios de TI
+              href: platform/itsmc-definition.md
             - name: "Conexiones de\_IT Service Management"
               href: platform/itsmc-connections.md
             - name: Creación de aplicación web de Service Manager
