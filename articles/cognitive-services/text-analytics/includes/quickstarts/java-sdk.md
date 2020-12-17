@@ -6,22 +6,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 10/07/2020
+ms.date: 12/11/2020
 ms.custom: devx-track-java
 ms.author: aahi
 ms.reviewer: tasharm, assafi, sumeh
-ms.openlocfilehash: b7e5ebb9ac4c71d71b19b10763ebbdf57d752d49
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 5aa14ae179270813a8c7410425c1614d95b8b497
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94980949"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97366315"
 ---
 <a name="HOLTop"></a>
 
 # <a name="version-31-preview"></a>[Versión 3.1 (versión preliminar)](#tab/version-3-1)
 
-[Documentación de referencia](/java/api/overview/azure/ai-textanalytics-readme-pre?view=azure-java-preview) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics) | [Paquete](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.1.0-beta.1) | [Ejemplos](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics/src/samples)
+[Documentación de referencia](/java/api/overview/azure/ai-textanalytics-readme?view=azure-java-stable) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-textanalytics_5.1.0-beta.3/sdk/textanalytics/azure-ai-textanalytics) | [Paquete](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.1.0-beta.3) | [Ejemplos](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-textanalytics_5.1.0-beta.3/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics)
 
 # <a name="version-30"></a>[Versión 3.0](#tab/version-3)
 
@@ -40,6 +40,7 @@ En este artículo solo se describe la versión 3.x de la API.
 * Una vez que tenga la suscripción de Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="cree un recurso de Text Analytics"  target="_blank">cree un recurso de Text Analytics <span class="docon docon-navigate-external x-hidden-focus"></span></a> en Azure Portal para obtener la clave y el punto de conexión.  Una vez que se implemente, haga clic en **Ir al recurso**.
     * Necesitará la clave y el punto de conexión del recurso que cree para conectar la aplicación a API Text Analytics. En una sección posterior de este mismo inicio rápido pegará la clave y el punto de conexión en el código siguiente.
     * Puede usar el plan de tarifa gratis (`F0`) para probar el servicio y actualizarlo más adelante a un plan de pago para producción.
+* Para usar la característica Analyze, necesitará un recurso de Text Analytics con un plan de tarifa Estándar (S).
 
 ## <a name="setting-up"></a>Instalación
 
@@ -54,7 +55,7 @@ Cree un proyecto de Maven en el entorno de desarrollo o IDE que prefiera. Luego,
      <dependency>
         <groupId>com.azure</groupId>
         <artifactId>azure-ai-textanalytics</artifactId>
-        <version>5.1.0-beta.1</version>
+        <version>5.1.0-beta.3</version>
     </dependency>
 </dependencies>
 ```
@@ -132,6 +133,7 @@ public static void main(String[] args) {
     recognizeEntitiesExample(client);
     recognizeLinkedEntitiesExample(client);
     extractKeyPhrasesExample(client);
+        AnalyzeOperationExample(client)
 }
 ```
 
@@ -598,3 +600,93 @@ Recognized phrases:
 cat
 veterinarian
 ```
+---
+
+## <a name="use-the-api-asynchronously-with-the-analyze-operation"></a>Uso de la API de forma asincrónica con la operación Analyze
+
+# <a name="version-31-preview"></a>[Versión 3.1 (versión preliminar)](#tab/version-3-1)
+
+> [!CAUTION]
+> Para usar las operaciones Analyze, debe utilizar un recurso de Text Analytics con el plan de tarifa Estándar (S).  
+
+Cree una nueva función llamada `analyzeOperationExample()`, que llame a la función `beginAnalyzeTasks()`. El resultado será una operación de larga duración que se sondeará para encontrar resultados.
+
+```java
+static void analyzeOperationExample(TextAnalyticsClient client)
+{
+        List<TextDocumentInput> documents = Arrays.asList(
+                        new TextDocumentInput("0", "Microsoft was founded by Bill Gates and Paul Allen.")
+                        );
+
+        SyncPoller<TextAnalyticsOperationResult, PagedIterable<AnalyzeTasksResult>> syncPoller =
+                        client.beginAnalyzeTasks(documents,
+                                        new AnalyzeTasksOptions().setDisplayName("{tasks_display_name}")
+                                                        .setEntitiesRecognitionTasks(Arrays.asList(new EntitiesTask())),
+                                        Context.NONE);
+
+        syncPoller.waitForCompletion();
+        PagedIterable<AnalyzeTasksResult> result = syncPoller.getFinalResult();
+
+        result.forEach(analyzeJobState -> {
+                System.out.printf("Job Display Name: %s, Job ID: %s.%n", analyzeJobState.getDisplayName(),
+                                analyzeJobState.getJobId());
+                System.out.printf("Total tasks: %s, completed: %s, failed: %s, in progress: %s.%n",
+                                analyzeJobState.getTotal(), analyzeJobState.getCompleted(), analyzeJobState.getFailed(),
+                                analyzeJobState.getInProgress());
+
+                List<RecognizeEntitiesResultCollection> entityRecognitionTasks =
+                                analyzeJobState.getEntityRecognitionTasks();
+                if (entityRecognitionTasks != null) {
+                        entityRecognitionTasks.forEach(taskResult -> {
+                                // Recognized entities for each of documents from a batch of documents
+                                AtomicInteger counter = new AtomicInteger();
+                                for (RecognizeEntitiesResult entitiesResult : taskResult) {
+                                        System.out.printf("%n%s%n", documents.get(counter.getAndIncrement()));
+                                        if (entitiesResult.isError()) {
+                                                // Erroneous document
+                                                System.out.printf("Cannot recognize entities. Error: %s%n",
+                                                                entitiesResult.getError().getMessage());
+                                        } else {
+                                                // Valid document
+                                                entitiesResult.getEntities().forEach(entity -> System.out.printf(
+                                                                "Recognized entity: %s, entity category: %s, entity subcategory: %s, "
+                                                                                + "confidence score: %f.%n",
+                                                                entity.getText(), entity.getCategory(), entity.getSubcategory(),
+                                                                entity.getConfidenceScore()));
+                                        }
+                                }
+                        });
+                }
+        });
+    }
+```
+
+Después de agregar este ejemplo a la aplicación, llame a su método `main()`.
+
+```java
+analyzeOperationExample(client);
+```
+
+### <a name="output"></a>Output
+
+```console
+Job Display Name: {tasks_display_name}, Job ID: 84fd4db4-0734-47ec-b263-ac5451e83f2a_637432416000000000.
+Total tasks: 1, completed: 1, failed: 0, in progress: 0.
+
+Text = Microsoft was founded by Bill Gates and Paul Allen., Id = 0, Language = null
+Recognized entity: Microsoft, entity category: Organization, entity subcategory: null, confidence score: 0.960000.
+Recognized entity: Bill Gates, entity category: Person, entity subcategory: null, confidence score: 1.000000.
+Recognized entity: Paul Allen, entity category: Person, entity subcategory: null, confidence score: 0.990000.
+```
+
+También puede usar la operación Analyze para detectar información de identificación personal y para la extracción de frases clave. Consulte el [ejemplo de Analyze](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics/lro/AnalyzeTasksAsync.java) de GitHub.
+
+# <a name="version-30"></a>[Versión 3.0](#tab/version-3)
+
+Esta característica no está disponible en la versión 3.0.
+
+# <a name="version-21"></a>[Versión 2.1](#tab/version-2)
+
+Esta característica no está disponible en la versión 2.1.
+
+---

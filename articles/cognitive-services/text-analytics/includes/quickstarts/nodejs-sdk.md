@@ -6,16 +6,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 10/07/2020
+ms.date: 12/11/2020
 ms.author: aahi
 ms.reviewer: sumeh, assafi
 ms.custom: devx-track-js
-ms.openlocfilehash: 3de8954bcbe648fcb7f5cb0f50d9694de92baeb4
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 69a7e63a5dcd892c1085367bd9747ffae9a835bf
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94978546"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97366325"
 ---
 <a name="HOLTop"></a>
 
@@ -42,6 +42,7 @@ ms.locfileid: "94978546"
 * Una vez que tenga la suscripción de Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="cree un recurso de Text Analytics"  target="_blank">cree un recurso de Text Analytics <span class="docon docon-navigate-external x-hidden-focus"></span></a> en Azure Portal para obtener la clave y el punto de conexión. Una vez que se implemente, haga clic en **Ir al recurso**.
     * Necesitará la clave y el punto de conexión del recurso que cree para conectar la aplicación a API Text Analytics. En una sección posterior de este mismo inicio rápido pegará la clave y el punto de conexión en el código siguiente.
     * Puede usar el plan de tarifa gratis (`F0`) para probar el servicio y actualizarlo más adelante a un plan de pago para producción.
+* Para usar la característica Analyze, necesitará un recurso de Text Analytics con un plan de tarifa Estándar (S).
 
 ## <a name="setting-up"></a>Instalación
 
@@ -67,7 +68,7 @@ npm init
 Instale los paquetes NPM `@azure/ai-text-analytics`:
 
 ```console
-npm install --save @azure/ai-text-analytics@5.1.0-beta.1
+npm install --save @azure/ai-text-analytics@5.1.0-beta.3
 ```
 
 > [!TIP]
@@ -824,6 +825,71 @@ Ejecute el código con `node index.js` en la ventana de la consola.
     { id: '3', keyPhrases: [ 'fútbol' ] }
 ]
 ```
+
+---
+
+## <a name="use-the-api-asynchronously-with-the-analyze-operation"></a>Uso de la API de forma asincrónica con la operación Analyze
+
+# <a name="version-31-preview"></a>[Versión 3.1 (versión preliminar)](#tab/version-3-1)
+
+> [!CAUTION]
+> Para usar las operaciones Analyze, debe utilizar un recurso de Text Analytics con el plan de tarifa Estándar (S).  
+
+Cree una nueva función llamada `analyze_example()`, que llame a la función `beginAnalyze()`. El resultado será una operación de larga duración que se sondeará para encontrar resultados.
+
+```javascript
+const documents = [
+  "Microsoft was founded by Bill Gates and Paul Allen.",
+];
+
+async function analyze_example(client) {
+  console.log("== Analyze Sample ==");
+
+  const tasks = {
+    entityRecognitionTasks: [{ modelVersion: "latest" }]
+  };
+  const poller = await client.beginAnalyze(documents, tasks);
+  const resultPages = await poller.pollUntilDone();
+
+  for await (const page of resultPages) {
+    const entitiesResults = page.entitiesRecognitionResults![0];
+    for (const doc of entitiesResults) {
+      console.log(`- Document ${doc.id}`);
+      if (!doc.error) {
+        console.log("\tEntities:");
+        for (const entity of doc.entities) {
+          console.log(`\t- Entity ${entity.text} of type ${entity.category}`);
+        }
+      } else {
+        console.error("  Error:", doc.error);
+      }
+    }
+  }
+}
+
+analyze_example(textAnalyticsClient);
+```
+
+### <a name="output"></a>Output
+
+```console
+== Analyze Sample ==
+- Document 0
+        Entities:
+        - Entity Microsoft of type Organization
+        - Entity Bill Gates of type Person
+        - Entity Paul Allen of type Person
+```
+
+También puede usar la operación Analyze para detectar información de identificación personal y para la extracción de frases clave. Consulte los ejemplos de Analyze para [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/textanalytics/ai-text-analytics/samples/javascript/beginAnalyze.js) y [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/textanalytics/ai-text-analytics/samples/typescript/src/beginAnalyze.ts) en GitHub.
+
+# <a name="version-30"></a>[Versión 3.0](#tab/version-3)
+
+Esta característica no está disponible en la versión 3.0.
+
+# <a name="version-21"></a>[Versión 2.1](#tab/version-2)
+
+Esta característica no está disponible en la versión 2.1.
 
 ---
 

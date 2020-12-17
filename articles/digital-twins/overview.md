@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: f0c19130312db4e6ef500a0750f40359931d48d2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 49b7bae1a0cc224b92f292b891fae210f2cffa4e
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099120"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400614"
 ---
 # <a name="what-is-azure-digital-twins"></a>¿Qué es Azure Digital Twins?
 
@@ -64,7 +64,7 @@ También puede impulsar Azure Digital Twins desde otros orígenes de datos media
 
 ### <a name="output-to-tsi-storage-and-analytics"></a>Salida a TSI, almacenamiento y análisis
 
-Los datos del modelo de Azure Digital Twins se pueden enrutar a servicios de Azure de nivel inferior para operaciones de análisis o almacenamiento adicionales. Esto se proporciona a través de **rutas de evento** , que usan el [centro de eventos](../event-hubs/event-hubs-about.md), [Event Grid](../event-grid/overview.md) o [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) para impulsar los flujos de datos deseados.
+Los datos del modelo de Azure Digital Twins se pueden enrutar a servicios de Azure de nivel inferior para operaciones de análisis o almacenamiento adicionales. Esto se proporciona a través de **rutas de evento**, que usan el [centro de eventos](../event-hubs/event-hubs-about.md), [Event Grid](../event-grid/overview.md) o [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) para impulsar los flujos de datos deseados.
 
 Algunas de las cosas que puede hacer con las rutas de eventos son:
 * Almacenar datos de Azure Digital Twins en [Azure Data Lake](../storage/blobs/data-lake-storage-introduction.md).
@@ -96,9 +96,6 @@ Puede encontrar una lista de los límites de Azure Digital Twins en [*Referencia
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si ha trabajado con la primera versión preliminar de Azure Digital Twins (octubre de 2018), obtenga información sobre lo que ha cambiado:
-* [*Información general: Diferencias respecto a la primera versión*](overview-differences.md)
+Si ha trabajado con la primera versión preliminar de Azure Digital Twins (octubre de 2018), obtenga información sobre lo que ha cambiado: [*Información general: Diferencias respecto a la primera versión*](overview-differences.md).
 
-O bien, avance y profundice en el trabajo con Azure Digital Twins con el primer tutorial:
-
-[*Tutorial: Programación de una aplicación cliente*](tutorial-code.md)
+O bien, avance y profundice en el trabajo con Azure Digital Twins con el inicio rápido: [*Guía de inicio rápido: Exploración de un escenario de ejemplo*](quickstart-adt-explorer.md).

@@ -3,14 +3,14 @@ author: aahill
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 10/07/2020
+ms.date: 12/11/2020
 ms.author: aahi
-ms.openlocfilehash: ab9824b8880c5d2a994481bf4917efb368ed09a9
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: da5aae933de1317dd97f74c97f9c08ca6cc1d090
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94980969"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97366490"
 ---
 <a name="HOLTop"></a>
 
@@ -35,6 +35,7 @@ ms.locfileid: "94980969"
 * Una vez que tenga la suscripción de Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="cree un recurso de Text Analytics"  target="_blank">cree un recurso de Text Analytics <span class="docon docon-navigate-external x-hidden-focus"></span></a> en Azure Portal para obtener la clave y el punto de conexión. Una vez que se implemente, haga clic en **Ir al recurso**.
     * Necesitará la clave y el punto de conexión del recurso que cree para conectar la aplicación a API Text Analytics. En una sección posterior de este mismo inicio rápido pegará la clave y el punto de conexión en el código siguiente.
     * Puede usar el plan de tarifa gratis (`F0`) para probar el servicio y actualizarlo más adelante a un plan de pago para producción.
+* Para usar la característica Analyze, necesitará un recurso de Text Analytics con un plan de tarifa Estándar (S).
 
 ## <a name="setting-up"></a>Instalación
 
@@ -466,7 +467,7 @@ language_detection_example(client)
 ```
 
 
-### <a name="output"></a>Resultados
+### <a name="output"></a>Output
 
 ```console
 Language:  French
@@ -684,7 +685,7 @@ def entity_recognition_example(client):
 entity_recognition_example(client)
 ```
 
-### <a name="output"></a>Resultados
+### <a name="output"></a>Output
 
 ```console
 Named Entities:
@@ -916,5 +917,77 @@ Document ID: 4
          Key phrases:
                 fútbol
 ```
+
+---
+
+## <a name="use-the-api-asynchronously-with-the-analyze-operation"></a>Uso de la API de forma asincrónica con la operación Analyze
+
+# <a name="version-31-preview"></a>[Versión 3.1 (versión preliminar)](#tab/version-3-1)
+
+> [!CAUTION]
+> Para usar las operaciones Analyze, debe utilizar un recurso de Text Analytics con el plan de tarifa Estándar (S).  
+
+Cree una función denominada `analyze_example()` que tome el cliente como argumento y, luego, llame a la función `begin_analyze()`. El resultado será una operación de larga duración que se sondeará para encontrar resultados.
+
+```python
+    def analyze_example(client):
+        documents = [
+            "Microsoft was founded by Bill Gates and Paul Allen."
+        ]
+
+        poller = text_analytics_client.begin_analyze(
+            documents,
+            display_name="Sample Text Analysis",
+            entities_recognition_tasks=[EntitiesRecognitionTask()]
+        )
+
+        result = poller.result()
+
+        for page in result:
+            for task in page.entities_recognition_results:
+                print("Results of Entities Recognition task:")
+                
+                docs = [doc for doc in task.results if not doc.is_error]
+                for idx, doc in enumerate(docs):
+                    print("\nDocument text: {}".format(documents[idx]))
+                    for entity in doc.entities:
+                        print("Entity: {}".format(entity.text))
+                        print("...Category: {}".format(entity.category))
+                        print("...Confidence Score: {}".format(entity.confidence_score))
+                        print("...Offset: {}".format(entity.offset))
+                    print("------------------------------------------")
+
+analyze_example(client)
+```
+
+### <a name="output"></a>Output
+
+```console
+Results of Entities Recognition task:
+Document text: Microsoft was founded by Bill Gates and Paul Allen.
+Entity: Microsoft
+...Category: Organization
+...Confidence Score: 0.83
+...Offset: 0
+Entity: Bill Gates
+...Category: Person
+...Confidence Score: 0.85
+...Offset: 25
+Entity: Paul Allen
+...Category: Person
+...Confidence Score: 0.9
+...Offset: 40
+------------------------------------------
+```
+
+También puede usar la operación Analyze para detectar información de identificación personal y para la extracción de frases clave. Consulte el [ejemplo de Analyze](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/textanalytics/azure-ai-textanalytics/samples/async_samples/sample_analyze_async.py) de GitHub.
+
+# <a name="version-30"></a>[Versión 3.0](#tab/version-3)
+
+Esta característica no está disponible en la versión 3.0.
+
+# <a name="version-21"></a>[Versión 2.1](#tab/version-2)
+
+Esta característica no está disponible en la versión 2.1.
 
 ---

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 12/02/2020
+ms.date: 12/04/2020
 ms.author: aahi
-ms.openlocfilehash: 0437704709e863cdbc62321c8a4b79015564e362
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: 4f5c47000355a004f8d76d8b740b705618748380
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96558766"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505229"
 ---
 # <a name="how-to-sentiment-analysis-and-opinion-mining"></a>Procedimiento: análisis de sentimiento y minería de opiniones
 
@@ -51,7 +51,7 @@ Las puntuaciones de confianza oscilan entre 1 y 0. Las puntuaciones más pró
 
 ## <a name="opinion-mining"></a>Minería de opiniones
 
-La minería de opiniones es una característica de Análisis de sentimiento, a partir de la versión 3.1-preview.1. Esta característica, también conocida como Análisis de sentimiento basada en aspectos en el procesamiento de lenguaje natural (NLP), proporciona información más detallada sobre las opiniones relacionadas con los aspectos (como los atributos de los productos o servicios) en el texto. 
+La minería de opiniones es una característica de Análisis de sentimiento a partir de la versión preliminar de la versión 3.1. Esta característica, también conocida como Análisis de sentimiento basada en aspectos en el procesamiento de lenguaje natural (NLP), proporciona información más detallada sobre las opiniones relacionadas con los aspectos (como los atributos de los productos o servicios) en el texto.
 
 Por ejemplo, si un cliente deja comentarios sobre un hotel, como "La habitación era fantástica, pero el personal era antipático", la minería de opiniones ubicará aspectos en el texto, así como sus opiniones y sentimientos asociados. Análisis de sentimiento solo puede informar de las opiniones negativas.
 
@@ -74,7 +74,7 @@ El tamaño del documento debe ser inferior a 5120 caracteres por documento. Para
 
 Cree una solicitud POST. Puede [usar Postman](text-analytics-how-to-call-api.md) o la **consola de pruebas de API** en los siguientes vínculos de referencia para estructurar y enviar rápidamente una. 
 
-#### <a name="version-31-preview2"></a>[Versión 3.1-versión preliminar.2](#tab/version-3-1)
+#### <a name="version-31-preview3"></a>[Versión 3.1-preview.3](#tab/version-3-1)
 
 [Referencia de Análisis de sentimiento, versión 3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Sentiment)
 
@@ -91,17 +91,17 @@ Establezca el punto de conexión HTTPS para el análisis de sentimiento, para lo
 > [!NOTE]
 > Tanto la clave como el punto de conexión del recurso de Text Analytics se pueden encontrar en Azure Portal. Están en la página **Inicio rápido** del recurso, en **Administración de recursos**. 
 
-#### <a name="version-31-preview2"></a>[Versión 3.1-versión preliminar.2](#tab/version-3-1)
+#### <a name="version-31-preview3"></a>[Versión 3.1-preview.3](#tab/version-3-1)
 
 **Análisis de sentimiento**
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/sentiment`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/sentiment`
 
 **Minería de opiniones**
 
 Para obtener resultados de la minería de opiniones, debe incluir el parámetro `opinionMining=true`. Por ejemplo:
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/sentiment?opinionMining=true`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/sentiment?opinionMining=true`
 
 De manera predeterminada, este parámetro se establece en `false`. 
 
@@ -144,7 +144,7 @@ La API Text Analytics no tiene estado. No se almacenan datos en la cuenta y los 
 
 La salida se devuelve inmediatamente. Puede transmitir los resultados a una aplicación que acepte JSON o guardar la salida en un archivo en el sistema local. Después, importe el resultado en una aplicación que pueda usar para ordenar los datos, realizar búsquedas en ellos y manipularlos. Debido a la compatibilidad con varios idiomas y con Emojis, la respuesta puede contener desplazamientos de texto. Consulte [cómo procesar desplazamientos](../concepts/text-offsets.md) para más información.
 
-#### <a name="version-31-preview2"></a>[Versión 3.1-versión preliminar.2](#tab/version-3-1)
+#### <a name="version-31-preview3"></a>[Versión 3.1-preview.3](#tab/version-3-1)
 
 ### <a name="sentiment-analysis-and-opinion-mining-example-response"></a>Respuesta de ejemplo de análisis de sentimiento y minería de opiniones
 
@@ -302,5 +302,5 @@ En este artículo, ha aprendido los conceptos y el flujo de trabajo del análisi
 ## <a name="see-also"></a>Consulte también
 
 * [Información general de Text Analytics](../overview.md)
-* [Uso de la biblioteca cliente de Text Analytics](../quickstarts/text-analytics-sdk.md)
+* [Uso de la biblioteca cliente de Text Analytics](../quickstarts/client-libraries-rest-api.md)
 * [Novedades](../whats-new.md)

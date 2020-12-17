@@ -6,13 +6,13 @@ ms.author: wesmc
 ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual
-ms.date: 03/12/2020
-ms.openlocfilehash: f50c84212e62fae378d9d95e8990e084c82bb99a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 12/14/2020
+ms.openlocfilehash: 6ff5731e7d346c954253ec4186357595461b7678
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96000375"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400266"
 ---
 # <a name="use-azure-iot-dps-ip-connection-filters"></a>Uso de filtros de conexión IP de Azure IoT DPS
 
@@ -58,7 +58,7 @@ Después de rellenar los campos, seleccione **Guardar** para guardar la regla. S
 
 ![Notificación acerca de cómo guardar una regla de filtro IP](./media/iot-dps-ip-filtering/ip-filter-save-new-rule.png)
 
-La opción **Agregar** está deshabilitada cuando se alcanza el máximo de 10 reglas de filtro IP.
+La opción **Agregar** está deshabilitada cuando se alcanza el máximo de 100 reglas de filtro IP.
 
 Para editar una regla existente, seleccione los datos que quiere cambiar, realice el cambio y, a continuación, seleccione **Guardar** para guardar la edición.
 
@@ -135,7 +135,7 @@ Actualice los atributos de la regla de filtro IP de la plantilla en función de 
 
 | Atributo                | Descripción |
 | ------------------------ | ----------- |
-| **FilterName**           | Escriba un nombre para la regla de filtro IP. Debe ser una cadena única de hasta 128 caracteres alfanuméricos que no distinga mayúsculas de minúsculas. Solo se aceptan los caracteres alfanuméricos ASCII de 7 bits más {'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}. |
+| **FilterName**           | Escriba un nombre para la regla de filtro IP. Debe ser una cadena única de hasta 128 caracteres alfanuméricos que no distinga mayúsculas de minúsculas. Solo se aceptan los caracteres alfanuméricos ASCII de 7 bits más  `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}` . |
 | **Acción**               | Los valores aceptados son **Aceptar** o  **Rechazar** como la acción de la regla de filtro IP. |
 | **ipMask**               | Proporcione una única dirección IPv4 o un bloque de direcciones IP en la notación CIDR. Por ejemplo, en notación CIDR, 192.168.100.0/22 representa las direcciones IPv4 de 1024 de 192.168.100.0 a 192.168.103.255. |
 

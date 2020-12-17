@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: acc19d9a04909dcf0e79c93e0c8a3fb8225ee1b4
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 1b92d1b5853d6b794ebdcf0e2052b8f15081d608
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96546922"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507581"
 ---
 # <a name="learn-the-basics-of-the-speech-cli"></a>Conozca los aspectos básicos de la CLI de Voz.
 
@@ -87,7 +87,7 @@ En este comando, se especifican los idiomas de origen (el idioma **del** que se 
 
 ### <a name="configuration-files-in-the-datastore"></a>Archivos de configuración en el almacén de archivos
 
-El comportamiento de la CLI de voz utiliza los valores de los archivos de configuración, a los se puede hacer referencia en las llamadas de la CLI mediante un símbolo @.
+El comportamiento de la CLI de voz utiliza los valores de los archivos de configuración, a los se puede hacer referencia en las llamadas de la CLI mediante un símbolo \@.
 La CLI de voz guarda los valores nuevos en un subdirectorio `./spx/data` nuevo que crea en el directorio de trabajo actual.
 Al buscar un valor de configuración, la CLI de voz busca en el directorio de trabajo actual, luego en el almacén de archivos de `./spx/data`y, después, en otros almacenes de archivos, incluido un almacén de datos de solo lectura final que se encuentra en el binario `spx`.
 Anteriormente se usaba el almacén de datos para guardar los valores `@key` y `@region`, por lo que no era necesario especificarlos con cada llamada a la línea de comandos.

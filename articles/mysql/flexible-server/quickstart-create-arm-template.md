@@ -242,7 +242,7 @@ echo "Press [ENTER] to continue ..."
 Para ver un tutorial paso a paso que le guíe en el proceso de creación de una plantilla de Resource Manager, consulte:
 
 > [!div class="nextstepaction"]
-> Creación e implementación de su primera plantilla de Resource Manager[
+> [Creación e implementación de la primera plantilla de Resource Manager](../../azure-resource-manager/templates/template-tutorial-create-first-template.md)
 
 Para obtener un tutorial paso a paso para compilar una aplicación con App Service mediante MySQL, consulte:
 

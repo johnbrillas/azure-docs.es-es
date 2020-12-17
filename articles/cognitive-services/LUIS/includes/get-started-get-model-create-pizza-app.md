@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: include
 ms.custom: include file
 ms.author: roy-har
-ms.openlocfilehash: 9965e4c856fdef2af17b116264ad5344ebc97eb2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 081b9288d091e26d0e6d30aa849ced18a3c2ffb6
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "84466931"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938467"
 ---
 Creación de la aplicación de pizza.
 
@@ -59,7 +59,7 @@ La aplicación de pizza ya está lista para usarse.
 
 ## <a name="record-the-access-values-for-your-pizza-app"></a>Registro de los valores de acceso de la aplicación de pizza
 
-Para usar la nueva aplicación de pizza, necesitará el identificador de la aplicación, la clave de creación y el punto de conexión de creación de la aplicación de pizza.
+Para usar la nueva aplicación de pizza, necesitará el identificador de la aplicación, la clave de creación y el punto de conexión de creación de la aplicación de pizza. Para obtener predicciones, necesitará un punto de conexión de predicción y una clave de predicción diferentes.
 
 Para establecer estos valores:
 
@@ -67,5 +67,5 @@ Para establecer estos valores:
 1. En la página **Configuración de la aplicación**, registre el **Id. de aplicación**.
 1. Seleccione **Recursos de Azure**.
 1. Seleccione **Recurso de creación**.
-1. En la pestaña **Recurso de creación**, registre la **clave principal**. Este valor es la clave de creación.
+1. En las pestañas **Recurso de creación** y **Recursos de predicción**, registre la **clave principal**. Este valor es la clave de creación.
 1. Registre la **Dirección URL del punto de conexión**. Este valor es el punto de conexión de creación.
