@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/30/2020
 ms.author: Zhchia
-ms.openlocfilehash: 4d3ee6df90424788c6f9b6bb4e2055023a5d56a6
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 881309c040f6c1bdff758d17ab7f51e935437192
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182077"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97607888"
 ---
 # <a name="tutorial-configure-mediusflow-for-automatic-user-provisioning"></a>Tutorial: Configuración de MediusFlow para el aprovisionamiento automático de usuarios
 
@@ -172,11 +172,11 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 11. En la sección **Asignaciones de atributos**, revise los atributos de grupo que se sincronizan entre Azure AD y MediusFlow. Los atributos seleccionados como propiedades de **Matching** (Coincidencia) se usan para buscar coincidencias con los grupos de MediusFlow para las operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
 
-      |Atributo|Tipo|
-      |---|---|
-      |DisplayName|String|
-      |externalId|String|
-      |members|Referencia|
+    | Atributo | Tipo |
+    |--|--|
+    | DisplayName | String |
+    | externalId | String |
+    | members | Referencia |
 
 12. Para configurar filtros de ámbito, consulte las siguientes instrucciones, que se proporcionan en el artículo [Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 

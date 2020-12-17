@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/14/2019
-ms.openlocfilehash: daccbd9dfb3ed628d8a3e604cbb9af4045f1ebe6
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 3fe6095595f5270b18536e6ef46afe4a0a5b3268
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92780893"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97607718"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Uso de la restauración geográfica para recuperar una aplicación SaaS multiinquilino a partir de copias de seguridad de base de datos
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -163,7 +163,7 @@ El proceso de recuperación hace lo siguiente:
 
     * La aplicación puede acceder a las bases de datos de inquilino tan pronto como se marcan como en línea en el catálogo.
 
-    * Una suma de valores rowversion en la base de datos de inquilino se almacena en el catálogo. Esta suma actúa como una huella digital que permite al proceso de repatriación determinar si la base de datos se actualizó en la región de recuperación.       
+    * Una suma de valores rowversion en la base de datos de inquilino se almacena en el catálogo. Esta suma actúa como una huella digital que permite al proceso de repatriación determinar si la base de datos se actualizó en la región de recuperación.
 
 ## <a name="run-the-recovery-script"></a>Ejecución del script de recuperación
 

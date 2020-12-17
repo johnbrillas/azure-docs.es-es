@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 1376dcb76c22bcd70937f533d337ee9679e9dc59
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 832c08123904b9fb889231faa86c1308704a2581
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96455820"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606426"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-loginradius"></a>Tutorial: Integración de Azure Active Directory con LoginRadius
 
@@ -151,7 +151,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en la con
        - Comando para obtener la clave del certificado de SP: `openssl genrsa -out lr.hub.loginradius.com.key 2048`
 
        - Comando para obtener el certificado de SP: `openssl req -new -x509 -key lr.hub.loginradius.com.key -out lr.hub.loginradius.com.cert -days 3650 -subj /CN=lr.hub.loginradius.com`
-     
+
        > [!NOTE]
        > Asegúrese de especificar los valores de certificado y de clave del certificado con el encabezado y el pie de página:
        > - Formato de ejemplo del valor de certificado: `-----BEGIN CERTIFICATE-----<certifciate value>-----END CERTIFICATE-----`

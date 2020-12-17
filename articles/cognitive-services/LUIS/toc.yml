@@ -195,8 +195,6 @@
           href: luis-how-to-azure-subscription.md
         - name: Configuración de la aplicación y de la versión
           href: how-to-application-settings-portal.md
-        - name: Migración al recurso de creación
-          href: luis-migration-authoring.md
         - name: Creadores y colaboradores
           displayName: 'access, transfer, AAD, tenant, Azure AD, consent, RBAC, admin, role-based access control, ownership, import'
           href: luis-how-to-collaborate.md
@@ -334,7 +332,7 @@
     - name: Regions
       href: luis-reference-regions.md
       displayName: 'failover, fail-over, fail over, Europe, EU, Australia, business continuity, bcdr'
-    - name: Límites
+    - name: límites
       href: luis-limits.md
     - name: Configuración de la aplicación y de la versión
       href: luis-reference-application-settings.md
