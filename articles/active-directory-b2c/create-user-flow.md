@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: fbb55d71c2ed56bac14380960f9a0777be549566
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 418446e0d465b606b8d580297cebd73c466d4841
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96754459"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109019"
 ---
 # <a name="create-a-user-flow-in-azure-active-directory-b2c"></a>Creación de un flujo de usuario en Azure Active Directory B2C
 
@@ -91,4 +91,4 @@ Puede crear varios [flujos de usuario](user-flow-overview.md) de diferentes tipo
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Adición de acceso condicional a flujos de usuario de Azure AD B2C](conditional-access-user-flow.md)
-- [Personalización de la interfaz de usuario en un flujo de usuario de Azure AD B2C](customize-ui-overview.md)
+- [Personalización de la interfaz de usuario en un flujo de usuario de Azure AD B2C](customize-ui-with-html.md)

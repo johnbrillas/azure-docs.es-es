@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 12/09/2020
-ms.openlocfilehash: bdf9cbfef7dfdcf80976641b527ddeb61368d50b
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: fa424f7e1f5e1f885dd433b8abc8aae1dc1bc206
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96921041"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97006204"
 ---
 # <a name="data-integration-using-azure-data-factory-and-azure-data-share"></a>Integración de datos mediante Azure Data Factory y Azure Data Share
 
@@ -72,7 +72,7 @@ En Azure Data Factory, los servicios vinculados definen la información de conex
     ![Configuración en el portal 3](media/lab-data-flow-data-share/configure3.png)
 1. El primer servicio vinculado que configurará es el correspondiente a Azure SQL Database. Puede usar la barra de búsqueda para filtrar la lista de almacenes de datos. Haga clic en el icono **Azure SQL Database** y, después, en Continue (Continuar).
 
-    ![Configuración en el portal 4](media/lab-data-flow-data-share/configure4.png)
+    ![Configuración en el portal 4](media/lab-data-flow-data-share/configure-4.png)
 1. En el panel de configuración de Azure SQL Database, escriba "SQLDB" como nombre del servicio vinculado. Escriba las credenciales para permitir que la factoría de datos se conecte a la base de datos. Si utiliza la autenticación de SQL, escriba el nombre del servidor, la base de datos, el nombre de usuario y la contraseña. Para comprobar que la información de conexión es correcta, haga clic en **Test connection** (Probar conexión). Cuando haya terminado, haga clic en **Create** (Crear).
 
     ![Configuración en el portal 5](media/lab-data-flow-data-share/configure5.png)
@@ -81,10 +81,10 @@ En Azure Data Factory, los servicios vinculados definen la información de conex
 
 1. Repita el mismo proceso para agregar un servicio vinculado de Azure Synapse Analytics. En la pestaña Connections (Conexiones), haga clic en **New** (Nuevo). Seleccione el icono de **Azure Synapse Analytics** y haga clic en Continue (Continuar).
 
-    ![Configuración en el portal 6](media/lab-data-flow-data-share/configure6.png)
+    ![Configuración en el portal 6](media/lab-data-flow-data-share/configure-6.png)
 1. En el panel de configuración del servicio vinculado, escriba "SQLDW" como nombre del servicio vinculado. Escriba las credenciales para permitir que la factoría de datos se conecte a la base de datos. Si utiliza la autenticación de SQL, escriba el nombre del servidor, la base de datos, el nombre de usuario y la contraseña. Para comprobar que la información de conexión es correcta, haga clic en **Test connection** (Probar conexión). Cuando haya terminado, haga clic en **Create** (Crear).
 
-    ![Configuración en el portal 7](media/lab-data-flow-data-share/configure7.png)
+    ![Configuración en el portal 7](media/lab-data-flow-data-share/configure-7.png)
 
 ### <a name="create-an-azure-data-lake-storage-gen2-linked-service"></a>Creación de un servicio vinculado de Azure Data Lake Storage Gen2
 
@@ -128,7 +128,7 @@ En Azure Data Factory, una canalización es una agrupación lógica de actividad
     ![Copia en el portal 4](media/lab-data-flow-data-share/copy4.png)
 1. Busque **Azure SQL Database** y haga clic en Continue (Continuar).
 
-    ![Copia en el portal 5](media/lab-data-flow-data-share/copy5.png)
+    ![Copia en el portal 5](media/lab-data-flow-data-share/copy-5.png)
 1. Asigne al conjunto de datos el nombre "TripData". Seleccione "SQLDB" como servicio vinculado. Seleccione "dbo.TripData" en la lista desplegable de nombre de tabla. Importe el esquema con la opción **From connection/store** (Desde la conexión o almacén). Haga clic en OK (Aceptar) cuando haya finalizado.
 
     ![Copia en el portal 6](media/lab-data-flow-data-share/copy6.png)
@@ -211,7 +211,7 @@ El flujo de datos creado en este paso realiza una combinación interna del conju
     ![Flujo de datos en el portal 9](media/lab-data-flow-data-share/dataflow9.png)
 1. Seleccione el icono **Azure SQL Database** y haga clic en Continue (Continuar). *Nota: puede observar que muchos de los conectores de Azure Data Factory no se admiten en el flujo de datos de asignación. Para transformar los datos de uno de estos orígenes, realice la ingesta en un origen compatible mediante la actividad de copia*.
 
-    ![Flujo de datos en el portal 10](media/lab-data-flow-data-share/dataflow10.png)
+    ![Flujo de datos en el portal 10](media/lab-data-flow-data-share/dataflow-10.png)
 1. Llame al conjunto de datos "TripFares". Seleccione "SQLDB" como servicio vinculado. Seleccione "dbo.TripFares" en la lista desplegable de nombre de tabla. Importe el esquema con la opción **From connection/store** (Desde la conexión o almacén). Haga clic en OK (Aceptar) cuando haya finalizado.
 
     ![Flujo de datos en el portal 11](media/lab-data-flow-data-share/dataflow11.png)
@@ -276,7 +276,7 @@ El flujo de datos creado en este paso realiza una combinación interna del conju
 
 1. Seleccione el icono de **Azure Synapse Analytics** y haga clic en Continue (Continuar).
 
-    ![Receptor en el portal 3](media/lab-data-flow-data-share/sink3.png)
+    ![Receptor en el portal 3](media/lab-data-flow-data-share/sink-3.png)
 1. Llame al conjunto de datos "AggregatedTaxiData". Seleccione "SQLDW" como servicio vinculado. Seleccione **Create new table** (Crear nueva tabla) y asigne a la nueva tabla el nombre dbo.AggregateTaxiData. Haga clic en OK (Aceptar) cuando haya finalizado.
 
     ![Receptor en el portal 4](media/lab-data-flow-data-share/sink4.png)

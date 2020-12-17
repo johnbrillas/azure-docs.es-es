@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 831da4153eebc798265493441ee72c041901904f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a007e64a7bd034397c2030c435a5ad349bd4acc7
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87053896"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97608755"
 ---
 # <a name="tutorial-use-azure-resource-manager-template-to-create-a-data-factory-pipeline-to-copy-data"></a>Tutorial: Uso de plantillas de Azure Resource Manager para crear una canalización de Data Factory para copiar datos 
 > [!div class="op_single_selector"]
@@ -341,46 +341,58 @@ Cree un archivo JSON denominado **ADFCopyTutorialARM Parameters.json** que conti
 ## <a name="monitor-pipeline"></a>Supervisión de la canalización
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con su cuenta.
-2. Haga clic en **Factorías de datos** en el menú de la izquierda (o bien) haga clic en **Todos los servicios** y después en **Factorías de datos** bajo la categoría **INTELIGENCIA Y ANÁLISIS**.
+
+1. Haga clic en **Factorías de datos** en el menú de la izquierda (o bien) haga clic en **Todos los servicios** y después en **Factorías de datos** bajo la categoría **INTELIGENCIA Y ANÁLISIS**.
    
     ![Menú Factorías de datos](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/data-factories-menu.png)
-3. En la página **Factorías de datos**, busque y encuentre su factoría de datos (AzureBlobToAzureSQLDatabaseDF). 
+
+1. En la página **Factorías de datos**, busque y encuentre su factoría de datos (AzureBlobToAzureSQLDatabaseDF). 
    
     ![Búsqueda de la factoría de datos](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/search-for-data-factory.png)  
-4. Haga clic en su factoría de datos de Azure. Verá la página principal de la factoría de datos.
+
+1. Haga clic en su factoría de datos de Azure. Verá la página principal de la factoría de datos.
    
     ![Página principal de la factoría de datos](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/data-factory-home-page.png)  
-6. Siga las instrucciones que se indican en [Supervisión de conjuntos de datos y canalizaciones](data-factory-monitor-manage-pipelines.md) para supervisar la canalización y los conjuntos de datos que ha creado en este tutorial. Actualmente, Visual Studio no permite supervisar canalizaciones de Data Factory.
-7. Cuando un segmento se encuentre en el estado **Listo**, compruebe que los datos se copian en la tabla **emp** de la base de datos de Azure SQL Database.
 
+1. Siga las instrucciones que se indican en [Supervisión de conjuntos de datos y canalizaciones](data-factory-monitor-manage-pipelines.md) para supervisar la canalización y los conjuntos de datos que ha creado en este tutorial. Actualmente, Visual Studio no permite supervisar canalizaciones de Data Factory.
+
+1. Cuando un segmento se encuentre en el estado **Listo**, compruebe que los datos se copian en la tabla **emp** de la base de datos de Azure SQL Database.
 
 Para más información sobre cómo usar las hojas de Azure Portal para supervisar la canalización y los conjuntos de datos creados en este tutorial, consulte [Supervisión de conjuntos de datos y canalizaciones](data-factory-monitor-manage-pipelines.md).
 
 Para más información sobre cómo usar la aplicación Supervisión y administración para supervisar sus canalizaciones de datos, consulte [Supervisión y administración de canalizaciones de Azure Data Factory mediante la aplicación de supervisión y administración](data-factory-monitor-manage-app.md).
 
 ## <a name="data-factory-entities-in-the-template"></a>Entidades de Data Factory en la plantilla
+
 ### <a name="define-data-factory"></a>Definición de factoría de datos
-Puede definir una factoría de datos en la plantilla de Resource Manager como se muestra en el ejemplo siguiente:  
+
+Puede definir una factoría de datos en la plantilla de Resource Manager como se muestra en el ejemplo siguiente:
 
 ```json
-"resources": [
 {
-    "name": "[variables('dataFactoryName')]",
-    "apiVersion": "2015-10-01",
-    "type": "Microsoft.DataFactory/datafactories",
-    "location": "West US"
+  "resources": [
+    {
+      "name": "[variables('dataFactoryName')]",
+      "apiVersion": "2015-10-01",
+      "type": "Microsoft.DataFactory/datafactories",
+      "location": "West US"
+    }
+  ]
 }
 ```
 
 El valor de dataFactoryName se define como: 
 
 ```json
-"dataFactoryName": "[concat('AzureBlobToAzureSQLDatabaseDF', uniqueString(resourceGroup().id))]"
+{
+    "dataFactoryName": "[concat('AzureBlobToAzureSQLDatabaseDF', uniqueString(resourceGroup().id))]"
+}
 ```
 
-Es una cadena única basada en el identificador del grupo de recursos.  
+Es una cadena única basada en el identificador del grupo de recursos.
 
 ### <a name="defining-data-factory-entities"></a>Definición de las entidades de Data Factory
+
 Las siguientes entidades de Data Factory se definen en la plantilla JSON: 
 
 1. [Servicio vinculado de Azure Storage](#azure-storage-linked-service)
@@ -390,6 +402,7 @@ Las siguientes entidades de Data Factory se definen en la plantilla JSON:
 5. [Canalización de datos con una actividad de copia](#data-pipeline)
 
 #### <a name="azure-storage-linked-service"></a>Servicio vinculado de Azure Storage
+
 AzureStorageLinkedService vincula una cuenta de Azure Storage a la factoría de datos. Como parte de los [requisitos previos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md), se creó un contenedor y se cargaron datos en esta cuenta de almacenamiento. Especifique el nombre y la clave de la cuenta de almacenamiento de Azure en esta sección. Consulte [Servicio vinculado de Azure Storage](data-factory-azure-blob-connector.md#azure-storage-linked-service) para más información sobre las propiedades JSON usadas para definir un servicio vinculado de Azure Storage. 
 
 ```json
@@ -413,6 +426,7 @@ AzureStorageLinkedService vincula una cuenta de Azure Storage a la factoría de 
 ConnectionString utiliza los parámetros storageAccountName y storageAccountKey. Los valores de estos parámetros se pasan mediante el uso de un archivo de configuración. La definición también usa las variables azureStroageLinkedService y dataFactoryName definidas en la plantilla. 
 
 #### <a name="azure-sql-database-linked-service"></a>Servicio vinculado de Azure SQL Database
+
 AzureSqlLinkedService vincula la base de datos de Azure SQL Database con la factoría de datos. Los datos que se copian desde Blob Storage se almacenan en esta base de datos. Como parte de los [requisitos previos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md), se creó la tabla emp en esta base de datos. Especifique el nombre del servidor SQL lógico, el nombre de la base de datos, el nombre de usuario y la contraseña del usuario en esta sección. Consulte [Servicio vinculado de Azure SQL](data-factory-azure-sql-connector.md#linked-service-properties) para obtener información sobre las propiedades JSON usadas para definir un servicio vinculado de Azure SQL.  
 
 ```json
@@ -424,11 +438,11 @@ AzureSqlLinkedService vincula la base de datos de Azure SQL Database con la fact
     ],
     "apiVersion": "2015-10-01",
     "properties": {
-          "type": "AzureSqlDatabase",
-          "description": "Azure SQL linked service",
-          "typeProperties": {
-            "connectionString": "[concat('Server=tcp:',parameters('sqlServerName'),'.database.windows.net,1433;Database=', parameters('databaseName'), ';User ID=',parameters('sqlServerUserName'),';Password=',parameters('sqlServerPassword'),';Trusted_Connection=False;Encrypt=True;Connection Timeout=30')]"
-          }
+      "type": "AzureSqlDatabase",
+      "description": "Azure SQL linked service",
+      "typeProperties": {
+        "connectionString": "[concat('Server=tcp:',parameters('sqlServerName'),'.database.windows.net,1433;Database=', parameters('databaseName'), ';User ID=',parameters('sqlServerUserName'),';Password=',parameters('sqlServerPassword'),';Trusted_Connection=False;Encrypt=True;Connection Timeout=30')]"
+      }
     }
 }
 ```

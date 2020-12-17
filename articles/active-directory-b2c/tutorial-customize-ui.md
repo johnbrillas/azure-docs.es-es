@@ -11,16 +11,16 @@ ms.topic: tutorial
 ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a9ca6d91be95bfb1a47f85b20f3775a57518ffcf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 036e9e6bf58d837c698a6092770ef581f77bc20c
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87922139"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108253"
 ---
 # <a name="tutorial-customize-the-interface-of-user-experiences-in-azure-active-directory-b2c"></a>Tutorial: Personalización de la interfaz de experiencias de usuario en Azure Active Directory B2C
 
-Para experiencias de usuario más comunes, como registrarse, iniciar sesión y editar perfiles, puede usar los [flujos de usuario](user-flow-overview.md) de Azure Active Directory B2C (Azure AD B2C). La información de este tutorial le ayuda a obtener información acerca de cómo [personalizar la interfaz de usuario (IU)](customize-ui-overview.md) de estas experiencias mediante sus propios archivos HTML y CSS.
+Para experiencias de usuario más comunes, como registrarse, iniciar sesión y editar perfiles, puede usar los [flujos de usuario](user-flow-overview.md) de Azure Active Directory B2C (Azure AD B2C). La información de este tutorial le ayuda a obtener información acerca de cómo [personalizar la interfaz de usuario (IU)](customize-ui-with-html.md) de estas experiencias mediante sus propios archivos HTML y CSS.
 
 En este artículo aprenderá a:
 
@@ -50,7 +50,7 @@ Aunque se pueden almacenar los archivos de muchas maneras, para este tutorial, a
 5. En **Grupo de recursos**, seleccione **Crear nuevo** y, después, proporcione un nombre válido para el nuevo grupo de recursos y haga clic en **Aceptar**.
 6. Escriba un nombre para la cuenta de almacenamiento. El nombre que elija debe ser único en Azure, tener entre tres y 24 caracteres y solo pueden contener números y letras minúsculas.
 7. Seleccione la ubicación de la cuenta de almacenamiento o acepte la ubicación predeterminada.
-8. Acepte los demás valores predeterminados, seleccione **Revisar y crear**y, después, haga clic en **Crear**.
+8. Acepte los demás valores predeterminados, seleccione **Revisar y crear** y, después, haga clic en **Crear**.
 9. Una vez creada la cuenta de almacenamiento, seleccione **Ir al recurso**.
 
 ### <a name="create-a-container"></a>Crear un contenedor
@@ -129,7 +129,7 @@ En este tutorial, almacenará los archivos que ha creado en la cuenta de almacen
 
 1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, busque y seleccione **Cuentas de almacenamiento**.
 2. Seleccione la cuenta de almacenamiento que creó, seleccione **Blobs** y, después, seleccione el contenedor que ha creado.
-3. Seleccione **Cargar**, vaya al archivo*custom-ui.html* y selecciónelo y, después, haga clic en **Cargar**.
+3. Seleccione **Cargar**, vaya al archivo *custom-ui.html* y selecciónelo y, después, haga clic en **Cargar**.
 
     ![Página Cargar blob en el portal con el botón Cargar y Archivos resaltados](./media/tutorial-customize-ui/upload-blob.png)
 
@@ -166,4 +166,4 @@ En este artículo, ha aprendido cómo:
 > * Probar la interfaz de usuario personalizada
 
 > [!div class="nextstepaction"]
-> [Personalización de la interfaz de usuario en Azure Active Directory B2C](customize-ui-overview.md)
+> [Personalización de la interfaz de usuario en Azure Active Directory B2C](customize-ui-with-html.md)
