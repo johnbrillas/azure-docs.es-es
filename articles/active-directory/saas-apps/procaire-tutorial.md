@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/28/2020
 ms.author: jeedes
-ms.openlocfilehash: 031a4993d9858dd4285abb35b20fca89dd2c9f18
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 70c310903461a4639a1eec1db9441d8f53e9e125
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181737"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505399"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-procaire"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Procaire
 
@@ -75,11 +75,6 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
 1. En la sección **Configuración básica de SAML**, el usuario no tiene que realizar ningún paso porque la aplicación ya se ha integrado previamente con Azure.
-
-1. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
-
-    En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL: `https://praisidio.app/auth/login`
-
 
 1. Haga clic en **Save**(Guardar).
 

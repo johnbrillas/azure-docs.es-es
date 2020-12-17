@@ -3,20 +3,18 @@ title: Arquitectura de referencia de la solución de supervisión del consumo de
 description: Conozca los conceptos de una solución de supervisión del consumo de agua creada con Azure IoT Central.
 author: miriambrus
 ms.author: miriamb
-ms.date: 10/23/2019
+ms.date: 12/11/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: df402064f2aa26e29ef72c0f73f8f5aa761506e2
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: a291a32c8fd635c9124a7e1f997b6c676c8c0bd4
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94873566"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586795"
 ---
 # <a name="water-consumption-monitoring-reference-architecture"></a>Arquitectura de referencia de supervisión del consumo de agua 
-
-
 
 Las soluciones de supervisión del consumo de agua se pueden crear con la **plantilla de aplicación de Azure IoT Central** como una aplicación de IoT de inicio rápido. En este artículo se proporciona una guía de arquitectura de referencia de alto nivel sobre la creación de una solución de un extremo a otro. 
 
@@ -26,8 +24,8 @@ Conceptos:
 
 1. Dispositivos y conectividad  
 1. IoT Central 
-2. Extensibilidad e integraciones
-3. Aplicaciones empresariales
+1. Extensibilidad e integraciones
+1. Aplicaciones empresariales
 
 Echemos un vistazo a los componentes clave que generalmente desempeñan un papel en una solución de supervisión del consumo de agua.
 

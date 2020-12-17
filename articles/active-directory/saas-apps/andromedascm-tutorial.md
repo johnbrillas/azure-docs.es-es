@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 0d342f672f4e8a5fdf33afe0feb7c5051956e29f
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: e8cb939b48f8cfe311ec10c0850cfb234de04fad
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318776"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589787"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-andromeda"></a>Tutorial: Integración de Azure Active Directory con Andromeda
 
@@ -126,30 +126,30 @@ Para configurar el inicio de sesión único de Azure AD con Andromeda, realice 
 
     | Nombre | Atributo de origen|
     | ------ | -----------|
-    | rol        | Rol específico de la aplicación |
-    | type        | Tipo de aplicación |
-    | company       | CompanyName |
+    | rol | Rol específico de la aplicación |
+    | type | Tipo de aplicación |
+    | company | CompanyName |
 
     > [!NOTE]
     > Estos valores no son reales. Se facilitan solo con fines de demostración, por lo que debe usar los roles de su organización.
 
-    a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
+    1. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
 
-    ![Captura de pantalla que muestra User claims (Reclamaciones de usuario) con las opciones Add new claim (Agregar nueva reclamación) y Save (Guardar).](common/new-save-attribute.png)
+        ![Captura de pantalla que muestra User claims (Reclamaciones de usuario) con las opciones Add new claim (Agregar nueva reclamación) y Save (Guardar).](common/new-save-attribute.png)
 
-    ![Captura de pantalla que muestra Manage user claims (Administrar reclamaciones de usuario) para escribir los valores que se describen en este paso.](common/new-attribute-details.png)
+        ![Captura de pantalla que muestra Manage user claims (Administrar reclamaciones de usuario) para escribir los valores que se describen en este paso.](common/new-attribute-details.png)
 
-    b. En el cuadro de texto **Nombre**, escriba el nombre que se muestra para la fila.
+    1. En el cuadro de texto **Nombre**, escriba el nombre que se muestra para la fila.
 
-    c. Deje **Espacio de nombres** en blanco.
+    1. Deje **Espacio de nombres** en blanco.
 
-    d. Seleccione **Atributo** como origen.
+    1. Seleccione **Atributo** como origen.
 
-    e. En la lista **Atributo de origen**, escriba el valor de atributo que se muestra para esa fila.
+    1. En la lista **Atributo de origen**, escriba el valor de atributo que se muestra para esa fila.
 
-    f. Haga clic en **Aceptar**.
+    1. Haga clic en **Aceptar**.
 
-    g. Haga clic en **Save**(Guardar).
+    1. Haga clic en **Save**(Guardar).
 
 8. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **certificado (Base64)** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
@@ -159,11 +159,11 @@ Para configurar el inicio de sesión único de Azure AD con Andromeda, realice 
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
-    a. URL de inicio de sesión
+    1. URL de inicio de sesión
 
-    b. Identificador de Azure AD
+    1. Identificador de Azure AD
 
-    c. URL de cierre de sesión
+    1. URL de cierre de sesión
 
 ### <a name="configure-andromeda-single-sign-on"></a>Configuración del inicio de sesión único en Andromeda
 
@@ -181,25 +181,25 @@ Para configurar el inicio de sesión único de Azure AD con Andromeda, realice 
 
     ![Configuración de Andromeda](./media/andromedascm-tutorial/tutorial_andromedascm_config.png)
 
-    a. Marque **Enable SSO with SAML** (Habilitar SSO con SAML).
+    1. Marque **Enable SSO with SAML** (Habilitar SSO con SAML).
 
-    b. En la sección **Andromeda Information** (Información de Andromeda), copie el valor **SP Identity** (Identidad de SP) y péguelo en el cuadro de texto **Identificador** de la sección **Configuración básica de SAML**.
+    1. En la sección **Andromeda Information** (Información de Andromeda), copie el valor **SP Identity** (Identidad de SP) y péguelo en el cuadro de texto **Identificador** de la sección **Configuración básica de SAML**.
 
-    c. Copie el valor de **Consumer URL** (Dirección URL de consumidor) y péguelo en el cuadro de texto **Reply URL** (URL de respuesta) de la sección **Configuración básica de SAML**.
+    1. Copie el valor de **Consumer URL** (Dirección URL de consumidor) y péguelo en el cuadro de texto **Reply URL** (URL de respuesta) de la sección **Configuración básica de SAML**.
 
-    d. Copie el valor de **Logon URL** (Dirección URL de inicio de sesión) y péguelo en el cuadro de texto **Sign-on URL** (URL de inicio de sesión) de la sección **Configuración básica de SAML**.
+    1. Copie el valor de **Logon URL** (Dirección URL de inicio de sesión) y péguelo en el cuadro de texto **Sign-on URL** (URL de inicio de sesión) de la sección **Configuración básica de SAML**.
 
-    e. En la sección **SAML Identity Provider** (Proveedor de identidades SAML), escriba el nombre del proveedor de identidades.
+    1. En la sección **SAML Identity Provider** (Proveedor de identidades SAML), escriba el nombre del proveedor de identidades.
 
-    f. En el cuadro de texto **Single Sign On End Point** (Punto de conexión del inicio de sesión único), pegue el valor de **Login URL** (URL de inicio de sesión) que ha copiado de Azure Portal.
+    1. En el cuadro de texto **Single Sign On End Point** (Punto de conexión del inicio de sesión único), pegue el valor de **Login URL** (URL de inicio de sesión) que ha copiado de Azure Portal.
 
-    g. Abra el **certificado codificado en Base64** descargado desde Azure Portal en el Bloc de notas y péguelo en el cuadro de texto **X 509 Certificate** (Certificado X509).
-    
-    h. Asigne los siguientes atributos con su respectivo valor para facilitar el inicio de sesión único desde Azure AD. El atributo **User ID** (Id. de usuario) es necesario para iniciar sesión. Para el aprovisionamiento, es necesario proporcionar los valores **Email** (Correo electrónico), **Company** (Compañía), **UserType** (Tipo de usuario) y **Role** (Rol). En esta sección, se define la asignación de atributos (nombre y valores) que se corresponden con los que se establecen en Azure Portal.
+    1. Abra el **certificado codificado en Base64** descargado desde Azure Portal en el Bloc de notas y péguelo en el cuadro de texto **X 509 Certificate** (Certificado X509).
 
-    ![Asignación de atributos de Andromeda](./media/andromedascm-tutorial/tutorial_andromedascm_attbmap.png)
+    1. Asigne los siguientes atributos con su respectivo valor para facilitar el inicio de sesión único desde Azure AD. El atributo **User ID** (Id. de usuario) es necesario para iniciar sesión. Para el aprovisionamiento, es necesario proporcionar los valores **Email** (Correo electrónico), **Company** (Compañía), **UserType** (Tipo de usuario) y **Role** (Rol). En esta sección, se define la asignación de atributos (nombre y valores) que se corresponden con los que se establecen en Azure Portal.
 
-    i. Haga clic en **Save**(Guardar).
+        ![Asignación de atributos de Andromeda](./media/andromedascm-tutorial/tutorial_andromedascm_attbmap.png)
+
+    1. Haga clic en **Save**(Guardar).
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
@@ -218,7 +218,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
     ![Cuadro de diálogo Usuario](common/user-properties.png)
 
     a. En el campo **Nombre**, escriba **BrittaSimon**.
-  
+
     b. En el campo **Nombre de usuario**, escriba `brittasimon@yourcompanydomain.extension`. Por ejemplo: BrittaSimon@contoso.com
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.

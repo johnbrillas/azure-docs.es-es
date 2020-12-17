@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: 84a9a5f6a4644717227d0b659407e9ba0bc56675
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: bf40353a8f29200ab2a33859473dbc504c29bf7d
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452406"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97510441"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory-using-powershell"></a>Copia masiva de varias tablas mediante Azure Data Factory con PowerShell
 
@@ -146,7 +146,7 @@ En este tutorial, creará tres servicios vinculados para el origen, el receptor,
 
     Este es la salida de ejemplo:
 
-    ```json
+    ```console
     LinkedServiceName : AzureSqlDatabaseLinkedService
     ResourceGroupName : <resourceGroupName>
     DataFactoryName   : <dataFactoryName>
@@ -180,7 +180,7 @@ En este tutorial, creará tres servicios vinculados para el origen, el receptor,
 
     Este es la salida de ejemplo:
 
-    ```json
+    ```console
     LinkedServiceName : AzureSqlDWLinkedService
     ResourceGroupName : <resourceGroupName>
     DataFactoryName   : <dataFactoryName>
@@ -216,7 +216,7 @@ En este tutorial, debe usar Azure Blob Storage como un área de almacenamiento p
 
     Este es la salida de ejemplo:
 
-    ```json
+    ```console
     LinkedServiceName : AzureStorageLinkedService
     ResourceGroupName : <resourceGroupName>
     DataFactoryName   : <dataFactoryName>
@@ -255,7 +255,7 @@ En este tutorial, creará los conjuntos de datos de origen y recepción que espe
 
     Este es la salida de ejemplo:
 
-    ```json
+    ```console
     DatasetName       : AzureSqlDatabaseDataset
     ResourceGroupName : <resourceGroupname>
     DataFactoryName   : <dataFactoryName>
@@ -299,7 +299,7 @@ En este tutorial, creará los conjuntos de datos de origen y recepción que espe
 
     Este es la salida de ejemplo:
 
-    ```json
+    ```console
     DatasetName       : AzureSqlDWDataset
     ResourceGroupName : <resourceGroupname>
     DataFactoryName   : <dataFactoryName>
@@ -391,7 +391,7 @@ Esta canalización toma la lista de tablas como un parámetro. Para cada tabla d
 
     Este es la salida de ejemplo:
 
-    ```json
+    ```console
     PipelineName      : IterateAndCopySQLTables
     ResourceGroupName : <resourceGroupName>
     DataFactoryName   : <dataFactoryName>
@@ -467,7 +467,7 @@ Esta canalización lleva a cabo dos pasos:
 
     Este es la salida de ejemplo:
 
-    ```json
+    ```console
     PipelineName      : GetTableListAndTriggerCopyData
     ResourceGroupName : <resourceGroupName>
     DataFactoryName   : <dataFactoryName>
@@ -509,7 +509,7 @@ Esta canalización lleva a cabo dos pasos:
 
     Este es el resultado de la ejecución de ejemplo:
 
-    ```json
+    ```console
     Pipeline run details:
     ResourceGroupName : <resourceGroupName>
     DataFactoryName   : <dataFactoryName>

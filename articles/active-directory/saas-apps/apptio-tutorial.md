@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/29/2019
 ms.author: jeedes
-ms.openlocfilehash: 1d7baba3db9a25d697d57382a28939426eac4a6f
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 48d24fecad109809bb3a2d18fc724e5d438cb813
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92457839"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588427"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-apptio"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Apptio
 
@@ -49,15 +49,15 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 Para configurar la integración de Apptio en Azure AD, deberá agregar Apptio desde la galería a la lista de aplicaciones SaaS administradas.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta personal, profesional o educativa de Microsoft.
-1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory** .
-1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones** .
-1. Para agregar una nueva aplicación, seleccione **Nueva aplicación** .
-1. En la sección **Agregar desde la galería** , escriba **Apptio** en el cuadro de búsqueda.
+1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
+1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
+1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
+1. En la sección **Agregar desde la galería**, escriba **Apptio** en el cuadro de búsqueda.
 1. Seleccione **Apptio** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-apptio"></a>Configuración y prueba del inicio de sesión único de Azure AD para Apptio
 
-Configure y pruebe el inicio de sesión único de Azure AD con Apptio utilizando un usuario de prueba llamado **B. Simon** . Para que el inicio de sesión único funcione, es necesario establecer una relación de vinculación entre un usuario de Azure AD y el usuario relacionado de Apptio.
+Configure y pruebe el inicio de sesión único de Azure AD con Apptio utilizando un usuario de prueba llamado **B. Simon**. Para que el inicio de sesión único funcione, es necesario establecer una relación de vinculación entre un usuario de Azure AD y el usuario relacionado de Apptio.
 
 Para configurar y probar el inicio de sesión único de Azure AD con Apptio, es preciso completar los siguientes bloques de creación:
 
@@ -72,23 +72,23 @@ Para configurar y probar el inicio de sesión único de Azure AD con Apptio, es
 
 Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicaciones de **Apptio** , busque la sección **Administrar** y seleccione **Inicio de sesión único** .
-1. En la página **Seleccione un método de inicio de sesión único** , elija **SAML** .
-1. En la página **Configurar el inicio de sesión único con SAML** , haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicaciones de **Apptio**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
+1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
+1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En la sección **Configuración básica de SAML** , especifique los valores de los siguientes campos:
+1. En la sección **Configuración básica de SAML**, especifique los valores de los siguientes campos:
 
-    En el cuadro de texto **Identificador** , escriba una dirección URL: `urn:federation:apptio`
+    En el cuadro de texto **Identificador**, escriba una dirección URL: `urn:federation:apptio`
 
 1. La notificación de rol está preconfigurada, por lo que no tiene que ocuparse de ello, pero aún tiene que crear los roles en Azure AD con la ayuda de este [artículo](../develop/active-directory-enterprise-app-role-management.md).
 
-1. En la página **Configurar el inicio de sesión único con SAML** , en la sección **Certificado de firma de SAML** , busque **XML de metadatos de federación** y seleccione **Descargar** para descargar el certificado y guardarlo en su equipo.
+1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **XML de metadatos de federación** y seleccione **Descargar** para descargar el certificado y guardarlo en su equipo.
 
     ![Vínculo de descarga del certificado](common/metadataxml.png)
 
-1. En la sección **Configurar Apptio** , copie las direcciones URL adecuadas según sus necesidades.
+1. En la sección **Configurar Apptio**, copie las direcciones URL adecuadas según sus necesidades.
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
@@ -96,35 +96,35 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Portal.
 
-1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory** , **Usuarios** y **Todos los usuarios** .
+1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
 1. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
-1. En las propiedades del **usuario** , siga estos pasos:
-   1. En el campo **Nombre** , escriba `B.Simon`.  
-   1. En el campo **Nombre de usuario** , escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
-   1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña** .
-   1. Haga clic en **Crear** .
+1. En las propiedades del **usuario**, siga estos pasos:
+   1. En el campo **Nombre**, escriba `B.Simon`.  
+   1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
+   1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
+   1. Haga clic en **Crear**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
 En esta sección, va a permitir que B. Simon acceda a Apptio mediante el inicio de sesión único de Azure.
 
-1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones** .
-1. En la lista de aplicaciones, seleccione **Apptio** .
-1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos** .
+1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
+1. En la lista de aplicaciones, seleccione **Apptio**.
+1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
 
    ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
 
-1. Seleccione **Agregar usuario** . A continuación, en el cuadro de diálogo **Agregar asignación** , seleccione **Usuarios y grupos** .
+1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
 
     ![Vínculo de Agregar usuario](common/add-assign-user.png)
 
-1. En el cuadro de diálogo **Usuarios y grupos** , seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
-1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** , seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
-1. En el cuadro de diálogo **Agregar asignación** , haga clic en el botón **Asignar** .
+1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
+1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
 ## <a name="configure-apptio-sso"></a>Configuración del inicio de sesión único de Apptio
 
-Para configurar el inicio de sesión único en **Apptio** , es preciso enviar el **XML de metadatos de federación** descargado y las direcciones URL apropiadas copiadas de Azure Portal al [equipo de soporte técnico de Apptio](https://www.apptio.com/resources/customer-support/). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Para configurar el inicio de sesión único en **Apptio**, es preciso enviar el **XML de metadatos de federación** descargado y las direcciones URL apropiadas copiadas de Azure Portal al [equipo de soporte técnico de Apptio](https://www.apptio.com/resources/customer-support/). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 ### <a name="create-apptio-test-user"></a>Creación del usuario de prueba de Apptio
 

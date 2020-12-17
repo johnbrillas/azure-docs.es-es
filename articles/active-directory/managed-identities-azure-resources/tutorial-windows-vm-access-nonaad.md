@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/03/2020
+ms.date: 12/10/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa17a18de8e71b099d6ed717974486203c4379f4
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 668d3cb044512220ff7afbc165c77da704a9a5d7
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96180513"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107522"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-key-vault"></a>Tutorial: Uso de las identidades administradas asignadas por el sistema de una máquina virtual Windows para acceder a Azure Key Vault 
 
@@ -61,6 +61,20 @@ En primer lugar, es necesario crear un almacén de claves y conceder a la identi
 1. Seleccione **Revisar y crear**.
 1. Seleccione **Crear**
 
+### <a name="create-a-secret"></a>Crear un secreto
+
+A continuación, agregue un secreto al almacén de claves, de forma que más adelante pueda recuperarlo mediante código que se ejecuta en la máquina virtual. Para este tutorial utilizamos PowerShell, pero los mismos conceptos se aplican a cualquier código que se ejecute en esta máquina virtual.
+
+1. Vaya al almacén de claves recién creado.
+1. Seleccione **Secretos** y haga clic en **Agregar**.
+1. Seleccione **Generar o importar**.
+1. En la pantalla **Crear un secreto** desde **Opciones de carga**, deje la opción **Manual** seleccionada.
+1. Escriba un nombre y un valor para el secreto.  El valor puede ser cualquiera de su elección. 
+1. Deje la fecha de activación y la fecha de expiración y deje la opción **Habilitado** en **Sí**. 
+1. Haga clic en **Crear** para crear el secreto.
+
+   ![Crear un secreto](./media/msi-tutorial-windows-vm-access-nonaad/create-secret.png)
+
 ## <a name="grant-access"></a>Conceder acceso
 
 Es necesario conceder acceso a la identidad administrada que usa la máquina virtual para leer el secreto que se almacenará en el almacén de claves.
@@ -76,19 +90,6 @@ Es necesario conceder acceso a la identidad administrada que usa la máquina vir
 1. Seleccione **Agregar**.
 1. Seleccione **Guardar**.
 
-## <a name="create-a-secret"></a>Crear un secreto
-
-A continuación, agregue un secreto al almacén de claves, de forma que más adelante pueda recuperarlo mediante código que se ejecuta en la máquina virtual. Para este tutorial utilizamos PowerShell, pero los mismos conceptos se aplican a cualquier código que se ejecute en esta máquina virtual.
-
-1. Vaya al almacén de claves recién creado.
-1. Seleccione **Secretos** y haga clic en **Agregar**.
-1. Seleccione **Generar o importar**.
-1. En la pantalla **Crear un secreto** desde **Opciones de carga**, deje la opción **Manual** seleccionada.
-1. Escriba un nombre y un valor para el secreto.  El valor puede ser cualquiera de su elección. 
-1. Deje la fecha de activación y la fecha de expiración y deje la opción **Habilitado** en **Sí**. 
-1. Haga clic en **Crear** para crear el secreto.
-
-   ![Crear un secreto](./media/msi-tutorial-windows-vm-access-nonaad/create-secret.png)
 
 ## <a name="access-data"></a>Acceso a los datos  
 

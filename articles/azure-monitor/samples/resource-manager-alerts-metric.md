@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: sample
 ms.date: 05/18/2020
 ms.subservice: alerts
-ms.openlocfilehash: 4340bd0ffc4a060b1eb8884efa8078aaf18e1e28
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: c05f9a326fcbe75a3348e58987d57e106094cf56
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92893988"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97510573"
 ---
 # <a name="resource-manager-template-samples-for-metric-alert-rules-in-azure-monitor"></a>Ejemplos de plantillas de Azure Resource Manager para reglas de alertas de métrica en Azure Monitor
 
@@ -343,7 +343,7 @@ Para este tutorial, guarde el archivo JSON siguiente como simpledynamicmetricale
                 "description": "The number of unhealthy periods to alert on (must be lower or equal to numberOfEvaluationPeriods)."
             }
         },
-    "ignoreDataBefore": {
+        "ignoreDataBefore": {
             "type": "string",
             "defaultValue": "",
             "metadata": {
@@ -480,7 +480,7 @@ Para este tutorial, guarde el archivo JSON siguiente como simpledynamicmetricale
         "minFailingPeriodsToAlert": {
             "value": "3"
         },
-    "ignoreDataBefore": {
+        "ignoreDataBefore": {
             "value": ""
         },
         "timeAggregation": {
@@ -502,7 +502,7 @@ Tenga en cuenta las restricciones siguientes cuando use dimensiones en una regla
 - Solo puede seleccionar un valor por dimensión dentro de cada criterio.
 - No se puede usar "\*" como valor de dimensión.
 - Cuando las métricas configuradas con distintos criterios admiten la misma dimensión, se debe establecer de forma explícita un valor de dimensión configurado de la misma manera para todas esas métricas, en los criterios pertinentes.
-    - En el ejemplo siguiente, como las métricas **Transactions** y **SuccessE2ELatency** tienen una dimensión **ApiName** , y *criterion1* especifica el valor *"GetBlob"* para la dimensión **ApiName** , *criterion2* también debe establecer un valor *"GetBlob"* para la dimensión **ApiName**.
+    - En el ejemplo siguiente, como las métricas **Transactions** y **SuccessE2ELatency** tienen una dimensión **ApiName**, y *criterion1* especifica el valor *"GetBlob"* para la dimensión **ApiName**, *criterion2* también debe establecer un valor *"GetBlob"* para la dimensión **ApiName**.
 
 ### <a name="template-file"></a>Archivo de plantilla
 
@@ -707,15 +707,15 @@ Tenga en cuenta las restricciones siguientes cuando use dimensiones en una regla
 ## <a name="multiple-dimensions-static-threshold"></a>Varias dimensiones, umbral estático
 Una sola regla de alerta puede supervisar varias series temporales de métricas a la vez, por lo que habrá menos reglas de alerta para administrar. El ejemplo siguiente crea una regla de alerta de métrica estática con las métricas dimensionales.
 
-En el ejemplo siguiente, la regla de alerta supervisa las combinaciones de valores de dimensión de las dimensiones **ResponseType** y **ApiName** para la métrica **Transactions** :
-1. **ResponseType** : el carácter comodín "\*" significa que para cada valor de la dimensión **ResponseType** , incluidos los valores futuros, se supervisa individualmente una serie temporal diferente.
-2. **ApiName** : se supervisa una serie temporal distinta solo para los valores de dimensión **GetBlob** y **PutBlob**.
+En el ejemplo siguiente, la regla de alerta supervisa las combinaciones de valores de dimensión de las dimensiones **ResponseType** y **ApiName** para la métrica **Transactions**:
+1. **ResponseType**: el carácter comodín "\*" significa que para cada valor de la dimensión **ResponseType**, incluidos los valores futuros, se supervisa individualmente una serie temporal diferente.
+2. **ApiName**: se supervisa una serie temporal distinta solo para los valores de dimensión **GetBlob** y **PutBlob**.
 
 Por ejemplo, algunas de las series temporales que se pueden supervisar con esta regla de alertas son:
-- Métrica = *Transactions* , ResponseType = *Success* , ApiName = *GetBlob*
-- Métrica = *Transactions* , ResponseType = *Success* , ApiName = *PutBlob*
-- Métrica = *Transactions* , ResponseType = *Server Timeout* , ApiName = *GetBlob*
-- Métrica = *Transactions* , ResponseType = *Server Timeout* , ApiName = *PutBlob*
+- Métrica = *Transactions*, ResponseType = *Success*, ApiName = *GetBlob*
+- Métrica = *Transactions*, ResponseType = *Success*, ApiName = *PutBlob*
+- Métrica = *Transactions*, ResponseType = *Server Timeout*, ApiName = *GetBlob*
+- Métrica = *Transactions*, ResponseType = *Server Timeout*, ApiName = *PutBlob*
 
 ### <a name="template-file"></a>Archivo de plantilla
 
@@ -875,7 +875,7 @@ Por ejemplo, algunas de las series temporales que se pueden supervisar con esta 
                             "values": ["*"]
                         },
                         {
-                "name":"ApiName",
+                            "name":"ApiName",
                             "operator": "Include",
                             "values": ["GetBlob", "PutBlob"]    
                         }
@@ -898,15 +898,15 @@ Por ejemplo, algunas de las series temporales que se pueden supervisar con esta 
 Una sola regla de alertas de umbrales dinámicos puede crear umbrales personalizados para cientos de series temporales de métricas (incluso de distintos tipos) a la vez, por lo que habrá menos reglas de alerta para administrar. El ejemplo siguiente crea una regla de alerta de métrica de umbrales dinámicos con las métricas dimensionales.
 
 
-En el ejemplo siguiente, la regla de alerta supervisa las combinaciones de valores de dimensión de las dimensiones **ResponseType** y **ApiName** para la métrica **Transactions** :
-1. **ResponseType** : para cada valor de la dimensión **ResponseType** , incluidos los valores futuros, se supervisa individualmente una serie temporal diferente.
-2. **ApiName** : se supervisa una serie temporal distinta solo para los valores de dimensión **GetBlob** y **PutBlob**.
+En el ejemplo siguiente, la regla de alerta supervisa las combinaciones de valores de dimensión de las dimensiones **ResponseType** y **ApiName** para la métrica **Transactions**:
+1. **ResponseType**: para cada valor de la dimensión **ResponseType**, incluidos los valores futuros, se supervisa individualmente una serie temporal diferente.
+2. **ApiName**: se supervisa una serie temporal distinta solo para los valores de dimensión **GetBlob** y **PutBlob**.
 
 Por ejemplo, algunas de las series temporales que se pueden supervisar con esta regla de alertas son:
-- Métrica = *Transactions* , ResponseType = *Success* , ApiName = *GetBlob*
-- Métrica = *Transactions* , ResponseType = *Success* , ApiName = *PutBlob*
-- Métrica = *Transactions* , ResponseType = *Server Timeout* , ApiName = *GetBlob*
-- Métrica = *Transactions* , ResponseType = *Server Timeout* , ApiName = *PutBlob*
+- Métrica = *Transactions*, ResponseType = *Success*, ApiName = *GetBlob*
+- Métrica = *Transactions*, ResponseType = *Success*, ApiName = *PutBlob*
+- Métrica = *Transactions*, ResponseType = *Server Timeout*, ApiName = *GetBlob*
+- Métrica = *Transactions*, ResponseType = *Server Timeout*, ApiName = *PutBlob*
 
 >[!NOTE]
 > Actualmente no se admiten varios criterios para las reglas de alertas de métricas que usan umbrales dinámicos.

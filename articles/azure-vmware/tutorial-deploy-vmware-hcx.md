@@ -3,12 +3,12 @@ title: 'Tutorial: implementación y configuración de VMware HCX'
 description: Aprenda a implementar y configurar una solución VMware HCX para la nube privada de Azure VMware Solution.
 ms.topic: tutorial
 ms.date: 11/25/2020
-ms.openlocfilehash: e50454c2299ed0f7e249563eecac1935a29a9c47
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: a792f8dbc646f61377cf0a88e1a6e386340f23e8
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352477"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97357898"
 ---
 # <a name="deploy-and-configure-vmware-hcx"></a>Implementación y configuración de VMware HCX
 
@@ -163,7 +163,7 @@ Una vez que se reinicien los servicios, verá que vCenter se muestra en verde en
 
 :::image type="content" source="media/tutorial-vmware-hcx/activation-done.png" alt-text="Captura de pantalla del panel con el estado de vCenter en color verde." lightbox="media/tutorial-vmware-hcx/activation-done.png":::  
 
-Puede encontrar información de un extremo a otro de este procedimiento en el vídeo [Azure VMware Solution: Activación de HCX](https://www.youtube.com/embed/jzQZawslF8w).
+Puede encontrar información de un extremo a otro de este procedimiento en el vídeo [Azure VMware Solution: Activación de HCX](https://www.youtube.com/embed/PnVg6SZkQsY?rel=0&amp;vq=hd720).
 
    > [!IMPORTANT]
    > Tanto si usa VMware HCX Advanced como VMware HCX Enterprise, es posible que tenga que instalar la revisión del [artículo de KB 81558](https://kb.vmware.com/s/article/81558) de VMware. 
@@ -192,7 +192,7 @@ Puede conectar o emparejar VMware HCX Cloud Manager en Azure VMware Solution con
 
    :::image type="content" source="media/tutorial-vmware-hcx/site-pairing-complete.png" alt-text="Captura de pantalla que muestra el emparejamiento de HCX Manager en Azure VMware Solution y VMware HCX Connector.":::
 
-Puede encontrar información de un extremo a otro de este procedimiento en el vídeo [Azure VMware Solution: Emparejamiento de sitios de HCX](https://www.youtube.com/embed/iTJtjbiwvsw).
+Puede encontrar información de un extremo a otro de este procedimiento en el vídeo [Azure VMware Solution: Emparejamiento de sitios de HCX](https://www.youtube.com/embed/jXOmYUnbWZY?rel=0&amp;vq=hd720).
 
 ### <a name="create-network-profiles"></a>Creación de perfiles de red
 

@@ -2,18 +2,17 @@
 title: 'Configuración de una escucha de grupo de disponibilidad para SQL Server en máquinas virtuales de Red Hat Enterprise Linux en Azure: Linux Virtual Machines | Microsoft Docs'
 description: Información acerca de la configuración de una escucha de grupo de disponibilidad en SQL Server en máquinas virtuales RHEL en Azure
 ms.service: virtual-machines-linux
-ms.subservice: ''
 ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
 ms.date: 03/11/2020
-ms.openlocfilehash: 01501b99d5d7c42af98d0397cf6ff8cbca14b07b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 83fde9e957cb2011ce585603e51d331be171bc08
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89485811"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586234"
 ---
 # <a name="tutorial-configure-an-availability-group-listener-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Tutorial: Configuración de una escucha de grupo de disponibilidad para SQL Server en máquinas virtuales con Red Hat Enterprise Linux en Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -136,7 +135,7 @@ Las reglas de equilibrio de carga determinan cómo el equilibrador de carga enru
    | **Tiempo de espera de inactividad (minutos)** |*4* |
    | **IP flotante (Direct Server Return)** |**Enabled** |
 
-   :::image type="content" source="media/rhel-high-availability-listener-tutorial/add-load-balancing-rule.png" alt-text="Agregar grupo back-end":::
+   :::image type="content" source="media/rhel-high-availability-listener-tutorial/add-load-balancing-rule.png" alt-text="Agregar regla de equilibrio de carga":::
 
 4. Haga clic en **OK**. 
 5. Azure configura la regla de equilibrio de carga. Ahora, el equilibrador de carga está configurado para enrutar el tráfico a la instancia de SQL Server que hospeda el agente de escucha del grupo de disponibilidad. 
@@ -263,6 +262,10 @@ En este punto, el grupo de recursos dispone de un equilibrador de carga que se c
     ```
 
 1. Compruebe los recursos del clúster mediante el comando `sudo pcs resource` y observará que la instancia principal es ahora `<VM2>`.
+
+    > [!NOTE]
+    > Este artículo contiene referencias al término esclavo, un término que Microsoft ya no usa. Cuando se quite el término del software, se quitará también del artículo.
+
 
     ```output
     [<username>@<VM1> ~]$ sudo pcs resource

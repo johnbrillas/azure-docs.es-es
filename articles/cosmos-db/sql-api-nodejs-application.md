@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
 ms.custom: devx-track-js
-ms.openlocfilehash: f7b7b8c7b1106bd3c0a6732867946c42df8438c1
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 49cf54bda985f7d97b2db6a3ada7859aee829cff
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097284"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359547"
 ---
 # <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>Tutorial: Compilación de una aplicación web de Node.js mediante el SDK de JavaScript para administrar la cuenta de SQL API en Azure Cosmos DB 
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -106,9 +106,9 @@ Ahora que ha completado la instalación y configuración iniciales, a continuaci
 ### <a name="create-the-model"></a>Creación del modelo
 1. En la raíz del directorio del proyecto, cree un nuevo directorio con el nombre **models**.  
 
-2. En el directorio **models** , cree un archivo nuevo con el nombre **taskDao.js**. Este archivo contiene el código necesario para crear la base de datos y el contenedor. También define los métodos para leer, actualizar, crear y encontrar tareas en Azure Cosmos DB. 
+2. En el directorio **models**, cree un archivo nuevo con el nombre **taskDao.js**. Este archivo contiene el código necesario para crear la base de datos y el contenedor. También define los métodos para leer, actualizar, crear y encontrar tareas en Azure Cosmos DB. 
 
-3. Copie el código siguiente en el archivo **taskDao.js** :
+3. Copie el código siguiente en el archivo **taskDao.js**:
 
    ```javascript
     // @ts-check
@@ -191,7 +191,7 @@ Ahora que ha completado la instalación y configuración iniciales, a continuaci
 
 1. En el directorio **routes** del nuevo proyecto, cree un nuevo archivo denominado **tasklist.js**.  
 
-2. Agregue el siguiente código a **tasklist.js**. Este código carga los módulos CosmosClient y async, que utiliza **tasklist.js**. Este código también define la clase **TaskList** , que pasa como una instancia del objeto **TaskDao** que definimos anteriormente:
+2. Agregue el siguiente código a **tasklist.js**. Este código carga los módulos CosmosClient y async, que utiliza **tasklist.js**. Este código también define la clase **TaskList**, que pasa como una instancia del objeto **TaskDao** que definimos anteriormente:
    
    ```javascript
     const TaskDao = require("../models/TaskDao");
@@ -273,7 +273,7 @@ Ahora que ha completado la instalación y configuración iniciales, a continuaci
    module.exports = config;
    ```
 
-3. En el archivo **config.js** , actualice los valores de HOST y AUTH_KEY con los valores de la página Claves de la cuenta de Azure Cosmos DB en [Azure Portal](https://portal.azure.com). 
+3. En el archivo **config.js**, actualice los valores de HOST y AUTH_KEY con los valores de la página Claves de la cuenta de Azure Cosmos DB en [Azure Portal](https://portal.azure.com). 
 
 4. Guarde y cierre el archivo **config.js** .
 
@@ -384,7 +384,7 @@ Ahora vamos a crear la interfaz de usuario para que un usuario pueda interactuar
 
     Este código indica al motor **Jade** que represente HTML de nuestra aplicación y que cree un **block** llamado **content** donde podemos especificar el diseño de nuestras páginas de contenido. Guarde y cierre este archivo **layout.jade**.
 
-3. Ahora abra el archivo **index.jade** , la vista que utilizará nuestra aplicación, y reemplace el contenido del archivo por el código siguiente:
+3. Ahora abra el archivo **index.jade**, la vista que utilizará nuestra aplicación, y reemplace el contenido del archivo por el código siguiente:
 
    ```html
    extends layout
@@ -470,7 +470,7 @@ Una vez que la aplicación de ejecuta correctamente de manera local, puede imple
 3. Implemente la aplicación llevándola al servidor remoto.
    
    ```bash
-   git push azure master
+   git push azure main
    ```
 
 4. En unos segundos, la aplicación web se publica y se inicia en un explorador.

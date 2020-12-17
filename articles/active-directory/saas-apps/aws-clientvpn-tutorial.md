@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/25/2020
+ms.date: 12/11/2020
 ms.author: jeedes
-ms.openlocfilehash: 9a2c52674bafeb170efd41afa9c395aeecda9df8
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 3a53a5b7e60ef214a3db58d9e280e9dee8fec609
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602128"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97355926"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-aws-clientvpn"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con AWS ClientVPN
 
@@ -84,7 +84,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
     | URL de respuesta |
     |------------|
-    | `https://<LOCALHOST>` |
+    | `http://<LOCALHOST>` |
     | `https://self-service.clientvpn.amazonaws.com/api/auth/sso/saml` |
     |
 
@@ -161,4 +161,6 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez que haya configurado AWS ClientVPN, puede aplicar el control de sesión, que protege su organización, en tiempo real, frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Una vez que haya configurado AWS ClientVPN, puede aplicar el control de sesión, que protege su organización, en tiempo real, frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+
+

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 2f2ad0cb67a41c0a5c59f6428a4912bd91a00e56
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 42da33fe874b6dea43bc16009dd27b70e6c3f535
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318803"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589957"
 ---
 # <a name="tutorial-integrate-amazon-business-with-azure-active-directory"></a>Tutorial: Integración de Amazon Business con Azure Active Directory
 
@@ -109,19 +109,19 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. Además de lo anterior, la aplicación Amazon Business espera que se usen algunos atributos más en la respuesta SAML. En la sección **Atributos y notificaciones de usuario** del cuadro de diálogo **Notificaciones de grupos**, siga estos pasos:
 
-    a. Haga clic en el **lápiz** junto a **Groups returned in claim** (Grupos devueltos en la notificación).
+    1. Haga clic en el **lápiz** junto a **Groups returned in claim** (Grupos devueltos en la notificación).
 
-    ![Captura de pantalla que muestra User Attributes & Claims (Atributos y reclamaciones del usuario) con el icono de Groups returned in claim (Grupos que devuelve la reclamación) seleccionado.](./media/amazon-business-tutorial/config04.png)
+        ![Captura de pantalla que muestra User Attributes & Claims (Atributos y reclamaciones del usuario) con el icono de Groups returned in claim (Grupos que devuelve la reclamación) seleccionado.](./media/amazon-business-tutorial/config04.png)
 
-    ![Captura de pantalla que muestra Group Claims (Reclamación de grupo) con valores como los que se describen en este procedimiento.](./media/amazon-business-tutorial/config05.png)
+        ![Captura de pantalla que muestra Group Claims (Reclamación de grupo) con valores como los que se describen en este procedimiento.](./media/amazon-business-tutorial/config05.png)
 
-    b. Seleccione **Todos los grupos** en la lista de selección.
+    1. Seleccione **Todos los grupos** en la lista de selección.
 
-    c. Seleccione **Id. de grupo** como **Atributo de origen**.
+    1. Seleccione **Id. de grupo** como **Atributo de origen**.
 
-    d. Active la casilla **Personalizar nombre de la notificación del grupo** y escriba el nombre del grupo según el requisito de la organización.
+    1. Active la casilla **Personalizar nombre de la notificación del grupo** y escriba el nombre del grupo según el requisito de la organización.
 
-    e. Haga clic en **Save**(Guardar).
+    1. Haga clic en **Save**(Guardar).
 
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **XML de metadatos** y seleccione **Descargar** para descargar el certificado y guardarlo en el equipo.
 
