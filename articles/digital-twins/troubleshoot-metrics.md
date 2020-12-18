@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/4/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 5b689ef15c247cea1887948ae271802294bbd0fc
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: 4b72bb8bac8f9949c83d0bbc85a0995f790c437d
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96763255"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347904"
 ---
 # <a name="troubleshooting-azure-digital-twins-metrics"></a>Solución de problemas de Azure Digital Twins: Métricas
 
@@ -48,6 +48,17 @@ Las métricas están habilitadas de forma predeterminada. Puede ver las métrica
 Azure Digital Twins proporciona varias métricas para ofrecerle una visión general del estado de la instancia y de sus recursos asociados. También puede combinar información de varias métricas para conseguir una imagen más amplia del estado de la instancia. 
 
 En las tablas siguientes se describen las métricas de las que las instancias de Azure Digital Twins realizan un seguimiento y cómo se relaciona cada métrica con el estado general de la instancia.
+
+#### <a name="metrics-for-tracking-service-limits"></a>Métricas para el seguimiento de los límites del servicio
+
+Puede configurar estas métricas para que realicen un seguimiento cuando se acerque al [límite del servicio publicado](reference-service-limits.md#functional-limits) en algún aspecto de la solución. 
+
+Para configurar esta opción, use la característica de [alertas](troubleshoot-alerts.md) de Azure Monitor. Asimismo, puede definir los umbrales de estas métricas para recibir una alerta cuando una métrica alcance un determinado porcentaje de su límite publicado.
+
+| Métrica | Nombre para mostrar de la métrica | Unidad | Tipo de agregación| Descripción | Dimensions |
+| --- | --- | --- | --- | --- | --- |
+| TwinCount | Recuento de gemelos (versión preliminar) | Count | Total | Número total de gemelos de una instancia de Azure Digital Twins. Use esta métrica para determinar si se está aproximando al [límite del servicio](reference-service-limits.md#functional-limits) para el número máximo de gemelos permitido por instancia. |  None |
+| ModelCount | Recuento de modelos (versión preliminar) | Count | Total | Número total de modelos de una instancia de Azure Digital Twins. Use esta métrica para determinar si se está aproximando al [límite del servicio](reference-service-limits.md#functional-limits) para el número máximo de modelos permitido por instancia. | None |
 
 #### <a name="api-request-metrics"></a>Métricas de solicitud de API
 

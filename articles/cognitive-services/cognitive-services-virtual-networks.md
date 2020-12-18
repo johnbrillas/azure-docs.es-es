@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 10/07/2020
+ms.date: 12/04/2020
 ms.author: aahi
-ms.openlocfilehash: f79cfce514b81c5829ee7791c18e24d3bc6563b5
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 3b6c2a5a50cedadd8818eae735df55b661e794ef
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369382"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97034027"
 ---
 # <a name="configure-azure-cognitive-services-virtual-networks"></a>Configuración de redes virtuales de Azure Cognitive Services
 
@@ -49,19 +49,22 @@ Se admiten redes virtuales en [regiones en las que Cognitive Services está disp
 > * Custom Vision
 > * Caras
 > * Form Recognizer
+> * Lector inmersivo
 > * Language Understanding (LUIS)
 > * Personalizer
+> * Speech Services
 > * Text Analytics
 > * QnA Maker
 > * Translator Text
-> * Lector inmersivo
+
 
 > [!NOTE]
-> Si usa LUIS, la etiqueta **CognitiveServicesManagement** solo le permite usar el servicio mediante el SDK o la API REST. Para acceder al portal LUIS y usarlo desde una red virtual, deberá usar las siguientes etiquetas:  
-> * **AzureResourceManager** 
-> * **CognitiveServicesManagement**
+> Si usa LUIS, la etiqueta **CognitiveServicesManagement** solo le permite usar el servicio mediante el SDK o la API REST. Para obtener acceso al portal LUIS y usarlo desde una red virtual, deberá usar las siguientes etiquetas:  
 > * **AzureActiveDirectory**
 > * **AzureFrontDoor.Frontend**
+> * **AzureResourceManager** 
+> * **CognitiveServicesManagement**
+
 
 
 ## <a name="change-the-default-network-access-rule"></a>Modificación de la regla de acceso de red predeterminada
@@ -491,7 +494,7 @@ Los puntos de conexión privados para recursos de Cognitive Services le permiten
 
 Un punto de conexión privado es una interfaz de red especial para un recurso de Azure de la [red virtual](../virtual-network/virtual-networks-overview.md). Al crear un punto de conexión privado para el recurso de Cognitive Services, este proporciona conectividad segura entre los clientes de la red virtual y el recurso. Al punto de conexión privado se le asigna una dirección IP del intervalo de direcciones IP de la red virtual. La conexión entre el punto de conexión privado y el servicio de Cognitive Services usa un vínculo privado seguro.
 
-Las aplicaciones de la red virtual se pueden conectar al servicio a través del punto de conexión privado sin problemas, ya que se usan las mismas cadenas de conexión y mecanismos de autorización que se usarían en cualquier otro caso. La excepción es el servicio de Voz, que requiere un punto de conexión independiente. Consulte la sección [Puntos de conexión privados con el servicio de Voz](#private-endpoints-with-the-speech-service). Los puntos de conexión privados se pueden usar con todos los protocolos que admita el recurso de Cognitive Services, incluidos REST y SMB.
+Las aplicaciones de la red virtual se pueden conectar al servicio a través del punto de conexión privado sin problemas, ya que se usan las mismas cadenas de conexión y mecanismos de autorización que se usarían en cualquier otro caso. La excepción son los servicios de voz, que requieren un punto de conexión independiente. Consulte la sección [Puntos de conexión privados con los servicios de voz](#private-endpoints-with-the-speech-services). Los puntos de conexión privados se pueden usar con todos los protocolos que admita el recurso de Cognitive Services, incluidos REST y SMB.
 
 Los puntos de conexión privados se pueden crear en subredes que usan [puntos de conexión de servicio](../virtual-network/virtual-network-service-endpoints-overview.md). Los clientes de una subred pueden conectarse a un recurso de Cognitive Services mediante un punto de conexión privado, al mismo tiempo que usan puntos de conexión de servicio para acceder a otros.
 
@@ -509,13 +512,13 @@ Al crear el punto de conexión privado, debe especificar el recurso de Cognitive
 
 ### <a name="connecting-to-private-endpoints"></a>Conexión a puntos de conexión privados
 
-Los clientes de una red virtual que usan el punto de conexión privado deben usar la misma cadena de conexión para el recurso de Cognitive Services que aquellos clientes que se conectan mediante el punto de conexión público. La excepción es el servicio de voz, que requiere un punto de conexión independiente. Consulte la sección [Puntos de conexión privados con el servicio de voz](#private-endpoints-with-the-speech-service). Confiamos en la resolución del DNS para enrutar automáticamente las conexiones desde la red virtual al recurso de Cognitive Services a través de un vínculo privado. El servicio de voz 
+Los clientes de una red virtual que usan el punto de conexión privado deben usar la misma cadena de conexión para el recurso de Cognitive Services que aquellos clientes que se conectan mediante el punto de conexión público. La excepción son los servicios de voz, que requieren un punto de conexión independiente. Consulte la sección [Puntos de conexión privados con los servicios de voz](#private-endpoints-with-the-speech-services). Confiamos en la resolución del DNS para enrutar automáticamente las conexiones desde la red virtual al recurso de Cognitive Services a través de un vínculo privado. 
 
 De forma predeterminada, se crea una [zona DNS privada](../dns/private-dns-overview.md) conectada a la red virtual con las actualizaciones necesarias para los puntos de conexión privados. Sin embargo, si usa su propio servidor DNS, puede que tenga que realizar cambios adicionales en la configuración de DNS. En la sección [Cambios de DNS](#dns-changes-for-private-endpoints) que aparece a continuación se describen las actualizaciones necesarias para los puntos de conexión privados.
 
-### <a name="private-endpoints-with-the-speech-service"></a>Puntos de conexión privados con el servicio de voz
+### <a name="private-endpoints-with-the-speech-services"></a>Puntos de conexión privados con los servicios de voz
 
-Cuando use puntos de conexión privados con el servicio de voz, debe usar un punto de conexión personalizado para llamar al servicio de voz. No se puede usar el punto de conexión global. El punto de conexión debe seguir este patrón: `{account}.{stt|tts|voice|dls}.speech.microsoft.com`.
+Consulte [Uso de los servicios de voz con los puntos de conexión privados que proporcione Azure Private Link](Speech-Service/speech-services-private-link.md).
 
 ### <a name="dns-changes-for-private-endpoints"></a>Cambios de DNS en puntos de conexión privados
 

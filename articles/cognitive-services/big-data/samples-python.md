@@ -254,7 +254,7 @@ display(anamoly_detector.transform(df).select("timestamp", "value", "anomalies.i
 | 1972-05-01T00:00:00Z |     766 | False       |
 | 1972-06-01T00:00:00Z |     805 | False       |
 | 1972-07-01T00:00:00Z |     821 | False       |
-| 1972-08-01T00:00:00Z |   20 000 | True        |
+| 1972-08-01T00:00:00Z |   20000 | True        |
 | 1972-09-01T00:00:00Z |     883 | False       |
 | 1972-10-01T00:00:00Z |     898 | False       |
 | 1972-11-01T00:00:00Z |     957 | False       |

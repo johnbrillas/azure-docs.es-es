@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/14/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: ac75a5b0b59a06855b7ee88d971c269ca915e429
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: 35f4aae246f105d832aaf92c5c5797c8a65b44f1
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96763173"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938553"
 ---
 # <a name="azure-digital-twins-high-availability-and-disaster-recovery"></a>Alta disponibilidad y recuperación ante desastres de Azure Digital Twins
 
@@ -38,6 +38,29 @@ La **conmutación por error iniciada por Microsoft** la ejecuta Microsoft en sit
 
 >[!NOTE]
 > Algunos servicios de Azure también proporcionan una opción adicional denominada **conmutación por error iniciada por el cliente**, que permite que los clientes inicien una conmutación por error solo para esa instancia, como la ejecución de un simulacro de recuperación ante desastres. Actualmente, Azure Digital Twins **no admite** este mecanismo. 
+
+## <a name="monitor-service-health"></a>Supervisar el estado del servicio
+
+Como las instancias de Azure Digital Twins se conmutan por error y se recuperan, puede supervisar el proceso con la herramienta [Azure Service Health](https://docs.microsoft.com/azure/service-health/service-health-overview). Service Health realiza un seguimiento del estado de los servicios de Azure en diferentes regiones y suscripciones, y comparte las comunicaciones que afectan al servicio sobre las interrupciones y los tiempos de inactividad.
+
+Durante un evento de conmutación por error, Service Health puede proporcionar una indicación de si el servicio está inactivo y de cuándo se realiza la copia de seguridad.
+
+Para ver los eventos de Service Health...
+1. Vaya a la página de [Service Health](https://portal.azure.com/?feature.customportal=false#blade/Microsoft_Azure_Health/AzureHealthBrowseBlade/serviceIssues) en Azure Portal (puede usar este vínculo o buscarlo en la barra de búsqueda del portal).
+1. Use el menú de la izquierda para cambiar a la página del *Historial de Health*.
+1. Busque un *nombre de problema* a partir de **Azure Digital Twins** y selecciónelo.
+
+    :::image type="content" source="media/concepts-high-availability-disaster-recovery/navigate.png" alt-text="Captura de pantalla de Azure Portal donde se muestra la página de historial de Health. Hay una lista de varios problemas de los últimos días y se resalta un problema llamado &quot;Azure Digital Twins: Oeste de Europa; mitigado&quot;." lightbox="media/concepts-high-availability-disaster-recovery/navigate.png":::
+
+1. Para obtener información general sobre la interrupción, consulte la pestaña *Resumen*.
+
+    :::image type="content" source="media/concepts-high-availability-disaster-recovery/summary.png" alt-text="En la página del historial de Health, se resalta la pestaña Resumen. En la pestaña se muestra información general, como el recurso afectado, su región y su suscripción." lightbox="media/concepts-high-availability-disaster-recovery/summary.png":::
+1. Para obtener más información y actualizaciones sobre el problema a lo largo del tiempo, consulte la pestaña *Issue updates* (Actualizaciones de problemas).
+
+    :::image type="content" source="media/concepts-high-availability-disaster-recovery/issue-updates.png" alt-text="En la página del historial de Health, se resalta la pestaña Actualizaciones de problemas. En la pestaña se muestran varias entradas que muestran el estado actual de hace un día." lightbox="media/concepts-high-availability-disaster-recovery/issue-updates.png":::
+
+
+Tenga en cuenta que la información que se muestra en esta herramienta no es específica de una instancia de Azure Digital. Después de usar Service Health para comprender lo que está ocurriendo con el servicio Azure Digital Twins en una determinada región o suscripción, puede avanzar el proceso de supervisión un paso más mediante el uso de la [herramienta Resource Health](troubleshoot-resource-health.md) para profundizar en instancias específicas y ver si están afectadas.
 
 ## <a name="best-practices"></a>Procedimientos recomendados
 

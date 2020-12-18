@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 11/19/2020
+ms.date: 12/15/2020
 ms.author: aahi
-ms.openlocfilehash: 804d739efa5ac96c0b2d7228573f031f324e590e
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: 9b90f177432de11f8281d03021b38bae647dadf2
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96558987"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562538"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Uso del reconocimiento de entidades con nombre en Text Analytics
 
@@ -99,6 +99,14 @@ A partir de `v3.1-preview.3`, la respuesta JSON incluye una propiedad `redactedT
 
 [Referencia de la versión 3.1-versión preliminar para el reconocimiento de entidades con nombre para `PII`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-3/operations/EntitiesRecognitionPii)
 
+**Operación asincrónica**
+
+A partir de `v3.1-preview.3`, puede enviar solicitudes de NER de forma asincrónica mediante el punto de conexión `/analyze`.
+
+* Operación asincrónica: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/analyze`
+
+Consulte [Cómo llamar a la API de Text Analytics](text-analytics-how-to-call-api.md) para obtener información sobre el envío de solicitudes asincrónicas.
+
 #### <a name="version-30"></a>[Versión 3.0](#tab/version-3)
 
 El reconocimiento de entidades con nombre v3 usa puntos de conexión independientes para las solicitudes de NER y de vinculación de entidad. Use un formato de dirección URL a continuación en función de la solicitud:
@@ -117,7 +125,11 @@ El reconocimiento de entidades con nombre v3 usa puntos de conexión independien
 
 Establezca un encabezado de la solicitud para incluir la clave de la API Text Analytics. En el cuerpo de la solicitud, proporcione los documentos JSON que tiene preparados.
 
-### <a name="example-ner-request"></a>Solicitud de NER de ejemplo 
+## <a name="example-requests"></a>Solicitudes de ejemplo
+
+#### <a name="version-31-preview"></a>[Versión 3.1: versión preliminar](#tab/version-3-preview)
+
+### <a name="example-synchronous-ner-request"></a>Ejemplo de solicitud de NER sincrónica 
 
 El siguiente código JSON es un ejemplo que se podría enviar a la API. El formato de la solicitud es el mismo para las dos versiones de la API.
 
@@ -131,8 +143,64 @@ El siguiente código JSON es un ejemplo que se podría enviar a la API. El forma
     }
   ]
 }
-
 ```
+
+### <a name="example-asynchronous-ner-request"></a>Ejemplo de solicitud de NER asincrónica
+
+Si usa el punto de conexión `/analyze` en la [operación asincrónica](text-analytics-how-to-call-api.md), recibirá una respuesta que contiene las tareas que envió a la API.
+
+```json
+{
+    "displayName": "My Job",
+    "analysisInput": {
+        "documents": [
+            {
+                "id": "doc1",
+                "text": "It's incredibly sunny outside! I'm so happy"
+            },
+            {
+                "id": "doc2",
+                "text": "Pike place market is my favorite Seattle attraction."
+            }
+        ]
+    },
+    "tasks": {
+        "entityRecognitionTasks": [
+            {
+                "parameters": {
+                    "model-version": "latest",
+                    "stringIndexType": "TextElements_v8"
+                }
+            }
+        ],
+        "entityRecognitionPiiTasks": [{
+            "parameters": {
+                "model-version": "latest"
+            }
+        }]
+    }
+}
+```
+
+#### <a name="version-30"></a>[Versión 3.0](#tab/version-3)
+
+### <a name="example-synchronous-ner-request"></a>Ejemplo de solicitud de NER sincrónica 
+
+La versión 3.0 solo incluye operaciones sincrónicas. El siguiente código JSON es un ejemplo que se podría enviar a la API. El formato de la solicitud es el mismo para las dos versiones de la API.
+
+```json
+{
+  "documents": [
+    {
+        "id": "1",
+        "language": "en",
+        "text": "Our tour guide took us up the Space Needle during our trip to Seattle last week."
+    }
+  ]
+}
+```
+
+---
 
 ## <a name="post-the-request"></a>Publicar la solicitud
 
@@ -148,11 +216,68 @@ La salida se devuelve inmediatamente. Puede transmitir los resultados a una apli
 
 ### <a name="example-responses"></a>Respuestas de ejemplo
 
-La versión 3 proporciona puntos de conexión independientes para la vinculación de entidad y para NER y PII. A continuación se muestran las respuestas para ambas operaciones. 
+La versión 3 proporciona puntos de conexión independientes para la vinculación de entidad y para NER y PII. Versión 3.1: la versión preliminar incluye un modo de análisis asincrónico. A continuación se muestran las respuestas para esas operaciones. 
 
 #### <a name="version-31-preview"></a>[Versión 3.1: versión preliminar](#tab/version-3-preview)
 
+### <a name="synchronous-example-results"></a>Resultados sincrónicos de ejemplo
+
+Respuesta de NER general de ejemplo:
+
+```json
+{
+  "documents": [
+    {
+      "id": "1",
+      "entities": [
+        {
+          "text": "tour guide",
+          "category": "PersonType",
+          "offset": 4,
+          "length": 10,
+          "confidenceScore": 0.45
+        },
+        {
+          "text": "Space Needle",
+          "category": "Location",
+          "offset": 30,
+          "length": 12,
+          "confidenceScore": 0.38
+        },
+        {
+          "text": "trip",
+          "category": "Event",
+          "offset": 54,
+          "length": 4,
+          "confidenceScore": 0.78
+        },
+        {
+          "text": "Seattle",
+          "category": "Location",
+          "subcategory": "GPE",
+          "offset": 62,
+          "length": 7,
+          "confidenceScore": 0.78
+        },
+        {
+          "text": "last week",
+          "category": "DateTime",
+          "subcategory": "DateRange",
+          "offset": 70,
+          "length": 9,
+          "confidenceScore": 0.8
+        }
+      ],
+      "warnings": []
+    }
+  ],
+  "errors": [],
+  "modelVersion": "2020-04-01"
+}
+```
+
 Ejemplo de una respuesta PII:
+
 ```json
 {
   "documents": [
@@ -239,6 +364,58 @@ Respuesta de vinculación de entidad de ejemplo:
 }
 ```
 
+### <a name="example-asynchronous-result"></a>Resultado asincrónico de ejemplo
+
+```json
+{
+  "displayName": "My Analyze Job",
+  "jobId": "dbec96a8-ea22-4ad1-8c99-280b211eb59e_637408224000000000",
+  "lastUpdateDateTime": "2020-11-13T04:01:14Z",
+  "createdDateTime": "2020-11-13T04:01:13Z",
+  "expirationDateTime": "2020-11-14T04:01:13Z",
+  "status": "running",
+  "errors": [],
+  "tasks": {
+      "details": {
+          "name": "My Analyze Job",
+          "lastUpdateDateTime": "2020-11-13T04:01:14Z"
+      },
+      "completed": 1,
+      "failed": 0,
+      "inProgress": 2,
+      "total": 3,
+      "keyPhraseExtractionTasks": [
+          {
+              "name": "My Analyze Job",
+              "lastUpdateDateTime": "2020-11-13T04:01:14.3763516Z",
+              "results": {
+                  "inTerminalState": true,
+                  "documents": [
+                      {
+                          "id": "doc1",
+                          "keyPhrases": [
+                              "sunny outside"
+                          ],
+                          "warnings": []
+                      },
+                      {
+                          "id": "doc2",
+                          "keyPhrases": [
+                              "favorite Seattle attraction",
+                              "Pike place market"
+                          ],
+                          "warnings": []
+                      }
+                  ],
+                  "errors": [],
+                  "modelVersion": "2020-07-01"
+              }
+          }
+      ]
+  }
+}
+```
+
 
 #### <a name="version-30"></a>[Versión 3.0](#tab/version-3)
 
@@ -309,5 +486,5 @@ En este artículo, ha aprendido los conceptos y el flujo de trabajo de vinculaci
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Información general de Text Analytics](../overview.md)
-* [Uso de la biblioteca cliente de Text Analytics](../quickstarts/text-analytics-sdk.md)
+* [Uso de la biblioteca cliente de Text Analytics](../quickstarts/client-libraries-rest-api.md)
 * [Novedades](../whats-new.md)

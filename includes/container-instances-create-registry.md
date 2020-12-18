@@ -19,7 +19,7 @@ ms.locfileid: "92746936"
 
 Antes de crear el registro de contenedor, necesita un *grupo de recursos* en donde implementarlo. Un grupo de recursos es una colección lógica en la que se implementan y administran todos los recursos de Azure.
 
-Para crear un grupo de recursos, use el comando [az group create][az-group-create]. En el siguiente ejemplo, se crea un grupo de recursos denominado *myResourceGroup* en la región *eastus* :
+Para crear un grupo de recursos, use el comando [az group create][az-group-create]. En el siguiente ejemplo, se crea un grupo de recursos denominado *myResourceGroup* en la región *eastus*:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -31,7 +31,7 @@ Cuando se haya creado el grupo de recursos, cree un registro de contenedor de Az
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
 ```
 
-Esta es la salida parcial de una nueva instancia de Azure Container Registry denominada *mycontainerregistry082* :
+Esta es la salida parcial de una nueva instancia de Azure Container Registry denominada *mycontainerregistry082*:
 
 ```output
 {

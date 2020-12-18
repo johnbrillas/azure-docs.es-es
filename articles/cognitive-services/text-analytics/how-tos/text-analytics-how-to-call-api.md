@@ -10,16 +10,34 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 12/02/2020
 ms.author: aahi
-ms.openlocfilehash: 3d3c452dd883316520e0c28f01c241af74d597c8
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.custom: references_regions
+ms.openlocfilehash: bf53ce5ed3f9505572538533263f0d17c5dcbf45
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602791"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562572"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Cómo llamar a la API REST de Text Analytics
 
 En este artículo, se usan la API REST de Text Analytics y [Postman](https://www.postman.com/downloads/) para mostrar los conceptos clave. La API proporciona varios puntos de conexión sincrónicos y asincrónicos para usar las características del servicio. 
+
+## <a name="create-a-text-analytics-resource"></a>Creación de un recurso de Text Analytics
+
+> [!NOTE]
+> * Necesitará un recurso de Text Analytics mediante un [plan de tarifa](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) Estándar (S) si desea utilizar los puntos de conexión `/analyze` o `/health`. El punto de conexión `/analyze` está incluido en el [plan de tarifa](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
+
+Antes de usar la API de Text Analytics, debe crear un recurso de Azure con una clave y un punto de conexión para las aplicaciones. 
+
+1.  En primer lugar, vaya a [Azure Portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) y cree un recurso de Text Analytics, en caso de que no tenga ninguno. Elija un [plan de tarifa](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
+
+2.  Seleccione la región que quiera que use su punto de conexión.  Tenga en cuenta que los puntos de conexión de `/analyze` y `/health` solo están disponibles en las siguientes regiones: Oeste de EE. UU. 2, este de EE. UU. 2, centro de EE. UU., Norte de Europa y Oeste de Europa.
+
+3.  Cree el recurso de Text Analytics y vaya a la "hoja de claves y puntos de conexión" a la izquierda de la página. Copie la clave que va a usar más adelante cuando llame a las API. La agregará más adelante como valor en el encabezado `Ocp-Apim-Subscription-Key` .
+
+## <a name="using-the-api-synchronously"></a>Uso de la API de forma sincrónica
+
+Puede llamar a Text Analytics sincrónicamente (para escenarios de baja latencia). Recuerde que tiene que llamar a cada API (característica) por separado cuando use la API sincrónica. Si necesita llamar a varias características, consulte la sección siguiente sobre cómo llamar a Text Analytics de forma asincrónica. 
 
 ## <a name="using-the-api-asynchronously"></a>Uso de la API de forma asincrónica
 
@@ -48,24 +66,16 @@ En la tabla siguiente puede ver qué características se pueden usar de forma as
 
 [!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
-## <a name="prerequisites"></a>Prerrequisitos
-
-
-> [!NOTE]
-> * Necesitará un recurso de Text Analytics mediante un [plan de tarifa](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) Estándar (S) si desea utilizar los puntos de conexión `/analyze` o `/health`.
-
-1.  En primer lugar, vaya a [Azure Portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) y cree un recurso de Text Analytics, en caso de que no tenga ninguno. Elija el **plan de tarifa Estándar (S)** si desea utilizar los puntos de conexión `/analyze` o `/health`. El punto de conexión `/analyze` está incluido en el [plan de tarifa](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
-
-2.  Seleccione la región que quiera que use su punto de conexión.  Tenga en cuenta que los puntos de conexión de `/analyze` y `/health` solo están disponibles en las siguientes regiones: Oeste de EE. UU. 2, este de EE. UU. 2, centro de EE. UU., Norte de Europa y Oeste de Europa.
-
-3.  Cree el recurso de Text Analytics y vaya a la "hoja de claves y puntos de conexión" a la izquierda de la página. Copie la clave que va a usar más adelante cuando llame a las API. La agregará más adelante como valor en el encabezado `Ocp-Apim-Subscription-Key` .
-
 
 <a name="json-schema"></a>
 
-## <a name="api-request-format"></a>Formato de solicitud de API
+## <a name="api-request-formats"></a>Formato de solicitudes de API
+
+Puede enviar llamadas sincrónicas y asincrónicas a la API de Text Analytics.
 
 #### <a name="synchronous"></a>[Sincrónica](#tab/synchronous)
+
+### <a name="synchronous-requests"></a>Solicitudes sincrónicas
 
 El formato de las solicitudes de API es el mismo para todas las operaciones sincrónicas. Los documentos se envían en un objeto JSON como texto no estructurado sin formato. XML no se admite. El esquema JSON consta de los elementos que se describen a continuación.
 
@@ -89,7 +99,9 @@ A continuación verá un ejemplo de una solicitud de API para los puntos de cone
 }
 ```
 
-#### <a name="analyze"></a>[Analizar](#tab/analyze)
+#### <a name="asynchronous"></a>[Asincrónica](#tab/asynchronous)
+
+### <a name="asynchronous-requests-to-the-analyze-endpoint"></a>Solicitudes asincrónicas al punto de conexión `/analyze`
 
 > [!NOTE]
 > La versión preliminar más reciente de la biblioteca cliente de Text Analytics permite llamar a operaciones asincrónicas de Analyze mediante un objeto de cliente. Puede encontrar ejemplos en GitHub:
@@ -154,7 +166,7 @@ El punto de conexión `/analyze` le permite elegir cuál de las características
 
 ```
 
-#### <a name="text-analytics-for-health"></a>[Text Analytics for Health](#tab/health)
+### <a name="asynchronous-requests-to-the-health-endpoint"></a>Solicitudes asincrónicas al punto de conexión `/health`
 
 El formato de las solicitudes de API a la API hospedada de Text Analytics for Health es el mismo que el de su contenedor. Los documentos se envían en un objeto JSON como texto no estructurado sin formato. XML no se admite. El esquema JSON consta de los elementos que se describen a continuación.  Rellene y envíe el [formulario de solicitud de Cognitive Services](https://aka.ms/csgate) para solicitar acceso a la versión preliminar pública de Text Analytics for Health. El uso de Text Analytics for Health no se facturará. 
 
@@ -194,6 +206,8 @@ En Postman (o cualquier otra herramienta para pruebas de API web), agregue el pu
 
 #### <a name="synchronous"></a>[Sincrónica](#tab/synchronous)
 
+### <a name="endpoints-for-sending-synchronous-requests"></a>Puntos de conexión para enviar solicitudes sincrónicas
+
 | Característica | Tipo de solicitud | Puntos de conexión de recursos |
 |--|--|--|
 | Detección de idiomas | POST | `<your-text-analytics-resource>/text/analytics/v3.0/languages` |
@@ -204,14 +218,16 @@ En Postman (o cualquier otra herramienta para pruebas de API web), agregue el pu
 | Reconocimiento de entidades con nombre: PII | POST | `<your-text-analytics-resource>/text/analytics/v3.0/entities/recognition/pii` |
 | Reconocimiento de entidades con nombre: PHI | POST |  `<your-text-analytics-resource>/text/analytics/v3.0/entities/recognition/pii?domain=phi` |
 
-#### <a name="analyze"></a>[Analizar](#tab/analyze)
+#### <a name="asynchronous"></a>[Asincrónica](#tab/asynchronous)
+
+### <a name="endpoints-for-sending-asynchronous-requests-to-the-analyze-endpoint"></a>Puntos de conexión para enviar solicitudes asincrónicas al punto de conexión `/analyze`
 
 | Característica | Tipo de solicitud | Puntos de conexión de recursos |
 |--|--|--|
 | Envío de trabajo de análisis | POST | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/analyze` |
 | Obtención del estado y los resultados del análisis | GET | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/analyze/jobs/<Operation-Location>` |
 
-#### <a name="text-analytics-for-health"></a>[Text Analytics for Health](#tab/health)
+### <a name="endpoints-for-sending-asynchronous-requests-to-the-health-endpoint"></a>Puntos de conexión para enviar solicitudes asincrónicas al punto de conexión `/health`
 
 | Característica | Tipo de solicitud | Puntos de conexión de recursos |
 |--|--|--|
@@ -267,6 +283,8 @@ Tenga en cuenta que para las operaciones asincrónicas `/analyze` o `/health`, l
  
 # <a name="synchronous"></a>[Sincrónica](#tab/synchronous)
 
+### <a name="example-responses-for-synchronous-operation"></a>Respuestas de ejemplo para la operación sincrónica
+
 Las respuestas sincrónicas del punto de conexión variarán en función del punto de conexión que se use. Para ver algunas respuestas de ejemplo, consulte los siguientes artículos.
 
 + [Detección de idioma](text-analytics-how-to-language-detection.md#step-3-view-the-results)
@@ -274,70 +292,15 @@ Las respuestas sincrónicas del punto de conexión variarán en función del pun
 + [Análisis de opiniones](text-analytics-how-to-sentiment-analysis.md#view-the-results)
 + [Reconocimiento de entidades](text-analytics-how-to-entity-linking.md#view-results)
 
-# <a name="analyze"></a>[Analizar](#tab/analyze)
+# <a name="asynchronous"></a>[Asincrónica](#tab/asynchronous)
+
+### <a name="example-responses-for-asynchronous-operations"></a>Respuestas de ejemplo para las operaciones asincrónicas
 
 Si se ha realizado correctamente, la solicitud GET al punto de conexión `/analyze` devolverá un objeto que contiene las tareas asignadas. Por ejemplo, `keyPhraseExtractionTasks`. Estas tareas contienen el objeto de respuesta de la característica de Text Analytics adecuada. Para más información, consulta los siguientes artículos.
 
 + [Extracción de frases clave](text-analytics-how-to-keyword-extraction.md#step-3-view-results)
 + [Reconocimiento de entidades](text-analytics-how-to-entity-linking.md#view-results)
-
-
-```json
-{
-  "displayName": "My Analyze Job",
-  "jobId": "dbec96a8-ea22-4ad1-8c99-280b211eb59e_637408224000000000",
-  "lastUpdateDateTime": "2020-11-13T04:01:14Z",
-  "createdDateTime": "2020-11-13T04:01:13Z",
-  "expirationDateTime": "2020-11-14T04:01:13Z",
-  "status": "running",
-  "errors": [],
-  "tasks": {
-      "details": {
-          "name": "My Analyze Job",
-          "lastUpdateDateTime": "2020-11-13T04:01:14Z"
-      },
-      "completed": 1,
-      "failed": 0,
-      "inProgress": 2,
-      "total": 3,
-      "keyPhraseExtractionTasks": [
-          {
-              "name": "My Analyze Job",
-              "lastUpdateDateTime": "2020-11-13T04:01:14.3763516Z",
-              "results": {
-                  "inTerminalState": true,
-                  "documents": [
-                      {
-                          "id": "doc1",
-                          "keyPhrases": [
-                              "sunny outside"
-                          ],
-                          "warnings": []
-                      },
-                      {
-                          "id": "doc2",
-                          "keyPhrases": [
-                              "favorite Seattle attraction",
-                              "Pike place market"
-                          ],
-                          "warnings": []
-                      }
-                  ],
-                  "errors": [],
-                  "modelVersion": "2020-07-01"
-              }
-          }
-      ]
-  }
-}
-```
-
-# <a name="text-analytics-for-health"></a>[Text Analytics for Health](#tab/health)
-
-En el artículo siguiente encontrará más información de la respuesta de API asincrónica de Text Analytics for Health:
-
 + [Text Analytics for Health](text-analytics-for-health.md#hosted-asynchronous-web-api-response)
-
 
 --- 
 
@@ -346,5 +309,5 @@ En el artículo siguiente encontrará más información de la respuesta de API a
 * [Información general de Text Analytics](../overview.md)
 * [Preguntas más frecuentes](../text-analytics-resource-faq.md)</br>
 * [Página del producto de Text Analytics](//go.microsoft.com/fwlink/?LinkID=759712)
-* [Uso de la biblioteca cliente de Text Analytics](../quickstarts/text-analytics-sdk.md)
+* [Uso de la biblioteca cliente de Text Analytics](../quickstarts/client-libraries-rest-api.md)
 * [Novedades](../whats-new.md)

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: 9ef585d83c0606bedaf4c0a05c6c87fd52423b9a
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 12c9777449d3f360b8f08d99aca7b916856139d4
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575540"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400189"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Compatibilidad con idiomas y voces en el servicio de voz
 
@@ -141,73 +141,119 @@ Las voces neuronales se pueden usar para que las interacciones con los bots de c
 | Idioma | Configuración regional | Sexo | Nombre de voz | Compatibilidad de estilo |
 |---|---|---|---|---|
 | Árabe (Egipto) | `ar-EG` | Female | `ar-EG-SalmaNeural` | General |
+| Árabe (Egipto) | `ar-EG` | Male | `ar-EG-ShakirNeural` <sup>Nuevo</sup> | General |
 | Árabe (Arabia Saudí) | `ar-SA` | Female | `ar-SA-ZariyahNeural` | General |
-| Búlgaro (Bulgaria) | `bg-BG` | Female | `bg-BG-KalinaNeural` <sup>Nuevo</sup> | General |
+| Árabe (Arabia Saudí) | `ar-SA` | Male | `ar-SA-HamedNeural` <sup>Nuevo</sup> | General |
+| Búlgaro (Bulgaria) | `bg-BG` | Female | `bg-BG-KalinaNeural` | General |
+| Búlgaro (Bulgaria) | `bg-BG` | Male | `bg-BG-BorislavNeural` <sup>Nuevo</sup> | General |
 | Catalán (España) | `ca-ES` | Female | `ca-ES-AlbaNeural` | General |
+| Catalán (España) | `ca-ES` | Female | `ca-ES-JoanaNeural` <sup>Nuevo</sup> | General |
+| Catalán (España) | `ca-ES` | Male | `ca-ES-EnricNeural` <sup>Nuevo</sup> | General |
 | Chino (cantonés, tradicional) | `zh-HK` | Female | `zh-HK-HiuGaaiNeural` | General |
-| Chino (mandarín, simplificado) | `zh-CN` | Female | `zh-CN-XiaoxiaoNeural` | General, varios estilos de voz disponibles [mediante SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| Chino (cantonés, tradicional) | `zh-HK` | Female | `zh-HK-HiuMaanNeural` <sup>Nuevo</sup> | General |
+| Chino (cantonés, tradicional) | `zh-HK` | Male | `zh-HK-WanLungNeural` <sup>Nuevo</sup> | General |
+| Chino (mandarín, simplificado) | `zh-CN` | Female | `zh-CN-XiaoxiaoNeural` | General, varios estilos de voz disponibles [mediante SSML](speech-synthesis-markup.md#adjust-speaking-styles)  |
 | Chino (mandarín, simplificado) | `zh-CN` | Female | `zh-CN-XiaoyouNeural` | Voz de niño, optimizado para la narración de historias |
-| Chino (mandarín, simplificado) | `zh-CN` | Male   | `zh-CN-YunyangNeural` | Optimizado para lectura de noticias,<br /> varios estilos de voz disponibles [mediante SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
-| Chino (mandarín, simplificado) | `zh-CN` | Male   | `zh-CN-YunyeNeural` | Optimizado para la narración de historias |
+| Chino (mandarín, simplificado) | `zh-CN` | Male | `zh-CN-YunyangNeural` | Optimizado para lectura de noticias,<br /> varios estilos de voz disponibles [mediante SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| Chino (mandarín, simplificado) | `zh-CN` | Male | `zh-CN-YunyeNeural` | Optimizado para la narración de historias  |
+| Chino (mandarín, Taiwán) | `zh-TW` | Female | `zh-TW-HsiaoChenNeural` <sup>Nuevo</sup> | General |
 | Chino (mandarín, Taiwán) | `zh-TW` | Female | `zh-TW-HsiaoYuNeural` | General |
-| Croata (Croacia) | `hr-HR` | Female | `hr-HR-GabrijelaNeural` <sup>Nuevo</sup> | General |
-| Checo (República Checa) | `cs-CZ` | Female | `cs-CZ-VlastaNeural` <sup>Nuevo</sup>    | General |
+| Chino (mandarín, Taiwán) | `zh-TW` | Male | `zh-TW-YunJheNeural` <sup>Nuevo</sup> | General |
+| Croata (Croacia) | `hr-HR` | Female | `hr-HR-GabrijelaNeural` | General |
+| Croata (Croacia) | `hr-HR` | Male | `hr-HR-SreckoNeural` <sup>Nuevo</sup> | General |
+| Checo (República Checa) | `cs-CZ` | Female | `cs-CZ-VlastaNeural` | General |
+| Checo (República Checa) | `cs-CZ` | Male | `cs-CZ-AntoninNeural` <sup>Nuevo</sup> | General |
 | Danés (Dinamarca) | `da-DK` | Female | `da-DK-ChristelNeural` | General |
+| Danés (Dinamarca) | `da-DK` | Male | `da-DK-JeppeNeural` <sup>Nuevo</sup> | General |
 | Neerlandés (Países Bajos) | `nl-NL` | Female | `nl-NL-ColetteNeural` | General |
+| Neerlandés (Países Bajos) | `nl-NL` | Female | `nl-NL-FennaNeural` <sup>Nuevo</sup> | General |
+| Neerlandés (Países Bajos) | `nl-NL` | Male | `nl-NL-MaartenNeural` <sup>Nuevo</sup> | General |
 | Inglés (Australia) | `en-AU` | Female | `en-AU-NatashaNeural` | General |
-| Inglés (Australia) | `en-AU` | Male   | `en-AU-WilliamNeural` <sup>Nuevo</sup>  | General |
+| Inglés (Australia) | `en-AU` | Male | `en-AU-WilliamNeural` | General |
 | Inglés (Canadá) | `en-CA` | Female | `en-CA-ClaraNeural` | General |
+| Inglés (Canadá) | `en-CA` | Male | `en-CA-LiamNeural` <sup>Nuevo</sup> | General |
 | Inglés (India) | `en-IN` | Female | `en-IN-NeerjaNeural` | General |
-| Inglés (Irlanda) | `en-IE` | Female | `en-IE-EmilyNeural` <sup>Nuevo</sup> | General |
+| Inglés (India) | `en-IN` | Male | `en-IN-PrabhatNeural` <sup>Nuevo</sup> | General |
+| Inglés (Irlanda) | `en-IE` | Female | `en-IE-EmilyNeural` | General |
+| Inglés (Irlanda) | `en-IE` | Male | `en-IE-ConnorNeural` <sup>Nuevo</sup> | General |
 | Inglés (Reino Unido) | `en-GB` | Female | `en-GB-LibbyNeural` | General |
 | Inglés (Reino Unido) | `en-GB` | Female | `en-GB-MiaNeural` | General |
-| Inglés (Reino Unido) | `en-GB` | Male | `en-GB-RyanNeural` <sup>Nuevo</sup> | General |
-| Spanish (Traditional Sort) - Spain | `en-US` | Female | `en-US-AriaNeural` | General, varios estilos de voz disponibles [mediante SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| Inglés (Reino Unido) | `en-GB` | Male | `en-GB-RyanNeural` | General |
+| Spanish (Traditional Sort) - Spain | `en-US` | Female | `en-US-AriaNeural` | General, varios estilos de voz disponibles [mediante SSML](speech-synthesis-markup.md#adjust-speaking-styles)  |
+| Spanish (Traditional Sort) - Spain | `en-US` | Female | `en-US-JennyNeural` | General |
 | Spanish (Traditional Sort) - Spain | `en-US` | Male | `en-US-GuyNeural` | General |
-| Spanish (Traditional Sort) - Spain | `en-US` | Female | `en-US-JennyNeural` <sup>Nuevo</sup> | General, varios estilos de voz disponibles [mediante SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
 | Finés (Finlandia) | `fi-FI` | Female | `fi-FI-NooraNeural` | General |
+| Finés (Finlandia) | `fi-FI` | Female | `fi-FI-SelmaNeural` <sup>Nuevo</sup> | General |
+| Finés (Finlandia) | `fi-FI` | Male | `fi-FI-HarriNeural` <sup>Nuevo</sup> | General |
 | Francés (Canadá) | `fr-CA` | Female | `fr-CA-SylvieNeural` | General |
-| Francés (Canadá) | `fr-CA` | Male | `fr-CA-JeanNeural` <sup>Nuevo</sup> | General |
+| Francés (Canadá) | `fr-CA` | Male | `fr-CA-JeanNeural` | General |
 | Francés (Francia) | `fr-FR` | Female | `fr-FR-DeniseNeural` | General |
-| Francés (Francia) | `fr-FR` | Male | `fr-FR-HenriNeural` <sup>Nuevo</sup> | General |
-| Francés (Suiza) | `fr-CH` | Female | `fr-CH-ArianeNeural` <sup>Nuevo</sup> | General |
-| Alemán (Austria) | `de-AT` | Female | `de-AT-IngridNeural` <sup>Nuevo</sup> | General |
+| Francés (Francia) | `fr-FR` | Male | `fr-FR-HenriNeural` | General |
+| Francés (Suiza) | `fr-CH` | Female | `fr-CH-ArianeNeural` | General |
+| Francés (Suiza) | `fr-CH` | Male | `fr-CH-FabriceNeural` <sup>Nuevo</sup> | General |
+| Alemán (Austria) | `de-AT` | Female | `de-AT-IngridNeural` | General |
+| Alemán (Austria) | `de-AT` | Male | `de-AT-JonasNeural` <sup>Nuevo</sup> | General |
 | Alemán (Alemania) | `de-DE` | Female | `de-DE-KatjaNeural` | General |
-| Alemán (Alemania) | `de-DE` | Male | `de-DE-ConradNeural` <sup>Nuevo</sup> | General |
-| Alemán (Suiza) | `de-CH` | Female | `de-CH-LeniNeural` <sup>Nuevo</sup> | General |
-| Griego (Grecia) | `el-GR` | Female | `el-GR-AthinaNeural` <sup>Nuevo</sup> | General |
-| Hebreo (Israel) | `he-IL` | Female | `he-IL-HilaNeural` <sup>Nuevo</sup> | General |
+| Alemán (Alemania) | `de-DE` | Male | `de-DE-ConradNeural` | General |
+| Alemán (Suiza) | `de-CH` | Female | `de-CH-LeniNeural` | General |
+| Alemán (Suiza) | `de-CH` | Male | `de-CH-JanNeural` <sup>Nuevo</sup> | General |
+| Griego (Grecia) | `el-GR` | Female | `el-GR-AthinaNeural` | General |
+| Griego (Grecia) | `el-GR` | Male | `el-GR-NestorasNeural` <sup>Nuevo</sup> | General |
+| Hebreo (Israel) | `he-IL` | Female | `he-IL-HilaNeural` | General |
+| Hebreo (Israel) | `he-IL` | Male | `he-IL-AvriNeural` <sup>Nuevo</sup> | General |
 | Hindi (India) | `hi-IN` | Female | `hi-IN-SwaraNeural` | General |
-| Húngaro (Hungría) | `hu-HU` | Female | `hu-HU-NoemiNeural` <sup>Nuevo</sup> | General |
-| Indonesio (Indonesia) | `id-ID` | Male | `id-ID-ArdiNeural` <sup>Nuevo</sup> | General |
+| Hindi (India) | `hi-IN` | Male | `hi-IN-MadhurNeural` <sup>Nuevo</sup> | General |
+| Húngaro (Hungría) | `hu-HU` | Female | `hu-HU-NoemiNeural` | General |
+| Húngaro (Hungría) | `hu-HU` | Male | `hu-HU-TamasNeural` <sup>Nuevo</sup> | General |
+| Indonesio (Indonesia) | `id-ID` | Female | `id-ID-GadisNeural` <sup>Nuevo</sup> | General |
+| Indonesio (Indonesia) | `id-ID` | Male | `id-ID-ArdiNeural` | General |
 | Italiano (Italia) | `it-IT` | Female | `it-IT-ElsaNeural` | General |
-| Italiano (Italia) | `it-IT` | Female | `it-IT-IsabellaNeural` <sup>Nuevo</sup> | General |
-| Italiano (Italia) | `it-IT` | Male | `it-IT-DiegoNeural` <sup>Nuevo</sup> | General |
+| Italiano (Italia) | `it-IT` | Female | `it-IT-IsabellaNeural` | General |
+| Italiano (Italia) | `it-IT` | Male | `it-IT-DiegoNeural` | General |
 | Japonés (Japón) | `ja-JP` | Female | `ja-JP-NanamiNeural` | General |
-| Japonés (Japón) | `ja-JP` | Male | `ja-JP-KeitaNeural` <sup>Nuevo</sup> | General |
+| Japonés (Japón) | `ja-JP` | Male | `ja-JP-KeitaNeural` | General |
 | Coreano (Corea) | `ko-KR` | Female | `ko-KR-SunHiNeural` | General |
-| Coreano (Corea) | `ko-KR` | Male | `ko-KR-InJoonNeural` <sup>Nuevo</sup> | General |
-| Malayo (Malasia) | `ms-MY` | Female | `ms-MY-YasminNeural` <sup>Nuevo</sup> | General |
+| Coreano (Corea) | `ko-KR` | Male | `ko-KR-InJoonNeural` | General |
+| Malayo (Malasia) | `ms-MY` | Female | `ms-MY-YasminNeural` | General |
+| Malayo (Malasia) | `ms-MY` | Male | `ms-MY-OsmanNeural` <sup>Nuevo</sup> | General |
 | Noruego (Bokmål, Noruega) | `nb-NO` | Female | `nb-NO-IselinNeural` | General |
+| Noruego (Bokmål, Noruega) | `nb-NO` | Female | `nb-NO-PernilleNeural` <sup>Nuevo</sup> | General |
+| Noruego (Bokmål, Noruega) | `nb-NO` | Male | `nb-NO-FinnNeural` <sup>Nuevo</sup> | General |
+| Polaco (Polonia) | `pl-PL` | Female | `pl-PL-AgnieszkaNeural` <sup>Nuevo</sup> | General |
 | Polaco (Polonia) | `pl-PL` | Female | `pl-PL-ZofiaNeural` | General |
-| Portugués (Brasil) | `pt-BR` | Female | `pt-BR-FranciscaNeural` | General, varios estilos de voz disponibles [mediante SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
-| Portugués (Brasil) | `pt-BR` | Male | `pt-BR-AntonioNeural` <sup>Nuevo</sup> | General |
+| Polaco (Polonia) | `pl-PL` | Male | `pl-PL-MarekNeural` <sup>Nuevo</sup> | General |
+| Portugués (Brasil) | `pt-BR` | Female | `pt-BR-FranciscaNeural` | General, varios estilos de voz disponibles [mediante SSML](speech-synthesis-markup.md#adjust-speaking-styles)  |
+| Portugués (Brasil) | `pt-BR` | Male | `pt-BR-AntonioNeural` | General |
 | Portugués (Portugal) | `pt-PT` | Female | `pt-PT-FernandaNeural` | General |
-| Rumano (Rumanía) | `ro-RO` | Female | `ro-RO-AlinaNeural` <sup>Nuevo</sup> | General |
+| Portugués (Portugal) | `pt-PT` | Female | `pt-PT-RaquelNeural` <sup>Nuevo</sup> | General |
+| Portugués (Portugal) | `pt-PT` | Male | `pt-PT-DuarteNeural` <sup>Nuevo</sup> | General |
+| Rumano (Rumanía) | `ro-RO` | Female | `ro-RO-AlinaNeural` | General |
+| Rumano (Rumanía) | `ro-RO` | Male | `ro-RO-EmilNeural` <sup>Nuevo</sup> | General |
 | Ruso (Rusia) | `ru-RU` | Female | `ru-RU-DariyaNeural` | General |
-| Eslovaco (Eslovaquia) | `sk-SK` | Female | `sk-SK-ViktoriaNeural` <sup>Nuevo</sup> | General |
-| Esloveno (Eslovenia) | `sl-SI` | Female | `sl-SI-PetraNeural` <sup>Nuevo</sup> | General |
+| Ruso (Rusia) | `ru-RU` | Female | `ru-RU-SvetlanaNeural` <sup>Nuevo</sup> | General |
+| Ruso (Rusia) | `ru-RU` | Male | `ru-RU-DmitryNeural` <sup>Nuevo</sup> | General |
+| Eslovaco (Eslovaquia) | `sk-SK` | Female | `sk-SK-ViktoriaNeural` | General |
+| Eslovaco (Eslovaquia) | `sk-SK` | Male | `sk-SK-LukasNeural` <sup>Nuevo</sup> | General |
+| Esloveno (Eslovenia) | `sl-SI` | Female | `sl-SI-PetraNeural` | General |
+| Esloveno (Eslovenia) | `sl-SI` | Male | `sl-SI-RokNeural` <sup>Nuevo</sup> | General |
 | Español (México) | `es-MX` | Female | `es-MX-DaliaNeural` | General |
-| Español (México) | `es-MX` | Male | `es-MX-JorgeNeural` <sup>Nuevo</sup> | General |
+| Español (México) | `es-MX` | Male | `es-MX-JorgeNeural` | General |
 | Español (España) | `es-ES` | Female | `es-ES-ElviraNeural` | General |
-| Español (España) | `es-ES` | Male | `es-ES-AlvaroNeural` <sup>Nuevo</sup> | General |
+| Español (España) | `es-ES` | Male | `es-ES-AlvaroNeural` | General |
 | Sueco (Suecia) | `sv-SE` | Female | `sv-SE-HilleviNeural` | General |
-| Tamil (India) | `ta-IN` | Female | `ta-IN-PallaviNeural` <sup>Nuevo</sup> | General |
-| Telugu (India) | `te-IN` | Female | `te-IN-ShrutiNeural` <sup>Nuevo</sup> | General |
+| Sueco (Suecia) | `sv-SE` | Female | `sv-SE-SofieNeural` <sup>Nuevo</sup> | General |
+| Sueco (Suecia) | `sv-SE` | Male | `sv-SE-MattiasNeural` <sup>Nuevo</sup> | General |
+| Tamil (India) | `ta-IN` | Female | `ta-IN-PallaviNeural` | General |
+| Tamil (India) | `ta-IN` | Male | `ta-IN-ValluvarNeural` <sup>Nuevo</sup> | General |
+| Telugu (India) | `te-IN` | Female | `te-IN-ShrutiNeural` | General |
+| Telugu (India) | `te-IN` | Male | `te-IN-MohanNeural` <sup>Nuevo</sup> | General |
 | Tailandés (Tailandia) | `th-TH` | Female | `th-TH-AcharaNeural` | General |
-| Tailandés (Tailandia) | `th-TH` | Female | `th-TH-PremwadeeNeural` <sup>Nuevo</sup> | General |
+| Tailandés (Tailandia) | `th-TH` | Female | `th-TH-PremwadeeNeural` | General |
+| Tailandés (Tailandia) | `th-TH` | Male | `th-TH-NiwatNeural` <sup>Nuevo</sup> | General |
 | Turco (Turquía) | `tr-TR` | Female | `tr-TR-EmelNeural` | General |
-| Vietnamita (Vietnam) | `vi-VN` <sup>Nuevo</sup> | Female | `vi-VN-HoaiMyNeural` | General|
+| Turco (Turquía) | `tr-TR` | Male | `tr-TR-AhmetNeural` <sup>Nuevo</sup> | General |
+| Vietnamita (Vietnam) | `vi-VN` | Female | `vi-VN-HoaiMyNeural` | General |
+| Vietnamita (Vietnam) | `vi-VN` | Male | `vi-VN-NamMinhNeural` <sup>Nuevo</sup> | General |
 
 #### <a name="neural-voices-in-preview"></a>Voces neuronales en versión preliminar
 
@@ -215,16 +261,21 @@ Las siguientes voces neuronales se encuentran en versión preliminar pública.
 
 | Idioma                         | Configuración regional  | Sexo | Nombre de voz                             | Compatibilidad de estilo |
 |----------------------------------|---------|--------|----------------------------------------|---------------|
-| Chino (mandarín, simplificado) | `zh-CN` | Male   | `zh-CN-YunxiNeural` <sup>Nuevo</sup> | General, varios estilos disponibles [mediante SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
-| Chino (mandarín, simplificado) | `zh-CN` | Female | `zh-CN-XiaohanNeural` <sup>Nuevo</sup> | General, varios estilos disponibles [mediante SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
-| Chino (mandarín, simplificado) | `zh-CN` | Female | `zh-CN-XiaoxuanNeural` <sup>Nuevo</sup> | General, varios estilos y [representaciones disponibles mediante SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
-| Chino (mandarín, simplificado) | `zh-CN` | Female | `zh-CN-XiaomoNeural` <sup>Nuevo</sup> | General, varios estilos y [representaciones disponibles mediante SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
-| Chino (mandarín, simplificado) | `zh-CN` | Female | `zh-CN-XiaoruiNeural` <sup>Nuevo</sup> | Voz de adulto de edad avanzada, varios estilos disponibles [mediante SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
-| Estonio (Estonia) | `et-EE` | Female | `et-EE-AnuNeural` <sup>Nuevo</sup> | General |
-| Gaélico (Irlanda) | `ga-IE` | Female | `ga-IE-OrlaNeural` <sup>Nuevo</sup> | General |
-| Lituano (Lituania) | `lt-LT` | Female | `lt-LT-OnaNeural` <sup>Nuevo</sup> | General |
-| Letón (Letonia) | `lv-LV` | Female | `lv-LV-EveritaNeural` <sup>Nuevo</sup> | General |
-| Maltés (Malta) | `mt-MT` | Female | `mt-MT-GraceNeural` <sup>Nuevo</sup> | General |
+| Chino (mandarín, simplificado) | `zh-CN` | Female | `zh-CN-XiaohanNeural` | General, varios estilos disponibles [mediante SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| Chino (mandarín, simplificado) | `zh-CN` | Female | `zh-CN-XiaomoNeural` | General, varios estilos y representaciones disponibles [mediante SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| Chino (mandarín, simplificado) | `zh-CN` | Female | `zh-CN-XiaoruiNeural` | Voz de adulto de edad avanzada, varios estilos disponibles [mediante SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| Chino (mandarín, simplificado) | `zh-CN` | Female | `zh-CN-XiaoxuanNeural` | General, varios estilos y representaciones disponibles [mediante SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| Chino (mandarín, simplificado) | `zh-CN` | Male   | `zh-CN-YunxiNeural` | General, varios estilos disponibles [mediante SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| Estonio (Estonia) | `et-EE` | Female | `et-EE-AnuNeural` | General |
+| Estonio (Estonia) | `et-EE` | Male | `et-EE-KertNeural` <sup>Nuevo</sup> | General |
+| Irlandés (Irlanda) | `ga-IE` | Female | `ga-IE-OrlaNeural` | General |
+| Irlandés (Irlanda) | `ga-IE` | Male | `ga-IE-ColmNeural` <sup>Nuevo</sup> | General |
+| Letón (Letonia) | `lv-LV` | Female | `lv-LV-EveritaNeural` | General |
+| Letón (Letonia) | `lv-LV` | Male | `lv-LV-NilsNeural` <sup>Nuevo</sup> | General |
+| Lituano (Lituania) | `lt-LT` | Female | `lt-LT-OnaNeural` | General |
+| Lituano (Lituania) | `lt-LT` | Male | `lt-LT-LeonasNeural` <sup>Nuevo</sup> | General |
+| Maltés (Malta) | `mt-MT` | Female | `mt-MT-GraceNeural` | General |
+| Maltés (Malta) | `mt-MT` | Male | `mt-MT-JosephNeural` <sup>Nuevo</sup> | General |
 
 > [!IMPORTANT]
 > Las voces en versión preliminar pública solo están disponibles en tres regiones del servicio: Este de EE. UU., Oeste de Europa y Sudeste de Asia.

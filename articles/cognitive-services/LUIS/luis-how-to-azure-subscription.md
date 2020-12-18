@@ -7,12 +7,12 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 09/07/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a71c1a0df1a72e3831fa54a041539f62b38a0aca
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 19c27dc80f9af013c458663c9c7afb0033683acd
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95999916"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97348074"
 ---
 # <a name="create-luis-resources"></a>Creación de recursos de LUIS
 
@@ -51,16 +51,13 @@ Para cambiar la propiedad de un recurso, puede realizar una de estas acciones:
 * Transferir la [propiedad](../../cost-management-billing/manage/billing-subscription-transfer.md) de la suscripción.
 * Exportar la aplicación de LUIS como un archivo y, a continuación, importar la aplicación en otra suscripción. La exportación está disponible en la página **Mis aplicaciones** del portal de LUIS.
 
-
 ## <a name="resource-limits"></a>Límites de recursos
 
 ### <a name="authoring-key-creation-limits"></a>Limites al establecimiento de claves de creación
 
-Puede tener hasta 10 claves de creación por región y suscripción.
+Puede tener hasta 10 claves de creación por región y suscripción. Las regiones de publicación son diferentes de las regiones de creación. Asegúrese de que crea la aplicación en la región de creación que corresponde a la región de publicación en la que quiere ubicar su aplicación cliente. Para obtener información sobre cómo se asignan las regiones de creación a las regiones de publicación, consulte [Regiones de creación y publicación](luis-reference-regions.md). 
 
-Para obtener más información, consulte los [límites de clave](luis-limits.md#key-limits) y las [regiones de Azure](luis-reference-regions.md).
-
-Las regiones de publicación son diferentes de las regiones de creación. Asegúrese de que crea la aplicación en la región de creación que corresponde a la región de publicación en la que quiere ubicar su aplicación cliente.
+Para obtener más información sobre los límites de la clave, consulte [Límites de la clave](luis-limits.md#key-limits).
 
 ### <a name="errors-for-key-usage-limits"></a>Errores de los límites de uso de claves
 
