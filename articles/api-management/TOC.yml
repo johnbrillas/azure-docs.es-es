@@ -1,6 +1,6 @@
 - name: Documentación de Azure API Management
   href: index.yml
-- name: Introducción
+- name: Información general
   items:
     - name: Acerca de API Management
       href: api-management-key-concepts.md
@@ -110,6 +110,8 @@
       items:
         - name: Métrica de capacidad
           href: api-management-capacity.md
+        - name: Planificación y administración de costos
+          href: plan-manage-costs.md
         - name: Actualización y escalado
           href: upgrade-and-scale.md
         - name: Configuración de escalado automático

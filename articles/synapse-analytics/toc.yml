@@ -392,7 +392,7 @@
                   displayname: 'transparent, data, encryption'
         - name: Administración de cargas de trabajo
           items:
-            - name: Introducción
+            - name: Información general
               href: ./sql-data-warehouse/sql-data-warehouse-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
               displayname: 'workload, management'
             - name: Clasificación de la carga de trabajo
@@ -658,6 +658,8 @@
           href: ../data-factory/concepts-pipeline-execution-triggers.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Tiempo de ejecución de integración
           href: ../data-factory/concepts-integration-runtime.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Diferencias con respecto a Azure Data Factory
+          href: ./data-integration/concepts-data-factory-differences.md
         - name: Flujos de datos
           items:
             - name: Introducción al flujo de datos
@@ -678,8 +680,6 @@
               href: ../data-factory/concepts-data-flow-expression-builder.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Lenguaje de expresiones
               href: ../data-factory/data-flow-expression-functions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Diferencias con respecto a Azure Data Factory
-              href: ./data-integration/concepts-data-factory-differences.md
     - name: Guías paso a paso
       items:
         - name: Autor
