@@ -7,14 +7,14 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 07/24/2019
+ms.date: 12/04/2020
 ms.author: erhopf
-ms.openlocfilehash: 95f3de0fe26678f6b4bcd97a78c06e92b72a7135
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 4746aad2d7cd62cb309a1823f8c50487e6f7e87c
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368821"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032973"
 ---
 # <a name="custom-subdomain-names-for-cognitive-services"></a>Nombres de subdominios personalizados para Cognitive Services
 
@@ -27,7 +27,7 @@ Los recursos de Cognitive Services creados antes del 1 de julio de 2019 usarán 
 Si quiere migrar un recurso existente para aprovechar los nombres de subdominio personalizado, de modo que pueda habilitar características como Azure AD, siga estas instrucciones:
 
 1. Inicie sesión en Azure Portal y busque el recurso de Cognitive Services al que le gustaría agregar un nombre de subdominio personalizado.
-2. En la hoja de **información general** , busque y seleccione la opción para **generar un nombre de dominio personalizado**.
+2. En la hoja de **información general**, busque y seleccione la opción para **generar un nombre de dominio personalizado**.
 3. Se abrirá un panel con instrucciones para crear un subdominio personalizado único para el recurso.
    > [!WARNING]
    > Después de crear un nombre de subdominio personalizado, **no** se puede cambiar.
@@ -39,7 +39,7 @@ No. El punto de conexión regional continuará funcionando para las instancias d
 ## <a name="what-if-an-sdk-asks-me-for-the-region-for-a-resource"></a>¿Qué ocurre si un SDK me pide la región de un recurso?
 
 > [!WARNING]
-> En este momento, los servicios de voz **no** admiten subdominios personalizados. Use los puntos de conexión regionales cuando use los servicios de voz y los SDK asociados.
+> Los servicios de voz usan subdominios personalizados **únicamente** con [puntos de conexión privados](Speech-Service/speech-services-private-link.md). En el resto de casos, use los **puntos de conexión regionales** con los servicios de voz y los SDK asociados.
 
 Los puntos de conexión regionales y los nombres de subdominio personalizados se admiten y se pueden usar indistintamente. Sin embargo, se requiere el punto de conexión completo.
 

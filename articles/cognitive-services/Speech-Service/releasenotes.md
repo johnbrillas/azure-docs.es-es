@@ -11,14 +11,57 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: c6cc033e4814553020957310224a8ed4cdacbc8e
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 2db93ec6806d4b9cc8c8ac17cfb2c15458bf4dc9
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96483961"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97401158"
 ---
 # <a name="speech-service-release-notes"></a>Notas de la versión del servicio Voz
+
+## <a name="text-to-speech-2020-december-release"></a>Versión de diciembre de 2020 de texto a voz
+
+**Nuevas voces neuronales disponibles de forma general y en versión preliminar**
+
+Se han lanzado 51 voces nuevas para un total de 129 voces neuronales en 54 idiomas o configuraciones regionales:
+
+- **46 voces nuevas en configuraciones regionales de disponibilidad general**: Shakir en `ar-EG` árabe (Egipto), Hamed en `ar-SA` árabe (Arabia Saudí), Borislav en `bg-BG` búlgaro (Bulgaria), Joana en `ca-ES` catalán (España), Antonin en `cs-CZ` checo (República Checa), Jeppe en `da-DK` danés (Dinamarca), Jonas en `de-AT` alemán (Austria), Janein `de-CH` alemán (Suiza), Nestoras en `el-GR` griego (Grecia), Liam en `en-CA` inglés (Canadá), Connor en `en-IE` inglés (Irlanda), Madhur en `en-IN` hindi (India), Mohan en `en-IN` telugu (India), Prabhat en `en-IN` inglés (India), Valluvar en `en-IN` tamil (India), Enric en `es-ES` catalán (España), Kert en `et-EE` estonio (Estonia), Harri en `fi-FI` finés (Finlandia), Selma en `fi-FI` finés (Finlandia), Fabrice en `fr-CH` francés (Suiza), Colm en `ga-IE` irlandés (Irlanda), Avri en `he-IL` hebreo (Israel), Srecko en `hr-HR` croata (Croacia), Tamas en `hu-HU` húngaro (Hungría), Gadis en `id-ID` indonesio (Indonesia), Leonas en `lt-LT` lituano (Lituania), Nils en `lv-LV` letón (Letonia), Osman en `ms-MY` malayo (Malasia), Joseph en `mt-MT` maltés (Malta), Finn en `nb-NO` noruego, Bokmål (Noruega), Pernille en `nb-NO` noruego, Bokmål (Noruega), Fenna en `nl-NL` neerlandés (Países Bajos), Maarten en `nl-NL` neerlandés (Países Bajos), Agnieszka en `pl-PL` polaco (Polonia), Marek en `pl-PL` polaco (Polonia), Duarte en `pt-BR` portugués (Brasil), Raquel en `pt-PT` portugués (Portugal), Emil en `ro-RO` rumano (Rumanía), Dmitry en `ru-RU` ruso (Rusia), Svetlana en `ru-RU` ruso (Rusia), Lukas en `sk-SK` eslovaco (Eslovaquia), Rok en `sl-SI` esloveno (Eslovenia), Mattias en `sv-SE` sueco (Suecia), Sofie en `sv-SE` Sueco (Suecia), Niwat en `th-TH` tailandés (Tailandia), Ahmet en `tr-TR` turco (Turquía), NamMinh en `vi-VN` vietnamita (Vietnam), HsiaoChen en `zh-TW` mandarín taiwanés (Taiwán), YunJhe en `zh-TW` mandarín taiwanés (Taiwán), HiuMaan en `zh-HK` chino cantonés (Hong Kong), WanLung en `zh-HK` chino cantonés (Hong Kong).
+
+- **5 voces nuevas en las configuraciones regionales de la versión preliminar**: Kert en `et-EE` estonio (Estonia), Colm en `ga-IE` irlandés (Irlanda), Nils en `lv-LV` letón (Letonia), Leonas en `lt-LT` lituano (Lituania), Joseph en `mt-MT` maltés (Malta).
+
+Con esta versión, ahora se admiten un total de 129 voces neuronal en 54 idiomas o configuraciones regionales. Además, hay disponibles más de 70 voces estándar en 49 idiomas o configuraciones regionales. Consulte [Compatibilidad con idiomas](language-support.md#text-to-speech) para obtener la lista completa.
+
+**Actualizaciones para la creación de contenido de audio**
+- Interfaz de usuario de selección con voz mejorada, con categorías de voz y descripciones detalladas de voz. 
+- Se ha habilitado la optimización de la entonación en todas las voces neuronales de distintos idiomas.
+- Se ha automatizado la localización de la interfaz de usuario en función del idioma del explorador.
+- Se han habilitado controles `StyleDegree` en todas las voces neuronales de `zh-CN`.
+Consulte la [herramienta de creación de contenido de audio](https://speech.microsoft.com/audiocontentcreation) para echar un vistazo a las nuevas características. 
+
+**Actualizaciones para las voces de zh-CN**
+- Se actualizaron todas voces neuronales de `zh-CN` para que admitan el inglés.
+- Se han habilitado todas las voces neuronales de `zh-CN` para admitir el ajuste de entonación. La herramienta de creación de contenido de audio o SSML se puede usar para obtener la mejor entonación.
+- Se actualizaron todas voces neuronales de `zh-CN` de estilo múltiple para admitir el control `StyleDegree`. La intensidad de las emociones (suave o fuerte) es ajustable.
+- Se ha actualizado `zh-CN-YunyeNeural` para que admita varios estilos que pueden mostrar diferentes emociones.
+
+## <a name="text-to-speech-2020-november-release"></a>Versión de noviembre de 2020 de texto a voz
+
+**Nuevas configuraciones regionales y voces en versión preliminar**
+- Se han agregado **cinco voces e idiomas nuevos**  en la cartera de TTS neuronal. Son las siguientes: Grace en maltés (Malta), Ona en lituano (Lituania), Anu en estonio (Estonia), Orla en irlandés (Irlanda) y Everita en letón (Letonia).
+- **Cinco nuevas voces de `zh-CN` con varios estilos y roles que admiten**: Xiaohan, Xiaomo, Xiaorui, Xiaoxuan y Yunxi.
+
+> Estas voces están disponibles en la versión preliminar pública de tres regiones de Azure: EastUS, SouthEastAsia y WestEurope.
+
+**Disponibilidad general del contenedor de TTS neuronal**
+- Gracias al contenedor de TTS neuronal, los desarrolladores pueden ejecutar síntesis de voz con las voces digitales más naturales en su propio entorno, para cumplir con los requisitos específicos de seguridad y control de los datos. Consulte [Cómo instalar contenedores de voz](speech-container-howto.md). 
+
+**Nuevas características:**
+- **Voz personalizada**: permite a los usuarios copiar un modelo de voz de una región a otra; también admite la suspensión y reanudación de los puntos de conexión. Vaya al [portal](https://speech.microsoft.com/customvoice) que está aquí.
+- Compatibilidad con la [etiqueta de silencio de SSML](speech-synthesis-markup.md#add-silence). 
+- Mejoras generales en la calidad de la voz de TTS: Precisión del nivel de pronunciación de palabra mejorada en nb-NO. El error de pronunciación se ha reducido en un 53 %.
+
+> Puede obtener más información en [este blog técnico](https://techcommunity.microsoft.com/t5/azure-ai/neural-text-to-speech-previews-five-new-languages-with/ba-p/1907604).
 
 ## <a name="text-to-speech-2020-october-release"></a>Texto a voz, versión de octubre de 2020
 

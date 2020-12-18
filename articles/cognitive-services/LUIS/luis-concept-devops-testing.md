@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/3/2020
-ms.openlocfilehash: 3017d0dec5acd3494600c42bef410ed346fead1a
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: f002bfdd5aeb784b5b10b549389e663216fa0361
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95025949"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97561229"
 ---
 # <a name="testing-for-luis-devops"></a>Pruebas de DevOps de LUIS
 
@@ -18,7 +18,7 @@ Los ingenieros de software que desarrollan una aplicación de Language Understan
 
 En las metodologías de Agile Software Development, las pruebas desempeñan un papel integral en la creación de software de calidad. Cada cambio significativo en una aplicación de LUIS debe ir acompañado de pruebas diseñadas para probar la nueva funcionalidad que está creando el desarrollador en la aplicación. Estas pruebas se comprueban en el repositorio de código fuente junto con el archivo de código fuente `.lu` de la aplicación de LUIS. La implementación del cambio finaliza cuando la aplicación pasa satisfactoriamente las pruebas.
 
-Las pruebas son una parte fundamental de los [flujos de trabajo de CI/CD](luis-concept-devops-automation.md). Cuando se proponen los cambios realizados en una aplicación de LUIS en una solicitud de incorporación de cambios (PR) o después de que los cambios se combinan en la rama principal, los flujos de trabajo de CI deben ejecutar las pruebas para comprobar que las actualizaciones no han causado ninguna regresión.
+Las pruebas son una parte fundamental de los [flujos de trabajo de CI/CD](luis-concept-devops-automation.md). Cuando se proponen los cambios realizados en una aplicación de LUIS en una solicitud de incorporación de cambios (PR) o después de que los cambios se combinan en la rama principal, los flujos de trabajo de CI deben ejecutar las pruebas para comprobar que las actualizaciones no hayan causado ninguna regresión.
 
 ## <a name="how-to-do-unit-testing-and-batch-testing"></a>Cómo realizar pruebas unitarias y pruebas por lotes
 
@@ -123,7 +123,7 @@ Puede usar el paquete [NLU.DevOps](https://github.com/microsoft/NLU.DevOps) para
 También puede usar el paquete NLU.DevOps para ejecutar pruebas por lotes en la línea de comandos.
 
 * Use el [comando test](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Test.md) de NLU.DevOps para enviar pruebas desde un archivo de pruebas a un punto de conexión y capturar los resultados de predicción reales en un archivo, igual que en el caso de las pruebas unitarias.
-* Use el [comando compare](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Analyze.md) de NLU.DevOps en [modo de prueba de rendimiento](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Analyze.md#performance-test-mode) para medir el rendimiento de la aplicación. También puede comparar el rendimiento de la aplicación con una prueba comparativa de rendimiento de línea base, por ejemplo, los resultados de la última confirmación en la versión principal o en la versión actual. En el modo de prueba de rendimiento, el comando `compare` genera la salida de la prueba NUnit y los [resultados de las pruebas por lotes](./luis-glossary.md#batch-test) en formato JSON.
+* Use el [comando compare](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Analyze.md) de NLU.DevOps en [modo de prueba de rendimiento](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Analyze.md#performance-test-mode) para medir el rendimiento de la aplicación. También puede comparar el rendimiento de la aplicación con una prueba comparativa de rendimiento de línea base como, por ejemplo, los resultados de la última confirmación en la versión principal o en la versión actual. En el modo de prueba de rendimiento, el comando `compare` genera la salida de la prueba NUnit y los [resultados de las pruebas por lotes](./luis-glossary.md#batch-test) en formato JSON.
 
 ## <a name="luis-non-deterministic-training-and-the-effect-on-testing"></a>Entrenamiento no determinista de LUIS y su efecto en las pruebas
 

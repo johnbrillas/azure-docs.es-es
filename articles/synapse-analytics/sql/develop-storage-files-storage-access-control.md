@@ -9,18 +9,18 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 631aaf3c6a99e093f6ed59089f7ce99803f3f054
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 6eff662ac0140e7a64cc3bab28856178708cb9b2
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96446623"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400682"
 ---
 # <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Control del acceso a la cuenta de almacenamiento del grupo de SQL sin servidor en Azure Synapse Analytics
 
 Una consulta del grupo de SQL sin servidor lee los archivos directamente desde Azure Storage. Los permisos para tener acceso a los archivos en Azure Storage se controlan en dos niveles:
 - **Nivel de almacenamiento**: el usuario debe tener permiso de acceso a los archivos de almacenamiento subyacentes. El administrador de almacenamiento debe permitir que la entidad de seguridad de Azure AD lea y escriba archivos o que genere una clave SAS que se usará para acceder al almacenamiento.
-- **Nivel de servicio de SQL**: el usuario debe tener permiso de `SELECT` para leer los datos de la [tabla externa](develop-tables-external-tables.md) o permiso de `ADMINISTER BULK ADMIN` para ejecutar `OPENROWSET`, así como el permiso para usar las credenciales que se usarán para tener acceso al almacenamiento.
+- **Nivel de servicio de SQL**: el usuario debe tener permiso para leer datos mediante una [tabla externa](develop-tables-external-tables.md) o para ejecutar la función `OPENROWSET`. Conozca más información sobre [los permisos necesarios en esta sección](develop-storage-files-overview.md#permissions).
 
 En este artículo se describen los tipos de credenciales que puede usar y cómo se realiza la búsqueda de credenciales para los usuarios de SQL y Azure AD.
 

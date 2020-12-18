@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: cf5c88df4e2ac6b95e99a3a78b1bf1e45bf534ed
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 1f5c0c7a877964eeb480fa958c7e76eb5706122f
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95535561"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97561280"
 ---
 # <a name="devops-practices-for-luis"></a>Prácticas de DevOps para LUIS
 
@@ -98,7 +98,7 @@ Sea cual sea la estrategia de rama que adopte, un principio clave para todas es 
 
 Para permitir el trabajo independiente en ramas con un proyecto de LUIS:
 
-- **La rama maestra tiene su propia aplicación de LUIS.** Esta aplicación representa el estado actual de la solución para el proyecto, y su versión activa actual siempre debe estar asignada al código fuente de `.lu` que se encuentra en la rama maestra. Todas las actualizaciones del código fuente de `.lu` para esta aplicación deben revisarse y probarse para que esta aplicación se pueda implementar en entornos de compilación como el de producción en cualquier momento. Si las actualizaciones de `.lu` se combinan en la rama maestra de una rama de características, debe crear una nueva versión en la aplicación de LUIS e [incrementar el número de versión](#versioning).
+- **La rama principal tiene su propia aplicación LUIS.** Esta aplicación representa el estado actual de la solución para el proyecto, y su versión activa actual siempre debe estar asignada al código fuente de `.lu` que se encuentra en la rama principal. Todas las actualizaciones del código fuente de `.lu` para esta aplicación deben revisarse y probarse para que esta aplicación se pueda implementar en entornos de compilación como el de producción en cualquier momento. Si las actualizaciones de `.lu` se combinan en la rama principal de una rama de características, debe crear una nueva versión en la aplicación de LUIS e [incrementar el número de versión](#versioning).
 
 - **Cada rama de características debe usar su propia instancia de una aplicación de LUIS**. Los desarrolladores trabajan con esta aplicación en una rama de características sin riesgo de que ello afecte a los desarrolladores que trabajan en otras ramas. Esta aplicación de "rama de desarrollo" es una copia de trabajo que se debe eliminar al eliminar la rama de características.
 
@@ -114,7 +114,7 @@ Los desarrolladores pueden trabajar en actualizaciones en una aplicación de LUI
 
    * Si el código fuente de `.lu` de la solución ya existe en la rama, porque se guardó después del trabajo realizado en otra rama anteriormente en el proyecto, importe el archivo `.lu` para crear la aplicación de rama de desarrollo de LUIS.
 
-   * Si va a empezar a trabajar en un proyecto nuevo, todavía no tendrá el código fuente de `.lu` de la aplicación maestra de LUIS en el repositorio. Para crear el archivo `.lu`, exporte la aplicación de rama de desarrollo desde el portal cuando haya completado el trabajo de la rama de características y envíelo como parte de la solicitud de incorporación de cambios.
+   * Si va a empezar a trabajar en un proyecto nuevo, todavía no tendrá el código fuente de `.lu` de la aplicación de LUIS principal en el repositorio. Para crear el archivo `.lu`, exporte la aplicación de rama de desarrollo desde el portal cuando haya completado el trabajo de la rama de características y envíelo como parte de la solicitud de incorporación de cambios.
 
 1. Trabajar en la versión activa de la aplicación de rama de desarrollo para implementar los cambios necesarios. Se recomienda trabajar solo en una versión única de la aplicación de rama de desarrollo para todo el trabajo de la rama de características. Si crea más de una versión en la aplicación de rama desarrollo, procure realizar un seguimiento de la versión que contiene los cambios que quiere insertar en el repositorio al presentar la solicitud de incorporación de cambios.
 
@@ -124,7 +124,7 @@ Los desarrolladores pueden trabajar en actualizaciones en una aplicación de LUI
 
 1. Insertar las actualizaciones en el repositorio e invitar a la revisión por homólogos de las actualizaciones. Si usa GitHub, generará una [solicitud de incorporación de cambios](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests).
 
-1. Cuando se aprueben los cambios, combine las actualizaciones en la rama maestra. En este momento, creará una nueva [versión](./luis-how-to-manage-versions.md) de la aplicación *maestra* de LUIS, con el archivo `.lu` actualizado en la rama maestra. Consulte [Control de versiones](#versioning) para conocer las consideraciones sobre cómo establecer el nombre de la versión.
+1. Cuando se aprueben los cambios, combine las actualizaciones en la rama principal. En este momento, creará una nueva [versión](./luis-how-to-manage-versions.md) de la aplicación de LUIS *principal* mediante el archivo `.lu` actualizado en la rama principal. Consulte [Control de versiones](#versioning) para conocer las consideraciones sobre cómo establecer el nombre de la versión.
 
 1. Cuando se elimina la rama de características, se recomienda eliminar la aplicación de rama de desarrollo de LUIS creado para el trabajo de la rama de características.
 
@@ -150,7 +150,7 @@ Puede permitir que varios desarrolladores trabajen en la misma rama de caracter�
 
 ### <a name="incorporating-changes-from-one-branch-to-another-with-rebase-or-merge"></a>Incorporación de los cambios de una rama en otra con fusión mediante cambio de base o combinación
 
-Es posible que otros desarrolladores del equipo que trabajan en otra rama hayan realizado actualizaciones en el código fuente de `.lu` y los hayan combinado en la rama maestra después de que usted haya creado la rama de características. Es posible que desee incorporar sus cambios en la versión de trabajo antes de continuar realizando cambios en la rama de características. Para hacerlo, [realice la fusión mediante cambio de base o combinación con la rama maestra](https://git-scm.com/book/en/v2/Git-Branching-Rebasing) de la misma manera que con cualquier otro recurso de código. Dado que la aplicación de LUIS en formato LUDown es legible, admite la combinación mediante herramientas de combinación estándar.
+Es posible que otros desarrolladores del equipo que trabajen en otra rama hayan realizado actualizaciones en el código fuente de `.lu` y las hayan combinado en la rama principal después de que usted haya creado la rama de características. Es posible que desee incorporar sus cambios en la versión de trabajo antes de continuar realizando cambios en la rama de características. Para hacerlo, [realice la fusión mediante cambio de base o combinación con la rama principal](https://git-scm.com/book/en/v2/Git-Branching-Rebasing) de la misma manera que con cualquier otro recurso de código. Dado que la aplicación de LUIS en formato LUDown es legible, admite la combinación mediante herramientas de combinación estándar.
 
 Siga estas sugerencias si realiza la fusión mediante cambio de base de la aplicación de LUIS en una rama de características:
 
@@ -162,7 +162,7 @@ Siga estas sugerencias si realiza la fusión mediante cambio de base de la aplic
 
 ### <a name="merge-prs"></a>Combinación de solicitudes de incorporación de cambios
 
-Una vez aprobada la solicitud de incorporación de cambios, puede realizar la fusión mediante combinación de los cambios en la rama maestra. No se aplica ninguna consideración especial al código fuente LUDown de una aplicación de LUIS: es legible y admite la combinación mediante herramientas de combinación estándar. Los conflictos de fusión mediante combinación se pueden resolver de la misma forma que con otros archivos de código fuente.
+Una vez aprobada la solicitud de incorporación de cambios, puede realizar la fusión mediante la combinación de los cambios en la rama principal. No se aplica ninguna consideración especial al código fuente LUDown de una aplicación de LUIS: es legible y admite la combinación mediante herramientas de combinación estándar. Los conflictos de fusión mediante combinación se pueden resolver de la misma forma que con otros archivos de código fuente.
 
 Una vez que se ha combinado la solicitud de incorporación de cambios, se recomienda realizar una limpieza:
 
@@ -173,7 +173,7 @@ Una vez que se ha combinado la solicitud de incorporación de cambios, se recomi
 Del mismo modo que con los recursos de código de aplicación, debe escribir pruebas unitarias para acompañar a las actualizaciones de la aplicación de LUIS. Debe emplear flujos de trabajo de integración continua para probar lo siguiente:
 
 - Las actualizaciones en una solicitud de incorporación de cambios antes de la combinación de dicha solicitud.
-- La aplicación de rama maestra de LUIS después de aprobar una solicitud de incorporación de cambios y de que los cambios se hayan combinado en la rama maestra.
+- La aplicación de la rama principal de LUIS después de aprobar una solicitud de incorporación de cambios y de que los cambios se hayan combinado en la rama principal.
 
 Para obtener más información sobre las pruebas de DevOps para LUIS, consulte [Pruebas de DevOps para LUIS](luis-concept-devops-testing.md). Para obtener más información sobre la implementación de flujos de trabajo, consulte [Flujos de trabajo de Automation de DevOps para LUIS](luis-concept-devops-automation.md).
 
@@ -185,9 +185,9 @@ Una aplicación de LUIS en formato LUDown es legible para el usuario y admite la
 
 Una aplicación consta de varios componentes que pueden incluir elementos como un bot que se ejecute en [Azure Bot Service](/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0), [QnA Maker](https://www.qnamaker.ai/), el [servicio Voz de Azure](../speech-service/overview.md), etc. Para lograr el objetivo de las aplicaciones de acoplamiento flexible, use el [control de versiones](/azure/devops/learn/git/what-is-version-control) para que cada componente de una aplicación tenga versiones independientes, lo que permite a los desarrolladores detectar cambios importantes o actualizaciones simplemente mediante la consulta del número de versión. Es más fácil crear una versión de la aplicación de LUIS independientemente de otros componentes si la mantiene en su propio repositorio.
 
-La aplicación de LUIS de la rama maestra debe tener aplicado un esquema de control de versiones. Al fusionar mediante combinación las actualizaciones con el archivo `.lu` de una aplicación de LUIS en la rama maestra, importará ese código fuente actualizado a una nueva versión de la rama maestra en la aplicación de LUIS.
+La aplicación de LUIS de la rama principal debe tener aplicado un esquema de control de versiones. Al combinar las actualizaciones con el archivo `.lu` de una aplicación de LUIS en la rama principal, importará ese código fuente actualizado a una nueva versión de la rama principal en la aplicación de LUIS.
 
-Se recomienda usar un esquema de control de versiones numérico para la versión de la aplicación maestra de LUIS, por ejemplo:
+Se recomienda usar un esquema de control de versiones numérico para la versión de la aplicación principal de LUIS, por ejemplo:
 
 `major.minor[.build[.revision]]`
 
@@ -199,7 +199,7 @@ La versión principal o secundaria se puede usar para indicar el ámbito de los 
 * Versión secundaria: un cambio menor de compatibilidad con versiones anteriores, como después de un nuevo entrenamiento significativo.
 * Compilación: no cambia ninguna funcionalidad, solo es una compilación diferente.
 
-Una vez que haya determinado el número de versión de la última revisión de la aplicación maestra de LUIS, debe compilar y probar la nueva versión de la aplicación, y publicarla en un punto de conexión donde se pueda usar en entornos de compilación diferentes, como los de control de calidad o producción. Se recomienda encarecidamente automatizar todos estos pasos en un flujo de trabajo de integración continua (CI).
+Una vez que haya determinado el número de versión de la última revisión de la aplicación principal de LUIS, debe compilar y probar la nueva versión de la aplicación, y publicarla en un punto de conexión donde se pueda usar en entornos de compilación diferentes, como los de control de calidad o producción. Se recomienda encarecidamente automatizar todos estos pasos en un flujo de trabajo de integración continua (CI).
 
 Consulte:
 - [Flujos de trabajo de automatización](luis-concept-devops-automation.md) para obtener más información sobre cómo implementar un flujo de trabajo de CI para probar y publicar una aplicación de LUIS.
@@ -207,9 +207,9 @@ Consulte:
 
 ### <a name="versioning-the-feature-branch-luis-app"></a>Control de versiones de la aplicación de "rama de características" de LUIS
 
-Si trabaja con una aplicación de "rama de desarrollo" de LUIS que ha creado para admitir el trabajo en una rama de características, exportará la aplicación cuando se complete el trabajo e incluirá el archivo `'lu` actualizado en la solicitud de incorporación de cambios. La rama del repositorio y la aplicación de "rama de desarrollo" de LUIS deben eliminarse después de combinar la solicitud de incorporación de cambios con la rama maestra. Dado que esta aplicación existe únicamente para admitir el trabajo en la rama de características, no hay ningún esquema de control de versiones concreto que deba aplicar en esta aplicación.
+Si trabaja con una aplicación de "rama de desarrollo" de LUIS que ha creado para admitir el trabajo en una rama de características, exportará la aplicación cuando se complete el trabajo e incluirá el archivo `'lu` actualizado en la solicitud de incorporación de cambios. La rama del repositorio y la aplicación de "rama de desarrollo" de LUIS deben eliminarse después de combinar la solicitud de incorporación de cambios con la rama principal. Dado que esta aplicación existe únicamente para admitir el trabajo en la rama de características, no hay ningún esquema de control de versiones concreto que deba aplicar en esta aplicación.
 
-Cuando los cambios de la solicitud de incorporación de cambios se han combinado con la rama maestra es cuando se debe aplicar el control de versiones, de modo que la versión de todas las actualizaciones en la rama maestra se cree de forma independiente.
+Cuando los cambios de la solicitud de incorporación de cambios se hayan combinado con la rama principal, debe aplicar el control de versiones para que la versión de todas las actualizaciones se cree de forma independiente en la rama principal.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

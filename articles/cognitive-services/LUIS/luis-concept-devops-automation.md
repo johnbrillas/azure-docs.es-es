@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/5/2020
-ms.openlocfilehash: 370dade1b74634649c9de44864a0fd9f5cac988f
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 1ce78e02c652777b524964559b579530f3e022fa
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95025983"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97561314"
 ---
 # <a name="continuous-integration-and-continuous-delivery-workflows-for-luis-devops"></a>Flujos de trabajo de integración continua y entrega continua de DevOps para LUIS
 
@@ -31,7 +31,7 @@ El **flujo de trabajo de CI/CD** combina dos procesos de desarrollo complementar
 
 * La [entrega continua](/azure/devops/learn/what-is-continuous-delivery) (CD) va más allá de la integración continua, ya que implementa la aplicación automáticamente en un entorno en el que es posible realizar pruebas más exhaustivas. La CD nos permite saber con anticipación si se ha producido algún imprevisto a raíz de los cambios lo más rápidamente posible. También nos permite obtener información sobre las deficiencias de nuestra cobertura de pruebas.
 
-El objetivo de la integración continua y la entrega continua es garantizar que el elemento principal siempre se pueda enviar. En el caso de una aplicación de LUIS, esto significa que podríamos, si es necesario, tomar cualquier versión de la aplicación de LUIS de la rama principal y enviarla a producción.
+El objetivo de la integración continua y entrega continua es garantizar que el "elemento principal siempre se pueda enviar". En el caso de una aplicación de LUIS, esto significa que podríamos tomar cualquier versión de la aplicación de LUIS de la rama principal y enviarla a producción si es necesario.
 
 ### <a name="tools-for-building-automation-workflows-for-luis"></a>Herramientas para crear flujos de trabajo de automatización para LUIS
 
@@ -47,7 +47,7 @@ Use las siguientes herramientas para crear flujos de trabajo de automatización 
 
 ### <a name="the-pr-workflow"></a>Flujo de trabajo de PR
 
-Tal y como hemos mencionado, configure este flujo de trabajo para que se ejecute cuando un desarrollador genere una PR para proponer la combinación de los cambios de una rama de característica con la principal. Su finalidad es comprobar la calidad de los cambios en la PR antes de combinarlos en la rama principal.
+Tal y como hemos mencionado, configure este flujo de trabajo para que se ejecute cuando un desarrollador genere una PR para proponer la combinación de los cambios de una rama de características con la principal. Su finalidad es comprobar la calidad de los cambios en la PR antes de combinarlos en la rama principal.
 
 Este flujo de trabajo debe realizar lo siguiente:
 
@@ -59,7 +59,7 @@ Este flujo de trabajo debe realizar lo siguiente:
 
 Si el Administrador de control de servicios lo admite, configure las reglas de protección de ramas para que este flujo de trabajo se complete correctamente antes de que se pueda completar la PR.
 
-### <a name="the-master-branch-cicd-workflow"></a>Flujo de trabajo de CI/CD de la rama principal
+### <a name="the-main-branch-cicd-workflow"></a>Flujo de trabajo de CI/CD de la rama principal
 
 Configure este flujo de trabajo para que se ejecute una vez que las actualizaciones de la PR se hayan combinado en la rama principal. Su finalidad es mantener alto el nivel de calidad de la rama principal mediante pruebas en las actualizaciones. Si las actualizaciones cumplen el nivel de calidad, este flujo de trabajo implementará la nueva versión de la aplicación de LUIS en un entorno en el que podrá realizar pruebas más exhaustivas.
 

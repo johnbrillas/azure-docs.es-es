@@ -8,35 +8,66 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/13/2020
+ms.date: 12/10/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dff7ff0afd6c236645731dc7edd936b0b808716b
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: c746666d58e21c2705a2ef1d6a17d0d1196f7590
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96483927"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97504481"
 ---
 # <a name="speech-to-text-rest-api"></a>Speech-to-text REST API
 
-Como alternativa al [SDK de Voz](speech-sdk.md), el servicio de voz le permite convertir voz a texto mediante una API REST. Cada punto de conexión accesible se asocia con una región. La aplicación requiere una clave de suscripción para el punto de conexión que se va a usar. La API REST es muy limitada y solo se debe usar en aquellos casos en que no pueda utilizarse [Speech SDK](speech-sdk.md).
+La conversión de texto a voz tiene dos API de REST diferentes. Cada API sirve a su propósito especial y usa conjuntos diferentes de puntos de conexión.
 
-Antes de usar la API REST de conversión de voz en texto, tenga en cuenta lo siguiente:
+Las API de REST de conversión de voz en texto son:
+- La [API de REST de conversión de voz en texto v3.0](#speech-to-text-rest-api-v30) se usa para realizar [transcripciones por lotes](batch-transcription.md) y para el [Habla personalizada](custom-speech-overview.md). La versión 3.0 es la [sucesora de la versión 2.0](/azure/cognitive-services/speech-service/migrate-v2-to-v3).
+- La [API de REST de conversión de voz en texto para audios breves](#speech-to-text-rest-api-for-short-audio) se usa para la transcripción en línea como alternativa al [SDK de voz](speech-sdk.md). Las solicitudes que usan esta API solo pueden transmitir hasta 60 segundos de audio por solicitud. 
 
-* Las solicitudes que usan la API REST y transmiten audio directamente solo pueden contener hasta 60 segundos de audio.
-* La API REST de voz a texto solo devuelve resultados finales. No se proporcionan resultados parciales.
+## <a name="speech-to-text-rest-api-v30"></a>API de REST de conversión de voz en texto v3.0
 
-Si el envío de un audio más grande es necesario para la aplicación, considere la posibilidad de usar el [SDK de Voz](speech-sdk.md) o una API REST basada en archivos, como la [transcripción por lotes](batch-transcription.md).
+La API de REST de conversión de voz en texto v3.0 se usa para realizar [transcripciones por lotes](batch-transcription.md) y para el [Habla personalizada](custom-speech-overview.md). Si necesita conectarse a la transcripción en línea a través de REST, use la [API de REST de conversión de voz en texto para audios breves](#speech-to-text-rest-api-for-short-audio).
+
+Use la API de REST v3.0 para:
+- Copiar modelos en otras suscripciones en caso de que quiera que sus compañeros tengan acceso a un modelo que haya compilado, o en los casos en los que quiera implementar un modelo en más de una región.
+- Transcribir los datos de un contenedor (transcripción masiva) y proporcionar varias direcciones URL de archivos de audio.
+- Cargar datos de cuentas de Azure Storage mediante el un URI de SAS.
+- Obtener registros por punto de conexión si se han solicitado registros para ese punto de conexión.
+- Solicitar el manifiesto de los modelos que cree, con el fin de configurar contenedores locales.
+
+La API de REST v 3.0 incluye características como las siguientes:
+- **Webhooks de notificaciones**: todos los procesos en ejecución del servicio ahora admiten notificaciones de webhook. La API de REST v3.0 proporciona las llamadas que le permitirán registrar los webhooks donde se envíen las notificaciones.
+- **Actualización de modelos de puntos de conexión** 
+- **Adaptación de modelos con varios conjuntos de datos**: adapte un modelo mediante varias combinaciones de conjuntos de datos de datos acústicos, de idioma y de pronunciación.
+- **Traiga su propio almacenamiento**: use sus propias cuentas de almacenamiento para los registros, los archivos de transcripción y otros datos.
+
+Consulte los ejemplos sobre el uso de la API de REST v3.0 con la transcripción por lotes en [este artículo](batch-transcription.md).
+
+Si usa la API de REST de conversión de voz en texto v2.0, consulte cómo puede migrar a la versión 3.0 en [esta guía](/azure/cognitive-services/speech-service/migrate-v2-to-v3).
+
+Consulte la referencia completa de la API de REST de conversión de voz en texto v3.0 [aquí](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0).
+
+## <a name="speech-to-text-rest-api-for-short-audio"></a>API de REST de conversión de voz en texto para audios breves
+
+Como alternativa al [SDK de voz](speech-sdk.md), el servicio de voz le permite convertir la voz en texto mediante una API de REST. Cada punto de conexión accesible se asocia con una región. La aplicación requiere una clave de suscripción para el punto de conexión que se va a usar. La API de REST para audios breves es muy limitada y solo se debe usar en aquellos casos en que no pueda utilizarse el [SDK de voz](speech-sdk.md).
+
+Antes de usar la API de REST de conversión de voz en texto, tenga en cuenta lo siguiente:
+
+* Las solicitudes que usan la API de REST para audios breves y transmiten audio directamente, solo pueden contener hasta 60 segundos de audio.
+* La API de REST de conversión de voz en texto solo devuelve resultados finales. No se proporcionan resultados parciales.
+
+Si el envío de un audio más grande es necesario para la aplicación, considere la posibilidad de usar el [SDK de voz](speech-sdk.md) o la [API de REST de conversión de voz en texto v3.0](#speech-to-text-rest-api-v30).
 
 > [!TIP]
 > Consulte la [documentación](../../azure-government/compare-azure-government-global-azure.md) de Azure Government para conocer los puntos de conexión de la nube de administración pública (FairFax).
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 
-## <a name="regions-and-endpoints"></a>Regiones y puntos de conexión
+### <a name="regions-and-endpoints"></a>Regiones y puntos de conexión
 
-El punto de conexión de la API REST tiene este formato:
+El punto de conexión de la API de REST para audios breves tiene este formato:
 
 ```
 https://<REGION_IDENTIFIER>.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1
@@ -49,7 +80,7 @@ Reemplace `<REGION_IDENTIFIER>` por el identificador que coincida con la región
 > [!NOTE]
 > El parámetro de idioma debe anexarse a la dirección URL para evitar la recepción de errores HTTP 4xx. Por ejemplo, el idioma definido a inglés de Estados Unidos con el punto de conexión del Oeste de EE. UU. es: `https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US`.
 
-## <a name="query-parameters"></a>Parámetros de consulta
+### <a name="query-parameters"></a>Parámetros de consulta
 
 Estos parámetros podrían incluirse en la cadena de consulta de la solicitud de REST.
 
@@ -60,11 +91,11 @@ Estos parámetros podrían incluirse en la cadena de consulta de la solicitud de
 | `profanity` | Especifica cómo controlar las palabras soeces en los resultados del reconocimiento. Los valores aceptados son `masked`, que reemplaza las palabras soeces con asteriscos, `removed`, que quita todas las palabras soeces del resultado o `raw` que incluye la palabra soez en el resultado. El valor predeterminado es `masked`. | Opcional |
 | `cid` | Si se usa el [portal del Custom Speech](./custom-speech-overview.md) para crear modelos personalizados, puede usar modelos personalizados a través de su **identificador de punto de conexión**, que se encuentra en la página **Implementación**. Use el **identificador del punto de conexión** como argumento del parámetro de la cadena de consulta `cid`. | Opcional |
 
-## <a name="request-headers"></a>Encabezados de solicitud
+### <a name="request-headers"></a>Encabezados de solicitud
 
-Esta tabla enumera los encabezados obligatorios y opcionales para las solicitudes de voz a texto.
+Esta tabla enumera los encabezados obligatorios y opcionales para las solicitudes de conversión de voz en texto.
 
-|Encabezado| Descripción | Obligatorio u opcional |
+|Header| Descripción | Obligatorio u opcional |
 |------|-------------|---------------------|
 | `Ocp-Apim-Subscription-Key` | Clave de suscripción del servicio de voz. | Se necesita este encabezado, o bien `Authorization`. |
 | `Authorization` | Un token de autorización precedido por la palabra `Bearer`. Para más información, consulte [Autenticación](#authentication). | Se necesita este encabezado, o bien `Ocp-Apim-Subscription-Key`. |
@@ -74,7 +105,7 @@ Esta tabla enumera los encabezados obligatorios y opcionales para las solicitude
 | `Expect` | Si usa la transferencia fragmentada, envíe `Expect: 100-continue`. El servicio de voz confirma la solicitud inicial y espera datos adicionales.| Obligatorio si se envían datos de audio fragmentados. |
 | `Accept` | Si se proporciona, debe ser `application/json`. El servicio de voz proporciona resultados en JSON. Algunos marcos de solicitud proporcionan un valor predeterminado no compatible. Se recomienda incluir siempre `Accept`. | Opcional pero recomendable. |
 
-## <a name="audio-formats"></a>Formatos de audio
+### <a name="audio-formats"></a>Formatos de audio
 
 El audio se envía en el cuerpo de la solicitud HTTP `POST`. Debe estar en uno de los formatos de esta tabla:
 
@@ -84,9 +115,9 @@ El audio se envía en el cuerpo de la solicitud HTTP `POST`. Debe estar en uno d
 | OGG    | OPUS  | 256 kbps | 16 kHz, mono |
 
 >[!NOTE]
->Se admiten los formatos anteriores a través de la API REST y WebSocket en el servicio de voz. Actualmente, el [SDK de Voz](speech-sdk.md) admite el formato WAV con el códec PCM así como [otros formatos](how-to-use-codec-compressed-audio-input-streams.md).
+>Se admiten los formatos anteriores a través de la API de REST para audios breves y WebSocket en el servicio de voz. Actualmente, el [SDK de Voz](speech-sdk.md) admite el formato WAV con el códec PCM así como [otros formatos](how-to-use-codec-compressed-audio-input-streams.md).
 
-## <a name="pronunciation-assessment-parameters"></a>Parámetros de evaluación de pronunciación
+### <a name="pronunciation-assessment-parameters"></a>Parámetros de evaluación de pronunciación
 
 En esta tabla se indican los parámetros obligatorios y opcionales para la evaluación de la pronunciación.
 
@@ -123,7 +154,7 @@ Se recomienda encarecidamente la carga en streaming (fragmentada) al publicar lo
 >[!NOTE]
 >La característica de valoración de la pronunciación solo está disponible actualmente en las regiones `westus`, `eastasia` y `centralindia`. Y actualmente esta característica solo está disponible en el idioma `en-US`.
 
-## <a name="sample-request"></a>Solicitud de ejemplo
+### <a name="sample-request"></a>Solicitud de ejemplo
 
 El ejemplo siguiente incluye el nombre de host y los encabezados necesarios. Es importante tener en cuenta que el servicio también espera datos de audio, que no están incluidos en este ejemplo. Como se ha mencionado anteriormente, la fragmentación es recomendable pero no obligatoria.
 
@@ -143,7 +174,7 @@ Para habilitar la valoración de la pronunciación, puede agregar el encabezado 
 Pronunciation-Assessment: eyJSZWZlcm...
 ```
 
-## <a name="http-status-codes"></a>Códigos de estado HTTP
+### <a name="http-status-codes"></a>Códigos de estado HTTP
 
 El estado HTTP de cada respuesta indica estados de corrección o error comunes.
 
@@ -155,9 +186,9 @@ El estado HTTP de cada respuesta indica estados de corrección o error comunes.
 | `401` | No autorizado | Clave de suscripción o token de autorización no válido en la región especificada, o punto de conexión no válido. |
 | `403` | Prohibido | Falta la clave de suscripción o el token de autorización. |
 
-## <a name="chunked-transfer"></a>Transferencia fragmentada
+### <a name="chunked-transfer"></a>Transferencia fragmentada
 
-La transferencia fragmentada (`Transfer-Encoding: chunked`) puede ayudar a reducir la latencia de reconocimiento. Permite al servicio de voz empezar a procesar el archivo de audio mientras se transmite. La API de REST no proporciona resultados parciales ni provisionales.
+La transferencia fragmentada (`Transfer-Encoding: chunked`) puede ayudar a reducir la latencia de reconocimiento. Permite al servicio de voz empezar a procesar el archivo de audio mientras se transmite. La API de REST para audios breves no proporciona resultados parciales ni provisionales.
 
 Este ejemplo de código muestra cómo enviar audio en fragmentos. Solo el primer fragmento debe contener el encabezado del archivo de audio. `request` es un objeto `HttpWebRequest` conectado al punto de conexión de REST adecuado. `audioFile` es la ruta de acceso a un archivo de audio en disco.
 
@@ -191,7 +222,7 @@ using (var fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 }
 ```
 
-## <a name="response-parameters"></a>Parámetros de respuesta
+### <a name="response-parameters"></a>Parámetros de respuesta
 
 Los resultados se proporcionan como JSON. El formato `simple` incluye los siguientes campos de nivel superior.
 
@@ -204,7 +235,7 @@ Los resultados se proporcionan como JSON. El formato `simple` incluye los siguie
 
 El campo `RecognitionStatus` puede contener estos valores:
 
-| Status | Descripción |
+| Estado | Descripción |
 |--------|-------------|
 | `Success` | El reconocimiento es correcto y el campo `DisplayText` está presente. |
 | `NoMatch` | Se detectó voz en la secuencia de audio, pero no se encontraron coincidencias de palabras en el idioma de destino. Normalmente significa que el idioma de reconocimiento es un idioma distinto al que habla el usuario. |
@@ -233,7 +264,7 @@ El objeto de la lista `NBest` puede incluir:
 | `PronScore` | Puntuación global que indica la calidad de la pronunciación del fragmento hablado en cuestión. Se agrega a partir de `AccuracyScore`, `FluencyScore` y `CompletenessScore` con ponderación. |
 | `ErrorType` | Este valor indica si se ha omitido, se ha insertado o se ha pronunciado incorrectamente una palabra en comparación con `ReferenceText`. Los valores posibles son `None` (que significa que no hay ningún error en esta palabra), `Omission`, `Insertion` y `Mispronunciation`. |
 
-## <a name="sample-responses"></a>Respuestas de ejemplo
+### <a name="sample-responses"></a>Respuestas de ejemplo
 
 La siguiente es una respuesta típica de reconocimiento de `simple`:
 
@@ -309,3 +340,4 @@ La siguiente es una respuesta típica de reconocimiento con evaluación de pronu
 - [Creación de una cuenta de Azure gratuita](https://azure.microsoft.com/free/cognitive-services/)
 - [Personalización de modelos acústicos](./how-to-custom-speech-train-model.md)
 - [Personalización de modelos de lenguaje](./how-to-custom-speech-train-model.md)
+- [Familiarícese con la transcripción por lotes](batch-transcription.md)

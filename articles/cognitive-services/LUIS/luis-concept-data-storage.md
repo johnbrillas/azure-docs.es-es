@@ -8,16 +8,21 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/13/2020
-ms.openlocfilehash: fd7499bd5e216f2a625d87ea13996da851a1889e
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.date: 12/07/2020
+ms.openlocfilehash: a58bcff4e39c4a4a907cd8567b47b074ff299bd5
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95019218"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008459"
 ---
 # <a name="data-storage-and-removal-in-language-understanding-luis-cognitive-services"></a>Almacenamiento y eliminación de datos en Cognitive Services de Language Understanding (LUIS)
-LUIS almacena datos cifrados en un almacén de datos de Azure correspondiente a la región especificada por la clave. Estos datos se almacenan durante 30 días. 
+
+LUIS almacena datos cifrados en un almacén de datos de Azure correspondiente a [la región](luis-reference-regions.md) que especificó la clave. 
+
+* Los datos que se usan para entrenar el modelo, como entidades, intenciones y expresiones, se guardarán en LUIS durante el funcionamiento de la aplicación. Si un propietario o colaborador elimina la aplicación, estos datos se eliminarán con ella. Si una aplicación no se ha usado en 90 días, se eliminará. 
+
+* Los autores de las aplicaciones pueden optar por [habilitar el registro](luis-how-to-review-endpoint-utterances.md#log-user-queries-to-enable-active-learning) en las expresiones que se envían a una aplicación publicada. Si esta opción está habilitada, las expresiones se guardarán durante 30 días y el autor de la aplicación podrá verlas. Si el registro no está habilitado cuando se publique la aplicación, estos datos no se almacenarán.
 
 ## <a name="export-and-delete-app"></a>Exportar y eliminar la aplicación
 Los usuarios tienen un control total sobre la [exportación](luis-how-to-start-new-app.md#export-app) y la [eliminación](luis-how-to-start-new-app.md#delete-app) de la aplicación. 
