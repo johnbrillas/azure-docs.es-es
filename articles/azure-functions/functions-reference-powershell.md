@@ -451,7 +451,7 @@ Functions le permite usar la [Galería de PowerShell](https://www.powershellgall
 }
 ```
 
-Cuando crea un proyecto de funciones de PowerShell, la administración de dependencias está habilitada de manera predeterminada, con el [`Az`módulo ](/powershell/azure/new-azureps-module-az) de Azure incluido. El número máximo de módulos admitidos actualmente es 10. La sintaxis admitida es _`MajorNumber`_ `.*` o la versión de módulo exacta que se muestra en el ejemplo de requirements.psd1 siguiente:
+Cuando crea un proyecto de funciones de PowerShell, la administración de dependencias está habilitada de manera predeterminada, con el [módulo `Az`](/powershell/azure/new-azureps-module-az) de Azure incluido. El número máximo de módulos admitidos actualmente es 10. La sintaxis admitida es _`MajorNumber`_ `.*` o la versión de módulo exacta que se muestra en el ejemplo de requirements.psd1 siguiente:
 
 ```powershell
 @{
