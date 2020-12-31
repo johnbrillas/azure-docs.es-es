@@ -57,7 +57,7 @@ La migración de una base de conocimiento requiere la exportación de una base d
 
 El proceso de migración está disponible mediante programación con las siguientes API REST:
 
-**Exportarar**
+**Exportar**
 
 * [Descarga de la API de la base de conocimiento](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/download)
 
