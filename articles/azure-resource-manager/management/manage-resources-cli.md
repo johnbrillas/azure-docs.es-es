@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6672fd41dbd199940d663c4f7e1cb7f3b1936ce9
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 077ebdb4dd33249923064a4f5ed20c5641a82e26
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185783"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695889"
 ---
 # <a name="manage-azure-resources-by-using-azure-cli"></a>Administración de recursos de Azure mediante la CLI de Azure
 
@@ -43,14 +43,14 @@ az storage account show --resource-group $resourceGroupName --name $storageAccou
 
 ### <a name="deploy-a-template"></a>Implementación de una plantilla
 
-El script siguiente implementa una plantilla de inicio rápido para crear una cuenta de almacenamiento. Para más información, consulte [Inicio rápido: Creación de plantillas de Azure Resource Manager mediante Visual Studio Code](../templates/quickstart-create-templates-use-visual-studio-code.md?tabs=PowerShell).
+El script siguiente implementa una plantilla de inicio rápido para crear una cuenta de almacenamiento. Para más información, consulte [Inicio rápido: Creación de plantillas de Resource Manager Visual Studio Code](../templates/quickstart-create-templates-use-visual-studio-code.md?tabs=PowerShell).
 
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
 read resourceGroupName &&
 echo "Enter the location (i.e. centralus):" &&
 read location &&
-az group deployment create --resource-group $resourceGroupName --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
+az deployment group create --resource-group $resourceGroupName --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
 ```
 
 Para más información, consulte [Implementación de recursos con plantillas de Resource Manager y la CLI de Azure](../templates/deploy-cli.md).

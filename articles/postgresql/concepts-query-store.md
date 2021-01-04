@@ -6,12 +6,12 @@ ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/01/2020
-ms.openlocfilehash: 7b6c8faafac34ada664ddfadebf8d71a16c73fa7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5dff78989eef17f95d8b8dd108baafc53a3f761a
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710539"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97657029"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Supervisión del rendimiento con el Almacén de consultas
 
@@ -149,25 +149,25 @@ Esta vista devuelve todos los datos del Almacén de consultas. Hay una fila por 
 ### <a name="query_storequery_texts_view"></a>query_store.query_texts_view
 Esta vista devuelve datos de texto de consulta en el Almacén de consultas. Hay una fila para cada argumento de consulta diferente.
 
-|**Nombre**|  **Tipo**|   **Descripción**|
-|---|---|---|
-|query_text_id  |bigint     |Identificador de la tabla query_texts.|
-|query_sql_text |Varchar(10000)     |Texto de una instrucción representativa. Las consultas diferentes con la misma estructura se agrupan; este texto es el texto para la primera consulta del clúster.|
+| **Nombre** | **Tipo** | **Descripción** |
+|--|--|--|
+| query_text_id | bigint | Identificador de la tabla query_texts. |
+| query_sql_text | Varchar(10000) | Texto de una instrucción representativa. Las consultas diferentes con la misma estructura se agrupan; este texto es el texto para la primera consulta del clúster. |
 
 ### <a name="query_storepgms_wait_sampling_view"></a>query_store.pgms_wait_sampling_view
 Esta vista devuelve datos de eventos de espera en el Almacén de consultas. Hay una fila por cada identificador de base de datos, identificador de usuario, identificador de consulta y evento únicos.
 
-|**Nombre**|  **Tipo**|   **Referencias**| **Descripción**|
-|---|---|---|---|
-|user_id    |oid    |pg_authid.oid  |OID del usuario que ha ejecutado la instrucción.|
-|db_id  |oid    |pg_database.oid    |OID de la base de datos en la que se ha ejecutado la instrucción.|
-|query_id   |bigint     ||Código hash interno, calculado a partir del árbol de análisis de la instrucción.|
-|event_type |text       ||Tipo de evento que está esperando el back-end.|
-|event  |text       ||Nombre del evento de espera si el back-end está esperando.|
-|calls  |Entero        ||Número del mismo evento capturado.|
-
+| **Nombre** | **Tipo** | **Referencias** | **Descripción** |
+|--|--|--|--|
+| user_id | oid | pg_authid.oid | OID del usuario que ha ejecutado la instrucción. |
+| db_id | oid | pg_database.oid | OID de la base de datos en la que se ha ejecutado la instrucción. |
+| query_id | bigint |  | Código hash interno, calculado a partir del árbol de análisis de la instrucción. |
+| event_type | text |  | Tipo de evento que está esperando el back-end. |
+| event | text |  | Nombre del evento de espera si el back-end está esperando. |
+| calls | Entero |  | Número del mismo evento capturado. |
 
 ### <a name="functions"></a>Functions
+
 Query_store.qs_reset() devuelve void.
 
 `qs_reset` descarta todas las estadísticas recopiladas hasta ahora por el Almacén de consultas. Esta función solo se puede ejecutar mediante el rol de administrador del servidor.

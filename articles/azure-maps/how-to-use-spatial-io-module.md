@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: e64df21b31d686b72b210d2c62956745350891f5
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: cd64c80acceb1542c080fc45efbce59f287d448a
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895399"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680681"
 ---
 # <a name="how-to-use-the-azure-maps-spatial-io-module"></a>Cómo usar el módulo de E/S espacial Azure Maps
 
-El SDK web de Azure Maps proporciona el **módulo de E/S espacial** , que integra los datos espaciales con el SDK web de Azure Maps mediante JavaScript o TypeScript. Las eficaces características de este módulo permiten a los desarrolladores:
+El SDK web de Azure Maps proporciona el **módulo de E/S espacial**, que integra los datos espaciales con el SDK web de Azure Maps mediante JavaScript o TypeScript. Las eficaces características de este módulo permiten a los desarrolladores:
 
 - [Leer y escribir datos de archivos espaciales comunes](spatial-io-read-write-spatial-data.md). Entre otros, estos son los formatos de archivos admitidos: Archivos KML, KMZ, GPX, GeoRSS, GML, GeoJSON y CSV que contengan columnas con información espacial. También admite el texto Well-Known Text (WKT).
 - [Conectarse a los servicios de Open Geospatial Consortium (OGC) e integre con el SDK web de Azure Maps. Superponer Web Mapping Services (WMS) y Web Map tile Services (WMTS) como capas en el mapa](spatial-io-add-ogc-map-layer.md).
@@ -30,10 +30,9 @@ En esta guía, aprenderá a integrar y usar el módulo de E/S espacial en una ap
 
 En este vídeo se proporciona información general del módulo de E/S espacial en el SDK web de Azure Maps.
 
-<br/>
+</br>
 
-<iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Easily-integrate-spatial-data-into-the-Azure-Maps/player" width="960" height="540" allowFullScreen frameBorder="0" title="Integre fácilmente los datos espaciales en el vídeo Azure Maps - Microsoft Channel 9"></iframe>
-
+> [!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Easily-integrate-spatial-data-into-the-Azure-Maps/player?format=ny]
 
 > [!WARNING]
 > Use solo los datos y servicios que procedan de un origen de confianza, sobre todo si se hace referencia a él desde otro dominio. El módulo de E/S espacial lleva a cabo pasos para minimizar el riesgo; sin embargo, el método más seguro consiste en no permitir que se inicien datos peligrosos en la aplicación. 

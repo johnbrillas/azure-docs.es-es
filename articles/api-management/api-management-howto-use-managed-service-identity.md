@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 11/14/2020
 ms.author: apimpm
-ms.openlocfilehash: db1a8238cf9ddae57d73438d43daa54294ce6860
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 8ec0f8cf090b3ae85a8602fb39cb07f03a417133
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686232"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97605605"
 ---
 # <a name="use-managed-identities-in-azure-api-management"></a>Uso de identidades administradas en Azure API Management
 
@@ -38,7 +38,6 @@ Para configurar una identidad administrada en Azure Portal, primero tendrá que 
 3. En la pestaña **Asignado por el sistema**, cambie **Estado** a **Activado**. Seleccione **Guardar**.
 
     :::image type="content" source="./media/api-management-msi/enable-system-msi.png" alt-text="Selecciones para habilitar una identidad administrada asignada por el sistema" border="true":::
-
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -118,7 +117,6 @@ Cuando se crea la instancia, tiene las siguientes propiedades adicionales:
 ```
 
 La propiedad `tenantId` identifica a qué inquilino de Azure AD pertenece la identidad. La propiedad `principalId` es un identificador único para la nueva identidad de la instancia. En Azure AD, la entidad de servicio tiene el mismo nombre que asignó a la instancia de API Management.
-
 
 > [!NOTE]
 > Una instancia de API Management puede tener identidades asignadas por el sistema y asignadas por el usuario al mismo tiempo. En este caso, la propiedad `type` sería `SystemAssigned,UserAssigned`.
@@ -266,7 +264,6 @@ En el ejemplo siguiente se muestra una plantilla de Azure Resource Manager que c
 
 Puede usar la identidad asignada por el sistema para autenticarse en el back-end a través de la directiva [authentication-managed-identity](api-management-authentication-policies.md#ManagedIdentity).
 
-
 ## <a name="create-a-user-assigned-managed-identity"></a>Crear una identidad administrada asignada por el usuario
 
 > [!NOTE]
@@ -361,7 +358,7 @@ Por ejemplo, una plantilla de Azure Resource Manager completa podría tener el a
                 "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', variables('identityName'))]": {}
              }
         },
-        "dependsOn": [       
+         "dependsOn": [       
           "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', variables('identityName'))]"
         ]
     }]
@@ -415,7 +412,6 @@ Para ejecutar automáticamente la implementación, haga clic en el botón siguie
 ### <a name="authenticate-to-the-back-end-by-using-a-user-assigned-identity"></a>Autenticación en el back-end mediante una identidad de asignada por el usuario
 
 Puede usar la identidad asignada por el usuario para autenticarse en el back-end a través de la directiva [authentication-managed-identity](api-management-authentication-policies.md#ManagedIdentity).
-
 
 ## <a name="remove-an-identity"></a><a name="remove"></a>Eliminación de una identidad
 

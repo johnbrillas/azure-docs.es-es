@@ -4,20 +4,20 @@ description: La eliminación temporal de Azure Key Vault permite la recuperació
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-author: msmbaldwin
-ms.author: mbaldwin
-ms.date: 09/30/2020
-ms.openlocfilehash: 184003e42a14e786cc52c4f585c6781f7b9fe0e7
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+author: ShaneBala-keyvault
+ms.author: sudbalas
+ms.date: 12/15/2020
+ms.openlocfilehash: 0f428954ac6ef74253e6e6e430977a85a3943f99
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452196"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589991"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Información general sobre la eliminación temporal de Azure Key Vault
 
 > [!IMPORTANT]
-> Debe habilitar inmediatamente la eliminación temporal en los almacenes de claves. La posibilidad de rechazar la eliminación temporal quedará en desuso a finales de año y la protección contra la eliminación temporal se activará automáticamente en todos los almacenes de claves.  Consulte los detalles completos [aquí](soft-delete-change.md).
+> Debe habilitar inmediatamente la eliminación temporal en los almacenes de claves. la posibilidad de rechazar la eliminación temporal pronto estará en desuso. Consulte los detalles completos [aquí](soft-delete-change.md).
 
 La característica de eliminación temporal de Key Vault permite la recuperación de los almacenes y los objetos de Key Vault eliminados (por ejemplo, claves, secretos, certificados), lo que se conoce como eliminación temporal. En concreto, se tratan los siguientes escenarios:  Las protecciones que se ofrecen son las siguientes:
 

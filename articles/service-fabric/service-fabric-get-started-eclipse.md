@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/06/2018
 ms.author: rapatchi
 ms.custom: devx-track-java
-ms.openlocfilehash: 004fb022847432a9739e79f7063b80636f8dcf2b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b85206f9b1e92607bba7b6f141b700922c129b65
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87374242"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656927"
 ---
 # <a name="service-fabric-plug-in-for-eclipse-java-application-development"></a>Complemento de Service Fabric para el desarrollo de aplicaciones Java de Eclipse
 Eclipse es uno de los entornos de desarrollo integrado (IDE) por los desarrolladores de Java. En este artículo se describe cómo configurar un entorno de desarrollo de Eclipse para que funcione con Azure Service Fabric. Aprenderá a instalar el complemento de Service Fabric, crear una aplicación de Service Fabric e implementarla en un clúster de Service Fabric local o remoto en Eclipse. 
@@ -42,7 +42,7 @@ Para instalar el complemento de Service Fabric, en Eclipse, vaya a **Help** >  (
    ![Complemento de Service Fabric para Eclipse][sf-eclipse-plugin-install]
 3. Seleccione el complemento Service Fabric y, después, haga clic en **Next** (Siguiente).
 4. Complete los pasos de la instalación y acepte los términos de licencia del software de Microsoft.
-  
+
 Si el complemento de Service Fabric ya está instalado, instale la versión más reciente. 
 1. Para comprobar si hay actualizaciones disponibles, vaya a **Help** >  (Ayuda) **About Eclipse** >  (Acerca de Eclipse) **Installation Details** (Detalles de instalación). 
 2. En la lista de complementos instalados, seleccione Service Fabric y, después, haga clic en **Update** (Actualizar). Se instalarán las actualizaciones disponibles.
@@ -53,7 +53,6 @@ Si el complemento de Service Fabric ya está instalado, instale la versión más
 
 > [!NOTE]
 >Si Eclipse no funciona según lo previsto en el equipo Mac (o necesita que ejecute como superusuario), vaya a la carpeta **ECLIPSE_INSTALLATION_PATH** y navegue a la subcarpeta **Eclipse.app/Contents/MacOS**. Inicie Eclipse ejecutando `./eclipse`.
-
 
 ## <a name="create-a-service-fabric-application-in-eclipse"></a>Creación de una aplicación de Service Fabric en Eclipse
 
@@ -91,7 +90,7 @@ Si el complemento de Service Fabric ya está instalado, instale la versión más
     -   Para compilar la aplicación sin realizar una limpieza, haga clic en **Build Application** (Compilar aplicación).
     -   Para realizar una compilación limpia de la aplicación, haga clic en **Rebuild Application** (Recompilar aplicación).
     -   Para limpiar la aplicación de los artefactos compilados, haga clic en **Clean Application** (Limpiar aplicación).
-     
+
 ## <a name="deploy-a-service-fabric-application-to-the-local-cluster-with-eclipse"></a>Implementación de una aplicación de Service Fabric en el clúster local con Eclipse
 
 Después de haber creado la aplicación de Service Fabric, siga estos pasos para implementarla en el clúster local.
@@ -156,7 +155,6 @@ Para publicar la aplicación en la nube, siga estos pasos:
 
 4. Puede seguir el progreso de la operación de publicación implementación en la ventana Consola.
 5. Para comprobar que la aplicación se está ejecutando, abra Service Fabric Explorer en el clúster de Azure en una ventana del explorador. Para el ejemplo anterior, esto sería: `https://lnxxug0tlqm5.westus.cloudapp.azure.com:19080/Explorer`. Expanda el nodo **Aplicaciones** y asegúrese de que la aplicación se está ejecutando. 
-
 
 En clústeres seguros de Linux, si la aplicación contiene servicios de Reliable Services, también deberá configurar un certificado que los servicios puedan utilizar para llamar a las API de runtime de Service Fabric. Para obtener más información, consulte [Configure a Reliable Services app to run on Linux clusters](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters) (Configurar una aplicación de Reliable Services para ejecutarla en clústeres Linux).
 

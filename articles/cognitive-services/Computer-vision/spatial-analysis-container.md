@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.author: aahi
-ms.openlocfilehash: 2f03746a6a5afc388db2beeff84b3ab4cbd393b5
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: f41e513ee0f2755c446a9cb95465c1f636fe5a7a
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95014601"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606273"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a>Instalación y ejecución del contenedor de análisis espacial (versión preliminar)
 
@@ -113,7 +113,7 @@ En la página  **Configurar proceso de Edge** , elija una instancia existent
 
 Haga clic en **Crear**. La creación del recurso de IoT Hub puede tardar un par de minutos. Después de crear el recurso de IoT Hub, el icono  **Configurar proceso de Edge** se actualizará para mostrar la configuración nueva. Para configurar que se configuró el rol del proceso de Edge, seleccione  **Ver configuración** en el icono  **Configurar proceso** .
 
-Cuando el rol de proceso de Edge está configurado en el dispositivo de Edge, este crea dos dispositivos: uno IoT y el otro IoT Edge. Ambos se pueden ver en el recurso de IoT Hub. El entorno de ejecución de Azure IoT Edge ya estará en ejecución en el dispositivo IoT Edge.            
+Cuando el rol de proceso de Edge está configurado en el dispositivo de Edge, este crea dos dispositivos: uno IoT y el otro IoT Edge. Ambos se pueden ver en el recurso de IoT Hub. El entorno de ejecución de Azure IoT Edge ya estará en ejecución en el dispositivo IoT Edge.
 
 > [!NOTE]
 > * Actualmente, solo la plataforma Linux está disponible para los dispositivos IoT Edge. Si necesita ayuda para solucionar problemas con el dispositivo Azure Stack Edge, consulte el artículo sobre [registro y solución de problemas](spatial-analysis-logging.md).

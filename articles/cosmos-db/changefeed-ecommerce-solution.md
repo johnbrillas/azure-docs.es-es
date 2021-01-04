@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 05/28/2019
 ms.author: sngun
 ms.custom: devx-track-java
-ms.openlocfilehash: d0eef49ea82afe50c5e178de9ad5e82bcb0db0eb
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: e7b75c71d64054e38630677ecd38f8e3e2483c12
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93342171"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606341"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Uso de la fuente de cambios de Azure Cosmos DB para visualizar análisis de datos en tiempo real
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -35,14 +35,14 @@ El siguiente diagrama representa el flujo de datos y los componentes implicados 
  
 1. **Generación de datos:** se utiliza un simulador de datos para generar datos comerciales que representan eventos tales como que un usuario vea un artículo, agregue un artículo al carro y compre un artículo. Puede generar un conjunto grande de datos de ejemplo mediante el generador de datos. Los datos de ejemplo generados contienen documentos con el formato siguiente:
    
-   ```json
-   {      
-     "CartID": 2486,
-     "Action": "Viewed",
-     "Item": "Women's Denim Jacket",
-     "Price": 31.99
-   }
-   ```
+    ```json
+    {
+      "CartID": 2486,
+      "Action": "Viewed",
+      "Item": "Women's Denim Jacket",
+      "Price": 31.99
+    }
+    ```
 
 2. **Cosmos DB:** Los datos generados se almacenan en un contenedor de Azure Cosmos.  
 
@@ -85,7 +85,7 @@ Cree los recursos de Azure (cuenta de almacenamiento de Azure Cosmos DB, Centro 
 
 3. Especifique valores para los parámetros cosmosdbaccount_name, eventhubnamespace_name y storageaccount_name, tal y como se indica en el archivo **parameters.json**. Más adelante tendrá que usar los nombres que asigne a cada uno de los recursos.  
 
-4. Desde **Windows PowerShell** , navegue hasta la carpeta **Azure Resource Manager** y ejecute el comando siguiente:
+4. Desde **Windows PowerShell**, navegue hasta la carpeta **Azure Resource Manager** y ejecute el comando siguiente:
 
    ```powershell
    .\deploy.ps1
@@ -98,21 +98,21 @@ Ahora creará una colección que contenga los eventos de sitio de comercio elect
 
 1. Vaya a [Azure Portal](https://portal.azure.com/) y busque la **cuenta de Azure Cosmos DB** creada por la implementación de la plantilla.  
 
-2. En el panel **Explorador de datos** , seleccione **Nueva colección** y rellene el formulario con los datos siguientes:  
+2. En el panel **Explorador de datos**, seleccione **Nueva colección** y rellene el formulario con los datos siguientes:  
 
-   * En el campo **Id. de base de datos** , seleccione **Crear nuevo** y escriba **changefeedlabdatabase**. Deje la casilla **Provision database throughput** (Aprovisionar rendimiento de la base de datos) sin activar.  
-   * En el campo de identificador **Colección** , escriba **changefeedlabcollection**.  
-   * En el campo **Clave de partición** , escriba **/Item**. Esta clave distingue mayúsculas de minúsculas, así que asegúrese de escribirlo correctamente.  
-   * En el campo **Rendimiento** , escriba **10 000**.  
+   * En el campo **Id. de base de datos**, seleccione **Crear nuevo** y escriba **changefeedlabdatabase**. Deje la casilla **Provision database throughput** (Aprovisionar rendimiento de la base de datos) sin activar.  
+   * En el campo de identificador **Colección**, escriba **changefeedlabcollection**.  
+   * En el campo **Clave de partición**, escriba **/Item**. Esta clave distingue mayúsculas de minúsculas, así que asegúrese de escribirlo correctamente.  
+   * En el campo **Rendimiento**, escriba **10 000**.  
    * Seleccione el botón **Aceptar**.  
 
 3. Cree entonces otra colección de nombre **leases** para el procesamiento de la fuente de cambios. La colección de concesiones coordina el procesamiento de la fuente de cambios entre varios roles de trabajo. Se utiliza una colección independiente para almacenar las concesiones con una concesión por partición.  
 
-4. Vuelva al panel **Explorador de datos** , seleccione **Nueva colección** y rellene el formulario con los datos siguientes:
+4. Vuelva al panel **Explorador de datos**, seleccione **Nueva colección** y rellene el formulario con los datos siguientes:
 
-   * En el campo **Id. de base de datos** , seleccione **Usar existente** y escriba **changefeedlabdatabase**.  
-   * En el campo **Id. de colección** , escriba **leases**.  
-   * Como **Capacidad de almacenamiento** , seleccione **Fija**.  
+   * En el campo **Id. de base de datos**, seleccione **Usar existente** y escriba **changefeedlabdatabase**.  
+   * En el campo **Id. de colección**, escriba **leases**.  
+   * Como **Capacidad de almacenamiento**, seleccione **Fija**.  
    * Deje el campo **Rendimiento** establecido en su valor predeterminado.  
    * Seleccione el botón **Aceptar**.
 
@@ -122,7 +122,7 @@ Ahora creará una colección que contenga los eventos de sitio de comercio elect
 
 1. Vaya a [Azure Portal](https://portal.azure.com/) y busque la **cuenta de Azure Cosmos DB** creada por la implementación de la plantilla.  
 
-2. Navegue al panel **Claves** , copie el valor PRIMARY CONNECTION STRING y péguelo en el Bloc de notas u otro documento al que tenga acceso en todo el laboratorio. Debe etiquetarla como **Cadena de conexión de Cosmos DB**. Más adelante tendrá que copiar la cadena en el código, así que anótela y recuerde dónde la almacena.
+2. Navegue al panel **Claves**, copie el valor PRIMARY CONNECTION STRING y péguelo en el Bloc de notas u otro documento al que tenga acceso en todo el laboratorio. Debe etiquetarla como **Cadena de conexión de Cosmos DB**. Más adelante tendrá que copiar la cadena en el código, así que anótela y recuerde dónde la almacena.
 
 ### <a name="get-the-storage-account-key-and-connection-string"></a>Obtención de la cadena de conexión y la clave de cuenta de almacenamiento
 
@@ -154,7 +154,7 @@ Cuando se crea un documento o se modifica un documento actual en un contenedor d
 
 3. En Visual Studio, navegue a **local.settings.json**. Utilice los valores que registró anteriormente para rellenar los espacios en blanco.  
 
-4. Navegue a **ChangeFeedProcessor.cs**. En los parámetros de la función **Ejecutar** , lleve a cabo las siguientes acciones:  
+4. Navegue a **ChangeFeedProcessor.cs**. En los parámetros de la función **Ejecutar**, lleve a cabo las siguientes acciones:  
 
    * Reemplace el texto **YOUR COLLECTION NAME HERE** (EL NOMBRE DE LA COLECCIÓN AQUÍ) por el nombre de la colección. Si ha seguido las instrucciones anteriores, el nombre de la colección es changefeedlabcollection.  
    * Reemplace el texto **YOUR LEASES COLLECTION NAME HERE** (EL NOMBRE DE LA COLECCIÓN DE CONCESIONES AQUÍ) por el nombre de la colección de concesiones. Si ha seguido las instrucciones anteriores, el nombre de la colección de concesiones es **leases**.  
@@ -180,7 +180,7 @@ Para ver cómo la fuente de cambios procesa nuevas acciones en un sitio de comer
  
 6. Espere a que el programa se ejecute. Las estrellas indican que están llegando datos. Mantenga el programa en ejecución: es importante que se recopilen grandes cantidades de datos.  
 
-7. Si va a [Azure Portal](https://portal.azure.com/), luego a la cuenta de Cosmos DB en su grupo de recursos y después a **Data Explorer** , verá los datos aleatorios importados en **changefeedlabcollection**.
+7. Si va a [Azure Portal](https://portal.azure.com/), luego a la cuenta de Cosmos DB en su grupo de recursos y después a **Data Explorer**, verá los datos aleatorios importados en **changefeedlabcollection**.
  
    :::image type="content" source="./media/changefeed-ecommerce-solution/data-generated-in-portal.png" alt-text="Datos generados en el portal":::
 
@@ -198,11 +198,11 @@ Azure Stream Analytics es un servicio en la nube de procesamiento en tiempo real
 
 4. Rellene el nuevo formulario de entrada con los siguientes datos:
 
-   * En el campo de alias **Entrada** , escriba **input**.  
+   * En el campo de alias **Entrada**, escriba **input**.  
    * Seleccione la opción for **Select Event Hub from your subscriptions** (Seleccionar centro de eventos de entre las suscripciones).  
    * Establezca el campo **Suscripción** en su suscripción.  
-   * En el campo **Espacio de nombres del centro de eventos** , escriba el nombre del Espacio de nombres del centro de eventos que creó en el prelaboratorio.  
-   * En el campo **Nombre del centro de eventos** , seleccione la opción para **Usar existente** y elija **event-hub1** en el menú desplegable.  
+   * En el campo **Espacio de nombres del centro de eventos**, escriba el nombre del Espacio de nombres del centro de eventos que creó en el prelaboratorio.  
+   * En el campo **Nombre del centro de eventos**, seleccione la opción para **Usar existente** y elija **event-hub1** en el menú desplegable.  
    * Deje el campo de nombre **Event Hub policy** (Directiva del centro de eventos) establecido en su valor predeterminado.  
    * Deje **Formato de serialización de eventos** como **JSON**.  
    * Deje el campo **Codificación** establecido en **UTF-8**.  
@@ -215,10 +215,10 @@ Azure Stream Analytics es un servicio en la nube de procesamiento en tiempo real
 
 7. Para crear una salida de Power BI para visualizar el precio medio, realice las siguientes acciones:
 
-   * En el campo **Alias de salida** , escriba **averagePriceOutput**.  
+   * En el campo **Alias de salida**, escriba **averagePriceOutput**.  
    * Deje el campo **Área de trabajo de grupo** establecido en **Autorizar conexión para cargar áreas de trabajo**.  
-   * En el campo **Nombre del conjunto de datos** , escriba **averagePrice**.  
-   * En el campo **Nombre de la tabla** , escriba **averagePrice**.  
+   * En el campo **Nombre del conjunto de datos**, escriba **averagePrice**.  
+   * En el campo **Nombre de la tabla**, escriba **averagePrice**.  
    * Seleccione el botón **Autorizar** y siga las instrucciones para autorizar la conexión en Power BI.  
    * Seleccione el botón **Guardar**.  
 
@@ -253,7 +253,7 @@ Power BI es un conjunto de herramientas de análisis de negocios que sirve para 
  
 5. Seleccione **averagePrice** en **SUS CONJUNTOS DE DATOS** y elija **Siguiente**.  
 
-6. En el campo **Tipo de visualización** , seleccione **Gráfico de barras agrupadas** en el menú desplegable. En **Eje** , agregue la acción. Omita **Leyenda** sin agregar nada. Luego, en la sección siguiente denominada **Valor** , agregue **avg**. Seleccione **Siguiente** , agregue el título del gráfico y elija **Aplicar**. Debería ver un nuevo gráfico en el panel.  
+6. En el campo **Tipo de visualización**, seleccione **Gráfico de barras agrupadas** en el menú desplegable. En **Eje**, agregue la acción. Omita **Leyenda** sin agregar nada. Luego, en la sección siguiente denominada **Valor**, agregue **avg**. Seleccione **Siguiente**, agregue el título del gráfico y elija **Aplicar**. Debería ver un nuevo gráfico en el panel.  
 
 7. Ahora, si quiere visualizar más métricas, puede volver a **streamjob1** y crear tres salidas más con los siguientes campos.
 
@@ -329,7 +329,7 @@ Ahora verá cómo puede usar la nueva herramienta de análisis de datos para con
 
    Agregue otra colección en **changefeedlabdatabase** denominada **topItems** y **/Item** como la clave de partición.
 
-2. Seleccione la colección **topItems** y, en **Escala y configuración** , establezca **Período de vida** como **30 segundos** para que la colección topItems se actualice cada 30 segundos.
+2. Seleccione la colección **topItems** y, en **Escala y configuración**, establezca **Período de vida** como **30 segundos** para que la colección topItems se actualice cada 30 segundos.
 
    :::image type="content" source="./media/changefeed-ecommerce-solution/time-to-live.png" alt-text="Período de vida":::
 
@@ -341,14 +341,14 @@ Ahora verá cómo puede usar la nueva herramienta de análisis de datos para con
  
 5. Si ha agregado la consulta TOP 5 opcional en la parte anterior del laboratorio, continúe con la parte 5a. Si no, siga a la parte 5b.
 
-   5a. En **streamjob1** , seleccione **Editar consulta** y pegue la siguiente consulta en el editor de consultas de Azure Stream Analytics por debajo de la consulta TOP 5, pero por encima del resto de las consultas.
+   5a. En **streamjob1**, seleccione **Editar consulta** y pegue la siguiente consulta en el editor de consultas de Azure Stream Analytics por debajo de la consulta TOP 5, pero por encima del resto de las consultas.
 
    ```sql
    SELECT arrayvalue.value.item AS Item, arrayvalue.value.price, arrayvalue.value.countEvents
    INTO topItems
    FROM arrayselect
    ```
-   5b. En **streamjob1** , seleccione **Editar consulta** y pegue la siguiente consulta en el editor de consultas de Azure Stream Analytics por encima del resto de consultas.
+   5b. En **streamjob1**, seleccione **Editar consulta** y pegue la siguiente consulta en el editor de consultas de Azure Stream Analytics por encima del resto de consultas.
 
    ```sql
    /*TOP 5*/
@@ -381,7 +381,7 @@ Ahora verá cómo puede usar la nueva herramienta de análisis de datos para con
 
 7. En el bloque `<appSettings>`, agregue el **URI** y la **PRIMARY KEY** que guardó anteriormente donde indica **your URI here** (aquí su URI) y **your primary key here** (aquí su clave principal). Agregue el **nombre de la base de datos** y el **nombre de la colección** tal como se indica. (Estos nombres deben ser **changefeedlabdatabase** y **changefeedlabcollection** a menos que decida asignarles otro nombre).
 
-   Rellene el **nombre de la colección de productos** , el **nombre de la colección de categorías** y el **nombre de la colección de elementos superiores** tal como se indica. (Estos nombres deben ser **products, categories y topItems** a menos que decida asignarles otro nombre).  
+   Rellene el **nombre de la colección de productos**, el **nombre de la colección de categorías** y el **nombre de la colección de elementos superiores** tal como se indica. (Estos nombres deben ser **products, categories y topItems** a menos que decida asignarles otro nombre).  
 
 8. Abra la **carpeta de desprotección** en **EcommerceWebApp.sln.** Abra el archivo **Web.config** en esa carpeta.  
 

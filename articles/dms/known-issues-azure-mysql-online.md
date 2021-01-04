@@ -14,12 +14,12 @@ ms.custom:
 - seo-dt-2019
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: a9ac4830d11aa3360a272ac1feb167eb20c26c9a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 11659bcbdf77d04c0f4e6f8bc7aca30c716fc924
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96009813"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606896"
 ---
 # <a name="online-migration-issues--limitations-to-azure-db-for-mysql-with-azure-database-migration-service"></a>Limitaciones y problemas de migración en línea de Azure DB for MySQL con Azure Database Migration Service
 
@@ -42,18 +42,18 @@ Los problemas conocidos y las limitaciones relacionadas con las migraciones en l
 - Las intercalaciones definidas para la base de datos de MySQL de origen son las mismas que las que están definidas en Azure Database for MySQL de destino.
 - El esquema debe coincidir entre la base de datos de MySQL de origen y la base de datos de destino de Azure Database for MySQL.
 - El esquema de Azure Database for MySQL de destino no debe tener claves externas. Utilice la consulta siguiente para eliminar las claves externas:
-    ```
+    ```sql
     SET group_concat_max_len = 8192;
     SELECT SchemaName, GROUP_CONCAT(DropQuery SEPARATOR ';\n') as DropQuery, GROUP_CONCAT(AddQuery SEPARATOR ';\n') as AddQuery
     FROM
     (SELECT 
     KCU.REFERENCED_TABLE_SCHEMA as SchemaName, KCU.TABLE_NAME, KCU.COLUMN_NAME,
-        CONCAT('ALTER TABLE ', KCU.TABLE_NAME, ' DROP FOREIGN KEY ', KCU.CONSTRAINT_NAME) AS DropQuery,
+      CONCAT('ALTER TABLE ', KCU.TABLE_NAME, ' DROP FOREIGN KEY ', KCU.CONSTRAINT_NAME) AS DropQuery,
         CONCAT('ALTER TABLE ', KCU.TABLE_NAME, ' ADD CONSTRAINT ', KCU.CONSTRAINT_NAME, ' FOREIGN KEY (`', KCU.COLUMN_NAME, '`) REFERENCES `', KCU.REFERENCED_TABLE_NAME, '` (`', KCU.REFERENCED_COLUMN_NAME, '`) ON UPDATE ',RC.UPDATE_RULE, ' ON DELETE ',RC.DELETE_RULE) AS AddQuery
         FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE KCU, information_schema.REFERENTIAL_CONSTRAINTS RC
         WHERE
-          KCU.CONSTRAINT_NAME = RC.CONSTRAINT_NAME
-          AND KCU.REFERENCED_TABLE_SCHEMA = RC.UNIQUE_CONSTRAINT_SCHEMA
+        KCU.CONSTRAINT_NAME = RC.CONSTRAINT_NAME
+        AND KCU.REFERENCED_TABLE_SCHEMA = RC.UNIQUE_CONSTRAINT_SCHEMA
       AND KCU.REFERENCED_TABLE_SCHEMA = ['schema_name']) Queries
       GROUP BY SchemaName;
     ```

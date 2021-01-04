@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 10/16/2020
+ms.date: 12/17/2020
 ms.author: aahi
-ms.openlocfilehash: 0ff6bcd2e50b64993966f2780c6c8118aea2694f
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: ef40201a13412cc735a5e15bf468e2c934ec81ab
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505178"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656808"
 ---
 # <a name="example-detect-language-with-text-analytics"></a>Ejemplo: Detectar idioma con Text Analytics
 
@@ -31,8 +31,6 @@ Si tiene contenido que se expresa en un idioma que se usa con menos frecuencia, 
 > Text Analytics proporciona también una imagen de contenedor de Docker basada en Linux para la detección del lenguaje, por lo que puede [instalar y ejecutar el contenedor de Text Analytics](text-analytics-how-to-install-containers.md) cerca de los datos.
 
 ## <a name="preparation"></a>Preparación
-
-[!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
 Debe tener documentos JSON en este formato: Identificador y texto.
 

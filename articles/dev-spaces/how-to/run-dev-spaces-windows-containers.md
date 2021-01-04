@@ -5,12 +5,12 @@ ms.date: 01/16/2020
 ms.topic: conceptual
 description: Obtenga información sobre cómo ejecutar Azure Dev Spaces en un clúster existente con contenedores de Windows.
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, contenedores de Windows
-ms.openlocfilehash: e6c4279717ef0a7bed0a66a9b0dba1d78e418835
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: a9aa24ae70afe062246e1b295cdc7e0724639596
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900151"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606766"
 ---
 # <a name="interact-with-windows-containers-using-azure-dev-spaces"></a>Uso de Azure Dev Spaces para interactuar con contenedores de Windows
 
@@ -34,7 +34,7 @@ Para comprobar la conexión al clúster, use el comando [kubectl get][kubectl-ge
 kubectl get nodes
 ```
 
-En la siguiente salida de ejemplo se muestra un clúster tanto con un nodo de Windows como con uno de Linux. Antes de continuar, asegúrese de que el estado de cada nodo es *Listo* .
+En la siguiente salida de ejemplo se muestra un clúster tanto con un nodo de Windows como con uno de Linux. Antes de continuar, asegúrese de que el estado de cada nodo es *Listo*.
 
 ```console
 NAME                                STATUS   ROLES   AGE    VERSION
@@ -54,7 +54,7 @@ kubectl taint node aksnpwin987654 sku=win-node:NoSchedule
 
 ## <a name="run-your-windows-service"></a>Ejecución del servicio de Windows
 
-Ejecute el servicio de Windows en el clúster de AKS y compruebe que se encuentra en estado *en ejecución* . En este artículo se usa una [aplicación de ejemplo][sample-application] para mostrar un servicio de Windows y Linux que se ejecuta en el clúster.
+Ejecute el servicio de Windows en el clúster de AKS y compruebe que se encuentra en estado *en ejecución*. En este artículo se usa una [aplicación de ejemplo][sample-application] para mostrar un servicio de Windows y Linux que se ejecuta en el clúster.
 
 Clone la aplicación de ejemplo desde GitHub y vaya al directorio `dev-spaces/samples/existingWindowsBackend/mywebapi-windows`:
 
@@ -71,7 +71,7 @@ kubectl create ns dev
 helm install windows-service . --namespace dev
 ```
 
-El comando anterior usa Helm para ejecutar el servicio de Windows en el espacio de nombres *dev* . Si no tiene un espacio de nombres denominado *dev* , se creará.
+El comando anterior usa Helm para ejecutar el servicio de Windows en el espacio de nombres *dev*. Si no tiene un espacio de nombres denominado *dev*, se creará.
 
 Use el comando `kubectl get pods` para comprobar que el servicio de Windows se está ejecutando en el clúster. 
 
@@ -85,7 +85,7 @@ myapi-4b9667d123-1a2b3   1/1     Running             0          98s
 
 ## <a name="enable-azure-dev-spaces"></a>Habilitación de Azure Dev Spaces
 
-Habilite Dev Spaces en el mismo espacio de nombres que usó para ejecutar el servicio de Windows. El siguiente comando habilita Dev Spaces en el espacio de nombres *dev* :
+Habilite Dev Spaces en el mismo espacio de nombres que usó para ejecutar el servicio de Windows. El siguiente comando habilita Dev Spaces en el espacio de nombres *dev*:
 
 ```console
 az aks use-dev-spaces -g myResourceGroup -n myAKSCluster --space dev --yes
@@ -118,11 +118,11 @@ Use `helm list` para mostrar la implementación del servicio de Windows:
 
 ```cmd
 $ helm list --namespace dev
-NAME              REVISION  UPDATED                     STATUS      CHART           APP VERSION NAMESPACE
-windows-service 1           Wed Jul 24 15:45:59 2019    DEPLOYED    mywebapi-0.1.0  1.0         dev  
+NAME             REVISION   UPDATED                    STATUS    CHART            APP VERSION    NAMESPACE
+windows-service    1        Wed Jul 24 15:45:59 2019   DEPLOYED  mywebapi-0.1.0   1.0            dev
 ```
 
-En el ejemplo anterior, el nombre de la implementación es *windows-service* . Actualice el servicio de Windows con la nueva configuración mediante `helm upgrade`:
+En el ejemplo anterior, el nombre de la implementación es *windows-service*. Actualice el servicio de Windows con la nueva configuración mediante `helm upgrade`:
 
 ```cmd
 helm upgrade windows-service . --namespace dev

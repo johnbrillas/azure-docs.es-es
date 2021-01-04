@@ -3,12 +3,12 @@ author: areddish
 ms.author: areddish
 ms.service: cognitive-services
 ms.date: 09/15/2020
-ms.openlocfilehash: 4e9b5326f8ce28e94c829f9aed56d035c256be52
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.openlocfilehash: 27eb4383084e9a782e0c2cb8ff734fba8496c9f1
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94625360"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97582632"
 ---
 En este artículo se proporciona información y un ejemplo de código que pueden ayudarle a empezar a utilizar la biblioteca cliente de Custom Vision para Go para crear un modelo de clasificación de imágenes. Podrá crear un proyecto, agregar etiquetas, entrenar el proyecto y utilizar la dirección URL del punto de conexión de predicción del proyecto para probarlo mediante programación. Utilice este ejemplo como plantilla para crear su propia aplicación de reconocimiento de imágenes.
 
@@ -188,6 +188,8 @@ Done!
 ```
 
 Luego puede comprobar que la imagen de prueba (que se encuentra en **<base_image_url>/Images/Test/**) se ha etiquetado correctamente. También puede volver al [sitio web de Custom Vision](https://customvision.ai) y ver el estado actual del proyecto recién creado.
+
+## <a name="clean-up-resources"></a>Limpieza de recursos
 
 [!INCLUDE [clean-ic-project](../../includes/clean-ic-project.md)]
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: v-miegge
-ms.openlocfilehash: 3677d67f55cfccdc80245b2ec870ffa76b0a1940
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff7d5a4e1181dccedc3584d958038a1d695c57ca
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87088672"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97657131"
 ---
 # <a name="troubleshoot-windows-boot-manager-error----0xc0000225-status-not-found"></a>Solución del error de Administración de arranque de Windows: 0xC0000225 "Estado no encontrado"
  
@@ -126,7 +126,7 @@ Un subárbol del Registro dañado puede deberse a:
       `dir <BINARY WITH ".SYS" EXTENSION>  /s`
 
       Este comando enumera todas las versiones del archivo que tiene la máquina, lo que le proporciona el historial de rutas de acceso de ese componente.
-      
+
       Por ejemplo, el nombre del archivo **dir cng.sys** cambiaría a **dir cng.sys /s**
 
    1. Elija la versión más reciente del archivo en la lista (o cualquiera que prefiera) y copie el archivo en la carpeta **windows\system32** con la ruta de acceso anterior y el comando siguiente:

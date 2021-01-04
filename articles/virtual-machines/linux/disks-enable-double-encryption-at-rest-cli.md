@@ -8,12 +8,12 @@ ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 55a49c5f8d066cd6893c46ef9942462bb7911307
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 7fabf5afa60590e92f7c0ca10197c436c1c0b8a0
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360622"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97702266"
 ---
 # <a name="use-the-azure-cli-to-enable-double-encryption-at-rest-for-managed-disks"></a>Uso de la CLI de Azure para habilitar el cifrado doble en reposo para discos administrados
 
@@ -49,7 +49,7 @@ Instale la última versión de la [CLI de Azure](/cli/azure/install-az-cli2) e i
 1.    Cree un elemento DiskEncryptionSet con encryptionType establecido en EncryptionAtRestWithPlatformAndCustomerKeys. Use la versión de API **2020-05-01** en la plantilla de Azure Resource Manager (ARM). 
     
         ```azurecli
-        az group deployment create -g $rgName \
+        az deployment group create -g $rgName \
        --template-uri "https://raw.githubusercontent.com/Azure-Samples/managed-disks-powershell-getting-started/master/DoubleEncryption/CreateDiskEncryptionSetForDoubleEncryption.json" \
         --parameters "diskEncryptionSetName=$diskEncryptionSetName" "encryptionType=EncryptionAtRestWithPlatformAndCustomerKeys" "keyVaultId=$keyVaultId" "keyVaultKeyUrl=$keyVaultKeyUrl" "region=$location"
         ```

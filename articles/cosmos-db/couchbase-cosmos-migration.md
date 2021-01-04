@@ -8,12 +8,12 @@ ms.date: 02/11/2020
 ms.author: mansha
 author: manishmsfte
 ms.custom: devx-track-java
-ms.openlocfilehash: e84b80233d87ac4ae5e2281b506e225c4ab1bd9d
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: a15c6b5919f428b28daab86fea9c3b6473d19162
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97357609"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606205"
 ---
 # <a name="migrate-from-couchbase-to-azure-cosmos-db-sql-api"></a>Migración de CouchBase a API de SQL de Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -24,12 +24,12 @@ Azure Cosmos DB es una base de datos totalmente administrada, escalable y distri
 
 A continuación se indican las principales características que funcionan de manera diferente en Azure Cosmos DB en comparación con Couchbase:
 
-|   Couchbase     |   Azure Cosmos DB   |
-| ---------------|-------------------|
-|Servidor de Couchbase| Cuenta       |
-|Cubo           | Base de datos      |
-|Cubo           | Contenedor o colección |
-|Documento JSON    | Elemento o documento |
+| Couchbase | Azure Cosmos DB |
+|--|--|
+| Servidor de Couchbase | Cuenta |
+| Cubo | Base de datos |
+| Cubo | Contenedor o colección |
+| Documento JSON | Elemento o documento |
 
 ## <a name="key-differences"></a>Principales diferencias
 
@@ -189,7 +189,7 @@ Las consultas N1QL son la manera de definir consultas en Couchbase.
 
 |Consulta N1QL | Consulta de Azure Cosmos DB|
 |-------------------|-------------------|
-|SELECT META(`TravelDocument`).id AS id, `TravelDocument`.* FROM `TravelDocument` WHERE `_type` = "com.xx.xx.xx.xxx.xxx.xxxx " and country = 'India’ and ANY m in Visas SATISFIES m.type == 'Multi-Entry' and m.Country IN ['India', Bhutan’] ORDER BY ` Validity` DESC LIMIT 25 OFFSET 0   | SELECT c.id,c FROM c JOIN m in c.country=’India’ WHERE c._type = " com.xx.xx.xx.xxx.xxx.xxxx" and c.country = 'India' and m.type = 'Multi-Entry' and m.Country IN ('India', 'Bhutan') ORDER BY c.Validity DESC OFFSET 0 LIMIT 25 |
+|SELECT META(`TravelDocument`).id AS id, `TravelDocument`.* FROM `TravelDocument` WHERE `_type` = "com.xx.xx.xx.xxx.xxx.xxxx " and country = 'India’ and ANY m in Visas SATISFIES m.type == 'Multi-Entry' and m.Country IN ['India', Bhutan’] ORDER BY ` Validity` DESC LIMIT 25 OFFSET 0 | SELECT c.id,c FROM c JOIN m in c.country=’India’ WHERE c._type = " com.xx.xx.xx.xxx.xxx.xxxx" and c.country = 'India' and m.type = 'Multi-Entry' and m.Country IN ('India', 'Bhutan') ORDER BY c.Validity DESC OFFSET 0 LIMIT 25 |
 
 Puede observar los cambios siguientes en las consultas N1QL:
 
@@ -221,12 +221,12 @@ Use el SDK de Java asincrónico con los pasos siguientes:
    cp.connectionMode(ConnectionMode.DIRECT);
     
    if(client==null)
-    client= CosmosClient.builder()
-        .endpoint(Host)//(Host, PrimaryKey, dbName, collName).Builder()
-        .connectionPolicy(cp)
-        .key(PrimaryKey)
-        .consistencyLevel(ConsistencyLevel.EVENTUAL)
-        .build();   
+      client= CosmosClient.builder()
+         .endpoint(Host)//(Host, PrimaryKey, dbName, collName).Builder()
+          .connectionPolicy(cp)
+          .key(PrimaryKey)
+          .consistencyLevel(ConsistencyLevel.EVENTUAL)
+          .build();
    
    container = client.getDatabase(_dbName).getContainer(_collName);
    ```
@@ -242,22 +242,22 @@ Ahora, con la ayuda del método anterior, puede pasar varias consultas y ejecuta
 ```java
 for(SqlQuerySpec query:queries)
 {
-    objFlux= container.queryItems(query, fo);
-    objFlux .publishOn(Schedulers.elastic())
-            .subscribe(feedResponse->
-                {
-                    if(feedResponse.results().size()>0)
-                    {
-                        _docs.addAll(feedResponse.results());
-                    }
-                
-                },
-                Throwable::printStackTrace,latch::countDown);
-    lstFlux.add(objFlux);
+   objFlux= container.queryItems(query, fo);
+   objFlux .publishOn(Schedulers.elastic())
+         .subscribe(feedResponse->
+            {
+               if(feedResponse.results().size()>0)
+               {
+                  _docs.addAll(feedResponse.results());
+               }
+            
+            },
+            Throwable::printStackTrace,latch::countDown);
+   lstFlux.add(objFlux);
 }
-                        
-        Flux.merge(lstFlux);
-        latch.await();
+                  
+      Flux.merge(lstFlux);
+      latch.await();
 }
 ```
 
@@ -267,7 +267,7 @@ Con el código anterior, puede ejecutar consultas en paralelo y aumentar las eje
 
 Para insertar el documento, ejecute el siguiente código:
 
-```java 
+```java
 Mono<CosmosItemResponse> objMono= container.createItem(doc,ro);
 ```
 
@@ -278,13 +278,13 @@ CountDownLatch latch=new CountDownLatch(1);
 objMono .subscribeOn(Schedulers.elastic())
         .subscribe(resourceResponse->
         {
-            if(resourceResponse.statusCode()!=successStatus)
-                {
-                    throw new RuntimeException(resourceResponse.toString());
-                }
-            },
+           if(resourceResponse.statusCode()!=successStatus)
+              {
+                 throw new RuntimeException(resourceResponse.toString());
+              }
+           },
         Throwable::printStackTrace,latch::countDown);
-latch.await();              
+latch.await();
 ```
 
 ### <a name="upsert-operation"></a>Operación de upsert
@@ -300,7 +300,7 @@ Luego suscríbase a Mono. Vea el fragmento de código de suscripción a Mono de 
 
 El siguiente fragmento de código realiza la operación de eliminación:
 
-```java     
+```java
 CosmosItem objItem= container.getItem(doc.Id, doc.Tenant);
 Mono<CosmosItemResponse> objMono = objItem.delete(ro);
 ```
@@ -350,12 +350,12 @@ Se trata de un tipo simple de carga de trabajo en el que se pueden realizar bús
    cp.connectionMode(ConnectionMode.DIRECT);
    
    if(client==null)
-    client= CosmosClient.builder()
-        .endpoint(Host)//(Host, PrimaryKey, dbName, collName).Builder()
-        .connectionPolicy(cp)
-        .key(PrimaryKey)
-        .consistencyLevel(ConsistencyLevel.EVENTUAL)
-        .build();
+      client= CosmosClient.builder()
+         .endpoint(Host)//(Host, PrimaryKey, dbName, collName).Builder()
+          .connectionPolicy(cp)
+          .key(PrimaryKey)
+          .consistencyLevel(ConsistencyLevel.EVENTUAL)
+          .build();
     
    container = client.getDatabase(_dbName).getContainer(_collName);
    ```
@@ -370,16 +370,16 @@ Para leer el elemento, use el siguiente fragmento de código:
 CosmosItemRequestOptions ro=new CosmosItemRequestOptions();
 ro.partitionKey(new PartitionKey(documentId));
 CountDownLatch latch=new CountDownLatch(1);
-        
+      
 var objCosmosItem= container.getItem(documentId, documentId);
 Mono<CosmosItemResponse> objMono = objCosmosItem.read(ro);
 objMono .subscribeOn(Schedulers.elastic())
         .subscribe(resourceResponse->
         {
-            if(resourceResponse.item()!=null)
-            {
-                doc= resourceResponse.properties().toObject(UserModel.class);
-            }
+           if(resourceResponse.item()!=null)
+           {
+              doc= resourceResponse.properties().toObject(UserModel.class);
+           }
         },
         Throwable::printStackTrace,latch::countDown);
 latch.await();
@@ -389,7 +389,7 @@ latch.await();
 
 Para insertar un elemento, puede ejecutar el siguiente código:
 
-```java 
+```java
 Mono<CosmosItemResponse> objMono= container.createItem(doc,ro);
 ```
 
@@ -398,14 +398,14 @@ Luego suscríbase a Mono como:
 ```java
 CountDownLatch latch=new CountDownLatch(1);
 objMono.subscribeOn(Schedulers.elastic())
-        .subscribe(resourceResponse->
-        {
-            if(resourceResponse.statusCode()!=successStatus)
-                {
-                    throw new RuntimeException(resourceResponse.toString());
-                }
-            },
-        Throwable::printStackTrace,latch::countDown);
+      .subscribe(resourceResponse->
+      {
+         if(resourceResponse.statusCode()!=successStatus)
+            {
+               throw new RuntimeException(resourceResponse.toString());
+            }
+         },
+      Throwable::printStackTrace,latch::countDown);
 latch.await();
 ```
 
@@ -422,7 +422,7 @@ Luego, para suscribirse a Mono, vea el fragmento de código de suscripción a Mo
 
 Use el siguiente fragmento de código para ejecutar la operación de eliminación:
 
-```java     
+```java
 CosmosItem objItem= container.getItem(id, id);
 Mono<CosmosItemResponse> objMono = objItem.delete(ro);
 ```

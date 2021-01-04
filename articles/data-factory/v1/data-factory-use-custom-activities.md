@@ -13,12 +13,12 @@ ms.author: abnarain
 ms.custom: devx-track-csharp
 manager: anandsub
 robots: noindex
-ms.openlocfilehash: b3391727b19e9e8e88646f72667545f1df7fe5a7
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0ef6c97f7924c890bb6665100259970372f1cd26
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012874"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606953"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-version-1-pipeline"></a>Uso de actividades personalizadas en una canalización de Azure Data Factory versión 1
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -98,8 +98,10 @@ El método toma cuatro parámetros:
 El método devuelve un diccionario que se puede usar para encadenar actividades personalizadas en el futuro. Esta característica todavía no está implementada, así que devuelve un diccionario vacío del método.
 
 ### <a name="procedure"></a>Procedimiento
+
 1. Cree un proyecto de **biblioteca de clases .NET** .
-   <ol type="a">
+   
+    <ol type="a">
      <li>Inicie Visual Studio.</li>
      <li>Haga clic en <b>Archivo</b>, seleccione <b>Nuevo</b> y, luego, haga clic en <b>Proyecto</b>.</li>
      <li>Expanda <b>Plantillas</b> y seleccione <b>Visual C#</b>. En este tutorial se usa C#, pero puede usar cualquier lenguaje .NET para desarrollar la actividad personalizada.</li>
@@ -116,6 +118,7 @@ El método devuelve un diccionario que se puede usar para encadenar actividades 
     ```powershell
     Install-Package Microsoft.Azure.Management.DataFactories
     ```
+
 4. Importe el paquete NuGet de **Azure Storage** en el proyecto.
 
     ```powershell
@@ -149,16 +152,19 @@ El método devuelve un diccionario que se puede usar para encadenar actividades 
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Blob;
     ```
+
 6. Cambie el nombre del **espacio de nombres** por **MyDotNetActivityNS**.
 
     ```csharp
     namespace MyDotNetActivityNS
     ```
+
 7. Cambie el nombre de la clase por **MyDotNetActivity** y derívela desde la interfaz **IDotNetActivity** como se muestra en el siguiente fragmento de código:
 
     ```csharp
     public class MyDotNetActivity : IDotNetActivity
     ```
+
 8. Implemente (agregue) el método **Execute** de la interfaz **IDotNetActivity** en la clase **MyDotNetActivity** y copie el siguiente código de ejemplo en el método.
 
     El ejemplo siguiente cuenta el número de apariciones del término de búsqueda (“Microsoft”) en cada blob asociado con un segmento de datos.
@@ -279,6 +285,7 @@ El método devuelve un diccionario que se puede usar para encadenar actividades 
         return new Dictionary<string, string>();
     }
     ```
+
 9. Agregue los siguientes métodos auxiliares:
 
     ```csharp
@@ -367,25 +374,30 @@ El método devuelve un diccionario que se puede usar para encadenar actividades 
     ```
 
     El método Calculate calcula el número de instancias de la palabra clave Microsoft en los archivos de entrada (los blobs de la carpeta). El término de búsqueda ("Microsoft") está codificado de forma rígida en el código.
+
 10. Compile el proyecto. Haga clic en **Compilar** en el menú y haga clic en **Compilar solución**.
 
     > [!IMPORTANT]
     > Establezca la versión 4.5.2 de .NET Framework como la plataforma de destino para el proyecto: haga clic con el botón derecho en el proyecto y en **Propiedades** para establecer el marco de destino. Data Factory no admite actividades personalizadas que se compilaron con versiones de .NET Framework posteriores a la 4.5.2.
 
 11. Inicie el **Explorador de Windows** y vaya a la carpeta **bin\debug** o **bin\release**, según el tipo de compilación.
+
 12. Cree un archivo ZIP **MyDotNetActivity.zip** que contenga todos los archivos binarios en la carpeta \<project folder\>\bin\Debug. Incluya el archivo **MyDotNetActivity.pdb** para ver detalles adicionales, como el número de línea en el código fuente que causó el problema, si hubo un error.
 
     > [!IMPORTANT]
     > Todos los archivos incluidos en el archivo ZIP de la actividad personalizada deben estar en el **nivel superior** ; no debe haber subcarpetas.
 
     ![Archivos de salida binarios](./media/data-factory-use-custom-activities/Binaries.png)
-14. Cree el contenedor de blobs **customactivitycontainer**, si aún no existe.
-15. Cargue MyDotNetActivity.zip como un blob para customactivitycontainer en una instancia de Azure Blob Storage **de uso general** (Blob Storage de acceso esporádico/no frecuente) al que AzureStorageLinkedService hace referencia.
+
+13. Cree el contenedor de blobs **customactivitycontainer**, si aún no existe.
+
+14. Cargue MyDotNetActivity.zip como un blob para customactivitycontainer en una instancia de Azure Blob Storage **de uso general** (Blob Storage de acceso esporádico/no frecuente) al que AzureStorageLinkedService hace referencia.
 
 > [!IMPORTANT]
 > Si agrega este proyecto de actividad de .NET a una solución en Visual Studio que contenga un proyecto de Data Factory, y agrega una referencia al proyecto de actividad .NET del proyecto de la aplicación de Data Factory, no tendrá que realizar los últimos dos pasos para crear manualmente el archivo ZIP y cargarlo a la instancia de Azure Blob Storage de uso general. Al publicar las entidades de la factoría de datos con Visual Studio el proceso de publicación realizar automáticamente estos pasos. Para obtener más información, consulte la sección [Proyecto de Data Factory en Visual Studio](#data-factory-project-in-visual-studio).
 
 ## <a name="create-a-pipeline-with-custom-activity"></a>Crear una canalización con una actividad personalizada
+
 Ha creado una actividad personalizada y cargado el archivo zip con datos binarios en un contenedor de blobs en una cuenta de Azure Storage **de uso general**. En esta sección, creará una instancia de Azure Data Factory con una canalización que usa la actividad personalizada.
 
 El conjunto de datos de entrada de la actividad personalizada representa los blobs (archivos) de la carpeta customactivityinput del contenedor adftutorial en Blob Storage. El conjunto de datos de salida de la actividad representa los blobs de salida de la carpeta customactivityinput del contenedor adftutorial en Blob Storage.

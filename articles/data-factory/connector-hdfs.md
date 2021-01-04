@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 12/18/2020
 ms.author: jingwang
-ms.openlocfilehash: f43f516b0999c4d5b775fc9b78dea9b05e228f0d
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 6670d6dc676ebefa149815253d5ce65c8a9b1abe
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97346255"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680948"
 ---
 # <a name="copy-data-from-the-hdfs-server-by-using-azure-data-factory"></a>Copia de datos desde un servidor HDFS mediante Azure Data Factory
 
@@ -284,7 +284,7 @@ Para ambas opciones, asegúrese de activar webhdfs en el clúster de Hadoop:
 1. Cree la entidad de seguridad HTTP y el archivo keytab de webhdfs.
 
     > [!IMPORTANT]
-    > La entidad de seguridad HTTP de Kerberos debe comenzar por "**HTTP/** " según la especificación SPNEGO de HTTP de Kerberos.
+    > La entidad de seguridad HTTP de Kerberos debe comenzar por "**HTTP/** " según la especificación SPNEGO de HTTP de Kerberos. Puede obtener más información sobre esto [aquí](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#HDFS_Configuration_Options).
 
     ```bash
     Kadmin> addprinc -randkey HTTP/<namenode hostname>@<REALM.COM>

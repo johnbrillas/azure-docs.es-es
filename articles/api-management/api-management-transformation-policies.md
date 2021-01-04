@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: 3097f7b0b6b69dc470877d4951efbcbd3c7482b1
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 212a6b0786b371bfb92f2e193e67d9accd432bf8
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078500"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97657250"
 ---
 # <a name="api-management-transformation-policies"></a>Directivas de transformación de API Management
 En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](./api-management-policies.md).
@@ -316,12 +316,12 @@ En este ejemplo, la directiva enruta la solicitud a un back-end de Service Fabri
 
 ```xml
 <set-body>
-@{ 
-    string inBody = context.Request.Body.As<string>(preserveContent: true); 
-    if (inBody[0] =='c') { 
-        inBody[0] = 'm'; 
-    } 
-    return inBody; 
+@{ 
+    string inBody = context.Request.Body.As<string>(preserveContent: true); 
+    if (inBody[0] =='c') { 
+        inBody[0] = 'm'; 
+    } 
+    return inBody; 
 }
 </set-body>
 ```
@@ -329,14 +329,14 @@ En este ejemplo, la directiva enruta la solicitud a un back-end de Service Fabri
 #### <a name="example-accessing-the-body-as-a-jobject-note-that-since-we-are-not-reserving-the-original-request-body-accessing-it-later-in-the-pipeline-will-result-in-an-exception"></a>Ejemplo de acceso al cuerpo como un elemento JObject. Tenga en cuenta que, al no conservar el cuerpo de la solicitud original, el acceso posterior a él en la canalización producirá una excepción.
 
 ```xml
-<set-body> 
-@{ 
-    JObject inBody = context.Request.Body.As<JObject>(); 
-    if (inBody.attribute == <tag>) { 
-        inBody[0] = 'm'; 
-    } 
-    return inBody.ToString(); 
-} 
+<set-body> 
+@{ 
+    JObject inBody = context.Request.Body.As<JObject>(); 
+    if (inBody.attribute == <tag>) { 
+        inBody[0] = 'm'; 
+    } 
+    return inBody.ToString(); 
+} 
 </set-body>
 
 ```
@@ -697,7 +697,7 @@ OriginalUrl.
   <outbound>
       <base />
       <xsl-transform>
-        <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+          <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
             <xsl:output omit-xml-declaration="yes" method="xml" indent="yes" />
             <!-- Copy all nodes directly-->
             <xsl:template match="node()| @*|*">
@@ -705,7 +705,7 @@ OriginalUrl.
                     <xsl:apply-templates select="@* | node()|*" />
                 </xsl:copy>
             </xsl:template>
-        </xsl:stylesheet>
+          </xsl:stylesheet>
     </xsl-transform>
   </outbound>
 </policies>

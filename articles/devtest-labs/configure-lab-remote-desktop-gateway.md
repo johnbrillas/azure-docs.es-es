@@ -3,12 +3,12 @@ title: Configuración de un laboratorio para usar Puerta de enlace de Escritorio
 description: Obtenga información sobre cómo configurar un laboratorio en Azure DevTest Labs con una puerta de enlace de Escritorio remoto para garantizar el acceso seguro a las máquinas virtuales de laboratorio sin tener que exponer el puerto RDP.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: b48a0709deb21ca0f8a27d1cf953c7d8d4ba2cc8
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: dcf5191dea64c3d7bf28b9ce1c616d3d2defb73e
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92144711"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695684"
 ---
 # <a name="configure-your-lab-in-azure-devtest-labs-to-use-a-remote-desktop-gateway"></a>Configuración del laboratorio de Azure DevTest Labs para usar una puerta de enlace de Escritorio remoto
 En Azure DevTest Labs, puede configurar una puerta de enlace de Escritorio remoto para el laboratorio con el fin de garantizar el acceso seguro a las máquinas virtuales (VM) del laboratorio sin tener que exponer el puerto RDP. El laboratorio proporciona un lugar central para que los usuarios del laboratorio vean todas las máquinas virtuales a las que tienen acceso y se conecten a ellas. El botón **Connect** (Conectar) de la página **Virtual Machine** (Máquina Virtual) crea un archivo RDP específico de la máquina que se puede abrir para conectarse a ella. Puede personalizar y proteger aún más la conexión RDP si conecta el laboratorio a una puerta de enlace de Escritorio remoto. 
@@ -135,7 +135,7 @@ Siga estos pasos para configurar una solución de ejemplo para la granja de serv
     La plantilla se puede implementar mediante la CLI de Azure con el comando siguiente:
 
     ```azurecli
-    az group deployment create --resource-group {resource-group} --template-file azuredeploy.json --parameters @azuredeploy.parameters.json -–parameters _artifactsLocation="{storage-account-endpoint}/{container-name}" -–parameters _artifactsLocationSasToken = "?{sas-token}"
+    az deployment group create --resource-group {resource-group} --template-file azuredeploy.json --parameters @azuredeploy.parameters.json -–parameters _artifactsLocation="{storage-account-endpoint}/{container-name}" -–parameters _artifactsLocationSasToken = "?{sas-token}"
     ```
 
     Estas son las descripciones de los parámetros:

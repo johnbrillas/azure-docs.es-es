@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 10/09/2020
-ms.openlocfilehash: 982747c1a7e093f84daeb63e75cfdf439d3fccf9
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 34dddd8e5f3fb418fc7155630bf82a922e418402
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546728"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97657097"
 ---
 # <a name="restore-a-dropped-azure-database-for-mysql-server"></a>Restauración de un servidor de Azure Database for MySQL que se ha descartado
 
@@ -45,15 +45,15 @@ Para restaurar un servidor de Azure Database for MySQL que se ha descartado, nec
  6. Desplácese por la sección Cuerpo de la solicitud y pegue lo siguiente sustituyendo la "Ubicación del servidor descartado", "submissionTimestamp" y "resourceId". En el caso de "restorePointInTime", especifique un valor de "submissionTimestamp" menos **15 minutos** para asegurarse de que el comando no tiene errores.
  
     ```json
-        {
-          "location": "Dropped Server Location",  
-          "properties": 
-              {
-                  "restorePointInTime": "submissionTimestamp - 15 minutes",
-                  "createMode": "PointInTimeRestore",
-                  "sourceServerId": "resourceId"
+    {
+        "location": "Dropped Server Location",  
+        "properties": 
+            {
+                "restorePointInTime": "submissionTimestamp - 15 minutes",
+                "createMode": "PointInTimeRestore",
+                "sourceServerId": "resourceId"
             }
-        }
+    }
     ```
 
 7. Si ve el código de respuesta 201 o 202, quiere decir que la solicitud de restauración se envió correctamente. 
