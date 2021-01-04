@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: 7c250f1351d83d213c5c7af5b00d7a648c5d8bc6
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 56654f09d3a92eec5b86d8c8e4cd76fec0639394
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499669"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97653051"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Notas de la versión del Explorador de Microsoft Azure Storage
 
@@ -567,7 +567,7 @@ La carga, descarga y copia entre regiones de discos se realiza mediante AzCopy v
   * Crear carpetas
   * Cargar, descargar, cambiar el nombre o eliminar archivos y carpetas
   * Administrar las propiedades y permisos de archivos y carpetas (derecha).
-    
+
     Otras características de blobs típicos, como la eliminación temporal y las instantáneas, no están disponibles actualmente. La administración de permisos solo está disponible cuando ha iniciado sesión. Además, cuando se trabaja en una cuenta de almacenamiento de ADLS Gen2, el Explorador de Storage utilizará AzCopy para todas las cargas y descargas, y usará de forma predeterminada el nombre y las credenciales de clave para todas las operaciones si están disponibles.
 * Después de los comentarios de los usuarios seguros, se puede utilizar de nuevo la interrupción de concesiones para interrumpir concesiones en varios blobs a la vez.
 

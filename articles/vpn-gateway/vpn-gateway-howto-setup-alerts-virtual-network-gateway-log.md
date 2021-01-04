@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 11/18/2020
 ms.author: alzam
-ms.openlocfilehash: 1f10799ab32b6cb26a8b3b5b343f65b960d71357
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 70cac6ef566ef52409cd9667708c2fc297e046f7
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96007008"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656621"
 ---
 # <a name="set-up-alerts-on-resource-log-events-from-vpn-gateway"></a>Configuración de alertas de eventos de registro de recursos de VPN Gateway
 
@@ -21,7 +21,7 @@ En este artículo se le ayuda a configurar alertas basadas en eventos de registr
 Los siguientes registros de recursos están disponibles en Azure:
 
 |***Nombre** _ | _*_Descripción_*_ |
-|---        | ---               |
+|--- | --- |
 |GatewayDiagnosticLog | Contiene los registros de recursos para los eventos de configuración de puerta de enlace, los cambios principales y los eventos de mantenimiento |
 |TunnelDiagnosticLog | Contiene los eventos de cambio del estado del túnel. Los eventos de conexión/desconexión del túnel tienen un motivo resumido para el cambio de estado si es aplicable |
 |RouteDiagnosticLog | Registra los cambios en rutas estáticas y eventos BGP que se producen en la puerta de enlace |

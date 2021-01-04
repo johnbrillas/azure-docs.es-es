@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions, devx-track-azurecli
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c42495ceab7108d20b0f0dedbf0cf94f5f9352d
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: ef2c9d7e2388d2da7a807fbf6b579360115a8323
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97509315"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97629806"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Inicio de sesión en una máquina virtual Windows en Azure mediante la autenticación de Azure Active Directory (versión preliminar)
 
@@ -333,6 +333,9 @@ Si ve el siguiente mensaje de error al iniciar una conexión de Escritorio remot
 ![Su cuenta está configurada para impedir el uso de este dispositivo.](./media/howto-vm-sign-in-azure-ad-windows/rbac-role-not-assigned.png)
 
 Compruebe que ha [configurado directivas de RBAC de Azure](../../virtual-machines/linux/login-using-aad.md) para la VM que concedan al usuario los roles de Inicio de sesión de administrador de máquina virtual o Inicio de sesión de usuario de máquina virtual:
+
+> [!NOTE]
+> Si tiene problemas con las asignaciones de roles de Azure, consulte [Solución de problemas de Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/troubleshooting#azure-role-assignments-limit).
  
 #### <a name="unauthorized-client"></a>Cliente no autorizado
 

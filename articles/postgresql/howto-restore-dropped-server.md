@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 11/03/2020
-ms.openlocfilehash: 81764294cc29ad74d5a77f2055f10498d69b59e5
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 591f01004cfba247112f702625ab05ddc0aaede3
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93342867"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97652932"
 ---
 # <a name="restore-a-dropped-azure-database-for-postgresql-server"></a>Restauración de un servidor descartado de Azure Database for PostgreSQL
 
@@ -29,8 +29,8 @@ Para restaurar un servidor descartado de Azure Database for PostgreSQL, necesita
 2. En Registro de actividad, haga clic en **Agregar filtro** como se muestra y establezca filtros para lo siguiente
 
     - **La suscripción** = la suscripción que hospeda el servidor eliminado.
-    - **Tipo de recurso** : servidores de Azure Database for PostgreSQL (Microsoft.DBforPostgreSQL/servers)
-    - **Operación** : elimine el servidor PostgreSQL (Microsoft.DBforPostgreSQL/servers/delete)
+    - **Tipo de recurso**: servidores de Azure Database for PostgreSQL (Microsoft.DBforPostgreSQL/servers)
+    - **Operación**: elimine el servidor PostgreSQL (Microsoft.DBforPostgreSQL/servers/delete)
  
     ![Registro de actividad filtrado para la operación de eliminación del servidor PostgreSQL](./media/howto-restore-dropped-server/activity-log-azure.png)
 
@@ -39,23 +39,26 @@ Para restaurar un servidor descartado de Azure Database for PostgreSQL, necesita
 
  4. Vaya a la [página de creación de la API de REST del servidor PostgreSQL](/rest/api/PostgreSQL/servers/create) y seleccione la pestaña **Probar** resaltada en verde. Inicie sesión con su cuenta de Azure.
 
- 5. Especifique las propiedades **resourceGroupName** , **serverName** (nombre del servidor eliminado) y **subscriptionId** en función del valor JSON del atributo resourceId capturado en el paso 3 anterior. La propiedad api-version está rellenada previamente y se puede dejar tal cual, como se muestra en la siguiente imagen.
+ 5. Especifique las propiedades **resourceGroupName**, **serverName** (nombre del servidor eliminado) y **subscriptionId** en función del valor JSON del atributo resourceId capturado en el paso 3 anterior. La propiedad api-version está rellenada previamente y se puede dejar tal cual, como se muestra en la siguiente imagen.
 
     ![Creación de un servidor mediante la API de REST](./media/howto-restore-dropped-server/create-server-from-rest-api-azure.png)
   
  6. Desplácese por la sección Cuerpo de la solicitud y pegue lo siguiente sustituyendo la "Ubicación del servidor descartado", "submissionTimestamp" y "resourceId". En el caso de "restorePointInTime", especifique un valor de "submissionTimestamp" menos **15 minutos** para asegurarse de que el comando no tiene errores.
+    
     ```json
-        {
-          "location": "Dropped Server Location",  
-          "properties": 
-              {
-                  "restorePointInTime": "submissionTimestamp - 15 minutes",
-                  "createMode": "PointInTimeRestore",
-                  "sourceServerId": "resourceId"
-            }
-        }
+    {
+      "location": "Dropped Server Location",  
+      "properties": 
+      {
+        "restorePointInTime": "submissionTimestamp - 15 minutes",
+        "createMode": "PointInTimeRestore",
+        "sourceServerId": "resourceId"
+      }
+    }
     ```
+
     Por ejemplo, si la hora actual es 2020-11-02T23:59:59.0000000Z, se recomienda una restauración a un momento dado de un mínimo de 15 minutos antes, 2020-11-02T23:44:59.0000000Z.
+
     > [!Important]
     > Hay un límite de tiempo de cinco días después de la eliminación del servidor. Transcurrido este tiempo, es previsible un error, ya que no es posible encontrar el archivo de copia de seguridad.
     
@@ -63,8 +66,8 @@ Para restaurar un servidor descartado de Azure Database for PostgreSQL, necesita
 
     La creación del servidor puede llevar tiempo según el tamaño de la base de datos y los recursos de proceso aprovisionados en el servidor original. El estado de la restauración se puede supervisar desde el registro de actividad mediante el filtrado de 
    - **La suscripción** = su suscripción.
-   - **Tipo de recurso** : servidores de Azure Database for PostgreSQL (Microsoft.DBforPostgreSQL/servers) 
-   - **Operación** : actualización de la creación del servidor PostgreSQL
+   - **Tipo de recurso**: servidores de Azure Database for PostgreSQL (Microsoft.DBforPostgreSQL/servers) 
+   - **Operación**: actualización de la creación del servidor PostgreSQL
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Si está intentando restaurar un servidor en un plazo de cinco días y sigue recibiendo un error después de seguir los pasos descritos anteriormente, abra un incidente de soporte técnico para obtener ayuda. Si intenta restaurar un servidor descartado pasados cinco días, se devolverá un error porque no se encontrará el archivo de copia de seguridad. No abra una incidencia de soporte técnico en este caso. El equipo de soporte técnico no puede proporcionar asistencia si la copia de seguridad se elimina del sistema. 

@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 739be373992fcd994f085f8571675779e450bfee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca24a781f4f3ad5c210813dabbb896de35056ed6
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87090219"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588716"
 ---
 # <a name="collaborative-coding-with-git"></a>Codificación colaborativa con GIT
 
@@ -39,7 +39,7 @@ También puede crear una nueva rama con el siguiente comando de bash de Git en W
 git checkout -b <new branch name> <base branch name>
 
 ```
-Si no especifica un valor para \<base branch name>, la nueva rama se basa en `master`. 
+Si no especifica un valor para \<base branch name>, la nueva rama se basa en `main`. 
 
 Para cambiar a la rama de trabajo, ejecute el siguiente comando: 
 
@@ -47,7 +47,7 @@ Para cambiar a la rama de trabajo, ejecute el siguiente comando:
 git checkout <working branch name>
 ```
 
-Después de cambiar a la rama de trabajo, puede empezar a desarrollar código o artefactos de documentación para completar el elemento de trabajo. La ejecución de `git checkout master` le devuelve a la rama `master`.
+Después de cambiar a la rama de trabajo, puede empezar a desarrollar código o artefactos de documentación para completar el elemento de trabajo. La ejecución de `git checkout main` le devuelve a la rama `main`.
 
 Un procedimiento recomendado es crear una rama de Git para cada elemento de trabajo del caso de usuario. A continuación, para cada elemento de trabajo de la tarea, puede crear una rama basada en la rama del caso de usuario. Organice las ramas en una jerarquía que se corresponda con la relación entre el caso de usuario y la tarea cuando tenga varias personas trabajando en casos de usuario diferentes para el mismo proyecto o en tareas diferentes para el mismo caso de usuario. Puede minimizar los conflictos si cada miembro del equipo trabaja en una rama diferente o en código u otros artefactos diferentes al compartir una rama. 
 
@@ -105,7 +105,7 @@ Cuando vuelva a **Repos** en el panel de navegación izquierdo, puede ver que ha
 También puede utilizar los comandos de bash de Git siguientes para combinar la rama de trabajo `script` con la rama de base y eliminar la rama de trabajo después de la combinación:
 
 ```bash
-git checkout master
+git checkout main
 git merge script
 git branch -d script
 ```

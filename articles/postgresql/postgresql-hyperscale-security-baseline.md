@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 324a2acbf069e8e23246b99a7d79a3195f737a56
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 836cf4600e353da61673ec8ee5df8f30fb4b9562
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492308"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97629857"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-postgresql---hyperscale-citus"></a>Línea de base de seguridad de Azure para Azure Database for PostgreSQL: Hiperescala (Citus)
 
@@ -582,7 +582,7 @@ Además, Azure Resource Manager tiene la capacidad de exportar la plantilla en n
 
 **Guía**: Azure Database for PostgreSQL: actualmente Hiperescala (Citus) no admite directamente identidades administradas. Al crear el servidor de Azure Database for PostgreSQL, se deben proporcionar las credenciales de un usuario administrador. Puede crear roles de usuario adicionales en la interfaz de Azure Portal.
 
-- [Creación de una instancia de Azure Database for PostgreSQL: Hiperescala (Citus)](./quickstart-create-hyperscale-portal.md#create-an-azure-database-for-postgresql---hyperscale-citus)
+- [Creación de una instancia de Azure Database for PostgreSQL: Hiperescala (Citus)](./quickstart-create-hyperscale-portal.md#create-a-hyperscale-citus-server-group)
 
 - [Creación de roles de usuario adicionales](./howto-hyperscale-create-users.md#how-to-create-additional-user-roles)
 

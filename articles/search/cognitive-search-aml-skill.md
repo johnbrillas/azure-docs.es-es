@@ -8,12 +8,12 @@ ms.author: magottei
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/12/2020
-ms.openlocfilehash: d1e6f4e16e3eda8519913a9e2ae14f7cc909bf61
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 6cefe543ea8ba992b028448070bf041a77bfec64
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445462"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97630282"
 ---
 # <a name="aml-skill-in-an-azure-cognitive-search-enrichment-pipeline"></a>Aptitud de AML en una canalización de enriquecimiento de Azure Cognitive Search
 
@@ -33,7 +33,7 @@ Como en las aptitudes integradas, una aptitud de **AML** tiene entradas y salida
 
 * Un [área de trabajo de AML](../machine-learning/concept-workspace.md)
 * Un [destino de proceso AML de Azure Kubernetes Service](../machine-learning/concept-compute-target.md) en esta área de trabajo con un [modelo implementado](../machine-learning/how-to-deploy-azure-kubernetes-service.md).
-  * El [destino de proceso debe tener SSL habilitado](../machine-learning/how-to-secure-web-service.md#deploy-on-aks-and-field-programmable-gate-array-fpga). Azure Cognitive Search solo permite el acceso los puntos de conexión **https**.
+  * El [destino de proceso debe tener SSL habilitado](../machine-learning/how-to-secure-web-service.md#deploy-on-azure-kubernetes-service). Azure Cognitive Search solo permite el acceso los puntos de conexión **https**.
   * No se pueden usar certificados autofirmados.
 
 ## <a name="odatatype"></a>@odata.type  

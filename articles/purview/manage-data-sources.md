@@ -1,18 +1,18 @@
 ---
 title: Administración de orígenes de datos en Azure Purview (versión preliminar)
 description: Obtenga información sobre cómo registrar nuevos orígenes de datos, administrar colecciones de orígenes de datos y ver orígenes en Azure Purview (versión preliminar).
-author: mamccrea
-ms.author: mamccrea
+author: viseshag
+ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/25/2020
-ms.openlocfilehash: 382c79cf77cb22d3cad1af41d6daa662fb00df4c
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 8714c3c3794186d6c21a0513bd7700764c000b6d
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96781171"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97694792"
 ---
 # <a name="manage-data-sources-in-azure-purview-preview"></a>Administración de orígenes de datos en Azure Purview (versión preliminar)
 
@@ -28,7 +28,6 @@ En este artículo, obtenga información sobre cómo registrar nuevos orígenes d
 * Azure Synapse Analytics (anteriormente SQL DW)
 * Azure Cosmos DB
 * Power BI
-* Teradata (versión preliminar)
 
 ## <a name="register-a-new-source"></a>Registro de un dispositivo nuevo
 

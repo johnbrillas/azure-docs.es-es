@@ -13,12 +13,12 @@ ms.reviewer: ''
 ms.date: 11/30/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 057599cc92e27e423d25d528d5d84b978ff4a911
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4c695466fbd50435a85c63842ceb50ce80765760
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95919106"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97630299"
 ---
 # <a name="resilient-end-user-experience"></a>Experiencia del usuario final resistente
 
@@ -58,7 +58,7 @@ Como parte del proceso de registro del proveedor de identidades externo, incluya
 
  2. Configure una directiva de perfil que permita a los usuarios [vincular la otra identidad a su cuenta](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/account-linking) después de iniciar sesión.
 
- 3. Notifique y permita que los usuarios [cambien a una IDP alternativa](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-ui-customization#configure-dynamic-custom-page-content-uri) si se produce alguna interrupción.
+ 3. Notifique y permita que los usuarios [cambien a una IDP alternativa](https://docs.microsoft.com/azure/active-directory-b2c/customize-ui-with-html#configure-dynamic-custom-page-content-uri) si se produce alguna interrupción.
 
 ## <a name="availability-of-multi-factor-authentication"></a>Disponibilidad de la autenticación multifactor
 
@@ -102,5 +102,5 @@ Pruebe periódicamente la disponibilidad de la red CDN y el rendimiento de la di
   - [Interfaces resistentes con procesos externos](resilient-external-processes.md)
   - [Resistencia a través de los procedimientos recomendados para desarrolladores](resilience-b2c-developer-best-practices.md)
   - [Resistencia mediante la supervisión y el análisis](resilience-with-monitoring-alerting.md)
-- [Resistencia de la compilación en la infraestructura de autenticación](resilience-in-infrastructure.md)
+- [Aumento de la resistencia en la infraestructura de autenticación](resilience-in-infrastructure.md)
 - [Aumento de la resistencia de la autenticación y autorización en las aplicaciones](resilience-app-development-overview.md)

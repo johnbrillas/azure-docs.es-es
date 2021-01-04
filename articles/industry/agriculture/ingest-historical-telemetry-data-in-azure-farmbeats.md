@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.custom: has-adal-ref
-ms.openlocfilehash: af1bee00261cd96f61a39389f31a52109f4e64b5
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 603f14d2076b5b74dde0b92a732f8fe816f6dd10
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675815"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656791"
 ---
 # <a name="ingest-historical-telemetry-data"></a>Ingesta de datos de telemetría históricos
 
@@ -42,17 +42,17 @@ Siga estos pasos:
 
 2. **Si utiliza la versión 1.2.7 o posterior de FarmBeats, omita los pasos a, b y c, y vaya al paso 3.** Para comprobar la versión de FarmBeats, seleccione el icono **Configuración** en la esquina superior derecha de la interfaz de usuario de FarmBeats.
 
-      a.  Vaya a **Azure Active Directory** > **Registros de aplicaciones** .
+      a.  Vaya a **Azure Active Directory** > **Registros de aplicaciones**.
 
       b. Seleccione el **Registro de aplicación** que se ha creado como parte de la implementación de FarmBeats. Tendrá el mismo nombre que el centro de datos de FarmBeats.
 
-      c. Seleccione **Exponer una API** > **Agregar una aplicación cliente** , escriba **04b07795-8ddb-461a-bbee-02f9e1bf7b46** y active **Autorizar ámbito** . De esta forma, se proporciona acceso a la CLI de Azure (Cloud Shell) para realizar los pasos siguientes:
+      c. Seleccione **Exponer una API** > **Agregar una aplicación cliente**, escriba **04b07795-8ddb-461a-bbee-02f9e1bf7b46** y active **Autorizar ámbito**. De esta forma, se proporciona acceso a la CLI de Azure (Cloud Shell) para realizar los pasos siguientes:
 
 3. Abra Cloud Shell. Esta opción está disponible en la barra de herramientas de la esquina superior derecha de Azure Portal.
 
     ![Barra de herramientas de Azure Portal](./media/get-drone-imagery-from-drone-partner/navigation-bar-1.png)
 
-4. Asegúrese de que el entorno esté establecido en **PowerShell** . De forma predeterminada, se establece en Bash.
+4. Asegúrese de que el entorno esté establecido en **PowerShell**. De forma predeterminada, se establece en Bash.
 
     ![Valor de la barra de herramientas de PowerShell](./media/get-sensor-data-from-sensor-partner/power-shell-new-1.png)
 
@@ -76,7 +76,7 @@ Siga estos pasos:
 
     ```
 
-8. Ejecute el siguiente script. El script solicita el id. de inquilino, que se puede obtener en la página **Azure Active Directory** > **Información general** .
+8. Ejecute el siguiente script. El script solicita el id. de inquilino, que se puede obtener en la página **Azure Active Directory** > **Información general**.
 
     ```azurepowershell-interactive
 
@@ -84,7 +84,7 @@ Siga estos pasos:
 
     ```
 
-9. Siga las instrucciones en pantalla para capturar los valores del **punto de conexión de API** , el **identificador de inquilino** , el **identificador de cliente** , el **secreto de cliente** y la **cadena de conexión de EventHub** .
+9. Siga las instrucciones en pantalla para capturar los valores del **punto de conexión de API**, el **identificador de inquilino**, el **identificador de cliente**, el **secreto de cliente** y la **cadena de conexión de EventHub**.
 
 
 ## <a name="create-device-or-sensor-metadata"></a>Creación de metadatos de dispositivo o sensor
@@ -96,51 +96,50 @@ Siga estos pasos:
  > [!NOTE]
  > Como asociado, solo tiene acceso para leer, crear y actualizar los metadatos. **La opción de eliminación está restringida.**
 
-- /**DeviceModel** : DeviceModel se corresponde con los metadatos del dispositivo, como el fabricante o el tipo de dispositivo, que es puerta de enlace o nodo.
-- /**Device** : Device se corresponde con un dispositivo físico presente en la granja.
-- /**SensorModel** : SensorModel se corresponde con los metadatos del sensor, por ejemplo, el fabricante, el tipo de sensor (analógico o digital) o la medida de sensor (como temperatura ambiente y presión).
-- /**Sensor** : El sensor corresponde a un sensor físico que registra valores. Un sensor normalmente se conecta a un dispositivo con un identificador de dispositivo.
+- /**DeviceModel**: DeviceModel se corresponde con los metadatos del dispositivo, como el fabricante o el tipo de dispositivo, que es puerta de enlace o nodo.
+- /**Device**: Device se corresponde con un dispositivo físico presente en la granja.
+- /**SensorModel**: SensorModel se corresponde con los metadatos del sensor, por ejemplo, el fabricante, el tipo de sensor (analógico o digital) o la medida de sensor (como temperatura ambiente y presión).
+- /**Sensor**: El sensor corresponde a un sensor físico que registra valores. Un sensor normalmente se conecta a un dispositivo con un identificador de dispositivo.
 
-
-|        DeviceModel   |  Sugerencias   |
-| ------- | -------             |
-|     Type (nodo, puerta de enlace)        |          Tipo de dispositivo: nodo o puerta de enlace      |
-|          Fabricante            |         Nombre del fabricante    |
-|  ProductCode                    |  Código de producto del dispositivo o nombre o número de modelo. Por ejemplo, EnviroMonitor#6800.  |
-|            Puertos          |     Nombre y tipo de puerto, que es digital o analógico.
-|     Nombre                 |  Nombre para identificar el recurso. Por ejemplo, nombre del modelo o nombre del producto.
-      Descripción     | Proporciona una descripción significativa del modelo.
-|    Propiedades          |    Propiedades adicionales del fabricante.   |
-|    **Dispositivo**             |                      |
-|   DeviceModelId     |     Identificador del modelo de dispositivo asociado.  |
-|  HardwareId          | Identificador único del dispositivo, como la dirección MAC.
-|  ReportingInterval        |   Intervalo de informes en segundos.
-|  Location            |  Latitud (de -90 a +90), longitud (de -180 a 180) y elevación (en metros) del dispositivo.
-|ParentDeviceId       |    Identificador del dispositivo primario al que está conectado este dispositivo. Por ejemplo, un nodo conectado a una puerta de enlace. Un nodo tiene parentDeviceId como puerta de enlace.  |
-|    Nombre            | Nombre para identificar el recurso. Los asociados de dispositivo deben enviar un nombre que sea coherente con el nombre del dispositivo del asociado. Si el nombre del dispositivo del asociado está definido por el usuario, este mismo nombre se debe propagar a FarmBeats.|
-|     Descripción       |      Proporciona una descripción significativa. |
-|     Propiedades    |  Propiedades adicionales del fabricante.
-|     **SensorModel**        |          |
-|       Type (analog, digital)          |      Tipo de sensor, ya sea analógico o digital.       |
-|          Fabricante            |       Fabricante del sensor.     |
-|     ProductCode| Código de producto o nombre o número de modelo. Por ejemplo, RS-CO2-N01. |
-|       SensorMeasures > Name       | Nombre de la medida del sensor. Solo se admiten minúsculas. Para medidas desde diferentes profundidades, especifique la profundidad. Por ejemplo, soil_moisture_15cm. Este nombre debe ser coherente con los datos de telemetría.  |
-|          SensorMeasures > DataType       |Tipo de datos de telemetría. Actualmente se admite doble.|
-|    SensorMeasures > Type    |Tipo de medida de los datos de telemetría del sensor. Los tipos definidos por el sistema son AmbientTemperature, CO2, Depth, ElectricalConductivity, LeafWetness, Length, LiquidLevel, Nitrate, O2, PH, Phosphate, PointInTime, Potassium, Pressure, RainGauge, RelativeHumidity, Salinity, SoilMoisture, SoilTemperature, SolarRadiation, State, TimeDuration, UVRadiation, UVIndex, Volume, WindDirection, WindRun, WindSpeed, Evapotranspiration y PAR. Para agregar más, consulte /ExtendedType API.|
-|        SensorMeasures > Unit              | Unidad de datos de telemetría del sensor. Las unidades definidas por el sistema son NoUnit, Celsius, Fahrenheit, Kelvin, Rankine, Pascal, Mercury, PSI, MilliMeter, CentiMeter, Meter, Inch, Feet, Mile, KiloMeter, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, Degree, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, Percentage, PartsPerMillion, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter, Centibar, DeciSiemensPerMeter, KiloPascal, VolumetricIonContent, Liter, MilliLiter, Seconds, UnixTimestamp, MicroMolPerMeterSquaredPerSecond e InchesPerHour. Para agregar más, consulte /ExtendedType API.|
-|    SensorMeasures > AggregationType    |  Los valores pueden ser none, average, maximum, minimum o StandardDeviation.  |
-|          Nombre            | Nombre para identificar un recurso. Por ejemplo, nombre del modelo o nombre del producto.  |
-|    Descripción        | Proporciona una descripción significativa del modelo.|
-|   Propiedades       |  Propiedades adicionales del fabricante.|
-|    **Sensor**      |          |
-| HardwareId          |   Identificador único del sensor establecido por el fabricante.|
-|  SensorModelId     |    Identificador del modelo de sensor asociado.|
-| Location          |  Latitud (de -90 a +90), longitud (de -180 a 180) y elevación (en metros) del sensor.|
-|   Port > Name        |  Nombre y tipo de puerto al que está conectado el sensor en el dispositivo. Debe ser el mismo nombre que el definido en el modelo de dispositivo.|
-|    DeviceID  |    Identificador del dispositivo al que está conectado el sensor. |
-| Nombre            |   Nombre para identificar el recurso. Por ejemplo, el nombre del sensor o del producto, y el número de modelo o el código del producto.|
-|    Descripción      | Proporciona una descripción significativa.|
-|    Propiedades        |Propiedades adicionales del fabricante.|
+| DeviceModel | Sugerencias |
+|--|--|
+| Type (nodo, puerta de enlace) | Tipo de dispositivo: nodo o puerta de enlace |
+| Fabricante | Nombre del fabricante |
+| ProductCode | Código de producto del dispositivo o nombre o número de modelo. Por ejemplo, EnviroMonitor#6800. |
+| Puertos | Nombre y tipo de puerto, que es digital o analógico. |
+| Nombre | Nombre para identificar el recurso. Por ejemplo, nombre del modelo o nombre del producto. |
+| Descripción | Proporciona una descripción significativa del modelo. |
+| Propiedades | Propiedades adicionales del fabricante. |
+| **Dispositivo** |  |
+| DeviceModelId | Identificador del modelo de dispositivo asociado. |
+| HardwareId | Identificador único del dispositivo, como la dirección MAC. |
+| ReportingInterval | Intervalo de informes en segundos. |
+| Location | Latitud (de -90 a +90), longitud (de -180 a 180) y elevación (en metros) del dispositivo. |
+| ParentDeviceId | Identificador del dispositivo primario al que está conectado este dispositivo. Por ejemplo, un nodo conectado a una puerta de enlace. Un nodo tiene parentDeviceId como puerta de enlace. |
+| Nombre | Nombre para identificar el recurso. Los asociados de dispositivo deben enviar un nombre que sea coherente con el nombre del dispositivo del asociado. Si el nombre del dispositivo del asociado está definido por el usuario, este mismo nombre se debe propagar a FarmBeats. |
+| Descripción | Proporciona una descripción significativa. |
+| Propiedades | Propiedades adicionales del fabricante. |
+| **SensorModel** |  |
+| Type (analog, digital) | Tipo de sensor, ya sea analógico o digital. |
+| Fabricante | Fabricante del sensor. |
+| ProductCode | Código de producto o nombre o número de modelo. Por ejemplo, RS-CO2-N01. |
+| SensorMeasures > Name | Nombre de la medida del sensor. Solo se admiten minúsculas. Para medidas desde diferentes profundidades, especifique la profundidad. Por ejemplo, soil_moisture_15cm. Este nombre debe ser coherente con los datos de telemetría. |
+| SensorMeasures > DataType | Tipo de datos de telemetría. Actualmente se admite doble. |
+| SensorMeasures > Type | Tipo de medida de los datos de telemetría del sensor. Los tipos definidos por el sistema son AmbientTemperature, CO2, Depth, ElectricalConductivity, LeafWetness, Length, LiquidLevel, Nitrate, O2, PH, Phosphate, PointInTime, Potassium, Pressure, RainGauge, RelativeHumidity, Salinity, SoilMoisture, SoilTemperature, SolarRadiation, State, TimeDuration, UVRadiation, UVIndex, Volume, WindDirection, WindRun, WindSpeed, Evapotranspiration y PAR. Para agregar más, consulte /ExtendedType API. |
+| SensorMeasures > Unit | Unidad de datos de telemetría del sensor. Las unidades definidas por el sistema son NoUnit, Celsius, Fahrenheit, Kelvin, Rankine, Pascal, Mercury, PSI, MilliMeter, CentiMeter, Meter, Inch, Feet, Mile, KiloMeter, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, Degree, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, Percentage, PartsPerMillion, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter, Centibar, DeciSiemensPerMeter, KiloPascal, VolumetricIonContent, Liter, MilliLiter, Seconds, UnixTimestamp, MicroMolPerMeterSquaredPerSecond e InchesPerHour. Para agregar más, consulte /ExtendedType API. |
+| SensorMeasures > AggregationType | Los valores pueden ser none, average, maximum, minimum o StandardDeviation. |
+| Nombre | Nombre para identificar un recurso. Por ejemplo, nombre del modelo o nombre del producto. |
+| Descripción | Proporciona una descripción significativa del modelo. |
+| Propiedades | Propiedades adicionales del fabricante. |
+| **Sensor** |  |
+| HardwareId | Identificador único del sensor establecido por el fabricante. |
+| SensorModelId | Identificador del modelo de sensor asociado. |
+| Location | Latitud (de -90 a +90), longitud (de -180 a 180) y elevación (en metros) del sensor. |
+| Port > Name | Nombre y tipo de puerto al que está conectado el sensor en el dispositivo. Debe ser el mismo nombre que el definido en el modelo de dispositivo. |
+| DeviceID | Identificador del dispositivo al que está conectado el sensor. |
+| Nombre | Nombre para identificar el recurso. Por ejemplo, el nombre del sensor o del producto, y el número de modelo o el código del producto. |
+| Descripción | Proporciona una descripción significativa. |
+| Propiedades | Propiedades adicionales del fabricante. |
 
 Para más información sobre los objetos, consulte [Swagger](https://aka.ms/FarmBeatsDatahubSwagger).
 
@@ -192,9 +191,9 @@ access_token = token_response.get('access_token')
 
 Estos son los encabezados de solicitud más comunes que deben especificarse al realizar una llamada API al centro de datos de FarmBeats:
 
-- **Content-Type** : application/json
-- **Autorización** : Bearer <Access-Token>
-- **Accept** : application/json
+- **Content-Type**: application/json
+- **Autorización**: Bearer <Access-Token>
+- **Accept**: application/json
 
 ### <a name="input-payload-to-create-metadata"></a>Carga de entrada para crear metadatos
 
@@ -431,9 +430,9 @@ A continuación se incluye un mensaje de telemetría de ejemplo:
 
 ### <a name="cant-view-telemetry-data-after-ingesting-historicalstreaming-data-from-your-sensors"></a>No se pueden ver los datos de telemetría después de ingerir datos históricos o de streaming de los sensores
 
-**Síntoma** : hay dispositivos o sensores implementados, y ha creado los dispositivos o sensores en FarmBeats y ha ingerido la telemetría en EventHub, pero no puede obtener ni ver los datos de telemetría en FarmBeats.
+**Síntoma**: hay dispositivos o sensores implementados, y ha creado los dispositivos o sensores en FarmBeats y ha ingerido la telemetría en EventHub, pero no puede obtener ni ver los datos de telemetría en FarmBeats.
 
-**Acción correctiva** :
+**Acción correctiva**:
 
 1. Asegúrese de que ha realizado correctamente el registro del asociado. Para comprobarlo, vaya a Swagger de Datahub, vaya a /Partner API, realice una operación get y compruebe si el asociado está registrado. Si no es así, siga los [pasos que se indican aquí](get-sensor-data-from-sensor-partner.md#enable-device-integration-with-farmbeats) para agregar un asociado.
 

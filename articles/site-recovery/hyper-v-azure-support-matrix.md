@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 7/14/2020
 ms.author: raynew
-ms.openlocfilehash: 7466f037f0a39b67023b9ebcc27c2e19b27f42ab
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 79558bd2c8e9bfec0aff47d254944977d271a762
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96485270"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587821"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Matriz de compatibilidad para la recuperación ante desastres de máquinas virtuales locales de Hyper-V en Azure
 
@@ -131,15 +131,16 @@ Varias rutas (MPIO) | Sí | Sí
 Almacenamiento con redundancia local | Sí | Sí
 Almacenamiento con redundancia geográfica | Sí | Sí
 Almacenamiento con redundancia geográfica con acceso de lectura | Sí | Sí
-Almacenamiento de acceso esporádico | Sin | Sin
-Almacenamiento de acceso frecuente| Sin | No
-Blobs en bloques | No | Sin
+Almacenamiento con redundancia de zona | Sin | Sin
+Almacenamiento de acceso esporádico | Sin | No
+Almacenamiento de acceso frecuente| No | Sin
+Blobs en bloques | No | No
 Cifrado en reposo (SSE)| Sí | Sí
 Cifrado en reposo (CMK) <br></br> (Solo para conmutación por error en discos administrados)| Sí (a través del módulo PowerShell Az 3.3.0 en adelante) | Sí (a través del módulo PowerShell Az 3.3.0 en adelante)
 Cifrado de datos en reposo doble <br></br> (Solo para conmutación por error en discos administrados) <br></br> Más información sobre las regiones admitidas para [Windows](../virtual-machines/disk-encryption.md) y [Linux](../virtual-machines/disk-encryption.md) | Sí (a través del módulo PowerShell Az 3.3.0 en adelante) | Sí (a través del módulo PowerShell Az 3.3.0 en adelante)
 Premium Storage | Sí | Sí
 Standard Storage | Sí | Sí
-Servicio Import/Export | Sin | No
+Servicio Import/Export | No | No
 Cuentas de Azure Storage con firewall habilitado | Sí. Para almacenamiento de destino y en caché. | Sí. Para almacenamiento de destino y en caché.
 Modificar cuenta de almacenamiento | No. No se puede modificar la cuenta de Azure Storage de destino después de habilitar la replicación. Para modificarla, deshabilite la recuperación ante desastres y vuelva a habilitarla. | No
 Opción de transferencia segura | Sí
@@ -177,7 +178,7 @@ Tipo de máquina virtual | Generación 1<br/><br/> Generación 2: Windows | Las 
 
 **Acción** |  **Hyper-V con VMM** | **Hyper-V sin VMM**
 --- | --- | ---
-Mover el almacén entre grupos de recursos<br/><br/> Entre las suscripciones | No | Sin
+Mover el almacén entre grupos de recursos<br/><br/> Entre las suscripciones | No | No
 Mover el almacenamiento, la red y las máquinas virtuales de Azure entre grupos de recursos<br/><br/> Entre las suscripciones | No | No
 
 > [!NOTE]

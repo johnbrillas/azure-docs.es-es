@@ -13,12 +13,12 @@ ms.date: 10/27/2020
 ms.author: hirsin
 ms.reviewer: mmacy, hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 909c8910a86734b0a34787f75c233975cd3503c3
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: ceb5acbee2e572b1859a5577b58dd586fc924b3b
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96518250"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97653289"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Tokens de acceso de la Plataforma de identidad de Microsoft
 
@@ -140,8 +140,8 @@ Para garantizar que el tamaño del token no supere los límites de tamaño del e
        }
      }
   ...
- }
- ```
+}
+```
 
 Puede usar `BulkCreateGroups.ps1`, que se proporciona en la carpeta [scripts de creación de aplicaciones](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/5-WebApp-AuthZ/5-2-Groups/AppCreationScripts), para ayudar a probar los escenarios de uso por encima del límite.
 
@@ -186,7 +186,7 @@ No todas las aplicaciones deben validar los tokens. Las aplicaciones deben valid
 
 Si no se aplica ninguno de los escenarios anteriores, la aplicación no se beneficiará de la validación del token y puede suponer un riesgo de seguridad y confiabilidad si se toman decisiones en función de la validez del token.  Los clientes públicos como aplicaciones nativas o SPA no se benefician de la validación de los tokens: la aplicación se comunica directamente con el IDP, por lo que la protección SSL garantiza que los tokens son válidos.
 
- Las API y aplicaciones web solo deben validar los tokens que tengan una notificación `aud` que coincida con su aplicación; otros recursos pueden tener reglas de validación de tokens personalizadas. Por ejemplo, los tokens para Microsoft Graph no se validarán según estas reglas debido a su formato propietario. La validación y aceptación de tokens destinados a otro recurso es un ejemplo del problema de [intermediario confundido](https://cwe.mitre.org/data/definitions/441.html).
+Las API y aplicaciones web solo deben validar los tokens que tengan una notificación `aud` que coincida con su aplicación; otros recursos pueden tener reglas de validación de tokens personalizadas. Por ejemplo, los tokens para Microsoft Graph no se validarán según estas reglas debido a su formato propietario. La validación y aceptación de tokens destinados a otro recurso es un ejemplo del problema de [intermediario confundido](https://cwe.mitre.org/data/definitions/441.html).
 
 Si la aplicación necesita validar un id_token o un access_token según lo anterior, la aplicación primero debe validar la firma y el emisor del token con respecto a los valores del documento de detección de OpenID. Por ejemplo, la versión independiente del inquilino del documento se encuentra en [https://login.microsoftonline.com/common/.well-known/openid-configuration](https://login.microsoftonline.com/common/.well-known/openid-configuration).
 

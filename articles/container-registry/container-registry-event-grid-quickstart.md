@@ -4,12 +4,12 @@ description: En este tutorial, habilita eventos de Event Grid para el registro d
 ms.topic: article
 ms.date: 08/23/2018
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 6058fceb873e2b26da2d30dadba456e2a625f3f2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 2d13dd0ec5e50086e674b215d93917d6173d5af9
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93074223"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97694401"
 ---
 # <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>Inicio rápido: Envío de eventos de registro de contenedor privado a Event Grid
 
@@ -78,7 +78,7 @@ Para implementar la aplicación de ejemplo, establezca `SITE_NAME` en un nombre 
 ```azurecli-interactive
 SITE_NAME=<your-site-name>
 
-az group deployment create \
+az deployment group create \
     --resource-group $RESOURCE_GROUP_NAME \
     --template-uri "https://raw.githubusercontent.com/Azure-Samples/azure-event-grid-viewer/master/azuredeploy.json" \
     --parameters siteName=$SITE_NAME hostingPlanName=$SITE_NAME-plan
@@ -206,7 +206,7 @@ Felicidades. Si ve los eventos `ImagePushed` y `ImageDeleted`, el registro enví
 
 Una vez que haya terminado con los recursos creados en este inicio rápido, puede eliminarlos todos con el siguiente comando de la CLI de Azure. Al eliminar un grupo de recursos, se eliminan de manera permanente todos los recursos que contiene.
 
-**ADVERTENCIA** : Esta operación es irreversible. Asegúrese de que ya no necesita ninguno de los recursos en el grupo antes de ejecutar el comando.
+**ADVERTENCIA**: Esta operación es irreversible. Asegúrese de que ya no necesita ninguno de los recursos en el grupo antes de ejecutar el comando.
 
 ```azurecli-interactive
 az group delete --name $RESOURCE_GROUP_NAME
