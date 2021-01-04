@@ -2,14 +2,14 @@
 title: Recuperación de archivos y carpetas desde una copia de seguridad de máquina virtual de Azure
 description: En este artículo, aprenderá a recuperar archivos y carpetas desde un punto de recuperación de la máquina virtual de Azure.
 ms.topic: conceptual
-ms.date: 03/01/2019
+ms.date: 03/12/2020
 ms.custom: references_regions
-ms.openlocfilehash: b9d5c90634dac3229e756ad93c10db91b268080c
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 4d34fc48e5d16275d0225a1cef4b5fa63f0b66d6
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94841169"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97511661"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperación de archivos desde una copia de seguridad de máquina virtual de Azure
 
@@ -156,7 +156,7 @@ Al ejecutar el archivo ejecutable, el sistema operativo monta los nuevos volúme
 
    ![Volúmenes de recuperación conectados](./media/backup-azure-restore-files-from-vm/volumes-attached.png)
 
-**Para máquinas virtuales de las que se ha hecho una copia de seguridad con discos de gran tamaño (Windows)**
+#### <a name="for-backed-up-vms-with-large-disks-windows"></a>Para máquinas virtuales de las que se ha hecho una copia de seguridad con discos de gran tamaño (Windows)
 
 Si el proceso de recuperación de archivos se bloquea después de ejecutar el script de restauración de archivos (los discos no se montan nunca o se montan pero no aparecen los volúmenes), realice los pasos siguientes:
   
@@ -182,7 +182,7 @@ En Linux, los volúmenes del punto de recuperación se montan en la carpeta en q
   ![Menú Recuperación de archivos de Linux](./media/backup-azure-restore-files-from-vm/linux-mount-paths.png)
 
 
-**Para máquinas virtuales de las que se ha hecho una copia de seguridad con discos de gran tamaño (Linux)**
+#### <a name="for-backed-up-vms-with-large-disks-linux"></a>Para máquinas virtuales de las que se ha hecho una copia de seguridad con discos de gran tamaño (Linux)**
 
 Si el proceso de recuperación de archivos se bloquea después de ejecutar el script de restauración de archivos (los discos no se montan nunca o se montan pero no aparecen los volúmenes), realice los pasos siguientes:
 

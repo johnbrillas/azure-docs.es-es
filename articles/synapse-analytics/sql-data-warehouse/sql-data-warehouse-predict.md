@@ -11,12 +11,12 @@ ms.date: 07/21/2020
 ms.author: anjangsh
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: ce77a169e28e21aa37be2a49997a58ee42c93807
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: b1a2e802f66132a88060fb74831781055897b077
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96510835"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093662"
 ---
 # <a name="score-machine-learning-models-with-predict"></a>Puntuación de modelos de Machine Learning con PREDICT
 

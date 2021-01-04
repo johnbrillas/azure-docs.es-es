@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: machine-learning
 ms.date: 09/13/2020
-ms.openlocfilehash: 8250f7154cfb2739d065980284da67a200680d89
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 805bc2aecda37599234c81dd928868d8c14aea4e
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95919243"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97091996"
 ---
 # <a name="train-machine-learning-models"></a>Entrenamiento de modelos de Machine Learning
 Apache Spark en Azure Synapse Analytics permite el aprendizaje automático con macrodatos, lo que proporciona la capacidad de obtener información valiosa de grandes cantidades de datos estructurados, no estructurados y en rápido movimiento. Existen varias opciones cuando se entrenan modelos de Machine Learning mediante Azure Spark en Azure Synapse Analytics: Apache Spark MLlib, Azure Machine Learning y otras bibliotecas de código abierto. 
@@ -44,7 +44,7 @@ La biblioteca Microsoft Machine Learning para Apache Spark es [MMLSpark](https:/
 MMLSpark proporciona una capa sobre las API de bajo nivel de SparkML cuando se crean modelos de aprendizaje automático escalables, como las cadenas de indexación, la conversión de datos en un diseño esperado por los algoritmos de aprendizaje automático y el ensamblado de vectores de características. La biblioteca MMLSpark simplifica estas y otras tareas comunes para la creación de modelos en PySpark.
 
 ## <a name="automated-ml-in-azure-machine-learning"></a>Aprendizaje automático automatizado en Azure Machine Learning 
-Azure Machine Learning es un entorno en la nube que permite entrenar, implementar, automatizar, administrar y realizar un seguimiento de los modelos de aprendizaje automático. ML automatizado (AutoML) en Azure Machine Learning acepta tanto valores de configuración como datos de entrenamiento y, después, recorre automáticamente combinaciones de diferentes métodos de estandarización o normalización de características, modelos y valores de hiperparámetros hasta obtener el mejor modelo. 
+Azure Machine Learning es un entorno en la nube que permite entrenar, implementar, automatizar, administrar y realizar un seguimiento de los modelos de aprendizaje automático. ML automatizado en Azure Machine Learning acepta tanto valores de configuración como datos de entrenamiento y, después, recorre automáticamente combinaciones de diferentes métodos de estandarización o normalización de características, modelos y valores de hiperparámetros hasta obtener el mejor modelo. 
 
 Si se usa ML automatizado en Azure Synapse Analytics, se puede aprovechar la integración profunda entre los distintos servicios para simplificar la autenticación y el entrenamiento de modelos. 
 

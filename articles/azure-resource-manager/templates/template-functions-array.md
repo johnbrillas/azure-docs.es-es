@@ -1,18 +1,18 @@
 ---
 title: 'Funciones de plantillas: matrices'
-description: Describe las funciones que se usan en una plantilla de Azure Resource Manager para trabajar con matrices.
+description: Se describen las funciones que se usan en una plantilla de Azure Resource Manager para trabajar con matrices.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 85f910f6143fd16f996a200172d0efd852897d8c
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 40a6815bb10ce9725405d68498b9a554706f3af8
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96004626"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920541"
 ---
 # <a name="array-functions-for-arm-templates"></a>Funciones de matriz para plantillas de Resource Manager
 
-Resource Manager proporciona varias funciones para trabajar con matrices en la plantilla de Azure Resource Manager (ARM).
+Resource Manager proporciona varias funciones para trabajar con matrices en la plantilla de Resource Manager:
 
 * [array](#array)
 * [concat](#concat)
@@ -889,7 +889,7 @@ Puede usar esta función con una matriz para especificar el número de iteracion
 
 ---
 
-Para más información sobre cómo usar esta función con una matriz, vea [Creación de varias instancias de recursos en el Administrador de recursos de Azure](copy-resources.md).
+Para más información sobre el uso de esta función con una matriz, consulte [Iteración de recursos en las plantillas de Resource Manager](copy-resources.md).
 
 ## <a name="max"></a>max
 
@@ -1381,4 +1381,4 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para obtener una descripción de las secciones de una plantilla de Azure Resource Manager, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](template-syntax.md).
+* Para obtener una descripción de las secciones de una plantilla de ARM, vea [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](template-syntax.md).

@@ -10,12 +10,12 @@ ms.date: 11/09/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: e3503a9eef5c11db35684ca61fb1ee39525a465d
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 9f2b0dccde0532646457a0841fc2798e103d8cc7
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427605"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347955"
 ---
 # <a name="configure-object-replication-for-block-blobs"></a>Configuración de la replicación de objetos para blobs en bloques
 
@@ -314,7 +314,7 @@ $destPolicy = Get-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
 $destPolicy | ConvertTo-Json -Depth 5 > c:\temp\json.txt
 ```
 
-Para usar el archivo JSON para configurar la directiva de replicación en la cuenta de origen con PowerShell, recupere el archivo local y realice la conversión de JSON a un objeto. Después, llame al comando [Set-AzStorageObjectReplicationPolicy](/powershell/module/az.storage/set-azstorageobjectreplicationpolicy) para configurar la directiva en la cuenta de origen, tal y como se muestra en el ejemplo siguiente. No olvide reemplazar los valores entre corchetes angulares y la ruta de acceso del archivo por sus propios valores:
+Para usar el archivo JSON para definir la directiva de replicación en la cuenta de origen con PowerShell, recupere el archivo local y realice la conversión de JSON a un objeto. Después, llame al comando [Set-AzStorageObjectReplicationPolicy](/powershell/module/az.storage/set-azstorageobjectreplicationpolicy) para configurar la directiva en la cuenta de origen, tal y como se muestra en el ejemplo siguiente. No olvide reemplazar los valores entre corchetes angulares y la ruta de acceso del archivo por sus propios valores:
 
 ```powershell
 $object = Get-Content -Path C:\temp\json.txt | ConvertFrom-Json

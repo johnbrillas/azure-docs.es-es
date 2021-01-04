@@ -5,13 +5,13 @@ author: deborahc
 ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/10/2020
-ms.openlocfilehash: 58e7d54750da86b8a700a4f2195bc4cfa012ae4b
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.date: 12/11/2020
+ms.openlocfilehash: a740ad62dacc9a29cab1cc144f1789e125ec2e89
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93092694"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368586"
 ---
 # <a name="frequently-asked-questions-about-autoscale-provisioned-throughput-in-azure-cosmos-db"></a>Preguntas más frecuentes sobre el rendimiento aprovisionado por Escalabilidad automática en Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -43,7 +43,7 @@ En las cuentas con una sola región de escritura, la tasa de escalabilidad autom
 En las cuentas con varias regiones de escritura, la tasa de escalabilidad automática por cada 100 RU/s es la misma que la tasa del rendimiento aprovisionado estándar (manual) de varias regiones de escritura. En la factura, verá el medidor de varias regiones de escritura existente. Dado que las tarifas son las mismas, si usa la escalabilidad automática, verá la misma cantidad que con el rendimiento estándar.
 
 ### <a name="does-autoscale-work-with-reserved-capacity"></a>¿Funciona la escalabilidad automática con capacidad reservada?
-Sí. Al adquirir capacidad reservada para las cuentas con varias regiones de escritura, el descuento por reserva de los recursos de escalabilidad automática se aplica al uso del medidor con una proporción de 1,5 * la [proporción de la región específica](../cost-management-billing/reservations/understand-cosmosdb-reservation-charges.md#reservation-discount-per-region). 
+Sí. Al adquirir capacidad reservada para cuentas con regiones de escritura únicas, el descuento por reserva de los recursos de escalabilidad automática se aplica al uso del medidor con una proporción de 1,5 * la [proporción de la región específica](../cost-management-billing/reservations/understand-cosmosdb-reservation-charges.md#reservation-discount-per-region). 
 
 La capacidad reservada con varias regiones de escritura funciona del mismo modo para la escalabilidad automática y el rendimiento aprovisionado estándar (manual). Consulte [Capacidad reservada de Azure Cosmos DB](cosmos-db-reserved-capacity.md).
 
@@ -109,9 +109,9 @@ Cuando se envía una solicitud para aumentar el número máximo de RU/s, `Tmax`,
 #### <a name="lowering-the-max-rus"></a>Reducción del número máximo de RU/s
 Al reducir el número máximo de RU/s, el valor mínimo que se puede establecer es: `MAX(4000, highest max RU/s ever provisioned / 10, current storage in GB * 100)`, redondeado en miles de RU/s. 
 
-Ejemplo 1: Supongamos que tiene un contenedor con escalabilidad automática con un máximo de 20 000 RU/s (que se escalan entre 2000 y 20 000 RU/s) y 50 GB de almacenamiento. El valor mínimo más bajo que puede establecer como número máximo de RU/s es: MAX(4000, 20 000 / 10, **50 * 100** ) = 5000 RU/s (que se escalan entre 500 y 5000 RU/s).
+Ejemplo 1: Supongamos que tiene un contenedor con escalabilidad automática con un máximo de 20 000 RU/s (que se escalan entre 2000 y 20 000 RU/s) y 50 GB de almacenamiento. El valor mínimo más bajo que puede establecer como número máximo de RU/s es: MAX(4000, 20 000 / 10, **50 * 100**) = 5000 RU/s (que se escalan entre 500 y 5000 RU/s).
 
-Ejemplo 2: Supongamos que tiene un contenedor con escalabilidad automática con un máximo de 100 000 RU/s y 100 GB de almacenamiento. Ahora, escale el número máximo de RU/s hasta 150 000 RU/s (que se escalan entre 15 000 y 150 000 RU/s). El valor mínimo más bajo que puede establecer ahora como número máximo RU/s es: MAX(4 000, **150 000 / 10** , 100 * 100) = 15 000 RU/s (que se escalan entre 1500 y 15 000 RU/s). 
+Ejemplo 2: Supongamos que tiene un contenedor con escalabilidad automática con un máximo de 100 000 RU/s y 100 GB de almacenamiento. Ahora, escale el número máximo de RU/s hasta 150 000 RU/s (que se escalan entre 15 000 y 150 000 RU/s). El valor mínimo más bajo que puede establecer ahora como número máximo RU/s es: MAX(4 000, **150 000 / 10**, 100 * 100) = 15 000 RU/s (que se escalan entre 1500 y 15 000 RU/s). 
 
 En el caso de una base de datos de rendimiento compartido, al reducir el número máximo de RU/s, el valor mínimo que se puede establecer es: `MAX(4000, highest max RU/s ever provisioned / 10, current storage in GB * 100,  4000 + (MAX(Container count - 25, 0) * 1000))`, redondeado en miles de RU/s.  
 

@@ -10,27 +10,36 @@ ms.subservice: sql-dw
 ms.date: 11/11/2020
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8a345c2feaeea933af3fdce591283716443fbfda
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.custom: references_regions
+ms.openlocfilehash: 4ecf8a578343a10e7c1ddb0ac5e9345a652bc9af
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96621678"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97511712"
 ---
 # <a name="enabling-synapse-workspace-features-on-a-dedicated-sql-pool-formerly-sql-dw-in-your-region"></a>Habilitación de las características del área de trabajo de Synapse en un grupo de SQL dedicado (anteriormente, SQL DW) en su región
 
 ## <a name="regions-not-supported"></a>Regiones no admitidas 
 En la tabla siguiente se resume en qué regiones no se admite la capacidad de habilitar las características de área de trabajo de Synapse en un grupo de SQL dedicado existente (anteriormente SQL DW). Consúltela en otro momento para ver cuándo estará disponible su región.
 
+\* indica que una programación específica para la región no está disponible actualmente.
+
 | Region | Disponibilidad del área de trabajo de Synapse |
 |:--- |:--- |:--- |
+| Centro de Australia 1 |\* |
+| Centro de Australia 2 |\* |
 | Este de China 2 |31 de marzo de 2021 |
 | Norte de China 2 |31 de marzo de 2021 |
-| Corea del Sur |31 de marzo de 2021 |
 | Sur de India |31 de marzo de 2021 |
 | India occidental |31 de marzo de 2021 |
+| Corea del Sur |31 de marzo de 2021 |
 | Oeste de Suiza |31 de marzo de 2021 |
 | Norte de Emiratos Árabes Unidos |31 de marzo de 2021 |
+ 
+ 
+> [!NOTE]
+> La lista de regiones anterior solo está relacionada con las regiones en las que la opción para habilitar las características del área de trabajo de Synapse no esté disponible actualmente. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 Introducción al [área de trabajo de Synapse y Studio](../get-started.md).

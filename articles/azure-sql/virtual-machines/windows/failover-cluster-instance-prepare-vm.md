@@ -7,17 +7,18 @@ author: MashaMSFT
 editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: a9289fad6f7ae1030628bedcf1a62cacc0b1e23a
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 52d6bc97245423a4add392ab05634d21bcf83a0d
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94564487"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358019"
 ---
 # <a name="prepare-virtual-machines-for-an-fci-sql-server-on-azure-vms"></a>Preparación de máquinas virtuales para una FCI (SQL Server en máquinas virtuales de Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -47,19 +48,22 @@ La característica de clúster de conmutación por error requiere que las máqui
 
 Seleccione cuidadosamente la opción de disponibilidad de la máquina virtual que coincida con la configuración de clúster prevista: 
 
- - **Discos compartidos de Azure**: [Conjunto de disponibilidad](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) configurado con el dominio de error y el dominio de actualización establecido en 1, y colocado dentro de un [grupo con ubicación por proximidad](../../../virtual-machines/windows/proximity-placement-groups-portal.md).
- - **Recursos compartidos de archivos Premium**: [Conjunto de disponibilidad](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) o [zona de disponibilidad](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address). Los recursos compartidos de archivos Premium son la única opción de almacenamiento compartido si elige las zonas de disponibilidad como configuración de disponibilidad para las máquinas virtuales. 
- - **Espacios de almacenamiento directo**: [Conjunto de disponibilidad](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set).
+- **Discos compartidos de Azure**: la opción de disponibilidad varía si usa discos SSD Premium o UltraDisk:
+   - SSD Premium: [Conjunto de disponibilidad](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) en diferentes dominios de error o actualización para los discos SSD Premium colocados dentro de un [grupo con ubicación por proximidad](../../../virtual-machines/windows/proximity-placement-groups-portal.md).
+   - Disco Ultra: [Zona de disponibilidad](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address), pero las máquinas virtuales deben colocarse en la misma zona de disponibilidad, lo que reduce la disponibilidad del clúster al 99,9 %. 
+- **Recursos compartidos de archivos Premium**: [Conjunto de disponibilidad](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) o [zona de disponibilidad](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address).
+- **Espacios de almacenamiento directo**: [Conjunto de disponibilidad](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set).
 
->[!IMPORTANT]
->Una vez creada una máquina virtual el conjunto de disponibilidad no se puede establecer o cambiar.
+> [!IMPORTANT]
+> Una vez creada una máquina virtual el conjunto de disponibilidad no se puede establecer o cambiar.
 
 ## <a name="create-the-virtual-machines"></a>Creación de las máquinas virtuales
 
 Después de configurar la disponibilidad de la máquina virtual, está preparado para crear máquinas virtuales. Puede optar por utilizar una imagen de Azure Marketplace, ya tenga o no SQL Server instalado. Sin embargo, si elige una imagen para SQL Server en máquinas virtuales de Azure, deberá desinstalar SQL Server de la máquina virtual antes de configurar la instancia de clúster de conmutación por error. 
 
 ### <a name="considerations"></a>Consideraciones
-En un clúster de conmutación por error invitado de máquinas virtuales de IaaS de Azure, se recomienda una sola NIC por servidor (nodo de clúster) y una sola subred. La red de Azure tiene redundancia física, que hace que las NIC y subredes adicionales sean innecesarias en un clúster invitado de VM de IaaS de Azure. Aunque el informe de validación del clúster emita una advertencia acerca de que los nodos solo son accesibles en una única red, esta advertencia puede omitirse en los clústeres de conmutación por error invitados de VM de IaaS de Azure.
+
+En un clúster de conmutación por error invitado de máquina virtual de Azure, se recomienda una sola NIC por servidor (nodo de clúster) y una sola subred. La red de Azure tiene redundancia física, que hace que las NIC y subredes adicionales sean innecesarias en un clúster invitado de VM de IaaS de Azure. Aunque el informe de validación del clúster emita una advertencia acerca de que los nodos solo son accesibles en una única red, esta advertencia puede omitirse en los clústeres de conmutación por error invitados de VM de IaaS de Azure.
 
 Coloque ambas máquinas virtuales:
 

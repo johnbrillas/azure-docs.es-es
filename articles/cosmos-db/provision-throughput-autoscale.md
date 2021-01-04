@@ -5,14 +5,14 @@ author: kirillg
 ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/04/2020
+ms.date: 12/11/2020
 ms.custom: seo-nov-2020
-ms.openlocfilehash: aaedca5acf7861db05f0ec724e05449316379829
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: ba0dd347c4ee2cb41b34c2fc34f1848a7295dc3a
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337549"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368671"
 ---
 # <a name="create-azure-cosmos-containers-and-databases-with-autoscale-throughput"></a>Creación de contenedores y bases de datos de Azure Cosmos con rendimiento de escalabilidad automática
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -59,7 +59,7 @@ El punto de entrada para el rendimiento máximo de la escalabilidad automática,
 
 ## <a name="enable-autoscale-on-existing-resources"></a>Habilitación de la escalabilidad automática en recursos existentes
 
-Use [Azure Portal](how-to-provision-autoscale-throughput.md#enable-autoscale-on-existing-database-or-container) para habilitar la escalabilidad automática en una base de datos o un contenedor existentes. Puede cambiar entre la escalabilidad automática y el rendimiento aprovisionado estándar (manual) en cualquier momento. Consulte esta [documentación](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work) para obtener más información. Actualmente, para todas las API, solo puede usar Azure Portal a fin de habilitar el escalado automático en los recursos existentes.
+Use [Azure Portal](how-to-provision-autoscale-throughput.md#enable-autoscale-on-existing-database-or-container), una [plantilla de Azure Resource Manager](how-to-provision-autoscale-throughput.md#azure-resource-manager), la [CLI](how-to-provision-autoscale-throughput.md#azure-cli) o [PowerShell](how-to-provision-autoscale-throughput.md#azure-powershell) para habilitar la escalabilidad automática en una base de datos o un contenedor existentes. Puede cambiar entre la escalabilidad automática y el rendimiento aprovisionado estándar (manual) en cualquier momento. Consulte esta [documentación](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work) para obtener más información.
 
 ## <a name="throughput-and-storage-limits-for-autoscale"></a><a id="autoscale-limits"></a> Límites de rendimiento y almacenamiento para Escalabilidad automática
 

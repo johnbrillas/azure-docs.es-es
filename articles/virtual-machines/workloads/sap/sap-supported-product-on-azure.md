@@ -14,15 +14,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/21/2020
+ms.date: 12/12/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a02c30423ab3c6de87eac7d34b5f0004e54a8d5d
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 28d47b61bce7e154da6c6adb4b74e2b5cf1f3f3d
+ms.sourcegitcommit: 287c20509c4cf21d20eea4619bbef0746a5cd46e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94957816"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97371856"
 ---
 # <a name="what-sap-software-is-supported-for-azure-deployments"></a>Qué software de SAP es compatible para su implementación en Azure
 En este artículo se describe cómo puede averiguar qué software de SAP es compatible para su implementación en Azure y cuáles son las versiones de sistemas operativos o de DBMS necesarias.
@@ -82,6 +82,12 @@ Las versiones de sistemas operativos, de DBMS de Oracle y la funcionalidad de Or
 - Los sistemas SAP que no son de Unicode solo se admiten con servidores de aplicaciones que ejecutan el sistema operativo invitado de Windows. El sistema operativo invitado de DBMS puede ser Oracle Linux o Windows. La razón de esta restricción es evidente al comprobar la matriz de disponibilidad de productos (PAM) SAP. Para Oracle Linux, SAP nunca ha publicado kernels de SAP que no sean de Unicode
 
 Como conoce las versiones de DBMS que son compatibles con la infraestructura de Azure de destino, debe comprobar la matriz de disponibilidad de productos SAP sobre si se admiten las versiones de sistemas operativos y DBMS requeridos con las versiones de productos SAP que desea ejecutar. 
+
+## <a name="oracle-linux"></a>Oracle Linux
+La pregunta más recurrente sobre Oracle Linux es si SAP es compatible con el kernel de Red Hat, que también es una parte integral de Oracle Linux. Para obtener más información, vea la [nota de soporte técnico de SAP 1565179](https://launchpad.support.sap.com/#/notes/1565179).
+
+## <a name="other-database-than-sap-hana"></a>Otra base de datos distinta a SAP HANA
+La compatibilidad con bases de datos que no son de HANA para la carga de trabajo de SAP se documenta en la [nota de soporte técnico de SAP 1928533](https://launchpad.support.sap.com/#/notes/1928533).
 
 
 ## <a name="sap-hana-support"></a>Compatibilidad con SAP HANA

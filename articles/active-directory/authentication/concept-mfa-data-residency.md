@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/24/2020
+ms.date: 12/11/2020
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40751b7864cc62d17836ab6d57cd106f6904f64a
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 788512db242bf1a1c6f18ffc0ee773bd3372aa42
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96744115"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97355878"
 ---
 # <a name="data-residency-and-customer-data-for-azure-ad-multi-factor-authentication"></a>Residencia de datos y datos de cliente en Multi-Factor Authentication de Azure AD
 
@@ -57,7 +57,7 @@ En el caso de las nubes públicas de Azure (salvo la autenticación de Azure B2
 | Notificación de Microsoft Authenticator | En registros de Azure Multi-Factor Authentication<br />Almacén de datos de informes de actividad de Multi-Factor Authentication<br />Usuarios bloqueados si se notificó un fraude<br />Solicitudes de cambio cuando el token de dispositivo de Microsoft Authenticator cambia |
 
 > [!NOTE]
-> El almacén de datos de informes de actividad de Multi-Factor Authentication de todas las nubes se almacena en EE. UU., independientemente de la región que procese la solicitud de autenticación. Microsoft Azure Alemania, Microsoft Azure ofrecido por 21Vianet y Microsoft Government Cloud tienen sus propios almacenes de datos independientes de los almacenes de datos de región de nube públicos, si bien estos datos se almacenan siempre en EE. UU.
+> El almacén de datos de informes de actividad de Multi-Factor Authentication de todas las nubes se almacena en EE. UU., independientemente de la región que procese la solicitud de autenticación. Microsoft Azure Alemania, Microsoft Azure ofrecido por 21Vianet y Microsoft Government Cloud tienen sus propios almacenes de datos independientes de los almacenes de datos de región de nube públicos, si bien estos datos se almacenan siempre en EE. UU. Estos almacenes de datos contienen información de identificación personal (PII), como el nombre principal de usuario (UPN) y el número de teléfono completo. 
 
 Respecto a Microsoft Azure Government, Microsoft Azure Alemania, Microsoft Azure ofrecido por 21Vianet, la autenticación de Azure B2C, la extensión NPS y el adaptador de AD FS de Windows Server 2016 o 2019, se almacenan los siguientes datos personales:
 

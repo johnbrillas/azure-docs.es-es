@@ -1,18 +1,18 @@
 ---
 title: 'Funciones de plantillas: fecha'
-description: Describe las funciones que se usan en una plantilla de Azure Resource Manager para trabajar con cadenas.
+description: Aquí se describen las funciones que se usan en una plantilla de Azure Resource Manager (plantilla de ARM) para trabajar con fechas.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 83e601adb649098f7a4e19cb71170b96a3287d9b
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 58d865f109ecca2629b89eeb55e554743824c195
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96004592"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920495"
 ---
 # <a name="date-functions-for-arm-templates"></a>Funciones de cadena para plantillas de Resource Manager
 
-Resource Manager ofrece las siguientes funciones para trabajar con cadenas en las plantillas de Azure Resource Manager (ARM):
+Resource Manager ofrece las siguientes funciones para trabajar con fechas en la plantilla de Azure Resource Manager (plantilla de ARM):
 
 * [dateTimeAdd](#datetimeadd)
 * [utcNow](#utcnow)
@@ -182,7 +182,7 @@ resource scheduler 'Microsoft.Automation/automationAccounts/schedules@2015-10-31
 
 `utcNow(format)`
 
-Devuelve el valor de fecha y hora (UTC) actual en el formato especificado. Si no se proporciona ningún formato, se utiliza el formato ISO 8601 (yyyyMMddTHHmmssZ). **Esta función solo puede utilizarse en el valor predeterminado para un parámetro.**
+Devuelve el valor de fecha y hora (UTC) actual en el formato especificado. Si no se proporciona el formato, se usa ISO 8601 (`yyyyMMddTHHmmssZ`). **Esta función solo puede utilizarse en el valor predeterminado para un parámetro.**
 
 ### <a name="parameters"></a>Parámetros
 
@@ -326,4 +326,4 @@ output utcShortOutput string = utcShort
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para obtener una descripción de las secciones de una plantilla de Azure Resource Manager, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](template-syntax.md).
+* Para obtener una descripción de las secciones de una plantilla de ARM, vea [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](template-syntax.md).

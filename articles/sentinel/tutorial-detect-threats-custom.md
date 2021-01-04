@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/06/2020
 ms.author: yelevin
-ms.openlocfilehash: b685f716688cfbe732fa7d3566e1af97cc81272a
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 390d2c8488fd2b35c775eabe43677b9349b547a1
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94652117"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97401651"
 ---
 # <a name="tutorial-create-custom-analytics-rules-to-detect-threats"></a>Tutorial: Creación de reglas de análisis personalizadas para detectar amenazas
 
@@ -145,7 +145,13 @@ Puede crear reglas de análisis personalizadas que le ayuden a buscar los tipos 
 
 ## <a name="troubleshooting"></a>Solución de problemas
 
-### <a name="a-scheduled-rule-failed-to-execute-or-appears-with-auto-disabled-added-to-the-name"></a>No se pudo ejecutar una regla programada o aparece con el texto AUTO DISABLED agregado al nombre
+### <a name="issue-no-events-appear-in-query-results"></a>Problema: no aparece ningún evento en los resultados de la consulta
+
+Si la **agrupación de eventos** se establece para **desencadenar una alerta para cada evento**, en determinados escenarios, al ver los resultados de la consulta posteriormente (por ejemplo, al volver a las alertas de un incidente), es posible que no aparezca ningún resultado de la consulta. Esto se debe a que la conexión del evento a la alerta se logra mediante el hash de la información del evento concreto y la inclusión del hash en la consulta. Si los resultados de la consulta han cambiado desde que se generó la alerta, el hash dejará de ser válido y no se mostrará ningún resultado. 
+
+Para ver los eventos, quite manualmente la línea con el hash de la consulta de la regla y ejecute la consulta.
+
+### <a name="issue-a-scheduled-rule-failed-to-execute-or-appears-with-auto-disabled-added-to-the-name"></a>Problema: No se pudo ejecutar una regla programada o aparece con el texto AUTO DISABLED agregado al nombre
 
 Es muy poco frecuente que una regla de consulta programada no se ejecute, pero puede ocurrir. Azure Sentinel clasifica los errores como transitorios o permanentes, en función del tipo específico del error y de las circunstancias que condujeron a él.
 

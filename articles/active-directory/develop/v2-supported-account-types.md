@@ -12,12 +12,12 @@ ms.date: 07/14/2020
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 50a0859b58e2db0d3f644db01cfcde8c533b6871
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f0895cfc14b0237db8f2f762602fee949354e6cb
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86518137"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347462"
 ---
 # <a name="supported-account-types"></a>Tipos de cuenta admitidos
 
@@ -43,7 +43,7 @@ En la nube pública de Microsoft Azure, la mayoría de los tipos de aplicaciones
 No es posible usar algunos tipos de cuenta con determinados flujos de autenticación. Por ejemplo, en aplicaciones de escritorio, UWP o de demonio:
 
 - Las aplicaciones de demonio solo se pueden usar con organizaciones de Azure AD. No tiene sentido intentar usar aplicaciones de demonio para manipular cuentas personales de Microsoft. Nunca se concederá el consentimiento del administrador.
-- Solo puede usar el flujo de Autenticación integrada de Windows con cuentas profesionales o educativas (en su organización o en cualquier otra). La Autenticación integrada de Windows funciona con cuentas de dominio y requiere que las máquinas estén unidas a un dominio o a Azure AD. Este flujo no tiene sentido para cuentas personales de Microsoft.
+- Solo puede usar el flujo de Autenticación integrada de Windows con cuentas profesionales o educativas (en su organización o en cualquier otra). La autenticación integrada de Windows funciona con cuentas de dominio, y es necesario que las máquinas estén unidas a un dominio o a Azure AD. Este flujo no tiene sentido para cuentas personales de Microsoft.
 - La [concesión de credenciales de contraseña de propietario del recurso](./v2-oauth-ropc.md) (nombre de usuario/contraseña) no puede utilizarse con cuentas personales de Microsoft. Las cuentas personales de Microsoft requieren que el usuario consienta para obtener acceso a los recursos personales en cada inicio de sesión. Por este motivo, este comportamiento no es compatible con los flujos no interactivos.
 
 ## <a name="account-types-in-national-clouds"></a>Tipos de cuenta en nubes nacionales

@@ -3,12 +3,12 @@ title: Panel de información general de Azure Application Insights | Microsoft D
 description: Supervise las aplicaciones con Azure Application Insights y la funcionalidad del panel de información general.
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 714488d88b269f252dfd6677f847db315969a270
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1b0708fa70d3a3ecb406f1d974bb1f2b47e55b40
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90970618"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97504107"
 ---
 # <a name="application-insights-overview-dashboard"></a>Panel de información general de Application Insights
 
@@ -53,7 +53,7 @@ Para volver a la experiencia de información general, simplemente seleccione:
 
 ## <a name="troubleshooting"></a>Solución de problemas
 
-Si selecciona **Configurar las opciones del icono** y establece un intervalo de tiempo personalizado que supere los 31 días, el panel no mostrará más de 31 días de datos, incluso con la retención de datos predeterminada de 90 días. Actualmente no hay ninguna solución alternativa para este comportamiento.
+Actualmente hay un límite de 30 días de datos para los datos que se muestran en un panel. Si selecciona un filtro de tiempo más allá de los 30 días o si selecciona **Configurar las opciones del icono** y establece un intervalo de tiempo personalizado que supere los 30 días, el panel no mostrará más de 30 días de datos, incluso con la retención de datos predeterminada de 90 días. Actualmente no hay ninguna solución alternativa para este comportamiento.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

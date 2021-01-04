@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - device-developer
-ms.openlocfilehash: 1a050daa3a4b3ae9be5ef40961c40adaa90dc72b
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: 90246459663980de25e301817f651e7719e8f380
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96121812"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033194"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Conexión a Azure IoT Central
 
@@ -178,11 +178,21 @@ Este enfoque es útil cuando está experimentando con IoT Central o probado disp
 
 ## <a name="associate-a-device-with-a-device-template"></a>Asociación de un dispositivo a una plantilla de dispositivo
 
-IoT Central asocia automáticamente un dispositivo a una plantilla de dispositivo cuando el dispositivo se conecta. Un dispositivo envía un identificador de modelo cuando se conecta. IoT Central usa el identificador de modelo para identificar la plantilla de dispositivo para ese modelo de dispositivo específico. El proceso de detección funciona de la siguiente manera:
+IoT Central asocia automáticamente un dispositivo a una plantilla de dispositivo cuando el dispositivo se conecta. Un dispositivo envía un [identificador de modelo](../../iot-pnp/iot-plug-and-play-glossary.md#model-id) cuando se conecta. IoT Central usa el identificador de modelo para identificar la plantilla de dispositivo para ese modelo de dispositivo específico. El proceso de detección funciona de la siguiente manera:
 
 1. Si la plantilla de dispositivo ya está publicada en la aplicación IoT Central, el dispositivo se le asocia.
-1. Si la plantilla de dispositivo todavía no está publicada en la aplicación de IoT Central, IoT Central busca el modelo del dispositivo en el repositorio de modelos público. Si IoT Central encuentra el modelo, lo utiliza para generar una plantilla de dispositivo básica.
+1. Si la plantilla de dispositivo todavía no está publicada en la aplicación IoT Central, esta busca el modelo del dispositivo en el [repositorio de modelos público](https://github.com/Azure/iot-plugandplay-models). Si IoT Central encuentra el modelo, lo utiliza para generar una plantilla de dispositivo básica.
 1. Si IoT Central no encuentra el modelo en el repositorio de modelos público, el dispositivo se marca como **Sin asociar**. Un operador puede crear una plantilla de dispositivo para el dispositivo y, a continuación, migrar el dispositivo sin asociar a la nueva plantilla de dispositivo.
+
+En la captura de pantalla siguiente se muestra cómo ver el identificador de modelo de una plantilla de dispositivo en IoT Central. En una plantilla de dispositivo, seleccione un componente y luego **Ver identidad**:
+
+:::image type="content" source="media/concepts-get-connected/model-id.png" alt-text="Captura de pantalla que muestra el identificador de modelo de la plantilla de dispositivo thermostat.":::
+
+Puede ver el [modelo de thermostat](https://github.com/Azure/iot-plugandplay-models/blob/main/dtmi/com/example/thermostat-1.json) en el repositorio de modelos públicos. La definición del identificador de modelo tiene este aspecto:
+
+```json
+"@id": "dtmi:com:example:Thermostat;1"
+```
 
 ## <a name="device-status-values"></a>Valores de estado del dispositivo
 

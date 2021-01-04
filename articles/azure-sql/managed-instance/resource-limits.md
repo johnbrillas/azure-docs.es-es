@@ -12,12 +12,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, jovanpop, sachinp
 ms.date: 09/14/2020
-ms.openlocfilehash: 11c3de703a4b37318b7b99f60d74190fe8ec8610
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 47c837e7a2ee859c7805d6b2e11058bcc02e6c22
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93077377"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400580"
 ---
 # <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Introducción a los límites de recursos de Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -108,7 +108,7 @@ En el nivel de servicio De uso general, cada archivo de base de datos obtiene IO
 
 Si observa una latencia de E/S alta en algún archivo de base de datos o que se va a alcanzar el límite de IOPS/rendimiento, puede mejorar el rendimiento si [aumenta el tamaño de archivo](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Increase-data-file-size-to-improve-HammerDB-workload-performance/ba-p/823337).
 
-También hay un límite de nivel de instancia en el rendimiento de escritura de registro máximo (que es de 22 MB/s), por lo que es posible que no pueda llegar al archivo máximo en el archivo de registro porque se está alcanzando el límite de rendimiento de la instancia.
+También hay un límite de nivel de instancia en el rendimiento de escritura de registro máximo (consulte anteriormente para conocer los valores, p. ej., 22 MB/s), por lo que es posible que no pueda llegar al archivo máximo en el archivo de registro porque se está alcanzando el límite de rendimiento de la instancia.
 
 ## <a name="supported-regions"></a>Regiones admitidas
 
@@ -132,8 +132,8 @@ Actualmente, Instancia administrada de SQL admite la implementación solo en los
 
 Los tipos de suscripción compatibles pueden contener un número limitado de recursos por región. Instancia administrada de SQL tiene dos límites predeterminados por región de Azure (que se pueden aumentar a petición mediante la creación de una [solicitud de soporte técnico especial en Azure Portal](../database/quota-increase-request.md)), en función de un tipo de suscripción:
 
-- **Límite de subred** : número máximo de subredes en que se implementan instancias de Instancia administrada de SQL en una sola región.
-- **Límite de unidades de núcleos virtuales** : el número máximo de unidades de núcleo virtual que se pueden implementar en todas las instancias en una sola región. Un núcleo virtual de GP usa una unidad de núcleo virtual y un núcleo virtual de BC usa 4 unidades de núcleo virtual. El número total de instancias no está limitado, siempre que se encuentre dentro del límite de unidades de núcleo virtual.
+- **Límite de subred**: número máximo de subredes en que se implementan instancias de Instancia administrada de SQL en una sola región.
+- **Límite de unidades de núcleos virtuales**: el número máximo de unidades de núcleo virtual que se pueden implementar en todas las instancias en una sola región. Un núcleo virtual de GP usa una unidad de núcleo virtual y un núcleo virtual de BC usa 4 unidades de núcleo virtual. El número total de instancias no está limitado, siempre que se encuentre dentro del límite de unidades de núcleo virtual.
 
 > [!Note]
 > Estos límites son opciones de configuración predeterminadas y no limitaciones técnicas. Los límites se pueden aumentar a petición mediante la creación de una [solicitud de soporte técnico especial en Azure Portal](../database/quota-increase-request.md) si necesita más instancias en la región actual. Como alternativa, puede crear nuevas instancias de Instancia administrada de SQL en otra región de Azure sin necesidad de enviar solicitudes de soporte técnico.

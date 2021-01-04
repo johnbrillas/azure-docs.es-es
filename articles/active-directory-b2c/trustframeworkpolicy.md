@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 01/31/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 29eddbcfb7c0da98e5438f968dd3976b77a44680
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 354c6f9710b7cbd70e0631bc973b2482ea8d8bb3
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85203102"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97386891"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
 
@@ -62,27 +62,15 @@ En el ejemplo siguiente, se muestra cómo especificar el elemento **TrustFramewo
    PublicPolicyUri="http://mytenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase">
 ```
 
-## <a name="inheritance-model"></a>Modelo de herencia
+El elemento **TrustFrameworkPolicy** contiene los elementos siguientes:
 
-Estos tipos de archivos de directiva suelen usarse en un recorrido del usuario:
-
-- Un archivo de **base** que contiene la mayoría de las definiciones. Para facilitar la solución de problemas y el mantenimiento a largo plazo de las directivas, le recomendamos que realice un número mínimo de cambios en este archivo.
-- Un archivo de **extensiones** que contiene los cambios de configuración únicos del inquilino. Este archivo de directiva se basa en el archivo de base. Use este archivo para agregar nuevas funciones o reemplazar funciones existentes. Por ejemplo, puede usar este archivo para federar con nuevos proveedores de identidades.
-- Un archivo de **usuario de confianza** que es el único archivo centrado en tareas que invoca directamente la aplicación de usuario de confianza, como aplicaciones de escritorio, móviles o web. Cada tarea única (como un registro o inicio de sesión, un restablecimiento de contraseña o una edición de perfil) necesita su propio archivo de directiva de usuario de confianza. Este archivo de directiva se basa en el archivo de extensiones.
-
-Una aplicación de usuario de confianza realiza una llamada al archivo de directiva de usuario de confianza para ejecutar una tarea específica. Por ejemplo, para iniciar el flujo de inicio de sesión. El Marco de experiencia de identidad en Azure AD B2C agrega primero todos los elementos del archivo de base; después, agrega los elementos del archivo de extensiones; y, por último, agrega los elementos del archivo de directiva de usuario de confianza para aplicar la directiva actual. Los elementos del mismo nombre y tipo en el archivo del usuario de confianza reemplazan a esos elementos en las extensiones, y los elementos de las extensiones reemplazan a los elementos del archivo base. En el diagrama siguiente, se muestra la relación entre los archivos de directiva y las aplicaciones de usuario de confianza.
-
-![Diagrama que muestra el modelo de herencia de directiva del marco de confianza](./media/trustframeworkpolicy/custom-policy-Inheritance-model.png)
-
-Este es el modelo de herencia:
-
-- La directiva principal y la directiva secundaria se encuentran en el mismo esquema.
-- La directiva secundaria de cualquier nivel puede heredar de la directiva principal y extenderse mediante la adición de nuevos elementos.
-- No existe un límite en el número de niveles.
-
-Para obtener información, consulte [Introducción a las directivas personalizadas](custom-policy-get-started.md).
-
-## <a name="base-policy"></a>Directiva de base
+| Elemento | Repeticiones | Descripción |
+| ------- | ----------- | ----------- |
+| BasePolicy| 0:1| Identificador de una directiva base. |
+| [BuildingBlocks](buildingblocks.md) | 0:1 | Bloques de creación de la directiva. |
+| [ClaimsProviders](claimsproviders.md) | 0:1 | Colección de proveedores de notificaciones. |
+| [UserJourneys](userjourneys.md) | 0:1 | Colección de recorridos del usuario. |
+| [RelyingParty](relyingparty.md) | 0:1 | Definición de una directiva del usuario de confianza. |
 
 Para heredar una directiva de otra directiva, es necesario declarar un elemento **BasePolicy** dentro del elemento **TrustFrameworkPolicy** del archivo de directiva. El elemento **BasePolicy** es una referencia a la directiva de base en las que se basa esta directiva.
 
@@ -114,46 +102,3 @@ En el ejemplo siguiente, se muestra cómo especificar una directiva de base. Est
 </TrustFrameworkPolicy>
 ```
 
-## <a name="policy-execution"></a>Ejecución de directiva
-
-Una aplicación de usuario de confianza (como una aplicación de escritorio, móvil o web) realiza una llamada a la [directiva de usuario de confianza](relyingparty.md). El archivo de directiva de usuario de confianza ejecuta una tarea específica, como iniciar sesión, restablecer una contraseña o editar un perfil. La directiva del usuario de confianza configura la lista de notificaciones que recibirá la aplicación de usuario de confianza como parte del token emitido. Varias aplicaciones pueden usar la misma directiva. Todas las aplicaciones reciben el mismo token con notificaciones y el usuario pasará por el mismo recorrido de usuario. Una misma aplicación puede usar varias directivas.
-
-Dentro del archivo de directiva de usuario de confianza, especifique el elemento **DefaultUserJourney**, que apunta al elemento [UserJourney](userjourneys.md). El recorrido del usuario suele definirse en la directiva base o de extensiones.
-
-Directiva B2C_1A_signup_signin:
-
-```xml
-<RelyingParty>
-  <DefaultUserJourney ReferenceId="SignUpOrSignIn">
-  ...
-```
-
-B2C_1A_TrustFrameWorkBase o B2C_1A_TrustFrameworkExtensionPolicy:
-
-```xml
-<UserJourneys>
-  <UserJourney Id="SignUpOrSignIn">
-  ...
-```
-
-Un recorrido del usuario define la lógica empresarial del proceso por el que pasará el usuario. Cada recorrido del usuario es un conjunto de pasos de orquestación que realiza una serie de acciones, de forma secuencial y en términos de autenticación y recopilación de información.
-
-El archivo de directiva **SocialAndLocalAccounts** del [paquete inicial](custom-policy-get-started.md#custom-policy-starter-pack) contiene los recorridos del usuario SignUpOrSignIn, ProfileEdit y PasswordReset. Puede agregar más recorridos del usuario para otros escenarios, como cambiar la dirección de correo electrónico o vincular y desvincular una cuenta de red social.
-
-Los pasos de orquestación pueden realizar una llamada a un [perfil técnico](technicalprofiles.md). Un perfil técnico proporciona un marco con un mecanismo integrado para comunicarse con distintos tipos de entidades. Por ejemplo, un perfil técnico puede realizar estas acciones, entre otras:
-
-- Representar una experiencia del usuario.
-- Permite al usuario iniciar sesión con una cuenta empresarial o de red social, como una cuenta de Facebook, Microsoft, Google, Salesforce o de cualquier otro proveedor de identidades.
-- Configurar la verificación por teléfono para MFA.
-- Leer y escribir datos en un almacén de identidades de Azure AD B2C.
-- Llamar a un servicio de API de RESTful personalizado.
-
-![Diagrama que muestra el flujo de ejecución de la directiva](./media/trustframeworkpolicy/custom-policy-execution.png)
-
- El elemento **TrustFrameworkPolicy** contiene los elementos siguientes:
-
-- BasePolicy, como se ha especificado anteriormente.
-- [BuildingBlocks](buildingblocks.md)
-- [ClaimsProviders](claimsproviders.md)
-- [UserJourneys](userjourneys.md)
-- [RelyingParty](relyingparty.md)

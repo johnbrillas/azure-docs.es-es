@@ -3,12 +3,12 @@ title: Restauración del estado del sistema a Windows Server
 description: Explicación detallada para restaurar el estado de sistema de Windows Server a partir de una copia de seguridad en Azure.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 824ed5e71934af370211bfa8b4c266fe4323b4ad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ef23d6ff16c263e310304cc240c2090751640b1
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89377444"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008480"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Restauración del estado del sistema a Windows Server
 
@@ -70,7 +70,7 @@ La terminología usada en estos pasos incluye:
 
 * *Máquina de origen* : es la máquina original desde la que se realizó la copia de seguridad y que no está disponible actualmente.
 * *Máquina de destino* : es la máquina en la que se recuperan los datos.
-* *Almacén de ejemplo*: el almacén de Recovery Services en el que se registran la*máquina de origen* y la *máquina de destino*.
+* *Almacén de ejemplo*: el almacén de Recovery Services en el que se registran la *máquina de origen* y la *máquina de destino*.
 
 > [!NOTE]
 > Las copias de seguridad tomadas de una máquina no se pueden restaurar en una máquina que esté ejecutando una versión anterior del sistema operativo. Por ejemplo, las copias de seguridad tomadas de una máquina con Windows Server 2016 no se pueden restaurar en Windows Server 2012 R2. Sin embargo, el proceso inverso sí es posible. Puede usar copias de seguridad de Windows Server 2012 R2 para restaurar Windows Server 2016.
@@ -201,6 +201,8 @@ En este artículo solo se describe el primer escenario, que llama a una restaura
 
 1. Una vez que haya completado correctamente una restauración, debe reiniciar el servidor en modo normal. Abra un símbolo del sistema y escriba lo siguiente: `bcdedit /deletevalue safeboot`
 1. Reinicie el servidor.
+
+Para más información, consulte [Copia de seguridad y restauración de controladores de dominio de Active Directory](active-directory-backup-restore.md).
 
 ## <a name="troubleshoot-failed-system-state-restore"></a>Solución de problemas en la restauración del estado del sistema
 

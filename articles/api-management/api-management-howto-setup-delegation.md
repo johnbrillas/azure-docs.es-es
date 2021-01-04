@@ -52,18 +52,18 @@ Ahora debe crear el **extremo de delegación**. Este tiene que realizar varias a
    
     Parámetros de consulta en el caso de inicio de sesión o suscripción:
    
-   * **operation** : identifica el tipo de solicitud de delegación del que se trata. Solo puede ser **SignIn** en este caso.
-   * **returnUrl** : la dirección URL de la página en la que el usuario hizo clic en un vínculo de suscripción o de inicio de sesión.
-   * **salt** : una cadena salt especial que se usa para procesar un hash de seguridad
-   * **sig** : un hash de seguridad procesado que se comparará con su propio hash procesado
+   * **operation**: identifica el tipo de solicitud de delegación del que se trata. Solo puede ser **SignIn** en este caso.
+   * **returnUrl**: la dirección URL de la página en la que el usuario hizo clic en un vínculo de suscripción o de inicio de sesión.
+   * **salt**: una cadena salt especial que se usa para procesar un hash de seguridad
+   * **sig**: un hash de seguridad procesado que se comparará con su propio hash procesado
 2. Compruebe que la solicitud procede de Azure API Management (opcional, pero especialmente recomendado por motivos de seguridad).
    
-   * Procese un hash HMAC-SHA512 de una cadena según los parámetros de consulta **returnUrl** y **salt** ( [se proporciona código de ejemplo a continuación]):
+   * Procese un hash HMAC-SHA512 de una cadena según los parámetros de consulta **returnUrl** y **salt** ([se proporciona código de ejemplo a continuación]):
      
-     > HMAC( **salt** + '\n' + **returnUrl** )
+     > HMAC(**salt** + '\n' + **returnUrl**)
 
    * Compare el hash procesado anteriormente con el valor del parámetro de consulta **sig** . Si los dos hashes coinciden, vaya a paso siguiente; de lo contrario, deniegue la solicitud.
-3. Compruebe que ha recibido una solicitud para inicio de sesión/suscripción: el parámetro de consulta **operation** se establecerá en " **SignIn** ".
+3. Compruebe que ha recibido una solicitud para inicio de sesión/suscripción: el parámetro de consulta **operation** se establecerá en "**SignIn**".
 4. Presente al usuario la interfaz de usuario para que inicie sesión o se suscriba.
 5. Si el usuario se suscribe, hay que crear la cuenta correspondiente en Administración de API. [Cree un usuario] con la API de REST de API Management. Al hacerlo, asegúrese de que el identificador de usuario se establece en el mismo valor que existe en su almacén de usuario o en un identificador al que pueda realizar el seguimiento.
 6. Cuando el usuario se autentique correctamente:
@@ -75,7 +75,7 @@ Ahora debe crear el **extremo de delegación**. Este tiene que realizar varias a
      
    * Redirija al usuario a la URL producida anteriormente.
 
-Además de la operación **SignIn** , también puede realizar la administración de cuentas siguiendo los pasos anteriores y utilizando una de las siguientes operaciones:
+Además de la operación **SignIn**, también puede realizar la administración de cuentas siguiendo los pasos anteriores y utilizando una de las siguientes operaciones:
 
 * **ChangePassword**
 * **ChangeProfile**
@@ -84,10 +84,10 @@ Además de la operación **SignIn** , también puede realizar la administración
 
 Debe pasar los siguientes parámetros de consulta para las operaciones de administración de cuenta.
 
-* **operation** : identifica qué tipo de solicitud de delegación es (ChangePassword, ChangeProfile o CloseAccount)
-* **userId** : el identificador de usuario de la cuenta para administrar
-* **salt** : una cadena salt especial que se usa para procesar un hash de seguridad
-* **sig** : un hash de seguridad procesado que se comparará con su propio hash procesado
+* **operation**: identifica qué tipo de solicitud de delegación es (ChangePassword, ChangeProfile o CloseAccount)
+* **userId**: el identificador de usuario de la cuenta para administrar
+* **salt**: una cadena salt especial que se usa para procesar un hash de seguridad
+* **sig**: un hash de seguridad procesado que se comparará con su propio hash procesado
 
 ## <a name="delegating-product-subscription"></a><a name="delegate-product-subscription"> </a>Delegación de suscripciones a productos
 
@@ -97,7 +97,7 @@ La delegación de una suscripción a productos funciona de forma similar a la de
 2. El explorador se redirige al extremo de delegación.
 3. El extremo de delegación realiza los pasos necesarios para la suscripción al producto. Usted es el encargado de diseñar estos pasos. Pueden implicar la redirección a otra página para solicitar información de facturación, la formulación de otras preguntas o simplemente el almacenamiento de la información sin que se requiera ninguna acción del usuario.
 
-Para habilitar la funcionalidad, en la página **Delegación** , haga clic en **Delegar suscripción de productos**.
+Para habilitar la funcionalidad, en la página **Delegación**, haga clic en **Delegar suscripción de productos**.
 
 A continuación, asegúrese de que el extremo de delegación realiza las siguientes acciones:
 
@@ -108,32 +108,32 @@ A continuación, asegúrese de que el extremo de delegación realiza las siguien
    
     Parámetros de consulta en el caso de suscripción a producto:
    
-   * **operation** : identifica el tipo de solicitud de delegación del que se trata. En las solicitudes de suscripción a producto las opciones válidas son:
+   * **operation**: identifica el tipo de solicitud de delegación del que se trata. En las solicitudes de suscripción a producto las opciones válidas son:
      * "Subscribe": una solicitud para suscribir al usuario a un producto determinado con el id. especificado (consulte más información a continuación).
      * "Unsubscribe": una solicitud para cancelar la suscripción de un usuario a un producto.
      * "Renew": una solicitud para renovar una suscripción (por ejemplo, que esté a punto de expirar).
-   * **productId** : en *Suscribirse* , el id. del producto al que el usuario solicitó suscribirse.
-   * **subscriptionId** : en *Cancelar suscripción* y *Renovar* , el identificador de la suscripción del producto.
-   * **userId** : en *Suscribirse* , el id. del usuario para el que se realiza la solicitud.
-   * **salt** : una cadena salt especial que se usa para procesar un hash de seguridad
-   * **sig** : un hash de seguridad procesado que se comparará con su propio hash procesado
+   * **productId**: en *Suscribirse*, el id. del producto al que el usuario solicitó suscribirse.
+   * **subscriptionId**: en *Cancelar suscripción* y *Renovar*, el identificador de la suscripción del producto.
+   * **userId**: en *Suscribirse*, el id. del usuario para el que se realiza la solicitud.
+   * **salt**: una cadena salt especial que se usa para procesar un hash de seguridad
+   * **sig**: un hash de seguridad procesado que se comparará con su propio hash procesado
 
 2. Compruebe que la solicitud procede de Azure API Management (opcional, pero especialmente recomendado por motivos de seguridad).
    
-   * Procesar un hash HMAC-SHA512 de una cadena en función de los parámetros de consulta **productId** , **userId** y **salt** :
+   * Procesar un hash HMAC-SHA512 de una cadena en función de los parámetros de consulta **productId**, **userId** y **salt**:
      
-     > HMAC( **salt** + '\n' + **productId** + '\n' + **userId** )
+     > HMAC(**salt** + '\n' + **productId** + '\n' + **userId**)
      > 
      > 
    * Compare el hash procesado anteriormente con el valor del parámetro de consulta **sig** . Si los dos hashes coinciden, vaya a paso siguiente; de lo contrario, deniegue la solicitud.
-3. Procese cualquier suscripción a producto en función del tipo de operación solicitada en **operation** ; por ejemplo, facturación, preguntas adicionales, etc.
+3. Procese cualquier suscripción a producto en función del tipo de operación solicitada en **operation**; por ejemplo, facturación, preguntas adicionales, etc.
 4. Tras la correcta suscripción del usuario al producto por su parte, suscriba al usuario al producto de API Management [llamando a la API de REST para las suscripciones].
 
 ## <a name="example-code"></a><a name="delegate-example-code"> </a>Ejemplo de código
 
 Estos ejemplos de código enseñan cómo:
 
-* Tomar la *clave de validación de delegación* , que se establece en la pantalla de delegación del portal del publicador
+* Tomar la *clave de validación de delegación*, que se establece en la pantalla de delegación del portal del publicador
 * Crear un HMAC que, después, se usa para validar la firma, probando la validez del valor de returnUrl que se pasó.
 
 El mismo código funciona para productId y userId con pequeñas modificaciones.

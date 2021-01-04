@@ -4,12 +4,12 @@ description: Proporciona un resumen de opciones de compatibilidad y limitaciones
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: 70a81b42ad2fb417902a627afb1651d572844648
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: be0c576da6e38233423a79f562f767de806d7640
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548518"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008374"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matriz de compatibilidad para Azure Backup
 
@@ -67,7 +67,7 @@ Esto es lo que se admite si desea hacer una copia de seguridad de las máquinas 
 
 **Máquina** | **Elementos incluidos en la copia de seguridad** | **Ubicación** | **Características**
 --- | --- | --- | ---
-**Copia de seguridad de máquina virtual de Azure con la extensión de máquina virtual** | Toda la máquina virtual | Copia de seguridad en almacén. | Extensión instalada cuando se habilita la copia de seguridad para una máquina virtual.<br/><br/> Copia de seguridad una vez al día.<br/><br/> Copias de seguridad con reconocimiento de aplicaciones para máquinas virtuales Windows; copias de seguridad coherentes con archivos para máquinas virtuales Linux. Puede configurar la coherencia de aplicaciones para máquinas Linux con scripts personalizados.<br/><br/> Restaurar máquina virtual o disco.<br/><br/> No se puede realizar la copia de seguridad de una máquina virtual de Azure en una ubicación local.
+**Copia de seguridad de máquina virtual de Azure con la extensión de máquina virtual** | Toda la máquina virtual | Copia de seguridad en almacén. | Extensión instalada cuando se habilita la copia de seguridad para una máquina virtual.<br/><br/> Copia de seguridad una vez al día.<br/><br/> Copias de seguridad con reconocimiento de aplicaciones para máquinas virtuales Windows; copias de seguridad coherentes con archivos para máquinas virtuales Linux. Puede configurar la coherencia de aplicaciones para máquinas Linux con scripts personalizados.<br/><br/> Restaurar máquina virtual o disco.<br/><br/>Se admite la [copia de seguridad y restauración de controladores de dominio de Active Directory.](active-directory-backup-restore.md)<br><br> No se puede realizar la copia de seguridad de una máquina virtual de Azure en una ubicación local.
 **Copia de seguridad de máquina virtual de Azure con el agente de MARS** | Archivos, carpetas, estado del sistema | Copia de seguridad en almacén. | Copia de seguridad tres veces al día.<br/><br/> Si desea realizar copias de seguridad de archivos o carpetas específicos en lugar de toda la máquina virtual, el agente de MARS se puede ejecutar junto con la extensión de máquina virtual.
 **Máquina virtual de Azure con DPM** | Archivos, carpetas, volúmenes, estado del sistema, datos de la aplicación. | Copia de seguridad en almacenamiento local de máquina virtual de Azure que se ejecuta en DPM. DPM, después, realiza copias de seguridad en el almacén. | Instantáneas con reconocimiento de aplicaciones.<br/><br/> Granularidad completa para la copia de seguridad y recuperación.<br/><br/> Linux admitido en máquinas virtuales (Hyper-V o VMware).<br/><br/> Oracle no se admite.
 **Máquina virtual de Azure con MABS** | Archivos, carpetas, volúmenes, estado del sistema, datos de la aplicación. | Copia de seguridad en almacenamiento local de máquina virtual de Azure que se ejecuta en MABS. Después, MABS realiza una copia de seguridad en el almacén. | Instantáneas con reconocimiento de aplicaciones.<br/><br/> Granularidad completa para la copia de seguridad y recuperación.<br/><br/> Linux admitido en máquinas virtuales (Hyper-V o VMware).<br/><br/> Oracle no se admite.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: 5dbd49312b58dc656e2239e8a0a4acea614023de
-ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
+ms.openlocfilehash: d38c57a8c8504e1e03406f7cd8a0b61725cb0511
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96317143"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008097"
 ---
 # <a name="continuous-integration-and-delivery-for-azure-synapse-workspace"></a>Integración y entrega continuas para las áreas de trabajo de Azure Synapse
 
@@ -107,7 +107,13 @@ Use la extensión [Synapse workspace deployment](https://marketplace.visualstudi
 
      ![Adición de extensiones](media/add-extension-task.png)
 
-1.  En la tarea, proporcione información de **workspace_publish** del repositorio de Git relacionado y seleccione el grupo de recursos, la región, el nombre y el entorno de nube del área de trabajo de destino. Proporcione parámetros y valores si es necesario.
+1.  En la tarea, seleccione **...** junto al cuadro **Plantilla** para elegir el archivo de plantilla.
+
+1. Seleccione **…** junto al cuadro **Parámetros de plantilla** para elegir el archivo de parámetros.
+
+1. Seleccione la conexión, el grupo de recursos y el nombre del área de trabajo de destino. 
+
+1. Seleccione **…** junto al cuadro **Reemplazar parámetros de plantilla** y escriba los valores de los parámetros deseados del área de trabajo de destino. 
 
     ![Implementación del área de trabajo de Synapse](media/create-release-artifacts-deployment.png)
 

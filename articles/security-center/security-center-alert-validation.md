@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2020
+ms.date: 12/15/2020
 ms.author: memildin
-ms.openlocfilehash: 999888b12f10c07f7d42f14289e88030f9542a36
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 598c13b0434a364e73471b53c82663b94fb42f4e
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340825"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97560108"
 ---
 # <a name="alert-validation-in-azure-security-center"></a>Validación de alertas en Azure Security Center
 Este documento le ayuda a comprobar si el sistema está configurado correctamente para las alertas de Azure Security Center.
@@ -27,7 +27,42 @@ Este documento le ayuda a comprobar si el sistema está configurado correctament
 Las alertas son notificaciones que Security Center genera cuando detecta amenazas en los recursos. Asigna prioridades y enumera las alertas, junto con la información necesaria para que pueda investigar rápidamente el problema. Security Center también proporciona recomendaciones sobre el modo en que puede corregir un ataque.
 Para obtener más información, consulte [Alertas de seguridad en Azure Security Center](security-center-alerts-overview.md) y [Administración y respuesta a las alertas de seguridad](security-center-managing-and-responding-alerts.md).
 
-## <a name="validate-alerts-on-windows-vms"></a>Validación de alertas en máquinas virtuales Windows <a name="validate-windows"></a>
+
+## <a name="generate-sample-azure-defender-alerts"></a>Generación de alertas de ejemplo de Azure Defender
+
+Si usa la nueva experiencia de alertas de versión preliminar, tal como se describe en [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md), puede crear alertas de ejemplo con unos cuantos clics en la página de alertas de seguridad de Azure Portal.
+
+Use alertas de ejemplo para:
+
+- evaluar el valor y las capacidades de Azure Defender.
+- validar las configuraciones que haya realizado para las alertas de seguridad (como integraciones de SIEM, automatización de flujos de trabajo y notificaciones de correo electrónico).
+
+> [!NOTE]
+> Este procedimiento requiere que use la nueva experiencia de alertas (versión preliminar) disponible en el banner que está situado en la parte superior de la página de **Alertas de seguridad**.
+>
+> :::image type="content" source="media/security-center-managing-and-responding-alerts/preview-alerts-experience-banner.png" alt-text="Banner con un vínculo a la versión preliminar de la nueva experiencia de alertas":::
+
+Para crear alertas de ejemplo:
+
+1. En la barra de herramientas de la página de alertas, seleccione **Create sample alerts** (Crear alertas de ejemplo). 
+1. Seleccione la suscripción.
+1. Seleccione el plan de Azure Defender correspondiente para el que quiere ver las alertas. 
+1. Seleccione **Create sample alerts** (Crear alertas de ejemplo).
+
+    :::image type="content" source="media/security-center-alert-validation/create-sample-alerts-procedures.png" alt-text="Pasos para crear alertas de ejemplo en Azure Security Center":::
+    
+    Aparecerá una notificación en la que se le informa de que se están creando las alertas de ejemplo:
+
+    :::image type="content" source="media/security-center-alert-validation/notification-sample-alerts-creation.png" alt-text="Notificación que indica que se están generando las alertas de ejemplo.":::
+
+    Después de unos minutos, las alertas aparecerán en la página alertas de seguridad. También aparecerán en cualquier otro lugar que haya configurado para recibir las alertas de seguridad de Azure Security Center (SIEM conectados, notificaciones de correo electrónico, etc.).
+
+    :::image type="content" source="media/security-center-alert-validation/sample-alerts.png" alt-text="Alertas de ejemplo en la lista de alertas de seguridad":::
+
+    > [!TIP]
+    > Las alertas son para los recursos simulados.
+
+## <a name="simulate-alerts-on-your-azure-vms-windows"></a>Simulación de alertas en las VM de Azure (Windows) <a name="validate-windows"></a>
 
 Una vez que el agente de Security Center esté instalado en el equipo, siga estos pasos desde el equipo donde desee que esté el recurso atacado de la alerta:
 
@@ -40,7 +75,7 @@ Una vez que el agente de Security Center esté instalado en el equipo, siga esto
 >
 >```reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\system\Audit" /f /v "ProcessCreationIncludeCmdLine_Enabled"```
 
-## <a name="validate-alerts-on-linux-vms"></a>Validación de alertas en máquinas virtuales Linux <a name="validate-linux"></a>
+## <a name="simulate-alerts-on-your-azure-vms-linux"></a>Simulación de alertas en las VM de Azure (Linux) <a name="validate-linux"></a>
 
 Una vez que el agente de Security Center esté instalado en el equipo, siga estos pasos desde el equipo donde desee que esté el recurso atacado de la alerta:
 1. Copie un archivo ejecutable en una ubicación adecuada y cambie el nombre a **./asc_alerttest_662jfi039n**, por ejemplo:
@@ -54,7 +89,7 @@ Una vez que el agente de Security Center esté instalado en el equipo, siga esto
 1. Espere de cinco a diez minutos y abra Alertas de Security Center. Debería aparecer una alerta.
 
 
-## <a name="validate-alerts-on-kubernetes"></a>Validación de alertas en Kubernetes <a name="validate-kubernetes"></a>
+## <a name="simulate-alerts-on-kubernetes"></a>Simulación de alertas en Kubernetes <a name="validate-kubernetes"></a>
 
 Si ha integrado Azure Kubernetes Service con Security Center, puede probar que sus alertas funcionan con el siguiente comando kubectl:
 

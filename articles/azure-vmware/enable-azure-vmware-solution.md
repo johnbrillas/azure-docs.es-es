@@ -3,12 +3,12 @@ title: Habilitación del recurso de Azure VMware Solution
 description: Obtenga información sobre cómo enviar una solicitud de soporte técnico para habilitar el recurso de Azure VMware Solution. También puede solicitar más hosts en la nube privada de Azure VMware Solution existente.
 ms.topic: how-to
 ms.date: 11/12/2020
-ms.openlocfilehash: 526d6b38f4b4e3f6c4806b71b4728dee90cf558a
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 8bcb61c07a3f0310754cd50931f4576e836deffb
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325084"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97346544"
 ---
 # <a name="how-to-enable-azure-vmware-solution-resource"></a>Habilitación del recurso de Azure VMware Solution
 Obtenga información sobre cómo una solicitud de soporte técnico para habilitar el recurso de [Azure VMware Solution](introduction.md). También puede solicitar más hosts en la nube privada de Azure VMware Solution existente.
@@ -18,7 +18,7 @@ Obtenga información sobre cómo una solicitud de soporte técnico para habilita
 Necesitará una cuenta de Azure en una suscripción a Azure. La suscripción a Azure debe cumplir uno de los siguientes criterios:
 
 * Una suscripción bajo un [Contrato Enterprise (EA) de Azure](../cost-management-billing/manage/ea-portal-agreements.md) con Microsoft.
-* Una suscripción administrada por el Proveedor de soluciones en la nube (CSP) bajo un plan de Azure.
+* Una suscripción administrada de Proveedor de soluciones en la nube (CSP) bajo un contrato de ofertas existente de Azure de CSP o un plan de Azure.
 
 
 ## <a name="enable-azure-vmware-solution-for-ea-customers"></a>Habilitación de Azure VMware Solution para clientes de Contrato Enterprise
@@ -61,7 +61,7 @@ Antes de crear el recurso de Azure VMware Solution, debe enviar una incidencia d
 
 ## <a name="enable-azure-vmware-solution-for-csp-customers"></a>Habilitación de Azure VMware Solution para clientes de CSP 
 
-Los CSP deben usar el [Centro de partners de Microsoft](https://partner.microsoft.com) para habilitar Azure VMware Solution para sus clientes. 
+Los CSP deben usar el [Centro de partners de Microsoft](https://partner.microsoft.com) para habilitar Azure VMware Solution para sus clientes. En este artículo se usa el [plan de Azure de CSP](/partner-center/azure-plan-lp.md) como ejemplo para ilustrar el procedimiento de compra para asociados.
 
    >[!IMPORTANT] 
    >El servicio de Azure VMware Solution no proporciona el multiinquilino necesario. Los asociados de hospedaje que requieren esta función no se admiten. 
@@ -76,9 +76,9 @@ Los CSP deben usar el [Centro de partners de Microsoft](https://partner.microsof
 
 1. Seleccione **Plan de Azure** y, después, seleccione **Agregar al carro**. 
 
-1. Revise y finalice la configuración general de la suscripción al plan de Azure para su cliente. Para más información, consulte la [documentación del Centro de partners de Microsoft](/partner-center/azure-plan-manage).
+1. Revise y finalice la configuración general de la suscripción al plan de Azure para su cliente. Para más información, consulte la [documentación del Centro de partners de Microsoft](/partner-center/azure-plan-manage.md).
 
-Después de configurar el plan de Azure y de asignar los permisos de RBAC de vSphere necesarios como CSP, interactuará con Microsoft para habilitar la cuota de una suscripción al plan de Azure. Acceda a Azure Portal desde el Centro de partners mediante el procedimiento **Admin On Behalf Of** (Administrar en nombre de) (AOBO).
+Después de configurar el plan de Azure y de aplicar los [permisos de RBAC de Azure](/partner-center/azure-plan-manage.md) necesarios para la suscripción, interactuará con Microsoft para habilitar la cuota de una suscripción de plan de Azure. Acceda a Azure Portal desde el [Centro de partners de Microsoft](https://partner.microsoft.com) mediante el procedimiento **Administrar en nombre de** (AOBO).
 
 1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com).
 

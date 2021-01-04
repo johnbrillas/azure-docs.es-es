@@ -16,12 +16,12 @@ ms.date: 05/12/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1984e2f0bb55115c7d700b91f564d9f01c145151
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c274424641ee0173d68f0de9061415815b0df588
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90015337"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107437"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Preguntas frecuentes en torno a los informes de Azure Active Directory
 
@@ -37,7 +37,7 @@ Este artículo incluye respuestas a preguntas más frecuentes sobre los informes
 
 **P: Actualmente uso las API de punto de conexión `https://graph.windows.net/<tenant-name>/reports/`para extraer informes de seguridad de Azure AD (tipos específicos de detecciones, como credenciales perdidas o inicios de sesión desde direcciones IP anónimas) en nuestros sistemas de informes mediante programación. ¿A cuál debo cambiar?**
 
-**R:** Puede usar la  [API de detecciones de riesgo de Identity Protection](../identity-protection/howto-identity-protection-graph-api.md)  para acceder a las detecciones de seguridad mediante Microsoft Graph. Este nuevo formato proporciona mayor flexibilidad en el modo en que permite consultar los datos, con filtrado avanzado, selección de campos y mucho más, y normaliza las detecciones de riesgo en un tipo para facilitar la integración en SIEM y otras herramientas de recolección de datos. Dado que los datos están en un formato diferente, no puede sustituir una nueva consulta para las consultas anteriores. Sin embargo, [la nueva API utiliza Microsoft Graph](/graph/api/resources/identityriskevent?view=graph-rest-beta), que es el estándar de Microsoft para estas API como Microsoft 365 o Azure AD. Así, el trabajo necesario puede dilatar sus inversiones actuales en Microsoft Graph o ayudarle a comenzar la transición a esta nueva plataforma estándar.
+**R:** Puede utilizar la [API de detecciones de riesgo de Identity Protection](../identity-protection/howto-identity-protection-graph-api.md) para acceder a las detecciones de seguridad a través de Microsoft Graph. Este nuevo formato proporciona mayor flexibilidad en el modo en que permite consultar los datos, con filtrado avanzado, selección de campos y mucho más, y normaliza las detecciones de riesgo en un tipo para facilitar la integración en SIEM y otras herramientas de recolección de datos. Dado que los datos están en un formato diferente, no puede sustituir una nueva consulta para las consultas anteriores. Sin embargo, [la nueva API utiliza Microsoft Graph](/graph/api/resources/identityriskevent?view=graph-rest-beta), que es el estándar de Microsoft para estas API como Microsoft 365 o Azure AD. Así, el trabajo necesario puede dilatar sus inversiones actuales en Microsoft Graph o ayudarle a comenzar la transición a esta nueva plataforma estándar.
 
 ---
 
@@ -49,7 +49,7 @@ Este artículo incluye respuestas a preguntas más frecuentes sobre los informes
 
 **P: ¿Cuándo se deberían ver los datos de actividades después de obtener una licencia Premium?**
 
-**R:** Si ya tiene datos de actividades como una licencia gratuita, entonces puede verlos inmediatamente. Si no tiene ningún dato, tardarán uno o dos días en mostrarse en los informes.
+**R:** Si ya tiene datos de actividades como una licencia gratuita, entonces puede verlos inmediatamente. Si no tiene ningún dato, tardarán hasta tres días en mostrarse en los informes.
 
 ---
 

@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a3044127aacb5910a270d40d94d3255031a71a2
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 4d6bf4df1499d919cead0a184054e5ba0db9c06e
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741310"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97346607"
 ---
 # <a name="troubleshoot-self-service-password-reset-writeback-in-azure-active-directory"></a>Solución de problemas de la escritura diferida del autoservicio de restablecimiento de contraseña en Azure Active Directory
 
@@ -42,6 +42,11 @@ En el caso de la versión *1.1.443.0* y superior de Azure AD Connect, se necesi
 
 * *\*.passwordreset.microsoftonline.com*
 * *\*.servicebus.windows.net*
+
+[Puntos de conexión de Azure GOV](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure#guidance-for-developers):
+
+* *\*.passwordreset.microsoftonline.us*
+* *\*.servicebus.usgovcloudapi.net*
 
 Si necesita más detalles, consulte la [lista de intervalos de dirección IP del centro de datos de Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653). Esta lista se actualiza todos los miércoles y entra en vigor el lunes siguiente.
 

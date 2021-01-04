@@ -11,19 +11,19 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/19/2020
-ms.openlocfilehash: c9f29a891061dc0e6dcfe8c8f6a65f0f190c6afc
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: bd1b33b2f6b1b0e0bf94639b3991b6507a89f5a9
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94593593"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400801"
 ---
 # <a name="accelerated-database-recovery-in-azure-sql"></a>Recuperación de base de datos acelerada en Azure SQL 
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
 
 **Recuperación acelerada de la base de datos (ADR)** es una característica del motor de base de datos de SQL Server que mejora considerablemente la disponibilidad de la base de datos, en especial en presencia de transacciones de larga duración, al rediseñar el proceso de recuperación del motor de base de datos de SQL Server. 
 
-ADR está disponible actualmente para Azure SQL Database, Azure SQL Managed Instance, bases de datos de Azure Synapse Analytics (actualmente en versión preliminar) y SQL Server en máquinas virtuales de Azure a partir de SQL Server 2019. 
+ADR está disponible actualmente para Azure SQL Database, Azure SQL Managed Instance, bases de datos de Azure Synapse Analytics y SQL Server en VM de Azure a partir de SQL Server 2019. 
 
 > [!NOTE] 
 > ADR está habilitado de forma predeterminada en Azure SQL Database y Azure SQL Managed Instance y no se admite su deshabilitación en ninguno de los productos. 

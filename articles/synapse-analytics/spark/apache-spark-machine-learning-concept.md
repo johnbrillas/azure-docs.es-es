@@ -9,12 +9,12 @@ ms.subservice: machine-learning
 ms.date: 11/13/2020
 ms.author: midesa
 ms.reviewer: jrasnick
-ms.openlocfilehash: ced78955c71f37a5a6f5231f61e5327428834f00
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ca55186a53b228aa97cc82d33a09aa3ffe455eee
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95919101"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97092013"
 ---
 # <a name="machine-learning-with-apache-spark"></a>Machine Learning con Apache Spark
 
@@ -43,17 +43,17 @@ Para obtener más información sobre las funcionalidades de aprendizaje automát
 ### <a name="sparkml-and-mllib"></a>SparkML y MLlib
 Las capacidades de cálculo distribuido en memoria de Spark lo convierten en una buena opción para algoritmos iterativos en los cálculos de gráficos y aprendizaje automático. ```spark.ml``` proporciona un conjunto uniforme de API de alto nivel que ayudan a los usuarios a crear y optimizar canalizaciones de aprendizaje automático. Para obtener más información acerca de ```spark.ml```, puede consultar la [guía de programación de Apache Spark ML](https://spark.apache.org/docs/1.2.2/ml-guide.html).
 
-### <a name="azure-machine-learning-automl"></a>AutoML de Azure Machine Learning
-[AutoML de Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-automated-ml) (aprendizaje automático automatizado) le permite automatizar el proceso de desarrollo de modelos de Machine Learning. Permite que los desarrolladores, analistas y científicos de datos creen modelos de aprendizaje automático con un escalado, eficiencia y productividad altos, al mismo tiempo que mantiene la calidad del modelo. Los componentes para ejecutar el SDK de AutoML de Azure Machine Learning se compilan directamente en el tiempo de ejecución de Synapse.
+### <a name="azure-machine-learning-automated-ml"></a>ML automatizado de Azure Machine Learning
+[ML automatizado de Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-automated-ml) (aprendizaje automático automatizado) le permite automatizar el proceso de desarrollo de modelos de Machine Learning. Permite que los desarrolladores, analistas y científicos de datos creen modelos de aprendizaje automático con un escalado, eficiencia y productividad altos, al mismo tiempo que mantiene la calidad del modelo. Los componentes para ejecutar el SDK de ML automatizado de Azure Machine Learning se compilan directamente en el tiempo de ejecución de Synapse.
 
 ### <a name="open-source-libraries"></a>Bibliotecas de código abierto
 Cada grupo de Apache Spark de Azure Synapse Analytics incluye un conjunto de bibliotecas de aprendizaje automático conocidas y precargadas.  Algunas de las bibliotecas de aprendizaje automático relevantes que se incluyen de forma predeterminada son las siguientes:
 
-- [Scikit-learn](https://scikit-learn.org/stable/index.html) es una de las bibliotecas de aprendizaje automático de nodo único más popular para algoritmos de ML clásicos. Scikit-learn es compatible con la mayoría de los algoritmos de aprendizaje supervisados y no supervisados; asimismo, también se puede usar para la minería y el análisis de datos.
+- [Scikit-learn](https://scikit-learn.org/stable/index.html) es una de las bibliotecas de aprendizaje automático de nodo único más populares para algoritmos de Machine Learning clásicos. Scikit-learn admite la mayoría de los algoritmos de aprendizaje supervisados y no supervisados y también se puede usar para la minería y el análisis de datos.
   
 - [XGBoost](https://xgboost.readthedocs.io/en/latest/) es una conocida biblioteca de aprendizaje automático que contiene algoritmos optimizados para el entrenamiento de árboles de decisión y bosques aleatorios. 
   
-- [PyTorch](https://pytorch.org/) & [Tensorflow](https://www.tensorflow.org/) son eficaces bibliotecas de aprendizaje profundo de Python. Puede usar estas bibliotecas en un grupo de Apache Spark de Azure Synapse Analytics, para compilar modelos de máquina única estableciendo el número de ejecutores del grupo en cero. Aunque Apache Spark no funciona con esta configuración, es una manera sencilla y rentable de crear modelos de máquina única.
+- [PyTorch](https://pytorch.org/) & [Tensorflow](https://www.tensorflow.org/) son eficaces bibliotecas de aprendizaje profundo de Python. En los grupos de Apache Spark de Azure Synapse Analytics, estas bibliotecas se pueden usar para compilar modelos de máquina única estableciendo el número de ejecutores del grupo en cero. Aunque Apache Spark no funciona con esta configuración, es una manera sencilla y rentable de crear modelos de máquina única.
 
 ## <a name="track-model-development"></a>Seguimiento del desarrollo de modelos
 [MLflow](https://www.mlflow.org/) es una biblioteca de código abierto para administrar el ciclo de vida de los experimentos de aprendizaje automático. MLFlow Tracking es un componente de MLflow que registra las métricas de ejecución de entrenamiento y los artefactos de modelo y realiza un seguimiento de ellos. Para obtener más información sobre cómo puede usar el seguimiento de MLFlow a través de Azure Synapse Analytics y Azure Machine Learning, consulte este tutorial sobre [cómo usar MLFlow](https://docs.microsoft.com/azure/machine-learning/how-to-use-mlflow).
@@ -68,7 +68,7 @@ Al registrar un modelo, podrá almacenar, editar y realizar un seguimiento de lo
 Para empezar a trabajar con el aprendizaje automático en Azure Synapse Analytics, asegúrese de consultar los siguientes tutoriales:
 - [Análisis de datos con cuadernos de Azure Synapse](../spark/apache-spark-data-visualization-tutorial.md)
 
-- [Entrenar un modelo de Machine Learning con AutoML](../spark/apache-spark-azure-machine-learning-tutorial.md)
+- [Entrenar un modelo de Machine Learning con ML automatizado](../spark/apache-spark-azure-machine-learning-tutorial.md)
 
 - [Entrenar un modelo de Machine Learning con Apache Spark MLlib](../spark/apache-spark-machine-learning-mllib-notebook.md)
   

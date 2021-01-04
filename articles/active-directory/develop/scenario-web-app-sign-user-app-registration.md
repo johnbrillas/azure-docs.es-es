@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 29f5d2960a678204387b2bd1dfd6d4acdc4f9c3d
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 30d646ff7d4f97289ff238211418ac57cd8167a4
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94442521"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107692"
 ---
 # <a name="web-app-that-signs-in-users-app-registration"></a>Aplicación web que inicia sesión de usuarios: Registro de aplicación
 
@@ -41,52 +41,52 @@ Puede usar estos vínculos para el arranque de la creación de la aplicación we
 > El portal que se debe usar varía en función de si la aplicación se ejecuta en la nube pública de Microsoft Azure o en una nube soberana o nacional. Para obtener más información, consulte [Nubes nacionales](./authentication-national-cloud.md#app-registration-endpoints).
 
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta personal, profesional o educativa de Microsoft. Como alternativa, inicie sesión en la instancia de [Azure Portal que prefiera](./authentication-national-cloud.md#app-registration-endpoints) de la nube nacional.
-2. Si la cuenta proporciona acceso a más de un inquilino, seleccione su cuenta en la esquina superior derecha. A continuación, establezca la sesión del portal en el inquilino de Azure Active Directory (Azure AD) deseado.
-3. En el panel izquierdo, seleccione el servicio **Azure Active Directory** y, después, seleccione **Registros de aplicaciones** > **Nuevo registro**.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com). 
+1. Si tiene acceso a varios inquilinos, use el filtro **Directorio + suscripción** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: del menú superior para seleccionar el inquilino en el que desea registrar una aplicación.
+1. Busque y seleccione **Azure Active Directory**.
+1. En **Administrar**, seleccione **Registros de aplicaciones** >  y, luego, **Nuevo registro**.
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
 1. Cuando aparece la página **Registrar una aplicación**, escriba la información de registro de la aplicación:
+   1. Escriba el **Nombre** de la aplicación, por ejemplo `AspNetCore-WebApp`. Los usuarios de la aplicación pueden ver este nombre, el cual se puede cambiar más tarde.
    1. Elija los tipos de cuenta admitidos para la aplicación. (Consulte [Tipos de cuenta admitidos](./v2-supported-account-types.md)).
-   1. En la sección **Nombre**, escriba un nombre con sentido para la aplicación, que se mostrará a los usuarios de la aplicación. Por ejemplo, escriba **AspNetCore-WebApp**.
-   1. En **URI de redireccionamiento**, agregue el tipo de aplicación y el destino de URI que aceptará las respuestas de token devueltas después de una autenticación correcta. Por ejemplo, escriba: **https://localhost:44321** . Después, seleccione **Registrar**.
-   ![Captura de pantalla que muestra la página Registrar una aplicación, donde puede seleccionar la opción Registrar.](media/scenario-webapp/scenario-webapp-app-registration-1.png)
-1. Seleccione el menú **Autenticación** y, a continuación, agregue la siguiente información:
-   1. En **URL de respuesta**, agregue **https://localhost:44321/signin-oidc** de tipo **Web**.
-   1. En la sección **Configuración avanzada**, establezca **Dirección URL de cierre de sesión** en **https://localhost:44321/signout-oidc** .
-   1. En **Concesión implícita**, seleccione **Tokens de id.** .
+   1. En **URI de redireccionamiento**, agregue el tipo de aplicación y el destino de URI que aceptará las respuestas de token devueltas después de una autenticación correcta. Por ejemplo, escriba `https://localhost:44321`.
+   1. Seleccione **Registrar**.
+1. En **Administrar**, seleccione **Autenticación** y, a continuación, agregue la siguiente información:
+   1. En la sección **Web**, agregue `https://localhost:44321/signin-oidc` como **URI de redirección**.
+   1. Agregue `https://localhost:44321/signout-oidc` como **URL de cierre de sesión**.
+   1. En **Concesión implícita**, seleccione **Tokens de identificador**.
    1. Seleccione **Guardar**.
-  ![Captura de pantalla donde se muestran las opciones de autenticación, donde puede realizar los cambios descritos.](media/scenario-webapp/scenario-webapp-app-registration-2.png)
- 
+   
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
 1. Cuando aparece la página **Registrar una aplicación**, escriba la información de registro de la aplicación:
+   1. Escriba el **Nombre** de la aplicación, por ejemplo `MailApp-openidconnect-v2`. Los usuarios de la aplicación pueden ver este nombre, el cual se puede cambiar más tarde.
    1. Elija los tipos de cuenta admitidos para la aplicación. (Consulte [Tipos de cuenta admitidos](./v2-supported-account-types.md)).
-   1. En la sección **Nombre**, escriba un nombre con sentido para la aplicación, que se mostrará a los usuarios de la aplicación. Por ejemplo, escriba **MailApp-openidconnect-v2**.
    1. En la sección **URI de redirección (opcional)** , seleccione **Web** en el cuadro combinado y escriba los siguientes URI de redirección: **https://localhost:44326/** .
-1. Seleccione **Registrar** para crear la aplicación.
-1. Seleccione el menú **Autenticación**.
-1. En la sección **Configuración avanzada** | **Concesión implícita**, seleccione **Tokens de id.** Para este ejemplo, se requiere que habilite el [flujo de concesión implícita](v2-oauth2-implicit-grant-flow.md).
+   1. Seleccione **Registrar** para crear la aplicación.
+1. En **Administrar**, seleccione **Autenticación**.
+1. En la sección **Concesión implícita** , seleccione **Tokens de id**. Para este ejemplo, se requiere que habilite el [flujo de concesión implícita](v2-oauth2-implicit-grant-flow.md).
 1. Seleccione **Guardar**.
 
 # <a name="java"></a>[Java](#tab/java)
 
-1. Cuando aparezca la página **Registrar una aplicación**, escriba un nombre para mostrar de la aplicación. Por ejemplo, escriba **java-webapp**.
-1. Seleccione **Cuentas en cualquier directorio organizativo y cuentas Microsoft personales (por ejemplo, Skype, Xbox, Outlook.com)** y luego seleccione **Aplicación web o API** para **Tipo de aplicación**.
-1. Seleccione **Registrar** para registrar la aplicación.
-1. En el menú izquierdo, seleccione **Autenticación**. En **URI de redirección**, seleccione **Web**.
-
-1. Escriba dos URI de redirección: uno para la página de inicio de sesión y otro para la página de gráfico. En ambos casos, use el mismo host y número de puerto, seguido de **/msal4jsample/secure/aad** para la página de inicio de sesión y de **msal4jsample/graph/me** para la página de información de usuario.
-
-   De forma predeterminada, en el ejemplo se usa:
-
+1. Cuando aparece la página **Registrar una aplicación**, escriba la información de registro de la aplicación: 
+    1. Escriba el **Nombre** de la aplicación, por ejemplo `java-webapp`. Los usuarios de la aplicación pueden ver este nombre, el cual se puede cambiar más tarde. 
+    1. Seleccione **Accounts in any organizational directory and personal Microsoft Accounts (e.g. Skype, Xbox, Outlook.com)** [Cuentas en cualquier directorio organizativo y cuentas de Microsoft personales (por ejemplo, Skype, Xbox, Outlook.com)].
+    1. Seleccione **Registrar** para registrar la aplicación.
+1. En **Administrar**, seleccione **Autenticación** > **Agregar una plataforma**.
+1. Seleccione **Web**.
+1. En **URI de redirección**, escriba el mismo host y número de puerto, seguido de `/msal4jsample/secure/aad` para la página de inicio de sesión. 
+1. Seleccione **Configurar**.
+1. En la sección **Web**, use el host y el número de puerto, seguidos de **/msal4jsample/graph/me** como **URI de redirección** para la página de información del usuario.
+De forma predeterminada, en el ejemplo se usa:
    - **http://localhost:8080/msal4jsample/secure/aad**
    - **http://localhost:8080/msal4jsample/graph/me**
 
-  Después, seleccione **Guardar**.
-
-1. Seleccione **Certificados y secretos** en el menú.
+1. Seleccione **Guardar**.
+1. En **Administrar**, seleccione **Certificados y secretos**.
 1. En la sección **Secretos de cliente**, seleccione **Nuevo secreto de cliente** y, a continuación, haga lo siguiente:
 
    1. Escriba una descripción de la clave.
@@ -97,14 +97,13 @@ Puede usar estos vínculos para el arranque de la creación de la aplicación we
 # <a name="python"></a>[Python](#tab/python)
 
 1. Cuando aparece la página **Registrar una aplicación**, escriba la información de registro de la aplicación:
-   1. En la sección **Nombre**, escriba un nombre con sentido para la aplicación, que se mostrará a los usuarios de la aplicación. Por ejemplo, escriba **python-webapp**.
+   1. Escriba el **Nombre** de la aplicación, por ejemplo `python-webapp`. Los usuarios de la aplicación pueden ver este nombre, el cual se puede cambiar más tarde.
    1. Cambie **Supported account types** (Tipos de cuenta compatibles) por **Cuentas en cualquier directorio organizativo y cuentas Microsoft personales (por ejemplo, Skype, Xbox, Outlook.com)** .
    1. En la sección **URI de redirección (opcional)** , seleccione **Web** en el cuadro combinado y escriba los siguientes URI de redirección: **http://localhost:5000/getAToken** .
-1. Seleccione **Registrar** para crear la aplicación.
+   1. Seleccione **Registrar** para crear la aplicación.
 1. En la página **Información general** de la aplicación, busque el valor de **Id. de aplicación (cliente)** y regístrelo para usarlo más tarde. Lo necesitará para configurar el archivo de configuración de Visual Studio para este proyecto.
-1. En el menú izquierdo, seleccione **Certificados y secretos**.
+1. En **Administrar**, seleccione **Certificados y secretos**.
 1. En la sección **Secretos de cliente**, seleccione **Nuevo secreto de cliente** y, a continuación, haga lo siguiente:
-
    1. Escriba una descripción de la clave.
    1. Seleccione una duración de la clave de **En 1 año**.
    1. Seleccione **Agregar**.

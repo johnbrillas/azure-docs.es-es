@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/24/2018
-ms.openlocfilehash: e7b7acb7e67d809229825b3d393fe49af12b3642
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.date: 12/09/2020
+ms.openlocfilehash: 3f15ffd6f7ed784cce398d419e013a69c60289d8
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461215"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921799"
 ---
 # <a name="delta-copy-from-a-database-with-a-control-table"></a>Copia diferencial desde una base de datos con una tabla de control
 
@@ -45,7 +45,7 @@ La plantilla define los parámetros siguientes:
 - *Data_Source_WaterMarkColumn* es el nombre de columna en la tabla de origen que se usa para identificar las filas nuevas o actualizadas. El tipo de esta columna suele ser *datetime*, *INT* o similar.
 - *Data_Destination_Container* es la ruta de acceso raíz del lugar donde los datos se copian en el almacén de destino.
 - *Data_Destination_Directory* es la ruta de acceso del directorio en la raíz del lugar donde los datos se copian en el almacén de destino.
-- *Data_Destination_Table_Name* es el lugar en el que se copian los datos en el almacén de destino (aplicable cuando se selecciona "Azure Synapse Analytics (anteriormente, SQL DW)" como destino de los datos).
+- *Data_Destination_Table_Name* es el lugar en el que se copian los datos en el almacén de destino (aplicable cuando se selecciona "Azure Synapse Analytics" como destino de los datos).
 - *Data_Destination_Folder_Path* es el lugar en el que se copian los datos en el almacén de destino (aplicable cuando se selecciona "Sistema de archivos" o "Azure Data Lake Storage Gen1" como destino de los datos).
 - *Control_Table_Table_Name* es la tabla de control externa que almacena el valor de límite máximo.
 - *Control_Table_Column_Name* es la columna en la tabla de control externa que almacena el valor de límite máximo.

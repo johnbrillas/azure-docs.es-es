@@ -306,10 +306,10 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 |  Versión 20-06  |  [4561603]  |  Internet Explorer  |  [2.99], [3.86], [4.79]  |  9 de junio de 2020  |
 |  Versión 20-06  |  [4561616]  |  Actualización acumulativa más reciente (LCU)  |  [5.44]  |  9 de junio de 2020  |
 |  Versión 20-06  |  [4561608]  |  Actualización acumulativa más reciente (LCU)  |  [6.20]  |  9 de junio de 2020  |
-|  Versión 20-06  |  [4562030]  |  Actualización de la pila de servicio  |  [2,99]  |  9 de junio de 2020  |
-|  Versión 20-06  |  [4561643]  |  Acumulación mensual  |  [2,99]  |  9 de junio de 2020  |
-|  Versión 20-06  |  [4562252]  |  Actualización de la pila de servicio  |  [3,86]  |  9 de junio de 2020  |
-|  Versión 20-06  |  [4561612]  |  Acumulación mensual  |  [3,86]  |  9 de junio de 2020  |
+|  Versión 20-06  |  [4562030]  |  Actualización de la pila de servicio  |  [2.99]  |  9 de junio de 2020  |
+|  Versión 20-06  |  [4561643]  |  Acumulación mensual  |  [2.99]  |  9 de junio de 2020  |
+|  Versión 20-06  |  [4562252]  |  Actualización de la pila de servicio  |  [3.86]  |  9 de junio de 2020  |
+|  Versión 20-06  |  [4561612]  |  Acumulación mensual  |  [3.86]  |  9 de junio de 2020  |
 |  Versión 20-06  |  [4561600]  |  Intermitente  |  [3.86], [4.79], [5.44], [6.20]  |  9 de junio de 2020  |
 |  Versión 20-06  |  [4562253]  |  Actualización de la pila de servicio  |  [4,79]  |  9 de junio de 2020  |
 |  Versión 20-06  |  [4561666]  |  Acumulación mensual  |  [4,79]  |  9 de junio de 2020  |

@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/14/2018
-ms.openlocfilehash: 8d1ff372009c6158f2148847dd77126bcb4d189f
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.date: 12/09/2020
+ms.openlocfilehash: d89fd8b4102333603fa71b2cc28a49b732b91b08
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461224"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920894"
 ---
 # <a name="bulk-copy-from-a-database-with-a-control-table"></a>Copia masiva desde una base de datos con una tabla de control
 
@@ -44,7 +44,7 @@ La plantilla define los parámetros siguientes:
 - *Data_Destination_Container* es la ruta de acceso de la carpeta raíz del lugar donde los datos se copian en el almacén de destino. 
 - *Data_Destination_Directory* es la ruta de acceso del directorio en la raíz donde los datos se copian en el almacén de destino. 
 
-Los tres últimos parámetros, que definen la ruta de acceso en el almacén de destino, solo están visibles si el destino que elige es almacenamiento basado en archivos. Si elige "Azure Synapse Analytics (antes, SQL DW)" como almacén de destino, estos parámetros no son necesarios. Pero los nombres de tabla y el esquema en Azure Synapse Analytics deben ser iguales que los de la base de datos de origen.
+Los tres últimos parámetros, que definen la ruta de acceso en el almacén de destino, solo están visibles si el destino que elige es almacenamiento basado en archivos. Si elige "Azure Synapse Analytics" como almacén de destino, estos parámetros no son necesarios. Pero los nombres de tabla y el esquema en Azure Synapse Analytics deben ser iguales que los de la base de datos de origen.
 
 ## <a name="how-to-use-this-solution-template"></a>Uso de esta plantilla de solución
 
@@ -94,7 +94,7 @@ Los tres últimos parámetros, que definen la ruta de acceso en el almacén de d
 
     ![Revisión del resultado](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable8.png)
 
-9. (Opcional) Si elige "Azure Synapse Analytics (antes SQL DW)" como destino de datos, debe escribir una conexión a una instancia de Azure Blob Storage como almacenamiento provisional, porque así lo requiere Polybase de Azure Synapse Analytics. La plantilla generará automáticamente una ruta de acceso de contenedor para Blob Storage. Consulte si el contenedor se ha creado después de la ejecución de la canalización.
+9. (Opcional) Si elige "Azure Synapse Analytics" como destino de datos, debe especificar una conexión a una instancia de Azure Blob Storage como almacenamiento provisional, porque así lo requiere PolyBase de Azure Synapse Analytics. La plantilla generará automáticamente una ruta de acceso de contenedor para Blob Storage. Consulte si el contenedor se ha creado después de la ejecución de la canalización.
     
     ![Configuración de PolyBase](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable9.png)
        

@@ -7,17 +7,18 @@ author: MashaMSFT
 tags: azure-resource-manager
 ms.assetid: 169fc765-3269-48fa-83f1-9fe3e4e40947
 ms.service: virtual-machines-sql
+ms.subservice: management
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/26/2019
 ms.author: mathoma
-ms.openlocfilehash: 3a4b7d68d7cd21ccb4b7eb8b97e0d331fb236e96
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: d713faf7062f82110be5fa8378faca368b9bb7a2
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146729"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97356736"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Configuración del almacenamiento para máquinas virtuales de SQL Server
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -46,7 +47,7 @@ Si aprovisiona una máquina virtual de Azure mediante una imagen de la galería 
 
 ![Captura de pantalla que resalta la pestaña Configuración de SQL Server y la opción Cambiar configuración.](./media/storage-configuration/sql-vm-storage-configuration-provisioning.png)
 
-Seleccione el tipo de carga de trabajo para el que va a implementar SQL Server en **Optimización de almacenamiento**. Con la opción de optimización **General** , de forma predeterminada tendrá un disco de datos con 5000 IOPS como máximo, y usará esta misma unidad para los datos, el registro de transacciones y el almacenamiento de TempDB. Si se seleccionan **Procesamiento de transacciones** (OLTP) o **Almacenamiento de datos** , se creará un disco independiente para los datos, un disco independiente para el registro de transacciones y se usará un disco SSD local para TempDB. No hay ninguna diferencia a nivel de almacenamiento entre **Procesamiento de transacciones** y **Almacenamiento de datos** , pero cambia la [configuración de las bandas y las marcas de seguimiento](#workload-optimization-settings). Si se elige el almacenamiento prémium, el almacenamiento en caché se establece en *ReadOnly* (Solo lectura) para la unidad de datos y en *None* (Ninguno) para la unidad de registro según los [procedimientos recomendados de rendimiento de la máquina virtual de SQL Server](performance-guidelines-best-practices.md). 
+Seleccione el tipo de carga de trabajo para el que va a implementar SQL Server en **Optimización de almacenamiento**. Con la opción de optimización **General**, de forma predeterminada tendrá un disco de datos con 5000 IOPS como máximo, y usará esta misma unidad para los datos, el registro de transacciones y el almacenamiento de TempDB. Si se seleccionan **Procesamiento de transacciones** (OLTP) o **Almacenamiento de datos** , se creará un disco independiente para los datos, un disco independiente para el registro de transacciones y se usará un disco SSD local para TempDB. No hay ninguna diferencia a nivel de almacenamiento entre **Procesamiento de transacciones** y **Almacenamiento de datos**, pero cambia la [configuración de las bandas y las marcas de seguimiento](#workload-optimization-settings). Si se elige el almacenamiento prémium, el almacenamiento en caché se establece en *ReadOnly* (Solo lectura) para la unidad de datos y en *None* (Ninguno) para la unidad de registro según los [procedimientos recomendados de rendimiento de la máquina virtual de SQL Server](performance-guidelines-best-practices.md). 
 
 ![Configuración del almacenamiento de máquinas virtuales de SQL Server durante el aprovisionamiento](./media/storage-configuration/sql-vm-storage-configuration.png)
 
@@ -62,7 +63,7 @@ El almacenamiento en caché de disco para SSD Premium puede ser *ReadOnly* (Solo
 
 
    > [!TIP]
-   > Asegúrese de que la configuración de almacenamiento coincide con las limitaciones impuestas por el tamaño de máquina virtual seleccionado. Si se eligen parámetros de almacenamiento que superen el límite de rendimiento del tamaño de la máquina virtual, se producirá un error: `The desired performance might not be reached due to the maximum virtual machine disk performance cap.`. Reduzca el límite de IOPS, para lo que debe cambiar el tipo de disco, o aumente el límite de rendimiento, para lo que debe aumentar el tamaño de la máquina virtual. 
+   > Asegúrese de que la configuración de almacenamiento coincide con las limitaciones impuestas por el tamaño de máquina virtual seleccionado. Si se eligen parámetros de almacenamiento que superen el límite de rendimiento del tamaño de la máquina virtual, se emitirá una advertencia: `The desired performance might not be reached due to the maximum virtual machine disk performance cap`. Reduzca el límite de IOPS, para lo que debe cambiar el tipo de disco, o aumente el límite de rendimiento, para lo que debe aumentar el tamaño de la máquina virtual. Esto no detendrá el aprovisionamiento. 
 
 
 En función de lo que elija, Azure realiza las siguientes tareas de configuración del almacenamiento después de crear la máquina virtual:
@@ -105,7 +106,7 @@ Para modificar la configuración de almacenamiento, seleccione **Configurar** en
 
 ![Captura de pantalla que resalta la opción Configurar y la sección Uso de almacenamiento.](./media/storage-configuration/sql-vm-storage-configuration-existing.png)
 
-Puede modificar la configuración de disco de las unidades que se configuraron durante el proceso de creación de la máquina virtual con SQL Server. Al seleccionar **Extender unidad** , se abre la página de modificación de la unidad, lo que permite cambiar el tipo de disco, así como agregar discos adicionales. 
+Puede modificar la configuración de disco de las unidades que se configuraron durante el proceso de creación de la máquina virtual con SQL Server. Al seleccionar **Extender unidad**, se abre la página de modificación de la unidad, lo que permite cambiar el tipo de disco, así como agregar discos adicionales. 
 
 ![Configuración del almacenamiento para la máquina virtual de SQL Server existente](./media/storage-configuration/sql-vm-storage-extend-drive.png)
 

@@ -8,14 +8,14 @@ ms.service: role-based-access-control
 ms.devlang: na
 ms.topic: how-to
 ms.workload: identity
-ms.date: 10/06/2020
+ms.date: 12/10/2020
 ms.author: rolyon
-ms.openlocfilehash: ad0ba3c63f6f0ef6e7e02051031cf215c2e72cce
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 92b27690ab1f2ca8d98eb2231c5a27bc508613f8
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94648249"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095430"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory"></a>Transferencia de una suscripción de Azure a otro directorio de Azure AD
 
@@ -53,7 +53,12 @@ A continuación se indican algunos de los motivos por los que es posible que qui
 - Una parte de su negocio se ha dividido en una empresa independiente y debe trasladar algunos de sus recursos a otro directorio de Azure AD.
 - Quiere administrar algunos de los recursos en otro directorio de Azure AD con fines de aislamiento de seguridad.
 
-La transferencia de una suscripción requiere un tiempo de inactividad para completar el proceso. En función del escenario, podría ser mejor volver a crear los recursos y copiar los datos en el directorio y la suscripción de destino.
+### <a name="alternate-approaches"></a>Enfoques alternativos
+
+La transferencia de una suscripción requiere un tiempo de inactividad para completar el proceso. En función de su escenario, puede tener en cuenta los siguientes enfoques alternativos:
+
+- Vuelva a crear los recursos y copie los datos en el directorio de destino y la suscripción.
+- Adopte una arquitectura de varios directorios y deje la suscripción en el directorio de origen. Use Azure Lighthouse para delegar recursos de modo que los usuarios del directorio de destino puedan acceder a la suscripción en el directorio de origen. Para más información, consulte [Azure Lighthouse en escenarios empresariales](../lighthouse/concepts/enterprise.md).
 
 ### <a name="understand-the-impact-of-transferring-a-subscription"></a>Comprensión del impacto de transferir una suscripción
 
@@ -383,3 +388,4 @@ Si su intención es quitar el acceso de los usuarios del directorio de origen pa
 - [Transferencia de la propiedad de facturación de una suscripción de Azure a otra cuenta](../cost-management-billing/manage/billing-subscription-transfer.md)
 - [Transferencia de suscripciones de Azure entre suscriptores y CSP](../cost-management-billing/manage/transfer-subscriptions-subscribers-csp.md)
 - [Asociación o incorporación de una suscripción de Azure al inquilino de Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
+- [Azure Lighthouse en escenarios empresariales](../lighthouse/concepts/enterprise.md)

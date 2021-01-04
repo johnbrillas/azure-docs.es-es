@@ -3,22 +3,16 @@ title: Asignación de campos personalizados a esquemas de Azure Event Grid
 description: En este artículo se explica cómo convertir el esquema personalizado en el esquema de Azure Event Grid cuando los datos de un evento no coinciden con el esquema de Event Grid.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 836e7b340c5c89100207e2f9409710b8dfa5e3bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 34381782c9337631b0aa04e47eb5897a8071139a
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86105530"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109205"
 ---
 # <a name="map-custom-fields-to-event-grid-schema"></a>Asignación de campos personalizados a esquemas de Event Grid
 
 Si los datos del evento no coinciden con el [esquema de Event Grid](event-schema.md) esperado, podrá seguir usando Event Grid para enrutar el evento a los suscriptores. En este artículo se describe cómo asignar el esquema al de Event Grid.
-
-[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
-
-## <a name="install-preview-feature"></a>Instalación de la característica en vista previa
-
-[!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
 ## <a name="original-event-schema"></a>Esquema del evento original
 
@@ -40,7 +34,7 @@ Aunque dicho formato no coincide con el esquema requerido, Event Grid permite as
 
 Al crear un tema personalizado, especifique cómo asignar campos del evento original al esquema de Event Grid. Hay tres valores que se pueden usar para personalizar la asignación:
 
-* El valor del **esquema de entrada** especifica el tipo de esquema. Las opciones disponibles son el esquema de CloudEvents, el esquema de eventos personalizados o el esquema de Event Grid. El valor predeterminado es el esquema de Event Grid. Al crear la asignación personalizada entre el esquema y el esquema de Event Grid, use el esquema de eventos personalizados. Si los eventos están en el esquema de CloudEvents, use el esquema Cloudevents.
+* El valor del **esquema de entrada** especifica el tipo de esquema. Las opciones disponibles son el esquema de CloudEvents, el esquema de eventos personalizados o el esquema de Event Grid. El valor predeterminado es el esquema de Event Grid. Al crear la asignación personalizada entre el esquema y el esquema de Event Grid, use el esquema de eventos personalizados. Si los eventos están en el formato CloudEvents, use el esquema CloudEvents.
 
 * La propiedad **mapping default values** (asignación de valores predeterminados) especifica los valores predeterminados para los campos en el esquema de Event Grid. Puede establecer valores predeterminados para `subject`, `eventtype` y `dataversion`. Normalmente, se usa este parámetro si el esquema personalizado no incluye un campo que se corresponde con alguno de esos tres campos. Por ejemplo, puede especificar que la versión de datos siempre se establezca en **1.0**.
 
@@ -49,10 +43,6 @@ Al crear un tema personalizado, especifique cómo asignar campos del evento orig
 Para crear un tema personalizado con la CLI de Azure, use:
 
 ```azurecli-interactive
-# If you have not already installed the extension, do it now.
-# This extension is required for preview features.
-az extension add --name eventgrid
-
 az eventgrid topic create \
   -n demotopic \
   -l eastus2 \
@@ -65,11 +55,7 @@ az eventgrid topic create \
 Para PowerShell, use:
 
 ```azurepowershell-interactive
-# If you have not already installed the module, do it now.
-# This module is required for preview features.
-Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery
-
-New-AzureRmEventGridTopic `
+New-AzEventGridTopic `
   -ResourceGroupName myResourceGroup `
   -Name demotopic `
   -Location eastus2 `
@@ -107,9 +93,9 @@ az eventgrid event-subscription create \
 En el ejemplo siguiente se realiza la suscripción a un tema de Event Grid y se usa el esquema de Event Grid. Para PowerShell, use:
 
 ```azurepowershell-interactive
-$topicid = (Get-AzureRmEventGridTopic -ResourceGroupName myResourceGroup -Name demoTopic).Id
+$topicid = (Get-AzEventGridTopic -ResourceGroupName myResourceGroup -Name demoTopic).Id
 
-New-AzureRmEventGridSubscription `
+New-AzEventGridSubscription `
   -ResourceId $topicid `
   -EventSubscriptionName eventsub1 `
   -EndpointType webhook `
@@ -120,7 +106,7 @@ New-AzureRmEventGridSubscription `
 En el ejemplo siguiente se usa el esquema de entrada del evento:
 
 ```azurepowershell-interactive
-New-AzureRmEventGridSubscription `
+New-AzEventGridSubscription `
   -ResourceId $topicid `
   -EventSubscriptionName eventsub2 `
   -EndpointType webhook `
@@ -146,8 +132,8 @@ curl -X POST -H "aeg-sas-key: $key" -d "$event" $endpoint
 Para PowerShell, use:
 
 ```azurepowershell-interactive
-$endpoint = (Get-AzureRmEventGridTopic -ResourceGroupName myResourceGroup -Name demotopic).Endpoint
-$keys = Get-AzureRmEventGridTopicKey -ResourceGroupName myResourceGroup -Name demotopic
+$endpoint = (Get-AzEventGridTopic -ResourceGroupName myResourceGroup -Name demotopic).Endpoint
+$keys = Get-AzEventGridTopicKey -ResourceGroupName myResourceGroup -Name demotopic
 
 $htbody = @{
     myEventTypeField="Created"

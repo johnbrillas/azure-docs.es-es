@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: f3b492534bedde50d2413b88fa38cd6325ed5df7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 32aa64a9343a8e3c62af4322b3320b28ce805064
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91328265"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97369198"
 ---
 # <a name="azure-security-benchmark-introduction"></a>Introducción a las pruebas comparativas de seguridad de Azure
 
@@ -27,7 +27,7 @@ Azure Security Benchmark incluye una recopilación de recomendaciones de segurid
 - **Líneas de base del servicio**: Estos controles se aplican a los servicios individuales de Azure para ofrecer recomendaciones sobre la configuración de seguridad de dicho servicio.
 
 ## <a name="implement-the-azure-security-benchmark"></a>Implementación de Azure Security Benchmark
-- **Planifique** la implementación de Azure Security Benchmark mediante la revisión de la [documentación](overview.md) para los controles empresariales y las líneas de base específicas del servicio con el fin de planear el marco de control y cómo se adapta a directrices como las del marco CIS (controles v7.1) y NIST (SP800-53).
+- **Planifique** la implementación de Azure Security Benchmark mediante la revisión de la [documentación](overview.md) para los controles empresariales y las líneas de base específicas del servicio con el fin de planear el marco de control y cómo se adapta a directrices como las del marco CIS (controles v7.1) y NIST (SP 800-53).
 - **Supervise** el cumplimiento con el estado de Azure Security Benchmark (y otros conjuntos de controles) mediante [panel de cumplimiento normativo](../../security-center/security-center-compliance-dashboard.md).
 - **Establezca límites de protección** para automatizar las configuraciones seguras y exigir el cumplimiento de Azure Security Benchmark (y otros requisitos de su organización) con Azure Blueprints y Azure Policy.
  

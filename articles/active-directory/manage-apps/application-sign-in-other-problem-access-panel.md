@@ -11,13 +11,13 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: japere
-ms.custom: contperfq2
-ms.openlocfilehash: 8cbc683f06b809ec4d9c63a61d73a0c731a92cd7
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: 59d733bfe5580e64d531eeac1db443982a308517
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94651625"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033636"
 ---
 # <a name="troubleshoot-problems-signing-in-to-an-application-from-azure-ad-my-apps"></a>Solución de problemas al iniciar sesión en una aplicación desde Aplicaciones de Azure AD
 
@@ -61,6 +61,7 @@ El acceso a Aplicaciones se puede bloquear debido a un problema con la cuenta de
 -   [Comprobar el estado de la autenticación multifactor de un usuario](#check-a-users-multi-factor-authentication-status)
 -   [Comprobar la información de contacto de autenticación de un usuario](#check-a-users-authentication-contact-info)
 -   [Comprobación de la pertenencia a grupos de un usuario](#check-a-users-group-memberships)
+-   [Comprobación de si un usuario tiene más de 999 asignaciones de roles de aplicación](#check-if-a-user-has-more-than-999-app-role-assignments)
 -   [Comprobar las licencias asignadas de un usuario](#check-a-users-assigned-licenses)
 -   [Asignar una licencia a un usuario](#assign-a-user-a-license)
 
@@ -138,6 +139,16 @@ Para comprobar la pertenencia a grupos de un usuario, siga estos pasos:
 5.  Seleccione **Todos los usuarios**.
 6.  **Busque** el usuario que le interesa y seleccione la **fila** para seleccionarlo.
 7.  Seleccione **Grupos** para ver de cuáles es miembro el usuario.
+
+### <a name="check-if-a-user-has-more-than-999-app-role-assignments"></a>Comprobación de si un usuario tiene más de 999 asignaciones de roles de aplicación
+Si un usuario tiene más de 999 asignaciones de roles de aplicación asignadas, es posible que no vea todas las aplicaciones en Mis aplicaciones.
+
+Esto se debe a que Mis aplicaciones actualmente leen hasta 999 asignaciones de roles de aplicación para determinar las aplicaciones a las que los usuarios están asignados. Si un usuario está asignado a más de 999 aplicaciones, no es posible controlar cuáles de esas aplicaciones se mostrarán en el portal Mis aplicaciones.
+
+Para comprobar el número de asignaciones de roles de aplicación que se conceden a un usuario, siga estos pasos:
+1. Instale el módulo de PowerShell [**Microsoft.Graph**](https://github.com/microsoftgraph/msgraph-sdk-powershell).
+2. Ejecute `Connect-MgGraph -Scopes "Directory.Read.All"` y autentíquese como **administrador global.**
+3. Ejecute `$m = Get-MgUserAppRoleAssignment -UserId "<userId>" | Measure; $m.Count` para determinar el número de asignaciones de roles de aplicación que el usuario ha concedido actualmente.
 
 ### <a name="check-a-users-assigned-licenses"></a>Comprobar las licencias asignadas de un usuario
 Para comprobar las licencias asignadas de un usuario, siga estos pasos:

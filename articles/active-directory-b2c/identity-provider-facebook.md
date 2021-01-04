@@ -8,18 +8,31 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/26/2019
+ms.date: 12/07/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 62956000e143f5504d32dae26953bcf877ce96a6
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+zone_pivot_groups: b2c-policy-type
+ms.openlocfilehash: 37fc33ae8084a2b4e99e7b5dc417eac70060eef5
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92628582"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516198"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-facebook-account-using-azure-active-directory-b2c"></a>Configuración de la suscripción y del inicio de sesión con una cuenta de Facebook mediante Azure Active Directory B2C
+
+[!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
+
+::: zone pivot="b2c-custom-policy"
+
+[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
+
+::: zone-end
+
+## <a name="prerequisites"></a>Requisitos previos
+
+[!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
 ## <a name="create-a-facebook-application"></a>Creación de una aplicación de Facebook
 
@@ -32,11 +45,11 @@ Para usar una cuenta de Facebook como [proveedor de identidades](authorization-c
 1. Especifique el valor de **Display Name** (Nombre para mostrar) y un valor de **Contact Email** (Correo electrónico de contacto) válido.
 1. Seleccione **Create App ID** (Crear identificador de aplicación). Es posible que deba aceptar las políticas de la plataforma Facebook y realizar una comprobación de seguridad en línea.
 1. Seleccione **Settings** (Configuración)  > **Basic** (Básica).
-    1. Elija una **Categoría** , por ejemplo, `Business and Pages`. Este valor es obligatorio para Facebook, pero no se usa para Azure AD B2C.
-    1. Escriba una dirección URL para la **URL de Condiciones del servicio** , por ejemplo `http://www.contoso.com/tos`. La dirección URL de la directiva es una página que se mantiene para proporcionar los términos y condiciones de la aplicación.
+    1. Elija una **Categoría**, por ejemplo, `Business and Pages`. Este valor es obligatorio para Facebook, pero no se usa para Azure AD B2C.
+    1. Escriba una dirección URL para la **URL de Condiciones del servicio**, por ejemplo `http://www.contoso.com/tos`. La dirección URL de la directiva es una página que se mantiene para proporcionar los términos y condiciones de la aplicación.
     1. Escriba una dirección URL en **Privacy Policy URL** (URL de directiva de privacidad), por ejemplo `http://www.contoso.com/privacy`. La dirección URL de directiva es una página que sirve para proporcionar información de privacidad de la aplicación.
 1. En la parte inferior de la página, seleccione **Add Platform** (Agregar plataforma) y, después, seleccione **Website** (Sitio web).
-1. En **URL del sitio** , escriba la dirección del sitio web, por ejemplo `https://contoso.com`. 
+1. En **URL del sitio**, escriba la dirección del sitio web, por ejemplo `https://contoso.com`. 
 1. Seleccione **Save changes** (Guardar los cambios).
 1. En la parte superior de la página, copie el valor de **App ID** (Id. de la aplicación).
 1. Seleccione **Show** (Mostrar) y copie el valor de **App Secret** (Secreto de la aplicación). Use ambos para configurar Facebook como proveedor de identidades de su inquilino. El **secreto de la aplicación** es una credencial de seguridad importante.
@@ -45,6 +58,8 @@ Para usar una cuenta de Facebook como [proveedor de identidades](authorization-c
 1. En **Valid OAuth redirect URIs** (URI de redireccionamiento OAuth válidos), escriba `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Reemplace `your-tenant-name` por el nombre del inquilino. Seleccione **Save Changes** (Guardar cambios) en la parte inferior de la página.
 1. Para que la aplicación de Facebook esté disponible para Azure AD B2C, seleccione el selector de Estado situado en la parte superior derecha de la página y **actívelo** para hacer que la aplicación sea pública y, después, seleccione **Switch Mode** (Modo de conmutador).  En este momento el estado debería cambiar de **Desarrollo** a **Activo**.
 
+::: zone pivot="b2c-user-flow"
+
 ## <a name="configure-a-facebook-account-as-an-identity-provider"></a>Configuración de una cuenta de Facebook como proveedor de identidades
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) como administrador global del inquilino de Azure AD B2C.
@@ -52,6 +67,54 @@ Para usar una cuenta de Facebook como [proveedor de identidades](authorization-c
 1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, busque y seleccione **Azure AD B2C**.
 1. Seleccione **Proveedores de identidades** y luego **Facebook**.
 1. Escriba un **nombre**. Por ejemplo, *Facebook*.
-1. En **Id. de cliente** , escriba el identificador de aplicación de Facebook que ha creado anteriormente.
-1. En **Secreto de cliente** , escriba el secreto de aplicación que ha anotado.
+1. En **Id. de cliente**, escriba el identificador de aplicación de Facebook que ha creado anteriormente.
+1. En **Secreto de cliente**, escriba el secreto de aplicación que ha anotado.
 1. Seleccione **Guardar**.
+
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
+
+## <a name="add-facebook-as-an-identity-provider"></a>Incorporación de Facebook como proveedor de identidades
+
+1. En el archivo `SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`** , sustituya el valor de `client_id` por el identificador de aplicación de Facebook:
+
+   ```xml
+   <TechnicalProfile Id="Facebook-OAUTH">
+     <Metadata>
+     <!--Replace the value of client_id in this technical profile with the Facebook app ID"-->
+       <Item Key="client_id">00000000000000</Item>
+   ```
+
+::: zone-end
+
+::: zone pivot="b2c-user-flow"
+
+## <a name="add-facebook-identity-provider-to-a-user-flow"></a>Adición de un proveedor de identidades de Facebook a un flujo de usuario 
+
+1. En el inquilino de Azure AD B2C, seleccione **Flujos de usuario**.
+1. Haga clic en el flujo de usuario que quiera en el proveedor de identidades de Facebook.
+1. En **Social identity providers** (Proveedores de identidades sociales), seleccione **Facebook**.
+1. Seleccione **Guardar**.
+1. Para probar la directiva, seleccione **Ejecutar flujo de usuario**.
+1. En **Aplicación**, seleccione la aplicación web denominada *testapp1* que registró anteriormente. La **dirección URL de respuesta** debe mostrar `https://jwt.ms`.
+1. Haga clic en **Ejecutar flujo de usuario**.
+
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
+
+## <a name="upload-and-test-the-policy"></a>Cargue y pruebe la directiva.
+
+Actualice el archivo de usuario de confianza (RP) que inicia el recorrido del usuario que ha creado.
+
+1. Cargue el archivo *TrustFrameworkExtensions.xml* en el inquilino.
+1. En **Directivas personalizadas**, seleccione **B2C_1A_signup_signin**.
+1. En **Seleccionar aplicación**, seleccione la aplicación web denominada *testapp1* que registró anteriormente. La **dirección URL de respuesta** debe mostrar `https://jwt.ms`.
+1. Seleccione **Ejecutar ahora** y elija Facebook para iniciar sesión con Facebook y probar la directiva personalizada.
+
+::: zone-end
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Obtenga información sobre cómo [pasar el token de Facebook a la aplicación](idp-pass-through-user-flow.md).

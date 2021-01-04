@@ -11,12 +11,12 @@ ms.author: abnarain
 manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 11/25/2020
-ms.openlocfilehash: 22155083a71a9cbf615293a4f86a179aaefce2a9
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: 04efb7bcae11ef6cf377d821b49f9b07d41d347f
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96023367"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932598"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Creación y configuración de un entorno de ejecución de integración autohospedado
 
@@ -102,29 +102,28 @@ Dmgcmd.exe se incluye en la instalación autohospedada. Normalmente se ubica en 
 Use la aplicación de la manera siguiente:
 
 ```powershell
-dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<thumbprint>"] -EnableRemoteAccessInContainer "<port>" ["<thumbprint>"] -DisableRemoteAccess -Key "<AuthenticationKey>" -GenerateBackupFile "<filePath>" "<password>" -ImportBackupFile "<filePath>" "<password>" -Restart -Start -Stop -StartUpgradeService -StopUpgradeService -TurnOnAutoUpdate -TurnOffAutoUpdate -SwitchServiceAccount "<domain\user>" ["<password>"] -Loglevel <logLevel> ]
+dmgcmd ACTION args...
 ```
 
-A continuación se incluyen algunos detalles de las propiedades y los parámetros de la aplicación: 
+Estos son los detalles de las acciones y los argumentos de la aplicación: 
 
-| Propiedad                                                    | Descripción                                                  | Obligatorio |
-| ----------------------------------------------------------- | ------------------------------------------------------------ | -------- |
-| **RegisterNewNode** "`<AuthenticationKey>`"                     | Permite registrar un nodo de entorno de ejecución de integración autohospedado con la clave de autenticación especificada. | No       |
-| **RegisterNewNode** "`<AuthenticationKey>`" "`<NodeName>`"      | Registre un nodo del entorno de ejecución de integración autohospedado con la clave de autenticación y el nombre de nodo especificados. | No       |
-| **EnableRemoteAccess** "`<port>`" ["`<thumbprint>`"]            | Permite habilitar el acceso remoto al nodo actual para configurar un clúster de alta disponibilidad. También permite la configuración de credenciales directamente en el IR autohospedado sin necesidad de acceder a través de Azure Data Factory. Para ello, use el cmdlet **New-AzDataFactoryV2LinkedServiceEncryptedCredential** desde una máquina remota en la misma red. | No       |
-| **EnableRemoteAccessInContainer** "`<port>`" ["`<thumbprint>`"] | Permite habilitar el acceso remoto al nodo actual cuando el nodo se ejecuta en un contenedor. | No       |
-| **DisableRemoteAccess**                                         | Permite deshabilitar el acceso remoto al nodo actual. Es necesario obtener acceso remoto para realizar la configuración de varios nodos. El cmdlet de PowerShell **New-AzDataFactoryV2LinkedServiceEncryptedCredential** funcionará incluso cuando el acceso remoto esté deshabilitado. Este comportamiento se produce siempre y cuando el cmdlet se ejecute en la misma máquina que el nodo de IR autohospedado. | No       |
-| **Clave** "`<AuthenticationKey>`"                                 | Permite sobrescribir o actualizar la clave de autenticación anterior. Debe tener cuidado con esta acción. El nodo de IR autohospedado anterior puede desconectarse si la clave es un nuevo entorno de ejecución de integración. | No       |
-| **GenerateBackupFile** "`<filePath>`" "`<password>`"            | Permite generar un archivo de copia de seguridad del nodo actual. El archivo de copia de seguridad incluye la clave del nodo y las credenciales del almacén de datos. | No       |
-| **ImportBackupFile** "`<filePath>`" "`<password>`"              | Permite restaurar el nodo desde un archivo de copia de seguridad.                          | No       |
-| **Restart** (Reiniciar)                                                     | Permite reiniciar el servicio de host del entorno de ejecución de integración autohospedado.   | No       |
-| **Iniciar**                                                       | Permite iniciar el servicio de host del entorno de ejecución de integración autohospedado.     | No       |
-| **Detención**                                                        | Permite detener el servicio de host del entorno de ejecución de integración autohospedado.        | No       |
-| **StartUpgradeService**                                         | Permite iniciar el servicio de actualización del entorno de ejecución de integración autohospedado.       | No       |
-| **StopUpgradeService**                                          | Permite detener el servicio de actualización del entorno de ejecución de integración autohospedado.        | No       |
-| **TurnOnAutoUpdate**                                            | Permite activar la actualización automática del entorno de ejecución de integración autohospedado.        | No       |
-| **TurnOffAutoUpdate**                                           | Permite desactivar la actualización automática del entorno de ejecución de integración autohospedado.       | No       |
-| **SwitchServiceAccount** "`<domain\user>`" ["`<password>`"]           | Permite configurar DIAHostService para que se ejecute como una cuenta nueva. Use la contraseña vacía "" para cuentas del sistema o cuentas virtuales. | No       |
+|ACTION|args|Descripción|
+|------|----|-----------|
+|-rn,<br/>-RegisterNewNode|"`<AuthenticationKey>`" ["`<NodeName>`"]|Registre un nodo del entorno de ejecución de integración autohospedado con la clave de autenticación y el nombre de nodo especificados.|
+|-era,<br/>-EnableRemoteAccess|"`<port>`" ["`<thumbprint>`"]|Permite habilitar el acceso remoto al nodo actual para configurar un clúster de alta disponibilidad. También permite la configuración de credenciales directamente en el IR autohospedado sin necesidad de acceder a través de Azure Data Factory. Para ello, use el cmdlet **New-AzDataFactoryV2LinkedServiceEncryptedCredential** desde una máquina remota en la misma red.|
+|-erac,<br/>-EnableRemoteAccessInContainer|"`<port>`" ["`<thumbprint>`"]|Permite habilitar el acceso remoto al nodo actual cuando el nodo se ejecuta en un contenedor.|
+|-dra,<br/>-DisableRemoteAccess||Permite deshabilitar el acceso remoto al nodo actual. Es necesario obtener acceso remoto para realizar la configuración de varios nodos. El cmdlet de PowerShell **New-AzDataFactoryV2LinkedServiceEncryptedCredential** funcionará incluso cuando el acceso remoto esté deshabilitado. Este comportamiento se produce siempre y cuando el cmdlet se ejecute en la misma máquina que el nodo de IR autohospedado.|
+|-k,<br/>-Key|"`<AuthenticationKey>`"|Permite sobrescribir o actualizar la clave de autenticación anterior. Debe tener cuidado con esta acción. El nodo de IR autohospedado anterior puede desconectarse si la clave es un nuevo entorno de ejecución de integración.|
+|-gbf,<br/>-GenerateBackupFile|"`<filePath>`" "`<password>`"|Permite generar un archivo de copia de seguridad del nodo actual. El archivo de copia de seguridad incluye la clave del nodo y las credenciales del almacén de datos.|
+|-ibf,<br/>-ImportBackupFile|"`<filePath>`" "`<password>`"|Permite restaurar el nodo desde un archivo de copia de seguridad.|
+|-r,<br/>-Restart||Permite reiniciar el servicio de host del entorno de ejecución de integración autohospedado.|
+|-s,<br/>-Start||Permite iniciar el servicio de host del entorno de ejecución de integración autohospedado.|
+|-t,<br/>-Stop||Permite detener el servicio de host del entorno de ejecución de integración autohospedado.|
+|-sus,<br/>-StartUpgradeService||Permite iniciar el servicio de actualización del entorno de ejecución de integración autohospedado.|
+|-tus,<br/>-StopUpgradeService||Permite detener el servicio de actualización del entorno de ejecución de integración autohospedado.|
+|-tonau,<br/>-TurnOnAutoUpdate||Permite activar la actualización automática del entorno de ejecución de integración autohospedado.|
+|-toffau,<br/>-TurnOffAutoUpdate||Permite desactivar la actualización automática del entorno de ejecución de integración autohospedado.|
+|-ssa,<br/>-SwitchServiceAccount|"`<domain\user>`" ["`<password>`"]|Permite configurar DIAHostService para que se ejecute como una cuenta nueva. Use la contraseña vacía "" para cuentas del sistema o cuentas virtuales.|
 
 
 ## <a name="command-flow-and-data-flow"></a>Flujo de comandos y flujo de datos
@@ -150,7 +149,7 @@ A continuación se muestra un resumen de alto nivel de los pasos del flujo de da
 - Use un entorno de ejecución de integración autohospedado para admitir la integración de datos en Azure Virtual Network.
 - Considere el origen de datos como un origen de datos local, que está detrás de un firewall, incluso cuando use Azure ExpressRoute. Use el entorno de ejecución de integración autohospedado para conectarse al origen de datos.
 - Use el entorno de ejecución de integración autohospedado aunque el almacén de datos esté en la nube en una máquina virtual de infraestructura como servicio (IaaS) de Azure.
-- Las tareas pueden generar error en un entorno de ejecución de integración autohospedado que esté instalado en un equipo con Windows Server para el que está habilitado el cifrado compatible con FIPS. Para solucionar este problema, tiene dos opciones: almacenar los valores de las credenciales y los secretos en una instancia de Azure Key Vault o deshabilitar el cifrado compatible con FIPS en el servidor. Para deshabilitar el cifrado compatible con FIPS, cambie el valor de la subclave del registro siguiente de 1 (habilitado) a 0 (deshabilitado): `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled`. Si usa el [entorno de ejecución de integración autohospedado como proxy en el entorno de integración de SSIS](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-proxy-ssis), se puede habilitar el cifrado conforme a FIPS y se usará al mover datos de un entorno local a Azure Blob Storage como área de almacenamiento temporal.
+- Las tareas pueden generar error en un entorno de ejecución de integración autohospedado que esté instalado en un equipo con Windows Server para el que está habilitado el cifrado compatible con FIPS. Para solucionar este problema, tiene dos opciones: almacenar los valores de las credenciales y los secretos en una instancia de Azure Key Vault o deshabilitar el cifrado compatible con FIPS en el servidor. Para deshabilitar el cifrado compatible con FIPS, cambie el valor de la subclave del registro siguiente de 1 (habilitado) a 0 (deshabilitado): `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled`. Si usa el [entorno de ejecución de integración autohospedado como proxy en el entorno de integración de SSIS](./self-hosted-integration-runtime-proxy-ssis.md), se puede habilitar el cifrado conforme a FIPS y se usará al mover datos de un entorno local a Azure Blob Storage como área de almacenamiento temporal.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -331,7 +330,7 @@ En el nivel del firewall de Windows o nivel de máquina, normalmente estos puert
 
 Asegúrese de habilitar correctamente las reglas del firewall en el firewall corporativo, en el firewall de Windows de la máquina del entorno de ejecución de integración autohospedado y en el propio almacén de datos. De este modo, el entorno de ejecución de integración autohospedado podrá conectarse al origen y al receptor. Habilite las reglas de cada almacén de datos que participe en la operación de copia.
 
-Por ejemplo, para copiar información desde un almacén de datos local a un receptor de SQL Database o de Azure Synapse Analytics (anteriormente, SQL Data Warehouse), siga estos pasos:
+Por ejemplo, para copiar información de un almacén de datos local en un receptor de SQL Database o un receptor de Azure Synapse Analytics, debe realizar los siguientes pasos:
 
 1. Permita la comunicación TCP saliente en el puerto 1433 tanto para el firewall corporativo como para el firewall de Windows.
 1. Configure los valores del firewall de SQL Database para agregar la dirección IP de la máquina del entorno de ejecución de integración autohospedado a la lista de direcciones IP permitidas.

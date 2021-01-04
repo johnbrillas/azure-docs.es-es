@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/19/2020
 ms.author: hahamil
 ms.custom: aaddev
-ms.openlocfilehash: c9fde904d6befebfcfd87b55bd7b2bf4e4c825f2
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: e42b6b7ffa39110ce356094de690bb353a3fb10f
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443830"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107794"
 ---
 # <a name="single-page-application-app-registration"></a>Aplicación de página única: Registro de aplicación
 
@@ -27,10 +27,12 @@ Para registrar una aplicación de página única (SPA) en la Plataforma de ident
 
 Tanto para las aplicaciones basadas en MSAL.js 1.0 como 2.0, empiece por completar los pasos siguientes para crear el registro de aplicación inicial.
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com). Si su cuenta tiene acceso a varios inquilinos, seleccione el filtro **Directorio + suscripción** en el menú superior y, a continuación, seleccione el inquilino que debe contener el registro de aplicación que va a crear.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Si tiene acceso a varios inquilinos, use el filtro **Directorio + suscripción** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: del menú superior para seleccionar el inquilino en el que desea registrar una aplicación.
 1. Busque y seleccione **Azure Active Directory**.
-1. En **Administrar**, seleccione **Registros de aplicaciones**.
-1. Seleccione **Nuevo registro**, escriba un **Nombre** para la aplicación y elija los **Tipos de cuenta admitidos** para la aplicación. **NO** escriba un **URI de redirección**. Para obtener una descripción de los distintos tipos de cuenta, consulte [Registro de una aplicación nueva mediante Azure Portal](quickstart-register-app.md).
+1. En **Administrar**, seleccione **Registros de aplicaciones** >  y, luego, **Nuevo registro**.
+1. Escriba el **nombre** de la aplicación. Los usuarios de la aplicación pueden ver este nombre, el cual se puede cambiar más tarde.
+1. Elija los **Supported account types** (Tipos de cuenta admitidos) para la aplicación. **NO** escriba un **URI de redirección**. Para obtener una descripción de los distintos tipos de cuenta, consulte [Registro de una aplicación](quickstart-register-app.md).
 1. Seleccione **Registrar** para crear el registro de aplicación.
 
 Después, configure el registro de la aplicación con un **URI de redirección** para especificar a dónde la Plataforma de identidad de Microsoft debe redirigir al cliente, junto con los tokens de seguridad. Siga los pasos adecuados para la versión de MSAL.js que usa en la aplicación:
@@ -43,7 +45,7 @@ Después, configure el registro de la aplicación con un **URI de redirección**
 Siga estos pasos para agregar un URI de redirección para una aplicación que use MSAL.js 2.0 o posterior. MSAL.js 2.0 o posterior admite el flujo de código de autorización con PKCE y CORS en respuesta a [restricciones de cookies de terceros en el explorador](reference-third-party-cookies-spas.md). El flujo de concesión implícita no se admite en MSAL.js 2.0 o posterior.
 
 1. En Azure Portal, seleccione el registro de la aplicación que creó anteriormente en [Creación del registro de aplicaciones](#create-the-app-registration).
-1. En **Administrar**, seleccione **Autenticación** y luego seleccione **Agregar una plataforma**.
+1. En **Administrar**, seleccione **Autenticación** > **Agregar una plataforma**.
 1. En **Aplicaciones web**, seleccione el icono **Aplicación de página única**.
 1. En **URI de redirección**, escriba un [URI de redirección](reply-url.md). **NO** seleccione ninguna de las casillas en **Concesión implícita**.
 1. Seleccione **Configurar** para terminar de agregar el URI de redirección.
@@ -57,7 +59,7 @@ Siga el [tutorial](tutorial-v2-javascript-auth-code.md) para obtener más inform
 Siga estos pasos para agregar un URI de redirección para una aplicación de página única que usa MSAL.js 1.3 o anterior y el flujo de concesión implícita. Las aplicaciones que usan MSAL.js 1.3 o anterior no admiten el flujo de código de autenticación.
 
 1. En Azure Portal, seleccione el registro de la aplicación que creó anteriormente en [Creación del registro de aplicaciones](#create-the-app-registration).
-1. En **Administrar**, seleccione **Autenticación** y luego seleccione **Agregar una plataforma**.
+1. En **Administrar**, seleccione **Autenticación** > **Agregar una plataforma**.
 1. En **Aplicaciones web**, seleccione el icono **Aplicación de página única**.
 1. En **URI de redirección**, escriba un [URI de redirección](reply-url.md).
 1. Habilite el **Flujo implícito**:
@@ -79,4 +81,4 @@ Cuando todas sus aplicaciones de página única en producción representadas por
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-A continuación, configure el código de la aplicación para que use el registro de aplicación que creó en los pasos anteriores: [Configuración del código de la aplicación](scenario-spa-app-configuration.md).
+Configure el código de la aplicación para que use el registro de aplicación que creó en los pasos anteriores: [Configuración del código de la aplicación](scenario-spa-app-configuration.md).

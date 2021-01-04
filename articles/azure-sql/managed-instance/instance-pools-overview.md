@@ -12,12 +12,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein
 ms.date: 09/05/2019
-ms.openlocfilehash: ab77c8cf563c315768ad1c16089d8d939c085322
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: bc345509db1c2a14afb0ae781eccad8f77395c18
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782661"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347071"
 ---
 # <a name="what-is-an-azure-sql-managed-instance-pool-preview"></a>¿Qué es un grupo de Instancia administrada de Azure SQL (versión preliminar)?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -59,7 +59,7 @@ En la lista siguiente se proporcionan los casos de uso principales en los que se
 
 ## <a name="architecture"></a>Architecture
 
-Los grupos de instancias tienen una arquitectura similar a las instancias administradas normales ( *únicas* ). Para admitir las [implementaciones dentro de redes virtuales de Azure](../../virtual-network/virtual-network-for-azure-services.md) y proporcionar aislamiento y seguridad para los clientes, los grupos de instancias también dependen de [clústeres virtuales](connectivity-architecture-overview.md#high-level-connectivity-architecture). Los clústeres virtuales representan un conjunto dedicado de máquinas virtuales aisladas implementadas dentro de la subred de la red virtual del cliente.
+Los grupos de instancias tienen una arquitectura similar a las instancias administradas normales (*únicas*). Para admitir las [implementaciones dentro de redes virtuales de Azure](../../virtual-network/virtual-network-for-azure-services.md) y proporcionar aislamiento y seguridad para los clientes, los grupos de instancias también dependen de [clústeres virtuales](connectivity-architecture-overview.md#high-level-connectivity-architecture). Los clústeres virtuales representan un conjunto dedicado de máquinas virtuales aisladas implementadas dentro de la subred de la red virtual del cliente.
 
 La principal diferencia entre los dos modelos de implementación es que los grupos de instancias permiten varias implementaciones de procesos de SQL Server en el mismo nodo de máquina virtual, que se rigen por los recursos mediante [objetos de trabajo de Windows](/windows/desktop/ProcThread/job-objects), mientras que las instancias únicas siempre están solas en un nodo de máquina virtual.
 
@@ -76,9 +76,12 @@ Existen varias limitaciones de recursos con respecto a los grupos de instancias 
 - Los grupos de instancias solo están disponibles en hardware Gen5.
 - Las instancias administradas de un grupo tienen CPU y RAM dedicadas, por lo que el número agregado de núcleos virtuales entre todas las instancias tiene que ser menor o igual que el número de núcleos virtuales asignados al grupo.
 - Todos los [límites de nivel de instancia](resource-limits.md#service-tier-characteristics) se aplican a las instancias creadas dentro de un grupo.
-- Además de los límites de nivel de instancia, también hay dos límites impuestos *en el nivel de grupo de instancias* :
+- Además de los límites de nivel de instancia, también hay dos límites impuestos *en el nivel de grupo de instancias*:
   - Tamaño de almacenamiento total por grupo (8 TB).
-  - Número total de bases de datos por grupo (100).
+  - Número total de bases de datos de usuario por grupo. Este límite depende del valor de núcleos virtuales del grupo:
+    - Un grupo de 8 núcleos virtuales admite hasta 200 bases de datos.
+    - Un grupo de 16 núcleos virtuales admite hasta 400 bases de datos.
+    - Un grupo de 24 núcleos virtuales y superior admite hasta 500 bases de datos.
 - No se puede establecer el administrador de AAD para las instancias implementadas dentro del grupo de instancias, por lo tanto, no se puede usar la autenticación de AAD.
 
 La asignación de almacenamiento total y el número de bases de datos en todas las instancias tiene que ser inferior o igual que los límites expuestos por los grupos de instancias.
@@ -86,8 +89,9 @@ La asignación de almacenamiento total y el número de bases de datos en todas l
 - Los grupos de instancias admiten 8, 16, 24, 32, 40, 64 y 80 núcleos virtuales.
 - Las instancias administradas dentro de los grupos admiten 2, 4, 8, 16, 24, 32, 40, 64 y 80 núcleos virtuales.
 - Las instancias administradas dentro de los grupos admiten tamaños de almacenamiento entre 32 GB y 8 TB, excepto:
-  - Las instancias con 2 núcleos virtuales admiten tamaños entre 32 GB y 640 GB.
-  - Las instancias con 4 núcleos virtuales admiten tamaños entre 32 GB y 2 TB.
+  - Las instancias con 2 núcleos virtuales admiten tamaños de entre 32 y 640 GB.
+  - Las instancias con 4 núcleos virtuales admiten tamaños de entre 32 GB y 2 TB.
+- Las instancias administradas dentro de los grupos tienen un límite de hasta 100 bases de datos de usuario por instancia, excepto las instancias de 2 núcleos virtuales que admiten hasta 50 bases de datos de usuario por instancia.
 
 La [propiedad de nivel de servicio](resource-limits.md#service-tier-characteristics) está asociada al recurso de grupo de instancias, por lo que todas las instancias de un grupo tienen que ser del mismo nivel de servicio que el nivel de servicio del grupo. En este momento, solo está disponible el nivel de servicio De uso general (consulte la sección siguiente sobre las limitaciones de la versión preliminar actual).
 
@@ -137,8 +141,8 @@ El precio de núcleo virtual para un grupo se cobra independientemente del núme
 
 Para el precio de proceso (medido en núcleos virtuales), hay disponibles dos opciones de precios:
 
-  1. *Con licencia incluida* : se incluye el precio de las licencias de SQL Server. Esto es para los clientes que eligen no aplicar las licencias de SQL Server existentes con Software Assurance.
-  2. *Ventaja híbrida de Azure* : precio reducido que incluye la Ventaja híbrida de Azure para SQL Server. Los clientes pueden optar a este precio si utilizan sus licencias de SQL Server con Software Assurance. Para información sobre la idoneidad y otros detalles, consulte [Ventaja híbrida de Azure](https://azure.microsoft.com/pricing/hybrid-benefit/).
+  1. *Con licencia incluida*: se incluye el precio de las licencias de SQL Server. Esto es para los clientes que eligen no aplicar las licencias de SQL Server existentes con Software Assurance.
+  2. *Ventaja híbrida de Azure*: precio reducido que incluye la Ventaja híbrida de Azure para SQL Server. Los clientes pueden optar a este precio si utilizan sus licencias de SQL Server con Software Assurance. Para información sobre la idoneidad y otros detalles, consulte [Ventaja híbrida de Azure](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
 No es posible establecer diferentes opciones de precios para las instancias individuales de un grupo. Todas las instancias del grupo primario deben tener un precio con licencia incluida o precio con Ventaja híbrida de Azure. El modelo de licencia para el grupo se puede modificar una vez creado el grupo.
 

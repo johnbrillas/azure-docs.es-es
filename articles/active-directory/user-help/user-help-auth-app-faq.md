@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 12/01/2020
+ms.date: 12/09/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: f0cb7d4ebe428da4a370433b3e90a829f30489db
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: a1307aa19c66e3f6fcb71f677e6c67551d2a01f9
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96512212"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928331"
 ---
 # <a name="frequently-asked-questions-faq-about-the-microsoft-authenticator-app"></a>Preguntas frecuentes (P+F) sobre la aplicación Microsoft Authenticator
 
@@ -207,6 +207,74 @@ La aplicación Microsoft Authenticator reemplaza a la aplicación Azure Authenti
 **P.** : Mi aplicación complementaria de Apple Watch se ha bloqueado. ¿Puedo enviar mis registros de bloqueo para que pueda investigar?
 
 **R.** : Primero debe asegurarse de que ha optado por compartir su análisis con nosotros. Si es un usuario de TestFlight, ya está registrado. En caso contrario, puede ir a **Configuración > Privacidad > Análisis** y seleccione las opciones **Share iPhone & Watch analytics** (Compartir análisis de iPhone y Watch) y **Share with App Developers** (Compartir con los desarrolladores de aplicaciones).<br>Después de registrarse, puede intentar reproducir el bloqueo para que los registros de bloqueo se nos envíen automáticamente para realizar la investigación. Pero, si no se puede reproducir el bloqueo, puede copiar manualmente los archivos de registro y enviárnoslos.<ol><li>Abra la aplicación Watch en su teléfono, vaya a **Configuración > General** y haga clic en **Copy Watch Analytics** (Copiar análisis de Watch).</li><li>Busque el bloqueo correspondiente en **Configuración > Privacidad > Análisis > Análisis de datos** y copie manualmente todo el texto.</li><li>Abra Authenticator en su teléfono y pegue el texto copiado en el cuadro de texto **Share with App Developers** (Compartir con los desarrolladores de aplicaciones) en la página **Enviar registros**.</li></ol>
+
+## <a name="autofill-for-consumers"></a>Autorrellenar para los consumidores
+
+**P.** : ¿Qué es Autorrellenar en Authenticator?
+
+**R.** : La aplicación Authenticator ahora almacena y autorrellena de forma segura las contraseñas en las aplicaciones y los sitios web que visita desde el teléfono. Puede usar Autorrellenar para sincronizar y autorrellenar las contraseñas en los dispositivos iOS y Android. Después de configurar la aplicación Authenticator como proveedor de autorrellenar en el teléfono, ofrece la opción de guardar las contraseñas al escribirlas en una página de inicio de sesión de sitio o aplicación. Las contraseñas se guardan como parte de la [cuenta de Microsoft](https://account.microsoft.com/account) y también están disponibles al iniciar sesión en Microsoft Edge con la cuenta de Microsoft.
+
+**P.** : ¿Qué información puede autorrellenar Authenticator?
+
+**R.** : Authenticator puede autorrellenar los nombres de usuario y contraseñas de los sitios y las aplicaciones que visita desde el teléfono.
+
+**P.** : ¿Cómo activo la característica Autorrellenar contraseñas de Authenticator en el teléfono?
+
+**R.** : Siga estos pasos:
+
+1. Abra la aplicación Authenticator.
+1. En **Configuración** en **Beta**, active **Autorrellenar**.
+1. En la pestaña **Contraseñas** de Authenticator, seleccione **Iniciar sesión con Microsoft** e inicie sesión con [su cuenta de Microsoft](https://account.microsoft.com/account). Actualmente, esta característica solo admite cuentas de Microsoft y aún no admite cuentas profesionales o educativas.
+
+**P.** : Cómo hacer que Authenticator sea el proveedor de autorrellenar predeterminado en el teléfono?
+
+**R.** : Siga estos pasos:
+
+1. Abra **Configuración** de Authenticator y en **Beta**, active **Autorrellenar**.
+1. En la pestaña **Contraseñas** dentro de la aplicación, inicie sesión con [su cuenta de Microsoft](https://account.microsoft.com/account).
+1. Realice una de las siguientes acciones:
+
+   - En iOS, en **Configuración**, seleccione **How to turn on Autofill** (Cómo activar Autorrellenar) de la sección de configuración de Autorrellenar para obtener información sobre cómo establecer Authenticator como el proveedor predeterminado de Autorrellenar.
+   - En Android, en **Configuración**, seleccione **Set as Autofill provider** (Establecer como proveedor de Autorrellenar) en la sección de configuración de Autorrellenar para establecer Authenticator como el proveedor predeterminado de Autorrellenar.
+
+**P.** : ¿Qué ocurre si el conmutador **Autorrellenar** está atenuado en Configuración?
+
+**R.** : Autorrellenar se encuentra actualmente en versión beta y aún no se ha habilitado para todas las organizaciones o tipos de cuenta. Si el conmutador **Autorrellenar** de **Configuración** está atenuado, es probable que esté usando la aplicación Authenticator con su cuenta profesional. Puede usar esta característica en un dispositivo en el que no se haya agregado su cuenta profesional. Si su organización trabaja con Microsoft, el conmutador **Autorrellenar** estará habilitado, incluso si se agrega una cuenta profesional a Authenticator.
+
+**P.** : ¿Cómo detengo la sincronización de contraseñas?
+
+**R.** : Para detener la sincronización de contraseñas en la aplicación Authenticator, abra **Configuración** > **Autofill settings (Configuración de Autorrellenar)**  > **Sync account (Sincronizar cuenta)** . En la siguiente pantalla, puede seleccionar **Stop sync and remove all autofill data** (Detener la sincronización y quitar todos los datos de Autorrellenar). Se quitarán las contraseñas y otros datos de Autorrellenar del dispositivo. Quitar los datos de Autorrellenar no afecta a la autenticación multifactor.
+
+**P.** : ¿Cómo protege las contraseñas la aplicación Authenticator?
+
+**R.** : La aplicación Authenticator ya proporciona un alto nivel de seguridad para la administración de cuentas y la autenticación multifactor, y el mismo alto estándar de seguridad se extiende a la administración de las contraseñas.
+
+- **La aplicación Authenticator necesita una autenticación sólida**: Iniciar sesión en Authenticator requiere un segundo factor. Esto significa que no se puede tener acceso a las contraseñas dentro de la aplicación Authenticator, aunque alguien tenga la contraseña de la cuenta de Microsoft.
+- **Los datos de Autorrellenar se protegen mediante biometría y un código de acceso**: Para poder autorrellenar las contraseñas en una aplicación o un sitio, Authenticator requiere la biometría o el código de acceso del dispositivo. Esto garantiza que incluso si alguien más tiene acceso a su dispositivo, no podrá rellenar ni ver la contraseña, ya que no podrá proporcionar la biometría o el PIN del dispositivo. Además, un usuario no puede abrir la página de contraseñas a menos que proporcione la biometría o el PIN, aunque desactive el Bloqueo de aplicación en la configuración de la aplicación.
+- **Contraseñas cifradas en el dispositivo**: Las contraseñas se cifran en el dispositivo, y las claves de cifrado y descifrado nunca se almacenan y siempre se generan sobre la marcha. Las contraseñas solo se descifran cuando el usuario quiere, es decir, al autorrellenar o cuando el usuario quiere ver la contraseña, y ambas requieren la biometría o el PIN.
+- **Seguridad de la nube y la red**: Las contraseñas en la nube se cifran y descifran solo cuando llegan al dispositivo. Las contraseñas se sincronizan a través de una conexión HTTPS protegida por SSL, lo que garantiza que ningún atacante pueda interceptar datos confidenciales cuando se estén sincronizando. También nos aseguramos de comprobar la integridad de los datos que se sincronizan a través de la red mediante funciones hash criptográficas (en concreto, el código de autenticación de mensajes basado en hash).
+
+## <a name="autofill-for-it-admins"></a>Autorrellenar para los administradores de TI
+
+**P.** : ¿Podrán mis empleados o alumnos usar Autorrellenar contraseñas en la aplicación Authenticator?
+
+**R.** : No. La característica Autorrellenar está actualmente en versión beta y aún no se ha habilitado para todas las organizaciones o tipos de cuenta. Si su empleado o alumno ha agregado su cuenta profesional o educativa a la aplicación Microsoft Authenticator, Autorrellenar contraseñas no estará accesible para ellos. La única excepción a esta restricción es que el empleado o el alumno agregue su cuenta profesional o educativa a la autenticación multifactor basada en la nube de Microsoft como una [cuenta externa o de terceros](user-help-auth-app-add-non-ms-account.md).
+
+**P.** : ¿Puedo hacer que la característica Autorrellenar esté disponible para mis empleados (o estudiantes)?
+
+**R.** : Sí. Para que la característica esté disponible para los empleados o alumnos, puede agregar la empresa o escuela a una lista de permitidos. Póngase en contacto con el soporte técnico o con el contacto de Microsoft para su adición a la lista de permitidos. Además, si es administrador de TI de su organización, también puede rellenar un formulario para expresar su interés en unirse, en [Adición de empresa a la lista de permitidos para Autorrellenar en Authenticator](https://aka.ms/RequestAutofillInAuthenticator).
+
+**P.** : ¿Se sincronizarán automáticamente las contraseñas de la cuenta profesional o educativa de mis usuarios?
+
+**R.** : No. Autorrellenar contraseñas no sincronizará las contraseñas de la cuenta profesional o educativa de los usuarios. Cuando los usuarios visitan un sitio o una aplicación, Authenticator ofrecerá la opción de guardar la contraseña para ese sitio o aplicación, y la contraseña se guardará solo cuando el usuario lo elija.
+  
+**P.** : ¿Puedo agregar solo determinados usuarios de mi organización a la lista de permitidos para Autorrellenar?
+
+**R.** : No. Las empresas solo pueden habilitar Autorrellenar contraseñas para todos los empleados o para ninguno de ellos, en este momento. Expandiremos estos controles gradualmente.
+
+**P.** : ¿Qué ocurre si mi empleado o alumno tiene varias cuentas profesionales o educativas? Por ejemplo, mi empleado tiene cuentas de varias empresas o escuelas en Microsoft Authenticator.
+
+**R.** : Todas las empresas o escuelas que se agreguen en la aplicación Authenticator deben encontrarse en la lista de permitidos para Autorrellenar en Authenticator para que el propietario de la aplicación pueda usarla. La única excepción a esta restricción es que el empleado o el alumno agregue su cuenta profesional o educativa a la autenticación multifactor basada en la nube de Microsoft como una [cuenta externa o de terceros](user-help-auth-app-add-non-ms-account.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

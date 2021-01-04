@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 092320db9b7fe2b1f3fe142f84ad201d40dc6e2e
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 1318aaf50d4f05b8a999e5661318dc83997a2f02
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492291"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920793"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Cifrado en reposo de datos de Azure
 
@@ -33,7 +33,7 @@ El cifrado en reposo es un requisito de seguridad habitual. En Azure, las organi
 
 ## <a name="what-is-encryption-at-rest"></a>¿Qué es el cifrado en reposo?
 
-El cifrado en reposo es la codificación (cifrado) de datos cuando se conserva. Los diseños del cifrado en reposo de Azure utilizan cifrado asimétrico para cifrar o descifrar rápidamente grandes cantidades de datos según un modelo conceptual sencillo:
+El cifrado es la codificación segura de los datos usados para proteger la confidencialidad de la información. Los diseños del cifrado en reposo de Azure utilizan cifrado asimétrico para cifrar o descifrar rápidamente grandes cantidades de datos según un modelo conceptual sencillo:
 
 - Se usa una clave de cifrado simétrico para cifrar datos mientras se escriben en el almacenamiento.
 - La misma clave de cifrado se utiliza para descifrar los datos tal y como se prepararon para su uso en la memoria.

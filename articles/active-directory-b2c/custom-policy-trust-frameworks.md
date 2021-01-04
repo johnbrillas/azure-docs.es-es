@@ -1,5 +1,5 @@
 ---
-title: 'Referencia: marcos de confianza en Azure Active Directory B2C | Microsoft Docs'
+title: Información general sobre las directivas personalizadas de Azure AD B2C | Microsoft Docs
 description: Un tema sobre las directivas personalizadas de Azure Active Directory B2C y el marco de experiencia de identidad.
 services: active-directory-b2c
 author: msmimart
@@ -7,121 +7,170 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/04/2017
+ms.date: 12/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d3d29bd05f67d00047499dc256e5e1a82f98693a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ed477a931ed63c0db378ff84f85544072492ef96
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95990990"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387044"
 ---
-# <a name="define-trust-frameworks-with-azure-ad-b2c-identity-experience-framework"></a>Definir marcos de confianza con el marco de experiencia de identidad de Azure AD B2C
+# <a name="azure-ad-b2c-custom-policy-overview"></a>Información general sobre las directivas personalizadas de Azure AD B2C
 
-Las directivas personalizadas de Azure Active Directory B2C (Azure AD B2C) que utilizan el marco de experiencia de identidad proporcionan a la organización un servicio centralizado. Este servicio reduce la complejidad de la federación de identidades en una gran comunidad de interés. La complejidad se reduce a una relación de confianza única y un intercambio de metadatos único.
+Las directivas personalizadas son archivos de configuración que definen el comportamiento del inquilino de Azure Active Directory B2C (Azure AD B2C). Mientras tanto, los [flujos de usuario](user-flow-overview.md) están predefinidos en el portal de Azure AD B2C para las tareas de identidad más comunes. Un desarrollador de identidades puede editar completamente las directivas personalizadas para completar muchas tareas distintas.
 
-Las directivas personalizadas de Azure AD B2C usan Identity Experience Framework para permitirle responder a las siguientes preguntas:
+Una directiva personalizada es completamente configurable, está controlada por directivas y orquesta la confianza entre entidades en formatos de protocolo estándar como OpenID Connect, OAuth, SAML y algunos no estándar (como intercambios de notificaciones sistema a sistema basados en API de REST, por ejemplo). El marco crea experiencias propias fáciles de usar.
 
-- ¿Cuáles son las directivas de seguridad, privacidad, legales y de protección de datos que es necesario cumplir?
-- ¿Quiénes son los contactos y cuáles son los procesos para convertirse en un participante acreditado?
-- ¿Quiénes son los proveedores de información de identidad acreditados (también conocidos como "proveedores de notificaciones") y qué ofrecen?
-- ¿Quiénes son los usuarios de confianza acreditados y, opcionalmente, qué necesitan?
-- ¿Cuáles son los requisitos técnicos de interoperabilidad en la red para los participantes?
-- ¿Cuáles son las reglas de "tiempo de ejecución" operativas que se deben aplicar para intercambiar información de identidad digital?
+Una directiva personalizada se representa como uno o más archivos con formato XML que se hacen referencia entre sí en una cadena jerárquica. Los elementos XML definen los bloques de creación, la interacción con el usuario y otras entidades, y la lógica de negocios. 
 
-Para responder a estas preguntas, las directivas personalizadas de Azure AD B2C que utilizan el marco de experiencia de identidad usan la construcción del marco de confianza (TF). Vamos a considerar esta construcción y lo que proporciona.
+## <a name="custom-policy-starter-pack"></a>Paquete de inicio de directivas personalizadas
 
-## <a name="understand-the-trust-framework-and-federation-management-foundation"></a>Descripción del marco de confianza y la base de administración de federación
+El [paquete de inicio](custom-policy-get-started.md#get-the-starter-pack) de directivas predeterminadas de Azure AD B2C viene con varias directivas predefinidas para que pueda empezar a trabajar rápidamente. Cada uno de estos paquetes de inicio contiene el menor número de perfiles técnicos y recorridos del usuario necesarios para lograr los escenarios descritos:
 
-El marco de confianza es una especificación escrita de las directivas de identidad, seguridad, privacidad y protección de datos que deben cumplir los participantes en una comunidad de interés.
+- **LocalAccounts**: habilita el uso solo de cuentas locales.
+- **SocialAccounts**: habilita el uso solo de cuentas sociales (o federadas).
+- **SocialAndLocalAccounts**: habilita el uso de cuentas locales y sociales. La mayoría de nuestros ejemplos hacen referencia a esta directiva.
+- **SocialAndLocalAccountsWithMFA**: habilita opciones sociales, locales y de autenticación multifactor.
 
-La identidad federada proporciona una base para conseguir la garantía de identidad del usuario final a escala de Internet. Al delegar la administración de identidades en terceros, una única identidad digital de un usuario final se puede reutilizar con varios usuarios de confianza.
+## <a name="understanding-the-basics"></a>Descripción de los conceptos básicos 
 
-La garantía de identidad requiere que los proveedores de identidades (IdP) y los proveedores de atributos (AtPs) cumplan directivas y prácticas de seguridad, privacidad y operativas específicas.  Si no pueden realizar inspecciones directas, los usuarios de confianza (RP) deben desarrollar relaciones de confianza con los IdP y AtP con los que elijan trabajar.
+### <a name="claims"></a>Notificaciones
 
-A medida que aumenta el número de consumidores y proveedores de información de identidad digital, resulta cada vez más difícil continuar la administración pareja de estas relaciones de confianza, o incluso el intercambio parejo de los metadatos técnicos necesarios para la conectividad de red.  Los centros de federación solo han logrado un éxito limitado a la hora de resolver estos problemas.
+Una notificación proporciona un almacenamiento temporal de datos durante la ejecución de una directiva de Azure AD B2C. Puede almacenar información sobre el usuario, como el nombre, el apellido o cualquier otra notificación obtenida del usuario u otros sistemas (intercambios de notificaciones). El [esquema de notificaciones](claimsschema.md) es el lugar en el que se declaran las notificaciones. 
 
-### <a name="what-a-trust-framework-specification-defines"></a>Qué define una especificación de marco de confianza
-Los TF son el eje del modelo de marco de confianza de Open Identity Exchange (OIX), en el que cada comunidad de interés se rige por una especificación determinada de TF. Esta especificación de TF define:
+Al ejecutarse la directiva, Azure AD B2C envía y recibe notificaciones de entidades internas y externas y, a continuación, envía un subconjunto de estas notificaciones a su aplicación de usuario de confianza como parte del token. Las notificaciones se utilizan de las siguientes maneras: 
 
-- **Las métricas de seguridad y privacidad de la comunidad de interés con la definición de:**
-    - Los niveles de garantía (LOA) que ofrecen o necesitan los participantes, es decir, un conjunto ordenado de clasificaciones de confianza de la autenticidad de la información de identidad digital.
-    - Los niveles de protección (LOP) que ofrecen o necesitan los participantes, es decir, un conjunto ordenado de clasificaciones de confianza para la protección de la información de identidad digital controladas por los participantes de la comunidad de interés.
+- Una notificación se guarda o se actualiza en el objeto de usuario de directorio.
+- Se recibe una notificación de un proveedor de identidades externo.
+- Las notificaciones se envían o reciben mediante un servicio de la API de REST personalizado.
+- Los datos se recopilan como notificaciones del usuario durante los flujos de perfil de edición o registro.
 
-- **La descripción de la información de identidad digital que ofrecen o necesitan los participantes**.
+### <a name="manipulating-your-claims"></a>Manipulación de las notificaciones
 
-- **Las directivas técnicas para producción y consumo de la información de identidad digital y, por tanto, para la medición de LOA y LOP. Estas directivas escritas incluyen normalmente las siguientes categorías:**
-    - Directivas de corrección de identidad, por ejemplo: *lo fuerte que se examina la información de identidad de una persona*
-    - Directivas de seguridad, por ejemplo: *lo fuerte que se protege la integridad y la confidencialidad de la información*
-    - Directivas de privacidad, por ejemplo: *el control que tiene un usuario sobre la información personal identificable (PII)*
-    - Directivas de supervivencia, por ejemplo: *continuidad y protección de PII si un proveedor suspende sus operaciones*
+Las [transformaciones de notificaciones](claimstransformations.md) son funciones predefinidas que se pueden usar para convertir una notificación especificada en otra, evaluar una notificación o establecer un valor de notificación. Por ejemplo, la adición de un elemento a una colección de cadenas, el cambio del caso de una cadena o la evaluación de una notificación de fecha y hora. Una transformación de notificaciones especifica un método de transformación. 
 
-- **Los perfiles técnicos de producción y consumo de información de identidad digital. Estos perfiles incluyen:**
-    - Interfaces de ámbito para las que la información de identidad digital está disponible en el LOA especificado.
-    - Requisitos técnicos para la interoperabilidad en la red.
+### <a name="customize-and-localize-your-ui"></a>Personalización y localización de la interfaz de usuario
 
-- **Las descripciones de los diversos roles que pueden desempeñar los participantes de la comunidad junto con las cualificaciones necesarias para cumplir estos roles.**
+Si desea recopilar información de los usuarios presentando una página en su explorador web, use el [perfil técnico autoafirmado](self-asserted-technical-profile.md). Puede editar el perfil técnico autoafirmado para [agregar notificaciones y personalizar la entrada de usuario](custom-policy-configure-user-input.md).
 
-Por lo tanto, una especificación de TF controla cómo se intercambia la información de identidad entre los participantes de la comunidad de interés: usuarios de confianza, proveedores de atributos e identidades y comprobadores de atributos.
+Para [personalizar la interfaz de usuario](customize-ui-with-html.md) para su perfil técnico autoafirmado, especifique una dirección URL en el elemento [definición de contenido](contentdefinitions.md) con contenido HTML personalizado. En el perfil técnico autoafirmado, apunte a este identificador de definición de contenido.
 
-Una especificación de TF es uno o varios documentos que sirven de referencia para la gobernanza de la comunidad de interés que regulan la aserción y el consumo de información de identidad digital dentro de la comunidad. Es un conjunto de directivas y procedimientos, diseñados para establecer la confianza en las identidades digitales usadas para las transacciones en línea entre los miembros de una comunidad de interés.
+Para personalizar cadenas específicas del idioma, use el elemento [Localization](localization.md). Una definición de contenido puede contener una referencia [Localization](localization.md) que especifique una lista de los recursos localizados que se van a cargar. Azure AD B2C combina elementos de la interfaz de usuario con el contenido HTML cargado desde la URL y, después, muestra la página al usuario. 
 
-En otras palabras, una especificación de TF define las reglas para la creación de un ecosistema de identidad federada viable para una comunidad.
+## <a name="relying-party-policy-overview"></a>Información general de la directiva del usuario de confianza
 
-Actualmente, existe un consenso generalizado sobre el beneficio de este enfoque. No hay duda de que las especificaciones del marco de confianza facilitan el desarrollo de ecosistemas de identidad digital con características comprobables de seguridad, garantía y privacidad, de forma que se puedan reutilizar en varias comunidades de interés.
+Una aplicación de usuario de confianza o en el protocolo SAML conocido como proveedor de servicios, llama a la [directiva del usuario de confianza](relyingparty.md) para ejecutar un recorrido del usuario específico. La directiva del usuario de confianza especifica el recorrido del usuario que se va a ejecutar, así como la lista de notificaciones que incluye el token. 
 
-Por este motivo, las directivas personalizadas de Azure AD B2C que utilizan el marco de experiencia de identidad usan la especificación como base de su representación de datos de un TF a fin de facilitar la interoperabilidad.
+![Diagrama que muestra el flujo de ejecución de la directiva](./media/custom-policy-trust-frameworks/custom-policy-execution.png)
 
-Las directivas personalizadas de Azure AD B2C que aprovechan el marco de experiencia de identidad representan una especificación de TF como una combinación de datos que pueden leer un usuario y una máquina. Algunas secciones de este modelo (normalmente, las que están más orientadas a la gobernanza) se representan como referencias a la documentación publicada sobre la directiva de seguridad y privacidad junto con los procedimientos relacionados (si existen). Otras secciones describen en detalle las reglas de configuración de metadatos y en tiempo de ejecución que facilitan la automatización de las operaciones.
+Todas las aplicaciones de usuario de confianza que usen la misma directiva, recibirán las mismas notificaciones de token y el usuario realizará el mismo recorrido del usuario.
 
-## <a name="understand-trust-framework-policies"></a>Descripción de las directivas del marco de confianza
+### <a name="user-journeys"></a>Recorridos de usuario
 
-En términos de implementación, la especificación de TF consta de un conjunto de directivas que permiten un control total sobre los comportamientos y las experiencias de identidad.  Las directivas personalizadas de Azure AD B2C que aprovechan el marco de experiencia de identidad le permiten crear su propio marco de confianza mediante directivas declarativas que pueden definir y configurar:
+[Recorridos del usuario](userjourneys.md) le permite definir la lógica de negocios con la ruta de acceso que seguirá el usuario para obtener acceso a la aplicación. Se conduce al usuario por el recorrido del usuario para recuperar las notificaciones que se van a presentar a la aplicación. Un recorrido del usuario se genera a partir de una secuencia de [pasos de orquestación](userjourneys.md#orchestrationsteps). Un usuario debe llegar al último paso para adquirir un token. 
 
-- Las referencias a documentos que definen el ecosistema de identidad federada de la comunidad relacionada con el TF. Son vínculos a la documentación de TF. Las reglas de "tiempo de ejecución" operativas (predefinidas) o los recorridos de usuario que automatizan o controlan el intercambio y el uso de las notificaciones. Estos recorridos están asociados con un LOA (y un LOP). Por lo tanto, una directiva puede tener recorridos de usuario con LOA (y LOP) variables.
+A continuación de describe cómo puede agregar pasos de orquestación a la directiva del [paquete de inicio de la cuenta local y social](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/SocialAndLocalAccounts). Este es un ejemplo de una llamada de la API de REST que se ha agregado.
 
-- Los proveedores de identidades y atributos, o los proveedores de notificaciones de la comunidad de interés y los perfiles técnicos que admiten, junto con la acreditación de LOA/LOP (fuera de banda) relacionada con ellos.
+![recorrido del usuario personalizado](media/custom-policy-trust-frameworks/user-journey-flow.png)
 
-- La integración con comprobadores de atributos o los proveedores de notificaciones.
 
-- Los usuarios de confianza de la comunidad (mediante inferencia).
+### <a name="orchestration-steps"></a>Estados de orquestación
 
-- Los metadatos para establecer comunicaciones de red entre los participantes. Estos metadatos, junto con los perfiles técnicos, se usan durante una transacción para asociar la interoperabilidad en la red entre el usuario de confianza y otros participantes de la comunidad.
+El paso de orquestación hace referencia a un método que implementa su propósito o funcionalidad. Este método se denomina [perfil técnico](technicalprofiles.md). Cuando el recorrido del usuario necesita una bifurcación para representar mejor la lógica de negocios, el paso de orquestación hace referencia a un [subrecorrido](subjourneys.md). Un subrecorrido contiene su propio conjunto de pasos de orquestación.
 
-- La conversión de protocolo, si la hay (por ejemplo, SAML 2.0, OAuth2, WS-Federation y OpenID Connect).
+Un usuario debe alcanzar el último paso de orquestación en el recorrido del usuario para adquirir un token. Sin embargo, es posible que los usuarios no necesiten seguir todos los pasos de orquestación. Los pasos de orquestación se pueden ejecutar de forma condicional en función de las [condiciones previas](userjourneys.md#preconditions) definidas en el paso de orquestación. 
 
-- Los requisitos de autenticación.
+Una vez que se completa un paso de orquestación, Azure AD B2C almacena las notificaciones generadas en el **contenedor de notificaciones**. Cualquier otro paso de orquestación puede usar las notificaciones del contenedor de notificaciones en el recorrido del usuario.
 
-- La orquestación multifactor, si la hay.
+En el diagrama siguiente se muestra cómo los pasos de orquestación del recorrido del usuario pueden tener acceso al contenedor de notificaciones.
 
-- Un esquema compartido para todas las notificaciones disponibles y las asignaciones a participantes de una comunidad de interés.
+![Recorrido del usuario de Azure AD B2C](media/custom-policy-trust-frameworks/user-journey-diagram.png)
 
-- Todas las transformaciones de notificación, junto con la posible minimización de datos en este contexto, para sostener el intercambio y el uso de notificaciones.
+### <a name="technical-profile"></a>Perfil técnico
 
-- El enlace y el cifrado.
+Un perfil técnico proporciona una interfaz para comunicarse con distintos tipos de entidades. Un recorrido del usuario combina la llamada a perfiles técnicos a través de los pasos de orquestación para definir la lógica de negocios.
 
-- El almacenamiento de notificaciones.
+Todos los tipos de perfiles técnicos comparten el mismo concepto. Puede enviar notificaciones de entrada, ejecutar la transformación de notificaciones y comunicarse con la entidad configurada. Una vez finalizado el proceso, el perfil técnico devuelve las notificaciones de salida al contenedor de notificaciones. Para obtener más información, consulte el artículo donde se recoge [información general de los perfiles técnicos](technicalprofiles.md)
 
-### <a name="understand-claims"></a>Descripción de las notificaciones
+### <a name="validation-technical-profile"></a>Perfil técnico de validación
 
-> [!NOTE]
-> Nos referimos en conjunto a todos los tipos posibles de información de identidad que se pueden intercambiar como "notificaciones": notificaciones sobre las credenciales de autenticación de un usuario final, examen de identidades, dispositivo de comunicación, ubicación física, atributos de identificación personal, etc.
->
-> Usamos el término "notificaciones" (en lugar de "atributos") porque, en las transacciones en línea, estos artefactos de datos no son hechos que el usuario de confianza pueda comprobar directamente. Más bien se trata de aserciones, o notificaciones, sobre hechos para los que el usuario de confianza debe desarrollar la suficiente confianza antes de conceder la transacción solicitada por el usuario final.
->
-> El término "notificaciones" también se usa porque las directivas personalizadas de Azure AD B2C que usan el marco de experiencia de identidad están diseñadas para simplificar el intercambio de todos los tipos de información de identidad digital de una manera coherente, sin importar si el protocolo subyacente está definido para la autenticación de usuarios o la recuperación de atributos.  Del mismo modo, el término "proveedor de notificaciones" se usa para hacer referencia en conjunto a proveedores de identidades, proveedores de atributos y comprobadores de atributos cuando no queremos distinguir entre sus funciones específicas.
+Cuando un usuario interactúa con la interfaz de usuario, es posible que desee validar los datos que se recopilan. Para interactuar con el usuario, debe usarse un [perfil técnico autoafirmado](self-asserted-technical-profile.md).
 
-Por lo tanto, estas determinan cómo la información se intercambia entre un usuario de confianza, los proveedores de identidades y atributos y los comprobadores de atributos. Controlan qué proveedores de identidades y atributos se requieren para la autenticación de un usuario de confianza. Se deben considerar como un lenguaje específico del dominio (DSL), es decir, un lenguaje informático especializado para un dominio de aplicación particular con herencia, instrucciones *if* y polimorfismo.
+Para validar la entrada de usuario, se llama a un [perfil técnico de validación](validation-technical-profile.md) desde el perfil técnico autoafirmado. 
 
-Estas directivas constituyen la parte que se puede leer en una máquina de la construcción de TF en las directivas personalizadas de Azure AD B2C que aprovechan el marco de experiencia de identidad. Incluyen todos los detalles operativos, incluidos los metadatos y los perfiles técnicos de los proveedores de notificaciones, las definiciones del esquema de notificaciones, las funciones de transformación de notificaciones y los recorridos de usuario que se rellenan para facilitar la automatización y la orquestación operacionales.
+Un perfil técnico de validación es un método para llamar a cualquier perfil técnico no interactivo. En este caso, el perfil técnico puede devolver notificaciones de salida o un mensaje de error. El mensaje de error se representa para el usuario en la pantalla, lo que le permite volver a intentarlo.
 
-Se consideran *documentos vivos* porque es muy probable que su contenido cambie a lo largo del tiempo en lo que respecta a los participantes activos declarados en las directivas. Existe también la posibilidad de que los términos y condiciones para ser un participante cambien.
+En el siguiente diagrama se muestra cómo Azure AD B2C usa un perfil técnico de validación para validar las credenciales de usuario.
 
-La configuración y el mantenimiento de la federación se simplifican enormemente al proteger a los usuarios de confianza de las reconfiguraciones de confianza saliente y conectividad a medida que diferentes proveedores o comprobadores de notificaciones se unen a la comunidad representada por el conjunto de directivas, o la dejan.
+![Diagrama del perfil técnico de validación](media/custom-policy-trust-frameworks/validation-technical-profile.png)
 
-La interoperabilidad es otro desafío importante. Es necesario integrar proveedores o comprobadores de notificaciones adicionales, puesto que no es probable que los usuarios de confianza admitan todos los protocolos necesarios. Las directivas personalizadas de Azure AD B2C resuelven este problema al admitir protocolos estándar del sector y aplicar recorridos de usuario específicos para trasladar solicitudes cuando los usuarios de confianza y los proveedores de atributos no admiten el mismo protocolo.
+## <a name="inheritance-model"></a>Modelo de herencia
 
-Los recorridos de usuario incluyen perfiles de protocolo y metadatos que se usan para asociar la interoperabilidad en la red entre los usuarios de confianza y otros participantes. También existen reglas de tiempo de ejecución operativas que se aplican a los mensajes de solicitud y respuesta de intercambio de información de identidad para exigir el cumplimiento de las directivas publicadas como parte de la especificación de TF. La idea de recorridos de usuario es clave para la personalización de la experiencia del cliente. Además, arroja luz sobre cómo funciona el sistema en el nivel de protocolo.
+Cada paquete de inicio incluye los siguientes archivos:
 
-Sobre esa base, las aplicaciones y portales de usuarios de confianza pueden invocar, en función del contexto, directivas personalizadas de Azure AD B2C que aprovechan el marco de experiencia de identidad, al pasar el nombre de una directiva específica y obtener de forma exacta el comportamiento y el intercambio de información que quieren de manera sencilla, organizada y sin riesgo.
+- Un archivo de **base** que contiene la mayoría de las definiciones. Para facilitar la solución de problemas y el mantenimiento a largo plazo de las directivas, le recomendamos que realice un número mínimo de cambios en este archivo.
+- Un archivo de **extensiones** que contiene los cambios de configuración únicos del inquilino. Este archivo de directiva se basa en el archivo de base. Use este archivo para agregar nuevas funciones o reemplazar funciones existentes. Por ejemplo, puede usar este archivo para federar con nuevos proveedores de identidades.
+- Un archivo de **usuario de confianza** que es el único archivo centrado en tareas que invoca directamente la aplicación de usuario de confianza, como aplicaciones de escritorio, móviles o web. Cada tarea única (como un registro, un inicio de sesión, un restablecimiento de contraseña o una edición de perfil) necesita su propio archivo de directiva de usuario de confianza. Este archivo de directiva se basa en el archivo de extensiones.
+
+Este es el modelo de herencia:
+
+- La directiva secundaria de cualquier nivel puede heredar de la directiva principal y extenderse mediante la adición de nuevos elementos.
+- En el caso de escenarios más complejos, puede agregar un nivel mayor de habitabilidad (hasta cinco en total)
+- Puede agregar más directivas del usuario de confianza. Por ejemplo, elimine mi cuenta, cambie un número de teléfono, una directiva del usuario de confianza de SAML y mucho más.
+
+En el diagrama siguiente, se muestra la relación entre los archivos de directiva y las aplicaciones de usuario de confianza.
+
+![Diagrama que muestra el modelo de herencia de directiva del marco de confianza](media/custom-policy-trust-frameworks/policies.png)
+
+
+## <a name="guidance-and-best-practices"></a>Guía y procedimientos recomendados
+
+### <a name="best-practices"></a>Procedimientos recomendados
+
+Dentro de una directiva personalizada de Azure AD B2C, puede integrar su propia lógica de negocios para compilar las experiencias de usuario que requiere y ampliar la funcionalidad del servicio. Tenemos un conjunto de procedimientos recomendados y recomendaciones para comenzar.
+
+- Cree la lógica dentro de la **directiva de extensión** o la **directiva del usuario de confianza**. Puede agregar nuevos elementos, lo que invalidará la directiva base haciendo referencia al mismo identificador. Esto le permitirá escalar horizontalmente el proyecto mientras se facilita la actualización de la directiva base posteriormente si Microsoft lanza nuevos paquetes de inicio.
+- En la **directiva base**, recomendamos encarecidamente evitar realizar cualquier tipo de cambio.  Cuando sea necesario, realice comentarios donde se hayan hecho los cambios.
+- Al invalidar un elemento, como los metadatos del perfil técnico, evite copiar todo el perfil técnico de la directiva base. En su lugar, copie solo la sección necesaria del elemento. Consulte [Deshabilitación de la comprobación de correo electrónico](custom-policy-disable-email-verification.md) para ver un ejemplo de cómo hacer el cambio.
+- Para reducir la duplicación de perfiles técnicos, donde se comparte la funcionalidad básica, use la [inclusión del perfil técnico](technicalprofiles.md#include-technical-profile).
+- Evite escribir en el directorio de Azure AD durante el inicio de sesión, lo que puede provocar problemas de limitación.
+- Si la directiva tiene dependencias externas, como la API de REST, asegúrese de que tengan alta disponibilidad.
+- Para lograr una mejor experiencia de usuario, asegúrese de que las plantillas HTML personalizadas se implementan globalmente con la [entrega de contenido en línea](https://docs.microsoft.com/azure/cdn/). Azure Content Delivery Network (CDN) le permite reducir los tiempos de carga, ahorrar ancho de banda y acelerar la capacidad de respuesta.
+- Si desea hacer un cambio en el recorrido del usuario. Copie todo el recorrido del usuario de la directiva base en la directiva de extensión. Proporcione un identificador de recorrido del usuario único al recorrido del usuario que ha copiado. A continuación, en la [directiva del usuario de confianza](relyingparty.md), cambie el elemento del [recorrido del usuario predeterminado](relyingparty.md#defaultuserjourney) para apuntar al nuevo recorrido del usuario.
+
+## <a name="troubleshooting"></a>Solución de problemas
+
+Al llevar a cabo el desarrollo con las directivas de Azure AD B2C, es posible que se produzcan errores o excepciones al ejecutar el recorrido del usuario. Se pueden investigar mediante Application Insights.
+
+- Integre Application Insights con Azure AD B2C para [diagnosticar excepciones](troubleshoot-with-application-insights.md).
+- La [extensión de Azure AD B2C para VS Code](https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c) puede ayudarle a tener acceso y [visualizar los registros](https://github.com/azure-ad-b2c/vscode-extension/blob/master/src/help/app-insights.md) en función de una hora y un nombre de directiva.
+- El error más común al configurar directivas personalizadas es el formato incorrecto del código XML. Use la [validación del esquema XML](troubleshoot-custom-policies.md) para identificar los errores antes de cargar el archivo XML.
+
+## <a name="continuous-integration"></a>Integración continua
+
+Mediante el uso de una canalización de integración y entrega continuas (CI/CD) configurada en Azure Pipelines, puede [incluir las directivas personalizadas de Azure AD B2C en la entrega de software](deploy-custom-policies-devops.md) y la automatización del control de código. A medida que se implementan en diferentes entornos de Azure AD B2C, por ejemplo, en desarrollo, prueba y producción, se recomienda quitar los procesos manuales y realizar pruebas automatizadas con Azure Pipelines.
+
+## <a name="prepare-your-environment"></a>Preparación del entorno
+
+Empiece a trabajar con la directiva personalizada de Azure AD B2C:
+
+1. [Creación de un inquilino de Azure AD B2C](tutorial-create-tenant.md)
+1. [Registre una aplicación web](tutorial-register-applications.md) mediante Azure Portal. Así pues, podrá probar la directiva.
+1. Agregue las [claves de directiva](custom-policy-get-started.md#add-signing-and-encryption-keys) necesarias y [registre aplicaciones de Identity Experience Framework](custom-policy-get-started.md#register-identity-experience-framework-applications)
+1. [Obtenga el paquete de inicio de directivas de Azure AD B2C](custom-policy-get-started.md#get-the-starter-pack) y cárguelo en el inquilino. 
+1. Después de cargar el paquete de inicio, [pruebe la directiva de registro o inicio de sesión](custom-policy-get-started.md#test-the-custom-policy)
+1. Le recomendamos que descargue e instale [Visual Studio Code](https://code.visualstudio.com/) (VS Code). Visual Studio Code es un editor de código fuente ligero pero eficaz que se ejecuta en el escritorio y está disponible para Windows, macOS y Linux. Con VS Code, puede editar los archivos XML de directiva personalizada de Azure AD B2C.
+1. Para navegar rápidamente por las directivas personalizadas de Azure AD B2C, recomendamos que instale la [extensión de Azure AD B2C para VS Code](https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c)
+ 
+## <a name="next-steps"></a>Pasos siguientes
+
+Después de configurar y probar la directiva de Azure AD B2C, puede empezar a personalizar la directiva. Consulte los artículos siguientes para obtener información sobre cómo:
+
+- [Agregar notificaciones y personalizar la entrada de usuario](custom-policy-configure-user-input.md) mediante directivas personalizadas. Aprenda a definir una notificación y agregue una notificación a la interfaz de usuario personalizando algunos de los perfiles técnicos del paquete de inicio.
+- [Personalizar la interfaz de usuario](customize-ui-with-html.md) de la aplicación mediante una directiva personalizada. Aprenda a crear su propio contenido HTML y personalice la definición de contenido.
+- [Encontrar la interfaz de usuario](custom-policy-localization.md) de la aplicación mediante una directiva personalizada. Aprenda a configurar la lista de idiomas admitidos y proporcione etiquetas específicas del idioma agregando el elemento de recursos localizado.
+- Durante el desarrollo y las pruebas de la directiva, puede [deshabilitar la comprobación de correo electrónico](custom-policy-disable-email-verification.md). Aprenda a sobrescribir los metadatos de un perfil técnico.
+- [Configurar el inicio de sesión con una cuenta de Google](identity-provider-google-custom.md) mediante directivas personalizadas. Aprenda a crear un nuevo proveedor de notificaciones con el perfil técnico de OAuth2. A continuación, personalice el recorrido del usuario para incluir la opción de inicio de sesión de Google.
+- Para diagnosticar problemas con las directivas personalizadas, puede [recopilar registros de Azure Active Directory B2C con Application Insights](troubleshoot-with-application-insights.md). Aprenda a agregar nuevos perfiles técnicos y configure la directiva del usuario de confianza.

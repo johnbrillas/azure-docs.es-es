@@ -14,12 +14,12 @@ ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
-ms.openlocfilehash: 2059c473c8429e7498992e26c0a2c90ea835c537
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 784f1cc7b7e063166dc1f24851ab217cef8d831a
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89646602"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97355654"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Tokens de id. de la plataforma de identidad de Microsoft
 
@@ -96,7 +96,7 @@ En esta lista se muestran las notificaciones de JWT que se encuentran en la mayo
 
 ### <a name="using-claims-to-reliably-identify-a-user-subject-and-object-id"></a>Uso de notificaciones para identificar a un usuario de forma confiable (firmante e id. de objeto)
 
-Al identificar a un usuario (por ejemplo, buscarlo en una base de datos o decidir qué permisos tiene), es fundamental usar información que permanecerá constante y única a lo largo del tiempo.  Las aplicaciones heredadas a veces usan un campo como la dirección de correo electrónico, un número de teléfono o el UPN.  Todos ellos pueden cambiar con el tiempo y también se pueden reutilizar con el tiempo: cuando un empleado cambia su nombre, o a un empleado se le asigna una dirección de correo electrónico que coincide con la de un empleado anterior que ya no está presente). Por lo tanto, es **crítico** de que la aplicación no use datos legibles para identificar a un usuario; legible normalmente significa que alguien lo leerá y querrá cambiarlo.  En su lugar, use las notificaciones proporcionadas por el estándar OIDC o las notificaciones de extensión proporcionadas por Microsoft: las notificaciones `sub` y `oid`.
+Al identificar a un usuario (por ejemplo, buscarlo en una base de datos o decidir qué permisos tiene), es fundamental usar información que permanecerá constante y única a lo largo del tiempo. Las aplicaciones heredadas a veces usan campos, como la dirección de correo electrónico, un número de teléfono o el UPN.  Todos ellos pueden cambiar con el tiempo y también se pueden reutilizar con el tiempo: cuando un empleado cambia su nombre, o a un empleado se le asigna una dirección de correo electrónico que coincide con la de un empleado anterior que ya no está presente). Por lo tanto, es **crítico** de que la aplicación no use datos legibles para identificar a un usuario; legible normalmente significa que alguien lo leerá y querrá cambiarlo. En su lugar, use las notificaciones proporcionadas por el estándar OIDC o las notificaciones de extensión proporcionadas por Microsoft: las notificaciones `sub` y `oid`.
 
 Para almacenar correctamente la información por usuario, use solo `sub` o `oid` (que son únicos como los GUID), y use `tid` para el enrutamiento o el particionamiento si es necesario.  Si necesita compartir datos entre servicios, `oid`+`tid` es lo mejor cuando todas las aplicaciones obtienen las mismas notificaciones `oid` y `tid` para un usuario determinado.  La notificación `sub` en la plataforma de identidad de Microsoft es "por pares"; es única en función de una combinación del destinatario del token, el inquilino y el usuario.  Por lo tanto, dos aplicaciones que solicitan tokens de identificador para un usuario determinado recibirán diferentes notificaciones `sub`, pero las mismas notificaciones `oid` para ese usuario.
 

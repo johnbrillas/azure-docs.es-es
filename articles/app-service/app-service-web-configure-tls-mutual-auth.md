@@ -3,14 +3,14 @@ title: Configuración de la autenticación mutua TLS
 description: Aprenda a autenticar certificados de cliente en TLS. Azure App Service puede hacer que el certificado de cliente esté disponible en el código de la aplicación para su comprobación.
 ms.assetid: cd1d15d3-2d9e-4502-9f11-a306dac4453a
 ms.topic: article
-ms.date: 10/01/2019
+ms.date: 12/11/2020
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 145b999d7bf8597c06d6e3d4a36d01b182c8ae68
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ceeb3d31652c04eb9a69c1c8bb4b114e6f38d52
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88213648"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347739"
 ---
 # <a name="configure-tls-mutual-authentication-for-azure-app-service"></a>Configuración de la autenticación mutua de TLS en Azure App Service
 
@@ -24,20 +24,33 @@ Puede restringir el acceso a una aplicación de Azure App Service habilitando di
 
 ## <a name="enable-client-certificates"></a>Habilitación de certificados de cliente
 
-Para configurar la aplicación de forma que requiera certificados de cliente, puede cambiar a **Activado** la opción Require incoming certificate (Requerir certificado entrante); para ello, seleccione **Configuración** > **Configuración general** en Azure portal o bien, establezca el valor `clientCertEnabled` de la aplicación en `true`. Para establecer el valor, ejecute el siguiente comando en [Cloud Shell](https://shell.azure.com).
+Para configurar la aplicación a fin de que requiera certificados de cliente:
+
+1. En la navegación de la izquierda de la página de administración de la aplicación, seleccione **Configuración** > **Configuración general**.
+
+1. Establezca **Modo de certificado de cliente** en **Requerir**. Haga clic en **Guardar** en la parte superior de la página.
+
+Para hacer lo mismo con la CLI de Azure, ejecute el siguiente comando en [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
-az webapp update --set clientCertEnabled=true --name <app_name> --resource-group <group_name>
+az webapp update --set clientCertEnabled=true --name <app-name> --resource-group <group-name>
 ```
 
 ## <a name="exclude-paths-from-requiring-authentication"></a>Exclusión de rutas de acceso para que no requieran autenticación
 
-Si habilita la autenticación mutua en su aplicación, todas las rutas de acceso situadas bajo la raíz de la aplicación necesitarán un certificado de cliente para obtener acceso. Si desea permitir que ciertas rutas permanezcan abiertas para el acceso anónimo, puede definir rutas de exclusión al configurar la aplicación.
+Si habilita la autenticación mutua en su aplicación, todas las rutas de acceso situadas bajo la raíz de la aplicación necesitan un certificado de cliente para obtener acceso. Para eliminar este requisito para determinadas rutas de acceso, defina las rutas de acceso de exclusión como parte de la configuración de la aplicación.
 
-Para configurar las rutas de exclusión, seleccione **Configuración** > **Configuración general** y defina una ruta de exclusión. En este ejemplo, todo lo que se encuentre bajo la ruta `/public` en la aplicación no solicitará un certificado de cliente.
+1. En la navegación de la izquierda de la página de administración de la aplicación, seleccione **Configuración** > **Configuración general**.
+
+1. Junto a **Client exclusion paths** (Rutas de acceso de exclusión del cliente), haga clic en el icono de edición.
+
+1. Haga clic en **Nueva ruta de acceso**, especifique una ruta de acceso y haga clic en **Aceptar**.
+
+1. Haga clic en **Guardar** en la parte superior de la página.
+
+En la siguiente captura de pantalla, todo lo que se encuentra en la ruta de acceso `/public` de la aplicación no solicita un certificado de cliente.
 
 ![Rutas de exclusión de certificados][exclusion-paths]
-
 
 ## <a name="access-client-certificate"></a>Acceso al certificado de cliente
 

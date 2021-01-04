@@ -7,12 +7,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.custom: references_regions
-ms.openlocfilehash: b4e35296a999070a6f536f4a52cfb7c3a1d4f42a
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 3d4e5ad0b24b7163072d7e3110a523dad9608923
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186497"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507378"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-it-service-management-connector"></a>Conexión de Azure a las herramientas de ITSM mediante el Conector de Administración de servicios de TI
 
@@ -30,7 +30,7 @@ ITSMC admite conexiones con las siguientes herramientas ITSM:
 -   Cherwell
 
    >[!NOTE]
-> A partir del 1 de octubre de 2020, las integraciones de ITSM de Cherwell y Provance con alertas de Azure ya no se habilitarán para los clientes nuevos. No se admitirán las nuevas conexiones de ITSM. Se admitirán las conexiones de ITSM existentes.
+> Proponemos a nuestros clientes de Cherwell y Provance que utilicen la [acción de Webhook](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#webhook) en el punto de conexión a Cherwell y Provance como otra solución para la integración.
 
 Con ITSMC, puede:
 
@@ -42,9 +42,12 @@ Para obtener información sobre los términos legales y la directiva de privacid
 Para empezar a usar ITSMC, siga estos pasos:
 
 1.  [Agregue ITSMC](#add-it-service-management-connector).
-2.  [Cree una conexión de ITSM](#create-an-itsm-connection).
-3.  [Use la conexión](#use-itsmc).
-
+2. [Conectar productos o servicios de ITSM con el Conector de Administración de servicios de TI](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-connections)
+3.  [Cree una conexión de ITSM](#create-an-itsm-connection).
+4.  [Use la conexión](#use-itsmc).
+   
+   >[!NOTE]
+> Debe seguir los pasos por este orden; de lo contrario, obtendrá un error.
 
 ##  <a name="add-it-service-management-connector"></a>Adición del Conector de Administración de servicios de TI
 
@@ -149,12 +152,12 @@ Utilice el procedimiento siguiente para crear elementos de trabajo:
 
 9. Al seleccionar **Crear elementos de trabajo individuales para cada elemento de configuración**, cada elemento de configuración tendrá su propio elemento de trabajo. Habrá un elemento de trabajo por cada elemento de configuración. Se actualizará según las alertas que se crearán.
 
-   * En caso de que seleccione en la lista desplegable de elemento de trabajo "Incidente" o "Alerta": Si desactiva la casilla **Crear elementos de trabajo individuales para cada elemento de configuración**, cada alerta creará un elemento de trabajo. Puede haber más de una alerta por elemento de configuración.
+    * En caso de que seleccione en la lista desplegable de elemento de trabajo "Incidente" o "Alerta": Si desactiva la casilla **Crear elementos de trabajo individuales para cada elemento de configuración**, cada alerta creará un elemento de trabajo. Puede haber más de una alerta por elemento de configuración.
 
-   ![Captura de pantalla en la que se muestra la ventana Vale de ITSM.](media/itsmc-overview/itsm-action-configuration.png)
-   
-   * En caso de que seleccione en la lista desplegable de elemento de trabajo "Evento": Al seleccionar **Crear elementos de trabajo individuales para cada entrada de registro** en la selección de botones de radio, cada alerta creará un nuevo elemento de trabajo. Al seleccionar **Crear elementos de trabajo individuales para cada elemento de configuración** en la selección de botones de radio, cada elemento de configuración tendrá su propio elemento de trabajo.
-   ![Captura de pantalla en la que se muestra la ventana Vale de ITSM.](media/itsmc-overview/itsm-action-configuration-event.png)
+       ![Captura de pantalla que muestra la ventana Incidente de ITSM.](media/itsmc-overview/itsm-action-configuration.png)
+
+    * En caso de que seleccione en la lista desplegable de elemento de trabajo "Evento": Al seleccionar **Crear elementos de trabajo individuales para cada entrada de registro** en la selección de botones de radio, cada alerta creará un nuevo elemento de trabajo. Al seleccionar **Crear elementos de trabajo individuales para cada elemento de configuración** en la selección de botones de radio, cada elemento de configuración tendrá su propio elemento de trabajo.
+   ![Captura de pantalla en la que se muestra la ventana Evento de ITSM.](media/itsmc-overview/itsm-action-configuration-event.png)
 
 10. Seleccione **Aceptar**.
 
@@ -166,26 +169,6 @@ Al crear o editar una regla de alerta de Azure, use un grupo de acciones, que ti
 >
 >
 >- El campo de descripción breve de la definición de la regla de alerta está limitado a 40 caracteres cuando se envía mediante la acción de ITSM.
-
-
-## <a name="visualize-and-analyze-the-incident-and-change-request-data"></a>Visualizar y analizar los datos de incidentes y solicitudes de cambios
-
-En función de las opciones de configuración de una conexión, ITSMC puede sincronizar hasta 120 días de datos referentes a incidentes y a solicitudes cambios. El esquema de registros de estos datos se proporciona en la [próxima sección](#additional-information) de este artículo.
-
-Puede visualizar los datos de incidentes y solicitudes de cambio mediante el panel de ITSMC:
-
-![Captura de pantalla en la que se muestra el panel de ITSMC.](media/itsmc-overview/itsmc-overview-sample-log-analytics.png)
-
-El panel también proporciona información sobre el estado del conector, que puede usar como punto de partida para analizar los problemas con las conexiones.
-
-También puede visualizar los incidentes sincronizados con los equipos afectados en Service Map.
-
-Mapa de servicio detecta automáticamente los componentes de la aplicación en sistemas Windows y Linux y asigna la comunicación entre servicios. Permite ver los servidores a medida que piensa en ellos: como los sistemas interconectados que ofrecen servicios críticos. Service Map muestra las conexiones entre servidores, procesos y puertos en cualquier arquitectura con conexión TCP. No se requiere ninguna configuración aparte de la instalación de un agente. Para más información, vea [Uso de la solución Service Map en Azure](../insights/service-map.md).
-
-Si usa Service Map, puede ver los elementos de la consola de servicio creados en las soluciones de ITSM, como se muestra aquí:
-
-![Captura de pantalla en la que se muestra la pantalla de Log Analytics.](media/itsmc-overview/itsmc-overview-integrated-solutions.png)
-
 
 ## <a name="additional-information"></a>Información adicional
 
@@ -296,32 +279,12 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | Impact_s| Impacto|
 | RequestedDate_t  | Solicitado por fecha |
 | ClosedDate_t | Fecha de cierre |
-| PlannedStartDate_t  |     Fecha de inicio planeada |
-| PlannedEndDate_t  |   Fecha de finalización planeada |
+| PlannedStartDate_t  | Fecha de inicio planeada |
+| PlannedEndDate_t  | Fecha de finalización planeada |
 | WorkStartDate_t  | Fecha de inicio real |
 | WorkEndDate_t | Fecha de finalización real|
 | Description_s | Descripción |
 | Computer  | Elemento de configuración |
-
-
-## <a name="troubleshoot-itsm-connections"></a>Solución de problemas de conexión de ITSM
-- Si se produce un error en la conexión de la UI del origen conectado y recibe un mensaje **Error al guardar la conexión**, siga estos pasos:
-   - En el caso de conexiones de ServiceNow, Cherwell y Provance:  
-     - Asegúrese de que ha introducido correctamente el nombre de usuario, la contraseña, el identificador de cliente y el secreto de cliente de cada una de las conexiones.  
-     - Asegúrese de disponer de privilegios suficientes en el producto de ITSM correspondiente para realizar la conexión.  
-   - En el caso de conexiones de Service Manager:  
-     - Asegúrese de que la aplicación web se implementa correctamente y de que se crea la conexión híbrida. Para comprobar que la conexión se ha establecido correctamente con el equipo de Service Manager local, visite la dirección URL de la aplicación web como se detalla en la documentación para realizar la [conexión híbrida](./itsmc-connections.md#configure-the-hybrid-connection).  
-
-- Si los datos de ServiceNow no se sincronizan con Log Analytics, asegúrese de que la instancia de ServiceNow no esté suspendida. En algunas ocasiones, las instancias de desarrollo de ServiceNow se suspenden si están inactivas durante mucho tiempo. Si no sucede eso, informe del problema.
-- Si se generan alertas de Log Analytics, pero no se crean elementos de trabajo en el producto de ITSM, si no se crean elementos de configuración o no se vinculan a elementos de trabajo, o si necesita información adicional, vea estos recursos:
-   -  ITSMC: La solución muestra un resumen de conexiones, elementos de trabajo, equipos, etc. Seleccione el icono que tiene la etiqueta **Estado del conector**. Al hacerlo, se le remitirá a **Búsqueda de registros** con la consulta pertinente. Consulte las entradas de registro con un elemento `LogType_S` de `ERROR` para obtener más información.
-   - Página de **búsqueda de registros**: vea los errores y la información relacionada directamente mediante la consulta `*ServiceDeskLog_CL*`.
-
-## <a name="troubleshoot-service-manager-web-app-deployment"></a>Solución de problemas de implementación de aplicaciones web de Service Manager
--   Si tiene problemas con la implementación de la aplicación web, asegúrese de tener los permisos para crear o implementar recursos en la suscripción.
--   Si aparece el mensaje de error **Referencia a objeto no establecida como instancia de un objeto** al ejecutar el [script](itsmc-service-manager-script.md), asegúrese de que especificó valores válidos en la sección **Configuración de usuario**.
--   Si no puede crear el espacio de nombres de retransmisión de Service Bus, asegúrese de que el proveedor de recursos necesario está registrado en la suscripción. Si no está registrado, cree el espacio de nombres de retransmisión de Service Bus manualmente desde Azure Portal. También puede crearlo mientras [crea la conexión híbrida](./itsmc-connections.md#configure-the-hybrid-connection) en Azure Portal.
-
 
 ## <a name="contact-us"></a>Ponerse en contacto con nosotros
 

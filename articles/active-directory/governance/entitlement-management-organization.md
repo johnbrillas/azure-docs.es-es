@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 09/28/2020
+ms.date: 12/11/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1cdf983dc8fed64c7d283ac216eb803746add95
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 6299f9ad660252ae39903401672d493b1c1ad52c
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96029377"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347496"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Agregar una organización conectada en la administración de derechos de Azure AD
 
@@ -29,7 +29,13 @@ La administración de derechos de Azure Active Directory (Azure AD) le permit
 
 ## <a name="what-is-a-connected-organization"></a>¿Qué es una organización conectada?
 
-Una organización conectada es un dominio o directorio externo de Azure AD con el que tiene relación.
+Una organización conectada es otra organización con la que tiene una relación.  Para que los usuarios de esa organización puedan acceder a los recursos, como los sitios o las aplicaciones de SharePoint Online, necesitará una representación de los usuarios de esa organización en ese directorio.  Dado que, en la mayoría de los casos, los usuarios de esa organización no están aún en el directorio de Azure AD, puede usar la administración de derechos para colocarlos en el directorio Azure AD según sea necesario.  
+
+Hay tres formas en que la administración de derechos le permite especificar los usuarios que forman una organización conectada.  Podrían ser:
+
+* usuarios de otro directorio de Azure AD;
+* usuarios de otro directorio que no sea de Azure AD que se haya configurado para la federación directa o;
+* usuarios de otro directorio que no sea de Azure AD, cuyas direcciones de correo electrónico tengan el mismo nombre de dominio en común.
 
 Por ejemplo, supongamos que trabaja en Woodgrove Bank y desea colaborar con dos organizaciones externas. Estas dos organizaciones tienen configuraciones diferentes:
 

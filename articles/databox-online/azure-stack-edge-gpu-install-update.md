@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 11/30/2020
+ms.date: 12/11/2020
 ms.author: alkohli
-ms.openlocfilehash: 8d17528728c5519244210217b35d6cd6a3afe715
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 004c84387c51233542b1bbbf11d33cdff42259af
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96449128"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359156"
 ---
 # <a name="update-your-azure-stack-edge-pro-gpu"></a>Actualización de la GPU de Azure Stack Edge Pro 
 
@@ -22,9 +22,14 @@ En este artículo, se describen los pasos necesarios para instalar actualizacion
 El procedimiento descrito en este artículo se realizó con una versión de software diferente, pero el proceso sigue siendo el mismo para la versión de software actual.
 
 > [!IMPORTANT]
-> - La actualización de **2011** es la actualización actual. <!--and corresponds to **2.1.1377.2170** software version on your device.--> Para obtener más información sobre esta actualización, vaya a las [Notas de la versión](azure-stack-edge-gpu-2011-release-notes.md).
->
-> - Tenga en cuenta que al instalar una actualización o revisión, se reiniciará el dispositivo. Esta actualización contiene las actualizaciones de software del dispositivo y las actualizaciones de Kubernetes. Como Azure Stack Edge Pro es un dispositivo de un solo nodo, cualquier operación de E/S en curso se interrumpirá y el dispositivo registrará un tiempo de inactividad de hasta 30 minutos durante la actualización.
+> - La actualización de **2012** es la actualización actual y corresponde a:
+>   - Versión de software del dispositivo: **2.2.1438.2470**
+>   - Versión del servidor de Kubernetes: **v1.17.3**
+>   - Versión de IoT Edge: **0.1.0-beta10**
+>    
+>    Para obtener más información sobre cuáles son las novedades de esta actualización, vaya a las [Notas de la versión](azure-stack-edge-gpu-2012-release-notes.md).
+> - Para aplicar la actualización de 2012, el dispositivo debe ejecutar la de 2010.
+> - Tenga en cuenta que al instalar una actualización o revisión, se reiniciará el dispositivo. Esta actualización contiene las actualizaciones de software del dispositivo y las actualizaciones de Kubernetes. Como Azure Stack Edge Pro es un dispositivo de un solo nodo, cualquier operación de E/S en curso se interrumpirá y el dispositivo experimenta un tiempo de inactividad de hasta 1,5 horas durante la actualización.
 
 Para instalar actualizaciones en el dispositivo, primero tiene que configurar la ubicación del servidor donde se encuentran las actualizaciones. Una vez configurado el servidor, puede aplicar las actualizaciones utilizando la interfaz de usuario de Azure Portal o la interfaz de usuario web local.
 
@@ -161,7 +166,7 @@ Realice los pasos siguientes para descargar la actualización desde el Catálogo
 
 2. En el cuadro de búsqueda del Catálogo de Microsoft Update, escriba el número de Knowledge Base (KB) correspondiente a la revisión o los términos de la actualización que quiera descargar. Por ejemplo, escriba **Azure Stack Edge Pro** y luego haga clic en **Buscar**.
    
-    La lista de actualizaciones aparece como **Azure Stack Edge Update 2011**.
+    La lista de actualizaciones aparece como **Azure Stack Edge Update 2012**.
    
     <!--![Search catalog 2](./media/azure-stack-edge-gpu-install-update/download-update-2b.png)-->
 
@@ -196,7 +201,7 @@ Este procedimiento tarda aproximadamente 20 minutos en completarse. Realice los
 
 5. Se inicia la actualización. Una vez que el dispositivo se actualice correctamente, este se reiniciará. La interfaz de usuario local no será accesible durante este tiempo.
    
-6. Una vez completado el reinicio, se le llevará a la página de **inicio de sesión** . Para comprobar que el software del dispositivo se ha actualizado, en la interfaz de usuario de web local, vaya a **Mantenimiento** > **Actualización de software**. Para la versión actual, la versión de software que aparece debe ser **Azure Stack Edge 2011**.
+6. Una vez completado el reinicio, se le llevará a la página de **inicio de sesión** . Para comprobar que el software del dispositivo se ha actualizado, en la interfaz de usuario de web local, vaya a **Mantenimiento** > **Actualización de software**. Para la versión actual, la versión de software que aparece debe ser **Azure Stack Edge 2012**.
 
    <!--![update device 6](./media/azure-stack-edge-gpu-install-update/local-ui-update-6.png)--> 
 

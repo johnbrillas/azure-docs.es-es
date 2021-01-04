@@ -4,18 +4,18 @@ description: Aprenda a configurar las opciones comunes para una aplicación de A
 keywords: servicio de aplicación de Azure, aplicación web, configuración de la aplicación, variables de entorno
 ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
-ms.date: 08/13/2019
+ms.date: 12/07/2020
 ms.custom: devx-track-csharp, seodec18, devx-track-azurecli
-ms.openlocfilehash: 76cfefa3f104ecef69e28fecd1c37fc336b0ce8c
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 4594a3a7ac7af7acf75fa5c47e2eab3246fc00e7
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96854655"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97346776"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Configurar una aplicación de App Service en Azure Portal
 
-En este tema se explica cómo configurar las opciones comunes para aplicaciones web, back-end para dispositivos móviles o aplicación de API con [Azure Portal].
+En este artículo se explica cómo configurar los parámetros comunes de aplicaciones web, back-end para dispositivos móviles o aplicación de API con [Azure Portal].
 
 ## <a name="configure-app-settings"></a>Configuración de aplicaciones
 
@@ -118,7 +118,10 @@ En [Azure Portal], busque y seleccione **App Services** y luego elija la aplicac
 
 Para los desarrolladores de ASP.NET y ASP.NET Core, la configuración de las cadenas de conexión en App Service es como configurarlas en `<connectionStrings>` en *Web.config*, pero los valores establecidos en App Service reemplazan a los de *Web.config*. Puede mantener la configuración de desarrollo (por ejemplo, un archivo de base de datos) en *Web.config* y los secretos de producción (por ejemplo, credenciales de SQL Database) seguros en App Service. El mismo código usa la configuración de desarrollo cuando se depura localmente, y utiliza los secretos de producción cuando se implementa en Azure.
 
-En cambio, para otras pilas de lenguaje es mejor usar la [configuración de la aplicación](#configure-app-settings), dado que las cadenas de conexión requieren un formato especial en las claves de variable para acceder a los valores. Sin embargo, existe la excepción siguiente: se realiza la copia de seguridad de determinados tipos de base de datos de Azure junto con la aplicación si configura sus cadenas de conexión en la aplicación. Para obtener más información, consulte [¿Qué se incluye en la copia de seguridad?](manage-backup.md#what-gets-backed-up) Si no necesita esta copia de seguridad automatizada, use la configuración de la aplicación.
+En cambio, para otras pilas de lenguaje es mejor usar la [configuración de la aplicación](#configure-app-settings), dado que las cadenas de conexión requieren un formato especial en las claves de variable para acceder a los valores. 
+
+> [!NOTE]
+> Hay un caso en el que puede que quiera usar cadenas de conexión en lugar de la configuración de la aplicación para los lenguajes que no son .NET: la copia de seguridad de determinados tipos de bases de datos de Azure se realiza junto con la aplicación _solo_ si se configura una cadena de conexión para la base de datos en la aplicación de App Service. Para obtener más información, consulte [¿Qué se incluye en la copia de seguridad?](manage-backup.md#what-gets-backed-up) Si no necesita esta copia de seguridad automatizada, use la configuración de la aplicación.
 
 En tiempo de ejecución, las cadenas de conexión están disponibles como variables de entorno, con los siguientes tipos de conexión como prefijo:
 
@@ -228,21 +231,27 @@ En [Azure Portal], busque y seleccione **App Services** y luego elija la aplicac
 
 ![Asignaciones de ruta de acceso](./media/configure-common/open-path.png)
 
-En la página **Asignaciones de ruta de acceso** se muestran diferentes elementos en función del tipo de sistema operativo.
+> [!NOTE] 
+> La pestaña **Asignaciones de ruta de acceso** puede mostrar valores específicos del sistema operativo que difieren del ejemplo que se muestra aquí.
 
 ### <a name="windows-apps-uncontainerized"></a>Aplicaciones de Windows (sin contenedor)
 
 Para aplicaciones de Windows, puede personalizar las asignaciones de controlador de IIS, así como las aplicaciones y directorios virtuales.
 
-Las asignaciones de controlador permiten agregar procesadores de script personalizados para controlar solicitudes de extensiones de archivo específicas. Para agregar un controlador personalizado, haga clic en **Nuevo controlador**. Configure el controlador de la manera siguiente:
+Las asignaciones de controlador permiten agregar procesadores de script personalizados para controlar solicitudes de extensiones de archivo específicas. Para agregar un controlador personalizado, haga clic en **Nueva asignación de controlador**. Configure el controlador de la manera siguiente:
 
 - **Extensión**. La extensión de archivo que quiere gestionar, por ejemplo, *\*.php* o *handler.fcgi*.
 - **Procesador de script**. La ruta de acceso absoluta del procesador de script. El procesador de script procesa las solicitudes a archivos que coincidan con esta extensión de archivo. Utilice la ruta de acceso `D:\home\site\wwwroot` para hacer referencia al directorio raíz de la aplicación.
 - **Argumentos**. Argumentos opcionales de la línea de comandos para el procesador de script.
 
-Cada aplicación tiene la ruta de acceso de la raíz predeterminada (`/`) asignada a `D:\home\site\wwwroot`, donde el código se implementa de forma predeterminada. Si es la raíz de la aplicación está en una carpeta diferente, o si el repositorio tiene más de una aplicación, puede editar o agregar aplicaciones y directorios virtuales aquí. Haga clic en **Nueva aplicación o directorio virtual**.
+Cada aplicación tiene la ruta de acceso de la raíz predeterminada (`/`) asignada a `D:\home\site\wwwroot`, donde el código se implementa de forma predeterminada. Si es la raíz de la aplicación está en una carpeta diferente, o si el repositorio tiene más de una aplicación, puede editar o agregar aplicaciones y directorios virtuales aquí. 
 
-Para configurar las aplicaciones y los directorios virtuales, especifique cada directorio virtual y su ruta de acceso física correspondiente en relación con la raíz del sitio web (`D:\home`). De manera opcional, puede activar la casilla **Aplicación** para marcar un directorio virtual como una aplicación.
+En la pestaña **Asignaciones de ruta de acceso**, haga clic en **Nueva aplicación o directorio virtual**. 
+
+- Para asignar un directorio virtual a una ruta de acceso física, deje activada la casilla **Directorio**. Especifique el directorio virtual y la ruta de acceso relativa (física) correspondiente a la raíz del sitio web (`D:\home`).
+- Para marcar un directorio virtual como aplicación web, desactive la casilla **Directorio**.
+  
+  ![Casilla Directorio](./media/configure-common/directory-check-box.png)
 
 ### <a name="containerized-apps"></a>Aplicaciones en contenedores
 

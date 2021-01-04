@@ -1,7 +1,7 @@
 ---
 title: Novedades de Azure Active Directory de negocio a cliente (B2C)
 description: Documentación nueva y actualizada de Azure Active Directory de negocio a cliente (B2C).
-ms.date: 12/03/2020
+ms.date: 12/15/2020
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: reference
@@ -9,16 +9,29 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: CelesteDG
-ms.openlocfilehash: 4c204ec33604ff5edd1551f9728c28e3dcab9a61
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 8805caad990cd472b3199bda27130d8d63be3071
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96571086"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97559734"
 ---
 # <a name="azure-active-directory-b2c-whats-new"></a>Azure Active Directory B2C: Novedades
 
 Novedades de la documentación de Azure Active Directory B2C. En este artículo se enumeran los documentos nuevos que se han agregado y los que han tenido actualizaciones importantes en los últimos tres meses. Para conocer las novedades del servicio B2C, consulte [Novedades de Azure Active Directory](../active-directory/fundamentals/whats-new.md).
+
+## <a name="december-2020"></a>Diciembre de 2020
+
+### <a name="new-articles"></a>Artículos nuevos
+
+- [Creación de un flujo de usuario en Azure Active Directory B2C](create-user-flow.md)
+- [Configuración del registro e inicio de sesión telefónico para flujos de usuario (versión preliminar)](phone-authentication-user-flows.md)
+
+### <a name="updated-articles"></a>Artículos actualizados
+
+- [Tutorial: Creación de un inquilino de Azure Active Directory B2C](tutorial-create-tenant.md)
+- [Ejemplos de código de Azure Active Directory B2C](code-samples.md)
+- [Versiones de diseño de página](page-layout.md)
 
 ## <a name="november-2020"></a>Noviembre de 2020
 

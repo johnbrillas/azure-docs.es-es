@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.openlocfilehash: 8ee23adf569a6afafc57dac786cd907a3481abde
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: fbe37152f4ff1ce24754bc2d7b968c8e1c76ca10
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96485814"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387724"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Actividad web en Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -26,6 +26,9 @@ La actividad Web puede usarse para llamar a un punto de conexión REST personali
 
 > [!NOTE]
 > Se admite la actividad web para invocar direcciones URL que se hospedan en una red virtual privada y mediante el uso de un entorno de ejecución de integración autohospedado. El entorno de ejecución de integración debe tener una línea de visión al punto de conexión de la dirección URL. 
+
+> [!NOTE]
+> El tamaño máximo de la carga de respuesta de salida admitido es de 4 MB.  
 
 ## <a name="syntax"></a>Sintaxis
 
@@ -90,7 +93,7 @@ En la tabla siguiente se enumeran los requisitos del contenido JSON:
 
 | Tipo de valor | Cuerpo de la solicitud | Response body |
 |---|---|---|
-|Objeto JSON | Compatible. | Compatible. |
+|Objeto JSON | Compatible. | Compatible |
 |Matriz JSON | Compatible <br/>(En la actualidad, las matrices JSON no funcionan como resultado un error. La corrección está en curso). | No compatible |
 | Valor JSON | Compatible | No compatible |
 | Tipo distinto de JSON | No compatible | No compatible |

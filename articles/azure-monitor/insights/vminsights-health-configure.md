@@ -5,13 +5,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 09/08/2020
-ms.openlocfilehash: f41a43e76993a03554d32fc7f3ce3149848989a9
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.date: 12/14/2020
+ms.openlocfilehash: 427bdec2b5e5ab14d566375d5ad8f9da9dc3e81b
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686553"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505603"
 ---
 # <a name="configure-monitoring-in-azure-monitor-for-vms-guest-health-preview"></a>Configuración de la supervisión en el estado de invitado de Azure Monitor para VM (versión preliminar)
 El estado de invitado de Azure Monitor para VM permite ver el estado de una máquina virtual conforme a la definición de un conjunto de medidas de rendimiento que se muestrean a intervalos regulares. En este artículo se describe cómo puede modificar la supervisión predeterminada mediante Azure Portal. También se describen los conceptos básicos de los monitores necesarios para [configurar la supervisión mediante una regla de recopilación de datos](vminsights-health-configure-dcr.md).
@@ -33,6 +33,12 @@ Tanto los monitores de unidad como los monitores agregados tienen una opción de
 Cuando un monitor está deshabilitado, los criterios se muestran como "no disponibles", como se muestra en el ejemplo siguiente.
 
 ![Monitor deshabilitado](media/vminsights-health-configure/disabled-monitor.png)
+
+
+> [!NOTE]
+> Si un monitor primario está deshabilitado, también se deshabilitan los monitores secundarios. Si habilita explícitamente el monitor secundario, el primario también se habilitará, pero su estado de configuración seguirá siendo el mismo. En este caso, recibirá el siguiente mensaje en el monitor primario.
+>
+> *Hay una discrepancia cuando el estado configurado del monitor es "deshabilitado", pero el estado de mantenimiento no lo refleja. Esto se debe a que los cambios configurados se propagan o cualquiera de sus monitores secundarios se ha habilitado explícitamente.*
 
 ## <a name="enable-or-disable-virtual-machine"></a>Habilitación o deshabilitación de la máquina virtual
 Puede deshabilitar la supervisión de una máquina virtual para detener temporalmente a todos los monitores. Puede deshabilitar la supervisión de una máquina virtual, por ejemplo, cuando le está dando mantenimiento.

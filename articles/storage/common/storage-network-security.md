@@ -9,12 +9,12 @@ ms.date: 12/08/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 07ad0714d0294ad90150acb9df14f17bfc1f5f0d
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: c2074402225c8134329e00003e4fbdfd95b5dba6
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905373"
+ms.locfileid: "96938416"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configuración de redes virtuales y firewalls de Azure Storage
 
@@ -64,7 +64,7 @@ Puede administrar las reglas predeterminadas de acceso a redes para las cuentas 
 
 1. Vaya a la cuenta de almacenamiento que quiere proteger.
 
-1. Haga clic en el menú de configuración denominado **Firewalls y redes virtuales**.
+1. Haga clic en el menú de configuración denominado **Redes**.
 
 1. Para denegar el acceso de forma predeterminada, elija permitir el acceso desde **Redes seleccionadas**. Para permitir el tráfico desde todas las redes, elija permitir el acceso desde **Todas las redes**.
 
@@ -148,7 +148,7 @@ Puede administrar las reglas de red virtual para las cuentas de almacenamiento a
 
 1. Vaya a la cuenta de almacenamiento que quiere proteger.
 
-1. Haga clic en el menú de configuración denominado **Firewalls y redes virtuales**.
+1. Haga clic en el menú de configuración denominado **Redes**.
 
 1. Compruebe haber elegido permitir el acceso desde **Redes seleccionadas**.
 
@@ -272,7 +272,7 @@ Puede administrar las reglas de red IP para las cuentas de almacenamiento a trav
 
 1. Vaya a la cuenta de almacenamiento que quiere proteger.
 
-1. Haga clic en el menú de configuración denominado **Firewalls y redes virtuales**.
+1. Haga clic en el menú de configuración denominado **Redes**.
 
 1. Compruebe haber elegido permitir el acceso desde **Redes seleccionadas**.
 
@@ -415,7 +415,7 @@ Puede administrar las excepciones de reglas de red a través de Azure Portal, Po
 
 1. Vaya a la cuenta de almacenamiento que quiere proteger.
 
-1. Haga clic en el menú de configuración denominado **Firewalls y redes virtuales**.
+1. Haga clic en el menú de configuración denominado **Redes**.
 
 1. Compruebe haber elegido permitir el acceso desde **Redes seleccionadas**.
 

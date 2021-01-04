@@ -11,16 +11,19 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d121e6280b83265a742736f9b8dd3aee96a8b32e
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: f34ca47d5ff6c809eef40f89ee0049285cfd7d42
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96351766"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97355400"
 ---
 # <a name="add-an-api-connector-to-a-user-flow"></a>Adición de un conector de API a un flujo de usuario
 
 Para usar un [conector de API](api-connectors-overview.md), primero debe crear el conector de API y, después, habilitarlo en un flujo de usuario.
+
+> [!IMPORTANT]
+>**A partir del 4 de enero de 2021**, Google deja [en desuso el soporte de inicio de sesión de WebView](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). Si usa Google Federation o el registro de autoservicio con Gmail, debería [comprobar la compatibilidad de las aplicaciones nativas de línea de negocio](google-federation.md#deprecation-of-webview-sign-in-support).
 
 ## <a name="create-an-api-connector"></a>Creación de un conector de API
 
@@ -244,7 +247,7 @@ Content-type: application/json
 }
 ```
 
-| Parámetro                                          | Tipo              | Obligatorio | Descripción                                                                                                                                                                                                                                                                            |
+| Parámetro                                          | Tipo              | Requerido | Descripción                                                                                                                                                                                                                                                                            |
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | version                                            | String            | Sí      | La versión de la API.                                                                                                                                                                                                                                                                |
 | action                                             | String            | Sí      | El valor debe ser `Continue`.                                                                                                                                                                                                                                                              |
@@ -266,7 +269,7 @@ Content-type: application/json
 
 ```
 
-| Parámetro   | Tipo   | Obligatorio | Descripción                                                                |
+| Parámetro   | Tipo   | Requerido | Descripción                                                                |
 | ----------- | ------ | -------- | -------------------------------------------------------------------------- |
 | version     | String | Sí      | La versión de la API.                                                    |
 | action      | String | Sí      | El valor debe ser `ShowBlockPage`.                                              |
@@ -292,7 +295,7 @@ Content-type: application/json
 }
 ```
 
-| Parámetro   | Tipo    | Obligatorio | Descripción                                                                |
+| Parámetro   | Tipo    | Requerido | Descripción                                                                |
 | ----------- | ------- | -------- | -------------------------------------------------------------------------- |
 | version     | String  | Sí      | La versión de la API.                                                    |
 | action      | String  | Sí      | El valor debe ser `ValidationError`.                                           |

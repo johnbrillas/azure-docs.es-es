@@ -3,17 +3,17 @@ title: 'Niveles de acceso de Azure Blob Storage: frecuente, esporádico y archiv
 description: Lea información sobre los niveles de acceso frecuente, esporádico y de archivo para Azure Blob Storage. Revise las cuentas de almacenamiento que admiten niveles. Compare opciones de almacenamiento de blob en bloques.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 10/29/2020
+ms.date: 12/08/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 87106cce018a2b2663de2a9abbb43b31ab58c125
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 51998c159018b614ab519766c54fdddf7437e95b
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96007331"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96923978"
 ---
 # <a name="access-tiers-for-azure-blob-storage---hot-cool-and-archive"></a>Niveles de acceso de Azure Blob Storage: frecuente, esporádico y archivo
 
@@ -112,6 +112,11 @@ Cuando un blob se mueve a un nivel más frecuente (archivo->esporádico, archivo
 
 Cualquier blob que se mueva al nivel de acceso esporádico (solo cuentas de GPv2) está sujeto a un período de eliminación temprana del acceso esporádico de 30 días. Cualquier blob que se mueva al nivel de acceso esporádico (solo cuentas de GPv2) está sujeto a un período de eliminación temprana del acceso esporádico de 180 días. Este cargo se prorratea. Por ejemplo, si un blob se mueve al nivel de acceso de archivo y, a continuación, se elimina o se mueve al nivel de acceso frecuente al cabo de 45 días, se le cobrará una cuota de eliminación temprana equivalente a 135 (180 menos 45) días a partir del almacenamiento de ese blob en el nivel de acceso de archivo.
 
+Hay algunos detalles a la hora de moverse entre los niveles de acceso esporádico y de archivo:
+
+1. Si se infiere un blob como esporádico en el nivel de acceso predeterminado de la cuenta de almacenamiento y se mueve al nivel de acceso de archivo, no hay ningún cargo de eliminación temprana.
+1. Si un blob se mueve explícitamente al nivel de acceso esporádico y luego se mueve al nivel de acceso de archivo, se aplica el cargo de eliminación temprana.
+
 Para calcular la eliminación temprana, use la propiedad de blob, **Last-Modified**, si no ha habido cambios en el nivel de acceso. También, cuando el nivel de acceso se modificó por última vez a esporádico o archivo, puede consultar la propiedad de blob: **access-tier-change-time**. Para más información sobre las propiedades de blob, consulte el artículo sobre cómo [obtener las propiedades de blob](/rest/api/storageservices/get-blob-properties).
 
 ## <a name="comparing-block-blob-storage-options"></a>Comparar opciones de almacenamiento de blobs en bloques
@@ -123,7 +128,7 @@ En la siguiente tabla se muestra una comparación del almacenamiento de blobs en
 | **Disponibilidad**                          | 99,9 %                     | 99,9 %        | 99%                 | Sin conexión           |
 | **Disponibilidad** <br> **(lecturas de RA-GRS)**  | N/D                       | 99,99%       | 99,9 %               | Sin conexión           |
 | **Cargos de uso**                         | Costos de almacenamiento más elevados y costos de acceso y transacción más bajos | Mayores costos de almacenamiento, menores costos de acceso y transacciones | Menores costos de almacenamiento, mayores costos de acceso y transacciones | Menores costos de almacenamiento, mayores costos de acceso y transacciones |
-| **Tamaño mínimo de objeto**                   | N/D                       | N/D          | N/D                 | N/D               |
+| **Tamaño mínimo de objeto**                   | N/D                       | N/A          | N/D                 | N/D               |
 | **Duración mínima del almacenamiento**              | N/D                       | N/D          | 30 días<sup>1</sup> | 180 días
 | **Latency** <br> **(Tiempo hasta el primer byte)** | Milisegundos de un solo dígito | milisegundos | milisegundos        | horas<sup>2</sup> |
 

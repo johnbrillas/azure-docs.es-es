@@ -1,18 +1,18 @@
 ---
 title: 'Funciones de plantillas: lógicas'
-description: Describe las funciones que se pueden usar en una plantilla de Azure Resource Manager para determinar valores lógicos.
+description: Se describen las funciones que se pueden usar en una plantilla de Azure Resource Manager para determinar valores lógicos.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: b54c104c8af5bb742b2c82d8a075515b8696501b
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 27d94f10374daf0b9a351469579a5eb659cf5445
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96004558"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920485"
 ---
 # <a name="logical-functions-for-arm-templates"></a>Funciones lógicas para plantillas de ARM
 
-Resource Manager ofrece varias funciones para realizar comparaciones en las plantillas de Azure Resource Manager (ARM).
+Resource Manager ofrece varias funciones para realizar comparaciones en las plantillas de Azure Resource Manager:
 
 * [and](#and)
 * [bool](#bool)
@@ -227,7 +227,7 @@ Devuelve el segundo parámetro si el primer parámetro es **True**; en caso cont
 
 ### <a name="remarks"></a>Observaciones
 
-Si la condición es **True**, solo se evalúa el valor true. Si la condición es **False**, solo se evalúa el valor false. Con la función **if**, puede incluir expresiones que solo son válidas con ciertas condiciones. Por ejemplo, puede hacer referencia a un recurso que existe bajo una condición, pero no bajo la otra. En la sección siguiente se muestra un ejemplo de las expresiones de evaluación con ciertas condiciones.
+Si la condición es **True**, solo se evalúa el valor true. Si la condición es **False**, solo se evalúa el valor false. Con la función `if`, puede incluir expresiones que solo son válidas con ciertas condiciones. Por ejemplo, puede hacer referencia a un recurso que existe bajo una condición, pero no bajo la otra. En la sección siguiente se muestra un ejemplo de las expresiones de evaluación con ciertas condiciones.
 
 ### <a name="examples"></a>Ejemplos
 
@@ -542,4 +542,4 @@ El resultado del ejemplo anterior es:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para obtener una descripción de las secciones de una plantilla de Azure Resource Manager, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](template-syntax.md).
+* Para obtener una descripción de las secciones de una plantilla de ARM, vea [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](template-syntax.md).

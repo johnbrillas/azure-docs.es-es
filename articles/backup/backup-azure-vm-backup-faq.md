@@ -1,15 +1,14 @@
 ---
 title: 'Preguntas frecuentes: Copias de seguridad de máquinas virtuales de Azure'
 description: En este artículo, descubra las respuestas a preguntas comunes sobre la copia de seguridad de máquinas virtuales de Azure con el servicio Azure Backup.
-ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 0f4f990654cc23fde7cf1ad2e37ba1ada76d94e3
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: ba2779305302e91f68cb2664c90f53fdf9a9ca55
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96324795"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008357"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Preguntas más frecuentes sobre la copia de seguridad de máquinas virtuales de Azure
 
@@ -165,9 +164,18 @@ Las operaciones como la sustitución de claves o secretos no requieren este paso
 
 Si, puede acceder a la máquina virtual una vez que se haya restaurado porque una máquina virtual tiene una relación rota con el controlador de dominio. Para más información, consulte este [artículo](./backup-azure-arm-restore-vms.md#post-restore-steps).
 
+### <a name="can-i-cancel-an-in-progress-restore-job"></a>¿Puedo cancelar un trabajo de restauración en curso?
+No, no puede cancelar el trabajo de restauración que está en curso.
+
 ### <a name="why-restore-operation-is-taking-long-time-to-complete"></a>¿Por qué la operación de restauración tarda tanto tiempo en completarse?
 
 El tiempo total de restauración depende de las operaciones de entrada/salida por segundo (IOPS) y el rendimiento de la cuenta de almacenamiento. El tiempo total de la restauración puede verse afectado si la cuenta de almacenamiento de destino se carga con otras operaciones de lectura y escritura de aplicación. Para mejorar la operación de restauración, seleccione una cuenta de almacenamiento que no tenga cargados otros datos de aplicación.
+
+### <a name="how-do-we-handle-create-new-virtual-machine-restore-type-conflicts-with-governance-policies"></a>¿Cómo se controlan los conflictos del tipo de restauración "Crear nueva máquina virtual" con las directivas de gobernanza?
+
+Azure Backup usa discos "adjuntar" de los puntos de recuperación y no mira las referencias de imagen ni las galerías. Por lo tanto, en la directiva puede comprobar si "storageProfile.osDisk.createOption es Attach", y la condición de script será:
+
+`if (storageProfile.osDisk.createOption == "Attach") then { exclude <Policy> }`
 
 ## <a name="manage-vm-backups"></a>Administrar copias de seguridad de máquina virtual
 

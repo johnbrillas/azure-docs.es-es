@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
 ms.date: 11/10/2020
-ms.openlocfilehash: 65ef118fde57a7b72903d502a06644024939923f
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: b40f618b65af6fd7a6d283431aaf63c2cc1dcd1a
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94506029"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368467"
 ---
 # <a name="features-comparison-azure-sql-database-and-azure-sql-managed-instance"></a>Comparación de características: Azure SQL Database e Instancia administrada de Azure SQL
 
@@ -85,7 +85,7 @@ En la tabla siguiente se enumeran las características principales de SQL Server
 | [OPENQUERY](/sql/t-sql/functions/openquery-transact-sql)|No|Sí, solo para SQL Database, Instancia administrada de SQL y SQL Server. Consulte las [diferencias de T-SQL](../managed-instance/transact-sql-tsql-differences-sql-server.md).|
 | [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql)|Sí, solo para importar desde Azure Blob Storage. |Sí, solo para SQL Database, Instancia administrada de SQL y SQL Server, así como para la importación desde Azure Blob Storage. Consulte las [diferencias de T-SQL](../managed-instance/transact-sql-tsql-differences-sql-server.md).|
 | [Operadores](/sql/t-sql/language-elements/operators-transact-sql) | La mayoría; consulte el artículo sobre operadores. |Sí; consulte el artículo sobre [diferencias de T-SQL](../managed-instance/transact-sql-tsql-differences-sql-server.md) |
-| [Polybase](/sql/relational-databases/polybase/polybase-guide) | No. Puede consultar los datos en los archivos ubicados en Azure Blob Storage con la función `OPENROWSET`. | No. Puede consultar los datos en los archivos ubicados en Azure Blob Storage con la función `OPENROWSET`. |
+| [Polybase](/sql/relational-databases/polybase/polybase-guide) | No. Puede consultar los datos de los archivos colocados en Azure Blob Storage mediante la función `OPENROWSET` o usar [una tabla externa que haga referencia a un grupo de SQL sin servidor en Synapse Analytics](https://devblogs.microsoft.com/azure-sql/read-azure-storage-files-using-synapse-sql-external-tables/). | No. Puede consultar los datos de los archivos colocados en Azure Blob Storage mediante la función `OPENROWSET`, [un servidor vinculado que haga referencia a un grupo de SQL sin servidor en Synapse Analytics](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/) o una tabla externa (en versión preliminar pública) que haga referencia a [un grupo de SQL sin servidor en Synapse Analytics](https://devblogs.microsoft.com/azure-sql/read-azure-storage-files-using-synapse-sql-external-tables/) o SQL Server. |
 | [Notificaciones de consulta](/sql/relational-databases/native-client/features/working-with-query-notifications) | No | Sí |
 | [Machine Learning Services](/sql/advanced-analytics/what-is-sql-server-machine-learning)(_anteriormente R Services_)| Sí, [en versión preliminar pública](/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services)  | No |
 | [Modelos de recuperación](/sql/relational-databases/backup-restore/recovery-models-sql-server) | Solo se admite la recuperación completa que garantiza una alta disponibilidad. Los modelos de recuperación simple y de registro masivo no están disponibles. | Solo se admite la recuperación completa que garantiza una alta disponibilidad. Los modelos de recuperación simple y de registro masivo no están disponibles. |

@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 7f5db2a2df7314c89f2ebba8e7e54ebe24126386
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 20dc6cde9cce6a9d57047940a38adb5cf004ae6a
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92098156"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347683"
 ---
 # <a name="azure-table-storage-input-bindings-for-azure-functions"></a>Enlaces de entrada de Azure Table Storage para Azure Functions
 
@@ -248,7 +248,7 @@ Si intenta enlazar a `CloudTable` y obtiene un mensaje de error, asegúrese de q
 
 En el ejemplo siguiente se muestra un enlace de entrada de la tabla en un archivo *function.json* y código de [script de C#](functions-reference-csharp.md) que usa el enlace. La función lee las entidades de una clave de partición que se especifica en un mensaje en la cola.
 
-Este es el archivo *function.json* :
+Este es el archivo *function.json*:
 
 ```json
 {
@@ -560,11 +560,11 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 
 * **Leer una fila en**
 
-  Establezca `partitionKey` y `rowKey`. Obtenga acceso a los datos de la tabla mediante un parámetro de método `T <paramName>`. En script de C#, `paramName` es el valor especificado en la propiedad `name` de *function.json* . `T` suele ser un tipo que implementa `ITableEntity` o deriva de `TableEntity`. Las propiedades `filter` y `take` no se utilizan en este escenario.
+  Establezca `partitionKey` y `rowKey`. Obtenga acceso a los datos de la tabla mediante un parámetro de método `T <paramName>`. En script de C#, `paramName` es el valor especificado en la propiedad `name` de *function.json*. `T` suele ser un tipo que implementa `ITableEntity` o deriva de `TableEntity`. Las propiedades `filter` y `take` no se utilizan en este escenario.
 
 * **Leer una o varias filas**
 
-  Obtenga acceso a los datos de la tabla mediante un parámetro de método `IQueryable<T> <paramName>`. En script de C#, `paramName` es el valor especificado en la propiedad `name` de *function.json* . `T` debe ser un tipo que implementa `ITableEntity` o deriva de `TableEntity`. Puede usar métodos `IQueryable` para realizar cualquier operación de filtrado necesaria. Las propiedades `partitionKey`, `rowKey`, `filter` y `take` no se utilizan en este escenario.  
+  Obtenga acceso a los datos de la tabla mediante un parámetro de método `IQueryable<T> <paramName>`. En script de C#, `paramName` es el valor especificado en la propiedad `name` de *function.json*. `T` debe ser un tipo que implementa `ITableEntity` o deriva de `TableEntity`. Puede usar métodos `IQueryable` para realizar cualquier operación de filtrado necesaria. Las propiedades `partitionKey`, `rowKey`, `filter` y `take` no se utilizan en este escenario.  
 
   > [!NOTE]
   > `IQueryable` no es compatible con el [entorno de tiempo de ejecución de Functions v2](functions-versions.md). Una alternativa consiste en [usar un parámetro del método CloudTable](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable) para leer la tabla mediante Azure Storage SDK. Si intenta enlazar a `CloudTable` y obtiene un mensaje de error, asegúrese de que tiene una referencia a [la versión correcta del SDK de Storage](./functions-bindings-storage-table.md#azure-storage-sdk-version-in-functions-1x).
@@ -573,11 +573,11 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 
 * **Leer una fila en**
 
-  Establezca `partitionKey` y `rowKey`. Obtenga acceso a los datos de la tabla mediante un parámetro de método `T <paramName>`. En script de C#, `paramName` es el valor especificado en la propiedad `name` de *function.json* . `T` suele ser un tipo que implementa `ITableEntity` o deriva de `TableEntity`. Las propiedades `filter` y `take` no se utilizan en este escenario.
+  Establezca `partitionKey` y `rowKey`. Obtenga acceso a los datos de la tabla mediante un parámetro de método `T <paramName>`. En script de C#, `paramName` es el valor especificado en la propiedad `name` de *function.json*. `T` suele ser un tipo que implementa `ITableEntity` o deriva de `TableEntity`. Las propiedades `filter` y `take` no se utilizan en este escenario.
 
 * **Leer una o varias filas**
 
-  Obtenga acceso a los datos de la tabla mediante un parámetro de método `IQueryable<T> <paramName>`. En script de C#, `paramName` es el valor especificado en la propiedad `name` de *function.json* . `T` debe ser un tipo que implementa `ITableEntity` o deriva de `TableEntity`. Puede usar métodos `IQueryable` para realizar cualquier operación de filtrado necesaria. Las propiedades `partitionKey`, `rowKey`, `filter` y `take` no se utilizan en este escenario.  
+  Obtenga acceso a los datos de la tabla mediante un parámetro de método `IQueryable<T> <paramName>`. En script de C#, `paramName` es el valor especificado en la propiedad `name` de *function.json*. `T` debe ser un tipo que implementa `ITableEntity` o deriva de `TableEntity`. Puede usar métodos `IQueryable` para realizar cualquier operación de filtrado necesaria. Las propiedades `partitionKey`, `rowKey`, `filter` y `take` no se utilizan en este escenario.  
 
   > [!NOTE]
   > `IQueryable` no es compatible con el [entorno de tiempo de ejecución de Functions v2](functions-versions.md). Una alternativa consiste en [usar un parámetro del método CloudTable](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable) para leer la tabla mediante Azure Storage SDK. Si intenta enlazar a `CloudTable` y obtiene un mensaje de error, asegúrese de que tiene una referencia a [la versión correcta del SDK de Storage](./functions-bindings-storage-table.md#azure-storage-sdk-version-in-functions-1x).

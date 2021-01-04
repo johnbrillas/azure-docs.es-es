@@ -1,5 +1,5 @@
 ---
-title: 'De SQL Server a SQL Managed Instance: guía de migración'
+title: 'SQL Server a SQL Managed Instance: Guía de migración'
 description: Siga esta guía para migrar las bases de datos de SQL Server a Azure SQL Managed Instance.
 ms.service: sql-managed-instance
 ms.subservice: migration-guide
@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 5d5404537ad107a54bd32110727e5a7d0f74ebea
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: ac8b0e0c2cdbd46626677f4be0f78800d839ad28
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96326903"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358901"
 ---
 # <a name="migration-guide-sql-server-to-sql-managed-instance"></a>Guía de migración: SQL Server a Instancia administrada de SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -28,9 +28,9 @@ Puede migrar las instancias de SQL Server que se ejecutan de forma local o en:
 - Amazon Web Services (AWS) EC2 
 - Amazon Relational Database Service (AWS RDS) 
 - Compute Engine (Google Cloud Platform o GCP)  
-- SQL en la nube para SQL Server (Google Cloud Platform o GCP) 
+- Cloud SQL for SQL Server (Google Cloud Platform: GCP) 
 
-Para obtener más información acerca de la migración, consulte la [información general sobre migración](sql-server-to-managed-instance-overview.md). Para ver otros escenarios, consulte la [Guía de migración de bases de datos](https://datamigration.microsoft.com/).
+Para más información acerca de la migración, consulte [Introducción a la migración: SQL Server a SQL Database](sql-server-to-managed-instance-overview.md). Para ver otros escenarios, consulte la [Guía de migración de bases de datos](https://datamigration.microsoft.com/).
 
 :::image type="content" source="media/sql-server-to-managed-instance-overview/migration-process-flow-small.png" alt-text="Flujo del proceso de migración":::
 
@@ -44,7 +44,7 @@ Para migrar su instancia de SQL Server a Azure SQL Managed Instance, asegúrese 
 
 ## <a name="pre-migration"></a>Antes de la migración
 
-Después de comprobar que se admite el entorno de origen, comience con la fase previa a la migración. Descubra todos los orígenes de datos existentes, evalúe la viabilidad de la migración e identifique los problemas de bloqueo que podrían impedir la migración.  
+Después de comprobar que se admite el entorno de origen, comience con la fase previa a la migración. Detecte todos los orígenes de datos existentes, evalúe la viabilidad de la migración e identifique los problemas de bloqueos que podrían impedir la migración.  
 
 ### <a name="discover"></a>Descubra
 
@@ -54,7 +54,7 @@ Use [Azure Migrate](../../../migrate/migrate-services-overview.md) para evaluar 
 
 También puede usar el  [kit de herramientas de evaluación y planeamiento de Microsoft ("kit de herramientas MAP")](https://www.microsoft.com/download/details.aspx?id=7826) para evaluar la infraestructura de TI actual. El kit de herramientas proporciona una herramienta de inventario, evaluación y generación de informes eficaz para simplificar el proceso de planeamiento de la migración. 
 
-Para obtener más información acerca de las herramientas disponibles para usar en la fase de descubrimiento, consulte [Servicios y herramientas disponibles para escenarios de migración de datos](../../../dms/dms-tools-matrix.md). 
+Para más información acerca de las herramientas disponibles para usar en la fase de detección, consulte [Servicios y herramientas disponibles para escenarios de migración de datos](../../../dms/dms-tools-matrix.md). 
 
 ### <a name="assess"></a>Evaluar 
 
@@ -70,10 +70,10 @@ Para evaluar su entorno con la evaluación de migración de bases de datos, real
 1. Abra [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595). 
 1. Seleccione **Archivo** y, luego, elija **Evaluación nueva**. 
 1. Especifique un nombre de proyecto, seleccione SQL Server como tipo de servidor de origen y, luego, elija Azure SQL Managed Instance como tipo de servidor de destino. 
-1. Seleccione los tipos de informes de evaluación que quiere generar. Por ejemplo, compatibilidad de bases de datos y paridad de características. Según el tipo de evaluación, los permisos necesarios en la instancia de SQL Server de origen pueden ser diferentes.  DMA resaltará los permisos necesarios para el asesor elegido antes de ejecutar la evaluación.
-    - La categoría **Paridad de características** proporciona un conjunto completo de recomendaciones, alternativas disponibles en Azure y pasos de mitigación para ayudarlo a planear el proyecto de migración. (Se necesitan permisos de administrador del sistema).
-    - La categoría **Incidencias de compatibilidad** identifica problemas de compatibilidad de características no compatibles o parcialmente compatibles que podrían impedir la migración y las recomendaciones para resolverlos (se requieren los permisos `CONNECT SQL`, `VIEW SERVER STATE` y `VIEW ANY DEFINITION`).
-1. Especifique los detalles de la conexión de origen para su instancia de SQL Server y conéctese a la base de datos de origen.
+1. Seleccione los tipos de informes de evaluación que quiere generar. Por ejemplo, compatibilidad de bases de datos y paridad de características. Según el tipo de evaluación, los permisos necesarios en la instancia de SQL Server de origen pueden ser diferentes.  DMA resaltará los permisos necesarios para el asesor elegido antes de ejecutar la evaluación.
+    - La categoría **Paridad de características** proporciona un conjunto completo de recomendaciones, alternativas disponibles en Azure y pasos de mitigación para ayudarle a planear el proyecto de migración. (Se necesitan permisos de administrador del sistema).
+    - La categoría **Problemas de compatibilidad** identifica problemas de compatibilidad de características no compatibles o parcialmente compatibles que podrían impedir la migración y las recomendaciones para resolverlos (se requieren los permisos `CONNECT SQL`, `VIEW SERVER STATE` y `VIEW ANY DEFINITION`).
+1. Especifique los detalles de la conexión de origen para su instancia de SQL Server y conéctese a la base de datos de origen.
 1. Seleccione **Iniciar valoración**. 
 1. Una vez completado el proceso, seleccione y revise los informes de evaluación para ver los problemas de bloqueo de la migración y de paridad de características. El informe de evaluación también se puede exportar a un archivo que se pueda compartir con otros equipos o con personal de la organización. 
 1. Determine el nivel de compatibilidad de la base de datos que minimiza los esfuerzos posteriores a la migración.  
@@ -174,12 +174,12 @@ Al usar las opciones de migración que replican o sincronizan continuamente los 
 Después de comprobar que los datos son los mismos en el origen y en el destino, puede realizar la transición del entorno de origen al de destino. Es importante planear el proceso de transición con equipos empresariales o de aplicaciones para garantizar que la interrupción mínima durante la transición no afecte a la continuidad empresarial. 
 
 > [!IMPORTANT]
-> Para más información sobre los pasos específicos asociados con la realización de una operación de transición como parte de las migraciones con DMS, consulte [Realización de la migración total](../../../dms/tutorial-sql-server-managed-instance-online.md#performing-migration-cutover).
+> Para más información sobre los pasos específicos asociados con la realización de una operación de transición como parte de las migraciones con DMS, consulte [Realización de migración total](../../../dms/tutorial-sql-server-managed-instance-online.md#performing-migration-cutover).
 
 
 ## <a name="post-migration"></a>Después de la migración
 
-Cuando haya completado correctamente la fase de migración, deberá realizar una serie de tareas posteriores para asegurarse de que todo funcione de manera fluida y eficaz. 
+Cuando haya completado correctamente la fase de migración, deberá realizar una serie de tareas posteriores a la migración para asegurarse de que todo funciona de manera fluida y eficaz. 
 
 La fase posterior a la migración es fundamental para reconciliar cualquier problema de precisión de datos y comprobar su integridad, así como para solucionar problemas de rendimiento con la carga de trabajo. 
 
@@ -220,9 +220,9 @@ Algunas características de SQL Server solo están disponibles cuando el [nivel 
    - [Calculadora del costo total de propiedad de Azure](https://azure.microsoft.com/pricing/tco/calculator/) 
 
 
-- Para obtener más información sobre el marco y el ciclo de adopción de las migraciones en la nube, consulte:
+- Para más información sobre el marco y el ciclo de adopción de las migraciones en la nube, consulte:
    -  [Cloud Adoption Framework para Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)
    -  [Procedimientos recomendados para la gestión de los costos y los ajustes de tamaño de las cargas de trabajo migradas a Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs) 
 
 - Para evaluar el nivel de acceso de la aplicación, consulte [Data Access Migration Toolkit (versión preliminar)](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit)
-- Para obtener más información sobre cómo realizar pruebas A/B de nivel de acceso a datos, consulte [Asistente para experimentación con bases de datos](/sql/dea/database-experimentation-assistant-overview).
+- Para más información sobre cómo realizar pruebas A/B en la capa de acceso a datos, consulte [Información general del Asistente para experimentación con bases de datos](/sql/dea/database-experimentation-assistant-overview).

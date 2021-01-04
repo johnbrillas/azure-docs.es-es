@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: b6cadbf5c3a33c1a954a47f37b33ad8703f40b69
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 2f1fe7c25327e8ecab9b450cab167391d8949b0a
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350745"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008171"
 ---
 # <a name="source-control-in-azure-synapse-studio"></a>Control de código fuente en Azure Synapse Studio
 
@@ -138,6 +138,24 @@ Si se va a conectar a GitHub desde Synapse Studio por primera vez, siga estos pa
 
 Una vez que siga estos pasos, su área de trabajo podrá conectarse a repositorios públicos y privados dentro de la organización. Si no puede conectarse, pruebe a borrar la memoria caché del explorador y vuelva a intentarlo.
 
+#### <a name="already-connected-to-github-using-a-personal-account"></a>Ya está conectado a GitHub con una cuenta personal
+
+Si ya se ha conectado a GitHub y solo se le ha concedido permiso para obtener acceso a una cuenta personal, siga estos pasos para conceder permisos a una organización.
+
+1. Vaya a GitHub y abra **Configuración**.
+
+    ![Apertura de la configuración de GitHub](media/github-settings.png)
+
+1. Seleccione **Aplicaciones**. En la pestaña **Aplicaciones de OAuth autorizadas**, verá *Azure Synapse*.
+
+    ![Aplicaciones de OAuth autorizadas](media/authorize-app.png)
+
+1. Seleccione *Azure Synapse* y conceda el acceso a su organización.
+
+    ![Concesión de permiso de organización](media/grant-organization-permission.png)
+
+Una vez completados estos pasos, su área de trabajo podrá conectarse a repositorios públicos y privados dentro de la organización.
+
 ## <a name="version-control"></a>Control de versiones
 
 Los sistemas de control de versiones (también conocidos como _control de código fuente_) permiten a los desarrolladores colaborar en el código y realizar el seguimiento de los cambios. El control de código fuente es una herramienta esencial para proyectos de varios desarrolladores.
@@ -163,6 +181,7 @@ De forma predeterminada, Synapse Studio genera las plantillas del área de traba
 ```
 
 Azure Synapse Studio solo puede tener una rama de publicación cada vez. Al especificar una nueva rama de publicación, la rama de publicación anterior no se elimina. Si quiere quitar la rama de publicación anterior, tiene que hacerlo manualmente.
+
 
 ### <a name="publish-code-changes"></a>Cambios de código publicando
 
@@ -192,7 +211,7 @@ Después de quitar la asociación con el repositorio actual, puede configurar la
 
 ## <a name="best-practices-for-git-integration"></a>Procedimientos recomendados para la integración de Git
 
--   **Permisos**. Una vez que tenga un repositorio de Git conectado al área de trabajo, cualquiera que tenga acceso al repositorio de Git con cualquier rol en el área de trabajo podrá actualizar artefactos, como el script de SQL, el cuaderno, la definición del trabajo de Spark, el conjunto de datos, el flujo de datos y la canalización en modo Git. Lo normal es que no quiera que todos los miembros del equipo tengan permisos para actualizar el área de trabajo. Conceda solo el permiso de repositorio de Git a los autores de artefactos del área de trabajo de Synapse. 
+-   **Permisos**. Una vez que tenga un repositorio de Git conectado al área de trabajo, cualquiera que pueda acceder al repositorio de Git con cualquier rol en el área de trabajo podrá actualizar artefactos, como el script de SQL, el cuaderno, la definición del trabajo de Spark, el conjunto de datos, el flujo de datos y la canalización en modo Git. Lo normal es que no quiera que todos los miembros del equipo tengan permisos para actualizar el área de trabajo. Conceda solo el permiso de repositorio de Git a los autores de artefactos del área de trabajo de Synapse. 
 -   **Colaboración**. Se recomienda no permitir inserciones directas en el repositorio en la rama de colaboración. Esta restricción puede ayudarle a evitar errores, ya que cada inserción en el repositorio pasará por un proceso de solicitud de incorporación de cambios, tal como se describe en [Crear una rama de características](source-control.md#creating-feature-branches).
 -   **Modo activo de Synapse**. Después de la publicación en el modo Git, todos los cambios se reflejarán en el modo activo de Synapse. En el modo activo de Synapse, la publicación está deshabilitada. Y puede ver y ejecutar artefactos en modo activo si se le ha concedido el permiso adecuado. 
 -   **Edite los artefactos en Studio**. Synapse Studio es el único lugar en el que puede habilitar el control de código fuente del área de trabajo y sincronizar los cambios en Git automáticamente. Cualquier cambio a través del SDK, PowerShell, no se sincronizará con Git. Se recomienda editar siempre el artefacto en Studio cuando Git esté habilitado.

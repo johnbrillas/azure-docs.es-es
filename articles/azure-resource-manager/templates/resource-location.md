@@ -1,19 +1,19 @@
 ---
 title: Ubicación del recurso de plantilla
-description: En este artículo se describe cómo establecer la ubicación de los recursos de una plantilla de Azure Resource Manager.
+description: En este artículo se describe cómo establecer la ubicación de los recursos de una plantilla de Azure Resource Manager (plantilla de ARM).
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.custom: ''
-ms.openlocfilehash: e1310c81d7b726e9be2fe9f38a0bb8d701035ba4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84a818109e6681b8d0e18de4d2d7969310582818
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613703"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922394"
 ---
 # <a name="set-resource-location-in-arm-template"></a>Establecimiento de la ubicación del recurso en la plantilla de Resource Manager
 
-Al implementar una plantilla de Azure Resource Manager (ARM), debe proporcionar una ubicación para cada recurso. No es necesario que la ubicación sea la misma que la ubicación del grupo de recursos.
+Al implementar una plantilla de Azure Resource Manager (plantilla de ARM), debe proporcionar una ubicación para cada recurso. No es necesario que la ubicación sea la misma que la ubicación del grupo de recursos.
 
 ## <a name="get-available-locations"></a>Obtención de las ubicaciones disponibles
 
@@ -96,5 +96,5 @@ En el ejemplo siguiente se muestra una cuenta de almacenamiento que está implem
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para obtener la lista completa de las funciones de plantilla, consulte [Funciones de la plantilla del Administrador de recursos de Azure](template-functions.md).
+* Para la lista completa de las funciones de plantilla disponibles, consulte [Funciones de plantilla de ARM](template-functions.md).
 * Para más información sobre los archivos de plantilla, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de ARM](template-syntax.md).

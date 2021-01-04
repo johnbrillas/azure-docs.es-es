@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/16/2020
+ms.date: 12/11/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8eb8de2424012d12f216f154eb077028a8f82d76
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: a89a456b5d9ee36909d5d742a7880d72e5ed86fd
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96173709"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97355877"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-provisioning"></a>Requisitos previos del aprovisionamiento en la nube de Azure AD Connect
 En este artículo se proporcionan instrucciones sobre cómo elegir y usar el aprovisionamiento en la nube de Azure Active Directory (Azure AD) Connect como solución de identidad.
@@ -51,11 +51,23 @@ Ejecute la [herramienta IdFix](/office365/enterprise/prepare-directory-attribute
 
 ### <a name="in-your-on-premises-environment"></a>En el entorno local
 
-1. Identifique un servidor host unido a un dominio en el que se ejecuta Windows Server 2012 R2 o superior con un mínimo de 4 GB de RAM y un entorno de ejecución .NET 4.7.1 o posterior.
+ 1. Identifique un servidor host unido a un dominio en el que se ejecuta Windows Server 2012 R2 o superior con un mínimo de 4 GB de RAM y un entorno de ejecución .NET 4.7.1 o posterior.
 
-1. La directiva de ejecución de PowerShell en el servidor local debe establecerse en Undefined o RemoteSigned.
+ >[!NOTE]
+ > Tenga en cuenta que, la definición de un filtro de ámbito, genera un costo de memoria en el servidor host.  Si no se usa ningún filtro de ámbito, no hay ningún costo de memoria adicional. El valor mínimo de 4 GB admitirá la sincronización de hasta 12 unidades organizativas definidas en el filtro de ámbito. Si necesita sincronizar unidades organizativas adicionales, tendrá que aumentar la cantidad mínima de memoria. Use la siguiente tabla como guía:
+ >
+ >  
+ >  | Número de unidades organizativas en el filtro de ámbito| Memoria mínima necesaria|
+ >  | --- | --- |
+ >  | 12| 4 GB|
+ >  | 18|5,5 GB|
+ >  | 28|Más de 10 GB|
+ >
+ > 
 
-1. Si hay un firewall entre los servidores y Azure AD, configure los elementos siguientes:
+ 2. La directiva de ejecución de PowerShell en el servidor local debe establecerse en Undefined o RemoteSigned.
+
+ 3. Si hay un firewall entre los servidores y Azure AD, configure los elementos siguientes:
    - Asegúrese de que los agentes pueden realizar solicitudes *de salida* a Azure AD a través de los puertos siguientes:
 
         | Número de puerto | Cómo se usa |
@@ -100,7 +112,20 @@ Para habilitar TLS 1.2, siga estos pasos.
 
 1. Reinicie el servidor.
 
+## <a name="known-limitations"></a>Restricciones conocidas
+Estas son las limitaciones conocidas:
 
+### <a name="delta-synchronization"></a>Sincronización delta
+
+- El filtro de ámbito de grupos para la sincronización diferencial no admite más de 1500 miembros.
+- Cuando se elimina un grupo que se usa como parte de un filtro de ámbito de grupo, los usuarios que pertenecen a dicho grupo no se eliminan. 
+- Al cambiar el nombre de la unidad organizativa o del grupo que se encuentra en el ámbito, la sincronización diferencial no eliminará los usuarios.
+
+### <a name="provisioning-logs"></a>Registros de aprovisionamiento
+- Los registros de aprovisionamiento no distinguen claramente entre las operaciones de creación y actualización.  Es posible que se muestre una operación de creación para una actualización, y viceversa.
+
+### <a name="group-re-naming-or-ou-re-naming"></a>Cambio del nombre de grupo o de la unidad organizativa
+- Si cambia el nombre de un grupo o una unidad organizativa de AD que se encuentra en el ámbito de una configuración determinada, el trabajo de aprovisionamiento en la nube no podrá reconocer el cambio de nombre en AD. El trabajo no entrará en cuarentena y permanecerá en buen estado.
 
 
 ## <a name="next-steps"></a>Pasos siguientes 

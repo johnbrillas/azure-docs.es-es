@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/14/2020
-ms.openlocfilehash: d94a4858b4c4fa99a09acc2bec88f94a64686c2d
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 7fa3355ff7e61d624d57da68d0f835faa7ca3736
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92539146"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505433"
 ---
 # <a name="use-microsoft-cognitive-toolkit-deep-learning-model-with-azure-hdinsight-spark-cluster"></a>Uso del modelo de aprendizaje profundo de Microsoft Cognitive Toolkit con un clúster de Azure HDInsight Spark
 
@@ -31,12 +31,12 @@ En este artículo, realice los pasos siguientes.
 
 ## <a name="how-does-this-solution-flow"></a>¿Cómo funciona esta solución?
 
-Esta solución se divide entre este artículo y un cuaderno de Jupyter que se carga como parte del artículo. En este artículo, realice los pasos siguientes:
+Esta solución se divide entre este artículo y una instancia de Jupyter Notebook que se carga como parte del artículo. En este artículo, realice los pasos siguientes:
 
 * Ejecute una acción de script en un clúster de HDInsight Spark para instalar los paquetes de Microsoft Cognitive Toolkit y Python.
-* Cargue el cuaderno de Jupyter que ejecuta la solución en el clúster de HDInsight Spark.
+* Cargue la instancia de Jupyter Notebook que ejecuta la solución en el clúster de HDInsight Spark.
 
-Los pasos restantes siguientes se tratan en el cuaderno de Jupyter.
+Los pasos restantes siguientes se tratan en Jupyter Notebook.
 
 * Carga de imágenes de ejemplo en un conjunto de datos distribuido resistente (o RDD) de Spark.
   * Carga de los módulos y definición de los valores preestablecidos.
@@ -66,19 +66,19 @@ Para obtener instrucciones sobre cómo usar Azure Portal con el fin de ejecutar 
 |Tipos de nodo:|Principal, trabajo|
 |Parámetros|None|
 
-## <a name="upload-the-jupyter-notebook-to-azure-hdinsight-spark-cluster"></a>Carga del cuaderno de Jupyter en el clúster de Azure HDInsight Spark
+## <a name="upload-the-jupyter-notebook-to-azure-hdinsight-spark-cluster"></a>Carga de Jupyter Notebook en el clúster de Azure HDInsight Spark
 
-Para usar Microsoft Cognitive Toolkit con el clúster de Azure HDInsight Spark, debe cargar el cuaderno de Jupyter **CNTK_model_scoring_on_Spark_walkthrough.ipynb** en el clúster de Azure HDInsight Spark. Este cuaderno está disponible en GitHub en [https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration](https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration).
+Para usar Microsoft Cognitive Toolkit con el clúster de Azure HDInsight Spark, debe cargar Jupyter Notebook **CNTK_model_scoring_on_Spark_walkthrough.ipynb** en el clúster de Azure HDInsight Spark. Este cuaderno está disponible en GitHub en [https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration](https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration).
 
 1. Descargue y descomprima [https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration](https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration).
 
 1. En un explorador web, vaya a `https://CLUSTERNAME.azurehdinsight.net/jupyter`, donde `CLUSTERNAME` es el nombre del clúster.
 
-1. En el cuaderno de Jupyter, seleccione **Cargar** en la esquina superior derecha y, luego, vaya a la descarga y seleccione el archivo `CNTK_model_scoring_on_Spark_walkthrough.ipynb`.
+1. En Jupyter Notebook, seleccione **Cargar** en la esquina superior derecha y, luego, vaya a la descarga y seleccione el archivo `CNTK_model_scoring_on_Spark_walkthrough.ipynb`.
 
-    ![Carga del cuaderno de Jupyter en el clúster de Azure HDInsight Spark](./media/apache-spark-microsoft-cognitive-toolkit/hdinsight-microsoft-cognitive-toolkit-load-jupyter-notebook.png "Carga del cuaderno de Jupyter en el clúster de Azure HDInsight Spark")
+    ![Carga de Jupyter Notebook en el clúster de Azure HDInsight Spark](./media/apache-spark-microsoft-cognitive-toolkit/hdinsight-microsoft-cognitive-toolkit-load-jupyter-notebook.png "Carga de Jupyter Notebook en el clúster de Azure HDInsight Spark")
 
-1. Seleccione de nuevo **Cargar** .
+1. Seleccione de nuevo **Cargar**.
 
 1. Una vez cargado el cuaderno, haga clic en el nombre de este y, a continuación, siga las instrucciones del propio cuaderno sobre cómo cargar el conjunto de datos y realizar los pasos del artículo.
 

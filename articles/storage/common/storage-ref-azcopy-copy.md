@@ -4,16 +4,16 @@ description: En este artículo se proporciona información de referencia del com
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 07/24/2020
+ms.date: 12/11/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: fd71f4eb56974b93637c23eddc81e5f33ce788b8
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 6390aafca4937a480e4d92ff04003a294b9c0e20
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96512161"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97356181"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -276,13 +276,15 @@ Cadena **--blob-tags**: establece etiquetas en blobs para clasificar los datos d
 
 **--include-after** string Solo incluye los archivos modificados durante o después de la fecha y hora especificadas. El valor debe estar en el formato ISO8601. Si no se especifica ninguna zona horaria, se supone que el valor se encontrará en la zona horaria local de la máquina que ejecuta AzCopy. Por ejemplo, `2020-08-19T15:04:00Z` para una hora en UTC o `2020-08-19` para la medianoche (00:00) en la zona horaria local. Como en AzCopy 10.5, esta marca solo se aplica a archivos, no a carpetas, por lo que las propiedades de carpeta no se copiarán cuando use esta marca con `--preserve-smb-info` o `--preserve-smb-permissions`.
 
+ Cadena **--include-before** Solo incluye los archivos modificados antes o en la fecha y hora especificadas. El valor debe estar en el formato ISO8601. Si no se especifica ninguna zona horaria, se supone que el valor se encontrará en la zona horaria local de la máquina que ejecuta AzCopy. Por ejemplo, `2020-08-19T15:04:00Z` para una hora en UTC o `2020-08-19` para la medianoche (00:00) en la zona horaria local. A partir de AzCopy 10.7, esta marca solo se aplica a archivos, no a carpetas, por lo que las propiedades de carpeta no se copiarán cuando use esta marca con `--preserve-smb-info` o `--preserve-smb-permissions`.
+
 **--include-attributes** string (solo Windows) Incluye los archivos cuyos atributos coinciden con la lista de atributos. Por ejemplo: A;S;R
 
 **--include-path** string Incluye solo estas rutas de acceso al copiar. Esta opción no permite caracteres comodín (*). Comprueba el prefijo de ruta de acceso relativa (por ejemplo: `myFolder;myFolder/subDirName/file.pdf`).
 
 **--include-pattern** string Incluye solo estos archivos al copiar. Esta opción admite caracteres comodín (*). Separe los archivos con `;`.
 
-**--list-of-versions** string Especifica un archivo en el que cada id. de versión aparece en una línea independiente. Asegúrese de que el origen apunte a un único blob y que todos los identificadores de versión especificados en el archivo con esta marca solo pertenezcan al blob de origen. AzCopy descargará las versiones especificadas en la carpeta de destino proporcionada. Para obtener más información, consulte [Descarga de versiones anteriores de un blob](storage-use-azcopy-blobs.md#download-previous-versions-of-a-blob).
+Cadena **--list-of-versions** Especifica un archivo en el que cada id. de versión aparece en una línea independiente. Asegúrese de que el origen apunte a un único blob y que todos los id. de versión especificados en el archivo con esta marca solo pertenezcan al blob de origen. AzCopy descargará las versiones especificadas en la carpeta de destino proporcionada. Para obtener más información, consulte [Descarga de versiones anteriores de un blob](storage-use-azcopy-blobs.md#download-previous-versions-of-a-blob).
 
 **--log-level** string Define el nivel de detalle para el archivo de registro; los niveles disponibles son: INFO (todas las solicitudes y respuestas), WARNING (respuestas lentas), ERROR (solo solicitudes con error) y NONE (sin registros de salida). (El valor predeterminado es `INFO`). 
 

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/08/2020
 ms.author: jingwang
-ms.openlocfilehash: a8cd6386ed6004935b0a1e45a53c01668166c0e4
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 1b3ab569666ea413ba36da0dc00f6c37336c4443
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 12/09/2020
-ms.locfileid: "96902262"
+ms.locfileid: "96931316"
 ---
 # <a name="copy-data-from-and-to-a-rest-endpoint-by-using-azure-data-factory"></a>Copia de datos desde un punto de conexión de REST y hacia allí mediante Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -307,8 +307,15 @@ Se admiten las siguientes propiedades en la sección **sink** de la actividad de
 | httpCompressionType | Tipo de compresión HTTP que se va a usar al enviar datos con un nivel de compresión óptimo. Los valores permitidos son **ninguno** y **gzip**. | No |
 | writeBatchSize | Número de registros que se van a escribir en el receptor de REST por lote. El valor predeterminado es 10000. | No |
 
->[!NOTE]
->El conector de REST como receptor funciona con los puntos de conexión de REST que aceptan JSON. Los datos se enviarán solo en JSON.
+El conector de REST como receptor funciona con las API REST que aceptan JSON. Los datos se enviarán en JSON con el siguiente patrón. Según sea necesario, puede usar la [asignación de esquemas](copy-activity-schema-and-type-mapping.md#schema-mapping) de la actividad de copia para cambiar la forma de los datos de origen de modo que se ajusten a la carga esperada por la API REST.
+
+```json
+[
+    { <data object> },
+    { <data object> },
+    ...
+]
+```
 
 **Ejemplo**:
 
@@ -348,7 +355,7 @@ Se admiten las siguientes propiedades en la sección **sink** de la actividad de
 
 ## <a name="pagination-support"></a>Compatibilidad con la paginación
 
-Normalmente, la API de REST limita su tamaño de carga de respuesta de una única solicitud a un número razonable; mientras que, para devolver gran cantidad de datos, divide el resultado en varias páginas y requiere que los autores de la llamada envíen solicitudes consecutivas para obtener la página siguiente del resultado. Por lo general, la solicitud para una página es dinámica y está compuesta por la información devuelta de la respuesta de página anterior.
+Al copiar datos de las API REST, normalmente la API REST limita su tamaño de carga de respuesta de una única solicitud a un número razonable; mientras que, para devolver una gran cantidad de datos, divide el resultado en varias páginas y exige que los autores de la llamada envíen solicitudes consecutivas para obtener la página siguiente del resultado. Por lo general, la solicitud para una página es dinámica y está compuesta por la información devuelta de la respuesta de página anterior.
 
 Este conector REST genérico admite los siguientes patrones de paginación: 
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/26/2020
 ms.author: mathoma
-ms.openlocfilehash: df50583e650d3d44e702c0f7d1596f2a733a4445
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 244fae9f8611acd21f2ee6cd7dafa45b88606456
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94556393"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359360"
 ---
 # <a name="create-an-fci-with-azure-shared-disks-sql-server-on-azure-vms"></a>Creación de una FCI con discos compartidos de Azure (SQL Server en VM de Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -33,7 +33,7 @@ Para más información, consulte la información general de [FCI con SQL Server 
 Antes de completar las instrucciones de este artículo, ya debe tener:
 
 - Suscripción a Azure. Comience a usarla [gratis](https://azure.microsoft.com/free/). 
-- [Dos o más máquinas virtuales de Azure con Windows](failover-cluster-instance-prepare-vm.md). Se admiten [conjuntos de disponibilidad](../../../virtual-machines/windows/tutorial-availability-sets.md) y [grupos con ubicación por proximidad](../../../virtual-machines/windows/co-location.md#proximity-placement-groups) (PPG). Si utiliza un PPG, todos los nodos deben encontrarse en el mismo grupo.
+- [Dos o más máquinas virtuales de Azure con Windows](failover-cluster-instance-prepare-vm.md). Ultra Disks admite [conjuntos de disponibilidad](../../../virtual-machines/windows/tutorial-availability-sets.md) y [grupos con ubicación por proximidad](../../../virtual-machines/windows/co-location.md#proximity-placement-groups) (PPG) compatibles con SSD Premium y [zonas de disponibilidad](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address). Si utiliza un PPG, todos los nodos deben encontrarse en el mismo grupo.
 - Una cuenta que tenga permisos para crear objetos en máquinas virtuales de Azure y en Active Directory.
 - La versión más reciente de [PowerShell](/powershell/azure/install-az-ps). 
 

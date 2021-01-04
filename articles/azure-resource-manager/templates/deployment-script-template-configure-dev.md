@@ -5,16 +5,16 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 12/14/2020
 ms.author: jgao
-ms.openlocfilehash: 232a1ae5d125a2ea1d5723e85073fb3dd02420cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4a7f21410bb97db0a7974870efb812c9954ac241
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87293829"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97503563"
 ---
-# <a name="configure-development-environment-for-deployment-scripts-in-templates-preview"></a>Configuración del entorno de desarrollo para scripts de implementación en plantillas (versión preliminar)
+# <a name="configure-development-environment-for-deployment-scripts-in-templates"></a>Configuración del entorno de desarrollo para scripts de implementación en plantillas
 
 Aprenda a crear un entorno de desarrollo para desarrollar y probar scripts de implementación con una imagen de script de implementación. Puede crear una [instancia de contenedor de Azure](../../container-instances/container-instances-overview.md) o bien usar [Docker](https://docs.docker.com/get-docker/). Ambas opciones se describen en este artículo.
 

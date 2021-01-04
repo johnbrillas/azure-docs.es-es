@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 03/10/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 7577c8510746d1140c1f8b70081f600d992ae512
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c255a3d68b1a24e25c1c0e308faa3fd364a15861
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96016682"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358748"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modificación de un conjunto de escalado de máquinas virtuales
 
@@ -350,12 +350,12 @@ Algunas propiedades pueden cambiarse, con excepciones dependiendo del valor actu
 
 - **singlePlacementGroup**: si singlePlacementGroup es true, se puede cambiar a false. Sin embargo, si singlePlacementGroup es false, **no se puede** cambiar a true.
 - **subnet**: la subred de un conjunto de escalado se puede modificar siempre y cuando la subred original y la nueva subred estén en la misma red virtual.
+- **imageReferenceSku**: la SKU de la imagen de referencia se puede actualizar para las [distribuciones de Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) reconocidas, las imágenes de servidor o cliente de Windows y las imágenes sin [información de planeamiento](https://docs.microsoft.com/azure/virtual-machines/linux/cli-ps-findimage#view-plan-properties). 
 
 ### <a name="properties-that-require-deallocation-to-change"></a>Propiedades que requieren desasignación para poder cambiar
 Algunas propiedades solo pueden cambiar a ciertos valores si se desasignan las máquinas virtuales del conjunto de escalado. Estas propiedades incluyen:
 
-- **Nombre de SKU**: si el nombre de la nueva SKU de máquina virtual no se admite en el hardware en el que se encuentra actualmente el conjunto de escalado, debe desasignar las máquinas virtuales del conjunto de escalado antes de modificar el nombre de SKU. Para más información, consulte [cómo cambiar el tamaño de una máquina virtual de Azure](../virtual-machines/windows/resize-vm.md).
-
+- **Nombre de SKU**: si el nombre de la nueva SKU de máquina virtual no se admite en el hardware en el que se encuentra actualmente el conjunto de escalado, debe desasignar las máquinas virtuales del conjunto de escalado antes de modificar el nombre de la SKU. Para más información, consulte [cómo cambiar el tamaño de una máquina virtual de Azure](../virtual-machines/windows/resize-vm.md). 
 
 ## <a name="vm-specific-updates"></a>Actualizaciones específicas de la máquina virtual
 Algunas modificaciones pueden aplicarse a máquinas virtuales específicas, y no a las propiedades globales del conjunto de escalado. Actualmente, la única actualización específica de la máquina virtual que se admite es asociar/desasociar discos de datos en las máquinas virtuales del conjunto de escalado. Esta característica se encuentra en su versión preliminar. Para más información, consulte la [documentación de versión preliminar](https://github.com/Azure/vm-scale-sets/tree/master/preview/disk).

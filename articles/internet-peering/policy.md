@@ -8,15 +8,15 @@ ms.service: internet-peering
 ms.topic: conceptual
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: a683ad71f5e80c91728262dc7bbabf36e9d68deb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 20f25e0add5d05bb2dcf7f3ebdc86ccd5ae889d0
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75773951"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97510794"
 ---
 # <a name="peering-policy"></a>Directiva de emparejamiento
-En las secciones siguientes se explican los requisitos generales de Microsoft de la red. Se aplican a las solicitudes de emparejamiento directo y de emparejamiento de Exchange.
+Microsoft mantiene una directiva de emparejamiento selectivo diseñada para garantizar la mejor experiencia de cliente posible; asimismo, está respaldada por estándares del sector y procedimientos recomendados, escalado para al demanda futura y una colocación estratégica del emparejamiento. Como tal, Microsoft se reserva el derecho de hacer excepciones en la directiva según lo considere necesario. En las secciones siguientes se explican los requisitos generales de Microsoft de la red. Se aplican a las solicitudes de emparejamiento directo y de emparejamiento de Exchange. 
 
 ## <a name="technical-requirements"></a>Requisitos técnicos
 
@@ -25,18 +25,20 @@ En las secciones siguientes se explican los requisitos generales de Microsoft de
 * Tanto IPv4 como IPv6 se admiten y Microsoft espera establecer sesiones de ambos tipos en cada ubicación de emparejamiento.
 * No se admite el uso de MD5.
 * **Detalles de ASN:**
+
     * Microsoft administra AS8075 junto con los siguientes ASN: AS8068, AS8069, AS12076. Para obtener una lista completa de ASN con el emparejamiento de AS8075, consulte AS-SET MICROSOFT.
     * Todas las partes emparejadas con Microsoft acuerdan no aceptar rutas de AS12076 (ExpressRoute) bajo ninguna circunstancia y deben filtrar AS12076 en todos los elementos del mismo nivel.
+
 * **Directiva de enrutamiento:**
     * El elemento del mismo nivel tendrá al menos un /24 enrutable públicamente.
     * Microsoft sobrescribirá los discriminadores de múltiples salidas (MED) recibidos.
     * Microsoft prefiere recibir etiquetas de comunidad de BGP de elementos del mismo nivel para indicar el origen de la ruta.
-    * Se espera que el elemento del mismo nivel registre sus rutas en una base de datos de registro de enrutamiento de Internet (IRR) público con fines de filtrado, y realizará esfuerzos de buena fe para mantener esta información actualizada.
-    * Se recomienda que los elementos del mismo nivel establezcan un prefijo máximo de 1000 (IPv4) y 100 (IPv6) rutas en las sesiones de emparejamiento con Microsoft.
+    * Se recomienda que los elementos del mismo nivel establezcan un prefijo máximo de 2000 (IPv4) y 500 (IPv6) rutas en las sesiones de emparejamiento con Microsoft.
     * A menos que se acuerde expresamente de antemano, se espera que los elementos del mismo nivel anuncien rutas coherentes en todas las ubicaciones en las que se emparejan con Microsoft.
-    * En general, las sesiones de emparejamiento con AS8075 anunciarán todas las rutas AS-MICROSOFT. Las interconexiones de AS8075 en África y Asia pueden estar limitadas a las rutas pertinentes a la región correspondiente.
+    * En general, las sesiones de emparejamiento con AS8075 anunciarán todas las rutas AS-MICROSOFT. Microsoft puede anunciar algunas características específicas regionales.
     * Ninguna de las partes establecerá una ruta estática o una ruta de último recurso ni enviará tráfico de ningún otro modo a la otra parte para una ruta no anunciada a través de BGP.
-    * Se espera que los elementos del mismo nivel se adhieran a los estándares [MANRS](https://www.manrs.org/) del sector para la seguridad de las rutas.
+    * Es necesario que el elemento del mismo nivel registre sus rutas en una base de datos de registro de enrutamiento de Internet (IRR) público con fines de filtrado, y realizará esfuerzos de buena fe para mantener esta información actualizada.      
+    * Igualmente, los elementos del mismo nivel deberán adherirse a los estándares MANRS del sector para la seguridad de las rutas.  A su entera discreción, Microsoft puede elegir: 1.) no establecer el emparejamiento con empresas que no tengan rutas firmadas y registradas; 2.) quitar las rutas de RPKI no válidas; 3.) no aceptar rutas de elementos del mismo nivel establecidos que no estén registrados ni firmados. 
 
 ## <a name="operational-requirements"></a>Requisitos operativos
 * Un centro de operaciones de red (NOC) disponible de manera totalmente ininterrumpida, capaz de ayudar con la resolución de todos los problemas técnicos y de rendimiento, las infracciones de seguridad, los ataques por denegación de servicio o cualquier otro abuso que se origine en el elemento del mismo nivel o en sus clientes.
@@ -44,32 +46,23 @@ En las secciones siguientes se explican los requisitos generales de Microsoft de
 
 ## <a name="physical-connection-requirements"></a>Requisitos de la conexión física
 * Las ubicaciones en las que puede conectarse con Microsoft para el emparejamiento directo o el emparejamiento de Exchange se muestran en [PeeringDB](https://www.peeringdb.com/net/694).
+
 * **Emparejamiento de Exchange:**
-    * La interconexión debe realizarse a través de fibra de modo único con la óptica de 10 Gbps adecuada.
+    * Los elementos del mismo nivel deben tener al menos una conexión de 10 Gb en el intercambio.
     * Se espera que los elementos del mismo nivel actualicen sus puertos cuando el uso máximo supere el 50 %.
+    * Microsoft recomienda a los elementos del mismo nivel a mantener varias conexiones que pueda intercambiar para admitir escenarios de conmutación por error.
+
 * **Emparejamiento directo:**
-    * La interconexión debe realizarse a través de fibra de modo único con la óptica de 10 Gbps o 100 Gbps adecuada.
+    * la interconexión debe realizarse a través de fibra de modo único mediante la óptica de 100 Gbps.
     * Microsoft solo establecerá el emparejamiento directo con proveedores ISP o de servicios de red.
     * Se espera que los elementos del mismo nivel actualicen sus puertos cuando el uso máximo supere el 50 % y mantengan una capacidad diversa en cada metro, ya sea en una sola ubicación o en varias ubicaciones de un metro.
     * Cada emparejamiento directo consta de dos conexiones a dos enrutadores perimetrales de Microsoft desde los enrutadores del mismo nivel ubicados en el borde del mismo nivel. Microsoft requiere sesiones de BGP duales en estas conexiones. El elemento del mismo nivel puede optar por no implementar dispositivos redundantes en su extremo.
 
+
 ## <a name="traffic-requirements"></a>Requisitos de tráfico
-* Los elementos del mismo nivel a través del emparejamiento de Exchange deben tener como mínimo 200 Mb de tráfico y menos de 2 Gb.  Se debe revisar el tráfico que supere el emparejamiento directo de 2 Gb.
-* En el emparejamiento directo, el tráfico de la red a Microsoft debe cumplir los requisitos mínimos siguientes.
 
-    | Geoárea                      | Tráfico mínimo a Microsoft   |
-    | :----------------------- |:-------------------------------|
-    | África                   | 500 Mbps                       |
-    | Asia Pacífico (excepto India)      |   2 Gbps                       |
-    | Asia Pacífico (solo India)        | 500 Mbps                       |
-    | Europa                   |   2 Gbps                       |
-    | Latinoamérica                    |   2 Gbps                       |
-    | Oriente Medio              | 500 Mbps                       |
-    | N/D                       |   2 Gbps                       |
-
-* **Diversidad:**
-    * En Norteamérica, Europa, Asia Pacífico y Latinoamérica, realice la interconexión en un mínimo de tres ubicaciones geográficamente diversas si es factible y mantiene una capacidad diversa para permitir el tráfico a la conmutación por error en cada metro.
-    * En África, Oriente Medio e India, realice la interconexión en tantas ubicaciones distintas como sea posible. Debe mantener una capacidad diversa suficiente para garantizar que el tráfico permanece en la región.
+* Los elementos del mismo nivel a través del emparejamiento de Exchange deben tener como mínimo 500 Mb de tráfico y menos de 2 Gb. Se debe establecer el tráfico que supere el emparejamiento directo de 2 Gb.
+* Microsoft requiere, como mínimo, 2 Gb para el emparejamiento directo. Cada ubicación de emparejamiento que se acuerde mutuamente debe admitir la conmutación por error para así garantizar que el emparejamiento permanece localizado durante un escenario de conmutación por error. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

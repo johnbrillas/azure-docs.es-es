@@ -1,19 +1,19 @@
 ---
-title: 'Opciones de configuración: Application Insights Java de Azure Monitor'
-description: Opciones de configuración de Application Insights Java de Azure Monitor
+title: 'Opciones de configuración: Application Insights de Azure Monitor para Java'
+description: Configuración de Application Insights de Azure Monitor para Java
 ms.topic: conceptual
 ms.date: 11/04/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: e9240253b385a0b53868c5a8a79c751c2f7c09c0
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 73e3d8834fcb41f863fe2e3d686b812bb6174e70
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96601091"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507666"
 ---
-# <a name="configuration-options-for-azure-monitor-application-insights-java"></a>Opciones de configuración de Application Insights Java de Azure Monitor
+# <a name="configuration-options---azure-monitor-application-insights-for-java"></a>Opciones de configuración: Application Insights de Azure Monitor para Java
 
 > [!WARNING]
 > **Si va actualizar desde la versión preliminar 3.0**
@@ -184,9 +184,9 @@ Para obtener más información, consulte la documentación del [procesador de te
 
 Log4j, Logback y java.util.logging se instrumentan automáticamente y los registros creados mediante estas plataformas de registro se recopilan automáticamente.
 
-De forma predeterminada, los registros solo se recopilan cuando se crean en el nivel `INFO` o superior.
+Los registros solo se capturan si cumple primero el umbral configurado de las plataformas de registro, y si el segundo también cumple el umbral configurado de Application Insights.
 
-Si desea cambiar este nivel de recopilación:
+El umbral predeterminado de Application Insights es `INFO`. Si quiere cambiar este nivel:
 
 ```json
 {
@@ -202,7 +202,7 @@ También puede establecer el umbral mediante la variable de entorno `APPLICATION
 
 A continuación se muestran los valores `level` válidos que puede especificar en el archivo `applicationinsights.json` y cómo se corresponden con los niveles de registro en diferentes plataformas de registro:
 
-| Nivel             | Log4j  | Logback | JUL     |
+| level             | Log4j  | Logback | JUL     |
 |-------------------|--------|---------|---------|
 | Apagado               | Apagado    | Apagado     | Apagado     |
 | FATAL             | FATAL  | ERROR   | SEVERE  |

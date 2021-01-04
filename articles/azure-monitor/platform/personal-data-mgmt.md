@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2018
-ms.openlocfilehash: 64c461c5d3e1bb34f480e5173621f8753eadbbd8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2bb1e667758a1430e34d222b9a5c537381c07624
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87318324"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505280"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Guía sobre datos personales almacenados en Log Analytics y Application Insights
 
@@ -81,7 +81,7 @@ Tal y como se mencionó en la sección sobre la [estrategia de tratamiento de da
 Para ver y exportar las solicitudes de datos, debe usarse la [API de consulta de Log Analytics](https://dev.loganalytics.io/) o la [API de consulta de Application Insights](https://dev.applicationinsights.io/quickstart). Tendrá que decidir qué lógica implementará para convertir la forma de los datos a uno adecuado para los usuarios. [Azure Functions](https://azure.microsoft.com/services/functions/) es un buen lugar para hospedar esta lógica.
 
 > [!IMPORTANT]
->  Aunque la mayoría de las operaciones de purga pueden completarse mucho más rápido que lo establecido en el Acuerdo de Nivel de Servicio (SLA), **el SLA formal para la realización de operaciones de purga es de 30 días** debido a su gran impacto en la plataforma de datos utilizada. Se trata de un proceso automatizado; no hay ninguna forma de solicitar que una operación se controle con mayor rapidez.
+>  Aunque la mayoría de las operaciones de purga pueden completarse mucho más rápido que lo establecido en el Acuerdo de Nivel de Servicio (SLA), **el SLA formal para la realización de operaciones de purga es de 30 días** debido a su gran impacto en la plataforma de datos utilizada. Este SLA cumple los requisitos del RGPD. Se trata de un proceso automatizado,  por lo que no hay ninguna forma de solicitar que una operación se controle con mayor rapidez. 
 
 ### <a name="delete"></a>Eliminar
 
@@ -89,6 +89,9 @@ Para ver y exportar las solicitudes de datos, debe usarse la [API de consulta de
 > Las eliminaciones en Log Analytics son destructivas y no reversibles. Por tanto, extreme las precauciones cuando las ejecute.
 
 Como parte de un caso de tratamiento de privacidad, hemos publicado una ruta de acceso a una API de *purga*. Esta ruta de acceso debe usarse con moderación debido al riesgo asociado inherente, al posible impacto en el rendimiento y a la posibilidad de sesgar completamente agregaciones, medidas y otros aspectos de los datos de Log Analytics. Consulte la sección [Estrategia de tratamiento de datos personales](#strategy-for-personal-data-handling) para conocer otras maneras de administrar los datos privados.
+
+> [!NOTE]
+> Una vez que se ha realizado la operación de purga, no se puede acceder a los datos mientras el [estado de la operación de purga](https://docs.microsoft.com/rest/api/loganalytics/workspacepurge/getpurgestatus) sea *pendiente*. 
 
 La purga es una operación con privilegios elevados que ninguna aplicación ni usuario de Azure (incluido incluso el propietario del recurso) tiene permisos para ejecutar sin que se le haya concedido expresamente un rol en Azure Resource Manager. Este rol es _Purgador de datos_ y se debe delegar con cuidado debido a la posibilidad de pérdida de datos. 
 

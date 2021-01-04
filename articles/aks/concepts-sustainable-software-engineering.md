@@ -4,16 +4,16 @@ description: Obtenga información sobre ingeniería de software sostenible en Az
 services: container-service
 ms.topic: conceptual
 ms.date: 08/26/2020
-ms.openlocfilehash: 2457de7bdaa94a6e2269515fafe6689d44960625
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 700723041855fdae4f994480d180292fdfd12e15
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90984980"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97346901"
 ---
 # <a name="sustainable-software-engineering-principles-in-azure-kubernetes-service-aks"></a>Principios de ingeniería de software sostenible en Azure Kubernetes Services (AKS)
 
-Los principios de ingeniería de software sostenible son un conjunto de competencias que le ayudarán a definir, crear y ejecutar aplicaciones sostenibles. El objetivo general es reducir la huella de carbono de cada aspecto de la aplicación. El [proyecto Principles.Green][principles-green] tiene una visión general de los principios de ingeniería de software sostenible.
+Los principios de ingeniería de software sostenible son un conjunto de competencias que le ayudarán a definir, crear y ejecutar aplicaciones sostenibles. El objetivo general es reducir la huella de carbono de cada aspecto de la aplicación. Los [principios de ingeniería de software sostenible][principles-sse] incluyen una visión general de estos principios.
 
 Una idea importante para comprender el diseño de software sostenible es que es un cambio en las prioridades y el enfoque. En muchos casos, el software se diseña y se ejecuta de forma que se centra en el rendimiento rápido y la baja latencia. La ingeniería de software sostenible se centra en reducir las emisiones de carbono tanto como sea posible. En algunos casos, la aplicación de principios de ingeniería de software sostenible puede proporcionar un rendimiento más rápido o una menor latencia, por ejemplo, reduciendo el recorrido total de la red. En otros casos, reducir las emisiones de carbono puede ralentizar el rendimiento o aumentar la latencia, como el retraso de las cargas de trabajo de prioridad baja. Antes de considerar la posibilidad de aplicar principios de ingeniería de software sostenible a la aplicación, revise las prioridades, las necesidades y las ventajas e inconvenientes de la aplicación.
 
@@ -74,4 +74,4 @@ Más información acerca de las siguientes características de AKS mencionadas e
 [node-sizing]: use-multiple-node-pools.md#specify-a-vm-size-for-a-node-pool
 [sustainability-calculator]: https://azure.microsoft.com/blog/microsoft-sustainability-calculator-helps-enterprises-analyze-the-carbon-emissions-of-their-it-infrastructure/
 [system-pools]: use-system-pools.md
-[principles-green]: https://principles.green/
+[principles-sse]: https://docs.microsoft.com/learn/modules/sustainable-software-engineering-overview/

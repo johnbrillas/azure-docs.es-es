@@ -8,19 +8,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 01/24/2019
+ms.date: 11/02/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: cba8837fc738884fc187b13083487c2ab62d25f0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 21c8e75ac81a443b1dd9d4a0f43263bbf40bee88
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96020099"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359207"
 ---
 # <a name="add-non-microsoft-accounts-to-the-microsoft-authenticator-app"></a>Incorporación de cuentas que no son de Microsoft a la aplicación Microsoft Authenticator
 
-Agregue sus cuentas que no sean de Microsoft, como las de Google, Facebook o GitHub, a la aplicación Microsoft Authenticator para la verificación en dos fases. La aplicación Microsoft Authenticator funciona con cualquier aplicación que utilice la verificación de dos fases y con cualquier cuenta que admita los estándares de contraseña de un solo uso y duración definida (TOTP).
+Si tiene cuentas que no son de Microsoft, como las de Google, Facebook o GitHub, puede incluirlas en la verificación en dos fases de Microsoft Authenticator. La aplicación Microsoft Authenticator funciona con cualquier aplicación que utilice la verificación de dos fases y con cualquier cuenta que admita los estándares de contraseña de un solo uso y duración definida (TOTP).
 
 >[!Important]
 >Antes de agregar su cuenta, debe descargar e instalar la aplicación Microsoft Authenticator. Si no lo ha hecho aún, siga los pasos descritos en el artículo para [descargar e instalar la aplicación](user-help-auth-app-download-install.md).
@@ -130,7 +130,7 @@ Puede agregar su cuenta de GitHub activando primero la verificación en dos fase
 
 1. En la página **Two-factor authentication** (Autenticación en dos fases) del equipo, seleccione **Set up using an app** (Configurar mediante una aplicación).
 
-2. Guarde los códigos de recuperación para poder recuperar el acceso a su cuenta en caso de perderlo y, a continuación, seleccione **Next** (Siguiente). 
+2. Guarde los códigos de recuperación para poder recuperar el acceso a su cuenta en caso de perderlo y, a continuación, seleccione **Next** (Siguiente).
 
     Puede guardar los códigos descargándolos en el dispositivo mediante la impresión de una copia impresa o copiándolos en una herramienta de administrador de contraseñas.
 

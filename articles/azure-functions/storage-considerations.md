@@ -3,12 +3,12 @@ title: Consideraciones de almacenamiento de Azure Functions
 description: Conozca los requisitos de almacenamiento de Azure Functions y aprenda a cifrar los datos almacenados.
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.openlocfilehash: aefd9a35235a09d94973f383603349f6862bbdd9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 67ff822208f065041e479fc484173d9f06a773ba
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87318188"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107250"
 ---
 # <a name="storage-considerations-for-azure-functions"></a>Consideraciones de almacenamiento de Azure Functions
 
@@ -27,15 +27,19 @@ Azure Functions necesita una cuenta de Azure Storage para crear una instancia de
 
 ## <a name="storage-account-requirements"></a>Requisitos de la cuenta de almacenamiento
 
-Al crear una aplicación de funciones, debe crear o vincular una cuenta de Azure Storage de uso general compatible con Blob, Queue y Table Storage. El motivo es que Azure Functions usa Azure Storage con ciertas operaciones; por ejemplo, para administrar los desencadenadores y ejecutar las funciones de registro. Algunas cuentas de almacenamiento no admiten el uso de colas y tablas; por ejemplo, las cuentas de almacenamiento solo para blobs, Azure Premium Storage y las cuentas de almacenamiento de uso general con replicación ZRS. Estas cuentas no compatibles no se muestran en la hoja Cuenta de almacenamiento cuando se crea una aplicación de funciones.
+Al crear una aplicación de funciones, debe crear o vincular una cuenta de Azure Storage de uso general compatible con Blob, Queue y Table Storage. El motivo es que Azure Functions usa Azure Storage con ciertas operaciones; por ejemplo, para administrar los desencadenadores y ejecutar las funciones de registro. Algunas cuentas de almacenamiento no admiten el uso de colas y tablas; por ejemplo, las cuentas de almacenamiento solo para blobs, Azure Premium Storage y las cuentas de almacenamiento de uso general con replicación ZRS.
 
 Para más información sobre los tipos de cuenta de almacenamiento, consulte [Introducción de los servicios Azure Storage](../storage/common/storage-introduction.md#core-storage-services). 
 
-Aunque puede usar una cuenta de almacenamiento existente con la aplicación de funciones, debe asegurarse de que cumple estos requisitos. En las cuentas de almacenamiento que se generan durante el flujo de creación de la aplicación de funciones, el cumplimiento de los requisitos de la cuenta de almacenamiento está garantizado.  
+Aunque puede usar una cuenta de almacenamiento existente con la aplicación de funciones, debe asegurarse de que cumple estos requisitos. Las cuentas de almacenamiento creadas como parte del flujo de creación de aplicaciones de funciones en Azure Portal tienen la garantía de que satisfacen estos requisitos de la cuenta de almacenamiento. En el portal, las cuentas no admitidas se filtran al elegir una cuenta de almacenamiento existente durante la creación de una aplicación de funciones. En este flujo, solo se permite elegir cuentas de almacenamiento existentes en la misma región que la aplicación de funciones que está creando. Para más información, consulte [Ubicación de la cuenta de almacenamiento](#storage-account-location).
 
 ## <a name="storage-account-guidance"></a>Guía de la cuenta de almacenamiento
 
 Cada aplicación de función requiere una cuenta de almacenamiento para funcionar. Si se elimina la cuenta, la aplicación de funciones no se ejecutará. Para más información, consulte este artículo sobre [la solución de problemas relacionados con el almacenamiento](functions-recover-storage-account.md). Estas otras consideraciones que se indican a continuación también se aplican a la cuenta de almacenamiento que se utiliza en las aplicaciones de funciones.
+
+### <a name="storage-account-location"></a>Ubicación de la cuenta de almacenamiento
+
+Para obtener el mejor rendimiento, la aplicación de función debe usar una cuenta de almacenamiento de la misma región, lo que reduce la latencia. En Azure Portal se aplica este procedimiento recomendado. Si, por alguna razón, necesita usar una cuenta de almacenamiento de una región diferente a la de la aplicación de funciones, debe crear la aplicación de función fuera del portal. 
 
 ### <a name="storage-account-connection-setting"></a>Configuración de la conexión de la cuenta de almacenamiento
 

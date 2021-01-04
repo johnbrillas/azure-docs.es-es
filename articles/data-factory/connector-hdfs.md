@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/28/2020
 ms.author: jingwang
-ms.openlocfilehash: 96603de7014419b142cc35714b891f9e4b15ec99
-ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
+ms.openlocfilehash: f43f516b0999c4d5b775fc9b78dea9b05e228f0d
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91405093"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97346255"
 ---
 # <a name="copy-data-from-the-hdfs-server-by-using-azure-data-factory"></a>Copia de datos desde un servidor HDFS mediante Azure Data Factory
 
@@ -165,26 +165,26 @@ Las propiedades siguientes se admiten para HDFS en la configuración `storeSetti
 | Propiedad                 | Descripción                                                  | Obligatorio                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
 | type                     | La propiedad *type* de `storeSettings` se debe establecer en **HdfsReadSettings**. | Sí                                           |
-| ***Buscar los archivos para copiar*** |  |  |
-| OPCIÓN 1: ruta de acceso estática<br> | Copia de la ruta de acceso de archivo o carpeta especificada en el conjunto de datos. Si quiere copiar todos los archivos de una carpeta, especifique también `wildcardFileName` como `*`. |  |
+| **_Búsqueda de los archivos que se van a copiar_* _ |  |  |
+| OPCIÓN 1: ruta de acceso estática<br> | Copia de la ruta de acceso de archivo o carpeta especificada en el conjunto de datos. Si quiere copiar todos los archivos de una carpeta, especifique también `wildcardFileName` como `_`. |  |
 | OPCIÓN 2: carácter comodín<br>- wildcardFolderPath | Ruta de acceso de carpeta con caracteres comodín para filtrar las carpetas de origen. <br>Los caracteres comodín permitidos son: `*` (equivale a cero o a varios caracteres) y `?` (equivale a cero o a un único carácter). Use `^` como escape si el nombre real de la carpeta contiene un carácter comodín o este carácter de escape. <br>Para ver más ejemplos, consulte [Ejemplos de filtros de carpetas y archivos](#folder-and-file-filter-examples). | No                                            |
-| OPCIÓN 2: carácter comodín<br>- wildcardFileName | Nombre de archivo con caracteres comodín en la propiedad folderPath o wildcardFolderPath especificada para filtrar los archivos de origen. <br>Los caracteres comodín permitidos son: `*` (equivale a cero o a varios caracteres) y `?` (equivale a cero o a un único carácter); use `^` para el escape si el nombre real de la carpeta tiene un carácter comodín o este carácter de escape dentro.  Para ver más ejemplos, consulte [Ejemplos de filtros de carpetas y archivos](#folder-and-file-filter-examples). | Sí |
+| OPCIÓN 2: carácter comodín<br>- wildcardFileName | Nombre de archivo con caracteres comodín en la propiedad folderPath o wildcardFolderPath especificada para filtrar los archivos de origen. <br>Los caracteres comodín permitidos son: `*` (equivale a cero o más caracteres) y `?` (equivale a cero o un único carácter); use `^` como carácter de escape si el nombre de archivo real tiene un carácter comodín o este carácter de escape dentro.  Para ver más ejemplos, consulte [Ejemplos de filtros de carpetas y archivos](#folder-and-file-filter-examples). | Sí |
 | OPCIÓN 3: una lista de archivos<br>- fileListPath | Indica que se copie un conjunto de archivos especificado. Apunte a un archivo de texto que incluya una lista de archivos que quiera copiar (un archivo por línea, con la ruta de acceso relativa a la ruta de acceso configurada en el conjunto de datos).<br/>Al usar esta opción, no especifique un nombre de archivo en el conjunto de datos. Para ver más ejemplos, consulte [Ejemplos de lista de archivos](#file-list-examples). |No |
-| ***Configuración adicional*** |  | |
-| recursive | Indica si los datos se leen de forma recursiva de las subcarpetas o solo de la carpeta especificada. Cuando `recursive` se establece en *true* y el receptor es un almacén basado en archivos, no se copia ni crea ninguna carpeta o subcarpeta vacías en el receptor. <br>Los valores permitidos son: *True* (valor predeterminado) y *False*.<br>Esta propiedad no se aplica al configurar `fileListPath`. |No |
+| ***Configuración adicional** _ |  | |
+| recursive | Indica si los datos se leen de forma recursiva de las subcarpetas o solo de la carpeta especificada. Cuando `recursive` se establece en _true* y el receptor es un almacén basado en archivos, no se copia ni se crea ninguna carpeta ni subcarpeta vacía en el receptor. <br>Los valores permitidos son: *True* (valor predeterminado) y *False*.<br>Esta propiedad no se aplica al configurar `fileListPath`. |No |
 | deleteFilesAfterCompletion | Indica si los archivos binarios se eliminarán del almacén de origen después de moverse correctamente al almacén de destino. Cada archivo se elimina individualmente, de modo que cuando se produzca un error en la actividad de copia, algunos archivos ya se habrán copiado al destino y se habrán eliminado del origen, mientras que otros seguirán aún en el almacén de origen. <br/>Esta propiedad solo es válida en el escenario de copia de archivos binarios. El valor predeterminado es false. |No |
 | modifiedDatetimeStart    | Los archivos se filtran en función del atributo *Last Modified*. <br>Los archivos se seleccionan si la hora de su última modificación está dentro del intervalo de `modifiedDatetimeStart` a `modifiedDatetimeEnd`. La hora se aplica a la zona horaria UTC en el formato *2018-12-01T05:00:00Z*. <br> Las propiedades pueden ser NULL, lo que significa que no se aplica ningún filtro de atributo de archivo al conjunto de datos.  Cuando `modifiedDatetimeStart` tiene un valor de fecha y hora, pero `modifiedDatetimeEnd` es NULL, significa que se seleccionarán los archivos cuyo último atributo modificado sea mayor o igual que el valor de fecha y hora.  Cuando `modifiedDatetimeEnd` tiene el valor de fecha y hora, pero `modifiedDatetimeStart` es NULL, significa que se seleccionarán los archivos cuyo último atributo modificado sea inferior al valor de fecha y hora.<br/>Esta propiedad no se aplica al configurar `fileListPath`. | No                                            |
 | modifiedDatetimeEnd      | Igual que el anterior.  
 | enablePartitionDiscovery | En el caso de archivos con particiones, especifique si quiere analizar las particiones de la ruta de acceso del archivo y agregarlas como columnas de origen adicionales.<br/>Los valores permitidos son **false** (valor predeterminado) y **true**. | No                                            |
 | partitionRootPath | Cuando esté habilitada la detección de particiones, especifique la ruta de acceso raíz absoluta para poder leer las carpetas con particiones como columnas de datos.<br/><br/>Si no se especifica, de forma predeterminada,<br/>- Cuando se usa la ruta de acceso de archivo en un conjunto de datos o una lista de archivos del origen, la ruta de acceso raíz de la partición es la ruta de acceso configurada en el conjunto de datos.<br/>- Cuando se usa el filtro de carpeta con caracteres comodín, la ruta de acceso raíz de la partición es la subruta antes del primer carácter comodín.<br/><br/>Por ejemplo, supongamos que configura la ruta de acceso en el conjunto de datos como "root/folder/year=2020/month=08/day=27":<br/>- Si especifica la ruta de acceso raíz de la partición como "root/folder/year=2020", la actividad de copia generará dos columnas más, `month` y `day`, con el valor "08" y "27", respectivamente, además de las columnas de los archivos.<br/>- Si no se especifica la ruta de acceso raíz de la partición, no se generará ninguna columna adicional. | No                                            |
 | maxConcurrentConnections | Número de conexiones que se pueden conectar al almacén de almacenamiento de forma simultánea. Especifique un valor solamente cuando desee limitar la conexión simultánea al almacén de datos. | No                                            |
-| ***Configuración de DistCp*** |  | |
+| **_Configuración de DistCp_* _ |  | |
 | distcpSettings | Grupo de propiedades que se va a usar al utilizar HDFS DistCp. | No |
 | resourceManagerEndpoint | Punto de conexión de YARN (Yet Another Resource Negotiator) | Sí, si se utiliza DistCp |
 | tempScriptPath | Ruta de acceso de carpeta que se usa para almacenar el script del comando DistCp temporal. Data Factory se encarga de crear el archivo de script que se eliminará después de que haya finalizado el trabajo de copia. | Sí, si se utiliza DistCp |
 | distcpOptions | Opciones adicionales que se proporcionan al comando DistCp. | No |
 
-**Ejemplo**:
+_ *Ejemplo:* *
 
 ```json
 "activities":[

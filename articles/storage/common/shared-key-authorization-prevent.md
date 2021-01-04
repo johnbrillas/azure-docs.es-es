@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/20/2020
+ms.date: 12/07/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: ce0ea938cac4afa043b8770a4d6a98f08ec145ec
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 6a24713a6027c38d2b9817928f3a82161bd37314
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96484896"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96936733"
 ---
 # <a name="prevent-shared-key-authorization-for-an-azure-storage-account-preview"></a>Impedir la autorización con clave compartida para una cuenta de Azure Storage (versión preliminar)
 
@@ -23,13 +23,11 @@ Cada solicitud segura a una cuenta de Azure Storage debe estar autorizada. De fo
 Cuando se impide la autorización con clave compartida para una cuenta de almacenamiento, Azure Storage rechaza todas las solicitudes posteriores a esa cuenta autorizadas con las claves de acceso de la cuenta. Solo se realizarán correctamente las solicitudes protegidas que estén autorizadas con Azure AD. Para más información sobre el uso de Azure AD, consulte [Autorización del acceso a blobs y colas con Azure Active Directory](storage-auth-aad.md).
 
 > [!WARNING]
-> Azure Storage admite la autorización de Azure AD solo para solicitudes de Blob Storage y Queue Storage. Si impide la autorización con clave compartida para una cuenta de almacenamiento, se producirá un error en las solicitudes a Azure Files o al almacenamiento de tablas que usan la autorización con clave compartida.
->
-> Durante la versión preliminar, las solicitudes a Azure Files o al almacenamiento de tablas que usan tokens de firma de acceso compartido (SAS) que se generaron mediante las claves de acceso de la cuenta se realizarán correctamente cuando no se permita la autorización con clave compartida. Para más información, consulte [Acerca de la versión preliminar](#about-the-preview).
->
-> Denegar el acceso con clave compartida para una cuenta de almacenamiento no afecta a las conexiones SMB a Azure Files.
+> Azure Storage admite la autorización de Azure AD solo para solicitudes de Blob Storage y Queue Storage. Si impide la autorización con clave compartida para una cuenta de almacenamiento, se producirá un error en las solicitudes a Azure Files o al almacenamiento de tablas que usan la autorización con clave compartida. Dado que Azure Portal siempre usa la autorización con clave compartida para acceder a los datos de archivos y tablas, si se deniega la autorización con clave compartida para la cuenta de almacenamiento, no podrá acceder a los datos de archivos o tablas en Azure Portal.
 >
 > Microsoft recomienda migrar los datos de Azure Files o Table Storage a una cuenta de almacenamiento independiente antes de denegar el acceso a la cuenta a través de la clave compartida, o bien que no aplique esta configuración a las cuentas de almacenamiento que admiten cargas de trabajo de Azure Files o Table Storage.
+>
+> Denegar el acceso con clave compartida para una cuenta de almacenamiento no afecta a las conexiones SMB a Azure Files.
 
 En este artículo se describe cómo detectar solicitudes enviadas con la autorización con clave compartida y cómo corregir la autorización con clave compartida para la cuenta de almacenamiento. Para aprender a registrarse para la versión preliminar, consulte [Acerca de la versión preliminar](#about-the-preview).
 
@@ -193,15 +191,32 @@ resources
 | project subscriptionId, resourceGroup, name, allowSharedKeyAccess
 ```
 
+## <a name="permissions-for-allowing-or-disallowing-shared-key-access"></a>Permisos para admitir o denegar el acceso con clave compartida
+
+Para establecer la propiedad **AllowSharedKeyAccess** para la cuenta de almacenamiento, un usuario debe tener permisos para crear y administrar cuentas de almacenamiento. Los roles de control de acceso basado en rol de Azure (RBAC de Azure) que proporcionan estos permisos incluyen la acción **Microsoft.Storage/storageAccounts/write** o **Microsoft.Storage/storageAccounts/\** _. Los roles integrados con esta acción incluyen:
+
+- El rol [Propietario](../../role-based-access-control/built-in-roles.md#owner) de Azure Resource Manager
+- El rol [Colaborador](../../role-based-access-control/built-in-roles.md#contributor) de Azure Resource Manager
+- El rol [Colaborador de la cuenta de almacenamiento](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
+
+Estos roles no proporcionan acceso a los datos de una cuenta de almacenamiento a través de Azure Active Directory (Azure AD). Sin embargo, incluyen _*Microsoft.Storage/storageAccounts/listkeys/action**, que concede acceso a las claves de acceso de la cuenta. Con este permiso, un usuario puede usar las claves de acceso de la cuenta para acceder a todos los datos de una cuenta de almacenamiento.
+
+Las asignaciones de roles deben tener el ámbito del nivel de la cuenta de almacenamiento o superior para permitir que un usuario permita o deniegue el acceso con clave compartida para la cuenta de almacenamiento. Para obtener más información sobre el ámbito de los roles, vea [Comprensión del ámbito para RBAC de Azure](../../role-based-access-control/scope-overview.md).
+
+Tenga cuidado de restringir la asignación de estos roles solo a aquellos usuarios que requieran la capacidad de crear una cuenta de almacenamiento o actualizar sus propiedades. Use el principio de privilegios mínimos para asegurarse de que los usuarios tienen los permisos mínimos que necesitan para realizar sus tareas. Para más información sobre la administración del acceso con RBAC de Azure, consulte [Procedimientos recomendados para RBAC de Azure](../../role-based-access-control/best-practices.md).
+
+> [!NOTE]
+> Los roles clásicos de administrador de suscripciones Administrador del servicio y Coadministrador equivalen al rol [Propietario](../../role-based-access-control/built-in-roles.md#owner) de Azure Resource Manager. El rol **Propietario** incluye todas las acciones, por lo que un usuario con uno de estos roles administrativos también puede crear y administrar cuentas de almacenamiento. Para más información, consulte [Roles de administrador de suscripciones clásico, de Azure y de administrador de Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
+
 ## <a name="understand-how-disallowing-shared-key-affects-sas-tokens"></a>Descripción de cómo la denegación de la clave compartida afecta a los tokens de SAS
 
-Cuando la clave compartida se deniega para la cuenta de almacenamiento, Azure Storage controla los tokens de SAS según el tipo de SAS y el servicio al que se destina la solicitud. En la tabla siguiente se muestra cómo se autoriza cada tipo de SAS y cómo Azure Storage controlará esa SAS cuando la propiedad **AllowSharedKeyAccess** de la cuenta de almacenamiento sea **false**.
+Cuando el acceso con clave compartida se deniega para la cuenta de almacenamiento, Azure Storage controla los tokens de SAS según el tipo de SAS y el servicio al que se destina la solicitud. En la tabla siguiente se muestra cómo se autoriza cada tipo de SAS y cómo Azure Storage controlará esa SAS cuando la propiedad **AllowSharedKeyAccess** de la cuenta de almacenamiento sea **false**.
 
 | Tipo de SAS | Tipo de autorización | Comportamiento cuando AllowSharedKeyAccess es false |
 |-|-|-|
 | SAS de delegación de usuarios (solo para Blob Storage) | Azure AD | La solicitud se permite. Microsoft recomienda el uso de una SAS de delegación de usuario siempre que sea posible para mayor seguridad. |
-| SAS de servicio | Clave compartida | La solicitud se rechaza para Blob Storage. La solicitud se permite para Queue Storage, Table Storage y Azure Files. Para más información, consulte [Las solicitudes con tokens de SAS se permiten para colas, tablas y archivos cuando AllowSharedKeyAccess es false](#requests-with-sas-tokens-are-permitted-for-queues-tables-and-files-when-allowsharedkeyaccess-is-false) en la sección **Acerca de la versión preliminar**. |
-| SAS de cuenta | Clave compartida | La solicitud se rechaza para Blob Storage. La solicitud se permite para Queue Storage, Table Storage y Azure Files. Para más información, consulte [Las solicitudes con tokens de SAS se permiten para colas, tablas y archivos cuando AllowSharedKeyAccess es false](#requests-with-sas-tokens-are-permitted-for-queues-tables-and-files-when-allowsharedkeyaccess-is-false) en la sección **Acerca de la versión preliminar**. |
+| SAS de servicio | Clave compartida | La solicitud se deniega para todos los servicios de Azure Storage. |
+| SAS de cuenta | Clave compartida | La solicitud se deniega para todos los servicios de Azure Storage. |
 
 Para obtener más información sobre las firmas de acceso compartido, consulte [Otorgar acceso limitado a recursos de Azure Storage con firmas de acceso compartido (SAS)](storage-sas-overview.md).
 
@@ -219,7 +234,7 @@ Algunas herramientas de Azure ofrecen la opción de usar la autorización Azure 
 | Azure PowerShell | Compatible. Para obtener información sobre la forma de autorizar comandos de PowerShell para las operaciones de blobs o colas con Azure AD, consulte los artículos [Ejecución de comandos de PowerShell con credenciales de Azure AD para acceder a datos de blob](../blobs/authorize-data-operations-powershell.md) o [Ejecución de comandos de PowerShell con credenciales de Azure AD para acceder los datos de la cola](../queues/authorize-data-operations-powershell.md). |
 | Azure CLI | Compatible. Para información sobre cómo autorizar comandos de la CLI de Azure con Azure AD para el acceso a datos de blobs y colas, consulte [Elección de cómo autorizar el acceso a los datos de blobs o colas con la CLI de Azure](../blobs/authorize-data-operations-cli.md). |
 | Azure IoT Hub | Compatible. Para más información, consulte [Compatibilidad de IoT Hub con redes virtuales mediante Private Link e identidad administrada](../../iot-hub/virtual-network-support.md). |
-| Azure Cloud Shell | Azure Cloud Shell es un shell integrado en Azure Portal. Azure Cloud Shell hospeda archivos para la persistencia en un recurso compartido de archivos de Azure en una cuenta de almacenamiento. Estos archivos dejarán de estar accesibles si la autorización con clave compartida se deniega para esa cuenta de almacenamiento. Para más información, consulte [Conexión con el almacenamiento de Microsoft Azure Files](../../cloud-shell/overview.md#connect-your-microsoft-azure-files-storage). <br /><br /> Para ejecutar comandos en Azure Cloud Shell para administrar cuentas de almacenamiento para las que se deniega el acceso con clave compartida, primero debe asegurarse de que se le han concedido los permisos necesarios para estas cuentas mediante el control de acceso basado en rol de Azure (Azure RBAC). Para más información, consulte [¿Qué es el control de acceso basado en rol de Azure (RBAC)?](../../role-based-access-control/overview.md) |
+| Azure Cloud Shell | Azure Cloud Shell es un shell integrado en Azure Portal. Azure Cloud Shell hospeda archivos para la persistencia en un recurso compartido de archivos de Azure en una cuenta de almacenamiento. Estos archivos dejarán de estar accesibles si la autorización con clave compartida se deniega para esa cuenta de almacenamiento. Para más información, consulte [Conexión con el almacenamiento de Microsoft Azure Files](../../cloud-shell/overview.md#connect-your-microsoft-azure-files-storage). <br /><br /> Para ejecutar comandos en Azure Cloud Shell a fin de administrar cuentas de almacenamiento para las que se deniega el acceso con clave compartida, primero debe asegurarse de que se le han concedido los permisos necesarios para estas cuentas mediante RBAC de Azure. Para más información, consulte [¿Qué es el control de acceso basado en rol de Azure (RBAC)?](../../role-based-access-control/overview.md) |
 
 ## <a name="about-the-preview"></a>Acerca de la versión preliminar
 
@@ -240,10 +255,6 @@ Las métricas y el registro de Azure en Azure Monitor no distinguen entre los di
 - Una SAS de delegación de usuario está autorizada con Azure AD y se permitirá en una solicitud a Blob Storage cuando la propiedad **AllowSharedKeyAccess** esté establecida en **false**.
 
 Cuando evalúe el tráfico a la cuenta de almacenamiento, tenga en cuenta que las métricas y los registros tal y como se describen en [Detección del tipo de autorización que usan las aplicaciones cliente](#detect-the-type-of-authorization-used-by-client-applications) pueden incluir solicitudes realizadas con una SAS de delegación de usuario. Para más información sobre el modo en que Azure Storage responde a una SAS cuando la propiedad **AllowSharedKeyAccess** está establecida en **false**, consulte [Descripción de cómo la denegación de la clave compartida afecta a los tokens de SAS](#understand-how-disallowing-shared-key-affects-sas-tokens).
-
-### <a name="requests-with-sas-tokens-are-permitted-for-queues-tables-and-files-when-allowsharedkeyaccess-is-false"></a>Las solicitudes con tokens de SAS se permiten para colas, tablas y archivos cuando AllowSharedKeyAccess es false
-
-Cuando se deniega el acceso con la clave compartida para la cuenta de almacenamiento durante la versión preliminar, se siguen permitiendo las firmas de acceso compartido que tienen como destino los recursos de cola, tabla o Azure Files. Esta limitación se aplica tanto a los tokens de SAS de servicio como a los tokens de SAS de cuenta. Ambos tipos de SAS están autorizados con la clave compartida.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

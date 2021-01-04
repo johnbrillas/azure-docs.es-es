@@ -4,21 +4,21 @@ description: Implemente las instancias de conjuntos de escalado y máquinas virt
 author: cynthn
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 09/25/2020
+ms.date: 11/12/2020
 ms.author: cynthn
-ms.openlocfilehash: d99f8c380b486ed818aff64782ca817dab41c916
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ef0c8d53d885f11acdcf578db155de3d7848887e
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91975288"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97360074"
 ---
 # <a name="deploy-to-dedicated-hosts-using-the-azure-cli"></a>Implementación en hosts dedicados mediante la CLI de Azure
  
 
 En este artículo se ofrecen instrucciones para crear un [host dedicado](../dedicated-hosts.md) de Azure en el que se pueden hospedar máquinas virtuales (VM). 
 
-Asegúrese de tener instalada la CLI de Azure, versión 2.0.70 o posterior, y de haber iniciado sesión en una cuenta de Azure con `az login`. 
+Asegúrese de tener instalada la CLI de Azure, versión 2.16.0 o posterior, y de haber iniciado sesión en una cuenta de Azure con `az login`. 
 
 
 ## <a name="limitations"></a>Limitaciones
@@ -65,14 +65,6 @@ az vm host group create \
 
 Agregue el parámetro `--automatic-placement true` para que las máquinas virtuales y las instancias del conjunto de escalado se coloquen automáticamente en los hosts, dentro de un grupo host. Para obtener más información, vea [Selección de ubicación manual frente a automática ](../dedicated-hosts.md#manual-vs-automatic-placement).
 
-> [!IMPORTANT]
-> Actualmente, la selección de ubicación automática está en versión preliminar pública.
->
-> Para participar en la versión preliminar, complete la encuesta de incorporación de la versión preliminar en [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview).
->
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. 
->
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ### <a name="other-examples"></a>Otros ejemplos
 
@@ -133,16 +125,7 @@ Para colocar la máquina virtual en un host concreto, use `--host` en lugar de e
 > [!WARNING]
 > Si crea una máquina virtual en un host que no tenga suficientes recursos, la máquina virtual se creará en un estado de error. 
 
-## <a name="create-a-scale-set-preview"></a>Creación de un conjunto de escalado (versión preliminar)
-
-> [!IMPORTANT]
-> Virtual Machine Scale Sets en hosts dedicados se encuentra actualmente en versión preliminar pública.
->
-> Para participar en la versión preliminar, complete la encuesta de incorporación de la versión preliminar en [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview).
->
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. 
->
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+## <a name="create-a-scale-set"></a>Creación de un conjunto de escalado 
 
 Cuando se implementa un conjunto de escalado, se especifica el grupo host.
 

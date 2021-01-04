@@ -1,27 +1,27 @@
 ---
-title: Creación de una oferta de Dynamics 365 for Operations en el portal de Marketplace comercial
-description: Cómo crear una nueva oferta de Dynamics 365 for Operations para mostrarla o venderla en Azure Marketplace, AppSource, o bien a través del programa Proveedor de soluciones en la nube (CSP) mediante el portal de Marketplace comercial del Centro de partners de Microsoft.
+title: Creación de una oferta de Dynamics 365 for Operations en Microsoft AppSource
+description: Cómo crear una oferta de Dynamics 365 for Operations en Microsoft AppSource. Publique o venda su oferta en Azure Marketplace o mediante el programa Proveedor de soluciones en la nube (CSP).
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: navits09
 ms.author: navits
-ms.date: 06/17/2020
-ms.openlocfilehash: 1c28b4edab1e1033bf9ac7df6b1249b549bb4fe1
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.date: 12/02/2020
+ms.openlocfilehash: bcb7f2d008c54981223b4839f9a750e6ee9ac5cc
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93131520"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97355162"
 ---
 # <a name="create-a-dynamics-365-for-operations-offer"></a>Creación de una oferta de Dynamics 365 for Operations
 
-En este tema se explica cómo crear una nueva oferta de Dynamics 365 for Operations. [Microsoft Dynamics 365 for Finance and Operations](https://dynamics.microsoft.com/finance-and-operations) es un servicio de planeación de recursos empresariales (ERP) que admite finanzas avanzadas, operaciones, fabricación y administración de la cadena de suministro. Todas las ofertas de Dynamics 365 for Operations deben pasar por nuestro proceso de certificación.
+En este artículo se explica cómo crear una oferta de Dynamics 365 for Operations. [Microsoft Dynamics 365 for Finance and Operations](https://dynamics.microsoft.com/finance-and-operations) es un servicio de planeación de recursos empresariales (ERP) que admite finanzas avanzadas, operaciones, fabricación y administración de la cadena de suministro. Todas las ofertas de Dynamics 365 for Operations deben pasar por nuestro proceso de certificación.
 
-Antes de comenzar, [cree una cuenta de Marketplace comercial en el Centro de partners](create-account.md), si aún no lo ha hecho. Asegúrese de que su cuenta está inscrita en el programa marketplace comercial.
+Antes de comenzar, [cree una cuenta de Marketplace comercial en el Centro de partners](create-account.md), si aún no lo ha hecho. Asegúrese de que la cuenta está inscrita en el programa Marketplace comercial.
 
 >[!NOTE]
-> Una vez publicada la oferta, las modificaciones de la oferta solo se actualizarán en el Centro de partners y en la tienda en línea después de volver a enviar la oferta para su publicación.
+> Una vez publicada la oferta, las modificaciones en ella solo se actualizarán en el Centro de partners y en la tienda en línea después de volver a enviar la oferta para su publicación.
 
 ## <a name="create-a-new-offer"></a>Crear una nueva oferta
 
@@ -31,44 +31,39 @@ Antes de comenzar, [cree una cuenta de Marketplace comercial en el Centro de par
 
     ![Muestra el menú de navegación izquierdo.](./media/new-offer-dynamics-365-operations.png)
 
-> [!NOTE]
-> Después de publicar una oferta, las modificaciones que se realicen en el Centro de partners solo aparecen en las tiendas en línea cuando la oferta se vuelve a publicar. Asegúrese de volver a realizar la publicación siempre después de realizar cambios.
-
 ## <a name="new-offer"></a>Nueva oferta
 
 Escriba un **Identificador de oferta**. Se trata de un identificador único para cada oferta de su cuenta.
 
 - Se muestra a los clientes en la dirección web de la oferta de Marketplace y en las plantillas de Azure Resource Manager, si procede.
 - El identificador de oferta en combinación con el del editor debe tener una longitud de menos de 40 caracteres.
-- Use solo letras minúsculas y números. Puede incluir guiones y caracteres de subrayado, pero no espacios. Por ejemplo, si el identificador del editor es testpublisherid y escribe **test-offer-1** aquí, la dirección web de la oferta será `https://appsource.microsoft.com/product/dynamics-365/testpublisherid.test-offer-1`.
-- El identificador de oferta no se puede cambiar después de seleccionar **Crear**.
+- Use solo letras minúsculas y números. Puede incluir guiones y caracteres de subrayado, pero no espacios. Por ejemplo, si el identificador del editor es `testpublisherid` y escribe **test-offer-1**, la dirección web de la oferta será `https://appsource.microsoft.com/product/dynamics-365/testpublisherid.test-offer-1`.
+- Este identificador no se puede cambiar después de seleccionar **Crear**.
 
 Escriba un **Alias de la oferta**. Este es el nombre que se usa para la oferta en el Centro de partners.
 
 - Este nombre no se usa en Marketplace y es diferente del nombre de la oferta y de otros valores que se muestran a los clientes.
+- Este nombre no se puede cambiar después de seleccionar **Crear**.
 
 Seleccione **Crear** para generar la oferta y continuar.
 
 ## <a name="offer-setup"></a>Configuración de la oferta
 
-### <a name="how-do-you-want-potential-customers-to-interact-with-this-listing-offer"></a>¿Cómo quiere que los clientes potenciales interactúen con esta oferta en la lista?
+### <a name="alias"></a>Alias
 
-Seleccione la opción que quiere usar para esta oferta.
+Escriba un nombre descriptivo que se usará para hacer referencia a esta oferta únicamente dentro del Centro de partners. Este nombre (previamente rellenado con lo que especificó al crear la oferta) no se usará en el marketplace y es diferente del nombre de la oferta que se muestra a los clientes. Si quiere actualizar el nombre de la oferta más adelante, vaya a la página [Offer Listing](#offer-listing) (Descripción de la oferta).
 
-#### <a name="get-it-now-free"></a>Obténgalo ahora (de forma gratuita)
+### <a name="setup-details"></a>Detalles de la configuración
 
-Muestre la oferta a los clientes gratis.
+En **¿Cómo quiere que los clientes potenciales interactúen con esta oferta?** , seleccione la opción que quiere usar para esta oferta.
 
-#### <a name="free-trial-listing"></a>Evaluación gratuita (anuncio)
+- **Obtener ahora (gratis)** : la oferta se muestra a los clientes de forma gratuita.
+- **Free trial (listing)** (Evaluación gratuita [descripción]): la oferta se muestra a los clientes con un vínculo a una evaluación gratuita. Las ofertas que incluyen evaluaciones gratuitas se crean, administran y configuran desde su servicio y no tienen suscripciones administradas por Microsoft.
 
-Muestre la oferta a los clientes con un vínculo a una versión de prueba gratuita. Las ofertas que incluyen evaluaciones gratuitas se crean, administran y configuran desde su servicio y no tienen suscripciones administradas por Microsoft.
+    > [!NOTE]
+    > Los tokens que la aplicación recibirá a través del vínculo de evaluación gratuita solo se pueden usar para obtener información de usuario mediante Azure Active Directory (Azure AD) para automatizar la creación de cuentas en la aplicación. No se admiten las cuentas de Microsoft para la autenticación con este token.
 
-> [!NOTE]
-> Los tokens que la aplicación recibirá a través del vínculo de evaluación gratuita solo se pueden usar para obtener información de usuario mediante Azure Active Directory (Azure AD) para automatizar la creación de cuentas en la aplicación. No se admiten las cuentas de Microsoft para la autenticación con este token.
-
-#### <a name="contact-me"></a>Ponerse en contacto conmigo
-
-Recopile información de contacto de los clientes mediante la conexión de su sistema de Administración de relaciones con los clientes (CRM). El cliente le pedirá permiso para compartir su información. Estos datos del cliente, junto con el nombre e identificador de la oferta y el origen de Marketplace donde la ha encontrado, se envían al sistema CRM que se ha configurado. Para más información sobre cómo configurar el sistema CRM, consulte [Clientes potenciales](#customer-leads).
+- **Contacto**: recopile información de contacto de los clientes mediante la conexión de su sistema de Administración de relaciones con los clientes (CRM). El cliente le pedirá permiso para compartir su información. Estos datos del cliente, junto con el nombre e identificador de la oferta y el origen de Marketplace donde la ha encontrado, se envían al sistema CRM que se ha configurado. Para más información sobre cómo configurar el sistema CRM, consulte [Clientes potenciales](#customer-leads).
 
 ### <a name="test-drive"></a>Versión de prueba
 
@@ -88,7 +83,7 @@ Seleccione **Guardar borrador** antes de continuar.
 
 Esta página le permite definir las categorías y los sectores que se usan para agrupar su oferta en el marketplace, la versión de la aplicación y los contratos legales que dan soporte a su oferta.
 
-### <a name="category"></a>Category
+### <a name="categories"></a>Categorías
 
 Seleccione categorías y subcategorías para colocar la oferta en las áreas de búsqueda adecuadas del marketplace. En la descripción de la oferta, asegúrese de indicar la forma en que la oferta admite estas categorías. Seleccione:
 
@@ -97,9 +92,9 @@ Seleccione categorías y subcategorías para colocar la oferta en las áreas de 
 
 Vea la lista completa de categorías y subcategorías en [Procedimientos recomendados para la publicación de ofertas](../gtm-offer-listing-best-practices.md).
 
-### <a name="industry"></a>Sector
+### <a name="industries"></a>Industrias
 
-[!INCLUDE [Industry Taxonomy](./includes/industry-taxonomy.md)]
+[!INCLUDE [Industry Taxonomy](includes/industry-taxonomy.md)]
 
 ### <a name="app-version"></a>Versión de la aplicación
 
@@ -107,21 +102,21 @@ Escriba el número de versión de la oferta. Los clientes verán esta versión e
 
 ### <a name="terms-and-conditions"></a>Términos y condiciones
 
-Proporcione sus propios términos y condiciones legales en el campo **Términos y condiciones**. También puede proporcionar la dirección URL donde se pueden encontrar los términos y condiciones. Los clientes deberán aceptar estos términos para poder probar la oferta.
+Proporcione sus propios términos y condiciones legales aquí. También puede proporcionar la dirección donde se pueden encontrar. Los clientes deberán aceptar estos términos para poder probar la oferta.
 
 Seleccione **Guardar borrador** antes de continuar.
 
 ## <a name="offer-listing"></a>Descripción de la oferta
 
-La página muestra los idiomas en los que se mostrará la oferta. La única opción disponible actualmente es **Inglés (Estados Unidos)** .
+<!--This page displays the languages in which your offer will be listed. Currently, **English (United States)** is the only available option.
 
-Tendrá que definir los detalles de Marketplace (nombre de la oferta, descripción, imágenes, etc.) para cada idioma y mercado. Seleccione el nombre de idioma o mercado para proporcionar esta información.
+Define marketplace details such as offer name, description, and images for each language/market. Select the language/market name to provide this info.-->This page lets you define offer details such as offer name, description, links, and contacts.
 
 > [!NOTE]
-> No es necesario que el contenido del anuncio de la oferta (por ejemplo, la descripción, los documentos, las capturas de pantallas, los términos de uso, etc.) esté en inglés siempre que la descripción de la oferta empiece por la frase "Esta aplicación solo está disponible en [idioma distinto del inglés]". También es aceptable proporcionar una *dirección URL de vínculo útil* para ofrecer contenido en un idioma distinto del que se usa en el contenido del anuncio de la oferta.
+> Proporcione los detalles de la descripción de la oferta solo en un idioma. No es necesario que los detalles de la oferta estén en inglés si la descripción de la oferta comienza con la frase "Esta aplicación solo está disponible en [idioma distinto del inglés]". También es aceptable especificar una *dirección URL de vínculo útil* para ofrecer contenido en un idioma distinto del que se usa en el contenido de la descripción de la oferta.
 
-Este es un ejemplo de cómo aparece la información de la oferta en Microsoft AppSource:
-
+A continuación se muestra un ejemplo de cómo aparece la información de la oferta en Microsoft AppSource (los precios mostrados son meramente ilustrativos y no pretenden reflejar los costos reales):
+<!-- update screen? -->
 :::image type="content" source="media/example-azure-marketplace-d365-operations.png" alt-text="Ilustración de cómo aparece esta oferta en Microsoft AppSource.":::
 
 #### <a name="call-out-descriptions"></a>Descripciones destacadas
@@ -134,18 +129,14 @@ Este es un ejemplo de cómo aparece la información de la oferta en Microsoft Ap
 6. Términos de uso
 7. Directiva de privacidad
 8. Nombre de la oferta
-9. Capturas de pantallas o vídeos
-10. Descripción
+9. Descripción
+10. Capturas de pantallas o vídeos
 
-### <a name="name"></a>Nombre
+### <a name="marketplace-details"></a>Detalles del marketplace
 
-El nombre que escriba aquí se mostrará a los clientes como el título de la descripción de la oferta. Este campo se ha rellenado previamente con el texto introducido para **Alias de la oferta** cuando creó la oferta, pero puede cambiar este valor. Este nombre puede contener marcas comerciales (y puede incluir símbolos de marca comercial o copyright). El nombre no puede tener más de 50 caracteres ni incluir emojis.
+El **nombre** que escriba aquí se mostrará a los clientes como el título de la descripción de la oferta. Este campo se ha rellenado previamente con el texto introducido para **Alias de la oferta** cuando creó la oferta, pero puede cambiar este valor. Este nombre puede contener marcas comerciales (y puede incluir símbolos de marca comercial o copyright). El nombre no puede tener más de 50 caracteres ni incluir emojis.
 
-### <a name="short-description"></a>Descripción breve
-
-Proporcione una breve descripción de la oferta (hasta 100 caracteres). Esta descripción se puede usar en los resultados de la búsqueda de Marketplace.
-
-### <a name="description"></a>Descripción
+Proporcione una descripción breve de la oferta (100 caracteres como máximo), en el **resumen de resultados de la búsqueda**. Esta descripción se puede usar en los resultados de la búsqueda de Marketplace.
 
 [!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
@@ -153,51 +144,38 @@ Proporcione una breve descripción de la oferta (hasta 100 caracteres). Esta de
 
 [!INCLUDE [Rich text editor](./includes/rich-text-editor.md)]
 
-### <a name="search-keywords"></a>Palabras clave de búsqueda
+Opcionalmente, puede escribir hasta tres **palabras clave de búsqueda** para ayudar a los clientes a buscar su oferta en el marketplace. Para obtener mejores resultados, intente usar también estas palabras clave en la descripción.
 
-Opcionalmente, puede escribir un máximo de tres palabras clave de búsqueda para ayudar a los clientes a buscar su oferta en Marketplace. Para obtener mejores resultados, intente usar también estas palabras clave en la descripción.
+Si quiere permitir que los clientes sepan que su **aplicación funciona con productos específicos**, escriba hasta tres nombres de productos aquí.
 
-### <a name="products-your-app-works-with"></a>Productos con los que funciona su aplicación
+### <a name="helpprivacy-urls"></a>Direcciones URL de ayuda y privacidad
 
-Si quiere permitir que los clientes sepan que su aplicación funciona con productos específicos, escriba hasta tres nombres de productos aquí.
+Escriba el **vínculo de ayuda de la aplicación** (URL), donde los clientes pueden obtener más información sobre su oferta. La dirección URL de ayuda no puede ser la misma que la dirección URL de soporte técnico.
 
-### <a name="support-urls"></a>Direcciones URL de soporte técnico
+Escriba el **vínculo a la directiva de privacidad** (URL) de su organización. Usted es el responsable no solo de garantizar que la aplicación cumple la normativa y la legislación en lo tocante a la privacidad, sino también de proporcionar una directiva de privacidad válida.
 
-Esta sección le permite proporcionar vínculos para ayudar a los clientes a comprender mejor su oferta.
+### <a name="contact-information"></a>Información de contacto
 
-#### <a name="help-link"></a>Vínculo de ayuda
+Indique el nombre, el correo electrónico y el número de teléfono de un **contacto de soporte técnico** y un **contacto de ingeniería**. Esta información no se muestra a los clientes, pero estará disponible para Microsoft y puede proporcionarse a los asociados de CSP.
 
-Escriba la dirección URL en la que los clientes pueden obtener más información sobre su oferta.
-
-#### <a name="privacy-policy-url"></a>Dirección URL de la directiva de privacidad
-
-Escriba la dirección URL a la directiva de privacidad de su organización. Usted es el responsable no solo de garantizar que la aplicación cumple la normativa y la legislación en lo tocante a la privacidad, sino también de proporcionar una directiva de privacidad válida.
-
-### <a name="contacts"></a>Contactos
-
-En esta sección, va a proporcionar el nombre, el correo electrónico y el número de teléfono de un **contacto de soporte técnico** y un **contacto de ingeniería**. Esta información no se muestra a los clientes, pero estará disponible para Microsoft y puede proporcionarse a los asociados de CSP.
-
-En la sección **Contacto de soporte técnico** , proporcione la **dirección URL de soporte técnico** en la que los asociados de CSP pueden encontrar soporte técnico para la oferta.
+En la sección **Contacto de soporte técnico**, proporcione la **dirección URL de soporte técnico** en la que los asociados de CSP pueden encontrar soporte técnico para la oferta. La dirección URL de soporte técnico no puede ser la misma que la dirección URL de ayuda.
 
 ### <a name="supporting-documents"></a>Documentos relacionados
 
-Proporcione al menos un documento de marketing relacionado (y un máximo de tres) aquí, como notas del producto, folletos, listas de comprobación o presentaciones. Estos documentos deben estar en formato PDF.
+Proporcione aquí al menos un documento de marketing relacionado (y un máximo de tres), como notas del producto, folletos, listas de comprobación o presentaciones, en formato PDF.
 
-### <a name="marketplace-images"></a>Imágenes de Marketplace
+### <a name="marketplace-media"></a>Elementos multimedia del marketplace
 
-En esta sección, puede proporcionar logotipos e imágenes que se usarán al mostrar la oferta al cliente. Todas las imágenes deben estar en formato .PNG.
+Proporcione logotipos e imágenes que se usarán al mostrar la oferta a los clientes. Todas las imágenes deben estar en formato PNG.
 
 [!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 >[!Note]
 >Si tiene un problema al cargar archivos, asegúrese de que la red local no bloquee el servicio https://upload.xboxlive.com que usa el Centro de partners.
 
-#### <a name="store-logos"></a>Logotipos de Store
+#### <a name="logos"></a>Logotipos
 
-Proporcione un archivo PNG para el logotipo de tamaño **Grande**. El Centro de partners lo usará para crear un logotipo **Pequeño**. Opcionalmente, puede reemplazarlo por una imagen diferente.
-
-- **Grande** (de 216 x 216 a 350 x 350 píxeles, obligatorio)
-- **Pequeño** (48 x 48 píxeles, opcional)
+Proporcione un archivo PNG para el logotipo de tamaño **Grande**. El Centro de partners lo usará para crear otros tamaños necesarios. Opcionalmente, puede reemplazarlo por una imagen diferente.
 
 Estos logotipos se usan en distintos lugares de la publicación:
 
@@ -207,34 +185,30 @@ Estos logotipos se usan en distintos lugares de la publicación:
 
 #### <a name="screenshots"></a>Capturas de pantalla
 
-Agregue capturas de pantallas que muestren el funcionamiento de la oferta. Se requiere al menos una captura de pantalla y puede agregar un máximo de cinco. Todas las capturas de pantallas deben tener 1280 x 720 píxeles.
+Agregue capturas de pantallas que muestren el funcionamiento de la oferta. Se requiere al menos una captura de pantalla y puede agregar un máximo de cinco. Todas las capturas de pantallas deben tener un tamaño de 1280 x 720 píxeles y estar en formato PNG.
 
 #### <a name="videos"></a>Vídeos
 
-Opcionalmente, puede agregar hasta cuatro vídeos que muestren la oferta. Estos vídeos se deben hospedar en YouTube o Vimeo. En cada uno de ellos, escriba el nombre del vídeo, su dirección URL y una imagen en miniatura del vídeo (1280 x 720 píxeles).
+Opcionalmente, puede agregar hasta cuatro vídeos que muestren la oferta. Los vídeos deben estar hospedados en un sitio externo. Para cada uno de ellos, escriba el nombre del vídeo, su dirección y una imagen en miniatura del vídeo (1280 x 720 píxeles).
 
-#### <a name="additional-marketplace-listing-resources"></a>Recursos adicionales de la descripción de Marketplace
-
-[Procedimientos recomendados la descripción de ofertas en Marketplace](../gtm-offer-listing-best-practices.md)
+Para ver más recursos sobre las listas de marketplace, consulte [Procedimientos recomendados para las listas de ofertas de marketplace](../gtm-offer-listing-best-practices.md).
 
 Seleccione **Guardar borrador** antes de continuar.
 
 ## <a name="availability"></a>Disponibilidad
 
-Esta página proporciona opciones sobre dónde y cómo hacer que la oferta esté disponible.
+Esta página le permite definir dónde y cómo hacer que la oferta esté disponible.
 
 ### <a name="markets"></a>Mercados
 
-Esta sección le permite especificar los mercados en los que la oferta debe estar disponible. Para ello, seleccione **Editar mercados** , que mostrará la ventana emergente **Selección de mercado**.
+Para especificar los mercados en los que la oferta debe estar disponible, seleccione **Editar mercados** para mostrar la ventana emergente **Selección de mercado**.
 
-De forma predeterminada, no se selecciona ningún mercado. Seleccione al menos un mercado para publicar la oferta. Haga clic en **Seleccionar todo** para que su oferta esté disponible en cada mercado posible o seleccione los mercados específicos que quiera agregar. Al acabar, seleccione **Guardar**.
+Seleccione al menos un mercado. Elija **Seleccionar todo** para que su oferta esté disponible en cada mercado posible, o seleccione los mercados específicos que quiera agregar. Cuando haya terminado, seleccione **Guardar**.
 
 Las selecciones aquí solo se aplican a las nuevas adquisiciones. Si algún usuario ya tiene su aplicación en un determinado mercado y posteriormente lo quita, las personas que ya tienen la oferta en dicho mercado podrán seguir utilizándola, pero ningún cliente nuevo en ese mercado podrá obtener su oferta.
 
 > [!IMPORTANT]
-> Es su responsabilidad cumplir los requisitos legales locales, incluso si esos requisitos no aparecen aquí ni en el Centro de partners.
-
-Tenga en cuenta que, incluso si selecciona todos los mercados, las leyes y restricciones locales u otros factores pueden impedir que se muestren determinadas ofertas en algunos países y regiones.
+> Es su responsabilidad cumplir los requisitos legales locales, incluso si esos requisitos no aparecen aquí ni en el Centro de partners. Incluso si selecciona todos los mercados, las leyes y restricciones locales u otros factores pueden impedir que se muestren determinadas ofertas en algunos países y regiones.
 
 ### <a name="preview-audience"></a>Público preliminar
 
@@ -255,7 +229,7 @@ Proporcione el identificador de la solución (GUID) para la solución.
 Para encontrar el identificador de la solución:
 
 1. En Microsoft Dynamics Lifecycle Services (LCS), seleccione **Administración de soluciones**.
-2. Seleccione la solución y, a continuación, busque el **identificador de la solución** en la **información general del paquete**. Si el identificador está en blanco, seleccione **Editar** , vuelva a publicar el paquete e inténtelo de nuevo.
+2. Seleccione la solución y, a continuación, busque el **identificador de la solución** en la **información general del paquete**. Si el identificador está en blanco, seleccione **Editar**, vuelva a publicar el paquete e inténtelo de nuevo.
 
 ### <a name="release-version"></a>Versión de lanzamiento
 
@@ -263,17 +237,17 @@ Seleccione la versión de Dynamics 365 for Finance and Operations con la que fun
 
 Seleccione **Guardar borrador** antes de continuar.
 
-## <a name="test-drive-technical-configuration"></a>Configuración técnica de la versión de prueba
+<!-- ## Test drive technical configuration
 
-Esta página permite configurar una demostración («versión de prueba») que permite a los clientes probar la oferta antes de adquirirla. Más información en [Qué es la versión de prueba](../what-is-test-drive.md).
+This page lets you set up a demonstration ("test drive") that allows customers to try your offer before purchasing it. Learn more in [What is test drive](../what-is-test-drive.md).
 
-Para habilitar una versión de prueba, seleccione la pestaña **Habilitar una versión de prueba** y marque la casilla [Configuración de la oferta](#test-drive). Para eliminar la versión de prueba de la oferta, desactive esta casilla.
+To enable a test drive, select the **Enable a test drive** check box on the [Offer setup](#test-drive) tab. To remove test drive from your offer, clear this check box.
 
-Cuando haya terminado de configurar la versión de prueba, seleccione **Guardar borrador** antes de continuar.
-
+When you've finished setting up your test drive, select **Save draft** before continuing.
+-->
 ## <a name="supplemental-content"></a>Contenido complementario
 
-Esta página le permite proporcionar información adicional sobre su oferta, lo que nos ayudará a validarla. Esta información no se muestra a los clientes ni se publica en Marketplace.
+Esta página le permite proporcionar información adicional que nos ayuda a validar la oferta. Esta información no se muestra a los clientes ni se publica en Marketplace.
 
 ### <a name="validation-assets"></a>Recursos de validación
 
@@ -295,17 +269,17 @@ Seleccione **Guardar borrador** antes de continuar.
 
 ### <a name="submit-offer-to-preview"></a>Envío de la oferta para tener una versión preliminar
 
-Una vez que haya completado todas las secciones necesarias de la oferta, seleccione **Revisar y publicar** en la esquina superior derecha del portal.
+Cuando haya completado todas las secciones necesarias de la oferta, seleccione **Revisar y publicar** en la esquina superior derecha del portal.
 
 Si es la primera vez que publica esta oferta, puede:
 
 - Ver el estado de finalización de cada sección de la oferta.
-    - **No iniciada** : Significa que la sección no se ha modificado y se debe completar.
-    - **Incompleta** : Significa que la sección tiene errores que deben corregirse o que requiere más información. Vuelva a las secciones y actualícelas.
-    - **Completa** : Significa que la sección está completa, que se han proporcionado todos los datos necesarios y que no hay ningún error. Para poder enviar la oferta, todas sus secciones deben estar en estado Completa.
-- En la sección **Notas para la certificación** , envíe instrucciones para la realización de pruebas al equipo de certificación para asegurarse de que la aplicación se prueba correctamente, además de todas las notas adicionales que pueden resultar útiles para conocer la aplicación. Para obtener más información sobre las instrucciones de prueba y la finalización de una primera publicación, vea [Validación funcional de Dynamics 365 Finance and Operations de AppSource](../dynamics-365-finance-operations-functional-validation.md).
-- Enviar la oferta para su publicación, para lo que debe seleccionar **Enviar**. Le enviaremos un correo electrónico que le avise cuando haya una versión preliminar de la oferta disponible para su revisión y aprobación. Vuelva al Centro de partners y seleccione **Publicar** para ofrecer la oferta al público.
+    - **No iniciada**: la sección no se ha modificado y se debe completar.
+    - **Incompleta**: la sección tiene errores que deben corregirse o se necesita más información. Vuelva a las secciones y actualícelas.
+    - **Completa**: la sección está completa, se han proporcionado todos los datos necesarios y no hay ningún error. Para poder enviar la oferta, todas sus secciones deben estar en estado Completa.
+- En la sección **Notas para la certificación**, envíe instrucciones para la realización de pruebas al equipo de certificación para asegurarse de que la aplicación se prueba correctamente, además de todas las notas adicionales que pueden resultar útiles para conocer la aplicación. Para obtener más información sobre las instrucciones de prueba y la finalización de una primera publicación, vea [Validación funcional de Dynamics 365 Finance and Operations de AppSource](../dynamics-365-finance-operations-functional-validation.md).
+- Enviar la oferta para su publicación, para lo que debe seleccionar **Enviar**. Le enviaremos un correo electrónico cuando haya alguna versión preliminar de la oferta disponible para su revisión y aprobación. Para publicar la oferta para el público, vuelva al Centro de partners y seleccione **Publicar**.
 
-## <a name="next-step"></a>Paso siguiente
+## <a name="next-steps"></a>Pasos siguientes
 
 - [Actualización de una oferta existente en Marketplace comercial](./update-existing-offer.md)

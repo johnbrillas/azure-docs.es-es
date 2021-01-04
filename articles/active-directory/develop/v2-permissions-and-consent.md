@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur, marsma
-ms.custom: aaddev, fasttrack-edit, contperfq1, identityplatformtop40
-ms.openlocfilehash: 1b8b7b16a354fba482fcefe8f306f949f9a952ea
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.custom: aaddev, fasttrack-edit, contperf-fy21q1, identityplatformtop40
+ms.openlocfilehash: 14b6d6ecc6523199102fd3ef9370fe901c4ff51d
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96902653"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97355705"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Permisos y consentimiento en el punto de conexión de la Plataforma de identidad de Microsoft
 
@@ -89,7 +89,7 @@ El ámbito `profile` puede usarse con el ámbito `openid` y cualquier otro. Prop
 El ámbito [`offline_access`](https://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess) proporciona acceso de la aplicación a recursos en nombre del usuario durante un periodo de tiempo prolongado. En la página de consentimiento, este ámbito aparece como el permiso "Mantener el acceso a los datos a los que le ha dado acceso". Cuando un usuario aprueba el ámbito `offline_access`, la aplicación puede recibir tokens de actualización del punto de conexión del token de la Plataforma de identidad de Microsoft. Los tokens de actualización tienen una duración larga. La aplicación puede obtener nuevos tokens de acceso cuando expiren los antiguos.
 
 > [!NOTE]
-> Actualmente, este permiso aparece en todas las pantallas de consentimiento, incluso en el caso de los flujos que no proporcionan un token de actualización (el [flujo implícito](v2-oauth2-implicit-grant-flow.md)).  Esto permite cubrir los escenarios en los que un cliente puede comenzar dentro del flujo implícito y después pasar al flujo de código, donde sí se espera un token de actualización.
+> Actualmente, este permiso aparece en todas las pantallas de consentimiento, incluso en el caso de los flujos que no proporcionan un token de actualización (el [flujo implícito](v2-oauth2-implicit-grant-flow.md)). Esto permite abarcar los escenarios en los que un cliente puede comenzar dentro del flujo implícito y después pasar al flujo de código, donde sí se espera un token de actualización.
 
 En la plataforma de identidad de Microsoft (solicitudes realizadas al punto de conexión v2.0), la aplicación debe solicitar explícitamente el ámbito de `offline_access` para recibir tokens de actualización. Esto significa que cuando se canjea un código de autorización del [flujo del código de autorización de OAuth 2.0](active-directory-v2-protocols.md), solo se recibirá un token de acceso del punto de conexión `/token`. El token de acceso es válido durante un breve período de tiempo. Normalmente, expira al cabo de una hora. En ese momento, la aplicación tiene que redirigir al usuario de vuelta al punto de conexión `/authorize` para que obtenga un nuevo código de autorización. Durante esta redirección y, en función del tipo de aplicación, puede que el usuario tenga que volver a escribir sus credenciales o dar de nuevo el consentimiento a permisos.
 

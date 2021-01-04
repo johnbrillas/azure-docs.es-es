@@ -9,12 +9,12 @@ ms.subservice: keys
 ms.topic: conceptual
 ms.date: 10/22/2020
 ms.author: ambapat
-ms.openlocfilehash: 76eedaabf52cf2d56b2feaa6dc2748c25bf7696c
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: b483ffc480f9ad750f8d9901d6bec382db2378c2
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93423830"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368926"
 ---
 # <a name="key-types-algorithms-and-operations"></a>Tipos de claves, algoritmos y operaciones
 
@@ -67,8 +67,8 @@ En la siguiente tabla se muestra un resumen de los tipos de clave y los algoritm
 
 ##  <a name="symmetric-key-algorithms"></a>Algoritmos de clave simétrica
 - **AES-KW**: encapsulado de claves AES ([RFC3394](https://tools.ietf.org/html/rfc3394)).
-- **AES-GCM**: cifrado AES en el modo de contador Galois ([NIST SP800-38d](https://csrc.nist.gov/publications/sp800))
-- **AES-CBC**: cifrado AES en el modo de encadenamiento de bloques de cifrado ([NIST SP800-38a](https://csrc.nist.gov/publications/sp800))
+- **AES-GCM**: cifrado AES en el modo de contador Galois ([NIST SP 800-38d](https://csrc.nist.gov/publications/sp800))
+- **AES-CBC**: cifrado AES en el modo de encadenamiento de bloques de cifrado ([NIST SP 800-38a](https://csrc.nist.gov/publications/sp800))
 
 > [!NOTE] 
 > La implementación de AES-GCM actual y las API correspondientes son experimentales. La implementación y las API pueden cambiar considerablemente en las iteraciones futuras. 

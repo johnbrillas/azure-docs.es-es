@@ -9,12 +9,12 @@ ms.subservice: security
 ms.date: 12/03/2020
 ms.author: billgib
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7243d24204c8e15ae4246718cafb24d31f804d02
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: 62c30356017b5ea5d93351e6f22b8b7b0c22718c
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96519185"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109273"
 ---
 # <a name="how-to-set-up-access-control-for-your-synapse-workspace"></a>Cómo configurar el control de acceso para el área de trabajo de Synapse 
 
@@ -43,7 +43,7 @@ Para proteger un área de trabajo de Synapse, debe seguir un patrón de configur
 
 En este documento se usan nombres estándar para simplificar las instrucciones. Reemplácelos por los nombres de su preferencia.
 
-|Configuración | Nombre estándar | Descripción |
+|Setting | Nombre estándar | Descripción |
 | :------ | :-------------- | :---------- |
 | **Área de trabajo de Synapse** | `workspace1` |  Nombre que tendrá el área de trabajo de Synapse. |
 | **Cuenta de ADLSGEN2** | `storage1` | Cuenta de ADLS que se usará con el área de trabajo. |
@@ -54,7 +54,7 @@ En este documento se usan nombres estándar para simplificar las instrucciones. 
 ## <a name="step-1-set-up-security-groups"></a>PASO 1: Configuración de los grupos de seguridad
 
 >[!Note] 
->Durante la versión preliminar, le recomendamos que cree grupos de seguridad asignados a los roles de **Administrador de SQL de Synapse SQL** y **Administrador de Apache Spark de Synapse**.  Con la introducción de nuevos ámbitos y roles de RBAC de Synapse más precisos, ahora le recomendamos que use estas nuevas funcionalidades para controlar el acceso al área de trabajo.  Estos nuevos roles y ámbitos proporcionan más flexibilidad de configuración y reconocen que los desarrolladores a menudo usan una combinación de SQL y Spark en la creación de aplicaciones de análisis. Así mismo, puede que se les deba conceder acceso a recursos específicos dentro del área de trabajo. [Más información](./synapse-workspace-synapse-rbac.md).
+>Durante la versión preliminar, le recomendamos que cree grupos de seguridad asignados a los roles de **Administrador de SQL de Synapse SQL** y **Administrador de Apache Spark de Synapse**.  Con la introducción de nuevos ámbitos y roles de RBAC de Synapse más precisos, ahora le recomendamos que use estas nuevas funcionalidades para controlar el acceso al área de trabajo.  Estos nuevos roles y ámbitos proporcionan más flexibilidad de configuración y reconocen que los desarrolladores a menudo usan una combinación de SQL y Spark en la creación de aplicaciones de análisis. Así mismo, puede que se les deba conceder acceso a recursos específicos, en lugar de a todo el área de trabajo. [Más información](./synapse-workspace-synapse-rbac.md) acerca de RBAC de Synapse.
 
 Cree los siguientes grupos de seguridad para su área de trabajo:
 
@@ -66,9 +66,9 @@ Cree los siguientes grupos de seguridad para su área de trabajo:
 En breve, asignará roles de Synapse a estos grupos en el ámbito del área de trabajo.  
 
 Cree también este grupo de seguridad: 
-- **`workspace1_SQLAdministrators`** , grupo para los usuarios que necesitan autoridad de administrador de Active Directory en los grupos de SQL del área de trabajo. 
+- **`workspace1_SQLAdmins`** , grupo para los usuarios que necesitan autoridad de administrador de SQL Active Directory en los grupos de SQL del área de trabajo. 
 
-El grupo de `workspace1_SynapseSQLAdministrators` se usará al configurar permisos SQL en grupos de SQL a medida que se creen. 
+El grupo de `workspace1_SQLAdmins` se usará al configurar permisos SQL en grupos de SQL a medida que se creen. 
 
 En el caso de una configuración básica, estos cinco grupos son suficientes. Más adelante, podrá agregar grupos de seguridad para administrar los usuarios que necesiten acceso más especializado o para proporcionar acceso a los usuarios solo a recursos específicos.
 
@@ -84,6 +84,7 @@ En el caso de una configuración básica, estos cinco grupos son suficientes. M�
 Un área de trabajo de Synapse usa un contenedor de almacenamiento predeterminado para lo siguiente:
   - Almacenar los archivos de datos de copia de seguridad para las tablas de Spark
   - Los registros de ejecución de los trabajos de Spark
+  - Administrar las bibliotecas que decida instalar
 
 Identifique la siguiente información sobre su almacenamiento:
 
@@ -94,7 +95,7 @@ Identifique la siguiente información sobre su almacenamiento:
 
   - Asigne el rol **Colaborador de datos de Storage Blob** a `workspace1_SynapseAdmins`. 
   - Asigne el rol **Colaborador de datos de Storage Blob** a `workspace1_SynapseContributors`.
-  - Asigne el rol **Colaborador de datos de Storage Blob** a `workspace1_SynapseComputeOperators` **<< VALIDATE**
+  - Asigne el rol **Colaborador de datos de Storage Blob** a `workspace1_SynapseComputeOperators`.
 
 ## <a name="step-3-create-and-configure-your-synapse-workspace"></a>PASO 3: Creación y configuración del área de trabajo de Synapse
 
@@ -106,14 +107,14 @@ En Azure Portal, cree un área de trabajo de Synapse:
 - Seleccione `storage1` en la cuenta de almacenamiento.
 - Elija `container1` para el contenedor que se usará como "sistema de archivos".
 - Abra WS1 en Synapse Studio.
-- Seleccione **Administrar** > **Control de acceso** y asigne los siguientes roles de Synapse del *ámbito del área de trabajo* a los grupos de seguridad.
+- Navegue hasta **Administrar** > **Control de acceso** y asigne los siguientes roles de Synapse del *ámbito del área de trabajo* a los grupos de seguridad, de la manera siguiente:
   - Asigne el rol **Administrador de Synapse** en `workspace1_SynapseAdministrators`. 
   - Asigne el rol **Colaborador de Synapse** en `workspace1_SynapseContributors`. 
-  - Asigne el rol **Operador de proceso de Synapse** en `workspace1_SynapseComputeOperators`.
+  - Asigne el rol **Operador de proceso de Synapse** a `workspace1_SynapseComputeOperators`.
 
 ## <a name="step-4-grant-the-workspace-msi-access-to-the-default-storage-container"></a>PASO 4: Concesión de acceso a las identidades administradas para recursos de Azure del área de trabajo al contenedor de almacenamiento predeterminado
 
-Para ejecutar canalizaciones y realizar tareas del sistema, Synapse requiere que las identidades administradas para recursos de Azure del área de trabajo tenga acceso a `container1` de la cuenta de ADLS Gen2 predeterminada.
+Para ejecutar canalizaciones y realizar tareas del sistema, Synapse requiere que las identidades de servicio administradas (MSI) del área de trabajo tengan acceso a `container1` de la cuenta de ADLS Gen2 predeterminada.
 
 - Abra Azure Portal.
 - Busque la cuenta de almacenamiento, `storage1`, y, luego, `container1`.
@@ -121,7 +122,7 @@ Para ejecutar canalizaciones y realizar tareas del sistema, Synapse requiere que
   - Si no lo está, asígnelo.
   - El MSI tiene el mismo nombre que el área de trabajo. En este ejemplo, sería `workspace1`.
 
-## <a name="step-5-grant-the-synapse-administrators-the-azure-contributor-role-on-the-workspace"></a>PASO 5: Concesión del rol Colaborador de Azure a los administradores de Synapse en el área de trabajo 
+## <a name="step-5-grant-synapse-administrators-the-azure-contributor-role-on-the-workspace"></a>PASO 5: Concesión del rol Colaborador de Azure a los administradores de Synapse en el área de trabajo 
 
 Para crear grupos de SQL, grupos de Apache Spark y entornos de ejecución de integración, los usuarios deben tener como mínimo acceso de colaborador de Azure en el área de trabajo. El rol Colaborador también permite a estos usuarios administrar los recursos, incluidas la pausa y el escalado.
 
@@ -131,44 +132,44 @@ Para crear grupos de SQL, grupos de Apache Spark y entornos de ejecución de int
 
 ## <a name="step-6-assign-sql-active-directory-admin-role"></a>PASO 6: Asignación del rol Administrador de SQL Active Directory
 
-El creador de la estación de trabajo se configura automáticamente como el administrador de Active Directory para el área de trabajo.  Este rol solo se puede conceder a un solo usuario o grupo. En este paso, asignará el administrador de Active Directory del área de trabajo al grupo de seguridad `workspace1_SynapseSQLAdministrators`.  La asignación de este rol proporciona a este grupo acceso de administrador con privilegios elevados a todos los grupos de SQL.   
+El creador de la estación de trabajo se configura automáticamente como el administrador de SQL Active Directory para el área de trabajo.  Este rol solo se puede conceder a un solo usuario o grupo. En este paso, asignará el administrador de SQL Active Directory del área de trabajo al grupo de seguridad `workspace1_SQLAdmins`.  La asignación de este rol proporciona a este grupo el acceso de administrador con privilegios elevados a todos los grupos y base de datos de SQL en el área de trabajo.   
 
 - Abra Azure Portal.
 - Vaya a `workspace1`.
 - En **Configuración**, seleccione **Administrador de SQL Active Directory**.
-- Seleccione **Establecer administrador** y elija **`workspace1_SynapseSQLAdministrators`** .
+- Seleccione **Establecer administrador** y elija **`workspace1_SQLAdmins`** .
 
 >[!Note]
->Este paso es opcional.  Puede optar por conceder al grupo de administradores de SQL un rol con menos privilegios. Para asignar `db_owner` u otros roles de SQL, debe ejecutar scripts en cada base de datos SQL. 
+>El paso 6 es opcional.  Puede optar por conceder al grupo `workspace1_SQLAdmins` un rol con menos privilegios. Para asignar `db_owner` u otros roles de SQL, debe ejecutar scripts en cada base de datos SQL. 
 
 ## <a name="step-7-grant-access-to-sql-pools"></a>PASO 7: Concesión de acceso a grupos de SQL
 
-De forma predeterminada, a todos los usuarios a los que se asigna el rol Administrador de Synapse también se les asigna el rol `db_owner` de SQL en el grupo de SQL sin servidor ("integrado").
+De forma predeterminada, a todos los usuarios a los que se asigna el rol Administrador de Synapse también se les asigna el rol `db_owner` de SQL en el grupo de SQL sin servidor, "Integrado", y todas sus bases de datos.
 
-El acceso a los grupos de SQL para otros usuarios y para las identidades administradas para recursos de Azure del área de trabajo se controla mediante permisos SQL.  La asignación de permisos de SQL requiere que los scripts de SQL se ejecuten en cada grupo de SQL después de la creación.  Hay tres casos en los que es necesario ejecutar estos scripts:
-1. Al conceder a otros usuarios acceso al grupo SQL sin servidor ("integrado").
-2. Al conceder acceso a cualquier usuario a grupos dedicados
-3. Al conceder acceso a las identidades administradas para recursos de Azure del área de trabajo a un grupo de SQL a fin de habilitar canalizaciones que requieran que el acceso al grupo de SQL se ejecute correctamente.
+El acceso a los grupos de SQL para otros usuarios y para las identidades administradas para recursos de Azure del área de trabajo se controla mediante permisos SQL.  La asignación de permisos de SQL requiere que los scripts de SQL se ejecuten en cada base de datos SQL después de la creación.  Hay tres casos en los que es necesario ejecutar estos scripts:
+1. Al conceder a otros usuarios acceso al grupo de SQL sin servidor, "Integrado", y sus bases de datos
+2. Al conceder acceso a cualquier usuario a bases de datos de grupos dedicados
+3. Al conceder acceso a las identidades de servicio administradas del área de trabajo a una base de datos de grupo de SQL a fin de habilitar canalizaciones que requieran el acceso al grupo de SQL para ejecutarse correctamente.
 
 A continuación, se incluyen scripts SQL de ejemplo.
 
-Para conceder acceso a un grupo de SQL dedicado, el creador del área de trabajo o cualquier miembro del grupo `workspace1_SynapseSQL Administrators` puede ejecutar los scripts.  
+Para conceder acceso a una base de datos de grupo de SQL dedicado, el creador del área de trabajo o cualquier miembro del grupo `workspace1_SQLAdmins` puede ejecutar los scripts.  
 
-Para conceder acceso al grupo de SQL sin servidor ("integrado"), cualquier miembro del grupo `workspace1_SynapseAdministrators` también puede ejecutar los scripts. 
+Para conceder acceso al grupo de SQL sin servidor ("Integrado"), cualquier miembro del grupo `workspace1_SQLAdmins` o del grupo `workspace1_SynapseAdministrators` puede ejecutar los scripts. 
 
 > [!TIP]
-> Los pasos siguientes se deben realizar para **cada** grupo de SQL con el fin de conceder a los usuarios acceso a todas las bases de datos SQL, excepto en la sección [Permiso de ámbito de área de trabajo](#workspace-scoped-permission), en que puede asignar un rol sysadmin a un usuario.
+> Los pasos siguientes se deben realizar para **cada** grupo de SQL con el fin de conceder a los usuarios el acceso a todas las bases de datos SQL, excepto en la sección [Permiso de ámbito de área de trabajo](#workspace-scoped-permission), en que puede asignar un rol sysadmin a un usuario en el nivel de área de trabajo.
 
-### <a name="step-71-serverless-sql-pools"></a>PASO 7.1: Grupos de SQL sin servidor
+### <a name="step-71-serverless-sql-pool-built-in"></a>PASO 7.1: Grupo de SQL sin servidor, integrado
 
-En esta sección, puede encontrar ejemplos sobre cómo conceder a un usuario un permiso para una base de datos determinada o permisos de servidor completos.
+En esta sección, hay ejemplos de script que muestran cómo conceder a un usuario el permiso para acceder a una base de datos determinada o a todas las bases de datos del grupo de SQL sin servidor, "Integrado".
 
 > [!NOTE]
 > En los ejemplos de script, reemplace *alias* por el alias del usuario o grupo al que se concede el acceso y *dominio* por el dominio de la empresa que usa.
 
-#### <a name="pool-scoped-permission"></a>Permiso de ámbito de grupo
+#### <a name="database-scoped-permission"></a>Permiso de ámbito de base de datos
 
-Para conceder acceso a un usuario a un grupo de SQL sin servidor **único**, siga los pasos de este ejemplo:
+Para conceder a un usuario el acceso a una **única** base de datos SQL sin servidor, siga los pasos de este ejemplo:
 
 1. Cree LOGIN
 
@@ -182,7 +183,7 @@ Para conceder acceso a un usuario a un grupo de SQL sin servidor **único**, sig
 2. Cree USER
 
     ```sql
-    use yourdb -- Use your DB name
+    use yourdb -- Use your database name
     go
     CREATE USER alias FROM LOGIN [alias@domain.com];
     ```
@@ -190,7 +191,7 @@ Para conceder acceso a un usuario a un grupo de SQL sin servidor **único**, sig
 3. Agregue USER a los miembros del rol especificado
 
     ```sql
-    use yourdb -- Use your DB name
+    use yourdb -- Use your database name
     go
     alter role db_owner Add member alias -- Type USER name from step 2
     ```
@@ -200,25 +201,27 @@ Para conceder acceso a un usuario a un grupo de SQL sin servidor **único**, sig
 Para conceder acceso completo a **todos** los grupos de SQL sin servidor en el área de trabajo, use el script en este ejemplo:
 
 ```sql
+use master
+go
 CREATE LOGIN [alias@domain.com] FROM EXTERNAL PROVIDER;
-ALTER SERVER ROLE  sysadmin  ADD MEMBER [alias@domain.com];
+ALTER SERVER ROLE sysadmin ADD MEMBER [alias@domain.com];
 ```
 
 ### <a name="step-72-dedicated-sql-pools"></a>PASO 7.2: Grupos de SQL dedicados
 
-Para conceder acceso a un **solo** grupo de SQL dedicado, siga estos pasos en el editor de scripts de Synapse SQL.
+Para conceder acceso a un **único** grupo de SQL dedicado, siga estos pasos en el editor de scripts de Synapse SQL:
 
 1. Cree el usuario en la base de datos. Para ello, ejecute el siguiente comando en la base de datos de destino, que seleccionó mediante la lista desplegable *Conectar a*:
 
     ```sql
-    --Create user in SQL DB
+    --Create user in the database
     CREATE USER [<alias@domain.com>] FROM EXTERNAL PROVIDER;
     ```
 
 2. Conceda al usuario un rol para acceder a la base de datos:
 
     ```sql
-    --Create user in SQL DB
+    --Grant role to the user in the database
     EXEC sp_addrolemember 'db_owner', '<alias@domain.com>';
     ```
 
@@ -226,32 +229,35 @@ Para conceder acceso a un **solo** grupo de SQL dedicado, siga estos pasos en el
 > *db_datareader* y *db_datawriter* pueden funcionar para los permisos de lectura y escritura si no se quiere conceder el permiso *db_owner*.
 > Para que los usuarios de Spark lean el contenido directamente desde Spark de un grupo de SQL o escriban en él, se requiere el permiso *db_owner*.
 
-Después de crear los usuarios, compruebe que el grupo de SQL sin servidor pueda realizar consultas a la cuenta de almacenamiento.
+Después de crear los usuarios, ejecute consultas para validar que el grupo de SQL sin servidor pueda realizar consultas en la cuenta de almacenamiento.
 
-### <a name="step-73-sl-access-control-for-workspace-pipeline-runs"></a>PASO 7.3: Control de acceso SL a las ejecuciones de canalización del área de trabajo
+### <a name="step-73-sql-access-control-for-synapse-pipeline-runs"></a>PASO 7.3: Control de acceso SQL para las ejecuciones de canalización de Synapse
 
 ### <a name="workspace-managed-identity"></a>Identidad administrada del área de trabajo
 
 > [!IMPORTANT]
 > Para ejecutar correctamente canalizaciones que incluyen conjuntos de datos o actividades que hacen referencia a un grupo de SQL, es preciso que se conceda a la identidad del área de trabajo acceso al grupo de SQL.
 
-Ejecute los siguientes comandos en cada grupo de SQL para permitir que la identidad administrada del área de trabajo ejecute canalizaciones en la base de datos del grupo de SQL:
+Ejecute los siguientes comandos en cada grupo de SQL para permitir que la identidad del sistema administrada del área de trabajo ejecute canalizaciones en las bases de datos del grupo de SQL:  
+
+>[!note]
+>En los siguientes scripts, para una base de datos de grupo de SQL dedicado, databasename es igual que el nombre del grupo.  En el caso de una base de datos del grupo de SQL sin servidor "Integrado", databasename es el nombre de la base de datos.
 
 ```sql
---Create user in DB
+--Create a SQL user for the workspace MSI in database
 CREATE USER [<workspacename>] FROM EXTERNAL PROVIDER;
 
 --Granting permission to the identity
-GRANT CONTROL ON DATABASE::<SQLpoolname> TO <workspacename>;
+GRANT CONTROL ON DATABASE::<databasename> TO <workspacename>;
 ```
 
 Este permiso se puede quitar. Para ello, es preciso ejecutar el siguiente script en el mismo grupo de SQL:
 
 ```sql
---Revoking permission to the identity
-REVOKE CONTROL ON DATABASE::<SQLpoolname> TO <workspacename>;
+--Revoke permission granted to the workspace MSI
+REVOKE CONTROL ON DATABASE::<databasename> TO <workspacename>;
 
---Deleting the user in the DB
+--Delete the workspace MSI user in the database
 DROP USER [<workspacename>];
 ```
 

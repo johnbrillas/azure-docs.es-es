@@ -121,7 +121,7 @@ Un clúster de HDInsight ya tiene los paquetes de Sqoop disponibles. Si ha confi
     -rwxrwxrwx   0 sshuser hdfs         18 2016-02-26 21:09 adl://hdiadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1/part-m-00003
     ```
 
-   Cada archivo **part-m-** * corresponde a una fila de la tabla de origen, **Table1**.
+   Cada archivo **part-m-*** corresponde a una fila de la tabla de origen, **Table1**.
 
 ### <a name="export-data-from-data-lake-storage-gen1-into-azure-sql-database"></a>Puede ver el contenido de los archivos part-m-* para comprobarlo.
 

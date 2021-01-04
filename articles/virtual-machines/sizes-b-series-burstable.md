@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: sttsinar
-ms.openlocfilehash: 819654ef88584cb91d6032e46256258aaed524fd
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: ea812df825288eae3822cce01b24ebc82534c541
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500315"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928824"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>Tamaños de las máquinas virtuales ampliables serie B
 
@@ -132,7 +132,7 @@ Por ejemplo, en la instancia anterior, su línea de base es del 20 % y si usa el
 
 ### <a name="q-why-is-my-remaining-credit-set-to-0-after-a-redeploy-or-a-stopstart"></a>P: ¿Por qué tengo el crédito restante se establece en 0 después de volver a hacer una implementación o después de una detención o inicio?
 
-**R**: Si una máquina virtual se "REIMPLEMENTA" y se mueve la máquina virtual a otro nodo, el crédito acumulado se pierde. En cambio, si la máquina virtual se detiene y se inicia, pero sigue en el mismo nodo, conservará el crédito acumulado. Cada vez que se inicia por primera vez una máquina virtual en un nodo, obtiene un crédito inicial. En el caso de Standard_B8ms es de 240.
+**R** : Si una máquina virtual se vuelve a implementar y se mueve a otro nodo, el crédito acumulado se pierde. En cambio, si la máquina virtual se detiene y se inicia, pero sigue en el mismo nodo, conservará el crédito acumulado. Cada vez que se inicia por primera vez una máquina virtual en un nodo, obtiene un crédito inicial. En el caso de Standard_B8ms es de 240.
 
 ### <a name="q-what-happens-if-i-deploy-an-unsupported-os-image-on-b1ls"></a>P: ¿Qué sucede si implemento una imagen de sistema operativo no admitida en B1ls?
 

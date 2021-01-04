@@ -3,15 +3,15 @@ title: Creación de un grupo de Azure Batch sin direcciones IP públicas
 description: Aprenda a crear un grupo sin direcciones IP públicas
 author: pkshultz
 ms.topic: how-to
-ms.date: 10/08/2020
+ms.date: 12/9/2020
 ms.author: peshultz
 ms.custom: references_regions
-ms.openlocfilehash: 09a5632f969117e69e68bbe0df2bfbab9a8a102b
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 806e85fca0a509d56e248fc7779fba0f0a59a61d
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842142"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007677"
 ---
 # <a name="create-an-azure-batch-pool-without-public-ip-addresses"></a>Creación de un grupo de Azure Batch sin direcciones IP públicas
 
@@ -25,7 +25,8 @@ Para restringir el acceso a estos nodos y reducir la detectabilidad de estos nod
 
 > [!IMPORTANT]
 > La compatibilidad con grupos sin direcciones IP públicas en Azure Batch se encuentra actualmente en versión preliminar pública para las siguientes regiones: Centro de Francia, Este de Asia, Centro-oeste de EE. UU., Centro-sur de EE. UU., Oeste de EE. UU. 2, Este de EE. UU., Norte de Europa, Este de EE. UU. 2, Centro de EE. UU., Oeste de Europa, Centro-norte de EE. UU., Oeste de EE. UU., Este de Australia, Este de Japón y Oeste de Japón.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
+> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Requisitos previos
 

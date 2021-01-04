@@ -7,12 +7,12 @@ ms.date: 05/27/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
 ms.custom: devx-track-csharp, devx-track-python, devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: c734c0ceb9c4d5418edc51a2c3ad3c052637ad31
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 4c7ba5806707e818f0ef13717d5f00b542c37614
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94696989"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97092744"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Cómo usar identidades administradas para App Service y Azure Functions
 
@@ -109,7 +109,7 @@ Los siguientes pasos le guiarán por la creación de una aplicación y la asigna
 
 1. Si es necesario, instale Azure PowerShell con las instrucciones que se encuentra en la [guía de Azure PowerShell](/powershell/azure/) y luego ejecute `Login-AzAccount` para crear una conexión con Azure.
 
-2. Cree una aplicación de funciones con Azure PowerShell. Para obtener más ejemplos de cómo usar Azure PowerShell con Azure Functions, vea la [referencia de Az.Functions](/powershell/module/az.functions/?view=azps-4.1.0#functions):
+2. Cree una aplicación de funciones con Azure PowerShell. Para obtener más ejemplos de cómo usar Azure PowerShell con Azure Functions, vea la [referencia de Az.Functions](/powershell/module/az.functions/#functions):
 
     ```azurepowershell-interactive
     # Create a resource group.
@@ -219,7 +219,7 @@ Los siguientes pasos le guiarán por la creación de una aplicación y la asigna
 
 1. Si es necesario, instale Azure PowerShell con las instrucciones que se encuentra en la [guía de Azure PowerShell](/powershell/azure/) y luego ejecute `Login-AzAccount` para crear una conexión con Azure.
 
-2. Cree una aplicación de funciones con Azure PowerShell. Para obtener más ejemplos de cómo usar Azure PowerShell con Azure Functions, vea la [referencia de Az.Functions](/powershell/module/az.functions/?view=azps-4.1.0#functions). El siguiente script también utiliza `New-AzUserAssignedIdentity`, que se debe instalar por separado según el procedimiento de [Crear, enumerar y eliminar una identidad administrada que haya asignado el usuario mediante Azure PowerShell](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md).
+2. Cree una aplicación de funciones con Azure PowerShell. Para obtener más ejemplos de cómo usar Azure PowerShell con Azure Functions, vea la [referencia de Az.Functions](/powershell/module/az.functions/#functions). El siguiente script también utiliza `New-AzUserAssignedIdentity`, que se debe instalar por separado según el procedimiento de [Crear, enumerar y eliminar una identidad administrada que haya asignado el usuario mediante Azure PowerShell](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md).
 
     ```azurepowershell-interactive
     # Create a resource group.
@@ -308,7 +308,7 @@ Una aplicación puede utilizar su identidad administrada para obtener tokens de 
 Es posible que tenga que configurar el recurso de destino para permitir el acceso desde la aplicación. Por ejemplo, si se solicita un token para acceder a Key Vault, debe asegurarse de que ha agregado una directiva de acceso que incluya la identidad de la aplicación. De lo contrario, las llamadas a Key Vault se rechazarán, incluso si incluyen el token. Para más información sobre los recursos que admiten tokens de Azure Active Directory, consulte [Servicios de Azure que admiten autenticación de Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
 > [!IMPORTANT]
-> Los servicios de back-end para identidades administradas mantienen una memoria caché por URI de recurso durante unas ocho horas. Si actualiza la directiva de acceso de un recurso de destino determinado y recupera inmediatamente un token para ese recurso, es posible que siga obteniendo un token en caché con permisos obsoletos hasta la expiración del token. Actualmente no existe ninguna forma de forzar la actualización de un token.
+> Los servicios de back-end para identidades administradas mantienen una memoria caché por URI de recurso durante unas veinticuatro horas. Si actualiza la directiva de acceso de un recurso de destino determinado y recupera inmediatamente un token para ese recurso, es posible que siga obteniendo un token en caché con permisos obsoletos hasta la expiración del token. Actualmente no existe ninguna forma de forzar la actualización de un token.
 
 Hay un protocolo de REST sencillo para obtener un token en App Service y Azure Functions. Se puede usar con todas las aplicaciones y todos los lenguajes. En el caso de .NET y Java, el SDK de Azure ofrece una abstracción sobre este protocolo y facilita una experiencia de desarrollo local.
 
@@ -522,7 +522,8 @@ Update-AzFunctionApp -Name $functionAppName -ResourceGroupName $resourceGroupNam
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-> [!div class="nextstepaction"]
-> [Acceso seguro a SQL Database mediante una identidad administrada](app-service-web-tutorial-connect-msi.md)
+- [Acceso seguro a SQL Database mediante una identidad administrada](app-service-web-tutorial-connect-msi.md)
+- [Acceso seguro a Azure Storage mediante una identidad administrada](scenario-secure-app-access-storage.md)
+- [Llamada segura a Microsoft Graph mediante una identidad administrada](scenario-secure-app-access-microsoft-graph-as-app.md)
 
 [Referencia de Microsoft.Azure.Services.AppAuthentication]: ../key-vault/general/service-to-service-authentication.md

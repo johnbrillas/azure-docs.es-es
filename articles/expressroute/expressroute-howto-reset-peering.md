@@ -1,26 +1,26 @@
 ---
 title: 'Azure ExpressRoute: Restablecimiento de emparejamiento de circuitos'
-description: Aprenda a deshabilitar y habilitar emparejamientos de un circuito de Azure ExpressRoute mediante Azure PowerShell. Cuando se configuran emparejamientos, están habilitados de forma predeterminada.
+description: Aprenda a deshabilitar y habilitar emparejamientos de un circuito de Azure ExpressRoute mediante Azure PowerShell.
 services: expressroute
 author: charwen
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 01/13/2018
+ms.date: 12/15/2020
 ms.author: duau
-ms.openlocfilehash: f3b34966aa46ca8d663f83ab2aceafa4b0dda2eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0bde96ae5f4a9aff6f4a16a4f1544d9b39e5cb66
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89395747"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97559580"
 ---
 # <a name="reset-expressroute-circuit-peerings"></a>Restablecimiento de emparejamientos de circuitos ExpressRoute
 
-En este artículo se describe cómo deshabilitar y habilitar los emparejamientos de un circuito de ExpressRoute mediante PowerShell. Cuando se deshabilita un emparejamiento, la sesión de BGP en la conexión principal y en la conexión secundaria del circuito de ExpressRoute se cerrará. Perderá la conectividad mediante este emparejamiento a Microsoft. Cuando habilita un emparejamiento, la sesión de BGP en la conexión principal y en la conexión secundaria del circuito de ExpressRoute se desactivará. Volverá a establecer la conectividad mediante este emparejamiento a Microsoft. Puede habilitar y deshabilitar el emparejamiento de Microsoft y el emparejamiento privado de Azure en un circuito de ExpressRoute de forma independiente. La primera vez que configure los emparejamientos en el circuito de ExpressRoute, los emparejamientos se habilitan de forma predeterminada.
+En este artículo se describe cómo deshabilitar y habilitar los emparejamientos de un circuito de ExpressRoute mediante PowerShell. Los emparejamientos están habilitados de forma predeterminada cuando se crean. Cuando se deshabilita un emparejamiento, se cerrará la sesión de BGP en las conexiones principal y secundaria del circuito de ExpressRoute. Perderá la conectividad de este emparejamiento con Microsoft. Cuando se habilita un emparejamiento, se desactivará la sesión de BGP en las conexiones principal y secundaria del circuito ExpressRoute. La conectividad con Microsoft se restaurará para este emparejamiento. Asimismo, puede habilitar y deshabilitar el emparejamiento de Microsoft y el emparejamiento privado de Azure de forma independiente, en un circuito de ExpressRoute.
 
-Hay un par de escenarios en los que puede resultarle útil restablecer los emparejamientos de ExpressRoute.
-* Pruebe la implementación y el diseño de recuperación ante desastres. Por ejemplo, tiene dos circuitos de ExpressRoute. Puede deshabilitar los emparejamientos de un circuido y forzar la conmutar por error del tráfico de red a otro circuito.
-* Habilite la detección de reenvío bidireccional (BFD) en el emparejamiento privado de Azure o el emparejamiento de Microsoft de su circuito de ExpressRoute. BFD está habilitado de forma predeterminada en el emparejamiento privado de Azure si el circuito ExpressRoute se ha creado después del 1 de agosto de 2018, y en el emparejamiento de Microsoft si se ha creado después del 10 de enero de 2020. Si el circuito se creó antes de esa fecha, BFD no estará habilitado. Para habilitar BFD, debe deshabilitar el emparejamiento y volverlo a habilitar. 
+Existen dos escenarios en los que puede resultar útil restablecer los emparejamientos de ExpressRoute.
+* Si quiere probar el diseño y la implementación de la recuperación ante desastres. Por ejemplo, tiene dos circuitos de ExpressRoute. Puede deshabilitar los emparejamientos de un circuido y forzar la conmutación por error del tráfico de red a otro circuito.
+* Habilite la detección de reenvío bidireccional (BFD) en el emparejamiento privado de Azure o el emparejamiento de Microsoft de su circuito de ExpressRoute. BFD se habilita de forma predeterminada en el emparejamiento privado de Azure si creó el circuito de ExpressRoute después del 1 de agosto de 2018 y para el emparejamiento de Microsoft después del 10 de enero de 2020. Si el circuito se creó antes de la fecha indicada, deberá restablecer el emparejamiento para habilitar BFD. 
 
 ### <a name="working-with-azure-powershell"></a>Trabajo con Azure PowerShell
 

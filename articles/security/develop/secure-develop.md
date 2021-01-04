@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 6ca0513f95bc490087f3c84eeecc4ea623f64604
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 421fb7b0c91171756f55ad25c918955870054e3e
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94517094"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97511287"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Desarrollo de aplicaciones seguras en Azure
 En este artículo se presentan las actividades de seguridad y los controles que debe tener en cuenta al desarrollar aplicaciones para la nube. Se abarcan los conceptos y preguntas de seguridad que se deben tener en cuenta durante las fases de implementación y comprobación del [ciclo de vida de desarrollo de seguridad (SDL)](/previous-versions/windows/desktop/cc307891(v=msdn.10)) de Microsoft. El objetivo es ayudarle a definir las actividades y los servicios de Azure que puede usar para desarrollar una aplicación más segura.
@@ -38,7 +38,7 @@ Antes de insertar el código en el repositorio, realice [revisiones de código](
 
 ### <a name="perform-static-code-analysis"></a>Realización de análisis de código estático
 
-El [análisis de código estático](https://owasp.org/www-community/controls/Static_Code_Analysis) (también conocido como *análisis de código fuente* ) normalmente se realiza como parte de la revisión de código. El análisis de código estático se refiere normalmente a la ejecución de herramientas de análisis de código estático para encontrar posibles vulnerabilidades en el código que no se está ejecutando mediante técnicas como la [comprobación de objetos corruptos](https://en.wikipedia.org/wiki/Taint_checking) y el [análisis de flujo de datos](https://en.wikipedia.org/wiki/Data-flow_analysis).
+El [análisis de código estático](https://owasp.org/www-community/controls/Static_Code_Analysis) (también conocido como *análisis de código fuente*) normalmente se realiza como parte de la revisión de código. El análisis de código estático se refiere normalmente a la ejecución de herramientas de análisis de código estático para encontrar posibles vulnerabilidades en el código que no se está ejecutando mediante técnicas como la [comprobación de objetos corruptos](https://en.wikipedia.org/wiki/Taint_checking) y el [análisis de flujo de datos](https://en.wikipedia.org/wiki/Data-flow_analysis).
 
 Azure Marketplace ofrece [herramientas de desarrollo](https://azuremarketplace.microsoft.com/marketplace/apps/category/developer-tools?page=1&search=code%20review) que realizan análisis de código estático y le ayudan con las revisiones de código.
 
@@ -48,21 +48,21 @@ Trate todas las entradas como no confiable para proteger la aplicación de las v
 
 Valide las entradas al principio del flujo de datos para asegurarse de que solo los datos con un formato correcto entren en el flujo de trabajo. No querrá que los datos con formato incorrecto se conserven en la base de datos o desencadenen un error de funcionamiento en un componente de nivel inferior.
 
-La incorporación de listas negras y blancas son dos enfoques generales validar la sintaxis de las entradas:
+La incorporación de listas de bloqueados y de permitidos son dos enfoques generales para validar la sintaxis de las entradas:
 
-  - Con las listas negras se intenta comprobar que una entrada de usuario concreta no incluya contenido "malintencionado conocido".
+  - Con las listas de bloqueados se intenta comprobar que una entrada de usuario concreta no incluye contenido "malintencionado conocido".
 
-  - Con las listas blancas se intenta comprobar que una entrada de usuario concreta coincida con un conjunto de entradas "válidas conocidas". La creación de listas blancas basada en caracteres es un tipo de lista blanca en que una aplicación comprueba si la entrada del usuario solo contiene caracteres "válidos conocidos" o si la entrada coincide con un formato conocido.
+  - En cambio, con las listas de permitidos se intenta comprobar que una entrada de usuario concreta coincida con un conjunto de entradas "válidas conocidas". La creación de listas de permitidos basada en caracteres es un tipo de lista de permitidos en la que una aplicación comprueba si la entrada del usuario solo contiene caracteres "válidos conocidos" o si la entrada coincide con un formato conocido.
     Por ejemplo, esto puede implicar la comprobación de si un nombre de usuario contiene solo caracteres alfanuméricos o si contiene exactamente dos números.
 
-La creación de listas blancas es el método preferido para la creación de software seguro.
-Las listas negras son propensas a errores, ya que es imposible pensar en una lista completa de entradas potencialmente erróneas.
+La creación de listas de permitidos es el método preferido para la compilación de software seguro.
+Las listas de bloqueados son propensas a errores, ya que es imposible pensar en una lista completa de entradas potencialmente erróneas.
 
 Estas tareas deben realizarse en el servidor, no en el lado cliente (o en el servidor y en el lado cliente).
 
 ### <a name="verify-your-applications-outputs"></a>Verificación de las salidas de la aplicación
 
-Cualquier salida que muestre visualmente o dentro de un documento siempre debe codificarse e incluir caracteres de escape. El [proceso de escape](https://owasp.org/www-community/Injection_Theory#Escaping_.28aka_Output_Encoding.29), también conocido como *codificación de salida* , se usa para ayudar a garantizar que los datos que no son de confianza no sean un vehículo para los ataques por inyección de código. El proceso de escape, combinado con la validación de datos, proporciona defensas por niveles para aumentar la seguridad del sistema como un todo.
+Cualquier salida que muestre visualmente o dentro de un documento siempre debe codificarse e incluir caracteres de escape. El [proceso de escape](https://owasp.org/www-community/Injection_Theory#Escaping_.28aka_Output_Encoding.29), también conocido como *codificación de salida*, se usa para ayudar a garantizar que los datos que no son de confianza no sean un vehículo para los ataques por inyección de código. El proceso de escape, combinado con la validación de datos, proporciona defensas por niveles para aumentar la seguridad del sistema como un todo.
 
 El proceso de escape garantiza que todo se muestra como *salida.* El proceso de escape también permite que el intérprete sepa que los datos no está diseñados para ejecutarse, y esto impide que los ataques funcionen. Es otra técnica de ataque común denominada *ataque de scripts entre sitios*.
 

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/22/2020
-ms.openlocfilehash: 55651b3201676ee5cddb5412e950791afaa4e87a
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 01af7b251c9ce3bfebb87016c85ea3efd9c0e8ac
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96852139"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928773"
 ---
 # <a name="how-to-connect-azure-data-factory-and-azure-purview"></a>Cómo conectar Azure Data Factory y Azure Purview
 
@@ -42,6 +42,13 @@ Es posible conectar varias instancias de Azure Data Factory a una sola de Data C
 
 ## <a name="create-new-data-factory-connection"></a>Creación de una nueva conexión de Data Factory
 
+>[!Note]
+>Para agregar o quitar conexiones de Data Factory, debe tener asignado alguno de los roles de Purview:
+>- Propietario
+>- Administrador de acceso de usuario
+>
+> Además, requiere que los usuarios sean el "Propietario" o "Colaborador" de la factoría de datos. 
+
 Siga los pasos que se indican a continuación para conectar una cuenta existente de Data Factory a la instancia de Data Catalog de Purview.
 
 1. En el panel de navegación izquierdo, seleccione **Centro de administración**.
@@ -70,11 +77,6 @@ Para quitar una conexión de Data Factory, haga lo siguiente:
 1. Seleccione **Confirmar** en el menú emergente para eliminar las conexiones de Data Factory seleccionadas.
 
     :::image type="content" source="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png" alt-text="Captura de pantalla que muestra cómo seleccionar factorías de datos para quitar la conexión." lightbox="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png":::
-
->[!Note]
->Para agregar o quitar conexiones de Data Factory, debe tener asignado alguno de los roles de Purview:
->- Propietario
->- Administrador de acceso de usuario. Además, requiere que los usuarios sean el "Propietario", "Colaborador" o "Colaborador de Data Factory" de la factoría de datos. 
 
 ## <a name="configure-a-self-hosted-ir-to-collect-lineage-from-on-prem-sql"></a>Configuración de un IR autohospedado para recopilar el linaje desde SQL local
 

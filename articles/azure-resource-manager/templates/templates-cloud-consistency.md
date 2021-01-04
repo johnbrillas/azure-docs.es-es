@@ -1,23 +1,23 @@
 ---
 title: Reutilización de plantillas entre nubes
-description: Desarrollar plantillas de Azure Resource Manager que funcionen de forma coherente para distintos entornos en la nube. Cree o actualice plantillas existentes de Azure Stack.
+description: Desarrolle plantillas de Azure Resource Manager (plantillas de ARM) que funcionen de forma coherente en distintos entornos en la nube. Cree o actualice plantillas existentes de Azure Stack.
 author: marcvaneijk
 ms.topic: conceptual
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: ea010a625c3e3cd6228513299d878733bf3775ce
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 806556a8da97ec84fe8141b95198b4a7da95c062
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92744757"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928365"
 ---
 # <a name="develop-arm-templates-for-cloud-consistency"></a>Desarrollo de plantillas de ARM para la coherencia en la nube
 
 [!INCLUDE [requires-azurerm](../../../includes/requires-azurerm.md)]
 
-Una ventaja clave de Azure es la coherencia. Las inversiones de desarrollo para una ubicación son reutilizables en otra. Una plantilla de Azure Resource Manager (ARM) hace que las implementaciones sean coherentes y repetibles entre los entornos, incluidos Azure global, las nubes soberanas de Azure y Azure Stack. Pero para reutilizar plantillas en las nubes, debe tener en cuenta las dependencias específicas de la nube como se explica en esta guía.
+Una ventaja clave de Azure es la coherencia. Las inversiones de desarrollo para una ubicación son reutilizables en otra. Una plantilla de Azure Resource Manager (plantilla de ARM) hace que las implementaciones sean coherentes y repetibles entre los entornos, incluidos Azure global, las nubes soberanas de Azure y Azure Stack. Pero para reutilizar plantillas en las nubes, debe tener en cuenta las dependencias específicas de la nube como se explica en esta guía.
 
 Microsoft ofrece servicios en la nube inteligentes y preparados para la empresa en varias ubicaciones, incluidas:
 
@@ -205,7 +205,7 @@ Para construir el URI absoluto de un artefacto, el método preferido es usar la 
 }
 ```
 
-Con este enfoque, todos los artefactos de implementación, incluidos los scripts de configuración, se pueden almacenar en la misma ubicación con la plantilla propiamente dicha. Para cambiar la ubicación de todos los vínculos, basta con especificar otra dirección URL base para los _parámetros artifactsLocation_ .
+Con este enfoque, todos los artefactos de implementación, incluidos los scripts de configuración, se pueden almacenar en la misma ubicación con la plantilla propiamente dicha. Para cambiar la ubicación de todos los vínculos, basta con especificar otra dirección URL base para los _parámetros artifactsLocation_.
 
 ## <a name="factor-in-differing-regional-capabilities"></a>Tener en cuenta la diferencia de las funcionalidades regionales
 
@@ -443,8 +443,8 @@ Los espacios de nombres de punto de conexión también se pueden usar en la sali
 
 En general, evite los puntos de conexión codificados de forma rígida en una plantilla. El procedimiento recomendado consiste en usar la función de plantilla de referencia para recuperar los puntos de conexión de forma dinámica. Por ejemplo, el punto de conexión que se codifica de forma rígida con más frecuencia es el espacio de nombres de punto de conexión para las cuentas de almacenamiento. Cada cuenta de almacenamiento tiene un FQDN único que se crea concatenando el nombre de la cuenta de almacenamiento con el espacio de nombres de punto de conexión. Una cuenta de Blob Storage con el nombre mystorageaccount1 da como resultado otro FQDN en función de la nube:
 
-* **mystorageaccount1.blob.core.windows.net** cuando se crea en la nube de Azure global.
-* **mystorageaccount1.blob.core.chinacloudapi.cn** cuando se crea en la nube de Azure China 21Vianet.
+* `mystorageaccount1.blob.core.windows.net` cuando se crea en la nube de Azure global.
+* `mystorageaccount1.blob.core.chinacloudapi.cn` cuando se crea en la nube de Azure China 21Vianet.
 
 La función de plantilla de referencia siguiente recupera el espacio de nombres de punto de conexión del proveedor de recursos de almacenamiento:
 
@@ -611,7 +611,7 @@ Como las extensiones de máquina virtual son recursos propios de Resource Manage
 
 La versión de API del recurso de extensión de máquina virtual debe estar presente en todas las ubicaciones de destino de la plantilla. La dependencia de ubicación funciona como la disponibilidad del proveedor de recursos de versión de API mencionado anteriormente en la sección "Comprobar la versión de todos los tipos de recursos".
 
-Para recuperar una lista de las versiones de API disponibles para el recurso de extensión de máquina virtual, use el cmdlet [Get-AzureRmResourceProvider](/powershell/module/az.resources/get-azresourceprovider) con el proveedor de recursos **Microsoft.Compute** , como se muestra:
+Para recuperar una lista de las versiones de API disponibles para el recurso de extensión de máquina virtual, use el cmdlet [Get-AzureRmResourceProvider](/powershell/module/az.resources/get-azresourceprovider) con el proveedor de recursos **Microsoft.Compute**, como se muestra:
 
 ```azurepowershell-interactive
 Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Compute" | Select-Object -ExpandProperty ResourceTypes | Select ResourceTypeName, Locations, ApiVersions | where {$_.ResourceTypeName -eq "virtualMachines/extensions"}
@@ -641,7 +641,7 @@ Cada extensión específica también tiene una versión. Esta versión se muestr
         ...
 ```
 
-Para recuperar una lista de las versiones disponibles para una extensión de máquina virtual específica, use el cmdlet [Get-AzureRmVMExtensionImage](/powershell/module/az.compute/get-azvmextensionimage). En el ejemplo siguiente se recuperan las versiones disponibles para la extensión PowerShell DSC (Desired State Configuration) desde **myLocation** :
+Para recuperar una lista de las versiones disponibles para una extensión de máquina virtual específica, use el cmdlet [Get-AzureRmVMExtensionImage](/powershell/module/az.compute/get-azvmextensionimage). En el ejemplo siguiente se recuperan las versiones disponibles para la extensión PowerShell DSC (Desired State Configuration) desde **myLocation**:
 
 ```azurepowershell-interactive
 Get-AzureRmVMExtensionImage -Location myLocation -PublisherName Microsoft.PowerShell -Type DSC | FT

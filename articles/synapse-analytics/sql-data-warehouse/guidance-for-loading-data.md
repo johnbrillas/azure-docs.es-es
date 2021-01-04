@@ -11,12 +11,12 @@ ms.date: 11/20/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 39625914f179dfc8d5511b9a3d386cc8332b7efa
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: a96d49a029eb83e24c1fb86954406693aa9c33a3
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96456301"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093968"
 ---
 # <a name="best-practices-for-loading-data-using-dedicated-sql-pools-in-azure-synapse-analytics"></a>Procedimientos recomendados para cargar datos mediante grupos de SQL dedicados en Azure Synapse Analytics
 
@@ -71,6 +71,9 @@ Conéctese al grupo de SQL dedicado y cree un usuario. El código siguiente da p
        ,MEMBERNAME = 'loader'
    );
 ```
+<br><br>
+>[!IMPORTANT] 
+>Este es un ejemplo extremo de asignación del 100 % de los recursos del grupo de SQL a una sola carga. Esto le proporcionará una simultaneidad máxima de 1. Tenga en cuenta que esto solo debe usarse para la carga inicial, donde tendrá que crear grupos de cargas de trabajo adicionales con sus propias configuraciones para equilibrar los recursos en las cargas de trabajo. 
 
 Para ejecutar una carga con recursos para el grupo de cargas de trabajo de carga, inicie sesión como cargador y ejecute la carga.
 

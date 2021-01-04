@@ -4,12 +4,12 @@ description: Aprenda a administrar y supervisar las copias de seguridad del agen
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: b3b648ca27a407640b42932fe2ed7c32f5109114
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 25f0c41b535f9403d0a7027687cc5261cd437275
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89145576"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368603"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Administración de copias de seguridad del agente de Microsoft Azure Recovery Services (MARS) con el servicio Azure Backup
 
@@ -189,6 +189,19 @@ La administración de la directiva de copia de seguridad para MARS se realiza a 
   1. Instale el agente y vuelva a registrarse en el mismo almacén y con la misma frase de contraseña
   1. Inicie el cliente de MARS para ampliar la duración de retención según sus requisitos
 - La máquina recién restaurada, protegida con MARS, seguirá realizando copias de seguridad.  
+
+## <a name="configuring-antivirus-for-the-mars-agent"></a>Configuración del antivirus para el agente de MARS
+
+Se recomienda la siguiente configuración para el software antivirus con el fin de evitar conflictos con el funcionamiento del agente de MARS.
+
+1. **Agregue exclusiones de rutas de acceso**: para evitar la degradación del rendimiento y los posibles conflictos, excluya las siguientes rutas de la supervisión en tiempo real por parte del software antivirus:
+    1. `%ProgramFiles%\Microsoft Azure Recovery Services Agent` y subcarpetas
+    1. **Carpeta temporal**: si la carpeta temporal no está en la ubicación estándar, agréguela también a las exclusiones.  [Consulte aquí los pasos](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible) para determinar la ubicación de la carpeta temporal.
+1. **Agregue exclusiones de binarios**: para evitar la degradación de las actividades de copia de seguridad y consola, excluya los procesos de los siguientes binarios de la supervisión en tiempo real por parte del software antivirus:
+    1. `%ProgramFiles%\Microsoft Azure Recovery Services Agent\bin\cbengine.exe`
+
+>[!NOTE]
+>Aunque la exclusión de estas rutas de acceso será suficiente para la mayoría de los programas antivirus, puede que algunas sigan pudiendo interferir con las operaciones del agente de MARS. Si ve errores inesperados, desinstale temporalmente el software antivirus y supervise si el problema desaparece. Si se resuelve el problema, póngase en contacto con el proveedor del software antivirus para obtener ayuda con la configuración adecuada de su producto.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/1/2020
 ms.author: billgib
 ms.reviewer: jrasnick
-ms.openlocfilehash: aadc8e817eb2b5de856ac73cfd010b48d0531bfc
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: 9735293c182e7fe67a498529425459c13a199101
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96523329"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109800"
 ---
 # <a name="understand-the-roles-required-to-perform-common-tasks-in-synapse"></a>Descripción de los roles necesarios para realizar tareas comunes en Synapse
 
@@ -58,6 +58,7 @@ En la tabla siguiente se muestran las tareas comunes y, para cada tarea, los rol
 
 >[!Note]
 >- El administrador de Synapse no se muestra para cada tarea a menos que sea el único rol que proporciona el permiso necesario.  Un administrador de Synapse puede realizar todas las tareas que habilitan otros roles RBAC de Synapse.</br>
+>- Se muestra el rol RBAC de Synapse mínimo requerido.
 >- Todos los roles RBAC de Synapse de cualquier ámbito le proporcionan permisos de usuario de Synapse en el área de trabajo.
 >- Todos los permisos o acciones de RBAC de Synapse que se muestran en la tabla tienen el prefijo Microsoft/Synapse/áreas de trabajo/... </br>
 
@@ -69,51 +70,50 @@ Tarea (quiero...) |Rol (necesito ser...)|Permiso/acción de RBAC de Synapse
 |Mostrar grupos de SQL, grupos de Apache Spark, entornos de ejecución de integración y acceso a los detalles de configuración|Usuario de Synapse o|leer|
 ||propietario, colaborador o lector de Azure en el área de trabajo|ninguno
 |Mostrar servicios vinculados, credenciales y puntos de conexión privados administrados|Usuario de Synapse|leer
-**Grupos de SQL**||
+GRUPOS DE SQL|
 Crear un grupo de SQL dedicado o un grupo de SQL sin servidor|Propietario o colaborador de Azure en el área de trabajo|ninguno
 Administrar (pausar, escalar o eliminar) un grupo de SQL dedicado|Propietario o colaborador de Azure en el grupo de SQL o el área de trabajo|ninguno
-Crear un script de SQL</br>|Usuario de Synapse o </br>propietario o colaborador de Azure en el área de trabajo </br>*Se requieren permisos SQL adicionales para ejecutar un script de SQL*.|
+Crear un script de SQL</br>|Usuario de Synapse o </br>propietario o colaborador de Azure en el área de trabajo </br>*Se requieren permisos SQL adicionales para ejecutar, publicar o confirmar un script de SQL*.|
 Mostrar y abrir cualquier script de SQL publicado| Usuario de artefactos de Synapse, editor de artefactos, colaborador de Synapse|artefactos/lectura
 Ejecutar un script de SQL en un grupo de SQL sin servidor|Permisos SQL en el grupo (concedidos automáticamente a un administrador de Synapse)|ninguno
-Ejecutar un script de SQL en un grupo de SQL dedicado|Requiere permisos de SQL en el grupo.|ninguno
+Ejecutar un script de SQL en un grupo de SQL dedicado|Permisos de SQL en el grupo|ninguno
 Publicar un script de SQL nuevo, actualizado o eliminado|Editor de artefactos de Synapse, colaborador de Synapse|sqlScripts/escritura, eliminación
-Confirmar cambios en un script de SQL de un repositorio de GIT|Requiere permisos de GIT en el repositorio.|
+Confirmar cambios en un script de SQL el un repositorio de Git|Requiere permisos de GIT en el repositorio.|
 Asignar un administrador de Active Directory en el área de trabajo (mediante las propiedades del área de trabajo de Azure Portal)|Propietario o colaborador de Azure en el área de trabajo |
-**Grupos de Apache Spark**||
+GRUPOS DE APACHE SPARK|
 Creación de un grupo de Apache Spark|Propietario o colaborador de Azure en el área de trabajo|
 Supervisión de aplicaciones de Apache Spark| Usuario de Synapse|leer
 Ver los registros de la ejecución del cuaderno y el trabajo |Operador de proceso de Synapse|
 Cancelar cualquier trabajo del cuaderno o de Spark que se ejecute en un grupo de Apache Spark|Operador de proceso de Synapse en el grupo de Apache Spark.|bigDataPools/useCompute
-Crear un cuaderno o una definición de trabajo|Usuario de Synapse o propietario, colaborador o lector de Azure en el área de trabajo</br> *Se requieren permisos adicionales para ejecutar, publicar o guardar*.|leer
+Crear un cuaderno o una definición de trabajo|Usuario de Synapse o </br>propietario, colaborador o lector de Azure en el área de trabajo</br> *Se requieren permisos adicionales para ejecutar, publicar o confirmar cambios*|leer</br></br></br></br></br> 
 Mostrar y abrir una definición de trabajo o un cuaderno publicado, incluida la revisión de las salidas guardadas|Usuario o editor de artefactos de Synapse, colaborador de Synapse en el área de trabajo|artefactos/lectura
 Ejecutar un cuaderno y revisar su salida|Administrator de Apache Spark de Synapse, operador de proceso de Synapse en el grupo de Apache Spark seleccionado|bigDataPools/useCompute 
 Publicar o eliminar una definición de trabajo o un cuaderno (incluida la salida) en el servicio|Editor de artefactos en el área de trabajo, administrador de Apache Spark de Synapse|cuadernos/escritura, eliminación
-Confirmar cambios en una definición de trabajo o un cuaderno en la rama de trabajo de GIT|Permisos de GIT|ninguno
-**Canalizaciones, entornos de ejecución de integración, flujos de datos, conjuntos de datos y desencadenadores**||
+Confirmar cambios en una definición de trabajo o un cuaderno en el repositorio de Git|Permisos de Git|ninguno
+CANALIZACIONES, ENTORNOS DE EJECUCIÓN, FLUJOS DE DATOS, CONJUNTOS DE DATOS Y DESENCADENADORES|
 Crear, actualizar o eliminar un entorno de ejecución de integración|Propietario o colaborador de Azure en el área de trabajo|
 Supervisar el estado del entorno de ejecución de integración|Usuario de Synapse|lectura, canalizaciones/viewOutputs
 Revisar las ejecuciones de canalización|Editor de artefactos de Synapse/colaborador de Synapse|lectura, canalizaciones/viewOutputs 
-Crear una canalización |Usuario de Synapse </br>[**_en consideración + usuario de credenciales de Synapse en WorkspaceSystemIdentity_* _]</br>_Se requieren permisos adicionales para publicar o guardar*.|lectura, credenciales/UseSecret/acción
-Crear un flujo de datos, un conjunto de datos o un desencadenador |Usuario de Synapse</br>*Se requieren permisos adicionales para publicar o guardar*.|leer
+Crear una canalización |Usuario de Synapse</br>*Se requieren permisos adicionales de Synapse para depurar, agregar desencadenadores, publicar o confirmar cambios*|leer
+Crear un flujo de datos o un conjunto de datos |Usuario de Synapse</br>*Se requieren permisos adicionales de Synapse para publicar o confirmar cambios*|leer
 Mostrar y abrir una canalización publicada |Usuario de artefactos de Synapse | artefactos/lectura
 Obtener una vista previa de los datos del conjunto de datos|Usuario de Synapse + usuario de credenciales de Synapse en WorkspaceSystemIdentity| 
 Depurar una canalización mediante el entorno de ejecución de integración predeterminado|Usuario de Synapse + usuario de credenciales de Synapse en la credencial de WorkspaceSystemIdentity|lectura, </br>credenciales/useSecret
-Crear un desencadenador, incluida la opción de desencadenarlo ahora|Usuario de Synapse + usuario de credenciales de Synapse en WorkspaceSystemIdentity|lectura, credenciales/useSecret/acción
+Crear un desencadenador, incluido el de desencadenar ahora (requiere permiso para ejecutar la canalización)|Usuario de Synapse + usuario de credenciales de Synapse en WorkspaceSystemIdentity|lectura, credenciales/useSecret/acción
+Ejecutar una canalización|Usuario de Synapse + usuario de credenciales de Synapse en WorkspaceSystemIdentity|lectura, credenciales/useSecret/acción
 Copiar datos mediante la herramienta Copiar datos|Usuario de Synapse + usuario de credenciales de Synapse en la identidad del sistema del área de trabajo|lectura, credenciales/useSecret/acción
 Ingerir datos (mediante una programación)|Usuario de Synapse + usuario de credenciales de Synapse en la identidad del sistema del área de trabajo|lectura, credenciales/useSecret/acción
-Publicar una canalización, un flujo de datos o un desencadenador nuevo, actualizado o eliminado en el servicio|Editor de artefactos de Synapse en el área de trabajo|canalizaciones/escritura, eliminación</br>escritura de flujos de datos, eliminación</br>desencadenadores/escritura, eliminación
-Publicar un flujo de datos, un conjunto de datos o un desencadenador nuevo, actualizado o eliminado en el servicio|Editor de artefactos en el área de trabajo|desencadenadores/escritura, eliminación
-Guardar (confirmar) cambios en canalizaciones, flujos de datos, conjuntos de datos y desencadenadores en el repositorio de GIT |Permisos de GIT|ninguno 
-**Servicios vinculados**||
-Crear un servicio vinculado (incluye la asignación de una credencial)|Usuario de Synapse</br>*Se requieren permisos adicionales para ejecutar, publicar o guardar*.|leer
+Publicar una canalización, un flujo de datos o un desencadenador nuevo, actualizado o eliminado en el servicio|Editor de artefactos de Synapse en el área de trabajo|canalizaciones/escritura, eliminación</br>flujos de datos/escritura, eliminación</br>desencadenadores/escritura, eliminación
+Confirmar cambios en canalizaciones, flujos de datos, conjuntos de datos y desencadenadores en el repositorio de Git |Permisos de Git|ninguno 
+SERVICIOS VINCULADOS|
+Crear un servicio vinculado (incluye la asignación de una credencial)|Usuario de Synapse</br>*Se requieren permisos adicionales para usar un servicio vinculado con credenciales, o para publicar o confirmar cambios*|leer
 Mostrar y abrir un servicio vinculado publicado|Usuario de artefactos de Synapse|linkedServices/escritura, eliminación  
-Probar la conexión en un servicio vinculado protegido por una credencial|Usuario de Synapse y usuario de credenciales Synapse|credenciales/useSecret/acción|
-Publicar un servicio vinculado|Editor de artefactos de Synapse|linkedServices/escritura, eliminación
-Guardar (confirmar) definiciones de servicios vinculados en el repositorio de GIT|Permisos de GIT|ninguno
-**Administración de acceso**||
+Probar la conexión en un servicio vinculado protegido por una credencial|Usuario de Synapse más usuario de credenciales Synapse|credenciales/useSecret/acción|
+Publicar un servicio vinculado|Editor de artefactos de Synapse, Data Manager de Synapse Link|linkedServices/escritura, eliminación
+Confirmar definiciones de servicios vinculados en el repositorio de Git|Permisos de Git|ninguno
+ADMINISTRACIÓN DE ACCESO|
 Revisar asignaciones de roles RBAC de Synapse en cualquier ámbito|Usuario de Synapse|leer
-Asignar y quitar asignaciones de roles RBAC de Synapse para usuarios, grupos y entidades de servicio| Administrador de Synapse en el área de trabajo o en un ámbito de elemento de área de trabajo específico|roleAssignments/escritura, eliminación
-Crear o quitar el acceso de RBAC de Synapse a los artefactos de código|Administrador de Synapse en el ámbito del área de trabajo|roleAssignments/escritura, eliminación   
+Asignar y quitar asignaciones de roles RBAC de Synapse para usuarios, grupos y entidades de servicio| Administrador de Synapse en el área de trabajo o en un ámbito de elemento de área de trabajo específico|roleAssignments/escritura, eliminación 
 
 >[!Note]
 >Los usuarios invitados de otro inquilino no podrán revisar, agregar ni cambiar las asignaciones de roles, independientemente del rol que se les haya asignado. 

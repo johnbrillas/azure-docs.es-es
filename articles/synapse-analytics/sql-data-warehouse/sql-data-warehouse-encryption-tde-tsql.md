@@ -11,12 +11,12 @@ ms.date: 04/30/2019
 ms.author: jrasnick
 ms.reviewer: rortloff
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 81a28773f8f13cfb8dac75f1c4e11fd773c2c8f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d9a80a9001d1d989495a246bbbc8fa703f58e08a
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85212204"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96919928"
 ---
 # <a name="get-started-with-transparent-data-encryption-tde"></a>Introducción al cifrado de datos transparente (TDE)
 
@@ -54,7 +54,7 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION OFF;
 ```
 
 > [!NOTE]
-> Se debe reanudar una instancia del grupo de SQL en pausa antes de hacer cambios en la configuración de TDE.
+> Se debe reanudar un grupo de SQL dedicado en pausa antes de hacer cambios en la configuración de TDE.
 
 ## <a name="verifying-encryption"></a>Comprobación del cifrado
 

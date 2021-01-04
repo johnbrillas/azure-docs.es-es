@@ -7,17 +7,20 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/18/2018
+ms.date: 12/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a9e7c537e85039675f27fa3e276b6b964ce1679b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+zone_pivot_groups: b2c-policy-type
+ms.openlocfilehash: f3b918fdf753cef75782a47ef157c282ef47e1ed
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85388602"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97503648"
 ---
 # <a name="set-up-direct-sign-in-using-azure-active-directory-b2c"></a>Configuración de inicio de sesión directo con Azure Active Directory B2C
+
+[!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
 Al configurar el inicio de sesión en su aplicación con Azure Active Directory (AD) B2C, puede rellenar previamente el nombre de inicio de sesión o puede iniciar sesión directamente en un proveedor de identidades sociales específico, como Facebook, LinkedIn o una cuenta de Microsoft.
 
@@ -29,7 +32,9 @@ Durante el recorrido de inicio de sesión de un usuario, una aplicación de usua
 
 El usuario puede cambiar el valor en el cuadro de texto de inicio de sesión.
 
-Si usa una directiva personalizada, invalide el perfil técnico `SelfAsserted-LocalAccountSignin-Email`. En la sección `<InputClaims>`, establezca el valor DefaultValue de la notificación signInName en `{OIDC:LoginHint}`. La variable `{OIDC:LoginHint}` contiene el valor del parámetro `login_hint`. Azure AD B2C lee el valor de la notificación signInName y rellena previamente el cuadro de texto de signInName.
+::: zone pivot="b2c-custom-policy"
+
+Para admitir el parámetro login_hint, invalide el perfil técnico `SelfAsserted-LocalAccountSignin-Email`. En la sección `<InputClaims>`, establezca el valor DefaultValue de la notificación signInName en `{OIDC:LoginHint}`. La variable `{OIDC:LoginHint}` contiene el valor del parámetro `login_hint`. Azure AD B2C lee el valor de la notificación signInName y rellena previamente el cuadro de texto de signInName.
 
 ```xml
 <ClaimsProvider>
@@ -45,13 +50,35 @@ Si usa una directiva personalizada, invalide el perfil técnico `SelfAsserted-Lo
 </ClaimsProvider>
 ```
 
+::: zone-end
+
 ## <a name="redirect-sign-in-to-a-social-provider"></a>Redirección del inicio de sesión a un proveedor social
 
 Si se ha configurado el recorrido de inicio de sesión para que la aplicación incluya cuentas de redes sociales como Facebook, LinkedIn o Google, puede especificar el parámetro `domain_hint`. Este parámetro de consulta proporciona una sugerencia a Azure AD B2C acerca del proveedor de identidades sociales que debe usarse para iniciar sesión. Por ejemplo, si la aplicación especifica `domain_hint=facebook.com`, el inicio de sesión va directamente a la página de inicio de sesión de Facebook.
 
 ![Página de inicio de sesión de registro con el parámetro de consulta domain_hint resaltado en la dirección URL](./media/direct-signin/domain-hint.png)
 
-Si usa una directiva personalizada, puede configurar el nombre de dominio mediante el elemento XML `<Domain>domain name</Domain>` de cualquier `<ClaimsProvider>`.
+::: zone pivot="b2c-user-flow"
+
+El parámetro de la cadena de consulta de domain_hint puede establecerse en uno de los siguientes dominios:
+
+- amazon.com
+- facebook.com
+- github.com
+- google.com
+- linkedin.com
+- microsoft.com
+- qq.com
+- twitter.com
+- wechat.com
+- weibo.com 
+- Para [OpenID Connect genérico](identity-provider-generic-openid-connect.md), consulte [Sugerencia de dominio](identity-provider-generic-openid-connect.md#response-mode).
+
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
+
+Para admitir el parámetro domain_hint, puede configurar el nombre de dominio mediante el elemento XML `<Domain>domain name</Domain>` de cualquier `<ClaimsProvider>`.
 
 ```xml
 <ClaimsProvider>
@@ -62,4 +89,5 @@ Si usa una directiva personalizada, puede configurar el nombre de dominio median
     ...
 ```
 
+::: zone-end
 

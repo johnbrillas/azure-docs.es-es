@@ -19,7 +19,7 @@ Este artículo le ayuda a identificar y resolver problemas habituales que se pue
 
 ## <a name="introduction"></a>Introducción
 
-Cuando configura el cifrado de datos para que use una clave administrada por el cliente en Azure Key Vault, el servidor requiere un acceso continuo a la clave. Si el servidor pierde el acceso a la clave administrada por el cliente en Azure Key Vault, denegará todas las conexiones con su correspondiente mensaje de error y cambiará su estado a * **Inaccesible** _ en Azure Portal.
+Cuando configura el cifrado de datos para que use una clave administrada por el cliente en Azure Key Vault, el servidor requiere un acceso continuo a la clave. Si el servidor pierde el acceso a la clave administrada por el cliente en Azure Key Vault, denegará todas las conexiones con su correspondiente mensaje de error y cambiará su estado a ***Inaccesible** _ en Azure Portal.
 
 Si ya no se necesita un servidor de Azure Database for PostgreSQL inaccesible, puede eliminarlo para dejar de incurrir en gastos. No se permite ninguna otra acción en el servidor hasta que se haya restaurado el acceso al almacén de claves y el servidor vuelva a estar disponible. Tampoco es posible cambiar la opción de cifrado de datos de `Yes`(administrada por el cliente) a `No` (administrada por el servicio) en un servidor inaccesible mientras este está cifrado con una clave administrada por el cliente. Tendrá que volver a validar la clave manualmente antes de que se pueda acceder al servidor de nuevo. Esta acción es necesaria para proteger los datos contra el acceso no autorizado mientras se revocan los permisos para la clave administrada por el cliente.
 
@@ -44,12 +44,12 @@ Las siguientes configuraciones incorrectas producen la mayoría de los problemas
 #### <a name="disabled-key-vault"></a>Almacén de claves deshabilitado
 
 - `AzureKeyVaultKeyDisabledMessage`
-- _*Explicación**: La operación no pudo completarse en el servidor porque la clave de Azure Key Vault está deshabilitada.
+- **Explicación**: La operación no pudo completarse en el servidor porque la clave de Azure Key Vault está deshabilitada.
 
 #### <a name="missing-key-vault-permissions"></a>Permisos de Key Vault que faltan
 
 - `AzureKeyVaultMissingPermissionsMessage`
-- **Explicación** : El servidor no tiene los permisos Get, Wrap y Unwrap necesarios para Azure Key Vault. Conceda los permisos que faltan a la entidad de servicio con identificador.
+- **Explicación**: El servidor no tiene los permisos Get, Wrap y Unwrap necesarios para Azure Key Vault. Conceda los permisos que faltan a la entidad de servicio con identificador.
 
 ### <a name="mitigation"></a>Mitigación
 

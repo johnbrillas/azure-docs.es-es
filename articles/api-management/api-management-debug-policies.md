@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/22/2020
 ms.author: apimpm
-ms.openlocfilehash: 4eb32243df219d721d7baae80984c45d0fc4cf25
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a8ed834c9ab093ae063e386978bca4d73fa46543
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91339707"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400733"
 ---
 # <a name="debug-azure-api-management-policies-in-visual-studio-code"></a>Depuración de directivas de Azure API Management en Visual Studio Code
 
@@ -30,9 +30,11 @@ En este artículo se describe cómo depurar directivas de API Management mediant
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-En primer lugar, cree una instancia de API Management de nivel de desarrollador siguiendo este [tutorial](get-started-create-service-instance.md).
+* En primer lugar, cree una instancia de API Management de nivel de desarrollador siguiendo este [tutorial de inicio rápido](get-started-create-service-instance.md).
 
-Instale [Visual Studio Code](https://code.visualstudio.com/) y la versión más reciente de la [extensión de Azure API Management para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement). 
+* Instale [Visual Studio Code](https://code.visualstudio.com/) y la versión más reciente de la [extensión de Azure API Management para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement). 
+
+* Importe una API a la instancia de API Management. Para ver los pasos de ejemplo, consulte [Tutorial: Uso de la extensión API Management para Visual Studio Code para importar y administrar las API](visual-studio-code-tutorial.md).
 
 ## <a name="restrictions-and-limitations"></a>Restricciones y limitaciones
 

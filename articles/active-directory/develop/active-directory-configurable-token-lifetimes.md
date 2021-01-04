@@ -9,23 +9,23 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/29/2020
+ms.date: 12/14/2020
 ms.author: ryanwi
-ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1, contperfq1
+ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1, contperf-fy21q1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: 4dab75a4e95a7561bc86176816cb402c10de781e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: f73186612fe79af88e84956bb4d0f0b374f4c986
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93077428"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507802"
 ---
 # <a name="configurable-token-lifetimes-in-microsoft-identity-platform-preview"></a>Vigencia de tokens configurable en la Plataforma de identidad de Microsoft (versión preliminar)
 
 > [!IMPORTANT]
-> A partir del 30 de enero de 2021, los inquilinos ya no podrán configurar la duración de los tokens de actualización y sesión, y Azure Active Directory dejará de respetar la configuración de los tokens de sesión y actualización en las directivas después de esa fecha.
+> Después de mayo de 2020, los inquilinos ya no podrán configurar la vigencia de los tokens de sesión y la actualización.  Azure Active Directory dejará de respetar la configuración existente de los tokens de sesión y la actualización en las directivas después del 30 de enero de 2021. Después, podrá seguir configurando la duración del token de acceso.
 >
-> Si necesita seguir definiendo el período de tiempo antes de que se pida al usuario que vuelva a iniciar sesión, configure la frecuencia de inicio de sesión en el acceso condicional. Para más información sobre el acceso condicional, visite la [página de precios de Azure AD](https://azure.microsoft.com/en-us/pricing/details/active-directory/).
+> Si necesita seguir definiendo el período de tiempo antes de que se pida al usuario que vuelva a iniciar sesión, configure la frecuencia de inicio de sesión en el acceso condicional. Para obtener más información sobre el acceso condicional, consulte [Configuración de la administración de las sesiones de autenticación con el acceso condicional](/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime).
 >
 > En el caso de los inquilinos que no usan el acceso condicional después de la fecha de retirada, pueden esperar que Azure AD respetará la configuración predeterminada que se describe en la sección siguiente.
 

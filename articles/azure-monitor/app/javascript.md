@@ -4,12 +4,12 @@ description: Obtenga recuentos de sesiones y vistas de página, además de datos
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: b109aaea1ae5e751f40b55a3c703f0739661e10d
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 0588a3eac4ced6cec1e7aea431c6555bbe8bff0a
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876216"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97559886"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights para páginas web
 
@@ -19,8 +19,11 @@ Puede utilizar Application Insights con cualquier página web, solo tiene que ag
 
 ## <a name="adding-the-javascript-sdk"></a>Adición del SDK de JavaScript
 
+> [!IMPORTANT]
+> Las nuevas regiones de Azure **requieren** el uso de cadenas de conexión en lugar de claves de instrumentación. La [cadena de conexión](./sdk-connection-string.md?tabs=js) identifica el recurso con el que se quieren asociar los datos de telemetría. También permite modificar los puntos de conexión que va a usar el recurso como destino de la telemetría. Tiene que copiar la cadena de conexión y agregarla al código de la aplicación o a una variable de entorno.
+
 1. En primer lugar, necesita un recurso de Application Insights. Si aún no tiene un recurso y una clave de instrumentación, siga las [instrucciones para crear un nuevo recurso](create-new-resource.md).
-2. Copie la _clave de instrumentación_ (también conocida como "iKey") del recurso al que desea que se envíe la telemetría de JavaScript (del paso 1). Lo agregará al valor `instrumentationKey` del SDK de JavaScript de Application Insights.
+2. Copie la _clave de instrumentación_ (también conocida como "iKey") o la [cadena de conexión](#connection-string-setup) del recurso al que quiera que se envíe la telemetría de JavaScript (del paso 1). Lo agregará al valor `instrumentationKey` o `connectionString` del SDK de JavaScript de Application Insights.
 3. Agregue el SDK de JavaScript de Application Insights a su página web o aplicación mediante una de las dos opciones siguientes:
     * [Configuración de npm](#npm-based-setup)
     * [Fragmento de código Javascript](#snippet-based-setup)
@@ -102,7 +105,7 @@ Ahora, todas las opciones de configuración se han trasladado al final del scrip
 
 Cada opción de configuración se muestra arriba en una nueva línea. Si no desea invalidar el valor predeterminado de un elemento mostrado como [opcional], puede quitar esa línea para minimizar el tamaño resultante de la página devuelta.
 
-Las opciones de configuración disponibles son las siguientes: 
+Las opciones de configuración disponibles son las siguientes:
 
 | Nombre | Tipo | Descripción
 |------|------|----------------
@@ -112,6 +115,20 @@ Las opciones de configuración disponibles son las siguientes:
 | useXhr | booleano *[opcional]* | Este valor solo se usa para notificar errores de carga del SDK. Los informes intentarán primero usar fetch() si está disponible y luego recurrirán a XHR. Si establece este valor en true, simplemente se omitirá la comprobación de fetch. El uso de este valor solo es necesario si la aplicación se usa en un entorno en el que fetch no enviaría los eventos de error.
 | crossOrigin | cadena *[opcional]* | Al incluir este valor, la etiqueta de script agregada para descargar el SDK incluirá el atributo crossOrigin con este valor de cadena. Cuando no se define (que es la opción predeterminada), no se agrega ningún atributo crossOrigin. Los valores recomendados no se definen (que es la opción predeterminada); ""; o "anonymous" (para todos los valores válidos, consulte la documentación [Atributo HTML: `crossorigin`](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/crossorigin))
 | cfg | objeto **[obligatorio]** | Se trata de la configuración pasada al SDK de Application Insights durante la inicialización.
+
+### <a name="connection-string-setup"></a>Configuración de la cadena de conexión
+
+Para realizar la instalación de NPM o del fragmento de código, también puede configurar la instancia de Application Insights mediante una cadena de conexión. Simplemente reemplace el campo `instrumentationKey` por el campo `connectionString`.
+```js
+import { ApplicationInsights } from '@microsoft/applicationinsights-web'
+
+const appInsights = new ApplicationInsights({ config: {
+  connectionString: 'YOUR_CONNECTION_STRING_GOES_HERE'
+  /* ...Other Configuration Options... */
+} });
+appInsights.loadAppInsights();
+appInsights.trackPageView();
+```
 
 ### <a name="sending-telemetry-to-the-azure-portal"></a>Envío de telemetría a Azure Portal
 
@@ -161,10 +178,10 @@ La mayoría de los campos de configuración tienen un nombre que permite estable
 | sessionExpirationMs | 86400000 | Se registra una sesión si ha continuado durante este período de tiempo en milisegundos. El valor predeterminado es 24 horas. |
 | maxBatchSizeInBytes | 10000 | Tamaño máximo del lote de telemetría. Si un lote supera este límite, se envía inmediatamente y se inicia un nuevo lote. |
 | maxBatchInterval | 15000 | Cuánto tiempo deben recopilar datos de telemetría en lote antes de enviarlos (milisegundos). |
-| disableExceptionTracking | false | Si es true, las excepciones no se recopilan automáticamente. El valor predeterminado es False. |
+| disableExceptionTracking | false | Si es "true", las excepciones no se recopilan automáticamente. El valor predeterminado es False. |
 | disableTelemetry | false | Si es true, no se recopila ni se envía la telemetría. El valor predeterminado es False. |
-| enableDebug | false | Si es true, los datos de depuración **internos** se devuelven como una excepción **en lugar de** registrarse, independientemente de la configuración de registro del SDK. El valor predeterminado es False. <br>***Nota:*** Si se habilita este valor, se descartará la telemetría siempre que se produzca un error interno. Esto puede ser útil para identificar rápidamente problemas con la configuración o el uso del SDK. Si no desea perder telemetría durante la depuración, considere la posibilidad de usar `consoleLoggingLevel` o `telemetryLoggingLevel` en lugar de `enableDebug`. |
-| loggingLevelConsole | 0 | Registra errores **internos** de Application Insights en la consola. <br>0: desactivado <br>1: solo errores críticos <br>2: todo (errores y advertencias) |
+| enableDebug | false | Si es true, los datos de depuración **internos** se devuelven como una excepción **en lugar de** registrarse, independientemente de la configuración de registro del SDK. El valor predeterminado es False. <br>**_Nota:_* Si se habilita este valor de configuración, se descartará la telemetría siempre que se produzca un error interno. Esto puede ser útil para identificar rápidamente problemas con la configuración o el uso del SDK. Si no desea perder telemetría durante la depuración, considere la posibilidad de usar `consoleLoggingLevel` o `telemetryLoggingLevel` en lugar de `enableDebug`. |
+| loggingLevelConsole | 0 | Registra errores _ *internos** de Application Insights en la consola. <br>0: desactivado <br>1: solo errores críticos <br>2: todo (errores y advertencias) |
 | loggingLevelTelemetry | 1 | Envía errores **internos** de Application Insights como telemetría. <br>0: desactivado <br>1: solo errores críticos <br>2: todo (errores y advertencias) |
 | diagnosticLogInterval | 10000 | (interno) Intervalo de sondeo (en milisegundos) para la cola de registro interno |
 | samplingPercentage | 100 | Porcentaje de eventos que se enviarán. El valor predeterminado es 100, lo que significa que se envían todos los eventos. Establézcalo si desea conservar el límite de datos para aplicaciones a gran escala. |

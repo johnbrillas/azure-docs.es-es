@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 96cd460ddfea863eb27a1087ff59f3b87acf65d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 41cfff11e44a3d052614aa3c81a4623f59bbbbf5
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90531311"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095294"
 ---
 # <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Escalado y planeamiento de capacidad de Azure Service Fabric
 
@@ -50,21 +50,11 @@ Para [escalar verticalmente](./virtual-machine-scale-set-scale-node-type-scale-o
 > [!NOTE]
 > El tipo de nodo principal que hospeda los servicios del sistema con estado de Service Fabric deben tener un nivel de durabilidad Silver o superior. Tras habilitar la durabilidad nivel Silver, las operaciones del clúster tales como las actualizaciones o la adición o eliminación de nodos serán más lentas, ya que el sistema realiza optimizaciones para la seguridad de los datos y no para la velocidad de las operaciones.
 
-La realización del escalado vertical de un conjunto de escalado de máquinas virtuales es una operación destructiva. En su lugar, escale horizontalmente el clúster mediante la adición de un nuevo conjunto de escalado con la SKU que quiera. Luego, migre los servicios a la SKU que quiera para completar una operación de escalado vertical segura. El cambio de la SKU del recurso de conjunto de escalado de máquinas virtuales es una operación destructiva ya que restablece la imagen inicial de los hosts, lo que elimina todos los estados que persistan de forma local.
+El escalado vertical de un conjunto de escalado de máquinas virtuales con solo cambiar su SKU de recursos es una operación destructiva, ya que se vuelven a crear imágenes de los hosts, con lo que se quita todo el estado guardado localmente. En su lugar, será conveniente escalar horizontalmente el clúster agregando un nuevo conjunto de escalado con la SKU deseada y, luego, migrar los servicios al nuevo conjunto de escalado para completar una operación de escalado vertical seguro.
 
-El clúster usa las [restricciones de ubicación y propiedades de nodo](./service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints) de Service Fabric para determinar en qué ubicación hospedará los servicios de las aplicaciones. Cuando se escale verticalmente el tipo de nodo principal, declare valores de propiedad idénticos para `"nodeTypeRef"`. Puede encontrar estos valores en la extensión de Service Fabric para conjuntos de escalado de máquinas virtuales. 
-
-El siguiente fragmento de una plantilla de Resource Manager muestra las propiedades que se van a declarar. Tiene el mismo valor para los conjuntos de escalado recién aprovisionados a los que se está escalando y solo se admite como un servicio con estado temporal del clúster.
-
-```json
-"settings": {
-   "nodeTypeRef": ["[parameters('primaryNodetypeName')]"]
-}
-```
+El clúster usa las [restricciones de ubicación y propiedades de nodo](./service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints) de Service Fabric para determinar en qué ubicación hospedará los servicios de las aplicaciones. Al escalar verticalmente un tipo de nodo principal, implementará un segundo tipo de nodo principal y, a continuación, establecerá (`"isPrimary": false`) en el tipo de nodo principal original. Luego, continuará con la deshabilitación de sus nodos y quitará su conjunto de escalado y sus recursos relacionados. Para más información, consulte [Escalado vertical de un tipo de nodo principal de un clúster de Service Fabric](service-fabric-scale-up-primary-node-type.md).
 
 > [!NOTE]
-> No deje el clúster ejecutándose con varios conjuntos de escalado que usen los mismos valores de la propiedad `nodeTypeRef` durante más tiempo del necesario para que la operación de escalado vertical se realice correctamente.
->
 > Valide siempre las operaciones en entornos de prueba antes de intentar realizar cambios en el entorno de producción. De manera predeterminada, los servicios de sistema del clúster de Service Fabric tienen una restricción de ubicación solo para el tipo de nodo principal de destino.
 
 Una vez declaradas las restricciones de ubicación y las propiedades de nodo, realice los siguientes pasos en una instancia de máquina virtual a la vez. De este modo, los servicios del sistema (y los servicios con estado) se apagarán correctamente en la instancia de máquina virtual que se va a quitar a la vez que se crean nuevas réplicas en otros nodos.

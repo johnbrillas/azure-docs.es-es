@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: 0e209e8114d8f1791a00e87894fa12206edcf34e
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 29a314553584843ed6241b9311e9d72b42ec8705
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94700229"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516406"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-cognitive-search-service"></a>Creación y administración de claves de API para un servicio de Azure Cognitive Search
 
@@ -88,6 +88,7 @@ Todavía puede tener acceso al servicio mediante el portal o la capa de administ
 Después de crear nuevas claves a través del portal o la capa de administración, se restaura el acceso al contenido (índices, indexadores, orígenes de datos, las asignaciones de sinónimos) una vez que tiene las nuevas claves y las proporciona en las solicitudes.
 
 ## <a name="secure-api-keys"></a>Protección de las claves de API
+
 La seguridad de las claves se garantiza mediante la restricción del acceso a través del portal o de las interfaces de Resource Manager (PowerShell o interfaz de línea de comandos). Como se ha indicado, los administradores de suscripciones pueden ver y volver a generar todas las claves de API. Como medida de precaución, revise las asignaciones de roles para conocer quién tiene acceso a las claves de administración.
 
 + En el panel de servicio, haga clic en **Control de acceso (IAM)** y, a continuación, en la pestaña **Asignaciones de roles** para ver las asignaciones de roles para su servicio.

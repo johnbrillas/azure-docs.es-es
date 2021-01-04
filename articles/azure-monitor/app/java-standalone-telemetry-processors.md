@@ -1,19 +1,19 @@
 ---
-title: 'Procesadores de telemetría (versión preliminar): Application Insights Java de Azure Monitor'
-description: Procesadores de telemetría para Application Insights Java de Azure Monitor
+title: 'Procesadores de telemetría (versión preliminar): Azure Monitor Application Insights para Java'
+description: Configuración de los procesadores de telemetría en Azure Monitor Application Insights para Java
 ms.topic: conceptual
 ms.date: 10/29/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 316243e130345ce1b009e065cf9d8250c501ee84
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 7fd53c77b64e028ffad25c8fa7a9eefd95439513
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96601040"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387163"
 ---
-# <a name="telemetry-processors-preview-for-azure-monitor-application-insights-java"></a>Procesadores de telemetría (versión preliminar) para Application Insights Java de Azure Monitor
+# <a name="telemetry-processors-preview---azure-monitor-application-insights-for-java"></a>Procesadores de telemetría (versión preliminar): Azure Monitor Application Insights para Java
 
 > [!NOTE]
 > Esta característica aún sigue en la fase de versión preliminar.

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a0ad14481673f0061fb0170e60869109c87a6829
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: b4e268d35a2e31db0ce92ff61e66fd23bce68e38
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94379793"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516360"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Configuración de tokens en Azure Active Directory B2C
 
@@ -97,7 +97,7 @@ Las siguientes propiedades se utilizan para [administrar la compatibilidad de lo
 
 ## <a name="pass-through"></a>Paso a través
 
-Cuando se inicia un recorrido del usuario, Azure AD B2C recibe un token de acceso de un proveedor de identidades. Azure AD B2C usa ese token para recuperar información sobre el usuario. [Habilite una notificación en el flujo de usuario](idp-pass-through-user-flow.md) o [defina una notificación en la directiva personalizada](idp-pass-through-custom.md) para pasar el token a través de las aplicaciones que registre en Azure AD B2C. La aplicación debe usar un [flujo de usuario recomendado](user-flow-versions.md) para aprovechar las ventajas de pasar el token como una notificación.
+Cuando se inicia un recorrido del usuario, Azure AD B2C recibe un token de acceso de un proveedor de identidades. Azure AD B2C usa ese token para recuperar información sobre el usuario. Habilite una notificación en el flujo de usuario para [pasar el token a través](idp-pass-through-user-flow.md) de las aplicaciones que registre en Azure AD B2C. La aplicación debe usar un [flujo de usuario recomendado](user-flow-versions.md) para aprovechar las ventajas de pasar el token como una notificación.
 
 Azure AD B2C actualmente solo admite pasar el token de acceso de proveedores de identidades de OAuth 2.0, incluidos Facebook y Google. Para todos los demás proveedores de identidades, la notificación se devuelve en blanco.
 

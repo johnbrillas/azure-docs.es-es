@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: a2144827cd27c0af6610dabdf5ad205359f550cc
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 9b5b20de1b86eae72de54b3f2c1cf37074fba144
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96435491"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095175"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Creación y administración de grupos de acciones en Azure Portal
 Un grupo de acciones es una colección de las preferencias de notificación que el propietario de una suscripción de Azure define. Las alertas de Azure Monitor y Service Health usan grupos de acciones para notificar a los usuarios que se ha desencadenado una alerta. Varias alertas pueden usar el mismo grupo de acciones o distintos grupos de acciones en función de los requisitos del usuario. 
@@ -250,7 +250,47 @@ En un grupo de acciones puede tener un número limitado de acciones de SMS.
 > Si la interfaz de usuario del grupo de acciones de Azure Portal no permite seleccionar el código de país o región, no se admite SMS para el país o región.  Si el código de país o región no está disponible, puede votar en [UserVoice](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice) para que el país o región se agregue. Mientras tanto, como solución alternativa, haga que el grupo de acciones llame a un webhook de un proveedor de SMS de terceros con soporte en el país o región.  
 
 Los precios de los países o regiones admitidos se muestran en la [página de precios de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
-  
+
+**Lista de países en los que se admite la notificación por SMS**
+
+| Código de país | Nombre de país |
+|:---|:---|
+| 61 | Australia |
+| 43 | Austria |
+| 32 | Bélgica |
+| 55 | Brasil |
+| 1 |Canadá |
+| 56 | Chile |
+| 86 | China |
+| 420 | República Checa |
+| 45 | Dinamarca |
+| 372 | Estonia |
+| 358 | Finlandia |
+| 33 | Francia |
+| 49 | Alemania |
+| 852 | RAE de Hong Kong |
+| 91 | India |
+| 353 | Irlanda |
+| 972 | Israel |
+| 39 | Italia |
+| 81 | Japón |
+| 352 | Luxemburgo |
+| 60 | Malasia |
+| 52 | México |
+| 31 | Países Bajos |
+| 64 | Nueva Zelanda |
+| 47 | Noruega |
+| 351 | Portugal |
+| 1 | Puerto Rico |
+| 40 | Rumanía |
+| 65 | Singapur |
+| 27 | Sudáfrica |
+| 82 | Corea del Sur |
+| 34 | España |
+| 41 | Suiza |
+| 886 | Taiwán |
+| 44 | Reino Unido |
+| 1 | Estados Unidos |
 
 ### <a name="voice"></a>Voz
 Consulte el artículo [Información sobre las limitaciones](./alerts-rate-limiting.md) para comportamientos importantes adicionales.
@@ -259,6 +299,7 @@ En un grupo de acciones puede tener un número limitado de acciones de voz.
 
 > [!NOTE]
 > Si la interfaz de usuario del grupo de acciones de Azure Portal no permite seleccionar el código de país o región, no se admiten llamadas de voz en el país o región. Si el código de país o región no está disponible, puede votar en [UserVoice](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice) para que el país o región se agregue.  Mientras tanto, como solución alternativa, haga que el grupo de acciones llame a un webhook de un proveedor de llamadas de voz de terceros con soporte en el país o región.  
+> El único código de país que se admite actualmente en el grupo de acciones de Azure Portal para las notificaciones de voz es +1 (Estados Unidos). 
 
 Los precios de los países o regiones admitidos se muestran en la [página de precios de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
 

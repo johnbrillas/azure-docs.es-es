@@ -7,15 +7,14 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 10/16/2020
+ms.date: 12/09/2020
 ms.author: rolyon
-ms.reviewer: bagovind
-ms.openlocfilehash: a5b019068368f1c0c076f5a1ed157c288bb7169c
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 06a9a955e8a963f94b1885abf5a920cb96c01940
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92479925"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007487"
 ---
 # <a name="list-azure-role-assignments-using-the-azure-portal"></a>Enumeración de asignaciones de roles de Azure mediante Azure Portal
 
@@ -26,7 +25,7 @@ ms.locfileid: "92479925"
 
 ## <a name="list-role-assignments-for-a-user-or-group"></a>Lista de las asignaciones de rol de un usuario o grupo
 
-La forma más fácil de ver los roles asignados a un usuario o grupo de una suscripción es usar el panel **Asignaciones de roles de Azure**.
+Una forma rápida de ver los roles asignados a un usuario o grupo de una suscripción es usar el panel **Asignaciones de roles de Azure**.
 
 1. En el menú de Azure Portal, seleccione **Todos los servicios**.
 
@@ -56,11 +55,11 @@ Los usuarios que se han asignado al rol de [propietario](built-in-roles.md#owner
 
 1. Desplácese hasta la sección **Propietarios** para ver todos los usuarios a los que se ha asignado el rol de propietario para esta suscripción.
 
-   ![Control de acceso a la suscripción: pestaña Asignaciones de roles](./media/role-assignments-list-portal/access-control-role-assignments-subscription.png)
+   ![Control de acceso a la suscripción: pestaña Asignaciones de roles](./media/role-assignments-list-portal/sub-access-control-role-assignments-owners.png)
 
 ## <a name="list-role-assignments-at-a-scope"></a>Lista de las asignaciones de roles en un ámbito
 
-1. En Azure Portal, haga clic en **Todos los servicios** y luego seleccione el ámbito. Por ejemplo, puede seleccionar **Grupos de administración** , **Suscripciones** , **Grupos de recursos** o un recurso.
+1. En Azure Portal, haga clic en **Todos los servicios** y luego seleccione el ámbito. Por ejemplo, puede seleccionar **Grupos de administración**, **Suscripciones**, **Grupos de recursos** o un recurso.
 
 1. Haga clic en el recurso específico.
 
@@ -68,15 +67,15 @@ Los usuarios que se han asignado al rol de [propietario](built-in-roles.md#owner
 
 1. Haga clic en la pestaña **Asignaciones de roles** para ver todas las asignaciones de roles en este ámbito.
 
-   ![Control de acceso: pestaña Asignaciones de roles](./media/role-assignments-list-portal/access-control-role-assignments.png)
+   ![Control de acceso: pestaña Asignaciones de roles](./media/role-assignments-list-portal/rg-access-control-role-assignments.png)
 
-   En la pestaña Asignaciones de roles puede ver quién tiene acceso a este ámbito. Observe que el ámbito de algunos roles es **este recurso** , mientras que el de otros es **(heredado)**  de otro ámbito. El acceso se asigna específicamente a este recurso o se hereda de una asignación en el ámbito principal.
+   En la pestaña Asignaciones de roles puede ver quién tiene acceso a este ámbito. Observe que el ámbito de algunos roles es **este recurso**, mientras que el de otros es **(heredado)**  de otro ámbito. El acceso se asigna específicamente a este recurso o se hereda de una asignación en el ámbito principal.
 
 ## <a name="list-role-assignments-for-a-user-at-a-scope"></a>Lista de las asignaciones de rol de un usuario en un ámbito
 
 Para mostrar el acceso de un usuario, grupo, entidad de servicio o identidad administra, puede mostrar sus asignaciones de roles. Siga estos pasos para mostrar las asignaciones de roles de un solo usuario, grupo, entidad de servicio o identidad administrada en un ámbito determinado.
 
-1. En Azure Portal, haga clic en **Todos los servicios** y luego seleccione el ámbito. Por ejemplo, puede seleccionar **Grupos de administración** , **Suscripciones** , **Grupos de recursos** o un recurso.
+1. En Azure Portal, haga clic en **Todos los servicios** y luego seleccione el ámbito. Por ejemplo, puede seleccionar **Grupos de administración**, **Suscripciones**, **Grupos de recursos** o un recurso.
 
 1. Haga clic en el recurso específico.
 
@@ -84,19 +83,23 @@ Para mostrar el acceso de un usuario, grupo, entidad de servicio o identidad adm
 
 1. Haga clic en la pestaña **Comprobar acceso**.
 
-    ![Control de acceso: pestaña Comprobar acceso](./media/role-assignments-list-portal/access-control-check-access.png)
+    ![Control de acceso del grupo de recursos: pestaña Comprobar acceso](./media/role-assignments-list-portal/rg-access-control-check-access.png)
 
-1. En la lista **Buscar** , seleccione el tipo de entidad de seguridad cuyo acceso quiere comprobar.
+1. En la lista **Buscar**, seleccione el usuario, el grupo, la entidad de servicio o la identidad administrada para la que desea comprobar el acceso.
 
 1. En el cuadro de búsqueda, escriba una cadena para buscar nombres para mostrar, direcciones de correo electrónico o identificadores de objeto en el directorio.
 
-    ![Lista de selección de Comprobar acceso](./media/role-assignments-list-portal/check-access-select.png)
+    ![Lista de selección de Comprobar acceso](./media/shared/rg-check-access-select.png)
 
 1. Haga clic en la entidad de seguridad para abrir el panel **Asignaciones**.
 
-    ![Panel de asignaciones](./media/role-assignments-list-portal/check-access-assignments.png)
+    En este panel, puede ver el acceso para la entidad de seguridad seleccionada en este ámbito y heredada a este ámbito. No se muestran las asignaciones en ámbitos secundarios. Aparecerán las siguientes asignaciones:
 
-    En este panel puede ver los roles asignados a la entidad de seguridad seleccionada y el ámbito. Si hay asignaciones denegadas en este ámbito o heredadas en este ámbito, se mostrarán.
+    - Asignaciones de roles agregadas con Azure RBAC.
+    - Asignaciones de denegación agregadas mediante Azure Blueprints o aplicaciones administradas de Azure.
+    - Asignaciones de coadministradores y administradores de servicios clásicos para implementaciones clásicas. 
+
+    ![Panel de asignaciones](./media/shared/rg-check-access-assignments-user.png)
 
 ## <a name="list-role-assignments-for-a-managed-identity"></a>Lista de asignaciones de roles para una identidad administrada
 
@@ -110,7 +113,7 @@ Puede mostrar las asignaciones de roles para las identidades administradas asign
 
     ![Identidad administrada asignada por el sistema](./media/shared/identity-system-assigned.png)
 
-1. En **Permisos** , haga clic en **Asignaciones de roles de Azure**.
+1. En **Permisos**, haga clic en **Asignaciones de roles de Azure**.
 
     Verá una lista de los roles asignados a la identidad administrada asignada por el sistema seleccionada en varios ámbitos como los de grupo de administración, suscripción, grupo de recursos o recurso. En esta lista se incluyen todas las asignaciones de roles de las que tenga permiso para leer.
 
@@ -152,7 +155,7 @@ Al descargar asignaciones de roles, debe tener en cuenta los siguientes criterio
 
 Siga estos pasos para descargar asignaciones de roles en un ámbito.
 
-1. En Azure Portal, haga clic en **Todos los servicios** y, a continuación, seleccione el ámbito del que quiere descargar las asignaciones de roles. Por ejemplo, puede seleccionar **Grupos de administración** , **Suscripciones** , **Grupos de recursos** o un recurso.
+1. En Azure Portal, haga clic en **Todos los servicios** y, a continuación, seleccione el ámbito del que quiere descargar las asignaciones de roles. Por ejemplo, puede seleccionar **Grupos de administración**, **Suscripciones**, **Grupos de recursos** o un recurso.
 
 1. Haga clic en el recurso específico.
 
@@ -164,9 +167,9 @@ Siga estos pasos para descargar asignaciones de roles en un ámbito.
 
 1. Use las casillas para seleccionar las asignaciones de roles que quiere incluir en el archivo descargado.
 
-    - **Heredadas** : incluye asignaciones de roles heredadas para el ámbito actual.
-    - **En el ámbito actual** : incluye asignaciones de roles para el ámbito actual.
-    - **Elementos secundarios** : incluye asignaciones de roles en niveles inferiores al ámbito actual. Esta casilla está deshabilitada para el ámbito del grupo de administración.
+    - **Heredadas**: incluye asignaciones de roles heredadas para el ámbito actual.
+    - **En el ámbito actual**: incluye asignaciones de roles para el ámbito actual.
+    - **Elementos secundarios**: incluye asignaciones de roles en niveles inferiores al ámbito actual. Esta casilla está deshabilitada para el ámbito del grupo de administración.
 
 1. Seleccione el formato de archivo, que puede ser con valores separados por comas (CSV) o notación de objetos JavaScript (JSON).
 

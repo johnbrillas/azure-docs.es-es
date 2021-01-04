@@ -1,17 +1,17 @@
 ---
 title: Sincronización del repositorio de GitHub con App Configuration
 description: Uso de Acciones de GitHub para actualizar automáticamente la instancia de App Configuration cuando se actualiza el repositorio de GitHub.
-author: lisaguthrie
-ms.author: lcozzens
-ms.date: 02/20/2020
+author: AlexandraKemperMS
+ms.author: alkemper
+ms.date: 05/28/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: 66d0e32e7dfdd5ab2abee5108ac8ce54c5222747
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6b2b5f4bcbcc5af07a763ee4dff2d42413750fb7
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87371828"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96930286"
 ---
 # <a name="sync-your-github-repository-to-app-configuration"></a>Sincronización del repositorio de GitHub con App Configuration
 
@@ -35,7 +35,7 @@ Para empezar a usar esta acción de GitHub, vaya al repositorio y seleccione la 
 ## <a name="sync-configuration-files-after-a-push"></a>Sincronización de los archivos de configuración después de una inserción
 Esta acción sincroniza los archivos de Azure App Configuration cuando se inserta un cambio en `appsettings.json`. Cuando un desarrollador inserta un cambio en `appsettings.json`, la acción App Configuration Sync actualiza la instancia de App Configuration con los nuevos valores.
 
-La primera sección de este flujo de trabajo especifica que la acción se desencadena *en* una *inserción* que contiene `appsettings.json` para la bifurcación *maestra*. En la segunda sección se enumeran los trabajos que se ejecutan una vez que se desencadena la acción. La acción desprotege los archivos pertinentes y actualiza la instancia de App Configuration con la cadena de conexión almacenada como un secreto en el repositorio.  Para más información sobre el uso de secretos en GitHub, consulte este [artículo de GitHub](https://help.github.com/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets) sobre la creación y el uso de secretos cifrados.
+La primera sección de este flujo de trabajo especifica que la acción se desencadena *en* una *inserción* que contiene `appsettings.json` para la rama *principal*. En la segunda sección se enumeran los trabajos que se ejecutan una vez que se desencadena la acción. La acción desprotege los archivos pertinentes y actualiza la instancia de App Configuration con la cadena de conexión almacenada como un secreto en el repositorio.  Para más información sobre el uso de secretos en GitHub, consulte este [artículo de GitHub](https://help.github.com/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets) sobre la creación y el uso de secretos cifrados.
 
 ```json
 on: 
@@ -177,7 +177,7 @@ jobs:
 ## <a name="use-a-dynamic-label-on-sync"></a>Uso de una etiqueta dinámica en la sincronización
 La siguiente acción inserta una etiqueta dinámica en cada sincronización, lo que garantiza que cada una puede identificarse de forma única y permite que los cambios en el código se asignen a cambios en la configuración.
 
-La primera sección de este flujo de trabajo especifica que la acción se desencadena *en* una *inserción* que contiene `appsettings.json` para la bifurcación *maestra*. En la segunda sección se ejecuta un trabajo que crea una etiqueta única para la actualización de la configuración según el hash de confirmación. Después, el trabajo actualiza la instancia de App Configuration con los nuevos valores y la etiqueta única para esta actualización.
+La primera sección de este flujo de trabajo especifica que la acción se desencadena *en* una *inserción* que contiene `appsettings.json` para la rama *principal*. En la segunda sección se ejecuta un trabajo que crea una etiqueta única para la actualización de la configuración según el hash de confirmación. Después, el trabajo actualiza la instancia de App Configuration con los nuevos valores y la etiqueta única para esta actualización.
 
 ```json
 on: 

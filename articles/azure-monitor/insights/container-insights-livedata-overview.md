@@ -2,14 +2,14 @@
 title: Ver datos en directo (versión preliminar) con Azure Monitor para contenedores | Microsoft Docs
 description: En este artículo se describe la vista en tiempo real de los registros de Kubernetes, eventos y métricas de pod sin usar kubectl en Azure Monitor para contenedores.
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 12/07/2020
 ms.custom: references_regions
-ms.openlocfilehash: 9c431cebddb210add496dcca20a0334cc5b12bd8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3bfc9aa0f0238d99d9336abe592fa721459f4220
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85337963"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97346838"
 ---
 # <a name="how-to-view-kubernetes-logs-events-and-pod-metrics-in-real-time"></a>Cómo ver los registros de Kubernetes, eventos y métricas de pods en tiempo real
 
@@ -22,25 +22,20 @@ En este artículo se proporciona una introducción detallada y le ayuda a entend
 
 Para obtener ayuda para configurar o solucionar problemas de la característica de datos en directo (versión preliminar), revise la [guía de configuración](container-insights-livedata-setup.md). Esta característica accede directamente a la API Kubernetes y se puede encontrar información adicional sobre el modelo de autenticación [aquí](https://kubernetes.io/docs/concepts/overview/kubernetes-api/).
 
-## <a name="live-data-preview-functionality-overview"></a>Información general sobre la funcionalidad de datos en directo (versión preliminar)
+## <a name="view-deployment-live-logs-preview"></a>Visualización de registros en vivo de implementación (versión preliminar)
+Use el procedimiento siguiente para ver los registros en vivo de las implementaciones que forman parte de los clústeres de AKS que no se supervisan con Azure Monitor para contenedores. Si el clúster usa Azure Monitor para contenedores, utilice el procedimiento siguiente para ver los datos en directo de los nodos, los controladores, los contenedores y las implementaciones.
 
-### <a name="search"></a>Search
+1. En el Azure Portal, vaya al grupo de recursos de clúster de AKS y elija el recurso de AKS.
 
-![Ejemplo de filtro del panel de la consola de datos en directo](./media/container-insights-livedata-overview/livedata-pane-filter-example.png)
+2. Seleccione **Cargas de trabajo** en la sección **Kubernetes resources** (Recursos de Kubernetes) del menú.
 
-La característica de datos en directo (versión preliminar) incluye la funcionalidad de búsqueda. En el campo **Búsqueda**, puede filtrar los resultados escribiendo una palabra clave o término, los resultados coincidentes se resaltan para permitir una revisión rápida. Durante la visualización de eventos, puede limitar además los resultados mediante la cápsula **Filtro** que se encuentra a la derecha de la barra de búsqueda. Dependiendo de qué recurso haya seleccionado, la cápsula muestra un pod, un espacio de nombres o un clúster para elegir.
+3. Seleccione una implementación en la pestaña **Implementaciones**.
 
-### <a name="scroll-lock-and-pause"></a>Desplácese, bloquee y pause
+4. Seleccione **Live Logs (preview)** (Registros en vivo [versión preliminar]) en el menú de la implementación.
 
-Para suspender el desplazamiento automático y controlar el comportamiento del panel, de forma que pueda desplazarse manualmente por lo nuevos datos leídos, haga clic en la opción **Desplazar**. Para volver a habilitar el desplazamiento automático, vuelva a hacer clic en la opción **Desplazar**. También puede pausar la recuperación de datos de registros o eventos si hace clic en la opción **Pausar**; cuando esté listo para reanudar, simplemente haga clic en **Reproducir**.
+5. Seleccione un pod para iniciar la recopilación de los datos en directo.
 
-![Vista activa de la pausa en el panel de la consola de datos en directo](./media/container-insights-livedata-overview/livedata-pane-scroll-pause-example.png)
-
->[!IMPORTANT]
->Se recomienda suspender o pausar el desplazamiento automático solo durante un breve período de tiempo mientras se soluciona un problema. Estas solicitudes pueden afectar la disponibilidad y limitación de la API de Kubernetes en el clúster.
-
->[!IMPORTANT]
->Durante el funcionamiento de esta característica, no se almacenan datos de forma permanente. Toda la información capturada durante la sesión se elimina al cerrar el explorador o salir de ella. Los datos solo permanecen presentes para su visualización en el período de cinco minutos de la característica de métricas; también se eliminan las métricas con una antigüedad superior a cinco minutos. El búfer de datos en directo (vista preliminar) se consulta dentro de los límites de uso de memoria razonables.
+    [![Registros en vivo de implementación](./media/container-insights-livedata-overview/live-data-deployment.png)](./media/container-insights-livedata-overview/live-data-deployment.png#lightbox)
 
 ## <a name="view-logs"></a>Ver registros
 
@@ -108,6 +103,32 @@ Puede ver los datos de la métrica en tiempo real cuando se generan con el motor
 Después de autenticarse correctamente, el panel de consola de datos en directo (vista preliminar) aparecerá debajo de la cuadrícula de datos de rendimiento. Los datos de métricas se recuperan y comienzan a transmitirse a la consola para su presentación en los dos gráficos. El título del panel muestra el nombre del pod con el que se agrupa el contenedor.
 
 ![Ver ejemplo de métricas pod](./media/container-insights-livedata-overview/pod-properties-live-metrics.png)
+
+## <a name="using-live-data-views"></a>Uso de las vistas de datos en directo
+En las secciones siguientes se describe la funcionalidad que puede usar en las diferentes vistas de datos en directo.
+
+### <a name="search"></a>Search
+La característica de datos en directo (versión preliminar) incluye la funcionalidad de búsqueda. En el campo **Búsqueda**, puede filtrar los resultados escribiendo una palabra clave o término, los resultados coincidentes se resaltan para permitir una revisión rápida. Durante la visualización de eventos, puede limitar además los resultados mediante la cápsula **Filtro** que se encuentra a la derecha de la barra de búsqueda. Dependiendo de qué recurso haya seleccionado, la cápsula muestra un pod, un espacio de nombres o un clúster para elegir.
+
+![Ejemplo de filtro del panel de la consola de datos en directo](./media/container-insights-livedata-overview/livedata-pane-filter-example.png)
+
+![Ejemplo de filtro del panel de la consola de datos en directo para la implementación](./media/container-insights-livedata-overview/live-data-deployment-search.png)
+
+### <a name="scroll-lock-and-pause"></a>Desplácese, bloquee y pause
+
+Para suspender el desplazamiento automático y controlar el comportamiento del panel, de forma que pueda desplazarse manualmente por lo nuevos datos leídos, haga clic en la opción **Desplazar**. Para volver a habilitar el desplazamiento automático, vuelva a hacer clic en la opción **Desplazar**. También puede pausar la recuperación de datos de registros o eventos si hace clic en la opción **Pausar**; cuando esté listo para reanudar, simplemente haga clic en **Reproducir**.
+
+![Vista activa de la pausa en el panel de la consola de datos en directo](./media/container-insights-livedata-overview/livedata-pane-scroll-pause-example.png)
+
+![Vista activa de la pausa en el panel de la consola de datos en directo para la implementación](./media/container-insights-livedata-overview/live-data-deployment-pause.png)
+
+
+
+>[!IMPORTANT]
+>Se recomienda suspender o pausar el desplazamiento automático solo durante un breve período de tiempo mientras se soluciona un problema. Estas solicitudes pueden afectar la disponibilidad y limitación de la API de Kubernetes en el clúster.
+
+>[!IMPORTANT]
+>Durante el funcionamiento de esta característica, no se almacenan datos de forma permanente. Toda la información capturada durante la sesión se elimina al cerrar el explorador o salir de ella. Los datos solo permanecen presentes para su visualización en el período de cinco minutos de la característica de métricas; también se eliminan las métricas con una antigüedad superior a cinco minutos. El búfer de datos en directo (vista preliminar) se consulta dentro de los límites de uso de memoria razonables.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

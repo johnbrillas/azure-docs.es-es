@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 10/21/2020
 ms.author: ccompy
-ms.openlocfilehash: 963f0698b921caa413c61059ad69284c41b4f265
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 57b2955f8cec059cd20d353eba31dc39ad992d50
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95999465"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97506273"
 ---
 Cuando se utiliza la versión regional de Integración con red virtual, la aplicación puede acceder a:
 
@@ -96,7 +96,17 @@ Las rutas del Protocolo de puerta de enlace de borde (BGP) también afectan al t
 
 ### <a name="azure-dns-private-zones"></a>Azure DNS Private Zones 
 
-Una vez que la aplicación se integra con la red virtual, usa el mismo servidor DNS que el configurado para la red virtual. Para invalidar este comportamiento en la aplicación, configure el valor de la aplicación WEBSITE_DNS_SERVER con la dirección del servidor DNS que quiera. Si tiene un servidor DNS personalizado configurado con la red virtual, pero quiere que la aplicación use zonas privadas de Azure DNS, debe establecer WEBSITE_DNS_SERVER con el valor 168.63.129.16. 
+Una vez que la aplicación se integra con la red virtual, usa el mismo servidor DNS que el configurado para la red virtual. De forma predeterminada, la aplicación no funcionará con Azure DNS Private Zones. Para que lo haga es preciso agregar la siguiente configuración de la aplicación:
+
+
+1. WEBSITE_DNS_SERVER con el valor 168.63.129.16
+1. WEBSITE_VNET_ROUTE_ALL con el valor 1
+
+
+Esta configuración enviará todas las llamadas salientes desde la aplicación a la red virtual, además de permitir que la aplicación use Azure DNS Private Zones.   Esta configuración enviará todas las llamadas salientes desde la aplicación a la red virtual. Además, permitirá que la aplicación use Azure DNS consultando la zona de DNS privada en el nivel de trabajo. Esta funcionalidad se usa cuando una aplicación en ejecución accede a una zona DNS privada.
+
+> [!NOTE]
+>No es posible intentar agregar un dominio personalizado a una aplicación web mediante una zona DNS privada con Integración con red virtual. La validación del dominio personalizado se realiza en el nivel de controlador, no en el nivel de trabajo, lo que impide que se vean los registros DNS. Para utilizar un dominio personalizado de una zona DNS privada, es necesario omitir la validación mediante una instancia de ILB App Service Environment o Application Gateway.
 
 ### <a name="private-endpoints"></a>Puntos de conexión privados
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: e74994847608b7fb59a1bf507691f02cf02b714a
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 937d0b379c4f669e5b57e5053d5e3bffeb091e78
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94408896"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368960"
 ---
 # <a name="security-control-v2-endpoint-security"></a>Control de seguridad V2: seguridad de los puntos de conexión
 
@@ -20,7 +20,7 @@ La seguridad de los puntos de conexión cubre los controles de detección y resp
 
 ## <a name="es-1-use-endpoint-detection-and-response-edr"></a>ES-1: uso de la detección y respuesta de puntos de conexión (EDR)
 
-| Identificador de Azure | Identificadores de CIS Controls v7.1 | Identificadores de NIST SP800-53 r4 |
+| Identificador de Azure | Identificadores de CIS Controls v7.1 | Identificadores de NIST SP 800-53 r4 |
 |--|--|--|--|
 | ES-1 | 8.1 | SI-2, SI-3, SC-3 |
 
@@ -34,9 +34,9 @@ Protección contra amenazas avanzada de Microsoft Defender proporciona la funcio
 
 - [Servicio ATP de Microsoft Defender para servidores que no son de Windows](/windows/security/threat-protection/microsoft-defender-atp/configure-endpoints-non-windows)
 
-**Responsabilidad** : Customer
+**Responsabilidad**: Customer
 
-**Partes interesadas de seguridad del cliente** ( [Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Partes interesadas de seguridad del cliente** ([Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Infraestructura y seguridad de los puntos de conexión](/azure/cloud-adoption-framework/organize/cloud-security)
 
@@ -48,7 +48,7 @@ Protección contra amenazas avanzada de Microsoft Defender proporciona la funcio
 
 ## <a name="es-2-use-centrally-managed-modern-anti-malware-software"></a>ES-2: Uso de software antimalware moderno administrado centralmente
 
-| Identificador de Azure | Identificadores de CIS Controls v7.1 | Identificadores de NIST SP800-53 r4 |
+| Identificador de Azure | Identificadores de CIS Controls v7.1 | Identificadores de NIST SP 800-53 r4 |
 |--|--|--|--|
 | ES-2 | 8.1 | SI-2, SI-3, SC-3 |
 
@@ -62,9 +62,9 @@ Microsoft Antimalware para Azure Cloud Services es el antimalware predeterminado
 
 - [Soluciones de protección de punto de conexión compatibles](../../security-center/security-center-services.md?tabs=features-windows#supported-endpoint-protection-solutions-)
 
-**Responsabilidad** : Customer
+**Responsabilidad**: Customer
 
-**Partes interesadas de seguridad del cliente** ( [Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Partes interesadas de seguridad del cliente** ([Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Infraestructura y seguridad de los puntos de conexión](/azure/cloud-adoption-framework/organize/cloud-security)
 
@@ -76,7 +76,7 @@ Microsoft Antimalware para Azure Cloud Services es el antimalware predeterminado
 
 ## <a name="es-3-ensure-anti-malware-software-and-signatures-are-updated"></a>ES-3: Asegúrese de que se han actualizado el software y las firmas antimalware
 
-| Identificador de Azure | Identificadores de CIS Controls v7.1 | Identificadores de NIST SP800-53 r4 |
+| Identificador de Azure | Identificadores de CIS Controls v7.1 | Identificadores de NIST SP 800-53 r4 |
 |--|--|--|--|
 | ES-3 | 8,2 | SI-2, SI-3 |
 
@@ -86,9 +86,9 @@ Siga las recomendaciones en Azure Security Center: "Proceso y aplicaciones" para
 
 - [Implementación de Microsoft Antimalware para Azure Cloud Services y Virtual Machines](../fundamentals/antimalware.md)
 
-**Responsabilidad** : Customer
+**Responsabilidad**: Customer
 
-**Partes interesadas de seguridad del cliente** ( [Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Partes interesadas de seguridad del cliente** ([Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Infraestructura y seguridad de los puntos de conexión](/azure/cloud-adoption-framework/organize/cloud-security)
 

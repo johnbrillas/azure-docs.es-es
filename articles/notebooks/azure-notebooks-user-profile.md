@@ -3,12 +3,12 @@ title: Perfil e identificador de usuario para su uso con la versión preliminar 
 description: Cómo crear y administrar su perfil de usuario y el identificador de usuario con Azure Notebooks, que pasa a formar parte de la dirección URL de los cuadernos compartidos.
 ms.topic: conceptual
 ms.date: 02/25/2019
-ms.openlocfilehash: 9a1ff7f92faec21f537f068f0a33473700ddfed8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30d70365fcc0c72df01b4dc059b6e0f4cc607bba
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85831359"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109511"
 ---
 # <a name="your-profile-and-user-id-for-azure-notebooks-preview"></a>Perfil e identificador de usuario para la versión preliminar de Azure Notebooks
 
@@ -54,11 +54,11 @@ Para editar su perfil, utilice el comando **Editar información de perfil** en l
 | Foto de perfil | Imagen que se muestra en la página del perfil. |
 | Información de cuenta | Nombre para mostrar, identificador de usuario y cuenta de correo electrónico pública. La cuenta de correo electrónico proporciona a otros usuarios un medio para comunicarse con usted y puede ser diferente de la [cuenta](azure-notebooks-user-account.md) que usa para iniciar sesión en Azure Notebooks. |
 | Información del perfil | Ubicación, empresa, puesto, sitio web y una breve descripción de usted mismo. |
-| Perfiles de redes sociales | Sus identificadores de GitHub, Twitter y Facebook, si desea compartirlos. |
+| Perfiles de redes sociales | Sus identificadores de GitHub, Twitter y Facebook, si quiere compartirlos. |
 | Configuración de privacidad | Proporciona dos comandos:<ul><li>**Exportar mi perfil**: crea y descarga un archivo *.zip* que contiene toda la información que Azure Notebooks guarda en su perfil, incluida la fotografía, la información de perfil y los registros de seguridad.</li><li>**Eliminar mi cuenta**: Elimina de forma permanente toda la información personal almacenada en Azure Notebooks.</li></ul> |
 | Habilitar las características del sitio | Le permite controlar aspectos del comportamiento de Azure Notebooks:<ul><li>**Front-end unificado para cuadernos**: permite un inicio más rápido de los cuadernos y mejor persistencia.</li><li>**Ejecutar en JupyterLab de forma predeterminada**: De forma predeterminada, Azure Notebooks proporciona una interfaz de usuario simple que es adecuada para la mayoría de los usuarios. JupyterLab proporciona una interfaz más rica pero más complicada para los usuarios con experiencia.</li><li>**Sitio web de VNext**: habilita el diseño web modernizado que se muestra en esta documentación.</li></ul> |
 
 ## <a name="next-steps"></a>Pasos siguientes  
 
 > [!div class="nextstepaction"]
-> [Tutorial: Creación y ejecución de un cuaderno de Jupyter Notebook para realizar la regresión lineal](tutorial-create-run-jupyter-notebook.md)
+> [Inicio rápido: Exportación de un proyecto de un cuaderno de Jupyter Notebook](quickstart-export-jupyter-notebook-project.md)

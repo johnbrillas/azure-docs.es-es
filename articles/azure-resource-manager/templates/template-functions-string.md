@@ -1,18 +1,18 @@
 ---
 title: 'Funciones de plantillas: cadena'
-description: Describe las funciones para usar en una plantilla de Azure Resource Manager para trabajar con cadenas.
+description: Se describen las funciones que se usan en una plantilla de Azure Resource Manager para trabajar con cadenas.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: e94037b40f4937a40e00215aa7a3f99fd3280b49
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: a70aaff91f701c0ba8d26db2488b82e052dd905d
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96006003"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920015"
 ---
 # <a name="string-functions-for-arm-templates"></a>Funciones de cadena para plantillas de ARM
 
-Resource Manager ofrece las siguientes funciones para trabajar con cadenas en las plantillas de Azure Resource Manager (ARM):
+Resource Manager ofrece las siguientes funciones para trabajar con cadenas en la plantilla de Azure Resource Manager:
 
 * [base64](#base64)
 * [base64ToJson](#base64tojson)
@@ -2761,7 +2761,7 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para obtener una descripción de las secciones de una plantilla de Azure Resource Manager, vea [Creación de plantillas de Azure Resource Manager](template-syntax.md).
-* Para combinar varias plantillas, vea [Uso de plantillas vinculadas con Azure Resource Manager](linked-templates.md).
-* Para iterar una cantidad de veces específica al crear un tipo de recurso, vea [Creación de varias instancias de recursos en el Administrador de recursos de Azure](copy-resources.md).
-* Para saber cómo implementar la plantilla que creó, consulte [Implementación de una aplicación con una plantilla de Azure Resource Manager](deploy-powershell.md).
+* Puede encontrar una descripción de las secciones de una plantilla de Resource Manager en [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](template-syntax.md).
+* Para combinar varias plantillas, consulte [Uso de plantillas vinculadas y anidadas al implementar recursos de Azure](linked-templates.md).
+* Para iterar un número especificado de veces al crear un tipo de recurso, consulte [Iteración de recursos en las plantillas de Resource Manager](copy-resources.md).
+* Para ver cómo implementar la plantilla que ha creado, consulte [Implementación de recursos con plantillas de Resource Manager y Azure PowerShell](deploy-powershell.md).

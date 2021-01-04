@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/23/2020
+ms.date: 12/09/2020
 ms.author: b-juche
-ms.openlocfilehash: db1e8ce2e4fe9ae81bc2299ae70e9ff83941b5b4
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 7c78d5fa89d6d4f3c73bdd1fe9b6d2fdae97c011
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95245881"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96937481"
 ---
 # <a name="cross-region-replication-of-azure-netapp-files-volumes"></a>Replicación entre regiones de volúmenes de Azure NetApp Files
 
@@ -38,14 +38,15 @@ La replicación de volúmenes de Azure NetApp Files está disponible actualmente
 * Centro y Sur de EE. UU. y Este de EE. UU.
 * Centro y Sur de EE. UU. y Este de EE. UU. 2 
 * Este de EE. UU. 2 y Centro de EE. UU. 
-* Norte de Europa y Oeste de Europa
-* Sur de Reino Unido y Oeste de Reino Unido
 * Este de Australia y Sudeste de Australia
 * Centro de Canadá y Este de Canadá
-* Japón Oriental y Japón Occidental
-* Sur de Reino Unido y Centro-oeste de Alemania
-* Sudeste de Asia y Este de Australia
 * Centro de la India y Sur de la India
+* Centro-oeste de Alemania y Norte de Alemania
+* Japón Oriental y Japón Occidental
+* Norte de Europa y Oeste de Europa
+* Sudeste de Asia y Este de Australia
+* Sur de Reino Unido y Centro-oeste de Alemania
+* Sur de Reino Unido y Oeste de Reino Unido
 
 ## <a name="service-level-objectives"></a>Objetivos de nivel de servicio
 

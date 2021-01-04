@@ -1,18 +1,18 @@
 ---
 title: 'Funciones de plantilla: implementación'
-description: Describe las funciones para usar en una plantilla de Azure Resource Manager para recuperar información de implementación.
+description: Se describen las funciones que se pueden usar en una plantilla de Azure Resource Manager para recuperar información de implementación.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 9d6a1783bcd6d84c181edae84063ed7c0964c3d8
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: e63caef669a2c28d29cd0bbd649b0997cea14ee1
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96004575"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920507"
 ---
 # <a name="deployment-functions-for-arm-templates"></a>Funciones de implementación para plantillas de ARM
 
-Resource Manager proporciona las funciones siguientes para obtener los valores relacionados con la implementación actual de la plantilla de Azure Resource Manager:
+Resource Manager proporciona las siguientes funciones para obtener los valores relacionados con la implementación actual de la plantilla de Azure Resource Manager:
 
 * [deployment](#deployment)
 * [environment](#environment)
@@ -303,7 +303,7 @@ Devuelve un valor de parámetro. El nombre del parámetro especificado debe defi
 
 Valor del parámetro especificado.
 
-### <a name="remarks"></a>Comentarios
+### <a name="remarks"></a>Observaciones
 
 Por lo general, se usan parámetros para establecer los valores de recurso. En el ejemplo siguiente se establece el nombre del sitio web en el valor del parámetro pasado durante la implementación.
 
@@ -434,7 +434,7 @@ La salida del ejemplo anterior con el valor predeterminado es:
 | arrayOutput | Array | [1, 2, 3] |
 | crossOutput | String | opción 1 |
 
-Para más información sobre el uso de los parámetros, consulte [Parámetros en plantillas de Azure Resource Manager](template-parameters.md).
+Para más información sobre el uso de los parámetros, consulte [Parámetros en plantillas de Resource Manager](template-parameters.md).
 
 ## <a name="variables"></a>variables
 
@@ -452,7 +452,7 @@ Devuelve el valor de variable. El nombre de la variable especificada debe defini
 
 Valor de la variable especificada.
 
-### <a name="remarks"></a>Comentarios
+### <a name="remarks"></a>Observaciones
 
 Por lo general, para simplificar la plantilla se usan variables para crear valores complejos de una sola vez. En el ejemplo siguiente se crea un nombre único para una cuenta de almacenamiento.
 
@@ -571,8 +571,8 @@ La salida del ejemplo anterior con el valor predeterminado es:
 | exampleOutput3 | String | myVariable |
 | exampleOutput4 |  Object | {"property1": "value1", "property2": "value2"} |
 
-Para más información sobre el uso de las variables, consulte [Variables en plantillas de Azure Resource Manager](template-variables.md).
+Para más información sobre el uso de las variables, consulte [Variables en plantillas de Resource Manager](template-variables.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para obtener una descripción de las secciones de una plantilla de Azure Resource Manager, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](template-syntax.md).
+* Para obtener una descripción de las secciones de una plantilla de ARM, vea [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](template-syntax.md).

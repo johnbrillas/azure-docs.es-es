@@ -1,5 +1,5 @@
 ---
-title: 'SQL Server a SQL Database: guía de migración'
+title: 'SQL Server a SQL Database: Guía de migración'
 description: Siga esta guía para migrar las bases de datos de SQL Server a Azure SQL Database.
 ms.service: sql-database
 ms.subservice: migration-guide
@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: ee4abaf3c9f6aa70ba14920711c8917994254649
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: f4f54aa02fb56ba5bf5ae9fcec2dae07c7dc0a27
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96326988"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358986"
 ---
 # <a name="migration-guide-sql-server-to-sql-database"></a>Guía de migración: SQL Server a SQL Database
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
@@ -27,10 +27,10 @@ Puede migrar las instancias de SQL Server que se ejecutan de forma local o en:
 - SQL Server en Virtual Machines  
 - Amazon Web Services (AWS) EC2 
 - Amazon Relational Database Service (AWS RDS) 
-- Compute Engine (Google Cloud Platform: GCP)  
+- Compute Engine (Google Cloud Platform o GCP)  
 - Cloud SQL for SQL Server (Google Cloud Platform: GCP) 
 
-Para más información acerca de la migración, consulte [Introducción a la migración: SQL Server a SQL Database](sql-server-to-sql-database-overview.md). Para otros escenarios, consulte [Guía de migración de Azure Database](https://datamigration.microsoft.com/).
+Para más información acerca de la migración, consulte [Introducción a la migración: SQL Server a SQL Database](sql-server-to-sql-database-overview.md). Para ver otros escenarios, consulte la [Guía de migración de bases de datos](https://datamigration.microsoft.com/).
 
 :::image type="content" source="media/sql-server-to-database-overview/migration-process-flow-small.png" alt-text="Flujo del proceso de migración":::
 
@@ -194,7 +194,7 @@ Para más información, consulte el artículo sobre la [administración de Azure
 
 - Para más información sobre el marco y el ciclo de adopción de las migraciones en la nube, consulte:
    -  [Cloud Adoption Framework para Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)
-   -  [Procedimientos recomendados para gestionar los costos y el tamaño de las cargas de trabajo migradas a Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs) 
+   -  [Procedimientos recomendados para la gestión de los costos y los ajustes de tamaño de las cargas de trabajo migradas a Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs) 
 
-- Para evaluar la capa de acceso de la aplicación, consulte [Data Access Migration Toolkit (versión preliminar)](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit).
+- Para evaluar el nivel de acceso de la aplicación, consulte [Data Access Migration Toolkit (versión preliminar)](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit)
 - Para más información sobre cómo realizar pruebas A/B en la capa de acceso a datos, consulte [Información general del Asistente para experimentación con bases de datos](/sql/dea/database-experimentation-assistant-overview).

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 59c489fac8bf02263cc51833675af414d5de6a52
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 87d0b740ec4f7ffb8966b386c273c023f69c42d8
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686011"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008306"
 ---
 # <a name="monitor-azure-file-sync"></a>Supervisión de Azure File Sync
 
@@ -46,10 +46,10 @@ Las siguientes métricas para Azure File Sync están disponibles en Azure Monito
 |-|-|
 | Bytes sincronizados | Tamaño de los datos transferidos (carga y descarga).<br><br>Unidad: Bytes<br>Tipo de agregación: Sum<br>Dimensiones aplicables: Nombre de punto de conexión del servidor, dirección de sincronización, nombre del grupo de sincronización |
 | Recuperación de niveles de la nube | Tamaño de los datos que se recuperan.<br><br>**Nota**: esta métrica se eliminará en el futuro. Use la métrica del tamaño de recuperación de nube por niveles para supervisar el tamaño de los datos que se recuperan.<br><br>Unidad: Bytes<br>Tipo de agregación: Sum<br>Dimensión aplicable: Nombre del servidor |
-| Tamaño de recuperación de nube por niveles | Tamaño de los datos que se recuperan.<br><br>Unidad: Bytes<br>Tipo de agregación: Sum<br>Dimensión aplicable: nombre del servidor, nombre del grupo de sincronización |
-| Tamaño de recuperación de nube por niveles por aplicación | Tamaño de los datos recuperados por aplicación<br><br>Unidad: Bytes<br>Tipo de agregación: Sum<br>Dimensión aplicable: nombre de la aplicación, nombre del servidor, nombre del grupo de sincronización |
-| Rendimiento de recuperación de nube por niveles | Tamaño del rendimiento de recuperación de datos.<br><br>Unidad: Bytes<br>Tipo de agregación: Sum<br>Dimensión aplicable: nombre del servidor, nombre del grupo de sincronización |
-| Archivos que no se están sincronizando | Recuento de archivos que no se pueden sincronizar.<br><br>Unidad: Count<br>Tipo de agregación: Sum<br>Dimensiones aplicables: Nombre de punto de conexión del servidor, dirección de sincronización, nombre del grupo de sincronización |
+| Tamaño de recuperación de nube por niveles | Tamaño de los datos que se recuperan.<br><br>Unidad: Bytes<br>Tipo de agregación: Sum<br>Dimensiones aplicables: nombre del servidor, nombre del grupo de sincronización |
+| Tamaño de recuperación de nube por niveles por aplicación | Tamaño de los datos recuperados por aplicación<br><br>Unidad: Bytes<br>Tipo de agregación: Sum<br>Dimensiones aplicables: nombre de la aplicación, nombre del servidor, nombre del grupo de sincronización |
+| Rendimiento de recuperación de nube por niveles | Tamaño del rendimiento de recuperación de datos.<br><br>Unidad: Bytes<br>Tipo de agregación: Sum<br>Dimensiones aplicables: nombre del servidor, nombre del grupo de sincronización |
+| Archivos que no se están sincronizando | Recuento de archivos que no se pueden sincronizar.<br><br>Unidad: Count<br>Tipos de agregación: Average, Sum<br>Dimensiones aplicables: Nombre de punto de conexión del servidor, dirección de sincronización, nombre del grupo de sincronización |
 | Archivos sincronizados | Recuento de los ficheros transferidos (carga y descarga).<br><br>Unidad: Count<br>Tipo de agregación: Sum<br>Dimensiones aplicables: Nombre de punto de conexión del servidor, dirección de sincronización, nombre del grupo de sincronización |
 | Estado en línea del servidor | Recuento de latidos recibido del servidor.<br><br>Unidad: Count<br>Tipo de agregación: Máxima<br>Dimensión aplicable: Nombre del servidor |
 | Sync session result (Resultado de la sesión de sincronización) | Resultado de la sesión de sincronización (1 = sesión de sincronización correcta; 0 = sesión de sincronización con errores)<br><br>Unidad: Count<br>Tipos de agregación: Máxima<br>Dimensiones aplicables: Nombre de punto de conexión del servidor, dirección de sincronización, nombre del grupo de sincronización |

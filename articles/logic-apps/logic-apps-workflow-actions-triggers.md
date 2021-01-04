@@ -7,12 +7,12 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 3dbfcacb6ea5922a01d52dfe39189f09f48d4b4a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7423f8d8f2a566801048457ad5f5c44f3c1097ec
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96006088"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920051"
 ---
 # <a name="schema-reference-guide-for-trigger-and-action-types-in-azure-logic-apps"></a>Guía de referencia de esquema para los tipos de desencadenador y de acción en Azure Logic Apps
 
@@ -1506,7 +1506,7 @@ A diferencia de otras acciones, la acción **Respuesta** tiene restricciones esp
 
 * El flujo de trabajo puede usar la acción **Respuesta** en cualquier lugar *excepto* dentro de los bucles **Foreach** y los bucles **Until**, incluidos los bucles secuenciales y las ramas paralelas. 
 
-* La solicitud HTTP original obtiene la respuesta del flujo de trabajo solo cuando todas las acciones requeridas por la acción **Respuesta** han finalizado dentro del [límite de tiempo de espera de la solicitud HTTP](../logic-apps/logic-apps-limits-and-config.md#request-limits).
+* La solicitud original obtiene la respuesta del flujo de trabajo solo cuando todas las acciones requeridas por la acción **Respuesta** han finalizado dentro del [límite de tiempo de espera de HTTP](../logic-apps/logic-apps-limits-and-config.md#http-limits).
 
   No obstante, si el flujo de trabajo llama a otra aplicación lógica como un flujo de trabajo anidado, el flujo de trabajo primario espera hasta que el anidado termina, independientemente del tiempo que transcurra hasta que eso suceda.
 

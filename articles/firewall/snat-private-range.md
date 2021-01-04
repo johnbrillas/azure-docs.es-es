@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: how-to
 ms.date: 11/16/2020
 ms.author: victorh
-ms.openlocfilehash: 858343b6c5081b52d9e93909f9d52eaccd88a584
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: c5613dda7adbbc47f989bc2a772777e716620b3c
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660277"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97348040"
 ---
 # <a name="azure-firewall-snat-private-ip-address-ranges"></a>Intervalos de direcciones IP privadas de SNAT de Azure Firewall
 
@@ -35,9 +35,22 @@ Puede usar Azure PowerShell a fin de especificar intervalos de direcciones IP pr
 
 ### <a name="new-firewall"></a>Nuevo firewall
 
-En el caso de un nuevo firewall, el comando de Azure PowerShell es:
+En el caso de un nuevo firewall, el cmdlet de Azure PowerShell es:
 
-`New-AzFirewall -Name $GatewayName -ResourceGroupName $RG -Location $Location -VirtualNetworkName $vnet.Name -PublicIpName $LBPip.Name -PrivateRange @("IANAPrivateRanges","IPRange1", "IPRange2")`
+```azurepowershell
+$azFw = @{
+    Name               = '<fw-name>'
+    ResourceGroupName  = '<resourcegroup-name>'
+    Location           = '<location>'
+    VirtualNetworkName = '<vnet-name>'
+    PublicIpName       = '<public-ip-name>'
+    PrivateRange       = @("IANAPrivateRanges", "192.168.1.0/24", "192.168.1.10")
+}
+
+New-AzFirewall @azFw
+```
+> [!NOTE]
+> La implementación de Azure Firewall con `New-AzFirewall` requiere que existan una red virtual y una dirección IP pública. Consulte [Implementación y configuración de Azure Firewall mediante Azure PowerShell](deploy-ps.md) para obtener una guía completa.
 
 > [!NOTE]
 > IANAPrivateRanges se expande a los valores predeterminados actuales en Azure Firewall mientras que los demás intervalos se agregan a él. Para mantener el valor predeterminado de IANAPrivateRanges en su especificación de intervalo privado, debe permanecer en la especificación de `PrivateRange`, tal como se muestra en los ejemplos siguientes.
@@ -46,22 +59,54 @@ Para más información, consulte [New-AzFirewall](/powershell/module/az.network/
 
 ### <a name="existing-firewall"></a>Firewall existente
 
-Para configurar un firewall existente, use los siguientes comandos de Azure PowerShell:
+Para configurar un firewall existente, use los siguientes cmdlets de Azure PowerShell:
 
 ```azurepowershell
-$azfw = Get-AzFirewall -ResourceGroupName "Firewall Resource Group name"
-$azfw.PrivateRange = @("IANAPrivateRanges","IPRange1", "IPRange2")
+$azfw = Get-AzFirewall -Name '<fw-name>' -ResourceGroupName '<resourcegroup-name>'
+$azfw.PrivateRange = @("IANAPrivateRanges","192.168.1.0/24", "192.168.1.10")
 Set-AzFirewall -AzureFirewall $azfw
 ```
 
-### <a name="templates"></a>Plantillas
+## <a name="configure-snat-private-ip-address-ranges---azure-cli"></a>Configuración de intervalos de direcciones IP privadas de SNAT: CLI de Azure
 
-Puede agregar lo siguiente a la sección `additionalProperties`:
+Puede usar la CLI de Azure a fin de especificar intervalos de direcciones IP privadas para el firewall.
 
+### <a name="new-firewall"></a>Nuevo firewall
+
+En el caso de un nuevo firewall, el comando de la CLI de Azure es:
+
+```azurecli-interactive
+az network firewall create \
+-n <fw-name> \
+-g <resourcegroup-name> \
+--private-ranges 192.168.1.0/24 192.168.1.10 IANAPrivateRanges
 ```
+
+> [!NOTE]
+> La implementación de Azure Firewall con el comando `az network firewall create` de la CLI de Azure requiere pasos de configuración adicionales para crear direcciones IP públicas y la configuración de IP. Consulte [Implementación y configuración de Azure Firewall mediante la CLI de Azure](deploy-cli.md) para obtener una guía completa.
+
+> [!NOTE]
+> IANAPrivateRanges se expande a los valores predeterminados actuales en Azure Firewall mientras que los demás intervalos se agregan a él. Para mantener el valor predeterminado de IANAPrivateRanges en su especificación de intervalo privado, debe permanecer en la especificación de `PrivateRange`, tal como se muestra en los ejemplos siguientes.
+
+### <a name="existing-firewall"></a>Firewall existente
+
+Para configurar un firewall existente, el comando de la CLI de Azure es:
+
+```azurecli-interactive
+az network firewall update \
+-n <fw-name> \
+-g <resourcegroup-name> \
+--private-ranges 192.168.1.0/24 192.168.1.10 IANAPrivateRanges
+```
+
+## <a name="configure-snat-private-ip-address-ranges---arm-template"></a>Configuración de intervalos de direcciones IP privadas de SNAT: plantilla de ARM
+
+Para configurar SNAT durante la implementación de la plantilla de ARM, puede agregar lo siguiente a la propiedad `additionalProperties`:
+
+```json
 "additionalProperties": {
-                    "Network.SNAT.PrivateRanges": "IANAPrivateRanges , IPRange1, IPRange2"
-                },
+   "Network.SNAT.PrivateRanges": "IANAPrivateRanges , IPRange1, IPRange2"
+},
 ```
 
 ## <a name="configure-snat-private-ip-address-ranges---azure-portal"></a>Configuración de intervalos de direcciones IP privadas de SNAT: Azure Portal

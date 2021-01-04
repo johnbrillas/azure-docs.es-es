@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions, devx-track-azurecli
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 134148fa3ea73212d85393cc433d60f7ddeecd17
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 3c42495ceab7108d20b0f0dedbf0cf94f5f9352d
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94837131"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509315"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Inicio de sesión en una máquina virtual Windows en Azure mediante la autenticación de Azure Active Directory (versión preliminar)
 
@@ -157,6 +157,9 @@ Hay varias maneras de configurar las asignaciones de roles para la VM:
 - Mediante la experiencia de Azure AD Portal
 - Mediante la experiencia de Azure Cloud Shell
 
+> [!NOTE]
+> Los roles Inicio de sesión de administrador de máquina virtual e Inicio de sesión de usuario de máquina virtual usan dataActions y, por tanto, no se les puede asignar al ámbito del grupo de administración. Actualmente estos roles solo se pueden asignar en el ámbito de suscripción, grupo de recursos o recurso.
+
 ### <a name="using-azure-ad-portal-experience"></a>Mediante la experiencia de Azure AD Portal
 
 Para configurar las asignaciones de roles para las VM de Windows Server 2019 Datacenter compatibles con Azure AD:
@@ -177,8 +180,8 @@ Transcurridos unos instantes, se asigna el rol a la entidad de seguridad en el �
 En el ejemplo siguiente se usa [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) para asignar el rol Inicio de sesión de administrador de Virtual Machine a la VM para el usuario de Azure actual. El nombre de usuario de la cuenta de Azure activa se obtiene con [az account show](/cli/azure/account#az-account-show) y el ámbito se establece en la VM que se creó en un paso anterior con [az vm show](/cli/azure/vm#az-vm-show). El ámbito también se podría asignar en el nivel de un grupo de recursos o de suscripción, y se aplican los permisos de herencia de RBAC de Azure normales. Para obtener información, consulte [Inicio de sesión en una máquina virtual Linux en Azure mediante la autenticación de Azure Active Directory (versión preliminar)](../../virtual-machines/linux/login-using-aad.md).
 
 ```   AzureCLI
-username=$(az account show --query user.name --output tsv)
-vm=$(az vm show --resource-group myResourceGroup --name myVM --query id -o tsv)
+$username=$(az account show --query user.name --output tsv)
+$vm=$(az vm show --resource-group myResourceGroup --name myVM --query id -o tsv)
 
 az role assignment create \
     --role "Virtual Machine Administrator Login" \

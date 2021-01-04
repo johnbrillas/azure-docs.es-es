@@ -1,14 +1,14 @@
 ---
 title: Supervisión de los recursos delegados a escala
 description: Aprenda a usar los registros de Azure Monitor de forma eficaz y escalable en los inquilinos del cliente que está administrando.
-ms.date: 10/26/2020
+ms.date: 12/14/2020
 ms.topic: how-to
-ms.openlocfilehash: 96ca05faf2b3da8f214c14ae57eb186c7b71e1b3
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 6c1cbde696ccf9131797a05db33553b8505216a4
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461520"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509281"
 ---
 # <a name="monitor-delegated-resources-at-scale"></a>Supervisión de los recursos delegados a escala
 
@@ -40,7 +40,25 @@ Cuando haya determinado las directivas que se van a implementar, puede [implemen
 
 ## <a name="analyze-the-gathered-data"></a>Análisis de los datos recopilados
 
-Una vez implementadas las directivas, los datos se registrarán en las áreas de trabajo de Log Analytics que ha creado en cada inquilino del cliente. Para obtener información sobre todos los clientes administrados, puede usar herramientas como [Libros de Azure Monitor](../../azure-monitor/platform/workbooks-overview.md) para recopilar y analizar información de varios orígenes de datos. 
+Una vez implementadas las directivas, los datos se registrarán en las áreas de trabajo de Log Analytics que ha creado en cada inquilino del cliente. Para obtener información sobre todos los clientes administrados, puede usar herramientas como [Libros de Azure Monitor](../../azure-monitor/platform/workbooks-overview.md) para recopilar y analizar información de varios orígenes de datos.
+
+## <a name="view-alerts-across-customers"></a>Visualización de alertas entre clientes
+
+Puede ver [alertas](../../azure-monitor/platform/alerts-overview.md) para las suscripciones delegadas en los inquilinos de clientes que administra.
+
+Para actualizar las alertas automáticamente entre varios clientes, use una consulta de [Azure Resource Graph](../../governance/resource-graph/overview.md) para filtrar las alertas. Puede anclar la consulta al panel y seleccionar todos los clientes y suscripciones adecuados.
+
+En la consulta de ejemplo siguiente se mostrarán las alertas de gravedad 0 y 1, que se actualizan cada 60 minutos.
+
+```kusto
+alertsmanagementresources
+| where type == "microsoft.alertsmanagement/alerts"
+| where properties.essentials.severity =~ "Sev0" or properties.essentials.severity =~ "Sev1"
+| where properties.essentials.monitorCondition == "Fired"
+| where properties.essentials.startDateTime > ago(60m)
+| project StartTime=properties.essentials.startDateTime,name,Description=properties.essentials.description, Severity=properties.essentials.severity, subscriptionId
+| sort by tostring(StartTime)
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

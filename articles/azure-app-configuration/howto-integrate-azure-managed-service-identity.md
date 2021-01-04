@@ -2,18 +2,18 @@
 title: Uso de identidades administradas para acceder a App Configuration
 titleSuffix: Azure App Configuration
 description: Autenticación en Azure App Configuration mediante identidades administradas
-author: lisaguthrie
-ms.author: lcozzens
+author: AlexandraKemperMS
+ms.author: alkemper
 ms.service: azure-app-configuration
 ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 2/25/2020
-ms.openlocfilehash: f2d8c6e94638c01fb21e070a756c0c97c330fb26
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 8ef3ff20c67eefa2091ffb1732ced813b169e596
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92671595"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929759"
 ---
 # <a name="use-managed-identities-to-access-app-configuration"></a>Uso de identidades administradas para acceder a App Configuration
 
@@ -22,6 +22,9 @@ Las [identidades administradas](../active-directory/managed-identities-azure-res
 Azure App Configuration y sus bibliotecas cliente .NET Core, .NET Framework y Java Spring incluyen compatibilidad integrada con la identidad administrada. Aunque su uso no es necesario, la identidad administrada elimina la necesidad de un token de acceso que contenga los secretos. El código solo puede acceder al almacén de App Configuration mediante el punto de conexión de servicio. Puede insertar esta dirección URL en el código directamente sin exponer ningún secreto.
 
 En este artículo se muestra cómo puede aprovechar la identidad administrada para acceder a App Configuration. Se basa en la aplicación web que se introdujo en los inicios rápidos. Antes de continuar, primero [cree una aplicación ASP.NET Core con Azure App Configuration](./quickstart-aspnet-core-app.md).
+
+> [!NOTE]
+> En este artículo se usa Azure App Service como ejemplo, pero el mismo concepto se aplica a cualquier otro servicio de Azure compatible con la identidad administrada, por ejemplo, [Azure Kubernetes Service](../aks/use-azure-ad-pod-identity.md), la [Máquina virtual de Azure](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md) y [Azure Container Instances](../container-instances/container-instances-managed-identity.md). Si la carga de trabajo está hospedada en uno de esos servicios, también puede aprovechar la compatibilidad con la identidad administrada del servicio.
 
 En este artículo se muestra también cómo puede usar la identidad administrada junto con las referencias a Key Vault de App Configuration. Con una única identidad administrada, puede acceder sin problemas a los secretos desde Key Vault y los valores de configuración desde App Configuration. Si desea explorar esta funcionalidad, termine primero [Uso de referencias de Key Vault con ASP.NET Core](./use-key-vault-references-dotnet-core.md).
 
@@ -49,9 +52,9 @@ Para configurar una identidad administrada en el portal, primero crea una aplica
 
 1. Cree una instancia de App Services en [Azure Portal](https://portal.azure.com) como lo haría normalmente. Vaya a ella en el portal.
 
-1. Desplácese hacia abajo hasta el grupo **Configuración** en el panel de navegación izquierdo y seleccione **Identidad** .
+1. Desplácese hacia abajo hasta el grupo **Configuración** en el panel de navegación izquierdo y seleccione **Identidad**.
 
-1. En la pestaña **Asignado por el sistema** , cambie **Estado** a **Activado** y seleccione **Guardar** .
+1. En la pestaña **Asignado por el sistema**, cambie **Estado** a **Activado** y seleccione **Guardar**.
 
 1. Responda **Sí** cuando se le pida que habilite la identidad administrada asignada por el sistema.
 
@@ -63,13 +66,13 @@ Para configurar una identidad administrada en el portal, primero crea una aplica
 
 1. Seleccione **Access Control (IAM)** .
 
-1. En la pestaña **Comprobar el acceso** , seleccione **Agregar** en la interfaz de usuario de la tarjeta **Agregar una asignación de roles** .
+1. En la pestaña **Comprobar el acceso**, seleccione **Agregar** en la interfaz de usuario de la tarjeta **Agregar una asignación de roles**.
 
-1. En **Rol** , seleccione **Lector de los datos de App Configuration** . En **Asignar acceso** , seleccione **App Service** en **Identidad administrada asignada por el sistema** .
+1. En **Rol**, seleccione **Lector de los datos de App Configuration**. En **Asignar acceso**, seleccione **App Service** en **Identidad administrada asignada por el sistema**.
 
-1. En **Suscripción** , seleccione su suscripción de Azure. Seleccione el recurso de App Service para la aplicación.
+1. En **Suscripción**, seleccione su suscripción de Azure. Seleccione el recurso de App Service para la aplicación.
 
-1. Seleccione **Guardar** .
+1. Seleccione **Guardar**.
 
     ![Agregar una identidad administrada](./media/add-managed-identity.png)
 
@@ -77,7 +80,7 @@ Para configurar una identidad administrada en el portal, primero crea una aplica
 
 ## <a name="use-a-managed-identity"></a>Uso de una identidad administrada
 
-1. Agregue una referencia al paquete *Azure.Identity* .
+1. Agregue una referencia al paquete *Azure.Identity*.
 
     ```cli
     dotnet add package Azure.Identity
@@ -136,7 +139,7 @@ Para configurar una identidad administrada en el portal, primero crea una aplica
     ```
     ---
 
-1. Para usar los valores de App Configuration y las referencias de Key Vault, actualice *Program.cs* como se muestra a continuación. Este código crea un nuevo objeto `KeyVaultClient` mediante `AzureServiceTokenProvider` y pasa esta referencia a una llamada al método `UseAzureKeyVault`.
+1. Para usar los valores de App Configuration y las referencias de Key Vault, actualice *Program.cs* como se muestra a continuación. Este código llama a `SetCredential` como parte de `ConfigureKeyVault` para indicar al proveedor de configuración qué credencial debe usar al autenticarse en Key Vault.
 
     ### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
 
@@ -151,10 +154,10 @@ Para configurar una identidad administrada en el portal, primero crea una aplica
                    config.AddAzureAppConfiguration(options =>
                    {
                        options.Connect(new Uri(settings["AppConfig:Endpoint"]), credentials)
-                           .ConfigureKeyVault(kv =>
-                           {
-                              kv.SetCredential(credentials);
-                           });
+                              .ConfigureKeyVault(kv =>
+                              {
+                                 kv.SetCredential(credentials);
+                              });
                    });
                })
                .UseStartup<Startup>();
@@ -175,10 +178,10 @@ Para configurar una identidad administrada en el portal, primero crea una aplica
                     config.AddAzureAppConfiguration(options =>
                     {
                         options.Connect(new Uri(settings["AppConfig:Endpoint"]), credentials)
-                            .ConfigureKeyVault(kv =>
-                            {
-                                kv.SetCredential(credentials);
-                            });
+                               .ConfigureKeyVault(kv =>
+                               {
+                                   kv.SetCredential(credentials);
+                               });
                     });
                 });
             })
@@ -186,10 +189,10 @@ Para configurar una identidad administrada en el portal, primero crea una aplica
     ```
     ---
 
-    Ya puede acceder a las referencias de Key Vault de igual forma que a cualquier otra clave de App Configuration. El proveedor de configuración usará el objeto `KeyVaultClient` que configuró para autenticarse en Key Vault y recuperará el valor.
+    Ya puede acceder a las referencias de Key Vault de igual forma que a cualquier otra clave de App Configuration. El proveedor de configuración usará el objeto `ManagedIdentityCredential` para autenticarse en Key Vault y recuperará el valor.
 
-> [!NOTE]
-> `ManagedIdentityCredential` solo admite la autenticación de identidad administrada. No funciona en entornos locales. Si desea ejecutar el código en un entorno local, considere la posibilidad de usar `DefaultAzureCredential`, que también admite la autenticación de la entidad de servicio. Para obtener más información, consulte el [vínculo](/dotnet/api/azure.identity.defaultazurecredential).
+    > [!NOTE]
+    > `ManagedIdentityCredential` solo funciona en entornos de Azure de servicios que admiten la autenticación de identidad administrada. No funciona en el entorno local. Use [`DefaultAzureCredential`](/dotnet/api/azure.identity.defaultazurecredential) para que el código funcione en entornos locales y de Azure, ya que se revertirá a algunas opciones de autenticación, incluida la identidad administrada.
 
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
@@ -226,7 +229,7 @@ Este comando genera algo similar a la salida siguiente:
 
 ### <a name="deploy-your-project"></a>Implementación del proyecto
 
-En la _ventana del terminal local_ , agregue una instancia remota de Azure al repositorio de Git local. Reemplace _\<url>_ por la dirección URL del Git remoto que ha obtenido en [Habilitación de GIT local con Kudu](#enable-local-git-with-kudu).
+En la _ventana del terminal local_, agregue una instancia remota de Azure al repositorio de Git local. Reemplace _\<url>_ por la dirección URL del Git remoto que ha obtenido en [Habilitación de GIT local con Kudu](#enable-local-git-with-kudu).
 
 ```bash
 git remote add azure <url>
@@ -235,7 +238,7 @@ git remote add azure <url>
 Realice la insercion en la instancia remota de Azure para implementar la aplicación con el comando siguiente. Cuando se le pida una contraseña, escriba la contraseña que creó en [Configuración de un usuario de implementación](#configure-a-deployment-user). No use la misma contraseña que para iniciar sesión en Azure Portal.
 
 ```bash
-git push azure master
+git push azure main
 ```
 
 Es posible que vea la automatización específica para el entorno de tiempo de ejecución en la salida, como MSBuild para ASP.NET, `npm install` para Node.js y `pip install` para Python.
@@ -252,7 +255,7 @@ http://<app_name>.azurewebsites.net
 
 Los proveedores de App Configuration para .NET Framework y Java Spring también incluyen compatibilidad integrada con identidades administradas. Puede usar el punto de conexión de dirección URL del almacén en lugar de su cadena de conexión completa al configurar uno de estos proveedores.
 
-Por ejemplo, puede actualizar la aplicación de consola de .NET Framework que se creó en el inicio rápido para especificar la siguiente configuración en el archivo *App.config* :
+Por ejemplo, puede actualizar la aplicación de consola de .NET Framework que se creó en el inicio rápido para especificar la siguiente configuración en el archivo *App.config*:
 
 ```xml
     <configSections>

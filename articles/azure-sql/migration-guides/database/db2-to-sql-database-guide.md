@@ -1,5 +1,5 @@
 ---
-title: De DB2 a SQL Database (guía de migración)
+title: 'De DB2 a SQL Database: Guía de migración'
 description: Siga esta guía para migrar las bases de datos de DB2 a Azure SQL Database.
 ms.service: sql-database
 ms.subservice: migration-guide
@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 369f17a39b9d7b2f85fffb8b72a293558d16416e
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 3e216c4aeb8d1206011ff9cca2d80900c23b2399
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325169"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97356351"
 ---
 # <a name="migration-guide-db2-to-sql-database"></a>Guía de migración: De DB2 a SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
@@ -178,9 +178,9 @@ Estos recursos se desarrollaron como parte del programa Ninja SQL de datos, que 
    - [Calculadora del costo total de propiedad de Azure](https://azure.microsoft.com/pricing/tco/calculator/) 
 
 
-- Para obtener más información sobre el marco y el ciclo de adopción de las migraciones en la nube, consulte:
+- Para más información sobre el marco y el ciclo de adopción de las migraciones en la nube, consulte:
    -  [Cloud Adoption Framework para Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)
    -  [Procedimientos recomendados para la gestión de los costos y los ajustes de tamaño de las cargas de trabajo migradas a Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs) 
 
 - Para evaluar el nivel de acceso de la aplicación, consulte [Data Access Migration Toolkit (versión preliminar)](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit)
-- Para obtener más información sobre cómo realizar pruebas A/B de nivel de acceso a datos, consulte [Asistente para experimentación con bases de datos](/sql/dea/database-experimentation-assistant-overview).
+- Para más información sobre cómo realizar pruebas A/B en la capa de acceso a datos, consulte [Información general del Asistente para experimentación con bases de datos](/sql/dea/database-experimentation-assistant-overview).

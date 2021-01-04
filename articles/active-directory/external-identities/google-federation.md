@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff8912794169cf61f394a097248a8476b2e0c0f3
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 53d2369e93052ef28191dd1862034c1aaa488add
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92926242"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97355603"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Incorporación de Google como proveedor de identidades para los usuarios invitados de B2B
 
@@ -25,6 +25,9 @@ Si configura la federación con Google, puede permitir que los usuarios invitado
 
 > [!NOTE]
 > La federación de Google está diseñada específicamente para los usuarios de Gmail. Para realizar la federación con los dominios de G Suite, use la [federación directa](direct-federation.md).
+
+> [!IMPORTANT]
+> **A partir del 4 de enero de 2021**, Google [retira la compatibilidad con el inicio de sesión en WebView](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). Si usa la federación de Google o el registro de autoservicio con Gmail, debería [comprobar la compatibilidad de las aplicaciones nativas de línea de negocio](google-federation.md#deprecation-of-webview-sign-in-support).
 
 ## <a name="what-is-the-experience-for-the-google-user"></a>¿Cuál es la experiencia del usuario de Google?
 Cuando envíe una invitación a usuarios de Gmail de Google, el usuario invitado debe acceder a sus aplicaciones o recursos compartidos mediante un vínculo que incluya el contexto del inquilino. Su experiencia varía en función de si ya han iniciado sesión en Google:
@@ -35,7 +38,35 @@ Los usuarios invitados que ven un error "encabezado demasiado largo" pueden elim
 
 ![Captura de pantalla en la que se muestra la página de inicio de sesión de Google.](media/google-federation/google-sign-in.png)
 
-## <a name="limitations"></a>Limitaciones
+## <a name="deprecation-of-webview-sign-in-support"></a>Desuso de la compatibilidad con el inicio de sesión en WebView
+
+A partir del 4 de enero de 2021, Google [retira la compatibilidad con el inicio de sesión en WebView](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). Si usa la federación de Google o el [registro de autoservicio con Gmail](identity-providers.md), debería comprobar la compatibilidad de las aplicaciones nativas de línea de negocio. Si las aplicaciones incluyen contenido de WebView que requiere autenticación, los usuarios de Gmail de Google no podrán autenticarse. Estos son escenarios conocidos que afectarán a los usuarios de Gmail:
+
+- Aplicaciones de Windows que usan WebView insertado o WebAccountManager (WAM) en versiones anteriores de Windows.
+- Otras aplicaciones nativas que haya desarrollado que usen un marco de explorador insertado para la autenticación.
+
+Este cambio no afecta a:
+
+- Aplicaciones de Windows que usan WebView insertado o WebAccountManager (WAM) en las versiones más recientes de Windows
+- Aplicaciones de Microsoft iOS
+- Identidades de G Suite; por ejemplo, cuando se usa la [federación directa](direct-federation.md) basada en SAML con G Suite
+
+Seguimos probando varias plataformas y escenarios y actualizaremos este artículo en consecuencia.
+### <a name="to-test-your-apps-for-compatibility"></a>Para probar la compatibilidad de las aplicaciones:
+
+1. Siga la [guía de Google](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html) para determinar si sus aplicaciones se verán afectadas por este cambio.
+2. Con Fiddler u otra herramienta de prueba, inserte un encabezado durante el inicio de sesión y use una identidad externa de Google para probar el inicio de sesión:
+
+   1. Agregue Google-Accounts-Check-OAuth-Login:true a sus encabezados de solicitud HTTP cuando se envíen las solicitudes a accounts.google.com.
+   1. Intente iniciar sesión en la aplicación escribiendo una dirección de Gmail en la página de inicio de sesión de accounts.google.com.
+   1. Si se produce un error de inicio de sesión y ve un error que dice que es posible que el explorador o la aplicación no sean seguros, se bloqueará el inicio de sesión para las identidades externas de Google.
+
+3. Para resolver este problema, haga lo siguiente:
+
+   - Si la aplicación de Windows usa WebView insertado o WebAccountManager (WAM) en una versión anterior de Windows, actualice a la versión más reciente de esta plataforma.
+   - Modifique sus aplicaciones para que usen el explorador del sistema para el inicio de sesión. Para más información, consulte [Interfaz de usuario web del sistema frente a insertada](../develop/msal-net-web-browsers.md#embedded-vs-system-web-ui) en la documentación de MSAL.NET.  
+
+## <a name="sign-in-endpoints"></a>Puntos de conexión de inicio de sesión
 
 Teams admite totalmente a los usuarios invitados de Google en todos los dispositivos. Los usuarios de Google pueden iniciar sesión en Teams desde un punto de conexión común, como `https://teams.microsoft.com`.
 
@@ -47,41 +78,40 @@ Es posible que los puntos de conexión comunes de otras aplicaciones no admitan 
    Si los usuarios invitados de Google intentan usar un vínculo como `https://myapps.microsoft.com` o `https://portal.azure.com`, recibirán un error.
 
 También puede proporcionar a los usuarios invitados de Google un vínculo directo a una aplicación o recurso, siempre que el vínculo incluya la información del inquilino. Por ejemplo, `https://myapps.microsoft.com/signin/Twitter/<application ID?tenantId=<your tenant ID>`. 
-
 ## <a name="step-1-configure-a-google-developer-project"></a>Paso 1: configuración de un proyecto de desarrollador de Google
 En primer lugar, cree un proyecto en la consola de desarrolladores de Google para obtener un identificador y un secreto de cliente que pueda agregar después a Azure Active Directory (Azure AD). 
 1. Vaya a las API de Google de https://console.developers.google.com e inicie sesión con su cuenta de Google. Se recomienda utilizar una cuenta de Google compartida con el equipo.
 2. Si se le solicita, acepte los términos del servicio.
-3. Cree un nuevo proyecto: En el panel, seleccione **Crear proyecto** , asigne un nombre al proyecto (por ejemplo, **Azure AD B2B** ), y, después, seleccione **Crear** : 
+3. Cree un nuevo proyecto: En el panel, seleccione **Crear proyecto**, asigne un nombre al proyecto (por ejemplo, **Azure AD B2B**), y, después, seleccione **Crear**: 
    
    ![Captura en la que se muestra una página Nuevo proyecto.](media/google-federation/google-new-project.png)
 
-4. En la página **API y servicios** , seleccione **Ver** en el nuevo proyecto.
+4. En la página **API y servicios**, seleccione **Ver** en el nuevo proyecto.
 
 5. Seleccione **Go to APIs overview** (Ir a la información general de las API) en la tarjeta de API. Seleccione **OAuth consent screen** (Pantalla de consentimiento de OAuth).
 
 6. Seleccione **Externo** y después **Crear**. 
 
-7. En la **Pantalla de consentimiento de OAuth** , especifique un **nombre de aplicación** :
+7. En la **Pantalla de consentimiento de OAuth**, especifique un **nombre de aplicación**:
 
    ![Captura de pantalla en la que se muestra la pantalla de consentimiento de OAuth de Google.](media/google-federation/google-oauth-consent-screen.png)
 
-8. Desplácese hasta la sección **Dominios autorizados** y escriba **microsoftonline.com** :
+8. Desplácese hasta la sección **Dominios autorizados** y escriba **microsoftonline.com**:
 
    ![Captura de pantalla en la que se muestra la sección de dominios autorizados.](media/google-federation/google-oauth-authorized-domains.PNG)
 
 9. Seleccione **Guardar**.
 
-10. Seleccione **Credenciales**. En el menú **Crear credenciales** , seleccione **Id. del cliente de OAuth**.
+10. Seleccione **Credenciales**. En el menú **Crear credenciales**, seleccione **Id. del cliente de OAuth**.
 
     ![Captura de pantalla en la que se muestra el menú Crear credenciales de las API de Google.](media/google-federation/google-api-credentials.png)
 
-11. En **Application type** (Tipo de aplicación), seleccione **Web application** (Aplicación web). Asigne un nombre adecuado a la aplicación, como **Azure AD B2B**. En **URI de redirección autorizados** , escriba los siguientes URI:
+11. En **Application type** (Tipo de aplicación), seleccione **Web application** (Aplicación web). Asigne un nombre adecuado a la aplicación, como **Azure AD B2B**. En **URI de redirección autorizados**, escriba los siguientes URI:
     - `https://login.microsoftonline.com`
     - `https://login.microsoftonline.com/te/<tenant ID>/oauth2/authresp` <br>(donde `<tenant ID>` es el id. de inquilino)
    
     > [!NOTE]
-    > Para buscar el identificador de inquilino, vaya a [Azure Portal](https://portal.azure.com). En **Azure Active Directory** , seleccione **Propiedades** y copie el **Id. del inquilino**.
+    > Para buscar el identificador de inquilino, vaya a [Azure Portal](https://portal.azure.com). En **Azure Active Directory**, seleccione **Propiedades** y copie el **Id. del inquilino**.
 
     ![Captura de pantalla en la que se muestra la sección de identificadores URI de redirección autorizados.](media/google-federation/google-create-oauth-client-id.png)
 
@@ -96,7 +126,7 @@ Defina ahora el identificador y el secreto de cliente de Google. Para ello, pued
 1. Vaya a [Azure Portal](https://portal.azure.com). En el panel izquierdo, seleccione **Azure Active Directory**. 
 2. Seleccione **External Identities**.
 3. Seleccione **Todos los proveedores de identidades** y haga clic en el botón de **Google**.
-4. Escriba el identificador y el secreto de cliente que obtuvo anteriormente. Seleccione **Guardar** : 
+4. Escriba el identificador y el secreto de cliente que obtuvo anteriormente. Seleccione **Guardar**: 
 
    ![Captura de pantalla en la que se muestra la página para agregar un proveedor de identidades de Google.](media/google-federation/google-identity-provider.png)
 
@@ -118,7 +148,7 @@ La configuración de la federación de Google se puede eliminar. Si lo hace, los
 1. Vaya a [Azure Portal](https://portal.azure.com). En el panel izquierdo, seleccione **Azure Active Directory**. 
 2. Seleccione **External Identities**.
 3. Seleccione **Todos los proveedores de identidades**.
-4. En la línea de **Google** , seleccione el botón de puntos suspensivos ( **...** ) y, a continuación, seleccione **Eliminar**. 
+4. En la línea de **Google**, seleccione el botón de puntos suspensivos ( **...** ) y, a continuación, seleccione **Eliminar**. 
    
    ![Captura de pantalla en la que se muestra el botón de eliminación del proveedor de identidades sociales.](media/google-federation/google-social-identity-providers.png)
 

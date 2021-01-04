@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/17/2020
+ms.date: 12/11/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 7008cfcdeb4615b42839f92a6df71357f9acf911
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 2c9c4cd643e2e4b89f9a7d8f44a6569d0dde2b37
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96484998"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97357388"
 ---
 # <a name="storage-account-overview"></a>Introducción a las cuentas de almacenamiento
 
@@ -54,7 +54,7 @@ Las cuentas de almacenamiento de uso general v1 proporcionan acceso a todos los 
 - Colas
 - Tablas
 
-En la mayoría de los casos, debe usar cuentas de uso general v2. Puede usar cuentas de uso general v1 en estos escenarios:
+Microsoft recomienda las cuentas de uso general v2 para la mayoría de los escenarios. Puede usar cuentas de uso general v1 en estos escenarios:
 
 - Sus aplicaciones requieren el modelo de implementación clásico de Azure. Las cuentas de uso general v2 y las cuentas de Blob Storage solo admiten el modelo de implementación de Azure Resource Manager.
 
@@ -152,7 +152,7 @@ Puede otorgar acceso a los datos de la cuenta de almacenamiento si usa cualquier
 
 - **Azure Active Directory:** Use las credenciales de Azure Active Directory (Azure AD) para autenticar a un usuario, grupo u otra identidad, y que así pueda obtener acceso a los datos de blobs y colas (versión preliminar). Si la autenticación de una identidad se realiza con éxito, entonces Azure AD devuelve un token para autorizar la solicitud a Azure Blob Storage o a Queue Storage. Para obtener más información, consulte [Autenticación del acceso a Azure Storage con Azure Active Directory](storage-auth-aad.md).
 - **Autorización de clave compartida:** use la clave de acceso de la cuenta de almacenamiento para crear una cadena de conexión que la aplicación pueda usar en el tiempo de ejecución para obtener acceso a Azure Storage. Los valores en la cadena de conexión se usan para construir el encabezado *Autorización* que se pasa a Azure Storage. Para obtener más información sobre las cadenas de conexión, consulte [Configuración de las cadenas de conexión de Azure Storage](storage-configure-connection-string.md).
-- **Firma de acceso compartido:** use una firma de acceso compartido para delegar el acceso a los recursos de la cuenta de almacenamiento, si no usa autorización de Azure AD. Una Firma de acceso compartido es un token que encapsula toda la información necesaria para autorizar una solicitud a Azure Storage en la dirección URL. Puede especificar el recurso de almacenamiento, los permisos concedidos y el intervalo durante el cual los permisos serán válidos como parte de la firma de acceso compartido. Para obtener más información, consulte [Uso de firmas de acceso compartido (SAS)](storage-sas-overview.md).
+- **Firma de acceso compartido:** Una Firma de acceso compartido (SAS) es un token que permite el acceso delegado a los recursos en la cuenta de almacenamiento. El token de SAS encapsula toda la información necesaria para autorizar una solicitud a Azure Storage en la dirección URL. Al crear una SAS, puede especificar los permisos que SAS concede a un recurso y el intervalo de tiempo durante el que los permisos son válidos. Un token de SAS se puede firmar con credenciales de Azure AD o con una clave compartida. Para obtener más información, consulte [Otorgar acceso limitado a recursos de Azure Storage con firmas de acceso compartido (SAS)](storage-sas-overview.md).
 
 > [!NOTE]
 > Si autentica a los usuarios o a las aplicaciones que usan las credenciales de Azure AD, mejorará la seguridad y le será más fácil usar esta opción en lugar de otros medios de autorización. Aunque puede seguir utilizando la autorización con clave compartida con las aplicaciones, el uso de Azure AD evita la necesidad de almacenar su clave de acceso de cuenta con el código. Asimismo, aún puede usar firmas de acceso compartido (SAS) para conceder acceso pormenorizado a los recursos de su cuenta de almacenamiento, pero Azure AD ofrece funcionalidades similares sin necesidad de administrar tokens de SAS ni de preocuparse sobre cómo revocar una SAS en peligro.
@@ -192,3 +192,5 @@ Para obtener más información sobre la API REST de Azure Storage, consulte [Azu
 
 - [Cree una cuenta de almacenamiento](storage-account-create.md)
 - [Creación de una cuenta de almacenamiento de blobs en bloques](../blobs/storage-blob-create-account-block-blob.md)
+- [Actualización a una cuenta de almacenamiento de uso general v2](storage-account-upgrade.md)
+- [recuperar una cuenta de almacenamiento eliminada](storage-account-recover.md)

@@ -7,13 +7,13 @@ ms.author: jingwang
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 01/08/2020
-ms.openlocfilehash: ecf3c3954bd77962e56ee289b623806efb352410
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.date: 12/09/2020
+ms.openlocfilehash: e1bd5852ca12ca03e7202cf9cfb89372d076bad9
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461264"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920425"
 ---
 # <a name="bulk-copy-from-files-to-database"></a>Copia masiva desde archivos a una base de datos
 
@@ -55,7 +55,7 @@ La plantilla define los dos parámetros siguientes:
     ![Revisión de la canalización](media/solution-template-bulk-copy-from-files-to-database/new-pipeline.png)
 
     > [!NOTE]
-    > Si eligió **Azure Synapse Analytics (anteriormente SQL DW)** como destino de datos en el **paso 2** descrito anteriormente, debe escribir una conexión a una instancia de Azure Blob Storage como almacenamiento provisional, porque así lo requiere Polybase de Azure Synapse Analytics. Como se muestra en la siguiente captura de pantalla, la plantilla generará automáticamente una *ruta de acceso de almacenamiento* para Blob Storage. Consulte si el contenedor se ha creado después de la ejecución de la canalización.
+    > Si eligió **Azure Synapse Analytics** como destino de datos en el **paso 2** descrito anteriormente, debe especificar una conexión a una instancia de Azure Blob Storage como almacenamiento provisional, porque así lo requiere Polybase de Azure Synapse Analytics. Como se muestra en la siguiente captura de pantalla, la plantilla generará automáticamente una *ruta de acceso de almacenamiento* para Blob Storage. Consulte si el contenedor se ha creado después de la ejecución de la canalización.
         
     ![Configuración de PolyBase](media/solution-template-bulk-copy-from-files-to-database/staging-account.png)
 
