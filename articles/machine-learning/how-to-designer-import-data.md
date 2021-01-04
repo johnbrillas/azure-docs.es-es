@@ -10,12 +10,12 @@ ms.author: keli19
 ms.date: 11/13/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 5569b625b8f0c4ba890c0cd5b1700ca6fe83d968
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: a2cc0840b7ba4b26cf9f5b1219fc189230870774
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94591995"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739865"
 ---
 # <a name="import-data-into-azure-machine-learning-designer"></a>Importación de datos en el diseñador de Azure Machine Learning
 
@@ -47,8 +47,7 @@ Si los datos de salida del módulo están en formato tabular, debe optar por reg
  - El **conjunto de datos de archivo** registra la carpeta de salida del módulo como un conjunto de datos de archivo. La carpeta de salida contiene un archivo de datos y metarchivos que el diseñador usa internamente. Seleccione esta opción si quiere seguir usando el conjunto de los conjuntos registrado en el diseñador. 
 
  - El **conjunto de datos tabular** solo registra el archivo de datos de salida del módulo como un conjunto de datos tabular. Este formato se usa fácilmente en otras herramientas, como las de aprendizaje automático automatizado o el SDK de Python. Seleccione esta opción si tiene previsto utilizar el conjunto de datos registrado fuera del diseñador.  
-
-
+ 
 
 ### <a name="use-a-dataset"></a>Uso de un conjunto de datos
 
@@ -62,6 +61,14 @@ Si registra un conjunto de datos de archivo, el tipo de puerto de salida del con
 > [!NOTE]
 > El diseñador admite el [control de versiones del conjunto de datos](how-to-version-track-datasets.md). Especifique la versión del conjunto de datos en el panel de propiedades del módulo del conjunto de datos.
 
+### <a name="limitations"></a>Limitaciones 
+
+- Actualmente solo se puede visualizar el conjunto de datos tabular en el diseñador. Si registra un conjunto de datos de archivo fuera del diseñador, no podrá visualizarlo en el lienzo del diseñador.
+- El conjunto de datos está almacenado en una red virtual (VNet). Si quiere visualizarlo, debe habilitar la identidad administrada del área de trabajo del almacén de datos.
+    1. Vaya al almacén de datos relacionado y haga clic en **Actualizar credenciales**.
+    :::image type="content" source="./media/resource-known-issues/datastore-update-credential.png" alt-text="Actualizar credenciales":::
+    1. Seleccione **Sí** para habilitar la identidad administrada del área de trabajo.
+    :::image type="content" source="./media/resource-known-issues/enable-workspace-managed-identity.png" alt-text="Habilitación de la identidad administrada del área de trabajo":::
 
 ## <a name="import-data-using-the-import-data-module"></a>Importación de datos mediante el módulo Import Data (Importar datos)
 

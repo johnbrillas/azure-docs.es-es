@@ -9,12 +9,12 @@ ms.date: 2/22/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, references_regions
-ms.openlocfilehash: 4df4c3d91c30dfd63de9073d8435f6f96c6ecd95
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 705910a9e2f4ebc80a63ab22ac4edecc5ae03cd0
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94626833"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724806"
 ---
 # <a name="create-an-azure-file-share"></a>Creación de un recurso compartido de archivos de Azure
 Para crear un recurso compartido de archivos de Azure, debe responder a tres preguntas sobre cómo lo usará:
@@ -172,7 +172,7 @@ La propiedad **quota** significa algo ligeramente distinto en los recursos compa
 
 - En el caso de los recursos compartidos de archivos estándar, es un límite superior del recurso compartido de archivos de Azure, que los usuarios finales no pueden superar. El objetivo principal de la cuota para un recurso compartido de archivos estándar es presupuestario: "no quiero que este recurso compartido de archivos crezca más allá de este punto". Si no se especifica una cuota, el recurso compartido de archivos estándar puede abarcar hasta 100 TiB (o 5 TiB si no se establece la propiedad de recursos compartidos de archivos grandes para una cuenta de almacenamiento).
 
-- En el caso de recursos compartidos de archivos prémium, la cuota se sobrecarga para indicar **tamaño aprovisionado**. El tamaño aprovisionado es la cantidad que se facturará, independientemente del uso real. Al aprovisionar un recurso compartido de archivos prémium, se deben tener en cuenta dos factores: 1) el crecimiento futuro del recurso compartido desde una perspectiva de uso del espacio y 2) las IOPS necesarias para la carga de trabajo. Cada GiB aprovisionado le da derecho a IOPS reservadas y de ráfaga adicionales. Para obtener más información sobre cómo planear un recurso compartido de archivos prémium, consulte el tema sobre el [aprovisionamiento de recursos compartidos de archivos prémium](storage-files-planning.md#understanding-provisioning-for-premium-file-shares).
+- En el caso de recursos compartidos de archivos prémium, la cuota se sobrecarga para indicar **tamaño aprovisionado**. El tamaño aprovisionado es la cantidad que se facturará, independientemente del uso real. Al aprovisionar un recurso compartido de archivos prémium, se deben tener en cuenta dos factores: 1) el crecimiento futuro del recurso compartido desde una perspectiva de uso del espacio y 2) las IOPS necesarias para la carga de trabajo. Cada GiB aprovisionado le da derecho a IOPS reservadas y de ráfaga adicionales. Para obtener más información sobre cómo planear un recurso compartido de archivos prémium, consulte el tema sobre el [aprovisionamiento de recursos compartidos de archivos prémium](understanding-billing.md#provisioned-billing).
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 Si acaba de crear la cuenta de almacenamiento, puede navegar a esta desde la pantalla de implementación. Para ello, seleccione **Ir al recurso**. Si ya ha creado la cuenta de almacenamiento anteriormente, puede navegar a esta a través del grupo de recursos que la contiene. Una vez en la cuenta de almacenamiento, seleccione el icono con la etiqueta **Recursos compartidos de archivos** (también puede navegar a **Recursos compartidos de archivos** a través de la tabla de contenido de la cuenta de almacenamiento).

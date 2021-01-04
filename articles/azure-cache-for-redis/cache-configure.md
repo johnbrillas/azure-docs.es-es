@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: f0d0742994b14f692c2aea9130edc73d779cff52
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 2ff97dd30d9b993385f52ea531653a89197f8756
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92544773"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97734630"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Configuración de Azure Cache for Redis
 En este tema se describe la configuración disponible para las instancias de Azure Cache for Redis. En este tema también se describe la configuración predeterminada del servidor Redis para las instancias de Azure Cache for Redis.
@@ -145,7 +145,7 @@ La opción **maxmemory-reserved** configura la cantidad de memoria (en MB por in
 
 La opción **maxfragmentationmemory-reserved** configura la cantidad de memoria (en MB por instancia en un clúster) que se reserva para adaptarse a la fragmentación de memoria. Establecer este valor permite tener una experiencia más coherente con el servidor Redis cuando la caché está llena o prácticamente llena, y la proporción de fragmentación es elevada. Cuando se reserva memoria para dichas operaciones, no está disponible para el almacenamiento de datos en caché.
 
-Al elegir un nuevo valor de reserva de memoria ( **maxmemory-reserved** o **maxfragmentationmemory-reserved** ) hay que tener en cuenta cómo podría afectar este cambio a una memoria caché que ya se está ejecutando con grandes cantidades de datos en ella. Por ejemplo, si tiene una memoria caché de 53 GB con 49 GB de datos, al cambiar el valor de reserva a 8 GB, esta modificación reducirá la memoria máxima disponible para el sistema a 45 GB. Si los valores actuales de `used_memory` o `used_memory_rss` son mayores que el nuevo límite de 45 GB, entonces el sistema tendrá que expulsar datos hasta que `used_memory` y `used_memory_rss` estén por debajo de 45 GB. La expulsión puede aumentar la carga del servidor y la fragmentación de memoria. Para más información sobre las métricas de caché como `used_memory` y `used_memory_rss`, vea [Métricas disponibles e intervalos de informes](cache-how-to-monitor.md#available-metrics-and-reporting-intervals).
+Al elegir un nuevo valor de reserva de memoria (**maxmemory-reserved** o **maxfragmentationmemory-reserved**) hay que tener en cuenta cómo podría afectar este cambio a una memoria caché que ya se está ejecutando con grandes cantidades de datos en ella. Por ejemplo, si tiene una memoria caché de 53 GB con 49 GB de datos, al cambiar el valor de reserva a 8 GB, esta modificación reducirá la memoria máxima disponible para el sistema a 45 GB. Si los valores actuales de `used_memory` o `used_memory_rss` son mayores que el nuevo límite de 45 GB, entonces el sistema tendrá que expulsar datos hasta que `used_memory` y `used_memory_rss` estén por debajo de 45 GB. La expulsión puede aumentar la carga del servidor y la fragmentación de memoria. Para más información sobre las métricas de caché como `used_memory` y `used_memory_rss`, vea [Métricas disponibles e intervalos de informes](cache-how-to-monitor.md#available-metrics-and-reporting-intervals).
 
 > [!IMPORTANT]
 > Las opciones **maxmemory-reserved** y **maxfragmentationmemory-reserved** solo están disponibles para las memorias caché de nivel Standard y Premium.
@@ -181,7 +181,7 @@ Puede encontrar más información en la hoja **Recomendaciones** .
 
 Estas métricas se pueden supervisar en las secciones [Monitoring charts](cache-how-to-monitor.md#monitoring-charts) (Gráficos de supervisión) y [Usage charts](cache-how-to-monitor.md#usage-charts) (Gráficos de uso) de la hoja **Azure Cache for Redis**.
 
-Cada plan de tarifa tiene distintos límites para las conexiones de cliente, memoria y ancho de banda. Si la caché se aproxima a la capacidad máxima para estas métricas durante un período prolongado, se crea una recomendación. Para más información sobre las métricas y los límites que se revisan mediante la herramienta **Recomendaciones** , consulte la tabla siguiente:
+Cada plan de tarifa tiene distintos límites para las conexiones de cliente, memoria y ancho de banda. Si la caché se aproxima a la capacidad máxima para estas métricas durante un período prolongado, se crea una recomendación. Para más información sobre las métricas y los límites que se revisan mediante la herramienta **Recomendaciones**, consulte la tabla siguiente:
 
 | Métrica de Azure Cache for Redis | Más información |
 | --- | --- |
@@ -316,7 +316,7 @@ Si tiene una caché premium con la agrupación en clústeres habilitada, puede s
 
 ![Captura de pantalla en la que se muestra dónde se seleccionan las particiones de la memoria caché que se reiniciarán.](./media/cache-configure/redis-cache-reboot-cluster.png)
 
-Para reiniciar uno o varios nodos de la caché, seleccione los nodos que prefiera y haga clic en **Reboot** (Reiniciar). Si tiene una caché premium con la agrupación en clústeres habilitada, seleccione las particiones para reiniciar y haga clic en **Reboot** (Reiniciar). Después de unos minutos, los nodos seleccionados se reinician y vuelven a estar en línea poco tiempo después.
+Para reiniciar uno o varios nodos de la caché, seleccione los nodos que prefiera y haga clic en **Reboot**(Reiniciar). Si tiene una caché premium con la agrupación en clústeres habilitada, seleccione las particiones para reiniciar y haga clic en **Reboot**(Reiniciar). Después de unos minutos, los nodos seleccionados se reinician y vuelven a estar en línea poco tiempo después.
 
 > [!IMPORTANT]
 > El reinicio ahora está disponible para todos los planes de tarifas. Para más información e instrucciones, consulte [Azure Cache for Redis administration - Reboot](cache-administration.md#reboot) (Administración de Azure Cache for Redis: Reinicio).
@@ -363,7 +363,7 @@ La configuración de la sección **Soporte y solución de problemas** proporcion
 **estado de los recursos** supervisa el recurso e indica si se ejecuta del modo previsto. Para obtener más información sobre el servicio Estado de los recursos de Azure, consulte [Información general sobre Estado de los recursos de Azure](../service-health/resource-health-overview.md).
 
 > [!NOTE]
-> El servicio Estado de los recursos no puede actualmente informar sobre el estado de las instancias de Azure Cache for Redis hospedadas en una red virtual. Para más información, consulte [¿Funcionarán todas las características al alojar una caché en una red virtual?](cache-how-to-premium-vnet.md#do-all-cache-features-work-when-hosting-a-cache-in-a-vnet)
+> El servicio Estado de los recursos no puede actualmente informar sobre el estado de las instancias de Azure Cache for Redis hospedadas en una red virtual. Para más información, consulte [¿Funcionarán todas las características al alojar una caché en una red virtual?](cache-how-to-premium-vnet.md#do-all-cache-features-work-when-a-cache-is-hosted-in-a-virtual-network)
 >
 >
 
@@ -382,7 +382,7 @@ Las nuevas instancias de Azure Cache for Redis se configuran con los siguientes 
 >
 > `StackExchange.Redis.RedisServerException: ERR unknown command 'CONFIG'`
 >
-> Es posible configurar aquellos valores que permitan esta opción, como **max-memory-policy** , a través de Azure Portal o las herramientas de administración de la línea de comandos como la CLI de Azure o PowerShell.
+> Es posible configurar aquellos valores que permitan esta opción, como **max-memory-policy**, a través de Azure Portal o las herramientas de administración de la línea de comandos como la CLI de Azure o PowerShell.
 >
 >
 
@@ -464,7 +464,7 @@ Para obtener más información sobre las bases de datos, consulte el artículo [
 Para más información sobre los comandos de Redis, consulte [https://redis.io/commands](https://redis.io/commands).
 
 ## <a name="redis-console"></a>Consola de Redis
-Puede emitir comandos de forma segura a sus instancias de Azure Cache for Redis con la **consola de Redis** , que está disponible en Azure Portal para todos los niveles de memoria caché.
+Puede emitir comandos de forma segura a sus instancias de Azure Cache for Redis con la **consola de Redis**, que está disponible en Azure Portal para todos los niveles de memoria caché.
 
 > [!IMPORTANT]
 > - La consola de Redis no funciona con [redes virtuales](cache-how-to-premium-vnet.md). Cuando la memoria caché forma parte de una red virtual, solo los clientes de la red virtual pueden tener acceso a la memoria caché. Como la consola de Redis se ejecuta en el explorador local, que está fuera de la red virtual, no se puede conectar a la caché.
@@ -472,7 +472,7 @@ Puede emitir comandos de forma segura a sus instancias de Azure Cache for Redis 
 >
 >
 
-Para acceder a la Consola de Redis, en la hoja **Azure Cache for Redis** , haga clic en **Consola**.
+Para acceder a la Consola de Redis, en la hoja **Azure Cache for Redis**, haga clic en **Consola**.
 
 ![Captura de pantalla en la que se resalta el botón Consola.](./media/cache-configure/redis-console-menu.png)
 
