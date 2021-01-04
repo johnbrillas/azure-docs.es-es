@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 20bfbaeea48711a680877e4d5d8f618e84eb12d7
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: cce4c6aff986c2e8c3d879d962714e13f6b2e7ae
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462578"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97694689"
 ---
 # <a name="query-parquet-files-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Consulta de archivos de Parquet mediante un grupo de SQL sin servidor en Azure Synapse Analytics
 
@@ -38,9 +38,9 @@ from openrowset(
 Asegúrese de que puede tener acceso a este archivo. Si el archivo está protegido con una clave SAS o una identidad personalizada de Azure, necesitaría configurar una [credencial de nivel de servidor para el inicio de sesión de SQL](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential).
 
 > [!IMPORTANT]
-> Asegúrese de usar alguna intercalación de base de datos UTF-8 (por ejemplo, `Latin1_General_100_CI_AS_SC_UTF8`) porque los valores de cadena de los archivos de Parquet se codifican como UTF-8.
+> Asegúrese de usar alguna intercalación de base de datos UTF-8 (por ejemplo, `Latin1_General_100_BIN2_UTF8`) porque los valores de cadena de los archivos de Parquet se codifican como UTF-8.
 > Una falta de coincidencia entre la codificación de texto del archivo de Parquet y la intercalación puede producir errores de conversión inesperados.
-> Puede cambiar fácilmente la intercalación predeterminada de la base de datos actual mediante la siguiente instrucción T-SQL: `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`.
+> Puede cambiar fácilmente la intercalación predeterminada de la base de datos actual mediante la siguiente instrucción T-SQL: `alter database current collate Latin1_General_100_BIN2_UTF8`.
 
 ### <a name="data-source-usage"></a>Uso del origen de datos
 
@@ -74,10 +74,10 @@ from openrowset(
 ```
 
 > [!IMPORTANT]
-> Asegúrese de especificar explícitamente alguna intercalación UTF-8 (por ejemplo, `Latin1_General_100_CI_AS_SC_UTF8`) para todas las columnas de cadena de la cláusula `WITH` o establezca alguna intercalación UTF-8 en el nivel de base de datos.
+> Asegúrese de especificar explícitamente alguna intercalación UTF-8 (por ejemplo, `Latin1_General_100_BIN2_UTF8`) para todas las columnas de cadena de la cláusula `WITH` o establezca alguna intercalación UTF-8 en el nivel de base de datos.
 > La falta de coincidencia entre la codificación de texto del archivo y la intercalación de las columnas de cadena podría producir errores de conversión inesperados.
-> Puede cambiar fácilmente la intercalación predeterminada de la base de datos actual mediante la siguiente instrucción T-SQL: `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`.
-> Puede establecer fácilmente la intercalación en los tipos de columnas mediante la siguiente definición: `geo_id varchar(6) collate Latin1_General_100_CI_AI_SC_UTF8`.
+> Puede cambiar fácilmente la intercalación predeterminada de la base de datos actual mediante la siguiente instrucción T-SQL: `alter database current collate Latin1_General_100_BIN2_UTF8`.
+> Puede establecer fácilmente la intercalación en los tipos de columnas mediante la siguiente definición: `geo_id varchar(6) collate Latin1_General_100_BIN2_UTF8`.
 
 En las secciones siguientes, puede ver cómo consultar varios tipos de archivos PARQUET.
 

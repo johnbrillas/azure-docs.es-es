@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 04/26/2020
 ms.author: kenwith
 ms.reviewer: arvinh, celested
-ms.openlocfilehash: b69e2c9b12b2db34f3eb70e54d2c6aede6b54784
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba8dec19443bbafa300144b1aa42b3973cce9e6d
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88235509"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97655159"
 ---
 # <a name="using-scim-and-microsoft-graph-together-to-provision-users-and-enrich-your-application-with-the-data-it-needs"></a>Uso de SCIM y Microsoft Graph juntos para aprovisionar a los usuarios y enriquecer su aplicación con los datos necesarios
 
@@ -62,7 +62,7 @@ POST /Users
     "roles": []
 }
 ```
-    
+
 ## <a name="scenario-2-automatically-remove-users-from-my-app"></a>Escenario 2: Eliminación automática de usuarios de la aplicación
 Los clientes que usan mi aplicación están centrados en la seguridad, y entre sus requisitos de gobernanza, está el de quitar las cuentas cuando los empleados ya no las necesiten. ¿Cómo se puede automatizar el desaprovisionamiento de la aplicación?
 

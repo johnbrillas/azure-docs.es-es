@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1829c69510568b0f9a8cec7fb7d2d57be8515d3
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 399cbef4de91623ada1c38de7c6148d22fde94c7
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97509995"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672407"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Términos de uso de Azure Active Directory
 
@@ -74,11 +74,11 @@ Una vez que haya finalizado el documento de términos de uso, use el procedimien
 1. Inicie sesión en Azure como administrador global, administrador de seguridad o administrador de acceso condicional.
 1. Vaya a **Términos de uso** en [https://aka.ms/catou](https://aka.ms/catou).
 
-   ![Acceso condicional: hoja de Términos de uso](./media/terms-of-use/tou-blade.png)
+    ![Acceso condicional: hoja de Términos de uso](./media/terms-of-use/tou-blade.png)
 
 1. Haga clic en **Nuevos términos**.
 
-   ![Panel de Nuevos términos de uso para especificar la configuración de los términos de uso](./media/terms-of-use/new-tou.png)
+    ![Panel de Nuevos términos de uso para especificar la configuración de los términos de uso](./media/terms-of-use/new-tou.png)
 
 1. En el cuadro **Nombre**, escriba un nombre para los términos de uso que se usarán en Azure Portal.
 1. En el cuadro **Nombre para mostrar**, escriba un título que vean los usuarios cada vez que inicien sesión.
@@ -88,7 +88,7 @@ Una vez que haya finalizado el documento de términos de uso, use el procedimien
 1. Para requerir a los usuarios finales que acepten sus términos de uso en todos los dispositivos desde los que obtienen acceso, establezca **Requerir que los usuarios concedan su consentimiento en todos los dispositivos** en **Activado**. Es posible que los usuarios deban instalar aplicaciones adicionales si esta opción está habilitada. Para obtener más información, consulte [Términos de uso por dispositivo](#per-device-terms-of-use).
 1. Si quiere hacer expirar autorizaciones de términos de uso en una programación, establezca **Expirar autorizaciones** en **Activado**. Al establecerse en Activado, se muestran dos opciones de configuración de la programación adicionales.
 
-   ![Configuración de Expirar autorizaciones para establecer la fecha de inicio, la frecuencia y la duración](./media/terms-of-use/expire-consents.png)
+    ![Configuración de Expirar autorizaciones para establecer la fecha de inicio, la frecuencia y la duración](./media/terms-of-use/expire-consents.png)
 
 1. Use las opciones de configuración **Expirar a partir del** y **Frecuencia** para especificar la programación para las expiraciones de términos de uso. En la siguiente tabla se muestra el resultado de un par de opciones de configuración de ejemplo:
 
@@ -115,7 +115,7 @@ Una vez que haya finalizado el documento de términos de uso, use el procedimien
 
 1. En **Acceso condicional**, use la lista **Exigir con plantillas de directiva de acceso condicional** para seleccionar la plantilla para exigir los términos de uso.
 
-   ![Lista de desplegable de acceso condicional para seleccionar una plantilla de directiva](./media/terms-of-use/conditional-access-templates.png)
+    ![Lista de desplegable de acceso condicional para seleccionar una plantilla de directiva](./media/terms-of-use/conditional-access-templates.png)
 
    | Plantilla | Descripción |
    | --- | --- |
@@ -131,7 +131,7 @@ Una vez que haya finalizado el documento de términos de uso, use el procedimien
 
 1. Haga clic en **Crear**.
 
-   Si ha seleccionado una plantilla de acceso condicional personalizada, aparece entonces una nueva pantalla que le permite crear la directiva de acceso condicional personalizada.
+    Si ha seleccionado una plantilla de acceso condicional personalizada, aparece entonces una nueva pantalla que le permite crear la directiva de acceso condicional personalizada.
 
    ![Panel Nuevo acceso condicional si eligió la plantilla de directiva de acceso condicional personalizada](./media/terms-of-use/custom-policy.png)
 
@@ -145,15 +145,15 @@ La hoja Términos de uso muestra un recuento de los usuarios que los han aceptad
 
 1. Inicie sesión en Azure y vaya a **Términos de uso** en [https://aka.ms/catou](https://aka.ms/catou).
 
-   ![Hoja Términos de uso que indica el número de usuarios que han aceptado o rechazado los términos de uso](./media/terms-of-use/view-tou.png)
+    ![Hoja Términos de uso que indica el número de usuarios que han aceptado o rechazado los términos de uso](./media/terms-of-use/view-tou.png)
 
 1. En una instancia de Términos de uso, haga clic en los números situados en **Aceptado** o **Rechazado** para ver el estado actual de los usuarios.
 
-   ![Panel Autorizaciones de términos de uso que indica los usuarios que han aceptado los términos de uso](./media/terms-of-use/accepted-tou.png)
+    ![Panel Autorizaciones de términos de uso que indica los usuarios que han aceptado los términos de uso](./media/terms-of-use/accepted-tou.png)
 
 1. Para ver el historial de un usuario individual, haga clic en los puntos suspensivos ( **...** ) y, a continuación, en **Ver historial**.
 
-   ![Menú contextual Ver historial de un usuario](./media/terms-of-use/view-history-menu.png)
+    ![Menú contextual Ver historial de un usuario](./media/terms-of-use/view-history-menu.png)
 
    En el panel Ver historial, puede ver un historial de todas las aceptaciones, rechazos y expiraciones.
 
@@ -169,11 +169,11 @@ Para empezar a trabajar con los registros de auditoría de Azure AD, use el proc
 1. Seleccione una instancia de Términos de uso.
 1. Haga clic en **Ver registros de auditoría**.
 
-   ![Hoja Términos de uso con la opción Ver registros de auditoría resaltada](./media/terms-of-use/audit-tou.png)
+    ![Hoja Términos de uso con la opción Ver registros de auditoría resaltada](./media/terms-of-use/audit-tou.png)
 
 1. En la pantalla de registros de auditoría de Azure AD, puede filtrar la información mediante las listas proporcionadas para seleccionar información de registro de auditoría específica.
 
-   También puede hacer clic en **Descargar** para descargar la información en un archivo .csv y usarla localmente.
+    También puede hacer clic en **Descargar** para descargar la información en un archivo .csv y usarla localmente.
 
    ![Pantalla de Registros de auditoría de Azure AD que muestra las opciones de Fecha, Directiva de destino, Iniciado por y Actividad](./media/terms-of-use/audit-logs-tou.png)
 
@@ -204,11 +204,11 @@ Los usuarios pueden revisar y ver los términos de uso que han aceptado mediante
 1. Inicie sesión en [https://myapps.microsoft.com](https://myapps.microsoft.com).
 1. En la esquina superior derecha, haga clic en su nombre y seleccione **Perfil**.
 
-   ![Sitio de MyApps con el panel del usuario abierto](./media/terms-of-use/tou14.png)
+    ![Sitio de MyApps con el panel del usuario abierto](./media/terms-of-use/tou14.png)
 
 1. En la página Perfil, haga clic en **Review terms of use** (Revisar los términos de uso).
 
-   ![Página de perfil de un usuario que muestra el vínculo Revisión de los términos de uso](./media/terms-of-use/tou13a.png)
+    ![Página de perfil de un usuario que muestra el vínculo Revisión de los términos de uso](./media/terms-of-use/tou13a.png)
 
 1. Desde ahí puede examinar los términos de uso que ha aceptado.
 
@@ -220,11 +220,11 @@ Algunos de los detalles de los términos de uso se pueden editar, pero no se pue
 1. Seleccione los términos de uso que quiere editar.
 1. Haga clic en **Editar términos**.
 1. En el panel Edición de condiciones de uso, puede cambiar lo siguiente:
-     - **Nombre**: es el nombre interno de las condiciones de uso que no se comparten con los usuarios finales.
-     - **Nombre para mostrar**: este es el nombre que los usuarios finales pueden observar al ver las condiciones de uso.
-     - **Requerir a los usuarios que expandan las condiciones de uso**: si se establece en **Activo**, se forzará a que el usuario final expanda el documento con las condiciones de uso antes de aceptarlo.
-     - (Versión preliminar) Puede **actualizar un documento de condiciones de uso ya existente**.
-     - Puede agregar un idioma a un documento de condiciones de uso ya existente.
+    - **Nombre**: es el nombre interno de las condiciones de uso que no se comparten con los usuarios finales.
+    - **Nombre para mostrar**: este es el nombre que los usuarios finales pueden observar al ver las condiciones de uso.
+    - **Requerir a los usuarios que expandan las condiciones de uso**: si se establece en **Activo**, se forzará a que el usuario final expanda el documento con las condiciones de uso antes de aceptarlo.
+    - (Versión preliminar) Puede **actualizar un documento de condiciones de uso ya existente**.
+    - Puede agregar un idioma a un documento de condiciones de uso ya existente.
 
    Si hay otras opciones de configuración que quiere cambiar, como documento PDF, requerir que los usuarios concedan su consentimiento en todos los dispositivos, expirar autorizaciones, duración antes de solicitar que se acepten los términos de nuevo o directiva de acceso condicional, debe crear una nueva instancia de términos de uso.
 
@@ -238,8 +238,8 @@ Algunos de los detalles de los términos de uso se pueden editar, pero no se pue
 2.  Seleccione los términos de uso que quiere editar.
 3.  Haga clic en **Editar términos**.
 4.  En el idioma en el que desea actualizar a una nueva versión, haga clic en **Actualizar** en la columna de acción.
- 
-     ![Panel Edición de términos de uso que muestra las opciones de nombre y expansión](./media/terms-of-use/edit-terms-use.png)
+
+    ![Panel Edición de términos de uso que muestra las opciones de nombre y expansión](./media/terms-of-use/edit-terms-use.png)
 
 5.  En el panel de la derecha, cargue el PDF de la nueva versión.
 6.  También hay una opción de alternancia aquí, **Require reaccept** (Requerir nueva aceptación), en caso de que desee requerir a los usuarios que acepten esta nueva versión la próxima vez que inicien sesión. Si activa esta opción, la próxima vez que intenten acceder al recurso definido en la directiva de acceso condicional, se les pedirá que acepten esta nueva versión. Si no requiere una nueva aceptación por parte de los usuarios, su consentimiento anterior seguirá siendo el actual y solo los usuarios nuevos que no hayan dado su consentimiento anteriormente o cuyo consentimiento expire verán la nueva versión.
@@ -279,7 +279,7 @@ El siguiente procedimiento describe cómo agregar un idioma a los términos de u
 1. Haga clic en **Agregar idioma** en la parte inferior de la página.
 1. En el panel para agregar idioma de los términos de uso, cargue el PDF localizado y seleccione el idioma.
 
-   ![Panel de Términos de uso seleccionados y que muestra la pestaña Idiomas en los detalles](./media/terms-of-use/select-language.png)
+    ![Panel de Términos de uso seleccionados y que muestra la pestaña Idiomas en los detalles](./media/terms-of-use/select-language.png)
 
 1. Haga clic en **Agregar idioma**.
 1. Haga clic en **Guardar**
@@ -340,7 +340,7 @@ Puede eliminar los antiguos términos de uso mediante el procedimiento siguiente
 1. Haga clic en **Eliminar términos**.
 1. En el mensaje que le pregunta si desea continuar, haga clic en **Sí**.
 
-   ![Mensaje de confirmación para eliminar los términos de uso](./media/terms-of-use/delete-tou.png)
+    ![Mensaje de confirmación para eliminar los términos de uso](./media/terms-of-use/delete-tou.png)
 
    Ahora no debería ver los términos de uso.
 

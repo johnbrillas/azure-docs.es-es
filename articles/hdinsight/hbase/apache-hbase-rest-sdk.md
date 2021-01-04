@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 12/02/2019
-ms.openlocfilehash: 17c3f07fe553e363d1eb2a997287feb77296a621
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 9b5693ddef5e512b0a95c87a700fd12acd4b5fae
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92540319"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654649"
 ---
 # <a name="use-the-net-sdk-for-apache-hbase"></a>Uso del SDK de .NET para Apache HBase
 
@@ -38,13 +38,13 @@ var credentials = new ClusterCredentials(new Uri("https://CLUSTERNAME.azurehdins
 client = new HBaseClient(credentials);
 ```
 
-Reemplace CLUSTERNAME por el nombre del clúster de HDInsight HBase y USERNAME y PASSWORD por las credenciales de Apache Hadoop especificadas durante la creación del clúster. El nombre de usuario de Hadoop predeterminado es **admin** .
+Reemplace CLUSTERNAME por el nombre del clúster de HDInsight HBase y USERNAME y PASSWORD por las credenciales de Apache Hadoop especificadas durante la creación del clúster. El nombre de usuario de Hadoop predeterminado es **admin**.
 
 ## <a name="create-a-new-table"></a>Creación de una nueva tabla
 
-HBase almacena los datos en tablas. Una tabla consta de un *Rowkey* , la clave principal y uno o varios grupos de columnas denominadas *familias de columnas* . Los datos de cada tabla se distribuyen horizontalmente por un intervalo de Rowkey en *regiones* . Cada región tiene una clave de inicio y de fin. Una tabla puede tener una o varias regiones. A medida que aumentan los datos de la tabla, HBase divide las regiones grandes en regiones más pequeñas. Las regiones se almacenan en *servidores de región* , donde un servidor de región puede almacenar varias regiones.
+HBase almacena los datos en tablas. Una tabla consta de un *Rowkey*, la clave principal y uno o varios grupos de columnas denominadas *familias de columnas*. Los datos de cada tabla se distribuyen horizontalmente por un intervalo de Rowkey en *regiones*. Cada región tiene una clave de inicio y de fin. Una tabla puede tener una o varias regiones. A medida que aumentan los datos de la tabla, HBase divide las regiones grandes en regiones más pequeñas. Las regiones se almacenan en *servidores de región*, donde un servidor de región puede almacenar varias regiones.
 
-Los datos se almacenan físicamente en *HFiles* . Un único HFile contiene datos de una tabla, una región y una familia de columnas. Las filas de HFile se almacenan ordenadas en Rowkey. Cada HFile tiene un índice *Árbol B+* para la recuperación rápida de las filas.
+Los datos se almacenan físicamente en *HFiles*. Un único HFile contiene datos de una tabla, una región y una familia de columnas. Las filas de HFile se almacenan ordenadas en Rowkey. Cada HFile tiene un índice *Árbol B+* para la recuperación rápida de las filas.
 
 Para crear una tabla nueva, especifique `TableSchema` y columnas. El código siguiente comprueba si la tabla "RestSDKTable" ya existe. Si no es así, se crea.
 

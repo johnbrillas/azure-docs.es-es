@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dfbd5e6f190e0600c31aa17e9b1a75f08e213df4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: fddb3b171e5a26273cb2e0045f11e3a4dbb48c5f
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95973582"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97655108"
 ---
 # <a name="approve-or-deny-access-requests-in-azure-ad-entitlement-management"></a>Aprobación o denegación de solicitudes de acceso en la administración de derechos de Azure AD
 
@@ -57,11 +57,11 @@ Si no tiene el correo electrónico, puede encontrar las solicitudes de acceso pe
 
 1. Haga clic en **Detalles de la solicitud**.
 
-     ![Portal Mi acceso: solicitud de acceso, hacer clic en Detalles de la solicitud](./media/entitlement-management-request-approve/requestor-information-request-details.png)
+    ![Portal Mi acceso: solicitud de acceso, hacer clic en Detalles de la solicitud](./media/entitlement-management-request-approve/requestor-information-request-details.png)
 
 1. La información proporcionada por el solicitante estará en la parte inferior del panel.
 
-     ![Captura de pantalla que muestra los detalles de la solicitud.](./media/entitlement-management-request-approve/requestor-information-requestor-answers.png)
+    ![Captura de pantalla que muestra los detalles de la solicitud.](./media/entitlement-management-request-approve/requestor-information-requestor-answers.png)
 
 1. En función de la información proporcionada por el solicitante, puede aprobar o denegar la solicitud. Consulte los pasos de aprobación o denegación de una solicitud para obtener instrucciones.
 

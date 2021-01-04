@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/08/2018
 ms.author: cynthn
 ms.custom: legacy, devx-track-azurecli
-ms.openlocfilehash: 376d9d76633060f504454f85841b9c15bafc6685
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eacd1426b856de11a18b0da6c509d281b3bca94c
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87503045"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97655176"
 ---
 # <a name="how-to-create-a-managed-image-of-a-virtual-machine-or-vhd"></a>Creación de una imagen administrada de una máquina virtual o un disco duro virtual
 
@@ -60,8 +60,8 @@ Use la CLI de Azure para marcar la máquina virtual como generalizada y capture 
    
     ```azurecli
     az vm deallocate \
-      --resource-group myResourceGroup \
-      --name myVM
+        --resource-group myResourceGroup \
+        --name myVM
     ```
     
     Espere a que la máquina virtual se desasigne por completo antes de moverla. Esta operación puede tardar algunos minutos en completarse.  La máquina virtual se apaga durante la desasignación.
@@ -70,8 +70,8 @@ Use la CLI de Azure para marcar la máquina virtual como generalizada y capture 
    
     ```azurecli
     az vm generalize \
-      --resource-group myResourceGroup \
-      --name myVM
+        --resource-group myResourceGroup \
+        --name myVM
     ```
 
     Una máquina virtual que ha sido generalizada ya no se puede reiniciar.
@@ -80,8 +80,8 @@ Use la CLI de Azure para marcar la máquina virtual como generalizada y capture 
    
     ```azurecli
     az image create \
-      --resource-group myResourceGroup \
-      --name myImage --source myVM
+        --resource-group myResourceGroup \
+        --name myImage --source myVM
     ```
    
    > [!NOTE]

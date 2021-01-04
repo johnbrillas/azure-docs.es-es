@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: joncole
-ms.openlocfilehash: 47c8096893742a25904f0f7e688af2fc641166d1
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 1b62777ec647efc6d5aded573e681cadd6475b47
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004320"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654802"
 ---
 # <a name="best-practices-for-azure-cache-for-redis"></a>Procedimientos recomendados para Azure Cache for Redis 
 Si sigue estos procedimientos recomendados, puede maximizar el rendimiento y rentabilizar el uso de la instancia de Azure Cache for Redis.
@@ -34,20 +34,20 @@ Si sigue estos procedimientos recomendados, puede maximizar el rendimiento y ren
  * **Configure su biblioteca cliente para usar un *tiempo de espera de la conexión* de al menos 15 segundos**, lo que le dará al sistema tiempo para conectarse incluso en condiciones donde la CPU se use más.  Tener un pequeño valor de tiempo de espera de conexión no garantiza que la conexión se establezca en ese plazo de tiempo.  Si algo sale mal (CPU de cliente alta, CPU de servidor alta, etc.), un valor de tiempo de espera de conexión pequeño hará que el intento de conexión falle. Este comportamiento suele empeorar una situación que ya es mala de por si.  En lugar de mejorar el problema, los tiempos de espera más cortos lo agravan, ya que obligan al sistema a reiniciar el proceso de conexión, lo que puede llevar a un bucle *conectar -> error -> reintentar*. En general, le recomendamos que deje el tiempo de espera de conexión en 15 segundos o más. Es mejor dejar que su intento de conexión tenga éxito después de 15 o 20 segundos que hacer que falle rápidamente para volver a intentarlo. Un bucle de reintentos de este tipo puede hacer que la interrupción dure más que si otorgara inicialmente más tiempo al sistema.  
      > [!NOTE]
      > En esta guía se detallan los *intentos de conexión* y no está relacionada con el tiempo que está dispuesto a esperar para que se complete una *operación* como GET o SET.
- 
+
  * **Evite las operaciones caras**: algunas operaciones de Redis, como el comando [KEYS](https://redis.io/commands/keys), son *muy* caras y deben evitarse.  Para más información, consulte algunas opciones acerca de los [comandos de larga duración](cache-troubleshoot-server.md#long-running-commands).
 
  * **Use el cifrado TLS**: Redis Cache requiere comunicaciones cifradas TLS de forma predeterminada.  Actualmente se admiten las versiones de TLS 1.0, 1.1 y 1.2.  Sin embargo, TLS 1.0 y 1.1 están en proceso de desuso en todo el sector, por lo que se recomienda TLS 1.2 si es posible.  Si la biblioteca o la herramienta cliente no admiten TLS, se pueden habilitar las conexiones no cifradas [mediante Azure Portal](cache-configure.md#access-ports) o las [API de administración](/rest/api/redis/redis/update).  En casos en los que no es posible establecer conexiones cifradas, se recomienda colocar la caché y la aplicación cliente en una red virtual.  Para más información sobre los puertos que se usan en el escenario de caché de la red virtual, consulte esta [tabla](cache-how-to-premium-vnet.md#outbound-port-requirements).
- 
+
  * **Tiempo de espera de inactividad**: actualmente, Azure Redis tiene un tiempo de espera de inactividad de 10 minutos para las conexiones, por lo que debe establecerse en menos de 10 minutos.
- 
+
 ## <a name="memory-management"></a>Administración de memoria
 Es posible que quiera tener en cuenta varias cosas relacionadas con el uso de la memoria dentro de la instancia del servidor de Redis.  Estas son algunas:
 
  * **Elija una [directiva de expulsión](https://redis.io/topics/lru-cache) que funcione para su aplicación.**  La directiva predeterminada de Azure Redis es *volatile-lru*, lo que significa que solo las claves que tienen un valor de TTL establecido se podrán usar en la expulsión.  Si ninguna de las claves tiene un valor de TTL, el sistema no expulsará ninguna clave.  Si quiere que el sistema permita que se expulse cualquier clave si la memoria está bajo presión, puede usar la directiva *allkeys-lru*.
 
  * **Establezca un valor de expiración en sus claves.**  Una expiración quitará las claves de forma proactiva en lugar de esperar hasta que haya presión de memoria.  Cuando la expulsión se activa debido a la presión en la memoria, esto puede causar una carga adicional en el servidor.  Para más información, consulte la documentación de los comandos [Expire](https://redis.io/commands/expire) y [EXPIREAT](https://redis.io/commands/expireat).
- 
+
 ## <a name="client-library-specific-guidance"></a>Guía específica de la biblioteca del cliente
  * [StackExchange.Redis (.NET)](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-stackexchange-redis-md)
  * [Java: ¿Qué cliente debo usar?](https://gist.github.com/warrenzhu25/1beb02a09b6afd41dff2c27c53918ce7#file-azure-redis-java-best-practices-md)
@@ -62,9 +62,9 @@ Es posible que quiera tener en cuenta varias cosas relacionadas con el uso de la
 Lamentablemente, no hay ninguna respuesta fácil.  Cada aplicación debe decidir qué operaciones se pueden volver a intentar y cuáles no.  Cada operación tiene diferentes requisitos y dependencias entre claves.  Estos son algunos aspectos que hay que tener en cuenta:
 
  * Puede obtener errores del lado cliente aunque Redis ejecute con éxito el comando que le pidió que ejecutara.  Por ejemplo:
-     - Los tiempos de espera son un concepto del lado cliente.  Si la operación llegó al servidor, este ejecutará el comando incluso si el cliente deja de esperar.  
-     - Cuando se produce un error en la conexión de socket, no es posible saber si la operación realmente se ejecutó en el servidor.  Por ejemplo, el error de conexión puede producirse después de que el servidor haya procesado la solicitud, pero antes de que el cliente reciba la respuesta.
- *  ¿Cómo reacciona mi aplicación si accidentalmente ejecuto la misma operación dos veces?  Por ejemplo, ¿qué ocurre si se incrementa un entero dos veces en lugar de una vez?  ¿Mi aplicación está escribiendo en la misma clave desde varios lugares?  ¿Qué sucede si mi lógica de reintentos sobrescribe un valor que estableció alguna otra parte de mi aplicación?
+    - Los tiempos de espera son un concepto del lado cliente.  Si la operación llegó al servidor, este ejecutará el comando incluso si el cliente deja de esperar.  
+    - Cuando se produce un error en la conexión de socket, no es posible saber si la operación realmente se ejecutó en el servidor.  Por ejemplo, el error de conexión puede producirse después de que el servidor haya procesado la solicitud, pero antes de que el cliente reciba la respuesta.
+ * ¿Cómo reacciona mi aplicación si accidentalmente ejecuto la misma operación dos veces?  Por ejemplo, ¿qué ocurre si se incrementa un entero dos veces en lugar de una vez?  ¿Mi aplicación está escribiendo en la misma clave desde varios lugares?  ¿Qué sucede si mi lógica de reintentos sobrescribe un valor que estableció alguna otra parte de mi aplicación?
 
 Si desea probar cómo funciona el código en condiciones de error, considere la posibilidad de usar la [Característica de reinicio](cache-administration.md#reboot). El reinicio permite ver cómo afectan los señales de conexión a la aplicación.
 
@@ -75,12 +75,12 @@ Si desea probar cómo funciona el código en condiciones de error, considere la 
  * Asegúrese de que la VM del cliente que use tenga **al menos tantos procesos y ancho de banda* como la memoria caché que se está probando. 
  * **Habilite VRSS** en el equipo cliente si usa Windows.  [Haga clic aquí para obtener información detallada](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn383582(v=ws.11)).  Ejemplo de script de PowerShell:
      >PowerShell -ExecutionPolicy Unrestricted Enable-NetAdapterRSS -Name (    Get-NetAdapter).Name 
-     
+
  * **Use instancias de Redis de nivel Premium**.  Los tamaños de la caché tendrán mejor latencia de red y rendimiento porque se ejecutan en un hardware mejor de CPU y red.
- 
+
      > [!NOTE]
      > Los resultados de rendimiento observados se [publicarán aquí](cache-planning-faq.md#azure-cache-for-redis-performance) para que los tenga como referencia.   Además, tenga en cuenta que SSL/TLS agrega cierta sobrecarga, por lo que puede obtener diferentes latencias o rendimiento si está usando el cifrado de transporte.
- 
+
 ### <a name="redis-benchmark-examples"></a>Ejemplos del banco de pruebas de Redis
 **El programa de configuración de la prueba previa**: Prepare la instancia de caché con los datos necesarios para los comandos de prueba de latencia y rendimiento que se enumeran a continuación.
 > redis-benchmark -h yourcache.redis.cache.windows.net -a yourAccesskey -t SET -n 10 -d 1024 
