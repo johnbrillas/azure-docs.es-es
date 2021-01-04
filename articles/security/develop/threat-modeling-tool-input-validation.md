@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4b0be672c0768b4facb6518c777d4fe56eb28aa9
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: c816fbad05831c83c891c70849986b38cb7fdbeb
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94515683"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589549"
 ---
 # <a name="security-frame-input-validation--mitigations"></a>Marco de seguridad: Validación de entrada | Mitigaciones 
 | Producto o servicio | Artículo |
@@ -73,7 +73,7 @@ doc.setProperty("AllowXsltScript", false); // CORRECT. Setting to false disables
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
 | **Referencias**              | [IE8 Security Part V - Comprehensive Protection](/archive/blogs/ie/ie8-security-part-v-comprehensive-protection) (Seguridad de IE8 (parte V): Protección completa)  |
-| **Pasos** | <p>Para cada página que podría incluir contenido controlable por el usuario, debe usar el encabezado HTTP `X-Content-Type-Options:nosniff`. Para cumplir este requisito, puede establecer el encabezado necesario página a página solo para aquellas que puedan incluir contenido controlable por el usuario o puede establecerlo globalmente para todas las páginas de la aplicación.</p><p>Cada tipo de archivo que se entregue desde un servidor web tiene asociado un [tipo MIME](https://en.wikipedia.org/wiki/Mime_type) (también llamado *content-type* ) que describe la naturaleza del contenido (es decir, imagen, texto, aplicación, etc.).</p><p>El encabezado X-Content-Type-Options es un encabezado HTTP que permite a los desarrolladores especificar que su contenido no se debe someter a un rastreo de MIME. Este encabezado se ha diseñado para mitigar los ataques de rastreo de MIME. Se agregó compatibilidad con este encabezado en Internet Explorer 8 (IE8).</p><p>Los únicos que se beneficiarán de X-Content-Type-Options son los usuarios de Internet Explorer 8 (IE8). Las versiones anteriores de Internet Explorer no respetan actualmente el encabezado X-Content-Type-Options.</p><p>Internet Explorer 8 (y versiones posteriores) es el único explorador importante que implementa una característica para excluir del rastreo de MIME. Cuando otros exploradores importantes (Firefox, Safari, Chrome) implementen características similares, si lo hacen, se actualizará esta recomendación para incluir también la sintaxis de esos exploradores.</p>|
+| **Pasos** | <p>Para cada página que podría incluir contenido controlable por el usuario, debe usar el encabezado HTTP `X-Content-Type-Options:nosniff`. Para cumplir este requisito, puede establecer el encabezado necesario página a página solo para aquellas que puedan incluir contenido controlable por el usuario o puede establecerlo globalmente para todas las páginas de la aplicación.</p><p>Cada tipo de archivo que se entregue desde un servidor web tiene asociado un [tipo MIME](https://en.wikipedia.org/wiki/Mime_type) (también llamado *content-type*) que describe la naturaleza del contenido (es decir, imagen, texto, aplicación, etc.).</p><p>El encabezado X-Content-Type-Options es un encabezado HTTP que permite a los desarrolladores especificar que su contenido no se debe someter a un rastreo de MIME. Este encabezado se ha diseñado para mitigar los ataques de rastreo de MIME. Se agregó compatibilidad con este encabezado en Internet Explorer 8 (IE8).</p><p>Los únicos que se beneficiarán de X-Content-Type-Options son los usuarios de Internet Explorer 8 (IE8). Las versiones anteriores de Internet Explorer no respetan actualmente el encabezado X-Content-Type-Options.</p><p>Internet Explorer 8 (y versiones posteriores) es el único explorador importante que implementa una característica para excluir del rastreo de MIME. Cuando otros exploradores importantes (Firefox, Safari, Chrome) implementen características similares, si lo hacen, se actualizará esta recomendación para incluir también la sintaxis de esos exploradores.</p>|
 
 ### <a name="example"></a>Ejemplo
 Para habilitar de forma global el encabezado necesario para todas las páginas de la aplicación, puede realizar una de las siguientes acciones: 

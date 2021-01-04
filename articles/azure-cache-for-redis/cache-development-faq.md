@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 08/06/2020
-ms.openlocfilehash: be2e4a002d1daf4da7d042f1fd7d5bf0e9a01377
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: bafd8a9752d2587ec52fe586e442e3bfc86d7537
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92544518"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97585775"
 ---
 # <a name="azure-cache-for-redis-development-faqs"></a>Preguntas frecuentes sobre el desarrollo para Azure Cache for Redis
 
@@ -55,7 +55,7 @@ Habitualmente, los valores predeterminados del cliente son suficientes. Ajuste l
 
 * **Reintentos**
   * Para ConnectRetry y ConnectTimeout, la regla general es fracasar y responder rápido a los errores y volver a intentarlo. Esta regla se basa en la carga de trabajo y en cuánto tiempo como media tarda el cliente en enviar un comando de Redis y en recibir una respuesta.
-  * Permita que StackExchange.Redis se vuelva a conectar automáticamente en lugar de comprobar el estado de conexión y volver a conectarse. **Evite el uso de la propiedad ConnectionMultiplexer.IsConnected** .
+  * Permita que StackExchange.Redis se vuelva a conectar automáticamente en lugar de comprobar el estado de conexión y volver a conectarse. **Evite el uso de la propiedad ConnectionMultiplexer.IsConnected**.
   * Efecto bola de nieve: a veces puede encontrarse con un problema cuando lo está intentando y este error aumenta y nunca se recupera. En este caso, debe considerar el uso de un algoritmo de reintento de retroceso exponencial, tal y como se describe en el artículo [Orientación general sobre reintentos](/azure/architecture/best-practices/transient-faults) publicado por el grupo de Microsoft Patterns & Practices.
   
 * **Valores de tiempo de expiración**
@@ -64,12 +64,12 @@ Habitualmente, los valores predeterminados del cliente son suficientes. Ajuste l
   * Utilice una única instancia de ConnectionMultiplexer para la aplicación. Puede usar LazyConnection para crear una instancia única que se devuelva por una propiedad de conexión, tal como se muestra en [Conexión a la caché mediante la clase ConnectionMultiplexer](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache).
   * Establezca la propiedad `ConnectionMultiplexer.ClientName` a un nombre único de la instancia de aplicación con fines de diagnóstico.
   * Use varias instancias `ConnectionMultiplexer` para cargas de trabajo personalizadas.
-      * Puede seguir este modelo si tiene una carga variable en la aplicación. Por ejemplo:
-      * Puede tener un multiplexor para tratar con claves grandes.
-      * Puede tener un multiplexor para tratar con claves pequeñas.
-      * Puede establecer distintos valores para los tiempos de expiración de la conexión así como lógica de reintento para cada ConnectionMultiplexer que use.
-      * Establezca la propiedad `ClientName` en cada multiplexor para ayudar con el diagnóstico.
-      * Esta guía puede conducir a una latencia más simplificada por `ConnectionMultiplexer`.
+    * Puede seguir este modelo si tiene una carga variable en la aplicación. Por ejemplo:
+    * Puede tener un multiplexor para tratar con claves grandes.
+    * Puede tener un multiplexor para tratar con claves pequeñas.
+    * Puede establecer distintos valores para los tiempos de expiración de la conexión así como lógica de reintento para cada ConnectionMultiplexer que use.
+    * Establezca la propiedad `ClientName` en cada multiplexor para ayudar con el diagnóstico.
+    * Esta guía puede conducir a una latencia más simplificada por `ConnectionMultiplexer`.
 
 ### <a name="what-azure-cache-for-redis-clients-can-i-use"></a>¿Qué clientes de Azure Cache for Redis puedo usar?
 Una de las grandes virtudes de Redis es que hay muchos clientes que admiten muchos lenguajes de desarrollo diferentes. Para obtener una lista de clientes, consulte [Redis clients](https://redis.io/clients)(Clientes de Redis). Para ver tutoriales que abarcan diversos lenguajes y clientes, consulte [Cómo usar Azure Cache for Redis](cache-dotnet-how-to-use-azure-redis-cache.md) y los artículos relacionados de la tabla de contenido.

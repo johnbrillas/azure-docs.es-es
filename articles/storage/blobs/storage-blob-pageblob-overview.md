@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: wielriac
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 39c1972eba84f4f1990c87112c5801c386849640
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: aada418b4f74c38a2a35c793deb85b94b703fb89
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95545965"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97629364"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Introducción a blobs en páginas de Azure
 
@@ -57,7 +57,7 @@ En el siguiente diagrama se describen las relaciones globales entre la cuenta, l
 
 # <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
-En primer lugar, obtenga una referencia a un contenedor. Para crear un blob en páginas, llame al método [GetPageBlobClient](/dotnet/api/azure.storage.blobs.specialized.specializedblobextensions.getpageblobclient) y, a continuación, llame al método [PageBlobClient.Create](/dotnet/api/azure.storage.blobs.specialized.pageblobclient.create). Pase el tamaño máximo del blob que se va a crear. Ese tamaño debe ser un múltiplo de 512 bytes.
+En primer lugar, obtenga una referencia a un contenedor. Para crear un blob en páginas, llame al método GetPageBlobClient y, a continuación, llame al método [PageBlobClient.Create](/dotnet/api/azure.storage.blobs.specialized.pageblobclient.create). Pase el tamaño máximo del blob que se va a crear. Ese tamaño debe ser un múltiplo de 512 bytes.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_CreatePageBlob":::
 
@@ -200,7 +200,7 @@ La operación de concesión de blob establece y administra un bloqueo en un blob
 
 Además de API de REST enriquecidas, los blobs en páginas también proporcionan acceso compartido, durabilidad y seguridad mejorada. Trataremos esos beneficios con más detalle en los párrafos siguientes. 
 
-### <a name="concurrent-access"></a>Simultáneo
+### <a name="concurrent-access"></a>simultáneo
 
 La API REST del blob en páginas y su mecanismo de concesión permite que las aplicaciones accedan al blob en páginas desde varios clientes. Por ejemplo, supongamos que necesita crear un servicio en la nube distribuido que comparte los objetos de almacenamiento con varios usuarios. Podría tratarse de una aplicación web que sirve una extensa colección de imágenes a varios usuarios. Una opción para esta implementación es usar una máquina virtual con discos conectados. Las desventajas de esto son (i) la restricción de que un disco solo puede adjuntarse a una única máquina virtual, y esto limita la escalabilidad, la flexibilidad y aumenta los riesgos. Si hay un problema con la máquina virtual o el servicio que se ejecuta en la máquina virtual, no se podrá acceder a la imagen, debido a la concesión, hasta que esta expire o se interrumpa. Otra desventaja es (ii) el costo adicional de tener una máquina virtual de IaaS. 
 

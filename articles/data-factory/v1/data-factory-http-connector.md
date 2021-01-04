@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 36592151385a08d75b9b34e85bfa9d62342fc8cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 653a53d6bb5c69cd95fd5e9a2483b51de8293b40
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80991576"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97608585"
 ---
 # <a name="move-data-from-an-http-source-by-using-azure-data-factory"></a>Movimiento de datos desde un origen HTTP mediante Azure Data Factory
 
@@ -26,7 +26,6 @@ ms.locfileid: "80991576"
 
 > [!NOTE]
 > Este artículo se aplica a la versión 1 de Data Factory. Si usa la versión actual del servicio Azure Data Factory, consulte [HTTP connector in V2](../connector-http.md) (Conector HTTP en V2).
-
 
 En este artículo se describe el uso de la actividad de copia en Azure Data Factory para mover datos de un punto de conexión HTTP local o en la nube a un almacén de datos receptor compatible. Este artículo se basa en [Movimiento de datos con la actividad de copia](data-factory-data-movement-activities.md), que presenta una introducción general del movimiento de datos con la actividad de copia. En el artículo también se enumeran los almacenes de datos que la actividad de copia admite como orígenes y receptores.
 
@@ -122,7 +121,6 @@ Este servicio vinculado vincula su factoría de datos a un servidor de web HTTP 
             "url": "https://en.wikipedia.org/wiki/",
             "certThumbprint": "thumbprint of certificate",
             "gatewayName": "gateway name"
-
         }
     }
 }
@@ -171,13 +169,13 @@ La sección **typeProperties** es diferente para cada tipo de conjunto de datos.
 
 ```json
 {
-    "name": "HttpSourceDataInput",
+  "name": "HttpSourceDataInput",
     "properties": {
-        "type": "Http",
+    "type": "Http",
         "linkedServiceName": "HttpLinkedService",
         "typeProperties": {
-            "relativeUrl": "XXX/test.xml",
-            "additionalHeaders": "Connection: keep-alive\nUser-Agent: Mozilla/5.0\n"
+          "relativeUrl": "XXX/test.xml",
+          "additionalHeaders": "Connection: keep-alive\nUser-Agent: Mozilla/5.0\n"
         },
         "external": true,
         "availability": {
@@ -198,7 +196,7 @@ La sección **typeProperties** es diferente para cada tipo de conjunto de datos.
         "linkedServiceName": "HttpLinkedService",
         "typeProperties": {
             "relativeUrl": "/XXX/test.xml",
-           "requestMethod": "Post",
+       "requestMethod": "Post",
             "requestBody": "body for POST HTTP request"
         },
         "external": true,
@@ -283,14 +281,14 @@ Si se establece **external** en **true**, se informa al servicio de Data Factory
 
 ```json
 {
-    "name": "HttpSourceDataInput",
+  "name": "HttpSourceDataInput",
     "properties": {
-        "type": "Http",
+    "type": "Http",
         "linkedServiceName": "HttpLinkedService",
         "typeProperties": {
             "relativeUrl": "$$Text.Format('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)",
-            "additionalHeaders": "Connection: keep-alive\nUser-Agent: Mozilla/5.0\n"
-        },
+        "additionalHeaders": "Connection: keep-alive\nUser-Agent: Mozilla/5.0\n"
+    },
         "external": true,
         "availability": {
             "frequency": "Hour",

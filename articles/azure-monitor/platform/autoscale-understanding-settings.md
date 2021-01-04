@@ -4,12 +4,12 @@ description: Un análisis detallado de la configuración de escalado automático
 ms.topic: conceptual
 ms.date: 12/18/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 6d6b868f745803263339e6b27e2610aaca8f63fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a914f6d71c013acea8dfde0f6578985bc009bb26
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87317474"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97605247"
 ---
 # <a name="understand-autoscale-settings"></a>Información acerca de la configuración de escalado automático
 La configuración de escalado automático le ayuda a asegurarse de que tiene la cantidad adecuada de recursos en ejecución para administrar las fluctuaciones de carga de la aplicación. Puede configurar los valores de escalado automático para que se desencadene en función de métricas que indican carga o rendimiento, o para que se desencadene en una fecha y hora programadas. En este artículo se proporciona una visión detallada de la estructura de una configuración de escalado automático. El artículo comienza con el esquema y las propiedades de una configuración y luego le guía por los diferentes tipos de perfil que se pueden configurar. Por último, en el artículo se describe cómo la característica de escalado automático de Azure evalúa qué perfil ejecutar en un momento dado.
@@ -60,7 +60,7 @@ Para ilustrar este esquema, se utiliza la siguiente configuración de escalado a
               "cooldown": "PT5M"
             }
           },
-    {
+          {
             "metricTrigger": {
               "metricName": "Percentage CPU",
               "metricResourceUri": "/subscriptions/s1/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachineScaleSets/vmss1",
@@ -119,34 +119,41 @@ Hay tres tipos de perfiles de escalado automático:
 
 - **Perfil de fecha fija:** este perfil es para casos especiales. Por ejemplo, supongamos que tiene previsto un evento importante el 26 de diciembre de 2018 (PST). Quiere que las capacidades mínima y máxima del recurso sean diferentes ese día, pero seguir escalando sobre las mismas métricas. En este caso, debe agregar un perfil de fecha fija a la lista de perfiles de la configuración. El perfil se configura solo para que se ejecute en el día del evento. Para cualquier otro día, el escalado automático usa el perfil normal.
 
-    ``` JSON
-    "profiles": [{
-    "name": " regularProfile",
-    "capacity": {
-    ...
-    },
-    "rules": [{
-    ...
-    },
-    {
-    ...
-    }]
-    },
-    {
-    "name": "eventProfile",
-    "capacity": {
-    ...
-    },
-    "rules": [{
-    ...
-    }, {
-    ...
-    }],
-    "fixedDate": {
-        "timeZone": "Pacific Standard Time",
-               "start": "2017-12-26T00:00:00",
-               "end": "2017-12-26T23:59:00"
-    }}
+    ```json
+    "profiles": [
+        {
+            "name": " regularProfile",
+            "capacity": {
+                ...
+            },
+            "rules": [
+                {
+                ...
+                },
+                {
+                ...
+                }
+            ]
+        },
+        {
+            "name": "eventProfile",
+            "capacity": {
+            ...
+            },
+            "rules": [
+                {
+                ...
+                }, 
+                {
+                ...
+                }
+            ],
+            "fixedDate": {
+                "timeZone": "Pacific Standard Time",
+                "start": "2017-12-26T00:00:00",
+                "end": "2017-12-26T23:59:00"
+            }
+        }
     ]
     ```
     

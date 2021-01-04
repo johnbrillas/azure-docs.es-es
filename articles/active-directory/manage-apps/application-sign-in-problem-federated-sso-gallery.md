@@ -12,12 +12,12 @@ ms.date: 02/18/2019
 ms.author: kenwith
 ms.reviewer: luleon, asteen
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: e6d3674aaa4c89f42c2e7b87a6be6cdc8ecabf64
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 596af29fe72a41b5a86a09e4e6d5072d63b6ac71
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97028281"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586353"
 ---
 # <a name="problems-signing-in-to-saml-based-single-sign-on-configured-apps"></a>Problemas al iniciar sesión en aplicaciones configuradas con inicio de sesión único basado en SAML
 Para solucionar estos problemas de inicio de sesión, se recomienda que siga los siguientes consejos para obtener un mejor diagnóstico y automatizar los pasos de resolución:
@@ -33,7 +33,9 @@ Para abrir la página de configuración del inicio de sesión único basado en S
 1.  Escriba **"Azure Active Directory"** en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
 1.  Seleccione **Aplicaciones empresariales** en el menú de navegación izquierdo de Azure Active Directory.
 1.  Seleccione **Todas las aplicaciones** para ver una lista de todas las aplicaciones.
+
     Si no ve la aplicación que desea que aparezca aquí, use el control **Filtro** de la parte superior de la lista **Todas las aplicaciones** y establezca la opción **Mostrar** en **Todas las aplicaciones**.
+
 1.  Seleccione la aplicación que desea configurar para el inicio de sesión único.
 1. Cuando se cargue la aplicación, seleccione **Inicio de sesión único** desde el menú de navegación izquierdo de la aplicación.
 1. Seleccione Inicio de sesión único basado en SAML.
@@ -63,7 +65,7 @@ El valor de `AssertionConsumerServiceURL` en la solicitud SAML no coincide con e
 Asegúrese de que el valor de `AssertionConsumerServiceURL` en la solicitud SAML coincide con el valor de la dirección URL de respuesta configurada en Azure AD. 
 
 Compruebe o actualice el valor en el cuadro de texto Dirección URL de respuesta para que coincida con el valor de `AssertionConsumerServiceURL` en la solicitud SAML.   
-    
+
 Después de actualizar el valor de la dirección URL de respuesta en Azure AD y de comprobar que coincide con el valor enviado por la aplicación en la solicitud SAML, podrá iniciar sesión en la aplicación.
 
 ## <a name="user-not-assigned-a-role"></a>Usuario no asignado a un rol

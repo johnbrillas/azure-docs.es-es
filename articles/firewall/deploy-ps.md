@@ -4,15 +4,15 @@ description: En este artículo, aprenderá a implementar y configurar Azure Fir
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.date: 11/12/2020
+ms.date: 12/03/2020
 ms.author: victorh
 ms.topic: how-to
-ms.openlocfilehash: 18a7da6402d7835be8dbad0551973a262ab335c8
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: e39e27dbeb9394d19a9d7fd8791c147e11a56bdb
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660243"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558899"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-powershell"></a>Implementación y configuración de Azure Firewall mediante Azure PowerShell
 
@@ -65,7 +65,7 @@ New-AzResourceGroup -Name Test-FW-RG -Location "East US"
 
 ### <a name="create-a-virtual-network-and-azure-bastion-host"></a>Creación de una red virtual y un host de Azure Bastion
 
-Esta red virtual tiene cuatro subredes:
+Esta red virtual tiene tres subredes:
 
 > [!NOTE]
 > El tamaño de la subred AzureFirewallSubnet es /26. Para más información sobre el tamaño de la subred, consulte [Preguntas más frecuentes sobre Azure Firewall](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).

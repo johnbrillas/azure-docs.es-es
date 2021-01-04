@@ -13,12 +13,12 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/01/2020
 ms.author: juergent
-ms.openlocfilehash: 522af4bf6cc711bbfdfd30d0443ee58dad56b87e
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 340ce84ebe662b976f32048a47fd98d793083065
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94950030"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617109"
 ---
 # <a name="backup-guide-for-sap-hana-on-azure-virtual-machines"></a>Guía de copia de seguridad de SAP HANA en Azure Virtual Machines
 
@@ -103,7 +103,7 @@ También podrá encontrar información sobre la comprobación de coherencia de l
 
 ### <a name="pros-and-cons-of-hana-backup-versus-storage-snapshot"></a>Ventajas y desventajas de la copia de seguridad de HANA frente a instantáneas de almacenamiento
 
-SAP no da preferencia a las copias de seguridad de HANA frente a instantáneas de almacenamiento. Enumera sus ventajas y desventajas, por lo que puede determinar cuál usar según la situación y la tecnología de almacenamiento disponible (vea [Planeación de su estrategia de copia de seguridad y recuperación](https://help.sap.com/saphelp_hanaplatform/helpdata/en/ef/085cd5949c40b788bba8fd3c65743e/content.htm)).
+SAP no da preferencia a las copias de seguridad de HANA frente a instantáneas de almacenamiento. Enumera sus ventajas y desventajas, por lo que puede determinar cuál usar según la situación y la tecnología de almacenamiento disponible (vea [Planeación de su estrategia de copia de seguridad y recuperación](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.05/en-US/ef085cd5949c40b788bba8fd3c65743e.html)).
 
 En Azure, tenga en cuenta el hecho de que la característica de instantáneas de blobs de Azure no proporciona coherencia del sistema de archivos en varios discos (consulte el artículo acerca del [uso de instantáneas de blob con PowerShell](/archive/blogs/cie/using-blob-snapshots-with-powershell)). 
 

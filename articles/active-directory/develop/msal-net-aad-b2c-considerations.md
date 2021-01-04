@@ -13,12 +13,12 @@ ms.date: 05/07/2020
 ms.author: jeferrie
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 8be41f3fcf4d32ee81d1290c6a50a27f2cd45ee7
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 15f65da83f14f43a7892d52c6a2ed4e08580d367
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96860973"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97614921"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>Use MSAL.NET para que los usuarios inicien sesión con identidades de redes sociales
 
@@ -134,7 +134,7 @@ Al usar un nombre de usuario y contraseña en un flujo de ROPC, sacrifica varias
 
 ### <a name="configure-the-ropc-flow-in-azure-ad-b2c"></a>Configuración del flujo ROPC en Azure AD B2C
 
-En el inquilino de Azure AD B2C, cree un nuevo flujo de usuario y seleccione **Iniciar sesión mediante ROPC** para habilitar ROPC para el flujo de usuario. Para obtener más información, consulte [Configuración del flujo de credenciales de contraseña de propietario del recurso](../../active-directory-b2c/configure-ropc.md).
+En el inquilino de Azure AD B2C, cree un nuevo flujo de usuario y seleccione **Iniciar sesión mediante ROPC** para habilitar ROPC para el flujo de usuario. Para obtener más información, consulte [Configuración del flujo de credenciales de contraseña de propietario del recurso](../../active-directory-b2c/add-ropc-policy.md).
 
 `IPublicClientApplication` contiene el método `AcquireTokenByUsernamePassword`:
 

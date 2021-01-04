@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 04/14/2020
-ms.openlocfilehash: 29f0f0c3fd48920990519aecfe5ae58c32b43db9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 410b33b5c6078d096fa4b2acaa7b49bc14c95e31
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91253843"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97608279"
 ---
 # <a name="list-entity"></a>Entidad de lista
 
@@ -85,7 +85,6 @@ En la expresión anterior, la palabra `paris` se asigna al elemento paris como p
 
 #### <a name="v3-prediction-endpoint-response"></a>[Respuesta de punto de conexión de predicción de V3](#tab/V3)
 
-
 Este es el valor JSON si `verbose=false` se establece en la cadena de consulta:
 
 ```json
@@ -130,7 +129,6 @@ Este es el valor JSON si `verbose=true` se establece en la cadena de consulta:
 |Objeto de datos|Nombre de entidad|Value|
 |--|--|--|
 |Entidad de lista|`Cities`|`paris`|
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

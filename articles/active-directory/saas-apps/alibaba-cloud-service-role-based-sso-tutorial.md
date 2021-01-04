@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/08/2020
 ms.author: jeedes
-ms.openlocfilehash: ef057b64fa04387d0ebec5a6e5c38f0e06c55a7d
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: c9db5ab471f743ffbf3ae4e140ad4cb32d0a3d6c
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368977"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97670200"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-alibaba-cloud-service-role-based-sso"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Alibaba Cloud Service (Role-based SSO)
 
@@ -76,7 +76,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
 1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
 
-   ![Edición de la configuración básica de SAML](common/edit-urls.png)
+    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
 4. En la sección **Configuración básica de SAML**, si tiene el **archivo de metadatos del proveedor de servicios**, lleve a cabo los siguientes pasos:
 
@@ -84,7 +84,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
     b. Haga clic en el **logotipo de la carpeta** para seleccionar el archivo de metadatos y luego en **Cargar**.
 
-    
+
     >[!NOTE]
     >1. Para el sitio web internacional de Alibaba Cloud, descargue los metadatos del proveedor de servicios de [este](https://signin.alibabacloud.com/saml-role/sp-metadata.xml) vínculo.
     > 1. Para el sitio web de Alibaba Cloud Service (CN), descargue los metadatos del proveedor de servicios de [este](https://signin.aliyun.com/saml-role/sp-metadata.xml) vínculo.
@@ -184,17 +184,17 @@ En esta sección, va a permitir que B.Simon use el inicio de sesión único de A
     f. Vuelva al Explorador de Graph, cambie el método de **GET** a **PATCH**, pegue el siguiente contenido en la sección **Cuerpo de la solicitud** y haga clic en **Ejecutar consulta**:
     ```
     { 
-    "appRoles": [
+      "appRoles": [
         { 
-        "allowedMemberTypes":[
+          "allowedMemberTypes":[
             "User"
-        ],
-        "description": "msiam_access",
-        "displayName": "msiam_access",
-        "id": "41be2db8-48d9-4277-8e86-f6d22d35****",
-        "isEnabled": true,
-        "origin": "Application",
-        "value": null
+          ],
+          "description": "msiam_access",
+          "displayName": "msiam_access",
+          "id": "41be2db8-48d9-4277-8e86-f6d22d35****",
+          "isEnabled": true,
+          "origin": "Application",
+          "value": null
         },
         { "allowedMemberTypes": [
             "User"
@@ -206,7 +206,7 @@ En esta sección, va a permitir que B.Simon use el inicio de sesión único de A
         "origin": "ServicePrincipal",
         "value": "acs:ram::187125022722****:role/aadrole,acs:ram::187125022722****:saml-provider/AAD"
         }
-    ]
+      ]
     }
     ```
     > [!NOTE]

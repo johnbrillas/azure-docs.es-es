@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/02/2020
-ms.openlocfilehash: 15a4a0ea78ef169480d4494683cb929cfefd16f2
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: f55364fe0eabae4bb1698bd655cde8d3e01b127a
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93026979"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590467"
 ---
 # <a name="managing-the-mapping-data-flow-graph"></a>Administración del grafo de flujo de datos de asignación
 
@@ -21,7 +21,7 @@ ms.locfileid: "93026979"
 
 Los flujos de datos de asignación se crean mediante una superficie de diseño conocida como el grafo de flujo de datos. En el grafo, la lógica de transformación se crea de izquierda a derecha y los flujos de datos adicionales se agregan de arriba a abajo. Para agregar una nueva transformación, seleccione el signo más situado en la parte inferior derecha de una transformación existente.
 
-![Lienzo](media/data-flow/canvas2.png "Lienzo")
+![Lienzo](media/data-flow/canvas-2.png)
 
 A medida que los flujos de datos se hagan más complejos, use los mecanismos siguientes para navegar y administrar eficazmente el grafo de flujo de datos. 
 

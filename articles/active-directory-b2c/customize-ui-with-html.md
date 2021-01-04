@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 869cf5a47831844b04e0461a95fb7d16aa4d1569
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 520b2eff91faf2e333ab0a5df7bcc85e6a47c80a
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97111076"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97585197"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Personalización de la interfaz de usuario en Azure Active Directory B2C
 
@@ -29,9 +29,7 @@ La personalización de marca y la personalización de la interfaz de usuario que
 > [!TIP]
 > Si solo quiere modificar el logotipo del banner, la imagen de fondo y el color de fondo de las páginas de flujo de usuario, puede probar la característica [Personalización de marca de empresa](company-branding.md).
 
-
 ## <a name="custom-html-and-css-overview"></a>Información general sobre HTML y CSS personalizados
-
 
 Azure AD B2C ejecuta código en el explorador del cliente con un enfoque denominado [Uso compartido de recursos entre orígenes (CORS)](https://www.w3.org/TR/cors/). En tiempo de ejecución, el contenido se carga desde una dirección URL especificada en un flujo de usuario o directiva personalizada. Cada página de la experiencia del usuario carga su contenido desde la dirección URL que especifique para esa página. Cuando el contenido se carga desde la dirección URL se combina con un fragmento HTML insertado en Azure AD B2C y, a continuación, se muestra la página al cliente.
 
@@ -121,7 +119,6 @@ A continuación se muestra una información general acerca del proceso:
 ## <a name="prerequisites"></a>Requisitos previos
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
-
 
 ### <a name="1-create-your-html-content"></a>1. Creación del contenido HTML
 
@@ -235,7 +232,6 @@ Para comprobar que está listo, realice los siguientes pasos:
 1. Seleccione **Enviar solicitud**.
     El resultado debe ser `XHR status: 200`. 
     Si recibe un error, asegúrese de que la configuración de CORS sea correcta. Puede que también deba borrar la caché del explorador o abrir una sesión de navegación privada, para ello, presione Ctrl + Mayús + P.
-
 
 ::: zone pivot="b2c-user-flow"
 
@@ -391,10 +387,7 @@ Para usar el ejemplo:
 1. Ahora modifique la directiva, que apunta al archivo HTML, como se mencionó anteriormente.
 1. Si ve que faltan las fuentes, imágenes o CSS, compruebe las referencias en la directiva de extensiones y los archivos \*.html.
 
-
 ## <a name="next-steps"></a>Pasos siguientes
 
 Obtenga información sobre cómo habilitar el [código JavaScript de cliente](javascript-and-page-layout.md).
-
-
 

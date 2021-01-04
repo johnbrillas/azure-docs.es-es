@@ -6,12 +6,12 @@ ms.date: 03/14/2019
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: dbc9e48987f527c9579decc3db84091a432a17e5
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 6b578cd03daa6e996a69c03afd327097d6123045
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96601023"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97607905"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java-sdk"></a>Solución de problemas y preguntas frecuentes sobre el SDK de Application Insights para Java
 
@@ -63,7 +63,6 @@ La aplicación se ha configurado correctamente para enviar datos de telemetría 
 Como alternativa, si el cliente es una aplicación de [teléfono o de cualquier otro dispositivo][platforms], puede enviar datos de telemetría desde este.
 
 Use la misma clave de instrumentación para configurar la telemetría tanto de cliente como de servidor. Los datos aparecerán en el mismo recurso de Application Insights y podrá correlacionar eventos de cliente y servidor.
-
 
 ## <a name="disabling-telemetry"></a>Deshabilitación de la telemetría
 **¿Cómo puedo deshabilitar la recopilación de telemetría?**
@@ -183,7 +182,6 @@ Application Insights usa `org.apache.http`. Se reubica en los archivos JAR princ
 
 >[!NOTE]
 >Si habilita los registros a nivel de DEPURACIÓN para todos los espacios de nombres en la aplicación, se respetarán en todos los módulos de ejecución, incluido `org.apache.http`, cuyo nombre ha cambiado a `com.microsoft.applicationinsights.core.dependencies.http`. Application Insights no podrá aplicar el filtrado a estas llamadas, porque la llamada de registro la realiza la biblioteca de Apache. Los registros a nivel de DEPURACIÓN producen un volumen considerable de datos de registro y no se recomiendan para las instancias de producción en vivo.
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 **He configurado Application Insights para mi aplicación de servidor Java. ¿Qué más puedo hacer?**

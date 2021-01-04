@@ -6,12 +6,12 @@ author: TimothyMothra
 ms.author: tilee
 ms.date: 4/23/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 36c5fc93886327c0e3261418343d900ee66cb4eb
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: b44279f31aea8fc02130f1c3d7520f42c648bd4c
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168586"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97607956"
 ---
 # <a name="application-insights-for-azure-functions-supported-features"></a>Características compatibles de Application Insights para Azure Functions
 
@@ -23,37 +23,35 @@ Para obtener más información sobre las versiones compatibles de Application In
 
 ## <a name="supported-features"></a>Características admitidas
 
-| Azure Functions                       | V1                | v2 y v3   | 
-|-----------------------------------    |---------------    |------------------ |
+| Azure Functions                   | V1            | v2 y v3 | 
+|-----------------------------------|---------------|------------------|
 | | | | 
-| **Recopilación automática de**        |                 |                   |               
-| &bull;Solicitudes                     | Sí             | Sí               | 
-| &bull;Excepciones                   | Sí             | Sí               | 
-| &bull; Contadores de rendimiento         | Sí             | Sí               |
-| &bull;Dependencias                   |                   |                   |               
-| &nbsp;&nbsp;&nbsp;&mdash; HTTP      |                 | Sí               | 
-| &nbsp;&nbsp;&nbsp;&mdash; ServiceBus|                 | Sí               | 
-| &nbsp;&nbsp;&nbsp;&mdash; EventHub  |                 | Sí               | 
-| &nbsp;&nbsp;&nbsp;&mdash; SQL       |                 | Sí               | 
+| **Recopilación automática de**        |               |                  |
+| &bull;Solicitudes                     | Sí           | Sí              |
+| &bull;Excepciones                   | Sí           | Sí              |
+| &bull; Contadores de rendimiento         | Sí           | Sí              |
+| &bull;Dependencias                 |               |                  |
+| &nbsp;&nbsp;&nbsp;&mdash; HTTP      |               | Sí              |
+| &nbsp;&nbsp;&nbsp;&mdash; ServiceBus|               | Sí              |
+| &nbsp;&nbsp;&nbsp;&mdash; EventHub  |               | Sí              |
+| &nbsp;&nbsp;&nbsp;&mdash; SQL       |               | Sí              |
 | | | | 
-| **Características compatibles**                |                   |                   |               
-| &bull;QuickPulse/LiveMetrics       | Sí             | Sí               | 
-| &nbsp;&nbsp;&nbsp;&mdash; Canal de control seguro|                 | Sí               | 
-| &bull;Muestreo                     | Sí             | Sí               | 
-| &bull;Latidos                   |                 | Sí               | 
+| **Características compatibles**              |               |                  |
+| &bull;QuickPulse/LiveMetrics       | Sí           | Sí              | 
+| &nbsp;&nbsp;&nbsp;&mdash; Canal de control seguro |               | Sí | 
+| &bull;Muestreo                     | Sí           | Sí              | 
+| &bull;Latidos                   | | Sí              | 
+| | | |
+| **Correlación**                    |               |                  |
+| &bull; ServiceBus                  |               | Sí              |
+| &bull; EventHub                    |               | Sí              |
 | | | | 
-| **Correlación**                       |                   |                   |               
-| &bull; ServiceBus                     |                   | Sí               | 
-| &bull; EventHub                       |                   | Sí               | 
-| | | | 
-| **Configurable**                      |                   |                   |           
-| &bull;Totalmente configurable.<br/>Consulte [Azure Functions](https://github.com/Microsoft/ApplicationInsights-aspnetcore/issues/759#issuecomment-426687852) para obtener instrucciones al respecto.<br/>Consulte [ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration) para ver todas las opciones.               |                   | Sí                   | 
-
+| **Configurable**                  |               |                  |           
+| &bull;Totalmente configurable.<br/>Consulte [Azure Functions](https://github.com/Microsoft/ApplicationInsights-aspnetcore/issues/759#issuecomment-426687852) para obtener instrucciones al respecto.<br/>Consulte [ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration) para ver todas las opciones.           |               | Sí                 | 
 
 ## <a name="performance-counters"></a>Contadores de rendimiento
 
 La recopilación automática de los contadores de rendimiento solo funciona en las máquinas Windows.
-
 
 ## <a name="live-metrics--secure-control-channel"></a>Live Metrics y canal de control seguro
 
@@ -65,7 +63,7 @@ Azure Functions habilita el muestreo de forma predeterminada en su configuració
 
 Si el proyecto toma una dependencia del SDK de Application Insights para realizar el seguimiento de telemetría manual, puede experimentar un comportamiento extraño si la configuración de muestreo es diferente de la configuración de muestreo de Functions. 
 
-Se recomienda usar la misma configuración que Functions. Con **Functions v2** , puede obtener la misma configuración mediante la inserción de dependencias en el constructor:
+Se recomienda usar la misma configuración que Functions. Con **Functions v2**, puede obtener la misma configuración mediante la inserción de dependencias en el constructor:
 
 ```csharp
 using Microsoft.ApplicationInsights;

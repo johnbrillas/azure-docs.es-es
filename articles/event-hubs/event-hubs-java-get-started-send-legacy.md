@@ -4,12 +4,12 @@ description: Este artículo es un tutorial para crear una aplicación de Java qu
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: e77ff762de11a9c8a723b162993db11efe715b66
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: e86ca76f3eb661e1407a02b58e60b62b391f5702
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 12/16/2020
-ms.locfileid: "97591555"
+ms.locfileid: "97607990"
 ---
 # <a name="use-java-to-send-events-to-or-receive-events-from-azure-event-hubs-azure-eventhubs"></a>Use Java para enviar eventos a Azure Event Hubs o recibir eventos de él (azure-eventhubs)
 
@@ -17,7 +17,6 @@ En este inicio rápido se muestra cómo enviar y recibir eventos desde un centro
 
 > [!WARNING]
 > En este inicio rápido se usan los anteriores paquetes **azure-eventhubs** y **azure-eventhubs-eph**. Para ver un inicio rápido que use el paquete **azure-messaging-eventhubs** más reciente, consulte [Envío y recepción de eventos mediante azure-messaging-eventhubs](event-hubs-java-get-started-send.md). Para que la aplicación deje de usar el paquete anterior y use el nuevo, consulte la [Guía para migrar desde azure-eventhubs a azure-messaging-eventhubs](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/migration-guide.md). 
-
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -75,7 +74,6 @@ public class SimpleSend {
     public static void main(String[] args)
             throws EventHubException, ExecutionException, InterruptedException, IOException {
 
-
     }
  }
 ```
@@ -109,7 +107,6 @@ Cree un evento singular transformando una cadena en su codificación de bytes UT
         // Each EventHubClient instance spins up a new TCP/TLS connection, which is expensive.
         // It is always a best practice to reuse these instances. The following sample shows this.
         final EventHubClient ehClient = EventHubClient.createSync(connStr.toString(), executorService);
-
 
         try {
             for (int i = 0; i < 10; i++) {
@@ -418,7 +415,6 @@ Dentro de su implementación, puede reemplazar el mecanismo de puntos de control
 Puede usar cualquier almacén de datos que esté disponible en su entorno.
 
 La clase com.microsoft.azure.eventprocessorhost.EventProcessorHost proporciona dos constructores que le permiten reemplazar el administrador de puntos de control por EventProcessorHost.
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 Lea los siguientes artículos: 

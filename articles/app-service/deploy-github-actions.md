@@ -7,16 +7,16 @@ ms.date: 09/14/2020
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: devx-track-python, github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: b94e35f504a4c4d6e934ec01b06105f749031e35
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 0c10cc683d8c8c2496ca8fdbd00f0e5065e2db35
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97007388"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97604930"
 ---
 # <a name="deploy-to-app-service-using-github-actions"></a>Implementación de App Service con Acciones de GitHub
 
-Comience a usar [Acciones de GitHub](https://help.github.com/en/articles/about-github-actions) para automatizar el flujo de trabajo e implementarlo en [Azure App Service](overview.md) desde GitHub. 
+Comience a usar [Acciones de GitHub](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions) para automatizar el flujo de trabajo e implementarlo en [Azure App Service](overview.md) desde GitHub. 
 
 ## <a name="prerequisites"></a>Requisitos previos 
 
@@ -63,7 +63,7 @@ También puede implementar un flujo de trabajo sin usar el centro de implementac
 
 La manera recomendada de autenticarse con Azure App Services para las Acciones de GitHub es con un perfil de publicación. También puede autenticarse con una entidad de servicio, pero el proceso requiere más pasos. 
 
-Guarde la credencial de perfil de publicación o la entidad de servicio como [secreto de GitHub](https://docs.github.com/en/actions/reference/encrypted-secrets) para autenticarse con Azure. Tendrá acceso al secreto en el flujo de trabajo. 
+Guarde la credencial de perfil de publicación o la entidad de servicio como [secreto de GitHub](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets) para autenticarse con Azure. Tendrá acceso al secreto en el flujo de trabajo. 
 
 # <a name="publish-profile"></a>[Perfil de publicación](#tab/applevel)
 
@@ -192,7 +192,7 @@ jobs:
     name: Build and Deploy
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@main
     - name: Use Node.js ${{ env.NODE_VERSION }}
       uses: actions/setup-node@v1
       with:
@@ -305,7 +305,7 @@ jobs:
 
     steps:
       # Checkout the repo
-      - uses: actions/checkout@master
+      - uses: actions/checkout@main
       
       # Setup .NET Core SDK
       - name: Setup .NET Core
@@ -349,7 +349,7 @@ jobs:
     runs-on: windows-latest
     steps:
 
-    - uses: actions/checkout@master  
+    - uses: actions/checkout@main  
     
     - name: Install Nuget
       uses: nuget/setup-nuget@v1
@@ -435,7 +435,7 @@ jobs:
     name: Build and Deploy
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@main
     - name: Use Node.js ${{ env.NODE_VERSION }}
       uses: actions/setup-node@v1
       with:
@@ -516,7 +516,7 @@ jobs:
 
     steps:
       # Checkout the repo
-      - uses: actions/checkout@master
+      - uses: actions/checkout@main
       - uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
@@ -567,7 +567,7 @@ jobs:
     steps:
 
     # checkout the repo
-    - uses: actions/checkout@master  
+    - uses: actions/checkout@main
     
     - uses: azure/login@v1
       with:
@@ -657,7 +657,7 @@ jobs:
     steps:
     # checkout the repo
     - name: 'Checkout GitHub Action' 
-      uses: actions/checkout@master
+      uses: actions/checkout@main
    
     - uses: azure/login@v1
       with:
@@ -746,7 +746,7 @@ Puede encontrar nuestro conjunto de acciones agrupadas en distintos repositorios
 
 - [Inicio y cierre de sesión de Docker](https://github.com/Azure/docker-login)
 
-- [Eventos que desencadenan flujos de trabajo](https://help.github.com/en/articles/events-that-trigger-workflows)
+- [Eventos que desencadenan flujos de trabajo](https://docs.github.com/en/free-pro-team@latest/actions/reference/events-that-trigger-workflows)
 
 - [Implementación de K8s](https://github.com/Azure/k8s-deploy)
 

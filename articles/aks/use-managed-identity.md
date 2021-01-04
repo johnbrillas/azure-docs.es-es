@@ -3,13 +3,13 @@ title: Uso de identidades administradas en Azure Kubernetes Service
 description: Aprenda a utilizar identidades administradas en Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 12/06/2020
-ms.openlocfilehash: 68d8111da5ec10f23d14b375a18229bca075da84
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.date: 12/16/2020
+ms.openlocfilehash: 948a189e1c6e03efca046b6d43dddcaf3d141957
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97026836"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97607293"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Uso de identidades administradas en Azure Kubernetes Service
 
@@ -36,7 +36,7 @@ AKS usa varias identidades administradas para servicios integrados y complemento
 
 | Identidad                       | Nombre    | Caso de uso | Permisos predeterminados | Traiga su propia identidad
 |----------------------------|-----------|----------|
-| Plano de control | no visible | La usan los componentes del plano de control de AKS para administrar los recursos de clúster, incluidos los equilibradores de carga de entrada y las direcciones IP públicas administradas de AKS, y las operaciones del escalador automático del clúster. | Rol de colaborador para un grupo de recursos de nodo | Versión preliminar
+| Plano de control | no visible | La usan los componentes del plano de control de AKS para administrar los recursos de clúster, incluidos los equilibradores de carga de entrada y las direcciones IP públicas administradas de AKS, y las operaciones del escalador automático del clúster. | Rol de colaborador para un grupo de recursos de nodo | admitido
 | Kubelet | Nombre de clúster de AKS-agentpool | Autenticación con Azure Container Registry (ACR) | N/D (para kubernetes 1.15 y versiones posteriores) | No se admite actualmente.
 | Complemento | AzureNPM | No se requiere ninguna identidad | N/D | No
 | Complemento | Supervisión de red AzureCNI | No se requiere ninguna identidad | N/D | No

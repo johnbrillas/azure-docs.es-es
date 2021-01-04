@@ -13,12 +13,12 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/01/2020
 ms.author: juergent
-ms.openlocfilehash: 13bdf4b10ec586bf83a70434f003cc1573aca469
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 70b0f8178a94735a6ef37a225044984508cc2233
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94950268"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617143"
 ---
 # <a name="sap-hana-azure-backup-on-file-level"></a>Azure Backup de SAP HANA en el nivel de archivo
 
@@ -28,7 +28,7 @@ Este es un artículo relacionado con [Guía de copia de seguridad de SAP HANA en
 
 Otros tipos de máquinas virtuales de Azure permiten otro número de discos duros virtuales conectados. Los detalles exactos se documentan en [Tamaños de las máquinas virtuales Linux en Azure](../../sizes.md). Para las pruebas que se mencionan en esta documentación se usó una máquina virtual de GS5 de Azure, que permite conectar 64 discos de datos. Para los sistemas SAP HANA de gran tamaño, es posible que ya se haya tomado un número significativo de discos para los archivos de registro y datos, posiblemente junto con la fragmentación de software para ofrecer un rendimiento óptimo de E/S del disco. Para más información sobre las configuraciones de disco sugeridas para las implementaciones de SAP HANA en máquinas virtuales de Azure, lea el artículo [Configuraciones de almacenamiento de máquinas virtuales de Azure en SAP HANA](./hana-vm-operations-storage.md). Entre las recomendaciones realizadas también se incluyen recomendaciones de espacio en disco para las copias de seguridad locales.
 
-Es el método estándar de administración de la copia de seguridad/restauración en el nivel de archivo es con una copia de seguridad basada en archivos a través de SAP HANA Studio o a través de instrucciones SQL de SAP HANA. Para más información, lea el artículo acerca de [SAP HANA SQL y referencia de vistas del sistema](https://help.sap.com/hana/SAP_HANA_SQL_and_System_Views_Reference_en.pdf).
+Es el método estándar de administración de la copia de seguridad/restauración en el nivel de archivo es con una copia de seguridad basada en archivos a través de SAP HANA Studio o a través de instrucciones SQL de SAP HANA. Para más información, lea el artículo acerca de [SAP HANA SQL y referencia de vistas del sistema](https://help.sap.com/viewer/4fe29514fd584807ac9f2a04f6754767/2.0.05/en-US/3859e48180bb4cf8a207e15cf25a7e57.html).
 
 ![Esta ilustración muestra el cuadro de diálogo del elemento de menú de copia de seguridad en SAP HANA Studio](media/sap-hana-backup-file-level/backup-menue-dialog.png)
 

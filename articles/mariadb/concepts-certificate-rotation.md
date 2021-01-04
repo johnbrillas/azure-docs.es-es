@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 29a693ac8ff0b170abf59c9671d4b411b456b540
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 02c0ecfc24b65afd46d75464b5411cfd5cf61857
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93346985"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591538"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mariadb"></a>Descripción de los cambios en la CA raíz para Azure Database for MariaDB
 
@@ -39,11 +39,11 @@ Todas las aplicaciones que usan SSL/TLS y comprueban el certificado raíz tienen
 Si utiliza un cliente que abstrae la cadena de conexión, revise la documentación del cliente para saber si comprueba los certificados.
 Para comprender el parámetro sslmode de Azure Database for MariaDB, revise las [descripciones del modo SSL](concepts-ssl-connection-security.md#default-settings).
 
-Para evitar que se interrumpa la disponibilidad de la aplicación debido a la revocación inesperada de certificados, o para actualizar un certificado que se ha revocado, consulte la sección [ **"¿Qué tengo que hacer para mantener la conectividad?"** ](concepts-certificate-rotation.md#what-do-i-need-to-do-to-maintain-connectivity).
+Para evitar que se interrumpa la disponibilidad de la aplicación debido a la revocación inesperada de certificados, o para actualizar un certificado que se ha revocado, consulte la sección [ **"¿Qué tengo que hacer para mantener la conectividad?"**](concepts-certificate-rotation.md#what-do-i-need-to-do-to-maintain-connectivity).
 
 ## <a name="what-do-i-need-to-do-to-maintain-connectivity"></a>¿Qué tengo que hacer para mantener la conectividad?
 
-Para evitar que se interrumpa la disponibilidad de la aplicación debido a la revocación inesperada de certificados, o para actualizar un certificado que se ha revocado, siga estos pasos: La idea es crear un nuevo archivo *.pem* , que combina el certificado actual y el nuevo y, durante la validación del certificado SSL, se usará uno de los valores permitidos. Consulte los pasos siguientes:
+Para evitar que se interrumpa la disponibilidad de la aplicación debido a la revocación inesperada de certificados, o para actualizar un certificado que se ha revocado, siga estos pasos: La idea es crear un nuevo archivo *.pem*, que combina el certificado actual y el nuevo y, durante la validación del certificado SSL, se usará uno de los valores permitidos. Consulte los pasos siguientes:
 
 *   Descargue la CA **BaltimoreCyberTrustRoot** & **DigiCertGlobalRootG2** de los vínculos siguientes:
     *   https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem
@@ -129,8 +129,12 @@ Los certificados utilizados por Azure Database for MariaDB provienen de entidade
 Puesto que esta actualización es un cambio en el lado cliente, si el cliente leía los datos del servidor réplica, deberá aplicar también los cambios para esos clientes.
 
 ###    <a name="12-if-i-am-using-data-in-replication-do-i-need-to-perform-any-action"></a>12. Si estoy usando la replicación de datos de entrada, ¿es necesario llevar a cabo alguna acción?
+
 Si usa la [replicación de datos de entrada](concepts-data-in-replication.md) para conectarse a Azure Database for MySQL, hay dos aspectos que deben tenerse en cuenta:
-*   Si la replicación de datos se realiza desde una máquina virtual (local o de Azure) en Azure Database for MySQL, debe comprobar si se usa SSL para crear la réplica. Ejecute **SHOW SLAVE STATUS** (MOSTRAR ESTADO DE ESCLAVO) y compruebe la siguiente configuración.  
+
+> [!NOTE]
+>  Este artículo contiene referencias al término esclavo, un término que Microsoft ya no usa. Cuando se quite el término del software, se quitará también del artículo.
+*   Si la replicación de datos se realiza desde una máquina virtual (local o de Azure) en Azure Database for MySQL, debe comprobar si se usa SSL para crear la réplica. Ejecute **SHOW SLAVE STATUS** (MOSTRAR ESTADO DE ESCLAVO) y compruebe la siguiente configuración. 
 
     ```azurecli-interactive
     Master_SSL_Allowed            : Yes

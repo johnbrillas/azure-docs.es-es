@@ -3,12 +3,12 @@ title: Habilitación del recurso de Azure VMware Solution
 description: Obtenga información sobre cómo enviar una solicitud de soporte técnico para habilitar el recurso de Azure VMware Solution. También puede solicitar más hosts en la nube privada de Azure VMware Solution existente.
 ms.topic: how-to
 ms.date: 11/12/2020
-ms.openlocfilehash: 8bcb61c07a3f0310754cd50931f4576e836deffb
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 6d614dffc4ab3127e1e6740b1a8773e5fd7c23ff
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97346544"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97630894"
 ---
 # <a name="how-to-enable-azure-vmware-solution-resource"></a>Habilitación del recurso de Azure VMware Solution
 Obtenga información sobre cómo una solicitud de soporte técnico para habilitar el recurso de [Azure VMware Solution](introduction.md). También puede solicitar más hosts en la nube privada de Azure VMware Solution existente.
@@ -61,7 +61,7 @@ Antes de crear el recurso de Azure VMware Solution, debe enviar una incidencia d
 
 ## <a name="enable-azure-vmware-solution-for-csp-customers"></a>Habilitación de Azure VMware Solution para clientes de CSP 
 
-Los CSP deben usar el [Centro de partners de Microsoft](https://partner.microsoft.com) para habilitar Azure VMware Solution para sus clientes. En este artículo se usa el [plan de Azure de CSP](/partner-center/azure-plan-lp.md) como ejemplo para ilustrar el procedimiento de compra para asociados.
+Los CSP deben usar el [Centro de partners de Microsoft](https://partner.microsoft.com) para habilitar Azure VMware Solution para sus clientes. En este artículo se usa el [plan de Azure de CSP](/partner-center/azure-plan-lp) como ejemplo para ilustrar el procedimiento de compra para asociados.
 
    >[!IMPORTANT] 
    >El servicio de Azure VMware Solution no proporciona el multiinquilino necesario. Los asociados de hospedaje que requieren esta función no se admiten. 
@@ -76,9 +76,9 @@ Los CSP deben usar el [Centro de partners de Microsoft](https://partner.microsof
 
 1. Seleccione **Plan de Azure** y, después, seleccione **Agregar al carro**. 
 
-1. Revise y finalice la configuración general de la suscripción al plan de Azure para su cliente. Para más información, consulte la [documentación del Centro de partners de Microsoft](/partner-center/azure-plan-manage.md).
+1. Revise y finalice la configuración general de la suscripción al plan de Azure para su cliente. Para más información, consulte la [documentación del Centro de partners de Microsoft](/partner-center/azure-plan-manage).
 
-Después de configurar el plan de Azure y de aplicar los [permisos de RBAC de Azure](/partner-center/azure-plan-manage.md) necesarios para la suscripción, interactuará con Microsoft para habilitar la cuota de una suscripción de plan de Azure. Acceda a Azure Portal desde el [Centro de partners de Microsoft](https://partner.microsoft.com) mediante el procedimiento **Administrar en nombre de** (AOBO).
+Después de configurar el plan de Azure y de aplicar los [permisos de RBAC de Azure](/partner-center/azure-plan-manage) necesarios para la suscripción, interactuará con Microsoft para habilitar la cuota de una suscripción de plan de Azure. Acceda a Azure Portal desde el [Centro de partners de Microsoft](https://partner.microsoft.com) mediante el procedimiento **Administrar en nombre de** (AOBO).
 
 1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com).
 

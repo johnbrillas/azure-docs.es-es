@@ -6,14 +6,14 @@ services: internet-peering
 author: prmitiki
 ms.service: internet-peering
 ms.topic: conceptual
-ms.date: 11/27/2019
+ms.date: 12/15/2020
 ms.author: prmitiki
-ms.openlocfilehash: 20f25e0add5d05bb2dcf7f3ebdc86ccd5ae889d0
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: bee41bb8e5beb4df3086ab50499cb185a83e4efe
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97510794"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97592337"
 ---
 # <a name="peering-policy"></a>Directiva de emparejamiento
 Microsoft mantiene una directiva de emparejamiento selectivo diseñada para garantizar la mejor experiencia de cliente posible; asimismo, está respaldada por estándares del sector y procedimientos recomendados, escalado para al demanda futura y una colocación estratégica del emparejamiento. Como tal, Microsoft se reserva el derecho de hacer excepciones en la directiva según lo considere necesario. En las secciones siguientes se explican los requisitos generales de Microsoft de la red. Se aplican a las solicitudes de emparejamiento directo y de emparejamiento de Exchange. 

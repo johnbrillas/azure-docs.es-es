@@ -4,12 +4,12 @@ description: En este tutorial, aprenderá a configurar la recuperación ante des
 ms.topic: tutorial
 ms.date: 11/03/2020
 ms.custom: mvc
-ms.openlocfilehash: 6d07082b4a9c18461d5cc74de8844be803da7168
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 473a264ef497cab4bd4f88372600161b33178099
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96922484"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656876"
 ---
 # <a name="tutorial-set-up-disaster-recovery-for-azure-vms"></a>Tutorial: Configuración de la recuperación ante desastres de máquinas virtuales de Azure
 
@@ -79,7 +79,7 @@ Si usa un proxy de firewall basado en direcciones URL para controlar la conectiv
 
 | **Nombre**                  | **Comercial**                               | **Gobierno**                                 | **Descripción** |
 | ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
-| Storage                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`              | Permite que los datos se puedan escribir desde la máquina virtual a la cuenta de almacenamiento de caché en la región de origen. |
+| Storage                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net` | Permite que los datos se puedan escribir desde la máquina virtual a la cuenta de almacenamiento de caché en la región de origen. |
 | Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Proporciona autorización y autenticación de las direcciones URL del servicio Site Recovery. |
 | Replicación               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`   | Permite que la máquina virtual se comunique con el servicio Site Recovery. |
 | Azure Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Permite que la máquina virtual escriba los datos de diagnóstico y supervisión de Site Recovery. |

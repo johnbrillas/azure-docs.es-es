@@ -290,6 +290,8 @@
         - name: Uso de la comprobación de estado en el Administrador de implementaciones
           displayName: adm
           href: deployment-manager-tutorial-health-check.md
+    - name: Ruta de acceso de Microsoft acerca de las plantillas
+      href: /learn/paths/deploy-manage-resource-manager-templates/
 - name: Conceptos
   items:
     - name: Procedimientos recomendados para plantillas
@@ -389,7 +391,7 @@
           items:
             - name: Resource group
               href: deploy-to-resource-group.md
-            - name: Subscription
+            - name: Suscripción
               href: deploy-to-subscription.md
             - name: Grupo de administración
               href: deploy-to-management-group.md

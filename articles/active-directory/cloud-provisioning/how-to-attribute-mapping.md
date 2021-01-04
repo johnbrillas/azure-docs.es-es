@@ -11,12 +11,12 @@ ms.date: 09/22/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e272c402cac803d10d9998298ce6d3370d0e000
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 7fabad618233e8866c545e1c5ccbcc8cb7508ebf
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348810"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97652104"
 ---
 # <a name="azure-ad-connect-cloud-provisioning-attribute-mapping"></a>Asignación de atributos de aprovisionamiento en la nube de Azure AD Connect
 
@@ -52,45 +52,51 @@ Además de esta propiedad, las asignaciones de atributos también admiten los si
 > En este documento se describe cómo usar Azure Portal para asignar atributos.  Para obtener información sobre el uso de Graph, consulte [Transformaciones](how-to-transformation.md).
 
 ## <a name="using-attribute-mapping"></a>Uso de las asignaciones de atributos
+
 Para usar esta nueva característica, siga los pasos que se indican a continuación.
-
- 1.  En Azure Portal, seleccione **Azure Active Directory**.
- 2.  Seleccione **Azure AD Connect**.
- 3.  Seleccione **Administrar aprovisionamiento**.
-
-   ![Administración del aprovisionamiento](media/how-to-configure/manage1.png)
- 
- 4. En **Configuración**, seleccione su configuración.
- 5. Seleccione **Click to edit mappings** (Haga clic para editar las asignaciones).  Se abrirá la pantalla de asignación de atributos.
-
- ![Adición de atributos](media/how-to-attribute-mapping/mapping6.png)
- 6.  Haga clic en **Agregar atributo**.
-
- ![Tipo de asignación](media/how-to-attribute-mapping/mapping1.png)
- 
- 7. Seleccione el **Tipo de asignación**.  En este ejemplo usaremos Expresión.
- 8.  Escriba la expresión en el cuadro.  En este ejemplo, estamos usando `Replace([mail], "@contoso.com", , ,"", ,).`.
- 9.  Escriba el atributo de destino.  En este ejemplo, usaremos ExtensionAttribute15.
- 10. Seleccione cuándo quiere aplicarlo y, a continuación, haga clic en **Aplicar**.
-   
-   ![Editar asignaciones](media/how-to-attribute-mapping/mapping2a.png)
- 11. En la pantalla asignación de atributos, debería ver la nueva asignación de atributos.  
- 12. Haga clic en **Guardar esquema**.
-
- ![Guardar esquema](media/how-to-attribute-mapping/mapping3.png)
-
-## <a name="test-your-attribute-mapping"></a>Prueba de la asignación de atributos
-Para probar la asignación de atributos, puede usar el [ aprovisionamiento a petición](how-to-on-demand-provision.md).  Desde la lista 
 
 1.  En Azure Portal, seleccione **Azure Active Directory**.
 2.  Seleccione **Azure AD Connect**.
 3.  Seleccione **Administrar aprovisionamiento**.
+
+    ![Administración del aprovisionamiento](media/how-to-configure/manage1.png)
+
+4. En **Configuración**, seleccione su configuración.
+5. Seleccione **Click to edit mappings** (Haga clic para editar las asignaciones).  Se abrirá la pantalla de asignación de atributos.
+
+    ![Adición de atributos](media/how-to-attribute-mapping/mapping6.png)
+
+6.  Haga clic en **Agregar atributo**.
+
+    ![Tipo de asignación](media/how-to-attribute-mapping/mapping1.png)
+
+7. Seleccione el **Tipo de asignación**.  En este ejemplo usaremos Expresión.
+8.  Escriba la expresión en el cuadro.  En este ejemplo, estamos usando `Replace([mail], "@contoso.com", , ,"", ,).`.
+9.  Escriba el atributo de destino.  En este ejemplo, usaremos ExtensionAttribute15.
+10. Seleccione cuándo quiere aplicarlo y, a continuación, haga clic en **Aplicar**.
+
+    ![Editar asignaciones](media/how-to-attribute-mapping/mapping2a.png)
+
+11. En la pantalla asignación de atributos, debería ver la nueva asignación de atributos.  
+12. Haga clic en **Guardar esquema**.
+
+    ![Guardar esquema](media/how-to-attribute-mapping/mapping3.png)
+
+## <a name="test-your-attribute-mapping"></a>Prueba de la asignación de atributos
+
+Para probar la asignación de atributos, puede usar el [ aprovisionamiento a petición](how-to-on-demand-provision.md).  Desde la lista 
+
+1. En Azure Portal, seleccione **Azure Active Directory**.
+2. Seleccione **Azure AD Connect**.
+3. Seleccione **Administrar aprovisionamiento**.
 4. En **Configuración**, seleccione su configuración.
 5. En **Validar**, haga clic en el botón **Aprovisionar un usuario**. 
 6. En la pantalla del aprovisionamiento a petición,  Escriba el **nombre distintivo** de un usuario o grupo y haga clic en el botón **Aprovisionar**.  
 7. Una vez finalizado, verá una pantalla de éxito y 4 casillas de color verde que indican que el elemento se ha aprovisionado correctamente.  
-  ![Aprovisionamiento realizado correctamente](media/how-to-attribute-mapping/mapping4.png)
-1. En **Realizar una acción** haga clic en **Ver detalles**.  A la derecha, debería ver el nuevo atributo sincronizado y la expresión aplicada.
+
+    ![Aprovisionamiento realizado correctamente](media/how-to-attribute-mapping/mapping4.png)
+
+8. En **Realizar una acción** haga clic en **Ver detalles**.  A la derecha, debería ver el nuevo atributo sincronizado y la expresión aplicada.
 
   ![Realizar acción](media/how-to-attribute-mapping/mapping5.png)
 

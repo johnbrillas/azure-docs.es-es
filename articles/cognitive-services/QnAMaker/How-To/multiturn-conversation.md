@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: 26fc976983fc08857e7771d58f15d0abcd9a1d3c
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: cef2e2ca9c7ad4640014d9b5a9a7da42d308ef7c
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353228"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97605151"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Uso de avisos de seguimiento para crear múltiples turnos de una conversación
 
@@ -38,7 +38,6 @@ Con multiturno, un bot de chat administra una conversación con un usuario para 
 En la imagen anterior, un usuario ha iniciado una conversación escribiendo **Mi cuenta**. La base de conocimiento tiene tres pares de preguntas y respuestas vinculados. Para mejorar la respuesta, el usuario selecciona una de las tres opciones en la base de conocimiento. La pregunta (1), incluye tres avisos de seguimiento, que se presentan en el bot de chat como tres posibles opciones (2).
 
 Cuando el usuario selecciona una opción (3), se presenta la siguiente lista de opciones de mejora (4). Esta secuencia continúa (5) hasta que el usuario determina la respuesta correcta, final (6).
-
 
 ### <a name="use-multi-turn-in-a-bot"></a>Uso del multiturno en un bot
 
@@ -79,7 +78,6 @@ Al agregar un documento multiturno, QnA Maker determina los avisos de seguimient
 > [!Caution]
 > No se admite el uso de un archivo de base de conocimiento multiturno de tipo TSV o XLS que haya sido exportado como origen de datos para una base de conocimiento nueva o vacía. Debe **importar** ese tipo de archivo, desde la página de **configuración** del portal de QnA Maker para agregar mensajes exportados multiturno a una base de conocimiento.
 
-
 ## <a name="create-knowledge-base-with-multi-turn-prompts-with-the-create-api"></a>Creación de la base de conocimiento con avisos multiturno con Create API
 
 Puede crear una base de conocimiento con avisos multiturno mediante [Create API de QnA Maker](/rest/api/cognitiveservices/qnamaker/knowledgebase/create). Los avisos se agregan en la matriz `prompts` de la propiedad `context`.
@@ -116,7 +114,6 @@ Agregue una opción de seguimiento a un par de pregunta y respuesta que no esté
     |Context-only (Solo contexto)| Seleccione esta casilla. Solo se devolverá una respuesta si la pregunta especifica contexto.|
     |Link to answer (Vínculo a la respuesta)|Escriba **Usar la pantalla de inicio de sesión** para encontrar el par de pregunta y respuesta existente.|
 
-
 1.  Se devuelve una coincidencia. Seleccione esta respuesta como seguimiento y, a continuación, seleccione **Guardar**.
 
     ![Página "Follow-up prompt (PREVIEW)" [Aviso de seguimiento (VERSIÓN PRELIMINAR)]](../media/conversational-context/search-follow-up-prompt-for-existing-answer.png)
@@ -137,7 +134,6 @@ Cuando se crea un aviso de seguimiento, y se especifica un par de pregunta y res
 1. Cuando haya terminado de editar el texto para mostrar, seleccione **Guardar**.
 1. En la barra de navegación superior, seleccione **Save and train** (Guardar y entrenar).
 
-
 ## <a name="add-a-new-question-and-answer-pair-as-a-follow-up-prompt"></a>Incorporación de un nuevo par de pregunta y respuesta como aviso de seguimiento
 
 Cuando se agrega un nuevo par de pregunta y respuesta a la base de conocimiento, cada par se debe vincular a una pregunta existente como un aviso de seguimiento.
@@ -155,7 +151,6 @@ Cuando se agrega un nuevo par de pregunta y respuesta a la base de conocimiento,
     |||
 
     ![Crear una nueva pregunta y respuesta de seguimiento](../media/conversational-context/create-child-prompt-from-parent.png)
-
 
 1. Seleccione **Crear nuevo** y, a continuación, seleccione **Guardar**.
 
@@ -227,7 +222,7 @@ En la sección anterior se solicitó una respuesta y todos los avisos de seguimi
             "questions": [
                 "Sign out"
             ],
-            "answer": "**Sign out**\n\nHere's how to sign out: \n\n Go to Start, and right-click your name. Then select Sign out. ",
+            "answer": "**Sign out**\n\nHere's how to sign out: \n\n  Go to Start, and right-click your name. Then select Sign out. ",
             "score": 38.01,
             "id": 18,
             "source": "product-manual.pdf",
@@ -353,7 +348,6 @@ La respuesta JSON _GenerateAnswer_ de QnA Maker incluye los avisos de seguimient
 ## <a name="query-the-knowledge-base-with-the-qna-maker-id"></a>Consulta de la base de conocimiento con el identificador de QnA Maker
 
 Si va a compilar una aplicación personalizada mediante la característica multiturno. En la respuesta de la pregunta inicial, se devuelven los avisos de seguimiento y sus identificadores `qnaId` asociados. Ahora que tiene el identificador, puede pasarlo en el cuerpo de la solicitud del aviso de seguimiento. Si el cuerpo de la solicitud contiene el identificador `qnaId` y el objeto de contexto (que contiene las propiedades anteriores de QnA Maker), GenerateAnswer devolverá la pregunta exacta por identificador en lugar de usar el algoritmo de clasificación para encontrar la respuesta por el texto de la pregunta.
-
 
 ## <a name="display-order-is-supported-in-the-update-api"></a>Update API admite el orden de presentación
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/26/2020
 ms.author: mathoma
-ms.openlocfilehash: 244fae9f8611acd21f2ee6cd7dafa45b88606456
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: becf9f8c7f6a967ed63cfd3040de90de76e32fff
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359360"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97607276"
 ---
 # <a name="create-an-fci-with-azure-shared-disks-sql-server-on-azure-vms"></a>Creación de una FCI con discos compartidos de Azure (SQL Server en VM de Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -26,7 +26,6 @@ ms.locfileid: "97359360"
 En este artículo se explica cómo crear una instancia de clúster de conmutación por error (FCI) mediante discos compartidos de Azure con SQL Server en Azure Virtual Machines (VM). 
 
 Para más información, consulte la información general de [FCI con SQL Server en VM de Azure](failover-cluster-instance-overview.md) y [Procedimientos recomendados de clúster](hadr-cluster-best-practices.md). 
-
 
 ## <a name="prerequisites"></a>Requisitos previos 
 
@@ -37,12 +36,10 @@ Antes de completar las instrucciones de este artículo, ya debe tener:
 - Una cuenta que tenga permisos para crear objetos en máquinas virtuales de Azure y en Active Directory.
 - La versión más reciente de [PowerShell](/powershell/azure/install-az-ps). 
 
-
 ## <a name="add-azure-shared-disk"></a>Adición de un disco compartido de Azure
 Implemente un disco SSD Premium administrado con la característica de disco compartido habilitada. Establezca `maxShares` para que se **alinee con el número de nodos de clúster** a fin de que el disco pueda compartirse en todos los nodos de FCI. 
 
 Agregue un disco compartido de Azure mediante el procedimiento siguiente: 
-
 
 1. Guarde el siguiente script como *SharedDiskConfig.json*: 
 
@@ -85,7 +82,6 @@ Agregue un disco compartido de Azure mediante el procedimiento siguiente:
    }
    ```
 
-
 2. Ejecute *SharedDiskConfig.json* mediante PowerShell: 
 
    ```powershell
@@ -97,20 +93,19 @@ Agregue un disco compartido de Azure mediante el procedimiento siguiente:
 
 3. Para cada VM, inicialice los discos compartidos adjuntos como tabla de particiones GUID (GPT) y formatéelos como un nuevo sistema de archivos de tecnología (NTFS). Para ello, ejecute este comando: 
 
-   ```powershell
-   $resourceGroup = "<your resource group name>"
-       $location = "<region of your shared disk>"
-       $ppgName = "<your proximity placement groups name>"
-       $vm = Get-AzVM -ResourceGroupName "<your resource group name>" `
-           -Name "<your VM node name>"
-       $dataDisk = Get-AzDisk -ResourceGroupName $resourceGroup `
-           -DiskName "<your shared disk name>"
-       $vm = Add-AzVMDataDisk -VM $vm -Name "<your shared disk name>" `
-           -CreateOption Attach -ManagedDiskId $dataDisk.Id `
-           -Lun <available LUN  check disk setting of the VM>
-    update-AzVm -VM $vm -ResourceGroupName $resourceGroup
-   ```
-
+    ```powershell
+    $resourceGroup = "<your resource group name>"
+    $location = "<region of your shared disk>"
+    $ppgName = "<your proximity placement groups name>"
+    $vm = Get-AzVM -ResourceGroupName "<your resource group name>" `
+        -Name "<your VM node name>"
+    $dataDisk = Get-AzDisk -ResourceGroupName $resourceGroup `
+        -DiskName "<your shared disk name>"
+    $vm = Add-AzVMDataDisk -VM $vm -Name "<your shared disk name>" `
+        -CreateOption Attach -ManagedDiskId $dataDisk.Id `
+        -Lun <available LUN - check disk setting of the VM>
+    Update-AzVm -VM $vm -ResourceGroupName $resourceGroup
+    ```
 
 ## <a name="create-failover-cluster"></a>Creación de un clúster de conmutación por error
 
@@ -119,7 +114,6 @@ Para crear el clúster de conmutación por error, necesita:
 - Los nombres de las máquinas virtuales que se convertirán en nodos del clúster.
 - Un nombre para el clúster de conmutación por error.
 - Una dirección IP para el clúster de conmutación por error. Puede usar una dirección IP que no se utilice en la misma red virtual de Azure y subred como nodos del clúster.
-
 
 # <a name="windows-server-2012-2016"></a>[Windows Server 2012-2016](#tab/windows2012)
 
@@ -140,7 +134,6 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 Para más información, consulte [Clúster de conmutación por error: objeto de red en clúster](https://blogs.windows.com/windowsexperience/2018/08/14/announcing-windows-server-2019-insider-preview-build-17733/#W0YAxO8BfwBRbkzG.97).
 
 ---
-
 
 ## <a name="configure-quorum"></a>Configuración de un cuórum
 
@@ -199,13 +192,12 @@ Es preciso que los directorios de datos de FCI estén en los discos compartidos 
 
 Para administrar la VM con SQL Server desde el portal, regístrela con la extensión Agente de IaaS de SQL en [modo de administración ligera](sql-agent-extension-manually-register-single-vm.md#lightweight-management-mode); actualmente, es el único modo que se admite con FCI y SQL Server en las VM de Azure. 
 
-
 Registre una VM con SQL Server en modo ligero con PowerShell:  
 
 ```powershell-interactive
 # Get the existing compute VM
 $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
-         
+
 # Register SQL VM with 'Lightweight' SQL IaaS agent
 New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
    -LicenseType PAYG -SqlManagementType LightWeight  
@@ -222,7 +214,6 @@ Para enrutar el tráfico de forma adecuada al nodo principal actual, configure l
 ## <a name="next-steps"></a>Pasos siguientes
 
 Si aún no lo ha hecho, configure la conectividad a su FCI con un [nombre de red virtual y un equilibrador de carga de Azure](failover-cluster-instance-vnn-azure-load-balancer-configure.md) o un [nombre de red distribuida (DNN)](failover-cluster-instance-distributed-network-name-dnn-configure.md). 
-
 
 Si los discos compartidos de Azure no son la solución de almacenamiento de la FCI adecuada para usted, considere la posibilidad de crear la FCI mediante [recursos compartidos de archivos Premium](failover-cluster-instance-premium-file-share-manually-configure.md) o [Espacios de almacenamiento directo](failover-cluster-instance-storage-spaces-direct-manually-configure.md) en su lugar. 
 
