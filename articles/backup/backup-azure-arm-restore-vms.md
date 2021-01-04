@@ -4,12 +4,12 @@ description: Restaure una máquina virtual de Azure desde un punto de recuperaci
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: 1c28de679bd957a472e543489a2dd15b3883aed5
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: baae35c87f306f5773fa8061f27e9793754ccc9c
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96327192"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008510"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Restauración de datos de máquinas virtuales de Azure en Azure Portal
 
@@ -213,6 +213,8 @@ Hay una serie de escenarios comunes en los que es posible que deba restaurar las
 **Restauración de una VM de un controlador de varios dominios en un dominio único** | Cuando se pueda acceder a otros controladores de dominio del mismo dominio a través de la red, el controlador de dominio se podrá restaurar como cualquier máquina virtual. Si se trata del último controlador de dominio que queda en el dominio o bien se lleva a cabo una recuperación en una red aislada, use una [recuperación de bosques](/windows-server/identity/ad-ds/manage/ad-forest-recovery-single-domain-in-multidomain-recovery).
 **Restauración de una VM de un controlador de dominio único en una configuración de varios dominios** |  Restauración de los discos y creación de una VM [mediante PowerShell](backup-azure-vms-automation.md#restore-the-disks)  
 **Restauración de varios dominios en un solo bosque** | Se recomienda una [recuperación de bosques](/windows-server/identity/ad-ds/manage/ad-forest-recovery-single-domain-in-multidomain-recovery).
+
+Para más información, consulte [Copia de seguridad y restauración de controladores de dominio de Active Directory](active-directory-backup-restore.md).
 
 ## <a name="track-the-restore-operation"></a>Seguimiento de la operación de restauración
 

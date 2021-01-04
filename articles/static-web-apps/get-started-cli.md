@@ -1,20 +1,20 @@
 ---
-title: 'Inicio rápido: creación de la primera aplicación web estática con Azure Static Web Apps mediante la CLI de Azure'
-description: Aprenda a crear una instancia de Azure Static Web Apps con la CLI de Azure Static Web Apps.
+title: 'Inicio rápido: creación del primer sitio estático con Azure Static Web Apps mediante la CLI'
+description: Aprenda a implementar un sitio estático en Azure Static Web Apps con la CLI de Azure.
 services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 08/13/2020
 ms.author: cshoe
-ms.openlocfilehash: ed49892284b53844c5c578b752a598cdbdd9b946
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: ca05194c0d8e63290a9cab8d9f7903daa192069b
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92320340"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97030355"
 ---
-# <a name="quickstart-building-your-first-static-web-app-using-the-azure-cli"></a>Inicio rápido: creación de la primera aplicación web estática con la CLI de Azure
+# <a name="quickstart-building-your-first-static-site-using-the-azure-cli"></a>Inicio rápido: creación del primer sitio estático mediante la CLI de Azure
 
 Azure Static Web Apps publica sitios web en entornos de producción mediante la creación de aplicaciones desde un repositorio de GitHub. En este inicio rápido, se implementa una aplicación web en Azure Static Web Apps mediante la CLI de Azure.
 

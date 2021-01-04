@@ -6,15 +6,15 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 12/03/2020
+ms.date: 12/09/2020
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: 21b1004a347dec3a7f2a6460d8b853350bf36ff0
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 5559e491be15f8f848329405736fc977267c70cc
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96571052"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938603"
 ---
 # <a name="high-performance-computing-vm-sizes"></a>Tamaños de VM para informática de alto rendimiento
 
@@ -29,6 +29,9 @@ Las máquinas virtuales de la [serie HB](hb-series.md) están optimizadas para a
 Las máquinas virtuales de la [serie HC](hc-series.md) están optimizadas para aplicaciones basadas en cálculos intensivos, como el análisis implícito de elementos finitos, la dinámica molecular y la química computacional. Las máquinas virtuales HC cuentan con 44 núcleos de procesador Intel Xeon Platinum 8168, 8 GB de RAM por núcleo de CPU y no tienen hyperthreading. La plataforma Intel Xeon Platinum admite el rico ecosistema de herramientas de software de Intel, como la biblioteca Intel Math Kernel Library.
 
 Las máquinas virtuales de la [serie H](h-series.md) están optimizadas para aplicaciones basadas en frecuencias altas de CPU o requisitos de gran cantidad de memoria por núcleo. Las máquinas virtuales de la serie H cuentan con 8 o 16 núcleos de procesador Intel Xeon E5 2667 v3, 7 o 14 GB de RAM por núcleo de CPU y no tienen hyperthreading. Las máquinas de la serie H cuentan con una interconexión Mellanox FDR InfiniBand de 56 Gb/s en una configuración de árbol de FAT sin bloqueo para proporcionar un rendimiento de RDMA consistente. Las máquinas virtuales de la serie H admiten Intel MPI 5.x y MS-MPI.
+
+> [!NOTE]
+> Todas las máquinas virtuales de la serie HBv2, HB y HC tienen acceso exclusivo a los servidores físicos. Solo hay una máquina virtual por cada servidor físico y no hay ningún multiinquilino compartido con otras máquinas virtuales para estos tamaños de máquina virtual.
 
 > [!NOTE]
 > Está previsto que las [VM A8-A1](./sizes-previous-gen.md#a-series---compute-intensive-instances)1 se retiren en marzo de 2021. Para obtener más información, consulte la [guía de migración de HPC](https://azure.microsoft.com/resources/hpc-migration-guide/).

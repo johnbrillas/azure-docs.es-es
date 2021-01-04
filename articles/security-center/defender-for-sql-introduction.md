@@ -3,17 +3,17 @@ title: 'Azure Defender para SQL: ventajas y características'
 description: Obtenga información sobre las ventajas y características de Azure Defender para SQL.
 author: memildin
 ms.author: memildin
-ms.date: 11/30/2020
+ms.date: 12/13/2020
 ms.topic: overview
 ms.service: security-center
 ms.custom: references_regions
 manager: rkarlin
-ms.openlocfilehash: c2fc1bf065bce3ca844c5284168d8ff96fa065bf
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: e9a2259f1e15a94ad1f2a9eabf7d3a2f3ed419f1
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96512246"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387809"
 ---
 # <a name="introduction-to-azure-defender-for-sql"></a>Introducción a Azure Defender para SQL
 
@@ -28,7 +28,7 @@ Azure Defender para SQL incluye dos planes de Azure Defender que amplían el [pa
 |Estado de la versión:|**Azure Defender para servidores de base de datos de Azure SQL**: disponible con carácter general (GA)<br>**Azure Defender para servidores SQL Server en máquinas**: disponible con carácter general (GA) |
 |Precios:|Los dos planes que forman **Azure Defender para SQL** se facturan como se muestra en [la página de precios](security-center-pricing.md).|
 |Versiones de SQL protegidas:|[SQL en máquinas virtuales de Azure](../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md)<br>[Servidores SQL Server habilitados para Azure Arc](https://docs.microsoft.com/sql/sql-server/azure-arc/overview)<br>Servidores SQL Server locales en máquinas Windows sin Azure Arc<br>[Bases de datos únicas](../azure-sql/database/single-database-overview.md) y [grupos elásticos](../azure-sql/database/elastic-pool-overview.md) de Azure SQL<br>[Instancia administrada de Azure SQL](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md)<br>[Grupo de SQL dedicado de Azure Synapse Analytics (anteriormente SQL DW)](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)|
-|Nubes:|![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![Sí](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, otros gobiernos|
+|Nubes:|![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![Sí](./media/icons/yes-icon.png) US Gov<br>![Sí](./media/icons/yes-icon.png) China Gov (**parcial**: subconjunto de alertas y evaluación de vulnerabilidades en servidores SQL. No hay disponible protección contra amenazas de comportamiento).|
 |||
 
 ## <a name="what-does-azure-defender-for-sql-protect"></a>¿Qué protege Azure Defender para SQL?

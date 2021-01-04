@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 05/19/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 25c7016f6639df46a9279ef9a9aab2736efd4f95
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 460cca051d743102e734971cf45069362e24c147
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888664"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106010"
 ---
 # <a name="metrics-overview"></a>Información general de las métricas
 
@@ -76,6 +76,17 @@ Las siguientes operaciones están disponibles en las métricas de solicitud de A
 
 
 :::image type="content" source="./media/sms-metric.png" alt-text="Métrica de solicitud de API de SMS.":::
+
+### <a name="authentication-api-requests"></a>Solicitudes de API de autenticación
+
+Las siguientes operaciones están disponibles en las métricas de solicitudes de API de autenticación:
+
+| Operación/ruta    | Descripción                                                                                    |
+| -------------------- | ---------------------------------------------------------------------------------------------- |
+| CreateIdentity       | Crea una identidad que representa a un solo usuario. |
+| DeleteIdentity       | Elimina una identidad. |
+| CreateToken          | Crea un token de acceso. |
+| RevokeToken          | Revoca todos los tokens de acceso creados para una identidad antes de un tiempo dado. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

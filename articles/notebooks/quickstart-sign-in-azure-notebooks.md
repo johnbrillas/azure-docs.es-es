@@ -3,12 +3,12 @@ title: Inicio de sesión en Azure Notebooks (versión preliminar)
 description: Inicie sesión rápidamente en Azure Notebooks (versión preliminar) y configure un identificador de usuario, lo que le ofrece la posibilidad de acceder a proyectos guardados y compartir cuadernos con otras personas.
 ms.topic: quickstart
 ms.date: 04/15/2019
-ms.openlocfilehash: 8a2d9836cd005ab11106c569929a6776d605da50
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 168da5d4d36cd4cfadb4ef120ddfabbd261cafaf
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85830424"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109460"
 ---
 # <a name="quickstart-sign-in-and-set-a-user-id-for-azure-notebooks-preview"></a>Inicio rápido: Inicio de sesión y establecimiento de un identificador de usuario para Azure Notebooks (versión preliminar)
 
@@ -59,4 +59,4 @@ Para cerrar la sesión, seleccione el nombre del usuario en la esquina superior 
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Inicio rápido: Creación y uso compartido de un cuaderno](quickstart-create-share-jupyter-notebook.md)
+> [Inicio rápido: Exportación de un proyecto de un cuaderno de Jupyter Notebook](quickstart-export-jupyter-notebook-project.md)

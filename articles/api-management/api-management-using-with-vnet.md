@@ -10,15 +10,15 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/22/2020
+ms.date: 12/10/2020
 ms.author: apimpm
 ms.custom: references_regions
-ms.openlocfilehash: 7af15552a489f36d87204bfefe47e579cc19f6dc
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: e36f7c6085908630d5e7aa2593fe4d57202d6ee7
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96778817"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107658"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Usar Azure API Management con redes virtuales
 Azure Virtual Network (redes virtuales) le permiten colocar cualquier recurso de Azure en una red distinta de Internet que se pueda enrutar y a la que controle el acceso. Después, estas redes se pueden conectar a sus redes locales mediante diversas tecnologías de VPN. Para más información sobre Azure Virtual Network, vea: [Información general sobre Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
@@ -116,8 +116,9 @@ A continuación se muestra una lista de problemas de errores de configuración c
 | * / [80], 443                  | Entrada            | TCP                | INTERNET/VIRTUAL_NETWORK            | Comunicación de cliente con Administración de API                      | Externo             |
 | * / 3443                     | Entrada            | TCP                | ApiManagement / VIRTUAL_NETWORK       | Punto de conexión de administración para Azure Portal y PowerShell         | Externa e interna  |
 | * / 443                  | Salida           | TCP                | VIRTUAL_NETWORK/Storage             | **Dependencia de Azure Storage**                             | Externa e interna  |
-| * / 443                  | Salida           | TCP                | VIRTUAL_NETWORK / AzureActiveDirectory | [Azure Active Directory](api-management-howto-aad.md) (si procede)                   | Externa e interna  |
+| * / 443                  | Salida           | TCP                | VIRTUAL_NETWORK / AzureActiveDirectory | [Azure Active Directory](api-management-howto-aad.md) y dependencia de Azure KeyVault                  | Externa e interna  |
 | * / 1433                     | Salida           | TCP                | VIRTUAL_NETWORK / SQL                 | **Acceso a los puntos de conexión de Azure SQL**                           | Externa e interna  |
+| * / 433                     | Salida           | TCP                | VIRTUAL_NETWORK / AzureKeyVault                 | **Acceso a Azure KeyVault**                           | Externa e interna  |
 | * / 5671, 5672, 443          | Salida           | TCP                | VIRTUAL_NETWORK/EventHub            | Dependencia de la [directiva de registro en el centro de eventos](api-management-howto-log-event-hubs.md) y el agente de supervisión | Externa e interna  |
 | * / 445                      | Salida           | TCP                | VIRTUAL_NETWORK/Storage             | Dependencia del recurso compartido de archivos de Azure para [GIT](api-management-configuration-repository-git.md)                      | Externa e interna  |
 | * / 443, 12 000                     | Salida           | TCP                | VIRTUAL_NETWORK / AzureCloud            | Extensión Estado y supervisión         | Externa e interna  |

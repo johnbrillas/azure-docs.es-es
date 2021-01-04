@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/06/2018
+ms.date: 12/14/2020
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50e0fe1cf3bb628c40e774423e45ea88d6ab78a5
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: b6900647acf7182529f34c8cc065dbb039de38be
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92359720"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97504413"
 ---
 # <a name="assign-or-remove-licenses-in-the-azure-active-directory-portal"></a>Asignación o eliminación de licencias en el portal de Azure Active Directory
 
@@ -47,13 +47,20 @@ Puede ver los planes de servicio disponibles —incluidas las licencias individu
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) con una cuenta de administrador de licencias en la organización de Azure AD.
 
-1. Seleccione **Azure Active Directory** y luego seleccione **Licencias** .
+1. Seleccione **Azure Active Directory** y luego seleccione **Licencias**.
 
-    ![Página Licencias, con el número de servicios comprados y licencias asignadas](media/license-users-groups/license-details-blade.png)
+    :::image type="content" source="media/license-users-groups/license-details-blade.png" alt-text="Página Licencias, con el número de servicios comprados y licencias asignadas":::
 
-1. Seleccione el vínculo **Comprado** para acceder a la página **Productos** y ver los números en **Asignado** , **Disponible** y **Expira próximamente** para los planes de licencias.
+1. Seleccione **Todos los productos** para ver la página **Todos los productos** y ver los números en **Asignado**, **Disponible** y **Expira próximamente** para los planes de licencias.
 
-    ![Página Servicios, con los planes de licencia de servicio y la información de licencia asociada](media/license-users-groups/license-products-blade-with-products.png)
+    :::image type="content" source="media/license-users-groups/license-products-blade-with-products.png" alt-text="Página Servicios, con los planes de licencia de servicio y la información de licencia asociada":::
+
+    > [!NOTE]
+    > Los números se definen como: 
+    > - Total: número total de licencias adquiridas
+    > - Asignado: número de licencias asignadas a los usuarios
+    > - Disponible: número de licencias disponibles para su asignación, incluidas las que expiran en breve
+    > - Expira próximamente: número de licencias que expiran pronto
 
 1. Seleccione un nombre de plan para ver sus usuarios y grupos con licencias.
 
@@ -63,28 +70,28 @@ Asegúrese de que cualquier usuario que tenga que usar un servicio de Azure AD l
 
 ### <a name="to-assign-a-license-to-a-user"></a>Para asignar una licencia a un usuario
 
-1. En la página **Productos** , seleccione el nombre del plan de licencia que quiere asignar al usuario.
+1. En la página **Productos**, seleccione el nombre del plan de licencia que quiere asignar al usuario.
 
     ![Página Servicios, con el plan de licencia de servicio resaltado](media/license-users-groups/license-products-blade-with-product-highlight.png)
 
-1. En la página de información general del plan de licencia, seleccione **Asignar** .
+1. En la página de información general del plan de licencia, seleccione **Asignar**.
 
     ![Página Servicios, con la opción Asignar resaltada](media/license-users-groups/license-products-blade-with-assign-option-highlight.png)
 
-1. En la página **Asignar** , seleccione **Usuarios y grupos** y, luego, busque y seleccione el usuario al que va a asignar la licencia.
+1. En la página **Asignar**, seleccione **Usuarios y grupos** y, luego, busque y seleccione el usuario al que va a asignar la licencia.
 
     ![Página Asignar licencia, con las opciones búsqueda y Seleccionar resaltadas](media/license-users-groups/assign-license-blade-with-highlight.png)
 
-1. Seleccione **Opciones de asignación** , asegúrese de tener activadas las opciones de licencia apropiadas y, luego, seleccione **Aceptar** .
+1. Seleccione **Opciones de asignación**, asegúrese de tener activadas las opciones de licencia apropiadas y, luego, seleccione **Aceptar**.
 
     ![Página Opciones de licencia, con todas las opciones disponibles en el plan](media/license-users-groups/license-option-blade-assignments.png)
 
     La página **Asignar licencia** se actualiza para mostrar que hay un usuario seleccionado y que las asignaciones están configuradas.
 
     > [!NOTE]
-    > No todos los servicios de Microsoft están disponibles en todas las ubicaciones. Antes de poder asignar una licencia a un usuario, tiene que especificar la **Ubicación de uso** . Puede establecer este valor en el área **Azure Active Directory &gt; Usuarios &gt; Perfil &gt; Configuración** en Azure AD. Cualquier usuario cuya ubicación de uso no se especifique hereda la ubicación de la organización de Azure AD.
+    > No todos los servicios de Microsoft están disponibles en todas las ubicaciones. Antes de poder asignar una licencia a un usuario, tiene que especificar la **Ubicación de uso**. Puede establecer este valor en el área **Azure Active Directory &gt; Usuarios &gt; Perfil &gt; Configuración** en Azure AD. Cualquier usuario cuya ubicación de uso no se especifique hereda la ubicación de la organización de Azure AD.
 
-1. Seleccione **Asignar** .
+1. Seleccione **Asignar**.
 
     El usuario se agrega a la lista de usuarios con licencia y tiene acceso a los servicios de Azure AD incluidos.
     > [!NOTE]
@@ -92,25 +99,25 @@ Asegúrese de que cualquier usuario que tenga que usar un servicio de Azure AD l
 
 ### <a name="to-assign-a-license-to-a-group"></a>Para asignar una licencia a un grupo
 
-1. En la página **Productos** , seleccione el nombre del plan de licencia que quiere asignar al usuario.
+1. En la página **Productos**, seleccione el nombre del plan de licencia que quiere asignar al usuario.
 
     ![Hoja Productos, con el plan de licencia del producto resaltado](media/license-users-groups/license-products-blade-with-product-highlight.png)
 
-1. En la página **Azure Active Directory Premium Plan 2** , seleccione **Asignar** .
+1. En la página **Azure Active Directory Premium Plan 2**, seleccione **Asignar**.
 
     ![Página Productos, con la opción Asignar resaltada](media/license-users-groups/license-products-blade-with-assign-option-highlight.png)
 
-1. En la página **Asignar** , seleccione **Usuarios y grupos** y, luego, busque y seleccione el grupo al que va a asignar la licencia.
+1. En la página **Asignar**, seleccione **Usuarios y grupos** y, luego, busque y seleccione el grupo al que va a asignar la licencia.
 
     ![Página Asignar licencia, con las opciones Buscar y Seleccionar resaltadas 2](media/license-users-groups/assign-group-license-blade-with-highlight.png)
 
-1. Seleccione **Opciones de asignación** , asegúrese de tener activadas las opciones de licencia apropiadas y, luego, seleccione **Aceptar** .
+1. Seleccione **Opciones de asignación**, asegúrese de tener activadas las opciones de licencia apropiadas y, luego, seleccione **Aceptar**.
 
     ![Página Opciones de licencia, con todas las opciones disponibles en el plan de licencia 2](media/license-users-groups/license-option-blade-group-assignments.png)
 
     La página **Asignar licencia** se actualiza para mostrar que hay un usuario seleccionado y que las asignaciones están configuradas.
 
-1. Seleccione **Asignar** .
+1. Seleccione **Asignar**.
 
     El grupo se agrega a la lista de grupos con licencias, y todos los miembros tienen acceso a los servicios de Azure AD incluidos.
 
@@ -120,9 +127,9 @@ Puede quitar una licencia desde la página de usuario de Azure AD de un usuario
 
 ### <a name="to-remove-a-license-from-a-user"></a>Para quitar una licencia de un usuario
 
-1. En la página **Usuarios con licencias** para el plan de servicio, seleccione el usuario que ya no debe tener la licencia. Por ejemplo, _Alain Charon_ .
+1. En la página **Usuarios con licencias** para el plan de servicio, seleccione el usuario que ya no debe tener la licencia. Por ejemplo, _Alain Charon_.
 
-1. Seleccione **Quitar licencia** .
+1. Seleccione **Quitar licencia**.
 
     ![Página Usuarios con licencias con la opción Quitar licencia resaltada](media/license-users-groups/license-products-user-blade-with-remove-option-highlight.png)
 
@@ -133,12 +140,12 @@ Puede quitar una licencia desde la página de usuario de Azure AD de un usuario
 
 1. En la página **Grupos con licencias** para el plan de licencia, seleccione el grupo que ya no debe tener la licencia.
 
-1. Seleccione **Quitar licencia** .
+1. Seleccione **Quitar licencia**.
 
     ![Página Grupos con licencias con la opción Quitar licencia resaltada 2](media/license-users-groups/license-products-group-blade-with-remove-option-highlight.png)
     
     > [!NOTE]
-    > Cuando una cuenta de usuario local sincronizada con Azure AD no está en el ámbito de la sincronización, o si la sincronización se quita, el usuario se eliminará de forma temporal en Azure AD. Cuando esto ocurre, las licencias asignadas directamente a ese usuario o a través de licencias basadas en grupos se marcarán como **suspendidas** en lugar de como **eliminadas** .
+    > Cuando una cuenta de usuario local sincronizada con Azure AD no está en el ámbito de la sincronización, o si la sincronización se quita, el usuario se eliminará de forma temporal en Azure AD. Cuando esto ocurre, las licencias asignadas directamente a ese usuario o a través de licencias basadas en grupos se marcarán como **suspendidas** en lugar de como **eliminadas**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

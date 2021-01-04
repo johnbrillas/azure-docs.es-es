@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 9312094d1d86ea25ebd573e5d14b6d5bd0619cfc
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: a3f423a144738fdaa4462606de6ad4a4e34d6775
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108242"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563422"
 ---
 # <a name="continuous-delivery-by-using-azure-devops"></a>Entrega continua con Azure DevOps
 
@@ -258,7 +258,7 @@ Para crear una canalización de compilación en Azure, use el [comando](/cli/azu
 
     - Debe tener permisos para crear un token de acceso personal (PAT) en GitHub que tenga permisos suficientes. Para obtener más información, consulte [Requisitos de permiso de token de acceso personal en GitHub](/azure/devops/pipelines/repos/github#repository-permissions-for-personal-access-token-pat-authentication).
 
-    - Debe tener permisos para confirmar en la rama maestra del repositorio de GitHub con el fin de confirmar el archivo YAML generado automáticamente.
+    - Debe tener permisos para confirmar en la rama principal del repositorio de GitHub con el fin de confirmar el archivo YAML generado automáticamente.
 
 - Si el código está en Azure Repos:
 

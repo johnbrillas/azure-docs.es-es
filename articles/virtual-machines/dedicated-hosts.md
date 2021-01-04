@@ -5,15 +5,15 @@ author: cynthn
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.workload: infrastructure
-ms.date: 07/28/2020
+ms.date: 12/07/2020
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: a42b07254deaf19d253f7523631018bfe7166a57
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 4e29bb0fee496af6a8c0fd30d5559bf865123c39
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96339598"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007898"
 ---
 # <a name="azure-dedicated-hosts"></a>Hosts dedicados de Azure
 
@@ -67,11 +67,6 @@ La plantilla de ejemplo de Resource Manager que se encuentra [aquí](https://git
 
 ## <a name="manual-vs-automatic-placement"></a>Selección de ubicación manual frente a automático 
 
-> [!IMPORTANT]
-> Actualmente, la selección de ubicación automática está en versión preliminar pública.
-> Para participar en la versión preliminar, complete la encuesta de incorporación de la versión preliminar en [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview).
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 Al crear una máquina virtual en Azure, puede seleccionar el host dedicado que se va a usar. También puede usar la opción para ubicar automáticamente las máquinas virtuales en los hosts existentes, dentro de un grupo host. 
 
 Al crear un grupo host, asegúrese de que esté seleccionada la opción de selección automática de ubicación de máquinas virtuales. Al crear la máquina virtual, seleccione el grupo host y deje que Azure elija el mejor host para la máquina virtual. 
@@ -91,11 +86,6 @@ Incidencias y limitaciones conocidas cuando se usa la selección automática de 
 
 Los conjuntos de escalado de máquinas virtuales permiten tratar un grupo de máquinas virtuales como un único recurso y aplicar las directivas de disponibilidad, administración, escalado y orquestación como un grupo. Los hosts dedicados existentes también se pueden usar para conjuntos de escalado de máquinas virtuales. 
 
-> [!IMPORTANT]
-> Virtual Machine Scale Sets en hosts dedicados se encuentra actualmente en versión preliminar pública.
-> Para participar en la versión preliminar, complete la encuesta de incorporación de la versión preliminar en [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview).
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 Al crear un conjunto de escalado de máquinas virtuales, puede especificar un grupo host existente para que tenga todas las instancias de máquina virtual creadas en hosts dedicados.
 
 Al crear un conjunto de escalado de máquinas virtuales en un grupo host dedicado, se aplican los siguientes requisitos:
@@ -109,7 +99,7 @@ Al crear un conjunto de escalado de máquinas virtuales en un grupo host dedicad
 - Los tamaños de máquina virtual admitidos para los hosts dedicados deben coincidir con el del conjunto de escalado.
 
 No todas las configuraciones de orquestación y optimización de conjunto de escalado son compatibles con los hosts dedicados. Aplique los valores siguientes en el conjunto de escalado: 
-- Deshabilite el aprovisionamiento en exceso.
+- No se recomienda el sobreaprovisionamiento y está deshabilitado de forma predeterminada. Puede habilitar el sobreaprovisionamiento, pero se producirá un error en la asignación del conjunto de escalado si el grupo host no tiene capacidad para todas las máquinas virtuales, incluidas las instancias que se han sobreaprovisionado. 
 - Use el modo de orquestación ScaleSetVM. 
 - No use los grupo con ubicación por proximidad para la coubicación.
 

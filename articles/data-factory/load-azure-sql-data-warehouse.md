@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/30/2020
-ms.openlocfilehash: dcf3db33818448116da53d8a01d0c62aca7bc1af
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 12/09/2020
+ms.openlocfilehash: 12630e5e4b332d875a75c59d2fdafecd23be0b17
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96000086"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97005476"
 ---
 # <a name="load-data-into-azure-synapse-analytics-by-using-azure-data-factory"></a>Carga de datos en Azure Synapse Analytics mediante Azure Data Factory
 
@@ -102,7 +102,7 @@ En este artículo se muestra cómo usar la herramienta Copiar datos de Data Fact
 
     a. Haga clic en **+ Crear nueva conexión** para agregar una conexión.
 
-    b. Seleccione **Azure Synapse Analytics (anteriormente SQL Data Warehouse)** de la galería y seleccione **Continuar**. Puede escribir "SQL" en el cuadro de búsqueda para filtrar los conectores.
+    b. Seleccione **Azure Synapse Analytics** de la galería y seleccione **Continuar**.
 
     ![Selección de Azure Synapse Analytics](./media/load-azure-sql-data-warehouse/select-azure-sql-dw-sink.png)
 

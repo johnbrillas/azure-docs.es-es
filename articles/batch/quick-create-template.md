@@ -1,15 +1,15 @@
 ---
 title: 'Inicio rápido de Azure: creación de una cuenta de Batch (plantilla de Azure Resource Manager)'
-description: Aprenda rápidamente a ejecutar un trabajo de Batch con la CLI de Azure. Cree y administre los recursos de Azure desde la línea de comandos o en scripts.
+description: En este inicio rápido se muestra cómo crear una cuenta de Batch mediante una plantilla de Resource Manager.
 ms.topic: quickstart
 ms.date: 08/17/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: 606862b31ba4921e39e693735507fca39282091c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: fc6f1537b32c8ced2cfc2bf09f16106f791001fc
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88642408"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106587"
 ---
 # <a name="quickstart-create-a-batch-account-by-using-arm-template"></a>Inicio rápido: Creación de una cuenta de Batch mediante una plantilla de ARM
 
@@ -21,7 +21,7 @@ Si su entorno cumple los requisitos previos y está familiarizado con el uso de 
 
 [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-batchaccount-with-storage%2Fazuredeploy.json)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Debe contar con una suscripción de Azure activa.
 

@@ -3,16 +3,16 @@ title: 'Funciones de plantillas: comparación'
 description: Describe las funciones para usar en una plantilla de Azure Resource Manager para comparar valores.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: c5ffcfe7688935da6ea5602cdb2c66a8b86a8d88
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 1b7192db361f510e0246a737de47930534a1cb9d
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96004609"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920531"
 ---
 # <a name="comparison-functions-for-arm-templates"></a>Funciones de comparación para plantillas de ARM
 
-Resource Manager ofrece varias funciones para realizar comparaciones en las plantillas de Azure Resource Manager (ARM).
+Resource Manager ofrece varias funciones para realizar comparaciones en las plantillas de Azure Resource Manager:
 
 * [coalesce](#coalesce)
 * [equals](#equals)
@@ -635,4 +635,4 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para obtener una descripción de las secciones de una plantilla de Azure Resource Manager, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](template-syntax.md).
+* Para obtener una descripción de las secciones de una plantilla de ARM, vea [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](template-syntax.md).

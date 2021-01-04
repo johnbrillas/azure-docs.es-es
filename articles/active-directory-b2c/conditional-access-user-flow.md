@@ -5,17 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 09/01/2020
+ms.date: 12/14/2020
+ms.custom: project-no-code
 ms.author: mimart
 author: msmimart
 manager: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60bfac3b80e772e7b359b1e926d5fb84e447a8fb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+zone_pivot_groups: b2c-policy-type
+ms.openlocfilehash: d6d5ab13c8997dffee42a053ba498376ccbcb6d8
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89270795"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97585265"
 ---
 # <a name="add-conditional-access-to-user-flows-in-azure-active-directory-b2c"></a>Adición del acceso condicional a los flujos de usuario en Azure AD B2C
 
@@ -34,6 +36,22 @@ El acceso condicional es compatible con las versiones más recientes de los fluj
 - **Acceso condicional**: esta configuración siempre se debe establecer en  **Activado**. Normalmente, esta opción solo se debe establecer en **Desactivado** durante la solución de problemas o la migración o para implementaciones heredadas.
 
 Puede encontrar más información sobre [Identity Protection y acceso condicional](conditional-access-identity-protection-overview.md) en Azure AD B2C o puede consultar [cómo configurarlo](conditional-access-identity-protection-setup.md).
+
+## <a name="prerequisites"></a>Requisitos previos
+
+- Se requiere Azure AD B2C Premium 2 para crear directivas de inicio de sesión de riesgo. Los inquilinos Premium P1 pueden crear directivas basadas en grupos, aplicaciones o ubicaciones.
+- Con fines de prueba, puede [registrar la aplicación web de prueba](tutorial-register-applications.md) `https://jwt.ms`, que es una aplicación web propiedad de Microsoft que muestra el contenido descodificado de un token (el contenido del token nunca sale del explorador). 
+- Para simular un inicio de sesión de riesgo, descargue el explorador TOR e intente iniciar sesión en el punto de conexión del flujo de usuario.
+- [Cree una directiva de acceso condicional](conditional-access-identity-protection-setup.md) con la siguiente configuración:
+   
+  - Para **Usuarios y grupos**, seleccione el usuario de prueba (no seleccione **Todos los usuarios** o podría bloquear su propio inicio de sesión).
+  - Para **Aplicaciones en la nube o acciones**, elija **Seleccionar aplicaciones** y, después, elija la aplicación de usuario de confianza.
+  - En Condiciones, seleccione **Riesgo de inicio de sesión** y los niveles de riesgo **Alto**, **Medio** y **Bajo**.
+  - En **Conceder**, elija **Bloquear acceso**.
+
+      ![Detecciones de riesgo](media/conditional-access-identity-protection-setup/test-conditional-access-policy.png)
+
+::: zone pivot="b2c-user-flow"
 
 ## <a name="add-conditional-access-to-a-new-user-flow"></a>Adición del acceso condicional a un nuevo flujo de usuario
 
@@ -73,7 +91,7 @@ Puede encontrar más información sobre [Identity Protection y acceso condiciona
 
 1. En Azure Portal, busque y seleccione **Azure AD B2C**.
 
-1. En **Directivas**, seleccione**Flujos de usuario**. A continuación, seleccione el flujo de usuario.
+1. En **Directivas**, seleccione **Flujos de usuario**. A continuación, seleccione el flujo de usuario.
 
 1. Seleccione **Properties** (Propiedades) y asegúrese de que el flujo de usuario admite el acceso condicional; para ello, seleccione **Properties** (Propiedades) y busque la configuración con la etiqueta **Conditional Access** (Acceso condicional).
  
@@ -89,19 +107,6 @@ Puede encontrar más información sobre [Identity Protection y acceso condiciona
 
 Para probar el acceso condicional en el flujo de usuario, debe [crear una directiva de acceso condicional](conditional-access-identity-protection-setup.md) y habilitar el acceso condicional en el flujo de usuario, como se ha descrito anteriormente. 
 
-### <a name="prerequisites"></a>Requisitos previos
-
-- Se requiere Azure AD B2C Premium 2 para crear directivas de inicio de sesión de riesgo. Los inquilinos Premium P1 pueden crear directivas basadas en grupos, aplicaciones o ubicaciones.
-- Con fines de prueba, puede [registrar la aplicación web de prueba](tutorial-register-applications.md) `https://jwt.ms`, que es una aplicación web propiedad de Microsoft que muestra el contenido descodificado de un token (el contenido del token nunca sale del explorador). 
-- Para simular un inicio de sesión de riesgo, descargue el explorador TOR e intente iniciar sesión en el punto de conexión del flujo de usuario.
-- [Cree una directiva de acceso condicional](conditional-access-identity-protection-setup.md) con la siguiente configuración:
-   
-   - Para **Usuarios y grupos**, seleccione el usuario de prueba (no seleccione **Todos los usuarios** o podría bloquear su propio inicio de sesión).
-   - Para **Aplicaciones en la nube o acciones**, elija **Seleccionar aplicaciones** y, después, elija la aplicación de usuario de confianza.
-   - En Condiciones, seleccione **Riesgo de inicio de sesión** y los niveles de riesgo **Alto**, **Medio** y **Bajo**.
-   - En **Conceder**, elija **Bloquear acceso**.
-
-      ![Detecciones de riesgo](media/conditional-access-identity-protection-setup/test-conditional-access-policy.png)
 
 ### <a name="run-the-user-flow"></a>Ejecución del flujo de usuario
 
@@ -117,6 +122,16 @@ Para probar el acceso condicional en el flujo de usuario, debe [crear una direct
 
    ![Prueba de un inicio de sesión bloqueado](media/conditional-access-identity-protection-setup/test-blocked-sign-in.png)
 
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
+
+## <a name="add-conditional-access-to-your-policy"></a>Adición del acceso condicional a una directiva
+
+Puede encontrar un ejemplo de una directiva de acceso condicional en [GitHub](https://github.com/azure-ad-b2c/samples/tree/master/policies/conditional-access).
+
+::: zone-end
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Personalización de la interfaz de usuario en un flujo de usuario de Azure AD B2C](customize-ui-overview.md)
+[Personalización de la interfaz de usuario en un flujo de usuario de Azure AD B2C](customize-ui-with-html.md)

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: 231ab5cc93d98d7356d47472b7e160ddd3ade790
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: c2e2daf6d8c9afa6ffef03b088ec9a7dc144cf47
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545946"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97504940"
 ---
 # <a name="configure-apache-spark-settings"></a>Configuración de opciones de Apache Spark
 
@@ -58,9 +58,9 @@ El ejemplo mostrado antes reemplaza varios valores predeterminados en cinco par�
 
 Compruebe las opciones de configuración actuales del clúster de HDInsight antes de realizar la optimización del rendimiento en el clúster. Para iniciar el panel de HDInsight desde Azure Portal, haga clic en el vínculo **Panel** en el panel del clúster de Spark. Inicie sesión con el nombre de usuario y la contraseña del administrador del clúster.
 
-Aparece la interfaz de usuario web de Apache Ambari, con un panel de las principales métricas de uso de los recursos del clúster.  El panel de Ambari muestra la configuración de Apache Spark y otros servicios instalados. El panel incluye una pestaña con el **historial de configuración** , donde puede ver información de los servicios instalados, incluido Spark.
+Aparece la interfaz de usuario web de Apache Ambari, con un panel de las principales métricas de uso de los recursos del clúster.  El panel de Ambari muestra la configuración de Apache Spark y otros servicios instalados. El panel incluye una pestaña con el **historial de configuración**, donde puede ver información de los servicios instalados, incluido Spark.
 
-Para ver los valores de configuración de Apache Spark, seleccione **Config History** (Historial de configuración) y, después, seleccione **Spark2** .  Seleccione la pestaña **Configs** (Configuraciones) y, después, seleccione el vínculo `Spark` (o `Spark2`, dependiendo de la versión) en la lista de servicios.  Verá una lista de valores de configuración para el clúster:
+Para ver los valores de configuración de Apache Spark, seleccione **Config History** (Historial de configuración) y, después, seleccione **Spark2**.  Seleccione la pestaña **Configs** (Configuraciones) y, después, seleccione el vínculo `Spark` (o `Spark2`, dependiendo de la versión) en la lista de servicios.  Verá una lista de valores de configuración para el clúster:
 
 ![Configuraciones de Spark](./media/apache-spark-settings/spark-configurations.png)
 

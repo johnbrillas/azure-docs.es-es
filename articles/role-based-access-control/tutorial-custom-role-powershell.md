@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/20/2019
 ms.author: rolyon
-ms.openlocfilehash: 8aedc59fc34278bf84983d78bf0e9a31fe38ee93
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b1815e7598410cd709572d93082d5dee5e0b0fb
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82735596"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97369249"
 ---
 # <a name="tutorial-create-an-azure-custom-role-using-azure-powershell"></a>Tutorial: Creación de un rol personalizado de Azure mediante Azure PowerShell
 
@@ -51,7 +51,7 @@ Inicie sesión en [Azure PowerShell](/powershell/azure/authenticate-azureps).
 
 El modo más sencillo de crear un rol personalizado es tomar como partida un rol integrado, editarlo y, a continuación, crear un nuevo rol.
 
-1. En PowerShell, use el comando [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) para obtener la lista de operaciones del proveedor de recursos Microsoft.Support. Resulta útil conocer las operaciones que están disponibles para crear los permisos. También puede ver una lista de todas las operaciones en [Operaciones del proveedor de recursos de Azure Resource Manager](resource-provider-operations.md#microsoftsupport).
+1. En PowerShell, use el comando [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) para obtener la lista de operaciones del proveedor de recursos Microsoft.Support. Resulta útil conocer las operaciones que están disponibles para crear los permisos. También puede ver una lista de todas las operaciones en [Operaciones del proveedor de recursos de Azure](resource-provider-operations.md#microsoftsupport).
 
     ```azurepowershell
     Get-AzProviderOperation "Microsoft.Support/*" | FT Operation, Description -AutoSize

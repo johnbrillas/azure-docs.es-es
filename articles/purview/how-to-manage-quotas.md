@@ -8,12 +8,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/12/2020
-ms.openlocfilehash: 3b0a413db304b4f9d2c50a3d221c480f1e9dc37a
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 57cb1c405e00acb346421d64190a71e9211d21ff
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96550679"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938841"
 ---
 # <a name="manage-and-increase-quotas-for-resources-with-azure-purview"></a>Administración y aumento de las cuotas de los recursos con Azure Purview
  
@@ -23,7 +23,7 @@ Azure Purview es un servicio en la nube disponible para usuarios de datos. Azure
  
 |**Recurso**|  **Límite predeterminado**  |**Límite máximo**|
 |---|---|---|
-|Cuentas de Purview por inquilino (todas las suscripciones combinadas)|3|Ponerse en contacto con el servicio de soporte técnico|
+|Cuentas de Purview por región, por inquilino (todas las suscripciones combinadas)|3|Ponerse en contacto con el servicio de soporte técnico|
 |Núcleos virtuales disponibles para el examen, por cuenta*|160|160|
 |Exámenes simultáneos, por cuenta en un momento dado. El límite se basa en el tipo de orígenes de datos examinados*|5 | 10 |
 |Tiempo máximo durante el que se puede ejecutar un examen|7 días|7 días|

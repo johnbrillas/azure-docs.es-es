@@ -12,12 +12,12 @@ ms.date: 11/30/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: e71ab0293dade56c14dce7318fc96021a040b102
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: e0185cc8786dc101375262ddfd187c5d8e7e054f
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96433314"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509570"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Procedimientos: Proporcionar notificaciones opcionales a la aplicación
 
@@ -124,28 +124,29 @@ Este objeto OptionalClaims hace que el token de identificador devuelto al client
 
 Puede configurar notificaciones opcionales para la aplicación mediante la interfaz de usuario o el manifiesto.
 
-1. Vaya a [Azure Portal](https://portal.azure.com). Busque y seleccione **Azure Active Directory**.
-1. En la sección **Administrar**, seleccione **Registros de aplicaciones**.
+1. Vaya a [Azure Portal](https://portal.azure.com). 
+1. Busque y seleccione **Azure Active Directory**.
+1. En **Administrar**, seleccione **Registros de aplicaciones**.
 1. Seleccione en la lista la aplicación para la que desea configurar notificaciones opcionales.
 
 **Configuración de notificaciones opcionales mediante la interfaz de usuario:**
 
 [![Configuración de notificaciones opcionales en la interfaz de usuario](./media/active-directory-optional-claims/token-configuration.png)](./media/active-directory-optional-claims/token-configuration.png)
 
-1. En la sección **Administrar**, seleccione **Configuración del token**.
+1. En **Administrar**, seleccione **Configuración del token**.
 1. Seleccione **Agregar notificación opcional**.
 1. Seleccione el tipo de token que desea configurar.
 1. Seleccione las notificaciones opcionales que va a agregar.
 1. Seleccione **Agregar**.
 
 > [!NOTE]
-> La hoja **Configuración del token** de la opción de la interfaz de usuario no está disponible actualmente para las aplicaciones registradas en un inquilino de Azure AD B2C. En el caso de las aplicaciones registradas en un inquilino de B2C, las notificaciones opcionales se pueden configurar con la modificación del manifiesto de aplicación. Para más información, vea [Adición de notificaciones y personalización de la entrada del usuario mediante directivas personalizadas en Azure Active Directory B2C](../../active-directory-b2c/custom-policy-configure-user-input.md). 
+> La hoja **Configuración del token** de la opción de la interfaz de usuario no está disponible actualmente para las aplicaciones registradas en un inquilino de Azure AD B2C. En el caso de las aplicaciones registradas en un inquilino de B2C, las notificaciones opcionales se pueden configurar con la modificación del manifiesto de aplicación. Para más información, vea [Adición de notificaciones y personalización de la entrada del usuario mediante directivas personalizadas en Azure Active Directory B2C](../../active-directory-b2c/configure-user-input.md). 
 
 **Configuración de notificaciones opcionales mediante el manifiesto de aplicación:**
 
 [![Muestra cómo configurar notificaciones opcionales mediante el manifiesto de aplicación.](./media/active-directory-optional-claims/app-manifest.png)](./media/active-directory-optional-claims/app-manifest.png)
 
-1. En la sección **Administrar**, seleccione **Manifiesto**. Se abrirá un editor de manifiestos basado en web que le permitirá editar el manifiesto. Si lo desea, puede seleccionar **Descargar**, editar el manifiesto de forma local y, a continuación, usar **Cargar** para volver a aplicarlo a la aplicación. Para más información sobre el manifiesto de aplicación, consulte el [artículo Descripción del manifiesto de aplicación de Azure AD](reference-app-manifest.md).
+1. En **Administrar**, seleccione **Manifiesto**. Se abrirá un editor de manifiestos basado en web que le permitirá editar el manifiesto. Si lo desea, puede seleccionar **Descargar**, editar el manifiesto de forma local y, a continuación, usar **Cargar** para volver a aplicarlo a la aplicación. Para más información sobre el manifiesto de aplicación, consulte el [artículo Descripción del manifiesto de aplicación de Azure AD](reference-app-manifest.md).
 
     La siguiente entrada del manifiesto de aplicación agrega las notificaciones opcionales auth_time, ipaddr y upn a los tokens de identificador, acceso y SAML.
 
@@ -225,22 +226,19 @@ En los tokens SAML, estas notificaciones se emitirán con el siguiente formato d
 
 ## <a name="configuring-groups-optional-claims"></a>Configuración de notificaciones opcionales de grupo
 
-   > [!NOTE]
-   > La capacidad para emitir nombres de grupo para usuarios y grupos sincronizados de forma local se encuentra en fase de versión preliminar pública.
-
 En esta sección se describen las opciones de configuración de notificaciones opcionales para cambiar los atributos de grupo usados en las notificaciones de grupo, desde el atributo objectID de grupo predeterminado a los atributos que se sincronizan desde una instalación local de Active Directory de Windows. Puede configurar notificaciones opcionales de grupo para la aplicación mediante la interfaz de usuario o el manifiesto.
 
 > [!IMPORTANT]
-> Vea [Configurar notificaciones de grupo de aplicaciones con Azure AD](../hybrid/how-to-connect-fed-group-claims.md) para obtener más detalles, incluidas algunas salvedades importantes sobre la versión preliminar pública de las notificaciones de grupo de atributos locales.
+> Consulte [Configurar notificaciones de grupo de aplicaciones con Azure AD](../hybrid/how-to-connect-fed-group-claims.md) para obtener más detalles, incluidas algunas salvedades importantes sobre las notificaciones de grupo de los atributos locales.
 
 **Configuración de notificaciones opcionales de grupo mediante la interfaz de usuario:**
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Después de haberse autenticado, elija el inquilino de Azure AD; para ello, selecciónelo en la esquina superior derecha de la página.
-1. Seleccione **Azure Active Directory** en el menú de la izquierda.
-1. En la sección **Administrar**, seleccione **Registros de aplicaciones**.
+1. Busque y seleccione **Azure Active Directory**.
+1. En **Administrar**, seleccione **Registros de aplicaciones**.
 1. Seleccione en la lista la aplicación para la que desea configurar notificaciones opcionales.
-1. En la sección **Administrar**, seleccione **Configuración del token**.
+1. En **Administrar**, seleccione **Configuración del token**.
 1. Seleccione **Agregar notificación de grupos**.
 1. Seleccione los tipos de grupo que se van a devolver (**Grupos de seguridad**, **Roles de directorio**, **Todos los grupos** o **Grupos asignados a la aplicación**). La opción **Grupos asignados a la aplicación** solo incluye esos grupos. La opción **Todos los grupos** incluye **SecurityGroup**, **DirectoryRole** y **DistributionList**, pero no **Grupos asignados a la aplicación**. 
 1. Opcional: seleccione las propiedades de tipo de token específico para modificar el valor de notificaciones de grupos para que contenga los atributos de grupo locales o para cambiar el tipo de notificaciones a un rol.
@@ -250,9 +248,9 @@ En esta sección se describen las opciones de configuración de notificaciones o
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Después de haberse autenticado, elija el inquilino de Azure AD; para ello, selecciónelo en la esquina superior derecha de la página.
-1. Seleccione **Azure Active Directory** en el menú de la izquierda.
+1. Busque y seleccione **Azure Active Directory**.
 1. Seleccione en la lista la aplicación para la que desea configurar notificaciones opcionales.
-1. En la sección **Administrar**, seleccione **Manifiesto**.
+1. En **Administrar**, seleccione **Manifiesto**.
 1. Agregue la siguiente entrada mediante el editor de manifiestos:
 
    Los valores válidos son:
@@ -382,13 +380,13 @@ En el siguiente ejemplo usará la interfaz de usuario de **Configuración del to
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Después de haberse autenticado, elija el inquilino de Azure AD; para ello, selecciónelo en la esquina superior derecha de la página.
 
-1. Seleccione **Azure Active Directory** en el menú de la izquierda.
+1. Busque y seleccione **Azure Active Directory**.
 
-1. En la sección **Administrar**, seleccione **Registros de aplicaciones**.
+1. En **Administrar**, seleccione **Registros de aplicaciones**.
 
 1. Busque la aplicación para la que quiera configurar notificaciones opcionales en la lista y selecciónela.
 
-1. En la sección **Administrar**, seleccione **Configuración del token**.
+1. En **Administrar**, seleccione **Configuración del token**.
 
 1. Seleccione **Agregar notificación opcional**, elija el tipo de token de **Id.** , seleccione **upn** en la lista de notificaciones y, finalmente, **Agregar**.
 
@@ -404,9 +402,9 @@ En el siguiente ejemplo usará la interfaz de usuario de **Configuración del to
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Después de haberse autenticado, elija el inquilino de Azure AD; para ello, selecciónelo en la esquina superior derecha de la página.
-1. Seleccione **Azure Active Directory** en el menú de la izquierda.
+1. Busque y seleccione **Azure Active Directory**.
 1. Busque la aplicación para la que quiera configurar notificaciones opcionales en la lista y selecciónela.
-1. En la sección **Administrar**, seleccione **Manifiesto** para abrir el editor de manifiestos insertado.
+1. En **Administrar**, seleccione **Manifiesto** para abrir el editor de manifiestos en línea.
 1. Puede editar directamente el manifiesto mediante este editor. El manifiesto sigue el esquema de la [Entidad de la aplicación](./reference-app-manifest.md) y da formato al manifiesto automáticamente al guardarlo. Se agregarán los elementos nuevos a la propiedad `OptionalClaims`.
 
     ```json

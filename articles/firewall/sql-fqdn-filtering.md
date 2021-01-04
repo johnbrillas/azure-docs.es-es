@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: how-to
 ms.date: 06/18/2020
 ms.author: victorh
-ms.openlocfilehash: 7256f94b8e8376cf98a279d085a131a4ce84826f
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 2b1b68b32ccd5a4dda0b71736da4e2d1e2566b6b
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658629"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97348023"
 ---
 # <a name="configure-azure-firewall-application-rules-with-sql-fqdns"></a>Configuración de reglas de aplicación de Azure Firewall con nombres de dominio completos de SQL
 
@@ -35,19 +35,56 @@ Si usa puertos no predeterminados para el tráfico de SQL IaaS, puede configurar
    > [!NOTE]
    > El modo de *proxy* de SQL puede traducirse en una mayor latencia en comparación con el modo de *redirección*. Si quiere seguir usando el modo de redirección, que es el valor predeterminado para los clientes que se conectan desde dentro de Azure, puede filtrar el acceso mediante la [etiqueta de servicio](service-tags.md) de SQL en [reglas de red](tutorial-firewall-deploy-portal.md#configure-a-network-rule) del firewall.
 
-3. Configure una regla de aplicación con FQDN de SQL para permitir el acceso a SQL Server:
+3. Cree una nueva colección de reglas con una regla de aplicación mediante el FQDN de SQL para permitir el acceso a un servidor SQL Server:
 
    ```azurecli
-   az extension add -n azure-firewall
+    az extension add -n azure-firewall
+    
+    az network firewall application-rule create \ 
+    -g FWRG \
+    --f azfirewall \ 
+    --c sqlRuleCollection \
+    --priority 1000 \
+    --action Allow \
+    --name sqlRule \
+    --protocols mssql=1433 \
+    --source-addresses 10.0.0.0/24 \
+    --target-fqdns sql-serv1.database.windows.net
+   ```
 
-   az network firewall application-rule create \
-   -g FWRG \
-   -f azfirewall \
-   -c FWAppRules \
-   -n srule \
-   --protocols mssql=1433 \
-   --source-addresses 10.0.0.0/24 \
-   --target-fqdns sql-serv1.database.windows.net
+## <a name="configure-using-azure-powershell"></a>Configuración mediante Azure PowerShell
+
+1. Implemente [Azure Firewall mediante Azure PowerShell](deploy-ps.md).
+2. Si filtra el tráfico a Azure SQL Database, Azure Synapse Analytic o SQL Managed Instance, asegúrese de que el modo de conectividad SQL esté establecido en **Proxy**. Para obtener información sobre cómo cambiar el modo de conectividad SQL, consulte [Configuración de conectividad de Azure SQL](../azure-sql/database/connectivity-settings.md#change-the-connection-policy-via-the-azure-cli).
+
+   > [!NOTE]
+   > El modo de *proxy* de SQL puede traducirse en una mayor latencia en comparación con el modo de *redirección*. Si quiere seguir usando el modo de redirección, que es el valor predeterminado para los clientes que se conectan desde dentro de Azure, puede filtrar el acceso mediante la [etiqueta de servicio](service-tags.md) de SQL en [reglas de red](tutorial-firewall-deploy-portal.md#configure-a-network-rule) del firewall.
+
+3. Cree una nueva colección de reglas con una regla de aplicación mediante el FQDN de SQL para permitir el acceso a un servidor SQL Server:
+
+   ```azurepowershell
+   $AzFw = Get-AzFirewall -Name "azfirewall" -ResourceGroupName "FWRG"
+    
+   $sqlRule = @{
+      Name          = "sqlRule"
+      Protocol      = "mssql:1433" 
+      TargetFqdn    = "sql-serv1.database.windows.net"
+      SourceAddress = "10.0.0.0/24"
+   }
+    
+   $rule = New-AzFirewallApplicationRule @sqlRule
+    
+   $sqlRuleCollection = @{
+      Name       = "sqlRuleCollection" 
+      Priority   = 1000 
+      Rule       = $rule
+      ActionType = "Allow"
+   }
+    
+   $ruleCollection = New-AzFirewallApplicationRuleCollection @sqlRuleCollection
+    
+   $Azfw.ApplicationRuleCollections.Add($ruleCollection)    
+   Set-AzFirewall -AzureFirewall $AzFw    
    ```
 
 ## <a name="configure-using-the-azure-portal"></a>Configurar mediante Azure Portal

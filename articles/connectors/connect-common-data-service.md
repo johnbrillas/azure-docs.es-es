@@ -1,22 +1,25 @@
 ---
-title: Conexión a Common Data Service
-description: Creación y administración de registros de Common Data Service mediante Azure Logic Apps
+title: Conexión a Common Data Service (Microsoft Dataverse)
+description: Creación y administración de registros de Common Data Service (Microsoft Dataverse) mediante Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: jdaly, logicappspm
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 12/11/2020
 tags: connectors
-ms.openlocfilehash: de85a61cbd699ec9ac2669f8abb6217254038de9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b17c3d54b7065a18e015363a0362766f844e4e10
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91334589"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97355127"
 ---
-# <a name="create-and-manage-records-in-common-data-service-by-using-azure-logic-apps"></a>Creación y administración de registros de Common Data Service mediante Azure Logic Apps
+# <a name="create-and-manage-records-in-common-data-service-microsoft-dataverse-by-using-azure-logic-apps"></a>Creación y administración de registros de Common Data Service (Microsoft Dataverse) mediante Azure Logic Apps
 
-Con [Azure Logic Apps](../logic-apps/logic-apps-overview.md) y el [conector de Common Data Service](/connectors/commondataservice/), puede crear flujos de trabajo automatizados que administren registros en la base de datos de [Common Data Service](/powerapps/maker/common-data-service/data-platform-intro). Estos flujos de trabajo pueden crear registros, actualizar registros y realizar otras operaciones. También puede obtener información de la base de datos de Common Data Service y hacer que la salida esté disponible para que otras acciones las usen en la aplicación lógica. Por ejemplo, cuando se actualiza un registro en la base de datos de Common Data Service, puede enviar un correo electrónico mediante el conector de Office 365 Outlook.
+> [!NOTE]
+> En noviembre de 2020, se cambió el nombre de Common Data Service a Microsoft Dataverse.
+
+Con [Azure Logic Apps](../logic-apps/logic-apps-overview.md) y el [conector de Common Data Service](/connectors/commondataservice/), puede crear flujos de trabajo automatizados que administren registros en la base de datos de [Common Data Service (ahora Microsoft Dataverse)](/powerapps/maker/common-data-service/data-platform-intro). Estos flujos de trabajo pueden crear registros, actualizar registros y realizar otras operaciones. También puede obtener información de la base de datos de Common Data Service y hacer que la salida esté disponible para que otras acciones las usen en la aplicación lógica. Por ejemplo, cuando se actualiza un registro en la base de datos de Common Data Service, puede enviar un correo electrónico mediante el conector de Office 365 Outlook.
 
 En este artículo se explica cómo compilar una aplicación lógica que cree un registro de tarea cada vez que se cree un nuevo registro de cliente potencial.
 

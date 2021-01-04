@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: pharring
 ms.author: pharring
 ms.date: 11/10/2020
-ms.openlocfilehash: 73fea1e1928cf4e1bd5342aa0a4c885ccb5cf137
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 4a787c6e2a9b59874f965a2bbcebea9ce02d8082
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548178"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093267"
 ---
 # <a name="release-notes-for-microsoftapplicationinsightssnapshotcollector"></a>Notas de la versión para Microsoft.ApplicationInsights.SnapshotCollector
 
@@ -18,9 +18,14 @@ Este artículo contiene las notas de la versión para el paquete NuGet Microsoft
 
 [Más información](./snapshot-debugger.md) sobre Snapshot Debugger de Application Insights para aplicaciones .NET.
 
-Para notificar informes de errores y comentarios, abra un problema en GitHub en https://github.com/microsoft/ApplicationInsights-dotnet.
+Para notificar informes de errores y comentarios, abra un problema en GitHub en https://github.com/microsoft/ApplicationInsights-SnapshotCollector.
 
 ## <a name="release-notes"></a>Notas de la versión
+
+## <a name="1375"></a>[1.3.7.5](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.7.5)
+Una versión puntual para retroimportar una corrección de 1.4.0-pre.
+### <a name="bug-fixes"></a>Corrección de errores
+- Corrija [ObjectDisposedException en el apagado](https://github.com/microsoft/ApplicationInsights-dotnet/issues/2097).
 
 ## <a name="1374"></a>[1.3.7.4](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.7.4)
 Una versión puntual para solucionar un problema detectado en la prueba del escenario para adjuntar sin código de Azure App Service.

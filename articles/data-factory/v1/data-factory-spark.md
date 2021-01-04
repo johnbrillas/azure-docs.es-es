@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 6c9e5b6466d3da675975dbf2c532602561e820c9
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 417306e09a9424b302bb226aea5dd2c1debe96f5
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96495079"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97508431"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Invocación de programas Spark desde canalizaciones de Azure Data Factory
 
@@ -118,13 +118,13 @@ En este paso, se crea un servicio vinculado de HDInsight para vincular el clúst
 
 1. Copie y pegue el fragmento de código siguiente en la ventana Borrador-1. En el editor de JSON, realice los siguientes pasos:
 
-    a. Especifique el identificador URI del clúster de HDInsight Spark. Por ejemplo: `https://<sparkclustername>.azurehdinsight.net/`.
+    1. Especifique el identificador URI del clúster de HDInsight Spark. Por ejemplo: `https://<sparkclustername>.azurehdinsight.net/`.
 
-    b. Especifique el nombre del usuario que tiene acceso al clúster de Spark.
+    1. Especifique el nombre del usuario que tiene acceso al clúster de Spark.
 
-    c. Especifique la contraseña del usuario.
+    1. Especifique la contraseña del usuario.
 
-    d. Especifique el servicio vinculado de Storage asociado con el clúster de HDInsight Spark. En este ejemplo, es AzureStorageLinkedService.
+    1. Especifique el servicio vinculado de Storage asociado con el clúster de HDInsight Spark. En este ejemplo, es AzureStorageLinkedService.
 
     ```json
     {
@@ -213,20 +213,21 @@ En este paso, crea una canalización con una actividad de HDInsightSpark. Actual
         }
     }
     ```
+
     Tenga en cuenta los siguientes puntos:
 
-    a. La propiedad de **tipo** se establece en **HDInsightSpark**.
+    1. La propiedad de **tipo** se establece en **HDInsightSpark**.
 
-    b. La propiedad **rootPath** se establece en **adfspark\\pyFiles**, donde adfspark es el contenedor de blobs y pyFiles es la carpeta de archivos en ese contenedor. En este ejemplo, la instancia de Blob Storage es la que está asociada con el clúster de Spark. Puede cargar el archivo en una cuenta de almacenamiento diferente. Si lo hace, cree un servicio vinculado de Storage para vincular esa cuenta de almacenamiento con la factoría de datos. A continuación, especifique el nombre del servicio vinculado como un valor de la propiedad **sparkJobLinkedService**. Para más información sobre esta y otras propiedades que admite la actividad de Spark, consulte [Propiedades de la actividad de Spark](#spark-activity-properties).
+    1. La propiedad **rootPath** se establece en **adfspark\\pyFiles**, donde adfspark es el contenedor de blobs y pyFiles es la carpeta de archivos en ese contenedor. En este ejemplo, la instancia de Blob Storage es la que está asociada con el clúster de Spark. Puede cargar el archivo en una cuenta de almacenamiento diferente. Si lo hace, cree un servicio vinculado de Storage para vincular esa cuenta de almacenamiento con la factoría de datos. A continuación, especifique el nombre del servicio vinculado como un valor de la propiedad **sparkJobLinkedService**. Para más información sobre esta y otras propiedades que admite la actividad de Spark, consulte [Propiedades de la actividad de Spark](#spark-activity-properties).
 
-    c. La propiedad **entryFilePath** se establece en **test.py**, que es el archivo de Python.
+    1. La propiedad **entryFilePath** se establece en **test.py**, que es el archivo de Python.
 
-    d. La propiedad **getDebugInfo** está establecida en **Siempre**, lo que significa que siempre se generan archivos de registro (acierto o error).
+    1. La propiedad **getDebugInfo** está establecida en **Siempre**, lo que significa que siempre se generan archivos de registro (acierto o error).
 
-    > [!IMPORTANT]
-    > Se recomienda que no establezca esta propiedad como `Always` en un entorno de producción, a menos que esté solucionando un problema.
+       > [!IMPORTANT]
+       > Se recomienda que no establezca esta propiedad como `Always` en un entorno de producción, a menos que esté solucionando un problema.
 
-    e. La sección de **salida** tiene un conjunto de datos de salida. Debe especificar un conjunto de datos de salida, incluso si el programa de Spark no genera ninguna salida. El conjunto de datos de salida impulsa la programación de la canalización (cada hora o cada día).
+    1. La sección de **salida** tiene un conjunto de datos de salida. Debe especificar un conjunto de datos de salida, incluso si el programa de Spark no genera ninguna salida. El conjunto de datos de salida impulsa la programación de la canalización (cada hora o cada día).
 
     Para más información sobre las propiedades que admite la actividad de Spark, consulte la sección [Propiedades de la actividad de Spark](#spark-activity-properties).
 

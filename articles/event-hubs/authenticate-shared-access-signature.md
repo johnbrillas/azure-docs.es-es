@@ -4,12 +4,12 @@ description: En este artículo se muestra cómo autenticar el acceso a recursos 
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: e5d52b82ad6bbcb8dc7c028d3eba25a584590840
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 26c921213168e1028f311eabaa417efdb76f5c97
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332440"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97510097"
 ---
 # <a name="authenticate-access-to-event-hubs-resources-using-shared-access-signatures-sas"></a>Autenticación del acceso a recursos de Event Hubs mediante firmas de acceso compartido (SAS)
 La firma de acceso compartido (SAS) le ofrece un control pormenorizado sobre el tipo de acceso que se concede a los clientes que la tienen. Estos son algunos de los controles que puede establecer en una SAS: 
@@ -185,7 +185,7 @@ Todos los tokens se asignan con claves SAS. Normalmente, todos los tokens se fir
 
 Por ejemplo, para definir reglas de autorización cuyo ámbito sea solo enviar o publicar en Event Hubs, debe definir una regla de autorización de envío. Esto se puede hacer en un nivel de espacio de nombres o proporcionar un ámbito más específico a una entidad determinada (una instancia de Event Hubs o un tema). A un cliente o una aplicación que estén limitados con este acceso específico se les conoce como publicador de Event Hubs. Para hacerlo, siga estos pasos:
 
-1. Cree una clave SAS en la entidad que quiera publicar para asignarle el ámbito de **envío** . Para más información, consulte [Directivas de autorización de acceso compartido](authorize-access-shared-access-signature.md#shared-access-authorization-policies).
+1. Cree una clave SAS en la entidad que quiera publicar para asignarle el ámbito de **envío**. Para más información, consulte [Directivas de autorización de acceso compartido](authorize-access-shared-access-signature.md#shared-access-authorization-policies).
 2. Genere un token de SAS con una hora de expiración para un publicador específico mediante la clave generada en paso 1.
 
     ```csharp

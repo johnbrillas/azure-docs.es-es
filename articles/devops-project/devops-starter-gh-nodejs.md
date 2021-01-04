@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 08/24/2020
 ms.author: ninallam
-ms.openlocfilehash: 92fa445cee75b2311cbadf96e24c31a1dbd579b8
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: e3c72ce6a15f90f0dbe08bbff10db0ca5f6b5c8f
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332717"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588818"
 ---
 # <a name="set-up-cicd-for-a-nodejs-app-with-devops-starter-using-github-actions"></a>Configuración de CI/CD para una aplicación de Node.js con DevOps Starter mediante Acciones de GitHub
 
@@ -43,15 +43,15 @@ DevOps Starter crea un flujo de trabajo de CI/CD mediante acciones de GitHub. De
 
     ![landing_page](_img/azure-devops-project-nodejs/landing-page.png)
 
-1. Asegúrese de que el proveedor de CI/CD seleccionado sea **Acciones de GitHub** .
+1. Asegúrese de que el proveedor de CI/CD seleccionado sea **Acciones de GitHub**.
 
     ![CICD_provider](_img/azure-devops-project-nodejs/provider-selection.png)
 
-1. Seleccione la aplicación de ejemplo de **Node.js** . Los ejemplos de Node.js incluyen una opción de varios marcos de trabajo de la aplicación.
+1. Seleccione la aplicación de ejemplo de **Node.js**. Los ejemplos de Node.js incluyen una opción de varios marcos de trabajo de la aplicación.
 
-1. El marco de trabajo de ejemplo predeterminado es **Express.js** . Deje la configuración predeterminada y seleccione **Siguiente** .   
+1. El marco de trabajo de ejemplo predeterminado es **Express.js**. Deje la configuración predeterminada y seleccione **Siguiente**.   
 
-2. Aplicación web de Windows es el destino de implementación predeterminado. El marco de trabajo de la aplicación que ha elegido antes determina el tipo de destino de implementación del servicio de Azure disponible aquí. Deje el servicio predeterminado y seleccione **Siguiente** .
+2. Aplicación web de Windows es el destino de implementación predeterminado. El marco de trabajo de la aplicación que ha elegido antes determina el tipo de destino de implementación del servicio de Azure disponible aquí. Deje el servicio predeterminado y seleccione **Siguiente**.
  
 ## <a name="configure-github-account-and-an-azure-subscription"></a>Configuración de una cuenta de GitHub y una suscripción de Azure 
 
@@ -65,7 +65,7 @@ DevOps Starter crea un flujo de trabajo de CI/CD mediante acciones de GitHub. De
    
    1. Elija un nombre para el repositorio de GitHub. 
    
-   1. Seleccione la suscripción de Azure y la ubicación, elija el nombre de la aplicación y seleccione **Listo** .
+   1. Seleccione la suscripción de Azure y la ubicación, elija el nombre de la aplicación y seleccione **Listo**.
     
        ![Enter_GH_details](_img/azure-devops-project-nodejs/gh-details.png)
 
@@ -88,9 +88,9 @@ DevOps Starter crea un repositorio en GitHub. Para ver el repositorio y realizar
 
 1. En el lado izquierdo del panel de DevOps Starter, seleccione el vínculo de la rama maestra. Este vínculo abre una vista al repositorio de GitHub recién creado.
 
-1. Para ver la dirección URL de clonación del repositorio, seleccione **Clonar** en la parte superior derecha del explorador. Puede clonar el repositorio de Git en su IDE favorito. En los pasos siguientes, puede usar el explorador web para realizar los cambios en el código y confirmarlos directamente en la rama maestra.
+1. Para ver la dirección URL de clonación del repositorio, seleccione **Clonar** en la parte superior derecha del explorador. Puede clonar el repositorio de Git en su IDE favorito. En los pasos siguientes, puede usar el explorador web para realizar cambios en el código y confirmarlos directamente en la rama maestra.
 
-1. En el lado izquierdo del explorador, vaya al archivo **/Application/views/index.pug** .
+1. En el lado izquierdo del explorador, vaya al archivo **/Application/views/index.pug**.
 
 1. Seleccione **Editar** y realice un cambio en alguna parte del texto.
     Por ejemplo, cambie parte del texto de una de las etiquetas.

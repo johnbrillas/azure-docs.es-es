@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 06/24/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 1e289d094bba8d4336b83a7970e281247e9f4131
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 8e3f0435d9856d2b602a4f2b6f604aee05e040ba
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96007311"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505212"
 ---
 # <a name="introduction-to-azure-blob-storage"></a>Introducción a Azure Blob Storage
 
@@ -57,7 +57,7 @@ Azure Storage admite tres tipos de blobs:
 
 - Los **blobs en bloques** almacenan texto y datos binarios. Los blobs en bloques se componen de bloques de datos que se pueden administrar de forma individual. Almacenan aproximadamente hasta 4,75 TiB de datos. Hay blobs en bloques más grandes disponibles en versión preliminar, aproximadamente hasta 190,7 TiB.
 - Los **blobs en anexos** constan de bloques, como los blobs en bloques, pero están optimizados para operaciones de anexión. Los blobs en anexos resultan muy convenientes para escenarios como el registro de datos de máquinas virtuales.
-- Los **blobs en páginas** almacenan archivos de acceso aleatorio con un tamaño de hasta 8 TB. Los blobs en páginas almacenan los archivos del disco duro virtual (VHD) y sirven como discos para las máquinas virtuales de Azure. Para más información sobre los blobs en páginas, consulte la [Introducción a los blobs en páginas de Azure](storage-blob-pageblob-overview.md)
+- Los **blobs en páginas** almacenan archivos de acceso aleatorio con un tamaño máximo de 8 TiB. Los blobs en páginas almacenan los archivos del disco duro virtual (VHD) y sirven como discos para las máquinas virtuales de Azure. Para más información sobre los blobs en páginas, consulte la [Introducción a los blobs en páginas de Azure](storage-blob-pageblob-overview.md)
 
 Para más información sobre los distintos tipos de blobs, consulte [Understanding Block Blobs, Append Blobs, and Page Blobs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) (Descripción de los blobs en bloques, en anexos y en páginas).
 

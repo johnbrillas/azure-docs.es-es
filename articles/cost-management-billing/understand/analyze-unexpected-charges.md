@@ -8,13 +8,13 @@ ms.subservice: cost-management
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: banders
-ms.custom: contperfq1
-ms.openlocfilehash: b2340e5b220936c1333cf842251b669b3e034042
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: f6df8c6ff0db74798b71d57feae91e5245f2a6c2
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151210"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97028725"
 ---
 # <a name="analyze-unexpected-charges"></a>Análisis de cargos inesperados
 
@@ -80,7 +80,7 @@ Si tiene permisos para ver un recurso, debe poder acceder a sus registros de aud
 
 ### <a name="analyze-user-permissions-to-the-resources-parent-scope"></a>Análisis de los permisos de usuario en el ámbito principal del recurso
 
-Las personas con acceso de escritura a una suscripción o grupo de recursos suelen tener información sobre los recursos que se han creado. Deben ser capaces de explicar el propósito de un recurso o dirigirle a la persona que lo sepa. Para identificar a las personas con permisos para un ámbito de suscripción, consulte [Visualización de asignaciones de roles](../../role-based-access-control/check-access.md#view-role-assignments). Puede usar un proceso similar para los grupos de recursos.
+Las personas con acceso de escritura a una suscripción o grupo de recursos suelen tener información sobre los recursos que se han creado. Deben ser capaces de explicar el propósito de un recurso o dirigirle a la persona que lo sepa. Para identificar a las personas con permisos para un ámbito de suscripción, consulte [Visualización del acceso de un usuario a los recursos de Azure](../../role-based-access-control/check-access.md). Puede usar un proceso similar para los grupos de recursos.
 
 ## <a name="get-help-to-identify-charges"></a>Ayuda para identificar cargos
 

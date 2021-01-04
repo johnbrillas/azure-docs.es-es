@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/23/2020
-ms.openlocfilehash: c991559d550b351ce70bcc5834f96f313f856a82
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 30004306d9ff44df04a26640a2bd7a09256fce25
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96550591"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516690"
 ---
 # <a name="credentials-for-source-authentication-in-azure-purview"></a>Credenciales para la autenticación de origen en Azure Purview
 
@@ -20,7 +20,7 @@ En este artículo se describe cómo se pueden crear credenciales en Azure Purvie
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Almacén de claves de Azure. Si aún no tiene uno, a continuación le mostramos cómo crear uno (insertar vínculo al artículo de creación de almacenes de clave).
+* Un almacén de claves de Azure. Para aprender a crear una, consulte el [Inicio rápido: Creación de un almacén de claves mediante Azure Portal](../key-vault/general/quick-create-portal.md).
 
 ## <a name="introduction"></a>Introducción
 Una credencial es información de autenticación que Azure Purview usa para la autenticación en los orígenes de datos registrados. Se puede crear un objeto de credencial para varios tipos de escenarios de autenticación (como la autenticación básica con nombre de usuario y contraseña). Capturará la información específica necesaria según el tipo de método de autenticación elegido. Las credenciales usan los secretos existentes de Azure Key Vault para recuperar información confidencial de autenticación durante el proceso de creación de la credencial.
@@ -91,7 +91,7 @@ Compruebe que la nueva credencial aparece en la vista de la lista de credenciale
 
 1. Elimine una o más conexiones de almacén de claves.
  
-    :::image type="content" source="media/manage-credentials/delete-kv.png" alt-text="Eliminación del almacén de claves.":::
+    :::image type="content" source="media/manage-credentials/delete-kv.png" alt-text="Eliminar el almacén de claves":::
 
 ## <a name="manage-your-credentials"></a>Administración de las credenciales
 

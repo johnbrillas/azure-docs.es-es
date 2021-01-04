@@ -7,12 +7,12 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: mvc
-ms.openlocfilehash: 88b3879a648117329f2485012542b48d6a7a7755
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: f9e7547b8b9a8728c2c1ce7d1d01d06ad1d55dc1
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96752692"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387248"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>Migración de máquinas virtuales de VMware a Azure (sin agente)
 
@@ -85,32 +85,38 @@ Habilite la replicación como se indica a continuación:
     -  La zona de disponibilidad para anclar la máquina migrada a una zona de disponibilidad específica de la región. Use esta opción para distribuir los servidores que forman una capa de aplicación de varios nodos en Availability Zones. Si selecciona esta opción, deberá especificar la zona de disponibilidad que se va a usar en cada una de las máquinas seleccionadas en la pestaña Proceso. Esta opción solo está disponible si la región de destino seleccionada para la migración admite Availability Zones.
     -  El conjunto de disponibilidad para colocar la máquina migrada en un conjunto de disponibilidad. Para usar esta opción, el grupo de recursos de destino seleccionado debe tener uno o varios conjuntos de disponibilidad.
     - No se requiere ninguna opción de redundancia de infraestructura si no necesita ninguna de estas configuraciones de disponibilidad para las máquinas migradas.
+9. En **Disk encryption type** (Tipo de cifrado de disco), seleccione:
+    - Cifrado en reposo con clave administrada por la plataforma
+    - Cifrado en reposo con clave administrada por el cliente
 
-9. En **Ventaja híbrida de Azure**:
+   > [!NOTE]
+   > Para replicar máquinas virtuales con CMK, será necesario [crear un conjunto de cifrado de disco](https://go.microsoft.com/fwlink/?linkid=2151800) en el grupo de recursos de destino. Un objeto de conjunto de cifrado de disco asigna instancias de Managed Disks a una instancia de Key Vault que contiene las claves CMK que se van a usar para SSE.
+  
+10. En **Ventaja híbrida de Azure**:
 
     - Seleccione **No** si no desea aplicar la Ventaja híbrida de Azure. A continuación, haga clic en **Siguiente**.
     - Seleccione **Sí** si tiene equipos con Windows Server que están incluidos en suscripciones activas de Software Assurance o Windows Server y desea aplicar el beneficio a las máquinas que va a migrar. A continuación, haga clic en **Siguiente**.
 
     ![Configuración de destino](./media/tutorial-migrate-vmware/target-settings.png)
 
-10. En **Proceso**, revise el nombre, el tamaño, el tipo de disco del sistema operativo y la configuración de disponibilidad (si se ha seleccionado en el paso anterior) de la máquina virtual. Las máquinas virtuales deben cumplir los [requisitos de Azure](migrate-support-matrix-vmware-migration.md#azure-vm-requirements).
+11. En **Proceso**, revise el nombre, el tamaño, el tipo de disco del sistema operativo y la configuración de disponibilidad (si se ha seleccionado en el paso anterior) de la máquina virtual. Las máquinas virtuales deben cumplir los [requisitos de Azure](migrate-support-matrix-vmware-migration.md#azure-vm-requirements).
 
     - **Tamaño de VM**: si usa las recomendaciones de la evaluación, el menú desplegable de tamaño de máquina virtual muestra el tamaño recomendado. De lo contrario, Azure Migrate elige un tamaño en función de la coincidencia más cercana en la suscripción de Azure. También puede elegir un tamaño de manera manual en **Tamaño de la máquina virtual de Azure**. 
     - **Disco del sistema operativo**: especifique el disco del sistema operativo (arranque) de la máquina virtual. Este es el disco que tiene el cargador de arranque y el instalador del sistema operativo. 
     - **Zona de disponibilidad**: especifique la zona de disponibilidad que se va a usar.
     - **Conjunto de disponibilidad**: especifique el conjunto de disponibilidad que se va a usar.
 
-> [!NOTE]
->Si quiere seleccionar otra opción de disponibilidad para un conjunto de máquinas virtuales, vaya al paso 1 y repita los pasos seleccionando diferentes opciones de disponibilidad tras el inicio de la replicación de uno de los conjuntos de máquinas virtuales.
+    > [!NOTE]
+    > Si quiere seleccionar otra opción de disponibilidad para un conjunto de máquinas virtuales, vaya al paso 1 y repita los pasos seleccionando diferentes opciones de disponibilidad tras el inicio de la replicación de uno de los conjuntos de máquinas virtuales.
 
 
  ![Configuración de los recursos de proceso de la máquina virtual](./media/tutorial-migrate-vmware/compute-settings.png)
 
-11. En **Discos**, especifique si los discos de la máquina virtual se deben replicar en Azure y seleccione el tipo de disco (discos SSD o HDD estándar, o bien discos administrados prémium) en Azure. A continuación, haga clic en **Siguiente**.
+12. En **Discos**, especifique si los discos de la máquina virtual se deben replicar en Azure y seleccione el tipo de disco (discos SSD o HDD estándar, o bien discos administrados prémium) en Azure. A continuación, haga clic en **Siguiente**.
    
     ![Captura de pantalla que muestra la pestaña Discos del cuadro de diálogo Replicar.](./media/tutorial-migrate-vmware/disks.png)
 
-12. En **Revisar e iniciar la replicación**, revise la configuración y haga clic en **Replicar** para iniciar la replicación inicial de los servidores.
+13. En **Revisar e iniciar la replicación**, revise la configuración y haga clic en **Replicar** para iniciar la replicación inicial de los servidores.
 
 > [!NOTE]
 > Puede actualizar la configuración de replicación en cualquier momento antes de que esta comience (**Administrar** > **Replicación de máquinas**). No se puede cambiar la configuración después de iniciar la replicación.
@@ -182,7 +188,7 @@ Después de comprobar que la migración de prueba funciona según lo previsto, p
 ## <a name="complete-the-migration"></a>Completar la migración
 
 1. Una vez finalizada la migración, haga clic con el botón derecho en la máquina virtual > **Detener replicación**. Así se detiene la replicación en la máquina local y se limpia la información acerca del estado de replicación de la máquina virtual.
-2. Instale el agente de [Windows](../virtual-machines/extensions/agent-windows.md) o [Linux](../virtual-machines/extensions/agent-linux.md) de la máquina virtual de Azure en las máquinas migradas.
+2. Instale el agente de [Linux](../virtual-machines/extensions/agent-linux.md) de la máquina virtual de Azure en las máquinas migradas, en caso de que la máquina tenga el sistema operativo Linux. Instalamos automáticamente el agente de máquina virtual para las máquinas virtuales Windows durante la migración.
 3. Realice los ajustes de la aplicación posteriores a la migración, como actualizar las cadenas de conexión de la base de datos y las configuraciones del servidor web.
 4. Realice las pruebas finales de la aplicación y la aceptación de la migración en la aplicación migrada que ahora se ejecuta en Azure.
 5. Pase el tráfico a la instancia de máquina virtual de Azure migrada.

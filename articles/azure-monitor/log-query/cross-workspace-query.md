@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/01/2020
-ms.openlocfilehash: 8eb163c95fb1426ebae8956d50f6d8f6aec6fd7f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 1a6b328bc076ffa619921a8698549e95e6f15c60
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013656"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400767"
 ---
 # <a name="perform-log-query-in-azure-monitor-that-span-across-workspaces-and-apps"></a>Realización de consultas de registro en Azure Monitor que abarcan entre áreas de trabajo y aplicaciones
 
@@ -22,7 +22,7 @@ Hay dos métodos para consultar datos almacenados en varias áreas de trabajo y 
 2. Usar implícitamente [consultas de contexto de recursos](../platform/design-logs-deployment.md#access-mode). Al consultar en el contexto de un recurso específico, un grupo de recursos o una suscripción, los datos pertinentes se capturarán de todas las áreas de trabajo que contengan datos de estos recursos. Los datos de Application Insights que se almacenan en aplicaciones no se capturarán.
 
 > [!IMPORTANT]
-> Si usa un [recurso de Application Insights basado en el área de trabajo](../app/create-workspace-resource.md), la telemetría se almacena en un área de trabajo de Log Analytics con todos los demás datos del registro. Use la expresión log() para escribir una consulta que incluya la aplicación en varias áreas de trabajo. Si tiene varias aplicaciones en la misma área de trabajo, no se necesita realizar una consulta entre áreas de trabajo.
+> Si usa un [recurso de Application Insights basado en el área de trabajo](../app/create-workspace-resource.md), la telemetría se almacena en un área de trabajo de Log Analytics con todos los demás datos del registro. Use la expresión workspace() para escribir una consulta que incluya la aplicación en varias áreas de trabajo. Si tiene varias aplicaciones en la misma área de trabajo, no se necesita realizar una consulta entre áreas de trabajo.
 
 
 ## <a name="cross-resource-query-limits"></a>Límites de la consulta entre recursos 

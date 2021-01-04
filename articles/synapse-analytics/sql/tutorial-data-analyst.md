@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 11/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7b2d4953b3a42c5d66fca4a67b4a6d0f13700a35
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: d37597f8667c461e8d61f8214483f57eb702c2a0
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96459129"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007558"
 ---
 # <a name="tutorial-explore-and-analyze-data-lakes-with-serverless-sql-pool"></a>Tutorial: Exploración y análisis de lagos de datos con un grupo de SQL sin servidor
 

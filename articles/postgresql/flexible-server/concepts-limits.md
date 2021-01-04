@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: f270ac736bb5dbc429dc8659cc88e63d0b51a523
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: cc17a66aceb6ab3eba9a18f8f07902822f4c81bb
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94366645"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96937668"
 ---
 # <a name="limits-in-azure-database-for-postgresql---flexible-server"></a>Límites en Azure Database for PostgreSQL con servidor flexible
 
@@ -116,6 +116,7 @@ Una conexión de PostgreSQL, aunque no esté activa, puede ocupar aproximadament
 
 * Todavía no se admite la autenticación de Azure AD. Se recomienda usar la opción [Servidor único](../overview-single-server.md) si necesita la autenticación de Azure AD.
 * Todavía no se admiten las réplicas de lectura. Se recomienda usar la opción [Servidor único](../overview-single-server.md) si necesita réplicas de lectura.
+* No se admite el traslado de recursos a otra suscripción. 
 
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -2,13 +2,13 @@
 title: Conexión de una máquina híbrida con servidores habilitados para Azure Arc
 description: Aprenda a conectar una máquina híbrida con servidores habilitados para Azure Arc y a registrarla en ellos.
 ms.topic: quickstart
-ms.date: 11/12/2020
-ms.openlocfilehash: 3779d95ac138e83b1d953f744e07ae553890a5d7
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.date: 12/15/2020
+ms.openlocfilehash: 68869854cbfcf6d7297137e6239b2229a20c04a1
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94576835"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516795"
 ---
 # <a name="quickstart-connect-hybrid-machine-with-azure-arc-enabled-servers"></a>Inicio rápido: Conexión de una máquina híbrida con servidores habilitados para Azure Arc
 
@@ -29,6 +29,9 @@ Los [servidores habilitados para Azure Arc](../overview.md) permiten administrar
     * Si la máquina se conecta mediante un firewall o un servidor proxy para comunicarse a través de Internet, asegúrese de que las direcciones URL de la [lista](../agent-overview.md#networking-configuration) no están bloqueadas.
 
     * Los servidores habilitados para Azure Arc solo admiten las regiones que se especifican [aquí](../overview.md#supported-regions).
+
+> [!WARNING]
+> El nombre de host de Linux o de equipo de Windows no puede usar una de las palabras reservadas o marcas en el nombre; de lo contrario, si intenta registrar la máquina conectada con Azure, se producirá un error. Consulte [Resolución de errores en los nombres de recursos reservados](../../../azure-resource-manager/templates/error-reserved-resource-name.md) para obtener una lista de las palabras reservadas.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 

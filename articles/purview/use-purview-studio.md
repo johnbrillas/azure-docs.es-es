@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/12/2020
-ms.openlocfilehash: 1b2d371153d6612f454e1bf51b78c6b6189a08b2
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: d8e6c4b2addf9745b2ddabe8f6fdad9d82dce59f
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96551108"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97503957"
 ---
 # <a name="use-purview-studio"></a>Uso de Purview Studio
 
@@ -26,7 +26,7 @@ En este artículo se proporciona información general sobre algunas de las carac
 
 * Para iniciar su cuenta de Purview, vaya a Purview accounts (Cuentas de Purview) en Azure Portal, seleccione la cuenta que desea iniciar e iníciela.
 
-   :::image type="content" source="./media/use-purview-studio/launch-from-portal.png" alt-text="Captura de pantalla de la selección para iniciar el catálogo de cuentas de Azure Purview.":::
+   :::image type="content" source="./media/use-purview-studio/launch-from-portal.png" alt-text="Captura de pantalla de la opción seleccionada para iniciar el catálogo de la cuenta de Azure Purview.":::
 
 * Otra manera de iniciar la cuenta de Purview es ir a `https://web.purview.azure.com`, seleccionar **Azure Active Directory** y un nombre de cuenta para iniciarla.
 
@@ -50,15 +50,16 @@ En la lista siguiente se resumen las principales características de la **págin
 
 4. Los botones de acceso rápido proporcionan acceso a las funciones de la aplicación que se usan con frecuencia. Los botones que se presentan dependen del rol asignado a su cuenta de usuario.
 
-    - Para el *administrador de orígenes de datos*, los botones de acceso rápido son: **Register Data Sources** (Registrar orígenes de datos) y **Knowledge Center** (Centro de conocimientos).
     - Para el *administrador de datos*, los botones son **Knowledge Center** (Centro de conocimientos), **Browse Assets** (Examinar los activos), **Manage Glossary** (Administrar glosario) y **View Insights** (Ver información).
     - Para el *lector de datos*, los botones destacados son **Knowledge Center**, (Centro de conocimientos), **Browse Assets** (Examinar los activos), **View Glossary** (Ver glosario) y **View Insights** (Ver información).
+    - Para *Administrador de orígenes de datos* + *Administrador de datos*, los botones destacados son **Knowledge Center** (Centro de conocimientos), **Register Data Sources** (Registrar orígenes de datos), **Browse Assets** (Examinar los recursos) y **Manage Glossary** (Administrar glosario).
+    - Para *Administrador de orígenes de datos* + *Lector de datos*, los botones destacados son **Knowledge Center** (Centro de conocimientos), **Register Data Sources** (Registrar orígenes de datos), **Browse Assets** (Examinar los recursos) y **View Glossary** (Ver glosario).
 
 5. La barra de navegación izquierda ayuda a localizar las páginas principales de la aplicación. Los botones que se presentan dependen del rol asignado a su cuenta de usuario.
 
-    - Para el *administrador de orígenes de datos*, los botones son **Home** (Página principal), **Sources** (Orígenes) y **Management Center** (Centro de administración).
     - Para el *administrador de datos*, los botones son **Home** (Página principal), **Glossary** (Glosario), **Insights** (Información) y **Management center** (Centro de administración).
     - Para el *lector de datos*, los botones son **Home** (Página principal), **Glossary** (Glosario), **Insights** (Información) y **Management center** (Centro de administración).
+    - Para *administrador de orígenes de datos* + *lector o administrador de datos*, los botones son **Home** (Inicio), **Sources** (Orígenes), **Glossary** (Glosario), **Insights** (Información) y **Management Center** (Centro de administración).
   
 6. En la pestaña **Recently accessed** (Accedido recientemente) se muestra una lista de los recursos de datos a los que se ha accedido recientemente. Para información sobre el acceso a los recursos, consulte [Búsqueda en el catálogo de datos](how-to-search-catalog.md) y [Examen por tipo de recurso](how-to-browse-catalog.md#browse-experience).  La pestaña **My items** (Mis elementos) es una lista de los recursos de datos que pertenecen al usuario que ha iniciado sesión.
 7. **Useful Links** (Vínculos útiles) contiene vínculos al estado de la región, la documentación, los precios, información general y el estado de Purview.
@@ -73,6 +74,9 @@ El Centro de conocimientos es donde puede encontrar todos los vídeos y tutorial
 Los UX de Azure Purview Studio tendrán visitas guiadas para ver la información general de la página. Para iniciar la visita guiada seleccione **Help** (Ayuda) en la barra superior y seleccione **Guided tour** (Recorrido guiado).
 
 :::image type="content" source="./media/use-purview-studio/guided-tour.png" alt-text="Captura de pantalla de la visita guiada.":::
+
+> [!Important]
+   > El rol de administrador de orígenes de datos no tiene acceso a Purview Studio.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

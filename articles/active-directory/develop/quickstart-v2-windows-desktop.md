@@ -1,6 +1,6 @@
 ---
 title: 'Inicio rápido: Inicio de sesión de usuarios y llamada a Microsoft Graph en una aplicación de escritorio de la Plataforma universal de Windows | Azure'
-description: En este inicio rápido, aprenderá cómo una aplicación .NET de escritorio de Windows (XAML) puede obtener un token de acceso y llamar a una API protegida por un punto de conexión de la Plataforma de identidad de Microsoft.
+description: En este inicio rápido, aprenderá cómo una aplicación .NET de escritorio de Windows (XAML) puede obtener un token de acceso y llamar a una API protegida por un punto de conexión de la Plataforma de identidad de Microsoft
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: f63dbad398afcd0a9756cc1e9d4f70f1303d00b0
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: bc7c6022f8ed95a69dcb877252fd8c5eff49ce28
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95993863"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97030491"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>Inicio rápido: Adquisición de un token y llamada a Microsoft Graph API desde una aplicación de escritorio de Windows
 
@@ -45,16 +45,17 @@ Para ilustrar este tema, consulte el apartado en el que se explica el [funcionam
 > #### <a name="step-1-register-your-application"></a>Paso 1: Registrar su aplicación
 > Para registrar la aplicación y agregar la información de registro de la aplicación a la solución de forma manual, siga estos pasos:
 >
-> 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta personal, profesional o educativa de Microsoft.
-> 1. Si la cuenta proporciona acceso a más de un inquilino, haga clic en la cuenta en la esquina superior derecha y establezca la sesión del portal en el inquilino de Azure AD deseado.
-> 1. Vaya a la hoja [Registros de aplicaciones](https://aka.ms/MobileAppReg) de Azure Active Directory en Azure Portal.
-> 1. Seleccione **Nuevo registro**.
->      - En la sección **Nombre**, escriba un nombre significativo para la aplicación, que se mostrará a los usuarios de la aplicación, por ejemplo, `Win-App-calling-MsGraph`.
->      - En **Tipos de cuenta admitidos**, seleccione **Cuentas en cualquier directorio de organización y cuentas personales de Microsoft (por ejemplo, Skype, Xbox o Outlook.com)** .
->      - Seleccione **Registrar** para crear la aplicación.
-> 1. En la lista de páginas de la aplicación, seleccione **Autenticación**.
-> 1. En la sección **URI de redirección** | **URI de redirección sugeridos para clientes públicos (para dispositivos móviles o de escritorio)** , use **https://login.microsoftonline.com/common/oauth2/nativeclient** .
-> 1. Seleccione **Guardar**.
+> 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+> 1. Si tiene acceso a varios inquilinos, use el filtro **Directorio + suscripción** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: del menú superior para seleccionar el inquilino en el que desea registrar una aplicación.
+> 1. Busque y seleccione **Azure Active Directory**.
+> 1. En **Administrar**, seleccione **Registros de aplicaciones** >  y, luego, **Nuevo registro**.
+> 1. Escriba el **Nombre** de la aplicación, por ejemplo `Win-App-calling-MsGraph`. Los usuarios de la aplicación pueden ver este nombre, el cual se puede cambiar más tarde.
+> 1. En **Tipos de cuenta admitidos**, seleccione **Cuentas en cualquier directorio de organización y cuentas personales de Microsoft (por ejemplo, Skype, Xbox o Outlook.com)** .
+> 1. Seleccione **Registrar** para crear la aplicación.
+> 1. En **Administrar**, seleccione **Autenticación**.
+> 1. Selecciones **Agregar una plataforma** > **Aplicaciones móviles y de escritorio**.
+> 1. En la sección **URI de redirección**, seleccione `https://login.microsoftonline.com/common/oauth2/nativeclient`.
+> 1. Seleccione **Configurar**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>Paso 1: Configuración de la aplicación en Azure Portal

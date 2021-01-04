@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 10/22/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 5f19b55a955b8e3e1500cf14fa221b46808ac857
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 8827171788bd83a202b3607537204c71c34f29e0
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94698298"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97511848"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Inicio rápido: Uso de Azure Portal para crear un equilibrador de carga público para equilibrar la carga de máquinas virtuales
 
@@ -40,6 +40,10 @@ Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azur
 
 >[!NOTE]
 >Se recomienda usar la SKU Estándar de Load Balancer para las cargas de trabajo de producción.  Para más información sobre las SKU, consulte **[SKU de Azure Load Balancer](skus.md)** .
+
+:::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/resources-diagram.png" alt-text="Recursos de Standard Load Balancer creados para el inicio rápido." border="false":::
+
+*Ilustración: recursos creados en el inicio rápido.*
 
 En esta sección, va a crear un equilibrador de carga que equilibra la carga de las máquinas virtuales. 
 
@@ -140,7 +144,7 @@ En esta sección va a crear una regla de equilibrador de carga:
     | Sondeo de mantenimiento | Seleccione **myHealthProbe**. |
     | Tiempo de espera de inactividad (minutos) | Mueva el control deslizante a **15** minutos. |
     | Restablecimiento de TCP | Seleccione **Habilitado**. |
-    | Traducción de direcciones de red de origen (SNAT) de salida | Seleccione **(Recomendado) Use reglas de salida para proporcionar acceso a Internet a los miembros del grupo de back-end**. |
+    | Traducción de direcciones de red de origen (SNAT) de salida | Seleccione **(Recomendado) Usar reglas de salida para proporcionar acceso a Internet a los miembros del grupo de back-end**. |
 
 4. Deje el resto de valores predeterminados y después seleccione **Aceptar**.
 
@@ -321,6 +325,10 @@ Para más información sobre las conexiones salientes, consulte [Conexiones sali
 
 >[!NOTE]
 >Se recomienda usar la SKU Estándar de Load Balancer para las cargas de trabajo de producción.  Para más información sobre las SKU, consulte **[SKU de Azure Load Balancer](skus.md)** .
+
+:::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/resources-diagram-basic.png" alt-text="Recursos de Basic Load Balancer creados en el inicio rápido." border="false":::
+
+*Ilustración: recursos creados en el inicio rápido.*
 
 En esta sección, va a crear un equilibrador de carga que equilibra la carga de las máquinas virtuales. 
 
@@ -576,7 +584,7 @@ Las máquinas virtuales creadas en los pasos anteriores se deben agregar al grup
 
 ## <a name="install-iis"></a>Instalación de IIS
 
-1. Seleccione **Todos los servicios** en el menú de la izquierda, seleccione **Todos los recursos** y, después, en la lista de recursos, seleccione **myVM1**, que se encuentra en el grupo de recursos **CreateStdLBQS-rg**.
+1. Seleccione **Todos los servicios** en el menú de la izquierda, seleccione **Todos los recursos** y, después, en la lista de recursos, seleccione **myVM1**, que se encuentra en el grupo de recursos **CreatePubLBQS-rg**.
 
 2. En la página **Introducción**, seleccione **Conectar** y después **Instancia de Bastion**.
 

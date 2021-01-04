@@ -11,16 +11,18 @@ ms.workload: identity
 ms.date: 11/25/2019
 ms.author: kenwith
 ms.reviewer: arvinh, celested
-ms.openlocfilehash: 5b593add9c9d7be446798eecdd03b396c3fe513a
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 486add54a6d41493c54bd7b0b0339804f6c31847
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96174737"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400002"
 ---
 # <a name="what-is-automated-saas-app-user-provisioning-in-azure-ad"></a>Qué es el aprovisionamiento automatizado de usuarios de aplicaciones SaaS en Azure AD
 
 En Azure Active Directory (Azure AD), el término **aprovisionamiento de aplicaciones** hace referencia a la creación automática de identidades y roles de usuario en las aplicaciones de nube ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) a las que los usuarios necesitan acceso. Además de crear identidades de usuario, el aprovisionamiento automático incluye el mantenimiento y la eliminación de identidades de usuario a medida que el estado o los roles cambian. Algunos escenarios comunes son el aprovisionamiento de un usuario de Azure AD en aplicaciones como [Dropbox](../saas-apps/dropboxforbusiness-provisioning-tutorial.md), [Salesforce](../saas-apps/salesforce-provisioning-tutorial.md) y [ServiceNow](../saas-apps/servicenow-provisioning-tutorial.md), entre otras.
+
+Para más información sobre SCIM y sobre cómo unirse a la conversación de Tech Community, consulte el artículo sobre el [aprovisionamiento con SCIM Tech Community](https://aka.ms/scimoverview).
 
 ![Diagrama de información general del aprovisionamiento](./media/user-provisioning/provisioning-overview.png)
 

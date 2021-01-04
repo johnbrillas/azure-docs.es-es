@@ -2,14 +2,14 @@
 title: Límites y limitación de solicitudes
 description: En este artículo se describe cómo usar la limitación con las solicitudes de Azure Resource Manager cuando se han alcanzado los límites de suscripción.
 ms.topic: conceptual
-ms.date: 03/24/2020
+ms.date: 12/15/2020
 ms.custom: seodec18
-ms.openlocfilehash: 4d387749261747eb9ea1ea26629ade4fe8729856
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 181ed1a3059d86f78e40a9949448af77a551efbc
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80239354"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563133"
 ---
 # <a name="throttling-resource-manager-requests"></a>Limitación de solicitudes de Resource Manager
 
@@ -66,6 +66,13 @@ Para comprobar las instancias de máquina virtual dentro de un conjunto de escal
 
 [Azure Resource Graph](../../governance/resource-graph/overview.md) limita el número de solicitudes para sus operaciones. Los pasos descritos en este artículo para determinar las solicitudes restantes y sobre cómo responder cuando se alcanza el límite también se aplican a Resource Graph. Sin embargo, Resource Graph establece su límite y frecuencia de restablecimiento propios. Para más información, consulte [Encabezados de limitación de Resource Graph](../../governance/resource-graph/concepts/guidance-for-throttled-requests.md#understand-throttling-headers).
 
+### <a name="other-resource-providers"></a>Otros proveedores de recursos
+
+Para más información acerca de la limitación en otros proveedores de recursos, consulte:
+
+* [Guía de las limitaciones de Azure Key Vault](../../key-vault/general/overview-throttling.md)
+* [Solución de problemas de AKS](../../aks/troubleshooting.md#im-receiving-429---too-many-requests-errors)
+
 ## <a name="error-code"></a>Código de error
 
 Cuando se alcanza este límite, recibirá el código de estado HTTP **429 Demasiadas solicitudes**. En la respuesta se incluye el valor **Retry-After** que especifica el número de segundos que debe esperar (o estar en estado de suspensión) la aplicación antes de enviar la siguiente solicitud. Si envía una solicitud antes de que haya transcurrido el tiempo especificado en el valor de reintento, la solicitud no se procesará y se devolverá un nuevo valor de reintento.
@@ -97,7 +104,7 @@ El proveedor de recursos también puede devolver encabezados de respuesta con in
 
 El proceso de recuperación de estos valores de encabezado del código o el script es igual que el de cualquier valor de encabezado. 
 
-Por ejemplo, en **C#** , recupere el valor del encabezado de un objeto **HttpWebResponse** denominado "**response**"con el código siguiente:
+Por ejemplo, en **C#**, recupere el valor del encabezado de un objeto **HttpWebResponse** denominado "**response**"con el código siguiente:
 
 ```cs
 response.Headers.GetValues("x-ms-ratelimit-remaining-subscription-reads").GetValue(0)

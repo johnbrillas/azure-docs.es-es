@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 85030285810433dc77d1f466d160c50d1f89770e
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 31926653950594b986aca19e2db2877cd655ca24
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96750414"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509604"
 ---
 # <a name="user-profile-attributes"></a>Atributos de perfil de usuario
 
@@ -62,15 +62,15 @@ En la tabla siguiente se enumeran los atributos de [tipo de recurso de usuario](
 |objectId        |String|El identificador único global (GUID) que es el identificador único del usuario. Ejemplo: 12345678-9abc-def0-1234-56789abcde. Valor de solo lectura e inmutable.|Solo lectura|Sí|Entrada, persistente, salida|
 |otherMails      |Colección de cadenas|Una lista de direcciones de correo electrónico adicionales del usuario. Ejemplo: ["bob@contoso.com", "Robert@fabrikam.com"].|Sí (correo electrónico alternativo)|No|Persistente, salida|
 |password        |String|La contraseña de la cuenta local durante la creación del usuario.|No|No|Guardado|
-|passwordPolicies     |String|La directiva de la contraseña. Es una cadena que consta de un nombre de directiva diferente separado por una coma. Por ejemplo: "DisablePasswordExpiration, DisableStrongPassword".|No|No|Persistente, salida|
+|passwordPolicies     |String|La directiva de la contraseña. Es una cadena que consta de un nombre de directiva diferente separado por una coma. Por ejemplo, "DisablePasswordExpiration, DisableStrongPassword".|No|No|Persistente, salida|
 |physicalDeliveryOfficeName (officeLocation)|String|La ubicación del lugar de trabajo del usuario. La longitud máxima es 128.|Sí|No|Persistente, salida|
 |postalCode      |String|El código postal de la dirección del usuario. El código postal es específico del país o la región del usuario. En Estados Unidos de América, este atributo contiene el código ZIP. La longitud máxima es 40.|Sí|No|Persistente, salida|
 |preferredLanguage    |String|El idioma preferido del usuario. Debe seguir el código ISO 639-1. Ejemplo: "en-US".|No|No|Persistente, salida|
 |refreshTokensValidFromDateTime|DateTime|Los tokens de actualización emitidos antes de esta hora no son válidos. Las aplicaciones obtendrán un error al usar un token de actualización no válido para adquirir un nuevo token de acceso. Si esto ocurre, la aplicación tendrá que adquirir un nuevo token de actualización realizando una solicitud al punto de conexión de autorización. Solo lectura.|No|No|Output|
-|signInNames ([Identidades](manage-user-accounts-graph-api.md#identities-property)) |String|El nombre de inicio de sesión único del usuario de cuenta local de cualquier tipo en el directorio. Se usa para obtener un usuario con el valor de inicio de sesión sin especificar el tipo de cuenta local.|No|No|Entrada|
-|signInNames.userName ([Identidades](manage-user-accounts-graph-api.md#identities-property)) |String|El nombre de inicio de sesión único del usuario de cuenta local en el directorio. Se usa para crear u obtener un usuario con un nombre de usuario de inicio de sesión específico. Si se especifica en PersistedClaims solo durante la operación de revisión, se quitarán otros tipos de signInNames. Si desea agregar un nuevo tipo de signInNames, también debe conservar los atributos signInNames que ya existan.|No|No|Entrada, persistente, salida|
-|signInNames.phoneNumber ([Identidades](manage-user-accounts-graph-api.md#identities-property)) |String|El número de teléfono único del usuario de cuenta local en el directorio. Se usa para crear u obtener un usuario con un número de teléfono de inicio de sesión específico. Si se especifica en PersistedClaims solo durante la operación de revisión, se quitarán otros tipos de signInNames. Si desea agregar un nuevo tipo de signInNames, también debe conservar los atributos signInNames que ya existan.|No|No|Entrada, persistente, salida|
-|signInNames.emailAddress ([Identidades](manage-user-accounts-graph-api.md#identities-property))|String|La dirección de correo electrónico única del usuario de cuenta local en el directorio. Se usa para crear u obtener un usuario con una dirección de correo electrónico de inicio de sesión específica. Si se especifica en PersistedClaims solo durante la operación de revisión, se quitarán otros tipos de signInNames. Si desea agregar un nuevo tipo de signInNames, también debe conservar los atributos signInNames que ya existan.|No|No|Entrada, persistente, salida|
+|signInNames ([Identidades](manage-user-accounts-graph-api.md#identities-property)) |String|El nombre de inicio de sesión único del usuario de cuenta local de cualquier tipo en el directorio. Use este atributo para obtener un usuario con el valor de inicio de sesión sin especificar el tipo de cuenta local.|No|No|Entrada|
+|signInNames.userName ([Identidades](manage-user-accounts-graph-api.md#identities-property)) |String|El nombre de inicio de sesión único del usuario de cuenta local en el directorio. Use este atributo para crear u obtener un usuario con un nombre de usuario de inicio de sesión específico. Si se especifica en PersistedClaims solo durante la operación de revisión, se quitarán otros tipos de signInNames. Si desea agregar un nuevo tipo de signInNames, también debe conservar los atributos signInNames que ya existan.|No|No|Entrada, persistente, salida|
+|signInNames.phoneNumber ([Identidades](manage-user-accounts-graph-api.md#identities-property)) |String|El número de teléfono único del usuario de cuenta local en el directorio. Use este atributo para crear u obtener un usuario con un número de teléfono de inicio de sesión específico. Si se especifica este atributo en PersistedClaims solo durante la operación de revisión, se quitarán otros tipos de signInNames. Si desea agregar un nuevo tipo de signInNames, también debe conservar los atributos signInNames que ya existan.|No|No|Entrada, persistente, salida|
+|signInNames.emailAddress ([Identidades](manage-user-accounts-graph-api.md#identities-property))|String|La dirección de correo electrónico única del usuario de cuenta local en el directorio. Se usa para crear u obtener un usuario con una dirección de correo electrónico de inicio de sesión específica. Si se especifica este atributo en PersistedClaims solo durante la operación de revisión, se quitarán otros tipos de signInNames. Si desea agregar un nuevo tipo de signInNames, también debe conservar los atributos signInNames que ya existan.|No|No|Entrada, persistente, salida|
 |state           |String|El estado o provincia de la dirección del usuario. La longitud máxima es 128.|Sí|Sí|Persistente, salida|
 |streetAddress   |String|La dirección postal del lugar de trabajo del usuario. La longitud máxima es 1024.|Sí|Sí|Persistente, salida|
 |strongAuthentication AlternativePhoneNumber<sup>1</sup>|String|El número de teléfono secundario del usuario que se usa para la autenticación multifactor.|Sí|No|Persistente, salida|
@@ -120,5 +120,4 @@ Se admiten los siguientes tipos de datos al definir una propiedad en una extensi
 ## <a name="next-steps"></a>Pasos siguientes
 Obtenga más información sobre los atributos de extensión:
 - [Extensiones de esquema](/graph/extensibility-overview#schema-extensions)
-- [Definición de atributos personalizados con flujos de usuario](user-flow-custom-attributes.md)
-- [Definición de atributos personalizados con directivas personalizadas](custom-policy-custom-attributes.md)
+- [Definición de atributos personalizados](user-flow-custom-attributes.md)

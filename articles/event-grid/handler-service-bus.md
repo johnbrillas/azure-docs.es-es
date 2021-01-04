@@ -3,12 +3,12 @@ title: Colas y temas de Service Bus como controladores de eventos para eventos d
 description: Aquí se describe cómo puede usar las colas y temas de Service Bus como controladores de eventos para eventos de Azure Event Grid.
 ms.topic: conceptual
 ms.date: 09/03/2020
-ms.openlocfilehash: 2b18009f8fb31f1a5f057c7395781f63f182847f
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 12b72420e3475b46a4cd61ce5032b478af740dde
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "96024221"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97399866"
 ---
 # <a name="service-bus-queues-and-topics-as-event-handlers-for-azure-event-grid-events"></a>Colas y temas de Service Bus como controladores de eventos para eventos de Azure Event Grid
 Un controlador de eventos es el lugar al que se envía el evento. El controlador realiza alguna acción adicional para procesar el evento. Varios servicios de Azure se configuran automáticamente para controlar eventos y **Azure Service Bus** es uno de ellos. 
@@ -40,7 +40,7 @@ En Azure Portal, al crear una suscripción de eventos, seleccione **Tema de Ser
 
 ### <a name="using-cli-to-add-a-service-bus-topic-handler"></a>Uso de la CLI para agregar un controlador de temas de Service Bus
 
-Para la CLI de Azure, en el siguiente ejemplo, se suscribe un tema y conecta un tema de Event Grid a una cola de Service Bus:
+Para la CLI de Azure, en el siguiente ejemplo, se suscribe un tema y conecta un tema de Event Grid a un tema de Service Bus:
 
 ```azurecli-interactive
 az eventgrid event-subscription create \

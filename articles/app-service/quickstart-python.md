@@ -6,16 +6,21 @@ ms.date: 11/10/2020
 ms.custom: seo-python-october2019, cli-validate, devx-track-python, devx-track-azurecli
 zone_pivot_groups: python-frameworks-01
 adobe-target: true
-ms.openlocfilehash: 7eebbe5605c0b4d70ea15c1605cff5416965e535
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+adobe-target-activity: DocsExp–377467–A/B– Quickstarts/Python App–12.11
+adobe-target-experience: Experience B
+adobe-target-content: ./quickstart-python-1
+ms.openlocfilehash: 29c2e9e892b2c5f51907cc63d9b2bf1a6f2e7979
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96780780"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97561535"
 ---
 # <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>Inicio rápido: Creación de una aplicación de Python en Azure App Service en Linux
 
 En este inicio rápido se implementa una aplicación web de Python en [App Service en Linux](overview.md#app-service-on-linux), un servicio de Azure de hospedaje de sitios web muy escalable y con aplicación automática de revisiones. La [interfaz de la línea de comandos (CLI) de Azure](/cli/azure/install-azure-cli) local se puede usar en un equipo Mac, Linux o Windows para implementar un ejemplo con los marcos Flask o Django. La aplicación web que va a configurar usa un nivel de App Service gratuito, por lo que no incurrirá en ningún gasto en el transcurso de este artículo.
+
+Para ver las **definiciones de los términos comunes**, consulte el artículo en el que se informa de la [terminología de Azure](/azure/developer/python/cloud-azure-terminology?toc=/azure/app-service/toc.json).
 
 > [!TIP]
 > Si prefiere usar mejor Visual Studio Code, siga nuestro **[inicio rápido de App Service de Visual Studio Code](/azure/developer/python/tutorial-deploy-app-service-on-linux-01)** .

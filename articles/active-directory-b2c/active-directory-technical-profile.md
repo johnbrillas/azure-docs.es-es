@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/26/2020
+ms.date: 12/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 67acf675c6636c5d1066d4fe25310d875fa7c064
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f92bfe98a45117264c957481a75493de652abc9
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85201521"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97508108"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico de Azure Active Directory en una directiva personalizada en Azure Active Directory B2C
 
@@ -64,13 +64,13 @@ Para leer, actualizar o eliminar una cuenta de usuario existente, la notificaci�
 
 Para crear una nueva cuenta de usuario, la notificación de entrada es una clave que identifica de forma única una cuenta local o federada. Por ejemplo, cuenta local: **signInNames.emailAddress** o **signInNames.userName**. En el caso de una cuenta federada: **alternativeSecurityId**.
 
-El elemento [InputClaimsTransformations](technicalprofiles.md#inputclaimstransformations) puede contener una colección de elementos de transformación de notificaciones de entrada que se usan para modificar las notificaciones de entrada o generar otras nuevas.
+El elemento [InputClaimsTransformations](technicalprofiles.md#input-claims-transformations) puede contener una colección de elementos de transformación de notificaciones de entrada que se usan para modificar las notificaciones de entrada o generar otras nuevas.
 
 ## <a name="outputclaims"></a>OutputClaims
 
 El elemento **OutputClaims** contiene una lista de notificaciones devuelta por el perfil técnico de Azure AD. Es posible que tenga que asignar el nombre de la notificación definida en la directiva al nombre definido en Azure Active Directory. También puede incluir las notificaciones que Azure Active Directory no devuelve, siempre y cuando establezca el atributo `DefaultValue`.
 
-El elemento [OutputClaimsTransformations](technicalprofiles.md#outputclaimstransformations) puede contener una colección de elementos **OutputClaimsTransformation** que se usan para modificar las notificaciones de salida o para generar nuevas.
+El elemento [OutputClaimsTransformations](technicalprofiles.md#output-claims-transformations) puede contener una colección de elementos **OutputClaimsTransformation** que se usan para modificar las notificaciones de salida o para generar nuevas.
 
 Por ejemplo, el perfil técnico **AAD-UserWriteUsingLogonEmail** crea una cuenta local y devuelve las notificaciones siguientes:
 
@@ -251,9 +251,9 @@ El perfil técnico siguiente elimina una cuenta de usuario de red social mediant
 | Operación | Sí | La operación que se va a realizar. Valores posibles: `Read`, `Write`, `DeleteClaims` o `DeleteClaimsPrincipal`. |
 | RaiseErrorIfClaimsPrincipalDoesNotExist | No | Genera un error si el objeto de usuario no existe en el directorio. Valores posibles: `true` o `false`. |
 | RaiseErrorIfClaimsPrincipalAlreadyExists | No | Genera un error si el objeto de usuario ya existe. Valores posibles: `true` o `false`.|
-| ApplicationObjectId | No | El identificador de objeto de aplicación para los atributos de extensión. Valor: ObjectId de una aplicación. Para más información, vea [Uso de los atributos personalizados en una directiva de edición de perfil personalizada](custom-policy-custom-attributes.md). |
-| ClientId | No | El identificador de cliente para acceder al inquilino como un tercero. Para más información, vea [Uso de los atributos personalizados en una directiva de edición de perfil personalizada](custom-policy-custom-attributes.md). |
-| IncludeClaimResolvingInClaimsHandling  | No | En el caso de las notificaciones de entrada y salida, especifica si se incluye la [resolución de notificaciones](claim-resolver-overview.md) en el perfil técnico. Valores posibles: `true` o `false`  (valor predeterminado). Si desea utilizar un solucionador de notificaciones en el perfil técnico, establézcalo en `true`. |
+| ApplicationObjectId | No | El identificador de objeto de aplicación para los atributos de extensión. Valor: ObjectId de una aplicación. Para más información, consulte [Atributos personalizados](user-flow-custom-attributes.md?pivots=b2c-custom-policy). |
+| ClientId | No | El identificador de cliente para acceder al inquilino como un tercero. Para más información, vea [Uso de los atributos personalizados en una directiva de edición de perfil personalizada](user-flow-custom-attributes.md?pivots=b2c-custom-policy). |
+| IncludeClaimResolvingInClaimsHandling  | No | En el caso de las notificaciones de entrada y salida, especifica si se incluye la [resolución de notificaciones](claim-resolver-overview.md) en el perfil técnico. Valores posibles: `true` o `false` (valor predeterminado). Si desea utilizar un solucionador de notificaciones en el perfil técnico, establézcalo en `true`. |
 
 ### <a name="ui-elements"></a>Elementos de interfaz de usuario
  
@@ -269,7 +269,7 @@ La configuración siguiente se puede usar para establecer el mensaje de error qu
 
 Consulte el siguiente artículo para obtener un ejemplo del uso de un perfil técnico de Azure AD:
 
-- [Adición de notificaciones y personalización de la entrada del usuario mediante directivas personalizadas en Azure Active Directory B2C](custom-policy-configure-user-input.md)
+- [Adición de notificaciones y personalización de la entrada del usuario mediante directivas personalizadas en Azure Active Directory B2C](configure-user-input.md)
 
 
 

@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 31ae4605b6cc9e26c89beea692fe61fcbda49c4c
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 22bdf93e7236ae5220a6bb7c6ead898628bb51a1
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96621508"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007592"
 ---
 # <a name="azure-cache-for-redis-with-azure-private-link-public-preview"></a>Azure Cache for Redis con Azure Private Link (versión preliminar pública)
 En este artículo, obtendrá información sobre cómo crear una red virtual y una instancia de Azure Cache for Redis con un punto de conexión privado mediante Azure Portal. También aprenderá a agregar un punto de conexión privado a una instancia de Azure Cache for Redis existente.
@@ -224,7 +224,12 @@ PATCH  https://management.azure.com/subscriptions/{subscription}/resourceGroups/
 ```
 
 ### <a name="are-network-security-groups-nsg-enabled-for-private-endpoints"></a>¿Están habilitados los grupos de seguridad de red (NSG) para los puntos de conexión privados?
-No, están deshabilitados para los puntos de conexión privados. Sin embargo, si hay otros recursos en la subred, la obligatoriedad de NSG se aplicará a esos recursos.
+No, están deshabilitados para los puntos de conexión privados. Si bien las subredes que contienen el punto de conexión privado pueden tener un grupo de seguridad de red asociado, las reglas no serán efectivas en el tráfico procesado por el punto de conexión privado. Debe tener la [aplicación de directivas de red deshabilitada](../private-link/disable-private-endpoint-network-policy.md) para implementar puntos de conexión privados en una subred. El grupo de seguridad de red se sigue aplicando en otras cargas de trabajo hospedadas en la misma subred. Las rutas de cualquier subred de cliente utilizarán un prefijo /32, lo que cambia el comportamiento de enrutamiento predeterminado requiere un UDR similar. 
+
+Controle el tráfico mediante el uso de reglas del grupo de seguridad de red para el tráfico saliente en los clientes de origen. Implementación de rutas individuales con un prefijo /32 para invalidar rutas de punto de conexión privado. Todavía se admiten los registros de flujo de NSG y la información de supervisión de las conexiones salientes y se pueden usar.
+
+### <a name="can-i-use-firewall-rules-with-private-endpoints"></a>¿Puedo usar reglas de firewall con puntos de conexión privados?
+No, esta es una de las limitaciones actuales de los puntos de conexión privados. El punto de conexión privado no funcionará correctamente si las reglas de firewall están configuradas en la memoria caché.
 
 ### <a name="how-can-i-connect-to-a-clustered-cache"></a>¿Cómo puedo conectarme a una memoria caché en clúster?
 Se debe establecer `publicNetworkAccess` en `Disabled` y solo puede haber una conexión de punto de conexión privado.

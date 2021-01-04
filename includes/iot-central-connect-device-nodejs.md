@@ -4,12 +4,12 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 11/24/2020
-ms.openlocfilehash: 4b19ae1b584a2d300e4144e79ef76245c71035cf
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: 6a6baa14d7521f4a85350af7b08b5fcbe82ddf6b
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96126137"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033883"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -27,7 +27,7 @@ Al ejecutar el ejemplo para conectarse a IoT Central, usa Device Provisioning Se
 
 El método `main` realiza las acciones siguientes:
 
-* Crea un objeto `client` y establece el identificador del modelo `dtmi:com:example:Thermostat;1` antes de abrir la conexión.
+* Crea un objeto `client` y establece el identificador del modelo `dtmi:com:example:Thermostat;1` antes de abrir la conexión. IoT Central usa el identificador de modelo para identificar o generar la plantilla de dispositivo específico. Para más información, consulte [¿Cómo se asocia un dispositivo a una plantilla de dispositivo?](../articles/iot-central/core/concepts-get-connected.md#associate-a-device-with-a-device-template)
 * Crea un controlador de comandos.
 * Inicia un bucle para enviar telemetría de temperatura cada 10 segundos.
 * Envía la propiedad `maxTempSinceLastReboot` a IoT Central. IoT Central omite la propiedad `serialNumber` porque no forma parte del modelo de dispositivo.
@@ -83,7 +83,7 @@ async function main() {
 }
 ```
 
-La función `provisionDevice` muestra cómo el dispositivo usa DPS para registrarse y conectarse a IoT Central. La carga incluye el identificador de modelo:
+La función `provisionDevice` muestra cómo el dispositivo usa DPS para registrarse y conectarse a IoT Central. La carga incluye el identificador de modelo que IoT Central usa para [asociar el dispositivo a una plantilla de dispositivo](../articles/iot-central/core/concepts-get-connected.md#associate-a-device-with-a-device-template):
 
 ```javascript
 async function provisionDevice(payload) {

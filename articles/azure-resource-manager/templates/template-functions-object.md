@@ -1,18 +1,18 @@
 ---
 title: 'Funciones de plantillas: objetos'
-description: Describe las funciones que se usan en una plantilla de Azure Resource Manager para trabajar con objetos.
+description: Se describen las funciones que se usan en una plantilla de Azure Resource Manager para trabajar con objetos.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 7ed317b3506f00e71bbf97d5564cacec05032744
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 5e13177db1a7cf2f19a822363cb3884474566add
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96004524"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920440"
 ---
 # <a name="object-functions-for-arm-templates"></a>Funciones de objeto para plantillas de Resource Manager
 
-Resource Manager proporciona varias funciones para trabajar con objetos en la plantilla de Azure Resource Manager (ARM).
+Resource Manager proporciona varias funciones para trabajar con objetos en la plantilla de Resource Manager:
 
 * [contains](#contains)
 * [createObject](#createobject)
@@ -792,4 +792,4 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para obtener una descripción de las secciones de una plantilla de Azure Resource Manager, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](template-syntax.md).
+* Para obtener una descripción de las secciones de una plantilla de ARM, vea [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](template-syntax.md).

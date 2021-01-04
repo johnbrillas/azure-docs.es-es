@@ -8,12 +8,12 @@ ms.subservice: iot-central-retail
 ms.topic: overview
 ms.date: 10/20/2019
 ms.custom: mqtt
-ms.openlocfilehash: 8925b98269b67bfb8a96cb057982ee4e396f17ed
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 41232ba3899d098c019674e4ca4a0a8f2f7d465f
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "81686222"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97345966"
 ---
 # <a name="architecture-of-iot-central-connected-logistics-application-template"></a>Arquitectura de la plantilla de aplicación Logística conectada de IoT Central
 
@@ -27,7 +27,7 @@ Tanto los asociados como los clientes pueden usar la plantilla de la aplicación
 1. Conjunto de etiquetas de IoT que envían datos de telemetría a un dispositivo de puerta de enlace
 2. Dispositivos de puerta de enlace que envían telemetría y conclusiones agregadas a IoT Central
 3. Los datos se enrutan al servicio de Azure que se quiera para su manipulación
-4. Se pueden usar servicios de Azure (como ASA o Azure Functions) para volver a formatear flujos de datos y enviarlos a las cuentas de almacenamiento que se desee 
+4. Se pueden usar servicios de Azure (como ASA o Azure Functions) para volver a formatear flujos de datos y enviarlos a las cuentas de almacenamiento que se desee
 5. Pueden potenciarse diversos flujos de trabajo empresariales mediante aplicaciones empresariales de usuario final.
 
 ## <a name="details"></a>Detalles

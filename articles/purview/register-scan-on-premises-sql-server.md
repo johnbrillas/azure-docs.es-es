@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 09/18/2020
-ms.openlocfilehash: a807c76a08bf075973cd0f358c67b61b10b40ba0
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 9003366ec0d64057ca7426d5b6b99986bc21fc9d
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96551206"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920291"
 ---
 # <a name="register-and-scan-an-on-premises-sql-server"></a>Registro y examen de un servidor de SQL Server local
 
@@ -32,9 +32,13 @@ El origen de datos local de SQL Server admite:
 
 - Método de autenticación: Autenticación SQL
 
+### <a name="known-limitations"></a>Restricciones conocidas
+
+Azure Purview no admite el examen de [vistas](https://docs.microsoft.com/sql/relational-databases/views/views?view=sql-server-ver15) en SQL Server. 
+
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Antes de registrar los orígenes de datos, cree una cuenta de Azure Purview. Para obtener más información sobre cómo crear una cuenta de Purview, consulte [Inicio rápido: creación de una cuenta de Azure Purview](create-catalog-portal.md).
+- Antes de registrar los orígenes de datos, cree una cuenta de Azure Purview. Para más información sobre cómo crear una cuenta de Purview, consulte [Inicio rápido: creación de una cuenta de Azure Purview](create-catalog-portal.md).
 
 - Configure un [entorno de ejecución de integración autohospedado](manage-integration-runtimes.md) para examinar el origen de datos.
 
@@ -44,7 +48,7 @@ Solo hay una manera de configurar la autenticación para la instancia local de S
 
 - Autenticación de SQL
 
-### <a name="sql-authentication"></a>Autenticación de SQL
+### <a name="sql-authentication"></a>Autenticación SQL
 
 La identidad de SQL debe tener acceso a la base de datos principal. Esta ubicación es donde se almacena `sys.databases`. El analizador de Purview necesita enumerar `sys.databases` para buscar todas las instancias de SQL DB en el servidor.
 
@@ -88,16 +92,16 @@ Si quiere crear un nuevo inicio de sesión y un usuario para poder examinar el s
 1. Seleccione **Configuración > Secretos**.
 1. Seleccione **+ Generate/Import** (+ Generar/Importar) y escriba el **nombre** y el **valor** como la *contraseña* del inicio de sesión de SQL Server.
 1. Seleccione **Crear** para completar la acción.
-1. Si el almacén de claves no está conectado todavía a Purview, necesitará [crear una nueva conexión del almacén de claves](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account).
+1. Si el almacén de claves no está conectado todavía a Purview, necesitará [crear una conexión del almacén de claves](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account).
 1. Por último, [cree una nueva credencial](manage-credentials.md#create-a-new-credential) mediante el **nombre de usuario** y la **contraseña** para configurar el examen.
 
 ## <a name="register-a-sql-server-data-source"></a>Registro de un origen de datos de SQL Server
 
 1. Vaya a la cuenta de Purview.
 
-1. En el panel de navegación izquierdo de Orígenes y análisis, seleccione **Entornos de ejecución de integración**. Asegúrese de que tiene configurado un entorno de ejecución de integración autohospedado. Si no está configurado, siga los pasos que se mencionan [aquí](manage-integration-runtimes.md) para crear un entorno de ejecución de integración autohospedado para realizar exámenes en una VM o una instancia local de Azure que tenga acceso a la red local.
+1. En el panel de navegación izquierdo de Orígenes y análisis, seleccione **Entornos de ejecución de integración**. Asegúrese de que está configurado un entorno de ejecución de integración autohospedado. Si no está configurado, siga los pasos que se mencionan [aquí](manage-integration-runtimes.md) para crear un entorno de ejecución de integración autohospedado para realizar exámenes en una VM o una instancia local de Azure que tenga acceso a la red local.
 
-1. Seleccione **Orígenes** en el panel de navegación izquierdo.
+1. Seleccione **Sources** (Orígenes) en el panel de navegación izquierdo.
 
 1. Seleccione **Registrar**.
 
@@ -111,5 +115,5 @@ Si quiere crear un nuevo inicio de sesión y un usuario para poder examinar el s
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Examinar el catálogo de datos de Azure Purview](how-to-browse-catalog.md)
-- [Búsqueda en Azure Purview Data Catalog](how-to-search-catalog.md)
+- [Examen del catálogo de datos de Azure Purview](how-to-browse-catalog.md)
+- [Búsqueda en el catálogo de datos de Azure Purview](how-to-search-catalog.md)

@@ -16,12 +16,12 @@ ms.date: 04/13/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8bdfb1ca21860f1dc338f85a82caf643f9f7be6d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 31bdfc7e3eca2a2678b75b80973a1680448737d1
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95973208"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507683"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quickstart"></a>Autenticación de paso a través de Azure Active Directory: Guía de inicio rápido
 
@@ -72,7 +72,7 @@ Asegúrese de que se cumplen los siguientes requisitos previos.
      | **8080** (opcional) | Los agentes de autenticación notifican su estado cada diez minutos a través del puerto 8080, si el puerto 443 no está disponible. Este estado se muestra en el portal de Azure AD. El puerto 8080 _no_ se usa para inicios de sesión de usuario. |
      
      Si el firewall fuerza las reglas según los usuarios que las originan, abra estos puertos para el tráfico de servicios de Windows que se ejecutan como un servicio de red.
-   - Si el firewall o el proxy permiten la creación de listas blancas con DNS, agregue conexiones a **\*.msappproxy.net** y **\*.servicebus.windows.net**. En caso contrario, permita el acceso a los [intervalos de direcciones IP del centro de datos de Azure](https://www.microsoft.com/download/details.aspx?id=41653), que se actualizan cada semana.
+   - Si el firewall o proxy le permite agregar entradas DNS a una lista de permitidos, agregue conexiones a **\*.msappproxy.net** y **\*.servicebus.windows.net**. En caso contrario, permita el acceso a los [intervalos de direcciones IP del centro de datos de Azure](https://www.microsoft.com/download/details.aspx?id=41653), que se actualizan cada semana.
    - Los agentes de autenticación necesitan acceder a **login.windows.net** y **login.microsoftonline.com** para el registro inicial. Abra el firewall también para esas direcciones URL.
     - Para la validación de certificados, desbloquee las direcciones URL siguientes: **crl3.digicert.com:80**, **crl4.digicert.com:80**, **ocsp.digicert.com:80**, **www\.d-trust.net:80**, **root-c3-ca2-2009.ocsp.d-trust.net:80**, **crl.microsoft.com:80**, **oneocsp.microsoft.com:80** y **ocsp.msocsp.com:80**. Como estas direcciones URL se utilizan para la validación de certificados con otros productos de Microsoft, es posible que estas direcciones URL ya estén desbloqueadas.
 

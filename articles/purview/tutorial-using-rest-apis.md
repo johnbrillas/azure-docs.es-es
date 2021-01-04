@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/03/2020
-ms.openlocfilehash: 7a2e029fbcc1a26da9c8c8cbff5ee3b9bbb849e0
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 06f738ea88093ea8de45efebea983fd7fa13216e
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928280"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387826"
 ---
 # <a name="tutorial-use-the-rest-apis"></a>Tutorial: Uso de las API REST
 
@@ -113,7 +113,7 @@ Busque y guarde los valores siguientes:
   * En la sección **Administrar** en el panel izquierdo, seleccione **Propiedades**, busque **Id. del inquilino** y, a continuación, el icono **Copiar en el portapapeles** para guardar su valor.
 * Punto de conexión de Atlas:
   * En la [página de cuentas de Azure Purview](https://aka.ms/purviewportal) de Azure Portal, busque y seleccione su cuenta de Azure Purview en la lista.
-  * Seleccione **Información general**, busque **Atlas Endpoint** (Punto de conexión de Atlas) y seleccione el icono **Copiar en el portapapeles** para guardar su valor. Quite la parte *https://* de la cadena cuando la use más adelante.
+  * Seleccione **Propiedades**, busque **Atlas Endpoint** (Punto de conexión de Atlas) y seleccione el icono **Copiar en el portapapeles** para guardar su valor. Quite la parte *https://* de la cadena cuando la use más adelante.
 * Nombre de cuenta:
   * Extraiga el nombre del catálogo de la cadena de punto de conexión de Atlas. Por ejemplo, si el punto de conexión de Atlas es `https://ThisIsMyCatalog.catalog.purview.azure.com`, el nombre de la cuenta es `ThisIsMyCatalog`.
 
@@ -199,6 +199,7 @@ namespace PurviewCatalogSdkTest
         {
             Console.WriteLine("Azure Purview client");
 
+            // You need to change the api path below (e.g. /api) based on what you're trying to call
             string baseUri = string.Format("https://{0}.catalog.purview.azure.com/api", accountName);
 
             // Get token and set auth

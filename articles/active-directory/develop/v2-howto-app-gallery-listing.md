@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 12/02/2020
+ms.date: 12/14/2020
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 396d6f69673f8758d8d1302f8d10b8a92e5f50b4
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 37d9c24d58e0dd9fb10db607ef1b96de0a44eb78
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96530765"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97399373"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Publicación de la aplicación en la galería de aplicaciones de Azure AD
 
@@ -95,8 +95,8 @@ En la tabla siguiente se comparan los estándares principales: Open Authenticati
 | Cierre de sesión único basado en Web| √| √ |
 | Inicio de sesión único basado en dispositivos móviles| √| √* |
 | Cierre de sesión único basado en dispositivos móviles| √| √* |
-| Directivas de acceso condicional para aplicaciones para dispositivos móviles| √| X |
-| Experiencia MFA completa para aplicaciones para dispositivos móviles| √| X |
+| Directivas de acceso condicional para aplicaciones para dispositivos móviles| √| √* |
+| Experiencia MFA completa para aplicaciones para dispositivos móviles| √| √* |
 | Aprovisionamiento de SCIM| √| √ |
 | Acceso a Microsoft Graph| √| X |
 
@@ -178,7 +178,7 @@ Para obtener más información sobre los estándares y las ventajas de SCIM para
 Para obtener más información acerca de la implementación de SCIM de Azure AD, consulte cómo [crear un punto de conexión de SCIM y configurar el aprovisionamiento de usuarios con Azure AD](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups).
 
 ### <a name="implement-scim"></a>Implementación de SCIM
-Azure AD proporciona un [código de referencia](https://aka.ms/scimoverview) para ayudarle a crear un punto de conexión de SCIM. También hay muchas bibliotecas o referencias de terceros disponibles en github.  
+Azure AD proporciona un [código de referencia](https://aka.ms/scimoverview) para ayudarle a crear un punto de conexión de SCIM. También hay muchas bibliotecas o referencias de terceros disponibles en GitHub.  
 
 ## <a name="step-4---create-your-azure-tenant-and-test-your-app"></a>Paso 4: Cree el inquilino de Azure y pruebe la aplicación
 

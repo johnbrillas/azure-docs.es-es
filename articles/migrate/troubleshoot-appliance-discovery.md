@@ -6,12 +6,12 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 26bb61e0c5a473a56c57391b53009419453956fd
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 90abe6bf680f6a186b970631dcd0a42d6d36bf94
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753423"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97511593"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Solución de problemas del dispositivo de Azure Migrate y la detección
 
@@ -41,6 +41,13 @@ Esto puede ocurrir si la máquina del dispositivo está detrás de un proxy.
 - Asegúrese de proporcionar las credenciales de autorización en caso de que el servidor proxy las necesite.
 - Si usa un proxy de firewall basado en dirección URL para controlar la conectividad de salida, agregue [estas direcciones URL](migrate-appliance.md#url-access) a una lista de permitidos.
 - Si usa un servidor proxy de interceptación para conectarse a Internet, importe el certificado del servidor proxy en la máquina virtual del dispositivo mediante [estos pasos](./migrate-appliance.md).
+
+
+## <a name="clicking-on-login-button-opens-a-new-tab-with-no-device-code"></a>Al hacer clic en el botón "Iniciar sesión", se abre una nueva pestaña sin código de dispositivo
+
+Si después de hacer clic en "Iniciar sesión" en el administrador de configuración del dispositivo, se abre una nueva pestaña sin código, vuelva a la pestaña del administrador de configuración del dispositivo y busque el código del dispositivo en negrita debajo del botón "Iniciar sesión", tal y como se muestra en la captura de pantalla siguiente. Copie el código y péguelo en la pestaña de inicio de sesión para autenticarse con Azure.
+
+![Código del dispositivo](./media/troubleshoot-appliance-discovery/code.png)
 
 ## <a name="cant-sign-into-azure-from-the-appliance-web-app"></a>No puede iniciar sesión en Azure desde la aplicación web del dispositivo
 

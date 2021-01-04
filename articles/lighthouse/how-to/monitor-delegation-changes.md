@@ -1,14 +1,14 @@
 ---
 title: Supervisión de los cambios en la delegación en el inquilino de administración
 description: Aprenda a supervisar la actividad de delegación en los inquilinos de clientes o en el inquilino de administración.
-ms.date: 09/08/2020
+ms.date: 12/11/2020
 ms.topic: how-to
-ms.openlocfilehash: 15e96939d4115bd93260687f637143cc798a4331
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8d254c90881d23255dda5c38a868eb61e51b4f08
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91336605"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97356419"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>Supervisión de los cambios en la delegación en el inquilino de administración
 
@@ -181,3 +181,4 @@ Aparecerá una lista de cambios de delegación. Puede seleccionar **Editar colum
 
 - Obtenga información sobre cómo incorporar clientes a [Azure Lighthouse](../concepts/azure-delegated-resource-management.md).
 - Más información sobre [Azure Monitor](../../azure-monitor/index.yml) y el [registro de actividad de Azure](../../azure-monitor/platform/platform-logs-overview.md).
+- Revise el libro de ejemplo [Registros de actividad por dominio](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/workbook-activitylogs-by-domain) para aprender a mostrar los registros de actividad de Azure entre suscripciones con una opción para filtrarlos por nombre de dominio.

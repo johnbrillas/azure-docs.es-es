@@ -3,15 +3,15 @@ title: 'Configuración de la autenticación multifactor de Azure para Windows Vi
 description: Cómo configurar la autenticación multifactor de Azure para mejorar la seguridad de Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 10/20/2020
+ms.date: 12/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 35af8191cfe237175cbd6669797d1744ac3ecd49
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 00aba5d169a05eab25dcc63ca813955e71d09598
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92312647"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97092387"
 ---
 # <a name="enable-azure-multifactor-authentication-for-windows-virtual-desktop"></a>Habilitación de la autenticación multifactor de Azure para Windows Virtual Desktop
 
@@ -40,13 +40,13 @@ Requisitos para poder comenzar:
 Aquí se muestra cómo crear una directiva de acceso condicional que exija autenticación multifactor al conectarse a Windows Virtual Desktop:
 
 1. Inicie sesión en **Azure Portal** como administrador global, administrador de seguridad o administrador de acceso condicional.
-2. Vaya a **Azure Active Directory** > **Seguridad** > **Acceso condicional** .
-3. Seleccione **Nueva directiva** .
+2. Vaya a **Azure Active Directory** > **Seguridad** > **Acceso condicional**.
+3. Seleccione **Nueva directiva**.
 4. Asigne un nombre a la directiva. Se recomienda que las organizaciones creen un estándar significativo para los nombres de sus directivas.
-5. En **Asignaciones** , seleccione **Usuarios y grupos** .
-6. En **Incluir** , haga clic en **Seleccionar usuarios y grupos** > **Usuarios y grupos**  > Seleccionar el grupo creado en la fase de [requisitos previos](#prerequisites).
-7. Seleccione **Listo** .
-8. En **Aplicaciones en la nube o acciones** > **Incluir** , escoger **Seleccionar aplicaciones** .
+5. En **Asignaciones**, seleccione **Usuarios y grupos**.
+6. En **Incluir**, haga clic en **Seleccionar usuarios y grupos** > **Usuarios y grupos**  > Seleccionar el grupo creado en la fase de [requisitos previos](#prerequisites).
+7. Seleccione **Listo**.
+8. En **Aplicaciones en la nube o acciones** > **Incluir**, escoger **Seleccionar aplicaciones**.
 9. Seleccione una de las siguientes aplicaciones en función de la versión de Windows Virtual Desktop que use.
    
    - Si usa Windows Virtual Desktop (clásico), elija estas aplicaciones:
@@ -76,7 +76,7 @@ Aquí se muestra cómo crear una directiva de acceso condicional que exija auten
     > [!div class="mx-imgBorder"]
     > ![Captura de pantalla de la página Aplicaciones cliente. El usuario ha seleccionado la casilla Aplicaciones móviles y aplicaciones de escritorio.](media/select-apply.png)
 
-11. Una vez que haya seleccionado la aplicación, elija **Seleccionar** y, después, seleccione **Listo** .
+11. Una vez que haya seleccionado la aplicación, elija **Seleccionar** y, después, seleccione **Listo**.
 
     > [!div class="mx-imgBorder"]
     > ![Captura de pantalla de la página Aplicaciones en la nube o acciones. Las aplicaciones de Windows Virtual Desktop y Windows Virtual Desktop Client están resaltadas en rojo.](media/cloud-apps-enterprise.png)
@@ -84,10 +84,13 @@ Aquí se muestra cómo crear una directiva de acceso condicional que exija auten
     >[!NOTE]
     >Para buscar el identificador de la aplicación que quiere seleccionar, diríjase a **Aplicaciones empresariales** y seleccione **Aplicaciones de Microsoft** en el menú desplegable Tipo de aplicación.
 
-12. En **Controles de acceso** > **Conceder** , seleccionar **Conceder acceso** , **Requerir autenticación multifactor** y luego **Seleccionar** .
-13. En **Controles de acceso** > **Sesión** , seleccione **Frecuencia de inicio de sesión** , establezca el valor en el tiempo que desee entre solicitudes y, luego, elija **Seleccionar** . Por ejemplo, si establece el valor en **1** y la unidad en **horas** , se requerirá la autenticación multifactor si una conexión se inicia una hora después de la última.
-14. Confirme la configuración y establezca **Habilitar directiva** en **Activado** .
+12. En **Controles de acceso** > **Conceder**, seleccionar **Conceder acceso**, **Requerir autenticación multifactor** y luego **Seleccionar**.
+13. En **Controles de acceso** > **Sesión**, seleccione **Frecuencia de inicio de sesión**, establezca el valor en el tiempo que desee entre solicitudes y, luego, elija **Seleccionar**. Por ejemplo, si establece el valor en **1** y la unidad en **horas**, se requerirá la autenticación multifactor si una conexión se inicia una hora después de la última.
+14. Confirme la configuración y establezca **Habilitar directiva** en **Activado**.
 15. Seleccionar **Crear** para habilitar la directiva.
+
+>[!NOTE]
+>Cuando use el cliente web para iniciar sesión en Windows Virtual Desktop a través del explorador, el registro mostrará el identificador de la aplicación cliente como a85cf173-4192-42f8-81fa-777a763e6e2c (cliente de Windows Virtual Desktop). Esto se debe a que la aplicación cliente está vinculada internamente al identificador de la aplicación del servidor donde se estableció la directiva de acceso condicional. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

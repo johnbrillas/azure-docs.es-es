@@ -1,20 +1,20 @@
 ---
 title: 'Inicio rápido: creación de la primera aplicación web estática con Azure Static Web Apps mediante Azure Portal'
-description: Aprenda a crear una instancia de Azure Static Web Apps con Azure Portal.
+description: Aprenda a implementar un sitio estático en Azure Static Web Apps con Azure Portal.
 services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 09/03/2020
 ms.author: cshoe
-ms.openlocfilehash: b009b34be69e48ae6205cd9ab88d1583ca9c6561
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: aab99721b61ababe218e509ab1078198b5f4152b
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91280576"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97030372"
 ---
-# <a name="quickstart-building-your-first-static-web-app-in-the-azure-portal"></a>Inicio rápido: creación de la primera aplicación web en Azure Portal
+# <a name="quickstart-building-your-first-static-site-in-the-azure-portal"></a>Inicio rápido: creación del primer sitio estático en Azure Portal
 
 Azure Static Web Apps publica sitios web en entornos de producción mediante la creación de aplicaciones desde un repositorio de GitHub. En este inicio rápido, se implementa una aplicación web en Azure Static Web Apps mediante Azure Portal.
 
@@ -51,7 +51,7 @@ En la sección _Aspectos básicos_, configure la nueva aplicación y vincúlela 
 
 Tras iniciar sesión con GitHub, escriba la información del repositorio.
 
-:::image type="content" source="media/getting-started-portal/repository-details.png" alt-text="Sección Aspectos básicos":::
+:::image type="content" source="media/getting-started-portal/repository-details.png" alt-text="Detalles del repositorio":::
 
 1. Seleccione su _organización_ preferida.
 1. Seleccione **my-first-web-static-app** en el menú desplegable _Repositorio_.
@@ -94,18 +94,18 @@ Tras iniciar sesión con GitHub, escriba la información del repositorio.
 
 1. Seleccione **Revisar + crear**.
 
-    :::image type="content" source="media/getting-started-portal/review-create.png" alt-text="Sección Aspectos básicos":::
+    :::image type="content" source="media/getting-started-portal/review-create.png" alt-text="Botón Revisar y crear":::
 
     > [!NOTE]
     > Puede editar el [archivo de flujo de trabajo](github-actions-workflow.md) para cambiar estos valores después de crear la aplicación.
 
 1. Seleccione **Crear**.
 
-    :::image type="content" source="media/getting-started-portal/create-button.png" alt-text="Sección Aspectos básicos":::
+    :::image type="content" source="media/getting-started-portal/create-button.png" alt-text="Botón Crear":::
 
 1. Seleccione **Ir al recurso**.
 
-    :::image type="content" source="media/getting-started-portal/resource-button.png" alt-text="Sección Aspectos básicos":::
+    :::image type="content" source="media/getting-started-portal/resource-button.png" alt-text="Botón Ir al recurso":::
 
 [!INCLUDE [view website](../../includes/static-web-apps-get-started-view-website.md)]
 

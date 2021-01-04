@@ -3,12 +3,12 @@ title: Direcciones IP que emplean Application Insights y Log Analytics | Microso
 description: Excepciones para el firewall del servidor requeridas por Application Insights
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.openlocfilehash: 10328efa9b8b9cdbe1e57e1e982653aea7e39574
-ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
+ms.openlocfilehash: a8d2ce28414a80f26218b0d2f3b5c5c2b7c3b301
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96748882"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97094376"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Direcciones IP que emplean Application Insights y Log Analytics
 El servicio [Azure Application Insights](./app-insights-overview.md) usa diversas direcciones IP. Quizás deba conocer estas direcciones si la aplicación que está supervisando se hospeda bajo el amparo de un firewall.
@@ -174,14 +174,33 @@ East US
 20.42.35.112/28
 20.42.35.128/28
 
-Azure US Government (Not needed if you are an Azure Public cloud customer)
-
-20.140.48.160/27
-20.140.56.160/27
-20.140.64.160/27
-20.140.72.160/27
-52.127.49.96/27
 ```  
+
+#### <a name="azure-government"></a>Azure Government
+
+No es necesario si es un cliente de la nube pública de Azure.
+
+```
+USGov Virginia
+52.227.229.80/31
+
+
+USGov Arizona
+52.244.35.112/31
+
+
+USGov Texas
+52.243.157.80/31
+
+
+USDoD Central
+52.182.23.96/31
+
+
+USDoD East
+52.181.33.96/31
+
+```
 
 ## <a name="application-insights--log-analytics-apis"></a>API de Application Insights y Log Analytics
 

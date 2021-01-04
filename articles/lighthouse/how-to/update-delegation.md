@@ -3,12 +3,12 @@ title: Actualización de una delegación
 description: Obtenga información sobre cómo actualizar una delegación para un cliente previamente incorporado a Azure Lighthouse.
 ms.date: 12/03/2020
 ms.topic: how-to
-ms.openlocfilehash: 90827281ac9b05105700298494af0b60b0fa511f
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: e204d1f3546e6e978f91c7e808065a388a4af4b3
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96610882"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093424"
 ---
 # <a name="update-a-delegation"></a>Actualización de una delegación
 
@@ -17,7 +17,7 @@ Una vez que haya incorporado una suscripción (o un grupo de recursos) a Azure L
 > [!TIP]
 > Aunque en este tema nos referiremos a los proveedores de servicios y clientes, las [empresas que administren varios inquilinos](../concepts/enterprise.md) pueden usar el mismo proceso para configurar Azure Lighthouse y consolidar su experiencia de administración.
 
-Si ha [incorporado el cliente a través de plantillas de Azure Resource Manager (ARM)](onboard-customer.md), se debe realizar una nueva implementación para ese cliente. En función de lo que esté cambiando, puede actualizar la oferta original, o bien quitarla y crear una nueva.
+Si ha [incorporado el cliente a través de plantillas de Azure Resource Manager](onboard-customer.md), se debe realizar una nueva implementación para ese cliente. En función de lo que esté cambiando, puede actualizar la oferta original, o bien quitarla y crear una nueva.
 
 - **Si solo está cambiando las autorizaciones**: para actualizar la delegación, puede cambiar solo la sección de **autorizaciones** de la plantilla de ARM.
 - **Si está cambiando el inquilino de administración**: debe crear una nueva plantilla de ARM con un valor de **mspOfferName** diferente al de la oferta anterior.

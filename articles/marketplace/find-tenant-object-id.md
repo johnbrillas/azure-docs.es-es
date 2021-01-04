@@ -6,12 +6,12 @@ ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 10/09/2020
-ms.openlocfilehash: db09943085cb7934bca5d7f2dc24ba692613ee19
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 2b1ba0779649c4955987c7dae9802cefaba89b79
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426906"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109353"
 ---
 # <a name="find-tenant-id-object-id-and-partner-association-details"></a>Búsqueda del id. de inquilino, el id. de objeto y los detalles de la asociación de asociados
 
@@ -29,13 +29,13 @@ Si necesita obtener capturas de pantallas de estos elementos en Azure Cloud Shel
 
     :::image type="content" source="media/tenant-and-object-id/icon-azure-ad.png" alt-text="Icono de Azure Active Directory en Azure Portal.":::
 
-3. Seleccione **Grupos**. El id. de inquilino se encuentra en el cuadro de **Información del inquilino**.
+3. Seleccione **Información general**. El identificador de inquilino debe aparecer en **Información básica**.
 
     :::image type="content" source="media/tenant-and-object-id/select-groups-1.png" alt-text="Seleccione los grupos en Azure Portal.":::
 
 ## <a name="find-subscriptions-and-roles"></a>Búsqueda de suscripciones y roles
 
-1. Vaya a Azure Portal y seleccione **Azure Active Directory** , tal como se indicó en los pasos 1 y 2 anteriores.
+1. Vaya a Azure Portal y seleccione **Azure Active Directory**, tal como se indicó en los pasos 1 y 2 anteriores.
 2. Seleccione **Suscripciones**.
 
     :::image type="content" source="media/tenant-and-object-id/icon-azure-subscriptions-1.png" alt-text="Icono de suscripciones en Azure Portal.":::
@@ -48,7 +48,7 @@ Si necesita obtener capturas de pantallas de estos elementos en Azure Cloud Shel
 
 1. Vaya a la página de suscripciones tal y como se describe en la sección anterior.
 2. Seleccione una suscripción.
-3. En **Facturación** , seleccione **Información sobre el asociado**.
+3. En **Facturación**, seleccione **Información sobre el asociado**.
 
     :::image type="content" source="media/tenant-and-object-id/menu-partner-information.png" alt-text="Información del asociado en el menú de navegación izquierdo.":::
 
@@ -62,7 +62,7 @@ Si necesita obtener capturas de pantallas de estos elementos en Azure Cloud Shel
 
     :::image type="content" source="media/tenant-and-object-id/azure-ad-admin-center.png" alt-text="Centro de administración de Azure Active Directory.":::
 
-6. Para buscar las **asignaciones de roles** , seleccione el **Control de acceso (IAM)** en el menú de la izquierda y, a continuación, **Asignación de roles**.
+6. Para buscar las **asignaciones de roles**, seleccione el **Control de acceso (IAM)** en el menú de la izquierda y, a continuación, **Asignación de roles**.
 
     :::image type="content" source="https://docs.microsoft.com/azure/role-based-access-control/media/role-assignments-portal/role-assignments.png" alt-text="Asignaciones de roles para los recursos de Azure.":::
 

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 11/19/2020
+ms.date: 12/14/2020
 ms.reviewer: arvinh
-ms.openlocfilehash: e0a77e1e4757c8951756c3e41479628c293dfd8f
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 78e9d7355b8c96295456f8aa9cb80b1d3bdd2fab
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96174839"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509553"
 ---
 # <a name="known-issues-application-provisioning"></a>Problemas conocidos: Aprovisionamiento de aplicaciones
 Problemas conocidos que se deben tener en cuenta al trabajar con el aprovisionamiento de aplicaciones. Puede proporcionar comentarios sobre el servicio de aprovisionamiento de aplicaciones en UserVoice; vea [Aprovisionamiento de aplicaciones de Azure AD en UserVoice](https://aka.ms/appprovisioningfeaturerequest). Supervisamos UserVoice muy de cerca para poder mejorar el servicio. 
@@ -57,6 +57,10 @@ Azure AD actualmente no puede aprovisionar atributos NULL. Si un atributo es NU
 
 Las expresiones de asignación de atributos pueden tener un máximo de 10 000 caracteres. 
 
+**Filtros de ámbito no admitidos**
+
+No se admiten extensiones de directorios, appRoleAssignments, userType y accountExpires como filtros de ámbito.
+
 
 ## <a name="service-issues"></a>Problemas de servicio 
 
@@ -64,7 +68,8 @@ Las expresiones de asignación de atributos pueden tener un máximo de 10 000 
 
 - No se admite el aprovisionamiento de contraseñas. 
 - No se admite el aprovisionamiento de grupos anidados. 
-- No se admite el aprovisionamiento de inquilinos B2C debido al tamaño de los inquilinos. 
+- No se admite el aprovisionamiento de inquilinos B2C debido al tamaño de los inquilinos.
+- No todas las aplicaciones de aprovisionamiento están disponibles en todas las nubes. Por ejemplo, Atlassian aún no está disponible en la nube de administración pública. Estamos trabajando para que los desarrolladores de aplicaciones incorporen sus aplicaciones a todas las nubes.
 
 **El aprovisionamiento automático no está disponible en mi aplicación basada en OIDC**
 

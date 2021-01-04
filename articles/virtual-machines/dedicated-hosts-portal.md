@@ -5,25 +5,19 @@ author: cynthn
 ms.service: virtual-machines
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 09/04/2020
+ms.date: 12/07/2020
 ms.author: cynthn
-ms.openlocfilehash: a6bef4944207e26f2de93daa89fa1418c5c44c4f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b166363a8c64a4a4c5d34efa55dcaefa09d6df49
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91373049"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007949"
 ---
 # <a name="deploy-vms-and-scale-sets-to-dedicated-hosts-using-the-portal"></a>Implementación de máquinas virtuales y conjuntos de escalado en hosts dedicados mediante el portal 
 
 En este artículo se ofrecen instrucciones para crear un [host dedicado](dedicated-hosts.md) de Azure en el que se pueden hospedar máquinas virtuales (VM). 
 
-
-> [!IMPORTANT]
-> En este artículo también se describe la selección de ubicación automática de las instancias de máquinas virtuales y conjuntos de escalado. Actualmente, la selección de ubicación automática está en versión preliminar pública.
-> Para participar en la versión preliminar, complete la encuesta de incorporación de la versión preliminar en [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview).
-> Para acceder a la característica en versión preliminar en Azure Portal, debe usar esta dirección URL: [https://aka.ms/vmssadh](https://aka.ms/vmssadh).
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="limitations"></a>Limitaciones
 
@@ -42,7 +36,7 @@ También puede usar zonas de disponibilidad y dominios de error a la vez.
 En este ejemplo, se creará un grupo host con una zona de disponibilidad y dos dominios de error. 
 
 
-1. Abra el [portal](https://portal.azure.com). Si desea probar la versión preliminar de la **Selección de ubicación automática**, use esta dirección URL: [https://aka.ms/vmssadh](https://aka.ms/vmssadh).
+1. Abra el [portal](https://portal.azure.com). 
 1. Seleccione **Crear un recurso** en la esquina superior izquierda.
 1. Busque el **grupo host** y, a continuación, seleccione los **grupos host** en los resultados.
 1. En la página de los **grupos host**, seleccione **Crear**.
@@ -52,7 +46,7 @@ En este ejemplo, se creará un grupo host con una zona de disponibilidad y dos d
 1. En **Ubicación**, seleccione **Este de EE.UU.**
 1. Para la **zona de disponibilidad**, seleccione **1**.
 1. En el **recuento de dominios de error**, seleccione **2**.
-1. Si ha usado la dirección URL de la **Selección de ubicación automática**, seleccione esta opción para asignar automáticamente las instancias de máquinas virtuales y conjuntos de escalado a un host disponible de este grupo.
+1. Seleccione **Selección de ubicación automática** para asignar automáticamente las instancias de máquinas virtuales y conjuntos de escalado a un host disponible de este grupo.
 1. Seleccione **Revisar y crear** y, a continuación, espere a la confirmación.
 1. Cuando reciba el mensaje de **Validación superada**, seleccione **Crear** para crear el grupo host.
 
@@ -86,25 +80,14 @@ Si establece un número de dominios de error para el grupo host, se le pedirá q
 1. En **Opciones de disponibilidad**, seleccione **Zona de disponibilidad** y seleccione *1* en la lista desplegable.
 1. En cuanto al tamaño, seleccione **Cambiar tamaño**. En la lista de tamaños disponibles, elija uno de la serie Esv3, como **Standard E2s v3**. Es posible que tenga que borrar el filtro para poder ver todos los tamaños disponibles.
 1. Complete el resto de los campos de la pestaña **Básico** según sea necesario.
-1. En la parte superior de la página, seleccione la pestaña **Opciones avanzadas** y, en la sección **Host**, seleccione *myHostGroup* en **Grupo host** y *myHost* en **Host**. 
+1. Si desea especificar qué host utilizar para la máquina virtual, en la parte superior de la página, seleccione la pestaña **Opciones avanzadas** y, en la sección **Host**, seleccione *myHostGroup* en **Grupo host** y *myHost* en **Host**. Si no lo hace, la máquina virtual se colocará automáticamente en un host con capacidad.
     ![Selección del grupo host y el host](./media/dedicated-hosts-portal/advanced.png)
 1. Deje los valores predeterminados restantes y luego seleccione el botón **Revisar + crear** en la parte inferior de la página.
 1. Cuando vea el mensaje en el que se indica que la validación se ha realizado correctamente, seleccione **Crear**.
 
 La implementación de la máquina virtual tardará unos minutos.
 
-## <a name="create-a-scale-set-preview"></a>Creación de un conjunto de escalado (versión preliminar)
-
-> [!IMPORTANT]
-> Virtual Machine Scale Sets en hosts dedicados se encuentra actualmente en versión preliminar pública.
->
-> Para participar en la versión preliminar, complete la encuesta de incorporación de la versión preliminar en [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview).
->
-> Para acceder a la característica en versión preliminar en Azure Portal, debe usar esta dirección URL: [https://aka.ms/vmssadh](https://aka.ms/vmssadh).
->
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. 
->
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+## <a name="create-a-scale-set"></a>Creación de un conjunto de escalado 
 
 Cuando se implementa un conjunto de escalado, se especifica el grupo host.
 

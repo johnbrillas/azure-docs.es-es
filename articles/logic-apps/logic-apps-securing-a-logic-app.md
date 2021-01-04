@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 11/05/2020
-ms.openlocfilehash: 331c55a9f7a489aa58f9d3add7303dc18917215d
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.date: 12/08/2020
+ms.openlocfilehash: cdaa054559be9db52eeef6f3aaa0f86ccf84206f
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331947"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922947"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteger el acceso y los datos en Azure Logic Apps
 
@@ -199,7 +199,7 @@ Para habilitar Azure AD OAuth para la aplicación lógica en Azure Portal, siga
    | Propiedad | Obligatorio | Descripción |
    |----------|----------|-------------|
    | **Nombre de directiva** | Sí | El nombre que quiere usar para la directiva de autorización. |
-   | **Notificaciones** | Sí | Los tipos de notificaciones y los valores que acepta la aplicación lógica de las llamadas entrantes. El valor de la notificación está limitado a 80 caracteres. Estos son los tipos de notificaciones disponibles: <p><p>- **Emisor** <br>- **Audiencia** <br>- **Subject** (Asunto) <br>- **JWT ID** (Id. de JWT) (identificador de token web de JSON) <p><p>Como mínimo, la lista **Notificaciones** debe incluir la notificación de **Emisor**, que tiene un valor que comienza por `https://sts.windows.net/` o `https://login.microsoftonline.com/` como identificador de emisor de Azure AD. Para más información sobre estos tipos de notificaciones, consulte [Notificaciones de tokens de seguridad de Azure AD](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). También puede especificar su propio tipo de notificaciones y valor. |
+   | **Notificaciones** | Sí | Los tipos de notificaciones y los valores que acepta la aplicación lógica de las llamadas entrantes. El valor de la notificación está limitado a un [número máximo de caracteres](logic-apps-limits-and-config.md#authentication-limits). Estos son los tipos de notificaciones disponibles: <p><p>- **Emisor** <br>- **Audiencia** <br>- **Subject** (Asunto) <br>- **JWT ID** (Id. de JWT) (identificador de token web de JSON) <p><p>Como mínimo, la lista **Notificaciones** debe incluir la notificación de **Emisor**, que tiene un valor que comienza por `https://sts.windows.net/` o `https://login.microsoftonline.com/` como identificador de emisor de Azure AD. Para más información sobre estos tipos de notificaciones, consulte [Notificaciones de tokens de seguridad de Azure AD](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). También puede especificar su propio tipo de notificaciones y valor. |
    |||
 
 1. Para agregar otra notificación, seleccione una de estas opciones:

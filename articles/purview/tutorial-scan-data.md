@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: 802b7d2ca5d96bf385c4b8f0ee0cdaa3db181a1c
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: feda969a5818402f4a5f2dadc80c70c324ad7492
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96922569"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97559971"
 ---
 # <a name="tutorial-scan-data-with-azure-purview-preview"></a>Tutorial: Examen de datos con Azure Purview (versión preliminar)
 
@@ -146,10 +146,11 @@ Una vez completada la configuración del catálogo, ejecute los siguientes scrip
 
    Al ejecutar el comando, puede aparecer una ventana emergente para que inicie sesión con sus credenciales de Azure Active Directory.
 
-1. Use el siguiente comando para ejecutar el Starter Kit. Reemplace los marcadores de posición `CatalogName`, `TenantID`, `SubscriptionID`, `newresourcegroupname` y `CatalogResourceGroupName`. En `newresourcegroupname`, use un nombre único para el grupo de recursos que contendrá el patrimonio de datos.
 
-> [!IMPORTANT]
-> El **nuevonmbredegrupoderecursos** usa solo números y letras minúsculas y debe tener menos de 17 caracteres. **No se permiten alfabetos en mayúsculas ni caracteres especiales.** Esta restricción proviene de las reglas de nomenclatura de la cuenta de almacenamiento.
+1. Use el siguiente comando para ejecutar el Starter Kit. Reemplace los marcadores de posición `CatalogName`, `TenantID`, `SubscriptionID`, `NewResourceGroupName` y `CatalogResourceGroupName`. Para `NewResourceGroupName`, use un nombre único (solo con caracteres alfanuméricos en minúscula) para el grupo de recursos que contendrá el patrimonio de datos.
+
+   > [!IMPORTANT]
+   > El **nuevonmbredegrupoderecursos** usa solo números y letras minúsculas y debe tener menos de 17 caracteres. **No se permiten alfabetos en mayúsculas ni caracteres especiales.** Esta restricción proviene de las reglas de nomenclatura de la cuenta de almacenamiento.
 
    ```powershell
    .\RunStarterKit.ps1 -CatalogName <CatalogName> -TenantId <TenantID>`

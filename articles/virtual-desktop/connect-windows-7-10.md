@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c9da2acac0957d7fe06d0249775fbed73b5f458d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 59379dd9c3a41729466de269b52dfd3fb206eea9
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91287345"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368722"
 ---
 # <a name="connect-with-the-windows-desktop-client"></a>Conexión con el cliente de Escritorio de Windows
 
@@ -69,3 +69,5 @@ Hay dos maneras de suscribirse a un área de trabajo. El cliente puede intentar 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre cómo usar el cliente de escritorio de Windows, consulte [Introducción al cliente de escritorio de Windows](/windows-server/remote/remote-desktop-services/clients/windowsdesktop/).
+
+Si es un administrador que está interesado en obtener información más detallada sobre cómo usar el escritorio de Windows, consulte [Cliente de escritorio de Windows para administradores](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-admin).

@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: mlearned
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: b6aa0a1bd14072e6ea4ea42004209f332f46a2d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dec41f1b9de6920338360edeb18b9878a8c86432
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91856082"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588937"
 ---
 # <a name="create-a-cicd-pipeline-for-python-with-azure-devops-starter"></a>Creación de una canalización de CI/CD para Python con Azure DevOps Starter
 
@@ -69,7 +69,7 @@ DevOps Starter crea un repositorio de Git en Azure Repos o GitHub. Para ver el r
 
 1. En el lado izquierdo del panel de DevOps Starter, seleccione el vínculo de la rama maestra. Este vínculo abre una vista al repositorio de Git recién creado.
 
-1. Para ver la dirección URL de clonación del repositorio, seleccione **Clonar** en la parte superior derecha del explorador. Puede clonar el repositorio de Git en su IDE favorito. En los pasos siguientes, puede usar el explorador web para realizar los cambios en el código y confirmarlos directamente en la rama maestra.
+1. Para ver la dirección URL de clonación del repositorio, seleccione **Clonar** en la parte superior derecha del explorador. Puede clonar el repositorio de Git en su IDE favorito. En los pasos siguientes, puede usar el explorador web para realizar cambios en el código y confirmarlos directamente en la rama maestra.
 
 1. En el lado izquierdo, vaya al archivo **app/templates/app/index.html**.
 

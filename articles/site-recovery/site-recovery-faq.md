@@ -4,12 +4,12 @@ description: En este artículo se analizan las preguntas generales más frecuent
 ms.topic: conceptual
 ms.date: 7/14/2020
 ms.author: raynew
-ms.openlocfilehash: 3da86eead5b927a2a71d7b1a28bc5966bf5f8840
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: add5874dc828f05c7c51f0f378988c94cbd42486
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369444"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109562"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Preguntas generales acerca de Azure Site Recovery
 
@@ -117,7 +117,7 @@ Los agentes de Mobility instalados en los elementos replicados se comunican con 
 Todas las comunicaciones entre los microservicios de Azure Site Recovery se producen en el protocolo TLS 1.2. Site Recovery usa proveedores de seguridad configurados en el sistema (SO) y utiliza el protocolo TLS más reciente disponible. Habrá que habilitar explícitamente TLS 1.2 en el Registro y entonces Site Recovery comenzará a utilizar TLS 1.2 para la comunicación con los servicios. 
 
 ### <a name="how-can-i-enforce-restricted-access-on-my-storage-accounts-which-are-accessed-by-site-recovery-service-for-readingwriting-replication-data"></a>¿Cómo se puede aplicar el acceso restringido a las cuentas de almacenamiento, a las que se accede con Site Recovery para leer o escribir datos de replicación?
-Puede cambiar a la identidad administrada del almacén de Recovery Services desde la opción *Identidad* . Una vez que el almacén se registra en Azure Active Directory, puede ir a las cuentas de almacenamiento y proporcionar las siguientes asignaciones de roles al almacén:
+Puede cambiar a la identidad administrada del almacén de Recovery Services desde la opción *Identidad*. Una vez que el almacén se registra en Azure Active Directory, puede ir a las cuentas de almacenamiento y proporcionar las siguientes asignaciones de roles al almacén:
 
 - Cuentas de almacenamiento basadas en Resource Manager (tipo Estándar):
   - [Colaborador](../role-based-access-control/built-in-roles.md#contributor)
@@ -132,10 +132,10 @@ Puede cambiar a la identidad administrada del almacén de Recovery Services desd
 ## <a name="disaster-recovery"></a>Recuperación ante desastres
 
 ### <a name="what-can-site-recovery-protect"></a>¿Qué se puede proteger con Site Recovery?
-* **Máquinas virtuales de Azure** : Site Recovery puede replicar cualquier carga de trabajo que se ejecute en una máquina virtual de Azure compatible.
-* **Máquinas virtuales de Hyper-V** : Site Recovery puede proteger cualquier carga de trabajo que se ejecute en una máquina virtual de Hyper-V.
-* **Servidores físicos** : Site Recovery puede proteger servidores físicos con Windows o Linux.
-* **Máquinas virtuales de VMware** : Site Recovery puede proteger cualquier carga de trabajo que se ejecute en una máquina virtual de VMware.
+* **Máquinas virtuales de Azure**: Site Recovery puede replicar cualquier carga de trabajo que se ejecute en una máquina virtual de Azure compatible.
+* **Máquinas virtuales de Hyper-V**: Site Recovery puede proteger cualquier carga de trabajo que se ejecute en una máquina virtual de Hyper-V.
+* **Servidores físicos**: Site Recovery puede proteger servidores físicos con Windows o Linux.
+* **Máquinas virtuales de VMware**: Site Recovery puede proteger cualquier carga de trabajo que se ejecute en una máquina virtual de VMware.
 
 ### <a name="what-workloads-can-i-protect-with-site-recovery"></a>¿Qué cargas de trabajo se pueden proteger con Site Recovery?
 Puede usar Site Recovery para proteger la mayoría de las cargas de trabajo que se ejecutan en una máquina virtual o un servidor físico. Site Recovery proporciona compatibilidad para la replicación con reconocimiento de aplicaciones para que estas se puedan recuperar a un estado inteligente. Se integra con aplicaciones de Microsoft como SharePoint, Exchange, Dynamics, SQL Server y Active Directory; además, colabora estrechamente con los principales proveedores, como Oracle, SAP, IBM y Red Hat. [Obtenga más información](site-recovery-workload.md) acerca de la protección de la carga de trabajo.
@@ -273,6 +273,9 @@ Los puntos de recuperación coherentes con la aplicación se crean a partir de i
 
 Debido a su contenido adicional, las instantáneas coherentes con la aplicación son las más complejas y las que más tardan. Se recomiendan puntos de recuperación coherentes con la aplicación para sistemas operativos de bases de datos y aplicaciones como SQL Server.
 
+>[!Note]
+>Se produce un error en la creación de puntos de recuperación coherentes con la aplicación en la máquina Windows si tiene más de 64 volúmenes.
+
 ### <a name="what-is-the-impact-of-application-consistent-recovery-points-on-application-performance"></a>¿Cómo afectan los puntos de recuperación coherentes con la aplicación en el rendimiento de la aplicación?
 
 Los puntos de recuperación coherentes con la aplicación capturan todos los datos en memoria y en curso. Como los puntos de recuperación capturan esas datos, requieren un marco como el Servicio de instantáneas de volumen de Windows para poner en modo inactivo la aplicación. Si el proceso de captura es frecuente, puede afectar al rendimiento cuando la carga de trabajo ya está ocupada. No se recomienda usar baja frecuencia con los puntos de recuperación coherentes con la aplicación en cargas de trabajo que no son de base de datos. Incluso con cargas de trabajo de base de datos, 1 hora es suficiente.
@@ -304,7 +307,7 @@ No, Site Recovery mantendrá todos los puntos de recuperación anteriores. En fu
 
 ### <a name="after-replication-is-enabled-on-a-vm-how-do-i-change-the-replication-policy"></a>Después de habilitar la replicación en una máquina virtual, ¿cómo puedo cambiar la directiva de replicación?
 
-Vaya a **Almacén de Site Recovery** > **Site Recovery Infrastructure (Infraestructura de Site Recovery)**  > **Directivas de replicación** . Seleccione la directiva que quiera editar y guarde los cambios. Todos los cambios se aplicarán también en todas las replicaciones existentes.
+Vaya a **Almacén de Site Recovery** > **Site Recovery Infrastructure (Infraestructura de Site Recovery)**  > **Directivas de replicación**. Seleccione la directiva que quiera editar y guarde los cambios. Todos los cambios se aplicarán también en todas las replicaciones existentes.
 
 ### <a name="are-all-the-recovery-points-a-complete-copy-of-the-vm-or-a-differential"></a>¿Todos los puntos de recuperación son una copia completa de la máquina virtual o diferencial?
 

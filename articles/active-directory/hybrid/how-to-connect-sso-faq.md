@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f757d8f59c06d573d71099941530dfc28174ac42
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 9a3e2dd1ac58c89060fc3e09e97617cb2a68d8ac
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420496"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97094580"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Inicio de sesión único de conexión directa de Azure Active Directory: Preguntas más frecuentes
 
@@ -82,6 +82,9 @@ Es importante implementar con frecuencia la clave de descifrado de Kerberos de l
 >Se recomienda implementar la clave de descifrado de Kerberos al menos cada 30 días.
 
 Siga estos pasos en el servidor local donde se ejecuta Azure AD Connect:
+
+   > [!NOTE]
+   >Para seguir estos pasos, necesitará credenciales de administrador de dominio y de administrador global.
 
    **Paso 1. Obtención de la lista de bosques de AD en los que se habilitó SSO de conexión directa**
 

@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: 47377817b62d33e8af79e4a0d2dceb68ba9dbdc5
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 83e9a96573bbc72e0afff61cc0f151f95b081e30
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658654"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97031586"
 ---
 # <a name="azure-firewall-service-tags"></a>Etiquetas de servicio de Azure Firewall
 
@@ -22,7 +22,7 @@ Las etiquetas de servicio de Azure Firewall se pueden usar en el campo de destin
 
 ## <a name="supported-service-tags"></a>Etiquetas de servicio admitidas
 
-Consulte los [grupos de seguridad](../virtual-network/network-security-groups-overview.md#service-tags) para obtener una lista de etiquetas de servicio que están disponibles para su uso en las reglas de red del firewall de Azure.
+Consulte [Etiquetas de servicio de red virtual](../virtual-network/service-tags-overview.md#available-service-tags) para obtener una lista de etiquetas de servicio que están disponibles para su uso en las reglas de red del firewall de Azure.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

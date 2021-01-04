@@ -3,12 +3,12 @@ title: Introducción a Azure Notebooks (versión preliminar)
 description: Ejecute cuadernos de Jupyter Notebook en la nube mediante el servicio gratuito Azure Notebooks (versión preliminar), donde no se requiere realizar ninguna configuración.
 ms.topic: overview
 ms.date: 04/05/2019
-ms.openlocfilehash: d59faaf85a1fdbad776e954e974bafa300f93d85
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 7e622bdef785085384395bb0c8ac3efba2b2053a
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94845142"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400289"
 ---
 # <a name="overview-of-azure-notebooks-preview"></a>Introducción a Azure Notebooks (versión preliminar)
 
@@ -16,7 +16,7 @@ ms.locfileid: "94845142"
 
 Azure Notebooks es un servicio hospedado gratuito para desarrollar y ejecutar cuadernos de Jupyter Notebook en la nube sin necesidad de instalación. [Jupyter](https://jupyter.org/) (anteriormente IPython) es un proyecto de código abierto que permite combinar fácilmente texto Markdown, código ejecutable y datos, gráficos y visualizaciones persistentes en un único lienzo que se puede compartir, denominado el *cuaderno* (imagen cortesía de jupyter.org):
 
-[![Ejemplos de Jupyter Notebooks](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
+[![Ejemplos de cuadernos de Jupyter Notebooks](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
 
 Debido a esta potente combinación de código, gráficos y texto explicativo, el uso de Jupyter se ha extendido en escenarios como la instrucción de ciencia de datos, la limpieza y transformación de datos, la simulación numérica, el modelado estadístico y el desarrollo de modelos de aprendizaje automático.
 
@@ -49,7 +49,7 @@ En resumen, Azure Notebooks le ayuda a realizar su trabajo de forma más eficaz 
 
 Azure Notebooks es un servicio gratuito, pero cada proyecto está limitado a 4 GB de memoria y 1 GB de datos para evitar el uso abusivo. Los usuarios legítimos que superan estos límites ven un desafío Captcha para continuar ejecutando cuadernos.
 
-Para liberar todos los límites, inicie sesión en Azure Notebooks con una cuenta con Azure Active Directory (por ejemplo, una cuenta corporativa). Si esa cuenta está asociada a una suscripción de Azure, puede conectarse a cualquier instancia de Azure Data Science Virtual Machine de esa suscripción. Para más información, consulte [Administración y configuración de proyectos: nivel de proceso](configure-manage-azure-notebooks-projects.md#compute-tier).
+Para liberar todos los límites, inicie sesión en Azure Notebooks con una cuenta con Azure Active Directory (por ejemplo, una cuenta corporativa). Si esa cuenta está asociada a una suscripción de Azure, puede conectarse a cualquier instancia de Azure Data Science Virtual Machine de esa suscripción. 
 
 Se garantiza que los servidores de cuadernos existen durante un máximo de 8 horas. En la mayoría de los casos, el contenedor no está sujeto a esta limitación y su ejecución no se detiene después de dicho intervalo, pero de vez en cuando es posible que las sesiones de larga duración se cierren para preservar la estabilidad del sistema.
 
@@ -65,7 +65,7 @@ Para cada cuaderno, seleccione el kernel (es decir, el entorno en tiempo de ejec
 
 Azure Notebooks también incluye paquetes adicionales a las distribuciones base. Los kernels de Python, por ejemplo, incluyen las bibliotecas numpy, pandas, scikit-learn, matplotlib y bokeh.
 
-También puede personalizar un proyecto para crear un entorno para todos los cuadernos de ese proyecto. Para más información, consulte [Inicio rápido: Creación de un proyecto con un entorno personalizado](quickstart-create-jupyter-notebook-project-environment.md).
+También puede personalizar un proyecto para crear un entorno para todos los cuadernos de ese proyecto.
 
 Además de las distribuciones base, Azure Notebooks viene preinstalado con muchos paquetes adicionales que son útiles para los científicos de datos. También puede instalar sus propios paquetes mediante el proceso típico para cada lenguaje.
 
@@ -73,7 +73,7 @@ Además de las distribuciones base, Azure Notebooks viene preinstalado con mucho
 
 Azure Notebooks está preconfigurado con las siguientes extensiones de Jupyter:
 
-- [RISE](https://github.com/damianavila/RISE): una extensión de presentación de Jupyter (también conocida como live_reveal). Para más información, consulte [Run a notebook slideshow](present-jupyter-notebooks-slideshow.md) (Ejecución de una presentación de cuaderno).
+- [RISE](https://github.com/damianavila/RISE): una extensión de presentación de Jupyter (también conocida como live_reveal).
 - [JupyterLab](https://github.com/jupyterlab/jupyterlab): un completo entorno de cálculo para trabajar con cuadernos de Jupyter Notebook.
 - [Altair](https://github.com/ellisonbg/altair): una biblioteca de visualización estadísticas declarativa para Python.
 - [BQPlot](https://github.com/bloomberg/bqplot): una plataforma de trazado interactiva para cuadernos de Jupyter Notebook.
@@ -89,26 +89,7 @@ Para plantear sus preguntas sobre Azure Notebooks, registre un problema en el [r
 
 ## <a name="next-steps"></a>Pasos siguientes  
 
-- [Exploración de cuadernos de ejemplo](azure-notebooks-samples.md)
-
 - Guías de inicio rápido:
 
-  - [Creación y uso compartido de un cuaderno](quickstart-create-share-jupyter-notebook.md)
-  - [Clonación de un cuaderno](quickstart-clone-jupyter-notebook.md)
-  - [Migración de un cuaderno de Jupyter Notebook local](quickstart-migrate-local-jupyter-notebook.md)
-  - [Uso de un entorno personalizado](quickstart-create-jupyter-notebook-project-environment.md)
   - [Inicio de sesión y establecimiento de un identificador de usuario](quickstart-sign-in-azure-notebooks.md)
-
-- Tutoriales:
-
-  - [Creación y ejecución de un cuaderno](tutorial-create-run-jupyter-notebook.md  )
-
-- Artículos de procedimientos:
-  
-  - [Creación y clonación de proyectos](create-clone-jupyter-notebooks.md)
-  - [Configuración y administración de proyectos](configure-manage-azure-notebooks-projects.md)
-  - [Instalación de paquetes en un cuaderno](install-packages-jupyter-notebook.md)
-  - [Presentación](present-jupyter-notebooks-slideshow.md)
-  - [Uso de archivos de datos](work-with-project-data-files.md)
-  - [Acceso a recursos de datos](access-data-resources-jupyter-notebooks.md)
-  - [Uso de Azure Machine Learning](../machine-learning/samples-notebooks.md)
+  - [Exportación de un cuaderno de Jupyter Notebook](quickstart-export-jupyter-notebook-project.md)

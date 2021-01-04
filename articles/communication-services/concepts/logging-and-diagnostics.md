@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 10/15/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: d8afa769c90c5cf9450343cda1a65809062468fb
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: c4c9808813de80beea55e083c5bd80667ae2861f
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888698"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033126"
 ---
 # <a name="communication-services-logs"></a>Registros de Communication Services
 
@@ -39,6 +39,7 @@ Communication Services ofrece tres tipos de registros que se pueden habilitar:
 * **Usage logs** (Registros de uso): proporciona datos de uso asociados a cada oferta de servicio facturada.
 * **Chat operational logs** (Registros operativos de chat): proporciona información básica relacionada con el servicio de chat.
 * **SMS operational logs** (Registros operativos de SMS): proporciona información básica relacionada con el servicio de SMS.
+* **Authentication operational logs** (Registros operativos de autenticación): proporciona información básica relacionada con el servicio de autenticación.
 
 ### <a name="usage-logs-schema"></a>Esquema de los registros de uso
 
@@ -100,3 +101,23 @@ Communication Services ofrece tres tipos de registros que se pueden habilitar:
 | SdkType | Tipo de SDK que se usa en la solicitud. |
 | PlatformType | Tipo de plataforma utilizado en la solicitud. |
 | Método | Método usado para realizar la solicitud. |
+
+### <a name="authentication-operational-logs"></a>Registros operativos de autenticación
+
+| Propiedad. | Descripción |
+| -------- | ---------------|
+| TimeGenerated | Marca de tiempo (UTC) de cuando se generó el registro. |
+| OperationName | Operación asociada al registro. |
+| CorrelationID | Identificador de los eventos correlacionados. Se puede utilizar para identificar eventos correlacionados en varias tablas. |
+| OperationVersion | `api-version` asociada con la operación, si `operationName` se realizó mediante una API. Si no hay ninguna API que se corresponde con esta operación, la versión representa la versión de esa operación en caso de que las propiedades asociadas con la operación cambien en el futuro. |
+| Category | Categoría de registro del evento. La categoría es la granularidad con la que se pueden habilitar o deshabilitar los registros en un recurso determinado. Las propiedades que aparecen en el blob de propiedades de un evento son las mismas dentro de una categoría de registro y un tipo de recurso concretos. |
+| ResultType | Estado de la operación. |
+| ResultSignature | El subestado de la operación. Si esta operación se corresponde con una llamada API de REST, este campo es el código de estado HTTP de la llamada REST correspondiente. |
+| DurationMs | Duración de la operación en milisegundos. |
+| CallerIpAddress | Dirección IP del autor de la llamada, si la operación se corresponde con una llamada API que podría proceder de una entidad con una dirección IP disponible públicamente. |
+| Nivel | Nivel de gravedad del evento. |
+| URI | URI de la solicitud. |
+| SdkType | Tipo de SDK que se usa en la solicitud. |
+| PlatformType | Tipo de plataforma utilizado en la solicitud. |
+| Identidad | La identidad de Communication Services relacionada con la operación. |
+| Ámbitos | Los ámbitos de Communication Services presentes en el token de acceso. |

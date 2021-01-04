@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.author: makromer
 ms.date: 11/24/2020
-ms.openlocfilehash: c436d75384c527ba7666cd2e6e780b9d8a93eae2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 1c0ed7cf38cc01623169216ec45e88d198ede3d2
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96003960"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095090"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Actividad de Data Flow en Azure Data Factory
 
@@ -61,7 +61,7 @@ dataflow | Referencia al flujo de datos que se está ejecutando. | DataFlowRefer
 integrationRuntime | Entorno de proceso en el que se ejecuta el flujo de datos. Si no se especifica, se usará la resolución automática del entorno de Azure Integration Runtime. | IntegrationRuntimeReference | No
 compute.coreCount | Número de núcleos utilizados en el clúster de Spark. Solo se puede especificar si se usa la resolución automática de Azure Integration Runtime | 8, 16, 32, 48, 80, 144, 272 | No
 compute.computeType | Tipo de proceso utilizado en el clúster de Spark. Solo se puede especificar si se usa la resolución automática de Azure Integration Runtime | "General", "ComputeOptimized", "MemoryOptimized" | No
-staging.linkedService | Si utiliza un origen o un receptor de Azure Synapse Analytics, especifique la cuenta de almacenamiento que se utilizará como almacenamiento provisional de PolyBase.<br/><br/>Si Azure Storage está configurado con el punto de conexión de servicio de red virtual, tiene que utilizar la autenticación de identidad administrada con la opción para permitir el servicio de Microsoft de confianza habilitada en la cuenta de almacenamiento; consulte [Efectos del uso de puntos de conexión de servicio de la red virtual con Azure Storage](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Obtenga también información sobre las configuraciones necesarias para [Azure Blob](connector-azure-blob-storage.md#managed-identity) y [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity) respectivamente.<br/> | LinkedServiceReference | Solo si el flujo de datos lee o escribe en una instancia de Azure Synapse Analytics.
+staging.linkedService | Si utiliza un origen o un receptor de Azure Synapse Analytics, especifique la cuenta de almacenamiento que se utilizará como almacenamiento provisional de PolyBase.<br/><br/>Si Azure Storage está configurado con el punto de conexión de servicio de red virtual, tiene que utilizar la autenticación de identidad administrada con la opción para permitir el servicio de Microsoft de confianza habilitada en la cuenta de almacenamiento; consulte [Efectos del uso de puntos de conexión de servicio de la red virtual con Azure Storage](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-virtual-network-service-endpoints-with-azure-storage). Obtenga también información sobre las configuraciones necesarias para [Azure Blob](connector-azure-blob-storage.md#managed-identity) y [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity) respectivamente.<br/> | LinkedServiceReference | Solo si el flujo de datos lee o escribe en una instancia de Azure Synapse Analytics.
 staging.folderPath | Si usa un origen o un receptor de Azure Synapse Analytics, es la ruta de la carpeta de la cuenta de almacenamiento de blobs que se utiliza como almacenamiento provisional de PolyBase. | String | Solo si el flujo de datos lee o escribe en una instancia de Azure Synapse Analytics.
 traceLevel | Establecimiento del nivel de registro de la ejecución de actividades de flujo de datos | Fino, Grueso, Ninguno | No
 
@@ -88,7 +88,7 @@ En el caso de las ejecuciones de canalización, el clúster que se utiliza es de
 
 ### <a name="polybase"></a>PolyBase
 
-Si utiliza un origen o un receptor de Azure Synapse Analytics (anteriormente, SQL Data Warehouse), debe elegir una ubicación de almacenamiento provisional para la carga por lotes de PolyBase. PolyBase utiliza la carga por lotes en lugar de cargar los datos fila a fila. PolyBase reduce considerablemente el tiempo de carga en Azure Synapse Analytics.
+Si utiliza Azure Synapse Analytics como origen o receptor, debe elegir una ubicación de almacenamiento provisional para la carga por lotes de PolyBase. PolyBase utiliza la carga por lotes en lugar de cargar los datos fila a fila. PolyBase reduce considerablemente el tiempo de carga en Azure Synapse Analytics.
 
 ## <a name="logging-level"></a>Nivel de registro
 

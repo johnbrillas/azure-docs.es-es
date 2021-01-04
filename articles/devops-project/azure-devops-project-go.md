@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: ad62b59587f5ef7823e601cd8b6b526b75b8fd03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f968bfd0c3d2884c123b82ccf132d77b117ac9a
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91854620"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589039"
 ---
 # <a name="create-a-cicd-pipeline-for-go-using-azure-devops-starter"></a>Creación de una canalización de CI/CD para Go mediante Azure DevOps Starter
 
@@ -60,9 +60,9 @@ DevOps Starter crea una canalización de CI/CD en Azure Pipelines. Puede crear u
 
 DevOps Starter crea un repositorio Git en Azure Repos o GitHub. Para ver el repositorio y realizar cambios en el código de la aplicación, siga estos pasos:
 
-1. En DevOps Starter, a la izquierda, seleccione el vínculo de la rama maestra. El vínculo abre una vista al repositorio Git recién creado.
+1. En DevOps Starter, a la izquierda, seleccione el vínculo de la rama principal. El vínculo abre una vista al repositorio Git recién creado.
 
-1. Para ver la dirección URL de clonación del repositorio, seleccione **Clonar** en la parte superior derecha. Puede clonar el repositorio Git en su IDE favorito. En los pasos siguientes, puede usar el explorador web para realizar los cambios en el código y confirmarlos directamente en la rama maestra.
+1. Para ver la dirección URL de clonación del repositorio, seleccione **Clonar** en la parte superior derecha. Puede clonar el repositorio Git en su IDE favorito. En los pasos siguientes, puede usar el explorador web para realizar cambios en el código y confirmarlos directamente en la rama maestra.
 
 1. En el lado izquierdo, vaya al archivo *views/index.html* y seleccione **Editar**.
 

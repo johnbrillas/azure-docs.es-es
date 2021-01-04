@@ -4,16 +4,16 @@ description: Este artículo contiene una colección de comandos de ejemplo de Az
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/08/2020
+ms.date: 12/11/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: f09e30d6bf68cfb11d9bf808838f6cc029ed942a
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: ea8300447b9aa596e8678038982771263a4c76f6
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96907444"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358782"
 ---
 # <a name="download-blobs-from-azure-blob-storage-by-using-azcopy-v10"></a>Descarga de blobs de Azure Blob Storage mediante AzCopy v10
 
@@ -113,9 +113,11 @@ También puede excluir blobs mediante la opción `--exclude-pattern`. Para más 
 
 Las opciones `--include-pattern` y `--exclude-pattern` solo se aplican a los nombres de blob, no a la ruta de acceso.  Si quiere copiar todos los archivos de texto (blobs) que existen en un árbol de directorios, use la opción `–recursive` para obtener todo el árbol de directorios y, luego, use `–include-pattern` y especifique `*.txt` para obtener todos los archivos de texto.
 
-#### <a name="download-blobs-that-were-modified-after-a-date-and-time"></a>Descarga de blobs modificados después de una fecha y hora 
+#### <a name="download-blobs-that-were-modified-before-or-after-a-date-and-time"></a>Descarga de blobs modificados antes o después de una fecha y hora 
 
-Use el comando [azcopy copy](storage-ref-azcopy-copy.md) con la opción `--include-after`. Especifique una fecha y hora en formato ISO-8601 (por ejemplo: `2020-08-19T15:04:00Z`). 
+Use el comando [azcopy copy](storage-ref-azcopy-copy.md) con la opción `--include-before` o `--include-after`. Especifique una fecha y hora en formato ISO-8601 (por ejemplo: `2020-08-19T15:04:00Z`). 
+
+En los siguientes ejemplos se descargan archivos que se modificaron en la fecha especificada o después de esta.
 
 |    |     |
 |--------|-----------|
@@ -139,13 +141,18 @@ En primer lugar, cree un archivo de texto que contenga una lista de [identificad
 
 Después, utilice el comando [azcopy copy](storage-ref-azcopy-copy.md) con la opción `--list-of-versions`. Especifique la ubicación del archivo de texto que contiene la lista de versiones (por ejemplo: `D:\\list-of-versions.txt`).  
 
+#### <a name="download-a-blob-snapshot"></a>Descarga de una instantánea de un blob
+
+Puede descargar una [instantánea de un blob](/azure/storage/blobs/snapshots-overview.md) haciendo referencia al valor **DateTime** de la misma. 
+
 |    |     |
 |--------|-----------|
-| **Sintaxis** | `azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<blob-path>' '<local-directory-path>' --list-of-versions '<list-of-versions-file>'`|
-| **Ejemplo** | `azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt' 'C:\myDirectory\myTextFile.txt' --list-of-versions 'D:\\list-of-versions.txt'` |
-| **Ejemplo** (espacio de nombres jerárquico) | `azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myTextFile.txt' 'C:\myDirectory\myTextFile.txt' --list-of-versions 'D:\\list-of-versions.txt'` |
+| **Sintaxis** | `azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<blob-path>?sharesnapshot=<DateTime-of-snapshot>' '<local-file-path>'` |
+| **Ejemplo** | `azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt?sharesnapshot=2020-09-23T08:21:07.0000000Z' 'C:\myDirectory\myTextFile.txt'` |
+| **Ejemplo** (espacio de nombres jerárquico) | `azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myTextFile.txt?sharesnapshot=2020-09-23T08:21:07.0000000Z' 'C:\myDirectory\myTextFile.txt'` |
 
-El nombre de cada archivo descargado comienza con el identificador de versión seguido del nombre del blob. 
+> [!NOTE]
+> Si usa un token de SAS para autorizar el acceso a los datos de un blob, anexe el valor **DateTime** de la instantánea después del token de SAS. Por ejemplo: `'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D&sharesnapshot=2020-09-23T08:21:07.0000000Z'`.
 
 ## <a name="download-with-optional-flags"></a>Descarga con marcas opcionales
 
@@ -163,9 +170,9 @@ Para obtener una lista completa, vea las [opciones](storage-ref-azcopy-copy.md#o
 
 Encuentre más ejemplos en estos artículos:
 
-- [Ejemplos: Carga](storage-use-azcopy-blobs-upload.md)
+- [Ejemplos: Cargar](storage-use-azcopy-blobs-upload.md)
 - [Ejemplos: Copia entre cuentas](storage-use-azcopy-blobs-copy.md)
-- [Ejemplos: Sincronización](storage-use-azcopy-blobs-synchronize.md)
+- [Ejemplos: Sincronizar](storage-use-azcopy-blobs-synchronize.md)
 - [Ejemplos: Cubos de Amazon S3](storage-use-azcopy-s3.md)
 - [Ejemplos: Azure Files](storage-use-azcopy-files.md)
 - [Tutorial: Migración de datos locales al almacenamiento en la nube mediante AzCopy](storage-use-azcopy-migrate-on-premises-data.md)

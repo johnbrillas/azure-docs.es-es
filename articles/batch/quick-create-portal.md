@@ -1,15 +1,15 @@
 ---
 title: 'Inicio rápido de Azure: ejecución del primer trabajo de Batch en Azure Portal'
-description: Aprenda a utilizar Azure Portal para crear una cuenta de Batch, un grupo de nodos de proceso y un trabajo que ejecute tareas básicas en el grupo.
+description: En esta guía de inicio rápido se muestra cómo utilizar Azure Portal para crear una cuenta de Batch, un grupo de nodos de proceso y un trabajo que ejecute tareas básicas en el grupo.
 ms.topic: quickstart
 ms.date: 08/17/2020
 ms.custom: mvc
-ms.openlocfilehash: cf65a681764a848f8132ec44b8ba313ef1a83235
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d8584ecea8ddd5934771dbe5945a6172a28c801c
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88511378"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106484"
 ---
 # <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Inicio rápido: ejecute su primer trabajo de Batch en Azure Portal
 
@@ -97,7 +97,7 @@ Para crear una segunda tarea, repita los pasos anteriores. Escriba otro valor en
 
 Las tareas de ejemplo que ha creado se completarán en un par de minutos. Para ver la salida de una tarea completada, seleccione la tarea y, después, seleccione **Archivos en el nodo**. Seleccione el archivo `stdout.txt` para ver la salida estándar de la tarea. El contenido es similar al siguiente:
 
-:::image type="content" source="media/quick-create-portal/task-output.png" alt-text="Captura de pantalla del servicio Batch en Azure Marketplace.":::
+:::image type="content" source="media/quick-create-portal/task-output.png" alt-text="Captura de pantalla de la salida de una tarea completada.":::
 
 El contenido muestra las variables de entorno de Azure Batch que se definen en el nodo. Al crear sus propios trabajos y tareas de Batch, puede hacer referencia a estas variables de entorno tanto en las líneas de comandos de la tarea como en las aplicaciones y los scripts que ejecutan las líneas de comandos.
 

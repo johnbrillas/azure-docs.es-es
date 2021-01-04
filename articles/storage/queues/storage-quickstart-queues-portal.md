@@ -3,17 +3,17 @@ title: 'Inicio rápido: Creación de colas de Azure Storage en el portal'
 description: Use Azure Portal para crear una cola. A continuación, use Azure Portal para agregar un mensaje, ver las propiedades del mensaje y quitar el mensaje de la cola.
 author: mhopkins-msft
 ms.author: mhopkins
+ms.reviewer: dineshm
 ms.date: 08/13/2020
+ms.topic: quickstart
 ms.service: storage
 ms.subservice: queues
-ms.topic: quickstart
-ms.reviewer: dineshm
-ms.openlocfilehash: 0ee3d9c26d6972da9e528660d034432ce696aa45
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 24b1d16ab5f13a9aef1faa5bc7a3579ad1a5aa5e
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93347206"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97585554"
 ---
 # <a name="quickstart-create-a-queue-and-add-a-message-with-the-azure-portal"></a>Inicio rápido: Creación de una cola y agregación de un mensaje con Azure Portal
 
@@ -28,7 +28,7 @@ En este inicio rápido, obtendrá información sobre cómo usar [Azure Portal](h
 Para crear una cola en Azure Portal, siga estos pasos:
 
 1. Vaya a la nueva cuenta de almacenamiento en Azure Portal.
-2. En el menú izquierdo de la cuenta de almacenamiento, desplácese a la sección **Queue Service** (Servicio Cola) y, después, seleccione **Queues** (Colas).
+2. En el menú izquierdo de la cuenta de almacenamiento, desplácese a la sección **Queue Storage** y, después, seleccione **Queues** (Colas).
 3. Seleccione el botón **+ Cola**.
 4. Escriba un nombre para la nueva cola. El nombre de la cola debe escribirse en minúsculas, comenzar por una letra o un número, y solo puede incluir letras, números y el carácter de guión (-).
 6. Seleccione **Aceptar** para crear la cola.
@@ -66,4 +66,4 @@ Al eliminar de la cola siempre se quita el último mensaje en la cola.
 En este inicio rápido, aprendió a crear una cola, agregar un mensaje, ver las propiedades de mensaje y quitar de la cola un mensaje en Azure Portal.
 
 > [!div class="nextstepaction"]
-> [¿Qué son las colas de Azure?](storage-queues-introduction.md)
+> [¿Qué es Azure Queue Storage?](storage-queues-introduction.md)

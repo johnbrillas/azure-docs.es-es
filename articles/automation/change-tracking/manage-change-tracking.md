@@ -3,14 +3,14 @@ title: Administración de Change Tracking e Inventario en Azure Automation
 description: En este artículo se describe cómo utilizar Change Tracking e Inventario para realizar el seguimiento de los cambios en el software y en los servicios de Microsoft en su entorno.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 11/02/2020
+ms.date: 12/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: 99cdc4191320efb37b37e4ec38e808f3961a1207
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 636dbf95567f761aee19bd567b0835173ce36ccc
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93288750"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093628"
 ---
 # <a name="manage-change-tracking-and-inventory"></a>Administración de Change Tracking e Inventario
 
@@ -76,7 +76,7 @@ Use los pasos siguientes para configurar el seguimiento de archivos en equipos L
 
 2. En la página Configuración del área de trabajo, seleccione **Archivos de Linux** y, a continuación, seleccione **+ Agregar** para agregar un nuevo archivo para realizar su seguimiento.
 
-3. En la página **Agregar archivo de Linux para el seguimiento de cambios** , escriba la información del archivo o directorio cuyo seguimiento se va a realizar y, después, seleccione **Guardar**. En la tabla siguiente se definen las propiedades que puede usar para la información.
+3. En la página **Agregar archivo de Linux para el seguimiento de cambios**, escriba la información del archivo o directorio cuyo seguimiento se va a realizar y, después, seleccione **Guardar**. En la tabla siguiente se definen las propiedades que puede usar para la información.
 
     |Propiedad  |Descripción  |
     |---------|---------|
@@ -99,6 +99,7 @@ Use los pasos siguientes para configurar el seguimiento de archivos en equipos L
 El seguimiento del contenido de archivos le permite ver el contenido de un archivo antes y después de que se produzca un cambio del que se realiza el seguimiento. La característica guarda el contenido del archivo en una [cuenta de almacenamiento](../../storage/common/storage-account-overview.md) después de que se produzca cada cambio. Estas son algunas reglas que deben seguirse para el seguimiento del contenido de archivos:
 
 * Para almacenar el contenido del archivo se requiere una cuenta de almacenamiento estándar que use el modelo de implementación de Resource Manager.
+* De forma predeterminada, las cuentas de almacenamiento aceptan conexiones de clientes en cualquier red. Si ha protegido su cuenta de almacenamiento para permitir solo cierto tráfico, debe modificar las reglas de configuración para permitir que la cuenta de Automation se conecte a ella. Consulte [Configuración de redes virtuales y firewalls de Azure Storage](../../storage/common/storage-network-security.md).
 * No use cuentas de almacenamiento de modelos de implementación prémium y clásica. Consulte [Acerca de las cuentas de Azure Storage](../../storage/common/storage-account-create.md).
 * Solo puede conectar la cuenta de almacenamiento a una cuenta de Automation.
 * Change Tracking e Inventario se deben habilitar en la cuenta de Automation.
@@ -145,7 +146,7 @@ Use los pasos siguientes para configurar las claves del registro para realizar u
 
 3. Seleccione **+ Agregar** para agregar una nueva clave del Registro para realizar su seguimiento.
 
-4. En la página **Agregar registro de Windows a Change Tracking** , escriba la información de la clave cuyo seguimiento se va a realizar y seleccione **Guardar**. En la tabla siguiente se definen las propiedades que puede usar para la información. Al especificar una ruta de acceso del registro, debe ser la clave y no un valor.
+4. En la página **Agregar registro de Windows a Change Tracking**, escriba la información de la clave cuyo seguimiento se va a realizar y seleccione **Guardar**. En la tabla siguiente se definen las propiedades que puede usar para la información. Al especificar una ruta de acceso del registro, debe ser la clave y no un valor.
 
     |Propiedad  |Descripción  |
     |---------|---------|

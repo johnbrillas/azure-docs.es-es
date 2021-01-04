@@ -3,12 +3,12 @@ title: Administración del agente de servidores habilitados para Azure Arc
 description: En este artículo se describen las diferentes tareas de administración que normalmente realizará durante el ciclo de vida del agente de Connected Machine de los servidores habilitados para Azure Arc.
 ms.date: 10/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 63db1177b193cad66208964ec377fab0779f23ba
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 9e17bf58d1e94b64d1cdc6ff0b57b1b6a81be180
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130976"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107199"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Administración y mantenimiento del agente de Connected Machine
 
@@ -148,21 +148,21 @@ Las acciones del comando [zypper](https://en.opensuse.org/Portal:Zypper), como l
 
 La herramienta Azcmagent (Azcmagent.exe) se usa para configurar el agente Connected Machine de los servidores habilitados para Azure Arc durante la instalación o bien para modificar la configuración inicial del agente después de la instalación. Azcmagent.exe proporciona parámetros de línea de comandos para personalizar el agente y ver su estado:
 
-* **Connect** : para conectar la máquina a Azure Arc
+* **Connect**: para conectar la máquina a Azure Arc
 
-* **Disconnect** : para desconectar la máquina de Azure Arc
+* **Disconnect**: para desconectar la máquina de Azure Arc
 
-* **Show** : para ver el estado del agente y sus propiedades de configuración (nombre del grupo de recursos, identificador de suscripción, versión, etc.), que puede ayudar a solucionar un problema con el agente. Incluya el parámetro `-j` para generar los resultados en formato JSON.
+* **Show**: para ver el estado del agente y sus propiedades de configuración (nombre del grupo de recursos, identificador de suscripción, versión, etc.), que puede ayudar a solucionar un problema con el agente. Incluya el parámetro `-j` para generar los resultados en formato JSON.
 
-* **Logs** : crea un archivo .zip en el directorio actual que contiene registros para ayudarle a solucionar problemas.
+* **Logs**: crea un archivo .zip en el directorio actual que contiene registros para ayudarle a solucionar problemas.
 
-* **Version** : muestra la versión del Agente de Connected Machine.
+* **Version**: muestra la versión del Agente de Connected Machine.
 
-* **-h o --help** : muestra los parámetros de línea de comandos disponibles
+* **-h o --help**: muestra los parámetros de línea de comandos disponibles
 
-    Por ejemplo, si desea ver ayuda detallada para el parámetro **Reconnect** , escriba `azcmagent reconnect -h`. 
+    Por ejemplo, si desea ver ayuda detallada para el parámetro **Connect**, escriba `azcmagent connect -h`. 
 
-* **-v o --verbose** : habilita el registro detallado
+* **-v o --verbose**: habilita el registro detallado
 
 Puede realizar una operación **Connect** y **Disconnect** manualmente mientras inicia sesión de forma interactiva, o bien usar la misma entidad de servicio que ha utilizado para incorporar varios agentes o con un [token de acceso](../../active-directory/develop/access-tokens.md) de la Plataforma de identidad de Microsoft. Si no ha usado una entidad de servicio para registrar la máquina con los servidores habilitados para Azure Arc, vea el siguiente [artículo](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) para crear una entidad de servicio.
 
@@ -219,8 +219,8 @@ Los dos métodos siguientes quitan el agente, pero no quitan la carpeta *C:\Arch
 1. Para desinstalar el agente de Windows de la máquina, haga lo siguiente:
 
     a. Inicie sesión en el equipo con una cuenta que disponga de permisos de administrador.  
-    b. En **Panel de control** , seleccione **Programas y características**.  
-    c. En **Programas y características** , seleccione **Agente de Azure Connected Machine** , seleccione **Desinstalar** y, después, seleccione **Sí**.  
+    b. En **Panel de control**, seleccione **Programas y características**.  
+    c. En **Programas y características**, seleccione **Agente de Azure Connected Machine**, seleccione **Desinstalar** y, después, seleccione **Sí**.  
 
     >[!NOTE]
     > También puede ejecutar el asistente para la instalación del agente haciendo doble clic en el paquete del instalador **AzureConnectedMachineAgent.msi**.

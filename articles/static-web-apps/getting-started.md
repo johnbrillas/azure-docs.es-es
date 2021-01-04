@@ -1,20 +1,20 @@
 ---
-title: 'Inicio rápido: creación de la primera aplicación web estática con Azure Static Web Apps'
-description: Aprenda a crear un sitio web con Azure Static Web Apps.
+title: 'Inicio rápido: creación del primer sitio estático con Azure Static Web Apps'
+description: Aprenda a implementar un sitio estático en Azure Static Web Apps.
 services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 08/13/2020
 ms.author: cshoe
-ms.openlocfilehash: a78f74b4aadd26af141ed84ca99a092693f56af5
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: eb2356451c349f894c9ca74b1359f6a02d0e002a
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369569"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562521"
 ---
-# <a name="quickstart-building-your-first-static-web-app"></a>Inicio rápido: creación de la primera aplicación web estática
+# <a name="quickstart-building-your-first-static-site-with-azure-static-web-apps"></a>Inicio rápido: creación del primer sitio estático con Azure Static Web Apps
 
 Azure Static Web Apps publica sitios web en entornos de producción mediante la creación de aplicaciones desde un repositorio de GitHub. En este inicio rápido, se implementa una aplicación web en Azure Static Web Apps mediante la extensión de Visual Studio Code.
 
@@ -52,7 +52,7 @@ Después, abra Visual Studio Code y vaya a **Archivo > Abrir carpeta** para abri
 
     :::image type="content" source="media/getting-started/extension-create-app.png" alt-text="Creación de la aplicación web estática":::
 
-1. Seleccione la rama **master** y presione **Entrar**.
+1. Seleccione la rama **main** y presione **Entrar**.
 
     :::image type="content" source="media/getting-started/extension-branch.png" alt-text="Nombre de la rama":::
 

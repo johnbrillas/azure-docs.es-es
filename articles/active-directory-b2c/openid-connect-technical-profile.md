@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2010f55a28d393086aad544cbec3f5c009801872
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 8364e67e71143729e97c5253f0dfd7b30a1e5c2f
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96750499"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97559827"
 ---
 # <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico de OpenID Connect en una directiva personalizada de Azure Active Directory B2C
 
@@ -92,8 +92,8 @@ El perfil técnico también muestra la notificaciones no proporcionadas por el p
 | MarkAsFailureOnStatusCode5xx | No | Indica si una solicitud a un servicio externo tiene que marcarse como un error si el código de estado HTTP se encuentra en el intervalo 5xx. El valor predeterminado es `false`. |
 | DiscoverMetadataByTokenIssuer | No | Indica si los metadatos de OIDC tienen que detectarse con el emisor en el token JWT. |
 | IncludeClaimResolvingInClaimsHandling  | No | En el caso de las notificaciones de entrada y salida, especifica si se incluye la [resolución de notificaciones](claim-resolver-overview.md) en el perfil técnico. Valores posibles: `true` o `false` (valor predeterminado). Si desea utilizar un solucionador de notificaciones en el perfil técnico, establézcalo en `true`. |
-|token_endpoint_auth_method| No| Especifica cómo Azure AD B2C envía el encabezado de autenticación al punto de conexión del token. Valores posibles: `client_secret_post` (valor predeterminado) y `client_secret_basic` (versión preliminar pública). Para obtener más información, consulte la sección [Autenticación de cliente de OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication). |
-|SingleLogoutEnabled| No| Indica si, durante el inicio de sesión, el perfil técnico intenta cerrar sesión desde los proveedores de identidades federados. Para obtener más información, consulte [Cierre de sesión de Azure AD B2C](session-overview.md#sign-out).  Valores posibles: `true` (opción predeterminada) o `false`.|
+|token_endpoint_auth_method| No| Especifica cómo Azure AD B2C envía el encabezado de autenticación al punto de conexión del token. Valores posibles: `client_secret_post` (valor predeterminado), `private_key_jwt` (versión preliminar pública) y `client_secret_basic` (versión preliminar pública). Para obtener más información, consulte la sección [Autenticación de cliente de OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication). |
+|SingleLogoutEnabled| No| Indica si, durante el inicio de sesión, el perfil técnico intenta cerrar sesión desde los proveedores de identidades federados. Para obtener más información, consulte [Cierre de sesión de Azure AD B2C](session-behavior.md#sign-out).  Valores posibles: `true` (opción predeterminada) o `false`.|
 
 ```xml
 <Metadata>
@@ -132,6 +132,6 @@ Al configurar el URI de redireccionamiento del proveedor de identidades, escriba
 
 Ejemplos:
 
-- [Agregar una cuenta Microsoft (MSA) como un proveedor de identidades mediante directivas personalizadas](identity-provider-microsoft-account-custom.md)
-- [Iniciar sesión con cuentas de Azure AD](identity-provider-azure-ad-single-tenant-custom.md)
-- [Permitir que los usuarios inicien sesión en un proveedor de identidades de Azure AD multiinquilino mediante directivas personalizadas](identity-provider-azure-ad-multi-tenant-custom.md)
+- [Agregar una cuenta Microsoft (MSA) como un proveedor de identidades mediante directivas personalizadas](identity-provider-microsoft-account.md)
+- [Iniciar sesión con cuentas de Azure AD](identity-provider-azure-ad-single-tenant.md)
+- [Permitir que los usuarios inicien sesión en un proveedor de identidades de Azure AD multiinquilino mediante directivas personalizadas](identity-provider-azure-ad-multi-tenant.md)

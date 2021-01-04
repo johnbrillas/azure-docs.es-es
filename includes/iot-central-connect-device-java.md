@@ -4,12 +4,12 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 11/24/2020
-ms.openlocfilehash: 5ad69fb6743676189de409df16c046d5361a5a91
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: ad305202daf09258bbd439e824fc07f1eed1c5af
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96126117"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033888"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -28,7 +28,7 @@ Al ejecutar el ejemplo para conectarse a IoT Central, usa Device Provisioning Se
 
 El método `main` realiza las acciones siguientes:
 
-* Llama a `initializeAndProvisionDevice` para establecer el identificador del modelo `dtmi:com:example:Thermostat;1`, usar DPS para aprovisionar y registrar el dispositivo, crear una instancia de **DeviceClient** y conectarse a la aplicación IoT Central.
+* Llama a `initializeAndProvisionDevice` para establecer el identificador del modelo `dtmi:com:example:Thermostat;1`, usar DPS para aprovisionar y registrar el dispositivo, crear una instancia de **DeviceClient** y conectarse a la aplicación IoT Central. IoT Central usa el identificador de modelo para identificar o generar la plantilla de dispositivo específico. Para más información, consulte [¿Cómo se asocia un dispositivo a una plantilla de dispositivo?](../articles/iot-central/core/concepts-get-connected.md#associate-a-device-with-a-device-template)
 * Crea un controlador de comandos para el comando `getMaxMinReport`.
 * Crea un controlador de actualizaciones de las propiedades para la propiedad `targetTemperature` de escritura.
 * Inicia un subproceso para enviar telemetría de temperatura y actualiza la propiedad `maxTempSinceLastReboot` cada cinco segundos.
@@ -90,7 +90,7 @@ public static void main(String[] args) throws URISyntaxException, IOException, P
 }
 ```
 
-El método `initializeAndProvisionDevice` muestra cómo el dispositivo usa DPS para registrarse y conectarse a IoT Central. La carga incluye el identificador de modelo:
+El método `initializeAndProvisionDevice` muestra cómo el dispositivo usa DPS para registrarse y conectarse a IoT Central. La carga incluye el identificador de modelo que IoT Central usa para [asociar el dispositivo a una plantilla de dispositivo](../articles/iot-central/core/concepts-get-connected.md#associate-a-device-with-a-device-template):
 
 ```java
 private static void initializeAndProvisionDevice() throws ProvisioningDeviceClientException, IOException, URISyntaxException, InterruptedException {

@@ -1,20 +1,20 @@
 ---
 title: Kit de herramientas para pruebas de plantillas de ARM
-description: Describe cómo ejecutar el kit de herramientas para pruebas de la plantilla de ARM en su plantilla. El kit de herramientas le permite ver si ha implementado los procedimientos recomendados.
+description: Describe cómo ejecutar el kit de herramientas para pruebas de la plantilla de Azure Resource Manager en su plantilla. El kit de herramientas le permite ver si ha implementado los procedimientos recomendados.
 ms.topic: conceptual
 ms.date: 09/02/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 73f6db8cbd5e4d7a0670c394f6af338aae8e9e79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 29ebe2f0ec4d4c39154272bbbdf4d0c9ede9fd95
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89439567"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928195"
 ---
 # <a name="use-arm-template-test-toolkit"></a>Uso del kit de herramientas para pruebas de plantillas de ARM
 
-El [kit de herramientas para pruebas de plantillas de Resource Manager](https://aka.ms/arm-ttk) comprueba si la plantilla usa los procedimientos recomendados. Cuando la plantilla no es compatible con los procedimientos recomendados, devuelve una lista de advertencias con los cambios sugeridos. Con el kit de herramientas para pruebas, puede obtener información sobre cómo evitar los problemas comunes en el desarrollo de plantillas.
+El [kit de herramientas para pruebas de la plantilla de Resource Manager](https://aka.ms/arm-ttk) comprueba si la plantilla usa los procedimientos recomendados. Cuando la plantilla no es compatible con los procedimientos recomendados, devuelve una lista de advertencias con los cambios sugeridos. Con el kit de herramientas para pruebas, puede obtener información sobre cómo evitar los problemas comunes en el desarrollo de plantillas.
 
 El kit de herramientas para pruebas proporciona un [conjunto de pruebas predeterminadas](test-cases.md). Estas pruebas son recomendaciones, pero no requisitos. Puede decidir qué pruebas son adecuadas para sus objetivos y personalizar qué pruebas se ejecutan.
 
@@ -282,4 +282,4 @@ En el ejemplo siguiente se muestra cómo ejecutar las pruebas.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener información sobre las pruebas predeterminadas, consulte [Casos de prueba para el kit de herramientas](test-cases.md).
+Para más información sobre las pruebas predeterminadas, consulte [Casos de prueba predeterminados del kit de herramientas para pruebas de plantillas de Resource Manager](test-cases.md).

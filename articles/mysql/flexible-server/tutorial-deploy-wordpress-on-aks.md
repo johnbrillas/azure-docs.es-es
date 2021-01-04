@@ -7,16 +7,17 @@ ms.author: sumuth
 ms.topic: tutorial
 ms.date: 11/25/2020
 ms.custom: mvc
-ms.openlocfilehash: 31ad9450c775e5e4e7ae543241b48f8c372ad9ee
-ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
+ms.openlocfilehash: 7713b7596b21e02e941a19f64d3658ab0f5f51f5
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96749224"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359020"
 ---
 # <a name="tutorial-deploy-wordpress-app-on-aks-with-azure-database-for-mysql---flexible-server"></a>Tutorial: Implementación de una aplicación WordPress en AKS con Servidor flexible de Azure Database for MySQL
 
-En este inicio rápido se implementa una aplicación WordPress en el clúster de Azure Kubernetes Service (AKS) con Servidor flexible de Azure Database for MySQL (versión preliminar) mediante la CLI de Azure. [AKS](../../aks/intro-kubernetes.md) es un servicio de Kubernetes administrado que permite implementar y administrar clústeres rápidamente. [Servidor flexible (versión preliminar) de Azure Database for MySQL](overview.md) es un servicio de base de datos totalmente administrado diseñado para proporcionar un control más pormenorizado y una mayor flexibilidad sobre las funciones de administración de bases de datos y las opciones de configuración. Actualmente, Servidor flexible se encuentra en versión preliminar.
+En este inicio rápido se implementa una aplicación WordPress en el clúster de Azure Kubernetes Service (AKS) con Servidor flexible de Azure Database for MySQL (versión preliminar) mediante la CLI de Azure. 
+**[AKS](../../aks/intro-kubernetes.md)** es un servicio de Kubernetes administrado que permite implementar y administrar clústeres rápidamente. **[Servidor flexible (versión preliminar) de Azure Database for MySQL](overview.md)** es un servicio de base de datos totalmente administrado diseñado para proporcionar un control más pormenorizado y una mayor flexibilidad sobre las funciones de administración de bases de datos y las opciones de configuración. Actualmente, Servidor flexible se encuentra en versión preliminar.
 
 > [!NOTE]
 > - Actualmente, Azure Database for MySQL con la opción Servidor flexible está en versión preliminar pública.
@@ -115,7 +116,7 @@ El servidor creado tiene los siguientes atributos:
 - Como el comando utiliza el contexto local, creará el servidor en el grupo de recursos ```wordpress-project``` y en la región ```eastus```.
 
 
-## <a name="build-your-wordpress-docker-image"></a>Compilación de la imagen de Docker de WordPress
+### <a name="build-your-wordpress-docker-image"></a>Compilación de la imagen de Docker de WordPress
 
 Descargue la versión de [WordPress más reciente](https://wordpress.org/download/). Cree un nuevo directorio ```my-wordpress-app``` para el proyecto y utilice esta estructura de carpetas sencilla.
 
@@ -173,6 +174,7 @@ define('DB_COLLATE', '');
 define('MYSQL_CLIENT_FLAGS', MYSQLI_CLIENT_SSL);
 ```
 
+### <a name="create-a-dockerfile"></a>Creación de un archivo Dockerfile
 Cree un nuevo Dockerfile y copie este fragmento de código. Este Dockerfile configura el servidor web Apache con PHP y habilita la extensión de mysqli.
 
 ```docker
@@ -182,12 +184,12 @@ RUN docker-php-ext-install mysqli
 RUN docker-php-ext-enable mysqli
 ```
 
-## <a name="build-your-docker-image"></a>Compilación de la imagen de Docker
-Asegúrese de que se encuentra en el directorio ```my-wordpress-app``` en un terminal con el comando ```cd```. Ejecute el siguiente comando para compilar la imagen del tablón de anuncios:
+### <a name="build-your-docker-image"></a>Compilación de la imagen de Docker
+Asegúrese de que se encuentra en el directorio ```my-wordpress-app``` en un terminal con el comando ```cd```. Ejecute el siguiente comando para compilar la imagen:
 
 ``` bash
 
-docker build --tag myblog:latest . 
+docker build --tag myblog:latest .
 
 ```
 
@@ -272,8 +274,6 @@ En la salida de ejemplo siguiente se muestran las implementaciones y los servici
 
 ```output
 deployment "wordpress-blog" created
-service "php-svc" created
-deployment "azure-vote-front" created
 service "php-svc" created
 ```
 

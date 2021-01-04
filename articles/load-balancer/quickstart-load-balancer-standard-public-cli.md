@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 11/23/2020
 ms.author: allensu
 ms.custom: mvc, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: b00d0c83758d0349fd3926e0c263b65af2e4dc92
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 2b22c00845b38d2edea2d78497fb4b46a51896d4
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96021187"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587135"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-cli"></a>Inicio rápido: Creación de un equilibrador de carga público para equilibrar la carga de las VM con la CLI de Azure
 
@@ -53,6 +53,8 @@ Cree un grupo de recursos con [az group create](/cli/azure/group#az-group-create
 
 >[!NOTE]
 >Se recomienda usar la SKU Estándar de Load Balancer para las cargas de trabajo de producción. Para más información sobre las SKU, consulte **[SKU de Azure Load Balancer](skus.md)** .
+
+:::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/resources-diagram.png" alt-text="Recursos de Standard Load Balancer creados para el inicio rápido." border="false":::
 
 ## <a name="configure-virtual-network---standard"></a>Configuración de una red virtual: estándar
 
@@ -551,6 +553,8 @@ Agregue las máquinas virtuales al grupo de salida con [az network nic ip-config
 
 >[!NOTE]
 >Se recomienda usar la SKU Estándar de Load Balancer para las cargas de trabajo de producción. Para más información sobre las SKU, consulte **[SKU de Azure Load Balancer](skus.md)** .
+
+:::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/resources-diagram-basic.png" alt-text="Recursos de Basic Load Balancer creados en el inicio rápido" border="false":::.
 
 ## <a name="configure-virtual-network---basic"></a>Configuración de una red virtual: básica
 

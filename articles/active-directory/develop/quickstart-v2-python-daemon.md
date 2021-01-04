@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/22/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, devx-track-python, scenarios:getting-started, languages:Python
-ms.openlocfilehash: d116e4775d39d3b78c1250714250d64318f9d457
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 3d4d671fed675de4cb2684d205f8e8b62d3b95cd
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95995138"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107929"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-python-console-app-using-apps-identity"></a>Inicio rápido: Adquisición de un token y llamada a Microsoft Graph API desde una aplicación de consola en Python mediante la identidad de la aplicación
 
@@ -52,17 +52,17 @@ Para ejecutar esta muestra, necesita:
 > #### <a name="step-1-register-your-application"></a>Paso 1: Registrar su aplicación
 > Para registrar la aplicación y agregar la información de registro de la aplicación a la solución de forma manual, siga estos pasos:
 >
-> 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta personal, profesional o educativa de Microsoft.
-> 1. Si la cuenta proporciona acceso a más de un inquilino, haga clic en la cuenta en la esquina superior derecha y establezca la sesión del portal en el inquilino de Azure AD deseado.
-> 1. Vaya a la página [Registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908) de la plataforma de identidad de Microsoft para desarrolladores.
-> 1. Seleccione **Nuevo registro**.
-> 1. Cuando aparezca la página **Registrar una aplicación**, escriba la información de registro de la aplicación.
-> 1. En la sección **Nombre**, escriba un nombre de aplicación significativo que se mostrará a los usuarios de la aplicación, por ejemplo, `Daemon-console`; luego, seleccione **Registrarse** para crear la aplicación.
-> 1. Una vez registrado, seleccione el menú **Certificates & secrets** (Certificados y secretos).
-> 1. En **Secretos de cliente**, seleccione **+Nuevo secreto de cliente**. Asígnele un nombre y seleccione **Agregar**. Copie el secreto en una ubicación segura. Lo necesitará para usarlo en el código.
-> 1. Ahora, seleccione el menú **Permisos de API**, haga clic en el botón **+ Agregar un permiso** y seleccione **Microsoft Graph**.
+> 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+> 1. Si tiene acceso a varios inquilinos, use el filtro **Directorio + suscripción** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: del menú superior para seleccionar el inquilino en el que desea registrar una aplicación.
+> 1. Busque y seleccione **Azure Active Directory**.
+> 1. En **Administrar**, seleccione **Registros de aplicaciones** >  y, luego, **Nuevo registro**.
+> 1. Escriba el **Nombre** de la aplicación, por ejemplo `Daemon-console`. Los usuarios de la aplicación pueden ver este nombre, el cual se puede cambiar más tarde.
+> 1. Seleccione **Registrar**.
+> 1. En **Administrar**, seleccione **Certificados y secretos**.
+> 1. En **Secretos de cliente**, seleccione **Nuevo secreto de cliente**, escriba un nombre y seleccione **Agregar**. Grabe el valor del secreto en una ubicación segura para usarlo en un paso posterior.
+> 1. En **Administrar**, seleccione **Permisos de API** > **Add a permission** (Agregar un permiso). Seleccione **Microsoft Graph**.
 > 1. Seleccione **Permisos de aplicación**.
-> 1. En el nodo **Usuario**, seleccione **User.Read.All** y, luego, **Agregar permisos**
+> 1. En el nodo **Usuario**, seleccione **User.Read.All** y, luego, **Agregar permisos**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > ### <a name="download-and-configure-your-quickstart-app"></a>Descarga y configuración de la aplicación de inicio rápido

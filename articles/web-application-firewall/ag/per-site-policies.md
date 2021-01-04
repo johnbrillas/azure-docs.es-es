@@ -5,15 +5,15 @@ description: Obtenga información sobre cómo configurar directivas de firewall 
 services: web-application-firewall
 author: winthrop28
 ms.service: web-application-firewall
-ms.date: 12/08/2020
+ms.date: 12/09/2020
 ms.author: victorh
 ms.topic: how-to
-ms.openlocfilehash: f282cfa6347dd6e6d591ac5cd8b1785e405c6c02
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: ef4337b187500695d9ef1c0b896d6ae8b5663ca6
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905985"
+ms.locfileid: "96938858"
 ---
 # <a name="configure-per-site-waf-policies-using-azure-powershell"></a>Configuración de directivas de WAF por sitio mediante Azure PowerShell
 
@@ -296,6 +296,8 @@ Add-AzApplicationGatewayRequestRoutingRule -ApplicationGateway $AppGw `
 
 En este ejemplo, creará un conjunto de escalado de máquinas virtuales para proporcionar servidores al grupo de servidores back-end de la puerta de enlace de aplicaciones. Asignará el conjunto de escalado al grupo de servidores back-end cuando configure los valores de IP.
 
+Sustituya sus propios valores de `-AdminUsername` y `-AdminPassword`.
+
 ```azurepowershell-interactive
 $vnet = Get-AzVirtualNetwork `
   -ResourceGroupName myResourceGroupAG `
@@ -311,7 +313,7 @@ $backendPool = Get-AzApplicationGatewayBackendAddressPool `
 
 $ipConfig = New-AzVmssIpConfig `
   -Name myVmssIPConfig `
-  -SubnetId $vnet.Subnets[1].Id `
+  -SubnetId $vnet.Subnets[0].Id `
   -ApplicationGatewayBackendAddressPoolsId $backendPool.Id
 
 $vmssConfig = New-AzVmssConfig `
@@ -328,8 +330,8 @@ Set-AzVmssStorageProfile $vmssConfig `
   -OsDiskCreateOption FromImage
 
 Set-AzVmssOsProfile $vmssConfig `
-  -AdminUsername azureuser `
-  -AdminPassword "Azure123456!" `
+  -AdminUsername <username> `
+  -AdminPassword <password> `
   -ComputerNamePrefix myvmss
 
 Add-AzVmssNetworkInterfaceConfiguration `

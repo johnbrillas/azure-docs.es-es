@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/11/2020
+ms.date: 12/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2d00942331b7e6c881803af366d1c08e173462b3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c50bd71f4e2e5bbe12518f5a5d1cd486af9723a
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90023795"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509758"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -77,8 +77,35 @@ El elemento **RelyingParty** opcional contiene los siguientes elementos:
 | Elemento | Repeticiones | Descripción |
 | ------- | ----------- | ----------- |
 | DefaultUserJourney | 1:1 | El recorrido del usuario predeterminado para la aplicación de usuario de confianza. |
+| Puntos de conexión | 0:1 | Una lista de puntos de conexión. Para más información, consulte [Punto de conexión de UserInfo](userinfo-endpoint.md). |
 | UserJourneyBehaviors | 0:1 | El ámbito de los comportamientos del recorrido del usuario. |
 | TechnicalProfile | 1:1 | Un perfil técnico que es compatible con la aplicación del usuario de confianza. El perfil técnico proporciona un contrato para que la aplicación del usuario de confianza contacte con Azure AD B2C. |
+
+## <a name="endpoints"></a>Puntos de conexión
+
+El elemento **Puntos de conexión** contiene el elemento siguiente:
+
+| Elemento | Repeticiones | Descripción |
+| ------- | ----------- | ----------- |
+| Punto de conexión | 1:1 | Una referencia a un punto de conexión.|
+
+El elemento **Punto de conexión** contiene los atributos siguientes:
+
+| Atributo | Obligatorio | Descripción |
+| --------- | -------- | ----------- |
+| Identificador | Sí | Un identificador único del punto de conexión.|
+| UserJourneyReferenceId | Sí | Identificador del recorrido del usuario en la directiva. Para más información, consulte los [recorridos del usuario](userjourneys.md).  | 
+
+En el ejemplo siguiente se muestra un usuario de confianza con el [punto de conexión de UserInfo](userinfo-endpoint.md):
+
+```xml
+<RelyingParty>
+  <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+  <Endpoints>
+    <Endpoint Id="UserInfo" UserJourneyReferenceId="UserInfoJourney" />
+  </Endpoints>
+  ...
+```
 
 ## <a name="defaultuserjourney"></a>DefaultUserJourney
 
@@ -117,7 +144,7 @@ El elemento **UserJourneyBehaviors** contiene los siguientes elementos:
 | SessionExpiryInSeconds | 0:1 | La duración de la cookie de la sesión de Azure AD B2C especificada como un entero se ha almacenado en el explorador del usuario tras la autenticación correcta. |
 | JourneyInsights | 0:1 | La clave de instrumentación de Application Insights de Azure que se va a usar. |
 | ContentDefinitionParameters | 0:1 | La lista de pares clave-valor que se anexará a la URI de carga de la definición de contenido. |
-|ScriptExecution| 0:1| Modos de ejecución de [JavaScript](javascript-samples.md) admitidos. Valores posibles: `Allow` o `Disallow` (valor predeterminado).
+|ScriptExecution| 0:1| Modos de ejecución de [JavaScript](javascript-and-page-layout.md) admitidos. Valores posibles: `Allow` o `Disallow` (valor predeterminado).
 
 ### <a name="singlesignon"></a>SingleSignOn
 
@@ -126,7 +153,7 @@ El elemento **SingleSignOn** contiene el atributo siguiente:
 | Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
 | Ámbito | Sí | El ámbito del comportamiento de inicio de sesión único. Valores posibles: `Suppressed`, `Tenant`, `Application` o `Policy`. El valor `Suppressed` indica que el comportamiento se suprime y siempre se solicita al usuario una selección del proveedor de identidades.  El valor `Tenant` indica que el comportamiento se aplica a todas las directivas del inquilino. Por ejemplo, a un usuario que sigue dos recorridos de directiva para un inquilino no se le solicita que seleccione el proveedor de identidades. El valor `Application` indica que el comportamiento se aplica a todas las directivas de la aplicación que hace la solicitud. Por ejemplo, a un usuario que sigue dos recorridos de directiva para una aplicación no se le solicita que seleccione el proveedor de identidades. El valor `Policy` indica que el comportamiento solo se aplica a una directiva. Por ejemplo, a un usuario que sigue dos recorridos de directiva para un marco de confianza se le solicita que seleccione el proveedor de identidades al cambiar de una directiva a otra. |
-| KeepAliveInDays | Sí | Controla cuánto tiempo permanece el usuario con la sesión iniciada. Si se establece el valor en 0, se desactiva la funcionalidad KMSI. Para más información, consulte [Mantener la sesión iniciada](custom-policy-keep-me-signed-in.md). |
+| KeepAliveInDays | Sí | Controla cuánto tiempo permanece el usuario con la sesión iniciada. Si se establece el valor en 0, se desactiva la funcionalidad KMSI. Para más información, consulte [Mantener la sesión iniciada](session-behavior.md?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi). |
 |EnforceIdTokenHintOnLogout| No|  Haga que un token de id. emitido previamente se pase al punto de conexión de cierre de sesión como una sugerencia sobre la sesión autenticada actual del usuario final con el cliente. Valores posibles: `false` (opción predeterminada) o `true`. Para más información, consulte [Inicio de sesión web con OpenID Connect](openid-connect.md).  |
 
 
@@ -165,7 +192,7 @@ El elemento **ContentDefinitionParameter** contiene el atributo siguiente:
 | --------- | -------- | ----------- |
 | Nombre | Sí | El nombre del par clave-valor. |
 
-Para obtener más información, vea [Configuración de la interfaz de usuario con contenido dinámico usando directivas personalizadas](custom-policy-ui-customization.md#configure-dynamic-custom-page-content-uri).
+Para obtener más información, vea [Configuración de la interfaz de usuario con contenido dinámico usando directivas personalizadas](customize-ui-with-html.md#configure-dynamic-custom-page-content-uri).
 
 ## <a name="technicalprofile"></a>TechnicalProfile
 

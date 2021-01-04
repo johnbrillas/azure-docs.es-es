@@ -5,14 +5,14 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 11/25/2020
+ms.date: 12/10/2020
 ms.author: duau
-ms.openlocfilehash: c49a3da5bef6059ff5c59cc271cfa58a80153312
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: e9354dade695367ed058506533603318c3cfc288
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96762761"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97561705"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Asociados de ExpressRoute y ubicaciones de emparejamiento
 
@@ -51,7 +51,7 @@ La siguiente tabla proporciona un mapa de las regiones de Azure para las ubicaci
 | **Corea del Sur** | Centro de Corea del Sur, Sur de Corea del Sur |Busan, Seúl|
 | **Emiratos Árabes Unidos** | Centro de Emiratos Árabes Unidos, Norte de Emiratos Árabes Unidos | Dubai, Dubai2 |
 | **Sudáfrica** | Oeste de Sudáfrica, Norte de Sudáfrica |Ciudad del cabo, Johannesburgo |
-| **Sudamérica** | Sur de Brasil |Sao Paulo |
+| **Sudamérica** | Sur de Brasil |Bogotá, Sao Paulo |
 
 ## <a name="azure-regions-and-geopolitical-boundaries-for-national-clouds"></a>Regiones de Azure y límites geopolíticos de las nubes nacionales
 En la tabla siguiente se proporciona información sobre las regiones y los límites geopolíticos para nubes nacionales.
@@ -83,6 +83,7 @@ La siguiente tabla muestra las ubicaciones de conectividad y los proveedores de 
 | **Auckland** | [Vocus Group NZ Albany](https://www.vocus.co.nz/business/cloud-data-centres) | 2 | N/D | 10 Gb/s | Devoli, Kordia, Megaport, Spark NZ, Vocus Group NZ |
 | **Bangkok** | [AIS](https://business.ais.co.th/solution/en/azure-expressroute.html) | 2 | N/D | 10 Gb/s | AIS, UIH |
 | **Berlín** | [NTT GDC](https://www.e-shelter.de/en/location/berlin-1-data-center) | 1 | Norte de Alemania | 10 Gb/s | Equinix, NTT Global DataCenters EMEA|
+| **Bogotá** | [Equinix BG1](https://www.equinix.com/locations/americas-colocation/colombia-colocation/bogota-data-centers/bg1/) | 4 | N/D | 10 Gb/s | |
 | **Busán** | [LG CNS](https://www.lgcns.com/En/Service/DataCenter) | 2 | Corea del Sur | N/D | LG CNS |
 | **Canberra** | [CDC](https://cdcdatacentres.com.au/content/about-cdc) | 1 | Centro de Australia | 10 Gb/s, 100 Gb/s | CDC |
 | **Canberra 2** | [CDC](https://cdcdatacentres.com.au/content/about-cdc) | 1 | Centro de Australia 2| 10 Gb/s, 100 Gb/s | CDC, Equinix |
@@ -158,13 +159,13 @@ Las nubes nacionales de Azure están aisladas entre sí y de los servicios comer
 | **Ubicación** | **Dirección** | **Regiones de Azure locales**| **ER Direct** | **Proveedores de servicios** |
 | --- | --- | --- | --- | --- |
 | **Atlanta** | [Equinix AT1](https://www.equinix.com/locations/americas-colocation/united-states-colocation/atlanta-data-centers/at1/) | N/D | 10 Gb/s, 100 Gb/s | Equinix |
-| **Chicago** | [Equinix CH1](https://www.equinix.com/locations/americas-colocation/united-states-colocation/chicago-data-centers/ch1/) | N/D | 10 Gb/s, 100 Gb/s | AT&T NetBond, Equinix, Level 3 Communications y Verizon |
+| **Chicago** | [Equinix CH1](https://www.equinix.com/locations/americas-colocation/united-states-colocation/chicago-data-centers/ch1/) | N/D | 10 Gb/s, 100 Gb/s | AT&T NetBond, British Telecom, Equinix, Level 3 Communications, Verizon |
 | **Dallas** | [Equinix DA3](https://www.equinix.com/locations/americas-colocation/united-states-colocation/dallas-data-centers/da3/) | N/D | 10 Gb/s, 100 Gb/s | Equinix, Megaport y Verizon |
 | **Nueva York** | [Equinix NY5](https://www.equinix.com/locations/americas-colocation/united-states-colocation/new-york-data-centers/ny5/) | N/D | 10 Gb/s, 100 Gb/s | Equinix, CenturyLink Cloud Connect, Verizon |
-| **Phoenix** | [CyrusOne Chandler](https://cyrusone.com/locations/arizona/phoenix-arizona-chandler/) | US Gov: Arizona | N/D | AT&T NetBond, CenturyLink Cloud Connect, Megaport |
+| **Phoenix** | [CyrusOne Chandler](https://cyrusone.com/locations/arizona/phoenix-arizona-chandler/) | US Gov: Arizona | 10 Gb/s, 100 Gb/s | AT&T NetBond, CenturyLink Cloud Connect, Megaport |
 | **San Antonio** | [CyrusOne SA2](https://cyrusone.com/locations/texas/san-antonio-texas-ii/) | US Gov Texas | N/D | CenturyLink Cloud Connect, Megaport |
 | **Silicon Valley** | [Equinix SV4](https://www.equinix.com/locations/americas-colocation/united-states-colocation/silicon-valley-data-centers/sv4/) | N/D | 10 Gb/s, 100 Gb/s | AT&T, Equinix, Level 3 Communications, Verizon |
-| **Seattle** | [Equinix SE2](https://www.equinix.com/locations/americas-colocation/united-states-colocation/seattle-data-centers/se2/) | N/D | N/D | Equinix, Megaport |
+| **Seattle** | [Equinix SE2](https://www.equinix.com/locations/americas-colocation/united-states-colocation/seattle-data-centers/se2/) | N/D | 10 Gb/s, 100 Gb/s | Equinix, Megaport |
 | **Washington DC** | [Equinix DC2](https://www.equinix.com/locations/americas-colocation/united-states-colocation/washington-dc-data-centers/dc2/) | US DoD (este), US Gov Virginia | 10 Gb/s, 100 Gb/s | AT&T NetBond, CenturyLink Cloud Connect, Equinix, Level 3 Communications, Megaport, Verizon |
 
 ### <a name="china"></a>China

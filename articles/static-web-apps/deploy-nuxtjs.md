@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: chnwamba
 ms.custom: devx-track-js
-ms.openlocfilehash: 919688a05081c6f0b717fa4a524da769f2a281fd
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 8f21f5fa8ee9035fe594cecff37a63b1ef2115cc
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96351629"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563473"
 ---
 # <a name="deploy-server-rendered-nuxtjs-websites-on-azure-static-web-apps-preview"></a>Implementación de sitios web de Nuxt.js representados por el servidor en Azure Static Web Apps (versión preliminar)
 
@@ -109,7 +109,7 @@ Azure Static Web Apps implementa la aplicación desde un repositorio de GitHub y
 1. Envíe los cambios a GitHub.
 
     ```bash
-    git push origin master
+    git push origin main
     ```
 
 ## <a name="deploy-your-static-website"></a>Implementación del sitio web estático
@@ -139,7 +139,7 @@ La nueva cuenta de Static Web Apps debe tener acceso al repositorio con la aplic
 1. Haga clic en el botón **Iniciar sesión con GitHub**.
 1. Seleccione la **Organización** en la que creó el repositorio para el proyecto de Nuxt.js, que puede ser su nombre de usuario de GitHub.
 1. Busque el nombre del repositorio que creó anteriormente y selecciónelo.
-1. Elija **maestro** como rama en el menú desplegable *Rama*.
+1. Elija **principal** como rama en el menú desplegable *Rama*.
 
    :::image type="content" source="media/deploy-nuxtjs/connect-github.png" alt-text="Conexión a GitHub":::
 
@@ -172,7 +172,7 @@ https://github.com/<YOUR_GITHUB_USERNAME>/nuxtjs-starter/actions
 
 Al crear la aplicación, Azure Static Web Apps creó un archivo de flujo de trabajo de Acciones de GitHub en el repositorio. Debe poner este archivo en el repositorio local para que el historial de Git se sincronice.
 
-Vuelva al terminal y ejecute el siguiente comando: `git pull origin master`.
+Vuelva al terminal y ejecute el siguiente comando: `git pull origin main`.
 
 ## <a name="configure-dynamic-routes"></a>Configuración de rutas dinámicas
 

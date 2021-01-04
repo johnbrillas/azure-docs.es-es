@@ -7,13 +7,13 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.reviewer: mamccrea
 ms.custom: mvc, devx-track-js
-ms.date: 06/16/2020
-ms.openlocfilehash: 092e07ed01fb870cdcd9a3fd63d46d30cef96007
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.date: 12/15/2020
+ms.openlocfilehash: 085ac8c2ca7cfafcf0e40152458acf68dd847937
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96780848"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97605537"
 ---
 # <a name="javascript-user-defined-functions-in-azure-stream-analytics"></a>Funciones definidas por el usuario de JavaScript en Azure Stream Analytics
  
@@ -215,6 +215,14 @@ La salida de esta consulta será el valor de datetime de entrada en **de-DE** co
 Samstag, 28. Dezember 2019
 ```
 
+## <a name="user-logging"></a>Registro de usuarios
+El mecanismo de registro le permite capturar información personalizada mientras se ejecuta un trabajo. Puede usar los datos de registro para depurar o evaluar la corrección del código personalizado en tiempo real. Este mecanismo está disponible a través del método Console.Log().
+
+```javascript
+console.log('my error message');
+```
+
+Puede acceder a los mensajes de registro a través de los [registros de diagnóstico](data-errors.md).
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [UDF de Machine Learning](./machine-learning-udf.md)

@@ -8,17 +8,18 @@ editor: ''
 tags: azure-service-management
 ms.assetid: 53981f7e-8370-4979-b26a-93a5988d905f
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2020
 ms.author: mathoma
-ms.openlocfilehash: 194c6a5cead400e1bac78ba42cb7238b64bd3b7b
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 1a0d1018991be9d78623b0826aeab3d13958e996
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96327481"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97504141"
 ---
 # <a name="business-continuity-and-hadr-for-sql-server-on-azure-virtual-machines"></a>Continuidad empresarial y HADR para SQL Server en Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -84,9 +85,13 @@ Puede tener una solución de recuperación ante desastres para las bases de dato
 
 Si tiene [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot:primaryr3), puede implementar planes de recuperación ante desastres (DR) híbridos con SQL Server sin incurrir en costos de licencias adicionales para la instancia de recuperación ante desastres pasiva.
 
-En la imagen siguiente, el programa de instalación usa una instancia de SQL Server que se ejecuta en una máquina virtual de Azure con 12 núcleos como réplica de recuperación ante desastres para una implementación de SQL Server local que usa 12 núcleos. Antiguamente, tendría que licenciar 12 núcleos de SQL Server para la implementación local y la implementación de Azure Virtual Machines. La ventaja nueva ofrece ventajas de réplica pasiva que se ejecutan en una máquina virtual de Azure. Ahora solo tiene que licenciar 12 núcleos de una instancia de SQL Server que se ejecuta en el entorno local, siempre y cuando se cumplan los criterios de recuperación ante desastres para la réplica pasiva en la máquina virtual de Azure.
+Por ejemplo, puede tener dos instancias secundarias pasivas gratis si las tres réplicas se hospedan en Azure: 
 
-![Réplica de recuperación ante desastres gratuita en Azure](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/free-dr-replica-azure.png)
+![Dos instancias pasivas gratis si todo está en Azure](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/failover-with-primary-in-azure.png)
+
+O bien, puede configurar un entorno de conmutación por error híbrido, con una instancia principal con licencia, una instancia pasiva para alta disponibilidad, una instancia pasiva gratis para la recuperación ante desastres local y otra instancia pasiva gratis para la recuperación ante desastres en Azure:
+
+![Tres instancias pasivas gratis si el entorno es híbrido con una réplica principal local](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/hybrid-with-primary-on-prem.png)
 
 Para más información, consulte los [términos de licencia del producto](https://www.microsoft.com/licensing/product-licensing/products). 
 

@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: mlearned
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 99be6dc42a9b644166054d61e88a1e0ac329d2ad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 63d3ac356e4f2c1d17e1511227f5089b7ff4266f
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91854730"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589165"
 ---
 # <a name="create-a-cicd-pipeline-for-net-with-azure-devops-starter"></a>Creación de una canalización de CI/CD para .NET con Azure DevOps Starter
 
@@ -66,9 +66,9 @@ DevOps Starter crea una canalización de CI/CD en Azure DevOps. Puede crear una 
 
 DevOps Starter creó un repositorio de Git en Azure Repos o GitHub. Para ver el repositorio y realizar cambios en el código de la aplicación, siga estos pasos:
 
-1. En el lado izquierdo del panel de DevOps Starter, seleccione el vínculo de la rama **maestra**. Este vínculo abre una vista al repositorio de Git recién creado.
+1. En el lado izquierdo del panel de DevOps Starter, seleccione el vínculo de la rama **principal**. Este vínculo abre una vista al repositorio de Git recién creado.
 
-2. En los pasos siguientes, puede usar el explorador web para realizar los cambios en el código y confirmarlos directamente en la rama **maestra**. También puede clonar su repositorio de Git de su IDE favorito seleccionando **Clonar** en la esquina superior derecha de la página del repositorio. 
+2. En los pasos siguientes, puede usar el explorador web para realizar cambios en el código y confirmarlos directamente en la rama **principal**. También puede clonar su repositorio de Git de su IDE favorito seleccionando **Clonar** en la esquina superior derecha de la página del repositorio. 
 
 3. A la izquierda, vaya a la estructura de archivos de aplicación en **Application/aspnet-core-dotnet-core/Pages/Index.cshtml**.
 

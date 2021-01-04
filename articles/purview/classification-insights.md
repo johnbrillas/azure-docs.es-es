@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/24/2020
-ms.openlocfilehash: 553c33b3d5ea2e3f1ee81503cb69fe15db387af6
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: bb3c7cc3f51eae90c5b712d224407e639b232fbc
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745033"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938892"
 ---
 # <a name="classification-insights-about-your-data-from-azure-purview"></a>Conclusiones de la clasificación sobre los datos de Azure Purview
 
@@ -44,7 +44,7 @@ En Azure Purview, las clasificaciones son similares a las etiquetas de asunto y 
 Purview usa los mismos tipos de información confidencial que Microsoft 365, lo que permite ampliar las directivas de seguridad y la protección existentes en todo su patrimonio de datos.
 
 > [!NOTE]
-> Una vez que haya examinado los tipos de origen, conceda a las conclusiones de **etiquetado de la clasificación** un par de horas para reflejar los nuevos recursos.
+> Una vez que haya examinado los tipos de origen, conceda a las conclusiones de **clasificación** un par de horas para reflejar los nuevos recursos.
 
 **Visualización de conclusiones de la clasificación:**
 

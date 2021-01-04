@@ -3,12 +3,12 @@ title: Introducción a ACR Tasks
 description: Una introducción a ACR Tasks, un conjunto de características de Azure Container Registry que proporciona compilaciones de imágenes de contenedor, administración y aplicación de revisiones automatizadas y seguras en la nube.
 ms.topic: article
 ms.date: 08/12/2020
-ms.openlocfilehash: 14758e363e74450a10f1a2cbfc889f3e24782771
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: b6df415bd55979ef00f6921321dbc254ef7a7e59
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027673"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562861"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatización de compilaciones y mantenimiento de imágenes de contenedor con ACR Tasks
 
@@ -23,7 +23,7 @@ Los contenedores proporcionan nuevos niveles de virtualización, que aíslan las
 ACR Tasks admite varios escenarios para compilar y mantener imágenes de contenedor y otros artefactos. Para obtener más información, consulte las siguientes secciones de este artículo.
 
 * **[Tarea rápida](#quick-task)** : compile e inserte una sola imagen de contenedor en un registro de contenedor a petición en Azure, sin tener que realizar una instalación local del motor de Docker. Considere que `docker build`, es `docker push` en la nube.
-* **Tareas desencadenadas automáticamente** : habilite uno o varios *desencadenadores* para compilar una imagen:
+* **Tareas desencadenadas automáticamente**: habilite uno o varios *desencadenadores* para compilar una imagen:
   * **[Desencadenar al actualizar el código fuente](#trigger-task-on-source-code-update)** 
   * **[Desencadenar al actualizar la imagen base](#automate-os-and-framework-patching)** 
   * **[Desencadenar de acuerdo con una programación](#schedule-a-task)** 
@@ -105,7 +105,7 @@ En la tabla siguiente se muestran ejemplos de ubicaciones de contexto admitidas 
 | Ubicación de contexto | Descripción | Ejemplo |
 | ---------------- | ----------- | ------- |
 | Sistema de archivos local | Archivos en un directorio en el sistema de archivos local. | `/home/user/projects/myapp` |
-| Rama maestra de GitHub | Archivos dentro de la rama maestra (u otra predeterminada) de un repositorio de GitHub público o privado.  | `https://github.com/gituser/myapp-repo.git` |
+| Rama principal de GitHub | Archivos dentro de la rama principal (u otra predeterminada) de un repositorio de GitHub público o privado.  | `https://github.com/gituser/myapp-repo.git` |
 | Rama de GitHub | Rama específica de un repositorio de GitHub público o privado.| `https://github.com/gituser/myapp-repo.git#mybranch` |
 | Subcarpeta de GitHub | Archivos en una subcarpeta en un repositorio de GitHub público o privado. En el ejemplo se muestra la combinación de una rama y una especificación de subcarpeta. | `https://github.com/gituser/myapp-repo.git#mybranch:myfolder` |
 | Confirmación de GitHub | Confirmación específica en un repositorio de GitHub público o privado. En el ejemplo se muestra la combinación de un valor hash de confirmación (SHA) y una especificación de subcarpeta. | `https://github.com/gituser/myapp-repo.git#git-commit-hash:myfolder` |

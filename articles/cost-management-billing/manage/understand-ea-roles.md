@@ -1,24 +1,24 @@
 ---
-title: Información sobre los roles de administrador para Enterprise en Azure
+title: Información sobre los roles de administrador en contratos Enterprise (EA) de Azure
 description: Conozca los roles de administrador de empresa en Azure. Puede asignar cinco roles administrativos distintos.
 author: bandersmsft
 ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 09/23/2020
+ms.date: 12/10/2020
 ms.author: banders
-ms.custom: contperfq1
-ms.openlocfilehash: e712b44f22a8080b14a2cc2532cadf2dd4738b76
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: e8420f68fba40ddb61d06770f9f5bc2fafe5616a
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94409207"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97560532"
 ---
-# <a name="managing-azure-enterprise-roles"></a>Administración de roles de Azure Enterprise
+# <a name="managing-azure-enterprise-agreement-roles"></a>Administración de los roles del Contrato Enterprise de Azure
 
-Para ayudar a administrar el uso y el gasto de su organización, los clientes de Azure con un Contrato Enterprise (EA) pueden asignar cinco roles de administrador diferentes:
+Para ayudar a administrar el uso y el gasto de su organización, los clientes de Azure con un Contrato Enterprise pueden asignar cinco roles de administrador diferentes:
 
 - Administrador de empresa
 - Administrador de empresa (solo lectura)<sup>1</sup>
@@ -40,7 +40,7 @@ Estos roles son específicos de la administración de Contratos Enterprise de Az
 
 La jerarquía de Azure Enterprise Portal consta de:
 
-- **Azure Enterprise Portal** : Portal de administración en línea que ayuda a administrar los costos de los servicios de Azure EA. Puede:
+- **Azure Enterprise Portal**: Portal de administración en línea que ayuda a administrar los costos de los servicios de Azure EA. Puede:
 
   - Crear una jerarquía de Azure EA con departamentos, cuentas y suscripciones.
   - Conciliar los costos de los servicios consumidos, descargar informes de uso y ver listas de precios.
@@ -82,6 +82,8 @@ Los usuarios con este rol tienen el nivel de acceso más alto. Pueden realizar l
 - Administrar contactos de notificación.
 - Ver el uso en todas las cuentas.
 - Ver los cargos no facturados en todas las cuentas.
+- Ver y administrar no solo todos los pedidos de reserva, sino también las propias reservas que se aplican al Contrato Enterprise.
+  - El administrador de empresa (solo lectura) puede ver tanto los pedidos de reserva como las propias reservas, pero no pueden administrarlos.
 
 Puede tener varios administradores de empresa en una inscripción empresarial. Puede conceder acceso de solo lectura a los administradores de empresa. Estos heredan el rol de administrador de departamento.
 

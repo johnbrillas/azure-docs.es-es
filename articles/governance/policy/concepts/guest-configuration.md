@@ -3,12 +3,12 @@ title: Información sobre cómo auditar el contenido de máquinas virtuales
 description: Obtenga información sobre cómo Azure Policy usa Guest Configuration para auditar la configuración dentro de las máquinas virtuales.
 ms.date: 10/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: a956d5e8dcfa82f85020928e1427a08ac8fe7a69
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 7d7aa14038c834747240d17441c61d000ac6bb74
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96906257"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347887"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Información sobre Guest Configuration de Azure Policy
 
@@ -84,7 +84,7 @@ Las máquinas virtuales que usan redes virtuales para la comunicación requerir�
 
 ### <a name="communicate-over-private-link-in-azure"></a>Comunicación a través de un vínculo privado en Azure
 
-Las máquinas virtuales pueden usar un [vínculo privado](../../../private-link/private-link-overview.md) para la comunicación con el servicio de configuración de invitado. Aplique la etiqueta con el nombre `EnablePrivateNeworkGC` y el valor `TRUE` para habilitar esta característica. La etiqueta se puede aplicar antes o después de que se apliquen las definiciones de directivas de configuración de invitado a la máquina.
+Las máquinas virtuales pueden usar un [vínculo privado](../../../private-link/private-link-overview.md) para la comunicación con el servicio de configuración de invitado. Aplique la etiqueta con el nombre `EnablePrivateNeworkGC` (sin la "t" de "Network") y el valor `TRUE` para habilitar esta característica. La etiqueta se puede aplicar antes o después de que se apliquen las definiciones de directivas de configuración de invitado a la máquina.
 
 El tráfico se enruta mediante la [dirección IP pública virtual](../../../virtual-network/what-is-ip-address-168-63-129-16.md) de Azure para establecer un canal seguro y autenticado con recursos de la plataforma Azure.
 
