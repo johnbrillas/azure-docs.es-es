@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 07/10/2018
-ms.openlocfilehash: f016fd37efa2bd821b5ad2286a921bf29bbedfbd
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: a921e51a3c63828602e7e21bfc96f507649236a5
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92221271"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97682830"
 ---
 # <a name="test-stream-analytics-queries-locally-with-visual-studio"></a>Prueba de las consultas de Stream Analytics localmente con Visual Studio
 
@@ -32,7 +32,7 @@ Para validar la consulta con datos estáticos locales, haga clic con el botón d
    
 ![Captura de pantalla que resalta la opción de menú Agregar entrada local.](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-add-local-input-01.png)
    
-En la ventana emergente, seleccione los datos de ejemplo de la ruta de acceso local y haga clic en **Guardar** .
+En la ventana emergente, seleccione los datos de ejemplo de la ruta de acceso local y haga clic en **Guardar**.
    
 ![Agregar entrada local](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-add-local-input-02.png)
    
@@ -40,7 +40,7 @@ Un archivo denominado **local_EntryStream.json** se agrega automáticamente a la
    
 ![Lista de archivos de la carpeta de entrada local](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-add-local-input-03.png)
    
-En el editor de consultas, haga clic en **Ejecutar localmente** . O bien, puede presionar F5.
+En el editor de consultas, haga clic en **Ejecutar localmente**. O bien, puede presionar F5.
    
 ![Ejecución en modo local](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-local-run-01.png)
    
@@ -58,15 +58,15 @@ Compruebe los resultados en la carpeta local.
    
 
 ### <a name="sample-input"></a>Entrada de ejemplo
-También puede recopilar datos de entrada de ejemplo de orígenes de entrada a un archivo local. Haga clic con el botón derecho en el archivo de configuración de entrada y seleccione **Datos de ejemplo** . 
+También puede recopilar datos de entrada de ejemplo de orígenes de entrada a un archivo local. Haga clic con el botón derecho en el archivo de configuración de entrada y seleccione **Datos de ejemplo**. 
 
 ![Datos de ejemplo](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-sample-data-01.png)
 
-Solo se pueden muestrear los datos que se transmiten desde Event Hubs o IoT Hubs. No se admiten otros orígenes de entrada. En el cuadro de diálogo emergente, escriba la ruta de acceso local para guardar los datos de ejemplo y seleccione **Muestra** .
+Solo se pueden muestrear los datos que se transmiten desde Event Hubs o IoT Hubs. No se admiten otros orígenes de entrada. En el cuadro de diálogo emergente, escriba la ruta de acceso local para guardar los datos de ejemplo y seleccione **Muestra**.
 
 ![Configuración de los datos de ejemplo](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-sample-data-02.png)
  
-Puede ver el progreso en la ventana **Salida** . 
+Puede ver el progreso en la ventana **Salida**. 
 
 ![Salida de los datos de ejemplo](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-sample-data-03.png)
 
@@ -75,5 +75,4 @@ Puede ver el progreso en la ventana **Salida** .
 * [Inicio rápido: creación de un trabajo de Stream Analytics con Visual Studio](stream-analytics-quick-create-vs.md)
 * [Uso de Visual Studio para ver trabajos de Azure Stream Analytics](stream-analytics-vs-tools.md)
 * [Prueba local de datos activos mediante herramientas de Azure Stream Analytics para Visual Studio (versión preliminar)](stream-analytics-live-data-local-testing.md)
-* [Tutorial: Implementación de un trabajo de Azure Stream Analytics con CI/CD mediante Azure DevOps](stream-analytics-tools-visual-studio-cicd-vsts.md)
 * [Integración y desarrollo continuos con las herramientas de Stream Analytics](stream-analytics-tools-for-visual-studio-cicd.md)

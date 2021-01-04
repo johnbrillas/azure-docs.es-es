@@ -9,12 +9,12 @@ ms.custom: mvc, contperf-fy21q1
 ms.date: 12/03/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 3bfc8704919fc26db692701eaca526dd5c333b6f
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 04ba20bd5607bc309735e509ac37b15c33445c52
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033500"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672740"
 ---
 # <a name="what-is-azure-firewall"></a>¿Qué es Azure Firewall?
 
@@ -68,7 +68,6 @@ Las reglas de filtrado de red para protocolos que no son TCP/UDP (por ejemplo, I
 |Las actualizaciones de configuración pueden tardar cinco minutos por término medio.|Una actualización de la configuración de Azure Firewall puede tardar entre tres y cinco minutos por término medio, y no se admiten actualizaciones en paralelo.|Se está investigando una solución.|
 |Azure Firewall usa encabezados TLS SNI para filtrar el tráfico HTTPS y MSSQL|Si el software de explorador o servidor no admite la extensión de indicación de nombre de servidor (SNI), no podrá conectarse mediante Azure Firewall.|Si el software de explorador o servidor no admite SNI, es posible que pueda controlar la conexión mediante una regla de red en lugar de una regla de aplicación. Consulte [Indicación de nombre de servidor](https://wikipedia.org/wiki/Server_Name_Indication) para conocer el software que admite SNI.|
 |DNS personalizado (versión preliminar) no funciona con la tunelización forzada.|Si está habilitada la tunelización forzada, DNS personalizado no funciona.|Se está investigando una solución.|
-|Compatibilidad con la nueva dirección IP pública para varias instancias de Availability Zones|No se puede agregar una nueva dirección IP pública al implementar un firewall con dos zonas de disponibilidad (1 y 2, 2 y 3 o 1 y 3)|Esta es una limitación de recursos de dirección IP pública.|
 |El inicio o la detención no funcionan con los firewalls configurados en modo de túnel forzado|El inicio o la detención no funcionan con Azure Firewall configurado en modo de túnel forzado. Si se intenta iniciar Azure Firewall con la tunelización forzada configurada, aparece el siguiente error:<br><br>*Set-AzFirewall: AzureFirewall FW-xx management IP configuration cannot be added to an existing firewall. Redeploy with a management IP configuration if you want to use forced tunneling support.<br>StatusCode: 400<br>ReasonPhrase: Solicitud incorrecta* (Set-AzFirewall: la configuración de la IP de administración de AzureFirewall FW-xx no se puede agregar a un firewall existente. Vuelva a realizar la implementación de desea usar el soporte técnico de la tunelización forzada.
 StatusCode: 400
 ReasonPhrase: solicitud incorrecta).|Bajo investigación.<br><br>Como solución alternativa, puede eliminar el firewall existente y crear otro con los mismos parámetros.|

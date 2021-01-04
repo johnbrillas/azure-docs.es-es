@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: d2eef20b4c5648b1b11f16d8e46b956fc1497181
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d432f29e91097491fc4719ec59a11cb96948f431
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92364429"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97609061"
 ---
 # <a name="create-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Creación de un grupo de servidores Hiperescala de PostgreSQL habilitado para Azure Arc
 
@@ -32,7 +32,7 @@ Hay temas importantes que puede que le interese leer antes de continuar con la c
 - [Conceptos de almacenamiento de Kubernetes y configuración de almacenamiento](storage-configuration.md)
 - [Modelo de recursos de Kubernetes](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/scheduling/resources.md#resource-quantities)
 
-Si prefiere realizar pruebas sin aprovisionar un entorno completo, empiece a trabajar rápidamente con [Azure Arc JumpStart](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services) en Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) o en una máquina virtual de Azure.
+Si prefiere realizar pruebas sin aprovisionar un entorno completo, empiece a trabajar rápidamente con [Azure Arc JumpStart](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/) en Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) o en una máquina virtual de Azure.
 
 
 ## <a name="login-to-the-azure-arc-data-controller"></a>Inicio de sesión en el controlador de datos de Azure Arc
@@ -45,7 +45,7 @@ azdata login
 
 Después, se le pedirá el nombre de usuario, la contraseña y el espacio de nombres del sistema.  
 
-> Si ha usado el script para crear el controlador de datos, el espacio de nombres debe ser **arc** .
+> Si ha usado el script para crear el controlador de datos, el espacio de nombres debe ser **arc**.
 
 ```console
 Namespace: arc
@@ -80,10 +80,10 @@ azdata arc postgres server create -n <name> --workers <# worker nodes with #>=2>
 
 > [!NOTE]
 > - **Hay otros parámetros de línea de comandos disponibles.  Para ver la lista completa de opciones, ejecute `azdata arc postgres server create --help`.**
-> - La clase de almacenamiento usada para las copias de seguridad ( _--storage-class-backups -scb_ ) toma como valor predeterminado la clase de almacenamiento de datos del controlador de datos si no se proporciona.
+> - La clase de almacenamiento usada para las copias de seguridad ( _--storage-class-backups -scb_) toma como valor predeterminado la clase de almacenamiento de datos del controlador de datos si no se proporciona.
 > - La unidad aceptada por los parámetros --volume-size-* es una cantidad de recursos Kubernetes (es suficiente con un entero seguido de uno de estos valores SI (T, G, M, K, m), o bien sus equivalentes elevados a la potencia de dos (Ti, Gi, Mi, Ki)).
 > - Los nombres deben tener una longitud de 12 caracteres o menos, y ajustarse a las convenciones de nomenclatura de DNS.
-> - Se le pedirá que escriba la contraseña del usuario administrativo estándar _postgres_ .  Puede omitir el mensaje interactivo si establece la variable de entorno de sesión `AZDATA_PASSWORD` antes de ejecutar el comando create.
+> - Se le pedirá que escriba la contraseña del usuario administrativo estándar _postgres_.  Puede omitir el mensaje interactivo si establece la variable de entorno de sesión `AZDATA_PASSWORD` antes de ejecutar el comando create.
 > - Si ha implementado el controlador de datos con las variables de entorno de sesión AZDATA_USERNAME y AZDATA_PASSWORD en la misma sesión de terminal, los valores de AZDATA_PASSWORD también se usarán para implementar el grupo de servidores Hiperescala de PostgreSQL. Si prefiere usar otra contraseña, (1) actualice el valor de AZDATA_PASSWORD o (2) elimine la variable de entorno AZDATA_PASSWORD o elimine su valor; se le pedirá que escriba una contraseña de forma interactiva al crear un grupo de servidores.
 > - El nombre del usuario administrador predeterminado para el motor de base de datos de Hiperescala de PostgreSQL es _postgresql_ y no se puede cambiar en este momento.
 > - La creación de un grupo de servidores Hiperescala de PostgreSQL no registrará los recursos en Azure de forma inmediata. Como parte del proceso de carga de [inventario de recursos](upload-metrics-and-logs-to-azure-monitor.md) o [datos de uso](view-billing-data-in-azure.md) a Azure, los recursos se crearán en Azure y podrá verlos en Azure Portal.
@@ -136,7 +136,7 @@ Si usa una máquina virtual de Azure para realizar pruebas, siga estas instrucci
 
 ## <a name="special-note-about-azure-virtual-machine-deployments"></a>Nota especial sobre las implementaciones de máquinas virtuales de Azure
 
-Cuando se usa una máquina virtual de Azure, la dirección IP del punto de conexión no mostrará la _IP pública_ . Para localizar la IP pública, use el comando siguiente:
+Cuando se usa una máquina virtual de Azure, la dirección IP del punto de conexión no mostrará la _IP pública_. Para localizar la IP pública, use el comando siguiente:
 
 ```azurecli
 az network public-ip list -g azurearcvm-rg --query "[].{PublicIP:ipAddress}" -o table
@@ -162,7 +162,7 @@ az network nsg rule create -n db_port --destination-port-ranges 30655 --source-a
 
 ## <a name="connect-with-azure-data-studio"></a>Conexión con Azure Data Studio
 
-Abra Azure Data Studio y conéctese a la instancia con la dirección IP y el número de puerto del punto de conexión externo anterior, y la contraseña que haya especificado al crear la instancia.  Si PostgreSQL no está disponible en la lista desplegable *Tipo de conexión* , puede instalar la extensión PostgreSQL si busca PostgreSQL en la pestaña Extensiones.
+Abra Azure Data Studio y conéctese a la instancia con la dirección IP y el número de puerto del punto de conexión externo anterior, y la contraseña que haya especificado al crear la instancia.  Si PostgreSQL no está disponible en la lista desplegable *Tipo de conexión*, puede instalar la extensión PostgreSQL si busca PostgreSQL en la pestaña Extensiones.
 
 > [!NOTE]
 > Tendrá que hacer clic en el botón [Avanzado] del panel de conexión para escribir el número de puerto.

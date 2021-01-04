@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/11/2019
-ms.openlocfilehash: ba63358347cf9722d2cafa35598b9b3b37f49dc3
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 67e28e8c5092f2b52a3a34053f81d8a00afb24ed
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129463"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97683217"
 ---
 # <a name="copy-or-back-up-azure-stream-analytics-jobs"></a>Copia o copia de seguridad de trabajos de Azure Stream Analytics
 
@@ -37,8 +37,6 @@ Puede copiar o hacer una copia de seguridad de los trabajos de Azure Stream Anal
 
     El proyecto se exporta a la carpeta que seleccione y se agrega al área de trabajo actual.
 
-    ![Exportación de un trabajo de ASA en Visual Studio Code](./media/stream-analytics-manage-job/copy-backup-stream-analytics-jobs.png)
-
 3. Para publicar el trabajo en otra región o copia de seguridad con otro nombre, seleccione **Seleccione entre las suscripciones para publicar** en el editor de consultas (\*.asaql) y siga las instrucciones.
 
     ![Publicación en Azure en Visual Studio Code](./media/quick-create-visual-studio-code/submit-job.png)
@@ -53,4 +51,3 @@ Puede copiar o hacer una copia de seguridad de los trabajos de Azure Stream Anal
 
 * [Inicio rápido: Creación de un trabajo de Stream Analytics mediante Visual Studio Code](quick-create-visual-studio-code.md)
 * [Inicio rápido: Creación de un trabajo de Stream Analytics mediante Visual Studio](stream-analytics-quick-create-vs.md)
-* [Implementación de un trabajo de Azure Stream Analytics con CI/CD mediante Azure Pipelines](stream-analytics-tools-visual-studio-cicd-vsts.md)

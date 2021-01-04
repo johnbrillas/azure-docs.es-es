@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2020
-ms.openlocfilehash: 649abf6d07a95c7f20f6416f7d3155f8d115782b
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: d2fb2ac40dfbe6e48fef5c98e21896575b298a94
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93127576"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97683466"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Datos de flujo como entrada en Stream Analytics
 
@@ -31,7 +31,7 @@ Stream Analytics admite la compresión en todos los orígenes de entrada del flu
 
 ## <a name="create-edit-or-test-inputs"></a>Creación, edición o prueba de entradas
 
-Puede usar [Azure Portal](stream-analytics-quick-create-portal.md), [Visual Studio](stream-analytics-quick-create-vs.md), y [Visual Studio Code](quick-create-visual-studio-code.md) para agregar, ver o editar entradas existentes en su trabajo de streaming. También puede probar conexiones de entrada y [probar consultas](stream-analytics-manage-job.md#test-your-query) a partir de datos de ejemplo desde Azure Portal, [Visual Studio](stream-analytics-vs-tools-local-run.md) y [Visual Studio Code](visual-studio-code-local-run.md). Al escribir una consulta, se muestra una lista de las entradas en la cláusula FROM. Puede obtener la lista de las entradas disponibles en la página **Consulta** del portal. Si desea usar varias entradas, puede utilizar `JOIN` o escribir varias consultas `SELECT`.
+Puede usar [Azure Portal](stream-analytics-quick-create-portal.md), [Visual Studio](stream-analytics-quick-create-vs.md), y [Visual Studio Code](quick-create-visual-studio-code.md) para agregar, ver o editar entradas existentes en su trabajo de streaming. También puede probar conexiones de entrada y probar consultas a partir de datos de ejemplo desde Azure Portal, [Visual Studio](stream-analytics-vs-tools-local-run.md) y [Visual Studio Code](visual-studio-code-local-run.md). Al escribir una consulta, se muestra una lista de las entradas en la cláusula FROM. Puede obtener la lista de las entradas disponibles en la página **Consulta** del portal. Si desea usar varias entradas, puede utilizar `JOIN` o escribir varias consultas `SELECT`.
 
 
 ## <a name="stream-data-from-event-hubs"></a>Datos de flujo de Event Hubs

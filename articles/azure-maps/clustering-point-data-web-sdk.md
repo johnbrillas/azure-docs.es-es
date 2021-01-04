@@ -9,20 +9,20 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 9ecde4cb0c8a3bfe3dd8fb2edb59423838e0751c
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: e80465cf8d43918e6ed6da8ebb3b96f3f197e887
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92889874"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97679965"
 ---
 # <a name="clustering-point-data"></a>Agrupación en clústeres de datos de punto
 
 Cuando se visualizan muchos puntos de datos en el mapa, los puntos pueden superponerse entre sí. Este solapamiento puede hacer que el mapa resulte ilegible y difícil de usar. La agrupación en clústeres de datos de punto es el proceso de combinar datos de punto que están cerca unos de otros y representarlos en el mapa como un único punto de datos agrupados en clúster. Cuando el usuario acerca el mapa, los clústeres se separan en sus puntos de datos individuales. Cuando trabaje con un gran número de puntos de datos, utilice procesos de agrupación en clústeres para mejorar la experiencia del usuario.
 
-<br/>
+</br>
 
-<iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Clustering-point-data-in-Azure-Maps/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Clustering-point-data-in-Azure-Maps/player?format=ny]
 
 ## <a name="enabling-clustering-on-a-data-source"></a>Habilitar la agrupación en clústeres en un origen de datos
 

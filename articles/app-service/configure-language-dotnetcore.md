@@ -6,12 +6,12 @@ ms.custom: devx-track-csharp, devx-track-azurecli
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 0f7047638aa2e2b4a9ac6ffade82fdc117b56cfb
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 1223ff5c56d3c7d58b324d2099980bc0b5408125
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92744177"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97655975"
 ---
 # <a name="configure-an-aspnet-core-app-for-azure-app-service"></a>Configuración de una aplicación de ASP.NET para Azure App Service
 
@@ -125,7 +125,7 @@ namespace SomeNamespace
 }
 ```
 
-Si configura una opción de aplicación con el mismo nombre en App Service y en *appsettings.json* , por ejemplo, el valor de App Service tiene prioridad sobre el valor de *appsettings.json* . El valor de *appsettings.json* local permite depurar la aplicación localmente, pero el valor de App Service permite la ejecución de la aplicación en el producto con la configuración de producción. Las cadenas de conexión funcionan de la misma manera. De este modo, puede conservar los secretos de aplicación fuera de su repositorio de código y tener acceso a los valores adecuados sin cambiar el código.
+Si configura una opción de aplicación con el mismo nombre en App Service y en *appsettings.json*, por ejemplo, el valor de App Service tiene prioridad sobre el valor de *appsettings.json*. El valor de *appsettings.json* local permite depurar la aplicación localmente, pero el valor de App Service permite la ejecución de la aplicación en el producto con la configuración de producción. Las cadenas de conexión funcionan de la misma manera. De este modo, puede conservar los secretos de aplicación fuera de su repositorio de código y tener acceso a los valores adecuados sin cambiar el código.
 
 > [!NOTE]
 > Tenga en cuenta que el acceso a los [datos de configuración jerárquica](/aspnet/core/fundamentals/configuration/#hierarchical-configuration-data) en *appsettings.json* se tiene mediante el delimitador `:` que es estándar para .NET Core. Para invalidar una opción de configuración jerárquica específica en App Service, establezca el nombre de configuración de la aplicación con el mismo formato delimitado en la clave. Puede ejecutar el siguiente ejemplo en [Cloud Shell](https://shell.azure.com):
@@ -167,7 +167,7 @@ Para obtener más información sobre cómo solucionar problemas de aplicaciones 
 
 ## <a name="get-detailed-exceptions-page"></a>Obtener la página de excepciones detalladas
 
-Cuando la aplicación de ASP.NET Core genera una excepción en el depurador de Visual Studio, el explorador muestra una página de excepciones detalladas, pero, en App Service, esa página se sustituye por un error genérico **HTTP 500** o **Error al procesar la solicitud** . de la directiva). Para mostrar la página de excepciones detalladas en App Service, agregue la configuración de aplicación `ASPNETCORE_ENVIRONMENT` a la aplicación con el siguiente comando en <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>.
+Cuando la aplicación de ASP.NET Core genera una excepción en el depurador de Visual Studio, el explorador muestra una página de excepciones detalladas, pero, en App Service, esa página se sustituye por un error genérico **HTTP 500** o **Error al procesar la solicitud**. de la directiva). Para mostrar la página de excepciones detalladas en App Service, agregue la configuración de aplicación `ASPNETCORE_ENVIRONMENT` a la aplicación con el siguiente comando en <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings ASPNETCORE_ENVIRONMENT="Development"
@@ -175,7 +175,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 ## <a name="detect-https-session"></a>Detección de sesión de HTTPS
 
-En App Service, la [terminación de SSL](https://wikipedia.org/wiki/TLS_termination_proxy) se produce en los equilibradores de carga de red, por lo que todas las solicitudes HTTPS llegan a su aplicación en forma de solicitudes HTTP sin cifrar. Si necesita que la lógica de aplicación sepa si las solicitudes del usuario están cifradas o no, configure el middleware de encabezados reenviados en *Startup.cs* :
+En App Service, la [terminación de SSL](https://wikipedia.org/wiki/TLS_termination_proxy) se produce en los equilibradores de carga de red, por lo que todas las solicitudes HTTPS llegan a su aplicación en forma de solicitudes HTTP sin cifrar. Si necesita que la lógica de aplicación sepa si las solicitudes del usuario están cifradas o no, configure el middleware de encabezados reenviados en *Startup.cs*:
 
 - Configure el middleware con [ForwardedHeadersOptions](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions) para reenviar los encabezados `X-Forwarded-For` y `X-Forwarded-Proto` en `Startup.ConfigureServices`.
 - Agregue intervalos de direcciones IP privadas a las redes conocidas, de modo que el middleware pueda confiar en el equilibrador de carga de App Service.
@@ -192,6 +192,7 @@ public void ConfigureServices(IServiceCollection services)
     {
         options.ForwardedHeaders =
             ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto;
+        // These three subnets encapsulate the applicable Azure subnets. At the moment, it's not possible to narrow it down further.
         options.KnownNetworks.Add(new IPNetwork(IPAddress.Parse("::ffff:10.0.0.0"), 104));
         options.KnownNetworks.Add(new IPNetwork(IPAddress.Parse("::ffff:192.168.0.0"), 112));
         options.KnownNetworks.Add(new IPNetwork(IPAddress.Parse("::ffff:172.16.0.0"), 108));

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 02/15/2017
 ms.reviewer: dx@sendgrid.com
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: c8ac20378cbae9334cedb59878311f2541b40bd3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e605e162e4639a876cc5b6d763e81fdd7ff93aa8
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89020599"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97674555"
 ---
 # <a name="how-to-send-email-using-sendgrid-with-azure"></a>Envío de correos electrónicos con SendGrid y Azure
 ## <a name="overview"></a>Información general
@@ -107,7 +107,7 @@ El envío de correos electrónicos requiere que el usuario proporcione su clave 
 
 Para almacenar estas credenciales en Azure Portal, haga clic en Configuración de la aplicación y agregue pares clave-valor en la configuración de la aplicación.
 
- ![Configuración de la aplicación de Azure][azure_app_settings]
+![Configuración de la aplicación de Azure][azure_app_settings]
 
 A continuación, puede tener acceso a ellas de la siguiente manera:
 
@@ -159,17 +159,17 @@ En este ejemplo, la clave de la API se ha almacenado en el archivo `appsettings.
 
 El contenido del archivo `appsettings.json` debe tener un aspecto similar al siguiente:
 
-```csharp
+```json
 {
-   "Logging": {
-   "IncludeScopes": false,
-   "LogLevel": {
-   "Default": "Debug",
-   "System": "Information",
-   "Microsoft": "Information"
-     }
-   },
- "SENDGRID_API_KEY": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+  "Logging": {
+    "IncludeScopes": false,
+    "LogLevel": {
+      "Default": "Debug",
+      "System": "Information",
+      "Microsoft": "Information"
+    }
+  },
+  "SENDGRID_API_KEY": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 }
 ```
 
@@ -208,8 +208,8 @@ namespace SendgridMailApp.Controllers
        public NotificationController(IConfiguration configuration)
        {
          _configuration = configuration;
-       }      
-    
+       }
+
        [Route("SendNotification")]
        public async Task PostMessage()
        {
@@ -222,7 +222,7 @@ namespace SendgridMailApp.Controllers
               new EmailAddress("test3@example.com", "Example User 3"),
               new EmailAddress("test4@example.com","Example User 4")
           };
-        
+
           var subject = "Hello world email from Sendgrid ";
           var htmlContent = "<strong>Hello world with HTML content</strong>";
           var displayRecipients = false; // set this to true if you want recipients to see each others mail id 
@@ -258,10 +258,10 @@ Los siguientes ejemplos demuestran el uso de los filtros de pie de página y seg
 ### <a name="footer-settings"></a>Configuración de pie de página
 
 ```csharp
-msg.SetFooterSetting(
-                     true,
-                     "Some Footer HTML",
-                     "<strong>Some Footer Text</strong>");
+    msg.SetFooterSetting(
+        true,
+        "Some Footer HTML",
+        "<strong>Some Footer Text</strong>");
 ```
 
 ### <a name="click-tracking"></a>Seguimiento por clics

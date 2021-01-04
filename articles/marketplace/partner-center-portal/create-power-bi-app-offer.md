@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 07/22/2020
-ms.openlocfilehash: 99c60cf541b3997f2aeca2ccef5a5af6b9c88e08
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: bff20468e8185073f5c192c1e115bc405dd089eb
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93131503"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97693613"
 ---
 # <a name="create-a-power-bi-app-offer"></a>Creación de una oferta de aplicación de Power BI
 
@@ -32,14 +32,14 @@ Antes de comenzar, [cree una cuenta de Marketplace comercial en el Centro de par
 > Después de publicar una oferta, las modificaciones que se realicen en el Centro de partners solo aparecen en las tiendas en línea cuando la oferta se vuelve a publicar. Asegúrese de volver a realizar la publicación siempre después de realizar cambios.
 
 > [!IMPORTANT]
-> Si no se muestra ni está habilitada la opción **Aplicación de servicio Power BI Service App** , la cuenta no tiene permiso para crear este tipo de oferta. Compruebe que cumple todos los [requisitos](create-power-bi-app-overview.md) para este tipo de oferta, incluido el registro para una cuenta de desarrollador.
+> Si no se muestra ni está habilitada la opción **Aplicación de servicio Power BI Service App**, la cuenta no tiene permiso para crear este tipo de oferta. Compruebe que cumple todos los [requisitos](create-power-bi-app-overview.md) para este tipo de oferta, incluido el registro para una cuenta de desarrollador.
 
 ## <a name="new-offer"></a>Nueva oferta
 
 Escriba un **Identificador de oferta**. Se trata de un identificador único para cada oferta de su cuenta.
 
 - Se muestra a los clientes en la dirección web de la oferta de Marketplace y en las plantillas de Azure Resource Manager, si procede.
-- Use solo letras minúsculas y números. Puede incluir guiones y caracteres de subrayado, pero no espacios, y está limitado a 50 caracteres. Por ejemplo, si escribe **test-offer-1** , la dirección web de la oferta será `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+- Use solo letras minúsculas y números. Puede incluir guiones y caracteres de subrayado, pero no espacios, y está limitado a 50 caracteres. Por ejemplo, si escribe **test-offer-1**, la dirección web de la oferta será `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
 - El identificador de oferta no se puede cambiar después de seleccionar **Crear**.
 
 Escriba un **Alias de la oferta**. Este es el nombre que se usa para la oferta en el Centro de partners.
@@ -57,7 +57,7 @@ Se incluyen vínculos para realizar operaciones en esta oferta en función de la
 
 - Si la oferta es un borrador: Eliminación de una oferta borrador
 - Si la oferta está activa: [Detención de la venta de una oferta](update-existing-offer.md#stop-selling-an-offer-or-plan)
-- Si la oferta está en versión preliminar: [publicar](../review-publish-offer.md#previewing-and-approving-your-offer)
+- Si la oferta está en versión preliminar: [Publicación](../review-publish-offer.md#previewing-and-approving-your-offer)
 - Si no ha completado el cierre de sesión del anunciante: [Cancelación de la publicación.](../review-publish-offer.md#cancel-publishing)
 
 ## <a name="offer-setup"></a>Configuración de la oferta
@@ -109,9 +109,7 @@ Vea la lista completa de categorías y subcategorías en [Procedimientos recomen
 
 #### <a name="terms-and-conditions"></a>Términos y condiciones
 
-Si quiere proporcionar sus propios términos y condiciones personalizados, escriba hasta 10 000 caracteres en el cuadro **Términos y condiciones**. Si los términos y condiciones requieren una descripción más larga, escriba un solo vínculo web en el que se puedan encontrar. A los clientes les aparecerá como un vínculo activo.
-
-Los clientes deben aceptar estos términos para poder probar la oferta.
+Si quiere proporcionar sus propios términos y condiciones personalizados, escriba hasta 10 000 caracteres en el cuadro **Términos y condiciones**. Los clientes deben aceptar estos términos para poder probar la oferta.
 
 Seleccione **Guardar borrador** antes de pasar a la siguiente sección, Descripción de la oferta.
 
@@ -192,7 +190,7 @@ Debe proporcionar el nombre, el correo electrónico y el número de teléfono de
 - Contacto de ingeniería (se requiere): Para preguntas técnicas y problemas de certificación.
 - Contacto del programa CSP (opcional): Para preguntas de revendedores relacionadas con el programa CSP.
 
-En la sección **Contacto de soporte técnico** , proporcione la dirección web del **sitio web de soporte técnico** en el que los asociados pueden encontrar soporte técnico para la oferta.
+En la sección **Contacto de soporte técnico**, proporcione la dirección web del **sitio web de soporte técnico** en el que los asociados pueden encontrar soporte técnico para la oferta.
 
 ### <a name="supporting-documents"></a>Documentos relacionados
 
@@ -253,9 +251,9 @@ En la esquina superior derecha del portal, seleccione **Revisar y publicar**.
 En la página de revisión, puede:
 
 - Ver el estado de finalización de cada sección de la oferta. No puede realizar la publicación hasta que todas las secciones de la oferta estén marcadas como completas.
-  - **No iniciada** : significa que la sección no se ha iniciado y se debe completar.
-  - **Incompleta** : significa que la sección tiene errores que deben corregirse o que requiere más información. Vea las secciones anteriores de este documento para obtener instrucciones.
-  - **Completa** : la sección tiene todos los datos necesarios y no contiene errores. Para poder enviar la oferta, todas sus secciones deben estar en estado Completa.
+  - **No iniciada**: significa que la sección no se ha iniciado y se debe completar.
+  - **Incompleta**: significa que la sección tiene errores que deben corregirse o que requiere más información. Vea las secciones anteriores de este documento para obtener instrucciones.
+  - **Completa**: la sección tiene todos los datos necesarios y no contiene errores. Para poder enviar la oferta, todas sus secciones deben estar en estado Completa.
 - Proporcione instrucciones de prueba al equipo de certificación para asegurarse de que la aplicación se ha probado correctamente. Además, proporcione cualquier nota complementaria que resulte útil para entender su oferta.
 
 Para enviar la oferta para su publicación, seleccione **Publicar**.

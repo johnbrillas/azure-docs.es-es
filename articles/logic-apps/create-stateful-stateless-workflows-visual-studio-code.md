@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
 ms.date: 12/07/2020
-ms.openlocfilehash: cf8b6670817132c8c0c0a09194b9aca4bbc8073c
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: a74244cc45e1a3d2116f98ac73290d184f4affc0
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96923410"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97632067"
 ---
 # <a name="create-stateful-and-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Creación de flujos de trabajo con o sin estado en Visual Studio Code con la extensión Azure Logic Apps (versión preliminar)
 
@@ -769,7 +769,7 @@ Puede publicar la aplicación lógica como nuevo recurso, lo que crea automátic
 
       1. Seleccione un recurso de Application Insights existente o **Cree un nuevo recurso de Application Insights**.
 
-      1. En [Azure Portal](htpps://portal.azure.com), vaya al recurso de Application Insights.
+      1. En [Azure Portal](https://portal.azure.com), vaya al recurso de Application Insights.
 
       1. En el menú del recurso, seleccione **Información general**. Busque y copie el valor de **Clave de instrumentación**.
 

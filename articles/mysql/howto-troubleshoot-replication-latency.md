@@ -7,12 +7,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 10/25/2020
-ms.openlocfilehash: a6ada3557350cd3f2f67dad54152eafded6639ec
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 30ac28ef996c42e99ebece27ec156777f0d033d2
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93087033"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587883"
 ---
 # <a name="troubleshoot-replication-latency-in-azure-database-for-mysql"></a>Solución de problemas de la latencia de replicación en Azure Database for MySQL
 
@@ -31,9 +31,12 @@ El retraso en la replicación de las réplicas de lectura secundarias depende de
 
 En este artículo, obtendrá información sobre cómo solucionar problemas de latencia de replicación en Azure Database for MySQL. También conocerá algunas de las causas comunes del aumento de la latencia de replicación en servidores de réplica.
 
+> [!NOTE]
+> Este artículo contiene referencias al término esclavo, un término que Microsoft ya no usa. Cuando se quite el término del software, se quitará también del artículo.
+
 ## <a name="replication-concepts"></a>Conceptos de replicación
 
-Cuando un registro binario está habilitado, el servidor de origen escribe las transacciones confirmadas en el registro binario. Este registro binario se usa para la replicación. Está activado de manera predeterminada en todos los servidores recién aprovisionados que admiten hasta 16 TB de almacenamiento. En los servidores de réplica, se ejecutan dos subprocesos en cada servidor de réplica. Uno es el *subproceso de E/S* , y el otro es el *subproceso de SQL* :
+Cuando un registro binario está habilitado, el servidor de origen escribe las transacciones confirmadas en el registro binario. Este registro binario se usa para la replicación. Está activado de manera predeterminada en todos los servidores recién aprovisionados que admiten hasta 16 TB de almacenamiento. En los servidores de réplica, se ejecutan dos subprocesos en cada servidor de réplica. Uno es el *subproceso de E/S*, y el otro es el *subproceso de SQL*:
 
 - El subproceso de E/S se conecta al servidor de origen y solicita los registros binarios actualizados. Este subproceso recibe las actualizaciones del registro binario. Esas actualizaciones se guardan en un servidor de réplicas, en un registro local denominado *registro de retransmisión*.
 - El subproceso de SQL lee el registro de retransmisión y, a continuación, aplica los cambios de datos en los servidores de réplica.

@@ -5,15 +5,15 @@ services: batch
 author: JnHs
 ms.service: batch
 ms.topic: include
-ms.date: 06/03/2020
+ms.date: 12/16/2020
 ms.author: jenhayes
 ms.custom: include file
-ms.openlocfilehash: 54a789aba793d9a6b44d5fe9a1e0f42023002b5a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0a94b122f1cdd598eeac553c8cc784d2a0a5369f
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96028366"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97614526"
 ---
 | **Recurso** | **Límite predeterminado** | **Límite máximo** |
 | --- | --- | --- |
@@ -24,9 +24,6 @@ ms.locfileid: "96028366"
 | Grupos por cuenta de Batch | 20-100 | 500<sup>1</sup> |
 
 <sup>1</sup> Si quiere solicitar un aumento de este límite, póngase en contacto con el soporte técnico de Azure.
-
-> [!IMPORTANT]
-> Estamos cambiando la forma de solicitar y administrar la cuota dedicada.  El número total de CPU virtuales dedicadas es el valor que se aplica actualmente, pero pronto aplicaremos una cuota dedicada por serie de VM. La cuota de prioridad baja se seguirá aplicando según el límite total; no se aplicará por serie de VM.
 
 > [!NOTE]
 > Los límites predeterminados varían según el tipo de suscripción que se use para crear una cuenta de Batch. Las cuotas de núcleos mostradas son para las cuentas de Batch del modo de servicio Batch. [Vea las cuotas de su cuenta de Batch](../articles/batch/batch-quota-limit.md#view-batch-quotas).

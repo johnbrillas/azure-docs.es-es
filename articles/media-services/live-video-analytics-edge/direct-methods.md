@@ -3,12 +3,12 @@ title: 'Uso de métodos directos en Live Video Analytics on IoT Edge: Azure'
 description: Live Video Analytics on IoT Edge expone varios métodos directos. Los métodos directos se basan en las convenciones descritas en este tema.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: ed7cec7b8513044c2bf9b24600b8d9f42a485aae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b5c16dc72beed4ec757e48461a2fc194c113f8d
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87091834"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656247"
 ---
 # <a name="direct-methods"></a>Métodos directos
 
@@ -140,12 +140,12 @@ Este método directo recupera una topología de un solo grafo.
 
 #### <a name="status-codes"></a>Códigos de estado
 
-|Condición  |status code    |Código de error detallado|
-|---|---|---|
-|Entidad encontrada|  200 |N/D
-|Errores de usuario generales    |Intervalo 400  ||
-|No se ha encontrado la entidad   |404        ||
-|Errores generales del servidor| Intervalo 500       ||
+| Condición | status code | Código de error detallado |
+|--|--|--|
+| Entidad encontrada | 200 | N/D |
+| Errores de usuario generales | Intervalo 400 |  |
+| No se ha encontrado la entidad | 404 |  |
+| Errores generales del servidor | Intervalo 500 |  |
 
 ### <a name="graphtopologyset"></a>GraphTopologySet
 
@@ -227,13 +227,13 @@ Elimina la topología de un solo grafo.
 
 #### <a name="status-codes"></a>Códigos de estado
 
-|Condición  |status code    |Código de error detallado|
-|---|---|---|
-|Entidad eliminada|    200|    N/D|
-|No se ha encontrado la entidad|  204|    N/D|
-|Errores de usuario generales|   Intervalo 400   ||
-|Una o varias instancias de grafo hacen referencia a la topología de grafo| 409 |GraphTopologyInUse|
-|Errores generales del servidor| Intervalo 500   ||
+| Condición | status code | Código de error detallado |
+|--|--|--|
+| Entidad eliminada | 200 | N/D |
+| No se ha encontrado la entidad | 204 | N/D |
+| Errores de usuario generales | Intervalo 400 |  |
+| Una o varias instancias de grafo hacen referencia a la topología de grafo | 409 | GraphTopologyInUse |
+| Errores generales del servidor | Intervalo 500 |  |
 
 ### <a name="graphtopologylist"></a>GraphTopologyList
 
@@ -278,18 +278,18 @@ Recupera una lista de todas las topologías de grafo que coinciden con los crite
 
 #### <a name="filter-support"></a>Compatibilidad con filtros
 
-|Operación      |Campo   |Operadores|
+|Operación |Campo    |Operadores|
 |---|---|---|
 |$orderby|name  |asc|
 
 
 #### <a name="status-codes"></a>Códigos de estado
 
-|Condición  |status code    |Código de error detallado|
-|---|---|---|
-|Correcto|   200 |N/D|
-|Errores de usuario generales|   Intervalo 400   ||
-|Errores generales del servidor| Intervalo 500   ||
+| Condición | status code | Código de error detallado |
+|--|--|--|
+| Correcto | 200 | N/D |
+| Errores de usuario generales | Intervalo 400 |  |
+| Errores generales del servidor | Intervalo 500 |  |
 
 ### <a name="graphinstanceget"></a>GraphInstanceGet
 
@@ -323,12 +323,12 @@ Recupera una única instancia de grafo.
 
 #### <a name="status-codes"></a>Códigos de estado
 
-|Condición  |status code    |Código de error detallado|
-|---|---|---|
-|Entidad encontrada   |200|   N/D|
-|Errores de usuario generales|   Intervalo 400   ||
-|No se ha encontrado la entidad|  404 ||
-|Errores generales del servidor| Intervalo 500   ||
+| Condición | status code | Código de error detallado |
+|--|--|--|
+| Entidad encontrada | 200 | N/D |
+| Errores de usuario generales | Intervalo 400 |  |
+| No se ha encontrado la entidad | 404 |  |
+| Errores generales del servidor | Intervalo 500 |  |
 
 ### <a name="graphinstanceset"></a>GraphInstanceSet
 
@@ -373,15 +373,15 @@ Aspectos clave:
 
 #### <a name="status-codes"></a>Códigos de estado
 
-|Condición  |status code    |Código de error detallado|
-|---|---|---|
-|Entidad existente actualizada    |200    |N/D|
-|Nueva entidad creada|    201 |N/D|
-|Errores de usuario generales|   Intervalo 400   ||
-|Errores de validación de grafos    |400|   GraphValidationError|
-|Errores de validación de módulos|  400 |ModuleValidationError|
-|Errores de validación de recursos |409    |ResourceValidationError|
-|Errores generales del servidor  |Intervalo 500||    
+| Condición | status code | Código de error detallado |
+|--|--|--|
+| Entidad existente actualizada | 200 | N/D |
+| Nueva entidad creada | 201 | N/D |
+| Errores de usuario generales | Intervalo 400 |  |
+| Errores de validación de grafos | 400 | GraphValidationError |
+| Errores de validación de módulos | 400 | ModuleValidationError |
+| Errores de validación de recursos | 409 | ResourceValidationError |
+| Errores generales del servidor | Intervalo 500 |  |  |
 
 ### <a name="graphinstancedelete"></a>GraphInstanceDelete
 
@@ -414,13 +414,13 @@ Aspectos clave:
 
 #### <a name="status-codes"></a>Códigos de estado
 
-|Condición  |status code    |Código de error detallado|
-|---|---|---|
-|Grafo eliminado correctamente|    200|    N/D|
-|No se ha encontrado el grafo|   204|    N/D|
-|Errores de usuario generales    |Intervalo 400  ||
-|El estado del grafo no es "Detenido"    |409    |OperationNotAllowedInState|
-|Errores generales del servidor| Intervalo 500   ||
+| Condición | status code | Código de error detallado |
+|--|--|--|
+| Grafo eliminado correctamente | 200 | N/D |
+| No se ha encontrado el grafo | 204 | N/D |
+| Errores de usuario generales | Intervalo 400 |  |
+| El estado del grafo no es "Detenido" | 409 | OperationNotAllowedInState |
+| Errores generales del servidor | Intervalo 500 |  |
 
 ### <a name="graphinstancelist"></a>GraphInstanceList
 
@@ -472,11 +472,11 @@ Recupera una lista de todas las instancias de grafo que coinciden con los criter
 
 #### <a name="status-codes"></a>Códigos de estado
 
-|Condición  |status code    |Código de error detallado|
-|---|---|---|
-|Correcto    |200    |N/D|
-|Errores de usuario generales|   Intervalo 400   ||
-|Errores generales del servidor| Intervalo 500   ||
+| Condición | status code | Código de error detallado |
+|--|--|--|
+| Correcto | 200 | N/D |
+| Errores de usuario generales | Intervalo 400 |  |
+| Errores generales del servidor | Intervalo 500 |  |
 
 ### <a name="graphinstanceactivate"></a>GraphInstanceActivate
 
@@ -516,15 +516,15 @@ Aspectos clave
 
 #### <a name="status-codes"></a>Códigos de estado
 
-|Condición  |status code    |Código de error detallado|
-|---|---|---|
-|Grafo activado correctamente   |200    |N/D|
-|Nueva entidad creada |201|   N/D|
-|Errores de usuario generales    |Intervalo 400  ||
-|Errores de validación de módulos   |400|   ModuleValidationError|
-|Errores de validación de recursos|    409|    ResourceValidationError|
-|El grafo tiene el estado Desactivando |409    |OperationNotAllowedInState|
-|Errores generales del servidor| Intervalo 500   ||
+| Condición | status code | Código de error detallado |
+|--|--|--|
+| Grafo activado correctamente | 200 | N/D |
+| Nueva entidad creada | 201 | N/D |
+| Errores de usuario generales | Intervalo 400 |  |
+| Errores de validación de módulos | 400 | ModuleValidationError |
+| Errores de validación de recursos | 409 | ResourceValidationError |
+| El grafo tiene el estado Desactivando | 409 | OperationNotAllowedInState |
+| Errores generales del servidor | Intervalo 500 |  |
 
 ### <a name="graphinstancedeactivate"></a>GraphInstanceDeactivate
 
@@ -565,13 +565,13 @@ Aspectos clave:
 }
 ```
 
-|Condición  |status code    |Código de error detallado|
-|---|---|---|
-|Grafo activado correctamente   |200|   N/D|
-|Nueva entidad creada |201|   N/D|
-|Errores de usuario generales    |Intervalo 400  ||
-|El grafo tiene el estado Activando   |409|   OperationNotAllowedInState|
-|Errores generales del servidor  |Intervalo 500  ||
+| Condición | status code | Código de error detallado |
+|--|--|--|
+| Grafo activado correctamente | 200 | N/D |
+| Nueva entidad creada | 201 | N/D |
+| Errores de usuario generales | Intervalo 400 |  |
+| El grafo tiene el estado Activando | 409 | OperationNotAllowedInState |
+| Errores generales del servidor | Intervalo 500 |  |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

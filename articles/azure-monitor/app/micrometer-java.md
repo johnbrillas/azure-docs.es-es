@@ -6,12 +6,12 @@ author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
 ms.date: 11/01/2018
-ms.openlocfilehash: a80684fbaa34f8906d321f56d3819039d3798ecb
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: bb5caafea944d21547a904b99f9043aef63a6ffa
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96600989"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656473"
 ---
 # <a name="how-to-use-micrometer-with-azure-application-insights-java-sdk-not-recommended"></a>Uso de Micrometer con el SDK de Azure Application Insights para Java (no recomendado)
 
@@ -92,17 +92,17 @@ Métricas predeterminadas:
 *    Las métricas se configuran automáticamente para Tomcat, JVM, métricas de Logback, métricas de Log4J, métricas de tiempo de actividad, métricas de procesador y FileDescriptorMetrics.
 *    Por ejemplo, si Netflix Hystrix está presente en la ruta de acceso de la clase, también obtenemos esas métricas. 
 *    Las siguientes métricas pueden estar disponibles al agregar los beans (o componentes software) respectivos. 
-        - CacheMetrics (CaffeineCache, EhCache2, GuavaCache, HazelcastCache y JCache)     
+        - CacheMetrics (CaffeineCache, EhCache2, GuavaCache, HazelcastCache y JCache)
         - DataBaseTableMetrics 
         - HibernateMetrics 
         - JettyMetrics 
         - Métricas de OkHttp3 
         - Métricas de Kafka 
 
- 
+
 
 Cómo desactivar la recopilación automática de las métricas: 
- 
+
 - Métricas de JVM: 
     - Management.Metrics.binders.jvm.Enabled=False 
 - Métricas de Logback: 
@@ -139,7 +139,7 @@ Pasos:
             <artifactId>micrometer-registry-azure-monitor</artifactId>
             <version>1.1.0</version>
         </dependency>
-        
+
         <dependency>
             <groupId>com.microsoft.azure</groupId>
             <artifactId>applicationinsights-web-auto</artifactId>
@@ -152,17 +152,17 @@ Pasos:
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
     <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
-    
+
        <!-- The key from the portal: -->
        <InstrumentationKey>** Your instrumentation key **</InstrumentationKey>
-    
+
        <!-- HTTP request component (not required for bare API) -->
        <TelemetryModules>
           <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebRequestTrackingTelemetryModule"/>
           <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebSessionTrackingTelemetryModule"/>
           <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebUserTrackingTelemetryModule"/>
        </TelemetryModules>
-    
+
        <!-- Events correlation (not required for bare API) -->
        <!-- These initializers add context data to each event -->
        <TelemetryInitializers>
@@ -172,7 +172,7 @@ Pasos:
           <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebUserTelemetryInitializer"/>
           <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebUserAgentTelemetryInitializer"/>
        </TelemetryInitializers>
-    
+
     </ApplicationInsights>
     ```
 
@@ -181,17 +181,17 @@ Pasos:
     ```Java
         @WebServlet("/hello")
         public class TimedDemo extends HttpServlet {
-    
+
           private static final long serialVersionUID = -4751096228274971485L;
-    
+
           @Override
           @Timed(value = "hello.world")
           protected void doGet(HttpServletRequest request, HttpServletResponse response)
               throws ServletException, IOException {
-    
+
             response.getWriter().println("Hello World!");
             MeterRegistry registry = (MeterRegistry) getServletContext().getAttribute("AzureMonitorMeterRegistry");
-    
+
         //create new Timer metric
             Timer sampleTimer = registry.timer("timer");
             Stream<Integer> infiniteStream = Stream.iterate(0, i -> i+1);
@@ -210,9 +210,9 @@ Pasos:
           public void destroy() {
             System.out.println("Servlet " + this.getServletName() + " has stopped");
           }
-    
+
         }
-    
+
     ```
 
 4. Clase de configuración de ejemplo:
@@ -220,10 +220,10 @@ Pasos:
     ```Java
          @WebListener
          public class MeterRegistryConfiguration implements ServletContextListener {
-     
+
            @Override
            public void contextInitialized(ServletContextEvent servletContextEvent) {
-     
+
          // Create AzureMonitorMeterRegistry
            private final AzureMonitorConfig config = new AzureMonitorConfig() {
              @Override
@@ -233,23 +233,23 @@ Pasos:
             @Override
                public Duration step() {
                  return Duration.ofSeconds(60);}
-     
+
              @Override
              public boolean enabled() {
                  return false;
              }
          };
-     
+
       MeterRegistry azureMeterRegistry = AzureMonitorMeterRegistry.builder(config);
-     
+
              //set the config to be used elsewhere
              servletContextEvent.getServletContext().setAttribute("AzureMonitorMeterRegistry", azureMeterRegistry);
-     
+
            }
-     
+
            @Override
            public void contextDestroyed(ServletContextEvent servletContextEvent) {
-     
+
            }
          }
     ```

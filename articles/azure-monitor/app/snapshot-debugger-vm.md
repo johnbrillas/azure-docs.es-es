@@ -2,23 +2,23 @@
 title: Habilite Snapshot Debugger para aplicaciones .NET en Azure Service Fabric, Servicio en la nube y máquinas virtuales | Microsoft Docs
 description: Habilite Snapshot Debugger para aplicaciones .NET en Azure Service Fabric, servicio en la nube y máquinas virtuales
 ms.topic: conceptual
-author: brahmnes
-ms.author: bfung
+author: cweining
+ms.author: cweining
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: c1cc9893a309dcdf7ac575494d164052bb0c617c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4bccc2922cf20262149ef54fbe2a1a821d9551ab
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87325685"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673508"
 ---
 # <a name="enable-snapshot-debugger-for-net-apps-in-azure-service-fabric-cloud-service-and-virtual-machines"></a>Habilite Snapshot Debugger para aplicaciones .NET en Azure Service Fabric, servicio en la nube y máquinas virtuales
 
 Si la aplicación ASP.NET o ASP.NET Core se ejecuta en Azure App Service, se recomienda encarecidamente [habilitar Snapshot Debugger en la página del portal de Application Insights](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json). Sin embargo, si la aplicación requiere una configuración personalizada de Snapshot Debugger o una versión preliminar de .NET Core, debe seguir esta instrucción ***además*** de las instrucciones de [habilitación mediante la página del portal de Application Insights](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json).
 
 Si la aplicación se ejecuta en Azure Service Fabric, el servicio en la nube, máquinas virtuales o máquinas locales, se deben aplicar las instrucciones siguientes. 
-    
+
 ## <a name="configure-snapshot-collection-for-aspnet-applications"></a>Configurar la recopilación de instantáneas para aplicaciones ASP.NET
 
 1. [Habilite Application Insights en su aplicación web](./asp-net.md), si aún no lo ha hecho.
@@ -91,19 +91,19 @@ Si la aplicación se ejecuta en Azure Service Fabric, el servicio en la nube, m�
        using Microsoft.ApplicationInsights.AspNetCore;
        using Microsoft.ApplicationInsights.Extensibility;
        ```
-    
+
        Agregue la siguiente clase `SnapshotCollectorTelemetryProcessorFactory` a la clase `Startup`.
-    
+
        ```csharp
        class Startup
        {
            private class SnapshotCollectorTelemetryProcessorFactory : ITelemetryProcessorFactory
            {
                private readonly IServiceProvider _serviceProvider;
-    
+
                public SnapshotCollectorTelemetryProcessorFactory(IServiceProvider serviceProvider) =>
                    _serviceProvider = serviceProvider;
-    
+
                public ITelemetryProcessor Create(ITelemetryProcessor next)
                {
                    var snapshotConfigurationOptions = _serviceProvider.GetService<IOptions<SnapshotCollectorConfiguration>>();
@@ -113,17 +113,17 @@ Si la aplicación se ejecuta en Azure Service Fabric, el servicio en la nube, m�
            ...
         ```
         Agregue los servicios `SnapshotCollectorConfiguration` y `SnapshotCollectorTelemetryProcessorFactory` a la canalización de inicio:
-    
+
         ```csharp
            // This method gets called by the runtime. Use this method to add services to the container.
            public void ConfigureServices(IServiceCollection services)
            {
                // Configure SnapshotCollector from application settings
                services.Configure<SnapshotCollectorConfiguration>(Configuration.GetSection(nameof(SnapshotCollectorConfiguration)));
-    
+
                // Add SnapshotCollector telemetry processor.
                services.AddSingleton<ITelemetryProcessorFactory>(sp => new SnapshotCollectorTelemetryProcessorFactory(sp));
-    
+
                // TODO: Add other services your application needs here.
            }
        }

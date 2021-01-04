@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2020
 ms.author: Zhchia
-ms.openlocfilehash: 92329a3fa04d3cc685ba5068e9e5ae9932d1eb4d
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 932a94c348c38902c68a6cf8108d8246cdc434ac
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96178949"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673384"
 ---
 # <a name="tutorial-configure-cybsafe-for-automatic-user-provisioning"></a>Tutorial: Configuración de CybSafe para el aprovisionamiento automático de usuarios
 
@@ -135,15 +135,15 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 13. Para habilitar el servicio de aprovisionamiento de Azure AD para CybSafe, cambie el **Estado de aprovisionamiento** a **Activado** en la sección **Configuración**.
 
-    ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
+      ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
 14. Elija los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que desea que se aprovisionen en CybSafe.
 
-    ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
+      ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 
 15. Cuando esté listo para realizar el aprovisionamiento, haga clic en **Guardar**.
 
-    ![Guardar la configuración de aprovisionamiento](common/provisioning-configuration-save.png)
+      ![Guardar la configuración de aprovisionamiento](common/provisioning-configuration-save.png)
 
 Esta operación inicia el ciclo de sincronización inicial de todos los usuarios y grupos definidos en **Ámbito** en la sección **Configuración**. El ciclo de sincronización inicial tarda más tiempo en realizarse que los ciclos posteriores, que se producen aproximadamente cada 40 minutos si el servicio de aprovisionamiento de Azure AD está ejecutándose. 
 

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 02/20/2020
 ms.author: wieastbu
 ms.custom: fasttrack-new, devx-track-js
-ms.openlocfilehash: aa3bce73d2a91538dff0fdeb9e0eb814d878459a
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: b157200b03bdc89e00bfa5c8264d78baf24875c1
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676022"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97609129"
 ---
 # <a name="protect-spa-backend-with-oauth-20-azure-active-directory-b2c-and-azure-api-management"></a>Protección del back-end de SPA con OAuth 2.0, Azure Active Directory B2C y Azure API Management
 
@@ -61,7 +61,7 @@ Aquí se muestra una introducción rápida de los pasos:
 
 ## <a name="configure-azure-ad-b2c"></a>Configuración de Azure AD B2C 
 Abra la hoja Azure AD B2C en el portal y realice los pasos siguientes.
-1. Seleccione la pestaña **Aplicaciones** . 
+1. Seleccione la pestaña **Aplicaciones**. 
 1. Haga clic en el botón "Agregar" y cree tres aplicaciones para los siguientes fines:
    * Cliente front-end.
    * API de función de back-end.
@@ -76,7 +76,7 @@ Abra la hoja Azure AD B2C en el portal y realice los pasos siguientes.
 1. Cree y asígnele un nombre a un ámbito para la API de función, registre el ámbito y el valor completo del ámbito y haga clic en "Guardar".
    > [!NOTE]
    > Los ámbitos de Azure AD B2C son permisos dentro de la API a los que otras aplicaciones pueden solicitar acceso mediante la hoja de acceso a API de sus aplicaciones.
-1. Abra las otras dos aplicaciones y mire en la pestaña *Acceso de API* .
+1. Abra las otras dos aplicaciones y mire en la pestaña *Acceso de API*.
 1. Concédales acceso al ámbito de la API de back-end y al predeterminado que ya estaba allí ("Access the user's profile" [Acceso al perfil del usuario]).
 1. Genere una clave para cada una; para ello, seleccione la pestaña *Claves* en "General", de este modo podrá generar las claves de autenticación y registrarlas en un lugar seguro para más adelante.
 
@@ -180,7 +180,7 @@ Deberá agregar bloques de direcciones con formato CIDR al panel restricciones d
    > Ahora la API de función no debería estar accesible por llamada desde otro origen distinto de API Management o su dirección.
    
 ## <a name="import-the-function-app-definition"></a>Importación de la definición de la aplicación de funciones
-1. Abra la hoja *API Management* y después *la instancia* .
+1. Abra la hoja *API Management* y después *la instancia*.
 1. Seleccione la hoja API en la sección API Management de la instancia.
 1. En el panel "Add a New API" (Agregar una nueva API), elija "Function App" y seleccione "Completo" en la parte superior de la ventana emergente.
 1. Haga clic en Examinar, elija la aplicación de funciones que hospede la API y haga clic en Seleccionar.
@@ -193,7 +193,7 @@ Deberá agregar bloques de direcciones con formato CIDR al panel restricciones d
 1. Proporcione valores para *Nombre para mostrar* y *Descripción* para el punto de conexión de OAuth agregado (estos valores se mostrarán en el siguiente paso como punto de conexión de Oauth2).
 1. Puede escribir cualquier valor en la dirección URL de la página de registro del cliente, ya que este valor no se usará.
 1. Active el tipo de concesión *Implicit Auth* (Autenticación implícita) y desactive el tipo de concesión Código de autorización.
-1. Vaya a los campos del punto de conexión *Autorización* y *Token* , y escriba los valores que capturó en el documento XML de configuración conocido anterior.
+1. Vaya a los campos del punto de conexión *Autorización* y *Token*, y escriba los valores que capturó en el documento XML de configuración conocido anterior.
 1. Desplácese hacia abajo y rellene un *parámetro de cuerpo adicional* denominado "Recurso" con el identificador de cliente de la API de Backend Function del registro de la aplicación de Azure AD B2C.
 1. Seleccione "Credenciales de cliente", establezca el identificador de cliente en el identificador de la aplicación de consola de desarrollador (omita este paso si usa el modelo de consumo de API Management).
 1. Establezca el secreto de cliente en la clave que registró anteriormente. Omita este paso si usa el modelo de consumo de API Management.
@@ -249,7 +249,7 @@ Deberá agregar bloques de direcciones con formato CIDR al panel restricciones d
    > Ahora API Management podrá responder a las solicitudes de origen cruzado a las aplicaciones JS de página única y realizará la limitación, la limitación de velocidad y la validación previa del token de autenticación JWT que se pasa ANTES de reenviar la solicitud a la API de función.
 
    > [!NOTE]
-   > La sección siguiente es opcional y no es aplicable al nivel **Consumo** , que no es compatible con el portal para desarrolladores.
+   > La sección siguiente es opcional y no es aplicable al nivel **Consumo**, que no es compatible con el portal para desarrolladores.
    > Si no va a usar el portal para desarrolladores o no puede usarlo, ya que usa el nivel Consumo, omita este paso y vaya directamente a ["Compilación de la aplicación JavaScript de página única para consumir la API"](#build-the-javascript-spa-to-consume-the-api).
 
 ## <a name="optional-configure-the-developer-portal"></a>[Opcional] Configuración del portal para desarrolladores
@@ -396,7 +396,8 @@ Deberá agregar bloques de direcciones con formato CIDR al panel restricciones d
                     // Make the api call here
                 $.ajax({
                     type: "get",
-                    headers: {'Authorization': 'Bearer ' + token, 'Ocp-Apim-Subscription-Key': applicationConfig.subKey},                   url: applicationConfig.webApi
+                    headers: {'Authorization': 'Bearer ' + token, 'Ocp-Apim-Subscription-Key': applicationConfig.subKey},
+                    url: applicationConfig.webApi
                 }
                 ).done(function (body) {
                     document.getElementById("message").innerHTML = "The API Said " + body;

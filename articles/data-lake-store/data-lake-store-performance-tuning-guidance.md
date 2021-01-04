@@ -1,17 +1,17 @@
 ---
 title: 'Azure Data Lake Storage Gen1: optimización del rendimiento'
 description: Aprenda a usar toda la potencia disponible en Azure Data Lake Storage Gen1 para obtener el mejor rendimiento mediante la realización de tantas lecturas y escrituras en paralelo como sea posible.
-author: stewu
+author: twooley
 ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 06/30/2017
-ms.author: stewu
-ms.openlocfilehash: e9a589b43490613834a810a68636c426e45c2656
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.author: twooley
+ms.openlocfilehash: c7f16dd9ea450185893164e10928c7022d6ab5a6
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332525"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724687"
 ---
 # <a name="tune-azure-data-lake-storage-gen1-for-performance"></a>Optimización del rendimiento de Azure Data Lake Storage Gen1
 
@@ -65,11 +65,11 @@ A veces, las canalizaciones de datos ejercen un control limitado sobre los datos
 
 En las cargas de trabajo de Hive y ADLA, la eliminación de las particiones de los datos de serie temporal puede contribuir a que algunas consultas lean solo un subconjunto de los datos, lo que mejora el rendimiento.
 
-Aquellas canalizaciones que ingieren datos de serie temporal suelen ubicar sus archivos con una nomenclatura estructurada para los archivos y las carpetas. A continuación se muestra un ejemplo común de datos estructurados por fecha: *\DataSet\AAAA\MM\DD\datafile_AAAA_MM_DD.tsv* .
+Aquellas canalizaciones que ingieren datos de serie temporal suelen ubicar sus archivos con una nomenclatura estructurada para los archivos y las carpetas. A continuación se muestra un ejemplo común de datos estructurados por fecha: *\DataSet\AAAA\MM\DD\datafile_AAAA_MM_DD.tsv*.
 
 Observe que la información de fecha y hora aparece tanto en las carpetas como en el nombre de archivo.
 
-Para la fecha y la hora, el siguiente es un patrón común: *\DataSet\AAAA\MM\DD\HH\mm\datafile_AAAA_MM_DD_HH_mm.tsv* .
+Para la fecha y la hora, el siguiente es un patrón común: *\DataSet\AAAA\MM\DD\HH\mm\datafile_AAAA_MM_DD_HH_mm.tsv*.
 
 De nuevo, su elección de organización de los archivos y carpetas debería ser la que consiga un tamaño de archivo mayor y un número razonable de archivos en cada carpeta.
 

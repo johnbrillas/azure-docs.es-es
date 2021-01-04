@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 07/27/2020
-ms.openlocfilehash: 4d420bf45cd705f518df0d52929a331d23537184
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 97189fd7a232c2467981b23dc20da51ebef08252
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93395179"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656349"
 ---
 # <a name="create-a-data-streaming-job-in-azure-sql-edge"></a>Creación de un trabajo de streaming de datos en Azure SQL Edge 
 
@@ -154,7 +154,7 @@ En el ejemplo siguiente se crea un objeto de transmisión externa en la base de 
         DATA_COMPRESSION = 'org.apache.hadoop.io.compress.GzipCodec' 
     )
    ```
-    
+
 3. Cree el objeto de transmisión externa. En el ejemplo siguiente se crea un objeto de transmisión externa que apunta al tema de Kafka `*TemperatureMeasurement*`.
 
     ```sql
@@ -163,7 +163,7 @@ En el ejemplo siguiente se crea un objeto de transmisión externa en la base de 
     (  
         DATA_SOURCE = KafkaInput, 
         FILE_FORMAT = JsonGzipped,
-        LOCATION = 'TemperatureMeasurement',     
+        LOCATION = 'TemperatureMeasurement',
         INPUT_OPTIONS = 'PARTITIONS: 10' 
     ); 
     ```

@@ -12,12 +12,12 @@ ms.date: 07/23/2020
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: c40a0cb362f8c43541194cd1ca0c57abbf8fa974
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 49388ee75fa3e5570a906998fdeaa579208fd636
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033109"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588597"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Preguntas más frecuentes sobre Active Directory (Azure AD) Application Proxy
 
@@ -80,10 +80,12 @@ Hay contadores del monitor de rendimiento que se instalan junto con el conector.
 No es necesario que el conector esté en la misma subred. Sin embargo, este necesita tener la resolución de nombres (DNS, archivo de hosts) en el recurso y la conectividad de red necesaria (enrutamiento al recurso, puertos abiertos en el recurso, etc.). Para obtener más información, consulte [Consideraciones sobre la topología de red al utilizar el Azure Active Directory Application Proxy](application-proxy-network-topology.md).
 
 ### <a name="what-versions-of-windows-server-can-i-install-a-connector-on"></a>¿En qué versiones de Windows Server se puede instalar un conector?
+
 El proxy de aplicación requiere Windows Server 2012 R2 o versiones posteriores. Actualmente hay una limitación en HTTP2 para Windows Server 2019. Para usar correctamente el conector en Windows Server 2019, deberá agregar la siguiente clave del Registro y reiniciar el servidor:
-    ```
-    HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\EnableDefaultHttp2 (DWORD) Value: 0 
-    ```
+
+```
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\EnableDefaultHttp2 (DWORD) Value: 0 
+```
 
 ## <a name="application-configuration"></a>Configuración de aplicaciones
 

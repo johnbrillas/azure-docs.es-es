@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 12/09/2020
 ms.topic: conceptual
-ms.openlocfilehash: ec0d6d618edad87b76861ea834adb2f29531e6f5
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 62793e0551c914b77310a0e9b72fea31ec621848
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96929674"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97683370"
 ---
 # <a name="how-to-deploy-updates-and-review-results"></a>Implementación de actualizaciones y revisión de los resultados
 
@@ -117,7 +117,7 @@ Para programar una implementación de actualizaciones nueva, siga estos pasos. E
 
 Para aprender a crear una implementación de actualizaciones con la API REST, consulte [Configuraciones de actualizaciones de software: crear](/rest/api/automation/softwareupdateconfigurations/create).
 
-También puede usar un runbook de ejemplo para crear una implementación semanal de actualizaciones. Para más información acerca de este runbook, consulte [Create a weekly update deployment for one or more VMs in a resource group](https://gallery.technet.microsoft.com/scriptcenter/Create-a-weekly-update-2ad359a1) (Crear una implementación de actualización semanal para una o más VM en un grupo de recursos).
+También puede usar un runbook de ejemplo para crear una implementación semanal de actualizaciones. Para más información acerca de este runbook, consulte [Create a weekly update deployment for one or more VMs in a resource group](https://github.com/azureautomation/create-a-weekly-update-deployment-for-one-or-more-vms-in-a-resource-group) (Crear una implementación de actualización semanal para una o más VM en un grupo de recursos).
 
 ## <a name="check-deployment-status"></a>Comprobar el estado de implementación
 

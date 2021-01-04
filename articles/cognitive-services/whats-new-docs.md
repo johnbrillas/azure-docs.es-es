@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: erhopf
 ms.service: cognitive-services
 ms.date: 12/07/2020
-ms.openlocfilehash: d07f01a17c2d784eed61ad7e7ef47c8f7eb5ac30
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 9069a53166b30e206559f0c68c4bcef2ec136ac5
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96862197"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97631506"
 ---
 # <a name="cognitive-services-docs-whats-new-for-november-1-2020---november-30-2020"></a>Documentación de Cognitive Services: Novedades del período del 1 al 30 de noviembre de 2020
 
@@ -33,35 +33,35 @@ Le damos la bienvenida a las novedades de la documentación de Cognitive Service
 
 ### <a name="updated-articles"></a>Artículos actualizados
 
-- [Etiquetas de imágenes de contenedor de Azure Cognitive Services notas de la versión](/azure/cognitive-services/containers/container-image-tags.md)
+- [Etiquetas de imágenes de contenedor de Azure Cognitive Services notas de la versión](/azure/cognitive-services/containers/container-image-tags)
 
 ## <a name="form-recognizer"></a>Form Recognizer
 
 ### <a name="new-articles"></a>Artículos nuevos
 
-- [Modelo de factura precompilado de Form Recognizer](/azure/cognitive-services/form-recognizer/concept-invoices.md)
-- [Servicio Layout de Form Recognizer](/azure/cognitive-services/form-recognizer/concept-layout.md)
-- [Inicio rápido: Extracción de datos de facturas mediante la API REST Form Recognizer con Python](/azure/cognitive-services/form-recognizer/quickstarts/python-invoices.md)
+- [Modelo de factura precompilado de Form Recognizer](/azure/cognitive-services/form-recognizer/concept-invoices)
+- [Servicio Layout de Form Recognizer](/azure/cognitive-services/form-recognizer/concept-layout)
+- [Inicio rápido: Extracción de datos de facturas mediante la API REST Form Recognizer con Python](/azure/cognitive-services/form-recognizer/quickstarts/python-invoices)
 
 ### <a name="updated-articles"></a>Artículos actualizados
 
-- [Conceptos de recepción](/azure/cognitive-services/form-recognizer/concept-receipts.md)
-- [¿Qué es Form Recognizer?](/azure/cognitive-services/form-recognizer/overview.md)
-- [Entrenamiento de un modelo de Form Recognizer con etiquetas mediante la herramienta de etiquetado de ejemplo](/azure/cognitive-services/form-recognizer/quickstarts/label-tool.md)
-- [Inicio rápido: Extracción de datos de tarjetas de presentación mediante la API REST Form Recognizer con Python](/azure/cognitive-services/form-recognizer/quickstarts/python-business-cards.md)
-- [Novedades en Form Recognizer](/azure/cognitive-services/form-recognizer/whats-new.md)
+- [Conceptos de recepción](/azure/cognitive-services/form-recognizer/concept-receipts)
+- [¿Qué es Form Recognizer?](/azure/cognitive-services/form-recognizer/overview)
+- [Entrenamiento de un modelo de Form Recognizer con etiquetas mediante la herramienta de etiquetado de ejemplo](/azure/cognitive-services/form-recognizer/quickstarts/label-tool)
+- [Inicio rápido: Extracción de datos de tarjetas de presentación mediante la API REST Form Recognizer con Python](/azure/cognitive-services/form-recognizer/quickstarts/python-business-cards)
+- [Novedades en Form Recognizer](/azure/cognitive-services/form-recognizer/whats-new)
 
 ## <a name="metrics-advisor"></a>Metrics Advisor
 
 ### <a name="new-articles"></a>Artículos nuevos
 
-- [Metrics Advisor: novedades en la documentación](/azure/cognitive-services/metrics-advisor/whats-new.md)
+- [Metrics Advisor: novedades en la documentación](/azure/cognitive-services/metrics-advisor/whats-new)
 
 ### <a name="updated-articles"></a>Artículos actualizados
 
-- [Envío de comentarios sobre anomalías](/azure/cognitive-services/metrics-advisor/how-tos/anomaly-feedback.md)
-- [Preguntas más frecuentes sobre Metrics Advisor](/azure/cognitive-services/metrics-advisor/faq.md)
-- [Inicio rápido: Uso de las API REST o las bibliotecas cliente para personalizar una solución](/azure/cognitive-services/metrics-advisor/quickstarts/rest-api-and-client-library.md)
+- [Envío de comentarios sobre anomalías](/azure/cognitive-services/metrics-advisor/how-tos/anomaly-feedback)
+- [Preguntas más frecuentes sobre Metrics Advisor](/azure/cognitive-services/metrics-advisor/faq)
+- [Inicio rápido: Uso de las API REST o las bibliotecas cliente para personalizar una solución](/azure/cognitive-services/metrics-advisor/quickstarts/rest-api-and-client-library)
 
 ## <a name="qna-maker"></a>QnA Maker 
 
@@ -75,12 +75,12 @@ Le damos la bienvenida a las novedades de la documentación de Cognitive Service
 
 ### <a name="updated-articles"></a>Artículos actualizados
 
-- [Límites de datos y velocidad de la API Text Analytics](/azure/cognitive-services/text-analytics/concepts/data-limits.md)
-- [Procedimientos: Uso de Text Analytics para el estado (versión preliminar)](/azure/cognitive-services/text-analytics/how-tos/text-analytics-for-health.md)
-- [Cómo llamar a la API REST de Text Analytics](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-call-api.md)
-- [Uso del reconocimiento de entidades con nombre en Text Analytics](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking.md)
-- [Procedimiento: análisis de sentimiento y minería de opiniones](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md)
-- [Novedades de Text Analytics API](/azure/cognitive-services/text-analytics/whats-new.md)
-- [Ejemplo: Detectar idioma con Text Analytics](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-language-detection.md)
+- [Límites de datos y velocidad de la API Text Analytics](/azure/cognitive-services/text-analytics/concepts/data-limits)
+- [Procedimientos: Uso de Text Analytics para el estado (versión preliminar)](/azure/cognitive-services/text-analytics/how-tos/text-analytics-for-health)
+- [Cómo llamar a la API REST de Text Analytics](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-call-api)
+- [Uso del reconocimiento de entidades con nombre en Text Analytics](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking)
+- [Procedimiento: análisis de sentimiento y minería de opiniones](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis)
+- [Novedades de Text Analytics API](/azure/cognitive-services/text-analytics/whats-new)
+- [Ejemplo: Detectar idioma con Text Analytics](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-language-detection)
 
 [!INCLUDE [Service specific updates](./includes/service-specific-updates.md)]

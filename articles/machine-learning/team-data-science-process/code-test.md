@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=weig, previous-ms.author=weig
-ms.openlocfilehash: bcebc568db4a0d2b4b287045ba0a67c88d9b8c92
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ce37ee51e549a2bd6f2747f28af8c038c39d8f1f
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96020609"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656842"
 ---
 # <a name="data-science-code-testing-on-azure-with-the-team-data-science-process-and-azure-devops-services"></a>Prueba del código de ciencia de datos en Azure con el proceso de ciencia de datos en equipo y Azure DevOps Services
 En este artículo se proporcionan instrucciones preliminares para probar el código en un flujo de trabajo de ciencia de datos. Estas pruebas ofrecen a los científicos de datos una manera sistemática y eficiente de comprobar la calidad y el resultado esperado de su código. Se utiliza el [proyecto de proceso de ciencia de datos en equipo (TDSP), que utiliza el conjunto de datos de ingresos de adultos UCI,](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) que publicamos con anterioridad para mostrar cómo se pueden realizar pruebas de código. 

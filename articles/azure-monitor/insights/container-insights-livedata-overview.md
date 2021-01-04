@@ -2,23 +2,20 @@
 title: Ver datos en directo (versión preliminar) con Azure Monitor para contenedores | Microsoft Docs
 description: En este artículo se describe la vista en tiempo real de los registros de Kubernetes, eventos y métricas de pod sin usar kubectl en Azure Monitor para contenedores.
 ms.topic: conceptual
-ms.date: 12/07/2020
+ms.date: 12/17/2020
 ms.custom: references_regions
-ms.openlocfilehash: 3bfc9aa0f0238d99d9336abe592fa721459f4220
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 3655ff8e5879aa4113753b5529c1e484fb079401
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97346838"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672875"
 ---
 # <a name="how-to-view-kubernetes-logs-events-and-pod-metrics-in-real-time"></a>Cómo ver los registros de Kubernetes, eventos y métricas de pods en tiempo real
 
 Azure Monitor para contenedores incluye la característica de datos en directo (versión preliminar), que es una característica de diagnóstico avanzada que le permite el acceso directo a los registros de contenedor de Azure Kubernetes Service (AKS) (stdout/errorestándar), eventos y métricas de pods. Expone acceso directo a `kubectl logs -c`, eventos `kubectl get` y `kubectl top pods`. En este panel se muestra los registros, los eventos y las métricas generados por el motor de contenedores para ayudar a solucionar problemas en tiempo real.
 
 En este artículo se proporciona una introducción detallada y le ayuda a entender cómo usar esta característica.
-
->[!NOTE]
->No se admiten los clústeres de AKS habilitados como [clústeres privados](https://azure.microsoft.com/updates/aks-private-cluster/) con esta característica. Esta característica se basa en el acceso directo a la API de Kubernetes a través de un servidor proxy desde el explorador. La habilitación de la seguridad de red para bloquear la API de Kubernetes desde este proxy bloqueará este tráfico.
 
 Para obtener ayuda para configurar o solucionar problemas de la característica de datos en directo (versión preliminar), revise la [guía de configuración](container-insights-livedata-setup.md). Esta característica accede directamente a la API Kubernetes y se puede encontrar información adicional sobre el modelo de autenticación [aquí](https://kubernetes.io/docs/concepts/overview/kubernetes-api/).
 

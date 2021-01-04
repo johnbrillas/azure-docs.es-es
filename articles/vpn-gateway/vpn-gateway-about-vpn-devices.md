@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 12/02/2020
 ms.author: yushwang
-ms.openlocfilehash: ae498b39a421db19f0d4e0a8daca58730321b58c
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: fdb7b1964bf4b8e2dbf6afd541e4415c0345347c
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96546818"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97631472"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>Acerca de los dispositivos VPN y los parámetros de IPsec/IKE para conexiones de VPN Gateway de sitio a sitio
 
@@ -41,7 +41,7 @@ Con el fin de configurar el dispositivo VPN, consulte los vínculos correspondie
 | Allied Telesis     |Enrutadores VPN de la serie AR |Serie AR 5.4.7+               | [Guía de configuración](https://www.alliedtelesis.com/documents/how-to/configure/site-to-site-vpn-between-azure-and-ar-series-router) |[Guía de configuración](https://www.alliedtelesis.com/documents/how-to/configure/site-to-site-vpn-between-azure-and-ar-series-router)|
 | Arista | Enrutador CloudEOS | vEOS 4.24.0FX | (no probado) | [Guía de configuración](https://www.arista.com/en/cg-veos-router/veos-router-cloudeos-ipsec-connectivity-to-azure-virtual-network-gateway) |
 | Barracuda Networks, Inc. |Barracuda CloudGen Firewall |PolicyBased: 5.4.3<br>RouteBased: 6.2.0 |[Guía de configuración](https://campus.barracuda.com/product/cloudgenfirewall/doc/79462887/how-to-configure-an-ikev1-ipsec-site-to-site-vpn-to-the-static-microsoft-azure-vpn-gateway/) |[Guía de configuración](https://campus.barracuda.com/product/cloudgenfirewall/doc/79462889/how-to-configure-bgp-over-ikev2-ipsec-site-to-site-vpn-to-an-azure-vpn-gateway/) |
-| Checkpoint |Puerta de enlace de seguridad |R80.10 |[Guía de configuración](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |[Guía de configuración](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |
+| Punto de comprobación |Puerta de enlace de seguridad |R80.10 |[Guía de configuración](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |[Guía de configuración](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |
 | Cisco              |ASA       |8.3<br>8.4+ (IKEv2*) |Compatible |[Guía de configuración*](https://www.cisco.com/c/en/us/support/docs/security/adaptive-security-appliance-asa-software/214109-configure-asa-ipsec-vti-connection-to-az.html) |
 | Cisco |ASR |PolicyBased: IOS 15.1<br>RouteBased: IOS 15.2 |Compatible. |Compatible. |
 | Cisco | CSR | RouteBased: IOS-XE 16.10 | (no probado) | [Script de configuración](vpn-gateway-download-vpndevicescript.md) |
@@ -61,7 +61,7 @@ Con el fin de configurar el dispositivo VPN, consulte los vínculos correspondie
 | Microsoft |Servicio de acceso remoto y enrutamiento |Windows Server 2012 |No compatible |Compatible |
 | Open Systems AG |Mission Control Security Gateway |N/D |[Guía de configuración](https://open-systems.com/wp-content/uploads/2019/12/OpenSystems-AzureVPNSetup-Installation-Guide.pdf) |No compatible |
 | Palo Alto Networks |Todos los dispositivos que ejecutan PAN-OS |PAN-OS<br>PolicyBased: 6.1.5 o posterior<br>RouteBased: 7.1.4 |Compatible |[Guía de configuración](https://knowledgebase.paloaltonetworks.com/KCSArticleDetail?id=kA10g000000Cm6WCAS) |
-| Sentrium (desarrollador) | VyOS | VyOS 1.2.2 | (no probado) | [Guía de configuración ](https://vyos.readthedocs.io/en/latest/appendix/examples/azure-vpn-bgp.html)|
+| Sentrium (desarrollador) | VyOS | VyOS 1.2.2 | (no probado) | [Guía de configuración ](https://docs.vyos.io/en/latest/configexamples/azure-vpn-bgp.html)|
 | ShareTech | UTM de próxima generación (serie NU) | 9.0.1.3 | No compatible | [Guía de configuración](http://www.sharetech.com.tw/images/file/Solution/NU_UTM/S2S_VPN_with_Azure_Route_Based_en.pdf) |
 | SonicWall |Serie TZ, serie NSA<br>Serie SuperMassive<br>Serie E-Class NSA |SonicOS 5.8.x<br>SonicOS 5.9.x<br>SonicOS 6.x |No compatible |[Guía de configuración](https://www.sonicwall.com/support/knowledge-base/170505320011694) |
 | Sophos | Firewall de última generación XG | XG v17 | (no probado) | [Guía de configuración](https://community.sophos.com/kb/127546)<br><br>[Guía de configuración: varios SA](https://community.sophos.com/kb/en-us/133154) |

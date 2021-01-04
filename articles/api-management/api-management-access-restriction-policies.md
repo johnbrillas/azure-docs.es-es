@@ -9,12 +9,12 @@ ms.service: api-management
 ms.topic: article
 ms.date: 11/23/2020
 ms.author: apimpm
-ms.openlocfilehash: 70be2000d3b01e55cd52d161072c3249870310b9
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: e38dcf1e12629405ae5f28a987ba20557037ee67
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96122578"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97683451"
 ---
 # <a name="api-management-access-restriction-policies"></a>Directivas de restricción de acceso de API Management
 
@@ -451,7 +451,7 @@ La directiva `validate-jwt` aplica la existencia y la validez de un token web JS
 ```xml
 <validate-jwt header-name="Authorization" require-scheme="Bearer">
     <issuer-signing-keys>
-        <key certficate-id="my-rsa-cert" />  <!-- signing key specified as certificate ID, enclosed in double-quotes -->
+        <key certificate-id="my-rsa-cert" />  <!-- signing key specified as certificate ID, enclosed in double-quotes -->
     </issuer-signing-keys>
     <audiences>
         <audience>@(context.Request.OriginalUrl.Host)</audience>  <!-- audience is set to API Management host name -->
