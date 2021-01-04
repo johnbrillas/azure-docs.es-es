@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: e2c71e028225c22ab0355ff4cda77dacadf94095
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: b5f7f494c9d0969fbf9431d0b552dafa21a5eace
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97512052"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97705411"
 ---
 # <a name="azure-resources-for-qna-maker"></a>Recursos de Azure para QnA Maker
 
@@ -268,8 +268,10 @@ La ventana de creación de Azure Portal le permite crear un recurso de QnA Maker
 
 > [!div class="mx-imgBorder"]
 > ![Captura de pantalla con las listas de recursos de Azure Portal en QnA Maker administrado (versión preliminar)](../media/qnamaker-how-to-setup-service/resources-created-v2.png)
+
 > [!TIP]
 > Cree un nuevo grupo de recursos al crear un recurso de QnA Maker. Esto le permite ver todos los recursos asociados al recurso de QnA Maker administrado (versión preliminar) al buscar por grupo de recursos.
+
 > [!TIP]
 > Utilice una convención de nomenclatura para indicar los planes de tarifa en el nombre del recurso o del grupo de recursos. Si recibe errores al crear una nueva base de conocimiento o al agregar nuevos documentos, el límite del plan de tarifa de Cognitive Search es un problema común.
 

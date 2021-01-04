@@ -6,16 +6,16 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 01/23/2018
-ms.openlocfilehash: fefa16a39545c0c4094db8dbd18b46fb94ef5025
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: d620df0b55b024cd5d7c25ea17d9b09c5c5da8ff
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97504039"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97722885"
 ---
 # <a name="create-service-manager-web-app-using-the-automated-script"></a>Creación de una aplicación web de Service Manager mediante el script automatizado
 
-Use el siguiente script para crear la aplicación web para la instancia de Service Manager. Aquí puede obtener más información sobre la conexión de Service Manager. [Aplicación web de Service Manager](./itsmc-connections.md#create-and-deploy-service-manager-web-app-service)
+Use el siguiente script para crear la aplicación web para la instancia de Service Manager. Aquí puede obtener más información sobre la conexión de Service Manager. [Aplicación web de Service Manager](./itsmc-connections-scsm.md)
 
 Ejecute el script proporcionando los siguientes detalles necesarios:
 
@@ -29,9 +29,6 @@ Ejecute el script proporcionando los siguientes detalles necesarios:
 El script creará la aplicación web con el nombre que especificó (junto con algunas cadenas adicionales para hacerlo único). Genera la **dirección URL de la aplicación web**, el **id. de cliente** y el **secreto de cliente**.
 
 Guarde estos valores, ya que los necesitará cuando cree una conexión con el Conector de Administración de servicios de TI.
-
-> [!NOTE]
-> Este artículo contiene referencias al término *lista blanca*, un término que Microsoft ya no usa. Cuando se elimine el término del software, se eliminará también de este artículo.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -141,14 +138,14 @@ if(!$resourceProvider -or $resourceProvider[0].RegistrationState -ne "Registered
     {
         Write-Host "Failed to Register Microsoft.Web Resource Provider. Please register it in Azure Portal."
         exit
-    }   
+    }
 }
 do
 {
     $rand = Get-Random -Maximum 32000
 
     $siteName = $siteNamePrefix + $rand
-    
+
     $resource = Get-AzResource -Name $siteName -ResourceType Microsoft.Web/sites
 
 }while($resource)
@@ -279,7 +276,7 @@ if(!$resourceProvider -or $resourceProvider[0].RegistrationState -ne "Registered
     catch
     {
         Write-Host "Failed to Register Microsoft.Relay Resource Provider. Please register it in Azure Portal."
-    }   
+    }
 }
 
 $resource = Get-AzResource -Name $serviceName -ResourceType Microsoft.Relay/namespaces
@@ -321,5 +318,5 @@ if(!$err)
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Configuración de la conexión híbrida](./itsmc-connections.md#configure-the-hybrid-connection).
+[Configuración de la conexión híbrida](./itsmc-connections-scsm.md#configure-the-hybrid-connection).
 

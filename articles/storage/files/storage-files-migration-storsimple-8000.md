@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: daa7c657a47414b01197bed3644caefeda98af1c
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 1e45c39a8f562ca6264ab631dfadc84315b58030
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96512178"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97723985"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>Migración de las series 8100 y 8600 de StorSimple a Azure File Sync
 
@@ -160,7 +160,7 @@ Tiene la opción de elegir Premium Storage (SSD) para recursos compartidos de ar
 
 ¿Todavía no está seguro?
 
-* Elija Premium Storage si necesita el [rendimiento de un recurso compartido de archivos Premium de Azure](storage-files-planning.md#understanding-provisioning-for-premium-file-shares).
+* Elija Premium Storage si necesita el [rendimiento de un recurso compartido de archivos Premium de Azure](understanding-billing.md#provisioned-billing).
 * Elija almacenamiento estándar para cargas de trabajo de servidor de archivos de uso general, incluidos los datos de acceso frecuente y los datos de archivo. Elija también almacenamiento estándar si la única carga de trabajo en el recurso compartido en la nube será Azure File Sync.
 
 #### <a name="account-kind"></a>Tipo de cuenta

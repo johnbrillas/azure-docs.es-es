@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 08/26/2020
 ms.subservice: alerts
-ms.openlocfilehash: 3fb0288d592af8bd23415b31ecf6a6e3448b92ba
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 74f067e6fb820b4fd7dcefd0777c342b72c2bbea
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186038"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97704255"
 ---
 # <a name="create-a-log-alert-with-a-resource-manager-template"></a>Creación de una alerta de registro con una plantilla de Resource Manager
 
@@ -268,14 +268,12 @@ Plantilla de [creación de reglas de consulta programadas](/rest/api/monitor/sch
         },
         "metricMeasureColumn": {
             "type": "string",
-            "minLength": 1,
             "metadata": {
                 "description": "Name of the measure column used in the alert evaluation."
             }
         },
         "resourceIdColumn": {
             "type": "string",
-            "minLength": 1,
             "metadata": {
                 "description": "Name of the resource ID column used in the alert targeting the alerts."
             }

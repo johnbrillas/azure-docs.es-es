@@ -15,6 +15,8 @@
       href: cognitive-services-custom-subdomains.md
     - name: Compatibilidad con idiomas
       href: language-support.md
+    - name: Planificación y administración de costos
+      href: plan-manage-costs.md
 - name: Guías de inicio rápido
   items:
     - name: Creación de un recurso mediante Azure Portal

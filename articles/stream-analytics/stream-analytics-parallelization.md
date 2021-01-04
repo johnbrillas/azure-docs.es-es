@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: b41677d1e4f3ba3889472a3fb9bd6c6a9db4c0a8
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 326af3bc38ce70cc7cb205384bb4302c5ff73d28
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123377"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97704187"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Aprovechamiento de la paralelización de consultas en Azure Stream Analytics
 En este artículo se muestra cómo aprovechar la paralelización en Azure Stream Analytics. Aprenda a escalar los trabajos de Stream Analytics mediante la configuración de particiones de entrada y el ajuste de la definición de consultas de análisis.
@@ -270,7 +270,7 @@ En las observaciones siguientes se usa un trabajo de Stream Analytics con una co
 | 5000     |    6    |  6 TU   |
 | 10 000    |    12   |  10 TU  |
 
-La solución [Event Hubs](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-eventhubs) escala linealmente en términos de unidades de streaming (SU) y rendimiento, de modo que constituye la forma más eficaz y de mayor rendimiento para analizar y transmitir datos fuera de Stream Analytics. Los trabajos se pueden escalar en hasta 192 unidades de streaming, lo que se traduce aproximadamente en un procesamiento de hasta 200 MB/s o 19 trillones de eventos al día.
+La solución [Event Hubs](https://github.com/Azure-Samples/streaming-at-scale/tree/main/eventhubs-streamanalytics-eventhubs) escala linealmente en términos de unidades de streaming (SU) y rendimiento, de modo que constituye la forma más eficaz y de mayor rendimiento para analizar y transmitir datos fuera de Stream Analytics. Los trabajos se pueden escalar en hasta 192 unidades de streaming, lo que se traduce aproximadamente en un procesamiento de hasta 200 MB/s o 19 trillones de eventos al día.
 
 #### <a name="azure-sql"></a>Azure SQL
 |Tasa de ingesta (eventos por segundo) | Unidades de streaming | Recursos de salida  |
@@ -279,7 +279,7 @@ La solución [Event Hubs](https://github.com/Azure-Samples/streaming-at-scale/tr
 |    5000   |   18 |  P4   |
 |    10 000  |   36 |  P6   |
 
-[SQL Azure](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-azuresql) permite la escritura en paralelo (operación conocida como herencia de particiones), pero no está habilitada de forma predeterminada. Sin embargo, habilitar la herencia de particiones, además de una consulta totalmente paralela, puede no ser suficiente para lograr un mayor rendimiento. El rendimiento de la escritura SQL depende significativamente del esquema de tabla y la configuración de base de datos. En el artículo sobre [rendimiento de salida SQL](./stream-analytics-sql-output-perf.md) encontrará más detalles sobre los parámetros que ayudan a disparar el rendimiento de escritura. Tal y como se indica en el artículo [Salida de Azure Stream Analytics a Azure SQL Database](./stream-analytics-sql-output-perf.md#azure-stream-analytics), esta solución no escala linealmente como una canalización totalmente paralela más allá de 8 particiones, y puede que deba volver a particionar antes de la salida SQL (vea [INTO](/stream-analytics-query/into-azure-stream-analytics#into-shard-count)). Se necesitan SKU Premium para dar cabida a tasas de E/S elevadas, así como a la sobrecarga de copias de seguridad de registros que sucede cada pocos minutos.
+[SQL Azure](https://github.com/Azure-Samples/streaming-at-scale/tree/main/eventhubs-streamanalytics-azuresql) permite la escritura en paralelo (operación conocida como herencia de particiones), pero no está habilitada de forma predeterminada. Sin embargo, habilitar la herencia de particiones, además de una consulta totalmente paralela, puede no ser suficiente para lograr un mayor rendimiento. El rendimiento de la escritura SQL depende significativamente del esquema de tabla y la configuración de base de datos. En el artículo sobre [rendimiento de salida SQL](./stream-analytics-sql-output-perf.md) encontrará más detalles sobre los parámetros que ayudan a disparar el rendimiento de escritura. Tal y como se indica en el artículo [Salida de Azure Stream Analytics a Azure SQL Database](./stream-analytics-sql-output-perf.md#azure-stream-analytics), esta solución no escala linealmente como una canalización totalmente paralela más allá de 8 particiones, y puede que deba volver a particionar antes de la salida SQL (vea [INTO](/stream-analytics-query/into-azure-stream-analytics#into-shard-count)). Se necesitan SKU Premium para dar cabida a tasas de E/S elevadas, así como a la sobrecarga de copias de seguridad de registros que sucede cada pocos minutos.
 
 #### <a name="cosmos-db"></a>Cosmos DB
 |Tasa de ingesta (eventos por segundo) | Unidades de streaming | Recursos de salida  |
@@ -288,7 +288,7 @@ La solución [Event Hubs](https://github.com/Azure-Samples/streaming-at-scale/tr
 |  5000   |  24   | 60 000 RU  |
 |  10 000  |  48   | 120 000 RU |
 
-La salida de [Cosmos DB](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-cosmosdb) de Stream Analytics se ha actualizado para usar la integración nativa en el [nivel de compatibilidad 1.2](./stream-analytics-documentdb-output.md#improved-throughput-with-compatibility-level-12). El nivel de compatibilidad 1.2 permite un rendimiento significativamente mayor y reduce el consumo de RU en comparación con el nivel 1.1, que es el nivel de compatibilidad predeterminado de los trabajos nuevos. La solución utiliza contenedores de Cosmos DB particionados en /deviceId y el resto de la solución está configurada de forma idéntica.
+La salida de [Cosmos DB](https://github.com/Azure-Samples/streaming-at-scale/tree/main/eventhubs-streamanalytics-cosmosdb) de Stream Analytics se ha actualizado para usar la integración nativa en el [nivel de compatibilidad 1.2](./stream-analytics-documentdb-output.md#improved-throughput-with-compatibility-level-12). El nivel de compatibilidad 1.2 permite un rendimiento significativamente mayor y reduce el consumo de RU en comparación con el nivel 1.1, que es el nivel de compatibilidad predeterminado de los trabajos nuevos. La solución utiliza contenedores de Cosmos DB particionados en /deviceId y el resto de la solución está configurada de forma idéntica.
 
 Todos los [ejemplos de Azure de streaming a escala](https://github.com/Azure-Samples/streaming-at-scale) usan como entrada un centro de eventos que se alimenta de cargas que simulan clientes de prueba. Cada evento de entrada es un documento JSON de 1 KB, que convierte fácilmente las tasas de ingesta configuradas en tasas de rendimiento (1 MB/s, 5 MB/s y 10 MB/s). Los eventos simulan un dispositivo IoT que envía los siguientes datos JSON (en formato abreviado) de hasta 1000 dispositivos:
 

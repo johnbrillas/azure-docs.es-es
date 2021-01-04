@@ -48,7 +48,8 @@
         - name: Configuración de contenedores
           href: face-resource-container-config.md
         - name: Uso de instancias de contenedores
-          href: Face-API-How-to-Topics/deploy-face-container-on-container-instances.md
+          maintainContext: true
+          href: ../containers/azure-container-instance-recipe.md
         - name: Documentación de contenedores de Cognitive Services
           href: ../containers/index.yml
 - name: Profundización en el escenario
