@@ -1,19 +1,19 @@
 ---
-title: Tutorial para enviar Azure Data Box en el orden de exportación | Microsoft Docs
+title: Tutorial para enviar Azure Data Box en el pedido de exportación | Microsoft Docs
 description: Aprenda a enviar Azure Data Box a Microsoft una vez completado el orden de exportación
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 07/21/2020
+ms.date: 12/11/2020
 ms.author: alkohli
-ms.openlocfilehash: 04e4394e6a439c923558ef90e13c14c0adaa4020
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1035f7fb34ed5b2b11e3ef472ccda7cccc30f652
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88142118"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359037"
 ---
 # <a name="tutorial-return-azure-data-box-preview"></a>Tutorial: Devolución de Azure Data Box Disk (versión preliminar)
 
@@ -53,12 +53,12 @@ Realice los pasos siguientes si va a devolver el dispositivo en Estados Unidos, 
 
 1. Asegúrese de que el dispositivo está apagado y de que se han quitado los cables. 
 2. Enrolle y coloque de forma segura el cable de alimentación que se proporcionó junto con el dispositivo en la parte posterior del mismo.
-3. Asegúrese de que la etiqueta de envío aparece en la pantalla de tinta electrónica y programe una recogida con su transportista. Si la etiqueta está dañada, se ha perdido o no aparece en la pantalla de tinta electrónica, póngase en contacto con el servicio de soporte técnico de Microsoft. Si el soporte técnico lo sugiere, puede ir a **Información general > Descargar la etiqueta de envío** en Azure Portal. Descargue la etiqueta de envío y péguela en el dispositivo. 
+3. Asegúrese de que la etiqueta de envío aparezca en la pantalla de tinta electrónica y programe una recogida con su transportista. Si la etiqueta está dañada, se ha perdido o no aparece en la pantalla de tinta electrónica, póngase en contacto con Soporte técnico de Microsoft. Si el soporte técnico lo sugiere, puede ir a **Información general > Descargar la etiqueta de envío** en Azure Portal. Descargue la etiqueta de envío y péguela en el dispositivo. 
 4. Programe una recogida con UPS si está devolviendo el dispositivo. Para programar una recogida:
 
-    - Llame a la oficina local de UPS (número gratuito específico del país o región).
-    - En la llamada, indique el número de seguimiento del envío inverso, que se muestra en la pantalla E-ink (Tinta electrónica) o la etiqueta impresa.
-    - Si no se indica el número de seguimiento, UPS solicitará que el abono de una cantidad adicional en la recogida.
+   - Llame a la oficina local de UPS (número gratuito específico del país o región).
+   - En la llamada, indique el número de seguimiento del envío inverso, que se muestra en la pantalla E-ink (Tinta electrónica) o la etiqueta impresa. Si no indica el número de seguimiento, UPS le exigirá una cantidad adicional en la recogida.
+   - Si surge algún problema durante la programación de una recogida o si se le pide que pague tarifas adicionales, póngase en contacto con Azure Data Box Operations. Envíe un correo electrónico a [adbops@microsoft.com](mailto:adbops@microsoft.com).
 
     En lugar de programar la recogida, también devolver la instancia de Data Box en la ubicación de recogida más cercana.
 4. Una vez que el transportista recoge y examina el dispositivo Data Box, el estado del pedido en el portal se actualiza a **Picked up** (Recogido). También se muestra un identificador de seguimiento.
@@ -129,7 +129,7 @@ Si es necesario, puede ponerse en contacto con el soporte técnico de Quantium S
 
 ## <a name="south-africa"></a>[Sudáfrica](#tab/in-sa)
 
-1. Conserve la caja original utilizada para empaquetar el dispositivo para el envío de devolución.
+1. Conserve la caja original utilizada para empaquetar el dispositivo que se va a devolver.
 2. Anote el número de referencia (número de hoja de ruta) que se muestra en la interfaz de usuario web local del dispositivo. Este número se muestra después de que la ejecución de la **Preparación para el envío** sea correcta.
 3. Descargue e imprima la etiqueta de envío que está disponible en la interfaz de usuario web local del dispositivo y fíjela en el paquete de envío.
 4. Para reservar una recogida con DHL, elija una de las siguientes opciones:
@@ -145,9 +145,9 @@ Si es necesario, puede ponerse en contacto con el soporte técnico de Quantium S
       *  Requested pickup date: yyyy/mm/dd;time:HH MM
     ```
 
-    * Como alternativa, puede dejar el paquete en el punto de servicio DHL más cercano.
+    * Como alternativa, puede dejar el paquete en el punto de servicio de DHL más cercano.
 
-5. Si experimenta algún problema, envíe un correo electrónico a [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) con los detalles del problema y mencione el nombre del pedido en el asunto: También puede llamar al +27(0)119213902.
+5. Si surge algún problema, envíe un correo electrónico a [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) con los detalles y mencione el nombre del pedido en el asunto. También puede llamar al +27(0)119213902.
 
 ## <a name="hong-kong"></a>[RAE de Hong Kong](#tab/in-hk)
 
@@ -180,7 +180,7 @@ Si usa Data Box en Japón, Singapur, Corea, India, Sudáfrica u Oeste de Europa,
 
 1. Una vez que este paso se complete correctamente, anote el código de autorización que se muestra en la página Preparación para el envío de la interfaz de usuario web local de Data Box.
 2. Apague el dispositivo y quite los cables. Enrolle y coloque de forma segura el cable de alimentación que se suministró junto con el dispositivo en la parte posterior del mismo.
-3. Envíe un correo electrónico al equipo de operaciones de Azure Data Box mediante la siguiente plantilla cuando esté listo para devolver el dispositivo.
+3. Cuando esté listo para devolver el dispositivo, envíe un correo electrónico al equipo de Azure Data Box Operations mediante la siguiente plantilla.
     
     ```
     To: adbops@microsoft.com 
@@ -194,7 +194,7 @@ Si usa Data Box en Japón, Singapur, Corea, India, Sudáfrica u Oeste de Europa,
 ---
 
 ## <a name="erasure-of-data-from-data-box"></a>Eliminación de datos de Data Box
- 
+
 Una vez que el dispositivo llegue al centro de datos de Azure, Data Box elimina los datos de los discos según las [directrices de la revisión 1 de NIST SP 800-88](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi).
 
 ## <a name="next-steps"></a>Pasos siguientes

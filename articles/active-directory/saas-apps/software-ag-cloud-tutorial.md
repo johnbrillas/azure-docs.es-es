@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/20/2020
+ms.date: 12/09/2020
 ms.author: jeedes
-ms.openlocfilehash: 4acc4c0cec530b8f83648042cd7a417992257543
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: f6f56958fb63e73e254a45e7cf8ad457be8269ef
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602077"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97607650"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-software-ag-cloud"></a>Tutorial: Integración de inicio de sesión único (SSO) de Azure Active Directory con Software AG Cloud
 
@@ -77,12 +77,16 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En la sección **Configuración básica de SAML**, especifique los valores de los siguientes campos:
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://*.softwareag.cloud/auth/realms/TENANT-NAME/broker/IDENTITY-PROVIDER-NAME/endpoint`
+    1. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: 
 
-    b. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón: `https://*.softwareag.cloud/auth/realms/TENANT-NAME`
+        `https://*.softwareag.cloud/auth/realms/TENANT-NAME/broker/IDENTITY-PROVIDER-NAME/endpoint`
 
-    > [!NOTE]
-    > Estos valores no son reales. Actualice estos valores con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de Software AG Cloud](mailto:support@softwareag.com) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+    1. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón:
+
+        `https://*.softwareag.cloud/auth/realms/TENANT-NAME`
+
+        > [!NOTE]
+        > Estos valores no son reales. Actualice estos valores con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de Software AG Cloud](mailto:support@softwareag.com) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **XML de metadatos de federación** y seleccione **Descargar** para descargar el certificado y guardarlo en su equipo.
 
@@ -137,7 +141,7 @@ En esta sección, va a permitir que B.Simon acceda a Software AG Cloud mediante 
 
     c. Importe el archivo **Federation Metadata XML** (XML de metadatos de federation) en **Identity provider configuration** (Configuración del proveedor de identidades) y haga clic en **Next** (Siguiente).
 
-    d. Vaya a la página **Configuration** (Configuración) y complete los campos según sea necesario.
+    d. Vaya a la página **Configuración** y complete los campos según sea necesario.
 
 ### <a name="create-software-ag-cloud-test-user"></a>Creación de un usuario de prueba de Software AG Cloud
 
@@ -147,13 +151,10 @@ En esta sección creará un usuario llamado Britta Simon en Software AG Cloud. S
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
 
-* Suponiendo que Microsoft Azure esté configurado como un proveedor en Software AG Cloud, vaya a `www.softwareag.cloud`, haga clic en el botón de inicio de sesión y escriba el nombre del entorno. En la siguiente pantalla, haga clic en el vínculo "Log in with <IDP NAME>" (Iniciar sesión con <nombre_del_IdP>) y escriba las credenciales. Una vez autenticado, se iniciará sesión y se le dirigirá a la página principal de Software AG Cloud.
-
-* Vaya directamente a la dirección URL de inicio de sesión de Software AG Cloud e inicie el flujo de inicio de sesión desde allí.
-
-* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Software AG Cloud en Aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de Software AG Cloud. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
-
+Suponiendo que Microsoft Azure esté configurado como un proveedor en Software AG Cloud, vaya a `www.softwareag.cloud`, haga clic en el botón de inicio de sesión y escriba el nombre del entorno. En la siguiente pantalla, haga clic en el vínculo "Log in with <IDP NAME>" (Iniciar sesión con <nombre_del_IdP>) y escriba las credenciales. Una vez autenticado, se iniciará sesión y se le dirigirá a la página principal de Software AG Cloud.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado Software AG Cloud, puede aplicar el control de sesión que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Una vez configurado Software AG Cloud, puede aplicar el control de sesión que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+
+

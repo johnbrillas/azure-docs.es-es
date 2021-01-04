@@ -6,12 +6,12 @@ ms.date: 09/09/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 310637ce099aca7b8b9057a674d6b2094b008a87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba1797da5a78eeebd25f5df1b6e37eb92470f584
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613618"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106927"
 ---
 # <a name="tutorial-use-exported-template-from-the-azure-portal"></a>Tutorial: Uso de una plantilla desde Azure Portal
 
@@ -62,12 +62,12 @@ Esta plantilla es adecuada para implementar cuentas de almacenamiento, pero pued
 
    La característica de exportación de plantillas toma el estado actual de un recurso y genera una plantilla para implementarlo. Exportar una plantilla puede ser una forma útil de obtener rápidamente el código JSON necesario para implementar un recurso.
 
-1. Observe la definición **Microsoft.Web/serverfarms** y la definición de parámetros de la plantilla exportada. No es necesario copiar estas secciones. Puede usar esta plantilla exportada como ejemplo de cómo desea agregar este recurso a la plantilla.
+1. Observe la definición `Microsoft.Web/serverfarms` y la definición de parámetros de la plantilla exportada. No es necesario copiar estas secciones. Puede usar esta plantilla exportada como ejemplo de cómo desea agregar este recurso a la plantilla.
 
     ![Plantilla de Resource Manager: plantillas exportadas con la exportación de plantillas](./media/template-tutorial-export-template/resource-manager-template-exported-template.png)
 
 > [!IMPORTANT]
-> Normalmente, la plantilla exportada es más detallada que cuando se crea una plantilla. Por ejemplo, el objeto SKU de la plantilla exportada tiene cinco propiedades. Esta plantilla funciona, pero podría usar simplemente la propiedad **name**. Puede comenzar con la plantilla exportada y, luego, modificarla para adaptarla a sus necesidades.
+> Normalmente, la plantilla exportada es más detallada que cuando se crea una plantilla. Por ejemplo, el objeto SKU de la plantilla exportada tiene cinco propiedades. Esta plantilla funciona, pero podría usar simplemente la propiedad `name`. Puede comenzar con la plantilla exportada y, luego, modificarla para adaptarla a sus necesidades.
 
 ## <a name="revise-existing-template"></a>Revisión de la plantilla existente
 
@@ -83,7 +83,7 @@ Copie el archivo completo y reemplace la plantilla por su contenido.
 
 Use la CLI de Azure o Azure PowerShell para implementar una plantilla.
 
-Si no ha creado el grupo de recursos, consulte [Creación del grupo de recursos](template-tutorial-create-first-template.md#create-resource-group). En el ejemplo se supone que ha establecido la variable **templateFile** en la ruta de acceso al archivo de plantilla, como se muestra en el [primer tutorial](template-tutorial-create-first-template.md#deploy-template).
+Si no ha creado el grupo de recursos, consulte [Creación del grupo de recursos](template-tutorial-create-first-template.md#create-resource-group). En el ejemplo se supone que ha establecido la variable `templateFile` en la ruta de acceso al archivo de plantilla, como se muestra en el [primer tutorial](template-tutorial-create-first-template.md#deploy-template).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -111,7 +111,7 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> Si se produjo un error en la implementación, use el modificador **verbose** para obtener información acerca de los recursos que se están creando. Utilice el modificador **debug** para más información sobre la depuración.
+> Si se produjo un error en la implementación, use el modificador `verbose` para obtener información sobre los recursos que se están creando. Utilice el modificador `debug` para más información sobre la depuración.
 
 ## <a name="verify-deployment"></a>Comprobación de la implementación
 

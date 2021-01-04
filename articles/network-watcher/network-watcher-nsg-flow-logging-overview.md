@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: b6f66813ea23f6c9d4b47a3733d0c72c683d0676
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 79f442c5ab7db92e69f5396f3f9205212bdf4d4d
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96493991"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97399254"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introducción al registro de flujo de grupos de seguridad de red
 
@@ -48,7 +48,7 @@ Los registros de flujo son el origen único de toda la actividad de red del ento
 **Propiedades clave**
 
 - Los registros de flujo operan en el [nivel 4](https://en.wikipedia.org/wiki/OSI_model#Layer_4:_Transport_Layer) y registran todos los flujos de IP que entran y salen de un grupo de seguridad de red.
-- Los registros se recopilan mediante la plataforma Azure y no afectan a los recursos del cliente ni al rendimiento de la red de ningún modo.
+- Los registros se recopilan en **intervalos de 1 minuto** mediante la plataforma Azure y no afectan a los recursos del cliente ni al rendimiento de la red de ningún modo.
 - Los registros se escriben en formato JSON y muestran flujos entrantes y salientes por cada regla de grupo de seguridad de red.
 - Cada entrada del registro contiene la interfaz de red (NIC) a la que se aplica el flujo, información de 5-tupla, la decisión de tráfico e información de rendimiento (solo en la versión 2). Consulte _Formato del registro_ más adelante para obtener información detallada.
 - Los registros de flujo tienen una característica de retención que permite la eliminación automática de los registros hasta un año después de su creación. 
@@ -361,6 +361,8 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 **Flujos entrantes registrados desde direcciones IP de Internet a VM sin direcciones IP públicas**: Las VM que no tienen una dirección IP pública asignada a través de una dirección IP pública asociada con la NIC como dirección IP pública de nivel de instancia, o que forman parte de un grupo de back-end de equilibrador de carga básico, usan [SNAT predeterminada](../load-balancer/load-balancer-outbound-connections.md) y tiene una dirección IP asignada por Azure para facilitar la conectividad de salida. Como consecuencia, es posible que vea las entradas de registro de flujo para los flujos desde las direcciones IP de Internet, si el flujo está destinado a un puerto en el intervalo de puertos asignados para SNAT. Si bien Azure no permitirá estos flujos a la VM, el intento se registra y aparece en el registro de flujos de NSG de Network Watcher por diseño. Se recomienda que el tráfico entrante de Internet no deseado se bloquee explícitamente con NSG.
 
+**Problema con el grupo de seguridad de red de la subred de Application Gateway V2**: El registro de flujo en el grupo de seguridad de red de la subred de Application Gateway V2 [no se admite](https://docs.microsoft.com/azure/application-gateway/application-gateway-faq#are-nsg-flow-logs-supported-on-nsgs-associated-to-application-gateway-v2-subnet) actualmente. Este problema no afecta a Application Gateway V1.
+
 **Servicios incompatibles**: debido a las limitaciones actuales de la plataforma, los registros de flujo de NSG no admiten un pequeño conjunto de servicios de Azure. La lista actual de servicios incompatibles es:
 - [Azure Kubernetes Services (AKS)](https://azure.microsoft.com/services/kubernetes-service/)
 - [Logic Apps](https://azure.microsoft.com/services/logic-apps/) 
@@ -369,9 +371,15 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 **Habilitar en redes virtuales o subredes críticas**: los registros de flujo deben habilitarse en todas las redes virtuales o subredes críticas de la suscripción como procedimiento recomendado de seguridad y auditoría. 
 
-**Habilitar el registro de flujo de NSG en todos los NSG asociados a un recurso**: En Azure, el registro de flujo en Azure se configura en el recurso de NSG. Un flujo solo se asociará a una regla de NSG. En escenarios en los que se utilizan varios grupos de seguridad de red, se recomienda habilitar los registros de flujo de NSG en todos los grupos de seguridad de red aplicados a la interfaz de red o subred de un recurso para garantizar que todo el tráfico se registre. Para más información, consulte [cómo se evalúa el tráfico](../virtual-network/network-security-group-how-it-works.md) en los grupos de seguridad de red.
+**Habilitar el registro de flujo de NSG en todos los NSG asociados a un recurso**: En Azure, el registro de flujo en Azure se configura en el recurso de NSG. Un flujo solo se asociará a una regla de NSG. En escenarios en los que se utilizan varios grupos de seguridad de red, se recomienda habilitar los registros de flujo de NSG en todos los grupos de seguridad de red aplicados a la interfaz de red o subred de un recurso para garantizar que todo el tráfico se registre. Para más información, consulte [cómo se evalúa el tráfico](../virtual-network/network-security-group-how-it-works.md) en los grupos de seguridad de red. 
+
+Algunos escenarios comunes:
+1. **Varios grupos de seguridad de red en una NIC**: en caso de que varios grupos de seguridad de red se asocien a una NIC, el registro de flujos debe estar habilitado en todos ellos.
+1. **Tener grupos de seguridad de red en el nivel de NIC y en el de subred**: en caso de que un grupo de seguridad de red esté configurado en el nivel de NIC y en el de subred, el registro de flujo debe estar habilitado en ambos. 
 
 **Aprovisionamiento de almacenamiento**: el almacenamiento debe aprovisionarse en línea con el volumen de registros de flujo esperado.
+
+**Nomenclatura**: El nombre del grupo de seguridad de red debe tener 80 caracteres como máximo y los nombres de las reglas del mismo hasta 65 caracteres. Si los nombres superan el límite de caracteres, se pueden truncar durante el registro.
 
 ## <a name="troubleshooting-common-issues"></a>Solución de problemas habituales
 

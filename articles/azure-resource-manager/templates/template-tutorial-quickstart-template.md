@@ -6,12 +6,12 @@ ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 445e7ce2d6e609d75bff38bb3d049a87f184be12
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46b32ae7aeb971c9391a69e3ca3d01f669774248
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613601"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106910"
 ---
 # <a name="tutorial-use-azure-quickstart-templates"></a>Tutorial: Uso de las plantillas de inicio rápido de Azure
 
@@ -34,10 +34,10 @@ Esta plantilla funciona para implementar cuentas de almacenamiento y planes de A
 ## <a name="find-template"></a>Búsqueda de la plantilla
 
 1. Abra [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/).
-1. En **Buscar**, escriba **deploy linux web app** (implementar aplicación web Linux).
-1. Seleccione la que tenga el título **Deploy a basic Linux web app** (Implementación de una aplicación web Linux básica). Si tiene problemas para encontrarla, este es el [vínculo directo](https://azure.microsoft.com/resources/templates/101-webapp-basic-linux/).
+1. En **Buscar**, escriba _deploy linux web app_ (implementar aplicación web Linux).
+1. Seleccione el icono que tenga el título **Deploy a basic Linux web app** (Implementación de una aplicación web Linux básica). Si tiene problemas para encontrarla, este es el [vínculo directo](https://azure.microsoft.com/resources/templates/101-webapp-basic-linux/).
 1. Seleccione **Explorar en GitHub**.
-1. Seleccione **azuredeploy.json**.
+1. Seleccione _azuredeploy.json_.
 1. Revise la plantilla. En particular, busque el recurso `Microsoft.Web/sites`.
 
     ![Sitio web de inicio rápido de la plantilla de Resource Manager](./media/template-tutorial-quickstart-template/resource-manager-template-quickstart-template-web-site.png)
@@ -48,15 +48,15 @@ Combine la plantilla de inicio rápido con la plantilla existente:
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/quickstart-template/azuredeploy.json" range="1-108" highlight="32-45,49,85-100":::
 
-El nombre de la aplicación web debe ser único en Azure. Para evitar tener nombres duplicados, la variable **webAppPortalName** se ha actualizado de **"webAppPortalName": "[concat(parameters('webAppName'), '-webapp')]"** a **"webAppPortalName": "[concat(parameters('webAppName'), uniqueString(resourceGroup().id))]"** .
+El nombre de la aplicación web debe ser único en Azure. Para evitar tener nombres duplicados, la variable `webAppPortalName` se ha actualizado de `"webAppPortalName": "[concat(parameters('webAppName'), '-webapp')]"` a `"webAppPortalName": "[concat(parameters('webAppName'), uniqueString(resourceGroup().id))]"` .
 
 Agregue una coma al final de la definición de `Microsoft.Web/serverfarms` para separar la definición de recursos de la definición de `Microsoft.Web/sites`.
 
 Hay un par de características importantes que se deben tener en cuenta en este nuevo recurso.
 
-Observará que tiene un elemento llamado **dependsOn** que se establece en el plan de App Service. Esta configuración es necesaria porque el plan de App Service debe existir antes de que se cree la aplicación web. El elemento **dependsOn** indica a Resource Manager cómo ordenar los recursos para la implementación.
+Observará que tiene un elemento llamado `dependsOn` que se establece en el plan de App Service. Esta configuración es necesaria porque el plan de App Service debe existir antes de que se cree la aplicación web. El elemento `dependsOn` indica a Resource Manager cómo ordenar los recursos para la implementación.
 
-La propiedad **serverFarmId** usa la función [resourceId](template-functions-resource.md#resourceid). Esta función obtiene el identificador único de un recurso. En este caso, obtiene el identificador único del plan de App Service. La aplicación web está asociada a un plan de App Service específico.
+La propiedad `serverFarmId` usa la función [resourceId](template-functions-resource.md#resourceid). Esta función obtiene el identificador único de un recurso. En este caso, obtiene el identificador único del plan de App Service. La aplicación web está asociada a un plan de App Service específico.
 
 ## <a name="deploy-template"></a>Implementar plantilla
 
@@ -91,7 +91,7 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> Si se produjo un error en la implementación, use el modificador **verbose** para obtener información acerca de los recursos que se están creando. Utilice el modificador **debug** para más información sobre la depuración.
+> Si se produjo un error en la implementación, use el modificador `verbose` para obtener información acerca de los recursos que se están creando. Utilice el modificador `debug` para más información sobre la depuración.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

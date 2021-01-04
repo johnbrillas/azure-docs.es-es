@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 08/12/2020
 ms.author: peshultz
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 7752bc3f768aec7a3e98fb1813c4194f81fb9dfb
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 6cc6e6a9739b8b06ab3c48dd3fd75f19de8d0787
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917637"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106281"
 ---
 # <a name="tutorial-run-python-scripts-through-azure-data-factory-using-azure-batch"></a>Tutorial: Ejecución de scripts de Python mediante Azure Data Factory con Azure Batch
 
@@ -148,12 +148,23 @@ En caso de que se produzcan advertencias o errores mediante la ejecución del sc
 1. Haga clic en la tarea que tenía un código de salida de error.
 1. Vea `stdout.txt` y `stderr.txt` para investigar y diagnosticar el problema.
 
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+Aunque no se cobran los trabajos y las tareas, sí se cobran los nodos de proceso. Por consiguiente, se recomienda asignar solo los grupos necesarios. Al eliminar el grupo, las salidas de tarea de los nodos también se eliminan. Sin embargo, los archivos de entrada y salida permanecen en la cuenta de Storage. Cuando ya no las necesite, también puede eliminar la cuenta de Batch y la cuenta de almacenamiento.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, exploró un ejemplo que le enseñaba a ejecutar scripts de Python como parte de una canalización con Azure Data Factory mediante Azure Batch.
+En este tutorial, ha aprendido a:
+
+> [!div class="checklist"]
+> * Autenticarse en las cuentas de Batch y Storage
+> * Desarrollo y ejecución de un script en Python
+> * Crear un grupo de nodos de proceso para ejecutar una aplicación
+> * Programación de las cargas de trabajo de Python
+> * Supervisión de la canalización de análisis
+> * Acceso a los archivos de registro
 
 Para más información acerca de Azure Data Factory, consulte:
 
 > [!div class="nextstepaction"]
 > [Introducción a Azure Data Factory](../data-factory/introduction.md)
-

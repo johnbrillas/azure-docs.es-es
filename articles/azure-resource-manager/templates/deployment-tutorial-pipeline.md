@@ -4,12 +4,12 @@ description: Aprenda a compilar, probar e implementar continuamente plantillas d
 ms.date: 08/24/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: d7688a4e4838cb591bcd3ac0045a5ed22180c063
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 8e9f047497f493752947d8115084dcfe86f5e040
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96906359"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588138"
 ---
 # <a name="tutorial-continuous-integration-of-arm-templates-with-azure-pipelines"></a>Tutorial: Integración continua de plantillas de ARM con Azure Pipelines
 
@@ -19,7 +19,7 @@ Azure DevOps proporciona servicios para desarrolladores para apoyar a los equipo
 
 > [!NOTE]
 > Elige un nombre de proyecto. Al seguir el tutorial, reemplaza las instancias de **AzureRmPipeline** con el nombre de tu proyecto.
-> El nombre de este proyecto se utiliza para generar nombres de recursos.  Uno de los recursos es una cuenta de almacenamiento. Los nombres de cuentas de almacenamiento deben tener entre 3 y 24 caracteres, y usar solo números y letras minúsculas. El nombre debe ser único. En la plantilla, el nombre de la cuenta de almacenamiento es el nombre del proyecto con "store" anexado y el nombre del proyecto debe tener entre 3 y 11 caracteres. Por lo tanto, el nombre del proyecto debe cumplir los requisitos de nombre para la cuenta de almacenamiento y tener menos de 11 caracteres.
+> El nombre de este proyecto se utiliza para generar nombres de recursos.  Uno de los recursos es una cuenta de almacenamiento. Los nombres de cuentas de almacenamiento deben tener entre 3 y 24 caracteres, y usar solo números y letras minúsculas. El nombre debe ser único. En la plantilla, el nombre de la cuenta de almacenamiento es el nombre del proyecto con **store** anexado, y el nombre del proyecto debe tener entre 3 y 11 caracteres. Por lo tanto, el nombre del proyecto debe cumplir los requisitos de nombre para la cuenta de almacenamiento y tener menos de 11 caracteres.
 
 En este tutorial se describen las tareas siguientes:
 
@@ -38,7 +38,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 Para completar este artículo, necesitará lo siguiente:
 
 * **Una cuenta de GitHub**, que usarás para crear un repositorio para las plantillas. Si no tiene ninguna, [puede crear una gratis](https://github.com). Para más información sobre el uso de los repositorios de GitHub, consulta [Build GitHub repositories](/azure/devops/pipelines/repos/github) (Compilar repositorios de GitHub).
-* **Instale Git**. En las instrucciones de este tutorial se usa *Git Bash* o *Git Shell*. Para instrucciones, consulta [Install Git]( https://www.atlassian.com/git/tutorials/install-git) (Instalar Git).
+* **Instale Git**. En las instrucciones de este tutorial se usa *Git Bash* o *Git Shell*. Para instrucciones, consulta [Install Git](https://www.atlassian.com/git/tutorials/install-git) (Instalar Git).
 * **Una organización de Azure DevOps**. Si no tienes una, puedes crear una gratis. Consulte [Create an organization or project collection](/azure/devops/organizations/accounts/create-organization?view=azure-devops) (Crear una organización o colección de proyectos).
 * (Opcional) **Visual Studio Code con la extensión de herramientas de Resource Manager**. Consulte [Quickstart: Creación de plantillas de ARM mediante Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
@@ -57,13 +57,13 @@ Si no tiene una cuenta de GitHub, consulte [Requisitos previos](#prerequisites).
 
 1. Selecciona **Nuevo**, un botón verde.
 1. En **Nombre del repositorio**, escribe el nombre del repositorio.  Por ejemplo, **AzureRmPipeline-repo**. No olvides reemplazar las instancias de **AzureRmPipeline** por el nombre de tu proyecto. Puedes seleccionar **Público** o **Privado** para completar este tutorial. Luego selecciona **Crear repositorio**.
-1. Anota la dirección URL. La dirección URL del repositorio tiene el formato siguiente: **`https://github.com/[YourAccountName]/[YourRepositoryName]`** .
+1. Anota la dirección URL. La dirección URL del repositorio tiene el formato siguiente: `https://github.com/[YourAccountName]/[YourRepositoryName]` .
 
 Este repositorio se conoce como *repositorio remoto*. Cada uno de los desarrolladores del mismo proyecto puede clonar su propio *repositorio local* y combinar los cambios en el repositorio remoto.
 
 ### <a name="clone-the-remote-repository"></a>Clonar el repositorio remoto
 
-1. Abre Git Shell o Git Bash.  Consulte [Requisitos previos](#prerequisites).
+1. Abre Git Shell o Git Bash. Consulte [Requisitos previos](#prerequisites).
 1. Compruebe que la carpeta actual sea **GitHub**.
 1. Ejecute el siguiente comando:
 
@@ -75,45 +75,46 @@ Este repositorio se conoce como *repositorio remoto*. Cada uno de los desarrolla
     pwd
     ```
 
-    Reemplaza **[YourAccountName]** por el nombre de tu cuenta de GitHub y reemplaza **[YourGitHubRepositoryName]** por el nombre del repositorio que creaste en el procedimiento anterior.
+    Reemplaza `[YourAccountName]` por el nombre de tu cuenta de GitHub y reemplaza `[YourGitHubRepositoryName]` por el nombre del repositorio que creaste en el procedimiento anterior.
 
-La carpeta **CreateWebApp** es la carpeta donde se almacena la plantilla. El comando **pwd** muestra la ruta de acceso de la carpeta. La ruta de acceso es donde guardas la plantilla en el siguiente procedimiento.
+La carpeta _CreateWebApp_ es la carpeta donde se almacena la plantilla. El comando `pwd` muestra la ruta de acceso de la carpeta. La ruta de acceso es donde guardas la plantilla en el siguiente procedimiento.
 
 ### <a name="download-a-quickstart-template"></a>Descargar una plantilla de inicio rápido
 
-En lugar de crear las plantillas, puede descargarlas y guardarlas en la carpeta **CreateWebApp**.
+En lugar de crear las plantillas, puede descargarlas y guardarlas en la carpeta _CreateWebApp_.
 
 * La plantilla principal: https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/azuredeploy.json
 * La plantilla vinculada: https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/linkedStorageAccount.json
 
-Tanto el nombre de carpeta como el nombre de archivo se usan tal como están en la canalización.  Si cambias estos nombres, debes actualizar los nombres usados en la canalización.
+Tanto el nombre de carpeta como el nombre de archivo se usan tal como están en la canalización. Si cambias estos nombres, debes actualizar los nombres usados en la canalización.
 
 ### <a name="push-the-template-to-the-remote-repository"></a>Insertar la plantilla en el repositorio remoto
 
-El archivo azuredeploy.json se agregó al repositorio local. A continuación, inserta la plantilla en el repositorio remoto.
+El archivo _azuredeploy.json_ se ha agregado al repositorio local. A continuación, inserta la plantilla en el repositorio remoto.
 
 1. Abre *Git Shell* o *Git Bash*, si no está abierto.
-1. Cambie el directorio a la carpeta CreateWebApp en el repositorio local.
-1. Verifica que el archivo **azuredeploy.json** se encuentre en la carpeta.
+1. Cambie el directorio a la carpeta _CreateWebApp_ en el repositorio local.
+1. Verifica que el archivo _azuredeploy.json_ se encuentre en la carpeta.
 1. Ejecute el siguiente comando:
 
     ```bash
     git add .
     git commit -m "Add web app templates."
-    git push origin master
+    git push origin main
     ```
 
-    Puedes recibir una advertencia sobre LF. Puedes omitir la advertencia. **master** la rama maestra.  Normalmente, creas una rama para cada actualización. Para simplificar el tutorial, usa directamente la rama maestra.
-1. Ve al repositorio de GitHub desde un explorador.  La dirección URL es **`https://github.com/[YourAccountName]/[YourGitHubRepository]`** . Verá la carpeta **CreateWebApp** y los tres archivos dentro de la carpeta.
-1. Seleccione **linkedStorageAccount.json** para abrir la plantilla.
-1. Seleccione el botón **Sin formato**. La dirección URL empieza por **raw.githubusercontent.com**.
-1. Realice una copia de la dirección URL.  Debe proporcionar este valor cuando configure la canalización más adelante en el tutorial.
+    Puedes recibir una advertencia sobre LF. Puedes omitir la advertencia. **main** es la rama principal.  Normalmente, creas una rama para cada actualización. Para simplificar el tutorial, usa directamente la rama principal.
+
+1. Ve al repositorio de GitHub desde un explorador. La dirección URL es `https://github.com/[YourAccountName]/[YourGitHubRepository]`. Verá la carpeta _CreateWebApp_ y los tres archivos dentro de la carpeta.
+1. Seleccione _linkedStorageAccount.json_ para abrir la plantilla.
+1. Seleccione el botón **Sin formato**. La dirección URL empieza por `https://raw.githubusercontent.com`.
+1. Realice una copia de la dirección URL. Debe proporcionar este valor cuando configure la canalización más adelante en el tutorial.
 
 Hasta ahora, ha creado un repositorio de GitHub y cargado las plantillas en el repositorio.
 
 ## <a name="create-a-devops-project"></a>Crear un proyecto de DevOps
 
-Se necesita una organización de DevOps antes de poder avanzar al procedimiento siguiente.  Si no tiene una, consulte [Requisitos previos](#prerequisites).
+Se necesita una organización de DevOps antes de poder avanzar al procedimiento siguiente. Si no tiene una, consulte [Requisitos previos](#prerequisites).
 
 1. Inicie sesión en [Azure DevOps](https://dev.azure.com).
 1. Selecciona una organización de DevOps de la izquierda.
@@ -148,7 +149,7 @@ Crea una conexión de servicio que se use para implementar proyectos en Azure.
 
 Hasta ahora, hemos completado las siguientes tareas.  Si omites las secciones anteriores porque ya estás familiarizado con GitHub y DevOps, debes completar las tareas antes de continuar.
 
-* Cree un repositorio de GitHub y guarde las plantillas en la carpeta **CreateWebApp** del repositorio.
+* Cree un repositorio de GitHub y guarde las plantillas en la carpeta _CreateWebApp_ del repositorio.
 * Crea un proyecto de DevOps y crea una conexión de servicio de Azure Resource Manager.
 
 Para crear una canalización con un paso para implementar una plantilla:
@@ -159,9 +160,9 @@ Para crear una canalización con un paso para implementar una plantilla:
 
     ![Solo ciertos repositorios para Azure Resource Manager Azure DevOps Azure Pipelines](./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-only-select-repositories.png)
 
-1. Desde la pestaña **Seleccionar**, selecciona el repositorio.  El nombre predeterminado es **[YourAccountName] / [YourGitHubRepositoryName]** .
-1. Desde la pestaña **Configurar**, selecciona **Canalización inicial**. Muestra el archivo de canalización **azure-pipelines.yml** con dos pasos de script.
-1. Elimine los dos pasos del script del archivo yml.
+1. Desde la pestaña **Seleccionar**, selecciona el repositorio. El nombre predeterminado es `[YourAccountName]/[YourGitHubRepositoryName]`.
+1. Desde la pestaña **Configurar**, selecciona **Canalización inicial**. Muestra el archivo de canalización _azure-pipelines.yml_ con dos pasos de script.
+1. Elimine los dos pasos del script del archivo _.yml_.
 1. Lleve el cursor a la línea después de **pasos:** .
 1. Seleccione **Mostrar el asistente** a la derecha de la pantalla para que se abra el panel **Tareas**.
 1. Seleccione **Implementación de plantillas de ARM**.
@@ -174,9 +175,9 @@ Para crear una canalización con un paso para implementar una plantilla:
     * **Grupo de recursos**: Escriba un nuevo nombre para el grupo de recursos. Por ejemplo, **AzureRmPipeline-rg**.
     * **Ubicación**: Seleccione una ubicación para el grupo de recursos como, por ejemplo, **Centro de EE. UU.** .
     * **Ubicación de la plantilla**: Si selecciona **Linked artifact**, la tarea busca el archivo de plantilla directamente en el repositorio conectado.
-    * **Plantilla**: Escriba **CreateWebApp/azuredeploy.json**. Si cambió el nombre de la carpeta y el nombre de archivo, tendrá que cambiar este valor.
+    * **Plantilla**: Escriba _CreateWebApp/azuredeploy.json_. Si cambió el nombre de la carpeta y el nombre de archivo, tendrá que cambiar este valor.
     * **Parámetros de plantilla**: deje este campo en blanco. Deberá especificar los valores de parámetro en **Reemplazar parámetros de plantilla**.
-    * **Reemplazar parámetros de plantilla**: Escriba **-projectName [EscribirUnNombreDeProyecto] -linkedTemplateUri [EscribirURLDePlantillaVinculada]** . Reemplace el nombre del proyecto y la dirección URL de la plantilla vinculada. La dirección URL de la plantilla vinculada es lo que escribió al final de [Creación de un repositorio de GitHub](#create-a-github-repository). Comienza con **https://raw.githubusercontent.com** .
+    * **Reemplazar parámetros de plantilla**: Escriba `-projectName [EnterAProjectName] -linkedTemplateUri [EnterTheLinkedTemplateURL]` . Reemplace el nombre del proyecto y la dirección URL de la plantilla vinculada. La dirección URL de la plantilla vinculada es lo que escribió al final de [Creación de un repositorio de GitHub](#create-a-github-repository). Comienza con `https://raw.githubusercontent.com` .
     * **Modo de implementación**: Seleccione **Incremental**.
     * **Nombre de implementación**: Escriba **DeployPipelineTemplate**. Seleccione **Avanzadas** para poder ver **Nombre de la implementación**.
 
@@ -186,9 +187,9 @@ Para crear una canalización con un paso para implementar una plantilla:
 
     Para más información sobre la tarea, consulte [Tarea de implementación del grupo de recursos de Azure](/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment) y [Tarea de implementación de plantillas de Azure Resource Manager](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureResourceManagerTemplateDeploymentV3/README.md).
 
-    El archivo yml debe ser similar a:
+    El archivo _.yml_ debe ser similar a:
 
-    ![La captura de pantalla muestra la página de revisión, con el nombre de la nueva canalización Review your pipeline YAML (Revisar la canalización YAML).](./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-yml.png)
+    ![La captura de pantalla muestra la página de revisión con el nombre de la nueva canalización Review your pipeline YAML (Revisar la canalización YAML).](./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-yml.png)
 
 1. Seleccione **Guardar y ejecutar**.
 1. En el panel **Guardar y ejecutar**, seleccione **Guardar y ejecutar** de nuevo. En el repositorio conectado, se guarda una copia del archivo YAML. Para ver el archivo YAML, ve al repositorio.
@@ -199,7 +200,7 @@ Para crear una canalización con un paso para implementar una plantilla:
 ## <a name="verify-the-deployment"></a>Comprobar la implementación
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-1. Abra el grupo de recursos. El nombre es lo que especificaste en el archivo YAML de la canalización.  Verás que se ha creado una cuenta de almacenamiento.  El nombre de la cuenta de almacenamiento comienza con **store**.
+1. Abra el grupo de recursos. El nombre es lo que especificaste en el archivo YAML de la canalización. Verás que se ha creado una cuenta de almacenamiento. El nombre de la cuenta de almacenamiento comienza con **store**.
 1. Selecciona el nombre de la cuenta de almacenamiento para abrirla.
 1. Seleccione **Propiedades**. Observe que el valor de **Replicación** es **Almacenamiento con redundancia local (LRS)** .
 
@@ -207,7 +208,7 @@ Para crear una canalización con un paso para implementar una plantilla:
 
 Al actualizar la plantilla e insertar los cambios en el repositorio remoto, la canalización actualiza automáticamente los recursos, en este caso, la cuenta de almacenamiento.
 
-1. Abra **linkedStorageAccount.json** desde el repositorio local en Visual Studio Code o cualquier editor de texto.
+1. Abra _linkedStorageAccount.json_ desde el repositorio local en Visual Studio Code o cualquier editor de texto.
 1. Actualiza **defaultValue** de **storageAccountType** a **Standard_GRS**. Vea la siguiente captura de pantalla:
 
     ![Actualizar YAML para Azure Resource Manager Azure DevOps Azure Pipelines](./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-update-yml.png)
@@ -216,17 +217,17 @@ Al actualizar la plantilla e insertar los cambios en el repositorio remoto, la c
 1. Ejecuta los siguientes comandos de Git Bash o Shell para insertar los cambios en el repositorio remoto.
 
     ```bash
-    git pull origin master
+    git pull origin main
     git add .
     git commit -m "Update the storage account type."
-    git push origin master
+    git push origin main
     ```
 
-    El primer comando (pull) sincroniza el repositorio local con el repositorio remoto. El archivo YAML de la canalización se agregó únicamente al repositorio remoto. Al ejecutar el comando pull, se descarga una copia del archivo YAML en la rama local.
+    El primer comando (`pull`) sincroniza el repositorio local con el repositorio remoto. El archivo YAML de la canalización se agregó únicamente al repositorio remoto. Al ejecutar el comando `pull`, se descarga una copia del archivo YAML en la rama local.
 
-    El cuarto comando (push) carga el archivo linkedStorageAccount.json revisado en el repositorio remoto. Con la actualización de la rama maestra del repositorio remoto, la canalización se activa de nuevo.
+    El cuarto comando (`push`) carga el archivo _linkedStorageAccount.json_ revisado en el repositorio remoto. Con la actualización de la rama principal del repositorio remoto, la canalización se activa de nuevo.
 
-Para verificar los cambios, puede comprobar la propiedad de replicación de la cuenta de almacenamiento.  Consulta [Verify the deployment](#verify-the-deployment) (Verificar la implementación).
+Para verificar los cambios, puede comprobar la propiedad de replicación de la cuenta de almacenamiento. Consulta [Verify the deployment](#verify-the-deployment) (Verificar la implementación).
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 10/25/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: a427c77ec23bb933f96d8aec54ca33169aee84d4
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 671ca73cfa898be532521599d1211d2a8081eb4b
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576033"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563269"
 ---
 # <a name="azure-synapse-analytics-frequently-asked-questions"></a>Preguntas frecuentes sobre Azure Synapse Analytics
 
@@ -59,7 +59,7 @@ R: Como punto de partida, Azure Synapse funciona con las alertas de costos y el 
 
 R: Las áreas de trabajo de Synapse admiten carpetas definidas por el usuario.
 
-### <a name="q-can-i-link-more-than-one-power-bi-workspaces-to-a-single-azure-synapse-workspace"></a>P: ¿Puedo vincular más de un área de trabajo de Power BI a una sola área de trabajo de Azure Synapse?
+### <a name="q-can-i-link-more-than-one-power-bi-workspace-to-a-single-azure-synapse-workspace"></a>P: ¿Se puede vincular más de un área de trabajo de Power BI a una sola área de trabajo de Azure Synapse?
     
 R: Actualmente, solo se puede vincular un área de trabajo de Power BI a un área de trabajo de Azure Synapse. 
 
@@ -69,7 +69,7 @@ R: Synapse Link para Apache Spark es GA. Synapse Link para un grupo de SQL sin s
 
 ### <a name="q-does-azure-synapse-workspace-support-cicd"></a>P: ¿Admite el área de trabajo de Azure Synapse CI/CD? 
 
-R: Sí. Todos los artefactos de canalización, cuadernos, scripts SQL y definiciones de trabajos de Spark residirán en GIT. Todas las definiciones del grupo se almacenarán en GIT como plantillas de Azure Resource Manager. Los objetos del grupo de SQL dedicado (esquemas, tablas, vistas, etc.) se administrarán con proyectos de base de datos con compatibilidad con CI/CD.
+R: Sí. Todos los artefactos de canalización, cuadernos, scripts SQL y definiciones de trabajos de Spark residirán en Git. Todas las definiciones del grupo se almacenarán en Git como plantillas de Azure Resource Manager. Los objetos del grupo de SQL dedicado (esquemas, tablas, vistas, etc.) se administrarán con proyectos de base de datos con compatibilidad con CI/CD.
 
 ## <a name="pipelines"></a>Procesos
 
@@ -91,7 +91,7 @@ A. En este momento, es preciso volver a crear manualmente las canalizaciones de 
 
 R: Apache Spark para Synapse ES Apache Spark con compatibilidad agregada para las integraciones con otros servicios (AAD, AzureML, etc.) y bibliotecas adicionales (mssparktuils, Hummingbird) y configuraciones del rendimiento preajustadas.
 
-Todas las cargas de trabajo que se ejecuten actualmente en Apache Spark se ejecutarán en MSFT Spark sin cambio alguno. 
+Todas las cargas de trabajo que se ejecuten actualmente en Apache Spark se ejecutarán en Apache Spark para Azure Synapse sin cambio alguno. 
 
 ### <a name="q-what-versions-of-spark-are-available"></a>P: ¿Qué versiones de Spark están disponibles?
 
@@ -121,7 +121,7 @@ La forma más fácil de realizar esta tarea es preparar los datos con Spark y, l
  
 Para satisfacer este escenario, debe proporcionar a cada desarrollador un grupo de Spark sin servidor que esté configurado para usar un reducido número de recursos de Spark. Dado que los grupos de Spark sin servidor no cuestan nada hasta que se usan activamente se minimiza el costo cuando hay varios desarrolladores. Los grupos comparten metadatos (tablas de Spark) para que puedan funcionar con facilidad entre sí.
 
-### <a name="q-how-do-i-include-manage-and-install-libraries"></a>P: Cómo incluir, administrar e instalar bibliotecas 
+### <a name="q-how-do-i-include-manage-and-install-libraries"></a>P: ¿Cómo se incluyen, administran e instalan las bibliotecas?
 
 R:  Puede instalar paquetes externos a través del archivo requirements.txt al crear el grupo de Spark tanto desde el área de trabajo de Synapse como desde Azure Portal. Consulte [Administración de bibliotecas para Apache Spark en Azure Synapse Analytics](./spark/apache-spark-azure-portal-add-libraries.md).
 
@@ -140,7 +140,7 @@ R: No hay "movimiento" o "migración". Puede elegir habilitar nuevas caracterís
 R: De forma predeterminada, todos los nuevos grupos de SQL dedicados se implementarán en un área de trabajo; sin embargo, si lo necesita, puede crear un grupo de SQL dedicado (anteriormente SQL DW) en un factor de forma independiente. 
 
 
-### <a name="q-what-are-the-functional-differences-between-dedicated-sql-pools-and-serverless-sql-pool"></a>P: ¿Cuáles son las diferencias funcionales entre los grupos de SQL dedicados y los grupos de SQL sin servidor? 
+### <a name="q-what-are-the-functional-differences-between-dedicated-sql-pools-and-serverless-sql-pools"></a>P: ¿Cuáles son las diferencias funcionales entre los grupos de SQL dedicados y los grupos de SQL sin servidor?
 
 R: Puede encontrar una lista completa de las diferencias en [Diferencias entre las características de T-SQL en Synapse SQL](./sql/overview-features.md).
 

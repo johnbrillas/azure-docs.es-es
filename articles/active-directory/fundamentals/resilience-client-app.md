@@ -11,12 +11,12 @@ author: knicholasa
 ms.author: nichola
 manager: martinco
 ms.date: 11/23/2020
-ms.openlocfilehash: 9189d4d8cda5f9fcfce7e6ac2097414aa29f0a68
-ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
+ms.openlocfilehash: fc15176318dcfae99434f50a0b4370f371cec05a
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96317476"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938246"
 ---
 # <a name="increase-the-resilience-of-authentication-and-authorization-in-client-applications-you-develop"></a>Aumento de la resistencia de la autenticación y la autorización en las aplicaciones cliente que se desarrollan
 
@@ -30,7 +30,9 @@ MSAL almacena en caché los tokens y usa un patrón de adquisición de tokens si
 
 ![Imagen de dispositivo con aplicación que usa MSAL para llamar a la Plataforma de identidad de Microsoft](media/resilience-client-app/resilience-with-microsoft-authentication-library.png)
 
-Al usar MSAL, se obtiene almacenamiento en caché, actualización y adquisición de tokens silenciosa con el siguiente patrón.
+Al usar MSAL, se admite automáticamente el almacenamiento en caché de tokens, la actualización y la adquisición silenciosa. Puede usar patrones simples para adquirir los tokens necesarios para la autenticación moderna. Se admiten muchos idiomas y puede encontrar un ejemplo que coincida con su idioma y escenario en la página [Ejemplos](https://docs.microsoft.com/azure/active-directory/develop/sample-v2-code).
+
+## <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 try
@@ -42,6 +44,28 @@ catch(MsalUiRequiredException ex)
     result = await app.AcquireToken(scopes).WithClaims(ex.Claims).ExecuteAsync()
 }
 ```
+
+## <a name="javascript"></a>[Javascript](#tab/javascript)
+
+```javascript
+return myMSALObj.acquireTokenSilent(request).catch(error => {
+    console.warn("silent token acquisition fails. acquiring token using redirect");
+    if (error instanceof msal.InteractionRequiredAuthError) {
+        // fallback to interaction when silent call fails
+        return myMSALObj.acquireTokenPopup(request).then(tokenResponse => {
+            console.log(tokenResponse);
+
+            return tokenResponse;
+        }).catch(error => {
+            console.error(error);
+        });
+    } else {
+        console.warn(error);
+    }
+});
+```
+
+---
 
 En algunos casos, MSAL puede actualizar tokens de forma proactiva. Cuando la Plataforma de identidad de Microsoft emite un token de larga duración, puede enviar información al cliente sobre el momento óptimo para actualizar el token ("refresh\_in"). MSAL actualiza de forma proactiva el token en función de esta información. La aplicación sigue ejecutándose mientras el token anterior es válido, pero tiene un período de tiempo más largo durante el cual realizar otra adquisición de token correcta.
 
@@ -65,7 +89,9 @@ Los desarrolladores deben tener un proceso de actualización a la versión de MS
 
 [Vea la versión más reciente de Microsoft.Identity.Web y las notas de la versión](https://github.com/AzureAD/microsoft-identity-web/releases)
 
-## <a name="if-not-using-msal-use-these-resilient-patterns-for-token-handling"></a>Patrones de resistencia para el control de tokens si no se usa MSAL
+## <a name="use-resilient-patterns-for-token-handling"></a>Uso de patrones resistentes para el control de los tokens
+
+Si no se usa MSAL, puede utilizar estos patrones de resistencia para el control de tokens. La biblioteca MSAL implementa automáticamente estos procedimientos recomendados. 
 
 En general, una aplicación que usa autenticación moderna llama a un punto de conexión para recuperar los tokens que autentican al usuario o autorizan a la aplicación a llamar a API protegidas. MSAL está diseñada para controlar los detalles de autenticación e implementa varios patrones para mejorar la resistencia de este proceso. Use la guía de esta sección para implementar procedimientos recomendados si decide usar una biblioteca que no sea MSAL. Si usa MSAL, obtiene todos estos procedimientos recomendados de forma gratuita, ya que MSAL los implementa automáticamente.
 

@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/03/2020
+ms.date: 12/10/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cfcaec38a939291090da7d2229c4a95f984bf28
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 5151f97386ebb6b06be2320505771dc8f47d59a0
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360473"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107539"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-key-vault"></a>Tutorial: Uso de identidades administradas asignadas por el sistema de una máquina virtual Linux para acceder a Azure Key Vault 
 
@@ -36,7 +36,7 @@ Aprenderá a:
  
 ## <a name="prerequisites"></a>Prerrequisitos
 
-- Conocimientos sobre identidades administradas. Si no está familiarizado con la característica Managed Identities for Azure Resources, consulte esta [introducción](overview.md). 
+- Conocimientos básicos sobre identidades administradas. Si no está familiarizado con la característica Managed Identities for Azure Resources, consulte esta [introducción](overview.md). 
 - Una cuenta de Azure, [regístrese para obtener una cuenta gratuita](https://azure.microsoft.com/free/).
 - Para realizar la creación de los recursos necesarios y los pasos de administración de roles, debe tener permisos de "Propietario" en el ámbito adecuado (la suscripción o el grupo de recursos). Si necesita ayuda con la asignación de roles, consulte [Uso del control de acceso basado en rol para administrar el acceso a los recursos de la suscripción de Azure](../../role-based-access-control/role-assignments-portal.md).
 - También necesita una máquina virtual Linux que tenga habilitadas las identidades administradas asignadas por el sistema.
@@ -62,6 +62,20 @@ En primer lugar, es necesario crear un almacén de claves y conceder a la identi
 1. Seleccione **Revisar y crear**.
 1. Seleccione **Crear**
 
+### <a name="create-a-secret"></a>Crear un secreto
+
+A continuación, agregue un secreto al almacén de claves, de forma que más adelante pueda recuperarlo mediante código que se ejecuta en la máquina virtual. Para este tutorial utilizamos PowerShell, pero los mismos conceptos se aplican a cualquier código que se ejecute en esta máquina virtual.
+
+1. Vaya al almacén de claves recién creado.
+1. Seleccione **Secretos** y haga clic en **Agregar**.
+1. Seleccione **Generar o importar**.
+1. En la pantalla **Crear un secreto** desde **Opciones de carga**, deje la opción **Manual** seleccionada.
+1. Escriba un nombre y un valor para el secreto.  El valor puede ser cualquiera de su elección. 
+1. Deje la fecha de activación y la fecha de expiración y deje la opción **Habilitado** en **Sí**. 
+1. Haga clic en **Crear** para crear el secreto.
+
+   ![Crear un secreto](./media/tutorial-linux-vm-access-nonaad/create-secret.png)
+
 ## <a name="grant-access"></a>Conceder acceso
 
 Es necesario conceder acceso a la identidad administrada que usa la máquina virtual para leer el secreto que se almacenará en el almacén de claves.
@@ -77,20 +91,6 @@ Es necesario conceder acceso a la identidad administrada que usa la máquina vir
 1. Seleccione **Agregar**.
 1. Seleccione **Guardar**.
 
-## <a name="create-a-secret"></a>Crear un secreto
-
-A continuación, agregue un secreto al almacén de claves, de forma que más adelante pueda recuperarlo mediante código que se ejecuta en la máquina virtual. Para este tutorial utilizamos PowerShell, pero los mismos conceptos se aplican a cualquier código que se ejecute en esta máquina virtual.
-
-1. Vaya al almacén de claves recién creado.
-1. Seleccione **Secretos** y haga clic en **Agregar**.
-1. Seleccione **Generar o importar**.
-1. En la pantalla **Crear un secreto** desde **Opciones de carga**, deje la opción **Manual** seleccionada.
-1. Escriba un nombre y un valor para el secreto.  El valor puede ser cualquiera de su elección. 
-1. Deje la fecha de activación y la fecha de expiración y deje la opción **Habilitado** en **Sí**. 
-1. Haga clic en **Crear** para crear el secreto.
-
-   ![Crear un secreto](./media/tutorial-linux-vm-access-nonaad/create-secret.png)
- 
 ## <a name="access-data"></a>Acceso a los datos
 
 Para completar estos pasos, necesitará un cliente SSH.  Si usa Windows, puede usar el cliente SSH en el [Subsistema de Windows para Linux](/windows/wsl/about). Si necesita ayuda para configurar las claves del cliente de SSH, consulte [Uso de SSH con Windows en Azure](../../virtual-machines/linux/ssh-from-windows.md) o [Creación y uso de un par de claves SSH pública y privada para máquinas virtuales Linux en Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
@@ -121,7 +121,7 @@ Para completar estos pasos, necesitará un cliente SSH.  Si usa Windows, puede u
     Puede usar este token de acceso para autenticarse en Azure Key Vault.  La siguiente solicitud CURL muestra cómo leer un secreto desde el almacén de claves usando CURL y la API de REST de Key Vault.  Necesitará la dirección URL de su almacén de claves, que se encuentra en la sección de **Información esencial** de la página **Introducción** del almacén de claves.  También necesitará el token de acceso que obtuvo en la llamada anterior. 
         
     ```bash
-    curl https://<YOUR-KEY-VAULT-URL>/secrets/<secret-name>?api-version=2016-10-01 -H "Authorization: Bearer <ACCESS TOKEN>" 
+    curl 'https://<YOUR-KEY-VAULT-URL>/secrets/<secret-name>?api-version=2016-10-01' -H "Authorization: Bearer <ACCESS TOKEN>" 
     ```
     
     La respuesta tendrá un aspecto similar al siguiente: 

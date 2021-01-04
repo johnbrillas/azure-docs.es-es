@@ -1,25 +1,25 @@
 ---
-title: SubJourneys en Azure Active Directory B2C | Microsoft Docs
-description: Especifique el elemento SubJourneys de una directiva personalizada en Azure Active Directory B2C.
+title: Subrecorridos en Azure Active Directory B2C | Microsoft Docs
+description: Especifique el elemento de subrecorridos de una directiva personalizada en Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/15/2020
+ms.date: 12/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6609dabe9bd507751bd131a4effe24295e2aac04
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 8f037d4283b4b05081ef47e7223495f6e19d460e
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91952423"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97386874"
 ---
-# <a name="subjourneys"></a>SubJourneys
+# <a name="sub-journeys"></a>Subrecorridos
 
-Los subrecorridos se pueden usar para organizar y simplificar el flujo de los pasos de orquestación dentro de un recorrido del usuario. Los [recorridos del usuario](userjourneys.md) especifican rutas de acceso explícitas con las que una directiva permite que una aplicación de usuario de confianza obtenga las notificaciones deseadas para un usuario. Se conduce al usuario por estas rutas de acceso para recuperar las notificaciones que se van a presentar al usuario de confianza. En otras palabras, los recorridos del usuario definen la lógica de negocios por la que pasa un usuario final mientras el marco de experiencia de identidad de Azure AD B2C procesa la solicitud. El recorrido del usuario se representa como una secuencia de orquestación por la que hay que pasar para lograr una transacción correcta. El elemento [ClaimsExchange](userjourneys.md#claimsexchanges) de un paso de orquestación está asociado a un solo [perfil técnico](technical-profiles-overview.md) que se ejecuta.
+Los subrecorridos se pueden usar para organizar y simplificar el flujo de los pasos de orquestación dentro de un recorrido del usuario. Los [recorridos del usuario](userjourneys.md) especifican rutas de acceso explícitas con las que una directiva permite que una aplicación de usuario de confianza obtenga las notificaciones deseadas para un usuario. Se conduce al usuario por estas rutas de acceso para recuperar las notificaciones que se van a presentar al usuario de confianza. En otras palabras, los recorridos del usuario definen la lógica de negocios por la que pasa un usuario final mientras el marco de experiencia de identidad de Azure AD B2C procesa la solicitud. El recorrido del usuario se representa como una secuencia de orquestación por la que hay que pasar para lograr una transacción correcta. El elemento [ClaimsExchange](userjourneys.md#claimsexchanges) de un paso de orquestación está asociado a un solo [perfil técnico](technicalprofiles.md) que se ejecuta.
 
 Un subrecorrido es una agrupación de pasos de orquestación que se pueden invocar en cualquier punto dentro de un recorrido del usuario. Puede usar subrecorridos para crear secuencias de pasos reutilizables o implementar una bifurcación que represente mejor la lógica de negocios.
 
@@ -38,7 +38,7 @@ Existen dos tipos de subrecorrido:
 
 ## <a name="example-scenarios"></a>Escenarios de ejemplo
 
-### <a name="call-subjourney"></a>Subrecorrido de llamada
+### <a name="call-sub-journey"></a>Llamada al subrecorrido
 
 Un subrecorrido de llamada resulta útil en los escenarios siguientes:
 
@@ -46,14 +46,14 @@ Un subrecorrido de llamada resulta útil en los escenarios siguientes:
 - Consentimiento parental: La bifurcación facilita el diseño del consentimiento parental, ya que nos permite acceder a las notificaciones del recorrido de usuario que el menor ha ejecutado, junto con la posibilidad de bifurcar a un recorrido de usuario de consentimiento parental, después de detectar que el usuario requiere consentimiento. 
 - Registrarse para iniciar sesión: Considere un escenario en el que ya existe un usuario en el directorio, pero puede que haya olvidado que había creado una cuenta. En tal caso, en lugar de indicar al usuario que las credenciales que ha escrito ya existen y obligarle a reiniciar el recorrido, puede ser conveniente que la directiva pueda realizar el cambio desde el flujo de registro a un flujo de inicio de sesión para ese usuario.  
 
-### <a name="transfer-subjourney"></a>Subrecorrido de transferencia
+### <a name="transfer-sub-journey"></a>Subrecorrido de transferencia
 
 Un subrecorrido de transferencia resulta útil en los escenarios siguientes:
 
 - Visualización de una página de bloque.
 - Pruebas A/B mediante el enrutamiento de la solicitud a un subrecorrido para ejecutar y emitir un token.
 
-## <a name="adding-a-subjourney-element"></a>Adición de un elemento SubJourney
+## <a name="adding-a-subjourneys-element"></a>Adición de un elemento SubJourneys
 
 A continuación, se muestra un ejemplo de un elemento `SubJourney` de tipo `Call`, que devuelve el control al recorrido del usuario.
 
@@ -95,9 +95,9 @@ A continuación, se muestra un ejemplo de un elemento `SubJourney` de tipo `Tran
 </SubJourneys>
 ```
 
-### <a name="invoke-a-subjourney-step"></a>Invocación de un paso de subrecorrido
+### <a name="invoke-a-sub-journey-step"></a>Invocación de un paso de subrecorrido
 
-Se usa un nuevo paso de orquestación de tipo `InvokeSubJourney` para ejecutar un subrecorrido. A continuación, se muestra un ejemplo que incluye todos los elementos de ejecución de este paso de orquestación.
+Se usa un nuevo paso de orquestación del tipo `InvokeSubJourney` para ejecutar un subrecorrido. A continuación, se muestra un ejemplo que incluye todos los elementos de ejecución de este paso de orquestación.
 
 ```xml
 <OrchestrationStep Order="5" Type="InvokeSubJourney">
@@ -124,7 +124,7 @@ El elemento **SubJourneys** contiene los siguientes atributos:
 
 | Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
-| Identificador | Sí | El identificador de SubJourney que puede usar el recorrido del usuario para hacer referencia al elemento SubJourney de la directiva. El elemento **SubJourneyReferenceId** del elemento [Candidate](userjourneys.md#journeylist) apunta a este atributo. |
+| Identificador | Sí | El identificador del subrecorrido que puede usar el recorrido del usuario para hacer referencia al subrecorrido de la directiva. El elemento **SubJourneyReferenceId** del elemento [Candidate](userjourneys.md#journeylist) apunta a este atributo. |
 | Tipo | Sí | Valores posibles: `Call` o `Transfer`. Para más información, consulte [Bifurcación del recorrido del usuario](#user-journey-branching).|
 
 El elemento **UserJourney** contiene el elemento siguiente:
@@ -139,4 +139,4 @@ Para una lista completa de los elementos de paso de orquestación, vea [UserJour
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[UserJourneys](userjourneys.md)
+Más información sobre [UserJourneys](userjourneys.md)

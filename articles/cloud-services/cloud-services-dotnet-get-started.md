@@ -11,12 +11,12 @@ ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: tagore
-ms.openlocfilehash: 404fc887cf40ee5d88b2824e8d2324d103226973
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: a875c036c79419357f1134c32f62fdb060fec7c6
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164370"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562300"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introducción a Azure Cloud Services y ASP.NET
 
@@ -44,7 +44,7 @@ En este tutorial se muestra cómo ejecutar un front-end y un back-end en un serv
 * Uso del servicio Cola de Azure para comunicación entre niveles.
 
 ## <a name="prerequisites"></a>Requisitos previos
-En este tutorial se da por supuesto que comprende los [conceptos básicos sobre Azure Cloud Services](cloud-services-choose-me.md) como, por ejemplo, la terminología *rol web* y *rol de trabajo* .  También se supone que sabe trabajar con proyectos [ASP.NET MVC](https://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) o [Web Forms](https://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview) en Visual Studio. La aplicación de ejemplo usa MVC, pero la mayoría del tutorial también se aplica a Web Forms.
+En este tutorial se da por supuesto que comprende los [conceptos básicos sobre Azure Cloud Services](cloud-services-choose-me.md) como, por ejemplo, la terminología *rol web* y *rol de trabajo*.  También se supone que sabe trabajar con proyectos [ASP.NET MVC](https://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) o [Web Forms](https://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview) en Visual Studio. La aplicación de ejemplo usa MVC, pero la mayoría del tutorial también se aplica a Web Forms.
 
 Puede ejecutar la aplicación localmente sin una suscripción de Azure, pero necesitará una para implementar la aplicación en la nube. Si aún no la tiene, puede [activar los beneficios de suscripción a MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668) o [registrarse para obtener una evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A55E3C668).
 
@@ -71,21 +71,21 @@ Cuando un usuario carga una imagen, el front-end que se ejecuta en un rol web al
 ## <a name="download-and-run-the-completed-solution"></a>Descarga y ejecución de la solución completa
 1. Descargue y descomprima la [solución completa](https://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4).
 2. Inicie Visual Studio.
-3. En el menú **Archivo** , seleccione **Abrir proyecto** , vaya a la ubicación donde descargó la solución y abra el archivo de la solución.
+3. En el menú **Archivo**, seleccione **Abrir proyecto**, vaya a la ubicación donde descargó la solución y abra el archivo de la solución.
 4. Presione CTRL+MAYÚS+B para compilar la solución.
 
     De forma predeterminada, Visual Studio restaura automáticamente el contenido del paquete NuGet, que no se incluyó en el archivo *.zip* . Si los paquetes no se restauran, para instalarlos manualmente, vaya al cuadro de diálogo **Administrar paquetes NuGet** para la solución y haga clic en el botón **Restaurar** en la parte superior derecha.
-5. En el **Explorador de soluciones** , asegúrese de que **ContosoAdsCloudService** se encuentra seleccionado como proyecto de inicio.
+5. En el **Explorador de soluciones**, asegúrese de que **ContosoAdsCloudService** se encuentra seleccionado como proyecto de inicio.
 6. Si va a usar Visual Studio 2015 o una versión superior, cambie la cadena de conexión del servidor SQL Server en el archivo *Web.config* del proyecto ContosoAdsWeb y en el archivo *ServiceConfiguration.Local.cscfg* del proyecto ContosoAdsCloudService. En cada caso, cambie "(localdb) \v11.0" por "(localdb) \MSSQLLocalDB".
 7. Presione CTRL+F5 para ejecutar la aplicación.
 
-    Cuando ejecuta un proyecto de servicio en la nube localmente, Visual Studio invoca automáticamente al *emulador de proceso* y al *emulador de almacenamiento* , ambos de Azure. El emulador de proceso usa los recursos del equipo para simular los entornos de los roles web y de trabajo. El emulador de almacenamiento usa una [base de datos LocalDB de SQL Server Express](/sql/database-engine/configure-windows/sql-server-2016-express-localdb) para simular el almacenamiento en la nube de Azure.
+    Cuando ejecuta un proyecto de servicio en la nube localmente, Visual Studio invoca automáticamente al *emulador de proceso* y al *emulador de almacenamiento*, ambos de Azure. El emulador de proceso usa los recursos del equipo para simular los entornos de los roles web y de trabajo. El emulador de almacenamiento usa una [base de datos LocalDB de SQL Server Express](/sql/database-engine/configure-windows/sql-server-2016-express-localdb) para simular el almacenamiento en la nube de Azure.
 
     La primera vez que ejecuta un proyecto de servicio en la nube, los emuladores tardan alrededor de un minuto en iniciarse. Cuando el inicio del emulador finaliza, se abre el explorador predeterminado en la página de inicio de la aplicación.
 
     ![Contoso Ads architecture](./media/cloud-services-dotnet-get-started/home.png)
-8. Haga clic en **Crear un anuncio** .
-9. Escriba algunos datos de prueba y seleccione una imagen *.jpg* para cargar; a continuación, haga clic en **Crear** .
+8. Haga clic en **Crear un anuncio**.
+9. Escriba algunos datos de prueba y seleccione una imagen *.jpg* para cargar; a continuación, haga clic en **Crear**.
 
     ![Create page](./media/cloud-services-dotnet-get-started/create.png)
 
@@ -115,7 +115,7 @@ Llevará a cabo los pasos siguientes para ejecutar la aplicación en la nube:
 Un servicio en la nube de Azure es el entorno en el que se ejecutará la aplicación.
 
 1. En el explorador, abra [Azure Portal](https://portal.azure.com).
-2. Haga clic en **Crear un recurso > Proceso > Servicio en la nube** .
+2. Haga clic en **Crear un recurso > Proceso > Servicio en la nube**.
 
 3. En el cuadro de entrada de nombres DNS, especifique un prefijo de dirección URL para el servicio en la nube.
 
@@ -125,7 +125,7 @@ Un servicio en la nube de Azure es el entorno en el que se ejecutará la aplicac
 5. Elija la región en la que desea implementar la aplicación.
 
     Este campo especifica el centro de datos en el que se hospedará el servicio en la nube. Para una aplicación de producción, elegiría la región más cercana a sus clientes. Para este tutorial, elija la región más cercana a usted.
-5. Haga clic en **Crear** .
+5. Haga clic en **Crear**.
 
     En la siguiente imagen, se crea un servicio en la nube con la dirección URL CSvccontosoads.cloudapp.net.
 
@@ -134,50 +134,50 @@ Un servicio en la nube de Azure es el entorno en el que se ejecutará la aplicac
 ### <a name="create-a-database-in-azure-sql-database"></a>Creación de una base de datos de Azure SQL Database
 Cuando la aplicación se ejecute en la nube, usará una base de datos basada en la nube.
 
-1. En [Azure Portal](https://portal.azure.com), haga clic en **Crear un recurso > Bases de datos > SQL Database** .
-2. En el cuadro **Nombre de base de datos** , escriba *contosoads* .
-3. En **Grupo de recursos** , haga clic en **Usar existente** y seleccione el grupo de recursos usado para el servicio en la nube.
-4. En la imagen siguiente, haga clic en **Servidor - Definir la configuración necesaria** y **Crear un servidor nuevo** .
+1. En [Azure Portal](https://portal.azure.com), haga clic en **Crear un recurso > Bases de datos > SQL Database**.
+2. En el cuadro **Nombre de base de datos** , escriba *contosoads*.
+3. En **Grupo de recursos**, haga clic en **Usar existente** y seleccione el grupo de recursos usado para el servicio en la nube.
+4. En la imagen siguiente, haga clic en **Servidor - Definir la configuración necesaria** y **Crear un servidor nuevo**.
 
     ![Túnel al servidor de base de datos](./media/cloud-services-dotnet-get-started/newdb.png)
 
     Asimismo, si su suscripción ya tiene un servidor, puede seleccionarlo en la lista desplegable.
-5. En el cuadro **Nombre del servidor** , escriba *csvccontosodbserver* .
+5. En el cuadro **Nombre del servidor**, escriba *csvccontosodbserver*.
 
 6. Complete los campos **Nombre de inicio de sesión** y **Contraseña** con los datos de un administrador.
 
-    Si seleccionó **Crear un servidor nuevo** , no escribirá aquí un nombre y una contraseña existentes. Escribirá un nombre y una contraseña nuevos que definirá ahora para usarlos más adelante cuando acceda a la base de datos. Si seleccionó un servidor creado anteriormente, se le pedirá la contraseña de la cuenta de usuario administrativa que ya creó.
+    Si seleccionó **Crear un servidor nuevo**, no escribirá aquí un nombre y una contraseña existentes. Escribirá un nombre y una contraseña nuevos que definirá ahora para usarlos más adelante cuando acceda a la base de datos. Si seleccionó un servidor creado anteriormente, se le pedirá la contraseña de la cuenta de usuario administrativa que ya creó.
 7. Elija la misma **ubicación** que eligió para el servicio en la nube.
 
     Cuando el servicio en la nube y la base de datos se encuentren en centros de datos diferentes (distintas regiones), la latencia aumentará y se le cobrará el ancho de banda no perteneciente al centro de datos. El ancho de banda del centro de datos es gratuito.
-8. Marque la opción **Permitir que los servicios de Azure accedan al servidor** .
+8. Marque la opción **Permitir que los servicios de Azure accedan al servidor**.
 9. Haga clic en **Seleccionar** para el nuevo servidor.
 
     ![Nuevo servidor](./media/cloud-services-dotnet-get-started/newdbserver.png)
-10. Haga clic en **Crear** .
+10. Haga clic en **Crear**.
 
 ### <a name="create-an-azure-storage-account"></a>Creación de una cuenta de Azure Storage
 Una cuenta de almacenamiento de Azure proporciona recursos para almacenar datos de cola y blob en la nube.
 
 En una aplicación real, normalmente crearía cuentas independientes para los datos de aplicación frente a los datos de registro, y cuentas diferentes para datos de prueba frente a datos de producción. En este tutorial, usará solamente una cuenta.
 
-1. En [Azure Portal](https://portal.azure.com), haga clic en **Crear un recurso > Almacenamiento > Cuenta de Storage - blob, archivo, tabla, cola** .
-2. En el cuadro **Nombre** , escriba un prefijo de dirección URL.
+1. En [Azure Portal](https://portal.azure.com), haga clic en **Crear un recurso > Almacenamiento > Cuenta de Storage - blob, archivo, tabla, cola**.
+2. En el cuadro **Nombre**, escriba un prefijo de dirección URL.
 
     Este prefijo y el texto que verá debajo de la casilla formarán la dirección URL exclusiva para la cuenta de almacenamiento. Si el prefijo escrito ya lo usa otra persona, tendrá que elegir un prefijo diferente.
-3. Establezca **Modelo de implementación** en *Clásica* .
+3. Establezca **Modelo de implementación** en *Clásica*.
 
-4. Establezca la lista desplegable **Replicación** en **Almacenamiento con redundancia local** .
+4. Establezca la lista desplegable **Replicación** en **Almacenamiento con redundancia local**.
 
     Cuando se habilita la replicación geográfica para una cuenta de almacenamiento, el contenido almacenado se replica en un centro de datos secundario para permitir la conmutación por error en caso de que se produzca un desastre importante en la ubicación principal. La replicación geográfica puede suponer costes adicionales. Lo normal es que no quiera pagar por el servicio de replicación geográfica para las cuentas de prueba y desarrollo. Para obtener más información, consulte [Creación, administración o eliminación de una cuenta de almacenamiento](../storage/common/storage-account-create.md).
 
-5. En **Grupo de recursos** , haga clic en **Usar existente** y seleccione el grupo de recursos usado para el servicio en la nube.
+5. En **Grupo de recursos**, haga clic en **Usar existente** y seleccione el grupo de recursos usado para el servicio en la nube.
 6. Establezca la lista desplegable **Ubicación** en la misma región que eligió para el servicio en la nube.
 
     Cuando la cuenta de almacenamiento y el servicio en la nube se encuentren en centros de datos diferentes (distintas regiones), la latencia aumentará y se le cobrará el ancho de banda no perteneciente al centro de datos. El ancho de banda del centro de datos es gratuito.
 
     Los grupos de afinidad de Azure proporcionan un mecanismo para minimizar la distancia entre los recursos de un centro de datos, lo que puede reducir la latencia. Este tutorial no usa grupos de afinidad. Para obtener información, consulte [Creación de un grupo de afinidad en Azure](/previous-versions/azure/reference/gg715317(v=azure.100)).
-7. Haga clic en **Crear** .
+7. Haga clic en **Crear**.
 
     ![New storage account](./media/cloud-services-dotnet-get-started/newstorage.png)
 
@@ -204,22 +204,22 @@ Usará una [transformación Web.config](https://www.asp.net/mvc/tutorials/deploy
     ```
 
     Deje el archivo abierto para editarlo.
-2. En [Azure Portal](https://portal.azure.com), haga clic en **SQL Database** en el panel izquierdo, haga clic en la base de datos que creó en este tutorial y luego haga clic en **Mostrar cadenas de conexión** .
+2. En [Azure Portal](https://portal.azure.com), haga clic en **SQL Database** en el panel izquierdo, haga clic en la base de datos que creó en este tutorial y luego haga clic en **Mostrar cadenas de conexión**.
 
     ![Mostrar cadenas de conexión](./media/cloud-services-dotnet-get-started/showcs.png)
 
     El portal muestra las cadenas de conexión con un marcador de posición para la contraseña.
 
     ![Cadenas de conexión](./media/cloud-services-dotnet-get-started/connstrings.png)
-3. En el archivo de transformación *Web.Release.config* , elimine `{connectionstring}` y pegue en su lugar la cadena de conexión ADO.NET de Azure Portal.
-4. En la cadena de conexión que pegó en el archivo de transformación *Web.Release.config* , reemplace `{your_password_here}` por la contraseña creada para la nueva base de datos SQL.
+3. En el archivo de transformación *Web.Release.config*, elimine `{connectionstring}` y pegue en su lugar la cadena de conexión ADO.NET de Azure Portal.
+4. En la cadena de conexión que pegó en el archivo de transformación *Web.Release.config*, reemplace `{your_password_here}` por la contraseña creada para la nueva base de datos SQL.
 5. Guarde el archivo.  
 6. Seleccione una copia de la cadena de conexión (sin las comillas circundantes) para usar en los pasos siguientes para configurar el proyecto de rol de trabajo.
-7. En el **Explorador de soluciones** , bajo **Roles** en el proyecto de servicio en la nube, haga clic con el botón derecho en **ContosoAdsWorker** y, por último, haga clic en **Propiedades** .
+7. En el **Explorador de soluciones**, bajo **Roles** en el proyecto de servicio en la nube, haga clic con el botón derecho en **ContosoAdsWorker** y, por último, haga clic en **Propiedades**.
 
     ![Captura de pantalla que resalta la opción de menú Propiedades.](./media/cloud-services-dotnet-get-started/rolepropertiesworker.png)
 8. Haga clic en la pestaña **Configuración** .
-9. Cambie **Configuración del servicio** a **Nube** .
+9. Cambie **Configuración del servicio** a **Nube**.
 10. Seleccione el campo **Valor** de la configuración de `ContosoAdsDbConnectionString` y pegue la cadena de conexión que copió de la sección anterior del tutorial.
 
      ![Database connection string for worker role](./media/cloud-services-dotnet-get-started/workerdbcs.png)
@@ -228,23 +228,23 @@ Usará una [transformación Web.config](https://www.asp.net/mvc/tutorials/deploy
 ### <a name="configure-the-solution-to-use-your-azure-storage-account-when-it-runs-in-azure"></a>Configurar la solución para usar la cuenta de almacenamiento de Azure cuando se ejecuta en Azure
 Las cadenas de conexión de la cuenta de almacenamiento de Azure tanto para el proyecto de rol web como para el proyecto de rol de trabajo, se almacenan en la configuración del entorno en el proyecto de servicio en la nube. Para cada proyecto existe un conjunto independiente de configuraciones para usar cuando la aplicación se ejecuta localmente y cuando se ejecuta en la nube. Actualizará la configuración del entorno en la nube tanto para proyectos de rol web como para proyectos de rol de trabajo.
 
-1. En el **Explorador de soluciones** , haga clic con el botón derecho en **ContosoAdsWeb** debajo de **Roles** en el proyecto **ContosoAdsCloudService** y después haga clic en **Propiedades** .
+1. En el **Explorador de soluciones**, haga clic con el botón derecho en **ContosoAdsWeb** debajo de **Roles** en el proyecto **ContosoAdsCloudService** y después haga clic en **Propiedades**.
 
     ![Role properties](./media/cloud-services-dotnet-get-started/roleproperties.png)
-2. Haga clic en la pestaña **Configuración** . En el cuadro desplegable **Configuración del servicio** , seleccione **Nube** .
+2. Haga clic en la pestaña **Configuración** . En el cuadro desplegable **Configuración del servicio**, seleccione **Nube**.
 
     ![Cloud configuration](./media/cloud-services-dotnet-get-started/sccloud.png)
 3. Seleccione la entrada **StorageConnectionString** y verá un botón con unos puntos suspensivos ( **...** ) al final de la línea. Haga clic en el botón de puntos suspensivos para abrir el cuadro de diálogo **Crear cadena de conexión de cuenta de almacenamiento** .
 
     ![Open Connection String Create box](./media/cloud-services-dotnet-get-started/opencscreate.png)
-4. En el cuadro de diálogo **Crear cadena de conexión de almacenamiento** , haga clic en **Su suscripción** , elija la cuenta de almacenamiento que creó antes y haga clic en **Aceptar** . Si no ha iniciado sesión, se le pedirán las credenciales de la cuenta de Azure.
+4. En el cuadro de diálogo **Crear cadena de conexión de almacenamiento**, haga clic en **Su suscripción**, elija la cuenta de almacenamiento que creó antes y haga clic en **Aceptar**. Si no ha iniciado sesión, se le pedirán las credenciales de la cuenta de Azure.
 
     ![Create Storage Connection String](./media/cloud-services-dotnet-get-started/createstoragecs.png)
 5. Guarde los cambios.
 6. Siga el mismo procedimiento que usó para la cadena de conexión `StorageConnectionString` para establecer la cadena de conexión `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString`.
 
     Esta cadena de conexión se usa para registro.
-7. Siga el mismo procedimiento que usó para el rol **ContosoAdsWeb** para establecer ambas cadenas de conexión para el rol **ContosoAdsWorker** . No olvide establecer **Configuración del servicio** en **Nube** .
+7. Siga el mismo procedimiento que usó para el rol **ContosoAdsWeb** para establecer ambas cadenas de conexión para el rol **ContosoAdsWorker**. No olvide establecer **Configuración del servicio** en **Nube**.
 
 La configuración del entorno del rol que ha configurado usando la interfaz de usuario de Visual Studio se almacena en los siguientes archivos en el proyecto ContosoAdsCloudService:
 
@@ -280,18 +280,18 @@ Y el archivo *ServiceConfiguration.Cloud.cscfg* incluye los valores introducidos
 La opción `<Instances>` especifica el número de máquinas virtuales en las que Azure ejecutará el código del rol de trabajo. La sección [Pasos siguientes](#next-steps) incluye vínculos a más información sobre el escalado horizontal a un servicio en la nube
 
 ### <a name="deploy-the-project-to-azure"></a>Implementar el proyecto en Azure
-1. En el **Explorador de soluciones** , haga clic con el botón derecho en el proyecto en la nube **ContosoAdsCloudService** y después seleccione **Publicar** .
+1. En el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto en la nube **ContosoAdsCloudService** y después seleccione **Publicar**.
 
    ![Publish menu](./media/cloud-services-dotnet-get-started/pubmenu.png)
-2. En el paso **Iniciar sesión** del asistente **Publicar aplicación de Azure** , haga clic en **Siguiente** .
+2. En el paso **Iniciar sesión** del asistente **Publicar aplicación de Azure**, haga clic en **Siguiente**.
 
     ![Sign in step](./media/cloud-services-dotnet-get-started/pubsignin.png)
-3. En el paso **Configuración** del asistente, haga clic en **Siguiente** .
+3. En el paso **Configuración** del asistente, haga clic en **Siguiente**.
 
     ![Settings step](./media/cloud-services-dotnet-get-started/pubsettings.png)
 
     La configuración predeterminada de la pestaña **Avanzada** es correcta para este tutorial. Para obtener más información sobre la pestaña de opciones avanzadas, consulte [Asistente para publicar aplicación de Azure](/visualstudio/azure/vs-azure-tools-publish-azure-application-wizard).
-4. En el paso **Resumen** , haga clic en **Publicar** .
+4. En el paso **Resumen**, haga clic en **Publicar**.
 
     ![Summary step](./media/cloud-services-dotnet-get-started/pubsummary.png)
 
@@ -324,38 +324,38 @@ Una vez creada la solución, se asegurará de que el código es único en proyec
 
 ### <a name="create-a-cloud-service-visual-studio-solution"></a>Crear una solución de Visual Studio para un servicio en la nube
 1. En Visual Studio, elija **Nuevo proyecto** from the **Archivo** .
-2. En el panel de la izquierda del cuadro de diálogo **Nuevo proyecto** , expanda **Visual C#** , elija las plantillas **Nube** y, por último, elija la plantilla **Servicio de nube de Azure** .
-3. Asigne un nombre al proyecto y a la solución ContosoAdsCloudService y haga clic en **Aceptar** .
+2. En el panel de la izquierda del cuadro de diálogo **Nuevo proyecto**, expanda **Visual C#** , elija las plantillas **Nube** y, por último, elija la plantilla **Servicio de nube de Azure**.
+3. Asigne un nombre al proyecto y a la solución ContosoAdsCloudService y haga clic en **Aceptar**.
 
     ![Nuevo proyecto](./media/cloud-services-dotnet-get-started/newproject.png)
 4. En el cuadro de diálogo **Nuevo servicio en la nube de Azure** , agregue un rol web o de trabajo. Asigne un nombre al rol web ContosoAdsWeb y al rol de trabajo ContosoAdsWorker. (Use el icono del lápiz situado en el panel derecho para cambiar los nombres predeterminados de los roles.)
 
     ![New Cloud Service Project](./media/cloud-services-dotnet-get-started/newcsproj.png)
-5. Cuando use el cuadro de diálogo **Nuevo proyecto ASP.NET** para el rol web, elija la plantilla MVC y haga clic en **Cambiar autenticación** .
+5. Cuando use el cuadro de diálogo **Nuevo proyecto ASP.NET** para el rol web, elija la plantilla MVC y haga clic en **Cambiar autenticación**.
 
     ![Cambiar autenticación](./media/cloud-services-dotnet-get-started/chgauth.png)
-6. En el cuadro de diálogo **Cambiar autenticación** , elija **Sin autenticación** y haga clic en **Aceptar** .
+6. En el cuadro de diálogo **Cambiar autenticación**, elija **Sin autenticación** y haga clic en **Aceptar**.
 
     ![Sin autenticación](./media/cloud-services-dotnet-get-started/noauth.png)
-7. En el cuadro de diálogo **Nuevo proyecto ASP.NET** , haga clic en **Aceptar** .
-8. En el **Explorador de soluciones** , haga clic con el botón derecho en la solución (no en uno de los proyectos) y elija **Agregar - Nuevo proyecto** .
-9. En el cuadro de diálogo **Agregar nuevo proyecto** , elija **Windows** en **Visual C#** en el panel de la izquierda y, después, haga clic en la plantilla **Biblioteca de clases** .  
-10. Asigne un nombre al proyecto *ContosoAdsCommon* y haga clic en **Aceptar** .
+7. En el cuadro de diálogo **Nuevo proyecto ASP.NET**, haga clic en **Aceptar**.
+8. En el **Explorador de soluciones**, haga clic con el botón derecho en la solución (no en uno de los proyectos) y elija **Agregar - Nuevo proyecto**.
+9. En el cuadro de diálogo **Agregar nuevo proyecto**, elija **Windows** en **Visual C#** en el panel de la izquierda y, después, haga clic en la plantilla **Biblioteca de clases**.  
+10. Asigne un nombre al proyecto *ContosoAdsCommon* y haga clic en **Aceptar**.
 
     Necesita hace referencia al contexto de Entity Framework y al modelo de datos de los proyectos de rol web y de trabajo. Como alternativa, podría definir las clases relacionadas con EF en el proyecto de rol web y hacer referencia a ese proyecto desde el proyecto de rol de trabajo. Pero en este enfoque alternativo, el proyecto de rol de trabajo tendría que hacer referencia a ensamblados web que no necesita.
 
 ### <a name="update-and-add-nuget-packages"></a>Actualizar y agregar paquetes de NuGet
 1. Abra el cuadro de diálogo **Administrar paquetes de NuGet** correspondiente a la solución.
-2. En la parte superior de la ventana, seleccione **Actualizaciones** .
-3. Busque el paquete *WindowsAzure.Storage* y, si está en la lista, selecciónelo, elija los proyectos web y de trabajo en los que actualizarlo y, después, haga clic en **Actualizar** .
+2. En la parte superior de la ventana, seleccione **Actualizaciones**.
+3. Busque el paquete *WindowsAzure.Storage* y, si está en la lista, selecciónelo, elija los proyectos web y de trabajo en los que actualizarlo y, después, haga clic en **Actualizar**.
 
     La biblioteca de cliente de almacenamiento se actualiza con más frecuencia que las plantillas de proyecto de Visual Studio, por lo que verá que es necesario actualizar la versión de un proyecto recién creado.
-4. En la parte superior de la ventana, seleccione **Examinar** .
+4. En la parte superior de la ventana, seleccione **Examinar**.
 5. Busque el paquete NuGet de *EntityFramework* e instálelo en los otros tres proyectos.
 6. Busque el paquete NuGet *Microsoft.WindowsAzure.ConfigurationManager* e instálelo en el proyecto de rol de trabajo.
 
 ### <a name="set-project-references"></a>Establecimiento de preferencias del proyecto
-1. En el proyecto ContosoAdsWeb, establezca una referencia al proyecto ContosoAdsCommon. Haga clic con el botón derecho en el proyecto ContosoAdsWeb y después haga clic en **Referencias** - **Agregar referencias** . En el cuadro de diálogo **Administrador de referencias** , seleccione **Solución – Proyectos** en el panel izquierdo, seleccione **ContosoAdsCommon** y haga clic en **Aceptar** .
+1. En el proyecto ContosoAdsWeb, establezca una referencia al proyecto ContosoAdsCommon. Haga clic con el botón derecho en el proyecto ContosoAdsWeb y después haga clic en **Referencias** - **Agregar referencias**. En el cuadro de diálogo **Administrador de referencias**, seleccione **Solución – Proyectos** en el panel izquierdo, seleccione **ContosoAdsCommon** y haga clic en **Aceptar**.
 2. En el proyecto ContosoAdsWorker, establezca una referencia al proyecto ContosoAdsCommon.
 
     ContosoAdsCommon contendrá el modelo de datos y la clase de contexto de Entity Framework, que usarán tanto el front-end como el back-end.
@@ -376,13 +376,13 @@ En esta sección configurará Azure Storage y cadenas de conexión de SQL para p
 
     Si va a usar Visual Studio 2015 o una versión superior, sustituya "v11.0" por "MSSQLLocalDB".
 2. Guarde los cambios.
-3. En el proyecto ContosoAdsCloudService, haga clic con el botón derecho en ContosoAdsWeb bajo **Roles** y después haga clic en **Propiedades** .
+3. En el proyecto ContosoAdsCloudService, haga clic con el botón derecho en ContosoAdsWeb bajo **Roles** y después haga clic en **Propiedades**.
 
     ![Captura de pantalla que resalta la opción de menú Propiedades debajo de Roles.](./media/cloud-services-dotnet-get-started/roleproperties.png)
-4. En la ventana de propiedades del **rol ContosoAdsWeb** , haga clic en la pestaña **Configuración** y, después, en **Agregar configuración** .
+4. En la ventana de propiedades del **rol ContosoAdsWeb**, haga clic en la pestaña **Configuración** y, después, en **Agregar configuración**.
 
-    Deje **Configuración del servicio** establecido en **Todas las configuraciones** .
-5. Agregue un nuevo valor llamado *StorageConnectionString* . Establezca **Tipo** en *ConnectionString* y **Valor** en *UseDevelopmentStorage=true* .
+    Deje **Configuración del servicio** establecido en **Todas las configuraciones**.
+5. Agregue un nuevo valor llamado *StorageConnectionString*. Establezca **Tipo** en *ConnectionString* y **Valor** en *UseDevelopmentStorage=true*.
 
     ![New connection string](./media/cloud-services-dotnet-get-started/scall.png)
 6. Guarde los cambios.
@@ -400,16 +400,16 @@ En esta sección configurará Azure Storage y cadenas de conexión de SQL para p
 ### <a name="add-code-files"></a>Agregar archivos de código
 En esta sección copiará archivos de código de la solución descargada a la nueva solución. En las siguientes secciones se muestran y explican partes clave de este código.
 
-Para agregar archivos a un proyecto o carpeta, haga clic con el botón secundario en dicho proyecto o carpeta y después en **Agregar** - **Elemento existente** . Seleccione los archivos que desee y haga clic en **Agregar** . Si se le pregunta si desea reemplazar los archivos existentes, haga clic en **Sí** .
+Para agregar archivos a un proyecto o carpeta, haga clic con el botón secundario en dicho proyecto o carpeta y después en **Agregar** - **Elemento existente**. Seleccione los archivos que desee y haga clic en **Agregar**. Si se le pregunta si desea reemplazar los archivos existentes, haga clic en **Sí**.
 
 1. En el proyecto ContosoAdsCommon, elimine el archivo *Class1.cs* y agregue en su lugar los archivos *Ad.cs* y *ContosoAdscontext.cs* desde el proyecto descargado.
 2. En el proyecto ContosoAdsWeb, agregue los siguientes archivos desde el proyecto descargado.
 
-   * *Global.asax.cs* .  
-   * En la carpeta *Views\Shared* : *\_Layout.cshtml* .
-   * En la carpeta *Views\Home* : *Index.cshtml* .
-   * En la carpeta *Controllers* : *AdController.cs* .
-   * En la carpeta *Views\Ad* (cree primero la carpeta): cinco archivos *.cshtml* .
+   * *Global.asax.cs*.  
+   * En la carpeta *Views\Shared*: *\_Layout.cshtml*.
+   * En la carpeta *Views\Home*: *Index.cshtml*.
+   * En la carpeta *Controllers*: *AdController.cs*.
+   * En la carpeta *Views\Ad* (cree primero la carpeta): cinco archivos *.cshtml*.
 3. En el proyecto ContosoAdsWorker, agregue *WorkerRole.cs* desde el proyecto descargado.
 
 Ahora puede compilar y ejecutar la aplicación tal y como se indicó anteriormente en el tutorial y dicha aplicación usará los recursos de base de datos local y del emulador de almacenamiento.
@@ -530,9 +530,9 @@ El archivo *Views\Home\Index.cshtml* muestra vínculos de categoría en la pági
 ```
 
 ### <a name="contosoadsweb---adcontrollercs"></a>ContosoAdsWeb - AdController.cs
-En el archivo *AdController.cs* , el constructor llama al método `InitializeStorage` para crear objetos de biblioteca de cliente de Azure Storage que proporcionan una API para trabajar con blobs y colas.
+En el archivo *AdController.cs*, el constructor llama al método `InitializeStorage` para crear objetos de biblioteca de cliente de Azure Storage que proporcionan una API para trabajar con blobs y colas.
 
-Después, el código obtiene una referencia al contenedor de blobs *images* tal y como vio antes en *Global.asax.cs* . Mientras hace eso, establece una [directiva de reintentos](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) apropiada para una aplicación web. La directiva de reintentos de retroceso exponencial predeterminada podría provocar que la aplicación web dejara de responder durante más de un minuto en reintentos repetidos por un error transitorio. La directiva de reintentos especificada aquí espera tres segundos después de cada reintento hasta tres reintentos.
+Después, el código obtiene una referencia al contenedor de blobs *images* tal y como vio antes en *Global.asax.cs*. Mientras hace eso, establece una [directiva de reintentos](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) apropiada para una aplicación web. La directiva de reintentos de retroceso exponencial predeterminada podría provocar que la aplicación web dejara de responder durante más de un minuto en reintentos repetidos por un error transitorio. La directiva de reintentos especificada aquí espera tres segundos después de cada reintento hasta tres reintentos.
 
 ```csharp
 var blobClient = storageAccount.CreateCloudBlobClient();
@@ -744,19 +744,19 @@ Este código lee la base de datos para obtener la dirección URL de la imagen, c
 En el caso de que algo no funcionen a pesar de seguir las instrucciones de este tutorial, aquí tiene algunos errores comunes y cómo resolverlos.
 
 ### <a name="serviceruntimeroleenvironmentexception"></a>ServiceRuntime.RoleEnvironmentException
-El objeto `RoleEnvironment` lo proporciona Azure cuando se ejecuta una aplicación en Azure o cuando se ejecuta localmente usando el emulador de proceso de Azure.  Si aparece este error cuando la ejecución se realiza localmente, asegúrese de que ha establecido el proyecto ContosoAdsCloudService como el proyecto de inicio. Esto configura el proyecto para ejecutarse usando el emulador de proceso de Azure.
+El objeto `RoleEnvironment` lo proporciona Azure cuando se ejecuta una aplicación en Azure o cuando se ejecuta localmente mediante el emulador de proceso de Azure.  Si aparece este error cuando la ejecución se realiza localmente, asegúrese de que ha establecido el proyecto ContosoAdsCloudService como el proyecto de inicio. Esto configura el proyecto para ejecutarse mediante el emulador de proceso de Azure.
 
 Una de las cosas para las que la aplicación usa RoleEnvironment de Azure es para conseguir valores de cadena de conexión almacenados en los archivos *.cscfg* , por lo que otra causa de esta excepción es la ausencia de una cadena de conexión. Asegúrese de que creó el valor StorageConnectionString para las configuraciones Nube y Local en el proyecto ContosoAdsWeb y que creó ambas cadenas de conexión para las dos configuraciones en el proyecto ContosoAdsWorker. Si busca StorageConnectionString mediante **Buscar todo** en toda la solución, verá que aparece 9 veces en 6 archivos.
 
 ### <a name="cannot-override-to-port-xxx-new-port-below-minimum-allowed-value-8080-for-protocol-http"></a>No se puede invalidar el puerto xxx. El nuevo puerto está por debajo del valor mínimo permitido de 8080 para el protocolo http.
-Intente cambiar el número de puerto usado por el proyecto web. Haga clic con el botón derecho en el proyecto ContosoAdsWeb y después haga clic en **Propiedades** . Haga clic en la pestaña **Web** y después cambie el número de puerto en el valor **URL del proyecto** .
+Intente cambiar el número de puerto usado por el proyecto web. Haga clic con el botón derecho en el proyecto ContosoAdsWeb y después haga clic en **Propiedades**. Haga clic en la pestaña **Web** y después cambie el número de puerto en el valor **URL del proyecto**.
 
 Para conocer otra alternativa que podría resolver el problema, consulte la sección siguiente.
 
 ### <a name="other-errors-when-running-locally"></a>Otros errores al realizar la ejecución localmente
 De forma predeterminada, los nuevos proyectos de servicio en la nube usan el emulador de proceso de Azure rápido para simular el entorno de Azure. Se trata de una versión ligera del emulador de proceso completo y, en determinadas circunstancias, el emulador completo funcionará cuando la versión rápida no lo haga.  
 
-Para cambiar el proyecto para que use el emulador completo, haga clic con el botón derecho en el proyecto ContosoAdsCloudService y después haga clic en **Propiedades** . En la ventana **Propiedades** , haga clic en la pestaña **Web** y después en el botón de radio **Usar emulador completo** .
+Para cambiar el proyecto para que use el emulador completo, haga clic con el botón derecho en el proyecto ContosoAdsCloudService y después haga clic en **Propiedades**. En la ventana **Propiedades**, haga clic en la pestaña **Web** y después en el botón de radio **Usar emulador completo**.
 
 Para ejecutar la aplicación con el emulador completo, tiene que abrir Visual Studio con privilegios de administrador.
 

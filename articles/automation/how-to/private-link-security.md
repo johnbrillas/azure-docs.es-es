@@ -4,27 +4,27 @@ description: Uso de Azure Private Link para conectar redes a Azure Automation de
 author: mgoedtel
 ms.author: magoedte
 ms.topic: conceptual
-ms.date: 07/09/2020
+ms.date: 12/11/2020
 ms.subservice: ''
-ms.openlocfilehash: a4985784a17f2e0350a7b2c7a4f62f574862d50c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26e7dbf3f5629d4691211b6c9b82446ba4035421
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91714353"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347637"
 ---
-# <a name="use-azure-private-link-to-securely-connect-networks-to-azure-automation-preview"></a>Uso de Azure Private Link para conectar redes a Azure Automation de forma segura (versión preliminar)
+# <a name="use-azure-private-link-to-securely-connect-networks-to-azure-automation"></a>Uso de Azure Private Link para conectar redes a Azure Automation de forma segura
 
 Un punto de conexión privado de Azure es una interfaz de red que le conecta de forma privada y segura a un servicio con la tecnología de Azure Private Link. El punto de conexión privado usa una dirección IP privada de la red virtual para incorporar el servicio Automation de manera eficaz a su red virtual. El tráfico entre las máquinas de la red virtual y la cuenta de Automation atraviesa la red virtual y un vínculo privado de la red troncal de Microsoft, lo que elimina la exposición a la red pública de Internet.
 
 Por ejemplo, tiene una red virtual en la que ha deshabilitado el acceso de salida a Internet. Sin embargo, quiere acceder a la cuenta de Automation de forma privada y usar características de Automation, como Webhooks, State Configuration y trabajos de runbook en Hybrid Runbook Worker. Además, quiere que los usuarios tengan acceso a la cuenta de Automation solo a través de la red virtual.  La implementación de un punto de conexión privado consigue estos objetivos.
 
-En este artículo se explica cuándo usar y cómo configurar un punto de conexión privado con su cuenta de Automation (versión preliminar).
+En este artículo se explica cuándo usar y cómo configurar un punto de conexión privado con su cuenta de Automation.
 
 ![Información general conceptual sobre Private Link para Azure Automation](./media/private-link-security/private-endpoints-automation.png)
 
 >[!NOTE]
-> La compatibilidad de Private Link con Azure Automation (versión preliminar) solo está disponible en las nubes de Azure Commercial y Azure US Government.
+> La compatibilidad de Private Link con Azure Automation solo está disponible en las nubes de Azure Commercial y Azure US Government.
 
 ## <a name="advantages"></a>Ventajas
 
@@ -34,7 +34,7 @@ Con Private Link puede:
 - Conectarse de forma privada al área de trabajo de Log Analytics de Azure Monitor sin necesidad de abrir ningún acceso a la red pública.
 
     >[!NOTE]
-    >Esto es necesario si la cuenta de Automation está vinculada a un área de trabajo de Log Analytics para reenviar los datos del trabajo y cuando se han habilitado características como Update Management, Change Tracking e inventario, State Configuration o Start/Stop VMs during off-hours. Para obtener más información sobre Private Link para Azure Monitor, vea [Uso de Azure Private Link para conectar redes a Azure Monitor de forma segura](../../azure-monitor/platform/private-link-security.md).
+    >Se necesitará un punto de conexión privado independiente para el área de trabajo de Log Analytics si la cuenta de Automation está vinculada a un área de trabajo de Log Analytics para reenviar los datos del trabajo y cuando se han habilitado características como Update Management, Seguimiento de cambios e inventario, State Configuration o Start/Stop VMs during off-hours. Para obtener más información sobre Private Link para Azure Monitor, vea [Uso de Azure Private Link para conectar redes a Azure Monitor de forma segura](../../azure-monitor/platform/private-link-security.md).
 
 - Asegurarse de que solo se accede a los datos de Automation a través de redes privadas autorizadas.
 - Impedir la filtración de datos de las redes privadas mediante la definición del recurso de Azure Automation que se conecta a través del punto de conexión privado.
@@ -43,17 +43,45 @@ Con Private Link puede:
 
 Para más información, consulte [Ventajas principales de Private Link](../../private-link/private-link-overview.md#key-benefits).
 
+## <a name="limitations"></a>Limitaciones
+
+- En la implementación actual de Private Link, los trabajos en la nube de la cuenta de Automation no pueden acceder a los recursos de Azure que están protegidos mediante un punto de conexión privado. Por ejemplo, Azure Key Vault, Azure SQL, la cuenta de Azure Storage, etc. Para solucionar este problema, utilice una instancia de [Hybrid Runbook Worker](../automation-hybrid-runbook-worker.md).
+- Deberá utilizar la versión más reciente del [agente de Log Analytics](../../azure-monitor/platform/log-analytics-agent.md) para Windows o Linux.
+- La [puerta de enlace de Log Analytics](../../azure-monitor/platform/gateway.md) no admite Private Link.
+
 ## <a name="how-it-works"></a>Funcionamiento
 
-Private Link de Azure Automation conecta uno o más puntos de conexión privados (y, por tanto, las redes virtuales en las que se encuentran) al recurso de la cuenta de Automation. Estos puntos de conexión son máquinas que usan webhooks para iniciar un runbook, máquinas que hospedan el rol de Hybrid Runbook Worker y nodos de DSC.
+Private Link de Azure Automation conecta uno o más puntos de conexión privados (y, por tanto, las redes virtuales en las que se encuentran) al recurso de la cuenta de Automation. Estos puntos de conexión son máquinas que usan webhooks para iniciar un runbook, máquinas que hospedan el rol de Hybrid Runbook Worker y nodos de Desired State Configuration (DSC).
 
-Después de crear puntos de conexión privados para Automation, cada una de las direcciones URL de Automation de acceso público, que se puede contactar directamente por su parte o mediante una máquina, se asigna a un punto de conexión privado de la red virtual.
-
-Como parte de la versión preliminar, una cuenta de Automation no puede acceder a los recursos de Azure que están protegidos mediante un punto de conexión privado. Por ejemplo, Azure Key Vault, Azure SQL, la cuenta de Azure Storage, etc.
+Después de crear puntos de conexión privados para Automation, cada una de las direcciones URL de Automation de acceso público se asigna a un punto de conexión privado de la red virtual. El usuario o la máquina pueden contactar directamente con las direcciones URL de Automation.
 
 ### <a name="webhook-scenario"></a>Escenario de webhook
 
 Se pueden iniciar runbooks mediante una operación POST en la dirección URL del webhook. Por ejemplo, la dirección URL es similar a la siguiente: `https://<automationAccountId>.webhooks.<region>.azure-automation.net/webhooks?token=gzGMz4SMpqNo8gidqPxAJ3E%3d`
+
+### <a name="hybrid-runbook-worker-scenario"></a>Escenario de Hybrid Runbook Worker
+
+La característica Hybrid Runbook Worker de usuario de Azure Automation le permite ejecutar runbooks directamente en la máquina de Azure (o en otra que no sea de Azure), incluidos los servidores registrados con servidores habilitados para Azure Arc. En la máquina o servidor que hospeda el rol, puede ejecutar runbooks directamente en él y en los recursos del entorno para administrar esos recursos locales.
+
+Hybrid Worker usa un punto de conexión de JRDS para iniciar o detener runbooks, descargarlos en el rol de trabajo y devolver el flujo de registro de trabajos al servicio Automation. Después de habilitar el punto de conexión de JRDS, la dirección URL debe tener el siguiente aspecto: `https://<automationaccountID>.jobruntimedata.<region>.azure-automation.net`. Esto garantiza la ejecución del runbook en el rol Hybrid Worker conectado a Azure Virtual Network lo cual permite ejecutar trabajos sin necesidad de abrir una conexión saliente a Internet.  
+
+> [!NOTE]
+>Con la implementación actual de instancias de Private Link para Azure Automation, solo se admite la ejecución de trabajos en la instancia de Hybrid Runbook Worker conectada a una red virtual de Azure y no se admiten los trabajos en la nube.
+
+## <a name="hybrid-worker-scenario-for-update-management"></a>Escenario de Hybrid Worker para Update Management  
+
+El rol Hybrid Runbook Worker del sistema admite un conjunto de runbooks ocultos que usa la característica Update Management y están diseñados para instalar las actualizaciones que el usuario especifique en máquinas Windows y Linux. Si habilita Update Management de Azure Automation, las máquinas conectadas al área de trabajo de Log Analytics se configurarán automáticamente como una instancia de Hybrid Runbook Worker del sistema.
+
+Para comprender y configurar Update Management, consulte [Acerca de Update Management](../update-management/overview.md). La característica Update Management tiene una dependencia sobre un área de trabajo de Log Analytics y, por tanto, es necesario vincular el área de trabajo a una cuenta de Automation. Un área de trabajo de Log Analytics almacena los datos recopilados por la solución y hospeda sus vistas y búsquedas de registros.
+
+Si desea que las máquinas configuradas para Update Management se conecten a las áreas de trabajo de Automation y Log Analytics de forma segura a través de un canal de Private Link, debe habilitar Private Link para el área de trabajo de Log Analytics vinculada a la cuenta de Automation configurada con Private Link.
+
+Puede controlar cómo acceder a un área de trabajo de Log Analytics desde fuera de los ámbitos de Private Link siguiendo los pasos que se indican en [Configuración de Log Analytics](../../azure-monitor/platform/private-link-security.md#configure-log-analytics). Si establece **Allow public network access for ingestion** (Permitir el acceso de la red pública para la ingesta) en **No**, las máquinas que se encuentren fuera de los ámbitos conectados no podrán cargar datos en esta área de trabajo. Si establece **Allow public network access for queries** (Permitir el acceso a la red pública para las consultas) en **No**, las máquinas que se encuentren fuera de los ámbitos no podrán acceder a los datos de esta área de trabajo.
+
+Use un subrecurso de destino **DSCAndHybridWorker** para habilitar Private Link para los roles Hybrid Worker del usuario y el sistema.
+
+> [!NOTE]
+> Las máquinas que están hospedadas fuera de Azure que administra Update Management y que están conectadas a la red virtual de Azure a través de un emparejamiento privado de ExpressRoute, túneles VPN y redes virtuales emparejadas mediante puntos de conexión privados, admiten Private Link.
 
 ### <a name="state-configuration-agentsvc-scenario"></a>Escenario de State Configuration (agentsvc)
 
@@ -69,11 +97,11 @@ Antes de configurar los recursos de la cuenta de Automation, tenga en cuenta los
 
 ### <a name="connect-to-a-private-endpoint"></a>Conexión a un punto de conexión privado
 
-Cree un punto de conexión privado para conectar a nuestra red. Puede crearlo en el [Centro de Private Link de Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Network/PrivateLinkCenterBlade/privateendpoints). Una vez que se aplican los cambios en publicNetworkAccess y en el vínculo privado, pueden tardar hasta 35 minutos en surtir efecto.
+Cree un punto de conexión privado para conectar a nuestra red. Puede crearlo en el [Centro de Private Link de Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Network/PrivateLinkCenterBlade/privateendpoints). Una vez que se aplican los cambios en publicNetworkAccess y en Private Link, pueden tardar hasta 35 minutos en surtir efecto.
 
 En esta sección, se creará un punto de conexión privado para la cuenta de Automation.
 
-1. En la parte superior izquierda de la pantalla, seleccione **Crear un recurso > Redes > Centro de Private Link (versión preliminar)** .
+1. En la parte superior izquierda de la pantalla, seleccione **Crear un recurso > Redes > Private Link Center**.
 
 2. En **Private Link Center: Información general**, en la opción **Crear una conexión privada a un servicio**, seleccione **Iniciar**.
 
@@ -82,7 +110,7 @@ En esta sección, se creará un punto de conexión privado para la cuenta de Aut
     | Configuración | Value |
     | ------- | ----- |
     | **DETALLES DEL PROYECTO** | |
-    | Suscripción | Seleccione su suscripción. |
+    | Subscription | Seleccione su suscripción. |
     | Resource group | Seleccione **myResourceGroup**. Lo creó en la sección anterior.  |
     | **DETALLES DE INSTANCIA** |  |
     | Nombre | Escriba el elemento *PrivateEndpoint*. |
@@ -96,7 +124,7 @@ En esta sección, se creará un punto de conexión privado para la cuenta de Aut
     | Configuración | Value |
     | ------- | ----- |
     |Método de conexión  | Seleccione Connect to an Azure resource in my directory (Conectarse a un recurso de Azure en mi directorio).|
-    | Suscripción| Seleccione su suscripción. |
+    | Subscription| Seleccione su suscripción. |
     | Tipo de recurso | Seleccione **Microsoft.Automation/automationAccounts**. |
     | Recurso |Seleccione *myAutomationAccount*.|
     |Subrecurso de destino |Seleccione *webhook* o *DSCAndHybridWorker* en función de su escenario.|
@@ -120,7 +148,7 @@ En esta sección, se creará un punto de conexión privado para la cuenta de Aut
 
 9. Cuando reciba el mensaje **Validación superada**, seleccione **Crear**.
 
-En el **Centro de Private Link (versión preliminar)** , seleccione **Puntos de conexión privados** para ver el recurso de Private Link.
+En **Private Link Center**, seleccione **Puntos de conexión privados** para ver el recurso de Private Link.
 
 ![Vínculo privado de recurso de Automation](./media/private-link-security/private-link-automation-resource.png)
 
@@ -134,7 +162,7 @@ Si el consumidor del servicio tiene permisos de RBAC de Azure en el recurso de A
 
 Se puede configurar una cuenta de Automation para denegar todas las configuraciones públicas y permitir solo las conexiones a través de puntos de conexión privados a fin de mejorar aún más la seguridad de la red. Si quiere permitir el acceso a la cuenta de Automation solo desde dentro de la red virtual y denegarlo desde la red pública de Internet, puede establecer la propiedad `publicNetworkAccess` en `$false`.
 
-Cuando la opción **Public Network Access** (Acceso de red público) está establecida en `$false`, solo se permiten conexiones a través de puntos de conexión privados y todas las conexiones a través de puntos de conexión públicos se deniegan con un mensaje de error Sin autorización y el estado HTTP 401. 
+Cuando la opción **Public Network Access** (Acceso de red público) está establecida en `$false`, solo se permiten conexiones a través de puntos de conexión privados y todas las conexiones a través de puntos de conexión públicos se deniegan con un mensaje de error Sin autorización y el estado HTTP 401.
 
 En el siguiente script de PowerShell se muestra cómo aplicar las operaciones `Get` y `Set` a la propiedad **Acceso a la red pública** en el nivel de cuenta de Automation:
 
@@ -144,6 +172,10 @@ $account.Properties | Add-Member -Name 'publicNetworkAccess' -Type NoteProperty 
 $account | Set-AzResource -Force -ApiVersion "2020-01-13-preview"
 ```
 
+También puede controlar la propiedad de acceso a la red pública en Azure Portal. En la cuenta de Automation, seleccione **Aislamiento de red** en el panel izquierdo, en la sección **Configuración de cuenta**. Si la opción Public Network Access (Acceso a la red pública) está establecida en **No**, solo se permiten conexiones a través de puntos de conexión privados y todas las conexiones a través de puntos de conexión públicos se deniegan.
+
+![Opción Public Network Access (Acceso a la red pública)](./media/private-link-security/allow-public-network-access.png)
+
 ## <a name="dns-configuration"></a>Configuración de DNS
 
 Al conectarse a un recurso de vínculo privado mediante un nombre de dominio completo (FQDN) como parte de la cadena de conexión, es importante establecer correctamente la configuración de DNS para que se resuelva en la dirección IP privada asignada. Es posible que los servicios de Azure existentes ya tengan una configuración de DNS que usar al conectarse a través de un punto de conexión público. La configuración de DNS debe revisarse y actualizarse para conectarse con el punto de conexión privado.
@@ -152,7 +184,7 @@ La interfaz de red asociada con el punto de conexión privado contiene el conjun
 
 Puede usar las siguientes opciones para establecer la configuración de DNS para los puntos de conexión privados:
 
-* Use el archivo de host (solo se recomienda para realizar pruebas). Puede usar el archivo de host en una máquina virtual a fin de invalidar el uso del DNS en primer lugar para la resolución de nombres.
+* Use el archivo de host (solo se recomienda para realizar pruebas). Puede usar el archivo de host en una máquina virtual a fin de invalidar el uso del DNS en primer lugar para la resolución de nombres. La entrada del DNS debe tener un aspecto similar al ejemplo siguiente: `privatelinkFQDN.jrds.sea.azure-automation.net`.
 
 * Use una [zona DNS privada](../../dns/private-dns-privatednszone.md). Puede usar zonas DNS privadas para invalidar la resolución DNS de un punto de conexión privado determinado. Una zona DNS privada se puede vincular a la red virtual para resolver dominios específicos. Para permitir que el agente en la máquina virtual se comunique a través del punto de conexión privado, cree un registro de DNS privado como `privatelink.azure-automation.net`. Agregue una nueva asignación de registros *A* de DNS a la IP del punto de conexión privado.
 

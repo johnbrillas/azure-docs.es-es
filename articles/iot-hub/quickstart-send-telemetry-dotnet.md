@@ -14,18 +14,18 @@ ms.custom:
 - 'Role: Cloud Development'
 - devx-track-azurecli
 ms.date: 06/01/2020
-ms.openlocfilehash: 21410f7137a76b43f57ca7a1e037908410eae365
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: e4c87d8579b06cdfb37c1635a25db5ce67aa3545
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844529"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97094801"
 ---
-# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-net"></a>Inicio rápido: Envío de telemetría desde un dispositivo a un centro de IoT y su lectura con una aplicación de back-end (.NET)
+# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-service-application-net"></a>Inicio rápido: Envío de datos de telemetría desde un dispositivo a un centro de IoT y su lectura con una aplicación de servicio (.NET)
 
 [!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
-IoT Hub es un servicio de Azure que le permite ingerir grandes volúmenes de datos de telemetría desde los dispositivos IoT en la nube para su almacenamiento o procesamiento. En este inicio rápido, enviará datos de telemetría desde una aplicación de dispositivo simulado, por IoT Hub, a una aplicación back-end para su procesamiento.
+IoT Hub es un servicio de Azure que le permite ingerir grandes volúmenes de datos de telemetría desde los dispositivos IoT en la nube para su almacenamiento o procesamiento. En este inicio rápido, enviará datos de telemetría desde una aplicación de dispositivo simulado, a través de IoT Hub, a una aplicación de servicio para su procesamiento.
 
 El inicio rápido usa dos aplicaciones C# escritas previamente: una para enviar datos de telemetría y otra para leer datos de telemetría desde el centro. Antes de ejecutar estas dos aplicaciones, creará un centro de IoT Hub y registrará un dispositivo con el centro.
 
@@ -33,7 +33,7 @@ El inicio rápido usa dos aplicaciones C# escritas previamente: una para enviar 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Las dos aplicaciones de ejemplo que se ejecutan en este inicio rápido se escriben con C#. Necesita el SDK de .NET Core 3.0, o una versión posterior, en la máquina de desarrollo.
+* Las dos aplicaciones de ejemplo que se ejecutan en este inicio rápido se escriben con C#. Se necesita el SDK de .NET Core 3.1, o cualquier versión superior, en su máquina de desarrollo.
 
     Puede descargar el SDK de .NET Core para varias plataformas desde [.NET](https://www.microsoft.com/net/download/all).
 
@@ -44,7 +44,7 @@ El inicio rápido usa dos aplicaciones C# escritas previamente: una para enviar 
     ```
 
     > [!NOTE]
-    > Se recomienda el SDK de .NET Core 3.0, o una versión posterior, para compilar el código del servicio Event Hubs que se usa para leer la telemetría en este inicio rápido. Puede usar el SDK de .NET Core 2.1 si establece la versión del idioma del código de servicio en versión preliminar previa, como se indica en la sección [Lectura de los datos de telemetría procedentes de su instancia de IoT Hub](#read-the-telemetry-from-your-hub).
+    > Se recomienda el SDK de .NET Core 3.1, o cualquier versión superior, para compilar el código del servicio Event Hubs que se usa para leer los datos de telemetría en este inicio rápido.
 
 
 * Descargue los ejemplos en C# de Azure IoT de [https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) y extraiga el archivo ZIP.
@@ -87,7 +87,7 @@ Debe registrar un dispositivo con IoT Hub antes de poder conectarlo. En esta gu�
 
     Este valor lo usará más adelante en este inicio rápido.
 
-3. También necesitará el _punto de conexión compatible con Event Hubs_, la _ruta de acceso compatible con Event Hubs_ y la _clave principal de servicio_ de IoT Hub para permitir que la aplicación back-end se conecte a IoT Hub y recupere los mensajes. Los siguientes comandos recuperan estos valores para IoT Hub:
+3. También necesitará el _punto de conexión compatible con Event Hubs_, la _ruta de acceso compatible con Event Hubs_ y la _clave principal de servicio_ de IoT Hub para permitir que la aplicación de servicio se conecte a IoT Hub y recupere los mensajes. Los siguientes comandos recuperan estos valores para IoT Hub:
 
    **YourIoTHubName**: reemplace este marcador de posición por el nombre elegido para el centro de IoT.
 
@@ -105,22 +105,18 @@ Debe registrar un dispositivo con IoT Hub antes de poder conectarlo. En esta gu�
 
 La aplicación de dispositivo simulado se conecta a un punto de conexión específico del dispositivo en IoT Hub y envía datos de telemetría simulados sobre temperatura y humedad.
 
-1. En una ventana de terminal local, vaya a la carpeta raíz del proyecto de C# de muestra. A continuación, vaya a la carpeta **iot-hub\Quickstarts\simulated-device**.
+1. En una ventana de terminal local, vaya a la carpeta raíz del proyecto de C# de muestra. Luego, vaya a la carpeta **iot-hub\Quickstarts\SimulatedDevice**.
 
-2. Abra el archivo **SimulatedDevice.cs** en el editor de texto de su elección.
-
-    Reemplace el valor de la variable `s_connectionString` por la cadena de conexión del dispositivo que anotó anteriormente. Luego, guarde los cambios realizados en **SimulatedDevice.cs**.
-
-3. En la ventana de terminal local, ejecute los comandos siguientes para instalar los paquetes necesarios para la aplicación de dispositivo simulado:
+2. En la ventana de terminal local, ejecute los comandos siguientes para instalar los paquetes necesarios para la aplicación de dispositivo simulado:
 
     ```cmd/sh
     dotnet restore
     ```
 
-4. En la ventana de terminal local, ejecute el comando siguiente para compilar la aplicación de dispositivo simulado y ejecutarla:
+3. En la ventana de terminal local, ejecute el siguiente comando para compilar la aplicación de dispositivo simulado y ejecutarla con la cadena de conexión del dispositivo que anotó antes:
 
     ```cmd/sh
-    dotnet run
+    dotnet run -- {DeviceConnectionString}
     ```
 
     La siguiente captura de pantalla muestra la salida en la que la aplicación de dispositivo simulado envía datos de telemetría a IoT Hub:
@@ -129,36 +125,37 @@ La aplicación de dispositivo simulado se conecta a un punto de conexión espec�
 
 ## <a name="read-the-telemetry-from-your-hub"></a>Lectura de los datos de telemetría procedentes de su instancia de IoT Hub
 
-La aplicación back-end se conecta a un punto de conexión de **Eventos** de servicio en IoT Hub. La aplicación recibe los mensajes del dispositivo a la nube enviados desde el dispositivo simulado. Normalmente, una aplicación back-end de IoT Hub se ejecuta en la nube para recibir y procesar los mensajes del dispositivo a la nube.
+La aplicación de servicio se conecta al punto de conexión de **Eventos** de servicio en IoT Hub. La aplicación recibe los mensajes del dispositivo a la nube enviados desde el dispositivo simulado. Normalmente, una aplicación de servicio de IoT Hub se ejecuta en la nube para recibir y procesar los mensajes del dispositivo a la nube.
 
-1. En otra ventana de terminal local, vaya a la carpeta raíz del proyecto de C# de muestra. A continuación, vaya a la carpeta **iot-hub\Quickstarts\read-d2c-messages**.
+1. En otra ventana de terminal local, vaya a la carpeta raíz del proyecto de C# de muestra. Luego, vaya a la carpeta **iot-hub\Quickstarts\ReadD2cMessages**.
 
-2. Abra el archivo **ReadDeviceToCloudMessages.cs** en el editor de texto de su elección. Actualice las siguientes variables y guarde los cambios en el archivo.
-
-    | Variable | Value |
-    | -------- | ----------- |
-    | `EventHubsCompatibleEndpoint` | Reemplace el valor de la variable por el punto de conexión compatible con Event Hubs que anotó anteriormente. |
-    | `EventHubName`                | Reemplace el valor de la variable por la ruta de acceso compatible con Event Hubs que ha anotó anteriormente. |
-    | `IotHubSasKey`                | Reemplace el valor de la variable por la clave principal del servicio que anotó anteriormente. |
-
-    > [!NOTE]
-    > Si usa el SDK de .NET Core 2.1, debe establecer la versión de idioma en versión preliminar para compilar el código. Para ello, abra el archivo **read-d2c-messages.csproj** y establezca el valor del elemento`<LangVersion>` en `preview`.
-
-3. En la ventana de terminal local, ejecute los comandos siguientes para instalar las bibliotecas necesarias para la aplicación back-end:
+2. En la ventana del terminal local, ejecute el siguiente comando para instalar las bibliotecas necesarias para la aplicación de servicio:
 
     ```cmd/sh
     dotnet restore
     ```
 
-4. En la ventana de terminal local, ejecute los comandos siguientes para compilar la aplicación back-end y ejecutarla:
+3. En la ventana del terminal local, ejecute el siguiente comando para ver las opciones del parámetro.
 
     ```cmd/sh
     dotnet run
     ```
 
-    La siguiente captura de pantalla muestra la salida en la que la aplicación back-end recibe los datos de telemetría que el dispositivo simulado ha enviado al centro:
+4. En la ventana del terminal local, ejecute uno de los siguientes comandos para compilar la aplicación y ejecutarla con:
 
-    ![Ejecutar la aplicación back-end](media/quickstart-send-telemetry-dotnet/read-device-to-cloud.png)
+    ```cmd/sh
+    dotnet run -- -c {EventHubConnectionString}
+    ```
+
+    o bien,
+
+    ```cmd/sh
+    dotnet run -- -e {EventHubCompatibleEndpoint} -n {EventHubName} -s {SharedAccessKey}
+    ```
+
+    La siguiente captura de pantalla muestra la salida en la que la aplicación de servicio recibe los datos de telemetría que el dispositivo simulado ha enviado al centro:
+
+    ![Ejecutar la aplicación de servicio](media/quickstart-send-telemetry-dotnet/read-device-to-cloud.png)
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -166,9 +163,9 @@ La aplicación back-end se conecta a un punto de conexión de **Eventos** de ser
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este inicio rápido, ha configurado un centro de IoT, ha registrado un dispositivo, ha enviado datos de telemetría simulados al centro de conectividad mediante una aplicación en C# y ha leído datos de telemetría procedentes del centro de conectividad mediante una sencilla aplicación back-end.
+En este inicio rápido, ha configurado un centro de IoT, ha registrado un dispositivo, ha enviado datos de telemetría simulados al centro de conectividad mediante una aplicación en C# y ha leído datos de telemetría procedentes del centro de conectividad mediante una sencilla aplicación de servicio.
 
-Para aprender a controlar el dispositivo simulado desde una aplicación back-end, vaya al siguiente inicio rápido.
+Para aprender a controlar un dispositivo simulado desde una aplicación de servicio, vaya al siguiente inicio rápido.
 
 > [!div class="nextstepaction"]
 > [Inicio rápido: Control de un dispositivo conectado a IoT Hub](quickstart-control-device-dotnet.md)

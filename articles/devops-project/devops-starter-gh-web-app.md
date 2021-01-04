@@ -7,12 +7,12 @@ ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 08/25/2020
 author: ninallam
-ms.openlocfilehash: 9a2abf7e714b75f2551a35a220e30c2465d86a49
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 4caac943df33177728997c74c9ec812105efd62c
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332572"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588784"
 ---
 # <a name="tutorial-deploy-nodejs-app-to-azure-web-app-using-devops-starter-for-github-actions"></a>Tutorial: Implementación de una aplicación de Node.js en una aplicación web de Azure mediante DevOps Starter para Acciones de GitHub
 
@@ -34,7 +34,7 @@ En este tutorial, aprenderá lo siguiente:
 > * Configurar la supervisión de Azure Application Insights
 > * Limpieza de recursos
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/).
 
@@ -48,25 +48,25 @@ DevOps Starter crea un flujo de trabajo en GitHub. Puede usar una organización 
 
     ![Panel de DevOps Starter](_img/azure-devops-starter-aks/search-devops-starter.png)
 
-1. Asegúrese de que el proveedor de CI/CD seleccionado es **Acciones de GitHub** .
+1. Asegúrese de que el proveedor de CI/CD seleccionado es **Acciones de GitHub**.
 
     ![CICD_provider](_img/azure-devops-project-nodejs/provider-selection.png)
 
-1. Seleccione **Node.js** y, a continuación, seleccione **Siguiente** .
+1. Seleccione **Node.js** y, a continuación, seleccione **Siguiente**.
 
-1. En **Elegir un marco de trabajo de la aplicación** , seleccione **Express.js** y, a continuación, seleccione **Siguiente** . El marco de trabajo de la aplicación que eligió en un paso anterior, determina el tipo de destino de implementación del servicio de Azure que está disponible aquí. 
+1. En **Elegir un marco de trabajo de la aplicación**, seleccione **Express.js** y, a continuación, seleccione **Siguiente**. El marco de trabajo de la aplicación que eligió en un paso anterior, determina el tipo de destino de implementación del servicio de Azure que está disponible aquí. 
 
-1. Seleccione **Aplicación web de Windows** y, a continuación, seleccione **Siguiente** .
+1. Seleccione **Aplicación web de Windows** y, a continuación, seleccione **Siguiente**.
 
 ## <a name="configure-github-and-an-azure-subscription"></a>Configuración de GitHub y una suscripción de Azure
 
 1. **Autorice** a GitHub y seleccione una organización de GitHub existente. 
 
-1. Escriba un nombre para el **Repositorio de GitHub** . 
+1. Escriba un nombre para el **Repositorio de GitHub**. 
 
 1. Seleccione los servicios de la suscripción a Azure. Si lo desea, puede seleccionar **Cambiar** y, luego, especificar más detalles de la configuración, como la ubicación de los recursos de Azure.
  
-1. Escriba un nombre de aplicación web y, a continuación, seleccione **Listo** . Después de unos minutos, la aplicación web de Azure estará lista. Se configura una aplicación de Node.js de ejemplo en un repositorio de la organización de GitHub, se desencadena un flujo de trabajo y la aplicación se implementa en la aplicación web de Azure recién creada.
+1. Escriba un nombre de aplicación web y, a continuación, seleccione **Listo**. Después de unos minutos, la aplicación web de Azure estará lista. Se configura una aplicación de Node.js de ejemplo en un repositorio de la organización de GitHub, se desencadena un flujo de trabajo y la aplicación se implementa en la aplicación web de Azure recién creada.
 
    ![Enter_GH_details](_img/azure-devops-project-nodejs/gh-details.png)    
 
@@ -104,9 +104,9 @@ DevOps Starter crea un repositorio en GitHub. Para ver el repositorio y realizar
 
 1. En el lado izquierdo del panel de DevOps Starter, seleccione el vínculo de la rama maestra. Este vínculo abre una vista al repositorio de GitHub recién creado.
 
-1. Para ver la dirección URL de clonación del repositorio, seleccione **Clonar** en la parte superior derecha del explorador. Puede clonar el repositorio de Git en su IDE favorito. En los pasos siguientes, puede usar el explorador web para realizar los cambios en el código y confirmarlos directamente en la rama maestra.
+1. Para ver la dirección URL de clonación del repositorio, seleccione **Clonar** en la parte superior derecha del explorador. Puede clonar el repositorio de Git en su IDE favorito. En los pasos siguientes, puede usar el explorador web para realizar cambios en el código y confirmarlos directamente en la rama maestra.
 
-1. En el lado izquierdo del explorador, vaya al archivo **/Application/views/index.pug** .
+1. En el lado izquierdo del explorador, vaya al archivo **/Application/views/index.pug**.
 
 1. Seleccione **Editar** y realice un cambio en alguna parte del texto.
     Por ejemplo, cambie parte del texto de una de las etiquetas.
@@ -124,29 +124,29 @@ Con Azure Application Insights puede supervisar fácilmente el rendimiento y la 
 
 1. En Azure Portal, vaya al panel de DevOps Starter. 
 
-1. En la parte inferior derecha, seleccione el vínculo de **Application Insights** para la aplicación. Se abre el panel **Application Insights** . Esta vista contiene información sobre la supervisión de la disponibilidad, el rendimiento y el uso de la aplicación.
+1. En la parte inferior derecha, seleccione el vínculo de **Application Insights** para la aplicación. Se abre el panel **Application Insights**. Esta vista contiene información sobre la supervisión de la disponibilidad, el rendimiento y el uso de la aplicación.
 
    ![El panel Application Insights](_img/azure-devops-project-github/appinsights.png) 
 
-1. Seleccione **Intervalo de tiempo** y, después, elija **Última hora** . Para filtrar los resultados, seleccione **Actualizar** . Ya puede ver toda la actividad de los últimos 60 minutos. 
+1. Seleccione **Intervalo de tiempo** y, después, elija **Última hora**. Para filtrar los resultados, seleccione **Actualizar**. Ya puede ver toda la actividad de los últimos 60 minutos. 
     
-1. Para salir del intervalo de tiempo, seleccione **x** .
+1. Para salir del intervalo de tiempo, seleccione **x**.
 
-1. Seleccione **Alertas** y, después, **Agregar alerta de métrica** . 
+1. Seleccione **Alertas** y, después, **Agregar alerta de métrica**. 
 
 1. Escriba el nombre de la alerta.
 
-1. En la lista desplegable **Métrica** , examine las distintas métricas de alertas. La alerta predeterminada es para un **tiempo de respuesta de servidor mayor de 1 segundo** . Puede configurar fácilmente diversas alertas para mejorar las funcionalidades de supervisión de la aplicación.
+1. En la lista desplegable **Métrica**, examine las distintas métricas de alertas. La alerta predeterminada es para un **tiempo de respuesta de servidor mayor de 1 segundo**. Puede configurar fácilmente diversas alertas para mejorar las funcionalidades de supervisión de la aplicación.
 
 1. Seleccione la casilla **Notify via Email owners, contributors, and readers** (Notificar a través de correo electrónico a lectores, colaboradores y propietarios). Si lo desea, puede realizar acciones adicionales cuando se muestre una alerta mediante la ejecución de una aplicación de lógica de Azure.
 
 1. Seleccione **Aceptar** para crear la alerta. Poco después la alerta aparece como activa en el panel. 
 
-1. Salga del área **Alertas** y vuelva al panel **Application Insights** .
+1. Salga del área **Alertas** y vuelva al panel **Application Insights**.
 
-1. Seleccione **Disponibilidad** y, después, **Agregar prueba** . 
+1. Seleccione **Disponibilidad** y, después, **Agregar prueba**. 
 
-1. Escriba el nombre de una prueba y seleccione **Crear** . Así se crea la prueba de ping simple para comprobar la disponibilidad de la aplicación. Después de unos minutos, los resultados de la prueba están disponibles y el panel de Application Insights muestra un estado de disponibilidad.
+1. Escriba el nombre de una prueba y seleccione **Crear**. Así se crea la prueba de ping simple para comprobar la disponibilidad de la aplicación. Después de unos minutos, los resultados de la prueba están disponibles y el panel de Application Insights muestra un estado de disponibilidad.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -156,7 +156,7 @@ Si va a realizar pruebas, limpie los recursos para que no se acumulen costos de 
 > El siguiente procedimiento elimina permanentemente los recursos. La funcionalidad *Eliminación* destruye los datos que crea el proyecto en DevOps Starter en Azure y no se podrán recuperar. Utilice este procedimiento cuando haya leído detenidamente las indicaciones.
 
 1. En Azure Portal, vaya al panel de DevOps Starter.
-1. En la parte superior derecha, seleccione **Eliminar** . 
+1. En la parte superior derecha, seleccione **Eliminar**. 
 1. En el mensaje, seleccione **Sí** para *eliminar permanentemente* los recursos.
 
 Si lo desea, puede modificar el flujo de trabajo para satisfacer las necesidades de su equipo. También puede usar este patrón de CI/CD como plantilla para otros repositorios. 

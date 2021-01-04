@@ -6,12 +6,12 @@ ms.date: 09/10/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: de72f9f32a3b08ad1742ee2055efce5b93cab899
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b6257161017afc9dab692c43fcc64e5d961a90ba
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90069516"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368433"
 ---
 # <a name="tutorial-use-parameter-files-to-deploy-your-arm-template"></a>Tutorial: Uso de archivos de parámetros para implementar la plantilla de Resource Manager
 
@@ -41,23 +41,25 @@ No es necesario proporcionar un valor para cada parámetro. Si un parámetro no 
 
 No se puede especificar un nombre de parámetro en el archivo de parámetros que no coincida con un nombre de parámetro en la plantilla. Recibirá un error cuando se proporcionan parámetros desconocidos.
 
-En VS Code, cree un nuevo archivo con el siguiente contenido. Guarde el archivo con el nombre **azuredeploy.parameters.dev.json**.
+En Visual Studio Code, cree un archivo con el siguiente contenido. Guarde el archivo con el nombre _azuredeploy.parameters.dev.json_.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.parameters.dev.json":::
 
-Este archivo es el archivo de parámetros para el entorno de desarrollo. Observe que usa Standard_LRS para la cuenta de almacenamiento, asigna un nombre a los recursos con el prefijo **dev** y establece la etiqueta **Environment** en **Dev**.
+Este archivo es el archivo de parámetros para el entorno de desarrollo. Observe que usa **Standard_LRS** para la cuenta de almacenamiento, asigna un nombre a los recursos con el prefijo **dev** y establece la etiqueta `Environment` en **Dev**.
 
-De nuevo, cree un nuevo archivo con el siguiente contenido. Guarde el archivo con el nombre **azuredeploy.parameters.prod.json**.
+De nuevo, cree un nuevo archivo con el siguiente contenido. Guarde el archivo con el nombre _azuredeploy.parameters.prod.json_.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.parameters.prod.json":::
 
-Este archivo es el archivo de parámetros para el entorno de producción. Observe que usa Standard_GRS para la cuenta de almacenamiento, asigna un nombre a los recursos con el prefijo **contoso** y establece la etiqueta **Environment** en **Production**. En un entorno de producción real, también deseará usar una instancia de App Service con una SKU que no sea gratuita, pero seguiremos con esa SKU para este tutorial.
+Este archivo es el archivo de parámetros para el entorno de producción. Observe que usa **Standard_GRS** para la cuenta de almacenamiento, asigna un nombre a los recursos con el prefijo **contoso** y establece la etiqueta `Environment` en **Production**. En un entorno de producción real, también deseará usar una instancia de App Service con una SKU que no sea gratuita, pero seguiremos con esa SKU para este tutorial.
 
 ## <a name="deploy-template"></a>Implementar plantilla
 
 Use la CLI de Azure o Azure PowerShell para implementar la plantilla.
 
 Como prueba final de la plantilla, vamos a crear dos nuevos grupos de recursos. Uno para el entorno de desarrollo y otro para el entorno de producción.
+
+En el caso de las variables de plantilla y parámetro, reemplace `{path-to-the-template-file}`, `{path-to-azuredeploy.parameters.dev.json}`, `{path-to-azuredeploy.parameters.prod.json}` y las llaves `{}` por las rutas de acceso al archivo de plantilla y parámetro.
 
 En primer lugar, se implementará en el entorno de desarrollo.
 
@@ -128,7 +130,7 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> Si se produjo un error en la implementación, use el modificador **verbose** para obtener información acerca de los recursos que se están creando. Utilice el modificador **debug** para más información sobre la depuración.
+> Si se produjo un error en la implementación, use el modificador `verbose` para obtener información sobre los recursos que se están creando. Utilice el modificador `debug` para más información sobre la depuración.
 
 ## <a name="verify-deployment"></a>Comprobación de la implementación
 
@@ -142,7 +144,7 @@ Para comprobar la implementación, explore el grupo de recursos desde Azure Port
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
 1. En Azure Portal, seleccione **Grupos de recursos** en el menú de la izquierda.
-2. Escriba el nombre del grupo de recursos en el campo **Filtrar por nombre**. Si ha completado esta serie, tiene tres grupos de recursos que eliminar: myResourceGroup, myResourceGroupDev y myResourceGroupProd.
+2. Escriba el nombre del grupo de recursos en el campo **Filtrar por nombre**. Si ha completado esta serie, tiene tres grupos de recursos que eliminar: **myResourceGroup**, **myResourceGroupDev** y **myResourceGroupProd**.
 3. Seleccione el nombre del grupo de recursos.
 4. Seleccione **Eliminar grupo de recursos** del menú superior.
 

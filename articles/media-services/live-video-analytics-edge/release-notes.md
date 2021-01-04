@@ -3,12 +3,12 @@ title: 'Notas de la versión de Live Video Analytics on IoT Edge: Azure'
 description: En este tema se proporcionan las notas de la versión sobre las mejoras, las versiones, las correcciones de errores y los problemas conocidos de Live Video Analytics on IoT Edge.
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: 18da50fe763ef7c5fc3c06ac00052679c488cae7
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 2800d41340e45867ea4126733cdb5968cf8b91c5
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92015641"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400852"
 ---
 # <a name="live-video-analytics-on-iot-edge-release-notes"></a>Notas de la versión de Live Video Analytics on IoT Edge
 
@@ -23,9 +23,23 @@ En este artículo se proporciona información acerca de lo siguiente:
 
 <hr width=100%>
 
+## <a name="december-14-2020"></a>14 de diciembre de 2020
+Esta versión es la versión preliminar pública actualizada de Live Video Analytics on IoT Edge. La etiqueta de versión es la siguiente:
+
+```
+     mcr.microsoft.com/media/live-video-analytics:2.0.0
+```
+### <a name="module-updates"></a>Actualizaciones del módulo
+* Se ha agregado compatibilidad con el uso de más de un procesador de extensión HTTP y un procesador de extensión gRPC por topología de grafos.
+* Se ha agregado compatibilidad para la administración del espacio en disco para los nodos receptores.
+* El nodo `MediaGraphGrpcExtension` ahora admite la propiedad [extensionConfiguration](grpc-extension-protocol.md) para usar varios modelos de IA en un único servidor gRPC.
+* Se ha agregado compatibilidad con la recopilación de métricas del módulo Live Video Analytics en el [formato Prometheus](https://prometheus.io/docs/practices/naming/) 
+* El procesador de filtros de velocidad de fotogramas está **en desuso**.  
+    * La administración de la velocidad de fotogramas ahora está disponible en los nodos mismos del procesador de extensión de grafos.
+
 ## <a name="september-22-2020"></a>22 de septiembre de 2020
 
-La etiqueta de versión de la actualización de septiembre de 2020 del módulo es:
+La etiqueta de esta versión para la actualización de septiembre de 2020 del módulo es:
 
 ```
 mcr.microsoft.com/media/live-video-analytics:1.0.4
@@ -48,7 +62,7 @@ mcr.microsoft.com/media/live-video-analytics:1.0.4
 
 ## <a name="august-19-2020"></a>19 de agosto de 2020
 
-La etiqueta de versión de la actualización de agosto de 2020 del módulo es la siguiente:
+La etiqueta de esta versión de la actualización de agosto de 2020 del módulo es:
 
 ```
 mcr.microsoft.com/media/live-video-analytics:1.0.3
@@ -73,7 +87,7 @@ mcr.microsoft.com/media/live-video-analytics:1.0.3
 
 ## <a name="july-13-2020"></a>13 de julio de 2020
 
-La etiqueta de versión de la actualización de julio de 2020 del módulo es la siguiente:
+La etiqueta de esta versión de la actualización de julio de 2020 del módulo es:
 
 ```
 mcr.microsoft.com/media/live-video-analytics:1.0.2

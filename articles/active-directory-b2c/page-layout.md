@@ -11,20 +11,28 @@ ms.topic: reference
 ms.date: 08/24/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 868d99a82009dc8545fc24ad1cfa1da3959da131
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: beb38be985457ea36b2cea9a6dc337ba305d503f
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88852073"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108508"
 ---
 # <a name="page-layout-versions"></a>Versiones de diseño de página
 
 Los paquetes de diseño de página se actualizan periódicamente para incluir correcciones y mejoras en sus elementos de la página. El registro de cambios siguiente especifica los cambios introducidos en cada versión.
 
-[!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
-
 ## <a name="self-asserted-page-selfasserted"></a>Página autoafirmada (selfasserted)
+
+**2.1.1**
+
+- Se ha agregado una UXString `heading` además de `intro` para que se muestre en la página como un título. Está oculta de forma predeterminada.
+- Se ha agregado compatibilidad para guardar contraseñas en iCloud Keychain.
+- Se ha agregado compatibilidad con el uso de la Directiva o el parámetro de QueryString `pageFlavor` para seleccionar el diseño (clásico, oceanBlue o slateGray).
+- Se han agregado declinaciones de responsabilidades en la página autoafirmada.
+- El foco se sitúa ahora en el primer campo editable cuando se carga la página.
+- El foco se sitúa ahora en el primer campo de error cuando varios campos tienen errores.
+- El foco se sitúa ahora en el botón "cambiar" después de comprobar el código de verificación del correo electrónico.
 
 **2.1.0**
 
@@ -39,11 +47,16 @@ Los paquetes de diseño de página se actualizan periódicamente para incluir co
 - Los campos de nombre de usuario/correo electrónico y contraseña ahora usan el elemento HTML `form` para permitir que Microsoft Edge e Internet Explorer (IE) guarden correctamente esta información.
 - Se ha agregado un retraso configurable en la validación de entradas de usuario para mejorar la experiencia del usuario.
 - Correcciones de accesibilidad
-- Ahora puede agregar el atributo `data-preload="true"` [en las etiquetas HTML](custom-policy-ui-customization.md#guidelines-for-using-custom-page-content) para controlar el orden de carga de CSS y JavaScript.
+- Se ha corregido un problema de accesibilidad para que Narrator lea ahora los mensajes de error. 
+- El foco se sitúa ahora en el campo de contraseña después de comprobar el correo electrónico.
+- Se ha eliminado `autofocus` del control CheckBox. 
+- Se ha agregado compatibilidad con un control de pantalla para la comprobación del número de teléfono.
+- Ahora puede agregar el atributo `data-preload="true"` [en las etiquetas HTML] (customize-ui-with-html.md#guidelines-for
   - Cargue los archivos CSS vinculados al mismo tiempo que la plantilla HTML para que no "vacile" durante la carga de los archivos.
   - Controle el orden en el que se capturan y ejecutan las etiquetas `script` antes de la carga de la página.
 - El campo de correo electrónico es ahora `type=email` y los teclados para móviles proporcionarán las sugerencias correctas.
-- Compatibilidad con la traducción de Chrome
+- Compatibilidad con la traducción de Chrome.
+- Se ha agregado compatibilidad con la personalización de marca de empresa en las páginas del flujo de usuario.
 
 **1.1.0**
 
@@ -58,6 +71,15 @@ Los paquetes de diseño de página se actualizan periódicamente para incluir co
 
 ## <a name="unified-sign-in-sign-up-page-with-password-reset-link-unifiedssp"></a>Página de registro de inicio de sesión unificado con el vínculo de restablecimiento de contraseña (unifiedssp)
 
+**2.1.1**
+- Se ha agregado una UXString `heading` además de `intro` para que se muestre en la página como un título. Está oculta de forma predeterminada.
+- Se ha agregado compatibilidad con el uso de la Directiva o el parámetro de QueryString `pageFlavor` para seleccionar el diseño (clásico, oceanBlue o slateGray).
+- Se ha agregado compatibilidad para guardar contraseñas en iCloud Keychain.
+- El foco se sitúa ahora en el primer campo de error cuando varios campos tienen errores.
+- El foco se sitúa ahora en el primer campo editable cuando se carga la página.
+- Se ha agregado una nueva ubicación para el vínculo de selección del proveedor de notificaciones `bottomUnderFormClaimsProviderSelections`.
+- Se han eliminado UXStrings que ya no se usan.
+
 **2.1.0**
 
 - Se ha agregado compatibilidad con varios vínculos de registro.
@@ -67,11 +89,12 @@ Los paquetes de diseño de página se actualizan periódicamente para incluir co
 
 - Los campos de nombre de usuario/correo electrónico y contraseña ahora usan el elemento HTML `form` para permitir que Microsoft Edge e Internet Explorer (IE) guarden correctamente esta información.
 - Correcciones de accesibilidad
-- Ahora puede agregar el atributo `data-preload="true"` [en las etiquetas HTML](custom-policy-ui-customization.md#guidelines-for-using-custom-page-content) para controlar el orden de carga de CSS y JavaScript.
+- Ahora puede agregar el atributo `data-preload="true"` [en las etiquetas HTML](customize-ui-with-html.md#guidelines-for-using-custom-page-content) para controlar el orden de carga de CSS y JavaScript.
   - Cargue los archivos CSS vinculados al mismo tiempo que la plantilla HTML para que no "vacile" durante la carga de los archivos.
   - Controle el orden en el que se capturan y ejecutan las etiquetas `script` antes de la carga de la página.
 - El campo de correo electrónico es ahora `type=email` y los teclados para móviles proporcionarán las sugerencias correctas.
-- Compatibilidad con la traducción de Chrome
+- Compatibilidad con la traducción de Chrome.
+- Se ha agregado compatibilidad con la personalización de marca del inquilino en las páginas del flujo de usuario.
 
 **1.1.0**
 
@@ -83,6 +106,12 @@ Los paquetes de diseño de página se actualizan periódicamente para incluir co
 
 ## <a name="mfa-page-multifactor"></a>Página de MFA (multifactor)
 
+**1.2.2**
+- Se ha corregido un problema con el rellenado automático del código de verificación cuando se usa iOS.
+- Se ha corregido un problema con la redirección de un token al usuario de confianza desde Android WebView. 
+- Se ha agregado una UXString `heading` además de `intro` para que se muestre en la página como un título. Está oculta de forma predeterminada.  
+- Se ha agregado compatibilidad con el uso de la Directiva o el parámetro de QueryString `pageFlavor` para seleccionar el diseño (clásico, oceanBlue o slateGray).
+
 **1.2.1**
 
 - Correcciones de accesibilidad en plantillas predeterminadas
@@ -90,11 +119,12 @@ Los paquetes de diseño de página se actualizan periódicamente para incluir co
 **1.2.0**
 
 - Correcciones de accesibilidad
-- Ahora puede agregar el atributo `data-preload="true"` [en las etiquetas HTML](custom-policy-ui-customization.md#guidelines-for-using-custom-page-content) para controlar el orden de carga de CSS y JavaScript.
+- Ahora puede agregar el atributo `data-preload="true"` [en las etiquetas HTML](customize-ui-with-html.md#guidelines-for-using-custom-page-content) para controlar el orden de carga de CSS y JavaScript.
   - Cargue los archivos CSS vinculados al mismo tiempo que la plantilla HTML para que no "vacile" durante la carga de los archivos.
   - Controle el orden en el que se capturan y ejecutan las etiquetas `script` antes de la carga de la página.
 - El campo de correo electrónico es ahora `type=email` y los teclados para móviles proporcionarán las sugerencias correctas.
-- Compatibilidad con la traducción de Chrome
+- Compatibilidad con la traducción de Chrome.
+- Se ha agregado compatibilidad con la personalización de marca del inquilino en las páginas del flujo de usuario.
 
 **1.1.0**
 
@@ -115,7 +145,7 @@ Los paquetes de diseño de página se actualizan periódicamente para incluir co
 **1.2.0**
 
 - Correcciones de accesibilidad
-- Ahora puede agregar el atributo `data-preload="true"` [en las etiquetas HTML](custom-policy-ui-customization.md#guidelines-for-using-custom-page-content) para controlar el orden de carga de CSS y JavaScript.
+- Ahora puede agregar el atributo `data-preload="true"` [en las etiquetas HTML](customize-ui-with-html.md#guidelines-for-using-custom-page-content) para controlar el orden de carga de CSS y JavaScript.
   - Cargue los archivos CSS vinculados al mismo tiempo que la plantilla HTML para que no "vacile" durante la carga de los archivos.
   - Controle el orden en el que se capturan y ejecutan las etiquetas `script` antes de la carga de la página.
 - El campo de correo electrónico es ahora `type=email` y los teclados para móviles proporcionarán las sugerencias correctas.
@@ -136,7 +166,7 @@ Los paquetes de diseño de página se actualizan periódicamente para incluir co
 **1.2.0**
 
 - Correcciones de accesibilidad
-- Ahora puede agregar el atributo `data-preload="true"` [en las etiquetas HTML](custom-policy-ui-customization.md#guidelines-for-using-custom-page-content) para controlar el orden de carga de CSS y JavaScript.
+- Ahora puede agregar el atributo `data-preload="true"` [en las etiquetas HTML](customize-ui-with-html.md#guidelines-for-using-custom-page-content) para controlar el orden de carga de CSS y JavaScript.
   - Cargue los archivos CSS vinculados al mismo tiempo que la plantilla HTML para que no "vacile" durante la carga de los archivos.
   - Controle el orden en el que se capturan y ejecutan las etiquetas `script` antes de la carga de la página.
 - El campo de correo electrónico es ahora `type=email` y los teclados para móviles proporcionarán las sugerencias correctas.
@@ -148,4 +178,4 @@ Los paquetes de diseño de página se actualizan periódicamente para incluir co
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener detalles sobre cómo personalizar la interfaz de usuario de las aplicaciones en directivas personalizadas, vea [Personalización de la interfaz de usuario de la aplicación mediante una directiva personalizada](custom-policy-ui-customization.md).
+Para obtener detalles sobre cómo personalizar la interfaz de usuario de las aplicaciones en directivas personalizadas, vea [Personalización de la interfaz de usuario de la aplicación mediante una directiva personalizada](customize-ui-with-html.md).

@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 12/01/2020
+ms.date: 12/14/2020
 ms.author: banders
-ms.openlocfilehash: 3182da0d04d61d5bad4ce3e41f213ecc3be7ecaf
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 662e1bf721c93ee1d59946d2fd603551f3f88ad3
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96444456"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97503801"
 ---
 # <a name="cancel-your-azure-subscription"></a>Cancelación de su suscripción de Azure
 
@@ -30,6 +30,17 @@ Aunque no es obligatorio, Microsoft *recomienda* realizar las siguientes accione
 
 Si cancela un plan de soporte técnico de Azure de pago, se le facturará por el resto del período de suscripción. Para más información, vea [Soporte técnico de Azure](https://azure.microsoft.com/support/plans/).
 
+## <a name="who-can-cancel-a-subscription"></a>¿Quién puede cancelar una suscripción?
+
+En la tabla siguiente se describe el permiso necesario para cancelar una suscripción.
+
+|Tipo de suscripción     |Quién puede cancelar  |
+|---------|---------|
+|Suscripciones creadas al registrarse en Azure a través del sitio web de Azure. Por ejemplo, cuando se registra para obtener una [cuenta gratuita de Azure](https://azure.microsoft.com/offers/ms-azr-0044p/), como una [cuenta con tarifas de pago por uso](https://azure.microsoft.com/offers/ms-azr-0003p/) o como un [suscriptor de Visual Studio](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/). |  Administrador de cuenta y propietarios de la suscripción  |
+|[Contrato Enterprise de Microsoft](https://azure.microsoft.com/pricing/enterprise-agreement/) y [Desarrollo/pruebas - Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/)     |  Propietario de la cuenta y propietarios de la suscripción       |
+|[Plan de Azure](https://azure.microsoft.com/offers/ms-azr-0017g/) y [Azure Plan for DevTest](https://azure.microsoft.com/offers/ms-azr-0148g/)     |  Propietarios de la suscripción      |
+
+
 ## <a name="cancel-subscription-in-the-azure-portal"></a>Cancelación de la suscripción en Azure Portal
 
 1. Seleccione su suscripción en la [página Suscripciones de Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
@@ -41,15 +52,13 @@ Si cancela un plan de soporte técnico de Azure de pago, se le facturará por el
 > [!NOTE]
 > Los asociados pueden suspender o cancelar una suscripción si lo solicita un cliente o en caso de impago o fraude. Para más información, consulte el apartado [Suspender o cancelar una suscripción](/partner-center/create-a-new-subscription#suspend-or-cancel-a-subscription).
 
-## <a name="who-can-cancel-a-subscription"></a>¿Quién puede cancelar una suscripción?
+## <a name="cancel-a-support-plan"></a>Cancelación de un plan de soporte técnico
 
-En la tabla siguiente se describe el permiso necesario para cancelar una suscripción.
+Si adquirió un plan de soporte técnico a través del sitio web de Azure o Azure Portal, o bien si lo tiene en un Contrato de cliente de Microsoft, puede cancelarlo. Si compró el plan de soporte técnico a través de un asociado o representante de Microsoft, póngase en contacto con él para obtener ayuda. 
 
-|Tipo de suscripción     |Quién puede cancelar  |
-|---------|---------|
-|Suscripciones creadas al registrarse en Azure a través del sitio web de Azure. Por ejemplo, cuando se registra para obtener una [cuenta gratuita de Azure](https://azure.microsoft.com/offers/ms-azr-0044p/), como una [cuenta con tarifas de pago por uso](https://azure.microsoft.com/offers/ms-azr-0003p/) o como un [suscriptor de Visual Studio](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/). |  Administrador de cuenta y propietarios de la suscripción  |
-|[Contrato Enterprise de Microsoft](https://azure.microsoft.com/pricing/enterprise-agreement/) y [Desarrollo/pruebas - Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/)     |  Propietario de la cuenta y propietarios de la suscripción       |
-|[Plan de Azure](https://azure.microsoft.com/offers/ms-azr-0017g/) y [Azure Plan for DevTest](https://azure.microsoft.com/offers/ms-azr-0148g/)     |  Propietarios de la suscripción      |
+1. En Azure Portal, vaya a **Cost Management + Billing**.
+1. En **Facturación**, seleccione **Cargos periódicos**.
+1. En el lado derecho del elemento de línea del plan de soporte técnico, seleccione el los puntos suspensivos ( **...** ) y, después, **Desactivación de la renovación automática**.
 
 ## <a name="what-happens-after-subscription-cancellation"></a>¿Qué ocurre después de la cancelación de una suscripción?
 

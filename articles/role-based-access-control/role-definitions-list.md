@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 06/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: f5421efc96b957f5ae96515bbcf17c8a773397c9
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 9dad8ffc9971894a2777e8bda9bcf6d78eee00a9
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368254"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97369283"
 ---
 # <a name="list-azure-role-definitions"></a>Enumeración de las definiciones de roles de Azure
 
@@ -33,7 +33,7 @@ Para ver la lista de los roles de administrador de Azure Active Directory, consu
 
 Siga estos pasos para enumerar todos los roles de Azure Portal.
 
-1. En Azure Portal, haga clic en **Todos los servicios** y luego seleccione cualquier ámbito. Por ejemplo, puede seleccionar **Grupos de administración** , **Suscripciones** , **Grupos de recursos** o un recurso.
+1. En Azure Portal, haga clic en **Todos los servicios** y luego seleccione cualquier ámbito. Por ejemplo, puede seleccionar **Grupos de administración**, **Suscripciones**, **Grupos de recursos** o un recurso.
 
 1. Haga clic en el recurso específico.
 
@@ -235,7 +235,7 @@ Para mostrar los detalles de un rol, use [az role definition list](/cli/azure/ro
 az role definition list --name {roleName}
 ```
 
-En el ejemplo siguiente se muestra la definición de roles de *Colaborador* :
+En el ejemplo siguiente se muestra la definición de roles de *Colaborador*:
 
 ```azurecli
 az role definition list --name "Contributor"
@@ -275,7 +275,7 @@ az role definition list --name "Contributor"
 
 ### <a name="list-permissions-of-a-role-definition"></a>Lista de los permisos de una definición de roles
 
-En el ejemplo siguiente, se muestran solo los valores de *actions* y *notActions* del rol *Colaborador* .
+En el ejemplo siguiente, se muestran solo los valores de *actions* y *notActions* del rol *Colaborador*.
 
 ```azurecli
 az role definition list --name "Contributor" --output json --query '[].{actions:permissions[0].actions, notActions:permissions[0].notActions}'
@@ -298,7 +298,7 @@ az role definition list --name "Contributor" --output json --query '[].{actions:
 ]
 ```
 
-En el ejemplo siguiente se muestran solo los valores de actions del rol *Colaborador de máquina virtual* .
+En el ejemplo siguiente se muestran solo los valores de actions del rol *Colaborador de máquina virtual*.
 
 ```azurecli
 az role definition list --name "Virtual Machine Contributor" --output json --query '[].permissions[0].actions'
@@ -351,7 +351,7 @@ Para enumerar las definiciones de roles, use la API de REST [Definiciones de rol
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1` | Resource |
 
-    En el ejemplo anterior, microsoft.web es un proveedor de recursos que hace referencia a una instancia de App Service. De forma similar, puede usar cualquier otro proveedor de recursos y especificar el ámbito. Para más información, consulte [Tipos y proveedores de recursos de Azure](../azure-resource-manager/management/resource-providers-and-types.md) y [Operaciones del proveedor de recursos de Azure Resource Manager](resource-provider-operations.md) compatibles.  
+    En el ejemplo anterior, microsoft.web es un proveedor de recursos que hace referencia a una instancia de App Service. De forma similar, puede usar cualquier otro proveedor de recursos y especificar el ámbito. Para más información, consulte [Tipos y proveedores de recursos de Azure](../azure-resource-manager/management/resource-providers-and-types.md) y [Operaciones del proveedor de recursos de Azure](resource-provider-operations.md) compatibles.  
      
 1. Reemplace *{filter}* por la condición que quiere aplicar para filtrar la lista de definiciones de roles.
 

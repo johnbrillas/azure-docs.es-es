@@ -11,12 +11,12 @@ ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: dbfeefc14059785ba82cbf245a60e5e72759db76
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 48c60878a6a58b2f4629768b81af894a741dab1c
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94840413"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509808"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Inicio de sesión web con OpenID Connect en Azure Active Directory B2C
 
@@ -262,7 +262,7 @@ Las respuestas de error tienen un aspecto similar al siguiente:
 
 ## <a name="send-a-sign-out-request"></a>Envío de una solicitud de cierre de sesión
 
-Si desea cerrar la sesión del usuario de la aplicación, no basta con borrar las cookies de la aplicación o finalizar la sesión con el usuario. Redireccione al usuario a Azure AD B2C para cerrar la sesión. Si no lo hace, el usuario podría autenticarse de nuevo en su aplicación sin volver a escribir sus credenciales. Para obtener más información, consulte [Sesión de Azure AD B2C](session-overview.md).
+Si desea cerrar la sesión del usuario de la aplicación, no basta con borrar las cookies de la aplicación o finalizar la sesión con el usuario. Redireccione al usuario a Azure AD B2C para cerrar la sesión. Si no lo hace, el usuario podría autenticarse de nuevo en su aplicación sin volver a escribir sus credenciales. Para obtener más información, consulte [Sesión de Azure AD B2C](session-behavior.md).
 
 Para cerrar la sesión del usuario, redirija al usuario al punto de conexión `end_session` que aparece en el documento de metadatos de OpenID Connect que se ha descrito anteriormente:
 
@@ -283,8 +283,8 @@ GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/
 
 Después del cierre de sesión, se redirige al usuario al URI especificado en el parámetro `post_logout_redirect_uri`, independientemente de las direcciones URL de respuesta que se hayan especificado para la aplicación. Sin embargo, si se pasa un valor de `id_token_hint` válido y la opción **Requerir token de identificador en solicitudes de cierre de sesión** está activada, Azure AD B2C comprueba que el valor de `post_logout_redirect_uri` coincida con uno de los URI de redirección configurados de la aplicación antes de realizar la redirección. Si no se configuró ninguna dirección URL de respuesta coincidente para la aplicación, se muestra un mensaje de error y no se redirige al usuario.
 
-Para establecer el token de identificador necesario en las solicitudes de cierre de sesión, consulte [Configuración del comportamiento de la sesión en Azure Active Directory B2C](session-behavior-custom-policy.md#secure-your-logout-redirect) y [Configuración del comportamiento de la sesión mediante directivas personalizadas en Azure Active Directory B2C](session-behavior-custom-policy.md#secure-your-logout-redirect).
+Para establecer el token de identificador necesario en las solicitudes de cierre de sesión, consulte [Configuración del comportamiento de la sesión en Azure Active Directory B2C](session-behavior.md#secure-your-logout-redirect).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Más información sobre la [sesión de Azure AD B2C](session-overview.md).
+- Más información sobre la [sesión de Azure AD B2C](session-behavior.md).

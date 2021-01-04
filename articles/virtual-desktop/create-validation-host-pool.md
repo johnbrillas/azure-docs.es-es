@@ -3,15 +3,15 @@ title: 'Actualizaciones de servicio para los grupos de host de Windows Virtual D
 description: Cómo crear un grupo host de validación para supervisar actualizaciones de servicio antes de implementar las actualizaciones en producción.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 03/13/2020
+ms.date: 12/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b8eb8378480b8784939e3ab63327e73e3705c74a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ead4c0aa7d8d71642fd8a4635edbabcafee5b6c2
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90526517"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563252"
 ---
 # <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>Tutorial: Creación de un grupo host para validar las actualizaciones del servicio
 
@@ -66,6 +66,20 @@ Los resultados del cmdlet deben ser similares a estos:
     LoadBalancerType    : BreadthFirst
     ValidationEnvironment : True
 ```
+
+## <a name="enable-your-validation-environment-with-the-azure-portal"></a>Habilitación de un entorno de validación con Azure Portal
+
+Para habilitar un entorno de validación también se puede usar Azure Portal.
+
+Para usar Azure Portal para configurar un grupo de hosts de validación:
+
+1. Inicie sesión en Azure Portal en <https://portal.azure.com>.
+2. Busque y seleccione **Windows Virtual Desktop**.
+3. En la página de Windows Virtual Desktop, seleccione **Grupos de hosts**.
+4. Seleccione el nombre del grupo de hosts que quiera editar.
+5. Seleccione **Propiedades**.
+6. En el campo del entorno de validación, seleccione **Sí** para habilitar el entorno de validación.
+7. Seleccione **Guardar**. De esta forma se aplicará la nueva configuración.
 
 ## <a name="update-schedule"></a>Programación de actualizaciones
 

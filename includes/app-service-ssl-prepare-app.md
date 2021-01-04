@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 10/15/2018
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: dd73ac372a21a32eac0c742a7f0f525db2d1a4fe
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 8b3c1992a1cff18390f9d1332103e0650af418e2
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92169100"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347734"
 ---
 ## <a name="prepare-your-web-app"></a>Preparar la aplicación web
 
-Para crear enlaces de seguridad personalizados o habilitar certificados de cliente para la aplicación ggApp Service, el [plan de App Service](https://azure.microsoft.com/pricing/details/app-service/) debe ser de nivel **Básico**, **Estándar**, **Premium** o **Aislado**. En este paso, asegúrese de que la aplicación web se encuentra en el plan de tarifa compatible.
+Para crear enlaces de TLS o SSL personalizados o habilitar certificados de cliente para la aplicación de App Service, el [plan de App Service](https://azure.microsoft.com/pricing/details/app-service/) debe ser de nivel **Básico**, **Estándar**, **Premium** o **Aislado**. En este paso, asegúrese de que la aplicación web se encuentra en el plan de tarifa compatible.
 
 ### <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 

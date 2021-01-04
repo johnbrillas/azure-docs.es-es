@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/20/2020
-ms.openlocfilehash: f64d4d2b9acbe0e6585ca546c915b82d2d1dbbc4
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 986bc5ef24855ac0014975edc0a26a11a82ec6ca
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737191"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97510969"
 ---
 # <a name="common-errors"></a>Errores comunes
 
@@ -61,9 +61,40 @@ DELIMITER ;;
 /*!50003 CREATE*/ /*!50017 DEFINER=`AdminUserName`@`ServerName`*/ /*!50003
 DELIMITER ;
 ```
+#### <a name="error-1227-42000-at-line-295-access-denied-you-need-at-least-one-of-the-super-or-set_user_id-privileges-for-this-operation"></a>ERROR 1227 (42000) en la línea 295: Access denied; you need (at least one of) the SUPER privilege(s) for this operation [Acceso denegado; necesita (al menos uno de) los privilegios SUPER o SET_USER_ID para esta operación].
+
+El error anterior puede producirse al ejecutar instrucciones CREATE VIEW con DEFINER como parte de la importación de un archivo de copia de seguridad o la ejecución de un script. Azure Database for MySQL no permite los privilegios SUPER ni el privilegio SET_USER_ID a ningún usuario. 
+
+**Solución**: 
+* Use el usuario del definidor para ejecutar CREATE VIEW, en caso de que sea posible. Es probable que haya muchas vistas con distintos depuradores que tienen permisos diferentes, por lo que es posible que esto no sea factible.  O
+* Edite el archivo de copia de seguridad o el script CREATE VIEW y elimine la instrucción DEFINER= del archivo, o bien 
+* Edite el archivo de copia de seguridad o el script CREATE VIEW y reemplace los valores del definidor por el usuario con permisos de administrador que realiza la importación o ejecute el archivo de script.
+
+> [!Tip] 
+> Use sed o Perl para modificar un archivo de copia de seguridad o un script SQL para reemplazar la instrucción DEFINER=
+
+## <a name="common-connection-errors-for-server-admin-login"></a>Errores de conexión comunes en el inicio de sesión de administrador de servidor
+
+Cuando se crea un servidor de Azure Database for MySQL, el usuario final proporciona un inicio de sesión de administrador de servidor cuando este se crea. El inicio de sesión de administrador de servidor permite crear bases de datos, agregar nuevos usuarios y conceder permisos. Si se elimina el inicio de sesión del administrador de servidor, se revocan sus permisos o se cambia su contraseña, es posible que empiece a ver errores de conexión en la aplicación durante las conexiones. Estos son algunos de los errores comunes:
+
+#### <a name="error-1045-28000-access-denied-for-user-usernameip-address-using-password-yes"></a>ERROR 1045 (28000): Access denied for user 'username'@'IP address' (using password: SÍ) [Acceso denegado para el usuario "nombre de usuario"@"dirección IP" (usa contraseña: SÍ)].
+
+El error anterior se produce si:
+
+* El nombre de usuario no existe.
+* Se ha eliminado el nombre de usuario.
+* Su contraseña se ha cambiado o restablecido.
+
+**Solución**: 
+* Compruebe si "nombre de usuario" existe como usuario válido en el servidor o si se elimina accidentalmente. Puede ejecutar la consulta siguiente iniciando sesión en el usuario de Azure Database for MySQL:
+  ```sql
+  select user from mysql.user;
+  ```
+* Si no puede iniciar sesión en MySQL para ejecutar la consulta anterior, es aconsejable que [restablezca la contraseña de administrador desde Azure Portal](howto-create-manage-server-portal.md). La opción de restablecer contraseña de Azure Portal le ayudará a volver a crear el usuario, restablecer la contraseña y restaurar los permisos de administrador, lo que le permitirá iniciar sesión con el administrador del servidor y realizar otras operaciones.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Si no ha encontrado la respuesta que buscaba, considere la posibilidad de realizar estas otras acciones:
+Si no ha encontrado la respuesta que buscaba, plantéese la posibilidad de realizar estas otras acciones:
+
 - Publique su pregunta en la [página de preguntas y respuestas de Microsoft](/answers/topics/azure-database-mysql.html) o en [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql).
 - Envíe un correo electrónico al equipo de Azure Database for MySQL [@Ask Azure DB for MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com). Esta dirección de correo electrónico no es un alias de soporte técnico.
 - Póngase en contacto con el soporte técnico de Azure, [presente una incidencia de soporte técnico en Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Para corregir un problema con la cuenta, envíe una [solicitud de soporte técnico](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) en Azure Portal.

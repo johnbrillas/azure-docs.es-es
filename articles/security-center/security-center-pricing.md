@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/06/2020
+ms.date: 12/13/2020
 ms.author: memildin
-ms.openlocfilehash: d92047a5b24f04ee7e0d08454867ec9e1a52a8b1
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: d3492685efbf70b69e5bafba919d38a4f06fb666
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96754389"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387477"
 ---
 # <a name="pricing-of-azure-security-center"></a>Precios de Azure Security Center
 Azure Security Center ofrece una administración de seguridad unificada y una protección contra amenazas avanzada para las cargas de trabajo que se ejecutan en Azure, de forma local y en otras nubes. Ofrece visibilidad y control sobre las cargas de trabajo de nube híbrida, defensas activas que reducen la exposición a las amenazas y una detección inteligente, lo que le permitirá mantenerse al día de los ciberriesgos, que se expanden rápidamente.
@@ -68,12 +68,24 @@ A continuación se muestra la página de precios de una suscripción de ejemplo.
 
 ## <a name="faq---pricing-and-billing"></a>Preguntas frecuentes sobre precios y facturación 
 
-### <a name="how-can-i-track-who-in-my-organization-enabled-azure-defender-changes-in-azure-security-center"></a>¿Cómo puedo realizar un seguimiento de las personas de mi organización que habilitaron cambios de Azure Defender en Azure Security Center?
+- [¿Cómo se puede realizar un seguimiento de las personas de mi organización que habilitaron cambios de Azure Defender en Azure Security Center?](#how-can-i-track-who-in-my-organization-enabled-azure-defender-changes-in-security-center)
+- [¿Cuáles son los planes que ofrece Security Center?](#what-are-the-plans-offered-by-security-center)
+- [¿Cómo habilito Azure Defender para mi suscripción?](#how-do-i-enable-azure-defender-for-my-subscription)
+- [¿Puedo habilitar Azure Defender para servidores en un subconjunto de servidores de mi suscripción?](#can-i-enable-azure-defender-for-servers-on-a-subset-of-servers-in-my-subscription)
+- [Mi suscripción tiene Azure Defender para servidores habilitado, ¿pagaré por los servidores que no estén en ejecución?](#my-subscription-has-azure-defender-for-servers-enabled-do-i-pay-for-not-running-servers)
+- [¿Se me cobrará por máquinas sin el agente de Log Analytics instalado?](#will-i-be-charged-for-machines-without-the-log-analytics-agent-installed)
+- [Si un agente de Log Analytics envía notificaciones a diversas áreas de trabajo, ¿se me cobrará varias veces?](#if-a-log-analytics-agent-reports-to-multiple-workspaces-will-i-be-charged-twice)
+- [Si un agente de Log Analytics envía notificaciones a varias áreas de trabajo, ¿la ingesta de datos gratuita de 500 MB estará disponible en todas ellas?](#if-a-log-analytics-agent-reports-to-multiple-workspaces-is-the-500-mb-free-data-ingestion-available-on-all-of-them)
+- [¿Se calcula la ingesta de 500 MB de datos gratis para todo el área de trabajo o estrictamente por máquina?](#is-the-500-mb-free-data-ingestion-calculated-for-an-entire-workspace-or-strictly-per-machine)
+
+### <a name="how-can-i-track-who-in-my-organization-enabled-azure-defender-changes-in-security-center"></a>¿Cómo se puede realizar un seguimiento de las personas de mi organización que habilitaron cambios de Azure Defender en Security Center?
 Las suscripciones de Azure pueden tener varios administradores con permisos para cambiar la configuración de precios. Para averiguar qué usuario realizó un cambio, use el registro de actividad de Azure.
 
-Si la información del usuario no aparece en la columna **Evento iniciado por**, explore el evento para ver los detalles pertinentes.
+:::image type="content" source="media/security-center-pricing/logged-change-to-pricing.png" alt-text="Registro de actividad de Azure en el que se muestra un evento de cambio de precio":::
 
-:::image type="content" source="media/security-center-pricing/logged-change-to-pricing.png" alt-text="Registro de eventos de Azure que muestra un evento de cambio de precio":::
+Si la información del usuario no aparece en la columna **Evento iniciado por**, explore el JSON del evento para ver los detalles pertinentes.
+
+:::image type="content" source="media/security-center-pricing/tracking-pricing-changes-in-activity-log.png" alt-text="Explorador JSON del registro de actividad de Azure":::
 
 
 ### <a name="what-are-the-plans-offered-by-security-center"></a>¿Cuáles son los planes que ofrece Security Center? 
@@ -115,6 +127,10 @@ Sí. Si ha configurado el agente de Log Analytics para enviar datos a dos o más
 ### <a name="if-a-log-analytics-agent-reports-to-multiple-workspaces-is-the-500-mb-free-data-ingestion-available-on-all-of-them"></a>Si un agente de Log Analytics envía notificaciones a varias áreas de trabajo, ¿la ingesta de datos gratuita de 500 MB estará disponible en todas ellas?
 Sí. Si ha configurado el agente de Log Analytics para enviar datos a dos o más áreas de trabajo de Log Analytics diferentes (hospedaje múltiple), obtendrá una ingesta de datos gratuita de 500 MB. Se calcula por nodo, por área de trabajo notificada y por día, y está disponible para cada área de trabajo que tenga instaladas soluciones de seguridad o antimalware. Se le cobrarán los datos ingeridos por encima de 500 MB.
 
+### <a name="is-the-500-mb-free-data-ingestion-calculated-for-an-entire-workspace-or-strictly-per-machine"></a>¿Se calcula la ingesta de 500 MB de datos gratis para todo el área de trabajo o estrictamente por máquina?
+Obtendrá una ingesta de 500 MB de datos gratis al día para cada una de las máquinas conectadas al área de trabajo. Específicamente para tipos de datos de seguridad recopilados directamente por Azure Security Center.
+
+Estos datos son una tasa diaria promediada en todos los nodos. Por tanto, aunque algunas máquinas envíen 100 MB y otras 800 MB, si el total no supera el límite gratuito de **[número de máquinas] x 500 MB**, no se le cobrará ningún cargo adicional.
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este artículo se explican las opciones de precios de Security Center. Para obtener material relacionado, consulte:

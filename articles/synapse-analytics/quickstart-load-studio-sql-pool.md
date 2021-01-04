@@ -6,15 +6,15 @@ author: kevinvngo
 ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: quickstart
-ms.date: 11/16/2020
+ms.date: 12/11/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 312c57c103bf733bc72c5de1d22ab3239d5b5e96
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 86ef610af605c657868824eefe2e6e706f6963ac
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96484717"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97360193"
 ---
 # <a name="quickstart-bulk-loading-with-synapse-sql"></a>Inicio rápido: Carga masiva con Synapse SQL
 
@@ -39,26 +39,25 @@ Puede cargar datos de forma masiva fácilmente mediante grupos de SQL dedicados.
 
 ### <a name="steps"></a>Pasos
 
-1. Seleccione en el panel Source storage location (Ubicación de almacenamiento de origen) la cuenta de almacenamiento y el archivo o la carpeta desde donde se va a realizar la carga. El asistente intentará detectar automáticamente los archivos Parquet. Si no se puede confirmar el tipo de archivo Parquet, se usará de forma predeterminada el formato de texto delimitado (CSV).
+1. Seleccione en el panel Source storage location (Ubicación de almacenamiento de origen) la cuenta de almacenamiento y el archivo o la carpeta desde donde se va a realizar la carga. El asistente intentará detectar automáticamente archivos de Parquet, así como los archivos de texto delimitado (CSV), incluida la asignación de los campos de origen del archivo a los tipos de datos de SQL de destino adecuados. 
 
    ![Selección de la ubicación de origen](./sql/media/bulk-load/bulk-load-source-location.png)
 
-2. Seleccione la configuración del formato de archivo, incluida la cuenta de almacenamiento en la que desea escribir las filas rechazadas (archivo de error). Actualmente solo se admiten archivos .csv y Parquet.
+2. Seleccione la configuración del formato de archivo, que incluye la configuración de los errores, para cuando haya filas rechazadas durante el proceso de carga masiva. También puede seleccionar "Vista previa de los datos" para ver la forma en que la instrucción COPY analizará el archivo para ayudarle en la configuración del formato de archivo. Seleccione "Vista previa de los datos" cada vez que cambie la configuración del formato de archivo para ver cómo va a analizar el archivo la instrucción COPY con la configuración actualizada:
 
-    ![Seleccionar configuración de formato de archivo](./sql/media/bulk-load/bulk-load-file-format-settings.png)
-
-3. Puede seleccionar "Vista previa de los datos" para ver cómo va a analizar el archivo la instrucción COPY para ayudarle en la configuración del formato de archivo. Seleccione "Vista previa de los datos" cada vez que cambie la configuración del formato de archivo para ver cómo va a analizar el archivo la instrucción COPY con la configuración actualizada: ![Vista previa de los datos](./sql/media/bulk-load/bulk-load-file-format-settings-preview-data.png) 
+   ![Vista previa de los datos](./sql/media/bulk-load/bulk-load-file-format-settings-preview-data.png) 
 
 > [!NOTE]  
 >
 > - El Asistente para carga masiva no admite la vista previa de datos con terminadores de campo de varios caracteres. Si se especifica un terminador de campo de varios caracteres, el Asistente para carga masiva obtendrá una vista previa de los datos de una sola columna. 
-> - La especificación de terminadores de fila de varios caracteres se especifica en la instrucción COPY; sin embargo, esto no se admite en el Asistente para carga masiva en el que se producirá un error.
+> - Si se selecciona "Inferir nombres de columna", el Asistente para carga masiva analizará los nombres de las columnas de la primera fila especificada por el campo "Primera fila". El Asistente para carga masiva incrementará automáticamente en 1 el valor de FIRSTROW en la instrucción COPY para omitir esta fila de encabezado. 
+> - La especificación de terminadores de fila de varios caracteres se admite en la instrucción COPY; sin embargo, no se admite en el Asistente para carga masiva, donde se generará un error.
 
-4. Seleccione el grupo de SQL dedicado que va a usar para cargar, incluido si la carga será para una tabla existente o una nueva: ![Seleccionar ubicación de destino](./sql/media/bulk-load/bulk-load-target-location.png)
+3. Seleccione el grupo de SQL dedicado que va a usar para cargar, incluido si la carga será para una tabla existente o una nueva: ![Seleccionar ubicación de destino](./sql/media/bulk-load/bulk-load-target-location.png)
+4. Seleccione "Configure column mapping" (Configurar asignación de columnas) para asegurarse de que tiene la asignación de columnas adecuada. Tenga en cuenta que los nombres de las columnas se detectarán automáticamente si se ha habilitado "Inferir nombres de columna". En el caso de las nuevas tablas, la configuración de la asignación de columnas es fundamental para actualizar los tipos de datos de la columna de destino:
 
-5. Seleccione "Configure column mapping" (Configurar asignación de columnas) para asegurarse de que tiene la asignación de columnas adecuada. Tenga en cuenta que los nombres de las columnas se detectarán automáticamente si se ha habilitado "Inferir nombres de columna". En el caso de las nuevas tablas, la configuración de la asignación de columnas es fundamental para actualizar los tipos de datos de la columna de destino: ![Configurar la asignación de columnas](./sql/media/bulk-load/bulk-load-target-location-column-mapping.png)
-
-6. Seleccione "Abrir script" y se generará un script de T-SQL con la instrucción COPY para cargar desde un lago de datos: ![Abrir el script SQL](./sql/media/bulk-load/bulk-load-target-final-script.png)
+   ![Configuración de la asignación de columnas](./sql/media/bulk-load/bulk-load-target-location-column-mapping.png)
+5. Seleccione "Abrir script" y se generará un script de T-SQL con la instrucción COPY para cargar desde un lago de datos: ![Abrir el script SQL](./sql/media/bulk-load/bulk-load-target-final-script.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

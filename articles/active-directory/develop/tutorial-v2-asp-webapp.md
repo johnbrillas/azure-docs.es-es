@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: 0dad7add63102d462a2111f1ecf12ae43dae123c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4dca1fa0e823b482044d35f98412187af2fa72ed
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95996192"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507768"
 ---
 # <a name="tutorial-add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Tutorial: Adición del inicio de sesión en Microsoft a una aplicación web ASP.NET
 
@@ -373,15 +373,16 @@ Para registrar la aplicación y agregar la información de registro de la aplica
    1. En el Explorador de soluciones, seleccione el proyecto y vea la ventana Propiedades (si no la ve, presione F4).
    1. Cambie SSL habilitado a `True`.
    1. Haga clic con el botón derecho en el proyecto en Visual Studio, seleccione **Propiedades** y, después, seleccione la pestaña **Web**. En la sección **Servidores**, cambie el valor **URL del proyecto** a **Dirección URL de SSL**.
-   1. Copie la URL de SSL. En el siguiente paso, agregará esta dirección URL a la lista de direcciones URL de redireccionamiento del portal de registro correspondiente.<br/><br/>![Propiedades de proyecto](media/active-directory-develop-guidedsetup-aspnetwebapp-configure/vsprojectproperties.png)<br />
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) mediante una cuenta profesional o educativa, o bien una cuenta personal de Microsoft.
-1. Si la cuenta proporciona acceso a más de un inquilino, haga clic en la cuenta en la esquina superior derecha y establezca la sesión del portal en el inquilino de Azure AD que desee.
-1. Vaya a la página [Registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908) de la plataforma de identidad de Microsoft para desarrolladores.
-1. Seleccione **Nuevo registro**.
-1. Cuando aparece la página **Registrar una aplicación**, escriba la información de registro de la aplicación:
-   1. En la sección **Nombre**, escriba un nombre de aplicación significativo que se mostrará a los usuarios de la aplicación, como **ASPNET-Tutorial**.
-   1. Agregue la dirección URL de SSL que copió de Visual Studio en el paso 1 (por ejemplo, `https://localhost:44368/`) en **URL de respuesta** y seleccione **Registrar**.
-1. Seleccione el menú **Autenticación**, seleccione **Tokens de id.** en **Concesión implícita** y, después, seleccione **Guardar**.
+   1. Copie la URL de SSL. En el siguiente paso, agregará esta dirección URL a la lista de URI de redirección del portal de registro correspondiente.<br/><br/>![Propiedades de proyecto](media/active-directory-develop-guidedsetup-aspnetwebapp-configure/vsprojectproperties.png)<br />
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Si tiene acceso a varios inquilinos, use el filtro **Directorio + suscripción** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: del menú superior para seleccionar el inquilino en el que desea registrar una aplicación.
+1. Busque y seleccione **Azure Active Directory**.
+1. En **Administrar**, seleccione **Registros de aplicaciones** >  y, luego, **Nuevo registro**.
+1. Escriba el **Nombre** de la aplicación, por ejemplo `ASPNET-Tutorial`. Los usuarios de la aplicación pueden ver este nombre, el cual se puede cambiar más tarde.
+1. Agregue la dirección URL de SSL que copió de Visual Studio en el paso 1 (por ejemplo, `https://localhost:44368/`) en **URI de redirección**.
+1. Seleccione **Registrar**.
+1. En **Administrar**, seleccione **Autenticación**.
+1. En la sección **Concesión implícita**, seleccione **Tokens de id.** y, luego, elija **Guardar**.
 1. Agregue lo siguiente en el archivo web.config, que se encuentra en la carpeta raíz, en la sección `configuration\appSettings`:
 
     ```xml

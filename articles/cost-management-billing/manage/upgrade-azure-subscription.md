@@ -8,15 +8,15 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 12/04/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1e758a886e32c5a3f7cd3c744ac451b948a74802
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8d348c6a26404f7adbf89cd107a1f0ad0a1cacd5
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91308867"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590841"
 ---
 # <a name="upgrade-your-azure-free-account-or-azure-for-students-starter-account"></a>Actualización de una cuenta gratuita de Azure o de una cuenta de Microsoft Azure for Students Starter
 
@@ -28,46 +28,36 @@ Si se ha suscrito a una [cuenta de Microsoft Azure for Students Starter](https:/
 
 ## <a name="upgrade-your-azure-free-account"></a>Actualización de una cuenta gratuita de Azure
 
-Cuando actualice su cuenta gratuita de Azure, conservará el crédito restante durante los 30 días siguientes al de la suscripción. Por ejemplo: Si se registró el 1 de noviembre y se actualiza el 5 de noviembre, los créditos no usados estarán disponibles hasta el 30 de noviembre. También tiene acceso a servicios gratuitos durante los 12 meses posteriores a la actualización.
+Cuando actualice su cuenta gratuita de Azure, conservará el crédito restante durante los 30 días siguientes al de la suscripción. Por ejemplo, si se registró el 1 de noviembre y se actualiza el 5 de noviembre, los créditos no usados estarán disponibles hasta el 30 de noviembre. También tiene acceso a servicios gratuitos durante los 12 meses posteriores a la actualización.
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com)
-1. Busque **Suscripciones**.
-
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Busque **Suscripciones**.  
     ![Captura de pantalla que muestra la búsqueda.](./media/upgrade-azure-subscription/search-subscriptions-ibiza.png)
-
 1. Seleccione la suscripción que se creó cuando se registró para obtener la cuenta gratuita de Azure.
-1. En la información general de la suscripción, haga clic en el botón **Actualizar suscripción** de la barra de comandos. Si no ve el botón para actualizar la suscripción, haga clic en el banner de actualización de la parte superior de la página.
-
+1. En la información general de la suscripción, seleccione **Actualizar suscripción** en la barra de comandos. Si no ve el botón para actualizar la suscripción, seleccione el banner de actualización de la parte superior de la página.  
     ![Captura de pantalla que muestra el botón Actualizar](./media/upgrade-azure-subscription/free-upgrade-button.png)
-
 1. Si no tiene un método de pago para la cuenta, se le pedirá que lo agregue.
-
 1. Es posible que deba escribir un número de teléfono para comprobar la identidad.
-
-1. Escriba un nombre para la suscripción.
-
+1. Escriba un nombre para la suscripción.  
      ![Captura de pantalla que muestra el nombre](./media/upgrade-azure-subscription/free-upgrade-name.png)
-
 1. Elija un plan de soporte técnico para su suscripción. Para más información sobre los planes de soporte técnico, consulte los [planes de soporte técnico de Azure](https://azure.microsoft.com/us/support/plans/).
-
-1. Haga clic en **Actualizar**.
+1. Seleccione **Actualizar**.
 
 <a id="student"></a>
 
 ## <a name="upgrade-your-azure-for-students-starter-account"></a>Actualización de una cuenta de Azure for Students Starter
 
+Use la siguiente información para actualizar la cuenta de Microsoft Azure for Students Starter.
+
 ### <a name="upgrade-to-an-azure-free-account"></a>Actualización a una cuenta gratuita de Azure
 
 Si es apto, use los siguientes pasos para realizar la actualización a una cuenta gratuita de Azure.
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com)
-1. Busque **Suscripciones**.
-
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Busque **Suscripciones**.  
     ![Captura de pantalla que muestra la búsqueda.](./media/upgrade-azure-subscription/search-subscriptions-ibiza.png)
-
 1. Seleccione la suscripción que se creó cuando se registró para obtener la cuenta de Microsoft Azure for Students Starter.
-1. En la información general de la suscripción, haga clic en **Actualizar suscripción** en la barra de comandos.
-
+1. En la información general de la suscripción, seleccione **Actualizar suscripción** en la barra de comandos.  
     ![Captura de pantalla que muestra el botón de actualización para estudiantes](./media/upgrade-azure-subscription/student-upgrade-ibiza.png)
 
 ### <a name="upgrade-to-pay-as-you-go-rates"></a>Actualización a tarifas de pago por uso
@@ -76,7 +66,7 @@ Si es apto, use los siguientes pasos para realizar la actualización a una cuent
 1. Es posible que deba escribir un número de teléfono para comprobar la identidad.
 1. Escriba un nombre para la suscripción.
 1. Elija un plan de soporte técnico para su suscripción. Para más información sobre los planes de soporte técnico, consulte los [planes de soporte técnico de Azure](https://azure.microsoft.com/us/support/plans/).
-1. Haga clic en **Actualizar**.
+1. Seleccione **Actualizar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

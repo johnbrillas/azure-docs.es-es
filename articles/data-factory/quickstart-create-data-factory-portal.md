@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: quickstart
-ms.date: 11/09/2020
+ms.date: 12/14/2020
 ms.author: jingwang
-ms.openlocfilehash: 9d3c3dc3b9a83973e41bf5d7dd204316508c2cb4
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 76a490ed28f940620db7835c4cec145740f48503
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "96013401"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509026"
 ---
 # <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Inicio rápido: Creación de una factoría de datos con la interfaz de usuario de Azure Data Factory 
 
@@ -45,42 +45,42 @@ Ver este vídeo le ayudará a conocer la interfaz de usuario de Data Factory:
 1. Seleccione **Integración** y, a continuación, seleccione **Data Factory**. 
    
    ![Selección de la factoría de datos en el panel Nuevo](./media/doc-common-process/new-azure-data-factory-menu.png)
-1. En la página **Nueva factoría de datos**, escriba **ADFTutorialDataFactory** en **Nombre**. 
+1. En la página **Create Data Factory** (Crear factoría de datos), en la pestaña **Aspectos básicos**, seleccione su **suscripción** de Azure en la que desea crear la factoría de datos.
+1. Para **Grupo de recursos**, realice uno de los siguientes pasos:
+
+    a. Seleccione un grupo de recursos existente de la lista desplegable.
+
+    b. Seleccione **Crear nuevo** y escriba el nombre de un nuevo grupo de recursos.
+    
+    Para más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/management/overview.md). 
+
+1. En **Región**, seleccione la ubicación de la factoría de datos.
+
+   En la lista solo se muestran las ubicaciones que admite Data Factory y dónde se almacenarán los metadatos de Azure Data Factory. Los almacenes de datos asociados (como Azure Storage y Azure SQL Database) y los procesos (como Azure HDInsight) que usa Data Factory se pueden ejecutar en otras regiones.
  
+1. En **Nombre**, escriba **ADFTutorialDataFactory**.
    El nombre de la instancia de Azure Data Factory debe ser *único de forma global*. Si ve el siguiente error, cambie el nombre de la factoría de datos (por ejemplo, **&lt;suNombre&gt;ADFTutorialDataFactory**) e intente crearlo de nuevo. Para conocer las reglas de nomenclatura de los artefactos de Data Factory, consulte el artículo [Azure Data Factory: reglas de nomenclatura](naming-rules.md).
   
    ![Mensaje de error cuando un nombre no está disponible](./media/doc-common-process/name-not-available-error.png)
-1. En **Suscripción**, seleccione la suscripción de Azure donde desea crear la factoría de datos. 
-1. Para **Grupo de recursos**, realice uno de los siguientes pasos:
-     
-   - Seleccione en primer lugar **Usar existente** y después un grupo de recursos de la lista. 
-   - Seleccione **Crear nuevo** y escriba el nombre de un grupo de recursos.   
-         
-   Para obtener más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/management/overview.md).  
+
 1. En **Versión**, seleccione **V2**.
-1. En **Ubicación**, seleccione la ubicación de la factoría de datos.
 
-   En la lista solo se muestran las ubicaciones que admite Data Factory y dónde se almacenarán los metadatos de Azure Data Factory. Los almacenes de datos asociados (como Azure Storage y Azure SQL Database) y los procesos (como Azure HDInsight) que usa Data Factory se pueden ejecutar en otras regiones.
+1. Seleccione **Siguiente: Configuración de Git** y, después, seleccione la casilla **Configurar Git más adelante**.
 
-1. Seleccione **Siguiente: Configuración de Git** y, a continuación, seleccione **Configurar Git más adelante**.
+1. Seleccione **Revisar y crear** y elija **Crear** una vez superada la validación. Una vez que finalice la creación, seleccione **Ir al recurso** para ir a la página de **Data Factory**. 
 
-1. Seleccione **Crear**. Una vez que finalice la creación, seleccione **Ir al recurso** para ir a la página de **Data Factory**. 
-
-1. Seleccione el icono **Author & Monitor** (Creación y supervisión) para iniciar la aplicación de interfaz de usuario de Azure Data Factory en una pestaña independiente.
+1. Seleccione el icono **Author & Monitor** (Creación y supervisión) para iniciar la aplicación de interfaz de usuario de Azure Data Factory en una pestaña independiente del explorador web.
    
    ![Página principal de la factoría de datos, con el icono Author & Monitor (Creación y supervisión)](./media/doc-common-process/data-factory-home-page.png)
    
    > [!NOTE]
    > Si ve que el explorador web se bloquea en "Autorizando", desactive la casilla **Bloquear los datos de sitios y las cookies de terceros**. También puede mantenerla seleccionada, crear una excepción para **login.microsoftonline.com** y, a continuación, intentar abrir la aplicación de nuevo.
    
-1. En la página de **introducción**, cambie a la pestaña **Creador** del panel izquierdo. 
-
-    ![Página de introducción](./media/doc-common-process/get-started-page-author-button.png)
 
 ## <a name="create-a-linked-service"></a>Creación de un servicio vinculado
 En este procedimiento, creará un servicio vinculado para vincular la cuenta de Azure Storage con la factoría de datos. El servicio vinculado tiene la información de conexión que usa el servicio Data Factory en el entorno de tiempo de ejecución para conectarse a él.
 
-1. Abra la [pestaña Administrar](./author-management-hub.md) en el panel izquierdo.
+1. En la página de la interfaz de usuario de Azure Data Factory, abra la pestaña [**Administrar**](./author-management-hub.md) del panel izquierdo.
 
 1. En la página Servicios vinculados, seleccione **+Nuevo** para crear un nuevo servicio vinculado.
 
@@ -109,10 +109,13 @@ El conjunto de datos de entrada representa los datos de origen en la carpeta de 
 El conjunto de datos de salida representa los datos que se copian en el destino. En la definición del conjunto de datos de salida, se especifica el contenedor de blobs (**adftutorial**), la carpeta (**output**) y el archivo en el que se copian los datos. Cada ejecución de una canalización tiene un identificador único asociado a ella. Puede tener acceso a este identificador mediante el uso de la variable del sistema **RunId**. El nombre del archivo de salida se evalúa dinámicamente según el identificador de ejecución de la canalización.   
 
 En la configuración del servicio vinculado se especifica la cuenta de Azure Storage que contiene los datos de origen. En la configuración del conjunto de datos de origen se especifica dónde residen exactamente los datos de origen (contenedor de blobs, carpeta y archivo). En la configuración del conjunto de datos receptor se especifica dónde se copian los datos (contenedor de blobs, carpeta y archivo). 
- 
+
+1. Seleccione la pestaña **Autor** en el panel izquierdo.
+
 1. Haga clic en el botón **+** (Más) y seleccione **Dataset** (Conjunto de datos).
 
    ![Menú para crear un conjunto de datos](./media/quickstart-create-data-factory-portal/new-dataset-menu.png)
+
 1. En la página **Nuevo conjunto de datos**, seleccione **Azure Blob Storage** y después **Continuar**. 
 
 1. En la página **Seleccionar formato**, elija el tipo de formato de los datos y, después, seleccione **Continuar**. En este caso, seleccione **Binario** al copiar archivos tal cual sin analizar el contenido.
@@ -163,7 +166,7 @@ En este procedimiento, va a crear y comprobar una canalización con una activida
 
 1. Cambie a la pestaña **Sink** (Receptor) en la configuración de la actividad de copia y seleccione **OutputDataset** para **Sink Dataset** (Conjunto de datos receptor).
 
-1. Haga clic en **Validar** en la barra de herramientas de la canalización situada en la parte superior del lienzo para validar la configuración de la canalización. Confirme que la canalización se ha validado correctamente. Para cerrar la salida de la validación, haga clic en el botón **>>** (fecha derecha). 
+1. Haga clic en **Validar** en la barra de herramientas de la canalización situada en la parte superior del lienzo para validar la configuración de la canalización. Confirme que la canalización se ha validado correctamente. Para cerrar la salida de la validación, seleccione el botón Validación en la esquina superior derecha. 
 
    ![Validación de una canalización](./media/quickstart-create-data-factory-portal/pipeline-validate.png)
 
@@ -185,7 +188,7 @@ En este procedimiento se implementan las entidades (servicios vinculados, conjun
 
     ![Publicar todo](./media/quickstart-create-data-factory-portal/publish-all.png)
 
-1. Para desencadenar la canalización de forma manual, seleccione **Agregar desencadenador** en la barra de herramientas de la canalización y seleccione **Trigger Now** (Desencadenar ahora). En la página **Ejecución de la canalización**, seleccione **Finalizar**.
+1. Para desencadenar la canalización de forma manual, seleccione **Agregar desencadenador** en la barra de herramientas de la canalización y seleccione **Trigger Now** (Desencadenar ahora). En la página **Ejecución de la canalización**, seleccione **Aceptar**.
 
 ## <a name="monitor-the-pipeline"></a>Supervisar la canalización
 

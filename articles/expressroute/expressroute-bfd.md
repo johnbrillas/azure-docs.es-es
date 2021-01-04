@@ -5,35 +5,35 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: article
-ms.date: 11/1/2018
+ms.date: 12/14/2020
 ms.author: duau
-ms.openlocfilehash: fd1cad4031d83fd0e17286bfaabb77aa746b646a
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 254f5909e7ed8db4dc18ade2677a3213b268cf41
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92202334"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97511270"
 ---
 # <a name="configure-bfd-over-expressroute"></a>Configuración de BFD a través de ExpressRoute
 
-ExpressRoute admite la detección de reenvío bidireccional (BFD) a través del emparejamiento privado y el emparejamiento de Microsoft. Al habilitar BFD a través de ExpressRoute, puede acelerar la detección de errores de vínculo entre los dispositivos de Microsoft Enterprise Edge (MSEE) y los enrutadores en los que finaliza el circuito de ExpressRoute (CE/PE). Puede finalizar ExpressRoute a través de dispositivos de enrutamiento del lado del cliente o dispositivos de enrutamiento perimetrales asociados (si se ha completado con el servicio administrado de conexión de nivel 3). Este documento explica en detalle la necesidad de BFD y cómo habilitar BFD a través de ExpressRoute.
+ExpressRoute admite la detección de reenvío bidireccional (BFD) a través del emparejamiento privado y el emparejamiento de Microsoft. Al habilitar BFD en ExpressRoute, puede acelerar la detección de errores de los vínculos entre los dispositivos perimetrales de Microsoft Enterprise (MSEE) y los enrutadores que el circuito de ExpressRoute haya configurado (CE/PE). Puede configurar ExpressRoute a través de los dispositivos de enrutamiento perimetrales o los dispositivos de enrutamiento perimetrales asociados (si ha optado por usar el servicio administrado de conexión de nivel 3). Este documento explica en detalle la necesidad de BFD y cómo habilitar BFD a través de ExpressRoute.
 
 ## <a name="need-for-bfd"></a>Necesidad de BFD
 
 El siguiente diagrama muestra la ventaja de habilitar BFD a través del circuito de ExpressRoute: [![1]][1]
 
-Puede habilitar el circuito de ExpressRoute mediante conexiones de nivel 2 o de nivel 3 administradas. En cualquier caso, si hay uno o varios dispositivos de nivel 2 en la ruta de acceso de conexión de ExpressRoute, la responsabilidad de detectar los errores de vínculo en la ruta de acceso es del BGP superpuesto.
+Puede habilitar el circuito de ExpressRoute mediante conexiones de nivel 2 o de nivel 3 administradas. En ambos casos, si hay más de un dispositivo de nivel 2 en la ruta de acceso de conexión de ExpressRoute, la responsabilidad de detectar los errores de los vínculos en la ruta de acceso es de la sesión BGP superpuesto.
 
-En los dispositivos MSEE, BGP keepalive y el tiempo de espera generalmente se configuran como 60 y 180 segundos respectivamente. Por lo tanto, después de un error de vínculo pueden pasar hasta tres minutos hasta que se detecta cualquier error del vínculo y se cambia el tráfico a una conexión alternativa.
+En los dispositivos MSEE, el protocolo de puerta de enlace de borde para mantener la conexión y de tiempo de espera, generalmente se configura en 60 y 180 segundos respectivamente. Por esa razón, cuando se produce un error de vínculo, el proceso puede tardar hasta tres minutos en detectar cualquier error de vínculo y cambiar el tráfico a una conexión alternativa.
 
-Puede controlar los temporizadores BGP mediante una configuración con valores inferiores de BGP keepalive y tiempo de espera en el dispositivo de emparejamiento perimetral de cliente. Si los temporizadores BGP no coinciden en los dos dispositivos de emparejamiento, la sesión BGP entre los pares utilizará el valor inferior del temporizador. BGP keepalive se puede establecer en un valor tan bajo como tres segundos y el tiempo de espera en unos diez segundos. De todas formas, es preferible no establecer los temporizadores BGP de forma extrema, ya que el protocolo intensifica el proceso.
+Puede controlar los temporizadores de BGP mediante una configuración con valores inferiores de BGP para mantener la conexión y de tiempo de espera en el dispositivo de emparejamiento perimetral. Si los temporizadores de BGP no son los mismos entre los dos dispositivos de emparejamiento, la sesión BGP se establecerá con el valor de hora más bajo. El tipo de BGP para mantener la conexión se puede establecer con un valor tan bajo como tres segundos, y el de tipo de tiempo de espera, en unos diez segundos. Sin embargo, no se recomienda establecer un temporizador de BGP demasiado agresivo, ya que el protocolo requiere un uso intensivo del proceso.
 
 En este escenario, BFD puede ayudar. BFD proporciona detección de errores de vínculo de baja sobrecarga en un intervalo de tiempo de subsegundos. 
 
 
 ## <a name="enabling-bfd"></a>Habilitación del BFD
 
-BFD está configurado de forma predeterminada en todas las recién creadas interfaces de emparejamiento privadas de ExpressRoute en los MSEE. Por lo tanto, para habilitar BFD, solo tiene que configurar BFD en sus CE/PE (tanto en los dispositivos principales como en los secundarios). La configuración de BFD es un proceso de dos pasos: tiene que configurar BFD en la interfaz y luego vincularlo a la sesión BGP.
+BFD está configurado de forma predeterminada en todas las recién creadas interfaces de emparejamiento privadas de ExpressRoute en los MSEE. Por lo tanto, para habilitar BFD, solo tiene que configurar BFD en los dispositivos principal y secundario. Tenga en cuenta que la configuración de BFD es un proceso de dos pasos. Tiene que configurar BFD en la interfaz y luego vincularlo a la sesión de BGP.
 
 A continuación se muestra un ejemplo de configuración de CE/PE (con Cisco IOS XE). 
 
@@ -62,10 +62,10 @@ router bgp 65020
 
 ## <a name="bfd-timer-negotiation"></a>Negociación de temporizador BFD
 
-Entre pares BFD, el más lento de los dos pares determina la velocidad de transmisión. Los intervalos de transmisión y recepción de los MSEE BFD se establecen en 300 milisegundos. En determinados escenarios, el intervalo puede establecerse en un valor superior a 750 milisegundos. Si se configuran valores más altos, se puede forzar a estos intervalos a ser más largos; pero no se puede hacer que sean más cortos.
+Entre pares BFD, el más lento de los dos pares determina la velocidad de transmisión. Los intervalos de transmisión y recepción de los MSEE BFD se establecen en 300 milisegundos. En determinados escenarios, el intervalo puede establecerse en un valor superior a 750 milisegundos. Al configurar un valor mayor, puede forzar que estos intervalos sean más largos, pero no es posible hacerlos más cortos.
 
 >[!NOTE]
->Si ha configurado circuitos ExpressRoute con redundancia geográfica o usa la conectividad VPN de IPSec de sitio a sitio como copia de seguridad, habilitar BFD ayudaría a realizar la conmutación por error más rápido después de un error de conectividad de ExpressRoute. 
+>Si ha configurado circuitos de ExpressRoute con redundancia geográfica o usa la conectividad VPN de IPSec de sitio a sitio como copia de seguridad, habilitar BFD le permitirá realizar la conmutación por error más rápido después de que se haya producido un error de conectividad de ExpressRoute. 
 >
 
 ## <a name="next-steps"></a>Pasos siguientes

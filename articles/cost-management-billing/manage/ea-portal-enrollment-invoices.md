@@ -3,18 +3,18 @@ title: Facturas de inscripciones de Azure Enterprise
 description: En este artículo se explica cómo administrar y actuar en su factura de Azure Enterprise.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/23/2020
+ms.date: 12/09/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.custom: contperfq1
-ms.openlocfilehash: 57ada2ca760ffff2124582c31fdd095d04d4375f
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: c64127f7ebbb416d9dfebb5e417cd27d51697665
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410975"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97030729"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Facturas de inscripciones de Azure Enterprise
 
@@ -39,18 +39,14 @@ Para ver el uso detallado para cuentas específicas, descargue el informe de det
 Para ver los informes y gráficos del resumen de uso:
 
 1. Inicie sesión en Azure Enterprise Portal.
-
 1. Seleccione un plazo de pago por adelantado.
-
-   Para cambiar el rango de fechas de **Resumen de uso** , puede alternar entre **M** (mensual) y **C** (personalizado) en la parte superior derecha de la página y, a continuación, especificar fechas de inicio y de finalización personalizadas.
-
+   Para cambiar el rango de fechas de **Resumen de uso**, puede alternar entre **M** (mensual) y **C** (personalizado) en la parte superior derecha de la página y, a continuación, especificar fechas de inicio y de finalización personalizadas.  
    ![Crear y ver el resumen de uso y descargar informes en la vista personalizada](./media/ea-portal-enrollment-invoices/create-ea-view-usage-summary-and-download-reports-custom-view.png)
 1. Para ver detalles adicionales, puede seleccionar un periodo o un mes en el gráfico.
-
    - El gráfico muestra el uso mes a mes con un desglose del uso realizado, el cargo extra por los servicios, los cargos facturados por separado y los cargos por Azure Marketplace.
    - En el mes seleccionado, puede usar los campos debajo del gráfico para filtrar por departamentos, cuentas y suscripciones.
    - Puede alternar entre **Charge by Services** (Cargo por servicios) y **Charge by Hierarchy** (Cargo por jerarquía).
-   - Expanda las secciones pertinentes para ver los detalles de **Servicio de Azure** , **Gastos facturados por separado** y **Azure Marketplace**.
+   - Expanda las secciones pertinentes para ver los detalles de **Servicio de Azure**, **Gastos facturados por separado** y **Azure Marketplace**.
 
 Consulte este vídeo para conocer cómo ver el uso:
 
@@ -72,7 +68,7 @@ Para descargar informes:
 3. Seleccione **Download** (Descargar) junto al informe del mes.
 
    > [!NOTE]
-   > Puede haber una latencia de hasta cinco días entre la fecha en que se realizó el uso y el momento en que el uso se muestra en los informes.
+   > Puede haber una latencia de hasta 72 horas entre la fecha en que se realizó el uso y el momento en que el uso se muestra en los informes.
    >
    > Los usuarios que descarguen archivos CSV con Safari en Excel pueden encontrarse con errores de formato. Para evitar errores, abra el archivo con un editor de texto.
 
@@ -142,20 +138,20 @@ El intervalo de facturación depende de cómo decida hacer sus compras de prepag
 
 La fecha en que reciba la factura de uso por encima del límite depende de la fecha de inicio de su inscripción y de su configuración:
 
-- **Inscripciones directas con una fecha de inicio anterior al 1 de mayo de 2018** :
+- **Inscripciones directas con una fecha de inicio anterior al 1 de mayo de 2018**:
   - En el caso de un Contrato Enterprise (EA) directo, se encuentra en un período de facturación anual para los servicios de Azure, excepto los servicios de Azure Marketplace. El período de facturación se basa en la fecha de aniversario, la fecha en la que el contrato entró en vigor.
   - Si supera el 150 % del umbral de su prepago de Azure de EA, se convertirá automáticamente en un período de facturación trimestral basado en la fecha de su aniversario. También recibirá una factura por uso por encima del límite de los servicios de Azure.
   - Si no supera el 150 % del umbral del prepago de Azure, la inscripción permanecerá en un período de facturación anual. La factura de uso por encima del límite se recibirá al final del año del prepago.
 
-- **Inscripciones directas con una fecha de inicio posterior al 1 de mayo de 2018** :
+- **Inscripciones directas con una fecha de inicio posterior al 1 de mayo de 2018**:
   - Las facturas de consumo y cargos de Azure facturados por separado tendrán un período de facturación mensual.
   - Los cargos que no cubra el prepago de Azure se deben como pago de uso por encima del límite.  
 
-- **Inscripciones indirectas con una inscripción iniciada antes del 1 de mayo de 2018** :
+- **Inscripciones indirectas con una inscripción iniciada antes del 1 de mayo de 2018**:
 
   Si es cliente de un Contrato Enterprise (EA) indirecto con una fecha de inicio anterior al 1 de mayo de 2018, se encuentra en un período de facturación trimestral. El partner de canal (CP) le factura directamente.  
 
-- **Inscripciones indirectas con una fecha de inicio posterior al 1 de mayo de 2018** :
+- **Inscripciones indirectas con una fecha de inicio posterior al 1 de mayo de 2018**:
 
   Se encuentra en un período de facturación mensual.  
 
@@ -264,7 +260,7 @@ Todo el uso facturado se basa en minutos convertidos a horas parciales, y no en 
 
 ### <a name="average-daily-consumption"></a>Consumo diario medio
 
-Algunos servicios tienen un precio mensual, pero el uso se informa diariamente. En estos casos, el uso se evalúa una vez al día, se divide entre 31 y se suma según el número de días de ese mes de facturación. Por lo tanto, las tarifas nunca son superiores a lo previsto para ningún mes y son ligeramente inferiores para los meses con menos de 31 días.
+Algunos servicios tienen un precio mensual, pero el uso se informa diariamente. En estos casos, el uso se evalúa una vez al día, se divide entre 31 y se suma según el número de días de ese mes de facturación. Por lo tanto, las tarifas nunca son superiores a lo previsto en ningún mes y son ligeramente inferiores en los meses con menos de 31 días.
 
 ### <a name="compute-hours-conversion"></a>Conversión de horas de proceso
 

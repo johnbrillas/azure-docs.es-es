@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Ejecución de experimentos mediante el aprendizaje automático automatizado de Azure'
-description: Tutorial sobre cómo ejecutar experimentos de aprendizaje automático mediante Apache Spark y el aprendizaje automático automatizado de Azure
+title: 'Tutorial: Entrenamiento de un modelo en Python con AutoML'
+description: Tutorial para entrenar un modelo de aprendizaje automático en Python en Azure Synapse mediante Apache Spark y el aprendizaje automático automatizado.
 services: synapse-analytics
 author: midesa
 ms.service: synapse-analytics
@@ -9,14 +9,14 @@ ms.subservice: machine-learning
 ms.date: 06/30/2020
 ms.author: midesa
 ms.reviewer: jrasnick
-ms.openlocfilehash: b2fbc74304cdb71d9cb3e1ea476af8c92eb99b7e
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: abb7266d90171abc628739aa8f50f1760a32f68d
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96458834"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093339"
 ---
-# <a name="tutorial-run-experiments-using-azure-automated-ml-and-apache-spark"></a>Tutorial: Ejecución de experimentos mediante el aprendizaje automático automatizado de Azure y Apache Spark
+# <a name="tutorial-train-a-machine-learning-model-in-python-in-azure-synapse-with-apache-spark-and-automated-ml"></a>Tutorial: Entrenamiento de un modelo de aprendizaje automático en Python en Azure Synapse mediante Apache Spark y el aprendizaje automático automatizado
 
 Azure Machine Learning es un entorno en la nube que permite entrenar, implementar, automatizar, administrar y realizar un seguimiento de los modelos de aprendizaje automático. 
 
@@ -155,11 +155,11 @@ El código siguiente obtiene el área de trabajo existente y el almacén de dato
 import pandas 
 from azureml.core import Dataset
 
-# Get the AML Default Datastore
+# Get the Azure Machine Learning Default Datastore
 datastore = ws.get_default_datastore()
 training_pd = training_data.toPandas().to_csv('training_pd.csv', index=False)
 
-# Convert into AML Tabular Dataset
+# Convert into Azure Machine Learning Tabular Dataset
 datastore.upload_files(files = ['training_pd.csv'],
                        target_path = 'train-dataset/tabular/',
                        overwrite = True,
@@ -168,7 +168,7 @@ dataset_training = Dataset.Tabular.from_delimited_files(path = [(datastore, 'tra
 ```
 ![Imagen del conjunto de datos cargado.](./media/azure-machine-learning-spark-notebook/upload-dataset.png)
 
-## <a name="submit-an-automl-experiment"></a>Envío de un experimento de AutoML
+## <a name="submit-an-automated-ml-experiment"></a>Envío de un experimento de aprendizaje automático automatizado
 
 #### <a name="define-training-settings"></a>Definición de la configuración del entrenamiento
 1. Para enviar un experimento, es preciso defina los parámetros del mismo y la configuración de los modelos para el entrenamiento. [Aquí](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train) puede ver la lista completa de valores.
@@ -221,7 +221,7 @@ Cuando se haya completado el experimento, la salida devolverá detalles sobre la
 ![Captura de pantalla de la salida del modelo.](./media/azure-machine-learning-spark-notebook/model-output.png)
 
 > [!NOTE]
-> Tras el envío, el experimento de AutoML ejecutará varias iteraciones y tipos de modelo. Normalmente, esta ejecución tardará entre 1 y 1,5 horas. 
+> Tras el envío, el experimento de aprendizaje automático automatizado ejecutará varias iteraciones y tipos de modelo. Normalmente, esta ejecución tardará entre 1 y 1,5 horas. 
 
 #### <a name="retrieve-the-best-model"></a>Recuperación del mejor modelo
 Para seleccionar el mejor modelo de las iteraciones, se usará la función ```get_output```, ya que devuelve la mejor ejecución y el modelo idóneo. El código siguiente recuperará la mejor ejecución y el modelo idóneo para cualquier métrica registrada o para una iteración concreta.
@@ -325,7 +325,7 @@ plt.show()
 Una vez que se haya validado el mejor modelo, se puede registrar en Azure Machine Learning. Después de registrar el modelo, puede descargar o implementar el modelo registrado y recibir todos los archivos que registró.
 
 ```python
-description = 'My AutoML Model'
+description = 'My automated ML model'
 model_path='outputs/model.pkl'
 model = best_run.register_model(model_name = 'NYCGreenTaxiModel', model_path = model_path, description = description)
 print(model.name, model.version)
@@ -336,7 +336,7 @@ NYCGreenTaxiModel 1
 ## <a name="view-results-in-azure-machine-learning"></a>Visualización de los resultados en Azure Machine Learning
 Por último, también puede acceder a los resultados de las iteraciones desplazándose al experimento en el área de trabajo de Azure Machine Learning. Aquí podrá profundizar en los detalles adicionales sobre el estado de la ejecución, los modelos que se han probado y otras métricas del modelo. 
 
-![Captura de pantalla del área de trabajo de Azure Machine Learning.](./media/azure-machine-learning-spark-notebook/azure-machine-learning-workspace.png)
+![Captura de pantalla de un área de trabajo de Azure Machine Learning.](./media/azure-machine-learning-spark-notebook/azure-machine-learning-workspace.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)

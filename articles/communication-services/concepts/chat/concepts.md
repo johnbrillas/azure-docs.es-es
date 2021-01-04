@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: f0e69e3f62d3b9e4debb5761d877dcdfdd246f60
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 077500e0188d1cc20864d436a2e2fd711b180702
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94886029"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97560243"
 ---
 # <a name="chat-concepts"></a>Conceptos de chat
 
@@ -46,8 +46,9 @@ Hay dos componentes principales en la arquitectura de chat: El 1) servicio de co
 
 El chat de Communication Services comparte los mensajes generados por el usuario, así como los mensajes generados por el sistema, denominados **actividades de conversación**. Las actividades de conversación se generan cuando se actualiza una conversación de chat. Cuando se llama a `List Messages` o `Get Messages` en una conversación de chat, el resultado contiene los mensajes de texto generados por el usuario, así como los mensajes del sistema en orden cronológico. De este modo, puede identificar cuándo se ha agregado o quitado un miembro, o cuándo se ha actualizado el tema de conversación. Los siguientes son los tipos de mensajes admitidos:  
 
- - `Text`: mensaje real creado y enviado por el usuario como parte de la conversación de chat. 
- - `ThreadActivity/AddMember`: mensaje del sistema que indica que uno o más miembros se han agregado a la conversación de chat. Por ejemplo:
+ - `Text`: un mensaje de texto sin formato creado y enviado por el usuario como parte de la conversación de chat. 
+ - `RichText/HTML`: un mensaje de texto con formato. Tenga en cuenta que los usuarios de Communication Services actualmente no pueden enviar mensajes de texto enriquecido. Este tipo de mensaje es compatible con los mensajes enviados desde usuarios a de Teams a usuarios de Communication Services en escenarios de interoperabilidad de Teams.
+ - `ThreadActivity/AddMember`: un mensaje del sistema que indica que se han agregado uno o varios miembros a la conversación de chat. Por ejemplo:
 
 ```xml
 
@@ -92,6 +93,30 @@ El chat de Communication Services comparte los mensajes generados por el usuario
 
 ```
 
+- `ThreadActivity/MemberJoined`: un mensaje del sistema que se genera cuando un usuario invitado se une al chat de una reunión de Teams. Los usuarios de Communication Services pueden unirse como invitado de chats de reunión de Teams. Por ejemplo:  
+```xml
+{ 
+  "id": "1606351443605", 
+  "type": "ThreadActivity/MemberJoined", 
+  "version": "1606347753409", 
+  "priority": "normal", 
+  "content": "{\"eventtime\":1606351443080,\"initiator\":\"8:orgid:8a53fd2b5ef150bau8442ad732a6ac6b_0e8deebe7527544aa2e7bdf3ce1b8733\",\"members\":[{\"id\":\"8:acs:9b665d83-8164-4923-ad5d-5e983b07d2d7_00000006-7ef9-3bbe-b274-5a3a0d0002b1\",\"friendlyname\":\"\"}]}", 
+  "senderId": " 19:meeting_curGQFTQ8tifs3EK9aTusiszGpkZULzNTTy2dbfI4dCJEaik@thread.v2", 
+  "createdOn": "2020-11-29T00:44:03.6950000Z" 
+} 
+```
+- `ThreadActivity/MemberLeft`: un mensaje del sistema que se genera cuando un usuario invitado sale del chat de una reunión. Los usuarios de Communication Services pueden unirse como invitado de chats de reunión de Teams. Por ejemplo: 
+```xml
+{ 
+  "id": "1606347703429", 
+  "type": "ThreadActivity/MemberLeft", 
+  "version": "1606340753429", 
+  "priority": "normal", 
+  "content": "{\"eventtime\":1606340755385,\"initiator\":\"8:orgid:8a53fd2b5u8150ba81442ad732a6ac6b_0e8deebe7527544aa2e7bdf3ce1b8733\",\"members\":[{\"id\":\"8:acs:9b665753-8164-4923-ad5d-5e983b07d2d7_00000006-7ef9-3bbe-b274-5a3a0d0002b1\",\"friendlyname\":\"\"}]}", 
+  "senderId": "19:meeting_9u7hBcYiADudn41Djm0n9DTVyAHuMZuh7p0bDsx1rLVGpnMk@thread.v2", 
+  "createdOn": "2020-11-29T23:42:33.4290000Z" 
+} 
+```
 - `ThreadActivity/TopicUpdate`: mensaje del sistema que indica que el tema se ha actualizado. Por ejemplo:
 
 ```xml

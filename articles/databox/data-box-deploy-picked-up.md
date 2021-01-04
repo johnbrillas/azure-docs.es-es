@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 11/19/2020
+ms.date: 12/10/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 28637f35294e9c70cbf0e96fb2cdcb1853d2ba39
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 9b40ff3a5c9ce2103cde00b26543711d4c05efb0
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94992733"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97028383"
 ---
 ::: zone target="docs"
 
@@ -47,7 +47,7 @@ En este tutorial, aprenderá sobre temas como:
 Antes de comenzar, asegúrese de que:
 
 * Ha completado el [Tutorial: Copia de datos a Azure Data Box y comprobación de](data-box-deploy-copy-data.md).
-* Los trabajos de copia se han completado y no aparece ningún error en la página **Conectar y copiar**. Preparación para el envío no se pueden ejecutar si los trabajos de copia están en curso o hay errores en la página **Conectar y copiar**.
+* Los trabajos de copia se han completado y no aparece ningún error en la página **Conectar y copiar**. **Preparación para el envío** no se puede ejecutar si los trabajos de copia están en curso o hay errores en la página **Conectar y copiar**.
 
 ## <a name="prepare-to-ship"></a>Preparación para el envío
 
@@ -63,8 +63,8 @@ Una vez completada la copia de datos, prepare y envíe el dispositivo. Cuando el
 
 Antes de prepararse para enviar, asegúrese de que los trabajos de copia se han completado.
 
-1. Vaya a la página **Preparar para enviar** de la interfaz de usuario web local y comience la preparación del envío. 
-2. Desactive el dispositivo desde la interfaz de usuario web local. Quite los cables del dispositivo. 
+1. Vaya a la página **Preparar para enviar** de la interfaz de usuario web local y comience la preparación del envío.
+2. Desactive el dispositivo desde la interfaz de usuario web local. Quite los cables del dispositivo.
 
 Los siguientes pasos vienen determinados por el lugar al que se vaya a devolver el dispositivo.
 
@@ -74,7 +74,7 @@ Los siguientes pasos vienen determinados por el lugar al que se vaya a devolver 
 
 ## <a name="ship-data-box-back"></a>Devolución de Data Box
 
-Asegúrese de que la copia de datos se ha completado en el dispositivo y que la ejecución **Preparación para el envío** se ha realizado correctamente. Según la región a dónde envíe el dispositivo, el procedimiento es distinto.
+Asegúrese de que la copia de datos en el dispositivo se ha completado y que la ejecución de **Preparación para el envío** se ha realizado correctamente. Según la región a la que envíe el dispositivo, el procedimiento es distinto.
 
 ::: zone-end
 
@@ -82,14 +82,14 @@ Asegúrese de que la copia de datos se ha completado en el dispositivo y que la 
 
 Realice los pasos siguientes si va a devolver el dispositivo en Estados Unidos, Canadá o Europa.
 
-1. Asegúrese de que el dispositivo está apagado y de que se han quitado los cables. 
+1. Asegúrese de que el dispositivo está apagado y de que se han quitado los cables.
 2. Enrolle y coloque de forma segura el cable de alimentación que se proporcionó junto con el dispositivo en la parte posterior del mismo.
 3. Asegúrese de que la etiqueta de envío aparece en la pantalla de tinta electrónica y programe una recogida con su transportista. Si la etiqueta está dañada, se ha perdido o no aparece en la pantalla de tinta electrónica, póngase en contacto con el servicio de soporte técnico de Microsoft. Si el soporte técnico lo sugiere, puede ir a **Información general > Descargar la etiqueta de envío** en Azure Portal. Descargue la etiqueta de envío y péguela en el dispositivo. 
 4. Programe una recogida con UPS si está devolviendo el dispositivo. Para programar una recogida:
 
     * Llame a la oficina local de UPS (número gratuito específico del país o región).
-    * En la llamada, indique el número de seguimiento del envío inverso, que se muestra en la pantalla E-ink (Tinta electrónica) o la etiqueta impresa.
-    * Si no se indica el número de seguimiento, UPS solicitará que el abono de una cantidad adicional en la recogida.
+    * En la llamada, indique el número de seguimiento del envío inverso, que se muestra en la pantalla E-ink (Tinta electrónica) o la etiqueta impresa. Si no indica el número de seguimiento, UPS le exigirá una cantidad adicional en la recogida.
+    * Si surge algún problema durante la programación de una recogida o si se le pide que pague tarifas adicionales, póngase en contacto con Azure Data Box Operations. Envíe un correo electrónico a [adbops@microsoft.com](mailto:adbops@microsoft.com).
 
     En lugar de programar la recogida, también devolver la instancia de Data Box en la ubicación de recogida más cercana.
 4. Una vez que el transportista recoge y examina el dispositivo Data Box, el estado del pedido en el portal se actualiza a **Picked up** (Recogido). También se muestra un identificador de seguimiento.
@@ -134,7 +134,7 @@ Una vez que se completa la carga en Azure, Data Box elimina los datos de los dis
 2. Apague el dispositivo y quite los cables.
 3. Enrolle y coloque de forma segura el cable de alimentación que se suministró junto con el dispositivo en la parte posterior del mismo.
 4. Escriba el nombre y la dirección de la empresa en la nota de entrega como información del remitente.
-5. Envíe un correo electrónico a Quantium Solutions mediante la plantilla de correo electrónico que tiene a continuación.
+5. Envíe un correo electrónico a Quantium Solutions mediante la siguiente plantilla de correo electrónico.
 
     * Tanto si no se incluyó la nota de entrega de Japan Post Chakubarai como si falta, especifíquelo en este correo electrónico. Quantium Solutions Japan se encargará de solicitar a Japan Post que le proporcionen una nota de entrega en la recogida.
     * Si tiene varios pedidos, envíe un correo electrónico para comprobar cada recogida individual.
@@ -153,7 +153,7 @@ Una vez que se completa la carga en Azure, Data Box elimina los datos de los dis
 
 6. Recibirá un correo electrónico de confirmación de Quantium Solutions tras concertar una recogida. Este correo electrónico también incluye información sobre la nota de entrega de Chakubarai.
 
-Si es necesario, puede ponerse en contacto con el soporte técnico de Quantium Solutions (en japonés) en: 
+Si es necesario, puede ponerse en contacto con el soporte técnico de Quantium Solutions (en japonés) en:
 
 * Correo electrónico: Customerservice.JP@quantiumsolutions.com 
 * Teléfono：03-5755-0150 
@@ -173,7 +173,7 @@ Una vez que se completa la carga en Azure, Data Box elimina los datos de los dis
 ## <a name="singapore"></a>[Singapur](#tab/in-singapore)
 
 1. Conserve la caja original utilizada para devolver el dispositivo.
-2. Anote el número de seguimiento (que se muestra como número de referencia en la página Preparación para el envío de la interfaz de usuario web local de Data Box). Estará disponible cuando el paso de preparación para el envío se complete correctamente. Descargue la etiqueta de envío de esta página y péguela en la caja de embalaje.
+2. Anote el número de seguimiento (que se muestra como número de referencia en la página **Preparación para el envío** de la interfaz de usuario web local de Data Box). El número de seguimiento estará disponible cuando el paso **Preparación para el envío** se haya completado correctamente. Descargue la etiqueta de envío de esta página y péguela en la caja de embalaje.
 3. Apague el dispositivo y quite los cables.
 4. Enrolle y coloque de forma segura el cable de alimentación que se suministró junto con el dispositivo en la parte posterior del mismo. 
 5. Envíe un correo electrónico al servicio de atención al cliente de SingPost utilizando la siguiente plantilla de correo electrónico con el número de seguimiento.
@@ -209,8 +209,8 @@ Una vez que se completa la carga en Azure, Data Box elimina los datos de los dis
 
 1. Empaquete el dispositivo para el envío de devolución en la caja original.
 2. Enrolle y coloque de forma segura el cable de alimentación que se suministró junto con el dispositivo en la parte posterior del mismo.
-3. Anote el número de seguimiento (que se muestra como número de referencia en la página **Preparación para el envío** de la interfaz de usuario web local de Data Box). Estará disponible cuando el paso "Preparación para el envío" se haya completado correctamente. Descargue la etiqueta de envío de esta página y péguela en la caja de embalaje.
-4. Solicite un código de devolución de Operations (Operaciones) de Azure Data Box. Se requiere un código de devolución para entregar el paquete al centro de datos. Envíe un correo electrónico a [adbops@microsoft.com](mailto:adbops@microsoft.com). Anote este código en la etiqueta de envío junto a la dirección de devolución para que esté claramente visible.
+3. Anote el número de seguimiento (que se muestra como número de referencia en la página **Preparación para el envío** de la interfaz de usuario web local de Data Box). El número de seguimiento estará disponible cuando el paso "Preparación para el envío" se haya completado correctamente. Descargue la etiqueta de envío de esta página y péguela en la caja de embalaje.
+4. Solicite un código de devolución de Operations (Operaciones) de Azure Data Box. Se requiere un código de devolución para entregar el paquete al centro de datos. Envíe un correo electrónico a [adbops@microsoft.com](mailto:adbops@microsoft.com). Anote este código en la etiqueta de envío junto a la dirección de devolución, donde se puede ver con claridad.
 5. Reserve una recogida con DHL; para ello, elija una de las siguientes opciones:
  
    * Vaya a [DHL Express South Africa, **Schedule a Pickup**](https://mydhl.express.dhl/za/en/schedule-pickup.html#/schedule-pickup#label-reference) (Programar recogida) para reservar una recogida en línea.
@@ -231,7 +231,7 @@ Una vez que se completa la carga en Azure, Data Box elimina los datos de los dis
 
     * También puede dejar el paquete en el punto de servicio de DHL más cercano.
 
-6. Si surge algún problema, envíe un correo electrónico a [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) con los detalles del mismo y mencione el nombre del pedido en el asunto. También puede llamar al +27(0)119213902.
+6. Si surge algún problema, envíe un correo electrónico a [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) con los detalles y mencione el número del pedido en el asunto. También puede llamar al +27(0)119213902.
 
 ::: zone target="chromeless"
 
@@ -249,16 +249,16 @@ Una vez que se completa la carga en Azure, Data Box elimina los datos de los dis
 
 1. Empaquete el dispositivo para el envío de devolución en la caja original.
 2. Enrolle y coloque de forma segura el cable de alimentación que se suministró junto con el dispositivo en la parte posterior del mismo.
-3. Llame a la línea directa de **Quantium Solutions** en el número **(852) 2318 1213** durante el horario de oficina (de 9 a 18 horas de lunes a viernes).  
+3. Llame a la línea directa de **Quantium Solutions**, al número **(852) 2318 1213**, en horario de oficina (de 9 a 18 horas de lunes a viernes).  
 4. Indique Recogida de Microsoft Azure, el número de referencia y el número de seguimiento (encima de código de barras) en la etiqueta de envío de devolución para concertar la recogida.
-5. Recibirá una confirmación verbal para la organización de la recogida. Si el mensajero no realiza la recogida, llame a la línea directa de Quantium Solutions para buscar otra fecha.
-6. Después de reservar una recogida con Quantium, comparta la confirmación con [Microsoft Data Box Operations Asia](mailto:adbo@microsoft.com) con la siguiente plantilla:
+5. Recibirá una confirmación verbal de la programación de la recogida. Si el mensajero no realiza la recogida, llame a la línea directa de Quantium Solutions para buscar otra fecha.
+6. Después de reservar una recogida con Quantium Solutions, comparta la confirmación con [Microsoft Data Box Operations Asia](mailto:adbo@microsoft.com) con la siguiente plantilla:
 
     ```output
     To: adbo@microsoft.com
     Subject: Microsoft Data Box Job: [order name] has completed copy
     Body:
-    We have confirmed the pickup details with Quantium.
+    We have confirmed the pickup details with Quantium Solutions.
 
        * Requestor name:
        * Requestor contact number:
@@ -266,7 +266,7 @@ Una vez que se completa la carga en Azure, Data Box elimina los datos de los dis
        * Pickup time:
     ```
 
-Si encuentra algún problema, envíe un correo electrónico a Data Box Operations Asia [adbo@microsoft.com](mailto:adbo@microsoft.com) y proporcione el nombre del trabajo en el encabezado del asunto y el problema encontrado.
+Si surge algún problema, envíe un correo electrónico a Data Box Operations Asia [adbo@microsoft.com](mailto:adbo@microsoft.com) con los detalles y mencione el nombre del trabajo en el asunto.
 
 ::: zone target="chromeless"
 
@@ -283,7 +283,7 @@ Una vez que se completa la carga en Azure, Data Box elimina los datos de los dis
 <!--## [In Korea](#tab/in-korea) 
 
 1. Retain the original box used to ship the device for return shipment.
-2. Note down the tracking number (shown as reference number on the Prepare to Ship page of the Data Box local web UI). This is available after the prepare to ship step successfully completes. Download the shipping label from this page and paste on the packing box. 
+2. Note down the tracking number (shown as reference number on the **Prepare to Ship** page of the Data Box local web UI). The tracking number is available after the **Prepare to ship** step successfully completes. Download the shipping label from this page and paste on the packing box. 
 3. Power off the device and remove the cables.
 4. Spool and securely place the power cord that was provided with the device in the back of the device. 
 
@@ -322,11 +322,11 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
 
 ## <a name="self-managed"></a>[Autoadministrado](#tab/in-selfmanaged)
 
-Si usa Data Box en Gobierno de EE. UU., Japón, Singapur, Corea, India, Sudáfrica u Oeste de Europa, y ha seleccionado la opción de envío autoadministrado al crear el pedido, siga estas instrucciones. 
+Si usa Data Box en la Administración Pública de EE. UU., Japón, Singapur, Corea, India, Sudáfrica u Oeste de Europa, y ha seleccionado el envío autoadministrado al crear el pedido, siga estas instrucciones.
 
-1. Una vez que este paso se complete correctamente, anote el código de autorización que se muestra en la página Preparación para el envío de la interfaz de usuario web local de Data Box.
+1. Anote el código de autorización que se muestra en la página **Preparación para el envío** de la interfaz de usuario web local de Data Box una vez que el paso se complete correctamente.
 2. Apague el dispositivo y quite los cables. Enrolle y coloque de forma segura el cable de alimentación que se suministró junto con el dispositivo en la parte posterior del mismo.
-3. Envíe un correo electrónico al equipo de operaciones de Azure Data Box mediante la siguiente plantilla cuando esté listo para devolver el dispositivo.
+3. Cuando esté listo para devolver el dispositivo, envíe un correo electrónico al equipo de Azure Data Box Operations mediante la siguiente plantilla.
 
     ```
     To: adbops@microsoft.com

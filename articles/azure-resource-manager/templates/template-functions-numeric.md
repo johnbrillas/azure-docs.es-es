@@ -1,18 +1,18 @@
 ---
 title: 'Funciones de plantillas: numérico'
-description: Describe las funciones para usar en una plantilla de Azure Resource Manager para trabajar con números.
+description: Describe las funciones para usar en una plantilla de Azure Resource Manager (plantilla de ARM) para trabajar con números.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 26f4b846c67ee7b926ea984ceefd84bf9ea56952
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: f3687581d94f80cc923614a0655da1813bd5c97b
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96004541"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359717"
 ---
 # <a name="numeric-functions-for-arm-templates"></a>Funciones numéricas para plantillas de ARM
 
-Resource Manager ofrece las siguientes funciones para trabajar con enteros en la plantilla de Azure Resource Manager (ARM):
+Resource Manager ofrece las siguientes funciones para trabajar con enteros en la plantilla de Azure Resource Manager (plantilla de ARM):
 
 * [add](#add)
 * [copyIndex](#copyindex)
@@ -700,5 +700,5 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para obtener una descripción de las secciones de una plantilla de Azure Resource Manager, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](template-syntax.md).
-* Para iterar una cantidad de veces específica al crear un tipo de recurso, vea [Creación de varias instancias de recursos en el Administrador de recursos de Azure](copy-resources.md).
+* Puede encontrar una descripción de las secciones de una plantilla de Azure Resource Manager en [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](template-syntax.md).
+* Para iterar un número especificado de veces al crear un tipo de recurso, consulte [Iteración de recursos en las plantillas de ARM](copy-resources.md).

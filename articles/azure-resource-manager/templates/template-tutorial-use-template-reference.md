@@ -6,12 +6,12 @@ ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: dfd6311fab8d9c65fa7c82d2f707ac96549a32a9
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: a44852fb2f491dd949b58217eca3e4f3e392cf17
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96931425"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97584143"
 ---
 # <a name="tutorial-utilize-the-arm-template-reference"></a>Tutorial: Utilización de la referencia de la plantilla de Resource Manager
 
@@ -42,7 +42,7 @@ Para completar este artículo, necesitará lo siguiente:
 
 [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/) es un repositorio de plantillas de Azure Resource Manager. En lugar de crear una plantilla desde cero, puede buscar una plantilla de ejemplo y personalizarla. La plantilla usada en esta guía de inicio rápido se denomina [Crear una cuenta de almacenamiento estándar](https://azure.microsoft.com/resources/templates/101-storage-account-create/). La plantilla define un recurso de la cuenta de almacenamiento de Azure.
 
-1. En Visual Studio Code, seleccione **Archivo**>**Abrir archivo**.
+1. En Visual Studio Code, seleccione **Archivo** > **Abrir archivo**.
 1. En **Nombre de archivo**, pegue el código URL siguiente:
 
     ```url
@@ -50,26 +50,26 @@ Para completar este artículo, necesitará lo siguiente:
     ```
 
 1. Seleccione **Abrir** para abrir el archivo.
-1. Seleccione **Archivo**>**Guardar como** para guardar el archivo como **azuredeploy.json** en el equipo local.
+1. Seleccione **Archivo** > **Guardar como** para guardar el archivo como _azuredeploy.json_ en el equipo local.
 
 ## <a name="understand-the-schema"></a>Información sobre el esquema
 
-1. En VS Code, contraiga la plantilla al nivel raíz. Tiene la estructura más sencilla con los siguientes elementos:
+1. En Visual Studio Code, contraiga la plantilla al nivel raíz. Tiene la estructura más sencilla con los siguientes elementos:
 
     ![La estructura más sencilla de la plantilla de Resource Manager](./media/template-tutorial-use-template-reference/resource-manager-template-simplest-structure.png)
 
-    * **$schema**: especifique la ubicación del archivo de esquema JSON que describe la versión del lenguaje de plantilla.
-    * **contentVersion**: especifique cualquier valor para este elemento para documentar cambios importantes en la plantilla.
-    * **parámetros**: especifique los valores que se proporcionan cuando se ejecuta la implementación para personalizar la implementación de recursos.
-    * **variables**: especifique los valores que se usan como fragmentos JSON en la plantilla para simplificar las expresiones de lenguaje de plantilla.
-    * **recursos**: especifique los tipos de recursos que se implementan o actualizan en un grupo de recursos.
-    * **salidas**: especifique los valores que se devuelven después de la implementación.
+    * `$schema`: especifique la ubicación del archivo de esquema JSON que describe la versión del lenguaje de plantilla.
+    * `contentVersion`: especifique cualquier valor para este elemento para documentar cambios importantes en la plantilla.
+    * `parameters`: especifique los valores que se proporcionan cuando se ejecuta la implementación para personalizar la implementación de recursos.
+    * `variables`: especifique los valores que se usan como fragmentos JSON en la plantilla para simplificar las expresiones de lenguaje de plantilla.
+    * `resources`: especifique los tipos de recursos que se implementan o actualizan en un grupo de recursos.
+    * `outputs`: especifique los valores que se devuelven después de la implementación.
 
-1. Expanda **recursos**. Hay un recurso `Microsoft.Storage/storageAccounts` definido. El nombre de SKU usa un valor de parámetro.  El parámetro se denomina **storageAccountType**.
+1. Expanda `resources`. Hay un recurso `Microsoft.Storage/storageAccounts` definido. El nombre de SKU usa un valor de parámetro. El parámetro se denomina `storageAccountType`.
 
     ![Definición de cuenta de almacenamiento de la plantilla de Resource Manager](./media/template-tutorial-use-template-reference/resource-manager-template-storage-resource.png)
 
-1. Expanda **parámetros** para ver cómo se define **storageAccountType**. El parámetro tiene cuatro valores permitidos. Encontrará los demás valores permitidos. A continuación, revise la definición del parámetro.
+1. Expanda `parameters` para ver cómo se define `storageAccountType`. El parámetro tiene cuatro valores permitidos. Encontrará los demás valores permitidos. A continuación, revise la definición del parámetro.
 
     ![SKU de recursos la cuenta de almacenamiento de la plantilla de Resource Manager](./media/template-tutorial-use-template-reference/resource-manager-template-storage-resources-skus-old.png)
 
@@ -88,9 +88,9 @@ Para completar este artículo, necesitará lo siguiente:
 
     ![Versiones de los tipos de cuenta de almacenamiento de referencia de la plantilla de Resource Manager](./media/template-tutorial-use-template-reference/resource-manager-template-resources-reference-storage-accounts-types-versions.png)
 
-1. Seleccione la versión más reciente del tipo de recurso **storageAccount**. En el momento en que se ha escrito el artículo, la versión más reciente es la **2019-06-01**. Asegúrese de que esta versión coincide con la versión usada para el recurso de la cuenta de almacenamiento de la plantilla. Si actualiza la versión de la API, compruebe que la definición de recursos coincide con la referencia de la plantilla.
+1. Seleccione la versión más reciente del tipo de recurso `storageAccount`. En el momento en que se ha escrito el artículo, la versión más reciente es la **2019-06-01**. Asegúrese de que esta versión coincide con la versión usada para el recurso de la cuenta de almacenamiento de la plantilla. Si actualiza la versión de la API, compruebe que la definición de recursos coincide con la referencia de la plantilla.
 
-1. En esta página se enumeran los detalles del tipo de recurso storageAccount.  Por ejemplo, enumera los valores permitidos para el objeto **Sku**. Hay más sku de las que aparecen en la lista de la plantilla de inicio rápido que abrió antes. La plantilla de inicio rápido se puede personalizar para incluir todos los tipos de almacenamiento disponibles.
+1. En esta página se enumeran los detalles del tipo de recurso storageAccount. Por ejemplo, se enumeran los valores permitidos para el objeto **Sku**. Hay más SKU de las que aparecen enumeradas en la plantilla de inicio rápido que abrió antes. La plantilla de inicio rápido se puede personalizar para incluir todos los tipos de almacenamiento disponibles.
 
     ![SKU de la cuenta de almacenamiento de referencia de la plantilla de Resource Manager](./media/template-tutorial-use-template-reference/resource-manager-template-resources-reference-storage-accounts-skus.png)
 
@@ -108,9 +108,11 @@ En Visual Studio Code, agregue los tipos de cuenta de almacenamiento adicionale
 
     ![Archivo de carga de Cloud Shell de Azure Portal](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
 
-1. Seleccione **Cargar/descargar archivos** y, después, seleccione **Cargar**. Consulte la captura de pantalla anterior. Seleccione el archivo que guardó en la sección anterior. Después de cargar el archivo, puede usar el comando **ls** y el comando **cat** para comprobar que la operación de carga se ha realizado correctamente.
+1. Seleccione **Cargar/descargar archivos** y, después, seleccione **Cargar**. Consulte la captura de pantalla anterior. Seleccione el archivo que guardó en la sección anterior. Después de cargar el archivo, puede usar el comando `ls` y el comando `cat` para comprobar que la operación de carga se ha realizado correctamente.
 
 1. En Cloud Shell, ejecute los comandos siguientes. Seleccione la pestaña para mostrar el código de PowerShell o el código de la CLI.
+
+   Al implementar la plantilla, especifique el parámetro `storageAccountType` con un valor recién agregado, por ejemplo, **Standard_RAGRS**. Si se usara la plantilla de inicio rápido original, la implementación no se realizaría, ya que **Standard_RAGRS** no era un valor permitido.
 
     # <a name="cli"></a>[CLI](#tab/CLI)
 
@@ -137,16 +139,14 @@ En Visual Studio Code, agregue los tipos de cuenta de almacenamiento adicionale
 
     ---
 
- Al implementar la plantilla, especifique el parámetro **storageAccountType** con un valor recién agregado, por ejemplo, **Standard_RAGRS**. Si se usa la plantilla de inicio rápido original, la implementación no se realizaría, ya que **Standard_RAGRS** no era un valor permitido.
-
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
 Cuando los recursos de Azure ya no sean necesarios, limpie los recursos que implementó eliminando el grupo de recursos.
 
 1. En Azure Portal, seleccione **Grupos de recursos** en el menú de la izquierda.
-2. Escriba el nombre del grupo de recursos en el campo **Filtrar por nombre**.
-3. Seleccione el nombre del grupo de recursos.  Verá un total de seis recursos en el grupo de recursos.
-4. Seleccione **Eliminar grupo de recursos** del menú superior.
+1. Escriba el nombre del grupo de recursos en el campo **Filtrar por nombre**.
+1. Seleccione el nombre del grupo de recursos.  Verá un total de seis recursos en el grupo de recursos.
+1. Seleccione **Eliminar grupo de recursos** del menú superior.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -6,12 +6,12 @@ ms.date: 03/31/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7d0743d316b9d879017f3b0fbe08ee4dc2b3e1c2
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: e983f8499cbeaf400a8da6f48d7f6c8b75c4795a
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96931068"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107069"
 ---
 # <a name="tutorial-add-parameters-to-your-arm-template"></a>Tutorial: Adición de parámetros a la plantilla de Resource Manager
 
@@ -33,7 +33,7 @@ Es posible que haya observado que existe un problema con esta plantilla. El nomb
 
 ## <a name="make-template-reusable"></a>Convertir la plantilla en reutilizable
 
-Para que la plantilla se pueda volver a usar, vamos a agregar un parámetro que puede usar para pasar un nombre de cuenta de almacenamiento. El código JSON resaltado en el ejemplo siguiente muestra lo que ha cambiado en la plantilla. El parámetro **storageName** se identifica como una cadena. La longitud máxima se establece en 24 caracteres para evitar que los nombres sean demasiado largos.
+Para que la plantilla se pueda volver a usar, vamos a agregar un parámetro que puede usar para pasar un nombre de cuenta de almacenamiento. El código JSON resaltado en el ejemplo siguiente muestra lo que ha cambiado en la plantilla. El parámetro `storageName` se identifica como una cadena. La longitud máxima se establece en 24 caracteres para evitar que los nombres sean demasiado largos.
 
 Copie el archivo completo y reemplace la plantilla por su contenido.
 
@@ -43,7 +43,7 @@ Copie el archivo completo y reemplace la plantilla por su contenido.
 
 Vamos a implementar la plantilla. En el ejemplo siguiente se implementa la plantilla con la CLI de Azure o PowerShell. Observe que se proporciona el nombre de la cuenta de almacenamiento como uno de los valores en el comando de implementación. Para el nombre de la cuenta de almacenamiento, proporcione el mismo nombre que usó en el tutorial anterior.
 
-Si no ha creado el grupo de recursos, consulte [Creación del grupo de recursos](template-tutorial-create-first-template.md#create-resource-group). En el ejemplo se supone que ha establecido la variable **templateFile** en la ruta de acceso al archivo de plantilla, como se muestra en el [primer tutorial](template-tutorial-create-first-template.md#deploy-template).
+Si no ha creado el grupo de recursos, consulte [Creación del grupo de recursos](template-tutorial-create-first-template.md#create-resource-group). En el ejemplo se supone que ha establecido la variable `templateFile` en la ruta de acceso al archivo de plantilla, como se muestra en el [primer tutorial](template-tutorial-create-first-template.md#deploy-template).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -81,11 +81,11 @@ Esta manera de controlar las actualizaciones implica que la plantilla puede incl
 
 Los parámetros le permiten personalizar la implementación al proporcionar valores que son específicos para un entorno concreto. Por ejemplo, puede pasar diferentes valores en función de si está implementando en un entorno de desarrollo, de prueba o de producción.
 
-La plantilla anterior siempre implementaba una cuenta de almacenamiento Standard_LRS. Es posible que desee disponer de flexibilidad para implementar diferentes SKU según el entorno. En el ejemplo siguiente se resaltan los cambios para agregar un parámetro para la SKU. Copie el archivo completo y péguelo en la plantilla.
+La plantilla anterior siempre implementaba una cuenta de almacenamiento **Standard_LRS**. Es posible que desee disponer de flexibilidad para implementar diferentes SKU según el entorno. En el ejemplo siguiente se resaltan los cambios para agregar un parámetro para la SKU. Copie el archivo completo y péguelo en la plantilla.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-sku/azuredeploy.json" range="1-40" highlight="10-23,32":::
 
-El parámetro **storageSKU** tiene un valor predeterminado. Este valor se usa cuando no se especifica ningún valor durante la implementación. También tiene una lista de valores permitidos. Estos valores coinciden con los valores necesarios para crear una cuenta de almacenamiento. Deseará evitar que los usuarios de su plantilla pasen SKU que no funcionan.
+El parámetro `storageSKU` tiene un valor predeterminado. Este valor se usa cuando no se especifica ningún valor durante la implementación. También tiene una lista de valores permitidos. Estos valores coinciden con los valores necesarios para crear una cuenta de almacenamiento. Deseará evitar que los usuarios de su plantilla pasen SKU que no funcionan.
 
 ## <a name="redeploy-template"></a>Volver a implementar la plantilla
 
@@ -114,7 +114,7 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> Si se produjo un error en la implementación, use el modificador **verbose** para obtener información acerca de los recursos que se están creando. Utilice el modificador **debug** para más información sobre la depuración.
+> Si se produjo un error en la implementación, use el modificador `verbose` para obtener información sobre los recursos que se están creando. Utilice el modificador `debug` para más información sobre la depuración.
 
 Para observar la flexibilidad de la plantilla, vamos a implementarla de nuevo. Esta vez, establezca el parámetro de SKU en **Standard_GRS**. Puede pasar un nuevo nombre para crear una cuenta de almacenamiento diferente, o bien usar el mismo nombre para actualizar la cuenta de almacenamiento existente. Ambas opciones funcionan.
 

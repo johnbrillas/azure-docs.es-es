@@ -1,15 +1,15 @@
 ---
-title: Representación de una escena en la nube
+title: 'Tutorial: Representación de una escena en la nube'
 description: 'Tutorial: Representación de una escena de Autodesk 3DS Max con Arnold mediante el servicio de representación de Batch y la interfaz de la línea de comandos de Azure'
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 579a5446cb199bb73f98e2e1cbb0948f062470a8
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: e0858e838ba73862ef7f15040915c5f5cd3c751b
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542395"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106349"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>Tutorial: Representación de una escena con Azure Batch 
 
@@ -346,7 +346,7 @@ En este tutorial, ha aprendido a:
 > * Escalar el grupo y representar una escena de varios fotogramas
 > * Descargar la salida representada
 
-Para más información sobre la representación en la nube, consulte las opciones para el servicio de representación de Batch. 
+Para más información sobre la representación a escala de nube, consulte la documentación de representación de Batch.
 
 > [!div class="nextstepaction"]
 > [Servicio de representación de Batch](batch-rendering-service.md)

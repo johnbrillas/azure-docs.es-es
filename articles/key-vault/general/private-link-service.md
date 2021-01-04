@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 570281e31c70b2f5f85a858f9dd424f93ee86029
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 75f06ae11d308028431202c22338ff4a589acf28
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460053"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97592303"
 ---
 # <a name="integrate-key-vault-with-azure-private-link"></a>Integración de Key Vault con Azure Private Link
 
@@ -53,7 +53,7 @@ Después de configurar los aspectos básicos del almacén de claves, seleccione 
 1. Seleccione el botón de radio Punto de conexión privado en la pestaña Redes.
 1. Haga clic en el botón "+ Agregar" para agregar un punto de conexión privado.
 
-    ![Imagen](../media/private-link-service-1.png)
+    ![Captura de pantalla que muestra la pestaña "Redes" en la página "Crear almacén de claves".](../media/private-link-service-1.png)
  
 1. En el campo "Ubicación" de la hoja Crear un punto de conexión privado, seleccione la región en la que se encuentra la red virtual. 
 1. En el campo "Nombre", cree un nombre descriptivo que le permita identificar este punto de conexión privado. 
@@ -61,7 +61,7 @@ Después de configurar los aspectos básicos del almacén de claves, seleccione 
 1. Deje la opción "Integrate with the private zone DNS" (Integrar con el DNS de la zona privada) sin cambios.  
 1. Seleccione "Aceptar".
 
-    ![Imagen](../media/private-link-service-8.png)
+    ![Captura de pantalla que muestra la página "Crear un punto de conexión privado" con la configuración seleccionada.](../media/private-link-service-8.png)
  
 Ahora podrá ver el punto de conexión privado configurado. Y tendrá la opción de eliminarlo y de editarlo. Seleccione el botón "Revisar y crear" y cree el almacén de claves. La implementación puede tardar entre 5 y 10 minutos en completarse. 
 
@@ -76,12 +76,13 @@ Si ya tiene un almacén de claves, puede crear una conexión de vínculo privado
 1. Seleccione la pestaña Conexiones de puntos de conexión privadas en la parte superior de la página.
 1. Seleccione el botón "+ Punto de conexión privado" en la parte superior de la página.
 
-    ![Imagen](../media/private-link-service-3.png) ![Image](../media/private-link-service-4.png)
+    ![Captura de pantalla que muestra el botón "+ Punto de conexión privado" de la página "Redes".](../media/private-link-service-3.png)
+    ![Captura de pantalla que muestra la pestaña "Datos básicos" de la página "Crear un punto de conexión privado (versión preliminar)"](../media/private-link-service-4.png).
 
 Puede optar por crear un punto de conexión privado para cualquier recurso de Azure mediante esta hoja. Puede usar los menús desplegables para seleccionar un tipo de recurso y seleccionar un recurso en el directorio, o bien puede conectarse a cualquier recurso de Azure mediante un identificador de recurso. Deje la opción "Integrate with the private zone DNS" (Integrar con el DNS de la zona privada) sin cambios.  
 
-![Imagen](../media/private-link-service-3.png)
-![Imagen](../media/private-link-service-4.png)
+![Captura de pantalla que muestra cómo se agrega un punto de conexión privado mediante la hoja actual.](../media/private-link-service-3.png)
+![Captura de pantalla que muestra un ejemplo de la página "Crear un punto de conexión privado (versión preliminar)".](../media/private-link-service-4.png)
 
 Cuando se crea un punto de conexión privado, se debe aprobar la conexión. Si el recurso para el que va a crear el punto de conexión privado está en el directorio, podrá aprobar la solicitud de conexión siempre que tenga los permisos necesarios. Si se va a conectar a un recurso de Azure en otro directorio, debe esperar a que el propietario de ese recurso apruebe la solicitud de conexión.
 

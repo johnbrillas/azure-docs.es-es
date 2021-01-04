@@ -6,12 +6,12 @@ ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: e55638e20bceb6df4b8e74375d67836123167162
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 7acfb168462354017168ee333ea0b1ecaea434c1
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96931748"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107131"
 ---
 # <a name="tutorial-add-outputs-to-your-arm-template"></a>Tutorial: Incorporación de salidas a la plantilla de Resource Manager
 
@@ -41,17 +41,17 @@ En el ejemplo siguiente se resalta el cambio en la plantilla para agregar un val
 
 Hay algunos elementos importantes que se deben tener en cuenta sobre el valor de salida que ha agregado.
 
-El tipo de valor devuelto se establece en **object**, lo que significa que devuelve un objeto JSON.
+El tipo de valor devuelto se establece en `object`, lo que significa que devuelve un objeto JSON.
 
 Utiliza la función [reference](template-functions-resource.md#reference) para obtener el estado de tiempo de ejecución de la cuenta de almacenamiento. Para obtener el estado de tiempo de ejecución de un recurso, se pasa el nombre o el identificador del recurso. En este caso, usará la misma variable que utilizó para crear el nombre de la cuenta de almacenamiento.
 
-Por último, devuelve la propiedad **primaryEndpoints** de la cuenta de almacenamiento.
+Por último, devuelve la propiedad `primaryEndpoints` de la cuenta de almacenamiento.
 
 ## <a name="deploy-template"></a>Implementar plantilla
 
 Ya está listo para implementar la plantilla y examinar el valor devuelto.
 
-Si no ha creado el grupo de recursos, consulte [Creación del grupo de recursos](template-tutorial-create-first-template.md#create-resource-group). En el ejemplo se supone que ha establecido la variable **templateFile** en la ruta de acceso al archivo de plantilla, como se muestra en el [primer tutorial](template-tutorial-create-first-template.md#deploy-template).
+Si no ha creado el grupo de recursos, consulte [Creación del grupo de recursos](template-tutorial-create-first-template.md#create-resource-group). En el ejemplo se supone que ha establecido la variable `templateFile` en la ruta de acceso al archivo de plantilla, como se muestra en el [primer tutorial](template-tutorial-create-first-template.md#deploy-template).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -92,7 +92,7 @@ En el resultado del comando de implementación, verá un objeto similar al sigui
 ```
 
 > [!NOTE]
-> Si se produjo un error en la implementación, use el modificador **verbose** para obtener información acerca de los recursos que se están creando. Utilice el modificador **debug** para más información sobre la depuración.
+> Si se produjo un error en la implementación, use el modificador `verbose` para obtener información acerca de los recursos que se están creando. Utilice el modificador `debug` para más información sobre la depuración.
 
 ## <a name="review-your-work"></a>Revisión del trabajo
 

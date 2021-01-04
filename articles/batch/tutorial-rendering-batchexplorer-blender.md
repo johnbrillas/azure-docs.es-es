@@ -1,16 +1,16 @@
 ---
-title: Representación de una escena de Blender con Azure Batch y Batch Explorer
+title: 'Tutorial: Representación de una escena de Blender con Azure Batch y Batch Explorer'
 description: 'Tutorial: Representación de varios fotogramas de una escena de Blender mediante la aplicación cliente de Azure Batch y Batch Explorer'
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: tutorial
-ms.openlocfilehash: 65baff827417cebe2289cc821df94acd38a1ae61
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c015e4e83b0505a45690e92c1d732f74b6f6b0e
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85964811"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106476"
 ---
 # <a name="tutorial-render-a-blender-scene-using-batch-explorer"></a>Tutorial: Representación de una escena de Blender con Batch Explorer
 
@@ -93,6 +93,7 @@ Se puede supervisar el estado del grupo y de las máquinas virtuales en la vista
 ## <a name="create-a-rendering-job"></a>Creación de un trabajo de representación
 
 Cree un trabajo de representación para representar algunos fotogramas mediante el grupo que creó:
+
 * En el menú principal del lado izquierdo, seleccione el elemento de menú "Galería".
 * Seleccione el elemento 'Blender' para obtener la lista de elementos de la aplicación.
 * Seleccione los elementos para representar los fotogramas en Windows Server.
@@ -137,6 +138,18 @@ Cuando se hayan completado todas las tareas, el trabajo se marcará como complet
 * Haga clic con el botón derecho y seleccione "Eliminar", o bien seleccione el icono de papelera situado encima del grupo
 
 ## <a name="next-steps"></a>Pasos siguientes
-* En la sección "Galería", explore las aplicaciones de representación disponibles a través de Batch Explorer.
-* Para cada aplicación, hay varias plantillas disponibles, que se expandirán con el tiempo.  Por ejemplo, para Blender existen plantillas que dividen una sola imagen en mosaicos, por lo que las partes de una imagen se pueden representar en paralelo.
-* Para obtener una descripción completa de las funcionalidades de representación, consulte el conjunto de artículos de [aquí](./batch-rendering-service.md).
+
+En este tutorial, ha aprendido a:
+
+> [!div class="checklist"]
+> * Cargar una escena de Blender en Azure Storage
+> * Crear un grupo de Batch con varios nodos para realizar la representación
+> * Representar varios fotogramas
+> * Ver y descargar los archivos de fotogramas representados
+
+Para continuar, explore las aplicaciones de representación disponibles a través de Batch Explorer en la sección **Galería**. Para cada aplicación, hay varias plantillas disponibles, que se expandirán con el tiempo. Por ejemplo, para Blender existen plantillas que dividen una sola imagen en mosaicos, por lo que las partes de una imagen se pueden representar en paralelo.
+
+Para más información sobre la representación en la nube, consulte las opciones para el servicio de representación de Batch.
+
+> [!div class="nextstepaction"]
+> [Servicio de representación de Batch](batch-rendering-service.md)

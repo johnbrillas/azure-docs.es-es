@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 031ee9a6d945d923279fd3025c32212c3ead98ed
-ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
+ms.openlocfilehash: c1d448fe9da72654ac1600009e66c88c5e7b93b4
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95406606"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509434"
 ---
 # <a name="tutorial-build-a-multi-tenant-daemon-that-uses-the-microsoft-identity-platform"></a>Tutorial: Creación de un demonio multiinquilino que usa la plataforma de identidad de Microsoft
 
@@ -65,7 +65,7 @@ También puede [descargar el ejemplo en un archivo ZIP](https://github.com/Azure
 
 Este ejemplo tiene un proyecto. Para registrar la aplicación en el inquilino de Azure AD, puede:
 
-- Seguir los pasos que se indican en [Registro del ejemplo en el inquilino de Azure Active Directory](#register-your-application) y [Configuración del ejemplo para usar el inquilino de Azure AD](#choose-the-azure-ad-tenant).
+- Seguir los pasos que se indican en [Registro del ejemplo en el inquilino de Azure Active Directory](#register-the-client-app-dotnet-web-daemon-v2) y [Configuración del ejemplo para usar el inquilino de Azure AD](#choose-the-azure-ad-tenant).
 - Usar scripts de PowerShell que realizan las siguientes acciones:
   - Crean *automáticamente* las aplicaciones de Azure AD y los objetos relacionados (contraseñas, permisos, dependencias).
   - Modifican los archivos de configuración de los proyectos de Visual Studio.
@@ -93,40 +93,34 @@ Si no desea usar la automatización, siga los pasos que se describen en las secc
 
 ### <a name="choose-the-azure-ad-tenant"></a>Selección del inquilino de Azure AD
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta personal, profesional o educativa de Microsoft.
-1. Si su cuenta existe en más de un inquilino de Azure AD, seleccione su perfil en el menú de la parte superior de la página y, luego, seleccione **Cambiar directorio**.
-1. Cambie la sesión del portal por el inquilino de Azure AD deseado.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Si tiene acceso a varios inquilinos, use el filtro **Directorio + suscripción** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: del menú superior para seleccionar el inquilino en el que desea registrar una aplicación.
+
 
 ### <a name="register-the-client-app-dotnet-web-daemon-v2"></a>Registro de la aplicación cliente (dotnet-web-daemon-v2)
 
-1. Vaya a la página [Registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908) de la plataforma de identidad de Microsoft para desarrolladores.
-1. Seleccione **Nuevo registro**.
-1. Cuando aparece la página **Registrar una aplicación**, escriba la información de registro de la aplicación:
-   - En la sección **Nombre**, escriba un nombre con sentido para la aplicación, que se mostrará a los usuarios de la aplicación. Por ejemplo, escriba **dotnet-web-daemon-v2**.
-   - En la sección **Tipos de cuenta compatibles**, seleccione **Cuentas en cualquier directorio organizativo**.
-   - En la sección **URI de redirección (opcional)** , seleccione **Web** en el cuadro combinado y escriba los siguientes URI de redirección:
-       - **https://localhost:44316/**
-       - **https://localhost:44316/Account/GrantPermissions**
+1. Busque y seleccione **Azure Active Directory**.
+1. En **Administrar**, seleccione **Registros de aplicaciones** >  y, luego, **Nuevo registro**.
+1. Escriba el **Nombre** de la aplicación, por ejemplo `dotnet-web-daemon-v2`. Los usuarios de la aplicación pueden ver este nombre, el cual se puede cambiar más tarde.
+1. En la sección **Tipos de cuenta compatibles**, seleccione **Cuentas en cualquier directorio organizativo**.
+1. En la sección **URI de redirección (opcional)** , seleccione **Web** en el cuadro combinado y escriba los URI de redirección `https://localhost:44316/` y `https://localhost:44316/Account/GrantPermissions`.
 
-     Si hay más de dos URI de redirección, deberá agregarlos desde la pestaña **Autenticación** más adelante, después de que la aplicación se haya creado correctamente.
+    Si hay más de dos URI de redirección, deberá agregarlos desde la pestaña **Autenticación** más adelante, después de que la aplicación se haya creado correctamente.
 1. Seleccione **Registrar** para crear la aplicación.
 1. En la página **Información general** de la aplicación, busque el valor de **Id. de aplicación (cliente)** y regístrelo para usarlo más tarde. Lo necesitará para configurar el archivo de configuración de Visual Studio para este proyecto.
-1. En la lista de páginas de la aplicación, seleccione **Autenticación**. A continuación:
-   - En la sección **Configuración avanzada**, establezca **Dirección URL de cierre de sesión** en **https://localhost:44316/Account/EndSession** .
-   - En la sección **Configuración avanzada** > **Concesión implícita**, seleccione **Tokens de acceso** y **Tokens de id.** Para este ejemplo es necesario habilitar el [flujo de concesión implícita](v2-oauth2-implicit-grant-flow.md) para iniciar la sesión del usuario y llamar a una API.
+1. En **Administrar**, seleccione **Autenticación**.
+1. Establezca la **URL de cierre de sesión** en `https://localhost:44316/Account/EndSession`.
+1. En la sección **Concesión implícita**, seleccione **Tokens de acceso** y **Tokens de id.** . Para este ejemplo es necesario habilitar el [flujo de concesión implícita](v2-oauth2-implicit-grant-flow.md) para iniciar la sesión del usuario y llamar a una API.
 1. Seleccione **Guardar**.
-1. En la página **Certificados y secretos**, en la sección **Secretos de cliente**, elija **Nuevo secreto de cliente**. A continuación:
-
-   1. Escriba una descripción de clave (por ejemplo, **secreto de aplicación**).
-   1. Seleccione una duración de la clave: **En 1 año**, **En 2 años** o **Nunca expira**.
-   1. Seleccione el botón **Agregar**.
-   1. Cuando aparezca el valor de la clave, cópielo y guárdelo en una ubicación segura. Necesitará esta clave más adelante para configurar el proyecto en Visual Studio. No se volverá a mostrar ni se podrá recuperar por ningún otro medio.
-1. En la lista de páginas de la aplicación, seleccione **Permisos de API**. A continuación:
-   1. Seleccione el botón **Agregar un permiso**.
-   1. Asegúrese de que la pestaña **API de Microsoft** esté seleccionada.
-   1. En la sección **API de Microsoft más usadas**, seleccione **Microsoft Graph**.
-   1. En la sección **Permisos de aplicación**, asegúrese de que estén seleccionados los permisos correctos: **User.Read.All**.
-   1. Seleccione el botón **Agregar permisos**.
+1. En **Administrar**, seleccione **Certificados y secretos**.
+1. En la sección **Secretos de cliente**, seleccione **Nuevo secreto de cliente**. 
+1. Escriba una descripción de clave (por ejemplo, **secreto de aplicación**).
+1. Seleccione una duración de la clave: **En 1 año**, **En 2 años** o **Nunca expira**.
+1. Seleccione **Agregar**. Registre el valor de la clave en una ubicación segura. Necesitará esta clave más adelante para configurar el proyecto en Visual Studio.
+1. En **Administrar**, seleccione **Permisos de API** > **Add a permission** (Agregar un permiso).
+1. En la sección **API de Microsoft más usadas**, seleccione **Microsoft Graph**.
+1. En la sección **Permisos de aplicación**, asegúrese de que estén seleccionados los permisos correctos: **User.Read.All**.
+1. Seleccione **Agregar permisos**.
 
 ## <a name="configure-the-sample-to-use-your-azure-ad-tenant"></a>Configuración del ejemplo para usar el inquilino de Azure AD
 

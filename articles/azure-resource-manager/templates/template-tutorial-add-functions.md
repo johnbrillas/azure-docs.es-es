@@ -6,12 +6,12 @@ ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 67c88e98d966a21163aafefcad8363086d5b3bf4
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 52b5bd0650b3a069adc3ef7f101c48a4674deaab
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96931051"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107114"
 ---
 # <a name="tutorial-add-template-functions-to-your-arm-template"></a>Tutorial: Adición de funciones de plantilla a una plantilla de Resource Manager
 
@@ -33,11 +33,11 @@ La ubicación de la cuenta de almacenamiento está codificada de forma rígida e
 
 ## <a name="use-function"></a>Uso de una función
 
-Si ha completado el tutorial anterior de esta serie, ya ha usado una función. Cuando agregó `"[parameters('storageName')]"` , usó la función [parameters](template-functions-deployment.md#parameters). Los corchetes indican que la sintaxis incluida entre ellos es una expresión [template](template-expressions.md). Resource Manager resuelve la sintaxis en lugar de tratarla como un valor literal.
+Si ha completado el tutorial anterior de esta serie, ya ha usado una función. Cuando agregó `"[parameters('storageName')]"`, usó la función [parameters](template-functions-deployment.md#parameters). Los corchetes indican que la sintaxis incluida entre ellos es una expresión [template](template-expressions.md). Resource Manager resuelve la sintaxis en lugar de tratarla como un valor literal.
 
 Las funciones agregan flexibilidad a la plantilla mediante la obtención dinámica de valores durante la implementación. En este tutorial, usará una función para obtener la ubicación del grupo de recursos que está usando para la implementación.
 
-En el ejemplo siguiente se resaltan los cambios para agregar un parámetro denominado **location**.  El valor predeterminado del parámetro llama a la función [resourceGroup](template-functions-resource.md#resourcegroup). Esta función devuelve un objeto con información sobre el grupo de recursos que se utiliza para la implementación. Una de las propiedades del objeto es una propiedad de ubicación. Cuando se usa el valor predeterminado, la cuenta de almacenamiento tiene la misma ubicación que el grupo de recursos. No es necesario que los recursos incluidos en un grupo de recursos compartan la misma ubicación. También puede proporcionar una ubicación diferente cuando sea necesario.
+En el ejemplo siguiente se resaltan los cambios para agregar un parámetro denominado `location`. El valor predeterminado del parámetro llama a la función [resourceGroup](template-functions-resource.md#resourcegroup). Esta función devuelve un objeto con información sobre el grupo de recursos que se utiliza para la implementación. Una de las propiedades del objeto es una propiedad de ubicación. Cuando se usa el valor predeterminado, la cuenta de almacenamiento tiene la misma ubicación que el grupo de recursos. No es necesario que los recursos incluidos en un grupo de recursos compartan la misma ubicación. También puede proporcionar una ubicación diferente cuando sea necesario.
 
 Copie el archivo completo y reemplace la plantilla por su contenido.
 
@@ -47,7 +47,7 @@ Copie el archivo completo y reemplace la plantilla por su contenido.
 
 En los tutoriales anteriores, creó una cuenta de almacenamiento en Este de EE. UU., pero el grupo de recursos se creó en Centro de EE. UU. En este tutorial, la cuenta de almacenamiento se crea en la misma región que el grupo de recursos. Use el valor predeterminado para la ubicación, con lo que no será necesario proporcionar el valor de ese parámetro. Debe proporcionar un nuevo nombre para la cuenta de almacenamiento porque está creando una cuenta de almacenamiento en una ubicación diferente. Por ejemplo, use **store2** como prefijo en lugar de **store1**.
 
-Si no ha creado el grupo de recursos, consulte [Creación del grupo de recursos](template-tutorial-create-first-template.md#create-resource-group). En el ejemplo se supone que ha establecido la variable **templateFile** en la ruta de acceso al archivo de plantilla, como se muestra en el [primer tutorial](template-tutorial-create-first-template.md#deploy-template).
+Si no ha creado el grupo de recursos, consulte [Creación del grupo de recursos](template-tutorial-create-first-template.md#create-resource-group). En el ejemplo se supone que ha establecido la variable `templateFile` en la ruta de acceso al archivo de plantilla, como se muestra en el [primer tutorial](template-tutorial-create-first-template.md#deploy-template).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -74,7 +74,7 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> Si se produjo un error en la implementación, use el modificador **verbose** para obtener información acerca de los recursos que se están creando. Utilice el modificador **debug** para más información sobre la depuración.
+> Si se produjo un error en la implementación, use el modificador `verbose` para obtener información sobre los recursos que se están creando. Utilice el modificador `debug` para más información sobre la depuración.
 
 ## <a name="verify-deployment"></a>Comprobación de la implementación
 

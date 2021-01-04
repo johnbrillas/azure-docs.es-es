@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 08/23/2018
+ms.date: 12/11/2020
 ms.author: kumud
-ms.openlocfilehash: e6716d2ad4252169cfbbf611b0dadc5b077cd362
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: cb3a4b6a726ee9163582b15586c65fc750712c63
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042559"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368300"
 ---
 # <a name="tutorial-restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-portal"></a>Tutorial: Restricción del acceso de la red a los recursos de PaaS mediante puntos de conexión de servicio de red virtual mediante Azure Portal.
 
@@ -46,30 +46,44 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
 ## <a name="create-a-virtual-network"></a>Creación de una red virtual
 
 1. Seleccione **+ Crear un recurso** en la esquina superior izquierda de Azure Portal.
-2. Seleccione **Redes** y **Red virtual**.
-3. Especifique o seleccione los siguientes datos y haga clic en **Crear**:
+2. Seleccione **Redes** y, después, **Redes virtuales**.
+3. Haga clic en **+ Agregar** y escriba la siguiente información: 
 
    |Configuración|Value|
    |----|----|
-   |Nombre| myVirtualNetwork |
-   |Espacio de direcciones| 10.0.0.0/16|
    |Subscription| Seleccione su suscripción.|
    |Resource group | Haga clic en **Crear nuevo** y escriba *myResourceGroup*.|
-   |Location| Seleccione **Este de EE. UU**. |
-   |Nombre de subred| Público|
-   |Intervalo de direcciones de subred| 10.0.0.0/24|
-   |Protección contra DDOS| Básica|
-   |Puntos de conexión del servicio| Disabled|
-   |Firewall| Disabled|
+   |Nombre| Escriba *myVirtualNetwork* |
+   |Region| Seleccione **(EE.UU.) Este de EE. UU.** |
 
    ![Especificar información básica acerca de la red virtual](./media/tutorial-restrict-network-access-to-resources/create-virtual-network.png)
 
+4. Haga clic en **Siguiente: direcciones IP >**
+   
+   |Configuración|Value|
+   |----|----|
+   |Espacio de IPv4Address| Deje el valor predeterminado |
+   |Nombre de subred| Haga clic en **predeterminada** y cambie el nombre de "default" (predeterminada) a "Public" (Pública).|
+   |Intervalo de direcciones de subred| Deje el valor predeterminado|
+
+5. Haga clic en **Siguiente: seguridad >** 
+   
+   |Configuración|Value|
+   |----|----|   
+   |BastionHost| Deshabilitar|
+   |Protección contra DDOS| Deshabilitar|
+   |Firewall| Deshabilitar|
+
+6. Al finalizar, haga clic en **Revisar y crear**.
+7. Si se superan las comprobaciones de validación, haga clic en **Crear**.
+8. Espere a que finalice la implementación y haga clic en **Ir al recurso** o pase a la sección siguiente. 
+
 ## <a name="enable-a-service-endpoint"></a>Habilitación de un punto de conexión de servicio
 
-Los punto de conexión de servicio están habilitados por servicio, por subred. Cree una subred y habilite un punto de conexión de servicio para ella.
+Los punto de conexión de servicio están habilitados por servicio, por subred. Para crear una subred y habilitar un punto de conexión de servicio para ella:
 
-1. En el cuadro **Search resources, services, and docs** (Buscar recursos, servicios y documentos) que encontrará en la parte superior del portal, escriba *myVirtualNetwork*. Cuando aparezca la opción **myVirtualNetwork** en los resultados de la búsqueda, selecciónela.
-2. Agregue una subred a la red virtual. En **Configuración**, seleccione **Subredes** y **+ Subred**, tal y como se muestra en la imagen siguiente:
+1. Si aún no está en la página de recursos de la red virtual, puede buscar la red recién creada en el cuadro **Buscar recursos, servicios y documentos** de la parte superior del portal, escribir *myVirtualNetwork* y seleccionarlo en la lista.
+2. En el menú **Configuración** (izquierda), seleccione **Subredes** y, después, seleccione **+ Subred**, tal como se muestra:
 
     ![Subred agregada](./media/tutorial-restrict-network-access-to-resources/add-subnet.png) 
 
@@ -78,31 +92,36 @@ Los punto de conexión de servicio están habilitados por servicio, por subred. 
     |Configuración|Value|
     |----|----|
     |Nombre| Privada |
-    |Intervalo de direcciones| 10.0.1.0/24|
-    |Puntos de conexión del servicio| Seleccione **Microsoft.Storage** en **Servicios**.|
+    |Intervalo de direcciones| Deje el valor predeterminado|
+    |Puntos de conexión del servicio| Seleccione **Microsoft.Storage**|
+    |Directivas de puntos de conexión de servicio | Deje el valor predeterminado como 0 |
 
 > [!CAUTION]
 > Antes de habilitar un punto de conexión de servicio para una subred existente que tenga recursos, consulte [Modificación de la configuración de subred](virtual-network-manage-subnet.md#change-subnet-settings).
 
+4. Haga clic en **Guardar** y, después, cierre la ventana Subred a la derecha. La subred recién creada debería aparecer en la lista.
+
 ## <a name="restrict-network-access-for-a-subnet"></a>Restricción del acceso de la red para una subred
 
-De forma predeterminada, todas las máquinas virtuales de una subred pueden comunicarse con todos los recursos. Puede limitar la comunicación hacia y desde todos los recursos de una subred mediante la creación de un grupo de seguridad de red y su asociación a la subred.
+De forma predeterminada, todas las instancias de máquina virtual pueden comunicarse con todos los recursos. La comunicación con todos los recursos de una subred se puede limitar mediante la creación de un grupo de seguridad de red y su posterior asociación a la subred:
 
-1. Seleccione **+ Crear un recurso** en la esquina superior izquierda de Azure Portal.
-2. Seleccione **Redes** y **Grupo de seguridad de red**.
-3. En **Create a network security group** (Crear un grupo de seguridad de red), especifique o seleccione los datos siguientes y haga clic en **Crear**:
+1. En la esquina superior izquierda de Azure Portal, seleccione **Todos los servicios**.
+2. Seleccione **Redes** y, después, seleccione (o busque) **Grupos de seguridad de red**.
+3. En la página **Grupos de seguridad de red**, haga clic en **+ Agregar**.
+4. Escriba la siguiente información 
 
     |Configuración|Value|
     |----|----|
-    |Nombre| myNsgPrivate |
     |Subscription| Seleccione su suscripción.|
-    |Resource group | Seleccione **Usar existente** y, a continuación, *myResourceGroup*.|
+    |Resource group | Seleccione *myResourceGroup* en la lista.|
+    |Nombre| Escriba **myNsgPrivate**. |
     |Location| Seleccione **Este de EE. UU**. |
 
-4. Cuando haya creado el grupo de seguridad de red, escriba *myNsgPrivate* en el cuadro **Search resources, services, and docs** (Buscar recursos, servicios y documentos) situado en la parte superior del portal. Cuando aparezca **myNsgPrivate** en los resultados de búsqueda, selecciónelo.
-5. En **Configuración**, seleccione **Reglas de seguridad de salida**.
-6. Seleccione **+Agregar**.
-7. Cree una regla que permita la comunicación saliente con el servicio Azure Storage. Especifique o seleccione los siguientes datos y haga clic en **Agregar**:
+5. Haga clic en **Revisar y crear** y, cuando se supere la comprobación de validación, haga clic en **Crear**.
+6. Una vez creado el grupo de seguridad de red, haga clic en **Ir al recurso** o busque *myNsgPrivate*.
+7. En el menú **Configuración** de la izquierda, seleccione **Reglas de seguridad de salida**.
+8. Seleccione **+Agregar**.
+9. Cree una regla que permita la comunicación saliente con el servicio Azure Storage. Especifique o seleccione los siguientes datos y haga clic en **Agregar**:
 
     |Configuración|Value|
     |----|----|
@@ -110,13 +129,13 @@ De forma predeterminada, todas las máquinas virtuales de una subred pueden comu
     |Source port ranges| * |
     |Destination | Seleccione **Service Tag** (Etiqueta de servicio)|
     |Etiqueta de servicio de destino | Seleccione **Storage** (Almacenamiento)|
-    |Intervalos de puertos de destino| * |
+    |Intervalos de puertos de destino| Deje el valor predeterminado *8080* |
     |Protocolo|Any|
     |Acción|Allow|
-    |Priority|100|
-    |Nombre|Allow-Storage-All (Permitir-almacenar-todo)|
+    |Prioridad|100|
+    |Nombre|Cambie el nombre a **Allow-Storage-All**|
 
-8. Cree otra regla de seguridad de salida que deniegue la comunicación a Internet. Esta regla invalida una regla predeterminada en todos los grupos de seguridad de red que permite la comunicación saliente de Internet. Repita los pasos 5 a 7 de nuevo, utilizando los siguientes valores:
+10. Cree otra regla de seguridad de salida que deniegue la comunicación a Internet. Esta regla invalida una regla predeterminada en todos los grupos de seguridad de red que permite la comunicación saliente de Internet. Repita los pasos 6 a 9 anteriores, pero use los siguientes valores:
 
     |Configuración|Value|
     |----|----|
@@ -126,84 +145,99 @@ De forma predeterminada, todas las máquinas virtuales de una subred pueden comu
     |Etiqueta de servicio de destino| Seleccione **Internet**|
     |Intervalos de puertos de destino| * |
     |Protocolo|Any|
-    |Acción|Denegar|
+    |Acción|**Cambie el valor predeterminado a *Denegar*** |
     |Priority|110|
-    |Nombre|Deny-Internet-All|
+    |Nombre|Cambie a *Deny-Internet-All*|
 
-9. En **Configuración**, seleccione **Reglas de seguridad de entrada**.
-10. Seleccione **+Agregar**.
-11. Cree una regla de seguridad de entrada que permita que el tráfico de Protocolo de escritorio remoto (RDP) a la subred desde cualquier lugar. La regla invalidará cualquier regla de seguridad predeterminada que deniegue todo el tráfico de entrada procedente de Internet. Las conexiones entre Escritorio remoto y la subred están permitidas, por lo que dicha conectividad podrá probarse en un paso posterior. Seleccione **CONFIGURACIÓN**, **Reglas de seguridad de entrada** y, después, **+ Agregar**. Escriba los siguientes valores y, a continuación, seleccione **Agregar**:
+11. Cree una *regla de seguridad de entrada* que permita que llegue a la red tráfico RDP desde cualquier lugar. La regla invalidará cualquier regla de seguridad predeterminada que deniegue todo el tráfico de entrada procedente de Internet. Las conexiones entre Escritorio remoto y la subred están permitidas, por lo que dicha conectividad podrá probarse en un paso posterior. 
+12. En **Configuración**, seleccione **Reglas de seguridad de entrada**.
+13. Seleccione **+ Agregar** y use los siguientes valores:
 
     |Configuración|Value|
     |----|----|
     |Source| Any |
     |Source port ranges| * |
     |Destination | Seleccione **VirtualNetwork**|
-    |Intervalos de puertos de destino| 3389 |
+    |Intervalos de puertos de destino| Cámbielo a *3389* |
     |Protocolo|Any|
     |Acción|Allow|
     |Priority|120|
-    |Nombre|Allow-RDP-All (Permitir-RDP-Todo)|
+    |Nombre|Cambie a *Allow-RDP-All*|
 
-12. En **CONFIGURACIÓN**, seleccione **Subredes**.
-13. Seleccione **+ Asociar**
-14. En **Asociar subred**, seleccione **Red virtual** y, en **Elegir red virtual**, seleccione **myVirtualNetwork**.
-15. En **Elegir subred**, seleccione **Privada** y después **Aceptar**.
+   >[!WARNING] 
+   > El puerto 3389 de RDP se expone a Internet. Este puerto solo se recomienda para realizar pruebas. En *Entornos de producción*, se recomienda usar una red privada virtual o una conexión privada.
+
+1.  En **Configuración**, seleccione **Subredes**.
+2.  Haga clic en **+ Asociar**.
+3.  En **Red virtual**, seleccione **myVirtualNetwork**.
+4.  En **Subred**, seleccione **Privada** y después **Aceptar**.
 
 ## <a name="restrict-network-access-to-a-resource"></a>Restricción del acceso de la red a un recurso
 
-Los pasos que deben seguirse para restringir el acceso de la red a los recursos creados con servicios de Azure habilitados para puntos de conexión de servicio varían en función del servicio. Consulte en la documentación de cada servicio concreto los pasos necesarios para dicho servicio. Como ejemplo, de aquí en adelante se explican los pasos necesarios para restringir el acceso de red en una cuenta de Azure Storage.
+Los pasos que deben seguirse para restringir el acceso de la red a los recursos creados a través de los servicios de Azure, que se habilitan para los puntos de conexión del servicio, varían de un servicio a otro. Consulte en la documentación de cada servicio concreto los pasos necesarios para dicho servicio. Como ejemplo, de aquí en adelante se explican los pasos necesarios para restringir el acceso de red en una cuenta de Azure Storage.
 
 ### <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento
 
 1. Seleccione **+ Crear un recurso** en la esquina superior izquierda de Azure Portal.
-2. Seleccione **Almacenamiento** y, a continuación, seleccione **Cuenta de almacenamiento: blob, archivo, tabla, cola**.
-3. Escriba o seleccione la siguiente información, acepte los valores predeterminados restantes y haga clic en **Crear**:
+2. Escriba "Cuenta de almacenamiento" en la barra de búsqueda y selecciónelo en el menú desplegable.
+3. Haga clic en **+ Agregar**.
+4. Escriba la siguiente información:
 
     |Configuración|Value|
     |----|----|
-    |Nombre| Especifique un nombre que sea único en todas las ubicaciones de Azure, que tenga entre 3 y 24 caracteres de longitud y que esté compuesto exclusivamente de números y letras en minúscula.|
-    |Tipo de cuenta|StorageV2 (uso general v2)|
-    |Location| Seleccione **Este de EE. UU**. |
-    |Replicación| Almacenamiento con redundancia local (LRS)|
     |Subscription| Seleccione su suscripción.|
-    |Resource group | Seleccione **Usar existente** y, a continuación, *myResourceGroup*.|
+    |Resource group| Seleccione *myResourceGroup*.|
+    |Nombre de la cuenta de almacenamiento| Especifique un nombre que sea único en todas las ubicaciones de Azure, que tenga entre 3 y 24 caracteres de longitud y que esté compuesto exclusivamente de números y letras en minúscula.|
+    |Location| Seleccione **(EE.UU.) Este de EE. UU.** |
+    |Rendimiento|Estándar|
+    |Tipo de cuenta| StorageV2 (uso general v2)|
+    |Replicación| Almacenamiento con redundancia local (LRS)|
+
+5. Select **Crear y revisar**, y cuando se superen las comprobaciones de validación, haga clic en **Crear**. 
+
+>[!NOTE] 
+> La implementación puede tardar un par de minutos en completarse.
+
+6. Después de que se cree la cuenta de almacenamiento, haga clic en **Ir al recurso**.
 
 ### <a name="create-a-file-share-in-the-storage-account"></a>Creación de un recurso compartido de archivos en la cuenta de almacenamiento
 
-1. Cuando haya creado la cuenta de almacenamiento, especifique su nombre en el cuadro **Buscar recursos, servicios y documentos**, situado en la parte superior del portal. Cuando el nombre de la cuenta de almacenamiento aparezca en los resultados de búsqueda, selecciónelo.
-2. Seleccione **Archivos**, tal y como se muestra en la siguiente ilustración:
+1. Vaya a la página de información general de la cuenta de almacenamiento.
+2. Seleccione el icono de la aplicación **Recursos compartidos de archivos** y haga clic en **+ Recurso compartido de archivos**.
+
+    |Configuración|Value|
+    |----|----|
+    |Nombre| my-file-share|
+    |Quota| "Establecer en el máximo" |
 
    ![Cuenta de almacenamiento](./media/tutorial-restrict-network-access-to-resources/storage-account.png) 
 
-3. Seleccione **+ Recurso compartido de archivos**.
-4. Escriba *my-file-share* en **Nombre** y seleccione **Aceptar**.
-5. Cierre el cuadro **Servicio Archivo**.
+3. Haga clic en **Crear**.
+4. El recurso compartido de archivos se debe mostrar en la ventana de Azure si no hace clic en **Actualizar**.
 
 ### <a name="restrict-network-access-to-a-subnet"></a>Restricción del acceso de la red a una subred
 
-De forma predeterminada, las cuentas de almacenamiento aceptan conexiones de red procedentes de clientes de cualquier red, incluido Internet. Deniegue el acceso a la red desde Internet y a todas las demás subredes de todas las redes virtuales, excepto a la subred *Private* de la red virtual *myVirtualNetwork*.
+De forma predeterminada, las cuentas de almacenamiento aceptan conexiones de red procedentes de clientes de cualquier red, incluido Internet. Puede restringir tanto el acceso a la red desde Internet como a las restantes subredes de todas las redes virtuales (excepto a la subred *Private* de la red virtual *myVirtualNetwork*). Para restringir acceso de la red a una subred:
 
-1. En la opción **Configuración** de la cuenta de almacenamiento, seleccione **Firewalls and virtual networks** (Firewalls y redes virtuales).
+1. En la opción **Configuración** de la cuenta de almacenamiento (nombre único), seleccione **Redes**.
 2. Seleccione **Redes seleccionadas**.
-3. Seleccione **+Agregar red virtual existente**.
+3. Seleccione **+ Agregar red virtual existente**.
 4. En **Agregar redes**, seleccione los siguientes valores y haga clic en **Agregar**:
 
     |Configuración|Value|
     |----|----|
     |Subscription| Seleccione su suscripción.|
-    |Redes virtuales|Seleccione **myVirtualNetwork** en **Redes virtuales**|
-    |Subredes| Seleccione **Privada** en **Subredes**|
+    |Redes virtuales| **myVirtualNetwork**|
+    |Subredes| **Privado**|
 
-    ![Captura de pantalla que muestra el panel Agregar redes donde se pueden indicar los valores especificados.](./media/tutorial-restrict-network-access-to-resources/storage-firewalls-and-virtual-networks.png)
+    ![Captura de pantalla que muestra el panel Agregar redes donde se pueden indicar los valores especificados.](./media/tutorial-restrict-network-access-to-resources/virtual-networks.png)
 
-5. Seleccione **Guardar**.
-6. Cierre el cuadro **Firewalls and virtual networks** (Firewalls y redes virtuales).
-7. En la opción **Configuración** de la cuenta de almacenamiento, seleccione **Claves de acceso**, tal y como se muestra en la siguiente ilustración:
+5. Haga clic en **Agregar** e, inmediatamente después, haga clic en el icono **Guardar** para guardar los cambios.
+6. En la opción **Configuración** de la cuenta de almacenamiento, seleccione **Claves de acceso**, como se muestra en la siguiente imagen:
 
       ![Captura de pantalla que muestra Teclas de acceso seleccionado en Configuración, donde se puede obtener una clave.](./media/tutorial-restrict-network-access-to-resources/storage-access-key.png)
 
-8. Anote el valor del campo **Clave**, ya que tendrá que escribirlo manualmente más adelante, cuando asigne el recurso compartido de archivos a una letra de unidad de una máquina virtual.
+7. Haga clic en **Mostrar claves** y anota los valores de **Clave**, ya que tendrá que escribir manualmente la clave1 en un paso posterior, al asignar el recurso compartido de archivos a una letra de unidad de una máquina virtual.
 
 ## <a name="create-virtual-machines"></a>Creación de máquinas virtuales
 
@@ -211,45 +245,68 @@ Para probar el acceso de la red a una cuenta de almacenamiento, implemente una m
 
 ### <a name="create-the-first-virtual-machine"></a>Creación de la primera máquina virtual
 
-1. Seleccione **+ Crear un recurso** en la esquina superior izquierda de Azure Portal.
-2. Seleccione **Compute** y, después, seleccione **Windows Server 2016 Datacenter**.
-3. Especifique o seleccione los siguientes datos y haga clic en **Aceptar**:
+1. En la barra "Buscar recursos . . ." busque **Máquinas virtuales**.
+2. Seleccione **+ Agregar > Máquina virtual**. 
+3. Escriba la siguiente información:
 
    |Configuración|Value|
    |----|----|
-   |Nombre| myVmPublic|
+   |Subscription| Seleccione su suscripción.|
+   |Resource group| Seleccione **myResourceGroup, que se creó anteriormente.|
+   |Nombre de la máquina virtual| Escriba *myVmPublic*.|
+   |Region | (EE. UU.) Este de EE. UU.
+   |Opciones de disponibilidad| Zona de disponibilidad|
+   |Zona de disponibilidad | 1 |
+   |Imagen | Windows Server 2019 Datacenter - Gen 1 |
+   |Size | Seleccione el tamaño de la instancia de máquina virtual que desea usar |
    |Nombre de usuario|Escriba un nombre de usuario de su elección.|
    |Contraseña| Escriba una contraseña de su elección. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-   |Subscription| Seleccione su suscripción.|
-   |Resource group| Seleccione **Usar existente** y, a continuación, **myResourceGroup**.|
-   |Location| Seleccione **Este de EE. UU**.|
-
-   ![Escribir información esencial acerca de una máquina virtual](./media/tutorial-restrict-network-access-to-resources/virtual-machine-basics.png)
-4. Seleccione un tamaño para la máquina virtual y luego **Seleccionar**.
-5. En **Configuración**, seleccione **Red** y haga clic en **myVirtualNetwork**. Seleccione **Subred** y **Público**, tal y como se muestra en la ilustración siguiente:
+   |Puertos de entrada públicos | Permitir los puertos seleccionados |
+   |Selección de puertos de entrada | Deje el valor predeterminado establecido en *RDP (3389)* |
 
    ![Seleccionar una red virtual](./media/tutorial-restrict-network-access-to-resources/virtual-machine-settings.png)
+  
+4. Seleccione la pestaña **Redes** y, después, seleccione **myVirtualNetwork**. 
+5. Seleccione la subred *Public*.
+6. En **Grupo de seguridad de red de NIC**, seleccione **Avanzado**. El portal crea automáticamente un grupo de seguridad de red que permite el puerto 3389, que debe estar abierto para conectarse a la máquina virtual en un paso posterior. 
 
-6. En **Grupo de seguridad de red**, seleccione **Avanzado**. El portal crea automáticamente un grupo de seguridad de red que permite el puerto 3389, que debe estar abierto para conectarse a la máquina virtual en un paso posterior. Seleccione **Aceptar** en la página **Configuración**.
-7. En la página **Resumen**, seleccione **Crear** para iniciar la implementación de la máquina virtual. La máquina virtual tarda unos minutos en implementarse, pero puede continuar con el paso siguiente mientras se crea.
+   ![Escribir información esencial acerca de una máquina virtual](./media/tutorial-restrict-network-access-to-resources/virtual-machine-basics.png)
+
+7. Seleccione **Revisar y crear** y, después, **Crear**, y espere hasta que finalice la implementación.
+8. Haga clic en **Ir al recurso** o abra la página **Inicio > Máquinas virtuales** y seleccione la máquina virtual que acaba de crear, *myVmPublic*, que debería haberse iniciado.
 
 ### <a name="create-the-second-virtual-machine"></a>Creación de la segunda máquina virtual
 
-Repita los pasos 1 a 7, pero, en el paso 3, llame a la máquina virtual *myVmPrivate* y, en el paso 5, seleccione la subred **Privada**.
+1. Repita los pasos 1 a 8, pero, en el paso 3, asigne a la máquina virtual el nombre *myVmPrivate* y, en **Public inbound port**  (Puerto de entrada público), seleccione "None" (Ninguno). 
+2. En el paso 4-5, seleccione la subred **Private**.
 
-La maquina virtual tarda unos minutos en implementarse. No avance al paso siguiente hasta que finalice el proceso y la configuración se abra en el portal.
+>[!NOTE]
+> La configuración de **Grupo de seguridad de red de NIC** y **Public inbound ports** (Puertos de entrada públicos) debe reflejar la imagen que se muestra a continuación, incluida la ventana de confirmación azul que indica: "all public internet traffic will be blocked by default" (de manera predeterminada se bloqueará todo el tráfico de la red Internet pública).
+
+   ![Creación de una máquina virtual privada](./media/tutorial-restrict-network-access-to-resources/create-private-virtual-machine.png)
+
+3. Seleccione **Revisar y crear** y, después, **Crear**, y espere hasta que finalice la implementación. 
+
+>[!WARNING]
+> No continúe con el paso siguiente hasta que la implementación haya finalizado.
+
+4. Espere hasta que aparezca la ventana de confirmación que se muestra a continuación y haga clic en **Ir al recurso**.
+
+   ![Crear una ventana de confirmación de máquina virtual privada](./media/tutorial-restrict-network-access-to-resources/create-vm-confirmation-window.png)
 
 ## <a name="confirm-access-to-storage-account"></a>Confirmación del acceso a la cuenta de almacenamiento
 
-1. Cuando la máquina virtual *myVmPrivate* termine de crearse, Azure abrirá sus opciones de configuración. Conéctese a la máquina virtual seleccionando el botón **Conectar**, tal y como se muestra en la imagen siguiente:
+1. Una vez creada máquina virtual *myVmPrivate*, haga clic en **Ir al recurso**. 
+2. Conéctese a la máquina virtual, para lo que debe seleccionar **Conectar > RDP**.
+3. Cuando seleccione el botón **Conectar**, se creará un archivo de Protocolo de Escritorio remoto (.rdp). Haga clic en **Descargar archivo RDP** para realizar la descarga en el equipo.  
+4. Abra el archivo .rdp descargado. Cuando se le pida, seleccione **Conectar**. Escriba el nombre de usuario y la contraseña que especificó al crear la máquina virtual. Puede que deba seleccionar **More choices** (Más opciones) y, luego, **Use a different account** (Usar una cuenta diferente) para especificar las credenciales que escribió al crear la máquina virtual. En el campo del correo electrónico, escriba las credenciales de "Cuenta de administrador: nombre de usuario" que especificó anteriormente. 
+5. Seleccione **Aceptar**.
+6. Puede recibir una advertencia de certificado durante el proceso de inicio de sesión. Si recibe la advertencia, seleccione **Sí** o **Continuar** para continuar con la conexión. Debería ver que la máquina virtual se inicia como se muestra:
 
-   ![Conexión a una máquina virtual](./media/tutorial-restrict-network-access-to-resources/connect-to-virtual-machine.png)
+   ![Mostrar máquina virtual privada en ejecución](./media/tutorial-restrict-network-access-to-resources/virtual-machine-running.png)
 
-2. Cuando seleccione el botón **Conectar**, se creará un archivo de Protocolo de Escritorio remoto (.rdp) y se descargará en el equipo.  
-3. Abra el archivo .rdp descargado. Cuando se le pida, seleccione **Conectar**. Escriba el nombre de usuario y la contraseña que especificó al crear la máquina virtual. Puede que deba seleccionar **More choices** (Más opciones) y, luego, **Use a different account** (Usar una cuenta diferente), para especificar las credenciales que escribió al crear la máquina virtual. 
-4. Seleccione **Aceptar**.
-5. Puede recibir una advertencia de certificado durante el proceso de inicio de sesión. Si recibe la advertencia, seleccione **Sí** o **Continuar** para continuar con la conexión.
-6. En la máquina virtual *myVmPrivate*, asigne el recurso compartido de archivos de Azure a la unidad Z con PowerShell. Antes de ejecutar los comandos que siguen, reemplace `<storage-account-key>` y `<storage-account-name>` por los valores que proporcionó y recuperó en [Creación de una cuenta de almacenamiento](#create-a-storage-account).
+7. En la ventana de la máquina virtual, abra una instancia de la CLI de PowerShell.
+8. Utilice el script siguiente para asignar el recurso compartido de archivos de Azure a la unidad Z mediante PowerShell. Antes de ejecutar los comandos siguientes, reemplace `<storage-account-key>` y los dos campos `<storage-account-name>` por los valores que especificó entre comillas anteriormente en [Creación de una cuenta de almacenamiento](#create-a-storage-account).
 
    ```powershell
    $acctKey = ConvertTo-SecureString -String "<storage-account-key>" -AsPlainText -Force
@@ -267,34 +324,25 @@ La maquina virtual tarda unos minutos en implementarse. No avance al paso siguie
 
    El recurso compartido de archivos de Azure se ha asignado correctamente a la unidad Z.
 
-7. Confirme que la máquina virtual no tiene conectividad de salida a Internet desde un símbolo del sistema:
-
-   ```
-   ping bing.com
-   ```
-
-   Dado que el grupo de seguridad de red asociado a la subred *Private* no permite el acceso de salida a Internet, no recibirá ninguna respuesta.
-
-8. Cierre la sesión de Escritorio remoto a la máquina virtual *myVmPrivate*.
+9.   Cierre la sesión de Escritorio remoto a la máquina virtual *myVmPrivate*.
 
 ## <a name="confirm-access-is-denied-to-storage-account"></a>Confirmación de la denegación del acceso a la cuenta de almacenamiento
 
 1. En el cuadro *Search resources, services, and docs* (Buscar recursos, servicios y documentos) que encontrará en la parte superior del portal, escriba **myVmPublic**.
 2. Cuando aparezca **myVmPublic** en los resultados de búsqueda, selecciónelo.
-3. Siga los pasos 1 a 6 que se indican en [Confirmación del acceso a la cuenta de almacenamiento](#confirm-access-to-storage-account) con la máquina virtual *myVmPublic*.
+3. Siga los pasos 1 a 8 que se indican en [Confirmación del acceso a la cuenta de almacenamiento](#confirm-access-to-storage-account) con la máquina virtual *myVmPublic*.
 
    Tras una breve espera, recibirá un error `New-PSDrive : Access is denied`. El acceso se deniega porque la máquina virtual *myVmPublic* está implementada en la subred *Public*. La subred *Public* no tiene un punto de conexión de servicio habilitado para Azure Storage. La cuenta de almacenamiento solo permite el acceso a la red desde la subred *Private*, no desde la subred *Public*.
 
 4. Cierre la sesión de Escritorio remoto a la máquina virtual *myVmPublic*.
-
-5. En el equipo, vaya a [Azure Portal](https://portal.azure.com).
-6. Escriba el nombre de la cuenta de almacenamiento que creó en el cuadro **Search resources, services, and docs** (Buscar recursos, servicios y documentos). Cuando el nombre de la cuenta de almacenamiento aparezca en los resultados de búsqueda, selecciónelo.
-7. Seleccione **Archivos**.
-8. Aparecerá el error que se muestra en la siguiente ilustración:
+5. Cuando se encuentre de nuevo en Azure Portal, vaya a la cuenta de almacenamiento con un nombre único que creó anteriormente.
+6. En File service, seleccione **Recursos compartidos de archivos** y, después el recurso *my-file-share* que creó anteriormente.
+7. Debería recibir el siguiente mensaje de error:
 
    ![Error de acceso denegado](./media/tutorial-restrict-network-access-to-resources/access-denied-error.png)
-
-   El acceso se deniega porque el equipo no se encuentra en la subred *Privada* de la red virtual *MyVirtualNetwork*.
+   
+>[!NOTE] 
+> El acceso se deniega porque el equipo no se encuentra en la subred *Privada* de la red virtual *MyVirtualNetwork*.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

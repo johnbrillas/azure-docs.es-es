@@ -7,17 +7,17 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: 1f541b947c04619892291e47002ea9b0dbb6d38d
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 9f6692db2da3722507136a468d1dcbdc2985e73f
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340573"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347564"
 ---
 # <a name="transactional-batch-operations-in-azure-cosmos-db-using-the-net-sdk"></a>Operaciones por lotes transaccionales en Azure Cosmos DB mediante el SDK para .NET
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-El lote transaccional describe un grupo de operaciones puntuales que deben finalizar juntas, ya sea correctamente o con errores, con la misma clave de partición en un contenedor. En el SDK para .NET, se usa la clase `TranscationalBatch` para definir este lote de operaciones. Si todas las operaciones se realizan correctamente en el orden en que se describen en el lote transaccional, se confirmará la transacción. Sin embargo, si se produce un error en alguna de las operaciones, se revierte toda la transacción.
+El lote transaccional describe un grupo de operaciones puntuales que deben finalizar juntas, ya sea correctamente o con errores, con la misma clave de partición en un contenedor. En el SDK para .NET, se usa la clase `TransactionalBatch` para definir este lote de operaciones. Si todas las operaciones se realizan correctamente en el orden en que se describen en el lote transaccional, se confirmará la transacción. Sin embargo, si se produce un error en alguna de las operaciones, se revierte toda la transacción.
 
 ## <a name="whats-a-transaction-in-azure-cosmos-db"></a>Concepto de transacción en Azure Cosmos DB
 
@@ -33,10 +33,10 @@ Azure Cosmos DB es [totalmente compatible con transacciones ACID con aislamient
 
 Actualmente, Azure Cosmos DB admite procedimientos almacenados, que también proporcionan el ámbito transaccional en las operaciones. Sin embargo, las operaciones por lotes transaccionales ofrecen las siguientes ventajas:
 
-* **Opción de lenguaje** : el lote transaccional es compatible con el SDK y el lenguaje con los que ya trabaja, mientras que los procedimientos almacenados deben escribirse en JavaScript.
-* **Control de versiones de código** : controlar las versiones del código de la aplicación e incorporarlo en la canalización de CI/CD es mucho más natural que orquestar la actualización de un procedimiento almacenado y asegurar que la sustitución sucede en el momento adecuado. También se facilita la reversión de los cambios.
-* **Rendimiento** : la latencia en operaciones equivalentes se reduce hasta un 30 % en comparación con la ejecución del procedimiento almacenado.
-* **Serialización del contenido** : cada operación dentro de un lote transaccional puede aprovechar las opciones de serialización personalizadas para su carga.
+* **Opción de lenguaje**: el lote transaccional es compatible con el SDK y el lenguaje con los que ya trabaja, mientras que los procedimientos almacenados deben escribirse en JavaScript.
+* **Control de versiones de código**: controlar las versiones del código de la aplicación e incorporarlo en la canalización de CI/CD es mucho más natural que orquestar la actualización de un procedimiento almacenado y asegurar que la sustitución sucede en el momento adecuado. También se facilita la reversión de los cambios.
+* **Rendimiento**: la latencia en operaciones equivalentes se reduce hasta un 30 % en comparación con la ejecución del procedimiento almacenado.
+* **Serialización del contenido**: cada operación dentro de un lote transaccional puede aprovechar las opciones de serialización personalizadas para su carga.
 
 ## <a name="how-to-create-a-transactional-batch-operation"></a>Creación de una operación por lotes transaccional
 
@@ -51,13 +51,13 @@ TransactionalBatch batch = container.CreateTransactionalBatch(new PartitionKey(p
   .CreateItem<ChildClass>(child);
 ```
 
-A continuación, deberá llamar a `ExecuteAsync`:
+A continuación, deberá llamar a `ExecuteAsync` en el lote:
 
 ```csharp
 TransactionalBatchResponse batchResponse = await batch.ExecuteAsync();
 ```
 
-Una vez recibida la respuesta, deberá examinar si es correcta o no y extraer los resultados:
+Una vez recibida la respuesta, examine si es correcta o no y extraiga los resultados:
 
 ```csharp
 using (batchResponse)
@@ -100,7 +100,7 @@ using (failedBatchResponse)
 
 Cuando se llama al método `ExecuteAsync`, todas las operaciones del objeto `TransactionalBatch` se agrupan, se serializan en una sola carga y se envían como una única solicitud al servicio Azure Cosmos DB.
 
-El servicio recibe la solicitud, ejecuta todas las operaciones de un ámbito transaccional y devuelve una respuesta con el mismo protocolo de serialización. Esta respuesta indica el fin correcto o un error, y contiene todas las respuestas de las operaciones individuales.
+El servicio recibe la solicitud, ejecuta todas las operaciones de un ámbito transaccional y devuelve una respuesta con el mismo protocolo de serialización. Esta respuesta indica el fin correcto o un error, y proporciona todas las respuestas de las operaciones individuales.
 
 El SDK le expone la respuesta para que compruebe el resultado y, opcionalmente, extraiga cada uno de los resultados de las operaciones internas.
 

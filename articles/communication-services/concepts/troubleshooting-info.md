@@ -8,12 +8,12 @@ ms.author: manoskow
 ms.date: 10/23/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 775075765c8c8eaa94541c0f094c1f7743fe59d9
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 88ad060c1ba28285051a91bd928a2a7116dff1ce
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94886794"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96937549"
 ---
 # <a name="troubleshooting-in-azure-communication-services"></a>Solución de problemas en Azure Communication Services
 
@@ -165,6 +165,25 @@ En Android Studio, vaya al explorador de archivos de dispositivo; para ello, sel
    
 
 ---
+
+
+## <a name="calling-client-library-error-codes"></a>Códigos de error de la biblioteca cliente de llamadas
+
+La biblioteca cliente de llamadas de Azure Communication Services usa los siguientes códigos de error para ayudarle a solucionar problemas de llamadas. Estos códigos de error se exponen a través de la propiedad `call.callEndReason` después de que finaliza una llamada.
+
+| Código de error | Descripción | Acción que realizar |
+| -------- | ---------------| ---------------|
+| 403 | Prohibido o error de autenticación. | Asegúrese de que el token de Communication Services es válido y no ha expirado. |
+| 404 | Llamada no encontrada. | Asegúrese de que el número al que llama (o la llamada a la que se une) existe. |
+| 408 | Se agotó el tiempo de espera del controlador de llamadas. | Se agotó el tiempo de espera del controlador de llamadas mientras esperaba los mensajes de protocolo de los puntos de conexión de usuario. Asegúrese de que los clientes están conectados y disponibles. |
+| 410 | Error de infraestructura de medios o de pila de medios locales. | Asegúrese de que usando la biblioteca de cliente más reciente en un entorno compatible. |
+| 430 | No se puede enviar el mensaje a la aplicación cliente. | Asegúrese de que la aplicación cliente se está ejecutando y está disponible. |
+| 480 | Punto de conexión remoto del cliente no registrado. | Asegúrese de que el punto de conexión remoto está disponible. |
+| 481 | No se pudo controlar la llamada entrante. | Envíe una solicitud de soporte técnico mediante Azure Portal. |
+| 487 | Llamada cancelada, rechazada localmente, finalizada debido a un problema de falta de coincidencia de punto de conexión o no se pudo generar una oferta multimedia. | Comportamiento esperado. |
+| 490, 491, 496, 487, 498 | Problemas de red en el punto de conexión local. | Compruebe la red. |
+| 500, 503, 504 | Error de infraestructura de Communication Services. | Envíe una solicitud de soporte técnico mediante Azure Portal. |
+| 603 | Un participante remoto de Communication Services ha rechazado globalmente la llamada | Comportamiento esperado. |
 
 
 ## <a name="related-information"></a>Información relacionada

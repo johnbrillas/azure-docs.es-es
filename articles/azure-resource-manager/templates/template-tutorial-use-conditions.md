@@ -5,18 +5,18 @@ author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 1f4e8c0bc6a066e0d82d393474bfc804be5e3fb3
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: f044863be7d0bfaaad57d3974a1d2856b27927ea
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96931374"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589141"
 ---
 # <a name="tutorial-use-condition-in-arm-templates"></a>Tutorial: Uso de condiciones en plantillas de Resource Manager
 
 Aprenda a implementar recursos de Azure en función de las condiciones de una plantilla de Azure Resource Manager (ARM).
 
-En el tutorial [Establecimiento del orden de implementación de los recursos](./template-tutorial-create-templates-with-dependent-resources.md), se crean una máquina virtual, una red virtual y algunos otros recursos dependientes incluidos en una cuenta de almacenamiento. En lugar de crear una nueva cuenta de almacenamiento, cada vez, dejará que la gente elija entre crear una nueva cuenta de almacenamiento y usar una existente. Para lograr este objetivo, definirá un parámetro adicional. Si el valor del parámetro es "new", se crea una nueva cuenta de almacenamiento. En caso contrario, se usa una cuenta de almacenamiento existente con el nombre proporcionado.
+En el tutorial [Establecimiento del orden de implementación de los recursos](./template-tutorial-create-templates-with-dependent-resources.md), se crean una máquina virtual, una red virtual y algunos otros recursos dependientes incluidos en una cuenta de almacenamiento. En lugar de crear una nueva cuenta de almacenamiento, cada vez, dejará que la gente elija entre crear una nueva cuenta de almacenamiento y usar una existente. Para lograr este objetivo, definirá un parámetro adicional. Si el valor del parámetro es **new**, se crea una cuenta de almacenamiento. En caso contrario, se usa una cuenta de almacenamiento existente con el nombre proporcionado.
 
 ![Diagrama de las condiciones de uso de la plantilla de Resource Manager](./media/template-tutorial-use-conditions/resource-manager-template-use-condition-diagram.png)
 
@@ -54,7 +54,7 @@ Para completar este artículo, necesitará lo siguiente:
 
 Plantillas de inicio rápido de Azure es un repositorio de plantillas de Azure Resource Manager. En lugar de crear una plantilla desde cero, puede buscar una plantilla de ejemplo y personalizarla. La plantilla que se usa en este tutorial se denomina [Deploy a simple Windows VM](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
 
-1. En Visual Studio Code, seleccione **Archivo**>**Abrir archivo**.
+1. En Visual Studio Code, seleccione **Archivo** > **Abrir archivo**.
 1. En **Nombre de archivo**, pegue el código URL siguiente:
 
     ```url
@@ -73,19 +73,19 @@ Plantillas de inicio rápido de Azure es un repositorio de plantillas de Azure R
 
     Puede resultar útil revisar la referencia de la plantilla antes de personalizar una plantilla.
 
-1. Seleccione **Archivo**>**Guardar como** para guardar una copia del archivo en la máquina local con el nombre **azuredeploy.json**.
+1. Seleccione **Archivo** > **Guardar como** para guardar una copia del archivo en la máquina local con el nombre _azuredeploy.json_.
 
 ## <a name="modify-the-template"></a>Modificación de la plantilla
 
 Realice dos cambios en la plantilla existente:
 
 * Incorporación de un parámetro de nombre de cuenta de almacenamiento. Los usuarios pueden especificar un nuevo nombre de cuenta de almacenamiento o uno que ya exista.
-* Agregue un nuevo parámetro llamado **newOrExisting**. En la implementación se usa este parámetro para determinar si crear una cuenta de almacenamiento o usar una cuenta de almacenamiento existente.
+* Agregue un nuevo parámetro llamado `newOrExisting`. En la implementación se usa este parámetro para determinar si crear una cuenta de almacenamiento o usar una cuenta de almacenamiento existente.
 
 Éste es el procedimiento para realizar los cambios:
 
-1. Abra **azuredeploy.json** en Visual Studio Code.
-1. Reemplace las tres apariciones de **variables("storageAccountName")** por **parameters("storageAccountName")** en toda la plantilla.
+1. Abra _azuredeploy.json_ en Visual Studio Code.
+1. Reemplace las tres apariciones de `variables('storageAccountName')` por `parameters('storageAccountName')` en toda la plantilla.
 1. Quite la siguiente definición de variable:
 
     ![Captura de pantalla que resalta las definiciones de variables que se deben quitar.](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template-remove-storageaccountname.png)
@@ -105,7 +105,7 @@ Realice dos cambios en la plantilla existente:
     },
     ```
 
-    Presione **[ALT]+[SHIFT]+F** para dar formato a la plantilla en Visual Studio Code.
+    Presione Alt+Mayús+F para dar formato a la plantilla en Visual Studio Code.
 
     La definición de parámetros actualizada se parece a esta:
 
@@ -117,12 +117,12 @@ Realice dos cambios en la plantilla existente:
     "condition": "[equals(parameters('newOrExisting'),'new')]",
     ```
 
-    La condición comprueba el valor de un parámetro llamado **newOrExisting**. Si el valor del parámetro es **new**, en la implementación se crea la cuenta de almacenamiento.
+    La condición comprueba el valor del parámetro `newOrExisting`. Si el valor del parámetro es **new**, en la implementación se crea la cuenta de almacenamiento.
 
     La definición de la cuenta de almacenamiento actualizada se parece a esta:
 
     ![Captura de pantalla que muestra la definición de la cuenta de almacenamiento actualizada.](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template.png)
-1. Actualice la propiedad **storageUri** de la definición de recursos de la máquina virtual con el siguiente valor:
+1. Actualice la propiedad `storageUri` de la definición de recursos de la máquina virtual con el siguiente valor:
 
     ```json
     "storageUri": "[concat('https://', parameters('storageAccountName'), '.blob.core.windows.net')]"
@@ -136,16 +136,16 @@ Realice dos cambios en la plantilla existente:
 
 1. Inicio de sesión en [Azure Cloud Shell](https://shell.azure.com)
 
-1. Elija el entorno que prefiera; para ello, seleccione **PowerShell** o **Bash** (para CLI) en la esquina superior izquierda.  Es necesario reiniciar el shell cuando realiza el cambio.
+1. Elija el entorno que prefiera; para ello, seleccione **PowerShell** o **Bash** (para CLI) en la esquina superior izquierda. Es necesario reiniciar el shell cuando realiza el cambio.
 
     ![Archivo de carga de Cloud Shell de Azure Portal](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
 
-1. Seleccione **Cargar/descargar archivos** y, después, seleccione **Cargar**. Consulte la captura de pantalla anterior. Seleccione el archivo que guardó en la sección anterior. Después de cargar el archivo, puede usar el comando **ls** y el comando **cat** para comprobar que la operación de carga se ha realizado correctamente.
+1. Seleccione **Cargar/descargar archivos** y, después, seleccione **Cargar**. Consulte la captura de pantalla anterior. Seleccione el archivo que guardó en la sección anterior. Después de cargar el archivo, puede usar el comando `ls` y el comando `cat` para comprobar que la operación de carga se ha realizado correctamente.
 
 1. Ejecute el siguiente script de PowerShell para implementar la plantilla.
 
     > [!IMPORTANT]
-    > El nombre de la cuenta de almacenamiento debe ser único en Azure. El nombre debe tener solo letras minúsculas o números. No debe superar los 24 caracteres. El nombre de la cuenta de almacenamiento es el nombre del proyecto con "store" anexado. Asegúrese de que el nombre del proyecto y el nombre de la cuenta de almacenamiento generada cumplen los requisitos para el nombre de la cuenta de almacenamiento.
+    > El nombre de la cuenta de almacenamiento debe ser único en Azure. El nombre debe tener solo letras minúsculas o números. No debe superar los 24 caracteres. El nombre de la cuenta de almacenamiento es el nombre del proyecto con **store** anexado. Asegúrese de que el nombre del proyecto y el nombre de la cuenta de almacenamiento generada cumplen los requisitos para el nombre de la cuenta de almacenamiento.
 
     ```azurepowershell
     $projectName = Read-Host -Prompt "Enter a project name that is used to generate resource group name and resource names"
@@ -172,9 +172,9 @@ Realice dos cambios en la plantilla existente:
     ```
 
     > [!NOTE]
-    > Se produce un error en la implementación si **newOrExisting** es **new**, pero la cuenta de almacenamiento con el nombre especificado ya existe.
+    > Se produce un error en la implementación si `newOrExisting` es **new**, pero la cuenta de almacenamiento con el nombre especificado ya existe.
 
-Pruebe otra implementación con **newOrExisting** establecido en "existing" y especifique una cuenta de almacenamiento existente. Para crear una cuenta de almacenamiento con antelación, consulte [Creación de una cuenta de almacenamiento](../../storage/common/storage-account-create.md).
+Pruebe otra implementación con `newOrExisting` establecido en **existing** y especifique una cuenta de almacenamiento existente. Para crear una cuenta de almacenamiento con antelación, consulte [Creación de una cuenta de almacenamiento](../../storage/common/storage-account-create.md).
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

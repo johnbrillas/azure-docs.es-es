@@ -3,12 +3,12 @@ title: 'Supervisión y registro: Azure'
 description: En este artículo se proporciona información general sobre la supervisión y el registro de Live Video Analytics on IoT Edge.
 ms.topic: reference
 ms.date: 04/27/2020
-ms.openlocfilehash: ef00517fc61ac532bdd99c1e887dfd93d56a8c4f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ae455a4157cd649f610620e486323ac2c0a5744
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89567561"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97401056"
 ---
 # <a name="monitoring-and-logging"></a>Supervisión y registro
 
@@ -21,7 +21,7 @@ También encontrará información sobre cómo se pueden controlar los registros 
 Live Video Analytics on IoT Edge emite eventos o datos de telemetría según la siguiente taxonomía.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/telemetry-schema/taxonomy.png" alt-text="Taxonomía de eventos&quot;:::
+> :::image type="content" source="./media/telemetry-schema/taxonomy.png" alt-text="Taxonomía de eventos":::
 
 * Operativo: eventos que se generan como parte de las acciones realizadas por un usuario o durante la ejecución de un [gráfico multimedia](media-graph-concept.md).
    
@@ -32,16 +32,16 @@ Live Video Analytics on IoT Edge emite eventos o datos de telemetría según l
       
       ```
       {
-        &quot;body&quot;: {
-          &quot;outputType&quot;: &quot;assetName&quot;,
-          &quot;outputLocation&quot;: &quot;sampleAssetFromEVR-LVAEdge-20200512T233309Z&quot;
+        "body": {
+          "outputType": "assetName",
+          "outputLocation": "sampleAssetFromEVR-LVAEdge-20200512T233309Z"
         },
-        &quot;applicationProperties&quot;: {
-          &quot;topic&quot;: &quot;/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/<my-resource-group>/providers/microsoft.media/mediaservices/<ams-account-name>&quot;,
-          &quot;subject&quot;: &quot;/graphInstances/Sample-Graph-2/sinks/assetSink&quot;,
-          &quot;eventType&quot;: &quot;Microsoft.Media.Graph.Operational.RecordingStarted&quot;,
-          &quot;eventTime&quot;: &quot;2020-05-12T23:33:10.392Z&quot;,
-          &quot;dataVersion&quot;: &quot;1.0"
+        "applicationProperties": {
+          "topic": "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/<my-resource-group>/providers/microsoft.media/mediaservices/<ams-account-name>",
+          "subject": "/graphInstances/Sample-Graph-2/sinks/assetSink",
+          "eventType": "Microsoft.Media.Graph.Operational.RecordingStarted",
+          "eventTime": "2020-05-12T23:33:10.392Z",
+          "dataVersion": "1.0"
         }
       }
       ```
@@ -223,6 +223,85 @@ Ejemplos:
 
 La hora del evento se describe en la cadena ISO8601 y es la hora a la que dicho evento se produjo.
 
+### <a name="azure-monitor-collection-using-telegraf"></a>Recopilación de Azure Monitor con Telegraf
+
+Estas métricas se notificarán en Live Video Analytics en el módulo de IoT Edge:  
+
+|Nombre de la métrica|Tipo|Etiqueta|Descripción|
+|-----------|----|-----|-----------|
+|lva_active_graph_instances|Indicador|iothub, edge_device, module_name, graph_topology|Número total de grafos activos por topología.|
+|lva_received_bytes_total|Contador|iothub, edge_device, module_name, graph_topology, graph_instance, graph_node|Número total de bytes recibidos por un nodo. Solo se admite para orígenes RTSP|
+|lva_data_dropped_total|Contador|iothub, edge_device, module_name, graph_topology, graph_instance, graph_node, data_kind|Contador de los datos anulados (eventos, medios, etc.)|
+
+> [!NOTE]
+> Un [punto de conexión de Prometheus](https://prometheus.io/docs/practices/naming/) se expone en el puerto **9600** del contenedor. Si denomina "IvaEdge" a las instancias de Live Video Analytics en el módulo de IoT Edge, podrían acceder a las métricas enviando una solicitud GET a http://lvaEdge:9600/metrics.   
+
+Siga estos pasos para habilitar la recopilación de métricas de Live Video Analytics en el módulo de IoT Edge:
+
+1. Cree una carpeta en la máquina de desarrollo y vaya a esa carpeta.
+
+1. Una vez en ella, cree un archivo `telegraf.toml` con el siguiente contenido.
+    ```
+    [agent]
+        interval = "30s"
+        omit_hostname = true
+
+    [[inputs.prometheus]]
+      metric_version = 2
+      urls = ["http://edgeHub:9600/metrics", "http://edgeAgent:9600/metrics", "http://{LVA_EDGE_MODULE_NAME}:9600/metrics"]
+
+    [[outputs.azure_monitor]]
+      namespace_prefix = ""
+      region = "westus"
+      resource_id = "/subscriptions/{SUBSCRIPTON_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.Devices/IotHubs/{IOT_HUB_NAME}"
+    ```
+    > [!IMPORTANT]
+    > No olvide reemplazar las variables (marcadas con `{ }`) en el archivo de contenido.
+
+1. En esa carpeta, cree un archivo `.dockerfile` con el siguiente contenido.
+    ```
+        FROM telegraf:1.15.3-alpine
+        COPY telegraf.toml /etc/telegraf/telegraf.conf
+    ```
+
+1. Ahora, con el comando de la CLI de Docker, **cree el archivo de Docker** y publique la imagen en Azure Container Registry.
+    1. Aprenda a [insertar y extraer imágenes de Docker con Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli).  Puede encontrar más información sobre Azure Container Registry (ACR) [aquí](https://docs.microsoft.com/azure/container-registry/).
+
+
+1. Una vez completada la inserción en ACR, en el archivo del manifiesto de implementación, agregue el siguiente nodo:
+    ```
+    "telegraf": 
+    {
+      "settings": 
+        {
+            "image": "{ACR_LINK_TO_YOUR_TELEGRAF_IMAGE}"
+        },
+      "type": "docker",
+      "version": "1.0",
+      "status": "running",
+      "restartPolicy": "always",
+      "env": 
+        {
+            "AZURE_TENANT_ID": { "value": "{YOUR_TENANT_ID}" },
+            "AZURE_CLIENT_ID": { "value": "{YOUR CLIENT_ID}" },
+            "AZURE_CLIENT_SECRET": { "value": "{YOUR_CLIENT_SECRET}" }
+        }
+    ``` 
+    > [!IMPORTANT]
+    > No olvide reemplazar las variables (marcadas con `{ }`) en el archivo de contenido.
+
+
+1. **Autenticación**
+    1. Azure Monitor se puede [autenticar mediante una entidad de servicio](https://github.com/influxdata/telegraf/blob/master/plugins/outputs/azure_monitor/README.md#azure-authentication).
+        1. El complemento Telegraf de Azure Monitor expone [varios métodos de autenticación](https://github.com/influxdata/telegraf/blob/master/plugins/outputs/azure_monitor/README.md#azure-authentication). Se deben establecer las siguientes variables de entorno para usar la autenticación mediante entidad de servicio.  
+            •   AZURE_TENANT_ID: especifica el inquilino en el que se va a autenticar.  
+            •   AZURE_CLIENT_ID: especifica el identificador de cliente de la aplicación que se va a usar.  
+            •   AZURE_CLIENT_SECRET: especifica el secreto de la aplicación que se va a usar.  
+    >[!TIP]
+    > A la entidad de servicio se le puede otorgar el rol "**Publicador de métricas de supervisión**".
+
+1. Una vez implementados los módulos, las métricas aparecerán en Azure Monitor bajo un solo espacio de nombres con los nombres de las métricas que coincidan con los emitidos por Prometheus. 
+    1. En este caso, en Azure Portal, vaya a IoT Hub y haga clic en el vínculo "**Métricas**" en el panel de navegación izquierdo. Allí debería ver las métricas.
 ## <a name="logging"></a>Registro
 
 Al igual que sucede con otros módulos de IoT Edge, también se pueden [examinar los registros de contenedor](../../iot-edge/troubleshoot.md#check-container-logs-for-issues) en el dispositivo Edge. La información que se escribe en estos registros se puede controlar por medio de las [siguientes propiedades de módulo gemelo](module-twin-configuration-schema.md):

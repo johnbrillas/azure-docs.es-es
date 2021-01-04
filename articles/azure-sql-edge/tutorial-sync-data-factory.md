@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 672c9f0d5403ae27a26d58617dca44f0f1121411
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b83201ae864d1f1eb9124af5268360bb1748f6c8
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90904168"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507615"
 ---
 # <a name="tutorial-sync-data-from-sql-edge-to-azure-blob-storage-by-using-azure-data-factory"></a>Tutorial: Sincronización de datos desde SQL Edge a Azure Blob Storage mediante Azure Data Factory
 
@@ -59,8 +59,11 @@ Ejecute estos comandos en la instancia de SQL Edge:
     CREATE PROCEDURE usp_write_watermark @timestamp datetime, @TableName varchar(50)  
     AS  
     BEGIN
+    
     UPDATE [dbo].[watermarktable]
-    SET [WatermarkValue] = @timestamp WHERE [TableName] = @TableName
+    SET [WatermarkValue] = @timestamp
+    WHERE [TableName] = @TableName
+
     END
     Go
 ```
@@ -187,7 +190,7 @@ Para crear una factoría de datos, siga las instrucciones que se proporcionan en
 
 30. Seleccione **Actividad Procedimiento almacenado** en el diseñador de canalizaciones y cambie su nombre a **SPtoUpdateWatermarkActivity**.
 
-31. Cambie a la pestaña **Cuenta de SQL** y seleccione ***QLDBEdgeLinkedService** en **Servicio vinculado**.
+31. Cambie a la pestaña **Cuenta de SQL** y seleccione **_QLDBEdgeLinkedService_* en **Servicio vinculado**.
 
 32. Cambie a la pestaña **Procedimiento almacenado** y siga estos pasos:
 

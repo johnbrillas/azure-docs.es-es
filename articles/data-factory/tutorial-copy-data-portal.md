@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 11/11/2020
+ms.date: 12/14/2020
 ms.author: jingwang
-ms.openlocfilehash: ef9ac29735289d5c7a60ff0fca3b9e9f360f6e08
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 34eb34a86948a2b4c043d5d9b58b50958855e449
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96005136"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97508721"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-database-in-azure-sql-database-by-using-azure-data-factory"></a>Copia de datos desde Azure Blob Storage hasta una base de datos de Azure SQL Database mediante Azure Data Factory
 
@@ -26,7 +26,7 @@ ms.locfileid: "96005136"
 En este tutorial, creará una factoría de datos mediante la interfaz de usuario (UI) de Azure Data Factory. La canalización de esta factoría de datos copia los datos desde Azure Blob Storage hasta una base de datos de Azure SQL Database. El patrón de configuración de este tutorial se aplica a la copia de un almacén de datos basado en archivos a un almacén de datos relacional. Para obtener una lista de los almacenes de datos que se admiten como orígenes y receptores, consulte la tabla de [almacenes de datos admitidos](copy-activity-overview.md#supported-data-stores-and-formats).
 
 > [!NOTE]
-> - Si no está familiarizado con Data Factory, consulte [Introducción a Azure Data Factory](introduction.md).
+> Si no está familiarizado con Data Factory, consulte [Introducción a Azure Data Factory](introduction.md).
 
 En este tutorial, realizará los siguientes pasos:
 
@@ -82,24 +82,26 @@ En este paso, creará una factoría de datos e iniciará la interfaz de usuario 
 
 1. Abra **Microsoft Edge** o **Google Chrome**. Actualmente, la interfaz de usuario de Data Factory solo se admite en los exploradores web Microsoft Edge y Google Chrome.
 2. En el menú de la izquierda, seleccione **Crear un recurso** > **Integración** > **Data Factory**.
-3. En la página **Nueva factoría de datos**, en **Nombre**, escriba **ADFTutorialDataFactory**.
+3. En la página **Create Data Factory** (Crear factoría de datos), en la pestaña **Aspectos básicos**, seleccione la **suscripción** de Azure en la que desea crear la factoría de datos.
+4. Para **Grupo de recursos**, realice uno de los siguientes pasos:
+
+    a. Seleccione un grupo de recursos existente de la lista desplegable.
+
+    b. Seleccione **Crear nuevo** y escriba el nombre de un nuevo grupo de recursos.
+    
+    Para más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/management/overview.md). 
+5. En **Región**, seleccione una ubicación para la factoría de datos. En la lista desplegable solo se muestran las ubicaciones que se admiten. Los almacenes de datos (por ejemplo, Azure Storage y SQL Database) y los procesos (por ejemplo, Azure HDInsight) que usa la factoría de datos pueden estar en otras regiones.
+6. En **Nombre**, escriba **ADFTutorialDataFactory**.
 
    El nombre de la instancia de Azure Data Factory debe ser *único de forma global*. Si recibe un mensaje de error sobre el valor de nombre, escriba un nombre diferente para la factoría de datos. (Por ejemplo, utilice SuNombreADFTutorialDataFactory). Para conocer las reglas de nomenclatura de los artefactos de Data Factory, consulte [Azure Data Factory: reglas de nomenclatura](naming-rules.md).
 
      ![Nueva factoría de datos](./media/doc-common-process/name-not-available-error.png)
-4. Seleccione la **suscripción** de Azure en la que quiere crear la factoría de datos.
-5. Para **Grupo de recursos**, realice uno de los siguientes pasos:
 
-    a. Seleccione en primer lugar **Usar existente** y después un grupo de recursos de la lista desplegable.
-
-    b. Seleccione **Crear nuevo** y escriba el nombre de un grupo de recursos. 
-         
-    Para más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/management/overview.md). 
-6. En **Versión**, seleccione **V2**.
-7. En **Ubicación**, seleccione la ubicación de la factoría de datos. En la lista desplegable solo se muestran las ubicaciones que se admiten. Los almacenes de datos (por ejemplo, Azure Storage y SQL Database) y los procesos (por ejemplo, Azure HDInsight) que usa la factoría de datos pueden estar en otras regiones.
-8. Seleccione **Crear**.
-9. Una vez finalizada la creación, verá el aviso en el centro de notificaciones. Seleccione **Ir al recurso** para ir a la página de Data Factory.
-10. Haga clic en **Author & Monitor** (Creación y supervisión) para iniciar la interfaz de usuario de Data Factory en una pestaña independiente.
+7. En **Versión**, seleccione **V2**.
+8. Seleccione la pestaña **Git configuration** (Configuración de Git) arriba y active la casilla **Configure Git later** (Configurar Git más tarde).
+9. Seleccione **Revisar y crear** y elija **Crear** una vez superada la validación.
+10. Una vez finalizada la creación, verá el aviso en el centro de notificaciones. Seleccione **Ir al recurso** para ir a la página de Data Factory.
+11. Seleccione **Author & Monitor** (Creación y supervisión) para iniciar la interfaz de usuario de Azure Data Factory en otra pestaña.
 
 
 ## <a name="create-a-pipeline"></a>Crear una canalización
@@ -115,7 +117,7 @@ En este tutorial, comenzará a crear la canalización. A continuación, creará 
 
    ![Creación de una canalización](./media/doc-common-process/get-started-page.png)
 
-1. 1. En el panel General, en **Propiedades**, especifique **CopyPipeline** en **Nombre**. A continuación, contraiga el panel; para ello, haga clic en el icono Propiedades en la esquina superior derecha.
+1. En el panel General, en **Propiedades**, especifique **CopyPipeline** en **Nombre**. A continuación, contraiga el panel; para ello, haga clic en el icono Propiedades en la esquina superior derecha.
 
 1. En el cuadro de herramientas **Activities** (Actividades), expanda la categoría **Move and Transform** (Mover y transformar) y arrastre y suelte la actividad **Copy Data** (Copiar datos) desde el cuadro de herramientas hasta la superficie de diseño de la canalización. Especifique **CopyFromBlobToSql** en **Name** (Nombre).
 

@@ -5,12 +5,12 @@ author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: a43fa12e72484e97b828648cd7d610f5cf15ea4e
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: d1e5848e568f42fb8a77c65c775962f27a5a03df
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96931595"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588043"
 ---
 # <a name="tutorial-create-arm-templates-with-dependent-resources"></a>Tutorial: Creación de plantillas de Resource Manager con recursos dependientes
 
@@ -46,7 +46,7 @@ Para completar este artículo, necesitará lo siguiente:
 
 Plantillas de inicio rápido de Azure es un repositorio de plantillas de Azure Resource Manager. En lugar de crear una plantilla desde cero, puede buscar una plantilla de ejemplo y personalizarla. La plantilla que se usa en este tutorial se denomina [Deploy a simple Windows VM](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
 
-1. En Visual Studio Code, seleccione **Archivo**>**Abrir archivo**.
+1. En Visual Studio Code, seleccione **Archivo** > **Abrir archivo**.
 2. En **Nombre de archivo**, pegue el código URL siguiente:
 
     ```url
@@ -54,18 +54,18 @@ Plantillas de inicio rápido de Azure es un repositorio de plantillas de Azure R
     ```
 
 3. Seleccione **Abrir** para abrir el archivo.
-4. Seleccione **Archivo**>**Guardar como** para guardar una copia del archivo en la máquina local con el nombre **azuredeploy.json**.
+4. Seleccione **Archivo** > **Guardar como** para guardar una copia del archivo en la máquina local con el nombre _azuredeploy.json_.
 
 ## <a name="explore-the-template"></a>Exploración de la plantilla
 
 Al explorar la plantilla de esta sección, intente responder estas preguntas:
 
 * ¿Cuántos recursos de Azure se definen en esta plantilla?
-* Uno de los recursos es una cuenta de Azure Storage.  ¿Se parece la definición a la que se usó en el último tutorial?
+* Uno de los recursos es una cuenta de Azure Storage. ¿Se parece la definición a la que se usó en el último tutorial?
 * ¿Encuentra las referencias de la plantilla para los recursos definidos en esta plantilla?
 * ¿Encuentra las dependencias de los recursos?
 
-1. En Visual Studio Code, contraiga los elementos hasta que vea únicamente los elementos de primer nivel y los de segundo nivel dentro de **Recursos**:
+1. En Visual Studio Code, contraiga los elementos hasta que vea únicamente los elementos de primer nivel y los de segundo nivel dentro de `resources`:
 
     ![Plantillas de ARM de Visual Studio Code](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code.png)
 
@@ -96,7 +96,7 @@ Al explorar la plantilla de esta sección, intente responder estas preguntas:
 
     ![Elemento dependsOn de la red virtual de las plantillas de ARM de Visual Studio Code](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-virtual-network-definition.png)
 
-    El elemento dependsOn le permite definir un recurso como dependiente de uno o varios recursos. Este recurso depende de otro recurso:
+    El elemento `dependsOn` le permite definir un recurso como dependiente de uno o varios recursos. Este recurso depende de otro recurso:
 
     * `Microsoft.Network/networkSecurityGroups`
 
@@ -124,7 +124,7 @@ Mediante la especificación de las dependencias, Resource Manager implementa de 
 
     ![Archivo de carga de Cloud Shell de Azure Portal](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
 
-1. Seleccione **Cargar/descargar archivos** y, después, seleccione **Cargar**. Consulte la captura de pantalla anterior. Seleccione el archivo que guardó anteriormente. Después de cargar el archivo, puede usar el comando **ls** y el comando **cat** para comprobar que la operación de carga se ha realizado correctamente.
+1. Seleccione **Cargar/descargar archivos** y, después, seleccione **Cargar**. Consulte la captura de pantalla anterior. Seleccione el archivo que guardó anteriormente. Después de cargar el archivo, puede usar el comando `ls` y el comando `cat` para comprobar que la operación de carga se haya realizado correctamente.
 
 1. Ejecute el siguiente script de PowerShell para implementar la plantilla.
 

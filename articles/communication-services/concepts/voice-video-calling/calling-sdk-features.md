@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: f621d11553101c2c0bcfce804b26c218ae58670c
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: f47ee36c0e7806afc10f8f0907825378c2d24410
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576475"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505552"
 ---
 # <a name="calling-client-library-overview"></a>Información general de la biblioteca cliente de llamadas
 
@@ -69,7 +69,7 @@ En la tabla siguiente se representa el conjunto de exploradores y versiones comp
 
 *Tenga en cuenta que se admite la versión más reciente de Chrome además de las dos versiones anteriores.<br/>
 
-**Tenga en cuenta que se admiten las versiones de Safari 13.1 y posteriores. Todavía no se admite el vídeo de salida para Safari macOS, pero es compatible con iOS. El uso compartido de pantalla saliente solo se admite en iOS de escritorio.
+**Tenga en cuenta que se admiten las versiones de Safari 13.1 y posteriores. Todavía no se admite el vídeo de salida para Safari macOS, pero es compatible con iOS. El uso compartido de pantalla saliente solo se admite en iOS de escritorio. Actualmente, Safari no admite ni las llamadas individuales ni las llamadas en grupo.
 
 ## <a name="calling-client---browser-security-model"></a>Cliente que llama: modelo de seguridad del explorador
 
@@ -90,6 +90,15 @@ Por ejemplo, este iframe permite el acceso a la cámara y el micrófono:
 ```html
 <iframe allow="camera *; microphone *">
 ```
+
+## <a name="calling-client-library-streaming-support"></a>Compatibilidad con el streaming de la biblioteca cliente de llamada
+La biblioteca cliente de llamada de Communication Services admite las siguientes configuraciones de streaming:
+
+|           |Web | Android/iOS|
+|-----------|----|------------|
+|Número de secuencias salientes que se pueden enviar simultáneamente |1 vídeo + 1 uso compartido de pantalla | 1 vídeo + 1 uso compartido de pantalla|
+|número de secuencias entrantes que se pueden representar simultáneamente |1 vídeo + 1 uso compartido de pantalla| 6 vídeo + 1 uso compartido de pantalla |
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

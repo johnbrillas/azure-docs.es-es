@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/30/2020
 ms.author: jeedes
-ms.openlocfilehash: 246eba24f42baacf264c1c6d39ea63a51c62c51f
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 7e71058e1899cf83e712025b534e51a1be1f6bdb
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92457442"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591793"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws-legacy-tutorial"></a>Tutorial: Integración de Azure Active Directory con Amazon Web Services (AWS) (tutorial heredado)
 
@@ -72,7 +72,7 @@ Para configurar la integración de Amazon Web Services (AWS) en Azure AD, es pre
 1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
 1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
 1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
-1. En la sección **Agregar desde la galería** , escriba **Amazon Web Services (AWS)** en el cuadro de búsqueda.
+1. En la sección **Agregar desde la galería**, escriba **Amazon Web Services (AWS)** en el cuadro de búsqueda.
 1. Seleccione **Amazon Web Services (AWS)** en el panel de resultados y, luego, agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
 1. Una vez agregada la aplicación, vaya a la página **Propiedades** y copie el **identificador de objeto**.
@@ -103,47 +103,47 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
 
-2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único** , seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
+2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único**, seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
 
     ![Modo de selección de inicio de sesión único](common/select-saml-option.png)
 
-3. En la página **Configurar el inicio de sesión único con SAML** , haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
+3. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
 
     ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-4. En la sección **Configuración básica de SAML** , el usuario no tiene que realizar ningún paso porque la aplicación ya se ha integrado previamente con Azure, por lo que puede hacer clic en **Guardar**.
+4. En la sección **Configuración básica de SAML**, el usuario no tiene que realizar ningún paso porque la aplicación ya se ha integrado previamente con Azure, por lo que puede hacer clic en **Guardar**.
 
-5. La aplicación Amazon Web Services (AWS) espera las aserciones de SAML en un formato concreto. Configure las siguientes notificaciones para esta aplicación. Puede administrar los valores de estos atributos en la sección **User Attributes & Claims** (Atributos y notificaciones del usuario) de la página de integración de aplicaciones. En la página **Configurar el inicio de sesión único con SAML** , haga clic en el botón **Editar** para abrir el cuadro de diálogo **User Attributes & Claims** (Atributos y notificaciones del usuario).
+5. La aplicación Amazon Web Services (AWS) espera las aserciones de SAML en un formato concreto. Configure las siguientes notificaciones para esta aplicación. Puede administrar los valores de estos atributos en la sección **User Attributes & Claims** (Atributos y notificaciones del usuario) de la página de integración de aplicaciones. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el botón **Editar** para abrir el cuadro de diálogo **User Attributes & Claims** (Atributos y notificaciones del usuario).
 
     ![Captura de pantalla que muestra User Attributes (Atributos de usuario) con el control de edición seleccionado.](common/edit-attribute.png)
 
-6. En la sección **Notificaciones del usuario** del cuadro de diálogo **Atributos de usuario** , configure el atributo Token SAML como muestra la imagen anterior y realice los siguientes pasos:
+6. En la sección **Notificaciones del usuario** del cuadro de diálogo **Atributos de usuario**, configure el atributo Token SAML como muestra la imagen anterior y realice los siguientes pasos:
 
     | Nombre  | Atributo de origen  | Espacio de nombres |
     | --------------- | --------------- | --------------- |
     | RoleSessionName | user.userprincipalname | `https://aws.amazon.com/SAML/Attributes` |
-    | Role            | user.assignedroles |  `https://aws.amazon.com/SAML/Attributes`|
-    | SessionDuration             | "proporcione un valor comprendido entre 900 segundos (15 minutos) y 43200 segundos (12 horas)" |  `https://aws.amazon.com/SAML/Attributes` |
+    | Role | user.assignedroles | `https://aws.amazon.com/SAML/Attributes`|
+    | SessionDuration | "proporcione un valor comprendido entre 900 segundos (15 minutos) y 43200 segundos (12 horas)" |  `https://aws.amazon.com/SAML/Attributes` |
 
-    a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
+    1. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
 
-    ![Captura de pantalla que muestra User claims (Reclamaciones de usuario) con las opciones Add new claim (Agregar nueva reclamación) y Save (Guardar) seleccionadas.](common/new-save-attribute.png)
+        ![Captura de pantalla que muestra User claims (Reclamaciones de usuario) con las opciones Add new claim (Agregar nueva reclamación) y Save (Guardar) seleccionadas.](common/new-save-attribute.png)
 
-    ![Captura de pantalla que muestra Manage user claims (Administrar reclamaciones de usuario) para escribir los valores que se describen en este paso.](common/new-attribute-details.png)
+        ![Captura de pantalla que muestra Manage user claims (Administrar reclamaciones de usuario) para escribir los valores que se describen en este paso.](common/new-attribute-details.png)
 
-    b. En el cuadro de texto **Nombre** , escriba el nombre que se muestra para la fila.
+    b. En el cuadro de texto **Nombre**, escriba el nombre que se muestra para la fila.
 
-    c. En el cuadro de texto **Espacio de nombres** , escriba el valor del espacio de nombres que se muestra para esa fila.
+    c. En el cuadro de texto **Espacio de nombres**, escriba el valor del espacio de nombres que se muestra para esa fila.
 
     d. Seleccione **Atributo** como origen.
 
-    e. En la lista **Atributo de origen** , escriba el valor de atributo que se muestra para esa fila.
+    e. En la lista **Atributo de origen**, escriba el valor de atributo que se muestra para esa fila.
 
     f. Haga clic en **Aceptar**.
 
-    g. Haga clic en **Save** (Guardar).
+    g. Haga clic en **Save**(Guardar).
 
-7. En la página **Configurar el inicio de sesión único con SAML** , en la sección **Certificado de firma de SAML** , haga clic en **Descargar** para descargar el archivo **XML de metadatos de federación**  y guárdelo en su equipo.
+7. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el archivo **XML de metadatos de federación**  y guárdelo en su equipo.
 
     ![Vínculo de descarga del certificado](common/metadataxml.png)
 
@@ -167,9 +167,9 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar cuadro de diálogo de inicio de sesión único][14]
 
-    a. En **Tipo de proveedor** , seleccione **SAML**.
+    a. En **Tipo de proveedor**, seleccione **SAML**.
 
-    b. En el cuadro de texto **Provider Name** (Nombre de proveedor), escriba un nombre de proveedor (por ejemplo, *WAAD* ).
+    b. En el cuadro de texto **Provider Name** (Nombre de proveedor), escriba un nombre de proveedor (por ejemplo, *WAAD*).
 
     c. Para cargar el **archivo de metadatos** descargado de Azure Portal, haga clic en **Choose file** (Elegir archivo).
 
@@ -186,16 +186,16 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     > [!NOTE]
     > La longitud combinada del ARN de rol y el ARN del proveedor de SAML para un rol que se va a importar debe ser de 240 caracteres o menos.
 
-1. En la página **Crear rol** , realice los pasos siguientes:  
+1. En la página **Crear rol**, realice los pasos siguientes:  
 
     ![Configurar confianza de inicio de sesión único][19]
 
     a. Seleccione **SAML 2.0 federation** (Federación de SAML 2.0) en **Select type of trusted entity** (Seleccionar tipo de entidad de confianza).
 
-    b. En la sección **Choose a SAML 2.0 Provider** (Elegir un proveedor de SAML 2.0), seleccione **SAML provider** (Proveedor de SAML) que ha creado anteriormente (por ejemplo, *WAAD* )
+    b. En la sección **Choose a SAML 2.0 Provider** (Elegir un proveedor de SAML 2.0), seleccione **SAML provider** (Proveedor de SAML) que ha creado anteriormente (por ejemplo, *WAAD*)
 
     c. Seleccione **Allow programmatic and AWS Management Console access** (Permitir acceso mediante programación y a consola de AWS Management Console).
-  
+
     d. Haga clic en **Siguiente: Permisos**.
 
 1. Busque **Acceso de administrador** en la barra de búsqueda, seleccione la casilla **AdministratorAccess** y, a continuación, haga clic en **Siguiente: Etiquetas**.
@@ -206,7 +206,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Incorporación de etiquetas](./media/aws-multi-accounts-tutorial/config2.png)
 
-    a. En el cuadro de texto **Clave** , escriba el nombre de la clave, por ejemplo, Azureadtest.
+    a. En el cuadro de texto **Clave**, escriba el nombre de la clave, por ejemplo, Azureadtest.
 
     b. En el cuadro de texto **Valor (opcional)** , escriba el valor de la clave con el siguiente formato `accountname-aws-admin`. El nombre de cuenta se debe escribir todo en minúsculas.
 
@@ -216,9 +216,9 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar revisión de inicio de sesión único][34]
 
-    a. En el cuadro de texto **Nombre de rol** , escriba el valor con el patrón `accountname-aws-admin`.
+    a. En el cuadro de texto **Nombre de rol**, escriba el valor con el patrón `accountname-aws-admin`.
 
-    b. En el cuadro de texto **Descripción del rol** , escriba el mismo valor que ha usado para el nombre del rol.
+    b. En el cuadro de texto **Descripción del rol**, escriba el mismo valor que ha usado para el nombre del rol.
 
     c. Haga clic en **Crear rol**.
 
@@ -253,39 +253,35 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 1. Abra el [Explorador de Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer) en otra ventana.
 
-    a. Inicie sesión en el sitio del Probador de Microsoft Graph con las credenciales de administrador o coadministrador globales del inquilino.
+    1. Inicie sesión en el sitio del Probador de Microsoft Graph con las credenciales de administrador o coadministrador globales del inquilino.
 
-    b. Debe tener permisos suficientes para crear los roles. Haga clic en **Modificar permisos** para obtener los permisos necesarios.
+    1. Debe tener permisos suficientes para crear los roles. Haga clic en **Modificar permisos** para obtener los permisos necesarios.
 
-    ![Cuadro de diálogo del Explorador de Microsoft Graph 1](./media/aws-multi-accounts-tutorial/graph-explorer-new9.png)
+        ![Cuadro de diálogo del Explorador de Microsoft Graph 1](./media/aws-multi-accounts-tutorial/graph-explorer-new9.png)
 
-    c. Seleccione los siguientes permisos de la lista (si no los tiene ya) y haga clic en "Modificar permisos" 
+    1. Seleccione los siguientes permisos de la lista (si no los tiene ya) y haga clic en "Modificar permisos" 
 
-    ![Cuadro de diálogo del Explorador de Microsoft Graph 2](./media/aws-multi-accounts-tutorial/graph-explorer-new10.png)
+        ![Cuadro de diálogo del Explorador de Microsoft Graph 2](./media/aws-multi-accounts-tutorial/graph-explorer-new10.png)
 
-    d. En este se le pedirá que vuelva a iniciar la sesión y acepte el consentimiento. Después de aceptar el consentimiento, habrá iniciado sesión en el Probador de Microsoft Graph de nuevo.
+    1. En este se le pedirá que vuelva a iniciar la sesión y acepte el consentimiento. Después de aceptar el consentimiento, habrá iniciado sesión en el Probador de Microsoft Graph de nuevo.
 
-    e. En la lista desplegable de la versión, cambie a **beta**. Para capturar todas las entidades de seguridad de su inquilino, utilice la siguiente consulta:
+    1. En la lista desplegable de la versión, cambie a **beta**. Para capturar todas las entidades de seguridad de su inquilino, utilice la siguiente consulta: `https://graph.microsoft.com/beta/servicePrincipals`. Si usa varios directorios, puede utilizar entonces el siguiente patrón, que contiene el dominio principal: `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`.
 
-    `https://graph.microsoft.com/beta/servicePrincipals`
+        ![Cuadro de diálogo del Explorador de Microsoft Graph 3](./media/aws-multi-accounts-tutorial/graph-explorer-new1.png)
 
-    Si usa varios directorios, puede usar entonces el siguiente patrón, que contiene el dominio principal `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
+    1. En la lista de entidades de servicio que se capturan, seleccione la que debe modificar. También puede usar CTRL + F para buscar la aplicación en todas las entidades de servicio enumeradas. Para usar la siguiente consulta, utilice el valor de **Id. de objeto de entidad de servicio** que ha copiado de la página Propiedades de Azure AD y acceda a la entidad de servicio correspondiente.
 
-    ![Cuadro de diálogo del Explorador de Microsoft Graph 3](./media/aws-multi-accounts-tutorial/graph-explorer-new1.png)
-  
-    f. En la lista de entidades de servicio que se capturan, seleccione la que debe modificar. También puede usar CTRL + F para buscar la aplicación en todas las entidades de servicio enumeradas. Para usar la siguiente consulta, utilice el valor de **Id. de objeto de entidad de servicio** que ha copiado de la página Propiedades de Azure AD y acceda a la entidad de servicio correspondiente.
+        `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`.
 
-    `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`.
+        ![Cuadro de diálogo del Explorador de Microsoft Graph 4](./media/aws-multi-accounts-tutorial/graph-explorer-new2.png)
 
-    ![Cuadro de diálogo del Explorador de Microsoft Graph 4](./media/aws-multi-accounts-tutorial/graph-explorer-new2.png)
+    1. Extraiga la propiedad appRoles del objeto de entidad de servicio.
 
-    g. Extraiga la propiedad appRoles del objeto de entidad de servicio.
+        ![Cuadro de diálogo del Explorador de Microsoft Graph 5](./media/aws-multi-accounts-tutorial/graph-explorer-new3.png)
 
-    ![Cuadro de diálogo del Explorador de Microsoft Graph 5](./media/aws-multi-accounts-tutorial/graph-explorer-new3.png)
+    1. Ahora debe generar roles nuevos para la aplicación. 
 
-    h. Ahora debe generar roles nuevos para la aplicación. 
-
-    i. En el JSON que aparece a continuación, se muestra un ejemplo del objeto appRoles. Cree un objeto similar para agregar los roles que desee para su aplicación.
+    1. En el JSON que aparece a continuación, se muestra un ejemplo del objeto appRoles. Cree un objeto similar para agregar los roles que desee para su aplicación.
 
     ```
     {
@@ -329,9 +325,9 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     > [!Note]
     > Solo puede agregar nuevos roles además de **msiam_access** para la operación de revisión. Además, puede agregar tantos roles como desee según las necesidades de su organización. Azure AD enviará el **valor** de estos roles como valor de notificación en la respuesta de SAML.
 
-    j. Vuelva al Probador de Microsoft Graph y cambie el método de **GET** a **PATCH**. Revise el objeto de entidad de servicio para obtener los roles deseados mediante la actualización de la propiedad appRoles de manera similar a la que aparece anteriormente en el ejemplo. Haga clic en **Ejecutar consulta** para ejecutar la operación de revisión. Un mensaje de operación correcta confirma la creación del rol en la aplicación de Amazon Web Services.
+    1. Vuelva al Probador de Microsoft Graph y cambie el método de **GET** a **PATCH**. Revise el objeto de entidad de servicio para obtener los roles deseados mediante la actualización de la propiedad appRoles de manera similar a la que aparece anteriormente en el ejemplo. Haga clic en **Ejecutar consulta** para ejecutar la operación de revisión. Un mensaje de operación correcta confirma la creación del rol en la aplicación de Amazon Web Services.
 
-    ![Cuadro de diálogo del Explorador de Microsoft Graph 6](./media/aws-multi-accounts-tutorial/graph-explorer-new11.png)
+        ![Cuadro de diálogo del Explorador de Microsoft Graph 6](./media/aws-multi-accounts-tutorial/graph-explorer-new11.png)
 
 1. Una vez que haya revisado la entidad de servicio con más roles, podrá asignar usuarios o grupos a los roles correspondientes. Para hacer esto, vaya al portal y navegue hasta la aplicación Amazon Web Services. En la parte superior, haga clic en la pestaña **Usuarios y grupos**.
 

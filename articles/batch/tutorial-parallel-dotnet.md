@@ -1,16 +1,16 @@
 ---
-title: Ejecución de una carga de trabajo en paralelo mediante la API para .NET
+title: 'Tutorial: Ejecución de una carga de trabajo en paralelo mediante la API para .NET'
 description: 'Tutorial: Transcodificación de archivos multimedia en paralelo con ffmpeg en Azure Batch con la biblioteca cliente de .NET de Batch'
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 09/29/2020
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 396d0f6a2ef9a8c24fc92b641c889ef9e1a7df49
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: a990a5480a8a6462bb6ef9f84070b78768628fd0
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578304"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106553"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>Tutorial: Ejecución de una carga de trabajo paralela con Azure Batch mediante la API de .NET
 
@@ -332,6 +332,3 @@ Para más ejemplos de uso de la API de .NET para programar y procesar cargas de 
 
 > [!div class="nextstepaction"]
 > [Ejemplos de C# de Batch](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp)
-
-
-Si se establece la variable de instancia LowPriorityNodeCount=0 y DedicatedNodeCount=5 se corrige el problema y se permite que se complete el trabajo.

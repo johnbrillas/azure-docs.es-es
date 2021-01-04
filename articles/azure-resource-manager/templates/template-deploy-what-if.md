@@ -1,23 +1,20 @@
 ---
-title: Despliegue de plantillas hipotéticas (Vista previa)
+title: Hipótesis para la implementación de plantillas
 description: Determine los cambios que se producirán en los recursos antes de implementar una plantilla de Azure Resource Manager.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 08/05/2020
+ms.date: 12/15/2020
 ms.author: tomfitz
-ms.openlocfilehash: 27efe1e03b8a0d373d566106a53a41007731973e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a1ce7f8f718b364dc4b47593cf9ea37e8baf1e72
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87810078"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563099"
 ---
-# <a name="arm-template-deployment-what-if-operation-preview"></a>Operación hipotética de la implementación de plantilla de Resource Manager (vista previa)
+# <a name="arm-template-deployment-what-if-operation"></a>Operación what-if de la implementación de plantilla de Resource Manager
 
 Antes de implementar una plantilla de Azure Resource Manager (plantilla de ARM), puede obtener una vista previa de los cambios que se producirán. Azure Resource Manager proporciona la operación hipotética que le permite ver cómo cambiarán los recursos si implementa la plantilla. La operación hipotética no realiza ningún cambio en los recursos existentes. En su lugar, predice los cambios si se implementa la plantilla especificada.
-
-> [!NOTE]
-> La operación hipotética se encuentra actualmente en versión preliminar. Como versión preliminar, los resultados a veces pueden mostrar que un recurso cambiará cuando realmente no se produzca ningún cambio. Trabajamos para reducir estos problemas, pero necesitamos su ayuda. Informe de estos problemas en [https://aka.ms/whatifissues](https://aka.ms/whatifissues).
 
 Puede usar la operación what-if con Azure PowerShell, la CLI de Azure o las operaciones de la API REST. La operación what-if se admite en las implementaciones de grupos de recursos, nivel de suscripción, grupos de administración e inquilinos.
 
@@ -36,31 +33,6 @@ Install-Module -Name Az -Force
 ```
 
 Para más información sobre cómo instalar los módulos, consulte [Instalación de Azure PowerShell](/powershell/azure/install-az-ps).
-
-### <a name="uninstall-alpha-version"></a>Desinstalación de la versión alfa
-
-Si previamente ha instalado una versión alfa del módulo de hipótesis, desinstale ese módulo. La versión alfa solo estaba disponible para los usuarios que se suscribieron para obtener una versión preliminar anticipada. Si no instaló dicha versión preliminar, puede omitir esta sección.
-
-1. Ejecute PowerShell como administrador.
-1. Compruebe las versiones instaladas del módulo Az.Resources.
-
-   ```powershell
-   Get-InstalledModule -Name Az.Resources -AllVersions | select Name,Version
-   ```
-
-1. Si tiene una versión instalada con un número de versión con el formato **2.x.x-alpha**, desinstale esa versión.
-
-   ```powershell
-   Uninstall-Module Az.Resources -RequiredVersion 2.0.1-alpha5 -AllowPrerelease
-   ```
-
-1. Anule el registro del repositorio de hipótesis que usó para instalar la versión preliminar.
-
-   ```powershell
-   Unregister-PSRepository -Name WhatIfRepository
-   ```
-
-Está listo para usar hipótesis.
 
 ## <a name="install-azure-cli-module"></a>Instalación del módulo de la CLI de Azure
 
@@ -129,8 +101,8 @@ Para obtener una vista previa de los cambios antes de implementar una plantilla,
 
 * [az deployment group what-if](/cli/azure/deployment/group#az-deployment-group-what-if) para implementaciones de grupos de recursos
 * [az deployment sub what-if](/cli/azure/deployment/sub#az-deployment-sub-what-if) para implementaciones de nivel de suscripción
-* [az deployment mg what-if](/cli/azure/deployment/mg?view=azure-cli-latest#az-deployment-mg-what-if) para implementaciones de grupos de administración
-* [az deployment tenant what-if](/cli/azure/deployment/tenant?view=azure-cli-latest#az-deployment-tenant-what-if) para implementaciones de inquilinos
+* [az deployment mg what-if](/cli/azure/deployment/mg#az-deployment-mg-what-if) para implementaciones de grupos de administración
+* [az deployment tenant what-if](/cli/azure/deployment/tenant#az-deployment-tenant-what-if) para implementaciones de inquilinos
 
 Puede usar el modificador `--confirm-with-what-if` (o su forma abreviada `-c`) para obtener una vista previa de los cambios y recibir un aviso para continuar con la implementación. Agregue este modificador a:
 
@@ -415,15 +387,15 @@ Verá los cambios esperados y puede confirmar que desea que se ejecute la implem
 
 Puede usar la operación "what-if" a través de los SDK de Azure.
 
-* Para Python, use [what-if](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2019_10_01.operations.deploymentsoperations?view=azure-python#what-if-resource-group-name--deployment-name--properties--location-none--custom-headers-none--raw-false--polling-true----operation-config-).
+* Para Python, use [what-if](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2019_10_01.operations.deploymentsoperations#what-if-resource-group-name--deployment-name--properties--location-none--custom-headers-none--raw-false--polling-true----operation-config-).
 
-* Para Java, use la [clase DeploymentWhatIf](/java/api/com.microsoft.azure.management.resources.deploymentwhatif?view=azure-java-stable).
+* Para Java, use la [clase DeploymentWhatIf](/java/api/com.microsoft.azure.management.resources.deploymentwhatif).
 
-* Para .NET, use la [clase DeploymentWhatIf](/dotnet/api/microsoft.azure.management.resourcemanager.models.deploymentwhatif?view=azure-dotnet).
+* Para .NET, use la [clase DeploymentWhatIf](/dotnet/api/microsoft.azure.management.resourcemanager.models.deploymentwhatif).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Si observa resultados incorrectos de la versión preliminar de what-if, informe de los problemas en [https://aka.ms/whatifissues](https://aka.ms/whatifissues).
+- Si observa resultados incorrectos de la operación hipotética, informe de los problemas en [https://aka.ms/whatifissues](https://aka.ms/whatifissues).
 - Para implementar plantillas con Azure PowerShell, consulte [Implementar recursos con plantillas de Resource Manager y Azure PowerShell](deploy-powershell.md).
 - Para implementar plantillas con la CLI de Azure, consulte [Implementación de recursos con plantillas de ARM y la CLI de Azure](deploy-cli.md).
 - Para implementar plantillas con REST, consulte [Implementación de recursos con plantillas de Resource Manager y Administrador de recursos API de REST](deploy-rest.md).

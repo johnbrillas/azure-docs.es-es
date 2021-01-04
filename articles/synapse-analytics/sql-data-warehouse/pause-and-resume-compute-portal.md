@@ -1,6 +1,6 @@
 ---
-title: 'Inicio rápido: Pausa y reanudación de los recursos de proceso en un grupo de SQL dedicado (antes SQL DW) a través de Azure Portal'
-description: Use Azure Portal para pausar el proceso en el grupo de SQL con la finalidad de ahorrar costos. Reanude el proceso cuando esté listo para usar el almacenamiento de datos.
+title: 'Inicio rápido: Pausa y reanudación del proceso en un grupo de SQL dedicado mediante Azure Portal'
+description: Use Azure Portal para poner en pausa el proceso en el grupo de SQL dedicado para ahorrar costos. Reanude el proceso cuando esté listo para usar el almacenamiento de datos.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 11/23/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 88f6782a0f81b94977b37bd8f87bf26a0d4c8a72
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 7d258243dae06461d21e9b5f0346e419f034eea9
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96457673"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109717"
 ---
-# <a name="quickstart-pause-and-resume-compute-in-dedicated-sql-pool-formerly-sql-dw-via-the-azure-portal"></a>Inicio rápido: Pausa y reanudación de los recursos de proceso en un grupo de SQL dedicado (antes SQL DW) a través de Azure Portal
+# <a name="quickstart-pause-and-resume-compute-in-dedicated-sql-pool-via-the-azure-portal"></a>Inicio rápido: Pausa y reanudación del proceso en un grupo de SQL dedicado mediante Azure Portal
 
-Puede usar Azure Portal para pausar y reanudar los recursos de proceso del grupo de SQL dedicado (antes SQL DW). Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
+Puede usar Azure Portal para poner en pausa y reanudar los recursos de proceso del grupo de SQL dedicado. Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
@@ -40,9 +40,8 @@ Para reducir costos, puede pausar y reanudar los recursos de proceso a petición
 Para pausar un grupo de SQL dedicado, siga estos pasos:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-2. Haga clic en **Dedicated SQL pool (formerly SQL DW)** (Grupo de SQL dedicado [antes SQL DW]) en la página de navegación izquierda de Azure Portal.
-2. Seleccione **mySampleDataWarehouse** en la página **Dedicated SQL pool (formerly SQL DW)** (Grupo de SQL dedicado [antes SQL DW]) para abrir el grupo de SQL. 
-3. En la página **mySampleDataWarehouse**, observe que el **Estado** sea **En línea**.
+2. Vaya a la página **Dedicated SQL pool** (Grupo de SQL dedicado) para abrir el grupo de SQL. 
+3. Observe que el valor del campo **Status** (Estado) es **Online** (En línea).
 
     ![Proceso en línea](././media/pause-and-resume-compute-portal/compute-online.png)
 
@@ -62,8 +61,7 @@ Para pausar un grupo de SQL dedicado, siga estos pasos:
 
 Para reanudar un grupo de SQL dedicado, siga estos pasos:
 
-1. Haga clic en **Dedicated SQL pool (formerly SQL DW)** (Grupo de SQL dedicado [antes SQL DW]) en la página de navegación izquierda de Azure Portal.
-2. Seleccione **mySampleDataWarehouse** en la página **Dedicated SQL pool (formerly SQL DW)** (Grupo de SQL dedicado [antes SQL DW]) para abrir la página del grupo de SQL. 
+1. Vaya a la página **Dedicated SQL pool** (Grupo de SQL dedicado) para abrir el grupo de SQL.
 3. En la página **mySampleDataWarehouse**, observe que el **Estado** sea **En pausa**.
 
     ![Proceso sin conexión](././media/pause-and-resume-compute-portal/compute-offline.png)

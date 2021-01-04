@@ -1,27 +1,35 @@
 ---
-title: Desencadenamiento de un trabajo de Batch con Azure Functions
+title: 'Tutorial: Desencadenamiento de un trabajo de Batch con Azure Functions'
 description: 'Tutorial: aplicación de OCR en documentos digitalizados a medida que se agregan a un blob de almacenamiento'
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: peshultz
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 6e481219c6be68f9e9da06d92b6c28998cc7a6e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b441b4c4fcbeb089cef24c3a84fa33021e7840de
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88930101"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106389"
 ---
 # <a name="tutorial-trigger-a-batch-job-using-azure-functions"></a>Tutorial: Desencadenamiento de un trabajo de Batch con Azure Functions
 
-En este tutorial, obtendrá información sobre cómo desencadenar un trabajo de Batch con Azure Functions. Le guiaremos en un ejemplo en el que se aplica el reconocimiento óptico de caracteres (OCR) a los documentos agregados a un contenedor de blobs de Azure Storage mediante Azure Batch. Para agilizar el procesamiento de OCR, configuraremos una función que ejecuta un trabajo de OCR de Batch cada vez que se agrega un archivo al contenedor de blobs de Azure.
+En este tutorial, aprenderá a desencadenar un trabajo de Batch con [Azure Functions](../azure-functions/functions-overview.md). Le guiaremos en un ejemplo en el que se aplica el reconocimiento óptico de caracteres (OCR) a los documentos agregados a un contenedor de blobs de Azure Storage mediante Azure Batch. Para agilizar el procesamiento de OCR, configuraremos una función que ejecuta un trabajo de OCR de Batch cada vez que se agrega un archivo al contenedor de blobs de Azure. Aprenderá a:
+
+> [!div class="checklist"]
+> * Usar Batch Explorer para crear grupos y trabajos
+> * Usar el Explorador de Storage para crear una firma de acceso compartido (SAS) y contenedores de blobs
+> * Creación de una función de Azure desencadenada mediante blobs
+> * Cargar archivos de entrada en Storage
+> * Supervisar la ejecución de las tareas
+> * Recuperación de archivos de salida
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
 * Suscripción a Azure. Si no tiene una, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 * Una cuenta de Azure Batch y una cuenta de Azure Storage vinculada. Consulte [Creación de una cuenta de Batch](quick-create-portal.md#create-a-batch-account) para más información sobre cómo crear y vincular cuentas.
-* [Batch Explorer](https://azure.github.io/BatchExplorer/)
+* [Batch Explorer](https://azure.github.io/BatchExplorer/)
 * [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/)
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
@@ -40,7 +48,7 @@ En esta sección, usará Batch Explorer para crear el grupo y el trabajo de Batc
     1. Establezca el tipo de escala en **Tamaño fijo** y establezca el número de nodos dedicados en 3.
     1. Seleccione **Ubuntu 18.04-LTS** como sistema operativo.
     1. Elija `Standard_f2s_v2` como tamaño de la máquina virtual.
-    1. Habilite la tarea de inicio y agregue el comando `/bin/bash -c "sudo update-locale LC_ALL=C.UTF-8 LANG=C.UTF-8; sudo apt-get update; sudo apt-get -y install ocrmypdf"`. Asegúrese de establecer la identidad del usuario como **usuario predeterminado de la tarea (Admin)** , que permite que las tareas de inicio incluyan comandos con `sudo`.
+    1. Habilite la tarea de inicio y agregue el comando `/bin/bash -c "sudo update-locale LC_ALL=C.UTF-8 LANG=C.UTF-8; sudo apt-get update; sudo apt-get -y install ocrmypdf"`. Asegúrese de establecer la identidad del usuario como **usuario predeterminado de la tarea (Admin)**, que permite que las tareas de inicio incluyan comandos con `sudo`.
     1. Seleccione **Aceptar**.
 ### <a name="create-a-job"></a>Creación de un trabajo
 
@@ -97,9 +105,13 @@ Para descargar los archivos de salida desde el Explorador de Storage a la máqui
 > [!TIP]
 > Se puede buscar en los archivos descargados si se abren en un lector de PDF.
 
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+Se cobran el grupo mientras que los nodos estén en ejecución, aunque no haya trabajos programados. Cuando no necesite el grupo, elimínelo. En la vista de cuenta, seleccione **Grupos** y el nombre del grupo. A continuación, seleccione **Eliminar**. Al eliminar el grupo, las salidas de tarea de los nodos también se eliminan. Sin embargo, los archivos de salida permanecen en la cuenta de almacenamiento. Cuando ya no las necesite, también puede eliminar la cuenta de Batch y la cuenta de almacenamiento.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha aprendido cómo: 
+En este tutorial, ha aprendido a:
 
 > [!div class="checklist"]
 > * Usar Batch Explorer para crear grupos y trabajos
@@ -109,6 +121,10 @@ En este tutorial, ha aprendido cómo:
 > * Supervisar la ejecución de las tareas
 > * Recuperación de archivos de salida
 
-* Para más muestras de uso de la API de .NET para programar y procesar cargas de trabajo de Batch, consulte [las muestras de GitHub](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp). 
 
-* Para ver más desencadenadores de Azure Functions que puede usar para ejecutar cargas de trabajo de Batch, consulte [la documentación de Azure Functions](../azure-functions/functions-triggers-bindings.md).
+Para continuar, explore las aplicaciones de representación disponibles a través de Batch Explorer en la sección **Galería**. Para cada aplicación, hay varias plantillas disponibles, que se expandirán con el tiempo. Por ejemplo, para Blender existen plantillas que dividen una sola imagen en mosaicos, por lo que las partes de una imagen se pueden representar en paralelo.
+
+Para más ejemplos de uso de la API de .NET para programar y procesar cargas de trabajo de Batch, consulte los ejemplos de GitHub.
+
+> [!div class="nextstepaction"]
+> [Ejemplos de C# de Batch](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp)

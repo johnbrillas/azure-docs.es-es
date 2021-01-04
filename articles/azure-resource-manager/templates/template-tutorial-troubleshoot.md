@@ -5,12 +5,12 @@ author: mumian
 ms.date: 01/15/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 7a44edc7cd09709f14415fa0a92e63558001d46d
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 31c4e6383b5eaea2bb66dc1baafa0fbff4918a7c
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928535"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589124"
 ---
 # <a name="tutorial-troubleshoot-arm-template-deployments"></a>Tutorial: Solución de problemas de las implementaciones de plantillas de Resource Manager
 
@@ -43,7 +43,7 @@ Para completar este artículo, necesitará lo siguiente:
 
 Abra una plantilla llamada [Create a standard storage account](https://azure.microsoft.com/resources/templates/101-storage-account-create/) (Crear una cuenta de almacenamiento estándar) desde [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/) y configure dos problemas de plantilla.
 
-1. En Visual Studio Code, seleccione **Archivo**>**Abrir archivo**.
+1. En Visual Studio Code, seleccione **Archivo** > **Abrir archivo**.
 2. En **Nombre de archivo**, pegue el código URL siguiente:
 
     ```url
@@ -51,16 +51,16 @@ Abra una plantilla llamada [Create a standard storage account](https://azure.mic
     ```
 
 3. Seleccione **Abrir** para abrir el archivo.
-4. Cambie la línea **apiVersion** por la siguiente:
+4. Cambie la línea `apiVersion` por la siguiente:
 
     ```json
     "apiVersion1": "2018-07-02",
     ```
 
-    - **apiVersion1** es un nombre de elemento no válido. Es un error de validación.
-    - La versión de la API será "2018-07-01".  Es un error de implementación.
+    - `apiVersion1` es un nombre de elemento no válido. Es un error de validación.
+    - La versión de la API será `"2018-07-01"`.  Es un error de implementación.
 
-5. Seleccione **Archivo**>**Guardar como** para guardar el archivo como **azuredeploy.json** en el equipo local.
+5. Seleccione **Archivo** > **Guardar como** para guardar el archivo como _azuredeploy.json_ en el equipo local.
 
 ## <a name="troubleshoot-the-validation-error"></a>Solución de errores de validación
 
@@ -68,13 +68,13 @@ Consulte la sección [Implementación de la plantilla](template-tutorial-create-
 
 Se recibe un error del shell similar al siguiente:
 
-```
+```azurepowershell
 New-AzResourceGroupDeployment : 4:29:24 PM - Error: Code=InvalidRequestContent; Message=The request content was invalid and could not be deserialized: 'Could not find member 'apiVersion1' on object of type 'TemplateResource'. Path 'properties.template.resources[0].apiVersion1', line 36, position 24.'.
 ```
 
-El mensaje de error indica que el problema es con **apiVersion1**.
+El mensaje de error indica que el problema es con `apiVersion1`.
 
-Utilice Visual Studio Code para solucionar el problema cambiando **apiVersion1** por **apiVersion** y, después, guarde la plantilla.
+Utilice Visual Studio Code para solucionar el problema cambiando `apiVersion1` por `apiVersion` y, después, guarde la plantilla.
 
 ## <a name="troubleshoot-the-deployment-error"></a>Solución de errores de implementación
 
@@ -82,7 +82,7 @@ Consulte la sección [Implementación de la plantilla](template-tutorial-create-
 
 Se recibe un error del shell similar al siguiente:
 
-```
+```azurepowershell
 New-AzResourceGroupDeployment : 4:48:50 PM - Resource Microsoft.Storage/storageAccounts 'storeqii7x2rce77dc' failed with message '{
   "error": {
     "code": "NoRegisteredProviderFound",

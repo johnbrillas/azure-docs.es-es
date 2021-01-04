@@ -1,18 +1,18 @@
 ---
 title: 'Inicio rápido: Creación de una cuenta de Azure Purview en Azure Portal (versión preliminar)'
 description: En este inicio rápido se describe cómo crear una cuenta de Azure Purview y configurar los permisos necesarios para empezar a usarla.
-author: hophan
+author: hophanms
 ms.author: hophan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: quickstart
 ms.date: 10/23/2020
-ms.openlocfilehash: c9e0b155a4cf34373bb6d851241dc62ddd661045
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 3119152e4a7d0dc799dfe273722101c95c11c0c9
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602388"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400393"
 ---
 # <a name="quickstart-create-an-azure-purview-account-in-the-azure-portal"></a>Inicio rápido: Creación de una cuenta de Azure Purview en Azure Portal
 
@@ -30,6 +30,10 @@ En este inicio rápido, creará una cuenta de Azure Purview.
 * La cuenta debe tener permiso para crear recursos en la suscripción
 
 * Si **Azure Policy** impide a todas las aplicaciones crear una **cuenta de Storage** y un **espacio de nombres de EventHub**, debe crear una excepción de directiva mediante etiqueta, que se especificará durante el proceso de creación de una cuenta de Purview. La razón principal es que con cada cuenta de Purview creada se debe crear un grupo de recursos administrado y dentro de este, una cuenta de Storage y un espacio de nombres de EventHub.
+
+    > [!important]
+    > No es preciso realizar este paso si no se tiene Azure Policy o si una instancia de Azure Policy no bloquea la creación de una **cuenta de Storage** y un **espacio de nombres de EventHub**.
+
     1. Vaya a Azure Portal y busque **Directiva**.
     1. Consulte el tutorial [Creación de una definición de directiva personalizada](https://docs.microsoft.com/azure/governance/policy/tutorials/create-custom-policy-definition) o modifique la directiva existente para agregar dos excepciones con el operador `not` y la etiqueta `resourceBypass`:
 
@@ -89,20 +93,20 @@ Inicie sesión en [Azure Portal](https://portal.azure.com) con su cuenta de Azur
 
 ## <a name="configure-your-subscription"></a>Configuración de su suscripción
 
-Si fuera necesario, siga estos pasos para configurar la suscripción para que Azure Purview se pueda ejecutar en ella:
+Si fuera necesario, siga estos pasos para configurar una suscripción para que Azure Purview se pueda ejecutar en ella:
 
    1. En Azure Portal, seleccione **Suscripciones**.
 
    1. En la lista de suscripciones, seleccione la que desee usar. Se requiere el permiso de acceso administrativo para la suscripción.
 
-      :::image type="content" source="./media/create-catalog-portal/select-subscription.png" alt-text="Captura de pantalla donde se muestra cómo seleccionar una suscripción en Azure Portal.":::
+      :::image type="content" source="./media/create-catalog-portal/select-subscription.png" alt-text="Captura de pantalla que muestra cómo seleccionar una suscripción en Azure Portal.":::
 
    1. Para la suscripción, seleccione **Proveedores de recursos**. En el panel **Proveedores de recursos**, busque los tres proveedores de recursos siguientes y regístrelos: 
        1. **Microsoft.Purview**
        1. **Microsoft.Storage**
        1. **Microsoft.EventHub** 
       
-      Si no están registrados, regístrelos ahora. Para ello, seleccione **Registrar**.
+      Si no están registrados, regístrelos ahora, para lo que debe seleccionar **Registrar**.
 
       :::image type="content" source="./media/create-catalog-portal/register-purview-resource-provider.png" alt-text="Captura de pantalla que muestra cómo registrar el proveedor de recursos Microsoft.Purview en Azure Portal.":::
 
@@ -151,7 +155,7 @@ Si al hacer clic en Agregar aparecen dos opciones y aparecen ambas marcadas (des
 
 1. Seleccione **Agregar asignación de roles**.
 
-1. En Role (Rol), escriba **Purview Data Curator Role** (Rol Administrador de datos de Purview) o **Purview Data Source Administrator Role** (Administrador de orígenes de datos de Purview), en función de la entidad de servicio que se va a usar (para más información, consulte [Permisos del catálogo](catalog-permissions.md)).
+1. En Role type (Tipo de rol), escriba **Purview Data Curator Role** (Rol Administrador de datos de Purview) o **Purview Data Source Administrator Role** (Administrador de orígenes de datos de Purview), en función de la entidad de seguridad que se va a usar (para más información, consulte [Permisos del catálogo](catalog-permissions.md) y [Objetos de aplicación y de entidad de servicio de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)).
 
 1. En **Assign access to** (Asignar acceso a), deje el valor predeterminado, **User, group, or service principal** (Usuario, grupo o entidad de servicio).
 

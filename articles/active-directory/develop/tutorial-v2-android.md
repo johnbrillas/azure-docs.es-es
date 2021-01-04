@@ -13,12 +13,12 @@ ms.date: 11/26/2019
 ms.author: hahamil
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 08ee000d8f801559fcf572b8ab489161fd090b77
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 7ba15e66cca7baefdf8cca5cabd5e5d5b1e2c7f7
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95996209"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507819"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-application"></a>Tutorial: Inicio de sesión de los usuarios y llamada a Microsoft Graph API desde una aplicación de Android
 
@@ -75,24 +75,28 @@ Si aún no tiene una aplicación Android, siga estos pasos para configurar un nu
 
 ### <a name="register-your-application"></a>Registrar su aplicación
 
-1. Vaya a [Azure Portal](https://aka.ms/MobileAppReg).
-2. Abra la [hoja de Registros de aplicaciones](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) y haga clic en **+Nuevo registro**.
-3. Escriba un **Nombre** para la aplicación y, después, **sin** configurar un identificador URI de redirección, haga clic en **Registrar**.
-4. En la sección **Administrar** del panel que aparece, seleccione **Autenticación** > **+ Agregar una plataforma** > **Android**. (Es posible que tenga que seleccionar "Switch to the new experience" [Probar la nueva experiencia] cerca de la parte superior de la hoja para ver esta sección)
-5. Escriba el nombre del paquete del proyecto. Si descargó el código, este valor es `com.azuresamples.msalandroidapp`.
-6. En la sección **Hash de firma** de la página **Configurar su aplicación para Android**, haga clic en **Generating a development Signature Hash** (Generación de un hash de firma de desarrollo) y copie el comando KeyTool para usarlo en la plataforma.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Si tiene acceso a varios inquilinos, use el filtro **Directorio + suscripción** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: del menú superior para seleccionar el inquilino en el que desea registrar una aplicación.
+1. Busque y seleccione **Azure Active Directory**.
+1. En **Administrar**, seleccione **Registros de aplicaciones** >  y, luego, **Nuevo registro**.
+1. Escriba el **nombre** de la aplicación. Los usuarios de la aplicación pueden ver este nombre, el cual se puede cambiar más tarde.
+1. Seleccione **Registrar**.
+1. En **Administrar**, seleccione **Autenticación** > **Agregar una plataforma** > **Android**.
+1. Escriba el nombre del paquete del proyecto. Si descargó el código, este valor es `com.azuresamples.msalandroidapp`.
+1. En la sección **Hash de firma** de la página **Configurar su aplicación para Android**, seleccione **Generating a development Signature Hash** (Se está generando un hash de firma de desarrollo). y copie el comando KeyTool para usarlo en la plataforma.
 
    > [!Note]
    > KeyTool. exe se instala como parte de Java Development Kit (JDK). También debe instalar la herramienta OpenSSL para ejecutar el comando KeyTool. Consulte la [documentación de Android sobre cómo generar una clave](https://developer.android.com/studio/publish/app-signing#generate-key) para obtener más información.
 
-7. Escriba el **hash de firma** generado por KeyTool.
-8. Haga clic en `Configure` y guarde la **configuración de MSAL** que aparece en la página **Configuración de Android** para que pueda escribirla cuando configure la aplicación más tarde.  Haga clic en **Done**(Listo).
+1. Escriba el **hash de firma** generado por KeyTool.
+1. Seleccione **Configurar** y guarde la **configuración de MSAL** que aparece en la página **Configuración de Android** para que pueda especificarla cuando configure la aplicación más tarde.  
+1. Seleccione **Listo**.
 
 ### <a name="configure-your-application"></a>Configuración de la aplicación
 
 1. En el panel del proyecto de Android Studio, vaya a **app\src\main\res**.
-2. Haga clic con el botón derecho en **res** y elija **New** > **Directory** (Nuevo > Directorio). Escriba `raw` como el nombre del nuevo directorio y haga clic en **OK** (Aceptar).
-3. En **app** > **src** > **main** > **res** > **raw**, cree un nuevo archivo JSON llamado `auth_config_single_account.json` y pegue la configuración de MSAL que guardó anteriormente.
+1. Haga clic con el botón derecho en **res** y elija **New** > **Directory** (Nuevo > Directorio). Escriba `raw` como el nombre del nuevo directorio y haga clic en **OK** (Aceptar).
+1. En **app** > **src** > **main** > **res** > **raw**, cree un nuevo archivo JSON llamado `auth_config_single_account.json` y pegue la configuración de MSAL que guardó anteriormente.
 
     Debajo del identificador URI de redirección, pegue:
     ```json

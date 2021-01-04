@@ -5,12 +5,12 @@ ms.date: 03/13/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: a90bb90c90206ffe00f8b4f2d035c0ea844b5c47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 81a8b6cd5044b31ee80f50448d6610ba6a57281e
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91611680"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97585656"
 ---
 # <a name="tutorial-deploy-a-linked-template"></a>Tutorial: Implementación de una plantilla vinculada
 
@@ -32,11 +32,11 @@ Puede separar el recurso de la cuenta de almacenamiento en una plantilla vincula
 
 :::code language="json" source="~/resourcemanager-templates/get-started-deployment/linked-template/linkedStorageAccount.json":::
 
-La siguiente plantilla es la plantilla principal.  El objeto resaltado **Microsoft.Resources/deployments** muestra cómo llamar a una plantilla vinculada. La plantilla vinculada no se puede almacenar como un archivo local o un archivo que solo está disponible en la red local. Solo se puede proporcionar un valor de URI que incluya *http* o *https*. Resource Manager debe tener acceso a la plantilla. Una opción es colocar la plantilla vinculada en una cuenta de almacenamiento y usar el URI para dicho elemento. El URI se pasa a la plantilla mediante un parámetro. Consulte la definición del parámetro resaltado.
+La siguiente plantilla es la plantilla principal. El objeto resaltado `Microsoft.Resources/deployments` muestra cómo llamar a una plantilla vinculada. La plantilla vinculada no se puede almacenar como un archivo local o un archivo que solo está disponible en la red local. Solo se puede proporcionar un valor de URI que incluya HTTP o HTTPS. Resource Manager debe tener acceso a la plantilla. Una opción es colocar la plantilla vinculada en una cuenta de almacenamiento y usar el URI para dicho elemento. El URI se pasa a la plantilla mediante un parámetro. Consulte la definición del parámetro resaltado.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-deployment/linked-template/azuredeploy.json" highlight="27-32,40-58":::
 
-Guarde una copia de la plantilla principal en la máquina local con la extensión .json, por ejemplo, azuredeploy.json. No es necesario guardar una copia de la plantilla vinculada.  La plantilla vinculada se copiará de un repositorio de GitHub a una cuenta de almacenamiento.
+Guarde una copia de la plantilla principal en el equipo local con la extensión _.json_, por ejemplo, _azuredeploy.json_. No es necesario guardar una copia de la plantilla vinculada. La plantilla vinculada se copiará de un repositorio de GitHub a una cuenta de almacenamiento.
 
 ## <a name="store-the-linked-template"></a>Almacenamiento de la plantilla vinculada
 
@@ -45,7 +45,7 @@ El siguiente script de PowerShell crea una cuenta de almacenamiento, crea un con
 Seleccione **Probar** para abrir Cloud Shell, después, seleccione **Copiar** para copiar el script de PowerShell y haga clic con el botón derecho en el panel del shell para pegar el script:
 
 > [!IMPORTANT]
-> Los nombres de cuentas de almacenamiento deben tener entre 3 y 24 caracteres, y usar solo números y letras minúsculas. El nombre debe ser único. En la plantilla, el nombre de la cuenta de almacenamiento es el nombre del proyecto con "store" anexado y el nombre del proyecto debe tener entre 3 y 11 caracteres. Por lo tanto, el nombre del proyecto debe cumplir los requisitos de nombre para la cuenta de almacenamiento y tener menos de 11 caracteres.
+> Los nombres de cuentas de almacenamiento deben tener entre 3 y 24 caracteres, y usar solo números y letras minúsculas. El nombre debe ser único. En la plantilla, el nombre de la cuenta de almacenamiento es el nombre del proyecto con **store** anexado, y el nombre del proyecto debe tener entre 3 y 11 caracteres. Por lo tanto, el nombre del proyecto debe cumplir los requisitos de nombre para la cuenta de almacenamiento y tener menos de 11 caracteres.
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter a project name:"   # This name is used to generate names for Azure resources, such as storage account name.
@@ -93,7 +93,7 @@ Para implementar una plantilla privada en una cuenta de almacenamiento, genere u
 Si no ha creado el grupo de recursos, consulte [Creación del grupo de recursos](./deployment-tutorial-local-template.md#create-resource-group).
 
 > [!NOTE]
-> En el siguiente código de la CLI de Azure, el parámetro de fecha -d sería un argumento no válido en macOS. Por tanto, para los usuarios de macOS, es necesario usar -v+2H para agregar 2 horas a la hora actual en el terminal de macOS.
+> En el siguiente código de la CLI de Azure, el parámetro `-d` de `date` es un argumento no válido en macOS. Por tanto, para los usuarios de macOS, es necesario usar `-v+2H` para agregar 2 horas a la hora actual en el terminal de macOS.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -176,7 +176,7 @@ Limpie los recursos que implementó eliminando el grupo de recursos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ha aprendido a implementar una plantilla vinculada. En el siguiente tutorial, aprenderá a crear una canalización DevOp para implementar una plantilla.
+Ha aprendido a implementar una plantilla vinculada. En el siguiente tutorial, aprenderá a crear una canalización de DevOps para implementar una plantilla.
 
 > [!div class="nextstepaction"]
 > [Crear una canalización](./deployment-tutorial-pipeline.md)

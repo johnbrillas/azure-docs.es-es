@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/20/2019
-ms.openlocfilehash: b23b5a81fdff8a05742092f517128e08723103fc
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 55fa106f0515405dcad969f05d28e0bc7b975b40
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96531146"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922294"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>¿Qué es SQL Data Sync para Azure?
 
@@ -81,6 +81,14 @@ Data Sync no es la solución preferida en los siguientes escenarios:
 | **Ventajas** | - Compatibilidad activo-activo<br/>- Bidireccional entre el entorno local y Azure SQL Database | - Menor latencia<br/>- Coherencia transaccional<br/>- Reutilización de la topología existente después de la migración <br/>\- Compatibilidad con Instancia administrada de Azure SQL |
 | **Desventajas** | - Sin coherencia transaccional<br/>- Mayor impacto en el rendimiento | - No se puede publicar desde Azure SQL Database <br/>- Mayor costo de mantenimiento |
 
+## <a name="private-link-for-data-sync-preview"></a>Vínculo privado de Data Sync (versión preliminar)
+La nueva característica de vínculo privado (versión preliminar) le permite elegir un punto de conexión privado administrado por un servicio para establecer una conexión segura entre el servicio de sincronización y las bases de datos del miembro o centro de conectividad durante el proceso de sincronización de datos. Un punto de conexión privado administrado por un servicio es una dirección IP privada dentro de una red virtual y una subred específicas. En Data Sync, Microsoft crea el punto de conexión privado administrado por el servicio y lo usa exclusivamente el servicio Data Sync para una operación de sincronización determinada. Antes de configurar el vínculo privado, lea los [requisitos generales](sql-data-sync-data-sql-server-sql-database.md#general-requirements) de la característica. 
+
+![Vínculo privado para Data Sync](./media/sql-data-sync-data-sql-server-sql-database/sync-private-link-overview.png)
+
+> [!NOTE]
+> Debe aprobar manualmente el punto de conexión privado administrado por el servicio en la página **Conexiones de punto de conexión privado** de Azure Portal durante la implementación del grupo de sincronización o mediante PowerShell.
+
 ## <a name="get-started"></a>Introducción 
 
 ### <a name="set-up-data-sync-in-the-azure-portal"></a>Configuración de Data Sync en Azure Portal
@@ -126,6 +134,8 @@ El aprovisionamiento y desaprovisionamiento durante la creación, actualización
 
 - El aislamiento de instantánea debe estar habilitado tanto para el centro como para los miembros de sincronización. Para más información, consulte [Aislamiento de instantáneas en SQL Server](/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
 
+- Para usar un vínculo privado con Data Sync, las bases de datos del miembro y del centro de conectividad deben estar hospedadas en Azure (en la misma región o en regiones diferentes) y en el mismo tipo de nube (por ejemplo, en la nube pública o en una nube gubernamental). Además, para usar un vínculo privado, los proveedores de recursos de Microsoft.Network deben estar registrados para las suscripciones que hospedan el servidor del centro de conectividad y el servidor miembro. Por último, debe aprobar manualmente el vínculo privado para Data Sync durante la configuración de la sincronización, en la sección "Conexiones de punto de conexión privado" de Azure Portal o mediante PowerShell. Para más información acerca de cómo aprobar el vínculo privado, consulte [Configuración de SQL Data Sync](./sql-data-sync-sql-server-configure.md). Una vez aprobado el punto de conexión privado administrado por el servicio, toda la comunicación entre el servicio de sincronización y las bases de datos del miembro o centro de conectividad se realizará a través del vínculo privado. Los grupos de sincronización existentes se pueden actualizar para habilitar esta característica.
+
 ### <a name="general-limitations"></a>Limitaciones generales
 
 - Una tabla no puede tener una columna de identidad que no sea la clave principal.
@@ -169,6 +179,9 @@ Data Sync no puede sincronizar las columnas de solo lectura o generadas por el s
 > Puede haber hasta 30 puntos de conexión en un solo grupo de sincronización si hay un único grupo de sincronización. Si hay más de un grupo de sincronización, el número total de puntos de conexión en todos los grupos de sincronización no puede superar los 30. Si una base de datos pertenece a varios grupos de sincronización, se cuenta como varios puntos de conexión, no como uno.
 
 ### <a name="network-requirements"></a>Requisitos de red
+
+> [!NOTE]
+> Si usa el vínculo privado, no se aplican estos requisitos de red. 
 
 Cuando se establece el grupo de sincronización, el servicio Data Sync debe conectarse a la base de datos central. En el momento en que establece el grupo de sincronización, el servidor Azure SQL debe tener los siguientes valores en la configuración de `Firewalls and virtual networks`:
 

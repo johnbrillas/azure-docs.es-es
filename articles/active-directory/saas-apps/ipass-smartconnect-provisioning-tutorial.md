@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: fa9723b466045ebe7b932f837e0fa7c45c898b6b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 405a7bc3b653ca7bca026d3318763a4922244e88
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353891"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093713"
 ---
 # <a name="tutorial-configure-ipass-smartconnect-for-automatic-user-provisioning"></a>Tutorial: Configuración de iPass SmartConnect para aprovisionar usuarios automáticamente
 
@@ -82,7 +82,7 @@ Para configurar Smartsheet para el aprovisionamiento automático de usuarios con
 Esta sección le guiará por los pasos necesarios para configurar el servicio de aprovisionamiento de AD Azure para crear, actualizar y deshabilitar usuarios o grupos en iPass SmartConnect en función de las asignaciones de grupos o usuarios de Azure AD.
 
 > [!TIP]
->  También puede optar por habilitar el inicio de sesión único basado en SAML para BitaBIZ siguiendo las instrucciones del [tutorial de inicio de sesión único de iPass SmartConnect](ipasssmartconnect-tutorial.md). El inicio de sesión único puede configurarse independientemente del aprovisionamiento automático de usuarios, aunque estas dos características se complementan entre sí.
+>  También puede optar por habilitar el inicio de sesión único basado en SAML para iPass SmartConnect siguiendo las instrucciones del [tutorial de inicio de sesión único de iPass SmartConnect](ipasssmartconnect-tutorial.md). El inicio de sesión único puede configurarse independientemente del aprovisionamiento automático de usuarios, aunque estas dos características se complementan entre sí.
 
 ### <a name="to-configure-automatic-user-provisioning-for-ipass-smartconnect-in-azure-ad"></a>Para configurar el aprovisionamiento automático de usuarios para iPass SmartConnect en Azure AD, siga estos pasos:
 

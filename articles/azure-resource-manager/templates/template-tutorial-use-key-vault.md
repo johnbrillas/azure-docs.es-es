@@ -6,12 +6,12 @@ ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 75eb977559573b72883de3ddbc27391c7e299a6f
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: ae2361d12dfe18cadd80dd3b84405b2b17751e59
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96929324"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97584092"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-your-arm-template-deployment"></a>Tutorial: Integración de Azure Key Vault en la implementación de la plantilla de Resource Manager
 
@@ -43,6 +43,7 @@ Para completar este artículo, necesitará lo siguiente:
     ```console
     openssl rand -base64 32
     ```
+
     Compruebe que la contraseña generada cumple los requisitos de contraseña de la VM. Cada servicio de Azure tiene unos requisitos de contraseña concretos. Para los requisitos de contraseña de una VM, consulte [¿Cuáles son los requisitos de contraseña cuando se crea una VM?](../../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
 
 ## <a name="prepare-a-key-vault"></a>Preparación de un almacén de claves
@@ -53,7 +54,7 @@ En esta sección, creará un almacén de claves y le agregará un secreto, de ma
 * Se agrega un secreto al almacén de claves. El secreto almacena la contraseña de administrador de la VM.
 
 > [!NOTE]
-> Como el usuario que implementa la plantilla de máquina virtual, si no es el propietario o un colaborador del almacén de claves, el propietario o colaborador debe conceder acceso al permiso *Microsoft.KeyVault/vaults/deploy/action* para el almacén de claves. Para más información, consulte [Uso de Azure Key Vault para pasar el valor de parámetro seguro durante la implementación](./key-vault-parameter.md).
+> Como el usuario que implementa la plantilla de máquina virtual, si no es el propietario o un colaborador del almacén de claves, el propietario o colaborador debe conceder acceso al permiso `Microsoft.KeyVault/vaults/deploy/action` para el almacén de claves. Para más información, consulte [Uso de Azure Key Vault para pasar el valor de parámetro seguro durante la implementación](./key-vault-parameter.md).
 
 Para ejecutar el siguiente script de Azure PowerShell, seleccione **Pruébelo** para abrir Azure Cloud Shell. Para pegar el script, haga clic con el botón derecho en el panel del shell y, a continuación, seleccione **Pegar**.
 
@@ -79,7 +80,7 @@ Write-Host "Press [ENTER] to continue ..."
 > * El nombre predeterminado para el secreto es **vmAdminPassword**. Está codificado de forma rígida en la plantilla.
 > * Para permitir que la plantilla recupere el secreto, debe habilitar una directiva de acceso llamada **Habilitar el acceso a Azure Resource Manager para la implementación de plantillas** para el almacén de claves. Esta directiva está habilitada en la plantilla. Para más información sobre esta directiva de acceso, consulte [Implementación de almacenes de claves y secretos](./key-vault-parameter.md#deploy-key-vaults-and-secrets).
 
-La plantilla tiene un valor de salida denominado *keyVaultId*. Usará este identificador junto con el nombre del secreto para recuperar el valor del secreto más adelante en el tutorial. El formato del identificador de recurso es:
+La plantilla tiene un valor de salida denominado `keyVaultId`. Usará este identificador junto con el nombre del secreto para recuperar el valor del secreto más adelante en el tutorial. El formato del identificador de recurso es:
 
 ```json
 /subscriptions/<SubscriptionID>/resourceGroups/mykeyvaultdeploymentrg/providers/Microsoft.KeyVault/vaults/<KeyVaultName>
@@ -87,7 +88,7 @@ La plantilla tiene un valor de salida denominado *keyVaultId*. Usará este ident
 
 Cuando copie y pegue el identificador, este puede dividirse en varias líneas. Combine las líneas y recorte los espacios adicionales.
 
-Para validar la implementación, ejecute el siguiente comando de PowerShell en el mismo panel de shell para recuperar el secreto en texto no cifrado. El comando solo funciona en la misma sesión de shell, ya que usa la variable *$keyVaultName*, que se define en el script de PowerShell anterior.
+Para validar la implementación, ejecute el siguiente comando de PowerShell en el mismo panel de shell para recuperar el secreto en texto no cifrado. El comando solo funciona en la misma sesión de shell, ya que usa la variable `$keyVaultName`, que se define en el script de PowerShell anterior.
 
 ```azurepowershell
 (Get-AzKeyVaultSecret -vaultName $keyVaultName  -name "vmAdminPassword").SecretValueText
@@ -146,14 +147,14 @@ Al usar el método del identificador estático, no es necesario realizar ningún
     ```
 
     > [!IMPORTANT]
-    > Reemplace el valor de **id** por el identificador de recurso del almacén de claves que creó en el procedimiento anterior. El valor de secretName se codifica como **vmAdminPassword**.  Consulte [Preparación de un almacén de claves](#prepare-a-key-vault).
+    > Reemplace el valor de `id` por el identificador de recurso del almacén de claves que creó en el procedimiento anterior. El valor de `secretName` se codifica como **vmAdminPassword**.  Consulte [Preparación de un almacén de claves](#prepare-a-key-vault).
 
     ![Integrar el almacén de claves y el archivo de parámetros de implementación de máquina virtual de la plantilla de Resource Manager](./media/template-tutorial-use-key-vault/resource-manager-tutorial-create-vm-parameters-file.png)
 
 1. Actualice los siguientes valores:
 
-    * **adminUsername**: el nombre de la cuenta de administrador de la máquina virtual.
-    * **dnsLabelPrefix**: el nombre del valor dnsLabelPrefix.
+    * `adminUsername`: el nombre de la cuenta de administrador de la máquina virtual.
+    * `dnsLabelPrefix`: Asigne un nombre al valor `dnsLabelPrefix`.
 
     Para obtener ejemplos de nombres, consulte la imagen anterior.
 
@@ -167,7 +168,7 @@ Al usar el método del identificador estático, no es necesario realizar ningún
 
     ![Archivo de carga de Cloud Shell de Azure Portal](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
 
-1. Seleccione **Cargar/descargar archivos** y, después, seleccione **Cargar**. Cargue *azuredeploy.json* y *azuredeploy.parameters.json* en Cloud Shell. Después de cargar el archivo, puede usar el comando **ls** y el comando **cat** para comprobar que la operación de carga se ha realizado correctamente.
+1. Seleccione **Cargar/descargar archivos** y, después, seleccione **Cargar**. Cargue *azuredeploy.json* y *azuredeploy.parameters.json* en Cloud Shell. Después de cargar el archivo, puede usar el comando `ls` y el comando `cat` para comprobar que la operación de carga se ha realizado correctamente.
 
 1. Ejecute el siguiente script de PowerShell para implementar la plantilla.
 
@@ -193,7 +194,7 @@ Después de haber implementado correctamente la máquina virtual, pruebe las cre
 1. Abra [Azure Portal](https://portal.azure.com).
 
 1. Seleccione **Grupos de recursos** >  **\<*YourResourceGroupName*>**  > **simpleWinVM**.
-1. Seleccione **conectar** en la parte superior.
+1. Seleccione **Conectar** en la parte superior.
 1. Seleccione **Descargar archivo RDP** y siga las instrucciones para iniciar sesión en la máquina virtual con la contraseña almacenada en el almacén de claves.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos

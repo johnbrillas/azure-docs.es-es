@@ -3,12 +3,12 @@ title: Concepto de grafo multimedia en Azure
 description: Un grafo multimedia le permite definir dónde se debe capturar el elemento multimedia, cómo se debe procesar y dónde se deben entregar los resultados. En este artículo se ofrece una descripción detallada del concepto de grafo multimedia.
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 7def82160547b759c7ab4c40c681052747261920
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6f23e7db8cecb46106a63fdecdb6ba04dbd99682
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91567085"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97401107"
 ---
 # <a name="media-graph"></a>Grafo multimedia
 
@@ -41,7 +41,7 @@ Los valores de los parámetros de la topología se especifican al crear instanci
 El ciclo de vida de las topologías de grafos y las instancias de grafos se muestra en el siguiente diagrama de estado.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/media-graph/graph-topology-lifecycle.svg" alt-text="Grafo de elementos multimedia":::
+> :::image type="content" source="./media/media-graph/graph-topology-lifecycle.svg" alt-text="Ciclo de vida de la topología de grafo e instancia de grafo":::
 
 Comience por [crear una topología de grafo](direct-methods.md#graphtopologyset). A continuación, para cada fuente de vídeo en directo que desee procesar con esta topología, [cree una instancia de grafo](direct-methods.md#graphinstanceset). 
 
@@ -70,7 +70,7 @@ Análisis de vídeos en vivo en IoT Edge admite los siguientes tipos de nodos de
 
 #### <a name="rtsp-source"></a>Origen RTSP 
 
-Un nodo de origen RTSP permite ingerir elementos multimedia de un servidor [RTSP](https://tools.ietf.org/html/rfc2326 server). La vigilancia y las cámaras basadas en IP transmiten sus datos en un protocolo denominado RTSP (protocolo de transmisión en tiempo real) que es diferente de otros tipos de dispositivos, como teléfonos y cámaras de vídeo. Este protocolo se usa para establecer y controlar las sesiones multimedia entre un servidor (la cámara) y un cliente. El nodo de origen RTSP en un grafo multimedia actúa como un cliente y puede establecer una sesión con un servidor RTSP. Muchos dispositivos, como la mayoría de las [cámaras IP](https://en.wikipedia.org/wiki/IP_camera) tienen un servidor RTSP integrado. [ONVIF](https://www.onvif.org/) exigirá que se admita RTSP en la definición de los dispositivos compatibles con los [perfiles G, S y T](https://www.onvif.org/wp-content/uploads/2019/12/ONVIF_Profile_Feature_overview_v2-3.pdf). El nodo de origen RTSP requiere que especifique una dirección URL de RTSP, junto con las credenciales para habilitar una conexión autenticada.
+Un nodo de origen RTSP permite ingerir elementos multimedia desde un servidor [RTSP](https://tools.ietf.org/html/rfc2326). La vigilancia y las cámaras basadas en IP transmiten sus datos en un protocolo denominado RTSP (protocolo de transmisión en tiempo real) que es diferente de otros tipos de dispositivos, como teléfonos y cámaras de vídeo. Este protocolo se usa para establecer y controlar las sesiones multimedia entre un servidor (la cámara) y un cliente. El nodo de origen RTSP en un grafo multimedia actúa como un cliente y puede establecer una sesión con un servidor RTSP. Muchos dispositivos, como la mayoría de las [cámaras IP](https://en.wikipedia.org/wiki/IP_camera) tienen un servidor RTSP integrado. [ONVIF](https://www.onvif.org/) exigirá que se admita RTSP en la definición de los dispositivos compatibles con los [perfiles G, S y T](https://www.onvif.org/wp-content/uploads/2019/12/ONVIF_Profile_Feature_overview_v2-3.pdf). El nodo de origen RTSP requiere que especifique una dirección URL de RTSP, junto con las credenciales para habilitar una conexión autenticada.
 
 #### <a name="iot-hub-message-source"></a>Origen de mensajes de IoT Hub 
 
@@ -87,6 +87,8 @@ El nodo del procesador de detección de movimiento permite detectar movimiento e
 #### <a name="frame-rate-filter-processor"></a>Procesador de filtros de velocidad de fotogramas  
 
 El nodo del procesador de filtros de velocidad de fotogramas permite muestrear los fotogramas de la secuencia de vídeo entrante a una velocidad especificada. Esto permite reducir el número de fotogramas que se envían a los componentes de nivel inferior (como el nodo del procesador de extensiones HTTP) para su posterior procesamiento.
+>[!WARNING]
+> Este procesador está **en desuso** en la última versión de Live Video Analytics en el módulo de IoT Edge. La administración de la velocidad de fotogramas se admite ahora en los nodos mismos de los procesadores de extensiones de grafos.
 
 #### <a name="http-extension-processor"></a>Procesador de extensiones HTTP
 
@@ -108,8 +110,9 @@ Un nodo receptor de recursos permite escribir datos de elementos multimedia (ví
 
 #### <a name="file-sink"></a>Receptor de archivos  
 
-El nodo receptor de archivos permite escribir datos de elementos multimedia (vídeo o audio) en una ubicación del sistema de archivos local del dispositivo IoT Edge. Solo puede haber un nodo receptor de archivos en un grafo multimedia y debe ser de un nivel inferior a un nodo del procesador de la puerta de señales. Esto limita la duración de los archivos de salida a los valores especificados en las propiedades del nodo del procesador de la puerta de señales.
-
+El nodo receptor de archivos permite escribir datos de elementos multimedia (vídeo o audio) en una ubicación del sistema de archivos local del dispositivo IoT Edge. Solo puede haber un nodo receptor de archivos en un grafo multimedia y debe ser de un nivel inferior a un nodo del procesador de la puerta de señales. Esto limita la duración de los archivos de salida a los valores especificados en las propiedades del nodo del procesador de la puerta de señales. Para asegurarse de que el dispositivo perimetral no se queda sin espacio en disco, también puede establecer el tamaño máximo que Live Video Analytics en el módulo de IoT Edge puede usar para almacenar datos.  
+> [!NOTE]
+Si el receptor de archivos se llena, Live Video Analytics en el módulo de IoT Edge comenzará a eliminar los datos más antiguos y los reemplazará por los nuevos.
 #### <a name="iot-hub-message-sink"></a>Receptor de mensajes de IoT Hub  
 
 Un nodo receptor de mensajes de IoT Hub permite publicar eventos en el centro de IoT Edge. Después, el centro de IoT Edge puede enrutar los datos a otros módulos o aplicaciones del dispositivo perimetral o a IoT Hub en la nube (según las rutas especificadas en el manifiesto de implementación). El nodo receptor de mensajes de IoT Hub puede aceptar eventos de procesadores de nivel superior como un nodo del procesador de detección de movimiento o de un servicio de inferencia externo a través de un nodo de procesador de extensiones HTTP.

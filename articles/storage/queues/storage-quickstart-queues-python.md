@@ -1,25 +1,25 @@
 ---
-title: 'Inicio rápido: Biblioteca de Azure Queue Storage v12 para Python'
-description: Aprenda a usar la biblioteca de Azure Queue v12 para Python para crear una cola y agregar mensajes a la cola. A continuación, aprenderá a leer y eliminar los mensajes de la cola. También aprenderá a eliminar una cola.
+title: 'Inicio rápido: Biblioteca cliente de Azure Queue Storage v12: Python'
+description: Aprenda a usar la biblioteca cliente de Azure Queue Storage v12 para Python para crear una cola y agregarle mensajes. Luego, aprenda a leer y eliminar los mensajes de la cola. También aprenderá a eliminar una cola.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 12/10/2019
+ms.topic: quickstart
 ms.service: storage
 ms.subservice: queues
-ms.topic: quickstart
 ms.custom: devx-track-python
-ms.openlocfilehash: a19b7bc448e9a03afd122dab749352dfa21eaa5b
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 0eeb1333952533cdf392b93a926f256097557151
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96491900"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97585503"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-python"></a>Inicio rápido: Biblioteca cliente de Azure Queue Storage v12 para Python
 
-Comience a trabajar con la biblioteca cliente de Azure Queue Storage versión 12 para Python. Azure Queue Storage es un servicio para almacenar grandes cantidades de mensajes para su posterior recuperación y procesamiento. Siga estos pasos para instalar el paquete y probar el código de ejemplo para realizar tareas básicas.
+Introducción a la biblioteca cliente de Azure Queue Storage v12 para Python. Azure Queue Storage es un servicio para almacenar gran cantidad de mensajes para su posterior recuperación y procesamiento. Siga estos pasos para instalar el paquete y probar el código de ejemplo para realizar tareas básicas.
 
-Use la biblioteca cliente de Azure Queue Storage v12 para Python para realizar lo siguiente:
+Use la biblioteca cliente de Azure Queue Storage v12 para Python para realizar las siguientes operaciones:
 
 - Creación de una cola
 - Adición de mensajes a una cola
@@ -48,7 +48,7 @@ En esta sección se explica cómo preparar un proyecto para que funcione con la 
 
 ### <a name="create-the-project"></a>Creación del proyecto
 
-Cree una aplicación Python llamada *queues-quickstart-v12*.
+Cree una aplicación de Python llamada `queues-quickstart-v12`.
 
 1. En una ventana de la consola (como cmd, PowerShell o Bash), cree un directorio para el proyecto.
 
@@ -56,7 +56,7 @@ Cree una aplicación Python llamada *queues-quickstart-v12*.
     mkdir queues-quickstart-v12
     ```
 
-1. Cambie al directorio *queues-quickstart-v12* recién creado.
+1. Cambie al directorio `queues-quickstart-v12` recién creado.
 
     ```console
     cd queues-quickstart-v12
@@ -93,7 +93,7 @@ Este comando instala el paquete de la biblioteca cliente de Azure Queue Storage 
 
     ```
 
-1. Guarde el nuevo archivo como *queues-quickstart-v12.py* en el directorio *queues-quickstart-v12*.
+1. Guarde el nuevo archivo como `queues-quickstart-v12.py` en el directorio `queues-quickstart-v12`.
 
 [!INCLUDE [storage-quickstart-credentials-include](../../../includes/storage-quickstart-credentials-include.md)]
 
@@ -111,9 +111,9 @@ En el siguiente diagrama se muestra la relación entre estos recursos.
 
 Use las siguientes clases de Python para interactuar con estos recursos:
 
-- [QueueServiceClient](/python/api/azure-storage-queue/azure.storage.queue.queueserviceclient): La clase `QueueServiceClient` permite administrar todas las colas de la cuenta de almacenamiento.
-- [QueueClient](/python/api/azure-storage-queue/azure.storage.queue.queueclient): La clase `QueueClient` permite administrar y manipular una cola individual y sus mensajes.
-- [QueueMessage](/python/api/azure-storage-queue/azure.storage.queue.queuemessage): La clase `QueueMessage` representa los objetos individuales devueltos al llamar a [receive_messages](/python/api/azure-storage-queue/azure.storage.queue.queueclient#receive-messages---kwargs-) en una cola.
+- [`QueueServiceClient`](/python/api/azure-storage-queue/azure.storage.queue.queueserviceclient): La clase `QueueServiceClient` permite administrar todas las colas de la cuenta de almacenamiento.
+- [`QueueClient`](/python/api/azure-storage-queue/azure.storage.queue.queueclient): La clase `QueueClient` permite administrar y manipular una cola individual y sus mensajes.
+- [`QueueMessage`](/python/api/azure-storage-queue/azure.storage.queue.queuemessage): La clase `QueueMessage` representa los objetos individuales que se devuelven al llamar a [`receive_messages`](/python/api/azure-storage-queue/azure.storage.queue.queueclient#receive-messages---kwargs-) en una cola.
 
 ## <a name="code-examples"></a>Ejemplos de código
 
@@ -130,7 +130,7 @@ Estos fragmentos de código de ejemplo muestran cómo realizar las siguientes ac
 
 ### <a name="get-the-connection-string"></a>Obtención de la cadena de conexión
 
-El código siguiente recupera la cadena de conexión de la cuenta de almacenamiento. La cadena de conexión se almacena en la variable de entorno creada en la sección [Configuración de la cadena de conexión de almacenamiento](#configure-your-storage-connection-string).
+El siguiente código recupera la cadena de conexión de la cuenta de almacenamiento. La cadena de conexión se almacena en la variable de entorno creada en la sección [Configuración de la cadena de conexión de almacenamiento](#configure-your-storage-connection-string).
 
 Agregue este código dentro del bloque `try`:
 
@@ -146,12 +146,12 @@ Agregue este código dentro del bloque `try`:
 
 ### <a name="create-a-queue"></a>Creación de una cola
 
-Decida un nombre para la nueva cola. El código siguiente anexa un valor de UUID al nombre de la cola para asegurarse de que sea único.
+Decida un nombre para la nueva cola. El siguiente código anexa un valor de UUID al nombre de la cola para asegurarse de que sea único.
 
 > [!IMPORTANT]
-> Los nombres de la cola solo puede incluir letras minúsculas, números y guiones y debe empezar por una letra o un número. Antes y después de cada guion debe ir un carácter que no sea otro guión. El nombre debe tener entre 3 y 63 caracteres. Para más información sobre la nomenclatura de las colas, consulte [Asignación de nombres a colas y metadatos](/rest/api/storageservices/naming-queues-and-metadata).
+> Los nombres de la cola solo puede incluir letras minúsculas, números y guiones y debe empezar por una letra o un número. Antes y después de cada guion debe ir un carácter que no sea otro guión. El nombre debe tener entre 3 y 63 caracteres. Para más información, consulte [Asignación de nombres a colas y metadatos](/rest/api/storageservices/naming-queues-and-metadata).
 
-Cree una instancia de la clase [QueueClient](/python/api/azure-storage-queue/azure.storage.queue.queueclient). A continuación, llame al método [create_queue](/python/api/azure-storage-queue/azure.storage.queue.queueclient#create-queue---kwargs-) para crear la cola en la cuenta de almacenamiento.
+Cree una instancia de la clase [`QueueClient`](/python/api/azure-storage-queue/azure.storage.queue.queueclient). Luego, llame al método [`create_queue`](/python/api/azure-storage-queue/azure.storage.queue.queueclient#create-queue---kwargs-) para crear la cola en la cuenta de almacenamiento.
 
 Agregue este código al final del bloque `try`:
 
@@ -171,7 +171,7 @@ Agregue este código al final del bloque `try`:
 
 ### <a name="add-messages-to-a-queue"></a>Adición de mensajes a una cola
 
-El siguiente fragmento de código agrega mensajes a la cola mediante una llamada al método [send_message](/python/api/azure-storage-queue/azure.storage.queue.queueclient#send-message-content----kwargs-). También guarda la clase [QueueMessage](/python/api/azure-storage-queue/azure.storage.queue.queuemessage) devuelta desde la tercera llamada a `send_message`. La clase `saved_message` se utiliza para actualizar el contenido del mensaje más adelante en el programa.
+El siguiente fragmento de código agrega mensajes a la cola, para lo que debe llamar al método [`send_message`](/python/api/azure-storage-queue/azure.storage.queue.queueclient#send-message-content----kwargs-). También guarda la clase [`QueueMessage`](/python/api/azure-storage-queue/azure.storage.queue.queuemessage) devuelta desde la tercera llamada a `send_message`. La clase `saved_message` se utiliza para actualizar el contenido del mensaje más adelante en el programa.
 
 Agregue este código al final del bloque `try`:
 
@@ -186,7 +186,7 @@ Agregue este código al final del bloque `try`:
 
 ### <a name="peek-at-messages-in-a-queue"></a>Lectura de los mensajes de una cola
 
-Lea los mensajes de la cola llamando al método [peek_messages](/python/api/azure-storage-queue/azure.storage.queue.queueclient#peek-messages-max-messages-none----kwargs-). El método `peek_messages` recupera uno o varios mensajes de la parte delantera de la cola, pero no modifica la visibilidad del mensaje.
+Lea los mensajes de la cola, para lo que debe llamar al método [`peek_messages`](/python/api/azure-storage-queue/azure.storage.queue.queueclient#peek-messages-max-messages-none----kwargs-). Este método recupera uno o varios mensajes de la parte delantera de la cola, pero no modifica la visibilidad del mensaje.
 
 Agregue este código al final del bloque `try`:
 
@@ -203,7 +203,7 @@ Agregue este código al final del bloque `try`:
 
 ### <a name="update-a-message-in-a-queue"></a>Eliminación de un mensaje de una cola
 
-Actualice el contenido de un mensaje mediante la llamada al método [update_message](/python/api/azure-storage-queue/azure.storage.queue.queueclient#update-message-message--pop-receipt-none--content-none----kwargs-). El método `update_message` puede cambiar el tiempo de espera de visibilidad y el contenido de un mensaje. El contenido del mensaje debe ser una cadena con codificación UTF-8 de hasta 64 KB de tamaño. Junto con el nuevo contenido, pase los valores del mensaje que se guardó anteriormente en el código. Los valores `saved_message` identifican el mensaje que se va a actualizar.
+Actualice el contenido de un mensaje mediante una llamada al método [`update_message`](/python/api/azure-storage-queue/azure.storage.queue.queueclient#update-message-message--pop-receipt-none--content-none----kwargs-). Este método puede cambiar tanto el contenido como el tiempo de espera de visibilidad de un mensaje. El contenido del mensaje debe ser una cadena con codificación UTF-8 de hasta 64 KB de tamaño. Junto con el nuevo contenido, pase los valores del mensaje que se guardó anteriormente en el código. Los valores `saved_message` identifican el mensaje que se va a actualizar.
 
 ```python
     print("\nUpdating the third message in the queue...")
@@ -215,7 +215,7 @@ Actualice el contenido de un mensaje mediante la llamada al método [update_mess
 
 ### <a name="receive-messages-from-a-queue"></a>mensajes de una cola
 
-Descargue los mensajes agregados anteriormente mediante la llamada al método [receive_messages](/python/api/azure-storage-queue/azure.storage.queue.queueclient#receive-messages---kwargs-).
+Descargue los mensajes que ha agregado anteriormente, para lo que debe llamar al método [`receive_messages`](/python/api/azure-storage-queue/azure.storage.queue.queueclient#receive-messages---kwargs-).
 
 Agregue este código al final del bloque `try`:
 
@@ -249,7 +249,7 @@ Agregue este código al final del bloque `try`:
 
 ### <a name="delete-a-queue"></a>Eliminación de una cola
 
-El código siguiente limpia los recursos que creó la aplicación; para ello, elimina la cola mediante el método [delete_queue](/python/api/azure-storage-queue/azure.storage.queue.queueclient#delete-queue---kwargs-).
+El siguiente código limpia los recursos que creó la aplicación; para ello, elimina la cola mediante el método [`delete_queue`](/python/api/azure-storage-queue/azure.storage.queue.queueclient#delete-queue---kwargs-).
 
 Agregue este código al final del bloque `try` y guarde el archivo:
 
@@ -268,7 +268,7 @@ Agregue este código al final del bloque `try` y guarde el archivo:
 
 Esta aplicación crea y agrega tres mensajes a una cola de Azure. El código muestra los mensajes en la cola y, a continuación, los recupera y los elimina antes de eliminar la cola.
 
-En la ventana de la consola, vaya al directorio que contiene el archivo *queues-quickstart-v12.py* y, a continuación, ejecute el siguiente comando `python` para ejecutar la aplicación.
+En la ventana de la consola, vaya al directorio que contiene el archivo `queues-quickstart-v12.py` y use el siguiente comando `python` para ejecutar la aplicación.
 
 ```console
 python queues-quickstart-v12.py
@@ -277,7 +277,7 @@ python queues-quickstart-v12.py
 La salida de la aplicación es similar a la del ejemplo siguiente:
 
 ```output
-Azure Queue storage v12 - Python quickstart sample
+Azure Queue Storage client library v12 - Python quickstart sample
 Creating queue: quickstartqueues-cac365be-7ce6-4065-bd65-3756ea052cb8
 
 Adding messages to the queue...
@@ -305,7 +305,7 @@ Done
 
 Cuando la aplicación se detiene antes de recibir mensajes, compruebe la cuenta de almacenamiento en [Azure Portal](https://portal.azure.com). Compruebe que los mensajes están en la cola.
 
-Presione la tecla **Entrar** para recibir y eliminar los mensajes. Cuando se le solicite, presione de nuevo la tecla **Entrar** para eliminar la cola y finalizar la demostración.
+Presione la tecla `Enter` para recibir y eliminar los mensajes. Cuando se le solicite, presione de nuevo la tecla `Enter` para eliminar la cola y finalizar la demostración.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -317,4 +317,4 @@ Para ver tutoriales, ejemplos, artículos de inicio rápido y otra documentació
 > [Azure para desarrolladores de Python](/azure/python/)
 
 - Para más información, consulte [Bibliotecas de Azure Storage para Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage).
-- Para ver más aplicaciones de ejemplo de Azure Queue Storage, continúe con los [ejemplos de la biblioteca cliente de Python v12 de Azure Queue Storage](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue/samples).
+- Para ver más aplicaciones de ejemplo de Azure Queue Storage, consulte los [ejemplos de la biblioteca de Azure Queue Storage v12 para Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue/samples).

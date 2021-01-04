@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 12/09/2020
-ms.openlocfilehash: 8594250d72754e6b7d2a6d8c27d3d5bcd0e9c8e4
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 16b924f486215d972477e93c4e199e7076a0a531
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920876"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97508890"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory-in-the-azure-portal"></a>Copia masiva de varias tablas mediante Azure Data Factory en Azure Portal
 
@@ -25,7 +25,7 @@ ms.locfileid: "96920876"
 En este tutorial se muestra cómo puede **copiar varias tablas de Azure SQL Database a Azure Synapse Analytics**. Además, puede aplicar el mismo patrón en otros escenarios de copia. Por ejemplo, para copiar tablas de SQL Server u Oracle a Azure SQL Database, Azure Synapse Analytics o Azure Blob, o bien para copiar diferentes rutas de acceso de tablas de blob a tablas de Azure SQL Database.
 
 > [!NOTE]
-> - Si no está familiarizado con Azure Data Factory, consulte [Introducción a Azure Data Factory](introduction.md).
+> Si no está familiarizado con Azure Data Factory, consulte [Introducción a Azure Data Factory](introduction.md).
 
 A grandes rasgos, este tutorial incluye los pasos siguientes:
 
@@ -99,9 +99,7 @@ Para comprobar y activar esta configuración, vaya al servidor > Seguridad > Fir
 1. Una vez que finalice la creación, seleccione **Ir al recurso** para ir a la página de **Data Factory**. 
    
 1. Haga clic en el icono **Author & Monitor** (Creación y supervisión) para iniciar la aplicación de la interfaz de usuario de Data Factory en una pestaña independiente.
-1. En la página **Comencemos**, cambie a la pestaña **Author** (Autor) del panel izquierdo tal como se muestra en la siguiente imagen:
 
-     ![Página de introducción](./media/doc-common-process/get-started-page-author-button.png)
 
 ## <a name="create-linked-services"></a>Crear servicios vinculados
 Los servicios vinculados se crean para vincular los almacenes de datos y los procesos con una factoría de datos. Un servicio vinculado tiene la información de conexión que usa el servicio Data Factory para conectarse al almacén de datos en el runtime. 
@@ -177,7 +175,9 @@ En este tutorial, las tablas de origen y destino SQL no están codificadas en la
 
 ### <a name="create-a-dataset-for-source-sql-database"></a>Creación de un conjunto de datos de la instancia de SQL Database de origen
 
-1. Haga clic en el **signo + (más)** en el panel izquierdo y en **Dataset** (Conjunto de datos). 
+1. Seleccione la pestaña **Autor** en el panel izquierdo.
+
+1. Seleccione el signo más **+** en el panel izquierdo y, luego, elija **Conjunto de datos**. 
 
     ![Menú Conjunto de datos nuevo](./media/tutorial-bulk-copy-portal/new-dataset-menu.png)
 1. En la ventana **New Dataset** (Nuevo conjunto de datos), seleccione **Azure SQL Database** y luego seleccione **Continue** (Continuar). 
@@ -277,7 +277,7 @@ La canalización **IterateAndCopySQLTables** toma una lista de tablas como pará
     1. Active la casilla de **Enable Staging** (Habilitar almacenamiento provisional).
     1. Seleccione **AzureStorageLinkedService** como **Store Account Linked Service** (Servicio vinculado a la cuenta de almacenamiento).
 
-1. Para comprobar la configuración de la canalización, haga clic en **Validar** en la barra de herramientas de la canalización. Asegúrese de que no haya errores de validación. Para cerrar **Pipeline Validation Report** (Informe de comprobación de la canalización), haga clic en **>>** .
+1. Para comprobar la configuración de la canalización, haga clic en **Validar** en la barra de herramientas de la canalización. Asegúrese de que no haya errores de validación. Para cerrar el **informe de validación de la canalización**, haga clic en los corchetes angulares dobles **>>** .
 
 ### <a name="create-the-pipeline-gettablelistandtriggercopydata"></a>Creación de la canalización GetTableListAndTriggerCopyData
 
@@ -285,6 +285,8 @@ Esta canalización realiza dos acciones:
 
 * Busca la tabla del sistema de Azure SQL Database para obtener la lista de tablas que se copiará.
 * Desencadena la canalización "IterateAndCopySQLTables" para realizar la copia de datos real.
+
+Estos son los pasos para crear la canalización:
 
 1. En el panel izquierdo, haga clic en el **signo + (más)** y en **Pipeline** (Canalización).
 1. En el panel General, en **Properties** (Propiedades), cambie el nombre de la canalización por **GetTableListAndTriggerCopyData**. 

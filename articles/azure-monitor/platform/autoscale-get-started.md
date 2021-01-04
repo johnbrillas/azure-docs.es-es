@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo escalar Web Apps, Cloud Services, 
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 364309301b403234936da1bac6e1b74af24c2fdb
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: bf0194e82acde0406cfeb57af027831f92a90c92
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96573313"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938314"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Introducción al escalado automático en Azure
 Este artículo describe cómo configurar el escalado automático de recursos en Microsoft Azure Portal.
@@ -136,9 +136,11 @@ Cuando se proporciona la ruta de acceso de comprobación de estado, App Service
 > [!NOTE]
 > Recuerde que el plan de App Service se debe escalar horizontalmente a dos o más instancias y ser de **nivel básico o superior** para que se produzca la exclusión del equilibrador de carga. Si solo tiene una instancia, no se quitará del equilibrador de carga aunque sea incorrecta. 
 
-El resto de instancias en buen estado pueden experimentar un aumento de la carga. Para evitar saturarlas, se excluyen no más de la mitad de las instancias. Por ejemplo, si un plan de App Service se escala horizontalmente a cuatro instancias y tres de ellas están en mal estado, hasta dos se pueden excluir de la rotación del equilibrador de carga. Las otras dos instancias (una en buen estado y otra en mal estado) siguen recibiendo solicitudes. En el peor de los escenarios, cuando todas las instancias están en estado incorrecto, no se excluirá ninguna. Si desea invalidar este comportamiento, puede establecer la configuración de aplicación `WEBSITE_HEALTHCHECK_MAXUNHEALTHYWORKERPERCENT` en un valor entre `0` y `100`. Si se establece en un valor mayor, se eliminarán más instancias incorrectas (el valor predeterminado es 50).
+Además, se hace ping a la ruta de acceso de la comprobación de estado cuando se agregan o se reinician las instancias como, por ejemplo, durante las operaciones de escalado horizontal, los reinicios manuales o la implementación de código a través del sitio del SCM. Si se produce un error en la comprobación de estado durante estas operaciones, las instancias con errores no se agregarán al equilibrador de carga. Esto evita que estas operaciones afecten negativamente a la disponibilidad de la aplicación.
 
-Si una instancia permanece en mal estado durante una hora, se reemplaza por una nueva. A lo sumo, se reemplaza una instancia por hora, con un máximo de tres instancias al día por plan de App Service.
+Al usar la comprobación de estado, el resto de instancias en buen estado pueden experimentar un aumento de la carga. Para evitar saturarlas, se excluyen no más de la mitad de las instancias. Por ejemplo, si un plan de App Service se escala horizontalmente a cuatro instancias y tres de ellas están en mal estado, hasta dos se pueden excluir de la rotación del equilibrador de carga. Las otras dos instancias (una en buen estado y otra en mal estado) siguen recibiendo solicitudes. En el peor de los escenarios, cuando todas las instancias están en estado incorrecto, no se excluirá ninguna. Si desea invalidar este comportamiento, puede establecer la configuración de aplicación `WEBSITE_HEALTHCHECK_MAXUNHEALTHYWORKERPERCENT` en un valor entre `0` y `100`. Si se establece en un valor mayor, se eliminarán más instancias incorrectas (el valor predeterminado es 50).
+
+Si se produce un error durante la comprobación de estado de todas las aplicaciones de una instancia durante una hora, la instancia se reemplazará. A lo sumo, se reemplaza una instancia por hora, con un máximo de tres instancias al día por plan de App Service.
 
 ### <a name="monitoring"></a>Supervisión
 

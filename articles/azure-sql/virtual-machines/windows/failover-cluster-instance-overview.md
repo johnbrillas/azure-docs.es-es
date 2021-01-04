@@ -7,17 +7,18 @@ author: MashaMSFT
 editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.topic: overview
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: d5bd2fc150ee1d35127eeb9dbf3dc1eeffdc9659
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 33be57832d9364b859042cd38349c2437bcfcb18
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685943"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358153"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Instancias de clúster de conmutación por error con SQL Server en Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -50,7 +51,7 @@ SQL Server en VM de Azure ofrece varias opciones como solución de almacenamient
 |---------|---------|---------|---------|
 |**Versión mínima de sistema operativo**| All |Windows Server 2012|Windows Server 2016|
 |**Versión de SQL Server mínima**|All|SQL Server 2012|SQL Server 2016|
-|**Disponibilidad de VM admitida** |Conjuntos de disponibilidad con grupos de selección de ubicación de proximidad |Conjuntos y zonas de disponibilidad|Conjuntos de disponibilidad |
+|**Disponibilidad de VM admitida** |Conjuntos de disponibilidad con grupos de selección de ubicación de proximidad (para SSD Premium) </br> La misma zona de disponibilidad (para SSD Ultra) |Conjuntos y zonas de disponibilidad|Conjuntos de disponibilidad |
 |**Admite FileStream**|Sí|No|Sí |
 |**Caché de blobs de Azure**|No|No|Sí|
 
@@ -69,12 +70,16 @@ En el resto de esta sección se enumeran las ventajas y las limitaciones de cada
 - Admite almacenamiento en disco Ultra de Azure y SSD Premium de Azure.
 - Puede usar un único disco compartido o seccionar varios para crear un grupo de almacenamiento compartido. 
 - Admite FileStream.
+- Las SSD Premium admiten conjuntos de disponibilidad. 
 
 
 **Limitaciones**: 
-- Las máquinas virtuales se deben colocar en el mismo conjunto de disponibilidad y grupo de ubicación de proximidad.
-- Availability Zones no se admite.
+- Se recomienda colocar las máquinas virtuales en el mismo conjunto de disponibilidad y grupo de ubicación de proximidad.
+- Los discos Ultra no admiten conjuntos de disponibilidad. 
+- Las zonas de disponibilidad son compatibles con discos Ultra, pero las máquinas virtuales deben estar en la misma zona de disponibilidad, lo que reduce la disponibilidad de la máquina virtual. 
+- Independientemente de la solución de disponibilidad de hardware elegida, la disponibilidad del clúster de conmutación por error siempre es del 99,9% cuando se usan discos compartidos de Azure. 
 - El almacenamiento en caché de disco SSD Premium no se admite.
+
  
 Para empezar, consulte [Creación de una FCI con discos compartidos de Azure (SQL Server en VM de Azure)](failover-cluster-instance-azure-shared-disks-manually-configure.md). 
 

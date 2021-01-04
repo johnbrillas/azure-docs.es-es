@@ -9,12 +9,12 @@ ms.subservice: security
 ms.date: 12/03/2020
 ms.author: billgib
 ms.reviewer: jrasnick
-ms.openlocfilehash: 36c4ce34d6b0c4df119d5531cda725605cfd0bc1
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: 256fec97819cde0f6f62d59b34416c92e1edfd20
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96523726"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109613"
 ---
 # <a name="synapse-access-control"></a>Control de acceso de Synapse 
 
@@ -34,14 +34,14 @@ Para simplificar el control de acceso se pueden usar grupos de seguridad que est
 
 ## <a name="access-control-elements"></a>Elementos del control de acceso
 
-### <a name="creating-and-managing-synapse-resources"></a>Creación y administración de recursos de Synapse
+### <a name="creating-and-managing-synapse-compute-resources"></a>Creación y administración de recursos de proceso de Synapse
 
 Los roles de Azure se usan para controlar la administración de: 
 - Grupos de SQL dedicados 
 - Grupos de Apache Spark 
 - Entornos de ejecución de integración 
 
-Para crear estos recursos, es preciso tener los roles Propietario o Colaborador de Azure en el grupo de recursos.  Por su parte, para administrarlos, es preciso tener los roles Propietario o Colaborador de Azure en el grupo de recursos o en los recursos individuales. 
+Para *crear* estos recursos, es preciso tener los roles Propietario o Colaborador de Azure en el grupo de recursos.  Por su parte, para *administrarlos* una vez creados, es preciso tener los roles Propietario o Colaborador de Azure en el grupo de recursos o en los recursos individuales. 
 
 ### <a name="developing-and-executing-code-in-synapse"></a>Desarrollo y ejecución de código en Synapse 
 
@@ -82,7 +82,7 @@ Para ver ejemplos de scripts de SQL para conceder permisos de SQL en grupos de S
 
  ### <a name="accessing-system-managed-data-in-storage"></a>Acceso a datos administrados por el sistema en el almacenamiento
 
-Tanto los grupos de SQL sin servidor como las tablas de Apache Spark almacenan sus datos en un contenedor ADLS Gen2 asociado con el área de trabajo.  Tanto a los usuarios como al MSI del área de trabajo se les debe conceder acceso de colaborador de datos de Storage Blob a este contenedor de almacenamiento ADLS Gen2.  
+Los grupos de SQL sin servidor y las tablas de Apache Spark almacenan sus datos en un contenedor de ADLS Gen2 asociado al área de trabajo. Las bibliotecas de Apache Spark instaladas por el usuario también se administran en la misma cuenta de almacenamiento.  Para habilitar estos casos de uso, tanto a los usuarios como al MSI del área de trabajo se les debe conceder acceso de **colaborador de datos de Storage Blob** a este contenedor de almacenamiento de ADLS Gen2.  
 
 ## <a name="using-security-groups-as-a-best-practice"></a>Uso de grupos de seguridad como procedimiento recomendado
 

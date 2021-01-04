@@ -6,12 +6,12 @@ ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: d259510d880cbfc60e9ae80b533af6792cc95536
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 46ed1fc55a108bf80089d249abc58bc5d1a6479a
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96930735"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106961"
 ---
 # <a name="tutorial-add-variables-to-your-arm-template"></a>Tutorial: Incorporación de variables a la plantilla de Resource Manager
 
@@ -37,17 +37,17 @@ En el ejemplo siguiente se resaltan los cambios para agregar una variable a la p
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-variable/azuredeploy.json" range="1-47" highlight="5-9,29-31,36":::
 
-Observe que se incluye una variable llamada **uniqueStorageName**. Esta variable usa cuatro funciones para construir un valor de cadena.
+Observe que se incluye una variable llamada `uniqueStorageName`. Esta variable usa cuatro funciones para construir un valor de cadena.
 
 Ya está familiarizado con la función [parameters](template-functions-deployment.md#parameters), por lo que no la examinaremos.
 
-También está familiarizado con la función [resourceGroup](template-functions-resource.md#resourcegroup). En este caso, obtendrá la propiedad **id** en lugar de la propiedad **location**, tal como se muestra en el tutorial anterior. La propiedad **id** devuelve el identificador completo del grupo de recursos, incluido el identificador de la suscripción y el nombre del grupo de recursos.
+También está familiarizado con la función [resourceGroup](template-functions-resource.md#resourcegroup). En este caso, obtendrá la propiedad `id` en lugar de la propiedad `location`, tal como se muestra en el tutorial anterior. La propiedad `id` devuelve el identificador completo del grupo de recursos, incluido el identificador de la suscripción y el nombre del grupo de recursos.
 
 La función [uniqueString](template-functions-string.md#uniquestring) crea un valor hash de 13 caracteres. El valor devuelto viene determinado por los parámetros que se pasan. En este tutorial, usará el identificador del grupo de recursos como entrada del valor hash. Esto significa que podría implementar esta plantilla en distintos grupos de recursos y obtener un valor de cadena único diferente. Sin embargo, se obtiene el mismo valor si la implementa en el mismo grupo de recursos.
 
-La función [concat](template-functions-string.md#concat) toma valores y los combina. En el caso de esta variable, toma la cadena del parámetro y la cadena de la función uniqueString y las combina en una cadena.
+La función [concat](template-functions-string.md#concat) toma valores y los combina. En el caso de esta variable, toma la cadena del parámetro y la cadena de la función `uniqueString` y las combina en una cadena.
 
-El parámetro **storagePrefix** le permite pasar un prefijo que le ayuda a identificar las cuentas de almacenamiento. Puede crear su propia convención de nomenclatura que facilite la identificación de las cuentas de almacenamiento entre una larga lista de recursos después de la implementación.
+El parámetro `storagePrefix` le permite pasar un prefijo que le ayuda a identificar las cuentas de almacenamiento. Puede crear su propia convención de nomenclatura que facilite la identificación de las cuentas de almacenamiento entre una larga lista de recursos después de la implementación.
 
 Por último, observe que el nombre de almacenamiento ahora está establecido en la variable en vez de en un parámetro.
 
@@ -55,7 +55,7 @@ Por último, observe que el nombre de almacenamiento ahora está establecido en 
 
 Vamos a implementar la plantilla. Implementar esta plantilla es más fácil que las anteriores porque solo se proporciona el prefijo del nombre de almacenamiento.
 
-Si no ha creado el grupo de recursos, consulte [Creación del grupo de recursos](template-tutorial-create-first-template.md#create-resource-group). En el ejemplo se supone que ha establecido la variable **templateFile** en la ruta de acceso al archivo de plantilla, como se muestra en el [primer tutorial](template-tutorial-create-first-template.md#deploy-template).
+Si no ha creado el grupo de recursos, consulte [Creación del grupo de recursos](template-tutorial-create-first-template.md#create-resource-group). En el ejemplo se supone que ha establecido la variable `templateFile` en la ruta de acceso al archivo de plantilla, como se muestra en el [primer tutorial](template-tutorial-create-first-template.md#deploy-template).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -83,7 +83,7 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> Si se produjo un error en la implementación, use el modificador **verbose** para obtener información acerca de los recursos que se están creando. Utilice el modificador **debug** para más información sobre la depuración.
+> Si se produjo un error en la implementación, use el modificador `verbose` para obtener información sobre los recursos que se están creando. Utilice el modificador `debug` para más información sobre la depuración.
 
 ## <a name="verify-deployment"></a>Comprobación de la implementación
 

@@ -3,12 +3,12 @@ title: 'Preparación para la producción y procedimientos recomendados: Azure'
 description: En este artículo se ofrecen instrucciones sobre cómo configurar e implementar el módulo Live Video Analytics on IoT Edge en entornos de producción.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 215427e3524861a842349b197668d92167960e5c
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 56982d84b7ffac718072683076657d56a2691d6c
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96906342"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400563"
 ---
 # <a name="production-readiness-and-best-practices"></a>Preparación para la producción y procedimientos recomendados
 
@@ -109,7 +109,11 @@ Si observa los gráficos multimedia de ejemplo de la guía de inicio rápido y l
 
 ### <a name="naming-video-assets-or-files"></a>Nomenclatura de archivos o recursos de vídeo
 
-Los gráficos multimedia permiten crear recursos en la nube o archivos mp4 en el perímetro. Los recursos multimedia pueden generarse mediante la [grabación de vídeo continua](continuous-video-recording-tutorial.md) o la [grabación de vídeo basada en eventos](event-based-video-recording-tutorial.md). Aunque estos recursos y archivos pueden tener el nombre que quiera, la estructura de nomenclatura recomendada para el recurso multimedia basado en la grabación de vídeo continua es "&lt;anytext&gt;-${System.GraphTopologyName}-${System.GraphInstanceName}". Por ejemplo, puede establecer assetNamePattern en el receptor de recursos como se indica aquí:
+Los gráficos multimedia permiten crear recursos en la nube o archivos mp4 en el perímetro. Los recursos multimedia pueden generarse mediante la [grabación de vídeo continua](continuous-video-recording-tutorial.md) o la [grabación de vídeo basada en eventos](event-based-video-recording-tutorial.md). Aunque estos recursos y archivos pueden tener el nombre que quiera, la estructura de nomenclatura recomendada para el recurso multimedia basado en la grabación de vídeo continua es "&lt;anytext&gt;-${System.GraphTopologyName}-${System.GraphInstanceName}".   
+
+El patrón de sustitución se define mediante el signo $ seguido de llaves: **${nombreDeVariable}** .  
+
+Por ejemplo, puede establecer assetNamePattern en el receptor de recursos como se indica aquí:
 
 ```
 "assetNamePattern": "sampleAsset-${System.GraphTopologyName}-${System.GraphInstanceName}
@@ -130,15 +134,29 @@ Si está ejecutando varias instancias del mismo gráfico, puede usar el nombre d
 En el caso de los clips de vídeo mp4 generados por grabación de vídeo basada en eventos, el patrón de nomenclatura recomendado debe incluir DateTime y, para varias instancias del mismo gráfico, se recomienda usar las variables del sistema GraphTopologyName y GraphInstanceName. Por ejemplo, puede establecer filePathPattern en el receptor de archivos como se indica aquí: 
 
 ```
-"filePathPattern": "/var/media/sampleFilesFromEVR-${fileSinkOutputName}-${System.DateTime}"
+"fileNamePattern": "/var/media/sampleFilesFromEVR-${fileSinkOutputName}-${System.DateTime}"
 ```
 
 Or 
 
 ```
-"filePathPattern": "/var/media/sampleFilesFromEVR-${fileSinkOutputName}--${System.GraphTopologyName}-${System.GraphInstanceName} ${System.DateTime}"
+"fileNamePattern": "/var/media/sampleFilesFromEVR-${fileSinkOutputName}--${System.GraphTopologyName}-${System.GraphInstanceName} ${System.DateTime}"
 ```
+>[!NOTE]
+> En el ejemplo anterior, la variable **fileSinkOutputName** es un nombre de variable de ejemplo que se define en la topología del grafo. Esta **no** es una variable del sistema. 
 
+#### <a name="system-variables"></a>Variables del sistema
+Algunas variables definidas por el sistema que puede usar son:
+
+|Variable del sistema|Descripción|Ejemplo|
+|-----------|-----------|-----------|
+|System.DateTime|Fecha y hora UTC en formato compatible con archivos ISO8601 (representación básica AAAAMMDDThhmmss).|20200222T173200Z|
+|System.PreciseDateTime|Fecha y hora UTC en formato compatible con archivos ISO8601 con milisegundos (representación básica AAAAMMDDThhmmss.sss).|20200222T173200.123Z|
+|System.GraphTopologyName|Nombre proporcionado por el usuario de la topología del grafo en ejecución.|IngestAndRecord|
+|System.GraphInstanceName|Nombre proporcionado por el usuario de la instancia del grafo en ejecución.|camera001|
+
+>[!TIP]
+> System.PreciseDateTime no se puede usar al nombrar recursos debido al "." que hay en el nombre.
 ### <a name="keeping-your-vm-clean"></a>Mantenimiento de la limpieza de la máquina virtual
 
 La máquina virtual de Linux que se usa como dispositivo perimetral puede dejar de responder si no se administra de forma periódica. Es fundamental mantener limpias las memorias caché, eliminar los paquetes innecesarios y quitar también los contenedores no usados de la máquina virtual. Para hacerlo, recomendamos este conjunto de comandos que puede usar en la máquina virtual perimetral.
@@ -153,7 +171,7 @@ La máquina virtual de Linux que se usa como dispositivo perimetral puede dejar 
 
     La opción de quitar automáticamente quita los paquetes que se instalaron automáticamente porque algún otro paquete los necesitaba pero, con esos otros paquetes quitados, ya no son necesarios.
 1. `sudo docker image ls`: proporciona una lista de imágenes de Docker en el sistema perimetral
-1. `sudo docker system prune `
+1. `sudo docker system prune`
 
     Docker toma un enfoque conservador para limpiar los objetos no usados (a menudo denominados "recolección de elementos no utilizados"), como imágenes, contenedores, volúmenes y redes: normalmente, estos objetos no se quitan a menos que se pida explícitamente a Docker que lo haga. Esto puede hacer que Docker use espacio en disco adicional. Para cada tipo de objeto, Docker proporciona un comando de eliminación. Además, puede usar la eliminación del sistema de Docker para limpiar varios tipos de objetos a la vez. Para más información, vea [Prune unused Docker objects](https://docs.docker.com/config/pruning/) (Eliminar los objetos de Docker no usados).
 1. `sudo docker rmi REPOSITORY:TAG`

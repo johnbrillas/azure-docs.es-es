@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
-ms.date: 09/22/2020
-ms.custom: contperfq1
-ms.openlocfilehash: c612e2a95e2596b2732ed8282037c8ded908a0a0
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.date: 12/15/2020
+ms.custom: contperf-fy21q1,contperfq1
+ms.openlocfilehash: f7c4529c68f79c6ad19f22054fd0b7d2ba5116db
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96571392"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562844"
 ---
 # <a name="deep-learning-vs-machine-learning-in-azure-machine-learning"></a>Aprendizaje profundo frente a aprendizaje automático en Azure Machine Learning
 
@@ -57,6 +57,16 @@ En la tabla siguiente se comparan las dos técnicas con más detalle:
 |  **Tiempo de ejecución** | Comparativamente, tarda menos tiempo en entrenarse; puede tardar unos segundos o unas pocas horas. | Normalmente, tarda demasiado tiempo en entrenarse, porque los algoritmos de aprendizaje profundo tienen muchas capas. |
 |  **Salida** | La salida suele ser un valor numérico, como una puntuación o una clasificación. | La salida puede tener varios formatos, como texto, una puntuación o un sonido. |
 
+## <a name="transfer-learning"></a>Transferencia de aprendizaje
+
+Entrenar modelos de aprendizaje profundo a menudo requiere grandes cantidades de datos de entrenamiento, recursos de proceso de alto nivel (GPU, TPU) y un tiempo de entrenamiento más largo. En escenarios en los que no tenga ninguno de estos disponible, puede obtener acceso directo al proceso de entrenamiento mediante una técnica conocida como aprendizaje por transferencia.
+
+El aprendizaje por transferencia es una técnica que aplica los conocimientos que se adquieren al resolver un problema en un problema diferente, pero relacionado.
+
+Debido a la estructura de redes neuronales, el primer conjunto de capas normalmente contiene características de nivel inferior, mientras que el conjunto final de capas contiene características de nivel superior que están más cerca del dominio en cuestión. Al reasignar las capas finales para su uso en un nuevo dominio o problema, puede reducir significativamente la cantidad de tiempo, datos y recursos de proceso necesarios para entrenar el nuevo modelo. Por ejemplo, si ya tiene un modelo que reconoce automóviles, puede reasignarlo con el aprendizaje por transferencia para que reconozca también camiones, motocicletas y otros tipos de vehículos.
+
+Aprenda a aplicar el aprendizaje por transferencia para la clasificación de imágenes mediante un marco de código abierto en Azure Machine Learning: [Clasificación de imágenes mediante un modelo Pytorch](./how-to-train-pytorch.md?WT.mc_id=docs-article-lazzeri).
+
 ## <a name="deep-learning-use-cases"></a>Casos de uso del aprendizaje profundo
 
 A causa de la estructura de la red neuronal artificial, el aprendizaje profundo es excelente para identificar patrones en datos no estructurados, como imágenes, sonido, vídeo y texto. Por esta razón, el aprendizaje profundo está transformando rápidamente muchos sectores, como la atención sanitaria, la energía, las finanzas y el transporte. Gracias a ello, estos sectores se están replanteando los procesos empresariales tradicionales. 
@@ -72,8 +82,6 @@ El reconocimiento de entidades con nombre es un método de aprendizaje profundo 
 El aprendizaje profundo se ha aplicado en muchos casos de uso de detección de objetos. La detección de objetos tiene dos partes: la clasificación de imágenes y la localización de imágenes. La _clasificación_ de imágenes identifica los objetos de la imagen, como automóviles o personas. La _localización_ de imágenes, por su parte, proporciona la ubicación específica de estos objetos. 
 
 La detección de objetos ya se está usando en sectores como los videojuegos, los comercios minoristas, el turismo y los vehículos autónomos.
-
-Aprenda a usar un modelo de clasificación de imágenes de un marco de código abierto en Azure Machine Learning: [Clasificación de imágenes mediante un modelo Pytorch](./how-to-train-pytorch.md?WT.mc_id=docs-article-lazzeri)
 
 ### <a name="image-caption-generation"></a>Generación de subtítulos para imágenes
 
@@ -107,7 +115,7 @@ La red neuronal de tipo feedforward es el tipo más simple de red neuronal artif
 
 Las redes neuronales recurrentes son una red neuronal artificial que se usa ampliamente. Estas redes guardan la salida de una capa y la reenvían a la capa de entrada para poder predecir el resultado de esa capa. Las redes neuronales recurrentes tienen grandes capacidades de aprendizaje. Suelen utilizarse en tareas complejas, como la predicción de series temporales, el aprendizaje de escritura a mano y el reconocimiento de idiomas.
 
-### <a name="convolutional-neural-networks"></a>Redes neuronal convolucionales
+### <a name="convolutional-neural-network"></a>Redes neuronales convolucionales
 
 Una red neuronal convolucional es un tipo especialmente eficaz de red neuronal artificial que presenta una arquitectura única. Las capas se organizan en tres dimensiones: ancho, alto y profundo. Además, las neuronas de una capa no se conectan con todas las neuronas de la capa siguiente, sino que solo se conectan a una pequeña región de la misma. Asimismo, la salida final se reducirá a un solo vector de puntuaciones de probabilidad, organizadas a lo largo de la dimensión de profundidad. 
 

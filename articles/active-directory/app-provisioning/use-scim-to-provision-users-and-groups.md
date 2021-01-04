@@ -12,12 +12,12 @@ ms.date: 09/15/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: c9738d25fdcb1c0ccda70ec116eb369f8b50e980
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: a0abbacc55cff2f561323a22dd83311c87b1511d
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97027482"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97584500"
 ---
 # <a name="tutorial---build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Tutorial: Creación de un punto de conexión SCIM y configuración del aprovisionamiento de usuarios con Azure AD
 
@@ -1170,7 +1170,7 @@ Si va a crear una aplicación que usará más de un inquilino, puede hacer que e
 ### <a name="gallery-onboarding-checklist"></a>Lista de comprobación de la incorporación a la galería
 Utilice la siguiente lista de comprobación para garantizar la rápida incorporación de la aplicación, y una experiencia de implementación fluida para los clientes. La información se recopilará en el momento en que se incorpore a la galería. 
 > [!div class="checklist"]
-> * Compatibilidad con un punto de conexión de grupo y de usuario de [SCIM 2.0 ](#step-2-understand-the-azure-ad-scim-implementation) (solo se requiere uno, pero se recomiendan los dos)
+> * Admitir un punto de conexión de grupo y usuario de [SCIM 2.0](#step-2-understand-the-azure-ad-scim-implementation) (solo se requiere uno, pero se recomiendan los dos)
 > * Admitir al menos 25 solicitudes por segundo por inquilino para asegurarse de que los usuarios y grupos se aprovisionan y desaprovisionan sin retraso (obligatorio)
 > * Establecimiento de contactos de ingeniería y soporte técnico para guiar la incorporación de clientes a la galería (obligatorio)
 > * Tres credenciales de prueba sin expiración para la aplicación (obligatorio)

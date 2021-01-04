@@ -10,13 +10,13 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 10/21/2020
-ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: a90b98e8be976da9ee2669ab3b5fed4a890f0fb2
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.custom: contperf-fy20q4, tracking-python
+ms.openlocfilehash: 3f128b7ee7fa8f690c2097a5d27e274ec1eb2a8a
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576639"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97559546"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Habilitación de Azure Machine Learning Studio en una Azure Virtual Network
 
@@ -89,7 +89,9 @@ En estos pasos se agrega la identidad administrada del área de trabajo como __L
 
 ### <a name="enable-managed-identity-authentication-for-default-storage-accounts"></a>Habilitación de la autenticación de identidad administrada para cuentas de almacenamiento predeterminadas
 
-Cada área de trabajo de Azure Machine Learning incluye dos cuentas de almacenamiento predeterminadas, que se definen al crear el área de trabajo. Studio usa las cuentas de almacenamiento predeterminadas para almacenar los artefactos de experimentos y modelos, que son fundamentales para determinadas características en Studio.
+Cada área de trabajo de Azure Machine Learning tiene dos cuentas de almacenamiento, una cuenta de almacenamiento de blobs y una cuenta de almacenamiento de archivos predeterminadas que se definen al crear el área de trabajo. También puede establecer nuevos valores predeterminados en la página de administración del **almacén de datos**.
+
+![Captura de pantalla que muestra dónde se pueden encontrar los almacenes de datos predeterminados](./media/how-to-enable-studio-virtual-network/default-datastores.png)
 
 En la tabla siguiente se describe por qué debe habilitar la autenticación de identidad administrada para las cuentas de almacenamiento predeterminadas del área de trabajo.
 
@@ -98,8 +100,12 @@ En la tabla siguiente se describe por qué debe habilitar la autenticación de i
 |Almacenamiento de blobs predeterminado del área de trabajo| Almacena recursos del modelo desde el diseñador. Debe habilitar la autenticación de identidad administrada en esta cuenta de almacenamiento para implementar modelos en el diseñador. <br> <br> Puede visualizar y ejecutar una canalización del diseñador si usa un almacén de datos no predeterminado que se ha configurado para utilizar una identidad administrada. Sin embargo, si intenta implementar un modelo entrenado sin la identidad administrada habilitada en el almacén de datos predeterminado, se producirá un error en la implementación independientemente de que se usen otros almacenes de datos.|
 |Almacén de archivos predeterminado del área de trabajo| Almacena los recursos de experimentos de AutoML. Debe habilitar la autenticación de identidad administrada en esta cuenta de almacenamiento para enviar experimentos de AutoML. |
 
-
-![Captura de pantalla que muestra dónde se pueden encontrar los almacenes de datos predeterminados](./media/how-to-enable-studio-virtual-network/default-datastores.png)
+> [!WARNING]
+> Hay un problema conocido en el que el almacén de archivos predeterminado no crea automáticamente la carpeta `azureml-filestore` necesaria para enviar experimentos de aprendizaje automático automatizado. Esto sucede cuando los usuarios seleccionan un almacén de archivos existente para establecerlo como predeterminado durante la creación del área de trabajo.
+> 
+> Tiene dos opciones para evitar este problema: 1) Use el almacén de archivos predeterminado que se crea automáticamente durante la creación del área de trabajo. 2) Para seleccionar su propio almacén de archivos, asegúrese de que este está fuera de la red virtual durante la creación del área de trabajo. Una vez creada el área de trabajo, agregue la cuenta de almacenamiento a la red virtual.
+>
+> Para resolver este problema, elimine la cuenta del almacén de archivos de la red virtual y, a continuación, agréguela de nuevo.
 
 
 ### <a name="grant-workspace-managed-identity-__reader__-access-to-storage-private-link"></a>Concesión de acceso __Lector__ de identidad administrada del área de trabajo al vínculo privado de almacenamiento

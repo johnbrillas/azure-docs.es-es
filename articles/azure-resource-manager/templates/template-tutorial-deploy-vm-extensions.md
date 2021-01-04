@@ -6,12 +6,12 @@ ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 49bc1a77e2e25cb069a89812603ff562b8a4c1cd
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 9e04006a0908832c623230d89caa62b0985f32e4
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96931459"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587951"
 ---
 # <a name="tutorial-deploy-virtual-machine-extensions-with-arm-templates"></a>Tutorial: Implementación de extensiones de máquina virtual con plantillas de Resource Manager
 
@@ -42,7 +42,7 @@ Para completar este artículo, necesitará lo siguiente:
 
 ## <a name="prepare-a-powershell-script"></a>Preparación de un script de PowerShell.
 
-Puede usar un script de PowerShell en línea o un archivo de script.  En este tutorial se muestra cómo usar un archivo de script. Un script de PowerShell con el siguiente contenido se comparte desde [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-vm-extension/installWebServer.ps1):
+Puede usar un script de PowerShell en línea o un archivo de script. En este tutorial se muestra cómo usar un archivo de script. Un script de PowerShell con el siguiente contenido se comparte desde [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-vm-extension/installWebServer.ps1):
 
 ```azurepowershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
@@ -105,22 +105,22 @@ Agregue un recurso de extensión de máquina virtual a la plantilla existente co
 
 Si necesita más información acerca de la definición de este recurso, consulte la [referencia de la extensión](/azure/templates/microsoft.compute/virtualmachines/extensions). Estos son algunos elementos importantes:
 
-* **name**: Dado que el recurso de extensión es un recurso secundario del objeto de máquina virtual, el nombre debe tener el prefijo del nombre de máquina virtual. Consulte [Establecimiento del nombre y el tipo de recursos secundarios](child-resource-name-type.md).
-* **dependsOn**: Cree el recurso de extensión después de haber creado la máquina virtual.
-* **fileUris**: son las ubicaciones donde se almacenan los archivos de script. Si elige no utilizar la ubicación que se proporciona, deberá actualizar los valores.
-* **commandToExecute**: Este comando invoca el script.
+* `name`: Dado que el recurso de extensión es un recurso secundario del objeto de máquina virtual, el nombre debe tener el prefijo del nombre de máquina virtual. Consulte [Establecimiento del nombre y el tipo de recursos secundarios](child-resource-name-type.md).
+* `dependsOn`: Cree el recurso de extensión después de haber creado la máquina virtual.
+* `fileUris`: son las ubicaciones donde se almacenan los archivos de script. Si elige no utilizar la ubicación que se proporciona, deberá actualizar los valores.
+* `commandToExecute`: Este comando invoca el script.
 
-Para usar el script en línea, quite **fileUris** y actualice **commandToExecute** a:
+Para usar un script en línea, quite `fileUris` y actualice `commandToExecute` a:
 
 ```powershell
 powershell.exe Install-WindowsFeature -name Web-Server -IncludeManagementTools && powershell.exe remove-item 'C:\\inetpub\\wwwroot\\iisstart.htm' && powershell.exe Add-Content -Path 'C:\\inetpub\\wwwroot\\iisstart.htm' -Value $('Hello World from ' + $env:computername)
 ```
 
-Este script en línea también actualiza el contenido de Iisstart.html.
+Este script en línea también actualiza el contenido de _iisstart.html_.
 
 También debe abrir el puerto HTTP para poder acceder al servidor web.
 
-1. Busque **securityRules** en la plantilla.
+1. Busque `securityRules` en la plantilla.
 1. Agregue la siguiente regla junto a **default-allow-3389**.
 
     ```json
@@ -141,7 +141,7 @@ También debe abrir el puerto HTTP para poder acceder al servidor web.
 
 ## <a name="deploy-the-template"></a>Implementación de la plantilla
 
-Para conocer el procedimiento de implementación, consulte la sección "Implementación de la plantilla" de [Tutorial: Creación de plantillas de Resource Manager con recursos dependientes](./template-tutorial-create-templates-with-dependent-resources.md#deploy-the-template). Se recomienda usar una contraseña generada para la cuenta de administrador de la máquina virtual. Consulte la sección [Requisitos previos](#prerequisites) de este artículo.
+Para conocer el procedimiento de implementación, consulte la sección **Implementación de la plantilla** del [Tutorial: Creación de plantillas de Resource Manager con recursos dependientes](./template-tutorial-create-templates-with-dependent-resources.md#deploy-the-template). Se recomienda usar una contraseña generada para la cuenta de administrador de la máquina virtual. Consulte la sección [Requisitos previos](#prerequisites) de este artículo.
 
 En Cloud Shell, ejecute el siguiente comando para recuperar la dirección IP pública de la máquina virtual:
 

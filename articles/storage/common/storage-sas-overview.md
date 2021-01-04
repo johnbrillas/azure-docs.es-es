@@ -10,12 +10,12 @@ ms.date: 11/20/2020
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
-ms.openlocfilehash: 118aaa368f48838a33d130d8dddc89bb8dce3f3e
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d435ced4c8ec56fae5081ede367b593d2b66ef0f
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498190"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96936546"
 ---
 # <a name="grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas"></a>Otorgar acceso limitado a recursos de Azure Storage con firmas de acceso compartido (SAS)
 
@@ -76,6 +76,9 @@ Una firma de acceso compartido puede presentar una de las dos formas siguientes:
 ## <a name="how-a-shared-access-signature-works"></a>Funcionamiento de una firma de acceso compartido
 
 Una Firma de acceso compartido es un URI firmado que apunta a uno o varios recursos de almacenamiento. El URI incluye un token que contiene un conjunto especial de parámetros de consulta. El token indica cómo puede el cliente tener acceso a los recursos. Uno de los parámetros de consulta, la firma, se construye a partir de parámetros SAS y se firma con la clave que se usó para crear la SAS. Azure Storage utiliza esta firma para autorizar el acceso al recurso de almacenamiento.
+
+> [!NOTE]
+> No es posible auditar la generación de tokens de SAS. Cualquier usuario que tenga privilegios para generar un token de SAS, ya sea mediante la clave de cuenta o a través de una asignación de roles de RBAC de Azure, puede hacerlo sin el conocimiento del propietario de la cuenta de almacenamiento. Tenga cuidado al restringir los permisos que permiten a los usuarios generar tokens de SAS. Para evitar que los usuarios generen una SAS firmada con la clave de cuenta para cargas de trabajo de blobs y colas, puede impedir el acceso con clave compartida a la cuenta de almacenamiento. Para más información, consulte [Evitar autorización con clave compartida](shared-key-authorization-prevent.md).
 
 ### <a name="sas-signature-and-authorization"></a>Firma y autorización de SAS
 

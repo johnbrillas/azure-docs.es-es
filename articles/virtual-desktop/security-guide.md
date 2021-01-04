@@ -3,15 +3,15 @@ title: 'Procedimientos recomendados de seguridad para Windows Virtual Desktop: A
 description: Procedimientos recomendados para proteger su entorno de Windows Virtual Desktop.
 author: heidilohr
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 12/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d3033af32229be238831740c11a1112513259a43
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: a106455ea9d7b7a64fecd7c4255c294d0bd62db8
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95023163"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562623"
 ---
 # <a name="security-best-practices"></a>Recomendaciones de seguridad
 
@@ -98,6 +98,25 @@ Supervise el uso y la disponibilidad del servicio de Windows Virtual Desktop con
 ## <a name="session-host-security-best-practices"></a>Procedimientos recomendados de seguridad del host de sesión
 
 Los hosts de sesión son máquinas virtuales que se ejecutan dentro de una suscripción a Azure y una red virtual. La seguridad general de su implementación de Windows Virtual Desktop depende de los controles de seguridad que se aplican en los hosts de la sesión. En esta sección se describen los procedimientos recomendados para proteger los hosts de la sesión.
+
+### <a name="enable-screen-capture-protection-preview"></a>Habilitar la protección de capturas de pantalla (versión preliminar)
+
+La característica de protección de capturas de pantalla evita que se capture información confidencial en los puntos de conexión de cliente. Al habilitar esta característica, el contenido remoto se bloqueará o se ocultará automáticamente en las capturas de pantalla y los recursos compartidos de pantalla. También se ocultará del software malintencionado que pueda estar capturando continuamente el contenido de la pantalla. Se recomienda deshabilitar la redirección del portapapeles para impedir la copia de contenido remoto en puntos de conexión mientras se usa esta característica.
+
+Esta directiva se aplica en el nivel de host mediante la configuración de una clave del Registro. Para habilitar esta directiva, abra PowerShell y establezca la clave del Registro **fEnableScreenCaptureProtection** mediante la ejecución de este cmdlet:
+
+```powershell
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fEnableScreenCaptureProtection /t REG_DWORD /d 1
+```
+
+Para probar esta nueva característica:
+
+- Asegúrese de que los grupos de hosts estén aprovisionados en el entorno de validación.
+- Asegúrese de que haya descargado e instalado el cliente de escritorio de Windows, versión 1.2.1526 o posterior.
+
+>[!NOTE]
+>Durante la versión preliminar, solo las conexiones de escritorio completo de los puntos de conexión de Windows 10 admiten esta característica.
+
 
 ### <a name="enable-endpoint-protection"></a>Habilitación de Endpoint Protection
 

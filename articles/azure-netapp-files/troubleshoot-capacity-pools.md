@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/06/2020
 ms.author: b-juche
-ms.openlocfilehash: c6194469837997108964feda82d406c9108641b9
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: a07898692c8af70fab0d2634ed1513f0f3666a4d
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369246"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505467"
 ---
 # <a name="troubleshoot-capacity-pool-issues"></a>Solución de problemas de grupos de capacidad
 
@@ -33,7 +33,7 @@ En este artículo se describen las resoluciones a las incidencias que puede tene
 | Incidencias al eliminar un grupo de capacidad.  |  Asegúrese de quitar todos los volúmenes e instantáneas de Azure NetApp Files de la suscripción en la que está intentando eliminar el grupo de capacidad. <br> Si ya ha quitado todos los volúmenes e instantáneas y todavía no puede eliminar el grupo de capacidad, es posible que las referencias a los recursos todavía existan sin que se muestren en el portal. En este caso, escriba una incidencia de soporte técnico y especifique que ha realizado los pasos recomendados anteriores. |
 | La creación o modificación del volumen ha fallado con el error `Requested throughput not available`. | El rendimiento disponible para un volumen lo determina el tamaño del grupo de capacidad y el nivel de servicio. Si no tiene suficiente rendimiento, debería aumentar el tamaño del grupo o ajustar el rendimiento del volumen existente. | 
 
-## <a name="issues-moving-a-capacity-pool"></a>Incidencias al mover un grupo de capacidad 
+## <a name="issues-when-changing-the-capacity-pool-of-a-volume"></a>Problemas al cambiar el grupo de capacidad de un volumen 
 
 > [!IMPORTANT] 
 > El registro de versión preliminar de [Cambio dinámico del nivel de servicio de un volumen](dynamic-change-volume-service-level.md) está en espera hasta nuevo aviso.

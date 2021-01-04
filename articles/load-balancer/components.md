@@ -11,19 +11,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2020
 ms.author: allensu
-ms.openlocfilehash: bf7a35e8cedbe62aafb29aa6d9dc8fcb42e90b2e
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 6ddfe581bb3f2f584fdec0229981321297c9a77f
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94693773"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97399204"
 ---
 # <a name="azure-load-balancer-components"></a>Componentes de Azure Load Balancer
 
 Azure Load Balancer incluye algunos componentes clave. Puede configurar esos componentes en su suscripción mediante:
 
 * Azure portal
-* CLI de Azure
+* Azure CLI
 * Azure PowerShell
 * Plantillas de Resource Manager
 
@@ -44,7 +44,7 @@ La naturaleza de la dirección IP determina el **tipo** de equilibrador de carga
 
 ![Ejemplo de equilibrador de carga con niveles](./media/load-balancer-overview/load-balancer.png)
 
-Load Balancer puede tener varias direcciones IP de front-end. Obtenga más información acerca del uso de [varios front-end](load-balancer-multivip-overview.md).
+Un equilibrador de carga puede tener varias direcciones IP de front-end. Obtenga más información acerca del uso de [varios front-end](load-balancer-multivip-overview.md).
 
 ## <a name="backend-pool"></a>Grupo back-end
 
@@ -58,27 +58,25 @@ A la hora de considerar cómo diseñar el grupo de back-end, diseñe el menor n�
 
 Los sondeos de estado se usan para determinar el estado de mantenimiento de las instancias del grupo de back-end. Durante la creación del equilibrador de carga, configure un sondeo de estado para que lo use el equilibrador de carga.  Este sondeo de estado determinará si una instancia está en buen estado y puede recibir tráfico.
 
-Puede definir el umbral incorrecto de los sondeos de estado. Si un sondeo no responde, Azure Load Balancer deja de enviar nuevas conexiones a las instancias incorrectas. Un error de sondeo no afecta a las conexiones existentes. La conexión continúa hasta que la aplicación:
+Puede definir el umbral incorrecto de los sondeos de estado. Cuando un sondeo no responde, el equilibrador de carga deja de enviar nuevas conexiones a las instancias incorrectas. Un error de sondeo no afecta a las conexiones existentes. La conexión continúa hasta que la aplicación:
 
 - Finaliza el flujo.
 - Se produce el tiempo de espera de inactividad.
 - La máquina virtual se apaga.
 
-Load Balancer proporciona diferentes tipos de sondeo de estado para los puntos de conexión: TCP, HTTP y HTTPS. [Obtenga más información sobre los sondeos de estado de Load Balancer](load-balancer-custom-probe-overview.md).
+Un equilibrador de carga proporciona diferentes tipos de sondeo de estado para los puntos de conexión: TCP, HTTP y HTTPS. [Obtenga más información sobre los sondeos de estado de Load Balancer](load-balancer-custom-probe-overview.md).
 
-La versión Básico de Load Balancer no admite sondeos HTTPS. Además, cierra todas las conexiones TCP (incluidas las conexiones establecidas).
+La instancia de Load Balancer Básico no admite sondeos HTTPS. Además, cierra todas las conexiones TCP (incluidas las conexiones establecidas).
 
 ## <a name="load-balancing-rules"></a>Reglas de equilibrio de carga
 
-Las reglas de Load Balancer se usan para definir cómo se distribuye el tráfico entrante a **todas** las instancias del grupo de back-end. Las reglas de equilibrio de carga asignan una configuración de dirección IP de front-end y un puerto dados a varios puertos y direcciones IP de back-end.
+Las reglas de Load Balancer se usan para definir cómo se distribuye el tráfico entrante a **todas** las instancias del grupo de back-end. Las reglas de equilibrio de carga asignan una configuración de IP de front-end y un puerto determinados a varios puertos y direcciones IP de back-end.
 
-Por ejemplo, use una regla de equilibrio de carga para el puerto 80, a fin de enrutar el tráfico de la dirección IP de front-end al puerto 80 de las instancias de back-end.
+Por ejemplo, use una regla de equilibrio de carga para el puerto 80 para enrutar el tráfico de la dirección IP de front-end al puerto 80 de las instancias de back-end.
 
-<p align="center">
-  <img src="./media/load-balancer-components/lbrules.svg" alt= "Figure depicts how Azure Load Balancer directs frontend port 80 to three instances of backend port 80." width="512" title="Reglas de equilibrio de carga">
-</p>
+:::image type="content" source="./media/load-balancer-components/lbrules.png" alt-text="Diagrama de referencia de regla de equilibrador de carga" border="false":::
 
-*Ilustración: Reglas de equilibrio de carga*
+*Ilustración: reglas de equilibrio de carga*
 
 ## <a name="high-availability-ports"></a>Puertos de alta disponibilidad
 
@@ -108,11 +106,7 @@ Más información sobre los [puertos de alta disponibilidad](load-balancer-ha-po
 
 Una regla NAT de entrada reenvía el tráfico entrante enviado a la combinación de dirección IP y puerto de front-end. El tráfico se envía a una máquina virtual o instancia **específica** en el grupo de back-end. El reenvío de puertos se realiza mediante la misma distribución basada en hash que el equilibrio de carga.
 
-Por ejemplo, so desea que las sesiones de Secure Shell (SSH) o del Protocolo de escritorio remoto (RDP) separan las instancias de máquina virtual en un grupo de back-end. Se pueden asignar varios puntos de conexión internos a puertos de la misma dirección IP de front-end. Las direcciones IP de front-end se pueden usar para administrar de forma remota máquinas virtuales sin un jumpbox adicional.
-
-<p align="center">
-  <img src="./media/load-balancer-components/inboundnatrules.svg" alt="Figure depicts how Azure Load Balancer directs frontend ports 3389, 443, and 80 to backend ports with the same values on separate servers." width="512" title="Reglas NAT de entrada">
-</p>
+:::image type="content" source="./media/load-balancer-components/inboundnatrules.png" alt-text="Diagrama de referencia de regla NAT de entrada" border="false":::
 
 *Ilustración: Reglas NAT de entrada*
 
@@ -124,11 +118,15 @@ Una regla de salida configura una traducción de direcciones de red (NAT) de sal
 
 Obtenga más información sobre las [conexiones y reglas de salida](load-balancer-outbound-connections.md).
 
-Load Balancer Básico no admite reglas de salida.
+Los equilibradores de carga básicos no admiten reglas de salida.
+
+:::image type="content" source="./media/load-balancer-components/outbound-rules.png" alt-text="Diagrama de referencia de regla de salida" border="false":::
+
+*Ilustración: reglas de salida*
 
 ## <a name="limitations"></a>Limitaciones
 
-- Más información sobre los [límites](../azure-resource-manager/management/azure-subscription-service-limits.md) de Load Balancer 
+- Más información sobre los [límites](../azure-resource-manager/management/azure-subscription-service-limits.md) del equilibrador de carga 
 - Load Balancer proporciona equilibrio de carga y reenvío de puertos para protocolos TCP o UDP concretos. Las reglas de equilibrio de carga y las reglas NAT de entrada admiten TCP y UDP, pero no otros protocolos IP, incluido ICMP.
 - No se generará el flujo saliente de una máquina virtual del back-end a un front-end de un equilibrador de carga interno.
 - Una regla de equilibrador de carga no puede abarcar dos redes virtuales.  Los front-end y sus instancias de back-end deben estar ubicados en la misma red virtual.  
@@ -136,14 +134,14 @@ Load Balancer Básico no admite reglas de salida.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Consulte el artículo sobre cómo [crear una instancia de Standard Load Balancer pública](quickstart-load-balancer-standard-public-portal.md) para empezar a usar un equilibrador de carga.
+- Consulte el artículo [Uso de Azure Portal para crear un equilibrador de carga público para equilibrar la carga de máquinas virtuales](quickstart-load-balancer-standard-public-portal.md) para empezar a usar un equilibrador de carga.
 - Más información sobre [Azure Load Balancer](load-balancer-overview.md).
 - Información sobre las [direcciones IP públicas](../virtual-network/virtual-network-public-ip-address.md)
 - Información sobre las [direcciones IP privadas](../virtual-network/private-ip-addresses.md)
-- Más información en [Standard Load Balancer y Availability Zones](load-balancer-standard-availability-zones.md).
-- Más información acerca de los [diagnósticos de Load Balancer Estándar](load-balancer-standard-diagnostics.md).
+- Aprenda a usar [Standard Load Balancer y Availability Zones](load-balancer-standard-availability-zones.md).
+- Más información acerca de los [diagnósticos de Standard Load Balancer](load-balancer-standard-diagnostics.md).
 - Obtenga información sobre el [restablecimiento de TCP en estado inactivo](load-balancer-tcp-reset.md).
-- Más información acerca de [Standard Load Balancer con reglas de equilibrio de carga para puertos HA](load-balancer-ha-ports-overview.md).
+- Más información acerca de las [reglas de equilibrio de carga de Standard Load Balancer con puertos de alta disponibilidad](load-balancer-ha-ports-overview.md).
 - Más información sobre los [grupos de seguridad de red](../virtual-network/network-security-groups-overview.md).
 - Más información sobre los [límites de Load Balancer](../azure-resource-manager/management/azure-subscription-service-limits.md#load-balancer).
 - Información sobre el uso del [reenvío de puertos](./tutorial-load-balancer-port-forwarding-portal.md).

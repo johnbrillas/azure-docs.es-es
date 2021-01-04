@@ -6,27 +6,32 @@ author: brahmnes
 ms.author: bfung
 ms.date: 03/26/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 6d111379cbeb0ea4eeac9ea0868b6d263a0a540c
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 35653840c5ddd6f5ae2d5dc078513f0fa35ab34a
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96435729"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97560940"
 ---
 # <a name="enable-snapshot-debugger-for-net-apps-in-azure-app-service"></a>Habilitación de Snapshot Debugger para aplicaciones de .NET en Azure App Service
 
 Actualmente, Snapshot Debugger puede usarse con aplicaciones ASP.NET y ASP.NET Core que se ejecutan en Azure App Service en planes de servicio de Windows. Se recomienda ejecutar la aplicación en el nivel de servicio básico o superior al usar el depurador de instantáneas. Para la mayoría de las aplicaciones, los niveles de servicio gratis y compartidos no tienen suficiente memoria para guardar las instantáneas.
 
 ## <a name="enable-snapshot-debugger"></a><a id="installation"></a> Habilitación de Snapshot Debugger
-Para habilitar Snapshot Debugger en una aplicación, siga las instrucciones que se indican a continuación. Si está ejecutando otro tipo de servicio de Azure, aquí encontrará instrucciones para habilitar Snapshot Debugger en otras plataformas compatibles:
+Para habilitar Snapshot Debugger en una aplicación, siga las instrucciones que se indican a continuación.
+
+Si está ejecutando otro tipo de servicio de Azure, aquí encontrará instrucciones para habilitar Snapshot Debugger en otras plataformas compatibles:
 * [Azure Cloud Services](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * [Servicios de Azure Service Fabric](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Virtual Machines y Virtual Machine Scale Sets](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * [Máquinas virtuales o físicas locales](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 
-Si usa una versión preliminar de .NET Core, siga las instrucciones para [Habilite Snapshot Debugger para aplicaciones .NET en Azure Service Fabric, servicio en la nube y máquinas virtuales](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) en primer lugar para incluir el paquete NuGet [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) con la aplicación y, luego, complete el resto de las instrucciones siguientes. 
+> [!NOTE]
+> Si usa una versión preliminar de .NET Core o su aplicación hace referencia a un SDK de Application Insights, ya sea directamente o indirectamente a través de un ensamblado dependiente, siga primero las instrucciones que se indican en [Habilitar Snapshot Debugger para otros entornos](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) para incluir el paquete NuGet [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) con la aplicación y, luego, complete el resto de las instrucciones siguientes. 
 
-Snapshot Debugger de Application Insights se preinstaló con el entorno de ejecución de App Services, pero es necesario activarlo si quiere obtener instantáneas para la aplicación de App Service. Después de implementar una aplicación web, aunque haya incluido el SDK de Application Insights en el código fuente, siga los pasos que se indican a continuación para habilitar el depurador de instantáneas.
+Snapshot Debugger se instaló previamente como parte del entorno de ejecución de App Services, pero es necesario activarlo si quiere obtener instantáneas para la aplicación de App Service.
+
+Una vez que haya implementado una aplicación, siga los pasos que se indican a continuación para habilitar Snapshot Debugger:
 
 1. Vaya al panel de control de Azure y busque la instancia de App Service.
 2. Vaya a la página **Configuración > Application Insights**.
@@ -44,11 +49,12 @@ Snapshot Debugger de Application Insights se preinstaló con el entorno de eje
 ## <a name="disable-snapshot-debugger"></a>Deshabilitación de Snapshot Debugger
 
 Siga los mismos pasos que para **Habilitación de Snapshot Debugger**, pero cambie los dos modificadores de Snapshot Debugger al modo **desactivado**.
+
 Recomendamos que tenga habilitado Snapshot Debugger en todas las aplicaciones para facilitar el diagnóstico de las excepciones de la aplicación.
 
 ## <a name="azure-resource-manager-template"></a>Plantilla del Administrador de recursos de Azure
 
-En el caso de una instancia de Azure App Service, puede establecer la configuración de la aplicación en una plantilla de Azure Resource Manager para habilitar Snapshot Debugger y Profiler. Se agrega un recurso de configuración que contiene la configuración de la aplicación como un recurso secundario del sitio web:
+En el caso de una instancia de Azure App Service, puede establecer la configuración de la aplicación en la plantilla de Azure Resource Manager para habilitar Snapshot Debugger y Profiler. Para ello, consulte el fragmento de código de plantilla siguiente:
 
 ```json
 {

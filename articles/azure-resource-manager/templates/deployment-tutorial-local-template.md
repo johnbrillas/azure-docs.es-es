@@ -1,22 +1,22 @@
 ---
 title: 'Tutorial: Implementación de una plantilla de Azure Resource Manager local'
-description: Aprenda a implementar una plantilla de Azure Resource Manager desde la máquina local.
+description: Aprenda a implementar una plantilla de Azure Resource Manager desde el equipo local.
 ms.date: 05/20/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: fe13376ced428713703f2bd5cf33941129dec1d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 640d314711e34119dac5e1c5bf9fa245685b6f38
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91611629"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368143"
 ---
-# <a name="tutorial-deploy-a-local-azure-resource-manager-template"></a>Tutorial: Implementación de una plantilla de Azure Resource Manager local
+# <a name="tutorial-deploy-a-local-arm-template"></a>Tutorial: Implementación de una plantilla de Resource Manager local
 
 Aprenda a implementar una plantilla de Azure Resource Manager desde la máquina local. Se tarda en realizar unos **8 minutos**.
 
-Este tutorial es el primero de una serie. A medida que avanza por la serie, puede modularizar la plantilla mediante la creación de una plantilla vinculada, almacenar la plantilla vinculada en una cuenta de almacenamiento y proteger esta plantilla mediante el token de SAS, y obtener información sobre cómo crear una canalización DevOp para implementar plantillas. Esta serie se centra en la implementación de plantillas.  Si desea conocer el desarrollo de plantillas, consulte los [tutoriales para principiantes](./template-tutorial-create-first-template.md).
+Este tutorial es el primero de una serie. A medida que avanza por la serie, modularizará la plantilla mediante la creación de una plantilla vinculada, almacenará la plantilla vinculada en una cuenta de almacenamiento y protegerá esta plantilla mediante el token de SAS, y aprenderá a crear una canalización de DevOps para implementar plantillas. Esta serie se centra en la implementación de plantillas. Si desea conocer el desarrollo de plantillas, consulte los [tutoriales para principiantes](./template-tutorial-create-first-template.md).
 
 ## <a name="get-tools"></a>Obtención de las herramientas
 
@@ -29,12 +29,13 @@ Necesita Azure PowerShell o la CLI de Azure para implementar la plantilla. Para 
 - [Azure PowerShell](/powershell/azure/install-az-ps)
 - [Instalación de la CLI de Azure en Windows](/cli/azure/install-azure-cli-windows)
 - [Instalación de la CLI de Azure en Linux](/cli/azure/install-azure-cli-linux)
+- [Instalación de la CLI de Azure en macOS](/cli/azure/install-azure-cli-macos)
 
 Después de instalar Azure PowerShell o la CLI de Azure, asegúrese de iniciar sesión por primera vez. Para obtener ayuda, consulte [Inicio de sesión: PowerShell](/powershell/azure/install-az-ps#sign-in) o [ CLI de Azure](/cli/azure/get-started-with-azure-cli#sign-in).
 
 ### <a name="editor-optional"></a>Editor (opcional)
 
-Las plantillas son archivos JSON. Para revisar o editar plantillas, necesita un buen editor de JSON. Se recomienda Visual Studio Code con la extensión Herramientas de Resource Manager. Si necesita instalar estas herramientas, consulte [Inicio rápido: Creación de plantillas de Azure Resource Manager con Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+Las plantillas son archivos JSON. Para revisar o editar plantillas, necesita un buen editor de JSON. Se recomienda Visual Studio Code con la extensión Herramientas de Resource Manager. Si necesita instalar estas herramientas, consulte [Inicio rápido: Creación de plantillas de Resource Manager Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
 ## <a name="review-template"></a>Revisión de la plantilla
 
@@ -43,9 +44,9 @@ La plantilla implementa una cuenta de almacenamiento, un plan de App Service y u
 :::code language="json" source="~/resourcemanager-templates/get-started-deployment/local-template/azuredeploy.json":::
 
 > [!IMPORTANT]
-> Los nombres de cuentas de almacenamiento deben tener entre 3 y 24 caracteres, y usar solo números y letras minúsculas. El nombre debe ser único. En la plantilla, el nombre de la cuenta de almacenamiento es el nombre del proyecto con "store" anexado y el nombre del proyecto debe tener entre 3 y 11 caracteres. Por lo tanto, el nombre del proyecto debe cumplir los requisitos de nombre para la cuenta de almacenamiento y tener menos de 11 caracteres.
+> Los nombres de cuentas de almacenamiento deben tener entre 3 y 24 caracteres, y usar solo números y letras minúsculas. El nombre debe ser único. En la plantilla, el nombre de la cuenta de almacenamiento es el nombre del proyecto con **store** anexado, y el nombre del proyecto debe tener entre 3 y 11 caracteres. Por lo tanto, el nombre del proyecto debe cumplir los requisitos de nombre para la cuenta de almacenamiento y tener menos de 11 caracteres.
 
-Guarde una copia de la plantilla en la máquina local con la extensión .json, por ejemplo, azuredeploy.json. Esta plantilla se implementa más adelante en el tutorial.
+Guarde una copia de la plantilla en la máquina local con la extensión _.json_, por ejemplo, _azuredeploy.json_. Esta plantilla se implementa más adelante en el tutorial.
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
@@ -65,7 +66,7 @@ az login
 
 ---
 
-Si tiene varias suscripciones de Azure, seleccione la suscripción que desee usar:
+Si tiene varias suscripciones de Azure, seleccione la suscripción que desee usar. Reemplace `[SubscriptionID/SubscriptionName]` y los corchetes `[]` por la información de la suscripción:
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/03/2020
+ms.date: 12/11/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 683f0e070ad77add62ed76eabd70b42ba15f012e
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 558f4792a055fc491f15600ecc5502c3a114a94b
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498139"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97360227"
 ---
 # <a name="enforce-a-minimum-required-version-of-transport-layer-security-tls-for-requests-to-a-storage-account"></a>Aplicación de una versión mínima necesaria de Seguridad de la capa de transporte (TLS) para las solicitudes a una cuenta de almacenamiento
 
@@ -86,6 +86,9 @@ StorageBlobLogs
 ## <a name="remediate-security-risks-with-a-minimum-version-of-tls"></a>Corrección de riesgos de seguridad con una versión mínima de TLS
 
 Si está seguro de que el tráfico de los clientes que usan versiones anteriores de TLS es mínimo, o que es aceptable que se produzcan errores en las solicitudes realizadas con una versión anterior de TLS, puede empezar a aplicar una versión de TLS mínima en la cuenta de almacenamiento. Requerir que los clientes usen una versión mínima de TLS para realizar solicitudes en una cuenta de almacenamiento forma parte de una estrategia para minimizar los riesgos de seguridad de los datos.
+
+> [!IMPORTANT]
+> Si usa un servicio que se conecta a Azure Storage, asegúrese de que ese servicio use la versión adecuada de TLS para enviar solicitudes a Azure Storage antes de establecer la versión mínima necesaria para una cuenta de almacenamiento.
 
 ### <a name="configure-the-minimum-tls-version-for-a-storage-account"></a>Configuración de la versión mínima de TLS para una cuenta de almacenamiento
 
@@ -339,6 +342,23 @@ Después de crear la directiva con el efecto de denegación y asignarla a un ám
 En la siguiente imagen se muestra el error que se produce si se intenta crear una cuenta de almacenamiento con una versión mínima de TLS establecida en TLS 1.0 (la versión predeterminada para una nueva cuenta) cuando una directiva con un efecto de denegación requiere que la versión mínima de TLS se establezca en TLS 1.2.
 
 :::image type="content" source="media/transport-layer-security-configure-minimum-version/deny-policy-error.png" alt-text="Captura de pantalla que muestra el error que se produce al crear una cuenta de almacenamiento que infringe la directiva":::
+
+## <a name="permissions-necessary-to-require-a-minimum-version-of-tls"></a>Permisos necesarios para requerir una versión mínima de TLS
+
+Para establecer la propiedad **MinimumTlsVersion** para la cuenta de almacenamiento, el usuario debe tener permisos para crear y administrar cuentas de almacenamiento. Los roles de control de acceso basado en rol de Azure (RBAC de Azure) que proporcionan estos permisos incluyen la acción **Microsoft.Storage/storageAccounts/write** o **Microsoft.Storage/storageAccounts/\** _. Los roles integrados con esta acción incluyen:
+
+- El rol [Propietario](../../role-based-access-control/built-in-roles.md#owner) de Azure Resource Manager
+- El rol [Colaborador](../../role-based-access-control/built-in-roles.md#contributor) de Azure Resource Manager
+- El rol [Colaborador de la cuenta de almacenamiento](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
+
+Estos roles no proporcionan acceso a los datos de una cuenta de almacenamiento a través de Azure Active Directory (Azure AD). Sin embargo, incluyen _*Microsoft.Storage/storageAccounts/listkeys/action**, que concede acceso a las claves de acceso de la cuenta. Con este permiso, un usuario puede usar las claves de acceso de la cuenta para acceder a todos los datos de una cuenta de almacenamiento.
+
+Las asignaciones de roles deben tener el ámbito del nivel de la cuenta de almacenamiento o superior para permitir que un usuario requiera una versión mínima de TLS para la cuenta de almacenamiento. Para obtener más información sobre el ámbito de los roles, vea [Comprensión del ámbito para RBAC de Azure](../../role-based-access-control/scope-overview.md).
+
+Tenga cuidado de restringir la asignación de estos roles solo a aquellos usuarios que requieran la capacidad de crear una cuenta de almacenamiento o actualizar sus propiedades. Use el principio de privilegios mínimos para asegurarse de que los usuarios tienen los permisos mínimos que necesitan para realizar sus tareas. Para más información sobre la administración del acceso con RBAC de Azure, consulte [Procedimientos recomendados para RBAC de Azure](../../role-based-access-control/best-practices.md).
+
+> [!NOTE]
+> Los roles clásicos de administrador de suscripciones Administrador del servicio y Coadministrador equivalen al rol [Propietario](../../role-based-access-control/built-in-roles.md#owner) de Azure Resource Manager. El rol **Propietario** incluye todas las acciones, por lo que un usuario con uno de estos roles administrativos también puede crear y administrar cuentas de almacenamiento. Para más información, consulte [Roles de administrador de suscripciones clásico, de Azure y de administrador de Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
 
 ## <a name="network-considerations"></a>Consideraciones sobre la red
 

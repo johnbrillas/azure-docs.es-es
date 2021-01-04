@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/21/2018
-ms.openlocfilehash: 7df04bd75f3fd11b1caa702655cbd204fc2b4fda
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: c304354f378708c43c25ef8b92b7b80b37ac03af
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96854889"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563116"
 ---
 # <a name="azure-networking-monitoring-solutions-in-azure-monitor"></a>Soluciones de supervisión de redes de Azure en Azure Monitor
 
@@ -107,19 +107,33 @@ La pestaña "Ver métricas detalladas" abre el libro rellenado previamente que r
 ## <a name="migrating-from-azure-gateway-analytics-solution-to-azure-monitor-workbooks"></a>Migración de la solución Azure Gateway Analytics a libros de Azure Monitor
 
 > [!NOTE]
-> La solución Azure Application Gateway Analytics está obsoleta y la manera recomendada de consumir análisis es mediante los libros expuestos por medio de Azure Monitor Network Insights para el recurso de Application Gateway.
+> Los libros de Azure Monitor Network Insights son la solución recomendada para acceder a los análisis de métricas y registros de los recursos de Application Gateway.
 
-* Si la configuración de diagnósticos ya está habilitada para almacenar registros en un área de trabajo de Log Analytics, el libro de Azure Monitor Network Insights puede consumir datos de la misma ubicación. No es necesario realizar ninguna configuración nueva.
+1. Asegúrese de que la [configuración de diagnóstico esté habilitada](#enable-azure-application-gateway-diagnostics-in-the-portal) para almacenar los registros en un área de trabajo de Log Analytics. Si ya está configurado, los libros de Azure Monitor Network Insights podrán usar datos desde la misma ubicación y no se requieren cambios adicionales.
 
-* Todos los datos anteriores están disponibles en el libro desde el momento en que se ha habilitado la configuración de diagnóstico. No es necesario realizar ninguna transferencia de datos.
+> [!NOTE]
+> Todos los datos anteriores están disponibles en el libro desde el momento en que se ha habilitado originalmente la configuración de diagnóstico. No es necesario realizar ninguna transferencia de datos.
 
-* No se necesita ningún botón de alternancia activo para ir a los libros. Tanto la solución de análisis como el libro de Network Insights pueden funcionar en paralelo.
+2. Acceda al [libro de información predeterminada](#accessing-azure-application-gateway-analytics-via-azure-monitor-network-insights) del recurso de Application Gateway. Toda la información existente compatible con la solución de análisis de Application Gateway ya estará presente en el libro. Puede ampliarla mediante la incorporación de [visualizaciones](../platform/workbooks-overview.md#visualizations) personalizadas basadas en datos de métricas y registros.
 
-* No hay costos adicionales asociados a los libros de Azure Monitor. El área de trabajo de Log Analytics se sigue facturando por el uso.
-
-* Para quitar la solución Azure Gateway Analytics del área de trabajo, puede eliminarla de la página de recursos de la solución.
+3. Después de ver toda la información sobre las métricas y registros, para quitar la solución de análisis de Azure Gateway del área de trabajo, puede eliminarla de la página de recursos de la solución.
 
 [ ![Captura de pantalla de la opción Eliminar de la solución Azure Application Gateway Analytics.](media/azure-networking-analytics/azure-appgw-analytics-delete.png)](media/azure-networking-analytics/application-gateway-analytics-delete.png#lightbox)
+
+### <a name="new-capabilities-with-azure-monitor-network-insights-workbook"></a>Nuevas funcionalidades con los libros de Azure Monitor Network Insights
+
+> [!NOTE]
+> No hay costos adicionales asociados a los libros de Azure Monitor Network Insights. El área de trabajo de Log Analytics se sigue facturando por el uso.
+
+Los libros de Network Insights le permiten aprovechar las funcionalidades más recientes de Azure Monitor y Log Analytics, lo que incluye:
+
+* Consola centralizada para la supervisión y solución de problemas con datos de [métricas](../insights/network-insights-overview.md#resource-health-and-metrics) y registros.
+
+* Lienzo flexible que admite la creación de [visualizaciones](../platform/workbooks-overview.md#visualizations) enriquecidas personalizadas.
+
+* La capacidad de usar y [compartir plantillas de libro](../platform/workbooks-overview.md#workbooks-versus-workbook-templates) con una comunidad más amplia.
+
+Para más información acerca de las funcionalidades de la nueva solución de libros, consulte [Libros de Azure Monitor](../platform/workbooks-overview.md)
 
 ## <a name="azure-network-security-group-analytics-solution-in-azure-monitor"></a>Solución Azure Network Security Group Analytics de Azure Monitor
 

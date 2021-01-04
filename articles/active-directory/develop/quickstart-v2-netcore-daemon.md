@@ -13,12 +13,12 @@ ms.date: 10/05/2020
 ms.author: jmprieur
 ms.reviewer: marsma
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: d732d2fd8b97ca61222accc21c9930ed8c5c5d3a
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 7c0efbae3576a5b57433fe70885fd97aae5e87e3
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95993897"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107947"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-using-console-apps-identity"></a>Inicio rápido: Adquisición de un token y llamada a Microsoft Graph API mediante la identidad de la consola de aplicación
 
@@ -49,17 +49,17 @@ Este inicio rápido requiere [.NET Core 3.1](https://www.microsoft.com/net/down
 > #### <a name="step-1-register-your-application"></a>Paso 1: Registrar su aplicación
 > Para registrar la aplicación y agregar la información de registro de la aplicación a la solución de forma manual, siga estos pasos:
 >
-> 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta personal, profesional o educativa de Microsoft.
-> 1. Si la cuenta proporciona acceso a más de un inquilino, haga clic en la cuenta en la esquina superior derecha y establezca la sesión del portal en el inquilino de Azure AD deseado.
-> 1. Vaya a la página [Registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908) de la plataforma de identidad de Microsoft para desarrolladores. Para ello, escriba **Registros de aplicaciones** en la barra de búsqueda de Azure Portal.
-> 1. Seleccione **Nuevo registro**.
-> 1. Cuando aparezca la página **Registrar una aplicación**, escriba la información de registro de la aplicación.
-> 1. En la sección **Nombre**, escriba un nombre de aplicación significativo que se mostrará a los usuarios de la aplicación, por ejemplo, `Daemon-console`; luego, seleccione **Registrarse** para crear la aplicación.
-> 1. Una vez registrado, seleccione el menú **Certificates & secrets** (Certificados y secretos).
-> 1. En **Secretos de cliente**, seleccione **+Nuevo secreto de cliente**. Asígnele un nombre y seleccione **Agregar**. Copie el secreto en una ubicación segura. Tendrá que usarlo en el código y no se volverá a mostrar en el portal.
-> 1. Ahora, seleccione el menú **Permisos de API**, haga clic en el botón **+ Agregar un permiso** y seleccione **Microsoft Graph**.
+> 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+> 1. Si tiene acceso a varios inquilinos, use el filtro **Directorio + suscripción** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: del menú superior para seleccionar el inquilino en el que desea registrar una aplicación.
+> 1. Busque y seleccione **Azure Active Directory**.
+> 1. En **Administrar**, seleccione **Registros de aplicaciones** >  y, luego, **Nuevo registro**.
+> 1. Escriba el **Nombre** de la aplicación, por ejemplo `Daemon-console`. Los usuarios de la aplicación pueden ver este nombre, el cual se puede cambiar más tarde.
+> 1. Seleccione **Registrar** para crear la aplicación.
+> 1. En **Administrar**, seleccione **Certificados y secretos**.
+> 1. En **Secretos de cliente**, seleccione **Nuevo secreto de cliente**, escriba un nombre y seleccione **Agregar**. Grabe el valor del secreto en una ubicación segura para usarlo en un paso posterior.
+> 1. En **Administrar**, seleccione **Permisos de API** > **Add a permission** (Agregar un permiso). Seleccione **Microsoft Graph**.
 > 1. Seleccione **Permisos de aplicación**.
-> 1. En el nodo **Usuario**, seleccione **User.Read.All** y, luego, **Agregar permisos**
+> 1. En el nodo **Usuario**, seleccione **User.Read.All** y, luego, **Agregar permisos**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > ### <a name="download-and-configure-your-quickstart-app"></a>Descarga y configuración de la aplicación de inicio rápido
@@ -121,7 +121,7 @@ Si intenta ejecutar la aplicación en este momento, recibirá un error *HTTP 403
 ##### <a name="global-tenant-administrator"></a>Administrador de inquilinos global
 
 > [!div renderon="docs"]
-> Si es un administrador de inquilinos global, en Azure Portal, vaya a **Aplicaciones empresariales**, haga clic en el registro de la aplicación y seleccione **Permisos** en la sección de seguridad del panel de navegación izquierdo. Haga clic en el botón grande denominado **Conceder consentimiento de administrador para {Tenant Name}** , donde {Tenant Name} se corresponde con el nombre de su directorio.
+> Si es un administrador de inquilinos global, en Azure Portal, vaya a **Aplicaciones empresariales**, seleccione el registro de la aplicación y seleccione **"Permissions"** en la sección de Seguridad del panel de navegación izquierdo. Seleccione el botón grande denominado **Conceder consentimiento de administrador para {Tenant Name}** , donde {Tenant Name} es el nombre de su directorio.
 
 > [!div renderon="portal" class="sxs-lookup"]
 > Si es administrador global, vaya a la página **Permisos de API**, seleccione **Grant admin consent for Enter_the_Tenant_Name_Here** (Conceder consentimiento del administrador para _escribir_aquí_el_nombre_del_inquilino).

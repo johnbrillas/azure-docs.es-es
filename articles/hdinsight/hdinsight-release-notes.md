@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/12/2020
-ms.openlocfilehash: 00b5d220cdbc511a309d55cfca2049508049fa30
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 0895e84363d40bdbf30408f2b2a0d95f951eb303
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96549011"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032565"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Notas de la versión de Azure HDInsight
 
@@ -64,3 +64,18 @@ HDInsight continúa realizando mejoras en la confiabilidad y el rendimiento del 
 
 ## <a name="component-version-change"></a>Cambio de versión de componentes
 No hay cambio de versión de componentes para esta versión. En [este documento](./hdinsight-component-versioning.md) puede encontrar las versiones actuales de los componentes para HDInsight 4.0 y HDInsight 3.6.
+
+## <a name="known-issues"></a>Problemas conocidos
+### <a name="prevent-hdinsight-cluster-vms-from-rebooting-periodically"></a>Impedir que las máquinas virtuales del clúster de HDInsight se reinicien periódicamente
+
+A partir de mediados de noviembre de 2020, es posible que haya observado que las máquinas virtuales del clúster de HDInsight se reinician periódicamente. Esto puede deberse a las siguientes razones:
+
+1.  Clamav está habilitado en el clúster. El nuevo paquete azsec-clamav consume una gran cantidad de memoria que desencadena el reinicio del nodo. 
+2.  Hay un trabajo cron programado diariamente que supervisa los cambios en la lista de entidades de certificación que usan los servicios de Azure. Cuando hay disponible un nuevo certificado de la entidad de certificación, el script agrega el certificado al almacén de confianza de JDK y programa un reinicio.
+
+HDInsight está implementando correcciones y aplicando revisiones para todos los clústeres en ejecución para solucionar ambos problemas. Para aplicar la corrección inmediatamente y evitar el reinicio inesperado de las máquinas virtuales, puede ejecutar las acciones de script siguientes en todos los nodos del clúster como una acción de script persistente. HDInsight publicará otro aviso después de completar la corrección y aplicar la revisión.
+```
+https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/replace_cacert_script.sh
+https://healingscriptssa.blob.core.windows.net/healingscripts/ChangeOOMPolicyAndApplyLatestConfigForClamav.sh
+```
+

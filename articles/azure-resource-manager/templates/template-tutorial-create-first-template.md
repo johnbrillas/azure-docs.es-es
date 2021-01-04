@@ -1,17 +1,17 @@
 ---
 title: 'Tutorial: Creación e implementación de una plantilla'
-description: Creación de la primera plantilla de Azure Resource Manager En este tutorial, aprenderá sobre la sintaxis del archivo de plantilla y cómo implementar una cuenta de almacenamiento.
+description: Cree la primera plantilla de Azure Resource Manager (plantilla de ARM). En este tutorial, aprenderá sobre la sintaxis del archivo de plantilla y cómo implementar una cuenta de almacenamiento.
 author: mumian
 ms.date: 09/28/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 25ddcc2c3a890b407b2116f64ebab577e30c9457
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 191eacbc9cc66ccfb9b378cb5e8a90b4e0fb20e6
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613193"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107030"
 ---
 # <a name="tutorial-create-and-deploy-your-first-arm-template"></a>Tutorial: Creación e implementación de su primera plantilla de Resource Manager
 
@@ -19,7 +19,7 @@ Este tutorial es una introducción a las plantillas de Azure Resource Manager (p
 
 Este tutorial es el primero de una serie. A medida que avance por la serie, modificará la plantilla inicial paso a paso hasta que haya explorado todas las partes principales de una plantilla de Resource Manager. Estos elementos son los bloques de creación de plantillas mucho más complejas. Esperamos que el final de la serie tenga seguridad para crear sus propias plantillas y esté listo para automatizar las implementaciones con plantillas.
 
-Si desea obtener información sobre las ventajas de usar plantillas y por qué debería automatizar la implementación con plantillas, consulte [Plantillas de Azure Resource Manager](overview.md).
+Si desea obtener información sobre las ventajas de usar plantillas y por qué debería automatizar la implementación con plantillas, consulte el artículo sobre [información general de plantillas de ARM](overview.md).
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
@@ -29,7 +29,7 @@ Comience por asegurarse de que tiene las herramientas que necesita para crear e 
 
 ### <a name="editor"></a>Editor
 
-Las plantillas son archivos JSON. Para crear plantillas, necesita un buen editor de JSON. Se recomienda Visual Studio Code con la extensión Herramientas de Resource Manager. Si necesita instalar estas herramientas, consulte [Inicio rápido: Creación de plantillas de Azure Resource Manager con Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+Las plantillas son archivos JSON. Para crear plantillas, necesita un buen editor de JSON. Se recomienda Visual Studio Code con la extensión Herramientas de Resource Manager. Si necesita instalar estas herramientas, consulte [Inicio rápido: Creación de plantillas de Resource Manager Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
 ### <a name="command-line-deployment"></a>Implementación desde la línea de comandos
 
@@ -52,7 +52,7 @@ Bien, está listo para empezar a obtener información sobre las plantillas.
 1. Abra Visual Studio Code con la extensión Herramientas de Resource Manager instalada.
 1. En el menú **Archivo**, seleccione **Nuevo archivo** para crear un archivo nuevo.
 1. En el menú **Archivo**, seleccione **Guardar como**.
-1. Asigne al archivo el nombre **azuredeploy** y seleccione la extensión de archivo **JSON**. El nombre completo del archivo es **azuredeploy.json**.
+1. Asigne al archivo el nombre _azuredeploy_ y seleccione la extensión de archivo _json_. El nombre completo del archivo es _azuredeploy.json_.
 1. Guarde el archivo en la estación de trabajo. Seleccione una ruta de acceso que sea fácil de recordar porque tendrá que proporcionar esa ruta de acceso más adelante al implementar la plantilla.
 1. Copie y pegue el siguiente código JSON en el archivo:
 
@@ -64,17 +64,17 @@ Bien, está listo para empezar a obtener información sobre las plantillas.
     }
     ```
 
-    Este es el aspecto del entorno de VS Code:
+    Este es el aspecto que presenta el entorno de Visual Studio Code:
 
-    ![Primera plantilla de Resource Manager con Visual Studio Code](./media/template-tutorial-create-first-template/resource-manager-visual-studio-code-first-template.png)
+    ![Primera plantilla de Visual Studio Code de la plantilla de ARM](./media/template-tutorial-create-first-template/resource-manager-visual-studio-code-first-template.png)
 
     Esta plantilla no implementa ningún recurso. Vamos a empezar con una plantilla en blanco para que pueda familiarizarse con los pasos necesarios para implementar una plantilla y minimizar la posibilidad de que algo vaya mal.
 
     El archivo JSON tiene estos elementos:
 
-    - **$schema**: Especifica la ubicación del archivo de esquema JSON. El archivo de esquema describe las propiedades que están disponibles dentro de una plantilla. Por ejemplo, el esquema define **resources** (recursos) como una de las propiedades válidas para una plantilla. No se preocupe de que la fecha del esquema sea 2019-04-01. Esta versión del esquema está actualizada e incluye todas las características más recientes. La fecha del esquema no ha cambiado porque no se han producido cambios importantes desde su introducción.
-    - **contentVersion**: Especifica la versión de la plantilla (por ejemplo, 1.0.0.0). Puede especificar cualquier valor para este elemento. Use este valor para documentar los cambios importantes de la plantilla. Al implementar los recursos con la plantilla, este valor se puede usar para asegurarse de que se está usando la plantilla correcta.
-    - **resources**: Contiene los recursos que desea implementar o actualizar. Actualmente está vacía, pero agregará recursos más adelante.
+    - `$schema`: Especifica la ubicación del archivo de esquema JSON. El archivo de esquema describe las propiedades que están disponibles dentro de una plantilla. Por ejemplo, el esquema define `resources` (recursos) como una de las propiedades válidas para una plantilla. No se preocupe de que la fecha del esquema sea 2019-04-01. Esta versión del esquema está actualizada e incluye todas las características más recientes. La fecha del esquema no ha cambiado porque no se han producido cambios importantes desde su introducción.
+    - `contentVersion`: Especifica la versión de la plantilla (por ejemplo, 1.0.0.0). Puede especificar cualquier valor para este elemento. Use este valor para documentar los cambios importantes de la plantilla. Al implementar los recursos con la plantilla, este valor se puede usar para asegurarse de que se está usando la plantilla correcta.
+    - `resources`: Contiene los recursos que desea implementar o actualizar. Actualmente está vacía, pero agregará recursos más adelante.
 
 1. Guarde el archivo.
 
@@ -83,6 +83,8 @@ Enhorabuena, ha creado su primera plantilla.
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
 Para empezar a trabajar con Azure PowerShell o la CLI de Azure, inicie sesión con sus credenciales de Azure.
+
+Seleccione las pestañas en las siguientes secciones de código para elegir entre Azure PowerShell y la CLI de Azure. Los ejemplos de la CLI de este artículo están escritos para el shell de Bash.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -98,7 +100,7 @@ az login
 
 ---
 
-Si tiene varias suscripciones de Azure, seleccione la suscripción que desee usar:
+Si tiene varias suscripciones de Azure, seleccione la suscripción que desee usar. Reemplace `[SubscriptionID/SubscriptionName]` y los corchetes `[]` por la información de la suscripción:
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -114,10 +116,9 @@ az account set --subscription [SubscriptionID/SubscriptionName]
 
 ---
 
-
 ## <a name="create-resource-group"></a>Creación de un grupo de recursos
 
-Al implementar una plantilla, se especifica un grupo de recursos que contendrá los recursos. Antes de ejecutar el comando de implementación, cree el grupo de recursos con la CLI de Azure o Azure PowerShell. Seleccione las pestañas en la siguiente sección de código para elegir entre Azure PowerShell y la CLI de Azure. Los ejemplos de la CLI de este artículo están escritos para el shell de Bash.
+Al implementar una plantilla, se especifica un grupo de recursos que contendrá los recursos. Antes de ejecutar el comando de implementación, cree el grupo de recursos con la CLI de Azure o Azure PowerShell.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -139,7 +140,7 @@ az group create \
 
 ## <a name="deploy-template"></a>Implementar plantilla
 
-Use la CLI de Azure o Azure PowerShell para implementar la plantilla. Use el grupo de recursos que creó. Asigne un nombre a la implementación para que pueda identificarla fácilmente en el historial de implementaciones. Para mayor comodidad, cree también una variable que almacene la ruta de acceso al archivo de plantilla. Esta variable facilita la ejecución de los comandos de implementación, ya que no es necesario volver a escribir la ruta de acceso cada vez que se implementa.
+Use la CLI de Azure o Azure PowerShell para implementar la plantilla. Use el grupo de recursos que creó. Asigne un nombre a la implementación para que pueda identificarla fácilmente en el historial de implementaciones. Para mayor comodidad, cree también una variable que almacene la ruta de acceso al archivo de plantilla. Esta variable facilita la ejecución de los comandos de implementación, ya que no es necesario volver a escribir la ruta de acceso cada vez que se implementa. Reemplace `{provide-the-path-to-the-template-file}` y las llaves `{}` por la ruta de acceso al archivo de plantilla.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -178,7 +179,7 @@ El comando de implementación devuelve los resultados. Busque `ProvisioningState
 ---
 
 > [!NOTE]
-> Si se produjo un error en la implementación, use el modificador **verbose** para obtener información acerca de los recursos que se están creando. Utilice el modificador **debug** para más información sobre la depuración.
+> Si se produjo un error en la implementación, use el modificador `verbose` para obtener información acerca de los recursos que se están creando. Utilice el modificador `debug` para más información sobre la depuración.
 
 ## <a name="verify-deployment"></a>Comprobación de la implementación
 

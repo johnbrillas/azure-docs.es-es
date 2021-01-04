@@ -9,13 +9,13 @@ ms.author: peterlu
 author: peterclu
 ms.date: 05/05/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
-ms.openlocfilehash: a7fdb370847e72657829d53df019203b0a5b211b
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.custom: how-to, devx-track-python, contperf-fy21q2
+ms.openlocfilehash: 7144d576694b6694f426533451717cef58c2da87
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302567"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562453"
 ---
 # <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Aprendizaje de refuerzo (versión preliminar) con Azure Machine Learning
 
@@ -24,7 +24,7 @@ ms.locfileid: "96302567"
 > [!NOTE]
 > El aprendizaje de refuerzo de Azure Machine Learning es actualmente una característica que está en versión preliminar. En este momento, solo se admiten los marcos Ray y RLlib.
 
-En este artículo, aprenderá a entrenar un agente de aprendizaje de refuerzo (RL) para jugar a Pong. Usará la biblioteca de Python de código abierto [Ray RLlib](https://ray.readthedocs.io/en/master/rllib.html) con Azure Machine Learning para administrar la complejidad de los trabajos de RL distribuidos.
+En este artículo, aprenderá a entrenar un agente de aprendizaje de refuerzo (RL) para jugar a Pong. Usará la biblioteca de Python de código abierto [Ray RLlib](https://ray.readthedocs.io/en/master/rllib.html) con Azure Machine Learning para administrar la complejidad de los aprendizajes de refuerzo distribuidos.
 
 En este artículo, aprenderá a:
 > [!div class="checklist"]
@@ -38,7 +38,7 @@ Este artículo se basa en el [ejemplo RLlib Pong](https://aka.ms/azureml-rl-pong
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Ejecute este código en cualquiera de los siguientes entornos. Le recomendamos que pruebe la instancia de proceso de Azure Machine Learning para obtener un inicio más rápido. Los cuadernos de ejemplo de refuerzo están disponibles para clonar y ejecutar contenido rápidamente en la instancia de proceso de Azure Machine Learning.
+Ejecute este código en cualquiera de estos entornos. Le recomendamos que pruebe la instancia de proceso de Azure Machine Learning para obtener la experiencia de inicio más rápida. Puede clonar y ejecutar los cuadernos de ejemplo de refuerzo en una instancia de proceso de Azure Machine Learning.
 
  - Instancia de proceso de Azure Machine Learning
 
@@ -61,19 +61,21 @@ El aprendizaje de refuerzo (RL) es un enfoque para el aprendizaje automático qu
 
 Los agentes de aprendizaje aprenden a jugar a Pong en un **entorno simulado**. Así pues, los agentes de aprendizaje tomarán una decisión en cada fotograma del juego para subir, bajar o mantener fija la pala. Esto es, examinan el estado del juego (una imagen RGB de la pantalla) para tomar una decisión.
 
-RL usa **recompensas** para indicar al agente si sus decisiones se han realizado correctamente. En este entorno, el agente obtiene un premio positivo cuando consigue un punto y una recompensa negativa cuando puntúa el jugador contrario. A través de muchas iteraciones, el agente de aprendizaje aprende a elegir la acción, en función de su estado actual, que optimiza la suma de los premios futuros esperados.
-
-Es habitual usar un modelo de **red neuronal profunda** (DNN) para realizar esta optimización en RL. Inicialmente, el agente de aprendizaje funcionará de forma deficiente, pero en cada juego generará más ejemplos para mejorar aún más el modelo.
+RL usa **recompensas** para indicar al agente si sus decisiones se han realizado correctamente. En este ejemplo, el agente obtiene un premio positivo cuando consigue un punto y una recompensa negativa cuando puntúa el jugador contrario. A través de muchas iteraciones, el agente de aprendizaje aprende a elegir la acción, en función de su estado actual, que optimiza la suma de los premios futuros esperados. Es habitual usar un modelo de **redes neuronales profundas** (DNN) para realizar esta optimización en el aprendizaje de refuerzo. 
 
 El entrenamiento finaliza cuando el agente alcanza una puntuación media de 18 en un período de entrenamiento. Esto significa que el agente ganará a su oponente en un promedio de, al menos, 18 puntos en juegos de hasta 21 puntos.
 
-El proceso de iteración a través de la simulación y tener que volver a entrenar a un DNN es costoso a nivel computacional y requiere grandes cantidades de datos. Una manera de mejorar el rendimiento de los trabajos de RL es mediante el **trabajo en paralelo** para que varios agentes de aprendizaje puedan actuar y aprender simultáneamente. Sin embargo, la administración de un entorno RL distribuido puede ser una tarea compleja.
+El proceso de iteración a través de la simulación y tener que volver a entrenar a un DNN es costoso desde el punto de vista del cálculo y requiere muchos datos. Una manera de mejorar el rendimiento de los trabajos de RL es mediante el **trabajo en paralelo** para que varios agentes de aprendizaje puedan actuar y aprender simultáneamente. Sin embargo, la administración de un entorno RL distribuido puede ser una tarea compleja.
 
 Azure Machine Learning proporciona el marco necesario para administrar estas complejidades y así poder escalar horizontalmente las cargas de trabajo de RL.
 
 ## <a name="set-up-the-environment"></a>Configuración del entorno
 
-Configure el entorno RL local cargando los paquetes de Python necesarios, inicializando el área de trabajo, creando un experimento y especificando una red virtual configurada.
+Configure el entorno del aprendizaje de refuerzo local mediante:
+1. Carga de los paquetes de Python necesarios
+1. Inicialización del área de trabajo
+1. Creación de un experimento
+1. Especificación de una red virtual configurada
 
 ### <a name="import-libraries"></a>Importación de bibliotecas
 
@@ -97,9 +99,7 @@ from azureml.contrib.train.rl import WorkerConfiguration
 
 ### <a name="initialize-a-workspace"></a>Inicialización de un área de trabajo
 
-El [área de trabajo de Azure Machine Learning](concept-workspace.md) es el recurso de nivel superior de Azure Machine Learning. Proporciona un lugar centralizado para trabajar con todos los artefactos que cree.
-
-Inicie un objeto de área de trabajo a partir del archivo `config.json` que se creó en la [sección de requisitos previos](#prerequisites). Si está ejecutando este código en una instancia de proceso de Azure Machine Learning, el archivo de configuración ya se habrá creado.
+Inicialice un objeto de [área de trabajo](concept-workspace.md) a partir del archivo `config.json` que se creó en la [sección de requisitos previos](#prerequisites). Si está ejecutando este código en una instancia de proceso de Azure Machine Learning, el archivo de configuración ya se habrá creado.
 
 ```Python
 ws = Workspace.from_config()
@@ -117,7 +117,9 @@ exp = Experiment(workspace=ws, name=experiment_name)
 
 ### <a name="specify-a-virtual-network"></a>Especificación de una red virtual
 
-En el caso de los trabajos de RL que usan varios destinos de proceso, debe especificar una red virtual con puertos abiertos que permitan que los nodos de trabajo y los nodos principales se comuniquen entre sí. La red virtual puede estar en cualquier grupo de recursos, pero debe estar en la misma región que el área de trabajo. Para obtener más información sobre la configuración de la red virtual, consulte el cuaderno de configuración del área de trabajo que se encuentra en la sección de requisitos previos. Deberá especificar el nombre de la red virtual en el grupo de recursos.
+En el caso de los trabajos de RL que usan varios destinos de proceso, debe especificar una red virtual con puertos abiertos que permitan que los nodos de trabajo y los nodos principales se comuniquen entre sí.
+
+La red virtual puede estar en cualquier grupo de recursos, pero debe estar en la misma región que el área de trabajo. Para más información sobre la configuración de la red virtual, consulte el cuaderno de configuración del área de trabajo de la sección de requisitos previos. Deberá especificar el nombre de la red virtual en el grupo de recursos.
 
 ```python
 vnet = 'your_vnet'
@@ -125,13 +127,13 @@ vnet = 'your_vnet'
 
 ## <a name="define-head-and-worker-compute-targets"></a>Definición de los destinos de proceso principal y de trabajo
 
-En este ejemplo se usan destinos de proceso independientes para los nodos de trabajo y principales de Ray. Esta configuración le permite escalar y reducir verticalmente los recursos de proceso en función de la carga de trabajo esperada. Establezca el número de nodos y el tamaño de cada uno de ellos, en función de las necesidades del experimento.
+En este ejemplo se usan destinos de proceso independientes para los nodos de trabajo y principales de Ray. Esta configuración le permite escalar y reducir verticalmente los recursos de proceso en función de la carga de trabajo. Establezca el número de nodos y el tamaño de cada uno de ellos, en función de sus necesidades.
 
 ### <a name="head-computing-target"></a>Destino del procesamiento principal
 
-En este ejemplo se usa un clúster principal equipado con GPU para optimizar el rendimiento del aprendizaje profundo. El nodo principal entrena la red neuronal que el agente usa para tomar decisiones. Asimismo, el nodo principal también recopila puntos de datos de los nodos de trabajo para entrenar aún más la red neuronal.
+Puede usar un clúster principal equipado con GPU para optimizar el rendimiento del aprendizaje profundo. El nodo principal entrena la red neuronal que el agente usa para tomar decisiones. Asimismo, el nodo principal también recopila puntos de datos de los nodos de trabajo para entrenar la red neuronal.
 
-El proceso principal utiliza una única máquina virtual [`STANDARD_NC6` ](../virtual-machines/nc-series.md) (VM). Esta tiene 6 CPU virtuales, lo que significa que puede distribuir el trabajo entre 6 CPU de trabajo.
+El proceso principal utiliza una única máquina virtual [`STANDARD_NC6` ](../virtual-machines/nc-series.md) (VM). Tiene 6 CPU virtuales entre las que distribuir el trabajo.
 
 
 ```python
@@ -173,7 +175,7 @@ else:
 
 ### <a name="worker-computing-cluster"></a>Clúster de procesamiento de trabajo
 
-En este ejemplo se usan cuatro VM [`STANDARD_D2_V2` ](../virtual-machines/nc-series.md) para el destino de proceso de trabajo. Cada nodo de trabajo tiene 2 CPU disponibles para un total de 8 CPU disponibles y así poder paralelizar el trabajo.
+En este ejemplo se usan cuatro VM [`STANDARD_D2_V2` ](../virtual-machines/nc-series.md) para el destino de proceso de trabajo. Cada nodo de trabajo tiene 2 CPU disponibles para un total de 8 CPU.
 
 Las GPU no son necesarias para los nodos de trabajo, ya que no están realizando aprendizaje profundo. Los trabajos se encargan de ejecutar las simulaciones del juego y recopilar datos.
 
@@ -212,10 +214,9 @@ else:
 ```
 
 ## <a name="create-a-reinforcement-learning-estimator"></a>Creación de un experimento de aprendizaje de refuerzo
+Use la clase [ReinforcementLearningEstimator](/python/api/azureml-contrib-reinforcementlearning/azureml.contrib.train.rl.reinforcementlearningestimator?preserve-view=true&view=azure-ml-py) para enviar un trabajo de entrenamiento a Azure Machine Learning.
 
-En esta sección, aprenderá a usar la clase [ReinforcementLearningEstimator](/python/api/azureml-contrib-reinforcementlearning/azureml.contrib.train.rl.reinforcementlearningestimator?preserve-view=true&view=azure-ml-py) para enviar un trabajo de aprendizaje a Azure Machine Learning.
-
-Azure Machine Learning usa las clases de estimador para encapsular la información de la configuración de ejecución. Esto le permite especificar fácilmente cómo configurar una ejecución de script. 
+Azure Machine Learning usa las clases de estimador para encapsular la información de la configuración de ejecución. Esto le permite especificar cómo configurar una ejecución de script. 
 
 ### <a name="define-a-worker-configuration"></a>Definición de una configuración de trabajo
 
@@ -246,9 +247,11 @@ worker_conf = WorkerConfiguration(
 
 El script de entrada `pong_rllib.py` acepta una lista de parámetros que define cómo ejecutar el trabajo de entrenamiento. Pasar estos parámetros a través del estimador como una capa de encapsulación, facilita el cambio de los parámetros del script y la ejecución de las configuraciones de forma independiente entre sí.
 
-Si se especifica el valor `num_workers` correcto, sacará el máximo partido de los esfuerzos de paralelización. Establezca el número de trabajos para que sea el mismo que el número de CPU disponibles. En este ejemplo, puede calcular esto de la siguiente manera:
+Si se especifica el valor `num_workers` correcto, sacará el máximo partido de los esfuerzos de paralelización. Establezca el número de trabajos para que sea el mismo que el número de CPU disponibles. Para este ejemplo, puede usar el siguiente cálculo:
 
-El nodo principal es [Standard_NC6](../virtual-machines/nc-series.md) con 6 CPU virtuales. El clúster de trabajo tiene 4 [VM Standard_D2_V2](../cloud-services/cloud-services-sizes-specs.md#dv2-series) con 2 CPU cada una, lo que hace un total de 8 CPU. Sin embargo, debe restar 1 CPU del número de trabajos, ya que 1 debe estar dedicado al rol del nodo principal. 6 CPU + 8 CPU - 1 CPU principal = 13 trabajos simultáneos. Azure Machine Learning usa clústeres principales y de trabajo para distinguir los recursos del proceso. Sin embargo, Ray no distingue entre los valores de trabajo y principales, por lo que todas las CPU están disponibles para la ejecución de los subprocesos de trabajo.
+El nodo principal es [Standard_NC6](../virtual-machines/nc-series.md) con 6 CPU virtuales. El clúster de trabajo tiene 4 [VM Standard_D2_V2](../cloud-services/cloud-services-sizes-specs.md#dv2-series) con 2 CPU cada una, lo que hace un total de 8 CPU. Sin embargo, debe restar 1 CPU del número de trabajos, ya que 1 debe estar dedicado al rol del nodo principal.
+
+6 CPU + 8 CPU - 1 CPU principal = 13 trabajos simultáneos. Azure Machine Learning usa clústeres principales y de trabajo para distinguir los recursos del proceso. Sin embargo, Ray no distingue entre los valores de trabajo y los principales, por lo que todas las CPU están disponibles como subprocesos de trabajo.
 
 
 ```python
@@ -409,7 +412,7 @@ run = exp.submit(config=rl_estimator)
 
 ## <a name="monitor-and-view-results"></a>Administración y vista de resultados
 
-Use el widget Jupyter de Azure Machine Learning para ver el estado de las ejecuciones en tiempo real. En este ejemplo, el widget muestra dos ejecuciones secundarias: una principal y otra de trabajo. 
+Use el widget Jupyter de Azure Machine Learning para ver el estado de las ejecuciones en tiempo real. El widget muestra dos ejecuciones secundarias: una principal y otra de trabajo. 
 
 ```python
 from azureml.widgets import RunDetails
@@ -421,7 +424,7 @@ run.wait_for_completion()
 1. Espere a que se cargue el widget.
 1. Seleccione la ejecución principal en la lista de ejecuciones.
 
-Seleccione **Click here to see the run in Azure Machine Learning studio** (Haga clic aquí para ver la ejecución en Azure Machine Learning Studio) para obtener información adicional sobre la ejecución en Studio. Puede obtener acceso a esta información mientras la ejecución está en curso o después de que se haya completado.
+Seleccione **Click here to see the run in Azure Machine Learning studio** (Haga clic aquí para ver la ejecución en Azure Machine Learning Studio) para obtener información adicional sobre la ejecución en Studio. Puede acceder a esta información mientras la ejecución está en curso o después de que se haya completado.
 
 ![Gráfico de líneas que muestra cómo ejecutar el widget de detalles](./media/how-to-use-reinforcement-learning/pong-run-details-widget.png)
 
@@ -429,7 +432,7 @@ El trazado **episode_reward_mean** muestra el número medio de puntos obtenidos 
 
 Si examina los registros de la ejecución secundaria, puede ver los resultados de la evaluación registrados en el archivo driver_log.txt. Es posible que tenga que esperar unos minutos antes de que estas métricas estén disponibles en la página de ejecución.
 
-Gracias a este breve trabajo, ha aprendido a configurar varios recursos de proceso para entrenar a un agente de aprendizaje de refuerzo para que juegue a Pong de maravilla.
+Gracias a este breve trabajo, ha aprendido a configurar varios recursos de proceso para entrenar a un agente de aprendizaje de refuerzo para que juegue a Pong de maravilla contra la máquina.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

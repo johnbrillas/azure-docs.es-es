@@ -1,5 +1,5 @@
 ---
-title: La eliminación temporal se habilitará en todas las instancias de Azure Key Vault | Microsoft Docs
+title: Habilitación de la eliminación temporal en todas las instancias de Azure Key Vault | Microsoft Docs
 description: Use este documento para adoptar la eliminación temporal para todos los almacenes de claves.
 services: key-vault
 author: ShaneBala-keyvault
@@ -7,19 +7,19 @@ manager: ravijan
 tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 12/15/2020
 ms.author: sudbalas
-ms.openlocfilehash: 0e811cc219002c034afb968be760ce2c249b08f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e512cccdbfdc56500fa7c69372ca38f59d3195c2
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91825256"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590093"
 ---
 # <a name="soft-delete-will-be-enabled-on-all-key-vaults"></a>La eliminación temporal se habilitará en todos los almacenes de claves
 
 > [!WARNING]
-> **Cambio importante**: la posibilidad de rechazar la eliminación temporal quedará en desuso a finales de año y la protección contra la eliminación temporal se activará automáticamente para todos los almacenes de claves.  Los usuarios y administradores de Azure Key Vault deben habilitar la eliminación temporal en sus almacenes de claves de forma inmediata.
+> **Cambio importante**: la posibilidad de rechazar la eliminación temporal pronto estará en desuso. Los usuarios y administradores de Azure Key Vault deben habilitar la eliminación temporal en sus almacenes de claves de forma inmediata.
 >
 > Para HSM administrado, la eliminación temporal está habilitada de forma predeterminada y no se puede deshabilitar.
 
@@ -29,9 +29,18 @@ Cuando se elimina un secreto de un almacén de claves sin protección contra la 
 
 Para obtener detalles completos sobre la funcionalidad de eliminación temporal, consulte [Información general sobre la eliminación temporal de Azure Key Vault](soft-delete-overview.md).
 
-## <a name="how-do-i-respond-to-breaking-changes"></a>¿Cómo debo responder ante cambios importantes?
+## <a name="can-my-application-work-with-soft-delete-enabled"></a>¿Puede mi aplicación funcionar con la eliminación temporal habilitada?
 
-No se puede crear un objeto de almacén de claves con el mismo nombre que un objeto de almacén de claves con el estado de eliminación temporal.  Por ejemplo, si elimina una clave denominada `test key` en el almacén de claves A, no podrá crear una nueva clave denominada `test key` en el almacén de claves A hasta que se purgue el objeto `test key` de la eliminación temporal.
+> [!Important] 
+> **Revise atentamente la siguiente información antes de activar la eliminación temporal para los almacenes de claves.**
+
+Los nombres de Key Vault son únicos globalmente. Los nombres de los secretos almacenados en un almacén de claves también son únicos. No podrá volver a usar el nombre de un almacén de claves o de un objeto de almacén de claves que exista en el estado de eliminación temporal. 
+
+**Ejemplo 1**: la aplicación crea mediante programación un almacén de claves denominado "Almacén A" y, posteriormente, lo elimina. En este caso, el almacén de claves se pasará al estado de eliminación temporal. La aplicación no podrá volver a crear otro almacén de claves denominado "Almacén A" hasta que el almacén de claves se purgue del estado de eliminación temporal. 
+
+**Ejemplo 2**: la aplicación crea una clave denominada `test key` en el almacén de claves A y, posteriormente, la elimina de dicho almacén. En este caso, la aplicación no podrá crear una clave denominada `test key` en el almacén de claves A hasta que el objeto `test key` se purgue del estado de eliminación temporal. 
+
+Esto puede producir errores de conflicto si intenta eliminar un objeto del almacén de claves y volver a crearlo con el mismo nombre sin purgarlo primero del estado de eliminación temporal. Esto puede provocar errores en las aplicaciones o la automatización. Antes de realizar los cambios necesarios en la aplicación y la administración, póngase en contacto con el equipo de desarrollo. 
 
 ### <a name="application-changes"></a>Cambios en la aplicación
 
@@ -59,13 +68,14 @@ Si su organización está sujeta a requisitos legales de cumplimiento normativo 
 2. Busque "Azure Policy".
 3. Seleccione "Definiciones".
 4. En Categoría, seleccione "Key Vault" en el filtro.
-5. Seleccione la directiva "Los objetos de Key Vault se deben poder recuperar".
+5. Seleccione la directiva "Key Vault should have soft delete enabled" (El almacén de claves debe tener habilitada la eliminación temporal).
 6. Haga clic en "Asignar".
 7. Establezca el ámbito de la suscripción.
-8. Seleccione "Revisar y crear".
-9. Un examen completo de su entorno puede tardar hasta 24 horas en realizarse.
-10. En la hoja Azure Policy, haga clic en "Cumplimiento".
-11. Seleccione la directiva que ha aplicado.
+8. Asegúrese de que el efecto de la directiva se establece en "Auditar".
+9. Seleccione "Revisar y crear".
+10. Un examen completo de su entorno puede tardar hasta 24 horas en realizarse.
+11. En la hoja Azure Policy, haga clic en "Cumplimiento".
+12. Seleccione la directiva que ha aplicado.
 
 Ya debería poder filtrar y ver cuáles de sus almacenes de claves tienen habilitada la eliminación temporal (recursos compatibles) y cuáles no (recursos no compatibles).
 
@@ -106,15 +116,11 @@ Siga los pasos descritos anteriormente en la sección titulada "Auditoría de lo
 
 ### <a name="what-action-do-i-need-to-take"></a>¿Qué acción debo llevar a cabo?
 
-Asegúrese de que no tiene que realizar cambios en la lógica de la aplicación. Una vez que lo haya comprobado, active la eliminación temporal en todos los almacenes de claves. Esto garantizará que no le afecten los cambios importantes si la eliminación temporal está activada para todos los almacenes de claves a finales de año.
+Asegúrese de que no tiene que realizar cambios en la lógica de la aplicación. Una vez que lo haya comprobado, active la eliminación temporal en todos los almacenes de claves.
 
 ### <a name="by-when-do-i-need-to-take-action"></a>¿Cuándo debo realizar alguna acción?
 
-La eliminación temporal se activará para todos los almacenes de claves a finales de año. Para asegurarse de que las aplicaciones no se vean afectadas, active la eliminación temporal en los almacenes de claves lo antes posible.
-
-## <a name="what-will-happen-if-i-dont-take-any-action"></a>¿Qué ocurrirá si no realizo ninguna acción?
-
-Si no realiza ninguna acción, la eliminación temporal se activará automáticamente para todos los almacenes de claves a finales de año. Esto puede producir errores de conflicto si intenta eliminar un objeto del almacén de claves y volver a crearlo con el mismo nombre sin purgarlo primero del estado de eliminación temporal. Esto puede provocar errores en las aplicaciones o la automatización.
+Para asegurarse de que las aplicaciones no se vean afectadas, active la eliminación temporal en los almacenes de claves lo antes posible.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

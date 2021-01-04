@@ -4,33 +4,31 @@ description: Aprenda a usar scripts de implementación en plantillas de Azure Re
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian
-manager: carmonm
-editor: ''
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 08/25/2020
+ms.date: 12/14/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: cc19222cf1e610c6c65d7c721a54f9949bed70ae
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: ec7b951581efd0a25b44d298b1f1bfb997167d88
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96931442"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589107"
 ---
-# <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate-preview"></a>Tutorial: Uso de scripts de implementación para crear un certificado autofirmado (versión preliminar)
+# <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate"></a>Tutorial: Uso de scripts de implementación para crear un certificado autofirmado
 
-Aprenda a usar scripts de implementación en plantillas de Azure Resource Manager (ARM). Los scripts de implementación se pueden usar para realizar pasos personalizados que no se pueden llevar a cabo con plantillas de Resource Manager. Por ejemplo, para crear un certificado autofirmado.  En este tutorial, creará una plantilla para implementar un almacén de claves de Azure, usará un recurso `Microsoft.Resources/deploymentScripts` en la misma plantilla para crear un certificado y agregará el certificado al almacén de claves. Para más información sobre el script de implementación, consulte cómo [usar los scripts de implementación en las plantillas de Azure Resource Manager](./deployment-script-template.md).
+Aprenda a usar scripts de implementación en plantillas de Azure Resource Manager (ARM). Los scripts de implementación se pueden usar para realizar pasos personalizados que no se pueden llevar a cabo con plantillas de Resource Manager. Por ejemplo, para crear un certificado autofirmado. En este tutorial, creará una plantilla para implementar un almacén de claves de Azure, usará un recurso `Microsoft.Resources/deploymentScripts` en la misma plantilla para crear un certificado y agregará el certificado al almacén de claves. Para más información sobre el script de implementación, consulte cómo [usar los scripts de implementación en las plantillas de Azure Resource Manager](./deployment-script-template.md).
 
 > [!IMPORTANT]
-> En el mismo grupo de recursos que se usa para la ejecución de scripts y la solución de problemas, se crean dos recursos de script de implementación, una cuenta de almacenamiento y una instancia de contenedor. Estos recursos los suele eliminar el servicio del script cuando el script llega a un estado terminal de ejecución. Los recursos se le facturarán hasta que se eliminen. Para más información, consulte [Limpieza de los recursos del script de implementación](./deployment-script-template.md#clean-up-deployment-script-resources).
+> En el mismo grupo de recursos que se usa para la ejecución de scripts y la solución de problemas, se crean dos recursos de script de implementación, una cuenta de almacenamiento y una instancia de contenedor. Estos recursos los suele eliminar el servicio del script cuando el script llega a un estado terminal de ejecución. Se le facturarán los recursos hasta que se eliminen. Para más información, consulte [Limpieza de los recursos del script de implementación](./deployment-script-template.md#clean-up-deployment-script-resources).
 
 En este tutorial se describen las tareas siguientes:
 
 > [!div class="checklist"]
-> * Abra una plantilla de inicio rápido.
+> * Apertura de una plantilla de inicio rápido
 > * Edición de la plantilla
 > * Implementación de la plantilla
 > * Depuración del script con errores
@@ -62,7 +60,7 @@ En lugar de crear una plantilla desde cero, abra una plantilla en las [plantilla
 
 La plantilla usada en este inicio rápido se llama [Create an Azure Key Vault and a secret](https://azure.microsoft.com/resources/templates/101-key-vault-create/) (Crear un almacén de claves de Azure y un secreto). La plantilla crea un almacén de claves y agrega un secreto a él.
 
-1. En Visual Studio Code, seleccione **Archivo**>**Abrir archivo**.
+1. En Visual Studio Code, seleccione **Archivo** > **Abrir archivo**.
 2. En **Nombre de archivo**, pegue el código URL siguiente:
 
     ```url
@@ -70,7 +68,7 @@ La plantilla usada en este inicio rápido se llama [Create an Azure Key Vault an
     ```
 
 3. Seleccione **Abrir** para abrir el archivo.
-4. Seleccione **Archivo**>**Guardar como** para guardar el archivo como **azuredeploy.json** en el equipo local.
+4. Seleccione **Archivo** > **Guardar como** para guardar el archivo como _azuredeploy.json_ en el equipo local.
 
 ## <a name="edit-the-template"></a>Edición de la plantilla
 
@@ -78,14 +76,14 @@ Realice los siguientes cambios en la plantilla:
 
 ### <a name="clean-up-the-template-optional"></a>Limpieza de la plantilla (opcional)
 
-La plantilla original agrega un secreto al almacén de claves.  Para simplificar el tutorial, quite el recurso siguiente:
+La plantilla original agrega un secreto al almacén de claves. Para simplificar el tutorial, quite el recurso siguiente:
 
-* **Microsoft.KeyVault/vaults/secrets**
+* `Microsoft.KeyVault/vaults/secrets`
 
 Quite las dos definiciones de parámetros siguientes:
 
-* **secretName**
-* **secretValue**
+* `secretName`
+* `secretValue`
 
 Si decide no quitar estas definiciones, debe especificar los valores de los parámetros durante la implementación.
 
@@ -105,9 +103,9 @@ El script de implementación agrega un certificado al almacén de claves. Config
     ```
 
     > [!NOTE]
-    > La extensión de plantilla de Resource Manager de Visual Studio Code aún no puede dar formato a los scripts de implementación. No use [MAYÚS] + [ALT] + F para dar formato a los recursos de deploymentScripts, como el siguiente.
+    > La extensión de plantilla de Resource Manager de Visual Studio Code aún no puede dar formato a los scripts de implementación. No use Mayús+Alta+F para dar formato a los recursos de `deploymentScripts`, como el siguiente.
 
-1. Agregue un parámetro para configurar las directivas de acceso al almacén de claves para que la identidad administrada pueda agregar certificados al almacén de claves.
+1. Agregue un parámetro para configurar las directivas de acceso del almacén de claves para que la identidad administrada pueda agregar certificados al almacén de claves:
 
     ```json
     "certificatesPermissions": {
@@ -149,11 +147,11 @@ El script de implementación agrega un certificado al almacén de claves. Config
     ],
     ```
 
-    Hay dos directivas definidas, una para el usuario con sesión iniciada y la otra para la identidad administrada.  El usuario con sesión iniciada solo necesita el permiso *list* para comprobar la implementación.  Para simplificar el tutorial, se asigna el mismo certificado a la identidad administrada y a los usuarios que han iniciado sesión.
+    Hay dos directivas definidas, una para el usuario con sesión iniciada y la otra para la identidad administrada. El usuario con sesión iniciada solo necesita el permiso *list* para comprobar la implementación. Para simplificar el tutorial, se asigna el mismo certificado a la identidad administrada y a los usuarios que han iniciado sesión.
 
 ### <a name="add-the-deployment-script"></a>Incorporación del script de implementación
 
-1. Agregue los tres parámetros que usa el script de implementación.
+1. Agregue los tres parámetros que usa el script de implementación:
 
     ```json
     "certificateName": {
@@ -170,15 +168,15 @@ El script de implementación agrega un certificado al almacén de claves. Config
     }
     ```
 
-1. Agregue un recurso deploymentScripts:
+1. Agregue un recurso `deploymentScripts`:
 
     > [!NOTE]
-    > Dado que los scripts de implementación en línea se incluyen entre comillas dobles, las cadenas dentro de los scripts de implementación deben incluirse entre comillas simples. El carácter de escape de PowerShell es **&#92;** .
+    > Dado que los scripts de implementación en línea se incluyen entre comillas dobles, las cadenas dentro de los scripts de implementación deben incluirse entre comillas simples. El [carácter de escape de PowerShell](/powershell/module/microsoft.powershell.core/about/about_quoting_rules#single-and-double-quoted-strings) es el acento grave (`` ` ``).
 
     ```json
     {
       "type": "Microsoft.Resources/deploymentScripts",
-      "apiVersion": "2019-10-01-preview",
+      "apiVersion": "2020-10-01",
       "name": "createAddCertificate",
       "location": "[resourceGroup().location]",
       "dependsOn": [
@@ -253,22 +251,22 @@ El script de implementación agrega un certificado al almacén de claves. Config
     }
     ```
 
-    El recurso `deploymentScripts` depende del recurso del almacén de claves y del recurso de asignación de roles.  Tiene estas propiedades:
+    El recurso `deploymentScripts` depende del recurso del almacén de claves y del recurso de asignación de roles. Tiene estas propiedades:
 
-    * **identity**: el script de implementación utiliza una identidad administrada asignada por el usuario para ejecutar los scripts.
-    * **kind**: especifica el tipo de script. Actualmente solo es compatible el script de PowerShell.
-    * **forceUpdateTag**: determina si el script de implementación debe ejecutarse aunque el origen del script no haya cambiado. Puede ser una marca de tiempo actual o un identificador único. Para más información, consulte la sección [Ejecución de un script varias veces](./deployment-script-template.md#run-script-more-than-once).
-    * **azPowerShellVersion**: especifica la versión del módulo de Azure PowerShell que se va a usar. Actualmente, el script de implementación es compatible con las versiones 2.7.0; 2.8.0 y 3.0.0.
-    * **timeout**: especifique el tiempo máximo de ejecución de scripts permitido en [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). El valor predeterminado es **P1D**.
-    * **arguments**: Especifique los valores de los parámetros. Los valores se separan con espacios.
-    * **scriptContent**: especifica el contenido del script. Para ejecutar un script externo, use **primaryScriptURI** en su lugar. Para más información, consulte [Uso de scripts externos](./deployment-script-template.md#use-external-scripts).
-        Solo es necesario declarar **$DeploymentScriptOutputs** al probar el script en una máquina local. La declaración de la variable permite que el script se ejecute en una máquina local y en un recurso deploymentScript sin tener que realizar cambios. El valor asignado a $DeploymentScriptOutputs está disponible como salidas en las implementaciones. Para más información, consulte [Trabajo con salidas de los scripts de implementación de PowerShell](./deployment-script-template.md#work-with-outputs-from-powershell-script) o [Trabajo con salidas de los scripts de implementación de la CLI](./deployment-script-template.md#work-with-outputs-from-cli-script).
-    * **cleanupPreference**: especifica la preferencia sobre cuándo se deben eliminar los recursos del script de implementación.  El valor predeterminado es **Always**, lo que significa que los recursos del script de implementación se eliminan independientemente del estado terminal (Succeeded, Failed, Canceled). En este tutorial se usa **OnSuccess** para que pueda ver los resultados de la ejecución del script.
-    * **retentionInterval**: especifica el tiempo durante el cual el servicio guarda los recursos del script una vez alcanzado el estado terminal. Los recursos se eliminarán cuando expire este periodo. La duración se basa en la norma ISO 8601. En este tutorial se usa P1D, es decir, un día.  Esta propiedad se usa cuando **cleanupPreference** se establece en **OnExpiration**. Esta propiedad no está habilitada actualmente.
+    * `identity`: el script de implementación utiliza una identidad administrada asignada por el usuario para ejecutar los scripts.
+    * `kind`: especifica el tipo de script. Actualmente, solo se admiten scripts de PowerShell.
+    * `forceUpdateTag`: determina si el script de implementación debe ejecutarse, aunque el origen del script no haya cambiado. Puede ser una marca de tiempo actual o un identificador único. Para más información, consulte la sección [Ejecución de un script varias veces](./deployment-script-template.md#run-script-more-than-once).
+    * `azPowerShellVersion`: especifica la versión del módulo de Azure PowerShell que se va a usar. Actualmente, el script de implementación es compatible con las versiones 2.7.0; 2.8.0 y 3.0.0.
+    * `timeout`: especifique el tiempo máximo de ejecución de scripts permitido en [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). El valor predeterminado es **P1D**.
+    * `arguments`: Especifique los valores de los parámetros. Los valores se separan con espacios.
+    * `scriptContent`: especifica el contenido del script. Para ejecutar un script externo, use `primaryScriptURI` en su lugar. Para más información, consulte [Uso de scripts externos](./deployment-script-template.md#use-external-scripts).
+        Solo es necesario declarar `$DeploymentScriptOutputs` al probar el script en una máquina local. La declaración de la variable permite que el script se ejecute en una máquina local y en un recurso `deploymentScript` sin tener que realizar cambios. El valor asignado a `$DeploymentScriptOutputs` está disponible como salidas en las implementaciones. Para más información, consulte [Trabajo con salidas de los scripts de implementación de PowerShell](./deployment-script-template.md#work-with-outputs-from-powershell-script) o [Trabajo con salidas de los scripts de implementación de la CLI](./deployment-script-template.md#work-with-outputs-from-cli-script).
+    * `cleanupPreference`: especifica la preferencia sobre cuándo se deben eliminar los recursos del script de implementación. El valor predeterminado es **Always**, lo que significa que los recursos del script de implementación se eliminan independientemente del estado terminal (Succeeded, Failed, Canceled). En este tutorial se usa **OnSuccess** para que pueda ver los resultados de la ejecución del script.
+    * `retentionInterval`: especifica el tiempo durante el cual el servicio guarda los recursos del script una vez alcanzado el estado terminal. Los recursos se eliminarán cuando expire este periodo. La duración se basa en la norma ISO 8601. En este tutorial se usa **P1D**, es decir, un día. Esta propiedad se usa cuando `cleanupPreference` se establece en **OnExpiration**. Esta propiedad no está habilitada actualmente.
 
-    El script de implementación toma tres parámetros: el nombre del almacén de claves, el nombre del certificado y el nombre de la persona.  Se crea un certificado y se agrega el certificado al almacén de claves.
+    El script de implementación toma tres parámetros: `keyVaultName`, `certificateName` y `subjectName`. Se crea un certificado y se agrega el certificado al almacén de claves.
 
-    **$DeploymentScriptOutputs** se utiliza para almacenar el valor de salida.  Para más información, consulte [Trabajo con salidas de los scripts de implementación de PowerShell](./deployment-script-template.md#work-with-outputs-from-powershell-script) o [Trabajo con salidas de los scripts de implementación de la CLI](./deployment-script-template.md#work-with-outputs-from-cli-script).
+    `$DeploymentScriptOutputs` se utiliza para almacenar el valor de salida. Para más información, consulte [Trabajo con salidas de los scripts de implementación de PowerShell](./deployment-script-template.md#work-with-outputs-from-powershell-script) o [Trabajo con salidas de los scripts de implementación de la CLI](./deployment-script-template.md#work-with-outputs-from-cli-script).
 
     Puede encontrar la plantilla rellena [aquí](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault.json).
 
@@ -278,19 +276,19 @@ El script de implementación agrega un certificado al almacén de claves. Config
     Write-Output1 $keyVaultName
     ```
 
-    El comando correcto es **Write-Output**, no **Write-Output1**.
+    El comando correcto es `Write-Output`, no `Write-Output1`.
 
-1. Seleccione **File**>**Guardar** para guardar los cambios.
+1. Seleccione **File** > **Guardar** para guardar los cambios.
 
 ## <a name="deploy-the-template"></a>Implementación de la plantilla
 
 1. Inicio de sesión en [Azure Cloud Shell](https://shell.azure.com)
 
-1. Elija el entorno que prefiera; para ello, seleccione **PowerShell** o **Bash** (para CLI) en la esquina superior izquierda.  Es necesario reiniciar el shell cuando realiza el cambio.
+1. Elija el entorno que prefiera; para ello, seleccione **PowerShell** o **Bash** (para CLI) en la esquina superior izquierda. Es necesario reiniciar el shell cuando realiza el cambio.
 
     ![Archivo de carga de Cloud Shell de Azure Portal](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
 
-1. Seleccione **Cargar/descargar archivos** y, después, seleccione **Cargar**. Consulte la captura de pantalla anterior.  Seleccione el archivo que guardó en la sección anterior. Después de cargar el archivo, puede usar el comando **ls** y el comando **cat** para comprobar que la operación de carga se ha realizado correctamente.
+1. Seleccione **Cargar/descargar archivos** y, después, seleccione **Cargar**. Consulte la captura de pantalla anterior.  Seleccione el archivo que guardó en la sección anterior. Después de cargar el archivo, puede usar el comando `ls` y el comando `cat` para comprobar que la operación de carga se ha realizado correctamente.
 
 1. Ejecute el siguiente script de PowerShell para implementar la plantilla.
 
@@ -313,11 +311,11 @@ El script de implementación agrega un certificado al almacén de claves. Config
 
     El servicio de script de implementación debe crear recursos de script de implementación adicionales para la ejecución de scripts. La preparación y el proceso de limpieza pueden tardar hasta un minuto en completarse además del tiempo de ejecución real del script.
 
-    Se ha producido un error en la implementación debido al uso en el script del comando **Write-Output1** no válido. Recibirá un error que indica:
+    Se ha producido un error en la implementación porque el comando no es válido; `Write-Output1` se usa en el script. Recibirá un error que dice:
 
     ```error
     The term 'Write-Output1' is not recognized as the name of a cmdlet, function, script file, or operable
-    program.\nCheck the spelling of the name, or if a path was included, verify that the path is correct and try again.\n
+    program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
     ```
 
     El resultado de la ejecución del script de implementación se almacena en los recursos del script de implementación para la solución de problemas.
@@ -331,15 +329,15 @@ El script de implementación agrega un certificado al almacén de claves. Config
 
     Ambos archivos tienen el sufijo **azscripts**. Uno es una cuenta de almacenamiento y el otro es una instancia de contenedor.
 
-    Seleccione **Mostrar tipos ocultos** para que aparezca el recurso deploymentScripts.
+    Seleccione **Mostrar tipos ocultos** para mostrar el recurso `deploymentScripts`.
 
 1. Seleccione la cuenta de almacenamiento con el sufijo **azscripts**.
-1. Seleccione el icono **Recursos compartidos de archivos**. Verá una carpeta **azscripts**.  Esta contiene los archivos de ejecución del script de implementación.
-1. Seleccione **azscripts**. Verá dos carpetas: **azscriptinput** y **azscriptoutput**.  La carpeta de entrada contiene un archivo de script de PowerShell del sistema y los archivos de script de implementación del usuario. La carpeta de salida contiene un archivo **executionresult.json** y el archivo de salida del script. Puede ver el mensaje de error en **executionresult.json**. El archivo de salida no está allí porque se produjo un error en la ejecución.
+1. Seleccione el icono **Recursos compartidos de archivos**. Verá una carpeta **azscripts**. Esta contiene los archivos de ejecución del script de implementación.
+1. Seleccione **azscripts**. Verá dos carpetas: **azscriptinput** y **azscriptoutput**. La carpeta de entrada contiene un archivo de script de PowerShell del sistema y los archivos de script de implementación del usuario. La carpeta de salida contiene un archivo _executionresult.json_ y el archivo de salida del script. Puede ver el mensaje de error en _executionresult.json_. El archivo de salida no está allí porque se produjo un error en la ejecución.
 
-Quite la línea **Write-Output1** y vuelva a implementar la plantilla.
+Quite la línea `Write-Output1` y vuelva a implementar la plantilla.
 
-Cuando la segunda implementación se ejecute correctamente, el servicio de script quitará los recursos del script de implementación, ya que la propiedad **cleanupPreference** está establecida en **OnSuccess**.
+Cuando la segunda implementación se ejecute correctamente, el servicio de script quitará los recursos del script de implementación, ya que la propiedad `cleanupPreference` está establecida en **OnSuccess**.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

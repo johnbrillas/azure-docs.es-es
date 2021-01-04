@@ -5,22 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: compliance
 ms.topic: how-to
-ms.date: 10/16/2020
+ms.date: 12/02/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c1b07534c702e509b2b664fbee585aa2cff69f6
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: b1829c69510568b0f9a8cec7fb7d2d57be8515d3
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94837607"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509995"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Términos de uso de Azure Active Directory
 
-Términos de uso de Azure Active Directory ofrece un método sencillo que pueden usar las organizaciones para presentar información a los usuarios finales. Esta presentación garantiza que los usuarios ven las declinaciones de responsabilidades pertinentes de los requisitos legales o de cumplimiento. En este artículo se describe cómo empezar a trabajar con Términos de uso.
+Términos de uso de Azure Active Directory ofrece un método sencillo que pueden usar las organizaciones para presentar información a los usuarios finales. Esta presentación garantiza que los usuarios ven las declinaciones de responsabilidades pertinentes de los requisitos legales o de cumplimiento. En este artículo se describe cómo empezar a trabajar con las condiciones de uso.
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
@@ -104,14 +104,14 @@ Una vez que haya finalizado el documento de términos de uso, use el procedimien
    | Alice | 1 ene | 1 feb | 1 mar | 1 abr |
    | Bob | 15 ene | 1 feb | 1 mar | 1 abr |
 
-1. Use la opción de configuración **Duración antes de solicitar que se acepten los términos de nuevo (días)** para especificar el número de días antes de que el usuario tenga que aceptar los términos de uso de nuevo. Esto permite a los usuarios seguir su propia programación. Por ejemplo, si establece la duración en **30** días, este es el modo en que pueden producirse las expiraciones para dos usuarios:
+1. Use la opción **Duración antes de solicitar que se acepten las condiciones de nuevo (días)** para especificar el número de días antes de que el usuario tenga que aceptar las condiciones de uso de nuevo. Esto permite a los usuarios seguir su propia programación. Por ejemplo, si establece la duración en **30** días, este es el modo en que pueden producirse las expiraciones para dos usuarios:
 
    | Usuario | Primera fecha de aceptación | Primera fecha de expiración | Segunda fecha de expiración | Tercera fecha de expiración |
    | --- | --- | --- | --- | --- |
    | Alice | 1 ene | 31 ene | 2 mar | 1 abr |
    | Bob | 15 ene | 14 feb | 16 mar | 15 abr |
 
-   Es posible usar las opciones de configuración **Expirar autorizaciones** y **Duración antes de solicitar que se acepten los términos de nuevo (días)** de forma conjunta, pero normalmente usa una o la otra.
+   Es posible usar las opciones de configuración **Expirar autorizaciones** y **Duración antes de solicitar que se acepten las condiciones de nuevo (días)** de forma conjunta, pero normalmente usará una o la otra.
 
 1. En **Acceso condicional**, use la lista **Exigir con plantillas de directiva de acceso condicional** para seleccionar la plantilla para exigir los términos de uso.
 
@@ -219,15 +219,55 @@ Algunos de los detalles de los términos de uso se pueden editar, pero no se pue
 1. Inicie sesión en Azure y vaya a **Términos de uso** en [https://aka.ms/catou](https://aka.ms/catou).
 1. Seleccione los términos de uso que quiere editar.
 1. Haga clic en **Editar términos**.
-1. En el panel de edición de términos de uso, cambie el nombre, muestre el nombre o solicite a los usuarios que expandan los valores.
+1. En el panel Edición de condiciones de uso, puede cambiar lo siguiente:
+     - **Nombre**: es el nombre interno de las condiciones de uso que no se comparten con los usuarios finales.
+     - **Nombre para mostrar**: este es el nombre que los usuarios finales pueden observar al ver las condiciones de uso.
+     - **Requerir a los usuarios que expandan las condiciones de uso**: si se establece en **Activo**, se forzará a que el usuario final expanda el documento con las condiciones de uso antes de aceptarlo.
+     - (Versión preliminar) Puede **actualizar un documento de condiciones de uso ya existente**.
+     - Puede agregar un idioma a un documento de condiciones de uso ya existente.
 
    Si hay otras opciones de configuración que quiere cambiar, como documento PDF, requerir que los usuarios concedan su consentimiento en todos los dispositivos, expirar autorizaciones, duración antes de solicitar que se acepten los términos de nuevo o directiva de acceso condicional, debe crear una nueva instancia de términos de uso.
 
-   ![Panel Edición de términos de uso que muestra las opciones de nombre y expansión](./media/terms-of-use/edit-tou.png)
+    ![Edición que muestra diferentes opciones de idioma ](./media/terms-of-use/edit-terms-use.png)
 
-1. Haga clic en **Guardar** para guardar los cambios.
+1. Cuando haya terminado, haga clic en **Guardar** para guardar los cambios.
 
-   Una vez que guarde los cambios, los usuarios no tendrán que volver a aceptar estas ediciones.
+## <a name="update-the-version-or-pdf-of-an-existing-terms-of-use"></a>Actualización de la versión o PDF de las condiciones de uso existentes
+
+1.  Inicie sesión en Azure y vaya a [Condiciones de uso](https://aka.ms/catou).
+2.  Seleccione los términos de uso que quiere editar.
+3.  Haga clic en **Editar términos**.
+4.  En el idioma en el que desea actualizar a una nueva versión, haga clic en **Actualizar** en la columna de acción.
+ 
+     ![Panel Edición de términos de uso que muestra las opciones de nombre y expansión](./media/terms-of-use/edit-terms-use.png)
+
+5.  En el panel de la derecha, cargue el PDF de la nueva versión.
+6.  También hay una opción de alternancia aquí, **Require reaccept** (Requerir nueva aceptación), en caso de que desee requerir a los usuarios que acepten esta nueva versión la próxima vez que inicien sesión. Si activa esta opción, la próxima vez que intenten acceder al recurso definido en la directiva de acceso condicional, se les pedirá que acepten esta nueva versión. Si no requiere una nueva aceptación por parte de los usuarios, su consentimiento anterior seguirá siendo el actual y solo los usuarios nuevos que no hayan dado su consentimiento anteriormente o cuyo consentimiento expire verán la nueva versión.
+
+    ![Edición de condiciones de uso con la opción de nueva aceptación resaltada](./media/terms-of-use/re-accept.png)
+
+7.  Una vez que haya cargado el nuevo PDF y elegido volver a aceptar, haga clic en Agregar en la parte inferior del panel.
+8.  Ahora verá la versión más reciente en la columna Documento.
+
+## <a name="view-previous-versions-of-a-terms-of-use"></a>Visualización de versiones anteriores de las condiciones de uso
+
+1.  Inicie sesión en Azure y vaya a **Términos de uso** en https://aka.ms/catou.
+2.  Seleccione las condiciones de uso de las que desea ver un historial de versiones.
+3.  Haga clic en **Idiomas e historial de versiones**.
+4.  Haga clic en **See previous versions** (Ver versiones anteriores).
+
+    ![Detalles del documento que incluyen las versiones de idioma](./media/terms-of-use/document-details.png)
+
+5.  Puede hacer clic en el nombre del documento para descargar esa versión.
+
+## <a name="see-who-has-accepted-each-version"></a>Ver quién ha aceptado cada versión
+
+1.  Inicie sesión en Azure y vaya a **Términos de uso** en https://aka.ms/catou.
+2.  Para ver quién ha aceptado actualmente las condiciones de uso, haga clic en el número que aparece debajo de la columna **Aceptado** de las condiciones de uso que desee.
+3.  De forma predeterminada, en la página siguiente se muestra el estado actual de aceptación de las condiciones de uso por parte de cada usuario.
+4.  Si desea ver los eventos de consentimiento anteriores, puede seleccionar **Todos** en la lista desplegable **Estado actual**. Ahora puede ver los eventos detallados de cada usuario sobre cada versión y qué sucedió.
+5.  Como alternativa, puede seleccionar una versión específica de la lista desplegable **Versión** para ver quién ha aceptado esa versión específica.
+
 
 ## <a name="add-a-terms-of-use-language"></a>Agregar un idioma a los términos de uso
 
@@ -235,14 +275,14 @@ El siguiente procedimiento describe cómo agregar un idioma a los términos de u
 
 1. Inicie sesión en Azure y vaya a **Términos de uso** en [https://aka.ms/catou](https://aka.ms/catou).
 1. Seleccione los términos de uso que quiere editar.
-1. En el panel de detalles, haga clic en la pestaña **Idiomas**.
-
-   ![Panel de Términos de uso seleccionados y que muestra la pestaña Idiomas en los detalles](./media/terms-of-use/languages-tou.png)
-
-1. Haga clic en **Agregar idioma**.
+1. Haga clic en **Editar términos**.
+1. Haga clic en **Agregar idioma** en la parte inferior de la página.
 1. En el panel para agregar idioma de los términos de uso, cargue el PDF localizado y seleccione el idioma.
 
-   ![Panel Agregar idioma a los términos de uso con opciones para cargar documentos PDF localizados](./media/terms-of-use/language-add-tou.png)
+   ![Panel de Términos de uso seleccionados y que muestra la pestaña Idiomas en los detalles](./media/terms-of-use/select-language.png)
+
+1. Haga clic en **Agregar idioma**.
+1. Haga clic en **Guardar**
 
 1. Haga clic en **Agregar** para agregar el idioma.
 
@@ -318,7 +358,7 @@ Las directivas de acceso condicional surten efecto de inmediato. Cuando esto suc
 > - se ha habilitado una directiva de acceso condicional en los términos de uso,
 > - o se crea una segunda condición de uso
 
-## <a name="b2b-guests-preview"></a>Invitados B2B (versión preliminar)
+## <a name="b2b-guests"></a>Invitados B2B
 
 La mayoría de las organizaciones tienen un proceso en marcha para que sus empleados autoricen los términos de uso y las declaraciones de privacidad de su organización. Sin embargo, ¿cómo puede forzar las mismas autorizaciones para los invitados negocio a negocio (B2B) de Azure AD cuando se agregan a través de SharePoint o Teams? Al usar el acceso condicional y los términos de uso, puede forzar una directiva directamente hacia los usuarios invitados B2B. Durante el proceso de canje de invitación, se presentan los términos de uso al usuario. Esta compatibilidad se encuentra actualmente en versión preliminar.
 
@@ -326,7 +366,7 @@ Los Términos de uso solo se mostrarán cuando el usuario tenga una cuenta de in
 
 ![Panel Usuarios y grupos: incluye la pestaña con la opción Todos los usuarios invitados seleccionada](./media/terms-of-use/b2b-guests.png)
 
-## <a name="support-for-cloud-apps-preview"></a>Compatibilidad con aplicaciones en la nube (versión preliminar)
+## <a name="support-for-cloud-apps"></a>Compatibilidad con aplicaciones en la nube
 
 Los Términos de uso se pueden usar para diversas aplicaciones en la nube, como Azure Information Protection y Microsoft Intune. Esta compatibilidad se encuentra actualmente en versión preliminar.
 
@@ -387,7 +427,7 @@ A. Puede [revisar los términos de uso aceptados previamente](#how-users-can-rev
 A. Si ha configurado los Términos de uso de Azure AD y los [Términos y condiciones de Intune](/intune/terms-and-conditions-create), se le pedirá al usuario que acepte ambos. Para obtener más información, consulte la entrada de blog [Choosing the right Terms solution for your organization](https://go.microsoft.com/fwlink/?linkid=2010506&clcid=0x409) (Elección de la solución de términos adecuada para su organización).
 
 **P: ¿Qué puntos de conexión usa el servicio de términos de uso para la autenticación?**<br />
-A. Los términos de uso usan los siguientes puntos de conexión para la autenticación: https://tokenprovider.termsofuse.identitygovernance.azure.com y https://account.activedirectory.windowsazure.com. Si su organización tiene una lista de permitidos de direcciones URL para la inscripción, deberá agregar estos puntos de conexión a dicha lista, además de los puntos de conexión de Azure AD, para iniciar sesión.
+A. Los términos de uso usan los siguientes puntos de conexión para la autenticación: https://tokenprovider.termsofuse.identitygovernance.azure.com y https://account.activedirectory.windowsazure.com. Si su organización tiene una lista de direcciones URL permitidas para la inscripción, deberá agregar estos puntos de conexión a esa lista, además de los puntos de conexión de Azure AD, para iniciar sesión.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
