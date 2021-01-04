@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 89f59bba856d662aea0c3ed249d5a1462297ec60
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 63bbec6de8f122178289cc313e5d938e3b926af2
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92309046"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673259"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-captivate-prime"></a>Tutorial: Integración de Azure Active Directory con Adobe Captivate Prime
 
@@ -63,7 +63,7 @@ Para configurar la integración de Adobe Captivate Prime en Azure AD, necesita a
 
 4. En el cuadro de búsqueda, escriba **Adobe Captivate Prime**, seleccione **Adobe Captivate Prime** en el panel de resultados y luego haga clic en el botón **Agregar** para agregar la aplicación.
 
-     ![Adobe Captivate Prime en la lista de resultados](common/search-new-app.png)
+    ![Adobe Captivate Prime en la lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
@@ -125,7 +125,7 @@ Para configurar el inicio de sesión único de Azure AD con Adobe Captivate Prim
 
 ### <a name="configure-adobe-captivate-prime-single-sign-on"></a>Configuración del inicio de sesión único de Adobe Captivate Prime
 
-Para configurar el inicio de sesión único en **Adobe Captivate Prime**, es preciso enviar el **XML de metadatos de federación**descargado, la **dirección URL de acceso de usuario** copiada y las direcciones URL adecuadas copiadas de Azure Portal al [equipo de soporte técnico de Adobe Captivate Prime](mailto:captivateprimesupport@adobe.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Para configurar el inicio de sesión único en **Adobe Captivate Prime**, es preciso enviar el **XML de metadatos de federación** descargado, la **dirección URL de acceso de usuario** copiada y las direcciones URL adecuadas copiadas de Azure Portal al [equipo de soporte técnico de Adobe Captivate Prime](mailto:captivateprimesupport@adobe.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD 
 
@@ -144,7 +144,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
     ![Cuadro de diálogo Usuario](common/user-properties.png)
 
     a. En el campo **Nombre**, escriba **BrittaSimon**.
-  
+
     b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**.  
     Por ejemplo: BrittaSimon@contoso.com
 
@@ -180,7 +180,7 @@ En esta sección se habilita a Britta Simon para que use el inicio de sesión ú
 
 ### <a name="create-adobe-captivate-prime-test-user"></a>Creación de un usuario de prueba de Adobe Captivate Prime
 
-En esta sección se crea un usuario denominado Britta Simon en Adobe Captivate Prime. Trabaje con el [equipo de soporte técnico de Adobe Captivate Prime](mailto:captivateprimesupport@adobe.com) para agregar los usuarios en la plataforma de Adobe Captivate Prime. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección se crea un usuario denominado Britta Simon en Adobe Captivate Prime. Trabaje con el [equipo de soporte técnico de Adobe Captivate Prime](mailto:captivateprimesupport@adobe.com) para agregar los usuarios en la plataforma de Adobe Captivate Prime. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 

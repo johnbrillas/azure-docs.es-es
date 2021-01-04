@@ -1,4 +1,4 @@
-- name: Introducción
+- name: Información general
   items:
     - name: Introducción
       href: get-started.md
@@ -72,6 +72,8 @@
       items:
         - name: Control de instancias grandes de HANA en Azure mediante Azure Portal
           href: hana-li-portal.md
+        - name: Administración de instancias de BareMetal mediante Azure Portal
+          href: baremetal-infrastructure-portal.md
         - name: Configuración de alta disponibilidad con STONITH
           href: ha-setup-with-stonith.md
         - name: Copia de seguridad del sistema operativo para SKU de tipo II

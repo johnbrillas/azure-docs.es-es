@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 42da33fe874b6dea43bc16009dd27b70e6c3f535
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 1424669af9fe28257e66c8c5438f6e1d171954e0
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97589957"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672906"
 ---
 # <a name="tutorial-integrate-amazon-business-with-azure-active-directory"></a>Tutorial: Integración de Amazon Business con Azure Active Directory
 
@@ -74,12 +74,12 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 1. En la página **Seleccione un método de inicio de sesión único**, seleccione **SAML**.
 1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
 
-   ![Edición de la configuración básica de SAML](common/edit-urls.png)
+    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
 1. En la sección **Configuración básica de SAML**, si desea configurar en el modo iniciado por **IDP**, siga estos pasos:
 
     1. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con uno de los patrones siguientes:
-    
+
        | URL | Region |
        |-|-|
        | `https://www.amazon.com`| Norteamérica |
@@ -87,7 +87,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
        | `https://www.amazon.de`| Europa |
 
     1. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con uno de los siguientes patrones:
-    
+
        | URL | Region |
        |-|-|
        | `https://www.amazon.com/bb/feature/sso/action/3p_redirect?idpid={idpid}`| Norteamérica |
@@ -146,7 +146,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 1. En el **Asistente para configurar SSO**, seleccione el proveedor según los requisitos de su organización y haga clic en **Siguiente**.
 
     ![Captura de pantalla que muestra Set up SSO (Configurar inicio de sesión único), con Microsoft Azure AD y Next (Siguiente) seleccionados.](media/amazon-business-tutorial/default-group1.png)
-    
+
     > [!NOTE]
     > Aunque Microsoft ADFS es una opción de la lista, no funciona con el inicio de sesión único de Azure AD.
 
@@ -193,12 +193,12 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 1. Por último, en la sección de **detalles de conexión de SSO**, el **estado** se muestra como **activo**.
 
     ![Captura de pantalla que muestra SSO Connection Details (Detalles de la conexión con SSO) con estado Active (Activo).](media/amazon-business-tutorial/sso-connection5.png)
-    
+
     > [!NOTE]
     > Si desea configurar la aplicación en modo iniciado por **SP**, complete el paso siguiente y pegue la dirección URL de inicio de sesión de la captura de pantalla anterior en el cuadro de texto **URL de inicio de sesión** de la sección **Establecer direcciones URL adicionales** en Azure Portal. Utilice el siguiente formato:
     >
     > `https://www.amazon.<TLD>/bb/feature/sso/action/start?domain_hint=<uniqueid>`
-    
+
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
 En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Portal.
@@ -236,7 +236,7 @@ En esta sección, va a permitir que B.Simon acceda a Amazon Business mediante el
 1. En la lista de aplicaciones, seleccione **Amazon Business**.
 1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
 
-   ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
+    ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
 
 1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
 
@@ -288,8 +288,8 @@ Al hacer clic en el icono de Amazon Business en el Panel de acceso, debería ini
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-- [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](./tutorial-list.md)
+- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](./tutorial-list.md)
 
-- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
+- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 - [¿Qué es el acceso condicional en Azure Active Directory?](../conditional-access/overview.md)

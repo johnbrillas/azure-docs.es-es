@@ -5,12 +5,12 @@ ms.service: iot-pnp
 ms.topic: include
 ms.date: 03/17/2020
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 3ac72360db5fb3d075b4caa3208f372f22441c7b
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: ea5d4ef26fb14e22b871bb4bfa1054cb749d38e8
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92756053"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673038"
 ---
 ## <a name="prepare-an-iot-hub"></a>Preparación de un centro de IoT
 
@@ -34,9 +34,6 @@ az group create --name my-pnp-resourcegroup \
 az iot hub create --name <YourIoTHubName> \
     --resource-group my-pnp-resourcegroup --sku F1
 ```
-
-> [!NOTE]
-> IoT Plug and Play se encuentra actualmente disponible en los centros de IoT creados en las regiones Centro de EE. UU., Norte de Europa y Japón Oriental. La compatibilidad con IoT Plug and Play no se incluye en los centros de IoT de nivel básico.
 
 Ejecute el siguiente comando la nueva identidad del dispositivo en su centro de IoT. Reemplace los marcadores de posición `<YourIoTHubName>` y `<YourDeviceID>` por su propio _nombre de centro de IoT_ y un _identificador de dispositivo_ de su elección.
 

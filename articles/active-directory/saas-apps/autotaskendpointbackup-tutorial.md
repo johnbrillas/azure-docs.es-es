@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 1/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 0264baf6a8ff107c4a3aa811b9e8639352dca782
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 349a77d2f2cd5e1c492de63919d84efb436a51a3
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96301810"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673709"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-autotask-endpoint-backup"></a>Tutorial: Integración de Azure Active Directory con Autotask Endpoint Backup
 
@@ -63,7 +63,7 @@ Para configurar la integración de Autotask Workplace en Azure AD, deberá agreg
 
 4. En el cuadro de búsqueda, escriba **Autotask Endpoint Backup**, seleccione **Autotask Endpoint Backup** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
 
-     ![Autotask Endpoint Backup en la lista de resultados](common/search-new-app.png)
+    ![Autotask Endpoint Backup en la lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
