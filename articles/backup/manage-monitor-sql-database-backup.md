@@ -3,12 +3,12 @@ title: Administración y supervisión de bases de datos de SQL Server en una m�
 description: En este artículo se describe cómo administrar y supervisar las bases de datos de SQL Server que se ejecutan en una máquina virtual de Azure.
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: b0df22002521c8148cac1200e79aeb0ae5a60546
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e37e6fc211b34b7e427b66db374a705faafd25f9
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021510"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858745"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Administración y supervisión de bases de datos SQL Server con copia de seguridad
 
@@ -20,7 +20,7 @@ Si todavía no ha configurado las copias de seguridad para las bases de datos de
 
 En Azure Backup se muestran todas las operaciones programadas y a petición en la sección **Trabajos de copia de seguridad** en el portal, excepto las copias de seguridad de registros programadas, ya que pueden ser muy frecuentes. Los trabajos que se muestren en este portal incluyen operaciones de detección y registro de base de datos, configuración de copia de seguridad y la realización y restauración de copias de seguridad.
 
-![Portal Trabajos de copia de seguridad](./media/backup-azure-sql-database/jobs-list.png)
+![Portal Trabajos de copia de seguridad](./media/backup-azure-sql-database/sql-backup-jobs-list.png)
 
 Para más información sobre los escenarios de supervisión, consulte [Supervisión en Azure Portal](backup-azure-monitoring-built-in-monitor.md) y [Supervisión con Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).  
 
@@ -36,13 +36,9 @@ Para supervisar las alertas de copia de seguridad de bases de datos:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
-2. En el panel del almacén, seleccione **Alertas y eventos**.
+2. En el panel del almacén, seleccione **Alertas de copia de seguridad**.
 
-   ![Seleccionar Alertas y eventos](./media/backup-azure-sql-database/vault-menu-alerts-events.png)
-
-3. En **Alertas y eventos**, seleccione **Alertas de copia de seguridad**.
-
-   ![Seleccionar alertas de copia de seguridad](./media/backup-azure-sql-database/backup-alerts-dashboard.png)
+   ![Seleccionar alertas de copia de seguridad](./media/backup-azure-sql-database/sql-backup-alerts-list.png)
 
 ## <a name="stop-protection-for-a-sql-server-database"></a>Detención de la protección de una base de datos de SQL Server
 

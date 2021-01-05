@@ -6,18 +6,18 @@ services: application-gateway
 author: surajmb
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 09/23/2020
+ms.date: 01/02/2021
 ms.author: victorh
-ms.openlocfilehash: a72f0106088d26eb2ff53456840c598c3d9619a7
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: aadd4904ff218613c0dd24daff784ad5b8b90fbb
+ms.sourcegitcommit: c538b6e4cf27b992500c079ad9c914c05d55eb7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397559"
+ms.lasthandoff: 01/03/2021
+ms.locfileid: "97854917"
 ---
 # <a name="configure-app-service-with-application-gateway"></a>Configuración de App Service con Application Gateway
 
-Dado que el servicio de aplicaciones es multiinquilino, en lugar de una implementación dedicada, usa el encabezado del host de la solicitud entrante para resolver la solicitud en el punto de conexión del servicio de aplicaciones correcto. Normalmente, el nombre DNS de la aplicación, que a su vez es el nombre DNS asociado con la puerta de enlace de aplicaciones principal del servicio de aplicaciones, no es el mismo que el nombre de dominio del servicio de aplicaciones back-end. Por lo tanto, el encabezado de host de la solicitud original recibido por la puerta de enlace de la aplicación no es el mismo que el nombre de host del servicio back-end. Por este motivo, a menos que el encabezado de host de la solicitud de la puerta de enlace de aplicaciones back-end, se cambia al nombre de host del servicio back-end, los back-end multiinquilino no pueden resolver la solicitud en el punto de conexión correcto.
+Dado que App Service es un servicio multiinquilino en lugar de una implementación dedicada, usa el encabezado del host en la solicitud entrante para resolver la solicitud en el punto de conexión de App Service correcto. Normalmente, el nombre DNS de la aplicación, que a su vez es el nombre DNS asociado con la puerta de enlace de aplicaciones principal del servicio de aplicaciones, no es el mismo que el nombre de dominio del servicio de aplicaciones back-end. Por lo tanto, el encabezado de host de la solicitud original recibido por la puerta de enlace de la aplicación no es el mismo que el nombre de host del servicio back-end. Por este motivo, a menos que el encabezado de host de la solicitud de la puerta de enlace de aplicaciones back-end, se cambia al nombre de host del servicio back-end, los back-end multiinquilino no pueden resolver la solicitud en el punto de conexión correcto.
 
 Application Gateway proporciona un modificador llamado `Pick host name from backend target` que reemplaza el encabezado del host de la solicitud por el nombre de host del back-end cuando la solicitud se enruta de Application Gateway al back-end. Esta funcionalidad permite la compatibilidad con servidores back-end multiinquilino, como Azure App Service y API Management. 
 
@@ -36,24 +36,24 @@ En este artículo aprenderá a:
 
 1. En Azure Portal, seleccione el recurso de puerta de enlace de aplicación.
 
-2. En **Grupos de back-end** , seleccione el grupo de back-end.
+2. En **Grupos de back-end**, seleccione el grupo de back-end.
 
-4. En **Tipo de destino** , seleccione **App Services**.
+4. En **Tipo de destino**, seleccione **App Services**.
 
 5. En **Destino** seleccione la instancia de App Service.
 
    :::image type="content" source="./media/configure-web-app-portal/backend-pool.png" alt-text="Back-end del servicio de aplicaciones":::
    
    > [!NOTE]
-   > La lista desplegable solo rellenará los App Services que se encuentren en la misma suscripción que Application Gateway. Si quiere usar un servicio de aplicaciones que está en una suscripción diferente de aquella en la que se encuentra Application Gateway, en lugar de seleccionar **App Services** en la lista desplegable **Destinos** , elija la opción **Nombre de host o dirección IP** y escriba el nombre de host (example. azurewebsites.net) del servicio de aplicaciones.
+   > La lista desplegable solo rellenará los App Services que se encuentren en la misma suscripción que Application Gateway. Si quiere usar un servicio de aplicaciones que está en una suscripción diferente de aquella en la que se encuentra Application Gateway, en lugar de seleccionar **App Services** en la lista desplegable **Destinos**, elija la opción **Nombre de host o dirección IP** y escriba el nombre de host (example. azurewebsites.net) del servicio de aplicaciones.
 1. Seleccione **Guardar**.
 
 ## <a name="edit-http-settings-for-app-service"></a>Edición de una configuración de HTTP para App Service
 
-1. En **Configuración de HTTP** , seleccione la configuración de HTTP existente.
+1. En **Configuración de HTTP**, seleccione la configuración de HTTP existente.
 
-2. En **Reemplazar por un nuevo nombre de host** , seleccione **Sí**.
-3. En **Reemplazo del nombre de host** , seleccione **Seleccionar el nombre de host del destino de back-end**.
+2. En **Reemplazar por un nuevo nombre de host**, seleccione **Sí**.
+3. En **Reemplazo del nombre de host**, seleccione **Seleccionar el nombre de host del destino de back-end**.
 4. Seleccione **Guardar**.
 
    :::image type="content" source="./media/configure-web-app-portal/http-settings.png" alt-text="Selección del nombre de host de la configuración de HTTP de back-end":::
