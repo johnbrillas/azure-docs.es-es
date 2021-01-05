@@ -16,19 +16,19 @@ El primer paso para entender las consultas con Azure Resource Graph es el recono
 
 Le guiaremos por las siguientes consultas de inicio:
 
-- [Count Azure resources](#count-resources)
+- [Recuento de recursos de Azure](#count-resources)
 - [Recuento de recursos de Key Vault](#count-keyvaults)
-- [List resources sorted by name](#list-resources)
-- [Show all virtual machines ordered by name in descending order](#show-vms)
-- [Show first five virtual machines by name and their OS type](#show-sorted)
-- [Count virtual machines by OS type](#count-os)
-- [Show resources that contain storage](#show-storage)
-- [List all public IP addresses](#list-publicip)
-- [Count resources that have IP addresses configured by subscription](#count-resources-by-ip)
-- [List resources with a specific tag value](#list-tag)
-- [List all storage accounts with specific tag value](#list-specific-tag)
-- [Show aliases for a virtual machine resource](#show-aliases)
-- [Show distinct values for a specific alias](#distinct-alias-values)
+- [Enumerar los recursos ordenados por nombre](#list-resources)
+- [Mostrar todas las máquinas virtuales ordenadas por nombre de forma descendente](#show-vms)
+- [Mostrar las cinco primeras máquinas virtuales por nombre y tipo de sistema operativo](#show-sorted)
+- [Recuento de máquinas virtuales por tipo de sistema operativo](#count-os)
+- [Mostrar los recursos que contienen almacenamiento](#show-storage)
+- [Enumerar todas las direcciones IP públicas](#list-publicip)
+- [Número de recursos que tienen direcciones IP configuradas por suscripción](#count-resources-by-ip)
+- [Enumerar los recursos con un valor de etiqueta específico](#list-tag)
+- [Enumerar todas las cuentas de almacenamiento con un valor de etiqueta específico](#list-specific-tag)
+- [Mostrar los alias de un recurso de máquina virtual](#show-aliases)
+- [Mostrar los valores distintos de un alias específico](#distinct-alias-values)
 - [Mostrar grupos de seguridad de red no asociados](#unassociated-nsgs)
 - [Obtención de un resumen de ahorro de costos de Azure Advisor](#advisor-savings)
 - [Recuento de máquinas en el ámbito de las directivas de configuración de invitado](#count-gcmachines)
@@ -134,7 +134,7 @@ Search-AzGraph -Query "Resources | project name, type, location | order by name 
 
 ---
 
-## <a name="show-all-virtual-machines-ordered-by-name-in-descending-order"></a><a name="show-vms"></a>Show all virtual machines ordered by name in descending order
+## <a name="show-all-virtual-machines-ordered-by-name-in-descending-order"></a><a name="show-vms"></a>Mostrar todas las máquinas ordenadas por nombre de forma descendente
 
 Para enumerar solo las máquinas virtuales (que son de tipo `Microsoft.Compute/virtualMachines`), podemos hacer coincidir la propiedad **type** en los resultados. De forma similar a la consulta anterior, `desc` cambia el `order by` a descendente. `=~` en el tipo de coincidencia indica a Resource Graph que distinga mayúsculas de minúsculas.
 
@@ -167,7 +167,7 @@ Search-AzGraph -Query "Resources | project name, location, type| where type =~ '
 
 ---
 
-## <a name="show-first-five-virtual-machines-by-name-and-their-os-type"></a><a name="show-sorted"></a>Show first five virtual machines by name and their OS type
+## <a name="show-first-five-virtual-machines-by-name-and-their-os-type"></a><a name="show-sorted"></a>Mostrar las cinco primeras máquinas virtuales por nombre y tipo de sistema operativo
 
 Esta consulta utilizará `top` para recuperar únicamente cinco registros coincidentes que se ordenan por nombre. El tipo de recurso de Azure es `Microsoft.Compute/virtualMachines`. `project` indica a Azure Resource Graph qué propiedades se incluirán.
 
@@ -334,7 +334,7 @@ Search-AzGraph -Query "Resources | where type contains 'publicIPAddresses' and i
 
 ---
 
-## <a name="count-resources-that-have-ip-addresses-configured-by-subscription"></a><a name="count-resources-by-ip"></a>Count resources that have IP addresses configured by subscription
+## <a name="count-resources-that-have-ip-addresses-configured-by-subscription"></a><a name="count-resources-by-ip"></a>Número de recursos que tienen direcciones IP configuradas por suscripción
 
 Con la consulta de ejemplo anterior y agregando `summarize` y `count()`, podemos obtener una lista por suscripción de recursos con direcciones IP configuradas.
 
