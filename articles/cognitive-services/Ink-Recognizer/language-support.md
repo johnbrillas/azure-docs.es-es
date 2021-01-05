@@ -10,12 +10,12 @@ ms.subservice: ink-recognizer
 ms.topic: conceptual
 ms.date: 08/24/2020
 ms.author: aahi
-ms.openlocfilehash: b4acd431656eb008702f62dc1ecf12bda62dae17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 176060700f50a6ce6e8cb5cf622ee4c922e5a952
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89051090"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845358"
 ---
 # <a name="language-and-region-support-for-the-ink-recognizer-api"></a>Compatibilidad de idioma y región con Ink Recognizer API
 
@@ -41,8 +41,8 @@ En este artículo se explica qué idiomas se admiten en Ink Recognizer API. El c
 | Neerlandés (Países Bajos)                        |     `nl-NL`     |
 | Inglés (Australia)                        |     `en-AU`     |
 | Inglés (Canadá)                           |     `en-CA`     |
-| Inglés (Reino Unido)                   |     `en-GB`     |
 | Inglés (India)                            |     `en-IN`     |
+| Inglés (Reino Unido)                   |     `en-GB`     |
 | Spanish (Traditional Sort) - Spain                    |     `en-US`     |
 | Finés                                    |     `fi-FI`     |
 | Francés (Francia)                            |     `fr-FR`     |
@@ -67,23 +67,23 @@ En este artículo se explica qué idiomas se admiten en Ink Recognizer API. El c
 | Polaco                                     |     `pl-PL`     |
 | Portugués (Brasil)                        |     `pt-BR`     |
 | Portugués (Portugal)                      |     `pt-PT`     |
-| Romanche                                    |     `rm-CH`     |
 | Rumano                                   |     `ro-RO`     |
+| Romanche                                    |     `rm-CH`     |
 | Ruso                                    |     `ru-RU`     |
 | Gaélico escocés                            |     `gd-GB`     |
-| Sotho septentrional                           |    `nso-ZA`     |
 | Serbio (cirílico, Bosnia y Herzegovina) |  `sr-Cyrl-BA`   |
 | Serbio (cirílico, Montenegro)             |  `sr-Cyrl-ME`   |
 | Serbio (cirílico, Serbia)                 |  `sr-Cyrl-RS`   |
 | Serbio (latino, Bosnia y Herzegovina)    |  `sr-Latn-BA`   |
 | Serbio (latino, Montenegro)                |  `sr-Latn-ME`   |
 | Serbio (latino, Serbia)                    |  `sr-Latn-RS`   |
+| Sotho septentrional                           |    `nso-ZA`     |
 | Setswana (Sudáfrica)                    |     `tn-ZA`     |
 | Eslovaco                                     |     `sk-SK`     |
 | Esloveno                                  |     `sl-SI`     |
 | Español (Argentina)                        |     `es-AR`     |
-| Español (España)                            |     `es-ES`     |
 | Español (México)                           |     `es-MX`     |
+| Español (España)                            |     `es-ES`     |
 | Sueco (Suecia)                           |     `sv-SE`     |
 | Turco                                    |     `tr-TR`     |
 | Galés                                      |     `cy-GB`     |

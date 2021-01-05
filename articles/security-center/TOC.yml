@@ -3,14 +3,14 @@
 - name: Información general
   expanded: true
   items:
-    - name: Acerca de Security Center
+    - name: ¿Qué es el Centro de seguridad de Azure?
+      href: security-center-introduction.md
+    - name: Disponibilidad
       items:
-        - name: ¿Qué es el Centro de seguridad de Azure?
-          href: security-center-introduction.md
         - name: Plataformas compatibles
           displayName: coverage
           href: security-center-os-coverage.md
-        - name: Cobertura de características para máquinas virtuales
+        - name: 'Cobertura por sistema operativo, tipo de máquina y nube'
           href: security-center-services.md
         - name: Cobertura de características para los recursos de PaaS de Azure
           href: features-paas.md
@@ -110,6 +110,8 @@
       href: tutorial-security-incident.md
     - name: Mejora del cumplimiento normativo
       href: security-center-compliance-dashboard.md
+    - name: Administrar directivas de seguridad
+      href: tutorial-security-policy.md
 - name: Conceptos
   items:
     - name: Administración de la posición de seguridad en la nube
@@ -120,11 +122,6 @@
           href: secure-score-security-controls.md
         - name: Introducción a las recomendaciones de seguridad
           href: security-center-recommendations.md
-        - name: Introducción a las directivas de seguridad
-          href: tutorial-security-policy.md
-        - name: Directivas de seguridad integradas
-          displayName: 'samples, policy'
-          href: ./policy-reference.md
         - name: Recomendaciones de uso para mejorar la seguridad
           href: security-center-using-recommendations.md
         - name: Línea de base de seguridad
@@ -224,14 +221,9 @@
         - name: Protección de los hosts de Docker
           displayName: containers
           href: harden-docker-hosts.md
-    - name: Uso de Azure Defender para SQL
-      items:
-        - name: Configuración de Azure defender para SQL en máquinas virtuales de Azure
+        - name: Uso de Azure Defender para SQL
           href: defender-for-sql-usage.md
           displayName: 'hybrid, arc'
-        - name: Personalización de la directiva de protección de la información de SQL
-          displayName: 'sql, database, data discovery'
-          href: security-center-info-protection-policy.md
     - name: Uso de Azure Defender para registros de contenedor
       items:
         - name: Búsqueda de vulnerabilidades en las imágenes del registro
@@ -281,6 +273,9 @@
       href: security-center-investigation-user-data.md
     - name: Visibilidad de todo el inquilino
       href: security-center-management-groups.md
+    - name: Personalización de la directiva de protección de la información de SQL
+      displayName: 'sql, database, data discovery'
+      href: security-center-info-protection-policy.md
 - name: Referencia
   items:
     - name: API de REST
@@ -297,6 +292,9 @@
           href: faq-vms.md
         - name: Usuarios de Azure Log Analytics existentes
           href: faq-azure-monitor-logs.md
+    - name: Directivas de seguridad integradas
+      displayName: 'samples, policy'
+      href: policy-reference.md
     - name: Blog de Azure Roadmap
       href: 'https://azure.microsoft.com/updates/?product=security-center'
     - name: Valoración y recomendaciones sobre la protección de puntos de conexión
