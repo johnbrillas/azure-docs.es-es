@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: f64a91e3b285c265296c361366a10443eda18201
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: b7af6b489aeb919fd1db0e45ddba58a21b1c3633
+ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489420"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97760155"
 ---
 # <a name="azure-monitor-metrics-overview"></a>Información general sobre las métricas en Microsoft Azure
 Las métricas en Azure Monitor son una característica de Azure Monitor que recopila datos numéricos de [recursos supervisados](../monitor-reference.md) en una base de datos de serie temporal. Las métricas son valores numéricos que se recopilan a intervalos regulares y describen algún aspecto de un sistema en un momento determinado. Las métricas en Azure Monitor son ligeras y capaces de admitir escenarios casi en tiempo real, lo que hace que sean especialmente útiles para las alertas y una detección rápida de problemas. Puede analizarlas de forma interactiva con el explorador de métricas, recibir una notificación de forma proactiva con una alerta cuando un valor cruza un umbral o visualizarlas en un libro o panel.
@@ -56,7 +56,7 @@ Las métricas que Azure Monitor recopila proceden de tres orígenes fundamentale
 ## <a name="metrics-explorer"></a>Explorador de métricas
 Use el [Explorador de métricas](metrics-charts.md) para analizar de forma interactiva los datos en la base de datos de métricas y representar los valores de varias métricas con el tiempo. Puede anclar los gráficos a un panel para verlos con otras visualizaciones. También puede recuperar las métricas con la [API REST de supervisión de Azure](rest-api-walkthrough.md).
 
-![Explorador de métricas](media/data-platform/metrics-explorer.png)
+![Explorador de métricas](media/data-platform-metrics/metrics-explorer.png)
 
 - Consulte [Introducción al Explorador de métricas de Azure Monitor](metrics-getting-started.md) para comenzar a usar el Explorador de métricas.
 
