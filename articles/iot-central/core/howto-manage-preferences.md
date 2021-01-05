@@ -3,17 +3,17 @@ title: Administración de sus preferencias personales en IoT Central | Microsoft
 description: Cómo administrar sus preferencias personales de aplicaciones, como cambiar el idioma y el tema en la aplicación de IoT Central.
 author: lmasieri
 ms.author: lmasieri
-ms.date: 07/10/2019
+ms.date: 12/23/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: e2b0dbe8b7738a8c4c551eccca72897bbf1594b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 83d8c04765bf9aecc9029cdc8d12461231d191f2
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80157898"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97795962"
 ---
 # <a name="manage-your-personal-application-preferences"></a>Administración de sus preferencias personales de aplicaciones
 

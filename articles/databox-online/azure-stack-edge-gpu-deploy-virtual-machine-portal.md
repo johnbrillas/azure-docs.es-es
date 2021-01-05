@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 11/02/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro device so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: 89ef196cb5a124b8b1100871c408400f3fceef5c
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 04ba9777fe9e8470e6f02c83f3996d098023e05e
+ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96465788"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97763462"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-the-azure-portal"></a>Implementación de máquinas virtuales en el dispositivo Azure Stack Edge Pro con GPU a través de Azure Portal
 
@@ -123,7 +123,7 @@ Siga estos pasos para crear una máquina virtual después de crear una imagen de
     |---------|---------|
     |Nombre de la máquina virtual     |         |
     |Imagen     | Seleccione de las imágenes de VM disponibles en el dispositivo.        |
-    |Size     | Elija entre los [tamaños de VM compatibles](azure-stack-edge-gpu-deploy-virtual-machine-templates.md#supported-vm-sizes).        |
+    |Size     | Elija entre los [tamaños de VM compatibles](azure-stack-edge-gpu-virtual-machine-sizes.md).        |
     |Nombre de usuario     | Use el nombre de usuario predeterminado *azureuser*.        |
     |Tipo de autenticación    | Elija una clave pública SSH o una contraseña definida por el usuario.       |
     |Contraseña     | Escriba una contraseña para iniciar sesión en la máquina virtual. La contraseña debe tener un mínimo de 12 caracteres y cumplir los [requisitos de complejidad](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm) definidos.        |

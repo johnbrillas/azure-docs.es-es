@@ -3,16 +3,16 @@ title: Preguntas más frecuentes sobre Azure IoT Central | Microsoft Docs
 description: Preguntas más frecuentes (P+F) y respuestas sobre Azure IoT Central
 author: dominicbetts
 ms.author: dobett
-ms.date: 09/23/2020
+ms.date: 12/20/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: cbe0dbe55f903c25556698a5d510bf9e67b408be
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: acabaf843f8acfe7bc0b5e9456dee09bde74bef7
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126727"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97796047"
 ---
 # <a name="frequently-asked-questions-for-iot-central"></a>Preguntas más frecuentes sobre IoT Central
 
@@ -38,11 +38,11 @@ Cuando un operador desbloquea un dispositivo, el estado vuelve a su valor anteri
 
 Si el estado del dispositivo es **Esperando aprobación** en la página de **Dispositivos**, significa que la opción **Aprobación automática** está deshabilitada:
 
-:::image type="content" source="media/howto-faq/auto-approve.png" alt-text="Captura de pantalla que muestra el dispositivo bloqueado":::
+:::image type="content" source="media/howto-faq/auto-approve.png" alt-text="Captura de pantalla que muestra la aplicación con la opción de aprobación automática deshabilitada.":::
 
 Un operador debe aprobar explícitamente un dispositivo antes de que empiece a enviar datos. Los dispositivos no registrados manualmente en la página **Dispositivos**, pero conectados con credenciales válidas, tendrán el estado del dispositivo **En espera de aprobación**. Los operadores pueden aprobar estos dispositivos desde la página **Dispositivos** mediante el botón **Aprobar**:
 
-:::image type="content" source="media/howto-faq/approve-device.png" alt-text="Captura de pantalla que muestra el dispositivo bloqueado":::
+:::image type="content" source="media/howto-faq/approve-device.png" alt-text="Captura de pantalla que muestra cómo aprobar un dispositivo":::
 
 **¿Cómo puedo asociar un dispositivo a una plantilla de dispositivo?**
 
