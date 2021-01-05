@@ -153,6 +153,8 @@
       href: ../../azure-signalr/security-baseline.md
     - name: "Base de referencia de seguridad de Azure SQL\_Database"
       href: ../../azure-sql/database/security-baseline.md
+    - name: Línea base de seguridad de Azure Stack Edge
+      href: ../../databox-online/security-baseline.md
     - name: Base de referencia de seguridad de Azure Storage
       href: ../../storage/common/security-baseline.md
     - name: Línea base de seguridad de Azure Web Application Firewall

@@ -94,6 +94,8 @@
       href: backup-architecture.md
     - name: Guía y procedimientos recomendados
       href: guidance-best-practices.md
+    - name: Glosario de términos
+      href: azure-backup-glossary.md
 - name: Guías de procedimientos
   items:
     - name: Almacenes
@@ -158,12 +160,14 @@
               href: backup-azure-vms-encryption.md
             - name: Restauración de la clave y el secreto para máquinas virtuales cifradas
               href: backup-azure-restore-key-secret.md
-        - name: Administración
+        - name: Administrar
           items:
             - name: Administración de copias de seguridad de máquinas virtuales de Azure
               href: backup-azure-manage-vms.md
             - name: Administración de puntos de recuperación
               href: manage-recovery-points.md
+            - name: Modificación de la directiva de copia de seguridad con la CLI de Azure
+              href: modify-vm-policy-cli.md
     - name: "Base de datos de SQL\_Server datos en la copia de seguridad de una máquina virtual de Azure"
       items:
         - name: Información general
@@ -216,7 +220,7 @@
               href: backup-afs.md
             - name: Restauración
               href: restore-afs.md
-            - name: Administración
+            - name: Administrar
               href: manage-afs-backup.md
         - name: Con la CLI de Azure
           items:
@@ -224,7 +228,7 @@
               href: backup-afs-cli.md
             - name: Restauración
               href: restore-afs-cli.md
-            - name: Administración
+            - name: Administrar
               href: manage-afs-backup-cli.md
         - name: Con PowerShell
           items:

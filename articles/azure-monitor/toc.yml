@@ -544,18 +544,40 @@
           href: platform/alerts-resource-move.md
         - name: Administración de servicios de TI
           items:
-            - name: IT Service Management Connector
+            - name: Introducción al Conector de Administración de servicios de TI
               href: platform/itsmc-overview.md
-            - name: "Conexiones de\_IT Service Management"
-              href: platform/itsmc-connections.md
-            - name: Definición de Conector de Administración de servicios de TI
+            - name: Instalación de asociados del Conector de Administración de servicios de TI
+              items:
+                - name: Información general
+                  href: platform/itsmc-connections.md
+                - name: ServiceNow
+                  href: platform/itsmc-connections-servicenow.md
+                - name: System Center Service Manager
+                  items:
+                    - name: Configurar
+                      href: platform/itsmc-connections-scsm.md
+                    - name: Creación de aplicación web de Service Manager
+                      href: platform/itsmc-service-manager-script.md
+                - name: Cherwell
+                  href: platform/itsmc-connections-cherwell.md
+                - name: Provance
+                  href: platform/itsmc-connections-provance.md
+            - name: Configuración de Azure en el Conector de Administración de servicios de TI
               href: platform/itsmc-definition.md
-            - name: Creación de aplicación web de Service Manager
-              href: platform/itsmc-service-manager-script.md
+            - name: Datos sincronizados desde un producto de Administración de servicios de TI
+              href: platform/itsmc-synced-data.md
             - name: Solución de problemas del Conector de Administración de servicios de TI
               href: platform/itsmc-resync-servicenow.md
             - name: Integración con exportación segura
-              href: platform/it-service-management-connector-secure-webhook-connections.md
+              items:
+                - name: Información general
+                  href: platform/it-service-management-connector-secure-webhook-connections.md
+                - name: Configuración de la exportación segura en Azure
+                  href: platform/itsm-connector-secure-webhook-connections-azure-configuration.md
+                - name: BMC
+                  href: platform/itsmc-secure-webhook-connections-bmc.md
+                - name: ServiceNow
+                  href: platform/itsmc-secure-webhook-connections-servicenow.md
         - name: Migración de las reglas de alertas clásicas
           items:
             - name: Acerca de alertas clásicas
@@ -790,6 +812,8 @@
               href: app/snapshot-debugger.md
             - name: Habilitar Snapshot Debugger para una instancia de App Service
               href: app/snapshot-debugger-appservice.md
+            - name: Habilitación de Snapshot Debugger para una aplicación de funciones
+              href: app/snapshot-debugger-function-app.md
             - name: Habilitar Snapshot Debugger para otros entornos
               href: app/snapshot-debugger-vm.md
             - name: Actualización de Snapshot Debugger

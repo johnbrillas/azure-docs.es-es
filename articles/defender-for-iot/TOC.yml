@@ -5,135 +5,233 @@
   items:
     - name: Arquitectura de la solución
       href: architecture.md
-    - name: Módulo de seguridad para Azure RTOS
-      href: iot-security-azure-rtos.md
-    - name: Agentes de seguridad
-      href: security-agent-architecture.md
-    - name: Módulo de seguridad de Edge
-      href: security-edge-architecture.md
-    - name: Requisitos previos de servicios
-      href: service-prerequisites.md
-    - name: Introducción a Azure Defender para IoT
-      href: getting-started.md
-      items:
-        - name: IoT Hub
-          href: iot-hub-integration.md
-        - name: Agentes de seguridad
-          href: security-agents.md
 - name: Guías de inicio rápido
   expanded: true
   items:
-    - name: Preparación de la red
-      href: quickstart-prepare-network-for-defender-for-iot.md
-    - name: Sensores incorporados
-      href: quickstart-onboard-sensors.md
-    - name: Configuración de un módulo de seguridad para Azure RTOS
-      href: quickstart-azure-rtos-security-module.md
-    - name: Incorporación de Azure Defender para IoT en IoT Hub
-      href: quickstart-onboard-iot-hub.md
-    - name: Configuración de la solución
-      href: quickstart-configure-your-solution.md
-    - name: Creación de un módulo gemelo de Azure Defender para IoT
-      href: quickstart-create-security-twin.md
-    - name: Investigación de recomendaciones de seguridad
-      href: quickstart-investigate-security-recommendations.md
-    - name: Creación de alertas de seguridad personalizadas
-      href: quickstart-create-custom-alerts.md
-    - name: Investigación de alertas de seguridad
-      href: quickstart-investigate-security-alerts.md
+    - name: Una solución sin agente para organizaciones
+      items:
+        - name: Requisitos previos del sistema
+          href: quickstart-system-prerequisites.md
+        - name: Introducción a Azure Defender para IoT
+          href: getting-started.md
+    - name: Una solución basada en agente para generadores de dispositivos
+      items:
+        - name: Configuración de un módulo de seguridad para Azure RTOS
+          href: quickstart-azure-rtos-security-module.md
+        - name: IoT Hub
+          href: quickstart-iot-hub-integration.md
+        - name: Incorporación de Azure Defender para IoT en IoT Hub
+          href: quickstart-onboard-iot-hub.md
+        - name: Agentes de seguridad
+          href: security-agent-architecture.md
+        - name: Configuración de la solución
+          href: quickstart-configure-your-solution.md
+        - name: Creación de un módulo gemelo de Azure Defender para IoT
+          href: quickstart-create-security-twin.md
+        - name: Investigación de recomendaciones de seguridad
+          href: quickstart-investigate-security-recommendations.md
+        - name: Creación de alertas de seguridad personalizadas
+          href: quickstart-create-custom-alerts.md
+        - name: Investigación de alertas de seguridad
+          href: quickstart-investigate-security-alerts.md
 - name: Conceptos
   items:
-    - name: Módulo de seguridad para Azure RTOS
+    - name: Una solución sin agente para organizaciones
       items:
-        - name: Descripción del módulo de seguridad para Azure RTOS
-          href: concept-rtos-security-module.md
-        - name: Alertas y recomendaciones para el módulo de seguridad de Azure RTOS
-          href: concept-rtos-security-alerts-recommendations.md
-    - name: Autenticación del agente de seguridad
-      href: concept-security-agent-authentication-methods.md
-    - name: Módulo de seguridad
-      href: concept-security-module.md
-    - name: Alertas de seguridad
-      href: concept-security-alerts.md
-    - name: Alertas de seguridad personalizables
-      href: concept-customizable-security-alerts.md
-    - name: Seguridad
+        - name: Conceptos clave
+          href: concept-key-concepts.md
+    - name: Una solución basada en agente para los generadores de dispositivos
       items:
-        - name: Recomendaciones de seguridad
-          href: concept-recommendations.md
-        - name: Línea de base de seguridad
-          href: security-baseline.md
-    - name: Línea base
-      href: concept-baseline.md
-    - name: Agregación de datos
-      href: event-aggregation.md
-    - name: Precios y costos asociados
-      href: concept-pricing.md
+        - name: Módulo de seguridad para Azure RTOS
+          href: iot-security-azure-rtos.md
+          items:
+            - name: Descripción del módulo de seguridad para Azure RTOS
+              href: concept-rtos-security-module.md
+            - name: Alertas y recomendaciones para el módulo de seguridad de Azure RTOS
+              href: concept-rtos-security-alerts-recommendations.md
+        - name: Módulo de seguridad de Edge
+          href: security-edge-architecture.md
+        - name: Agentes de seguridad
+          href: overview-security-agents.md
+        - name: Autenticación del agente de seguridad
+          href: concept-security-agent-authentication-methods.md
+        - name: Módulo de seguridad
+          href: concept-security-module.md
+        - name: Alertas de seguridad
+          href: concept-security-alerts.md
+        - name: Alertas de seguridad personalizables
+          href: concept-customizable-security-alerts.md
+        - name: Seguridad
+          items:
+            - name: Recomendaciones de seguridad
+              href: concept-recommendations.md
+            - name: Línea de base de seguridad
+              href: security-baseline.md
+        - name: Línea base
+          href: concept-baseline.md
+        - name: Agregación de datos
+          href: event-aggregation.md
+        - name: Precios y costos asociados
+          href: concept-pricing.md
 - name: Guías paso a paso
   items:
-    - name: Visualización y administración de sensores
-      href: how-to-deploy-view-sensors.md
-    - name: Implementación de la consola de administración local
-      href: how-to-deploy-management-console-appliance.md
-    - name: Trabajo con el módulo de seguridad para Azure RTOS
-      href: how-to-azure-rtos-security-module.md
-    - name: ¿Qué agente debo implementar?
+    - name: Una solución sin agente para organizaciones
       items:
-        - name: Selección de un agente para su implementación
-          href: how-to-deploy-agent.md
-        - name: Implementación de un agente de seguridad basado en C# en un dispositivo Windows
-          href: how-to-deploy-windows-cs.md
-        - name: Implementación de un agente de seguridad basado en C# en un dispositivo Linux
-          href: how-to-deploy-linux-cs.md
-        - name: Implementación de un agente de seguridad basado en C en un dispositivo Linux
-          href: how-to-deploy-linux-c.md
-    - name: Solución de problemas de un agente de seguridad
+        - name: Preparación de la red
+          items:
+            - name: Identificación de los dispositivos necesarios
+              href: how-to-identify-required-appliances.md
+            - name: Instalación del software
+              href: how-to-install-software.md
+            - name: Configuración de la red
+              href: how-to-set-up-your-network.md
+        - name: Preparación de los sensores
+          items:
+            - name: Sensores incorporados
+              href: how-to-manage-sensors-on-the-cloud.md
+            - name: Activación y configuración del sensor
+              href: how-to-activate-and-set-up-your-sensor.md
+        - name: Preparación de la consola de administración local
+          items:
+            - name: Activación y configuración de la consola de administración local
+              href: how-to-activate-and-set-up-your-on-premises-management-console.md
+            - name: Configuración de la alta disponibilidad
+              href: how-to-set-up-high-availability.md
+        - name: Administración de usuarios y del acceso de los usuarios
+          items:
+            - name: Creación y administración de usuarios
+              href: how-to-create-and-manage-users.md
+            - name: Definición del control de acceso de usuarios globales
+              href: how-to-define-global-user-access-control.md
+        - name: Control del tráfico que se supervisa
+          href: how-to-control-what-traffic-is-monitored.md
+        - name: Administración de sensores desde la consola de administración local
+          href: how-to-manage-sensors-from-the-on-premises-management-console.md
+        - name: Administración de sensores individuales
+          href: how-to-manage-individual-sensors.md
+        - name: Administración de sensores en la nube
+          href: how-to-manage-sensors-on-the-cloud.md
+        - name: Administración de la consola de administración local
+          href: how-to-manage-the-on-premises-management-console.md
+        - name: Uso de paquetes de inteligencia sobre amenazas
+          href: how-to-work-with-threat-intelligence-packages.md
+        - name: Uso de la información del inventario de dispositivos
+          items:
+            - name: Investigación de la detecciones de todos los sensores de la empresa en un inventario de dispositivos
+              href: how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md
+            - name: Investigación de la detección de todos los sensores de la empresa en un inventario de dispositivos
+              href: how-to-investigate-sensor-detections-in-a-device-inventory.md
+        - name: Uso de la asignación de dispositivos sensores
+          href: how-to-work-with-the-sensor-device-map.md
+        - name: Uso de las alertas detectadas por un sensor
+          items:
+            - name: Uso de una alerta en un sensor
+              href: how-to-work-with-alerts-on-your-sensor.md
+            - name: Visualización de alertas
+              href: how-to-view-alerts.md
+            - name: Visualización de la información proporcionada en las alertas
+              href: how-to-view-information-provided-in-alerts.md
+            - name: Administración del evento de alertas
+              href: how-to-manage-the-alert-event.md
+            - name: Aceleración de la respuesta a incidentes de alerta
+              href: how-to-accelerate-alert-incident-response.md
+            - name: Reenvío de la información de las alertas
+              href: how-to-forward-alert-information-to-partners.md
+        - name: 'Obtención de información sobre amenazas globales, regionales y locales'
+          href: how-to-gain-insight-into-global-regional-and-local-threats.md
+        - name: Uso de alertas en la consola de administración local
+          href: how-to-work-with-alerts-on-premises-management-console.md
+        - name: Enriquecimiento de la información del dispositivo
+          items:
+            - name: Uso de las notificaciones de dispositivos
+              href: how-to-work-with-device-notifications.md
+            - name: Mejora de la resolución de nombres de puerto y VLAN
+              href: how-to-enhance-port-and-vlan-name-resolution.md
+            - name: Importación de la información del dispositivo
+              href: how-to-import-device-information.md
+        - name: Seguimiento de la actividad del sensor
+          href: how-to-track-sensor-activity.md
+        - name: Generación de informes
+          href: how-to-generate-reports.md
+        - name: Solución de problemas del sensor y de la consola de administración local
+          href: how-to-troubleshoot-the-sensor-and-on-premises-management-console.md
+        - name: Configuración de la supervisión de MIB del protocolo simple de administración de redes
+          href: how-to-set-up-snmp-mib-monitoring.md
+    - name: Una solución basada en agente para los generadores de dispositivos
       items:
-        - name: Solución de problemas de un agente de seguridad de Linux de Azure Defender para IoT
-          href: troubleshoot-agent.md
-        - name: Configuración local en C
-          href: azure-iot-security-local-configuration-c.md
-        - name: Configuración local en C#
-          href: azure-iot-security-local-configuration-csharp.md
-    - name: Implementación del módulo de seguridad de Edge
-      href: how-to-deploy-edge.md
-    - name: Configuración de agentes de seguridad
-      href: how-to-agent-configuration.md
-    - name: Envío de sus propios mensajes de seguridad
-      href: how-to-send-security-messages.md
-    - name: Acceso a datos de seguridad sin procesar
-      href: how-to-security-data-access.md
-    - name: Investigación de un dispositivo
-      href: how-to-investigate-device.md
-    - name: Conexión a Azure Sentinel
-      href: how-to-configure-with-sentinel.md
-    - name: Personalización de un agente
-      href: how-to-customize-solution.md
+        - name: Trabajo con el módulo de seguridad para Azure RTOS
+          href: how-to-azure-rtos-security-module.md
+        - name: ¿Qué agente debo implementar?
+          items:
+            - name: Selección de un agente para su implementación
+              href: how-to-deploy-agent.md
+            - name: Implementación de un agente de seguridad basado en C# en un dispositivo Windows
+              href: how-to-deploy-windows-cs.md
+            - name: Implementación de un agente de seguridad basado en C# en un dispositivo Linux
+              href: how-to-deploy-linux-cs.md
+            - name: Implementación de un agente de seguridad basado en C en un dispositivo Linux
+              href: how-to-deploy-linux-c.md
+        - name: Solución de problemas de un agente de seguridad
+          items:
+            - name: Solución de problemas de un agente de seguridad de Linux de Azure Defender para IoT
+              href: troubleshoot-agent.md
+            - name: Configuración local en C
+              href: azure-iot-security-local-configuration-c.md
+            - name: Configuración local en C#
+              href: azure-iot-security-local-configuration-csharp.md
+        - name: Implementación del módulo de seguridad de Edge
+          href: how-to-deploy-edge.md
+        - name: Configuración de agentes de seguridad
+          href: how-to-agent-configuration.md
+        - name: Envío de sus propios mensajes de seguridad
+          href: how-to-send-security-messages.md
+        - name: Acceso a datos de seguridad sin procesar
+          href: how-to-security-data-access.md
+        - name: Investigación de un dispositivo
+          href: how-to-investigate-device.md
+        - name: Conexión a Azure Sentinel
+          href: how-to-configure-with-sentinel.md
+        - name: Personalización de un agente
+          href: how-to-customize-solution.md
 - name: Referencias
   items:
-    - name: API del módulo de seguridad para Azure RTOS
-      href: azure-rtos-security-module-api.md
-    - name: 'Preguntas frecuentes: servicio'
-      href: resources-frequently-asked-questions.md
-    - name: 'Preguntas frecuentes: agente'
-      href: resources-agent-frequently-asked-questions.md
-    - name: Azure Roadmap
-      href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
+    - name: Una solución sin agente para organizaciones
+      items:
+        - name: Uso de las API de Defender para IoT
+          href: references-work-with-defender-for-iot-apis.md
+        - name: Uso de los comandos de la CLI de Defender para IoT
+          href: references-work-with-defender-for-iot-cli-commands.md
+        - name: Administración de protocolos patentados (Horizon)
+          href: resources-manage-proprietary-protocols.md
+        - name: Glosario de Defender para IoT
+          href: references-defender-for-iot-glossary.md
+    - name: Una solución basada en agente para los generadores de dispositivos
+      items:
+        - name: API del módulo de seguridad para Azure RTOS
+          href: azure-rtos-security-module-api.md
+        - name: 'Preguntas frecuentes: servicio'
+          href: resources-frequently-asked-questions.md
+        - name: 'Preguntas frecuentes: agente'
+          href: resources-agent-frequently-asked-questions.md
+        - name: Azure Roadmap
+          href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
 - name: Recursos
   items:
-    - name: Creación de las aptitudes de seguridad con Microsoft Learn
-      href: /learn/browse/?term=securityS&terms=securityS
-    - name: Documentación de Azure Security Center
-      href: ../security-center/index.yml
-    - name: Documentación de Azure Security Center
-      href: ../security/index.yml
-    - name: Módulo de seguridad de Azure RTOS en Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/azure-rtos+azure-iot-security-module'
-    - name: 'Blog sobre seguridad, privacidad y cumplimiento de Azure IoT'
-      href: 'https://techcommunity.microsoft.com/t5/iot-security/bd-p/IoTSecurity'
-    - name: Disponibilidad regional
-      href: 'https://azure.microsoft.com/regions/services/'
-    - name: Precios
-      href: 'https://azure.microsoft.com/pricing/details/security-center/'
-    - name: Vídeos
-      href: 'https://azure.microsoft.com/resources/videos/index/?services=security-center&service=internet-of-things&page=1&sort=newest'
+    - name: Una solución basada en agente para los generadores de dispositivos
+      items:
+        - name: Creación de las aptitudes de seguridad con Microsoft Learn
+          href: /learn/browse/?term=securityS&terms=securityS
+        - name: Documentación de Azure Security Center
+          href: ../security-center/
+        - name: Documentación de Azure Security Center
+          href: 'https://docs.microsoft.com/azure/security/'
+        - name: Módulo de seguridad de Azure RTOS en Stack Overflow
+          href: 'https://stackoverflow.com/questions/tagged/azure-rtos+azure-iot-security-module'
+        - name: 'Blog sobre seguridad, privacidad y cumplimiento de Azure IoT'
+          href: 'https://techcommunity.microsoft.com/t5/iot-security/bd-p/IoTSecurity'
+        - name: Disponibilidad regional
+          href: 'https://azure.microsoft.com/regions/services/'
+        - name: Precios
+          href: 'https://azure.microsoft.com/pricing/details/security-center/'
+        - name: Vídeos
+          href: 'https://azure.microsoft.com/resources/videos/index/?services=security-center&service=internet-of-things&page=1&sort=newest'

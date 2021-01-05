@@ -9,6 +9,8 @@
   items:
     - name: Creación de una aplicación web
       href: quick-demo-map-app.md
+    - name: Creación de una aplicación de Android
+      href: quick-android-map.md
 - name: Tutoriales
   items:
     - name: Tutoriales de SDK web
@@ -21,6 +23,10 @@
           href: tutorial-prioritized-routes.md
         - name: Creación de un localizador de almacén
           href: tutorial-create-store-locator.md
+    - name: Tutoriales de Android SDK
+      items:
+        - name: Carga de datos de GeoJSON en un mapa
+          href: tutorial-load-geojson-file-android.md
     - name: Tutoriales sobre la API REST
       items:
         - name: Creación de planos interiores
@@ -238,16 +244,28 @@
           href: how-to-use-android-map-control-library.md
         - name: Cambio del estilo del mapa
           href: set-android-map-styles.md
+        - name: Creación de un origen de datos
+          href: create-data-source-android-sdk.md
         - name: Adición de una capa de símbolo
           href: how-to-add-symbol-to-android-map.md
+        - name: Adición de una capa de burbuja
+          href: map-add-bubble-layer-android.md
         - name: Agregar formas
           href: how-to-add-shapes-to-android-map.md
+        - name: Adición de capa de mapa térmico
+          href: map-add-heat-map-layer-android.md
+        - name: Adición de una capa de línea
+          href: android-map-add-line-layer.md
         - name: Mostrar información de características
           href: display-feature-information-android.md
         - name: Adición de una capa de icono
           href: how-to-add-tile-layer-android-map.md
         - name: Mostrar datos del tráfico
           href: how-to-show-traffic-android.md
+        - name: Uso de expresiones controladas por datos
+          href: data-driven-style-expressions-android-sdk.md
+        - name: Reacción a eventos
+          href: android-map-events.md
     - name: "Uso de Azure Maps en Power\_BI"
       items:
         - name: Introducción

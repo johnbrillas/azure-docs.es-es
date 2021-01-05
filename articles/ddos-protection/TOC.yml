@@ -15,9 +15,11 @@
 - name: Tutoriales
   items:
     - name: Visualización y configuración de la telemetría de DDoS Protection
-      href: telemetry-monitoring-alerting.md
-    - name: Configuración de registros de flujo e informes de mitigación de ataques DDoS
-      href: reports-and-flow-logs.md
+      href: telemetry.md
+    - name: Visualización y configuración del registro de diagnósticos de DDoS
+      href: diagnostic-logging.md
+    - name: Visualización y configuración de alertas de protección contra DDoS
+      href: alerts.md
 - name: Conceptos
   items:
     - name: Tipos de ataques

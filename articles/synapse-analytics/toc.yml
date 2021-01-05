@@ -502,7 +502,7 @@
               items:
                 - name: Adición de un trabajo de Azure Stream Analytics
                   href: ./sql-data-warehouse/sql-data-warehouse-integrate-azure-stream-analytics.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: Herramientas para conectarse a áreas de trabajo de Synapse
+        - name: Conexión con herramientas y aplicaciones
           items:
             - name: Información general
               href: sql/connect-overview.md
@@ -510,14 +510,20 @@
               href: sql/get-started-azure-data-studio.md
             - name: Cadenas de conexión
               href: sql/connection-strings.md
-            - name: Consulta con sqlcmd
-              href: sql/get-started-connect-sqlcmd.md
             - name: Consulta con SSMS
               href: sql/get-started-ssms.md
-            - name: Consulta con Visual Studio
-              href: sql/get-started-visual-studio.md
             - name: Conexión con Power BI Desktop
               href: sql/get-started-power-bi-professional.md
+            - name: Consulta con Visual Studio SSDT
+              href: sql/get-started-visual-studio.md
+            - name: Consulta mediante .NET Core
+              href: ../azure-sql/database/connect-query-dotnet-core.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Consulta mediante con Visual Studio .NET
+              href: ../azure-sql/database/connect-query-dotnet-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Consulta mediante Python
+              href: ../azure-sql/database/connect-query-python.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Consulta con sqlcmd
+              href: sql/get-started-connect-sqlcmd.md
 - name: Spark de Apache
   items:
     - name: Información general
@@ -724,7 +730,7 @@
               href: ../data-factory/connector-azure-databricks-delta-lake.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Azure File Storage
               href: ../data-factory/connector-azure-file-storage.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Azure SQL Database
+            - name: "Azure\_SQL\_Database"
               href: ../data-factory/connector-azure-sql-database.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Instancia administrada de Azure SQL
               href: ../data-factory/connector-azure-sql-database-managed-instance.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
@@ -1107,6 +1113,10 @@
           href: ./machine-learning/tutorial-cognitive-services-anomaly.md
         - name: Configuración de Cognitive Services para Azure Synapse
           href: ./machine-learning/tutorial-configure-cognitive-services-synapse.md
+- name: Instrucciones
+  items:
+    - name: Planificación y administración de costos
+      href: plan-manage-costs.md
 - name: Referencia
   items:
     - name: Azure CLI
