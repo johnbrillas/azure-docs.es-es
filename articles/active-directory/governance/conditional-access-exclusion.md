@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 06/17/2020
+ms.date: 12/23/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b4a18ad04064ef8356e21d106843d6c946f50741
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 426e28048ae370919529ea710717a3a3867d999d
+ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92362729"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97746259"
 ---
 # <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>Uso de revisiones de acceso de Azure AD para administrar los usuarios a los que se les ha excluido de las directivas de acceso condicional
 
@@ -65,15 +65,15 @@ Siga estos pasos para crear un grupo de Azure AD y una directiva de acceso cond
 
 1. Inicie sesión en Azure Portal.
 
-2. En el panel de navegación izquierdo, haga clic en **Azure Active Directory** y, después, en **Grupos** .
+2. En el panel de navegación izquierdo, haga clic en **Azure Active Directory** y, después, en **Grupos**.
 
 3. En el menú superior, haga clic en **Nuevo grupo** para abrir el panel de grupo.
 
-4. En la lista **Tipo de grupo** , seleccione **Seguridad** . Especifique un nombre y una descripción.
+4. En la lista **Tipo de grupo**, seleccione **Seguridad**. Especifique un nombre y una descripción.
 
-5. Asegúrese de establecer el tipo de **Pertenencia** en **Asignado** .
+5. Asegúrese de establecer el tipo de **Pertenencia** en **Asignado**.
 
-6. Seleccione los usuarios que deben formar parte de este grupo de exclusión y, a continuación, haga clic en **Crear** .
+6. Seleccione los usuarios que deben formar parte de este grupo de exclusión y, a continuación, haga clic en **Crear**.
 
 ![Panel de nuevo grupo en Azure Active Directory](./media/conditional-access-exclusion/new-group.png)
 
@@ -81,17 +81,17 @@ Siga estos pasos para crear un grupo de Azure AD y una directiva de acceso cond
 
 Ahora puede crear una directiva de acceso condicional que use este grupo de exclusión.
 
-1. En el panel de navegación izquierdo, haga clic en **Azure Active Directory** y, luego, en **Acceso condicional** para abrir la hoja **Directivas** .
+1. En el panel de navegación izquierdo, haga clic en **Azure Active Directory** y, luego, en **Acceso condicional** para abrir la hoja **Directivas**.
 
-2. Haga clic en **Nueva directiva** para que se abra el panel **Nuevo** .
+2. Haga clic en **Nueva directiva** para que se abra el panel **Nuevo**.
 
 3. Especifique un nombre.
 
-4. En Asignaciones, haga clic en **Usuarios y grupos** .
+4. En Asignaciones, haga clic en **Usuarios y grupos**.
 
-5. En la pestaña **Incluir** , seleccione **Todos los usuarios** .
+5. En la pestaña **Incluir**, seleccione **Todos los usuarios**.
 
-6. En la pestaña **Excluir** , agregue una marca de verificación en **Usuarios y grupos** y, a continuación, haga clic en **Seleccionar usuarios excluidos** .
+6. En la pestaña **Excluir**, agregue una marca de verificación en **Usuarios y grupos** y, a continuación, haga clic en **Seleccionar usuarios excluidos**.
 
 7. Seleccione el grupo de exclusión que creó.
 
@@ -150,7 +150,7 @@ Supongamos que tiene una directiva de acceso condicional que bloquea el acceso a
 
 Ahora que ya tiene todo en marcha, el grupo, la directiva de acceso condicional y las revisiones de acceso, es hora de supervisar y hacer un seguimiento de los resultados de estas revisiones.
 
-1. En Azure Portal, abra la hoja **Revisiones de acceso** .
+1. En Azure Portal, abra la hoja **Revisiones de acceso**.
 
 2. Abra el control y el programa que ha creado para administrar el grupo de exclusión.
 

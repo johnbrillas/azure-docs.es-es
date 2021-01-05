@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 08/14/2020
+ms.date: 12/23/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f3e825f908ffe475b05a5e6748d9505e7283b50
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: a2e670525840b801df874e3f8dcbdbadc0955a12
+ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92362706"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97746310"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Planeamiento de una implementación de revisiones de acceso de Azure Active Directory
 
@@ -55,13 +55,13 @@ Planear la implementación de revisiones de acceso es esencial para garantizar e
 
 Las principales ventajas de habilitar las revisiones de acceso son:
 
-* **Administración de la colaboración** . Las revisiones de acceso permiten a las organizaciones administrar el acceso a todos los recursos que necesitan los usuarios. Cuando sus usuarios comparten información y colaboran, las organizaciones tienen la garantía de que únicamente los usuarios autorizados manejan la información.
+* **Administración de la colaboración**. Las revisiones de acceso permiten a las organizaciones administrar el acceso a todos los recursos que necesitan los usuarios. Cuando sus usuarios comparten información y colaboran, las organizaciones tienen la garantía de que únicamente los usuarios autorizados manejan la información.
 
-* **Administración de los riesgos** . Las revisiones de acceso ofrecen a las organizaciones una forma de revisar el acceso a los datos y las aplicaciones. Así se reduce el riesgo de pérdida de datos. Se incluyen funciones que permiten revisar periódicamente el acceso por parte de asociados externos a los recursos corporativos. 
+* **Administración de los riesgos**. Las revisiones de acceso ofrecen a las organizaciones una forma de revisar el acceso a los datos y las aplicaciones. Así se reduce el riesgo de pérdida de datos. Se incluyen funciones que permiten revisar periódicamente el acceso por parte de asociados externos a los recursos corporativos. 
 
-* **Solución para el cumplimiento y la gobernanza** . Mediante las revisiones de acceso, puede regular y volver a certificar el ciclo de vida del acceso a grupos, aplicaciones y sitios. Es posible regular las revisiones de seguimiento con fines de cumplimiento o para aplicaciones sensibles al riesgo específicas de su organización. 
+* **Solución para el cumplimiento y la gobernanza**. Mediante las revisiones de acceso, puede regular y volver a certificar el ciclo de vida del acceso a grupos, aplicaciones y sitios. Es posible regular las revisiones de seguimiento con fines de cumplimiento o para aplicaciones sensibles al riesgo específicas de su organización. 
 
-* **Reducción del costo** . Las revisiones de acceso se crean en la nube y son compatibles de forma nativa con otros recursos en la nube, como grupos, aplicaciones y paquetes de acceso. El uso de revisiones de acceso es menos caro que si tiene que desarrollar herramientas propias o actualizar su conjunto de herramientas local.
+* **Reducción del costo**. Las revisiones de acceso se crean en la nube y son compatibles de forma nativa con otros recursos en la nube, como grupos, aplicaciones y paquetes de acceso. El uso de revisiones de acceso es menos caro que si tiene que desarrollar herramientas propias o actualizar su conjunto de herramientas local.
 
 ### <a name="training-resources"></a>Recursos de aprendizaje
 
@@ -91,7 +91,7 @@ Cuando fracasan los proyectos tecnológicos, normalmente se debe a expectativas 
 
 En el caso de las revisiones de acceso, probablemente tenga que incluir a representantes de los siguientes equipos de su organización:
 
-* **Administración de TI** : administra la infraestructura de TI y las inversiones de su empresa en la nube, junto con las aplicaciones de software como servicio (SaaS). Este equipo se ocupará de:
+* **Administración de TI**: administra la infraestructura de TI y las inversiones de su empresa en la nube, junto con las aplicaciones de software como servicio (SaaS). Este equipo se ocupará de:
 
    * Revisar el acceso con privilegios a la infraestructura y las aplicaciones, incluidos Microsoft 365 y Azure AD.
 
@@ -99,7 +99,7 @@ En el caso de las revisiones de acceso, probablemente tenga que incluir a repres
 
    * Asegúrese de que el acceso mediante programación (scripts) a los recursos a través de entidades de servicio se regule y revise.
 
-* **Equipos de desarrollo** : desarrollan y mantienen las aplicaciones para su organización. Este equipo se ocupará de:
+* **Equipos de desarrollo**: desarrollan y mantienen las aplicaciones para su organización. Este equipo se ocupará de:
 
    * Determinar quién puede acceder a los componentes de los recursos de SaaS, PaaS y IaaS que forman parte de las soluciones desarrolladas, y administrarlos.
 
@@ -107,13 +107,13 @@ En el caso de las revisiones de acceso, probablemente tenga que incluir a repres
 
    * Exigir identidades con privilegios que tengan acceso a software de producción o soluciones que estén hospedadas para sus clientes.
 
-* **Unidades de negocio** : administran proyectos y tienen aplicaciones propias. Este equipo se ocupará de: 
+* **Unidades de negocio**: administran proyectos y tienen aplicaciones propias. Este equipo se ocupará de: 
 
    * Revisar y aprobar, o bien denegar, el acceso a grupos y aplicaciones para usuarios internos y externos.
 
    * Programar y llevar a cabo revisiones para atestiguar la necesidad de acceso continuado de empleados e identidades externas (por ejemplo, asociados).
 
-* **Gobernanza corporativa** : garantiza que la organización siga las directivas internas y cumpla la normativa. Este equipo se ocupará de:
+* **Gobernanza corporativa**: garantiza que la organización siga las directivas internas y cumpla la normativa. Este equipo se ocupará de:
 
    * Solicitar o programar nuevas revisiones de acceso.
 

@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 08/28/2020
+ms.date: 12/22/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: 68cac756a3c84d0360d475a4bf88a392e3961f1d
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 845eef6e119823af789c9a263bfb750845d55bc0
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96447558"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740919"
 ---
 # <a name="tutorial-transfer-data-via-shares-with-azure-stack-edge-pro-gpu"></a>Tutorial: Transferencia de datos a través de recursos compartidos de Azure Stack Edge Pro con GPU
 
@@ -72,8 +72,7 @@ Para crear un recurso compartido, realice el procedimiento siguiente:
    
     f. Dependiendo de si creó un recurso compartido de SMB o NFS, haga uno de estos pasos: 
      
-    - **Recurso compartido de SMB**: En **Usuario local con todos los privilegios**, seleccione **Crear nuevo** o **Usar existente**. Si crea un usuario local, escriba un nombre de usuario y una contraseña y, luego, confirme la contraseña. Con esta acción se asignan permisos al usuario local. Después de asignar aquí los permisos, puede usar el Explorador de archivos para modificarlos.
-    Si activa la casilla de verificación **Permitir operaciones de solo lectura** en los datos de este recurso compartido, puede especificar usuarios de solo lectura.
+    - **Recurso compartido de SMB**: En **Usuario local con todos los privilegios**, seleccione **Crear nuevo** o **Usar existente**. Si crea un usuario local, escriba un nombre de usuario y una contraseña y, luego, confirme la contraseña. Con esta acción se asignan permisos al usuario local. Actualmente no se admite la modificación de permisos de nivel de recurso compartido. Si activa la casilla de verificación **Permitir operaciones de solo lectura** en los datos de este recurso compartido, puede especificar usuarios de solo lectura.
     
         ![Incorporación de recurso compartido de SMB](./media/azure-stack-edge-j-series-deploy-add-shares/add-share-smb-1.png)
    
