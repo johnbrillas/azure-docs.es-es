@@ -4,19 +4,19 @@ description: Migre un certificado que protege la clave de cifrado de base de dat
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: security
-ms.custom: sqldbrb=1, devx-track-azurecli
+ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: how-to
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein, jovanpop
 ms.date: 07/21/2020
-ms.openlocfilehash: 80ff16156348db9c3a209757b48b7d54615d9104
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: c465da3d5d812ea7e811cbe59318122700c6e786
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790702"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97824659"
 ---
 # <a name="migrate-a-certificate-of-a-tde-protected-database-to-azure-sql-managed-instance"></a>Migración de certificados de una base de datos protegida por TDE a Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -125,7 +125,7 @@ Si el certificado se guarda en el almacén de certificados de la máquina local 
 
 2. En el complemento Certificados de MMC, expanda la ruta de acceso Personal > Certificados para ver la lista de certificados.
 
-3. Haga clic con el botón derecho en el certificado y haga clic en **Exportar** .
+3. Haga clic con el botón derecho en el certificado y haga clic en **Exportar**.
 
 4. Siga los pasos del asistente para exportar el certificado y la clave privada a un formato .pfx.
 
@@ -160,7 +160,7 @@ Si el certificado se guarda en el almacén de certificados de la máquina local 
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-Primero debe [configurar un almacén de claves de Azure](../../key-vault/general/manage-with-cli2.md) con el archivo *.pfx* .
+Primero debe [configurar un almacén de claves de Azure](../../key-vault/general/manage-with-cli2.md) con el archivo *.pfx*.
 
 1. Comience con los pasos de preparación de PowerShell:
 

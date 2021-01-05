@@ -11,13 +11,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - 'Role: Technical Support'
-- devx-track-azurecli
-ms.openlocfilehash: bdd9d5fd878094326331e60fc1a639eef08b7ea3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9487fc562fa099d2650aabc8d15fc1449c7fcb5c
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792470"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825183"
 ---
 # <a name="iot-hub-device-streams-preview"></a>Flujos de dispositivos IoT Hub (versión preliminar)
 
@@ -57,7 +56,7 @@ La creación mediante programación de un flujo de dispositivos a través del SD
 
 1. La aplicación de dispositivo registra una devolución de llamada de antemano para recibir notificaciones cuando se inicie un flujo de dispositivos nuevo al dispositivo. Por lo general, ese paso ocurre cuando el dispositivo se inicia y se conecta a IoT Hub.
 
-2. El programa del lado del servicio proporciona el id. de dispositivo ( _no_ la dirección IP) para iniciar un flujo de dispositivos cuando sea necesario.
+2. El programa del lado del servicio proporciona el id. de dispositivo (_no_ la dirección IP) para iniciar un flujo de dispositivos cuando sea necesario.
 
 3. Para notificar al programa del lado del dispositivo, el centro de IoT invoca la devolución de llamada registrada en el paso 1. El dispositivo puede aceptar o rechazar la solicitud de iniciación del flujo. Esta lógica puede ser específica para el escenario de la aplicación. Si el dispositivo rechaza la solicitud de flujo, IoT Hub se lo informa al servicio como corresponde; de lo contrario, se realizan los pasos siguientes.
 
@@ -159,9 +158,9 @@ Dos lados de cada flujo (en el lado del dispositivo y del servicio) usan el SDK 
 
 Hay dos [ejemplos de inicio rápido](./index.yml) disponibles en la página de IoT Hub. Estos muestran el uso de los flujos de dispositivos por parte de las aplicaciones.
 
-* En el ejemplo *echo* , se muestra el uso mediante programación de los flujos de los dispositivos (llamando directamente a las API del SDK).
+* En el ejemplo *echo*, se muestra el uso mediante programación de los flujos de los dispositivos (llamando directamente a las API del SDK).
 
-* En el ejemplo *local proxy* , se muestra el uso de la tunelización del tráfico de las aplicaciones cliente/servidor existentes (como aplicaciones SSH, RDP o web) mediante flujos de datos de dispositivos.
+* En el ejemplo *local proxy*, se muestra el uso de la tunelización del tráfico de las aplicaciones cliente/servidor existentes (como aplicaciones SSH, RDP o web) mediante flujos de datos de dispositivos.
 
 Estos ejemplos se tratan con más detalle a continuación.
 

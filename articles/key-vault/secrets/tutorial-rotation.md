@@ -10,13 +10,13 @@ ms.subservice: secrets
 ms.topic: tutorial
 ms.date: 01/26/2020
 ms.author: mbaldwin
-ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 0da0a56a64aa9b4500d36da2f6c86fc4c07f4c0f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 5e61510965693e123c724d7b40d2fa6071fdd94c
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92786061"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97824809"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-that-use-one-set-of-authentication-credentials"></a>Automatización de la rotación de un secreto para recursos que usan un conjunto de credenciales de autenticación
 
@@ -24,7 +24,8 @@ Aunque la mejor forma de realizar la autenticación en los servicios de Azure es
 
 En este tutorial se muestra cómo automatizar la rotación periódica de secretos de bases de datos y servicios que usan un conjunto de credenciales de autenticación. Específicamente, en este tutorial se rotan las contraseñas de SQL Server almacenadas en Azure Key Vault mediante el uso de una función desencadenada por una notificación de Azure Event Grid:
 
-![Diagrama de la solución de rotación](../media/rotate-1.png)
+
+:::image type="content" source="../media/rotate-1.png" alt-text="Diagrama de la solución de rotación":::
 
 1. Treinta días antes de la fecha de expiración de un secreto, Key Vault publica el evento de "expiración cercana" en Event Grid.
 1. Event Grid comprueba las suscripciones del evento y usa HTTP POST para llamar al punto de conexión de la aplicación de funciones suscrita al evento.
@@ -42,19 +43,19 @@ En este tutorial se muestra cómo automatizar la rotación periódica de secreto
 
 Si no tiene una instancia de Key Vault y SQL Server, puede usar el vínculo de implementación siguiente:
 
-[![Imagen que muestra un botón con la etiqueta "Implementar en Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-SQLPassword-Csharp%2Fmaster%2Farm-templates%2FInitial-Setup%2Fazuredeploy.json)
+[![Imagen que muestra un botón con la etiqueta "Implementar en Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FKeyVault-Rotation-SQLPassword-Csharp%2Fmain%2FARM-Templates%2FInitial-Setup%2Fazuredeploy.json)
 
-1. En **Grupo de recursos** , seleccione **Crear nuevo** . Asigne al grupo el nombre **akvrotation** .
-1. En **Inicio de sesión de administrador de SQL** , escriba el nombre de inicio de sesión del administrador de SQL. 
-1. Seleccione **Revisar + crear** .
+1. En **Grupo de recursos**, seleccione **Crear nuevo**. Asigne al grupo el nombre **akvrotation**.
+1. En **Inicio de sesión de administrador de SQL**, escriba el nombre de inicio de sesión del administrador de SQL. 
+1. Seleccione **Revisar + crear**.
 1. Seleccione **Crear**
 
-    ![Crear un grupo de recursos](../media/rotate-2.png)
+:::image type="content" source="../media/rotate-2.png" alt-text="Cree un grupo de recursos":::
 
 Ahora ya tiene una instancia de Key Vault, una instancia de SQL Server y una base de datos SQL. Puede comprobar esta configuración en la CLI de Azure mediante la ejecución del comando siguiente:
 
 ```azurecli
-az resource list -o table
+az resource list -o table -g akvrotation
 ```
 
 El resultado tendrá un aspecto similar a la salida siguiente:
@@ -62,9 +63,11 @@ El resultado tendrá un aspecto similar a la salida siguiente:
 ```console
 Name                     ResourceGroup         Location    Type                               Status
 -----------------------  --------------------  ----------  ---------------------------------  --------
-akvrotation-kv          akvrotation      eastus      Microsoft.KeyVault/vaults
-akvrotation-sql         akvrotation      eastus      Microsoft.Sql/servers
-akvrotation-sql/master  akvrotation      eastus      Microsoft.Sql/servers/databases
+akvrotation-kv           akvrotation      eastus      Microsoft.KeyVault/vaults
+akvrotation-sql          akvrotation      eastus      Microsoft.Sql/servers
+akvrotation-sql/master   akvrotation      eastus      Microsoft.Sql/servers/databases
+akvrotation-sql2         akvrotation      eastus      Microsoft.Sql/servers
+akvrotation-sql2/master  akvrotation      eastus      Microsoft.Sql/servers/databases
 ```
 
 ## <a name="create-and-deploy-sql-server-password-rotation-function"></a>Creación e implementación de la función de rotación de contraseñas de SQL Server
@@ -78,27 +81,28 @@ La aplicación de funciones requiere estos componentes:
 - Una aplicación de funciones con funciones de rotación de contraseñas SQL con desencadenador de eventos y desencadenador http. 
 - Una cuenta de almacenamiento necesaria para la administración del desencadenador de la aplicación de funciones
 - Una directiva de acceso para la identidad de Function App para acceder a los secretos de Key Vault.
-- Una suscripción a los eventos de EventGrid para el evento **SecretNearExpiry** .
+- Una suscripción a los eventos de EventGrid para el evento **SecretNearExpiry**.
 
 1. Seleccione el vínculo de implementación de la plantilla de Azure: 
 
-   [![Imagen que muestra un botón con la etiqueta "Implementar en Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-SQLPassword-Csharp%2Fmaster%2Farm-templates%2FFunction%2Fazuredeploy.json)
+   [![Imagen que muestra un botón con la etiqueta "Implementar en Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FKeyVault-Rotation-SQLPassword-Csharp%2Fmain%2FARM-Templates%2FFunction%2Fazuredeploy.json)
 
-1. En la lista **Grupo de recursos** , seleccione **akvrotation** .
-1. En **Nombre de SQL Server** , escriba el nombre de la instancia de SQL Server con la contraseña que se va a rotar.
-1. En **Nombre del almacén de claves** , escriba el nombre del almacén de claves.
-1. En **Nombre de la aplicación de funciones** , escriba el nombre de la aplicación de funciones.
-1. En **Nombre del secreto** , escriba el nombre del secreto en el que se almacenará la contraseña.
-1. En **Dirección URL del repositorio** , escriba la ubicación del código de la función en GitHub ( **https://github.com/jlichwa/KeyVault-Rotation-SQLPassword-Csharp.git** ).
-1. Seleccione **Revisar + crear** .
-1. Seleccione **Crear** .
+1. En la lista **Grupo de recursos**, seleccione **akvrotation**.
+1. En **Nombre de SQL Server**, escriba el nombre de la instancia de SQL Server con la contraseña que se va a rotar.
+1. En **Nombre del almacén de claves**, escriba el nombre del almacén de claves.
+1. En **Nombre de la aplicación de funciones**, escriba el nombre de la aplicación de funciones.
+1. En **Nombre del secreto**, escriba el nombre del secreto en el que se almacenará la contraseña.
+1. En **Dirección URL del repositorio**, escriba la ubicación del código de la función en GitHub ( **https://github.com/Azure-Samples/KeyVault-Rotation-SQLPassword-Csharp.git** ).
+1. Seleccione **Revisar + crear**.
+1. Seleccione **Crear**.
 
-   ![Selección de Revisar y crear](../media/rotate-3.png)
+:::image type="content" source="../media/rotate-3.png" alt-text="Selección de Revisar y crear":::
+  
 
 Tras completar los pasos anteriores tendrá una cuenta de almacenamiento, una granja de servidores y una aplicación de funciones. Puede comprobar esta configuración en la CLI de Azure mediante la ejecución del comando siguiente:
 
 ```azurecli
-az resource list -o table
+az resource list -o table -g akvrotation
 ```
 
 El resultado tendrá un aspecto similar al de la salida siguiente:
@@ -187,10 +191,10 @@ Este método de rotación lee la información de la base de datos del secreto, c
         }
 }
 ```
-Puede encontrar el código completo en [GitHub](https://github.com/jlichwa/KeyVault-Rotation-SQLPassword-Csharp).
+Puede encontrar el código completo en [GitHub](https://github.com/Azure-Samples/KeyVault-Rotation-SQLPassword-Csharp).
 
 ## <a name="add-the-secret-to-key-vault"></a>Adición del secreto a Key Vault
-Establezca una directiva de acceso para conceder a los usuarios el permiso para *administrar secretos* .
+Establezca una directiva de acceso para conceder a los usuarios el permiso para *administrar secretos*.
 
 ```azurecli
 az keyvault set-policy --upn <email-address-of-user> --name akvrotation-kv --secret-permissions set delete get list
@@ -207,13 +211,13 @@ La creación de un secreto con una fecha de expiración corta publicará un even
 
 ## <a name="test-and-verify"></a>Prueba y comprobación
 
-Para comprobar que el secreto ha rotado, vaya a **Key Vault** > **Secretos** :
+Para comprobar que el secreto ha rotado, vaya a **Key Vault** > **Secretos**:
 
-![Ir a Secretos](../media/rotate-8.png)
+:::image type="content" source="../media/rotate-8.png" alt-text="Ir a Secretos":::
 
 Abra el secreto **sqlPassword** y vea la versión original y la rotada:
 
-![Abrir el secreto sqluser](../media/rotate-9.png)
+:::image type="content" source="../media/rotate-9.png" alt-text="Ir a Secretos":::
 
 ### <a name="create-a-web-app"></a>Creación de una aplicación web
 
@@ -225,15 +229,15 @@ La aplicación web requiere estos componentes:
 
 1. Seleccione el vínculo de implementación de la plantilla de Azure: 
 
-   [![Imagen que muestra un botón con la etiqueta "Implementar en Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-SQLPassword-Csharp-WebApp%2Fmaster%2Farm-templates%2FWeb-App%2Fazuredeploy.json)
+   [![Imagen que muestra un botón con la etiqueta "Implementar en Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FKeyVault-Rotation-SQLPassword-Csharp-WebApp%2Fmain%2FARM-Templates%2FWeb-App%2Fazuredeploy.json)
 
-1. Seleccione el grupo de recursos **akvrotation** .
-1. En **Nombre de SQL Server** , escriba el nombre de la instancia de SQL Server con la contraseña que se va a rotar.
-1. En **Nombre del almacén de claves** , escriba el nombre del almacén de claves.
-1. En **Nombre del secreto** , escriba el nombre del secreto en el que se almacena la contraseña.
-1. En **Dirección URL del repositorio** , escriba la ubicación del código de la aplicación web en GitHub ( **https://github.com/jlichwa/KeyVault-Rotation-SQLPassword-Csharp-WebApp.git** ).
-1. Seleccione **Revisar + crear** .
-1. Seleccione **Crear** .
+1. Seleccione el grupo de recursos **akvrotation**.
+1. En **Nombre de SQL Server**, escriba el nombre de la instancia de SQL Server con la contraseña que se va a rotar.
+1. En **Nombre del almacén de claves**, escriba el nombre del almacén de claves.
+1. En **Nombre del secreto**, escriba el nombre del secreto en el que se almacena la contraseña.
+1. En **Dirección URL del repositorio**, escriba la ubicación del código de la aplicación web en GitHub ( **https://github.com/Azure-Samples/KeyVault-Rotation-SQLPassword-Csharp-WebApp.git** ).
+1. Seleccione **Revisar + crear**.
+1. Seleccione **Crear**.
 
 
 ### <a name="open-the-web-app"></a>Abrir la aplicación web
@@ -242,7 +246,7 @@ Vaya a la dirección URL de la aplicación implementada:
  
 https://akvrotation-app.azurewebsites.net/
 
-Cuando la aplicación se abra en el explorador, verá el **valor de secreto generado** y un valor de **Base de datos conectada** de *true* .
+Cuando la aplicación se abra en el explorador, verá el **valor de secreto generado** y un valor de **Base de datos conectada** de *true*.
 
 ## <a name="learn-more"></a>Más información
 

@@ -3,12 +3,12 @@ title: Conceptos sobre nubes privadas y clústeres
 description: Obtenga información sobre las funcionalidades clave de los centros de datos definidos por software de Azure VMware Solution y los clústeres de vSphere.
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: af34bb0d83d9571ae91dce90cab198a61cfe82a1
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 7f8508abed3446c58a683454bc49ec7dbb49d051
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967387"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825072"
 ---
 #  <a name="azure-vmware-solution-private-cloud-and-cluster-concepts"></a>Conceptos de nubes privadas y clústeres de Azure VMware Solution
 
@@ -48,18 +48,8 @@ Los hosts que se usan para crear o escalar clústeres provienen de un grupo de h
 
 ## <a name="vmware-software-versions"></a>Versiones de software de VMware
 
-Las versiones actuales del software de VMware que se usan en los clústeres de nube privada de Azure VMware Solution son:
+[!INCLUDE [vmware-software-versions](includes/vmware-software-versions.md)]
 
-| Software              |    Versión   |
-| :---                  |     :---:    |
-| VCSA/vSphere/ESXi |    6.7 U3    | 
-| ESXi                  |    6.7 U3    | 
-| vSAN                  |    6.7 U3    |
-| NSX-T                 |      2.5     |
-
-En el caso de cualquier clúster nuevo en una nube privada, la versión del software coincide con la que se está ejecutando actualmente. Para cualquier nube privada nueva en una suscripción, se instala la versión más reciente de la pila de software.
-
-Podrá encontrar las directivas y procesos de actualización generales del software de la plataforma Azure VMware Solution descritos en [Actualizaciones y mejoras de la nube privada](concepts-upgrades.md).
 
 ## <a name="host-maintenance-and-lifecycle-management"></a>Mantenimiento y administración del ciclo de vida de hosts
 
