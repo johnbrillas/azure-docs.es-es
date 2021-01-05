@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 02/10/2020
 ms.author: alsin
 ms.reviewer: cynthn
-ms.openlocfilehash: 3e4a770a33f5cdb3c3b2de09cbcb8431b2fc3fbb
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 09612ff3d86c669801f9e824d367a2b9a5bb10ac
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968662"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830656"
 ---
 # <a name="red-hat-workloads-on-azure"></a>Cargas de trabajo de Red Hat en Azure
 
@@ -36,7 +36,7 @@ Puede que desee usar las imágenes de pago por uso si no desea preocuparse por e
 ### <a name="red-hat-gold-images"></a>Imágenes de Red Hat Gold
 
 Azure también ofrece imágenes de Red Hat Gold (`rhel-byos`). Estas imágenes pueden ser útiles para los clientes que tienen suscripciones de Red Hat existentes y desean usarlas en Azure. Debe habilitar las suscripciones de Red Hat existentes para Red Hat Cloud Access para poder usarlas en Azure. El acceso a estas imágenes se concede automáticamente cuando las suscripciones de Red Hat están habilitadas para el acceso a la nube y cumplen los requisitos de idoneidad. El uso de estas imágenes permite a un cliente evitar la facturación doble en la que se podría incurrir al usar las imágenes de Pago por uso.
-* Obtenga información sobre cómo [habilitar las suscripciones de Red Hat para el acceso a la nube con Azure](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/con-enable-subs).
+* Obtenga información sobre cómo [habilitar las suscripciones de Red Hat para el acceso a la nube con Azure](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/enabling-and-maintaining-subs_cloud-access).
 * Obtenga información sobre cómo [buscar imágenes de Red Hat Gold en Azure Portal, la CLI de Azure o el cmdlet de PowerShell](./byos.md).
 
 > [!NOTE]

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18, devx-track-python
-ms.openlocfilehash: 512776f2498a88f1fda9b5e7f0e2db0ddd32b955
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36dfbf0fda060a8f273fee64098d6234b575088c
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88962335"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97831846"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Preguntas más frecuentes sobre tecnologías de código abierto para Web Apps en Azure
 
@@ -169,9 +169,9 @@ Otra solución alternativa consiste en escribir un trabajo web que se ejecute se
 
 ## <a name="where-do-i-find-the-log-files-for-jetty"></a>¿Dónde se encuentran los archivos de registro de Jetty?
 
-En el caso de Marketplace e implementaciones personalizadas, el archivo de registro está en la carpeta D:\home\site\wwwroot\bin\jetty-distribution-9.1.2.v20140210\logs. Tenga en cuenta que la ubicación de la carpeta depende de la versión de Jetty que use. Por ejemplo, la ruta de acceso que se proporciona aquí es para Jetty 9.1.2. Busque jetty_*AAAA_MM_DD*.stderrout.log.
+En el caso de Marketplace e implementaciones personalizadas, el archivo de registro está en la carpeta D:\home\site\wwwroot\bin\jetty-distribution-9.1.2.v20140210\logs. Tenga en cuenta que la ubicación de la carpeta depende de la versión de Jetty que use. Por ejemplo, la ruta de acceso que se proporciona aquí es para Jetty 9.1.2. Busque jetty_ *AAAA_MM_DD*.stderrout.log.
 
-En el caso de implementaciones de configuración de la aplicación en el portal, el archivo de registro está en D:\home\LogFiles. Busque jetty_*AAAA_MM_DD*.stderrout.log.
+En el caso de implementaciones de configuración de la aplicación en el portal, el archivo de registro está en D:\home\LogFiles. Busque jetty_ *AAAA_MM_DD*.stderrout.log.
 
 ## <a name="can-i-send-email-from-my-azure-web-app"></a>¿Puedo enviar correo electrónico desde la aplicación web de Azure?
 
@@ -181,24 +181,24 @@ App Service no tiene una característica integrada de correo electrónico. Para 
 
 Si ha migrado recientemente a Azure, WordPress podría redirigir a la URL de dominio anterior. Esto se debe a una opción de configuración de la base de datos MySQL.
 
-WordPress Buddy+ es una extensión de sitio de Azure que se puede usar para actualizar la dirección URL de redireccionamiento directamente en la base de datos. Para obtener más información sobre el uso de WordPress Buddy+, vea [WordPress tools and MySQL migration with WordPress Buddy+](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/) (Herramientas de WordPress y migración de MySQL con WordPress Buddy+).
+WordPress Buddy+ es una extensión de sitio de Azure que se puede usar para actualizar la dirección URL de redireccionamiento directamente en la base de datos. Para obtener más información sobre el uso de WordPress Buddy+, vea [WordPress tools and MySQL migration with WordPress Buddy+](https://www.electrongeek.com/blog/2016/12/21/wordpress-buddy-site-extension-for-app-service-on-windows) (Herramientas de WordPress y migración de MySQL con WordPress Buddy+).
 
 Como alternativa, si prefiere actualizar manualmente la URL de redireccionamiento mediante el uso de consultas SQL o PHPMyAdmin, vea [WordPress: Redirecting to wrong URL](/archive/blogs/azureossds/wordpress-redirecting-to-wrong-url) (WordPress: redireccionamiento a una URL incorrecta).
 
 ## <a name="how-do-i-change-my-wordpress-sign-in-password"></a>¿Cómo se cambia la contraseña de inicio de sesión de WordPress?
 
-Si ha olvidado su contraseña de inicio de sesión de WordPress, puede usar WordPress Buddy+ para actualizarla. Para restablecer la contraseña, instale la extensión de sitio de Azure WordPress Buddy+ y, después, lleve a cabo los pasos que se describen en [WordPress tools and MySQL migration with WordPress Buddy+](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/) (Herramientas de WordPress y migración de MySQL con WordPress Buddy+).
+Si ha olvidado su contraseña de inicio de sesión de WordPress, puede usar WordPress Buddy+ para actualizarla. Para restablecer la contraseña, instale la extensión de sitio de Azure WordPress Buddy+ y, después, lleve a cabo los pasos que se describen en [WordPress tools and MySQL migration with WordPress Buddy+](https://www.electrongeek.com/blog/2016/12/21/wordpress-buddy-site-extension-for-app-service-on-windows) (Herramientas de WordPress y migración de MySQL con WordPress Buddy+).
 
 ## <a name="i-cant-sign-in-to-wordpress-how-do-i-resolve-this"></a>No puedo iniciar sesión en WordPress. ¿Cómo se resuelve este problema?
 
-Si está bloqueado y no puede entrar en WordPress después de instalar recientemente un complemento, dicho complemento podría ser defectuoso. WordPress Buddy+ es una extensión de sitio de Azure que permite deshabilitar complementos en WordPress. Para obtener más información, vea [WordPress tools and MySQL migration with WordPress Buddy+](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/) (Herramientas de WordPress y migración de MySQL con WordPress Buddy+).
+Si está bloqueado y no puede entrar en WordPress después de instalar recientemente un complemento, dicho complemento podría ser defectuoso. WordPress Buddy+ es una extensión de sitio de Azure que permite deshabilitar complementos en WordPress. Para obtener más información, vea [WordPress tools and MySQL migration with WordPress Buddy+](https://www.electrongeek.com/blog/2016/12/21/wordpress-buddy-site-extension-for-app-service-on-windows) (Herramientas de WordPress y migración de MySQL con WordPress Buddy+).
 
 ## <a name="how-do-i-migrate-my-wordpress-database"></a>¿Cómo puedo migrar mi base de datos de WordPress?
 
 Tiene varias opciones para migrar la base de datos MySQL conectada a su sitio web de WordPress:
 
 * Desarrolladores: use el [símbolo del sistema o PHPMyAdmin](/archive/blogs/azureossds/migrating-data-between-mysql-databases-using-kudu-console-azure-app-service).
-* No desarrolladores: Use [WordPress Buddy +](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/)
+* No desarrolladores: Use [WordPress Buddy +](https://www.electrongeek.com/blog/2016/12/21/wordpress-buddy-site-extension-for-app-service-on-windows)
 
 ## <a name="how-do-i-help-make-wordpress-more-secure"></a>¿Cómo puedo conseguir que WordPress sea más seguro?
 
