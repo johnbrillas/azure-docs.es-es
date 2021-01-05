@@ -3,16 +3,16 @@ title: ¿Qué son las plantillas de aplicación en Azure IoT Central | Microsoft
 description: Las plantillas de aplicación de Azure IoT Central permiten pasar al desarrollo de soluciones de IoT.
 author: philmea
 ms.author: philmea
-ms.date: 10/25/2019
+ms.date: 12/19/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: dae2461336316defb6f2cfc63b775c67cf2196d0
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.openlocfilehash: 27f054cb085e5064ffed0e75b77d53a1406b566e
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91813073"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97797135"
 ---
 # <a name="what-are-application-templates"></a>¿Qué son las plantillas de aplicación?
 

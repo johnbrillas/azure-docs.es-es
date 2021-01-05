@@ -10,12 +10,13 @@ ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18, devx-track-java, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: aa3329c3d9e241fb8224ecc69199779d53027474
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+adobe-target: true
+ms.openlocfilehash: 0334e259f75440cae25f1e165c0621c85f7c7705
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183148"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97804010"
 ---
 # <a name="configure-a-java-app-for-azure-app-service"></a>Configuración de una aplicación Java para Azure App Service
 
@@ -25,7 +26,7 @@ Esta guía incluye conceptos clave e instrucciones para los desarrolladores de J
 
 ## <a name="deploying-your-app"></a>Implementación de la aplicación
 
-Puede usar el [complemento de Azure Web App para Maven](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) para implementar los archivos .war o .jar. La implementación con entornos de desarrollo integrado conocidos también se admite con [Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/) o [Azure Toolkit for Eclipse](/azure/developer/java/toolkit-for-eclipse).
+Puede usar el [complemento de Azure Web App para Maven](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md) para implementar los archivos .war o .jar. La implementación con entornos de desarrollo integrado conocidos también se admite con [Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/) o [Azure Toolkit for Eclipse](/azure/developer/java/toolkit-for-eclipse).
 
 De lo contrario, el método de implementación dependerá del tipo de archivo:
 

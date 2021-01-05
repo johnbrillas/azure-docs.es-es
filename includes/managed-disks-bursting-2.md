@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/27/2020
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: cc0dd5e76227c0814659b74afc2ac46c8ca4de73
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a51cd242eb26709464aa502938cd04807aea721
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87102991"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97805671"
 ---
 ## <a name="common-scenarios"></a>Escenarios frecuentes
 Los siguientes escenarios pueden beneficiarse en gran medida de la expansión:
@@ -47,7 +47,7 @@ En los siguientes ejemplos se muestra cómo funciona la expansión con varias co
     - MB/s aprovisionados: 25
     - Máximo de MB/s de expansión: 170 
 - 2 discos de datos P10 
-    - MB/s aprovisionados: 25
+    - MB/s aprovisionados: 100
     - Máximo de MB/s de expansión: 170
 
  Cuando la VM se inicie, recuperará los datos del disco del SO. Puesto que el disco de SO forma parte de una VM que se está iniciando, el disco del SO estará lleno de créditos de expansión. Estos créditos permitirán expandir el inicio del disco del SO a 170 MB/s segundos, tal como se muestra a continuación:

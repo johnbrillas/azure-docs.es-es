@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: ril
 ms.reviewer: juliako
-ms.openlocfilehash: 1a106874277f64a006584f9deb98fb9729263b1b
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 048635a33c3d84416dae00b731b386572aa3f89d
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93040712"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97802582"
 ---
 # <a name="redact-faces-with-azure-media-analytics-walkthrough"></a>Tutorial de censura de rostros con Azure Media Analytics
 
@@ -30,7 +30,7 @@ ms.locfileid: "93040712"
 
 **Redactor multimedia de Azure** es un procesador multimedia (MP) de [Análisis multimedia de Azure](./legacy-components.md) que ofrece censura de rostros escalable en la nube. La censura de rostros le permite modificar un vídeo con el fin de difuminar las caras de personas seleccionadas. Puede usar el servicio de censura de rostros en escenarios de seguridad pública y de noticias en los medios de comunicación. Unos minutos de material de archivo que contenga varias caras puede tardar horas en censurarse manualmente, pero con este servicio, el proceso de censura de caras requiere solamente unos pocos pasos sencillos. Para más información, consulte [este blog](https://azure.microsoft.com/blog/azure-media-redactor/).
 
-Para obtener más información sobre **Azure Media Redactor** , consulte el tema de [información general sobre Censura de rostros](media-services-face-redaction.md).
+Para obtener más información sobre **Azure Media Redactor**, consulte el tema de [información general sobre Censura de rostros](media-services-face-redaction.md).
 
 En este tema se muestran instrucciones paso a paso sobre cómo ejecutar un flujo de trabajo de censura completa mediante el Explorador de Azure Media Services (AMSE) y Azure Media Redactor Visualizer (herramienta de código abierto).
 
@@ -133,6 +133,6 @@ Si como desarrollador trata de analizar los datos de anotaciones del JSON, busqu
 ## <a name="related-links"></a>Vínculos relacionados
 [Información general de análisis de Azure Media Services](./legacy-components.md)
 
-[Demostraciones de Azure Media Analytics](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+[Demostraciones de Azure Media Analytics](http://amslabs.azurewebsites.net/demos/Analytics.html)
 
 [Anuncio de función de censura facial para Azure Media Analytics](https://azure.microsoft.com/blog/azure-media-redactor/)

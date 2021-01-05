@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: how-to
 ms.date: 02/20/2020
-ms.openlocfilehash: f82adad5273f1c5559cbeb1924f59e57c863f6b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48e954eab9da5dfc638f93a7c4e55c675c4f2ac9
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91303461"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97797254"
 ---
 # <a name="how-to-manage-model-and-learning-settings"></a>Administración de la configuración de modelos y del aprendizaje
 
@@ -55,4 +55,4 @@ La configuración de una [directiva de aprendizaje](concept-active-learning.md#u
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Más información sobre cómo administrar una directiva de aprendizaje](how-to-manage-model.md)
+[Análisis del bucle de aprendizaje con una evaluación sin conexión](how-to-offline-evaluation.md)
