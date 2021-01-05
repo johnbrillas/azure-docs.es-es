@@ -3,16 +3,14 @@ title: 'Conceptos: Actualizaciones y mejoras de la nube privada'
 description: Conozca los procesos de actualización y las características principales de Azure VMware Solution.
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 380e97eae559145a9ef5ed7b6e7bf14f18039eed
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 6fb65a0e192fbf1f054857223b3fdaf58fc6a903
+ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91316807"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97809656"
 ---
 # <a name="azure-vmware-solution-private-cloud-updates-and-upgrades"></a>Actualizaciones y mejoras de la nube privada de Azure VMware Solution
-
-## <a name="overview"></a>Introducción
 
 Una de las principales ventajas de las nubes privadas de Azure VMware Solution es que la plataforma se mantiene automáticamente. El mantenimiento de la plataforma incluye actualizaciones automatizadas de un paquete de software validado de VMware, lo que ayuda a garantizar que se usa la versión más reciente del software validado de nube privada de Azure VMware Solution.
 

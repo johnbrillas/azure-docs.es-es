@@ -6,30 +6,34 @@ author: nicolela
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
-ms.openlocfilehash: ae2bc6e87f0b694e949057280233c19e0b98132c
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 74135c0b36f533ebfbba6422bc79af47825a1a3b
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92892237"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97813231"
 ---
 # <a name="connect-to-a-vm-using-remote-desktop-protocol-on-a-chromebook"></a>Conexión a una máquina virtual mediante el Protocolo de escritorio remoto en un equipo Chromebook
+
 Esta sección muestra cómo un alumno se puede conectar a una máquina virtual de un laboratorio educativo desde un equipo Chromebook mediante RDP.
 
 ## <a name="install-microsoft-remote-desktop-on-a-chromebook"></a>Instalación del Escritorio remoto de Microsoft en un equipo Chromebook
+
 1. Abra App Store en el equipo Chromebook y busque **Escritorio remoto de Microsoft**.
 
     ![Escritorio remoto de Microsoft](./media/how-to-use-classroom-lab/install-ms-remote-desktop-chromebook.png)
+    
 1. Instale la versión más reciente de Escritorio remoto de Microsoft. 
 
 ## <a name="access-the-vm-from-your-chromebook-using-rdp"></a>Acceso a la máquina virtual desde el equipo Chromebook mediante RDP
+
 1. Abra el archivo **RDP** que se descarga en el equipo con **Escritorio remoto de Microsoft** instalado. Debe empezar a conectarse a la máquina virtual. 
 
     ![Conexión con una máquina virtual](./media/how-to-use-classroom-lab/connect-vm-chromebook.png)
 
 1. Cuando se le solicite, escriba la contraseña.
-    ![Captura de pantalla que muestra la pantalla de inicio de sesión donde se escribe el nombre de usuario y la contraseña.](./media/how-to-use-classroom-lab/password-chromebook.png)
 
+    ![Captura de pantalla que muestra la pantalla de inicio de sesión donde se escribe el nombre de usuario y la contraseña.](./media/how-to-use-classroom-lab/password-chromebook.png)
 
 1. Seleccione **Continuar** si recibe la advertencia siguiente. 
 
@@ -38,6 +42,6 @@ Esta sección muestra cómo un alumno se puede conectar a una máquina virtual d
 1. Debería ver el escritorio de la máquina virtual a la que se está conectando.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para más información sobre cómo conectarse a máquinas virtuales Linux, consulte el artículo acerca de la [conexión a máquinas virtuales Linux.](how-to-use-remote-desktop-linux-student.md)
 
+Para más información sobre cómo conectarse a máquinas virtuales Linux, consulte el artículo acerca de la [conexión a máquinas virtuales Linux.](how-to-use-remote-desktop-linux-student.md)
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: dec2c845780b62e9a595c73504037142c511c0e6
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 08ab78171376f702aecb1f49571dda583eae5d82
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94989418"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97813877"
 ---
 # <a name="manage-ddos-protection-plans-permissions-and-restrictions"></a>Administración de planes de DDoS Protection: permisos y restricciones
 
@@ -51,4 +51,4 @@ En el caso de los clientes que tienen varias suscripciones y que desean asegurar
 Para obtener información sobre cómo ver y configurar la telemetría del plan de protección contra DDoS, continúe con los tutoriales.
 
 > [!div class="nextstepaction"]
-> [Visualización y configuración de la telemetría de protección contra DDoS](telemetry-monitoring-alerting.md)
+> [Visualización y configuración de la telemetría de protección contra DDoS](telemetry.md)

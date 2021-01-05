@@ -9,16 +9,16 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 168dcf994d00ba1cb2070665ada5a55cf86cfa4a
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 747ceb0106f437f9e2442c2b8c68c0b73a9107a6
+ms.sourcegitcommit: 02ed9acd4390b86c8432cad29075e2204f6b1bc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359819"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97808268"
 ---
 # <a name="back-up-and-recover-your-form-recognizer-models"></a>Copia de seguridad y recuperación de los modelos de Form Recognizer
 
-Cuando se crea un recurso de Form Recognizer en Azure Portal, se especifica una región. Desde ese momento, el recurso y todas sus operaciones permanecen asociadas a esa región concreta del servidor de Azure. No suele ser habitual, aunque tampoco imposible, encontrar un problema de red que afecte a toda una región. Si la solución debe estar siempre disponible, debe diseñarla para que conmute por error en otra región o divida la carga de trabajo entre dos o más regiones. Ambos enfoques requieren al menos dos recursos de Form Recognizer en distintas regiones y la capacidad de sincronizar [modelos personalizados](./quickstarts/curl-train-extract.md) entre regiones.
+Cuando se crea un recurso de Form Recognizer en Azure Portal, se especifica una región. Desde ese momento, el recurso y todas sus operaciones permanecen asociadas a esa región concreta del servidor de Azure. No suele ser habitual, aunque tampoco imposible, encontrar un problema de red que afecte a toda una región. Si la solución debe estar siempre disponible, debe diseñarla para que conmute por error en otra región o divida la carga de trabajo entre dos o más regiones. Ambos enfoques requieren al menos dos recursos de Form Recognizer en distintas regiones y la capacidad de sincronizar modelos personalizados entre regiones.
 
 La API de copia admite este escenario, ya que permite copiar modelos personalizados de una cuenta de Form Recognizer o a otros usuarios, que pueden existir en cualquier región geográfica compatible. En esta guía se muestra cómo usar la API REST de copia con cURL. También puede usar un servicio de solicitud HTTP como Postman para emitir las solicitudes.
 

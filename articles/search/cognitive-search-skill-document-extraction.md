@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: chalton
-ms.openlocfilehash: f209be383e445e3b0c011e0bfb4266a191a8d931
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5098d897d84ff6af31d430c0ddd2e26d8d6b08a7
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85080875"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814302"
 ---
 # <a name="document-extraction-cognitive-skill"></a>Aptitud cognitiva de extracción de documentos
 
@@ -34,7 +34,7 @@ Microsoft.Skills.Util.DocumentExtractionSkill
 
 Los parámetros distinguen mayúsculas de minúsculas.
 
-| Entradas            | Valores permitidos | Descripción |
+| Entradas | Valores permitidos | Descripción |
 |-----------------|----------------|-------------|
 | `parsingMode`   | `default` <br/> `text` <br/> `json`  | Se establece en `default` para la extracción de documentos desde archivos que no son de texto puro o JSON. Se establece en `text` para mejorar el rendimiento en los archivos de texto sin formato. Se establece en `json` para extraer contenido estructurado de los archivos JSON. Si `parsingMode` no se define explícitamente, se establecerá en `default`. |
 | `dataToExtract` | `contentAndMetadata` <br/> `allMetadata` | Se establece en `contentAndMetadata` para extraer todos los metadatos y el contenido textual de cada archivo. Se establece en `allMetadata` para extraer solo los [metadatos específicos del tipo de contenido](search-howto-indexing-azure-blob-storage.md#ContentSpecificMetadata) (por ejemplo, los metadatos únicos de los archivos .png). Si `dataToExtract` no se define explícitamente, se establecerá en `contentAndMetadata`. |
@@ -100,11 +100,11 @@ Este objeto de referencia de archivo se puede generar mediante una de estas tres
     "outputs": [
       {
         "name": "content",
-        "targetName": "content"
+        "targetName": "extracted_content"
       },
       {
         "name": "normalized_images",
-        "targetName": "normalized_images"
+        "targetName": "extracted_normalized_images"
       }
     ]
   }

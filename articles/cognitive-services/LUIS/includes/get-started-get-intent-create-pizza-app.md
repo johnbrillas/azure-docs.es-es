@@ -2,20 +2,21 @@
 title: archivo de inclusión
 description: archivo de inclusión
 services: cognitive-services
-author: roy-har
-manager: diberry
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
-ms.date: 06/03/2020
+ms.date: 12/29/2020
 ms.subservice: language-understanding
 ms.topic: include
 ms.custom: include file
-ms.author: roy-har
-ms.openlocfilehash: 8e67a6d0c98a3839922a79e9b452465087da1b69
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.author: aahi
+ms.reviewer: roy-har
+ms.openlocfilehash: 7aa2fba6ef551a745ccaf5b00f36021b9d8680ce
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "84418074"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97820789"
 ---
 1. Seleccione [pizza-app-for-luis-v6.json](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/apps/pizza-app-for-luis-v6.json) para abrir la página de GitHub para el archivo `pizza-app-for-luis.json`.
 1. Pulse de forma prolongada o haga clic con el botón derecho en el botón **Sin formato** y seleccione **Guardar vínculo como** para guardar el archivo `pizza-app-for-luis.json` en el equipo.

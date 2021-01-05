@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: yitoh
-ms.openlocfilehash: e2f5528fde977520dc0aa0215a480a40ef8f1e7d
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 6c628d93c112a770c85a10d0eff958614a7cf4cb
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94989622"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814166"
 ---
 # <a name="quickstart-create-and-configure-azure-ddos-protection-standard-using-azure-cli"></a>Inicio rápido: Creación y configuración de Azure DDoS Protection Estándar mediante la CLI de Azure
 
@@ -134,4 +134,4 @@ Si quiere eliminar un plan de protección contra DDoS, primero debe desasociar t
 Para obtener información sobre cómo ver y configurar la telemetría del plan de protección contra DDoS, continúe con los tutoriales.
 
 > [!div class="nextstepaction"]
-> [Visualización y configuración de la telemetría de protección contra DDoS](telemetry-monitoring-alerting.md)
+> [Visualización y configuración de la telemetría de protección contra DDoS](telemetry.md)
