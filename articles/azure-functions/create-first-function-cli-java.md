@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.custom:
 - devx-track-java
 - devx-track-azurecli
-ms.openlocfilehash: db24fa4721e2e502c5098b415c4cf06da80f697d
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 504d3a834760605149c93c0beea84bbe1b59e263
+ms.sourcegitcommit: 17e9cb8d05edaac9addcd6e0f2c230f71573422c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96175685"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97707561"
 ---
 # <a name="quickstart-create-a-java-function-in-azure-from-the-command-line"></a>Inicio rápido: Creación de una función de Java en Azure desde la línea de comandos
 
@@ -73,13 +73,13 @@ En Azure Functions, un proyecto de función es un contenedor para una o varias f
     ---
 
     > [!IMPORTANT]
-    > + Use `-DjavaVersion=11` si desea que las funciones se ejecuten en Java 11. Para obtener más información, consulte las [versiones de Java](functions-reference-java.md#java-versions). 
+    > + Use `-DjavaVersion=11` si quiere que las funciones se ejecuten en Java 11. Para obtener más información, consulte las [versiones de Java](functions-reference-java.md#java-versions). 
     > + Para llevar a cabo los pasos de este artículo, la variable de entorno `JAVA_HOME` se debe establecer en la ubicación de instalación de la versión correcta del JDK.
 
 1. Maven le pide los valores necesarios para finalizar la generación del proyecto en la implementación.   
     Indique los siguientes valores cuando se le solicite:
 
-    | Prompt | Valor | Descripción |
+    | Prompt | Value | Descripción |
     | ------ | ----- | ----------- |
     | **groupId** | `com.fabrikam` | Un valor que identifica de forma única su proyecto entre todos los demás y que sigue las [reglas de nomenclatura de paquetes](https://docs.oracle.com/javase/specs/jls/se6/html/packages.html#7.7) de Java. |
     | **artifactId** | `fabrikam-functions` | Un valor que es el nombre del archivo jar, sin un número de versión. |
@@ -146,7 +146,7 @@ El arquetipo también genera una prueba unitaria para la función. Al cambiar la
     </pre>
     
     > [!NOTE]  
-    > Si HttpExample no aparece como se muestra a continuación, es probable que haya iniciado el host desde fuera de la carpeta raíz del proyecto. En ese caso, use **Ctrl**+**C** para detener el host, vaya a la carpeta raíz del proyecto y vuelva a ejecutar el comando anterior.
+    > Si HttpExample no aparece como se ha mostrado arriba, es probable que haya iniciado el host desde fuera de la carpeta raíz del proyecto. En ese caso, use **Ctrl**+**C** para detener el host, vaya a la carpeta raíz del proyecto y vuelva a ejecutar el comando anterior.
 
 1. Copie la dirección URL de la función `HttpExample` de esta salida en un explorador y anexe la cadena de consulta `?name=<YOUR_NAME>`, lo que hará que la dirección URL completa sea `http://localhost:7071/api/HttpExample?name=Functions`. El explorador debe mostrar un mensaje como este `Hello Functions`:
 
