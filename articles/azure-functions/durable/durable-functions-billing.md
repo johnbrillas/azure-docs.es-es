@@ -5,18 +5,18 @@ author: cgillum
 ms.topic: overview
 ms.date: 08/31/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 504ef93a0002895bc5662d95ad269c8593170ee2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2ec1b080c195a47caafd0120240b5fb61ede062b
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "74233008"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97932289"
 ---
 # <a name="durable-functions-billing"></a>Facturación de Durable Functions
 
 [Durable Functions](durable-functions-overview.md) se factura igual que Azure Functions. Para más información, consulte los [precios de Azure Functions](https://azure.microsoft.com/pricing/details/functions/).
 
-Al ejecutar funciones de orquestador en el [plan de consumo](../functions-scale.md#consumption-plan) de Azure Functions, es preciso conocer algunos comportamientos de facturación. En las secciones siguientes se describen estos comportamientos y su efecto con más detalle.
+Al ejecutar funciones de orquestador en el [plan de consumo](../consumption-plan.md) de Azure Functions, es preciso conocer algunos comportamientos de facturación. En las secciones siguientes se describen estos comportamientos y su efecto con más detalle.
 
 ## <a name="orchestrator-function-replay-billing"></a>Facturación de la reproducción de una función de orquestador
 
@@ -24,7 +24,7 @@ Las [funciones del orquestador](durable-functions-orchestrations.md) pueden repr
 
 ## <a name="awaiting-and-yielding-in-orchestrator-functions"></a>Espera y suspensión de funciones de orquestador
 
-Cuando una función de orquestador espera a que se complete una acción asincrónica, para lo que usa **await** en C# o **yiedl**en JavaScript, el entorno de ejecución considera que se debe finalizar esa ejecución en particular. La facturación de la función del orquestador se detiene en ese punto. No se reanuda hasta la reproducción de la siguiente función del orquestador. No se le facturará por el tiempo dedicado a la espera o la suspensión de una función de orquestador.
+Cuando una función de orquestador espera a que se complete una acción asincrónica, para lo que usa **await** en C# o **yiedl** en JavaScript, el entorno de ejecución considera que se debe finalizar esa ejecución en particular. La facturación de la función del orquestador se detiene en ese punto. No se reanuda hasta la reproducción de la siguiente función del orquestador. No se le facturará por el tiempo dedicado a la espera o la suspensión de una función de orquestador.
 
 > [!NOTE]
 > Hay quienes consideran que el hecho de que unas funciones llamen a otras funciones es un antipatrón. Esto se debe a un problema conocido como _doble facturación_. Cuando una función llama directamente a otra, ambas se ejecutan al mismo tiempo. La función a la que se llama está ejecutando el código de forma activa mientras que la función que realiza la llamada está esperando una respuesta. En este caso, es preciso pagar por el tiempo que la función que realiza la llamada invierte en esperar a que se ejecute la función llamada.
@@ -45,7 +45,7 @@ Hay varios factores que contribuyen a los costos de Azure Storage reales en los 
 
 * Una sola aplicación de funciones está asociada a una única central de tareas, que comparte un conjunto de recursos de Azure Storage. Estos recursos los usan todas las instancias de Durable Functions de una aplicación de funciones. El número real de funciones de la aplicación de funciones no tiene ningún impacto en los costos de las transacciones de Azure Storage.
 * Cada instancia de la aplicación de funciones sondea internamente varias colas de la cuenta de almacenamiento mediante un algoritmo de sondeo de retroceso exponencial. Las instancias de la aplicación inactivas sondean las colas con menor frecuencia que las aplicaciones activas, lo que reduce los costos de las transacciones. Para más información sobre el comportamiento del sondeo de colas de Durable Functions, consulte la [sección de sondeo de colas del artículo acerca del rendimiento y escalado](durable-functions-perf-and-scale.md#queue-polling).
-* Si se ejecuta en el plan de consumo o en el plan Premium de Azure Functions, el [controlador de escala de Azure Functions](../functions-scale.md#how-the-consumption-and-premium-plans-work) sondea regularmente todas las colas de la central de tareas en segundo plano. Si una aplicación de funciones tiene una escala de ligera a moderada, estas colas solo las sondeará solo una instancia del controlador de escala. Si la aplicación de funciones se escala horizontalmente a un gran número de instancias, se pueden agregar más instancias del controlador de escala. Estas instancias adicionales pueden aumentar el costo total de las transacciones de colas.
+* Si se ejecuta en el plan de consumo o en el plan Premium de Azure Functions, el [controlador de escala de Azure Functions](../event-driven-scaling.md) sondea regularmente todas las colas de la central de tareas en segundo plano. Si una aplicación de funciones tiene una escala de ligera a moderada, estas colas solo las sondeará solo una instancia del controlador de escala. Si la aplicación de funciones se escala horizontalmente a un gran número de instancias, se pueden agregar más instancias del controlador de escala. Estas instancias adicionales pueden aumentar el costo total de las transacciones de colas.
 * Cada instancia de la aplicación de funciones compite por un conjunto de concesiones de blobs. Estas instancias realizarán llamadas periódicas a Azure Blob service para renovar las concesiones retenidas o intentar adquirir nuevas concesiones. El número particiones configuradas en la central de tareas determina el número de concesiones de blobs. El escalado horizontal a un número mayor de instancias de la aplicación de funciones es probable que aumentará los costos de las transacciones de Azure Storage asociados a estas operaciones de concesión.
 
 Puede encontrar más información sobre los precios de Azure Storage en el documento [Precios de Azure Storage](https://azure.microsoft.com/pricing/details/storage/). 
