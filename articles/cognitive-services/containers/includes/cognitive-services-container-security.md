@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 11/11/2020
+ms.date: 12/17/2020
 ms.author: aahi
-ms.openlocfilehash: bb9b0da609169288521d21ee6d5e412a786c7549
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 4b106ebc5606c4e5a290e12728d4e2011e80f6a2
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94574120"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861827"
 ---
 ## <a name="azure-cognitive-services-container-security"></a>Protección de los contenedores en Azure Cognitive Services
 
@@ -44,7 +44,7 @@ El host debe permitir la enumeración del **puerto 443** y de los siguientes dom
 
 #### <a name="disable-deep-packet-inspection"></a>Deshabilitación de la inspección profunda de paquetes
 
-> [Inspección profunda de paquetes](https://en.wikipedia.org/wiki/Deep_packet_inspection) (DPI) es un tipo de procesamiento de datos que inspecciona detalladamente los datos que se envían a través de una red de equipos y, por lo general, realiza un bloqueo, reenrutamiento o registro, la acción que corresponda.
+[Inspección profunda de paquetes](https://en.wikipedia.org/wiki/Deep_packet_inspection) (DPI) es un tipo de procesamiento de datos que inspecciona detalladamente los datos que se envían a través de una red de equipos y, por lo general, realiza un bloqueo, reenrutamiento o registro, la acción que corresponda.
 
 Deshabilite DPI en los canales seguros que los contenedores de Cognitive Services crean en los servidores de Microsoft. Si no lo hace, el contenedor no funcionará correctamente.
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 08/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 06d20dd47ceb71b51e226d662892eab06b072685
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 601f268f81c222ada5a4f99b05ae8ffcdfc13a23
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500944"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916293"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Lista de comprobación de planeamiento e implementación de cargas de trabajo de SAP en Azure
 
@@ -66,7 +66,7 @@ Durante esta fase, se planea la migración de la carga de trabajo de SAP a la pl
     - Arquitectura de alta disponibilidad y recuperación ante desastres.
         - Basándose en el RTO y el RPO, defina cómo debe ser la arquitectura de alta disponibilidad y recuperación ante desastres.
         - Para lograr alta disponibilidad en una zona, compruebe qué ofrece el DBMS deseado en Azure. La mayoría de los paquetes de DBMS ofrecen métodos sincrónicos de una espera activa sincrónica, nuestra recomendación para los sistemas de producción. Compruebe también la documentación relacionada con SAP para las diferentes bases de datos, empezando por [Consideraciones para la implementación de DBMS de Azure Virtual Machines para la carga de trabajo de SAP](./dbms_guide_general.md) y documentos relacionados.
-           No se admite el uso de clústeres de conmutación por error de Windows Server con configuración de disco compartido para el nivel de DBMS como, por ejemplo, se ha [descrito para SQL Server](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server?view=sql-server-2017). En su lugar, use soluciones como:
+           No se admite el uso de clústeres de conmutación por error de Windows Server con configuración de disco compartido para el nivel de DBMS como, por ejemplo, se ha [descrito para SQL Server](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server?view=sql-server-2017&preserve-view=true). En su lugar, use soluciones como:
            - [SQL Server Always On](/previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups)
            - [Protección de datos de Oracle](../oracle/configure-oracle-dataguard.md)
            - [Replicación del sistema de HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html)

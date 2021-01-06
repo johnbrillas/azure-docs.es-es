@@ -1,19 +1,19 @@
 ---
 title: 'Azure VMware Solution by CloudSimple: extensión de una red de Capa 2 en el entorno local a la nube privada'
 description: Se describe cómo configurar una VPN de Capa 2 entre NSX-T en una nube privada de CloudSimple y un cliente de NSX Edge independiente local.
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/19/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: f524bf6af66d44bc13b7c0957de7977968cbef28
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 06446b6c36e36466fe891d7327d8151603cdecd2
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427264"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97899378"
 ---
 # <a name="migrate-workloads-using-layer-2-stretched-networks"></a>Migración de cargas de trabajo mediante redes extendidas de Capa 2
 
@@ -108,7 +108,7 @@ Para obtener más información, consulte [Redes privadas virtuales](https://docs
 
 En los pasos siguientes se muestra cómo capturar el identificador del enrutador lógico de la instancia de enrutador lógico de DR de nivel 0 para los servicios IPsec y L2VPN. El identificador del enrutador lógico se necesitará más adelante al implementar L2VPN.
 
-1. Inicie sesión en el administrador de NSX, `https://*nsx-t-manager-ip-address*`, y seleccione **Networking** > **Router** > **Provider-LR**  > **Overview** (Redes > Enrutador > Proveedor de enrutador lógico > Información general). En **Modo de alta disponibilidad** , seleccione **Espera activo**. Esta acción abre una ventana emergente que muestra la VM de Edge en la que el enrutador de nivel 0 está activo actualmente.
+1. Inicie sesión en el administrador de NSX, `https://*nsx-t-manager-ip-address*`, y seleccione **Networking** > **Router** > **Provider-LR**  > **Overview** (Redes > Enrutador > Proveedor de enrutador lógico > Información general). En **Modo de alta disponibilidad**, seleccione **Espera activo**. Esta acción abre una ventana emergente que muestra la VM de Edge en la que el enrutador de nivel 0 está activo actualmente.
 
     ![Selección de espera activo](media/l2vpn-fetch01.png)
 
@@ -154,16 +154,16 @@ Para establecer una instancia de VPN basada en rutas de IPsec entre el enrutador
 
 ### <a name="advertise-the-loopback-interface-ip-to-the-underlay-network"></a>Anunciar la dirección IP de la interfaz de bucle invertido a la red subyacente
 
-1. Cree una ruta nula para la red de la interfaz de bucle invertido. Inicie sesión en el administrador de NSX y seleccione **Redes** > **Enrutamiento** > **Enrutadores** > **Provider-LR (Proveedor del enrutador lógico)**  > **Enrutamiento** > **Rutas estáticas**. Haga clic en **Agregar**. En **Red** , escriba la dirección IP de la interfaz de bucle invertido. En **Próximos saltos** , haga clic en **Agregar** , especifique "Null" para el próximo salto y mantenga el valor predeterminado de 1 para la distancia de administrador.
+1. Cree una ruta nula para la red de la interfaz de bucle invertido. Inicie sesión en el administrador de NSX y seleccione **Redes** > **Enrutamiento** > **Enrutadores** > **Provider-LR (Proveedor del enrutador lógico)**  > **Enrutamiento** > **Rutas estáticas**. Haga clic en **Agregar**. En **Red**, escriba la dirección IP de la interfaz de bucle invertido. En **Próximos saltos**, haga clic en **Agregar**, especifique "Null" para el próximo salto y mantenga el valor predeterminado de 1 para la distancia de administrador.
 
     ![Agregar ruta estática](media/l2vpn-routing-security01.png)
 
-2. Cree una lista de prefijos IP. Inicie sesión en el administrador de NSX y seleccione **Redes** > **Enrutamiento** > **Enrutadores** > **Provider-LR (Proveedor del enrutador lógico)**  > **Enrutamiento** > **IP Prefix Lists** (Listas de prefijos IP). Haga clic en **Agregar**. Escriba un nombre para identificar la lista. En **Prefijos** , haga clic en **Agregar** dos veces. En la primera línea, escriba "0.0.0.0/0" para **Red** y "Denegar" para **Acción**. En la segunda línea, seleccione **Cualquiera** para **Red** y **Permitir** para **Acción**.
+2. Cree una lista de prefijos IP. Inicie sesión en el administrador de NSX y seleccione **Redes** > **Enrutamiento** > **Enrutadores** > **Provider-LR (Proveedor del enrutador lógico)**  > **Enrutamiento** > **IP Prefix Lists** (Listas de prefijos IP). Haga clic en **Agregar**. Escriba un nombre para identificar la lista. En **Prefijos**, haga clic en **Agregar** dos veces. En la primera línea, escriba "0.0.0.0/0" para **Red** y "Denegar" para **Acción**. En la segunda línea, seleccione **Cualquiera** para **Red** y **Permitir** para **Acción**.
 3. Adjunte la lista de prefijos IP a ambos vecinos de BGP (TOR). Al adjuntar la lista de prefijos IP al vecino de BGP, se evita que la ruta predeterminada se anuncie en BGP para los conmutadores TOR. Sin embargo, cualquier otra ruta que incluya la ruta nula anunciará la dirección IP de la interfaz de bucle invertido a los conmutadores TOR.
 
     ![Creación de una lista de prefijos IP](media/l2vpn-routing-security02.png)
 
-4. Inicie sesión en el administrador de NSX y seleccione **Redes** > **Enrutamiento** > **Enrutadores** > **Provider-LR (Proveedor del enrutador lógico)**  > **Enrutamiento** > **BGP** > **Vecinos**. Seleccione el primer vecino. Haga clic en **Editar** > **Familias de direcciones**. En la familia IPv4, edite la columna **Out Filter** y seleccione la lista de prefijos IP que creó. Haga clic en **Save** (Guardar). Repita este paso para el segundo vecino.
+4. Inicie sesión en el administrador de NSX y seleccione **Redes** > **Enrutamiento** > **Enrutadores** > **Provider-LR (Proveedor del enrutador lógico)**  > **Enrutamiento** > **BGP** > **Vecinos**. Seleccione el primer vecino. Haga clic en **Editar** > **Familias de direcciones**. En la familia IPv4, edite la columna **Out Filter** y seleccione la lista de prefijos IP que creó. Haga clic en **Save**(Guardar). Repita este paso para el segundo vecino.
 
     ![Adjuntar la lista de prefijos IP 1](media/l2vpn-routing-security03.png) ![Adjuntar la lista de prefijos IP 2](media/l2vpn-routing-security04.png)
 
@@ -444,7 +444,7 @@ Antes de la implementación, compruebe que las reglas de firewall local permiten
 
     ![Selección de los grupos de puertos](media/l2vpn-deploy-client07.png)
 
-6. Rellene los siguientes detalles en la pantalla **Personalizar plantilla** y haga clic en **Siguiente** :
+6. Rellene los siguientes detalles en la pantalla **Personalizar plantilla** y haga clic en **Siguiente**:
 
     Expanda L2T:
 

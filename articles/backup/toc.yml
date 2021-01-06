@@ -75,7 +75,7 @@
         - name: Preguntas más frecuentes sobre los almacenes de Recovery Services
           href: backup-azure-backup-faq.md
         - name: Preguntas más frecuentes sobre el Centro de copia de seguridad
-          href: backup-center-faq.md
+          href: backup-center-faq.yml
         - name: Preguntas más frecuentes sobre la copia de seguridad de máquina virtual de Azure
           href: backup-azure-vm-backup-faq.md
         - name: Preguntas más frecuentes sobre el agente de MARS

@@ -1,19 +1,19 @@
 ---
 title: 'Azure VMware Solution by CloudSimple: uso de Azure AD como origen de identidades en la nube privada'
 description: En este artículo se describe cómo agregar Azure AD como proveedor de identidades en la nube privada de CloudSimple para autenticar a los usuarios que acceden a CloudSimple desde Azure.
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/15/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 93922986dfe0b2b4e8ba0923931df601cc12428b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f55a0f52f5e028f9cbf7a9fabbb3c24ad43c3800
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90532535"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97898613"
 ---
 # <a name="use-azure-ad-as-an-identity-provider-for-vcenter-on-cloudsimple-private-cloud"></a>Uso de Azure AD como proveedor de identidades para vCenter en la nube privada de CloudSimple
 
@@ -90,9 +90,9 @@ También puede configurar otras características de Azure AD,  aunque son neces
     | **Nombre de dominio** | FDQN del dominio, por ejemplo, ejemplo.com. No proporcione una dirección IP en este cuadro de texto. |
     | **Alias de dominio** | *(Opcional)* Nombre de NetBIOS del dominio. Si usa autenticaciones de SSPI, agregue el nombre de NetBIOS del dominio de Active Directory como un alias del origen de identidad. |
     | **DN base para grupos** | Nombre distintivo base para los grupos. Para Azure AD, use: `OU=AADDC Users,DC=<domain>,DC=<domain suffix>`. Ejemplo: `OU=AADDC Users,DC=cloudsimplecustomer,DC=com`.|
-    | **URL de servidor principal** | Servidor LDAP del controlador de dominio principal para el dominio.<br><br>Use el formato `ldaps://hostname:port`. Normalmente, el puerto es el 636 para las conexiones LDAPS. <br><br>Cuando se usa  `ldaps://`  en la URL de LDAP principal o secundaria, se requiere un certificado que establezca la confianza para el punto de conexión LDAPS del servidor de Active Directory. |
+    | **URL de servidor principal** | Servidor LDAP del controlador de dominio principal para el dominio.<br><br>Use el formato `ldaps://hostname:port`. Normalmente, el puerto es el 636 para las conexiones LDAPS. <br><br>Cuando se usa `ldaps://` en la dirección URL de LDAP principal o secundaria, se requiere un certificado que establezca la confianza para el punto de conexión de LDAPS del servidor de Active Directory. |
     | **URL de servidor secundario** | Dirección de un servidor LDAP de controlador de dominio secundario que se usa para la conmutación por error. |
-    | **Elegir certificado** | Si quiere usar LDAPS con el origen de identidad del servidor LDAP de Active Directory o del servidor de OpenLDAP, aparecerá el botón Elegir certificado cuando escriba  `ldaps://`  en el cuadro de texto de la URL. No se requiere una URL secundaria. |
+    | **Elegir certificado** | Si quiere usar LDAPS con el origen de identidad del servidor LDAP de Active Directory o del servidor de OpenLDAP, aparecerá el botón Elegir certificado cuando escriba `ldaps://` en el cuadro de texto de la dirección URL. No se requiere una URL secundaria. |
     | **Nombre de usuario** | Identificador de un usuario del dominio que tiene un mínimo de acceso de solo lectura al DN base para usuarios y grupos. |
     | **Contraseña** | Contraseña del usuario que se especifica mediante el nombre de usuario. |
 

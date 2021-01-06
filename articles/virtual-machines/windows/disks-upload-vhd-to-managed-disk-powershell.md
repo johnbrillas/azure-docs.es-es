@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: virtual-machines
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: 25d8c36cc42c3f1d1cc2a8477a7361ba45bec706
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 17b99a9d3fa6b2934705d913170f2f617c856998
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977925"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97915766"
 ---
 # <a name="upload-a-vhd-to-azure-or-copy-a-managed-disk-to-another-region---azure-powershell"></a>Carga de un VHD en Azure o copia de un disco administrado en otra región: Azure PowerShell
 
@@ -44,7 +44,7 @@ Este tipo de disco administrado tiene dos estados únicos:
 
 Antes de que pueda crear un HDD estándar vacío para cargar, necesitará el tamaño de archivo del VHD que quiere cargar, en bytes. El código de ejemplo lo recibirá, pero para hacerlo usted puede usar: `$vhdSizeBytes = (Get-Item "<fullFilePathHere>").length`. Este valor se usa al especificar el parámetro **-UploadSizeInBytes**.
 
-Ahora, en el shell local, cree un HDD estándar vacío para la carga mediante la especificación del valor **Upload** en el parámetro **-CreateOption**, así como el parámetro **-UploadSizeInBytes** del cmdlet [New-AzDiskConfig](/powershell/module/az.compute/new-azdiskconfig?view=azps-1.8.0). Después, llame a [New-AzDisk](/powershell/module/az.compute/new-azdisk?view=azps-1.8.0) para crear el disco.
+Ahora, en el shell local, cree un HDD estándar vacío para la carga mediante la especificación del valor **Upload** en el parámetro **-CreateOption**, así como el parámetro **-UploadSizeInBytes** del cmdlet [New-AzDiskConfig](/powershell/module/az.compute/new-azdiskconfig?view=azps-1.8.0&preserve-view=true). Después, llame a [New-AzDisk](/powershell/module/az.compute/new-azdisk?view=azps-1.8.0&preserve-view=true) para crear el disco.
 
 Reemplace `<yourdiskname>`, `<yourresourcegroupname>` y `<yourregion>`; luego, ejecute los siguientes comandos:
 

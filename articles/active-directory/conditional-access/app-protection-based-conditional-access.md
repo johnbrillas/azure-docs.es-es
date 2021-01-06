@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03069bc37333cbd26dfe4f40ce4496f3afe768ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 672a3f95efad24c07379fafe8b22088dc731c2df
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91266049"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881168"
 ---
 # <a name="how-to-require-app-protection-policy-and-an-approved-client-app-for-cloud-app-access-with-conditional-access"></a>Procedimientos: Uso obligatorio de directivas de protección de aplicaciones y una aplicación aprobada por el cliente para el acceso a aplicaciones en la nube con acceso condicional
 
@@ -60,8 +60,8 @@ Las organizaciones deben completar los pasos siguientes para requerir el uso de 
    1. Seleccione **Aplicaciones móviles y aplicaciones de escritorio** y anule la selección de todo lo demás.
 1. En **Controles de acceso** > **Conceder**, seleccione las opciones siguientes:
    - **Requerir aplicación cliente aprobada**
-   - **Requerir directiva de protección de aplicaciones (versión preliminar)**
-   - **Requerir todos los controles seleccionados**
+   - **Requerir la directiva de protección de aplicaciones**
+   - **Requerir uno de los controles seleccionados**
 1. Confirme la configuración y establezca **Habilitar directiva** en **Activado**.
 1. Seleccione **Crear** para crear y habilitar la directiva.
 
@@ -111,8 +111,8 @@ Las organizaciones deben completar los pasos siguientes para requerir el uso de 
    1. Seleccione **Explorador** y anule la selección de todo lo demás.
 1. En **Controles de acceso** > **Conceder**, seleccione las opciones siguientes:
    - **Requerir aplicación cliente aprobada**
-   - **Requerir directiva de protección de aplicaciones (versión preliminar)**
-   - **Requerir todos los controles seleccionados**
+   - **Requerir la directiva de protección de aplicaciones**
+   - **Requerir uno de los controles seleccionados**
 1. Confirme la configuración y establezca **Habilitar directiva** en **Activado**.
 1. Seleccione **Crear** para crear y habilitar la directiva.
 
@@ -144,7 +144,7 @@ Las organizaciones deben completar los tres pasos siguientes para requerir el us
    1. Seleccione **Aplicaciones móviles y aplicaciones de escritorio** y anule la selección de todo lo demás.
 1. En **Controles de acceso** > **Conceder**, seleccione las opciones siguientes:
    - **Requerir aplicación cliente aprobada**
-   - **Requerir directiva de protección de aplicaciones (versión preliminar)**
+   - **Requerir la directiva de protección de aplicaciones**
    - **Requerir uno de los controles seleccionados**
 1. Confirme la configuración y establezca **Habilitar directiva** en **Activado**.
 1. Seleccione **Crear** para crear y habilitar la directiva.

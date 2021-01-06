@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc3dce8bb51299eb78bd2958eebf7a69594318a4
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 3bba64f8c07545107d57f79ae94dab96e517815f
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96546478"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900712"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identificación y resolución de problemas de asignación de licencias de un grupo en Azure Active Directory
 
@@ -68,7 +68,6 @@ Para ver qué usuarios y grupos consumen las licencias, seleccione un producto. 
 
 Considere el ejemplo siguiente. Un usuario tiene una licencia de Office 365 Enterprise *E1* asignada directamente, con todos los planes habilitados. Se ha agregado el usuario a un grupo que tiene asignado el producto Office 365 Enterprise *E3*. El producto E3 contiene planes de servicio que no pueden superponerse con los planes incluidos en E1, por lo que la asignación de licencia de grupo genera el error “Planes de servicio en conflicto”. En este ejemplo, los planes de servicio en conflicto son:
 
-- SharePoint Online (Plan 2) entra en conflicto con SharePoint Online (Plan 1).
 - Exchange Online (Plan 2) entra en conflicto con Exchange Online (Plan 1).
 
 Para resolver este conflicto, debe deshabilitar dos de los planes. Puede deshabilitar la licencia de E1 que se ha asignado directamente al usuario. O bien, debe modificar toda la asignación de licencias de grupo y deshabilitar los planes de la licencia de E3. Como alternativa, puede quitar la licencia de E1 al usuario si es redundante en el contexto de la licencia de E3.

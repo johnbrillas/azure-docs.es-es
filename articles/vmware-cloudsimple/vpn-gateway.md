@@ -1,19 +1,19 @@
 ---
 title: 'Azure VMware Solution by CloudSimple: configuración de una puerta de enlace de VPN'
 description: Describe cómo configurar la puerta de enlace de VPN de punto a sitio y la puerta de enlace de VPN de sitio a sitio y cómo crear conexiones entre la red local y la nube privada de CloudSimple.
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/14/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: a8b7e238333196381524d189904871fe5933c906
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 78f78bfbf885cbae7708a75cb54ce2d41e7b526c
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91872007"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97899106"
 ---
 # <a name="set-up-vpn-gateways-on-cloudsimple-network"></a>Configuración de puertas de enlace de VPN en la red de CloudSimple
 

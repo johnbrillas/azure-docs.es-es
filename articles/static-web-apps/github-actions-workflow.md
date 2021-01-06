@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 3518935991409d87917582558a34ad7c54841e23
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 5e6188ca2e8e0972e86bed578144a29a96570876
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173659"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97901205"
 ---
 # <a name="github-actions-workflows-for-azure-static-web-apps-preview"></a>Flujos de trabajo de acciones de GitHub para la versión preliminar de Azure Static Web Apps
 
@@ -27,7 +27,7 @@ Cuando vincula el repositorio de GitHub a Azure Static Web Apps, se agrega un ar
 Siga los pasos a continuación para ver el archivo de flujo de trabajo generado.
 
 1. Abra el repositorio de la aplicación en GitHub.
-1. En la pestaña _Código_ , haga clic en la carpeta `.github/workflows`.
+1. En la pestaña _Código_, haga clic en la carpeta `.github/workflows`.
 1. Haga clic en el archivo con un nombre similar a `azure-static-web-apps-<RANDOM_NAME>.yml`.
 
 El archivo YAML del repositorio será similar al ejemplo siguiente:
@@ -63,7 +63,7 @@ jobs:
         ###### Repository/Build Configurations - These values can be configured to match you app requirements. ######
         app_location: '/' # App source code path
         api_location: 'api' # Api source code path - optional
-        app_artifact_location: 'dist' # Built app content directory - optional
+        output_location: 'dist' # Built app content directory - optional
         ###### End of Repository/Build Configurations ######
 
   close_pull_request_job:
@@ -96,7 +96,7 @@ on:
 
 Mediante la configuración asociada a la propiedad `on`, puede definir qué ramas desencadenan un trabajo y establecer desencadenadores para que se activen con diferentes estados de solicitud de incorporación de cambios ("pull request").
 
-En este ejemplo, se inicia un flujo de trabajo a medida que cambia la rama _master_ . Entre los cambios que inician el flujo de trabajo se incluyen la inserción ("push") de confirmaciones y la apertura de solicitudes de incorporación de cambios ("pull request") en la rama elegida.
+En este ejemplo, se inicia un flujo de trabajo a medida que cambia la rama _master_. Entre los cambios que inician el flujo de trabajo se incluyen la inserción ("push") de confirmaciones y la apertura de solicitudes de incorporación de cambios ("pull request") en la rama elegida.
 
 ## <a name="jobs"></a>Trabajos
 
@@ -132,7 +132,7 @@ with:
     ###### Repository/Build Configurations - These values can be configured to match you app requirements. ######
     app_location: '/' # App source code path
     api_location: 'api' # Api source code path - optional
-    app_artifact_location: 'dist' # Built app content directory - optional
+    output_location: 'dist' # Built app content directory - optional
     ###### End of Repository/Build Configurations ######
 ```
 
@@ -140,7 +140,7 @@ with:
 |---|---|---|
 | `app_location` | Ubicación del código de la aplicación.<br><br>Por ejemplo, escriba `/` si el código fuente de la aplicación se encuentra en la raíz del repositorio, o `/app` si el código de la aplicación se encuentra en un directorio denominado `app`. | Sí |
 | `api_location` | Ubicación del código de Azure Functions.<br><br>Por ejemplo, escriba `/api` si el código de la aplicación se encuentra en una carpeta denominada `api`. Si no se detecta ninguna aplicación de Azure Functions en la carpeta, no se produce un error en la compilación, sino que el flujo de trabajo supone que no quiere una API. | No |
-| `app_artifact_location` | Ubicación del directorio de salida de la compilación en relación con `app_location`.<br><br>Por ejemplo, si el código fuente de la aplicación se encuentra en `/app` y el script de compilación genera archivos de salida en la carpeta `/app/build`, establezca `build` como valor de `app_artifact_location`. | No |
+| `output_location` | Ubicación del directorio de salida de la compilación en relación con `app_location`.<br><br>Por ejemplo, si el código fuente de la aplicación se encuentra en `/app` y el script de compilación genera archivos de salida en la carpeta `/app/build`, establezca `build` como valor de `output_location`. | No |
 
 Azure Static Web Apps configura automáticamente los valores de `repo_token`, `action` y `azure_static_web_apps_api_token`, y estos no deben cambiarse manualmente.
 
@@ -161,9 +161,9 @@ Puede personalizar el flujo de trabajo para que busque el archivo [routes.json](
 
 | Propiedad            | Descripción |
 |---------------------|-------------|
-| `routes_location` | Define la ubicación del directorio en el que se encuentra el archivo _routes.json_ . Esta ubicación es relativa a la raíz del repositorio. |
+| `routes_location` | Define la ubicación del directorio en el que se encuentra el archivo _routes.json_. Esta ubicación es relativa a la raíz del repositorio. |
 
- Es especialmente importante escribir de forma explícita la ubicación del archivo _routes.json_ si el paso de compilación del marco de trabajo front-end no mueve este archivo a `app_artifact_location` de forma predeterminada.
+ Es especialmente importante escribir de forma explícita la ubicación del archivo _routes.json_ si el paso de compilación del marco de trabajo front-end no mueve este archivo a `output_location` de forma predeterminada.
 
 ## <a name="environment-variables"></a>Variables de entorno
 
@@ -189,7 +189,7 @@ jobs:
           ###### Repository/Build Configurations
           app_location: "/"
           api_location: "api"
-          app_artifact_location: "public"
+          output_location: "public"
           ###### End of Repository/Build Configurations ######
         env: # Add environment variables here
           HUGO_VERSION: 0.58.0

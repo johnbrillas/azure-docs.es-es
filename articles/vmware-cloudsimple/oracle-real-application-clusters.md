@@ -1,19 +1,19 @@
 ---
 title: 'Azure VMware Solution by CloudSimple: optimización de la nube privada de CloudSimple para Oracle RAC'
 description: Se describe cómo implementar un nuevo clúster y optimizar una VM para la instalación y configuración de Oracle Real Application Clusters (RAC).
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/06/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 980ba86a9916e13dd2ac7639bd06d3ab8546d2f1
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 3959aae5f490af10c6747cfa67d9960e0c4a203f
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424683"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97899276"
 ---
 # <a name="optimize-your-cloudsimple-private-cloud-for-installing-oracle-rac"></a>Optimización de la nube privada de CloudSimple para la instalación de Oracle RAC
 
@@ -174,9 +174,9 @@ Las directivas de vSAN definen los errores tolerables y la fragmentación de dis
 3. En el menú de la izquierda, seleccione **VM Storage Policies** (Directivas de almacenamiento de VM) y, a continuación, seleccione **Create a VM storage Policy** (Crear una directiva de almacenamiento de VM).
 4. Escriba un nombre descriptivo para la directiva y haga clic en **SIGUIENTE**.
 5. En la sección **Policy structure** (Estructura de la directiva), seleccione **Enable rules for vSAN storage** (Habilitar reglas para el almacenamiento de vSAN) y haga clic en **SIGUIENTE**.
-6. En la sección **vSAN** > **Disponibilidad** , seleccione **Ninguno** para la tolerancia ante desastres de sitios. En el caso de los errores tolerables, seleccione la opción **RAID - Mirroring** (RAID: creación de reflejo) para el valor de FTT deseado.
+6. En la sección **vSAN** > **Disponibilidad**, seleccione **Ninguno** para la tolerancia ante desastres de sitios. En el caso de los errores tolerables, seleccione la opción **RAID - Mirroring** (RAID: creación de reflejo) para el valor de FTT deseado.
     ![Configuración de vSAN](media/oracle-rac-storage-wizard-vsan.png).
-7. En la sección **Avanzado** , seleccione el número de bandas de disco por objeto. En Reserva del espacio de objetos, seleccione **Aprovisionamiento grueso**. Seleccione **Disable object checksum** (Deshabilitar la suma de comprobación de objetos). Haga clic en **SIGUIENTE**.
+7. En la sección **Avanzado**, seleccione el número de bandas de disco por objeto. En Reserva del espacio de objetos, seleccione **Aprovisionamiento grueso**. Seleccione **Disable object checksum** (Deshabilitar la suma de comprobación de objetos). Haga clic en **SIGUIENTE**.
 8. Siga las instrucciones que se muestran en la pantalla para ver la lista de almacenes de datos de vSAN compatibles, revisar la configuración y finalizar la instalación.
 
 ## <a name="create-oracle-vms-and-create-shared-vm-disks-for-oracle"></a>Creación de VM de Oracle y de discos de VM compartidos para Oracle

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: af7cc9d83b87c8a772a190c431d6946eec4dda86
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 9e5f7d4e3c358c05713301ac1b1b896062f12bee
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96483137"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97914763"
 ---
 # <a name="azure-security-baseline-for-windows-virtual-machines"></a>Base de referencia de seguridad de Azure para Windows Virtual Machines
 
@@ -464,7 +464,7 @@ Como alternativa, puede habilitar e incorporar datos en Azure Sentinel o en una 
 
 **Responsabilidad**: Customer
 
-### <a name="312-alert-on-account-sign-in-behavior-deviation"></a>3.12: Alerta sobre las desviaciones de comportamiento en los inicios de sesión de las cuentas
+### <a name="312-alert-on-account-sign-in-behavior-deviation"></a>3.12: Alerta de las desviaciones de comportamiento en los inicios de sesión de las cuentas
 
 **Guía**: use las características de protección de identidad y detección de riesgo de Azure Active Directory para configurar respuestas automatizadas a las acciones sospechosas que se detecten en relación con los recursos de las cuentas de almacenamiento. Debe habilitar las respuestas automatizadas a través de Azure Sentinel para implementar las respuestas de seguridad de su organización.
 
@@ -893,7 +893,7 @@ En la mayoría de los escenarios, las plantillas de máquina virtual base de Mic
 
 * [Información sobre la creación de plantillas ARM](./ps-template.md)
 
-* [Carga de un VHD de máquina virtual personalizado en Azure](/azure-stack/operator/azure-stack-add-vm-image?view=azs-1910)
+* [Carga de un VHD de máquina virtual personalizado en Azure](/azure-stack/operator/azure-stack-add-vm-image?view=azs-1910&preserve-view=true)
 
 **Supervisión de Azure Security Center**: Sí
 

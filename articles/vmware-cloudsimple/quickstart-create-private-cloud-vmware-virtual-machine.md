@@ -1,19 +1,19 @@
 ---
 title: 'Inicio rápido: Creación de una máquina virtual de VMware de Azure en una nube privada: Azure VMware Solution by CloudSimple'
 description: Aprenda a crear una máquina virtual de VMware en la nube privada de CloudSimple. Acceda al portal de CloudSimple desde Azure Portal.
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/16/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: fd67a5a7f1bf665333e06c66f73c7f18727a3e12
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: c741f01ccc3e34ec991aa77fc850fd9f60c4d8aa
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427776"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97899293"
 ---
 # <a name="create-vmware-virtual-machines-on-your-private-cloud"></a>Creación de máquinas virtuales de VMware en la nube privada
 
@@ -28,7 +28,7 @@ Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azur
 1. Seleccione **Todos los servicios**.
 2. Busque **Servicios de CloudSimple**.
 3. Seleccione el servicio de CloudSimple en el que quiere crear la nube privada.
-4. En la página **Información general** , haga clic en **Go to the CloudSimple portal** (Ir al portal de CloudSimple) para abrir una nueva pestaña del explorador para el portal de CloudSimple.  Si se le solicita, inicie sesión con las credenciales de inicio de sesión en Azure.  
+4. En la página **Información general**, haga clic en **Go to the CloudSimple portal** (Ir al portal de CloudSimple) para abrir una nueva pestaña del explorador para el portal de CloudSimple.  Si se le solicita, inicie sesión con las credenciales de inicio de sesión en Azure.  
 
     ![Inicio del portal de CloudSimple](media/launch-cloudsimple-portal.png)
 
@@ -139,7 +139,7 @@ Las páginas de red del portal de CloudSimple permiten especificar la configurac
 5. Use el control deslizante para cambiar el tiempo de espera de inactividad si lo desea.
 6. Escriba la dirección IP local a la que quiere asignar una dirección IP pública.
 7. Si lo desea, escriba un nombre DNS asociado.
-8. Haga clic en **Done** (Listo).
+8. Haga clic en **Done**(Listo).
 
     ![Dirección IP pública](media/quick-create-pc-public-ip.png)
 

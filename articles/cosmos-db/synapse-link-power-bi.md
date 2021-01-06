@@ -6,19 +6,19 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: acomet
-ms.openlocfilehash: 959070ca431c3397779a2a22c16f03b3adebbb35
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: be2657d9606f260fcea06d2535be87fc6976577c
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96444508"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97915681"
 ---
 # <a name="use-power-bi-and-serverless-synapse-sql-pool-preview-to-analyze-azure-cosmos-db-data-with-synapse-link"></a>Uso de Power BI y de un grupo de Synapse SQL (versión preliminar) sin servidor para analizar los datos de Azure Cosmos DB mediante Synapse Link 
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
 En este artículo va a aprender a compilar una base de datos de grupos de SQL sin servidor y vistas de Synapse Link para Azure Cosmos DB. Va a consultar los contenedores de Azure Cosmos DB y, después, va a compilar un modelo con Power BI de esas vistas que refleje esa consulta.
 
-En este escenario usará datos ficticios sobre las ventas de productos de Surface en un comercio asociado. Analizará los ingresos por tienda en función de la proximidad a núcleos familiares grandes y el impacto de la publicidad durante una semana específica. En este artículo creará dos vistas denominadas **RetailSales** y **StoreDemographics** y una consulta entre ellas. Puede obtener los datos del producto de ejemplo en este repositorio de [GitHub](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples/Retail/RetailData).
+En este escenario usará datos ficticios sobre las ventas de productos de Surface en un comercio asociado. Analizará los ingresos por tienda en función de la proximidad a núcleos familiares grandes y el impacto de la publicidad durante una semana específica. En este artículo creará dos vistas denominadas **RetailSales** y **StoreDemographics** y una consulta entre ellas. Puede obtener los datos del producto de ejemplo en este repositorio de [GitHub](https://github.com/Azure-Samples/Synapse/tree/main/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples/Retail/RetailData).
 
 > [!IMPORTANT]
 > La compatibilidad con el grupo de SQL sin servidor de Synapse de Azure Synapse Link para Azure Cosmos DB está actualmente en su versión preliminar. Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Para obtener más información, consulte [Términos de uso complementarios de las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -33,7 +33,7 @@ Asegúrese de crear los siguientes recursos antes de empezar:
 
 * Cree una base de datos en la cuenta de Azure Cosmos y dos contenedores que tengan el [almacén analítico habilitado.](configure-synapse-link.md#create-analytical-ttl)
 
-* Cargue los datos de los productos en los contenedores de Azure Cosmos como se indica en este cuaderno sobre [ingesta de datos por lotes](https://github.com/Azure-Samples/Synapse/blob/master/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples/Retail/spark-notebooks/pyspark/1CosmoDBSynapseSparkBatchIngestion.ipynb).
+* Cargue los datos de los productos en los contenedores de Azure Cosmos como se indica en este cuaderno sobre [ingesta de datos por lotes](https://github.com/Azure-Samples/Synapse/blob/main/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples/Retail/spark-notebooks/pyspark/1CosmoDBSynapseSparkBatchIngestion.ipynb).
 
 * [Cree un área de trabajo de Synapse](../synapse-analytics/quickstart-create-workspace.md) denominada **SynapseLinkBI**.
 

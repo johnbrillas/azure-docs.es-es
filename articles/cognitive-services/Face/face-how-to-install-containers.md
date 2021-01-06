@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/16/2020
 ms.author: aahi
 keywords: entorno local, Docker, contenedor, identificar
-ms.openlocfilehash: 0f6807f771510f85c5a20cfb2a160cfe1e8726a3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 64169069bc0a1ccd126d1b79ee89a5666e1caeb1
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96000560"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861052"
 ---
 # <a name="install-and-run-face-containers-preview"></a>Instalación y ejecución de contenedores de Face (versión preliminar)
 
@@ -137,10 +137,6 @@ Los contenedores del servicio Face envían información de facturación a Azure 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 Para obtener más información acerca de estas opciones, consulte [Configure containers](./face-resource-container-config.md) (Configuración de contenedores).
-
-<!--blogs/samples/video coures -->
-
-[!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
 ## <a name="summary"></a>Resumen
 

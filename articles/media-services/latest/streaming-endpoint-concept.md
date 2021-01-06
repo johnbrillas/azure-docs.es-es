@@ -12,18 +12,18 @@ ms.workload: ''
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: inhenkel
-ms.openlocfilehash: 9f17e8a09715ce9ff51715f17a449ec0a5b3f770
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f7307b95912a982bb36efbf2ce18668bd88e1195
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89297202"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882881"
 ---
 # <a name="streaming-endpoints-origin-in-azure-media-services"></a>Puntos de conexión de streaming (origen) en Azure Media Services
 
 En Microsoft Azure Media Services, un [punto de conexión de streaming](/rest/api/media/streamingendpoints) representa un servicio dinámico (Just-In-Time) de empaquetado y origen que puede entregar directamente el contenido en directo y a petición a una aplicación de reproducción cliente, mediante uno de los protocolos de streaming multimedia habituales (HLS o DASH). Además, el **punto de conexión de streaming** proporciona cifrado dinámico (Just-In-Time) para los sistemas de DRM líderes del sector. 
 
-Cuando se crea una cuenta de Media Services, se genera automáticamente un punto de conexión de streaming **predeterminado** en estado detenido. No se puede eliminar el punto de conexión de streaming **predeterminado**. Es posible crear puntos de conexión de streaming adicionales en la cuenta (consulte [Cuotas y límites](limits-quotas-constraints.md)).
+Cuando se crea una cuenta de Media Services, se genera automáticamente un punto de conexión de streaming **predeterminado** en estado detenido. Es posible crear puntos de conexión de streaming adicionales en la cuenta (consulte [Cuotas y límites](limits-quotas-constraints.md)).
 
 > [!NOTE]
 > Para iniciar la transmisión de vídeos, es preciso que inicie el **punto de conexión de streaming** desde el que desee transmitir en secuencias el vídeo.

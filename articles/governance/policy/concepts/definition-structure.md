@@ -3,12 +3,12 @@ title: Detalles de la estructura de definición de directivas
 description: Describe cómo se usan las definiciones de directiva para establecer convenciones para los recursos de Azure de su organización.
 ms.date: 10/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5f9a110247d4ec93c8f3fb95fc9ed61eb6806787
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 52adaf9522e4690c4c44a72ed47592f5b1d6471e
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305154"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97883255"
 ---
 # <a name="azure-policy-definition-structure"></a>Estructura de definición de Azure Policy
 
@@ -75,11 +75,11 @@ Los patrones y elementos integrados de Azure Policy se encuentran en [Ejemplos d
 Use los valores **displayName** y **description** para identificar la definición de directiva y proporcionar el contexto para su uso. **displayName** tiene una longitud máxima de _128_ caracteres y **description** tiene una longitud máxima de _512_ caracteres.
 
 > [!NOTE]
-> Durante la creación o actualización de una definición de directiva, las propiedades **id** , **type** y **name** se definen mediante propiedades externas al JSON y no son necesarias en el archivo JSON. Al capturar la definición de directiva mediante el SDK, se devuelven las propiedades **id** , **type** y **name** como parte del JSON, pero cada una de ellas es información de solo lectura relacionada con la definición de directiva.
+> Durante la creación o actualización de una definición de directiva, las propiedades **id**, **type** y **name** se definen mediante propiedades externas al JSON y no son necesarias en el archivo JSON. Al capturar la definición de directiva mediante el SDK, se devuelven las propiedades **id**, **type** y **name** como parte del JSON, pero cada una de ellas es información de solo lectura relacionada con la definición de directiva.
 
 ## <a name="type"></a>Tipo
 
-Aunque no se puede establecer la propiedad **type** , hay tres valores que devuelve el SDK y que son visibles en el portal:
+Aunque no se puede establecer la propiedad **type**, hay tres valores que devuelve el SDK y que son visibles en el portal:
 
 - `Builtin`: Microsoft proporciona y mantiene estas definiciones de directiva.
 - `Custom`: todas las definiciones de directiva creadas por los clientes tienen este valor.
@@ -98,7 +98,7 @@ El **modo** determina qué tipos de recurso se evalúan para una definición de 
 
 Por ejemplo, en un recurso, `Microsoft.Network/routeTables` admite etiquetas y ubicación, y se evalúa en ambos modos. Sin embargo, `Microsoft.Network/routeTables/routes` no se puede etiquetar y no se evalúa en el modo `Indexed`.
 
-Se recomienda que establezca **mode** en `all` en la mayoría de los casos. Todas las definiciones de directivas creadas a través del portal usan el modo `all`. Si usa PowerShell o la CLI de Azure, puede especificar el parámetro **mode** de forma manual. Si la definición de directiva no incluye un valor de **modo** , el valor predeterminado es `all` en Azure PowerShell y `null` en la CLI de Azure. Un modo `null` es lo mismo que usar `indexed` para la compatibilidad con versiones anteriores.
+Se recomienda que establezca **mode** en `all` en la mayoría de los casos. Todas las definiciones de directivas creadas a través del portal usan el modo `all`. Si usa PowerShell o la CLI de Azure, puede especificar el parámetro **mode** de forma manual. Si la definición de directiva no incluye un valor de **modo**, el valor predeterminado es `all` en Azure PowerShell y `null` en la CLI de Azure. Un modo `null` es lo mismo que usar `indexed` para la compatibilidad con versiones anteriores.
 
 `indexed` debe usarse al crear directivas que apliquen etiquetas o ubicaciones. Aunque no es obligatorio, impide que los recursos que no son compatibles con etiquetas y ubicaciones aparezcan como no compatibles en los resultados de cumplimiento. La excepción son los **grupos de recursos** y las **suscripciones**. Las directivas que aplican la ubicación o etiquetas en un grupo de recursos o suscripción deben establecer **mode** en `all` y tener como destino específico el tipo `Microsoft.Resources/subscriptions/resourceGroups` o `Microsoft.Resources/subscriptions`. Para obtener un ejemplo, consulte [Patrón: Etiquetas: ejemplo n.º 1](../samples/pattern-tags.md). Para obtener una lista de los recursos que admiten etiquetas, consulte [Compatibilidad con etiquetas de los recursos de Azure](../../../azure-resource-manager/management/tag-support.md).
 
@@ -106,9 +106,9 @@ Se recomienda que establezca **mode** en `all` en la mayoría de los casos. Toda
 
 El siguiente modo del proveedor de recursos es totalmente compatible:
 
-- `Microsoft.Kubernetes.Data` para administrar los clústeres de Kubernetes en o fuera de Azure. Las definiciones que utilizan este modo del proveedor de recursos usan los efectos _auditoría_ , _denegar_ y _deshabilitado_. El uso del efecto [EnforceOPAConstraint](./effects.md#enforceopaconstraint) está _en desuso_.
+- `Microsoft.Kubernetes.Data` para administrar los clústeres de Kubernetes en o fuera de Azure. Las definiciones que utilizan este modo del proveedor de recursos usan los efectos _auditoría_, _denegar_ y _deshabilitado_. El uso del efecto [EnforceOPAConstraint](./effects.md#enforceopaconstraint) está _en desuso_.
 
-Actualmente se admiten los siguientes modos del proveedor de recursos como **versión preliminar** :
+Actualmente se admiten los siguientes modos del proveedor de recursos como **versión preliminar**:
 
 - `Microsoft.ContainerService.Data` para administrar reglas del controlador de admisión en [Azure Kubernetes Service](../../../aks/intro-kubernetes.md). Las definiciones que usan este modo del proveedor de recursos **deben** utilizar el efecto [EnforceRegoPolicy](./effects.md#enforceregopolicy). Este modo está _en desuso_.
 - `Microsoft.KeyVault.Data` para administrar almacenes y certificados en [Azure Key Vault](../../../key-vault/general/overview.md). Para más información sobre estas definiciones de directiva, consulte [Integrar Azure Key Vault con Azure Policy](../../../key-vault/general/azure-policy.md).
@@ -128,7 +128,7 @@ La propiedad `metadata` opcional almacena información acerca de la definición 
 - `deprecated` (booleano): marca true o false si la definición de directiva está marcada como _en desuso_.
 
 > [!NOTE]
-> El servicio Azure Policy usa las propiedades `version`, `preview` y `deprecated` para transmitir el nivel de cambio a una definición o iniciativa de directiva integradas y el estado. El formato de `version` es: `{Major}.{Minor}.{Patch}`. Determinados estados, como _en desuso_ o _versión preliminar_ , están anexados a la propiedad `version` o están en otra propiedad como **booleano**. Para obtener más información sobre la forma en que Azure Policy crea versiones los elementos integrados, vea [Control de versiones integradas](https://github.com/Azure/azure-policy/blob/master/built-in-policies/README.md).
+> El servicio Azure Policy usa las propiedades `version`, `preview` y `deprecated` para transmitir el nivel de cambio a una definición o iniciativa de directiva integradas y el estado. El formato de `version` es: `{Major}.{Minor}.{Patch}`. Determinados estados, como _en desuso_ o _versión preliminar_, están anexados a la propiedad `version` o están en otra propiedad como **booleano**. Para obtener más información sobre la forma en que Azure Policy crea versiones los elementos integrados, vea [Control de versiones integradas](https://github.com/Azure/azure-policy/blob/master/built-in-policies/README.md).
 
 ## <a name="parameters"></a>Parámetros
 
@@ -143,7 +143,7 @@ Los parámetros funcionan del mismo modo al crear las directivas. Con la inclusi
 Un parámetro tiene las siguientes propiedades que se usan en la definición de directiva:
 
 - `name`: El nombre del parámetro. Lo utiliza la función de la implementación `parameters` dentro de la regla de directiva. Para más información, consulte [Uso de un valor de parámetro](#using-a-parameter-value).
-- `type`: Determina si el parámetro es **string** , **array** , **object** , **boolean** , **integer** , **float** o **datetime**.
+- `type`: Determina si el parámetro es **string**, **array**, **object**, **boolean**, **integer**, **float** o **datetime**.
 - `metadata`: Define las subpropiedades que usa principalmente Azure Portal para mostrar información intuitiva:
   - `description`: La explicación de para qué se usa el parámetro. Puede utilizarse para proporcionar ejemplos de valores aceptables.
   - `displayName`: El nombre descriptivo que se muestra en el portal para el parámetro.
@@ -189,7 +189,7 @@ En este ejemplo se hace referencia al parámetro **allowedLocations** que se mos
 
 ### <a name="strongtype"></a>strongType
 
-Dentro de la propiedad `metadata`, puede usar **strongType** para proporcionar una lista de opciones de selección múltiple en Azure Portal. **strongType** puede ser un _tipo de recurso_ compatible o un valor permitido. Para determinar si un _tipo de recurso_ es válido para **strongType** , use [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider). El formato de un _tipo de recurso_ **strongType** es `<Resource Provider>/<Resource Type>`. Por ejemplo, `Microsoft.Network/virtualNetworks/subnets`.
+Dentro de la propiedad `metadata`, puede usar **strongType** para proporcionar una lista de opciones de selección múltiple en Azure Portal. **strongType** puede ser un _tipo de recurso_ compatible o un valor permitido. Para determinar si un _tipo de recurso_ es válido para **strongType**, use [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider). El formato de un _tipo de recurso_ **strongType** es `<Resource Provider>/<Resource Type>`. Por ejemplo, `Microsoft.Network/virtualNetworks/subnets`.
 
 Se admiten algunos _tipos de recursos_ no devueltos por **Get-AzResourceProvider**. Estos tipos son:
 
@@ -209,16 +209,16 @@ Al crear una iniciativa o directiva, es necesario especificar la ubicación de l
 
 Si la ubicación de la definición es:
 
-- **Suscripción** : la definición de la directiva solo se puede asignar a los recursos incluidos dentro de esa suscripción.
-- **Grupo de administración** : la definición de la directiva solo se puede asignar a los recursos incluidos dentro de grupos de administración secundarios y suscripciones secundarias. Si planea aplicar la definición de directiva a varias suscripciones, la ubicación debe ser un grupo de administración que contenga cada una de las suscripciones.
+- **Suscripción**: la definición de la directiva solo se puede asignar a los recursos incluidos dentro de esa suscripción.
+- **Grupo de administración**: la definición de la directiva solo se puede asignar a los recursos incluidos dentro de grupos de administración secundarios y suscripciones secundarias. Si planea aplicar la definición de directiva a varias suscripciones, la ubicación debe ser un grupo de administración que contenga cada una de las suscripciones.
 
 Para obtener más información, vea [Descripción del ámbito de Azure Policy](./scope.md#definition-location).
 
 ## <a name="policy-rule"></a>Regla de directiva
 
-La regla de directiva se compone de los bloques **If** y **Then**. En el bloque **If** , defina una o varias condiciones que especifican cuándo se aplica la directiva. Puede aplicar operadores lógicos a estas condiciones para definir con precisión el escenario de una directiva.
+La regla de directiva se compone de los bloques **If** y **Then**. En el bloque **If**, defina una o varias condiciones que especifican cuándo se aplica la directiva. Puede aplicar operadores lógicos a estas condiciones para definir con precisión el escenario de una directiva.
 
-En el bloque **Then** , defina el efecto que se produce cuando se cumplen las condiciones de **If**.
+En el bloque **Then**, defina el efecto que se produce cuando se cumplen las condiciones de **If**.
 
 ```json
 {
@@ -239,7 +239,7 @@ Los operadores lógicos admitidos son:
 - `"allOf": [{condition or operator},{condition or operator}]`
 - `"anyOf": [{condition or operator},{condition or operator}]`
 
-La sintaxis **not** invierte el resultado de la condición. La sintaxis **allOf** (similar a la operación lógica **And** ) requiere que se cumplan todas las condiciones. La sintaxis **anyOf** (similar a la operación lógica **Or** ) requiere que se cumplan una o varias condiciones.
+La sintaxis **not** invierte el resultado de la condición. La sintaxis **allOf** (similar a la operación lógica **And**) requiere que se cumplan todas las condiciones. La sintaxis **anyOf** (similar a la operación lógica **Or**) requiere que se cumplan una o varias condiciones.
 
 Puede anidar los operadores lógicos. El ejemplo siguiente muestra una operación **not** que está anidada dentro de una operación **allOf**.
 
@@ -284,12 +284,12 @@ Una condición evalúa si un **campo** o el descriptor de acceso **value** cumpl
   `"greaterOrEquals": intValue`
 - `"exists": "bool"`
 
-Para **less** , **lessOrEquals** , **greater** y **greaterOrEquals** , si el tipo de propiedad no coincide con el tipo de condición, se produce un error. La comparación de cadenas se realiza con `InvariantCultureIgnoreCase`.
+Para **less**, **lessOrEquals**, **greater** y **greaterOrEquals**, si el tipo de propiedad no coincide con el tipo de condición, se produce un error. La comparación de cadenas se realiza con `InvariantCultureIgnoreCase`.
 
-Cuando se usan las condiciones **like** y **notLike** , incluya un carácter comodín (`*`) en el valor.
+Cuando se usan las condiciones **like** y **notLike**, incluya un carácter comodín (`*`) en el valor.
 El valor no debe contener más de un carácter comodín `*`.
 
-Cuando se usan las condiciones **match** y **notMatch** , proporcione `#` para que coincida un dígito, `?` para una letra, `.` para que coincida cualquier carácter y cualquier otro carácter para que coincida ese carácter en sí. Mientras que **match** y **notMatch** distinguen mayúsculas de minúsculas, el resto de las condiciones que evalúan un elemento _stringValue_ no lo hacen. Las alternativas de distinción entre mayúsculas y minúsculas están disponibles en **matchInsensitively** y **notMatchInsensitively**.
+Cuando se usan las condiciones **match** y **notMatch**, proporcione `#` para que coincida un dígito, `?` para una letra, `.` para que coincida cualquier carácter y cualquier otro carácter para que coincida ese carácter en sí. Mientras que **match** y **notMatch** distinguen mayúsculas de minúsculas, el resto de las condiciones que evalúan un elemento _stringValue_ no lo hacen. Las alternativas de distinción entre mayúsculas y minúsculas están disponibles en **matchInsensitively** y **notMatchInsensitively**.
 
 En un valor de campo de la matriz de **alias \[\*\]** , cada elemento de la matriz se evalúa individualmente con la lógica **and** entre los elementos. Para obtener más información, consulte [Referencia a las propiedades de recursos de matriz](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties).
 
@@ -440,7 +440,7 @@ Con la regla de directivas revisada, `if()` comprueba la longitud del **nombre**
 
 ### <a name="count"></a>Count
 
-Las condiciones que cuentan el número de miembros de una matriz en la carga de recursos que satisfacen una expresión de condición se pueden formar mediante la expresión **count**. Algunos escenarios comunes consisten en comprobar si "al menos uno de", "exactamente uno de", "todos" o "ninguno de" los miembros de la matriz satisfacen la condición. **count** evalúa cada miembro de la matriz de [\[\*\] alias](#understanding-the--alias) de una condición de expresión y suma los resultados con el valor _true_ , que luego se compara con el operador de expresión. Las expresiones **count** se pueden agregar hasta tres veces a una única definición de **policyRule**.
+Las condiciones que cuentan el número de miembros de una matriz en la carga de recursos que satisfacen una expresión de condición se pueden formar mediante la expresión **count**. Algunos escenarios comunes consisten en comprobar si "al menos uno de", "exactamente uno de", "todos" o "ninguno de" los miembros de la matriz satisfacen la condición. **count** evalúa cada miembro de la matriz de [\[\*\] alias](#understanding-the--alias) de una condición de expresión y suma los resultados con el valor _true_, que luego se compara con el operador de expresión. Las expresiones **count** se pueden agregar hasta tres veces a una única definición de **policyRule**.
 
 La estructura de la expresión **count** es:
 
@@ -456,7 +456,7 @@ La estructura de la expresión **count** es:
 }
 ```
 
-Las siguientes propiedades se utilizan con **count** :
+Las siguientes propiedades se utilizan con **count**:
 
 - **count.field** (requerido): Contiene la ruta de acceso a la matriz y debe ser un alias de matriz. Si falta la matriz, la expresión se evalúa como _false_ sin considerar la expresión de condición.
 - **count.where** (opcional): Expresión de condición para evaluar individualmente cada miembro de la matriz del [alias \[\*\]](#understanding-the--alias) de **count.field**. Si no se proporciona esta propiedad, todos los miembros de la matriz con la ruta de acceso "field" se evalúan como _true_. En esta propiedad se puede usar cualquier [condición](../concepts/definition-structure.md#conditions).
@@ -569,13 +569,13 @@ Ejemplo 6: Utilizar la función `field()` dentro de las condiciones `where` para
 
 Azure Policy admite los siguientes tipos de efecto:
 
-- **Append** : agrega el conjunto de campos definido a la solicitud.
-- **Audit** : genera un evento de advertencia en el registro de actividad pero no genera un error en la solicitud.
-- **AuditIfNotExists** : genera un evento de advertencia en el registro de actividad en caso de no existir un recurso relacionado.
-- **Deny** : genera un evento en el registro de actividad y genera un error en la solicitud.
-- **DeployIfNotExists** : implementa un recurso relacionado si todavía no existe.
-- **Disabled** : no se evalúa el cumplimiento de la regla de directivas en los recursos.
-- **Modify** : agrega, actualiza o quita las etiquetas definidas de un recurso.
+- **Append**: agrega el conjunto de campos definido a la solicitud.
+- **Audit**: genera un evento de advertencia en el registro de actividad pero no genera un error en la solicitud.
+- **AuditIfNotExists**: genera un evento de advertencia en el registro de actividad en caso de no existir un recurso relacionado.
+- **Deny**: genera un evento en el registro de actividad y genera un error en la solicitud.
+- **DeployIfNotExists**: implementa un recurso relacionado si todavía no existe.
+- **Disabled**: no se evalúa el cumplimiento de la regla de directivas en los recursos.
+- **Modify**: agrega, actualiza o quita las etiquetas definidas de un recurso.
 - **EnforceOPAConstraint** (en desuso): configura el controlador de admisiones Open Policy Agent con Gatekeeper v3 para clústeres de Kubernetes autoadministrados en Azure.
 - **EnforceRegoPolicy** (en desuso): configura el controlador de admisiones Open Policy Agent con Gatekeeper v2 en Azure Kubernetes Service.
 
@@ -609,7 +609,7 @@ Las siguientes funciones solo están disponibles en las reglas de directiva:
   - **dateTime** (fecha y hora): [Obligatorio] cadena: cadena con el formato de fecha y hora universal ISO 8601 "yyyy-MM-ddTHH:mm:ss.FFFFFFFZ"
   - **numberOfDaysToAdd** (número de días para agregar): [Obligatorio] entero: número de días que se desea agregar
 - `field(fieldName)`
-  - **fieldName** : [obligatorio] cadena. Es el nombre del [campo](#fields) que se va a recuperar.
+  - **fieldName**: [obligatorio] cadena. Es el nombre del [campo](#fields) que se va a recuperar.
   - Devuelve el valor de ese campo del recurso que se va a evaluar con la condición If.
   - `field` se usa principalmente con **AuditIfNotExists** y **DeployIfNotExists** para hacer referencia a los campos del recurso que se van a evaluar. Este uso se puede observar en el [ejemplo de DeployIfNotExists](effects.md#deployifnotexists-example).
 - `requestContext().apiVersion`
@@ -629,8 +629,8 @@ Las siguientes funciones solo están disponibles en las reglas de directiva:
 
 
 - `ipRangeContains(range, targetRange)`
-    - **range** : cadena [obligatoria]. Cadena que especifica un intervalo de direcciones IP.
-    - **targetRange** : cadena [obligatoria]. Cadena que especifica un intervalo de direcciones IP.
+    - **range**: cadena [obligatoria]. Cadena que especifica un intervalo de direcciones IP.
+    - **targetRange**: cadena [obligatoria]. Cadena que especifica un intervalo de direcciones IP.
 
     Devuelve si el intervalo de direcciones IP especificado contiene el intervalo de direcciones IP de destino. No se permiten rangos vacíos ni mezclas entre familias de direcciones IP, lo que genera un error en la evaluación.
 
@@ -642,7 +642,7 @@ Las siguientes funciones solo están disponibles en las reglas de directiva:
 
 #### <a name="policy-function-example"></a>Ejemplo de función de directiva
 
-Este ejemplo de regla de directiva usa la función de recurso `resourceGroup` para obtener la propiedad **nombre** , combinada con la matriz `concat` y la función de objeto para compilar una condición `like` que exige que el nombre del recurso empiece con el nombre del grupo de recursos.
+Este ejemplo de regla de directiva usa la función de recurso `resourceGroup` para obtener la propiedad **nombre**, combinada con la matriz `concat` y la función de objeto para compilar una condición `like` que exige que el nombre del recurso empiece con el nombre del grupo de recursos.
 
 ```json
 {
@@ -670,25 +670,6 @@ La lista de alias siempre está en aumento. Para descubrir qué alias son compat
 
   :::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Captura de pantalla de la extensión Azure Policy para Visual Studio Code al mantener el puntero sobre una propiedad para mostrar los nombres de alias." border="false":::
 
-- Azure Resource Graph
-
-  Use el operador `project` para mostrar el **alias** de un recurso.
-
-  ```kusto
-  Resources
-  | where type=~'microsoft.storage/storageaccounts'
-  | limit 1
-  | project aliases
-  ```
-  
-  ```azurecli-interactive
-  az graph query -q "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
-  ```
-  
-  ```azurepowershell-interactive
-  Search-AzGraph -Query "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
-  ```
-
 - Azure PowerShell
 
   ```azurepowershell-interactive
@@ -702,7 +683,7 @@ La lista de alias siempre está en aumento. Para descubrir qué alias son compat
   ```
 
   > [!NOTE]
-  > Para buscar alias que se puedan usar con el efecto [modificar](./effects.md#modify), use el siguiente comando en Azure PowerShell  **4.6.0** o superior:
+  > Para buscar alias que se puedan usar con el efecto [modificar](./effects.md#modify), use el siguiente comando en Azure PowerShell **4.6.0** o superior:
   >
   > ```azurepowershell-interactive
   > Get-AzPolicyAlias | Select-Object -ExpandProperty 'Aliases' | Where-Object { $_.DefaultMetadata.Attributes -eq 'Modifiable' }

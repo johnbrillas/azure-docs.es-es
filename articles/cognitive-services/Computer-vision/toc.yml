@@ -139,7 +139,7 @@
         - name: Exploración de una aplicación de procesamiento de imágenes
           href: Tutorials/CSharpTutorial.md
         - name: Otros ejemplos de Computer Vision
-          href: 'https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision'
+          href: 'https://docs.microsoft.com/samples/browse/?products=azure&terms=computer-vision'
     - name: Preguntas más frecuentes
       href: FAQ.md
     - name: Taxonomía de categoría

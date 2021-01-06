@@ -3,17 +3,17 @@ title: Errores y advertencias del indexador
 titleSuffix: Azure Cognitive Search
 description: En este artículo se proporciona información y soluciones a errores y advertencias comunes que pueden surgir durante el enriquecimiento de IA en Azure Cognitive Search.
 manager: nitinme
-author: nitinme
-ms.author: nitinme
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: c65c9265d8eb4a06ea354c6d753cc6ed847eb6db
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 6625cd5ad91826ac5cdf8ec63382e9f94d8a2c08
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97724296"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895947"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Solución de errores y advertencias comunes con el indexador en Azure Cognitive Search
 

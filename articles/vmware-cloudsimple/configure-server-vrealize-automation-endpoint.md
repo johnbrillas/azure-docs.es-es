@@ -1,19 +1,19 @@
 ---
 title: 'Azure VMware Solution by CloudSimple: configuración de vCenter en la nube privada para vRealize Automation'
 description: Describe cómo configurar un servidor de VMware vCenter en la nube privada de CloudSimple como punto de conexión para VMware vRealize Automation.
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/19/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: df73acfc469a8b7b5329b61095aefdbd73baafd4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b6c6a320e6299808a91214476c8c0460f9f53d9
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77024847"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895060"
 ---
 # <a name="set-up-vcenter-on-your-private-cloud-for-vmware-vrealize-automation"></a>Configuración de vCenter en la nube privada para VMware vRealize Automation
 
@@ -48,7 +48,7 @@ Complete estas tareas antes de configurar el servidor vCenter Server:
 2. Implemente un agente de vSphere para el punto de conexión de vRealize Automation.
     1. Vaya a https://*url-vra*:5480/installer, donde *url-vra* es la dirección URL que usa para acceder a la interfaz de usuario de administración de vRealize Automation.
     2. Haga clic en **IaaS Installer** (Instalador de IaaS) para descargar el instalador.<br>
-    La convención de nomenclatura del archivo del instalador es setup_*url-vra*@5480.exe.
+    La convención de nomenclatura del archivo del instalador es setup_ *url-vra*@5480.exe.
     3. Ejecute al programa de instalación. En la pantalla de bienvenida, haga clic en **Next** (Siguiente).
     4. Acepte el contrato de licencia de usuario final y haga clic en **Next** (Siguiente).
     5. Proporcione la información de inicio de sesión, haga clic en **Accept Certificate** (Aceptar certificado) y, después, haga clic en **Next** (Siguiente).

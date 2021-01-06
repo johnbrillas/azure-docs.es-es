@@ -1,19 +1,19 @@
 ---
 title: 'Azure VMware Solution by CloudSimple: configuración de orígenes de identidad de vCenter en la nube privada'
 description: Se describe cómo configurar vCenter de la nube privada para autenticarse con Active Directory de forma que los administradores de VMware accedan a él.
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/15/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 60090dec56a177fac6ddad946d97142b484355af
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: a76fecb942c5c6da926e37149245e82dcbc4661b
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425753"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97899157"
 ---
 # <a name="set-up-vcenter-identity-sources-to-use-active-directory"></a>Configuración de orígenes de identidad de vCenter para usar Active Directory
 
@@ -33,7 +33,7 @@ En esta guía se explican las tareas para configurar el dominio y los controlado
 Antes de [agregar un origen de identidad](#add-an-identity-source-on-vcenter), [escale los privilegios de vCenter](escalate-private-cloud-privileges.md) temporalmente.
 
 > [!CAUTION]
-> Los nuevos usuarios solo se deben agregar a *Cloud-Owner-Group* , *Cloud-Global-Cluster-Admin-Group* , *Cloud-Global-Storage-Admin-Group* , *Cloud-Global-Network-Admin-Group* o *Cloud-Global-VM-Admin-Group*.  Los usuarios agregados al grupo *Administradores* se quitarán automáticamente.  Solo se deben agregar cuentas de servicio al grupo *Administradores* y estas cuentas no se deben usar para iniciar sesión en la interfaz de usuario web de vSphere.   
+> Los nuevos usuarios solo se deben agregar a *Cloud-Owner-Group*, *Cloud-Global-Cluster-Admin-Group*, *Cloud-Global-Storage-Admin-Group*, *Cloud-Global-Network-Admin-Group* o *Cloud-Global-VM-Admin-Group*.  Los usuarios agregados al grupo *Administradores* se quitarán automáticamente.  Solo se deben agregar cuentas de servicio al grupo *Administradores* y estas cuentas no se deben usar para iniciar sesión en la interfaz de usuario web de vSphere.   
 
 
 ## <a name="identity-source-options"></a>Opciones de origen de identidad

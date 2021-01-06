@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 82b786f3c90a7ef482ccbcd6e66fb9abfc4eea5f
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 4e974d93b5b7550081abcd7e251c7eda265a2397
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97561943"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882966"
 ---
 # <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-arc-enabled-kubernetes-cluster-on-azure-stack-edge-pro-gpu"></a>Implementación de una aplicación sin estado de libro de visitas PHP con Redis en un clúster de Kubernetes habilitado para Arc en Azure Stack Edge Pro con GPU
 
@@ -27,6 +27,8 @@ La implementación se realiza mediante GitOps en el clúster de Kubernetes habil
 
 Este procedimiento está dirigido a los usuarios que han examinado las [cargas de trabajo de Kubernetes en un dispositivo Azure Stack Edge Pro](azure-stack-edge-gpu-kubernetes-workload-management.md) y están familiarizados con los conceptos de [¿Qué es Kubernetes habilitado para Azure Arc (versión preliminar)?](../azure-arc/kubernetes/overview.md)
 
+> [!NOTE]
+> Este artículo contiene referencias al término esclavo, un término que Microsoft ya no usa. Cuando se quite el término del software, se quitará también del artículo.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -108,7 +110,6 @@ Siga estos pasos para configurar el recurso de Azure Arc para implementar una co
 1. La implementación tarda un par de minutos. Una vez finalizada, **Operator state** (Estado del operador) se muestra como **Instalado**.
 
     ![Captura de pantalla que muestra el clúster de Kubernetes habilitado para Azure Arc en un estado instalado.](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-2.png)
-
 
 ## <a name="verify-deployment"></a>Comprobación de la implementación
 

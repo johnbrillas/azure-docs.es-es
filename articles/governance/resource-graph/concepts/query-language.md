@@ -3,12 +3,12 @@ title: Descripción del lenguaje de consultas
 description: Describe las tablas de Resource Graph y los tipos de datos, los operadores y las funciones de Kusto disponibles que se pueden usar con Azure Resource Graph.
 ms.date: 11/18/2020
 ms.topic: conceptual
-ms.openlocfilehash: 34aaaa60ed9d757cc1a63ffaebb2225900cff61f
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 3023991c76d94dc8aa87cfe950c18ab5d6a07ba9
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966690"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97883068"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Información del lenguaje de consulta de Azure Resource Graph
 
@@ -123,7 +123,7 @@ Esta es la lista de operadores tabulares de KQL admitidos por Resource Graph con
 |KQL |Consulta de ejemplo de Resource Graph |Notas |
 |---|---|---|
 |[count](/azure/kusto/query/countoperator) |[Contador de almacenes de claves](../samples/starter.md#count-keyvaults) | |
-|[distinct](/azure/kusto/query/distinctoperator) |[Show distinct values for a specific alias](../samples/starter.md#distinct-alias-values) | |
+|[distinct](/azure/kusto/query/distinctoperator) |[Mostrar los recursos que contienen almacenamiento](../samples/starter.md#show-storage) | |
 |[extend](/azure/kusto/query/extendoperator) |[Count virtual machines by OS type](../samples/starter.md#count-os) | |
 |[join](/azure/kusto/query/joinoperator) |[Almacén de claves con el nombre de la suscripción](../samples/advanced.md#join) |Tipos de combinación admitidos: [innerunique](/azure/kusto/query/joinoperator#default-join-flavor), [inner](/azure/kusto/query/joinoperator#inner-join), [leftouter](/azure/kusto/query/joinoperator#left-outer-join). Límite de 3 `join` en una sola consulta. No se permiten las estrategias de combinación personalizadas, como la combinación de difusión. Para conocer las tablas que pueden usar `join`, consulte [Tablas de Resource Graph](#resource-graph-tables). |
 |[limit](/azure/kusto/query/limitoperator) |[List all public IP addresses](../samples/starter.md#list-publicip) |Sinónimo de `take`. No funciona con [Skip](./work-with-data.md#skipping-records). |

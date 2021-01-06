@@ -12,19 +12,19 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 12/01/2020
 ms.author: kumud
-ms.openlocfilehash: 814158ad68e63760c1f2a1bce3eeff812de3c13e
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: a25d6d0d1990682287b5962a7bd93a0c525db133
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96938739"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882371"
 ---
 # <a name="integrate-azure-services-with-virtual-networks-for-network-isolation"></a>Integración de servicios de Azure con redes virtuales para el aislamiento de red
 
 La integración de Virtual Network (VNet) para un servicio de Azure le permite bloquear el acceso al servicio únicamente a la infraestructura de red virtual. La infraestructura de VNet también incluye redes virtuales del mismo nivel y redes locales.
 
 La integración de VNet proporciona a los servicios de Azure las ventajas del aislamiento de red y puede realizarse mediante uno o varios de los métodos siguientes:
-- [Implementación de instancias dedicadas del servicio en una red virtual](virtual-network-service-endpoints-overview.md). Luego se puede acceder de forma privada a los servicios dentro de la red virtual y desde redes locales.
+- [Implementación de instancias dedicadas del servicio en una red virtual](virtual-network-for-azure-services.md). Luego se puede acceder de forma privada a los servicios dentro de la red virtual y desde redes locales.
 - Usando un [punto de conexión privado](../private-link/private-endpoint-overview.md) que le conecta de forma privada y segura a un servicio con la tecnología de [Azure Private Link](../private-link/private-link-overview.md). Un punto de conexión privado usa una dirección IP privada de su VNet y coloca el servicio de manera eficaz en la red virtual.
 - Accediendo al servicio mediante puntos de conexión públicos mediante la ampliación de una red virtual al servicio a través de los [puntos de conexión de servicio](virtual-network-service-endpoints-overview.md). Los puntos de conexión de servicio permiten que los recursos de servicio se protejan en la red virtual.
 - Usando [etiquetas de servicio](service-tags-overview.md) para permitir o denegar el tráfico a los recursos de Azure hacia y desde puntos de conexión de dirección IP pública.
