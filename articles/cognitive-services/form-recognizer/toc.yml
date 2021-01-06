@@ -7,45 +7,13 @@
       href: overview.md
     - name: Novedades
       href: whats-new.md
-- name: Guías de inicio rápido
+- name: Introducción a Form Recognizer
   expaned: true
   items:
-    - name: Uso de la biblioteca cliente
+    - name: Uso de la biblioteca cliente o de la API REST
       href: quickstarts/client-library.md
     - name: Uso de la herramienta de etiquetado de ejemplo
-      items:
-        - name: Entrenamiento de un modelo personalizado con etiquetas
-          href: quickstarts/label-tool.md
-    - name: Uso de la API de REST
-      items:
-        - name: Entrenamiento y uso de un modelo personalizado sin etiquetas
-          items:
-            - name: cURL
-              href: quickstarts/curl-train-extract.md
-            - name: Python
-              href: quickstarts/python-train-extract.md
-        - name: Entrenamiento y uso de un modelo personalizado con etiquetas
-          items:
-            - name: Python
-              href: quickstarts/python-labeled-data.md
-        - name: Uso de un modelo de recibo creado previamente
-          items:
-            - name: cURL
-              href: quickstarts/curl-receipts.md
-            - name: Python
-              href: quickstarts/python-receipts.md
-        - name: Uso del modelo de tarjeta de presentación predefinido
-          items:
-            - name: Python
-              href: quickstarts/python-business-cards.md
-        - name: Uso de un modelo de factura pregenerado
-          items:
-            - name: Python
-              href: quickstarts/python-invoices.md
-        - name: Obtención información acerca del diseño de texto
-          items:
-            - name: Python
-              href: quickstarts/python-layout.md
+      href: quickstarts/label-tool.md
 - name: Tutoriales
   items:
     - name: Uso de Form Recognizer con Cognitive Search
@@ -77,7 +45,8 @@
           href: form-recognizer-container-configuration.md
           displayName: 'docker, container, run, billing, apikey, logging'
         - name: Uso de instancias de contenedores
-          href: deploy-form-recognizer-on-container-instances.md
+          maintainContext: true
+          href: ../containers/azure-container-instance-recipe.md
         - name: Documentación de contenedores de Cognitive Services
           href: ../containers/index.yml
     - name: Copia de seguridad y recuperación de modelos
