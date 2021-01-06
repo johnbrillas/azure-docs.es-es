@@ -93,6 +93,8 @@
       href: manage.md
     - name: Conjuntos de escalado de máquinas virtuales
       items:
+        - name: Actualización o eliminación de la instancia de Azure Load Balancer existente utilizada por el conjunto de escalado de máquinas virtuales
+          href: update-load-balancer-with-vm-scale-set.md
         - name: Uso con una instancia de Azure Load Balancer (Azure Portal)
           href: configure-vm-scale-set-portal.md
         - name: Uso con una instancia de Azure Load Balancer (PowerShell)
