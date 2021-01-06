@@ -28,7 +28,7 @@
       href: delete-application-portal.md
 - name: Tutoriales
   items:
-    - name: Lista de aplicaciones preconfiguradas
+    - name: Lista de tutoriales de integración de aplicaciones
       href: /azure/active-directory/saas-apps/
     - name: Incorporación de una aplicación local con Application Proxy
       href: application-proxy-add-on-premises-application.md

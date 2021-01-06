@@ -239,7 +239,7 @@
           items:
             - name: Desencadenador HTTP
               items:
-                - name: Azure Portal
+                - name: Azure portal
                   href: functions-create-first-azure-function.md
                 - name: Línea de comandos
                   href: ./create-first-function-cli-csharp.md
@@ -417,6 +417,8 @@
           href: functions-recover-storage-account.md
         - name: Solución de problemas de funciones de Python
           href: recover-python-functions.md
+        - name: Escalado y rendimiento de las funciones de Python
+          href: python-scale-performance-reference.md
 - name: Referencia
   items:
     - name: Referencias de API
@@ -446,7 +448,7 @@
             - name: Entrada
               displayName: Blob storage
               href: functions-bindings-storage-blob-input.md
-            - name: Salida
+            - name: Output
               displayName: Blob storage
               href: functions-bindings-storage-blob-output.md
         - name: Azure Cosmos DB
