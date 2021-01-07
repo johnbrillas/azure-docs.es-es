@@ -4,16 +4,16 @@ description: Cree una aplicación de función e implemente el código de la func
 ms.date: 07/03/2018
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 752d8a729c56fc2e0e110fcedc263eab4ba7a96b
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 219e993ad7132c90de6db680facc9b8f815947cc
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565320"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934397"
 ---
 # <a name="create-a-function-app-in-azure-that-is-deployed-from-github"></a>Creación de una aplicación de función en Azure que se implemente desde GitHub
 
-Este script de ejemplo de Azure Functions crea una aplicación de función mediante el [plan de consumo](../functions-scale.md#consumption-plan), junto con sus recursos relacionados. El script también configura el código de función para la implementación continua desde un repositorio de GitHub. 
+Este script de ejemplo de Azure Functions crea una aplicación de función mediante el [plan de consumo](../consumption-plan.md), junto con sus recursos relacionados. El script también configura el código de función para la implementación continua desde un repositorio de GitHub. 
 
 En este ejemplo, necesita:
 
@@ -42,7 +42,7 @@ Cada comando de la tabla crea un vínculo a documentación específica del coman
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
 | [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Crea la cuenta de almacenamiento necesaria para la aplicación de función. |
-| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Crea una aplicación de función en el [plan de consumo](../functions-scale.md#consumption-plan) sin servidor y lo asocia a un repositorio de Git o Mercurial. |
+| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Crea una aplicación de función en el [plan de consumo](../consumption-plan.md) sin servidor y lo asocia a un repositorio de Git o Mercurial. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

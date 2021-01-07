@@ -6,12 +6,12 @@ ms.author: cshoe
 ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 06/17/2020
-ms.openlocfilehash: 75e3886e31592b0672487bacd5ff2266e07e39cd
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 766ad12daeb6d2763f7ed5fe026cd4a0021eaf33
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182517"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937049"
 ---
 # <a name="tutorial-establish-azure-functions-private-site-access"></a>Tutorial: Establecimiento del acceso a un sitio privado de Azure Functions
 
@@ -130,7 +130,7 @@ El primer paso de este tutorial consiste en crear una nueva máquina virtual den
 
 ## <a name="create-an-azure-functions-app"></a>Creación de una aplicación de Azure Functions
 
-El siguiente paso consiste en crear una aplicación de funciones en Azure con el [Plan de consumo](functions-scale.md#consumption-plan). El código de la función se implementará en este recurso más adelante en el tutorial.
+El siguiente paso consiste en crear una aplicación de funciones en Azure con el [Plan de consumo](consumption-plan.md). El código de la función se implementará en este recurso más adelante en el tutorial.
 
 1. En el portal, elija **Agregar** en la parte superior de la vista de grupo de recursos.
 1. Seleccione **Proceso > Aplicación de funciones**.
@@ -149,7 +149,7 @@ El siguiente paso consiste en crear una aplicación de funciones en Azure con el
 
     | Configuración      | Valor sugerido  | Descripción      |
     | ------------ | ---------------- | ---------------- |
-    | _Cuenta de almacenamiento_ | Nombre único globalmente | Cree una cuenta de almacenamiento que use la aplicación de función. Los nombres de las cuentas de almacenamiento deben tener entre 3 y 24 caracteres y solo pueden incluir números y letras en minúscula. También puede usar una cuenta existente que debe cumplir los [requisitos de la cuenta de almacenamiento](./functions-scale.md#storage-account-requirements). |
+    | _Cuenta de almacenamiento_ | Nombre único globalmente | Cree una cuenta de almacenamiento que use la aplicación de función. Los nombres de las cuentas de almacenamiento deben tener entre 3 y 24 caracteres y solo pueden incluir números y letras en minúscula. También puede usar una cuenta existente que debe cumplir los [requisitos de la cuenta de almacenamiento](storage-considerations.md#storage-account-requirements). |
     | _Sistema operativo_ | Sistema operativo preferido | Se preselecciona un sistema operativo en función de la selección de pila en tiempo de ejecución, pero puede cambiar esta configuración si es necesario. |
     | _Plan_ | Consumo | El [Plan de hospedaje](./functions-scale.md) determina cómo se escala la aplicación de funciones y los recursos disponibles para cada instancia. |
 1. Seleccione **Revisar y crear** para revisar las selecciones de configuración de la aplicación.

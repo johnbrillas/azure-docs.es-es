@@ -4,12 +4,12 @@ description: 'Ejemplo de script de la CLI de Azure: creación de una función de
 ms.topic: sample
 ms.date: 07/03/2018
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 760017439ddc65ee929db1612b34b093d8bed8a0
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 9ec4d3cb9d47608aa98075ba98aacfde51f341cd
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565423"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934431"
 ---
 # <a name="create-an-azure-function-that-connects-to-an-azure-cosmos-db"></a>Creación de una función de Azure que se conecta a una instancia de Cosmos DB
 
@@ -37,7 +37,7 @@ Este script usa los siguientes comandos: Cada comando de la tabla crea un víncu
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Crea un grupo de recursos con una ubicación. |
 | [az storage accounts create](/cli/azure/storage/account#az-storage-account-create) | Crear una cuenta de almacenamiento |
-| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Crea una aplicación de función en el [Plan de consumo](../functions-scale.md#consumption-plan) sin servidor. |
+| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Crea una aplicación de función en el [Plan de consumo](../consumption-plan.md) sin servidor. |
 | [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | Crea una base de datos de Azure Cosmos DB. |
 | [az cosmosdb show](/cli/azure/cosmosdb#az-cosmosdb-show)| Obtiene la conexión de la cuenta de base de datos. |
 | [az cosmosdb list-keys](/cli/azure/cosmosdb#az-cosmosdb-list-keys)| Obtiene las claves para la base de datos. |

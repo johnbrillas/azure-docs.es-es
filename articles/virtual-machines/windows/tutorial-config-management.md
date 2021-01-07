@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 8d6e10b025b9e9524982b1558beacfab1970eb59
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: f9f37bc27c54971c15db457abf157e04cc5d60e8
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216443"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97914678"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-windows-virtual-machine-in-azure"></a>Tutorial: Supervisión de cambios y actualización de una máquina virtual Windows en Azure
 
@@ -37,7 +37,7 @@ También puede abrir Cloud Shell en una pestaña independiente acudiendo a [http
 
 Para configurar la supervisión y la administración de actualizaciones de Azure en este tutorial, necesita una máquina virtual Windows en Azure.
 
-En primer lugar, establezca un nombre de usuario de administrador y una contraseña para la máquina virtual con [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1):
+En primer lugar, establezca un nombre de usuario de administrador y una contraseña para la máquina virtual con [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1&preserve-view=true):
 
 ```azurepowershell-interactive
 $cred = Get-Credential

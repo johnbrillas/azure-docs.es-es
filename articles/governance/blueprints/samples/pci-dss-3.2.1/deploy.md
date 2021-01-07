@@ -3,12 +3,12 @@ title: Implementación del ejemplo de plano técnico para el cumplimiento con PC
 description: Pasos de implementación del ejemplo de plano técnico del Estándar de seguridad de los datos del sector de las tarjetas de pago v3.2.1, incluidos los detalles de los parámetros del artefacto de plano técnico.
 ms.date: 08/19/2020
 ms.topic: sample
-ms.openlocfilehash: a7917f09e5e5ff898bd155f0961e5c9765b8d791
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a0b1d635a073dc19e41a7ba73e130d6028daca99
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88649217"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955678"
 ---
 # <a name="deploy-the-pci-dss-v321-blueprint-sample"></a>Implementación del ejemplo de plano técnico para el cumplimiento con PCI-DSS v3.2.1
 
@@ -93,7 +93,7 @@ En la tabla siguiente se proporciona una lista de los parámetros del artefacto 
 
 |Nombre del artefacto|Tipo de artefacto|Nombre de parámetro|Descripción|
 |-|-|-|-|
-|\[Versión preliminar\] Audite los controles PCI v3.2.1:2018 e implemente extensiones de VM específicas para admitir los requisitos de auditoría.|Asignación de directiva|Lista de tipos de recursos | Audite la configuración de diagnóstico para los tipos de recursos seleccionados. El valor predeterminado es todos los recursos seleccionados.| 
+|PCI v3.2.1:2018|Asignación de directiva|Lista de tipos de recursos | Audite la configuración de diagnóstico para los tipos de recursos seleccionados. El valor predeterminado es todos los recursos seleccionados.| 
 |Ubicaciones permitidas|Asignación de directiva|Lista de ubicaciones permitidas|Lista de ubicaciones de centro de datos permitidas en las que cualquier recurso se puede implementar. Esta se puede personalizar hasta las ubicaciones de Azure deseadas de todo el mundo. Seleccione las ubicaciones que quiere permitir.| 
 |Ubicaciones permitidas para grupos de recursos|Asignación de directiva |Ubicación permitida |Esta directiva permite restringir las ubicaciones en las que la organización puede crear grupos de recursos. Úsela para aplicar los requisitos de cumplimiento de replicación geográfica.| 
 |Implementación de auditorías en servidores SQL Server|Asignación de directiva|Días de retención|Retención de datos en número de días. El valor predeterminado es 180, pero PCI requiere 365.| 
