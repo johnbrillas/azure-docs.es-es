@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6eff662ac0140e7a64cc3bab28856178708cb9b2
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: edb1d419900147b586ba1ff257d4307b237be537
+ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400682"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97746735"
 ---
 # <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Control del acceso a la cuenta de almacenamiento del grupo de SQL sin servidor en Azure Synapse Analytics
 
@@ -89,9 +89,67 @@ Puede usar las siguientes combinaciones de tipos de autorización y almacenamien
 
 \* El token de SAS y la identidad de Azure AD se pueden usar para tener acceso a un almacenamiento que no esté protegido con el firewall.
 
-> [!IMPORTANT]
-> Al acceder al almacenamiento protegido con el firewall, solo se puede usar la identidad administrada. Debe establecer [Permitir servicios de Microsoft de confianza…](../../storage/common/storage-network-security.md#trusted-microsoft-services) y [asignar un rol de Azure](../../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights) de manera explícita a la [identidad administrada asignada por el sistema](../../active-directory/managed-identities-azure-resources/overview.md) para esa instancia del recurso. En ese caso, el ámbito de acceso de la instancia corresponde al rol de Azure que se asigna a la identidad administrada.
->
+
+### <a name="querying-firewall-protected-storage"></a>Consulta del almacenamiento protegido por firewall
+
+Al acceder al almacenamiento protegido con firewall, solo se puede usar **Identidad de usuario** o **Identidad administrada**.
+
+#### <a name="user-identity"></a>Identidad del usuario
+
+Para acceder a un almacenamiento que está protegido por firewall mediante Identidad de usuario, puede usar el módulo Az.Storage de PowerShell.
+#### <a name="configuration-via-powershell"></a>Configuración mediante PowerShell
+
+Siga estos pasos para configurar el firewall de la cuenta de almacenamiento y agregar una excepción para el área de trabajo de Synapse.
+
+1. Abra o [instale PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-7.1&preserve-view=true ).
+2. Instale el módulo Az. Storage actualizado: 
+    ```powershell
+    Install-Module -Name Az.Storage -RequiredVersion 3.0.1-preview -AllowPrerelease
+    ```
+    > [!IMPORTANT]
+    > Asegúrese de que usa la versión 3.0.1 o posterior. Puede comprobar la versión de Az.Storage con este comando:  
+    > ```powershell 
+    > Get-Module -ListAvailable -Name  Az.Storage | select Version
+    > ```
+    > 
+
+3. Conéctese a su inquilino de Azure: 
+    ```powershell
+    Connect-AzAccount
+    ```
+4. Defina las variables en PowerShell: 
+    - Nombre del grupo de recursos: puede encontrarlo en Azure Portal, en la información general del área de trabajo de Synapse.
+    - Nombre de cuenta: nombre de la cuenta de almacenamiento que está protegida por reglas de firewall.
+    - Id. de inquilino: puede encontrarlo en Azure Portal, en la información del inquilino de Azure Active Directory.
+    - Id. de recurso: puede encontrarlo en Azure Portal, en la información general del área de trabajo de Synapse.
+
+    ```powershell
+        $resourceGroupName = "<resource group name>"
+        $accountName = "<storage account name>"
+        $tenantId = "<tenant id>"
+        $resourceId = "<Synapse workspace resource id>"
+    ```
+    > [!IMPORTANT]
+    > Asegúrese de que el identificador de recurso coincida con el de esta plantilla.
+    >
+    > Es importante escribir **resourcegroups** en minúsculas.
+    > Ejemplo de un identificador de recurso: 
+    > ```
+    > /subscriptions/{subscription-id}/resourcegroups/{resource-group}/providers/Microsoft.Synapse/workspaces/{name-of-workspace}
+    > ```
+    > 
+5. Agregue una regla de red de almacenamiento: 
+    ```powershell
+        Add-AzStorageAccountNetworkRule -ResourceGroupName $resourceGroupName -Name $accountName -TenantId $tenantId -ResourceId $resourceId
+    ```
+6. Compruebe que la regla se aplicó en la cuenta de almacenamiento: 
+    ```powershell
+        $rule = Get-AzStorageAccountNetworkRuleSet -ResourceGroupName $resourceGroupName -Name $accountName
+        $rule.ResourceAccessRules
+    ```
+
+#### <a name="managed-identity"></a>Identidad administrada
+Debe establecer [Permitir servicios de Microsoft de confianza…](../../storage/common/storage-network-security.md#trusted-microsoft-services) y [asignar un rol de Azure](../../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights) de manera explícita a la [identidad administrada asignada por el sistema](../../active-directory/managed-identities-azure-resources/overview.md) para esa instancia del recurso. En ese caso, el ámbito de acceso de la instancia corresponde al rol de Azure que se asigna a la identidad administrada.
 
 ## <a name="credentials"></a>Credenciales
 
