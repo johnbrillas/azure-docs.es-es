@@ -137,6 +137,8 @@
           href: batch-automatic-scaling.md
         - name: Elección de un tamaño de máquina virtual para nodos de proceso
           href: batch-pool-vm-sizes.md
+        - name: Paso del servicio en la nube a los grupos de máquinas virtuales
+          href: batch-pool-cloud-service-to-virtual-machine-configuration.md
         - name: Configuración de acceso a nodos de proceso
           href: pool-endpoint-configuration.md
         - name: Creación de un grupo con Shared Image Gallery

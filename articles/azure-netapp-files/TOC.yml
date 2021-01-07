@@ -123,6 +123,8 @@
           href: troubleshoot-cross-region-replication.md
         - name: Solución de problemas de volúmenes de protocolo doble
           href: troubleshoot-dual-protocol-volumes.md
+        - name: Solución de problemas de los volúmenes NFSv4.1 de Kerberos
+          href: troubleshoot-nfsv41-kerberos-volumes.md
         - name: Solución de problemas de directivas de instantáneas
           href: troubleshoot-snapshot-policies.md
         - name: Solucionar errores del proveedor de recursos
