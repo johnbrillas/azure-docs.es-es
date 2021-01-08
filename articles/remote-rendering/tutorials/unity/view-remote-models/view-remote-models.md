@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 834df29597abaaadad98b232ce75b32a6431cfc2
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: d954d4c20dc267a8f62349b5e450710a78af8d9f
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96574741"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724614"
 ---
 # <a name="tutorial-viewing-a-remotely-rendered-model"></a>Tutorial: Visualización de un modelo representado de forma remota
 
@@ -78,7 +78,7 @@ Después de modificar y guardar el manifiesto, Unity se actualiza automáticamen
 
 :::image type="content" source="./media/confirm-packages.png" alt-text="Confirmación de las importaciones del paquete":::
 
-Si los paquetes no se están cargando, compruebe la consola de Unity para ver si hay errores. Si no tiene errores y sigue sin ver ningún paquete en la carpeta **Packages**, active el botón de alternancia de visibilidad de paquetes.\
+Si los paquetes no se están cargando, compruebe la consola de Unity para ver si hay errores. Si no tiene errores y sigue sin ver ningún paquete en la carpeta **Packages**, active el botón de alternancia de visibilidad de paquetes.
 ![Captura de pantalla con una flecha que apunta al botón de alternancia de visibilidad del paquete.](./media/unity-package-visibility.png)
 
 ## <a name="ensure-you-have-the-latest-version-of-the-package"></a>Asegúrese de que tiene la versión más reciente del paquete
@@ -87,10 +87,10 @@ Los siguientes pasos garantizan que en el proyecto se usa la versión más recie
 
 1. En el menú superior del editor de Unity, abra *Window->Package Manager* (Ventana > Administrador de paquetes).
 1. Seleccione el paquete **Microsoft Azure Remote Rendering**.
-1. En la página del administrador de paquetes del paquete **Azure Remote Rendering**, vea si está disponible el botón **Update** (Actualizar). Si es así, haga clic en él para actualizar el paquete a la última versión disponible:\
+1. En la página del administrador de paquetes del paquete **Azure Remote Rendering**, vea si está disponible el botón **Update** (Actualizar). Si es así, haga clic en él para actualizar el paquete a la última versión disponible:
 ![El paquete de Azure Remote Rendering en el administrador de paquetes](./media/package-manager.png)
 1. La actualización del paquete puede provocar errores ocasionales en la consola. En ese caso, prueba a cerrar y volver a abrir el proyecto.
-1. Cuando el paquete esté actualizado, el administrador de paquetes mostrará **Up to date** (Actualizado) en lugar de un botón Upate (Actualizar).\
+1. Cuando el paquete esté actualizado, el administrador de paquetes mostrará **Up to date** (Actualizado) en lugar de un botón Upate (Actualizar).
 ![Paquete actualizado](./media/package-up-to-date.png)
 ## <a name="configure-the-camera"></a>Configuración de la cámara
 
@@ -119,9 +119,9 @@ Los siguientes pasos garantizan que en el proyecto se usa la versión más recie
     ![cambiar la configuración de la calidad del proyecto](./media/settings-quality.png)
 
 1. Seleccione **Graphics** (Gráficos) en el menú de lista izquierdo.
-1. Cambie el valor de **Scriptable Rendering Pipeline** (Canalización de representación mediante script) a *HybridRenderingPipeline*.\
+1. Cambie el valor de **Scriptable Rendering Pipeline** (Canalización de representación mediante script) a *HybridRenderingPipeline*.
     ![Captura de pantalla que señala dónde cambiar el valor de Scriptable Rendering Pipeline (Canalización de representación mediante script) a HybridRenderingPipeline.](./media/settings-graphics-render-pipeline.png)\
-    A veces, la interfaz de usuario no rellena la lista de tipos de canalización disponibles a partir de los paquetes. Si esto ocurre, se debe arrastrar el recurso *HybridRenderingPipeline* al campo manualmente:\
+    A veces, la interfaz de usuario no rellena la lista de tipos de canalización disponibles a partir de los paquetes. Si esto ocurre, se debe arrastrar el recurso *HybridRenderingPipeline* al campo manualmente:
     ![Cambio de la configuración de gráficos del proyecto](./media/hybrid-rendering-pipeline.png)
 
     > [!NOTE]
@@ -150,7 +150,7 @@ Los siguientes pasos garantizan que en el proyecto se usa la versión más recie
 1. Abra *File->Build Settings* (Archivo > Configuración de compilación).
 1. Seleccione **Universal Windows Platform** (Plataforma universal de Windows).
 1. Configure los valores para que coincidan con los que se encuentran a continuación.
-1. Presione el botón **Switch Platform** (Cambiar plataforma).\
+1. Presione el botón **Switch Platform** (Cambiar plataforma).
 ![Configuración de la compilación](./media/build-settings.png)
 1. Después de que Unity cambie las plataformas, cierre el panel de compilación.
 
@@ -236,6 +236,14 @@ public class RemoteRenderingCoordinator : MonoBehaviour
         get => accountId.Trim();
         set => accountId = value;
     }
+
+    [SerializeField]
+    private string accountAuthenticationDomain = "<enter your account authentication domain here>";
+    public string AccountAuthenticationDomain
+    {
+        get => accountAuthenticationDomain.Trim();
+        set => accountAuthenticationDomain = value;
+    }   
 
     [SerializeField]
     private string accountKey = "<enter your account key here>";
@@ -326,7 +334,7 @@ public class RemoteRenderingCoordinator : MonoBehaviour
     private async Task<AzureFrontendAccountInfo> GetDevelopmentCredentials()
     {
         Debug.LogWarning("Using development credentials! Not recommended for production.");
-        return await Task.FromResult(new AzureFrontendAccountInfo(AccountDomain, AccountId, AccountKey));
+        return await Task.FromResult(new AzureFrontendAccountInfo(AccountAuthenticationDomain, AccountDomain, AccountId, AccountKey));
     }
 
     /// <summary>
@@ -537,10 +545,10 @@ public class RemoteRenderingCoordinator : MonoBehaviour
 El coordinador de representación remota y su script necesario (*ARRServiceUnity*) son ambos elementos MonoBehaviour que se deben asociar a un elemento GameObject de la escena. El script *ARRServiceUnity* se proporciona a través de ARR para exponer gran parte de la funcionalidad de ARR para conectarse a las sesiones remotas y administrarlas.
 
 1. Cree un elemento GameObject en la escena (Ctrl+Mayús+N o *GameObject-> Create Empty* [GameObject->Crear vacío]) y llámelo **RemoteRenderingCoordinator**.
-1. Agregue el script *RemoteRenderingCoordinator* al elemento GameObject **RemoteRenderingCoordinator**.\
+1. Agregue el script *RemoteRenderingCoordinator* al elemento GameObject **RemoteRenderingCoordinator**.
 ![Adición del componente RemoteRenderingCoordinator](./media/add-coordinator-script.png)
 1. Confirme que el script *ARRServiceUnity*, que aparece como *Service* (Servicio) en el inspector, se agrega automáticamente a GameObject. Por si se lo pregunta, este es el resultado de tener `[RequireComponent(typeof(ARRServiceUnity))]` en la parte superior del script **RemoteRenderingCoordinator**.
-1. Agregue las credenciales de Azure Remote Rendering y su cuenta de dominio al script de coordinador:\
+1. Agregue las credenciales de Azure Remote Rendering, el dominio de autenticación de la cuenta y el dominio de la cuenta al script de coordinador:\
 ![Adición de las credenciales](./media/configure-coordinator-script.png)
 
 ## <a name="initialize-azure-remote-rendering"></a>Inicialización de Azure Remote Rendering
@@ -594,9 +602,9 @@ Para pasar de **NotAuthorized** a **NoSession**, normalmente presentaríamos al 
 1. Seleccione el elemento GameObject **RemoteRenderingCoordinator** y busque el evento de Unity **OnRequestingAuthorization** expuesto en el inspector del componente **RemoteRenderingCoordinator**.
 
 1. Para agregar un nuevo evento, presione el botón "+" en la parte inferior derecha.
-1. Arrastre el componente a su propio evento para que se haga referencia a sí mismo.\
+1. Arrastre el componente a su propio evento para que se haga referencia a sí mismo.
 ![Omisión de la autenticación](./media/bypass-authorization-add-event.png)\
-1. En el menú desplegable, seleccione **RemoteRenderingCoordinator-> BypassAuthorization**.\
+1. En el menú desplegable, seleccione **RemoteRenderingCoordinator-> BypassAuthorization**.
 ![Captura de pantalla que muestra la opción RemoteRenderingCoordinator.BypassAuthorization seleccionada.](./media/bypass-authorization-event.png)
 
 ## <a name="create-or-join-a-remote-session"></a>Creación de una sesión remota o unión a ella

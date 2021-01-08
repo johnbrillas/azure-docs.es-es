@@ -22,9 +22,9 @@ En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
 > * Crear una instancia de Virtual WAN
-> * Crear una configuración de P2S
+> * Creación de una configuración de P2S
 > * Crear un centro virtual
-> * Especificar servidores DNS
+> * Especificación de los servidores DNS
 > * Generar un paquete de configuración de cliente VPN
 > * Configuración de clientes VPN
 > * Visualizar la instancia de Virtual WAN

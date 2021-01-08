@@ -418,7 +418,7 @@ Siga estos pasos para cambiar la versión de PowerShell que usa la aplicación d
 
 1. En [Azure Portal](https://portal.azure.com), vaya a la aplicación de función.
 
-1. En las **opciones de configuración** haga clic en **Configuración**. En la pestaña **Configuración general** , busque la versión de **PowerShell**. 
+1. En las **opciones de configuración** haga clic en **Configuración**. En la pestaña **Configuración general**, busque la versión de **PowerShell**. 
 
     :::image type="content" source="media/functions-reference-powershell/change-powershell-version-portal.png" alt-text="Elección de la versión de PowerShell usada por la aplicación de funciones"::: 
 
@@ -451,7 +451,7 @@ Functions le permite usar la [Galería de PowerShell](https://www.powershellgall
 }
 ```
 
-Cuando crea un proyecto de funciones de PowerShell, la administración de dependencias está habilitada de manera predeterminada, con el [módulo `Az`](/powershell/azure/new-azureps-module-az) de Azure incluido. El número máximo de módulos admitidos actualmente es 10. La sintaxis admitida es _`MajorNumber`_ `.*` o la versión de módulo exacta que se muestra en el ejemplo de requirements.psd1 siguiente:
+Cuando crea un proyecto de funciones de PowerShell, la administración de dependencias está habilitada de manera predeterminada, con el [`Az`módulo ](/powershell/azure/new-azureps-module-az) de Azure incluido. El número máximo de módulos admitidos actualmente es 10. La sintaxis admitida es _`MajorNumber`_ `.*` o la versión de módulo exacta que se muestra en el ejemplo de requirements.psd1 siguiente:
 
 ```powershell
 @{
@@ -525,7 +525,7 @@ El trabajo de lenguaje de PowerShell usa varios módulos frecuentemente. Estos m
 La lista actual de módulos es como sigue:
 
 * [Microsoft.PowerShell.Archive](https://www.powershellgallery.com/packages/Microsoft.PowerShell.Archive): módulo usadas para trabajar con archivos, como `.zip`, `.nupkg` y otros.
-* **ThreadJob** : implementación basada en subprocesos de las API de trabajo de PowerShell.
+* **ThreadJob**: implementación basada en subprocesos de las API de trabajo de PowerShell.
 
 De manera predeterminada, Functions usa la versión más reciente de estos módulos. Para usar una versión específica del módulo, coloque esa versión específica en la carpeta `Modules` de la aplicación de funciones.
 
