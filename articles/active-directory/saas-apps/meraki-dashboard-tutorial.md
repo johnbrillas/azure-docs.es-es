@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/07/2020
+ms.date: 12/28/2020
 ms.author: jeedes
-ms.openlocfilehash: 0d5b6b7b3cf74ab740dbaeb8d86ab8bbb98e8531
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 0c43e085725ceb5db718c9b4c9c9d83787964d63
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97357104"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97813537"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-meraki-dashboard"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Meraki Dashboard
 
@@ -132,7 +132,7 @@ En esta sección, va a permitir que B.Simon acceda a Meraki Dashboard mediante e
 1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
 1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
 1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
-1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccione un rol**, seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+1. Si espera que se asigne un rol a los usuarios, puede seleccionarlo en la lista desplegable **Seleccionar un rol**. Si no se ha configurado ningún rol para esta aplicación, verá seleccionado el rol "Acceso predeterminado".
 
     ![rol de usuario](./media/meraki-dashboard-tutorial/user-role.png)
 
@@ -143,7 +143,15 @@ En esta sección, va a permitir que B.Simon acceda a Meraki Dashboard mediante e
 
 ## <a name="configure-meraki-dashboard-sso"></a>Configuración del inicio de sesión único de Meraki Dashboard
 
-1. En otra ventana del explorador web, inicie sesión en el sitio web de Meraki Dashboard como administrador.
+1. Para automatizar la configuración en Meraki Dashboard, debe instalar la **extensión del explorador de inicio de sesión seguro de Mis aplicaciones**. Para ello, haga clic en **Instalar la extensión**.
+
+    ![Extensión Mis aplicaciones](common/install-myappssecure-extension.png)
+
+2. Después de agregar la extensión al explorador, haga clic en **Configurar Meraki Dashboard** para ir a la aplicación. Desde ahí, especifique las credenciales de administrador para iniciar sesión en Meraki Dashboard. La extensión de explorador configurará automáticamente la aplicación y automatizará los pasos 3 a 7.
+
+    ![Configuración](common/setup-sso.png)
+
+3. Si desea configurar manualmente Meraki Dashboard, abra otra ventana del explorador web e inicie sesión como administrador en el sitio web de Meraki Dashboard.
 
 1. Vaya a **Organization** (Organización)  -> **Configuration** (Configuración).
 

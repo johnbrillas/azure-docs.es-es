@@ -6,19 +6,19 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
-ms.date: 05/06/2019
-ms.openlocfilehash: 1fffeec1434cb066487bf383589554edec2e6a86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/17/2020
+ms.openlocfilehash: 2353d15707fe215bfcab7912f2a9c598c4af7e49
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75443689"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97822019"
 ---
 # <a name="tutorial-custom-net-deserializers-for-azure-stream-analytics"></a>Tutorial: Deserializadores de .NET personalizados para Azure Stream Analytics
 
 Azure Stream Analytics tiene [compatibilidad integrada con tres formatos de datos](stream-analytics-parsing-json.md): JSON, CSV y Avro. Con los deserializadores de .NET personalizados, puede leer datos de otros formatos, como el [búfer de protocolo](https://developers.google.com/protocol-buffers/), [Bond](https://github.com/Microsoft/bond) y otros definidos por el usuario para trabajos en la nube y perimetrales.
 
-En este tutorial se muestra cómo crear un deserializador de .NET personalizado para un trabajo en la nube de Azure Stream Analytics mediante Visual Studio. 
+En este tutorial se muestra cómo crear un deserializador de .NET personalizado para un trabajo en la nube de Azure Stream Analytics mediante Visual Studio. Para aprender a crear deserializadores de .NET en Visual Studio Code, consulte [Creación de deserializadores de .NET para trabajos de Azure Stream Analytics en Visual Studio Code](visual-studio-code-custom-deserializer.md).
 
 En este tutorial, aprenderá a:
 
@@ -26,17 +26,16 @@ En este tutorial, aprenderá a:
 > * Crear un deserializador personalizado para el búfer de protocolo.
 > * Crear un trabajo de Azure Stream Analytics en Visual Studio.
 > * Configurar el trabajo de Stream Analytics para usar el deserializador personalizado.
-> * Ejecutar de forma local el trabajo de Stream Analytics para probar el deserializador personalizado.
+> * Ejecutar de forma local el trabajo de Stream Analytics para probar y depurar el deserializador personalizado.
+
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
 * Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* Instale [Visual Studio 2017](https://www.visualstudio.com/downloads/) o [Visual Studio 2015](https://www.visualstudio.com/vs/older-downloads/). Se admiten las ediciones Enterprise (Ultimate y Premium), Professional y Community. No se admite la edición Express.
+* Instale [Visual Studio 2019 (versión recomendada)](https://www.visualstudio.com/downloads/) o [Visual Studio 2017](https://www.visualstudio.com/vs/older-downloads/). Se admiten las ediciones Enterprise (Ultimate y Premium), Professional y Community. No se admite la edición Express. 
 
-* [Instale las herramientas de Stream Analytics para Visual Studio](stream-analytics-tools-for-visual-studio-install.md) o actualice a la versión más reciente. Las siguientes versiones de Visual Studio son compatibles:
-   * Visual Studio 2015
-   * Visual Studio 2017
+* [Instale las herramientas de Stream Analytics para Visual Studio](stream-analytics-tools-for-visual-studio-install.md) o actualice a la versión más reciente. 
 
 * Abra **Cloud Explorer** en Visual Studio e inicie sesión en su suscripción de Azure.
 
@@ -80,7 +79,7 @@ El contenedor que cree se usará para almacenar los recursos relacionados con el
    |-------|---------------|
    |Source|Blob Storage|
    |Resource|Selección del origen de datos desde la cuenta actual|
-   |Subscription|< su suscripción >|
+   |Suscripción|< su suscripción >|
    |Cuenta de almacenamiento|< su cuenta de almacenamiento >|
    |Contenedor|< su contenedor de almacenamiento >|
    |Formato de serialización de eventos|Otro (protobuf, XML, propietario...)|
@@ -116,11 +115,13 @@ Ha implementado correctamente un deserializador personalizado para el trabajo de
 
 ## <a name="debug-your-deserializer"></a>Depuración del deserializador
 
-Puede depurar el deserializador de .NET localmente de la misma manera que el código de .NET estándar. 
+Puede depurar el deserializador de .NET localmente de la misma manera que el código de .NET estándar.
 
-1. Agregue puntos de interrupción a la función.
+1. Haga clic con el botón derecho en el nombre del proyecto **ProtobufCloudDeserializer** y establézcalo como proyecto de inicio.
 
-2. Pulse **F5** para iniciar la depuración. El programa se detendrá en los puntos de interrupción según lo previsto.
+2. Agregue puntos de interrupción a la función.
+
+3. Pulse **F5** para iniciar la depuración. El programa se detendrá en los puntos de interrupción según lo previsto.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

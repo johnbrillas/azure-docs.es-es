@@ -8,15 +8,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 12/14/2020
+ms.date: 12/16/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: ec7b951581efd0a25b44d298b1f1bfb997167d88
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 7eda805a5fdf24a7a55b9296a0f0a1c9a5bfc576
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97589107"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97683505"
 ---
 # <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate"></a>Tutorial: Uso de scripts de implementación para crear un certificado autofirmado
 
@@ -34,13 +34,15 @@ En este tutorial se describen las tareas siguientes:
 > * Depuración del script con errores
 > * Limpieza de recursos
 
-## <a name="prerequisites"></a>Requisitos previos
+Para un módulo de Microsoft Learn que abarca los scripts de implementación, consulte [Ampliación de las plantillas de ARM mediante scripts de implementación](/learn/modules/extend-resource-manager-template-deployment-scripts/).
+
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este artículo, necesitará lo siguiente:
 
 * **[Visual Studio Code](https://code.visualstudio.com/) con la extensión Resource Manager Tools**. Consulte [Quickstart: Creación de plantillas de ARM mediante Visual Studio Code](./quickstart-create-templates-use-visual-studio-code.md).
 
-* **Una identidad administrada asignada por el usuario con el rol de colaborador en el nivel de suscripción**. Esta identidad se usa para ejecutar scripts de implementación. Para crear una, consulte [Identidad administrada asignada por el usuario](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md). Necesitará el identificador de identidad al implementar la plantilla. El formato de la identidad es:
+* **Una identidad administrada asignada por el usuario**. Esta identidad se usa para realizar acciones específicas de Azure en el script. Para crear una, consulte [Identidad administrada asignada por el usuario](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md). Necesitará el identificador de identidad al implementar la plantilla. El formato de la identidad es:
 
   ```json
   /subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<IdentityID>
@@ -253,7 +255,7 @@ El script de implementación agrega un certificado al almacén de claves. Config
 
     El recurso `deploymentScripts` depende del recurso del almacén de claves y del recurso de asignación de roles. Tiene estas propiedades:
 
-    * `identity`: el script de implementación utiliza una identidad administrada asignada por el usuario para ejecutar los scripts.
+    * `identity`: el script de implementación utiliza una identidad administrada asignada por el usuario para realizar las operaciones en el script.
     * `kind`: especifica el tipo de script. Actualmente, solo se admiten scripts de PowerShell.
     * `forceUpdateTag`: determina si el script de implementación debe ejecutarse, aunque el origen del script no haya cambiado. Puede ser una marca de tiempo actual o un identificador único. Para más información, consulte la sección [Ejecución de un script varias veces](./deployment-script-template.md#run-script-more-than-once).
     * `azPowerShellVersion`: especifica la versión del módulo de Azure PowerShell que se va a usar. Actualmente, el script de implementación es compatible con las versiones 2.7.0; 2.8.0 y 3.0.0.

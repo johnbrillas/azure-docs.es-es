@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: 74bad563de60abc0c1eb7623a81c83fea03f5ee6
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 6258365ab00ab538f3f3502682078d29a391578c
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207230"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724941"
 ---
 # <a name="quickstart-render-a-model-with-unity"></a>Inicio rápido: Representación de un modelo con Unity
 
@@ -74,8 +74,8 @@ El modelo predeterminado que se representa es un [modelo de ejemplo integrado](.
 ![Información de cuenta de ARR](./media/arr-sample-account-info.png)
 
 > [!IMPORTANT]
-> Azure Portal solo muestra el dominio de su cuenta como *mixedreality.azure.com*. Esto no es suficiente para conectarse correctamente.
-> Establezca **AccountDomain** en `<region>.mixedreality.azure.com`, donde `<region>` es [una de las regiones disponibles cerca](../reference/regions.md).
+> Establezca **AccountDomain** en `<region>.mixedreality.azure.com`, donde `<region>` es [una de las regiones disponibles cercanas](../reference/regions.md).
+> Establezca **AccountAuthenticationDomain** en el [dominio de la cuenta](../how-tos/create-an-account.md#retrieve-the-account-information), tal como se muestra en Azure Portal.
 
 Más adelante implementaremos este proyecto en un dispositivo HoloLens y nos conectaremos al servicio Remote Rendering desde ese dispositivo. Dado que no hay ninguna manera fácil de escribir las credenciales en el dispositivo, el ejemplo de inicio rápido **guardará las credenciales en la escena de Unity**.
 
@@ -92,9 +92,7 @@ Felicidades. Ahora está viendo un modelo representado de forma remota.
 
 ## <a name="inspecting-the-scene"></a>Inspección de la escena
 
-Cuando se ejecute la conexión de representación remota, el panel Inspector se actualizará con información de estado adicional:
-
-![Reproducción del ejemplo de Unity](./media/arr-sample-configure-session-running.png)
+Cuando se ejecute la conexión de representación remota, el panel Inspector se actualizará con información de estado adicional: ![Reproducción de un ejemplo de Unity](./media/arr-sample-configure-session-running.png)
 
 Ahora puede explorar el gráfico de escenas seleccionando el nuevo nodo y haciendo clic en **Show children** (Mostrar elementos secundarios) en Inspector.
 

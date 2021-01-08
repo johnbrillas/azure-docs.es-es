@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: tutorial
 ms.date: 06/17/2020
 ms.author: sebansal
-ms.openlocfilehash: 6d66648680aa14baa53372732df52a6c247a0117
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 42f649f9dd206b34f0fac8513ba742febed2dbcb
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96483770"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724636"
 ---
 # <a name="creating-and-merging-csr-in-key-vault"></a>Creación y combinación de solicitudes de firma de certificado en Key Vault
 
@@ -38,7 +38,34 @@ Key Vault se asocia con las dos entidades de certificación siguientes para simp
 Los pasos siguientes le ayudarán a crear un certificado procedente de entidades de certificación que no están asociadas con Key Vault (por ejemplo, GoDaddy no es una entidades de certificación de confianza en Key Vault). 
 
 
-### <a name="azure-powershell"></a>Azure PowerShell
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
+
+1.  Para generar la CSR para la entidad de certificación de su elección, vaya al almacén de claves en el que desea agregar el certificado.
+2.  En las páginas de propiedades de Key Vault, seleccione **Certificados**.
+3.  Seleccione la pestaña **Generar o importar**.
+4.  En la pantalla **Creación de certificado**, elija los siguientes valores:
+    - **Método de creación de certificados**: Generar.
+    - **Nombre del certificado**: ContosoManualCSRCertificate.
+    - **Tipo de entidad de certificación (CA)** : Certificado emitido por una entidad de certificación no integrada.
+    - **Asunto**: `"CN=www.contosoHRApp.com"`.
+    - Seleccione los demás valores como desee. Haga clic en **Crear**.
+
+    ![Propiedades del certificado](../media/certificates/create-csr-merge-csr/create-certificate.png)  
+
+
+6.  Verá que ahora se ha agregado el certificado en la lista Certificados. Seleccione este nuevo certificado que acaba de crear. El estado actual del certificado será "deshabilitado", ya que aún no ha sido emitido por la entidad de certificación.
+7. Haga clic en la pestaña **Operación de certificados** y seleccione **Descargar CSR**.
+
+   ![Captura de pantalla que resalta el botón Descargar CSR.](../media/certificates/create-csr-merge-csr/download-csr.png)
+ 
+8.  Envíe el archivo .crs a la entidad de certificación para que se firme la solicitud.
+9.  Una vez que la entidad de certificación firme la solicitud, devuelva el archivo de certificado para **combinar la solicitud firmada** en la misma pantalla Operación de certificados.
+
+La solicitud de certificado ahora se ha combinado correctamente.
+
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 
 
@@ -68,36 +95,11 @@ Los pasos siguientes le ayudarán a crear un certificado procedente de entidades
     ```
 
     La solicitud de certificado se ha combinado correctamente.
-
-### <a name="azure-portal"></a>Azure portal
-
-1.  Para generar la CSR para la entidad de certificación de su elección, vaya al almacén de claves en el que desea agregar el certificado.
-2.  En las páginas de propiedades de Key Vault, seleccione **Certificados**.
-3.  Seleccione la pestaña **Generar o importar**.
-4.  En la pantalla **Creación de certificado**, elija los siguientes valores:
-    - **Método de creación de certificados**: Generar.
-    - **Nombre del certificado**: ContosoManualCSRCertificate.
-    - **Tipo de entidad de certificación (CA)** : Certificado emitido por una entidad de certificación no integrada.
-    - **Asunto**: `"CN=www.contosoHRApp.com"`.
-    - Seleccione los demás valores como desee. Haga clic en **Crear**.
-
-    ![Propiedades del certificado](../media/certificates/create-csr-merge-csr/create-certificate.png)  
-
-
-6.  Verá que ahora se ha agregado el certificado en la lista Certificados. Seleccione este nuevo certificado que acaba de crear. El estado actual del certificado será "deshabilitado", ya que aún no ha sido emitido por la entidad de certificación.
-7. Haga clic en la pestaña **Operación de certificados** y seleccione **Descargar CSR**.
-
-   ![Captura de pantalla que resalta el botón Descargar CSR.](../media/certificates/create-csr-merge-csr/download-csr.png)
- 
-8.  Envíe el archivo .crs a la entidad de certificación para que se firme la solicitud.
-9.  Una vez que la entidad de certificación firme la solicitud, devuelva el archivo de certificado para **combinar la solicitud firmada** en la misma pantalla Operación de certificados.
-
-La solicitud de certificado ahora se ha combinado correctamente.
+---
 
 > [!NOTE]
 > Si los valores de RDN tienen comas, también puede agregarlos en el campo **Firmante** rodeando el valor entre comillas dobles, como se muestra en el paso 4.
 > Entrada de ejemplo para "Firmante": `DC=Contoso,OU="Docs,Contoso",CN=www.contosoHRApp.com` En este ejemplo, el RDN `OU` contiene un valor con una coma en el nombre. La salida resultante para `OU` es **Docs, Contoso**.
-
 
 ## <a name="adding-more-information-to-csr"></a>Incorporación de más información a CSR
 
@@ -118,6 +120,8 @@ Ejemplo
 
 ## <a name="troubleshoot"></a>Solución de problemas
 
+- Para supervisar o administrar la respuesta a la solicitud de un certificado, puede encontrar más información [aquí](https://docs.microsoft.com/azure/key-vault/certificates/create-certificate-scenarios).
+
 - **Error de tipo "La clave pública del certificado de entidad final en el contenido del certificado X.509 especificado no coincide con la parte pública de la clave privada especificada. Compruebe si el certificado es válido"** Este error se puede producir si no se combina el CSR con la misma solicitud de CSR iniciada. Cada vez que se crea un CSR, se crea una clave privada que debe coincidir al combinar la solicitud firmada.
     
 - Cuando se combine CSR, ¿se combinará la cadena completa?
@@ -129,6 +133,7 @@ Para más información, consulte las [operaciones con certificados en la referen
 
 - **Tipo de error "El nombre del firmante proporcionado no es un nombre X500 válido".** Este error se puede producir si ha incluido algún carácter especial en los valores de SubjectName. Consulte las notas en Azure Portal y las instrucciones de PowerShell, respectivamente. 
 
+---
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Autenticación, solicitudes y respuestas](../general/authentication-requests-and-responses.md)

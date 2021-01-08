@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 09/02/2020
+ms.date: 12/21/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge Pro in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: 52f0bcbb332b5d5e47440accff9d9895dcef7056
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 830e0a8733d3f5a49cede09b331dc0298ee1ce4d
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96449362"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97734723"
 ---
 # <a name="tutorial-install-azure-stack-edge-pro-with-gpu"></a>Tutorial: Instalación de Azure Stack Edge Pro con GPU
 
@@ -166,7 +166,7 @@ Antes de empezar el cableado del dispositivo, necesita lo siguiente:
 - Al menos un cable de red RJ-45 de 1-GbE cable para conectarse a la interfaz de administración de red. Hay dos interfaces de red de 1-GbE, uno de administración y otro de datos, en el dispositivo.
 - Un cable de cobre SFP+ de 25 GbE para cada interfaz de red de datos que se va a configurar. Al menos una interfaz de red de datos de entre los PUERTOS 2, 3, 4, 5 o 6, debe estar conectada a Internet (para la conectividad a Azure).  
 - Acceso a dos unidades de distribución de energía (recomendable).
-- Al menos un conmutador de red de 1 GbE para conectar una interfaz de red de 1 GbE a Internet para los datos. La interfaz de usuario web local no será accesible si el conmutador conectado no es de al menos 1 GbE. Si usa la interfaz de 25/10 GbE para los datos, necesitará un conmutador de 25 GbE o 10 GbE. 
+- Al menos un conmutador de red de 1 GbE para conectar una interfaz de red de 1 GbE a Internet para los datos. La interfaz de usuario web local no será accesible si el conmutador conectado no es de al menos 1 GbE. Si usa la interfaz de 25/10 GbE para los datos, necesitará un conmutador de 25 GbE o 10 GbE.
 
 > [!NOTE]
 > - Si va a conectar solo una interfaz de red de datos, es recomendable que use una interfaz de red de 25/10 GbE como la de los PUERTOS 3, 4, 5 o 6 para enviar datos a Azure. 
@@ -186,14 +186,14 @@ En el dispositivo de Azure Stack Edge Pro:
     - Cuatro interfaces de 25 Gbps que también sirven como interfaces de 10 Gbps.
     - Un controlador de administración de placa base (BMC).
 
-- El backplane tiene dos tarjetas de red correspondientes a los 6 puertos:
+- El backplane tiene dos tarjetas de red correspondientes a los seis puertos:
 
-    - **Adaptador personalizado Microsoft QLogic Cavium 25 G NDC**: puertos 1 a 4.
+    - **Adaptador personalizado Microsoft `Qlogic` Cavium 25 G NDC**: puertos 1 a 4.
     - **Mellanox dual port 25G ConnectX-4 channel network adapter**: puerto 5 y puerto 6.
 
 Para una lista completa de cables, enchufes y transceptores para estas tarjetas de red, vaya a:
 
-- [Matriz de interoperabilidad del adaptador Qlogic Cavium 25G NDC](https://www.marvell.com/documents/xalflardzafh32cfvi0z/).
+- [Matriz de interoperabilidad del adaptador `Qlogic` Cavium 25 G NDC](https://www.marvell.com/documents/xalflardzafh32cfvi0z/).
 - [Productos compatibles con Mellanox dual port 25G ConnectX-4 channel network adapter](https://docs.mellanox.com/display/ConnectX4LxFirmwarev14271016/Firmware+Compatible+Products).  
 
  
@@ -201,15 +201,15 @@ Realice los pasos siguientes para realizar el cableado de los cables de alimenta
 
 1. Identifique los distintos puertos del backplane del dispositivo. Es posible que haya recibido uno de los siguientes dispositivos de la factoría en función del número de GPU que haya en el dispositivo.
 
-    - Dispositivo con 2 ranuras de interconexión de componentes periféricos (PCI) y una GPU
+    - Dispositivo con dos ranuras de interconexión de componentes periféricos (PCI) y una GPU
 
         ![Backplane de un dispositivo cableado](./media/azure-stack-edge-gpu-deploy-install/ase-two-pci-slots.png)
 
-    - Dispositivo con 3 ranuras PCI y una GPU
+    - Dispositivo con tres ranuras PCI y una GPU
 
         ![Backplane de un dispositivo cableado 2](./media/azure-stack-edge-gpu-deploy-install/ase-three-pci-slots-one-gpu.png)
 
-    - Dispositivo con 3 ranuras PCI y dos GPU
+    - Dispositivo con tres ranuras PCI y dos GPU
 
         ![Backplane de un dispositivo cableado 3](./media/azure-stack-edge-gpu-deploy-install/ase-three-pci-slots-two-gpu.png)
 

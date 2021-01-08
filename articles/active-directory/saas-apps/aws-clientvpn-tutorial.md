@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/11/2020
+ms.date: 12/29/2020
 ms.author: jeedes
-ms.openlocfilehash: 3a53a5b7e60ef214a3db58d9e280e9dee8fec609
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 11aac69816714611c168cd05c2828dd1ae85786e
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97355926"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97813656"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-aws-clientvpn"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con AWS ClientVPN
 
@@ -89,7 +89,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     |
 
     > [!NOTE]
-    > Estos valores no son reales. Actualice estos valores con los valores reales de URL de respuesta y URL de inicio de sesión. Póngase en contacto con el [equipo de soporte de cliente de AWS ClientVPN](https://aws.amazon.com/contact-us/) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+    > Estos valores no son reales.  Actualice estos valores con los valores reales de URL de respuesta y URL de inicio de sesión.  La URL de inicio de sesión y la URL de respuesta pueden tener el mismo valor (http://127.0.0.1:35001) ).  Consulte la [documentación de AWS Client VPN](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/client-authentication.html#ad) para obtener más información.   También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal. Póngase en contacto con el [equipo de soporte técnico de AWS Client VPN](https://aws.amazon.com/contact-us/) si experimenta problemas de configuración. 
 
 1. En el servicio Azure Active Directory, vaya a **Registros de aplicaciones** y, después, seleccione **Todas las aplicaciones**.
 

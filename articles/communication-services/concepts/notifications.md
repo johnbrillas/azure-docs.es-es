@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: a52188dc5058dbc74d3b03fba860b98540cd4a41
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: d2b77708609f61eeb4ce33148f020027d646836b
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96608510"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97813605"
 ---
 # <a name="communication-services-notifications"></a>Notificaciones de Communication Services
 
@@ -34,7 +34,7 @@ Obtenga más información sobre el [control de eventos en Azure Communication Se
 
 ## <a name="deliver-push-notifications-via-azure-notification-hubs"></a>Entrega de notificaciones push mediante Azure Notification Hubs
 
-Puede conectar una instancia de Azure Notification Hubs a su recurso de Communication Services para enviar automáticamente notificaciones push al dispositivo móvil de un usuario cuando recibe una llamada entrante. Debe usar estas notificaciones push para reactivar la aplicación en segundo plano y mostrar la interfaz de usuario que permite al usuario aceptar o rechazar la llamada. 
+Puede conectar una instancia de Azure Notification Hubs a su recurso de Communication Services para enviar automáticamente notificaciones push al dispositivo móvil de un usuario cuando recibe una llamada entrante. Estas notificaciones push se deben usar para reactivar la aplicación en segundo plano y mostrar la interfaz de usuario que permite al usuario aceptar o rechazar la llamada. 
 
 :::image type="content" source="./media/notifications/acs-anh-int.png" alt-text="Diagrama que muestra cómo se integra Communication Services con Azure Notification Hubs.":::
 
@@ -45,15 +45,15 @@ Communication Services usa Azure Notification Hubs como un servicio de tránsito
 
 ### <a name="notification-hub-provisioning"></a>Aprovisionamiento de una instancia de Notification Hubs 
 
-Para enviar notificaciones push a dispositivos cliente mediante Notification Hubs, [cree una instancia de Notification Hubs](../../notification-hubs/create-notification-hub-portal.md) dentro de la misma suscripción en la que se encuentra el recurso de Communication Services. Azure Notification Hubs debe estar configurado para el servicio de notificaciones de plataforma que desea usar. Para información sobre cómo obtener notificaciones de inserción en la aplicación cliente desde Notification Hubs, consulte [Introducción a Notification Hubs](../../notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started.md) y seleccione la plataforma cliente de destino en la lista desplegable que aparece cerca de la parte superior de la página.
+Para enviar notificaciones push a dispositivos cliente mediante Notification Hubs, [cree una instancia de Notification Hubs](../../notification-hubs/create-notification-hub-portal.md) dentro de la misma suscripción en la que se encuentra el recurso de Communication Services. Azure Notification Hubs se debe configurar específicamente para el Sistema de notificación de plataforma que se desee usar. Para información sobre cómo obtener notificaciones de inserción en la aplicación cliente desde Notification Hubs, consulte [Introducción a Notification Hubs](../../notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started.md) y seleccione la plataforma cliente de destino en la lista desplegable que aparece cerca de la parte superior de la página.
 
 > [!NOTE]
 > Actualmente se admiten las plataformas APNs y FCM.  
-La plataforma de APNs debe configurarse con el modo de autenticación de tokens. Este modo de autenticación de certificados no se admite por ahora. 
+La plataforma de APNs debe configurarse con el modo de autenticación de tokens. El modo de autenticación de certificados no se admite por ahora. 
 
-Una vez configurada la instancia de Notification Hubs, puede asociarla a su recurso de Communication Services; para ello, proporcione una cadena de conexión para el centro mediante el cliente de Azure Resource Manager o Azure Portal. La cadena de conexión debe contener permisos de "envío". Se recomienda crear otra directiva de acceso con permisos de "envío" únicamente para el centro. Más información sobre las [directivas de seguridad y acceso de Notification Hubs](../../notification-hubs/notification-hubs-push-notification-security.md)
+Una vez configurada la instancia de Notification Hubs, puede asociarla a su recurso de Communication Services; para ello, proporcione una cadena de conexión para el centro mediante el cliente de Azure Resource Manager o Azure Portal. La cadena de conexión debe contener permisos `Send`. Se recomienda crear otra directiva de acceso con permisos `Send` únicamente para el centro. Más información sobre las [directivas de seguridad y acceso de Notification Hubs](../../notification-hubs/notification-hubs-push-notification-security.md)
 
-#### <a name="using-the-azure-resource-manager-client-to-configure-the-notification-hub"></a>Uso del cliente de Azure Resource Manager para configurar la instancia de Notification Hubs
+#### <a name="using-the-azure-resource-manager-client-to-link-your-notification-hub"></a>Uso del cliente de Azure Resource Manager para vincular una instancia de Notification Hubs
 
 Para iniciar sesión en Azure Resource Manager, ejecute el siguiente código e inicie sesión con sus credenciales.
 
@@ -67,19 +67,61 @@ armclient login
 armclient POST /subscriptions/<sub_id>/resourceGroups/<resource_group>/providers/Microsoft.Communication/CommunicationServices/<resource_id>/linkNotificationHub?api-version=2020-08-20-preview "{'connectionString': '<connection_string>','resourceId': '<resource_id>'}"
 ```
 
-#### <a name="using-the-azure-portal-to-configure-the-notification-hub"></a>Uso de Azure Portal para configurar la instancia de Notification Hubs
+#### <a name="using-the-azure-portal-to-link-your-notification-hub"></a>Uso de Azure Portal para vincular una instancia de Notification Hubs
 
-En el portal, navegue hasta el recurso de Azure Communication Services. En el recurso de Communication Services, seleccione Notificaciones push en el menú de la izquierda de la página Communication Services y conecte la instancia de Notification Hubs que aprovisionó anteriormente. Debe especificar la cadena de conexión y el identificador de recurso aquí:
+En el portal, navegue hasta el recurso de Azure Communication Services. En el recurso de Communication Services, seleccione Notificaciones push en el menú de la izquierda de la página Communication Services y conecte la instancia de Notification Hubs que aprovisionó anteriormente. Tanto la cadena de conexión como el identificador de recurso se deben especificar aquí:
 
-:::image type="content" source="./media/notifications/acs-anh-portal-int.png" alt-text="Captura de pantalla que muestra la configuración Notificaciones push en Azure Portal.":::
+:::image type="content" source="./media/notifications/acs-anh-portal-int.png" alt-text="Captura de pantalla que muestra la configuración de notificaciones push en Azure Portal.":::
 
 > [!NOTE]
 > Si se actualiza la cadena de conexión del centro de notificaciones de Azure, también se debe actualizar el recurso de Communication Services.  
 Cualquier cambio en la forma en que se vincula el centro se reflejará en el plano de datos (es decir, al enviar una notificación) en un período máximo de ``10`` minutos. Esto es aplicable también cuando el centro se vincula por primera vez **si** se enviaron notificaciones antes.
 
-#### <a name="device-registration"></a>Registro de dispositivos 
+### <a name="device-registration"></a>Registro de dispositivos 
 
 Consulte la [guía de inicio rápido de llamada de voz](../quickstarts/voice-video-calling/getting-started-with-calling.md) para obtener información sobre cómo registrar el identificador del dispositivo con Communication Services.
+
+### <a name="troubleshooting-guide-for-push-notifications"></a>Guía para la solución de problemas en las notificaciones push
+
+Cuando no se ven notificaciones push en un dispositivo, se pueden haber colocado en uno de estos tres lugares:
+
+- Azure Notification Hubs no ha aceptado la notificación de Azure Communication Services
+- El Sistema de notificación de plataforma (por ejemplo, Apple Push Notification Service y FCM) no ha aceptado la notificación de Azure Notification Hubs
+- El Sistema de notificación de plataforma no ha entregado la notificación al dispositivo.
+
+A continuación se trata el primer lugar en el que se puede haber colocado una notificación (Azure Notification Hubs no ha aceptado las notificaciones de Azure Communication Services). En cuanto a los otros dos lugares, consulte [Diagnóstico de notificaciones eliminadas en Azure Notification Hubs](../../notification-hubs/notification-hubs-push-notification-fixer.md).
+
+Una forma de ver si un recurso de Communication Services envía notificaciones a Azure Notification Hubs es examinar la métrica `incoming messages` de las [métricas de Azure Notification Hubs](../../azure-monitor/platform/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs) vinculadas.
+
+A continuación se muestran algunos errores de configuración comunes que podrían ser la causa de que Azure Notification Hubs no acepte las notificaciones del recurso de Communication Services.
+
+#### <a name="azure-notification-hub-not-linked-to-the-communication-services-resource"></a>Azure Notification Hubs no está vinculado al recurso de Communication Services
+
+Podría deberse a que no ha vinculado su instancia de Azure Notification Hubs a su recurso de Communication Services. Para ver cómo se vinculan, consulte la [sección de aprovisionamiento de Notification Hubs](#notification-hub-provisioning).
+
+#### <a name="the-linked-azure-notification-hub-isnt-configured"></a>La instancia de Azure Notification Hubs vinculada no está configurada
+
+Tiene que configurar la instancia de Azure Notification Hubs vinculada con las credenciales del Sistema de notificación de plataforma de la plataforma (por ejemplo, iOS o Android) que desee usar. Para más información sobre cómo hacerlo, consulte [Configuración de notificaciones push en un centro de notificaciones](../../notification-hubs/configure-notification-hub-portal-pns-settings.md).
+
+#### <a name="the-linked-azure-notification-hub-doesnt-exist"></a>La instancia de Azure Notification Hubs vinculada no existe
+
+La instancia de Azure Notification Hubs vinculada a su recurso de Communication Services ya no existe. Compruebe que la instancia de Azure Notification Hubs vinculada sigue existiendo.
+
+#### <a name="the-azure-notification-hub-apns-platform-is-configured-with-certificate-authentication-mode"></a>La plataforma de Apple Push Notification Service de Azure Notification Hubs se configura con el modo de autenticación de certificados
+
+Aunque desea usar la plataforma de Apple Push Notification Service con el modo de autenticación de certificados no puede hacerlo, ya que actualmente no se admite. Debe configurar la plataforma de Apple Push Notification Service con el modo de autenticación de tokens tal como se especifica en [configurar notificaciones Push en un centro de notificaciones](../../notification-hubs/configure-notification-hub-portal-pns-settings.md).
+
+#### <a name="the-linked-connection-string-doesnt-have-send-permission"></a>La cadena de conexión vinculada no tiene el permiso `Send`
+
+La cadena de conexión que usó para vincular Notification Hubs a su recurso de Communication Services debe tener el permiso `Send`. Para más información sobre cómo crear una cadena de conexión o ver la cadena de conexión actual desde Azure Notification Hubs, puede consultar [Directivas de seguridad y acceso de Notification Hubs](../../notification-hubs/notification-hubs-push-notification-security.md).
+
+#### <a name="the-linked-connection-string-or-azure-notification-hub-resourceid-arent-valid"></a>La cadena de conexión vinculada o el resourceId de Azure Notification Hubs no son válidos
+
+Asegúrese de configurar el recurso de Communication Services con la cadena de conexión correcta y el resourceId de Communication Services
+
+#### <a name="the-linked-connection-string-is-regenerated"></a>Se vuelve a generar la cadena de conexión vinculada
+
+En caso de que haya vuelto a generar la cadena de conexión de la instancia de Azure Notification Hubs vinculada, tendrá que actualizar la cadena de conexión con la nueva en el recurso de Communication Services, para lo que deberá [volver a vincular Notification Hubs](#notification-hub-provisioning).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

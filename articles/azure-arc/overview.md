@@ -3,12 +3,12 @@ title: Introducción a Azure Arc
 description: Obtenga información sobre qué es Azure Arc y cómo ayuda a los clientes a habilitar la administración y el gobierno de sus recursos híbridos con otros servicios y características de Azure.
 ms.date: 09/23/2020
 ms.topic: overview
-ms.openlocfilehash: 8e48378e5032768b3f56a5d99c1189e282ff37f8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8f39dff16037b5f52a050b7d07193b0ad7cab93d
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91714155"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672693"
 ---
 # <a name="azure-arc-overview"></a>Introducción a Azure Arc
 
@@ -50,7 +50,7 @@ A continuación se muestran los detalles de precios de las características disp
 
 ### <a name="arc-enabled-servers"></a>Servidores habilitados para Arc
 
-La funcionalidad de plano de control de Azure Arc se ofrece sin costo adicional.Esto incluye:
+La funcionalidad de plano de control de Azure Arc se ofrece sin costo adicional. Esto incluye:
 
 * Organización de recursos mediante etiquetas y grupos de administración de Azure.
 
@@ -79,3 +79,5 @@ En la fase de versión preliminar actual, los servicios de datos habilitados par
 * Para más información acerca de Kubernetes habilitado para Arc, consulte la siguiente [información general](./kubernetes/overview.md)
 
 * Para más información acerca de los servicios de datos habilitados para Arc, consulte la siguiente [información general](https://azure.microsoft.com/services/azure-arc/hybrid-data-services/)
+
+* Utilice los servicios habilitados para Arc desde la [prueba de concepto de JumpStart](https://azurearcjumpstart.io/azure_arc_jumpstart/)

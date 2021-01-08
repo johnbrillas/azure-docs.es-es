@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 10/01/2020
+ms.date: 12/18/2020
 ms.author: alkohli
-ms.openlocfilehash: bd8e6d4175c57bd31c3fd83bf6f9669d2b65ffb2
-ms.sourcegitcommit: 487a9f5272300d60df2622c3d13e794d54680f90
+ms.openlocfilehash: 64bb5e94c4b18626d1f85d7e61252aae74202eb9
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91660857"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680612"
 ---
-# <a name="tutorial-copy-data-from-azure-data-box-via-nfs-preview"></a>Tutorial: Copia de datos de Azure Data Box a través de NFS (versión preliminar)
+# <a name="tutorial-copy-data-from-azure-data-box-via-nfs"></a>Tutorial: Copia de datos de Azure Data Box a través de NFS
 
 En este tutorial se describe cómo conectar y copiar datos de la interfaz de usuario Web local de Data Box a un servidor de datos local a través de NFS. Los datos de Data Box se exportan desde la cuenta de Azure Storage.
 
@@ -26,8 +26,6 @@ En este tutorial, aprenderá a:
 > * Requisitos previos
 > * Conexión a un dispositivo Data Box
 > * Copia de datos de Data Box
-
-[!INCLUDE [Data Box feature is in preview](../../includes/data-box-feature-is-preview-info.md)]
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -79,11 +77,11 @@ Una vez que esté conectado a los recursos compartidos de Data Box, el siguiente
 
 [!INCLUDE [data-box-export-review-logs](../../includes/data-box-export-review-logs.md)]
 
- Ahora puede comenzar la copia de datos. Si su equipo es un host Linux, use una utilidad de copia similar a Robocopy. Algunas de las alternativas disponibles en Linux son [rsync](https://rsync.samba.org/), [FreeFileSync](https://www.freefilesync.org/), [Unison](https://www.cis.upenn.edu/~bcpierce/unison/) o [Ultracopier](https://ultracopier.first-world.info/).  
+ Ahora puede comenzar la copia de datos. Si su equipo es un host Linux, use una utilidad de copia similar a Robocopy. Algunas de las alternativas disponibles en Linux son [`rsync`](https://rsync.samba.org/), [FreeFileSync](https://www.freefilesync.org/), [Unison](https://www.cis.upenn.edu/~bcpierce/unison/) o [Ultracopier](https://ultracopier.first-world.info/).  
 
 El comando `cp` es una de las mejores opciones para copiar un directorio. Para más información sobre cómo usarlo, consulte las [páginas sobre cp](http://man7.org/linux/man-pages/man1/cp.1.html).
 
-Si usa la opción rsync para una copia multiproceso, siga estas directrices:
+Si usa la opción `rsync` para una copia multiproceso, siga estas directrices:
 
 * Instale el paquete **CIFS Utils** o **NFS Utils** según el sistema de archivos que use el cliente Linux.
 
@@ -91,7 +89,7 @@ Si usa la opción rsync para una copia multiproceso, siga estas directrices:
 
     `sudo apt-get install nfs-utils`
 
-* Instale **Rsync** y **Parallel** (varía según la versión de la distribución de Linux).
+* Instale `rsync` y **Parallel** (varía según la versión de la distribución de Linux).
 
     `sudo apt-get install rsync`
    
@@ -122,7 +120,7 @@ Si usa la opción rsync para una copia multiproceso, siga estas directrices:
 
 Una vez completada la copia, vaya a **Panel** y compruebe el espacio utilizado y el espacio disponible en el dispositivo.
 
-Ahora puede continuar para enviar su Data Box a Microsoft.
+Ahora puede proceder al envío del dispositivo Data Box a Microsoft.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -132,7 +130,7 @@ En este tutorial, ha obtenido información acerca de varios temas relacionados c
 >
 > * Requisitos previos
 > * Conexión a un dispositivo Data Box
-> * Copia de datos de Data Box
+> * Copiar datos de Data Box
 
 En el siguiente tutorial aprenderá a enviar su dispositivo Data Box a Microsoft.
 

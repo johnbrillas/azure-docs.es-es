@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 10/22/2020
+ms.date: 12/16/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Mini R device so I can use it to transfer data to Azure.
-ms.openlocfilehash: 54ac683dcc2b124c4a6410b2e8449fa7e969ce8c
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 6d41c186a5d239ad7228c37902f5691085e43dbf
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96464912"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97631251"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-mini-r"></a>Tutorial: Preparación de la implementación de Azure Stack Edge Mini R
 
@@ -40,7 +40,7 @@ Para implementar Azure Stack Edge Mini R, consulte los siguientes tutoriales en 
 |  | |
 |**Tutoriales de implementación** |Estos tutoriales son necesarios para implementar el dispositivo Azure Stack Edge Mini R en producción. |
 |**[1. Preparación de Azure Portal para el dispositivo](azure-stack-edge-mini-r-deploy-prep.md)** |Cree y configure el recurso de Azure Stack Edge antes de instalar el dispositivo físico. |
-|**[2. Instalación del dispositivo](azure-stack-edge-mini-r-deploy-install.md)**|Desempaquete, coloque en el rack y conecte los cables del dispositivo físico.  |
+|**[2. Instalación del dispositivo](azure-stack-edge-mini-r-deploy-install.md)**|Inspeccione y conecte los cables del dispositivo físico.  |
 |**[3. Conexión del dispositivo](azure-stack-edge-mini-r-deploy-connect.md)** |Una vez instalado el dispositivo, conéctese a la interfaz de usuario web local del dispositivo.  |
 |**[4. Configuración de la red](azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy.md)** |Configure la red, incluida la red de proceso y los valores de proxy web para el dispositivo.   |
 |**[5. Configuración del dispositivo](azure-stack-edge-mini-r-deploy-set-up-device-update-time.md)** |Asigne un nombre de dispositivo y un dominio DNS, configure el servidor de actualización y la hora del dispositivo. |

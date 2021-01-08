@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: quickstart
 ms.date: 11/15/2020
 ms.author: memildin
-ms.openlocfilehash: f5cf432e3824ca0bb441a458a08fc7353291cf1f
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: be8123d3c8a4acc684610aeaa9ee263c5defa17d
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96490064"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97813622"
 ---
 # <a name="auto-provisioning-agents-and-extensions-from-azure-security-center"></a>Aprovisionamiento automático de agentes y extensiones de Azure Security Center
 
@@ -30,6 +30,17 @@ Los datos se recopilan mediante:
 > A medida que Security Center ha crecido, los tipos de recursos que se pueden supervisar también han crecido. El número de extensiones también ha crecido. El aprovisionamiento automático se ha ampliado para admitir tipos de recursos adicionales que aprovechan las funcionalidades de Azure Policy.
 
 :::image type="content" source="./media/security-center-enable-data-collection/auto-provisioning-options.png" alt-text="Página de configuración del aprovisionamiento automático de Security Center":::
+
+
+## <a name="availability"></a>Disponibilidad
+
+| Aspecto                  | Detalles                                                                                                                                                                                                                      |
+|-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Estado de la versión:          | **Característica**: El aprovisionamiento automático está en fase de disponibilidad general (GA)<br>**Agente y extensiones**: El agente de Log Analytics agente para las máquinas virtuales de Azure está en fase de disponibilidad general, el agente de Microsoft Dependency está en versión preliminar y el complemento de Policy para Kubernetes está en fase de disponibilidad general                |
+| Precios:                | Gratuito                                                                                                                                                                                                                         |
+| Destinos admitidos: | ![Sí](./media/icons/yes-icon.png) Máquinas de Azure<br>![No](./media/icons/no-icon.png) Máquinas de Azure Arc<br>![No](./media/icons/no-icon.png) Nodos de Kubernetes<br>![No](./media/icons/no-icon.png) Virtual Machine Scale Sets |
+| Nubes:                 | ![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![Sí](./media/icons/yes-icon.png) US Gov, China Gov, otros gobiernos                                                                                                      |
+|                         |                                                                                                                                                                                                                              |
 
 
 ## <a name="why-use-auto-provisioning"></a>Motivos del uso del aprovisionamiento automático

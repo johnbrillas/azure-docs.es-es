@@ -17,7 +17,7 @@
   items:
     - name: Creación de un centro de eventos
       items:
-        - name: Azure portal
+        - name: Portal de Azure
           href: event-hubs-create.md
         - name: Azure CLI
           href: event-hubs-quickstart-cli.md
@@ -199,9 +199,9 @@
           href: event-hubs-kafka-spark-tutorial.md
         - name: Conexión de Apache Flink a un centro de eventos
           href: event-hubs-kafka-flink-tutorial.md
-        - name: Integración de Apache Kafka Connect con un centro de eventos (versión preliminar)
+        - name: Integración de Apache Kafka Connect
           href: event-hubs-kafka-connect-tutorial.md
-        - name: Integración de Apache Kafka Connect (versión preliminar) con Debezium
+        - name: Integración de Apache Kafka Connect con Debezium
           href: event-hubs-kafka-connect-debezium.md
         - name: Conexión de Akka Streams a un centro de eventos
           href: event-hubs-kafka-akka-streams-tutorial.md

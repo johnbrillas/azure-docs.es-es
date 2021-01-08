@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/08/2020
 ms.topic: quickstart
-ms.openlocfilehash: 4513a1997dc2955e1c5488a4a3740afa88f51623
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: d35d6e75b45c2ea263c2e986c5fc6f414cad16e4
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207281"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724976"
 ---
 # <a name="quickstart-deploy-native-c-sample-to-hololens"></a>Inicio rápido: Implementación de un ejemplo de C++ nativo en HoloLens
 
@@ -39,7 +39,7 @@ Debe instalar el software siguiente:
 
 ## <a name="clone-the-arr-samples-repository"></a>Clonación del repositorio de ejemplos de enrutamiento de solicitud de aplicaciones
 
-Como primer paso, clonamos el repositorio de Git, que aloja los ejemplos públicos de Azure Remote Rendering. Abra un símbolo del sistema (escriba `cmd` en el menú Inicio de Windows) y cambie a un directorio en el que desee almacenar el proyecto de ejemplo de ARR.
+Como primer paso, clonamos el repositorio de Git, que hospeda los ejemplos globales de Azure Remote Rendering. Abra un símbolo del sistema (escriba `cmd` en el menú Inicio de Windows) y cambie a un directorio en el que desee almacenar el proyecto de ejemplo de ARR.
 
 Ejecute los comandos siguientes:
 
@@ -70,7 +70,8 @@ Puesto que las credenciales de la cuenta están codificadas de forma rígida en 
     RR::AzureFrontendAccountInfo init;
     init.AccountId = "00000000-0000-0000-0000-000000000000";
     init.AccountKey = "<account key>";
-    init.AccountDomain = "westus2.mixedreality.azure.com"; // <change to your region>
+    init.AccountDomain = "westus2.mixedreality.azure.com"; // <change to the region that the rendering session should be created in>
+    init.AccountAuthenticationDomain = "westus2.mixedreality.azure.com"; // <change to the region the account was created in>
     m_modelURI = "builtin://Engine";
     m_sessionOverride = ""; // If there is a valid session ID to re-use, put it here. Otherwise a new one is created
     m_frontEnd = RR::ApiHandle(RR::AzureFrontend(init));
@@ -78,8 +79,8 @@ Puesto que las credenciales de la cuenta están codificadas de forma rígida en 
 ```
 
 En concreto, cambie los valores siguientes:
-* `init.AccountId` y `init.AccountKey` para usar los datos de la cuenta. Consulte el párrafo sobre cómo [recuperar información de una cuenta](../../../how-tos/create-an-account.md#retrieve-the-account-information).
-* La parte de la región de la cadena de `init.AccountDomain` para regiones que no sean `westus2`, por ejemplo `"westeurope.mixedreality.azure.com"`
+* `init.AccountId`, `init.AccountKey` e `init.AccountAuthenticationDomain` para usar los datos de la cuenta. Consulte el párrafo sobre cómo [recuperar información de una cuenta](../../../how-tos/create-an-account.md#retrieve-the-account-information).
+* Especifique dónde desea crear la sesión de representación remota; para ello, modifique la parte correspondiente a la región de la cadena `init.AccountDomain` para otras regiones distintas a `westus2`, por ejemplo `"westeurope.mixedreality.azure.com"`.
 * Además, `m_sessionOverride` se puede cambiar a un identificador de sesión existente. Se pueden crear sesiones fuera de este ejemplo, por ejemplo, mediante [el script de PowerShell](../../../samples/powershell-example-scripts.md#script-renderingsessionps1) o mediante la [API REST de la sesión](../../../how-tos/session-rest-api.md#create-a-session) directamente.
 Se recomienda crear una sesión fuera del ejemplo cuando este deba ejecutarse varias veces. Si no se devuelve ninguna sesión, el ejemplo creará una en cada inicio, lo que puede tardar varios minutos.
 

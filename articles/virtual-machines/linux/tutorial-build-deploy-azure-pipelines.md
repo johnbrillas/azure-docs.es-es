@@ -11,12 +11,12 @@ ms.workload: infrastructure
 ms.date: 1/3/2020
 ms.author: ushan
 ms.custom: devops, devx-track-js
-ms.openlocfilehash: 6bc6776df889c5c8ccc6acfe5764549ccf7354a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d26da693d83fd680c644849d581ea35ca7b49af
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320207"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739712"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-using-azure-devops-services-and-azure-pipelines"></a>Tutorial: Implementación de una aplicación en máquinas virtuales Linux de Azure con Azure DevOps Services y Azure Pipelines
 
@@ -118,7 +118,7 @@ Puede crear un entorno en el centro "**Environments**" (Entornos) de la sección
 
     ![VMresource_view](media/tutorial-deploy-vms-azure-pipelines/vm-resourceview.png)
 
-9. Puede agregar etiquetas a la máquina virtual como parte del script de registro de PS interactivo; o, también puede agregarlas o quitarlas de la vista de recursos si hace clic en los tres puntos al final de cada recurso de máquina virtual de la vista de recursos.
+9. Puede agregar etiquetas a la máquina virtual como parte del script de registro de PowerShell interactivo; o, también puede agregarlas o quitarlas de la vista de recursos si hace clic en los tres puntos al final de cada recurso de máquina virtual de la vista de recursos.
 
    Las etiquetas que asigne permiten limitar la implementación a máquinas virtuales específicas cuando el entorno se usa en un trabajo de implementación. Las etiquetas están limitadas a 256 caracteres, pero no hay límite para el número de etiquetas que se pueden usar.
 
@@ -202,7 +202,7 @@ Para más información, siga los pasos descritos en [Compilación de la aplicaci
 
 - Eche un vistazo a la canalización para ver lo que hace. Asegúrese de que todas las entradas predeterminadas sean adecuadas para el código.
 
-- Seleccione **Save and run** (Guardar y ejecutar) y, luego, seleccione **Commit directly to the master branch** (Confirmar directamente en la rama maestra) y, luego, elija de nuevo **Save and run** (Guardar y ejecutar).
+- Seleccione **Save and run** (Guardar y ejecutar) y, luego, seleccione **Commit directly to the main branch** (Confirmar directamente en la rama principal) y, luego, elija de nuevo **Save and run** (Guardar y ejecutar).
 
 - Se inicia una nueva ejecución. Espere a que finalice.
 

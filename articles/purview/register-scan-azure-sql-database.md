@@ -1,18 +1,18 @@
 ---
 title: Registro y examen de Azure SQL Database
 description: En este tutorial se describe cómo examinar Azure SQL Database
-author: hophan
+author: hophanms
 ms.author: hophan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 10/02/2020
-ms.openlocfilehash: 1fbeedd8643a777b29ebe4993eed7b664240621c
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 15708e35fa27bb4a1f72368df6f49ff747eb799b
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920275"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739797"
 ---
 # <a name="register-and-scan-an-azure-sql-database"></a>Registro y examen de una instancia de Azure SQL Database
 
@@ -28,7 +28,7 @@ El origen de datos de Azure SQL Database admite la funcionalidad siguiente:
 
 ### <a name="known-limitations"></a>Restricciones conocidas
 
-Azure Purview no admite el examen de [vistas](https://docs.microsoft.com/sql/relational-databases/views/views?view=sql-server-ver15) en Azure SQL Database. 
+Azure Purview no admite el examen de [vistas](https://docs.microsoft.com/sql/relational-databases/views/views?view=sql-server-ver15&preserve-view=true) en Azure SQL Database. 
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -89,7 +89,7 @@ Puede usar una entidad de servicio existente o crear una.
 La entidad de servicio o la identidad administrada debe tener permiso para obtener los metadatos de la base de datos, los esquemas y las tablas. También debe ser capaz de consultar las tablas para realizar el muestreo para la clasificación.
 
 - [Configuración y administración de la autenticación de Azure AD con Azure SQL](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure)
-- Si usa la identidad administrada, la cuenta de Purview tiene la suya propia, que es básicamente el nombre que le diera a la cuenta de Purview al crearla. Debe crear un usuario de Azure AD en Azure SQL Database con la identidad administrada de Purview exacta o su propia entidad de servicio siguiendo el tutorial [Cree el usuario de la entidad de servicio en Azure SQL Database](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-service-principal-tutorial#create-the-service-principal-user-in-azure-sql-database). Debe asignar el permiso `db_owner` (**recomendado**) a la identidad. Ejemplo de la sintaxis de SQL para crear el usuario y conceder el permiso:
+- Si usa la identidad administrada, la cuenta de Purview tiene la suya propia, que es básicamente el nombre que le diera a la cuenta de Purview al crearla. Debe crear un usuario de Azure AD en Azure SQL Database con la identidad administrada de Purview exacta o su propia entidad de servicio siguiendo el tutorial [Cree el usuario de la entidad de servicio en Azure SQL Database](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-service-principal-tutorial#create-the-service-principal-user-in-azure-sql-database). Debe asignar el permiso adecuado (por ejemplo, `db_owner` o `db_datareader`) a la identidad. Ejemplo de la sintaxis de SQL para crear el usuario y conceder el permiso:
 
     ```sql
     CREATE USER [Username] FROM EXTERNAL PROVIDER
@@ -100,7 +100,7 @@ La entidad de servicio o la identidad administrada debe tener permiso para obten
     ```
 
     > [!Note]
-    > `Username` es la entidad de servicio propia o la identidad administrada de Purview.
+    > `Username` es la entidad de servicio propia o la identidad administrada de Purview. Puede leer más información sobre [roles fijos de base de datos y sus funcionalidades](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/database-level-roles?view=sql-server-ver15&preserve-view=true#fixed-database-roles).
     
 ##### <a name="add-service-principal-to-key-vault-and-purviews-credential"></a>Incorporación de la entidad de servicio al almacén de claves y la credencial de Purview
 

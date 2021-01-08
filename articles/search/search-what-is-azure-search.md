@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 11/24/2020
+ms.date: 12/17/2020
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 01f61eac31c388cd0bf8a857beb7a10944187c6b
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 1814555f738f37523c5b23ae729bf20bff62e1f9
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97027907"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97679517"
 ---
 # <a name="what-is-azure-cognitive-search"></a>¿Qué es Azure Cognitive Search?
 
@@ -25,8 +25,8 @@ Al crear un servicio Cognitive Search, se consigue:
 + Un motor de búsqueda que realiza la indexación y la ejecución de consultas.
 + Almacenamiento persistente de los índices de búsqueda que se crean y administran
 + Un lenguaje de consulta para crear consultas simples y complejas.
-+ Análisis centrado en IA, creación de contenido de las imágenes que se puede buscar, texto sin formato, archivos de aplicación.
-+ Integración con datos de Azure mediante indexadores de búsqueda, automatización de la importación y actualización de los datos
++ [Enriquecimientos controlados por inteligencia artificial](cognitive-search-concept-intro.md), que crean contenido en el que se pueden realizar búsquedas a partir de imágenes, texto sin formato o archivos de aplicaciones
++ Integración con otros servicios de Azure para mover datos, aprendizaje automático/inteligencia artificial y seguridad
 
 En cuanto a la arquitectura, un servicio de búsqueda se coloca entre los almacenes de datos externos que contienen los datos no indexados y una aplicación cliente que envía solicitudes de consulta a un índice de búsqueda y controla la respuesta.
 
@@ -89,11 +89,11 @@ Entre los proveedores de servicios en la nube, Azure Cognitive Search es el más
 Las principales ventajas incluyen:
 
 + Integración de datos de Azure (rastreadores o crawlers) en el nivel de indexación
-+ Azure Portal para administración central
-+ Escalado, confiabilidad y disponibilidad internacional de Azure
-+ Procesamiento mediante IA de datos sin procesar para mejorar las búsquedas, incluido el texto de imágenes, o bien la identificación de patrones en contenido no estructurado.
++ Integración de Azure Private Link para dar soporte a los requisitos de seguridad fuera de Internet
++ Integración con el procesamiento de IA para que se puedan realizar búsquedas de texto en los tipos de contenido en los que no se puede buscar.
 + Análisis lingüístico y personalizado, con analizadores para la búsqueda de texto completo en 56 idiomas
-+ [Características principales comunes a las aplicaciones centradas en la búsqueda](search-features-list.md): puntuación, uso de facetas, sugerencias, sinónimos, búsqueda geográfica y muchas más.
++ [Características críticas](search-features-list.md): lenguaje de consulta enriquecido, ajuste de relevancia, facetado, autocompletar, sinónimos, búsqueda geográfica y composición del resultado.
++ Escalado, confiabilidad y disponibilidad internacional de Azure
 
 Entre nuestros clientes, los que son capaces de utilizar la gama más amplia de características de Azure Cognitive Search pueden usar catálogos en línea, programas de línea de negocio y aplicaciones de detección de documentos.
 

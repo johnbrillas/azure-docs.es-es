@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/03/2020
-ms.openlocfilehash: 21ccbc83c80e1b659dd240973a609d624f270835
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: cb7a441a6d86cd64847300d1e597cf6f86067282
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97028519"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740953"
 ---
 # <a name="quickstart-create-an-azure-sql-database-single-database"></a>Inicio rápido: Creación de una base de datos única de Azure SQL Database
 
@@ -141,7 +141,7 @@ az sql server firewall-rule create \
 ```
 
 
-## <a name="create-a-single-database"></a>Crear una base de datos única
+## <a name="create-a-single-database-with-azure-cli"></a>Creación de una base de datos única con la CLI de Azure
 
 Cree una base de datos en el servidor con el comando[az sql db create](/cli/azure/sql/db). En el siguiente código se crea
 
@@ -230,7 +230,7 @@ Cree una regla de firewall de servidor con el cmdlet [New-AzSqlServerFirewallRul
 ```
 
 
-## <a name="create-a-single-database"></a>Crear una base de datos única
+## <a name="create-a-single-database-with-powershell"></a>Creación de una base de datos única con PowerShell
 
 Cree una base de datos única con el cmdlet [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase).
 

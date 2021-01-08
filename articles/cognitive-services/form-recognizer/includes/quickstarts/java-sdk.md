@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 09/21/2020
 ms.custom: devx-track-java
 ms.author: pafarley
-ms.openlocfilehash: d53863ccf71970cca3900707c844a2e5add050fa
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 6768f46f39920c975e7eccef72563fc0bb7e5180
+ms.sourcegitcommit: 02ed9acd4390b86c8432cad29075e2204f6b1bc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96356518"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97808596"
 ---
 > [!IMPORTANT]
 > Por motivos de simplicidad, en el código de este artículo se usan métodos sincrónicos y almacenamiento de credenciales no protegidas.
@@ -58,7 +58,7 @@ En este inicio rápido se usa el administrador de dependencias Gradle. Puede enc
 
 En el archivo *build.gradle.kts* del proyecto, incluya la biblioteca cliente como una instrucción `implementation`, junto con los complementos y la configuración necesarios.
 
-#### <a name="version-30"></a>[versión 3.0](#tab/ga)
+#### <a name="version-20"></a>[versión 2.0](#tab/ga)
 ```kotlin
 plugins {
     java
@@ -74,6 +74,10 @@ dependencies {
     implementation(group = "com.azure", name = "azure-ai-formrecognizer", version = "3.0.0")
 }
 ```
+
+> [!NOTE]
+> El SDK de Form Recognizer 3.0.0 refleja la versión 2.0 de la API.
+
 #### <a name="version-31-preview"></a>[versión 3.1 (versión preliminar)](#tab/preview)
 ```kotlin
 plugins {
@@ -90,6 +94,10 @@ dependencies {
     implementation(group = "com.azure", name = "azure-ai-formrecognizer", version = "3.1.0-beta.1")
 }
 ```
+
+> [!NOTE]
+> El SDK de Form Recognizer 3.1.0 refleja la versión preliminar 2.1 de la API.
+
 ---
 
 ### <a name="create-a-java-file"></a>Creación de un archivo Java
@@ -120,15 +128,17 @@ En la clase **FormRecognizer** de la aplicación, cree variables para el punto d
 
 En el método **main** de la aplicación, agregue llamadas para los métodos que se usan en este inicio rápido. Se definirán más adelante. También tendrá que agregar referencias a las direcciones URL de los datos de entrenamiento y prueba.
 
-* Para recuperar la dirección URL de SAS de los datos de entrenamiento del modelo personalizado, abra el Explorador de Microsoft Azure Storage, haga clic con el botón derecho en el contenedor y seleccione **Obtener firma de acceso compartido**. Asegúrese de que los permisos de **lectura** y **enumeración** están marcados y haga clic en **Create** (Crear). A continuación, copie el valor en la sección **URL**. Debe tener el formato `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+* [!INCLUDE [get SAS URL](../../includes/sas-instructions.md)]
+  
+   :::image type="content" source="../../media/quickstarts/get-sas-url.png" alt-text="Recuperación de la dirección URL de SAS":::
 * Para obtener una dirección URL de un formulario para prueba, puede usar los pasos anteriores para obtener la dirección URL de SAS de un documento del almacenamiento de blobs. También puede tomar la dirección URL de un documento situado en otro lugar.
 * Use el método anterior para obtener también la dirección URL de una imagen de recibo.
 
-#### <a name="version-30"></a>[versión 3.0](#tab/ga)
+#### <a name="version-20"></a>[versión 2.0](#tab/ga)
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_mainvars)]
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_maincalls)]
-#### <a name="version-31-preview"></a>[versión 3.1 (versión preliminar)](#tab/preview)
+#### <a name="version-21-preview"></a>[versión preliminar 2.1](#tab/preview)
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_mainvars)]
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_maincalls)]
@@ -165,14 +175,14 @@ Con Form Recognizer, puede crear dos tipos de cliente diferentes. El primero, `F
 
 Estos fragmentos de código muestran cómo realizar las siguientes tareas con la biblioteca cliente de Form Recognizer para Java:
 
-#### <a name="version-30"></a>[versión 3.0](#tab/ga)
+#### <a name="version-20"></a>[versión 2.0](#tab/ga)
 * [Autenticar el cliente](#authenticate-the-client)
 * [Reconocer el contenido del formulario](#recognize-form-content)
 * [Reconocer recibos](#recognize-receipts)
 * [Entrenar un modelo personalizado](#train-a-custom-model)
 * [Analizar formularios con un modelo personalizado](#analyze-forms-with-a-custom-model)
 * [Administrar modelos personalizados](#manage-your-custom-models)
-#### <a name="version-31-preview"></a>[versión 3.1 (versión preliminar)](#tab/preview)
+#### <a name="version-21-preview"></a>[versión preliminar 2.1](#tab/preview)
 * [Autenticar el cliente](#authenticate-the-client)
 * [Reconocer el contenido del formulario](#recognize-form-content)
 * [Reconocer recibos](#recognize-receipts)
@@ -259,11 +269,14 @@ Quantity: null, confidence: 0.927s]
 Total Price: null, confidence: 0.93
 ```
 
-#### <a name="version-30"></a>[versión 3.0](#tab/ga)
-
-#### <a name="version-31-preview"></a>[versión 3.1 (versión preliminar)](#tab/preview)
-
 ## <a name="recognize-business-cards"></a>Reconocimiento de tarjetas de presentación
+
+#### <a name="version-20"></a>[versión 2.0](#tab/ga)
+
+> [!IMPORTANT]
+> Esta característica no está disponible en la versión de API seleccionada.
+
+#### <a name="version-21-preview"></a>[versión preliminar 2.1](#tab/preview)
 
 En esta sección se muestra cómo reconocer y extraer campos comunes de tarjetas de presentación inglesas mediante un modelo entrenado previamente.
 
@@ -278,7 +291,16 @@ El valor devuelto es una colección de objetos **RecognizedForm**, uno para cada
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_bc_print)]
 
+---
+
 ## <a name="recognize-invoices"></a>Reconocimiento de facturas
+
+#### <a name="version-20"></a>[versión 2.0](#tab/ga)
+
+> [!IMPORTANT]
+> Esta característica no está disponible en la versión de API seleccionada.
+
+#### <a name="version-21-preview"></a>[versión preliminar 2.1](#tab/preview)
 
 En esta sección se muestra cómo reconocer y extraer campos comunes de facturas de compra mediante un modelo entrenado previamente.
 

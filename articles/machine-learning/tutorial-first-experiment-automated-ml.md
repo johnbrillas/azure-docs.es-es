@@ -9,14 +9,14 @@ ms.topic: tutorial
 author: cartacioS
 ms.author: sacartac
 ms.reviewer: nibaccam
-ms.date: 07/10/2020
+ms.date: 12/21/2020
 ms.custom: automl
-ms.openlocfilehash: 4b2769139e74289c4760b5c398c80380afea351f
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 90c827774f38f07b9791a6399a53b0304bbe28c8
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96921896"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695206"
 ---
 # <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>Tutorial: Creación de un modelo de clasificación con aprendizaje automático automatizado en Azure Machine Learning
 
@@ -102,9 +102,7 @@ Antes de configurar el experimento, cargue el archivo de datos en el área de tr
         Encabezados de columna| Indica cómo se tratarán los encabezados del conjunto de datos, si existen.| Todos los archivos tienen los mismos encabezados
         Omitir filas | Indica el número de filas, si hay alguna, que se omiten en el conjunto de datos.| None
 
-    1. El formulario **Scheme** (Esquema) permite una configuración adicional de los datos para este experimento. En este ejemplo, seleccione el modificador de alternancia de la característica **day_of_week**, de modo que no se incluya para este experimento. Seleccione **Next** (Siguiente).
-
-        ![Configuración de la pestaña Preview (Versión preliminar)](./media/tutorial-first-experiment-automated-ml/schema-tab-config.gif)
+    1. El formulario **Scheme** (Esquema) permite una configuración adicional de los datos para este experimento. En este ejemplo, no se realiza ninguna selección. Seleccione **Next** (Siguiente).
 
     1. En el formulario **Confirm details** (Confirmar detalles), compruebe que la información coincide con lo rellenado anteriormente en los formularios **Basic info** (Información básica), Datastore and file selection (Selección del archivo y el almacén de datos) y **Settings and preview** (Configuración y vista previa).
     
@@ -112,13 +110,15 @@ Antes de configurar el experimento, cargue el archivo de datos en el área de tr
     
     1. Seleccione el conjunto de datos cuando aparezca en la lista.
     
-    1. Revise **Data preview** (Vista previa de los datos) para asegurarse de que no incluyó **day_of_week** y seleccione **OK** (Aceptar).
+    1. Revise **Vista previa de los datos** para asegurarse de que no se incluyó **day_of_week** y seleccione **Cerrar**.
 
     1. Seleccione **Siguiente**.
 
-## <a name="configure-experiment-run"></a>Configuración de la ejecución de un experimento
+## <a name="configure-run"></a>Configuración de la ejecución
 
 Una vez cargados y configurados los datos, puede configurar el experimento. Este programa de instalación incluye tareas de diseño de experimentos, como la selección del tamaño del entorno de proceso y la especificación de la columna que se quiere predecir. 
+
+1. Seleccione el botón de opción **Crear nuevo**.
 
 1. Rellene el formulario **Configure Run** (Configurar ejecución) como se indica a continuación:
     1. Escriba el nombre del experimento: `my-1st-automl-experiment`.
@@ -126,18 +126,28 @@ Una vez cargados y configurados los datos, puede configurar el experimento. Este
     1. Seleccione **y** como la columna de destino en la que desea realizar las predicciones. Esta columna indica si el cliente se suscribió a un depósito a plazo o no.
     
     1. Seleccione **Create a new compute** (Crear un proceso) y configure el destino de proceso. Un destino de proceso es un entorno de recursos locales o en la nube que se usa para ejecutar el script de entrenamiento o para hospedar la implementación de un servicio. En este experimento se usa un proceso en la nube. 
+        1. Rellene el formulario **Máquina virtual** para configurar el proceso.
 
-        Campo | Descripción | Valor para el tutorial
-        ----|---|---
-        Nombre del proceso |Un nombre único que identifique el contexto del proceso.|automl-compute
-        Tipo de&nbsp;máquina&nbsp;virtual| Seleccione el tipo de máquina virtual del proceso.|CPU (Unidad central de procesamiento)
-        Tamaño de la&nbsp;máquina&nbsp;virtual| Seleccione el tamaño de la máquina virtual para el proceso.|Standard_DS12_V2
-        Nodos mín./máx.| Para generar perfiles de datos, debe especificar uno o más nodos.|Número mínimo de nodos: 1<br>Número máximo de nodos: 6
-        Segundos de inactividad antes de la reducción vertical | Tiempo de inactividad antes de que el clúster se escale automáticamente hasta el número mínimo de nodos.|120 (valor predeterminado)
-        Configuración avanzada | Valores para configurar y autorizar una red virtual para el experimento.| None
-        1. Seleccione **Create** (Crear) para obtener el destino de proceso. 
+            Campo | Descripción | Valor para el tutorial
+            ----|---|---
+            Prioridad de &nbsp;máquina&nbsp;virtual |Seleccione qué prioridad debe tener el experimento.| Dedicado
+            Tipo de&nbsp;máquina&nbsp;virtual| Seleccione el tipo de máquina virtual del proceso.|CPU (Unidad central de procesamiento)
+            Tamaño de la&nbsp;máquina&nbsp;virtual| Seleccione el tamaño de la máquina virtual para el proceso. Se proporciona una lista de los tamaños recomendados en función de los datos y el tipo de experimento. |Standard_DS12_V2
+        
+        1. Seleccione **Siguiente** para rellenar el formulario **Parámetros de configuración**.
+        
+            Campo | Descripción | Valor para el tutorial
+            ----|---|---
+            Nombre del proceso |  Un nombre único que identifique el contexto del proceso. | automl-compute
+            Nodos mín./máx.| Para generar perfiles de datos, debe especificar uno o más nodos.|Número mínimo de nodos: 1<br>Número máximo de nodos: 6
+            Segundos de inactividad antes de la reducción vertical | Tiempo de inactividad antes de que el clúster se escale automáticamente hasta el número mínimo de nodos.|120 (valor predeterminado)
+            Configuración avanzada | Valores para configurar y autorizar una red virtual para el experimento.| None               
+
+        1. Seleccione **Crear** para crear el destino de proceso. 
 
             **Tarda unos minutos en completarse.** 
+
+             ![Página Configuración](./media/tutorial-first-experiment-automated-ml/compute-settings.png)
 
         1. Después de la creación, seleccione el nuevo destino de proceso en la lista desplegable.
 
@@ -159,14 +169,18 @@ Una vez cargados y configurados los datos, puede configurar el experimento. Este
         Simultaneidad| Número máximo de iteraciones paralelas ejecutadas por iteración| Máximo de iteraciones&nbsp;simultáneas&nbsp;: 5
         
         Seleccione **Guardar**.
+    
+    1. Seleccione **View featurization settings** (Ver configuración de caracterización). En este ejemplo, seleccione el modificador de alternancia de la característica **day_of_week**, de modo que no se incluya para la caracterización de este experimento.
 
-1. Para ejecutar el experimento, seleccione **Finalizar**. La pantalla **Run Details** (Detalles de ejecución) se abrirá con **Run status** (Estado de ejecución) al comenzar la preparación del experimento.
+        ![Selección de caracterización](./media/tutorial-first-experiment-automated-ml/featurization-setting-config.gif)   
+ 
+        Seleccione **Guardar**.
+
+1. Para ejecutar el experimento, seleccione **Finalizar**. La pantalla **Run Details** (Detalles de ejecución) se abrirá con **Run status** (Estado de ejecución) al comenzar la preparación del experimento. Este estado se actualiza a medida que el experimento progresa. También aparecen notificaciones en la esquina superior derecha de Studio, para informarle del estado de su experimento.
 
 >[!IMPORTANT]
 > La preparación necesita de **10 a 15 minutos** en preparar la ejecución del experimento.
-> Una vez que se ejecuta, se tarda de **2 a 3 minutos más para cada iteración**.  
-> Seleccione **Refresh** (Actualizar) periódicamente para ver el estado de la ejecución a medida que progresa el experimento.
->
+> Una vez que se ejecuta, se tarda de **2 a 3 minutos más para cada iteración**.  <br> <br>
 > En producción, probablemente puede descansar un poco. Pero para este tutorial se recomienda empezar por explorar los algoritmos probados de la pestaña **Models** (Modelos) que se completan mientras los demás siguen en ejecución. 
 
 ##  <a name="explore-models"></a>Exploración de modelos
@@ -238,7 +252,7 @@ Elimine solo la instancia de implementación de Azure Machine Learning de \//ml.
 En este tutorial ha usado la interfaz de aprendizaje automático automatizado de Azure Machine Learning para crear e implementar un modelo de clasificación. Para más información y ver los pasos siguientes, consulte estos artículos:
 
 > [!div class="nextstepaction"]
-> [Consumo de un servicio web](how-to-consume-web-service.md#consume-the-service-from-power-bi)
+> [Consumo de un servicio web](https://docs.microsoft.com/power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context)
 
 + Más información acerca del [aprendizaje automático automatizado](concept-automated-ml.md).
 + Para más información sobre las métricas de clasificación y los gráficos, consulte el artículo de [descripción de los resultados de aprendizaje automático automatizado](how-to-understand-automated-ml.md).

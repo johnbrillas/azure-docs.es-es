@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 10/15/2020
+ms.date: 12/16/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro R so I can use it to transfer data to Azure.
-ms.openlocfilehash: d992748e9829993acc28795778baae3eb92e88f3
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 7ca9b21838d35b54b4ed84d5aaf3aa797b02d9e0
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96464772"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97630775"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro-r"></a>Tutorial: Preparación de la implementación de Azure Stack Edge Pro R
 
@@ -41,7 +41,7 @@ Para implementar Azure Stack Edge Pro R, consulte los siguientes tutoriales en e
 |  | |
 |**Tutoriales de implementación** |Estos tutoriales son necesarios para implementar el dispositivo Azure Stack Edge Pro R en producción. |
 |**[1. Preparación de Azure Portal para el dispositivo](azure-stack-edge-pro-r-deploy-prep.md)** |Cree y configure el recurso de Azure Stack Edge antes de instalar un dispositivo físico de Azure Stack Box Edge. |
-|**[2. Instalación del dispositivo](azure-stack-edge-pro-r-deploy-install.md)**|Desempaquete, coloque en el rack y conecte los cables del dispositivo físico.  |
+|**[2. Instalación del dispositivo](azure-stack-edge-pro-r-deploy-install.md)**|Inspeccione y conecte los cables del dispositivo físico.  |
 |**[3. Conexión del dispositivo](azure-stack-edge-pro-r-deploy-connect.md)** |Una vez instalado el dispositivo, conéctese a la interfaz de usuario web local del dispositivo.  |
 |**[4. Configuración de la red](azure-stack-edge-pro-r-deploy-configure-network-compute-web-proxy.md)** |Configure la red, incluida la red de proceso y los valores de proxy web para el dispositivo.   |
 |**[5. Configuración del dispositivo](azure-stack-edge-pro-r-deploy-set-up-device-update-time.md)** |Asigne un nombre de dispositivo y un dominio DNS, configure el servidor de actualización y la hora del dispositivo. |

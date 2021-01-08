@@ -2,16 +2,16 @@
 title: 'Tutorial: Creación e implementación de una plantilla'
 description: Cree la primera plantilla de Azure Resource Manager (plantilla de ARM). En este tutorial, aprenderá sobre la sintaxis del archivo de plantilla y cómo implementar una cuenta de almacenamiento.
 author: mumian
-ms.date: 09/28/2020
+ms.date: 12/17/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 191eacbc9cc66ccfb9b378cb5e8a90b4e0fb20e6
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 001a20c38a82d053ae22a2614a32f0be9d8aabce
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97107030"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656995"
 ---
 # <a name="tutorial-create-and-deploy-your-first-arm-template"></a>Tutorial: Creación e implementación de su primera plantilla de Resource Manager
 
@@ -19,7 +19,7 @@ Este tutorial es una introducción a las plantillas de Azure Resource Manager (p
 
 Este tutorial es el primero de una serie. A medida que avance por la serie, modificará la plantilla inicial paso a paso hasta que haya explorado todas las partes principales de una plantilla de Resource Manager. Estos elementos son los bloques de creación de plantillas mucho más complejas. Esperamos que el final de la serie tenga seguridad para crear sus propias plantillas y esté listo para automatizar las implementaciones con plantillas.
 
-Si desea obtener información sobre las ventajas de usar plantillas y por qué debería automatizar la implementación con plantillas, consulte el artículo sobre [información general de plantillas de ARM](overview.md).
+Si desea obtener información sobre las ventajas de usar plantillas y por qué debería automatizar la implementación con plantillas, consulte el artículo sobre [información general de plantillas de ARM](overview.md). Para una guía en módulos con información sobre las plantillas de ARM en Microsoft Learn, consulte [Implementación y administración de recursos en Azure mediante plantillas de ARM](/learn/paths/deploy-manage-resource-manager-templates/).
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 

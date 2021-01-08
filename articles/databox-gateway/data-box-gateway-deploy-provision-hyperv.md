@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 03/25/2019
+ms.date: 12/21/2020
 ms.author: alkohli
-ms.openlocfilehash: ffbfd3214242d8df5fe33faf465bc1da3eb9986d
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 9d1d22d57464266239aea96f427020351eb749d5
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96580521"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740664"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-hyper-v"></a>Tutorial: Aprovisionamiento de Azure Data Box Gateway en Hyper-V
 
@@ -57,8 +57,8 @@ Antes de implementar un dispositivo, asegúrese de que:
   * Un mínimo de 4 núcleos.
   * Al menos 8 GB de RAM.
   * Una interfaz de red.
-  * Un disco de sistema operativo de 250 GB.
-  * Un disco virtual de 2 GB para datos.
+  * Un disco de sistema operativo de 250 GB.
+  * Un disco virtual de 2 GB para datos.
 
 ### <a name="for-the-network-in-the-datacenter"></a>Para la red del centro de datos
 
@@ -78,8 +78,8 @@ Para crear un dispositivo virtual, necesita:
   * Un mínimo de 4 procesadores virtuales.
   * Al menos 8 GB de RAM.
   * Una interfaz de red conectada a la red capaz de enrutar el tráfico a Internet.
-  * Un disco de sistema operativo de 250 GB.
-  * Un disco virtual de 2 TB para datos del sistema.
+  * Un disco de sistema operativo de 250 GB.
+  * Un disco virtual de 2 TB para datos del sistema.
 
 ## <a name="bitlocker-considerations"></a>Consideraciones sobre BitLocker
 
@@ -92,10 +92,11 @@ Para crear un dispositivo virtual, necesita:
 Realice los pasos siguientes para aprovisionar un dispositivo en el hipervisor.
 
 1. En el host de Windows Server, copie la imagen del dispositivo virtual en una unidad local. Esta imagen VHDX la descargó a través de Azure Portal. Anote la ubicación en la que copió la imagen, ya que la va a utilizar más adelante en el procedimiento.
+
 2. Abra el **Administrador del servidor**. En la esquina superior derecha, haga clic en **Herramientas** y seleccione **Administrador de Hyper-V**.
 
-    ![Seleccione Administrador de Hyper-V en Administrador del servidor](./media/data-box-gateway-deploy-provision-hyperv/image1.png)  
-  
+    ![Seleccione Administrador de Hyper-V en Administrador del servidor](./media/data-box-gateway-deploy-provision-hyperv/image1.png)
+
 3. En el **Administrador de Hyper-V**, en el panel de ámbito, haga clic con el botón derecho en el nodo del sistema para abrir el menú contextual y luego haga clic en **Nuevo** > **Máquina virtual**.
 
    ![Creación de una máquina virtual en el Administrador de Hyper-V](./media/data-box-gateway-deploy-provision-hyperv/image2.png)
@@ -124,7 +125,7 @@ Realice los pasos siguientes para aprovisionar un dispositivo en el hipervisor.
 12. En la página **Configuración**, en el panel izquierdo, haga clic en **Procesador**. En el panel derecho, establezca **Número de procesadores virtuales** en 4 (o más). Haga clic en **Aplicar**.
 
     ![Establecer el número de procesadores virtuales en la página de configuración](./media/data-box-gateway-deploy-provision-hyperv/image10.png)
-13. Para cumplir los requisitos mínimos, también debe agregar un disco virtual de datos de 2 TB. En la página **Configuración** :
+13. Para cumplir los requisitos mínimos, también debe agregar un disco virtual de datos de 2 TB. En la página **Configuración** :
 
     1. En el panel izquierdo, seleccione **Controlador SCSI**.
     2. En el panel derecho, seleccione **Unidad de disco duro** y haga clic en **Agregar**.
@@ -138,12 +139,12 @@ Realice los pasos siguientes para aprovisionar un dispositivo en el hipervisor.
 17. En la página **Elegir tipo de disco**, establezca el tipo de disco duro virtual como **Expansión dinámica** (recomendado). Un disco de **tamaño fijo** funcionaría, pero puede que necesite esperar mucho tiempo. Se recomienda que no utilice la opción **Diferenciación** . Haga clic en **Next**.
 
     ![Página Elegir tipo de disco](./media/data-box-gateway-deploy-provision-hyperv/image13.png)
-18. En la página **Especificar nombre y ubicación**, proporcione un **nombre**, así como una **ubicación** (puede dirigirse a una) para el disco de datos. Haga clic en **Next**.
+18. En la página **Especificar nombre y ubicación**, proporcione un **nombre** y una **ubicación** (puede dirigirse a una) para el disco de datos. Haga clic en **Next**.
 
     ![Página Especificar nombre y ubicación](./media/data-box-gateway-deploy-provision-hyperv/image14.png)
-19. En la página **Configurar disco**, seleccione la opción **Crear un nuevo disco duro virtual en blanco** y especifique el tamaño como **2 TB** (o más).
+19. En la página **Configurar disco**, seleccione la opción **Crear un nuevo disco duro virtual en blanco** y especifique el tamaño **2 TB** (o más).
 
-    Aunque el requisito mínimo son 2 TB, siempre puede aprovisionar un disco más grande. Tenga en cuenta que una vez que el disco se aprovisiona su tamaño no se puede reducir. Si intenta hacer esto, se perderán todos los datos locales del dispositivo. No se admite la expansión del disco de datos. Haga clic en **Next**.
+    Aunque el requisito mínimo son 2 TB, siempre puede aprovisionar un disco más grande. Tenga en cuenta que una vez aprovisionado el disco, el tamaño no se puede reducir. Si intenta hacer esto, se perderán todos los datos locales del dispositivo. No se admite la expansión del disco de datos. Haga clic en **Next**.
 
     ![Página Configurar disco](./media/data-box-gateway-deploy-provision-hyperv/image15.png)
 20. En la página **Resumen**, revise los detalles del disco de datos virtual y, si está satisfecho, haga clic en **Finalizar** para crear el disco. El asistente se cierra y se agrega un disco duro virtual al equipo.
@@ -152,6 +153,11 @@ Realice los pasos siguientes para aprovisionar un dispositivo en el hipervisor.
 21. Vuelva a la página **Configuración**. Haga clic en **Aceptar** para cerrar la página **Configuración** y volver a la ventana Administrador de Hyper-V.
 
     ![Página Configuración](./media/data-box-gateway-deploy-provision-hyperv/image17.png)
+
+Ahora está totalmente configurada la máquina virtual.
+
+> [!NOTE]
+> No se puede copiar el disco duro virtual configurado para aprovisionar un dispositivo virtual de Data Box Gateway nuevo. Se debe aprovisionar a partir de una imagen de dispositivo virtual para Hyper-V descargada de Azure Portal.
 
 ## <a name="start-the-virtual-device-and-get-the-ip"></a>Inicio del dispositivo virtual y obtención de la dirección IP
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: c476fe2af1fb4bddff4799609b164aab14f57b00
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 5aab11b31756ee8430e8ae4d54a2b3de5ea2e136
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187412"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97612611"
 ---
 ### <a name="is-azure-virtual-wan-in-ga"></a>¿Qué es Azure Virtual WAN en GA?
 
@@ -254,7 +254,7 @@ Cuando un circuito ExpressRoute se conecta a un centro de conectividad virtual, 
 El comportamiento actual es preferir la ruta de acceso del circuito ExpressRoute frente a una conexión entre centros para la conectividad de red virtual a red virtual. Sin embargo, esto no se recomienda en una configuración de Virtual WAN. El equipo de Virtual WAN está trabajando en una corrección para permitir la preferencia de centro de conectividad a centro de conectividad frente a la ruta de acceso de ExpressRoute. La recomendación es para que varios circuitos ExpressRoute (proveedores distintos) se conecten a un centro de conectividad y usen la conectividad entre centros de conectividad que proporciona Virtual WAN para los flujos de tráfico entre regiones.
 
 ### <a name="can-hubs-be-created-in-different-resource-group-in-virtual-wan"></a>¿Se pueden crear concentradores en un grupo de recursos diferente en Virtual WAN?
-Sí. Esta opción solo está disponible actualmente mediante PowerShell. El portal de Virtual WAN asigna los concentradores en el mismo grupo de recursos que el propio recurso de Virtual WAN.
+Sí. Actualmente, esta opción solo está disponible a través de PowerShell. El portal de Virtual WAN asigna los concentradores en el mismo grupo de recursos que el propio recurso de Virtual WAN.
 
 ### <a name="is-there-support-for-ipv6-in-virtual-wan"></a>¿Hay compatibilidad con IPv6 en un Virtual WAN?
 
@@ -277,3 +277,7 @@ Consulte [Redes WAN virtuales de tipo Básico y Estándar](../articles/virtual-w
 ### <a name="does-virtual-wan-store-customer-data"></a>¿Virtual WAN almacena datos de clientes? 
 
 No. Virtual WAN no almacena datos de clientes.
+
+### <a name="are-there-any-managed-service-providers-that-can-manage-virtual-wan-for-users-as-a-service"></a>¿Hay proveedores de servicios administrados que pueden administrar Virtual WAN para usuarios como servicio? 
+
+Sí. Para obtener una lista de soluciones de proveedores de servicios administrados (MSP) habilitadas a través de Azure Marketplace, consulte el apartado [Ofertas de Azure Marketplace de proveedores de servicios administrados de redes de Azure asociados](../articles/networking/networking-partners-msp.md#msp).

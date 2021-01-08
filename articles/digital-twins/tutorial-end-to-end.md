@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: f788c9e78790e6872870869e2bc153e1b1451e51
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 64e648cf6ae3c763d3e9ab1a6970f48c84331bad
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566544"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845627"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Tutorial: Creación de soluciones de un extremo a otro
 
@@ -52,8 +52,6 @@ Estos son los complementos que implementa la aplicación de ejemplo *AdtSampleAp
 * Interfaz de consola para llamar a la API de Azure Digital Twins.
 * *SampleClientApp*: una solución de Azure Digital Twins de ejemplo.
 * *SampleFunctionsApp*: una aplicación de Azure Functions que actualiza su grafo de Azure Digital Twins con los datos de telemetría de los eventos de IoT Hub y Azure Digital Twins.
-
-El proyecto de ejemplo también contiene un componente de autorización interactivo. Cada vez que inicie el proyecto, se abrirá una ventana del explorador, en la que se le solicitará que inicie sesión con su cuenta de Azure.
 
 ### <a name="instantiate-the-pre-created-twin-graph"></a>Instanciación del grafo de gemelos creado previamente
 
@@ -134,7 +132,7 @@ Para seleccionar un destino concreto, elija **Azure Function App (Windows)** y p
 
 En la página *Functions instance* (Instancia de Functions), elija su suscripción. Se rellenará un cuadro con los *grupos de recursos* de la suscripción.
 
-Seleccione el grupo de recursos de la instancia y presione *+ Create a new Azure Function...* (Crear una función de Azure).
+Seleccione el grupo de recursos de la instancia y haga clic en *+* para crear una nueva función de Azure.
 
 :::image type="content" source="media/tutorial-end-to-end/publish-azure-function-3.png" alt-text="Publicar una función de Azure en Visual Studio: instancia de Functions (antes de la aplicación de funciones)":::
 

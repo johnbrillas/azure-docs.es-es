@@ -7,12 +7,12 @@ ms.author: allensu
 ms.service: private-link
 ms.topic: tutorial
 ms.date: 9/25/2020
-ms.openlocfilehash: c9866ac2c14e4deb29326ffdd1a93a7d8eae1ea3
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 477856bd5772cdc0a9ec00d81adf9c50847afdd0
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96484811"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97631957"
 ---
 # <a name="tutorial-connect-to-an-azure-cosmos-account-using-an-azure-private-endpoint"></a>Tutorial: Conexión a una cuenta de Azure Cosmos mediante un punto de conexión privado de Azure
 
@@ -208,13 +208,9 @@ En esta sección creará una cuenta de Cosmos DB y configurará el punto de con
 
 5. Seleccione **Aceptar**.
 
-10. En la sección **Configuración** de la cuenta de Cosmos DB, seleccione **Claves**.
+6. En la sección **Configuración** de la cuenta de Cosmos DB, seleccione **Claves**.
 
-11. Seleccione **myResourceGroup**.
-
-12. Seleccione la cuenta de almacenamiento que creó en los pasos previos.
-
-14. Seleccione copiar en la **CADENA DE CONEXIÓN PRINCIPAL**.
+7. Seleccione copiar en la **CADENA DE CONEXIÓN PRINCIPAL**.
 
 ## <a name="test-connectivity-to-private-endpoint"></a>Prueba de la conectividad con el punto de conexión privado
 
@@ -234,7 +230,7 @@ En esta sección utilizará la máquina virtual creada en el paso anterior para 
 
 7. Abra Windows PowerShell en el servidor después de conectarse.
 
-8. Escriba `nslookup <storage-account-name>.documents.azure.com`. Reemplace **\<storage-account-name>** por el nombre de la cuenta de almacenamiento creada en los pasos anteriores. 
+8. Escriba `nslookup <cosmosdb-account-name>.documents.azure.com`. Reemplace **\<cosmosdb-account-name>** por el nombre de la cuenta de Cosmos DB que creó en los pasos anteriores. 
 
     ```powershell
     Server:  UnKnown

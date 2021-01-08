@@ -1,6 +1,6 @@
 ---
-title: ¿Qué es el diagnóstico del inicio de sesión de Azure AD? | Microsoft Docs
-description: Proporciona información general sobre el diagnóstico del inicio de sesión de Azure AD.
+title: ¿Qué es Diagnóstico de inicio de sesión en Azure AD? | Microsoft Docs
+description: Proporciona información general sobre Diagnóstico de inicio de sesión en Azure AD.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -17,25 +17,25 @@ ms.date: 12/15/2020
 ms.author: markvi
 ms.reviewer: tspring
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6aedf41fbf1ed0d70467a2efe97431fdecaa4fa
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: e85de1edd94a0430a4b28b332d9e43b967afba76
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 12/16/2020
-ms.locfileid: "97585929"
+ms.locfileid: "97608925"
 ---
-# <a name="what-is-sign-in-diagnostic-in-azure-ad"></a>¿Qué es el diagnóstico del inicio de sesión de Azure AD?
+# <a name="what-is-sign-in-diagnostic-in-azure-ad"></a>¿Qué es Diagnóstico de inicio de sesión en Azure AD?
 
 Azure AD proporciona un modelo de seguridad flexible para controlar las acciones que pueden realizar los usuarios con los recursos administrados. El acceso a estos recursos no solo se controla por **quién** hace uso de ellos, sino también por **cómo** se accede a ellos. Normalmente, la flexibilidad conlleva un grado de complejidad debido al número de opciones de configuración que tiene. La complejidad hace que pueda aumentar el riesgo de errores.
 
-Los administradores de TI, necesitan una solución que proporcione el nivel adecuado de conocimiento de las actividades que tienen lugar en el sistema, con el fin de que si se produce algún problema, se pueda diagnosticar y resolver fácilmente. El diagnóstico del inicio de sesión de Azure AD es un ejemplo de este tipo de solución. Use el diagnóstico para analizar tanto lo que ha sucedido durante un inicio de sesión como las acciones que puede realizar para resolver los problemas sin necesidad de que intervenga el soporte técnico de Microsoft.
+Los administradores de TI, necesitan una solución que proporcione el nivel adecuado de conocimiento de las actividades que tienen lugar en el sistema, con el fin de que si se produce algún problema, se pueda diagnosticar y resolver fácilmente. Diagnóstico de inicio de sesión para Azure AD es un ejemplo de este tipo de solución. Use el diagnóstico para analizar tanto lo que ha sucedido durante un inicio de sesión como las acciones que puede realizar para resolver los problemas sin necesidad de que intervenga el soporte técnico de Microsoft.
 
 En este artículo se proporciona información general no solo sobre las funciones de la solución, sino también sobre cómo se puede usar.
 
 
 ## <a name="requirements"></a>Requisitos
 
-El diagnóstico del inicio de sesión está disponible en todas las ediciones de Azure AD.<br> Para usarlo, es preciso ser administrador global de Azure AD.
+Diagnóstico de inicio de sesión está disponible en todas las ediciones de Azure AD.<br> Para usarlo, es preciso ser administrador global de Azure AD.
 
 ## <a name="how-it-works"></a>Funcionamiento
 
@@ -47,7 +47,7 @@ Dada la mayor flexibilidad del sistema para responder a un intento de inicio de 
 
 - Muestra lo que ha sucedido y recomendaciones sobre cómo resolver problemas. 
 
-El diagnóstico de inicio de sesión de Azure AD está diseñado para habilitar el diagnóstico automático de errores en el inicio de sesión. Para completar el proceso de diagnóstico, es preciso:
+Diagnóstico de inicio de sesión para Azure AD está diseñado para habilitar el diagnóstico automático de los errores que se producen en el inicio de sesión. Para completar el proceso de diagnóstico, es preciso:
 
 ![Proceso de diagnóstico de inicio de sesión](./media/overview-sign-in-diagnostics/process.png)
  

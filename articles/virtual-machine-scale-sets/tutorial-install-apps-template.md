@@ -9,12 +9,12 @@ ms.subservice: template
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 2d748f787b40bb26e9faebb028d71c6c3e30ee55
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: d5eba5486e7d26e62379e0112cd4b95322e6dae1
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94516567"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97705241"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-an-azure-template"></a>Tutorial: Instalación de aplicaciones en conjuntos de escalado de máquinas virtuales con una plantilla de Azure
 Para ejecutar aplicaciones en las instancias de máquinas virtuales (VM) de un conjunto de escalado, primero debe instalar los componentes de la aplicación y los archivos necesarios. En un tutorial anterior, aprendió a crear y usar una imagen de máquina virtual personalizada para implementar las instancias de máquina virtual. Esta imagen personalizada incluía instalaciones y configuraciones manuales de aplicaciones. También puede automatizar la instalación de aplicaciones en un conjunto de escalado después de implementar cada instancia de máquina virtual, o actualizar una aplicación que ya se ejecuta en un conjunto de escalado. En este tutorial, aprenderá a:
@@ -76,10 +76,10 @@ Vamos a usar la plantilla de ejemplo para crear un conjunto de escalado y aplica
 az group create --name myResourceGroup --location eastus
 ```
 
-Ahora, cree un conjunto de escalado de máquinas virtuales con [az group deployment create](/cli/azure/group/deployment). Cuando se le solicite, proporcione su propio nombre de usuario y la contraseña que se utilizan como credenciales para cada instancia de máquina virtual:
+Ahora, cree un conjunto de escalado de máquinas virtuales con [az deployment group create](/cli/azure/deployment/group). Cuando se le solicite, proporcione su propio nombre de usuario y la contraseña que se utilizan como credenciales para cada instancia de máquina virtual:
 
 ```azurecli-interactive
-az group deployment create \
+az deployment group create \
   --resource-group myResourceGroup \
   --template-uri https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/scale_sets/azuredeploy.json
 ```
@@ -134,10 +134,10 @@ Para actualizar la definición de la extensión de script personalizado, edite l
 }
 ```
 
-Aplique de nuevo la configuración de la extensión de script personalizado a las instancias de máquina virtual del conjunto de escalado con [az group deployment create](/cli/azure/group/deployment). La plantilla *azuredeployv2.json* se usa para aplicar la versión actualizada de la aplicación. En la práctica, la plantilla *azuredeploy.json* existente se edita para que haga referencia al script de instalación actualizado, tal y como se muestra en la sección anterior. Cuando se le solicite, escriba el mismo nombre de usuario y contraseña que usó para crear por primera vez el conjunto de escalado:
+Aplique de nuevo la configuración de la extensión de script personalizado a las instancias de máquina virtual del conjunto de escalado con [az deployment group create](/cli/azure/deployment/group). La plantilla *azuredeployv2.json* se usa para aplicar la versión actualizada de la aplicación. En la práctica, la plantilla *azuredeploy.json* existente se edita para que haga referencia al script de instalación actualizado, tal y como se muestra en la sección anterior. Cuando se le solicite, escriba el mismo nombre de usuario y contraseña que usó para crear por primera vez el conjunto de escalado:
 
 ```azurecli-interactive
-az group deployment create \
+az deployment group create \
   --resource-group myResourceGroup \
   --template-uri https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/scale_sets/azuredeploy_v2.json
 ```

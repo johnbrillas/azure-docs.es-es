@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.author: sacartac
 ms.reviewer: nibaccam
 author: cartacioS
-ms.date: 07/10/2020
+ms.date: 12/21/2020
 ms.custom: automl
-ms.openlocfilehash: 8b354abb98c56a572badf2421b0d7dbbd25f7a63
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 31e9ff3fd07a7d305c88d28629f3252db5d857c8
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96921849"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695449"
 ---
 # <a name="tutorial-forecast-demand-with-automated-machine-learning"></a>Tutorial: Previsión de la demanda con aprendizaje automático automatizado
 
@@ -100,7 +100,7 @@ Antes de configurar el experimento, cargue el archivo de datos en el área de tr
 
     1. Seleccione **Siguiente**.
 
-## <a name="configure-experiment-run"></a>Configuración de la ejecución de un experimento
+## <a name="configure-run"></a>Configuración de la ejecución
 
 Una vez cargados y configurados los datos, configure el destino de proceso remoto y seleccione la columna de los datos que desea predecir.
 
@@ -111,14 +111,22 @@ Una vez cargados y configurados los datos, configure el destino de proceso remot
 
     1. Seleccione **Create a new compute** (Crear un proceso) y configure el destino de proceso. ML automatizado solo admite el proceso con Azure Machine Learning. 
 
-        Campo | Descripción | Valor para el tutorial
-        ----|---|---
-        Nombre del proceso |Un nombre único que identifique el contexto del proceso.|bike-compute
-        Tipo de&nbsp;máquina&nbsp;virtual|Seleccione el tipo de máquina virtual del proceso.|CPU (Unidad central de procesamiento)
-        Tamaño de la&nbsp;máquina&nbsp;virtual| Seleccione el tamaño de la máquina virtual para el proceso.|Standard_DS12_V2
-        Nodos mín./máx.| Para generar perfiles de datos, debe especificar uno o más nodos.|Número mínimo de nodos: 1<br>Número máximo de nodos: 6
-        Segundos de inactividad antes de la reducción vertical | Tiempo de inactividad antes de que el clúster se escale automáticamente hasta el número mínimo de nodos.|120 (valor predeterminado)
-        Configuración avanzada | Valores para configurar y autorizar una red virtual para el experimento.| None
+        1. Rellene el formulario **Máquina virtual** para configurar el proceso.
+
+            Campo | Descripción | Valor para el tutorial
+            ----|---|---
+            Prioridad de &nbsp;máquina&nbsp;virtual |Seleccione qué prioridad debe tener el experimento.| Dedicado
+            Tipo de&nbsp;máquina&nbsp;virtual| Seleccione el tipo de máquina virtual del proceso.|CPU (Unidad central de procesamiento)
+            Tamaño de la&nbsp;máquina&nbsp;virtual| Seleccione el tamaño de la máquina virtual para el proceso. Se proporciona una lista de los tamaños recomendados en función de los datos y el tipo de experimento. |Standard_DS12_V2
+        
+        1. Seleccione **Siguiente** para rellenar el formulario **Parámetros de configuración**.
+        
+             Campo | Descripción | Valor para el tutorial
+            ----|---|---
+            Nombre del proceso |  Un nombre único que identifique el contexto del proceso. | bike-compute
+            Nodos mín./máx.| Para generar perfiles de datos, debe especificar uno o más nodos.|Número mínimo de nodos: 1<br>Número máximo de nodos: 6
+            Segundos de inactividad antes de la reducción vertical | Tiempo de inactividad antes de que el clúster se escale automáticamente hasta el número mínimo de nodos.|120 (valor predeterminado)
+            Configuración avanzada | Valores para configurar y autorizar una red virtual para el experimento.| None 
   
         1. Seleccione **Create** (Crear) para obtener el destino de proceso. 
 
@@ -154,11 +162,11 @@ Complete la configuración del experimento de ML automatizado especificando el t
 
 ## <a name="run-experiment"></a>Ejecutar experimento
 
-Para ejecutar el experimento, seleccione **Finish** (Finalizar). La pantalla **Run details** (Detalles de ejecución) se abrirá con **Run status** (Estado de la ejecución) en la parte superior junto al número de ejecución. Este estado se actualiza a medida que el experimento progresa.
+Para ejecutar el experimento, seleccione **Finish** (Finalizar). La pantalla **Run details** (Detalles de ejecución) se abrirá con **Run status** (Estado de la ejecución) en la parte superior junto al número de ejecución. Este estado se actualiza a medida que el experimento progresa. También aparecen notificaciones en la esquina superior derecha de Studio, para informarle del estado de su experimento.
 
 >[!IMPORTANT]
 > La preparación necesita de **10 a 15 minutos** en preparar la ejecución del experimento.
-> Una vez que se ejecuta, se tarda de **2 a 3 minutos más para cada iteración**.  <br> <br>
+> Una vez que se ejecuta, se tarda de **2 a 3 minutos más para cada iteración**.<br> <br>
 > En producción, probablemente puede descansar un poco, ya que el proceso tarda. Mientras espera, se recomienda empezar por explorar los algoritmos probados de la pestaña **Models** (Modelos) que se van completando. 
 
 ##  <a name="explore-models"></a>Exploración de modelos
@@ -169,7 +177,7 @@ Mientras espera a que terminen todos los modelos del experimento, seleccione **A
 
 El siguiente ejemplo le lleva por las pestañas **Details** (Detalles) y **Metrics** (Métricas) para ver las propiedades, las métricas y los gráficos de rendimiento del modelo seleccionado. 
 
-![Detalles de la ejecución](./media/tutorial-automated-ml-forecast/explore-models-ui.gif)
+![Detalles de la ejecución](./media/tutorial-automated-ml-forecast/explore-models.gif)
 
 ## <a name="deploy-the-model"></a>Implementación del modelo
 
@@ -232,7 +240,7 @@ En este tutorial se ha usado ML automatizado en Azure Machine Learning Studio pa
 Consulte este artículo para conocer los pasos de creación de un esquema que admita Power BI con el fin de facilitar el consumo del servicio web recién implementado:
 
 > [!div class="nextstepaction"]
-> [Consumo de un servicio web](how-to-consume-web-service.md#consume-the-service-from-power-bi)
+> [Consumo de un servicio web](https://docs.microsoft.com/power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context)
 
 + Más información acerca del [aprendizaje automático automatizado](concept-automated-ml.md).
 + Para más información sobre las métricas de clasificación y los gráficos, consulte el artículo de [descripción de los resultados de aprendizaje automático automatizado](how-to-understand-automated-ml.md).

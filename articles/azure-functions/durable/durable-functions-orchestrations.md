@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: overview
 ms.date: 09/08/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 5eec15871279f3ca38c726fcd1ef1b21d0d38699
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ba314963058389e171601407ff00411049eecd45
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88750189"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845432"
 ---
 # <a name="durable-orchestrations"></a>Orquestaciones de Durable Functions
 
@@ -293,7 +293,7 @@ No es posible pasar varios parámetros a una función de actividad directamente.
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-En .NET también puede usar objetos [ValueTuples](/dotnet/csharp/tuples). El ejemplo siguiente utiliza las nuevas características de [ValueTuples](/dotnet/csharp/tuples) agregado con [C# 7](/dotnet/csharp/whats-new/csharp-7#tuples):
+En .NET también puede usar objetos [ValueTuple](/dotnet/csharp/tuples). El ejemplo siguiente utiliza las nuevas características de [ValueTuple](/dotnet/csharp/tuples) agregado con [C# 7](/dotnet/csharp/whats-new/csharp-7#tuples):
 
 ```csharp
 [FunctionName("GetCourseRecommendations")]

@@ -8,14 +8,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 08/12/2019
+ms.date: 12/18/2020
 ms.author: mbaldwin
-ms.openlocfilehash: eef4f6b8ee5821e54b5b7709eee7f8dad8749e63
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: b1f7b115c5a8198b53e36672a891903a41a9511b
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94488543"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97704136"
 ---
 # <a name="azure-key-vault-logging"></a>Registro de Azure Key Vault
 
@@ -23,7 +23,7 @@ Después de crear uno o varios almacenes de claves, es probable que desee superv
 
 Puede acceder a la información de registro 10 minutos (como máximo) después de la operación del almacén de claves. En la mayoría de los casos, será más rápido que esto.  Es decisión suya administrar los registros en la cuenta de almacenamiento:
 
-* Utilice los métodos de control de acceso de Azure estándar para proteger los registros mediante la restricción de quién puede tener acceso a ellos.
+* Utilice los métodos estándar de control de acceso de Azure en su cuenta de almacenamiento para proteger los registros mediante la restricción de las personas pueden acceder a ellos.
 * Elimine los registros que ya no desee mantener en la cuenta de almacenamiento.
 
 Para obtener información general sobre Key Vault, consulte [¿Qué es Azure Key Vault?](overview.md) Para obtener información acerca de dónde está disponible Key Vault, consulte la [página de precios](https://azure.microsoft.com/pricing/details/key-vault/). Para obtener información acerca del uso de [Azure Monitor para Key Vault](../../azure-monitor/insights/key-vault-insights-overview.md).
@@ -85,6 +85,8 @@ En la tabla siguiente se muestran los valores **operationName** y los comandos c
 
 ### <a name="operation-names-table"></a>Tabla de nombres de operaciones
 
+# <a name="vault"></a>[Almacén](#tab/Vault)
+
 | operationName | Comando de la API REST |
 | --- | --- |
 | **Autenticación** |Autenticar mediante un punto de conexión de Azure Active Directory |
@@ -97,6 +99,12 @@ En la tabla siguiente se muestran los valores **operationName** y los comandos c
 | **VaultRecover** |Recuperar un almacén eliminado|
 | **VaultGetDeleted** |[Obtener un almacén eliminado](/rest/api/keyvault/vaults/getdeleted) |
 | **VaultListDeleted** |[Enumerar los almacenes eliminados](/rest/api/keyvault/vaults/listdeleted) |
+| **VaultAccessPolicyChangedEventGridNotification** | La directiva de acceso del almacén ha cambiado el evento publicado. |
+
+# <a name="keys"></a>[Claves](#tab/Keys)
+
+| operationName | Comando de la API REST |
+| --- | --- |
 | **KeyCreate** |[Crear una clave](/rest/api/keyvault/createkey) |
 | **KeyGet** |[Obtener información sobre una clave](/rest/api/keyvault/getkey) |
 | **KeyImport** |[Importar una clave a un almacén](/rest/api/keyvault/vaults) |
@@ -116,36 +124,13 @@ En la tabla siguiente se muestran los valores **operationName** y los comandos c
 | **KeyRecover** |[Recuperar una clave](/rest/api/keyvault/recoverdeletedkey) |
 | **KeyGetDeleted** |[Obtener una clave eliminada](/rest/api/keyvault/getdeletedkey) |
 | **KeyListDeleted** |[Enumerar las claves eliminadas de un almacén](/rest/api/keyvault/getdeletedkeys) |
-| **CertificateGet** |[Obtención de información sobre un certificado](/rest/api/keyvault/getcertificate) |
-| **CertificateCreate** |[Crear un certificado](/rest/api/keyvault/createcertificate) |
-| **CertificateImport** |[Importar un certificado en un almacén](/rest/api/keyvault/importcertificate) |
-| **CertificateUpdate** |[Actualizar un certificado](/rest/api/keyvault/updatecertificate) |
-| **CertificateList** |[Enumerar los certificados de un almacén](/rest/api/keyvault/getcertificates) |
-| **CertificateListVersions** |[Enumerar las versiones de un certificado](/rest/api/keyvault/getcertificateversions) |
-| **CertificateDelete** |[Eliminar un certificado](/rest/api/keyvault/deletecertificate) |
-| **CertificatePurge** |[Purgar un certificado](/rest/api/keyvault/purgedeletedcertificate) |
-| **CertificateBackup** |[Realizar una copia de seguridad de un certificado](/rest/api/keyvault/backupcertificate) |
-| **CertificateRestore** |[Restaurar un certificado](/rest/api/keyvault/restorecertificate) |
-| **CertificateRecover** |[Recuperar un certificado](/rest/api/keyvault/recoverdeletedcertificate) |
-| **CertificateGetDeleted** |[Obtener un certificado eliminado](/rest/api/keyvault/getdeletedcertificate) |
-| **CertificateListDeleted** |[Enumerar los certificados eliminados de un almacén](/rest/api/keyvault/getdeletedcertificates) |
-| **CertificatePolicyGet** |[Obtener directiva de certificados](/rest/api/keyvault/getcertificatepolicy) |
-| **CertificatePolicyUpdate** |[Actualizar directiva de certificados](/rest/api/keyvault/updatecertificatepolicy) |
-| **CertificatePolicySet** |[Crear directiva de certificados](/rest/api/keyvault/createcertificate) |
-| **CertificateContactsGet** |[Obtener contactos de certificados](/rest/api/keyvault/getcertificatecontacts) |
-| **CertificateContactsSet** |[Establecer contactos de certificados](/rest/api/keyvault/setcertificatecontacts) |
-| **CertificateContactsDelete** |[Eliminar contactos de certificados](/rest/api/keyvault/deletecertificatecontacts) |
-| **CertificateIssuerGet** |[Obtener el emisor de los certificados](/rest/api/keyvault/getcertificateissuer) |
-| **CertificateIssuerSet** |[Establecer el emisor de los certificados](/rest/api/keyvault/setcertificateissuer) |
-| **CertificateIssuerUpdate** |[Actualizar el emisor de los certificados](/rest/api/keyvault/updatecertificateissuer) |
-| **CertificateIssuerDelete** |[Eliminar el emisor de los certificados](/rest/api/keyvault/deletecertificateissuer) |
-| **CertificateIssuersList** |[Enumerar los emisores de certificados](/rest/api/keyvault/getcertificateissuers) |
-| **CertificateEnroll** |Inscribir un certificado |
-| **CertificateRenew** |Renovar un certificado |
-| **CertificatePendingGet** |Recuperar certificado pendiente |
-| **CertificatePendingMerge** |Pendiente de una combinación de certificados |
-| **CertificatePendingUpdate** |Pendiente de una actualización de certificados |
-| **CertificatePendingDelete** |Eliminar certificado pendiente |
+| **KeyNearExpiryEventGridNotification** |Se ha publicado el evento de expiración cercana de la clave. |
+| **KeyExpiredEventGridNotification** |Se ha publicado el evento de expiración de la clave. |
+
+# <a name="secrets"></a>[Secretos](#tab/Secrets)
+
+| operationName | Comando de la API REST |
+| --- | --- |
 | **SecretSet** |[Crear un secreto](/rest/api/keyvault/updatecertificate) |
 | **SecretGet** |[Obtener un secreto](/rest/api/keyvault/getsecret) |
 | **SecretUpdate** |[Actualizar un secreto](/rest/api/keyvault/updatesecret) |
@@ -158,13 +143,17 @@ En la tabla siguiente se muestran los valores **operationName** y los comandos c
 | **SecretRecover** |[Recuperar un secreto](/rest/api/keyvault/recoverdeletedsecret) |
 | **SecretGetDeleted** |[Obtener un secreto eliminado](/rest/api/keyvault/getdeletedsecret) |
 | **SecretListDeleted** |[Enumerar los secretos eliminados de un almacén](/rest/api/keyvault/getdeletedsecrets) |
-| **VaultAccessPolicyChangedEventGridNotification** | La directiva de acceso del almacén ha cambiado el evento publicado. |
 | **SecretNearExpiryEventGridNotification** |Se ha publicado el evento de expiración cercana del secreto. |
 | **SecretExpiredEventGridNotification** |Se ha publicado el evento de expiración del secreto. |
-| **KeyNearExpiryEventGridNotification** |Se ha publicado el evento de expiración cercana de la clave. |
-| **KeyExpiredEventGridNotification** |Se ha publicado el evento de expiración de la clave. |
-| **CertificateNearExpiryEventGridNotification** |Se ha publicado el evento de expiración cercana del certificado. |
-| **CertificateExpiredEventGridNotification** |Se ha publicado el evento de expiración del certificado. |
+
+# <a name="certificates"></a>[Certificados](#tab/Cerificates)
+
+| operationName | Comando de la API REST |
+| --- | --- |
+
+| **CertificateGet** |[Obtener información sobre un certificado](/rest/api/keyvault/getcertificate) | | **CertificateCreate** |[Crear un certificado](/rest/api/keyvault/createcertificate) | | **CertificateImport** |[Importar un certificado a un almacén](/rest/api/keyvault/importcertificate) | | **CertificateUpdate** |[Actualizar un certificado](/rest/api/keyvault/updatecertificate) | | **CertificateList** |[Enumerar los certificados de un almacén](/rest/api/keyvault/getcertificates) | | **CertificateListVersions** |[Enumerar las versiones de un certificado](/rest/api/keyvault/getcertificateversions) | | **CertificateDelete** |[Eliminar un certificado](/rest/api/keyvault/deletecertificate) | | **CertificatePurge** |[Purgar un certificado](/rest/api/keyvault/purgedeletedcertificate) | | **CertificateBackup** |[Hacer una copia de seguridad de un certificado](/rest/api/keyvault/backupcertificate) | | **CertificateRestore** |[Restaurar un certificado](/rest/api/keyvault/restorecertificate) | | **CertificateRecover** |[Recuperar un certificado](/rest/api/keyvault/recoverdeletedcertificate) | | **CertificateGetDeleted** |[Obtener certificado eliminado](/rest/api/keyvault/getdeletedcertificate) | | **CertificateListDeleted** |[Enumerar los certificados eliminados de un almacén](/rest/api/keyvault/getdeletedcertificates) | | **CertificatePolicyGet** |[Obtener directiva de certificados](/rest/api/keyvault/getcertificatepolicy) | | **CertificatePolicyUpdate** |[Actualizar directiva de certificados](/rest/api/keyvault/updatecertificatepolicy) | | **CertificatePolicySet** |[Crear directiva de certificados](/rest/api/keyvault/createcertificate) | | **CertificateContactsGet** |[Obtener contactos de certificados](/rest/api/keyvault/getcertificatecontacts) | | **CertificateContactsSet** |[Establecer contactos de certificados](/rest/api/keyvault/setcertificatecontacts) | | **CertificateContactsDelete** |[Eliminar contactos de certificados](/rest/api/keyvault/deletecertificatecontacts) | | **CertificateIssuerGet** |[Obtener emisor de certificados](/rest/api/keyvault/getcertificateissuer) | | **CertificateIssuerSet** |[Establecer emisor de certificados](/rest/api/keyvault/setcertificateissuer) | | **CertificateIssuerUpdate** |[Actualizar emisor de certificados](/rest/api/keyvault/updatecertificateissuer) | | **CertificateIssuerDelete** |[Eliminar emisor de certificados](/rest/api/keyvault/deletecertificateissuer) | | **CertificateIssuersList** |[Enumerar los emisores de certificados](/rest/api/keyvault/getcertificateissuers) | | **CertificateEnroll** |Inscribir un certificado | | **CertificateRenew** |Renovar un certificado | | **CertificatePendingGet** |Recuperar certificado pendiente | | **CertificatePendingMerge** |Pendiente de una actualización de certificados | | **CertificatePendingUpdate** |Pendiente de una actualización de certificados | | **CertificatePendingDelete** |Eliminar certificado pendiente | | **CertificateNearExpiryEventGridNotification** |Se ha publicado el evento de expiración cercana del certificado |
+<a name="-certificateexpiredeventgridnotification-certificate-expired-event-published-"></a>|  **CertificateExpiredEventGridNotification** | Se ha publicado el evento de expiración del certificado |
+---
 
 ## <a name="use-azure-monitor-logs"></a>Uso de registros de Azure Monitor
 
@@ -175,6 +164,7 @@ Para más información, incluido cómo configurar esta opción, consulte [Azure 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Habilitación del registro de Key Vault](howto-logging.md)
+- [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/)
 - Para ver un tutorial que use Azure Key Vault en una aplicación web .NET, consulte [Uso de Azure Key Vault desde una aplicación web](tutorial-net-create-vault-azure-web-app.md).
 - Para conocer las referencias de programación, consulte la [Guía del desarrollador de Azure Key Vault](developers-guide.md).
 - Para obtener una lista de los cmdlets de Azure PowerShell 1.0 para Azure Key Vault, consulte [Azure Key Vault Cmdlets](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault)(Cmdlets de Azure Key Vault).

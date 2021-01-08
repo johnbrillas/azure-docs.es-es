@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 09/28/2020
 ms.custom: designer
-ms.openlocfilehash: ca812fc7548e3c70f1faa1e1ed6a34afda3872af
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 2e46da1657a7473d3ff8cdf4ac43e5341b143455
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575982"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97796115"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer"></a>Tutorial: Predicción del precio de un automóvil con el diseñador
 
@@ -272,7 +272,7 @@ Ahora que ya ha configurado la canalización, puede enviar una ejecución de can
     > [!NOTE]
     > Los experimentos agrupan ejecuciones de canalización. Si ejecuta una canalización varias veces, puede seleccionar el mismo experimento para ejecuciones sucesivas.
 
-    1. Escriba un nombre descriptivo en **Nombre de nuevo experimento**.
+    1. En **Nombre de nuevo experimento**, escriba **Tutorial-CarPrices**.
 
     1. Seleccione **Submit** (Enviar).
     

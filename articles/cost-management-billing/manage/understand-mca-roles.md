@@ -5,14 +5,14 @@ author: amberbhargava
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/20/2020
+ms.date: 12/17/2020
 ms.author: banders
-ms.openlocfilehash: f0ace05d6a4df65282bd56cca8e7895b0dc24edf
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 511c0ecdef45a882bcc3a427d5ec602b3ebabc66
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686554"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673838"
 ---
 # <a name="understand-microsoft-customer-agreement-administrative-roles-in-azure"></a>Descripción de los roles administrativos del contrato de cliente de Microsoft en Azure
 
@@ -32,7 +32,7 @@ En la tabla siguiente se describen los roles de facturación que se utilizan par
 |Propietario del perfil de facturación|Administrar todo para el perfil de facturación|
 |Colaborador del perfil de facturación|Administrar todo, excepto los permisos, en el perfil de facturación|
 |Lector del perfil de facturación|Vista de solo lectura de todo en el perfil de facturación|
-|Administrador de facturación|Ver y pagar las facturas para el perfil de facturación|
+|Administrador de facturación|Visualización de facturas de un perfil de facturación|
 |Propietario de la sección de facturas|Administrar todo en la sección de factura|
 |Colaborador de la sección de factura|Administrar todo, excepto los permisos, en la sección de factura|
 |Lector de la sección de facturas|Vista de solo lectura de todo en la sección de factura|

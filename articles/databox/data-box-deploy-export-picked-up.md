@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 12/11/2020
+ms.date: 12/18/2020
 ms.author: alkohli
-ms.openlocfilehash: 1035f7fb34ed5b2b11e3ef472ccda7cccc30f652
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 4b5bbe19ddeda7c6b313186b7e24532a294f7253
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359037"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680846"
 ---
-# <a name="tutorial-return-azure-data-box-preview"></a>Tutorial: Devolución de Azure Data Box Disk (versión preliminar)
+# <a name="tutorial-return-azure-data-box"></a>Tutorial: Devolución de Azure Data Box
 
 En este tutorial se describe cómo devolver Azure Data Box y borrar los datos una vez que el dispositivo se reciba en los datos de Azure.
 
@@ -27,8 +27,6 @@ En este tutorial, aprenderá sobre temas como:
 > * Preparación para el envío
 > * Envío de Data Box a Microsoft
 > * Eliminación de datos de Data Box
-
-[!INCLUDE [Data Box feature is in preview](../../includes/data-box-feature-is-preview-info.md)]
 
 ## <a name="prerequisites"></a>Requisitos previos
 

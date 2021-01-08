@@ -9,57 +9,58 @@ ms.topic: quickstart
 ms.date: 12/11/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 86ef610af605c657868824eefe2e6e706f6963ac
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 53b6810b0042df382fd1f553bc4bd0fae61793b3
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97360193"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672804"
 ---
-# <a name="quickstart-bulk-loading-with-synapse-sql"></a>Inicio rápido: Carga masiva con Synapse SQL
+# <a name="quickstart-bulk-loading-with-synapse-studio"></a>Inicio rápido: Carga masiva con Synapse Studio
 
-La carga de datos es sencilla con el Asistente para la carga masiva en Synapse Studio. Este asistente le guiará a través de la creación de un script de T-SQL con la [instrucción COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) para cargar datos de forma masiva. 
+La carga de datos es sencilla con el Asistente para la carga masiva en Synapse Studio. Synapse Studio es una característica de Azure Synapse Analytics. El Asistente para carga masiva le guía a través de la creación de un script de T-SQL con la [instrucción COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) para cargar datos de forma masiva en un grupo de SQL dedicado. 
 
 ## <a name="entry-points-to-the-bulk-load-wizard"></a>Puntos de entrada al Asistente para carga masiva
 
-Puede cargar datos de forma masiva fácilmente mediante grupos de SQL dedicados. Solo debe hacer clic con el botón derecho en las siguientes áreas en Synapse Studio:
+Para realizar una carga masiva de datos puede hacer clic con el botón derecho en la siguiente área de Synapse Studio: un archivo o una carpeta de una cuenta de Azure Storage que está asociada al área de trabajo.
 
-- Un archivo o una carpeta de una cuenta de Azure Storage asociada al área de trabajo ![Hacer clic con el botón derecho en un archivo o una carpeta de una cuenta de almacenamiento](./sql/media/bulk-load/bulk-load-entry-point-0.png)
+![Captura de pantalla en la que se muestra que se hace clic con el botón derecho en un archivo o carpeta de una cuenta de almacenamiento.](./sql/media/bulk-load/bulk-load-entry-point-0.png)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
-- Este asistente genera una instrucción COPY, que usa el tránsito de Azure AD para la autenticación. Su [usuario de Azure AD debe tener acceso](
-./sql-data-warehouse/quickstart-bulk-load-copy-tsql-examples.md#d-azure-active-directory-authentication) al área de trabajo con, al menos, el rol de Azure Colaborador de datos de Storage Blob en la cuenta de ADLS Gen2. 
+- El asistente genera una instrucción COPY, que usa el tránsito de Azure Active Directory para la autenticación. El [usuario de Azure AD debe tener acceso](./sql-data-warehouse/quickstart-bulk-load-copy-tsql-examples.md#d-azure-active-directory-authentication) al área de trabajo con, al menos, el rol de Azure Colaborador de datos de Storage Blob en la cuenta de Azure Data Lake Storage Gen2. 
 
-- Debe tener los [permisos necesarios para usar la instrucción COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true#permissions) y tener permisos de creación de tablas si va a crear una tabla en la que cargar datos.
+- Si se va a crear una tabla para cargar los datos, es preciso tener los [permisos necesarios para usar la instrucción COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true#permissions) y tener permisos de creación de tablas.
 
-- El servicio vinculado asociado a la cuenta de Azure Data Lake Storage Gen2 **debe tener acceso al archivo**/**carpeta** que se va a cargar. Por ejemplo, si el mecanismo de autenticación del servicio vinculado es Identidad administrada, la identidad administrada del área de trabajo debe tener, al menos, permiso de lectura de Blob Storage en la cuenta de almacenamiento.
+- El servicio vinculado asociado a la cuenta de Azure Data Lake Storage Gen2 *debe tener acceso al archivo o carpeta* que se va a cargar. Por ejemplo, si el mecanismo de autenticación del servicio vinculado es una identidad administrada, la identidad administrada del área de trabajo debe tener, como mínimo, permiso de lectura de datos de Blob Storage en la cuenta de almacenamiento.
 
-- Si hay una red virtual habilitada en el área de trabajo, asegúrese de que el runtime integrado asociado a la cuenta de Azure Data Lake Storage Gen2 los servicios vinculados para los datos de origen y la ubicación del archivo de error tiene habilitada la creación interactiva. La creación interactiva es necesaria para la detección automática de esquemas, la vista previa del contenido del archivo de origen y la exploración de cuentas de almacenamiento de Azure Data Lake Storage Gen2 en el asistente.
+- Si hay una red virtual habilitada en el área de trabajo, asegúrese de que el entorno de ejecución integrado asociado a los servicios vinculados de la cuenta de Azure Data Lake Storage Gen2 para los datos de origen y la ubicación del archivo de error tiene habilitada la creación interactiva. La creación interactiva es necesaria para la detección automática de esquemas, la vista previa del contenido del archivo de origen y la exploración de cuentas de almacenamiento de Azure Data Lake Storage Gen2 en el asistente.
 
-### <a name="steps"></a>Pasos
+## <a name="steps"></a>Pasos
 
-1. Seleccione en el panel Source storage location (Ubicación de almacenamiento de origen) la cuenta de almacenamiento y el archivo o la carpeta desde donde se va a realizar la carga. El asistente intentará detectar automáticamente archivos de Parquet, así como los archivos de texto delimitado (CSV), incluida la asignación de los campos de origen del archivo a los tipos de datos de SQL de destino adecuados. 
+1. En el panel **Source storage location** (Ubicación de almacenamiento de origen), seleccione la cuenta de almacenamiento y el archivo o la carpeta desde los que se va a realizar la carga. El asistente intenta detectar automáticamente tanto archivos de Parquet como archivos de texto delimitado (CSV), lo que incluye la asignación de los campos de origen del archivo a los tipos de datos de SQL de destino adecuados. 
 
-   ![Selección de la ubicación de origen](./sql/media/bulk-load/bulk-load-source-location.png)
+   ![Captura de pantalla en la que se muestra la selección de una ubicación de origen.](./sql/media/bulk-load/bulk-load-source-location.png)
 
-2. Seleccione la configuración del formato de archivo, que incluye la configuración de los errores, para cuando haya filas rechazadas durante el proceso de carga masiva. También puede seleccionar "Vista previa de los datos" para ver la forma en que la instrucción COPY analizará el archivo para ayudarle en la configuración del formato de archivo. Seleccione "Vista previa de los datos" cada vez que cambie la configuración del formato de archivo para ver cómo va a analizar el archivo la instrucción COPY con la configuración actualizada:
+2. Seleccione la configuración del formato de archivo, lo que incluye la configuración de los errores, para cuando haya filas rechazadas en el proceso de carga masiva. También puede seleccionar **Vista previa de los datos** para ver la forma en que la instrucción COPY analizará el archivo para ayudarle en la configuración del formato de archivo. Seleccione **Vista previa de los datos** cada vez que cambie la configuración del formato de archivo para ver cómo va a analizar el archivo la instrucción COPY con la configuración actualizada.
 
-   ![Vista previa de los datos](./sql/media/bulk-load/bulk-load-file-format-settings-preview-data.png) 
+   ![Captura de pantalla en la que muestra la vista previa de los datos.](./sql/media/bulk-load/bulk-load-file-format-settings-preview-data.png) 
 
-> [!NOTE]  
->
-> - El Asistente para carga masiva no admite la vista previa de datos con terminadores de campo de varios caracteres. Si se especifica un terminador de campo de varios caracteres, el Asistente para carga masiva obtendrá una vista previa de los datos de una sola columna. 
-> - Si se selecciona "Inferir nombres de columna", el Asistente para carga masiva analizará los nombres de las columnas de la primera fila especificada por el campo "Primera fila". El Asistente para carga masiva incrementará automáticamente en 1 el valor de FIRSTROW en la instrucción COPY para omitir esta fila de encabezado. 
-> - La especificación de terminadores de fila de varios caracteres se admite en la instrucción COPY; sin embargo, no se admite en el Asistente para carga masiva, donde se generará un error.
+   > [!NOTE]  
+   >
+   > - El Asistente para carga masiva no admite la vista previa de datos con terminadores de campo de varios caracteres. Si se especifica uno de estos terminadores, el asistente mostrará una vista previa de los datos de una sola columna. 
+   > - Si se selecciona **Infer column names** (Inferir nombres de columna), el Asistente para carga masiva analizará los nombres de las columnas de la primera fila especificada por el campo **First row** (Primera fila). El Asistente para carga masiva incrementará automáticamente en 1 el valor de `FIRSTROW` en la instrucción COPY para omitir esta fila de encabezado. 
+   > - En la instrucción COPY se admite la especificación de terminadores de fila de varios caracteres. Sin embargo, el Asistente para carga masiva no lo admite, por lo que se producirá un error.
 
-3. Seleccione el grupo de SQL dedicado que va a usar para cargar, incluido si la carga será para una tabla existente o una nueva: ![Seleccionar ubicación de destino](./sql/media/bulk-load/bulk-load-target-location.png)
-4. Seleccione "Configure column mapping" (Configurar asignación de columnas) para asegurarse de que tiene la asignación de columnas adecuada. Tenga en cuenta que los nombres de las columnas se detectarán automáticamente si se ha habilitado "Inferir nombres de columna". En el caso de las nuevas tablas, la configuración de la asignación de columnas es fundamental para actualizar los tipos de datos de la columna de destino:
+3. Seleccione el grupo de SQL dedicado que va a usar para realizar la carga, incluido si la carga será en una tabla existente o en una nueva.
+   ![Captura de pantalla en la que se muestra la selección de una ubicación de destino](./sql/media/bulk-load/bulk-load-target-location.png).
+4. Seleccione **Configure column mapping** (Configurar asignación de columnas) para asegurarse de que tiene la asignación de columnas adecuada. Tenga en cuenta que los nombres de las columnas se detectarán automáticamente si se ha habilitado **Infer column names** (Inferir nombres de columna). En el caso de las nuevas tablas, la configuración de la asignación de columnas es fundamental para actualizar los tipos de datos de la columna de destino.
 
-   ![Configuración de la asignación de columnas](./sql/media/bulk-load/bulk-load-target-location-column-mapping.png)
-5. Seleccione "Abrir script" y se generará un script de T-SQL con la instrucción COPY para cargar desde un lago de datos: ![Abrir el script SQL](./sql/media/bulk-load/bulk-load-target-final-script.png)
+   ![Captura de pantalla en la que se muestra la configuración de la asignación de columnas.](./sql/media/bulk-load/bulk-load-target-location-column-mapping.png)
+5. Seleccione **Open script** (Abrir script). Se genera un script de T-SQL con la instrucción COPY para realizar la carga desde un lago de datos.
+   ![Captura de pantalla en la que se muestra cómo abrir el script SQL.](./sql/media/bulk-load/bulk-load-target-final-script.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Consulte el artículo [Instrucción COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true#syntax) para más información sobre las funcionalidades de COPY
-- Consulte el artículo [Introducción a la carga de datos](./sql-data-warehouse/design-elt-data-loading.md#what-is-elt)
+- Consulte el artículo [Instrucción COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true#syntax) para más información sobre las funcionalidades de COPY.
+- Consulte la [información general sobre la carga de datos](./sql-data-warehouse/design-elt-data-loading.md#what-is-elt) para obtener información sobre el uso de un proceso de extracción, transformación y carga (ETL).

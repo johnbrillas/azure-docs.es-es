@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 12/04/2020
 ms.author: aahi
-ms.openlocfilehash: 4f5c47000355a004f8d76d8b740b705618748380
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 6ea7b992a682537471ce0e78385b37674199d687
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505229"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673060"
 ---
 # <a name="how-to-sentiment-analysis-and-opinion-mining"></a>Procedimiento: análisis de sentimiento y minería de opiniones
 
@@ -24,8 +24,6 @@ La característica Análisis de sentimiento de la API Text Analytics proporciona
 El servicio proporciona los modelos de AI que usa la API, el usuario solo tiene que enviar contenido para su análisis.
 
 ## <a name="sentiment-analysis-versions-and-features"></a>Versiones y características de Análisis de sentimiento
-
-[!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
 | Característica                                   | Análisis de sentimiento, versión 3 | Análisis de sentimiento, versión 3.1 (versión preliminar) |
 |-------------------------------------------|-----------------------|-----------------------------------|
@@ -47,7 +45,7 @@ Las etiquetas son *positive*, *negative* y *neutral*. En el nivel de documento, 
 | Hay al menos una oración `negative` y al menos una oración `positive` en el documento.    | `mixed`                 |
 | Todas las oraciones del documento son `neutral`.                                                  | `neutral`               |
 
-Las puntuaciones de confianza oscilan entre 1 y 0. Las puntuaciones más próximas a 1 indican una mayor confianza en la clasificación de la etiqueta, mientras que las puntuaciones inferiores indican una menor confianza. Para cada documento o frase, las puntuaciones previstas asociadas a las etiquetas (positive, negative y neutral) se suman hasta un máximo de 1.
+Las puntuaciones de confianza oscilan entre 1 y 0. Las puntuaciones más próximas a 1 indican una mayor confianza en la clasificación de la etiqueta, mientras que las puntuaciones inferiores indican una menor confianza. Para cada documento o frase, las puntuaciones previstas asociadas a las etiquetas (positive, negative y neutral) se suman hasta un máximo de 1. Para más información, consulte [Nota de transparencia de Text Analytics](/legal/cognitive-services/text-analytics/transparency-note?context=/azure/cognitive-services/text-analytics/context/context). 
 
 ## <a name="opinion-mining"></a>Minería de opiniones
 

@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 968ca6fa293e7bcc01bae6f48164c48c19b8267b
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: db3eaef240e1f76e4c61a454e104336806666a7c
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96501691"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97803908"
 ---
 # <a name="understand-roles-in-azure-active-directory"></a>Descripción de los roles en Azure Active Directory
 
@@ -44,7 +44,7 @@ Cuando decimos "un sistema de control de acceso basado en rol independiente", si
 
 ## <a name="why-some-azure-ad-roles-are-for-other-services"></a>¿Por qué algunos roles de Azure AD son para otros servicios?
 
-Microsoft 365 tiene varios sistemas de control de acceso basado en rol que se han desarrollado de forma independiente con el tiempo, cada uno con su propio portal de servicios. Para que sea práctico administrar las identidades en Microsoft 365 desde el portal de Azure AD, se han agregado roles integrados de servicios específicos, cada uno de los cuales concede acceso administrativo a un servicio de Microsoft 365. Un ejemplo de esta incorporación es el rol Administrador de Exchange en Azure AD. Este rol es equivalente al [grupo de roles Administración de la organización](/exchange/organization-management-exchange-2013-help) en el sistema de control de acceso basado en rol de Exchange y administra todos los aspectos de Exchange. Del mismo modo, se ha agregado el rol Administrador de Intune, Administrador de Teams, Administrador de SharePoint, etc. Los roles de servidor específico son una de las categorías de los roles integrados de Azure AD que se tratan en la sección siguiente.
+Microsoft 365 tiene varios sistemas de control de acceso basado en rol que se han desarrollado de forma independiente con el tiempo, cada uno con su propio portal de servicios. Para que sea práctico administrar las identidades en Microsoft 365 desde el portal de Azure AD, se han agregado roles integrados de servicios específicos, cada uno de los cuales concede acceso administrativo a un servicio de Microsoft 365. Un ejemplo de esta incorporación es el rol Administrador de Exchange en Azure AD. Este rol es equivalente al [grupo de roles Administración de la organización](/exchange/organization-management-exchange-2013-help) en el sistema de control de acceso basado en rol de Exchange y administra todos los aspectos de Exchange. Del mismo modo, se ha agregado el rol Administrador de Intune, Administrador de Teams, Administrador de SharePoint, etc. Los roles específicos del servicio son una de las categorías de los roles integrados de Azure AD que se tratan en la sección siguiente.
 
 ## <a name="categories-of-azure-ad-roles"></a>Categorías de roles de Azure AD
 

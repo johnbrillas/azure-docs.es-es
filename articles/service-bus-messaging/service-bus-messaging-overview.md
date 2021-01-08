@@ -3,15 +3,15 @@ title: Información general sobre la mensajería de Azure Service Bus | Microsof
 description: En este artículo se proporciona información general de alto nivel sobre Azure Service Bus, un agente de mensajes de integración empresarial totalmente administrado.
 ms.topic: overview
 ms.date: 11/20/2020
-ms.openlocfilehash: b795d0c5b429a812d90e0759fbcde3d348b86e22
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 70e9d966a14f78866d72865eed4cbb2dfd6c18dd
+ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602723"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97755742"
 ---
 # <a name="what-is-azure-service-bus"></a>Qué es Azure Service Bus
-Microsoft Azure Service Bus es un agente de mensajes empresarial totalmente administrado que incluye colas de mensajes y temas de suscripción pública. Service Bus se usa para desacoplar aplicaciones de servicios, lo que proporciona las siguientes ventajas:
+Microsoft Azure Service Bus es un agente de mensajes empresarial totalmente administrado que incluye colas de mensajes y temas que se pueden publicar y a los que es posible suscribirse. Service Bus se usa para desacoplar aplicaciones de servicios, lo que proporciona las siguientes ventajas:
 
 - Equilibrio de carga del trabajo entre trabajadores paralelos
 - Enrutamiento y transferencia de datos de forma segura y control entre los límites de aplicaciones y servicios

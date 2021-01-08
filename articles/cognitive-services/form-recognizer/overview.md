@@ -11,12 +11,12 @@ ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: automated data processing, document processing, automated data entry, forms processing
-ms.openlocfilehash: 39243f4428d055ee5d4491c3e87b4b91213f63f1
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: ed940622f72271ef3e606c5068babcb6366c31b6
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353687"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845531"
 ---
 # <a name="what-is-form-recognizer"></a>¿Qué es Form Recognizer?
 
@@ -108,23 +108,21 @@ El modelo de tarjetas de presentación le permite extraer información como el n
 
 Use la [herramienta Form Recognizer de ejemplo](https://fott.azurewebsites.net/) o siga un inicio rápido para empezar a extraer datos de formularios. Se recomienda usar el servicio gratuito cuando se está aprendiendo la tecnología. Recuerde que el número de páginas gratuitas se limita a 500 al mes.
 
-* [Inicios rápidos de la biblioteca cliente](./quickstarts/client-library.md) (todos los lenguajes, varios escenarios)
+* [Inicio rápido de la biblioteca cliente y la API REST](./quickstarts/client-library.md) (todos los idiomas, varios escenarios)
 * Inicios rápidos de la interfaz de usuario web
   * [Entrenamiento con etiquetas: herramienta de etiquetado de ejemplo](quickstarts/label-tool.md)
-* Inicios rápidos de REST
+* Ejemplos de REST (GitHub)
  * Extracción de texto, marcas de selección y estructura de tablas de documentos
-    * [Extracción de datos de diseño: Python](quickstarts/python-layout.md)
+    * [Extracción de datos de diseño: Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-layout.md)
   * Entrenamiento de modelos personalizados y extracción de datos de formularios
-    * [Entrenamiento sin etiquetas: cURL](quickstarts/curl-train-extract.md)
-    * [Entrenamiento sin etiquetas: Python](quickstarts/python-train-extract.md)
-    * [ Entrenamiento con etiquetas: Python](quickstarts/python-labeled-data.md)
+    * [Entrenamiento sin etiquetas: Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-train-extract.md)
+    * [ Entrenamiento con etiquetas: Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md)
   * Extracción de datos de facturas
-    * [Extracción de datos de facturas: Python](quickstarts/python-invoices.md)
+    * [Extracción de datos de facturas: Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-invoices.md)
   * Extracción de datos de recibos de ventas
-    * [Extracción de datos de recibos: cURL](quickstarts/curl-receipts.md)
-    * [Extracción de datos de recibos: Python](quickstarts/python-receipts.md)
+    * [Extracción de datos de recibos: Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-receipts.md)
   * Extracción de datos de tarjetas de presentación
-    * [Extracción de datos de tarjetas de presentación: Python](quickstarts/python-business-cards.md)
+    * [Extracción de datos de tarjetas de presentación: Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-business-cards.md)
 
 ### <a name="review-the-rest-apis"></a>Revisión de las API REST
 
@@ -162,4 +160,4 @@ Al igual que sucede con todas las instancias de Cognitive Services, los desarrol
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Realice un [inicio rápido de biblioteca cliente](quickstarts/client-library.md) para empezar a escribir una aplicación de procesamiento de formularios con Form Recognizer en el lenguaje de su elección.
+Complete un [inicio rápido](quickstarts/client-library.md) para empezar a escribir una aplicación de procesamiento de formularios con Form Recognizer en el idioma que prefiera.

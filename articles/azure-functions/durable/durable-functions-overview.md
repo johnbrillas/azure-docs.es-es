@@ -3,15 +3,15 @@ title: Información general sobre Durable Functions en Azure
 description: Introducción a la extensión Durable Functions de Azure Functions.
 author: cgillum
 ms.topic: overview
-ms.date: 03/12/2020
+ms.date: 12/23/2020
 ms.author: cgillum
 ms.reviewer: azfuncdf
-ms.openlocfilehash: 28c494bf2867ec5d2d3ee99ef7ee45f8181cfd90
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.openlocfilehash: 3725970c982c2d060685bf0b99d12a8fc998f20a
+ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89669253"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97763581"
 ---
 # <a name="what-are-durable-functions"></a>¿Qué es Durable Functions?
 
@@ -23,9 +23,11 @@ Durable Functions admite actualmente los siguientes idiomas:
 
 * **C#**: tanto las [bibliotecas de clases precompiladas](../functions-dotnet-class-library.md) como [script C#](../functions-reference-csharp.md).
 * **JavaScript**: solo es compatible con la versión 2.x del entorno de ejecución de Azure Functions. Requiere la versión 1.7.0 de la extensión Durable Functions, o una posterior. 
-* **Python**: requiere la versión 1.8.5 de la extensión Durable Functions, o cualquier versión posterior. La compatibilidad con Durable Functions está actualmente en versión preliminar pública.
+* **Python**: requiere la versión 2.3.1 de la extensión Durable Functions, o cualquier versión posterior. La compatibilidad con Durable Functions está actualmente en versión preliminar pública.
 * **F#**: tanto las bibliotecas de clases precompiladas como script F#. El script F# solo es compatible con la versión 1.x del entorno de ejecución de Azure Functions.
 * **PowerShell**: la compatibilidad con Durable Functions está actualmente en versión preliminar pública. Solo es compatible con la versión 3.x del entorno de ejecución de Azure Functions y PowerShell 7. Requiere la versión 2.2.2 de la extensión Durable Functions, o cualquier versión posterior. Actualmente, solo se admiten los siguientes patrones: [Encadenamiento de funciones](#chaining), [distribución ramificada de entrada o salida](#fan-in-out), [API de HTTP asincrónico](#async-http).
+
+Para acceder a las características y actualizaciones más recientes, se recomienda usar las versiones más recientes de la extensión Durable Functions y las bibliotecas de Durable Functions específicas de cada lenguaje. Más información sobre las [versiones de Durable Functions](durable-functions-versions.md).
 
 Durable Functions tiene el objetivo de admitir todos los [idiomas de Azure Functions](../supported-languages.md). Consulte en la [lista de problemas de Durable Functions](https://github.com/Azure/azure-functions-durable-extension/issues) en qué punto se encuentra la compatibilidad con idiomas adicionales.
 
@@ -556,7 +558,7 @@ Actualmente, la interacción humana no se admite en PowerShell.
 
 ### <a name="pattern-6-aggregator-stateful-entities"></a><a name="aggregator"></a>Patrón 6: Agregador (entidades con estado)
 
-El sexto patrón se trata de agregar datos de eventos durante un período de tiempo en una sola*entidad* direccionable. En este patrón, los datos que se agreguen pueden proceder de varios orígenes, pueden entregarse en lotes o pueden estar dispersos en largos períodos de tiempo. Es posible que el agregador tome medidas según datos de eventos a medida que llegan, y puede que los clientes externos necesiten consultar los datos agregados.
+El sexto patrón se trata de agregar datos de eventos durante un período de tiempo en una sola *entidad* direccionable. En este patrón, los datos que se agreguen pueden proceder de varios orígenes, pueden entregarse en lotes o pueden estar dispersos en largos períodos de tiempo. Es posible que el agregador tome medidas según datos de eventos a medida que llegan, y puede que los clientes externos necesiten consultar los datos agregados.
 
 ![Diagrama de agregador](./media/durable-functions-concepts/aggregator.png)
 

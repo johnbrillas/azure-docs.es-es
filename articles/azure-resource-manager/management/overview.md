@@ -4,12 +4,12 @@ description: Describe cómo utilizar Administrador de recursos de Azure para la 
 ms.topic: overview
 ms.date: 09/01/2020
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: f3b3ebce3dd34637a787895e7724736adfc186fb
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: fad49db94195bbd2f9e5e32f8596f33fab586752
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032259"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858525"
 ---
 # <a name="what-is-azure-resource-manager"></a>¿Qué es Azure Resource Manager?
 
@@ -33,7 +33,7 @@ Si no conoce Azure Resource Manager, estos son algunos términos con los que pue
 
 * **recurso**: elemento administrable que está disponible a través de Azure. Las máquinas virtuales, cuentas de almacenamiento, aplicaciones web, bases de datos y redes virtuales son ejemplos de recursos. Los grupos de recursos, las suscripciones, los grupos de administración y las etiquetas también son ejemplos de recursos.
 * **grupo de recursos**: contenedor que almacena los recursos relacionados con una solución de Azure. El grupo de recursos incluye los recursos que se desean administrar como grupo. Decida qué recursos pertenecen a un grupo de recursos según lo que más convenga a su organización. Consulte [Grupos de recursos](#resource-groups).
-* **proveedor de recursos**: un servicio que proporciona recursos de Azure. Por ejemplo, un proveedor de recursos común es Microsoft.Compute, que proporciona el recurso de máquina virtual. Microsoft.Storage es otro proveedor de recursos común. Consulte [Tipos y proveedores de recursos](resource-providers-and-types.md).
+* **proveedor de recursos**: un servicio que proporciona recursos de Azure. Por ejemplo, un proveedor de recursos común es `Microsoft.Compute`, que proporciona el recurso de máquina virtual. `Microsoft.Storage` es otro proveedor de recursos común. Consulte [Tipos y proveedores de recursos](resource-providers-and-types.md).
 * **Plantilla de Resource Manager**: archivo de notación de objetos JavaScript (JSON) que define uno o más recursos para implementar en un grupo de recursos, una suscripción, un grupo de administración o un inquilino. La plantilla se puede usar para implementar los recursos de manera repetida y uniforme. Consulte [Información general de la implementación de plantillas](../templates/overview.md).
 * **sintaxis declarativa**: sintaxis que permite establecer lo que pretende crear sin tener que escribir la secuencia de comandos de programación para crearla. La plantilla de Resource Manager es un ejemplo de sintaxis declarativa. En el archivo, puede definir las propiedades de la infraestructura que se va a implementar en Azure.  Consulte [Información general de la implementación de plantillas](../templates/overview.md).
 
@@ -99,11 +99,11 @@ Hay algunos factores importantes que se deben tener en cuenta al definir el grup
 
 ## <a name="resiliency-of-azure-resource-manager"></a>Resistencia de Azure Resource Manager
 
-El servicio Azure Resource Manager está diseñado para proporcionar resistencia y disponibilidad continua. Las operaciones de Resource Manager y del plano de control (solicitudes enviadas a management.azure.com) en la API REST:
+El servicio Azure Resource Manager está diseñado para proporcionar resistencia y disponibilidad continua. Las operaciones de Resource Manager y del plano de control (solicitudes enviadas a `management.azure.com`) en la API REST:
 
 * Se distribuyen entre regiones. Algunos servicios son regionales.
 
-* Se distribuyen entre las zonas de disponibilidad (así como regiones) en aquellas ubicaciones que tienen varias zonas de disponibilidad.
+* Se distribuyen entre las zonas de disponibilidad (así como entre regiones) en aquellas ubicaciones que tienen varias zonas de disponibilidad.
 
 * No dependen de un solo centro de datos lógicos.
 

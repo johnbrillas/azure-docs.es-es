@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 97d95f9993f85a51ac7baa69ebb331f6c8588c18
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: acc1660be99b3b7cc9a3c7414c47f9f6e159b559
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318719"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97674125"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-frankly"></a>Tutorial: integración de Azure Active Directory con &frankly
 
@@ -63,7 +63,7 @@ Para configurar la integración de &frankly en Azure AD, deberá agregar &frankl
 
 4. En el cuadro de búsqueda, escriba **&frankly**, seleccione **&frankly** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
 
-     ![&frankly en la lista de resultados](common/search-new-app.png)
+    ![&frankly en la lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
@@ -145,7 +145,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
     ![Cuadro de diálogo Usuario](common/user-properties.png)
 
     a. En el campo **Nombre**, escriba **BrittaSimon**.
-  
+
     b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**.  
     Por ejemplo: BrittaSimon@contoso.com
 
@@ -181,7 +181,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 ### <a name="create-frankly-test-user"></a>Creación de un usuario de prueba en &frankly
 
-En esta sección, creará un usuario llamado Britta Simon en &frankly. Colabore con el  [equipo de soporte técnico de &frankly](mailto:help@andfrankly.com) para agregar a los usuarios a la plataforma de &frankly. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará un usuario llamado Britta Simon en &frankly. Trabaje con el [equipo de soporte técnico de &frankly](mailto:help@andfrankly.com) para agregar a los usuarios a la plataforma de &frankly. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 

@@ -11,12 +11,12 @@ ms.date: 09/30/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: procesamiento de documentos
-ms.openlocfilehash: 7671d8d58ffbd0fca444eefe53c46c99a4e76d37
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: a1cf919e17e22cb6280dce27faceb7cd034a6962
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "96009337"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845542"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Entrenamiento de un modelo de Form Recognizer con etiquetas mediante la herramienta de etiquetado de ejemplo
 
@@ -106,7 +106,7 @@ Usará el motor de Docker para ejecutar la herramienta de etiquetado de ejemplo.
    Este comando hará que la herramienta de etiquetado de ejemplo esté disponible mediante un explorador web. Ir a `http://localhost:3000`.
 
 > [!NOTE]
-> También puede etiquetar documentos y entrenar modelos mediante la API REST de Form Recognizer. Para entrenar y analizar con la API REST, consulte [Entrenamiento con etiquetas mediante la API REST y Python](./python-labeled-data.md).
+> También puede etiquetar documentos y entrenar modelos mediante la API REST de Form Recognizer. Para entrenar y analizar con la API REST, consulte [Entrenamiento con etiquetas mediante la API REST y Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md).
 
 ## <a name="set-up-input-data"></a>Configuración de datos de entrada
 
@@ -137,7 +137,9 @@ Rellene los campos con los siguientes valores:
 
 * **Nombre para mostrar**: el nombre para mostrar de la conexión.
 * **Descripción**: la descripción del proyecto.
-* **Dirección URL de SAS**: la dirección URL de la firma de acceso compartido (SAS) del contenedor de Azure Blob Storage. Para recuperar la dirección URL de SAS, abra el Explorador de Microsoft Azure Storage, haga clic con el botón derecho en el contenedor y seleccione **Get shared access signature** (Obtener firma de acceso compartido). Establezca la hora de expiración en alguna hora posterior a la hora en la que utilizará el servicio. Asegúrese de que están seleccionados los permisos de **lectura**, **escritura**, **eliminación** y **enumeración** y haga clic en **Crear**. A continuación, copie el valor en la sección **URL**. Debe tener el formato `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+* **Dirección URL de SAS**: la dirección URL de la firma de acceso compartido (SAS) del contenedor de Azure Blob Storage. [!INCLUDE [get SAS URL](../includes/sas-instructions.md)]
+
+   :::image type="content" source="../media/quickstarts/get-sas-url.png" alt-text="Recuperación de la dirección URL de SAS":::
 
 :::image type="content" source="../media/label-tool/connections.png" alt-text="Configuración de la conexión de la herramienta de etiquetado de ejemplo.":::
 
@@ -223,7 +225,7 @@ Siga los pasos anteriores para etiquetar al menos cinco de sus formularios.
 
 ### <a name="specify-tag-value-types"></a>Especificación de los tipos de valores de etiqueta
 
-Opcionalmente, puede establecer el tipo de datos esperado para cada etiqueta. Abra el menú contextual a la derecha de una etiqueta y seleccione un tipo del menú. Esta característica permite que el algoritmo de detección realice determinadas suposiciones que mejorarán la precisión de la detección de texto. También garantiza que los valores detectados se devuelvan en un formato estandarizado en la salida JSON final. 
+Opcionalmente, puede establecer el tipo de datos esperado para cada etiqueta. Abra el menú contextual a la derecha de una etiqueta y seleccione un tipo del menú. Esta característica permite que el algoritmo de detección realice determinadas suposiciones que mejorarán la precisión de la detección de texto. También garantiza que los valores detectados se devuelvan en un formato estandarizado en la salida JSON final. La información del tipo de valor se guarda en el archivo *fields.json* en la misma ruta de acceso que los archivos de etiqueta.
 
 > [!div class="mx-imgBorder"]
 > ![Selección del tipo de valor con la herramienta de etiquetado de ejemplo](../media/whats-new/formre-value-type.png)
@@ -266,7 +268,7 @@ Actualmente se admiten los siguientes tipos de valor y variaciones:
 
 Haga clic en el icono Train (Entrenar) en el panel izquierdo para abrir la página de entrenamiento. A continuación, haga clic en el botón **Entrenar** para empezar a entrenar el modelo. Una vez completado el proceso de entrenamiento, verá la siguiente información:
 
-* **Id. del modelo**: el identificador del modelo que se ha creado y entrenado. Cada llamada de entrenamiento crea un nuevo modelo con su propio identificador. Copie esta cadena en una ubicación segura; la necesitará si desea realizar llamadas de predicción mediante la [API REST](./curl-train-extract.md) o la [biblioteca cliente](./client-library.md).
+* **Id. del modelo**: el identificador del modelo que se ha creado y entrenado. Cada llamada de entrenamiento crea un nuevo modelo con su propio identificador. Copie esta cadena en una ubicación segura; la necesitará si desea realizar llamadas de predicción mediante la [API REST](./client-library.md?pivots=programming-language-rest-api) o la [biblioteca cliente](./client-library.md).
 * **Precisión media**: el promedio de precisión del modelo. Puede mejorar la precisión del modelo mediante el etiquetado de formularios adicionales y el entrenamiento de nuevo para crear un nuevo modelo. Se recomienda empezar por etiquetar cinco formularios y agregar más formularios según sea necesario.
 * La lista de etiquetas y la precisión estimada por etiqueta.
 
@@ -276,7 +278,7 @@ Haga clic en el icono Train (Entrenar) en el panel izquierdo para abrir la pági
 Una vez finalizado el entrenamiento, examine el valor de **Precisión media**. Si es bajo, debe agregar más documentos de entrada y repetir los pasos anteriores. Los documentos que ya ha etiquetado permanecerán en el índice del proyecto.
 
 > [!TIP]
-> También puede ejecutar el proceso de entrenamiento con una llamada a la API REST. Para aprender a hacerlo, consulte [Entrenamiento con etiquetas mediante Python](./python-labeled-data.md).
+> También puede ejecutar el proceso de entrenamiento con una llamada a la API REST. Para aprender a hacerlo, consulte [Entrenamiento con etiquetas mediante Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md).
 
 ## <a name="compose-trained-models"></a>Creación de modelos entrenados
 
@@ -299,7 +301,7 @@ Para crear modelos en la herramienta de etiquetado de ejemplo, haga clic en el i
 Haga clic en el icono Predict (Predecir) (bombilla) de la izquierda para probar el modelo. Cargue un documento de formulario que no haya utilizado en el proceso de entrenamiento. A continuación, haga clic en el botón **Predecir** de la derecha para obtener las predicciones de clave y valor del formulario. La herramienta aplicará etiquetas en los cuadros de límite e informará de la confianza de cada etiqueta.
 
 > [!TIP]
-> También puede ejecutar la API de análisis con una llamada a REST. Para aprender a hacerlo, consulte [Entrenamiento con etiquetas mediante Python](./python-labeled-data.md).
+> También puede ejecutar la API de análisis con una llamada a REST. Para aprender a hacerlo, consulte [Entrenamiento con etiquetas mediante Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md).
 
 ## <a name="improve-results"></a>Mejora de los resultados
 
@@ -326,7 +328,7 @@ Por último, vaya a la página principal (icono de casa) y haga clic en Open Clo
 En este inicio rápido, ha aprendido a utilizar la herramienta de etiquetado de ejemplo de Form Recognizer para entrenar un modelo con datos etiquetados manualmente. Si quiere crear su propia utilidad para etiquetar los datos de entrenamiento, use las API de REST que se ocupan del entrenamiento con datos etiquetados.
 
 > [!div class="nextstepaction"]
-> [Entrenamiento con etiquetas mediante Python](./python-labeled-data.md)
+> [Entrenamiento con etiquetas mediante Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md)
 
 * [¿Qué es Form Recognizer?](../overview.md)
-* [Inicios rápidos de la biblioteca cliente de Form Recognizer](client-library.md)
+* [Inicio rápido: Uso de la biblioteca cliente de Form Recognizer](client-library.md)

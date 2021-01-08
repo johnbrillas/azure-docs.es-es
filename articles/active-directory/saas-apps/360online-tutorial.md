@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 1f3de29e5f046da56638876a35ca983792a4ce6c
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: d2e7935de23dcbdccfa6f4efa602dbab42931075
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319136"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673862"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-360-online"></a>Tutorial: Integración de Azure Active Directory con 360 Online
 
@@ -63,7 +63,7 @@ Para configurar la integración de 360 Online en Azure AD, deberá agregar 360 O
 
 4. En el cuadro de búsqueda, escriba **360 Online**, seleccione **360 Online** en el panel de resultados y haga clic en el botón **Agregar** para agregar la aplicación.
 
-     ![360 Online en la lista de resultados](common/search-new-app.png)
+    ![360 Online en la lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
@@ -141,7 +141,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
     ![Cuadro de diálogo Usuario](common/user-properties.png)
 
     a. En el campo **Nombre**, escriba **BrittaSimon**.
-  
+
     b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**.  
     Por ejemplo: BrittaSimon@contoso.com
 
@@ -177,7 +177,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 ### <a name="create-360-online-test-user"></a>Creación del usuario de prueba de 360 Online
 
-En esta sección, creará un usuario llamado Britta Simon en 360 Online. Trabaje con el  [equipo de soporte técnico de 360 Online](mailto:360online@software-innovation.com) para agregar los usuarios a la plataforma de 360 Online. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará un usuario llamado Britta Simon en 360 Online. Trabaje con el [equipo de soporte técnico de 360 Online](mailto:360online@software-innovation.com) para agregar los usuarios a la plataforma de 360 Online. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 

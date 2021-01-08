@@ -7,18 +7,21 @@ ms.service: storage
 ms.subservice: blobs
 ms.devlang: powershell
 ms.topic: sample
-ms.date: 11/07/2017
+ms.date: 12/29/2020
 ms.author: fryu
-ms.openlocfilehash: 2d921a968f50f64788ccbd7637bc04c8492a3f90
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: dfc338844e310102447e2498ee9cce8f28a79b9f
+ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96010901"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97809571"
 ---
 # <a name="calculate-the-total-billing-size-of-a-blob-container"></a>Cálculo del tamaño total de facturación de un contenedor de blobs
 
 Este script calcula el tamaño de un contenedor de Azure Blob Storage con la finalidad de estimar los costos de facturación. El script suma el total de los tamaños de los blobs del contenedor.
+
+> [!IMPORTANT]
+> El script de ejemplo que se proporciona en este artículo podría no calcular con precisión el tamaño de facturación de las instantáneas de blob.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
@@ -31,7 +34,7 @@ Este script calcula el tamaño de un contenedor de Azure Blob Storage con la fin
 
 El tamaño total de un contenedor de blobs incluye el tamaño del contenedor y el tamaño de todos los blobs del contenedor.
 
-En las secciones siguientes se describe cómo se calcula la capacidad de almacenamiento de los blobs y los contenedores de blobs.  En la sección siguiente, Len(X) hace referencia al número de caracteres de la cadena.
+En las secciones siguientes se describe cómo se calcula la capacidad de almacenamiento de los blobs y los contenedores de blobs. En la sección siguiente, Len(X) hace referencia al número de caracteres de la cadena.
 
 ### <a name="blob-containers"></a>Contenedores de blobs
 
@@ -44,6 +47,7 @@ For-Each Signed Identifier[512 bytes]
 ```
 
 A continuación, se explica con detalle:
+
 * En los 48 bytes de sobrecarga para cada contenedor se incluye la hora de la última modificación, los permisos, la configuración públicos y algunos metadatos del sistema.
 
 * El nombre del contenedor se almacena como Unicode, por lo que se toma el número de caracteres y se multiplica por dos.

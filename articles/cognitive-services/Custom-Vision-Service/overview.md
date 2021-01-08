@@ -12,12 +12,12 @@ ms.date: 12/15/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: image recognition, image identifier, image recognition app, custom vision
-ms.openlocfilehash: 7274fed961c4bbac8841e1c741f54031614cea5c
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 12877f2d43f9b8f864871e5a5ab050aa0eeb61e2
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562997"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814608"
 ---
 # <a name="what-is-custom-vision"></a>¿Qué es Custom Vision?
 
@@ -51,4 +51,4 @@ Al igual que sucede con todas las instancias de Cognitive Services, los desarrol
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Siga la guía [Creación de un clasificador](getting-started-build-a-classifier.md) para empezar a usar Custom Vision en el portal web, o bien complete un [inicio rápido de la biblioteca cliente](quickstarts/image-classification.md) para implementar los escenarios básicos en el código.
+Siga la guía [Creación de un clasificador](getting-started-build-a-classifier.md) para empezar a usar Custom Vision en el portal web, o bien complete un [inicio rápido](quickstarts/image-classification.md) para implementar los escenarios básicos en el código.

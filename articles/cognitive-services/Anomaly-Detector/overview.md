@@ -12,12 +12,12 @@ ms.date: 11/23/2020
 ms.author: mbullwin
 keywords: anomaly detection, machine learning, algorithms
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 1a13b962a000e6e3b2143dc23f94b63c122bd963
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: d8698a17db8be6a3d5b26d764ef86702320ebfa4
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95999114"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97705088"
 ---
 # <a name="what-is-the-anomaly-detector-api"></a>¿Qué es Anomaly Detector API?
 
@@ -97,6 +97,6 @@ Puede leer el artículo [Time-Series Anomaly Detection Service at Microsoft](htt
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Inicio rápido: Detección de anomalías en datos de serie temporal mediante la API REST Anomaly Detector](quickstarts/detect-data-anomalies-csharp.md)
+* [Inicio rápido: Uso de la biblioteca cliente de Anomaly Detector](quickstarts/client-libraries.md)
 * [Demostración en línea](https://notebooks.azure.com/AzureAnomalyDetection/projects/anomalydetector) de Anomaly Detector API
 * [Referencia de la API REST](https://aka.ms/anomaly-detector-rest-api-ref) de Anomaly Detector

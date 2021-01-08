@@ -9,19 +9,19 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
-ms.openlocfilehash: 12b49bf81328cc405337b682241aef2cd965c3de
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 9762ca79f73b3333045d1c11376ab315aac2d55e
+ms.sourcegitcommit: 02ed9acd4390b86c8432cad29075e2204f6b1bc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96356552"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97808664"
 ---
 > [!IMPORTANT]
 > * Por motivos de simplicidad, en el código de este artículo se usan métodos sincrónicos y almacenamiento de credenciales no protegidas. Para más información, consulte la siguiente documentación de referencia. 
 
 [Documentación de referencia](/python/api/azure-ai-formrecognizer) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/azure/ai/formrecognizer) | [Paquete (PyPi)](https://pypi.org/project/azure-ai-formrecognizer/) | [Ejemplos](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/cognitive-services)
 * [Python 3.x](https://www.python.org/)
@@ -36,17 +36,23 @@ ms.locfileid: "96356552"
 
 Después de instalar Python, puede instalar la versión más reciente de la biblioteca de cliente de Form Recognizer con:
 
-#### <a name="version-30"></a>[versión 3.0](#tab/ga)
+#### <a name="version-20"></a>[versión 2.0](#tab/ga)
 
 ```console
 pip install azure-ai-formrecognizer
 ```
 
-#### <a name="version-31-preview"></a>[versión 3.1 (versión preliminar)](#tab/preview)
+> [!NOTE]
+> La última versión de Form Recognizer refleja la versión 2.0 de la API.
+
+#### <a name="version-21-preview"></a>[versión preliminar 2.1](#tab/preview)
 
 ```console
 pip install azure-ai-formrecognizer --pre
 ```
+
+> [!NOTE]
+> La versión preliminar del SDK de Form Recognizer refleja la versión preliminar 2.1 de la API.
 
 ---
 
@@ -91,7 +97,7 @@ Con Form Recognizer, puede crear dos tipos de cliente diferentes. El primero, `f
 
 En estos fragmentos de código, se muestra cómo realizar las siguientes tareas con la biblioteca cliente de Form Recognizer para Python:
 
-#### <a name="version-30"></a>[versión 3.0](#tab/ga)
+#### <a name="version-20"></a>[versión 2.0](#tab/ga)
 
 * [Autenticar el cliente](#authenticate-the-client)
 * [Reconocer el contenido del formulario](#recognize-form-content)
@@ -100,7 +106,7 @@ En estos fragmentos de código, se muestra cómo realizar las siguientes tareas 
 * [Analizar formularios con un modelo personalizado](#analyze-forms-with-a-custom-model)
 * [Administrar modelos personalizados](#manage-your-custom-models)
 
-#### <a name="version-31-preview"></a>[versión 3.1 (versión preliminar)](#tab/preview)
+#### <a name="version-21-preview"></a>[versión preliminar 2.1](#tab/preview)
 
 * [Autenticar el cliente](#authenticate-the-client)
 * [Reconocer el contenido del formulario](#recognize-form-content)
@@ -123,7 +129,9 @@ Aquí, autenticará dos objetos de cliente mediante las variables de suscripció
 ## <a name="get-assets-for-testing"></a>Obtención de recursos para pruebas
 
 Es preciso que agregue referencias a las direcciones URL de los datos de entrenamiento y de prueba.
-* Para recuperar la dirección URL de SAS de los datos de entrenamiento del modelo personalizado, abra el Explorador de Microsoft Azure Storage, haga clic con el botón derecho en el contenedor y seleccione **Obtener firma de acceso compartido**. Asegúrese de que los permisos de **lectura** y **enumeración** están marcados y haga clic en **Create** (Crear). A continuación, copie el valor en la sección **URL**. Debe tener el formato `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+* [!INCLUDE [get SAS URL](../../includes/sas-instructions.md)]
+  
+   :::image type="content" source="../../media/quickstarts/get-sas-url.png" alt-text="Recuperación de la dirección URL de SAS":::
 * Use las imágenes de envío y de recepción que se incluyen en los ejemplos siguientes (también disponibles en [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms)). O bien, puede seguir los pasos anteriores para obtener la dirección URL de SAS de un documento individual en el almacenamiento de blobs. 
 
 > [!NOTE]
@@ -140,7 +148,7 @@ Para reconocer el contenido de un archivo en una dirección URL determinada, use
 > [!TIP]
 > También puede obtener contenido de imágenes locales. Consulte los métodos [FormRecognizerClient](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient?view=azure-python), como `begin_recognize_content`. O bien, consulte el código de ejemplo en [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples) para escenarios relacionados con imágenes locales.
 
-### <a name="output"></a>Resultados
+### <a name="output"></a>Output
 
 ```console
 Table found on page 1:
@@ -172,7 +180,7 @@ En esta sección se muestra cómo reconocer y extraer campos comunes de recibos 
 > [!TIP]
 > También puede reconocer imágenes de recepción locales. Consulte los métodos [FormRecognizerClient](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient?view=azure-python), como `begin_recognize_receipts`. O bien, consulte el código de ejemplo en [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples) para escenarios relacionados con imágenes locales.
 
-### <a name="output"></a>Resultados
+### <a name="output"></a>Output
 
 ```console
 ReceiptType: Itemized has confidence 0.659
@@ -194,11 +202,15 @@ Tax: 104.4 has confidence 0.713
 Total: 1203.39 has confidence 0.774
 ```
 
-#### <a name="version-30"></a>[versión 3.0](#tab/ga)
-
-#### <a name="version-31-preview"></a>[versión 3.1 (versión preliminar)](#tab/preview)
 
 ## <a name="recognize-business-cards"></a>Reconocimiento de tarjetas de presentación
+
+#### <a name="version-20"></a>[versión 2.0](#tab/ga)
+
+> [!IMPORTANT]
+> Esta característica no está disponible en la versión de API seleccionada.
+
+#### <a name="version-21-preview"></a>[versión preliminar 2.1](#tab/preview)
 
 En esta sección se muestra cómo reconocer y extraer campos comunes de tarjetas de presentación inglesas mediante un modelo entrenado previamente. Para reconocer tarjetas de presentación en una dirección URL, use el método `begin_recognize_business_cards_from_url`. 
 
@@ -207,7 +219,16 @@ En esta sección se muestra cómo reconocer y extraer campos comunes de tarjetas
 > [!TIP]
 > También puede reconocer imágenes de tarjeta de presentación locales. Consulte los métodos [FormRecognizerClient](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient?view=azure-python), como `begin_recognize_business_cards`. O bien, consulte el código de ejemplo en [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples) para escenarios relacionados con imágenes locales.
 
+---
+
 ## <a name="recognize-invoices"></a>Reconocimiento de facturas
+
+#### <a name="version-20"></a>[versión 2.0](#tab/ga)
+
+> [!IMPORTANT]
+> Esta característica no está disponible en la versión de API seleccionada.
+
+#### <a name="version-21-preview"></a>[versión preliminar 2.1](#tab/preview)
 
 En esta sección se muestra cómo reconocer y extraer campos comunes de facturas de compra mediante un modelo entrenado previamente. Para reconocer facturas en una dirección URL, use el método `begin_recognize_invoices_from_url`. 
 
@@ -394,7 +415,7 @@ El siguiente bloque de código usa el identificador de modelo guardado en la sec
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_manage_getmodel)]
 
 
-### <a name="output"></a>Resultados
+### <a name="output"></a>Output
 
 Esta es la salida de ejemplo para el modelo personalizado creado en el ejemplo anterior.
 
