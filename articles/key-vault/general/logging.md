@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 12/18/2020
 ms.author: mbaldwin
-ms.openlocfilehash: b1f7b115c5a8198b53e36672a891903a41a9511b
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: d900659f3ca8a8688c1b1d3a66cd888f37521fc6
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97704136"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97883391"
 ---
 # <a name="azure-key-vault-logging"></a>Registro de Azure Key Vault
 
@@ -150,9 +150,38 @@ En la tabla siguiente se muestran los valores **operationName** y los comandos c
 
 | operationName | Comando de la API REST |
 | --- | --- |
-
-| **CertificateGet** |[Obtener información sobre un certificado](/rest/api/keyvault/getcertificate) | | **CertificateCreate** |[Crear un certificado](/rest/api/keyvault/createcertificate) | | **CertificateImport** |[Importar un certificado a un almacén](/rest/api/keyvault/importcertificate) | | **CertificateUpdate** |[Actualizar un certificado](/rest/api/keyvault/updatecertificate) | | **CertificateList** |[Enumerar los certificados de un almacén](/rest/api/keyvault/getcertificates) | | **CertificateListVersions** |[Enumerar las versiones de un certificado](/rest/api/keyvault/getcertificateversions) | | **CertificateDelete** |[Eliminar un certificado](/rest/api/keyvault/deletecertificate) | | **CertificatePurge** |[Purgar un certificado](/rest/api/keyvault/purgedeletedcertificate) | | **CertificateBackup** |[Hacer una copia de seguridad de un certificado](/rest/api/keyvault/backupcertificate) | | **CertificateRestore** |[Restaurar un certificado](/rest/api/keyvault/restorecertificate) | | **CertificateRecover** |[Recuperar un certificado](/rest/api/keyvault/recoverdeletedcertificate) | | **CertificateGetDeleted** |[Obtener certificado eliminado](/rest/api/keyvault/getdeletedcertificate) | | **CertificateListDeleted** |[Enumerar los certificados eliminados de un almacén](/rest/api/keyvault/getdeletedcertificates) | | **CertificatePolicyGet** |[Obtener directiva de certificados](/rest/api/keyvault/getcertificatepolicy) | | **CertificatePolicyUpdate** |[Actualizar directiva de certificados](/rest/api/keyvault/updatecertificatepolicy) | | **CertificatePolicySet** |[Crear directiva de certificados](/rest/api/keyvault/createcertificate) | | **CertificateContactsGet** |[Obtener contactos de certificados](/rest/api/keyvault/getcertificatecontacts) | | **CertificateContactsSet** |[Establecer contactos de certificados](/rest/api/keyvault/setcertificatecontacts) | | **CertificateContactsDelete** |[Eliminar contactos de certificados](/rest/api/keyvault/deletecertificatecontacts) | | **CertificateIssuerGet** |[Obtener emisor de certificados](/rest/api/keyvault/getcertificateissuer) | | **CertificateIssuerSet** |[Establecer emisor de certificados](/rest/api/keyvault/setcertificateissuer) | | **CertificateIssuerUpdate** |[Actualizar emisor de certificados](/rest/api/keyvault/updatecertificateissuer) | | **CertificateIssuerDelete** |[Eliminar emisor de certificados](/rest/api/keyvault/deletecertificateissuer) | | **CertificateIssuersList** |[Enumerar los emisores de certificados](/rest/api/keyvault/getcertificateissuers) | | **CertificateEnroll** |Inscribir un certificado | | **CertificateRenew** |Renovar un certificado | | **CertificatePendingGet** |Recuperar certificado pendiente | | **CertificatePendingMerge** |Pendiente de una actualización de certificados | | **CertificatePendingUpdate** |Pendiente de una actualización de certificados | | **CertificatePendingDelete** |Eliminar certificado pendiente | | **CertificateNearExpiryEventGridNotification** |Se ha publicado el evento de expiración cercana del certificado |
-<a name="-certificateexpiredeventgridnotification-certificate-expired-event-published-"></a>|  **CertificateExpiredEventGridNotification** | Se ha publicado el evento de expiración del certificado |
+| **CertificateGet** |[Obtención de información sobre un certificado](/rest/api/keyvault/getcertificate) |
+| **CertificateCreate** |[Crear un certificado](/rest/api/keyvault/createcertificate) |
+| **CertificateImport** |[Importar un certificado en un almacén](/rest/api/keyvault/importcertificate) |
+| **CertificateUpdate** |[Actualizar un certificado](/rest/api/keyvault/updatecertificate) |
+| **CertificateList** |[Enumerar los certificados de un almacén](/rest/api/keyvault/getcertificates) |
+| **CertificateListVersions** |[Enumerar las versiones de un certificado](/rest/api/keyvault/getcertificateversions) |
+| **CertificateDelete** |[Eliminar un certificado](/rest/api/keyvault/deletecertificate) |
+| **CertificatePurge** |[Purgar un certificado](/rest/api/keyvault/purgedeletedcertificate) |
+| **CertificateBackup** |[Realizar una copia de seguridad de un certificado](/rest/api/keyvault/backupcertificate) |
+| **CertificateRestore** |[Restaurar un certificado](/rest/api/keyvault/restorecertificate) |
+| **CertificateRecover** |[Recuperar un certificado](/rest/api/keyvault/recoverdeletedcertificate) |
+| **CertificateGetDeleted** |[Obtener un certificado eliminado](/rest/api/keyvault/getdeletedcertificate) |
+| **CertificateListDeleted** |[Enumerar los certificados eliminados de un almacén](/rest/api/keyvault/getdeletedcertificates) |
+| **CertificatePolicyGet** |[Obtener directiva de certificados](/rest/api/keyvault/getcertificatepolicy) |
+| **CertificatePolicyUpdate** |[Actualizar directiva de certificados](/rest/api/keyvault/updatecertificatepolicy) |
+| **CertificatePolicySet** |[Crear directiva de certificados](/rest/api/keyvault/createcertificate) |
+| **CertificateContactsGet** |[Obtener contactos de certificados](/rest/api/keyvault/getcertificatecontacts) |
+| **CertificateContactsSet** |[Establecer contactos de certificados](/rest/api/keyvault/setcertificatecontacts) |
+| **CertificateContactsDelete** |[Eliminar contactos de certificados](/rest/api/keyvault/deletecertificatecontacts) |
+| **CertificateIssuerGet** |[Obtener el emisor de los certificados](/rest/api/keyvault/getcertificateissuer) |
+| **CertificateIssuerSet** |[Establecer el emisor de los certificados](/rest/api/keyvault/setcertificateissuer) |
+| **CertificateIssuerUpdate** |[Actualizar el emisor de los certificados](/rest/api/keyvault/updatecertificateissuer) |
+| **CertificateIssuerDelete** |[Eliminar el emisor de los certificados](/rest/api/keyvault/deletecertificateissuer) |
+| **CertificateIssuersList** |[Enumerar los emisores de certificados](/rest/api/keyvault/getcertificateissuers) |
+| **CertificateEnroll** |Inscribir un certificado |
+| **CertificateRenew** |Renovar un certificado |
+| **CertificatePendingGet** |Recuperar certificado pendiente |
+| **CertificatePendingMerge** |Pendiente de una combinación de certificados |
+| **CertificatePendingUpdate** |Pendiente de una actualización de certificados |
+| **CertificatePendingDelete** |Eliminar certificado pendiente |
+| **CertificateNearExpiryEventGridNotification** |Se ha publicado el evento de expiración cercana del certificado. |
+| **CertificateExpiredEventGridNotification** |Se ha publicado el evento de expiración del certificado. |
 ---
 
 ## <a name="use-azure-monitor-logs"></a>Uso de registros de Azure Monitor
