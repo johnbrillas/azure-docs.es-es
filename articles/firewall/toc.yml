@@ -91,7 +91,7 @@
       href: firewall-workbook.md
 - name: Referencia
   items:
-    - name: Azure CLI
+    - name: CLI de Azure
       href: /cli/azure/ext/azure-firewall/network/firewall
     - name: Azure PowerShell
       href: /powershell/module/az.network/new-azfirewall
@@ -110,7 +110,7 @@
 - name: Recursos
   items:
     - name: Preguntas más frecuentes
-      href: firewall-faq.md
+      href: firewall-faq.yml
     - name: Creación de plantillas
       href: ../azure-resource-manager/templates/template-syntax.md
     - name: Azure Roadmap

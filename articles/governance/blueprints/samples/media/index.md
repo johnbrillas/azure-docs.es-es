@@ -1,14 +1,14 @@
 ---
 title: Introducción al ejemplo de plano técnico de Media Framework
 description: Introducción al ejemplo de plano técnico de Media Framework. Este ejemplo de plano técnico ayuda a los clientes a evaluar controles específicos de Media Framework.
-ms.date: 08/13/2020
+ms.date: 01/08/2021
 ms.topic: sample
-ms.openlocfilehash: db7e67cb7f96a19a04efc001bc7752f7c9a02e73
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2b9e29d8f5095947587107cc372beb34b18abb7
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88208248"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98034992"
 ---
 # <a name="overview-of-the-media-blueprint-sample"></a>Introducción al ejemplo de plano técnico de Media Framework
 

@@ -1,14 +1,14 @@
 ---
 title: Ejemplo de plano técnico de la norma SWIFT CSP-CSCF v2020, introducción
 description: Introducción al ejemplo de plano técnico de la norma SWIFT CSP-CSCF v2020. Este ejemplo de plano técnico ayuda a los clientes a evaluar determinados controles concretos de la norma SWIFT CSP-CSCF.
-ms.date: 08/18/2020
+ms.date: 01/08/2021
 ms.topic: sample
-ms.openlocfilehash: 8c6eb7a609f1103f0b20a83e45bef9e18ae4d5c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2fc2aa437cc6e69df3c5ae7c3a0acedfba67e636
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88612697"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98048749"
 ---
 # <a name="overview-of-the-swift-csp-cscf-v2020-blueprint-sample"></a>Introducción al ejemplo de plano técnico de la norma SWIFT CSP-CSCF v2020
 
