@@ -60,7 +60,7 @@
               href: configuration-infrastructure.md
             - name: Dirección IP de front-end
               href: configuration-front-end-ip.md
-            - name: Clientes de escucha
+            - name: Agentes de escucha
               href: configuration-listeners.md
             - name: Reglas de enrutamiento de solicitudes
               href: configuration-request-routing-rules.md
@@ -109,7 +109,7 @@
     - name: Descripción de los precios
       href: understanding-pricing.md
     - name: Preguntas más frecuentes
-      href: application-gateway-faq.md
+      href: application-gateway-faq.yml
 - name: Guías paso a paso
   items:
     - name: Sitio único de host
@@ -120,7 +120,7 @@
           href: tutorial-manage-web-traffic-cli.md
     - name: Configuración del equilibrador de carga interno
       items:
-        - name: Azure portal
+        - name: Portal de Azure
           href: configure-application-gateway-with-private-frontend-ip.md
         - name: Azure PowerShell
           href: application-gateway-ilb-arm.md
@@ -200,7 +200,7 @@
               href: redirect-external-site-cli.md
         - name: HTTP a HTTPS
           items:
-            - name: Azure portal
+            - name: Portal de Azure
               href: redirect-http-to-https-portal.md
             - name: Azure PowerShell
               href: redirect-http-to-https-powershell.md
