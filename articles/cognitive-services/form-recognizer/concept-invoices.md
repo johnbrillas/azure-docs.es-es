@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: pafarley
-ms.openlocfilehash: 9a3a6bd6489baea90ed4143b42a09e7d697bbc50
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 7acfa9c2ffdd4cdd62e965041cdc42dc44d469c5
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602451"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845583"
 ---
 # <a name="form-recognizer-prebuilt-invoice-model"></a>Modelo de factura precompilado de Form Recognizer
 
@@ -34,7 +34,7 @@ Para probar el servicio Invoice de Form Recognizer, vaya a la herramienta de int
 > [!div class="nextstepaction"]
 > [Uso de modelos precompilados](https://fott-preview.azurewebsites.net/)
 
-Necesitará una suscripción de Azure ([cree una gratis](https://azure.microsoft.com/free/cognitive-services)) y un punto de conexión de [recursos de Form Recognizer](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer), así como la clave para probar el servicio Invoice de Form Recognizer. 
+Necesitará una suscripción a Azure ([cree una gratis](https://azure.microsoft.com/free/cognitive-services)) y un punto de conexión de [recursos de Form Recognizer](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer), así como la clave para probar el servicio Invoice de Form Recognizer. 
 
 ![Ejemplo de factura analizada](./media/analyze-invoice.png)
 
@@ -107,8 +107,8 @@ El servicio Invoice extraerá el texto, las tablas y los 26 campos de la factu
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Pruebe sus propias facturas y ejemplos en la interfaz de usuario de ejemplo de [Form Recognizer](https://fott-preview.azurewebsites.net/).
-- Lea el [inicio rápido de la biblioteca cliente de Form Recognizer](quickstarts/client-library.md) para empezar a escribir una aplicación de procesamiento de facturas con Form Recognizer en el lenguaje de su elección.
-- O bien, siga el inicio rápido [Extracción de datos de facturas](./quickstarts/python-invoices.md) para implementar la extracción de datos de facturas con Python y la API REST.
+- Realice un [inicio rápido de Form Recognizer](quickstarts/client-library.md) para empezar a escribir una aplicación de procesamiento de facturas con Form Recognizer en el lenguaje de su elección.
+
 ## <a name="see-also"></a>Consulte también
 
 * [¿Qué es Form Recognizer?](./overview.md)

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: trbye
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: be01309fee3454fbd4be78130f9826b493e7bf7a
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 51f9ad4fea1c139cee5974ecd81645c9a904feb4
+ms.sourcegitcommit: c538b6e4cf27b992500c079ad9c914c05d55eb7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033772"
+ms.lasthandoff: 01/03/2021
+ms.locfileid: "97854900"
 ---
 # <a name="what-is-custom-speech"></a>¿Qué es Custom Speech?
 
@@ -43,6 +43,23 @@ Este diagrama resalta las partes que componen el [portal de Habla personalizada]
 ## <a name="set-up-your-azure-account"></a>Configuración de la cuenta de Azure
 
 Es preciso tener una cuenta de Azure y una suscripción al servicio de voz para poder usar el [portal de Custom Speech](https://speech.microsoft.com/customspeech) para crear un modelo personalizado. Si no dispone de una cuenta y una suscripción, [pruebe el servicio de voz de forma gratuita](overview.md#try-the-speech-service-for-free).
+
+Si tiene previsto entrenar un modelo personalizado con datos de audio, elija una de las siguientes regiones que tengan hardware dedicado disponible para el entrenamiento. Esto reducirá el tiempo necesario para entrenar un modelo.
+
+* Este de Australia
+* Centro de Canadá
+* Centro de la India
+* Este de EE. UU.
+* Este de EE. UU. 2
+* Centro-Norte de EE. UU
+* Norte de Europa
+* Centro-sur de EE. UU.
+* Sudeste de Asia
+* Sur de Reino Unido
+* US Gov: Arizona
+* US Gov - Virginia
+* Oeste de Europa
+* Oeste de EE. UU. 2
 
 > [!NOTE]
 > Asegúrese de crear una suscripción estándar (S0). No se admiten las suscripciones Gratis (F0).

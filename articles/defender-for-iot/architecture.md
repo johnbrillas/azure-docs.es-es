@@ -4,21 +4,21 @@ description: Obtenga información sobre la arquitectura de Azure Defender para I
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
-author: rkarlin
+author: shhazam-ms
 manager: rkarlin
 editor: ''
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/08/2020
-ms.author: rkarlin
-ms.openlocfilehash: a8697094a3366e3b82ca65f1b962101243b22f84
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.date: 12/02/2020
+ms.author: shhazam
+ms.openlocfilehash: 3b5a586b5db4fb15a32090e601bac5610ece1427
+ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548926"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97832581"
 ---
 # <a name="azure-defender-for-iot-architecture"></a>Arquitectura de Azure Defender para IoT
 
@@ -42,8 +42,7 @@ Azure Defender para IoT incluye los siguientes componentes:
 - Dispositivo o máquina virtual de sensor de Azure Defender para IoT
 - Consola de administración local para la administración del sitio local
 
-
-![Arquitectura de Defender para IoT](./media/architecture/defender-iot-security-architecture.png)
+:::image type="content" source="./media/architecture/defender-iot-security-architecture-v3.png" alt-text="Arquitectura de Defender para IoT":::
 
 ### <a name="azure-defender-for-iot-sensors"></a>Sensores de Azure Defender para IoT
 
@@ -72,8 +71,7 @@ El motor de detección de malware industrial identifica comportamientos que indi
 El motor de detección de anomalías detecta las comunicaciones de máquina a máquina (M2M) y los comportamientos inusuales. Al modelar redes ICS como secuencias deterministas de estados y transiciones, la plataforma requiere un período de aprendizaje más corto que los enfoques o análisis matemáticos que se desarrollaron originalmente para TI, en lugar de OT. También detecta anomalías más rápido, con un número mínimo de falsos positivos. Las alertas del motor de detección de anomalías incluyen intentos excesivos de inicio de sesión de SMB y alertas de detección de exámenes de PLC.
 
 #### <a name="operational-incident-detection"></a>Detección de incidentes operativos
-La detección de incidentes operativos detecta problemas operativos, como la conectividad intermitente, que pueden se indicadores de los primeros síntomas de errores en el equipo. Por ejemplo, se sospecha que el dispositivo está desconectado (no responde) y se han enviado alertas al comando de detención del PLC de Siemens S7.
-
+La detección de incidentes operativos detecta problemas operativos, como la conectividad intermitente, que pueden se indicadores de los primeros síntomas de errores en el equipo. Por ejemplo, se considera que el dispositivo está desconectado (no responde) y se han enviado alertas al comando de detención del PLC de Siemens S7.
 
 ### <a name="management-consoles"></a>Consolas de administración
 La administración de Azure Defender para IoT en entornos híbridos se realiza a través de dos portales de administración: 
@@ -82,9 +80,9 @@ La administración de Azure Defender para IoT en entornos híbridos se realiza a
 - Azure Portal
 
 #### <a name="sensor-console"></a>La consola del sensor
-Las detecciones del sensor se muestran en la consola del sensor; allí puede ver, investigar y analizarlas en un mapa de red, un inventario de recursos y una amplia gama de informes, como informes de evaluación de riesgos, consultas de minería de datos y vectores de ataque. También puede usar la consola para ver y administrar las amenazas detectadas por los motores del sensor, reenviar información a sistemas de terceros, administrar usuarios, etc.
+Las detecciones del sensor se muestran en la consola del sensor; allí puede ver, investigar y analizarlas en un mapa de red, un inventario de recursos y una amplia gama de informes, como informes de evaluación de riesgos, consultas de minería de datos y vectores de ataque. También puede usar la consola para ver y administrar las amenazas detectadas por los motores del sensor, reenviar información a sistemas asociados, administrar usuarios, etc.
 
-![Consola de sensores de Defender para IoT](./media/architecture/sensor-console.png)
+:::image type="content" source="./media/architecture/sensor-console-v2.png" alt-text="Consola de sensores de Defender para IoT":::
 
 #### <a name="on-premises-management-console"></a>Consola de administración local
 La consola de administración local permite a los operadores del centro de operaciones de seguridad (SOC) administrar y analizar las alertas agregadas de varios sensores en un solo panel y proporciona una visión general del estado de las redes OT.
@@ -93,11 +91,26 @@ Esta arquitectura proporciona una vista unificada completa de la red en el nivel
 
 Además de varios inquilinos, supervisión, análisis de datos y control remoto centralizado de sensores, la consola de administración proporciona herramientas de mantenimiento del sistema adicionales (como la exclusión de alertas) y características de presentación de informes totalmente personalizadas para cada uno de los dispositivos remotos. Esta arquitectura escalable es compatible con la administración local en el nivel de sitio, zona y global dentro del SOC.
 
-La consola de administración se puede implementar para la configuración de alta disponibilidad, que proporciona una consola de copia de seguridad que recibe periódicamente copias de seguridad de todos los archivos de configuración necesarios para una recuperación. Si se produce un error en la consola maestra, los dispositivos de administración del sitio local se conmutarán por error automáticamente para sincronizarse con la consola de copia de seguridad a fin de mantener la disponibilidad sin interrupciones.
+La consola de administración se puede implementar para la configuración de alta disponibilidad, que proporciona una consola de copia de seguridad que recibe periódicamente copias de seguridad de todos los archivos de configuración necesarios para una recuperación. Si se produce un error en la consola principal, los dispositivos de administración del sitio local se conmutarán por error automáticamente para sincronizarse con la consola de copia de seguridad a fin de mantener la disponibilidad sin interrupciones.
+
+Al estar integrada estrechamente con los runbooks y flujos de trabajo de SOC, facilita la priorización de las actividades de mitigación y la correlación entre sitios de las amenazas.
+
+- Holístico: reduzca la complejidad con una única plataforma unificada para la administración de activos, la administración de riesgos y vulnerabilidades, y la supervisión de amenazas con respuesta a incidentes.
+
+- Agregación y correlación: muestra, agrega y analiza los datos y las alertas recopilados en todos los sitios.
+
+- Control de todos los sensores: configura y supervisa todos los sensores desde una ubicación única.
+
+   :::image type="content" source="media/updates/alerts-and-site-management-v2.png" alt-text="Administración de todas las alertas y la información":::.
 
 #### <a name="azure-portal"></a>Azure portal
 
-El portal de Defender para IoT en Azure se usa para ayudarle a: ·   Comprar dispositivos de soluciones ·   Instalar y actualizar el software ·   Incorporar sensores en Azure ·   Actualizar los paquetes de inteligencia sobre amenazas
+El portal de Defender para IoT de Azure se usa para ayudarle a lo siguiente:
+
+- Comprar dispositivos de soluciones
+- Instalar y actualizar software
+- Incorporar sensores a Azure
+- Actualizar paquetes de inteligencia sobre amenazas
 
 ## <a name="embedded-security-agent-built-in-mode"></a>Agente de seguridad incrustado: modo integrado
 
@@ -109,21 +122,16 @@ En el modo **Mejorado**, después de activar la opción **Seguridad** en IoT Hub
 
 Los agentes de dispositivos y otra aplicaciones usan el **SDK de Send Security Message de Azure** para enviar información de seguridad a Azure IoT Hub. IoT Hub obtiene esta información y la reenvía al servicio de Defender para IoT.
 
-Una vez que el servicio de Azure Defender para IoT está habilitado, además de los datos reenviados, IoT Hub envía también todos los datos internos para el análisis por parte de ASC para IoT. Estos datos incluyen los registros de operaciones de dispositivos a la nube, las identidades de los dispositivos la y configuración del Hub. Toda esta información ayuda a crear la canalización de análisis de Azure Defender para IoT.
+Una vez que el servicio de Defender para IoT está habilitado, además de los datos reenviados, IoT Hub envía también todos los datos internos para el análisis por parte de Defender para IoT. Estos datos incluyen los registros de operaciones de dispositivos a la nube, las identidades de los dispositivos y la configuración del Hub. Toda esta información ayuda a crear la canalización de análisis de Defender para IoT.
 
-La canalización de análisis de Azure Defender para IoT también recibe flujos adicionales de inteligencia de amenazas desde varios orígenes dentro de Microsoft y asociados de Microsoft. La canalización de análisis completa de Azure Defender para IoT funciona con cada configuración del cliente realizada en el servicio (como alertas personalizadas y uso del SDK de Send Security Message).
+La canalización de análisis de Defender para IoT también recibe flujos adicionales de inteligencia sobre amenazas desde varios orígenes dentro de Microsoft y asociados de Microsoft. La canalización de análisis completa de Defender para IoT funciona con cada configuración del cliente realizada en el servicio (como alertas personalizadas y uso del SDK de Send Security Message).
 
-Con la canalización de análisis, Azure Defender para IoT combina todos los flujos de información para generar alertas y recomendaciones viables. La canalización contiene reglas personalizadas creadas tanto por investigadores de seguridad como por expertos, así como modelos de Machine Learning en busca de desviaciones del comportamiento estándar del dispositivo y análisis de riesgos.
+Con la canalización de análisis, Defender para IoT combina todos los flujos de información para generar alertas y recomendaciones viables. La canalización contiene reglas personalizadas creadas tanto por investigadores de seguridad como por expertos, así como modelos de Machine Learning en busca de desviaciones del comportamiento estándar del dispositivo y análisis de riesgos.
 
-Las recomendaciones y alertas de Azure Defender para IoT (salida de la canalización de análisis) se escriben en el área de trabajo de Log Analytics de cada cliente. Incluir los eventos sin procesar en el área de trabajo, así como las alertas y recomendaciones, permite investigaciones y consultas de profundización con los detalles exactos de las actividades sospechosas detectadas.
+Las recomendaciones y alertas de Defender para IoT (salida de la canalización de análisis) se escriben en el área de trabajo de Log Analytics de cada cliente. Incluir los eventos sin procesar en el área de trabajo, así como las alertas y recomendaciones, permite investigaciones y consultas de profundización con los detalles exactos de las actividades sospechosas detectadas.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="see-also"></a>Consulte también
 
-En este artículo, ha aprendido sobre la arquitectura y el flujo de trabajo básicos de la solución Azure Defender para IoT. Para más información sobre los requisitos previos, cómo empezar a trabajar y habilitar la solución de seguridad en IoT Hub, consulte los artículos siguientes:
+[Preguntas más frecuentes de Defender para IoT](resources-frequently-asked-questions.md)
 
-- [Requisitos previos del servicio](service-prerequisites.md)
-- [Introducción](getting-started.md)
-- [Configuración de una solución](quickstart-configure-your-solution.md)
-- [Habilitar la seguridad en IoT Hub](quickstart-onboard-iot-hub.md)
-- [Preguntas más frecuentes de Defender para IoT](resources-frequently-asked-questions.md)
-- [Alertas de seguridad de Defender para IoT](concept-security-alerts.md)
+[Requisitos previos del sistema](quickstart-system-prerequisites.md)

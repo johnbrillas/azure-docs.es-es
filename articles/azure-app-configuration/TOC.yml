@@ -54,7 +54,7 @@
           href: enable-dynamic-configuration-java-spring-app.md
     - name: Uso de marcas de características
       items:
-        - name: .NET Core
+        - name: ASP.NET Core
           href: use-feature-flags-dotnet-core.md
         - name: Spring Boot
           href: use-feature-flags-spring-boot.md
@@ -110,7 +110,7 @@
           href: concept-disaster-recovery.md
 - name: Guías paso a paso
   items:
-    - name: Habilitación de una característica para una porcentaje de usuario
+    - name: Uso de marcas de características condicionales
       href: howto-feature-filters-aspnet-core.md
     - name: Habilitación de una característica para usuarios o grupos especificados
       href: howto-targetingfilter-aspnet-core.md

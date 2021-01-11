@@ -10,12 +10,12 @@ ms.custom: devx-track-python
 author: likebupt
 ms.author: keli19
 ms.date: 12/02/2020
-ms.openlocfilehash: 360f0ce60a35bc96c6dd8e46d636f07124d01255
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: d1e4ffa525c5628d0b6c9a3ca67f3e069c44e823
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96511923"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97679190"
 ---
 # <a name="execute-python-script-module"></a>Módulo Ejecutar script de Python
 
@@ -156,7 +156,7 @@ El módulo Ejecución de script de Python contiene código de Python de ejemplo 
     1. Agrupe el script y otros recursos personalizados en un archivo zip.
     1. Cargue el archivo zip como un **Conjunto de datos de archivo** en Studio. 
     1. Arrastre el módulo del conjunto de datos de la lista de *Conjunto de datos* del panel de módulos de la izquierda a la página de creación del diseñador. 
-    1. Conecte el módulo de conjunto de datos al puerto **Conjunto de scripts** del módulo **Ejecutar script R**.
+    1. Conecte el módulo de conjunto de datos al puerto **Script Bundle** (Agrupación de scripts) del módulo **Execute Python Script** (Ejecutar script de Python).
     
     Cualquier archivo incluido en el archivo comprimido cargado puede usarse durante la ejecución de la canalización. Si el archivo incluye una estructura de directorios, se conserva esa estructura.
  

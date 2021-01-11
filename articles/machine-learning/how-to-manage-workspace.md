@@ -10,12 +10,12 @@ author: sdgilley
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, fasttrack-edit
-ms.openlocfilehash: 4425fdf488665ad555c73c59682041cb23a9ca66
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 3fca8e74112b90b3cac70adaa955bbf242999705
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96447323"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739593"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces"></a>Creación y administración de áreas de trabajo de Azure Machine Learning 
 
@@ -31,6 +31,8 @@ A medida que cambian las necesidades o aumentan los requisitos de automatizació
 ## <a name="limitations"></a>Limitaciones
 
 [!INCLUDE [register-namespace](../../includes/machine-learning-register-namespace.md)]
+
+De forma predeterminada, al crear un área de trabajo también se crea una instancia de Azure Container Registry (ACR).  Dado que ACR no admite actualmente caracteres Unicode en nombres de grupos de recursos, use un grupo de recursos que no contenga estos caracteres.
 
 ## <a name="create-a-workspace"></a>Crear un área de trabajo
 
@@ -132,7 +134,7 @@ Si tiene problemas para obtener acceso a su suscripción, consulte [Configuraci�
    Campo|Descripción 
    ---|---
    Nombre del área de trabajo |Escriba un nombre único que identifique el área de trabajo. En este ejemplo, se usa **docs-ws**. Los nombres deben ser únicos en el grupo de recursos. Utilice un nombre que sea fácil de recordar y que se diferencie del de las áreas de trabajo creadas por otros. El nombre del área de trabajo no distingue mayúsculas de minúsculas.
-   Subscription |Seleccione la suscripción de Azure que quiera usar.
+   Suscripción |Seleccione la suscripción de Azure que quiera usar.
    Resource group | Use un grupo de recursos existente en su suscripción o escriba un nombre para crear un nuevo grupo de recursos. Un grupo de recursos almacena los recursos relacionados con una solución de Azure. En este ejemplo, se usa **docs-aml**. Necesita el rol *colaborador* o *propietario* para usar un grupo de recursos existente.  Para obtener más información sobre el acceso, consulte [Administración del acceso a un área de trabajo de Azure Machine Learning](how-to-assign-roles.md).
    Region | Seleccione la región de Azure más cercana a los usuarios y los recursos de datos para crear el área de trabajo.
    | Cuenta de almacenamiento | Cuenta de almacenamiento predeterminada para el área de trabajo. De manera predeterminada, se crea una nueva. |
@@ -154,6 +156,8 @@ Si tiene problemas para obtener acceso a su suscripción, consulte [Configuraci�
  1. Para ver la nueva área de trabajo, seleccione **Ir al recurso**.
  
 ---
+
+
 
 ### <a name="networking"></a>Redes  
 
@@ -368,6 +372,16 @@ En [Azure Portal](https://portal.azure.com/), seleccione **Eliminar** en la part
 [!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
 
 ## <a name="troubleshooting"></a>Solución de problemas
+
+* **Exploradores admitidos en Azure Machine Learning Studio**: Se recomienda usar el explorador más actualizado compatible con el sistema operativo. Se admiten los siguientes exploradores:
+  * Microsoft Edge (el nuevo Microsoft Edge, la versión más reciente. No la versión heredada de Microsoft Edge)
+  * Safari (versión más reciente, solo Mac)
+  * Chrome (versión más reciente)
+  * Firefox (versión más reciente)
+
+* **Portal de Azure**: 
+  * Si va directamente al área de trabajo desde un vínculo de recurso compartido del SDK o Azure Portal, no puede ver la página **Información general** estándar que contiene información sobre la suscripción en la extensión. En este escenario, tampoco se puede cambiar a otra área de trabajo. Para ver otra área de trabajo, vaya directamente a [Azure Machine Learning Studio](https://ml.azure.com) y busque el nombre del área de trabajo.
+  * Todos los activos (conjuntos de datos, experimentos, procesos, entre otros) solo están disponibles en [Azure Machine Learning Studio](https://ml.azure.com). *No* están disponibles en Azure Portal.
 
 ### <a name="resource-provider-errors"></a>Errores del proveedor de recursos
 

@@ -3,12 +3,12 @@ title: Copia de seguridad de una base de datos de SAP HANA a Azure con Azure Bac
 description: En este artículo, aprenderá a realizar copias de seguridad de una base de datos de SAP HANA en máquinas virtuales de Azure con el servicio Azure Backup.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: f7957670b3ba98c640ebc53c6427273ca75a4e6d
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 87111660983e2626d8f61ddc65fdc13394509a4f
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94682856"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97831642"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Copia de seguridad de bases de datos de SAP HANA en máquinas virtuales de Azure
 
@@ -90,6 +90,9 @@ También puede usar los siguientes FQDN para permitir el acceso a los servicios 
 #### <a name="use-an-http-proxy-server-to-route-traffic"></a>Empleo de un servidor proxy HTTP para enrutar el tráfico
 
 Al hacer una copia de seguridad de una base de datos SAP HANA que se ejecuta en una máquina virtual de Azure, la extensión de copia de seguridad de la máquina virtual usa las API HTTPS para enviar comandos de administración a Azure Backup y datos a Azure Storage. La extensión de copia de seguridad también usa Azure AD para la autenticación. Enrute el tráfico de extensión de copia de seguridad de estos tres servicios a través del proxy HTTP. Use la lista de direcciones IP y FQDN mencionada anteriormente para permitir el acceso a los servicios necesarios. No se admiten servidores proxy autenticados.
+
+> [!NOTE]
+> No hay compatibilidad con el proxy de nivel de servicio. Es decir, no se admite el tráfico a través del proxy solo desde algunos servicios o desde los seleccionados (servicios de Azure Backup). Todos los datos o el tráfico se pueden enrutar por proxy o no.
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 

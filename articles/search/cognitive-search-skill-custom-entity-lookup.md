@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 5511551f240fe4fdd2f2aa3bc8a3a2615505f35f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 704763e8e6e7c5336d0ed3e1c28791fb96c77aba
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88936119"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97844936"
 ---
 #     <a name="custom-entity-lookup-cognitive-skill-preview"></a>Aptitud cognitiva de búsqueda de entidades personalizadas (versión preliminar)
 
@@ -41,7 +41,9 @@ Los parámetros distinguen mayúsculas de minúsculas.
 | `entitiesDefinitionUri`    | Ruta de acceso a un archivo JSON o CSV que contiene todo el texto de destino con el que debe coincidir. Esta definición de entidad se lee al principio de una ejecución del indexador; las actualizaciones en medio de la ejecución de este archivo no se realizarán hasta posteriores ejecuciones. Esta configuración debe ser accesible mediante HTTPS. Consulte [Formato de definición de entidad personalizada](#custom-entity-definition-format) que aparece más adelante para ver el esquema CSV o JSON esperado.|
 |`inlineEntitiesDefinition` | Definiciones de entidades JSON insertadas. Este parámetro reemplaza al parámetro entitiesDefinitionUri si existe. No se pueden proporcionar más de 10 KB de configuración en línea. Consulte [Definición de entidad personalizada](#custom-entity-definition-format) que aparece más adelante para ver el esquema JSON esperado. |
 |`defaultLanguageCode` |    (Opcional) Código de idioma del texto de entrada que se utiliza para dividir en tokens y definir el texto de entrada. Se admiten los siguientes idiomas: `da, de, en, es, fi, fr, it, ko, pt`. El idioma predeterminado es inglés (`en`). Si se pasa un formato “código de idioma-código de país”, solo se usa la parte “código de idioma” del formato.  |
-
+|`globalDefaultCaseSensitive` | (Opcional) Valor predeterminado que distingue mayúsculas y minúsculas en la aptitud. Si no se especifica el valor `defaultCaseSensitive` de una entidad, este se convertirá en el valor `defaultCaseSensitive` de esa entidad. |
+|`globalDefaultAccentSensitive` | (Opcional) Valor predeterminado que distingue acentos en la aptitud. Si no se especifica el valor `defaultAccentSensitive` de una entidad, este se convertirá en el valor `defaultAccentSensitive` de esa entidad. |
+|`globalDefaultFuzzyEditDistance` | (Opcional) Valor predeterminado de la distancia de edición de coincidencias parciales en la aptitud. Si no se especifica el valor `defaultFuzzyEditDistance` de una entidad, este se convertirá en el valor `defaultFuzzyEditDistance` de esa entidad. |
 
 ## <a name="skill-inputs"></a>Entradas de la aptitud
 
@@ -151,8 +153,10 @@ En las tablas siguientes se describe más detalladamente los distintos parámetr
 | `subtype` | (Opcional) Este campo se puede usar como paso a través de los metadatos personalizados acerca de los textos coincidentes. El valor de este campo aparecerá con cada coincidencia de su entidad en la salida de la aptitud. |
 | `id` | (Opcional) Este campo se puede usar como paso a través de los metadatos personalizados acerca de los textos coincidentes. El valor de este campo aparecerá con cada coincidencia de su entidad en la salida de la aptitud. |
 | `caseSensitive` | (Opcional) El valor predeterminado es "false". Valor booleano que indica si las comparaciones con el nombre de la entidad deben distinguir entre mayúsculas y minúsculas. Las coincidencias de "Microsoft" de ejemplo que no distinguen mayúsculas de minúsculas podrían ser: microsoft, microSoft, MICROSOFT |
+| `accentSensitive` | (Opcional) El valor predeterminado es "false". Valor booleano que indica si las letras acentuadas y no acentuadas, como "é" y "e", deben ser idénticas. |
 | `fuzzyEditDistance` | (Opcional) El valor predeterminado es 0. El valor máximo es 5. Indica el número aceptable de caracteres diferentes que seguirán constituyendo una coincidencia con el nombre de la entidad. Se devuelve el valor mínimo de coincidencia aproximada posible para cualquier coincidencia determinada.  Por ejemplo, si la distancia de edición se establece en 3, "Windows 10" todavía coincidiría con "Windows", "Windows10" y "Windows 7". <br/> Si la distinción entre mayúsculas y minúsculas está establecida en false, las diferencias entre mayúsculas y minúsculas NO cuentan para la tolerancia con la coincidencia aproximada. En caso contrario, sí lo hacen. |
-| `defaultCaseSensitive` | (Opcional) Cambia el valor predeterminado de distinción entre mayúsculas y minúsculas para esta entidad. Se utiliza para cambiar el valor predeterminado de todos los valores caseSensitive de los alias. |
+| `defaultCaseSensitive` | (Opcional) Cambia el valor predeterminado de distinción entre mayúsculas y minúsculas para esta entidad. Se puede usar para cambiar el valor predeterminado de todos los valores caseSensitive de los alias. |
+| `defaultAccentSensitive` | (Opcional) Cambia el valor predeterminado de distinción de acentos para esta entidad. Se puede usar para cambiar el valor predeterminado de todos los valores accentSensitive de los alias.|
 | `defaultFuzzyEditDistance` | (Opcional) Cambia el valor predeterminado de la distancia de edición de la coincidencia aproximada para esta entidad. Se puede utilizar para cambiar el valor predeterminado de todos los valores fuzzyEditDistance de los alias. |
 | `aliases` | (Opcional) Matriz de objetos complejos que se pueden usar para especificar ortografías o sinónimos alternativos al nombre de la entidad raíz. |
 
@@ -160,6 +164,7 @@ En las tablas siguientes se describe más detalladamente los distintos parámetr
 |------------------|-------------|
 | `text`  | Ortografía o representación alternativa de algún nombre de entidad de destino.  |
 | `caseSensitive` | (Opcional) Actúa igual que el parámetro "caseSensitive" de la entidad raíz anterior, pero solo se aplica a este alias. |
+| `accentSensitive` | (Opcional) Actúa igual que el parámetro "accentSensitive" de la entidad raíz anterior, pero solo se aplica a este alias. |
 | `fuzzyEditDistance` | (Opcional) Actúa igual que el parámetro "fuzzyEditDistance" de la entidad raíz anterior, pero solo se aplica a este alias. |
 
 

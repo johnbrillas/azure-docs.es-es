@@ -6,21 +6,18 @@ ms.subservice: sizes
 author: vikancha-MSFT
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 08/10/2020
+ms.date: 01/05/2021
 ms.author: vikancha
-ms.openlocfilehash: 2de6cceb1e3b85060a146b18a689b57573bc932e
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 6463e54fb7f0a2cc03ffa043c00048c1131899ce
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97585435"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97913437"
 ---
-# <a name="ncast4_v3-series-in-preview"></a>Serie NCasT4_v3 (en versión preliminar) 
+# <a name="ncast4_v3-series"></a>Serie NCasT4_v3 
 
 Las máquinas virtuales de la serie NCas T4_v3 usan la tecnología de las GPU [Nvidia Tesla T4](https://www.nvidia.com/en-us/data-center/tesla-t4/) y las CPU AMD EPYC 7V12 (Rome). Las máquinas virtuales incluyen hasta 4 GPU de NVIDIA T4 con 16 GB de memoria cada una, hasta 64 núcleos de procesador de AMD EPYC 7V12 (Rome) sin multiproceso, y 440 GiB de memoria del sistema. Estas máquinas virtuales son idóneas para implementar servicios de inteligencia artificial, como la inferencia en tiempo real de solicitudes generadas por el usuario, o bien para cargas de trabajo de visualización y gráficos interactivos mediante el controlador de GRID de NVIDIA y tecnología de GPU virtual. Las cargas de trabajo de proceso de GPU estándar basadas en CUDA, TensorRT, Caffe, ONNX y otros marcos de trabajo, o las aplicaciones gráficas con aceleración por GPU basadas en OpenGL y DirectX, se pueden implementar de forma económica, cerca de los usuarios, en la serie NCasT4_v3.
-
-> [!NOTe]
-> [Envíe una solicitud](https://aka.ms/NCT4v3Preview) para participar en el programa de versión preliminar.
 
 <br>
 

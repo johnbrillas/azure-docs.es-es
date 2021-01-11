@@ -10,13 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: panosper
-ms.custom: seodec18
-ms.openlocfilehash: 7b872340c50c800ebe4d4d6c7ca56b3b327bf162
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.custom: seodec18,references_regions
+ms.openlocfilehash: f11ccafd58cc64e6186ef590bbbccbfab3335ea4
+ms.sourcegitcommit: c538b6e4cf27b992500c079ad9c914c05d55eb7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95972660"
+ms.lasthandoff: 01/03/2021
+ms.locfileid: "97854866"
 ---
 # <a name="speech-service-supported-regions"></a>Regiones admitidas del servicio de voz
 
@@ -44,6 +44,8 @@ El servicio de voz está disponible en estas regiones para el **reconocimiento d
 
 Si usa el [SDK de Voz](speech-sdk.md), las regiones se especifican mediante el **identificador de región** (por ejemplo, como un parámetro de `SpeechConfig.FromSubscription`). Asegúrese de que la región coincide con la región de la suscripción.
 
+Si tiene previsto entrenar un modelo personalizado con datos de audio, use una de las [regiones con hardware dedicado](custom-speech-overview.md#set-up-your-azure-account) para agilizar el entrenamiento. Puede usar la [API de REST](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription) para copiar el modelo totalmente entrenado en otra región más adelante.
+
 ### <a name="intent-recognition"></a>Reconocimiento de la intención
 
 Las regiones disponibles para el **reconocimiento de la intención** mediante el SDK de Voz son las siguientes:
@@ -67,17 +69,21 @@ Se trata de un subconjunto de las regiones de publicación compatibles con el [s
 
 ### <a name="voice-assistants"></a>Asistentes de voz
 
-El [SDK de Voz](speech-sdk.md) admite funcionalidades de **asistente de voz** en estas regiones:
+El [SDK de voz](speech-sdk.md) admite las funcionalidades del **asistente para voz** mediante [Direct Line Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/direct-line-speech) en estas regiones:
 
-| Region         | Identificador de región |
-| -------------- | -------------------- |
-| Oeste de EE. UU.        | `westus`             |
-| Oeste de EE. UU. 2      | `westus2`            |
-| Este de EE. UU.        | `eastus`             |
-| Este de EE. UU. 2      | `eastus2`            |
-| Oeste de Europa    | `westeurope`         |
-| Norte de Europa   | `northeurope`        |
-| Sudeste de Asia | `southeastasia`      |
+| Región global | Region           | Identificador de región    |
+| ------------- | ---------------- | -------------------- |
+| Norteamérica | Oeste de EE. UU.          | `westus`             |
+| Norteamérica | Oeste de EE. UU. 2        | `westus2`            |
+| Norteamérica | Este de EE. UU.          | `eastus`             |
+| Norteamérica | Este de EE. UU. 2        | `eastus2`            |
+| Norteamérica | Centro-Oeste de EE. UU.  | `westcentralus`      |
+| Norteamérica | Centro-sur de EE. UU. | `southcentralus`     |
+| Europa        | Oeste de Europa      | `westeurope`         |
+| Europa        | Norte de Europa     | `northeurope`        |
+| Asia          | Este de Asia        | `eastasia`           |
+| Asia          | Sudeste de Asia   | `southeastasia`      |
+| India         | Centro de la India    | `centralindia`       |
 
 ### <a name="speaker-recognition"></a>Speaker Recognition
 

@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 76e19c36f0fa4096966c5dd23d2384b6b30f2271
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: ed57c496443c9d1541bfa9933e7718213da116d7
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95498867"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845607"
 ---
 # <a name="business-card-concepts"></a>Conceptos de tarjeta de presentación
 
@@ -374,7 +374,7 @@ Consulte el siguiente ejemplo de una respuesta JSON correcta: El nodo "readResul
 }
 ```
 
-Siga la guía de inicio rápido [Extracción de datos de tarjetas de presentación](./QuickStarts/python-business-cards.md) para implementar la extracción de datos de tarjeta de presentación con Python y la API REST.
+Siga el [inicio rápido](./QuickStarts/client-library.md) para implementar la extracción de datos de tarjeta de presentación con Python y la API REST.
 
 ## <a name="customer-scenarios"></a>Escenarios de cliente  
 
@@ -385,11 +385,11 @@ Los datos extraídos con la API de tarjeta de presentación se pueden usar para 
 * Realizar un seguimiento de los clientes potenciales.  
 * Extraer información de contacto en masa de imágenes de tarjetas de presentación existentes. 
 
-La API de tarjeta de presentación también impulsa la [característica de procesamiento de tarjetas de presentación de AI Builder](/ai-builder/prebuilt-business-card).
+Business Card API también contribuye a la [característica de procesamiento de tarjetas de presentación de AI Builder](/ai-builder/prebuilt-business-card).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Siga la [guía de inicio rápido de Python para la API de tarjeta de presentación](./quickstarts/python-business-cards.md) para empezar a reconocer tarjetas de presentación.
+- Para empezar a reconocer tarjetas de presentación, siga el [inicio rápido](./quickstarts/client-library.md).
 
 ## <a name="see-also"></a>Consulte también
 

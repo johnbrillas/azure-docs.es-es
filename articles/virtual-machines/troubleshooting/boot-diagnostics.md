@@ -10,12 +10,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: delhan
-ms.openlocfilehash: fbf8c1987a66cad6d9d9bc9dab829af4b42a224e
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 236390529ddaf84416448138d7b5bdf31caf681b
+ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91971564"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97827502"
 ---
 # <a name="how-to-use-boot-diagnostics-to-troubleshoot-virtual-machines-in-azure"></a>Uso de diagnósticos de arranque para solucionar problemas de máquinas virtuales en Azure
 
@@ -52,7 +52,7 @@ En la pestaña **Administración**, en la sección **Supervisión**, asegúrese 
 ![Creación de una máquina virtual](./media/virtual-machines-common-boot-diagnostics/enable-boot-diagnostics-vm.png)
 
 > [!NOTE]
-> La característica Diagnósticos de arranque no es compatible con las cuentas de almacenamiento prémium ni los tipos de cuenta de almacenamiento con redundancia de zona. Si usa la cuenta de almacenamiento premium con Diagnósticos de arranque, podría recibir el error StorageAccountTypeNotSupported al iniciar la máquina virtual.
+> La característica Diagnósticos de arranque no es compatible con las cuentas de almacenamiento premium ni con los tipos de cuenta de almacenamiento con redundancia de zona. Si usa la cuenta de almacenamiento premium con Diagnósticos de arranque, podría recibir el error StorageAccountTypeNotSupported al iniciar la máquina virtual.
 >
 
 ### <a name="deploying-from-an-azure-resource-manager-template"></a>Implementación a partir de una plantilla de Azure Resource Manager

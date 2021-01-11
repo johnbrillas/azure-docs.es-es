@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: trbye
-ms.openlocfilehash: 130cd643856b38471eac6d6869cdc1ed8b0bcd2e
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 5a912790b4a7a86c44576b98ce7e95f44b810c9e
+ms.sourcegitcommit: 697638c20ceaf51ec4ebd8f929c719c1e630f06f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499159"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857382"
 ---
 # <a name="train-and-deploy-a-custom-speech-model"></a>Entrenamiento e implementación de un modelo de Habla personalizada
 
@@ -67,7 +67,7 @@ Una vez implementado el punto de conexión, su nombre aparece como un vínculo. 
 
 ## <a name="view-logging-data"></a>Visualización de datos de registro
 
-Los datos de registro se pueden descargar en **Punto de conexión** > **Detalles**.
+Los datos de registro están disponibles para la exportación si consulta la página del punto de conexión en **Implementaciones**.
 > [!NOTE]
 >Los datos de registro están disponibles durante 30 días en el almacenamiento que pertenece a Microsoft. Transcurrido ese periodo se eliminarán. Si una cuenta de almacenamiento que pertenezca a un cliente está vinculada a la suscripción a Cognitive Services, los datos de registro no se eliminarán automáticamente.
 

@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to, contperf-fy21q1, deploy, devx-track-azurecli
+ms.custom: how-to, contperf-fy21q1, deploy
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/01/2020
-ms.openlocfilehash: d7540066ccc0d3a62dbd4012eee100d8e8aea98f
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 7ba01139e365b2f0023ef0784b6ed83e7bde609a
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505093"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97831741"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Implementación de un modelo en un clúster de Azure Kubernetes Service
 
@@ -91,6 +91,55 @@ El componente de front-end (azureml-fe) que enruta las solicitudes de inferencia
 Azureml-fe escala tanto verticalmente para usar más núcleos cono horizontalmente para usar más pods. Al tomar la decisión de escalar verticalmente, se utiliza el tiempo que se tarda en enrutar las solicitudes de inferencia entrantes. Si este tiempo supera el umbral, se produce una escalabilidad vertical. Si el tiempo para enrutar las solicitudes entrantes sigue superando el umbral, se produce una escalabilidad horizontal.
 
 Al reducir vertical y horizontalmente, se emplea el uso de la CPU. Si se cumple el umbral de uso de la CPU, el front-end se reducirá verticalmente en primer lugar. Si el uso de la CPU desciende hasta el umbral de reducción horizontal, se produce una operación de reducción horizontal. El escalado vertical y horizontal solo se producirá si hay suficientes recursos de clúster disponibles.
+
+## <a name="understand-connectivity-requirements-for-aks-inferencing-cluster"></a>Descripción de los requisitos de conectividad para el clúster de inferencia de AKS
+
+Cuando Azure Machine Learning crea o adjunta un clúster de AKS, el clúster de AKS se implementa con uno de los dos modelos de red siguientes:
+* Red de kubenet: los recursos de la red normalmente se crean y se configuran cuando se implementa el clúster de AKS.
+* Red de Azure Container Networking Interface (CNI) : el clúster de AKS se conecta a los recursos y configuraciones de la red virtual existentes.
+
+En el primer modo de red, las redes se crean y configuran correctamente para el servicio Azure Machine Learning. En el segundo modo de red, puesto que el clúster está conectado a una red virtual existente, especialmente cuando se usa un DNS personalizado para la red virtual existente, el cliente debe prestar especial atención a los requisitos de conectividad del clúster de inferencia de AKS y garantizar la resolución de DNS y la conectividad saliente para la inferencia de AKS.
+
+En el diagrama siguiente se capturan todos los requisitos de conectividad para inferencia de AKS. Las flechas negras representan la comunicación real y las flechas azules representan los nombres de dominio que el DNS controlado por el cliente debe resolver.
+
+ ![Descripción de los requisitos de conectividad para el clúster de inferencia de AKS](./media/how-to-deploy-aks/aks-network.png)
+
+### <a name="overall-dns-resolution-requirements"></a>Requisitos generales de resolución de DNS
+La resolución de DNS dentro de la VNET existente está bajo el control del cliente. Se deben poder resolver las siguientes entradas DNS:
+* Servidor de API de AKS en forma de \<cluster\>.hcp.\<region\>.azmk8s.io
+* Microsoft Container Registry (MCR): mcr.microsoft.com
+* Azure Container Registry del cliente (ARC) en forma de \<ACR name\>.azurecr.io
+* Cuenta de Azure Storage en forma de \<account\>.table.core.windows.net y \<account\>.blob.core.windows.net
+* (Opcional) Para la autenticación de AAD: api.azureml.ms
+* Nombre de dominio del punto de conexión de puntuación, generado automáticamente por Azure ML o nombre de dominio personalizado. El nombre de dominio generado automáticamente tendrá el siguiente aspecto: \<leaf-domain-label \+ auto-generated suffix\>.\<region\>.cloudapp.azure.com
+
+### <a name="connectivity-requirements-in-chronological-order-from-cluster-creation-to-model-deployment"></a>Requisitos de conectividad en orden cronológico: desde la creación de clústeres hasta la implementación de modelos
+
+En el proceso de creación o conexión de AKS, el enrutador de Azure ML (azureml-fe) se implementa en el clúster de AKS. Para implementar el enrutador de ML de Azure, el nodo AKS debe ser capaz de:
+* Resolver DNS para el servidor de API de AKS
+* Resolver DNS para MCR con el fin de descargar imágenes de Docker para el enrutador de Azure ML
+* Descargar imágenes de MCR, donde se requiere conectividad saliente
+
+Justo después de implementar azureml-fe, se intentará iniciar, y esto requiere:
+* Resolver DNS para el servidor de API de AKS
+* Consultar el servidor de API de AKS para detectar otras instancias de sí mismo (es un servicio multipod)
+* Conectarse a otras instancias de sí mismo
+
+Una vez que se inicia azureml-fe, se requiere conectividad adicional para funcionar correctamente:
+* Conectarse a Azure Storage para descargar la configuración dinámica
+* Resolver DNS para el servidor de autenticación de AAD api.azureml.ms y comunicarse con él cuando el servicio implementado use la autenticación de AAD.
+* Consultar al servidor API de AKS para detectar modelos implementados
+* Comunicar con modelos POD implementados
+
+En el momento de la implementación del modelo, para un nodo AKS de implementación de modelo correcta, debe ser capaz de: 
+* Resolver DNS para ACR del cliente
+* Descargar imágenes del ACR del cliente
+* Resolver DNS para Azure BLOB donde se almacena el modelo
+* Descargar modelos de Azure BLOB
+
+Una vez implementado el modelo y cuando se inicie el servicio, azureml-fe lo detectará automáticamente mediante la API de AKS y estará listo para enrutar la solicitud al mismo. Debe ser capaz de comunicarse con los POD modelo.
+>[!Note]
+>Si el modelo implementado requiere cualquier conectividad (por ejemplo, consultar la base de datos externa u otro servicio REST, descargar un BLOG, etc.), se debe habilitar la resolución DNS y la comunicación saliente para estos servicios.
 
 ## <a name="deploy-to-aks"></a>Implementación en AKS
 

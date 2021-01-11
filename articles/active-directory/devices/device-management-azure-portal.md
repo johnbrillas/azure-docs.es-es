@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: hafowler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4077ade7de93470aaf03acef1dc1cefca8bd3d4
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 7f142aa4ca203a65c45741f87853579ca60e1879
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94837369"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97831761"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Administración de identidades de dispositivos con Azure Portal
 
@@ -165,10 +165,10 @@ Debe tener asignado uno de los roles siguientes para ver o administrar la config
 
 - **Administradores locales adicionales en dispositivos unidos a Azure AD**: puede seleccionar a qué usuarios se conceden derechos de administrador local en un dispositivo. Estos usuarios se agregan al rol *Administradores de dispositivos* en Azure AD. De forma predeterminada, a los administradores globales de Azure AD y a los propietarios de dispositivos se les conceden derechos de administrador local. Esta opción es una capacidad de la edición Premium disponible en productos como Azure AD Premium o Enterprise Mobility Suite (EMS).
 - **Los usuarios pueden registrar sus dispositivos con Azure AD**: esta opción se debe configurar para que los dispositivos con Windows 10 personal, iOS, Android y macOS se puedan registrar en Azure AD. Si selecciona **Ninguno**, los dispositivos no podrán registrarse con Azure AD. La inscripción en Microsoft Intune o Administración de dispositivos móviles (MDM) para Microsoft 365 exige registrarse. Si ha configurado alguno de estos servicios, se selecciona **TODOS** y **NINGUNO** no está disponible.
-- **Requerir Multi-Factor Authentication para unir dispositivos**: puede decidir si se exige a los usuarios proporcionar un factor de autenticación adicional para unir su dispositivo a Azure AD. El valor predeterminado es **No**. Se recomienda exigir Multi-Factor Authentication al registrar un dispositivo. Antes de habilitar Multi-Factor Authentication para este servicio, debe asegurarse de que está configurado para los usuarios que registran sus dispositivos. Para obtener más información sobre los distintos servicios de Azure AD Multi-Factor Authentication, consulte [Introducción a Azure AD Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md). 
+- **Requerir Multi-Factor Authentication para unir dispositivos**: puede decidir si se exige a los usuarios proporcionar un factor de autenticación adicional para unir o registrar su dispositivo a Azure AD. El valor predeterminado es **No**. Se recomienda exigir Multi-Factor Authentication al registrar o unir un dispositivo. Antes de habilitar Multi-Factor Authentication para este servicio, debe asegurarse de que está configurado para los usuarios que registran sus dispositivos. Para obtener más información sobre los distintos servicios de Azure AD Multi-Factor Authentication, consulte [Introducción a Azure AD Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md). 
 
 > [!NOTE]
-> La configuración de **Requerir Multi-factor Authentication para unir dispositivos** se aplica a los dispositivos que están unidos a Azure AD o registrados en Azure AD. Este parámetro no se aplica a los dispositivos unidos a Azure AD híbrido.
+> La configuración de **Requerir Multi-factor Authentication para unir dispositivos** se aplica a los dispositivos que están unidos a Azure AD (con algunas excepciones) o registrados en Azure AD. Esta configuración no se aplica a los dispositivos unidos a Azure AD híbrido, a las [máquinas virtuales unidas a Azure AD en Azure](/azure/active-directory/devices/howto-vm-sign-in-azure-ad-windows#enabling-azure-ad-login-in-for-windows-vm-in-azure) ni a dispositivos unidos a Azure AD mediante el [modo de autoimplementación de Windows Autopilot](/mem/autopilot/self-deploying).
 
 - **Número máximo de dispositivos**: esta opción permite seleccionar el número máximo de dispositivos unidos a Azure AD o registrados en Azure AD que puede tener un usuario en Azure AD. Si un usuario alcanza esta cuota, no puede agregar dispositivos adicionales hasta que se quitan uno o varios de los dispositivos existentes. El valor predeterminado es **50**.
 

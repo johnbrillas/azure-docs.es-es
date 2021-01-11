@@ -7,12 +7,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/21/2020
-ms.openlocfilehash: b8f9759d19089f74d62def41b205d862ce9a7d43
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 0d732fd484e9ca4788204d726286503296bec8ab
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359734"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97822104"
 ---
 # <a name="azure-hdinsight-40-overview"></a>Introducción a Azure HDInsight 4.0
 
@@ -100,7 +100,7 @@ No hay ninguna ruta de actualización a HDInsight 4.0 que se admita desde versi
 * La vista de Hive solo está disponible en clústeres de HDInsight 4.0 con un número de versión igual o superior a 4.1. Este número de versión está disponible en Ambari Admin -> Versions (Administración de Ambari > Versiones).
 * No se admite el intérprete de shell de Apache Zeppelin en clústeres de Spark e Interactive Query.
 * No puede *deshabilitar* LLAP en un clúster LLAP de Spark. Solo puede desactivarlo.
-* Azure Data Lake Storage Gen2 no puede guardar cuadernos de Jupyter en un clúster de Spark.
+* Azure Data Lake Storage Gen2 no puede guardar cuadernos de Jupyter Notebooks en un clúster de Spark.
 * Apache Pig se ejecuta en Tez de forma predeterminada, pero puede cambiarlo a MapReduce.
 * La integración con Spark SQL Ranger para la seguridad de filas y columnas está en desuso
 * Spark 2.4 y Kafka 2.1 están disponibles en HDInsight 4.0, por lo que Spark 2.3 y Kafka 1.1 ya no se admiten. Se recomienda usar Spark 2.4 y Kafka 2.1 y versiones posteriores en HDInsight 4.0.

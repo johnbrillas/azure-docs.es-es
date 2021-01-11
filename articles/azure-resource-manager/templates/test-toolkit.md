@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 09/02/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 29ebe2f0ec4d4c39154272bbbdf4d0c9ede9fd95
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: e5ad0b6dca7718166517b52148fbc6dd49f38869
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928195"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97674019"
 ---
 # <a name="use-arm-template-test-toolkit"></a>Uso del kit de herramientas para pruebas de plantillas de ARM
 
@@ -282,4 +282,5 @@ En el ejemplo siguiente se muestra cómo ejecutar las pruebas.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre las pruebas predeterminadas, consulte [Casos de prueba predeterminados del kit de herramientas para pruebas de plantillas de Resource Manager](test-cases.md).
+- Para más información sobre las pruebas predeterminadas, consulte [Casos de prueba predeterminados del kit de herramientas para pruebas de plantillas de Resource Manager](test-cases.md).
+- Para información sobre un módulo de Microsoft Learn que abarque el uso del kit de herramientas de pruebas, consulte [Obtención de una vista previa de los cambios y validación de recursos de Azure mediante What If y el kit de herramientas de pruebas de plantillas de Resource Manager](/learn/modules/arm-template-test/).

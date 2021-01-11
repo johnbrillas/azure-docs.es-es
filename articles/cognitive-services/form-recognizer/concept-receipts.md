@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 769dea079339af2c6307d9230e047a654dc3d5dd
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 82f6c5989149b50a1ef5e6c6fb5350d474476436
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95492217"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845478"
 ---
 # <a name="receipt-concepts"></a>Conceptos de recepción
 
@@ -456,12 +456,11 @@ El resultado de Receipt también es útil para el registro contable general para
 
 Los recibos contienen datos útiles que puede utilizar para analizar el comportamiento del consumidor y las tendencias de compra.
 
-Receipt API también impulsa la [característica de procesamiento de recibos de AI Builder](/ai-builder/prebuilt-receipt-processing).
+Receipt API también contribuye a la [característica de procesamiento de recibos de AI Builder](/ai-builder/prebuilt-receipt-processing).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Lea la [guía de inicio rápido de la biblioteca cliente de Form Recognizer](quickstarts/client-library.md) completa para empezar a escribir una aplicación de procesamiento de recibos con Form Recognizer en el lenguaje de su elección.
-- O bien, siga la [guía de inicio rápido de Python para Receipt API](./quickstarts/python-receipts.md) a fin de reconocer los recibos mediante la API de REST.
+- Realice un [inicio rápido de Form Recognizer](quickstarts/client-library.md) para empezar a escribir una aplicación de procesamiento de recibos con Form Recognizer en el lenguaje de su elección.
 
 ## <a name="see-also"></a>Consulte también
 

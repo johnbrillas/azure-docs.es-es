@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 07/20/2020
+ms.date: 12/18/2020
 ms.author: alkohli
-ms.openlocfilehash: 7d2734d386f1e49e2227058b148ee6b591d14a42
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 46a18cb2b6e1682427d5674be28b240f35b120fe
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94336503"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97678651"
 ---
 # <a name="use-the-azure-portal-to-administer-your-azure-data-box-and-azure-data-box-heavy"></a>Use Azure Portal para administrar Azure Data Box y Azure Data Box Heavy
 
@@ -21,20 +21,17 @@ La información de este artículo se aplica tanto a Azure Data Box como a Azure 
 
 Este artículo se centra en las tareas que se pueden realizar mediante Azure Portal. Use Azure Portal para administrar los pedidos y el dispositivo Data Box, y realizar un seguimiento del estado del pedido hasta que se completa.
 
-[!INCLUDE [Data Box feature is in preview](../../includes/data-box-feature-is-preview-info.md)]
-
-
 ## <a name="cancel-an-order"></a>Cancelación de un pedido
 
-Es posible que deba cancelar un pedido por diversos motivos después de realizarlo. 
+Es posible que, después de realizar un pedido, deba cancelarlo por diversos motivos.
 
-En el caso de los pedidos de importación y exportación, solo puede cancelar el pedido antes de procesarlo. Una vez que el pedido se haya procesado y el dispositivo Data Box esté preparado, no es posible cancelarlo.
+Si son pedidos de importación y exportación, solo puede cancelarlos antes de procesarlos. Una vez que se procesa el pedido y el dispositivo Data Box está preparado, no se puede cancelar el pedido.
 
 Realice los pasos siguientes para cancelar un pedido.
 
 1.  Vaya a **Overview > Cancel** (Información general > Cancelar).
 
-    ![Comando para cancelar en la pestaña de información general de un pedido](media/data-box-portal-admin/portal-admin-cancel-command.png)
+    ![Comando Cancelar en la pestaña Información general de un pedido](media/data-box-portal-admin/portal-admin-cancel-command.png)
 
 2.  Indique un motivo para cancelar el pedido.  
 
@@ -44,16 +41,13 @@ Realice los pasos siguientes para cancelar un pedido.
 
 ## <a name="clone-an-order"></a>Clonación de un pedido
 
-La clonación es útil en determinadas situaciones. Por ejemplo, un usuario ha usado Data Box para transferir algunos datos. A medida que se generan más datos, se necesita otro dispositivo Data Box para transferirlos a Azure. En este caso, simplemente se puede clonar el mismo pedido.
-
-> [!IMPORTANT]
-> La clonación no está disponible para los pedidos de exportación. Solo puede clonar pedidos de importación.
+La clonación es útil en determinadas situaciones. Por ejemplo, ha usado Data Box para transferir algunos datos. A medida que se generan más datos, debe usar otro dispositivo Data Box para transferir esos datos a Azure. En este caso, solo puede clonar el mismo pedido.
 
 Realice los pasos siguientes para clonar un pedido de importación.
 
 1.  Vaya a **Overview > Clone** (Información general > Clonar). 
 
-    ![Comando para clonar en la pestaña de información general de un pedido](media/data-box-portal-admin/portal-admin-clone-command.png)
+    ![Comando Clonar en la pestaña Información general de un pedido](media/data-box-portal-admin/portal-admin-clone-command.png)
 
 2.  Todos los detalles del pedido permanecen iguales. El nombre del pedido es el del pedido original seguido de *-Clone*. Seleccione la casilla para confirmar que ha revisado la información de privacidad. Haga clic en **Crear**.
 
@@ -76,7 +70,7 @@ Solo se pueden eliminar pedidos completados o cancelados. Realice los siguientes
 
 ## <a name="download-shipping-label"></a>Descarga de la etiqueta de envío
 
-Deberá descargar la etiqueta de envío si no funciona la pantalla de tinta electrónica de su Data Box y no muestra la etiqueta de envío de devolución. No hay ninguna pantalla de E-ink en Data Box Heavy y, por tanto, este flujo de trabajo no es aplicable a Data Box Heavy.
+Puede que deba descargar la etiqueta de envío de devolución si no funciona la pantalla de E-ink de su Data Box y no se muestra dicha etiqueta. No hay ninguna pantalla de E-ink en Data Box Heavy, por lo que este flujo de trabajo no es aplicable a Data Box Heavy.
 
 Siga estos pasos para descargar una etiqueta de envío.
 
@@ -104,13 +98,13 @@ Realice los pasos siguientes para editar el pedido.
 
 ## <a name="edit-notification-details"></a>Edición de los detalles de la notificación
 
-Es posible que deba cambiar los usuarios que desea que reciban los mensajes de estado del pedido. Por ejemplo, hay que informar a un usuario cuando se entrega o recoge el dispositivo. Puede que sea necesario informar a otro usuario cuando se completa la copia de datos para que pueda comprobar que están en la cuenta de almacenamiento de Azure antes de eliminarlos del origen. En estos casos, puede editar los detalles de notificación.
+Es posible que deba cambiar los usuarios que reciben los mensajes de estado del pedido. Por ejemplo, hay que informar a un usuario cuando se entrega o recoge el dispositivo. Puede que sea necesario informar a otro usuario cuando se completa la copia de datos para que pueda comprobar que están en la cuenta de almacenamiento de Azure antes de eliminarlos del origen. En estos casos, puede editar los detalles de notificación.
 
 Realice los siguientes pasos para editar una plantilla de notificación.
 
 1. Vaya a **Order details > Edit notification details** (Detalles de pedidos > Editar detalles de la notificación).
 
-    ![Comando para editar los detalles de la notificación en los detalles del pedido](media/data-box-portal-admin/portal-admin-edit-notification-details-command.png)
+    ![Comando Editar detalles de la notificación en los detalles del pedido](media/data-box-portal-admin/portal-admin-edit-notification-details-command.png)
 
 2. Ahora puede editar los detalles de la notificación y, a continuación, guardar los cambios.
  
@@ -127,10 +121,10 @@ Realice los siguientes pasos para descargar el historial de pedidos.
 
     ![Descarga del historial de pedidos](media/data-box-portal-admin/portal-admin-download-order-history.png)
 
-2. Haga clic en **Descargar el historial de pedidos**. En el historial descargado verá un registro de las entradas de seguimiento del transportista. Habrá dos conjuntos de registros correspondientes a los dos nodos en un dispositivo Data Box Heavy. Al desplazarse hasta el final de este registro verá los vínculos a:
+2. Haga clic en **Descargar el historial de pedidos**. El historial descargado incluye un registro de las entradas de seguimiento del transportista. Habrá dos conjuntos de registros correspondientes a los dos nodos de un dispositivo Data Box Heavy. Al desplazarse hasta el final de este registro verá los vínculos a:
     
-   - **Registros de copia**: lista de los archivos sin errores durante la copia de datos de Data Box a la cuenta de almacenamiento de Azure (pedido de importación) o *viceversa* (pedido de exportación).
-   - **Registros de auditoría**: Contienen información sobre cómo encender y compartir los recursos compartidos en Data Box cuando está fuera del centro de datos de Azure.
+   - **Registros de copia**: lista de los archivos con errores durante la copia de datos de Data Box a la cuenta de almacenamiento de Azure (pedido de importación) o viceversa (pedido de exportación).
+   - **Registros de auditoría**: contienen información sobre cómo encender el dispositivo Data Box y acceder a los recursos compartidos que contiene cuando dicho dispositivo está fuera del centro de datos de Azure.
    - **Archivos BOM en el pedido de importación**: lista de archivos (también conocida como el manifiesto de archivos) que puede descargar durante el proceso de **Preparación para el envío** y que tiene los nombres de archivo, los tamaños de archivo y las sumas de comprobación de archivo.
    - **Registros detallados en el pedido de exportación**: lista de archivos con nombres de archivo, tamaños de archivo y cálculos de suma de comprobación cuando se copian los datos de las cuentas de Azure Storage a Data Box.
 
@@ -214,7 +208,7 @@ Estos son los estados para un pedido de importación.
 
 |Estado del pedido |Descripción |
 |---------|---------|
-|Ordered (Realizado)     | Se ha realizado correctamente un pedido. <br>Si el dispositivo está disponible, Microsoft identifica uno para el envío y lo prepara. <br> Si el dispositivo no está disponible inmediatamente, el pedido se procesará cuando el dispositivo esté disponible. El pedido puede tardar varios días o un par de meses en procesarse. Si el pedido no se puede completar en 90 días, se cancela el pedido y se le notifica.         |
+|Ordered (Realizado)     | Se ha realizado correctamente un pedido. <br>Si el dispositivo está disponible, Microsoft identifica uno para el envío y lo prepara. <br> Si el dispositivo no está disponible inmediatamente, el pedido se procesará cuando lo esté. El pedido puede tardar varios días o un par de meses en procesarse. Si el pedido no se puede completar en 90 días, se cancela y se le envía una notificación al respecto.         |
 |Processed (Procesado)     | El procesamiento del pedido está completado. Según su pedido, el dispositivo se prepara para su envío en el centro de datos.         |
 |Dispatched (Enviado)     | Ha enviado el pedido. Use el identificador de seguimiento que se muestra en el pedido del portal para realizar un seguimiento del envío.        |
 |Delivered (Entregado)     | El envío se entregó a la dirección especificada.        |
@@ -224,7 +218,7 @@ Estos son los estados para un pedido de importación.
 |Completed       |El pedido se realizó correctamente.<br> Compruebe que los datos están en Azure antes de eliminarlos en el entorno local de los servidores.         |
 |Completed with errors (Completado con errores)| Se completó la copia de datos pero se produjeron errores durante la copia. <br> Revise los registros de copia con la ruta de acceso proporcionada en Azure Portal. Consulte los [ejemplos de registros de copia cuando la carga se completa con errores](./data-box-logs.md#upload-completed-with-errors).   |
 |Completado con advertencias| Se completó la copia de datos, pero se modificaron los datos. Los datos tenían errores de nombre de archivo o blob no críticos que se corrigieron cambiando los nombres de archivo o blob. <br> Revise los registros de copia con la ruta de acceso proporcionada en Azure Portal. Tome nota de las modificaciones en los datos. Consulte los [ejemplos de registros de copia cuando la carga se completa con advertencias](./data-box-logs.md#upload-completed-with-warnings).   |
-|Canceled            |El pedido se ha cancelado. <br> Se canceló el pedido o se produjo un error y el servicio lo canceló. Si el pedido no se puede completar en 90 días, también se cancela el pedido y se le notifica.     |
+|Canceled            |El pedido se ha cancelado. <br> Se canceló el pedido o el servicio lo canceló después de que se produjera un error. Si el pedido no se puede completar en 90 días, también se cancela el pedido y se le envía una notificación al respecto.     |
 |Limpieza | Se borran los datos en los discos del dispositivo. La limpieza del dispositivo se considera completa cuando el historial de pedidos está disponible para su descarga en Azure Portal.|
 
 ### <a name="statuses-for-export-order"></a>Estados del pedido de exportación
@@ -237,10 +231,10 @@ Estos son los estados para un pedido de exportación.
 |Canceled            |El pedido se ha cancelado. <br> Se canceló el pedido (solo puede cancelar antes de que se procese) o se detectó un error y el servicio canceló el pedido. Si el pedido no se puede completar en 90 días, también se cancela el pedido y se le notifica.     |
 |Processed (Procesado)     | El procesamiento del pedido está completado. Según su pedido, el dispositivo se prepara para la copia de datos en el centro de datos. Se crean recursos compartidos de dispositivos.         |
 |Copia de datos en curso     | La copia de datos de las cuentas de Azure Storage especificadas en el dispositivo está en curso. Realice un seguimiento del progreso de la copia del pedido en Azure Portal. <br> Espere hasta que se complete. |
-|Copia completada     | Se completó la copia de datos de las cuentas de Azure Storage especificadas en el dispositivo. Un archivo de registro detallado (si la opción se habilitó en el pedido) y un registro de copia se crean en la cuenta de almacenamiento. El registro detallado contiene información sobre todos los archivos (nombre, ruta de acceso, suma de comprobación de cálculo) que se copian en el dispositivo. El registro de copia contiene el resumen del proceso de copia que incluye una lista de archivos que no se pudieron copiar debido a errores.<br> Los datos de la cuenta de almacenamiento permanecen tal cual. |
+|Copia completada     | Se completó la copia de datos de las cuentas de Azure Storage especificadas en el dispositivo. Un archivo de registro detallado (si la opción se habilitó en el pedido) y un registro de copia se crean en la cuenta de almacenamiento. El registro detallado contiene información sobre todos los archivos (nombre, ruta de acceso, suma de comprobación de cálculo) que se copian en el dispositivo. El registro de copia contiene el resumen del proceso de copia, que incluye una lista de archivos que no se pudieron copiar debido a errores. <br> Los datos de la cuenta de almacenamiento permanecen tal cual. |
 |Copia completada con errores| Se completó la copia de datos pero se produjeron errores durante la copia. <br> Revise los registros de copia de la cuenta de Azure Storage mediante la ruta de acceso proporcionada en Azure Portal. Consulte los [ejemplos de registros de copia cuando la descarga se completó con errores](./data-box-logs.md#upload-completed-with-errors).   |
 |Copia completada con advertencias| Se completó la copia de datos de la cuenta de Azure Storage, pero los datos tenían errores no críticos. <br> Revise los registros de copia con la ruta de acceso proporcionada en Azure Portal. Tome nota de los errores no críticos. Consulte los [ejemplos de registros de copia cuando la descarga se completó con advertencias](./data-box-logs.md#upload-completed-with-warnings).   |
-|Error de copia| No se pudo realizar la copia de datos de la cuenta de Azure Storage y se terminó el pedido. No se enviará un dispositivo.<br> Revise los registros de copia de la cuenta de Azure Storage mediante la ruta de acceso proporcionada en Azure Portal. Consulte los [ejemplos de registros de copia cuando la descarga produjo errores](./data-box-logs.md#upload-completed-with-errors).   |
+|Error de copia| No se pudo realizar la copia de datos de la cuenta de Azure Storage y se terminó el pedido. No se enviará un dispositivo. <br> Revise los registros de copia de la cuenta de Azure Storage mediante la ruta de acceso proporcionada en Azure Portal. Consulte los [ejemplos de registros de copia cuando la descarga produjo errores](./data-box-logs.md#upload-completed-with-errors).   |
 |Dispatched (Enviado)     |Ha enviado el pedido. Use el identificador de seguimiento que se muestra en el pedido del portal para realizar un seguimiento del envío.        |
 |Delivered (Entregado)     |El envío se entregó a la dirección especificada.        |
 |Picked up (Recogido)     |El transportista recogió y analizó el envío de devolución.         |
@@ -259,7 +253,7 @@ Si usa el envío autoadministrado, una vez completada la copia y antes de recibi
 |Listo para la recogida en el centro de datos de Azure      |El dispositivo está listo para su recogida en el centro de datos de Azure.        |
 |Picked up (Recogido)    |Ha recogido el dispositivo.         |
 |Listo para recibir en el centro de datos de Azure     |El dispositivo está listo para recibirse en el centro de datos de Azure.        |
-|Received     |El dispositivo se recibió en el centro de datos de Azure.      |
+|Received     |El dispositivo se ha recibido en el centro de datos de Azure.      |
 
 
 

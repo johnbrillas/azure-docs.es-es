@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
-ms.openlocfilehash: 817b8976f5d014d990945816c2df1c7e8ed729fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 366c77ff94773163b71845b1ccbc6072c503734a
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86084892"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97822308"
 ---
 # <a name="debug-apache-spark-jobs-running-on-azure-hdinsight"></a>Depuración de trabajos de Apache Spark que se ejecutan en Azure HDInsight
 
@@ -40,7 +40,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
     ![El servidor de historial de Spark busca el identificador de aplicación de Spark](./media/apache-spark-job-debugging/find-application-id1.png)
 
-    Para estas aplicaciones que se inician desde los cuadernos de Jupyter Notebook, el estado es siempre **RUNNING** (EN EJECUCIÓN) hasta que sale del cuaderno.
+    Para estas aplicaciones que se inician desde los cuadernos de Jupyter Notebook, el estado es siempre **EN EJECUCIÓN** hasta que se sale del cuaderno.
 
 3. En la vista de la aplicación, puede explorar más en profundidad para averiguar los contenedores asociados con la aplicación y los registros (stdout y stderr). También puede iniciar la interfaz de usuario de Spark haciendo clic en el vínculo correspondiente a la **Dirección URL de seguimiento**, tal como se muestra a continuación.
 

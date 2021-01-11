@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 5/31/2019
 ms.subservice: alerts
-ms.openlocfilehash: 9f8004b41e8048dfc97fb61bb67a634963c0c575
-ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
+ms.openlocfilehash: a913bc0ae01507cb26c1650d63918a8319eeacf4
+ms.sourcegitcommit: 697638c20ceaf51ec4ebd8f929c719c1e630f06f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96317561"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857433"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Alertas de registro en Azure Monitor
 
@@ -120,6 +120,8 @@ En las áreas de trabajo y Application Insights, solo se admite en el tipo de me
 ### <a name="split-by-alert-dimensions"></a>División por dimensiones de alerta
 
 Puede dividir las alertas por columnas de número o de cadena en alertas independientes mediante la agrupación en combinaciones únicas. Al crear alertas orientadas a recursos a gran escala (con un ámbito de suscripción o grupo de recursos), puede dividirlas por columna de identificador de recurso de Azure. La división según la columna de identificador de recurso de Azure cambiará el destino de la alerta al recurso especificado.
+
+Se recomienda dividir por la columna de identificador de recursos de Azure cuando quiera supervisar la misma condición en varios recursos de Azure. Por ejemplo, supervisar un uso de la CPU superior al 80 % en todas las máquinas virtuales. También puede decidir no dividir cuando quiera supervisar una condición en varios recursos del ámbito, por ejemplo, supervisar que al menos cinco máquinas del ámbito del grupo de recursos tengan un uso de CPU superior al 80 %.
 
 En las áreas de trabajo y Application Insights, solo se admite en el tipo de medida **Unidades métricas**. El campo se denomina **Agregado en**. Se limita a tres columnas. Si hay más de tres columnas de agrupación en la consulta, pueden producirse resultados inesperados. En los demás tipos de recursos, se configura en la sección **Split by dimensions** (Dividir por dimensiones) de la condición (se limita a seis divisiones).
 

@@ -12,12 +12,12 @@ ms.date: 11/17/2020
 ms.author: aahi
 ms.custom: cog-serv-seo-aug-2020
 keywords: entorno local, Docker, contenedor
-ms.openlocfilehash: 2123098aafb414495f55d557ac1546819c25fdad
-ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
+ms.openlocfilehash: 829514637b72582dbb317970b0d23f92eb11bcad
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97822070"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97862294"
 ---
 # <a name="install-and-run-docker-containers-for-the-speech-service-apis"></a>Instalación y ejecución de contenedores de Docker para las API del servicio de voz 
 
@@ -748,10 +748,6 @@ Los contenedores de Voz envían información de facturación a Azure mediante un
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 Para obtener más información acerca de estas opciones, consulte [Configure containers](speech-container-configuration.md) (Configuración de contenedores).
-
-<!--blogs/samples/video courses -->
-
-[!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
 ## <a name="summary"></a>Resumen
 

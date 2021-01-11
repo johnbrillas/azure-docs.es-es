@@ -37,7 +37,7 @@
       href: tutorial-cross-region-portal.md
 - name: Ejemplos
   items:
-    - name: Azure CLI
+    - name: CLI de Azure
       href: cli-samples.md
     - name: Azure PowerShell
       href: powershell-samples.md
@@ -111,7 +111,7 @@
           href: upgrade-InternalBasic-To-PublicStandard.md
     - name: Creación de Load Balancer público con IPv6
       items:
-        - name: Azure CLI
+        - name: CLI de Azure
           href: ../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md
         - name: Azure PowerShell
           href: ../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
@@ -146,11 +146,15 @@
       items:
         - name: Solución de problemas de Azure Load Balancer
           href: load-balancer-troubleshoot.md
-        - name: Solución de errores de implementación comunes
+        - name: Estado del sondeo
+          href: load-balancer-troubleshoot-health-probe-status.md
+        - name: Tráfico de grupo de back-end (VM)
+          href: load-balancer-troubleshoot-backend-traffic.md
+        - name: Errores de implementación frecuentes
           href: load-balancer-common-deployment-errors.md
-        - name: Solución de problemas comunes de la conexión saliente
+        - name: Problemas comunes de la conexión saliente
           href: troubleshoot-outbound-connection.md
-        - name: Solución de problemas de estado y disponibilidad de entrada de los recursos
+        - name: Problemas de estado y de disponibilidad de entrada de los recursos
           href: troubleshoot-rhc.md
 - name: Referencia
   items:
@@ -158,7 +162,7 @@
       href: 'https://azure.microsoft.com/resources/samples/?service=load-balancer'
     - name: Azure PowerShell
       href: /powershell/module/az.network
-    - name: Azure CLI
+    - name: CLI de Azure
       href: /cli/azure/network/lb
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.network.models

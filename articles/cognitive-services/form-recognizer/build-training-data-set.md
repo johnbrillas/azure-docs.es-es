@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: pafarley
-ms.openlocfilehash: 513d98ae274c668197b066c742119055248f37f9
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 661b0bbf1aa389dc76567d95ad917548255a1b35
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92911722"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845589"
 ---
 # <a name="build-a-training-data-set-for-a-custom-model"></a>Creación de un conjunto de datos de aprendizaje para un modelo personalizado
 
@@ -72,11 +72,8 @@ Si agrega el contenido siguiente al cuerpo de la solicitud, la API se entrenará
 
 Ahora que aprendió a crear un conjunto de datos de aprendizaje, siga un inicio rápido para entrenar a un modelo personalizado de Form Recognizer y empezar a usarlo en los formularios.
 
-* [Entrenamiento de un modelo y extracción de datos de formularios mediante la biblioteca cliente](./quickstarts/client-library.md)
-* [Entrenamiento de un modelo y extracción de datos de formularios mediante cURL](./quickstarts/curl-train-extract.md)
-* [Entrenamiento de un modelo y extracción de datos de formularios mediante la API REST y Python](./quickstarts/python-train-extract.md)
+* [Entrenamiento de un modelo y extracción de datos de formularios mediante la biblioteca cliente o la API de REST](./quickstarts/client-library.md)
 * [Entrenamiento con etiquetas mediante la herramienta de etiquetado de ejemplo](./quickstarts/label-tool.md)
-* [Entrenamiento con etiquetas mediante la API de REST y Python](./quickstarts/python-labeled-data.md)
 
 ## <a name="see-also"></a>Consulte también
 

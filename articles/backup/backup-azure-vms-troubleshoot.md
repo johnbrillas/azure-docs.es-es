@@ -4,12 +4,12 @@ description: En este artículo, aprenderá a solucionar los errores detectados a
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: cb25d9263648fbd92bc075751c1a8e627d03bd44
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 2cda13ea089ac08dff7c1ba5ca93ba56ab3c23cf
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325220"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97831557"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Solución de errores de copia de seguridad en las máquinas virtuales de Azure
 
@@ -73,6 +73,16 @@ Mensaje de error: No se pudieron inmovilizar uno o varios puntos de montaje de l
 * Desmonte los dispositivos cuyo estado del sistema de archivos no estuviera limpio; para ello, use el comando **umount**.
 * Ejecute una comprobación de coherencia del sistema de archivos en estos dispositivos mediante el comando **fsck**.
 * Vuelva a montar los dispositivos e intente realizar de nuevo la operación de copia de seguridad.</ol>
+
+Si no puede desmontar los dispositivos, puede actualizar la configuración de copia de seguridad de la máquina virtual para omitir determinados puntos de montaje. Por ejemplo, si el punto de montaje "mnt/resource" no se puede desmontar y provoca errores de copia de seguridad de la máquina virtual, puede actualizar los archivos de configuración de copia de seguridad de la máquina virtual con la propiedad ```MountsToSkip```, como se indica a continuación.
+
+```bash
+cat /var/lib/waagent/Microsoft.Azure.RecoveryServices.VMSnapshotLinux-1.0.9170.0/main/tempPlugin/vmbackup.conf[SnapshotThread]
+fsfreeze: True
+MountsToSkip = /mnt/resource
+SafeFreezeWaitInSeconds=600
+```
+
 
 ### <a name="extensionsnapshotfailedcom--extensioninstallationfailedcom--extensioninstallationfailedmdtc---extension-installationoperation-failed-due-to-a-com-error"></a>ExtensionSnapshotFailedCOM/ExtensionInstallationFailedCOM / ExtensionInstallationFailedMDTC: La instalación de la extensión o la operación no se realizaron correctamente debido a un error de COM+
 

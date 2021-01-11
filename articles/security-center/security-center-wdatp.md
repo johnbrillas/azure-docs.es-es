@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/20/2020
 ms.author: memildin
-ms.openlocfilehash: 5645a2e0449a1929421f9444bf645f08ad0525e9
-ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
+ms.openlocfilehash: 10fa47a8f613218b1331259040be77df867ade95
+ms.sourcegitcommit: c538b6e4cf27b992500c079ad9c914c05d55eb7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96296818"
+ms.lasthandoff: 01/03/2021
+ms.locfileid: "97854849"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Proteja los puntos de conexión con la solución EDR integrada de Security Center: Microsoft Defender para punto de conexión
 
@@ -42,10 +42,10 @@ Microsoft Defender para punto de conexión es una solución integral de segurida
 |---------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Estado de la versión:                  | Disponible con carácter general                                                                                                                                                                                                                                                                                      |
 | Precios:                        | Requiere [Azure Defender para servidores](security-center-pricing.md).                                                                                                                                                                                                                                             |
-| Plataformas compatibles:            | ![Sí](./media/icons/yes-icon.png) Máquinas de Azure que ejecutan Windows.<br>![Sí](./media/icons/yes-icon.png) Máquinas de Azure Arc que ejecutan Windows.|
-| Versiones compatibles de Windows:  | Defender para punto de conexión está integrado en Windows 10 1703 (y versiones posteriores) y Windows Server 2019.<br>Security Center admite la detección en los sistemas operativos Windows Server 2016, 2012 R2 y 2008 R2 SP1.<br>La supervisión del punto de conexión del servidor que usa esta integración se ha deshabilitado para los clientes de Office 365 GCC. |
-| Roles y permisos necesarios: | Para habilitar o deshabilitar la integración: **Administrador de seguridad** o **Propietario**<br>Para ver las alertas de MDATP en Security Center: **Lector de seguridad**, **Lector**, **Colaborador del grupo de recursos**, **Propietario del grupo de recursos**, **Administrador de seguridad**, **Propietario de la suscripción** o **Colaborador de la suscripción**                         |
-| Nubes:                         | ![Sí](./media/icons/yes-icon.png) Nubes comerciales.<br>![No](./media/icons/no-icon.png) Clientes de GCC que ejecutan cargas de trabajo en nubes de Azure globales<br>![Sí](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, otros gobiernos                                                        |
+| Plataformas compatibles:            | Máquinas de Azure que ejecutan Windows.<br>Máquinas de Azure Arc que ejecutan Windows.|
+| Versiones compatibles de Windows:  |  • Security Center admite la detección en los sistemas operativos Windows Server 2016, 2012 R2 y 2008 R2 SP1.<br> • La supervisión del punto de conexión del servidor que usa esta integración se ha deshabilitado para los clientes de Office 365 GCC.<br> • No se admiten Windows Server 2019, Windows 10 1703 (y versiones más recientes) ni Linux.|
+| Roles y permisos necesarios: | Para habilitar o deshabilitar la integración: **Administrador de seguridad** o **Propietario**<br>Para ver las alertas de MDATP en Security Center: **Lector de seguridad**, **Lector**, **Colaborador del grupo de recursos**, **Propietario del grupo de recursos**, **Administrador de seguridad**, **Propietario de la suscripción** o **Colaborador de la suscripción**|
+| Nubes:                         | ![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![Sí](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, otros gobiernos<br>![No](./media/icons/no-icon.png) Clientes de GCC que ejecutan cargas de trabajo en nubes de Azure globales                                                        |
 |                                 |                                                                                                                                                                                                                                                                                                               |
 
 
