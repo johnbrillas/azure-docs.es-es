@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2020
 ms.author: yelevin
-ms.openlocfilehash: ba872f221f3bde29f0bb48b04dc2259d3ab4938a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c715804693571bc421951de1288fc884d2eae8d
+ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906268"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97746191"
 ---
 # <a name="advanced-multistage-attack-detection-in-azure-sentinel"></a>Detección avanzada de ataques de varias fases en Azure Sentinel
 
@@ -49,7 +49,7 @@ Esta detección está habilitada de forma predeterminada en Azure Sentinel. Para
  Dado que el tipo de regla **Fusion** solo contiene una regla que no se puede modificar, las plantillas de reglas no son aplicables para este tipo de regla.
 
 > [!NOTE]
-> Actualmente, Azure Sentinel usa 30 días de datos del historial para entrenar los sistemas de aprendizaje automático. Estos datos siempre se cifran mediante las claves de Microsoft cuando pasan por la canalización de aprendizaje automático. Sin embargo, los datos de entrenamiento no se cifran mediante [claves administradas por el cliente (CMK)](customer-managed-keys.md) si CMK se ha habilitado en el área de trabajo de Azure Sentinel. Para deshabilitar Fusion, vaya a **Azure Sentinel** \> **Configuración** \> **Análisis \> Reglas activas \> Detección avanzada de ataques en varias fases** y, en la columna **Estado**, seleccione **Deshabilitar**.
+> Actualmente, Azure Sentinel usa 30 días de datos del historial para entrenar los sistemas de aprendizaje automático. Estos datos siempre se cifran mediante las claves de Microsoft cuando pasan por la canalización de aprendizaje automático. Sin embargo, los datos de entrenamiento no se cifran mediante [claves administradas por el cliente (CMK)](customer-managed-keys.md) si CMK se ha habilitado en el área de trabajo de Azure Sentinel. Para deshabilitar Fusion, vaya a **Azure Sentinel** \> **Configuración** \> **Análisis \> Reglas activas \> Detección avanzada de ataques en varias fases** y, en la columna **Estado**, seleccione **Deshabilitar**.
 
 ## <a name="attack-detection-scenarios"></a>Escenarios de detección de ataques
 
@@ -84,6 +84,70 @@ Este escenario está actualmente en **versión preliminar pública**.
 - **Un evento de inicio de sesión desde una dirección IP anónima que conduce a varias actividades de creación de máquinas virtuales**
 
 - **Un evento de inicio de sesión desde un usuario con credenciales filtradas que conduce a varias actividades de creación de máquinas virtuales**
+
+## <a name="credential-harvesting-new-threat-classification"></a>Recolección de credenciales (nueva clasificación de amenazas)
+
+### <a name="malicious-credential-theft-tool-execution-following-suspicious-sign-in"></a>Ejecución de la herramienta de robo de credenciales malintencionada después del inicio de sesión sospechoso
+
+**Tácticas de MITRE ATT&CK:** acceso inicial, acceso a credenciales
+
+**Técnicas de MITRE ATT&CK:** cuenta válida (T1078), volcado de credenciales del sistema operativo (T1003)
+
+**Orígenes de conexión de datos:** Azure Active Directory Identity Protection, Microsoft Defender para punto de conexión
+
+**Descripción:** los incidentes de fusión de este tipo indican que se ejecutó una herramienta de robo de credenciales conocida después de un inicio de sesión de Azure AD sospechoso. Esto proporciona un alto grado de confianza en que la cuenta de usuario indicada en la descripción de la alerta se ha puesto en peligro y puede haber usado correctamente una herramienta como **Mimikatz** para recolectar credenciales como claves, contraseñas de texto no cifrado o valores hash de contraseñas del sistema. Las credenciales recolectadas pueden permitir que un atacante tenga acceso a datos confidenciales, escale privilegios o realice un ataque lateral a través de la red. Las permutaciones de alertas de inicios de sesión sospechosos en Azure AD con la alerta de la herramienta de robo de credenciales malintencionada son:
+
+- **Viaje imposible a ubicaciones inusuales que conduce a la ejecución de la herramienta de robo de credenciales malintencionada**
+
+- **Evento de inicio de sesión desde una ubicación desconocida que conduce a la ejecución de la herramienta de robo de credenciales malintencionada**
+
+- **Evento de inicio de sesión desde un dispositivo infectado que conduce a la ejecución de la herramienta de robo de credenciales malintencionada**
+
+- **Evento de inicio de sesión desde una dirección IP anónima que conduce a la ejecución de la herramienta de robo de credenciales malintencionada**
+
+- **Evento de inicio de sesión del usuario con credenciales con fugas que conduce a la ejecución de la herramienta de robo de credenciales malintencionada**
+
+### <a name="suspected-credential-theft-activity-following-suspicious-sign-in"></a>Sospecha de actividad de robo de credenciales después del inicio de sesión sospechoso
+
+**Tácticas de MITRE ATT&CK:** acceso inicial, acceso a credenciales
+
+**Técnicas de MITRE ATT&CK:** cuenta válida (T1078), credenciales de almacenes de contraseñas (T1555), volcado de credenciales del sistema operativo (T1003)
+
+**Orígenes de conexión de datos:** Azure Active Directory Identity Protection, Microsoft Defender para punto de conexión
+
+**Descripción:** los incidentes de fusión de este tipo indican que la actividad asociada a patrones de robo de credenciales se produjo después de un inicio de sesión de Azure AD sospechoso. Esto proporciona un alto grado de confianza en que la cuenta de usuario indicada en la descripción de la alerta se ha puesto en peligro y se ha usado para robar credenciales como claves, contraseñas de texto no cifrado, valores hash de contraseñas, etc. Las credenciales robadas pueden permitir que un atacante tenga acceso a datos confidenciales, escale privilegios o realice un ataque lateral a través de la red. Las permutaciones de alertas de inicios de sesión sospechosos en Azure AD con la alerta de la actividad de robo de credenciales son:
+
+- **Viaje imposible a ubicaciones inusuales que conduce a la sospecha de actividad de robo de credenciales**
+
+- **Evento de inicio de sesión desde una ubicación desconocida que conduce a la sospecha de actividad de robo de credenciales**
+
+- **Evento de inicio de sesión desde un dispositivo infectado que conduce a la sospecha de actividad de robo de credenciales**
+
+- **Evento de inicio de sesión desde una dirección IP anónima que conduce a la sospecha de actividad de robo de credenciales**
+
+- **Evento de inicio de sesión del usuario con credenciales filtradas que conduce a la sospecha de actividad de robo de credenciales**
+
+## <a name="crypto-mining-new-threat-classification"></a>Minería de cifrado (nueva clasificación de amenazas)
+
+### <a name="crypto-mining-activity-following-suspicious-sign-in"></a>Actividad de minería de cifrado después del inicio de sesión sospechoso
+
+**Tácticas de MITRE ATT&CK:** acceso inicial, acceso a credenciales
+
+**Técnicas de MITRE ATT&CK:** Cuenta válida (T1078) y secuestro de recursos (T1496)
+
+**Orígenes de conexión de datos:** Azure Active Directory Identity Protection, Azure Defender (Azure Security Center)
+
+**Descripción:** Los incidentes de fusión de este tipo indican la actividad de minería de cifrado asociada con un inicio de sesión sospechoso a una cuenta de Azure AD. Esto proporciona un alto grado de confianza en que la cuenta de usuario indicada en la descripción de la alerta se ha puesto en peligro y se ha usado para atacar recursos del entorno para extraer la moneda de cifrado. Esto puede privar a los recursos de la eficacia de la informática o dar lugar a facturas de utilización de la nube significativamente más altas de lo esperado. Las permutaciones de alertas de inicios de sesión sospechosos en Azure AD con la alerta de la actividad de minería de cifrado son:  
+
+- **Viaje imposible a ubicaciones inusuales que conduce a la actividad de minería de cifrado**
+
+- **Evento de inicio de sesión desde una ubicación desconocida que conduce a la actividad de minería de cifrado**
+
+- **Evento de inicio de sesión desde un dispositivo infectado que conduce a la actividad de minería de cifrado**
+
+- **Evento de inicio de sesión desde una dirección IP anónima que conduce a la actividad de minería de cifrado**
+
+- **Evento de inicio de sesión del usuario con credenciales filtradas que conduce a la actividad de minería de cifrado**
 
 ## <a name="data-exfiltration"></a>Filtración de datos
 
@@ -368,6 +432,26 @@ Este escenario está actualmente en **versión preliminar pública**.
 **Orígenes de conexión de datos:** Microsoft Defender para punto de conexión (anteriormente MDATP) y Palo Alto Networks 
 
 **Descripción:** Los incidentes de Fusion de este tipo indican que los comandos de la interfaz de administración de Windows (WMI) se han ejecutado de forma remota en un sistema y, después, el firewall de Palo Alto Networks ha detectado una actividad de entrada sospechosa. Esto indica que un atacante puede haber conseguido acceder a la red y está intentando desplazarse lateralmente, escalar privilegios o ejecutar cargas malintencionadas. Igual que sucede con todos los ataques que aprovechan recursos ya existentes en el entorno de destino, esta actividad podría ser un uso legítimo de WMI. Pero la ejecución remota de comandos de WMI seguida por una actividad de firewall entrante sospechosa aumenta la confianza en que WMI se está usando de manera malintencionada y debe investigarse más a fondo. En los registros de Palo Alto, Azure Sentinel se centra en [registros de amenazas](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/view-and-manage-logs/log-types-and-severity-levels/threat-logs) y el tráfico se considera sospechoso cuando se permiten amenazas (datos sospechosos, archivos, inundaciones, paquetes, exámenes, spyware, direcciones URL, virus, puntos vulnerables, virus Wildfire y malware Wildfire). También puede consultar el registro de amenazas de Palo Alto que se corresponde con el [tipo de amenaza/contenido](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/threat-log-fields.html) enumerado en la descripción del incidente de Fusion para obtener más información sobre las alertas.
+
+### <a name="suspicious-powershell-command-line-following-suspicious-sign-in"></a>Línea de comandos de PowerShell sospechosa después del inicio de sesión sospechoso
+
+**Tácticas de MITRE ATT&CK:** acceso inicial, ejecución
+
+**Técnicas de MITRE ATT&CK:** cuenta válida (T1078), intérprete de scripts y comandos (T1059)
+
+**Orígenes de conexión de datos:** Azure Active Directory Identity Protection, Microsoft Defender para punto de conexión (anteriormente MDATP)
+
+**Descripción:** los incidentes de fusión de este tipo indican que un usuario ejecutó comandos de PowerShell potencialmente malintencionados después de un inicio de sesión sospechoso en una cuenta de Azure AD. Esto proporciona un alto grado de confianza en que la cuenta indicada en la descripción de la alerta se ha puesto en peligro y se han realizado otras acciones malintencionadas. Los atacantes suelen aprovechar PowerShell para ejecutar cargas malintencionadas en memoria sin dejar artefactos en el disco, con el fin de evitar la detección mediante mecanismos de seguridad basados en disco como los programas de detección de virus. Las permutaciones de alertas de inicios de sesión sospechosos en Azure AD con la alerta del comando de PowerShell sospechosa son:
+
+- **Viaje imposible a ubicaciones inusuales que conduce a la línea de comandos de PowerShell sospechosa**
+
+- **Evento de inicio de sesión desde una ubicación desconocida que conduce a la línea de comandos de PowerShell sospechosa**
+
+- **Evento de inicio de sesión desde un dispositivo infectado que conduce a la línea de comandos de PowerShell sospechosa**
+
+- **Evento de inicio de sesión desde una dirección IP anónima que conduce a la línea de comandos de PowerShell sospechosa**
+
+- **Evento de inicio de sesión del usuario con credenciales filtradas que conduce a la línea de comandos de PowerShell sospechosa**
 
 ## <a name="malware-c2-or-download"></a>Comando y control (C2) o descarga de malware
 

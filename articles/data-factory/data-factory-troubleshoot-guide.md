@@ -5,17 +5,18 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 11/16/2020
+ms.date: 12/30/2020
 ms.author: abnarain
 ms.reviewer: craigg
-ms.openlocfilehash: c9dd39ffa68d8261f5c5d301d4c351c52b3f27c1
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 922ec6c4b579a657e7ee5e872148f8126ce175e2
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94654599"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97822291"
 ---
 # <a name="troubleshoot-azure-data-factory"></a>Solución de problemas de Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 En este artículo se exploran métodos comunes de solución de problemas para actividades de control externo en Azure Data Factory.
@@ -546,7 +547,6 @@ La tabla siguiente se aplica a Azure Batch.
 
 - **Recomendación:** Considere la posibilidad de proporcionar una entidad de servicio que tenga permisos para crear un clúster de HDInsight en la suscripción proporcionada e inténtelo de nuevo. Compruebe que las [identidades administradas están configuradas correctamente](../hdinsight/hdinsight-managed-identities.md).
 
-
 ### <a name="error-code-2300"></a>Código de error: 2300
 
 - **Mensaje**: `Failed to submit the job '%jobId;' to the cluster '%cluster;'. Error: %errorMessage;.`
@@ -951,6 +951,16 @@ La tabla siguiente se aplica a Azure Batch.
 - **Causa**: el almacenamiento adicional proporcionado no era almacenamiento de blobs de Azure.
 
 - **Recomendación:** Proporcione una cuenta de Azure Blob Storage como almacenamiento adicional para el servicio vinculado de HDInsight a petición.
+
+### <a name="ssl-error-when-adf-linked-service-using-hdinsight-esp-cluster"></a>Error de SSL cuando el servicio vinculado de ADF usa un clúster de ESP de HDInsight
+
+- **Mensaje**: `Failed to connect to HDInsight cluster: 'ERROR [HY000] [Microsoft][DriverSupport] (1100) SSL certificate verification failed because the certificate is missing or incorrect.`
+
+- **Causa**: lo más probable es que el problema esté relacionado con el almacén de confianza del sistema.
+
+- **Solución:** puede ir a la ruta de acceso **Microsoft Integration Runtime\4.0\Shared\ODBC Drivers\Microsoft Hive ODBC Driver\lib** y abrir DriverConfiguration64.exe para cambiar la configuración.
+
+    ![Desactive la casilla Use System Trust Store (Usar almacén de confianza del sistema)](./media/connector-troubleshoot-guide/system-trust-store-setting.png)
 
 ## <a name="web-activity"></a>Actividad web
 

@@ -1,7 +1,7 @@
 ---
 title: Desarrollo con AutoML y Azure Databricks
 titleSuffix: Azure Machine Learning
-description: Obtenga información sobre cómo configurar un entorno de desarrollo en Azure Machine Learning y Azure Databricks. Use los SDK de Azure ML para Databricks y Databricks con ML automatizado.
+description: Obtenga información sobre cómo configurar un entorno de desarrollo en Azure Machine Learning y Azure Databricks. Use los SDK de Azure ML para Databricks y Databricks con AutoML.
 services: machine-learning
 author: rastala
 ms.author: roastala
@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 10/21/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: ef8ee7718aabb443fda6cd7b276ee53472261913
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 878e6f11645a6478c0d536e9d6d6dac4518c5349
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93423850"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740970"
 ---
 # <a name="set-up-a-development-environment-with-azure-databricks-and-automl-in-azure-machine-learning"></a>Configuración de un entorno de desarrollo con Azure Databricks y AutoML en Azure Machine Learning 
 
@@ -29,10 +29,10 @@ Para obtener información sobre otros entornos de desarrollo de aprendizaje auto
 
 ## <a name="prerequisite"></a>Requisito previo
 
-Área de trabajo de Azure Machine Learning. Si no tiene ninguna, puede crear un área de trabajo de Azure Machine Learning mediante [Azure Portal](how-to-manage-workspace.md), la [CLI de Azure](how-to-manage-workspace-cli.md#create-a-workspace) y las [plantillas de Azure Resource Manager](how-to-create-workspace-template.md).
+Área de trabajo de Azure Machine Learning. Si no tiene ninguna, puede crear un área de trabajo de Azure Machine Learning a través de [Azure Portal](how-to-manage-workspace.md), la [CLI de Azure](how-to-manage-workspace-cli.md#create-a-workspace) y las [plantillas de Azure Resource Manager](how-to-create-workspace-template.md).
 
 
-## <a name="azure-databricks-with-azure-machine-learning-and-automl"></a>Azure Databricks con Azure Machine Learning y ML automatizado
+## <a name="azure-databricks-with-azure-machine-learning-and-automl"></a>Azure Databricks con Azure Machine Learning y AutoML
 
 Azure Databricks se integra con Azure Machine Learning y sus funcionalidades de AutoML. 
 
@@ -121,7 +121,45 @@ Pruebe lo siguiente:
 
 + Obtenga información sobre cómo [crear una canalización con Databricks como proceso de entrenamiento](how-to-create-your-first-pipeline.md).
 
+## <a name="troubleshooting"></a>Solución de problemas
+
+* **Error al instalar paquetes**
+
+    No es posible instalar el SDK de Azure Machine Learning en Azure Databricks cuando se instalan más paquetes. Algunos paquetes, como `psutil`, pueden provocar conflictos. Para evitar errores de instalación, inmovilice la versión de la biblioteca para instalar los paquetes. Este problema está relacionado con Databricks y no con el SDK de Azure Machine Learning. También puede experimentar este problema con otras bibliotecas. Ejemplo:
+    
+    ```python
+    psutil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0
+    ```
+
+    Como alternativa, puede usar scripts de init si sigue experimentando problemas de instalación con las bibliotecas de Python. Este enfoque no se admite oficialmente. Para más información, consulte [Cluster-scoped init scripts](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html#cluster-scoped-init-scripts) (Script de init del ámbito de clúster).
+
+* **Error de importación: no se puede importar el nombre `Timedelta` de `pandas._libs.tslibs`** : Si ve este error al usar el aprendizaje automático automatizado, ejecute las dos líneas siguientes en el cuaderno:
+    ```
+    %sh rm -rf /databricks/python/lib/python3.7/site-packages/pandas-0.23.4.dist-info /databricks/python/lib/python3.7/site-packages/pandas
+    %sh /databricks/python/bin/pip install pandas==0.23.4
+    ```
+
+* **Error de importación: No hay ningún módulo denominado "pandas.core.indexes"** : Si ve este error al usar el aprendizaje automático automatizado:
+
+    1. Ejecute este comando para instalar dos paquetes en el clúster de Azure Databricks:
+    
+       ```bash
+       scikit-learn==0.19.1
+       pandas==0.22.0
+       ```
+    
+    1. Desasocie y, luego, vuelva a conectar el clúster al cuaderno.
+    
+    Si estos pasos no resuelven el problema, pruebe a reiniciar el clúster.
+
+* **FailToSendFeather**: Si ve un error `FailToSendFeather` al leer datos en un clúster de Azure Databricks, consulte las soluciones siguientes:
+    
+    * Actualice el paquete `azureml-sdk[automl]` a la versión más reciente.
+    * Agregue `azureml-dataprep` versión 1.1.8 o superior.
+    * Agregue `pyarrow` versión 0.11 o superior.
+  
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Entrenar un modelo](tutorial-train-models-with-aml.md) en Azure Machine Learning con el conjunto de datos de MNIST.
-- Consulte [¿Qué es el SDK de Azure Machine Learning para Python?](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)
+- Consultar la [referencia del SDK de Azure Machine Learning para Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py).

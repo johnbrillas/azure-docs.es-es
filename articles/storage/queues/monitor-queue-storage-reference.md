@@ -1,20 +1,20 @@
 ---
-title: Referencia de datos de supervisión de Azure Queue Storage | Microsoft Docs
+title: Referencia de datos de supervisión de Azure Queue Storage
 description: Referencia de registros y métricas para la supervisión de datos de Azure Queue Storage.
 author: normesta
 services: azure-monitor
-ms.service: azure-monitor
-ms.topic: reference
-ms.date: 10/02/2020
 ms.author: normesta
+ms.date: 10/02/2020
+ms.topic: reference
+ms.service: azure-monitor
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: a3a07f828bb8ef20da630e909e46f03e8556eb98
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: ba8a82ed1113bfb3e71560ca9a6c713602df21f2
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96780372"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590654"
 ---
 # <a name="azure-queue-storage-monitoring-data-reference"></a>Referencia de datos de supervisión de Azure Queue Storage
 
@@ -30,19 +30,19 @@ Los valores de las métricas de capacidad se actualizan diariamente (hasta 24 h
 
 Azure Storage proporciona las siguientes métricas de capacidad en Azure Monitor.
 
-#### <a name="account-level"></a>Nivel de cuenta
+#### <a name="account-level-capacity-metrics"></a>Métricas de capacidad de nivel de cuenta
 
-[!INCLUDE [Account level capacity metrics](../../../includes/azure-storage-account-capacity-metrics.md)]
+[!INCLUDE [Account-level capacity metrics](../../../includes/azure-storage-account-capacity-metrics.md)]
 
-#### <a name="queue-storage"></a>Queue Storage
+#### <a name="queue-storage-metrics"></a>Métricas de Queue Storage
 
 En esta tabla se muestran [métricas de Queue Storage](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsqueueservices).
 
 | Métrica | Descripción |
 | ------------------- | ----------------- |
-| QueueCapacity | La cantidad de almacenamiento de colas que utiliza la cuenta de almacenamiento. <br/><br/> Unidad: Bytes <br/> Tipo de agregación: Average <br/> Ejemplo de valor: 1024 |
-| QueueCount   | El número de colas que hay en la cuenta de almacenamiento. <br/><br/> Unidad: Count <br/> Tipo de agregación: Average <br/> Ejemplo de valor: 1024 |
-| QueueMessageCount | Número aproximado de mensajes de cola en la instancia de Queue service de la cuenta de almacenamiento. <br/><br/>Unidad: Count <br/> Tipo de agregación: Average <br/> Ejemplo de valor: 1024 |
+| **QueueCapacity** | La cantidad de Queue Storage que utiliza la cuenta de almacenamiento. <br><br> Unidad: `Bytes` <br> Tipo de agregación: `Average` <br> Valor o ejemplo: `1024` |
+| **QueueCount** | El número de colas que hay en la cuenta de almacenamiento. <br><br> Unidad: `Count` <br> Tipo de agregación: `Average` <br> Valor o ejemplo: `1024` |
+| **QueueMessageCount** | Número aproximado de mensajes de cola en la cuenta de almacenamiento. <br><br> Unidad: `Count` <br> Tipo de agregación: `Average` <br> Valor o ejemplo: `1024` |
 
 ### <a name="transaction-metrics"></a>Métricas de transacciones
 
@@ -77,7 +77,7 @@ En la tabla siguiente se indican las propiedades de los registros de recursos de
 
 [!INCLUDE [Account level capacity metrics](../../../includes/azure-storage-logs-properties-service.md)]
 
-## <a name="see-also"></a>Consulta también
+## <a name="see-also"></a>Consulte también
 
 - Consulte [Supervisión de Azure Queue Storage](monitor-queue-storage.md) para ver una descripción de la supervisión de Azure Storage.
 - Para más información sobre la supervisión de recursos de Azure, consulte [Supervisión de recursos de Azure con Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md).

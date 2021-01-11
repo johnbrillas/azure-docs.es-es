@@ -4,20 +4,20 @@ description: Aprenda a enviar mensajes RabbitMQ desde Azure Functions.
 author: cachai2
 ms.assetid: ''
 ms.topic: reference
-ms.date: 12/13/2020
+ms.date: 12/17/2020
 ms.author: cachai
 ms.custom: ''
-ms.openlocfilehash: 212bfcee09cd63b6ff09faaba4d99e4b4c583fe8
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: d9e575d68fe4fef607bdf443ece1ddd04f085533
+ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505680"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97746463"
 ---
 # <a name="rabbitmq-output-binding-for-azure-functions-overview"></a>Información general sobre los enlaces de salid de RabbitMQ para Azure Functions
 
 > [!NOTE]
-> Los enlaces de RabbitMQ solo se admiten por completo en planes de **Windows Premium**. Consumo y Linux no se admiten actualmente.
+> Los enlaces de RabbitMQ solo se admiten por completo en planes **Premium y Dedicado**. El consumo no se admite.
 
 Use el enlace de salida de RabbitMQ para enviar mensajes a una cola de RabbitMQ.
 
@@ -31,7 +31,7 @@ En el ejemplo siguiente se muestra una [función de C#](functions-dotnet-class-l
 
 ```cs
 [FunctionName("RabbitMQOutput")]
-[return: RabbitMQ("outputQueue", ConnectionStringSetting = "ConnectionStringSetting")]
+[return: RabbitMQ(QueueName = "outputQueue", ConnectionStringSetting = "rabbitMQConnectionAppSetting")]
 public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILogger log)
 {
     log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
@@ -44,34 +44,35 @@ En el ejemplo siguiente se muestra cómo utilizar la interfaz IAsyncCollector pa
 ```cs
 [FunctionName("RabbitMQOutput")]
 public static async Task Run(
-[RabbitMQTrigger("sourceQueue", ConnectionStringSetting = "TriggerConnectionString")] string rabbitMQEvent,
-[RabbitMQ("destinationQueue", ConnectionStringSetting = "OutputConnectionString")]IAsyncCollector<string> outputEvents,
+[RabbitMQTrigger("sourceQueue", ConnectionStringSetting = "rabbitMQConnectionAppSetting")] string rabbitMQEvent,
+[RabbitMQ(QueueName = "destinationQueue", ConnectionStringSetting = "rabbitMQConnectionAppSetting")]IAsyncCollector<string> outputEvents,
 ILogger log)
 {
-    // processing:
-    var myProcessedEvent = DoSomething(rabbitMQEvent);
-    
      // send the message
-    await outputEvents.AddAsync(JsonConvert.SerializeObject(myProcessedEvent));
+    await outputEvents.AddAsync(JsonConvert.SerializeObject(rabbitMQEvent));
 }
 ```
 
 En el ejemplo siguiente se muestra cómo enviar los mensajes como POCO.
 
 ```cs
-public class TestClass
+namespace Company.Function
 {
-    public string x { get; set; }
-}
-
-[FunctionName("RabbitMQOutput")]
-public static async Task Run(
-[RabbitMQTrigger("sourceQueue", ConnectionStringSetting = "TriggerConnectionString")] TestClass rabbitMQEvent,
-[RabbitMQ("destinationQueue", ConnectionStringSetting = "OutputConnectionString")]IAsyncCollector<TestClass> outputPocObj,
-ILogger log)
-{
-    // send the message
-    await outputPocObj.Add(rabbitMQEvent);
+    public class TestClass
+    {
+        public string x { get; set; }
+    }
+    public static class RabbitMQOutput{
+        [FunctionName("RabbitMQOutput")]
+        public static async Task Run(
+        [RabbitMQTrigger("sourceQueue", ConnectionStringSetting = "rabbitMQConnectionAppSetting")] TestClass rabbitMQEvent,
+        [RabbitMQ(QueueName = "destinationQueue", ConnectionStringSetting = "rabbitMQConnectionAppSetting")]IAsyncCollector<TestClass> outputPocObj,
+        ILogger log)
+        {
+            // send the message
+            await outputPocObj.AddAsync(rabbitMQEvent);
+        }
+    }
 }
 ```
 
@@ -98,7 +99,7 @@ Estos son los datos de enlace del archivo *function.json*:
             "type": "rabbitMQ",
             "name": "outputMessage",
             "queueName": "outputQueue",
-            "connectionStringSetting": "connectionStringAppSetting",
+            "connectionStringSetting": "rabbitMQConnectionAppSetting",
             "direction": "out"
         }
     ]
@@ -107,7 +108,7 @@ Estos son los datos de enlace del archivo *function.json*:
 
 Este es el código de script de C#:
 
-```csx
+```C#
 using System;
 using Microsoft.Extensions.Logging;
 
@@ -141,7 +142,7 @@ Estos son los datos de enlace del archivo *function.json*:
             "type": "rabbitMQ",
             "name": "outputMessage",
             "queueName": "outputQueue",
-            "connectionStringSetting": "connectionStringAppSetting",
+            "connectionStringSetting": "rabbitMQConnectionAppSetting",
             "direction": "out"
         }
     ]
@@ -186,21 +187,21 @@ Estos son los datos de enlace del archivo *function.json*:
             "type": "rabbitMQ",
             "name": "outputMessage",
             "queueName": "outputQueue",
-            "connectionStringSetting": "connectionStringAppSetting",
+            "connectionStringSetting": "rabbitMQConnectionAppSetting",
             "direction": "out"
         }
     ]
 }
 ```
 
-En *_\_init_\_.py*, puede escribir un mensaje en la cola pasando un valor al método `set`.
+En *_\_init_\_.py*:
 
 ```python
 import azure.functions as func
 
-def main(req: func.HttpRequest, msg: func.Out[str]) -> func.HttpResponse:
+def main(req: func.HttpRequest, outputMessage: func.Out[str]) -> func.HttpResponse:
     input_msg = req.params.get('message')
-    msg.set(input_msg)
+    outputMessage.set(input_msg)
     return 'OK'
 ```
 
@@ -212,7 +213,7 @@ En el ejemplo siguiente se muestra una función de Java que envía un mensaje a 
 @FunctionName("RabbitMQOutputExample")
 public void run(
 @TimerTrigger(name = "keepAliveTrigger", schedule = "0 */5 * * * *") String timerInfo,
-@RabbitMQOutput(connectionStringSetting = "rabbitMQ", queueName = "hello") OutputBinding<String> output,
+@RabbitMQOutput(connectionStringSetting = "rabbitMQConnectionAppSetting", queueName = "hello") OutputBinding<String> output,
 final ExecutionContext context) {
     output.setValue("Some string");
 }
@@ -271,11 +272,13 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 |**direction** | N/D | Debe establecerse en "out". |
 |**name** | N/D | Nombre de la variable que representa la cola en el código de la función. |
 |**queueName**|**QueueName**| Nombre de la cola a la que se van a enviar mensajes. |
-|**hostName**|**HostName**|(opcional si se usa ConnectStringSetting) <br>Nombre de host de la cola (por ejemplo: 10.26.45.210)|
-|**userNameSetting**|**UserNameSetting**|(opcional si se usa ConnectionStringSetting) <br>Nombre para acceder a la cola |
-|**passwordSetting**|**PasswordSetting**|(opcional si se usa ConnectionStringSetting) <br>Contraseña para acceder la cola|
+|**hostName**|**HostName**|(se omite si se usa ConnectStringSetting) <br>Nombre de host de la cola (por ejemplo: 10.26.45.210)|
+|**userName**|**UserName**|(se omite si se usa ConnectionStringSetting) <br>Nombre de la configuración de la aplicación que contiene el nombre de usuario para acceder a la cola. Ejemplo: UserNameSetting: "< UserNameFromSettings >"|
+|**password**|**Contraseña**|(se omite si se usa ConnectionStringSetting) <br>Nombre de la configuración de la aplicación que contiene la contraseña para acceder a la cola. Ejemplo: UserNameSetting: "< UserNameFromSettings >"|
 |**connectionStringSetting**|**ConnectionStringSetting**|El nombre de la configuración de la aplicación que contiene la cadena de conexión de la cola de mensajes RabbitMQ. Tenga en cuenta que si especifica la cadena de conexión directamente y no a través de una configuración de la aplicación en local.settings.json, el desencadenador no funcionará. (Por ejemplo: En *function.json*: connectionStringSetting: "rabbitMQConnection" <br> En *local.settings.json*: "rabbitMQConnection" : "< ActualConnectionstring >")|
-|**port**|**Puerto**|Obtiene o establece el puerto usado. El valor predeterminado es 0.|
+|**port**|**Puerto**|(se omite si se usa ConnectionStringSetting) Obtiene o establece el puerto utilizado. El valor predeterminado es 0, que apunta a la configuración de puerto predeterminado del cliente de rabbitmq: 5672.|
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="usage"></a>Uso
 
@@ -297,7 +300,7 @@ Puede usar los siguientes tipos de parámetro para el enlace de salida:
 
 * `byte[]`: si el valor del parámetro es null cuando finaliza la función, Functions no crea ningún mensaje.
 * `string`: si el valor del parámetro es null cuando finaliza la función, Functions no crea ningún mensaje.
-* `POCO`: si el valor del parámetro no tiene el formato de un objeto de C#, se recibirá un error.
+* `POCO`: si el valor del parámetro no tiene el formato de un objeto de C#, se recibirá un error. Para ver un ejemplo completo, consulte el [ejemplo](#example) de script de C#.
 
 Al trabajar con funciones de script de C#:
 
@@ -305,11 +308,11 @@ Al trabajar con funciones de script de C#:
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-El mensaje RabbitMQ se envía a través de una cadena.
+El mensaje de la cola está disponible a través de context.bindings.<NAME> donde <NAME> coincide con el nombre definido en function.json. Si la carga es JSON, el valor se deserializa en un objeto.
 
 # <a name="python"></a>[Python](#tab/python)
 
-El mensaje RabbitMQ se envía a través de una cadena.
+Consulte el [ejemplo](#example) de Python.
 
 # <a name="java"></a>[Java](#tab/java)
 

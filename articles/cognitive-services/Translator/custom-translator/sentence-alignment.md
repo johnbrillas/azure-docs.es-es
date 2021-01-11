@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: e5d360933cbeb611046aede6164ec2e2fa497664
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 7ed7c3a586f5671191e3c517b5925cab888caefb
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347802"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724313"
 ---
 # <a name="sentence-pairing-and-alignment-in-parallel-documents"></a>Emparejamiento y alineación de oraciones en documentos paralelos
 
@@ -22,7 +22,7 @@ Una vez cargados los documentos, las oraciones presentes en los documentos paral
 
 ## <a name="pairing-and-alignment-process"></a>Proceso de emparejamiento y alineación
 
-Custom Translator aprende la traducción de las oraciones una a la vez. Primero, lee una oración de origen y, después, la traducción de esa misma oración en el idioma de destino. A continuación, alinea entre sí las palabras y frases presentes en ambas oraciones. Este proceso le permite asignar las palabras y frases en una oración a las palabras y frases equivalentes en la traducción de esa oración. La alineación intenta asegurarse de que el sistema se entrena con oraciones que se corresponden entre sí como traducciones.
+Custom Translator aprende la traducción de las oraciones una a la vez. Lee una oración del texto de origen y, a continuación, la traducción de esta oración del texto de destino. A continuación, alinea entre sí las palabras y frases presentes en ambas oraciones. Este proceso le permite asignar las palabras y frases en una oración a las palabras y frases equivalentes en la traducción de esa oración. La alineación intenta asegurarse de que el sistema se entrena con oraciones que se corresponden entre sí como traducciones.
 
 ## <a name="pre-aligned-documents"></a>Documentos alineados previamente
 

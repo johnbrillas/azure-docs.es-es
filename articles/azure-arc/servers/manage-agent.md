@@ -1,14 +1,14 @@
 ---
 title: Administración del agente de servidores habilitados para Azure Arc
 description: En este artículo se describen las diferentes tareas de administración que normalmente realizará durante el ciclo de vida del agente de Connected Machine de los servidores habilitados para Azure Arc.
-ms.date: 10/30/2020
+ms.date: 12/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9e17bf58d1e94b64d1cdc6ff0b57b1b6a81be180
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: f408048f61f76d6b258ea8e063630b4e2aa841af
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97107199"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724381"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Administración y mantenimiento del agente de Connected Machine
 
@@ -189,7 +189,7 @@ Para conectarse con sus credenciales de sesión iniciada elevadas (interactiva),
 
 ### <a name="disconnect"></a>Desconectar
 
-Este parámetro especifica un recurso en Azure Resource Manager que representa la eliminación de la máquina en Azure. No elimina el agente de la máquina, esto debe hacerse como un paso independiente. Una vez que la máquina esté desconectada, si desea volver a registrarla con los servidores habilitados para Azure Arc, use `azcmagent connect` para que se cree un recurso nuevo para ella en Azure.
+Este parámetro especifica un recurso en Azure Resource Manager que representa la eliminación de la máquina en Azure. Esta acción no quita el agente de la máquina; desinstale el agente por separado. Una vez que la máquina esté desconectada, si desea volver a registrarla con los servidores habilitados para Azure Arc, use `azcmagent connect` para que se cree un recurso nuevo para ella en Azure.
 
 > [!NOTE]
 > Si ha implementado una o varias de las extensiones de máquina virtual de Azure en el servidor habilitado para Arc y elimina su registro en Azure, las extensiones seguirán instaladas. Es importante comprender que, según la extensión instalada, está realizando su función de forma activa. Las máquinas que se vayan a retirar o que ya no administren los servidores habilitados para Arc deben tener las extensiones quitadas antes de eliminar su registro de Azure.
@@ -208,7 +208,7 @@ Para desconectarse con sus credenciales de sesión iniciada elevadas (interactiv
 
 ## <a name="remove-the-agent"></a>Eliminación del agente
 
-Realice uno de los métodos siguientes para desinstalar el agente de Connected Machine de Windows o Linux desde el equipo. Al quitar el agente, no se anula el registro de la máquina con los servidores habilitados para Arc ni se quitan las extensiones de máquina virtual de Azure instaladas. Debe realizar estos pasos por separado cuando ya no necesite administrar la máquina en Azure y estos se deben completar antes de desinstalar el agente.
+Realice uno de los métodos siguientes para desinstalar el agente de Connected Machine de Windows o Linux desde el equipo. Al quitar el agente, no se anula el registro de la máquina con los servidores habilitados para Arc ni se quitan las extensiones de máquina virtual de Azure instaladas. Anule el registro de la máquina y quite las extensiones de máquina virtual instaladas por separado cuando ya no necesite administrar el equipo en Azure, y estos pasos se deben completar antes de desinstalar el agente.
 
 ### <a name="windows-agent"></a>Agente de Windows
 
@@ -286,6 +286,10 @@ Si tiene previsto dejar de administrar la máquina con los servicios de soporte 
 ## <a name="update-or-remove-proxy-settings"></a>Actualización o eliminación de la configuración de proxy
 
 Si quiere configurar el agente para comunicarse con el servicio a través de un servidor proxy o quitar esta configuración después de la implementación, use uno de los métodos siguientes para completar esta tarea.
+
+> [!NOTE]
+> Los servidores con ARC habilitado no admiten el uso de una puerta de enlace de [Log Analytics](../../azure-monitor/platform/gateway.md) como proxy para el agente de máquina conectado.
+>
 
 ### <a name="windows"></a>Windows
 

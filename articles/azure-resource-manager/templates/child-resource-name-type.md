@@ -2,19 +2,21 @@
 title: Recursos secundarios en plantillas
 description: Describe cómo establecer el nombre y el tipo de los recursos secundarios en una plantilla de Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 08/26/2019
-ms.openlocfilehash: 3a69829e674925982c618807f49433a033d8c5f9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/21/2020
+ms.openlocfilehash: c594096fd95f663db2120b29c575b341924dcc36
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80743841"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97721950"
 ---
 # <a name="set-name-and-type-for-child-resources"></a>Establecimiento del nombre y el tipo de los recursos secundarios
 
-Los recursos secundarios son recursos que solo existen en el contexto de otro recurso. Por ejemplo, una [extensión de máquina virtual](/azure/templates/microsoft.compute/2019-03-01/virtualmachines/extensions) no puede existir sin una [máquina virtual](/azure/templates/microsoft.compute/2019-03-01/virtualmachines). El recurso de extensión es un elemento secundario de la máquina virtual.
+Los recursos secundarios son recursos que solo existen en el contexto de otro recurso. Por ejemplo, una [extensión de máquina virtual](/azure/templates/microsoft.compute/virtualmachines/extensions) no puede existir sin una [máquina virtual](/azure/templates/microsoft.compute/virtualmachines). El recurso de extensión es un elemento secundario de la máquina virtual.
 
-En una plantilla de Resource Manager, puede especificar el recurso secundario dentro del recurso primario o fuera de él. En el ejemplo siguiente se muestra el recurso secundario incluido en la propiedad resources del recurso primario.
+Cada recurso primario solo acepta determinados tipos de recursos como recursos secundarios. El tipo de recurso para el recurso secundario incluye el tipo de recurso para el recurso primario. Por ejemplo, **Microsoft.Web/sites/config** y **Microsoft.Web/sites/extensions** son recursos secundarios de **Microsoft.Web/sites**. Los tipos de recursos que se aceptan se especifican en el [esquema de plantilla](https://github.com/Azure/azure-resource-manager-schemas) del recurso principal.
+
+En una plantilla de Azure Resource Manager (plantilla de ARM), puede especificar el recurso secundario dentro del recurso primario o fuera de él. En el ejemplo siguiente se muestra el recurso secundario incluido en la propiedad resources del recurso primario.
 
 ```json
 "resources": [
@@ -26,6 +28,8 @@ En una plantilla de Resource Manager, puede especificar el recurso secundario de
   }
 ]
 ```
+
+Los recursos secundarios solo se pueden definir en cinco niveles de profundidad.
 
 En el ejemplo siguiente se muestra el recurso secundario fuera del recurso primario. Este enfoque puede usarse si el recurso primario no está implementado en la misma plantilla o si quiere usar [copy](copy-resources.md) para crear más de un recurso secundario.
 
@@ -132,6 +136,6 @@ En el ejemplo siguiente se muestra una red virtual y una subred que se definen e
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para más información sobre la creación de plantillas del Administrador de recursos de Azure, consulte [Creación de plantillas](template-syntax.md).
+* Para obtener información sobre cómo crear plantillas de ARM, vea [Creación de plantillas](template-syntax.md).
 
 * Para información sobre el formato del nombre del recurso al hacer referencia a él, consulte la [función reference](template-functions-resource.md#reference).

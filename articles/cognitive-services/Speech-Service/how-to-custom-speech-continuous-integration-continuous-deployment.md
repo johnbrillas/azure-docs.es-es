@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/09/2020
 ms.author: kaprochi
-ms.openlocfilehash: f82ea154d5949f4d229ac76e7a7ce2a89d15ac13
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 7e27c3dd6e70d9a532c326d8187d82e14bf7ddda
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95025674"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591623"
 ---
 # <a name="cicd-for-custom-speech"></a>CI/CD para Habla personalizada
 
@@ -31,7 +31,7 @@ Es posible obtener soluciones de CI/CD personalizadas; no obstante, para una sol
 
 El objetivo de estos flujos de trabajo es garantizar que cada modelo de Habla personalizada tenga una mejor precisión de reconocimiento que la versión anterior. Si las actualizaciones de los datos de entrenamiento o pruebas mejoran la precisión, estos flujos de trabajo crean un nuevo punto de conexión de Habla personalizada.
 
-Los servidores Git, como GitHub y Azure DevOps, pueden ejecutar flujos de trabajo automatizados cuando se producen eventos Git específicos, como fusiones mediante combinación o solicitudes de incorporación de cambios. Por ejemplo, se puede desencadenar un flujo de trabajo de CI cuando las actualizaciones de los datos de prueba se envían a la rama *master*. Los distintos servidores Git tendrán herramientas diferentes, pero permitirán la creación de scripts con comandos de la interfaz de línea de comandos (CLI) para que puedan ejecutarse en un servidor de compilación.
+Los servidores Git, como GitHub y Azure DevOps, pueden ejecutar flujos de trabajo automatizados cuando se producen eventos Git específicos, como fusiones mediante combinación o solicitudes de incorporación de cambios. Por ejemplo, se puede desencadenar un flujo de trabajo de CI cuando las actualizaciones de los datos de prueba se envían a la rama *principal*. Los distintos servidores Git tendrán herramientas diferentes, pero permitirán la creación de scripts con comandos de la interfaz de línea de comandos (CLI) para que puedan ejecutarse en un servidor de compilación.
 
 Durante el proceso, los flujos de trabajo deben asignar un nombre a los datos, pruebas, archivos de prueba, modelos y puntos de conexión, así como almacenarlos, de modo que se puedan rastrear de vuelta a su confirmación o versión de origen. También resulta útil asignar un nombre a estos recursos para facilitar la identificación de cuáles se crearon después de actualizar los datos de prueba frente a los datos de entrenamiento.
 

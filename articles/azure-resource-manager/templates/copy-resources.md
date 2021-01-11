@@ -2,13 +2,13 @@
 title: Implementación de varias instancias de recursos
 description: Use la operación de copia y las matrices de una plantilla de Azure Resource Manager (plantilla de ARM) para realizar varias iteraciones al implementar recursos.
 ms.topic: conceptual
-ms.date: 09/21/2020
-ms.openlocfilehash: 47f3d693b84347973889a6003360d7113c427f4d
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.date: 12/21/2020
+ms.openlocfilehash: c9bcb22ec53129520fd9574d0eb58b1e5777531e
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905917"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724500"
 ---
 # <a name="resource-iteration-in-arm-templates"></a>Iteración de recursos en las plantillas de ARM
 
@@ -189,43 +189,6 @@ Por ejemplo, para implementar en serie dos cuentas de almacenamiento a la vez, u
 
 La propiedad `mode` también acepta **parallel**, que es el valor predeterminado.
 
-## <a name="depend-on-resources-in-a-loop"></a>Dependencia de los recursos de un bucle
-
-Especifique que un recurso se implemente después de otro recurso mediante el elemento `dependsOn`. Para implementar un recurso que dependa de la colección de recursos de un bucle, proporcione el nombre del bucle copy en el elemento dependsOn. En el ejemplo siguiente, se muestra cómo se implementan tres cuentas de almacenamiento antes de implementar la máquina virtual. No se incluye la definición completa de la máquina virtual. Tenga en cuenta que el elemento copy tiene el nombre establecido en `storagecopy` y que el elemento dependsOn de la máquina virtual también está establecido en `storagecopy`.
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {},
-  "resources": [
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2019-04-01",
-      "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
-      "location": "[resourceGroup().location]",
-      "sku": {
-        "name": "Standard_LRS"
-      },
-      "kind": "Storage",
-      "copy": {
-        "name": "storagecopy",
-        "count": 3
-      },
-      "properties": {}
-    },
-    {
-      "type": "Microsoft.Compute/virtualMachines",
-      "apiVersion": "2015-06-15",
-      "name": "[concat('VM', uniqueString(resourceGroup().id))]",
-      "dependsOn": ["storagecopy"],
-      ...
-    }
-  ],
-  "outputs": {}
-}
-```
-
 ## <a name="iteration-for-a-child-resource"></a>Iteración para un recurso secundario
 
 No puede usar un bucle copy en un recurso secundario. Para crear varias instancias de un recurso que se define normalmente como anidado dentro de otro recurso, debe crear dicho recurso como uno de nivel superior. La relación con el recurso principal se define a través de las propiedades type y name.
@@ -286,16 +249,14 @@ En los ejemplos siguientes se muestran escenarios comunes para crear más de una
 |[Almacenamiento de copias](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystorage.json) |Implementa más de una cuenta de almacenamiento con un número de índice en el nombre. |
 |[Almacenamiento de copias en serie](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/serialcopystorage.json) |Implementa varias cuentas de almacenamiento, una tras otra. El nombre incluye el número de índice. |
 |[Almacenamiento de copias con una matriz](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystoragewitharray.json) |Implementa varias cuentas de almacenamiento. El nombre incluye el valor de una matriz. |
-|[Implementación de máquinas virtuales con un número variable de discos de datos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-windows-copy-datadisks) |Implementa varios discos de datos con una máquina virtual. |
-|[Varias reglas de seguridad](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) |Implementa varias reglas de seguridad en un grupo de seguridad de red. Crea las reglas de seguridad a partir de un parámetro. Para el parámetro, consulte el [archivo de parámetros de varios grupos de seguridad de red](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json). |
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+* Para establecer las dependencias de los recursos que se crean en un bucle de copia, consulte [Definición del orden de implementación de recursos en las plantillas de ARM](define-resource-dependency.md).
 * Para realizar un tutorial, consulte [Tutorial: Creación de varias instancias de recursos con plantillas de Resource Manager](template-tutorial-create-multiple-instances.md).
+* Para un módulo de Microsoft Learn que abarca la copia de recursos, consulte [Administración de implementaciones complejas en la nube mediante características avanzadas de la plantilla de ARM](/learn/modules/manage-deployments-advanced-arm-template-features/).
 * Para otros usos del elemento copy, consulte:
   * [Iteración de propiedades en las plantillas de ARM](copy-properties.md)
   * [Iteración de variables en las plantillas de ARM](copy-variables.md)
   * [Iteración de salida en las plantillas de ARM](copy-outputs.md)
 * Para obtener información acerca del uso de copy con plantillas anidadas, consulte [Uso de copy](linked-templates.md#using-copy).
-* Si quiere obtener más información sobre las secciones de una plantilla, vea [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](template-syntax.md).
-* Para aprender a implementar su plantilla, vea [Implementación de recursos con las plantillas de Resource Manager y Azure PowerShell](deploy-powershell.md).

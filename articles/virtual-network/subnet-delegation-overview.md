@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/20/2019
+ms.date: 12/15/2020
 ms.author: kumud
-ms.openlocfilehash: 1fbb683754aed5b2a2e6e9c022713b7e87ad9ba9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e30697fe93e2debaa68e12561f18be7f85d772a4
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91329214"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586421"
 ---
 # <a name="what-is-subnet-delegation"></a>¿Qué es la delegación de subred?
 
@@ -52,6 +52,7 @@ Cada servicio de Azure define su propio modelo de implementación, en el que se 
 - Dicta que el espacio de direcciones IP de la subred delegada sea del espacio de direcciones IP privadas (10.0.0.0/8, 192.168.0.0/16, 172.16.0.0/12).
 - Dicta que la configuración de DNS personalizada tenga una entrada Azure DNS.
 - Requiere quitar la delegación antes de que se pueda eliminar la subred o la red virtual.
+- no se puede usar con un punto de conexión privado si se delega la subred.
 
 Los servicios insertados también pueden agregar sus propias directivas, como las siguientes:
 - **Directivas de seguridad**: colección de reglas de seguridad necesarias para el funcionamiento de un servicio determinado.

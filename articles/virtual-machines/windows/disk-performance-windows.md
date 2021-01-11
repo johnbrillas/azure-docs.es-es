@@ -1,20 +1,20 @@
 ---
-title: Rendimiento de la máquina virtual y del disco
-description: Obtenga más información sobre cómo funcionan en conjunto las máquinas virtuales y sus discos conectados para el rendimiento
+title: Rendimiento de la máquina virtual y del disco - Windows
+description: Obtenga más información sobre cómo funcionan las máquinas virtuales y sus discos conectados en combinación con el fin de obtener un rendimiento en Windows.
 author: albecker1
 ms.author: albecker
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: 88cf9c28a9d325d617f4b049015f0cd238a2fb31
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: dec8b0cc33a9fffa7cac1ac9261b3c38ef5a6449
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92016553"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97584126"
 ---
-# <a name="virtual-machine-and-disk-performance"></a>Rendimiento de la máquina virtual y del disco
+# <a name="virtual-machine-and-disk-performance-windows"></a>Rendimiento de la máquina virtual y del disco (Windows)
 [!INCLUDE [VM and Disk Performance](../../../includes/virtual-machine-disk-performance.md)]
 
 ## <a name="virtual-machine-uncached-vs-cached-limits"></a>Límites de almacenamiento en caché frente a sin caché para máquinas virtuales

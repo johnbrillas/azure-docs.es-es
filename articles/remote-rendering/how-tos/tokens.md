@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 7e8e2f3f9dd49693faa26eaaab309fcad58f6f9f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9721685fc3ccd2c1c80b55e9118d6d347cc97a9c
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89076164"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830707"
 ---
 # <a name="get-service-access-tokens"></a>Obtención de tokens de acceso de servicio
 
@@ -25,7 +25,7 @@ En este artículo se describe cómo crear dicho token de acceso.
 
 ## <a name="token-service-rest-api"></a>API REST del servicio Table
 
-Para crear tokens de acceso, el *Servicio de token seguro* proporciona una única API REST. La dirección URL del servicio STS de ARR es https:\//sts.mixedreality.azure.com.
+Para crear tokens de acceso, el *Servicio de token seguro* proporciona una única API REST. La dirección URL del servicio STS depende del dominio de cuenta de la cuenta de representación remota. Tiene el formato https://sts.[dominio de cuenta], p. ej., `https://sts.southcentralus.mixedreality.azure.com`
 
 ### <a name="get-token-request"></a>Solicitud "Get token"
 
@@ -56,9 +56,10 @@ El código de PowerShell siguiente muestra cómo enviar la solicitud de REST nec
 ```PowerShell
 $accountId = "<account_id_from_portal>"
 $accountKey = "<account_key_from_portal>"
+$accountDomain = "<account_domain_from_portal>
 
 [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12;
-$webResponse = Invoke-WebRequest -Uri "https://sts.mixedreality.azure.com/accounts/$accountId/token" -Method Get -Headers @{ Authorization = "Bearer ${accountId}:$accountKey" }
+$webResponse = Invoke-WebRequest -Uri "https://sts.$accountDomain/accounts/$accountId/token" -Method Get -Headers @{ Authorization = "Bearer ${accountId}:$accountKey" }
 $response = ConvertFrom-Json -InputObject $webResponse.Content
 
 Write-Output "Token: $($response.AccessToken)"

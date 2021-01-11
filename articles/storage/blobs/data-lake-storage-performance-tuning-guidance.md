@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 2011fa8e85f10f12ae914b02710bbd65f5700403
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f0f64d910d03e42008c5fe6fef28a5b9c0917abd
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95913052"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814472"
 ---
 # <a name="optimize-azure-data-lake-storage-gen2-for-performance"></a>Optimizar Azure Data Lake Storage Gen2 para el rendimiento
 
@@ -21,11 +21,11 @@ Azure Data Lake Storage Gen2 permite un alto rendimiento en el movimiento de dat
 
 ![Rendimiento de Data Lake Storage Gen2](./media/data-lake-storage-performance-tuning-guidance/throughput.png)
 
-Data Lake Storage Gen2 puede escalar para ofrecer la capacidad de proceso necesaria para todos los escenarios de análisis. De forma predeterminada, una cuenta Data Lake Storage Gen2 proporciona automáticamente la capacidad suficiente para satisfacer las necesidades de una amplia variedad de casos de uso. Cuando los clientes llegan al límite predeterminado, la cuenta Data Lake Storage Gen2 se puede configurar para proporcionar más rendimiento, si se ponen en contacto con [Soporte técnico de Azure](https://azure.microsoft.com/support/faq/).
+Data Lake Storage Gen2 puede escalar para ofrecer el rendimiento necesario para todos los escenarios de análisis. De forma predeterminada, una cuenta Data Lake Storage Gen2 proporciona el rendimiento suficiente en su configuración predeterminada para satisfacer las necesidades de una amplia variedad de casos de uso. Cuando los clientes llegan al límite predeterminado, la cuenta Data Lake Storage Gen2 se puede configurar para proporcionar más rendimiento, si se ponen en contacto con [Soporte técnico de Azure](https://azure.microsoft.com/support/faq/).
 
 ## <a name="data-ingestion"></a>Ingesta de datos
 
-Cuando se ingieren datos de un sistema de origen para Data Lake Storage Gen2, es importante tener en cuenta que el hardware de origen, el hardware de red de origen y la conectividad de red con Data Lake Storage Gen2 pueden constituir un cuello de botella.  
+Cuando se ingieren datos de un sistema de origen para Data Lake Storage Gen2, es importante tener en cuenta que el hardware de origen, el hardware de red de origen o la conectividad de red con Data Lake Storage Gen2 pueden constituir un cuello de botella.  
 
 ![Diagrama en el que se muestran los factores que se deben tener en cuenta a la hora de ingerir datos desde un sistema de origen en Data Lake Storage Gen2.](./media/data-lake-storage-performance-tuning-guidance/bottleneck.png)
 
@@ -43,7 +43,7 @@ La conectividad de red entre los datos de origen y Data Lake Storage Gen2 a vece
 
 Una vez haya solucionado los cuellos de botella de la conectividad de la red y del hardware de origen, estará listo para configurar las herramientas de ingesta. En la tabla siguiente se resume la configuración básica de varias herramientas de ingesta populares y se ofrecen artículos detallados sobre la optimización del rendimiento relacionados con ellas.  Para más información sobre la herramienta adecuada para su escenario, consulte este [artículo](data-lake-storage-data-scenarios.md).
 
-| Herramienta               | Configuración     | Más detalles                                                                 |
+| Herramienta               | Configuración | Más detalles                                                                 |
 |--------------------|------------------------------------------------------|------------------------------|
 | DistCp            | -m (mapper)   | [Vínculo](data-lake-storage-use-distcp.md#performance-considerations-while-using-distcp)                             |
 | Azure Data Factory| parallelCopies    | [Vínculo](../../data-factory/copy-activity-performance.md)                          |

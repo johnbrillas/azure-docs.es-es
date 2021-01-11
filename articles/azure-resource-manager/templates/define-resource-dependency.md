@@ -1,107 +1,89 @@
 ---
 title: Establecimiento del orden de implementación para recursos
-description: Describe cómo establecer un recurso como dependiente de otro recurso durante la implementación para garantizar el orden de implementación correcto de los recursos.
+description: En este artículo se describe cómo establecer un recurso como dependiente de otro recurso durante la implementación. Las dependencias garantizan que los recursos se implementan en el orden correcto.
 ms.topic: conceptual
-ms.date: 12/03/2019
-ms.openlocfilehash: 84cea915565ec6ac9872681e1d4173abacb46ac4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/21/2020
+ms.openlocfilehash: a96dca0ab30d0baee2688427d78867ea128e673a
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85255218"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97722018"
 ---
 # <a name="define-the-order-for-deploying-resources-in-arm-templates"></a>Definición del orden de implementación de recursos en las plantillas de ARM
 
-Al implementar un recurso, es posible que tenga que asegurarse de que existen otros antes de implementarlo. Por ejemplo, necesitará un servidor SQL lógico para poder implementar una base de datos. Esta relación se define al marcar un recurso como dependiente del otro. Una dependencia se define con el elemento **dependsOn** o mediante la función **reference**.
+Al implementar recursos, es posible que tenga que asegurarse de que existen algunos recursos antes de crear otros. Por ejemplo, necesitará un servidor SQL lógico para poder implementar una base de datos. Establezca esta relación marcando un recurso como dependiente de otro recurso. Use el elemento **dependsOn** para definir una dependencia explícita. Utilice las funciones **reference** o **list** para definir una dependencia implícita.
 
 Administrador de recursos evalúa las dependencias entre recursos y los implementa en su orden dependiente. Cuando no hay recursos dependientes entre sí, Resource Manager los implementa en paralelo. Solo tiene que definir las dependencias de recursos que se implementan en la misma plantilla.
 
 ## <a name="dependson"></a>dependsOn
 
-Dentro de la plantilla, el elemento dependsOn permite definir un recurso como dependiente de uno o varios recursos. Su valor es una matriz JSON de cadenas, cada una de las cuales es un nombre de recurso. La lista puede incluir recursos que [se implementan condicionalmente](conditional-resource-deployment.md). Cuando un recurso condicional no está implementado, Azure Resource Manager lo quita automáticamente de las dependencias necesarias.
+Dentro de la plantilla, el elemento dependsOn permite definir un recurso como dependiente de uno o varios recursos. Su valor es una matriz JSON de cadenas, cada una de las cuales es un nombre de recurso o identificador. La lista puede incluir recursos que [se implementan condicionalmente](conditional-resource-deployment.md). Cuando un recurso condicional no está implementado, Azure Resource Manager lo quita automáticamente de las dependencias necesarias.
 
-En el ejemplo siguiente se muestra un conjunto de escalado de máquinas virtuales que depende de un equilibrador de carga, una red virtual y un bucle que crea varias cuentas de almacenamiento. Esos otros recursos no se muestran en el ejemplo siguiente, pero tendrían que existir en alguna otra parte de la plantilla.
+En el ejemplo siguiente se muestra una interfaz de red que depende de una red virtual, un grupo de seguridad de red y una dirección IP pública. Para ver la plantilla completa, consulte la [plantilla de inicio rápido de una máquina virtual Linux](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-simple-linux/azuredeploy.json).
 
 ```json
 {
-  "type": "Microsoft.Compute/virtualMachineScaleSets",
-  "apiVersion": "2016-03-30",
-  "name": "[variables('namingInfix')]",
-  "location": "[variables('location')]",
-  "tags": {
-    "displayName": "VMScaleSet"
-  },
-  "dependsOn": [
-    "[variables('loadBalancerName')]",
-    "[variables('virtualNetworkName')]",
-    "storageLoop",
-  ],
-  ...
+    "type": "Microsoft.Network/networkInterfaces",
+    "apiVersion": "2020-06-01",
+    "name": "[variables('networkInterfaceName')]",
+    "location": "[parameters('location')]",
+    "dependsOn": [
+      "[resourceId('Microsoft.Network/networkSecurityGroups/', parameters('networkSecurityGroupName'))]",
+      "[resourceId('Microsoft.Network/virtualNetworks/', parameters('virtualNetworkName'))]",
+      "[resourceId('Microsoft.Network/publicIpAddresses/', variables('publicIpAddressName'))]"
+    ],
+    ...
 }
 ```
 
-En el ejemplo anterior, se incluye una dependencia de los recursos que se crean a través de un bucle de copia denominado "**storageLoop**". Para ver un ejemplo, consulte [Creación de varias instancias de recursos en el Administrador de recursos de Azure](copy-resources.md)
-
-Al definir las dependencias, puede incluir el espacio de nombres de proveedor de recursos y el tipo de recurso para evitar la ambigüedad. Por ejemplo, para aclarar un equilibrador de carga y la red virtual que puede tener los mismos nombres que otros recursos, utilice el formato siguiente:
-
-```json
-"dependsOn": [
-  "[resourceId('Microsoft.Network/loadBalancers', variables('loadBalancerName'))]",
-  "[resourceId('Microsoft.Network/virtualNetworks', variables('virtualNetworkName'))]"
-]
-```
-
-Si bien puede que se sienta tentado a usar dependsOn para asignar relaciones entre los recursos, es importante comprender por qué lo hace. Por ejemplo, para documentar cómo están interconectados los recursos, dependsOn no es el enfoque correcto. No se pueden consultar los recursos que se definieron en el elemento dependsOn después de realizar la implementación. El uso de dependsOn podría llegar a repercutir en el tiempo de implementación, ya que Resource Manager no implementa dos recursos en paralelo que tengan una dependencia.
+Si bien puede que se sienta tentado a usar dependsOn para asignar relaciones entre los recursos, es importante comprender por qué lo hace. Por ejemplo, para documentar cómo están interconectados los recursos, dependsOn no es el enfoque correcto. No se pueden consultar los recursos que se definieron en el elemento dependsOn después de realizar la implementación. La configuración de dependencias innecesarias reduce el tiempo de implementación porque Resource Manager no puede implementar esos recursos en paralelo.
 
 ## <a name="child-resources"></a>Recursos secundarios
 
-La propiedad resources permite especificar los recursos secundarios que están relacionados con el recurso que se está definiendo. Los recursos secundarios solo se pueden definir en cinco niveles de profundidad. Es importante tener en cuenta que no se crea una dependencia de implementación implícita entre un recurso secundario y el recurso primario. Si necesita que el recurso secundario se implemente después del recurso primario, debe declarar explícitamente esa dependencia con la propiedad dependsOn.
-
-Cada recurso primario solo acepta determinados tipos de recursos como recursos secundarios. Los tipos de recursos que se aceptan se especifican en el [esquema de plantilla](https://github.com/Azure/azure-resource-manager-schemas) del recurso principal. El nombre del tipo de recurso secundario incluye el nombre del tipo de recurso primario, por ejemplo, **Microsoft.Web/sites/config** y **Microsoft.Web/sites/extensions** son ambos recursos secundarios de **Microsoft.Web/Sites**.
+Una dependencia de implementación implícita no se crea automáticamente entre un [recurso secundario](child-resource-name-type.md) y el primario. Si necesita implementar el recurso secundario después del primario, establezca la propiedad dependsOn.
 
 En el siguiente ejemplo se muestran un servidor SQL lógico y una base de datos. Observe que se ha definido una dependencia explícita entre la base de datos y el servidor, a pesar de que la base de datos es un elemento secundario del servidor.
 
 ```json
 "resources": [
   {
-    "name": "[variables('sqlserverName')]",
-    "apiVersion": "2014-04-01-preview",
     "type": "Microsoft.Sql/servers",
-    "location": "[resourceGroup().location]",
-    "tags": {
-      "displayName": "SqlServer"
-    },
+    "apiVersion": "2020-02-02-preview",
+    "name": "[parameters('serverName')]",
+    "location": "[parameters('location')]",
     "properties": {
       "administratorLogin": "[parameters('administratorLogin')]",
       "administratorLoginPassword": "[parameters('administratorLoginPassword')]"
     },
     "resources": [
       {
-        "name": "[parameters('databaseName')]",
-        "apiVersion": "2014-04-01-preview",
         "type": "databases",
-        "location": "[resourceGroup().location]",
+        "apiVersion": "2020-08-01-preview",
+        "name": "[parameters('sqlDBName')]",
+        "location": "[parameters('location')]",
+        "sku": {
+          "name": "Standard",
+          "tier": "Standard"
+          },
         "dependsOn": [
-          "[variables('sqlserverName')]"
-        ],
-        "tags": {
-          "displayName": "Database"
-        },
-        "properties": {
-          "edition": "[parameters('edition')]",
-          "collation": "[parameters('collation')]",
-          "maxSizeBytes": "[parameters('maxSizeBytes')]",
-          "requestedServiceObjectiveName": "[parameters('requestedServiceObjectiveName')]"
-        }
+          "[resourceId('Microsoft.Sql/servers', concat(parameters('serverName')))]"
+        ]
       }
     ]
   }
 ]
 ```
 
+Para ver la plantilla completa, consulte la [plantilla de inicio rápido para Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/blob/master/101-sql-database/azuredeploy.json).
+
 ## <a name="reference-and-list-functions"></a>Funciones de referencia y lista
 
-La [función reference](template-functions-resource.md#reference) permite que una expresión derive su valor de otros pares de valor y nombre JSON o de recursos en tiempo de ejecución. Las [funciones list*](template-functions-resource.md#list) devuelven valores para un recurso de una operación de lista.  Las expresiones de referencia y lista declaran implícitamente que un recurso depende de otro, cuando el recurso al que se hace referencia está implementado en la misma plantilla y se hace referencia a él por su nombre (no por el identificador de recurso). Si se pasa el identificador de recurso a las funciones de referencia o lista, no se crea una referencia implícita.
+La [función reference](template-functions-resource.md#reference) permite que una expresión derive su valor de otros pares de valor y nombre JSON o de recursos en tiempo de ejecución. Las [funciones list*](template-functions-resource.md#list) devuelven valores para un recurso de una operación de lista.
+
+Las expresiones de referencia y lista declaran implícitamente que un recurso depende de otro. Siempre que sea posible, use una referencia implícita para evitar agregar una dependencia innecesaria.
+
+Para aplicar una dependencia implícita, haga referencia al recurso por su nombre, y no por el identificador de recurso. Si se pasa el identificador de recurso a las funciones de referencia o lista, no se crea una referencia implícita.
 
 El formato general de la función de referencia es:
 
@@ -132,13 +114,95 @@ En el ejemplo siguiente, un punto de conexión de CDN depende explícitamente de
     }
 ```
 
-Puede usar este elemento o el elemento dependsOn para especificar las dependencias, pero no es necesario usar ambos para el mismo recurso dependiente. Siempre que sea posible, use una referencia implícita para evitar agregar una dependencia innecesaria.
-
 Para más información, consulte [función reference](template-functions-resource.md#reference).
+
+## <a name="depend-on-resources-in-a-loop"></a>Dependencia de los recursos de un bucle
+
+Para implementar recursos que dependen de recursos en un [bucle de copia](copy-resources.md), tiene dos opciones. Puede establecer una dependencia de recursos individuales dentro del bucle o de todo el bucle.
+
+> [!NOTE]
+> En la mayoría de los escenarios, debe establecer la dependencia de recursos específicos dentro del bucle de copia. Dependa solo del bucle entero cuando necesite que todos los recursos del bucle existan antes de crear el recurso siguiente. Al establecer la dependencia de todo el bucle, el grafo de dependencias se expande de forma significativa, especialmente si esos recursos del bucle dependen de otros recursos. Las dependencias expandidas dificultan que la implementación se complete de forma eficaz.
+
+En el ejemplo siguiente se muestra cómo implementar varias máquinas virtuales. La plantilla crea el mismo número de interfaces de red. Cada máquina virtual depende de una interfaz de red, en lugar de todo el bucle.
+
+```json
+{
+  "type": "Microsoft.Network/networkInterfaces",
+  "apiVersion": "2020-05-01",
+  "name": "[concat(variables('nicPrefix'),'-',copyIndex())]",
+  "location": "[parameters('location')]",
+  "copy": {
+    "name": "nicCopy",
+    "count": "[parameters('vmCount')]"
+  },
+  ...
+},
+{
+  "type": "Microsoft.Compute/virtualMachines",
+  "apiVersion": "2020-06-01",
+  "name": "[concat(variables('vmPrefix'),copyIndex())]",
+  "location": "[parameters('location')]",
+  "dependsOn": [
+    "[resourceId('Microsoft.Network/networkInterfaces',concat(variables('nicPrefix'),'-',copyIndex()))]"
+  ],
+  "copy": {
+    "name": "vmCopy",
+    "count": "[parameters('vmCount')]"
+  },
+  "properties": {
+    "networkProfile": {
+      "networkInterfaces": [
+        {
+          "id": "[resourceId('Microsoft.Network/networkInterfaces',concat(variables('nicPrefix'),'-',copyIndex()))]",
+          "properties": {
+            "primary": "true"
+          }
+        }
+      ]
+    },
+    ...
+  }
+}
+```
+
+En el ejemplo siguiente, se muestra cómo se implementan tres cuentas de almacenamiento antes de implementar la máquina virtual. Tenga en cuenta que el elemento copy tiene el nombre establecido en `storagecopy` y que el elemento dependsOn de la máquina virtual también está establecido en `storagecopy`.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2019-04-01",
+      "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
+      "location": "[resourceGroup().location]",
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "Storage",
+      "copy": {
+        "name": "storagecopy",
+        "count": 3
+      },
+      "properties": {}
+    },
+    {
+      "type": "Microsoft.Compute/virtualMachines",
+      "apiVersion": "2015-06-15",
+      "name": "[concat('VM', uniqueString(resourceGroup().id))]",
+      "dependsOn": ["storagecopy"],
+      ...
+    }
+  ],
+  "outputs": {}
+}
+```
 
 ## <a name="circular-dependencies"></a>Dependencias circulares
 
-Resource Manager identifica dependencias circulares durante la validación de plantillas. Si recibe un error que indica que existe una dependencia circular, evalúe la plantilla para ver si algunas dependencias no son necesarias y se pueden quitar. Si no es suficiente con quitar dependencias, puede evitar dependencias circulares moviendo algunas operaciones de implementación a recursos secundarios que se implementan después de los recursos que tienen la dependencia circular. Por ejemplo, suponga que va a implementar dos máquinas virtuales pero debe establecer propiedades en cada una que hagan referencia a la otra. Puede implementarlas en el orden siguiente:
+Resource Manager identifica dependencias circulares durante la validación de plantillas. Si recibe un error en una dependencia circular, evalúe la plantilla para ver si se puede quitar alguna dependencia. Si no es suficiente con quitar dependencias, puede evitar dependencias circulares moviendo algunas operaciones de implementación a recursos secundarios. Implemente los recursos secundarios después de los recursos que tienen la dependencia circular. Por ejemplo, suponga que va a implementar dos máquinas virtuales pero debe establecer propiedades en cada una que hagan referencia a la otra. Puede implementarlas en el orden siguiente:
 
 1. vm1
 2. vm2
@@ -150,6 +214,7 @@ Para información sobre cómo evaluar el orden de implementación y resolver err
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para seguir los pasos de un tutorial, consulte [Tutorial: Creación de plantillas de Azure Resource Manager con recursos dependientes](template-tutorial-create-templates-with-dependent-resources.md).
+* Para un módulo de Microsoft Learn que abarca las dependencias de los recursos, consulte [Administración de implementaciones complejas en la nube mediante características avanzadas de la plantilla de ARM](/learn/modules/manage-deployments-advanced-arm-template-features/).
 * Para obtener recomendaciones al establecer las dependencias, consulte [Procedimientos recomendados de plantilla de Azure Resource Manager](template-best-practices.md).
 * Para aprender a solucionar los problemas de dependencias durante la implementación, consulte [Solución de errores comunes de implementación de Azure con Azure Resource Manager](common-deployment-errors.md).
 * Para más información sobre la creación de plantillas del Administrador de recursos de Azure, consulte [Creación de plantillas](template-syntax.md).

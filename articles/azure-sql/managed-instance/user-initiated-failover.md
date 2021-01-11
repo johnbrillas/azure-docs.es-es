@@ -3,19 +3,19 @@ title: Inicio manual de una conmutación por error en SQL Managed Instance
 description: Obtenga información sobre cómo realizar manualmente la conmutación por error de las réplicas principal y secundaria en Azure SQL Managed Instance.
 services: sql-database
 ms.service: sql-managed-instance
-ms.custom: seo-lt-2019, sqldbrb=1, devx-track-azurecli
+ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: ''
 ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: douglas, sstein
-ms.date: 08/31/2020
-ms.openlocfilehash: 51e9e66e2fd8ff60dd20c275a66fd13c047cc629
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.date: 12/16/2020
+ms.openlocfilehash: 4b1c98d8621267b300a82b697bce66a6b94e82f3
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94985525"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825927"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>Conmutación por error manual iniciada por el usuario en SQL Managed Instance
 
@@ -140,7 +140,7 @@ No podrá ver el mismo resultado con el nivel de servicio GP que el anterior que
 
 > [!IMPORTANT]
 > Limitaciones funcionales de la conmutación por error manual iniciada por el usuario:
-> - Podría haber una (1) conmutación por error iniciada en la misma Instancia administrada cada **30 minutos**.
+> - Podría haber una (1) conmutación por error iniciada en la misma Instancia administrada cada **15 minutos**.
 > - En el caso de las instancias de BC, debe existir cuórum de réplicas para que se acepte la solicitud de conmutación por error.
 > - En el caso de las instancias de BC, no es posible especificar en qué réplica secundaria legible se iniciará la conmutación por error.
 

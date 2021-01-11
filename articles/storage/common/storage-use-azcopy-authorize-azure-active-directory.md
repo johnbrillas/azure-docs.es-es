@@ -4,15 +4,15 @@ description: Puede proporcionar credenciales de autorización para las operacion
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/11/2020
+ms.date: 12/17/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 43002fdfbdce146b52774aa4182445bf34dd7199
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 99e06a36c2afa66f2874c14990d50c6287623efd
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97360295"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672498"
 ---
 # <a name="authorize-access-to-blobs-with-azcopy-and-azure-active-directory-azure-ad"></a>Autorización del acceso a blobs con AzCopy y Azure Active Directory (Azure AD)
 
@@ -183,9 +183,11 @@ Reemplace el marcador de posición `<path-to-certificate-file>` por la ruta de a
 > [!NOTE]
 > Considere la posibilidad de utilizar un símbolo del sistema como se muestra en este ejemplo. De este modo, la contraseña no aparecerá en el historial de comandos de la consola. 
 
-## <a name="authorize-without-a-keyring-linux"></a>Autorización sin un conjunto de claves (Linux)
+## <a name="authorize-without-a-secret-store"></a>Autorización sin un almacén secreto
 
-Si el sistema operativo no tiene un almacén de secretos, como un *conjunto de claves*, el comando `azcopy login` no funcionará. En su lugar, puede establecer variables de entorno en memoria antes de ejecutar cada operación. Estos valores desaparecen de la memoria una vez completada la operación, por lo que tendrá que establecer estas variables cada vez que ejecute un comando de azcopy.
+El comando `azcopy login` recupera un token de OAuth y, a continuación, coloca ese token en un almacén secreto del sistema. Si el sistema operativo no tiene un almacén secreto como un *conjunto de claves* de Linux, el comando `azcopy login` no funcionará porque no hay ningún lugar donde colocar el token. 
+
+En lugar de usar el comando `azcopy login`, puede establecer variables de entorno en memoria. A continuación, ejecute cualquier comando de AzCopy. AzCopy recuperará el token de autenticación necesario para completar la operación. Una vez finalizada la operación, el token desaparece de la memoria. 
 
 ### <a name="authorize-a-user-identity"></a>Autorización de una identidad de usuario
 
@@ -248,8 +250,6 @@ Reemplace el marcador de posición `<resource-id>` por el identificador de recur
 Después de establecer estas variables, puede ejecutar cualquier comando de azcopy (por ejemplo: `azcopy list https://contoso.blob.core.windows.net`).
 
 ### <a name="authorize-a-service-principal"></a>Autorización de una entidad de servicio
-
-Antes de ejecutar un script, deberá iniciar sesión interactivamente al menos una vez para poder proporcionar a AzCopy las credenciales de la entidad de servicio.  Esas credenciales se almacenan en un archivo seguro y cifrado para que el script no tenga que proporcionar esa información confidencial.
 
 Para iniciar sesión en su cuenta, use un secreto de cliente o la contraseña de un certificado asociado al registro de la aplicación de la entidad de servicio.
 

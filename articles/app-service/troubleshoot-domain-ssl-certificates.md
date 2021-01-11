@@ -8,19 +8,18 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 1cefb5a7b554b9a477f6a51eab3b22b0e8f55378
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 691cbd79e82432c8e919dcbb51642a76000296dc
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88958446"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97607616"
 ---
 # <a name="troubleshoot-domain-and-tlsssl-certificate-problems-in-azure-app-service"></a>Solución de problemas de dominio y certificado TLS/SSL en Azure App Service
 
 En este artículo se indican los problemas que pueden surgir al configurar un dominio o un certificado TLS/SSL para las aplicaciones web en Azure App Service. También se describen las posibles causas de estos problemas y sus soluciones.
 
 Si necesita más ayuda con cualquier aspecto de este artículo, puede ponerse en contacto con los expertos de Azure en los [foros de MSDN o Stack Overflow](https://azure.microsoft.com/support/forums/). Como alternativa, puede registrar un incidente de soporte técnico de Azure. Vaya al [sitio de soporte técnico de Azure](https://azure.microsoft.com/support/options/) y seleccione **Soporte técnico**.
-
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -120,7 +119,7 @@ El explorador de Internet podría seguir almacenando en caché la dirección IP 
 
 **Solución para la causa 2**
 
-Desactive el explorador. Para dispositivos Windows, puede ejecutar el comando `ipconfig /flushdns`. Use [WhatsmyDNS.net](https://www.whatsmydns.net/) para comprobar que su dominio apunta a la dirección IP de la aplicación. 
+Desactive el explorador. Para dispositivos Windows, puede ejecutar el comando `ipconfig /flushdns`. Use [WhatsmyDNS.net](https://www.whatsmydns.net/) para comprobar que su dominio apunta a la dirección IP de la aplicación.
 
 ### <a name="you-cant-add-a-subdomain"></a>No se puede agregar un subdominio 
 
@@ -185,13 +184,13 @@ Se renovó el certificado de App Service, pero la aplicación que usa el certifi
 
 #### <a name="cause"></a>Causa 
 App Service sincroniza automáticamente el certificado en un plazo de 48 horas. Cuando se alterna o actualiza un certificado, la aplicación sigue recuperando, en ocasiones, el certificado antiguo y no el recién actualizado. Esto se debe a que el trabajo de sincronización del recurso de certificado no se ha ejecutado todavía. Haga clic en Sync (Sincronizar). La operación de sincronización actualiza automáticamente los enlaces de nombre de host para el certificado en App Service sin tiempo de inactividad para las aplicaciones.
- 
+
 #### <a name="solution"></a>Solución
 
 Puede forzar una sincronización del certificado:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com). Seleccione **Certificados de App Service** y luego el certificado.
-2. Seleccione **Regenerar claves y sincronizar** y luego seleccione**Sincronizar**. La sincronización tarda algo de tiempo en finalizar. 
+2. Seleccione **Regenerar claves y sincronizar** y luego seleccione **Sincronizar**. La sincronización tarda algo de tiempo en finalizar. 
 3. Cuando se complete, verá la siguiente notificación: "Se actualizaron correctamente todos los recursos con el certificado más reciente."
 
 ### <a name="domain-verification-is-not-working"></a>La comprobación del dominio no funciona 
@@ -201,17 +200,17 @@ Es necesario comprobar el dominio para poder usar el certificado de App Service.
 
 #### <a name="solution"></a>Solución
 Compruebe manualmente el dominio mediante la adición de un registro TXT:
- 
-1.  Vaya al proveedor del Servicio de nombres de dominio (DNS) que hospeda el nombre de dominio.
-2.  Agregue un registro TXT para el dominio que use el valor del token de dominio que se muestra en Azure Portal. 
+
+1. Vaya al proveedor del Servicio de nombres de dominio (DNS) que hospeda el nombre de dominio.
+1. Agregue un registro TXT para el dominio que use el valor del token de dominio que se muestra en Azure Portal. 
 
 Espere unos minutos a que tenga lugar la propagación de DNS y seleccione el botón **Actualizar** para desencadenar la comprobación. 
 
 Como alternativa, puede usar el método de página web HTML para comprobar manualmente el dominio. Este método permite que la entidad de certificación confirme la propiedad de dominio del dominio para el que se emitió el certificado.
 
-1.  Cree un archivo HTML denominado {domain verification token}.html. El contenido de este archivo debe ser el valor del token de comprobación de dominio.
-3.  Cargue este archivo en la raíz del servidor web que hospeda el dominio.
-4.  Seleccione **Actualizar** para comprobar el estado del certificado. La comprobación podría tardar unos minutos en finalizar.
+1. Cree un archivo HTML denominado {domain verification token}.html. El contenido de este archivo debe ser el valor del token de comprobación de dominio.
+1. Cargue este archivo en la raíz del servidor web que hospeda el dominio.
+1. Seleccione **Actualizar** para comprobar el estado del certificado. La comprobación podría tardar unos minutos en finalizar.
 
 Por ejemplo, si compra un certificado estándar para azure.com con el token de comprobación de dominio 1234abcd, una solicitud web realizada a https://azure.com/1234abcd.html devolvería 1234abcd. 
 

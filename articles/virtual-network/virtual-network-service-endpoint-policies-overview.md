@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2020
 ms.author: rdhillon
-ms.openlocfilehash: 14ecb30af11bf750c90e45c3fb6b443d861a1445
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 13535a82f8aca741a1e25755e5a2d971ce45514e
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89400762"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739304"
 ---
 # <a name="virtual-network-service-endpoint-policies-for-azure-storage"></a>Directivas de punto de conexión de servicio de red virtual para Azure Storage
 
@@ -122,7 +122,7 @@ Las redes virtuales y las cuentas de Azure Storage pueden encontrarse en la mism
 - Las redes virtuales deben estar en la misma región que la directiva de punto de conexión de servicio.
 - Solo puede aplicar la directiva de punto de conexión de servicio en una subred si los puntos de conexión de servicio están configurados para los servicios de Azure enumerados en la directiva.
 - No puede utilizar las directivas de punto de conexión de servicio para el tráfico de la red local a los servicios de Azure.
-- Los servicios administrados de Azure no admiten actualmente directivas de punto de conexión. Esto incluye los servicios administrados implementados en las subredes compartidas (por ejemplo, *Azure HDInsight, Azure Batch, Azure AD DS, Azure Application Gateway, Azure VPN Gateway y Azure Firewall*) o en las subredes dedicadas (por ejemplo, *Azure App Service Environment, Azure Redis Cache, Azure API Management, Instancia administrada de Azure SQL y servicios administrados clásicos*).
+- Los servicios administrados de Azure no admiten actualmente directivas de punto de conexión. Esto incluye los servicios administrados implementados en las subredes compartidas (por ejemplo, *Azure Batch, Azure AD DS, Azure Application Gateway, Azure VPN Gateway y Azure Firewall*) o en las subredes dedicadas (por ejemplo, *Azure App Service Environment, Azure Redis Cache, Azure API Management, Instancia administrada de Azure SQL y servicios administrados clásicos*).
 
  > [!WARNING]
  > Los servicios de Azure implementados en la red virtual, como Azure HDInsight, acceden a otros servicios de Azure, como Azure Storage, para saber los requisitos de infraestructura. Restringir la directiva de punto de conexión a recursos específicos podría interrumpir el acceso a estos recursos de infraestructura para los servicios de Azure implementados en la red virtual.

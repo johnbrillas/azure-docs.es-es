@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/9/2020
 ms.author: yitoh
-ms.openlocfilehash: c3931cafb6c755c6119bf8deb4ecc6b58ea7bc51
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 5e633b5e4b2ff2ce884bfaf99e3730968150cbed
+ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96938450"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97746378"
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Introducción a Protección contra DDoS de Azure estándar
 
@@ -33,8 +33,8 @@ Azure DDoS Protection no almacena datos de los clientes.
 ## <a name="features"></a>Características
 
 - **Integración de plataforma nativa:** integrado de forma nativa en Azure. Incluye la configuración a través de Azure Portal. Protección contra DDoS estándar comprende sus recursos y la configuración de recursos.
-- **Protección llave en mano:** la configuración simplificada protege de inmediato todos los recursos de una red virtual desde el momento en que se habilita DDoS Protection Estándar. No se requiere intervención ni definición del usuario. Protección contra DDoS estándar mitiga el ataque de forma instantánea y automática una vez detectado.
-- **Supervisión continua del tráfico:** los patrones de tráfico de la aplicación se supervisan de forma ininterrumpida en busca de indicadores de ataques DDoS. La mitigación se realiza cuando se sobrepasan las directivas de protección.
+- **Protección llave en mano:** la configuración simplificada protege de inmediato todos los recursos de una red virtual desde el momento en que se habilita DDoS Protection Estándar. No se requiere intervención ni definición del usuario. 
+- **Supervisión continua del tráfico:** los patrones de tráfico de la aplicación se supervisan de forma ininterrumpida en busca de indicadores de ataques DDoS. Protección contra DDoS estándar mitiga el ataque de forma instantánea y automática una vez detectado.
 - **Ajuste adaptable:** la generación de perfiles de tráfico inteligente va conociendo con el tiempo el tráfico de la aplicación y selecciona y actualiza el perfil que resulta más adecuado para el servicio. El perfil se ajusta a medida que el tráfico cambia con el tiempo.
 - **Protección multicapa:** Proporciona protección contra DDoS de pila completa, cuando se usa con un firewall de aplicaciones web, para obtener protección en el nivel de red (nivel 3 y 4, ofrecido por Azure DDoS Protection Standard) y en el nivel de aplicación (nivel 7, ofrecido por un WAF). Entre las ofertas de WAF se incluyen la [SKU de WAF de Application Gateway](../web-application-firewall/ag/ag-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) de Azure, así como ofertas de firewall de aplicaciones web de terceros disponibles en [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?page=1&search=web%20application%20firewall).
 - **Escala de mitigación amplia:** se pueden mitigar más de 60 tipos de ataque diferentes con capacidad global para protegerse contra los ataques DDoS más conocidos.
@@ -42,7 +42,7 @@ Azure DDoS Protection no almacena datos de los clientes.
 - **Métricas de ataques:** con Azure Monitor se puede acceder a un resumen de métricas de cada ataque.
 - **Alertas de ataques:** las alertas se pueden configurar en el inicio y la detención de un ataque y a lo largo de la duración del ataque mediante métricas de ataque integradas. Las alertas se integran en el software operativo, como los registros de Microsoft Azure Monitor, Splunk, Azure Storage, el correo electrónico y Azure Portal.
 - **Respuesta rápida de DDoS**: póngase en contacto con el equipo de respuesta rápida de DDoS Protection (DRR) para obtener ayuda con la investigación y el análisis de los ataques. Para obtener más información, vea [Respuesta rápida de DDoS](ddos-rapid-response.md).
-- **Garantía de costo:** créditos para servicio de escalado horizontal de aplicaciones y transferencia de datos para ataques de DDoS documentados.
+- **Garantía de costo:** reciba crédito de servicio de escalabilidad horizontal de aplicaciones y transferencia de datos para los costos de recursos en los que se incurre como resultado de ataques DDoS documentados.
 
 ## <a name="pricing"></a>Precios
 

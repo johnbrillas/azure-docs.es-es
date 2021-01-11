@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 12/27/2019
-ms.openlocfilehash: 1094235f5bc5cc25cf6d8f3762dc242503952de6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61ec2db1799919eb395996b56d08b77e3be7ff5a
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86083804"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97822376"
 ---
 # <a name="analyze-website-logs-using-a-custom-python-library-with-apache-spark-cluster-on-hdinsight"></a>Análisis de registros de sitios web mediante una biblioteca de Python personalizada con un clúster de Apache Spark en HDInsight
 
@@ -25,7 +25,7 @@ Un clúster de Apache Spark en HDInsight. Para obtener instrucciones, vea [Creac
 
 ## <a name="save-raw-data-as-an-rdd"></a>Almacenamiento de datos sin procesar como RDD
 
-En esta sección, usamos el cuaderno de [Jupyter](https://jupyter.org) asociado con un clúster Apache Spark en HDInsight para ejecutar trabajos que procesan los datos de ejemplo sin procesar y los guardan como una tabla de Hive. Los datos de ejemplo corresponden a un archivo .csv (hvac.csv) que está disponible en todos los clústeres de manera predeterminada.
+En esta sección, usamos el cuaderno de [Jupyter](https://jupyter.org) Notebook asociado con un clúster Apache Spark en HDInsight para ejecutar trabajos que procesan los datos de ejemplo sin procesar y los guardan como una tabla de Hive. Los datos de ejemplo corresponden a un archivo .csv (hvac.csv) que está disponible en todos los clústeres de manera predeterminada.
 
 Una vez que los datos se guardan como una tabla de Apache Hive, en la sección siguiente nos conectaremos a la tabla de Hive mediante herramientas de BI como Power BI y Tableau.
 
@@ -33,7 +33,7 @@ Una vez que los datos se guardan como una tabla de Apache Hive, en la sección s
 
 1. Cree un nuevo notebook. Seleccione **Nuevo** y, a continuación, **PySpark**.
 
-    ![Creación de un cuaderno de Apache Jupyter](./media/apache-spark-custom-library-website-log-analysis/hdinsight-create-jupyter-notebook.png "Crear un nuevo cuaderno de Jupyter")
+    ![Creación de un cuaderno de Apache Jupyter](./media/apache-spark-custom-library-website-log-analysis/hdinsight-create-jupyter-notebook.png "Creación de un nuevo cuaderno de Jupyter Notebook")
 
 1. Se crea y se abre un nuevo cuaderno con el nombre Untitled.pynb. Seleccione el nombre del cuaderno en la parte superior y escriba un nombre descriptivo.
 

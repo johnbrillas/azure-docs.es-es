@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 10/07/2020
+ms.date: 12/28/2020
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2408db2d91740350405f11e2a1250ab9b3a4fe31
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 56818862b6bc4eb38b819185aceb121e6e78488e
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181210"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97803534"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Informes de aprovisionamiento en el portal de Azure Active Directory (versión preliminar)
 
@@ -44,6 +44,7 @@ Este tema ofrece una visión general del informe de aprovisionamiento.
 ### <a name="who-can-access-the-data"></a>¿Quién puede acceder a los datos?
 * Los propietarios de la aplicación pueden ver los registros de las aplicaciones que poseen.
 * Los usuarios con los roles Administrador de seguridad, Lector de seguridad, Lector de informes, Administrador de aplicaciones y Administrador de aplicaciones en la nube.
+* Usuarios en un rol personalizado con el [permiso provisioningLogs](https://docs.microsoft.com/azure/active-directory/roles/custom-enterprise-app-permissions#full-list-of-permissions)
 * Administradores globales
 
 
@@ -56,7 +57,7 @@ El inquilino debe tener una licencia de Azure AD Premium asociada para ver el in
 Los registros de aprovisionamiento proporcionan respuestas a las siguientes preguntas:
 
 * ¿Qué grupos se han creado correctamente en ServiceNow?
-* ¿Qué roles se han importado de Amazon Web Services?
+* ¿Qué usuarios se han quitado correctamente de Adobe?
 * ¿Qué usuarios no se han creado correctamente en DropBox?
 
 Se puede tener acceso a los registros de aprovisionamiento si se selecciona **Registros de aprovisionamiento** en la sección **Supervisión** de la hoja **Azure Active Directory** en [Azure Portal](https://portal.azure.com). Algunos registros de aprovisionamiento pueden tardar hasta dos horas en aparecer en el portal.
@@ -219,7 +220,9 @@ En la pestaña **Resumen** se proporciona información general sobre lo que suce
 
 - Es posible que vea eventos omitidos para los usuarios que no estén en el ámbito. Esto es normal, especialmente cuando el ámbito de sincronización se establece en todos los usuarios y grupos. Nuestro servicio evaluará todos los objetos del inquilino, incluso los que estén fuera del ámbito. 
 
-- Los registros de aprovisionamiento no están disponibles actualmente en la nube de administración pública. Si no puede acceder a los registros de aprovisionamiento, use los registros de auditoría como una solución temporal.  
+- Los registros de aprovisionamiento no están disponibles actualmente en la nube de administración pública. Si no puede acceder a los registros de aprovisionamiento, use los registros de auditoría como una solución temporal. 
+
+- Los registros de aprovisionamiento no muestran importaciones de roles (se aplica a AWS, SalesForce y ZenDesk). Los registros de importaciones de roles se encuentran en los registros de auditoría. 
 
 ## <a name="error-codes"></a>Códigos de error
 

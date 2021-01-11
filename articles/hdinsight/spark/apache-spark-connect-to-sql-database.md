@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: d979a68f4e3aa0071fb7654647610af1fbf95e90
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 97c326bd1d2f61ba3fb9d6e381f5a8711bd0ca1d
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023983"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97821203"
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>Uso del clúster de Spark en HDInsight para leer y escribir datos en Azure SQL Database
 
@@ -36,7 +36,7 @@ Aprenda a conectar un clúster de Apache Spark en Azure HDInsight con una instan
 Comience con la creación de un cuaderno de Jupyter Notebook asociado al clúster de Spark. Utilice ese cuaderno para ejecutar los fragmentos de código que se utilizan en este artículo.
 
 1. En [Azure Portal](https://portal.azure.com/), abra el clúster.
-1. Seleccione **Cuaderno de Jupyter** debajo de **Paneles de clúster** en el lado derecho.  Si no ve **paneles de clúster**, seleccione **Introducción** del menú izquierdo. Cuando se le pida, escriba las credenciales del clúster.
+1. Seleccione **Jupyter Notebook** debajo de **Paneles de clúster** en el lado derecho.  Si no ve **paneles de clúster**, seleccione **Introducción** del menú izquierdo. Cuando se le pida, escriba las credenciales del clúster.
 
     ![Jupyter Notebook en Apache Spark](./media/apache-spark-connect-to-sql-database/hdinsight-spark-cluster-dashboard-jupyter-notebook.png "Jupyter Notebook en Spark")
 
@@ -45,7 +45,7 @@ Comience con la creación de un cuaderno de Jupyter Notebook asociado al clúste
    >
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
-1. En el cuaderno de Jupyter, en la esquina superior derecha, haga clic en **Nuevo** y, a continuación, en **Spark** para crear un cuaderno de Scala. Los cuadernos de Jupyter en el clúster de HDInsight Spark también proporcionan el kernel **PySpark** para aplicaciones Python2 y el kernel **PySpark3** para aplicaciones Python3. En este artículo, vamos a crear un cuaderno de Scala.
+1. En el cuaderno de Jupyter Notebook, en la esquina superior derecha, haga clic en **Nuevo** y, a continuación, en **Spark** para crear un cuaderno de Scala. Los cuadernos de Jupyter Notebook en el clúster de HDInsight Spark también proporcionan el kernel **PySpark** para aplicaciones Python2 y el kernel **PySpark3** para aplicaciones Python3. En este artículo, vamos a crear un cuaderno de Scala.
 
     ![Kernels para Jupyter Notebook en Spark](./media/apache-spark-connect-to-sql-database/kernel-jupyter-notebook-on-spark.png "Kernels para Jupyter Notebook en Spark")
 

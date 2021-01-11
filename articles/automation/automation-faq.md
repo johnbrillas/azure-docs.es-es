@@ -4,19 +4,17 @@ description: En este artículo se ofrecen respuestas a las preguntas más frecue
 services: automation
 ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
-ms.date: 02/25/2020
-ms.openlocfilehash: 76c8d09ef2ef0130ddac856a1f37f8b68d977494
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/17/2020
+ms.openlocfilehash: 2b40cc3d4cea4476ffde8bee8cec694975eb5083
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86186238"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724279"
 ---
 # <a name="azure-automation-frequently-asked-questions"></a>Preguntas más frecuentes sobre Azure Automation
 
-En este artículo de preguntas más frecuentes de Microsoft, se presenta una lista con las preguntas frecuentes sobre Azure Automation. Si tiene alguna otra pregunta sobre sus funcionalidades, vaya al foro de discusión y publíquela. Si una pregunta es frecuente, se agrega a este artículo para que se pueda encontrar de forma rápida y sencilla.
+En este artículo de preguntas más frecuentes de Microsoft, se presenta una lista con las preguntas frecuentes sobre Azure Automation. Si tiene alguna otra pregunta sobre sus funcionalidades, vaya al foro de discusión y publíquela. Si una pregunta es frecuente, se agrega a este artículo para que se encuentre de forma rápida y sencilla.
 
 ## <a name="update-management"></a>Administración de actualizaciones
 
@@ -34,11 +32,11 @@ Al implementar actualizaciones en una máquina Linux, puede seleccionar clasific
 
 Dado que Update Management realiza el enriquecimiento de actualizaciones en la nube, puede marcar algunas actualizaciones en Update Management como de impacto para la seguridad, aunque la máquina local no tenga esa información. Si aplica actualizaciones críticas a una máquina Linux, puede haber actualizaciones que no estén marcadas como de impacto para la seguridad en esa máquina y que, por lo tanto, no se apliquen. Sin embargo, es posible que Update Management todavía notifique que esa máquina no es compatible porque tiene información adicional acerca de la actualización pertinente.
 
-La implementación de actualizaciones mediante la clasificación de actualizaciones no funciona en las versiones RTM de CentOS. Para implementar correctamente actualizaciones para CentOS, seleccione todas las clasificaciones para asegurarse de que se aplican las actualizaciones. Para SUSE, al seleccionar SOLO **Otras actualizaciones** como clasificación, puede que se instalen algunas actualizaciones de seguridad más, si primero se requieren actualizaciones de seguridad relacionadas con zypper (administrador de paquetes) o sus dependencias. Este comportamiento es una limitación de zypper. En algunos casos, puede que se le pida volver a ejecutar la implementación de actualizaciones y, a continuación, comprobar la implementación a través del registro de actualizaciones.
+La implementación de actualizaciones mediante la clasificación de actualizaciones no funciona en las versiones RTM de CentOS. Para implementar correctamente actualizaciones para CentOS, seleccione todas las clasificaciones para asegurarse de que se aplican las actualizaciones. Para SUSE, al seleccionar SOLO **Otras actualizaciones** como clasificación, puede que se instalen algunas actualizaciones de seguridad si están relacionadas con zypper (Administrador de paquetes) o se requieren sus dependencias en primer lugar. Este comportamiento es una limitación de zypper. En algunos casos, puede que se le pida volver a ejecutar la implementación de actualizaciones y, a continuación, comprobar la implementación a través del registro de actualizaciones.
 
 ### <a name="can-i-deploy-updates-across-azure-tenants"></a>¿Puedo implementar actualizaciones en los inquilinos de Azure?
 
-Si tiene máquinas que necesitan revisión en otro inquilino de Azure que informan a Update Management, tiene que usar una de las soluciones alternativas siguientes para programarlas. Puede usar el cmdlet [New-AzAutomationSchedule](/powershell/module/Az.Automation/New-AzAutomationSchedule?view=azps-3.7.0) con el parámetro `ForUpdateConfiguration` para crear una programación. Puede usar el cmdlet [New-AzAutomationSoftwareUpdateConfiguration](/powershell/module/Az.Automation/New-AzAutomationSoftwareUpdateConfiguration?view=azps-3.7.0) y pasar las máquinas del otro inquilino al parámetro `NonAzureComputer`. El ejemplo siguiente muestra cómo hacerlo.
+Si tiene máquinas que necesitan revisión en otro inquilino de Azure que informan a Update Management, tiene que usar una de las soluciones alternativas siguientes para programarlas. Puede usar el cmdlet [New-AzAutomationSchedule](/powershell/module/Az.Automation/New-AzAutomationSchedule) con el parámetro `ForUpdateConfiguration` para crear una programación. Puede usar el cmdlet [New-AzAutomationSoftwareUpdateConfiguration](/powershell/module/Az.Automation/New-AzAutomationSoftwareUpdateConfiguration) y pasar las máquinas del otro inquilino al parámetro `NonAzureComputer`. El ejemplo siguiente muestra cómo hacerlo.
 
 ```azurepowershell-interactive
 $nonAzurecomputers = @("server-01", "server-02")
@@ -49,6 +47,34 @@ $sched = New-AzAutomationSchedule -ResourceGroupName mygroup -AutomationAccountN
 
 New-AzAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName <automationAccountName> -Schedule $sched -Windows -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
 ```
+
+## <a name="process-automation---python-runbooks"></a>Automatización de procesos: runbooks de Python
+
+### <a name="which-python-3-version-is-supported-in-azure-automation"></a>¿Qué versión de Python 3 se admite en Azure Automation?
+
+En el caso de los trabajos en la nube, se admite Python 3.8. Es posible que los scripts y paquetes de cualquier versión 3.x funcionen si el código es compatible con distintas versiones.
+
+En el caso de los trabajos híbridos de Hybrid Runbook Worker para Windows, puede optar por instalar cualquier versión 3.x que desee usar. En el caso de los trabajos híbridos de Hybrid Runbook Worker para Linux, dependemos de la versión de Python 3 instalada en el equipo para ejecutar DSC OMSConfig y Hybrid Worker para Linux. Se recomienda instalar la versión 3.6; sin embargo, las distintas versiones también deben funcionar si no hay cambios importantes en los contratos o las firmas de método entre las versiones de Python 3.
+
+### <a name="can-python-2-and-python-3-runbooks-run-in-same-automation-account"></a>¿Pueden los runbooks de Python 2 y Python 3 ejecutarse en la misma cuenta de automatización?
+
+Sí, no hay ninguna limitación para usar runbooks de Python 2 y Python 3 en la misma cuenta de automatización.  
+
+### <a name="what-is-the-plan-for-migrating-existing-python-2-runbooks-and-packages-to-python-3"></a>¿Cuál es el plan para migrar los paquetes y runbooks existentes de Python 2 a Python 3?
+
+Azure Automation no pretende migrar los runbooks y paquetes de Python 2 a Python 3. Tendrá que realizar esta migración usted mismo. Los runbooks y paquetes nuevos y existentes de Python 2 seguirán funcionando.
+
+### <a name="what-are-the-packages-supported-by-default-in-python-3-environment"></a>¿Cuáles son los paquetes admitidos de forma predeterminada en el entorno de Python 3?
+
+Azure Package 4.0.0 está instalado de forma predeterminada en el entorno de Automation de Python 3. Puede importar manualmente una versión superior del paquete de Azure para invalidar la versión predeterminada.
+
+### <a name="what-if-i-run-a-python-3-runbook-that-references-a-python-2-package-or-vice-versa"></a>¿Qué ocurre si ejecuto un runbook de Python 3 que haga referencia a un paquete de Python 2 o viceversa?
+
+Python 2 y Python 3 tienen entornos de ejecución diferentes. Mientras se ejecuta un runbook de Python 2, solo se pueden importar paquetes de Python 2 y similares para Python 3.
+
+### <a name="how-do-i-differentiate-between-python-2-and-python-3-runbooks-and-packages"></a>¿Cómo se diferencian los paquetes y runbooks de Python 2 y Python 3?
+
+Python 3 es una nueva definición de runbook, que distingue entre los runbooks de Python 2 y Python 3. Del mismo modo, se introduce otro tipo de paquete para los paquetes de Python 3.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

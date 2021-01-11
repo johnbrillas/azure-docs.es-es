@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: ee3d1335de1b2bb3096e88c4d04cd03daaa665f5
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 4f4cd8189c9166ee08c1e4ccd800a1202d3b5893
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "96014160"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724823"
 ---
 # <a name="smb-multichannel-performance"></a>Rendimiento de SMB multicanal
 
@@ -63,7 +63,7 @@ En la mayoría de los escenarios, concretamente las cargas de trabajo multiproce
 1. Abra PowerShell como administrador y use el siguiente comando: `Get-SmbMultichannelConnection |fl`
 1. Busque las propiedades **MaxChannels** y **CurrentChannels**
 
-:::image type="content" source="media/storage-files-smb-multichannel-performance/files-smb-multi-channel-connection.PNG" alt-text="Captura de pantalla de los resultados de get-smbmultichannelconnection." lightbox="media/storage-files-smb-multichannel-performance/files-smb-multi-channel-connection.PNG":::
+:::image type="content" source="media/storage-files-smb-multichannel-performance/files-smb-multi-channel-connection.PNG" alt-text="Captura de pantalla de los resultados de Get-SMBMultichannelConnection." lightbox="media/storage-files-smb-multichannel-performance/files-smb-multi-channel-connection.PNG":::
 
 ## <a name="performance-comparison"></a>Comparación del rendimiento
 
@@ -81,7 +81,7 @@ En los gráficos de este artículo, se usó la siguiente configuración: una sol
 |---|---|---|---|---|---|---|---|---|
 | [Standard_D32s_v3](../../virtual-machines/dv3-dsv3-series.md) | 32 | 128 | 256 | 32 | 64000/512 (800)    | 51200/768  | 8|16000 |
 
-:::image type="content" source="media/storage-files-smb-multichannel-performance/files-smb-multi-channel-nic-settings-all-nics.PNG" alt-text="Captura de pantalla de los resultados de get-smbmultichannelconnection." lightbox="media/storage-files-smb-multichannel-performance/files-smb-multi-channel-nic-settings-all-nics.PNG":::
+:::image type="content" source="media/storage-files-smb-multichannel-performance/files-smb-multi-channel-nic-settings-all-nics.PNG" alt-text="Captura de pantalla que muestra la configuración de la prueba de rendimiento." lightbox="media/storage-files-smb-multichannel-performance/files-smb-multi-channel-nic-settings-all-nics.PNG":::
 
 ### <a name="mutli-threadedmultiple-files-with-smb-multichannel"></a>Archivos multiproceso o varios archivos con SMB multicanal
 
@@ -119,7 +119,7 @@ Las siguientes sugerencias pueden ayudarle a optimizar el rendimiento:
 - Asegúrese de que la cuenta de almacenamiento y el cliente se colocan en la misma región de Azure para reducir la latencia de red.
 - Use aplicaciones multiproceso y distribuya la carga entre varios archivos.
 - Las ventajas de rendimiento de SMB multicanal aumentan con el número de archivos que distribuyen la carga.
-- El rendimiento del recurso compartido Premium está limitado por el tamaño del recurso compartido aprovisionado (IOPS/salida/entrada) y los límites de un solo archivo. Para obtener detalles, consulte [Descripción del aprovisionamiento de recursos compartidos de archivos Premium](storage-files-planning.md#understanding-provisioning-for-premium-file-shares).
+- El rendimiento del recurso compartido Premium está limitado por el tamaño del recurso compartido aprovisionado (IOPS/salida/entrada) y los límites de un solo archivo. Para obtener detalles, consulte [Descripción del aprovisionamiento de recursos compartidos de archivos Premium](understanding-billing.md#provisioned-billing).
 - El rendimiento máximo de un solo cliente de VM sigue estando enlazado a los límites de máquina virtual. Por ejemplo, [Standard_D32s_v3](../../virtual-machines/dv3-dsv3-series.md) puede admitir un ancho de banda máximo de 16 000 MBps (o 2 GBps), la salida de la máquina virtual (escrituras en el almacenamiento) se mide, la entrada (lecturas del almacenamiento) no. El rendimiento de los recursos compartidos de archivos está sujeto a los límites de red de la máquina, las CPU, el almacenamiento interno, el ancho de banda de red disponible, los tamaños de E/S, el paralelismo, así como otros factores.
 - La prueba inicial normalmente es una preparación. Descarte sus resultados y repita la prueba.
 - Si el rendimiento está limitado por un solo cliente y la carga de trabajo aún se encuentra por debajo de los límites de recursos compartidos aprovisionados, se puede conseguir un rendimiento más alto mediante la distribución de la carga por varios clientes.

@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 11/13/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 9bdd70baa906d9dc03a37eecb0388eee5638f153
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 1e05ecd162ccb333c6ab29b0185f6ffcb04a6213
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96184287"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591368"
 ---
 # <a name="add-azure-role-assignments-using-azure-resource-manager-templates"></a>Incorporación de asignaciones de roles mediante plantillas de Azure Resource Manager
 
@@ -109,14 +109,14 @@ Para usar la plantilla, debe hacer lo siguiente:
 }
 ```
 
-Los comandos [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) y [az group deployment create](/cli/azure/group/deployment#az-group-deployment-create) son ejemplos de cómo iniciar la implementación de un grupo de recursos llamado ExampleGroup.
+Los comandos [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) y [az deployment group create](/cli/azure/deployment/group#az_deployment_group_create) son ejemplos de cómo iniciar la implementación de un grupo de recursos llamado ExampleGroup.
 
 ```azurepowershell
 New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-test.json
 ```
 
 ```azurecli
-az group deployment create --resource-group ExampleGroup --template-file rbac-test.json
+az deployment group create --resource-group ExampleGroup --template-file rbac-test.json
 ```
 
 A continuación se muestra un ejemplo de la asignación del rol de lector a un usuario de un grupo de recursos después de implementar la plantilla.
@@ -187,24 +187,24 @@ Para usar la plantilla, debe especificar las siguientes entradas:
 > [!NOTE]
 > Esta plantilla no es idempotente, a menos que se proporcione el mismo valor `roleNameGuid` como parámetro para cada implementación de la plantilla. Si no se proporciona `roleNameGuid`, de manera predeterminada se generará un nuevo GUID en cada implementación y se producirá un error `Conflict: RoleAssignmentExists` en las implementaciones posteriores.
 
-El ámbito de la asignación de roles se determina a partir del nivel de la implementación. Los comandos [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) y [az group deployment create](/cli/azure/group/deployment#az-group-deployment-create) son ejemplos de cómo iniciar la implementación en el ámbito de un grupo de recursos.
+El ámbito de la asignación de roles se determina a partir del nivel de la implementación. Los comandos [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) y [az deployment group create](/cli/azure/deployment/group#az_deployment_group_create) son ejemplos de cómo iniciar la implementación en el ámbito de un grupo de recursos.
 
 ```azurepowershell
 New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-test.json -principalId $objectid -builtInRoleType Reader
 ```
 
 ```azurecli
-az group deployment create --resource-group ExampleGroup --template-file rbac-test.json --parameters principalId=$objectid builtInRoleType=Reader
+az deployment group create --resource-group ExampleGroup --template-file rbac-test.json --parameters principalId=$objectid builtInRoleType=Reader
 ```
 
-Los comandos [New-AzDeployment](/powershell/module/az.resources/new-azdeployment) y [az deployment create](/cli/azure/deployment#az-deployment-create) son ejemplos de cómo iniciar la implementación en el ámbito de una suscripción y especificar la ubicación.
+Los comandos [New-AzDeployment](/powershell/module/az.resources/new-azdeployment) y [az deployment sub create](/cli/azure/deployment/sub#az_deployment_sub_create) son ejemplos de cómo iniciar la implementación en el ámbito de una suscripción y especificar la ubicación.
 
 ```azurepowershell
 New-AzDeployment -Location centralus -TemplateFile rbac-test.json -principalId $objectid -builtInRoleType Reader
 ```
 
 ```azurecli
-az deployment create --location centralus --template-file rbac-test.json --parameters principalId=$objectid builtInRoleType=Reader
+az deployment sub create --location centralus --template-file rbac-test.json --parameters principalId=$objectid builtInRoleType=Reader
 ```
 
 ### <a name="resource-scope"></a>Ámbito de recursos
@@ -290,14 +290,14 @@ Para usar la plantilla, debe especificar las siguientes entradas:
 }
 ```
 
-Para implementar la plantilla anterior, usará los comandos de grupo de recursos. Los comandos [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) y [az group deployment create](/cli/azure/group/deployment#az-group-deployment-create) son ejemplos de cómo iniciar la implementación en el ámbito de un recurso.
+Para implementar la plantilla anterior, usará los comandos de grupo de recursos. Los comandos [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) y [az deployment group create](/cli/azure/deployment/group#az_deployment_group_create) son ejemplos de cómo iniciar la implementación en el ámbito de un recurso.
 
 ```azurepowershell
 New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-test.json -principalId $objectid -builtInRoleType Contributor
 ```
 
 ```azurecli
-az group deployment create --resource-group ExampleGroup --template-file rbac-test.json --parameters principalId=$objectid builtInRoleType=Contributor
+az deployment group create --resource-group ExampleGroup --template-file rbac-test.json --parameters principalId=$objectid builtInRoleType=Contributor
 ```
 
 A continuación se muestra un ejemplo de una asignación de rol de colaborador a un usuario de una cuenta de almacenamiento después de implementar la plantilla.
@@ -360,14 +360,14 @@ Para usar la plantilla, debe especificar las siguientes entradas:
 }
 ```
 
-Los comandos [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) y [az group deployment create](/cli/azure/group/deployment#az-group-deployment-create) son ejemplos de cómo iniciar la implementación en el ámbito de un grupo de recursos.
+Los comandos [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) y [az deployment group create](/cli/azure/deployment/group#az_deployment_group_create) son ejemplos de cómo iniciar la implementación en el ámbito de un grupo de recursos.
 
 ```azurepowershell
 New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup2 -TemplateFile rbac-test.json
 ```
 
 ```azurecli
-az group deployment create --resource-group ExampleGroup2 --template-file rbac-test.json
+az deployment group create --resource-group ExampleGroup2 --template-file rbac-test.json
 ```
 
 A continuación se muestra un ejemplo de la asignación del rol de colaborador a una nueva entidad de servicio de identidad administrada después de implementar la plantilla.
@@ -386,6 +386,6 @@ En RBAC de Azure, para quitar el acceso a un recurso de Azure, se quita la asign
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Inicio rápido: Creación e implementación de plantillas de Azure Resource Manager mediante Azure Portal](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)
-- [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md)
+- [Descripción de la estructura y la sintaxis de las plantillas de ARM](../azure-resource-manager/templates/template-syntax.md)
 - [Creación de grupos de recursos y otros recursos en el nivel de suscripción](../azure-resource-manager/templates/deploy-to-subscription.md)
 - [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/?term=rbac)

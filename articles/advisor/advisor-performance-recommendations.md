@@ -3,12 +3,12 @@ title: Mejora del rendimiento de las aplicaciones de Azure con Advisor
 description: Use recomendaciones sobre rendimiento de Azure Advisor para mejorar la velocidad y la capacidad de respuesta de las aplicaciones empresariales críticas.
 ms.topic: article
 ms.date: 07/29/2020
-ms.openlocfilehash: 55f5ac6784bf613170fd10060799ab5ad1290a62
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 8937272f8b6ef945d80076732ea38523f7b475a1
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183352"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97802548"
 ---
 # <a name="improve-the-performance-of-azure-applications-by-using-azure-advisor"></a>Mejora del rendimiento de las aplicaciones de Azure con Azure Advisor
 
@@ -175,6 +175,11 @@ Hemos determinado que las máquinas virtuales se encuentran en una región disti
 Hemos identificado recursos en esta suscripción con versiones obsoletas del SDK de Lector inmersivo. El uso de la versión más reciente del SDK de Lector inmersivo le proporciona seguridad actualizada, rendimiento y un conjunto expandido de características para personalizar y mejorar la experiencia de integración.
 Más información sobre el [SDK de Lector inmersivo](../cognitive-services/immersive-reader/index.yml).
 
+## <a name="improve-vm-performance-by-changing-the-maximum-session-limit"></a>Mejora del rendimiento de la máquina virtual cambiando el límite máximo de sesión
+
+Advisor detecta que tiene un grupo de hosts con la profundidad establecida en primer lugar como algoritmo de equilibrio de carga y que el límite máximo de sesión del grupo de hosts es mayor o igual que 99999. El equilibrio de carga en profundidad usa el límite máximo de sesión para determinar el número máximo de usuarios que pueden tener sesiones simultáneas en un único host de sesión. Si el límite máximo de sesión es demasiado alto, todas las sesiones de usuario se dirigirán al mismo host de sesión y esto provocará problemas de rendimiento y confiabilidad. Por lo tanto, al configurar un grupo de hosts para que tenga un equilibrio de carga en profundidad, debe establecer un límite máximo de sesión adecuado según la configuración de la implementación y la capacidad de las máquinas virtuales. 
+
+Para obtener más información sobre el equilibrio de carga en Windows Virtual Desktop, consulte [Configuración del método de equilibrio de carga de Windows Virtual Desktop](/azure/virtual-desktop/troubleshoot-set-up-overview).
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Obtención de acceso a las recomendaciones sobre rendimiento en Advisor
 

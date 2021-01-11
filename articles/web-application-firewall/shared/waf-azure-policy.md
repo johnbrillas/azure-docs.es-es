@@ -7,12 +7,12 @@ services: web-application-firewall
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: rimansdo
-ms.openlocfilehash: fd474a32b4a517230a82615065d7815c04140045
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 7798d7e960286d4f8aa971eb2eb0b03d24bd6360
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96432975"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589464"
 ---
 # <a name="azure-web-application-firewall-and-azure-policy"></a>Azure Policy y firewall de aplicaciones web de Azure
 
@@ -47,7 +47,7 @@ Hay varias definiciones de directiva de Azure integradas para administrar los re
     2.  **Exclusiones**: seleccionar los recursos del ámbito que se van a excluir de la asignación de directiva.
     3.  **Definición de directiva**: seleccione la definición de directiva que se va a aplicar al ámbito con exclusiones. Escriba "Web Application Firewall" en la barra de búsqueda para elegir la directiva de Azure Policy de Web Application Firewall pertinente.
 
-:::image type="content" source="../media/waf-azure-policy/policy-listing.png" alt-text="Pestaña Datos básicos en la página Asignar directiva":::
+:::image type="content" source="../media/waf-azure-policy/policy-listing.png" alt-text="Captura de pantalla que muestra la pestaña &quot;Definiciones de directiva&quot; en la página &quot;Definiciones disponibles&quot;.":::
 
 5.  Seleccione la pestaña **Parámetros** y actualice los parámetros de asignación de directiva. Para aclarar mejor lo que hace el parámetro, mantenga el mouse sobre el icono de información junto al nombre del parámetro para una mayor aclaración.
 

@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 35c1ffb370a158acc91e2378119055337e28580d
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 2af79efa2bd1685d0e7bd621e2ddb8930425dee1
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443099"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97614904"
 ---
 # <a name="register-mobile-apps-that-call-web-apis"></a>Registro de aplicaciones móviles que llaman a las API web
 
@@ -81,7 +81,12 @@ Si prefiere configurar manualmente el URI de redirección, puede hacerlo mediant
 
 Si la aplicación solo utiliza la autenticación con nombre de usuario y contraseña, no es necesario que registre ningún URI de redirección para la aplicación. Este flujo realiza un recorrido de ida y vuelta al punto de conexión de la Plataforma de identidad de Microsoft versión 2.0. No se volverá a llamar a la aplicación en ningún URI específico.
 
-Sin embargo, tiene que expresar la aplicación como una aplicación cliente pública. Para ello, empiece en la sección **Autenticación** de la aplicación. En la subsección **Configuración avanzada**, en el párrafo **Tipo de cliente predeterminado**, en **Treat application as a public client** (Tratar la aplicación como cliente público), seleccione **Sí**.
+Sin embargo, tiene que expresar la aplicación como una aplicación cliente pública. Para ello:
+
+1. En [Azure Portal](https://portal.azure.com), seleccione la aplicación en **Registros de aplicaciones** y, a continuación, seleccione **Autenticación**.
+1. En **Configuración avanzada** > **Permitir flujos de cliente público** > **Habilitar los flujos móviles y de escritorio siguientes:** , seleccione **Sí**.
+
+   :::image type="content" source="media/scenarios/default-client-type.png" alt-text="Habilite la opción de cliente público en el panel Autenticación de Azure Portal":::
 
 ## <a name="api-permissions"></a>Permisos de API
 

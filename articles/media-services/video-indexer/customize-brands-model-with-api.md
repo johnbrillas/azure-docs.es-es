@@ -10,18 +10,19 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 01/14/2020
 ms.author: kumud
-ms.openlocfilehash: 5fc565ecc1b501f52e934784695594dcfef2a83a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c3056415d3432dbe64dd1f2bcf974a676bbf6c6b
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96020473"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586064"
 ---
 # <a name="customize-a-brands-model-with-the-video-indexer-api"></a>Personalización de un modelo de las marcas con la API de Video Indexer
 
-Video Indexer permite la detección de marcas por voz y texto visual durante la indexación y la reindexación de contenido de audio y vídeo. La característica de detección de marcas identifica menciones de productos, servicios y compañías sugeridas por la base de datos de marcas de Bing. Por ejemplo, si Microsoft se menciona en un contenido de audio o vídeo, o si se muestra en el texto visual de un vídeo, Video Indexer lo detectará como una marca en el contenido. Un modelo de marcas personalizado permite excluir determinadas marcas de la detección e incluir otras que deben ser parte del modelo que podrían no estar en la base de datos de marcas de Bing.
+Video Indexer permite la detección de marcas por voz y texto visual durante la indexación y la reindexación de contenido de audio y vídeo. La característica de detección de marcas identifica menciones de productos, servicios y compañías sugeridas por la base de datos de marcas de Bing. Por ejemplo, si Microsoft se menciona en un contenido de audio o vídeo, o si se muestra en el texto visual de un vídeo, Video Indexer lo detectará como una marca en el contenido. Un modelo de marcas personalizado permite excluir determinadas marcas de la detección e incluir otras que deben ser parte del modelo que podrían no estar en la base de datos de marcas de Bing. Para más información, consulte [Información general](customize-brands-model-overview.md).
 
-Para información general detallada, consulte [Introducción](customize-brands-model-overview.md).
+> [!NOTE]
+> Si el vídeo se ha indexado antes de agregar una marca, debe reindexarlo.
 
 Puede utilizar las API de Video Indexer para crear, usar y editar modelos de marcas personalizados detectados en un vídeo, como se describe en este tema. También puede usar el sitio web de Video Indexer, como se describe en [Customize Brands model using the Video Indexer website](customize-brands-model-with-api.md) (Personalización de un modelo de marcas mediante el sitio web de Video Indexer).
 

@@ -1,21 +1,21 @@
 ---
 title: Recomendaciones de seguridad para Queue Storage
 titleSuffix: Azure Storage
-description: Obtenga información sobre recomendaciones para Queue Storage. La implementación de esta guía le ayudará a cumplir sus obligaciones de seguridad, tal y como se describe en nuestro modelo de responsabilidad compartida.
-services: storage
+description: Obtenga información sobre recomendaciones para Queue Storage. La implementación de esta guía le ayudará a cumplir sus obligaciones de seguridad, tal como se describe en nuestro modelo de responsabilidad compartida.
 author: tamram
+services: storage
+ms.author: tamram
+ms.date: 03/11/2020
+ms.topic: conceptual
 ms.service: storage
 ms.subservice: queues
-ms.topic: conceptual
-ms.date: 03/11/2020
-ms.author: tamram
 ms.custom: security-recommendations
-ms.openlocfilehash: 9ec7dcc12b7452ee4bd40fab9b2bc53b5cca9be3
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: db0e033adf553c25c6b7b401f8d0df1a2cd5995f
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348815"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97592167"
 ---
 # <a name="security-recommendations-for-queue-storage"></a>Recomendaciones de seguridad para Queue Storage
 
@@ -37,7 +37,7 @@ Azure Security Center analiza periódicamente el estado de seguridad de los recu
 
 | Recomendación | Comentarios | Security Center |
 |-|----|--|
-| Usar Azure Active Directory (Azure AD) para autorizar el acceso a los datos de la cola | Azure AD proporciona seguridad superior y facilidad de uso sobre la clave compartida para autorizar solicitudes en Queue Storage. Para más información, consulte [Autenticación del acceso a blobs y colas de Azure con Azure Active Directory](../common/storage-auth-aad.md). | - |
+| Usar Azure Active Directory (Azure AD) para autorizar el acceso a los datos de la cola | Azure AD proporciona seguridad superior y facilidad de uso sobre la autorización de clave compartida para autorizar solicitudes en Queue Storage. Para más información, consulte [Autenticación del acceso a blobs y colas de Azure con Azure Active Directory](../common/storage-auth-aad.md). | - |
 | Tener en cuenta la entidad de seguridad de menor privilegio al asignar permisos a una entidad de seguridad de Azure AD a través de Azure RBAC | Al asignar un rol a un usuario, grupo o aplicación, conceda a esa entidad de seguridad exclusivamente los permisos necesarios para que pueda realizar sus tareas. Limitar el acceso a los recursos ayuda a prevenir el mal uso involuntario y malintencionado de los datos. | - |
 | Proteger las claves de acceso de su cuenta con Azure Key Vault | Microsoft recomienda usar Azure AD para autorizar las solicitudes que se realicen a Azure Storage. Sin embargo, si debe usar la autorización de clave compartida, proteja sus claves de cuenta con Azure Key Vault. Puede recuperar las claves del almacén de claves en tiempo de ejecución, en lugar de guardarlas con la aplicación. | - |
 | Regenerar la claves de cuenta periódicamente | El cambio periódico de las claves de una cuenta reduce el riesgo de exponer los datos a actores malintencionados. | - |
@@ -50,14 +50,14 @@ Azure Security Center analiza periódicamente el estado de seguridad de los recu
 | Recomendación | Comentarios | Security Center |
 |-|----|--|
 | Configurar la versión mínima necesaria de Seguridad de la capa de transporte (TLS) para una cuenta de almacenamiento  | Exija a los clientes que usen una versión más segura de TLS para realizar solicitudes en una cuenta de Azure Storage configurando la versión mínima de TLS para esa cuenta. Para más información, consulte [Configuración de la versión mínima necesaria de Seguridad de la capa de transporte (TLS) para una cuenta de almacenamiento](../common/transport-layer-security-configure-minimum-version.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json).| - |
-| Habilitar la opción **Se requiere transferencia segura** en todas las cuentas de almacenamiento | Cuando habilite la opción **Se requiere transferencia segura** , deben usarse conexiones seguras para realizar todas las solicitudes realizadas en la cuenta de almacenamiento. Las solicitudes realizadas a través de HTTP producirán un error. Para más información, consulte [Requerir transferencia segura en Azure Storage](../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json). | [Sí](../../security-center/security-center-remediate-recommendations.md) |
+| Habilitar la opción **Se requiere transferencia segura** en todas las cuentas de almacenamiento | Cuando habilite la opción **Se requiere transferencia segura**, deben usarse conexiones seguras para realizar todas las solicitudes realizadas en la cuenta de almacenamiento. Las solicitudes realizadas a través de HTTP producirán un error. Para más información, consulte [Requerir transferencia segura en Azure Storage](../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json). | [Sí](../../security-center/security-center-remediate-recommendations.md) |
 | Habilitar reglas de firewall | Configure las reglas de firewall para limitar el acceso a su cuenta de almacenamiento a las solicitudes que partan de direcciones IP o intervalos especificados, o de una lista de subredes de una red virtual de Azure (VNet). Para más información acerca de la configuración de reglas de firewall, consulte [Configuración de redes virtuales y firewalls de Azure Storage](../common/storage-network-security.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json). | - |
-| Permitir que los servicios de Microsoft de confianza accedan a la cuenta de almacenamiento | La activación de las reglas de firewall para la cuenta de almacenamiento bloquea las solicitudes entrantes para los datos de forma predeterminada, a menos que las solicitudes procedan de un servicio que funcione en una instancia de Azure Virtual Network (VNet) o desde direcciones IP públicas permitidas. Las solicitudes que bloquean incluyen aquellas de otros servicios de Azure, desde Azure Portal, desde los servicios de registro y de métricas, etc. Para permitir solicitudes de otros servicios de Azure, agregue una excepción que permita que los servicios de Microsoft de confianza accedan a la cuenta de almacenamiento. Para más información acerca de la adición de una excepción para los servicios de Microsoft de confianza, consulte [Configuración de redes virtuales y firewalls de Azure Storage](../common/storage-network-security.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json).| - |
-| Usar puntos de conexión privados | Un punto de conexión privado asigna una dirección IP privada de Azure Virtual Network (red virtual) a la cuenta de almacenamiento. Protege todo el tráfico que circule entre su red virtual y la cuenta de almacenamiento mediante un enlace privado. Para más información sobre los puntos de conexión privados, consulte [Conexión privada a una cuenta de almacenamiento mediante el punto de conexión privado de Azure](../../private-link/tutorial-private-endpoint-storage-portal.md). | - |
+| Permitir que los servicios de Microsoft de confianza accedan a la cuenta de almacenamiento | La activación de las reglas de firewall para la cuenta de almacenamiento bloquea las solicitudes entrantes para los datos de forma predeterminada, a menos que las solicitudes procedan de un servicio que funcione en una instancia de Azure VNet o desde direcciones IP públicas permitidas. Las solicitudes que bloquean incluyen aquellas de otros servicios de Azure, desde Azure Portal, desde los servicios de registro y de métricas, etc. Para permitir solicitudes de otros servicios de Azure, agregue una excepción que permita que los servicios de Microsoft de confianza accedan a la cuenta de almacenamiento. Para más información acerca de la adición de una excepción para los servicios de Microsoft de confianza, consulte [Configuración de redes virtuales y firewalls de Azure Storage](../common/storage-network-security.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json).| - |
+| Usar puntos de conexión privados | Un punto de conexión privado asigna una dirección IP privada de Azure VNet a la cuenta de almacenamiento. Protege todo el tráfico que circule entre su red virtual y la cuenta de almacenamiento mediante Private Link. Para más información sobre los puntos de conexión privados, consulte [Conexión privada a una cuenta de almacenamiento mediante el punto de conexión privado de Azure](../../private-link/tutorial-private-endpoint-storage-portal.md). | - |
 | Uso de etiquetas de servicio de red virtual | Una etiqueta de servicio representa un grupo de prefijos de direcciones IP de un servicio de Azure determinado. Microsoft administra los prefijos de direcciones que la etiqueta de servicio incluye y actualiza automáticamente dicha etiqueta a medida que las direcciones cambian. Para más información sobre las etiquetas de servicio compatibles con Azure Storage, consulte [Introducción a las etiquetas de servicio de Azure](../../virtual-network/service-tags-overview.md). Para ver un tutorial que muestra cómo usar las etiquetas de servicio para crear reglas de red de salida, consulte [Restricción del acceso a los recursos de PaaS](../../virtual-network/tutorial-restrict-network-access-to-resources.md). | - |
 | Limitar el acceso a la red a determinadas redes | La limitación del acceso a la red a redes que hospeden clientes que requieran acceso reduce la exposición de sus recursos a ataques en la red. | [Sí](../../security-center/security-center-remediate-recommendations.md) |
 
-## <a name="loggingmonitoring"></a>Registro y supervisión
+## <a name="logging-and-monitoring"></a>Registro y supervisión
 
 | Recomendación | Comentarios | Security Center |
 |-|----|--|

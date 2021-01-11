@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 12/28/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ca09e41e6d5b83f14d2dfee4107135585b7e945a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 518df665db0ba3770bee757f45d02b6ccd303a00
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95908802"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97803874"
 ---
 # <a name="point-in-time-restore-for-block-blobs"></a>Restauración a un momento dado para blobs en bloques
 
@@ -43,7 +43,7 @@ La operación **Restore Blob Ranges** devuelve un id. de restauración que ident
 > Asimismo, las operaciones de lectura de la ubicación secundaria pueden continuar durante la operación de restauración si la cuenta de almacenamiento tiene replicación geográfica.
 
 > [!CAUTION]
-> La restauración a un momento dado solo admite la restauración de operaciones en blobs en bloques. No se pueden restaurar las operaciones en contenedores. Si elimina un contenedor de la cuenta de almacenamiento llamando a la operación [Eliminar contenedor](/rest/api/storageservices/delete-container), dicho contenedor no se puede restaurar con una operación de restauración. En lugar de eliminar un contenedor, elimine blobs individuales, por si desea restaurarlos.
+> La restauración a un momento dado solo admite la restauración de operaciones en blobs en bloques. No se pueden restaurar las operaciones en contenedores. Si elimina un contenedor de la cuenta de almacenamiento llamando a la operación [Eliminar contenedor](/rest/api/storageservices/delete-container), dicho contenedor no se puede restaurar con una operación de restauración. En lugar de eliminar un contenedor completo, elimine blobs individuales, por si desea restaurarlos más adelante.
 
 ### <a name="prerequisites-for-point-in-time-restore"></a>Requisitos previos para la restauración a un momento dado
 
@@ -57,9 +57,12 @@ La restauración a un momento dado requiere que las siguientes características 
 
 Al habilitar la restauración a un momento dado de una cuenta de almacenamiento, se especifica un período de retención. Los blobs en bloques de la cuenta de almacenamiento se pueden restaurar durante el período de retención.
 
-El período de retención comienza cuando se habilita la restauración a un momento dado. Tenga en cuenta que no se pueden restaurar blobs a un estado anterior al inicio del período de retención. Por ejemplo, si habilitó la restauración a un momento dado el 1 de mayo con una retención de 30 días, el 15 de mayo podrá restaurar hasta un máximo de 15 días. Así pues, el 1 de junio podrá restaurar los datos de entre 1 y 30 días.
+El período de retención comienza unos minutos después de habilitar la restauración a un momento dado. Tenga en cuenta que no se pueden restaurar blobs a un estado anterior al inicio del período de retención. Por ejemplo, si habilitó la restauración a un momento dado el 1 de mayo con una retención de 30 días, el 15 de mayo podrá restaurar hasta un máximo de 15 días. Así pues, el 1 de junio podrá restaurar los datos de entre 1 y 30 días.
 
 El período de retención de la restauración a un momento dado debe ser al menos un día inferior que el período de retención especificado en la eliminación temporal. Por ejemplo, si el período de retención de eliminación temporal se establece en 7 días, el período de retención de restauración a un momento dado puede estar comprendido entre 1 y 6 días.
+
+> [!IMPORTANT]
+> El tiempo que se tarda en restaurar un conjunto de datos se basa en el número de operaciones de escritura y eliminación realizadas durante el período de restauración. Por ejemplo, una cuenta con un millón de objetos con 3000 objetos agregados al día y 1000 objetos eliminados al día requerirá aproximadamente dos horas para restaurar a un período de 30 días determinado del pasado. No se recomendarían un período de retención ni una restauración superiores a 90 días en el pasado para una cuenta con esta tasa de cambio.
 
 ### <a name="permissions-for-point-in-time-restore"></a>Permisos para la restauración a un momento dado
 

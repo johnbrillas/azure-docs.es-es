@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
-ms.date: 11/16/2020
-ms.openlocfilehash: ff85ed669fb7c3ac43e322eb747c537a30801920
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.date: 12/21/2020
+ms.openlocfilehash: 83bca8a2a81823cd0a8bda1633599292460ddd30
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701439"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724334"
 ---
 # <a name="what-is-responsible-machine-learning-preview"></a>Descripción del aprendizaje automático responsable (versión preliminar)
 
@@ -62,10 +62,7 @@ Cuando se usan datos para el análisis, es importante que los estos sean privado
 
 En escenarios tradicionales, los datos sin procesar se almacenan en archivos y bases de datos. Cuando los usuarios analizan datos, suelen usar los datos sin procesar. Esto supone un problema, ya que se podría infringir la privacidad de los usuarios. La privacidad diferencial intenta solucionar este problema agregando "ruido" o aleatoriedad a los datos para que los usuarios no puedan identificar puntos de datos individuales.
 
-La implementación de sistemas privados de forma diferencial es difícil. [WhiteNoise](https://github.com/opendifferentialprivacy/whitenoise-core) es un proyecto de código abierto que contiene distintos componentes para la creación de sistemas privados globales de forma diferencial. Para obtener más información sobre la privacidad diferencial y el proyecto WhiteNoise, consulte el artículo para [mantener la privacidad de los datos mediante la privacidad diferencial y WhiteNoise](./concept-differential-privacy.md).
-
-> [!NOTE]
-> Tenga en cuenta que estamos cambiando el nombre del kit de herramientas y que presentaremos el nombre nuevo en las próximas semanas. 
+La implementación de sistemas privados de forma diferencial es difícil. [SmartNoise](https://github.com/opendifferentialprivacy/smartnoise-core) es un proyecto de código abierto que contiene distintos componentes para la creación de sistemas privados globales de forma diferencial. Para obtener más información sobre la privacidad diferencial y el proyecto SmartNoise, consulte el artículo para [mantener la privacidad de los datos mediante la privacidad diferencial y SmartNoise](./concept-differential-privacy.md).
 
 ## <a name="work-on-encrypted-data-with-homomorphic-encryption"></a>Trabajo con datos cifrados mediante cifrado homomórfico
 

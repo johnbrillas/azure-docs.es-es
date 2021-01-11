@@ -6,14 +6,14 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 12/15/2020
 ms.custom: seodec18
-ms.openlocfilehash: 9763a0ac3cba15dcfd66b8fad83230e2b0eb356b
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 7239c2e3cb42cb17b01904e8fc226ae2408dbb47
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96491679"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617432"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Particionamiento de la salida de blobs personalizada en Azure Stream Analytics
 
@@ -25,7 +25,13 @@ Los campos o atributos de entrada personalizados mejoran los flujos de trabajo d
 
 ### <a name="partition-key-options"></a>Opciones de clave de partición
 
-La clave de partición o nombre de columna que se usa para particionar los datos de entrada puede contener caracteres alfanuméricos, guiones, guiones bajos y espacios. No es posible usar los campos anidados como clave de partición, a menos que se usen junto con los alias. La clave de partición debe ser NVARCHAR(MAX), BIGINT, FLOAT o BIT (nivel de compatibilidad 1.2 o superior). Para más información, consulte los [tipos de datos de Azure Stream Analytics](/stream-analytics-query/data-types-azure-stream-analytics).
+La clave de partición, o el nombre de columna, que se usa para particionar los datos de entrada pueden contener cualquier carácter que se acepte para [nombres de blob](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata). No es posible usar campos anidados como clave de partición a menos que se usen junto con los alias, pero puede usar determinados caracteres para crear una jerarquía de archivos. Por ejemplo, puede utilizar la siguiente consulta para crear una columna que combine datos de otras dos columnas para crear una clave de partición única.
+
+```sql
+SELECT name, id, CONCAT(name, "/", id) AS nameid
+```
+
+La clave de partición debe ser NVARCHAR(MAX), BIGINT, FLOAT o BIT (nivel de compatibilidad 1.2 o superior). Los tipos DateTime, Array y Records no se admiten, pero se pueden usar como claves de partición si se convierten en cadenas. Para más información, consulte los [tipos de datos de Azure Stream Analytics](/stream-analytics-query/data-types-azure-stream-analytics).
 
 ### <a name="example"></a>Ejemplo
 

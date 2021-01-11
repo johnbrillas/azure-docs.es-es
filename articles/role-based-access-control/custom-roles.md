@@ -7,14 +7,14 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/11/2020
+ms.date: 12/15/2020
 ms.author: rolyon
-ms.openlocfilehash: eddbd9cb695f3ff7eabd9f2549d0a868d8826eb9
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 79aaeee942a6d46243ee1c72d5904484b8698ebe
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97369130"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617330"
 ---
 # <a name="azure-custom-roles"></a>Roles personalizados de Azure
 
@@ -208,6 +208,7 @@ En la siguiente lista se describen los límites de los roles personalizados.
 - Cada directorio puede tener hasta **5000** roles personalizados.
 - Azure Alemania y Azure China 21Vianet pueden tener hasta 2000 roles personalizados por cada directorio.
 - `AssignableScopes` no se puede establecer en el ámbito raíz (`"/"`).
+- No puede usar caracteres comodín (`*`) en `AssignableScopes`. Esta restricción de caracteres comodín ayuda a garantizar que un usuario no pueda obtener acceso a un ámbito mediante la actualización de la definición de rol.
 - Solo se puede definir un grupo de administración en `AssignableScopes` de un rol personalizado. La adición de un grupo de administración a `AssignableScopes` está actualmente en versión preliminar.
 - No se pueden asignar roles personalizados con `DataActions` en el ámbito del grupo de administración.
 - Azure Resource Manager no valida la existencia del grupo de administración en el ámbito asignable de la definición de roles.

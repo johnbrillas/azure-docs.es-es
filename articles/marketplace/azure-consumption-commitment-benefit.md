@@ -8,12 +8,12 @@ author: emuench
 ms.author: mingshen
 ms.date: 10/15/2020
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: aeee13152364c31d82f674df784a27114035a041
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: d8cb5179583dd23ea2bd4baf5ebe7d84b0ae9cbf
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97028553"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814438"
 ---
 # <a name="azure-consumption-commitment-benefit"></a>Ventaja del compromiso de consumo de Azure
 
@@ -31,7 +31,7 @@ Para aprovechar esta ventaja, solo tiene que comprar una oferta apta en Azure Ma
 
 ## <a name="determine-if-your-organization-has-an-azure-consumption-commitment-maccctc"></a>Determine si su organización tiene un compromiso de consumo de Azure (MACC/CtC)
 
-Si no está seguro de si su organización tiene un contrato de aptitud, inicie sesión en Marketplace desde [Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/home) en un inquilino asociado a su organización. Si ve la opción **Azure benefit eligible** (Válido para las ventajas de Azure) en el filtro de precios, tiene un compromiso de consumo de Azure apto. Las compras de Azure Marketplace aptas contribuirán al compromiso de consumo de Azure de su organización si se realizan directamente a través de Azure Marketplace.
+Si no está seguro de si su organización tiene un contrato de aptitud, inicie sesión en Marketplace desde [Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/home) en un inquilino asociado a su organización. Si ve la opción para seleccionar **Azure benefit eligible only** (Válido solo para las ventajas de Azure) como opción de filtro, tiene un compromiso de consumo de Azure apto. Las compras de Azure Marketplace aptas contribuirán al compromiso de consumo de Azure de su organización si se realizan directamente a través de Azure Marketplace.
 
 [![Opción de menú Azure benefit eligible (Válido para las ventajas de Azure).](media/azure-benefit/azure-benefit-eligible.png)](media/azure-benefit/azure-benefit-eligible.png#lightbox)
 

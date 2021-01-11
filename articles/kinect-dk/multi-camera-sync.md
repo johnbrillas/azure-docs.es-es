@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 02/20/2020
 ms.topic: article
 keywords: azure, kinect, especificaciones, hardware, DK, funcionalidades, profundidad, color, RGB, IMU, micrófono, matriz, profundidad
-ms.openlocfilehash: 7c79101de5e5455ae2ff9fd8b5d8369a3832631c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30961152b31a659cb27e91a99d6806490998d18d
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361167"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97592286"
 ---
 # <a name="synchronize-multiple-azure-kinect-dk-devices"></a>Sincronización de varios dispositivos de Azure Kinect DK
 
@@ -88,6 +88,9 @@ Además, las diferencias entre el reloj de la cámara y el reloj de firmware del
 Cuando se usa un desplazamiento de 160 &mu;s, se pueden configurar hasta nueve cámaras de profundidad adicionales para que cada láser se encienda mientras los demás láser están inactivos.
 
 En el software, use ```depth_delay_off_color_usec``` o ```subordinate_delay_off_master_usec``` para asegurarse de que cada láser de IR se active en su propia ventana de 160 &mu;s o que tenga un campo de visión diferente.
+
+> [!NOTE]  
+> El ancho real del pulso es 125 us;sin embargo, está fijado en 160 us para dar cierto margen. Tomando NFOV UNBINNED como ejemplo, cada pulso 125 us va seguido de 1450 us de inactividad. Al sumar estos (9 x 125) + (8 x 1450) da como resultado el tiempo de exposición de 12,8 ms. Para intercalar las exposiciones de los dos dispositivos, asegúrese de que el primer pulso de la segunda cámara entre dentro del primer período de inactividad de la primera cámara. El retraso entre la primera y la segunda cámara puede ser tan pequeño como 125 us (el ancho de un pulso), pero recomendamos cierto margen; por lo tanto, 160 us. Con 160 us se pueden intercalar los períodos de exposición de un máximo de 10 cámaras.
 
 ## <a name="prepare-your-devices-and-other-hardware"></a>Preparación de los dispositivos y demás hardware
 

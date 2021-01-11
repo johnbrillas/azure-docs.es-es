@@ -4,12 +4,12 @@ description: Describe cómo realizar la partición de los temas y las colas de S
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8fd845ba24fd96ad6de566a7f55b25bd7129074d
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 9c500a69f853b11437a0dcaa48213fe3a84da53b
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96930439"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97796642"
 ---
 # <a name="partitioned-queues-and-topics"></a>Temas y colas con particiones
 
@@ -29,8 +29,9 @@ Cuando un cliente quiere recibir un mensaje de una cola con particiones, o de un
 La operación de inspección en una entidad sin particiones siempre devuelve el mensaje más antiguo, pero no en una entidad con particiones. En su lugar, devuelve el mensaje más antiguo en una de las particiones cuyo agente de mensajes respondió primero. No hay garantía de que el mensaje devuelto sea el más antiguo de todas las particiones. 
 
 No hay costos adicionales cuando se envía un mensaje a una cola o tema con particiones o cuando se recibe un mensaje de ellos.
->[!NOTE]
-> La operación de inspección devuelve el mensaje más antiguo de la partición en función de su valor de SequenceNumber. En las entidades con particiones, el número de secuencia se asigna con respecto a la partición. Para obtener más información, consulte [Secuenciación y marcas de tiempo de los mensajes](../service-bus-messaging/message-sequencing.md).
+
+> [!NOTE]
+> La operación de inspección devuelve el mensaje más antiguo de la partición en función de su número de secuencia. Para las entidades con particiones, el número de secuencia se emite con respecto a la partición. Para obtener más información, consulte [Secuenciación y marcas de tiempo de los mensajes](../service-bus-messaging/message-sequencing.md).
 
 ## <a name="enable-partitioning"></a>Habilitación de las particiones
 

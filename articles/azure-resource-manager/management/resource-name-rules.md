@@ -2,13 +2,13 @@
 title: Restricciones de nomenclatura de recursos
 description: Muestra las reglas y las restricciones de nomenclatura de recursos de Azure.
 ms.topic: conceptual
-ms.date: 12/04/2020
-ms.openlocfilehash: a6aac03277a11cf671f5a618bc85ff987cfdc2dd
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.date: 12/29/2020
+ms.openlocfilehash: edcf3f09b57ed7628611c482effddb210ef8e456
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96608323"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814387"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Reglas y restricciones de nomenclatura para los recursos de Azure
 
@@ -170,7 +170,7 @@ En las tablas siguientes, el término carácter alfanumérico se refiere a:
 > | galleries | resource group | 1-80 | Caracteres alfanuméricos y puntos.<br><br>Comience y termine con un carácter alfanumérico. |
 > | galleries/applications | galería | 1-80 | Caracteres alfanuméricos, guiones y puntos.<br><br>Comience y termine con un carácter alfanumérico. |
 > | galleries/applications/versions | application | Entero de 32 bits | Números y puntos. |
-> | galleries/images | galería | 1-80 | Caracteres alfanuméricos, guiones y puntos.<br><br>Comience y termine con un carácter alfanumérico. |
+> | galleries/images | galería | 1-80 | Caracteres alfanuméricos, de subrayado, guiones y puntos.<br><br>Comience y termine con un carácter alfanumérico. |
 > | galleries/images/versions | imagen | Entero de 32 bits | Números y puntos. |
 > | images | resource group | 1-80 | Caracteres alfanuméricos, de subrayado, puntos y guiones.<br><br>Comience con un carácter alfanumérico. Termine con un carácter alfanumérico o de subrayado. |
 > | snapshots | resource group | 1-80 | Caracteres alfanuméricos, de subrayado, puntos y guiones.<br><br>Comience con un carácter alfanumérico. Termine con un carácter alfanumérico o de subrayado. |
@@ -537,7 +537,7 @@ En las tablas siguientes, el término carácter alfanumérico se refiere a:
 > | Entidad | Ámbito | Length | Caracteres válidos |
 > | --- | --- | --- | --- |
 > | clusters | resource group | 4-63 | Caracteres alfanuméricos y guiones.<br><br>Comience y termine con un carácter alfanumérico. |
-> | workspaces | resource group | 4-63 | Caracteres alfanuméricos y guiones.<br><br>Comience y termine con un carácter alfanumérico. |
+> | workspaces | global | 4-63 | Caracteres alfanuméricos y guiones.<br><br>Comience y termine con un carácter alfanumérico. |
 
 ## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
 

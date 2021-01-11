@@ -12,12 +12,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, jovanpop, sachinp
 ms.date: 09/14/2020
-ms.openlocfilehash: 47c837e7a2ee859c7805d6b2e11058bcc02e6c22
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 9a96da607ceea5a6d5cb6ef02df5a9a4db24562e
+ms.sourcegitcommit: e8bd58dbcfe0eae45979d86e071778b9aec40b6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400580"
+ms.lasthandoff: 12/25/2020
+ms.locfileid: "97770968"
 ---
 # <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Introducción a los límites de recursos de Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -84,7 +84,7 @@ Instancia administrada de SQL tiene dos niveles de servicio: [De uso general](..
 | Número máximo de sesiones | 30000 | 30000 |
 | Cantidad máxima de trabajos (solicitudes) simultáneos | Gen4: 210 * número de núcleos virtuales + 800<br>Gen5: 105 * número de núcleos virtuales + 800 | Gen4: 210 * número de núcleos virtuales + 800<br>Gen5: 105 * número de núcleos virtuales + 800 |
 | [Réplicas de solo lectura](../database/read-scale-out.md) | 0 | 1 (incluida en el precio) |
-| Aislamiento de proceso | Gen5:<br/>\- Compatible con 80 núcleos virtuales<br/>\- No se admite para otros tamaños<br/><br/>Gen4 no se admite debido a su puesta en desuso|Gen5:<br/>\- Compatible con 60, 64, 80 núcleos virtuales<br/>\- No se admite para otros tamaños<br/><br/>Gen4 no se admite debido a su puesta en desuso|
+| Aislamiento de proceso | Gen5 no se admite, ya que las instancias de uso general pueden compartir hardware físico con otras instancias<br/>Gen4 no se admite debido a su puesta en desuso|Gen5:<br/>\- Compatible con 40, 64, 80 núcleos virtuales<br/>\- No se admite para otros tamaños<br/><br/>Gen4 no se admite debido a su puesta en desuso|
 
 
 Algunas consideraciones adicionales: 
@@ -150,7 +150,7 @@ En la tabla siguiente se muestran los **límites regionales predeterminados** de
 |Visual Studio Enterprise|2 |64|
 |Visual Studio Professional y plataformas de MSDN|2|32|
 
-\* En el planeamiento de las implementaciones, tenga en cuenta que el nivel de servicio Crítico para la empresa (BC) requiere cuatro (4) veces más capacidad de núcleo virtual que el nivel de servicio De uso general (GP). Por ejemplo: 1 núcleo virtual de GP = 1 unidad de núcleo virtual y 1 núcleo virtual de BC = 4 unidades de núcleo virtual. Para simplificar el análisis de consumo en los límites predeterminados, resuma las unidades de núcleo virtual de todas las subredes de la región en la que se implementa Instancia administrada de SQL y compare los resultados con los límites de la unidad de instancia del tipo de suscripción. El límite **Número máximo de unidades de núcleo virtual** se aplica a cada suscripción en una región. No hay ningún límite por subredes individuales, salvo que la suma de todos los núcleos virtuales implementados en varias subredes debe ser inferior o igual al **número máximo de unidades de núcleo virtual**.
+\* En el planeamiento de las implementaciones, tenga en cuenta que el nivel de servicio Crítico para la empresa (BC) requiere cuatro (4) veces más capacidad de núcleo virtual que el nivel de servicio De uso general (GP). Por ejemplo: 1 núcleo virtual de GP = 1 unidad de núcleo virtual y 1 núcleo virtual de BC = 4 núcleos virtuales. Para simplificar el análisis de consumo en los límites predeterminados, resuma las unidades de núcleo virtual de todas las subredes de la región en la que se implementa Instancia administrada de SQL y compare los resultados con los límites de la unidad de instancia del tipo de suscripción. El límite **Número máximo de unidades de núcleo virtual** se aplica a cada suscripción en una región. No hay ningún límite por subredes individuales, salvo que la suma de todos los núcleos virtuales implementados en varias subredes debe ser inferior o igual al **número máximo de unidades de núcleo virtual**.
 
 \*\* En las regiones siguientes hay más límites de subred y núcleo virtual: Este de Australia, Este de EE. UU., Este de EE. UU. 2, Norte de Europa, Centro-sur de EE. UU., Sudeste de Asia, Sur de Reino Unido, Oeste de Europa, Oeste de EE. UU. 2.
 

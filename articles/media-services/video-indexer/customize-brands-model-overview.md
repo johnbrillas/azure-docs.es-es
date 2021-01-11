@@ -3,19 +3,19 @@ title: 'Personalización de un modelo de marcas en Video Indexer: Azure'
 titleSuffix: Azure Media Services
 description: En este artículo se proporciona información general sobre qué es un modelo de marcas en Video Indexer y cómo personalizarlo.
 services: media-services
-author: anikaz
-manager: johndeu
+author: Juliako
+manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
-ms.author: kumud
-ms.openlocfilehash: e0df698cb431e5e26c69047a9f464904f0546487
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/15/2019
+ms.author: juliako
+ms.openlocfilehash: 81d7dda854c6afcc9397289ff23ba45b02ed9fc4
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89294244"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586081"
 ---
 # <a name="customize-a-brands-model-in-video-indexer"></a>Personalización de un modelo de marcas en Video Indexer
 
@@ -25,15 +25,15 @@ La detección de marcas es útil en una amplia variedad de escenarios empresaria
 
 ## <a name="out-of-the-box-detection-example"></a>Ejemplo de detección predeterminada
 
-En la presentación [Microsoft Build 2017 Day 2](https://www.videoindexer.ai/media/ed6ede78ad/) la marca "Microsoft Windows" aparece varias veces. Una veces en la transcripción, otras como texto visual y nunca como textual. Video Indexer detecta con alta precisión que un término es realmente una marca según el contexto, y abarca más de 90 000 marcas predeterminadas que se actualizan constantemente. A las 02:25, Video Indexer detecta la marca por la voz y de nuevo a las 02:40 por el texto visual, que es parte del logotipo de Windows.
+En la presentación "Microsoft Build 2017 Day 2" la marca "Microsoft Windows" aparece varias veces. Una veces en la transcripción, otras como texto visual y nunca como textual. Video Indexer detecta con alta precisión que un término es realmente una marca según el contexto, y abarca más de 90 000 marcas predeterminadas que se actualizan constantemente. A las 02:25, Video Indexer detecta la marca por la voz y de nuevo a las 02:40 por el texto visual, que es parte del logotipo de Windows.
 
 ![Introducción a las marcas](./media/content-model-customization/brands-overview.png)
 
-Hablar sobre ventanas en el contexto de la construcción no detectará la palabra "Windows" como marca, y lo mismo sucede con Box, Apple, Fox, etc., según los algoritmos avanzados de Machine Learning que saben como eliminar la ambigüedad por el contexto. La detección de marcas funciona con todos los idiomas admitidos. Haga clic aquí para ver el [vídeo de la conferencia completa de Microsoft Build 2017 Day 2](https://www.videoindexer.ai/media/ed6ede78ad/).
-
-Para traer sus propias marcas, consulte Pasos siguientes.
+Hablar sobre ventanas en el contexto de la construcción no detectará la palabra "Windows" como marca, y lo mismo sucede con Box, Apple, Fox, etc., según los algoritmos avanzados de Machine Learning que saben como eliminar la ambigüedad por el contexto. La detección de marcas funciona con todos los idiomas admitidos.  
 
 ## <a name="next-steps"></a>Pasos siguientes
+
+Para traer sus propias marcas, consulte estos temas:
 
 [Personalización del modelo de marcas mediante las API](customize-brands-model-with-api.md)
 

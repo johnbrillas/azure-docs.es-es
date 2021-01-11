@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 11/12/2020
-ms.openlocfilehash: 6c5badf4760bff559fb050278df84c7ad6e703bd
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.date: 12/18/2020
+ms.openlocfilehash: 315de18539bf083515658b40fa70f3c214d7c909
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616950"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739746"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Conectarse a redes virtuales de Azure desde Azure Logic Apps mediante un entorno del servicio de integración (ISE)
 
@@ -44,24 +44,14 @@ También puede crear un ISE mediante el [ejemplo de plantilla de inicio rápido 
   > [!IMPORTANT]
   > Las aplicaciones lógicas, los desencadenadores integrados, las acciones integradas y los conectores que se ejecutan en el ISE usan un plan de tarifa diferente al plan de tarifa basado en el consumo. Para saber cómo funcionan los precios y la facturación para los ISE, consulte [Modelo de precios de Logic Apps](../logic-apps/logic-apps-pricing.md#fixed-pricing). Para ver las tarifas de precios, consulte los [precios de Logic Apps](../logic-apps/logic-apps-pricing.md).
 
-* Una instancia de [Azure Virtual Network](../virtual-network/virtual-networks-overview.md). La red virtual debe tener cuatro subredes *vacías*, que son necesarias para crear e implementar recursos en el ISE y que estos componentes internos y ocultos usan:
+* Una [red virtual de Azure](../virtual-network/virtual-networks-overview.md) que tiene cuatro subredes *vacías*, que son necesarias para crear e implementar recursos en el ISE y que estos componentes internos y ocultos usan:
 
   * Proceso de Logic Apps
   * App Service Environment interno (conectores)
   * API Management interno (conectores)
   * Redis interno para el almacenamiento en caché y el rendimiento
   
-  Puede crear las subredes por adelantado o esperar a que se cree el ISE para crearlas al mismo tiempo. Sin embargo, antes de crear las subredes, revise los [requisitos de subred](#create-subnet).
-
-  > [!IMPORTANT]
-  >
-  > No use los siguientes espacios de direcciones IP para la red virtual o las subredes, ya que Azure Logic Apps no pueden resolverlos:<p>
-  > 
-  > * 0.0.0.0/8
-  > * 100.64.0.0/10
-  > * 127.0.0.0/8
-  > * 168.63.129.16/32
-  > * 169.254.169.254/32
+  Puede crear las subredes por adelantado o cuando cree el ISE para crearlas al mismo tiempo. Sin embargo, antes de crear las subredes, asegúrese de revisar los [requisitos de subred](#create-subnet).
 
   * Asegúrese de que la red virtual [habilita el acceso para el ISE](#enable-access) para que su ISE funcione correctamente y permanezca accesible.
 
@@ -156,21 +146,29 @@ Además, debe agregar reglas de salida para [App Service Environment (ASE)](../a
 
 Si configura o usa la [tunelización forzada](../firewall/forced-tunneling.md) a través del firewall, debe permitir dependencias externas adicionales para su ISE. La tunelización forzada permite redirigir el tráfico enlazado a Internet a un próximo salto designado, como la red privada virtual (VPN), o a un dispositivo virtual, en lugar de a Internet, para que pueda inspeccionar y auditar el tráfico de red saliente.
 
-Normalmente, todo el tráfico de dependencias de salida del ISE atraviesa la dirección IP virtual (VIP) que se aprovisiona con el ISE. Sin embargo, si cambia el enrutamiento del tráfico hacia o desde el ISE, debe permitir las siguientes dependencias de salida en el firewall estableciendo su próximo salto en `Internet`. Si usa Azure Firewall, siga las [instrucciones para configurar el firewall con App Service Environment](../app-service/environment/firewall-integration.md#configuring-azure-firewall-with-your-ase).
+Si no permite el acceso a estas dependencias, se produce un error en la implementación de ISE, y el ISE implementado deja de funcionar.
 
-Si no permite el acceso a estas dependencias, se produce un error en la implementación de ISE, y el ISE implementado deja de funcionar:
+* rutas definidas por el usuario
 
-* [Direcciones de administración de App Service Environment](../app-service/environment/management-addresses.md)
+  Para evitar el enrutamiento asimétrico, debe definir una ruta para cada una de las direcciones IP que se enumeran a continuación con **Internet** como el próximo salto.
+  
+  * [Direcciones de administración de App Service Environment](../app-service/environment/management-addresses.md)
+  * [Direcciones IP de Azure para conectores de la región del ISE que se encuentran disponibles en este archivo de descarga](https://www.microsoft.com/download/details.aspx?id=56519)
+  * [Direcciones de administración de Azure Traffic Manager](https://azuretrafficmanagerdata.blob.core.windows.net/probes/azure/probe-ip-ranges.json)
+  * [Direcciones de entrada y salida de Logic Apps para la región del ISE](../logic-apps/logic-apps-limits-and-config.md#firewall-configuration-ip-addresses-and-service-tags)
+  * [Direcciones IP de Azure para conectores de la región ISE que se encuentran en este archivo de descarga](https://www.microsoft.com/download/details.aspx?id=56519)
 
-* [Direcciones de Azure API Management](../api-management/api-management-using-with-vnet.md#control-plane-ips)
+* Puntos de conexión del servicio
 
-* [Direcciones de administración de Azure Traffic Manager](https://azuretrafficmanagerdata.blob.core.windows.net/probes/azure/probe-ip-ranges.json)
+  Debe habilitar los puntos de conexión de servicio para Azure SQL, Storage, Service Bus, KeyVault y Event Hubs porque no puede enviar tráfico a través de un firewall a estos servicios.
 
-* [Direcciones de entrada y salida de Logic Apps para la región del ISE](../logic-apps/logic-apps-limits-and-config.md#firewall-configuration-ip-addresses-and-service-tags)
+*  Otras dependencias de entrada y salida
 
-* [Direcciones IP de Azure para conectores de la región ISE que se encuentran en este archivo de descarga](https://www.microsoft.com/download/details.aspx?id=56519)
-
-* Debe habilitar los puntos de conexión de servicio para Azure SQL, Storage, Service Bus y Event Hubs porque no puede enviar tráfico a través de un firewall a estos servicios.
+   El firewall *debe* permitir las siguientes dependencias de entrada y salida:
+   
+   * [Dependencias de Azure App Service](../app-service/environment/firewall-integration.md#deploying-your-ase-behind-a-firewall)
+   * [Dependencias de Azure Cache Service](../azure-cache-for-redis/cache-how-to-premium-vnet.md#what-are-some-common-misconfiguration-issues-with-azure-cache-for-redis-and-virtual-networks)
+   * [Dependencias de Azure API Management](../api-management/api-management-using-with-vnet.md#-common-network-configuration-issues)
 
 <a name="create-environment"></a>
 
@@ -211,7 +209,7 @@ Si no permite el acceso a estas dependencias, se produce un error en la implemen
 
    * Usa un nombre que comienza con un carácter alfabético o un guion bajo (sin números), y no tiene estos caracteres: `<`, `>`, `%`, `&`, `\\`, `?`, `/`.
 
-   * \- Usa el [formato de Enrutamiento de interdominios sin clases (CIDR)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) y un espacio de direcciones de clase B.
+   * Usa el [formato Enrutamiento de interdominios sin clases (CIDR)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
    
      > [!IMPORTANT]
      >

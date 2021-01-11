@@ -4,12 +4,12 @@ description: En este artículo se proporciona orientación sobre la directiva de
 ms.topic: article
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: fe370ec882fd0462bba6afdf11c718cf46618f0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89fe380c3a8e0e0a82cc806bf19f9a3454041d94
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85480939"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97592354"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---company-policy-and-compliance"></a>Gobernanza de la infraestructura de Azure DevTest Labs: directiva de la empresa y cumplimiento
 En este artículo se proporciona orientación sobre la directiva de la empresa y el cumplimiento de la infraestructura de Azure DevTest Labs. 
@@ -37,7 +37,7 @@ Como parte de la estrategia general de gobernanza y administración de configura
 - Asocie los servicios de Azure Repos con el mismo inquilino de Azure Active Directory que la suscripción de Azure está utilizando para la autenticación y autorización.
 - Cree un grupo llamado **Todos los desarrolladores de DevTest Labs** en Azure Active Directory que se administre de forma centralizada. Cualquier desarrollador que contribuya al desarrollo de artefacto debe colocarse en este grupo.
 - El mismo grupo de Azure Active Directory puede usarse para proporcionar acceso al repositorio de Azure Repos y al laboratorio.
-- En Azure Repos, las ramificaciones o bifurcaciones deben utilizarse para separar un repositorio en desarrollo del repositorio de producción principal. El contenido solo se agrega a la rama maestra con una solicitud de incorporación de cambios después de una revisión apropiada del código. Una vez que el revisor de código aprueba el cambio, un desarrollador jefe, que es responsable del mantenimiento de la rama maestra, combina el código actualizado. 
+- En Azure Repos, las ramificaciones o bifurcaciones deben utilizarse para separar un repositorio en desarrollo del repositorio de producción principal. El contenido solo se agrega a la rama principal con una solicitud de incorporación de cambios después de una revisión apropiada del código. Una vez que el revisor de código aprueba el cambio, un desarrollador jefe, que es responsable del mantenimiento de la rama principal, combina el código actualizado. 
 
 ## <a name="corporate-security-policies"></a>Directivas de seguridad corporativas
 

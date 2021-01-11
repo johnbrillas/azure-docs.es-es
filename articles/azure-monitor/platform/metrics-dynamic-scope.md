@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/14/2020
 ms.author: riroloff
 ms.subservice: metrics
-ms.openlocfilehash: 724809dbce3ca1b5a36f4da0ba5c03d0f78897f5
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 9d1460a8bebe75a3ee471eb304fcf642d566b5dd
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97577582"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97614649"
 ---
 # <a name="viewing-multiple-resources-in-metrics-explorer"></a>Visualización de varios recursos en el Explorador de métricas
 
@@ -71,7 +71,7 @@ Por ejemplo, a continuación se muestra un gráfico con un porcentaje de la CPU 
 
 ![Captura de pantalla que muestra cómo puede usar la opción de división para ver el porcentaje de CPU por VM.](./media/metrics-charts/026.png)
 
-Además de la división, puede usar la característica de filtrado para mostrar solo los grupos de recursos que quiera ver.  Por ejemplo, si quiere ver el porcentaje de la CPU de las VM de un determinado grupo de recursos, puede usar la herramienta "Agregar filtro" para filtrar por grupo de recursos. En este ejemplo, filtramos por el valor TailspinToys, que quitará las métricas asociadas a los recursos de TailspinToysDemo. 
+Además de la división, puede usar la característica de filtrado para mostrar solo los grupos de recursos que quiera ver.  Por ejemplo, si quiere ver el porcentaje de la CPU de las VM de un determinado grupo de recursos, puede usar la herramienta "Agregar filtro" para filtrar por grupo de recursos. En este ejemplo, filtramos por el valor TailspinToysDemo, que quitará las métricas asociadas a los recursos de TailspinToys. 
 
 ![Captura de pantalla que muestra cómo se puede filtrar por grupo de recursos.](./media/metrics-charts/027.png)
 
@@ -80,7 +80,7 @@ Además de la división, puede usar la característica de filtrado para mostrar 
 > [!WARNING] 
 > Debe tener el permiso de tipo Lector de supervisión en el nivel de suscripción para visualizar las métricas de varios recursos, grupos de recursos o de una suscripción. Para ello, siga las instrucciones de [este documento](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal). 
 
-Para anclar el gráfico de varios recursos, siga las instrucciones que tiene [aquí](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts#create-alert-rules). 
+Para anclar el gráfico de varios recursos, siga las instrucciones que tiene [aquí](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts#pin-charts-to-dashboards). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

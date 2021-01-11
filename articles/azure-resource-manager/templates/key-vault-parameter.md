@@ -2,13 +2,13 @@
 title: Secreto de Key Vault con plantilla
 description: Muestra cómo pasar un secreto de un almacén de claves como un parámetro durante la implementación.
 ms.topic: conceptual
-ms.date: 01/06/2020
-ms.openlocfilehash: eb57e680090a38a5be725daa7b3a118039aa35f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/17/2020
+ms.openlocfilehash: 8983d51d90e07e21ac4c9489c7ed553530278d3c
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84677872"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672712"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Uso de Azure Key Vault para pasar el valor de parámetro seguro durante la implementación
 
@@ -377,3 +377,4 @@ La siguiente plantilla crea dinámicamente el identificador de almacén de clave
 
 - Para obtener más información sobre los almacenes de claves, consulte [¿Qué es Azure Key Vault?](../../key-vault/general/overview.md)
 - Para obtener ejemplos completos de secretos de clave de referencia, consulte [Ejemplos de Key Vault](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
+- Para un módulo de Microsoft Learn donde se usa un valor seguro de un almacén de claves, consulte [Administración de implementaciones complejas en la nube mediante características avanzadas de la plantilla de ARM](/learn/modules/manage-deployments-advanced-arm-template-features/).

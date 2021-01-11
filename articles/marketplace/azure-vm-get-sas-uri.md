@@ -7,12 +7,12 @@ ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: krsh
 ms.date: 10/19/2020
-ms.openlocfilehash: ead367568762d4b76de7164feb56b7a31cd53e0d
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: e28942a77a1d695a17f3231901f337695e602c64
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129123"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825551"
 ---
 # <a name="how-to-generate-a-sas-uri-for-a-vm-image"></a>Generación de un URI de SAS para una imagen de máquina virtual
 
@@ -29,8 +29,8 @@ La generación de los identificadores URI de SAS para los discos duros virtuales
 
 Hay dos herramientas comunes que se usan para crear una dirección de SAS (URL):
 
-1. **Explorador de Azure Storage** : disponible en Azure Portal.
-2. **CLI de Azure** : recomendada para los sistemas operativos que no sean Windows y los entornos automatizados o de integración continua.
+1. **Explorador de Azure Storage**: disponible en Azure Portal.
+2. **CLI de Azure**: recomendada para los sistemas operativos que no sean Windows y los entornos automatizados o de integración continua.
 
 ### <a name="using-tool-1-azure-storage-explorer"></a>Uso de la herramienta 1: Explorador de Azure Storage
 
@@ -39,8 +39,8 @@ Hay dos herramientas comunes que se usan para crear una dirección de SAS (URL):
 
     :::image type="content" source="media/create-vm/storge-account-explorer.png" alt-text="Ventana de la cuenta de almacenamiento.":::
 
-3. En el **contenedor** , haga clic con el botón derecho en el archivo VHD y seleccione **Obtener firma de acceso compartido**.
-4. En el cuadro de diálogo **Firma de acceso compartido** , complete los campos siguientes:
+3. En el **contenedor**, haga clic con el botón derecho en el archivo VHD y seleccione **Obtener firma de acceso compartido**.
+4. En el cuadro de diálogo **Firma de acceso compartido**, complete los campos siguientes:
 
     1. Fecha de inicio: fecha de inicio del permiso para acceder al disco duro virtual. Proporcione una fecha que sea un día antes de la fecha actual.
     2. Fecha de expiración: fecha de expiración del permiso para acceder al disco duro virtual. Proporcione una fecha al menos tres semanas después de la fecha actual.
@@ -62,7 +62,7 @@ Hay dos herramientas comunes que se usan para crear una dirección de SAS (URL):
 1. Descargue e instale la [CLI de Microsoft Azure](/cli/azure/install-azure-cli). Hay versiones disponibles para Windows, macOS y varias distribuciones de Linux.
 2. Cree un archivo de PowerShell (con la extensión de archivo .ps1), copie el código siguiente y luego guárdelo localmente.
 
-    ```JSON
+    ```azurecli-interactive
     az storage container generate-sas --connection-string ‘DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net’ --name <vhd-name> --permissions rl --start ‘<start-date>’ --expiry ‘<expiry-date>’
     ```
 
@@ -70,13 +70,14 @@ Hay dos herramientas comunes que se usan para crear una dirección de SAS (URL):
 
     - account-name: nombre de su cuenta de Azure Storage.
     - account-key: clave de su cuenta de Azure Storage.
-    - vhd-name: nombre del disco duro virtual.
     - start-date: fecha de inicio del permiso para acceder al disco duro virtual. Proporcione una fecha un día antes de la fecha actual.
     - expiry-date: fecha de expiración del permiso para acceder al disco duro virtual. Proporcione una fecha al menos tres semanas después de la fecha actual.
 
     Este es un ejemplo de valores de parámetro adecuados (en el momento de redactar este artículo):
 
-    `az storage container generate-sas --connection-string ‘DefaultEndpointsProtocol=https;AccountName=st00009;AccountKey=6L7OWFrlabs7Jn23OaR3rvY5RykpLCNHJhxsbn9ON c+bkCq9z/VNUPNYZRKoEV1FXSrvhqq3aMIDI7N3bSSvPg==;EndpointSuffix=core.windows.net’ --name vhds -- permissions rl --start ‘2020-04-01T00:00:00Z’ --expiry ‘2021-04-01T00:00:00Z’`
+    ```azurecli-interactive
+    az storage container generate-sas --connection-string ‘DefaultEndpointsProtocol=https;AccountName=st00009;AccountKey=6L7OWFrlabs7Jn23OaR3rvY5RykpLCNHJhxsbn9ON c+bkCq9z/VNUPNYZRKoEV1FXSrvhqq3aMIDI7N3bSSvPg==;EndpointSuffix=core.windows.net’ --name vhds -- permissions rl --start ‘2020-04-01T00:00:00Z’ --expiry ‘2021-04-01T00:00:00Z’
+    ```
 
 1. Guarde los cambios.
 2. Use uno de los siguientes métodos para ejecutar este script con privilegios administrativos para crear una cadena de conexión de SAS para el acceso de nivel de contenedor:

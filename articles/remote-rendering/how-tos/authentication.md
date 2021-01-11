@@ -5,28 +5,31 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: how-to
-ms.openlocfilehash: dc325fdf68c5afbb122f9e77c5509a6a8053a12e
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 35fd78a9d55dc684045fdb4b83691c1613801421
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427466"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724890"
 ---
 # <a name="configure-authentication"></a>Configurar la autenticación
 
 Azure Remote Rendering usa el mismo mecanismo de autenticación que [Azure Spatial Anchors (ASA)](../../spatial-anchors/concepts/authentication.md?tabs=csharp). Los clientes deben establecer *una* de las siguientes para llamar a las API de REST correctamente:
 
-* **AccountKey** : se puede obtener en la pestaña "Claves" de la cuenta de Remote Rendering de Azure Portal. Las claves de cuenta solo se recomiendan para el desarrollo o la creación de prototipos.
+* **AccountKey**: se puede obtener en la pestaña "Claves" de la cuenta de Remote Rendering de Azure Portal. Las claves de cuenta solo se recomiendan para el desarrollo o la creación de prototipos.
     ![Id. de cuenta](./media/azure-account-primary-key.png)
+
+* **AccountDomain**: se puede obtener en la pestaña "Información general" de la cuenta de Remote Rendering de Azure Portal.
+    ![Dominio de cuenta](./media/azure-account-domain.png)
 
 * **AuthenticationToken** es un token de Azure AD, que se puede obtener mediante la [biblioteca MSAL](../../active-directory/develop/msal-overview.md). Hay varios flujos diferentes disponibles para aceptar las credenciales de usuario y usar esas credenciales para obtener un token de acceso.
 
-* **MRAccessToken** es un token de MR, que se puede obtener del servicio de token de seguridad (STS) de Azure Mixed Reality. Recuperado del punto de conexión `https://sts.mixedreality.azure.com` mediante una llamada REST similar a la llamada siguiente:
+* **MRAccessToken** es un token de MR, que se puede obtener del servicio de token de seguridad (STS) de Azure Mixed Reality. Recuperado del punto de conexión `https://sts.<accountDomain>` mediante una llamada REST similar a lo siguiente:
 
     ```rest
-    GET https://sts.mixedreality.azure.com/Accounts/35d830cb-f062-4062-9792-d6316039df56/token HTTP/1.1
+    GET https://sts.southcentralus.mixedreality.azure.com/Accounts/35d830cb-f062-4062-9792-d6316039df56/token HTTP/1.1
     Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1Ni<truncated>FL8Hq5aaOqZQnJr1koaQ
-    Host: sts.mixedreality.azure.com
+    Host: sts.southcentralus.mixedreality.azure.com
     Connection: Keep-Alive
 
     HTTP/1.1 200 OK
@@ -52,8 +55,8 @@ Se recomiendan las claves de cuenta para la creación rápida de prototipos solo
 
 Para ayudar a controlar el nivel de acceso concedido al servicio, use los siguientes roles al conceder el acceso basado en roles:
 
-* **Administrador de Remote Rendering** : proporciona al usuario funcionalidades de conversión, administración de sesiones, representación y diagnóstico para Azure Remote Rendering.
-* **Cliente de Remote Rendering** : proporciona al usuario funcionalidades de administración de sesiones, representación y diagnóstico para Azure Remote Rendering.
+* **Administrador de Remote Rendering**: proporciona al usuario funcionalidades de conversión, administración de sesiones, representación y diagnóstico para Azure Remote Rendering.
+* **Cliente de Remote Rendering**: proporciona al usuario funcionalidades de administración de sesiones, representación y diagnóstico para Azure Remote Rendering.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

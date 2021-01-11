@@ -1,41 +1,41 @@
 ---
 title: 'ExpressRoute: Traslado de circuitos del modelo clásico a Azure Resource Manager'
-description: Obtenga información sobre lo que significa mover un circuito Azure ExpressRoute del modelo de implementación clásica al de Azure Resource Manager.
+description: Obtenga información sobre lo que ocurre cuando mueve un circuito Azure ExpressRoute del modelo de implementación clásica al de Azure Resource Manager.
 services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 12/07/2018
+ms.date: 12/15/2020
 ms.author: duau
-ms.openlocfilehash: 649174e59c3e58b4675393ce665cf765016d5551
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: dcba2e9de2b37e8c432f94781b3c4c369ad52395
+ms.sourcegitcommit: 02ed9acd4390b86c8432cad29075e2204f6b1bc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331556"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97807948"
 ---
 # <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>Transición de los circuitos ExpressRoute del modelo de implementación clásica al modelo de implementación de Resource Manager
-En este artículo se ofrece información general de lo que significa mover un circuito Azure ExpressRoute del modelo de implementación clásica al de Azure Resource Manager.
+En este artículo se ofrece información general de lo que ocurre cuando mueve un circuito Azure ExpressRoute del modelo de implementación clásica al de Azure Resource Manager.
 
-Se puede usar un solo circuito ExpressRoute para conectarse a redes virtuales implementadas tanto en el modelo de implementación clásica como en el modelo de Resource Manager. Con independencia de cómo se cree, ahora se puede vincular un circuito ExpressRoute a redes virtuales en ambos modelos de implementación.
+Se puede usar un solo circuito ExpressRoute para conectarse a redes virtuales implementadas tanto en el modelo de implementación clásica como en el modelo de Resource Manager.
 
 ![Un circuito ExpressRoute que se vincula a redes virtuales a través de ambos modelos de implementación](./media/expressroute-move/expressroute-move-1.png)
 
 ## <a name="expressroute-circuits-that-are-created-in-the-classic-deployment-model"></a>Circuitos ExpressRoute creados en el modelo de implementación clásica
-Los circuitos ExpressRoute creados en el modelo de implementación clásica deben trasladarse primero al modelo de implementación de Resource Manager para permitir la conectividad con los modelos de implementación clásica y de Resource Manager. Mientras se traslada una conexión, no se producen pérdida de conectividad ni interrupciones. Todos los vínculos entre el circuito y la red virtual en el modelo de implementación clásica (dentro de la misma suscripción y entre suscripciones) se conservan.
+Los circuitos ExpressRoute creados en el modelo de implementación clásica deben migrar primero al modelo de implementación de Resource Manager. Solo entonces puede habilitar la conectividad a los modelos de implementación clásica y de Resource Manager. Mientras se traslada una conexión, no se producen pérdida de conectividad ni interrupciones. Todos los vínculos entre el circuito y la red virtual en el modelo de implementación clásica dentro de la misma suscripción y entre suscripciones se conservan.
 
-Finalizada la transición, el circuito ExpressRoute funciona exactamente igual que un circuito ExpressRoute creado en el modelo de implementación de Resource Manager. Ahora podrá crear conexiones a redes virtuales en el modelo de implementación de Resource Manager.
+Una vez que haya finalizado la transición, el circuito ExpressRoute se comportará exactamente igual que un circuito ExpressRoute creado en el modelo de implementación de Resource Manager. Ahora podrá crear conexiones a redes virtuales en el modelo de implementación de Resource Manager.
 
-Cuando se haya trasladado el circuito ExpressRoute al modelo de implementación de Resource Manager, solo podrá administrar el ciclo de vida del circuito ExpressRoute con el modelo de implementación de Resource Manager. Esto significa que operaciones tales como agregar, actualizar y eliminar emparejamientos; actualizar propiedades del circuito, como el ancho de banda, el SKU y el tipo de facturación; y eliminar circuitos, solo se pueden realizar en el modelo de implementación de Resource Manager. Consulte la sección siguiente sobre los circuitos creados en el modelo de implementación de Resource Manager para más información sobre cómo administrar el acceso a ambos modelos de implementación.
+Una vez que haya trasladado el circuito ExpressRoute al modelo de implementación de Resource Manager, solo podrá administrarlo en el modelo de implementación de Resource Manager. Las operaciones para administrar emparejamientos, actualizar propiedades de circuito y eliminar circuitos solo estarán disponibles a través del modelo de implementación de Resource Manager. Consulte la siguiente sección para obtener más detalles sobre cómo puede administrar el acceso a ambos modelos de implementación.
 
-No es necesario que su proveedor de conectividad intervenga en la transición.
+No es necesario que intervenga su proveedor de conectividad en el traslado del circuito al modelo de implementación de Resource Manager.
 
 ## <a name="expressroute-circuits-that-are-created-in-the-resource-manager-deployment-model"></a>Circuitos ExpressRoute creados en el modelo de implementación de Resource Manager
-Puede habilitar los circuitos ExpressRoute creados en el modelo de implementación de Resource Manager para que sean accesibles desde ambos modelos de implementación. Cualquier circuito ExpressRoute de su suscripción se puede habilitar para el acceso desde ambos modelos de implementación.
+Puede habilitar los circuitos ExpressRoute creados en el modelo de implementación de Resource Manager para que sean accesibles desde ambos modelos de implementación. Cualquier circuito ExpressRoute de su suscripción se puede configurar para tener acceso desde ambos modelos de implementación.
 
 * Los circuitos ExpressRoute que se crearon en el modelo de implementación de Resource Manager no tienen acceso al modelo de implementación clásica de forma predeterminada.
 * Los circuitos ExpressRoute que se han trasladado del modelo de implementación clásica al modelo de Resource Manager son accesibles desde ambos modelos de implementación de forma predeterminada.
-* Un circuito ExpressRoute siempre tendrá acceso al modelo de implementación de Resource Manager, independientemente de si se creó en el modelo de implementación de Resource Manager o en el modelo de implementación clásica. Esto significa que puede crear conexiones a redes virtuales creadas en el modelo de implementación de Resource Manager siguiendo las instrucciones sobre [cómo se vinculan redes virtuales](expressroute-howto-linkvnet-arm.md).
+* Un circuito ExpressRoute siempre tendrá acceso al modelo de implementación de Resource Manager, independientemente de si se creó en el modelo de implementación de Resource Manager o en el modelo de implementación clásica. Puede crear conexiones a redes virtuales siguiendo instrucciones sobre [cómo vincular redes virtuales](expressroute-howto-linkvnet-arm.md).
 * El acceso al modelo de implementación clásica se controla mediante el parámetro **allowClassicOperations** del circuito ExpressRoute.
 
 > [!IMPORTANT]
@@ -44,11 +44,13 @@ Puede habilitar los circuitos ExpressRoute creados en el modelo de implementaci�
 > 
 
 ## <a name="controlling-access-to-the-classic-deployment-model"></a>Control del acceso al modelo de implementación clásica
-Puede permitir que un solo circuito ExpressRoute se vincule a redes virtuales en ambos modelos de implementación; para ello, configure el parámetro **allowClassicOperations** del circuito ExpressRoute.
+Puede habilitar un circuito ExpressRoute para vincularlo a redes virtuales en ambos modelos de implementación. Para ello, establezca el parámetro **allowClassicOperations** en el circuito ExpressRoute.
 
-Al definir **allowClassicOperations** en TRUE podrá vincular redes virtuales de ambos modelos de implementación al circuito ExpressRoute. Para vincular redes virtuales en el modelo de implementación clásica, siga las instrucciones sobre [cómo se vinculas redes virtuales en el modelo de implementación clásica](expressroute-howto-linkvnet-classic.md). Para vincular redes virtuales en el modelo de implementación clásica, siga las instrucciones sobre [cómo se vinculan redes virtuales en el modelo de implementación de Resource Manager](expressroute-howto-linkvnet-arm.md).
+Al definir **allowClassicOperations** en TRUE podrá vincular redes virtuales de ambos modelos de implementación al circuito ExpressRoute. 
+* Para vincular redes virtuales en el modelo de implementación clásica, consulte [cómo vincular redes virtuales para el modelo de implementación clásica](expressroute-howto-linkvnet-classic.md).
+* Para vincular redes virtuales en el modelo de implementación de Resource Manager, consulte [cómo vincular redes virtuales en el modelo de implementación de Resource Manager](expressroute-howto-linkvnet-arm.md).
 
-Al definir **allowClassicOperations** en FALSE se bloquea el acceso al circuito desde el modelo de implementación clásica. Sin embargo, se conservan todos los vínculos a redes virtuales del modelo de implementación clásica. En este caso, el circuito ExpressRoute no será visible desde el modelo de implementación clásica.
+Al definir **allowClassicOperations** en FALSE se bloquea el acceso al circuito desde el modelo de implementación clásica. Sin embargo, todavía se conservan todas las redes virtuales vinculadas en el modelo de implementación clásica. El circuito ExpressRoute no es visible en el modelo de implementación clásica.
 
 ## <a name="supported-operations-in-the-classic-deployment-model"></a>Operaciones admitidas en el modelo de implementación clásica
 Cuando se define en TRUE el parámetro **allowClassicOperations** , en un circuito ExpressRoute se admiten las siguientes operaciones clásicas:
@@ -57,13 +59,13 @@ Cuando se define en TRUE el parámetro **allowClassicOperations** , en un circui
 * Crear, actualizar, obtener y eliminar vínculos a redes virtuales clásicas
 * Crear, actualizar, obtener y eliminar autorizaciones de vínculo de red virtual para la conectividad entre suscripciones
 
-Sin embargo, cuando **allowClassicOperations** se define en TRUE, no se pueden realizar las siguientes operaciones clásicas:
+Sin embargo, cuando **allowClassicOperations** se define en TRUE, no se pueden ejecutar las siguientes operaciones clásicas:
 
 * Crear, actualizar, obtener y eliminar emparejamientos de Border Gateway Protocol (BGP) para emparejamientos públicos y privados de Azure y emparejamientos de Microsoft
 * Eliminar circuitos ExpressRoute
 
 ## <a name="communication-between-the-classic-and-the-resource-manager-deployment-models"></a>Comunicación entre los modelos de implementación clásica y de Resource Manager
-El circuito ExpressRoute actúa como puente entre los modelos de implementación clásica y de Resource Manager. El tráfico entre las máquinas virtuales implementadas en las redes virtuales según el modelo clásico y las implementadas en las redes virtuales según el de Resource Manager fluirá a través de ExpressRoute si ambas redes virtuales están vinculadas al mismo circuito ExpressRoute.
+El circuito ExpressRoute actúa como puente entre los modelos de implementación clásica y de Resource Manager. El tráfico entre redes virtuales para ambos modelos de implementación puede atravesar el circuito ExpressRoute si ambas redes virtuales están vinculadas al mismo circuito.
 
 El rendimiento agregado se ve limitado por la capacidad de procesamiento de la puerta de enlace de red virtual. En tales casos, el tráfico no pasa al proveedor de conectividad ni a las redes. El flujo del tráfico entre las redes virtuales está completamente contenido en la red de Microsoft.
 
@@ -74,10 +76,10 @@ Puede seguir teniendo acceso a los recursos a los que normalmente se accede medi
 En esta sección se describe lo que se admite para los circuitos ExpressRoute:
 
 * Para acceder a redes virtuales implementadas tanto en el modelo clásico como en el de Resource Manager se puede usar un solo circuito ExpressRoute.
-* Un circuito ExpressRoute se puede trasladar del modelo de implementación clásica al modelo de implementación de Resource Manager. Una vez realizada la transición, el circuito ExpressRoute funciona exactamente igual que cualquier otro circuito ExpressRoute creado en el modelo de implementación de Resource Manager.
+* Un circuito ExpressRoute se puede trasladar del modelo de implementación clásica al modelo de implementación de Resource Manager. Una vez que se haya trasladado, el circuito ExpressRoute seguirá funcionando como cualquier otro circuito ExpressRoute creado en el modelo de implementación de Resource Manager.
 * Solo se puede trasladar el circuito ExpressRoute. Los vínculos del circuito, las redes virtuales y las puertas de enlace de VPN no se trasladan mediante esta operación.
-* Cuando se haya trasladado el circuito ExpressRoute al modelo de implementación de Resource Manager, solo podrá administrar el ciclo de vida del circuito ExpressRoute con el modelo de implementación de Resource Manager. Esto significa que operaciones tales como agregar, actualizar y eliminar emparejamientos; actualizar propiedades del circuito, como el ancho de banda, el SKU y el tipo de facturación; y eliminar circuitos, solo se pueden realizar en el modelo de implementación de Resource Manager.
-* El circuito ExpressRoute actúa como puente entre los modelos de implementación clásica y de Resource Manager. El tráfico entre las máquinas virtuales implementadas en las redes virtuales según el modelo clásico y las implementadas en las redes virtuales según el de Resource Manager fluirá a través de ExpressRoute si ambas redes virtuales están vinculadas al mismo circuito ExpressRoute.
+* Cuando se haya trasladado el circuito ExpressRoute al modelo de implementación de Resource Manager, solo podrá administrar el ciclo de vida del circuito ExpressRoute con el modelo de implementación de Resource Manager. Esto significa que operaciones tales como agregar, actualizar y eliminar emparejamientos; actualizar propiedades del circuito, como el ancho de banda, el SKU y el tipo de facturación; y eliminar circuitos, solo se pueden ejecutar en el modelo de implementación de Resource Manager.
+* El circuito ExpressRoute actúa como puente entre los modelos de implementación clásica y de Resource Manager. El tráfico entre las máquinas virtuales de las redes virtuales clásicas y las máquinas virtuales de las redes virtuales de Resource Manager puede comunicarse a través de ExpressRoute si ambas redes virtuales están vinculadas al mismo circuito ExpressRoute.
 * Los modelos de implementación clásica y de Resource Manager admiten ambos la conectividad entre suscripciones.
 * Después de mover un circuito ExpressRoute del modelo clásico al de Azure Resource Manager, puede [migrar las redes virtuales vinculadas al circuito ExpressRoute](expressroute-migration-classic-resource-manager.md).
 
@@ -85,7 +87,7 @@ En esta sección se describe lo que se admite para los circuitos ExpressRoute:
 En esta sección se describe lo que no se admite para los circuitos ExpressRoute:
 
 * Administrar el ciclo de vida de un circuito ExpressRoute desde el modelo de implementación clásica.
-* Compatibilidad del control de acceso basado en roles de Azure (Azure RBAC) para el modelo de implementación clásica. No puede usar los controles de Azure RBAC en un circuito del modelo de implementación clásica. Cualquier administrador o coadministrador de la suscripción puede vincular o desvincular redes virtuales al/del circuito.
+* Compatibilidad del control de acceso basado en roles de Azure (Azure RBAC) para el modelo de implementación clásica. No puede ejecutar los controles de Azure RBAC en un circuito del modelo de implementación clásica. Cualquier administrador o coadministrador de la suscripción puede vincular o desvincular redes virtuales al/del circuito.
 
 ## <a name="configuration"></a>Configuración
 Revise las instrucciones que se ofrecen en [Transición de los circuitos ExpressRoute desde el modelo de implementación clásica al modelo de implementación de Resource Manager](expressroute-howto-move-arm.md).

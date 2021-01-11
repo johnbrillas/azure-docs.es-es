@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 1773e1345e9410f54a0364b586c3afca5b648b4c
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: ab173f47ed09dbe77c12cad844d8a1f3654f4a9b
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341539"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97734766"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Supervisión de la integridad de los archivos en Azure Security Center
 Aprenda a configurar la supervisión de la integridad de los archivos (FIM) en Azure Security Center mediante este tutorial.
@@ -31,7 +31,7 @@ Aprenda a configurar la supervisión de la integridad de los archivos (FIM) en A
 |Estado de la versión:|Disponible con carácter general|
 |Precios:|Requiere [Azure Defender para servidores](defender-for-servers-introduction.md).<br>FIM carga datos en el área de trabajo de Log Analytics. Se aplican cargos de datos, según la cantidad de datos que cargue. Para más información, consulte [Precios de Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).|
 |Roles y permisos necesarios:|El **propietario del área de trabajo** puede habilitar o deshabilitar FIM (para obtener más información, consulte [Roles de Azure para Log Analytics](/services-hub/health/azure-roles#azure-roles)).<br>El **lector** puede ver los resultados.|
-|Nubes:|![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![Sí](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, otros gobiernos<br>Solo se admite en las regiones en las que está disponible la solución de seguimiento de cambios de Azure Automation.<br>Consulte [Regiones admitidas para el área de trabajo de Log Analytics vinculada](../automation/how-to/region-mappings.md).<br>[Más información sobre el seguimiento de cambios](../automation/change-tracking/overview.md).|
+|Nubes:|![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![Sí](./media/icons/yes-icon.png) Nacionales o soberanas (US Gov, China Gov, otros gobiernos)<br>Solo se admite en las regiones en las que está disponible la solución de seguimiento de cambios de Azure Automation.<br>Consulte [Regiones admitidas para el área de trabajo de Log Analytics vinculada](../automation/how-to/region-mappings.md).<br>[Más información sobre el seguimiento de cambios](../automation/change-tracking/overview.md).|
 |||
 
 ## <a name="what-is-fim-in-security-center"></a>¿Qué la supervisión de la integridad de los archivos (FIM) Security Center?
@@ -56,10 +56,10 @@ En este tutorial, aprenderá a:
 
 Al comparar el estado actual de estos elementos con el estado durante el examen anterior, FIM le avisa si se han realizado modificaciones sospechosas.
 
-FIM emplea la solución Azure Change Tracking para realizar el seguimiento de los cambios e identificarlos en su entorno. Cuando la supervisión de la integridad de los archivos está habilitada, tendrá un recurso **Change Tracking** de tipo **Solución** . Para obtener detalles sobre la frecuencia de recopilación de datos, consulte [Detalles de la recopilación de datos de Change Tracking](../automation/change-tracking/overview.md#change-tracking-and-inventory-data-collection).
+FIM emplea la solución Azure Change Tracking para realizar el seguimiento de los cambios e identificarlos en su entorno. Cuando la supervisión de la integridad de los archivos está habilitada, tendrá un recurso **Change Tracking** de tipo **Solución**. Para obtener detalles sobre la frecuencia de recopilación de datos, consulte [Detalles de la recopilación de datos de Change Tracking](../automation/change-tracking/overview.md#change-tracking-and-inventory-data-collection).
 
 > [!NOTE]
-> Si quita el recurso **Change Tracking** , deshabilitará también la característica de supervisión de la integridad de los archivos en Security Center.
+> Si quita el recurso **Change Tracking**, deshabilitará también la característica de supervisión de la integridad de los archivos en Security Center.
 
 ## <a name="which-files-should-i-monitor"></a>¿Qué archivos se deben supervisar?
 Al elegir los archivos que quiere supervisar, es conveniente que piense en los archivos que son críticos para su sistema y aplicaciones. Supervise archivos que no espera que cambien sin haberlo planeado. Si elige archivos que las aplicaciones o el sistema operativo cambian con frecuencia (por ejemplo, archivos de registro y archivos de texto), se genera mucho ruido que dificulta la identificación de un ataque.
@@ -103,11 +103,11 @@ Security Center proporciona la siguiente lista de elementos cuya supervisión se
 
 FIM solo está disponible desde las páginas de Security Center en Azure Portal. Actualmente no hay ninguna API REST que funcione con FIM.
 
-1. En el área **Protección avanzada** del panel de **Azure Defender** , seleccione **Supervisión de la integridad de los archivos** .
+1. En el área **Protección avanzada** del panel de **Azure Defender**, seleccione **Supervisión de la integridad de los archivos**.
 
    :::image type="content" source="./media/security-center-file-integrity-monitoring/open-file-integrity-monitoring.png" alt-text="Inicio de FIM" lightbox="./media/security-center-file-integrity-monitoring/open-file-integrity-monitoring.png":::
 
-    Se abre la página de configuración **Supervisión de la integridad de los archivos** .
+    Se abre la página de configuración **Supervisión de la integridad de los archivos**.
 
     Se proporciona la siguiente información para cada área de trabajo:
 
@@ -124,18 +124,18 @@ FIM solo está disponible desde las páginas de Security Center en Azure Portal.
 
     - ![Icono Habilitar][3] Habilitar FIM en todas las máquinas del área de trabajo y configurar las opciones de FIM. Este icono indica que FIM no está habilitada en el área de trabajo.
 
-        :::image type="content" source="./media/security-center-file-integrity-monitoring/workspace-list-fim.png" alt-text="Inicio de FIM":::
+        :::image type="content" source="./media/security-center-file-integrity-monitoring/workspace-list-fim.png" alt-text="Habilitación de FIM para un área de trabajo específica":::
 
 
     > [!TIP]
     > Si no hay ningún botón Habilitar o Actualizar y el espacio está en blanco, significa que FIM ya está habilitado en el área de trabajo.
 
 
-1. Seleccione **HABILITAR** . Se muestran los detalles del área de trabajo, incluido el número de equipos con Windows y Linux en el área de trabajo.
+1. Seleccione **HABILITAR**. Se muestran los detalles del área de trabajo, incluido el número de equipos con Windows y Linux en el área de trabajo.
 
-    :::image type="content" source="./media/security-center-file-integrity-monitoring/workspace-fim-status.png" alt-text="Inicio de FIM":::
+    :::image type="content" source="./media/security-center-file-integrity-monitoring/workspace-fim-status.png" alt-text="Página de detalles del área de trabajo de FIM":::
 
-   También se muestra la configuración recomendada para Windows y Linux.  Expanda **Archivos de Windows** , **Registro** y **Archivos de Linux** para ver la lista completa de elementos recomendados.
+   También se muestra la configuración recomendada para Windows y Linux.  Expanda **Archivos de Windows**, **Registro** y **Archivos de Linux** para ver la lista completa de elementos recomendados.
 
 1. Desactive las casillas de las entidades recomendadas que no quiere que supervise FIM.
 
@@ -150,7 +150,7 @@ FIM solo está disponible desde las páginas de Security Center en Azure Portal.
 
 El panel **Supervisión de la integridad de los archivos** se muestra en las áreas de trabajo en las que está habilitado FIM. El panel de FIM se abre después de habilitar FIM en un área de trabajo o al seleccionar un área de trabajo en la ventana **Supervisión de la integridad de los archivos** que ya tiene FIM habilitado.
 
-:::image type="content" source="./media/security-center-file-integrity-monitoring/fim-dashboard.png" alt-text="Inicio de FIM":::
+:::image type="content" source="./media/security-center-file-integrity-monitoring/fim-dashboard.png" alt-text="Panel de FIM y sus distintos paneles informativos":::
 
 El panel de FIM de un área de trabajo muestra los detalles siguientes:
 
@@ -161,7 +161,7 @@ El panel de FIM de un área de trabajo muestra los detalles siguientes:
 
 Seleccione **Filtrar** en la parte superior del panel para cambiar el período de tiempo durante el que se muestran los cambios.
 
-:::image type="content" source="./media/security-center-file-integrity-monitoring/dashboard-filter.png" alt-text="Inicio de FIM":::
+:::image type="content" source="./media/security-center-file-integrity-monitoring/dashboard-filter.png" alt-text="Filtro de período de tiempo del panel de FIM":::
 
 En la pestaña **Servidores** se enumeran las máquinas que informan a esta área de trabajo. En el panel se muestra para cada máquina:
 
@@ -181,17 +181,17 @@ La pestaña **Cambios** (se muestra a continuación) enumera todos los cambios d
 
 ![Cambios del área de trabajo][9]
 
-Se abre la hoja **Cambiar detalles** al escribir un cambio en el campo de búsqueda o al seleccionar una entidad enumerada en la pestaña **Cambios** .
+Se abre la hoja **Cambiar detalles** al escribir un cambio en el campo de búsqueda o al seleccionar una entidad enumerada en la pestaña **Cambios**.
 
 ![Cambiar detalles][10]
 
 ## <a name="edit-monitored-entities"></a>Edición de las entidades supervisadas
 
-1. Vuelva al panel **Supervisión de la integridad de los archivos** y seleccione **Configuración** .
+1. Vuelva al panel **Supervisión de la integridad de los archivos** y seleccione **Configuración**.
 
    ![Configuración][11]
 
-   Se abre la hoja **Configuración del área de trabajo** que muestra tres pestañas: **Registro de Windows** , **Archivos de Windows** y **Archivos de Linux** . En cada pestaña se muestran las entidades que se pueden editar de esa categoría. En cada entidad de la lista, Security Center identifica si FIM está habilitado (true) o deshabilitado (false).  Al editar la entidad, puede habilitar o deshabilitar FIM.
+   Se abre la hoja **Configuración del área de trabajo** que muestra tres pestañas: **Registro de Windows**, **Archivos de Windows** y **Archivos de Linux**. En cada pestaña se muestran las entidades que se pueden editar de esa categoría. En cada entidad de la lista, Security Center identifica si FIM está habilitado (true) o deshabilitado (false).  Al editar la entidad, puede habilitar o deshabilitar FIM.
 
    ![Configuración del área de trabajo][12]
 
@@ -207,28 +207,28 @@ En **Edit for Change Tracking** (Editar para Change Tracking), puede:
 - Eliminar la entidad, descarta el cambio o guardar el cambio
 
 ## <a name="add-a-new-entity-to-monitor"></a>Agregar una nueva entidad para supervisar
-1. Vuelva al panel **Supervisión de la integridad de los archivo** y seleccione **Configuración** en la parte superior. Se abre la hoja **Configuración del área de trabajo** .
-2. En **Configuración del área de trabajo** , seleccione la pestaña correspondiente al tipo de entidad que quiere agregar: Registro de Windows, Archivos de Windows o Archivos de Linux. En este ejemplo, hemos seleccionado **Archivos de Linux** .
+1. Vuelva al panel **Supervisión de la integridad de los archivo** y seleccione **Configuración** en la parte superior. Se abre la hoja **Configuración del área de trabajo**.
+2. En **Configuración del área de trabajo**, seleccione la pestaña correspondiente al tipo de entidad que quiere agregar: Registro de Windows, Archivos de Windows o Archivos de Linux. En este ejemplo, hemos seleccionado **Archivos de Linux**.
 
    ![Adición de un nuevo elemento para supervisar][14]
 
-3. Seleccione **Agregar** . Se abre la hoja **Add for Change Tracking** (Agregar para Change Tracking).
+3. Seleccione **Agregar**. Se abre la hoja **Add for Change Tracking** (Agregar para Change Tracking).
 
    ![Escribir la información solicitada][15]
 
-4. En la página **Agregar** , escriba la información solicitada y seleccione **Guardar** .
+4. En la página **Agregar**, escriba la información solicitada y seleccione **Guardar**.
 
 ## <a name="disable-monitored-entities"></a>Deshabilitación de las entidades supervisadas
-1. Vuelva a al panel **Supervisión de la integridad de los archivos** .
+1. Vuelva a al panel **Supervisión de la integridad de los archivos**.
 2. Seleccione un área de trabajo donde esté habilitado actualmente FIM. Un área de trabajo está habilitada para FIM si le falta el botón Habilitar o Actualizar plan.
 
    ![Seleccionar un área de trabajo donde esté habilitado FIM][16]
 
-3. En Supervisión de la integridad de los archivos, seleccione **Configuración** .
+3. En Supervisión de la integridad de los archivos, seleccione **Configuración**.
 
    ![Seleccionar Configuración][17]
 
-4. En **Configuración del área de trabajo** , seleccione un grupo donde **Habilitado** esté establecido en True.
+4. En **Configuración del área de trabajo**, seleccione un grupo donde **Habilitado** esté establecido en True.
 
    ![Configuración del área de trabajo][18]
 
@@ -236,7 +236,7 @@ En **Edit for Change Tracking** (Editar para Change Tracking), puede:
 
    ![Establecer Habilitado en False][19]
 
-6. Seleccione **Guardar** .
+6. Seleccione **Guardar**.
 
 ## <a name="folder-and-path-monitoring-using-wildcards"></a>Supervisión de carpetas y rutas de acceso mediante caracteres comodín.
 
@@ -249,9 +249,9 @@ Utilice caracteres comodín para simplificar el seguimiento a través de directo
 ## <a name="disable-fim"></a>Deshabilitación de FIM
 Puede deshabilitar FIM. FIM emplea la solución Azure Change Tracking para realizar el seguimiento de los cambios e identificarlos en su entorno. Al deshabilitar FIM, quita la solución Change Tracking del área de trabajo seleccionada.
 
-1. Para deshabilitar FIM, vuelva al panel **Supervisión de la integridad de los archivos** .
+1. Para deshabilitar FIM, vuelva al panel **Supervisión de la integridad de los archivos**.
 2. Seleccione un área de trabajo.
-3. En **Supervisión de la integridad de los archivos** , seleccione **Deshabilitar** .
+3. En **Supervisión de la integridad de los archivos**, seleccione **Deshabilitar**.
 
    ![Deshabilitación de FIM][20]
 

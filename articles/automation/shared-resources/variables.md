@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 12/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5be0d45843eed8c7c0d7d9b6dc4655de01e914c3
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: d064eb0b748c361b76139b1a21d25cec8996e818
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461459"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97734783"
 ---
 # <a name="manage-variables-in-azure-automation"></a>Administración de variables en Azure Automation
 
@@ -80,11 +80,11 @@ $mytestencryptvar = Get-AutomationVariable -Name TestVariable
 Write-output "The encrypted value of the variable is: $mytestencryptvar"
 ```
 
-## <a name="python-2-functions-to-access-variables"></a>Funciones de Python 2 para acceder a las variables
+## <a name="python-functions-to-access-variables"></a>Funciones de Python para acceder a las variables
 
-Las funciones de la siguiente tabla sirven para acceder a las variables de un runbook de Python 2.
+Las funciones de la siguiente tabla sirven para acceder a las variables de un runbook de Python 2 y Python 3. Actualmente, los runbooks de Python 3 están en versión preliminar.
 
-|Funciones de Python 2|Descripción|
+|Funciones de Python|Descripción|
 |:---|:---|
 |`automationassets.get_automation_variable`|Recupera el valor de una variable existente. |
 |`automationassets.set_automation_variable`|Establece el valor de una variable existente. |
@@ -135,9 +135,10 @@ $vmValue = Get-AzAutomationVariable -ResourceGroupName "ResourceGroup01" `
 $vmName = $vmValue.Name
 $vmExtensions = $vmValue.Extensions
 ```
+
 ## <a name="textual-runbook-examples"></a>Ejemplo de un runbook textual
 
-### <a name="retrieve-and-set-a-simple-value-from-a-variable"></a>Recuperación y establecimiento de un valor simple de una variable
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Los comandos de ejemplo siguientes muestran cómo establecer y recuperar una variable en un runbook textual. En este ejemplo se da por hecho que se han creado las variables de entero `NumberOfIterations` y `NumberOfRunnings`, así como una variable de cadena denominada `SampleMessage`.
 
@@ -154,7 +155,7 @@ for ($i = 1; $i -le $NumberOfIterations; $i++) {
 Set-AzAutomationVariable -ResourceGroupName "ResourceGroup01" –AutomationAccountName "MyAutomationAccount" –Name NumberOfRunnings –Value ($NumberOfRunnings += 1)
 ```
 
-### <a name="retrieve-and-set-a-variable-in-a-python-2-runbook"></a>Recuperación y establecimiento de una variable en un runbook de Python 2
+# <a name="python-2"></a>[Python 2](#tab/python2)
 
 En el siguiente ejemplo se muestra cómo obtener una variable, establecerla y administrar una excepción de una variable inexistente en un runbook de Python 2.
 
@@ -177,6 +178,32 @@ try:
 except AutomationAssetNotFound:
     print "variable not found"
 ```
+
+# <a name="python-3"></a>[Python 3](#tab/python3)
+
+En el siguiente ejemplo se muestra cómo obtener una variable, establecerla y administrar una excepción de una variable inexistente en un runbook de Python 3 (versión preliminar).
+
+```python
+import automationassets
+from automationassets import AutomationAssetNotFound
+
+# get a variable
+value = automationassets.get_automation_variable("test-variable")
+print value
+
+# set a variable (value can be int/bool/string)
+automationassets.set_automation_variable("test-variable", True)
+automationassets.set_automation_variable("test-variable", 4)
+automationassets.set_automation_variable("test-variable", "test-string")
+
+# handle a non-existent variable exception
+try:
+    value = automationassets.get_automation_variable("nonexisting variable")
+except AutomationAssetNotFound:
+    print ("variable not found")
+```
+
+---
 
 ## <a name="graphical-runbook-examples"></a>Ejemplos de runbook gráfico
 

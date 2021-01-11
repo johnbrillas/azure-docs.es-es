@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/11/2020
+ms.date: 12/29/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 300b9b6279231079807f8c923570bddab657ff56
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 93bcbab9445d83bf17b37b6affc1d2bc70703bbf
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92095915"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814336"
 ---
 # <a name="initiate-a-storage-account-failover"></a>Inicio de una conmutación por error de la cuenta de almacenamiento
 
@@ -38,6 +38,13 @@ Para poder realizar una conmutación por error de su cuenta de almacenamiento, a
 
 Para más información sobre la redundancia de Azure Storage, consulte [Redundancia de Azure Storage](storage-redundancy.md).
 
+Tenga en cuenta que las siguientes características y servicios no son compatibles con la conmutación por error de una cuenta:
+
+- Azure File Sync no admite la conmutación por error de una cuenta de almacenamiento. No se debe realizar la conmutación por error de las cuentas de almacenamiento que contienen recursos compartidos de archivos de Azure y que se usan como puntos de conexión de nube en Azure File Sync. Si lo hace, la sincronización dejará de funcionar y también podría provocar una pérdida inesperada de datos en el caso de archivos recién organizados en capas.
+- Actualmente, no se admiten cuentas de almacenamiento ADLS Gen2 (cuantas que tienen el espacio de nombres jerárquico habilitado).
+- No se puede conmutar por error una cuenta de almacenamiento que contiene blobs en bloques Premium. Las cuentas de almacenamiento que admiten los blobs en bloques Premium actualmente no admiten la redundancia geográfica.
+- No se puede conmutar por error una cuenta de almacenamiento que contenga contenedores habilitados por la [Directiva de inmutabilidad de gusanos](../blobs/storage-blob-immutable-storage.md). Las directivas de retención legal o retención basada en tiempo desbloqueada o bloqueada impiden la conmutación por error para mantener el cumplimiento.
+
 ## <a name="initiate-the-failover"></a>Inicio de la conmutación por error
 
 ## <a name="portal"></a>[Portal](#tab/azure-portal)
@@ -45,16 +52,16 @@ Para más información sobre la redundancia de Azure Storage, consulte [Redundan
 Para iniciar una conmutación por error de la cuenta desde Azure Portal, siga estos pasos:
 
 1. Vaya a la cuenta de almacenamiento.
-1. En **Configuración** , seleccione **Replicación geográfica** . En la imagen siguiente se muestra el estado de la replicación geográfica y de la conmutación por error de una cuenta de almacenamiento.
+1. En **Configuración**, seleccione **Replicación geográfica**. En la imagen siguiente se muestra el estado de la replicación geográfica y de la conmutación por error de una cuenta de almacenamiento.
 
     :::image type="content" source="media/storage-initiate-account-failover/portal-failover-prepare.png" alt-text="Captura de pantalla que muestra el estado de la replicación geográfica y de la conmutación por error":::
 
 1. Compruebe que la cuenta de almacenamiento está configurada para el almacenamiento con redundancia geográfica (GRS) o el almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS). Si no es así, seleccione **Configuración** en **Configuración** para actualizar su cuenta a fin de que tenga redundancia geográfica.
-1. La propiedad **Hora de la última sincronización** indica a qué distancia está la región secundaria de la primaria. El valor de **Hora de la última sincronización** proporciona una estimación del alcance de la pérdida de datos que experimentará una vez finalizada la conmutación por error. Para más información sobre cómo comprobar la propiedad **Hora de la última actualización** , consulte [Comprobación de la propiedad Hora de la última sincronización de una cuenta de almacenamiento](last-sync-time-get.md).
-1. Seleccione **Preparar la conmutación por error** .
+1. La propiedad **Hora de la última sincronización** indica a qué distancia está la región secundaria de la primaria. El valor de **Hora de la última sincronización** proporciona una estimación del alcance de la pérdida de datos que experimentará una vez finalizada la conmutación por error. Para más información sobre cómo comprobar la propiedad **Hora de la última actualización**, consulte [Comprobación de la propiedad Hora de la última sincronización de una cuenta de almacenamiento](last-sync-time-get.md).
+1. Seleccione **Preparar la conmutación por error**.
 1. Revise el cuadro de diálogo de confirmación. Cuando esté listo, escriba **Sí** para confirmar e iniciar la conmutación por error.
 
-    :::image type="content" source="media/storage-initiate-account-failover/portal-failover-confirm.png" alt-text="Captura de pantalla que muestra el estado de la replicación geográfica y de la conmutación por error":::
+    :::image type="content" source="media/storage-initiate-account-failover/portal-failover-confirm.png" alt-text="Captura de pantalla que muestra el cuadro de diálogo de confirmación de una conmutación por error de la cuenta":::
 
 ## <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -62,7 +69,7 @@ La característica de conmutación por error de la cuenta está disponible con c
 
 1. Desinstale las instalaciones anteriores de Azure PowerShell:
 
-    - Quite cualquier instalación anterior de Azure PowerShell desde Windows usando el ajuste **Aplicaciones y características** en **Configuración** .
+    - Quite cualquier instalación anterior de Azure PowerShell desde Windows usando el ajuste **Aplicaciones y características** en **Configuración**.
     - Quite todos los módulos de **Azure** desde `%Program Files%\WindowsPowerShell\Modules`.
 
 1. Asegúrese de tener instalada la versión más reciente de PowerShellGet. Abra una ventana de Windows PowerShell y ejecute el siguiente comando para instalar la versión más reciente:
@@ -106,7 +113,7 @@ az storage account failover \ --name accountName
 
 Cuando se inicia una conmutación por error de la cuenta de almacenamiento, se actualizan los registros DNS del punto de conexión secundario para que pase a ser el punto de conexión principal. Asegúrese de comprender el posible efecto para la cuenta de almacenamiento antes de iniciar una conmutación por error.
 
-Para calcular el alcance de la posible pérdida de datos antes de iniciar una conmutación por error, compruebe la propiedad **Hora de la última sincronización** . Para más información sobre cómo comprobar la propiedad **Hora de la última actualización** , consulte [Comprobación de la propiedad Hora de la última sincronización de una cuenta de almacenamiento](last-sync-time-get.md).
+Para calcular el alcance de la posible pérdida de datos antes de iniciar una conmutación por error, compruebe la propiedad **Hora de la última sincronización**. Para más información sobre cómo comprobar la propiedad **Hora de la última actualización**, consulte [Comprobación de la propiedad Hora de la última sincronización de una cuenta de almacenamiento](last-sync-time-get.md).
 
 El tiempo que se tarda en realizar la conmutación por error después del inicio puede variar, aunque por lo general tarda menos de una hora.
 

@@ -10,13 +10,13 @@ ms.topic: how-to
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
-ms.date: 04/14/2020
-ms.openlocfilehash: 3cab3b262f9116903d0b423cd5e4a0ebd03c46fa
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.date: 12/16/2020
+ms.openlocfilehash: 49dfed7faac1e55a40bc7b7ddd5e9555519350a2
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94984437"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617313"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Administración de la retención de copias de seguridad a largo plazo de Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -203,6 +203,7 @@ Restore-AzSqlDatabase -FromLongTermRetentionBackup -ResourceId $ltrBackup.Resour
 
 ## <a name="limitations"></a>Limitaciones
 - Al restaurar a partir de una copia de seguridad de LTR, la propiedad de escalado de lectura está deshabilitada. Para habilitarla en la base de datos restaurada, actualice la base de datos después de crearla.
+- Debe especificar el objetivo de nivel de servicio de destino, cuando se restaura a partir de una copia de seguridad de LTR, que se creó cuando la base de datos estaba en un grupo elástico. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

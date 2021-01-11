@@ -13,15 +13,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/29/2020
+ms.date: 12/29/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: aae822665702300064e82e80d74b5c2256423ea1
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 1e6aaf1b37073bf93e0aca8237161bf11af3a872
+ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94957289"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97827230"
 ---
 # <a name="azure-proximity-placement-groups-for-optimal-network-latency-with-sap-applications"></a>Grupos de selección de ubicación de proximidad de Azure para una latencia de red óptima con aplicaciones SAP
 Las aplicaciones SAP basadas en la arquitectura SAP NetWeaver o SAP S/4HANA son sensibles a la latencia de red entre la capa de aplicación de SAP y el nivel de base de datos de SAP. Esta sensibilidad es el resultado de la mayor parte de la lógica de negocios que se ejecuta en el nivel de aplicación. Dado que el nivel de aplicación de SAP ejecuta la lógica de negocios, emite consultas al nivel de base de datos con una elevada frecuencia a una velocidad de miles o decenas de miles de consultas por segundo. En la mayoría de los casos, la naturaleza de estas consultas es sencilla. A menudo, se pueden ejecutar en el nivel de base de datos en 500 microsegundos o menos.
@@ -42,6 +42,8 @@ Para ofrecer la posibilidad de optimizar la latencia de red, Azure ofrece [grupo
 > - Solo cuando sea necesario
 > - Solo en la granularidad de un único sistema SAP y no en todo el entorno del sistema o en un entorno completo de SAP
 > - Para mantener al mínimo los distintos tipos de máquina virtual y el número de máquinas virtuales dentro de un grupo con ubicación por proximidad
+
+Supongamos que, si implementa máquinas virtuales especificando Availability Zones y selecciona las mismas instancias de Availability Zones, la latencia de red entre estas máquinas virtuales debe ser suficiente para que funcionen los sistemas SAP NetWeaver y S/4HANA con un rendimiento satisfactorio. Esta suposición es independiente del hecho de que una zona determinada esté constituida por un centro de datos o varios centros de datos. La única razón para usar grupos de selección de ubicación por proximidad en implementaciones zonales es el caso en el que desea asignar máquinas virtuales implementadas del conjunto de disponibilidad de Azure junto con máquinas virtuales implementadas zonales.
 
 
 ## <a name="what-are-proximity-placement-groups"></a>¿Qué son los grupos de selección de ubicación de proximidad? 

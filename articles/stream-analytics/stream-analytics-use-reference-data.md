@@ -6,13 +6,13 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/2/2020
-ms.openlocfilehash: 2cfd391daa13a100a56bb10b79b27eda80902374
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.date: 12/18/2020
+ms.openlocfilehash: e7f5b3ae0a4dc7faa67a361b210b1d014e1f1b93
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96533621"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97722137"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Uso de datos de referencia para las búsquedas en Stream Analytics
 
@@ -137,6 +137,18 @@ INTO    output
 FROM    Step1
 JOIN    refData2 ON refData2.Desc = Step1.Desc 
 ``` 
+
+## <a name="iot-edge-jobs"></a>Trabajos de IoT Edge
+
+Solo se admiten datos de referencia locales para los trabajos perimetrales de Stream Analytics. Cuando un trabajo se implementa en el dispositivo IoT Edge, carga los datos de referencia de la ruta de acceso del archivo definida por el usuario. Tenga un archivo de datos de referencia preparado en el dispositivo. Para un contenedor de Windows, coloque el archivo de datos de referencia en la unidad local y comparta la unidad local con el contenedor de Docker. Para un contenedor de Linux, cree un volumen de Docker y rellene el archivo de datos en el volumen.
+
+Los datos de referencia en la actualización de IoT Edge se desencadenan mediante una implementación. Una vez activado, el módulo de Stream Analytics toma los datos actualizados sin necesidad de detener el trabajo en ejecución.
+
+Hay dos maneras de actualizar los datos de referencia:
+
+* Actualice la ruta de acceso a los datos de referencia en el trabajo de Stream Analytics de Azure Portal.
+
+* Actualizar la implementación de IoT Edge.
 
 ## <a name="next-steps"></a>Pasos siguientes
 > [!div class="nextstepaction"]

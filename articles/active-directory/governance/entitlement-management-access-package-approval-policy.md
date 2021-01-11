@@ -16,12 +16,12 @@ ms.date: 09/16/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e36b2d4576b43544bec89efd326363344b35be9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48b5260e883d85899953240f6ee4f83127681c9e
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90993725"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591313"
 ---
 # <a name="change-approval-and-requestor-information-preview-settings-for-an-access-package-in-azure-ad-entitlement-management"></a>Cambio de la configuración de información de aprobación y del solicitante (versión preliminar) para un paquete de acceso de administración de derechos de Azure AD
 
@@ -132,13 +132,15 @@ Por ejemplo, si especificó que Alice y Bob sean los primeros aprobadores, indiq
 
 1. En el Primer aprobador, el Segundo aprobador o en ambos, haga clic en **Mostrar configuración de solicitud avanzada**.
 
-    ![Paquete de acceso - Directiva - Mostrar configuración de solicitud avanzada](./media/entitlement-management-access-package-approval-policy/alternate-approvers-click-advanced-request.png)
+    :::image type="content" source="media/entitlement-management-access-package-approval-policy/alternate-approvers-click-advanced-request.png" alt-text="Paquete de acceso - Directiva - Mostrar configuración de solicitud avanzada":::
 
 1. Establezca la opción **Si no se toman medidas, ¿quiere realizar el reenvío a los aprobadores alternativos?** en **Sí**.
 
 1. Haga clic en **Agregar aprobadores alternativos** y seleccione los aprobadores alternativos de la lista.
 
     ![Paquete de acceso - Directiva - Agregar aprobadores alternativos](./media/entitlement-management-access-package-approval-policy/alternate-approvers-add.png)
+
+    Si selecciona administrador como aprobador para el primer aprobador, tendrá una opción adicional, **Administrador de segundo nivel como aprobador alternativo**, disponible para elegir en el campo de aprobador alternativo. Si selecciona esta opción, debe agregar un aprobador de reserva al que reenviar la solicitud en caso de que el sistema no encuentre el administrador de segundo nivel.
 
 1. En el cuadro **¿Dentro de cuántos días quiere realizar el reenvío a los aprobadores alternativos?** , escriba el número de días durante los cuales los aprobadores pueden aprobar o denegar una solicitud. Si ningún aprobador ha aprobado o denegado la solicitud en ese período, la solicitud expirará (tiempo de expiración) y el usuario deberá enviar otra solicitud para el paquete de acceso. 
 

@@ -4,12 +4,12 @@ description: Cree y administre una entidad de servicio de Azure Active Directory
 services: container-service
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.openlocfilehash: e95eae3ab8d992bc169e54700e7e31715e72102e
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: c6f50b152174cee1ee2cc37baa22432957107d2c
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96607830"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97614802"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Entidades de servicio con Azure Kubernetes Service (AKS)
 
@@ -100,18 +100,7 @@ Si usa Azure Container Registry (ACR) como el almacén de imágenes de contenedo
 
 ### <a name="networking"></a>Redes
 
-Puede usar redes avanzadas en las que la red virtual y la subred o las direcciones IP públicas se encuentran en otro grupo de recursos. Asigne uno de los siguientes conjuntos de permisos de rol:
-
-- Cree un [rol personalizado][rbac-custom-role] y defina los siguientes permisos de rol:
-  - *Microsoft.Network/virtualNetworks/subnets/join/action*
-  - *Microsoft.Network/virtualNetworks/subnets/read*
-  - *Microsoft.Network/publicIPAddresses/join/action*
-  - *Microsoft.Network/publicIPAddresses/read*
-  - *Microsoft.Network/publicIPAddresses/write*
-  - Si usa [tablas de rutas personalizadas en clústeres de Kubenet](configure-kubenet.md#bring-your-own-subnet-and-route-table-with-kubenet), agregue estos otros permisos:
-    - *Microsoft.Network/routeTables/write*
-    - *Microsoft.Network/routeTables/read*
-- O bien, asigne el rol integrado [Colaborador de la red][rbac-network-contributor] en la subred dentro de la red virtual.
+Puede usar redes avanzadas en las que la red virtual y la subred o las direcciones IP públicas se encuentran en otro grupo de recursos. Asigne el rol integrado [Colaborador de la red][rbac-network-contributor] en la subred dentro de la red virtual. Como alternativa, puede crear un [rol personalizado ][rbac-custom-role] con permisos para tener acceso a los recursos de red de ese grupo de recursos. Consulte [permisos del servicio AKS][aks-permissions] para obtener más información.
 
 ### <a name="storage"></a>Storage
 
@@ -188,3 +177,4 @@ Para obtener información sobre cómo actualizar las credenciales, vea [Actualiz
 [aks-to-acr]: cluster-container-registry-integration.md
 [update-credentials]: update-credentials.md
 [azure-ad-permissions]: ../active-directory/fundamentals/users-default-permissions.md
+[aks-permissions]: concepts-identity.md#aks-service-permissions

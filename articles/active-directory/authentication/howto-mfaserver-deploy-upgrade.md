@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1755404a06d8586968801aa22f2af532da278802
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: fbddd2eb52414827561d8896dfc8bc9ff705f41b
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96742330"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97584398"
 ---
 # <a name="upgrade-to-the-latest-azure-multi-factor-authentication-server"></a>Actualización a la versión más reciente del Servidor Microsoft Azure Multi-Factor Authentication
 
@@ -33,7 +33,7 @@ Si va a actualizar desde la versión 6.x o anterior a la 7.x o una más reciente
 
 Resumen de los pasos de actualización:
 
-* Actualización de los servidores de Azure MFA (subordinados y posteriormente maestro)
+* Actualización de los servidores de Azure MFA (subordinados y posteriormente principal)
 * Actualización de instancias del Portal de usuarios
 * Actualización de instancias de adaptador de AD FS
 
@@ -51,7 +51,7 @@ Resumen de los pasos de actualización:
   
 5. Si se le solicita que instale un paquete de actualización de Microsoft Visual C++ 2015 Redistributable, acepte. Se instalan las versiones x86 y x64 del paquete.
 6. Si utiliza el SDK del servicio web, deberá instalar el SDK del servicio web nuevo. Cuando se instala el nuevo SDK del servicio web, asegúrese de que el nombre del directorio virtual coincide con el que se instaló (por ejemplo, MultiFactorAuthWebServiceSdk).
-7. Repita los pasos en todos los servidores subordinados. Elija uno de los subordinados como el nuevo servidor principal; después, actualice el servidor principal antiguo.
+7. Repita los pasos en todos los servidores subordinados. Promueva uno de los subordinados para que sea el nuevo principal y, a continuación, actualice el servidor principal anterior.
 
 ## <a name="upgrade-the-user-portal"></a>Actualización del Portal de usuarios
 

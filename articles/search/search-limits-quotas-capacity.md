@@ -7,17 +7,17 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/14/2020
-ms.openlocfilehash: f3763857af1df8f34f38b36835a667c6610e1909
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.date: 12/15/2020
+ms.openlocfilehash: 5d265fe02d801cf0d2d66be37a8dc2a220e19b34
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107834"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591351"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Límites de servicio en Azure Cognitive Search
 
-Los límites máximos sobre el almacenamiento, las cargas de trabajo, las cantidades de índices y otros objetos dependen de si se [aprovisiona Azure Cognitive Search](search-create-service-portal.md) conforme a un plan de tarifa **Gratis** , **Básico** , **Estándar** u **Optimizado para almacenamiento** .
+Los límites máximos sobre el almacenamiento, las cargas de trabajo, las cantidades de índices y otros objetos dependen de si se [aprovisiona Azure Cognitive Search](search-create-service-portal.md) conforme a un plan de tarifa **Gratis**, **Básico**, **Estándar** u **Optimizado para almacenamiento**.
 
 + **Gratis** es un servicio multiinquilino compartido incluido en su suscripción de Azure. 
 
@@ -25,7 +25,7 @@ Los límites máximos sobre el almacenamiento, las cargas de trabajo, las cantid
 
 + **Estándar** se ejecuta en máquinas dedicadas, con más almacenamiento y capacidad de procesamiento en cada nivel. Estándar incluye cuatro niveles: S1, S2, S3 y S3 HD. S3 High Density (S3 HD) está diseñado para [multiinquilinato](search-modeling-multitenant-saas-applications.md) y grandes cantidades de índices pequeños (tres mil índices por servicio). S3 HD no proporciona la [característica de indexador](search-indexer-overview.md) y la ingesta de datos debe aprovechar las API que envían datos del origen al índice. 
 
-+ El plan de tarifa **Almacenamiento optimizado** se ejecuta en máquinas dedicadas con más almacenamiento total, ancho de banda de almacenamiento y memoria que el plan **Estándar** . Este nivel tiene como objetivo índices grandes que cambian con lentitud. Dicho plan se ofrece en dos niveles: L1 y L2.
++ El plan de tarifa **Almacenamiento optimizado** se ejecuta en máquinas dedicadas con más almacenamiento total, ancho de banda de almacenamiento y memoria que el plan **Estándar**. Este nivel tiene como objetivo índices grandes que cambian con lentitud. Dicho plan se ofrece en dos niveles: L1 y L2.
 
 ## <a name="subscription-limits"></a>Límites de suscripción
 [!INCLUDE [azure-search-limits-per-subscription](../../includes/azure-search-limits-per-subscription.md)]
@@ -143,7 +143,7 @@ Las solicitudes de indexación y de consultas de búsqueda se limitan a medida q
 
 Límites estáticos de frecuencia de solicitudes para las operaciones relacionadas con un índice:
 
-+ Enumerar índices (GET /indexes): 5 por segundo por unidad de búsqueda
++ Enumerar índices (GET /indexes): 3 por segundo por unidad de búsqueda
 + Obtener índice (GET /indexes/myindex): 10 por segundo por unidad de búsqueda
 + Crear índice (POST /indexes): 12 por minuto por unidad de búsqueda
 + Crear o actualizar índice (PUT /indexes/myindex): 6 por segundo por unidad de búsqueda

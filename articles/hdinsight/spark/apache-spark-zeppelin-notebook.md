@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
-ms.openlocfilehash: a692f4dd86d110f7f0a91a862a7b16ac28345de5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 00b9568d03260a9d1ac0b6916e09f3d9ef4da34d
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86084535"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97822172"
 ---
 # <a name="use-apache-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Uso de cuadernos de Apache Zeppelin con un clúster Apache Spark en Azure HDInsight
 
@@ -115,7 +115,7 @@ Los clústeres de HDInsight Spark incluyen cuadernos de [Apache Zeppelin](https:
 
 El cuaderno de Zeppelin Notebook en un clúster Apache Spark de HDInsight puede usar paquetes externos que haya aportado la comunidad y que no estén incluidos en el clúster. Busque el [repositorio de Maven](https://search.maven.org/) para obtener una lista completa de los paquetes que están disponibles. También puede obtener una lista de paquetes disponibles de otras fuentes. Por ejemplo, dispone de la lista completa de los paquetes externos aportados por la comunidad en [Spark Packages](https://spark-packages.org/)(Paquetes Spark).
 
-En este artículo, aprenderá a utilizar el paquete [spark csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) con el cuaderno de Jupyter Notebook.
+En este artículo, aprenderá a utilizar el paquete [spark-csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) con el cuaderno de Jupyter Notebook.
 
 1. Abra la configuración del intérprete. Desde la esquina superior derecha, seleccione el nombre de usuario registrado y, a continuación, seleccione **Interpreter** (Intérprete).
 
@@ -137,7 +137,7 @@ En este artículo, aprenderá a utilizar el paquete [spark csv](https://search.m
 
     b. En el repositorio, recopile los valores de **GroupId**, **ArtifactId** y **Version**.
 
-    ![Uso de paquetes externos con cuadernos de Jupyter Notebook](./media/apache-spark-zeppelin-notebook/use-external-packages-with-jupyter.png "Uso de paquetes externos con cuadernos de Jupyter Notebook")
+    ![Uso de paquetes externos con Jupyter Notebook](./media/apache-spark-zeppelin-notebook/use-external-packages-with-jupyter.png "Uso de paquetes externos con Jupyter Notebook")
 
     c. Concatene los tres valores separados por dos puntos ( **:** ).
 

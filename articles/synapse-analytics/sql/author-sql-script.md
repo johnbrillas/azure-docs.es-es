@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: pimorano
 ms.reviewer: omafnan
-ms.openlocfilehash: 077815d117af0328a3466346727e135caaf8ff21
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 8d4c1928ae1fac9b840245756c4bf5fe22a83f0f
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96458005"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590518"
 ---
 # <a name="synapse-studio-sql-scripts-in-azure-synapse-analytics"></a>Scripts SQL de Synapse Studio en Azure Synapse Analytics 
 
@@ -79,7 +79,7 @@ Explore el gesto disponible; para ello, haga clic con el botón derecho en los n
 En el menú Acciones de Desarrollar Scripts SQL, elija "New folder" (Nueva carpeta) en el menú "Acciones" en Desarrollar Scripts SQL. Y escriba el nombre de la nueva carpeta en la ventana emergente. 
 
 > [!div class="mx-imgBorder"] 
-> ![newsqlscript](./media/author-sql-script/new-sql-script-create-folder.png)
+> ![Captura de pantalla que muestra un ejemplo de un script SQL con la opción "Nueva carpeta" seleccionada.](./media/author-sql-script/new-sql-script-create-folder.png)
 
 Para mover un script SQL a una carpeta, puede seleccionar el script SQL y elegir "Mover a" en el menú Acciones. Luego, busque la carpeta de destino en la nueva ventana y mueva el script SQL a la carpeta seleccionada. También puede arrastrar rápidamente el script SQL y colocarlo en una carpeta.  
 
