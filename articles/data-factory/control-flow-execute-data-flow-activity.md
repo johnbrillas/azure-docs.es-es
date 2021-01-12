@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.author: makromer
-ms.date: 11/24/2020
-ms.openlocfilehash: 1c0ed7cf38cc01623169216ec45e88d198ede3d2
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.date: 01/03/2021
+ms.openlocfilehash: 3eff23a42a6ac5f5360bdebfcc692e13acb3e8b0
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97095090"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858792"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Actividad de Data Flow en Azure Data Factory
 
@@ -38,6 +38,8 @@ Utilice la actividad de Data Flow para transformar y trasladar datos a través d
          "computeType": "General"
       },
       "traceLevel": "Fine",
+      "runConcurrently": true,
+      "continueOnError": true,      
       "staging": {
           "linkedService": {
               "referenceName": "MyStagingLinkedService",
@@ -95,6 +97,14 @@ Si utiliza Azure Synapse Analytics como origen o receptor, debe elegir una ubica
 Si no es necesario que cada ejecución de canalización de las actividades de flujo de datos anote completamente todos los registros de telemetría detallados, tiene la opción de establecer el nivel de registro en "básico" o "ninguno". Al ejecutar los flujos de datos en modo "detallado" (valor predeterminado), está solicitando a ADF que registre la actividad por completo en cada nivel de partición individual durante la transformación de los datos. Esta puede ser una operación costosa; por tanto, habilitar solo el modo detallado al solucionar problemas puede mejorar el flujo de datos y el rendimiento de la canalización en general. El modo "básico" solo registrará las duraciones de las transformaciones, mientras que "ninguno" solo proporcionará un resumen de las duraciones.
 
 ![Nivel de registro](media/data-flow/logging.png "Establecimiento del nivel de registro")
+
+## <a name="sink-properties"></a>Propiedades del receptor
+
+La característica de agrupación de los flujos de datos permite establecer el orden de ejecución de los receptores y agruparlos con el mismo número de grupo. Para facilitar la administración de los grupos, puede pedir a ADF que ejecute los receptores, en el mismo grupo, en paralelo. También puede establecer que el grupo de receptores continúe incluso después de que uno de los receptores encuentre un error.
+
+El comportamiento predeterminado de los receptores de flujo de datos es ejecutar cada receptor de forma secuencial, en serie, y producir un error en el flujo de datos cuando se encuentra un error en el receptor. Además, todos los receptores se establecen de forma predeterminada en el mismo grupo, a menos que vaya a las propiedades del flujo de datos y establezca otras prioridades para los receptores.
+
+![Propiedades del receptor](media/data-flow/sink-properties.png "Establecimiento de propiedades del receptor")
 
 ## <a name="parameterizing-data-flows"></a>Flujos de datos con parámetros
 
