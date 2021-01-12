@@ -226,6 +226,8 @@
               href: platform/service-providers.md
             - name: Clústeres dedicados
               href: log-query/logs-dedicated-clusters.md
+            - name: Registros de la solución de problemas
+              href: platform/azure-monitor-troubleshooting-logs.md
         - name: Log Analytics
           items:
             - name: Información general
@@ -1088,7 +1090,7 @@
       items:
         - name: Azure Cache for Redis (versión preliminar)
           href: insights/redis-cache-insights-overview.md
-        - name: Azure Cosmos DB
+        - name: "Azure Cosmos\_DB"
           href: insights/cosmosdb-insights-overview.md
         - name: Azure Data Explorer (versión preliminar)
           href: insights/data-explorer.md

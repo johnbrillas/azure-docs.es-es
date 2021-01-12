@@ -15,6 +15,8 @@
   items:
     - name: Creación de una directiva de atestación
       href: author-sign-policy.md
+    - name: 'Creación de un punto de conexión privado: PowerShell'
+      href: private-endpoint-powershell.md
     - name: Ejemplos de código de atestación de SGX
       href: /samples/browse/?expanded=azure&terms=attestation
 - name: Ejemplos
