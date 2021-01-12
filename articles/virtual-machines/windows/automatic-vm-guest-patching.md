@@ -5,14 +5,14 @@ author: mayanknayar
 ms.service: virtual-machines-windows
 ms.workload: infrastructure
 ms.topic: how-to
-ms.date: 09/09/2020
+ms.date: 12/23/2020
 ms.author: manayar
-ms.openlocfilehash: 8c7574daced9cec078b6e98e378212ce30d6f4f6
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: e22e8b81382614c2930c72a8150606f859be501d
+ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92744724"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97762986"
 ---
 # <a name="preview-automatic-vm-guest-patching-for-windows-vms-in-azure"></a>Vista previa: Aplicación de revisiones automáticas a invitados de las máquinas virtuales Windows en Azure
 
@@ -34,11 +34,11 @@ La aplicación de revisiones automáticas a invitados de máquina virtual tiene 
 
 Si la aplicación automática de revisiones a invitados de máquina virtual está habilitada en una máquina virtual, se descargan y se aplican automáticamente en la máquina virtual las revisiones disponibles de tipo *Crítico* y de *Seguridad*. Este proceso se inicia automáticamente cada mes cuando se lanzan las nuevas revisiones a través de Windows Update. La evaluación e instalación de las revisiones es un proceso automático, que incluye el reinicio de la máquina virtual si es necesario.
 
-Se evalúa periódicamente la máquina virtual para determinar las revisiones que le son aplicables. Las revisiones se pueden instalar cualquier día en la máquina virtual, durante sus horas valle. Esta evaluación automática garantiza que las revisiones que faltan se detecten lo antes posible.
+La máquina virtual se evalúa de forma periódica cada pocos días y varias veces en cualquier período de 30 días para determinar las revisiones que se le pueden aplicar. Las revisiones se pueden instalar cualquier día en la máquina virtual, durante sus horas valle. Esta evaluación automática garantiza que las revisiones que faltan se detecten lo antes posible.
 
-Las revisiones se instalan en un plazo de 30 días a partir del lanzamiento mensual de Windows Update, siguiendo la orquestación de primero la disponibilidad que se describe a continuación. Las revisiones solo se instalan durante las horas valle de la máquina virtual, en función de la zona horaria donde se encuentre. La máquina virtual debe estar en ejecución durante las horas valle para que las revisiones se instalen automáticamente. Si se apaga una máquina virtual durante una evaluación periódica, el proceso automático de evaluar la máquina virtual e instalar las revisiones aplicables se realizará durante la siguiente evaluación periódica, cuando la máquina virtual esté encendida.
+Las revisiones se instalan en un plazo de 30 días a partir del lanzamiento mensual de Windows Update, siguiendo la orquestación de primero la disponibilidad que se describe a continuación. Las revisiones solo se instalan durante las horas valle de la máquina virtual, en función de la zona horaria donde se encuentre. La máquina virtual debe estar en ejecución durante las horas valle para que las revisiones se instalen automáticamente. Si se apaga una máquina virtual durante una evaluación periódica, el proceso automático de evaluar la máquina virtual e instalar las revisiones aplicables se realizará durante la siguiente evaluación periódica (normalmente a los pocos días), cuando la máquina virtual esté encendida.
 
-Para instalar revisiones con otras clasificaciones de revisión o programar la instalación de revisiones en su propia ventana de mantenimiento personalizada, puede usar [Update Management](tutorial-config-management.md#manage-windows-updates).
+Las actualizaciones de definiciones y otras revisiones no clasificadas como *Críticas* o de *Seguridad* no se instalarán mediante la aplicación de revisiones automáticas a invitados de las máquinas virtuales. Para instalar revisiones con otras clasificaciones de revisión o programar la instalación de revisiones en su propia ventana de mantenimiento personalizada, puede usar [Update Management](tutorial-config-management.md#manage-windows-updates).
 
 ### <a name="availability-first-patching"></a>Aplicación de revisiones con el principio de primero la disponibilidad
 
@@ -69,11 +69,11 @@ Las siguientes SKU de plataforma se admiten actualmente (y periódicamente se ag
 
 | Publicador               | Sistema operativo      |  SKU               |
 |-------------------------|---------------|--------------------|
-| Microsoft Corporation   | Windows Server | Centro de datos de 2012-R2 |
-| Microsoft Corporation   | Windows Server | 2016-Datacenter    |
-| Microsoft Corporation   | Windows Server | 2016-Datacenter-Server-Core |
-| Microsoft Corporation   | Windows Server | 2019-Datacenter |
-| Microsoft Corporation   | Windows Server | 2019-Datacenter-Server-Core |
+| Microsoft Windows Server  | Windows Server | Centro de datos de 2012-R2 |
+| Microsoft Windows Server  | Windows Server | 2016-Datacenter    |
+| Microsoft Windows Server  | Windows Server | 2016-Datacenter-Server-Core |
+| Microsoft Windows Server  | Windows Server | 2019-Datacenter |
+| Microsoft Windows Server  | Windows Server | 2019-Datacenter-Core |
 
 ## <a name="patch-orchestration-modes"></a>Modos de orquestación de revisiones
 Las máquinas virtuales Windows en Azure admiten ahora los siguientes modos de orquestación de revisiones:
@@ -83,7 +83,7 @@ Las máquinas virtuales Windows en Azure admiten ahora los siguientes modos de o
 - Este modo es necesario para la revisión de la disponibilidad en primer lugar.
 - Al establecer este modo, también se deshabilitan las actualizaciones automáticas nativas en la máquina virtual Windows para evitar la duplicación.
 - Este modo solo se admite para las máquinas virtuales que se crean mediante las imágenes de plataforma de sistema operativo compatibles indicadas antes.
-- Para usar este modo, establezca la propiedad `osProfile.windowsConfiguration.enableAutomaticUpdates=true` y luego la propiedad `osProfile.windowsConfiguration.patchSettings.patchMode=AutomaticByPlatfom` en la plantilla de máquina virtual.
+- Para usar este modo, establezca la propiedad `osProfile.windowsConfiguration.enableAutomaticUpdates=true` y luego la propiedad `osProfile.windowsConfiguration.patchSettings.patchMode=AutomaticByPlatform` en la plantilla de máquina virtual.
 
 **AutomaticByOS:**
 - Este modo habilita las actualizaciones automáticas en la máquina virtual Windows y se instalan las revisiones en la máquina virtual a través de actualizaciones automáticas.
@@ -107,7 +107,7 @@ Las máquinas virtuales Windows en Azure admiten ahora los siguientes modos de o
 - La máquina virtual debe poder acceder a los puntos de conexión de Windows Update. Si la máquina virtual está configurada para usar Windows Server Update Services (WSUS), los puntos de conexión de servidor WSUS correspondientes deben ser accesibles.
 - Use la versión 2020-06-01 o una posterior de Compute API.
 
-Para habilitar la funcionalidad en versión preliminar, hay que participar en la característica *InGuestAutoPatchVMPreview* por suscripción, tal como se detalla a continuación.
+Para habilitar la funcionalidad en versión preliminar, hay que participar en la característica **InGuestAutoPatchVMPreview** por suscripción, tal como se detalla a continuación.
 
 ### <a name="rest-api"></a>API DE REST
 En el ejemplo siguiente se describe cómo habilitar la versión preliminar para su suscripción:
@@ -199,7 +199,7 @@ Set-AzVMOperatingSystem -VM $VirtualMachine -Windows -ComputerName $ComputerName
 ```
 
 ### <a name="azure-cli-20"></a>CLI de Azure 2.0
-Use [az vm create](/cli/azure/vm#az-vm-create) para habilitar la aplicación de revisiones automáticas a invitados de máquina virtual al crear una nueva máquina virtual. En el ejemplo siguiente se configura la aplicación de revisiones automáticas a invitados de una máquina virtual llamada *myVM* en el grupo de recursos llamado *myResourceGroup* :
+Use [az vm create](/cli/azure/vm#az-vm-create) para habilitar la aplicación de revisiones automáticas a invitados de máquina virtual al crear una nueva máquina virtual. En el ejemplo siguiente se configura la aplicación de revisiones automáticas a invitados de una máquina virtual llamada *myVM* en el grupo de recursos llamado *myResourceGroup*:
 
 ```azurecli-interactive
 az vm create --resource-group myResourceGroup --name myVM --image Win2019Datacenter --enable-agent --enable-auto-update --patch-mode AutomaticByPlatform
@@ -254,10 +254,10 @@ Los resultados de la instalación de revisiones para la máquina virtual se pued
 ## <a name="on-demand-patch-assessment"></a>Evaluación de la revisión a petición
 Si la aplicación de revisiones automáticas a invitados de máquina virtual ya está habilitada para la máquina virtual, se realiza periódicamente una evaluación de las revisiones de la máquina virtual durante las horas valle de la máquina virtual. Este proceso es automático y los resultados de la evaluación más reciente se pueden revisar en la vista de instancia de la máquina virtual, tal y como se describió anteriormente en este documento. También puede desencadenar una evaluación de revisiones a petición para su máquina virtual en cualquier momento. La evaluación de revisiones puede tardar unos minutos en completarse y el estado de la evaluación más reciente se actualiza en la vista de instancia de la máquina virtual.
 
-Para habilitar la funcionalidad en versión preliminar, hay que participar en la característica *InGuestPatchVMPreview* por suscripción. La versión preliminar de la característica para la evaluación de revisiones a petición se puede habilitar siguiendo el [proceso de habilitación de la versión preliminar](automatic-vm-guest-patching.md#requirements-for-enabling-automatic-vm-guest-patching) descrito anteriormente para la aplicación automática de revisiones de invitado de la máquina virtual.
+Para habilitar la funcionalidad en versión preliminar, hay que participar en la característica **InGuestPatchVMPreview** por suscripción. Esta vista previa de la característica es diferente de la inscripción de la característica de aplicación de revisiones automáticas a invitados de las máquinas virtuales realizada anteriormente para **InGuestAutoPatchVMPreview**. La habilitación de la vista previa de características adicionales es un requisito adicional e independiente. La versión preliminar de la característica para la evaluación de revisiones a petición se puede habilitar siguiendo el [proceso de habilitación de la versión preliminar](automatic-vm-guest-patching.md#requirements-for-enabling-automatic-vm-guest-patching) descrito anteriormente para la aplicación automática de revisiones de invitado de la máquina virtual.
 
 > [!NOTE]
->La evaluación de revisiones a petición no desencadena automáticamente la instalación de revisiones. Las revisiones evaluadas y aplicables para la máquina virtual solo se instalarán durante las horas valle de la máquina virtual, siguiendo el proceso de aplicación de revisiones de primero la disponibilidad que se ha descrito anteriormente en este documento.
+>La evaluación de revisiones a petición no desencadena automáticamente la instalación de revisiones. Si ha habilitado la aplicación de revisiones automáticas a invitados de las máquinas virtuales, las revisiones evaluadas y aplicables para la máquina virtual solo se instalarán durante las horas valle de la máquina virtual, siguiendo el proceso de aplicación de revisiones de primero la disponibilidad que se ha descrito anteriormente en este documento.
 
 ### <a name="rest-api"></a>API DE REST
 ```

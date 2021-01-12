@@ -1,184 +1,150 @@
 ---
-title: Adición de una capa de símbolo a un mapa mediante Android SDK de Azure Maps
-description: Obtenga información sobre cómo agregar un marcador a un mapa. Vea un ejemplo en el que se utiliza Android SDK de Microsoft Azure Maps para agregar una capa de símbolos que contiene datos basados en puntos de un origen de datos.
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 11/24/2020
-ms.topic: how-to
+title: Adición de una capa de símbolo a mapas de Android | Microsoft Azure Maps
+description: Obtenga información sobre cómo agregar un marcador a un mapa. Vea un ejemplo en el que se usa el SDK para Android de Azure Maps para agregar una capa de símbolos que contiene datos basados en puntos de un origen de datos.
+author: rbrundritt
+ms.author: richbrun
+ms.date: 12/08/2020
+ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
-ms.openlocfilehash: 300a7968b2072459d6d7709e4d89388e1bcf59f3
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+manager: cpendle
+ms.openlocfilehash: 040fcde35707074ffaf102ed6c224b2f47a084bb
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96531214"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97679345"
 ---
-# <a name="add-a-symbol-layer-to-a-map-using-azure-maps-android-sdk"></a>Adición de una capa de símbolo a un mapa mediante Android SDK de Azure Maps
+# <a name="add-a-symbol-layer-android-sdk"></a>Adición de una capa de símbolo (Android SDK)
 
-En este artículo se explica cómo representar datos de punto de un origen de datos como una capa de símbolos en un mapa mediante el Android SDK de Azure Maps.
+En este artículo se explica cómo representar datos de punto de un origen de datos como una capa de símbolos en un mapa mediante el Android SDK de Azure Maps. Las capas de símbolo representan puntos como una imagen y texto en el mapa.
+
+> [!TIP]
+> De forma predeterminada, las capas de símbolo representarán las coordenadas de todos los objetos geométricos en un origen de datos. Para limitar la capa de forma que solo represente las características geométricas del punto, establezca la opción `filter` de la capa en `eq(geometryType(), "Point")`. Si quiere también incluir características MultiPoint, establezca la opción `filter` de la capa en `any(eq(geometryType(), "Point"), eq(geometryType(), "MultiPoint"))`.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-1. [Cree una cuenta de Azure Maps](quick-demo-map-app.md#create-an-azure-maps-account).
-2. [Obtenga una clave de suscripción principal](quick-demo-map-app.md#get-the-primary-key-for-your-account), también conocida como clave principal o clave de suscripción.
-3. Descargue e instale [Android SDK de Azure Maps](./how-to-use-android-map-control-library.md).
+Asegúrese de completar los pasos descritos en el documento [Inicio rápido: Creación de una aplicación de Android](quick-android-map.md). Los bloques de código de este artículo se pueden insertar en el controlador de eventos `onReady` del mapa.
 
 ## <a name="add-a-symbol-layer"></a>Adición de una capa de símbolo
 
-Para agregar un marcador en un mapa mediante la capa de símbolos, siga estos pasos:
+Para poder agregar una capa de símbolos al mapa, debe realizar primero algunas operaciones. En primer lugar, cree un origen de datos y agréguelo al mapa. Cree una capa de símbolos. Pase el origen de datos a la capa de símbolos para recuperar los datos de este origen. Por último, agregue datos al origen de datos para que haya algo que representar.
 
-1. Edite **res** > **layout** > **activity_main.xml** para que su aspecto sea similar al del siguiente XML:
-    
-    ```XML
-    <?xml version="1.0" encoding="utf-8"?>
-    <FrameLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+En el código siguiente se muestra lo que debe agregarse al mapa una vez que se haya cargado. En este ejemplo se representa un único punto en el mapa mediante una capa de símbolos.
 
-        <com.microsoft.azure.maps.mapcontrol.MapControl
-            android:id="@+id/mapcontrol"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:mapcontrol_centerLat="47.64"
-            app:mapcontrol_centerLng="-122.33"
-            app:mapcontrol_zoom="12"
-            />
+```java
+//Create a data source and add it to the map.
+DataSource source = new DataSource();
+map.sources.add(source);
 
-    </FrameLayout>
-    ```
+//Create a point and add it to the data source.
+source.add(Point.fromLngLat(0, 0));
 
-2. Copie el siguiente fragmento de código en el método **onCreate()** de la clase `MainActivity.java`.
+//Create a symbol layer to render icons and/or text at points on the map.
+SymbolLayer layer = new SymbolLayer(source);
 
-    ```Java
-    mapControl.onReady(map -> {
-    
-        //Create a data source and add it to the map.
-        DataSource dataSource = new DataSource();
-        map.sources.add(dataSource);
-    
-        //Create a point feature and add it to the data source.
-        dataSource.add(Feature.fromGeometry(Point.fromLngLat(-122.33, 47.64)));
-    
-        //Add a red custom image icon to the map resources.
-        map.images.add("my-icon", R.drawable.mapcontrol_marker_red);
-    
-        //Create a symbol layer and add it to the map.
-        map.layers.add(new SymbolLayer(dataSource,
-            iconImage("my-icon")));
-        });
-    
-    ```
-    
-    Después de agregar el fragmento de código anterior, su `MainActivity.java` debería tener un aspecto similar al siguiente:
-    
-    ```Java
-    package com.example.myapplication;
-    
-    import android.app.Activity;
-    import android.os.Bundle;
-    import com.mapbox.geojson.Feature;
-    import com.mapbox.geojson.Point;
-    import com.microsoft.azure.maps.mapcontrol.AzureMaps;
-    import com.microsoft.azure.maps.mapcontrol.MapControl;
-    import com.microsoft.azure.maps.mapcontrol.layer.SymbolLayer;
-    import com.microsoft.azure.maps.mapcontrol.source.DataSource;
-    import static com.microsoft.azure.maps.mapcontrol.options.SymbolLayerOptions.iconImage;
-    public class MainActivity extends AppCompatActivity {
-        
-        static{
-                AzureMaps.setSubscriptionKey("<Your Azure Maps subscription key>");
-            }
-    
-        MapControl mapControl;
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_main);
-    
-            mapControl = findViewById(R.id.mapcontrol);
-    
-            mapControl.onCreate(savedInstanceState);
-    
-            mapControl.onReady(map -> {
-    
-                //Create a data source and add it to the map.
-                DataSource dataSource = new DataSource();
-                map.sources.add(dataSource);
-            
-                //Create a point feature and add it to the data source.
-                dataSource.add(Feature.fromGeometry(Point.fromLngLat(-122.33, 47.64)));
-            
-                //Add a custom image icon to the map resources.
-                map.images.add("my-icon", R.drawable.mapcontrol_marker_red);
-            
-                //Create a symbol layer and add it to the map.
-                map.layers.add(new SymbolLayer(dataSource,
-                    iconImage("my-icon")));
-            });
-        }
-    
-        @Override
-        public void onStart() {
-            super.onStart();
-            mapControl.onStart();
-        }
-    
-        @Override
-        public void onResume() {
-            super.onResume();
-            mapControl.onResume();
-        }
-    
-        @Override
-        public void onPause() {
-            super.onPause();
-            mapControl.onPause();
-        }
-    
-        @Override
-        public void onStop() {
-            super.onStop();
-            mapControl.onStop();
-        }
-    
-        @Override
-        public void onLowMemory() {
-            super.onLowMemory();
-            mapControl.onLowMemory();
-        }
-    
-        @Override
-        protected void onDestroy() {
-            super.onDestroy();
-            mapControl.onDestroy();
-        }
-    
-        @Override
-        protected void onSaveInstanceState(Bundle outState) {
-            super.onSaveInstanceState(outState);
-            mapControl.onSaveInstanceState(outState);
-        }
-    }
-    ```
+//Add the layer to the map.
+map.layers.add(layer);
+```
 
-Al ejecutar la aplicación, debería ver un marcador en el mapa tal como se muestra a continuación:
+Hay tres tipos diferentes de datos de puntos que se pueden agregar al mapa:
 
-![Marcador en el mapa Android](./media/how-to-add-symbol-to-android-map/android-map-pin.png)
+- Geometría Point de GeoJSON: Este objeto solo contiene una coordenada de un punto y nada más. El método estático `Point.fromLngLat` se puede usar para crear fácilmente estos objetos.
+- Geometría MultiPoint de GeoJSON: este objeto solamente contiene las coordenadas de varios puntos; no contiene nada más. Pase una matriz de puntos a la clase `MultiPoint` para crear estos objetos.
+- GeoJSON Feature: Este objeto se compone de cualquier geometría GeoJSON y un conjunto de propiedades que contienen metadatos asociados a la geometría.
+
+Para obtener más información, vea el documento [Creación de un origen de datos](create-data-source-android-sdk.md) sobre cómo crear y agregar datos al mapa.
+
+En el ejemplo de código siguiente se crea una geometría Point de GeoJSON, se pasa a la característica de GeoJSON y se le agrega un valor `title` a sus propiedades. La propiedad `title` se muestra como texto encima del icono de símbolo en el mapa.
+
+```java
+//Create a data source and add it to the map.
+DataSource source = new DataSource();
+map.sources.add(source);
+
+//Create a point feature.
+Feature feature = Feature.fromGeometry(Point.fromLngLat(0, 0));
+
+//Add a property to the feature.
+feature.addStringProperty("title", "Hello World!");
+
+//Add the feature to the data source.
+source.add(feature);
+
+//Create a symbol layer to render icons and/or text at points on the map.
+SymbolLayer layer = new SymbolLayer(source, 
+    //Get the title property of the feature and display it on the map.
+    textField(get("title"))
+);
+
+//Add the layer to the map.
+map.layers.add(layer);
+```
+
+En la captura de pantalla siguiente se muestra el código anterior que representa una característica de punto mediante un icono y una etiqueta de texto con una capa de símbolo.
+
+![Mapa con punto representado mediante una capa de símbolo que muestra un icono y una etiqueta de texto para una característica de punto](media/how-to-add-symbol-to-android-map/android-map-pin.png)
 
 > [!TIP]
-> De forma predeterminada, las capas de símbolos optimizan la representación de los símbolos, ya que ocultan los símbolos que se superponen. A medida que se acerca el zoom, los símbolos ocultos se hacen visibles. Para deshabilitar esta característica y representar todos los símbolos en todo momento, establezca la opción `iconAllowOverlap` en `true`.
+> De forma predeterminada, las capas de símbolos optimizan la representación de los símbolos, ya que ocultan los símbolos que se superponen. A medida que se acerca el zoom, los símbolos ocultos se hacen visibles. Para deshabilitar esta característica y representar todos los símbolos en todo momento, establezca las opciones `iconAllowOverlap` y `textAllowOverlap` en `true`.
+
+## <a name="add-a-custom-icon-to-a-symbol-layer"></a>Adición de un icono personalizado a una capa de símbolo
+
+Las capas de símbolo se representan mediante WebGL. Por tanto, todos los recursos, como las imágenes de icono, se deben cargar en el contexto de WebGL. En este ejemplo, se muestra cómo se agrega un icono personalizado a los recursos del mapa. Este icono se usa después para representar los datos de punto en el mapa con un símbolo personalizado. La propiedad `textField` de la capa de símbolo requiere que se especifique una expresión. En este caso, queremos representar la propiedad "temperature". Como la temperatura es un número, debe convertirse en una cadena. Además, queremos anexarle "°F". Para ello, podemos utilizar la expresión `concat(Expression.toString(get("temperature")), literal("°F"))`.
+
+```java
+//Load a custom icon image into the image sprite of the map.
+map.images.add("my-custom-icon", R.drawable.showers);
+
+//Create a data source and add it to the map.
+DataSource source = new DataSource();
+map.sources.add(source);
+
+//Create a point feature.
+Feature feature = Feature.fromGeometry(Point.fromLngLat(-73.985708, 40.75773));
+
+//Add a property to the feature.
+feature.addNumberProperty("temperature", 64);
+
+//Add the feature to the data source.
+source.add(feature);
+
+//Create a symbol layer to render icons and/or text at points on the map.
+SymbolLayer layer = new SymbolLayer(source,
+    iconImage("my-custom-icon"),
+    iconSize(0.5f),
+
+    //Get the title property of the feature and display it on the map.
+    textField(concat(Expression.toString(get("temperature")), literal("°F"))),
+    textOffset(new Float[]{0f, -1.5f})
+);
+```
+
+En este ejemplo, la imagen siguiente se ha cargado en la carpeta Drawable de la aplicación.
+
+| ![Imagen del icono meteorológico de tormentas](media/how-to-add-symbol-to-android-map/showers.png)|
+|:-----------------------------------------------------------------------:|
+| showers.png                                                  |
+
+En la captura de pantalla siguiente se muestra el código anterior que representa una característica de punto mediante un icono personalizado y una etiqueta de texto con formato con una capa de símbolo.
+
+![Mapa con punto representado mediante una capa de símbolo que muestra un icono personalizado y una etiqueta de texto con formato para una característica de punto](media/how-to-add-symbol-to-android-map/android-custom-symbol-layer.png)
+
+> [!TIP]
+> Si solamente desea representar texto con una capa de símbolos, puede ocultar el icono estableciendo la propiedad `iconImage` de las opciones del icono en `"none"`.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para agregar más datos al mapa, consulte:
+Para obtener más ejemplos de código para agregar a los mapas:
 
 > [!div class="nextstepaction"]
-> [Adición de formas a un mapa Android](./how-to-add-shapes-to-android-map.md)
+> [Creación de un origen de datos](create-data-source-android-sdk.md)
+
+> [!div class="nextstepaction"]
+> [Adición de una capa de burbuja](map-add-bubble-layer-android.md)
+
+> [!div class="nextstepaction"]
+> [Uso de expresiones de estilo controladas por datos](data-driven-style-expressions-android-sdk.md)
 
 > [!div class="nextstepaction"]
 > [Presentación de la información de características](display-feature-information-android.md)

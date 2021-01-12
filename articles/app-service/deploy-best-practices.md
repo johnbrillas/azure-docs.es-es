@@ -7,12 +7,12 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: jafreebe
-ms.openlocfilehash: 37c1854aeb1a1fa3d9283c00b07c665b213b306c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 74bd7bc159f7f5974452adf6b2f51148d869b4ed
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708159"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589243"
 ---
 # <a name="deployment-best-practices"></a>Procedimientos recomendados de implementación
 
@@ -45,9 +45,9 @@ Siempre que sea posible, use [ranuras de implementación](deploy-staging-slots.m
 
 Si el proyecto tiene ramas designadas para pruebas, control de calidad y ensayo, cada una de esas ramas debe implementarse continuamente en un espacio de ensayo. (Esto se conoce como [diseño Gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow)). De esta manera, las partes interesadas pueden evaluar y probar fácilmente la rama implementada. 
 
-La implementación continua nunca debe estar habilitada para el espacio de producción. Al contrario, la rama de producción (a menudo la maestra) debe implementarse en un espacio que no sea de producción. Cuando esté listo para liberar la rama base, cámbiela al espacio de producción. El cambio a producción, en lugar de la implementación en producción, evita tiempos de inactividad y permite revertir los cambios intercambiando de nuevo. 
+La implementación continua nunca debe estar habilitada para el espacio de producción. En su lugar, la rama de producción (a menudo la principal) se debe implementar en un espacio que no sea de producción. Cuando esté listo para liberar la rama base, cámbiela al espacio de producción. El cambio a producción, en lugar de la implementación en producción, evita tiempos de inactividad y permite revertir los cambios intercambiando de nuevo. 
 
-![Diagrama que muestra el flujo entre las ramas de desarrollo, de ensayo y maestra y las ranuras en las que están implementadas.](media/app-service-deploy-best-practices/slot_flow_code_diagam.png)
+![Diagrama en el que se muestra el flujo entre las ramas de desarrollo, de ensayo y principal, y las ranuras en las que se implementan.](media/app-service-deploy-best-practices/slot_flow_code_diagam.png)
 
 ### <a name="continuously-deploy-containers"></a>Contenedores de implementación continua
 
@@ -84,7 +84,7 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@main
 
     -name: Authenticate using a Service Principal
       uses: azure/actions/login@v1

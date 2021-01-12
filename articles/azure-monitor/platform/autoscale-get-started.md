@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo escalar Web Apps, Cloud Services, 
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: bf0194e82acde0406cfeb57af027831f92a90c92
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: ee36db3f657365036bb68f641be53fd434f1b64b
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96938314"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97694923"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Introducción al escalado automático en Azure
 Este artículo describe cómo configurar el escalado automático de recursos en Microsoft Azure Portal.
@@ -121,7 +121,7 @@ Para habilitar la característica con plantillas de ARM, establezca la propiedad
 
 ### <a name="health-check-path"></a>Ruta de acceso de comprobación de estado
 
-La ruta de acceso debe responder en un minuto con un código de estado entre 200 y 299 (ambos incluidos). Si la ruta de acceso no responde en un minuto, o devuelve un código de estado fuera del intervalo, la instancia se considera "incorrecta". App Service no sigue redireccionamientos 302 en la ruta de acceso de comprobación de estado. La comprobación de estado se integra con las características de autenticación y autorización de App Service; el sistema alcanza el punto de conexión aunque estén habilitadas estas características de seguridad. Si usa un sistema de autenticación propio, la ruta de comprobación de estado debe permitir el acceso anónimo. Si el sitio tiene HTTP **S**-Only habilitado, la solicitud de comprobación de estado se enviará a través de HTTP **S**.
+La ruta de acceso debe responder en un minuto con un código de estado entre 200 y 299 (ambos incluidos). Si la ruta de acceso no responde en un minuto, o devuelve un código de estado fuera del intervalo, la instancia se considera "incorrecta". App Service no sigue los redireccionamientos 30x (301, 302, 307, etc.) en la ruta de acceso de comprobación de estado: estos códigos de estado se consideran **incorrectos**. La comprobación de estado se integra con las características de autenticación y autorización de App Service; el sistema alcanza el punto de conexión aunque estén habilitadas estas características de seguridad. Si usa un sistema de autenticación propio, la ruta de comprobación de estado debe permitir el acceso anónimo. Si el sitio tiene HTTP **S**-Only habilitado, la solicitud de comprobación de estado se enviará a través de HTTP **S**.
 
 La ruta de acceso de comprobación de estado debe comprobar los componentes críticos de la aplicación. Por ejemplo, si la aplicación depende de una base de datos y de un sistema de mensajería, el punto de conexión de comprobación de estado debe conectarse a esos componentes. Si la aplicación no se puede conectar a un componente esencial, la ruta de acceso debe devolver un código de respuesta de nivel 500 para indicar que la aplicación tiene un estado incorrecto.
 

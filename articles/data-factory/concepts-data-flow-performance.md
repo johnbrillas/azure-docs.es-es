@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 11/24/2020
-ms.openlocfilehash: cc06f12317f5e30721452e07bd4dc5f50dfdb7ec
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 12/18/2020
+ms.openlocfilehash: d23b2f65f25b704beaee12c53e47706653dcc208
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96022367"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858593"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guía de optimización y rendimiento de la asignación de instancias de Data Flow
 
@@ -169,7 +169,7 @@ Puede leer de Azure SQL Database mediante una tabla o una consulta SQL. Si está
 
 ### <a name="azure-synapse-analytics-sources"></a>Orígenes de Azure Synapse Analytics
 
-Cuando se usa Azure Synapse Analytics, las opciones de origen incluyen un valor denominado **Enable staging** (Habilitar almacenamiento provisional). Este valor permite que ADF lea de Synapse mediante ```Polybase```, lo que mejora en gran medida el rendimiento de lectura. La habilitación de ```Polybase``` requiere que especifique una ubicación de almacenamiento provisional de Azure Blob Storage o Azure Data Lake Storage Gen2 en la configuración de la actividad del flujo de datos.
+Cuando se usa Azure Synapse Analytics, las opciones de origen incluyen un valor denominado **Enable staging** (Habilitar almacenamiento provisional). Este valor permite que ADF lea de Synapse mediante ```Staging```, lo que mejora en gran medida el rendimiento de lectura. La habilitación de ```Staging``` requiere que especifique una ubicación de almacenamiento provisional de Azure Blob Storage o Azure Data Lake Storage Gen2 en la configuración de la actividad del flujo de datos.
 
 ![Enable staging](media/data-flow/enable-staging.png "Enable staging (Permitir almacenamiento provisional)") (Habilitar almacenamiento provisional)
 
@@ -216,9 +216,9 @@ Programe un cambio de tamaño del origen y el receptor de Azure SQL DB y Azure
 
 ### <a name="azure-synapse-analytics-sinks"></a>Receptores de Azure Synapse Analytics
 
-Al escribir en Azure Synapse Analytics, asegúrese de que la opción **Enable staging**  (Habilitar almacenamiento provisional) esté establecida en true. Esto permite que ADF escriba mediante [PolyBase](/sql/relational-databases/polybase/polybase-guide), que carga de forma eficaz los datos en bloque. Tendrá que hacer referencia a una cuenta de Azure Data Lake Storage gen2 o de Azure Blob Storage para el almacenamiento provisional de los datos al usar PolyBase.
+Al escribir en Azure Synapse Analytics, asegúrese de que la opción **Enable staging**  (Habilitar almacenamiento provisional) esté establecida en true. Esto permite que ADF escriba mediante el [comando Copy de SQL](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql), que carga los datos de forma eficaz y masiva. Tendrá que hacer referencia a una cuenta de Azure Data Lake Storage gen2 o de Azure Blob Storage para el almacenamiento provisional de los datos al usar Staging.
 
-Además de PolyBase, en Azure Synapse Analytics se aplican los mismos procedimientos recomendados que en Azure SQL Database.
+Además de Staging, en Azure Synapse Analytics se aplican los mismos procedimientos recomendados que en Azure SQL Database.
 
 ### <a name="file-based-sinks"></a>Receptores basados en archivos 
 
@@ -309,6 +309,14 @@ La ejecución de trabajos de forma secuencial probablemente tardará mucho más 
 ### <a name="overloading-a-single-data-flow"></a>Sobrecarga de un único flujo de datos
 
 Si coloca toda la lógica dentro de un único flujo de datos, ADF ejecutará todo el trabajo en una sola instancia de Spark. Aunque esto puede parecer una manera de reducir los costos, combina distintos flujos lógicos y puede ser difícil de supervisar y depurar. Si se produce un error en un componente, también se producirá un error en todas las demás partes del trabajo. El equipo de Azure Data Factory recomienda organizar los flujos de datos en flujos de lógica de negocios independientes. Si el flujo de datos es demasiado grande, la división en componentes independientes facilitará la supervisión y la depuración. Aunque no hay ningún límite en el número de transformaciones de un flujo de datos, tener demasiados hará que el trabajo sea complejo.
+
+### <a name="execute-sinks-in-parallel"></a>Ejecución de receptores en paralelo
+
+El comportamiento predeterminado de los receptores de flujo de datos es ejecutar cada receptor de forma secuencial, en serie, y producir un error en el flujo de datos cuando se encuentra un error en el receptor. Además, todos los receptores se establecen de forma predeterminada en el mismo grupo, a menos que vaya a las propiedades del flujo de datos y establezca otras prioridades para los receptores.
+
+Los flujos de datos permiten agrupar los receptores en grupos en la pestaña de propiedades del flujo de datos en el diseñador de la interfaz de usuario. Puede establecer el orden de ejecución de los receptores y agruparlos con el mismo número de grupo. Para facilitar la administración de los grupos, puede pedir a ADF que ejecute receptores en el mismo grupo, para que se ejecuten en paralelo.
+
+En la actividad Ejecutar flujo de datos de la canalización, en la sección "Propiedades del receptor" hay una opción para activar la carga del receptor en paralelo. Cuando se habilita "Ejecutar en paralelo", se indica a los flujos de datos que escriban en los receptores conectados al mismo tiempo en lugar de hacerlo de forma secuencial. Para usar la opción de ejecución en paralelo, los receptores deben agruparse y conectarse al mismo flujo mediante una nueva rama o la división condicional.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

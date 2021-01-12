@@ -3,181 +3,151 @@ title: Sinónimos para la expansión de consultas a través de un índice de bú
 titleSuffix: Azure Cognitive Search
 description: Creación de un mapa de sinónimos para expandir el ámbito de una consulta de búsqueda en un índice de Azure Cognitive Search. El ámbito se ha ampliado para que incluya los términos equivalentes que proporcione en una lista.
 manager: nitinme
-author: brjohnstmsft
-ms.author: brjohnst
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/26/2020
-ms.openlocfilehash: a8f1fa07b94072d37cf83320b6c8956d3b412f12
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 12/18/2020
+ms.openlocfilehash: b62621a77f383b5c6413e7c187e7ba3d60beabad
+ms.sourcegitcommit: a89a517622a3886b3a44ed42839d41a301c786e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95993591"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97732094"
 ---
 # <a name="synonyms-in-azure-cognitive-search"></a>Sinónimos de Azure Cognitive Search
 
-Los sinónimos de los motores de búsqueda asocian términos equivalentes que expanden implícitamente el ámbito de una consulta, sin que el usuario tenga que proporcionar realmente el término. Por ejemplo, con el término "perro" y las asociaciones de sinónimos de "canino" y "cachorro", los documentos que contengan los términos "perro", "canino" o "cachorro" estarán dentro del ámbito de la consulta.
-
-En Azure Cognitive Search, la expansión de sinónimos se realiza en el momento de la consulta. Puede agregar asignaciones de sinónimos a un servicio sin que se interrumpan las operaciones existentes. Puede agregar una propiedad **synonymMaps** a una definición de campo sin tener que volver a crear un índice.
+Con los mapas de sinónimos, puede asociar términos equivalentes que expanden el ámbito de una consulta, sin que el usuario tenga que proporcionar realmente el término. Por ejemplo, suponiendo que "perro", "can" y "cachorro" son sinónimos, una consulta sobre "can" coincidirá con un documento que contenga "perro".
 
 ## <a name="create-synonyms"></a>Creación de sinónimos
 
-No hay ningún soporte técnico del portal para crear sinónimos, pero puede usar la API REST o el SDK de .NET. Para empezar a trabajar con REST, se recomienda hacerlo [mediante Postman o Visual Studio Code](search-get-started-rest.md) y la formulación de solicitudes que usan esta API: [Creación de asignaciones de sinónimos](/rest/api/searchservice/create-synonym-map). En el caso de los desarrolladores de C#, puede empezar a trabajar con la opción [Add Synonyms in Azure Cognitive Searching using C#](search-synonyms-tutorial-sdk.md) (Adición de sinónimos en Azure Cognitive Search con C#).
+Un mapa de sinónimos es un recurso que se puede crear una vez y usar en muchos índices. El [nivel de servicio](search-limits-quotas-capacity.md#synonym-limits) determina el número de mapas de sinónimos que se pueden crear, que oscilan entre 3 para los niveles Gratuito y Básico, y hasta 20 para los niveles Estándar. 
 
-Opcionalmente, si usa [claves administradas por el cliente](search-security-manage-encryption-keys.md) para el cifrado en reposo del servicio, puede aplicar dicha protección al contenido de la asignación de sinónimos.
+Puede crear varios mapas de sinónimos para distintos idiomas, como versiones en inglés y francés, o bien léxicos si el contenido incluye terminología técnica o compleja. Aunque se pueden crear varios mapas de sinónimos, actualmente en un campo solo se puede usar uno.
 
-## <a name="use-synonyms"></a>Usar sinónimos
+Un mapa de sinónimos está formado por el nombre, el formato y las reglas que funcionan como entradas del mapa de sinónimos. El único formato que se admite es `solr` y el formato `solr` determina la construcción de reglas.
 
-En Azure Cognitive Search, la compatibilidad de los sinónimos se basa en las asignaciones de sinónimos que defina y cargue en el servicio. Estas asignaciones constituyen un recurso independiente (como índices u orígenes de datos), y cualquier campo buscable puede usarlas en cualquier índice en el servicio de búsqueda.
-
-Los índices y asignaciones de sinónimos se mantienen de forma independiente. Una vez que defina una asignación de sinónimos y la cargue en el servicio, podrá habilitar la característica Sinónimos en un campo agregando una nueva propiedad denominada **synonymMaps** en la definición del campo. La creación, carga y eliminación de una asignación de sinónimos es siempre una operación de documento completo, lo que significa que no puede crear, actualizar o eliminar partes de la asignación de sinónimos de forma incremental. La actualización de incluso una entrada única requiere que se vuelva a cargar.
-
-La incorporación de sinónimos en la aplicación de búsqueda es un proceso de dos pasos:
-
-1.  Agregar una asignación de sinónimos al servicio de búsqueda a través de las API siguientes.  
-
-2.  Configurar un campo buscable para usar la asignación de sinónimos en la definición del índice.
-
-Puede crear varias asignaciones para la aplicación de búsqueda (por ejemplo, mediante el idioma si la aplicación es compatible con una base de cliente de varios idiomas). Actualmente, un campo solo puede usar una de ellas. Puede actualizar una propiedad synonymMaps del campo en cualquier momento.
-
-### <a name="synonymmaps-resource-apis"></a>API de recursos de SynonymMaps
-
-#### <a name="add-or-update-a-synonym-map-under-your-service-using-post-or-put"></a>Adición o actualización de una asignación de sinónimos en su servicio, con POST o PUT
-
-Las asignaciones de sinónimos se cargan en el servicio a través de POST o PUT. Cada regla debe estar delimitada por el nuevo carácter de línea ('\n'). Puede definir hasta 5000 reglas por mapa de sinónimos en un servicio gratuito y 20 000 reglas por mapa en las demás SKU. Cada regla puede tener hasta 20 expansiones.
-
-Las asignaciones de sinónimos deben estar en formato Apache Solr, que se explica a continuación. Si dispone de un diccionario de sinónimos existente en un formato distinto y desea usarlo directamente, háganoslo saber en [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
-
-Puede crear una nueva asignación de sinónimos con HTTP POST, como en el siguiente ejemplo:
-
-```synonym-map
-    POST https://[servicename].search.windows.net/synonymmaps?api-version=2020-06-30
-    api-key: [admin key]
-
-    {
-       "name":"mysynonymmap",
-       "format":"solr",
-       "synonyms": "
-          USA, United States, United States of America\n
-          Washington, Wash., WA => WA\n"
-    }
+```http
+POST /synonymmaps?api-version=2020-06-30
+{
+    "name": "geo-synonyms",
+    "format": "solr",
+    "synonyms": "
+        USA, United States, United States of America\n
+        Washington, Wash., WA => WA\n"
+}
 ```
 
-De forma alternativa, puede usar PUT y especificar el nombre de asignación del sinónimo en el identificador URI. Si la asignación de sinónimos no existe, se creará.
+Para crear un mapa de sinónimos, use [Create Synonym Map (API REST)](/rest/api/searchservice/create-synonym-map) o un SDK de Azure. Para los desarrolladores de C#, se recomienda empezar con [Adición de sinónimos para Azure Cognitive Search en C#](search-synonyms-tutorial-sdk.md).
 
-```synonym-map
-    PUT https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2020-06-30
-    api-key: [admin key]
+## <a name="define-rules"></a>Definición de reglas
 
-    {
-       "format":"solr",
-       "synonyms": "
-          USA, United States, United States of America\n
-          Washington, Wash., WA => WA\n"
-    }
-```
+Las reglas de asignación se adhieren a la especificación del filtro de sinónimos de código abierto de Apache Solr descrita en este documento: [SynonymFilter](https://cwiki.apache.org/confluence/display/solr/Filter+Descriptions#FilterDescriptions-SynonymFilter). El formato `solr` admite dos tipos de reglas:
 
-##### <a name="apache-solr-synonym-format"></a>Formato de sinónimos de Apache
++ equivalencia (donde los términos son sustitutos iguales en la consulta)
 
-El formato Solr es compatible con asignaciones de sinónimos equivalentes y explícitos. Las reglas de asignación se adhieren a la especificación del filtro de sinónimos de código abierto de Apache Solr descrita en este documento: [SynonymFilter](https://cwiki.apache.org/confluence/display/solr/Filter+Descriptions#FilterDescriptions-SynonymFilter). A continuación se muestra una regla de ejemplo para los sinónimos equivalentes.
++ asignaciones explícitas (donde los términos se asignan a un término explícito antes de la consulta)
 
-```
-USA, United States, United States of America
-```
+Cada regla debe estar delimitada por el carácter de nueva línea (`\n`). Puede definir hasta 5000 reglas por mapa de sinónimos en un servicio gratuito y 20 000 reglas por mapa en otros niveles. Cada regla puede tener hasta 20 expansiones (o elementos). Para obtener más información, vea [Límites de sinónimos](search-limits-quotas-capacity.md#synonym-limits).
 
-Con la regla anterior, la consulta de búsqueda "EE. UU." se ampliará a "EE. UU." O "Estados Unidos" O "Estados Unidos de América".
+Los analizadores de consultas convertirán en minúsculas todos los términos en mayúsculas o con mayúsculas y minúsculas mezcladas, pero si quiere conservar los caracteres especiales en la cadena, como una coma o un guion, agregue los caracteres de escape adecuados al crear el mapa de sinónimos. 
 
-La asignación explícita se denota mediante una flecha "=>". Cuando se especifica, una secuencia de términos de una consulta de búsqueda que coincide con el lateral izquierdo de "=>" se sustituirá por las alternativas de la derecha. Según la regla siguiente, las consultas de búsqueda "Washington", "Wash." o "WA" se reescribirán a "WA". La asignación explícita solo se aplica en la dirección especificada y no reescribe la consulta "WA" a "Washington" en este caso.
+### <a name="equivalency-rules"></a>Reglas de equivalencia
 
-```
-Washington, Wash., WA => WA
-```
+Las reglas para términos equivalentes se delimitan mediante comas dentro de la misma regla. En el primer ejemplo, una consulta sobre `USA` se expandirá a `USA` o `"United States"`, o bien a `"United States of America"`. Tenga en cuenta que si quiere buscar coincidencias con una frase, la propia consulta debe ser una consulta de frases entre comillas.
 
-Si necesita definir sinónimos que contengan comas, puede usar una barra diagonal inversa como carácter de escape, como en este ejemplo:
-
-```
-WA\, USA, WA, Washington
-```
-
-Dado que la barra diagonal inversa es en sí misma un carácter especial de otros lenguajes como JSON y C#, es probable que tenga que hacer doble escape. Por ejemplo, el JSON enviado la API de REST para la asignación de sinónimos anterior tendría el siguiente aspecto:
+En el caso de la equivalencia, una consulta para `dog` expandirá la consulta para incluir también `puppy` y `canine`.
 
 ```json
-    {
-       "format":"solr",
-       "synonyms": "WA\\, USA, WA, Washington"
-    }
+{
+"format": "solr",
+"synonyms": "
+    USA, United States, United States of America\n
+    dog, puppy, canine\n
+    coffee, latte, cup of joe, java\n"
+}
 ```
 
-#### <a name="list-synonym-maps-under-your-service"></a>Enumeración de asignaciones de sinónimos en su servicio
+### <a name="explicit-mapping"></a>Asignación explícita
 
-```synonym-map
-    GET https://[servicename].search.windows.net/synonymmaps?api-version=2020-06-30
-    api-key: [admin key]
+Las reglas para una asignación explícita se indican mediante una flecha `=>`. Cuando se especifica, una secuencia de términos de una consulta de búsqueda que coincide con el lado izquierdo de `=>` se sustituirá por las alternativas del lado derecho en el momento de la consulta.
+
+En el caso explícito, una consulta para `Washington`, `Wash.` o `WA` se volverá a escribir como `WA`, y el motor de consultas solo buscará coincidencias en el término `WA`. La asignación explícita solo se aplica en la dirección especificada y, en este caso, no reescribe la consulta `WA` como `Washington`.
+
+```json
+{
+"format": "solr",
+"synonyms": "
+    Washington, Wash., WA => WA\n
+    California, Calif., CA => CA\n"
+}
 ```
 
-#### <a name="get-a-synonym-map-under-your-service"></a>Obtención de la asignación de sinónimos en su servicio
+### <a name="escaping-special-characters"></a>Escape de caracteres especiales
 
-```synonym-map
-    GET https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2020-06-30
-    api-key: [admin key]
+Si necesita definir sinónimos que contengan comas u otros caracteres especiales, puede usar una barra diagonal inversa como carácter de escape, como en este ejemplo:
+
+```json
+{
+"format": "solr",
+"synonyms": "WA\, USA, WA, Washington\n"
+}
 ```
 
-#### <a name="delete-a-synonyms-map-under-your-service"></a>Eliminación de la asignación de sinónimos en su servicio
+Como la barra diagonal inversa es en sí misma un carácter especial en otros lenguajes como JSON y C#, es probable que tenga que hacer doble escape. Por ejemplo, el JSON enviado la API de REST para la asignación de sinónimos anterior tendría el siguiente aspecto:
 
-```synonym-map
-    DELETE https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2020-06-30
-    api-key: [admin key]
+```json
+{
+"format":"solr",
+"synonyms": "WA\\, USA, WA, Washington"
+}
 ```
 
-### <a name="configure-a-searchable-field-to-use-the-synonym-map-in-the-index-definition"></a>Configurar un campo buscable para usar la asignación de sinónimos en la definición del índice.
+## <a name="upload-and-manage-synonym-maps"></a>Carga y administración de mapas de sinónimos
 
-Puede usarse una nueva propiedad de campo **synonymMaps** para especificar una asignación de sinónimos que usar para un campo buscable. Las asignaciones de sinónimos son recursos de nivel de servicio y puede hacerse referencia a ellas mediante cualquier campo del índice en el servicio.
+Como se ha mencionado antes, puede crear o actualizar un mapa de sinónimos sin interrumpir las cargas de trabajo de consulta e indexación. Un mapa de sinónimos es un objeto independiente (como los índices o los orígenes de datos) y mientras no se use en ningún campo, las actualizaciones no provocarán errores de indexación ni de consultas. Pero una vez que se agrega un mapa de sinónimos a una definición de campo, si después se elimina el mapa, se producirá un error 404 en cualquier consulta que incluya los campos en cuestión.
 
-```synonym-map
-    POST https://[servicename].search.windows.net/indexes?api-version=2020-06-30
-    api-key: [admin key]
+La creación, actualización y eliminación de un mapa de sinónimos es siempre una operación para todo el documento, lo que significa que no puede actualizar ni eliminar partes del mapa de sinónimos de forma incremental. Incluso para actualizar una sola regla es necesario volver a cargar.
 
-    {
-       "name":"myindex",
-       "fields":[
-          {
-             "name":"id",
-             "type":"Edm.String",
-             "key":true
-          },
-          {
-             "name":"name",
-             "type":"Edm.String",
-             "searchable":true,
-             "analyzer":"en.lucene",
-             "synonymMaps":[
-                "mysynonymmap"
-             ]
-          },
-          {
-             "name":"name_jp",
-             "type":"Edm.String",
-             "searchable":true,
-             "analyzer":"ja.microsoft",
-             "synonymMaps":[
-                "japanesesynonymmap"
-             ]
-          }
-       ]
-    }
+## <a name="assign-synonyms-to-fields"></a>Asignación de sinónimos a campos
+
+Después de cargar un mapa de sinónimos, puede habilitar los sinónimos en los campos del tipo `Edm.String` o `Collection(Edm.String)`, en campos que tengan `"searchable":true`. Como se ha indicado, una definición de campo solo puede usar un mapa de sinónimos.
+
+```http
+POST /indexes?api-version=2020-06-30
+{
+    "name":"hotels-sample-index",
+    "fields":[
+        {
+            "name":"description",
+            "type":"Edm.String",
+            "searchable":true,
+            "synonymMaps":[
+            "en-synonyms"
+            ]
+        },
+        {
+            "name":"description_fr",
+            "type":"Edm.String",
+            "searchable":true,
+            "analyzer":"fr.microsoft",
+            "synonymMaps":[
+            "fr-synonyms"
+            ]
+        }
+    ]
+}
 ```
 
-**synonymMaps** puede especificarse para los campos buscables del tipo 'Edm.String' o 'Collection(Edm.String)'.
+## <a name="query-on-equivalent-or-mapped-fields"></a>Consulta en campos equivalentes o asignados
 
-> [!NOTE]
-> Solo puede tener una asignación de sinónimos por campo. Si desea usar varias asignaciones de sinónimos, indíquenoslo en [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
+La adición de sinónimos no impone nuevos requisitos en la construcción de consultas. Puede emitir consultas de términos y frases como ha hecho antes de agregar sinónimos. La única diferencia es que si existe un término de consulta en el mapa de sinónimos, el motor de consultas expandirá o volverá a escribir el término o la frase, en función de la regla.
 
-## <a name="impact-of-synonyms-on-other-search-features"></a>Repercusión de Sinónimos en otras características de búsqueda
+## <a name="how-synonyms-interact-with-other-features"></a>Cómo interactúan los sinónimos con otras características
 
 La característica Sinónimos reescribe la consulta original con sinónimos con el operador OR. Por este motivo, el resaltado de referencias y los perfiles de puntuación tratan el término original y los sinónimos como equivalentes.
 
-La característica Sinónimos se aplica a consultas de búsquedas y no se aplica a filtros o facetas. De forma similar, las sugerencias se basan solo en el término original; las coincidencias de sinónimos no aparecen en la respuesta.
+Los sinónimos solo se aplican a las consultas de búsqueda y no se admiten para los filtros, las facetas, la función autocompletar o las sugerencias. Autocompletar y las sugerencias se basan solo en el término original; las coincidencias de sinónimos no aparecen en la respuesta.
 
 Las expansiones de sinónimos no se aplican a los términos de búsqueda de carácter comodín; los prefijos, las coincidencias parciales y las regex no se expanden.
 
@@ -188,4 +158,4 @@ Si dispone de un índice existente en un entorno de desarrollo (no producción),
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Creación de un mapa de sinónimos](/rest/api/searchservice/create-synonym-map)
+> [Creación de un mapa de sinónimos (API REST)](/rest/api/searchservice/create-synonym-map)

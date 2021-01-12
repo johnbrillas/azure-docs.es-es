@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 99ed7d3ad81202ab6fe67bf52888bbdbf0b28d2a
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: b7bd04790c7ac124afe3e9b503803f27118ae959
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97387095"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861860"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -52,7 +52,7 @@ Todos los tipos de perfiles técnicos comparten el mismo concepto. El usuario en
 ![Diagrama que ilustra el flujo de perfil técnico](./media/technical-profiles/technical-profile-flow.png)
 
 1. **Administración de la sesión de inicio de sesión único (SSO)**: restaura el estado de la sesión del perfil técnico mediante la [administración de la sesión de inicio de sesión único](custom-policy-reference-sso.md).
-1. **Transformación de notificaciones de entrada**: antes de iniciarse el perfil técnico, Azure AD B2C ejecuta la entrada [transformación de notificaciones].(claimstransformations.md).
+1. **Transformación de notificaciones de entrada**: antes de iniciarse el perfil técnico, Azure AD B2C ejecuta la entrada [transformación de notificaciones](claimstransformations.md).
 1. **Notificaciones de entrada**: las notificaciones se toman del contenedor de notificaciones y se usan para el perfil técnico.
 1. **Ejecución de perfil técnico**: el perfil técnico intercambia las notificaciones con la entidad configurada. Por ejemplo:
     - Redirija al usuario al proveedor de identidades para completar el inicio de sesión. Después de iniciar sesión correctamente, el usuario regresa y la ejecución del perfil técnico continúa.

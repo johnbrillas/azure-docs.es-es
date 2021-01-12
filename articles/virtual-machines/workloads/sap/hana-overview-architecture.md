@@ -11,15 +11,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/12/2019
+ms.date: 01/04/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0144c57549e374404d3dde0fe997ba41adc8606b
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: c06988bf9c3558f5ef82862bdbcd821dc42ca28a
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967591"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97880994"
 ---
 #  <a name="what-is-sap-hana-on-azure-large-instances"></a>¿Qué es SAP HANA en Azure (instancias grandes)?
 
@@ -35,12 +35,14 @@ El aislamiento del cliente dentro de la demarcación de infraestructura se reali
 
 La ejecución de estas unidades de servidor de reconstrucción completa es compatible solo en SAP HANA. El nivel de aplicación de SAP o el nivel de middleware de la carga de trabajo se ejecutan en máquinas virtuales. Las demarcaciones de infraestructura que ejecutan las unidades de SAP HANA en Azure (instancias grandes) están conectadas a las redes troncales de los servicios de red de Azure. De este modo, se proporciona conectividad de baja latencia entre las unidades de SAP HANA en Azure (instancias grandes) y las máquinas virtuales.
 
-A partir de julio de 2019, diferenciamos entre dos revisiones distintas de los sellos de HANA (instancias grandes) y la ubicación de las implementaciones:
+A partir de enero de 2021, diferenciamos entre dos revisiones distintas de los sellos de HANA (instancias grandes) y la ubicación de las implementaciones:
 
 - "Revisión 3" (Rev 3): se trata de los sellos que se pusieron a disposición del cliente para su implementación antes de julio de 2019
 - "Revisión 4" (Rev 4): nuevo diseño de sello que se implementa cerca de los hosts de máquina virtual de Azure y que hasta ahora se publicaban en las siguiente regiones:
     -  Oeste de EE. UU. 2 
-    -  Este de EE. UU. 
+    -  Este de EE. UU.
+    -  Este de EE. UU. 2 (entre dos zonas de disponibilidad)
+    -  Centro-sur de EE. UU. (entre dos zonas de disponibilidad)
     -  Oeste de Europa
     -  Norte de Europa
 

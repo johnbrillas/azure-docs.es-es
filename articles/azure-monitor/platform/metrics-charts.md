@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: be3d3f11e90c17bd8c4792418500da651039e480
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: a80eaecc02fa3c8c6618341c02e22241f0dc7faf
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562810"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845031"
 ---
 # <a name="advanced-features-of-azure-metrics-explorer"></a>Características avanzadas del Explorador de métricas de Azure
 
@@ -22,6 +22,35 @@ ms.locfileid: "97562810"
 ## <a name="metrics-in-azure"></a>Métricas en Azure
 
 Las [métricas en Azure Monitor](data-platform-metrics.md) son la serie de valores medidos y recuentos que se recopilan y se almacenan con el tiempo. Hay métricas estándar (o de la “plataforma”) y métricas personalizadas. La misma plataforma de Azure le proporciona las métricas estándares. Las métricas estándares reflejan las estadísticas de uso y mantenimiento de los recursos de Azure. Por otra parte, las métricas personalizadas se envían a Azure por medio de sus aplicaciones con la [API de Application Insights para eventos y métricas personalizados](../app/api-custom-events-metrics.md), la [extensión de Windows Azure Diagnostics (WAD)](./diagnostics-extension-overview.md), o por medio de la [API de REST de Azure Monitor](./metrics-store-custom-rest-api.md).
+
+## <a name="resource-scope-picker"></a>Selector de ámbitos de recursos
+El selector de ámbitos de recursos permite ver las métricas en uno o varios recursos. A continuación se proporcionan instrucciones sobre cómo usar el selector de ámbitos de recursos. 
+
+### <a name="selecting-a-single-resource"></a>Selección de un único recurso
+Seleccione **Métricas** en el menú de **Azure Monitor** o en la sección **Supervisión** del menú de un recurso. Haga clic en el botón "Seleccionar un ámbito" para abrir el selector de ámbitos, que le permitirá seleccionar los recursos de los que quiera ver las métricas. El ámbito ya aparece rellenado al abrir el explorador de métricas desde el menú de un recurso. 
+
+![Captura de pantalla del selector de ámbitos de recursos](./media/metrics-charts/scope-picker.png)
+
+Para determinados recursos, solo puede ver las métricas de un único recurso a la vez. Estos recursos se encuentran en la sección "Todos los tipos de recursos" en la lista desplegable Tipos de recursos.
+
+![Captura de pantalla de un único recurso](./media/metrics-charts/single-resource-scope.png)
+
+Después de hacer clic en el recurso deseado, verá todas las suscripciones y los grupos de recursos que contienen ese recurso.
+
+![Captura de pantalla de los recursos disponibles](./media/metrics-charts/available-single-resource.png)
+
+> [!TIP]
+> Si quiere ver las métricas de varios recursos al mismo tiempo, o bien las de una suscripción o un grupo de recursos, haga clic en el botón Votar a favor.
+
+Cuando esté satisfecho con la selección, haga clic en "Aplicar".
+
+### <a name="viewing-metrics-across-multiple-resources"></a>Visualización de métricas en varios recursos
+Algunos tipos de recursos tienen habilitada la capacidad de consultar métricas en varios recursos, siempre y cuando se encuentren en la misma suscripción y ubicación. Estos tipos de recursos se pueden encontrar en la parte superior de la lista desplegable "Tipos de recursos". Para obtener más detalles sobre cómo ver las métricas en varios recursos, vea [este documento](metrics-dynamic-scope.md#selecting-multiple-resources).
+
+![Captura de pantalla de tipos entre recursos](./media/metrics-charts/multi-resource-scope.png)
+
+En el caso de los tipos compatibles con varios recursos, también puede consultar las métricas en una suscripción o en varios grupos de recursos. Para obtener información sobre cómo hacerlo, vea este [artículo](metrics-dynamic-scope.md#selecting-a-resource-group-or-subscription)
+
 
 ## <a name="create-views-with-multiple-metrics-and-charts"></a>Creación de vistas con varias métricas y gráficos
 
@@ -61,11 +90,25 @@ Por ejemplo, supongamos que el gráfico muestra la métrica **Tiempo de respuest
 
 Hay cinco tipos de agregaciones estadísticas básicas disponibles en el Explorador de métricas: **Suma**, **Recuento**, **Min**, **Max** y **Media**. A veces, se hace referencia a la agregación **Suma** como agregación **Total**. En el caso de muchas métricas, el Explorador de métricas ocultará las agregaciones que no son pertinentes y no se pueden usar.
 
-- **Suma**: suma de todos los valores capturados en el intervalo de agregación.
-- **Recuento**: número de medidas capturadas en el intervalo de agregación. Tenga en cuenta que **Recuento** será igual a **Suma** en el caso de que la métrica siempre se capture con el valor 1. Esto es habitual cuando la métrica realiza un seguimiento del recuento de distintos eventos y cada medida representa un evento (es decir, el código activa un registro de métricas cada vez que entra una nueva solicitud).
-- **Media**: media de los valores de la métrica capturados en el intervalo de agregación.
-- **Min**: el menor valor capturado en el intervalo de agregación.
-- **Max**: el mayor valor capturado en el intervalo de agregación.
+**Suma**: suma de todos los valores capturados en el intervalo de agregación.
+
+![Captura de pantalla de la suma de la solicitud](./media/metrics-charts/request-sum.png)
+
+**Recuento**: número de medidas capturadas en el intervalo de agregación. Tenga en cuenta que **Recuento** será igual a **Suma** en el caso de que la métrica siempre se capture con el valor 1. Esto es habitual cuando la métrica realiza un seguimiento del recuento de distintos eventos y cada medida representa un evento (es decir, el código activa un registro de métricas cada vez que entra una nueva solicitud).
+
+![Captura de pantalla del recuento de la solicitud](./media/metrics-charts/request-count.png)
+
+**Media**: media de los valores de la métrica capturados en el intervalo de agregación.
+
+![Captura de pantalla de la media de la solicitud](./media/metrics-charts/request-avg.png)
+
+**Min**: el menor valor capturado en el intervalo de agregación.
+
+![Captura de pantalla de la solicitud mínima](./media/metrics-charts/request-min.png)
+
+**Max**: el mayor valor capturado en el intervalo de agregación.
+
+![Captura de pantalla de la solicitud máxima](./media/metrics-charts/request-max.png)
 
 ## <a name="apply-filters-to-charts"></a>Aplicación de filtros a gráficos
 

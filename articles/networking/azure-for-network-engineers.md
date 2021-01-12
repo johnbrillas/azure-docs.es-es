@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 06/25/2020
 ms.author: osamaz
-ms.openlocfilehash: 4f513da4e7883cd273098039c9c4a4645d849f0f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e13dc868512dba15c5b335c1774aaa540eef8157
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85516112"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861404"
 ---
 # <a name="azure-for-network-engineers"></a>Azure para ingenieros de red
 Como ingeniero de red convencional, ha trabajado con recursos físicos, como enrutadores, conmutadores, cables y firewalls, para crear infraestructuras. En una capa lógica, ha configurado la LAN virtual (VLAN), el protocolo de árbol de expansión (STP), los protocolos de enrutamiento (RIP, OSPF, BGP). Ha administrado la red mediante herramientas de administración y la CLI. Las redes en la nube son diferentes cuando los puntos de conexión de red son lógicos y el uso de los protocolos de enrutamiento es mínimo. Trabajará con la API Azure Resource Manager, la CLI de Azure y PowerShell para configurar y administrar recursos en Azure. Para comenzar el recorrido de la red en la nube, deberá comprender los inquilinos básicos de las redes de Azure. 
@@ -67,7 +67,7 @@ Cuando haya entradas que compitan en una tabla de enrutamiento, Azure selecciona
 
 ## <a name="security"></a>Seguridad
 
-Puede filtrar el tráfico de red hacia y desde los recursos en una red virtual mediante los grupos de seguridad de red. También puede usa aplicaciones virtuales de red (NVA), como Azure Firewall o firewalls de otros proveedores. Puede controlar la manera en que Azure enruta el tráfico de subredes. Asimismo, también puede limitar en su organización quién puede trabajar con los recursos en redes virtuales.
+Puede filtrar el tráfico de red hacia y desde los recursos en una red virtual mediante los grupos de seguridad de red. También puede usar aplicaciones virtuales de red (NVA), como Azure Firewall o firewalls de otros proveedores. Puede controlar la manera en que Azure enruta el tráfico de subredes. Asimismo, también puede limitar en su organización quién puede trabajar con los recursos en redes virtuales.
 
 Un grupo de seguridad de red (NSG) contiene una lista de reglas de la lista de control de acceso (ACL) que permiten o deniegan el tráfico de red a subredes, NIC, o ambas. Los grupos de seguridad de red se pueden asociar con subredes o con NIC individuales conectadas a una subred. Si un grupo de seguridad de red está asociado a una subred, las reglas de la ACL se aplican a todas las máquinas virtuales de dicha subred. Además, se puede limitar el tráfico que llega a una NIC individual, para lo que se debe asociar un NSG directamente a la NIC.
 

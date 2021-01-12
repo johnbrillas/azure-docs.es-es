@@ -2,21 +2,21 @@
 title: Distintas formas de autorizar el acceso para poner datos en cola con la CLI de Azure
 titleSuffix: Azure Storage
 description: Especifique cómo se autorizan las operaciones de datos en datos de colas con la CLI de Azure. Puede autorizar las operaciones de datos con las credenciales de Azure AD, con la clave de acceso de la cuenta o con un token de firma de acceso compartido (SAS).
-services: storage
 author: tamram
-ms.service: storage
-ms.topic: how-to
-ms.date: 11/13/2020
+services: storage
 ms.author: tamram
 ms.reviewer: ozgun
+ms.date: 11/13/2020
+ms.topic: how-to
+ms.service: storage
 ms.subservice: common
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e753f5b09b6cd03744ba8520c668a8227e56e8a1
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 01b78fa3250f371cfc4d713668531664ef8c139e
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94637274"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587611"
 ---
 # <a name="choose-how-to-authorize-access-to-queue-data-with-azure-cli"></a>Distintas formas de autorizar el acceso para poner datos en cola con la CLI de Azure
 
@@ -35,7 +35,7 @@ Los comandos de la CLI de Azure para leer y escribir datos de colas incluyen el 
 Para usar el parámetro `--auth-mode`, asegúrese de que ha instalado la CLI de Azure, versión 2.0.46 o posterior. Ejecute `az --version` para comprobar la versión instalada.
 
 > [!IMPORTANT]
-> Si omite el parámetro `--auth-mode` o lo establece en `key`, la CLI de Azure intentará usar la clave de acceso de la cuenta para la autorización. En este caso, Microsoft recomienda que proporcione la clave de acceso en el comando o en la variable de entorno **AZURE_STORAGE_KEY**. Para obtener más información sobre las variables de entorno, vea la sección titulada [Establecimiento de variables de entorno para parámetros de autorización](#set-environment-variables-for-authorization-parameters).
+> Si omite el parámetro `--auth-mode` o lo establece en `key`, la CLI de Azure intentará usar la clave de acceso de la cuenta para la autorización. En este caso, Microsoft recomienda que proporcione la clave de acceso en el comando o en la variable de entorno `AZURE_STORAGE_KEY`. Para obtener más información sobre las variables de entorno, vea la sección titulada [Establecimiento de variables de entorno para parámetros de autorización](#set-environment-variables-for-authorization-parameters).
 >
 > Si no proporciona la clave de acceso, la CLI de Azure intentará llamar al proveedor de recursos de Azure Storage para recuperarla con cada operación. La realización de numerosas operaciones de datos que requieren una llamada al proveedor de recursos puede generar una limitación. Para obtener más información sobre los límites del proveedor de recursos, consulte [Destinos de escalabilidad y rendimiento para el proveedor de recursos de Azure Storage](../common/scalability-targets-resource-provider.md).
 
@@ -47,7 +47,7 @@ Puede asignar permisos en los datos de cola a una entidad de seguridad de Azure�
 
 ### <a name="permissions-for-calling-data-operations"></a>Permisos para llamar a operaciones de datos
 
-Las extensiones de Azure Storage se admiten para las operaciones en datos de cola. Las operaciones a las que podrá llamar dependerán de los permisos que se concedan a la entidad de seguridad de Azure AD con la que inicie sesión en la CLI de Azure. Los permisos para las colas de Azure Storage se asignan mediante Azure RBAC. Por ejemplo, si se le asigna el rol **Lector de datos de cola de almacenamiento**, puede ejecutar comandos de scripting que leen datos de una cola. Si se le asigna el rol de **Colaborador de datos de cola de almacenamiento**, podrá ejecutar comandos de scripting que lean, escriban o eliminen una cola, o los datos que contiene.
+Las extensiones de Azure Storage se admiten para las operaciones en datos de cola. Las operaciones a las que podrá llamar dependerán de los permisos que se concedan a la entidad de seguridad de Azure AD con la que inicie sesión en la CLI de Azure. Los permisos para las colas se asignan mediante Azure RBAC. Por ejemplo, si se le asigna el rol **Lector de datos de cola de almacenamiento**, puede ejecutar comandos de scripting que leen datos de una cola. Si se le asigna el rol de **Colaborador de datos de cola de almacenamiento**, podrá ejecutar comandos de scripting que lean, escriban o eliminen una cola, o los datos que contiene.
 
 Para más información sobre los permisos requeridos para cada operación de Azure Storage en una cola, consulte la sección [Llamadas a operaciones de almacenamiento con tokens de OAuth](/rest/api/storageservices/authorize-with-azure-active-directory#call-storage-operations-with-oauth-tokens).  
 
@@ -60,7 +60,7 @@ En el ejemplo siguiente se muestra cómo crear una cola desde la CLI de Azure me
     > [!IMPORTANT]
     > La propagación de las asignaciones de roles de Azure pueden tardar unos minutos.
 
-1. Llame al comando [az storage queue create](/cli/azure/storage/queue#az-storage-queue-create) con el parámetro `--auth-mode` establecido en `login` para crear la cola mediante las credenciales de Azure AD. No olvide reemplazar los valores del marcador de posición entre corchetes angulares por sus propios valores:
+1. Llame al comando [`az storage queue create`](/cli/azure/storage/queue#az-storage-queue-create) con el parámetro `--auth-mode` establecido en `login` para crear la cola mediante las credenciales de Azure AD. No olvide reemplazar los valores del marcador de posición entre corchetes angulares por sus propios valores:
 
     ```azurecli
     az storage queue create \
@@ -98,13 +98,13 @@ az storage queue create \
 
 Puede especificar parámetros de autorización en variables de entorno para evitar incluirlos en cada llamada a una operación de datos de Azure Storage. En la tabla siguiente se describen las variables de entorno disponibles.
 
-| Variable de entorno                  | Descripción                                                                                                                                                                                                                                                                                                                                                                     |
-|---------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|    AZURE_STORAGE_ACCOUNT              |    El nombre de la cuenta de almacenamiento. Esta variable se debe usar junto con la clave de cuenta de almacenamiento o un token de SAS. Si ninguno de ellos está presente, la CLI de Azure intentará recuperar la clave de acceso de la cuenta de almacenamiento con la cuenta de Azure AD autenticada. Si se ejecutan un gran número de comandos al mismo tiempo, se puede alcanzar la limitación del proveedor de recursos de Azure Storage. Para obtener más información sobre los límites del proveedor de recursos, consulte [Destinos de escalabilidad y rendimiento para el proveedor de recursos de Azure Storage](../common/scalability-targets-resource-provider.md).             |
-|    AZURE_STORAGE_KEY                  |    La clave de la cuenta de almacenamiento. Esta variable debe usarse junto con el nombre de la cuenta de almacenamiento.                                                                                                                                                                                                                                                                          |
-|    AZURE_STORAGE_CONNECTION_STRING    |    Una cadena de conexión que incluye la clave de cuenta de almacenamiento o un token de SAS. Esta variable debe usarse junto con el nombre de la cuenta de almacenamiento.                                                                                                                                                                                                                       |
-|    AZURE_STORAGE_SAS_TOKEN            |    Un token de firma de acceso compartido (SAS). Esta variable debe usarse junto con el nombre de la cuenta de almacenamiento.                                                                                                                                                                                                                                                            |
-|    AZURE_STORAGE_AUTH_MODE            |    El modo de autorización con el que se ejecuta el comando. Los valores permitidos son `login` (recomendado) o `key`. Si especifica `login`, la CLI de Azure utilizará sus credenciales de Azure AD para autorizar la operación de datos. Si especifica el modo `key` heredado, la CLI de Azure intentará consultar la clave de acceso de la cuenta y autorizar el comando con la clave.    |
+| Variable de entorno | Descripción |
+|--|--|
+| **AZURE_STORAGE_ACCOUNT** | El nombre de la cuenta de almacenamiento. Esta variable se debe usar junto con la clave de cuenta de almacenamiento o un token de SAS. Si ninguno de ellos está presente, la CLI de Azure intentará recuperar la clave de acceso de la cuenta de almacenamiento con la cuenta de Azure AD autenticada. Si se ejecutan un gran número de comandos al mismo tiempo, se puede alcanzar la limitación del proveedor de recursos de Azure Storage. Para obtener más información sobre los límites del proveedor de recursos, consulte [Destinos de escalabilidad y rendimiento para el proveedor de recursos de Azure Storage](../common/scalability-targets-resource-provider.md). |
+| **AZURE_STORAGE_KEY** | La clave de la cuenta de almacenamiento. Esta variable debe usarse junto con el nombre de la cuenta de almacenamiento. |
+| **AZURE_STORAGE_CONNECTION_STRING** | Una cadena de conexión que incluye la clave de cuenta de almacenamiento o un token de SAS. Esta variable debe usarse junto con el nombre de la cuenta de almacenamiento. |
+| **AZURE_STORAGE_SAS_TOKEN** | Un token de firma de acceso compartido (SAS). Esta variable debe usarse junto con el nombre de la cuenta de almacenamiento. |
+| **AZURE_STORAGE_AUTH_MODE** | El modo de autorización con el que se ejecuta el comando. Los valores permitidos son `login` (recomendado) o `key`. Si especifica `login`, la CLI de Azure utilizará sus credenciales de Azure AD para autorizar la operación de datos. Si especifica el modo `key` heredado, la CLI de Azure intentará consultar la clave de acceso de la cuenta y autorizar el comando con la clave. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

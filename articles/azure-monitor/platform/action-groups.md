@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 9b5b20de1b86eae72de54b3f2c1cf37074fba144
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: b5b6a697e6a5cae064a6a48419246dc12e8d048c
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97095175"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695815"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Creación y administración de grupos de acciones en Azure Portal
 Un grupo de acciones es una colección de las preferencias de notificación que el propietario de una suscripción de Azure define. Las alertas de Azure Monitor y Service Health usan grupos de acciones para notificar a los usuarios que se ha desencadenado una alerta. Varias alertas pueden usar el mismo grupo de acciones o distintos grupos de acciones en función de los requisitos del usuario. 
@@ -132,6 +132,18 @@ En un grupo de acciones puede tener un número limitado de acciones de correo el
 Envíe un correo electrónico a los miembros del rol de la suscripción. El correo electrónico solo se enviará a los miembros **usuarios de Azure AD** del rol. No se enviará correo electrónico a grupos de Azure AD ni entidades de servicio.
 
 Solo se envía un correo electrónico de notificación a la dirección de *correo electrónico principal*.
+
+Si no recibe notificaciones en la *dirección correo electrónico principal*, intente seguir estos pasos:
+
+1. En Azure Portal, vaya a *Active Directory*.
+2. Haga clic en Todos los usuarios (en el panel de la izquierda); verá una lista de usuarios (en el panel de la derecha).
+3. Seleccione el usuario para el que quiera revisar la información de la *dirección de correo electrónico principal*.
+
+  :::image type="content" source="media/action-groups/active-directory-user-profile.png" alt-text="Ejemplo de cómo revisar el perfil de usuario."border="true":::
+
+4. En Perfil de usuario, en Información de contacto, si la pestaña "Dirección de correo electrónico" está en blanco, haga clic en el botón *Editar* de la parte superior, agregue la *dirección de correo electrónico principal* y presione el botón *Guardar* de la parte superior.
+
+  :::image type="content" source="media/action-groups/active-directory-add-primary-email.png" alt-text="Ejemplo de cómo agregar la dirección de correo electrónico principal."border="true":::
 
 En un grupo de acciones puede tener un número limitado de acciones de correo electrónico. Consulte el artículo de [información sobre las limitaciones](./alerts-rate-limiting.md).
 

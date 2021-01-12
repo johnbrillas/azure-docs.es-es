@@ -3,12 +3,12 @@ title: 'Uso del centro de eventos desde una aplicación de Apache Kafka: Azure E
 description: En este artículo se proporciona información sobre la compatibilidad de Apache Kafka con Azure Event Hubs.
 ms.topic: article
 ms.date: 09/25/2020
-ms.openlocfilehash: d9aa8af30d5ef5e1a985e4d73a9d4a8921ac7d45
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: b0f0da76bba68f8a66695700d530e871cbd35e3c
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369597"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861346"
 ---
 # <a name="use-azure-event-hubs-from-apache-kafka-applications"></a>Uso de Azure Event Hubs desde aplicaciones de Apache Kafka
 Event Hubs proporciona un punto de conexión compatible con las API de productor y consumidor de Apache Kafka® que pueden usar la mayoría de las aplicaciones cliente de Apache Kafka existentes como alternativa a la ejecución de su propio clúster de Apache Kafka. Event Hubs admite clientes de API de productor y consumidor de Apache Kafka en la versión 1.0 y posteriores.
@@ -81,7 +81,7 @@ sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule require
 ```
 
 > [!IMPORTANT]
-> Reemplace `{YOUR.EVENTHUBS.CONNECTION.STRING}` por la cadena de conexión para el espacio de nombres de Event Hubs. Para obtener instrucciones sobre cómo obtener la cadena de conexión, consulte [Obtención de la cadena de conexión de un centro de eventos](event-hubs-get-connection-string.md). A continuación se muestra un ejemplo de configuración: `sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://mynamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXX";`
+> Reemplace `{YOUR.EVENTHUBS.CONNECTION.STRING}` por la cadena de conexión para el espacio de nombres de Event Hubs. Para obtener instrucciones sobre cómo obtener la cadena de conexión, consulte [Obtención de una cadena de conexión de Event Hubs](event-hubs-get-connection-string.md). A continuación se muestra un ejemplo de configuración: `sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://mynamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXX";`
 
 > [!NOTE]
 > Al usar la autenticación de SAS con los clientes de Kafka, las conexiones establecidas no se desconectan cuando se vuelve a generar la clave SAS. 
@@ -118,9 +118,7 @@ La carga de cualquier evento de Event Hubs es un flujo de bytes y el contenido s
 
 ### <a name="log-compaction"></a>Compactación del registro
 
-La compactación del registro de Apache Kafka es una característica que permite expulsar todos los registros salvo el último de cada clave de una partición, lo que convierte un tema de Apache Kafka en un almacén de pares clave-valor en el que el último valor agregado invalida el anterior. El patrón de almacenamiento de pares clave-valor, incluso con actualizaciones frecuentes, es mucho más compatible con los servicios de base de datos, como [Azure Cosmos DB](../cosmos-db/introduction.md).
-
-La característica de compactación de registros se usa en los marcos de cliente de Kafka Connect y Kafka Streams.
+La compactación del registro de Apache Kafka es una característica que permite expulsar todos los registros salvo el último de cada clave de una partición, lo que convierte un tema de Apache Kafka en un almacén de pares clave-valor en el que el último valor agregado invalida el anterior. Esta característica no está implementada actualmente en Azure Event Hubs. El patrón de almacenamiento de pares clave-valor, incluso con actualizaciones frecuentes, es mucho más compatible con los servicios de base de datos, como [Azure Cosmos DB](../cosmos-db/introduction.md). Consulte el tema [Proyección de registros](event-hubs-federation-overview.md#log-projections) en la guía de federación de Event Hubs para obtener más detalles. 
 
 ### <a name="kafka-streams"></a>Kafka Streams
 

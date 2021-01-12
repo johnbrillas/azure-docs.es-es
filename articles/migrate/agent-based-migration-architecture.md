@@ -6,12 +6,12 @@ ms.author: rahugup
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 1389b03d87beb24cba50fec0a782de8b7f935557
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: c605c21307cda874f34ae5ea9f4e4959e5e6c183
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753899"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861959"
 ---
 # <a name="agent-based-migration-architecture"></a>Arquitectura de migración basada en agente
 
@@ -92,14 +92,14 @@ Si va a replicar VM de VMware, puede usar [Site Recovery Deployment Planner para
 
 Use los valores de esta tabla para averiguar si necesita un servidor de procesos adicional en la implementación.
 
-- Si la tasa de cambio diaria (tasa de renovación) es superior a 2 TB, implemente un servidor de procesos adicional.
+- Si la frecuencia de cambio diaria (abandono) es superior a 2 TB, implemente un servidor de procesos adicional.
 - Si va a replicar más de 200 máquinas, implemente un dispositivo de replicación adicional.
 
 **CPU** | **Memoria** | **Espacio libre para el almacenamiento de datos en caché** | **Tasa de renovación** | **Límites de replicación**
 --- | --- | --- | --- | ---
 8 vCPU (2 sockets * 4 núcleos \@ 2,5 GHz) | 16 GB | 300 GB | 500 GB o menos | < 100 máquinas 
 12 vCPU (2 sockets * 6 núcleos \@ 2,5 GHz) | 18 GB | 600 GB | De 501 GB a 1 TB | 100-150 máquinas.
-16 vCPU (2 sockets * 8 núcleos \@ 2,5 GHz) | 32 G1 |  1 TB | 1 TB a 2 TB | 151-200 máquinas.
+16 vCPU (2 sockets * 8 núcleos \@ 2,5 GHz) | 32 GB |  1 TB | 1 TB a 2 TB | 151-200 máquinas.
 
 ### <a name="sizing-scale-out-process-servers"></a>Servidores de procesos de escalabilidad horizontal
 
@@ -108,7 +108,7 @@ Si necesita implementar un servidor de procesos de escalabilidad horizontal, use
 **Servidor de proceso** | **Espacio libre para el almacenamiento de datos en caché** | **Tasa de renovación** | **Límites de replicación**
 --- | --- | --- | --- 
 4 vCPU (2 sockets * 2 núcleos \@ 2,5 GHz), 8 GB de memoria | 300 GB | 250 GB o menos | Hasta 85 máquinas 
-8 vCPU (2 sockets * 4 núcleos \@ 2,5 GHz), 12 GB de memoria | 600 GB | De 251 GB a 1 TB    | 86-150 máquinas.
+8 vCPU (2 sockets * 4 núcleos \@ 2,5 GHz), 12 GB de memoria | 600 GB | De 251 GB a 1 TB | 86-150 máquinas.
 12 vCPU (2 sockets * 6 núcleos \@ 2,5 GHz), 24 GB de memoria | 1 TB | 1 - 2 TB | 151-225 máquinas.
 
 ## <a name="throttle-upload-bandwidth"></a>Limite el ancho de banda de carga.

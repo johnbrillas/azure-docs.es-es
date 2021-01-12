@@ -6,12 +6,12 @@ ms.author: noakuper
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.subservice: ''
-ms.openlocfilehash: a85619b4947808ba1c13df3c1543102eea7273fd
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: e8d0dcae81944d5799841c22093585b942934b79
+ms.sourcegitcommit: a89a517622a3886b3a44ed42839d41a301c786e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96853941"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97732111"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Uso de Azure Private Link para conectar redes a Azure Monitor de forma segura
 
@@ -215,9 +215,9 @@ Restringir el acceso de esta manera solo se aplica a los datos del recurso de Ap
 
 ## <a name="use-apis-and-command-line"></a>Uso de API y de la línea de comandos
 
-Puede automatizar el proceso descrito anteriormente mediante plantillas de Azure Resource Manager y las interfaces de la línea de comandos.
+Puede automatizar el proceso descrito anteriormente mediante plantillas de Azure Resource Manager, REST e interfaces de la línea de comandos.
 
-Para crear y administrar ámbitos de Private Link, use [az monitor private-link-scope](/cli/azure/monitor/private-link-scope?view=azure-cli-latest). Con este comando, puede crear ámbitos, asociar áreas de trabajo de Log Analytics y componentes de Application Insights, y agregar, quitar o aprobar puntos de conexión privados.
+Para crear y administrar ámbitos de Private Link, use la [API REST](https://docs.microsoft.com/rest/api/monitor/private%20link%20scopes%20(preview)) o la [CLI de Azure (az monitor private-link-scope)](/cli/azure/monitor/private-link-scope?view=azure-cli-latest).
 
 Para administrar el acceso a la red, utilice las marcas `[--ingestion-access {Disabled, Enabled}]` y `[--query-access {Disabled, Enabled}]`en [áreas de trabajo de Log Analytics](/cli/azure/monitor/log-analytics/workspace?view=azure-cli-latest) o [componentes de Application Insights](/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest).
 

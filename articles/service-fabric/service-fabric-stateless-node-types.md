@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: pepogors
-ms.openlocfilehash: 266c04a049cab574576f781c397aee566efe5372
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 0876891e42ce629a3b088d8068c74386d690492d
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516610"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97683185"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-with-stateless-only-node-types-preview"></a>Implementación de un clúster de Azure Service Fabric con tipos de nodo sin estado (versión preliminar)
 Los tipos de nodo de Service Fabric incluyen suposiciones inherentes según las cuales se supone que en algún momento se agregarán servicios con estado en los nodos. Los tipos de nodos sin estado reducen las restricciones de esta suposición en cierto tipo de nodo, lo que permite que ese tipo de nodo use otras características, como operaciones de escalado horizontal más rápidas, compatibilidad con actualizaciones automáticas del sistema operativo en la durabilidad Bronze y un escalado horizontal a más de 100 nodos en un solo conjunto de escalado de máquina virtuales.
@@ -37,14 +37,14 @@ Para establecer uno o varios tipos de nodos como nodos sin estado en un recurso 
             "startPort": "[parameters('nt0applicationStartPort')]"
         },
         "clientConnectionEndpointPort": "[parameters('nt0fabricTcpGatewayPort')]",
-        "durabilityLevel": "Bronze",
+        "durabilityLevel": "Silver",
         "ephemeralPorts": {
             "endPort": "[parameters('nt0ephemeralEndPort')]",
             "startPort": "[parameters('nt0ephemeralStartPort')]"
         },
         "httpGatewayEndpointPort": "[parameters('nt0fabricHttpGatewayPort')]",
         "isPrimary": true,
-        "isStateles": false,
+        "isStateless": false,
         "vmInstanceCount": "[parameters('nt0InstanceCount')]"
     },
     {
@@ -54,7 +54,7 @@ Para establecer uno o varios tipos de nodos como nodos sin estado en un recurso 
             "startPort": "[parameters('nt1applicationStartPort')]"
         },
         "clientConnectionEndpointPort": "[parameters('nt1fabricTcpGatewayPort')]",
-        "durabilityLevel": "Silver",
+        "durabilityLevel": "Bronze",
         "ephemeralPorts": {
             "endPort": "[parameters('nt1ephemeralEndPort')]",
             "startPort": "[parameters('nt1ephemeralStartPort')]"
@@ -71,8 +71,8 @@ Para establecer uno o varios tipos de nodos como nodos sin estado en un recurso 
 ## <a name="configuring-virtual-machine-scale-set-for-stateless-node-types"></a>Configuración del conjunto de escalado de máquinas virtuales para tipos de nodos sin estado
 Para habilitar los tipos de nodo sin estado, debe configurar el recurso del conjunto de escalado de máquinas virtuales subyacente de la siguiente manera:
 
-* El valor de la propiedad **singlePlacementGroup** debe establecerse en "true" o "false" en función del requisito para escalar a más de 100 VM.
-* El valor **upgradeMode** del conjunto de escalado debe establecerse como Gradual.
+* El valor de la propiedad **singlePlacementGroup** debe establecerse en **false** si debe escalar más de 100 máquinas virtuales.
+* El valor **upgradePolicy** del conjunto de escalado cuyo valor de **mode** debe establecerse en **Rolling**.
 * El modo de actualización gradual requiere la configuración de la extensión de mantenimiento de la aplicación o de los sondeos de estado. Configure el sondeo de estado con la configuración predeterminada para los tipos de nodo sin estado, tal como se sugiere a continuación. Una vez que las aplicaciones se implementan en el tipo de nodo, los puertos de la extensión de mantenimiento o del sondeo de estado se pueden cambiar para supervisar el estado de la aplicación.
 
 ```json
@@ -103,7 +103,7 @@ Para habilitar los tipos de nodo sin estado, debe configurar el recurso del conj
             "clusterEndpoint": "[reference(parameters('clusterName')).clusterEndpoint]",
             "nodeTypeRef": "[parameters('vmNodeType1Name')]",
             "dataPath": "D:\\\\SvcFab",
-            "durabilityLevel": "Silver",
+            "durabilityLevel": "Bronze",
             "certificate": {
                 "thumbprint": "[parameters('certificateThumbprint')]",
                 "x509StoreName": "[parameters('certificateStoreValue')]"

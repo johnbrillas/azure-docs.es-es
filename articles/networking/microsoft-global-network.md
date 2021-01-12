@@ -10,15 +10,15 @@ ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/13/2019
+ms.date: 01/05/2020
 ms.author: kumud
 ms.reviewer: ypitsch
-ms.openlocfilehash: 05e966d3f4631e3c344bd97c0faec99cc3c6dd66
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: a33c7e7d637b519b249c250481a73d04c661d4d5
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91819904"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97915851"
 ---
 # <a name="microsoft-global-network"></a>Red global de Microsoft
 
@@ -71,4 +71,5 @@ Estos principios se aplican a todas las capas de la red: desde la interfaz de re
 El crecimiento exponencial de Azure y su red ha alcanzado un punto donde finalmente hemos asumido que ya no es posible confiar en la intuición humana para administrar las operaciones de red globales. Para satisfacer la necesidad de validar los cambios en la red a corto, medio y largo plazo, hemos desarrollado una plataforma que imite de forma sintética nuestra red de producción. La capacidad de crear entornos reflejados y ejecutar millones de simulaciones nos permite probar los cambios de hardware y software y su impacto, antes de confirmarlos en nuestra plataforma y red de producción. 
 
 ## <a name="next-steps"></a>Pasos siguientes
+- [Obtenga información sobre la forma en la que Microsoft está avanzando en la confiabilidad de la red global mediante software inteligente](https://azure.microsoft.com/blog/advancing-global-network-reliability-through-intelligent-software-part-1-of-2/).
 - [Más información sobre los servicios de red proporcionados en Azure](https://azure.microsoft.com/product-categories/networking/)

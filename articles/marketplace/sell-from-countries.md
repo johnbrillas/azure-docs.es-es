@@ -8,17 +8,17 @@ ms.custom: references_regions
 ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 09/02/2020
-ms.openlocfilehash: fd33ebebf35e0407f7ce39c609ee372a7d1d4a61
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/04/2021
+ms.openlocfilehash: 48a0c3484b6cbeac4d71d3fbf383bb1c14466a9d
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91250511"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97897338"
 ---
 # <a name="supported-publisher-countries-and-regions"></a>Países y regiones del editor admitidos
 
-Para publicar una oferta en el marketplace comercial de Microsoft, debe tener su residencia en uno de los siguientes países o regiones.
+Para publicar una oferta en el marketplace comercial de Microsoft, su empresa debe residir legalmente en uno de los siguientes países o regiones:
 
 - Afganistán
 - Islas Åland
@@ -134,7 +134,6 @@ Para publicar una oferta en el marketplace comercial de Microsoft, debe tener su
 - Kazajistán
 - Kenia
 - Kiribati
-- Corea
 - Kosovo
 - Kuwait
 - Kirguistán
@@ -224,6 +223,7 @@ Para publicar una oferta en el marketplace comercial de Microsoft, debe tener su
 - Somalia
 - Sudáfrica
 - Islas Georgia del Sur y Sandwich del Sur
+- Corea del Sur (República de Corea)
 - Sudán del Sur
 - España
 - Sri Lanka

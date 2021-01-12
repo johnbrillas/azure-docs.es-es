@@ -1,27 +1,27 @@
 ---
-title: Administración de recursos compartidos en Azure Stack Edge Pro | Microsoft Docs
-description: En este artículo se explica cómo usar Azure Portal para administrar recursos compartidos de Azure Stack Edge Pro.
+title: Administración de recursos compartidos en Azure Stack Edge Pro FPGA | Microsoft Docs
+description: En este artículo se explica cómo usar Azure Portal para administrar recursos compartidos en Azure Stack Edge Pro FPGA.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/25/2019
+ms.date: 01/04/2021
 ms.author: alkohli
-ms.openlocfilehash: 4d43b70c8f958ad37b6ac2d0ee043d5f07d11da9
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 7fbb5ca43d2877e2e14914b71df7cc1bcdf27f88
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96444594"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97898384"
 ---
-# <a name="use-the-azure-portal-to-manage-shares-on-azure-stack-edge-pro"></a>Uso de Azure Portal para administrar recursos compartidos en Azure Stack Edge Pro
+# <a name="use-the-azure-portal-to-manage-shares-on-azure-stack-edge-pro-fpga"></a>Uso de Azure Portal para administrar recursos compartidos en Azure Stack Edge Pro FPGA 
 
-En este artículo se explica cómo administrar recursos compartidos en Azure Stack Edge Pro. Azure Stack Edge Pro se puede administrar con Azure Portal o con la interfaz de usuario web local. Use Azure Portal para agregar, eliminar y actualizar recursos compartidos o sincronizar la clave de almacenamiento para la cuenta de almacenamiento asociada con los recursos compartidos.
+En este artículo se explica cómo administrar recursos compartidos en un dispositivo Azure Stack Edge Pro FPGA. Puede administrar el dispositivo Azure Stack Edge Pro FPGA a través de Azure Portal o de la interfaz de usuario web local. Use Azure Portal para agregar, eliminar y actualizar recursos compartidos o sincronizar la clave de almacenamiento para la cuenta de almacenamiento asociada con los recursos compartidos.
 
 ## <a name="about-shares"></a>Acerca de los recursos compartidos
 
-Para transferir datos a Azure, es preciso crear recursos compartidos en Azure Stack Edge Pro. Los recursos compartidos que agrega en el dispositivo Azure Stack Edge Pro pueden ser recursos compartidos locales o recursos compartidos que insertan datos en la nube.
+Para transferir datos a Azure, es preciso crear recursos compartidos en Azure Stack Edge Pro FPGA. Los recursos compartidos que agrega en el dispositivo Azure Stack Edge Pro pueden ser recursos compartidos locales o recursos compartidos que insertan datos en la nube.
 
  - **Recursos compartidos locales**: use estos recursos compartidos cuando quiera procesar los datos localmente en el dispositivo.
  - **Recursos compartidos**: use estos recursos compartidos cuando quiera que los datos del dispositivo se inserten automáticamente en su cuenta de almacenamiento en la nube. Todas las funciones de la nube, como la **actualización** y la **sincronización de claves de almacenamiento** se aplican a los recursos compartidos.
@@ -39,7 +39,7 @@ En este artículo aprenderá a:
 
 Siga estos pasos en Azure Portal para crear un recurso compartido.
 
-1. En Azure Portal, vaya al recurso de Azure Stack Edge y luego a **Puerta de enlace > Recursos compartidos**. Seleccione **+ Agregar recurso compartido** en la barra de comandos.
+1. En Azure Portal, vaya al recurso de Azure Stack Edge y, luego, a **Cloud storage gateway** (Puerta de enlace de almacenamiento en la nube). Vaya a **Recursos compartidos** y seleccione **+ Agregar recurso compartido** en la barra de comandos.
 
     ![Seleccionar Agregar recurso compartido](media/azure-stack-edge-manage-shares/add-share-1.png)
 
@@ -72,7 +72,7 @@ Siga estos pasos en Azure Portal para crear un recurso compartido.
 
 ## <a name="add-a-local-share"></a>Incorporación de un recurso compartido local
 
-1. En Azure Portal, vaya al recurso de Azure Stack Edge y luego a **Puerta de enlace > Recursos compartidos**. Seleccione **+ Agregar recurso compartido** en la barra de comandos.
+1. En Azure Portal, vaya al recurso de Azure Stack Edge y, luego, a **Cloud storage gateway > Shares** (Puerta de enlace de almacenamiento en la nube > Recursos compartidos). Seleccione **+ Agregar recurso compartido** en la barra de comandos.
 
    ![Seleccionar Agregar recurso compartido 2](media/azure-stack-edge-manage-shares/add-local-share-1.png)
 
@@ -96,15 +96,13 @@ Siga estos pasos en Azure Portal para crear un recurso compartido.
 
    ![Vista de las actualizaciones de la hoja Recursos compartidos](media/azure-stack-edge-manage-shares/add-local-share-3.png)
     
-    Seleccione el recurso compartido para ver el punto de montaje local para los módulos de proceso perimetral de este recurso compartido.
 
-   ![Vista de los detalles del recurso compartido](media/azure-stack-edge-manage-shares/add-local-share-4.png)
 
 ## <a name="mount-a-share"></a>Montaje de un recurso compartido
 
 Si creó un recurso compartido antes de configurar el proceso en su dispositivo Azure Stack Edge Pro, deberá montar el recurso compartido. Realice los siguientes pasos para montar un recurso compartido.
 
-1. En Azure Portal, vaya al recurso de Azure Stack Edge y luego a **Puerta de enlace > Recursos compartidos**. En la lista de recursos compartidos, seleccione el que desee montar. En la columna **Usado para el proceso**, el estado del recurso compartido seleccionado aparecerá como **Deshabilitado**.
+1. En Azure Portal, vaya al recurso de Azure Stack Edge y, luego, a **Cloud storage gateway > Shares** (Puerta de enlace de almacenamiento en la nube > Recursos compartidos). En la lista de recursos compartidos, seleccione el que desee montar. En la columna **Usado para el proceso**, el estado del recurso compartido seleccionado aparecerá como **Deshabilitado**.
 
    ![Seleccionar recurso compartido 3](media/azure-stack-edge-manage-shares/select-share-mount.png)
 
@@ -122,13 +120,13 @@ Si creó un recurso compartido antes de configurar el proceso en su dispositivo 
 
 5. Vuelva a seleccionar el recurso compartido para ver el punto de montaje local del recurso compartido. El módulo del proceso perimetral usa este punto de montaje local para el recurso compartido.
 
-   ![Punto de montaje local del recurso compartido](media/azure-stack-edge-manage-shares/share-mountpoint.png)
+   ![Punto de montaje local del recurso compartido](media/azure-stack-edge-manage-shares/share-mountpoint.png) 
 
 ## <a name="unmount-a-share"></a>Desmontaje de un recurso compartido
 
 Siga estos pasos en Azure Portal para desmontar un recurso compartido.
 
-1. En Azure Portal, vaya al recurso de Azure Stack Edge y luego a **Puerta de enlace > Recursos compartidos**.
+1. En Azure Portal, vaya al recurso de Azure Stack Edge y, luego, a **Cloud storage gateway > Shares** (Puerta de enlace de almacenamiento en la nube > Recursos compartidos).
 
    ![Seleccionar recurso compartido 4](media/azure-stack-edge-manage-shares/select-share-unmount.png)
 
@@ -148,13 +146,13 @@ Siga estos pasos en Azure Portal para desmontar un recurso compartido.
 
 Siga estos pasos en Azure Portal para eliminar un recurso compartido.
 
-1. En la lista de recursos compartidos, seleccione y haga clic en el recurso compartido que desea eliminar.
+1. En Azure Portal, vaya al recurso de Azure Stack Edge y, luego, a **Cloud storage gateway > Shares** (Puerta de enlace de almacenamiento en la nube > Recursos compartidos). En la lista de recursos compartidos, seleccione y haga clic en el recurso compartido que desea eliminar.
 
    ![Seleccionar recurso compartido 5](media/azure-stack-edge-manage-shares/delete-share-1.png)
 
-2. Haga clic en **Eliminar**.
+2. Seleccione **Eliminar**.
 
-   ![Clic en Eliminar](media/azure-stack-edge-manage-shares/delete-share-2.png)
+   ![Seleccionar Eliminar](media/azure-stack-edge-manage-shares/delete-share-2.png)
 
 3. Cuando se le pida confirmación, haga clic en **Sí**.
 
@@ -173,15 +171,15 @@ La característica de actualización permite actualizar el contenido de un recur
 
 Siga estos pasos en Azure Portal para actualizar un recurso compartido.
 
-1. En Azure Portal, vaya a **Recursos compartidos**. Seleccione y haga clic en el recurso compartido que desea actualizar.
+1. En Azure Portal, vaya al recurso de Azure Stack Edge y, luego, a **Cloud storage gateway > Shares** (Puerta de enlace de almacenamiento en la nube > Recursos compartidos). Seleccione y haga clic en el recurso compartido que desea actualizar.
 
    ![Seleccionar recurso compartido 6](media/azure-stack-edge-manage-shares/refresh-share-1.png)
 
-2. Haga clic en **Actualizar**.
+2. Seleccione **Actualizar datos**.
 
-   ![Hacer clic en actualizar](media/azure-stack-edge-manage-shares/refresh-share-2.png)
+   ![Seleccione Actualizar](media/azure-stack-edge-manage-shares/refresh-share-2.png)
  
-3. Cuando se le pida confirmación, haga clic en **Sí**. Se inicia el trabajo de actualización del contenido del recurso compartido local.
+3. Cuando se le pida confirmación, seleccione **Sí**. Se inicia el trabajo de actualización del contenido del recurso compartido local.
 
    ![Confirmar actualización](media/azure-stack-edge-manage-shares/refresh-share-3.png)
 
@@ -199,7 +197,7 @@ Si las claves de la cuenta de almacenamiento han rotado, deberá sincronizar las
 
 Realice los pasos siguientes en Azure Portal para sincronizar la clave de acceso al almacenamiento.
 
-1. Vaya a **Información general** en el recurso. En la lista de recursos compartidos, elija y haga clic en un recurso compartido asociado con la cuenta de almacenamiento que necesita sincronizar.
+1. En Azure Portal, vaya al recurso de Azure Stack Edge y, luego, a **Cloud storage gateway > Shares** (Puerta de enlace de almacenamiento en la nube > Recursos compartidos). En la lista de recursos compartidos, elija y haga clic en un recurso compartido asociado con la cuenta de almacenamiento que necesita sincronizar.
 
     ![Selección del recurso compartido con una cuenta de almacenamiento pertinente](media/azure-stack-edge-manage-shares/sync-storage-key-1.png)
 

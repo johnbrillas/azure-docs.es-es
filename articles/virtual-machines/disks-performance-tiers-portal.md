@@ -4,16 +4,16 @@ description: Aprenda a cambiar los niveles de rendimiento de los discos administ
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 11/19/2020
+ms.date: 01/05/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: a868d5d236cf4c5a8d29f15490909c2f1a53546f
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: 625fb1e3dd0b433da6b60f995aa6b380c23ec9ce
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "96016616"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97901041"
 ---
 # <a name="change-your-performance-tier-using-the-azure-portal"></a>Cambio del nivel de rendimiento mediante Azure Portal
 
@@ -47,7 +47,7 @@ En los pasos siguientes se describe cómo cambiar el nivel de rendimiento de un 
 1. Desasigne la máquina virtual o desasocie el disco.
 1. Seleccione el disco.
 1. Seleccione **Tamaño y rendimiento**.
-1. En la lista desplegable **Nivel de rendimiento**, seleccione un nivel que no sea el de línea base actual del disco.
+1. En la lista desplegable **Nivel de rendimiento**, seleccione un nivel distinto del nivel de rendimiento actual del disco.
 1. Seleccione **Cambiar tamaño**.
 
 :::image type="content" source="media/disks-performance-tiers-portal/change-tier-existing-disk.png" alt-text="Captura de pantalla de la hoja de tamaño y rendimiento, en la que hay un nivel de rendimiento resaltado." lightbox="media/disks-performance-tiers-portal/performance-tier-settings.png":::

@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 9b870e21ffd5c6a8261b6731b939b5dff558256d
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 17b31e365e311b97e322828927827f40733313a6
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96501199"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588835"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>SDK de dispositivo IoT de Azure para C
 
@@ -43,7 +43,7 @@ En este artículo se presenta la arquitectura del SDK de dispositivo IoT de Azur
 
 Puede encontrar el [**SDK de dispositivo IoT de Azure para C**](https://github.com/Azure/azure-iot-sdk-c) en el repositorio de GitHub y ver los detalles de la API en la [referencia de la API de C](/azure/iot-hub/iot-c-sdk-ref/).
 
-La versión más reciente de las bibliotecas se puede encontrar en la rama **master** del repositorio:
+La versión más reciente de las bibliotecas se puede encontrar en la rama **principal** del repositorio:
 
   ![Captura de pantalla de la rama principal del repositorio](./media/iot-hub-device-sdk-c-intro/RepoMasterBranch.png)
 
@@ -72,7 +72,7 @@ Antes de ejecutar los ejemplos en el SDK de dispositivo IoT de Azure para C, deb
 
 Se proporcionan paquetes para plataformas comunes (como NuGet para Windows o apt_get para Debian y Ubuntu) y los ejemplos usan estos paquetes cuando estén disponibles. En algunos casos, es preciso compilar el SDK para el dispositivo. Si necesita compilar el SDK, consulte [Prepare your development environment](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) (Preparación de un entorno de desarrollo) en el repositorio de GitHub.
 
-Para obtener el código de la aplicación de ejemplo, descargue una copia del SDK de GitHub. Obtenga su copia del código fuente de la rama **master** del [repositorio de GitHub](https://github.com/Azure/azure-iot-sdk-c).
+Para obtener el código de la aplicación de ejemplo, descargue una copia del SDK de GitHub. Obtenga la copia del código fuente de la rama **principal** del [repositorio de GitHub](https://github.com/Azure/azure-iot-sdk-c).
 
 
 ### <a name="obtain-the-device-credentials"></a>Obtención de las credenciales del dispositivo

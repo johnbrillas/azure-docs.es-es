@@ -9,17 +9,29 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: b11b0b46e57247d09e576795079e20c679e519d5
-ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
+ms.openlocfilehash: 695702c04e2eeb74ee27b7d4276a3be94d9d1cf7
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97760119"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881827"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de la versión de Azure Machine Learning
 
 En este artículo conocerá las versiones de Azure Machine Learning.  Para obtener el contenido completo de referencia del SDK, visite la página de referencia del [**SDK principal para Python**](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) de Azure Machine Learning.
 
+## <a name="2020-12-31"></a>31/12/2020
+### <a name="azure-machine-learning-studio-notebooks-experience-december-update"></a>Experiencia con los cuadernos de Estudio de Azure Machine Learning (actualización de diciembre)
++ **Nuevas características:**
+  + Búsqueda del nombre de archivo del usuario. Los usuarios ahora pueden buscar en todos los archivos que están guardados en un área de trabajo.
+  + Compatibilidad en paralelo con Markdown por celda del cuaderno. En una celda del cuaderno, los usuarios ahora tienen la opción de ver en paralelo la representación del archivo Markdown y la sintaxis de Markdown.
+  + Barra de estado de la celda. La barra de estado indica en qué estado se encuentra una celda de código, si la ejecución de una celda fue correcta y cuánto tiempo tardó en ejecutarse. 
+   
++ **Mejoras y correcciones de errores**
+  + Se han mejorado los tiempos de carga de las páginas.
+  + rendimiento mejorado. 
+  + Se han mejorado la velocidad y la confiabilidad del kernel.
+  
 ## <a name="2020-12-07"></a>2020-12-07
 
 ### <a name="azure-machine-learning-sdk-for-python-v1190"></a>SDK de Azure Machine Learning para Python v1.19.0
@@ -83,7 +95,19 @@ En este artículo conocerá las versiones de Azure Machine Learning.  Para obten
     + Se han dejado de utilizar Nccl y Gloo como tipo de entrada válido para las clases Estimator a favor del uso PyTorchConfiguration con ScriptRunConfig. 
     + Se ha dejado de utilizar Mpi como tipo de entrada válido para las clases Estimator a favor del uso de MpiConfiguration con ScriptRunConfig.
 
+## <a name="2020-11-30"></a>30/11/2020
+### <a name="azure-machine-learning-studio-notebooks-experience-november-update"></a>Experiencia con los cuadernos de Estudio de Azure Machine Learning (actualización de noviembre)
++ **Nuevas características:**
+   + Terminal nativo. Los usuarios ahora podrán acceder a un terminal integrado, así como a la operación de Git, por medio del [terminal integrado](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#terminal).
+  + Carpeta duplicada. 
+  + Desplegable de costos de procesos. 
+  + Pylance para procesos sin conexión. 
 
++ **Mejoras y correcciones de errores**
+  + Se han mejorado los tiempos de carga de las páginas.
+  + rendimiento mejorado. 
+  + Se han mejorado la velocidad y la confiabilidad del kernel.
+  + Carga de archivos grandes. Ahora puede cargar archivos de más de 95 MB.
 
 ## <a name="2020-11-09"></a>09-11-2020
 
@@ -1891,7 +1915,7 @@ En el momento en que se publica este artículo, se admiten los siguientes explor
   + El rendimiento de `read_parquet` ha mejorado cuando se ejecuta en Spark.
   + Se ha corregido un problema en que se producía un error `column_type_builder` en el caso de una sola columna con formatos de fecha ambiguos.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 + **Característica en vista previa**
   + El streaming de archivos de registro y de salida ahora está disponible para las páginas de detalles de la ejecución. Los archivos transmitirán las actualizaciones en tiempo real cuando se active la alternancia de la vista previa.
   + Se ofrece en versión preliminar la capacidad de establecer la cuota en el nivel de área de trabajo. Las cuotas de AmlCompute se asignan en el nivel de suscripción, pero ahora puede distribuir esa cuota entre las áreas de trabajo y asignarla con el fin de conseguir un uso compartido y una gobernanza equitativos. Solo tiene que hacer clic en la hoja **Usages+Quotas** (Usos y cuotas) de la barra de navegación izquierda del área de trabajo y seleccionar la pestaña **Configure Quotas** (Configurar cuotas). Debe ser administrador de la suscripción para poder establecer cuotas en el nivel de área de trabajo, ya que se trata de una operación entre áreas de trabajo.
@@ -2170,7 +2194,7 @@ SDK de Azure Machine Learning para Python v1.0.30.
 
 ## <a name="2019-04-15"></a>2019-04-15
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
   + Ahora puede volver a enviar un ciclo de script existente de un clúster de proceso remoto existente.
   + Ahora puede ejecutar una canalización publicada con parámetros nuevos en la pestaña Canalizaciones.
   + Los detalles de la ejecución ahora admiten un nuevo visor de archivos de instantánea. Puede ver una instantánea del directorio cuando envió una ejecución concreta. También puede descargar el cuaderno que se envió para iniciar la ejecución.
@@ -2228,7 +2252,7 @@ SDK de Azure Machine Learning para Python v1.0.30.
 + **Mejoras y correcciones de errores**
   + Se ha agregado compatibilidad en las canalizaciones de Azure Machine Learning con el establecimiento de la propiedad source_directory_data_store en un almacén de datos deseado (como un almacenamiento de blobs) en [RunConfigurations](/python/api/azureml-core/azureml.core.runconfig.runconfiguration?preserve-view=true&view=azure-ml-py) que se suministran a [PythonScriptStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?preserve-view=true&view=azure-ml-py). De forma predeterminada los pasos utilizan el almacén de Azure File como el almacén de datos de respaldo, lo que provocar problemas de limitación cuando un gran número de pasos se ejecutan simultáneamente.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
 + **Nuevas características:**
   + Nueva experiencia de arrastrar y soltar el editor de tablas en informes. Los usuarios pueden arrastrar una columna desde el cuadro al área de la tabla en la que se mostrará una vista previa de la tabla. Las columnas se pueden reorganizar.

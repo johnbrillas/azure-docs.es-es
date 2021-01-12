@@ -6,18 +6,20 @@ ms.topic: reference
 ms.custom: devx-track-csharp
 ms.date: 05/11/2020
 ms.author: chenyl
-ms.openlocfilehash: e2651afbcdc3bae71bb531aa0e821f83264c295d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2482a26987ec142880acc51bf470d844655b6e3f
+ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88212597"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97763527"
 ---
 # <a name="signalr-service-trigger-binding-for-azure-functions"></a>Enlace del desencadenador de SignalR Service para Azure Functions
 
 Use el enlace del desencadenador de *SignalR* para responder a mensajes enviados desde Azure SignalR Service. Cuando se desencadena la función, los mensajes pasados a la función se analizan como un objeto JSON.
 
-Para obtener información sobre los detalles de instalación y configuración, vea la [información general](functions-bindings-signalr-service.md).
+En el modo sin servidor de SignalR Service, SignalR Service usa la característica [Upstream](../azure-signalr/concept-upstream.md) para enviar mensajes del cliente a la aplicación de funciones. Y la aplicación de funciones usa el enlace de desencadenador de SignalR Service para controlar estos mensajes. A continuación se muestra la arquitectura general: :::image type="content" source="media/functions-bindings-signalr-service/signalr-trigger.png" alt-text="Arquitectura de desencadenadores de SignalR":::
+
+Para obtener información sobre los detalles de instalación y configuración, consulte la [información general](functions-bindings-signalr-service.md).
 
 ## <a name="example"></a>Ejemplo
 
@@ -203,15 +205,22 @@ InvocationContext incluye todo el contenido del mensaje enviado desde SignalR Se
 
 ## <a name="using-parameternames"></a>Usar `ParameterNames`
 
-La propiedad `ParameterNames` en `SignalRTrigger` permite enlazar argumentos de mensajes de invocación con los parámetros de funciones. Esto proporciona una manera más práctica de acceder a los argumentos de `InvocationContext`.
+La propiedad `ParameterNames` en `SignalRTrigger` permite enlazar argumentos de mensajes de invocación con los parámetros de funciones. El nombre que ha definido se puede usar como parte de [expresiones de enlace](../azure-functions/functions-bindings-expressions-patterns.md) en otro enlace o como parámetros en el código. Esto proporciona una manera más práctica de acceder a los argumentos de `InvocationContext`.
 
-Supongamos que tiene un cliente de SignalR de JavaScript que intenta invocar el método `broadcast` en Azure Functions con dos argumentos.
+Imagine que tiene un cliente de SignalR de JavaScript que intenta invocar el método `broadcast` en Azure Functions con dos argumentos: `message1`, `message2`.
 
 ```javascript
 await connection.invoke("broadcast", message1, message2);
 ```
 
-Puede acceder a estos dos argumentos desde el parámetro, así como asignar un tipo de parámetro para ellos mediante `ParameterNames`.
+Después de establecer `parameterNames`, el nombre definido se corresponderá respectivamente con los argumentos enviados en el lado cliente. 
+
+```cs
+[SignalRTrigger(parameterNames: new string[] {"arg1, arg2"})]
+```
+
+Después, `arg1` incluirá el contenido de `message1` y `arg2` el de `message2`.
+
 
 ### <a name="remarks"></a>Observaciones
 
@@ -219,20 +228,28 @@ Al enlazar parámetros, el orden es importante. Si está utilizando `ParameterNa
 
 `ParameterNames` y el atributo `[SignalRParameter]` **no se pueden** usar al mismo tiempo o se producirá una excepción.
 
-## <a name="send-messages-to-signalr-service-trigger-binding"></a>Envío de mensajes al enlace del desencadenador de SignalR Service
+## <a name="signalr-service-integration"></a>Integración de SignalR Service
 
-Azure Functions genera una dirección URL para el enlace del desencadenador de SignalR Service con el formato siguiente:
+SignalR Service necesita una dirección URL para acceder a la aplicación de funciones cuando se usa el enlace de desencadenador de SignalR Service. La dirección URL se debe configurar en **Configuración ascendente** en el lado de SignalR Service. 
+
+:::image type="content" source="../azure-signalr/media/concept-upstream/upstream-portal.png" alt-text="Portal de Upstream":::
+
+Al usar el desencadenador de SignalR Service, la dirección URL puede ser sencilla y tener el formato que se muestra a continuación:
 
 ```http
-https://<APP_NAME>.azurewebsites.net/runtime/webhooks/signalr?code=<API_KEY>
+<Function_App_URL>/runtime/webhooks/signalr?code=<API_KEY>
 ```
 
-Azure Functions genera la `API_KEY`. La `API_KEY` se puede obtener de Azure Portal mientras usa el enlace del desencadenador de SignalR Service.
+`Function_App_URL` se puede encontrar en la página Información general de la aplicación de funciones y la función de Azure la genera `API_KEY`. Puede obtener `API_KEY` de `signalr_extension` en la hoja **Claves de la aplicación** de la aplicación de funciones.
 :::image type="content" source="media/functions-bindings-signalr-service/signalr-keys.png" alt-text="Clave de API":::
 
-Debe establecer esta dirección URL en `UrlTemplate` en la configuración ascendente de SignalR Service.
+Si quiere usar más de una aplicación de funciones junto con una instancia de SignalR Service, Upstream también puede admitir reglas de enrutamiento complejas. Encuentre más información en [Configuración ascendente](../azure-signalr/concept-upstream.md).
+
+## <a name="step-by-step-sample"></a>Ejemplo paso a paso
+
+Puede seguir el ejemplo de GitHub para implementar un salón de chat en una aplicación de funciones con la característica de enlace de desencadenador y Upstream de SignalR Service: [Ejemplo de salón de chat bidireccional](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/BidirectionChat)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Desarrollo y configuración de Azure Functions con Azure SignalR Service](../azure-signalr/signalr-concept-serverless-development-config.md)
-* [Ejemplo de enlace del desencadenador de SignalR Service](https://github.com/Azure/azure-functions-signalrservice-extension/tree/dev/samples/bidirectional-chat)
+* [Ejemplo de enlace del desencadenador de SignalR Service](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/BidirectionChat)

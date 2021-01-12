@@ -11,16 +11,16 @@ author: jhirono
 ms.date: 11/20/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 07ff656c5eacbbcdc16c6c7cf098478ca6baf745
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 8d3145639d2d4fb64bdb374f1dea0a7b70e4151c
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97509298"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724721"
 ---
 # <a name="how-to-use-your-workspace-with-a-custom-dns-server"></a>Uso de un área de trabajo con un servidor DNS personalizado
 
-Al usar un área de trabajo de Azure Machine Learning con un punto de conexión privado, hay [varias maneras de controlar la resolución de nombres DNS](../private-link/private-endpoint-dns.md). De manera predeterminada, Azure controla automáticamente la resolución de nombres para el área de trabajo y el punto de conexión privado. Si, en cambio, _usa su propio servidor DNS personalizado_, debe crear manualmente entradas DNS para el área de trabajo.
+Al usar un área de trabajo de Azure Machine Learning con un punto de conexión privado, hay [varias maneras de controlar la resolución de nombres DNS](../private-link/private-endpoint-dns.md). De manera predeterminada, Azure controla automáticamente la resolución de nombres para el área de trabajo y el punto de conexión privado. Si, en cambio, _usa un servidor DNS personalizado propio_, tendrá que crear manualmente entradas DNS o usar reenviadores condicionales para el área de trabajo.
 
 > [!IMPORTANT]
 > En este artículo solo se explica cómo buscar el nombre de dominio completo (FQDN) y las direcciones IP para estas entradas; NO se proporciona información sobre cómo configurar los registros DNS para estos elementos. Consulte la documentación del software de DNS para obtener información sobre cómo agregar registros.
@@ -37,9 +37,9 @@ Al usar un área de trabajo de Azure Machine Learning con un punto de conexión 
 
 - De manera opcional, la [CLI de Azure](/cli/azure/install-azure-cli) o [Azure PowerShell](/powershell/azure/install-az-ps).
 
-## <a name="find-the-ip-addresses"></a>Búsqueda de direcciones IP
-
-La lista siguiente contiene los nombres de dominio completos (FQDN) que usa el área de trabajo y el punto de conexión privado:
+## <a name="fqdns-in-use"></a>FQDN en uso
+### <a name="these-fqdns-are-in-use-in-the-following-regions-eastus-southcentralus-and-westus2"></a>Estos FQDN están en uso en las regiones siguientes: eastus, southcentralus y westus2.
+La lista siguiente contiene los nombres de dominio completos (FQDN) que se usan en el área de trabajo:
 
 * `<workspace-GUID>.workspace.<region>.cert.api.azureml.ms`
 * `<workspace-GUID>.workspace.<region>.api.azureml.ms`
@@ -51,6 +51,19 @@ La lista siguiente contiene los nombres de dominio completos (FQDN) que usa el 
 
     > [!NOTE]
     > Solo se puede acceder a la instancia de proceso desde dentro de la red virtual.
+    
+### <a name="these-fqdns-are-in-use-in-all-other-regions"></a>Estos FQDN están en uso en todas las demás regiones
+La lista siguiente contiene los nombres de dominio completos (FQDN) que se usan en el área de trabajo:
+
+* `<workspace-GUID>.workspace.<region>.cert.api.azureml.ms`
+* `<workspace-GUID>.workspace.<region>.api.azureml.ms`
+* `ml-<workspace-name>-<region>-<workspace-guid>.notebooks.azure.net`
+* `<instance-name>.<region>.instances.azureml.ms`
+
+    > [!NOTE]
+    > Solo se puede acceder a la instancia de proceso desde dentro de la red virtual.
+
+## <a name="find-the-ip-addresses"></a>Búsqueda de direcciones IP
 
 Para buscar las direcciones IP internas de los FQDN en la red virtual, use uno de los métodos siguientes:
 
@@ -89,7 +102,7 @@ La información devuelta por todos los métodos es la misma; una lista de los FQ
 | `ml-myworkspace-eastus-fb7e20a0-8891-458b-b969-55ddb3382f51.notebooks.azure.net` | `10.1.0.6` |
 
 > [!IMPORTANT]
-> El punto de conexión privado no enumera algunos FQDN, pero estos son necesarios en el área de trabajo. Estos FQDN se muestran en la tabla siguiente y también se deben agregar al servidor DNS:
+> El punto de conexión privado no enumera algunos FQDN, pero estos son necesarios para el área de trabajo en eastus, southcentralus y westus2. Estos FQDN se muestran en la tabla siguiente y también se deben agregar al servidor DNS o a una zona de DNS privado de Azure:
 >
 > * `<workspace-GUID>.workspace.<region>.cert.api.azureml.ms`
 > * `<workspace-GUID>.workspace.<region>.experiments.azureml.net`
@@ -102,3 +115,5 @@ La información devuelta por todos los métodos es la misma; una lista de los FQ
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener más información sobre el uso de Azure Machine Learning con una red virtual, consulte la [información general sobre la red virtual](how-to-network-security-overview.md).
+
+Para obtener más información sobre la integración de puntos de conexión privados en la configuración de DNS, vea [Configuración de DNS para puntos de conexión privados de Azure](https://docs.microsoft.com/azure/private-link/private-endpoint-dns).

@@ -3,34 +3,156 @@ title: Procedimiento para conectar una muestra de puente IoT Plug and Play que s
 description: Compile y ejecute un puente IoT Plug and Play en Linux o Windows que se conecta a un centro de IoT. Use la herramienta Azure IoT Explorer para ver la información enviada por el dispositivo al centro.
 author: usivagna
 ms.author: ugans
-ms.date: 09/22/2020
+ms.date: 12/11/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: eedd19189d1e1ccedd3d505aecf407aca8fca831
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: bf730dbc28d15c3d036e9ebeedbe035db087c5d8
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413367"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673043"
 ---
 # <a name="how-to-connect-an--iot-plug-and-play-bridge-sample-running-on-linux-or-windows-to-iot-hub"></a>Procedimiento para conectar una muestra de puente de IoT Plug and Play que se ejecuta en Linux o Windows a IoT Hub
 
-En este procedimiento se muestra cómo compilar el adaptador de muestra de puente IoT Plug and Play, conectarlo a IoT Hub y usar la herramienta Azure IoT Explorer para ver los datos de telemetría que envía. El puente IoT Plug and Play se escribe en C e incluye el SDK de dispositivo IoT de Azure para C. Al final de este tutorial, debería poder ejecutar el puente IoT Plug and Play y ver los informes de telemetría en Azure IoT Explorer: :::image type="content" source="media/concepts-iot-pnp-bridge/iot-pnp-bridge-explorer-telemetry.png" alt-text="Captura de pantalla que muestra Azure IoT Explorer con una tabla de telemetría (humedad, temperatura) notificada del puente IoT Plug and Play.":::
+En este artículo se muestra cómo compilar el adaptador de muestra de puente IoT Plug and Play, conectarlo al centro de IoT y usar la herramienta Azure IoT Explorer para ver los datos de telemetría que envía. El puente IoT Plug and Play se escribe en C e incluye el SDK de dispositivo IoT de Azure para C. Al final de este tutorial, debería poder ejecutar el puente IoT Plug and Play y ver los informes de telemetría en Azure IoT Explorer:
+
+:::image type="content" source="media/concepts-iot-pnp-bridge/iot-pnp-bridge-explorer-telemetry.png" alt-text="Captura de pantalla que muestra Azure IoT Explorer con una tabla de telemetría (humedad, temperatura) notificada del puente IoT Plug and Play.":::
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Puede ejecutar este inicio rápido en Linux o Windows. Los comandos de shell de este procedimiento siguen la convención de Windows para los separadores de ruta de acceso "`\`". Si utiliza Linux, asegúrese de cambiar estos separadores por "`/`".
+Puede ejecutar el ejemplo en el artículo sobre Windows o Linux. Los comandos de shell de este procedimiento siguen la convención de Windows para los separadores de ruta de acceso "`\`". Si utiliza Linux, asegúrese de cambiar estos separadores por "`/`".
 
-Los requisitos previos difieren en función del sistema operativo:
+### <a name="azure-iot-explorer"></a>Azure IoT Explorer
+
+Para interactuar con el dispositivo de ejemplo en la segunda parte de este artículo, use la herramienta **Azure IoT Explorer**. [Descargue e instale la versión de Azure IoT Explorer más reciente](./howto-use-iot-explorer.md) para su sistema operativo.
+
+[!INCLUDE [iot-pnp-prepare-iot-hub.md](../../includes/iot-pnp-prepare-iot-hub.md)]
+
+Ejecute el siguiente comando para obtener la _cadena de conexión de IoT Hub_ para su centro. Tome nota de esta cadena de conexión, ya que la usará más adelante en este artículo:
+
+```azurecli-interactive
+az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
+```
+
+Ejecute el siguiente comando para obtener la _cadena de conexión del dispositivo_ que ha agregado al centro. Tome nota de esta cadena de conexión, ya que la usará más adelante en este artículo:
+
+```azurecli-interactive
+az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --device-id <YourDeviceID> --output table
+```
+
+## <a name="download-and-run-the-bridge"></a>Descarga y ejecución del puente
+
+En este artículo, tiene dos opciones para ejecutar el puente. Puede:
+
+- Descargar un archivo ejecutable precompilado y ejecutarlo tal y como se describe en esta sección.
+- Descargar el código fuente y, posteriormente, [compilar y ejecutar el puente](#build-and-run-the-bridge) tal y como se describe en la sección siguiente.
+
+Para descargar y ejecutar el puente:
+
+1. Vaya a la [página de versiones](https://github.com/Azure/iot-plug-and-play-bridge/releases) de IoT Plug and Play.
+1. Descargue el archivo ejecutable precompilado para su sistema operativo: **pnpbridge_bin.exe** para Windows o **pnpbridge_bin** para Linux.
+1. Descargue el archivo [config.json](https://raw.githubusercontent.com/Azure/iot-plug-and-play-bridge/master/pnpbridge/src/adapters/samples/environmental_sensor/config.json) de configuración de ejemplo para el ejemplo de sensor ambiental. Asegúrese de que el archivo de configuración esté en la misma carpeta que el ejecutable.
+1. Edite el archivo *config.json*:
+
+    - Agregue el valor de `connection-string` que sea la _cadena de conexión del dispositivo_ que anotó anteriormente.
+    - Agregue el valor `symmetric_key` que es el valor de clave de acceso compartida de la _cadena de conexión del dispositivo_.
+    - Reemplace el valor de `root_interface_model_id` por `dtmi:com:example:PnpBridgeEnvironmentalSensor;1`.
+
+    La primera sección del archivo *config.json* ahora es similar al siguiente fragmento de código:
+
+    ```json
+    {
+      "$schema": "../../../pnpbridge/src/pnpbridge_config_schema.json",
+      "pnp_bridge_connection_parameters": {
+        "connection_type" : "connection_string",
+        "connection_string" : "HostName=youriothub.azure-devices.net;DeviceId=yourdevice;SharedAccessKey=TTrz8fR7ylHKt7DC/e/e2xocCa5VIcq5x9iQKxKFVa8=",
+        "root_interface_model_id": "dtmi:com:example:PnpBridgeEnvironmentalSensor;1",
+        "auth_parameters": {
+            "auth_type": "symmetric_key",
+            "symmetric_key": "TTrz8fR7ylHKt7DC/e/e2xocCa5VIcq5x9iQKxKFVa8="
+        },
+    ```
+
+1. Ejecute el archivo ejecutable en el entorno de línea de comandos. El puente genera una salida como la siguiente:
+
+    ```output
+    c:\temp\temp-bridge>dir
+     Volume in drive C is OSDisk
+     Volume Serial Number is 38F7-DA4A
+    
+     Directory of c:\temp\temp-bridge
+    
+    10/12/2020  12:24    <DIR>          .
+    10/12/2020  12:24    <DIR>          ..
+    08/12/2020  15:26             1,216 config.json
+    10/12/2020  12:21         3,617,280 pnpbridge_bin.exe
+                   2 File(s)      3,618,496 bytes
+                   2 Dir(s)  12,999,147,520 bytes free
+    
+    c:\temp\temp-bridge>pnpbridge_bin.exe
+    Info:
+     -- Press Ctrl+C to stop PnpBridge
+    
+    Info: Using default configuration location
+    Info: Starting Azure PnpBridge
+    Info: Pnp Bridge is running as am IoT egde device.
+    Info: Pnp Bridge creation succeeded.
+    Info: Connection_type is [connection_string]
+    Info: Tracing is disabled
+    Info: WARNING: SharedAccessKey is included in connection string. Ignoring symmetric_key in config file.
+    Info: IoT Edge Device configuration initialized successfully
+    Info: Building Pnp Bridge Adapter Manager, Adapters & Components
+    Info: Adapter with identity environment-sensor-sample-pnp-adapter does not have any associated global parameters. Proceeding with adapter creation.
+    Info: Pnp Adapter with adapter ID environment-sensor-sample-pnp-adapter has been created.
+    Info: Pnp Adapter Manager created successfully.
+    Info: Pnp components created successfully.
+    Info: Pnp components built in model successfully.
+    Info: Connected to Azure IoT Hub
+    Info: Environmental Sensor: Starting Pnp Component
+    Info: IoTHub client call to _SendReportedState succeeded
+    Info: Environmental Sensor Adapter:: Sending device information property to IoTHub. propertyName=state, propertyValue=true
+    Info: Pnp components started successfully.
+    ```
+
+## <a name="build-and-run-the-bridge"></a>Compilación y ejecución del puente
+
+Si prefiere compilar el archivo ejecutable usted mismo, puede descargar el código fuente y los scripts de compilación.
+
+Abra un símbolo del sistema en la carpeta de su elección. Ejecute el siguiente comando para clonar el repositorio de GitHub del [puente IoT Plug and Play](https://github.com/Azure/iot-plug-and-play-bridge) en esta ubicación:
+
+```cmd
+git clone https://github.com/Azure/iot-plug-and-play-bridge.git
+```
+
+Después de clonar el repositorio, actualice los submódulos. Los submódulos incluyen el SDK de IoT de Azure para C:
+
+```cmd
+cd iot-plug-and-play-bridge
+git submodule update --init --recursive
+```
+
+Esta operación puede tardar varios minutos en completarse.
+
+> [!TIP]
+> Si surgen problemas con la actualización del submódulo del clon de Git, se trata de un problema conocido con las rutas de acceso de archivos de Windows. Para resolver el problema, puede probar el comando siguiente: `git config --system core.longpaths true`
+
+Los requisitos previos para la creación del puente varían según el sistema operativo:
+
+### <a name="windows"></a>Windows
+
+Para compilar el puente IoT Plug and Play en Windows, instale el software siguiente:
+
+* [Visual Studio (Community, Professional o Enterprise)](https://visualstudio.microsoft.com/downloads/): asegúrese de incluir la carga de trabajo **Desarrollo para el escritorio con C++** cuando [instale](/cpp/build/vscpp-step-0-installation?preserve-view=true&view=vs-2019) Visual Studio.
+* [Git](https://git-scm.com/download/).
+* [CMake](https://cmake.org/download/).
 
 ### <a name="linux"></a>Linux
 
-En este inicio rápido se asume que utiliza Ubuntu Linux. Los pasos de este inicio rápido se han probado con Ubuntu 18.04.
+En este artículo se presupone que usa Ubuntu Linux. Los pasos de este artículo se han probado con Ubuntu 18.04.
 
-Para completar este inicio rápido en Linux, es preciso instalar el siguiente software en el entorno Linux local:
-
-Instale **GCC** , **Git** , **cmake** y todas las dependencias necesarias con el comando `apt-get`:
+Para compilar el puente IoT Plug and Play en Linux, instale **GCC**, **Git**, **cmake** y todas las dependencias necesarias con el comando `apt-get`:
 
 ```sh
 sudo apt-get update
@@ -44,112 +166,7 @@ cmake --version
 gcc --version
 ```
 
-### <a name="windows"></a>Windows
-
-Para completar este inicio rápido en Windows, instale el siguiente software en el entorno Windows local:
-
-* [Visual Studio (Community, Professional o Enterprise)](https://visualstudio.microsoft.com/downloads/): asegúrese de incluir la carga de trabajo **Desarrollo para el escritorio con C++** cuando [instale](/cpp/build/vscpp-step-0-installation?preserve-view=true&view=vs-2019) Visual Studio.
-* [Git](https://git-scm.com/download/).
-* [CMake](https://cmake.org/download/).
-
-### <a name="azure-iot-explorer"></a>Azure IoT Explorer
-
-Para interactuar con el dispositivo de ejemplo en la segunda parte de esta guía de inicio rápido, use la herramienta **Azure IoT Explorer**. [Descargue e instale la versión de Azure IoT Explorer más reciente](./howto-use-iot-explorer.md) para su sistema operativo.
-
-[!INCLUDE [iot-pnp-prepare-iot-hub.md](../../includes/iot-pnp-prepare-iot-hub.md)]
-
-Ejecute el siguiente comando para obtener la _cadena de conexión de IoT Hub_ para su centro. Tome nota de esta cadena de conexión, ya que la usará más adelante en este inicio rápido:
-
-```azurecli-interactive
-az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
-```
-
-> [!TIP]
-> También puede usar la herramienta Azure IoT Explorer para buscar la cadena de conexión del centro de IoT.
-
-Ejecute el siguiente comando para obtener la _cadena de conexión del dispositivo_ que ha agregado al centro. Tome nota de esta cadena de conexión, ya que la usará más adelante en este inicio rápido:
-
-```azurecli-interactive
-az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --device-id <YourDeviceID> --output table
-```
-
-## <a name="view-the-model"></a>Vista del modelo
-
-Más adelante, usará Azure IoT Explorer para ver el dispositivo cuando se conecte a IoT Hub. Azure IoT Explorer necesitará una copia local del archivo de modelo que coincida con el **identificador de modelo** que envía el dispositivo. El archivo de modelo permite que Azure IoT Explorer muestre los datos de telemetría, las propiedades y los comandos que implementa el dispositivo.
-
-Al descargar el código en el paso siguiente, se incluyen los archivos de modelo de ejemplo en la carpeta `pnpbridge/docs/schema`. Para preparar Azure IoT Explorer:
-
-1. Cree una carpeta denominada *models* en la máquina local.
-1. Visualice [EnvironmentalSensor.json](https://aka.ms/iot-pnp-bridge-env-model) y guarde el archivo JSON en la carpeta *models*.
-1. Visualice [RootBridgeSampleDevice.json](https://aka.ms/iot-pnp-bridge-root-model) y guarde el archivo JSON en la carpeta *models*.
-
-## <a name="download-the-code"></a>Descargar el código
-
-Abra un símbolo del sistema en el directorio que prefiera. Ejecute el siguiente comando para clonar el repositorio de GitHub del [puente IoT Plug and Play](https://aka.ms/iotplugandplaybridge) en esta ubicación:
-
-```cmd
-git clone https://github.com/Azure/iot-plug-and-play-bridge.git
-```
-
-Después de clonar el repositorio de puente de IoT Plug and Play Bridge en la máquina, abra un símbolo del sistema de comandos administrativo y navegue hasta el directorio del repositorio clonado:
-
-```cmd
-cd pnpbridge
-git submodule update --init --recursive
-```
-
-Esta operación puede tardar varios minutos en completarse.
-
->[!NOTE]
-> Si surgen problemas con la actualización del submódulo del clon de GIT, se trata de un problema conocido con las rutas de acceso de archivos de Windows y GIT. Consulte https://github.com/msysgit/git/pull/110. Para resolver el problema, puede probar el comando siguiente: `git config --system core.longpaths true`
-
-## <a name="setting-up-the-configuration-json"></a>Ajustes del código JSON de configuración
-
-Después de clonar el repositorio de puente IoT Plug and Play en el equipo, vaya al directorio `pnpbridge/docs/schema` del repositorio clonado, donde podrá encontrar el [código JSON de configuración](https://aka.ms/iot-pnp-bridge-env-config) o `config.json` para la muestra del sensor del entorno del puente. Puede obtener más información acerca de los archivos de configuración en el [documento sobre conceptos de puente IoT Plug and Play](concepts-iot-pnp-bridge.md).
-
-En el campo `root-_interface_model_id`, deberá copiar el identificador del modelo de IoT Plug and Play que identifique el modelo del dispositivo. En este ejemplo, es `dtmi:com:example:SampleDevice;1`. Modifique los parámetros siguientes en el nodo **pnp_bridge_parameters** del archivo `config.json`:
-
-* connection_string 
-* symmetric_key 
-
->[!NOTE]
-> El valor de symmetric_key debe coincidir con la clave SAS de la cadena de conexión.
-
-  ```JSON
-    {
-      "connection_parameters": {
-        "connection_type" : "connection_string",
-        "connection_string" : "[CONNECTION STRING]",
-        "root_interface_model_id": "[To fill in]",
-        "auth_parameters" : {
-          "auth_type" : "symmetric_key",
-          "symmetric_key" : "[SYMMETRIC KEY]"
-        }
-      }
-    }
-  }
-  ```
-
- Una vez completado, el archivo `config.json` debe tener este aspecto:
-
-   ```JSON
-    {
-      "connection_parameters": {
-        "connection_type" : "connection_string",
-        "connection_string" : "[CONNECTION STRING]",
-        "root_interface_model_id": "dtmi:com:example:SampleDevice;1",
-        "auth_parameters" : {
-          "auth_type" : "symmetric_key",
-          "symmetric_key" : "[SYMMETRIC KEY]"
-        }
-      }
-    }
-  }
-```
-
- Una vez compilado el puente, tendrá que colocar `config.json` en el mismo directorio que el puente o especificar su ruta de acceso cuando se ejecute.
-
-## <a name="build-the-iot-plug-and-play-bridge"></a>Compilación del puente IoT Plug and Play
+### <a name="build-the-iot-plug-and-play-bridge"></a>Compilación del puente IoT Plug and Play
 
 Navegue hasta la carpeta *pnpbridge* en el directorio del repositorio.
 
@@ -171,25 +188,95 @@ cd scripts/linux
 >[!TIP]
 >En Windows, puede abrir la solución generada por el comando cmake en Visual Studio 2019. Abra el archivo de proyecto *azure_iot_pnp_bridge.sln* en el directorio cmake y establezca el proyecto *pnpbridge_bin* como proyecto de inicio en la solución. Ahora puede compilar el ejemplo en Visual Studio y ejecutarlo en modo de depuración.
 
-## <a name="start-the-iot-plug-and-play-bridge"></a>Inicio del puente IoT Plug and Play
+### <a name="edit-the-configuration-file"></a>Editar el archivo de configuración
 
- Inicie la muestra del puente IoT Plug and Play para los sensores de entorno. Para ello, vaya a la carpeta *pnpbridge* y ejecute lo siguiente en un símbolo del sistema:
+Puede obtener más información acerca de los archivos de configuración en el [documento sobre conceptos de puente IoT Plug and Play](concepts-iot-pnp-bridge.md).
 
-```bash
- cd cmake/pnpbridge_linux/src/adapters/samples/environmental_sensor/
-./pnpbridge_environmentalsensor
+Abra el archivo *iot-plug-and-play-bridge\pnpbridge\src\adapters\samples\environmental_sensor\config.json* en un editor de texto.
 
+- Agregue el valor de `connection-string` que sea la _cadena de conexión del dispositivo_ que anotó anteriormente.
+- Agregue el valor `symmetric_key` que es el valor de clave de acceso compartida de la _cadena de conexión del dispositivo_.
+- Reemplace el valor de `root_interface_model_id` por `dtmi:com:example:PnpBridgeEnvironmentalSensor;1`.
+
+La primera sección del archivo *config.json* ahora es similar al siguiente fragmento de código:
+
+```json
+{
+  "$schema": "../../../pnpbridge/src/pnpbridge_config_schema.json",
+  "pnp_bridge_connection_parameters": {
+    "connection_type" : "connection_string",
+    "connection_string" : "HostName=youriothub.azure-devices.net;DeviceId=yourdevice;SharedAccessKey=TTrz8fR7ylHKt7DC/e/e2xocCa5VIcq5x9iQKxKFVa8=",
+    "root_interface_model_id": "dtmi:com:example:PnpBridgeEnvironmentalSensor;1",
+    "auth_parameters": {
+        "auth_type": "symmetric_key",
+        "symmetric_key": "TTrz8fR7ylHKt7DC/e/e2xocCa5VIcq5x9iQKxKFVa8="
+    },
 ```
+
+### <a name="run-the-iot-plug-and-play-bridge"></a>Ejecución del puente IoT Plug and Play
+
+Inicie el ejemplo de sensor ambiental de puente IoT Plug and Play Bridge. El parámetro es la ruta de acceso al archivo `config.json` que editó en la sección anterior:
 
 ```cmd
 REM Windows
-cd cmake\pnpbridge_x86\src\adapters\samples\environmental_sensor
-Debug\pnpbridge_environmentalsensor.exe
+cd iot-plug-and-play-bridge\pnpbridge\cmake\pnpbridge_x86\src\pnpbridge\samples\console
+Debug\pnpbridge_bin.exe ..\..\..\..\..\..\src\adapters\samples\environmental_sensor\config.json
 ```
+
+El puente genera una salida como la siguiente:
+
+```output
+c:\temp>cd iot-plug-and-play-bridge\pnpbridge\cmake\pnpbridge_x86\src\pnpbridge\samples\console
+
+c:\temp\iot-plug-and-play-bridge\pnpbridge\cmake\pnpbridge_x86\src\pnpbridge\samples\console>Debug\pnpbridge_bin.exe ..\..\..\..\..\..\src\adapters\samples\environmental_sensor\config.json
+Info:
+ -- Press Ctrl+C to stop PnpBridge
+
+Info: Using configuration from specified file path: ..\..\..\..\..\..\src\adapters\samples\environmental_sensor\config.json
+Info: Starting Azure PnpBridge
+Info: Pnp Bridge is running as am IoT egde device.
+Info: Pnp Bridge creation succeeded.
+Info: Connection_type is [connection_string]
+Info: Tracing is disabled
+Info: WARNING: SharedAccessKey is included in connection string. Ignoring symmetric_key in config file.
+Info: IoT Edge Device configuration initialized successfully
+Info: Building Pnp Bridge Adapter Manager, Adapters & Components
+Info: Adapter with identity environment-sensor-sample-pnp-adapter does not have any associated global parameters. Proceeding with adapter creation.
+Info: Pnp Adapter with adapter ID environment-sensor-sample-pnp-adapter has been created.
+Info: Pnp Adapter Manager created successfully.
+Info: Pnp components created successfully.
+Info: Pnp components built in model successfully.
+Info: Connected to Azure IoT Hub
+Info: Environmental Sensor: Starting Pnp Component
+Info: IoTHub client call to _SendReportedState succeeded
+Info: Environmental Sensor Adapter:: Sending device information property to IoTHub. propertyName=state, propertyValue=true
+Info: Pnp components started successfully.
+Info: IoTHub client call to _SendEventAsync succeeded
+Info: PnpBridge_PnpBridgeStateTelemetryCallback called, result=0, telemetry=PnpBridge configuration complete
+Info: Processing property update for the device or module twin
+Info: Environmental Sensor Adapter:: Successfully delivered telemetry message for <environmentalSensor>
+```
+
+Ejecute los siguientes comandos para ejecutar el puente en Linux:
+
+```bash
+cd iot-plug-and-play-bridge/pnpbridge/cmake/pnpbridge_x86/src/pnpbridge/samples/console
+./pnpbridge_bin ../../../../../../src/adapters/samples/environmental_sensor/config.json
+```
+
+## <a name="download-the-model-files"></a>Descarga de los archivos de modelo
+
+Más adelante, usará Azure IoT Explorer para ver el dispositivo cuando se conecte al centro de IoT. Azure IoT Explorer necesita una copia local del archivo de modelo que coincida con el **identificador de modelo** que envía el dispositivo. El archivo de modelo permite que Azure IoT Explorer muestre los datos de telemetría, las propiedades y los comandos que implementa el dispositivo.
+
+Para descargar los modelos para Azure IoT Explorer:
+
+1. Cree una carpeta denominada *models* en la máquina local.
+1. Guarde [EnvironmentalSensor.json](https://raw.githubusercontent.com/Azure/iot-plug-and-play-bridge/master/pnpbridge/docs/schemas/EnvironmentalSensor.json) en la carpeta *models* que creó en el paso anterior.
+1. Si abre este archivo de modelo en un editor de texto, puede ver que el modelo define un componente con `dtmi:com:example:PnpBridgeEnvironmentalSensor;1` como su identificador. Este es el mismo identificador de modelo que usó en el archivo *config.json*.
 
 ## <a name="use-azure-iot-explorer-to-validate-the-code"></a>Uso de Azure IoT Explorer para validar el código
 
-Una vez iniciado el ejemplo de cliente de dispositivo, compruebe que funciona con la herramienta Azure IoT Explorer.
+Una vez iniciado el puente, compruebe que funciona con la herramienta Azure IoT Explorer. Puede ver la telemetría, las propiedades y los comandos definidos en el modelo `dtmi:com:example:PnpBridgeEnvironmentalSensor;1`.
 
 [!INCLUDE [iot-pnp-iot-explorer.md](../../includes/iot-pnp-iot-explorer.md)]
 
@@ -197,8 +284,8 @@ Una vez iniciado el ejemplo de cliente de dispositivo, compruebe que funciona co
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este inicio rápido ha aprendido a conectar un dispositivo IoT Plug and Play a un centro de IoT. Para más información sobre cómo crear una solución que interactúe con dispositivos IoT Plug and Play, consulte:
+En este artículo ha aprendido a conectar un dispositivo IoT Plug and Play a un centro de IoT. Para más información sobre cómo crear una solución que interactúe con dispositivos IoT Plug and Play, consulte:
 
 * [¿Qué es un puente IoT Plug and Play?](./concepts-iot-pnp-bridge.md)
-* [Consulte la referencia para desarrolladores de GitHub para el puente IoT Plug and Play](https://aka.ms/iot-pnp-bridge-dev-doc)
-* [Puente IoT Plug and Play en GitHub](https://aka.ms/iotplugandplaybridge)
+* [Compilación, implementación y ampliación del puente IoT Plug and Play](howto-build-deploy-extend-pnp-bridge.md)
+* [Puente IoT Plug and Play en GitHub](https://github.com/Azure/iot-plug-and-play-bridge)

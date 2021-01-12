@@ -10,34 +10,34 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: shono
-ms.openlocfilehash: 87b9e4a3ca7151b3666928b00add175eddeea050
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 0dbd6ea13069b72e6bca5c065af92568a5c7cdb8
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94409389"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97844945"
 ---
 # <a name="select-a-domain-for-a-custom-vision-project"></a>Selección de un dominio para un proyecto de Custom Vision
 
-En la hoja de configuración del proyecto de Custom Vision, puede seleccionar un dominio para el proyecto. Elija el dominio más cercano a su escenario.
+Desde la pestaña de configuración del proyecto de Custom Vision, puede seleccionar un dominio para el proyecto. Elija el dominio más cercano a su escenario. Si accede a Custom Vision mediante una biblioteca de cliente o API REST, tendrá que especificar un identificador de dominio al crear el proyecto. Puede obtener una lista de identificadores de dominio con [Obtener dominios](https://westus2.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeab), o bien usar la tabla siguiente.
 
 ## <a name="image-classification"></a>Clasificación de imágenes
 
 |Domain|Propósito|
 |---|---|
-|__Genérico__| Optimizado para una amplia gama de tareas de clasificación de imágenes. Si ninguno de los otros dominios es adecuado o si no está seguro de qué dominio elegir, seleccione el dominio genérico.|
-|__Alimentos__|Optimizado para fotos de platos tal y como los vería en el menú de un restaurante. Si quiere clasificar fotos de frutas o verduras individuales, use el dominio de alimentos.|
-|__Puntos de referencia__|Optimizado para lugares de interés reconocibles, tanto naturales como artificiales. Este dominio funciona mejor cuando el punto de referencia es claramente visible en la foto. Este dominio funciona incluso si hay gente delante del punto de referencia que obstruye parcialmente su visión.|
-|__Minoristas__|Optimizado para imágenes que se encuentran en un catálogo de compra o un sitio web de compras. Si quiere una clasificación de alta precisión entre vestidos, pantalones y camisas, use este dominio.|
+|__General__| Optimizado para una amplia gama de tareas de clasificación de imágenes. Si ninguno de los otros dominios es adecuado o si no está seguro de cuál elegir, seleccione el dominio General. Identificador: `ee85a74c-405e-4adc-bb47-ffa8ca0c9f31`|
+|__Alimentos__|Optimizado para fotos de platos tal y como los vería en el menú de un restaurante. Si quiere clasificar fotos de frutas o verduras individuales, use el dominio de alimentos. Identificador: `c151d5b5-dd07-472a-acc8-15d29dea8518`|
+|__Puntos de referencia__|Optimizado para lugares de interés reconocibles, tanto naturales como artificiales. Este dominio funciona mejor cuando el punto de referencia es claramente visible en la foto. Este dominio funciona incluso si hay gente delante del punto de referencia que obstruye parcialmente su visión. Identificador: `ca455789-012d-4b50-9fec-5bb63841c793`|
+|__Minoristas__|Optimizado para imágenes que se encuentran en un catálogo de compra o un sitio web de compras. Si quiere una clasificación de alta precisión entre vestidos, pantalones y camisas, use este dominio. Identificador: `b30a91ae-e3c1-4f73-a81e-c270bff27c39`|
 |__Dominios compactos__| Optimizado para las restricciones de clasificación en tiempo real en dispositivos perimetrales.|
 
 ## <a name="object-detection"></a>Detección de objetos
 
 |Domain|Propósito|
 |---|---|
-|__General__| Optimizado para una amplia variedad de tareas de detección de objetos. Si ninguno de los otros dominios es adecuado, o no está seguro de qué dominio elegir, seleccione el dominio genérico.|
-|__Logotipo__|Optimizado para buscar logotipos de marca en imágenes.|
-|__Productos en las estanterías__|Optimizado para detectar y clasificar los productos que están en las estanterías.|
+|__General__| Optimizado para una amplia variedad de tareas de detección de objetos. Si ninguno de los otros dominios es adecuado, o no está seguro de cuál elegir, seleccione el dominio General. Identificador: `da2e3a8a-40a5-4171-82f4-58522f70fbc1`|
+|__Logotipo__|Optimizado para buscar logotipos de marca en imágenes. Identificador: `1d8ffafe-ec40-4fb2-8f90-72b3b6cecea4`|
+|__Productos en las estanterías__|Optimizado para detectar y clasificar los productos que están en las estanterías. Identificador: `3780a898-81c3-4516-81ae-3a139614e1f3`|
 |__Dominios compactos__| Optimizados para las restricciones de detección de objetos en tiempo real en dispositivos perimetrales.|
 
 ## <a name="compact-domains"></a>Dominios compactos
@@ -46,11 +46,11 @@ Los modelos generados por los dominios compactos se pueden exportar para ejecuta
 
 El rendimiento varía en función del dominio seleccionado. En la tabla siguiente, se indican el tamaño del modelo y el tiempo de inferencia en una CPU para equipos de sobremesa de Intel y en una GPU de NVidia \[1\]. Estas cifras no incluyen el tiempo de preprocesamiento y el de posprocesamiento.
 
-|Tarea|Domain|Tamaño del modelo|Tiempo de inferencia de CPU|Tiempo de inferencia de GPU|
-|---|---|---|---|---|
-|clasificación|General (compact) (General [compacto])|5 MB|13 ms|5 ms|
-|Detección de objetos|General (compact) (General [compacto])|45 MB|35 ms|5 ms|
-|Detección de objetos|General (compacto) [S1]|14 MB|27 ms|7 ms|
+|Tarea|Domain|ID|Tamaño del modelo|Tiempo de inferencia de CPU|Tiempo de inferencia de GPU|
+|---|---|---|---|---|---|
+|clasificación|General (compact) (General [compacto])|`0732100f-1a38-4e49-a514-c9b44c697ab5`|5 MB|13 ms|5 ms|
+|Detección de objetos|General (compact) (General [compacto])|`a27d5ca5-bb19-49d8-a70a-fec086c47f5b`|45 MB|35 ms|5 ms|
+|Detección de objetos|General (compacto) [S1]|`7ec2ac80-887b-48a6-8df9-8b1357765430`|14 MB|27 ms|7 ms|
 
 >[!NOTE]
 >El dominio __General (compact)__ de Object Detection (Detección de objetos) requiere una lógica de posprocesamiento especial. Para más información, vea cualquier script de ejemplo del paquete comprimido exortado. Si necesita un modelo sin lógica de posprocesamiento, use __General (compacto) [S1]__ .

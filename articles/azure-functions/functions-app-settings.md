@@ -3,12 +3,12 @@ title: Referencia de configuración de aplicación para Azure Functions
 description: Documentación de referencia para la configuración de la aplicación de Azure Functions o de variables de entorno.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 2b71bee620ab7d5b1ef98b60013d1978f49d127f
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 3d7292999fc4b53fed06822461857185127dc793
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505893"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97898732"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referencia de configuración de aplicación para Azure Functions
 
@@ -46,7 +46,7 @@ Para obtener más información, consulte [Cadenas de conexión](../azure-monitor
 
 De forma predeterminada, [Functions Proxies](functions-proxies.md) usará accesos directos para enviar llamadas API desde servidores proxy directamente a funciones en la misma aplicación de funciones. Se usa este acceso directo en lugar de crear una nueva solicitud HTTP. Esta configuración le permite deshabilitar el comportamiento de ese acceso directo.
 
-|Clave|Value|Descripción|
+|Clave|Valor|Descripción|
 |-|-|-|
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|Las llamadas con una dirección URL de back-end que apunte a una función en la aplicación de funciones local se no se envará directamente a la función. En su lugar, las solicitudes se devuelven al front-end HTTP para la aplicación de funciones.|
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|Las llamadas con una dirección URL de back-end que apunte a una función en la aplicación de funciones local se reenvían directamente a la función. Este es el valor predeterminado. |
@@ -55,7 +55,7 @@ De forma predeterminada, [Functions Proxies](functions-proxies.md) usará acceso
 
 Esta configuración controla si se descodifican los caracteres `%2F` como barras diagonales en los parámetros de ruta cuando se insertan en la dirección URL de back-end. 
 
-|Clave|Value|Descripción|
+|Clave|Valor|Descripción|
 |-|-|-|
 |AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|true|Los parámetros de ruta con barras diagonales codificadas se descodifican. |
 |AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|false|Todos los parámetros de ruta se pasan sin cambios, que es el comportamiento predeterminado. |
@@ -185,6 +185,14 @@ Especifica el número máximo de procesos de trabajo de lenguaje, con un valor p
 |Clave|Valor de ejemplo|
 |---|------------|
 |FUNCTIONS\_WORKER\_PROCESS\_COUNT|2|
+
+## <a name="python_threadpool_thread_count"></a>PYTHON\_THREADPOOL\_THREAD\_COUNT
+
+Especifica el número máximo de subprocesos que un trabajo de lenguaje Python usaría para ejecutar invocaciones de función, con un valor predeterminado de `1` para la versión de Python `3.8` y anteriores. En el caso de la versión de Python `3.9` y posteriores, el valor se establece en `None`. Tenga en cuenta que esta configuración no garantiza el número de subprocesos que se establecerán durante las ejecuciones. La configuración permite que Python amplíe el número de subprocesos al valor especificado. La configuración solo se aplica a las aplicaciones de funciones de Python. Además, la configuración se aplica a la invocación de funciones sincrónicas y no a las corrutinas.
+
+|Clave|Valor de ejemplo|Valor máximo|
+|---|------------|---------|
+|PYTHON\_THREADPOOL\_THREAD\_COUNT|2|32|
 
 
 ## <a name="functions_worker_runtime"></a>FUNCTIONS\_WORKER\_RUNTIME

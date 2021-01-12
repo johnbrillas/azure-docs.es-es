@@ -6,13 +6,13 @@ ms.author: nimoolen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/03/2020
-ms.openlocfilehash: 69b2713e928707479945df0bb242ac2fbc001c32
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.date: 12/23/2020
+ms.openlocfilehash: 3f5a6171ba81b858d649f381ed316be0637a2571
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96600666"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858661"
 ---
 # <a name="data-flow-script-dfs"></a>Script de flujo de datos (DFS)
 
@@ -245,6 +245,18 @@ derive(each(match(type=='string'), $$ = 'string'),
     each(match(type=='timestamp'), $$ = 'timestamp'),
     each(match(type=='boolean'), $$ = 'boolean'),
     each(match(type=='double'), $$ = 'double')) ~> DerivedColumn1
+```
+
+### <a name="fill-down"></a>Rellenar hacia abajo
+Aquí se explica cómo implementar el problema común de "Relleno" con conjuntos de datos cuando se quieren reemplazar los valores NULL por el valor del valor distinto de NULL anterior en la secuencia. Tenga en cuenta que esta operación puede tener implicaciones de rendimiento negativas porque debe crear una ventana sintética en todo el conjunto de datos con un valor de categoría "ficticio". Además, tendrá que ordenar por un valor para crear la secuencia de datos adecuada a fin de buscar el valor distinto de NULL anterior. En el fragmento de código siguiente se crea la categoría sintética como "ficticia" y se ordena por una clave suplente. Puede quitar la clave suplente y usar una clave de ordenación propia específica de los datos. En este fragmento de código se supone que ya ha agregado una transformación de origen denominada ```source1```.
+
+```
+source1 derive(dummy = 1) ~> DerivedColumn
+DerivedColumn keyGenerate(output(sk as long),
+    startAt: 1L) ~> SurrogateKey
+SurrogateKey window(over(dummy),
+    asc(sk, true),
+    Rating2 = coalesce(Rating, last(Rating, true()))) ~> Window1
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

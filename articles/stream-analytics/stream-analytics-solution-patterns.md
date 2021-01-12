@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: b82dd4ea8a74c51606b7a388b8d6ede07b1057c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02276ebf8e8a2289db2a1f6eac506443cea61c31
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89461551"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97682711"
 ---
 # <a name="azure-stream-analytics-solution-patterns"></a>Patrones de soluciones de Azure Stream Analytics
 
@@ -20,7 +20,7 @@ Al igual que muchos otros servicios de Azure, Stream Analytics se usa mejor con 
 
 ## <a name="create-a-stream-analytics-job-to-power-real-time-dashboarding-experience"></a>Creación de un trabajo de Stream Analytics para impulsar la experiencia de paneles en tiempo real
 
-Con Azure Stream Analytics, puede crear rápidamente paneles y alertas en tiempo real. Una solución sencilla ingiere eventos desde Event Hubs o IoT Hub y [alimenta el panel de Power BI con un conjunto de datos de streaming](/power-bi/service-real-time-streaming). Para más información, consulte el tutorial detallado [Analizar los datos de llamadas de teléfono con Stream Analytics y visualizar los resultados en un panel de Power BI](stream-analytics-manage-job.md).
+Con Azure Stream Analytics, puede crear rápidamente paneles y alertas en tiempo real. Una solución sencilla ingiere eventos desde Event Hubs o IoT Hub y [alimenta el panel de Power BI con un conjunto de datos de streaming](/power-bi/service-real-time-streaming). Para obtener más información, vea el tutorial detallado [Introducción al uso de Azure Stream Analytics: Detección de fraudes en tiempo real](stream-analytics-real-time-fraud-detection.md).
 
 ![Panel de Power BI ASA](media/stream-analytics-solution-patterns/power-bi-dashboard.png)
 

@@ -3,12 +3,12 @@ title: Versiones de clúster compatibles en Azure Service Fabric
 description: Obtenga información sobre las versiones de clúster en Azure Service Fabric, incluido un vínculo a las versiones más recientes del blog del equipo de Service Fabric.
 ms.topic: troubleshooting
 ms.date: 06/15/2020
-ms.openlocfilehash: 4407ddb80b00c847e14643be816bc681718dcb8b
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 5770aa072666f89a574da9d1f2584ab33b612330
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97652218"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97862179"
 ---
 # <a name="supported-service-fabric-versions"></a>Versiones admitidas de Service Fabric
 
@@ -21,8 +21,31 @@ Consulte los documentos siguientes para ver detalles sobre cómo hacer que el cl
 - [Actualización de un clúster de Azure Service Fabric](service-fabric-cluster-upgrade.md)
 - [Actualización de la versión de Service Fabric que se ejecuta en el clúster](service-fabric-cluster-upgrade-windows-server.md)
 
-## <a name="supported-versions"></a>Versiones compatibles
 
+## <a name="unsupported-versions"></a>Versiones no admitidas
+
+### <a name="upgrade-alert-for-versions-between-57-and-below-6363"></a>Alerta de actualización para las versiones entre la 5.7 y la 6.3.63, y anteriores.*
+
+***Todos los clústeres de Service Fabric en versiones no admitidas entre la 5.7 y la 6.3.63* se verán afectados por un cambio importante en la seguridad que se implementará en Azure el 7 de enero de 2021***.
+ 
+ Para evitar interrupciones graves en el servicio (incluido que no aparezcan los clústeres), debe actualizar los clústeres lo antes posible a una de las siguientes versiones admitidas del entorno de ejecución de Service Fabric que incluyen la corrección para el problema de seguridad. Hemos proporcionado instrucciones a los clientes afectados. Si tiene un plan de soporte técnico y necesita ayuda técnica, póngase en contacto con nosotros a través de los [canales de soporte técnico de Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Para ello, abra una solicitud de soporte técnico y mencione este contexto en la incidencia. 
+ 
+  #### <a name="supported-service-fabric-runtime-versions-including-the-fix-for-the-security-breaking-change"></a>Versiones del entorno de ejecución de Service Fabric admitidas que incluyen la corrección para el cambio importante en la seguridad 
+   Actualice los clústeres de Service Fabric que se ejecutan en versiones anteriores no compatibles afectadas por el cambio importante en la seguridad a una de las siguientes versiones admitidas.
+
+  | SO | Entorno de ejecución actual de Service Fabric en el clúster | Versión de revisión/actualización acumulativa  | 
+  | --- | --- |--- | 
+  | Windows | 7.0.* | 7.0.478.9590 |
+  | Windows | 7.1.* | 7.1.503.9590 |
+  | Windows | 7.2.* | 7.2.445.9590 |
+  | Ubuntu 16 | 7.0.* | 7.0.472.1  |
+  | Ubuntu 16 | 7.1.* | 7.1.455.1  |
+  | Ubuntu 1804 | 7.1.* | 7.1.455.1804 |
+  | Ubuntu 16 | 7.2.* | 7.2.447.1 |
+  | Ubuntu 1804 | 7.2.* | 7.2.447.1804 |
+ 
+
+## <a name="supported-versions"></a>Versiones compatibles
 En la tabla siguiente se indican las versiones de Service Fabric y sus fechas de finalización de soporte.
 
 | Entorno de tiempo de ejecución de Service Fabric en el clúster | Se puede actualizar directamente desde la versión del clúster |Versiones del SDK o paquete de NuGet compatibles | Finalización del soporte técnico |

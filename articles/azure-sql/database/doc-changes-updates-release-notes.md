@@ -150,19 +150,19 @@ GO
 BULK INSERT Sales.Invoices FROM 'inv-2017-12-08.csv' WITH (DATA_SOURCE = 'MyAzureBlobStorage');
 ```
 
-**Solución alternativa** : Use la [firma de acceso compartido para autenticarse en Storage](/sql/t-sql/statements/bulk-insert-transact-sql?view=sql-server-ver15#f-importing-data-from-a-file-in-azure-blob-storage).
+**Solución alternativa**: Use la [firma de acceso compartido para autenticarse en Storage](/sql/t-sql/statements/bulk-insert-transact-sql?view=sql-server-ver15#f-importing-data-from-a-file-in-azure-blob-storage).
 
 ### <a name="service-principal-cannot-access-azure-ad-and-akv"></a>La entidad de servicio no puede acceder a Azure AD y AKV
 
 En algunas circunstancias, puede existir un problema con la entidad de servicio que se utiliza para acceder a los servicios de Azure AD y Azure Key Vault (AKV). En consecuencia, este problema afecta al uso de la autenticación de Azure AD y al cifrado de datos transparente (TDE) con Instancia administrada de SQL. Esto podría experimentarse como un problema de conectividad intermitente o no podría ejecutar instrucciones como CREATE LOGIN/USER FROM EXTERNAL PROVIDER o EXECUTE AS LOGIN/USER. La configuración de TDE con clave administrada por el cliente en una nueva Instancia administrada de SQL de Azure también podría no funcionar en algunas circunstancias.
 
-**Solución alternativa** : Para evitar que se produzca este problema en SQL Managed Instance antes de ejecutar cualquier comando de actualización, o en caso de que ya se haya experimentado este problema después de actualizar los comandos, vaya a Azure Portal y acceda a la [hoja del administrador de Active Directory](./authentication-aad-configure.md?tabs=azure-powershell#azure-portal) de SQL Managed Instance. Compruebe si puede ver el mensaje de error "Instancia administrada necesita una entidad de seguridad para acceder a Azure Active Directory. Haga clic aquí para crear una." En caso de que aparezca este mensaje de error, haga clic en él y siga las instrucciones paso a paso que se proporcionan hasta que se resuelva el error.
+**Solución alternativa**: Para evitar que se produzca este problema en SQL Managed Instance antes de ejecutar cualquier comando de actualización, o en caso de que ya se haya experimentado este problema después de actualizar los comandos, vaya a Azure Portal y acceda a la [hoja del administrador de Active Directory](./authentication-aad-configure.md?tabs=azure-powershell#azure-portal) de SQL Managed Instance. Compruebe si puede ver el mensaje de error "Instancia administrada necesita una entidad de seguridad para acceder a Azure Active Directory. Haga clic aquí para crear una." En caso de que aparezca este mensaje de error, haga clic en él y siga las instrucciones paso a paso que se proporcionan hasta que se resuelva el error.
 
 ### <a name="restoring-manual-backup-without-checksum-might-fail"></a>La restauración de la copia de seguridad manual sin CHECKSUM puede devolver un error
 
 En determinadas circunstancias, es posible que no se restaure la copia de seguridad manual de las bases de datos que se realizó en una instancia administrada sin CHECKSUM. En tal caso, vuelva a intentar restaurar la copia de seguridad hasta que complete el proceso correctamente.
 
-**Solución alternativa** : realice copias de seguridad manuales de las bases de datos en instancias administradas con CHECKSUM habilitado.
+**Solución alternativa**: realice copias de seguridad manuales de las bases de datos en instancias administradas con CHECKSUM habilitado.
 
 ### <a name="agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs"></a>El agente deja de responder al modificar, deshabilitar o habilitar los trabajos existentes
 
@@ -172,19 +172,19 @@ En determinadas circunstancias, la modificación, deshabilitación o habilitaci�
 
 Cuando el rol de Azure del colaborador de SQL Managed Instance se aplica a un grupo de recursos (RG), no se aplica a SQL Managed Instance y no tiene ningún efecto.
 
-**Solución alternativa** : configure un rol de colaborador de SQL Managed Instance para los usuarios en el nivel de suscripción.
+**Solución alternativa**: configure un rol de colaborador de SQL Managed Instance para los usuarios en el nivel de suscripción.
 
 ### <a name="limitation-of-manual-failover-via-portal-for-failover-groups"></a>Limitación de la conmutación por error manual a través del portal para grupos de conmutación por error
 
 Si un grupo de conmutación por error abarca instancias de distintas suscripciones o grupos de recursos de Azure, la conmutación por error manual no se puede iniciar desde la instancia principal del grupo de conmutación por error.
 
-**Solución alternativa** : inicie la conmutación por error mediante el portal desde la base de datos geográfica secundaria.
+**Solución alternativa**: inicie la conmutación por error mediante el portal desde la base de datos geográfica secundaria.
 
 ### <a name="sql-agent-roles-need-explicit-execute-permissions-for-non-sysadmin-logins"></a>Los roles del Agente SQL necesitan permisos de ejecución (EXECUTE) explícitos para los inicios de sesión que no sean sysadmin
 
 Si los inicios de sesión que no son de sysadmin se agregan a cualquiera de los [roles fijos de base de datos del Agente SQL](/sql/ssms/agent/sql-server-agent-fixed-database-roles), existe un problema en el que los permisos EXECUTE explícitos deben concederse a los procedimientos almacenados maestros para que estos inicios de sesión funcionen. Si se encuentra este problema, aparece el mensaje de error "Se denegó el permiso EXECUTE en el objeto <nombre_objeto> (Microsoft SQL Server, error: 229)".
 
-**Solución alternativa** : Una vez que agregue inicios de sesión a un rol fijo de base de datos del Agente SQL (SQLAgentUserRole, SQLAgentReaderRole o SQLAgentOperatorRole), para cada uno de los inicios de sesión agregados a estos roles, ejecute el siguiente script T-SQL para conceder explícitamente permisos EXECUTE a los procedimientos almacenados enumerados.
+**Solución alternativa**: Una vez que agregue inicios de sesión a un rol fijo de base de datos del Agente SQL (SQLAgentUserRole, SQLAgentReaderRole o SQLAgentOperatorRole), para cada uno de los inicios de sesión agregados a estos roles, ejecute el siguiente script T-SQL para conceder explícitamente permisos EXECUTE a los procedimientos almacenados enumerados.
 
 ```tsql
 USE [master]
@@ -204,13 +204,13 @@ GRANT EXECUTE ON master.dbo.xp_sqlagent_notify TO [login_name]
 
 El nivel de servicio Crítico para la empresa no aplicará correctamente los [límites de memoria máximos para los objetos optimizados para memoria](../managed-instance/resource-limits.md#in-memory-oltp-available-space) en algunos casos. La Instancia administrada de SQL puede permitir que la carga de trabajo use más memoria para las operaciones de OLTP en memoria, lo que puede afectar a la disponibilidad y la estabilidad de la instancia. Es posible que las consultas de OLTP en memoria que alcanzan los límites no generen errores de inmediato. Pronto se resolverá este problema. Las consultas que usan en mayor grado OLTP en memoria producirán un error antes si llegan a los [límites](../managed-instance/resource-limits.md#in-memory-oltp-available-space).
 
-**Solución alternativa** : [Supervise el uso de almacenamiento de OLTP en memoria](../in-memory-oltp-monitor-space.md) con [SQL Server Management Studio](/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage#bkmk_Monitoring) para asegurarse de que la carga de trabajo no esté usando más memoria de la disponible. Aumente los límites de memoria que dependen del número de núcleos virtuales, u optimice la carga de trabajo para usar menos memoria.
+**Solución alternativa**: [Supervise el uso de almacenamiento de OLTP en memoria](../in-memory-oltp-monitor-space.md) con [SQL Server Management Studio](/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage#bkmk_Monitoring) para asegurarse de que la carga de trabajo no esté usando más memoria de la disponible. Aumente los límites de memoria que dependen del número de núcleos virtuales, u optimice la carga de trabajo para usar menos memoria.
  
 ### <a name="wrong-error-returned-while-trying-to-remove-a-file-that-is-not-empty"></a>Se mostró un error al intentar quitar un archivo que no está vacío
 
 SQL Server y SQL Managed Instance [no permiten al usuario quitar un archivo que no está vacío](/sql/relational-databases/databases/delete-data-or-log-files-from-a-database#Prerequisites). Si intenta quitar un archivo de datos no vacío mediante una instrucción `ALTER DATABASE REMOVE FILE`, el error `Msg 5042 – The file '<file_name>' cannot be removed because it is not empty` no se mostrará inmediatamente. SQL Managed Instance seguirá intentando quitar el archivo y se producirá un error en la operación después de 30 minutos con `Internal server error`.
 
-**Solución alternativa** : quite el contenido del archivo mediante el comando `DBCC SHRINKFILE (N'<file_name>', EMPTYFILE)`. Si este es el único archivo del grupo de archivos, debe eliminar los datos de la tabla o partición asociada a este grupo de archivos antes de reducir el archivo y, opcionalmente, cargar estos datos en otra tabla o partición.
+**Solución alternativa**: quite el contenido del archivo mediante el comando `DBCC SHRINKFILE (N'<file_name>', EMPTYFILE)`. Si este es el único archivo del grupo de archivos, debe eliminar los datos de la tabla o partición asociada a este grupo de archivos antes de reducir el archivo y, opcionalmente, cargar estos datos en otra tabla o partición.
 
 ### <a name="change-service-tier-and-create-instance-operations-are-blocked-by-ongoing-database-restore"></a>Las operaciones de cambio de nivel de servicio y creación de instancia se bloquean con la restauración en curso de la base de datos
 
@@ -218,19 +218,19 @@ La instrucción `RESTORE` en curso, el proceso de migración del servicio de mig
 
 El proceso de restauración bloqueará estas operaciones en las instancias administradas y en los grupos de instancias de la misma subred en la que se ejecute el proceso de restauración. Las instancias de los grupos de instancias no se ven afectadas. No se producirá ningún error en las operaciones de creación o cambio del nivel de servicio ni se agotará su tiempo de espera. Continuarán una vez que el proceso de restauración se complete o cancele.
 
-**Solución alternativa** : espere a que finalice el proceso de restauración; también puede cancelarlo si la operación de creación o actualización del nivel de servicio tiene mayor prioridad.
+**Solución alternativa**: espere a que finalice el proceso de restauración; también puede cancelarlo si la operación de creación o actualización del nivel de servicio tiene mayor prioridad.
 
 ### <a name="resource-governor-on-business-critical-service-tier-might-need-to-be-reconfigured-after-failover"></a>Es posible que sea necesario volver a configurar Resource Governor en el nivel de servicio Crítico para la empresa después de la conmutación por error
 
 La característica [Resource Governor](/sql/relational-databases/resource-governor/resource-governor) que le permite limitar los recursos asignados a la carga de trabajo de usuario puede clasificar incorrectamente alguna carga de trabajo de usuario después de una conmutación por error o un cambio de nivel de servicio iniciado por el usuario (por ejemplo, el cambio de número máximo de núcleos virtuales o tamaño máximo de almacenamiento de instancia).
 
-**Solución alternativa** : Ejecute `ALTER RESOURCE GOVERNOR RECONFIGURE` periódicamente o como parte de un trabajo del Agente SQL que ejecuta la tarea de SQL cuando la instancia se inicia si usa [Resource Governor](/sql/relational-databases/resource-governor/resource-governor).
+**Solución alternativa**: Ejecute `ALTER RESOURCE GOVERNOR RECONFIGURE` periódicamente o como parte de un trabajo del Agente SQL que ejecuta la tarea de SQL cuando la instancia se inicia si usa [Resource Governor](/sql/relational-databases/resource-governor/resource-governor).
 
 ### <a name="cross-database-service-broker-dialogs-must-be-reinitialized-after-service-tier-upgrade"></a>Los cuadros de diálogo de Service Broker entre bases de datos se deben volver a inicializar después de la actualización del nivel de servicio
 
 Los cuadros de diálogo de Service Broker entre bases de datos dejarán de enviar mensajes a los servicios de otras bases de datos después de la operación para cambiar el nivel de servicio. Los mensajes *no se pierden* y se pueden encontrar en la cola del remitente. Todos los cambios de tamaño de almacenamiento en núcleos virtuales o instancias de SQL Managed Instance harán que cambie un valor `service_broke_guid` de la vista [sys.databases](/sql/relational-databases/system-catalog-views/sys-databases-transact-sql) para todas las bases de datos. Todos los `DIALOG` creados con la instrucción [BEGIN DIALOG](/sql/t-sql/statements/begin-dialog-conversation-transact-sql) que hace referencia a los Service Broker de otra base de datos dejarán de entregar mensajes al servicio de destino.
 
-**Solución alternativa** : detenga todas las actividades que usen conversaciones con cuadros de diálogo de Service Broker entre bases de datos antes de actualizar un nivel de servicio y vuelva a inicializarlos después. Si quedan mensajes que no se entregaron después del cambio de nivel de servicio, lea los mensajes de la cola de origen y vuelva a enviarlos a la cola de destino.
+**Solución alternativa**: detenga todas las actividades que usen conversaciones con cuadros de diálogo de Service Broker entre bases de datos antes de actualizar un nivel de servicio y vuelva a inicializarlos después. Si quedan mensajes que no se entregaron después del cambio de nivel de servicio, lea los mensajes de la cola de origen y vuelva a enviarlos a la cola de destino.
 
 ### <a name="impersonation-of-azure-ad-login-types-is-not-supported"></a>No se admite la suplantación de tipos de inicio de sesión de Azure AD
 
@@ -258,7 +258,7 @@ La base de datos que se encuentra en estado de *restauración* será temporal y 
 
 En la fase inicial, un usuario puede acceder a la base de datos vacía e incluso crear tablas o cargar datos en esta base de datos. Esta base de datos temporal se quitará cuando el servicio de restauración inicie la segunda fase.
 
-**Solución alternativa** : No acceda a la base de datos que va a restaurar hasta que vea que la restauración se ha completado.
+**Solución alternativa**: No acceda a la base de datos que va a restaurar hasta que vea que la restauración se ha completado.
 
 ### <a name="tempdb-structure-and-content-is-re-created"></a>Se vuelve a crear la estructura y el contenido de TEMPDB
 
@@ -285,7 +285,7 @@ También puede [identificar el número de archivos restantes](https://medium.com
 
 Varias vistas del sistema, contadores de rendimiento, mensajes de error, XEvents y entradas de registro de errores muestran identificadores de base de datos GUID en lugar de los nombres reales de base de datos. No confíe en estos identificadores GUID porque se reemplazarán por los nombres reales de las bases de datos en el futuro.
 
-**Solución alternativa** : Use la vista sys.databases para resolver el nombre real de la base de datos del nombre de la base de datos física, especificado en forma de identificadores de base de datos GUID:
+**Solución alternativa**: Use la vista sys.databases para resolver el nombre real de la base de datos del nombre de la base de datos física, especificado en forma de identificadores de base de datos GUID:
 
 ```tsql
 SELECT name as ActualDatabaseName, physical_database_name as GUIDDatabaseIdentifier 
@@ -330,7 +330,7 @@ using (var scope = new TransactionScope())
 
 Los módulos de CLR en SQL Managed Instance y las consultas distribuidas o los servidores vinculados que hacen referencia a una instancia actual en algún momento no pueden resolver la dirección IP de una instancia local. Este error es un problema transitorio.
 
-**Solución alternativa** : use conexiones de contexto en un módulo de CLR, si es posible.
+**Solución alternativa**: use conexiones de contexto en un módulo de CLR, si es posible.
 
 ## <a name="updates"></a>Actualizaciones
 

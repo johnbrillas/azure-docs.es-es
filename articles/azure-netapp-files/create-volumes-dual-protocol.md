@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 12/15/2020
+ms.date: 01/05/2020
 ms.author: b-juche
-ms.openlocfilehash: ceaf0209dd14c8d97088d7f8e8e6990429607089
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: d296f80d85bb5081c466b27e6a8624e8b3f2c924
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97591829"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97915012"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Creación de un volumen de protocolo dual (NFSv3 y SMB) para Azure NetApp Files
 
@@ -39,7 +39,7 @@ Azure NetApp Files admite la creación de volúmenes con NFS (NFSv3 y NFSv4.1), 
 * Cree una zona de búsqueda inversa en el servidor DNS y, a continuación, agregue un registro de puntero (PTR) de la máquina host de AD en esa zona de búsqueda inversa. De lo contrario, se producirá un error en la creación del volumen de dos protocolos.
 * Asegúrese de que el cliente NFS esté actualizado y ejecute las actualizaciones más recientes del sistema operativo.
 * Asegúrese de que el servidor LDAP de Active Directory (AD) está en funcionamiento en AD. Puede hacerlo instalando y configurando el rol [Active Directory Lightweight Directory Services (AD LDS)](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831593(v=ws.11)) en la máquina de AD.
-* Asegúrese de que se crea una entidad de certificación (CA) en AD con el rol [Active Directory Certificate Services (AD CS)](/windows-server/networking/core-network-guide/cncg/server-certs/install-the-certification-authority) para generar y exportar el certificado de la entidad de certificación raíz autofirmado.   
+* Asegúrese de que se crea una entidad de certificación (CA) para AD con el rol [Active Directory Certificate Services (AD CS)](/windows-server/networking/core-network-guide/cncg/server-certs/install-the-certification-authority) para generar y exportar el certificado de la entidad de certificación raíz autofirmado.   
 * Los volúmenes del protocolo dual no admiten actualmente Azure Active Directory Domain Services (AADDS).  
 * La versión de NFS usada por un volumen de protocolo dual es NFSv3. Como tal, se aplican las siguientes consideraciones:
     * El protocolo dual no es compatible con los atributos extendidos de ACLS de Windows `set/get` desde clientes de NFS.
@@ -132,7 +132,11 @@ Azure NetApp Files admite la creación de volúmenes con NFS (NFSv3 y NFSv4.1), 
     * Un cliente basado en Windows que se haya unido al dominio y tenga instalado el certificado raíz. 
     * Otra máquina del dominio que contenga el certificado raíz.  
 
-3. Exporte el certificado raíz.  
+3. Exporte el certificado de entidad de certificación raíz.  
+    Los certificados de entidad de certificación raíz se pueden exportar desde el directorio de entidades emisoras de certificados raíz de confianza o personales, tal y como se muestra en los ejemplos siguientes:   
+    ![captura de pantalla que muestra los certificados personales](../media/azure-netapp-files/personal-certificates.png)   
+    ![captura de pantalla que muestra las entidades emisoras de certificados raíz de confianza](../media/azure-netapp-files/trusted-root-certification-authorities.png)    
+
     Asegúrese de que el certificado se exporta en el formato X.509 codificado en Base-64 (.CER): 
 
     ![Asistente para exportación de certificados](../media/azure-netapp-files/certificate-export-wizard.png)

@@ -3,12 +3,12 @@ title: Autenticación basada en certificados X.509 en un clúster de Service Fab
 description: Obtenga información acerca de la autenticación basada en certificados en clústeres de Service Fabric y cómo detectar, mitigar y corregir problemas relacionados con los certificados.
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.openlocfilehash: 4d81cb9d224bdc2e3002c621c86729df235e0d81
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 8af0246e0e576f9877c4c5e3b1f1a4314ae29827
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96574775"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97901256"
 ---
 # <a name="x509-certificate-based-authentication-in-service-fabric-clusters"></a>Autenticación basada en certificados X.509 en clústeres de Service Fabric
 
@@ -170,7 +170,10 @@ Los certificados de tipo de nodo también pueden declararse mediante el nombre c
   </NodeTypes>
 ```
 
-Para cualquier tipo de declaración, un nodo de Service Fabric leerá la configuración en el inicio, buscará y cargará los certificados especificados y los ordenará en orden descendente de su atributo NotAfter. Los certificados expirados se omiten y se selecciona el primer elemento de la lista como credencial de cliente para cualquier conexión de Service Fabric que haya intentado este nodo. (En efecto, Service Fabric favorece el certificado que va a expirar más tarde).
+Para cualquier tipo de declaración, un nodo de Service Fabric leerá la configuración en el inicio, buscará y cargará los certificados especificados, y los ordenará en orden descendente de atributo NotBefore. Los certificados expirados se omiten y se selecciona el primer elemento de la lista como credencial de cliente para cualquier conexión de Service Fabric que haya intentado este nodo. (En la práctica, Service Fabric favorece el certificado que se haya emitido más recientemente).
+
+> [!NOTE]
+> Antes de la versión 7.2.445 (7.2 CU4), Service Fabric seleccionaba el certificado que tardaba más en expirar (el certificado con la propiedad "NotAfter" más tardía).
 
 Tenga en cuenta que, para las declaraciones de presentación basadas en nombres comunes, un certificado se considera una coincidencia si su nombre común de firmante es igual al campo X509FindValue (o X509FindValueSecondary) de la declaración como una comparación de cadenas exactas que distingue entre mayúsculas y minúsculas. Esto contrasta con las reglas de validación, que admiten la coincidencia de caracteres comodín, así como las comparaciones de cadenas que no distinguen mayúsculas de minúsculas.  
 

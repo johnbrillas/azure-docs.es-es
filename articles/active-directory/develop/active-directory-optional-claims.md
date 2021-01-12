@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 11/30/2020
+ms.date: 1/04/2021
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: e0185cc8786dc101375262ddfd187c5d8e7e054f
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 6f95b4eca8dbaf6cfaa7546fddada7577a1541b3
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97509570"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916259"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Procedimientos: Proporcionar notificaciones opcionales a la aplicación
 
@@ -66,7 +66,7 @@ El conjunto de notificaciones opcionales disponibles de forma predeterminada par
 | `ztdid`                    | Identificador de implementación sin interacción | JWT | | La identidad del dispositivo usada en [Windows AutoPilot](/windows/deployment/windows-autopilot/windows-10-autopilot). |
 | `email`                    | Correo electrónico direccionable de este usuario, si tiene uno.  | JWT, SAML | MSA, Azure AD | Si el usuario es un invitado en el inquilino, este valor se incluye de forma predeterminada.  Para los usuarios administrados (aquellos dentro del inquilino), se debe solicitar a través de esta notificación opcional o, únicamente en la versión 2.0, con el ámbito OpenID.  Para los usuarios administrados, se debe establecer la dirección de correo electrónico en el [portal de administración de Office](https://portal.office.com/adminportal/home#/users).|
 | `acct`                | Estado de la cuenta de los usuarios de un inquilino | JWT, SAML | | Si el usuario es miembro del inquilino, el valor es `0`. Si es un invitado, el valor es `1`. |
-| `groups`| Formato opcional de las notificaciones de grupo |JWT, SAML| |Se usa junto con la configuración de GroupMembershipClaims en el [manifiesto de la aplicación](reference-app-manifest.md), que se debe establecer también. Para más información, vea las [notificaciones de grupo](#configuring-groups-optional-claims) abajo. Para más información sobre las notificaciones de grupo, vea [Cómo configurar notificaciones de grupo](../hybrid/how-to-connect-fed-group-claims.md)
+| `groups`| Formato opcional de las notificaciones de grupo |JWT, SAML| |Se usa con la opción de configuración GroupMembershipClaims en el [manifiesto de la aplicación](reference-app-manifest.md), que se debe establecer también. Para más información, vea las [notificaciones de grupo](#configuring-groups-optional-claims) abajo. Para más información sobre las notificaciones de grupo, vea [Cómo configurar notificaciones de grupo](../hybrid/how-to-connect-fed-group-claims.md)
 | `upn`                      | UserPrincipalName | JWT, SAML  |           | Un identificador del usuario que se puede usar con el parámetro username_hint.  No es un identificador duradero para el usuario y no debe usarse para identificar de forma exclusiva la información del usuario (por ejemplo, como una clave de base de datos). En su lugar, use el id. de objeto de usuario (`oid`) como clave de base de datos. Los usuarios que inician sesión con un [id. de inicio de sesión alternativo](../authentication/howto-authentication-use-email-signin.md) no deben mostrar su nombre principal de usuario (UPN). En su lugar, use las siguientes notificaciones de token de identificador para mostrar el estado de inicio de sesión al usuario: `preferred_username` o `unique_name` para los tokens v1 y `preferred_username` para los tokens v2. Aunque esta notificación se incluye automáticamente, puede especificarla como opcional para adjuntar propiedades adicionales y así modificarle el comportamiento para los usuarios invitados  |
 | `idtyp`                    | Tipo de token   | Tokens de acceso de JWT | Especial: únicamente en tokens de acceso de solo aplicación |  El valor es `app` cuando el token es un token de solo aplicación. Esta es la forma más precisa para que una API determine si un token es un token de aplicación o un token de usuario + aplicación.|
 
@@ -85,7 +85,17 @@ Estas notificaciones siempre se incluyen en los tokens de la versión 1.0 de Azu
 | `in_corp`     | Dentro de red corporativa        | Indica si el cliente ha iniciado sesión desde la red corporativa. En caso contrario, la notificación no se incluye.   |  En función de la configuración de las [IP de confianza](../authentication/howto-mfa-mfasettings.md#trusted-ips) de MFA.    |
 | `family_name` | Apellido                       | Proporciona el apellido del usuario según está definido en el objeto de usuario. <br>"family_name": "Miller" | Se admite en MSA y Azure AD. Requiere el ámbito `profile`.   |
 | `given_name`  | Nombre                      | Proporciona el nombre de pila o "dado" del usuario, tal como se establece en el objeto de usuario.<br>"given_name": "Frank"                   | Se admite en MSA y Azure AD.  Requiere el ámbito `profile`. |
-| `upn`         | Nombre principal del usuario | Un identificador del usuario que se puede usar con el parámetro username_hint.  No es un identificador duradero para el usuario y no debe usarse para identificar de forma exclusiva la información del usuario (por ejemplo, como una clave de base de datos). En su lugar, use el id. de objeto de usuario (`oid`) como clave de base de datos. Los usuarios que inician sesión con un [id. de inicio de sesión alternativo](../authentication/howto-authentication-use-email-signin.md) no deben mostrar su nombre principal de usuario (UPN). En su lugar, use las siguientes notificaciones de token de identificador para mostrar el estado de inicio de sesión al usuario: `preferred_username` o `unique_name` para los tokens v1 y `preferred_username` para los tokens v2. | Consulte a continuación las [propiedades adicionales](#additional-properties-of-optional-claims) de la configuración de la notificación. Requiere el ámbito `profile`.|
+| `upn`         | Nombre principal del usuario | Un identificador del usuario que se puede usar con el parámetro username_hint.  No es un identificador duradero para el usuario y no debe usarse para identificar de forma exclusiva la información del usuario (por ejemplo, como una clave de base de datos). En su lugar, use el id. de objeto de usuario (`oid`) como clave de base de datos. Los usuarios que inician sesión con un [id. de inicio de sesión alternativo](../authentication/howto-authentication-use-email-signin.md) no deben mostrar su nombre principal de usuario (UPN). En su lugar, use la notificación `preferred_username` para mostrar el estado de inicio de sesión al usuario. | Consulte a continuación las [propiedades adicionales](#additional-properties-of-optional-claims) de la configuración de la notificación. Requiere el ámbito `profile`.|
+
+
+**Tabla 4: Notificaciones opcionales exclusivas de la versión 1.0**
+
+Algunas de las mejoras del formato de token de la versión 2 están disponibles para las aplicaciones que usan el formato de token de la 1, ya que ayudan a mejorar la seguridad y la confiabilidad. Estas no surtirán efecto en los tokens de identificador solicitados desde el punto de conexión de la versión 2 ni en los tokens de acceso para las API que usan el formato de token de la versión 2. 
+
+| Notificación de JWT     | Nombre                            | Descripción | Notas |
+|---------------|---------------------------------|-------------|-------|
+|`aud`          | Público | Siempre está presente en los tokens JWT, pero en los tokens de acceso de la versión 1 se puede emitir de varias maneras, lo que puede resultar difícil de codificar al realizar la validación de tokens.  Use las [propiedades adicionales para esta notificación](#additional-properties-of-optional-claims) a fin de asegurarse de que siempre se establezca en un GUID en los tokens de acceso de la versión 1. | Solo tokens de acceso JWT de la versión 1|
+|`preferred_username` | Nombre de usuario preferido        | Proporciona la notificación de nombre de usuario preferido en los tokens de la versión 1. Esto facilita que las aplicaciones proporcionen sugerencias de nombre de usuario e indiquen nombres para mostrar legibles, independientemente de su tipo de token.  Se recomienda usar esta notificación opcional en lugar de `upn` o `unique_name`, por ejemplo. | Tokens de identificador y tokens de acceso de la versión 1 |
 
 ### <a name="additional-properties-of-optional-claims"></a>Propiedades adicionales de las notificaciones opcionales
 
@@ -97,7 +107,9 @@ Algunas notificaciones opcionales se pueden configurar para cambiar la manera de
 |----------------|--------------------------|-------------|
 | `upn`          |                          | Puede usarse en respuestas SAML y JWT y para los token v1.0 y v2.0. |
 |                | `include_externally_authenticated_upn`  | Incluye el nombre principal de usuario invitado tal como se almacenó en el inquilino de recursos. Por ejemplo: `foo_hometenant.com#EXT#@resourcetenant.com` |
-|                | `include_externally_authenticated_upn_without_hash` | Igual que antes, excepto que las marcas hash (`#`) se reemplazan con guiones bajos (`_`); por ejemplo, `foo_hometenant.com_EXT_@resourcetenant.com` |
+|                | `include_externally_authenticated_upn_without_hash` | Igual que antes, excepto que las marcas hash (`#`) se reemplazan con guiones bajos (`_`); por ejemplo, `foo_hometenant.com_EXT_@resourcetenant.com`|
+| `aud`          |                          | En los tokens de acceso de la versión 1, se usa para cambiar el formato de la notificación `aud`.  Esto no tiene ningún efecto en los tokens de identificador o los tokens de la versión 2, donde la notificación `aud` es siempre el identificador del cliente. Use esta configuración para asegurarse de que la API pueda realizar la validación de las audiencias más fácilmente. Al igual que todas las notificaciones opcionales que afectan al token de acceso, el recurso de la solicitud debe establecer esta notificación opcional, ya que los recursos poseen el token de acceso.|
+|                | `use_guid`               | Emite el identificador de cliente del recurso (API) en formato de GUID como notificación `aud`, en lugar de un URI o GUID appid. Por tanto, si el identificador de cliente de un recurso es `bb0a297b-6a42-4a55-ac40-09a501456577`, cualquier aplicación que solicite un token de acceso para ese recurso recibirá un token de acceso con `aud`: `bb0a297b-6a42-4a55-ac40-09a501456577`.|
 
 #### <a name="additional-properties-example"></a>Ejemplo de propiedades adicionales
 

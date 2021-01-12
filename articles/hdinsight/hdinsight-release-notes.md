@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/12/2020
-ms.openlocfilehash: 0895e84363d40bdbf30408f2b2a0d95f951eb303
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: d749c901b21651eec7b3e25ce111fb107e09b754
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032565"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97883357"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Notas de la versión de Azure HDInsight
 
@@ -53,8 +53,14 @@ HDInsight ha incorporado comprobaciones de los grupos de seguridad de red (NSG) 
 ## <a name="upcoming-changes"></a>Próximos cambios
 En las próximas versiones, se realizarán los siguientes cambios.
 
+### <a name="default-cluster-vm-size-will-be-changed-to-ev3-family"></a>El tamaño de la máquina virtual del clúster predeterminado se cambiará a la familia Ev3.
+A partir de la próxima versión (a finales de enero), los tamaños de la máquina virtual del clúster predeterminados se cambiarán de la familia D a la familia Ev3. Este cambio se aplica a los nodos principales y los nodos de trabajo. Para evitar este cambio, especifique los tamaños de máquina virtual que desea usar en la plantilla de ARM.
+
 ### <a name="default-cluster-version-will-be-changed-to-40"></a>La versión predeterminada del clúster cambiará a la 4.0
 A partir de febrero de 2021, la versión predeterminada del clúster de HDInsight cambiará de la 3.6 a la 4.0. Para más información sobre las versiones disponibles, consulte [este artículo](./hdinsight-component-versioning.md#available-versions). Más información sobre las novedades de [HDInsight 4.0](./hdinsight-version-release.md)
+
+### <a name="os-version-upgrade"></a>Actualización de la versión del sistema operativo
+HDInsight está actualizando la versión del sistema operativo de 16.04 a 18.04. La actualización se completará antes de abril de 2021.
 
 ### <a name="hdinsight-36-end-of-support-on-june-30-2021"></a>Fin del soporte técnico de HDInsight 3.6 el 30 de junio de 2021
 El soporte técnico para HDInsight 3.6 finaliza. A partir del 30 de junio de 2021, los clientes no pueden crear clústeres de HDInsight 3.6. Los clústeres existentes se ejecutarán tal cual sin la compatibilidad de Microsoft. Considere pasar a HDInsight 4.0 para evitar la posible interrupción del sistema o del soporte técnico.

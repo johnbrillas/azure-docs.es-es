@@ -10,13 +10,13 @@ ms.author: weetok
 ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
-ms.date: 09/23/2020
-ms.openlocfilehash: 84e156074d6db837556ba4ed9febdb43bcdf3318
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.date: 12/17/2020
+ms.openlocfilehash: b5b0f6dcef728f0597e7eac8ba57c8fd240d19c9
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96902330"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680300"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integración y entrega continuas en Azure Data Factory
 
@@ -28,7 +28,7 @@ La integración continua es el procedimiento de probar cada cambio realizado en 
 
 En Azure Data Factory, la integración y la entrega continuas (CI/CD) implican el traslado de canalizaciones de Data Factory de un entorno (desarrollo, prueba o producción) a otro. Azure Data Factory usa las [plantillas de Azure Resource Manager](../azure-resource-manager/templates/overview.md) para almacenar la configuración de las distintas entidades de ADF (canalizaciones, conjuntos de datos, flujos de datos, etc.). Se sugieren dos métodos para promover una factoría de datos a otro entorno:
 
--    Implementación automatizada mediante la integración de Data Factory con [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops).
+-    Implementación automatizada mediante la integración de Data Factory con [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines).
 -    Carga manual de una plantilla de Resource Manager mediante la integración de la experiencia de usuario de Data Factory con Azure Resource Manager.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -41,9 +41,9 @@ Aquí se muestra una descripción general de ejemplo del ciclo de vida de CI/CD 
 
 1.  Un desarrollador [crea una rama de características](source-control.md#creating-feature-branches) para realizar un cambio. Depuran sus ejecuciones de canalización con los cambios más recientes. Para más información sobre cómo depurar una ejecución de canalización, consulte [Desarrollo y depuración iterativos con Azure Data Factory](iterative-development-debugging.md).
 
-1.  Cuando un desarrollador está satisfecho con los cambios, crea una solicitud de incorporación de cambios desde su rama de características a la rama maestra o rama de colaboración para que otros equipos del mismo nivel revisen sus cambios.
+1.  Cuando un desarrollador está satisfecho con los cambios, crea una solicitud de incorporación de cambios desde la rama de características a la rama principal o de colaboración para que otros equipos del mismo nivel revisen sus cambios.
 
-1.  Después de que la solicitud de incorporación de cambios se haya aprobado y los cambios se hayan combinado en la rama maestra, los cambios se publican en la fábrica de desarrollo.
+1.  Después de que la solicitud de incorporación de cambios se haya aprobado y los cambios se hayan combinado en la rama principal, los cambios se publican en la fábrica de desarrollo.
 
 1.  Cuando el equipo está listo para implementar los cambios en una fábrica UAT (pruebas de aceptación de usuario), se dirige a su versión de Azure Pipelines e implementa la versión deseada de la fábrica de desarrollo en UAT. Esta implementación tiene lugar como parte de una tarea de Azure Pipelines y usa los parámetros de plantilla de Resource Manager para aplicar la configuración adecuada.
 
@@ -115,7 +115,7 @@ A continuación se ofrece una guía para configurar una versión de Azure Pipeli
 
 1.  Guarde la canalización de versión.
 
-1. Para desencadenar una versión, seleccione **Crear versión**. Para automatizar la creación de versiones, consulte [Desencadenadores de versión de Azure DevOps](/azure/devops/pipelines/release/triggers?view=azure-devops).
+1. Para desencadenar una versión, seleccione **Crear versión**. Para automatizar la creación de versiones, consulte [Desencadenadores de versión de Azure DevOps](/azure/devops/pipelines/release/triggers).
 
    ![Selección de Crear versión](media/continuous-integration-deployment/continuous-integration-image10.png)
 
@@ -207,6 +207,12 @@ Si la fábrica de desarrollo tiene un repositorio de Git asociado, puede invalid
 
 * Se usa CI/CD automatizada y se quieren cambiar algunas propiedades durante la implementación de Resource Manager, pero las propiedades no están parametrizadas de forma predeterminada.
 * La fábrica es tan grande que la plantilla de Resource Manager predeterminada no es válida porque contiene más parámetros que el número máximo permitido (256).
+
+    Para controlar el límite de 256 parámetros personalizados, hay tres opciones:    
+  
+    * Use el archivo de parámetros personalizado y quite las propiedades que no necesitan parametrización, es decir, las que pueden mantener un valor predeterminado y, por tanto, reducir el recuento de parámetros.
+    * Refactorice la lógica en el flujo de datos para reducir los parámetros; por ejemplo, todos los parámetros de canalización tienen el mismo valor, solo puede usar parámetros globales en su lugar.
+    * Divida una factoría de datos en varios flujos de datos.
 
 Para invalidar la plantilla de parametrización predeterminada, vaya al centro de administración y seleccione **Plantilla de parametrización** en la sección de control de código fuente. Seleccione **Editar plantilla** para abrir el editor de código de la plantilla de parametrización. 
 
@@ -639,7 +645,7 @@ Vea el siguiente vídeo de un tutorial detallado sobre cómo corregir de modo ur
 
 ## <a name="exposure-control-and-feature-flags"></a>Control de exposición y marcas de características
 
-Cuando se trabaja en equipo, hay casos en los que se puedan combinar los cambios, pero no quiere que se ejecuten en entornos con privilegios elevados como PROD y QA. Para abordar este escenario, el equipo de ADF recomienda [el concepto de DevOps de uso de marcas de características](/azure/devops/migrate/phase-features-with-feature-flags?view=azure-devops). En ADF, puede combinar [parámetros globales](author-global-parameters.md) y la [actividad de condición if](control-flow-if-condition-activity.md) para ocultar conjuntos de lógica basados en estas marcas de entorno.
+Cuando se trabaja en equipo, hay casos en los que se puedan combinar los cambios, pero no quiere que se ejecuten en entornos con privilegios elevados como PROD y QA. Para abordar este escenario, el equipo de ADF recomienda [el concepto de DevOps de uso de marcas de características](/azure/devops/migrate/phase-features-with-feature-flags). En ADF, puede combinar [parámetros globales](author-global-parameters.md) y la [actividad de condición if](control-flow-if-condition-activity.md) para ocultar conjuntos de lógica basados en estas marcas de entorno.
 
 Para información sobre cómo configurar una marca de características, vea el siguiente tutorial en vídeo:
 
@@ -668,7 +674,7 @@ Si usa la integración de Git con la factoría de datos y tiene una canalizació
     - Las entidades de Data Factory dependen unas de otras. Por ejemplo, los desencadenadores dependen de las canalizaciones y las canalizaciones dependen de los conjuntos de datos y otras canalizaciones. La publicación selectiva de un subconjunto de recursos podría provocar comportamientos y errores inesperados.
     - En casos excepcionales, cuando necesite la publicación selectiva, considere la posibilidad de usar una revisión. Para más información, vea [Entorno de producción de revisión](#hotfix-production-environment).
 
-- El equipo de Azure Data Factory no recomienda asignar controles de RBAC de Azure a entidades individuales (canalizaciones, conjuntos de datos, etc.) de una factoría de datos. Por ejemplo, si un desarrollador tiene acceso a una canalización o un conjunto de datos, debe poder acceder a todas las canalizaciones o conjuntos de datos de la factoría de datos. Si cree que necesita implementar muchos roles de Azure en una factoría de datos, estudie la implementación de una segunda factoría de datos.
+- El equipo de Azure Data Factory no recomienda asignar controles de RBAC de Azure a entidades individuales (canalizaciones, conjuntos de datos, etc.) de una factoría de datos. Por ejemplo, si un desarrollador tiene acceso a una canalización o un conjunto de datos, debe poder acceder a todas las canalizaciones o conjuntos de datos de la factoría de datos. Si cree que necesita implementar muchos roles de Azure en una factoría de datos, estudie la implementación de una segunda factoría de datos.
 
 -   No es posible publicar desde ramas privadas.
 

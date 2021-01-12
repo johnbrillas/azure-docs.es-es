@@ -2,20 +2,22 @@
 title: Unidades de instancia de BareMetal en Azure
 description: Aprenda a identificar e interactuar con las unidades de instancia de BareMetal mediante Azure Portal.
 ms.topic: how-to
-ms.date: 12/31/2020
-ms.openlocfilehash: 927baa79519781ef74920b17bc9fcd858f0f6c6f
-ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
+ms.date: 1/4/2021
+ms.openlocfilehash: 30e1661e82546dbaf6d8dc4288ad896df89f401e
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97829077"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861030"
 ---
 # <a name="manage-baremetal-instances-through-the-azure-portal"></a>Administración de instancias de BareMetal mediante Azure Portal
  
 En este artículo se muestra cómo [Azure Portal](https://portal.azure.com/) muestra [instancias de BareMetal](baremetal-overview-architecture.md). En este artículo también se muestran las actividades que puede realizar en Azure Portal con las unidades de instancia de BareMetal implementadas. 
  
 ## <a name="register-the-resource-provider"></a>Registrar el proveedor de recursos
-Un proveedor de recursos de Azure para instancias de BareMetal proporciona visibilidad de las instancias en Azure Portal, actualmente en versión preliminar pública. De forma predeterminada, la suscripción a Azure que se usa para las implementaciones de instancias de BareMetal registra el proveedor de recursos *BareMetalInfrastructure*. Si no ve las unidades de instancia de BareMetal implementadas, debe registrar el proveedor de recursos en la suscripción. Hay dos maneras de registrar el proveedor de recursos de instancias de BareMetal:
+Un proveedor de recursos de Azure para instancias de BareMetal proporciona visibilidad de las instancias en Azure Portal, actualmente en versión preliminar pública. De forma predeterminada, la suscripción a Azure que se usa para las implementaciones de instancias de BareMetal registra el proveedor de recursos *BareMetalInfrastructure*. Si no ve las unidades de instancia de BareMetal implementadas, debe registrar el proveedor de recursos en la suscripción. 
+
+Hay dos maneras de registrar el proveedor de recursos de instancias de BareMetal:
  
 * [CLI de Azure](#azure-cli)
  
@@ -85,15 +87,15 @@ Los atributos de la imagen no son muy diferentes de los atributos de máquina vi
 A la derecha, verá el nombre de la unidad, el sistema operativo (SO), la dirección IP y la SKU que muestra el número de subprocesos de CPU y la memoria. También verá el estado de la energía y la versión de hardware (revisión del sello de la instancia de BareMetal). El estado de energía indica si la unidad de hardware está encendida o apagada. Sin embargo, los detalles del sistema operativo no indican si está funcionando.
  
 Las revisiones de hardware posibles son:
+
+* Revisión 3 (Rev 3)
+
+* Revisión 4 (Rev 4)
  
-* Revisión 3
- 
-* Revisión 4
- 
-* Revisión 4.2
+* Revisión 4.2 (Rev 4.2)
  
 >[!NOTE]
->La revisión 4.2 es la infraestructura de BareMetal más reciente renombrada que usa la arquitectura de la revisión 4. Presenta mejoras significativas en la latencia de red entre las máquinas virtuales de Azure y las unidades de instancia de BareMetal implementadas en los sellos o filas de la revisión 4. Para más información sobre las distintas revisiones, consulte [Infraestructura de BareMetal en Azure](baremetal-overview-architecture.md).
+>Rev 4.2 es la infraestructura BareMetal Infrastructure cuyo nombre se ha cambiado más reciente que usa la arquitectura Rev 4 existente. Rev 4 proporciona mayor proximidad a los hosts de máquina virtual (VM) de Azure. Presenta mejoras significativas en la latencia de red entre las máquinas virtuales de Azure y las unidades de instancia de BareMetal implementadas en los sellos o filas de Rev 4. Puede tener acceso a sus instancias de BareMetal y administrarlas en Azure Portal. Para obtener más información, consulte [Administración de instancias de BareMetal mediante Azure Portal](baremetal-overview-architecture.md).
  
 Además, en el lado derecho, encontrará el nombre del [grupo con ubicación por proximidad de Azure](../../../virtual-machines/linux/co-location.md), que se crea automáticamente para cada unidad de instancia implementada de BareMetal. Cuando implemente las máquinas virtuales de Azure que hospedan la capa de aplicación, haga referencia al grupo con ubicación por proximidad. Cuando use el grupo con ubicación por proximidad asociado a la unidad de instancia de BareMetal, asegúrese de que las máquinas virtuales de Azure se implementan cerca de la unidad de instancia de BareMetal.
  

@@ -5,13 +5,13 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 11/30/2020
-ms.openlocfilehash: c65833e5bf581c6326bf9362c7e5fc00a985d301
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.date: 01/04/2021
+ms.openlocfilehash: ca27df7188c5edd1da94fc41707f6c25eb4034bf
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96354919"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895145"
 ---
 # <a name="use-managed-identities-to-access-event-hubfrom-an-azure-stream-analytics-job-preview"></a>Uso de identidades administradas para acceder a Event Hubs desde un trabajo de Azure Stream Analytics (versión preliminar)
 
@@ -20,6 +20,9 @@ Azure Stream Analytics admite la autenticación de identidad administrada tanto 
 Una identidad administrada es una aplicación administrada registrada en Azure Active Directory que representa un trabajo de Stream Analytics determinado. La aplicación administrada se usa para autenticarse en un recurso de destino, incluido los centros de eventos que están detrás de un firewall o una red virtual (VNet). Para más información sobre cómo pasar por alto los firewalls, consulte [Permiso para acceder a los espacios de nombres de Azure Event Hubs a través de puntos de conexión privados](../event-hubs/private-link-service.md#trusted-microsoft-services).
 
 En este artículo se muestra cómo habilitar la identidad administrada para la salida o entrada de Event Hubs de un trabajo de Stream Analytics a través de Azure Portal. Antes de habilitar la identidad administrada, primero debe tener un trabajo de Stream Analytics y un recurso de centro de eventos.
+
+### <a name="limitation"></a>Limitación
+En la versión preliminar, el muestreo de la entrada desde Event Hubs en Azure Portal no funcionará si se usa el modo de autenticación de identidad administrada.
 
 ## <a name="create-a-managedidentity"></a>Creación de una entidad administrada  
 

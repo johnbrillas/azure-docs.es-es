@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/12/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 1b49faabb1c61a10418bfce3ae2e8187429981ad
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 6eae805b6edce4c414d26f1b79d52ac33f8f2d9d
+ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186089"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97709119"
 ---
 # <a name="azure-activity-log"></a>Registro de actividad de Azure
 El Registro de actividad es un [registro de plataforma](platform-logs-overview.md) de Azure que proporciona información de los eventos de nivel de suscripción. Esto incluye información como cuándo se modificó un recurso o cuándo se inició una máquina virtual. Puede ver el registro de actividad en Azure Portal o recuperar entradas con PowerShell y la CLI. Para obtener más funciones, debe crear una configuración de diagnóstico para enviar el registro de actividad a los [registros de Azure Monitor](data-platform-logs.md), a Azure Event Hubs para reenviarlo fuera de Azure o a Azure Storage para archivarlo. En este artículo se proporcionan detalles sobre cómo visualizar el registro de actividad y enviarlo a diversos destinos.
@@ -56,7 +56,8 @@ También puede acceder a los eventos del registro de actividad mediante los mét
 - Usar las consultas de registro para realizar un análisis complejo y obtener información detallada sobre las entradas del registro de actividad.
 - Usar las alertas de registro con entradas de actividad, lo que permite una lógica de alertas más compleja.
 - Almacenar las entradas del registro de actividad durante más de 90 días.
-- No se generan cargos por ingesta ni retención de datos para los datos del registro de actividad almacenados en un área de trabajo de Log Analytics.
+- No se generan cargos por ingesta para los datos del registro de actividad almacenados en un área de trabajo de Log Analytics.
+- No se generan cargos por retención de datos hasta un período de 90 días para los datos del registro de actividad almacenados en un área de trabajo de Log Analytics.
 
 [Cree una configuración de diagnóstico](diagnostic-settings.md) para enviar el registro de actividad a un área de trabajo de Log Analytics. Puede enviar el registro de actividad desde cualquier suscripción única hasta un máximo de cinco áreas de trabajo. La recopilación de registros entre inquilinos requiere [Azure Lighthouse](../../lighthouse/index.yml).
 
@@ -66,14 +67,14 @@ Por ejemplo, para ver un recuento de las entradas del registro de actividad para
 
 ```kusto
 AzureActivity
-| summarize count() by Category
+| summarize count() by CategoryValue
 ```
 
 Para recuperar todos los registros de la categoría administrativa, use la consulta siguiente.
 
 ```kusto
 AzureActivity
-| where Category == "Administrative"
+| where CategoryValue == "Administrative"
 ```
 
 
@@ -277,6 +278,7 @@ Las columnas de la tabla siguiente están en desuso en el esquema actualizado. T
 |:---|:---|
 | ActivityStatus    | ActivityStatusValue    |
 | ActivitySubstatus | ActivitySubstatusValue |
+| Category          | CategoryValue          |
 | OperationName     | OperationNameValue     |
 | ResourceProvider  | ResourceProviderValue  |
 

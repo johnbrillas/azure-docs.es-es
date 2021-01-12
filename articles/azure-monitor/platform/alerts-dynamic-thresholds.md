@@ -4,13 +4,13 @@ description: Creación de alertas con umbrales dinámicos basados en aprendizaje
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
-ms.date: 02/16/2020
-ms.openlocfilehash: 110d4a3219b4898fa6f138e29f1112d7134f674c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 01/04/2021
+ms.openlocfilehash: 92fafc9357ca08cd31c9ba7badbf7f6433f44f86
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012346"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97862583"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor"></a>Alertas de métricas con umbrales dinámicos en Azure Monitor
 
@@ -39,7 +39,7 @@ Los umbrales dinámicos aprenden continuamente los datos de las series de métri
 Los umbrales se seleccionan de forma que una desviación de estos umbrales indica una anomalía en el comportamiento de la métrica.
 
 > [!NOTE]
-> La detección de patrones estacionales se establece en un intervalo de hora, día o semana. Esto significa que otros patrones, como el patrón cada dos horas o dos veces por semana, podrían no detectarse.
+> Los umbrales dinámicos pueden detectar la estacionalidad para patrones de cada hora, día o semana. Es posible que no se detecten otros patrones como la estacionalidad cada dos horas o dos veces por semana. Para detectar la estacionalidad semanal, se necesitan al menos tres semanas de datos históricos. 
 
 ## <a name="what-does-sensitivity-setting-in-dynamic-thresholds-mean"></a>¿Qué significa el valor "Sensibilidad" en los umbrales dinámicos?
 

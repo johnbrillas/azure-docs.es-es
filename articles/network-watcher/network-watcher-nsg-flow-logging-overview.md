@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 79f442c5ab7db92e69f5396f3f9205212bdf4d4d
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: d6b916ce03c6850f78217f1aac0b63048a6aff3b
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97399254"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858508"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introducción al registro de flujo de grupos de seguridad de red
 
@@ -353,6 +353,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 **Consideraciones de la cuenta de almacenamiento**: 
 
 - Ubicación: la cuenta de almacenamiento usada debe estar en la misma región que NSG.
+- Nivel de rendimiento: Actualmente, solo se admiten las cuentas de almacenamiento del nivel Estándar.
 - Rotación de claves autoadministrable: si se cambian o rotan las claves de acceso a su cuenta de almacenamiento, los registros de flujos de NSG dejarán de funcionar. Para solucionar este problema, se deben deshabilitar y volver a habilitar los registros de flujos de NSG.
 
 **Costos del registro de flujo**: El registro de flujos de NSG se factura según el volumen de registros generados. Un volumen de tráfico elevado puede producir un volumen de registro de flujo elevado, con los costos asociados. Los precios del registro de flujos de NSG no incluyen los costos de almacenamiento subyacentes. El uso de la característica de directiva de retención con el registro de flujos de NSG implica que se incurre en costos de almacenamiento independientes durante prolongados períodos de tiempo. Si no necesita la característica de directiva de retención, se recomienda que establezca este valor en 0. Para obtener más información, consulte [precios de Network Watcher](https://azure.microsoft.com/pricing/details/network-watcher/) y [precios de Azure Storage](https://azure.microsoft.com/pricing/details/storage/) para obtener más detalles.
@@ -374,7 +375,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 **Habilitar el registro de flujo de NSG en todos los NSG asociados a un recurso**: En Azure, el registro de flujo en Azure se configura en el recurso de NSG. Un flujo solo se asociará a una regla de NSG. En escenarios en los que se utilizan varios grupos de seguridad de red, se recomienda habilitar los registros de flujo de NSG en todos los grupos de seguridad de red aplicados a la interfaz de red o subred de un recurso para garantizar que todo el tráfico se registre. Para más información, consulte [cómo se evalúa el tráfico](../virtual-network/network-security-group-how-it-works.md) en los grupos de seguridad de red. 
 
 Algunos escenarios comunes:
-1. **Varios grupos de seguridad de red en una NIC**: en caso de que varios grupos de seguridad de red se asocien a una NIC, el registro de flujos debe estar habilitado en todos ellos.
+1. **Varias NIC en una máquina virtual**: en caso de que varias NIC se asocien a una máquina virtual, el registro de flujos debe estar habilitado en todas ellas.
 1. **Tener grupos de seguridad de red en el nivel de NIC y en el de subred**: en caso de que un grupo de seguridad de red esté configurado en el nivel de NIC y en el de subred, el registro de flujo debe estar habilitado en ambos. 
 
 **Aprovisionamiento de almacenamiento**: el almacenamiento debe aprovisionarse en línea con el volumen de registros de flujo esperado.

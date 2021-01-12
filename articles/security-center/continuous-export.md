@@ -6,14 +6,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 12/08/2020
+ms.date: 12/24/2020
 ms.author: memildin
-ms.openlocfilehash: bdca5a753a49c26587db27892b54c2cb88910c83
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 823992ba6d3b175c8d20a001f8298a5c4af9a1ae
+ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96862469"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97832716"
 ---
 # <a name="continuously-export-security-center-data"></a>Exportación continua de alertas y recomendaciones de seguridad
 
@@ -24,6 +24,7 @@ La **exportación continua** le permite personalizar completamente *qué* se exp
 - Todas las alertas de gravedad alta se envíen a una instancia de Azure Event Hubs.
 - Todos los hallazgos de gravedad media o superior de los exámenes de evaluación de vulnerabilidades de los servidores SQL Server se envíen a un área de trabajo de Log Analytics específica.
 - Se entreguen recomendaciones específicas a un centro de eventos o área de trabajo de Log Analytics cada vez que se generen. 
+- La puntuación segura para una suscripción se envía a un área de trabajo de Log Analytics cada vez que la puntuación de un control cambia en 0,01 o más. 
 
 En este artículo se describe cómo configurar la exportación continua a áreas de trabajo de Log Analytics o a Azure Event Hubs.
 
@@ -45,8 +46,18 @@ En este artículo se describe cómo configurar la exportación continua a áreas
 |||
 
 
+## <a name="what-data-types-can-be-exported"></a>¿Qué tipos de datos se pueden exportar?
 
+La exportación continua puede exportar los siguientes tipos de datos siempre que cambien:
 
+- Alertas de seguridad
+- Recomendaciones de seguridad 
+- Búsquedas de seguridad que se pueden considerar recomendaciones "secundarias", como las de los escáneres de evaluación de vulnerabilidades o actualizaciones específicas del sistema. Puede seleccionar incluirlas con sus recomendaciones "principales", como por ejemplo "Se deben instalar actualizaciones del sistema en los equipos".
+- Puntuación segura (por suscripción o por control)
+- Datos de cumplimiento normativo
+
+> [!NOTE]
+> La exportación de datos de cumplimiento normativo y puntuación segura es una característica en versión preliminar y no está disponible en las nubes gubernamentales. 
 
 ## <a name="set-up-a-continuous-export"></a>Configuración de una exportación continua 
 
@@ -67,7 +78,7 @@ Los pasos siguientes son necesarios si va a configurar una exportación continua
     Aquí verá las opciones de exportación. Hay una pestaña para cada destino de exportación disponible. 
 
 1. Seleccione el tipo de datos que quiere exportar y elija los filtros que quiera de cada tipo (por ejemplo, exportar solo alertas de gravedad alta).
-1. Opcionalmente, si la selección incluye una de estas cuatro recomendaciones, puede incluir los resultados de la evaluación de vulnerabilidades junto con ellas:
+1. Opcionalmente, si la selección incluye una de estas recomendaciones, puede incluir los resultados de la evaluación de vulnerabilidades junto con ellas:
     - Se deben corregir las conclusiones de la evaluación de vulnerabilidades de las bases de datos SQL
     - Es necesario corregir las conclusiones de la evaluación de vulnerabilidades de los servidores SQL Server en las máquinas (versión preliminar)
     - Es necesario corregir las vulnerabilidades de las imágenes de Azure Container Registry (con tecnología de Qualys)
@@ -216,6 +227,9 @@ No. La exportación continua se creó para la transmisión de **eventos**:
 
 - Las **alertas** recibidas antes de habilitar la exportación no se exportarán.
 - Se envían **recomendaciones** cuando cambia el estado de cumplimiento de un recurso. Por ejemplo, cuando un recurso pasa de un estado correcto a otro incorrecto. Por lo tanto, como sucede con las alertas, no se exportarán las recomendaciones para los recursos que no hayan cambiado de estado desde que se habilitó la exportación.
+- La **puntuación segura (versión preliminar)** por control de seguridad o suscripción se envía cuando cambia la puntuación de un control de seguridad en 0,01 o más. 
+- El **estado de cumplimiento normativo (versión preliminar**) se envía cuando cambia el estado del cumplimiento del recurso.
+
 
 
 ### <a name="why-are-recommendations-sent-at-different-intervals"></a>¿Por qué se envían recomendaciones en distintos intervalos?

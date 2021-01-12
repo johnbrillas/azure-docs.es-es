@@ -4,12 +4,12 @@ description: Obtenga información sobre la administración de certificados en un
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.custom: sfrev
-ms.openlocfilehash: aba681157d71f94914462b8d9fc13b90d4d6b153
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 722c84c25cb5188e45dd96363bab9af6ff93f6dc
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88653671"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97901273"
 ---
 # <a name="certificate-management-in-service-fabric-clusters"></a>Administración de certificados en clústeres de Service Fabric
 
@@ -109,9 +109,12 @@ Como nota al margen: [RFC 3647](https://tools.ietf.org/html/rfc3647) de IETF def
 
 Anteriormente hemos visto que Azure Key Vault admite la rotación automática de certificados: la directiva de certificados asociada define el momento dado, ya sea en días antes de la expiración o en porcentaje de la duración total, cuando el certificado rota en el almacén. Debe invocarse al agente de aprovisionamiento después de dicho momento y antes de la expiración del certificado anterior, para distribuir este nuevo certificado a todos los nodos del clúster. Para ayudar en esto, Service Fabric generará advertencias de estado cuando la fecha de expiración de un certificado (y que está actualmente en uso en el clúster) se produzca antes de un intervalo predeterminado. Un agente de aprovisionamiento automático (es decir, la extensión KeyVault VM), configurado para observar el certificado del almacén, sondeará periódicamente el almacén, detectará la rotación y recuperará e instalará el nuevo certificado. El aprovisionamiento realizado a través de la característica "secretos" de la VM/VMSS requerirá que un operador autorizado actualice la VM/VMSS con el URI de KeyVault con versión correspondiente al nuevo certificado.
 
-En cualquier caso, el certificado rotado ahora está aprovisionado en todos los nodos, ya hemos descrito el mecanismo que emplea Service Fabric para detectar rotaciones; vamos a examinar lo que ocurre después: suponiendo una rotación aplicada al certificado del clúster declarada por nombre común del firmante (todo vigente en el momento de redactar este documento y una versión del runtime de Service Fabric 7.1.409):
-  - En el caso de nuevas conexiones dentro del clúster, así como con el clúster, el runtime de Service Fabric buscará y seleccionará el certificado coincidente con la fecha de expiración más lejana (la propiedad "NotAfter" del certificado, a menudo abreviada como "na").
+En cualquier caso, el certificado rotado ahora está aprovisionado en todos los nodos. Ya hemos descrito el mecanismo que emplea Service Fabric para detectar rotaciones; vamos a examinar lo que ocurre después. Supongamos una rotación aplicada al certificado del clúster declarada por nombre común del firmante:
+  - En el caso de las nuevas conexiones dentro del clúster, así como con el clúster, el entorno de ejecución de Service Fabric buscará y seleccionará el certificado coincidente emitido más recientemente (el valor mayor de la propiedad "NotBefore"). Tenga en cuenta que se trata de un cambio con respecto a las versiones anteriores del entorno de ejecución de Service Fabric.
   - Las conexiones existentes se mantendrán activas/permitidas hasta la expiración natural o, de lo contrario, hasta que finalicen; un controlador interno recibirá una notificación de que existe una nueva coincidencia.
+
+> [!NOTE] 
+> Antes de la versión 7.2.445 (7.2 CU4), Service Fabric seleccionaba el certificado que tardaba más en expirar (el certificado con la propiedad "NotAfter" más tardía).
 
 Esto se traduce en las siguientes observaciones importantes:
   - El certificado de renovación puede omitirse si su fecha de expiración es anterior a la del certificado actualmente en uso.
@@ -134,8 +137,11 @@ Hemos descrito mecanismos, restricciones, hemos esbozados reglas y definiciones 
 
 La secuencia es admite script o está automatizada en su totalidad, y permite, sin intervención del usuario, una implementación inicial de un clúster configurado para la sustitución automática de certificados. A continuación se proporcionan los pasos detallados. Usaremos una combinación de cmdlets de PowerShell y fragmentos de plantillas JSON. La misma funcionalidad puede lograrse con todos los medios admitidos para interactuar con Azure.
 
-[!NOTE] En este ejemplo se supone que ya existe un certificado en el almacén; la inscripción y la renovación de un certificado administrado por KeyVault requieren pasos manuales previos, como se describió anteriormente en este artículo. Para entornos de producción, use certificados administrados por KeyVault; a continuación se incluye un script de ejemplo específico para una PKI interna de Microsoft.
-La sustitución automática de certificados solo tiene sentido para los certificados emitidos por una entidad de certificación; mediante el uso de certificados autofirmados, incluidos los generados al implementar un clúster de Service Fabric en Azure Portal, es absurda, aunque posible para implementaciones locales u hospedadas por desarrolladores, al declarar la huella digital del emisor para que sea la misma que la del certificado de hoja.
+> [!NOTE]
+> En este ejemplo se supone que ya existe un certificado en el almacén; la inscripción y la renovación de un certificado administrado por KeyVault requieren pasos manuales previos, como se describió anteriormente en este artículo. Para entornos de producción, use certificados administrados por KeyVault; a continuación se incluye un script de ejemplo específico para una PKI interna de Microsoft.
+
+> [!NOTE]
+> La sustitución automática de certificados solo tiene sentido para los certificados emitidos por una entidad de certificación; mediante el uso de certificados autofirmados, incluidos los generados al implementar un clúster de Service Fabric en Azure Portal, es absurda, aunque posible para implementaciones locales u hospedadas por desarrolladores, al declarar la huella digital del emisor para que sea la misma que la del certificado de hoja.
 
 ### <a name="starting-point"></a>Punto de partida
 Por motivos de brevedad, supondremos el siguiente estado de partida:

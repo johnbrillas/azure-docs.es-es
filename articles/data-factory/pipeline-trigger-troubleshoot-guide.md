@@ -1,5 +1,5 @@
 ---
-title: Solucionar problemas de orquestaciones y desencadenadores de canalizaciones en Azure Data Factory
+title: Solución de problemas relacionados con orquestaciones y desencadenadores de canalizaciones en Azure Data Factory
 description: Use distintos métodos para solucionar problemas de desencadenadores de canalizaciones en Azure Data Factory.
 author: ssabat
 ms.service: data-factory
@@ -7,14 +7,14 @@ ms.date: 12/15/2020
 ms.topic: troubleshooting
 ms.author: susabat
 ms.reviewer: susabat
-ms.openlocfilehash: ed3728513820da9f4ef85d44cac983dc09c3fc7d
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 0e67a316b012eda61607c84edfd8e10d6aa3318d
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97517710"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589175"
 ---
-# <a name="troubleshoot-pipeline-orchestration-and-triggers-in-adf"></a>Solucionar problemas de orquestaciones y desencadenadores de canalizaciones en Azure Data Factory
+# <a name="troubleshoot-pipeline-orchestration-and-triggers-in-azure-data-factory"></a>Solución de problemas relacionados con orquestaciones y desencadenadores de canalizaciones en Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -27,10 +27,10 @@ Normalmente las instancias de ejecuciones de canalización se crean al pasar arg
 ### <a name="pipeline-with-azure-function-throws-error-with-private-end-point-connectivity"></a>La canalización con Azure Function produce un error con la conectividad de puntos de conexión privados
  
 #### <a name="issue"></a>Problema
-En algunos contextos, Azure Data Factory y una aplicación de funciones de Azure se ejecutan en un punto de conexión privado. Está intentando obtener una canalización que interactúa con la aplicación de funciones de Azure para trabajar. Ha probado tres métodos diferentes, pero uno devuelve el error `Bad Request`, los otros dos métodos devuelven `103 Error Forbidden`.
+En algunos contextos, Data Factory y una aplicación de funciones de Azure se ejecutan en un punto de conexión privado. Está intentando obtener una canalización que interactúa con la aplicación de funciones de Azure para trabajar. Ha probado tres métodos diferentes, pero uno devuelve el error `Bad Request`, los otros dos métodos devuelven `103 Error Forbidden`.
 
 #### <a name="cause"></a>Causa 
-Azure Data Factory no admite actualmente un conector de punto de conexión privado para la aplicación de funciones de Azure. Este debe ser el motivo por el que la aplicación de funciones de Azure está rechazando las llamadas, ya que estaría configurado para permitir solo las conexiones desde una instancia de Private Link.
+Data Factory no admite actualmente un conector de punto de conexión privado para la aplicación de funciones de Azure. Este debe ser el motivo por el que la aplicación de funciones de Azure está rechazando las llamadas, ya que estaría configurado para permitir solo las conexiones desde una instancia de Private Link.
 
 #### <a name="resolution"></a>Solución
 Puede crear un punto de conexión privado del tipo **PrivateLinkService** y proporcionar el DNS de su aplicación de funciones y, con eso, la conexión debería funcionar.
@@ -46,7 +46,7 @@ Actualice el explorador y aplique los filtros adecuados para la supervisión.
 ### <a name="copy-pipeline-failure--found-more-columns-than-expected-column-count-delimitedtextmorecolumnsthandefined"></a>Error en la canalización de copia: se encontraron más columnas que el número de columnas esperado (DelimitedTextMoreColumnsThanDefined)
 
 #### <a name="issue"></a>Problema  
-Si el contenido de una carpeta determinada que está copiando contiene archivos con esquemas diferentes, como un número variable de columnas, delimitadores diferentes, valores de carácter de comillas o algún problema de datos, la canalización de Azure Data Factory terminará ejecutándose con este error:
+Si el contenido de una carpeta determinada que está copiando contiene archivos con esquemas diferentes, como un número variable de columnas, delimitadores diferentes, valores de carácter de comillas o algún problema de datos, la canalización de Data Factory terminará ejecutándose con este error:
 
 `
 Operation on target Copy_sks  failed: Failure happened on 'Sink' side.
@@ -57,7 +57,7 @@ Source=Microsoft.DataTransfer.Common,'
 `
 
 #### <a name="resolution"></a>Solución
-Seleccione la opción "Binary Copy" (Copia binaria) al crear la actividad Copiar datos. De esta forma, para la copia masiva o la migración de los datos desde un lago de datos a otro, con la opción **binaria**, Azure Data Factory no abrirá los archivos para leer el esquema, sino que simplemente tratará cada archivo como binario y los copiará en la otra ubicación.
+Seleccione la opción "Binary Copy" (Copia binaria) al crear la actividad Copiar datos. De esta forma, para la copia masiva o la migración de los datos desde un lago de datos a otro, con la opción **binaria**, Data Factory no abrirá los archivos para leer el esquema, sino que simplemente tratará cada archivo como binario y los copiará en la otra ubicación.
 
 ### <a name="pipeline-run-fails-when-capacity-limit-of-integration-runtime-is-reached"></a>Se produce un error de ejecución de canalización cuando se alcanza el límite de capacidad del entorno de ejecución de integración
 
@@ -79,14 +79,14 @@ Si ejecuta una gran cantidad de flujos de datos mediante el mismo entorno de eje
 ### <a name="how-to-monitor-pipeline-failures-on-regular-interval"></a>Supervisión de errores de canalización a intervalos regulares
 
 #### <a name="issue"></a>Problema
-A menudo, es necesario supervisar las canalizaciones de Azure Data Factory a intervalos, por ejemplo, de 5 minutos. Puede consultar y filtrar las ejecuciones de canalización de una factoría de datos mediante el punto de conexión. 
+A menudo, es necesario supervisar las canalizaciones de Data Factory a intervalos, por ejemplo, de 5 minutos. Puede consultar y filtrar las ejecuciones de canalización de una factoría de datos mediante el punto de conexión. 
 
 #### <a name="recommendation"></a>Recomendación
 1. Configure una aplicación lógica de Azure para consultar todas las canalizaciones con error cada 5 minutos.
 2. A continuación, puede notificar los incidentes en nuestro sistema de incidencias según [QueryByFactory](https://docs.microsoft.com/rest/api/datafactory/pipelineruns/querybyfactory).
 
 #### <a name="reference"></a>Referencia
-- [Envío de notificaciones externas desde Azure Data Factory](https://www.mssqltips.com/sqlservertip/5962/send-notifications-from-an-azure-data-factory-pipeline--part-2/)
+- [Envío de notificaciones externas desde Data Factory](https://www.mssqltips.com/sqlservertip/5962/send-notifications-from-an-azure-data-factory-pipeline--part-2/)
 
 ### <a name="how-to-handle-activity-level-errors-and-failures-in-pipelines"></a>Control de errores en el nivel de actividad y en las canalizaciones
 

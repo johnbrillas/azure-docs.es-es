@@ -3,16 +3,14 @@ title: Control de mensajes de gran tamaño mediante la fragmentación
 description: Obtenga información acerca de cómo administrar mensajes de gran tamaño mediante la fragmentación en tareas automatizadas y flujos de trabajo que crea con Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-author: DavidCBerry13
-ms.author: daberry
 ms.topic: article
-ms.date: 12/03/2019
-ms.openlocfilehash: 54828dded5196c86946d99a9cd8cec7a42533661
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/18/2020
+ms.openlocfilehash: de4af34182fc1a95968e95d322a6ec35101a3dc9
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83117570"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695878"
 ---
 # <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>Control de mensajes grandes con la fragmentación de Azure Logic Apps
 
@@ -40,8 +38,57 @@ Los servicios que se comunican con Logic Apps pueden tener sus propios límites 
 
 Para los conectores que admiten la fragmentación, el protocolo de fragmentación subyacente es invisible para los usuarios finales. Sin embargo, no todos los conectores admiten la fragmentación, por lo que estos conectores generan errores en tiempo de ejecución cuando los mensajes entrantes superan los límites de tamaño de los conectores.
 
-> [!NOTE]
-> En el caso de las acciones que usan fragmentación, no se puede pasar el cuerpo del desencadenador ni usar expresiones como `@triggerBody()?['Content']` en ellas. En su lugar, para el contenido del archivo JSON o de texto, puede intentar usar la [acción **Redactar**](../logic-apps/logic-apps-perform-data-operations.md#compose-action) o bien [crear una variable](../logic-apps/logic-apps-create-variables-store-values.md) para manipular ese contenido. Si el cuerpo del desencadenador contiene otros tipos de contenido, como archivos multimedia, debe realizar otros pasos para manipular dicho contenido.
+
+Para las acciones que admiten y están habilitadas para la fragmentación, no se pueden usar cuerpos de desencadenador, variables ni expresiones como `@triggerBody()?['Content']` porque el uso de cualquiera de estas entradas impide que se produzca la operación de fragmentación. En su lugar, use la [acción **Compose**](../logic-apps/logic-apps-perform-data-operations.md#compose-action). En concreto, debe crear un campo `body` mediante la acción **Compose** para almacenar la salida de datos del cuerpo del desencadenador, la variable, la expresión, etc., por ejemplo:
+
+```json
+"Compose": {
+    "inputs": {
+        "body": "@variables('myVar1')"
+    },
+    "runAfter": {
+        "Until": [
+            "Succeeded"
+        ]
+    },
+    "type": "Compose"
+},
+```
+Después, para hacer referencia a los datos, en la acción de fragmentación, use `@body('Compose')`.
+
+```json
+"Create_file": {
+    "inputs": {
+        "body": "@body('Compose')",
+        "headers": {
+            "ReadFileMetadataFromServer": true
+        },
+        "host": {
+            "connection": {
+                "name": "@parameters('$connections')['sftpwithssh_1']['connectionId']"
+            }
+        },
+        "method": "post",
+        "path": "/datasets/default/files",
+        "queries": {
+            "folderPath": "/c:/test1/test1sub",
+            "name": "tt.txt",
+            "queryParametersSingleEncoded": true
+        }
+    },
+    "runAfter": {
+        "Compose": [
+            "Succeeded"
+        ]
+    },
+    "runtimeConfiguration": {
+        "contentTransfer": {
+            "transferMode": "Chunked"
+        }
+    },
+    "type": "ApiConnection"
+},
+```
 
 <a name="set-up-chunking"></a>
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: antchu
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: acb85a04b8a1ca491058702510079a36b93fc657
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 3d69b72012819e3d9099e447b9048fe07aea86d3
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151039"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858712"
 ---
 # <a name="azure-functions-development-and-configuration-with-azure-signalr-service"></a>Desarrollo y configuración de Azure Functions con Azure SignalR Service
 
@@ -43,17 +43,17 @@ Use una función de Azure desencadenada por HTTP y el enlace de entrada *SignalR
 
 Con el [modelo basado en clases](#class-based-model) en C#, no necesita el enlace de entrada *SignalRConnectionInfo* y puede agregar notificaciones personalizadas mucho más fácilmente. Vea [Experiencia de negociación en el modelo basado en clases](#negotiate-experience-in-class-based-model).
 
-Para más información sobre cómo crear la función de negociación, consulte la [*SignalRConnectionInfo*de referencia del enlace de entrada](../azure-functions/functions-bindings-signalr-service-input.md)
+Para más información sobre cómo crear la función de negociación, consulte la [*SignalRConnectionInfo* de referencia del enlace de entrada](../azure-functions/functions-bindings-signalr-service-input.md)
 
 Para aprender a crear un token autenticado, consulte [Uso de la autenticación de App Service](#using-app-service-authentication).
 
 ### <a name="handle-messages-sent-from-signalr-service"></a>Control de los mensajes enviados desde Signalr Service
 
-Use el enlace del *desencadenador de Signalr* para controlar los mensajes enviados desde Signalr Service. Se puede desencadenar cuando los clientes envían mensajes o los clientes se conectan o desconectan.
+Use el enlace del *desencadenador de Signalr* para controlar los mensajes enviados desde Signalr Service. Puede recibir notificaciones cuando los clientes envían mensajes, o bien se conectan o desconectan.
 
 Para obtener más información, consulte la referencia del enlace del [*desencadenador de SignalR*](../azure-functions/functions-bindings-signalr-service-trigger.md).
 
-También debe configurar el punto de conexión de la función como un nivel superior para que el servicio desencadene la función en la que hay un mensaje del cliente. Para obtener más información sobre cómo configurar el flujo ascendente, consulte este [documento](concept-upstream.md).
+También debe configurar el punto de conexión de la función como un nivel ascendente para que el servicio desencadene la función cuando haya un mensaje del cliente. Para obtener más información sobre cómo configurar el flujo ascendente, consulte este [documento](concept-upstream.md).
 
 ### <a name="sending-messages-and-managing-group-membership"></a>Envío de mensajes y administración de la pertenencia a grupos
 

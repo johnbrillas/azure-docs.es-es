@@ -3,12 +3,12 @@ title: Descripción del funcionamiento de los efectos
 description: Las definiciones de Azure Policy tienen diversos efectos que determinan cómo se administra y notifica el cumplimiento.
 ms.date: 10/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 19811eca33be7dff4d9bee5b8bd89dd38f185a57
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: e72e94766dce2660409e729bc43eb107fb9ab39a
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873955"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97883085"
 ---
 # <a name="understand-azure-policy-effects"></a>Comprender los efectos de Azure Policy
 
@@ -42,6 +42,8 @@ En primer lugar Azure Policy evalúa las solicitudes para crear o actualizar un 
 - **Audit** se evalúa en último lugar.
 
 Después de que el proveedor de recursos devuelva un código correcto en una solicitud de modo de Resource Manager, **AuditIfNotExists** y **DeployIfNotExists** evalúan para determinar si es necesario realizar una acción o un registro de cumplimiento adicionales.
+
+Además, las solicitudes `PATCH` que solo modifican los campos relacionados con `tags` restringen la evaluación de directivas a aquellas que contienen condiciones que inspeccionan campos relacionados con `tags`.
 
 ## <a name="append"></a>Append
 

@@ -1,37 +1,38 @@
 ---
-title: Supervisión de Azure Queue Storage | Microsoft Docs
-description: Obtenga información sobre cómo supervisar el rendimiento y la disponibilidad de Azure Queue Storage. Supervise los datos de Azure Queue Storage, obtenga información sobre la configuración y analice los datos de métricas y registro.
+title: Supervisión de Azure Queue Storage
+description: Obtenga información sobre cómo supervisar el rendimiento y la disponibilidad de Azure Queue Storage. Supervise los datos de Azure Queue Storage, obtenga información sobre la configuración y analice los datos de métricas y registro.
 author: normesta
 services: storage
-ms.service: storage
-ms.topic: conceptual
-ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
+ms.date: 10/26/2020
+ms.topic: conceptual
+ms.service: storage
+ms.subservice: queues
 ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 15bc943052218761327fa57ce8ff6f5d32bfb116
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 18991f83bfb365d1ced141fa44267502671854b8
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96855097"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588302"
 ---
-# <a name="monitoring-azure-queue-storage"></a>Supervisión de Azure Queue Storage
+# <a name="monitoring-azure-queue-storage"></a>Supervisión de Azure Queue Storage
 
-Si tiene aplicaciones y procesos empresariales críticos que dependen de recursos de Azure, querrá supervisar esos recursos para su disponibilidad, rendimiento y funcionamiento. En este artículo se describen los datos de supervisión que genera Azure Queue Storage y cómo puede usar las características de Azure Monitor para analizar las alertas sobre estos datos.
+Si tiene aplicaciones y procesos empresariales críticos que dependen de recursos de Azure, querrá supervisar esos recursos para su disponibilidad, rendimiento y funcionamiento. En este artículo se describen los datos de supervisión que genera Azure Queue Storage y cómo puede usar las características de Azure Monitor para analizar las alertas sobre estos datos.
 
 > [!NOTE]
 > Los registros de Azure Storage en Azure Monitor están en versión preliminar pública, además de estar disponibles para pruebas de versión preliminar en todas las regiones de nube pública. Esta versión preliminar habilita los registros de blobs (que incluye Azure Data Lake Storage Gen2), archivos, colas y tablas. Esta característica está disponible para todas las cuentas de almacenamiento que se crean con el modelo de implementación de Azure Resource Manager. Consulte [Introducción a las cuentas de almacenamiento](../common/storage-account-overview.md).
 
 ## <a name="monitor-overview"></a>Información general de supervisión
 
-La página **Información general** de Azure Portal para cada recurso de Queue Storage incluye una breve vista del uso de los recursos, como las solicitudes y la facturación por hora. Esta información es útil, pero solo hay disponible una pequeña cantidad de datos de supervisión. Algunos de estos datos se recopilan automáticamente y están disponibles para su análisis en cuanto se crea el recurso. Puede habilitar tipos adicionales de recopilación de datos con cierta configuración adicional.
+En la página **Información general** de Azure Portal de cada recurso de Queue Storage se incluye una breve vista del uso del recurso, como las solicitudes y la facturación por hora. Esta información es útil, pero solo hay disponible una pequeña cantidad de datos de supervisión. Algunos de estos datos se recopilan automáticamente y están disponibles para su análisis en cuanto se crea el recurso. Puede habilitar tipos adicionales de recopilación de datos con cierta configuración adicional.
 
 ## <a name="what-is-azure-monitor"></a>¿Qué es Azure Monitor?
 
-Azure Queue Storage crea los datos de supervisión mediante [Azure Monitor](../../azure-monitor/overview.md), que es un servicio de supervisión de pila completo en Azure. Azure Monitor proporciona un conjunto completo de características para supervisar los recursos de Azure y los recursos en otras nubes y en el entorno local.
+Azure Queue Storage crea los datos de supervisión mediante [Azure Monitor](../../azure-monitor/overview.md), que es un servicio de supervisión de pila completo en Azure. Azure Monitor proporciona un conjunto completo de características para supervisar los recursos de Azure así como los de otras nubes y en el entorno local.
 
-Comience con el artículo [Supervisión de recursos de Azure con Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md), que describe lo siguiente:
+Comience con [Supervisión de recursos de Azure con Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md), donde se describe lo siguiente:
 
 - ¿Qué es Azure Monitor?
 - Costos asociados con la supervisión
@@ -43,9 +44,9 @@ Las secciones siguientes complementan este artículo mediante la descripción de
 
 ## <a name="monitoring-data"></a>Supervisión de datos
 
-Azure Queue Storage recopila los mismos tipos de datos de supervisión que otros recursos de Azure, que se describen en [Supervisión de datos de recursos de Azure](../../azure-monitor/insights/monitor-azure-resource.md#monitoring-data).
+Azure Queue Storage recopila los mismos tipos de datos de supervisión que otros recursos de Azure, que se describen en [Supervisión de datos de recursos de Azure](../../azure-monitor/insights/monitor-azure-resource.md#monitoring-data).
 
-Consulte [Referencia de datos de supervisión de Azure Queue Storage](monitor-queue-storage-reference.md) para obtener información detallada sobre las métricas y las métricas de registros que crea Azure Queue Storage.
+Vea [Referencia de datos de supervisión de Azure Queue Storage](monitor-queue-storage-reference.md) para obtener información detallada sobre las métricas y las métricas de registros que crea Azure Queue Storage.
 
 Las métricas y registros de Azure Monitor solo admiten cuentas de almacenamiento de Azure Resource Manager. Azure Monitor no admite cuentas de almacenamiento clásicas. Si desea usar las métricas o registros en una cuenta de almacenamiento clásica, es preciso migrar a una cuenta de almacenamiento de Azure Resource Manager. Consulte [Migración a Azure Resource Manager](../../virtual-machines/migration-classic-resource-manager-overview.md).
 
@@ -59,9 +60,9 @@ Para recopilar registros de recursos, debe crear una configuración de diagnóst
 
 | Category | Descripción |
 |:---|:---|
-| StorageRead | Operaciones de lectura en objetos. |
-| StorageWrite | Operaciones de escritura en objetos. |
-| StorageDelete | Operaciones de eliminación en objetos. |
+| **StorageRead** | Operaciones de lectura en objetos. |
+| **StorageWrite** | Operaciones de escritura en objetos. |
+| **StorageDelete** | Operaciones de eliminación en objetos. |
 
 ## <a name="creating-a-diagnostic-setting"></a>Creación de una configuración de diagnóstico
 
@@ -95,13 +96,13 @@ Para obtener instrucciones generales, consulte [Creación de una configuración 
    > [!div class="mx-imgBorder"]
    > ![Página de registros de recursos](media/monitor-queue-storage/diagnostic-logs-page.png)
 
-6. En el campo **Nombre** de la página, escriba un nombre para la configuración de registro de recursos. A continuación, seleccione qué operaciones quiere registrar (operaciones de lectura, escritura y eliminación) y dónde quiere que se envíen los registros.
+6. En el campo **Nombre** de la página, escriba un nombre para esta configuración de registro de recursos. A continuación, seleccione qué operaciones quiere registrar (operaciones de lectura, escritura y eliminación) y dónde quiere que se envíen los registros.
 
 #### <a name="archive-logs-to-a-storage-account"></a>Archivo de registros en una cuenta de almacenamiento
 
 Si opta por archivar los registros en una cuenta de almacenamiento, pagará por el volumen de registros que se envíen a la cuenta de almacenamiento. Para obtener información sobre precios concretos, vea la sección **Registros de la plataforma** de la página [Precios de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/#platform-logs).
 
-1. Seleccione la casilla **Archivar en una cuenta de almacenamiento** y, a continuación, seleccione el botón **Configurar**.
+1. Active la casilla **Archivar en una cuenta de almacenamiento** y, después, seleccione el botón **Configurar**.
 
    > [!div class="mx-imgBorder"]
    > ![Almacenamiento de archivos en la página de configuración de diagnóstico ](media/monitor-queue-storage/diagnostic-logs-settings-pane-archive-storage.png)
@@ -115,7 +116,7 @@ Si opta por archivar los registros en una cuenta de almacenamiento, pagará por 
 
 Si decide transmitir los registros a un centro de eventos, pagará por el volumen de registros que se envíen al centro de eventos. Para obtener información sobre precios concretos, vea la sección **Registros de la plataforma** de la página [Precios de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/#platform-logs).
 
-1. Seleccione la casilla **Transmitir a un centro de eventos** y, luego, seleccione el botón **Configurar**.
+1. Active la casilla **Transmitir a un centro de eventos** y, luego, seleccione el botón **Configurar**.
 
 2. En el panel para **Seleccionar un centro de eventos**, elija el espacio de nombres, el nombre y el nombre de la directiva del centro de eventos al que quiere transmitir los registros.
 
@@ -126,7 +127,7 @@ Si decide transmitir los registros a un centro de eventos, pagará por el volume
 
 #### <a name="send-logs-to-azure-log-analytics"></a>Envío de registros a Azure Log Analytics
 
-1. Seleccione la casilla **Enviar a Log Analytics**, seleccione un área de trabajo de Log Analytics y, a continuación, seleccione el botón **Guardar**.
+1. Active la casilla **Enviar a Log Analytics**, seleccione un área de trabajo de Log Analytics y después el botón **Guardar**.
 
    > [!div class="mx-imgBorder"]
    > ![Instancia de Log Analytics en la página de configuración de diagnóstico](media/monitor-queue-storage/diagnostic-logs-settings-pane-log-analytics.png)
@@ -152,10 +153,10 @@ Si opta por archivar los registros en una cuenta de almacenamiento, pagará por 
 Habilite los registros mediante el uso del cmdlet de PowerShell [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) junto con el parámetro `StorageAccountId`.
 
 ```powershell
-Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -StorageAccountId <storage-account-resource-id> -Enabled $true -Category <operatons-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
+Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -StorageAccountId <storage-account-resource-id> -Enabled $true -Category <operations-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
 ```
 
-Reemplace el marcador de posición `<storage-service-resource--id>` en este fragmento de código por el id. de recursos del servicio de cola. Para encontrar el identificador de recurso en Azure Portal, abra la página **Propiedades** de la cuenta de almacenamiento.
+Reemplace el marcador de posición `<storage-service-resource--id>` en este fragmento de código por el id. de recurso de la cola. Para encontrar el identificador de recurso en Azure Portal, abra la página **Propiedades** de la cuenta de almacenamiento.
 
 Puede usar `StorageRead`, `StorageWrite` y `StorageDelete` en el parámetro **Category**.
 
@@ -163,7 +164,7 @@ Este es un ejemplo:
 
 `Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/queueServices/default -StorageAccountId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount -Enabled $true -Category StorageWrite,StorageDelete`
 
-Para obtener una descripción de cada parámetro, consulte [Archivo de registros de recursos de Azure mediante Azure PowerShell](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage).
+Para obtener una descripción de cada parámetro, vea [Archivo de registros de recursos de Azure mediante Azure PowerShell](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage).
 
 #### <a name="stream-logs-to-an-event-hub"></a>Transmitir registros a un centro de eventos
 
@@ -172,32 +173,32 @@ Si decide transmitir los registros a un centro de eventos, pagará por el volume
 Habilite los registros mediante el cmdlet de PowerShell [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) con el parámetro `EventHubAuthorizationRuleId`.
 
 ```powershell
-Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -EventHubAuthorizationRuleId <event-hub-namespace-and-key-name> -Enabled $true -Category <operatons-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
+Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -EventHubAuthorizationRuleId <event-hub-namespace-and-key-name> -Enabled $true -Category <operations-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
 ```
 
 Este es un ejemplo:
 
 `Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/queueServices/default -EventHubAuthorizationRuleId /subscriptions/20884142-a14v3-4234-5450-08b10c09f4/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhubnamespace/authorizationrules/RootManageSharedAccessKey -Enabled $true -Category StorageDelete`
 
-Para obtener una descripción de cada parámetro, consulte [Transmisión de datos a Event Hubs a través de los cmdlets de PowerShell](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs).
+Para obtener una descripción de cada parámetro, vea [Transmisión de datos a Event Hubs mediante los cmdlets de PowerShell](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs).
 
 #### <a name="send-logs-to-log-analytics"></a>Envío de registros a Log Analytics
 
 Habilite los registros mediante el cmdlet de PowerShell [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) con el parámetro `WorkspaceId`.
 
 ```powershell
-Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -WorkspaceId <log-analytics-workspace-resource-id> -Enabled $true -Category <operatons-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
+Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -WorkspaceId <log-analytics-workspace-resource-id> -Enabled $true -Category <operations-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
 ```
 
 Este es un ejemplo:
 
 `Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/queueServices/default -WorkspaceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.OperationalInsights/workspaces/my-analytic-workspace -Enabled $true -Category StorageDelete`
 
-Para obtener más información, consulte [Transmisión de registros de recursos de Azure al área de trabajo de Log Analytics en Azure Monitor](../../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace).
+Para obtener más información, vea [Transmisión de registros de recursos de Azure al área de trabajo de Log Analytics en Azure Monitor](../../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace).
 
 ### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-1. En primer lugar, abra [Azure Cloud Shell](../../cloud-shell/overview.md) o, si ha [instalado](/cli/azure/install-azure-cli) la CLI de Azure localmente, abra una aplicación de consola de comandos como Windows PowerShell.
+1. En primer lugar, abra [Azure Cloud Shell](../../cloud-shell/overview.md) o, si ha [instalado la CLI de Azure](/cli/azure/install-azure-cli) localmente, abra una aplicación de consola de comandos como PowerShell.
 
 2. Si su identidad se asocia a más de una suscripción, establezca su suscripción activa en la suscripción de la cuenta de almacenamiento en la quera habilitar los registros.
 
@@ -211,27 +212,27 @@ Para obtener más información, consulte [Transmisión de registros de recursos 
 
 Si opta por archivar los registros en una cuenta de almacenamiento, pagará por el volumen de registros que se envíen a la cuenta de almacenamiento. Para obtener información sobre precios concretos, vea la sección **Registros de la plataforma** de la página [Precios de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/#platform-logs).
 
-Habilite los registros mediante el comando [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create).
+Habilite los registros mediante el comando [`az monitor diagnostic-settings create`](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create).
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --name <setting-name> --storage-account <storage-account-name> --resource <storage-service-resource-id> --resource-group <resource-group> --logs '[{"category": <operations>, "enabled": true "retentionPolicy": {"days": <number-days>, "enabled": <retention-bool}}]'
 ```
 
-Reemplace el marcador de posición `<storage-service-resource--id>` en este fragmento de código por el id. de recursos del servicio Queue Storage. Para encontrar el identificador de recurso en Azure Portal, abra la página **Propiedades** de la cuenta de almacenamiento.
+Reemplace el marcador de posición `<storage-service-resource--id>` en este fragmento de código por el id. de recurso de la cola. Para encontrar el identificador de recurso en Azure Portal, abra la página **Propiedades** de la cuenta de almacenamiento.
 
-Puede usar `StorageRead`, `StorageWrite` y `StorageDelete` en el valor del parámetro **category**.
+Puede usar `StorageRead`, `StorageWrite` y `StorageDelete` en el valor del parámetro `category`.
 
 Este es un ejemplo:
 
 `az monitor diagnostic-settings create --name setting1 --storage-account mystorageaccount --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/queueServices/default --resource-group myresourcegroup --logs '[{"category": StorageWrite, "enabled": true, "retentionPolicy": {"days": 90, "enabled": true}}]'`
 
-Para obtener una descripción de cada parámetro, consulte [Archivo de registros de recursos mediante la CLI de Azure](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage).
+Para obtener una descripción de cada parámetro, vea [Archivo de registros de recursos mediante la CLI de Azure](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage).
 
 #### <a name="stream-logs-to-an-event-hub"></a>Transmitir registros a un centro de eventos
 
 Si decide transmitir los registros a un centro de eventos, pagará por el volumen de registros que se envíen al centro de eventos. Para obtener información sobre precios concretos, vea la sección **Registros de la plataforma** de la página [Precios de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/#platform-logs).
 
-Habilite los registros mediante el comando [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create).
+Habilite los registros mediante el comando [`az monitor diagnostic-settings create`](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create).
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --name <setting-name> --event-hub <event-hub-name> --event-hub-rule <event-hub-namespace-and-key-name> --resource <storage-account-resource-id> --logs '[{"category": <operations>, "enabled": true "retentionPolicy": {"days": <number-days>, "enabled": <retention-bool}}]'
@@ -241,11 +242,11 @@ Este es un ejemplo:
 
 `az monitor diagnostic-settings create --name setting1 --event-hub myeventhub --event-hub-rule /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhubnamespace/authorizationrules/RootManageSharedAccessKey --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/queueServices/default --logs '[{"category": StorageDelete, "enabled": true }]'`
 
-Para obtener una descripción de cada parámetro, consulte [Transmisión de datos a Event Hubs a través de la CLI de Azure](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs).
+Para obtener una descripción de cada parámetro, vea [Transmisión de datos a Event Hubs mediante la CLI de Azure](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs).
 
 #### <a name="send-logs-to-log-analytics"></a>Envío de registros a Log Analytics
 
-Habilite los registros mediante el comando [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create).
+Habilite los registros mediante el comando [`az monitor diagnostic-settings create`](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create).
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --name <setting-name> --workspace <log-analytics-workspace-resource-id> --resource <storage-account-resource-id> --logs '[{"category": <category name>, "enabled": true "retentionPolicy": {"days": <days>, "enabled": <retention-bool}}]'
@@ -255,7 +256,7 @@ Este es un ejemplo:
 
 `az monitor diagnostic-settings create --name setting1 --workspace /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.OperationalInsights/workspaces/my-analytic-workspace --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/queueServices/default --logs '[{"category": StorageDelete, "enabled": true ]'`
 
- Para obtener más información, consulte [Transmisión de registros de recursos de Azure al área de trabajo de Log Analytics en Azure Monitor](../../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace).
+ Para obtener más información, vea [Transmisión de registros de recursos de Azure al área de trabajo de Log Analytics en Azure Monitor](../../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace).
 
 # <a name="template"></a>[Plantilla](#tab/template)
 
@@ -265,7 +266,7 @@ Para ver una plantilla de Azure Resource Manager que crea una configuración de 
 
 ## <a name="analyzing-metrics"></a>Análisis de métricas
 
-Puede analizar las métricas de Azure Storage con métricas de otros servicios de Azure con el Explorador de métricas. Para abrir el Explorador de métricas, elija **Métricas** en el menú **Azure Monitor**. Para más información sobre esta herramienta, consulte [Introducción al Explorador de métricas de Azure](../../azure-monitor/platform/metrics-getting-started.md).
+Puede analizar las métricas de Azure Storage con métricas de otros servicios de Azure con el Explorador de métricas de Azure. Para abrir el Explorador de métricas, elija **Métricas** en el menú **Azure Monitor**. Para más información sobre esta herramienta, consulte [Introducción al Explorador de métricas de Azure](../../azure-monitor/platform/metrics-getting-started.md).
 
 En este ejemplo se muestra cómo ver **Transacciones** a nivel de cuenta.
 
@@ -277,12 +278,12 @@ Para ver las métricas que admiten dimensiones, puede filtrar las métricas con 
 
 Para obtener una lista completa de las dimensiones que admite Azure Storage, consulte [Dimensiones de métricas](monitor-queue-storage-reference.md#metrics-dimensions).
 
-Las métricas de Azure Queue Storage están en estos espacios de nombres:
+Las métricas de Azure Queue Storage están en estos espacios de nombres:
 
 - Microsoft.Storage/storageAccounts
 - Microsoft.Storage/storageAccounts/queueServices
 
-Para obtener una lista de todas las métricas compatibles de Azure Monitor, lo que incluye Azure Queue Storage, consulte [Métricas compatibles con Azure Monitor](../../azure-monitor/platform/metrics-supported.md).
+Para obtener una lista de todas las métricas compatibles de Azure Monitor, lo que incluye Azure Queue Storage, vea [Métricas compatibles con Azure Monitor](../../azure-monitor/platform/metrics-supported.md).
 
 ### <a name="accessing-metrics"></a>Acceso a métricas
 
@@ -295,7 +296,7 @@ Para obtener una lista de todas las métricas compatibles de Azure Monitor, lo q
 
 Puede mostrar la definición de la métrica de la cuenta de almacenamiento o el servicio Queue Storage. Use el cmdlet [Get-AzMetricDefinition](/powershell/module/az.monitor/get-azmetricdefinition).
 
-En este ejemplo, reemplace el marcador de posición `<resource-ID>` por el identificador de recurso de la cuenta de almacenamiento completa o el identificador de recurso del servicio Queue Storage. Puede encontrar estos identificadores de recursos en las páginas **Propiedades** de su cuenta de almacenamiento en Azure Portal.
+En este ejemplo, reemplace el marcador de posición `<resource-ID>` por el identificador de recurso de la cuenta de almacenamiento completa o el de la cola. Puede encontrar estos identificadores de recursos en las páginas **Propiedades** de su cuenta de almacenamiento en Azure Portal.
 
 ```powershell
    $resourceId = "<resource-ID>"
@@ -304,7 +305,7 @@ En este ejemplo, reemplace el marcador de posición `<resource-ID>` por el ident
 
 #### <a name="reading-metric-values"></a>Lectura de valores de métricas
 
-Puede leer valores de métricas de nivel de cuenta de la cuenta de almacenamiento o el servicio Queue Storage. Use el cmdlet [Get-AzMetric](/powershell/module/Az.Monitor/Get-AzMetric).
+Puede leer valores de métricas de nivel de cuenta de la cuenta de almacenamiento o el servicio Queue Storage. Use el cmdlet [Get-AzMetric](/powershell/module/az.monitor/get-azmetric).
 
 ```powershell
    $resourceId = "<resource-ID>"
@@ -315,9 +316,9 @@ Puede leer valores de métricas de nivel de cuenta de la cuenta de almacenamient
 
 #### <a name="list-the-account-level-metric-definition"></a>Enumeración de la definición de métricas a nivel de cuenta
 
-Puede mostrar la definición de la métrica de la cuenta de almacenamiento o el servicio Queue Storage. Use el comando [az monitor metrics list-definitions](/cli/azure/monitor/metrics#az-monitor-metrics-list-definitions).
+Puede mostrar la definición de la métrica de la cuenta de almacenamiento o el servicio Queue Storage. Use el comando [`az monitor metrics list-definitions`](/cli/azure/monitor/metrics#az-monitor-metrics-list-definitions).
 
-En este ejemplo, reemplace el marcador de posición `<resource-ID>` por el identificador de recurso de la cuenta de almacenamiento completa o el identificador de recurso del servicio Queue Storage. Puede encontrar estos identificadores de recursos en las páginas **Propiedades** de su cuenta de almacenamiento en Azure Portal.
+En este ejemplo, reemplace el marcador de posición `<resource-ID>` por el identificador de recurso de la cuenta de almacenamiento completa o el de la cola. Puede encontrar estos identificadores de recursos en las páginas **Propiedades** de su cuenta de almacenamiento en Azure Portal.
 
 ```azurecli-interactive
    az monitor metrics list-definitions --resource <resource-ID>
@@ -325,7 +326,7 @@ En este ejemplo, reemplace el marcador de posición `<resource-ID>` por el ident
 
 #### <a name="read-account-level-metric-values"></a>Lectura de valores de métricas a nivel de cuenta
 
-Puede leer los valores de métricas de la cuenta de almacenamiento o el servicio Queue Storage. Use el comando [az monitor metrics list](/cli/azure/monitor/metrics#az-monitor-metrics-list).
+Puede leer los valores de métricas de la cuenta de almacenamiento o el servicio Queue Storage. Use el comando [`az monitor metrics list`](/cli/azure/monitor/metrics#az-monitor-metrics-list).
 
 ```azurecli-interactive
    az monitor metrics list --resource <resource-ID> --metric "UsedCapacity" --interval PT1H
@@ -333,9 +334,9 @@ Puede leer los valores de métricas de la cuenta de almacenamiento o el servicio
 
 ### <a name="net"></a>[.NET](#tab/azure-portal)
 
-Azure Monitor proporciona el [SDK de .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) para leer la definición y los valores de las métricas. El [código de ejemplo](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) muestra cómo utilizar el SDK con parámetros diferentes. Debe usar `0.18.0-preview` o una versión posterior para las métricas de almacenamiento.
+Azure Monitor proporciona el [SDK de .NET](https://www.nuget.org/packages/microsoft.azure.management.monitor/) para leer la definición y los valores de las métricas. El [código de ejemplo](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) muestra cómo utilizar el SDK con parámetros diferentes. Debe usar `0.18.0-preview` o una versión posterior para las métricas de almacenamiento.
 
-En estos ejemplos, reemplace el marcador de posición `<resource-ID>` por el identificador de recurso de la cuenta de almacenamiento completa o el servicio Queue Storage. Puede encontrar estos identificadores de recursos en las páginas **Propiedades** de su cuenta de almacenamiento en Azure Portal.
+En estos ejemplos, reemplace el marcador de posición `<resource-ID>` por el identificador de recurso de la cuenta de almacenamiento completa o la cola. Puede encontrar estos identificadores de recursos en las páginas **Propiedades** de su cuenta de almacenamiento en Azure Portal.
 
 Reemplace la variable `<subscription-ID>` por el identificador de la suscripción. Para obtener una guía sobre cómo obtener los valores para `<tenant-ID>`, `<application-ID>` y `<AccessKey>`, consulta [Uso del portal para crear una aplicación de Azure AD y una entidad de servicio con acceso a los recursos](../../active-directory/develop/howto-create-service-principal-portal.md).
 
@@ -478,18 +479,18 @@ N/D
 
 ## <a name="analyzing-logs"></a>Análisis de datos
 
-Puede acceder a los registros de los recursos como cola en una cuenta de almacenamiento, como datos de eventos o a través de consultas de Log Analytics.
+Puede acceder a los registros de recursos como una cola en una cuenta de almacenamiento, como datos de eventos o mediante consultas de Log Analytics.
 
-Para una referencia detallada de los campos que aparecen en dichos registros, consulte [Referencia de datos de supervisión de Azure Queue Storage](monitor-queue-storage-reference.md).
+Para obtener una referencia detallada de los campos que aparecen en estos registros, vea [Referencia de datos de supervisión de Azure Queue Storage](monitor-queue-storage-reference.md).
 
 > [!NOTE]
 > Los registros de Azure Storage en Azure Monitor están en versión preliminar pública, además de estar disponibles para pruebas de versión preliminar en todas las regiones de nube pública. Esta versión preliminar habilita los registros de blobs (lo que incluye Azure Data Lake Storage Gen2), archivos, colas, tablas, cuentas de almacenamiento Premium en cuentas de almacenamiento de uso general v1 y v2. Las cuentas de almacenamiento clásico no se admiten.
 
-Las entradas del registro se crean solo si se presentan solicitudes al punto de conexión de servicio. Por ejemplo, si una cuenta de almacenamiento tiene actividad en el punto de conexión de la cola, pero no en los puntos de conexión de tabla o cola, solo se crean los registros correspondientes a Queue service. Los registros de Azure Storage contienen información detallada sobre las solicitudes correctas y erróneas realizadas a un servicio de almacenamiento. Esta información se puede utilizar para supervisar solicitudes concretas y para diagnosticar problemas con un servicio de almacenamiento. Las solicitudes se registran en función de la mejor opción.
+Las entradas del registro se crean solo si se presentan solicitudes al punto de conexión de servicio. Por ejemplo, si una cuenta de almacenamiento tiene actividad en el punto de conexión de la cola, pero no en los de tabla o cola, solo se crean registros correspondientes a Queue Storage. Los registros de Azure Storage contienen información detallada sobre las solicitudes correctas y erróneas realizadas a un servicio de almacenamiento. Esta información se puede utilizar para supervisar solicitudes concretas y para diagnosticar problemas con un servicio de almacenamiento. Las solicitudes se registran en función de la mejor opción.
 
 ### <a name="log-authenticated-requests"></a>Registro de solicitudes autenticadas
 
- Se registran los siguientes tipos de solicitudes autenticadas:
+Se registran los siguientes tipos de solicitudes autenticadas:
 
 - Solicitudes correctas
 - Solicitudes erróneas, incluidos errores de tiempo de espera, de limitación, de red, de autorización y de otro tipo
@@ -500,12 +501,12 @@ Las solicitudes realizadas por el propio servicio Queue Storage, como la creaci�
 
 ### <a name="log-anonymous-requests"></a>Registro de solicitudes anónimas
 
- Se registran los siguientes tipos de solicitudes anónimas:
+Se registran los siguientes tipos de solicitudes anónimas:
 
 - Solicitudes correctas
 - Errores del servidor
 - Errores de tiempo de espera para el cliente y el servidor
-- Solicitudes GET erróneas con el código de error 304 (No modificado)
+- Solicitudes `GET` erróneas con el código de error 304 (`Not Modified`)
 
 El resto de las solicitudes anónimas con error no se registran. Para encontrar una lista completa de los datos registrados, consulte [Operaciones y mensajes de estado registrados por Storage](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) y [Formato del registro de Storage](monitor-queue-storage-reference.md).
 
@@ -521,7 +522,7 @@ Este es un ejemplo:
 
 ### <a name="accessing-logs-in-an-event-hub"></a>Acceso a los registros en un centro de eventos
 
-Los registros que se envían a un centro de eventos no se almacenan como archivo, pero puede verificar que el centro de eventos ha recibido la información del registro. En Azure Portal, vaya al centro de eventos y verifique que el recuento de **mensajes entrantes** sea mayor que cero.
+Los registros que se envían a un centro de eventos no se almacenan como archivo, pero puede verificar que el centro de eventos ha recibido la información del registro. En Azure Portal, vaya al centro de eventos y verifique que el recuento de `incoming requests` sea mayor que cero.
 
 ![Registros de auditoría](media/monitor-queue-storage/event-hub-log.png)
 
@@ -533,11 +534,11 @@ Puede acceder a los registros que se envían a un área de trabajo Log Analytics
 
 Para más información, consulte [Introducción a los análisis de registros de Azure Monitor](../../azure-monitor/log-query/log-analytics-tutorial.md).
 
-Los datos se almacenan en la tabla **StorageQueueLogs**.
+Los datos se almacenan en la tabla `StorageQueueLogs`.
 
 #### <a name="sample-kusto-queries"></a>Ejemplos de consultas de Kusto
 
-Estas son algunas consultas que puede escribir en la barra **Búsqueda de registros** para ayudarle a supervisar su instancia de Queue Storage. Estas consultas funcionan con el [nuevo lenguaje](../../azure-monitor/log-query/log-query-overview.md).
+Estas son algunas consultas que puede escribir en la barra **Búsqueda de registros** para facilitar la supervisión de las colas. Estas consultas funcionan con el [nuevo lenguaje](../../azure-monitor/log-query/log-query-overview.md).
 
 > [!IMPORTANT]
 > Al seleccionar **Registros** en el menú de grupo de recursos de la cuenta de almacenamiento, Log Analytics se abre con el ámbito de la consulta establecido en el grupo de recursos actual. Esto significa que las consultas de registro solo incluirán datos de ese grupo de recursos. Si quiere ejecutar una consulta que incluya datos de otros recursos o de otros servicios de Azure, seleccione **Registros** en el menú **Azure Monitor**. Consulte [Ámbito e intervalo de tiempo de una consulta de registro en Log Analytics de Azure Monitor](../../azure-monitor/log-query/scope.md) para obtener más información.
@@ -601,10 +602,10 @@ Utilice estas consultas para ayudar a supervisar las cuentas de Azure Storage:
 
 **¿Admite Azure Storage métricas de discos administrados o no administrados?**
 
-No. Azure Compute admite las métricas en discos. Para obtener más información, consulte [Métricas por disco para discos administrados y no administrados](https://azure.microsoft.com/blog/per-disk-metrics-managed-disks/).
+No. Las instancias de proceso admiten las métricas en los discos. Para obtener más información, vea [Métricas por disco para discos administrados y no administrados](https://azure.microsoft.com/blog/per-disk-metrics-managed-disks/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para ver una referencia de los registros y las métricas creados por Azure Queue Storage, consulte [Referencia de datos de supervisión de Azure Queue Storage](monitor-queue-storage-reference.md).
+- Para obtener una referencia de los registros y las métricas creados por Azure Queue Storage, vea [Referencia de datos de supervisión de Azure Queue Storage](monitor-queue-storage-reference.md).
 - Para obtener más información sobre la supervisión de recursos de Azure, consulte [Supervisión de recursos de Azure con Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md).
 - Para obtener más información sobre la migración de métricas, consulte [Migración de las métricas de Azure Storage](../common/storage-metrics-migration.md).

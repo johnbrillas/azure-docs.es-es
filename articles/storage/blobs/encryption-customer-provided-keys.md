@@ -5,21 +5,21 @@ description: Los clientes que realizan solicitudes en Azure Blob Storage tienen 
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 09/17/2020
+ms.date: 12/14/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: abdc83019205fc39e1e85a53da7e49f8a7d4f11c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fcc5c02c4a37e205622470260d3c620ad76d07d8
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91618733"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97694695"
 ---
 # <a name="provide-an-encryption-key-on-a-request-to-blob-storage"></a>Especificación de una clave de cifrado en una solicitud a Blob Storage
 
-Los clientes que realizan solicitudes en Azure Blob Storage tienen la opción de proporcionar una clave de cifrado por solicitud. La inclusión de la clave de cifrado en la solicitud proporciona un control detallado sobre la configuración de cifrado para las operaciones de almacenamiento de blobs. Las claves proporcionadas por el cliente se pueden almacenar en Azure Key Vault o en otro almacén de claves.
+Los clientes que realizan solicitudes en Azure Blob Storage tienen la opción de proporcionar una clave de cifrado AES-256 por solicitud. La inclusión de la clave de cifrado en la solicitud proporciona un control detallado sobre la configuración de cifrado para las operaciones de almacenamiento de blobs. Las claves proporcionadas por el cliente se pueden almacenar en Azure Key Vault o en otro almacén de claves.
 
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
@@ -45,7 +45,7 @@ En el caso de las llamadas REST, los clientes pueden usar los siguientes encabez
 |---------------|-------------|
 |`x-ms-encryption-key` |Se requiere para solicitudes de lectura y escritura. Valor de clave de cifrado AES-256 con codificación Base64. |
 |`x-ms-encryption-key-sha256`| Se requiere para solicitudes de lectura y escritura. SHA256 con codificación Base64 de la clave de cifrado. |
-|`x-ms-encryption-algorithm` | Se requiere para solicitudes de escritura, opcional para solicitudes de lectura. Especifica el algoritmo que se va a usar al cifrar datos con la clave especificada. Debe ser AES256. |
+|`x-ms-encryption-algorithm` | Se requiere para solicitudes de escritura, opcional para solicitudes de lectura. Especifica el algoritmo que se va a usar al cifrar datos con la clave especificada.  El valor de este encabezado debe ser `AES256`. |
 
 La especificación de claves de cifrado en la solicitud es opcional. Sin embargo, si especifica uno de los encabezados enumerados anteriormente para una operación de escritura, deberá especificarlos todos.
 

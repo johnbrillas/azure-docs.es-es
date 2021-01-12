@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 06/26/2020
 ms.reviewer: jushiman
 ms.custom: avverma, devx-track-azurecli
-ms.openlocfilehash: 334e0c745257354d9548a6f9c8cee4d43fa8da6d
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 4ebb16186e613affdb886a8819240d47f944c42f
+ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92744735"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97763547"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Actualización automática de imágenes del sistema operativo en un conjunto de escalado de máquinas virtuales de Azure
 
@@ -45,6 +45,9 @@ El proceso de actualización funciona de la manera siguiente:
 
 El orquestador de actualización del sistema operativo del conjunto de escalado comprueba el mantenimiento global del conjunto de escalado antes de actualizar cada lote. Al actualizar un lote, podría haber otras actividades de mantenimiento simultáneas planeadas o sin planear que podrían afectar al mantenimiento de las instancias del conjunto de escalado. En tales casos, si más del 20 % de las instancias del conjunto de escalado tienen un estado incorrecto, la actualización del conjunto de escalado se detiene al final del lote actual.
 
+> [!NOTE]
+>La actualización automática del sistema operativo no actualiza la SKU de la imagen de referencia en el conjunto de escalado. Para cambiar la SKU (por ejemplo de Ubuntu 16.04-LTS a 18.04-LTS), debe actualizar el [modelo de conjunto de escalado](virtual-machine-scale-sets-upgrade-scale-set.md#the-scale-set-model) directamente con la SKU de imagen deseada. No se puede cambiar la oferta y el publicador de imágenes para un conjunto de escalado existente.  
+
 ## <a name="supported-os-images"></a>Imágenes de sistema operativo compatibles
 Actualmente se admiten solo determinadas imágenes de plataforma del sistema operativo. [Se admiten imágenes personalizadas](virtual-machine-scale-sets-automatic-upgrade.md#automatic-os-image-upgrade-for-custom-images) si el conjunto de escalado usa imágenes personalizadas a través de la [Galería de imágenes compartidas](shared-image-galleries.md).
 
@@ -54,21 +57,20 @@ Las siguientes SKU de plataforma se admiten actualmente (y periódicamente se ag
 |-------------------------|---------------|--------------------|
 | Canonical               | UbuntuServer  | 16.04-LTS          |
 | Canonical               | UbuntuServer  | 18.04-LTS          |
-| Rogue Wave (OpenLogic)  | CentOS        | 7.5                |
-| CoreOS                  | CoreOS        | Stable             |
-| Microsoft Corporation   | Windows Server | Centro de datos de 2012-R2 |
-| Microsoft Corporation   | Windows Server | 2016-Datacenter    |
-| Microsoft Corporation   | Windows Server | 2016-Datacenter-Smalldisk |
-| Microsoft Corporation   | Windows Server | 2016-Datacenter-with-Containers |
-| Microsoft Corporation   | Windows Server | 2019-Datacenter |
-| Microsoft Corporation   | Windows Server | 2019-Datacenter-Smalldisk |
-| Microsoft Corporation   | Windows Server | 2019-Datacenter-with-Containers |
-| Microsoft Corporation   | Windows Server | Datacenter-Core-1903-with-Containers-smalldisk |
+| OpenLogic               | CentOS        | 7.5                |
+| Microsoft Windows Server  | Windows Server | Centro de datos de 2012-R2 |
+| Microsoft Windows Server  | Windows Server | 2016-Datacenter    |
+| Microsoft Windows Server  | Windows Server | 2016-Datacenter-Smalldisk |
+| Microsoft Windows Server  | Windows Server | 2016-Datacenter-with-Containers |
+| Microsoft Windows Server  | Windows Server | 2019-Datacenter |
+| Microsoft Windows Server  | Windows Server | 2019-Datacenter-Smalldisk |
+| Microsoft Windows Server  | Windows Server | 2019-Datacenter-with-Containers |
+| Microsoft Windows Server  | Windows Server | Datacenter-Core-1903-with-Containers-smalldisk |
 
 
 ## <a name="requirements-for-configuring-automatic-os-image-upgrade"></a>Requisitos para configurar la actualización automática de imágenes del sistema operativo
 
-- La propiedad *versión* de la imagen debe establecerse en *más reciente* .
+- La propiedad *versión* de la imagen debe establecerse en *más reciente*.
 - Use sondeos de estado de la aplicación o la [extensión Estado de la aplicación](virtual-machine-scale-sets-health-extension.md) con conjuntos de escalado que no sean de Service Fabric.
 - Use la versión 2018-10-01 o una posterior de Compute API.
 - Asegúrese de que los recursos externos especificados en el modelo del conjunto de escalado están disponibles y actualizados. Por ejemplo, el URI de SAS para arrancar la carga en las propiedades de extensión de máquina virtual, la carga de la cuenta de almacenamiento, la referencia a los secretos del modelo, etc.
@@ -121,14 +123,14 @@ PUT or PATCH on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/p
 ```
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-Use el cmdlet [Update-AzVmss](/powershell/module/az.compute/update-azvmss) para configurar las actualizaciones automáticas de imágenes del sistema operativo para el conjunto de escalado. En el ejemplo siguiente se configuran actualizaciones automáticas para el conjunto de escalado llamado *myScaleSet* en el grupo de recursos llamado *myResourceGroup* :
+Use el cmdlet [Update-AzVmss](/powershell/module/az.compute/update-azvmss) para configurar las actualizaciones automáticas de imágenes del sistema operativo para el conjunto de escalado. En el ejemplo siguiente se configuran actualizaciones automáticas para el conjunto de escalado llamado *myScaleSet* en el grupo de recursos llamado *myResourceGroup*:
 
 ```azurepowershell-interactive
 Update-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -AutomaticOSUpgrade $true
 ```
 
 ### <a name="azure-cli-20"></a>CLI de Azure 2.0
-Use el cmdlet [az vmss update](/cli/azure/vmss#az-vmss-update) para configurar las actualizaciones automáticas de imágenes del sistema operativo para el conjunto de escalado. Use la CLI de Azure 2.0.47 o superior. En el ejemplo siguiente se configuran actualizaciones automáticas para el conjunto de escalado llamado *myScaleSet* en el grupo de recursos llamado *myResourceGroup* :
+Use el cmdlet [az vmss update](/cli/azure/vmss#az-vmss-update) para configurar las actualizaciones automáticas de imágenes del sistema operativo para el conjunto de escalado. Use la CLI de Azure 2.0.47 o superior. En el ejemplo siguiente se configuran actualizaciones automáticas para el conjunto de escalado llamado *myScaleSet* en el grupo de recursos llamado *myResourceGroup*:
 
 ```azurecli-interactive
 az vmss update --name myScaleSet --resource-group myResourceGroup --set UpgradePolicy.AutomaticOSUpgradePolicy.EnableAutomaticOSUpgrade=true
@@ -184,7 +186,7 @@ Hay varias maneras de implementar la extensión Estado de la aplicación en los 
 Puede comprobar el historial de la actualización más reciente del sistema operativo realizada en el conjunto de escalado con Azure PowerShell, la CLI de Azure 2.0 o las API REST. Puede obtener el historial de los últimos cinco intentos de actualización del sistema operativo realizados en los últimos dos meses.
 
 ### <a name="rest-api"></a>API DE REST
-En el ejemplo siguiente se usa la [API REST](/rest/api/compute/virtualmachinescalesets/getosupgradehistory) para comprobar el estado del conjunto de escalado denominado *ScaleSet* en el grupo de recursos denominado *myResourceGroup* :
+En el ejemplo siguiente se usa la [API REST](/rest/api/compute/virtualmachinescalesets/getosupgradehistory) para comprobar el estado del conjunto de escalado denominado *ScaleSet* en el grupo de recursos denominado *myResourceGroup*:
 
 ```
 GET on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/osUpgradeHistory?api-version=2019-12-01`
@@ -228,14 +230,14 @@ La llamada GET devuelve propiedades similares a la salida del ejemplo siguiente:
 ```
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-Use el cmdlet [Get-AzVmss](/powershell/module/az.compute/get-azvmss) para comprobar el historial de actualizaciones del sistema operativo de su conjunto de escalado. En el ejemplo siguiente se detalla cómo revisar el estado de actualización del sistema operativo para un conjunto de escalado denominado *myScaleSet* en el grupo de recursos denominado *myResourceGroup* :
+Use el cmdlet [Get-AzVmss](/powershell/module/az.compute/get-azvmss) para comprobar el historial de actualizaciones del sistema operativo de su conjunto de escalado. En el ejemplo siguiente se detalla cómo revisar el estado de actualización del sistema operativo para un conjunto de escalado denominado *myScaleSet* en el grupo de recursos denominado *myResourceGroup*:
 
 ```azurepowershell-interactive
 Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -OSUpgradeHistory
 ```
 
 ### <a name="azure-cli-20"></a>CLI de Azure 2.0
-Use [az vmss get-os-upgrade-history](/cli/azure/vmss#az-vmss-get-os-upgrade-history) para comprobar el historial de actualizaciones del sistema operativo de su conjunto de escalado. Use la CLI de Azure 2.0.47 o superior. En el ejemplo siguiente se detalla cómo revisar el estado de actualización del sistema operativo para un conjunto de escalado denominado *myScaleSet* en el grupo de recursos denominado *myResourceGroup* :
+Use [az vmss get-os-upgrade-history](/cli/azure/vmss#az-vmss-get-os-upgrade-history) para comprobar el historial de actualizaciones del sistema operativo de su conjunto de escalado. Use la CLI de Azure 2.0.47 o superior. En el ejemplo siguiente se detalla cómo revisar el estado de actualización del sistema operativo para un conjunto de escalado denominado *myScaleSet* en el grupo de recursos denominado *myResourceGroup*:
 
 ```azurecli-interactive
 az vmss get-os-upgrade-history --resource-group myResourceGroup --name myScaleSet
@@ -269,21 +271,21 @@ En casos concretos en los que no desee esperar a que el orquestador aplique la i
 > El desencadenador manual de la actualización de la imagen del sistema operativo no proporciona funciones de reversión automática. Si una instancia no recupera su estado después de una actualización, no se puede restaurar el disco del sistema operativo anterior.
 
 ### <a name="rest-api"></a>API DE REST
-Use la llamada API [Start OS Upgrade](/rest/api/compute/virtualmachinescalesetrollingupgrades/startosupgrade) para iniciar una actualización gradual para mover todas las máquinas virtuales del conjunto de escalado a la versión más reciente disponible del sistema operativo con imagen. Las instancias que ya ejecutan la última versión del sistema operativo disponible no se ven afectadas. En el ejemplo siguiente se detalla cómo empezar una actualización de sistema operativo en un conjunto de escalado denominado *myScaleSet* en el grupo de recursos denominado *myResourceGroup* :
+Use la llamada API [Start OS Upgrade](/rest/api/compute/virtualmachinescalesetrollingupgrades/startosupgrade) para iniciar una actualización gradual para mover todas las máquinas virtuales del conjunto de escalado a la versión más reciente disponible del sistema operativo con imagen. Las instancias que ya ejecutan la última versión del sistema operativo disponible no se ven afectadas. En el ejemplo siguiente se detalla cómo empezar una actualización de sistema operativo en un conjunto de escalado denominado *myScaleSet* en el grupo de recursos denominado *myResourceGroup*:
 
 ```
 POST on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/osRollingUpgrade?api-version=2019-12-01`
 ```
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-Use el cmdlet [Start-AzVmssRollingOSUpgrade](/powershell/module/az.compute/Start-AzVmssRollingOSUpgrade) para comprobar el historial de actualizaciones del sistema operativo de su conjunto de escalado. En el ejemplo siguiente se detalla cómo empezar una actualización de sistema operativo en un conjunto de escalado denominado *myScaleSet* en el grupo de recursos denominado *myResourceGroup* :
+Use el cmdlet [Start-AzVmssRollingOSUpgrade](/powershell/module/az.compute/Start-AzVmssRollingOSUpgrade) para comprobar el historial de actualizaciones del sistema operativo de su conjunto de escalado. En el ejemplo siguiente se detalla cómo empezar una actualización de sistema operativo en un conjunto de escalado denominado *myScaleSet* en el grupo de recursos denominado *myResourceGroup*:
 
 ```azurepowershell-interactive
 Start-AzVmssRollingOSUpgrade -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
 ```
 
 ### <a name="azure-cli-20"></a>CLI de Azure 2.0
-Use [az vmss rolling-upgrade start](/cli/azure/vmss/rolling-upgrade#az-vmss-rolling-upgrade-start) para comprobar el historial de actualizaciones del sistema operativo del conjunto de escalado. Use la CLI de Azure 2.0.47 o superior. En el ejemplo siguiente se detalla cómo empezar una actualización de sistema operativo en un conjunto de escalado denominado *myScaleSet* en el grupo de recursos denominado *myResourceGroup* :
+Use [az vmss rolling-upgrade start](/cli/azure/vmss/rolling-upgrade#az-vmss-rolling-upgrade-start) para comprobar el historial de actualizaciones del sistema operativo del conjunto de escalado. Use la CLI de Azure 2.0.47 o superior. En el ejemplo siguiente se detalla cómo empezar una actualización de sistema operativo en un conjunto de escalado denominado *myScaleSet* en el grupo de recursos denominado *myResourceGroup*:
 
 ```azurecli-interactive
 az vmss rolling-upgrade start --resource-group "myResourceGroup" --name "myScaleSet" --subscription "subscriptionId"

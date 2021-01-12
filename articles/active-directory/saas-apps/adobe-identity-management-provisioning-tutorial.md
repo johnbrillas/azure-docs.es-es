@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2020
 ms.author: Zhchia
-ms.openlocfilehash: aafdbe631426b4b0c8c762a81457369bc474f479
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 7b4dd01b74f81318338196a40949d339f13d16da
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181136"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673309"
 ---
 # <a name="tutorial-configure-adobe-identity-management-for-automatic-user-provisioning"></a>Tutorial: Configuración de Adobe Identity Management para el aprovisionamiento automático de usuarios
 
@@ -57,15 +57,15 @@ En el escenario descrito en este tutorial se supone que ya cuenta con los requis
 
 2. Haga clic en **Add Sync** (Agregar sincronización).
 
-      ![Sumar](media/adobe-identity-management-provisioning-tutorial/add-sync.png)
+    ![Sumar](media/adobe-identity-management-provisioning-tutorial/add-sync.png)
 
 3. Seleccione **Sync users from Microsoft Azure** (Sincronizar usuarios desde Microsoft Azure) y haga clic en **Next** (Siguiente).
 
-      ![Sync](media/adobe-identity-management-provisioning-tutorial/sync-users.png)
+    ![Captura de pantalla que muestra la opción "Sync users from Microsoft Azure Active Directory" (Sincronizar usuarios desde Microsoft Azure Active Directory) seleccionada.](media/adobe-identity-management-provisioning-tutorial/sync-users.png)
 
 4. Copie y guarde la **dirección URL del inquilino** y el **token secreto**. Estos valores se escriben en los campos **Tenant URL** (Dirección URL del inquilino) y **Secret Token** (Token secreto) de la pestaña Provisioning (Aprovisionamiento) de la aplicación Adobe Identity Management en Azure Portal.
 
-      ![Sync](media/adobe-identity-management-provisioning-tutorial/token.png)
+    ![Sync](media/adobe-identity-management-provisioning-tutorial/token.png)
 
 ## <a name="step-3-add-adobe-identity-management-from-the-azure-ad-application-gallery"></a>Paso 3. Agregar Adobe Identity Management desde la galería de aplicaciones de Azure AD
 

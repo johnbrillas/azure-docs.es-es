@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/09/2020
-ms.openlocfilehash: 1a384eed542d0c09a973e0e68288f9fc1660cc96
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: b3dca3617e2fb7ccdff870041374e9158498c9d1
+ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94380915"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97708947"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>Límites de la base de conocimiento de QnA Maker
 
@@ -82,10 +82,10 @@ La longitud y los caracteres aceptables para el nombre y el valor de los metadat
 
 ## <a name="knowledge-base-content-limits"></a>Límites de contenido de la base de conocimiento
 Límites generales del contenido de la base de conocimiento:
-* Longitud del texto de la respuesta: 25 000
-* Longitud del texto de la pregunta: 1,000
-* Longitud del texto de la clave de los metadatos: 100
-* Longitud del texto del valor de los metadatos: 500
+* Longitud del texto de la respuesta: 25 000 caracteres
+* Longitud del texto de la pregunta: 1000 caracteres
+* Longitud del texto de la clave de los metadatos: 100 caracteres
+* Longitud del texto del valor de los metadatos: 500 caracteres
 * Caracteres admitidos para el nombre de metadatos: Alfabéticos, dígitos y `_`
 * Caracteres admitidos para el valor de metadatos: Todos excepto `:` y `|`
 * Longitud del nombre de archivo: 200

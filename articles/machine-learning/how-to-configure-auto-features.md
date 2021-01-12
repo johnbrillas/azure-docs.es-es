@@ -1,7 +1,7 @@
 ---
-title: Caracterización en experimentos de AutoML
+title: Caracterización con aprendizaje automático automatizado
 titleSuffix: Azure Machine Learning
-description: Obtenga información sobre los valores de caracterización que Azure Machine Learning ofrece y cómo se admite la ingeniería de características en experimentos de ML automatizado.
+description: Obtenga información sobre la configuración de la caracterización de datos en Azure Machine Learning y cómo personalizar esas características para los experimentos de aprendizaje automático automatizado.
 author: nibaccam
 ms.author: nibaccam
 ms.reviewer: nibaccam
@@ -9,25 +9,24 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to, automl
-ms.date: 05/28/2020
-ms.openlocfilehash: 658db1604895515525e5a4826a43c0b21d9698b1
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.custom: how-to,automl,contperf-fy21q2
+ms.date: 12/18/2020
+ms.openlocfilehash: 526afe758063ce6c5f6bd86f8192f56d5f844a85
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359636"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97693998"
 ---
-# <a name="featurization-in-automated-machine-learning"></a>Caracterización en aprendizaje automático automatizado
+# <a name="data-featurization-in-automated-machine-learning"></a>Caracterización de datos en aprendizaje automático automatizado
 
 
 
-En esta guía obtendrá información sobre:
+Obtenga información sobre la configuración de la caracterización de datos en Azure Machine Learning y cómo personalizar esas características para [experimentos de aprendizaje automático automatizado](concept-automated-ml.md).
 
-- Valores de caracterización que ofrece Azure Machine Learning.
-- Procedimientos para personalizar esas características para los [experimentos de aprendizaje automático automatizado](concept-automated-ml.md).
+## <a name="feature-engineering-and-featurization"></a>Ingeniería de características y caracterización
 
-La *ingeniería de características* es el proceso de usar el conocimiento de dominio de los datos para crear características que permitan mejorar los algoritmos de aprendizaje automático (ML). En Azure Machine Learning, se aplican técnicas de escalado de datos y normalización para facilitar la ingeniería de características. El conjunto de estas técnicas y la ingeniería de características se conoce como *caracterización* en el área de aprendizaje automático automatizado o *AutoML* , y experimentos.
+La *ingeniería de características* es el proceso de usar el conocimiento de dominio de los datos para crear características que permitan mejorar los algoritmos de aprendizaje automático (ML). En Azure Machine Learning, se aplican técnicas de escalado de datos y normalización para facilitar la ingeniería de características. El conjunto de estas técnicas y la ingeniería de características se conoce como *caracterización* en los experimentos de aprendizaje automático automatizado, o *autoML*.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -38,7 +37,7 @@ En este artículo se da por supuesto que ya sabe cómo configurar un experimento
 
 ## <a name="configure-featurization"></a>Configuración de la caracterización
 
-En todos los experimentos de aprendizaje automático automatizado se aplican [técnicas de escalado automático y normalización](#featurization) a los datos de forma predeterminada. Estas técnicas son tipos de caracterización que ayudan a *ciertos* algoritmos que son sensibles a las características a diferentes escalas. Sin embargo, también puede habilitar una caracterización adicional, como la *atribución de los valores que faltan* , la *codificación* y las *transformaciones*.
+En todos los experimentos de aprendizaje automático automatizado se aplican [técnicas de escalado automático y normalización](#featurization) a los datos de forma predeterminada. Estas técnicas son tipos de caracterización que ayudan a *ciertos* algoritmos que son sensibles a las características a diferentes escalas. Puede habilitar una caracterización adicional, como la *atribución de valores que faltan*, la *codificación* y las *transformaciones*.
 
 > [!NOTE]
 > Los pasos de la caracterización del aprendizaje automático automatizado (tales como la normalización de características, el control de los datos que faltan o la conversión de valores de texto a numéricos) se convierten en parte del modelo subyacente. Cuando se usa el modelo para realizar predicciones, se aplican automáticamente a los datos de entrada los mismos pasos de caracterización que se aplican durante el entrenamiento.
@@ -49,7 +48,7 @@ En la tabla siguiente se muestran los valores aceptados para `featurization` en 
 
 |Configuración de la caracterización | Descripción|
 ------------- | ------------- |
-|`"featurization": 'auto'`| Especifica que, como parte del preprocesamiento, los [pasos de caracterización y de límite de protección de datos](#featurization) se van a realizar automáticamente. Esta es la configuración predeterminada.|
+|`"featurization": 'auto'`| Especifica que, como parte del preprocesamiento, los [límites de protección de datos](#data-guardrails) y los [pasos de caracterización](#featurization) se van a realizar automáticamente. Esta es la configuración predeterminada.|
 |`"featurization": 'off'`| Especifica que los pasos de caracterización no se van a realizar automáticamente.|
 |`"featurization":`&nbsp;`'FeaturizationConfig'`| Especifica que se van a usar los pasos de caracterización personalizados. [Aprenda a personalizar la caracterización](#customize-featurization).|
 
@@ -66,7 +65,7 @@ En la tabla siguiente se resumen las técnicas que se aplican automáticamente a
 | ------------- | ------------- |
 |**Eliminación de características con una cardinalidad alta o sin variación** _ |Permite eliminar estas características de los conjuntos de entrenamiento y validación. Se aplican a características en las que faltan todos los valores, que tienen el mismo valor en todas las filas o que tienen una cardinalidad alta (por ejemplo, hashes, id. o GUID).|
 |_*Atribución de los valores que faltan**_ |Para las características numéricas, se atribuyen con el promedio de los valores de la columna.<br/><br/>Para las características de categorías, se atribuyen con el valor más frecuente.|
-|_*Generación de características adicionales**_ |Para las características de fecha y hora: año, mes, día, día de la semana, día del año, trimestre, semana del año, hora, minuto, segundo.<br><br> _En el caso de las tareas de previsión*, se crean estas características adicionales de fecha y hora: año ISO, semestre, mes natural como cadena, semana, día de la semana como cadena, día del trimestre, día del año, AM/PM (0 si la hora es antes de mediodía (12 p. m.); 1, en caso contrario), AM/PM como cadena, hora del día (formato de 12 h)<br/><br/>Para las características de texto: Frecuencia de término basada en unigramas, bigramas y trigramas. Más información sobre [cómo se hace esto con BERT.](#bert-integration)|
+|_*Generación de más características**_ |Para las características de fecha y hora: año, mes, día, día de la semana, día del año, trimestre, semana del año, hora, minuto, segundo.<br><br> _En el caso de las tareas de previsión*, se crean estas características adicionales de fecha y hora: año ISO, semestre, mes natural como cadena, semana, día de la semana como cadena, día del trimestre, día del año, AM/PM (0 si la hora es antes de mediodía (12 p. m.); 1, en caso contrario), AM/PM como cadena, hora del día (formato de 12 h)<br/><br/>Para las características de texto: Frecuencia de término basada en unigramas, bigramas y trigramas. Más información sobre [cómo se hace esto con BERT.](#bert-integration)|
 |**Transformación y codificación** _|Permite transformar las características numéricas con pocos valores únicos en características de categorías.<br/><br/>La codificación "one-hot" se utiliza para las características de categoría de cardinalidad baja. La codificación "one-hot-hash" se utiliza para las características de categorías de cardinalidad alta.|
 |_ *Inserciones de palabras**|Caracterizador de texto que convierte los vectores de tokens de texto en vectores de oración mediante un modelo previamente entrenado. El vector de inserción de cada palabra en un documento se agrega con el resto para producir un vector de característica de documento.|
 |**Codificaciones de destino**|En el caso de las características de categorías, este paso se asigna a cada categoría con un valor de destino promedio para los problemas de regresión, y a la probabilidad de clase para cada clase para problemas de clasificación. La ponderación basada en la frecuencia y la validación cruzada de k iteraciones se aplican para reducir el ajuste excesivo de la asignación y el ruido que provocan las categorías de datos dispersos.|
@@ -80,8 +79,8 @@ Los *límites de protección de datos* permiten identificar posibles incidencias
 
 Se aplican límites de protección de datos:
 
-- **En el caso de los experimentos de SDK** : cuando se especifican los parámetros `"featurization": 'auto'` o `validation=auto` en el objeto `AutoMLConfig`.
-- **En el caso de experimentos de Studio** : cuando se habilita la caracterización automática.
+- **En el caso de los experimentos de SDK**: cuando se especifican los parámetros `"featurization": 'auto'` o `validation=auto` en el objeto `AutoMLConfig`.
+- **En el caso de experimentos de Studio**: cuando se habilita la caracterización automática.
 
 Puede revisar los límites de protección de datos del experimento:
 
@@ -303,22 +302,24 @@ class_prob = fitted_model.predict_proba(X_test)
 
 Si el modelo subyacente no admite la función `predict_proba()` o el formato es incorrecto, se producirá una excepción específica de la clase del modelo. Vea los documentos de referencia [RandomForestClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html#sklearn.ensemble.RandomForestClassifier.predict_proba) y [XGBoost](https://xgboost.readthedocs.io/en/latest/python/python_api.html) para obtener ejemplos de cómo se implementa esta función para los distintos tipos de modelos.
 
-## <a name="bert-integration"></a>Integración de BERT
+<a name="bert-integration"></a>
+
+## <a name="bert-integration-in-automated-ml"></a>Integración de BERT en el aprendizaje automático automatizado
 
 [BERT](https://techcommunity.microsoft.com/t5/azure-ai/how-bert-is-integrated-into-azure-automated-machine-learning/ba-p/1194657) se usa en la capa de caracterización del aprendizaje automático automatizado. En esta capa, si una columna contiene texto libre u otros tipos de datos, como marcas de tiempo o números simples, la caracterización se aplica en consecuencia.
 
-En el caso de BERT, el modelo se ajusta y se entrena con las etiquetas proporcionadas por el usuario. Desde aquí, las incrustaciones de documentos se muestran como características junto con otras, como las características basadas en marcas de tiempo, día de la semana. 
+En el caso de BERT, el modelo se ajusta y se entrena con las etiquetas proporcionadas por el usuario. Desde aquí, las inserciones de documentos se muestran como características junto con otras, como las basadas en marcas de tiempo, día de la semana. 
 
 
-### <a name="bert-steps"></a>Pasos de BERT
+### <a name="steps-to-invoke-bert"></a>Pasos para invocar BERT
 
-Para invocar BERT, tiene que establecer `enable_dnn: True` en automl_settings y usar un proceso de GPU (por ejemplo, `vm_size = "STANDARD_NC6"` o una GPU superior). Si en lugar de BERT se usa un proceso de CPU, AutoML habilita el caracterizador BiLSTM DNN.
+Para invocar BERT, establezca `enable_dnn: True` en automl_settings y use un proceso de GPU (`vm_size = "STANDARD_NC6"` o una GPU superior). Si en lugar de BERT se usa un proceso de CPU, AutoML habilita el caracterizador BiLSTM DNN.
 
 AutoML realiza los siguientes pasos para BERT. 
 
 1. **El preprocesamiento y la tokenización de todas las columnas de texto**. Por ejemplo, el transformador "StringCast" se puede encontrar en el resumen de la caracterización del modelo final. Puede encontrar un ejemplo de cómo generar el resumen de caracterización del modelo en [este cuaderno](https://towardsdatascience.com/automated-text-classification-using-machine-learning-3df4f4f9570b).
 
-2. **Concatene todas las columnas de texto en una sola columna de texto** , por lo tanto, `StringConcatTransformer` en el modelo final. 
+2. **Concatene todas las columnas de texto en una sola columna de texto**, por lo tanto, `StringConcatTransformer` en el modelo final. 
 
     Nuestra implementación de BERT limita la longitud total del texto de un ejemplo de entrenamiento a 128 tokens. Esto significa que todas las columnas de texto, cuando se concatenan, deben tener una longitud máxima de 128 tokens. Si existen varias columnas, cada columna debe eliminarse de forma que se satisfaga esta condición. En caso contrario, en las columnas concatenadas de más de 128 tokens, la capa del tokenizador de BERT trunca esta entrada a 128 tokens.
 
@@ -327,9 +328,10 @@ AutoML realiza los siguientes pasos para BERT.
 Normalmente, BERT se ejecuta más tiempo que otros administradores de características. Para mejorar el rendimiento, se recomienda usar "STANDARD_NC24r" o "STANDARD_NC24rs_V3" para sus funcionalidades de RDMA. 
 
 AutoML distribuirá el entrenamiento de BERT en varios nodos, si están disponibles (hasta un máximo de ocho nodos). Esto se puede hacer en el objeto `AutoMLConfig` estableciendo el parámetro `max_concurrent_iterations` en un valor mayor que 1. 
-### <a name="supported-languages"></a>Idiomas compatibles
 
-AutoML admite actualmente unos 100 idiomas y, en función del idioma del conjunto de datos, elige el modelo BERT adecuado. Para los datos en alemán, se usa el modelo BERT en alemán. Para inglés, se usa el modelo BERT en inglés. Para todos los demás idiomas, se usa el modelo multilingüe de BERT.
+## <a name="supported-languages-for-bert-in-automl"></a>Idiomas compatibles para BERT en el aprendizaje automático automatizado 
+
+El aprendizaje automático automatizado admite actualmente unos 100 idiomas y, en función del idioma del conjunto de datos, elige el modelo BERT adecuado. Para los datos en alemán, se usa el modelo BERT en alemán. Para inglés, se usa el modelo BERT en inglés. Para todos los demás idiomas, se usa el modelo multilingüe de BERT.
 
 En el código siguiente, se desencadena el modelo BERT en alemán, ya que el idioma del conjunto de datos se especifica como `deu`, el código de idioma de 3 letras para el alemán según la [clasificación ISO](https://iso639-3.sil.org/code/deu):
 

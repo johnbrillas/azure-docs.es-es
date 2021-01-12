@@ -9,12 +9,12 @@ ms.devlang: java
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.custom: devx-track-java
-ms.openlocfilehash: 4753f7c0b8b5e515d33da3f9df48a2cdd9d921cc
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: d6b23a831426a3308a0b47946d5a82679e937bbe
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96017583"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97683123"
 ---
 # <a name="troubleshoot-issues-when-you-use-azure-cosmos-db-java-sdk-v4-with-sql-api-accounts"></a>Solución de problemas con el uso del SDK de Azure Cosmos DB para Java v4 con cuentas de SQL API
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -38,6 +38,13 @@ Comience con esta lista:
 * Consulte el SDK para Java en el repositorio central de Azure Cosmos DB, que está disponible como [código abierto en GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-cosmos). Tiene una [sección de problemas](https://github.com/Azure/azure-sdk-for-java/issues) que se supervisa activamente. Compruebe si encuentra algún problema similar con una solución alternativa ya registrada. Una sugerencia útil es filtrar los problemas por la etiqueta *cosmos:v4-item*.
 * Revise las [sugerencias de rendimiento](performance-tips-java-sdk-v4-sql.md) del SDK de Azure Cosmos DB para Java v4 y siga los procedimientos sugeridos.
 * Lea el resto de este artículo y, si no encuentra una solución, registre un [problema de GitHub](https://github.com/Azure/azure-sdk-for-java/issues). Si hay una opción para agregar etiquetas al problema de GitHub, agregue la etiqueta *cosmos:v4-item*.
+
+### <a name="retry-logic"></a>Lógica de reintento <a id="retry-logics"></a>
+Cuando se produce un error de E/S, el SDK de Cosmos DB tratará de volver a intentar la operación con errores si el reintento es factible en el SDK. La implementación de un reintento para cualquier error es un procedimiento recomendado, pero el control o reintento de los errores de escritura es fundamental. Se recomienda usar el SDK más reciente, ya que la lógica de reintento se mejora continuamente.
+
+1. El SDK volverá a intentar los errores de E/S de consulta y de lectura sin exponerlos al usuario final.
+2. Las operaciones de escritura (Crear, Actualizar/Insertar, Reemplazar, Eliminar) "no" son idempotentes y, por tanto, el SDK no siempre puede volver a intentar las operaciones de escritura con error. Es necesario que la lógica de la aplicación del usuario controle el error y vuelva a intentarlo.
+3. En [Solución de problemas de disponibilidad del SDK](troubleshoot-sdk-availability.md) se explican los reintentos para las cuentas de Cosmos DB de varias regiones.
 
 ## <a name="common-issues-and-workarounds"></a><a name="common-issues-workarounds"></a>Problemas comunes y soluciones alternativas
 

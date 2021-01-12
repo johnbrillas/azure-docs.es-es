@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/30/2020
-ms.openlocfilehash: 5f7278a688147842b7dbfab79a20afea2b4a9288
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 5b39ccc365575853a4a74a471023989f34ebc577
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96621610"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97821492"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>Planeamiento de una oferta de SaaS en el marketplace comercial
 
@@ -250,7 +250,7 @@ En el siguiente ejemplo se muestra un desglose de costos y pagos para demostrar 
 | Microsoft le paga el 80 % del costo de licencia<br>`*` En el caso de aplicaciones SaaS que cumplen los requisitos, Microsoft paga el 90 % del costo de la licencia| 80,00 USD al mes<br>``*`` 90,00 USD al mes |
 |||
 
-**`*` Tarifa reducida del servicio Marketplace**: en determinadas ofertas de SaaS que haya publicado en nuestro marketplace comercial, Microsoft reducirá su tarifa del servicio Marketplace del 20 % (como se describe en el Acuerdo de publicador de Microsoft) al 10 %. Para que su oferta sea apta, Microsoft debe haber designado sus ofertas como incentivadas para realizar una venta conjunta por IP de Azure. Para recibir el precio reducido del servicio Marketplace durante el mes, se deben cumplir los criterios de idoneidad al menos cinco (5) días hábiles antes del final de cada mes natural. Para obtener más información sobre la elegibilidad de la venta conjunta de IP, vea [Requisitos para el estado de la venta conjunta](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status). Las cuotas del servicio Marketplace reducidas también se aplican a VM y aplicaciones administradas con incentivos para realizar una venta conjunta de Azure IP, así como a cualquier otra oferta de IaaS procesable cualificada que esté disponible a través de Marketplace comercial.
+**`*` Tarifa reducida del servicio Marketplace**: en determinadas ofertas de SaaS que haya publicado en nuestro marketplace comercial, Microsoft reducirá su tarifa del servicio Marketplace del 20 % (como se describe en el Acuerdo de publicador de Microsoft) al 10 %. Para que su oferta sea apta, Microsoft debe haber designado sus ofertas como incentivadas para realizar una venta conjunta por IP de Azure. Para recibir el precio reducido del servicio Marketplace, se deben cumplir los criterios de idoneidad al menos cinco (5) días hábiles antes del final de cada mes natural. Una vez que se cumplan los criterios de idoneidad, se concederá el precio reducido del servicio a todas las transacciones vigentes el primer día del mes siguiente y se seguirá aplicando hasta que se pierda el estado Venta conjunta con incentivos de IP de Azure. Para obtener más información sobre la elegibilidad de la venta conjunta de IP, vea [Requisitos para el estado de la venta conjunta](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status). Las cuotas del servicio Marketplace reducidas también se aplican a VM y aplicaciones administradas con incentivos para realizar una venta conjunta de Azure IP, así como a cualquier otra oferta de IaaS procesable cualificada que esté disponible a través de Marketplace comercial.
 
 ## <a name="additional-sales-opportunities"></a>Oportunidades de venta adicionales
 

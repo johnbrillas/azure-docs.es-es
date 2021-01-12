@@ -1,15 +1,15 @@
 ---
 title: Información general sobre la versión preliminar de BareMetal Infrastructure en Azure
-description: Información general sobre cómo implementar BareMetal Infrastructure en Azure
+description: Información general sobre la infraestructura de BareMetal en Azure.
 ms.custom: references_regions
 ms.topic: conceptual
-ms.date: 12/31/2020
-ms.openlocfilehash: db974d9260344d1f6050235bb2a9fbaa0420659b
-ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
+ms.date: 1/4/2021
+ms.openlocfilehash: eb4dc129719dc410f7101598e3d72e68f17809c1
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97829082"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97860990"
 ---
 #  <a name="what-is-baremetal-infrastructure-preview-on-azure"></a>¿Qué es la versión preliminar de BareMetal Infrastructure de Azure?
 
@@ -25,7 +25,7 @@ Está disponible BareMetal Infrastructure para cargas de trabajo especializadas 
 - Centro-sur de EE. UU.
 
 >[!NOTE]
->**Rev 4.2** es la infraestructura BareMetal Infrastructure cuyo nombre se ha cambiado más reciente que usa la arquitectura Rev 4 existente.  Rev 4 proporciona una mayor proximidad de los hosts de máquina virtual (VM) de Azure y reduce la latencia entre las VM de Azure y las unidades de instancia de BareMetal. Puede tener acceso a sus instancias de BareMetal y administrarlas en Azure Portal. 
+>**Rev 4.2** es la infraestructura BareMetal Infrastructure cuyo nombre se ha cambiado más reciente que usa la arquitectura Rev 4 existente.  Rev 4 proporciona mayor proximidad a los hosts de máquina virtual (VM) de Azure. Presenta mejoras significativas en la latencia de red entre las máquinas virtuales de Azure y las unidades de instancia de BareMetal implementadas en los sellos o filas de Rev 4.  Puede tener acceso a sus instancias de BareMetal y administrarlas en Azure Portal. 
 
 ## <a name="support"></a>Soporte técnico
 BareMetal Infrastructure es compatible con ISO 27001, ISO 27017, SOC 1 y SOC 2.  También usa un modelo Traiga su propia licencia (BYOL): SO, carga de trabajo especializada y aplicaciones de terceros.  
@@ -35,13 +35,13 @@ En cuanto recibe acceso a la raíz y control total, asume la responsabilidad de 
 - Proporcionar licencias, seguridad y soporte técnico para el sistema operativo y el software de terceros
 
 Microsoft es responsable de lo siguiente:
-- Proporcionar hardware certificado para cargas de trabajo especializadas 
+- Proporcionar el hardware para cargas de trabajo especializadas 
 - Aprovisionar el SO
 
 :::image type="content" source="media/baremetal-support-model.png" alt-text="Modelo de soporte técnico de BareMetal Infrastructure" border="false":::
 
 ## <a name="compute"></a>Proceso
-BareMetal Infrastructure ofrece varias SKU certificadas para cargas de trabajo especializadas. Las SKU disponibles abarcan desde el sistema de dos sockets más pequeño hasta el sistema de veinticuatro sockets. Use las SKU certificadas específicas de la carga de trabajo para la carga de trabajo especializada.
+BareMetal Infrastructure ofrece varias SKU para cargas de trabajo especializadas. Las SKU disponibles abarcan desde el sistema de dos sockets más pequeño hasta el sistema de veinticuatro sockets. Use las SKU específicas de la carga de trabajo para la carga de trabajo especializada.
 
 El sello de instancias de BareMetal en sí combina los componentes siguientes:
 
@@ -72,10 +72,10 @@ Las versiones del sistema operativo Linux disponibles son:
    - SLES 15 SP1
 
 ## <a name="storage"></a>Storage
-Las instancias de BareMetal basadas en un tipo de SKU específico incluyen un almacenamiento de NFS predefinido basado en un tipo de carga de trabajo específico. Al aprovisionar BareMetal, puede aprovisionar almacenamiento adicional en función del crecimiento estimado mediante el envío de una solicitud de soporte técnico. Todo el almacenamiento incluye un disco All-Flash en la revisión 4.2 con compatibilidad con NFSv3 y NFSv4. Estará disponible la última versión del SSD NVMe de la revisión 4.5. Para más información sobre el tamaño del almacenamiento, consulte la sección [Tipo de carga de trabajo de BareMetal](../../../virtual-machines/workloads/sap/get-started.md).
+Las instancias de BareMetal basadas en un tipo de SKU específico incluyen un almacenamiento de NFS predefinido para el tipo de carga de trabajo específico. Al aprovisionar BareMetal, puede aprovisionar más almacenamiento en función del crecimiento estimado mediante el envío de una solicitud de soporte técnico. Todo el almacenamiento incluye un disco All-Flash en la revisión 4.2 con compatibilidad con NFSv3 y NFSv4. Estará disponible la última versión del SSD NVMe de la revisión 4.5. Para más información sobre el tamaño del almacenamiento, consulte la sección [Tipo de carga de trabajo de BareMetal](../../../virtual-machines/workloads/sap/get-started.md).
 
 >[!NOTE]
->El almacenamiento usado para BareMetal cumple los requisitos de seguridad de FIPS 140-2 que ofrecen cifrado en reposo de forma predeterminada. Los datos se almacenan de forma segura en los discos.
+>El almacenamiento usado para BareMetal cumple los requisitos de los [estándares federales de procesamiento de la información (FIPS), publicación 140-2](/microsoft-365/compliance/offering-fips-140-2) estadounidenses, que ofrecen cifrado en reposo de forma predeterminada. Los datos se almacenan de forma segura en los discos.
 
 ## <a name="networking"></a>Redes
 La arquitectura del servicio de red de Azure es un componente clave para implementar las carga de trabajo especializadas correctamente en instancias de BareMetal. Es probable que no todos los sistemas de TI ya se encuentren en Azure. Azure ofrece tecnología de red, de forma que se asemeja a un centro de datos virtual para las implementaciones de software locales. La funcionalidad de red de Azure necesaria para las instancias de BareMetal es la siguiente:

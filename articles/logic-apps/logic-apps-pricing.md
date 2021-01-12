@@ -1,6 +1,6 @@
 ---
 title: Modelos de precios y facturación
-description: Información general sobre cómo funciona el modelo de precios y facturación para Azure Logic Apps
+description: Información general sobre cómo funciona el modelo de precios y facturación para Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 author: jonfancey
@@ -8,12 +8,12 @@ ms.author: jonfan
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 12/07/2020
-ms.openlocfilehash: 520b4a0e87f27a90a604947ae0b558066b4ab82f
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 9243d089b4a000066ec03dbeeccd046db374f558
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96937600"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673117"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Modelo de precios de Azure Logic Apps
 
@@ -65,11 +65,11 @@ En el caso de las aplicaciones lógicas que crea y ejecuta dentro de un ISE, pag
 
   * SKU de ISE de **Desarrollador**: una cuenta de integración de [nivel Gratis](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) única
 
-  Independientemente del SKU, cada ISE puede tener un [número limitado de cuentas de integración](logic-apps-limits-and-config.md#integration-account-limits). Puede aumentar este límite con un costo adicional:
+  Por un costo adicional, puede crear más cuentas de integración para el ISE [hasta el límite total](logic-apps-limits-and-config.md#integration-account-limits). 
 
-  * SKU de ISE **Premium**: hasta cuatro cuentas Estándar más. Sin cuentas Gratis ni Básicas.
+  * SKU de ISE **Premium**: hasta 19 cuentas Estándar más. No se permiten cuentas Gratis ni Básicas.
 
-  * SKU de ISE de **Desarrollador**: hasta 4 cuentas Estándar más o hasta 5 cuentas Estándar en total. Sin cuentas Básicas.
+  * SKU de ISE de **Desarrollador**: Hasta 19 cuentas Estándar más si ya tiene una cuenta Gratuita, o bien 20 cuentas Estándar en total si no dispone de una cuenta Gratuita. No se permiten cuentas Básicas.
 
   Para obtener más información sobre los límites de las cuentas de integración, consulte [Límites y configuración de Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits). Puede obtener más información sobre los [niveles de las cuentas de integración y su modelo de precios](#integration-accounts) más adelante en este tema.
 
@@ -118,7 +118,7 @@ Un [modelo de precios fijos](https://azure.microsoft.com/pricing/details/logic-a
 
 Azure Logic Apps ofrece cuentas de integración gratuitas, básicas y estándar. Los niveles básico y estándar son compatibles con el acuerdo de nivel de servicio (SLA) de Logic Apps, mientras que el nivel gratuito no es compatible con un SLA y tiene límites en cuanto a disponibilidad regional, así como un rendimiento y un uso limitados. Excepto en las cuentas de integración del nivel Gratis, puede tener más de una cuenta de integración en cada región de Azure. Para ver las tarifas de precios, consulte los [precios de Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/).
 
-Si tiene un [*entorno de servicio de integración* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), independientemente del [SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level), el ISE puede tener un [número limitado de cuentas de integración](logic-apps-limits-and-config.md#integration-account-limits), pero puede [aumentar este límite con un costo adicional](#fixed-pricing). Para información sobre cómo funciona el modelo de precios fijos para un ISE, consulte la sección anterior sobre el [modelo de precios fijos](#fixed-pricing) en este tema. Para ver las tarifas de precios, consulte los [precios de Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps).
+Si tiene un [*entorno de servicio de integración* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), puede usar una sola cuenta de integración sin costo adicional, aunque el tipo de cuenta incluido varíe por la [SKU de ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level). Por un [costo adicional](#fixed-pricing), puede crear más cuentas de integración para el ISE hasta el [límite total de cuentas de integración](logic-apps-limits-and-config.md#integration-account-limits). Para información sobre cómo funciona el modelo de precios fijos para un ISE, consulte la sección anterior sobre el [modelo de precios fijos](#fixed-pricing) en este tema. Para ver las tarifas de precios, consulte los [precios de Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps).
 
 Para elegir una cuenta de integración Gratis, Básica o Estándar, revise estas descripciones de casos de uso:
 

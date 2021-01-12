@@ -2,19 +2,19 @@
 title: Estructura y sintaxis de plantillas
 description: Describe la estructura y las propiedades de plantillas de Azure Resource Manager (plantillas de ARM) mediante la sintaxis declarativa de JSON.
 ms.topic: conceptual
-ms.date: 12/01/2020
-ms.openlocfilehash: ce36d725b3844fcd4c8d43a9f044423611d44fbd
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 12/17/2020
+ms.openlocfilehash: 698309c5aa0817c4b758ec81133d4c98061aa355
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96497884"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97653136"
 ---
 # <a name="understand-the-structure-and-syntax-of-arm-templates"></a>Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager
 
 En este artículo se describe la estructura de una plantilla de Azure Resource Manager (plantilla de ARM). Presenta las distintas secciones de una plantilla y las propiedades que están disponibles en esas secciones.
 
-Este artículo está destinado a los usuarios que ya estén familiarizados con las plantillas de Azure Resource Manager. Proporciona información detallada sobre la estructura de la plantilla. Para obtener un tutorial paso a paso que le guíe en el proceso de creación de una plantilla, consulte [Tutorial: Creación e implementación de su primera plantilla de Resource Manager](template-tutorial-create-first-template.md).
+Este artículo está destinado a los usuarios que ya estén familiarizados con las plantillas de Azure Resource Manager. Proporciona información detallada sobre la estructura de la plantilla. Para obtener un tutorial paso a paso que le guíe en el proceso de creación de una plantilla, consulte [Tutorial: Creación e implementación de su primera plantilla de Resource Manager](template-tutorial-create-first-template.md). Para una guía en módulos con información sobre las plantillas de ARM en Microsoft Learn, consulte [Implementación y administración de recursos en Azure mediante plantillas de ARM](/learn/paths/deploy-manage-resource-manager-templates/).
 
 ## <a name="template-format"></a>Formato de plantilla
 

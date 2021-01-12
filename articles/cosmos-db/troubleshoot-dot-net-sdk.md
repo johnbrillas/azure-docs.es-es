@@ -9,12 +9,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 68d9a64e388d24f2067f47282945b9561d807535
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 6a78b38bd71a2822d94e58834ab17824c9ef6ec6
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96545934"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97683111"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Diagnóstico y solución de problemas al usar el SDK de .NET de Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -53,6 +53,13 @@ Compruebe que la [sección de problemas de GitHub](https://github.com/Azure/azur
 
 ### <a name="check-the-portal-metrics"></a>Comprobación de las métricas del portal
 La comprobación de las [métricas del portal](./monitor-cosmos-db.md) le ayudarán a determinar si hay un problema por parte del cliente o si hay un problema con el servicio. Por ejemplo, si las métricas contienen una alta tasa de solicitudes de velocidad limitada (código de estado HTTP 429), lo que significa que la solicitud se ha limitado, consulte la sección [Tasa de solicitudes demasiado grande](troubleshoot-request-rate-too-large.md). 
+
+## <a name="retry-logic"></a>Lógica de reintento <a id="retry-logics"></a>
+Cuando se produce un error de E/S, el SDK de Cosmos DB tratará de volver a intentar la operación con errores si el reintento es factible en el SDK. La implementación de un reintento para cualquier error es un procedimiento recomendado, pero el control o reintento de los errores de escritura es fundamental. Se recomienda usar el SDK más reciente, ya que la lógica de reintento se mejora continuamente.
+
+1. El SDK volverá a intentar los errores de E/S de consulta y de lectura sin exponerlos al usuario final.
+2. Las operaciones de escritura (Crear, Actualizar/Insertar, Reemplazar, Eliminar) "no" son idempotentes y, por tanto, el SDK no siempre puede volver a intentar las operaciones de escritura con error. Es necesario que la lógica de la aplicación del usuario controle el error y vuelva a intentarlo.
+3. En [Solución de problemas de disponibilidad del SDK](troubleshoot-sdk-availability.md) se explican los reintentos para las cuentas de Cosmos DB de varias regiones.
 
 ## <a name="common-error-status-codes"></a>Códigos de estado de error habituales <a id="error-codes"></a>
 

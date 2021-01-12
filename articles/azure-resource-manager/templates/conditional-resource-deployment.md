@@ -2,13 +2,13 @@
 title: Implementación condicional con plantillas
 description: En este artículo se describe cómo realizar la implementación condicional de un recurso en una plantilla de Azure Resource Manager (plantilla de ARM).
 ms.topic: conceptual
-ms.date: 06/01/2020
-ms.openlocfilehash: 0a31bd1fbf755046f331542b4d5952b27a793360
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.date: 12/17/2020
+ms.openlocfilehash: 1492e9f9f45f23628f9933628fd2740e08ad9eb0
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96906002"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672855"
 ---
 # <a name="conditional-deployment-in-arm-templates"></a>Implementación condicional en las plantillas de ARM
 
@@ -90,5 +90,6 @@ Si implementa una plantilla con [modo completo](deployment-modes.md) y no se imp
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+* Para obtener un módulo de Microsoft Learn en el que se describe la implementación condicional, vea [Administración de implementaciones complejas en la nube mediante características avanzadas de la plantilla de ARM](/learn/modules/manage-deployments-advanced-arm-template-features/).
 * Para recomendaciones sobre la creación de platillas, consulte [Procedimientos recomendados de plantillas de ARM](template-best-practices.md).
 * Para crear varias instancias de un recurso, consulte [Iteración de recursos en plantillas de ARM](copy-resources.md).

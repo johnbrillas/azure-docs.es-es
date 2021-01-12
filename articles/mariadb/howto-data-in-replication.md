@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 9/29/2020
-ms.openlocfilehash: fe7e02cc34dc9c97e540d7b8d96c48ee8d5cfe09
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 3ed0fea4846b969c2af80aa525f7da64e7700bb5
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94535374"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587934"
 ---
 # <a name="configure-data-in-replication-in-azure-database-for-mariadb"></a>Configuración de la replicación de datos de entrada en Azure Database for MariaDB
 
@@ -52,7 +52,7 @@ Revise las [limitaciones y los requisitos](concepts-data-in-replication.md#limit
 
 En los siguientes pasos se prepara y configura el servidor MariaDB en el entorno local, en una VM o en un servicio de base de datos en la nube para la replicación de datos de entrada. El servidor MariaDB es el origen en Replicación de datos de entrada.
 
-1. Revise los [requisitos del servidor maestro](concepts-data-in-replication.md#requirements) antes de continuar. 
+1. Revise los [requisitos del servidor principal](concepts-data-in-replication.md#requirements) antes de continuar. 
 
 2. Asegúrese de que el servidor de origen permite el tráfico entrante y saliente en el puerto 3306 y de que el servidor de origen tiene una **dirección IP pública**, el DNS es accesible públicamente o tiene un nombre de dominio completo (FQDN). 
    
@@ -284,7 +284,7 @@ En los siguientes pasos se prepara y configura el servidor MariaDB en el entorno
     
     Debido a una limitación de la replicación nativa de MariaDB, debe establecer las variables [`sync_master_info`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_master_info) y [`sync_relay_log_info`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_relay_log_info) en la replicación sin el escenario GTID.
 
-    Compruebe las variables `sync_master_info` y `sync_relay_log_info` del servidor subordinado para asegurarse de que la replicación de datos de entrada es estable y establezca las variables en `1`.
+    Compruebe las variables `sync_master_info` y `sync_relay_log_info` del servidor de réplica para asegurarse de que la replicación de datos de entrada es estable y establezca las variables en `1`.
     
 ## <a name="other-stored-procedures"></a>Otros procedimientos almacenados
 

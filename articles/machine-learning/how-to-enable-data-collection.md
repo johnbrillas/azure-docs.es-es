@@ -11,12 +11,12 @@ author: lostmygithubaccount
 ms.date: 07/14/2020
 ms.topic: conceptual
 ms.custom: how-to, data4ml
-ms.openlocfilehash: c6b9dc95e1d50481ac5353460910032ca1711ab1
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: fc890dbaf717d3eb9ec87afcb69c87e80c7f14bc
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96000460"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680953"
 ---
 # <a name="collect-data-from-models-in-production"></a>Recopilación de datos de modelos en producción
 
@@ -115,6 +115,12 @@ Para habilitar la recopilación de datos, debe hacer lo siguiente:
     ```
 
 1. Para crear una imagen e implementar el modelo de aprendizaje automático, consulte [Implementación de modelos con Azure Machine Learning](how-to-deploy-and-where.md).
+
+1. Agregue el paquete PIP "Azure-Monitoring" a las dependencias de CONDA del entorno de servicio web:
+  ```Python
+    env = Environment('webserviceenv')
+    env.python.conda_dependencies = CondaDependencies.create(conda_packages=['numpy'],pip_packages=['azureml-defaults','azureml-monitoring','inference-schema[numpy-support]'])
+  ```
 
 
 ## <a name="disable-data-collection"></a>Deshabilitar la recopilación de datos

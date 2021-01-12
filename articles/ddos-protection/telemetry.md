@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
-ms.openlocfilehash: a54404dafaf1093a2e2acbde88187739bd6c9f06
-ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
+ms.openlocfilehash: 86e4a111be7585373ecf4c2fe9508f2bfca7de16
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97827417"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97915086"
 ---
 # <a name="view-and-configure-ddos-protection-telemetry"></a>Visualización y configuración de DDoS Protection
 
@@ -70,7 +70,7 @@ Las siguientes [métricas](https://docs.microsoft.com/azure/azure-monitor/platfo
 
 - Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 - Antes realizar los pasos de este tutorial, primero debe crear un [plan de protección de Azure DDoS Standard](manage-ddos-protection.md) y DDoS Protection Standard debe estar habilitado en una red virtual.
-- DDoS supervisa las direcciones IP públicas asignadas a los recursos dentro de una red virtual. Si no tiene ningún recurso con direcciones IP públicas en la red virtual, primero debe crear un recurso con una dirección IP pública. Puede supervisar la dirección IP pública de todos los recursos implementados a través de Resource Manager (no clásico) que aparecen en [Red virtual para servicios de Azure](../virtual-network/virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network) (incluidas las instancias de Azure Load Balancer donde las máquinas virtuales de back-end se encuentran en la red virtual), excepto para entornos de Azure App Service y Azure VPN Gateway. Para continuar con este tutorial, puede crear rápidamente una máquina virtual [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  
+- DDoS supervisa las direcciones IP públicas asignadas a los recursos dentro de una red virtual. Si no tiene ningún recurso con direcciones IP públicas en la red virtual, primero debe crear un recurso con una dirección IP pública. Puede supervisar la dirección IP pública de todos los recursos implementados a través de Resource Manager (no clásico) que aparecen en [Red virtual para servicios de Azure](../virtual-network/virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network) (incluidas las instancias de Azure Load Balancer donde las máquinas virtuales de back-end se encuentran en la red virtual), excepto para entornos de Azure App Service. Para continuar con este tutorial, puede crear rápidamente una máquina virtual [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  
 
 ## <a name="view-ddos-protection-telemetry"></a>Ver la telemetría de protección contra DDoS
 
@@ -111,4 +111,4 @@ En este tutorial, ha aprendido a:
 Para obtener información sobre cómo configurar los informes de mitigación de ataques y los registros de flujo, continúe con el siguiente tutorial.
 
 > [!div class="nextstepaction"]
-> [Visualización y configuración del registro de diagnóstico de DDoS](diagnostic-logging.md)
+> [Visualización y configuración del registro de diagnósticos de DDoS](diagnostic-logging.md)

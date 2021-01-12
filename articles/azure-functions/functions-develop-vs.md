@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo desarrollar y probar Azure Functio
 ms.custom: vs-azure, devx-track-csharp
 ms.topic: conceptual
 ms.date: 06/10/2020
-ms.openlocfilehash: c5164d0757de5011c112a9506979da19d9585790
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 877c82e375b0ea469071402b83fadbd634177f3f
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167804"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97655822"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Desarrollo de Azure Functions con Visual Studio  
 
@@ -42,7 +42,7 @@ A menos que se indique lo contrario, los procedimientos y los ejemplos que se mu
 
 ### <a name="check-your-tools-version-in-visual-studio-2017"></a><a name="check-your-tools-version"></a>Comprobar la versión de las herramientas en Visual Studio 2017
 
-1. En el menú **Herramientas** , seleccione **Extensiones y actualizaciones** . Expanda **Herramientas** > **instaladas** y, después, elija **Azure Functions and Web Jobs Tools** .
+1. En el menú **Herramientas**, seleccione **Extensiones y actualizaciones**. Expanda **Herramientas** > **instaladas** y, después, elija **Azure Functions and Web Jobs Tools**.
 
     ![Comprobación de la versión de herramientas de Functions](./media/functions-develop-vs/functions-vstools-check-functions-tools.png)
 
@@ -52,7 +52,7 @@ A menos que se indique lo contrario, los procedimientos y los ejemplos que se mu
 
 ### <a name="update-your-tools-in-visual-studio-2017"></a>Actualización de las herramientas en Visual Studio 2017
 
-1. En el cuadro de diálogo **Extensiones y actualizaciones** , expanda **Actualizaciones** > **Visual Studio Marketplace** , elija **Azure Functions and Web Jobs Tools** y seleccione **Actualizar** .
+1. En el cuadro de diálogo **Extensiones y actualizaciones**, expanda **Actualizaciones** > **Visual Studio Marketplace**, elija **Azure Functions and Web Jobs Tools** y seleccione **Actualizar**.
 
     ![Actualización de la versión de herramientas de Functions](./media/functions-develop-vs/functions-vstools-update-functions-tools.png)   
 
@@ -71,12 +71,12 @@ A menos que se indique lo contrario, los procedimientos y los ejemplos que se mu
 
 Después de crear un proyecto de Azure Functions, la plantilla de proyecto crea un proyecto de C#, instala el paquete NuGet `Microsoft.NET.Sdk.Functions` y establece la plataforma de destino. El proyecto nuevo contiene los archivos siguientes:
 
-* **host.json** : permite configurar el host de Functions. Esta configuración se aplica tanto cuando se ejecuta localmente como en Azure. Para más información, consulte la [referencia sobre host.json](functions-host-json.md).
+* **host.json**: permite configurar el host de Functions. Esta configuración se aplica tanto cuando se ejecuta localmente como en Azure. Para más información, consulte la [referencia sobre host.json](functions-host-json.md).
 
-* **local.settings.json** : mantiene la configuración que se usa cuando se ejecutan localmente las funciones. Esta configuración no se usa cuando se ejecuta en Azure. Para más información, consulte [Archivo de configuración local](#local-settings-file).
+* **local.settings.json**: mantiene la configuración que se usa cuando se ejecutan localmente las funciones. Esta configuración no se usa cuando se ejecuta en Azure. Para más información, consulte [Archivo de configuración local](#local-settings-file).
 
     >[!IMPORTANT]
-    >Como el archivo local.settings.json puede contener secretos, debe excluirlo del control de código fuente del proyecto. Asegúrese de que la opción **Copiar en el directorio de salida** para este archivo esté establecida en **Copiar si es posterior** . 
+    >Como el archivo local.settings.json puede contener secretos, debe excluirlo del control de código fuente del proyecto. Asegúrese de que la opción **Copiar en el directorio de salida** para este archivo esté establecida en **Copiar si es posterior**. 
 
 Para más información, consulte [Proyecto de biblioteca de clases de Functions](functions-dotnet-class-library.md#functions-class-library-project).
 
@@ -86,15 +86,27 @@ Visual Studio no carga de forma automática la configuración de local.settings
 
 El código también puede leer los valores de configuración de la aplicación de funciones como variables de entorno. Para más información, consulte [Variables de entorno](functions-dotnet-class-library.md#environment-variables).
 
+## <a name="configure-your-build-output-settings"></a>Configuración de las opciones de salida de la compilación
+
+Al compilar un proyecto de Azure Functions, las herramientas de compilación optimizan la salida para que solo se conserve una copia de los ensamblados que se comparten con el tiempo de ejecución de las funciones. El resultado es una compilación optimizada que ahorra tanto espacio como sea posible. Pero cuando se cambia a una versión más reciente de cualquiera de los ensamblados del proyecto, es posible que las herramientas de compilación no sepan que estos ensamblados se deben conservar. Para asegurarse de que estos ensamblados se conservan durante el proceso de optimización, puede especificarlos mediante elementos `FunctionsPreservedDependencies` en el archivo del proyecto (.csproj):
+
+```xml
+  <ItemGroup>
+    <FunctionsPreservedDependencies Include="Microsoft.AspNetCore.Http.dll" />
+    <FunctionsPreservedDependencies Include="Microsoft.AspNetCore.Http.Extensions.dll" />
+    <FunctionsPreservedDependencies Include="Microsoft.AspNetCore.Http.Features.dll" />
+  </ItemGroup>
+```
+
 ## <a name="configure-the-project-for-local-development"></a>Configuración del proyecto para el desarrollo local
 
 El entorno de tiempo de ejecución de Functions usa internamente una cuenta de Azure Storage. Para todos los tipos de desencadenadores distintos de HTTP y webhooks, establezca la clave `Values.AzureWebJobsStorage` en una cadena de conexión de cuenta de Azure Storage válida. La aplicación de funciones también puede usar el [Emulador de Azure Storage](../storage/common/storage-use-emulator.md) para la configuración de conexión `AzureWebJobsStorage` que el proyecto necesita. Para usar el emulador, establezca el valor de `AzureWebJobsStorage` en `UseDevelopmentStorage=true`. Cambie esta configuración a una cadena de conexión de la cuenta de almacenamiento real antes de la implementación.
 
 Para establecer la cadena de conexión de cuenta de almacenamiento:
 
-1. En Visual Studio, seleccione **Ver** > **Cloud Explorer** .
+1. En Visual Studio, seleccione **Ver** > **Cloud Explorer**.
 
-2. En **Cloud Explorer** , expanda **Cuentas de almacenamiento** y, después, seleccione la cuenta de almacenamiento. En la pestaña **Propiedades** , copie el valor **Cadena de conexión principal** .
+2. En **Cloud Explorer**, expanda **Cuentas de almacenamiento** y, después, seleccione la cuenta de almacenamiento. En la pestaña **Propiedades**, copie el valor **Cadena de conexión principal**.
 
 2. En el proyecto, abra el archivo local.settings.json y establezca el valor de la clave `AzureWebJobsStorage` en la cadena de conexión que ha copiado.
 
@@ -104,11 +116,11 @@ Para establecer la cadena de conexión de cuenta de almacenamiento:
 
 En las funciones de biblioteca de clases C#, los enlaces que la función usa se definen mediante la aplicación de atributos en el código. Al crear los desencadenadores de funciones a partir de las plantillas proporcionadas, los atributos del desencadenador se aplican automáticamente. 
 
-1. En el **Explorador de soluciones** , haga clic con el botón derecho en el nodo del proyecto y seleccione **Agregar** > **Nuevo elemento** . 
+1. En el **Explorador de soluciones**, haga clic con el botón derecho en el nodo del proyecto y seleccione **Agregar** > **Nuevo elemento**. 
 
-2. Seleccione **Función de Azure** , escriba un **nombre** para la clase y, luego, seleccione **Agregar** .
+2. Seleccione **Función de Azure**, escriba un **nombre** para la clase y, luego, seleccione **Agregar**.
 
-3. Elija el desencadenador, establezca las propiedades de enlace y seleccione **Crear** . En el ejemplo siguiente se muestra los valores para crear una función de desencadenador de Queue Storage. 
+3. Elija el desencadenador, establezca las propiedades de enlace y seleccione **Crear**. En el ejemplo siguiente se muestra los valores para crear una función de desencadenador de Queue Storage. 
 
     ![Creación de una función de desencadenador de Queue Storage](./media/functions-develop-vs/functions-vstools-create-queuetrigger.png)
 
@@ -216,7 +228,7 @@ Al seleccionar este vínculo se muestra el cuadro de diálogo **Configuración d
 
 ![Configuración de la aplicación](./media/functions-develop-vs/functions-vstools-app-settings2.png)
 
-**Local** muestra un valor de configuración en el archivo local.settings.json y **Remoto** un valor actual de la aplicación de funciones de Azure. Elija **Agregar configuración** para crear una nueva configuración de aplicación. Use el vínculo **Insertar un valor desde Local** para copiar un valor de configuración para el campo **Remoto** . Los cambios pendientes se escriben en el archivo de configuración local y la aplicación de función cuando se selecciona **Aceptar** .
+**Local** muestra un valor de configuración en el archivo local.settings.json y **Remoto** un valor actual de la aplicación de funciones de Azure. Elija **Agregar configuración** para crear una nueva configuración de aplicación. Use el vínculo **Insertar un valor desde Local** para copiar un valor de configuración para el campo **Remoto**. Los cambios pendientes se escriben en el archivo de configuración local y la aplicación de función cuando se selecciona **Aceptar**.
 
 > [!NOTE]
 > De forma predeterminada, el archivo local.settings.json no se ha insertado en el control de código fuente. Esto significa que si clona un proyecto de Functions local desde el control de código fuente, el proyecto no tiene el archivo local.settings.json. En este caso, debe crear manualmente el archivo local.settings.json en la raíz del proyecto para que el cuadro de diálogo **Configuración de la aplicación** funcione según lo previsto. 

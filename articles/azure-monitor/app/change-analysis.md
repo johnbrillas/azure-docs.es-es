@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/04/2020
-ms.openlocfilehash: 36e73ceddaa5e3f9cbbf4a41f76a4ba6d70eed0f
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 50e199d2d56016086bb409f8690e9828f1d19984
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94979970"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881516"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Uso de Application Change Analysis (versión preliminar) en Azure Monitor
 
@@ -183,7 +183,6 @@ Si es la primera vez que ve el historial de cambios después de su integración 
     ```
 
 - **No se pudo registrar el proveedor de recursos Microsoft.ChangeAnalysis**. Este mensaje indica que ha habido un error inmediatamente después de que la interfaz de usuario enviara la solicitud para registrar el proveedor de recursos, y que no está relacionada con un problema de permisos. Lo más probable es que se deba a un problema temporal de conectividad a Internet. Intente actualizar la página y comprobar la conexión a Internet. Si el error continúa, póngase en contacto con changeanalysishelp@microsoft.com.
-- **Error al consultar al proveedor de recursos Microsoft.ChangeAnalysis** con el mensaje *No se admite la suscripción de Azure Lighthouse; los cambios solo están disponibles en el inquilino principal de la suscripción*. Ahora existe una limitación para que el proveedor de recursos de Change Analysis se registre a través de la suscripción de Azure Lighthouse para los usuarios que no están en el inquilino principal. Esperamos que esta limitación se solucione en un futuro próximo. Si se trata de un problema de bloqueo, hay una solución alternativa que implica la creación de una entidad de servicio y la asignación explícita del rol para permitir el acceso.  Póngase en contacto con changeanalysishelp@microsoft.com para más información al respecto.
 
 - **Está tardando más de lo esperado**. Este mensaje significa que el registro está tardando más de 2 minutos. Esto es poco habitual, pero no significa necesariamente que haya algo mal. Puede ir a **Suscripciones | Proveedor de recursos** para comprobar el estado de registro del proveedor de recursos **Microsoft.ChangeAnalysis**. Puede intentar usar la interfaz de usuario para anular el registro, volver a registrarse o actualizar para ver si esto ayuda. Si el problema persiste, póngase en contacto con changeanalysishelp@microsoft.com para obtener soporte.
     ![La solución de problemas de registro del proveedor de recursos está tardando demasiado tiempo](./media/change-analysis/troubleshoot-registration-taking-too-long.png)
@@ -191,6 +190,10 @@ Si es la primera vez que ve el historial de cambios después de su integración 
 ![Captura de pantalla de la herramienta Diagnosticar y resolver problemas de una máquina virtual con Herramientas para la solución de problemas seleccionado.](./media/change-analysis/vm-dnsp-troubleshootingtools.png)
 
 ![Captura de pantalla del mosaico Analizar cambios recientes de la herramienta para la solución de problemas para una máquina virtual.](./media/change-analysis/analyze-recent-changes.png)
+
+### <a name="azure-lighthouse-subscription-is-not-supported"></a>No se admite la suscripción de Azure Lighthouse.
+
+- **Error al consultar al proveedor de recursos Microsoft.ChangeAnalysis** con el mensaje *No se admite la suscripción de Azure Lighthouse; los cambios solo están disponibles en el inquilino principal de la suscripción*. Ahora existe una limitación para que el proveedor de recursos de Change Analysis se registre a través de la suscripción de Azure Lighthouse para los usuarios que no están en el inquilino principal. Esperamos que esta limitación se solucione en un futuro próximo. Si se trata de un problema de bloqueo, hay una solución alternativa que implica la creación de una entidad de servicio y la asignación explícita del rol para permitir el acceso.  Póngase en contacto con changeanalysishelp@microsoft.com para más información al respecto.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

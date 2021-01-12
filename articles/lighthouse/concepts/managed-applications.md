@@ -1,23 +1,33 @@
 ---
 title: Azure Lighthouse y Azure Managed Applications
-description: Información sobre cómo Azure Lighthouse y las aplicaciones administradas de Azure pueden ayudar a habilitar distintos escenarios y cómo se pueden usar juntos.
-ms.date: 08/12/2020
+description: Comprenda cómo se pueden usar Azure Lighthouse y aplicaciones administradas de Azure de forma conjunta.
+ms.date: 12/18/2020
 ms.topic: conceptual
-ms.openlocfilehash: b3d6c83a50f1da006f2618f7f4ff59759dac2555
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 5c30c3234a57e25ceaa521ad485f58d4d663ebe9
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96436528"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97693973"
 ---
 # <a name="azure-lighthouse-and-azure-managed-applications"></a>Azure Lighthouse y Azure Managed Applications
 
-Tanto Azure Managed Applications como Azure Lighthouse funcionan habilitando un proveedor de servicios para acceder a los recursos que residen en el inquilino del cliente. Puede ser útil comprender las diferencias en cuanto a su modo de funcionamiento y los escenarios que ayudan a habilitar, así como la forma en que se pueden usar conjuntamente.
+Tanto Azure Managed Applications como Azure Lighthouse funcionan habilitando un proveedor de servicios para acceder a los recursos que residen en el inquilino del cliente. Puede ser útil comprender las diferencias en cuanto a su funcionamiento y los escenarios que ayudan a habilitar, así como la forma en que se pueden usar conjuntamente.
 
 > [!TIP]
 > Aunque en este tema nos referiremos a los proveedores de servicios y clientes, las [empresas que administren varios inquilinos](enterprise.md) pueden usar el mismo proceso y herramientas.
 
 ## <a name="comparing-azure-lighthouse-and-azure-managed-applications"></a>Comparación de Azure Lighthouse y Azure Managed Applications
+
+En esta tabla se muestran algunas diferencias generales que pueden afectar a la posibilidad de usar Azure Lighthouse o aplicaciones administradas de Azure. Como se indica a continuación, también puede diseñar una solución en la que se usen conjuntamente.
+
+|Consideración  |Azure Lighthouse  |Aplicaciones administradas de Azure  |
+|---------|---------|---------|
+|Usuario típico     |Proveedores de servicios o empresas que administran varios inquilinos         |Fabricantes independientes de software (ISV)         |
+|Ámbito del acceso entre inquilinos     |Suscripción o grupo de recursos         |Grupo de recursos (con ámbito en una sola aplicación)         |
+|Se puede comprar en Azure Marketplace     |No (las ofertas se pueden publicar en Azure Marketplace, pero a los clientes se les factura por separado)        |Sí         |
+|Protección IP     |Sí (la IP puede permanecer en el inquilino del proveedor de servicios)        |Sí (por diseño, el grupo de recursos está bloqueado para los clientes)         |
+|Asignaciones de denegación     |No         |Sí        |
 
 ### <a name="azure-lighthouse"></a>Azure Lighthouse
 
@@ -51,3 +61,4 @@ Los clientes también podrían estar interesados en aplicaciones administradas d
 
 - Obtenga información sobre [Azure Managed Applications](../../azure-resource-manager/managed-applications/overview.md).
 - Obtenga información sobre cómo [Incorporar una suscripción a Azure Lighthouse](../how-to/onboard-customer.md).
+- Obtenga información sobre [Escenarios de ISV con Azure Lighthouse](isv-scenarios.md).

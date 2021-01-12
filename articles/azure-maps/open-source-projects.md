@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 138160eb1515d1443302dbc23bbafa482e2eb905
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 0f0d94dbc7b2c720faa1da41a88e3c3313dac377
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96904557"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680751"
 ---
 # <a name="azure-maps-community---open-source-projects"></a>Comunidad de Azure Maps: proyectos de código abierto
 
@@ -38,13 +38,20 @@ A continuación se muestra una lista de proyectos de código abierto que amplía
 | Nombre de proyecto | Descripción |
 |-|-|
 | [Módulo de animación de Azure Maps](https://github.com/Azure-Samples/azure-maps-animations) | Una biblioteca enriquecida de animaciones para uso con el SDK web de Azure Maps. |
+| [Módulo del control Incluir datos en la vista de Azure Maps](https://github.com/Azure-Samples/azure-maps-bring-data-into-view-control) | Un módulo del SDK web de Azure Maps en el que se proporciona un control que facilita la visualización de los datos cargados en el mapa. |
 | [Módulo de control de geolocalización de Azure Maps](https://github.com/Azure-Samples/azure-maps-geolocation-control) | Módulo del SDK web de Azure Maps que proporciona un control que utiliza la API de geolocalización del explorador para buscar al usuario en el mapa. |
 | [Módulo de origen de datos cuadriculado de Azure Maps](https://github.com/Azure-Samples/azure-maps-gridded-data-source) | Módulo para el SDK web de Azure Maps que proporciona un origen de datos que agrupa los puntos de datos en las celdas de un área de cuadrícula. Esta operación también se conoce por muchos nombres, como teselaciones, discretización de datos o rangos hexadecimales.  |
 | [Módulo de control de pantalla completa de Azure Maps](https://github.com/Azure-Samples/azure-maps-fullscreen-control) | Módulo del SDK web de Azure Maps que proporciona un control para mostrar el mapa en modo de pantalla completa. |
+| [Módulo de la capa Marcador HTML de Azure Maps](https://github.com/Azure-Samples/azure-maps-html-marker-layer) | Un módulo del SDK web de Azure Maps en el que se proporciona una capa que representa los datos de punto de un origen de datos como elementos HTML en el mapa. |
+| [Módulo del exportador de imágenes de Azure Maps](https://github.com/Azure-Samples/azure-maps-image-exporter) | Un módulo para el SDK web de Azure Maps en el que se generan capturas de pantallas del mapa. |
+| [Módulo de mapa de información general de Azure Maps](https://github.com/Azure-Samples/azure-maps-overview-map) | Un módulo del SDK web de Azure Maps en el que se proporciona un control que muestra un mapa de información general del área en la que se centra el mapa principal. |
+| [Módulo del control de barra de escala de Azure Maps](https://github.com/Azure-Samples/azure-maps-scale-bar-control) | Un módulo del SDK web de Azure Maps en el que se proporciona un control que muestra una barra de escala relativa a la resolución de píxeles en el centro del mapa. |
 | [Módulo de control de selección de Azure Maps](https://github.com/Azure-Samples/azure-maps-selection-control) | Módulo del SDK web de Azure Maps que proporciona controles para seleccionar datos en un origen de datos mediante herramientas de dibujo o solicitando un polígono de intervalo de ruta. |
+| [Módulo de interfaz de usuario de los servicios de Azure Maps](https://github.com/Azure-Samples/azure-maps-services-ui) | Un conjunto de controles de interfaz de usuario web que encapsulan los servicios REST de Azure Maps. |
+| [Módulo de clústeres de araña de Azure Maps](https://github.com/Azure-Samples/azure-maps-spider-clusters) | Un módulo para el SDK web de Azure Maps en el que se agrega una visualización al mapa que expande los clústeres en un diseño en espiral. |
+| [Módulo de control de catalejo de Azure Maps](https://github.com/Azure-Samples/azure-maps-spyglass-control) | Un módulo del SDK web de Azure Maps en el que se proporciona una ventana que muestra un conjunto de datos dentro de un catalejo en el mapa.  |
 | [Módulo de mapa de deslizamiento de Azure Maps](https://github.com/Azure-Samples/azure-maps-swipe-map) | Módulo para el SDK web de Azure Maps que permite deslizar el dedo entre dos mapas superpuestos, lo ideal para comparar dos conjuntos de datos superpuestos. |
 | [Módulo de mapa de sincronización de Azure Maps](https://github.com/Azure-Samples/azure-maps-sync-maps) | Módulo del SDK web de Azure Maps que sincroniza las cámaras de dos o más mapas. |
-| [Módulo de interfaz de usuario de los servicios de Azure Maps](https://github.com/Azure-Samples/azure-maps-services-ui) | Un conjunto de controles de interfaz de usuario web que encapsulan los servicios REST de Azure Maps. |
 
 **Muestras**
 
@@ -53,6 +60,7 @@ A continuación se muestra una lista de proyectos de código abierto que amplía
 | [Ejemplos de código de Azure Maps](https://github.com/Azure-Samples/AzureMapsCodeSamples) | Colección de ejemplos de código para usar Azure Maps en aplicaciones basadas en web. |
 | [Ejemplos de código de Azure Maps Gov en la nube](https://github.com/Azure-Samples/AzureMapsCodeSamples) | Colección de ejemplos de código para usar Azure Maps en la nube de Azure Government. |
 | [Muestras de Azure Maps y Azure Active Directory](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples) | Colección de ejemplos que muestran cómo usar Azure Active Directory con Azure Maps. | 
+| [LiveMaps](https://github.com/Azure-Samples/LiveMaps) | Aplicación de ejemplo para proporcionar la visualización de mapas interior en directo de datos de IoT sobre Azure Maps con Azure Maps Creator |
 | [Ejemplos de Jupyter Notebook en Azure Maps](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook) | Colección de ejemplos de Python con los servicios REST de Azure Maps. |
 | [Control remoto de IoT para .NET UWP en Azure Maps](https://github.com/Azure-Samples/azure-maps-dotnet-webgl-uwp-iot-remote-control) | Se trata de una aplicación de ejemplo que muestra cómo crear un mapa controlado de forma remota con los servicios de Azure Maps e IoT Hub. |
 | [Implementación del análisis espacial de IoT mediante Azure Maps](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing) | El seguimiento y la captura de eventos pertinentes que se producen en el espacio y en el tiempo es un escenario común de IoT. |

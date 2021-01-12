@@ -3,12 +3,12 @@ title: Preguntas comunes sobre la recuperación ante desastres de VMware con Azu
 description: Obtenga respuestas a las preguntas comunes sobre cómo configurar la recuperación ante desastres de máquinas virtuales de VMware locales en Azure mediante Azure Site Recovery.
 ms.date: 11/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: 8f292e7f624b80e8e13514a714c5759d88fbe57c
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: a272486eea111ab8c8e489556986f12f382e3f65
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94379997"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587799"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Preguntas frecuentes sobre la replicación de VMware en Azure
 
@@ -146,6 +146,10 @@ La replicación es continua cuando se replican máquinas virtuales de VMware en 
 ### <a name="can-i-extend-replication"></a>¿Se puede extender la replicación?
 
 No se admite la replicación extendida o encadenada. Solicite esta característica en el [foro de comentarios](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).
+
+### <a name="how-can-i-track-progress-of-initial-replicationsynchronization"></a>¿Cómo se puede realizar el seguimiento del progreso de la replicación inicial o la sincronización?
+
+Esta funcionalidad se ha agregado recientemente a los servicios de Site Recovery. Actualice la infraestructura de Site Recovery (servidores de configuración y servidores de procesos de escalabilidad horizontal) y el agente de movilidad a las versiones 9.36 o superior para obtener detalles precisos. Obtenga más información sobre cómo realizar el seguimiento del progreso [aquí](vmware-azure-enable-replication.md#monitor-initial-replication).
 
 ### <a name="can-i-do-an-offline-initial-replication"></a>¿Se puede realizar una replicación inicial sin conexión?
 

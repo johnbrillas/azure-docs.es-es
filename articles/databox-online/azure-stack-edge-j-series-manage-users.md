@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 01/05/2021
 ms.author: alkohli
-ms.openlocfilehash: 66967c1fa8f6ca42459559caf46bffb0e5afe925
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0bef344414a9ba27d5808fcd17ed664b7f51bddc
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743597"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916007"
 ---
 # <a name="use-the-azure-portal-to-manage-users-on-your-azure-stack-edge-pro"></a>Uso de Azure Portal para administrar usuarios en Azure Stack Edge Pro
 
@@ -30,19 +30,19 @@ En este artículo aprenderá a:
 
 ## <a name="about-users"></a>Acerca de los usuarios
 
-Los usuarios pueden ser de solo lectura o tener privilegios totales. Como indican los nombres, los usuarios de solo lectura solo pueden ver los datos de los recursos compartidos. Los usuarios con privilegios totales pueden leer datos de los recursos compartidos, escribir en estos recursos compartidos y modificar o eliminar los datos de los recursos compartidos.
+Los usuarios pueden ser de solo lectura o tener privilegios totales. Los usuarios de solo lectura solo pueden ver los datos de los recursos compartidos. Los usuarios con privilegios totales pueden leer datos de los recursos compartidos, escribir en estos recursos compartidos y modificar o eliminar los datos de los recursos compartidos.
 
  - **Usuario con privilegios totales**: un usuario local con acceso completo.
  - **Usuario de solo lectura**: un usuario local con acceso de solo lectura. Estos usuarios están asociados a los recursos compartidos que permiten operaciones de solo lectura.
 
-Los permisos del usuario se definen por primera vez cuando se crea el usuario durante la creación de los recursos compartidos. Una vez que se definen los permisos asociados a un usuario, se pueden modificar mediante el Explorador de archivos.
+Los permisos del usuario se definen por primera vez cuando se crea el usuario durante la creación de los recursos compartidos. Se pueden modificar mediante el Explorador de archivos.
 
 
 ## <a name="add-a-user"></a>Adición de un usuario
 
 Para agregar un usuario siga estos pasos en Azure Portal.
 
-1. En Azure Portal, vaya al recurso de Azure Stack Edge y luego a **Información general > Usuarios**. Seleccione **+ Agregar usuario** en la barra de comandos.
+1. En Azure Portal, vaya al recurso de Azure Stack Edge y luego a **Usuarios**. Seleccione **+ Agregar usuario** en la barra de comandos.
 
     ![Seleccionar Agregar usuario](media/azure-stack-edge-j-series-manage-users/add-user-1.png)
 
@@ -59,7 +59,7 @@ Para agregar un usuario siga estos pasos en Azure Portal.
 ## <a name="modify-user"></a>Modificación de un usuario
 
 Una vez que se crea un usuario es posible cambiar la contraseña asociada con él. Seleccione en la lista de usuarios. Escriba la contraseña nueva y confírmela. Guarde los cambios.
- 
+
 ![Modificación de un usuario](media/azure-stack-edge-j-series-manage-users/modify-user-1.png)
 
 
@@ -68,7 +68,7 @@ Una vez que se crea un usuario es posible cambiar la contraseña asociada con é
 Siga estos pasos en Azure Portal para eliminar un usuario.
 
 
-1. En Azure Portal, vaya al recurso de Azure Stack Edge y luego a **Información general > Usuarios**.
+1. En Azure Portal, vaya al recurso de Azure Stack Edge y luego a **Usuarios**.
 
     ![Seleccionar el usuario que se va a eliminar](media/azure-stack-edge-j-series-manage-users/delete-user-1.png)
 

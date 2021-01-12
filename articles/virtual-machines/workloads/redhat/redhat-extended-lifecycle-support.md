@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/16/2020
 ms.author: mathapli
 ms.reviewer: cynthn
-ms.openlocfilehash: 1f31cc982e5e7f92cfe7e8adf588dd96628f2c6f
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: fd36d365eb02819352bc14caf9d8e258a8663c70
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95744048"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861389"
 ---
 # <a name="red-hat-enterprise-linux-rhel-extended-lifecycle-support"></a>Soporte técnico ampliado del ciclo de vida de Red Hat Enterprise Linux (RHEL)
 En este artículo se proporciona información sobre el soporte técnico ampliado del ciclo de vida para las imágenes de Red Hat Enterprise:
@@ -38,6 +38,12 @@ A partir del 30 de noviembre de 2020, finalizará la fase de mantenimiento de Re
 
 #### <a name="what-is-the-additional-charge-for-using-red-hat-enterprise-linux-extended-life-cycle-support-els-add-on"></a>¿Cuál es el cargo adicional por el uso del complemento de soporte técnico ampliado del ciclo de vida (ELS) de Red Hat Enterprise Linux?
 Los costos relacionados con el soporte técnico Extended Lifecycle se pueden encontrar con el [formulario de ELS](https://aka.ms/els-form).
+
+#### <a name="ive-deployed-a-vm-by-using-custom-image-how-can-i-add-extended-lifecycle-support-to-this-vm"></a>He implementado una máquina virtual con una imagen personalizada. ¿Cómo puedo agregar soporte técnico ampliado del ciclo de vida a esta máquina virtual?
+Debe ponerse en contacto con Red Hat y obtener soporte técnico directamente de ellos.
+
+#### <a name="ive-deployed-a-vm-by-using-custom-image-can-i-convert-this-vm-to-a-payg-vm"></a>He implementado una máquina virtual con una imagen personalizada. ¿Puedo convertir esta máquina virtual en una máquina virtual de Pago por uso?
+Lamentablemente, no. La conversión no se admite actualmente en Azure.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

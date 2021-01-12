@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2020
 ms.author: Zhchia
-ms.openlocfilehash: 141dd37dff8403825df713de8f7176d4dd9d20f8
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 4eaac716d06b102a07872059af28da4986889caa
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97008051"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673447"
 ---
 # <a name="tutorial-configure-bizagi-studio-for-digital-process-automation-for-automatic-user-provisioning"></a>Tutorial: Configuración de Bizagi Studio for Digital Process Automation para el aprovisionamiento automático de usuarios
 
@@ -132,7 +132,16 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
    |name.familyName|String|
    |name.formatted|String|
    |phoneNumbers[type eq "mobile"].value|String|
+
+   Para agregar atributos de extensión personalizados, desplácese a **Mostrar opciones avanzadas > Edit attribute list for Bizagi** (Editar lista de atributos para Bizagi). Los atributos de extensión personalizados deben tener el prefijo **urn:ietf:params:scim:schemas:extension:bizagi:2.0:UserProperties:** . Por ejemplo, si el atributo de extensión personalizado es **IdentificationNumber**, el atributo debe agregarse como **urn:ietf:params:scim:schemas:extension:bizagi:2.0:UserProperties:IdentificationNumber**. Para confirmar los cambios, seleccione **Guardar**.
    
+    ![Edite la lista de atributos.](media/bizagi-studio-for-digital-process-automation-provisioning-tutorial/edit.png)  
+
+   Puede encontrar más información sobre cómo agregar atributos personalizados en [Personalización de atributos de la aplicación](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).
+
+> [!NOTE]
+> Solo se admiten las propiedades de tipo básico (por ejemplo, String, Integer, Boolean, DateTime, etc.). Todavía no se admiten las propiedades vinculadas a tablas paramétricas o a varios tipos.
+
 10. Para configurar los filtros de ámbito, consulte el [tutorial sobre el filtro de ámbito](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
 11. Para habilitar el servicio de aprovisionamiento de Azure AD para Bizagi Studio for Digital Process Automation, cambie el valor de **Estado de aprovisionamiento** a **Activado** en la sección **Configuración**.

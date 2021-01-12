@@ -3,12 +3,12 @@ title: Copia de seguridad y recuperación de máquinas virtuales con PowerShell
 description: Describe cómo realizar una copia de seguridad y llevar a cabo la recuperación de máquinas virtuales de Azure mediante Azure Backup con PowerShell.
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: ded2bc8a71bf564e31f40ca9f0d6c8049188768b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 610049ec14243abb296aef431eb37533c6169817
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95978376"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97797067"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Copia de seguridad y restauración de máquinas virtuales de con PowerShell
 
@@ -259,6 +259,8 @@ Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGro
 > Si está usando la nube de Azure Government, use el valor `ff281ffe-705c-4f53-9f37-a40e6f2c68f3` para el parámetro **ServicePrincipalName** en el cmdlet [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy).
 >
 
+Si quiere realizar una copia de seguridad selectiva de algunos discos y excluir otros como se ha mencionado en [estos escenarios](selective-disk-backup-restore.md#scenarios), puede configurar la protección y la copia de seguridad solo de los discos adecuados, como se documenta [aquí](selective-disk-backup-restore.md#enable-backup-with-powershell).
+
 ## <a name="monitoring-a-backup-job"></a>Supervisión de trabajos de copia de seguridad
 
 Puede supervisar las operaciones de ejecución prolongada, como los trabajos de copia de seguridad, sin usar Azure Portal. Para obtener el estado de un trabajo en curso, use el cmdlet [Get-AzRecoveryservicesBackupJob](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob). Este cmdlet obtiene los trabajos de copia de seguridad de un almacén específico, y dicho almacén se especifica en el contexto de almacén. En el ejemplo siguiente se obtiene el estado de un trabajo en curso como una matriz y se almacena el estado en la variable $joblist.
@@ -338,6 +340,10 @@ $bkpPol.AzureBackupRGName="Contosto_"
 $bkpPol.AzureBackupRGNameSuffix="ForVMs"
 Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
 ```
+
+### <a name="exclude-disks-for-a-protected-vm"></a>Exclusión de discos para una máquina virtual protegida
+
+La copia de seguridad de VM de Azure proporciona una funcionalidad para excluir o incluir de forma selectiva discos, lo que resulta útil en [estos escenarios](selective-disk-backup-restore.md#scenarios). Si la máquina virtual ya está protegida por la copia de seguridad de máquinas virtuales de Azure y se realiza una copia de seguridad de todos los discos, puede modificar la protección para incluir o excluir discos de forma selectiva, como se ha mencionado [aquí](selective-disk-backup-restore.md#modify-protection-for-already-backed-up-vms-with-powershell).
 
 ### <a name="trigger-a-backup"></a>Desencadenar una copia de seguridad
 
@@ -511,6 +517,13 @@ Una vez que se haya completado el trabajo de recuperación, use el cmdlet [Get-A
 $restorejob = Get-AzRecoveryServicesBackupJob -Job $restorejob -VaultId $targetVault.ID
 $details = Get-AzRecoveryServicesBackupJobDetails -Job $restorejob -VaultId $targetVault.ID
 ```
+
+#### <a name="restore-selective-disks"></a>Restauración selectiva de discos
+
+Un usuario puede restaurar selectivamente algunos discos en lugar de todo el conjunto de copia de seguridad. Proporcione los LUN de disco necesarios como parámetros para restaurarlos, en lugar de todo el conjunto, como se documenta [aquí](selective-disk-backup-restore.md#restore-selective-disks-with-powershell).
+
+> [!IMPORTANT]
+> Es necesario hacer una copia de seguridad selectiva de los discos para poder restaurarlos de forma selectiva. [Aquí](selective-disk-backup-restore.md#selective-disk-restore) se proporcionan más detalles.
 
 Una vez que restaure los discos, vaya a la siguiente sección para crear la máquina virtual.
 

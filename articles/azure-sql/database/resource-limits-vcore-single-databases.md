@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/15/2020
-ms.openlocfilehash: d6936d6c72855bc22e3fc9323028fd0b8cd0fb29
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 4ffe663c1a1651891af5f6e65ee231cbe3e8d650
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097582"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882325"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>Límites de recursos para bases de datos únicas que utilizan el modelo de compra en núcleos virtuales
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -227,9 +227,9 @@ El [nivel de proceso sin servidor](serverless-tier-overview.md) está actualment
 
 #### <a name="notes"></a>Notas
 
-**Nota 1** : La hiperescala es una arquitectura de varios niveles con componentes de proceso y almacenamiento independientes: [Arquitectura de nivel de servicio Hiperescala](service-tier-hyperscale.md#distributed-functions-architecture)
+**Nota 1**: La hiperescala es una arquitectura de varios niveles con componentes de proceso y almacenamiento independientes: [Arquitectura de nivel de servicio Hiperescala](service-tier-hyperscale.md#distributed-functions-architecture)
 
-**Nota 2** : La latencia es de 1 o 2 ms para los datos de la unidad de estado sólido de la réplica de proceso local, que almacena en caché las páginas de datos más usadas. Mayor latencia de los datos recuperados de los servidores de páginas.
+**Nota 2**: La latencia es de 1 o 2 ms para los datos de la unidad de estado sólido de la réplica de proceso local, que almacena en caché las páginas de datos más usadas. Mayor latencia de los datos recuperados de los servidores de páginas.
 
 ## <a name="general-purpose---provisioned-compute---gen4"></a>Uso general: proceso aprovisionado: Gen4
 
@@ -307,7 +307,7 @@ El [nivel de proceso sin servidor](serverless-tier-overview.md) está actualment
 |Cantidad máxima de trabajos (solicitudes) simultáneos|200|400|600|800|1000|1200|1400|
 |N.º máximo de sesiones simultáneas|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
 |Número de réplicas|1|1|1|1|1|1|1|
-|AZ múltiple|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
+|AZ múltiple|[Disponible en versión preliminar](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponible en versión preliminar](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponible en versión preliminar](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponible en versión preliminar](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponible en versión preliminar](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponible en versión preliminar](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponible en versión preliminar](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|
 |Escalado horizontal de lectura|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
 
@@ -332,7 +332,7 @@ El [nivel de proceso sin servidor](serverless-tier-overview.md) está actualment
 |Cantidad máxima de trabajos (solicitudes) simultáneos|1600|1800|2000|2400|3200|4000|8000|
 |N.º máximo de sesiones simultáneas|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
 |Número de réplicas|1|1|1|1|1|1|1|
-|AZ múltiple|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
+|AZ múltiple|[Disponible en versión preliminar](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponible en versión preliminar](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponible en versión preliminar](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponible en versión preliminar](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponible en versión preliminar](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponible en versión preliminar](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponible en versión preliminar](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|
 |Escalado horizontal de lectura|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
 

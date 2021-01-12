@@ -4,12 +4,12 @@ description: Aprenda a controlar el acceso al archivo de configuración de Kuber
 services: container-service
 ms.topic: article
 ms.date: 05/06/2020
-ms.openlocfilehash: 371628b02ebecee23697e996ee0d484688167875
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 77b9988557106ef460d3b222ef85eb29e08f31c8
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94684821"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97693981"
 ---
 # <a name="use-azure-role-based-access-control-to-define-access-to-the-kubernetes-configuration-file-in-azure-kubernetes-service-aks"></a>Uso del control de acceso basados en rol de Azure para definir el acceso al archivo de configuración de Kubernetes en Azure Kubernetes Service (AKS)
 
@@ -69,6 +69,22 @@ az role assignment create \
     --scope $AKS_CLUSTER \
     --role "Azure Kubernetes Service Cluster Admin Role"
 ```
+
+> [!IMPORTANT]
+> En algunos casos, el valor *user.name* de la cuenta es diferente del valor *userPrincipalName*, como sucede con los usuarios invitados de Azure AD:
+>
+> ```output
+> $ az account show --query user.name -o tsv
+> user@contoso.com
+> $ az ad user list --query "[?contains(otherMails,'user@contoso.com')].{UPN:userPrincipalName}" -o tsv
+> user_contoso.com#EXT#@contoso.onmicrosoft.com
+> ```
+>
+> En este caso, establezca el valor de *ACCOUNT_UPN* en el valor *userPrincipalName* del usuario de Azure AD. Por ejemplo, si el valor *user.name* de la cuenta es *user\@contoso.com*:
+> 
+> ```azurecli-interactive
+> ACCOUNT_UPN=$(az ad user list --query "[?contains(otherMails,'user@contoso.com')].{UPN:userPrincipalName}" -o tsv)
+> ```
 
 > [!TIP]
 > Si desea asignar permisos a un grupo de Azure AD, actualice el parámetro `--assignee` que se muestra en el ejemplo anterior con el identificador de objeto para el *grupo* en lugar de un *usuario*. Para obtener el identificador de objeto para un grupo, use el comando [az ad group show][az-ad-group-show]. En el ejemplo siguiente se obtiene el identificador de objeto para el grupo de Azure AD denominado *appdev*: `az ad group show --group appdev --query objectId -o tsv`

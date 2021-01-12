@@ -1,20 +1,20 @@
 ---
 title: Objetivos de escalabilidad y rendimiento para Queue Storage
 titleSuffix: Azure Storage
-description: Obtenga más información sobre los objetivos de escalabilidad y rendimiento para Queue Storage.
-services: storage
+description: Obtenga información sobre los objetivos de escalabilidad y rendimiento para Queue Storage.
 author: tamram
-ms.service: storage
-ms.topic: conceptual
-ms.date: 12/18/2019
+services: storage
 ms.author: tamram
+ms.date: 12/18/2019
+ms.topic: conceptual
+ms.service: storage
 ms.subservice: queues
-ms.openlocfilehash: 464807a7bf4a20b540e2d5344b721c8844bd7bca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8567943033647c785e633e185d4662a5a9fa847
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75750488"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588257"
 ---
 # <a name="scalability-and-performance-targets-for-queue-storage"></a>Objetivos de escalabilidad y rendimiento para Queue Storage
 

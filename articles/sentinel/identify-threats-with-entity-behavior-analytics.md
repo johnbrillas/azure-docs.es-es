@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/19/2020
 ms.author: yelevin
-ms.openlocfilehash: a0a677342534cd92d5530199076e3d2e7084134d
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 2326746d274c68225cd4c8569df6a20d6050ec1a
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95494784"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900899"
 ---
 # <a name="identify-advanced-threats-with-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Identificación de amenazas avanzadas con el Análisis de comportamiento de usuarios y entidades (UEBA) en Azure Sentinel
 
@@ -177,6 +177,8 @@ Las páginas de entidad están diseñadas para formar parte de varios escenarios
 | **ActivityInsights**      | Análisis contextual de la actividad basada en la generación de perfiles              |
 | **InvestigationPriority** | Puntuación de anomalías, entre 0 y 10 (0=benigno, 10=muy anómalo)         |
 |
+
+Puede ver el conjunto completo de características enriquecidas contextuales a las que se hace referencia en la información de **usuarios**, **dispositivos** y **actividades** en el [documento de referencia de características enriquecidas con UEBA](ueba-enrichments.md).
 
 ### <a name="querying-behavior-analytics-data"></a>Consulta de datos de análisis de comportamiento
 
