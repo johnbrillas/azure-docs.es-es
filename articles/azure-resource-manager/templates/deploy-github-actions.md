@@ -4,16 +4,16 @@ description: Se describe cómo implementar plantillas de Azure Resource Manager 
 ms.topic: conceptual
 ms.date: 10/13/2020
 ms.custom: github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: 4cda8307d417880469e6043b84c3ac55ed30071c
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 4c1f59e9a18e7359ae543b0311baea0c2a4ab8d6
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905849"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97674339"
 ---
 # <a name="deploy-arm-templates-by-using-github-actions"></a>Implementación de plantillas de ARM mediante Acciones de GitHub
 
-[Acciones de GitHub](https://help.github.com/actions/getting-started-with-github-actions/about-github-actions) es un conjunto de características de GitHub para automatizar los flujos de trabajo de desarrollo de software en el mismo lugar donde almacena el código y colabora en las solicitudes de incorporación de cambios y problemas.
+[Acciones de GitHub](https://docs.github.com/en/free-pro-team@latest/actions) es un conjunto de características de GitHub para automatizar los flujos de trabajo de desarrollo de software en el mismo lugar donde almacena el código y colabora en las solicitudes de incorporación de cambios y problemas.
 
 Use la [acción Implementación de plantilla de Azure Resource Manager](https://github.com/marketplace/actions/deploy-azure-resource-manager-arm-template) para automatizar la implementación de una plantilla de Azure Resource Manager (plantilla de ARM) en Azure.
 
@@ -21,7 +21,7 @@ Use la [acción Implementación de plantilla de Azure Resource Manager](https://
 
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Una cuenta de GitHub. Si no tiene ninguna, regístrese [gratis](https://github.com/join).
-    - Un repositorio de GitHub para almacenar las plantillas de Resource Manager y los archivos del flujo de trabajo. Para crear uno, vea [Creación de un repositorio](https://help.github.com/en/enterprise/2.14/user/articles/creating-a-new-repository).
+    - Un repositorio de GitHub para almacenar las plantillas de Resource Manager y los archivos del flujo de trabajo. Para crear uno, vea [Creación de un repositorio](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/creating-a-new-repository).
 
 
 ## <a name="workflow-file-overview"></a>Información general sobre el archivo de flujo de trabajo
@@ -158,3 +158,6 @@ Cuando el repositorio y el grupo de recursos ya no sean necesarios, limpie los r
 
 > [!div class="nextstepaction"]
 > [Creación de la primera plantilla de ARM](./template-tutorial-create-first-template.md)
+
+> [!div class="nextstepaction"]
+> [Módulo de aprendizaje: Automatización de la implementación de plantillas de ARM mediante Acciones de GitHub](/learn/modules/deploy-templates-command-line-github-actions/)

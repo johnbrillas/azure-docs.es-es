@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: navits09
 ms.author: navits
 ms.date: 04/02/2020
-ms.openlocfilehash: af77f18771d8e18ee86b79360ac03307d3330cb0
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: b02c5bbf2e6accbea9c7a33dc26c4e89e46bb697
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93131435"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97679134"
 ---
 # <a name="power-bi-app-creation-overview"></a>Introducción a la creación de la aplicación Power BI
 
@@ -33,7 +33,7 @@ Ventajas de publicar en Marketplace comercial:
 
 Estos son los pasos para la publicación de claves:
 
-1. Cree su aplicación en Power BI. Recibirá un vínculo de instalación de paquetes, que es el recurso técnico principal de la oferta. Envíe el paquete de prueba a preproducción antes de crear la oferta en el Centro de partners. Para obtener detalles, consulte [¿Qué son las aplicaciones Power BI?](/power-bi/service-template-apps-overview)
+1. Cree su aplicación en Power BI. Recibirá un vínculo de instalación de paquetes, que es el recurso técnico principal de la oferta. Envíe el paquete de prueba a preproducción antes de crear la oferta en el Centro de partners. Para obtener detalles, vea [¿Qué es una aplicación de Power BI?](/power-bi/service-template-apps-overview)
 2. Agregue los materiales de marketing, como en nombre oficial, la descripción y los logotipos.
 3. Incluya los documentos jurídicos y de soporte técnico de la oferta, como los términos de uso, la directiva de privacidad, la directiva de soporte técnico y la ayuda para usuarios.
 4. Cree la oferta: use el Centro de partners para editar los detalles, incluida la descripción de la oferta, los materiales de marketing, la información jurídica y de soporte técnico, y las especificaciones de los recursos.

@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 12/03/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: ff9ad659e15a88725e4c3905ab6c623fda7610fd
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 451323058ad743d6e26fc8bcea27d1b44c76f543
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96600911"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97674049"
 ---
 # <a name="default-test-cases-for-arm-template-test-toolkit"></a>Casos de prueba predeterminados del kit de herramientas para pruebas de plantillas de Resource Manager
 
@@ -693,4 +693,5 @@ En el siguiente ejemplo **no se supera** porque utiliza una función [list*](tem
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre cómo ejecutar el kit de herramientas para pruebas, consulte [Uso del kit de herramientas para pruebas de plantillas de Resource Manager](test-toolkit.md).
+- Para más información sobre cómo ejecutar el kit de herramientas para pruebas, consulte [Uso del kit de herramientas para pruebas de plantillas de Resource Manager](test-toolkit.md).
+- Para obtener un módulo de Microsoft Learn que trate del uso del kit de herramientas de pruebas, vea [Obtención de una vista previa de los cambios y validación de recursos de Azure mediante What If y el kit de herramientas de pruebas de plantillas de ARM](/learn/modules/arm-template-test/).

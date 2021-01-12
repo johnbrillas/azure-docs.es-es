@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 64d90b4d9dc3efbe877230bbc20780b1c4f2d213
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5773f7af3bb065976e8f05d7b54c58b90da2d3d2
+ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90932348"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97835132"
 ---
 # <a name="security-agent-reference-architecture"></a>Arquitectura de referencia del agente de seguridad
 
@@ -45,11 +45,11 @@ Los agentes de seguridad de Defender para IoT se desarrollan como proyectos de c
 
 Defender para IoT ofrece diferentes instaladores de agente de 32 y 64 bits de Windows, y lo mismo para 32 bits y 64 bits de Linux. Asegúrese de que tiene el instalador de agente correcto para cada uno de los dispositivos, según la siguiente tabla:
 
-| Architecture | Linux | Windows |    Detalles|
-|----------|----------------------------------------------|-------------|-------------------------------------------|
-| 32 bits  | C  | C#  ||
-| 64 bits  | C# o C           | C#      | Se recomienda usar el agente de C para dispositivos con recursos de dispositivo mínimos o más restringidos.|
-|
+| Architecture | Linux | Windows | Detalles |
+|--|--|--|--|
+| 32 bits | C | C# |  |
+| 64 bits | C# o C | C# | Se recomienda usar el agente de C para dispositivos con recursos de dispositivo mínimos o más restringidos. |
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -59,6 +59,6 @@ Para seguir obteniendo información sobre la implementación de Defender para Io
 
 - Información acerca de los [métodos de autenticación del agente de seguridad](concept-security-agent-authentication-methods.md)
 - Seleccione e implemente un [agente de seguridad](how-to-deploy-agent.md)
-- Repase los [requisitos previos de servicio](service-prerequisites.md) de Defender para IoT.
+- Repase los [requisitos previos del sistema](quickstart-system-prerequisites.md) de Defender para IoT
 - Obtenga información sobre cómo [habilitar el servicio Defender para IoT en IoT Hub](quickstart-onboard-iot-hub.md).
 - Obtenga información sobre el servicio en las [preguntas más frecuentes de Defender para IoT](resources-frequently-asked-questions.md).

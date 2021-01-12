@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: how-to
-ms.date: 11/23/2020
+ms.date: 12/18/2020
 ms.author: alkohli
-ms.openlocfilehash: b132368982e0013bfe6f3ffd52e7aacb7b1274eb
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: e822a2be200f701d65ab2080804d252f99589680
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "96003348"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680785"
 ---
-# <a name="tutorial-create-export-order-for-azure-data-box-preview"></a>Tutorial: Creación de un pedido de exportación para Azure Data Box (versión preliminar)
+# <a name="tutorial-create-export-order-for-azure-data-box"></a>Tutorial: Creación de un pedido de exportación para Azure Data Box
 
 Azure Data Box es una solución híbrida que permite mover datos de Azure a su ubicación. En este tutorial se describe cómo crear un pedido de exportación para Azure Data Box. La razón principal para crear un pedido de exportación es la recuperación ante desastres, en caso de que el almacenamiento local se vea comprometido y sea necesario restaurar una copia de seguridad.
 
@@ -27,8 +27,6 @@ En este tutorial, obtendrá información sobre lo siguiente:
 > * Pedido de un dispositivo Data Box para la exportación
 > * Seguimiento del pedido de exportación
 > * Cancelación del pedido de exportación
-
-[!INCLUDE [Data Box feature is in preview](../../includes/data-box-feature-is-preview-info.md)]
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -125,9 +123,9 @@ Para solicitar un dispositivo, siga estos pasos en Azure Portal.
 
     ![Pantalla de seguridad del Asistente para pedidos de importación de Data Box](media/data-box-deploy-export-ordered/data-box-export-security-01.png)
 
-10. Si quiere usar su propia clave administrada por el cliente para proteger la clave de paso para el nuevo recurso, expanda **Tipo de cifrado**.
+10. Si quiere usar su propia clave administrada por el cliente para proteger la clave de paso de desbloqueo del nuevo recurso, expanda **Tipo de cifrado**.
 
-    La configuración de una clave administrada por el cliente de Azure Data Box es opcional. De manera predeterminada, Data Box usa una clave administrada por Microsoft para proteger la clave de paso desbloqueada.
+    La configuración de una clave administrada por el cliente para Azure Data Box es opcional. De manera predeterminada, Data Box usa una clave administrada por Microsoft para proteger la clave de paso de desbloqueo.
 
     Una clave administrada por el cliente no afecta a cómo se cifran los datos del dispositivo. La clave solo se usa para cifrar la clave de paso de desbloqueo del dispositivo.
 
@@ -135,7 +133,7 @@ Para solicitar un dispositivo, siga estos pasos en Azure Portal.
 
     ![Pantalla de seguridad que muestra la configuración Tipo de cifrado](./media/data-box-deploy-export-ordered/customer-managed-key-01.png)
 
-11. Seleccione la opción **Clave administrada por el cliente** como tipo de clave. A continuación, elija **Seleccione un almacén de claves y una clave**.
+11. Seleccione **Clave administrada por el cliente** como tipo de clave. Elija **Seleccione un almacén de claves y una clave**.
    
     ![Pantalla de seguridad, configuración de una clave administrada por el cliente](./media/data-box-deploy-export-ordered/customer-managed-key-02.png)
 
@@ -143,11 +141,11 @@ Para solicitar un dispositivo, siga estos pasos en Azure Portal.
 
     - Para **Almacén de claves**, puede seleccionar un almacén de claves existente de la lista desplegable.
 
-      ![Pantalla Seleccionar clave en Azure Key Vault](./media/data-box-deploy-export-ordered/customer-managed-key-03.png)
+      ![Pantalla Seleccione clave de Azure Key Vault](./media/data-box-deploy-export-ordered/customer-managed-key-03.png)
 
-    - También puede seleccionar **Crear nuevo** para crear un nuevo almacén de claves. En la pantalla **Crear el almacén de claves**, escriba el grupo de recursos y el nombre del almacén de claves. Asegúrese de que estén habilitadas las opciones de **Eliminación temporal** y **Purgar protección**. Acepte los restantes valores predeterminados y seleccione **Revisar y crear**.
+    - También puede seleccionar **Crear nuevo** para crear un nuevo almacén de claves. En la pantalla **Crear almacén de claves**, indique el grupo de recursos y el nombre del almacén de claves. Asegúrese de que estén habilitadas las opciones **Eliminación temporal** y **Protección de purga**. Acepte los restantes valores predeterminados y seleccione **Revisar y crear**.
 
-      ![Configuración Crear una nueva instancia de Azure Key Vault](./media/data-box-deploy-export-ordered/customer-managed-key-04.png)
+      ![Configuración de la creación de un nuevo almacén de claves](./media/data-box-deploy-export-ordered/customer-managed-key-04.png)
 
       Revise la información del almacén de claves y seleccione **Crear**. Espere un par de minutos hasta que se complete la creación del almacén de claves.
 
@@ -159,15 +157,15 @@ Para solicitar un dispositivo, siga estos pasos en Azure Portal.
 
     Si quiere crear una clave nueva, seleccione **Crear nuevo**. Debe usar una clave RSA. El tamaño puede ser de 2048 o superior. Escriba un nombre para la clave nueva, acepte los otros valores predeterminados y seleccione **Crear**.
 
-      ![Opción Crear una nueva clave](./media/data-box-deploy-export-ordered/customer-managed-key-07.png)
+      ![Opción para crear una nueva clave](./media/data-box-deploy-export-ordered/customer-managed-key-07.png)
 
-      Se le notificará cuando se haya creado la clave en el almacén de claves.
+      Recibirá una notificación cuando se haya creado la clave en el almacén de claves.
 
-14. Seleccione la **Versión** de la clave que va a usar y, a continuación, elija **Seleccionar**.
+14. Seleccione el valor de **Versión** de la clave que va a usar y, a continuación, elija **Seleccionar**.
 
       ![Nueva clave creada en el almacén de claves](./media/data-box-deploy-export-ordered/customer-managed-key-08.png)
 
-    Si quiere crear una nueva versión de la clave, seleccione **Crear nuevo**.
+    Si desea crear una nueva versión de la clave, seleccione **Crear nuevo**.
 
     ![Abrir un cuadro de diálogo para crear una nueva versión de la clave](./media/data-box-deploy-export-ordered/customer-managed-key-08-a.png)
 
@@ -175,13 +173,13 @@ Para solicitar un dispositivo, siga estos pasos en Azure Portal.
 
     ![Creación de una nueva versión de la clave](./media/data-box-deploy-export-ordered/customer-managed-key-08-b.png)
 
-    La configuración **Tipo de cifrado** en la pantalla **Seguridad** muestra el almacén de claves y la clave.
+    La configuración de **Tipo de cifrado** en la pantalla **Seguridad** muestra el almacén de claves y la clave.
 
     ![Clave y almacén de claves para una clave administrada por el cliente](./media/data-box-deploy-export-ordered/customer-managed-key-09.png)
 
-15. Seleccione una identidad de usuario que vaya a usar para administrar el acceso a este recurso. Elija **Seleccionar una identidad de usuario**. En el panel de la derecha, seleccione la suscripción y la identidad administrada que se va a usar. A continuación, elija **Seleccionar**.
+15. Seleccione una identidad de usuario que vaya a usar para administrar el acceso a este recurso. Elija **Select a user identity** (Seleccione una identidad de usuario). En el panel de la derecha, seleccione la suscripción y la identidad administrada que se va a usar. Luego, elija **Seleccionar**.
 
-    Una identidad administrada asignada por el usuario es un recurso de Azure independiente que se puede usar para administrar varios recursos. Para más información, vea [Tipos de identidades administradas](/azure/active-directory/managed-identities-azure-resources/overview).  
+    Una identidad administrada asignada por el usuario es un recurso independiente de Azure que se puede usar para administrar varios recursos. Para más información, vea [Tipos de identidades administradas](/azure/active-directory/managed-identities-azure-resources/overview).  
 
     Si necesita crear una nueva identidad administrada, siga las instrucciones que se muestran en [Creación, enumeración, eliminación o asignación de un rol a una identidad administrada asignada por el usuario mediante Azure Portal](../../articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
     

@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 10/01/2020
 ms.author: ccompy
-ms.openlocfilehash: 93b92da999c15255f543abca346fc2bf8840006c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0b93111357cf0d6e57eeb5495d50bd18a15dca77
+ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95999466"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97812767"
 ---
 * Los sistemas multiinquilino que admiten todos los planes de precios, excepto Aislado.
 * App Service Environment, que se implementa en la VNet y admite aplicaciones de planes de precios aislados.
@@ -33,7 +33,7 @@ Hay algunos aspectos que Integración con red virtual no admite, como los siguie
 * Integración con Active Directory.
 * NetBIOS.
 
-Cuando Integración con red virtual necesita una puerta de enlace, solo proporciona acceso a los recursos de la VNet de destino o de las redes conectadas a esta que tienen emparejamiento o redes privadas virtuales. Integración con red virtual con requisito de puerta de enlace no permite acceder a los recursos disponibles en las conexiones de Azure ExpressRoute ni funciona con puntos de conexión de servicio.
+Cuando Integración con red virtual necesita una puerta de enlace, solo proporciona acceso a los recursos de la VNet de destino o de las redes conectadas a esta que tienen emparejamiento o redes privadas virtuales. Integración con red virtual con requisito de puerta de enlace no permite acceder a los recursos disponibles en las conexiones de Azure ExpressRoute ni trabajar con puntos de conexión de servicio.
 
 Independientemente de la versión que se use, Integración con red virtual ofrece a la aplicación el acceso a los recursos de la VNet, pero no concede el acceso privado de entrada a la aplicación desde la VNet. El acceso privado a sitios se refiere a que solo se puede acceder a la aplicación desde una red privada (por ejemplo, desde dentro de una VNet de Azure). Integración con red virtual solo sirve para realizar llamadas salientes desde la aplicación hacia la red virtual.
 
