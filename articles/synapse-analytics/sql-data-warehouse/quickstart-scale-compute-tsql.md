@@ -11,12 +11,12 @@ ms.date: 04/17/2018
 ms.author: anvang
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 37033e3c5f388d1a55a122899114914e661565f6
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: f3eaa6383b174e06ff6ce9b1b08c4eba9108d770
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460234"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98115521"
 ---
 # <a name="quickstart-scale-compute-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-using-t-sql"></a>Inicio rápido: Escalado del proceso en un grupo de SQL dedicado (anteriormente SQL DW) en Azure Synapse Analytics mediante T-SQL
 
@@ -153,4 +153,4 @@ AND
 Ya ha aprendido a escalar el proceso de un grupo de SQL dedicado (anteriormente SQL DW). Para más información sobre Azure Synapse, pase al tutorial en el que se indica cómo cargar datos.
 
 > [!div class="nextstepaction"]
->[Carga de datos en un grupo de SQL dedicado](load-data-from-azure-blob-storage-using-polybase.md)
+>[Carga de datos en un grupo de SQL dedicado](./load-data-from-azure-blob-storage-using-copy.md)

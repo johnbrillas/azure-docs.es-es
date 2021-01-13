@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3cbd9fd697bbae8779f5b2b9fa4ab817efce30ac
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 12966503bfa17030fc4ebcb4d790a2f4655142a2
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96454639"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98116541"
 ---
 # <a name="azure-synapse-analytics-ip-firewall-rules"></a>Reglas de firewall de IP de Azure Synapse Analytics
 
@@ -43,7 +43,7 @@ Asegúrese de que el firewall de la red y del equipo local permita la comunicaci
 
 Además, debe permitir la comunicación saliente en el puerto UDP 53 para Synapse Studio. Para conectarse mediante herramientas como SSMS y Power BI, debe permitir la comunicación saliente en el puerto TCP 1433.
 
-Si va a usar la configuración predeterminada de la directiva de conexión de redireccionamiento, puede que necesite permitir la comunicación saliente en otros puertos. [Aquí](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-architecture#connection-policy) puede encontrar más información sobre las directivas de conexión.
+Si va a usar la configuración predeterminada de la directiva de conexión de redireccionamiento, puede que necesite permitir la comunicación saliente en otros puertos. [Aquí](../../azure-sql/database/connectivity-architecture.md#connection-policy) puede encontrar más información sobre las directivas de conexión.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

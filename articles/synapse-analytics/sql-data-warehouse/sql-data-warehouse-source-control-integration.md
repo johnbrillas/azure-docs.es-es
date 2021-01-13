@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 08/23/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 862fa839c56746042c072ae3100832fb2b78451a
-ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
+ms.openlocfilehash: 56b417c65eae0df9b073cf72fe87ce0002fc2ba0
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96296936"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98115844"
 ---
 # <a name="source-control-integration-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Integración del control de código fuente para el grupo de SQL dedicado en Azure Synapse Analytics
 
@@ -51,7 +51,7 @@ En este tutorial se describe cómo integrar el proyecto de base de datos de SQL�
 
    ![Clonación de repositorio](./media/sql-data-warehouse-source-control-integration/4-clone-repo.png "Clonación de repositorio")
 
-Para más información sobre cómo conectar proyectos mediante Visual Studio, consulte [Conexión a proyectos en Team Explorer](https://docs.microsoft.com/visualstudio/ide/connect-team-project?view=vs-2019). Para obtener una guía para clonar un repositorio mediante Visual Studio, consulte el artículo sobre la [clonación de un repositorio de Git existente](https://docs.microsoft.com/azure/devops/repos/git/clone?view=azure-devops&tabs=visual-studio). 
+Para más información sobre cómo conectar proyectos mediante Visual Studio, consulte [Conexión a proyectos en Team Explorer](/visualstudio/ide/connect-team-project?view=vs-2019). Para obtener una guía para clonar un repositorio mediante Visual Studio, consulte el artículo sobre la [clonación de un repositorio de Git existente](/azure/devops/repos/git/clone?tabs=visual-studio&view=azure-devops). 
 
 ## <a name="create-and-connect-your-project"></a>Creación y conexión del proyecto
 

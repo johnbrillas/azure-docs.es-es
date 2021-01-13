@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: edb1d419900147b586ba1ff257d4307b237be537
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.openlocfilehash: e693bd15e5255fda135a7a1dc416dd67f24f7f25
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97746735"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120417"
 ---
 # <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Control del acceso a la cuenta de almacenamiento del grupo de SQL sin servidor en Azure Synapse Analytics
 
@@ -63,7 +63,7 @@ Antes de acceder a los datos, el administrador de Azure Storage debe conceder pe
 
 ### <a name="anonymous-access"></a>[Acceso anónimo](#tab/public-access)
 
-Puede tener acceso a los archivos disponibles públicamente ubicados en cuentas de almacenamiento de Azure que [permitan el acceso anónimo](/azure/storage/blobs/storage-manage-access-to-resources).
+Puede tener acceso a los archivos disponibles públicamente ubicados en cuentas de almacenamiento de Azure que [permitan el acceso anónimo](../../storage/blobs/anonymous-read-access-configure.md).
 
 ---
 
@@ -101,7 +101,7 @@ Para acceder a un almacenamiento que está protegido por firewall mediante Ident
 
 Siga estos pasos para configurar el firewall de la cuenta de almacenamiento y agregar una excepción para el área de trabajo de Synapse.
 
-1. Abra o [instale PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-7.1&preserve-view=true ).
+1. Abra o [instale PowerShell](/powershell/scripting/install/installing-powershell-core-on-windows?preserve-view=true&view=powershell-7.1).
 2. Instale el módulo Az. Storage actualizado: 
     ```powershell
     Install-Module -Name Az.Storage -RequiredVersion 3.0.1-preview -AllowPrerelease

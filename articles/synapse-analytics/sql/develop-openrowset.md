@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 97ee6c17d62a924686e3e4f4717d7bb7f4375988
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 7e7dce7ec4b8d4d55e734487595bb330e97ab18b
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96446673"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120451"
 ---
 # <a name="how-to-use-openrowset-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Uso de OPENROWSET con un grupo de SQL sin servidor en Azure Synapse Analytics
 
@@ -171,7 +171,7 @@ WITH (
 )
 ```
 
-json_path = [ruta de acceso de JSON](https://docs.microsoft.com/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-ver15) para la columna o propiedad anidada. El [modo de ruta de acceso](https://docs.microsoft.com/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-ver15#PATHMODE) predeterminado es lax.
+json_path = [ruta de acceso de JSON](/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-ver15) para la columna o propiedad anidada. El [modo de ruta de acceso](/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-ver15#PATHMODE) predeterminado es lax.
 
 > [!NOTE]
 > En el modo strict, la consulta generará un error si la ruta de acceso especificada no existe. En el modo lax, la consulta se realizará correctamente y la expresión de la ruta de acceso de JSON se evaluará como NULL.
@@ -371,7 +371,7 @@ WITH (
 
 ### <a name="specify-columns-using-json-paths"></a>Especificación de columnas mediante rutas de acceso JSON
 
-En el ejemplo siguiente se muestra cómo usar [expresiones de ruta de acceso de JSON](https://docs.microsoft.com/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-ver15) en una cláusula WITH y se muestra la diferencia entre los modos de ruta de acceso strict y lax: 
+En el ejemplo siguiente se muestra cómo usar [expresiones de ruta de acceso de JSON](/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-ver15) en una cláusula WITH y se muestra la diferencia entre los modos de ruta de acceso strict y lax: 
 
 ```sql
 SELECT 

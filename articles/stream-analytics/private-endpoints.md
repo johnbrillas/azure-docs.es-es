@@ -3,17 +3,16 @@ title: Creación y eliminación de puntos de conexión privados en un clúster d
 description: Obtenga información sobre cómo crear y eliminar puntos de conexión privados en un clúster de Azure Stream Analytics
 author: sidramadoss
 ms.author: sidram
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
 ms.date: 09/22/2020
-ms.openlocfilehash: 36d26195e78c74ed7b976cfdd48e1e965bca872b
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: cff02bb4b7d0f7e969589a9977a89f89e2674ffc
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95249791"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019421"
 ---
 # <a name="create-and-delete-private-endpoints-in-an-azure-stream-analytics-cluster"></a>Creación y eliminación de puntos de conexión privados en un clúster de Azure Stream Analytics
 
@@ -31,7 +30,7 @@ En esta sección, aprenderá a crear un punto de conexión privado en un clúste
 
 1. Seleccione **Agregar un punto de conexión privado** y escriba la información siguiente para elegir el recurso al que quiere obtener acceso de forma segura a través de un punto de conexión privado.
 
-   |Parámetro|Value|
+   |Parámetro|Valor|
    |---|---|
    |Nombre|Escriba cualquier nombre para su punto de conexión privado. Si el nombre ya existe, cree uno único.|
    |Método de conexión|Seleccione **Conectarse a un recurso de Azure en mi directorio**.<br><br>Puede elegir uno de los recursos para conectarse a él de forma segura mediante el punto de conexión privado o puede conectarse al recurso de otra persona mediante un identificador del recurso o un alias que le comparta dicha persona.|

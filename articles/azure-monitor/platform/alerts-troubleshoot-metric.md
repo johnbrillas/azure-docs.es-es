@@ -4,14 +4,14 @@ description: Problemas comunes con las alertas de métricas de Azure Monitor y p
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 11/25/2020
+ms.date: 01/03/2021
 ms.subservice: alerts
-ms.openlocfilehash: ef8a07f0360338aeb659942967169b0605b08e51
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 9a05fe509e032681a0bf5ed989595a25f66d33c6
+ms.sourcegitcommit: 697638c20ceaf51ec4ebd8f929c719c1e630f06f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97507224"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857348"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Solución de problemas en las alertas de métricas de Azure Monitor 
 
@@ -72,7 +72,7 @@ Para generar alertar sobre las métricas del sistema operativo invitado de las m
 - [Para las máquinas virtuales Linux](./collect-custom-metrics-linux-telegraf.md)
 
 Para obtener más información acerca de la recopilación de datos del sistema operativo invitado de una máquina virtual, consulte [este vínculo](../insights/monitor-vm-azure.md#guest-operating-system).
-    
+
 > [!NOTE] 
 > Si ha configurado las métricas de invitado que se van a enviar a un área de trabajo de Log Analytics, estas aparecerán en el recurso del área de trabajo de Log Analytics y comenzarán a mostrar datos **solo** después de crear una regla de alerta que las supervise. Para ello, siga los pasos para [configurar una alerta de métrica para los registros](./alerts-metric-logs.md#configuring-metric-alert-for-logs).
 
@@ -265,6 +265,23 @@ Se recomienda elegir una *Granularidad de agregación (período)* mayor que la *
 -   Regla de alertas de métricas que supervisa varias dimensiones: Cuando se agrega una nueva combinación de valores de dimensión.
 -   Regla de alertas de métricas que supervisa varios recursos: Cuando se agrega un nuevo recurso al ámbito.
 -   Regla de alertas de métricas que supervisa una métrica que no se emite de manera continua (métrica dispersa): Cuando la métrica se emite después de un período de más de 24 horas en el que no se emitió.
+
+## <a name="the-dynamic-thresholds-borders-dont-seem-to-fit-the-data"></a>Los límites de los umbrales dinámicos no parecen ajustarse a los datos
+
+Si el comportamiento de una métrica ha cambiado recientemente, los cambios no se reflejarán necesariamente en los límites del umbral dinámico (límites superior e inferior), ya que se calculan en función de los datos de métricas de los últimos diez días. Al ver los límites del umbral dinámico para una métrica determinada, asegúrese de consultar la tendencia de la métrica en la última semana, no solo en las horas o días recientes.
+
+## <a name="why-is-weekly-seasonality-not-detected-by-dynamic-thresholds"></a>¿Por qué los umbrales dinámicos no detectan la estacionalidad semanal?
+
+Para identificar la estacionalidad semanal, el modelo de umbrales dinámicos requiere al menos tres semanas de datos históricos. Cuando haya suficientes datos históricos disponibles, se identificará cualquier estacionalidad semanal que exista en los datos de métricas y el modelo se ajustará según corresponda. 
+
+## <a name="dynamic-thresholds-shows-a-negative-lower-bound-for-a-metric-even-though-the-metric-always-has-positive-values"></a>Los umbrales dinámicos muestran un límite inferior negativo para las métricas, aunque esta siempre tenga valores positivos.
+
+Cuando una métrica exhibe grandes fluctuaciones, los umbrales dinámicos crean un modelo más amplio en torno a los valores de métrica, lo que puede hacer que el límite inferior sea menor que cero. En específico, esto puede suceder en los casos siguientes:
+1. La sensibilidad está establecida en Baja. 
+2. Los valores medios son cercanos a cero.
+3. La métrica exhibe un comportamiento irregular con una alta varianza (hay picos o pendientes en los datos).
+
+Cuando el límite inferior tiene un valor negativo, significa que la métrica podría alcanzar un valor cero dado el comportamiento irregular de la métrica. Puede plantearse la posibilidad de elegir una mayor sensibilidad o un valor de *Granularidad de agregación (período)* más alto para que el modelo sea menos sensible, o bien usar la opción *Omitir los datos antes del* para excluir una irregularidad reciente de los datos históricos que se usarán para generar el modelo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

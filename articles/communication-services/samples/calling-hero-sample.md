@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: c872c2a2799eee3ae9e39653b0046b70ca5d7e8b
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 44f23e4f5b3f65fb4f3c69b2ddc55af8c983aa23
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94887542"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98043734"
 ---
 # <a name="get-started-with-the-group-calling-hero-sample"></a>Introducción al ejemplo de elementos principales de una llamada
 
@@ -72,7 +72,7 @@ Cuando queremos realizar una implementación localmente, es necesario iniciar am
 
 Para probar el ejemplo localmente, puede abrir varias sesiones del explorador con la dirección URL de su llamada para simular una llamada multiusuario.
 
-## <a name="before-running-the-sample-for-the-first-time"></a>Antes de ejecutar el ejemplo por primera vez
+### <a name="before-running-the-sample-for-the-first-time"></a>Antes de ejecutar el ejemplo por primera vez
 
 1. Abra una instancia de PowerShell, Terminal Windows, símbolo del sistema o equivalente y navegue hasta el directorio donde le gustaría clonar el ejemplo.
 2. `git clone https://github.com/Azure-Samples/communication-services-web-calling-hero.git`

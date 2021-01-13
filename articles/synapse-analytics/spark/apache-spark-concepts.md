@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 8df7a2ecd2a6732a011267eb0efe00e8eaf2bef4
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 51b2e8cd968c4c14777d196d90686b13158aef42
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96458752"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120315"
 ---
 # <a name="apache-spark-in-azure-synapse-analytics-core-concepts"></a>Conceptos básicos de Apache Spark en Azure Synapse Analytics
 
@@ -80,7 +80,7 @@ En el siguiente artículo se describe cómo solicitar un aumento en la cuota del
 - Seleccione "Azure Synapse Analytics" como el tipo de servicio.
 - En la ventana detalles de la cuota, seleccione Apache Spark (núcleo virtual) por área de trabajo.
 
-[Solicitud de un aumento de la cuota estándar desde Ayuda y soporte técnico](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests#request-a-standard-quota-increase-from-help--support)
+[Solicitud de un aumento de la cuota estándar desde Ayuda y soporte técnico](../../azure-portal/supportability/per-vm-quota-requests.md#request-a-standard-quota-increase-from-help--support)
 
 ### <a name="spark-pool-level"></a>Nivel de grupo de Spark
 
@@ -95,5 +95,5 @@ Para solucionar este problema, debe reducir el uso de los recursos del grupo ant
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
+- [Azure Synapse Analytics](../index.yml)
 - [Documentación de Apache Spark](https://spark.apache.org/docs/2.4.5/)

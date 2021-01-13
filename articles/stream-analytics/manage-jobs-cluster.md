@@ -3,17 +3,16 @@ title: Creación y eliminación de trabajos en un clúster de Azure Stream Analy
 description: Obtenga información sobre cómo administrar trabajos de Stream Analytics en un clúster de Azure Stream Analytics.
 author: sidramadoss
 ms.author: sidram
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
 ms.date: 09/22/2020
-ms.openlocfilehash: 01efb5736d7becf1b46c7c2898c22648b0421dd1
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 09a67d11ac4daf3e87a50ee2171f1ca49060c5bf
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305810"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98018129"
 ---
 # <a name="add-and-remove-jobs-in-an-azure-stream-analytics-cluster"></a>Adición y eliminación de trabajos en un clúster de Azure Stream Analytics
 
@@ -25,7 +24,7 @@ Solo se pueden agregar trabajos de Stream Analytics existentes a los clústeres.
 
 1. En Azure Portal, busque y seleccione el clúster de Stream Analytics.
 
-1. En **Configuración** , seleccione **Trabajos de Stream Analytics**. Luego, seleccione **Agregar trabajo existente**.
+1. En **Configuración**, seleccione **Trabajos de Stream Analytics**. Luego, seleccione **Agregar trabajo existente**.
 
 1. Seleccione la suscripción y el trabajo de Stream Analytics que quiere agregar al clúster. Solo se pueden agregar al clúster los trabajos de Stream Analytics que se encuentran en la misma región que el clúster.
 
@@ -41,7 +40,7 @@ Los trabajos de Stream Analytics deben encontrarse en estado detenido para que s
 
 1. Busque y seleccione su clúster de Stream Analytics.
 
-1. En **Configuración** , seleccione **Trabajos de Stream Analytics**.
+1. En **Configuración**, seleccione **Trabajos de Stream Analytics**.
 
 1. Seleccione los trabajos que quiere quitar del clúster y, luego, seleccione **Quitar**.
 

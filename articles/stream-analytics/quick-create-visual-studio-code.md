@@ -2,17 +2,17 @@
 title: 'Inicio rápido: Creación de un trabajo de Azure Stream Analytics en Visual Studio Code'
 description: En este inicio rápido se muestra cómo empezar a crear un trabajo de Stream Analytics, configurar las entradas y salidas y definir una consulta con Visual Studio Code.
 ms.service: stream-analytics
-author: mamccrea
-ms.author: mamccrea
+author: su-jie
+ms.author: sujie
 ms.date: 01/18/2020
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: f53ff85dd118774b86a0ec25c89f912798a6418d
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 104dfe7b2ce253d7ae42c7484532cfd5b2993aec
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93125859"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98014618"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-in-visual-studio-code-preview"></a>Inicio rápido: Creación de un trabajo de Azure Stream Analytics en Visual Studio Code (versión preliminar)
 
@@ -41,7 +41,7 @@ En este inicio rápido se muestra cómo crear y ejecutar un trabajo de Azure Str
 
 ## <a name="activate-the-azure-stream-analytics-tools-extension"></a>Activación de la extensión Azure Stream Analytics Tools
 
-1. Seleccione el icono de **Azure** en la barra de actividad de Visual Studio Code. En **Stream Analytics** , en la barra lateral, seleccione **Iniciar sesión en Azure**.
+1. Seleccione el icono de **Azure** en la barra de actividad de Visual Studio Code. En **Stream Analytics**, en la barra lateral, seleccione **Iniciar sesión en Azure**.
 
    ![Inicio de sesión en Azure en Visual Studio Code](./media/quick-create-visual-studio-code/azure-sign-in.png)
 
@@ -59,7 +59,7 @@ Antes de definir el trabajo de Stream Analytics, debe preparar los datos, que se
 
 2. Seleccione **Crear un recurso** > **Internet de las cosas** > **IoT Hub**.
 
-3. En el panel **Centro de IoT** , escriba la siguiente información:
+3. En el panel **Centro de IoT**, escriba la siguiente información:
 
    |**Configuración**  |**Valor sugerido**  |**Descripción**  |
    |---------|---------|---------|
@@ -100,7 +100,7 @@ Antes de definir el trabajo de Stream Analytics, debe preparar los datos, que se
 
 1. En la esquina superior izquierda de Azure Portal, seleccione **Crear un recurso** > **Almacenamiento** > **Cuenta de almacenamiento**.
 
-2. En el panel **Crear cuenta de almacenamiento** , escriba un nombre, una ubicación y un grupo de recursos para la cuenta de almacenamiento. Elija la misma ubicación y grupo de recursos que los del centro de IoT que ha creado. A continuación, haga clic en **Revisar y crear** para crear la cuenta.
+2. En el panel **Crear cuenta de almacenamiento**, escriba un nombre, una ubicación y un grupo de recursos para la cuenta de almacenamiento. Elija la misma ubicación y grupo de recursos que los del centro de IoT que ha creado. A continuación, haga clic en **Revisar y crear** para crear la cuenta.
 
    ![Crear cuenta de almacenamiento](./media/quick-create-visual-studio-code/create-storage-account.png)
 
@@ -108,7 +108,7 @@ Antes de definir el trabajo de Stream Analytics, debe preparar los datos, que se
 
    ![Introducción a las cuentas de almacenamiento](./media/quick-create-visual-studio-code/blob-storage.png)
 
-4. En la página **Blob Service** , seleccione **Contenedor** y proporcione un nombre para el contenedor, como **contenedor1**. Deje la opción **Nivel de acceso público** en **Privado (sin acceso anónimo)** y seleccione **Aceptar**.
+4. En la página **Blob Service**, seleccione **Contenedor** y proporcione un nombre para el contenedor, como **contenedor1**. Deje la opción **Nivel de acceso público** en **Privado (sin acceso anónimo)** y seleccione **Aceptar**.
 
    ![Creación de un contenedor de blobs](./media/quick-create-visual-studio-code/create-blob-container.png)
 
@@ -118,11 +118,11 @@ Antes de definir el trabajo de Stream Analytics, debe preparar los datos, que se
 
    ![Creación de un nuevo proyecto](./media/quick-create-visual-studio-code/create-new-project.png)
 
-2. Escriba el nombre del proyecto, como **myASAproj** , y seleccione una carpeta.
+2. Escriba el nombre del proyecto, como **myASAproj**, y seleccione una carpeta.
 
     ![Creación de un nombre de proyecto](./media/quick-create-visual-studio-code/create-project-name.png)
 
-3. El nuevo proyecto se agrega al área de trabajo. Un proyecto de Stream Analytics consta de tres carpetas: **Entradas** , **Salidas** y **Funciones**. También tiene el script de consulta **(*.asaql)** , un archivo **JobConfig.json** y un archivo de configuración **asaproj.json**.
+3. El nuevo proyecto se agrega al área de trabajo. Un proyecto de Stream Analytics consta de tres carpetas: **Entradas**, **Salidas** y **Funciones**. También tiene el script de consulta **(*.asaql)** , un archivo **JobConfig.json** y un archivo de configuración **asaproj.json**.
 
     El archivo de configuración **asaproj.json** contiene las entradas, salidas y la información del archivo de configuración de trabajo necesarias para enviar el trabajo de Stream Analytics a Azure.
 

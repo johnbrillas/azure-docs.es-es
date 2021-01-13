@@ -11,12 +11,12 @@ ms.date: 11/23/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 7d258243dae06461d21e9b5f0346e419f034eea9
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 567d5ae8b9d480003486362a7aa0ef69f9740d52
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109717"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120298"
 ---
 # <a name="quickstart-pause-and-resume-compute-in-dedicated-sql-pool-via-the-azure-portal"></a>Inicio rápido: Pausa y reanudación del proceso en un grupo de SQL dedicado mediante Azure Portal
 
@@ -98,5 +98,4 @@ Siga estos pasos para limpiar los recursos según estime oportuno.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ya ha pausado y reanudado el proceso para el grupo de SQL dedicado. Continúe con el siguiente artículo para más información sobre cómo [cargar datos en un grupo de SQL dedicado](load-data-from-azure-blob-storage-using-polybase.md). Para más información acerca de la administración de funcionalidades de proceso, consulte el artículo sobre [introducción a la administración de proceso](sql-data-warehouse-manage-compute-overview.md). 
-
+Ya ha pausado y reanudado el proceso para el grupo de SQL dedicado. Continúe con el siguiente artículo para más información sobre cómo [cargar datos en un grupo de SQL dedicado](./load-data-from-azure-blob-storage-using-copy.md). Para más información acerca de la administración de funcionalidades de proceso, consulte el artículo sobre [introducción a la administración de proceso](sql-data-warehouse-manage-compute-overview.md).

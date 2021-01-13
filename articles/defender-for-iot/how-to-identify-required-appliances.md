@@ -1,0 +1,284 @@
+---
+title: Identificación de los dispositivos necesarios
+description: Obtenga información sobre las aplicaciones virtuales y dispositivos de hardware para los sensores certificador de Defender para IoT y la consola de administración local.
+author: shhazam-ms
+manager: rkarlin
+ms.author: shhazam
+ms.date: 12/21/2020
+ms.topic: how-to
+ms.service: azure
+ms.openlocfilehash: b22f880eee1b691b6b50b8151a64a2d501b891b3
+ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97836872"
+---
+# <a name="identify-required-appliances"></a>Identificación de los dispositivos necesarios
+
+En este artículo se proporciona información sobre los dispositivos de sensor certificados de Defender para IoT. Defender para IoT se puede implementar en aplicaciones virtuales y dispositivos físicos.
+
+Esto incluye dispositivos certificados *preconfigurados*, en los que el software ya está instalado, así como dispositivos certificados no configurados en los que puede descargar e instalar el software necesario.
+
+Este artículo también proporciona las especificaciones para un dispositivo de consola de administración local. La consola de administración local no está disponible como dispositivo preconfigurado.
+
+- Si quiere adquirir un sensor preconfigurado, revise los modelos disponibles en la sección [Dispositivos de sensor](#sensor-appliances) y, después, realice la compra.
+
+- Si quiere comprar su propio dispositivo, revise los modelos disponibles en la sección [Dispositivos de sensor](#sensor-appliances) y en la sección [Dispositivos certificados adicionales](#additional-certified-appliances). Después de adquirir el dispositivo, podrá descargar e instalar el software.
+
+- Si quiere comprar la consola de administración local, revise la información de la sección [Dispositivo de la consola de administración local](#on-premises-management-console-appliance). Después de adquirir el dispositivo, podrá descargar e instalar el software.
+
+Después de completar estas tareas, puede instalar el software y configurar la red.
+
+## <a name="sensor-appliances"></a>Dispositivos de sensor
+
+Defender para IoT admite implementaciones físicas y virtuales.
+
+### <a name="physical-sensors"></a>Sensores físicos
+
+En esta sección se proporciona información general sobre los modelos de sensores físicos que están disponibles. Puede adquirir sensores con software preconfigurado, o bien puede adquirir sensores que no estén preconfigurados.
+
+| Tipo de implementación | Corporativos | Enterprise | SMB |
+|--|--|--|--|
+| Imagen | :::image type="content" source="media/how-to-prepare-your-network/corporate-hpe-proliant-dl360-v2.png" alt-text="Modelo de nivel corporativo."::: | :::image type="content" source="media/how-to-prepare-your-network/enterprise-and-smb-hpe-proliant-dl20-v2.png" alt-text="Modelo de nivel Enterprise."::: | :::image type="content" source="media/how-to-prepare-your-network/enterprise-and-smb-hpe-proliant-dl20-v2.png" alt-text="Modelo de nivel SMB."::: |
+| Modelo | HPE ProLiant DL360 | HPE ProLiant DL20 | HPE ProLiant DL20 |
+| Puertos de supervisión | Hasta 15 RJ45 u 8 OPT | Hasta 8 RJ45 o 6 OPT | 4 RJ45 |
+| Ancho de banda máximo [1](#anchortext) | 3 GB por segundo | 1 GB por segundo | 200 MB por segundo |
+| Número máximo de dispositivos protegidos | 30,000 | 15,000 | 1,000 |
+
+Consulte [Especificaciones del dispositivo](#appliance-specifications) para más detalles del proveedor.
+
+Acerca de los sensores preconfigurados: Microsoft se ha asociado con Arrow para proporcionar sensores preconfigurados. Si quiere comprar un sensor preconfigurado, póngase en contacto con Arrow en la siguiente dirección: <hardware.sales@arrow.com>.
+
+Acerca de cómo traer su propio dispositivo: Revise los modelos compatibles que se describen aquí. Después de adquirir el dispositivo, vaya a **Defender para IoT** > **Network Sensors ISO** > **Installation** (Defender para IoT > ISO de sensores de red > Instalación) para descargar el software.
+
+:::image type="content" source="media/how-to-prepare-your-network/azure-defender-for-iot-sensor-download-software-screen.png" alt-text="ISO de sensores de red.":::
+
+<a id="anchortext">1</a> La capacidad de ancho de banda puede variar en función de la distribución de los protocolos.
+
+### <a name="virtual-sensors"></a>Sensores virtuales
+
+En esta sección se proporciona información general sobre los sensores virtuales que están disponibles.
+
+| Tipo de implementación | Corporativos | Enterprise | SMB |
+|--|--|--|--|
+| Ancho de banda máximo | 2,5 GB/s | 800 MB/s | 160 MB/s |
+| Número máximo de dispositivos protegidos | 30,000 | 10 000 | 2,500 |
+
+## <a name="on-premises-management-console-appliance"></a>Dispositivo de consola de administración local
+
+La consola de administración está disponible como una implementación virtual.
+
+| Tipo de implementación | Enterprise |
+|--|--|
+| Tipo de dispositivo | HPE DL20, máquina virtual |
+| Número de sensores administrados | Hasta 300 |
+
+Después de adquirir una consola de administración local, vaya a **Defender para IoT** > **On-premises management console** > **ISO Installation** (Defender para IoT > Consola de administración local > Instalación de ISO) para descargar el archivo ISO.
+
+:::image type="content" source="media/how-to-prepare-your-network/azure-defender-for-iot-iso-download-screen.png" alt-text="Consola de administración local.":::
+
+## <a name="appliance-specifications"></a>Especificaciones del dispositivo
+
+En esta sección se describen las especificaciones de hardware de los siguientes dispositivos:
+
+- Implementación corporativa: HPE ProLiant DL360
+
+- Implementación Enterprise: HPE ProLiant DL20
+
+- Implementación SMB: HPE ProLiant DL20
+
+- Especificaciones de la aplicación virtual
+
+## <a name="corporate-deployment-hpe-proliant-dl360"></a>Implementación corporativa: HPE ProLiant DL360
+
+| Componente | Especificaciones técnicas |
+|--|--|
+| Chasis | Servidor en bastidor 1U |
+| Dimensions | 42,9 x 43,46 x 70,7 (cm)/1,69 x 17,11 x 27,83 (pulgadas) |
+| Peso | Máximo 16,27 kg (35,86 lb) |
+| Procesador | Intel Xeon Silver 4215 R de 3,2 GHz, caché de 11 MB, 8 núclos/16 subprocesos, 130 W |
+| Conjunto de chips | Intel C621 |
+| Memoria | 32 GB = 2 unidades de 16 GB 2666MT/s DDR4 ECC UDIMM |
+| Storage | 6 discos duros hot-plug SAS de 1,2 TB 12G Enterprise 10 k SFF (2,5 pulgadas) - RAID 5 |
+| Controladora de red | Incorporada: 2 puertos Broadcom BCM5720 de 1 Gb<br>LOM incorporado: tarjeta de puerto iDRAC de 1 Gb Broadcom BCM5720<br><br>Externa: 1 adaptador de servidor Intel Ethernet i350 QP de 1 Gb, perfil bajo |
+| Administración | HPE iLO Advanced |
+| Acceso del dispositivo | Dos puertos USB 3.0 en la parte posterior<br>Un puerto USB 2.0 en la parte frontal<br>Un puerto USB 3.0 interno |
+| Power | 2 kits de fuente de alimentación hot-plug HPE Platinum con bajo contenido en halógenos y ranura flexible de 500 W |
+| Compatibilidad con bastidores | Kit de rieles de fácil instalación HPE 1U Gen10 SFF |
+
+### <a name="appliance-bom"></a>Lista de materiales de dispositivo
+
+| PN | Descripción | Cantidad |
+|--|--|--|
+| P19766-B21 | Servidor CTO HPE DL360 Gen10 8SFF NC | 1 |
+| P19766-B21 | Europa: localización multilingüe | 1 |
+| P24479-L21 | Kit FIO Intel Xeon-S 4215 R para DL360 G10 | 1 |
+| P24479-B21 | Kit Intel Xeon-S 4215 R para DL360 Gen10 | 1 |
+| P00922-B21 | Kit Smart HPE de 16 GB 2Rx8 PC4-2933Y-R | 2 |
+| 872479-B21 | Disco duro HPE de 1,2 TB SAS 10 k SFF SC DS | 6 |
+| 811546-B21 | Adaptador HPE de 1 GbE BASE-T I350 de 4 puertos | 1 |
+| P02377-B21 | Condensador híbrido HPE Smart con\_ cable de 145 mm | 1 |
+| 804331-B21 | Controlador HPE Smart Array P408i-a SR Gen10 | 1 |
+| 665240-B21 | Adaptador HPE de 1 GbE FLR-T I350 de 4 puertos | 1 |
+| 871244-B21 | Kit de ventilador de alto rendimiento HPE DL360 Gen10 | 1 |
+| 865408-B21 | Kit de fuente de alimentación hot-plug HPE Platinum con bajo contenido en halógenos y ranura flexible de 500 W | 2 |
+| 512485-B21 | 1 licencia de servidor de HPE iLO Advanced con 1 año de soporte técnico | 1 |
+| 874543-B21 | Kit de rieles de fácil instalación HPE 1U Gen10 SFF | 1 |
+
+## <a name="enterprise-deployment-hpe-proliant-dl20"></a>Implementación Enterprise: HPE ProLiant DL20
+
+| Componente | Especificaciones técnicas |
+|--|--|
+| Chasis | Servidor en bastidor 1U |
+| Dimensiones (alto x ancho x profundidad) | 4,32 x 43,46 x 38,22 cm/1,70 x 17,11 x 15,05 pulgadas |
+| Peso | 7,9 kg/17,41 lb |
+| Procesador | Intel Xeon E-2234, 3,6 GHz, 4 núcleos/8 subprocesos, 71 W |
+| Conjunto de chips | Intel C242 |
+| Memoria | 2 memorias de 16 GB Dual Rank x8 DDR4-2666 |
+| Storage | 3 discos de 1 TB SATA 6G Midline 7,2 k SFF (2,5 Pulgadas) – RAID 5 con un controlador Smart Array P408i-a SR |
+| Controladora de red | Incorporada: 2 puertos de 1 GB <br>Incorporada: tarjeta de puerto iLO de 1 GB <br>Externa: 1 adaptador HPE Ethernet de 1 GB 366FLR de 4 puertos |
+| Administración | HPE iLO Advanced |
+| Acceso del dispositivo | Frontal: 1 puerto USB 3.0, 3,0 USB, 1 puerto de servicio iLO USB <br>Parte posterior: 2 puertos USB 3.0 <br>Interno: 1 puerto USB 3.0 |
+| Power | Dos fuentes de alimentación hot-plug de 500 W |
+| Compatibilidad con bastidores | Kit de rieles Short Friction 1U de HPE |
+
+### <a name="appliance-bom"></a>Lista de materiales de dispositivo
+
+| PN | Descripción: gama alta | Cantidad |
+|--|--|--|
+| P06963-B21 | Servidor CTO HPE DL20 Gen10 4SFF | 1 |
+| P06963-B21 | Servidor CTO HPE DL20 Gen10 4SFF | 1 |
+| P17104-L21 | Kit FIO HPE DL20 Gen10 E-2234 | 1 |
+| 879507-B21 | Kit estándar HPE de 16 GB 2Rx8 PC4-2666V-E | 2 |
+| 655710-B21 | Disco duro HPE de 1 TB SATA 7,2 k SFF SC DS | 3 |
+| P06667-B21 | Kit elevador HPE DL20 Gen10 x8x16 FLOM | 1 |
+| 665240-B21 | Adaptador HPE Ethernet de 1 GB 366FLR de 4 puertos | 1 |
+| 782961-B21 | Batería Smart Storage HPE de 12 W | 1 |
+| 869081-B21 | Controlador HPE Smart Array P408i-a SR G10 con bajo contenido en halógenos | 1 |
+| 865408-B21 | Kit de fuente de alimentación hot-plug HPE Platinum con bajo contenido en halógenos y ranura flexible de 500 W | 2 |
+| 512485-B21 | 1 licencia de servidor de HPE iLO Advanced con 1 año de soporte técnico | 1 |
+| P06722-B21 | Kit FIO de habilitación de fuentes de alimentación redundantes HPE DL20 Gen10 | 1 |
+| 775612-B21 | Kit de rieles Short Friction 1U de HPE | 1 |
+
+## <a name="smb-deployment-hpe-proliant-dl20"></a>Implementación SMB: HPE ProLiant DL20
+
+| Componente | Especificaciones técnicas |
+|--|--|
+| Chasis | Servidor en bastidor 1U |
+| Dimensiones (alto x ancho x profundidad) | 4,32 x 43,46 x 38,22 cm/1,70 x 17,11 x 15,05 pulgadas |
+| Peso | 7,88 kg/17,37 lb |
+| Procesador | Intel Xeon E-2224, 3,4 GHz, 4 núcleos, 71 W |
+| Conjunto de chips | Intel C242 |
+| Memoria | 1 memoria de 8 GB Dual Rank x8 DDR4-2666 |
+| Storage | 2 discos de 1 TB SATA 6G Midline 7,2 k SFF (2,5 Pulgadas) – RAID 1 con Smart Array P208i-a |
+| Controladora de red | Incorporada: 2 puertos de 1 GB <br>Incorporada: tarjeta de puerto iLO de 1 GB <br>Externa: 1 adaptador HPE Ethernet de 1 GB 366FLR de 4 puertos |
+| Administración | HPE iLO Advanced |
+| Acceso del dispositivo | Frontal: 1 puerto USB 3.0, 3,0 USB, 1 puerto de servicio iLO USB <br>Parte posterior: 2 puertos USB 3.0 <br>Interno: 1 puerto USB 3.0 |
+| Power | Fuente de alimentación hot-plug de 290 W |
+| Compatibilidad con bastidores | Kit de rieles Short Friction 1U de HPE |
+
+### <a name="appliance-bom"></a>Lista de materiales de dispositivo
+
+| PN | Descripción | Cantidad |
+|--|--|--|
+| P06961-B21 | Servidor CTO HPE DL20 Gen10 NHP con 2 bahías LFF | 1 |
+| P06961-B21 | Servidor CTO HPE DL20 Gen10 NHP con 2 bahías LFF | 1 |
+| P17102-L21 | Kit FIO HPE DL20 Gen10 E-2224 | 1 |
+| 879505-B21 | Kit estándar HPE de 8 GB 1Rx8 PC4-2666V-E | 1 |
+| 801882-B21 | Disco duro HPE de 1 TB SATA 7,2 k con una bahía LFF RW | 2 |
+| P06667-B21 | Kit elevador HPE DL20 Gen10 x8x16 FLOM | 1 |
+| 665240-B21 | Adaptador HPE Ethernet de 1 GB 366FLR de 4 puertos | 1 |
+| 869079-B21 | Controlador HPE Smart Array E208i-a SR G10 con bajo contenido en halógenos | 1 |
+| P21649-B21 | Kit de fuente de alimentación FIO HPE DL20 Gen10n de 290 W | 1 |
+| P06683-B21 | Kit de cables AROC M.2 SATA/LFF para HPE DL20 Gen10 | 1 |
+| 512485-B21 | 1 licencia de servidor de HPE iLO Advanced con 1 año de soporte técnico | 1 |
+| 775612-B21 | Kit de rieles Short Friction 1U de HPE | 1 |
+
+## <a name="virtual-appliance-specifications"></a>Especificaciones de la aplicación virtual
+
+### <a name="sensors"></a>Sensores
+
+| Tipo | Corporativos | Enterprise | SMB |
+|--|--|--|--|
+| vCPU | 32 | 8 | 4 |
+| Memoria | 32 GB | 32 GB | 8 GB |
+| Storage | 5,6 TB | 1,8 TB | 500 GB |
+
+### <a name="on-premises-management-console-appliance"></a>Dispositivo de consola de administración local
+
+| Tipo | Enterprise |
+|--|--|
+| Descripción | Tipos de aplicación virtual para implementaciones Enterprise |
+| vCPU | 8 |
+| Memoria | 32 GB |
+| Storage | 1,8 TB |
+
+Hipervisores admitidos: VMware ESXi versión 5.0 y versiones posteriores, Hyper-V
+
+## <a name="additional-certified-appliances"></a>Dispositivos certificados adicionales
+
+En esta sección se detallan los dispositivos adicionales que están certificados por Microsoft, pero que no se ofertan como dispositivos preconfigurados.
+
+| Tipo de implementación | Enterprise |
+|--|--|
+| Imagen | :::image type="content" source="media/how-to-prepare-your-network/deployment-type-enterprise-for-azure-defender-for-iot-v2.png" alt-text="Tipo de implementación Enterprise."::: |
+| Modelo | Dell PowerEdge R340 XL |
+| Puertos de supervisión | Hasta nueve RJ45 o seis OPT |
+| Ancho de banda máximo [1](#anchortext2)| 1 GB/s |
+| Número máximo de dispositivos protegidos | 10 000 |
+
+<a id="anchortext2">Uno</a> La capacidad de ancho de banda puede variar en función de la distribución de protocolos.
+
+Después de comprar el dispositivo, vaya a **Defender para IoT** > **Network Sensors ISO** > **Installation** (Defender para IoT > ISO de sensores de red > Instalación) para descargar el software.
+
+:::image type="content" source="media/how-to-prepare-your-network/azure-defender-for-iot-sensor-download-software-screen.png" alt-text="ISO de sensores de red.":::
+
+## <a name="enterprise-deployment-dell-poweredge-r340-xl"></a>Implementación Enterprise: Dell PowerEdge R340 XL
+
+| Componente | Especificaciones técnicas |
+|--|--|
+| Chasis | Servidor en bastidor 1U |
+| Dimensions | 42,8 x 434,0 x 596 (mm)/1,67 x 17,09 x 23,5 (pulgadas) |
+| Peso | Máx. 29,98 lb/13,6 kg |
+| Procesador | Intel Xeon E-2144G de 3,6 GHz, caché de 8 MB, 4 núcleos/8 subprocesos, turbo (71 W) |
+| Conjunto de chips | Intel C246 |
+| Memoria | 32 GB = 2 unidades de 16 GB 2666MT/s DDR4 ECC UDIMM |
+| Storage | 3 unidades de disco duro hot-plug de 2 TB 7,2 k RPM SATA 6 Gbps 512n 3,5 pulgadas (RAID 5) |
+| Controladora de red | Incorporada: 2 puertos Broadcom BCM5720 de 1 Gb<br>LOM incorporado: tarjeta de puerto iDRAC de 1 Gb Broadcom BCM5720 <br><br>Externa: 1 adaptador de servidor Intel Ethernet i350 QP de 1 Gb, perfil bajo |
+| Administración | iDRAC 9 Enterprise |
+| Acceso del dispositivo | Dos puertos USB 3.0 en la parte posterior <br> Un puerto USB 3.0 en la parte frontal |
+| Power | Dos fuentes de alimentación hot-plug de 350 W |
+| Compatibilidad con bastidores | Rieles deslizantes ReadyRails II para montaje sin herramientas en bastidores de 4 postes con orificios cuadrados o redondos no roscados, o bien para montaje en bastidores de 4 postes con orificios roscados. Incluye un soporte para un brazo de gestión de cables sin herramientas opcional. |
+
+## <a name="dell-r340-bom"></a>Lista de materiales de Dell R340
+
+:::image type="content" source="media/how-to-prepare-your-network/enterprise-deployment-for-azure-defender-for-iot-dell-r340-bom.png" alt-text="Lista de materiales de Dell R340.":::
+
+## <a name="smb-deployment-neousys-nuvo-5006lp"></a>Implementación SMB: Neousys Nuvo-5006LP
+
+| Componente | Especificaciones técnicas |
+|--|--|
+| Construcción | Diseño de aluminio, sin ventilador y a prueba de polvo |
+| Dimensions | 240 mm (ancho) x 225 mm (profundidad) x 77 mm (alto) |
+| Peso | 3,1 kg (incluida la CPU, memoria y HDD) |
+| CPU | Intel Core i5-6500TE (caché de 6 MB, hasta 3,30 GHz) S1151 |
+| Conjunto de chips | Concentrador de controlador de plataforma Intel Q170 |
+| Memoria | DDR4 de 8 GB a 2133 MHz SODIMM de temperatura extendida |
+| Storage | Disco SSD de 128 GB 3ME3 mSATA de temperatura extendida |
+| Controladora de red | 6 puertos Gigabit Ethernet de Intel I219 |
+| Acceso del dispositivo | 4 puertos USB: Dos frontales, dos traseros, uno interno |
+| Adaptador de alimentación | 120/240 V CA - 20 V CC/6 A |
+| Montaje | Kit de montaje, riel DIN |
+| Temperatura de funcionamiento | \-25 °C ~ 70 °C |
+| Temperatura de almacenamiento | \-40 °C ~ 85 °C |
+| Humedad | 10 % - 90 % sin condensación |
+| Vibración | Operativa, 5 GRMS, 5 a 500 Hz, 3 ejes <br>(con disco SSD, conforme a IEC60068-2-64) |
+| Choque | Operativo, 50 GRMS, semionda sinusoidal, 11 ms de duración (con SSD, conforme a IEC60068-2-27) |
+| CEM | CE/FCC clase A, conforme a EN 55022, EN 55024 y EN 55032 |
+
+## <a name="next-steps"></a>Pasos siguientes
+
+[Acerca de la instalación de Azure Defender para IoT](how-to-install-software.md)
+
+[Acerca de la configuración de red de Azure Defender para IoT](how-to-set-up-your-network.md)

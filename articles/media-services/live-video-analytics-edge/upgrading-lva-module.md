@@ -5,12 +5,12 @@ author: naiteeks
 ms.topic: how-to
 ms.author: naiteeks
 ms.date: 12/14/2020
-ms.openlocfilehash: 9621f0a933c6102309286505f2c551c5256c5506
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: aa8657550c6475afd9f893acf8985c50cec0f199
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97901562"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98119465"
 ---
 # <a name="upgrading-live-video-analytics-on-iot-edge-from-10-to-20"></a>Actualización de Live Video Analytics en IoT Edge de la versión 1.0 a la 2.0
 
@@ -21,7 +21,7 @@ En este artículo se describen las diferencias y las distintas cosas que hay que
 > [!div class="mx-tdCol4BreakAll"]
 > |Title|Live Video Analytics 1.0|Live Video Analytics 2.0|Descripción|
 > |-------------|----------|---------|---------|
-> |Imagen de contenedor|mcr.microsoft.com/media/live-video-analytics:1.0.0|mcr.microsoft.com/media/live-video-analytics:2.0.0|Microsoft publicó imágenes de Docker para Live Video Analytics en Azure IoT Edge|
+> |Imagen de contenedor|mcr.microsoft.com/media/live-video-analytics:1|mcr.microsoft.com/media/live-video-analytics:2|Microsoft publicó imágenes de Docker para Live Video Analytics en Azure IoT Edge|
 > |**Nodos de MediaGraph** |    |   |   |
 > |Orígenes|:::image type="icon" source="./././media/upgrading-lva/check.png"::: Origen RTSP </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Origen de mensajes de IoT Hub |:::image type="icon" source="./././media/upgrading-lva/check.png"::: Origen RTSP </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Origen de mensajes de IoT Hub | Nodos de MediaGraph que actúan como orígenes para la ingesta de elementos multimedia y los mensajes.|
 > |Procesadores|:::image type="icon" source="./././media/upgrading-lva/check.png"::: Procesador de detección de movimiento </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Procesador de filtros de velocidad de fotogramas </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Procesador de extensiones HTTP </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Procesador de extensiones gRPC </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Procesador de la puerta de señales |:::image type="icon" source="./././media/upgrading-lva/check.png"::: Procesador de detección de movimiento </br>:::image type="icon" source="./././media/upgrading-lva/remove.png"::: **Procesador de filtros de velocidad de fotogramas**</br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Procesador de extensiones HTTP </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Procesador de extensiones gRPC </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Procesador de la puerta de señales | Nodos de MediaGraph que permiten formatear los elementos multimedia antes de enviarlos a los servidores de inferencia de IA.|

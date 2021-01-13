@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: trbye
-ms.openlocfilehash: b8b3a0aa6d9790dbb5900eac2d79074f44a749d2
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 54a54dccd82e4f6cfd72a1cc8a71b51f9fd4ed95
+ms.sourcegitcommit: 697638c20ceaf51ec4ebd8f929c719c1e630f06f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95025657"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857365"
 ---
 # <a name="evaluate-and-improve-custom-speech-accuracy"></a>Evaluación y mejora de la precisión de Habla personalizada
 
@@ -23,7 +23,7 @@ En este artículo, aprenderá a medir cuantitativamente y a mejorar la precisió
 
 ## <a name="evaluate-custom-speech-accuracy"></a>Evaluación de la precisión de Habla personalizada
 
-Es el estándar del sector para medir la precisión *del modelo* (WER). WER cuenta el número de palabras incorrectas identificadas durante el reconocimiento y luego las divide entre el número total de palabras proporcionadas en la transcripción con la etiqueta humana (se muestra a continuación como N). Por último, ese número se multiplica por 100 % para calcular la tasa WER.
+Es el estándar del sector para medir la precisión [del modelo](https://en.wikipedia.org/wiki/Word_error_rate) (WER). WER cuenta el número de palabras incorrectas identificadas durante el reconocimiento y luego las divide entre el número total de palabras proporcionadas en la transcripción con la etiqueta humana (se muestra a continuación como N). Por último, ese número se multiplica por 100 % para calcular la tasa WER.
 
 ![Fórmula de WER](./media/custom-speech/custom-speech-wer-formula.png)
 
@@ -36,6 +36,8 @@ Las palabras identificadas incorrectamente pertenecen a tres categorías:
 Este es un ejemplo:
 
 ![Ejemplo de palabras identificadas incorrectamente](./media/custom-speech/custom-speech-dis-words.png)
+
+Si quiere replicar las medidas WER de manera local, puede usar sclite desde [SCTK](https://github.com/usnistgov/SCTK).
 
 ## <a name="resolve-errors-and-improve-wer"></a>Resolución de errores y mejora de WER
 
@@ -96,7 +98,7 @@ En las secciones siguientes se describe de qué forma puede reducir el número d
 
 ### <a name="add-related-text-sentences"></a>Adición de oraciones de texto relacionadas
 
-Las oraciones de texto relacionadas adicionales pueden reducir principalmente los errores de sustitución debidos al reconocimiento erróneo de palabras comunes y palabras específicas del dominio ya que las muestra en contexto. Las palabras específicas del dominio pueden ser palabras poco frecuentes o compuestas, pero su pronunciación debe ser fácil de reconocer.
+Cuando entrene un nuevo modelo personalizado, comience por agregar el texto relacionado para mejorar el reconocimiento de las palabras y frases específicas del dominio. Las oraciones de texto relacionadas pueden reducir principalmente los errores de sustitución debidos al reconocimiento erróneo de palabras comunes y palabras específicas del dominio, ya que las muestra en contexto. Las palabras específicas del dominio pueden ser palabras poco frecuentes o compuestas, pero su pronunciación debe ser fácil de reconocer.
 
 > [!NOTE]
 > Evite las oraciones de texto relacionadas que tengan ruido, como caracteres o palabras irreconocibles.
@@ -111,6 +113,12 @@ Tenga en cuenta estos detalles:
 * Evite ejemplos que incluyan errores de transcripción, pero incluya audio con distintas calidades.
 * Evite oraciones no relacionadas con el dominio del problema. Las oraciones no relacionadas pueden dañar el modelo.
 * Cuando la calidad de las transcripciones varía, puede duplicar las frases cuya calidad sea excepcionalmente buena (como las transcripciones excelentes que incluyan frases clave) para aumentar su ponderación.
+* El servicio de voz usará automáticamente las transcripciones para mejorar el reconocimiento de las palabras y frases específicas del dominio, como si se hubieran agregado como texto relacionado.
+* El entrenamiento con audio aportará más ventajas si el audio también es difícil de entender para las personas. En la mayoría de los casos, debe iniciar el entrenamiento simplemente con texto relacionado.
+* Una operación de entrenamiento puede tardar varios días en completarse. Para mejorar la velocidad de entrenamiento, asegúrese de crear la suscripción al Servicio de voz en una [región con hardware dedicado](custom-speech-overview.md#set-up-your-azure-account) para el entrenamiento.
+
+> [!NOTE]
+> No todos los modelos base son compatibles con el entrenamiento con audio. Si un modelo base no es compatible, el Servicio de voz solo usará el texto de las transcripciones y omitirá el audio.
 
 ### <a name="add-new-words-with-pronunciation"></a>Adición de nuevas palabras con su pronunciación
 

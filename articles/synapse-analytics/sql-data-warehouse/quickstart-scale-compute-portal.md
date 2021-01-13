@@ -11,12 +11,12 @@ ms.date: 04/28/2020
 ms.author: anvang
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: b8a39220bda788cf6dac0be5151c2cdf5385e342
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 26a8a865a787a9c9b17031f94456272c93380704
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91570279"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98117051"
 ---
 # <a name="quickstart-scale-compute-for-synapse-sql-pool-with-the-azure-portal"></a>Inicio rápido: Escalado del proceso del grupo de SQL de Synapse con Azure Portal
 
@@ -52,4 +52,4 @@ Para cambiar las unidades de almacenamiento de datos:
     ![Mueva el control deslizante](./media/quickstart-scale-compute-portal/scale-dwu.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para más información acerca del grupo de SQL, diríjase al tutorial [Carga de datos en un grupo de SQL](load-data-from-azure-blob-storage-using-polybase.md). 
+Para más información acerca del grupo de SQL, diríjase al tutorial [Carga de datos en un grupo de SQL](./load-data-from-azure-blob-storage-using-copy.md).

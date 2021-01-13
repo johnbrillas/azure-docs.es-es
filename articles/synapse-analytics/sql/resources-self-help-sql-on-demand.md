@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 12ff369cb931eb36014b7c9598b036afdc158750
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 4c3b5095da4e55dc8f881a610f80f1150422e739
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96457193"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98119924"
 ---
 # <a name="self-help-for-serverless-sql-pool"></a>Autoayuda para grupos de SQL sin servidor
 
@@ -25,7 +25,7 @@ Este artículo contiene información sobre cómo solucionar los problemas más f
 Si Synapse Studio no puede establecer la conexión con el grupo de SQL sin servidor, este aparecerá atenuado o con el estado "Sin conexión". Normalmente, este problema se da cuando se produce uno de los siguientes casos:
 
 1) La red impide la comunicación con el back-end de Azure Synapse. El caso más frecuente es que el puerto 1443 está bloqueado. Para que el grupo de SQL sin servidor funcione, desbloquee este puerto. Hay otros problemas que pueden impedir el funcionamiento de un grupo de SQL sin servidor funcione. [Para más información, visite la guía para la solución de problemas](../troubleshoot/troubleshoot-synapse-studio.md).
-2) No tiene permisos para iniciar sesión en un grupo de SQL sin servidor. Para obtener acceso, uno de los administradores del área de trabajo de Azure Synapse debe agregarle al administrador de áreas de trabajo o al rol de administrador de SQL. [Visite guía completa sobre el control de acceso para más información](access-control.md).
+2) No tiene permisos para iniciar sesión en un grupo de SQL sin servidor. Para obtener acceso, uno de los administradores del área de trabajo de Azure Synapse debe agregarle al administrador de áreas de trabajo o al rol de administrador de SQL. [Visite guía completa sobre el control de acceso para más información](../security/synapse-workspace-access-control-overview.md).
 
 ## <a name="query-fails-because-file-cannot-be-opened"></a>Se produce un error en la consulta porque no se puede abrir el archivo
 

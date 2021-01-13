@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/06/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to learn the options available to monitor the health of my vaults
-ms.openlocfilehash: 7ff3daded48612fd308396420dca65cd81d9fafc
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 5946a5d6d1adb5f609f497b4c2194582f624fe24
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97724704"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934601"
 ---
 # <a name="monitoring-and-alerting-for-azure-key-vault"></a>Supervisión y alertas de Azure Key Vault
 
@@ -25,8 +25,8 @@ ms.locfileid: "97724704"
 Una vez que haya empezado a usar Key Vault para almacenar los secretos de producción, es importante supervisar el estado del almacén de claves para asegurarse de que el servicio funciona según lo previsto. Cuando empiece a escalar el servicio, aumentará el número de solicitudes que se envían al almacén de claves. Es probable que esto aumente la latencia de las solicitudes y, en casos extremos, puede hacer que las solicitudes se limiten, lo cual afectará al rendimiento del servicio. También debe recibir una alerta si el almacén de claves envía un número inusual de códigos de error, para que pueda recibir una notificación rápida de cualquier problema de configuración con la directiva de acceso o el firewall. En este documento se tratarán los siguientes temas:
 
 + Métricas básicas de Key Vault para supervisar
-+ Configuración de las métricas y creación de un panel 
-+ Creación de alertas en los umbrales especificados 
++ Configuración de las métricas y creación de un panel
++ Creación de alertas en los umbrales especificados
 
 ## <a name="basic-key-vault-metrics-to-monitor"></a>Métricas básicas de Key Vault para supervisar
 

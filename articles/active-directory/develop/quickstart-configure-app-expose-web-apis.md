@@ -13,12 +13,12 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, contperf-fy21q1
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 4ebae7e97f9128bb9302e9076e71dd3164f0c29e
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: bf8b705aff8ac608d0eb3626026797f1d106414b
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97030967"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98017759"
 ---
 # <a name="quickstart-configure-an-application-to-expose-a-web-api"></a>Inicio rápido: Configuración de una aplicación para exponer una API web
 
@@ -45,7 +45,7 @@ El código de las aplicaciones cliente solicita permiso para realizar operacione
 
 En primer lugar, siga estos pasos para crear un ámbito de ejemplo denominado `Employees.Read.All`:
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 1. Si tiene acceso a varios inquilinos, use el filtro **Directorio + suscripción** :::image type="icon" source="./media/quickstart-configure-app-expose-web-apis/portal-01-directory-subscription-filter.png" border="false"::: del menú superior para seleccionar el inquilino que contiene el registro de la aplicación cliente.
 1. Seleccione **Azure Active Directory** > **Registros de aplicaciones** y el registro de la aplicación de API.
 1. Seleccione **Exponer una API** > **Agregar un ámbito**.

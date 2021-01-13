@@ -13,12 +13,12 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, contperf-fy21q1
 ms.reviewer: lenalepa, aragra, sureshja
-ms.openlocfilehash: 2630984d54134ca8fca94fdc1960265ba71935a6
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: fdaaf935dc458a6a5b2a87a81bb98a1392f1034a
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97031307"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98012128"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-a-web-api"></a>Inicio rápido: Configuración de una aplicación cliente para acceder a las API web
 
@@ -42,7 +42,7 @@ En este diagrama se muestra cómo se relacionan entre sí los dos registros de a
 
 Una vez que haya registrado la aplicación cliente y la API web, y haya expuesto la API mediante la creación de ámbitos, puede configurar los permisos del cliente para la API siguiendo estos pasos:
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 1. Si tiene acceso a varios inquilinos, use el filtro **Directorio + suscripción** :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false"::: del menú superior para seleccionar el inquilino que contiene el registro de la aplicación cliente.
 1. Seleccione **Azure Active Directory** > **Registros de aplicaciones** y la aplicación cliente (*no* la API web).
 1. Seleccione **Permisos de API** > **Agregar permiso** > **Mis API**.
@@ -71,7 +71,7 @@ Además de acceder a su API web propia en nombre del usuario que ha iniciado ses
 
 Configure el permiso delegado a Microsoft Graph para permitir que la aplicación cliente realice operaciones en nombre del usuario que ha iniciado sesión, por ejemplo, leer el correo electrónico o modificar su perfil. De forma predeterminada, cuando los usuarios de la aplicación cliente inician sesión, se les pide su consentimiento para los permisos delegados configurados para ella.
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 1. Si tiene acceso a varios inquilinos, use el filtro **Directorio + suscripción** :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false"::: del menú superior para seleccionar el inquilino que contiene el registro de la aplicación cliente.
 1. Seleccione **Azure Active Directory** > **Registros de aplicaciones** y la aplicación cliente.
 1. Seleccione **Permisos de API** > **Agregar un permiso** > **Microsoft Graph**.
@@ -96,7 +96,7 @@ Configure los permisos de una aplicación que necesite autenticarse por sí mism
 
 En los pasos siguientes se concede el permiso *Files.Read.All* de Microsoft Graph como ejemplo.
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 1. Si tiene acceso a varios inquilinos, use el filtro **Directorio + suscripción** :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false"::: del menú superior para seleccionar el inquilino que contiene el registro de la aplicación cliente.
 1. Seleccione **Azure Active Directory** > **Registros de aplicaciones** y la aplicación cliente.
 1. Seleccione **Permisos de API** > **Agregar un permiso** > **Microsoft Graph** > **Permisos de la aplicación**.
