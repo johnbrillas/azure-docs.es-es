@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo montar un volumen de Azure Files p
 ms.topic: article
 ms.date: 07/02/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 5ca619ac3ae93ee238d019b64ecccc975b7c8e3b
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: afebdcdc9d9c5852d7fe66ed06ac457c1dbb0afb
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746866"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881810"
 ---
 # <a name="mount-an-azure-file-share-in-azure-container-instances"></a>Montaje de un recurso compartido de archivos de Azure en Azure Container Instances
 
@@ -20,6 +20,9 @@ De forma predeterminada, Azure Container Instances no tiene estado. Si el conten
 >
 > Montar un recurso compartido de Azure Files en una instancia de contenedor es similar a un [montaje de enlace](https://docs.docker.com/storage/bind-mounts/) de Docker. Tenga en cuenta que si monta un recurso compartido en un directorio de contenedor en el que existen archivos o directorios, estos archivos o directorios quedan ocultos por el montaje y no son accesibles mientras se ejecuta el contenedor.
 >
+
+> [!IMPORTANT]
+> Si va a implementar grupos de contenedores en una red virtual de Azure, debe agregar un [punto de conexión de servicio](../virtual-network/virtual-network-service-endpoints-overview.md) a su cuenta de Azure Storage.
 
 ## <a name="create-an-azure-file-share"></a>Creación de un recurso compartido de archivos de Azure
 
@@ -49,15 +52,15 @@ az storage share create \
 
 Para montar un recurso compartido de archivos de Azure como un volumen en Azure Container Instances, necesita tres valores: el nombre de la cuenta de almacenamiento, el nombre del recurso compartido y la clave de acceso de almacenamiento.
 
-* **Nombre de la cuenta de almacenamiento** : si ha usado el script anterior, el nombre de la cuenta de almacenamiento se almacena en la variable `$ACI_PERS_STORAGE_ACCOUNT_NAME`. Para ver el nombre de la cuenta, escriba:
+* **Nombre de la cuenta de almacenamiento**: si ha usado el script anterior, el nombre de la cuenta de almacenamiento se almacena en la variable `$ACI_PERS_STORAGE_ACCOUNT_NAME`. Para ver el nombre de la cuenta, escriba:
 
   ```console
   echo $ACI_PERS_STORAGE_ACCOUNT_NAME
   ```
 
-* **Nombre del recurso compartido** : este valor ya se conoce (se define como `acishare` en el script anterior)
+* **Nombre del recurso compartido**: este valor ya se conoce (se define como `acishare` en el script anterior)
 
-* **Clave de cuenta de almacenamiento** : este valor puede encontrarse con el siguiente comando:
+* **Clave de cuenta de almacenamiento**: este valor puede encontrarse con el siguiente comando:
 
   ```azurecli-interactive
   STORAGE_KEY=$(az storage account keys list --resource-group $ACI_PERS_RESOURCE_GROUP --account-name $ACI_PERS_STORAGE_ACCOUNT_NAME --query "[0].value" --output tsv)
@@ -235,7 +238,7 @@ az deployment group create --resource-group myResourceGroup --template-file depl
 
 Para montar varios volúmenes en una instancia de contenedor, debe realizar la implementación con una [plantilla de Azure Resource Manager](/azure/templates/microsoft.containerinstance/containergroups) u otro método de programación. Para usar una plantilla o un archivo YAML, proporcione los detalles del recurso compartido y defina los volúmenes al rellenar la matriz `volumes` de la sección `properties` del archivo. 
 
-Por ejemplo, si ha creado dos recursos compartidos de Azure Files denominados *share1* y *share2* en la cuenta de almacenamiento *myStorageAccount* , la matriz `volumes` de la plantilla de Resource Manager sería similar a la siguiente:
+Por ejemplo, si ha creado dos recursos compartidos de Azure Files denominados *share1* y *share2* en la cuenta de almacenamiento *myStorageAccount*, la matriz `volumes` de la plantilla de Resource Manager sería similar a la siguiente:
 
 ```JSON
 "volumes": [{

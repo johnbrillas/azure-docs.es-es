@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 06/30/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 33f7f407c1df45131b0ebb5b14e8fcad2626bffd
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8243619bc7a32c5fa86b6e108d954674b54394e5
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87077541"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97913740"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Inicio rápido: Creación de un conjunto de escalado de máquinas virtuales en Azure Portal
 
@@ -35,7 +35,7 @@ En primer lugar, cree una instancia de Standard Load Balancer mediante el portal
 1. En el cuadro de búsqueda, escriba **equilibrador de carga**. En **Marketplace**, en los resultados de la búsqueda, seleccione **Equilibradores de carga**.
 1. En la pestaña **Conceptos básicos** de la página **Crear equilibrador de carga**, escriba o seleccione la siguiente información:
 
-    | Configuración                 | Value   |
+    | Configuración                 | Valor   |
     | ---| ---|
     | Suscripción  | Seleccione su suscripción.    |    
     | Resource group | Seleccione **Crear nuevo** y escriba *myVMSSResourceGroup* en el cuadro de texto.|
@@ -60,13 +60,12 @@ Puede implementar un conjunto de escalado con una imagen de Windows Server o Lin
 1. En la pestaña **Aspectos básicos**, en **Detalles del proyecto**, asegúrese de que esté seleccionada la suscripción correcta y luego elija **Crear nuevo** grupo de recursos. Escriba *myVMSSResourceGroup* para el nombre y seleccione **Aceptar**. 
 1. Escriba *myScaleSet* como el nombre del conjunto de escalado.
 1. En **Región**, seleccione una región cercana a su área.
-1. Deje el valor predeterminado de **Máquinas virtuales del conjunto de escalado** en **Modo de orquestación**.
 1. Seleccione una imagen de Marketplace para **imagen**. En este ejemplo, hemos elegido *Ubuntu Server 18.04 LTS*.
 1. Escriba el nombre de usuario que quiera y seleccione el tipo de autenticación que desee.
    - La **contraseña** debe tener 12 caracteres como mínimo y reunir, al menos, tres de los cuatro requisitos de complejidad siguientes: contener al menos una minúscula, una mayúscula, un número y un carácter especial. Para más información, consulte la sección acerca de los [requisitos de nombre de usuario y contraseña](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm).
    - Si selecciona una imagen de disco del sistema operativo Linux, puede elegir su **clave pública SSH** en su lugar. Proporcione solo su clave pública, como *~/.ssh/id_rsa.pub*. Puede usar Azure Cloud Shell del portal para [crear y utilizar claves SSH](../virtual-machines/linux/mac-create-ssh-keys.md).
    
-    ![Crear un conjunto de escalado de máquinas virtuales](./media/virtual-machine-scale-sets-create-portal/quick-create-scaleset.png)
+    :::image type="content" source="./media/virtual-machine-scale-sets-create-portal/quick-create-scale-set.png" alt-text="La imagen muestra cómo crear opciones para conjuntos de escalado en Azure Portal.":::
 
 1. Seleccione **Siguiente** para pasar a las otras páginas. 
 1. Deje los valores predeterminados para las páginas **Instancia** y **Discos**.

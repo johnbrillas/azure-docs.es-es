@@ -8,18 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: 09e922ffddcce732d9213eb91026561528c0728a
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: ce854c8f2d1d317c3660aaab9c0a6569aae0bb36
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96169144"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895978"
 ---
 # <a name="tutorial-sign-in-users-and-call-a-protected-api-from-a-blazor-webassembly-app"></a>Tutorial: Inicio de sesión de usuarios y llamada a una API protegida desde una aplicación WebAssembly de Blazor
 
-En este tutorial, creará una aplicación de Blazor WebAssembly que inicia la sesión de usuario y obtiene datos de Microsoft Graph mediante la Plataforma de identidad de Microsoft y el registro de la aplicación en Azure Active Directory (Azure AD).
-
-También hay disponible un [tutorial para Blazor Server](tutorial-blazor-server.md). 
+En este tutorial, creará una aplicación de Blazor WebAssembly que inicia la sesión de usuario y obtiene datos de Microsoft Graph mediante la Plataforma de identidad de Microsoft y el registro de la aplicación en Azure Active Directory (Azure AD). 
 
 En este tutorial:
 
@@ -27,6 +25,10 @@ En este tutorial:
 >
 > * Crear una nueva aplicación WebAssembly de Blazor configurada para usar Azure Active Directory (Azure AD) para la [autenticación y autorización](authentication-vs-authorization.md) mediante la plataforma de identidad de Microsoft.
 > * Recuperar datos de una API web protegida; en este caso, [Microsoft Graph](/graph/overview).
+
+En este tutorial se usa .NET Core 3.1. Los documentos de .NET contienen instrucciones sobre [cómo proteger una aplicación Blazor WebAssembly](https://docs.microsoft.com/aspnet/core/blazor/security/webassembly/graph-api) mediante ASP.NET Core 5.0. 
+
+También hay disponible un [tutorial para Blazor Server](tutorial-blazor-server.md). 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -74,9 +76,11 @@ En el explorador, vaya a `https://localhost:5001` e inicie sesión con una cuent
 
 Los componentes de esta plantilla que habilitan los inicios de sesión con Azure AD mediante la plataforma de identidad de Microsoft se explican en este [tema de la documentación de ASP.NET](/aspnet/core/blazor/security/webassembly/standalone-with-azure-active-directory#authentication-package).
 
-## <a name="retrieving-data-from-microsoft-graph"></a>Recuperación de datos de Microsoft Graph
+## <a name="retrieving-data-from-a-protected-api-microsoft-graph"></a>Recuperación de datos de una API protegida (Microsoft Graph)
 
-[Microsoft Graph](/graph/overview) ofrece una serie de API que proporcionan acceso a los datos de Microsoft 365 de los usuarios en el inquilino. Al usar la plataforma de identidad de Microsoft como proveedor de identidades para la aplicación, tiene acceso más fácil a esta información, ya que Microsoft Graph admite directamente los tokens emitidos por dicha plataforma. En esta sección, agregará código que puede mostrar los correos electrónicos del usuario con la sesión iniciada en la página "Recuperar datos" de la aplicación.
+[Microsoft Graph](/graph/overview) contiene API que proporcionan acceso a los datos de Microsoft 365 para sus usuarios y admite los tokens emitidos por la plataforma de identidad de Microsoft, lo que la convierte en una API protegida adecuada que se puede utilizar como ejemplo. En esta sección, agregará código para llamar a Microsoft Graph y mostrar los mensajes de correo electrónico del usuario en la página de "captura de datos" de la aplicación.
+
+Esta sección se ha redactado con el mismo enfoque que una llamada a una API protegida mediante un cliente con nombre. Se puede utilizar el mismo método para otras API protegidas a las que desee llamar. Sin embargo, si tiene previsto llamar a Microsoft Graph desde la aplicación, puede usar el SDK de Graph para reducir el texto reutilizable. Los documentos de .NET contienen instrucciones sobre [cómo utilizar el SDK de Graph](https://docs.microsoft.com/aspnet/core/blazor/security/webassembly/graph-api?view=aspnetcore-5.0).
 
 Antes de empezar, cierre la sesión de la aplicación, ya que realizará cambios en los permisos necesarios y el token actual no funcionará. Si aún no lo ha hecho, vuelva a ejecutar la aplicación y seleccione **Cerrar sesión** antes de actualizar el código siguiente.
 

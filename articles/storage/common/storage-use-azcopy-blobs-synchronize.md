@@ -8,12 +8,12 @@ ms.date: 12/08/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 6d1e9e8eeddaaa2ce8c891888935faad12d40295
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: f8210428e772241134b57ac4fccb5b1549e04483
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96907414"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617279"
 ---
 # <a name="synchronize-with-azure-blob-storage-by-using-azcopy-v10"></a>Sincronización con Azure Blob Storage mediante AzCopy v10
 
@@ -79,7 +79,7 @@ El primer contenedor que aparece en este comando es el contenedor origen. El seg
 | **Sintaxis** | `azcopy sync 'https://<source-storage-account-name>.blob.core.windows.net/<container-name>' 'https://<destination-storage-account-name>.blob.core.windows.net/<container-name>' --recursive` |
 | **Ejemplo** | `azcopy sync 'https://mysourceaccount.blob.core.windows.net/mycontainer' 'https://mydestinationaccount.blob.core.windows.net/mycontainer' --recursive` |
 
-## <a name="update-a-directory-with-changes-to-a-directory-in-another-file-share"></a>Actualización de un directorio con cambios en un directorio de otro recurso compartido de archivos
+## <a name="update-a-directory-with-changes-to-a-directory-in-another-container"></a>Actualización de un directorio con cambios en un directorio de otro contenedor
 
 El primer directorio que aparece en este comando es el origen. El segundo es el destino.
 

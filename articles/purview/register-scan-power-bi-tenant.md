@@ -1,18 +1,18 @@
 ---
 title: Registro y examen de un inquilino de Power BI (versión preliminar)
 description: Aprenda a usar el portal de Azure Purview para registrar y examinar un inquilino de Power BI.
-author: viseshag
-ms.author: viseshag
+author: chanuengg
+ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/19/2020
-ms.openlocfilehash: 1f08bfd6b7c0439dd08a3091b5ea927781af9b84
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: 3d8107e980b9cad9bc55cb51cc78b63985986ba5
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97387588"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97696234"
 ---
 # <a name="register-and-scan-a-power-bi-tenant-preview"></a>Registro y examen de un inquilino de Power BI (versión preliminar)
 
@@ -43,13 +43,14 @@ Para configurar la autenticación, cree un grupo de seguridad y agréguele la id
 
     :::image type="content" source="./media/setup-power-bi-scan-PowerShell/add-catalog-to-group-by-search.png" alt-text="Búsqueda del catálogo para incorporarlo":::
 
-    Verá una notificación de operación correcta que le muestra qué se ha agregado.
+    Verá una notificación de operación correcta que le muestra que se ha agregado.
 
     :::image type="content" source="./media/setup-power-bi-scan-PowerShell/success-add-catalog-msi.png" alt-text="Incorporación de MSI del catálogo":::
 
 ## <a name="associate-the-security-group-with-the-tenant"></a>Asociación del grupo de seguridad con el inquilino
 
 1. Inicie sesión en el [portal de administración de Power BI](https://app.powerbi.com/admin-portal/tenantSettings).
+1. Seleccione la página **Configuración de inquilinos**.
 
     > [!Important]
     > Debe ser administrador de Power BI para ver la página de configuración de inquilinos.
@@ -70,8 +71,6 @@ Para configurar la autenticación, cree un grupo de seguridad y agréguele la id
 Ahora que le han concedido los permisos del catálogo para conectarse a la API de administración de su inquilino de Power BI, puede configurar el examen desde el portal del catálogo.
 
 En primer lugar, agregue una marca de característica especial a la dirección URL de Purview. 
-
-1. Agregue la siguiente cadena al final del URI de la instancia de Purview: `?feature.ext.catalog={"pbi":"true"}`. Esto habilita la opción de registro de Power BI en el catálogo.
 
 1. Seleccione el icono del **Centro de administración**.
 
@@ -111,6 +110,5 @@ En primer lugar, agregue una marca de característica especial a la dirección U
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para aprender a usar cmdlets de PowerShell para registrar y examinar un inquilino de Power BI, vea:
-  
-- [Uso de PowerShell para registrar y examinar Power BI](powershell-register-scan-power-bi.md)
+- [Examen del catálogo de datos de Azure Purview](how-to-browse-catalog.md)
+- [Búsqueda en el catálogo de datos de Azure Purview](how-to-search-catalog.md)

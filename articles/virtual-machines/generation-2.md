@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: jushiman
-ms.openlocfilehash: 56a360f461c89d7c60e973bf2d6258d63113ab47
-ms.sourcegitcommit: 6b16e7cc62b29968ad9f3a58f1ea5f0baa568f02
+ms.openlocfilehash: 61897a790da8a5f52b1b8f8e208629e7755690fa
+ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2020
-ms.locfileid: "96303771"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97759745"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Compatibilidad para máquinas virtuales de generación 2 en Azure
 
@@ -36,7 +36,9 @@ Las máquinas virtuales de primera generación son compatibles con todos los tam
 * [Serie Dasv4](dav4-dasv4-series.md)
 * [Serie Ddsv4](ddv4-ddsv4-series.md)
 * [Serie Esv3](ev3-esv3-series.md)
+* [Serie Esv4](ev4-esv4-series.md)
 * [Serie Easv4](eav4-easv4-series.md)
+* [Serie Edsv4](edv4-edsv4-series.md)
 * [Serie Fsv2](fsv2-series.md)
 * [Serie GS](sizes-previous-gen.md#gs-series)
 * [Serie HB](hb-series.md)
@@ -112,7 +114,7 @@ Actualmente Azure no admite algunas de las características que admite Hyper-V e
 
 En Azure Portal o la CLI de Azure, puede crear VM de generación 2 a partir de una imagen de Marketplace que admita el arranque UEFI.
 
-#### <a name="azure-portal"></a>Azure portal
+#### <a name="azure-portal"></a>Azure Portal
 
 A continuación se indican los pasos para crear una máquina virtual de segunda generación (Gen2) en Azure Portal.
 

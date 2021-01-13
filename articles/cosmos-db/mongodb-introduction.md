@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 11/25/2020
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 8205ecab3abfc7a944c12db1aca2bf594f6cd98f
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: ab335c8cc682f6b33dcb30509d682186a178c676
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96349459"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861065"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb"></a>API de Azure Cosmos DB para MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "96349459"
 
 ## <a name="wire-protocol-compatibility"></a>Compatibilidad de protocolo de conexión
 
-Azure Cosmos DB implementa el protocolo de conexión para MongoDB. Esta implementación permite una compatibilidad transparente con las herramientas, los controladores y los SDK de cliente nativos de MongoDB. Azure Cosmos DB hospeda el motor de base de datos de MongoDB. Los detalles de las características admitidas por MongoDB se pueden encontrar aquí: 
+Azure Cosmos DB implementa el protocolo de conexión para MongoDB. Esta implementación permite una compatibilidad transparente con las herramientas, los controladores y los SDK de cliente nativos de MongoDB. Azure Cosmos DB no hospeda el motor de base de datos de MongoDB. Los detalles de las características admitidas por MongoDB se pueden encontrar aquí: 
 - [API para la versión 3.6 del motor de Mongo DB de Azure Cosmos DB](mongodb-feature-support-36.md)
 - [API para la versión 3.2 del motor de Mongo DB de Azure Cosmos DB](mongodb-feature-support.md)
 

@@ -8,12 +8,12 @@ ms.author: parkerra
 ms.date: 11/20/2020
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 8c321eae9451715077aa50d163b62b51ec88ce1a
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: ce79fe88b33659241a226af7bbb7a966ede41abb
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95496892"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97696164"
 ---
 # <a name="anchor-relationships-and-way-finding-in-azure-spatial-anchors"></a>Relaciones de anclaje y búsqueda de caminos en Azure Spatial Anchors
 
@@ -64,7 +64,7 @@ Puede conectar anclajes espaciales en varias sesiones. Con este método, puede c
 
 Para conectar anclajes en varias sesiones:
 
-1. La aplicación crea algunos anclajes en un elemento CloudSpatialAnchorSession.
+1. La aplicación crea algunos anclajes (anclajes A y B) en un elemento CloudSpatialAnchorSession.
 2. En otro momento, la aplicación busca uno de estos anclajes (por ejemplo, el anclaje A) mediante el uso de un nuevo elemento CloudSpatialAnchorSession.
 3. Camine a una nueva ubicación. La plataforma subyacente de realidad mixta o realidad aumentada realiza un seguimiento del movimiento.
 4. Cree el anclaje C mediante el uso del mismo elemento CloudSpatialAnchorSession. Los anclajes A, B y C ahora están conectados. El servicio Spatial Anchors mantiene esta relación.

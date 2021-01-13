@@ -6,12 +6,13 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/16/2020
-ms.openlocfilehash: 20d38e5caee67ca8bb13877d3162401fa245dc2d
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.custom: references_regions
+ms.openlocfilehash: 78ce082c6e90cfc9c67ddcfa00926d292b9ed7ea
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96444784"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740477"
 ---
 # <a name="enable-azure-monitor-for-vms-guest-health-preview"></a>Habilitación del estado de invitado de Azure Monitor para VM (versión preliminar)
 El estado de invitado de Azure Monitor para VM permite ver el estado de una máquina virtual conforme a la definición de un conjunto de medidas de rendimiento que se muestrean a intervalos regulares. En este artículo se explica cómo habilitar esta característica en la suscripción, así como la supervisión de invitado en cada máquina virtual.
@@ -20,38 +21,57 @@ El estado de invitado de Azure Monitor para VM permite ver el estado de una máq
 El estado de invitado de Azure Monitor para VM tiene las siguientes limitaciones en la versión preliminar pública:
 
 - Actualmente solo se admiten máquinas virtuales de Azure. Azure Arc para servidores no se admite de momento.
-- La máquina virtual debe ejecutar uno de los siguientes sistemas operativos: 
+
+
+## <a name="supported-operating-systems"></a>Sistemas operativos admitidos
+La máquina virtual debe ejecutar uno de los siguientes sistemas operativos: 
+
   - Ubuntu 16.04 LTS, Ubuntu 18.04 LTS
   - Windows Server 2012 o superior
-- La máquina virtual debe encontrarse en una de las siguientes regiones:
-  - Este de Australia
-  - Sudeste de Australia
-  - Centro de la India
-  - Centro de EE. UU.
-  - Este de EE. UU.
-  - Este de EE. UU. 2
-  - EUAP de Este de EE. UU. 2
-  - Centro-oeste de Alemania
-  - Japón Oriental
-  - Centro-Norte de EE. UU
-  - Norte de Europa
-  - Centro-sur de EE. UU.
-  - Sudeste de Asia
-  - Sur de Reino Unido 2
-  - Oeste de Europa
-  - Oeste de EE. UU.
-  - Oeste de EE. UU. 2
-- El área de trabajo de Log Analytics debe encontrarse en una de las siguientes regiones:
-  - Este de EE. UU.
-  - EUAP de Este de EE. UU. 2
-  - Región Oeste de Europa
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="supported-regions"></a>Regiones admitidas
+
+La máquina virtual debe encontrarse en una de las siguientes regiones:
+
+- Centro de Australia
+- Este de Australia
+- Sudeste de Australia
+- Centro de la India
+- Centro de EE. UU.
+- Este de Asia
+- Este de EE. UU.
+- Este de EE. UU. 2
+- EUAP de Este de EE. UU. 2
+- Centro-oeste de Alemania
+- Japón Oriental
+- Centro-Norte de EE. UU
+- Norte de Europa
+- Centro-sur de EE. UU.
+- Sudeste de Asia
+- Sur de Reino Unido
+- Centro-Oeste de EE. UU.
+- Oeste de Europa
+- Oeste de EE. UU.
+- Oeste de EE. UU. 2
+
+
+El área de trabajo de Log Analytics debe encontrarse en una de las siguientes regiones:
+
+- Centro de EE. UU.
+- Este de EE. UU.
+- Este de EE. UU. 2
+- EUAP de Este de EE. UU. 2
+- Norte de Europa
+- Sudeste de Asia
+- Sur de Reino Unido
+- Región Oeste de Europa
+- Oeste de EE. UU. 2
+
+## <a name="prerequisites"></a>Prerrequisitos
 
 - La máquina virtual debe incorporarse a Azure Monitor para VM.
 - El usuario que ejecuta los pasos de incorporación debe tener un acceso mínimo de nivel Colaborador a la suscripción en la que se encuentran la máquina virtual y la regla de recopilación de datos.
 - Los proveedores de recursos de Azure necesarios deben registrarse como se explica en la sección siguiente.
-
 
 ## <a name="register-required-azure-resource-providers"></a>Registro de proveedores de recursos de Azure necesarios
 Los siguientes proveedores de recursos de Azure deben registrarse en la suscripción para habilitar el estado de invitado de Azure Monitor para VM. 

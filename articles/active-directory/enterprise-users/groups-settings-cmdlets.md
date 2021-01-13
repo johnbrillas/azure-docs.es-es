@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70387717c15dade349a323e663ac0fd31935a15f
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: c48e23de6832999b262283c0bf6664b4dfe88ee7
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96859885"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881572"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Cmdlets de Azure Active Directory para configurar las opciones de grupo
 
@@ -84,10 +84,11 @@ Con estos pasos se crean configuraciones en el nivel de directorio que se aplica
    ```powershell
    $Setting = $Template.CreateDirectorySetting()
    ```  
-4. Luego, actualice el valor de instrucciones de uso:
+4. A continuación, actualice el objeto de configuración con un nuevo valor. Los dos ejemplos siguientes cambian el valor de la directriz de uso y habilitan las etiquetas de confidencialidad. Establezca estas opciones o cualquier otra configuración correspondiente en la plantilla:
   
    ```powershell
    $Setting["UsageGuidelinesUrl"] = "https://guideline.example.com"
+   $Setting["EnableMIPLabels"] = "True"
    ```  
 5. A continuación, aplique la configuración:
   
@@ -118,7 +119,7 @@ Para actualizar el valor de UsageGuideLinesUrl en la plantilla de configuración
    ```powershell
     Name                          Value
     ----                          -----
-    EnableMIPLabels               false
+    EnableMIPLabels               True
     CustomBlockedWordsList
     EnableMSStandardBlockedWords  False
     ClassificationDescriptions

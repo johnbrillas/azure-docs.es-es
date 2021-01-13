@@ -4,16 +4,16 @@ description: Problemas comunes, soluciones alternativas y pasos de diagnóstico 
 author: ealsur
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.date: 03/13/2020
+ms.date: 12/29/2020
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 9fc5da214a50cb000d2154d08bb9b6f6f98ac5ec
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 1b7b82ea07b7e00d281739011c9c9f83ab4dff73
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340539"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825613"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-functions-trigger-for-cosmos-db"></a>Diagnóstico y solución de problemas al usar el desencadenador de Azure Functions para Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -43,7 +43,7 @@ Además, si va a crear manualmente su propia instancia del [cliente del SDK de A
 
 La función de Azure emite un mensaje de error similar a "O la colección de origen "nombre de la colección" (en la base de datos "nombre de la base de datos") o la colección de concesión"colección2-name"(en la base de datos "nombre de la base de datos2") no existen. Ambas colecciones deben existir antes de que se inicia el agente de escucha. Para crear automáticamente la colección de concesión, establezca "CreateLeaseCollectionIfNotExists" en "true"
 
-Esto significa que uno de los contenedores de Azure Cosmos o ambos necesarios para que funcione el desencadenador de trabajo no existen o no son accesibles para la función de Azure. **El propio error le indicará qué base de datos y qué contenedores de Azure Cosmos son el desencadenador que se busca** , según la configuración.
+Esto significa que uno de los contenedores de Azure Cosmos o ambos necesarios para que funcione el desencadenador de trabajo no existen o no son accesibles para la función de Azure. **El propio error le indicará qué base de datos y qué contenedores de Azure Cosmos son el desencadenador que se busca**, según la configuración.
 
 1. Compruebe el `ConnectionStringSetting` atributo y que **hace referencia a una configuración que existe en la aplicación de la función de Azure**. El valor de este atributo no debe ser la propia cadena de conexión, sino el nombre de la opción de configuración.
 2. Compruebe que `databaseName` y `collectionName` existen en su cuenta de Azure Cosmos. Si usa el reemplazo de valor automático (mediante los patrones `%settingName%`), asegúrese de que el nombre de la configuración existe en la aplicación de la función de Azure.
@@ -85,16 +85,18 @@ El concepto de "cambio" es una operación en un documento. Los escenarios más c
 
 ### <a name="some-changes-are-missing-in-my-trigger"></a>Faltan algunos cambios en mi desencadenador
 
-Si observa que algunos de los cambios producidos en el contenedor de Azure Cosmos no son recogidos por la función de Azure, debe llevar a cabo una investigación inicial.
+Si observa que algunos de los cambios que se produjeron en el contenedor de Azure Cosmos no están recogidos por la función de Azure o que faltan algunos cambios en el destino al copiarlos, siga los pasos que se indican a continuación.
 
 Cuando la función de Azure recibe los cambios, a menudo los procesa y, opcionalmente, envía el resultado a otro destino. Cuando investigue los cambios que faltan, asegúrese de **medir los cambios que se reciben en el punto de ingesta** (cuando se inicia la función de Azure), no en el destino.
 
 Si faltan algunos cambios en el destino, esto podría significar que se trata de algún error que sucede durante la ejecución de la función de Azure después de recibir los cambios.
 
-En este escenario, la mejor forma de proceder consiste en agregar bloques `try/catch` en el código y dentro de los bucles que podrían estar procesando los cambios, con el fin de detectar errores en un subconjunto determinado de elementos y administrarlos según corresponda (enviarlos a otro almacenamiento adicional para seguir con el análisis o volver a intentarlo). 
+En este escenario, la mejor forma de proceder consiste en agregar bloques `try/catch` en el código y dentro de los bucles que podrían estar procesando los cambios, con el fin de detectar errores en un subconjunto determinado de elementos y administrarlos según corresponda (enviarlos a otro almacenamiento adicional para seguir con el análisis o volver a intentarlo).
 
 > [!NOTE]
 > El desencadenador de Azure Functions para Cosmos DB, de forma predeterminada, no volverá a intentar un lote de cambios si se ha producido una excepción no controlada durante la ejecución del código. Esto significa que la razón por la que no han llegado los cambios al destino es que se producen errores al procesarlos.
+
+Si el destino es otro contenedor de Cosmos y realiza operaciones Upsert para copiar los elementos, **compruebe que la definición de la clave de partición en el contenedor supervisado y en el de destino es la misma**. Las operaciones Upsert podrían guardar varios elementos de origen como uno solo en el destino debido a esta diferencia de configuración.
 
 Si aprecia que algunos cambios no se han recibido en el desencadenador, el escenario más común es que hay **otra Función de Azure en ejecución**. Es posible que otra función de Azure implementada en Azure o que se ejecute localmente en la máquina del desarrollador tenga **exactamente la misma configuración** (mismos contenedores de concesión y supervisados), y esta función de Azure esté robando un subconjunto de los cambios que se espera que la función de Azure procesase.
 

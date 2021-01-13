@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/10/2020
-ms.openlocfilehash: cf64deb17bea508637debb5612231d355d523fbb
-ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
+ms.openlocfilehash: 57b350c7772d42e5dbd89c1d03c89f905a26398b
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95315590"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895536"
 ---
 # <a name="azure-monitor-agent-overview-preview"></a>Información general del agente de Azure Monitor (versión preliminar)
 El agente de Azure Monitor (AMA) recopila datos de supervisión del sistema operativo invitado de máquinas virtuales y los entrega a Azure Monitor. En este artículo se proporciona información general sobre el agente de Azure Monitor, incluido cómo instalarlo y cómo configurar la recopilación de datos.
@@ -54,7 +54,7 @@ Durante la versión preliminar pública del agente de Azure Monitor se aplican l
 
 - El agente de Azure Monitor no admite soluciones y conclusiones, como Azure Monitor para VM y Azure Security Center. El único escenario que se admite actualmente es la recopilación de datos con las reglas de recopilación de datos que usted configure. 
 - Las reglas de recopilación de datos se deben crear en la misma región que cualquier área de trabajo de Log Analytics que se use como destino.
-- Actualmente se admiten las máquinas virtuales de Azure y los servidores habilitados para Azure Arc. No se admiten actualmente los conjuntos de escalado de máquinas virtuales, Azure Kubernetes Service ni otros tipos de recursos de proceso.
+- Actualmente se admiten máquinas virtuales de Azure, conjuntos de escalado de máquinas virtuales y servidores habilitados para Azure Arc. Azure Kubernetes Service y otros tipos de recursos de proceso no se admiten en este momento.
 - La máquina virtual debe tener acceso a los siguientes puntos de conexión HTTPS:
   - *.ods.opinsights.azure.com
   - *.ingest.monitor.azure.com

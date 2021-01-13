@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 08/28/2020
+ms.date: 01/05/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: 711da24b3edf08f4867109d0d70165955236c39a
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: c884ad6850b8f94baa7c658d685651c3241be33f
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96184661"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935693"
 ---
 # <a name="tutorial-configure-compute-on-azure-stack-edge-pro-gpu-device"></a>Tutorial: Configuración del proceso en un dispositivo de Azure Stack Edge Pro con GPU
 
@@ -45,40 +45,38 @@ Antes de configurar un rol de proceso en el dispositivo de Azure Stack Edge Pro,
 
 Para configurar el proceso en Azure Stack Edge Pro, creará un recurso de IoT Hub en Azure Portal.
 
-1. En la instancia de Azure Portal del recurso de Azure Stack Edge, vaya a **Información general**. En el panel derecho, en el icono **Proceso**, seleccione **Comenzar**.
+1. En Azure Portal, en el recurso de Azure Stack Edge, vaya a **Información general** y seleccione **IoT Edge**.
 
-    ![Introducción al proceso](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-1.png)
+   ![Introducción al proceso](./media/azure-stack-edge-gpu-deploy-configure-compute/configure-compute-1.png)
 
-2. En el icono **Configurar el proceso de Edge**, seleccione **Configurar proceso**.
+2. En **Enable IoT Edge service** (Habilitar servicio IoT Edge), seleccione **Add** (Agregar).
 
-    ![Configurar el proceso](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-2.png)
+   ![Configurar el proceso](./media/azure-stack-edge-gpu-deploy-configure-compute/configure-compute-2.png)
 
-3. En la hoja **Configurar el proceso de Edge**, escriba lo siguiente:
-
+3. En la hoja **Configure Edge compute** (Configurar el proceso de Edge), escriba la siguiente información:
    
-    |Campo  |Value  |
-    |---------|---------|
-    |IoT Hub     | Elija entre **Nuevo** o **Existente**. <br> De forma predeterminada, se usa un nivel estándar (S1) para crear un recurso de IoT. Para usar un recurso de IoT de nivel gratuito, cree uno y, a continuación, seleccione el recurso existente. <br> En cualquier caso, el recurso de IoT Hub usa la misma suscripción y el mismo grupo de recursos que el recurso de Azure Stack Edge.     |
-    |Nombre     |Escriba un nombre para el recurso de IoT Hub.         |
+   |Campo  |Value  |
+   |---------|---------|
+   |IoT Hub     | Elija entre **Nuevo** o **Existente**. <br> De forma predeterminada, se usa un nivel estándar (S1) para crear un recurso de IoT. Para usar un recurso de IoT de nivel gratuito, cree uno y, a continuación, seleccione el recurso existente. <br> En cualquier caso, el recurso de IoT Hub usa la misma suscripción y el mismo grupo de recursos que el recurso de Azure Stack Edge.     |
+   |Nombre     |Escriba un nombre para el recurso de IoT Hub.         |
 
-    ![Introducción al proceso 2](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-3.png)
+   ![Introducción al proceso 2](./media/azure-stack-edge-gpu-deploy-configure-compute/configure-compute-3.png)
 
-4. Seleccione **Crear**. La creación del recurso de IoT Hub tarda varios minutos. Después de crear el recurso de IoT Hub, el icono **Configurar proceso** se actualiza para mostrar la configuración de proceso. 
+4. Cuando termine la configuración, seleccione **Review + Create** (Revisar y crear). Revise la configuración del recurso de IoT Hub y seleccione **Create** (Crear).
 
-    ![Introducción al proceso 3](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-4.png)
+   La creación del recurso de IoT Hub tarda varios minutos. Una vez creado el recurso, la página **Overview** (Información general) indica que el servicio IoT Edge ahora está en ejecución.
 
-5. Para confirmar que se ha configurado el rol de proceso perimetral, seleccione **Ver proceso** en el icono **Configurar proceso**.
-    
-    ![Introducción al proceso 4](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-5.png)
+   ![Introducción al proceso 3](./media/azure-stack-edge-gpu-deploy-configure-compute/configure-compute-4.png)
 
-    > [!NOTE]
-    > Si el cuadro de diálogo **Configurar proceso** se cierra antes de que IoT Hub esté asociado con el dispositivo de Azure Stack Edge Pro, la instancia de IoT Hub se crea, pero no se muestra en la configuración de proceso. 
-    
-Cuando el rol de proceso de Edge está configurado en el dispositivo de Edge, este crea dos dispositivos: uno IoT y el otro IoT Edge. Ambos se pueden ver en el recurso de IoT Hub. Un entorno de ejecución de IoT Edge también se ejecuta en este dispositivo de IoT Edge. En este momento, solo está disponible la plataforma Linux para el dispositivo IoT Edge.
+5. Para confirmar que se ha configurado el rol de proceso de Edge, seleccione **Properties** (Propiedades).
 
-Puede tardar de 20 a 30 minutos en configurar el proceso, ya que en segundo plano se crean las máquinas virtuales y el clúster de Kubernetes. 
+   ![Introducción al proceso 4](./media/azure-stack-edge-gpu-deploy-configure-compute/configure-compute-5.png)
 
-Después de haber configurado correctamente el proceso en Azure Portal, existe un clúster de Kubernetes y un usuario predeterminado asociado al espacio de nombres de IoT (un espacio de nombres del sistema controlado por Azure Stack Edge Pro). 
+   Cuando el rol de proceso de Edge está configurado en el dispositivo de Edge, este crea dos dispositivos: uno IoT y el otro IoT Edge. Ambos se pueden ver en el recurso de IoT Hub. Un entorno de ejecución de IoT Edge también se ejecuta en este dispositivo de IoT Edge. En este momento, solo está disponible la plataforma Linux para el dispositivo IoT Edge.
+
+Puede tardar de 20 a 30 minutos en configurar el proceso, ya que en segundo plano se crean las máquinas virtuales y el clúster de Kubernetes.
+
+Después de haber configurado correctamente el proceso en Azure Portal, existe un clúster de Kubernetes y un usuario predeterminado asociado al espacio de nombres de IoT (un espacio de nombres del sistema controlado por Azure Stack Edge Pro).
 
 ## <a name="get-kubernetes-endpoints"></a>Obtención de los puntos de conexión de Kubernetes
 
@@ -89,15 +87,15 @@ Para configurar un cliente para obtener acceso al clúster de Kubernetes, necesi
 
     ![Página del dispositivo en la interfaz de usuario local](./media/azure-stack-edge-j-series-create-kubernetes-cluster/device-kubernetes-endpoint-1.png)
 
-3. Guarde la cadena de punto de conexión. La usará más adelante al configurar un cliente para tener acceso al clúster de Kubernetes a través de kubectl.
+3. Guarde la cadena de punto de conexión. Usará esta cadena de punto de conexión más adelante al configurar un cliente para acceder al clúster de Kubernetes mediante kubectl.
 
 4. Mientras está en la interfaz de usuario web local, puede:
 
-    - Ir a la API de Kubernetes, seleccionar **Configuración avanzada** y descargar un archivo de configuración avanzada para Kubernetes. 
+    - Ir a la API de Kubernetes, seleccionar **Advanced settings** (Configuración avanzada) y descargar un archivo de configuración avanzada para Kubernetes. 
 
         ![Página del dispositivo de la interfaz de usuario local 1](./media/azure-stack-edge-gpu-deploy-configure-compute/download-advanced-config-1.png)
 
-        Si se le ha proporcionado una clave de Microsoft (seleccione los usuarios que pueden tener esto), puede usar este archivo de configuración.
+        Si se le ha proporcionado una clave de Microsoft (seleccione los usuarios que pueden tener una clave), puede usar este archivo de configuración.
 
         ![Página del dispositivo de la interfaz de usuario local 2](./media/azure-stack-edge-gpu-deploy-configure-compute/download-advanced-config-2.png)
 

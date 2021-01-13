@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: quickstart
 ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: d84f500560031322cff32005b537037dc897919e
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: e29a692e3fdad1bea7132b3bed50444c7398ba46
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94516771"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936318"
 ---
 # <a name="quickstart-create-a-key-vault-using-the-azure-cli"></a>Inicio rápido: Creación de un almacén de claves mediante la CLI de Azure
 
@@ -72,5 +72,6 @@ az group delete --name myResourceGroup
 En este inicio rápido ha creado un almacén de claves y lo ha eliminado. Para más información sobre Key Vault y cómo integrarlo con las aplicaciones, continúe con los artículos siguientes.
 
 - Lea una [introducción a Azure Key Vault](overview.md).
-- Consulte la referencia de los [comandos az keyvault de la CLI de Azure](/cli/azure/keyvault?view=azure-cli-latest).
-- Consulte los [procedimientos recomendados de Azure Key Vault](best-practices.md).
+- Consulte [Introducción a la seguridad de Azure Key Vault](security-overview.md)
+- Consulte la referencia de los [comandos az keyvault de la CLI de Azure](/cli/azure/keyvault).
+

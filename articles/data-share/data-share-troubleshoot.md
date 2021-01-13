@@ -6,13 +6,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: troubleshooting
-ms.date: 10/15/2020
-ms.openlocfilehash: e29c640494a18bb3be2125a5b53b4f943521fe6c
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.date: 12/16/2020
+ms.openlocfilehash: c93ce9c81ada3c30128846b43041603e132abd88
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579154"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617245"
 ---
 # <a name="troubleshoot-common-issues-in-azure-data-share"></a>Solución de problemas habituales de Azure Data Share 
 
@@ -67,6 +67,10 @@ La instantánea podría generar un error debido a diversos motivos. Puede encont
 * El firewall bloquea la conexión de Data Share al almacén de datos de origen o de destino.
 * Se elimina el conjunto de datos compartido o el almacén de datos de origen o de destino.
 
+Para la cuenta de almacenamiento, las siguientes son causas adicionales de errores de instantáneas.
+
+* El archivo se está actualizando en el origen mientras se crea la instantánea. Esto puede dar lugar a un archivo de 0 bytes en el destino. La instantánea posterior después de completar la actualización en el origen debe realizarse correctamente.
+
 Otras causas de errores de instantánea en el caso de los orígenes SQL son las siguientes. 
 
 * El script SQL de origen o destino para conceder permiso para Data Share no se ejecuta. O bien para Azure SQL Database o Azure Synapse Analytics (anteriormente Azure SQL DW), se ejecuta mediante la autenticación de SQL en lugar de la autenticación de Azure Active Directory.  
@@ -75,6 +79,9 @@ Otras causas de errores de instantánea en el caso de los orígenes SQL son las 
 * El almacén de datos SQL de origen o de destino está bloqueado por otros procesos. Azure Data Share no aplica bloqueos al almacén de datos SQL de origen y de destino. Sin embargo, los bloqueos existentes en el almacén de datos SQL de origen y de destino provocarán errores de instantánea.
 * Una restricción de clave externa hace referencia a la tabla SQL de destino. Durante la instantánea, si existe una tabla de destino con el mismo nombre, Azure Data Share descarta la tabla y crea una nueva tabla. Si una restricción de clave externa hace referencia a la tabla SQL de destino, la taba no se puede descartar.
 * Se genera el archivo CSV de destino, pero los datos no se pueden leer en Excel. Esto puede ocurrir cuando la tabla SQL de origen contiene datos con caracteres que no son ingleses. En Excel, seleccione la pestaña "Obtener datos" y elija el archivo CSV, seleccione el origen del archivo como 65001: Unicode (UTF-8) y cargue los datos.
+
+## <a name="snapshot-issue-after-updating-snapshot-schedule"></a>Problema de instantánea después de actualizar la programación de instantáneas
+Una vez que el proveedor de datos actualiza la programación de instantáneas para el recurso compartido enviado, el consumidor de datos debe deshabilitar la programación de instantáneas anterior y volver a habilitar la programación de instantáneas actualizada para el recurso compartido recibido. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

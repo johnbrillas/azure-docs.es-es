@@ -11,12 +11,12 @@ ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: c9ee57baf63867e4dca4236d484321586cfb3b17
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 14d15f54befba162b071b40e06e589f980708fd3
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96862350"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740494"
 ---
 # <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python-preview"></a>Uso del paquete de interpretación para explicar los modelos de Machine Learning y las predicciones en Python (versión preliminar)
 
@@ -296,41 +296,7 @@ En el ejemplo siguiente se muestra cómo usar la clase `ExplanationClient` para 
 
 ## <a name="visualizations"></a>Visualizaciones
 
-Después de descargar las explicaciones en la instancia local de Jupyter Notebook, puede usar el panel de visualización para entender e interpretar el modelo.
-
-### <a name="understand-entire-model-behavior-global-explanation"></a>Descripción del comportamiento completo del modelo (explicación global) 
-
-Los siguientes gráficos proporcionan una vista general del modelo entrenado, junto con sus predicciones y explicaciones.
-
-|Gráfico|Descripción|
-|----|-----------|
-|Exploración de datos| Muestra una información general del conjunto de datos, junto con los valores de predicción.|
-|Importancia global|Agrega los valores de importancia de la característica de puntos de datos individuales para mostrar las K Principales (K es configurable) características por importancia generales del modelo. Ayuda a comprender el comportamiento general del modelo subyacente.|
-|Exploración de la explicación|Muestra hasta qué punto una característica afecta a un cambio en los valores de predicción de un modelo, o la probabilidad de los valores de predicción. Muestra el impacto de la interacción de características.|
-|Resumen de importancia|Usa los valores de importancia de la característica individuales en todos los puntos de datos para mostrar la distribución del impacto de cada característica en el valor de predicción. Con este diagrama, investigue en qué dirección afectan los valores de la característica a los valores de predicción.
-|
-
-[![Panel de visualización global](./media/how-to-machine-learning-interpretability-aml/global-charts.png)](./media/how-to-machine-learning-interpretability-aml/global-charts.png#lightbox)
-
-### <a name="understand-individual-predictions-local-explanation"></a>Descripción de predicciones individuales (explicación local) 
-
-Puede cargar el gráfico de importancia de la característica individual para cualquier punto de datos; para ello, haga clic en cualquiera de los puntos de datos individuales de cualquiera de los gráficos generales.
-
-|Gráfico|Descripción|
-|----|-----------|
-|Importancia local|Muestra las K Primeras (K es configurable) características por importancia de una predicción individual. Ayuda a mostrar el comportamiento local del modelo subyacente en un punto de datos concreto.|
-|Exploración de perturbaciones (análisis de hipótesis)|Permite los cambios en los valores de las características del punto de datos seleccionado y observar los cambios resultantes en el valor de predicción.|
-|Expectativa condicional individual (ICE)| Permite que el valor de la característica cambie de un valor mínimo a uno máximo. Ayuda a mostrar cómo cambia la predicción del punto de datos cuando se modifica una característica.|
-
-[![Importancia de características locales del panel de visualización](./media/how-to-machine-learning-interpretability-aml/local-charts.png)](./media/how-to-machine-learning-interpretability-aml/local-charts.png#lightbox)
-
-
-[![Perturbation de características del panel de visualización](./media/how-to-machine-learning-interpretability-aml/perturbation.gif)](./media/how-to-machine-learning-interpretability-aml/perturbation.gif#lightbox)
-
-
-[![Gráficos ICE del panel de visualización](./media/how-to-machine-learning-interpretability-aml/ice-plot.png)](./media/how-to-machine-learning-interpretability-aml/ice-plot.png#lightbox)
-
-Para cargar el panel de visualización, use el código siguiente.
+Después de descargar las explicaciones en la instancia local de Jupyter Notebook, puede usar el panel de visualización para entender e interpretar el modelo. Para cargar el widget de panel de visualización en el cuaderno de Jupyter Notebook, use el siguiente código:
 
 ```python
 from interpret_community.widget import ExplanationDashboard
@@ -338,11 +304,58 @@ from interpret_community.widget import ExplanationDashboard
 ExplanationDashboard(global_explanation, model, datasetX=x_test)
 ```
 
+La visualización admite explicaciones tanto en características diseñadas como en características sin procesar. Las explicaciones sin procesar se basan en las características del conjunto de datos original y las explicaciones diseñadas se basan en las características del conjunto de datos una vez aplicada la ingeniería de características.
+
+Al intentar interpretar un modelo con relación al conjunto de datos original, se recomienda usar explicaciones sin procesar, ya que la importancia de cada característica se corresponderá con una columna del conjunto de datos original. Un escenario en el que las explicaciones diseñadas pueden ser útiles es al examinar el impacto de cada categoría de una característica categórica. Si se aplica la codificación de tipo "uno activo" a una característica categórica, las explicaciones resultantes que se diseñen incluirán un valor de importancia diferente para cada categoría, uno por cada característica diseñada con codificación de "uno activo". Esto puede ser útil para identificar qué parte del conjunto de datos es más informativa para el modelo.
+
+> [!NOTE]
+> Las explicaciones diseñadas y las explicaciones sin procesar se procesan de forma secuencial. En primer lugar, se crea una explicación diseñada basada en el modelo y en la canalización de ingeniería de características. A continuación, se crea la explicación sin procesar basada en esa explicación diseñada, agregando la importancia de las características diseñadas que procedían de la misma característica sin procesar.
+
+### <a name="create-edit-and-view-dataset-cohorts"></a>Creación, edición y visualización de cohortes del conjunto de datos
+
+La cinta de opciones superior muestra las estadísticas generales del modelo y los datos. Puede segmentar y desglosar los datos en cohortes de conjuntos de datos, o subgrupos, para investigar o comparar el rendimiento y las explicaciones del modelo en estos subgrupos definidos. La comparación de las estadísticas y explicaciones del conjunto datos en esos subgrupos permite hacerse una idea de por qué se producen errores en un grupo y no en otro.
+
+[![Creación, edición y visualización de las cohortes del conjunto de datos](./media/how-to-machine-learning-interpretability-aml/dataset-cohorts.gif)](./media/how-to-machine-learning-interpretability-aml/dataset-cohorts.gif#lightbox)
+
+### <a name="understand-entire-model-behavior-global-explanation"></a>Descripción del comportamiento completo del modelo (explicación global) 
+
+Las tres primeras pestañas del panel de explicaciones proporcionan un análisis general del modelo entrenado junto con sus predicciones y explicaciones.
+
+#### <a name="model-performance"></a>Rendimiento del modelo
+Para evaluar el rendimiento del modelo, examine la distribución de los valores de predicción y los valores de las métricas de rendimiento del modelo. Para seguir investigando el modelo, consulte un análisis comparativo de su rendimiento en las diferentes cohortes o subgrupos del conjunto de datos. Seleccione los filtros situados junto a los valores Y y X para ver las distintas dimensiones. Vea distintas métricas: precisión, recuperación, tasa de falsos positivos (FPR) y tasa de falsos negativos (FNR).
+
+[![Pestaña de rendimiento del modelo en la visualización de la explicación](./media/how-to-machine-learning-interpretability-aml/model-performance.gif)](./media/how-to-machine-learning-interpretability-aml/model-performance.gif#lightbox)
+
+#### <a name="dataset-explorer"></a>Explorador del conjunto de datos
+Para explorar las estadísticas del conjunto de datos, seleccione distintos filtros en los ejes X, Y y de color para segmentar los datos por las diferentes dimensiones. Cree las cohortes del conjunto de datos anterior para analizar las estadísticas del mismo con filtros tales como los resultados previstos, las características del conjunto de datos y los grupos de errores. Use el icono de engranaje de la esquina superior derecha del grafo para cambiar el tipo de grafo.
+
+[![Pestaña del explorador del conjunto de datos en la visualización de la explicación](./media/how-to-machine-learning-interpretability-aml/dataset-explorer.gif)](./media/how-to-machine-learning-interpretability-aml/dataset-explorer.gif#lightbox)
+
+#### <a name="aggregate-feature-importance"></a>Agregación de la importancia de la característica
+Explore las k características más importantes que afectan a las predicciones generales del modelo (lo que también se conoce como explicación global). Use el control deslizante para mostrar los valores de importancia de la característica en orden descendente. Seleccione tres cohortes como máximo para ver los valores de importancia de la característica en paralelo. En el trazado de dependencias siguiente, haga clic en cualquiera de las barras de características del grafo para ver cómo afectan los valores de la característica seleccionada a la predicción del modelo.
+
+[![Pestaña de importancia de la característica agregada en la visualización de la explicación](./media/how-to-machine-learning-interpretability-aml/aggregate-feature-importance.gif)](./media/how-to-machine-learning-interpretability-aml/aggregate-feature-importance.gif#lightbox)
+
+### <a name="understand-individual-predictions-local-explanation"></a>Descripción de predicciones individuales (explicación local) 
+
+La cuarta pestaña de la pestaña de la explicación le permite profundizar en un punto de datos individual y en la importancia de sus características individuales. Para cargar el gráfico de un punto de datos de importancia de una característica individual, haga clic en cualquiera de los puntos de datos individuales del gráfico de dispersión principal, o seleccione un punto de datos específico en el asistente del panel, a la derecha.
+
+|Gráfico|Descripción|
+|----|-----------|
+|Importancia de una característica individual|Muestra las k características más importantes de una predicción individual. Ayuda a mostrar el comportamiento local del modelo subyacente en un punto de datos concreto.|
+|Análisis de hipótesis|Permite realizar cambios en los valores de la característica del punto de datos real seleccionado y observar los cambios resultantes en el valor de predicción; para ello, se genera un punto de datos hipotético con los nuevos valores de la característica.|
+|Expectativa condicional individual (ICE)|Permite que el valor de la característica cambie de un valor mínimo a uno máximo. Ayuda a mostrar cómo cambia la predicción del punto de datos cuando se modifica una característica.|
+
+[![Importancia de una característica individual y pestaña de hipótesis en el panel de la explicación](./media/how-to-machine-learning-interpretability-aml/individual-tab.gif)](./media/how-to-machine-learning-interpretability-aml/individual-tab.gif#lightbox)
+
+> [!NOTE]
+> Estas son explicaciones basadas en muchas aproximaciones y no son la "causa" de las predicciones. Sin la solidez matemática estricta de la inferencia causal, se aconseja a los usuarios que no tomen decisiones reales basándose en las perturbaciones de la característica de la herramienta de hipótesis. Esta herramienta se usa principalmente para comprender el modelo y con fines de depuración.
+
 ### <a name="visualization-in-azure-machine-learning-studio"></a>Visualización en Azure Machine Learning Studio
 
-Si completa los pasos de la [interpretación remota](how-to-machine-learning-interpretability-aml.md#generate-feature-importance-values-via-remote-runs) (mediante la carga de la explicación generada al historial de ejecución de Azure Machine Learning), puede ver el panel de visualización de [Azure Machine Learning Studio](https://ml.azure.com). Este panel es una versión más sencilla del panel de visualización que se explicó anteriormente (el gráfico de la exploración de la explicación y el gráfico de ICE están deshabilitados porque no hay ningún proceso activo en Studio que pueda realizar cálculos en tiempo real).
+Si completa los pasos de la [interpretación remota](how-to-machine-learning-interpretability-aml.md#generate-feature-importance-values-via-remote-runs) (mediante la carga de la explicación generada al historial de ejecución de Azure Machine Learning), puede ver el panel de visualización de [Azure Machine Learning Studio](https://ml.azure.com). Este panel es una versión más sencilla del panel de visualización que se explicó anteriormente. La generación de puntos de datos de hipótesis y los gráficos ICE están deshabilitados porque no hay ningún proceso activo en Azure Machine Learning Studio que pueda realizar sus cálculos en tiempo real.
 
-Si el conjunto de datos y las explicaciones globales y locales están disponibles, los datos rellenan todas las pestañas (excepto Exploración de perturbaciones e ICE). Si solo hay una explicación global disponible, se deshabilitan la pestaña Resumen de importancia y todas las explicaciones locales.
+Si el conjunto de datos y las explicaciones globales y locales están disponibles, los datos rellenan todas las pestañas. Si solo hay una explicación global disponible, se deshabilitará la pestaña de importancia de la característica individual.
 
 Siga una de estas rutas de acceso para llegar al panel de visualización de Azure Machine Learning Studio:
 
@@ -351,7 +364,7 @@ Siga una de estas rutas de acceso para llegar al panel de visualización de Azur
   1. Seleccione un experimento determinado para ver todas las ejecuciones de ese experimento.
   1. Seleccione una ejecución y, después, la pestaña **Explanations** (Explicaciones) para ver el panel de visualización de explicaciones.
 
-   [![Importancia de la característica local del panel de visualización en AzureML Studio en experimentos](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png)](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png#lightbox)
+   [![Panel de visualización con la importancia de la característica agregada en experimentos de Azure Machine Learning Studio](./media/how-to-machine-learning-interpretability-aml/model-explanation-dashboard-aml-studio.png)](./media/how-to-machine-learning-interpretability-aml/model-explanation-dashboard-aml-studio.png#lightbox)
 
 * Panel **Models** (Modelos)
   1. Si registró el modelo original siguiendo los pasos descritos en [Implementación de modelos con Azure Machine Learning](./how-to-deploy-and-where.md), puede seleccionar **Models** (Modelos) en el panel izquierdo para verlo.
@@ -359,7 +372,7 @@ Siga una de estas rutas de acceso para llegar al panel de visualización de Azur
 
 ## <a name="interpretability-at-inference-time"></a>Interpretación en tiempo de inferencia
 
-Puede implementar el explicador junto con el modelo original y usarlo a la hora de la inferencia para proporcionar los valores de importancia de la característica individuales (explicación local) para cualquier nuevo punto de datos. También ofrecemos explicadores de puntuación más ligeros para mejorar el rendimiento de la interpretación a la hora de la inferencia. El proceso de implementación de una explicación de puntuación ligera es similar al de implementación de un modelo e incluye los siguientes pasos:
+Puede implementar el explicador junto con el modelo original y usarlo en el momento de la inferencia para proporcionar los valores de importancia de las características individuales (explicación local) para cualquier punto de datos nuevo. También ofrecemos explicadores de puntuación más ligeros para mejorar el rendimiento de la interpretación en el momento de la inferencia, lo cual solo se admite actualmente en el SDK de Azure Machine Learning. El proceso de implementación de una explicación de puntuación ligera es similar al de implementación de un modelo e incluye los siguientes pasos:
 
 1. Cree un objeto de explicación. Por ejemplo, puede usar `TabularExplainer`:
 
@@ -547,6 +560,17 @@ Puede implementar el explicador junto con el modelo original y usarlo a la hora 
 1. Limpiar.
 
    Para eliminar un servicio web implementado, use `service.delete()`.
+
+## <a name="troubleshooting"></a>Solución de problemas
+
+* **No se admiten datos dispersos**: el panel de explicación del modelo se bloquea o ralentiza mucho si hay un gran número de características, por lo que actualmente no se admite el formato de datos dispersos. Además, se producirán problemas de memoria generales cuando haya grandes conjuntos de datos y un gran número de características. 
+
+* **No se admiten los modelos de previsión con las explicaciones del modelo**: la interpretabilidad, la mejor explicación del modelo, no está disponible para los experimentos de previsión de AutoML, que recomiendan los algoritmos siguientes como el mejor modelo: TCNForecaster, AutoArima, Prophet, ExponentialSmoothing, Average, Naive, Seasonal Average y Seasonal Naive. La previsión de AutoML tiene modelos de regresión que admiten explicaciones. Sin embargo, en el panel de la explicación, no se admite la pestaña de "importancia de la característica individual" para la previsión debido a la complejidad de sus canalizaciones de datos.
+
+* **Explicación local del índice de datos**: el panel de explicación no permite relacionar los valores de importancia locales con un identificador de fila del conjunto de datos de validación original si ese conjunto de datos supera los 5000 puntos de datos, ya que el panel reduce aleatoriamente los datos. Sin embargo, en el panel se muestran los valores de las características de los conjuntos de datos sin procesar de cada punto de datos que se pasa al panel, en la pestaña de importancia de la característica individual. Para asignar las importancias locales de nuevo al conjunto de datos original, los usuarios pueden establecer la correspondencia con los valores de las características del conjunto de datos sin procesar. Si el tamaño del conjunto de datos de validación tiene menos de 5000 muestras, la característica `index` de Azure Machine Learning Studio se corresponderá con el índice del conjunto de datos de validación.
+
+* **Los gráficos de hipótesis o ICE no se admiten en Studio**: No se admiten los gráficos de hipótesis y de expectativas condicionales individuales (ICE) en Azure Machine Learning Studio en la pestaña de explicaciones, ya que la explicación cargada necesita un proceso activo para recalcular las predicciones y las probabilidades de las características perturbadas. Actualmente se admite en los cuadernos de Jupyter Notebook cuando se ejecuta como un widget con el SDK.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

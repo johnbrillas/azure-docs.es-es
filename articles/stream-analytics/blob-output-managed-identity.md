@@ -5,15 +5,15 @@ author: cedarbaum
 ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 03/11/2020
-ms.openlocfilehash: f1aad2464e4979ecbf35deceaad4de70e05b3004
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.date: 12/15/2020
+ms.openlocfilehash: 2e55b1f18648ce6970b81b943cd8a6a0fc3e7e81
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96573670"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97705139"
 ---
-# <a name="use-managed-identity-preview-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage-output"></a>Uso de la identidad administrada (versión preliminar) para autenticar su trabajo de Azure Stream Analytics en la salida de Azure Blob Storage
+# <a name="use-managed-identity-preview-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage"></a>Uso de la identidad administrada (versión preliminar) para autenticar su trabajo de Azure Stream Analytics en Azure Blob Storage
 
 [Autenticación de identidad administrada](../active-directory/managed-identities-azure-resources/overview.md) (versión preliminar) para la salida a Azure Blob Storage proporciona a los trabajos de Stream Analytics acceso directo a una cuenta de almacenamiento en lugar de tener que usar una cadena de conexión. Además de mejorar la seguridad, esta característica también le permite escribir datos en una cuenta de almacenamiento de una red virtual (VNET) en Azure.
 
@@ -98,7 +98,7 @@ El uso de Azure Resource Manager permite automatizar completamente la implementa
     El trabajo anterior se puede implementar en el grupo de recursos **ExampleGroup** mediante el siguiente comando de la CLI de Azure:
 
     ```azurecli
-    az group deployment create --resource-group ExampleGroup -template-file StreamingJob.json
+    az deployment group create --resource-group ExampleGroup -template-file StreamingJob.json
     ```
 
 2. Una vez creado el trabajo, puede usar Azure Resource Manager para recuperar la definición completa del trabajo.

@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: mbullwin
-ms.openlocfilehash: b02ccea396fc65f9ecfe1d59e953da7440e87951
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 9457c610b256dd4602ef0dc51a47eeffb3c63b49
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94363657"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97705156"
 ---
 # <a name="best-practices-for-using-the-anomaly-detector-api"></a>Procedimientos recomendados para usar Anomaly Detector API
 
@@ -104,4 +104,4 @@ Si se muestrean datos de transmisión en un intervalo corto (por ejemplo, segund
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [¿Qué es Anomaly Detector API?](../overview.md)
-* [Inicio rápido: Detección de anomalías en datos de serie temporal mediante la API REST Anomaly Detector](../quickstarts/detect-data-anomalies-csharp.md)
+* [Inicio rápido: Uso de la biblioteca cliente de Anomaly Detector](../quickstarts/client-libraries.md)

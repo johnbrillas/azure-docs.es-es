@@ -16,12 +16,12 @@ ms.date: 04/13/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 31bdfc7e3eca2a2678b75b80973a1680448737d1
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 5394a2829af4b0cd7a1c817f6aad4ca5451cc4bc
+ms.sourcegitcommit: 00aa5afaa9fac91f1059cfed3d8dbc954caaabe2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97507683"
+ms.lasthandoff: 12/27/2020
+ms.locfileid: "97792439"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quickstart"></a>Autenticación de paso a través de Azure Active Directory: Guía de inicio rápido
 
@@ -51,7 +51,7 @@ Asegúrese de que se cumplen los siguientes requisitos previos.
 
 ### <a name="in-your-on-premises-environment"></a>En el entorno local
 
-1. Identifique un servidor con Windows Server 2012 R2 o posterior en el que ejecutar Azure AD Connect. [Habilite TLS 1.2 en el servidor](./how-to-connect-install-prerequisites.md#enable-tls-12-for-azure-ad-connect) si todavía no está habilitado. Agregue el servidor al mismo bosque de Active Directory que los usuarios cuyas contraseñas se deben validar.
+1. Identifique un servidor con Windows Server 2012 R2 o posterior en el que ejecutar Azure AD Connect. [Habilite TLS 1.2 en el servidor](./how-to-connect-install-prerequisites.md#enable-tls-12-for-azure-ad-connect) si todavía no está habilitado. Agregue el servidor al mismo bosque de Active Directory que los usuarios cuyas contraseñas se deben validar. Es preciso señalar que no se admite la instalación del agente de autenticación de paso a través en las versiones principales de Windows Server. 
 2. Instale la [última versión de Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) en el servidor identificado en el paso anterior. Si ya tiene Azure AD Connect en ejecución, asegúrese de que la versión es 1.1.750.0 o posterior.
 
     >[!NOTE]

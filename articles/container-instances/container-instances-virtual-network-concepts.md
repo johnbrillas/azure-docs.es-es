@@ -3,12 +3,12 @@ title: Escenarios para usar una red virtual
 description: Escenarios, recursos y limitaciones para implementar grupos de contenedores en una red virtual de Azure.
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: 5e9c1d1606a9ad491ba7a7e623f1606717aa5b1f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2fb468a6a860bcc076043c30606922f43fbdb1ad
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89569176"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882439"
 ---
 # <a name="virtual-network-scenarios-and-resources"></a>Escenarios y recursos de red virtual
 
@@ -41,6 +41,7 @@ Los grupos de contenedores implementados en una red virtual de Azure permiten es
 * No puede usar una [identidad administrada](container-instances-managed-identity.md) en un grupo de contenedores implementado en una red virtual.
 * No puede habilitar un [sondeo de ejecución](container-instances-liveness-probe.md) o un [sondeo de preparación](container-instances-readiness-probe.md) en un grupo de contenedores implementado en una red virtual.
 * Debido a los recursos de red adicionales que intervienen, las implementaciones en una red virtual suelen ser más lentas que las de una instancia de contenedor estándar.
+* Si va a conectar el grupo de contenedores a una cuenta de Azure Storage, debe agregar un [punto de conexión de servicio](../virtual-network/virtual-network-service-endpoints-overview.md) a ese recurso.
 
 [!INCLUDE [container-instances-restart-ip](../../includes/container-instances-restart-ip.md)]
 

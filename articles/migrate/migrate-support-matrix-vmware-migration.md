@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: fa8f9ad2d15730d2a0a2c1a722aa3970bbc8f173
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 6e80b1446142786cbd77245a2b6696cac1bb9272
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033993"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97897100"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Matriz de compatibilidad para la migración de VMware
 
@@ -59,7 +59,7 @@ En la tabla se resumen los requisitos de migración sin agente para las VM de VM
 **VM Linux en Azure** | Es posible que algunas máquinas virtuales requieran cambios para poder ejecutarse en Azure.<br/><br/> En el caso de Linux, Azure Migrate realiza los cambios automáticamente para estos sistemas operativos:<br/> - Red Hat Enterprise Linux 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x<br/> - Cent OS 7.7, 7.6, 7.5, 7.4, 6.x</br> - SUSE Linux Enterprise Server 12 SP1+<br/> - SUSE Linux Enterprise Server 15 SP1 <br/>- Ubuntu 19.04, 19.10, 14.04LTS, 16.04LTS y 18.04LTS<br/> - Debian 7, 8 <br/> Oracle Linux 7.7, 7.7-CI<br/> En el caso de otros sistemas operativos, realice [los cambios necesarios](prepare-for-migration.md#verify-required-changes-before-migrating) manualmente.
 **Arranque de Linux** | Si/boot está en una partición dedicada, debe residir en el disco del sistema operativo y no distribuirse en varios discos.<br/> Si /boot forma parte de la partición raíz (/), la partición "/" debe estar en el disco del sistema operativo y no abarcar otros discos.
 **Arranque UEFI** | Compatible. Las máquinas virtuales basadas en UEFI se migrarán a máquinas virtuales de generación 2 de Azure. 
-**Tamaño del disco** | Disco del sistema operativo de 2 TB (arranque del BIOS); disco del sistema operativo de 4 TB (arranque UEFI); 32 TB para discos de datos.
+**Tamaño del disco** | Disco de sistema operativo de 2 TB y 32 TB para los discos de datos.
 **Límites del disco** |  Hasta 60 discos por máquina virtual.
 **Discos/volúmenes cifrados** | Las máquinas virtuales con volúmenes o discos cifrados no se admiten para la migración.
 **Clúster de discos compartido** | No compatible.
@@ -122,7 +122,7 @@ En la tabla se resume la compatibilidad de las máquinas virtuales de VMware con
 **Arranque UEFI** | Compatible. Las máquinas virtuales basadas en UEFI se migrarán a máquinas virtuales de segunda generación de Azure. 
 **UEFI: arranque seguro**         | No se admiten para la migración.
 **Disco de destino** | Las VM solo se pueden migrar a discos administrados (HDD Estándar, SSD estándar, SSD Premium) en Azure.
-**Tamaño del disco** | Disco del sistema operativo de 2 TB (arranque del BIOS); disco del sistema operativo de 4 TB (arranque UEFI); 8 TB para discos de datos.
+**Tamaño del disco** | Disco de sistema operativo de 2 TB y 32 TB para los discos de datos.
 **Límites del disco** |  Hasta 63 discos por máquina virtual.
 **Discos/volúmenes cifrados** | Las máquinas virtuales con volúmenes o discos cifrados no se admiten para la migración.
 **Clúster de discos compartido** | No compatible.

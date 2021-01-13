@@ -4,15 +4,15 @@ description: Obtenga información sobre la arquitectura de la solución, la prep
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/06/2020
+ms.date: 01/03/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 3e9380f067b091c4473b8c29bda3d31bb93cbc6d
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: b5cb7d0e421657b84c365d8dca536191cafd4e72
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97837124"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861973"
 ---
 # <a name="about-azure-defender-for-iot-network-setup"></a>Acerca de la configuración de red de Azure Defender para IoT
 
@@ -54,7 +54,7 @@ Registre información del sitio, como la siguiente:
 
 - Estación de trabajo de configuración.
 
-- Certificados SSL (opcional).
+- Certificados SSL (opcional, pero recomendado).
 
 - Autenticación SMTP (opcional). Para usar el servidor SMTP con autenticación, prepare las credenciales necesarias para el servidor.
 
@@ -101,7 +101,7 @@ Compruebe que la directiva de seguridad de la organización permite el acceso a 
 | **Conexión entre la plataforma de Defender para IoT y la consola de administración local** | SSL | TCP | Dentro o fuera | 443 | Consola del sensor y de administración local|
 | **Consola de administración local usada como NTP en el sensor** | NTP | UDP| IN a CM | 123 | Sincronización de hora | 
 | **Sensor conectado al servidor NTP externo (si procede)** | NTP | UDP | Dentro o fuera| 123 | Sincronización de hora |
-| **Conexión entre la plataforma de Defender para IoT, la plataforma de administración y el servidor de correo (si procede)** | SMTP | TCP | Administración fuera del sensor | 25 | Email |
+| **Conexión entre la plataforma de Defender para IoT, la plataforma de administración y el servidor de correo (si procede)** | SMTP | TCP | Administración fuera del sensor | 25 | Correo electrónico |
 | **Registros que se envían desde la consola de administración local al servidor de Syslog (si procede)** | syslog | UDP | Administración fuera del sensor| 514 | LEEF |
 | **Puerto del servidor DNS (si procede)** | DNS | N/D | Dentro o fuera| 53 | DNS |
 | **Conexión entre la plataforma de Defender para IoT y la consola de administración local a Active Directory (si procede)** | LDAPS | TCP | Dentro o fuera | 636 <br />389 | Active Directory |
@@ -569,7 +569,7 @@ Una introducción al diagrama de red industrial permitirá definir la ubicación
     > [!NOTE]
     > El dispositivo de Defender para IoT debe estar conectado a un conmutador de nivel inferior que vea el tráfico entre los puertos del conmutador.  
 
-2. Proporcione el número aproximado de dispositivos en las redes (opcional).
+2. Proporcione el número aproximado de dispositivos de red que se van a supervisar. Necesitará esta información al incorporar la suscripción al portal de Azure Defender para IoT. Durante el proceso de incorporación, se le pedirá que escriba el número de dispositivos en incrementos de 1000.
 
 3. Proporcione una lista de subredes para las redes de producción y una descripción (opcional). 
 

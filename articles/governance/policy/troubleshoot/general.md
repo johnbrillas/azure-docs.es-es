@@ -3,12 +3,12 @@ title: Solución de errores comunes
 description: Aprenda a solucionar problemas relacionados con la creación de definiciones de directivas, los diversos SDK y el complemento de Kubernetes.
 ms.date: 12/01/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: f3667988d527100507d308887338278e1200d454
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: b88d00575adb571c59b562d25067c4a1716fb50f
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96511005"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882983"
 ---
 # <a name="troubleshoot-errors-using-azure-policy"></a>Solución de problemas mediante Azure Policy
 
@@ -36,7 +36,7 @@ Se ha utilizado un alias incorrecto o inexistente en una definición de directiv
 
 #### <a name="resolution"></a>Resolución
 
-En primer lugar, compruebe que la propiedad de Resource Manager tiene un alias. Use la [extensión de Azure Policy para Visual Studio Code](../how-to/extension-for-vscode.md), [Azure Resource Graph](../../resource-graph/samples/starter.md#distinct-alias-values) o el SDK para buscar los alias disponibles. Si el alias de una propiedad de Resource Manager no existe, cree una incidencia de soporte técnico.
+En primer lugar, compruebe que la propiedad de Resource Manager tiene un alias. Use la [extensión de Azure Policy para Visual Studio Code](../how-to/extension-for-vscode.md) o el SDK para buscar los alias disponibles. Si el alias de una propiedad de Resource Manager no existe, cree una incidencia de soporte técnico.
 
 ### <a name="scenario-evaluation-details-not-up-to-date"></a>Escenario: Detalles de evaluación no actualizados
 

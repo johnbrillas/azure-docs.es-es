@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
 ms.date: 09/04/2020
-ms.openlocfilehash: 5c03d9b64f957f6ef8450197477f185dc8d15b2d
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: b15849fb8fbfed5d55b9c224f51634047b7c75b2
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825851"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97914491"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Guía de referencia para usar las funciones en las expresiones para Azure Logic Apps y Power Automate
 
@@ -2072,7 +2072,7 @@ formatNumber(1234567890, '0,0.00', 'is-is')
 Supongamos que quiere dar formato al número `17.35`. En este ejemplo se aplica formato al número como una cadena "$17.35".
 
 ```
-formatNumber(17.36, 'C2')
+formatNumber(17.35, 'C2')
 ```
 
 *Ejemplo 4*
@@ -2080,7 +2080,7 @@ formatNumber(17.36, 'C2')
 Supongamos que quiere dar formato al número `17.35`. En este ejemplo se aplica formato al número como una cadena "17,35 KR".
 
 ```
-formatNumber(17.36, 'C2', 'is-is')
+formatNumber(17.35, 'C2', 'is-is')
 ```
 
 <a name="getFutureTime"></a>
@@ -2719,15 +2719,11 @@ lastIndexOf('<text>', '<searchText>')
 
 Si el valor de cadena o subcadena está vacío, se produce el comportamiento siguiente:
 
-* Si el valor de cadena está vacío, se devuelve `-1`:
+* Si solo el valor de cadena está vacío, la función devuelve `-1`.
 
-* Si los valores de cadena y subcadena están vacíos, se devuelve `0`.
+* Si los valores de cadena y subcadena están vacíos, la función devuelve `0`.
 
-* Si solo el valor de subcadena está vacío, se devuelve el mayor de los dos valores siguientes:
-
-  * `0`
-
-  * La longitud del valor de cadena, menos 1.
+* Si solo el valor de la subcadena está vacío, la función devuelve la longitud de la cadena menos 1.
 
 *Ejemplos*
 

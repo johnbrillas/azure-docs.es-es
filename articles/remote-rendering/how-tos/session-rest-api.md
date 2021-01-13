@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: 0af9d6906e038a4b9285a2c302fc0c98345fdbd9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d957c5d6521010c7393e2297be16cd7bef41c35f
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90023761"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724075"
 ---
 # <a name="use-the-session-management-rest-api"></a>Uso de la API REST de administración de sesión
 
@@ -37,11 +37,14 @@ $endPoint = "https://remoterendering.westus2.mixedreality.azure.com"
 
 Si no tiene una cuenta de Remote Rendering, [cree una](create-an-account.md). Cada recurso se identifica mediante un *accountId*, que se usa en las API de sesión.
 
-### <a name="example-script-set-accountid-and-accountkey"></a>Script de ejemplo: Establecimiento de accountId y accountKey
+### <a name="example-script-set-accountid-accountkey-and-account-domain"></a>Script de ejemplo: Establecimiento de accountId, accountKey y el dominio de cuenta
+
+El dominio de la cuenta es la ubicación de la cuenta de Remote Rendering. En este ejemplo, la ubicación de la cuenta es la región *eastus*.
 
 ```PowerShell
 $accountId = "********-****-****-****-************"
 $accountKey = "*******************************************="
+$accountDomain = "eastus.mixedreality.azure.com"
 ```
 
 ## <a name="common-request-headers"></a>Encabezados de solicitud comunes
@@ -52,7 +55,7 @@ $accountKey = "*******************************************="
 
 ```PowerShell
 [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
-$webResponse = Invoke-WebRequest -Uri "https://sts.mixedreality.azure.com/accounts/$accountId/token" -Method Get -ContentType "application/json" -Headers @{ Authorization = "Bearer ${accountId}:$accountKey" }
+$webResponse = Invoke-WebRequest -Uri "https://sts.$accountDomain/accounts/$accountId/token" -Method Get -ContentType "application/json" -Headers @{ Authorization = "Bearer ${accountId}:$accountKey" }
 $response = ConvertFrom-Json -InputObject $webResponse.Content
 $token = $response.AccessToken;
 ```
@@ -73,7 +76,7 @@ Este comando permite crear una sesión. Devuelve el identificador de la nueva se
 
 * maxLeaseTime (intervalo de tiempo): valor de tiempo de espera en el que la máquina virtual se retirará automáticamente.
 * models (matriz): direcciones URL del contenedor de recursos para cargar previamente
-* tamaño (cadena): tamaño del servidor que se va a configurar ([ **"estándar"** ](../reference/vm-sizes.md) o [ **"premium"** ](../reference/vm-sizes.md)). Consulte las [limitaciones de tamaño](../reference/limits.md#overall-number-of-polygons) específicas.
+* tamaño (cadena): tamaño del servidor que se va a configurar ([ **"estándar"**](../reference/vm-sizes.md) o [ **"premium"**](../reference/vm-sizes.md)). Consulte las [limitaciones de tamaño](../reference/limits.md#overall-number-of-polygons) específicas.
 
 **Respuestas:**
 

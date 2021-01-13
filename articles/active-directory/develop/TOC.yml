@@ -280,7 +280,7 @@
               href: scenario-mobile-call-api.md
             - name: Paso a producción
               href: scenario-mobile-production.md
-    - name: Uso de la biblioteca de autenticación de Microsoft
+    - name: Uso de la Biblioteca de autenticación de Microsoft
       displayName: MSAL
       items:
         - name: Todas las plataformas
@@ -644,34 +644,6 @@
       href: identity-videos.md
     - name: Blog para desarrolladores de la plataforma de identidad de Microsoft
       href: 'https://developer.microsoft.com/en-us/identity/blogs/'
-    - name: Artículos de ayuda de Azure Portal
-      items:
-        - name: Los valores predeterminados de vigencia de los tokens en una aplicación personalizada
-          href: registration-config-change-token-lifetime-how-to.md
-        - name: Detección de puntos de conexión
-          href: registration-config-how-to.md
-        - name: Selección de los permisos para una determinada API
-          href: perms-for-given-api.md
-        - name: Protocolos de autenticación
-          href: active-directory-authentication-protocols.md
-        - name: Diferencias entre permisos delegados y permisos de aplicación
-          href: delegated-and-app-perms.md
-        - name: Cómo funciona el consentimiento de la aplicación
-          href: consent-framework-links.md
-        - name: Búsqueda de una API específica necesaria para una aplicación desarrollada de forma personalizada
-          href: api-find-an-api-how-to.md
-        - name: Referencia del registro de aplicaciones
-          href: active-directory-v2-registration-portal.md
-        - name: Campos de registro de Azure Portal para aplicaciones de desarrollo personalizado
-          href: registration-config-specific-application-property-how-to.md
-        - name: Configuración de una nueva aplicación multiinquilino
-          href: setup-multi-tenant-app.md
-        - name: Incorporación de una aplicación multiinquilino a la galería de aplicaciones de Azure AD
-          href: registration-config-multi-tenant-application-add-to-gallery-how-to.md
-        - name: Integración con Azure Active Directory
-          href: active-directory-how-to-integrate.md
-        - name: Configuración del inicio de sesión único para una aplicación
-          href: registration-config-sso-how-to.md
     - name: Blog de Azure AD
       href: 'https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory'
     - name: Azure Roadmap

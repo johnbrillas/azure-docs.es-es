@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 120446472038076e34f62b47ba79348e5de8b972
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c75fcd1fd20e41df5018fcaa07fe83051d7e5f1a
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96010935"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740375"
 ---
 # <a name="how-to-disenroll-a-device-from-azure-iot-hub-device-provisioning-service"></a>Baja del servicio Azure IoT Hub Device Provisioning para un dispositivo
 
@@ -26,7 +26,7 @@ La inscripción en Device Provisioning Service habilita el [aprovisionamiento](a
 
 ## <a name="disallow-devices-by-using-an-individual-enrollment-entry"></a>Denegar dispositivos con una entrada de inscripción individual
 
-Las inscripciones individuales son aplicables a un solo dispositivo y pueden usar certificados X.509 o tokens de SAS (en un módulo de plataforma segura real o virtual) como mecanismos de atestación. (Los dispositivos que usan tokens de SAS como mecanismo de atestación solo se puede aprovisionar mediante una inscripción individual). Para denegar un dispositivo que tenga una inscripción individual, puede deshabilitar o eliminar su entrada de inscripción. 
+Las inscripciones individuales son aplicables a un solo dispositivo y pueden usar certificados X.509, claves de aprobación de TPM (en un TPM real o virtual) o tokens de SAS como mecanismos de atestación. Para denegar un dispositivo que tenga una inscripción individual, puede deshabilitar o eliminar su entrada de inscripción. 
 
 Para denegar temporalmente el dispositivo, deshabilite su entrada de inscripción mediante estos pasos: 
 

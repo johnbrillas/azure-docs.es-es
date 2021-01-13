@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 09/22/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 72079cc399eea249bce4d285e2c3c4fbf9304708
-ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
+ms.openlocfilehash: 9e0102cdb7e8494a8540b1970932f0d9f7f39fde
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97760612"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97912924"
 ---
 # <a name="track-azure-databricks-ml-experiments-with-mlflow-and-azure-machine-learning-preview"></a>Seguimiento de experimentos de aprendizaje automático de Azure Databricks con MLflow y Azure Machine Learning (versión preliminar)
 
@@ -24,7 +24,7 @@ En este artículo, aprenderá a habilitar el identificador URI de seguimiento y 
 
 [MLflow](https://www.mlflow.org) es una biblioteca de código abierto para administrar el ciclo de vida de los experimentos de aprendizaje automático. MLFlow Tracking es un componente de MLflow que registra las métricas de ejecución de entrenamiento y los artefactos de modelo y realiza un seguimiento de ellos. Más información sobre [Azure Databricks y MLflow](/azure/databricks/applications/mlflow/). 
 
-Consulte [Seguimiento de ejecuciones de experimentos y creación de puntos de conexión con MLflow y Azure Machine Learning (versión preliminar)](how-to-use-mlflow.md) para conocer otras integraciones de la funcionalidad de MLflow y Azure Machine Learning.
+Consulte [Seguimiento de ejecuciones de experimentos con MLflow y Azure Machine Learning (versión preliminar)](how-to-use-mlflow.md) para conocer otras integraciones de la funcionalidad de MLflow y Azure Machine Learning.
 
 >[!NOTE]
 > Como biblioteca de código abierto, MLflow cambia con frecuencia. Como tal, la funcionalidad que se pone a disposición a través de la integración de Azure Machine Learning y MLflow debe considerarse como una vista previa y no es totalmente compatible con Microsoft.
@@ -38,6 +38,7 @@ Consulte [Seguimiento de ejecuciones de experimentos y creación de puntos de co
     * Este paquete incorpora automáticamente `azureml-core` del [SDK de Azure Machine Learning de Python](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py), que proporciona la conectividad de MLflow para acceder al área de trabajo.
 * Un [área de trabajo y un clúster de Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal).
 * [Cree un área de trabajo de Azure Machine Learning](how-to-manage-workspace.md).
+    * Consulte qué [permisos de acceso necesita para realizar las operaciones de MLflow con el área de trabajo](how-to-assign-roles.md#mlflow-operations).
 
 ## <a name="track-azure-databricks-runs"></a>Seguimiento de las ejecuciones de Azure Databricks
 
@@ -180,8 +181,8 @@ Cuando esté preparado para crear un punto de conexión para los modelos de apre
 Puede aprovechar la API [mlflow.azureml.deploy](https://www.mlflow.org/docs/latest/python_api/mlflow.azureml.html#mlflow.azureml.deploy) para implementar un modelo en el área de trabajo de Azure Machine Learning. Si solo registró el modelo en el área de trabajo de Azure Databricks, como se describe en la sección [Registro de modelos con MLflow](#register-models-with-mlflow), especifique el parámetro `model_name` para registrar el modelo en el área de trabajo de Azure Machine Learning. 
 
 Las ejecuciones de Azure Databricks se pueden implementar en los puntos de conexión siguientes: 
-* [Azure Container Instances](how-to-deploy-models-with-mlflow.md#deploy-to-aci)
-* [Azure Kubernetes Service](how-to-deploy-models-with-mlflow.md#deploy-to-aks)
+* [Azure Container Instances](how-to-deploy-mlflow-models.md#deploy-to-azure-container-instance-aci)
+* [Azure Kubernetes Service](how-to-deploy-mlflow-models.md#deploy-to-azure-kubernetes-service-aks)
 
 ### <a name="deploy-models-to-adb-endpoints-for-batch-scoring"></a>Implementación de modelos en puntos de conexión de ADB para la puntuación por lotes 
 
@@ -231,7 +232,7 @@ Si no tiene pensado usar los artefactos o las métricas registradas en el área 
 En [MLflow con cuadernos de Azure Machine Learning](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/track-and-monitor-experiments/using-mlflow) se demuestran y se analizan con mayor profundidad los conceptos presentados en este artículo.
 
 ## <a name="next-steps"></a>Pasos siguientes
-
+* [Implementación de modelos de MLflow como un servicio web de Azure](how-to-deploy-mlflow-models.md). 
 * [Administra sus modelos](concept-model-management-and-deployment.md).
-* [Realice un seguimiento de las ejecuciones de experimentos y cree puntos de conexión con MLflow y Azure Machine Learning](how-to-use-mlflow.md). 
+* [Seguimiento de ejecuciones de experimentos con MLflow y Azure Machine Learning](how-to-use-mlflow.md). 
 * Más información sobre [Azure Databricks y MLflow](/azure/databricks/applications/mlflow/).

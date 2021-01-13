@@ -6,20 +6,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 01/04/2021
 ms.author: alkohli
-ms.openlocfilehash: 413a93a145ae063a3aab4066ed62365e154d744a
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: b1ff10290e0059295f14b55e90ed05e9690c9f5c
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96454107"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97896834"
 ---
 # <a name="use-azure-portal-to-manage-shares-on-your-azure-stack-edge-pro"></a>Uso de Azure Portal para administrar recursos compartidos en Azure Stack Edge Pro
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-En este artículo se explica cómo administrar recursos compartidos en Azure Stack Edge Pro. Azure Stack Edge Pro se puede administrar con Azure Portal o con la interfaz de usuario web local. Use Azure Portal para agregar, eliminar y actualizar recursos compartidos o sincronizar la clave de almacenamiento para la cuenta de almacenamiento asociada con los recursos compartidos.
+En este artículo se explica cómo administrar recursos compartidos en Azure Stack Edge Pro. Azure Stack Edge Pro se puede administrar con Azure Portal o con la interfaz de usuario web local. Use Azure Portal para agregar, eliminar y actualizar recursos compartidos o sincronizar la clave de almacenamiento para la cuenta de almacenamiento asociada con los recursos compartidos. Este artículo se aplica a los dispositivos de Azure Stack Edge con GPU, Azure Stack Edge Pro R y Azure Stack Edge Mini R.
 
 ## <a name="about-shares"></a>Acerca de los recursos compartidos
 
@@ -33,7 +33,7 @@ Para transferir datos a Azure, es preciso crear recursos compartidos en Azure St
 
 Siga estos pasos en Azure Portal para crear un recurso compartido.
 
-1. En Azure Portal, vaya al recurso de Azure Stack Edge y luego a **Puerta de enlace > Recursos compartidos**. Seleccione **+ Agregar recurso compartido** en la barra de comandos.
+1. En Azure Portal, vaya al recurso de Azure Stack Edge y a **Cloud storage gateway > Shares** (Puerta de enlace de almacenamiento en la nube > Recursos compartidos). Seleccione **+ Agregar recurso compartido** en la barra de comandos.
 
     ![Seleccionar Agregar recurso compartido](media/azure-stack-edge-j-series-manage-shares/add-share-1.png)
 
@@ -63,7 +63,7 @@ Siga estos pasos en Azure Portal para crear un recurso compartido.
 
 ## <a name="add-a-local-share"></a>Incorporación de un recurso compartido local
 
-1. En Azure Portal, vaya al recurso de Azure Stack Edge y luego a **Puerta de enlace > Recursos compartidos**. Seleccione **+ Agregar recurso compartido** en la barra de comandos.
+1. En Azure Portal, vaya al recurso de Azure Stack Edge y a **Cloud storage gateway > Shares** (Puerta de enlace de almacenamiento en la nube > Recursos compartidos). Seleccione **+ Agregar recurso compartido** en la barra de comandos.
 
     ![Seleccionar Agregar recurso compartido 2](media/azure-stack-edge-j-series-manage-shares/add-local-share-1.png)
 
@@ -99,7 +99,7 @@ Siga estos pasos en Azure Portal para crear un recurso compartido.
 Si creó un recurso compartido antes de configurar el proceso en su dispositivo Azure Stack Edge Pro, deberá montar el recurso compartido. Realice los siguientes pasos para montar un recurso compartido.
 
 
-1. En Azure Portal, vaya al recurso de Azure Stack Edge y luego a **Puerta de enlace > Recursos compartidos**. En la lista de recursos compartidos, seleccione el que desee montar. En la columna **Usado para el proceso**, el estado del recurso compartido seleccionado aparecerá como **Deshabilitado**.
+1. En Azure Portal, vaya al recurso de Azure Stack Edge y a **Cloud storage gateway > Shares** (Puerta de enlace de almacenamiento en la nube > Recursos compartidos). En la lista de recursos compartidos, seleccione el que desee montar. En la columna **Usado para el proceso**, el estado del recurso compartido seleccionado aparecerá como **Deshabilitado**.
 
     ![Seleccionar recurso compartido](media/azure-stack-edge-j-series-manage-shares/mount-share-1.png)
 
@@ -123,11 +123,11 @@ Si creó un recurso compartido antes de configurar el proceso en su dispositivo 
 
 Siga estos pasos en Azure Portal para desmontar un recurso compartido.
 
-1. En Azure Portal, vaya al recurso de Azure Stack Edge y luego a **Puerta de enlace > Recursos compartidos**.
+1. En Azure Portal, vaya al recurso de Azure Stack Edge y a **Cloud storage gateway > Shares** (Puerta de enlace de almacenamiento en la nube > Recursos compartidos). En la lista de recursos compartidos, seleccione el que desee desmontar. Desea asegurarse de que ningún módulo usa el recurso compartido que desmonta. Si un módulo usa el recurso compartido, verá que aparecen problemas con este módulo.
 
     ![Seleccionar recurso compartido 2](media/azure-stack-edge-j-series-manage-shares/unmount-share-1.png)
 
-2. En la lista de recursos compartidos, seleccione el que desee desmontar. Desea asegurarse de que ningún módulo usa el recurso compartido que desmonta. Si un módulo usa el recurso compartido, verá que aparecen problemas con este módulo. Seleccione **Desmontar**.
+2.  Seleccione **Desmontar**.
 
     ![Seleccionar el desmontaje](media/azure-stack-edge-j-series-manage-shares/unmount-share-2.png)
 

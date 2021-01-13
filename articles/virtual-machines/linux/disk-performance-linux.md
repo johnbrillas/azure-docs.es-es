@@ -1,20 +1,20 @@
 ---
-title: Rendimiento de la máquina virtual y del disco
-description: Obtenga más información sobre cómo funcionan en conjunto las máquinas virtuales y sus discos conectados para el rendimiento
+title: 'Rendimiento de la máquina virtual y del disco: Linux'
+description: Obtenga más información sobre cómo funcionan las máquinas virtuales y sus discos conectados en combinación con el fin de obtener un rendimiento en Linux.
 author: albecker1
 ms.author: albecker
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: 092368bb66784a00d5116da0b6be6513f8ebb261
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 2c48672bcfd8c552b36e3ae0807135924669c1d9
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518100"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591861"
 ---
-# <a name="virtual-machine-and-disk-performance"></a>Rendimiento de la máquina virtual y del disco
+# <a name="virtual-machine-and-disk-performance-linux"></a>Rendimiento de la máquina virtual y del disco (Linux)
 [!INCLUDE [VM and Disk Performance](../../../includes/virtual-machine-disk-performance.md)]
 
 ## <a name="virtual-machine-uncached-vs-cached-limits"></a>Límites de almacenamiento en caché frente a sin caché para máquinas virtuales

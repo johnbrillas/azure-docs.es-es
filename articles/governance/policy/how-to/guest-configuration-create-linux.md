@@ -4,12 +4,12 @@ description: Aprenda a crear una directiva de Configuración de invitado de Azur
 ms.date: 08/17/2020
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1f6308250717d35dc725b097575bf3921646c6a0
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 705c12cff5f4377249674ef9db155d1ed321ce42
+ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302703"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97755878"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Creación de directivas de Configuración de invitado para Linux
 
@@ -329,10 +329,15 @@ Configuration AuditFilePathExists
 
 ## <a name="policy-lifecycle"></a>Ciclo de vida de la directiva
 
-Para publicar una actualización de la definición de la directiva, hay tres campos que requieren atención.
+Si desea publicar una actualización de la directiva, realice el cambio en el paquete de configuración de invitado y en los detalles de definición de Azure Policy.
 
 > [!NOTE]
 > La propiedad `version` de la asignación de configuración de invitado solo afecta a los paquetes hospedados por Microsoft. El procedimiento recomendado para el control de versiones del contenido personalizado es incluir la versión en el nombre de archivo.
+
+En primer lugar, al ejecutar `New-GuestConfigurationPackage`, especifique un nombre para el paquete que lo haga único con respecto a las versiones anteriores. Puede incluir un número de versión en el nombre, como `PackageName_1.0.0`.
+El número de este ejemplo solo se usa para hacer que el paquete sea único, no para especificar que el paquete sea más reciente o más antiguo que otros paquetes.
+
+En segundo lugar, actualice los parámetros que se usan con el cmdlet `New-GuestConfigurationPolicy` después de cada una de las explicaciones siguientes.
 
 - **Versión**: al ejecutar el cmdlet `New-GuestConfigurationPolicy`, debe especificar un número de versión mayor que el que se ha publicado actualmente.
 - **contentUri**: al ejecutar el cmdlet `New-GuestConfigurationPolicy`, debe especificar un URI para la ubicación del paquete. La inclusión de una versión del paquete en el nombre de archivo garantiza que el valor de esta propiedad cambie en cada versión.

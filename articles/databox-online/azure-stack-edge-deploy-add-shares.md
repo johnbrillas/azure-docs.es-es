@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 03/21/2019
+ms.date: 01/04/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: 64fe65019a66013323b1c6d27055051badb47cee
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: afedbe739e955499f94d00a8ced940e7a4e9c27c
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350320"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97898704"
 ---
 # <a name="tutorial-transfer-data-with-azure-stack-edge-pro"></a>Tutorial: Transferencia de datos con Azure Stack Edge Pro
 
@@ -42,7 +42,7 @@ Antes de agregar recursos compartidos a Azure Stack Edge Pro, asegúrese de que:
 
 Para crear un recurso compartido, realice el procedimiento siguiente:
 
-1. En [Azure Portal](https://portal.azure.com/), seleccione el recurso de Azure Stack Edge y, después, vaya a **Información general**. El dispositivo debe estar en línea.
+1. En [Azure Portal](https://portal.azure.com/), seleccione el recurso de Azure Stack Edge y, después, vaya a **Información general**. El dispositivo debe estar en línea. Seleccione **Cloud storage gateway** (Puerta de enlace de almacenamiento en la nube).
 
    ![Dispositivo en línea](./media/azure-stack-edge-deploy-add-shares/device-online-1.png)
 

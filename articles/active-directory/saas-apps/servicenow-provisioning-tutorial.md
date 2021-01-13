@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 5894a57e6495ca02002c8f32b893e696c7f5679b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 5c21efc9cb082d915fd87e9ae01606fce18016bc
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350711"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97897313"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning"></a>Tutorial: Configuración de ServiceNow para el aprovisionamiento automático de usuarios
 
@@ -50,7 +50,7 @@ En el escenario descrito en este tutorial se supone que ya cuenta con los requis
 
 1. Identifique el nombre de la instancia de ServiceNow. Puede encontrar el nombre de instancia en la dirección URL que usa para acceder a ServiceNow. En el ejemplo siguiente, el nombre de instancia es dev35214.
 
-   ![Instancia de ServiceNow](media/servicenow-provisioning-tutorial/servicenow_instance.png)
+   ![Instancia de ServiceNow](media/servicenow-provisioning-tutorial/servicenow-instance.png)
 
 2. Obtenga las credenciales de un administrador de ServiceNow. Navegue hasta el perfil de usuario en ServiceNow y compruebe que el usuario tiene el rol de administrador. 
 
@@ -94,7 +94,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 5. En la sección **Credenciales de administrador**, escriba sus credenciales de administrador y su nombre de usuario de ServiceNow. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a ServiceNow. Si la conexión no se establece, asegúrese de que la cuenta de ServiceNow tiene permisos de administrador e inténtelo de nuevo.
 
-    ![Captura de pantalla que muestra la página de aprovisionamiento del servicio, donde puede especificar las credenciales de administrador.](./media/servicenow-provisioning-tutorial/provisioning.png)
+    ![Captura de pantalla que muestra la página de aprovisionamiento del servicio, donde puede especificar las credenciales de administrador.](./media/servicenow-provisioning-tutorial/servicenow-provisioning.png)
 
 6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que deba recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
@@ -142,11 +142,16 @@ Una vez configurado el aprovisionamiento, use los recursos siguientes para super
   
   `Details: Your ServiceNow instance name appears to be invalid.  Please provide a current ServiceNow administrative user name and          password along with the name of a valid ServiceNow instance.`                                                              
 
-   Este error indica un problema de comunicación con la instancia de ServiceNow. Asegúrese de que la siguiente configuración está *deshabilitada* en ServiceNow:
+   Este error indica un problema de comunicación con la instancia de ServiceNow. 
+   
+   Si tiene problemas para probar la conexión, intente establecer la siguiente opción como **deshabilitada** en ServiceNow:
    
    1. Seleccione **System Security (Seguridad del sistema)**  > **High security settings (Configuración de alta seguridad)**  > **Require basic authentication for incoming SCHEMA requests (Requerir autenticación básica para solicitudes SCHEMA entrantes)** .
    2. Seleccione **System Properties (Propiedades del sistema)**  > **Web Services (Servicios web)**  > **Require basic authorization for incoming SOAP requests (Requerir autenticación básica para solicitudes SOAP entrantes)** .
 
+   ![Autorización de la solicitud SOAP](media/servicenow-provisioning-tutorial/servicenow-webservice.png)
+
+   Si se resuelven los problemas, póngase en contacto con el equipo de soporte técnico de ServiceNow y pídales que activen la depuración SOAP para facilitar la solución de problemas. 
 ## <a name="additional-resources"></a>Recursos adicionales
 
 * [Administración del aprovisionamiento de cuentas de usuario para aplicaciones empresariales](../app-provisioning/configure-automatic-user-provisioning-portal.md)

@@ -11,12 +11,12 @@ ms.custom: references_regions
 ms.topic: how-to
 ms.date: 12/07/2020
 ms.author: juliako
-ms.openlocfilehash: 9effac182acdea6fcb41ed26faf6c2f6535a5cbf
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 1ee179efbe936c742f1eb51b998c10f9349c14fb
+ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96906172"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97763394"
 ---
 # <a name="use-the-animated-character-detection-preview-with-portal-and-api"></a>Uso de la detección de personajes animados (versión preliminar) con el portal y la API 
 
@@ -26,9 +26,7 @@ En este artículo se muestra cómo usar la detección de personajes animados con
 
 ## <a name="use-the-animated-character-detection-with-portal"></a>Uso de la detección de personajes animados con el portal 
 
-En esta sección se describen los pasos que debe seguir para empezar a usar el modelo de detección de personajes animados. 
-
-Como en las cuentas de evaluación la integración de Custom Vision se administra mediante Video Indexer, puede empezar a crear y usar el modelo de caracteres animados y saltarse la siguiente sección ("Conexión de la cuenta de Custom Vision").
+En las cuentas de evaluación la integración de Custom Vision se administra mediante Video Indexer, puede empezar a crear y usar el modelo de personajes animados. Si usa la cuenta de prueba, puede omitir la siguiente sección ("Conexión de una cuenta de Custom Vision").
 
 ### <a name="connect-your-custom-vision-account-paid-accounts-only"></a>Conexión de la cuenta de Custom Vision (solo cuentas de pago)
 
@@ -37,20 +35,23 @@ Si es propietario de una cuenta de pago de Video Indexer, primero debe conectar 
 > [!NOTE]
 > Las dos cuentas deben estar en la misma región. La integración de Custom Vision no se admite actualmente en la región de Japón.
 
+Las cuentas de pago que tienen acceso a su cuenta de Custom Vision pueden ver los modelos y las imágenes etiquetadas allí. Obtenga más información sobre cómo  [mejorar su clasificador en Custom Vision](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-improving-your-classifier). 
+
+Tenga en cuenta que el entrenamiento del modelo debe realizarse exclusivamente a través de Video Indexer, no del sitio web de Custom Vision. 
+
 #### <a name="connect-a-custom-vision-account-with-api"></a>Conexión de una cuenta de Custom Vision con la API 
 
 Siga estos pasos para conectar su cuenta de Custom Vision a Video Indexer, o bien para cambiar la cuenta de Custom Vision que está conectada actualmente a Video Indexer:
 
 1. Vaya a [www.customvision.ai](https://www.customvision.ai) e inicie sesión.
-1. Copie las siguientes claves: 
+1. Copie las claves de los recursos de Entrenamiento y Predicción:
 
-    * Clave de entrenamiento (para el recurso de entrenamiento)
-    * Clave de predicción (para el recurso de predicción)
-    * Punto de conexión 
-    * Identificador del recurso de predicción
-    
     > [!NOTE]
     > Para proporcionar todas las claves, debe tener dos recursos independientes en Custom Vision, uno para el entrenamiento y otro para la predicción.
+1. Especifique otra información:
+
+    * Punto de conexión 
+    * Identificador del recurso de predicción
 1. Inicie sesión en [Video Indexer](https://vi.microsoft.com/).
 1. Haga clic en el signo de interrogación de la esquina superior derecha de la página y elija **API Reference** (Referencia de la API).
 1. Asegúrese de que está suscrito a API Management haciendo clic en la pestaña **Products** (Productos). Si tiene una API conectada, puede continuar con el paso siguiente; de lo contrario, suscríbase. 
@@ -63,7 +64,7 @@ Siga estos pasos para conectar su cuenta de Custom Vision a Video Indexer, o bie
 1. Para comprobar la conexión, vaya al portal de [Video Indexer](https://vi.microsoft.com/):
 1. Haga clic en el botón **Content model customization** Personalización del modelo de contenido() en la esquina superior derecha de la página.
 1. Vaya a la pestaña **Animated characters** (Personajes animados).
-1. Una vez que haga clic en Administrar modelos en Custom Vision**, se le transferirá a la cuenta de Custom Vision que acaba de conectar.
+1. Una vez que haga clic en Manage models (Administrar modelos) en Custom Vision, se le transferirá a la cuenta de Custom Vision que acaba de conectar.
 
 > [!NOTE]
 > Actualmente, solo se admiten los modelos creados a través de Video Indexer. Los modelos que se crean a través de Custom Vision no estarán disponibles. Además, el procedimiento recomendado es editar los modelos creados a través de Video Indexer solo con la plataforma de Video Indexer, ya que los cambios realizados a través de Custom Vision pueden provocar resultados no deseados.
@@ -71,9 +72,10 @@ Siga estos pasos para conectar su cuenta de Custom Vision a Video Indexer, o bie
 ### <a name="create-an-animated-characters-model"></a>Creación de un modelo de personajes animados
 
 1. Vaya al sitio web de [Video Indexer](https://vi.microsoft.com/) e inicie sesión.
-1. Haga clic en el botón de personalización del modelo de contenido en la esquina superior derecha de la página.
+1. Para personalizar un modelo en su cuenta, seleccione el botón **Content model customization** (Personalización del modelo de contenido) a la izquierda de la página.
 
-    ![Captura de pantalla en la que se muestra la página "Video Indexer" con el botón de "personalización del modelo de contenido" seleccionado en la esquina superior derecha.](./media/animated-characters-recognition/content-model-customization.png)
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/content-model-customization/content-model-customization.png" alt-text="Personalización de un modelo de contenido en Video Indexer":::
 1. Vaya a la pestaña **Animated characters** (Personajes animados) en la sección de personalización de modelos.
 1. Haga clic en **Agregar modelo**.
 1. Asigne un nombre al modelo y haga clic en Entrar para guardarlo.
@@ -83,7 +85,9 @@ Siga estos pasos para conectar su cuenta de Custom Vision a Video Indexer, o bie
 
 ### <a name="index-a-video-with-an-animated-model"></a>Indexación de un vídeo con un modelo animado
 
-1. Haga clic en el botón **Cargar** en la parte superior de la página.
+Para el entrenamiento inicial, cargue al menos dos vídeos. Para lograr un buen modelo de reconocimiento, lo deseable es que ninguno de ellos dure menos de 15 minutos. Si tiene episodios más cortos, es aconsejable cargar al menos 30 minutos de contenido de vídeo antes del entrenamiento. Esto le permitirá fusionar mediante combinación grupos que pertenezcan al mismo personaje desde diferentes escenas y orígenes, lo que, por consiguiente, aumenta la posibilidad de que detecte el personaje en los episodios siguientes que se indexen. Para entrenar un modelo en varios vídeos (episodios), debe indexar todos con el mismo modelo de animación. 
+
+1. Haga clic en el botón **Upload** (Cargar).
 1. Elija un vídeo para cargar (desde un archivo o una dirección URL).
 1. Haga clic en **Opciones avanzadas**.
 1. En **People / Animated characters** (Personas/personajes animados), elija **Animation models** (Modelos de animación).
@@ -91,27 +95,39 @@ Siga estos pasos para conectar su cuenta de Custom Vision a Video Indexer, o bie
 1. Haga clic en el botón para cargar.
 1. Una vez que se indexa el vídeo, verá los personajes detectados en la sección **Animated characters** (Personajes animados) del panel **Información**.
 
-> [!NOTE] 
-> Antes de etiquetar y entrenar el modelo, todos los personajes animados se denominarán "Unknown #X" (Desconocido X). Después de entrenar el modelo, también se reconocerán.
+Antes de etiquetar y entrenar el modelo, todos los personajes animados se denominarán "Unknown #X" (Desconocido X). Después de entrenar el modelo, también se reconocerán.
 
 ### <a name="customize-the-animated-characters-models"></a>Personalización de los modelos de personajes animados
 
-1. Etiquete y entrene el modelo.
+1. Asigne nombres a los personajes en Video Indexer.
 
-    1. Etiquete el personaje detectado editando su nombre. Una vez que se entrena un personaje en el modelo, se reconocerá en el siguiente vídeo indexado con ese modelo. 
-    1. Para etiquetar un personaje animado en el vídeo, vaya a la pestaña **Información** y haga clic en el botón **Editar** en la esquina superior derecha de la ventana.
-    1. En el panel **Información**, haga clic en cualquiera de los personajes animados detectados y cambie sus nombres "Unknown #X" (Desconocido X), o los que asignara previamente al personaje, por otros.
-    1. Después de escribir el nuevo nombre, haga clic en el icono de verificación junto a él. Esto guarda el nuevo nombre en el modelo en Video Indexer.
-    1. Una vez que haya terminado de editar todos los nombres que desee, debe entrenar el modelo.
+    1. Después del grupo de personajes creado por el modelo, se recomienda examinar estos grupos en Custom Vision. 
+    1. Para etiquetar un personaje animado en el vídeo, vaya a la pestaña  **Insights**  (Información) y haga clic en el botón  **Edit**  (Editar) de la esquina superior derecha de la ventana. 
+    1. En el panel  **Información**  (Información), haga clic en cualquiera de los personajes animados detectados y cambie sus nombres de "Unknown #X" (Desconocido X) por un nombre temporal (o el nombre que se asignara previamente al personaje). 
+    1. Después de escribir el nuevo nombre, haga clic en el icono de verificación junto a él. Esto guarda el nuevo nombre en el modelo en Video Indexer. 
+1. Solo las cuentas de pago: examine los grupos en Custom Vision. 
 
-        Abra la página de personalización y haga clic en la pestaña de personalización; a continuación, haga clic en la pestaña **Caracteres animados** y haga clic en el botón **Entrenar** para entrenar el modelo.
-         
-        Si tiene una cuenta de pago, puede hacer clic en el vínculo **Administrar modelos en Custom Vision** (tal como se muestra a continuación). Se le derivará entonces a la página del modelo en **Custom Vision**.
- 
-        ![Personalización del modelo de contenido](./media/animated-characters-recognition/content-model-customization-tab.png)
+    > [!NOTE]
+    > Las cuentas de pago que tienen acceso a su cuenta de Custom Vision pueden ver los modelos y las imágenes etiquetadas allí. Obtenga más información sobre cómo  [mejorar su clasificador en Custom Vision](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-improving-your-classifier). Es importante tener en cuenta que el entrenamiento del modelo debe realizarse exclusivamente a través de Video Indexer (como se ha descrito en este tema), no del sitio web de Custom Vision. 
 
-     1. Una vez entrenado, cualquier vídeo que se indexe o se vuelva a indexar con ese modelo reconocerá los personajes entrenados. 
-    Las cuentas de pago que tienen acceso a su cuenta de Custom Vision pueden ver los modelos y las imágenes etiquetadas allí. Obtenga más información [sobre cómo mejorar el clasificador en Custom Vision.](../../cognitive-services/custom-vision-service/getting-started-improving-your-classifier.md)
+    1. Vaya a la página **Custon Models** (Modelos personalizados) de Video Indexer y elija la pestaña **Animated characters** (Personajes animados). 
+    1. Haga clic en el botón Edit (Editar) del modelo en el que trabaja para administrarlo en Custom Vision. 
+    1. Examine todos los grupos de personajes: 
+
+        * Si el grupo contiene imágenes no relacionadas, se recomienda eliminarlas en el sitio web de Custom Vision. 
+        * Si hay imágenes que pertenezcan a otro personaje, cambie la etiqueta en dichas imágenes concretas; para ello, haga clic en la imagen, agregue la etiqueta correcta y elimine la etiqueta equivocada. 
+        * Si el grupo no es correcto, es decir, que contiene principalmente imágenes que no son del personaje o imágenes de varios personajes, puede eliminarlo en el sitio web de Custom Vision o en la información de Video Indexer. 
+        * A veces, el algoritmo de agrupación dividirá los personajes en grupos diferentes. Por consiguiente, se recomienda asignar el mismo nombre a todos los grupos que pertenecen al mismo personaje (en la pestaña de información de Video Indexer), lo que hará que de inmediato todos estos grupos aparezcan como en el sitio web de Custom Vision. 
+    1. Una vez que se refine el grupo, asegúrese de que el nombre inicial con el que lo etiquetó refleja el carácter del mismo. 
+1. Entrenamiento del modelo 
+
+    1. Una vez que haya terminado de editar todos los nombres que desee, debe entrenar el modelo. 
+    1. Una vez que se entrena un personaje en el modelo, se reconocerá en el siguiente vídeo indexado con ese modelo. 
+    1. Abra la página de personalización y haga clic en la pestaña  **Animated characters**  (Personajes animados) y haga clic en el botón  **Train** (Entrenar) para entrenar el modelo. Para mantener la conexión entre Video 
+    
+Indexer y el modelo, no entrene el modelo en el sitio web Custom Vision (las cuentas de pago tienen acceso al sitio web de Custom Vision), solo en Video Indexer. Una vez entrenado, cualquier vídeo que se indexe o se vuelva a indexar con ese modelo reconocerá los personajes entrenados. 
+
+## <a name="delete-an-animated-character-and-the-model"></a>Eliminación de un personaje animado y el modelo
 
 1. Elimine un personaje animado.
 
@@ -120,7 +136,6 @@ Siga estos pasos para conectar su cuenta de Custom Vision a Video Indexer, o bie
 
     > [!NOTE]
     > Esto eliminará la información de este vídeo, pero no afectará al modelo.
-
 1. Elimine un modelo.
 
     1. Haga clic en el botón de **personalización del modelo de contenido** en el menú superior y haga clic en la pestaña **Animated characters** (Personajes animados).

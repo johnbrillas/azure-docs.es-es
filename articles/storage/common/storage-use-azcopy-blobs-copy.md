@@ -8,12 +8,12 @@ ms.date: 12/08/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: f536e163e3d19d91c150506ab44fdd9cbc02c693
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 524e3f70f9588cfae2c739722fc1a44e683f9a7f
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96907413"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617296"
 ---
 # <a name="copy-blobs-between-azure-storage-accounts-by-using-azcopy-v10"></a>Copia de blobs entre cuentas de almacenamiento de Azure mediante AzCopy v10
 
@@ -28,6 +28,8 @@ Para descargar AzCopy y conocer las formas en que puede proporcionar credenciale
 ## <a name="guidelines"></a>Directrices
 
 Aplique las siguientes directrices a los comandos AzCopy. 
+
+- El cliente debe tener acceso a redes tanto en las cuentas de almacenamiento de origen y de destino. Para aprender a configurar la red de cada cuenta de almacenamiento, consulte [Configuración de redes virtuales y firewalls de Azure Storage](storage-network-security.md?toc=/azure/storage/blobs/toc.json).
 
 - Anexe un token de SAS a cada dirección URL de origen. 
 

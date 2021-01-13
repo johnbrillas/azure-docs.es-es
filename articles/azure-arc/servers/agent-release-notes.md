@@ -2,13 +2,13 @@
 title: Novedades del agente de servidores habilitados para Azure Arc
 description: En este artículo se incluyen las notas de la versión del agente de servidores habilitados para Azure Arc. Muchos de los problemas resumidos incluyen vínculos para obtener detalles adicionales.
 ms.topic: conceptual
-ms.date: 12/14/2020
-ms.openlocfilehash: 3a01113d0d6416fb050f5c66191d5c420b7ac137
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.date: 12/21/2020
+ms.openlocfilehash: 4b7fd97d5b7e1cddc1d78e0d24205890e74c45c1
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505654"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97722528"
 ---
 # <a name="whats-new-with-azure-arc-enabled-servers-agent"></a>Novedades del agente de servidores habilitados para Azure Arc
 
@@ -20,6 +20,8 @@ El agente de Connected Machine de los servidores habilitados para Azure Arc se m
 
 ## <a name="december-2020"></a>Diciembre de 2020
 
+Versión: 1.3
+
 ### <a name="new-feature"></a>Nueva característica
 
 Se ha agregado soporte técnico para Windows Server 2008 R2
@@ -30,11 +32,15 @@ Problema resuelto que impide que la extensión de script personalizado de Linux 
 
 ## <a name="november-2020"></a>Noviembre de 2020
 
+Versión: 1.2
+
 ### <a name="fixed"></a>Fijo
 
 Se resolvió un problema en el que la configuración del proxy se podía perder después de actualizar las distribuciones basadas en RPM.
 
 ## <a name="october-2020"></a>Octubre de 2020
+
+Versión: 1.1
 
 ### <a name="fixed"></a>Fijo
 
@@ -61,7 +67,7 @@ Versión: 1.0 (Disponibilidad general)
 - Se ha agregado la opción `azcmagent show --json` al estado del agente de salida en un formato fácilmente analizable.
 - Se ha agregado una marca en la salida `azcmagent show` para indicar si el servidor está en una máquina virtual hospedada en Azure.
 - Se ha agregado la opción `azcmagent disconnect --force-local-only` para permitir el restablecimiento del estado del agente local cuando no se puede acceder al servicio de Azure.
-- Se ha agregado la opción `azcmagent connect --cloud` para admitir nubes adicionales. En esta versión, solo Azure es compatible con el servicio en el momento de la versión del agente.
+- Se ha agregado la opción `azcmagent connect --cloud` para admitir otras nubes. En esta versión, solo Azure es compatible con el servicio en el momento de la versión del agente.
 - El agente se ha localizado en idiomas compatibles con Azure.
 
 ### <a name="fixed"></a>Fijo

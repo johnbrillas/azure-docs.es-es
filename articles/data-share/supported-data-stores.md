@@ -5,13 +5,13 @@ ms.service: data-share
 author: jifems
 ms.author: jife
 ms.topic: conceptual
-ms.date: 12/7/2020
-ms.openlocfilehash: 566fd2c9c31933420769f7200a0434cc53f8c2f3
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.date: 12/16/2020
+ms.openlocfilehash: d45d9a29f671e66c6caba689f49e1748780545e0
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96853156"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97616752"
 ---
 # <a name="supported-data-stores-in-azure-data-share"></a>Almacenes de datos admitidos en Azure Data Share
 
@@ -50,7 +50,7 @@ La siguiente tabla detalla las diferentes combinaciones y opciones que tienen lo
 | Explorador de datos de Azure ||||||| ✓ |
 
 ## <a name="share-from-a-storage-account"></a>Uso compartido desde una cuenta de almacenamiento
-Azure Data Share admite el uso compartido de archivos, carpetas y sistemas de archivos desde Azure Data Lake Gen1 y Azure Data Lake Gen2. También admite el uso compartido de blobs, carpetas y contenedores desde Azure Blob Storage. Actualmente, solo se admiten blobs en bloques. Cuando los sistemas de archivos, contenedores o carpetas se comparten mediante el uso compartido basado en instantáneas, el consumidor de datos puede optar por hacer una copia completa de los datos de los recursos compartidos o aprovechar la capacidad de realizar instantáneas incrementales para copiar solo los archivos nuevos o actualizados. La instantánea incremental se basa en la hora de la última modificación de los archivos. Los archivos existentes con el mismo nombre se sobrescribirán.
+Azure Data Share admite el uso compartido de archivos, carpetas y sistemas de archivos desde Azure Data Lake Gen1 y Azure Data Lake Gen2. También admite el uso compartido de blobs, carpetas y contenedores desde Azure Blob Storage. Actualmente, solo se admiten blobs en bloques. Cuando los sistemas de archivos, contenedores o carpetas se comparten mediante el uso compartido basado en instantáneas, el consumidor de datos puede optar por hacer una copia completa de los datos de los recursos compartidos o aprovechar la capacidad de realizar instantáneas incrementales para copiar solo los archivos nuevos o actualizados. La instantánea incremental se basa en la hora de la última modificación de los archivos. Los archivos existentes con el mismo nombre se sobrescribirán durante la instantánea. El archivo eliminado del origen no se elimina en el destino. 
 
 Para obtener más detalles, consulte [Uso compartido y recepción de datos de Azure Blob Storage y Azure Data Lake Storage](how-to-share-from-storage.md).
 

@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2020
 ms.author: yitoh
-ms.openlocfilehash: 3655b117b641a6179bd6539aaf3f75af07f21a1a
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 8de95a56f3da928997a97ff216b13d522c82afca
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94992376"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814200"
 ---
 # <a name="azure-ddos-rapid-response"></a>Respuesta rápida de Azure DDoS
 
-Durante un acceso activo, los clientes de Azure DDoS Protection Standard tienen acceso al equipo de Respuesta rápida de DDoS (DRR), que puede ayudar con la investigación de ataques durante un ataque, así como con el análisis posterior al ataque.
+Durante un acceso activo, los clientes de Azure DDoS Protection Estándar tienen acceso al equipo de Respuesta rápida de DDoS (DRR), que puede ayudar con la investigación de ataques durante un ataque y con el análisis posterior al ataque.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -49,12 +49,12 @@ Solo debe interaccionar con DRR si:
 
 5. Complete los detalles adicionales y envíe la solicitud de soporte técnico.
 
-DRR sigue el modelo de soporte técnico de Azure Rapid Response. Consulte [Ámbito de soporte técnico y capacidad de respuesta](https://azure.microsoft.com/en-us/support/plans/response/) para obtener más información sobre la respuesta rápida.
+DRR sigue el modelo de soporte técnico de Azure Rapid Response. Consulte [Ámbito de soporte técnico y capacidad de respuesta](https://azure.microsoft.com/en-us/support/plans/response/) para más información sobre la respuesta rápida.
 
 Para más información, lea la [documentación sobre DDoS Protection Standard](./ddos-protection-overview.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Aprenda a [realizar pruebas mediante simulaciones](test-through-simulations.md).
-- Aprenda a [ver y configurar la telemetría de DDoS Protection](telemetry-monitoring-alerting.md).
-- Aprenda a [configurar registros de flujo e informes de mitigación de ataques DDoS](reports-and-flow-logs.md).
+- Aprenda a [ver y configurar la telemetría de DDoS Protection](telemetry.md).
+- Obtenga información sobre la [Visualización y configuración del registro de diagnóstico de DDoS](diagnostic-logging.md).

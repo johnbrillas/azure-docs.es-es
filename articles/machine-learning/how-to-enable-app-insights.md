@@ -11,12 +11,12 @@ author: blackmist
 ms.date: 09/15/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, data4ml
-ms.openlocfilehash: 5d49a88b89f9e2f4e2c2e6fa8ef18a01c803e3f7
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 13b99fe129191b89b5bb2d7f5473e910fa619ce7
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94536598"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739848"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>Supervisión y recopilación de datos de los puntos de conexión del servicio web ML
 
@@ -157,14 +157,24 @@ También puede habilitar Azure Application Insights desde Azure Machine Learning
 
 ### <a name="query-logs-for-deployed-models"></a>Consulta de registros para modelos implementados
 
-Para recuperar los registros de un servicio web implementado anteriormente, puede usar la función `get_logs()`. Los registros pueden contener información detallada sobre los errores que se produjeron durante la implementación.
+los registros de puntos de conexión en tiempo real son datos de cliente. Para recuperar los registros de un servicio web implementado anteriormente, puede usar la función `get_logs()`. Los registros pueden contener información detallada sobre los errores que se produjeron durante la implementación.
 
 ```python
+from azureml.core import Workspace
 from azureml.core.webservice import Webservice
+
+ws = Workspace.from_config()
 
 # load existing web service
 service = Webservice(name="service-name", workspace=ws)
 logs = service.get_logs()
+```
+
+Si hay varios inquilinos, es posible que tenga que agregar el siguiente código de autenticación antes de `ws = Workspace.from_config()`
+
+```python
+from azureml.core.authentication import InteractiveLoginAuthentication
+interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in which your workspace resides")
 ```
 
 ### <a name="view-logs-in-the-studio"></a>Ver registros en Studio

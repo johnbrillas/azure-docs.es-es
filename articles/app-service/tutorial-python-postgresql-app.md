@@ -3,7 +3,7 @@ title: 'Tutorial: Implementación de una aplicación de Django de Python con Pos
 description: Cree una aplicación web de Python con una base de datos de PostgreSQL e impleméntela en Azure. En el tutorial se usa el marco de Django, y la aplicación se hospeda en Azure App Service en Linux.
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 11/02/2020
+ms.date: 01/04/2021
 ms.custom:
 - mvc
 - seodec18
@@ -11,12 +11,12 @@ ms.custom:
 - cli-validate
 - devx-track-python
 - devx-track-azurecli
-ms.openlocfilehash: b106b403022f3407a3838b7f65222baf41cbfff5
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: ffde74a0567661d6b9f77e45a80bfd585e5c7212
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96852972"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97898596"
 ---
 # <a name="tutorial-deploy-a-django-web-app-with-postgresql-in-azure-app-service"></a>Tutorial: Implementación de una aplicación web de Django de Python con PostgreSQL en Azure App Service
 
@@ -236,14 +236,11 @@ Las migraciones de bases de datos de Django aseguran que el esquema de la base d
 1. En la sesión de SSH, ejecute los siguientes comandos (puede pegar los comandos con **CTRL**+**Mayús**+**V**):
 
     ```bash
-    # Change to the folder where the app code is deployed
-    cd site/wwwroot
+    # Change to the app folder
+    cd $APP_PATH
     
-    # Activate default virtual environment in App Service container
+    # Activate the venv (requirements.txt is installed automatically)
     source /antenv/bin/activate
-
-    # Install packages
-    pip install -r requirements.txt
 
     # Run database migrations
     python manage.py migrate
@@ -251,6 +248,8 @@ Las migraciones de bases de datos de Django aseguran que el esquema de la base d
     # Create the super user (follow prompts)
     python manage.py createsuperuser
     ```
+
+    Si encuentra algún error relacionado con la conexión a la base de datos, compruebe los valores de la configuración de la aplicación creada en la sección anterior.
 
 1. El comando `createsuperuser` le pide las credenciales de superusuario. A los efectos de este tutorial, use el nombre de usuario predeterminado `root`, presione **ENTRAR** en la dirección de correo electrónico para que quede en blanco y escriba `Pollsdb1` como contraseña.
 
@@ -260,13 +259,13 @@ Las migraciones de bases de datos de Django aseguran que el esquema de la base d
     
 ### <a name="44-create-a-poll-question-in-the-app"></a>4.4 Creación de una pregunta de sondeo en la aplicación
 
-1. En un explorador, abra la dirección URL `http://<app-name>.azurewebsites.net`. La aplicación debe mostrar el mensaje "No polls are available" (No hay sondeos disponibles) porque todavía no hay sondeos específicos en la base de datos.
+1. En un explorador, abra la dirección URL `http://<app-name>.azurewebsites.net`. La aplicación debe mostrar los mensajes "Polls app" (Aplicación de sondeos) y "No polls are available" (No hay sondeos disponibles) porque todavía no hay sondeos específicos en la base de datos.
 
     Si ve el mensaje "Application Error" (Error de aplicación), es probable que no haya creado la configuración necesaria en el paso anterior, [Configuración de las variables de entorno para conectarse a la base de datos](#42-configure-environment-variables-to-connect-the-database), o que dichos valores contengan errores. Ejecute el comando `az webapp config appsettings list` para comprobar la configuración. También puede [comprobar los registros de diagnóstico](#6-stream-diagnostic-logs) para ver errores específicos durante el inicio de la aplicación. Por ejemplo, si no ha creado la configuración, los registros mostrarán el error `KeyError: 'DBNAME'`.
 
     Después de actualizar la configuración para corregir los errores, espere un minuto para que la aplicación se reinicie y, después, actualice el explorador.
 
-1. Vaya a `http://<app-name>.azurewebsites.net/admin`. Inicie sesión con las credenciales de superusuario de la sección anterior (`root` y `Pollsdb1`). En **Polls** (Sondeos), seleccione **Add** (Agregar) junto a **Questions** (Preguntas) y cree una pregunta de sondeo con algunas opciones.
+1. Vaya a `http://<app-name>.azurewebsites.net/admin`. Inicie sesión con las credenciales de superusuario de Django de la sección anterior (`root` y `Pollsdb1`). En **Polls** (Sondeos), seleccione **Add** (Agregar) junto a **Questions** (Preguntas) y cree una pregunta de sondeo con algunas opciones.
 
 1. Vaya de nuevo a `http://<app-name>.azurewebsites.net` para confirmar que las preguntas se presentan ahora al usuario. Responda a las preguntas como desee para generar algunos datos en la base de datos.
 
@@ -292,7 +291,7 @@ Ejecute los siguientes comandos en una ventana de terminal. Asegúrese de seguir
 python3 -m venv venv
 source venv/bin/activate
 
-# Install packages
+# Install dependencies
 pip install -r requirements.txt
 # Run Django migrations
 python manage.py migrate
@@ -310,7 +309,7 @@ py -3 -m venv venv
 Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned -Force
 venv\scripts\activate
 
-# Install packages
+# Install dependencies
 pip install -r requirements.txt
 # Run Django migrations
 python manage.py migrate
@@ -327,7 +326,7 @@ python manage.py runserver
 py -3 -m venv venv
 venv\scripts\activate
 
-:: Install packages
+:: Install dependencies
 pip install -r requirements.txt
 :: Run Django migrations
 python manage.py migrate
@@ -397,11 +396,8 @@ Dado que ha realizado cambios en el modelo de datos, debe volver a ejecutar las 
 Abra una sesión de SSH de nuevo en el explorador. Para ello, vaya a `https://<app-name>.scm.azurewebsites.net/webssh/host`. Luego, ejecute los siguientes comandos:
 
 ```
-cd site/wwwroot
-
-# Activate default virtual environment in App Service container
+cd $APP_PATH
 source /antenv/bin/activate
-# Run database migrations
 python manage.py migrate
 ```
 

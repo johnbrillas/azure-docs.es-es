@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2020
+ms.date: 12/25/2020
 ms.author: memildin
-ms.openlocfilehash: c0952e0f267f9c2511a2e80fa7106958d8dd0ee5
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 115d89783a849a9c4c7adb2fceceaf8d1575c785
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791892"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97795995"
 ---
 # <a name="security-recommendations-in-azure-security-center"></a>Recomendaciones de seguridad en el Centro de seguridad de Azure 
 En este tema se explica cómo ver y entender las recomendaciones de Azure Security Center para ayudar a proteger los recursos de Azure.
@@ -42,7 +42,11 @@ Security Center analiza el estado de seguridad de los recursos para identificar 
 
 1. En el menú de Security Center, abra la página **Recomendaciones** para ver las recomendaciones aplicables a su entorno. Las recomendaciones se agrupan en controles de seguridad.
 
-      ![Recomendaciones agrupadas por control de seguridad](./media/security-center-recommendations/view-recommendations.png)
+    :::image type="content" source="./media/security-center-recommendations/view-recommendations.png" alt-text="Recomendaciones agrupadas por control de seguridad" lightbox="./media/security-center-recommendations/view-recommendations.png":::
+
+1. Para encontrar recomendaciones específicas para el tipo de recurso, la gravedad, el entorno u otros criterios que sean importantes para usted, utilice los filtros opcionales que se encuentran encima de la lista de recomendaciones.
+
+    :::image type="content" source="media/security-center-recommendations/recommendation-list-filters.png" alt-text="Filtros para refinar la lista de recomendaciones de Azure Security Center":::
 
 1. Expanda un control y seleccione una recomendación concreta para ver la página de detalles de las recomendaciones.
 
@@ -53,12 +57,12 @@ Security Center analiza el estado de seguridad de los recursos para identificar 
     1. Los botones **Aplicar** y **Denegar** en recomendaciones admitidas (vea [Evitar configuraciones inactivas con las recomendaciones Aplicar o Denegar](prevent-misconfigurations.md))
     1. **Indicador de gravedad**
     1. **Intervalo de actualización** (si procede) 
-    1. **Descripción** : una breve descripción del problema
-    1. **Pasos de corrección** : una descripción de los pasos manuales necesarios para corregir el problema de seguridad en los recursos afectados Para obtener recomendaciones con "corrección rápida", puede seleccionar **Ver lógica de corrección** antes de aplicar la corrección sugerida a los recursos. 
-    1. **Recursos afectados** : los recursos se agrupan en pestañas:
-        - **Recursos con estado correcto** : recursos relevantes que no se ven afectados o en los que ya se ha corregido el problema.
-        - **Recursos con estado incorrecto** : recursos que todavía se ven afectados por el problema identificado.
-        - **Recursos no aplicables** : recursos para los que la recomendación no puede dar una respuesta definitiva. La pestaña no aplicable también incluye las razones de cada recurso. 
+    1. **Descripción**: una breve descripción del problema
+    1. **Pasos de corrección**: una descripción de los pasos manuales necesarios para corregir el problema de seguridad en los recursos afectados Para obtener recomendaciones con "corrección rápida", puede seleccionar **Ver lógica de corrección** antes de aplicar la corrección sugerida a los recursos. 
+    1. **Recursos afectados**: los recursos se agrupan en pestañas:
+        - **Recursos con estado correcto**: recursos relevantes que no se ven afectados o en los que ya se ha corregido el problema.
+        - **Recursos con estado incorrecto**: recursos que todavía se ven afectados por el problema identificado.
+        - **Recursos no aplicables**: recursos para los que la recomendación no puede dar una respuesta definitiva. La pestaña no aplicable también incluye las razones de cada recurso. 
 
             :::image type="content" source="./media/security-center-recommendations/recommendations-not-applicable-reasons.png" alt-text="Los recursos no aplicables con motivos":::.
     1. Botones de acción para corregir la recomendación o desencadenar una aplicación lógica.

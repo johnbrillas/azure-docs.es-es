@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 439714f8fe4a6373f2ffce80e744802dd19b67f0
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: ab9e2a5483f0699ad7bfca991539025adff34b11
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928790"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606919"
 ---
 # <a name="configure-an-aks-cluster"></a>Configuración de un clúster de AKS
 
@@ -173,7 +173,7 @@ Si quiere crear grupos de nodos con el entorno de ejecución Moby (Docker), pued
 * Ya no puede tener acceso al motor de Docker, `/var/run/docker.sock`, ni usar Docker en Docker (DinD).
   * Si actualmente extrae los registros de aplicación o los datos de supervisión del motor de Docker, utilice en su lugar [Azure Monitor para contenedores](../azure-monitor/insights/container-insights-enable-new-cluster.md), por ejemplo. Además, AKS no admite la ejecución de comandos fuera de banda en los nodos del agente que podrían provocar inestabilidad.
   * Incluso cuando se use Moby o Docker, es muy desaconsejable crear imágenes y aprovechar directamente el motor de Docker con los métodos anteriores. Kubernetes no es totalmente consciente de esos recursos consumidos y esos enfoques presentan numerosos problemas, que se detallan [aquí](https://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/) y [aquí](https://securityboulevard.com/2018/05/escaping-the-whale-things-you-probably-shouldnt-do-with-docker-part-1/), por ejemplo.
-* Compilación de imágenes: el enfoque recomendado para la creación de imágenes es usar [ACR Tasks](../container-registry/container-registry-quickstart-task-cli.md). Un enfoque alternativo es usar opciones en clúster más seguras, como [docker buildx](https://github.com/docker/buildx).
+* Compilación de imágenes. Puede seguir usando su flujo de trabajo de compilación de Docker como de costumbre, a menos que esté compilando imágenes dentro del clúster de AKS. En este caso, considere la posibilidad de utilizar el enfoque recomendado para compilar imágenes con [ACR Tasks](../container-registry/container-registry-quickstart-task-cli.md). O bien, una alternativa más segura dentro del clúster, como [docker buildx](https://github.com/docker/buildx).
 
 ## <a name="generation-2-virtual-machines-preview"></a>Máquinas virtuales de generación 2 (versión preliminar)
 

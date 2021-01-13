@@ -1,108 +1,91 @@
 ---
 title: 'Conexión de un entorno a Power BI: Azure Time Series Insights | Microsoft Docs'
 description: Aprenda a conectar Azure Time Series Insights a Power BI para compartir, representar y mostrar datos en toda una organización.
-author: deepakpalled
-ms.author: dpalled
-manager: diviso
+author: shreyasharmamsft
+ms.author: shresha
+manager: dpalled
 services: time-series-insights
 ms.service: time-series-insights
 ms.topic: conceptual
-ms.date: 10/01/2020
-ms.openlocfilehash: 680b3c5a9548fa06d0139bd441b5583c27427a77
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.date: 12/14/2020
+ms.openlocfilehash: 07e79dbde142400677901ee02903144f9a42cd6b
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95020783"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740771"
 ---
 # <a name="visualize-data-from-azure-time-series-insights-in-power-bi"></a>Visualización de datos de Azure Time Series Insights en Power BI
 
-Azure Time Series Insights es una plataforma para almacenar, administrar, consultar y visualizar datos de series temporales en la nube. [Power BI](https://powerbi.microsoft.com) es una herramienta de análisis de negocio con funcionalidades de visualización enriquecidas que permiten compartir información y resultados en toda la organización. Ahora se pueden integrar ambos servicios para obtener lo mejor de las funcionalidades de visualización inherentes de Azure Time Series Insights y de Power BI.
+Azure Time Series Insights es una plataforma para almacenar, administrar, consultar y visualizar datos de series temporales en la nube. [Power BI](https://powerbi.microsoft.com) es una herramienta de análisis de negocio con funcionalidades de visualización enriquecidas que permiten compartir información y resultados en toda la organización. Ahora se pueden integrar ambos servicios, lo que permite aumentar el eficaz análisis de Azure Time Series Insights con las sólidas funcionalidades de visualización de datos y facilidad de uso compartido de Power BI.
 
 Aprenderá a:
 
-* Conectar Azure Time Series Insights a Power BI mediante el conector de nube
-* Crear objetos visuales con los datos en Power BI
-* Publicar el informe en Power BI y compartirlo con el resto de la organización
+* Conectar Azure Time Series Insights a Power BI mediante el conector nativo de Time Series Insights.
+* Crear objetos visuales con datos de una serie temporal en Power BI.
+* Publicar el informe en Power BI y compartirlo con el resto de la organización.
 
-Al final, aprenderá a visualizar datos de series temporales mediante Azure Time Series Insights y a mejorarlos con las potentes funcionalidades de visualización de datos y de fácil uso compartido de Power BI.
 
-Asegúrese de que se registra para obtener una [suscripción gratuita a Azure](https://azure.microsoft.com/free/), en caso de que no tenga ninguna.
+## <a name="prerequisites"></a>Prerrequisitos
 
-## <a name="prerequisites"></a>Requisitos previos
-
+* Regístrese para obtener [suscripción gratuita a Azure](https://azure.microsoft.com/free/), en caso de que no tenga ninguna.
 * Descargar e instalar la versión más reciente de [Power BI Desktop](https://powerbi.microsoft.com/downloads/)
 * Tener o crear un [entorno de Azure Time Series Insights Gen2](./how-to-provision-manage.md)
 
+Examine las [directivas de acceso del entorno](./concepts-access-policies.md) y asegúrese de que tiene acceso directo o acceso de invitado al entorno de Azure Time Series Insights Gen2. 
+
 > [!IMPORTANT]
->
-> * El conector se admite actualmente en entornos de Azure Time Series Insights Gen2 configurados con **Warm Store only** (Solo almacén intermedio).
-> * Si tiene acceso de invitado al entorno de Azure Time Series Insights Gen2 desde otro inquilino de Azure AD, no podrá tener acceso al conector. Lea sobre las [directivas de acceso al entorno](./concepts-access-policies.md).
+> * Descargue e instale la versión más reciente de [Power BI Desktop](https://powerbi.microsoft.com/downloads/). Para seguir los pasos de este artículo, asegúrese de que tiene instalada al menos la versión de diciembre 2020 (2.88.321.0) de Power BI Desktop. 
 
 ## <a name="connect-data-from-azure-time-series-insights-to-power-bi"></a>Conexión de datos de Azure Time Series Insights a Power BI
 
-Para conectar un entorno de Azure Time Series Insights a Power BI, siga estos pasos:
-
-1. Abra el Explorador de Azure Time Series Insights.
-1. Exporte los datos en forma de consulta o de datos sin procesar
-1. Abra Power BI Desktop
-1. Cargue desde una consulta personalizada
-
-### <a name="export-data-into-power-bi-desktop"></a>Exporte los datos en Power BI Desktop
+### <a name="1-export-data-into-power-bi-desktop"></a>1. Exporte los datos en Power BI Desktop
 
 Primeros pasos:
 
-1. Abra el Explorador de Azure Time Series Insights y realice el mantenimiento de los datos.
+1. Abra el Explorador de Azure Time Series Insights Gen2 y mantenga los datos. Estos son los datos que se van a exportar en Power BI.
 1. Una vez que haya creado una vista con la que esté conforme, vaya al menú desplegable **Más acciones** y seleccione **Conectar con Power BI**.
 
-    [![Exportación del Explorador de Azure Time Series Insights](media/how-to-connect-power-bi/time-series-insights-export-option.png)](media/how-to-connect-power-bi/time-series-insights-export-option.png#lightbox)
+    [Exportación del Explorador de Azure Time Series Insights Gen2![](media/how-to-connect-power-bi/export-from-explorer.jpg)](media/how-to-connect-power-bi/export-from-explorer.jpg#lightbox)
 
-1. Establezca los parámetros en esta pestaña:
+1. Establezca los parámetros de la exportación:
 
-   1. Especifique el periodo concreto que va a ver. Si no le gusta su vista existente, deje la opción **Periodo existente**.
-
-   1. Elija entre **Agregado** y **Eventos sin formato**.
+   * **Formato de datos**: Elija si desea exportar **datos agregados** o **eventos sin formato** a Power BI. 
 
        > [!NOTE]
-       > Siempre puede agregar los datos posteriormente en Power BI, pero no puede realizar la reversión a datos sin formato después de la agregación.
+       > * Si exporta eventos sin formato, puede agregar esos datos más adelante en Power BI. Sin embargo, si exporta datos agregados, no podrá revertirlos a datos sin procesar en Power BI. 
+       > * Hay un límite de recuento de eventos de 250 000 para los datos de nivel de evento sin formato.
 
-       > [!NOTE]
-       > Hay un límite de recuento de eventos de 250 000 para los datos de nivel de evento sin formato.
+   * **Intervalo de tiempo**: Elija si desea ver un intervalo de tiempo **fijo** o los datos **más recientes**  en Power BI. La elección del intervalo de tiempo fijo implica que los datos del intervalo de búsqueda que ha incluido en el gráfico se exportarán a Power BI. La elección del intervalo de tiempo más reciente implica que Power BI va a obtener los datos más recientes para el intervalo de búsqueda que ha elegido (por ejemplo, si crea un gráfico con una hora de datos y elige el valor "más reciente", el conector de Power BI siempre realizará consultas de la última hora de datos).
+  
+   * **Tipo de almacén**: Elija si desea ejecutar la consulta seleccionada en **Almacenamiento intermedio** o en **Almacenamiento en reposo**. 
 
-       [![Conectar](media/how-to-connect-power-bi/connect-to-power-bi.png)](media/how-to-connect-power-bi/connect-to-power-bi.png#lightbox)
+    > [!TIP]
+    > * El Explorador de Azure Time Series Insights seleccionará automáticamente los parámetros recomendados en función de los datos que haya elegido exportar. 
 
-   1. Si no ha configurado el entorno de Azure Time Series Insights con **almacenamiento intermedio**, recibirá una advertencia.
+1. Una vez que haya realizado la configuración, seleccione **Copiar consulta en el Portapapeles**.
 
-       [![Advertencia de almacenamiento intermedio](media/how-to-connect-power-bi/connect-to-power-bi-warning.png)](media/how-to-connect-power-bi/connect-to-power-bi-warning.png#lightbox)
+    [![Modal de exportación del Explorador de Azure Time Series Insights](media/how-to-connect-power-bi/choose-explorer-parameters.jpg)](media/how-to-connect-power-bi/choose-explorer-parameters.jpg#lightbox)
 
-       > [!TIP]
-       > Puede configurar la instancia existente para el **almacenamiento intermedio** en Azure Portal.
+2. Inicie Power BI Desktop.
+   
+3. En Power BI Desktop, en la pestaña **Inicio**, seleccione **Obtener datos** en la esquina superior izquierda y luego **Más**.
 
-1. Seleccione **Copiar consulta en el Portapapeles**.
-1. Ahora, inicie Power BI Desktop.
-1. En Power BI Desktop, en la pestaña **Inicio**, seleccione **Obtener datos** en la esquina superior izquierda y luego **Más**.
+    [![Obtención de datos en Power BI](media/how-to-connect-power-bi/get-data-power-bi.jpg)](media/how-to-connect-power-bi/get-data-power-bi.jpg#lightbox)
 
-    [![Menú desplegable de inicio](media/how-to-connect-power-bi/power-bi-home-drop-down.png)](media/how-to-connect-power-bi/power-bi-home-drop-down.png#lightbox)
+4. Busque **Azure Time Series Insights**, seleccione **Azure Time Series Insights (Beta)** y, después, **Conectar**.
 
-1. Busque **Azure Time Series Insights**, seleccione **Azure Time Series Insights (Beta)** y, después, **Conectar**.
-
-    [![Conexión de Power BI a Azure Time Series Insights](media/how-to-connect-power-bi/connect-to-time-series-insights.png)](media/how-to-connect-power-bi/connect-to-time-series-insights.png#lightbox)
+    [![Conexión de Power BI a Azure Time Series Insights](media/how-to-connect-power-bi/select-tsi-connector.jpg)](media/how-to-connect-power-bi/select-tsi-connector.jpg#lightbox)
 
     También puede ir a la pestaña **Azure**, seleccionar **Azure Time Series Insights (Beta)** y, después, **Conectar**.
 
-1. Se mostrará un cuadro de diálogo en el que se le pedirá permiso para conectarse a recursos de terceros. Seleccione **Continuar**.
+5. Pegue la consulta que copió del Explorador de Time Series Insights en el campo **Consulta personalizada** y presione **Aceptar**.
 
-    [![Elegir Creación de una consulta personalizada](media/how-to-connect-power-bi/confirm-the-connection.png)](media/how-to-connect-power-bi/confirm-the-connection.png#lightbox)
+    [![Pegar la consulta personalizada y seleccionar Aceptar](media/how-to-connect-power-bi/custom-query-load.png)](media/how-to-connect-power-bi/custom-query-load.png#lightbox)  
 
-1. En el menú desplegable que hay en **Origen de datos**, elija **Create custom query** (Crear consulta personalizada). Pegue desde el portapapeles en el campo **Consulta personalizada (opcional)** siguiente y, después, presione **Aceptar**.
+6.  Se cargará la tabla de datos. Pulse **Cargar** para realizar la carga en Power BI. Para realizar cualquier transformación en los datos, haga clic en **Transformar datos**. Los datos también se pueden transformar los datos después de cargarlos.
 
-    [![Pasar la consulta personalizada y seleccionar Aceptar](media/how-to-connect-power-bi/custom-query-load.png)](media/how-to-connect-power-bi/custom-query-load.png#lightbox)  
-
-1. Se cargará la tabla de datos. Pulse **Cargar** para realizar la carga en Power BI.
-
-    [![Examinar los datos cargados en la tabla y seleccionar Cargar](media/how-to-connect-power-bi/review-the-loaded-data-table.png)](media/how-to-connect-power-bi/review-the-loaded-data-table.png#lightbox)  
-
-Si ha completado estos pasos, vaya a la sección siguiente.
+    [![Examinar los datos de la tabla y seleccionar Cargar](media/how-to-connect-power-bi/review-the-loaded-data-table.png)](media/how-to-connect-power-bi/review-the-loaded-data-table.png#lightbox)  
 
 ## <a name="create-a-report-with-visuals"></a>Crear un informe con objetos visuales
 
@@ -114,38 +97,25 @@ Ahora que ha importado los datos en Power BI, es el momento de crear un informe
 
 1. En la columna **Visualizaciones**, seleccione el objeto visual que prefiera. Por ejemplo, seleccione **Gráfico de líneas**. Se agregará un gráfico de líneas en blanco al lienzo.
 
-1. En la lista **Campos**, seleccione **_Marca de tiempo** y arrástrelo hasta el campo **Eje** para mostrar los elementos en el eje X. Asegúrese de cambiar a **_Marca de tiempo** como el valor de **Eje** (el valor predeterminado es **Jerarquía de fechas**).
+1.  En la lista **Campos**, seleccione **Marca de tiempo** y arrástrelo al campo **Eje** para ver el tiempo en el eje X. Asegúrese de cambiar a **_Marca de tiempo** como el valor de **Eje** (el valor predeterminado es **Jerarquía de fechas**).
 
-    [![Captura de pantalla que muestra el menú Marca de tiempo con _Marca de tiempo seleccionado.](media/how-to-connect-power-bi/select-timestamp.png)](media/how-to-connect-power-bi/select-timestamp.png#lightbox)
+    [![Seleccionar _Marca de tiempo](media/how-to-connect-power-bi/select-timestamp.png)](media/how-to-connect-power-bi/select-timestamp.png#lightbox)
 
-1. En la lista **Campos**, seleccione **TimeSeriesId** y arrástrelo hasta el campo **Valores** para mostrar los elementos en el eje Y.
+1.  En la lista **Campos**, seleccione la variable que desea representar y arrástrela hasta el campo **Valores** para mostrar los valores en el eje Y. Seleccione el valor de Id. de serie temporal y arrástrelo hasta el campo **Leyenda** para crear varias líneas en el gráfico, una por cada identificador de serie temporal. Esto representará una vista similar a la que proporciona el Explorador de Azure Time Series Insights. 
 
-    [![Crear un gráfico de líneas](media/how-to-connect-power-bi/power-bi-line-chart.png)](media/how-to-connect-power-bi/power-bi-line-chart.png#lightbox)
+    [![Crear un gráfico de líneas básico](media/how-to-connect-power-bi/power-bi-line-chart.png)](media/how-to-connect-power-bi/power-bi-line-chart.png#lightbox)
 
 1. Para agregar otro gráfico al lienzo, seleccione cualquier lugar del lienzo fuera del gráfico de líneas y repita este proceso.
 
     [![Crear gráficos adicionales para compartir](media/how-to-connect-power-bi/power-bi-additional-charts.png)](media/how-to-connect-power-bi/power-bi-additional-charts.png#lightbox)
 
-Una vez creado el informe, puede publicarlo en Reporting Services de Power BI.
+Una vez que haya creado el informe, puede publicarlo en Reporting Services de Power BI y compartirlo con otros usuarios de su organización.
 
 ## <a name="advanced-editing"></a>Edición avanzada
-
-Si ya ha cargado un conjunto de datos en Power BI pero desea modificar la consulta (por ejemplo, los parámetros de fecha y hora o del identificador del entorno), puede hacerlo a través de la funcionalidad Editor avanzado de Power BI. Para más información, consulte la [documentación de Power BI](/power-bi/desktop-query-overview).
-
-A modo de información general:
-
-1. En Power BI Desktop, seleccione **Editar consultas**.
-1. Presione **Editor avanzado**.
-
-    [![Editar consultas en el Editor avanzado](media/how-to-connect-power-bi/power-bi-advanced-query-editing.png)](media/how-to-connect-power-bi/power-bi-advanced-query-editing.png#lightbox)
-
-1. Modifique la carga de JSON según sea necesario.
-1. Seleccione **Listo** y, después, **Cerrar y aplicar** en la **ventana del editor Power Query**.
-
-Ahora, en la interfaz se reflejarán los cambios que haya aplicado.  
+Si ya ha cargado un conjunto de datos en Power BI pero desea modificar la consulta (por ejemplo, los parámetros de fecha y hora o del identificador del entorno), puede hacerlo a través de la funcionalidad Editor avanzado de Power BI. Consulte la [documentación de Power BI](https://docs.microsoft.com/power-bi/desktop-query-overview) para obtener más información sobre cómo realizar cambios mediante el **Editor de Power Query**. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Más información acerca de los [conceptos de Power BI Connector](/power-bi/desktop-query-overview) para Azure Time Series Insights.
+* Más información acerca de [Power BI Desktop](https://docs.microsoft.com/power-bi/desktop-query-overview).
 
-* Más información acerca de [Power BI Desktop](/power-bi/desktop-query-overview).
+* Aprenda a [consultar datos](concepts-query-overview.md) en Azure Time Series Insights Gen2.

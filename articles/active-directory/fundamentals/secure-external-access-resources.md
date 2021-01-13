@@ -1,0 +1,62 @@
+---
+title: Protección del acceso externo a los recursos en Azure Active Directory
+description: Una guía para arquitectos y administradores de TI sobre cómo proteger el acceso externo a recursos internos
+services: active-directory
+author: BarbaraSelden
+manager: daveba
+ms.service: active-directory
+ms.workload: identity
+ms.subservice: fundamentals
+ms.topic: conceptual
+ms.date: 12/18/2020
+ms.author: baselden
+ms.reviewer: ajburnle
+ms.custom: it-pro, seodec18
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 39300c887245a99dce2913661f6492c85a1e6722
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97743746"
+---
+# <a name="securing-external-access-to-resources"></a>Protección del acceso externo a los recursos
+
+La colaboración segura con asociados externos garantiza que estos asociados tengan acceso a los recursos internos apropiados por el período de tiempo adecuado. Mediante un enfoque global de gobernanza, puede reducir los riesgos de seguridad, lograr los objetivos de cumplimiento y cerciorarse de qué usuarios tienen acceso.
+
+La colaboración no regulada genera confusión con respecto a la propiedad del acceso y puede dar lugar a la exposición de los recursos confidenciales. Adoptar un entorno de colaboración seguro y regulado contribuye a garantizar que haya líneas claras de propiedad y responsabilidad en relación con el acceso de los usuarios externos. Esto incluye:
+
+* Administrar las organizaciones externas y los usuarios de estas que tienen acceso a los recursos.
+
+* Asegurarse de que el acceso sea adecuado, se supervise y tenga un límite temporal cuando corresponda.
+
+* Permitir a los propietarios de empresas administrar la colaboración por medio de los mecanismos de protección establecidos por el equipo de TI.
+
+Si debe adherirse a marcos de cumplimiento, la colaboración regulada le permite constatar la pertinencia del acceso.
+
+Microsoft ofrece un completo conjunto de herramientas para un acceso externo seguro.  La colaboración B2B de Azure Active Directory (Azure AD) es una herramienta fundamental para plan de colaboración externo. Azure AD B2B se integra con otras herramientas de Azure AD y de los servicios de Microsoft 365 para proteger y administrar el acceso externo.
+
+Esta documentación se ha concebido para ayudarle a cambiar de un entorno de colaboración externa ad hoc poco regulado a uno más seguro. 
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Consulte los siguientes artículos sobre cómo proteger el acceso externo a los recursos. Se recomienda seguir los pasos por orden.
+
+
+1. [Determinación de la posición de seguridad deseada para el acceso externo](1-secure-access-posture.md)
+
+2. [Identificación del estado actual](2-secure-access-current-state.md)
+
+3. [Creación de un plan de gobernanza](3-secure-access-plan.md)
+
+4. [Uso de grupos con fines de seguridad](4-secure-access-groups.md)
+
+5. [Transición a Azure AD B2B](5-secure-access-b2b.md)
+
+6. [Acceso seguro mediante la administración de derechos](6-secure-access-entitlement-managment.md)
+
+7. [Acceso seguro mediante directivas de acceso condicional](7-secure-access-conditional-access.md)
+
+8. [Acceso seguro mediante etiquetas de confidencialidad](8-secure-access-sensitivity-labels.md)
+
+9. [Acceso seguro a Microsoft Teams, OneDrive y SharePoint](9-secure-access-teams-sharepoint.md)

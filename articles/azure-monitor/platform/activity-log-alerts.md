@@ -4,12 +4,12 @@ description: Reciba notificaciones por SMS, webhook y correo electrónico, entre
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 09/17/2018
-ms.openlocfilehash: 836fc20b6c3d46766801dce0e2aeda83a217d6a3
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: e0d71c014780637b490c745ed829078d138df675
+ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95536088"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97708439"
 ---
 # <a name="alerts-on-activity-log"></a>Alertas de registro de actividad
 
@@ -18,7 +18,8 @@ ms.locfileid: "95536088"
 Las alertas del registro de actividad son alertas que se activan cuando un nuevo [evento del registro de actividad](activity-log-schema.md) cumple las condiciones especificadas en la alerta. Según el orden y el volumen de los eventos registrados en el [registro de actividad de Azure](platform-logs-overview.md), se activará la regla de alerta. Las regla de alertas del registro de actividad son recursos de Azure, por lo que pueden crearse con una plantilla de Azure Resource Manager. También se pueden crear, actualizar o eliminar en Azure Portal. Este artículo presenta los conceptos relativos a las alertas del registro de actividad. Para más información sobre cómo crear o usar reglas de alertas de registro de actividad, consulte [Creación y administración de alertas del registro de actividad](alerts-activity-log.md).
 
 > [!NOTE]
-> **No se pueden** crear alertas para eventos en la categoría Alerta del registro de actividad.
+> * **No se pueden** crear alertas para eventos en la categoría Alerta del registro de actividad.
+> * Las alertas del registro de actividad con la categoría de Seguridad pueden definirse también en un [nuevo flujo actualizado](https://docs.microsoft.com/azure/security-center/continuous-export?tabs=azure-portal) como [ServiceNow](https://docs.microsoft.com/azure/security-center/export-to-siem).
 
 Por lo general, se crean alertas del registro de actividad para recibir notificaciones cuando:
 

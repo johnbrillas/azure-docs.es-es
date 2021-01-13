@@ -1,27 +1,27 @@
 ---
-title: Uso de Queue Storage de PHP- Azure Storage
-description: Aprenda a usar el servicio Cola de Azure para crear y eliminar colas e insertar, obtener y eliminar mensajes. Los ejemplos están escritos en C++.
+title: 'Uso de Queue Storage desde PHP: Azure Storage'
+description: Aprenda a usar el servicio Azure Queue Storage para crear y eliminar colas, así como insertar, obtener y eliminar mensajes. Los ejemplos están escritos en C++.
 author: mhopkins-msft
 ms.author: mhopkins
+ms.reviewer: dineshm
 ms.date: 01/11/2018
+ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
-ms.topic: how-to
-ms.reviewer: dineshm
-ms.openlocfilehash: 0e5b7ed75f22659a9a38ac761cc61c841102a067
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 69369d81892a10c390aa31a2c46f79fdfa41206d
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93345846"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97592031"
 ---
-# <a name="how-to-use-queue-storage-from-php"></a>Uso del almacenamiento de colas de PHP
+# <a name="how-to-use-queue-storage-from-php"></a>Uso de Queue Storage desde PHP
 
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
 
-Esta guía muestra cómo realizar algunas tareas comunes a través del servicio Azure Queue Storage. Los ejemplos se escriben mediante clases de la [biblioteca cliente de Azure Storage para PHP][download]. Entre los escenarios descritos se incluyen insertar, ojear, obtener y eliminar mensajes de la cola, así como crear y eliminar colas.
+Esta guía muestra cómo realizar algunas tareas comunes a través del servicio Azure Queue Storage. Los ejemplos se escriben mediante clases de la [biblioteca cliente de Azure Storage para PHP](https://github.com/Azure/azure-storage-php). Entre los escenarios descritos se incluyen insertar, ojear, obtener y eliminar mensajes de la cola, así como crear y eliminar colas.
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
@@ -29,15 +29,15 @@ Esta guía muestra cómo realizar algunas tareas comunes a través del servicio 
 
 ## <a name="create-a-php-application"></a>Creación de una aplicación PHP
 
-El único requisito a la hora de crear una aplicación PHP para obtener acceso al servicio Azure Queue Storage es que el código haga referencia a clases de la [biblioteca cliente de Azure Storage para PHP][download]. Puede utilizar cualquier herramienta de desarrollo para crear la aplicación, incluido el Bloc de notas.
+El único requisito para crear una aplicación PHP que acceda a Azure Queue Storage es que el código haga referencia a clases de la [biblioteca cliente de Azure Storage para PHP](https://github.com/Azure/azure-storage-php). Puede utilizar cualquier herramienta de desarrollo para crear la aplicación, incluido el Bloc de notas.
 
-En esta guía, usará funciones del servicio Queue Storage a las que se puede llamar desde una aplicación PHP localmente o bien mediante código en una aplicación web de Azure.
+En esta guía, se usan funciones del servicio Queue Storage a las que se puede llamar desde una aplicación PHP localmente, o bien mediante código en una aplicación web de Azure.
 
 ## <a name="get-the-azure-client-libraries"></a>Obtención de las bibliotecas de clientes de Azure
 
-### <a name="install-via-composer"></a>Instalación mediante el compositor
+### <a name="install-via-composer"></a>Instalación mediante Composer
 
-1. Cree un archivo con el nombre **composer.json** en la raíz del proyecto y agréguele el código siguiente:
+1. Cree un archivo con el nombre `composer.json` en la raíz del proyecto y agréguele el código siguiente:
 
     ```json
     {
@@ -47,34 +47,35 @@ En esta guía, usará funciones del servicio Queue Storage a las que se puede ll
     }
     ```
 
-2. Descargue **[composer.phar][composer-phar]** en la raíz del proyecto.
-3. Abra un símbolo del sistema y ejecute el siguiente comando en la raíz del proyecto
+2. Descargue [`composer.phar`](https://getcomposer.org/composer.phar) en la raíz del proyecto.
 
-    ```
+3. Abra un símbolo del sistema y ejecute el siguiente comando en la raíz del proyecto:
+
+    ```console
     php composer.phar install
     ```
 
-También puede ir a la [biblioteca cliente de PHP de Azure Storage][download] en GitHub para clonar el código fuente.
+También puede ir a la [biblioteca cliente de Azure Storage para PHP](https://github.com/Azure/azure-storage-php) en GitHub para clonar el código fuente.
 
-## <a name="configure-your-application-to-access-queue-storage"></a>Configuración de la aplicación para obtener acceso al almacenamiento en cola
+## <a name="configure-your-application-to-access-queue-storage"></a>Configuración de la aplicación para obtener acceso a Queue Storage
 
-Para usar las API de almacenamiento en cola de Azure, necesitará:
+Para usar las API de Azure Queue Storage, es preciso:
 
-1. Hacer referencia al archivo autocargador mediante la instrucción [require_once].
+1. Hacer referencia al archivo cargador automático mediante la instrucción [`require_once`](https://www.php.net/manual/en/function.require-once.php).
 2. Hacer referencia a todas las clases que puede que use.
 
-En el siguiente ejemplo se muestra cómo incluir el archivo autocargador y hacer referencia a la clase **QueueRestProxy**.
+En el siguiente ejemplo se muestra cómo incluir el archivo autocargador y hacer referencia a la clase `QueueRestProxy`.
 
 ```php
 require_once 'vendor/autoload.php';
 use MicrosoftAzure\Storage\Queue\QueueRestProxy;
 ```
 
-En los ejemplos siguientes, la instrucción `require_once` se muestra siempre, pero solo se hará referencia a las clases necesarias para la ejecución del ejemplo.
+En los ejemplos siguientes, la instrucción `require_once` se muestra siempre, pero solo se hará referencia a las clases necesarias para ejecutar el ejemplo.
 
-## <a name="set-up-an-azure-storage-connection"></a>Configuración de una conexión de Almacenamiento de Azure
+## <a name="set-up-an-azure-storage-connection"></a>Configuración de una conexión de Azure Storage
 
-Para crear una instancia de un cliente de almacenamiento en cola de Azure, primero debe disponer de una cadena de conexión válida. El formato de las cadenas de conexión del servicio Cola es:
+Para crear una instancia de un cliente de Azure Queue Storage, primero es preciso tener una cadena de conexión válida. Este es el formato de la cadena de conexión de Queue Storage.
 
 Para obtener acceso a un servicio en directo:
 
@@ -88,7 +89,7 @@ Para obtener acceso al emulador de almacenamiento:
 UseDevelopmentStorage=true
 ```
 
-Para crear un cliente del servicio Azure Queue, debe usar la clase **QueueRestProxy**. Puede usar cualquiera de las técnicas siguientes:
+Para crear un cliente de Azure Queue Storage, debe usar la clase `QueueRestProxy`. Puede usar cualquiera de las técnicas siguientes:
 
 - pasarle directamente la cadena de conexión, o bien
 - usar variables de entorno en la aplicación web para almacenar la cadena de conexión. Consulte el documento sobre la [configuración de aplicaciones web en Azure](../../app-service/configure-common.md) para configurar cadenas de conexión.
@@ -106,7 +107,7 @@ $queueClient = QueueRestProxy::createQueueService($connectionString);
 
 ## <a name="create-a-queue"></a>Creación de una cola
 
-Un objeto **QueueRestProxy** le permite crear una cola con el método **createQueue**. Al crear una cola, puede establecer opciones en ella, aunque no es obligatorio. El ejemplo siguiente muestra cómo configurar metadatos en una cola.
+Un objeto `QueueRestProxy` le permite crear una cola mediante el método `CreateQueue`. Al crear una cola, puede establecer opciones en ella, aunque no es obligatorio. Este ejemplo muestra cómo establecer metadatos en una cola.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -144,7 +145,7 @@ catch(ServiceException $e){
 
 ## <a name="add-a-message-to-a-queue"></a>un mensaje a una cola
 
-Para agregar un mensaje a una cola, use **QueueRestProxy->createMessage**. El método toma el nombre de la cola, el texto del mensaje y las opciones de mensaje (que son opcionales).
+Para agregar un mensaje a una cola, use `QueueRestProxy->createMessage`. El método toma el nombre de la cola, el texto del mensaje y las opciones de mensaje (que son opcionales).
 
 ```php
 require_once 'vendor/autoload.php';
@@ -160,7 +161,7 @@ $queueClient = QueueRestProxy::createQueueService($connectionString);
 
 try    {
     // Create message.
-    $queueClient->createMessage("myqueue", "Hello World!");
+    $queueClient->createMessage("myqueue", "Hello, World");
 }
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
@@ -172,9 +173,9 @@ catch(ServiceException $e){
 }
 ```
 
-## <a name="peek-at-the-next-message"></a>siguiente mensaje
+## <a name="peek-at-the-next-message"></a>Inspección del siguiente mensaje
 
-Puede ojear uno o varios mensajes en la parte delantera de una cola, sin quitarlos de la cola, mediante una llamada a **QueueRestProxy->peekMessages**. De forma predeterminada, el método **peekMessage** devuelve un único mensaje, pero puede cambiar el valor con el método **PeekMessagesOptions->setNumberOfMessages**.
+Para inspeccionar uno o varios mensajes situados en la parte delantera de una cola, sin quitarlos de la cola, llame a `QueueRestProxy->peekMessages`. De forma predeterminada, el método `peekMessage` devuelve un solo mensaje, pero ese valor se puede cambiar mediante el método `PeekMessagesOptions->setNumberOfMessages`.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -221,9 +222,9 @@ else{
 }
 ```
 
-## <a name="de-queue-the-next-message"></a>siguiente mensaje de la cola
+## <a name="de-queue-the-next-message"></a>Extracción del siguiente mensaje
 
-El código borra un mensaje de una cola en dos pasos. Primero llama a **QueueRestProxy->listMessages** , que hace que el mensaje sea invisible a cualquier otro código que esté leyendo de la cola. De forma predeterminada, este mensaje permanece invisible durante 30 segundos. (Si el mensaje no se elimina en este período, volverá a estar visible de nuevo en la cola). Para terminar de quitar el mensaje de la cola, debe llamar a **QueueRestProxy->deleteMessage**. Este proceso de extracción de un mensaje que consta de dos pasos garantiza que si su código no puede procesar un mensaje a causa de un error de hardware o software, otra instancia de su código puede obtener el mismo mensaje e intentarlo de nuevo. Su código llama a **deleteMessage** justo después de que se haya procesado el mensaje.
+El código borra un mensaje de una cola en dos pasos. Primero llama a `QueueRestProxy->listMessages`, que hace que el mensaje sea invisible a cualquier otro código que esté leyendo de la cola. De forma predeterminada, este mensaje permanece invisible durante 30 segundos. (Si el mensaje no se elimina en este período, volverá a estar visible de nuevo en la cola). Para acabar de quitar el mensaje de la cola, debe llamar a `QueueRestProxy->deleteMessage`. Este proceso de extracción de un mensaje que consta de dos pasos garantiza que si su código no puede procesar un mensaje a causa de un error de hardware o software, otra instancia de su código puede obtener el mismo mensaje e intentarlo de nuevo. El código siguiente llama a `deleteMessage` justo después de haberse procesado el mensaje.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -263,9 +264,9 @@ catch(ServiceException $e){
 }
 ```
 
-## <a name="change-the-contents-of-a-queued-message"></a>contenido de un mensaje en cola
+## <a name="change-the-contents-of-a-queued-message"></a>Cambio del contenido de un mensaje en cola
 
-Puede cambiar el contenido de un mensaje local en la cola llamando a **QueueRestProxy->updateMessage**. Si el mensaje representa una tarea de trabajo, puede usar esta característica para actualizar el estado de la tarea de trabajo. El siguiente código actualiza el mensaje de la cola con contenido nuevo y amplía el tiempo de espera de la visibilidad en 60 segundos más. De este modo, se guarda el estado de trabajo asociado al mensaje y se le proporciona al cliente un minuto más para que siga elaborando el mensaje. Esta técnica se puede utilizar para realizar un seguimiento de los flujos de trabajo de varios pasos en los mensajes en cola, sin que sea necesario volver a empezar desde el principio si se produce un error en un paso del proceso a causa de un error de hardware o software. Normalmente, también mantendría un número de reintentos y, si el mensaje se intentara más de *n* veces, lo eliminaría. Esto proporciona protección frente a un mensaje que produce un error en la aplicación cada vez que se procesa.
+El contenido de un mensaje local en la cola se puede cambiar llamando a `QueueRestProxy->updateMessage`. Si el mensaje representa una tarea de trabajo, puede usar esta característica para actualizar el estado de la tarea de trabajo. El siguiente código actualiza el mensaje de la cola con contenido nuevo y amplía el tiempo de espera de la visibilidad en 60 segundos más. De este modo, se guarda el estado de trabajo asociado al mensaje y se le proporciona al cliente un minuto más para que siga elaborando el mensaje. Esta técnica se puede utilizar para realizar un seguimiento de los flujos de trabajo de varios pasos en los mensajes en cola, sin que sea necesario volver a empezar desde el principio si se produce un error en un paso del proceso a causa de un error de hardware o software. Normalmente, también mantendría un número de reintentos y, si el mensaje se intentara más de *n* veces, lo eliminaría. Esto proporciona protección frente a un mensaje que produce un error en la aplicación cada vez que se procesa.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -309,9 +310,9 @@ catch(ServiceException $e){
 }
 ```
 
-## <a name="additional-options-for-de-queuing-messages"></a>Opciones adicionales para quitar mensajes de la cola
+## <a name="additional-options-for-dequeuing-messages"></a>Opciones adicionales para quitar mensajes de la cola
 
-Hay dos formas de personalizar la recuperación de mensajes de una cola. En primer lugar, puede obtener un lote de mensajes (hasta 32). En segundo lugar, puede establecer un tiempo de espera de la visibilidad más largo o más corto para que el código disponga de más o menos tiempo para procesar cada mensaje. El siguiente ejemplo de código utiliza el método **getMessages** para obtener 16 mensajes en una llamada. A continuación, procesa cada mensaje con un bucle **for** . También establece el tiempo de espera de la invisibilidad en cinco minutos para cada mensaje.
+Hay dos formas de personalizar la recuperación de mensajes de una cola. En primer lugar, puede obtener un lote de mensajes (hasta 32). En segundo lugar, puede establecer un tiempo de espera de la visibilidad más largo o más corto para que el código disponga de más o menos tiempo para procesar cada mensaje. El siguiente ejemplo de código usa el método `getMessages` para obtener 16 mensajes en una llamada. Luego, utiliza un bucle `for` para procesar cada mensaje. También establece el tiempo de espera de la invisibilidad en cinco minutos para cada mensaje.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -362,7 +363,7 @@ catch(ServiceException $e){
 
 ## <a name="get-queue-length"></a>longitud de la cola
 
-Puede obtener una estimación del número de mensajes existentes en una cola. El método **QueueRestProxy->getQueueMetadata** solicita a Queue service que devuelva los metadatos sobre la cola. Si llama al método **getApproximateMessageCount** en el objeto devuelto, se ofrece un recuento de la cantidad de mensajes que hay en una cola. El recuento solo es aproximado, ya que se pueden agregar o borrar mensajes después de que el servicio de cola haya respondido su solicitud.
+Puede obtener una estimación del número de mensajes existentes en una cola. El método `QueueRestProxy->getQueueMetadata` recupera los metadatos de una cola. La llamada al método `getApproximateMessageCount` en el objeto devuelto proporciona el recuento del número mensajes que hay en la cola. El recuento es solo aproximado, ya que se pueden agregar o borrar mensajes después de que Queue Storage haya respondido su solicitud.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -394,7 +395,7 @@ echo $approx_msg_count;
 
 ## <a name="delete-a-queue"></a>Eliminación de una cola
 
-Para eliminar una cola y todos los mensajes contenidos en ella, llame al método **QueueRestProxy->deleteQueue**.
+Para eliminar una cola y todos los mensajes que contiene, llame al método `QueueRestProxy->deleteQueue`.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -423,14 +424,9 @@ catch(ServiceException $e){
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que está familiarizado con los aspectos básicos del almacenamiento en cola de Azure, use estos vínculos para obtener más información acerca de tareas de almacenamiento más complejas.
+Ahora que ha aprendido los aspectos básicos de Azure Queue Storage, siga estos vínculos para obtener más información acerca de tareas de almacenamiento más complejas:
 
-- Consulte la [referencia de API para la biblioteca de cliente de Azure Storage para PHP](https://azure.github.io/azure-storage-php/).
+- Consulte la [referencia de API para la biblioteca cliente de Azure Storage para PHP](https://azure.github.io/azure-storage-php/).
 - Consulte el [ejemplo de cola avanzada](https://github.com/Azure/azure-storage-php/blob/master/samples/QueueSamples.php).
 
-Para obtener más información, consulte también el [Centro para desarrolladores de PHP](https://azure.microsoft.com/develop/php/).
-
-[download]: https://github.com/Azure/azure-storage-php
-[require_once]: https://www.php.net/manual/en/function.require-once.php
-[Azure Portal]: https://portal.azure.com
-[composer-phar]: https://getcomposer.org/composer.phar
+Para más información, consulte el artículo sobre el [Centro para desarrolladores de PHP](https://azure.microsoft.com/develop/php/).

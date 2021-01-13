@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/05/2020
-ms.openlocfilehash: 8fabf8169270c3162604b6535a6cf2fb07cd9a9d
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: dc19b95e891235ac35c703adef50a23a9f70fbdb
+ms.sourcegitcommit: 0830e02635d2f240aae2667b947487db01f5fdef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422151"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97706803"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Réplicas de lectura en Azure Database for PostgreSQL: servidor único
 
@@ -71,6 +71,8 @@ Cada réplica se habilita para el [crecimiento automático](concepts-pricing-tie
 La característica de réplica de lectura usa la replicación física de PostgreSQL (replicación no lógica). El modo de funcionamiento predeterminado es la transmisión de la replicación mediante espacios de replicación. Cuando es necesario, se usa el trasvase de registros para actualizarse.
 
 Aprenda a [crear una réplica de lectura en Azure Portal](howto-read-replicas-portal.md).
+
+Si el servidor PostgreSQL de origen está cifrado con claves administradas por el cliente, consulte la [documentación](concepts-data-encryption-postgresql.md) para obtener más información.
 
 ## <a name="connect-to-a-replica"></a>Conexión a una réplica
 Al crear una réplica, no se heredan las reglas de firewall o el punto de conexión de servicio de red virtual del servidor principal. Estas reglas se deben configurar de forma independiente para la réplica.

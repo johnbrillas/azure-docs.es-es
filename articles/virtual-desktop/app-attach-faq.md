@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 73fb9bf436c043e903977fafbb5a502e2edc5488
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: 78c21e9515965f1c15315967f6a19a0df2838dc2
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96518692"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591202"
 ---
 # <a name="msix-app-attach-faq"></a>Preguntas frecuentes sobre la asociación de aplicaciones en formato MSIX
 
@@ -27,7 +27,7 @@ MSIX es un formato de empaquetado de aplicaciones, mientras que la conexión de 
 
 La asociación de aplicaciones en formato MSIX no utiliza FSLogix. Sin embargo, la asociación de aplicaciones en formato MSIX y FSLogix están diseñados para trabajar conjuntamente con el fin de proporcionar una experiencia de usuario sin problemas.
 
-## <a name="can-i-use-msix-app-attach-outside-of-windows-virtual-desktop"></a>¿Puedo usar la asociación de aplicaciones con formato MSIX fuera de Windows Virtual Desktop?
+## <a name="can-i-use-the-msix-app-attach-outside-of-windows-virtual-desktop"></a>¿Puedo usar la asociación de aplicaciones con formato MSIX fuera de Windows Virtual Desktop?
 
 Las API que permiten el funcionamiento de la conexión de aplicaciones en formato MSIX están disponibles para Windows 10 Enterprise. Estas se pueden usar fuera de Windows Virtual Desktop. Sin embargo, no hay ningún plano de administración para la asociación de aplicaciones en formato MSIX fuera de Windows Virtual Desktop.
 

@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/19/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6978afc802bddd536c56fcb4e06a40ccc58867fe
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 12b9639342e2e35b9229aa15bb9cfb4695427606
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172666"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881198"
 ---
 # <a name="define-a-one-time-password-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Definición de un perfil técnico de una contraseña de un solo uso en una directiva personalizada de Azure AD B2C
 
@@ -24,7 +24,7 @@ ms.locfileid: "92172666"
 
 Azure Active Directory B2C (Azure AD B2C) proporciona compatibilidad para administrar la generación y verificación de una contraseña de un solo uso. Use un perfil técnico para generar un código y, a continuación, verifique el código más adelante.
 
-El perfil técnico de la contraseña de un solo uso también puede devolver un mensaje de error durante la verificación del código. Puede diseñar la integración con la contraseña de un solo uso mediante el uso de un **perfil técnico de validación** . Un perfil técnico de validación llama al perfil técnico de la contraseña de un solo uso para verificar un código. El perfil técnico de validación valida los datos que proporciona el usuario antes de que continúe el recorrido del usuario. Con el perfil técnico de validación, se muestra un mensaje de error en una página autoafirmada.
+El perfil técnico de la contraseña de un solo uso también puede devolver un mensaje de error durante la verificación del código. Puede diseñar la integración con la contraseña de un solo uso mediante el uso de un **perfil técnico de validación**. Un perfil técnico de validación llama al perfil técnico de la contraseña de un solo uso para verificar un código. El perfil técnico de validación valida los datos que proporciona el usuario antes de que continúe el recorrido del usuario. Con el perfil técnico de validación, se muestra un mensaje de error en una página autoafirmada.
 
 ## <a name="protocol"></a>Protocolo
 
@@ -45,7 +45,7 @@ En el ejemplo siguiente se muestra un perfil técnico de contraseña de un solo 
 
 ## <a name="generate-code"></a>Generación de código
 
-El primer modo de este perfil técnico es para generar un código. A continuación, se muestran las opciones que se pueden configurar para este modo.
+El primer modo de este perfil técnico es para generar un código. A continuación, se muestran las opciones que se pueden configurar para este modo. Durante la sesión se realiza un seguimiento de los códigos generados y de los intento. 
 
 ### <a name="input-claims"></a>Notificaciones de entrada
 
@@ -73,7 +73,7 @@ La configuración siguiente se puede usar para establecer el modo de generación
 
 | Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
-| CodeExpirationInSeconds | No | Tiempo en segundos hasta la expiración del código. Mínimo: `60`; máximo: `1200`; valor predeterminado: `600`. Cada vez que se proporciona un código (el mismo código que usa `ReuseSameCode`, o un código nuevo), se amplía la expiración del código.  |
+| CodeExpirationInSeconds | No | Tiempo en segundos hasta la expiración del código. Mínimo: `60`; máximo: `1200`; valor predeterminado: `600`. Cada vez que se proporciona un código (el mismo código que usa `ReuseSameCode`, o un código nuevo), se amplía la expiración del código. También se usa para establecer el tiempo de espera de reintento (una vez alcanzado el máximo de intentos, el usuario no podrá intentar obtener nuevos códigos hasta que expire este tiempo). |
 | CodeLength | No | Longitud del código. El valor predeterminado es `6`. |
 | CharacterSet | No | Juego de caracteres del código, con formato para usarse en una expresión regular. Por ejemplo, `a-z0-9A-Z`. El valor predeterminado es `0-9`. El juego de caracteres debe incluir un mínimo de 10 caracteres diferentes en el conjunto especificado. |
 | NumRetryAttempts | No | Número de intentos de verificación antes de que el código se considere no válido. El valor predeterminado es `5`. |

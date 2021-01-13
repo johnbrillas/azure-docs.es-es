@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 854c988346bce9be06811d386b3798d2d0427dd7
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 0e3aa70a1a40e3878aea7b4f42f5aa167e4204c5
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92095932"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97585398"
 ---
 # <a name="ncv3-series"></a>Serie NCv3
 
@@ -23,6 +23,7 @@ Las máquinas virtuales de la serie NCv3 disponen de la tecnología de las GPU N
 [Migración en vivo](maintenance-and-updates.md): No compatible<br>
 [Actualizaciones con conservación de memoria](maintenance-and-updates.md): No compatible<br>
 [Compatibilidad con generación de VM](generation-2.md): Generación 1 y 2<br>
+Interconexión de Nvidia NVLink: No compatible<br>
 
 > [!IMPORTANT]
 > Para esta serie de máquinas virtuales, la cuota de vCPU (núcleo) en su suscripción está establecida inicialmente en 0 en cada región. [Solicite un aumento de cuota de vCPU](../azure-portal/supportability/resource-manager-core-quotas-request.md) para esta serie en una [región donde esté disponible](https://azure.microsoft.com/regions/services/). Estas SKU no están disponibles para las suscripciones de Azure en la modalidad de evaluación gratuita o suscriptor de Visual Studio. Su nivel de suscripción podría no admitir la selección o implementación de estas SKU. 

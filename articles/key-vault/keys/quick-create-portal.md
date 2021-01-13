@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/24/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 41f3d60d91b7418d6e9733b8351d4830b31dbace
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 419fe72d400177ce9fa3d9811d7dfa06e74c0810
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "81420289"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935060"
 ---
 # <a name="quickstart-set-and-retrieve-a-key-from-azure-key-vault-using-the-azure-portal"></a>Inicio rápido: Establecimiento y recuperación de una clave de Azure Key Vault mediante Azure Portal
 
@@ -83,4 +83,4 @@ En este inicio rápido ha creado una instancia de Key Vault y ha almacenado una 
 
 - Lea una [introducción a Azure Key Vault](../general/overview.md).
 - Consulte la [guía del desarrollador de Azure Key Vault](../general/developers-guide.md).
-- Consulte los [procedimientos recomendados de Azure Key Vault](../general/best-practices.md).
+- Consulte [Introducción a la seguridad de Azure Key Vault](../general/security-overview.md)

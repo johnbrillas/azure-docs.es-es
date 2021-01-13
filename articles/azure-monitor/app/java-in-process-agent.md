@@ -6,12 +6,12 @@ ms.date: 03/29/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 3cab22c2271fd5874b4b094be65c36f5b5f3a22d
-ms.sourcegitcommit: 287c20509c4cf21d20eea4619bbef0746a5cd46e
+ms.openlocfilehash: 2011d013cce43eaf471d61936d5c34c318360381
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97371890"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97616650"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights"></a>Supervisión de aplicaciones sin código de Java con Azure Monitor Application Insights
 
@@ -139,7 +139,7 @@ La versión de Java 3.0 de Application Insights capturará automáticamente la 
 
 ### <a name="supported-custom-telemetry"></a>Telemetría personalizada admitida
 
-En la tabla siguiente se representan los tipos de telemetría personalizados admitidos actualmente que se pueden habilitar para complementar el agente Java 3.0. En resumen, las métricas personalizadas se admiten a través de Micrometer, las excepciones personalizadas y los seguimientos se pueden habilitar a través de las plataformas de registro, y se admite cualquier tipo de telemetría personalizada a través del [SDK de Application Insights Java 2.x](#send-custom-telemetry-using-application-insights-java-2x-sdk).
+En la tabla siguiente se representan los tipos de telemetría personalizados admitidos actualmente que se pueden habilitar para complementar el agente Java 3.0. En resumen, las métricas personalizadas se admiten a través de Micrometer, las excepciones personalizadas y los seguimientos se pueden habilitar a través de las plataformas de registro, y se admite cualquier tipo de telemetría personalizada a través del [SDK de Application Insights Java 2.x](#send-custom-telemetry-using-the-2x-sdk).
 
 |                     | Micrómetro | Log4j, logback, JUL | SDK 2.x |
 |---------------------|------------|---------------------|---------|
@@ -188,7 +188,7 @@ Consulte las [opciones de configuración](./java-standalone-config.md#auto-colle
 
 Si quiere adjuntar dimensiones personalizadas a los registros, puede usar [Log4j 1.2 MDC](https://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/MDC.html), [Log4j 2 MDC](https://logging.apache.org/log4j/2.x/manual/thread-context.html) o [Logback MDC](http://logback.qos.ch/manual/mdc.html), y Java 3.0 de Application Insights se encargará de capturar automáticamente las propiedades de MDC como dimensiones personalizadas en la telemetría de seguimiento y excepciones.
 
-### <a name="send-custom-telemetry-using-application-insights-java-2x-sdk"></a>Envío de telemetría personalizada con el SDK de Java 2.x de Application Insights.
+### <a name="send-custom-telemetry-using-the-2x-sdk"></a>Envío de telemetría personalizada mediante el SDK 2.x
 
 Agregue `applicationinsights-core-2.6.2.jar` a la aplicación (todas las versiones 2.x son compatibles con Application Insights Java 3.0, pero merece la pena usar la más reciente si es posible):
 
@@ -251,3 +251,80 @@ try {
     telemetryClient.trackException(e);
 }
 ```
+
+### <a name="add-request-custom-dimensions-using-the-2x-sdk"></a>Adición de dimensiones personalizadas de solicitud mediante el SDK 2.x
+
+> [!NOTE]
+> Esta característica solo está en 3.0.1-BETA y versiones posteriores
+
+Agregue `applicationinsights-web-2.6.2.jar` a la aplicación (todas las versiones 2.x son compatibles con Application Insights Java 3.0, pero merece la pena usar la más reciente si es posible):
+
+```xml
+<dependency>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>applicationinsights-web</artifactId>
+  <version>2.6.2</version>
+</dependency>
+```
+
+Agregue también dimensiones personalizadas al código:
+
+```java
+import com.microsoft.applicationinsights.web.internal.ThreadContext;
+
+RequestTelemetry requestTelemetry = ThreadContext.getRequestTelemetryContext().getHttpRequestTelemetry();
+requestTelemetry.getProperties().put("mydimension", "myvalue");
+```
+
+### <a name="set-the-request-telemetry-user_id-using-the-2x-sdk"></a>Establecimiento de user_Id de telemetría de solicitud con el SDK 2.x
+
+> [!NOTE]
+> Esta característica solo está en 3.0.1-BETA y versiones posteriores
+
+Agregue `applicationinsights-web-2.6.2.jar` a la aplicación (todas las versiones 2.x son compatibles con Application Insights Java 3.0, pero merece la pena usar la más reciente si es posible):
+
+```xml
+<dependency>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>applicationinsights-web</artifactId>
+  <version>2.6.2</version>
+</dependency>
+```
+
+Establezca `user_Id` en el código:
+
+```java
+import com.microsoft.applicationinsights.web.internal.ThreadContext;
+
+RequestTelemetry requestTelemetry = ThreadContext.getRequestTelemetryContext().getHttpRequestTelemetry();
+requestTelemetry.getContext().getUser().setId("myuser");
+```
+
+### <a name="override-the-request-telemetry-name-using-the-2x-sdk"></a>Reemplazo del nombre de telemetría de solicitud con el SDK 2.x
+
+> [!NOTE]
+> Esta característica solo está en 3.0.1-BETA y versiones posteriores
+
+Agregue `applicationinsights-web-2.6.2.jar` a la aplicación (todas las versiones 2.x son compatibles con Application Insights Java 3.0, pero merece la pena usar la más reciente si es posible):
+
+```xml
+<dependency>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>applicationinsights-web</artifactId>
+  <version>2.6.2</version>
+</dependency>
+```
+
+Establezca el nombre en el código:
+
+```java
+import com.microsoft.applicationinsights.web.internal.ThreadContext;
+
+RequestTelemetry requestTelemetry = ThreadContext.getRequestTelemetryContext().getHttpRequestTelemetry();
+requestTelemetry.setName("myname");
+```
+
+> [!NOTE]
+> Todas las demás operaciones en un elemento `RequestTelemetry` recuperado de `ThreadContext.getRequestTelemetryContext().getHttpRequestTelemetry()` además de las descritas anteriormente producirán un error rápidamente y una excepción que le informará de que es un comportamiento no definido en el agente 3.0.
+>
+> Si necesita interoperabilidad para cualquier otro método en `RequestTelemetry`, abra una incidencia en https://github.com/microsoft/ApplicationInsights-Java/issues para informarnos al respecto.

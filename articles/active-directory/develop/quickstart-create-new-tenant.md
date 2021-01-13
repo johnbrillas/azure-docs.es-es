@@ -13,12 +13,12 @@ ms.date: 03/12/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 60d789c4297c400b812cd6c5c19c8c6148cb347d
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: f43cb80a148f5dadb409f506f237cb1210a2000a
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91575986"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934006"
 ---
 # <a name="quickstart-set-up-a-tenant"></a>Inicio rápido: Configuración de un inquilino
 
@@ -55,7 +55,7 @@ Muchos desarrolladores ya tienen inquilinos mediante servicios o suscripciones q
 > [!TIP]
 > Si necesita encontrar el identificador del inquilino, puede:
 > * Mantener el puntero sobre el nombre de cuenta para obtener el directorio o el identificador de inquilino.
-> * Seleccionar **Azure Active Directory > Propiedades > Id. de directorio** en Azure Portal.
+> * Buscar y seleccionar **Azure Active Directory > Propiedades > Id. de inquilino** en Azure Portal.
 
 Si no tiene un inquilino existente asociado a la cuenta, verá un GUID bajo el nombre de la cuenta y no podrá realizar acciones como el registro de aplicaciones hasta que siga los pasos de la siguiente sección.
 

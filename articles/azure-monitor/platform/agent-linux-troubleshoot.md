@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: 13959c4a3c798656efdc72b5c8e5f96e4fb2392a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 2b811b1ace646cc4e0a93b937fbb90cfbf7aec0f
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96011904"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97704901"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Cómo solucionar problemas relacionados con el agente de Log Analytics para Linux 
 
@@ -241,23 +241,6 @@ Los errores relacionados con el rendimiento no se producen constantemente y son 
 3. Reinicie OMI: <br/>
 `sudo scxadmin -restart`
 
-## <a name="issue-you-are-not-seeing-any-data-in-the-azure-portal"></a>Problema: No aparece ningún dato en Azure Portal
-
-### <a name="probable-causes"></a>Causas probables
-
-- Error de incorporación a Azure Monitor
-- La conexión a Azure Monitor está bloqueada
-- Se está haciendo la copia de seguridad de los datos del agente de Log Analytics para Linux
-
-### <a name="resolution"></a>Solución
-1. Para comprobar si la incorporación en Azure Monitor se realizó correctamente, asegúrese de que existe el archivo siguiente: `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`.
-2. Repita la incorporación con las instrucciones de la línea de comandos `omsadmin.sh`
-3. Si utiliza un proxy, consulte los pasos de resolución de proxy que proporcionó anteriormente.
-4. En algunos casos, cuando el agente de Log Analytics para Linux no puede comunicarse con el servicio, los datos del agente ocupan el tamaño de búfer total de 50 MB. Se debe reiniciar el agente ejecutando el siguiente comando `/opt/microsoft/omsagent/bin/service_control restart [<workspace id>]`. 
-
-    >[!NOTE]
-    >Este problema se ha corregido en la versión 1.1.0-28 y posteriores del agente.
-
 
 ## <a name="issue-you-are-not-seeing-forwarded-syslog-messages"></a>Problema: No ve los mensajes de Syslog reenviados 
 
@@ -335,6 +318,7 @@ Este error indica que la extensión Diagnostics de Linux (LAD) está instalada e
 * La conexión a Azure Monitor está bloqueada
 * La máquina virtual se reinició
 * El paquete de OMI se actualizó manualmente a una versión más reciente en comparación con la que instaló el paquete del agente de Log Analytics para Linux
+* OMI está detenido, se está bloqueando el agente de OMS
 * Error *class not found* de los registros de recursos de DSC en el archivo de registro `omsconfig.log`
 * Se está haciendo la copia de seguridad de los datos del agente de Log Analytics
 * DSC registra *Current configuration does not exist. Execute Start-DscConfiguration command with -Path parameter to specify a configuration file and create a current configuration first.* en el archivo de registro `omsconfig.log`, pero no existe ningún mensaje de registro sobre las operaciones de `PerformRequiredConfigurationChecks`.
@@ -345,6 +329,7 @@ Este error indica que la extensión Diagnostics de Linux (LAD) está instalada e
 4. Si usa un proxy, compruebe los pasos anteriores para solucionar problemas con un proxy.
 5. En algunos sistemas de distribución de Azure, el demonio de servidor OMI omid no se inicia después de reiniciar la máquina virtual. Esto provocará que no se muestren los datos relacionados con la solución de Audit, ChangeTracking ni UpdateManagement. La solución alternativa consiste en iniciar manualmente el servidor omi ejecutando `sudo /opt/omi/bin/service_control restart`.
 6. Después de que el paquete OMI se actualice manualmente a una versión más reciente, debe reiniciarse manualmente para que el agente de Log Analytics siga funcionando. Este paso es necesario para algunas distribuciones donde el servidor OMI no se inicia automáticamente tras su actualización. Ejecute `sudo /opt/omi/bin/service_control restart` para reiniciar OMI.
+* En algunas situaciones, OMI puede detenerse. El agente de OMS puede entrar en un estado bloqueado en espera de OMI, bloqueando toda la recopilación de datos. El proceso del agente de OMS se ejecutará, pero no habrá ninguna actividad, como evidenciará que no haya ninguna nueva línea de registro (como los latidos enviados) presente en `omsagent.log`. Reinicie OMI con `sudo /opt/omi/bin/service_control restart` para recuperar el agente.
 7. Si ve el error *class not found* en el recurso DSC en omsconfig.log, ejecute `sudo /opt/omi/bin/service_control restart`.
 8. En algunos casos, cuando el agente de Log Analytics para Linux no puede comunicarse con Azure Monitor, se crea una copia de seguridad de los datos del agente del tamaño de búfer total: 50 MB. Se debe reiniciar el agente ejecutando el siguiente comando `/opt/microsoft/omsagent/bin/service_control restart`.
 

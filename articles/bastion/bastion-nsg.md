@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 12/09/2020
 ms.author: cherylmc
-ms.openlocfilehash: afb751e08faea6dabde72b192d246b48735cff53
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 4fe22e0dae73df7af4fc24ba508ecbecf72dfd05
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96938705"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97795383"
 ---
 # <a name="working-with-nsg-access-and-azure-bastion"></a>Trabajo con acceso a grupos de seguridad de red y Azure Bastion
 
@@ -40,7 +40,8 @@ _ **Tráfico de entrada:**
 
    * **Tráfico de entrada procedente de Internet pública:** Azure Bastion creará una dirección IP pública que necesita el puerto 443 habilitado en la dirección IP pública para el tráfico de entrada. El puerto 3389/22 no tiene que abrirse en la subred AzureBastionSubnet.
    * **Plano de control del tráfico de entrada procedente de Azure Bastion:** Para la conectividad del plano de control, habilite el puerto 443 entrante desde la etiqueta de servicio de **GatewayManager**. De este modo, se permite que el plano de control, es decir, el administrador de puerta de enlace, pueda comunicarse con Azure Bastion.
-   * **Tráfico de entrada desde Azure Load Balancer:** en el caso de los sondeos de estado, habilite el puerto 443 de entrada desde la etiqueta de servicio **AzureLoadBalancer**. Esto permite que Azure Load Balancer detecte la conectividad. 
+   * **Tráfico de entrada desde el plano de datos de Azure Bastion:** Para la comunicación del plano de datos entre los componentes subyacentes de Azure Bastion, habilite los puertos 8080 y 5701 de entrada desde la etiqueta de servicio **VirtualNetwork** a la etiqueta de servicio **VirtualNetwork**. Esto permite que los componentes de Azure Bastion se comuniquen entre sí.
+   * **Tráfico de entrada desde Azure Load Balancer:** en el caso de los sondeos de estado, habilite el puerto 443 de entrada desde la etiqueta de servicio **AzureLoadBalancer**. Esto permite que Azure Load Balancer detecte la conectividad.
 
 
    :::image type="content" source="./media/bastion-nsg/inbound.png" alt-text="Captura de pantalla que muestra las reglas de seguridad de entrada para la conectividad de Azure Bastion.":::
@@ -48,7 +49,9 @@ _ **Tráfico de entrada:**
 * **Tráfico de salida:**
 
    * **Tráfico de salida a máquinas virtuales de destino:** Azure Bastion se comunicará con las máquinas virtuales de destino a través de la dirección IP privada. Los grupos de seguridad de red tienen que permitir el tráfico de salida a otras subredes de máquinas virtuales de destino para el puerto 3389 y 22.
+   * **Tráfico de salida al plano de datos de Azure Bastion:** Para la comunicación del plano de datos entre los componentes subyacentes de Azure Bastion, habilite los puertos 8080 y 5701 de salida desde la etiqueta de servicio **VirtualNetwork** a la etiqueta de servicio **VirtualNetwork**. Esto permite que los componentes de Azure Bastion se comuniquen entre sí.
    * **Salida del tráfico a otros puntos de conexión públicos de Azure:** Azure Bastion debe ser capaz de conectarse a varios puntos de conexión públicos dentro de Azure (por ejemplo, para almacenar registros de diagnóstico y los registros de medición). Por esta razón, Azure Bastion necesita una salida hacia 443 para la etiqueta de servicio **AzureCloud**.
+   * **Tráfico de salida a Internet:** Azure Bastion debe ser capaz de comunicarse con Internet para la validación de la sesión y el certificado. Por esta razón, se recomienda habilitar el puerto 80 de salida a **Internet.**
 
 
    :::image type="content" source="./media/bastion-nsg/outbound.png" alt-text="Captura de pantalla que muestra las reglas de seguridad de salida para la conectividad de Azure Bastion.":::

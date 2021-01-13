@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 2c7f4aebc70ff831459fe111bcc30f5385088028
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 9f368a4aebc4d5de38ebbab800241366650633e6
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357698"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936590"
 ---
 # <a name="tutorial-configure-zscaler-for-automatic-user-provisioning"></a>Tutorial: Configuración de Zscaler para el aprovisionamiento automático de usuarios
 
@@ -55,7 +55,7 @@ Antes de configurar Zscaler para el aprovisionamiento automático de usuarios co
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **Zscaler** , seleccione **Zscaler** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **Zscaler**, seleccione **Zscaler** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![Zscaler en la lista de resultados](common/search-new-app.png)
 
@@ -80,9 +80,12 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 > [!TIP]
 > También puede optar por habilitar el inicio de sesión único basado en SAML para Zscaler siguiendo las instrucciones del [tutorial de inicio de sesión único de Zscaler](zscaler-tutorial.md). El inicio de sesión único puede configurarse independientemente del aprovisionamiento automático de usuarios, aunque estas dos características se complementan entre sí.
 
+> [!NOTE]
+> Cuando se aprovisionan o se desaprovisionan usuarios y grupos, se recomienda reiniciar el aprovisionamiento periódicamente para garantizar que las pertenencias a grupos se actualicen correctamente. Al ejecutar un reinicio, el servicio tendrá que evaluar de nuevo todos los grupos y actualizar las pertenencias. 
+
 ### <a name="to-configure-automatic-user-provisioning-for-zscaler-in-azure-ad"></a>Para configurar el aprovisionamiento automático de usuarios para Zscaler en Azure AD:
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) y seleccione **Aplicaciones empresariales** , **Todas las aplicaciones** y, a continuación, **Zscaler**.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) y seleccione **Aplicaciones empresariales**, **Todas las aplicaciones** y, a continuación, **Zscaler**.
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
@@ -100,7 +103,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 5. En la sección **Admin Credentials** (Credenciales de administrador), especifique los valores de **Tenant URL** (URL de inquilino) y **Secret Token** (Token secreto) de la cuenta de Zscaler, como se describe en el paso 6.
 
-6. Para obtener la **dirección URL del inquilino** y el **token secreto** , vaya a **Administration > Authentication Settings** (Administración > Configuración de autenticación) en la interfaz de usuario del portal de Zscaler y haga clic en  **SAML** en **Authentication Type** (Tipo de autenticación).
+6. Para obtener la **dirección URL del inquilino** y el **token secreto**, vaya a **Administration > Authentication Settings** (Administración > Configuración de autenticación) en la interfaz de usuario del portal de Zscaler y haga clic en  **SAML** en **Authentication Type** (Tipo de autenticación).
 
     ![Captura de pantalla de la página Configuración de autenticación.](./media/zscaler-provisioning-tutorial/secret-token-1.png)
 
@@ -114,11 +117,11 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Captura de pantalla de la sección Credenciales de administrador con la opción Probar conexión seleccionada.](./media/zscaler-provisioning-tutorial/test-connection.png)
 
-8. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+8. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Captura de pantalla del cuadro de texto Notificación por correo electrónico.](./media/zscaler-provisioning-tutorial/notification.png)
 
-9. Haga clic en **Save** (Guardar).
+9. Haga clic en **Save**(Guardar).
 
 10. En la sección **Mappings** (Asignaciones), seleccione **Synchronize Azure Active Directory Users to Zscaler** (Sincronizar usuarios de Azure Active Directory con Zscaler).
 
@@ -142,7 +145,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Captura de pantalla de la opción Estado de aprovisionamiento establecida en Activado.](./media/zscaler-provisioning-tutorial/provisioning-status.png)
 
-16. Elija los valores deseados en **Ámbito** , en la sección **Configuración** , para definir los usuarios o grupos que desea que se aprovisionen en Zscaler.
+16. Elija los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que desea que se aprovisionen en Zscaler.
 
     ![Captura de pantalla de la opción de configuración Ámbito con la opción Sincronizar solo los usuarios y grupos asignados resaltada.](./media/zscaler-provisioning-tutorial/scoping.png)
 

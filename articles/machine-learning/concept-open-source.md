@@ -1,7 +1,7 @@
 ---
 title: Integración del aprendizaje automático de código abierto
 titleSuffix: Azure Machine Learning
-description: Aprenda a usar marcos de aprendizaje automático de Python de código abierto para entrenar, implementar y administrar soluciones de aprendizaje automático de un extremo a otro en Azure Machine Learning.
+description: Aprenda a usar plataformas de aprendizaje automático de Python de código abierto para entrenar, implementar y administrar soluciones completas de aprendizaje automático en Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: luisquintanilla
 ms.author: luquinta
 ms.date: 12/16/2020
-ms.openlocfilehash: b3fa9767310bfc300087c9dc7384f33993aca70d
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: d987d21700e5f19ad8228b08508e8da842cc39eb
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97675743"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97914117"
 ---
 # <a name="open-source-integration-with-azure-machine-learning-projects"></a>Integración de código abierto con proyectos de Azure Machine Learning
 
@@ -52,7 +52,7 @@ El entrenamiento de un modelo de aprendizaje profundo desde cero a menudo requie
 
 El aprendizaje de refuerzo es una técnica de inteligencia artificial que entrena modelos mediante acciones, estados y recompensas: Los agentes de aprendizaje de refuerzo aprenden a tomar un conjunto de acciones predefinidas que maximizan las recompensas especificadas en función del estado actual del entorno. 
 
-El proyecto [Ray RLLib](https://github.com/ray-project/ray) tiene una serie de características que permiten una alta escalabilidad a lo largo del proceso de entrenamiento. El proceso iterativo requiere mucho tiempo y recursos, ya que los agentes de aprendizaje por refuerzo intentan aprender la manera óptima de lograr una tarea.  Ray RLLib también admite de forma nativa marcos de aprendizaje profundo como TensorFlow y PyTorch.  
+El proyecto [Ray RLLib](https://github.com/ray-project/ray) tiene un conjunto de características que ofrecen alta escalabilidad a lo largo del proceso de entrenamiento. El proceso iterativo requiere mucho tiempo y recursos, ya que los agentes de aprendizaje por refuerzo intentan aprender la manera óptima de lograr una tarea.  Ray RLLib también admite de forma nativa marcos de aprendizaje profundo como TensorFlow y PyTorch.  
 
 Para aprender usar Ray RLLib con Azure Machine Learning, consulte el artículo sobre [procedimientos para entrenar un modelo de aprendizaje por refuerzo](how-to-use-reinforcement-learning.md).
 
@@ -101,4 +101,4 @@ Operaciones de Machine Learning (MLOps), también conocido como DevOps para apre
 
 Mediante el uso de prácticas de DevOps como la integración continua (CI) y la implementación continua (CD), puede automatizar el ciclo de vida de aprendizaje automático de un extremo a otro y capturar datos de gobernanza en torno a ellos. Puede definir la [canalización de CI/CD de aprendizaje automático con acciones de GitHub](./how-to-github-actions-machine-learning.md) para ejecutar tareas de entrenamiento e implementación de Azure Machine Learning. 
 
-La captura de dependencias de software, métricas, metadatos, datos y versiones de modelos son una parte importante del proceso de MLOps para construir canalizaciones transparentes, reproducibles y auditables. Para esta tarea, puede [usar MLFlow en Azure Machine Learning](how-to-use-mlflow.md) y también decidir cuándo [entrenar modelos de Machine Learning en Azure Databricks](./how-to-use-mlflow-azure-databricks.md).
+La captura de dependencias de software, métricas, metadatos, datos y versiones de modelos son una parte importante del proceso de MLOps para construir canalizaciones transparentes, reproducibles y auditables. Para esta tarea, puede [usar MLFlow en Azure Machine Learning](how-to-use-mlflow.md) y también decidir cuándo [entrenar modelos de Machine Learning en Azure Databricks](./how-to-use-mlflow-azure-databricks.md). También puede [implementar modelos de MLflow como un servicio web de Azure](how-to-deploy-mlflow-models.md). 

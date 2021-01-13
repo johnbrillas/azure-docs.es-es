@@ -11,12 +11,12 @@ ms.reviewer: peterlu
 ms.date: 12/10/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: ed368615395614bc0d3e9a6f06727da8c64d8486
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: e3bf77406df302c4ba83cb7a8f1a30fba9f6339e
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97559648"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97795944"
 ---
 # <a name="train-pytorch-models-at-scale-with-azure-machine-learning"></a>Entrenamiento de modelos de PyTorch a gran escala con Azure Machine Learning
 
@@ -199,14 +199,14 @@ src = ScriptRunConfig(source_directory=project_folder,
 Para más información sobre la configuración de trabajos con ScriptRunConfig, consulte [Envío de una ejecución de entrenamiento a un destino de proceso](how-to-set-up-training-targets.md).
 
 > [!WARNING]
-> Si anteriormente usaba el estimador de PyTorch para configurar los trabajos de entrenamiento de PyTorch, tenga en cuenta que los estimadores dejarán de usarse en una futura versión del SDK de Azure ML. A partir de la versión 1.15.0 del SDK de Azure ML, ScriptRunConfig es la forma recomendada de configurar los trabajos de entrenamiento, incluidos los que usan marcos de DL.
+> Si anteriormente usaba el estimador de PyTorch para configurar los trabajos de entrenamiento de PyTorch, tenga en cuenta que los estimadores se han dejado de utilizar a partir de la versión del SDK 1.19.0. A partir de la versión 1.15.0 del SDK de Azure ML, ScriptRunConfig es la forma recomendada de configurar los trabajos de entrenamiento, incluidos los que usan marcos de aprendizaje profundo. Para ver preguntas habituales sobre migración, consulte la [guía sobre migración del estimador a ScriptRunConfig](how-to-migrate-from-estimators-to-scriptrunconfig.md).
 
 ## <a name="submit-your-run"></a>Envío de la ejecución
 
 El [objeto Run](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py) proporciona la interfaz para el historial de ejecución mientras se ejecuta el trabajo y cuando se ha completado.
 
 ```Python
-run = Experiment(ws, name='pytorch-birds').submit(src)
+run = Experiment(ws, name='Tutorial-pytorch-birds').submit(src)
 run.wait_for_completion(show_output=True)
 ```
 
@@ -314,6 +314,10 @@ src = ScriptRunConfig(source_directory=project_folder,
 Si en su lugar desea usar el back-end Gloo para el entrenamiento distribuido, especifique `communication_backend='Gloo'`. El back-end Gloo se recomienda para el entrenamiento distribuido con CPU.
 
 Para ver un tutorial completo sobre la ejecución distribuida de PyTorch en Azure ML, consulte [Ejecución distribuida de PyTorch con DistributedDataParallel](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/pytorch/distributed-pytorch-with-nccl-gloo).
+
+### <a name="troubleshooting"></a>Solución de problemas
+
+* **Horovod se apagó**: En la mayoría de los casos, si se muestra "AbortedError: Horovod has been shut down" (AbortedError: Horovod se cerró), hubo una excepción subyacente en uno de los procesos y esto causó el apagado de Horovod. Cada clasificación en el trabajo MPI obtiene su propio archivo de registro dedicado en Azure ML. Estos registros son nombrados `70_driver_logs`. En caso de entrenamiento distribuido, los nombres de registro tienen el sufijo `_rank` para facilitar la diferenciación de los registros. Para encontrar el error exacto que provocó el apagado de Horovod, revise todos los archivos de registro y busque `Traceback` al final de los archivos driver_log. Uno de estos archivos le dará la excepción subyacente real. 
 
 ## <a name="export-to-onnx"></a>Exportación a ONNX
 

@@ -12,12 +12,12 @@ ms.date: 09/30/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: image recognition, image recognition app, custom vision
-ms.openlocfilehash: ab747ad5e7b9362e9c587741198a0191c032b124
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 8274ddd0e492d1a27ebc1579fc6efdcc8cc84955
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96018401"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97912991"
 ---
 # <a name="quickstart-build-an-object-detector-with-the-custom-vision-website"></a>Inicio rápido: Creación de un detector de objetos con el sitio web de Custom Vision
 
@@ -100,6 +100,7 @@ Una vez finalizado el entrenamiento, se calcula y se muestra el rendimiento del 
 
 - La **precisión** indica la fracción de las clasificaciones identificadas que fueron correctas. Por ejemplo, si el modelo identificó 100 imágenes como perros y 99 de ellas eran realmente de perros, la precisión sería del 99 %.
 - La **coincidencia** indica la fracción de las clasificaciones reales que se identificaron correctamente. Por ejemplo, si había realmente 100 imágenes de manzanas y el modelo identificó 80 como manzanas, la coincidencia sería del 80 %.
+- El **promedio de precisión media** es el valor promedio de la precisión media. La precisión media es el área de la curva de precisión/recuperación (es decir, la precisión trazada frente a la recuperación para cada predicción realizada).
 
 ![Los resultados de entrenamiento muestran la precisión y la coincidencia generales, así como la precisión media.](./media/get-started-build-detector/trained-performance.png)
 

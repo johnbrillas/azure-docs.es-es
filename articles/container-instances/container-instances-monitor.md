@@ -2,13 +2,13 @@
 title: Supervisión de instancias de contenedor
 description: Aprenda a supervisar el consumo de los recursos de computación, como la CPU y la memoria, en los contenedores de Azure Container Instances.
 ms.topic: article
-ms.date: 04/24/2019
-ms.openlocfilehash: b10c370b599233d00b2b4a65268f6c61a11cbd5c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 12/17/2020
+ms.openlocfilehash: 83a8a5ab2c8c49f4044564c2d899685914103b0b
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96007263"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916101"
 ---
 # <a name="monitor-container-resources-in-azure-container-instances"></a>Supervisión de los recursos de los contenedores en Azure Container Instances
 
@@ -27,11 +27,11 @@ En este momento, las métricas de Azure Monitor solamente están disponibles par
 
 Azure Monitor proporciona las siguientes [métricas para Azure Container Instances][supported-metrics]. Estas métricas están disponibles para grupos de contenedores y contenedores individuales. De forma predeterminada, las métricas se agregan como promedios.
 
-* **Uso de CPU**: medido en **millares de núcleos**. 1 millar de núcleos corresponde a 1/1000 de un núcleo de CPU, por lo que 500 millares de núcleos representan un uso de 0,5 de un núcleo de CPU.
-
-* **Uso de memoria** en bytes.
-
-* **Bytes de red recibidos por segundo** y **Bytes de red transmitidos por segundo**. 
+- **Uso de CPU**: medido en **milinúcleos**. 
+  - 1 millar de núcleos corresponde a 1/1000 de un núcleo de CPU, por lo que 500 millares de núcleos representan un uso de 0,5 de un núcleo de CPU.
+- **Uso de memoria** en bytes.
+- **Bytes de red recibidos** por segundo
+- **Bytes de red transmitidos** por segundo 
 
 ## <a name="get-metrics---azure-portal"></a>Obtención de métricas mediante Azure Portal
 
@@ -39,7 +39,7 @@ Cuando se crea un grupo de contenedores, los datos de Azure Monitor están dispo
 
 ![gráfico dual][dual-chart]
 
-En un grupo de contenedores que contenga varios contenedores, utilice una [dimensión][monitor-dimension] para representar las métricas por contenedor. Para crear un gráfico utilizando las métricas de cada contenedor, siga estos pasos:
+En un grupo de contenedores que contenga varios contenedores, utilice una [dimensión][monitor-dimension] para mostrar las métricas por contenedor. Para crear un gráfico utilizando las métricas de cada contenedor, siga estos pasos:
 
 1. En la página **Información general** página, seleccione uno de los gráficos de métricas, como **CPU**. 
 1. Seleccione el botón **Apply splitting** (Aplicar división) y, después, seleccione **Nombre del contenedor**.
@@ -64,18 +64,11 @@ az monitor metrics list --resource $CONTAINER_GROUP --metric CPUUsage --output t
 ```output
 Timestamp            Name       Average
 -------------------  ---------  ---------
-2019-04-23 22:59:00  CPU Usage
-2019-04-23 23:00:00  CPU Usage
-2019-04-23 23:01:00  CPU Usage  0.0
-2019-04-23 23:02:00  CPU Usage  0.0
-2019-04-23 23:03:00  CPU Usage  0.5
-2019-04-23 23:04:00  CPU Usage  0.5
-2019-04-23 23:05:00  CPU Usage  0.5
-2019-04-23 23:06:00  CPU Usage  1.0
-2019-04-23 23:07:00  CPU Usage  0.5
-2019-04-23 23:08:00  CPU Usage  0.5
-2019-04-23 23:09:00  CPU Usage  1.0
-2019-04-23 23:10:00  CPU Usage  0.5
+2020-12-17 23:34:00  CPU Usage
+. . .
+2020-12-18 00:25:00  CPU Usage
+2020-12-18 00:26:00  CPU Usage  0.4
+2020-12-18 00:27:00  CPU Usage  0.0
 ```
 
 Cambie el valor del parámetro `--metric` en el comando para obtener otras [métricas admitidas][supported-metrics]. Por ejemplo, utilice el comando siguiente para obtener las métricas de uso de la **memoria**. 

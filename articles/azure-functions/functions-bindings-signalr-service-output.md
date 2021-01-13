@@ -6,12 +6,12 @@ ms.topic: reference
 ms.custom: devx-track-csharp
 ms.date: 02/20/2020
 ms.author: cshoe
-ms.openlocfilehash: 8bb07e650c99f18cfecbc7b7674e0ca0e5a01dae
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 159df4c228f74bb605c745e899d99bfff2aa511b
+ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95998913"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97763292"
 ---
 # <a name="signalr-service-output-binding-for-azure-functions"></a>Enlace de salida de SignalR Service para Azure Functions
 
@@ -753,4 +753,5 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+- [Control de mensajes enviados desde SignalR Service (enlace del desencadenador)](./functions-bindings-signalr-service-trigger.md)
 - [Devolución de la dirección URL del punto de conexión de servicio y el token de acceso (enlace de entrada)](./functions-bindings-signalr-service-input.md)

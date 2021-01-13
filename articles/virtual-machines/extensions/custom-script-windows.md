@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/31/2020
 ms.author: robreed
-ms.openlocfilehash: 8d11ff6eaab8ed6a13c3c2aa1b712cc57e7825ea
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: aa95d6792f2f5754a237c7bf5e90a11e2e011ede
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94960978"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861779"
 ---
 # <a name="custom-script-extension-for-windows"></a>Extensión de la secuencia de comandos personalizada para Windows
 
@@ -61,7 +61,7 @@ Si el script se encuentra en un servidor local, puede que aún necesite abrir pu
 * Los scripts tienen permitido un plazo de 90 minutos para ejecutarse; todo lo que dure más provocará un error de aprovisionamiento de la extensión.
 * No incluya reinicios en el script, ya que esta acción provocará errores con otras extensiones que se instalen. Después del reinicio, la extensión no continuará después del reinicio.
 * Si tiene un script que provoca un reinicio, instala aplicaciones y ejecuta scripts, puede programar el reinicio con una tarea programada de Windows o usar herramientas como las extensiones DSC, Chef o Puppet.
-* No se recomienda ejecutar un script que provoque la detención o actualización del agente de máquina virtual. Esto puede llevar a la extensión a un estado de transición, lo que da lugar a un tiempo de espera.
+* No se recomienda ejecutar un script que provoque la detención o actualización del agente de máquina virtual. Esto puede llevar la extensión a un estado de transición, lo que da lugar a tiempo de espera.
 * La extensión solo ejecutará un script una vez. Si quiere ejecutar un script en cada inicio, debe usar la extensión para crear una tarea programada de Windows.
 * Si quiere programar cuándo se ejecutará un script, debe usar la extensión para crear una tarea programada de Windows.
 * Cuando el script se esté ejecutando, solo verá un estado de extensión "en transición" desde Azure Portal o la CLI. Si quiere recibir actualizaciones de estado más frecuentes de un script en ejecución, debe crear su propia solución.

@@ -7,12 +7,12 @@ description: Revise y pruebe los cambios de una solicitud de incorporación de c
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, acciones de GitHub, Helm, service mesh, enrutamiento de service mesh, kubectl, k8s
 manager: gwallace
 ms.custom: devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 9bed61861c80f141270e50b644b32ae42fbe8e77
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 447c41055ededfc55e44bebd92de89b3d23de3c7
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995578"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591572"
 ---
 # <a name="github-actions--azure-kubernetes-service-preview"></a>Acciones de GitHub y Azure Kubernetes Service (versión preliminar)
 
@@ -162,7 +162,7 @@ Una vez completada la acción, verá un comentario con una dirección URL para e
 
 Para navegar al servicio *bikesharingweb*, abra la dirección URL pública en el comentario. Seleccione *Aurelia Briggs (customer)* (Aurelia Briggs [cliente]) como usuario y, después, seleccione una bicicleta para alquilar. Compruebe que ya no ve la imagen de marcador de posición de la bicicleta.
 
-Si combina los cambios en la rama *master* de la bifurcación, se ejecutará otra acción para volver a compilar y ejecutar toda la aplicación en el espacio de desarrollo primario. En este ejemplo, el espacio primario es *dev*. Esta acción se configura en [.github/workflows/bikesharing.yml][github-action-bikesharing-yaml].
+Si combina los cambios en la rama *principal* de la bifurcación, se ejecutará otra acción para volver a compilar y ejecutar toda la aplicación en el espacio de desarrollo primario. En este ejemplo, el espacio primario es *dev*. Esta acción se configura en [.github/workflows/bikesharing.yml][github-action-bikesharing-yaml].
 
 ## <a name="clean-up-your-azure-resources"></a>Limpieza de los recursos de Azure
 

@@ -1,30 +1,29 @@
 ---
-title: Escalabilidad automática de clústeres de Azure HDInsight
-description: Use la característica de escalabilidad automática de Azure HDInsight para escalar clústeres de Apache Hadoop automáticamente.
+title: Escalado automático de clústeres de Azure HDInsight
+description: Use la característica de escalabilidad automática para escalar automáticamente los clústeres de Azure HDInsight en función de una programación o de métricas de rendimiento.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: contperf-fy21q1
-ms.date: 09/14/2020
-ms.openlocfilehash: 09e4412128a3b13abfa91bf0c128372b30b3e686
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.custom: contperf-fy21q1, contperf-fy21q2
+ms.date: 12/14/2020
+ms.openlocfilehash: 2b23b4256e79723ce0b5edafd59186dc345eb791
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033143"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97629262"
 ---
-# <a name="autoscale-azure-hdinsight-clusters"></a>Escalabilidad automática de clústeres de Azure HDInsight
+# <a name="automatically-scale-azure-hdinsight-clusters"></a>Escalado automático de clústeres de Azure HDInsight
 
-La característica gratuita de escalabilidad automática de Azure HDInsight puede aumentar o disminuir automáticamente el número de nodos de trabajo del clúster en función de los criterios establecidos previamente. Se establece un número mínimo y máximo de nodos durante la creación del clúster, se establecen los criterios de escalado mediante una programación de día y hora o métricas de rendimiento específicas, y la plataforma de HDInsight hace el resto.
+La característica gratuita de escalabilidad automática de Azure HDInsight puede aumentar o disminuir automáticamente el número de nodos de trabajo del clúster en función de los criterios establecidos previamente. La característica de escalabilidad automática funciona mediante el escalado del número de nodos dentro de los límites preestablecidos en función de las métricas de rendimiento o de una programación de las operaciones de escalado y reducción vertical.
 
 ## <a name="how-it-works"></a>Funcionamiento
 
-La característica de escalabilidad automática emplea dos tipos de condiciones para desencadenar eventos de escalado: umbrales para varias métricas de rendimiento del clúster (lo que se conoce como *escalado basado en la carga*) y desencadenadores basados en el tiempo (lo que se conoce como *escalado basado en la programación*). El escalado basado en cargas cambia el número de nodos del clúster, dentro de un intervalo establecido, para garantizar el uso de CPU óptimo y minimizar el costo de ejecución. El escalado basado en la programación cambia el número de nodos del clúster en función de las operaciones que se asocian con fechas y horas específicas.
+La característica de escalabilidad automática emplea dos tipos de condiciones para desencadenar eventos de escalado: umbrales para varias métricas de rendimiento del clúster (lo que se conoce como *escalado basado en la carga*) y desencadenadores basados en el tiempo (lo que se conoce como *escalado basado en la programación*). El escalado basado en cargas cambia el número de nodos del clúster, dentro de un intervalo establecido, para garantizar el uso de CPU óptimo y minimizar el costo de ejecución. El escalado basado en programación cambia el número de nodos del clúster en función de una programación de operaciones de escalado y reducción vertical.
 
 En el vídeo siguiente se proporciona información general sobre los desafíos que puede resolver la escalabilidad automática y cómo puede ayudarle a controlar los costos con HDInsight.
-
 
 > [!VIDEO https://www.youtube.com/embed/UlZcDGGFlZ0?WT.mc_id=dataexposed-c9-niner]
 

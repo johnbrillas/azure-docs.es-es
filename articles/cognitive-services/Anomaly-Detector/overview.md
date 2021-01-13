@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: overview
-ms.date: 11/23/2020
+ms.date: 01/05/2021
 ms.author: mbullwin
 keywords: anomaly detection, machine learning, algorithms
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: d8698a17db8be6a3d5b26d764ef86702320ebfa4
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 425c6cab4a4a5e1329e2d38f49c5058ec8ffc5b9
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97705088"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97901375"
 ---
 # <a name="what-is-the-anomaly-detector-api"></a>¿Qué es Anomaly Detector API?
 
@@ -83,8 +83,17 @@ Después del registro:
 
 Puede leer el artículo [Time-Series Anomaly Detection Service at Microsoft](https://arxiv.org/abs/1906.03821) (Servicio de detección de anomalías de Time Series) (aceptado por KDD 2019) para conocer los algoritmos SR-CNN desarrollados por Microsoft.
 
-
 > [!VIDEO https://www.youtube.com/embed/ERTaAnwCarM]
+
+## <a name="service-availability-and-redundancy"></a>Disponibilidad y redundancia del servicio
+
+### <a name="is-the-anomaly-detector-service-zone-resilient"></a>¿El servicio Anomaly Detector tiene resistencia de zona?
+
+Sí. El servicio Anomaly Detector tiene resistencia de zona de manera predeterminada.
+
+### <a name="how-do-i-configure-the-anomaly-detector-service-to-be-zone-resilient"></a>¿Cómo se configura el servicio Anomaly Detector para que tenga resistencia de zona?
+
+No es necesaria ninguna configuración de parte del cliente para habilitar la resistencia de zonas. La resistencia de zona para los recursos de Anomaly Detector está disponible de manera predeterminada y la administra el propio servicio.
 
 ## <a name="deploy-on-premises-using-docker-containers"></a>Implementación local mediante contenedores de Docker
 

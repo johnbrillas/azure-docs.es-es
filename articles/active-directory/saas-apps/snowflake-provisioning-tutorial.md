@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: ac6981d998f25b8df7cea553fe152d68cd43fee5
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: cc88712dd686983baed858de47e11dfa44e85350
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181431"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955525"
 ---
 # <a name="tutorial-configure-snowflake-for-automatic-user-provisioning"></a>Tutorial: Configuración de Snowflake para el aprovisionamiento automático de usuarios
 
@@ -159,6 +159,12 @@ Una vez configurado el aprovisionamiento, use los recursos siguientes para super
 ## <a name="connector-limitations"></a>Limitaciones del conector
 
 * Los tokens de SCIM que genera Snowflake expiran en 6 meses. Tenga en cuenta que deben actualizarse antes de que expiren para que las sincronizaciones de aprovisionamiento sigan funcionando. 
+
+## <a name="troubleshooting-tips"></a>Sugerencias para la solución de problemas
+
+* **Intervalos IP** 
+
+   El servicio de aprovisionamiento de Azure AD funciona actualmente en intervalos IP concretos. Por lo tanto, si es necesario, puede restringir otros intervalos IP y agregar estos intervalos de direcciones IP concretos a la lista de permitidos de la aplicación para permitir el flujo de tráfico desde el servicio de aprovisionamiento de Azure AD a la aplicación. Consulte la documentación de los [intervalos IP](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#ip-ranges).
 
 ## <a name="change-log"></a>Registro de cambios
 

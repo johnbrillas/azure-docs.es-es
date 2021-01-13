@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/09/2020
 ms.author: amishu
-ms.openlocfilehash: a715d0ece88cf2caf1cb3d20d703f550353094c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b8dda0347e5713ef35705425b54f29a110803488
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87282756"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97821526"
 ---
-El control del audio comprimido se implementa mediante [`GStreamer`](https://gstreamer.freedesktop.org). Por motivos de licencia, los binarios de `GStreamer` no se compilan ni se vinculan con el SDK de Voz. Los desarrolladores deben instalar varias dependencias y complementos; vea [Instalación en Windows](https://gstreamer.freedesktop.org/documentation/installing/on-windows.html?gi-language=c). Los archivos binarios de `GStreamer` deben estar en la ruta de acceso del sistema, con el fin de que el SDK de Voz pueda cargarlos durante el tiempo de ejecución. Si el SDK de Voz es capaz de encontrar `libgstreamer-1.0-0.dll` durante el tiempo de ejecución, significa que los archivos binarios se encuentran en la ruta de acceso del sistema.
+El control del audio comprimido se implementa mediante [GStreamer](https://gstreamer.freedesktop.org). Por motivos de licencia, los binarios de GStreamer no se compilan ni se vinculan con el SDK de Voz. Los desarrolladores deben instalar varias dependencias y complementos; consulte [Instalación en Windows](https://gstreamer.freedesktop.org/documentation/installing/on-windows.html?gi-language=c) o [Instalación en Linux](https://gstreamer.freedesktop.org/documentation/installing/on-linux.html?gi-language=c). Los archivos binarios de GStreamer deben estar en la ruta de acceso del sistema, con el fin de que el SDK de Voz pueda cargarlos en tiempo de ejecución. Por ejemplo, en Windows, si el SDK de Voz es capaz de encontrar `libgstreamer-1.0-0.dll` en tiempo de ejecución, significa que los archivos binarios de gstreamer se encuentran en la ruta de acceso del sistema.
 

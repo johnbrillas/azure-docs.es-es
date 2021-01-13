@@ -9,12 +9,12 @@ ms.subservice: extensions
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 0b2346ae4777b31ce2e5c396fb03084d38b2008f
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 7926f4023b64feff33ae55fc6c8726a605773fef
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97678972"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895043"
 ---
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>Extensión de máquina virtual de Key Vault para Windows
 
@@ -37,9 +37,23 @@ También se admite la extensión VM de Key Vault en una VM local personalizada q
 
 ## <a name="prerequisities"></a>Requisitos previos
   - Instancia de Key Vault con certificado. Consulte [Creación de un almacén de claves](../../key-vault/general/quick-create-portal.md).
-  - VM/VMSS debe tener asignada una [identidad administrada](../../active-directory/managed-identities-azure-resources/overview.md).
+  - La máquina virtual debe tener asignada una [identidad administrada](../../active-directory/managed-identities-azure-resources/overview.md).
   - La directiva de acceso de Key Vault se debe establecer con los secretos `get` y los permisos `list` para la identidad administrada de VM/VMSS y recuperar la parte del certificado de un secreto. Consulte [Autenticación en Key Vault](../../key-vault/general/authentication.md) y [Asignación de una directiva de acceso de Key Vault](../../key-vault/general/assign-access-policy-cli.md).
-
+  -  VMSS debe tener el siguiente valor de identidad: ` 
+  "identity": {
+  "type": "UserAssigned",
+  "userAssignedIdentities": {
+  "[parameters('userAssignedIdentityResourceId')]": {}
+  }
+  }
+  `
+  
+- La extensión AKV debe tener este valor: `
+                  "authenticationSettings": {
+                    "msiEndpoint": "[parameters('userAssignedIdentityEndpoint')]",
+                    "msiClientId": "[reference(parameters('userAssignedIdentityResourceId'), variables('msiApiVersion')).clientId]"
+                  }
+   `
 ## <a name="extension-schema"></a>Esquema de extensión
 
 El siguiente JSON muestra el esquema para la extensión de máquina virtual de Key Vault. La extensión no requiere configuración protegida, ya que todas sus opciones se consideran información pública. La extensión requiere una lista de certificados supervisados, frecuencia de sondeo y el almacén de certificados de destino. Concretamente:  
@@ -140,6 +154,17 @@ La configuración de JSON para una extensión de máquina virtual debe estar ani
     }
 ```
 
+### <a name="extension-dependency-ordering"></a>Orden de las dependencias de la extensión
+La extensión de máquina virtual de Key Vault admite el orden de las extensiones si está configurado. De forma predeterminada, la extensión informa de que se ha iniciado correctamente en cuanto se ha iniciado el sondeo. Sin embargo, se puede configurar para que espere hasta que se haya descargado correctamente la lista completa de certificados antes de informar de un inicio correcto. Si otras extensiones dependen de tener instalado el conjunto completo de certificados para iniciarse, la habilitación de esta opción permitirá a esa extensión declarar una dependencia de la extensión de Key Vault. Esto evitará que se inicien esas extensiones hasta que se hayan instalado todos los certificados de los que dependen. La extensión volverá a intentar la descarga inicial de forma indefinida y permanecerá en un estado `Transitioning`.
+
+Para activar esta opción, establezca lo siguiente:
+```
+"secretsManagementSettings": {
+    "requireInitialSync": true,
+    ...
+}
+```
+> [Nota] El uso de esta característica no es compatible con una plantilla de Resource Manager que crea una identidad asignada por el sistema y actualiza una directiva de acceso de Key Vault con esa identidad. Su utilización producirá un interbloqueo porque la directiva de acceso al almacén no se puede actualizar hasta que se hayan iniciado todas las extensiones. En su lugar, debe usar una *identidad MSI asignada por el usuario única* y establecer una ACL previamente en los almacenes con esa identidad antes de la implementación.
 
 ## <a name="azure-powershell-deployment"></a>Implementación de Azure PowerShell
 > [!WARNING]

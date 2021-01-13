@@ -1,21 +1,21 @@
 ---
 title: Ejecución de comandos de PowerShell con credenciales de Azure AD para acceder a los datos de cola
 titleSuffix: Azure Storage
-description: PowerShell admite el inicio de sesión con credenciales de Azure AD para ejecutar comandos en los datos de cola de Azure Storage. Se proporciona un token de acceso para la sesión y se usa para autorizar operaciones de llamada. Los permisos dependen del rol de Azure asignado a la entidad de seguridad de Azure AD.
-services: storage
+description: PowerShell admite el inicio de sesión con credenciales de Azure AD para ejecutar comandos en los datos de Azure Queue Storage. Se proporciona un token de acceso para la sesión y se usa para autorizar operaciones de llamada. Los permisos dependen del rol de Azure asignado a la entidad de seguridad de Azure AD.
 author: tamram
-ms.service: storage
-ms.topic: how-to
-ms.date: 09/14/2020
+services: storage
 ms.author: tamram
 ms.reviewer: ozgun
+ms.date: 09/14/2020
+ms.topic: how-to
+ms.service: storage
 ms.subservice: queues
-ms.openlocfilehash: 3636b0366dfe687c4825ec1a16c5e8094a7db10b
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: bf2696d329f852741c42219219600dc773090623
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94637255"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590722"
 ---
 # <a name="run-powershell-commands-with-azure-ad-credentials-to-access-queue-data"></a>Ejecución de comandos de PowerShell con credenciales de Azure AD para acceder a los datos de cola
 
@@ -25,7 +25,7 @@ Puede asignar permisos en los datos de cola a una entidad de seguridad de Azure�
 
 ## <a name="supported-operations"></a>Operaciones compatibles
 
-Las extensiones de Azure Storage se admiten para las operaciones en datos de cola. Las operaciones a las que podrá llamar dependerán de los permisos que se concedan a la entidad de seguridad de Azure AD con la que inicie sesión en PowerShell. Los permisos para las colas de Azure Storage se asignan mediante Azure RBAC. Por ejemplo, si se le asigna el rol de **lector de datos de cola**, puede ejecutar comandos de scripting que lean datos de una cola. Si se le asigna el rol de **colaborador de datos de cola**, podrá ejecutar comandos de scripting que lean, escriban o eliminen una cola, o los datos que contiene.
+Las extensiones de Azure Storage se admiten para las operaciones en datos de cola. Las operaciones a las que podrá llamar dependerán de los permisos que se concedan a la entidad de seguridad de Azure AD con la que inicie sesión en PowerShell. Los permisos para las colas se asignan mediante Azure RBAC. Por ejemplo, si se le asigna el rol de **lector de datos de cola**, puede ejecutar comandos de scripting que lean datos de una cola. Si se le asigna el rol de **colaborador de datos de cola**, podrá ejecutar comandos de scripting que lean, escriban o eliminen una cola, o los datos que contiene.
 
 Para más información sobre los permisos requeridos para cada operación de Azure Storage en una cola, consulte la sección [Llamadas a operaciones de almacenamiento con tokens de OAuth](/rest/api/storageservices/authorize-with-azure-active-directory#call-storage-operations-with-oauth-tokens).
 

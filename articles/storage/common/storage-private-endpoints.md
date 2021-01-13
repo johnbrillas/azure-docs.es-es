@@ -10,12 +10,12 @@ ms.date: 03/12/2020
 ms.author: santoshc
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 0da970724a5d6f0ad42ba64939f316ec1ada855b
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 7af2e6794d0d2f37c342a86b2f36b94c9601cc7e
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905560"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617262"
 ---
 # <a name="use-private-endpoints-for-azure-storage"></a>Uso de puntos de conexión privados para Azure Storage
 
@@ -46,13 +46,16 @@ Los propietarios de cuentas de almacenamiento pueden administrar las solicitudes
 
 Puede proteger la cuenta de almacenamiento para que acepte solo las conexiones que provengan de la red virtual. Para ello, debe [configurar el firewall de almacenamiento](storage-network-security.md#change-the-default-network-access-rule) para que, de forma predeterminada, deniegue el acceso a través de su punto de conexión. Para permitir el tráfico de una red virtual que tenga un punto de conexión privado no se necesita ninguna regla de firewall, ya que el firewall de almacenamiento solo controla el acceso a través del punto de conexión privado. En su lugar, los puntos de conexión privados usan el flujo de consentimiento para conceder el acceso de las subredes al servicio de almacenamiento.
 
+> [!NOTE]
+> Cuando se copian blobs entre cuentas de almacenamiento, el cliente debe tener acceso a redes en ambas cuentas. Por consiguiente, si elige usar un vínculo privado para una sola cuenta (ya sea el origen o el destino), asegúrese de que el cliente tiene acceso a redes en la otra cuenta. Para obtener información sobre otras formas de configurar el acceso a redes, consulte [Configuración de redes virtuales y firewalls de Azure Storage](storage-network-security.md?toc=/azure/storage/blobs/toc.json). 
+
 ### <a name="private-endpoints-for-azure-storage"></a>Puntos de conexión privados para Azure Storage
 
 Al crear el punto de conexión privado, debe especificar la cuenta de almacenamiento y el servicio de almacenamiento al que se conecta. Necesita un punto de conexión privado independiente para cada servicio de almacenamiento de la cuenta de almacenamiento a la que necesite acceder, a saber, [Blobs](../blobs/storage-blobs-overview.md), [Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md), [Files](../files/storage-files-introduction.md), [Queues](../queues/storage-queues-introduction.md), [Tables](../tables/table-storage-overview.md) o [Static Websites](../blobs/storage-blob-static-website.md).
 
 > [!TIP]
 > Cree un punto de conexión privado independiente para la instancia secundaria del servicio de almacenamiento para mejorar el rendimiento de lectura en las cuentas de almacenamiento con redundancia geográfica con acceso de lectura.
-> Asegúrese de crear una cuenta de almacenamiento estándar de uso general v2 (Estándar o Premium).
+> Asegúrese de crear una cuenta de almacenamiento de uso general v2 (Estándar o Premium).
 
 Para obtener acceso de lectura a la región secundaria con una cuenta de almacenamiento configurada para el almacenamiento con redundancia geográfica se necesitan puntos de conexión privados para las instancias principal y secundaria del servicio. No es preciso crear un punto de conexión privado para la instancia secundaria para la **conmutación por error**. El punto de conexión privado se conectará automáticamente a la nueva instancia principal después de la conmutación por error. Para más información sobre las opciones de redundancia de almacenamiento, consulte [Redundancia de Azure Storage](storage-redundancy.md).
 

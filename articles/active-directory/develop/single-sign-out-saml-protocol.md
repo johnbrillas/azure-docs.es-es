@@ -12,16 +12,18 @@ ms.date: 07/19/2017
 ms.author: kenwith
 ms.custom: aaddev
 ms.reviewer: paulgarn
-ms.openlocfilehash: 1d09355993af96e9e0cd334c57174cdaa771b388
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2064ab7e759798d8934facb8d293e8ac60ec6c82
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88118270"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97703422"
 ---
 # <a name="single-sign-out-saml-protocol"></a>Protocolo SAML de cierre de sesión único
 
 Azure Active Directory (Azure AD) es compatible con el perfil de cierre de sesión único del explorador web de SAML 2.0. Para un correcto funcionamiento del inicio de sesión único, debe registrarse explícitamente **LogoutURL** con Azure AD en la aplicación durante el proceso de registro. Azure AD usa LogoutURL para redirigir a los usuarios después de que cierren sesión.
+
+Azure AD admite el enlace de redireccionamiento (HTTP GET) y no el enlace HTTP POST.
 
 En el diagrama siguiente se muestra el flujo de trabajo del proceso de cierre de sesión único de Azure AD.
 

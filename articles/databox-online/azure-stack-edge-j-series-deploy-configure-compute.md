@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 08/28/2020
+ms.date: 01/05/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: 75428b28095b0e425a1670caffcf960aa6ae58f6
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 28b5c107fb35c7bda9b1680050b92004436b98ff
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185511"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935506"
 ---
 # <a name="tutorial-transform-data-with-azure-stack-edge-pro"></a>Tutorial: Transformación de datos con Azure Stack Edge Pro
 
@@ -37,7 +37,6 @@ En este tutorial, aprenderá a:
 ## <a name="prerequisites"></a>Requisitos previos
 
 Antes de configurar un rol de proceso en el dispositivo de Azure Stack Edge Pro, asegúrese de que:
-
 - Ha activado un dispositivo Azure Stack Edge Pro como se describe en [Activación de Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-activate.md).
 
 
@@ -45,36 +44,36 @@ Antes de configurar un rol de proceso en el dispositivo de Azure Stack Edge Pro,
 
 Para configurar el proceso en Azure Stack Edge Pro, creará un recurso de IoT Hub.
 
-1. En la instancia de Azure Portal del recurso de Azure Stack Edge, vaya a **Información general**. En el panel derecho, en el icono **Proceso**, seleccione **Comenzar**.
+1. En Azure Portal, en el recurso de Azure Stack Edge, vaya a **Información general** y seleccione **IoT Edge**.
 
-    ![Introducción al proceso](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-1.png)
+   ![Introducción al proceso](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-1.png)
 
-2. En el icono **Configurar el proceso de Edge**, seleccione **Configurar proceso**.
+2. En **Enable IoT Edge service** (Habilitar servicio IoT Edge), seleccione **Add** (Agregar).
 
-    ![Configurar el proceso](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-2.png)
+   ![Configurar el proceso](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-2.png)
 
-3. En la hoja **Configurar el proceso de Edge**, escriba lo siguiente:
+3. En **Create IoT Edge service** (Crear servicio IoT Edge), escriba la configuración del recurso de IoT Hub:
 
-   
-    |Campo  |Value  |
-    |---------|---------|
-    |IoT Hub     | Elija entre **Nuevo** o **Existente**. <br> De forma predeterminada, se usa un nivel estándar (S1) para crear un recurso de IoT. Para usar un recurso de IoT de nivel gratuito, cree uno y, a continuación, seleccione el recurso existente. <br> En cualquier caso, el recurso de IoT Hub usa la misma suscripción y el mismo grupo de recursos que el recurso de Azure Stack Edge.     |
-    |Nombre     |Escriba un nombre para el recurso de IoT Hub.         |
+   |Campo   |Valor    |
+   |--------|---------|
+   |Suscripción      | Suscripción utilizada por el recurso de Azure Stack Edge. |
+   |Grupo de recursos    | Grupo de recursos utilizado por el recurso de Azure Stack Edge. |
+   |IoT Hub           | Elija entre **Create new** (Crear nuevo) o **Use existing** (Usar existente). <br> De forma predeterminada, se usa un nivel estándar (S1) para crear un recurso de IoT. Para usar un recurso de IoT de nivel gratuito, cree uno y, a continuación, seleccione el recurso existente. <br> En cualquier caso, el recurso de IoT Hub usa la misma suscripción y el mismo grupo de recursos que el recurso de Azure Stack Edge.     |
+   |Nombre              | Si no desea usar el nombre predeterminado proporcionado para el nuevo recurso de IoT Hub, escriba un nombre diferente. |
 
     ![Introducción al proceso 2](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-3.png)
 
-4. Seleccione **Crear**. La creación del recurso de IoT Hub tarda varios minutos. Después de crear el recurso de IoT Hub, el icono **Configurar proceso** se actualiza para mostrar la configuración de proceso. 
+4. Cuando termine la configuración, seleccione **Review + Create** (Revisar y crear). Revise la configuración del recurso de IoT Hub y seleccione **Create** (Crear).
+
+   La creación del recurso de IoT Hub tarda varios minutos. Una vez creado el recurso, la página **Overview** (Información general) indica que el servicio IoT Edge ahora está en ejecución.
 
     ![Introducción al proceso 3](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-4.png)
 
-5. Para confirmar que se ha configurado el rol de proceso perimetral, seleccione **Ver proceso** en el icono **Configurar proceso**.
-    
-    ![Introducción al proceso 4](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-5.png)
+5. Para confirmar que se ha configurado el rol de proceso de Edge, seleccione **Properties** (Propiedades).
 
-    > [!NOTE]
-    > Si el cuadro de diálogo **Configurar proceso** se cierra antes de que IoT Hub esté asociado con el dispositivo de Azure Stack Edge Pro, la instancia de IoT Hub se crea, pero no se muestra en la configuración de proceso. 
-    
-    Cuando el rol de proceso de Edge está configurado en el dispositivo de Edge, este crea dos dispositivos: uno IoT y el otro IoT Edge. Ambos se pueden ver en el recurso de IoT Hub. Un entorno de ejecución de IoT Edge también se ejecuta en este dispositivo de IoT Edge. En este momento, solo está disponible la plataforma Linux para el dispositivo IoT Edge.
+   ![Introducción al proceso 4](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-5.png)
+
+   Cuando el rol de proceso de Edge está configurado en el dispositivo de Edge, este crea dos dispositivos: uno IoT y el otro IoT Edge. Ambos se pueden ver en el recurso de IoT Hub. Un entorno de ejecución de IoT Edge también se ejecuta en este dispositivo de IoT Edge. En este momento, solo está disponible la plataforma Linux para el dispositivo IoT Edge.
 
 
 ## <a name="add-shares"></a>Agregar recursos compartidos
@@ -94,11 +93,11 @@ En este tutorial, se realizará una implementación sencilla con dos recursos co
 
         ![Agregar un recurso compartido perimetral](./media/azure-stack-edge-j-series-deploy-configure-compute/add-edge-share-1.png) 
 
-    Si ha creado un recurso compartido NFS local, use la siguiente opción de comando de sincronización remota (rsync) para copiar archivos en él:
+    Si ha creado un recurso compartido de NFS local, use la siguiente opción del comando de sincronización remota (`rsync`) para copiar archivos en él:
 
     `rsync <source file path> < destination file path>`
 
-    Para más información sobre el comando `rsync`, consulte la [documentación sobre Rsync](https://www.computerhope.com/unix/rsync.htm).
+    Para más información sobre el comando `rsync`, consulte la [documentación sobre `Rsync`](https://www.computerhope.com/unix/rsync.htm).
 
     > [!NOTE]
     > Para montar el recurso compartido de NFS para un proceso, la red de proceso debe configurarse en la misma subred que la dirección IP virtual de NFS. Para obtener más información sobre cómo configurar la red de proceso, vaya a [Habilitación de la red de proceso en Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).
@@ -125,7 +124,7 @@ En esta sección, agregará un módulo personalizado al dispositivo de IoT Edge 
 2. En la hoja **Configurar y agregar módulo**, escriba los valores siguientes:
 
     
-    |Campo  |Value  |
+    |Campo  |Valor  |
     |---------|---------|
     |Nombre     | Un nombre único para el módulo. Este módulo es un contenedor de Docker que puede implementar en el dispositivo de IoT Edge asociado a Azure Stack Edge Pro.        |
     |URI de imagen     | El URI de la imagen de contenedor correspondiente del módulo.        |
@@ -154,15 +153,15 @@ Para comprobar que el módulo se está ejecutando, haga lo siguiente:
  
 1. En el Explorador de archivos, conéctese a los recursos compartidos local perimetral y perimetral que creó anteriormente.
 
-    ![Comprobar transformación de datos](./media/azure-stack-edge-j-series-deploy-configure-compute/verify-data-2.png) 
+    ![Comprobar transformación de datos: 1](./media/azure-stack-edge-j-series-deploy-configure-compute/verify-data-2.png) 
  
 1. Agregue datos al recurso compartido local.
 
-    ![Comprobar transformación de datos](./media/azure-stack-edge-j-series-deploy-configure-compute/verify-data-3.png) 
+    ![Comprobar transformación de datos: 2](./media/azure-stack-edge-j-series-deploy-configure-compute/verify-data-3.png) 
  
    Los datos se mueven al recurso compartido en la nube.
 
-    ![Comprobar transformación de datos](./media/azure-stack-edge-j-series-deploy-configure-compute/verify-data-4.png)  
+    ![Comprobar transformación de datos: 3](./media/azure-stack-edge-j-series-deploy-configure-compute/verify-data-4.png)  
 
    A continuación, los datos se trasladan del recurso compartido en la nube a la cuenta de almacenamiento. Para ver los datos puede usar el Explorador de Storage.
 

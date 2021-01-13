@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c3188571e9188add7bc8f4f4d07ea5a562a79b3
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 8d4515d6140123e8e8784fc2d828242d49c59fc4
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658118"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97616905"
 ---
 # <a name="enable-remote-access-to-power-bi-mobile-with-azure-ad-application-proxy"></a>Habilitación del acceso remoto a Power BI Mobile con Azure AD Application Proxy
 
@@ -153,6 +153,8 @@ Puede usar Microsoft Intune para administrar las aplicaciones cliente que utili
 ## <a name="troubleshooting"></a>Solución de problemas
 
 Si la aplicación devuelve una página de error después de intentar cargar un informe durante varios minutos, puede que tenga que cambiar la configuración del tiempo de espera. De forma predeterminada, Application Proxy admite aplicaciones que tardan un máximo de 85 segundos en responder a una solicitud. Para aumentar este valor a 180 segundos, seleccione el tiempo de espera de back-end como **Largo** en la página de configuración de Application Proxy para la aplicación. Para obtener sugerencias sobre procedimientos para crear informes rápidos y de confianza, consulte los [procedimientos recomendados para informes de Power BI](/power-bi/power-bi-reports-performance).
+
+El uso de Azure AD Application Proxy para permitir que la aplicación móvil de Power BI se conecte a la versión local de Power BI Report Server no es compatible con las directivas de acceso condicional que requieren la aplicación de Microsoft Power BI como una aplicación cliente aprobada.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc,subject-armqs
 ms.date: 10/14/2020
 ms.author: sebansal
-ms.openlocfilehash: 73c52963df65dc4037f087a93108ccfacb3fb5d4
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 566ddae3893a5499ddefe0ccd1ade8caff4567c2
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461553"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934992"
 ---
 # <a name="quickstart-create-an-azure-key-vault-and-a-key-by-using-arm-template-preview"></a>Inicio rápido: Creación de un almacén de claves de Azure y una clave mediante una plantilla de Resource Manager (versión preliminar)
 
@@ -217,4 +217,4 @@ En este inicio rápido, ha creado un almacén de claves y una clave mediante una
 
 - Lea una [introducción a Azure Key Vault](../general/overview.md).
 - Obtenga más información sobre [Azure Resource Manager](../../azure-resource-manager/management/overview.md).
-- Consulte los [procedimientos recomendados de Azure Key Vault](../general/best-practices.md).
+- Consulte [Introducción a la seguridad de Azure Key Vault](../general/security-overview.md)

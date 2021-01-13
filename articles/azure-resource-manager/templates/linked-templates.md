@@ -1,22 +1,22 @@
 ---
 title: Plantillas de vínculo para la implementación
-description: Describe cómo usar plantillas vinculadas en una plantilla del Administrador de recursos de Azure para crear una solución de plantilla modular. Muestra cómo pasar valores de parámetros y especificar un archivo de parámetros y las direcciones URL creadas dinámicamente.
+description: Describe cómo usar plantillas vinculadas en una plantilla de Azure Resource Manager (plantilla de ARM) para crear una solución de plantilla modular. Muestra cómo pasar valores de parámetros y especificar un archivo de parámetros y las direcciones URL creadas dinámicamente.
 ms.topic: conceptual
 ms.date: 12/07/2020
-ms.openlocfilehash: 1e2ccc57b42f8072c9aa28612d534507b9a674ed
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: cac63ccdd13e245baf97695e9b138c29d3db4958
+ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96852105"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97760629"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Uso de plantillas vinculadas y anidadas al implementar recursos de Azure
 
-Para implementar soluciones complejas, puede dividir la plantilla en numerosas plantillas relacionadas y, a continuación, implementarlas juntas mediante una plantilla principal. Las plantillas relacionadas pueden ser archivos independientes o una sintaxis de la plantilla que esté insertada en la plantilla principal. En este artículo se usa el término **plantilla vinculada** para hacer referencia a un archivo de plantilla independiente al que se hace referencia a través de un vínculo de la plantilla principal. Usa el término **plantilla anidada** para hacer referencia a la sintaxis de la plantilla insertada dentro de la plantilla principal.
+Para implementar soluciones complejas, puede dividir la plantilla de Azure Resource Manager (plantilla de ARM) en numerosas plantillas relacionadas y, a continuación, implementarlas juntas mediante una plantilla principal. Las plantillas relacionadas pueden ser archivos independientes o una sintaxis de la plantilla que esté insertada en la plantilla principal. En este artículo se usa el término **plantilla vinculada** para hacer referencia a un archivo de plantilla independiente al que se hace referencia a través de un vínculo de la plantilla principal. Usa el término **plantilla anidada** para hacer referencia a la sintaxis de la plantilla insertada dentro de la plantilla principal.
 
 En el caso de soluciones pequeñas o medianas, es más fácil entender y mantener una única plantilla. Puede ver todos los recursos y valores en un único archivo. Para los escenarios avanzados, las plantillas vinculadas le permiten desglosar la solución en componentes dirigidos. Estas plantillas se pueden reutilizar fácilmente para otros escenarios.
 
-Para obtener un tutorial, consulte [Tutorial: creación de plantillas vinculadas de Azure Resource Manager](./deployment-tutorial-linked-template.md).
+Para obtener un tutorial, vea [Tutorial: Implementación de una plantilla vinculada](./deployment-tutorial-linked-template.md).
 
 > [!NOTE]
 > En cuanto a las plantillas vinculadas o anidadas, solo se puede establecer el modo de implementación en [incremental](deployment-modes.md). Sin embargo, la plantilla principal se puede implementar en el modo completo. Si implementa la plantilla principal en el modo completo y la plantilla vinculada o anidada tiene como destino el mismo grupo de recursos, los recursos implementados en la plantilla vinculada o anidada se incluyen en la evaluación para la implementación en modo completo. La colección combinada de recursos implementados en la plantilla principal y las plantillas vinculadas o anidadas se comparan con los recursos existentes en el grupo de recursos. Se eliminan todos los recursos no incluidos en esta colección combinada.
@@ -26,7 +26,7 @@ Para obtener un tutorial, consulte [Tutorial: creación de plantillas vinculadas
 
 ## <a name="nested-template"></a>Plantilla anidada
 
-Para anidar una plantilla, agregue un [recurso de implementaciones](/azure/templates/microsoft.resources/deployments) a la plantilla principal. En la propiedad **template**, especifique la sintaxis de la plantilla.
+Para anidar una plantilla, agregue un [recurso de implementaciones](/azure/templates/microsoft.resources/deployments) a la plantilla principal. En la propiedad `template`, especifique la sintaxis de la plantilla.
 
 ```json
 {
@@ -283,7 +283,7 @@ En el ejemplo siguiente se implementa un servidor SQL Server y se recupera el se
 
 ## <a name="linked-template"></a>Plantilla vinculada
 
-Para vincular una plantilla, agregue un [recurso de implementaciones](/azure/templates/microsoft.resources/deployments) a la plantilla principal. En la propiedad **templateLink**, especifique el URI de la plantilla que se va a incluir. El ejemplo siguiente está vinculado a una plantilla que se encuentra en una cuenta de almacenamiento.
+Para vincular una plantilla, agregue un [recurso de implementaciones](/azure/templates/microsoft.resources/deployments) a la plantilla principal. En la propiedad `templateLink`, especifique el URI de la plantilla que se va a incluir. El ejemplo siguiente está vinculado a una plantilla que se encuentra en una cuenta de almacenamiento.
 
 ```json
 {
@@ -310,9 +310,9 @@ Para vincular una plantilla, agregue un [recurso de implementaciones](/azure/tem
 }
 ```
 
-Al hacer referencia a una plantilla vinculada, el valor de `uri` no puede ser un archivo local ni un archivo que solo esté disponible en la red local. Azure Resource Manager debe tener acceso a la plantilla. Proporcione un valor de URI que se pueda descargar como **http** o **https**. 
+Al hacer referencia a una plantilla vinculada, el valor de `uri` no puede ser un archivo local ni un archivo que solo esté disponible en la red local. Azure Resource Manager debe tener acceso a la plantilla. Proporcione un valor de URI que se pueda descargar como HTTP o HTTPS.
 
-Puede hacer referencia a plantillas mediante parámetros que incluyen **http** o **https**. Por ejemplo, un patrón común es usar el parámetro `_artifactsLocation`. Puede establecer la plantilla vinculada con una expresión como la siguiente:
+Puede hacer referencia a plantillas mediante parámetros que incluyan HTTP o HTTPS. Por ejemplo, un patrón común es usar el parámetro `_artifactsLocation`. Puede establecer la plantilla vinculada con una expresión como la siguiente:
 
 ```json
 "uri": "[concat(parameters('_artifactsLocation'), '/shared/os-disk-parts-md.json', parameters('_artifactsLocationSasToken'))]"
@@ -324,47 +324,49 @@ Si va a vincular a una plantilla en GitHub, use la dirección URL sin procesar. 
 
 ### <a name="parameters-for-linked-template"></a>Parámetros de la plantilla vinculada
 
-Puede proporcionar los parámetros de la plantilla vinculada en un archivo externo o alineados. Al proporcionar un archivo de parámetros externo, use la propiedad **parametersLink**:
+Puede proporcionar los parámetros de la plantilla vinculada en un archivo externo o alineados. Al proporcionar un archivo de parámetros externo, use la propiedad `parametersLink`:
 
 ```json
 "resources": [
   {
-  "type": "Microsoft.Resources/deployments",
-  "apiVersion": "2019-10-01",
-  "name": "linkedTemplate",
-  "properties": {
-    "mode": "Incremental",
-    "templateLink": {
-      "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.json",
-      "contentVersion":"1.0.0.0"
-    },
-    "parametersLink": {
-      "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.parameters.json",
-      "contentVersion":"1.0.0.0"
+    "type": "Microsoft.Resources/deployments",
+    "apiVersion": "2019-10-01",
+    "name": "linkedTemplate",
+    "properties": {
+      "mode": "Incremental",
+      "templateLink": {
+        "uri": "https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.json",
+        "contentVersion": "1.0.0.0"
+      },
+      "parametersLink": {
+        "uri": "https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.parameters.json",
+        "contentVersion": "1.0.0.0"
+      }
     }
-  }
   }
 ]
 ```
 
-Para pasar los valores de parámetro alineados, use la propiedad **parameters**.
+Para pasar los valores de parámetro alineados, use la propiedad `parameters`.
 
 ```json
 "resources": [
   {
-   "type": "Microsoft.Resources/deployments",
-   "apiVersion": "2019-10-01",
-   "name": "linkedTemplate",
-   "properties": {
-     "mode": "Incremental",
-     "templateLink": {
-      "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.json",
-      "contentVersion":"1.0.0.0"
-     },
-     "parameters": {
-      "storageAccountName":{"value": "[parameters('storageAccountName')]"}
+    "type": "Microsoft.Resources/deployments",
+    "apiVersion": "2019-10-01",
+    "name": "linkedTemplate",
+    "properties": {
+      "mode": "Incremental",
+      "templateLink": {
+        "uri": "https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.json",
+        "contentVersion": "1.0.0.0"
+      },
+      "parameters": {
+        "storageAccountName": {
+          "value": "[parameters('storageAccountName')]"
+        }
+      }
     }
-   }
   }
 ]
 ```
@@ -394,7 +396,7 @@ No tiene que proporcionar la propiedad `contentVersion` para la propiedad `templ
 
 Los ejemplos anteriores mostraron valores de dirección URL codificadas de forma rígida para los vínculos de la plantilla. Este enfoque puede funcionar en una plantilla sencilla, pero no funciona bien para un gran conjunto de plantillas modulares. En su lugar, puede crear una variable estática que almacene una dirección URL base para la plantilla principal y, luego, crear dinámicamente direcciones URL para las plantillas vinculadas desde esa dirección URL base. La ventaja de este enfoque es que puede mover o bifurcar fácilmente la plantilla, ya que solo tiene que cambiar la variable estática en la plantilla principal. La plantilla principal pasa los URI correctos por toda la plantilla descompuesta.
 
-En el ejemplo siguiente se muestra cómo usar una dirección URL base para crear dos direcciones URL para las plantillas vinculadas (**sharedTemplateUrl** y **vmTemplate**).
+En el ejemplo siguiente se muestra cómo usar una dirección URL base para crear dos direcciones URL para las plantillas vinculadas (`sharedTemplateUrl` y `vmTemplateUrl`).
 
 ```json
 "variables": {
@@ -404,7 +406,7 @@ En el ejemplo siguiente se muestra cómo usar una dirección URL base para crear
 }
 ```
 
-También puede usar la función [deployment()](template-functions-deployment.md#deployment) para obtener la dirección URL base de la plantilla actual y usar esta información para obtener la dirección URL de otras plantillas en la misma ubicación. Este enfoque resulta útil si cambia la ubicación de la plantilla o desea evitar la codificación de forma rígida de las direcciones URL en el archivo de plantilla. La propiedad templateLink solo se devuelve al vincular una plantilla remota a una URL. Si utiliza una plantilla local, esa propiedad no está disponible.
+También puede usar la función [deployment()](template-functions-deployment.md#deployment) para obtener la dirección URL base de la plantilla actual y usar esta información para obtener la dirección URL de otras plantillas en la misma ubicación. Este enfoque resulta útil si cambia la ubicación de la plantilla o desea evitar la codificación de forma rígida de las direcciones URL en el archivo de plantilla. La propiedad `templateLink` solo se devuelve al vincular una plantilla remota a una URL. Si utiliza una plantilla local, esa propiedad no está disponible.
 
 ```json
 "variables": {
@@ -423,49 +425,49 @@ En última instancia, usaría la variable en la propiedad `uri` de una propiedad
 
 ## <a name="using-copy"></a>Uso de la copia
 
-Para crear varias instancias de un recurso con una plantilla anidada, agregue el elemento de copia en el nivel del recurso **Microsoft.resources/Deployments**. O bien, si el ámbito es interno, puede agregar la copia dentro de la plantilla anidada.
+Para crear varias instancias de un recurso con una plantilla anidada, agregue el elemento `copy` en el nivel del recurso `Microsoft.Resources/deployments`. O bien, si el ámbito es `inner`, puede agregar la copia dentro de la plantilla anidada.
 
-En la plantilla de ejemplo siguiente se muestra cómo usar la función de copiar con una plantilla anidada.
+En la plantilla de ejemplo siguiente se muestra cómo usar `copy` con una plantilla anidada.
 
 ```json
 "resources": [
   {
-  "type": "Microsoft.Resources/deployments",
-  "apiVersion": "2019-10-01",
-  "name": "[concat('nestedTemplate', copyIndex())]",
-  // yes, copy works here
-  "copy":{
-    "name": "storagecopy",
-    "count": 2
-  },
-  "properties": {
-    "mode": "Incremental",
-    "expressionEvaluationOptions": {
-    "scope": "inner"
+    "type": "Microsoft.Resources/deployments",
+    "apiVersion": "2019-10-01",
+    "name": "[concat('nestedTemplate', copyIndex())]",
+    // yes, copy works here
+    "copy": {
+      "name": "storagecopy",
+      "count": 2
     },
-    "template": {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [
-      {
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2019-04-01",
-      "name": "[concat(variables('storageName'), copyIndex())]",
-      "location": "West US",
-      "sku": {
-        "name": "Standard_LRS"
+    "properties": {
+      "mode": "Incremental",
+      "expressionEvaluationOptions": {
+        "scope": "inner"
       },
-      "kind": "StorageV2"
-      // Copy works here when scope is inner
-      // But, when scope is default or outer, you get an error
-      //"copy":{
-      //  "name": "storagecopy",
-      //  "count": 2
-      //}
+      "template": {
+        "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "resources": [
+          {
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2019-04-01",
+            "name": "[concat(variables('storageName'), copyIndex())]",
+            "location": "West US",
+            "sku": {
+              "name": "Standard_LRS"
+            },
+            "kind": "StorageV2"
+            // Copy works here when scope is inner
+            // But, when scope is default or outer, you get an error
+            //"copy":{
+            //  "name": "storagecopy",
+            //  "count": 2
+            //}
+          }
+        ]
       }
-    ]
     }
-  }
   }
 ]
 ```
@@ -476,7 +478,7 @@ Para obtener un valor de salida de una plantilla vinculada, recupere el valor de
 
 Al obtener una propiedad de salida de una plantilla vinculada, el nombre de la propiedad no debe incluir un guión.
 
-Los ejemplos siguientes muestran cómo hacer referencia a una plantilla vinculada y recuperar un valor de salida. La plantilla vinculada devuelve un mensaje simple.  En primer lugar, la plantilla vinculada:
+Los ejemplos siguientes muestran cómo hacer referencia a una plantilla vinculada y recuperar un valor de salida. La plantilla vinculada devuelve un mensaje simple. En primer lugar, la plantilla vinculada:
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/linkedtemplates/helloworld.json":::
 
@@ -613,28 +615,28 @@ En el ejemplo siguiente se muestra cómo pasar un token de SAS al vincular a una
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-  "containerSasToken": { "type": "securestring" }
+    "containerSasToken": { "type": "securestring" }
   },
   "resources": [
-  {
-    "type": "Microsoft.Resources/deployments",
-    "apiVersion": "2019-10-01",
-    "name": "linkedTemplate",
-    "properties": {
-    "mode": "Incremental",
-    "templateLink": {
-      "uri": "[concat(uri(deployment().properties.templateLink.uri, 'helloworld.json'), parameters('containerSasToken'))]",
-      "contentVersion": "1.0.0.0"
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2019-10-01",
+      "name": "linkedTemplate",
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+          "uri": "[concat(uri(deployment().properties.templateLink.uri, 'helloworld.json'), parameters('containerSasToken'))]",
+          "contentVersion": "1.0.0.0"
+        }
+      }
     }
-    }
-  }
   ],
   "outputs": {
   }
 }
 ```
 
-En PowerShell, se obtiene un token para el contenedor y se implementan las plantillas con los comandos siguientes. Tenga en cuenta que el parámetro **containerSasToken** se define en la plantilla. No es un parámetro en el comando **New-AzResourceGroupDeployment**.
+En PowerShell, se obtiene un token para el contenedor y se implementan las plantillas con los comandos siguientes. Tenga en cuenta que el parámetro `containerSasToken` se define en la plantilla. No es un parámetro en el comando `New-AzResourceGroupDeployment`.
 
 ```azurepowershell-interactive
 Set-AzCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates
@@ -680,7 +682,7 @@ En los ejemplos siguientes se muestran los usos más comunes de las plantillas v
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para seguir los pasos de un tutorial, consulte [Tutorial: creación de plantillas vinculadas de Azure Resource Manager](./deployment-tutorial-linked-template.md).
-* Para obtener información sobre cómo definir el orden de implementación de los recursos, consulte [Definición de dependencias en plantillas de Azure Resource Manager](define-resource-dependency.md).
-* Para obtener información sobre cómo definir un recurso y crear numerosas instancias de este, consulte [Creación de varias instancias de recursos en Azure Resource Manager](copy-resources.md).
-* Para obtener información sobre cómo configurar una plantilla en una cuenta de almacenamiento y generar un token de SAS, consulte [Deploy resources with Resource Manager templates and Azure PowerShell](deploy-powershell.md) (Implementación de recursos con plantillas de Resource Manager y Azure PowerShell) o [Deploy resources with Resource Manager templates and Azure CLI](deploy-cli.md) (Implementación de recursos con plantillas de Azure Manager y la CLI de Azure).
+* Para realizar un tutorial, consulte [Tutorial: Implementación de una plantilla vinculada](./deployment-tutorial-linked-template.md).
+* Para información sobre cómo definir el orden de implementación de los recursos, consulte [Definición del orden de implementación de recursos en las plantillas de ARM](define-resource-dependency.md).
+* Para información sobre cómo definir un recurso y crear muchas instancias de este, consulte [Iteración de recursos en las plantillas de ARM](copy-resources.md).
+* Para los pasos de configuración de una plantilla en una cuenta de almacenamiento y la generación de un token de SAS, consulte [Implementación de recursos con las plantillas de Resource Manager y Azure PowerShell](deploy-powershell.md) o [Implementación de recursos con plantillas de ARM y la CLI de Azure](deploy-cli.md).

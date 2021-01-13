@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 78b42a8ad3685d07b61c4faca384c7ee8f5a5f94
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 8e4e64cd872794354479c29d4aaa000cee45c5a3
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97616395"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97901222"
 ---
 # <a name="troubleshooting-azure-key-vault-access-policy-issues"></a>Solución de problemas de las directivas de acceso de Azure Key Vault
 
@@ -32,10 +32,10 @@ Cuando empiece a escalar el servicio, aumentará el número de solicitudes que s
 ### <a name="i-am-not-able-to-modify-access-policy-how-can-it-be-enabled"></a>No puedo modificar la directiva de acceso, ¿cómo se puede habilitar?
 El usuario debe tener permisos de AAD suficientes para modificar la directiva de acceso. En este caso, el usuario debe tener un rol de colaborador o superior.
 
-### <a name="i-am-seeing-unkwown-policy-error-what-does-that-mean"></a>Aparece el error "Directiva desconocida". ¿Qué significa?
+### <a name="i-am-seeing-unknown-policy-error-what-does-that-mean"></a>Aparece el error "Directiva desconocida". ¿Qué significa?
 Hay dos posibilidades diferentes de ver la directiva de acceso en la sección Desconocido:
 * Puede haber un usuario anterior que tuviera acceso y, por alguna razón, que el usuario no exista.
-* Si se ha agregado la directiva de acceso mediante PowerShell y la directiva de acceso se ha agregado para el identificador de objeto de la aplicación en lugar de la entidad de servicio.
+* Cuando la directiva de acceso se ha agregado mediante PowerShell y para el identificador de objeto de la aplicación en lugar de para la entidad de servicio.
 
 ### <a name="how-can-i-assign-access-control-per-key-vault-object"></a>¿Cómo se puede asignar el control de acceso para cada objeto de almacén de claves? 
 

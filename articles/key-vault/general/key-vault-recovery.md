@@ -3,27 +3,39 @@ title: Introducción a la recuperación de Azure Key Vault | Microsoft Docs
 description: Las características de recuperación de Key Vault están diseñadas para evitar la eliminación accidental o malintencionada del almacén de claves y los secretos, así como de las claves y certificados que se guardan en el almacén de claves.
 ms.service: key-vault
 ms.subservice: general
-ms.topic: conceptual
-author: ShaneBala-keyvault
-ms.author: sudbalas
-manager: ravijan
+ms.topic: how-to
+ms.author: mbaldwin
+author: msmbaldwin
+manager: rkarlin
 ms.date: 09/30/2020
-ms.openlocfilehash: 86190fa307133360c411aafc070412e7d527039e
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 258d100276b20ea2437ebffb1473492a247657e8
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96324965"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97704221"
 ---
-# <a name="how-to-enable-soft-delete-and-purge-protection"></a>Cómo habilitar la eliminación temporal y la protección de purga
+# <a name="azure-key-vault-recovery-management-with-soft-delete-and-purge-protection"></a>Administración de la recuperación de Azure Key Vault con eliminación temporal y protección contra purga
 
 En este artículo se explican dos características de recuperación de Azure Key Vault: la eliminación temporal y la protección de purga. En este documento se proporciona información general sobre estas características y se muestra cómo administrarlas a través de Azure Portal, la CLI de Azure y Azure PowerShell.
 
+Para más información sobre Key Vault, consulte
+- [Introducción a Azure Key Vault](overview.md)
+- [Introducción a las claves, secretos y certificados de Azure Key Vault](about-keys-secrets-certificates.md)
+
+## <a name="prerequisites"></a>Prerrequisitos
+
+* Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/dotnet).
+* [Módulo de PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+* [CLI de Azure](/cli/azure/install-azure-cli)
+* Una instancia de Key Vault (se puede crear mediante [Azure Portal](../general/quick-create-portal.md), [la CLI de Azure](../general/quick-create-cli.md) o [Azure PowerShell](../general/quick-create-powershell.md))
+
 ## <a name="what-are-soft-delete-and-purge-protection"></a>Qué es la eliminación temporal y la protección de purga
 
-La protección de eliminación temporal y la protección de purga son dos características de recuperación diferentes del almacén de claves.
+La protección de [eliminación temporal](soft-delete-overview.md) y la protección de purga son dos características de recuperación diferentes de Key Vault.
+
 > [!IMPORTANT]
-> La protección de eliminación temporal debe estar habilitada en todos los almacenes de claves. La capacidad de deshabilitar la protección contra la eliminación temporal quedará en desuso en diciembre de 2020. Consulte todos los detalles [**aquí**.](soft-delete-change.md)
+> La activación de la eliminación temporal es fundamental para garantizar que los almacenes de claves y las credenciales estén protegidos contra la eliminación accidental. Sin embargo, si se activa la eliminación temporal, se considera un cambio importante porque puede que sea necesario cambiar la lógica de la aplicación o proporcionar permisos adicionales a las entidades de servicio. Antes de activar la eliminación temporal con las instrucciones siguientes, asegúrese de que la aplicación sea compatible con el cambio mediante este documento que se encuentra [**aquí**.](soft-delete-change.md)
 
 La **eliminación temporal** está diseñada para evitar la eliminación accidental del almacén de claves y las claves, los secretos y los certificados almacenados en el mismo. Puede considerar la eliminación temporal como una papelera de reciclaje. Cuando se elimina un almacén de claves o un objeto del mismo, podrá recuperarlo durante el período de retención que haya configurado el usuario o un valor predeterminado de 90 días. Los almacenes de claves con estado de eliminación temporal también se pueden **purgar**, lo que significa que se eliminan de forma permanente. Esto le permite volver a crear almacenes de claves y sus objetos con el mismo nombre. Tanto la recuperación como la eliminación de los almacenes de claves y sus objetos requieren permisos elevados de directiva de acceso. **Una vez habilitada la eliminación temporal, no se puede deshabilitar.**
 
@@ -33,6 +45,8 @@ La **protección de purga** está diseñada para evitar la eliminación de su al
 
 > [!NOTE]
 > La protección de purga está diseñada para que ningún permiso o rol de administrador pueda invalidar, deshabilitar o eludir esa protección de purga. **Una vez habilitada la protección de purga, ningún usuario ni Microsoft podrán deshabilitarla o invalidarla.** Esto significa que deberá recuperar el almacén de claves eliminado o esperar a que transcurra el período de retención antes de reutilizar el nombre del almacén de claves.
+
+Para más información acerca de la eliminación temporal, consulte [Información general sobre la eliminación temporal de Azure Key Vault](soft-delete-overview.md).
 
 # <a name="azure-portal"></a>[Azure Portal](#tab/azure-portal)
 
@@ -370,3 +384,14 @@ La **protección de purga** está diseñada para evitar la eliminación de su al
   ```powershell
   Remove-AzKeyVaultSecret -VaultName ContosoVault -InRemovedState -name SQLPassword
   ```
+---
+
+## <a name="next-steps"></a>Pasos siguientes
+
+- [Cmdlets de PowerShell para Azure Key Vault](https://docs.microsoft.com/powershell/module/az.keyvault)
+- [Comandos de la CLI de Azure para Key Vault](https://docs.microsoft.com/cli/azure/keyvault)
+- [Copia de seguridad de Azure Key Vault](backup.md)
+- [Habilitación del registro de Key Vault](howto-logging.md)
+- [Protección del acceso a un almacén de claves](secure-your-key-vault.md)
+- [Guía del desarrollador de Azure Key Vault](developers-guide.md)
+- [Procedimientos recomendados para utilizar un almacén de claves](best-practices.md)

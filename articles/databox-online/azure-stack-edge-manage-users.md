@@ -1,23 +1,23 @@
 ---
-title: Usuarios de administración de Azure Stack Edge Pro con GPU | Microsoft Docs
+title: Usuarios de administración de Azure Stack Edge Pro con FPGA | Microsoft Docs
 description: Se describe cómo usar Azure Portal para administrar usuarios en Azure Stack Edge Pro.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/11/2019
+ms.date: 01/05/2021
 ms.author: alkohli
-ms.openlocfilehash: 3fb82e95d9d7dcfdf59bd05f91beff8e1184955e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 27ca190f3bad7f75175e5206d48e13dae1f5687e
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90904385"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97913353"
 ---
-# <a name="use-the-azure-portal-to-manage-users-on-your-azure-azure-stack-edge-pro"></a>Uso de Azure Portal para administrar usuarios en Azure Stack Edge Pro
+# <a name="use-the-azure-portal-to-manage-users-on-your-azure-stack-edge-pro-fpga"></a>Uso de Azure Portal para administrar usuarios en Azure Stack Edge Pro con FPGA
 
-En este artículo, se explica cómo administrar los usuarios en Azure Stack Edge Pro. Azure Stack Edge Pro se puede administrar con Azure Portal o con la interfaz de usuario web local. Usar Azure Portal para agregar, modificar o eliminar usuarios.
+En este artículo se explica cómo administrar los usuarios en Azure Stack Edge Pro con un dispositivo con FPGA. Azure Stack Edge Pro se puede administrar con Azure Portal o con la interfaz de usuario web local. Usar Azure Portal para agregar, modificar o eliminar usuarios.
 
 En este artículo aprenderá a:
 
@@ -39,7 +39,7 @@ Los permisos del usuario se definen por primera vez cuando se crea el usuario du
 
 Para agregar un usuario siga estos pasos en Azure Portal.
 
-1. En Azure Portal, vaya al recurso de Azure Stack Edge y luego a **Información general > Usuarios**. Seleccione **+ Agregar usuario** en la barra de comandos.
+1. En Azure Portal, vaya al recurso de Azure Stack Edge y luego a **Usuarios**. Seleccione **+ Agregar usuario** en la barra de comandos.
 
     ![Seleccionar Agregar usuario](media/azure-stack-edge-manage-users/add-user-1.png)
 
@@ -65,7 +65,7 @@ Una vez que se crea un usuario es posible cambiar la contraseña asociada con é
 Siga estos pasos en Azure Portal para eliminar un usuario.
 
 
-1. En Azure Portal, vaya al recurso de Azure Stack Edge y luego a **Información general > Usuarios**.
+1. En Azure Portal, vaya al recurso de Azure Stack Edge y luego a **Usuarios**.
 
     ![Seleccionar el usuario que se va a eliminar](media/azure-stack-edge-manage-users/delete-user-1.png)
 

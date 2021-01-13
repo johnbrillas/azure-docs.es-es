@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
-ms.date: 11/16/2020
-ms.openlocfilehash: 0d2248b9c0a289f5e4f9f2f8e987365ab58c49c0
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.date: 12/26/2020
+ms.openlocfilehash: 91375f4460b55617ace0b18b60d59d961a762f4c
+ms.sourcegitcommit: 00aa5afaa9fac91f1059cfed3d8dbc954caaabe2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94988551"
+ms.lasthandoff: 12/27/2020
+ms.locfileid: "97792507"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Uso de grupos de conmutación por error automática para permitir la conmutación por error de varias bases de datos de manera transparente y coordinada
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -229,7 +229,7 @@ Si la aplicación usa Instancia administrada de SQL como capa de datos, siga est
 
 ### <a name="creating-the-secondary-instance"></a>Creación de la instancia secundaria
 
-Para garantizar la conectividad sin interrupciones a la Instancia administrada de SQL principal después de la conmutación por error, las instancias principales y secundarias deben estar en la misma zona DNS. Esto garantizará que se pueda usar el mismo certificado de varios dominios (SAN) para autenticar las conexiones de cliente a cualquiera de las dos instancias del grupo de conmutación por error. Cuando la aplicación esté lista para la implementación en producción, cree una Instancia administrada de SQL secundaria en una región distinta y asegúrese de que comparte la zona DNS con la Instancia administrada de SQL principal. Para ello, especifique un parámetro `DNS Zone Partner` opcional mediante Azure Portal, PowerShell o la API de REST.
+Para garantizar la conectividad sin interrupciones a la Instancia administrada de SQL principal después de la conmutación por error, las instancias principales y secundarias deben estar en la misma zona DNS. Esto garantizará que se pueda usar el mismo certificado de varios dominios (SAN) para autenticar las conexiones de cliente a cualquiera de las dos instancias del grupo de conmutación por error. Cuando la aplicación esté lista para la implementación en producción, cree una Instancia administrada de SQL secundaria en una región distinta y asegúrese de que comparte la zona DNS con la Instancia administrada de SQL principal. Puede hacerlo al especificar el parámetro opcional durante la creación. Si usa PowerShell o la API REST, el nombre del parámetro opcional es `DNS Zone Partner` y el nombre del campo opcional correspondiente en Azure Portal es Instancia administrada principal.
 
 > [!IMPORTANT]
 > La primera Instancia administrada creada en la subred determina la zona DNS de todas las instancias posteriores de la misma subred. Esto significa que dos instancias de la misma subred no pueden pertenecer a zonas DNS diferentes.

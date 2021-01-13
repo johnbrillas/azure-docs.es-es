@@ -5,12 +5,13 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: article
-ms.openlocfilehash: 536f5e7d2fa12d1f9a9f09a31b463d2096dcad37
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.custom: references_regions
+ms.openlocfilehash: 4380f14610fb0775c82aa79ec7cda9dc70cf0715
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207417"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97722698"
 ---
 # <a name="system-requirements"></a>Requisitos del sistema
 
@@ -64,7 +65,32 @@ Consulte el capítulo dedicado a los [requisitos de red](../reference/network-re
 
 Para solucionar problemas de red, consulte la [Guía de solución de problemas](../resources/troubleshoot.md#unstable-holograms).
 
-### <a name="network-ports"></a>Puertos de red
+### <a name="network-firewall"></a>Firewall de red
+
+### <a name="sdk-version--0176"></a>Versión del SDK >= 0.1.76
+
+Las máquinas virtuales de Remote Rendering usan direcciones IP compartidas desde los siguientes intervalos IP:
+
+| Nombre             | Region         | Prefijo IP         |
+|------------------|:---------------|:------------------|
+| Este de Australia   | australiaeast  | 20.53.44.240/28   |
+| Este de EE. UU.          | estado         | 20.62.129.224/28  |
+| Este de EE. UU. 2        | eastus2        | 20.49.103.240/28  |
+| Japón Oriental       | japaneast      | 20.191.165.112/28 |
+| Norte de Europa     | northeurope    | 52.146.133.64/28  |
+| Centro-sur de EE. UU. | southcentralus | 20.65.132.80/28   |
+| Sudeste de Asia   | southeastasia  | 20.195.64.224/28  |
+| Sur de Reino Unido         | uksouth        | 51.143.209.144/28 |
+| Oeste de Europa      | westeurope     | 20.61.99.112/28   |
+| Oeste de EE. UU. 2        | westus2        | 20.51.9.64/28     |
+
+Asegúrese de que los firewalls (en el dispositivo, dentro de los enrutadores, etc.) no bloqueen estos intervalos IP ni los puertos siguientes:
+
+| Port              | Protocolo  | Allow    |
+|-------------------|---------- |----------|
+| 49152-65534       | TCP / UDP | Saliente |
+
+#### <a name="sdk-version--0176"></a>Versión del SDK < 0.1.76
 
 Asegúrese de que los firewalls (en el dispositivo, dentro de los enrutadores, etc.) no bloqueen los puertos siguientes:
 

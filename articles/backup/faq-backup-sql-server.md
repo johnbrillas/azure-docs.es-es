@@ -4,12 +4,12 @@ description: Busque las respuestas a preguntas habituales sobre la copia de segu
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 89316770dc137bff031e6268db5ece156edd4f25
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 7518fc49f7d6d728bd8faa0de4cf0edc1c6d5831
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172372"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97734120"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Preguntas más frecuentes sobre las bases de datos de SQL Server que se ejecutan en una copia de seguridad de máquina virtual de Azure
 
@@ -104,7 +104,12 @@ Una base de datos que [se agrega a una instancia protegida automáticamente](bac
   
 ## <a name="can-i-protect-databases-that-have-tde-transparent-data-encryption-turned-on-and-will-the-database-stay-encrypted-through-the-entire-backup-process"></a>¿Se pueden proteger bases de datos con TDE (Cifrado de datos transparente) activado y permanecerán estas bases de datos cifradas durante todo el proceso de copia de seguridad?
 
-Sí, Azure Backup admite la copia de seguridad de bases de datos o servidores SQL Server con TDE habilitado. Backup admite [TDE](/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017) con claves administradas por Azure o con claves administradas por el cliente (BYOK).  Backup no realiza ningún cifrado de SQL como parte del proceso de copia de seguridad, por lo que la base de datos permanecerá cifrada cuando se realice una copia de seguridad.
+Sí, Azure Backup admite la copia de seguridad de bases de datos o servidores SQL Server con TDE habilitado. Backup admite [TDE](/sql/relational-databases/security/encryption/transparent-data-encryption) con claves administradas por Azure o con claves administradas por el cliente (BYOK).  Backup no realiza ningún cifrado de SQL como parte del proceso de copia de seguridad, por lo que la base de datos permanecerá cifrada cuando se realice una copia de seguridad.
+
+## <a name="does-azure-backup-perform-a-checksum-operation-on-the-data-stream"></a>¿Realiza Azure Backup una operación de suma de comprobación en el flujo de datos?
+
+Sí, lo hacemos. Sin embargo, esto no se debe confundir con la [suma de comprobación de SQL](https://docs.microsoft.com/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server).
+La copia de seguridad de la carga de trabajo de Azure calcula la suma de comprobación en el flujo de datos y la almacena explícitamente durante la operación de copia de seguridad. Después, se toma como referencia y se compara de forma cruzada con la suma de comprobación del flujo de datos durante la operación de restauración para garantizar la coherencia de los datos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -1,267 +1,260 @@
 ---
 title: 'Tutorial: Creación de una aplicación de administración de residuos conectada con Azure IoT Central'
-description: 'Tutorial: Aprenda a crear una aplicación de administración de residuos conectada con las plantillas de aplicación de Azure IoT Central.'
+description: Aprenda a crear una aplicación de administración de residuos conectada con las plantillas de aplicación de Azure IoT Central.
 author: miriambrus
 ms.author: miriamb
 ms.date: 12/11/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 5ecfa3e4c46c17a3b381e9743953c7d97309ea3b
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 8085409c3dc38d17b6fe0d3cb15857b2396e23b6
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97587254"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881351"
 ---
-# <a name="tutorial-create-a-connected-waste-management-application-in-iot-central"></a>Tutorial: Creación de una aplicación de administración de residuos conectada en IoT Central
+# <a name="tutorial-create-a-connected-waste-management-app"></a>Tutorial: Creación de una aplicación de administración de residuos conectada
 
-Este tutorial le guía por los pasos para crear una aplicación de administración de residuos conectada con la plantilla de aplicación **Administración de residuos conectada** de Azure IoT Central. 
+En este tutorial se muestra cómo usar Azure IoT Central para crear una aplicación de administración de residuos conectada. 
 
-En este tutorial, aprenderá a: 
+Específicamente, aprenderá sobre lo siguiente: 
 
-* Usar la plantilla **Administración de residuos conectada** de Azure IoT Central para crear la aplicación de administración de residuos conectada
-* Explorar y personalizar el panel del operador 
-* Explorar la plantilla de dispositivo de cubo de basura conectado
+* Usar la plantilla *Administración de residuos conectada* de Azure IoT Central para crear la aplicación.
+* Explorar y personalizar el panel del operador. 
+* Explorar la plantilla de dispositivo de cubo de basura conectado.
 * Explorar los dispositivos simulados
-* Exploración y configuración de reglas
-* Trabajos de configuración
-* Personalización de marca de la aplicación mediante etiquetado blanco
+* Explorar y configurar reglas
+* Configurar trabajos
+* Personalización de marca de la aplicación.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-Para completar este tutorial, necesita:
-*  Se recomienda una suscripción de Azure. Opcionalmente, puede usar una evaluación gratuita de 7 días. Si no tiene una suscripción de Azure, puede crear una en la [página de suscripción a Azure](https://aka.ms/createazuresubscription).
+Se recomienda una suscripción de Azure. Como alternativa, puede usar una versión de prueba gratuita de 7 días. Si no tiene una suscripción de Azure, puede crear una en la [página de suscripción a Azure](https://aka.ms/createazuresubscription).
 
-## <a name="create-connected-waste-management-app-in-iot-central"></a>Creación de una aplicación de administración de residuos conectada en IoT Central
+## <a name="create-your-app-in-azure-iot-central"></a>Creación de la aplicación en Azure IoT Central
 
-En esta sección, se usará la plantilla **Connected waste management** de Azure IoT Central para crear la aplicación de administración de residuos conectada en IoT Central.
+En esta sección, va a usar la plantilla Administración de residuos conectada para crear la aplicación en Azure IoT Central. A continuación, se indica cómo puede hacerlo.
 
-Para crear una aplicación de administración de residuos conectada de Azure IoT Central, siga estos pasos:  
+1. Vaya a [Azure IoT Central](https://aka.ms/iotcentral).
 
-1. Vaya a la [página principal de Azure IoT Central](https://aka.ms/iotcentral).
+    Si tiene una suscripción a Azure, inicie sesión con las credenciales que usa para acceder a ella. De lo contrario, inicie sesión mediante una cuenta Microsoft:
 
-    Si tiene una suscripción a Azure, inicie sesión con las credenciales que usa para acceder a ella; si no la tiene, inicie sesión con una cuenta de Microsoft:
+    ![Captura de pantalla del inicio de sesión de Microsoft.](./media/tutorial-connectedwastemanagement/sign-in.png)
 
-    ![Incorporación de la cuenta de la organización](./media/tutorial-connectedwastemanagement/sign-in.png)
+1. En el panel izquierdo, seleccione **Build** (Compilar). A continuación, seleccione la pestaña **Government** (Administración Pública). En la página Government (Administración Pública) se muestran varias plantillas de aplicación.
 
-1. Haga clic en **Build** (Crear) en el panel izquierdo y seleccione la pestaña **Government** (Administración Pública). En la página Government (Administración Pública) se muestran varias plantillas de aplicación.
+    ![Captura de pantalla de la página de compilación de Azure IoT Central.](./media/tutorial-connectedwastemanagement/iotcentral-government-tab-overview.png)
 
-    ![Plantillas de creación de aplicaciones de la Administración Pública](./media/tutorial-connectedwastemanagement/iotcentral-government-tab-overview.png)
+1. Seleccione la plantilla de aplicación **Connected Waste Management** (Administración de residuos conectada). Esta plantilla incluye una plantilla de dispositivo de cubo de basura conectado de ejemplo, un dispositivo simulado, un panel del operador y reglas de supervisión preconfiguradas.    
 
-1. Seleccione la plantilla de aplicación **Connected Waste Management**. Esta plantilla incluye la plantilla de dispositivo Connected Waste Bin, un dispositivo simulado, el panel del operador y las reglas de supervisión preconfiguradas.    
+1. Seleccione **Create app** (Crear aplicación), lo que abre el cuadro de diálogo **New application** (Nueva aplicación). Rellene la información de los campos siguientes:
+    * **Application name** (Nombre de la aplicación). De forma predeterminada, la aplicación usa **Connected waste management** (Administración de residuos conectada) seguido de una cadena de identificador única que genera Azure IoT Central. Tiene la opción de elegir un nombre descriptivo para la aplicación. También puede cambiar el nombre de la aplicación más adelante.
+    * **Dirección URL**. Opcionalmente, puede elegir la dirección URL deseada. Puede cambiar la dirección URL más adelante. 
+    * **Pricing plan** (Plan de precios). Si tiene una suscripción de Azure, escriba el directorio, la suscripción de Azure y la región en los campos correspondientes del cuadro de diálogo **Billing info** (Información de facturación). Si no tiene una suscripción, seleccione **Free** (Gratis) para habilitar la suscripción de prueba de 7 días y complete la información de contacto necesaria.  
 
-1. Haga clic en **Create app** (Crear aplicación); se abrirá el formulario de creación **New application** (Nueva aplicación) con los siguientes campos:
-    * **Application name** (Nombre de la aplicación). De forma predeterminada, la aplicación usa *Connected waste management* seguido de una cadena de identificador única que genera IoT Central. Tiene la opción de elegir un nombre descriptivo para la aplicación. También puede cambiar el nombre de la aplicación más adelante.
-    * **URL**: tiene la opción de elegir la dirección URL que prefiera. También puede cambiarla más adelante. 
-    * Si tiene una suscripción de Azure, escriba el *directorio, la suscripción de Azure y la región*. Si no tiene una suscripción, puede activar **7-day free trial** (Evaluación gratuita de 7 días) y completar la información de contacto necesaria.  
+    Para más información acerca de los directorios y las suscripciones, consulte [Inicio rápido: Creación de una aplicación de Azure IoT Central](../core/quick-deploy-iot-central.md).
 
-    Para más información acerca de los directorios y las suscripciones, consulte la [guía de inicio rápido para crear una aplicación](../core/quick-deploy-iot-central.md).
+1. En la parte inferior de la página, seleccione **Create** (Crear). 
 
-1. En la parte inferior de la página, haga clic en **Create** (Crear). 
-
-    ![Página de creación de una aplicación de residuos conectados de Azure IoT Central](./media/tutorial-connectedwastemanagement/new-application-connectedwastemanagement.png)
+    ![Captura de pantalla del cuadro de diálogo Create New application (Crear nueva aplicación) de Azure IoT Central.](./media/tutorial-connectedwastemanagement/new-application-connectedwastemanagement.png)
     
-    ![Página de información de facturación de la creación de una aplicación conectada de Azure IoT Central](./media/tutorial-connectedwastemanagement/new-application-connectedwastemanagement-billinginfo.png)
+    ![Captura de pantalla del cuadro de diálogo Billing info (Información de facturación) de Azure IoT Central.](./media/tutorial-connectedwastemanagement/new-application-connectedwastemanagement-billinginfo.png)
 
  
-1. Ahora ha creado una aplicación de administración de residuos conectados mediante la plantilla **Connected waste management** de Azure IoT Central. 
-
-Felicidades. La aplicación recién creada incluye la siguiente configuración:
-* Paneles de operadores de ejemplo
-* Plantillas de dispositivo de ejemplo predefinidas de cubo de basura conectado
-* Dispositivos de cubo de basura conectados
-* Reglas y trabajos preconfigurados
-* Ejemplo de personalización de marca mediante etiquetado 
+La aplicación recién creada incluye la siguiente configuración:
+* Paneles del operador de ejemplo.
+* Plantillas de dispositivo de ejemplo predefinidas de cubo de basura conectado.
+* Dispositivos simulados de cubo de basura conectado.
+* Reglas y trabajos.
+* Personalización de marca de ejemplo. 
 
 Como es su aplicación, puede modificarla en cualquier momento. Ahora, explore la aplicación y realice algunas personalizaciones.  
 
-## <a name="explore-and-customize-operator-dashboard"></a>Explorar y personalizar el panel del operador 
-Después de crear la aplicación, llegará al panel **Wide Waste connected waste management dashboard**.
+## <a name="explore-and-customize-the-operator-dashboard"></a>Exploración y personalización del panel del operador 
 
-   ![Panel de administración de residuos conectada](./media/tutorial-connectedwastemanagement/connectedwastemanagement-dashboard1.png)
+Eche un vistazo al **Panel de administración de residuos Wide World**, que verá después de crear la aplicación.
 
-Como desarrollador, puede crear y personalizar las vistas del panel para los operadores. Pero antes de probar la personalización, es interesante explorar el panel. 
+   ![Captura de pantalla del panel de administración de residuos Wide World.](./media/tutorial-connectedwastemanagement/connectedwastemanagement-dashboard1.png)
 
->>[!NOTE]
->> Todos los datos que se muestran en el panel se basan en los datos del dispositivo simulado, que se explorarán en la sección siguiente. 
+Como desarrollador, puede crear y personalizar las vistas del panel para los operadores. En primer lugar, vamos a explorar el panel. 
 
-El panel consta de diferentes tipos de iconos:
+>[!NOTE]
+>Todos los datos que se muestran en el panel se basan en los datos del dispositivo simulado, que se verán con más detalle en la sección siguiente. 
 
-* ***Icono de imagen del servicio Wide World Waste** _: el primer icono del panel es un icono de imagen de un servicio de residuos ficticio, "Wide World Waste". Puede personalizar el icono y colocar su propia imagen o quitarlo. 
+El panel consta de diferentes iconos:
 
-_ ***Icono de imagen de cubo de basura** _: puede usar iconos de imagen y contenido para crear una representación visual del dispositivo que se va a supervisar junto con un texto descriptivo. 
+* **Icono de imagen del servicio Wide World Water**: el primer icono del panel es un icono de imagen de un servicio de agua ficticio, "Wide World Water". Puede personalizar el icono y colocar su propia imagen o eliminarlo. 
 
-_ ***Icono de KPI de nivel de llenado** _: el icono muestra un valor devuelto por un sensor de nivel de llenado de un cubo de basura. *Fill level* (Nivel de llenado) y otros sensores como *Odor meter* (Medidor de olor) o *Weight* (Peso) de un cubo de basura se pueden supervisar de forma remota. Un operador puede tomar medidas, como enviar el camión de la basura. 
+* **Icono de imagen de cubo de basura**: puede usar iconos de imagen y contenido para crear una representación visual del dispositivo que se va a supervisar, junto con un texto descriptivo. 
 
-* ***Mapa de área de supervisión de residuos** _: el mapa usa Azure Maps, que se puede configurar directamente en Azure IoT Central. El icono de mapa muestra la ubicación del dispositivo. Intente mantener el puntero sobre el mapa y pruebe los controles: acercar, alejar o ampliar.
+* **Icono de indicador KPI de nivel de llenado**: este icono muestra el valor devuelto por un sensor de *nivel de llenado* de un cubo de basura. Fill level (Nivel de llenado) y otros sensores como *Odor meter* (Medidor de olor) o *Weight* (Peso) de un cubo de basura se pueden supervisar de forma remota. El operador puede tomar medidas, como enviar un camión de recogida de basuras. 
 
-     ![Mapa del panel de administración de residuos conectada](./media/tutorial-connectedwastemanagement/connectedwastemanagement-dashboard-map.png)
+* **Mapa del área de supervisión de residuos**: este icono usa Azure Maps y se puede configurar directamente en Azure IoT Central. El icono del mapa muestra la ubicación del dispositivo. Intente mantener el puntero sobre el mapa y pruebe los controles: acercar, alejar o ampliar.
 
-
-_ ***Gráfico de barras de nivel de llenado, olor y peso**: puede visualizar uno o varios datos de telemetría de los dispositivos en un gráfico de barras. También puede expandir este gráfico.  
-
-  ![Gráfico de barras del panel de administración de residuos conectada](./media/tutorial-connectedwastemanagement/connectedwastemanagement-dashboard-barchart.png)
+     ![Captura de pantalla del mapa del panel de la plantilla de administración de residuos conectada.](./media/tutorial-connectedwastemanagement/connectedwastemanagement-dashboard-map.png)
 
 
-* **Icono de contenido de Field Services**: el panel incluye un vínculo a cómo realizar la integración con los servicios de campo de Dynamics 365 desde la aplicación de Azure IoT Central. Por ejemplo, puede usar Field Services para crear vales para enviar los servicios de basura. 
+* **Gráfico de barras del nivel de llenado, olor y peso**: puede visualizar uno o varios tipos de datos de telemetría de los dispositivos en un gráfico de barras. También puede expandir este gráfico.  
+
+  ![Captura de pantalla del gráfico de barras del panel de la plantilla de administración de residuos conectada.](./media/tutorial-connectedwastemanagement/connectedwastemanagement-dashboard-barchart.png)
 
 
-### <a name="customize-dashboard"></a>Personalización del panel 
+* **Icono de contenido de Field Services**: el panel incluye un vínculo a cómo realizar la integración con los servicios de campo de Dynamics 365 desde la aplicación de Azure IoT Central. Por ejemplo, puede usar Field Services para crear vales para enviar los servicios de recogida de basura. 
 
-Como desarrollador, puede personalizar las vistas del panel para los operadores. Pruebe lo siguiente:
-1. Haga clic en **Edit** (Editar) para personalizar el panel **Wide World connected waste management dashboard**. Para personalizar el panel, haga clic en el menú **Edit** (Editar). Cuando el panel esté en modo de **edición**, puede agregar nuevos iconos o configurarlo. 
 
-    ![Edición del panel](./media/tutorial-connectedwastemanagement/edit-dashboard.png)
+### <a name="customize-the-dashboard"></a>Personalización del panel 
 
-1. También puede hacer clic en **+ New** (+ Nuevo) para crear un panel y configurarlo desde el principio. Puede tener varios paneles y navegar entre ellos desde el menú del panel. 
+Para personalizar el panel, seleccione el menú **Edit** (Editar). A continuación, puede agregar nuevos iconos o configurar los existentes. Este es el aspecto del panel en el modo de edición: 
 
-## <a name="explore-connected-waste-bin-device-template"></a>Explorar la plantilla de dispositivo de cubo de basura conectado
+![Captura de pantalla del panel de la plantilla de administración de residuos conectada en el modo de edición.](./media/tutorial-connectedwastemanagement/edit-dashboard.png)
 
-Una plantilla de dispositivo de Azure IoT Central define la funcionalidad de un dispositivo, que puede ser telemetría, propiedad o comando. Como desarrollador, puede definir plantillas de dispositivo que representen la funcionalidad de los dispositivos que se van a conectar. 
+También puede seleccionar **+ New** (+ Nuevo) para crear un panel y configurarlo desde el principio. Puede tener varios paneles y cambiar entre ellos desde el menú del panel. 
 
-La aplicación **Administración de residuos conectada** incluye una plantilla de dispositivo de cubo de basura conectado de ejemplo.
+## <a name="explore-the-device-template"></a>Exploración de la plantilla de dispositivo
+
+Una plantilla de dispositivo de Azure IoT Central define las funcionalidades de un dispositivo, entre ellas, la telemetría, las propiedades o los comandos. Como desarrollador, puede definir plantillas de dispositivo que representen la funcionalidad de los dispositivos que se van a conectar. 
+
+La aplicación Administración de residuos conectada incluye una plantilla de dispositivo de cubo de basura conectado de ejemplo.
 
 Para ver la plantilla de dispositivo, siga estos pasos:
 
-1. Haga clic en **Device templates** (Plantillas de dispositivo) en el panel izquierdo de la aplicación de IoT Central. 
+1. Seleccione **Device templates** (Plantillas de dispositivo) en el panel izquierdo de la aplicación en Azure IoT Central. 
 
-    ![Captura de pantalla que muestra la lista de plantillas de dispositivo de la aplicación](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate.png)
+    ![Captura de pantalla que muestra la lista de plantillas de dispositivo de la aplicación.](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate.png)
 
-1. En la lista de plantillas de dispositivos, verá **Connected Waste Bin**. Para abrirla, haga clic en el nombre.
+1. En la lista **Device templates** (Plantillas de dispositivo), seleccione **Connected Waste Bin** (Cubo de basura conectado).
 
-1. Familiarícese con las funcionalidades de la plantilla de dispositivo. Puede ver que se definen sensores como *Fill level* (Nivel de llenado), *Odor meter* (Medidor de olor), *Weight* (Peso), *Location* (Ubicación), etc.
+1. Examine las funcionalidades de la plantilla de dispositivo. Puede ver que se definen sensores como **Fill level** (Nivel de llenado), **Odor meter** (Medidor de olor), **Weight** (Peso) y **Location** (Ubicación).
 
-   ![Captura de pantalla que muestra los detalles de la plantilla de dispositivo del cubo de basura conectado](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate-connectedbin.png)
+   ![Captura de pantalla que muestra los detalles de la plantilla de dispositivo del cubo de basura conectado.](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate-connectedbin.png)
 
 
-### <a name="customizing-the-device-template"></a>Personalización de la plantilla de dispositivo
+### <a name="customize-the-device-template"></a>Personalización de la plantilla de dispositivo
 
 Pruebe a personalizar lo siguiente:
-1. Vaya a **Customize** (Personalizar) en el menú de la plantilla de dispositivo.
-1. Busque el tipo de telemetría `Odor meter`.
-1. Actualice el valor de **Display name** (Nombre para mostrar) de `Odor meter` a `Odor level`.
-1. También puede intentar actualizar la unidad de medida o establecer *Min value* (Valor mínimo) y *Max value* (Valor máximo).
-1. Haga clic en **Save** (Guardar) para guardar los cambios. 
+1. En el menú de la plantilla de dispositivo, seleccione **Customize** (Personalizar).
+1. Busque el tipo de telemetría **Odor meter** (Medidor de olor).
+1. Actualice el campo **Display name** (Nombre para mostrar) de **Odor meter** (Medidor de olor) a **Odor level** (Nivel de olor).
+1. Pruebe a actualizar la unidad de medida o establezca los campos **Min value** (Valor mínimo) y **Max value** (Valor máximo).
+1. Seleccione **Guardar**. 
 
 ### <a name="add-a-cloud-property"></a>Adición de una propiedad de la nube 
 
-1. Vaya a **Cloud property** (Propiedad de la nube) en el menú de la plantilla de dispositivo.
-1. Haga clic en **+ Add Cloud Property** (+ Agregar propiedad de la nube). En IoT Central, puede agregar a un dispositivo una propiedad que sea pertinente, aunque no se espera que la envíe el dispositivo. Por ejemplo, una propiedad de la nube podría ser un umbral de alerta específico del área de instalación, información de recursos o información de mantenimiento, etc. 
-1. Haga clic en **Save** (Guardar) para guardar los cambios. 
+A continuación, se indica cómo puede hacerlo.
+1. En el menú de la plantilla de dispositivo, seleccione **Cloud property** (Propiedad de la nube).
+1. Seleccione **+ Add Cloud Property** (+ Agregar propiedad de la nube). En Azure IoT Central, puede agregar a un dispositivo una propiedad pertinente, aunque no se espera que el dispositivo la envíe. Por ejemplo, una propiedad de la nube podría ser un umbral de alerta específico del área de instalación, información de recursos o información de mantenimiento. 
+1. Seleccione **Guardar**. 
  
 ### <a name="views"></a>Vistas 
-* La plantilla de dispositivo de cubo de basura conectado incluye vistas predefinidas. Explore las vistas y realice actualizaciones. Las vistas definen cómo verán los operadores los datos del dispositivo, pero también establecen las propiedades de la nube. 
+La plantilla de dispositivo de cubo de basura conectado incluye vistas predefinidas. Explore las vistas y actualícelas si lo desea. Las vistas definen cómo verán los operadores los datos del dispositivo y las propiedades de la nube de entrada. 
 
-  ![Vistas de la plantilla de dispositivo](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate-views.png)
+  ![Captura de pantalla de las vistas de plantillas de dispositivo de la plantilla de administración de residuos conectada.](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate-views.png)
 
 ### <a name="publish"></a>Publicar 
 
-* Si realizó algún cambio, seleccione **Publish** (Publicar) para publicar la plantilla de dispositivo. 
+Si ha realizado algún cambio, recuerde publicar la plantilla de dispositivo. 
 
 ### <a name="create-a-new-device-template"></a>Creación de una nueva plantilla de dispositivo 
 
-* Seleccione **+ New** (+ Nueva) para crear una plantilla de dispositivo y siga el proceso de creación. Podrá crear una plantilla de dispositivo personalizada desde el principio o elegir una del catálogo de dispositivos de Azure. 
+Para crear una nueva plantilla de dispositivo, seleccione **+ New** (+ Nueva) y siga los pasos. Puede crear una plantilla de dispositivo personalizada desde el principio o elegir una del catálogo de dispositivos de Azure. 
 
 ## <a name="explore-simulated-devices"></a>Explorar los dispositivos simulados
 
-En IoT Central, puede crear dispositivos simulados para probar la aplicación y la plantilla de dispositivo. 
+En Azure IoT Central, puede crear dispositivos simulados para probar la aplicación y la plantilla de dispositivo. 
 
-La aplicación **Administración de residuos conectada** tiene dos dispositivos simulados asignados a la plantilla de dispositivo de cubo de basura conectado. 
+La aplicación Administración de residuos conectada tiene dos dispositivos simulados asociados a la plantilla de dispositivo de cubo de basura conectado. 
 
-### <a name="to-view-the-devices"></a>Para ver los dispositivos, siga estos pasos:
+### <a name="view-the-devices"></a>Visualización de los dispositivos
 
-1. Vaya a **Devices** (Dispositivos) en el panel izquierdo de IoT Central. 
+1. En el panel izquierdo de Azure IoT Central, seleccione **Device** (Dispositivo). 
 
-   ![Dispositivos](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devices.png)
+   ![Captura de pantalla de los dispositivos de la plantilla de administración de residuos conectada.](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devices.png)
 
-1. Seleccione y haga clic en el dispositivo Connected Waste Bin.  
+1. Seleccione el dispositivo **Connected Waste Bin** (Cubo de basura conectado).  
 
-     ![Dispositivo 1](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devices-bin1.png)
+     ![Captura de pantalla de las propiedades del dispositivo de la plantilla de administración de residuos conectada.](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devices-bin1.png)
 
-1. Vaya a la pestaña **Cloud Properties** (Propiedades de la nube) e intente actualizar el valor `Bin full alert threshold` de `95` a `100`. 
-* Explore las pestañas **Device Properties** (Propiedades del dispositivo) **Device Dashboard** (Panel del dispositivo). 
+1. Vaya a la pestaña **Cloud Properties** (Propiedades de la nube). Actualice el valor de **Bin full alert threshold** (Umbral de alerta de cubo lleno) de **95** a **100**. 
 
->> [!NOTE]
->> Todas las pestañas se han configurado a partir de las **vistas de la plantilla de dispositivo**.
+Explore las pestañas **Device Properties** (Propiedades del dispositivo) **Device Dashboard** (Panel del dispositivo). 
+
+> [!NOTE]
+> Todas las pestañas se han configurado a partir de las vistas de la plantilla de dispositivo.
 
 ### <a name="add-new-devices"></a>Adición de nuevos dispositivos
 
-* Para agregar nuevos dispositivos, haga clic en **+ New** (+ Nuevo) en la pestaña **Devices** (Dispositivos). 
+Para agregar nuevos dispositivos, seleccione **+ New** (+ Nuevo) en la pestaña **Devices** (Dispositivos). 
 
 ## <a name="explore-and-configure-rules"></a>Exploración y configuración de reglas
 
-En Azure IoT Central puede crear reglas para supervisar automáticamente la telemetría de los dispositivos y desencadenar acciones cuando se cumplan una o varias condiciones. Las acciones pueden incluir el envío de notificaciones por correo electrónico, el desencadenamiento de una acción de Power Automate o una acción de webhook para enviar datos a otros servicios.
+En Azure IoT Central, puede crear reglas para supervisar automáticamente los datos de telemetría de los dispositivos y desencadenar acciones cuando se cumplan una o varias condiciones. Las acciones pueden incluir el envío de notificaciones por correo electrónico, el desencadenamiento de una acción de Power Automate o iniciar una acción de webhook para enviar datos a otros servicios.
 
-La aplicación **Administración de residuos conectada** tiene cuatro reglas de ejemplo.
+La aplicación Administración de residuos conectada tiene cuatro reglas de ejemplo.
 
-### <a name="to-view-rules"></a>Para ver las reglas, siga estos pasos:
-1. Vaya a **Rules** (Reglas) en el panel de navegación izquierdo de IoT Central.
+### <a name="view-rules"></a>Visualización de reglas
+1. En el panel izquierdo de Azure IoT Central, seleccione **Rules** (Reglas).
 
-   ![Reglas](./media/tutorial-connectedwastemanagement/connectedwastemanagement-rules.png)
+   ![Captura de pantalla de las reglas de la plantilla de administración de residuos conectada.](./media/tutorial-connectedwastemanagement/connectedwastemanagement-rules.png)
 
-1. Seleccione **Bin full alert**.
+1. Seleccione **Bin full alert** (Alerta de cubo lleno).
 
-     ![Bin full alert](./media/tutorial-connectedwastemanagement/connectedwastemanagement-binfullalert.png)
+     ![Captura de pantalla de la alerta de cubo lleno.](./media/tutorial-connectedwastemanagement/connectedwastemanagement-binfullalert.png)
 
- 1. `Bin full alert` comprueba cuando **Condition** (Condición) es `Fill level is greater than or equal to Bin full alert threshold`.
+ 1. **Bin full alert** (Alerta de cubo lleno) comprueba la condición siguiente: **Fill level is greater than or equal to Bin full alert threshold** (Nivel de llenado es mayor o igual que Umbral de alerta de cubo lleno).
 
-    `Bin full alert threshold` es una *propiedad de la nube* definida en la plantilla de dispositivo `Connected waste bin`. 
+    **Bin full alert threshold** (Umbral de alerta de cubo lleno) es una propiedad de la nube que se define en la plantilla del dispositivo cubo de basura conectado. 
 
 Ahora, se creará una acción de correo electrónico.
 
 ### <a name="create-an-email-action"></a>Creación de una acción de correo electrónico
-Para configurar una acción de correo electrónico en la lista de acciones de la regla:
-1. Seleccione **+ Email** (+ Correo electrónico). 
-1. Escriba *High pH alert* como valor descriptivo de **Display name** (Nombre para mostrar) de la acción.
-1. Escriba la dirección de correo electrónico asociada a la cuenta de IoT Central en **To** (Para). 
-1. Opcionalmente, escriba una nota para incluirla en el texto del correo electrónico.
-1. Seleccione **Done** (Listo) para completar la acción.
-1. Seleccione **Save** (Guardar) para guardar y activar la nueva regla. 
 
-Recibirá un correo electrónico cuando se cumpla la **condición** configurada.
+Puede configurar una acción de correo electrónico en la lista **Actions** (Acciones) de la regla:
+1. Seleccione **+ Email** (+ Correo electrónico). 
+1. En el campo **Display name** (Nombre para mostrar), escriba **High pH alert** (Alerta de pH alto).
+1. Escriba la dirección de correo electrónico asociada a la cuenta de Azure IoT Central en el campo **To** (Para). 
+1. Tiene la opción de escribir una nota e incluirla en el texto del correo electrónico.
+1. Seleccione **Done** > **Save** (Listo > Guardar). 
+
+Ahora recibirá un correo electrónico cuando se cumpla la condición configurada.
 
 >[!NOTE]
->La aplicación enviará un correo electrónico cada vez que se cumpla una condición. **Deshabilite** la regla para dejar de recibir correo electrónico de la regla automatizada. 
+>La aplicación envía un correo electrónico cada vez que se cumple una condición. Deshabilite la regla para dejar de recibir correo electrónico de la regla automatizada. 
   
-Para crear una regla, siga estos pasos: 
-1. Seleccione **+ Nueva** en la pestaña **Reglas** del panel izquierdo.
+Para crear una nueva regla, en el panel izquierdo de **Rules** (Reglas), seleccione **+New** (+Nuevo).
 
-## <a name="configure-jobs"></a>Configuración de trabajos
+## <a name="configure-jobs"></a>Trabajos de configuración
 
-En IoT Central, los trabajos permiten desencadenar actualizaciones de propiedades de la nube o del dispositivo en varios dispositivos. Además de las propiedades, los trabajos se pueden usar también para desencadenar comandos de dispositivo en varios dispositivos. IoT Central automatizará el flujo de trabajo. 
+En Azure IoT Central, los trabajos permiten desencadenar actualizaciones de propiedades de la nube o del dispositivo en varios dispositivos. También puede usar trabajos para desencadenar comandos de dispositivo en varios dispositivos. Azure IoT Central automatiza el flujo de trabajo. 
 
-1. Vaya a **Jobs** (Trabajos) en el panel izquierdo. 
-1. Haga clic en **+New** (+ Nuevo) y configure uno o varios trabajos. 
-
+1. En el panel izquierdo de Azure IoT Central, seleccione **Jobs** (Trabajos). 
+1. Seleccione **+New** (+Nuevo) y configure uno o varios trabajos. 
 
 ## <a name="customize-your-application"></a>Personalización de la aplicación 
 
 Como creador, puede cambiar varias opciones de configuración para personalizar la experiencia del usuario en la aplicación.
 
-### <a name="to-change-the-application-theme"></a>Para cambiar el tema de la aplicación:
+### <a name="change-the-application-theme"></a>Cambio del tema de la aplicación
 
-1. Vaya a **Administration > Customize your application** (Administración > Personalizar la aplicación).
-1. Use el botón **Change** (Cambiar) para elegir una imagen para cargar en el campo **Application logo** (Logotipo de la aplicación).
-1. Use el botón **Change** (Cambiar) para elegir una imagen para **Browser icon** (Icono del explorador) que aparecerá en las pestañas del explorador.
-1. También puede reemplazar los valores predeterminados de **Browser colors** (Colores del explorador) mediante la adición de códigos de color HTML hexadecimales.
+A continuación, se indica cómo puede hacerlo.
+1. Vaya a **Administration** > **Customize your application** (Administración > Personalizar la aplicación).
+1. Seleccione **Change** (Cambiar) para elegir una imagen para cargar en el campo **Application logo** (Logotipo de la aplicación).
+1. Seleccione **Change** (Cambiar) para elegir una imagen para cargar en el **icono del explorador** (una imagen que aparecerá en las pestañas del explorador).
+1. También puede reemplazar los colores predeterminados del explorador mediante la adición de códigos de color HTML hexadecimales. Use los campos **Header** (Encabezado) y **Accent** (Color de énfasis) para este fin.
 
-   ![Personalización de la aplicación de Azure IoT Central](./media/tutorial-connectedwastemanagement/connectedwastemanagement-customize-your-application.png)
+   ![Captura de pantalla de la personalización de la aplicación de la plantilla de administración de residuos conectada.](./media/tutorial-connectedwastemanagement/connectedwastemanagement-customize-your-application.png)
 
-1. También puede cambiar las imágenes de la aplicación. Para ello, vaya a **Administration > Application settings** (Administración > Configuración de la aplicación) y haga clic en el botón **Select image** (Seleccionar imagen) para elegir la imagen que se va a cargar como imagen de la aplicación.
-1. Por último, también puede cambiar el valor de **Theme** (Tema) haciendo clic en **Settings** (Configuración) en la cabecera de la aplicación.
+1. También puede cambiar las imágenes de la aplicación. Seleccione **Administration** > **Application settings** > **Select image** (Administración > Configuración de la aplicación > Seleccionar imagen) para elegir la imagen que se va a cargar como imagen de la aplicación.
+1. Por último, también puede cambiar el tema; para ello, seleccione **Settings** (Configuración) en la cabecera de la aplicación.
 
-  
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
 Si no va a seguir usando esta aplicación, puede eliminarla mediante estos pasos:
 
-1. Abra la pestaña Administration (Administración) en el panel izquierdo de la aplicación de IoT Central.
-1. Seleccione la configuración de la aplicación y haga clic en el botón Eliminar situado en la parte inferior de la página.
+1. Seleccione **Administration** (Administración) en el panel izquierdo de la aplicación de Azure IoT Central.
+1. Seleccione **Application settings** > **Delete** (Configuración de la aplicación > Eliminar).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Más información acerca de
- 
 > [!div class="nextstepaction"]
 > [Conceptos de administración de residuos conectados](./concepts-connectedwastemanagement-architecture.md)

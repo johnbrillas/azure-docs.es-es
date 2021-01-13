@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f76f4a3e5fc87420c242c693e3c48a91244641e0
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 51602e97a8424bade542eec6f88b673130fee8b5
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 12/16/2020
-ms.locfileid: "97560040"
+ms.locfileid: "97586030"
 ---
 # <a name="add-a-self-service-sign-up-user-flow-to-an-app-preview"></a>Incorporación de un flujo de usuario de registro de autoservicio a una aplicación (versión preliminar)
 > [!NOTE]
@@ -70,6 +70,9 @@ A continuación, debe crear el flujo de usuario para el registro de autoservicio
 7. En **Atributos de usuario**, elija los atributos que quiere recopilar del usuario. En el caso de los atributos adicionales, seleccione **Mostrar más**. Por ejemplo, seleccione **Mostrar más** y elija los atributos y las notificaciones de **País o región**, **Nombre para mostrar** y **Código postal**. Seleccione **Aceptar**.
 
    ![Página de creación de un nuevo flujo de usuario](media/self-service-sign-up-user-flow/create-user-flow.png)
+
+> [!NOTE]
+> Solo puede recopilar atributos cuando un usuario se registra por primera vez. Una vez que un usuario se registra, ya no se le pedirá que recopile información de atributos, aunque cambie el flujo de usuario.
 
 8. Seleccione **Crear**.
 9. El nuevo flujo de usuario aparece en la lista **Flujos de usuario (versión preliminar)** . Si es necesario, actualice la página.

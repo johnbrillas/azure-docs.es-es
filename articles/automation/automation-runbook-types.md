@@ -3,14 +3,14 @@ title: Tipos de runbooks de Azure Automation
 description: En este artículo se describen los tipos de runbooks que puede usar en Azure Automation y las consideraciones de determinar qué tipo usar.
 services: automation
 ms.subservice: process-automation
-ms.date: 03/05/2019
+ms.date: 12/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 24d0123eecc56b56573e94d831283d8d360cd16e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a0c12297f19d30bf13ffbe594e0433c83914a8e
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86185932"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97733967"
 ---
 # <a name="azure-automation-runbook-types"></a>Tipos de runbooks de Azure Automation
 
@@ -33,9 +33,9 @@ Tenga en cuenta las siguientes consideraciones al determinar qué tipo usar para
 
 Puede crear y editar runbooks gráficos y runbooks gráficos de flujo de trabajo de PowerShell mediante el editor gráfico de Azure Portal. Sin embargo, no puede crear o editar este tipo de runbooks con otra herramienta. Principales características de los runbooks gráficos:
 
-* Se pueden exportar a los archivos de la cuenta de Automation y, a continuación, importar a otra cuenta de Automation. 
-* Generan código de PowerShell. 
-* Se pueden convertir en runbooks gráficos de flujo de trabajo de PowerShell o es posible convertir a partir de ellos durante la importación. 
+* Se exportan a archivos de la cuenta de Automation y se importan a otra cuenta de Automation.
+* Generan código de PowerShell.
+* Se pueden convertir a y desde runbooks gráficos de flujo de trabajo de PowerShell durante la importación.
 
 ### <a name="advantages"></a>Ventajas
 
@@ -59,7 +59,7 @@ Los runbooks de PowerShell están basados en Windows PowerShell. Puede modificar
 
 ### <a name="advantages"></a>Ventajas
 
-* Implemente toda la lógica compleja con código de PowerShell sin las complejidades adicionales de flujo de trabajo de PowerShell.
+* Implemente toda la lógica compleja con código de PowerShell sin otras complejidades del flujo de trabajo de PowerShell.
 * Se inician con más rapidez que los runbooks de flujo de trabajo de PowerShell, ya que no necesitan compilarse antes de la ejecución.
 * Ejecute en Azure y en Hybrid Runbook Worker para Windows y Linux.
 
@@ -68,7 +68,7 @@ Los runbooks de PowerShell están basados en Windows PowerShell. Puede modificar
 * Debe estar familiarizado con el scripting de PowerShell.
 * Los runbooks no pueden usar el [procesamiento paralelo](automation-powershell-workflow.md#use-parallel-processing) para ejecutar varias acciones en paralelo.
 * Los runbooks no pueden usar los [puntos de control](automation-powershell-workflow.md#use-checkpoints-in-a-workflow) para reanudar un runbook si se produce un error.
-* Solo puede incluir los runbooks gráficos y de flujo de trabajo de PowerShell como runbooks secundarios mediante el cmdlet [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0), que crea un trabajo.
+* Solo puede incluir los runbooks gráficos y de flujo de trabajo de PowerShell como runbooks secundarios mediante el cmdlet [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook), que crea un trabajo.
 
 ### <a name="known-issues"></a>Problemas conocidos
 
@@ -76,7 +76,7 @@ A continuación se describen los problemas conocidos actuales con los runbooks d
 
 * Los runbooks de PowerShell no pueden recuperar un [recurso de variable](./shared-resources/variables.md) sin cifrar con un valor null.
 * Los runbooks de PowerShell no pueden recuperar un recurso de variable con `*~*` en el nombre.
-* Una operación [Get-Process](/powershell/module/microsoft.powershell.management/get-process?view=powershell-7) en un bucle de un runbook de PowerShell puede bloquearse después de más de 80 iteraciones.
+* Una operación [Get-Process](/powershell/module/microsoft.powershell.management/get-process) en un bucle de un runbook de PowerShell puede bloquearse después de más de 80 iteraciones.
 * Un runbook de PowerShell puede producir un error si intenta escribir una gran cantidad de datos en el flujo de salida a la vez. Puede evitar este problema si hace que el runbook genere únicamente la información necesaria para trabajar con objetos grandes. Por ejemplo, en lugar de usar `Get-Process` sin limitaciones, puede hacer que el cmdlet genere solo los parámetros necesarios como en `Get-Process | Select ProcessName, CPU`.
 
 ## <a name="powershell-workflow-runbooks"></a>Runbooks del flujo de trabajo de PowerShell
@@ -100,18 +100,29 @@ Los runbooks del flujo de trabajo de PowerShell son runbooks de texto basados en
 
 ## <a name="python-runbooks"></a>Runbooks de Python
 
-Runbooks de Python compilados en Python 2. Puede modificar directamente el código del runbook con el editor de texto en Azure Portal. También puede usar cualquier editor de texto sin conexión e [importar el runbook](manage-runbooks.md) en Azure Automation.
+Los runbooks de Python utilizan Python 2 y Python 3. Los runbooks de Python 3 se encuentran actualmente en versión preliminar. Puede modificar directamente el código del runbook con el editor de texto en Azure Portal. También puede usar cualquier editor de texto sin conexión e [importar el runbook](manage-runbooks.md) en Azure Automation.
 
 ### <a name="advantages"></a>Ventajas
 
 * Use las sólidas bibliotecas de Python.
-* Pueden ejecutarse en Azure o en instancias de Hybrid Runbook Worker de Linux. Las instancias de Hybrid Runbook Worker de Windows se admiten con [python2.7](https://www.python.org/downloads/release/latest/python2) instalado.
+* Se pueden ejecutar en Azure o en instancias de Hybrid Runbook Worker.
+* En el caso de Python 2, las instancias de Hybrid Runbook Worker de Windows son compatibles si [Python2.7](https://www.python.org/downloads/release/latest/python2) está instalado.
+* Para los trabajos en la nube de Python 3, se admite la versión 3.8 de Python. Los scripts y paquetes de cualquier versión 3.x podrían funcionar si el código es compatible con distintas versiones.  
+* En el caso de los trabajos híbridos de Python 3 en máquinas Windows, puede instalar cualquier versión 3. x que desee usar.  
+* Para los trabajos híbridos de Python 3 para Linux, depende de la versión de Python 3 instalada en el equipo para ejecutar DSC OMSConfig y Hybrid Worker para Linux. Se recomienda instalar la versión 3.6 en máquinas Linux. Sin embargo, otras versiones también deberían funcionar si no hay cambios importantes en los contratos o firmas de método entre versiones de Python 3.
 
 ### <a name="limitations"></a>Limitaciones
 
 * Debe estar familiarizado con el scripting de Python.
-* Actualmente solo se admite Python 2. Se produce un error en las funciones específicas de Python 3.
 * Para utilizar bibliotecas de terceros, debe [importar los paquetes](python-packages.md) a la cuenta de Automation.
+* Usar el cmdlet **Start-AutomationRunbook** en PowerShell o en el flujo de trabajo de PowerShell para iniciar un runbook de Python 3 (versión preliminar) no funciona. Puede usar el cmdlet  **Start-AzAutomationRunbook** desde el nódulo Az.Automation o el cmdlet  **Start-AzureRmAutomationRunbook** del módulo AzureRm.Automation para solucionar esta limitación.  
+* Los runbooks (versión preliminar) y los paquetes de Python 3 no funcionan con PowerShell.
+* No se admite el uso de un webhook para iniciar un runbook de Python.
+* Azure Automation no admite  **sy.stderr**.
+
+### <a name="known-issues"></a>Problemas conocidos
+
+Los trabajos de Python 3 a veces generan un error con el mensaje de excepción para indicar que *la ruta de acceso ejecutable del intérprete no es válida*. Podría ver esta excepción si un trabajo se retrasa y empieza más de 10 minutos tarde o usa **Start-AutomationRunbook** para iniciar runbooks de Python 3. Si el trabajo se retrasa, reiniciar el runbook debería ser suficiente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

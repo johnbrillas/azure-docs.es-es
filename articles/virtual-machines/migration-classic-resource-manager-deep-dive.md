@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 12/17/2020
 ms.author: tagore
-ms.openlocfilehash: c17ade2af751b80e612aa104a9af1a22c4325413
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: ff3e8916a6634c564aa98b21b7e8d7c89fa1b17e
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97695739"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97897185"
 ---
 # <a name="technical-deep-dive-on-platform-supported-migration-from-classic-to-azure-resource-manager"></a>Profundización técnica en la migración compatible con la plataforma de la implementación clásica a la de Azure Resource Manager
 
@@ -150,7 +150,7 @@ Puede encontrar las representaciones del modelo de implementación clásica y de
 
 | Representación clásica | Representación de Resource Manager | Notas |
 | --- | --- | --- |
-| Nombre del servicio en la nube |Nombre DNS |Durante la migración, se crea un nuevo grupo de recursos para cada servicio en la nube con el patrón de nomenclatura `<cloudservicename>-migrated`. Este grupo de recursos contiene todos los recursos. El nombre del servicio en la nube se convierte en un nombre DNS que está asociado a la dirección IP pública. |
+| Nombre del servicio en la nube (nombre del servicio hospedado) |Nombre DNS |Durante la migración, se crea un nuevo grupo de recursos para cada servicio en la nube con el patrón de nomenclatura `<cloudservicename>-migrated`. Este grupo de recursos contiene todos los recursos. El nombre del servicio en la nube se convierte en un nombre DNS que está asociado a la dirección IP pública. |
 | Máquina virtual |Máquina virtual |Las propiedades específicas de la máquina virtual se migran sin cambios. Determinada información de osProfile, como el nombre de equipo, no se almacena en el modelo de implementación clásica y permanece vacía después de la migración. |
 | Recursos de disco conectados a la máquina virtual |Implícitos discos conectados a la máquina virtual |Los discos no se modelan como recursos de nivel superior en el modelo de implementación de Resource Manager. Se migran como discos implícitos en la máquina virtual. Actualmente, se admiten solo los discos que están conectados a una VM. Las máquinas virtuales de Resource Manager ya pueden usar ahora cuentas de almacenamiento en el modelo de implementación clásica, los que permite que los discos se migren fácilmente sin actualizaciones. |
 | Extensiones de máquina virtual |Extensiones de máquina virtual |Todas las extensiones de recursos, excepto las extensiones XML, se migran desde el modelo de implementación clásica. |

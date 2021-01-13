@@ -10,12 +10,12 @@ ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 12/15/2020
 ms.custom: contperf-fy21q1,contperfq1
-ms.openlocfilehash: f7c4529c68f79c6ad19f22054fd0b7d2ba5116db
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 17c5cc265b4199d745325bf2c9d9fbca24cc6506
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562844"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617126"
 ---
 # <a name="deep-learning-vs-machine-learning-in-azure-machine-learning"></a>Aprendizaje profundo frente a aprendizaje automático en Azure Machine Learning
 
@@ -59,7 +59,7 @@ En la tabla siguiente se comparan las dos técnicas con más detalle:
 
 ## <a name="transfer-learning"></a>Transferencia de aprendizaje
 
-Entrenar modelos de aprendizaje profundo a menudo requiere grandes cantidades de datos de entrenamiento, recursos de proceso de alto nivel (GPU, TPU) y un tiempo de entrenamiento más largo. En escenarios en los que no tenga ninguno de estos disponible, puede obtener acceso directo al proceso de entrenamiento mediante una técnica conocida como aprendizaje por transferencia.
+Entrenar modelos de aprendizaje profundo a menudo requiere grandes cantidades de datos de entrenamiento, recursos de proceso de alto nivel (GPU, TPU) y un tiempo de entrenamiento más largo. En escenarios en los que no tenga ninguno de estos disponible, puede obtener acceso directo al proceso de entrenamiento mediante una técnica conocida como *aprendizaje por transferencia*.
 
 El aprendizaje por transferencia es una técnica que aplica los conocimientos que se adquieren al resolver un problema en un problema diferente, pero relacionado.
 

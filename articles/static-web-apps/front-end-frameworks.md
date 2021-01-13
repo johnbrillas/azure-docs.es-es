@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 07/18/2020
 ms.author: cshoe
-ms.openlocfilehash: 4b1bc58b6b4a87cd6e5e09e83020a38261b8746f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14564b0591ef0146131b3f9324556b613e25daac
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90905374"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97901239"
 ---
 # <a name="configure-front-end-frameworks-and-libraries-with-azure-static-web-apps-preview"></a>Configuración de marcos y bibliotecas de servidores front-end con Azure Static Web Apps versión preliminar
 
@@ -24,7 +24,7 @@ En la siguiente tabla se muestra la configuración de varios marcos y biblioteca
 
 Los siguientes elementos explican la intención de las columnas de la tabla:
 
-- **Ubicación del artefacto de la aplicación**: Muestra el valor de `app_artifact_location`, que es la [carpeta para las versiones compiladas de los archivos de aplicación](github-actions-workflow.md#build-and-deploy).
+- **Ubicación de salida**: Muestra el valor de `output_location`, que es la [carpeta para las versiones compiladas de los archivos de aplicación](github-actions-workflow.md#build-and-deploy).
 
 - **Comando de compilación personalizado**: Cuando el marco de trabajo requiere un comando distinto de `npm run build` o `npm run azure:build`, puede definir un [comando de compilación personalizado](github-actions-workflow.md#custom-build-commands).
 

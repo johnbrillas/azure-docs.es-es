@@ -3,18 +3,27 @@ title: 'Recuperación ante desastres geográfica: Azure Event Hubs| Microsoft Do
 description: Cómo usar regiones geográficas para conmutar por error y llevar a cabo una recuperación ante desastres en Azure Event Hubs
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 6dd2385a6f6e61136a1284171532aedd70a9cc96
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: e10ac5847a38190c8feaae5e51f9b55bee4c4fbc
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96608357"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861481"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Event Hubs: recuperación ante desastres geográfica 
-Cuando hay regiones de Azure completas o centros de datos (si no se utilizan[ zonas de disponibilidad](../availability-zones/az-overview.md)) que experimentan un tiempo de inactividad, es crucial que el procesamiento de datos siga funcionando en otra región o centro de datos. De esta forma, la *recuperación ante desastres con localización geográfica* y la *replicación geográfica* son características importantes para cualquier empresa. Azure Event Hubs admite tanto la recuperación ante desastres con localización geográfica como la replicación geográfica, en el nivel de espacio de nombres. 
 
-> [!NOTE]
-> La característica de recuperación ante desastres geográfica solo está disponible para las [SKU estándar y dedicadas](https://azure.microsoft.com/pricing/details/event-hubs/).  
+Muchas empresas y, en algunos casos, las normativas del sector, imponen como requisito la resistencia frente a interrupciones desastrosas de los recursos de procesamiento de datos. 
+
+Azure Event Hubs ya reparte el riesgo de errores catastróficos de equipos individuales, o incluso bastidores completos, entre clústeres que abarcan varios dominios de error en un centro de recursos. Además, implementa mecanismos transparentes de detección de errores y conmutación por error, de modo que el servicio siga funcionando dentro de los niveles de servicio garantizados y normalmente sin interrupciones apreciables en caso de que se produzcan tales errores. Si se ha creado un espacio de nombres de Event Hubs con la opción habilitada para [zonas de disponibilidad](../availability-zones/az-overview.md), el riesgo de interrupción se reparte entre tres instalaciones separadas físicamente, y el servicio tiene suficientes reservas de capacidad para hacer frente de inmediato a la pérdida completa y catastrófica de toda la instalación. 
+
+El modelo de clúster todo activo de Azure Event Hubs con compatibilidad para zonas de disponibilidad proporciona resistencia frente a errores graves de hardware e incluso pérdidas catastróficas de instalaciones de centros de datos completas. Aun así, puede haber situaciones graves con una destrucción física generalizada frente a las que ni siquiera estas medidas puedan ofrecer una protección suficiente. 
+
+La característica de recuperación ante desastres geográfica de Event Hubs está diseñada para que sea más fácil recuperarse ante un desastre de esta magnitud y abandonar para siempre una región de Azure con errores, sin necesidad de cambiar las opciones de configuración de la aplicación. El abandono de una región de Azure suele implicar varios servicios. Esta característica se centra principalmente en ayudar a mantener la integridad de la configuración de la aplicación compuesta.  
+
+La característica de recuperación ante desastres geográfica garantiza que toda la configuración de un espacio de nombres (Event Hubs, grupos de consumidores y parámetros) se replique continuamente de un espacio de nombres principal a uno secundario cuando se emparejan. Además, permite iniciar un movimiento de conmutación por error solo una vez del espacio de nombres principal al secundario en cualquier momento. El movimiento de conmutación por error volverá a apuntar el nombre de alias elegido para el espacio de nombres al espacio de nombres secundario y, luego, interrumpirá el emparejamiento. La conmutación por error es casi instantánea una vez que se ha iniciado. 
+
+> [!IMPORTANT]
+> La característica permite la continuidad instantánea de las operaciones con la misma configuración, pero **no replica los datos de eventos**. A menos que el desastre ocasione la pérdida de todas las zonas, los datos de eventos que se conservan en el centro de eventos principal después de la conmutación por error podrán recuperarse y se podrán obtener los eventos históricos de ahí una vez restaurado el acceso. Para replicar los datos de eventos y operar los espacios de nombres correspondientes en configuraciones de tipo activo/activo a fin de hacer frente a interrupciones y desastres, no se incline por este conjunto de características de recuperación ante desastres geográfica. En su lugar, siga la [guía de replicación](event-hubs-federation-overview.md).  
 
 ## <a name="outages-and-disasters"></a>Interrupciones y desastres
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 07/11/2019
+ms.date: 12/17/2020
 ms.author: alkohli
-ms.openlocfilehash: dbdd4c7d23f56618c0e76649abe4faad86c5804c
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: a457c2816d4075190a2174339f7e52a2ea41730a
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743308"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97696022"
 ---
 # <a name="open-a-support-ticket-for-azure-stack-edge-pro-and-azure-data-box-gateway"></a>Abra una incidencia de soporte técnico para Azure Stack Edge Pro y Azure Data Box Gateway
 
@@ -24,7 +24,7 @@ Este artículo se aplica a Azure Stack Edge Pro y Azure Data Box Gateway, que es
 
 ## <a name="create-a-support-request"></a>Crear una solicitud de soporte
 
-Lleve a cabo los siguientes pasos para crear una solicitud de soporte.
+Realice los pasos siguientes para crear una solicitud de soporte técnico:
 
 1. Vaya al pedido de Azure Stack Edge Pro o Data Box Gateway. Vaya a la sección **Soporte técnico y solución de problemas** y, luego, seleccione **Nueva solicitud de soporte técnico**.
 
@@ -34,7 +34,7 @@ Lleve a cabo los siguientes pasos para crear una solicitud de soporte.
     2. Elija la **suscripción**.
     3. En **Servicio**, compruebe **Mis servicios**. En la lista desplegable, seleccione **Azure Stack Edge Pro y Data Box Gateway**.
     4. Seleccione el **recurso**. Este corresponde al nombre del pedido.
-    5. Escriba un **resumen** breve del problema que experimenta. 
+    5. Escriba un **Resumen** breve del problema que experimenta. 
     6. Seleccione el **tipo de problema**.
     7. Según el tipo de problema que seleccionó, elija un **subtipo de problema** correspondiente.
     8. Seleccione **Siguiente: Soluciones >>** .
@@ -51,7 +51,7 @@ Lleve a cabo los siguientes pasos para crear una solicitud de soporte.
     6. En la lista desplegable, seleccione la **gravedad**.
     7. Especifique un **método de contacto preferido**.
     8. Las **horas de respuesta** se seleccionan automáticamente en función del plan de suscripción.
-    9. Indique el idioma que prefiera para el soporte técnico.
+    9. Indique el idioma que prefiere para el soporte técnico.
     10. En la **información de contacto**, proporcione su nombre, correo electrónico, teléfono, contacto opcional, país o región. El Soporte técnico de Microsoft utiliza esta información para ponerse en contacto con usted para solicitar más información y comunicar el diagnóstico y la resolución. 
     11. Seleccione **Siguiente: Revisar y crear >>** .
 
@@ -61,7 +61,7 @@ Lleve a cabo los siguientes pasos para crear una solicitud de soporte.
 
     ![Problema 2](./media/azure-stack-edge-contact-microsoft-support/data-box-edge-support-request-3.png)
 
-    Una vez que se crea una incidencia de soporte técnico, un ingeniero de soporte técnico se pondrá en contacto con usted tan pronto como sea posible para procesar la solicitud.
+    Una vez que se crea la incidencia de soporte técnico, un ingeniero de soporte técnico se pondrá en contacto con usted tan pronto como sea posible para procesar la solicitud.
 
 ## <a name="get-hardware-support"></a>Obtención de soporte técnico para hardware
 
@@ -75,10 +75,10 @@ Esta información solo es aplicable a los dispositivos de Azure Stack. El proces
 
 2. Si Soporte técnico de Microsoft determina que se trata de un problema de hardware, se produce una de las siguientes acciones:
 
-    * Se envía una unidad reemplazable de campo (FRU) para la pieza de hardware con errores. Actualmente, las unidades de fuente de alimentación y las unidades de disco duro son las únicas FRU que se admiten.
+    * Se envía una unidad reemplazable de campo (FRU) para la pieza de hardware con errores. Actualmente, las unidades de fuente de alimentación y las unidades de estado sólido son las únicas FRU que se admiten.
     * Solo se sustituyen las FRU en el plazo del siguiente día laborable, todo lo demás requiere un reemplazo completo del sistema (FSR).
 
-3. Si una incidencia de soporte técnico se genera antes de las 4:30 p.m. hora local (de lunes a viernes), se envía un técnico presencial el siguiente día laborable a la ubicación para que realice una FRU o un reemplazo completo del dispositivo.
+3. Si una incidencia de soporte técnico se genera antes de las 4:30 p.m. hora local (de lunes a viernes), se envía un técnico presencial el siguiente día laborable a la ubicación para que realice una sustitución de FRU. Normalmente, un reemplazo completo del sistema tardará mucho más tiempo, ya que las piezas se envían desde fábrica y pueden estar sujetas a retrasos de transporte y aduanas.
 
 ## <a name="manage-a-support-request"></a>Administración de una solicitud de soporte técnico
 

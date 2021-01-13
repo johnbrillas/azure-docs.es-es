@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 12/14/2020
+ms.date: 01/05/2021
 ms.reviewer: arvinh
-ms.openlocfilehash: 78e9d7355b8c96295456f8aa9cb80b1d3bdd2fab
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: bde5cecc4052724f795cac03f6efceb3451ea2ee
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97509553"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97914355"
 ---
 # <a name="known-issues-application-provisioning"></a>Problemas conocidos: Aprovisionamiento de aplicaciones
 Problemas conocidos que se deben tener en cuenta al trabajar con el aprovisionamiento de aplicaciones. Puede proporcionar comentarios sobre el servicio de aprovisionamiento de aplicaciones en UserVoice; vea [Aprovisionamiento de aplicaciones de Azure AD en UserVoice](https://aka.ms/appprovisioningfeaturerequest). Supervisamos UserVoice muy de cerca para poder mejorar el servicio. 
@@ -82,6 +82,10 @@ Actualmente, el [tiempo](./application-provisioning-when-will-provisioning-finis
 **Cambios que no se mueven de la aplicación de destino a Azure AD**
 
 El servicio de aprovisionamiento de aplicaciones no reconoce los cambios realizados en las aplicaciones externas. Por tanto, no se realiza ninguna acción para la reversión. El servicio de aprovisionamiento de aplicaciones se basa en los cambios realizados en Azure AD. 
+
+**El cambio de sincronizar todo a sincronizar asignados no funciona**
+
+Después de cambiar el ámbito de "Sincronizar todo" a "Sync Assigned" (Sincronizar asignados), asegúrese de reiniciar también para asegurarse de que el cambio surta efecto. Puede realizar el reinicio desde la interfaz de usuario.
 
 **El ciclo de aprovisionamiento continúa hasta la finalización**
 

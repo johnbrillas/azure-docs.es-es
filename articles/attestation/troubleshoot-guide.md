@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: reference
 ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 72d7a40c38f3629a70260f223074b456dff9ce38
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 3ae3e12c11f194b3efcc149382dc952bd74d38b5
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182842"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97704323"
 ---
 # <a name="microsoft-azure-attestation-troubleshooting-guide"></a>Guía de solución de problemas de Microsoft Azure Attestation
 
@@ -280,7 +280,7 @@ Para seguir interactuando con la Galería de PowerShell, ejecute el siguiente co
 Usuario asignado con roles adecuados pero que se enfrenta a problemas de autorización al administrar directivas de atestación mediante PowerShell.
 
 ### <a name="error"></a>Error
-El cliente con el id. de objeto <object Id> no tiene autorización para realizar la acción Microsoft.Authorization/roleassignments/write en el ámbito "subcriptions/<subscriptionId>resourcegroups/secure_enclave_poc/providers/Microsoft.Authorization/roleassignments/<role assignmentId>" o el ámbito no es válido. Si el acceso se ha concedido recientemente, actualice las credenciales.
+El cliente con el &lt;identificador de objeto&gt; no tiene autorización para realizar la acción Microsoft.Authorization/roleassignments/write en el ámbito "subcriptions/&lt;subscriptionId&gt;resourcegroups/secure_enclave_poc/providers/Microsoft.Authorization/roleassignments/&lt;role assignmentId&gt;" o el ámbito no es válido. Si el acceso se ha concedido recientemente, actualice las credenciales.
 
 ### <a name="troubleshooting-steps"></a>Pasos para solucionar problemas
 

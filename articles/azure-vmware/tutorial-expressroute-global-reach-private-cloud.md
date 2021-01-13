@@ -2,13 +2,13 @@
 title: 'Tutorial: Emparejamiento de entornos locales con una nube privada'
 description: Aprenda a crear el emparejamiento de Global Reach de ExpressRoute y una nube privada en Azure VMware Solution.
 ms.topic: tutorial
-ms.date: 09/21/2020
-ms.openlocfilehash: 4d10972a693f7c4c3ae25a5bc986f6c15e978294
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.date: 1/5/2021
+ms.openlocfilehash: 613aece6ed548f70840349e017de4416883d6cf3
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92912504"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97913165"
 ---
 # <a name="tutorial-peer-on-premises-environments-to-a-private-cloud"></a>Tutorial: Emparejamiento de entornos locales con una nube privada
 
@@ -19,7 +19,7 @@ El circuito ExpressRoute que se usa al [configurar redes de Azure a la nube priv
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-> * Crear una clave de autorización para _circuit 2_ , el circuito ExpressRoute de nube privada.
+> * Crear una clave de autorización para _circuit 2_, el circuito ExpressRoute de nube privada.
 > * Usar la CLI de [Azure Portal](#azure-portal-method) o la [CLI de Azure en un método de Cloud Shell](#azure-cli-in-a-cloud-shell-method), en la suscripción de _circuit 1_ para habilitar el emparejamiento de Global Reach de ExpressRoute entre el entorno nube local y una nube privada.
 
 
@@ -33,14 +33,15 @@ Antes de habilitar la conectividad entre dos circuitos ExpressRoute mediante Glo
 - Establecimiento de conectividad a y desde una nube privada de Azure VMware Solution con su circuito ExpressRoute emparejado con una puerta de enlace de ExpressRoute en una red virtual (VNet) de Azure, que es _circuit 2_ en los procedimientos de emparejamiento.  
 - Un circuito ExpressRoute independiente y funcional utilizado para conectar entornos locales con Azure, que es _circuit 1_ desde la perspectiva de los procedimientos de emparejamiento.
 - Un [bloque de direcciones de la red](../expressroute/expressroute-routing.md#ip-addresses-used-for-peerings) /29 sin superposición para el emparejamiento de Global Reach de ExpressRoute.
+- Asegúrese de que todos los enrutadores que incluyen el servicio del proveedor de ExpressRoute admitan el número de sistema autónomo (ASN) de 4 bytes. Azure VMware Solution utiliza ASN públicos de 4 bytes para anunciar rutas.
 
 > [!TIP]
-> En el contexto de estos requisitos previos, su circuito ExpressRoute local es _circuit 1_ , y su circuito ExpressRoute de nube privada está en otra suscripción y se denomina _circuit 2_. 
+> En el contexto de estos requisitos previos, su circuito ExpressRoute local es _circuit 1_, y su circuito ExpressRoute de nube privada está en otra suscripción y se denomina _circuit 2_. 
 
 
 ## <a name="create-an-expressroute-authorization-key-in-the-private-cloud"></a>Creación de una clave de autorización de ExpressRoute en la nube privada
 
-1. En la nube privada **Información general** , en Administrar, seleccione **Conectividad > ExpressRoute > Solicitar una clave de autorización**.
+1. En la nube privada **Información general**, en Administrar, seleccione **Conectividad > ExpressRoute > Solicitar una clave de autorización**.
 
    :::image type="content" source="media/expressroute-global-reach/start-request-auth-key.png" alt-text="Selección de Conectividad > ExpressRoute > Solicitar una clave de autorización para iniciar una nueva solicitud.":::
 

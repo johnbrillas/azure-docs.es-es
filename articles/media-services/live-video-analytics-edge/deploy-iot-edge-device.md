@@ -3,12 +3,12 @@ title: 'Implementación de Live Video Analytics en un dispositivo IoT Edge: Azur
 description: En este artículo se enumeran los pasos que ayudarán a implementar Live Video Analytics en el dispositivo IoT Edge. Hará esto, por ejemplo, si tiene acceso a una máquina Linux local o ha creado previamente una cuenta de Azure Media Services.
 ms.topic: how-to
 ms.date: 09/09/2020
-ms.openlocfilehash: 4fa4a9643976ba513b025706cacec26b2a50afb5
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 38d138b43441016e06fca5003bc09c940cb23efe
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498326"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97883323"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Implementación de Live Video Analytics en un dispositivo IoT Edge
 
@@ -108,7 +108,7 @@ Un manifiesto de implementación es un documento JSON que describe qué módulos
     Ejemplos:
     
     * **Nombre del módulo IoT Edge**: lvaEdge
-    * **URI de la imagen**: mcr.microsoft.com/media/live-video-analytics:1.0    
+    * **URI de la imagen**: mcr.microsoft.com/media/live-video-analytics:2.0.    
     
     ![Captura de pantalla que muestra la pestaña Configuración del módulo.](./media/deploy-iot-edge-device/add.png)
     

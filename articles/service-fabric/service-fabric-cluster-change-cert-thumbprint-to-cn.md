@@ -3,12 +3,12 @@ title: Actualización de un clúster para usar el nombre común del certificado
 description: Obtenga información sobre cómo convertir en nombres comunes un certificado de clúster de Azure Service Fabric basado en huella digital.
 ms.topic: conceptual
 ms.date: 09/06/2019
-ms.openlocfilehash: 013b8190390a4b05791b0a56072487f249956ec5
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: f719b1eb39da776827c6babec61e9e6701bb4602
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495214"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900797"
 ---
 # <a name="convert-cluster-certificates-from-thumbprint-based-declarations-to-common-names"></a>Conversión de certificados de Azure basados en huella digital en nombres comunes
 
@@ -34,7 +34,7 @@ Normalmente, un certificado declarado por CN se considera válido si:
 
 Service Fabric admite la declaración de certificados mediante CN de dos maneras:
 
-* Con emisores *implícitos* , lo que significa que la cadena debe terminar en un anclaje de veracidad.
+* Con emisores *implícitos*, lo que significa que la cadena debe terminar en un anclaje de veracidad.
 * Con emisores declarados mediante huella digital, lo que se conoce como asignación del emisor.
 
 Para obtener más información, vea [Declaraciones de validación de certificados basadas en nombres comunes](cluster-security-certificates.md#common-name-based-certificate-validation-declarations).
@@ -63,8 +63,11 @@ Hay varios estados de inicio válidos para una conversión. Lo que no varía es 
 #### <a name="valid-starting-states"></a>Estados de inicio válidos
 
 - `Thumbprint: GoalCert, ThumbprintSecondary: None`
-- `Thumbprint: GoalCert, ThumbprintSecondary: OldCert1`, donde `GoalCert` tiene una fecha `NotAfter` posterior a la de `OldCert1`
-- `Thumbprint: OldCert1, ThumbprintSecondary: GoalCert`, donde `GoalCert` tiene una fecha `NotAfter` posterior a la de `OldCert1`
+- `Thumbprint: GoalCert, ThumbprintSecondary: OldCert1`, donde `GoalCert` tiene una fecha `NotBefore` posterior a la de `OldCert1`
+- `Thumbprint: OldCert1, ThumbprintSecondary: GoalCert`, donde `GoalCert` tiene una fecha `NotBefore` posterior a la de `OldCert1`
+
+> [!NOTE]
+> Antes de la versión 7.2.445 (7.2 CU4), Service Fabric seleccionaba el certificado que tardaba más en expirar (el certificado con la propiedad "NotAfter" más lejana), por lo que los estados iniciales anteriores a 7.2 CU4 requieren que GoalCert tenga una fecha de `NotAfter` posterior a `OldCert1`
 
 Si el clúster no está en uno de los estados válidos descritos antes, vea la información sobre cómo lograr ese estado en la sección al final de este artículo.
 
@@ -79,7 +82,7 @@ Asegúrese de que comprende bien las diferencias y las implicaciones de la elecc
    >
    > Si no se especifica ningún emisor o la lista está vacía, se aceptará el certificado para la autenticación si su cadena se puede crear. Después, el certificado finaliza en una raíz de confianza para el validador. Si se especifica una o varias huellas digitales de emisor, el certificado se aceptará si la huella digital de su emisor directo, extraída de la cadena, coincide con cualquiera de los valores especificados en este campo. El certificado se aceptará con independencia de que la raíz sea de confianza o no.
    >
-   > Es posible que una PKI use otras entidades de certificación (también conocidas como *emisores* ) para firmar certificados con un firmante determinado. Por esta razón, es importante especificar todas las huellas digitales del emisor esperado para ese firmante. Es decir, no se garantiza que la renovación de un certificado esté firmada por el mismo emisor que el del certificado que se renueva.
+   > Es posible que una PKI use otras entidades de certificación (también conocidas como *emisores*) para firmar certificados con un firmante determinado. Por esta razón, es importante especificar todas las huellas digitales del emisor esperado para ese firmante. Es decir, no se garantiza que la renovación de un certificado esté firmada por el mismo emisor que el del certificado que se renueva.
    >
    > Un procedimiento recomendado consiste en especificar el emisor. La omisión del emisor seguirá funcionando para los certificados vinculados a una raíz de confianza, pero este comportamiento tiene limitaciones y es posible que desaparezca en un futuro próximo. Los clústeres implementados en Azure, protegidos con certificados X509 emitidos por una PKI privada y declarados por firmante, podrían no ser validados por Service Fabric (para la comunicación entre el clúster y el servicio). La validación requiere que la directiva de certificados de la PKI sea reconocible, disponible y accesible.
 
@@ -152,7 +155,7 @@ A:
 
 ### <a name="update-the-cluster-resource"></a>Actualización del recurso de clúster
 
-En el recurso **Microsoft.ServiceFabric/clusters** , agregue una propiedad **certificateCommonNames** con un valor **commonNames** y quite la propiedad **certificate** (toda su configuración).
+En el recurso **Microsoft.ServiceFabric/clusters**, agregue una propiedad **certificateCommonNames** con un valor **commonNames** y quite la propiedad **certificate** (toda su configuración).
 
 De:
 ```json
@@ -217,11 +220,14 @@ New-AzResourceGroupDeployment -ResourceGroupName $groupname -Verbose `
 
 | Estado inicial | Actualización 1 | Actualización 2 |
 | :--- | :--- | :--- |
-| `Thumbprint: OldCert1, ThumbprintSecondary: None` y `GoalCert` tiene una fecha `NotAfter` posterior a la de `OldCert1` | `Thumbprint: OldCert1, ThumbprintSecondary: GoalCert` | - |
-| `Thumbprint: OldCert1, ThumbprintSecondary: None` y `OldCert1` tiene una fecha `NotAfter` posterior a la de `GoalCert` | `Thumbprint: GoalCert, ThumbprintSecondary: OldCert1` | `Thumbprint: GoalCert, ThumbprintSecondary: None` |
-| `Thumbprint: OldCert1, ThumbprintSecondary: GoalCert`, donde `OldCert1` tiene una fecha `NotAfter` posterior a la de `GoalCert` | Actualice a `Thumbprint: GoalCert, ThumbprintSecondary: None` | - |
-| `Thumbprint: GoalCert, ThumbprintSecondary: OldCert1`, donde `OldCert1` tiene una fecha `NotAfter` posterior a la de `GoalCert` | Actualice a `Thumbprint: GoalCert, ThumbprintSecondary: None` | - |
+| `Thumbprint: OldCert1, ThumbprintSecondary: None` y `GoalCert` tiene una fecha `NotBefore` posterior a la de `OldCert1` | `Thumbprint: OldCert1, ThumbprintSecondary: GoalCert` | - |
+| `Thumbprint: OldCert1, ThumbprintSecondary: None` y `OldCert1` tiene una fecha `NotBefore` posterior a la de `GoalCert` | `Thumbprint: GoalCert, ThumbprintSecondary: OldCert1` | `Thumbprint: GoalCert, ThumbprintSecondary: None` |
+| `Thumbprint: OldCert1, ThumbprintSecondary: GoalCert`, donde `OldCert1` tiene una fecha `NotBefore` posterior a la de `GoalCert` | Actualice a `Thumbprint: GoalCert, ThumbprintSecondary: None` | - |
+| `Thumbprint: GoalCert, ThumbprintSecondary: OldCert1`, donde `OldCert1` tiene una fecha `NotBefore` posterior a la de `GoalCert` | Actualice a `Thumbprint: GoalCert, ThumbprintSecondary: None` | - |
 | `Thumbprint: OldCert1, ThumbprintSecondary: OldCert2` | Quite `OldCert1` o `OldCert2` para obtener el estado `Thumbprint: OldCertx, ThumbprintSecondary: None` | Continúe desde el nuevo estado inicial |
+
+> [!NOTE]
+> Para un clúster de una versión anterior a la 7.2.445 (7.2 CU4), reemplace `NotBefore` por `NotAfter` en los estados anteriores.
 
 Para obtener instrucciones sobre cómo realizar cualquiera de estas actualizaciones, vea [Administración de certificados en un clúster de Azure Service Fabric](service-fabric-cluster-security-update-certs-azure.md).
 

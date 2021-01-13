@@ -6,20 +6,52 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: seoapr2020, devx-track-azurecli
+ms.custom: seoapr2020, devx-track-azurecli, contperf-fy21q2
 ms.date: 09/02/2020
-ms.openlocfilehash: 35c3901e9a48523a10c1a6aacbc52e6c165e278f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 70918d1dc829ff0114a8c1019524feb934c9f915
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96009796"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97630945"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Personalización de los clústeres de Azure HDInsight mediante acciones de script en Azure
 
 Azure HDInsight proporciona un método de configuración llamado **acciones de script**, que invoca scripts personalizados para personalizar el clúster. Estos scripts se usan para instalar componentes adicionales y para cambiar los valores de configuración. Las acciones de script pueden usarse durante la creación del clúster o después.
 
 Las acciones de script también pueden publicarse en Azure Marketplace como una aplicación de HDInsight. Para más información sobre aplicaciones de HDInsight, consulte [Publicación de una aplicación de HDInsight en Azure Marketplace](hdinsight-apps-publish-applications.md).
+
+## <a name="understand-script-actions"></a>Descripción de las acciones de script
+
+Una acción de script es un script de Bash que se ejecuta en los nodos de un clúster de HDInsight. Estas son algunas características de las acciones de script:
+
+- Deben almacenarse en un URI accesible desde el clúster de HDInsight. A continuación, se proponen varias ubicaciones de almacenamiento posibles:
+
+    - Para los clústeres normales (no ESP):
+      - Data Lake Storage Gen1/Gen2: La entidad de servicio que HDInsight usa para acceder a Data Lake Storage debe tener acceso de lectura al script. El formato del identificador URI para scripts almacenados en Data Lake Storage Gen1 es `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`. El formato del identificador URI para los scripts de Data Lake Storage Gen2 es `abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/<PATH>`.
+      - Un blob de una cuenta de Azure Storage que sea la cuenta de almacenamiento principal o adicional del clúster de HDInsight. Durante la creación del clúster se concede acceso a HDInsight a estos dos tipos de cuentas de almacenamiento.
+
+        > [!IMPORTANT]  
+        > No cambie la clave de almacenamiento de esta cuenta de Azure Storage, ya que causará errores en las acciones de script subsecuentes de los scripts allí almacenados.
+
+      - Existe un servicio de uso compartido de archivos al que se accede mediante rutas de acceso `http://`. Algunos ejemplos son Azure Blob, GitHub o OneDrive. Para obtener URI de ejemplo, consulte [Ejemplo de scripts de acción de script](#example-script-action-scripts).
+    - En el caso de los clústeres con ESP, se admiten los URI `wasb://` o `wasbs://` o `http[s]://`.
+
+- Pueden restringirse para ejecutarse solo en determinados tipos de nodos. Algunos ejemplos son los nodos principales o nodos de trabajo.
+- Puede ser persistente o *ad hoc*.
+
+    - Las acciones de scripts persistentes deben tener un nombre único. Los scripts persistentes se usan para personalizar nuevos nodos de trabajo agregados al clúster mediante operaciones de escalado. Un script persistente también puede aplicar cambios a otro tipo de nodo cuando se producen operaciones de escalado. Un ejemplo es un nodo principal.
+    - Los scripts *ad hoc* no son persistentes. Las acciones de script usadas durante la creación de un clúster se guardan automáticamente. No se aplican a los nodos de trabajo agregados al clúster después de la ejecución del script. Posteriormente, un script *ad hoc* se puede promover a persistente y uno persistente puede disminuirse a *ad hoc*. Los scripts que dan error no se guardan como persistentes, aunque indique específicamente que así sea.
+
+- Pueden aceptar parámetros que usa el script durante la ejecución.
+- Se ejecutan con privilegios de nivel raíz en los nodos del clúster.
+- Se pueden usar mediante Azure Portal, Azure PowerShell, la CLI de Azure o el SDK de .NET para HDInsight.
+- Las acciones de script que quitan o modifican archivos de servicio en la VM pueden afectar al estado y la disponibilidad del servicio.
+
+El clúster conserva un historial de todos los scripts que se han ejecutado. El historial resulta útil cuando se necesita buscar el identificador de un script para las operaciones de promoción o disminución de nivel.
+
+> [!IMPORTANT]  
+> No hay ninguna forma automática de deshacer los cambios realizados por una acción de script. Los cambios se revierten de forma manual o se proporciona un script que lo hace.
 
 ## <a name="permissions"></a>Permisos
 
@@ -32,62 +64,25 @@ Para más información sobre cómo trabajar con permisos con clústeres de HDIns
 
 ## <a name="access-control"></a>Control de acceso
 
-Si no es el administrador o propietario de la suscripción de Azure, la cuenta debe tener al menos acceso de Colaborador al grupo de recursos que contiene el clúster de HDInsight.
+Si no es el administrador o propietario de la suscripción de Azure, la cuenta debe tener al menos acceso de `Contributor` al grupo de recursos que contiene el clúster de HDInsight.
 
 Un usuario con al menos acceso de colaborador a la suscripción de Azure debe haber registrado previamente el proveedor. El registro del proveedor se produce cuando un usuario con acceso de colaborador a la suscripción crea un recurso. Para información sobre cómo se realiza este procedimiento sin crear un recurso, consulte cómo [registrar un proveedor mediante REST](/rest/api/resources/providers#Providers_Register).
 
 Obtenga más información sobre cómo trabajar con la administración de acceso:
 
-* [Introducción a la administración de acceso en Azure Portal](../role-based-access-control/overview.md)
-* [Uso de asignaciones de roles para administrar el acceso a los recursos de la suscripción de Azure](../role-based-access-control/role-assignments-portal.md)
+- [Introducción a la administración de acceso en Azure Portal](../role-based-access-control/overview.md)
+- [Uso de asignaciones de roles para administrar el acceso a los recursos de la suscripción de Azure](../role-based-access-control/role-assignments-portal.md)
 
-## <a name="understand-script-actions"></a>Descripción de las acciones de script
+## <a name="methods-for-using-script-actions"></a>Métodos para usar las acciones de los scripts
 
-Una acción de script es un script de Bash que se ejecuta en los nodos de un clúster de HDInsight. Estas son algunas características de las acciones de script:
-
-* Deben almacenarse en un URI accesible desde el clúster de HDInsight. A continuación, se proponen varias ubicaciones de almacenamiento posibles:
-
-    * Para los clústeres normales:
-
-      * ADLS Gen1: La entidad de servicio que HDInsight usa para acceder a Data Lake Storage debe tener acceso de lectura al script. El formato del identificador URI para scripts almacenados en Data Lake Storage Gen1 es `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`.
-
-      * Un blob de una cuenta de Azure Storage que sea la cuenta de almacenamiento principal o adicional del clúster de HDInsight. Durante la creación del clúster se concede acceso a HDInsight a estos dos tipos de cuentas de almacenamiento.
-
-        > [!IMPORTANT]  
-        > No cambie la clave de almacenamiento de esta cuenta de Azure Storage, ya que causará errores en las acciones de script subsecuentes de los scripts allí almacenados.
-
-      * Existe un servicio de uso compartido de archivos al que se accede mediante rutas de acceso http://. Algunos ejemplos son Azure Blob, GitHub y OneDrive. Para obtener URI de ejemplo, consulte [Ejemplo de scripts de acción de script](#example-script-action-scripts).
-
-     * Para clústeres con ESP, se admiten los URI wasb://, wasbs:// o http[s]://.
-
-* Pueden restringirse para ejecutarse solo en determinados tipos de nodos. Algunos ejemplos son los nodos principales o nodos de trabajo.
-
-* Pueden ser persistentes o `ad hoc`.
-
-    Las acciones de scripts persistentes deben tener un nombre único. Los scripts persistentes se usan para personalizar nuevos nodos de trabajo agregados al clúster mediante operaciones de escalado. Un script persistente también puede aplicar cambios a otro tipo de nodo cuando se producen operaciones de escalado. Un ejemplo es un nodo principal.
-
-    Los scripts `Ad hoc` no son persistentes. Las acciones de script usadas durante la creación de un clúster se guardan automáticamente. No se aplican a los nodos de trabajo agregados al clúster después de la ejecución del script. Posteriormente, un script `ad hoc` se puede promover a persistente y uno persistente puede disminuirse a `ad hoc`. Los scripts que dan error no se guardan como persistentes, aunque indique específicamente que así sea.
-
-* Pueden aceptar parámetros que usa el script durante la ejecución.
-
-* Se ejecutan con privilegios de nivel raíz en los nodos del clúster.
-
-* Se pueden usar mediante Azure Portal, Azure PowerShell, la CLI de Azure o el SDK de .NET para HDInsight.
-
-* Las acciones de script que quitan o modifican archivos de servicio en la VM pueden afectar al estado y la disponibilidad del servicio.
-
-El clúster conserva un historial de todos los scripts que se han ejecutado. El historial resulta útil cuando se necesita buscar el identificador de un script para las operaciones de promoción o disminución de nivel.
-
-> [!IMPORTANT]  
-> No hay ninguna forma automática de deshacer los cambios realizados por una acción de script. Los cambios se revierten de forma manual o se proporciona un script que lo hace.
+Tiene la opción de configurar una acción de script para que se ejecute cuando se cree el clúster por primera vez o cuando se ejecute en un clúster existente.
 
 ### <a name="script-action-in-the-cluster-creation-process"></a>Acción de script en el proceso de creación de clústeres
 
 Las acciones de script usadas durante la creación de un clúster son algo diferentes de las ejecutadas en un clúster existente:
 
-* El script se guarda automáticamente como persistente.
-
-* Un error del script puede impedir que el proceso de creación del clúster se efectúe correctamente.
+- El script se guarda automáticamente como persistente.
+- Un error del script puede impedir que el proceso de creación del clúster se efectúe correctamente.
 
 En el siguiente diagrama se ilustra el momento en que la acción de script se ejecuta durante el proceso de creación:
 
@@ -191,9 +186,8 @@ En este ejemplo, la acción de script se agrega utilizando el código siguiente:
 
 Obtenga más información sobre cómo implementar una plantilla:
 
-* [Implementación de recursos con las plantillas de Resource Manager y Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
-
-* [Implementación de recursos con plantillas de Resource Manager y la CLI de Azure](../azure-resource-manager/templates/deploy-cli.md)
+- [Implementación de recursos con las plantillas de Resource Manager y Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
+- [Implementación de recursos con plantillas de Resource Manager y la CLI de Azure](../azure-resource-manager/templates/deploy-cli.md)
 
 ### <a name="use-a-script-action-during-cluster-creation-from-azure-powershell"></a>Uso de una acción de script durante la creación de un clúster desde Azure PowerShell
 
@@ -211,7 +205,7 @@ El .NET SDK de HDInsight proporciona bibliotecas de cliente que facilitan el tra
 
 ## <a name="script-action-to-a-running-cluster"></a>Acción de script a un clúster en ejecución
 
-En esta sección se explica cómo aplicar acciones de script a un clúster en ejecución.
+En esta sección se explica cómo aplicar acciones de script en un clúster en ejecución.
 
 ### <a name="apply-a-script-action-to-a-running-cluster-from-the-azure-portal"></a>Aplicación de una acción de script a un clúster en ejecución desde Azure Portal
 

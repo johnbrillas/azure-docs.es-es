@@ -5,14 +5,14 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/27/2020
+ms.date: 12/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: f5e774e9b7327d4b403f6a09187e97082a77aa78
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: ce90ab160696e2c38d917a391eecb0d51a31282f
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186818"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740596"
 ---
 # <a name="enable-azure-monitor-for-vms-overview"></a>Información general sobre la habilitación de Azure Monitor para VM
 
@@ -26,68 +26,27 @@ En este artículo se proporciona información general sobre las opciones disponi
 
 Para configurar Azure Monitor para VM:
 
-* Habilite una única VM de Azure, VMSS de Azure o máquina de Azure Arc; para ello, seleccione **Insights** directamente del menú de Azure Portal.
-* Habilite varias VM de Azure, VMSS de Azure o máquinas de Azure Arc mediante Azure Policy. Este método asegura que se instalan y configuran correctamente las dependencias necesarias en las máquinas virtuales y conjuntos de escalado nuevos y existentes. Se informa de las máquinas virtuales y conjuntos de escalado no compatibles para que pueda decidir si habilitarlas y cómo corregir las incompatibilidades.
-* Habilite varias VM de Azure, VM de Azure Arc, VMSS de Azure o máquinas de Azure Arc a través de una suscripción o un grupo de recursos especificado mediante PowerShell.
+* Habilite una única máquina virtual de Azure, un conjunto de escalado de máquinas virtuales de Azure o una máquina de Azure Arc; para ello, seleccione **Insights** directamente del menú de Azure Portal.
+* Habilite varias máquinas virtuales de Azure, conjuntos de escalado de máquinas virtuales de Azure o máquinas de Azure Arc mediante Azure Policy. Este método asegura que se instalan y configuran correctamente las dependencias necesarias en las máquinas virtuales y conjuntos de escalado nuevos y existentes. Se informa de las máquinas virtuales y conjuntos de escalado no compatibles para que pueda decidir si habilitarlas y cómo corregir las incompatibilidades.
+* Habilite varias máquinas virtuales de Azure, máquinas virtuales de Azure Arc, conjuntos de escalado de máquinas virtuales de Azure o máquinas de Azure Arc mediante una suscripción o un grupo de recursos especificado con PowerShell.
 * Habilite Azure Monitor para VM para supervisar las máquinas virtuales o equipos físicos hospedados en la red corporativa o en otro entorno de nube.
 
-## <a name="prerequisites"></a>Requisitos previos
-
-Antes de empezar, asegúrese de conocer la información de los apartados siguientes. 
-
->[!NOTE]
->La siguiente información que se describe en esta sección también se aplica a la [solución Service Map](service-map.md).  
-
-### <a name="log-analytics-workspace"></a>Área de trabajo de Log Analytics
-
-Azure Monitor para VM admite un área de trabajo de Log Analytics en las siguientes regiones:
-
-- África
-  - Norte de Sudáfrica
-- Asia Pacífico
-  - Este de Asia
-  - Sudeste de Asia
-- Australia
-  - Este de Australia
-  - Sudeste de Australia
-- Azure Government
-  - US Gov Az
-  - US Gov Va
-- Canadá
-  - Centro de Canadá
-- Europa
-  - Norte de Europa
-  - Oeste de Europa
-- India
-  - Centro de la India
-- Japón
-  - Japón Oriental
-- Reino Unido
-  - Sur de Reino Unido 2
-- Estados Unidos
-  - Centro de EE. UU.
-  - Este de EE. UU.
-  - Este de EE. UU. 2
-  - Centro-Norte de EE. UU
-  - Centro-sur de EE. UU.
-  - Centro-Oeste de EE. UU.
-  - Oeste de EE. UU.
-  - Oeste de EE. UU. 2
-
-
->[!NOTE]
->Puede supervisar máquinas virtuales de Azure en cualquier región. Las máquinas virtuales no se limitan a las regiones admitidas por el área de trabajo de Log Analytics.
->
-
-Si no tiene un área de trabajo de Log Analytics, puede crear una usando alguno de estos recursos:
-* [CLI de Azure](../learn/quick-create-workspace-cli.md)
-* [PowerShell](../platform/powershell-workspace-configuration.md)
-* [Azure Portal](../learn/quick-create-workspace.md)
-* [Azure Resource Manager](../samples/resource-manager-workspace.md)
+## <a name="supported-machines"></a>Equipos compatibles
+Azure Monitor para VM admite las siguientes máquinas:
 
 - Máquina virtual de Azure
 - Conjunto de escalado de máquinas virtuales de Azure
 - Máquina virtual híbrida conectada con Azure Arc
+
+
+## <a name="supported-azure-arc-machines"></a>Máquinas de Azure Arc admitidas
+Azure Monitor para VM está disponible para los servidores habilitados para Azure Arc en las regiones donde el servicio de extensión de Arc está disponible. Debe ejecutar la versión 0 9 o superior del agente de Arc.
+
+| Origen conectado | Compatible | Descripción |
+|:--|:--|:--|
+| Agentes de Windows | Sí | Junto con el [agente de Log Analytics para Windows](../platform/log-analytics-agent.md), los agentes de Windows requieren Dependency Agent. Para más información, consulte el artículo sobre los [sistemas operativos compatibles](../platform/agents-overview.md#supported-operating-systems). |
+| Agentes de Linux | Sí | Junto con el [agente de Log Analytics para Linux](../platform/log-analytics-agent.md), los agentes de Linux requieren Dependency Agent. Para más información, consulte el artículo sobre los [sistemas operativos compatibles](#supported-operating-systems). |
+| Grupo de administración de System Center Operations Manager | No | |
 
 ## <a name="supported-operating-systems"></a>Sistemas operativos admitidos
 
@@ -101,18 +60,8 @@ Consulte la siguiente lista de consideraciones sobre la compatibilidad de Linux 
 - Para distribuciones de Debian que no sean la versión 9.4, no se admite la característica de asignación y la característica de rendimiento solo está disponible en el menú de Azure Monitor. No está disponible directamente desde el panel izquierdo de la máquina virtual de Azure.
 - Se admite el kernel de CentOSPlus.
 - El kernel de Linux debe revisarse para la vulnerabilidad de Spectre. Consulte al proveedor de distribución de Linux para más información.
-
-
-
-## <a name="supported-azure-arc-machines"></a>Máquinas de Azure Arc admitidas
-Azure Monitor para VM está disponible para los servidores habilitados para Azure Arc en las regiones donde el servicio de extensión de Arc está disponible. Debe ejecutar la versión 0 9 o superior del agente de Arc.
-
-| Origen conectado | Compatible | Descripción |
-|:--|:--|:--|
-| Agentes de Windows | Sí | Junto con el [agente de Log Analytics para Windows](../platform/log-analytics-agent.md), los agentes de Windows requieren Dependency Agent. Para más información, consulte el artículo sobre los [sistemas operativos compatibles](../platform/agents-overview.md#supported-operating-systems). |
-| Agentes de Linux | Sí | Junto con el [agente de Log Analytics para Linux](../platform/log-analytics-agent.md), los agentes de Linux requieren Dependency Agent. Para más información, consulte el artículo sobre los [sistemas operativos compatibles](#supported-operating-systems). |
-| Grupo de administración de System Center Operations Manager | No | |
-
+## <a name="log-analytics-workspace"></a>Área de trabajo de Log Analytics
+Azure Monitor para VM requiere un área de trabajo de Log Analytics. Consulte [Configuración del área de trabajo de Log Analytics para Azure Monitor para VM](vminsights-configure-workspace.md) para conocer los detalles y requisitos de esta área de trabajo.
 ## <a name="agents"></a>Agentes
 Azure Monitor para VM requiere la instalación de los dos agentes siguientes en cada máquina virtual o conjunto de escalado de máquinas virtuales que se supervisarán. La instalación de estos agentes y su conexión al área de trabajo es el único requisito para incorporar el recurso.
 
@@ -135,7 +84,7 @@ A continuación se muestran varios métodos para implementar estos agentes.
 
 
 ## <a name="management-packs"></a>Módulos de administración
-Cuando un área de trabajo de Log Analytics está configurada para Azure Monitor para VM, se reenvían dos módulo de administración a todos los equipos Windows conectados a esa área de trabajo. Los módulos de administración se denominan *Microsoft.IntelligencePacks.ApplicationDependencyMonitor* y *Microsoft.IntelligencePacks.VMInsights* y se escriben en *%Programfiles%\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs\*. 
+Cuando un área de trabajo de Log Analytics está configurada para Azure Monitor para VM, se reenvían dos módulo de administración a todos los equipos Windows conectados a esa área de trabajo. Los módulos de administración se denominan *Microsoft.IntelligencePacks.ApplicationDependencyMonitor* y *Microsoft.IntelligencePacks.VMInsights* y se escriben en *%Programfiles%\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs*. 
 
 El origen de datos que utiliza el módulo de administración *ApplicationDependencyMonitor* es * *%Program files%\Microsoft Monitoring Agent\Agent\Health Service State\Resources\<AutoGeneratedID>\Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll*. El origen de datos que utiliza el módulo de administración *VMInsights* es *%Program files%\Microsoft Monitoring Agent\Agent\Health Service State\Resources\<AutoGeneratedID>\ Microsoft.VirtualMachineMonitoringModule.dll*.
 

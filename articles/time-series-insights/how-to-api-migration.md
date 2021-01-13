@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/01/2020
 ms.custom: shresha
-ms.openlocfilehash: 3aedbef079ba62f42ea79afdcd9995d7ee23d9fa
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 15f1a814b302611029cf6459b8d2df93a32a2d36
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95020732"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740562"
 ---
 # <a name="migrating-to-new-azure-time-series-insights-gen2-api-versions"></a>Migración a las nuevas versiones de API de Azure Time Series Insights Gen2
 
@@ -76,7 +76,7 @@ Si ha generado consultas mediante el conector de Power BI, estas realizan llamad
 Para actualizar las consultas para que usen la nueva versión de la API y la nueva sintaxis de expresiones de serie temporal, las consultas deberán volver a generarse desde el explorador. Obtenga más información sobre cómo [crear consultas mediante el conector de Power BI](./how-to-connect-power-bi.md).
 
 > [!NOTE]
-> Debe usar la versión de julio de 2020 de Power BI Desktop. Si no la usa, puede aparecer un [error de versión de carga de consulta no válida](./how-to-diagnose-troubleshoot.md#problem-power-bi-connector-shows-unable-to-connect).
+> Debe usar al menos la versión de julio de 2020 de Power BI Desktop. Si no la usa, puede que vea un error de versión de carga de consulta no válida.
 
 ## <a name="migrate-custom-applications"></a>Migración de aplicaciones personalizadas
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: 104c9dcd3b7fd931e4f54841c9de9d17cfd72353
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 602bb98f2cdc8a96874eba8dadfa33f3267d19ac
+ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96937328"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97746565"
 ---
 # <a name="azure-ddos-protection-standard-features"></a>Características de Azure DDoS Protection Estándar
 
@@ -24,23 +24,23 @@ Las siguientes secciones describen las características clave del servicio Azure
 
 ## <a name="always-on-traffic-monitoring"></a>Supervisión continua del tráfico
 
-El servicio Protección contra DDoS estándar supervisa el uso de tráfico real y lo compara constantemente con los umbrales definidos en la directiva de DDoS. Cuando se supera el umbral de tráfico, se inicia automáticamente la mitigación de DDoS. Cuando el tráfico vuelve a estar por debajo del umbral, se quita la mitigación.
+El servicio Protección contra DDoS estándar supervisa el uso de tráfico real y lo compara constantemente con los umbrales definidos en la directiva de DDoS. Cuando se supera el umbral de tráfico, se inicia automáticamente la mitigación de DDoS. Cuando el tráfico vuelve a estar por debajo del umbral, se detiene la mitigación.
 
 ![Mitigación mediante Azure DDoS Protection Estándar](./media/ddos-protection-overview/mitigation.png)
 
-Durante la mitigación, el servicio Protección contra DDoS redirige el tráfico enviado al recurso protegido y realiza varias comprobaciones, como las que se indican a continuación:
+Durante la mitigación, el servicio Protección contra DDoS redirige el tráfico enviado al recurso protegido y realiza varias comprobaciones, por ejemplo:
 
 - Asegurarse de que los paquetes se ajustan a las especificaciones de Internet y no tienen un formato incorrecto.
 - Interactúe con el cliente para determinar si el tráfico es un posible paquete falsificado (por ejemplo, Autorización de SYN o Cookie de SYN o colocando un paquete para que el origen lo retransmita).
 - Limitar la velocidad de los paquetes si no se puede realizar ningún otro método de cumplimiento.
 
-El servicio Protección contra DDoS bloquea el tráfico del ataque y reenvía el tráfico restante al destino previsto. En un intervalo de pocos minutos tras la detección del ataque, recibe una notificación mediante las métricas de Azure Monitor. Si configura el registro de datos de telemetría de Protección contra DDoS estándar, puede escribir los registros en opciones disponibles para su posterior análisis. Los datos métricos de Azure Monitor para Protección contra DDoS estándar se conservan actualmente durante 30 días.
+El servicio Protección contra DDoS elimina el tráfico del ataque y reenvía el tráfico restante al destino previsto. En un intervalo de pocos minutos tras la detección del ataque, recibe una notificación mediante las métricas de Azure Monitor. Si configura el registro de datos de telemetría de Protección contra DDoS estándar, puede escribir los registros en opciones disponibles para su posterior análisis. Los datos métricos de Azure Monitor para Protección contra DDoS estándar se conservan actualmente durante 30 días.
 
 ## <a name="adaptive-real-time-tuning"></a>Ajuste adaptable en tiempo real
 
-El servicio Azure DDoS Protection Basic le ayuda a proteger a los clientes y a evitar que los ataques afecten a otros clientes. Por ejemplo, si un servicio se aprovisiona para un volumen normal de tráfico de entrada legítimo que es menor que la *tasa desencadenante* de la directiva de DDoS Protection para toda la infraestructura, un ataque de DDoS en los recursos de ese cliente podría pasar desapercibido. Por lo general, la complejidad de los ataques recientes (por ejemplo, DDoS multivector), así como los comportamientos de los inquilinos, específicos de cada aplicación, hacen necesarias directivas de protección personalizadas para cada cliente. El servicio consigue esta personalización basándose en dos tipos de información:
+El servicio Azure DDoS Protection Basic le ayuda a proteger a los clientes y a evitar que los ataques afecten a otros clientes. Por ejemplo, si un servicio se aprovisiona para un volumen normal de tráfico de entrada legítimo que es menor que la *tasa desencadenante* de la directiva de DDoS Protection para toda la infraestructura, un ataque de DDoS en los recursos de ese cliente podría pasar desapercibido. Por lo general, la complejidad de los ataques recientes (por ejemplo, DDoS multivector), así como los comportamientos de los inquilinos, específicos de cada aplicación, hacen necesarias directivas de protección personalizadas para cada cliente. El servicio lo lleva a cabo mediante el uso de dos tipos de información:
 
-- Aprendizaje automático de los patrones de tráfico de los niveles 3 y 4 (por IP) de cada cliente.
+- Aprendizaje automático de los patrones de tráfico de las capas 3 y 4 de cada cliente (por dirección IP pública).
 
 - Reducción de los falsos positivos ya que el escalado de Azure le permite absorber una cantidad importante de tráfico.
 
@@ -48,7 +48,7 @@ El servicio Azure DDoS Protection Basic le ayuda a proteger a los clientes y a e
 
 ## <a name="ddos-protection-telemetry-monitoring-and-alerting"></a>Telemetría, alertas y supervisión de DDoS Protection
 
-DDoS Protection Standard expone datos de telemetría detallados mediante [Azure Monitor](../azure-monitor/overview.md) mientras dura un ataque de DDoS. También puede configurar alertas para todas las métricas de Azure Monitor que usa DDoS Protection. El registro se puede integrar con Splunk (Azure Event Hubs), registros de Azure Monitor y Azure Storage para realizar análisis avanzados con la interfaz de Azure Monitor Diagnostics.
+DDoS Protection Estándar expone datos de telemetría detallados mediante [Azure Monitor](../azure-monitor/overview.md). También puede configurar alertas para todas las métricas de Azure Monitor que usa DDoS Protection. El registro se puede integrar con Splunk (Azure Event Hubs), registros de Azure Monitor y Azure Storage para realizar análisis avanzados con la interfaz de Azure Monitor Diagnostics.
 
 ### <a name="ddos-mitigation-policies"></a>Directivas de mitigación de DDoS
 

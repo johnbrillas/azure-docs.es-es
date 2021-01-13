@@ -1,34 +1,35 @@
 ---
 title: 'Supervisión y registro: Azure'
-description: En este artículo se proporciona información general sobre la supervisión y el registro de Live Video Analytics on IoT Edge.
+description: En este artículo se proporciona información general sobre la supervisión y el registro de Live Video Analytics on IoT Edge.
 ms.topic: reference
 ms.date: 04/27/2020
-ms.openlocfilehash: 8ae455a4157cd649f610620e486323ac2c0a5744
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 6a7251b62421642ad9f5dba4f4c2a15ce74cd5cf
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97401056"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900882"
 ---
 # <a name="monitoring-and-logging"></a>Supervisión y registro
 
-En este artículo se describe cómo se pueden recibir eventos del módulo Live Video Analytics on IoT Edge para la supervisión remota. 
+En este artículo, aprenderá a recibir eventos para la supervisión remota desde el módulo Live Video Analytics on IoT Edge. 
 
-También encontrará información sobre cómo se pueden controlar los registros que el módulo genera.
+También aprenderá a controlar los registros que genera el módulo.
 
 ## <a name="taxonomy-of-events"></a>Taxonomía de eventos
 
-Live Video Analytics on IoT Edge emite eventos o datos de telemetría según la siguiente taxonomía.
+Live Video Analytics on IoT Edge emite eventos o datos de telemetría según la siguiente taxonomía:
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/telemetry-schema/taxonomy.png" alt-text="Taxonomía de eventos":::
+> :::image type="content" source="./media/telemetry-schema/taxonomy.png" alt-text="Diagrama que muestra la taxonomía de eventos.":::
 
-* Operativo: eventos que se generan como parte de las acciones realizadas por un usuario o durante la ejecución de un [gráfico multimedia](media-graph-concept.md).
+* Operativo: eventos generados por las acciones de un usuario o durante la ejecución de un [grafo multimedia](media-graph-concept.md)
    
-   * Volumen: se espera que sea bajo (unas cuantas veces por minuto, o incluso una tasa inferior).
+   * Volumen: se espera que sea bajo (algunas veces un minuto o incluso menos).
    * Ejemplos:
 
-      Grabación iniciada (abajo), grabación detenida.
+      - Grabación iniciada (se muestra en el ejemplo siguiente)
+      - Grabación detenida.
       
       ```
       {
@@ -45,12 +46,13 @@ Live Video Analytics on IoT Edge emite eventos o datos de telemetría según l
         }
       }
       ```
-* Diagnóstico: eventos que ayudan a diagnosticar problemas o incidencias de rendimiento.
+* Diagnóstico: eventos que ayudan a diagnosticar problemas de rendimiento.
 
-   * Volumen: puede ser elevado (varias veces por minuto).
+   * Volumen: puede ser alto (varias veces por minuto).
    * Ejemplos:
    
-      Información de [Session Description Protocol](https://en.wikipedia.org/wiki/Session_Description_Protocol) de RTSP (abajo) o saltos en la fuente de vídeo entrante.
+      - Información de [SDP](https://en.wikipedia.org/wiki/Session_Description_Protocol) de RTSP (se muestra en el ejemplo siguiente) 
+      - Intervalos en la fuente de vídeo entrante.
 
       ```
       {
@@ -66,12 +68,13 @@ Live Video Analytics on IoT Edge emite eventos o datos de telemetría según l
         }
       }
       ```
-* Análisis: eventos que se generan como parte del análisis de vídeo.
+* Análisis: eventos generados como parte del análisis de vídeo.
 
-   * Volumen: puede ser elevado (varias veces por minuto o más a menudo).
+   * Volumen: puede ser alto (varias veces por minuto o más).
    * Ejemplos:
       
-      Movimiento detectado (abajo), resultado de la inferencia.
+      - Movimiento detectado (se muestra en el ejemplo siguiente) 
+      - Resultado de la inferencia.
 
    ```      
    {
@@ -101,19 +104,19 @@ Live Video Analytics on IoT Edge emite eventos o datos de telemetría según l
    }
    ```
 
-Los eventos emitidos por el módulo se envían al [centro de IoT Edge](../../iot-edge/iot-edge-runtime.md#iot-edge-hub) y, desde allí, se pueden enrutar a otros destinos. 
+Los eventos emitidos por el módulo se envían al [centro de IoT Edge](../../iot-edge/iot-edge-runtime.md#iot-edge-hub). Desde allí, se pueden enrutar a otros destinos. 
 
 ### <a name="timestamps-in-analytic-events"></a>Marcas de tiempo de los eventos de análisis
 
-Como se indicó anteriormente, los eventos generados como parte del análisis de vídeo tienen una marca de tiempo asociada. Si [grabó el vídeo en directo](video-recording-concept.md) como parte de la topología de grafos, esta marca de tiempo le ayuda a encontrar dónde se produjo en el vídeo grabado ese evento determinado. A continuación, se muestran las instrucciones para asignar la marca de tiempo de un evento de análisis a la escala de tiempo del vídeo grabado en un [recurso de Azure Media Services](terminology.md#asset).
+Como se indicó anteriormente, los eventos generados como parte del análisis de vídeo tienen marcas de tiempo asociadas. Si [grabó el vídeo en directo](video-recording-concept.md) como parte de la topología de grafos, esta marca de tiempo le ayuda a encontrar dónde se produjo en el vídeo grabado ese evento determinado. A continuación, se muestran instrucciones para asignar la marca de tiempo de un evento de análisis a la escala de tiempo del vídeo grabado en un [recurso de Azure Media Services](terminology.md#asset).
 
-En primer lugar, extraiga el valor de `eventTime`. Use este valor en un [filtro de intervalo de tiempo](playback-recordings-how-to.md#time-range-filters) para recuperar una parte adecuada de la grabación. Por ejemplo, puede que quiera realizar una captura de vídeo que comience 30 segundos antes de `eventTime` y que termine 30 segundos después. En el ejemplo anterior, donde `eventTime` es 2020-05-12T23:33:09.381 Z, una solicitud de un manifiesto HLS para la ventana de +/-30 segundos sería similar a la siguiente:
+En primer lugar, extraiga el valor de `eventTime`. Use este valor en un [filtro de intervalo de tiempo](playback-recordings-how-to.md#time-range-filters) para recuperar una parte adecuada de la grabación. Por ejemplo, podría querer recuperar un vídeo que se inicie 30 segundos antes de `eventTime` y que finalice 30 segundos después. En el ejemplo anterior, donde `eventTime` es 2020-05-12T23:33:09.381 Z, una solicitud de un manifiesto HLS de los 30 segundos anteriores y posteriores a `eventTime` se parecería a esta:
 
 ```
 https://{hostname-here}/{locatorGUID}/content.ism/manifest(format=m3u8-aapl,startTime=2020-05-12T23:32:39Z,endTime=2020-05-12T23:33:39Z).m3u8
 ```
 
-La dirección URL anterior devolvería la conocida como [lista de reproducción maestra](https://developer.apple.com/documentation/http_live_streaming/example_playlists_for_http_live_streaming), que contiene las direcciones URL de las listas de reproducción de elementos multimedia. La lista de reproducción de elementos multimedia contiene entradas como la siguiente:
+La dirección URL anterior devolvería una [lista de reproducción maestra](https://developer.apple.com/documentation/http_live_streaming/example_playlists_for_http_live_streaming) que contiene direcciones URL de las listas de reproducción multimedia. La lista de reproducción multimedia contendría entradas como esta:
 
 ```
 ...
@@ -121,21 +124,21 @@ La dirección URL anterior devolvería la conocida como [lista de reproducción 
 Fragments(video=143039375031270,format=m3u8-aapl)
 ...
 ```
-En ella se informa que hay disponible un fragmento de vídeo que comienza en un valor de marca de tiempo de `143039375031270`. El valor de `timestamp` del evento de análisis usa la misma escala de tiempo que la lista de reproducción de elementos multimedia, y se puede usar para identificar el fragmento de vídeo pertinente y buscar el fotograma correcto.
+La entrada anterior informa de que hay disponible un fragmento de vídeo que comienza en un valor de `timestamp` de `143039375031270`. El valor de `timestamp` del evento de análisis usa la misma escala de tiempo que la lista de reproducción multimedia. Se puede usar para identificar el fragmento de vídeo pertinente y buscar el fotograma correcto.
 
-Para más información, puede leer uno de los muchos [artículos](https://www.bing.com/search?q=frame+accurate+seeking+in+HLS) sobre la búsqueda precisa de fotogramas en HLS.
+Para más información, consulte estos [artículos sobre la búsqueda con precisión de fotograma](https://www.bing.com/search?q=frame+accurate+seeking+in+HLS) en HLS.
 
 ## <a name="controlling-events"></a>Control de eventos
 
-Se pueden usar las siguientes propiedades de módulo gemelo (como se documenta en [Esquema JSON de módulo gemelo](module-twin-configuration-schema.md)) para controlar los eventos operativos y de diagnóstico publicados por el módulo Live Video Analytics on IoT Edge.
+Puede usar las siguientes propiedades del módulo gemelo para controlar los eventos operativos y de diagnóstico publicados por el módulo Live Video Analytics on IoT Edge. Estas propiedades se documentan en el [esquema JSON del módulo gemelo](module-twin-configuration-schema.md).
 
-`diagnosticsEventsOutputName` : incluya y proporcione cualquier valor en esta propiedad para obtener eventos de diagnóstico del módulo. Omítalo o déjelo en blanco si prefiere que el módulo deje de publicar eventos de diagnóstico.
+- `diagnosticsEventsOutputName`: para obtener eventos de diagnóstico del módulo, incluya esta propiedad y proporcione un valor para ella. Para que el módulo deje de publicar eventos de diagnóstico, omita esta información o déjela en blanco.
    
-`operationalEventsOutputName` : incluya y proporcione cualquier valor en esta propiedad para obtener eventos operativos del módulo. Omítalo o déjelo en blanco si prefiere que el módulo deje de publicar eventos operativos.
+- `operationalEventsOutputName`: para obtener eventos operativos del módulo, incluya esta propiedad y proporcione un valor para ella. Para que el módulo deje de publicar eventos operativos, omita esta información o déjela en blanco.
    
-Los eventos de análisis los generan nodos como, por ejemplo, el procesador de detección de movimiento o el procesador de extensión HTTP, y el receptor de IoT Hub se usa para enviarlos al centro de IoT Edge. 
+Los nodos, como el procesador de detección de movimiento o el procesador de extensiones HTTP, generan los eventos de análisis. El receptor de IoT Hub se usa para enviarlos al centro de IoT Edge. 
 
-Puede controlar el [enrutamiento de todos los eventos anteriores](../../iot-edge/module-composition.md#declare-routes) a través de una propiedad deseada del módulo gemelo $edgeHub (en el manifiesto de implementación):
+Puede controlar el [enrutamiento de todos los eventos anteriores](../../iot-edge/module-composition.md#declare-routes) mediante la propiedad `desired` del módulo gemelo `$edgeHub` en el manifiesto de implementación:
 
 ```
  "$edgeHub": {
@@ -151,96 +154,96 @@ Puede controlar el [enrutamiento de todos los eventos anteriores](../../iot-edge
  }
 ```
 
-Arriba, lvaEdge es el nombre del módulo Live Video Analytics on IoT Edge, y la regla de enrutamiento sigue el esquema definido en [Declaración de rutas](../../iot-edge/module-composition.md#declare-routes).
+En el código JSON anterior, `lvaEdge` es el nombre del módulo Live Video Analytics on IoT Edge. La regla de enrutamiento sigue el esquema definido en [Declaración de rutas](../../iot-edge/module-composition.md#declare-routes).
 
 > [!NOTE]
-> Para garantizar que los eventos de análisis llegan al centro de IoT Edge, debe haber un nodo receptor de IoT Hub en sentido descendente con respecto a cualquier nodo procesador de detección de movimiento y/o nodo procesador de extensión HTTP.
+> Para garantizar que los eventos de análisis llegan al centro de IoT Edge, debe haber un nodo receptor de IoT Hub en sentido descendente con respecto a cualquier nodo procesador de detección de movimiento o nodo procesador de extensiones HTTP.
 
 ## <a name="event-schema"></a>Esquema del evento
 
-Los eventos se originan en el dispositivo Edge y se pueden consumir tanto en Edge como en la nube. Los eventos generados por Live Video Analytics on IoT Edge siguen el [patrón de mensajería de streaming](../../iot-hub/iot-hub-devguide-messages-construct.md) establecido por Azure IoT Hub, con propiedades de sistema, propiedades de la aplicación y un cuerpo.
+Los eventos se originan en el dispositivo perimetral y se pueden consumir tanto en el perímetro como en la nube. Los eventos generados por Live Video Analytics on IoT Edge se ajustan al [patrón de mensajería de streaming](../../iot-hub/iot-hub-devguide-messages-construct.md) establecido por Azure IoT Hub. El patrón consta de propiedades del sistema, propiedades de la aplicación y un cuerpo.
 
 ### <a name="summary"></a>Resumen
 
-Cada evento, cuando se observa a través de IoT Hub, tendrá un conjunto de propiedades comunes, como se describe a continuación.
+Cada evento, cuando se observa mediante IoT Hub, tiene un conjunto de propiedades comunes:
 
 |Propiedad   |Tipo de propiedad| Tipo de datos   |Descripción|
 |---|---|---|---|
-|message-id |sistema |guid|  Identificador de evento único|
-|topic| applicationProperty |string|    Ruta de acceso de Azure Resource Manager de la cuenta de Media Services|
-|subject|   applicationProperty |string|    Subruta de acceso a la entidad que emite el evento|
-|eventTime| applicationProperty|    string| Hora a la que se generó el evento|
-|eventType| applicationProperty |string|    Identificador de tipo de evento (ver más abajo)|
-|body|body  |object|    Datos de evento concretos|
-|dataVersion    |applicationProperty|   string  |{Major}.{Minor}|
+|`message-id`   |sistema |guid|  Identificador de evento único|
+|`topic`|   applicationProperty |string|    Ruta de acceso de Azure Resource Manager de la cuenta de Azure Media Services.|
+|`subject`| applicationProperty |string|    Subruta de la entidad que emite el evento.|
+|`eventTime`|   applicationProperty|    string| Hora a la que se generó el evento|
+|`eventType`|   applicationProperty |string|    Identificador del tipo de evento. (Consulte la sección siguiente).|
+|`body`|body    |object|    Datos de evento concretos|
+|`dataVersion`  |applicationProperty|   string  |{Major}.{Minor}|
 
 ### <a name="properties"></a>Propiedades
 
 #### <a name="message-id"></a>message-id
 
-Es el identificador único global (GUID) del evento.
+Identificador único global (GUID) del evento.
 
 #### <a name="topic"></a>topic
 
-Representa la cuenta de Azure Media Services asociada al gráfico.
+Representa la cuenta de Azure Media Services asociada al grafo.
 
 `/subscriptions/{subId}/resourceGroups/{rgName}/providers/Microsoft.Media/mediaServices/{accountName}`
 
 #### <a name="subject"></a>subject
 
-Es la entidad que emite el evento:
+La entidad que emite el evento:
 
 `/graphInstances/{graphInstanceName}`<br/>
 `/graphInstances/{graphInstanceName}/sources/{sourceName}`<br/>
 `/graphInstances/{graphInstanceName}/processors/{processorName}`<br/>
 `/graphInstances/{graphInstanceName}/sinks/{sinkName}`
 
-La propiedad subject permite asignar eventos genéricos al módulo que lo ha generado. Por ejemplo, si el nombre de usuario o la contraseña de RTSP no son válidos, el evento generado sería `Microsoft.Media.Graph.Diagnostics.ProtocolError` en el nodo `/graphInstances/myGraph/sources/myRtspSource`.
+La propiedad `subject` permite asignar eventos genéricos al módulo generador. Por ejemplo, para un nombre de usuario o contraseña RTSP no válidos, el evento generado sería `Microsoft.Media.Graph.Diagnostics.ProtocolError` en el nodo `/graphInstances/myGraph/sources/myRtspSource`.
 
 #### <a name="event-types"></a>Tipos de eventos
 
-Los tipos de evento se asignan a un espacio de nombres de acuerdo con el siguiente esquema:
+Los tipos de eventos se asignan a un espacio de nombres de acuerdo con este esquema:
 
 `Microsoft.Media.Graph.{EventClass}.{EventType}`
 
 #### <a name="event-classes"></a>Clases de eventos
 
-|Class Name (Nombre de clase)|Descripción|
+|Nombre de la clase|Descripción|
 |---|---|
 |Análisis  |Eventos generados como parte del análisis de contenido|
-|Diagnóstico    |Eventos que ayudan a diagnosticar problemas y el rendimiento|
+|Diagnóstico    |Eventos que ayudan a diagnosticar problemas y rendimiento.|
 |Operativos    |Eventos generados como parte de las operaciones de recursos|
 
 Los tipos de evento son específicos de cada clase de evento.
 
 Ejemplos:
 
-* Microsoft.Media.Graph.Analytics.Inference
-* Microsoft.Media.Graph.Diagnostics.AuthorizationError
-* Microsoft.Media.Graph.Operational.GraphInstanceStarted
+* `Microsoft.Media.Graph.Analytics.Inference`
+* `Microsoft.Media.Graph.Diagnostics.AuthorizationError`
+* `Microsoft.Media.Graph.Operational.GraphInstanceStarted`
 
 ### <a name="event-time"></a>Hora del evento
 
-La hora del evento se describe en la cadena ISO8601 y es la hora a la que dicho evento se produjo.
+La hora del evento tiene el formato de una cadena ISO 8601. Representa la hora en que se produjo el evento.
 
-### <a name="azure-monitor-collection-using-telegraf"></a>Recopilación de Azure Monitor con Telegraf
+### <a name="azure-monitor-collection-via-telegraf"></a>Colección de Azure Monitor a través de Telegraf
 
-Estas métricas se notificarán en Live Video Analytics en el módulo de IoT Edge:  
+Estas métricas se notificarán desde el módulo Live Video Analytics on IoT Edge:  
 
-|Nombre de la métrica|Tipo|Etiqueta|Descripción|
+|Nombre de métrica|Tipo|Etiqueta|Descripción|
 |-----------|----|-----|-----------|
 |lva_active_graph_instances|Indicador|iothub, edge_device, module_name, graph_topology|Número total de grafos activos por topología.|
-|lva_received_bytes_total|Contador|iothub, edge_device, module_name, graph_topology, graph_instance, graph_node|Número total de bytes recibidos por un nodo. Solo se admite para orígenes RTSP|
-|lva_data_dropped_total|Contador|iothub, edge_device, module_name, graph_topology, graph_instance, graph_node, data_kind|Contador de los datos anulados (eventos, medios, etc.)|
+|lva_received_bytes_total|Contador|iothub, edge_device, module_name, graph_topology, graph_instance, graph_node|Número total de bytes recibidos por un nodo. Solo se admite para orígenes RTSP.|
+|lva_data_dropped_total|Contador|iothub, edge_device, module_name, graph_topology, graph_instance, graph_node, data_kind|Contador de los datos descartados (eventos, medios, etc.)|
 
 > [!NOTE]
-> Un [punto de conexión de Prometheus](https://prometheus.io/docs/practices/naming/) se expone en el puerto **9600** del contenedor. Si denomina "IvaEdge" a las instancias de Live Video Analytics en el módulo de IoT Edge, podrían acceder a las métricas enviando una solicitud GET a http://lvaEdge:9600/metrics.   
+> Un [punto de conexión de Prometheus](https://prometheus.io/docs/practices/naming/) se expone en el puerto 9600 del contenedor. Si asigna al módulo Live Video Analytics on IoT Edge el nombre "IvaEdge", se podrá acceder a las métricas enviando una solicitud GET a http://lvaEdge:9600/metrics.   
 
 Siga estos pasos para habilitar la recopilación de métricas de Live Video Analytics en el módulo de IoT Edge:
 
-1. Cree una carpeta en la máquina de desarrollo y vaya a esa carpeta.
+1. Cree una carpeta en el equipo de desarrollo y vaya a esa carpeta.
 
-1. Una vez en ella, cree un archivo `telegraf.toml` con el siguiente contenido.
+1. En la carpeta, cree un archivo `telegraf.toml` que contenga las siguientes configuraciones:
     ```
     [agent]
         interval = "30s"
@@ -256,25 +259,26 @@ Siga estos pasos para habilitar la recopilación de métricas de Live Video Anal
       resource_id = "/subscriptions/{SUBSCRIPTON_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.Devices/IotHubs/{IOT_HUB_NAME}"
     ```
     > [!IMPORTANT]
-    > No olvide reemplazar las variables (marcadas con `{ }`) en el archivo de contenido.
+    > Asegúrese de reemplazar las variables en el archivo .toml. Las variables se representan mediante llaves (`{}`).
 
-1. En esa carpeta, cree un archivo `.dockerfile` con el siguiente contenido.
+1. En la misma carpeta, cree un archivo `.dockerfile` que contenga los siguientes comandos:
     ```
         FROM telegraf:1.15.3-alpine
         COPY telegraf.toml /etc/telegraf/telegraf.conf
     ```
 
-1. Ahora, con el comando de la CLI de Docker, **cree el archivo de Docker** y publique la imagen en Azure Container Registry.
-    1. Aprenda a [insertar y extraer imágenes de Docker con Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli).  Puede encontrar más información sobre Azure Container Registry (ACR) [aquí](https://docs.microsoft.com/azure/container-registry/).
+1. Use los comandos de la CLI de Docker para crear el archivo de Docker y publique la imagen en Azure Container Registry.
+    
+   Para más información sobre el uso de la CLI de Docker para realizar inserciones en un registro de contenedor, consulte [Inserción y extracción de imágenes de Docker](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli). Para más información sobre Azure Container Registry, consulte la [documentación](https://docs.microsoft.com/azure/container-registry/).
 
 
-1. Una vez completada la inserción en ACR, en el archivo del manifiesto de implementación, agregue el siguiente nodo:
+1. Tras la inserción en Azure Container Registry, agregue el siguiente nodo al archivo de manifiesto de implementación:
     ```
     "telegraf": 
     {
       "settings": 
         {
-            "image": "{ACR_LINK_TO_YOUR_TELEGRAF_IMAGE}"
+            "image": "{AZURE_CONTAINER_REGISTRY_LINK_TO_YOUR_TELEGRAF_IMAGE}"
         },
       "type": "docker",
       "version": "1.0",
@@ -288,64 +292,72 @@ Siga estos pasos para habilitar la recopilación de métricas de Live Video Anal
         }
     ``` 
     > [!IMPORTANT]
-    > No olvide reemplazar las variables (marcadas con `{ }`) en el archivo de contenido.
+    > Asegúrese de reemplazar las variables en el archivo de manifiesto. Las variables se representan mediante llaves (`{}`).
 
 
-1. **Autenticación**
-    1. Azure Monitor se puede [autenticar mediante una entidad de servicio](https://github.com/influxdata/telegraf/blob/master/plugins/outputs/azure_monitor/README.md#azure-authentication).
-        1. El complemento Telegraf de Azure Monitor expone [varios métodos de autenticación](https://github.com/influxdata/telegraf/blob/master/plugins/outputs/azure_monitor/README.md#azure-authentication). Se deben establecer las siguientes variables de entorno para usar la autenticación mediante entidad de servicio.  
-            •   AZURE_TENANT_ID: especifica el inquilino en el que se va a autenticar.  
-            •   AZURE_CLIENT_ID: especifica el identificador de cliente de la aplicación que se va a usar.  
-            •   AZURE_CLIENT_SECRET: especifica el secreto de la aplicación que se va a usar.  
-    >[!TIP]
-    > A la entidad de servicio se le puede otorgar el rol "**Publicador de métricas de supervisión**".
+   Azure Monitor se puede [autenticar mediante la entidad de servicio](https://github.com/influxdata/telegraf/blob/master/plugins/outputs/azure_monitor/README.md#azure-authentication).
+        
+   El complemento Telegraf de Azure Monitor expone [varios métodos de autenticación](https://github.com/influxdata/telegraf/blob/master/plugins/outputs/azure_monitor/README.md#azure-authentication). 
 
-1. Una vez implementados los módulos, las métricas aparecerán en Azure Monitor bajo un solo espacio de nombres con los nombres de las métricas que coincidan con los emitidos por Prometheus. 
-    1. En este caso, en Azure Portal, vaya a IoT Hub y haga clic en el vínculo "**Métricas**" en el panel de navegación izquierdo. Allí debería ver las métricas.
+  1. Para usar la autenticación de la entidad de servicio, establezca estas variables de entorno:  
+     `AZURE_TENANT_ID`: especifica el inquilino en el que se va a autenticar.  
+     `AZURE_CLIENT_ID`: especifica el identificador de cliente de la aplicación que se va a usar.  
+     `AZURE_CLIENT_SECRET`: especifica el secreto de la aplicación que se va a usar.  
+     
+     >[!TIP]
+     > A la entidad de servicio se le puede otorgar el rol **Publicador de métricas de supervisión**.
+
+1. Una vez implementados los módulos, las métricas aparecerán en Azure Monitor en un espacio de nombres único. Los nombres de métricas coincidirán con los emitidos por Prometheus. 
+
+   En este caso, en Azure Portal, vaya al centro de IoT y seleccione **Métricas** en el panel izquierdo. Allí debería ver las métricas.
+
 ## <a name="logging"></a>Registro
 
-Al igual que sucede con otros módulos de IoT Edge, también se pueden [examinar los registros de contenedor](../../iot-edge/troubleshoot.md#check-container-logs-for-issues) en el dispositivo Edge. La información que se escribe en estos registros se puede controlar por medio de las [siguientes propiedades de módulo gemelo](module-twin-configuration-schema.md):
+Al igual que sucede con otros módulos de IoT Edge, también se pueden [examinar los registros de contenedor](../../iot-edge/troubleshoot.md#check-container-logs-for-issues) en el dispositivo perimetral. Puede configurar la información que se escribe en los registros mediante las propiedades del [siguiente módulo gemelo](module-twin-configuration-schema.md):
 
-* logLevel
+* `logLevel`
 
-   * Los valores permitidos son Verbose, Information, Warning, Error y None.
-   * El valor predeterminado es Information: los registros contendrán mensajes de error, de advertencia y de información.
-   * Si el valor se establece en Warning, los registros contendrán mensajes de error y de advertencia.
-   * Si el valor se establece en Error, los registros solo contendrán mensajes de error.
-   * Si el valor se establece en None, no se generará ningún registro (no se recomienda).
-   * La opción Verbose solo debe usarse en caso de que sea necesario compartir registros con Soporte técnico de Azure para diagnosticar un problema.
-* logCategories
+   * Los valores permitidos son `Verbose`, `Information`, `Warning`, `Error` y `None`.
+   * El valor predeterminado es `Information`. Los registros contendrán mensajes de error, de advertencia y de información.
+   * Si el valor se establece en `Warning`, los registros contendrán mensajes de error y de advertencia.
+   * Si el valor se establece en `Error`, los registros solo contendrán mensajes de error.
+   * Si el valor se establece en `None`, no se generará ningún registro. (No se recomienda esta configuración).
+   * Use `Verbose` solo si necesita compartir registros con el soporte técnico de Azure para diagnosticar un problema.
 
-   * Lista separada por comas de uno o varios de los siguientes elementos: Application, Events, MediaPipeline.
-   * Valor predeterminado: Application, Events.
-   * Application: se trata de información de alto nivel del módulo, como mensajes de inicio del módulo, errores de entorno y llamadas a métodos directos.
-   * Events: se trata de todos los eventos descritos anteriormente en este artículo.
-   * MediaPipeline: se trata de una serie de registros de bajo nivel que pueden arrojar más información al solucionar problemas, como dificultades para establecer una conexión con una cámara compatible con RTSP.
+* `logCategories`
+
+   * Lista separada por comas de uno o varios de estos valores: `Application`, `Events`, `MediaPipeline`.
+   * El valor predeterminado es `Application, Events`.
+   * `Application`: información de alto nivel del módulo, como mensajes de inicio del módulo, errores del entorno y llamadas a métodos directos.
+   * `Events`: todos los eventos descritos anteriormente en este artículo.
+   * `MediaPipeline`: registros de bajo nivel que pueden ofrecer información detallada cuando está solucionando problemas, como dificultades para establecer una conexión con una cámara compatible con RTSP.
    
 ### <a name="generating-debug-logs"></a>Generación de registros de depuración
 
-Algunas veces, puede que tenga que generar registros más detallados que los descritos arriba para ayudar a Soporte técnico de Azure a resolver un problema. Para ello, es necesario realizar dos pasos.
+En algunos casos, para ayudar al soporte técnico de Azure a resolver un problema, puede que tenga que generar registros más detallados que los descritos anteriormente. Para generar estos registros:
 
-En primer lugar, [vincular el almacenamiento del módulo al almacenamiento del dispositivo](../../iot-edge/how-to-access-host-storage-from-module.md#link-module-storage-to-device-storage) a través de createOptions. Si examina una [plantilla de manifiesto de implementación](https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp/blob/master/src/edge/deployment.template.json) de los inicios rápidos, verá lo siguiente:
+1. [Vincule el almacenamiento del módulo con el almacenamiento del dispositivo](../../iot-edge/how-to-access-host-storage-from-module.md#link-module-storage-to-device-storage) mediante `createOptions`. Si examina una [plantilla de manifiesto de implementación](https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp/blob/master/src/edge/deployment.template.json) de los inicios rápidos, verá este código:
 
-```
-"createOptions": {
-   …
-   "Binds": [
-     "/var/local/mediaservices/:/var/lib/azuremediaservices/"
-   ]
- }
-```
+   ```
+   "createOptions": {
+     …
+     "Binds": [
+       "/var/local/mediaservices/:/var/lib/azuremediaservices/"
+     ]
+    }
+   ```
 
-El código anterior permite al módulo Edge escribir registros en la ruta de acceso de almacenamiento (del dispositivo) "/var/local/mediaservices/". Si agrega la siguiente propiedad deseada al módulo:
+   Este código permite que el módulo de Edge escriba registros en la ruta de acceso de almacenamiento del dispositivo `/var/local/mediaservices/`. 
 
-`"debugLogsDirectory": "/var/lib/azuremediaservices/debuglogs/",`
+ 1. Agregue la siguiente propiedad `desired` al módulo:
 
-El módulo escribirá registros de depuración en formato binario en la ruta de acceso de almacenamiento (del dispositivo) /var/local/mediaservices/debuglogs/, que puede compartir con Soporte técnico de Azure.
+    `"debugLogsDirectory": "/var/lib/azuremediaservices/debuglogs/",`
+
+El módulo escribirá ahora los registros de depuración en un formato binario en la ruta de acceso de almacenamiento del dispositivo `/var/local/mediaservices/debuglogs/`. Puede compartir estos registros con el soporte técnico de Azure.
 
 ## <a name="faq"></a>Preguntas más frecuentes
 
-[Preguntas más frecuentes](faq.md#monitoring-and-metrics)
+Si tiene alguna pregunta, consulte las [preguntas frecuentes sobre supervisión y métricas](faq.md#monitoring-and-metrics).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -13,12 +13,12 @@ ms.date: 11/13/2020
 ms.author: kkrishna
 ms.reviewer: marsma, kkrishna, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 96c52c46a75d6d5810dfddf91439c275d14e85f1
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.openlocfilehash: bae8f0955ef45e21d38797789bdea4f62bf5ea28
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616144"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97614938"
 ---
 # <a name="how-to-add-app-roles-to-your-application-and-receive-them-in-the-token"></a>Procedimiento: Incorporación de roles de aplicación a una aplicación y su recepción en el token
 
@@ -30,7 +30,10 @@ Otro enfoque consiste en usar grupos de Azure AD y notificaciones de grupo, com
 
 ## <a name="declare-roles-for-an-application"></a>Declaración de roles para una aplicación
 
-Los roles de aplicación se definen en [Azure Portal](https://portal.azure.com). Cuando un usuario inicia sesión en la aplicación, Azure AD emite una notificación `roles` por cada rol que se ha concedido al usuario de manera individual y por su pertenencia a grupos.
+Los roles de aplicación se definen en [Azure Portal](https://portal.azure.com). Los roles de aplicación se definen normalmente en un registro de aplicación que representa un servicio, una aplicación o una API. Cuando un usuario inicia sesión en la aplicación, Azure AD emite una notificación `roles` por cada rol que se ha concedido al usuario o entidad de servicio de manera individual y por su pertenencia a grupos. Se puede usar para implementar una autorización basada en notificaciones. Los roles de aplicación se pueden asignar [a un usuario o a un grupo de usuarios](../manage-apps/add-application-portal-assign-users.md#assign-users-to-an-app). Los roles de aplicación también se pueden asignar a la entidad de servicio de otra aplicación o [a la entidad de servicio de una identidad administrada](../managed-identities-azure-resources/how-to-assign-app-role-managed-identity-powershell.md).
+
+> [!IMPORTANT]
+> Actualmente, si agrega una entidad de servicio a un grupo y, a continuación, asigna un rol de aplicación a ese grupo, Azure AD no agrega la notificación `roles` a los tokens que emite.
 
 Hay dos maneras de declarar los roles de aplicación mediante Azure Portal:
 

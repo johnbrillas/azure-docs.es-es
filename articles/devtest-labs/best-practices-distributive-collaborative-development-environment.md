@@ -3,12 +3,12 @@ title: Desarrollo distribuido y colaborativo de recursos de Azure DevTest Labs
 description: En este artículo se indican los procedimientos recomendados para establecer un entorno de desarrollo distribuido y colaborativo para desarrollar recursos de DevTest Labs.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: c18bbbfd3ad727811cc28c424381e5caf32b1cfc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1ef6d7aa7d3cfd4fcc64eaa45259684dfcb9ccee
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85483812"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97592371"
 ---
 # <a name="best-practices-for-distributed-and-collaborative-development-of-azure-devtest-labs-resources"></a>Procedimientos recomendados para el desarrollo distribuido y colaborativo de recursos de Azure DevTest Labs
 El desarrollo distribuido y colaborativo permite que diferentes equipos o personas desarrollen y mantengan un código base. Para que tenga éxito, el proceso de desarrollo depende de la capacidad de crear, compartir e integrar la información. Este principio clave de desarrollo se puede aplicar en Azure DevTest Labs. En un laboratorio, hay varios tipos de recursos que normalmente se distribuyen entre los diferentes laboratorios de una empresa. Los diferentes tipos de recursos se centran en dos áreas:

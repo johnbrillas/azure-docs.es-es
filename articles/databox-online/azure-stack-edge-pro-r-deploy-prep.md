@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 12/16/2020
+ms.date: 01/04/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro R so I can use it to transfer data to Azure.
-ms.openlocfilehash: 7ca9b21838d35b54b4ed84d5aaf3aa797b02d9e0
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: dd0b6833c4c51c218497cea4fec04390200edff4
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97630775"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935363"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro-r"></a>Tutorial: Preparación de la implementación de Azure Stack Edge Pro R
 
@@ -37,7 +37,7 @@ Para implementar Azure Stack Edge Pro R, consulte los siguientes tutoriales en e
 | --- | --- |
 | **Preparación** |Estos pasos se deben completar como preparación para la próxima implementación. |
 | **[Lista de comprobación de la configuración de implementación](#deployment-configuration-checklist)** |Use esta lista de comprobación para recopilar y registrar información antes y durante la implementación. |
-| **[Requisitos previos de implementación](#prerequisites)** |Validan que el entorno está listo para la implementación. |
+| **[Requisitos previos de implementación](#prerequisites)** |Estos requisitos previos garantizan que el entorno esté preparado para la implementación. |
 |  | |
 |**Tutoriales de implementación** |Estos tutoriales son necesarios para implementar el dispositivo Azure Stack Edge Pro R en producción. |
 |**[1. Preparación de Azure Portal para el dispositivo](azure-stack-edge-pro-r-deploy-prep.md)** |Cree y configure el recurso de Azure Stack Edge antes de instalar un dispositivo físico de Azure Stack Box Edge. |
@@ -47,7 +47,7 @@ Para implementar Azure Stack Edge Pro R, consulte los siguientes tutoriales en e
 |**[5. Configuración del dispositivo](azure-stack-edge-pro-r-deploy-set-up-device-update-time.md)** |Asigne un nombre de dispositivo y un dominio DNS, configure el servidor de actualización y la hora del dispositivo. |
 |**[6. Configuración de la seguridad](azure-stack-edge-pro-r-deploy-configure-certificates-vpn-encryption.md)** |Configure los certificados, la VPN y el cifrado en reposo para el dispositivo. Use certificados generados por el dispositivo o aporte sus propios certificados.   |
 |**[7. Activación del dispositivo](azure-stack-edge-pro-r-deploy-activate.md)** |Use la clave de activación del servicio para activar el dispositivo. El dispositivo está listo para configurar recursos compartidos SMB o NFS o conectarse a través de REST. |
-|**[8. Configuración de proceso](azure-stack-edge-gpu-deploy-configure-compute.md)** |Configure el rol de proceso en el dispositivo. Esto también creará un clúster de Kubernetes. |
+|**[8. Configuración de proceso](azure-stack-edge-gpu-deploy-configure-compute.md)** |Configure el rol de proceso en el dispositivo. Se crea también un clúster de Kubernetes. |
 
 Ya puede empezar a configurar Azure Portal.
 
@@ -109,7 +109,7 @@ Siga estos pasos en Azure Portal para crear un recurso de Azure Stack Edge.
     
     |Configuración  |Value  |
     |---------|---------|
-    |Subscription    |Este valor se rellena automáticamente según la selección anterior. La suscripción está vinculada a la cuenta de facturación. |
+    |Subscription    |La suscripción se rellena automáticamente según la selección anterior. La suscripción está vinculada a la cuenta de facturación. |
     |Resource group  |Cree un nuevo grupo o seleccione uno existente.<br>Más información sobre los [grupos de recursos de Azure](../azure-resource-manager/management/overview.md).     |
 
 7. Escriba o seleccione los siguientes **detalles de la instancia**.
@@ -150,7 +150,7 @@ Cuando el recurso se haya creado e implementado correctamente, recibirá una not
 
 Tras realizar el pedido, Microsoft lo revisa y se pone en contacto con usted (por correo electrónico) para indicarle los detalles del envío.
 
-<!--![Notification for review of the Azure Stack Edge Pro order](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-2.png)-->
+<!--![Notification for review of the Azure Stack Edge Pro order](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-2.png) - If this is restored, it must go above "After the resource is successfully created." The azure-stack-edge-resource-1.png would seem superfluous in that case.--> 
 
 Si surgen problemas durante el proceso de pedido, consulte [Solución de problemas de pedidos](azure-stack-edge-troubleshoot-ordering.md).
 
@@ -158,20 +158,17 @@ Si surgen problemas durante el proceso de pedido, consulte [Solución de problem
 
 Cuando el recurso de Azure Stack Edge esté en funcionamiento, tendrá que obtener la clave de activación. Esta clave se usa para activar y conectar el dispositivo de Azure Stack Edge Pro con el recurso. Puede obtener esta clave ahora mientras está en Azure Portal.
 
-1. Seleccione el recurso que ha creado. Seleccione **Información general** y, luego, **Instalación del dispositivo**.
+1. Seleccione el recurso que ha creado y, a continuación, seleccione **Información general**.
 
-    ![Selección de instalación del dispositivo](media/azure-stack-edge-pro-r-deploy-prep/azure-stack-edge-resource-2.png)
+2. En el panel derecho, escriba un nombre para la instancia de Azure Key Vault o acepte el nombre predeterminado. El nombre puede tener entre 3 y 24 caracteres.
 
-2. En el icono **Activar**, proporcione un nombre para Azure Key Vault o acepte el nombre predeterminado. El nombre puede tener entre 3 y 24 caracteres. 
+   Se crea un almacén de claves para cada recurso de Azure Stack Edge que se activa con el dispositivo. El almacén de claves permite almacenar los secretos y acceder a ellos; por ejemplo, la clave de integridad del canal (CIK) del servicio se almacena en el almacén de claves.
 
-    Se crea un almacén de claves para cada recurso de Azure Stack Edge que se activa con el dispositivo. El almacén de claves permite almacenar los secretos y acceder a ellos; por ejemplo, la clave de integridad del canal (CIK) del servicio se almacena en el almacén de claves. 
+   Una vez que haya especificado un nombre de almacén de claves, seleccione **Generar clave de activación** para crear una clave de activación.
 
-    Una vez que haya especificado un nombre de almacén de claves, seleccione **Generar clave** para crear una clave de activación. 
+   ![Obtención de la clave de activación](media/azure-stack-edge-pro-r-deploy-prep/azure-stack-edge-resource-3.png)
 
-    ![Obtención de la clave de activación](media/azure-stack-edge-pro-r-deploy-prep/azure-stack-edge-resource-3.png)
-
-    Espere unos minutos a que se creen el almacén de claves y la clave de activación. Seleccione el icono de copia para copiar la clave y guárdela para su uso posterior.
-
+   Espere unos minutos a que se creen el almacén de claves y la clave de activación. Seleccione el icono de copia para copiar la clave y guárdela para su uso posterior.<!--Verify that the new screen has a copy icon.-->
 
 > [!IMPORTANT]
 > - La clave de activación expira tres días después de generarla.

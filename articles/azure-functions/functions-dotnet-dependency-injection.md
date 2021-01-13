@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.date: 08/15/2020
 ms.author: glenga
 ms.reviewer: jehollan
-ms.openlocfilehash: ee2e7dc577e000878884655c0ed5f4bcb1aabab5
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 70ec9248db002823e969fa5f4fba8bf1074a9af7
+ms.sourcegitcommit: 0830e02635d2f240aae2667b947487db01f5fdef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167702"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97706939"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Uso de la inserción de dependencias en Azure Functions con .NET
 
@@ -29,6 +29,8 @@ Para poder usar la inserción de dependencias, debe instalar los siguientes paqu
 - [Microsoft.Azure.Functions.Extensions](https://www.nuget.org/packages/Microsoft.Azure.Functions.Extensions/)
 
 - Versión 1.0.28 o posterior del paquete [Microsoft.NET.Sdk.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/)
+
+- [Microsoft.Extensions.DependencyInjection](https://www.nuget.org/packages/Microsoft.Extensions.DependencyInjection/) (actualmente, solo se admiten la versión 3.x y anteriores)
 
 ## <a name="register-services"></a>Registro de los servicios
 
@@ -66,9 +68,9 @@ En este ejemplo se usa el paquete [Microsoft.Extensions.Http](https://www.nuget.
 
 Una serie de pasos de registro se ejecuta antes y después de que el entorno de ejecución procese la clase de inicio. Por lo tanto, tenga en cuenta los elementos siguientes:
 
-- *La clase de inicio está pensada únicamente para la instalación y el registro* . Evite el uso de servicios registrados en el inicio durante el proceso de inicio. Por ejemplo, no intente registrar un mensaje en un registrador que se está registrando durante el inicio. Este punto del proceso de registro es demasiado pronto para que los servicios estén disponibles para su uso. Una vez que se ejecuta el método `Configure`, el entorno de ejecución de Functions continúa registrando las dependencias adicionales, lo que puede afectar el funcionamiento de los servicios.
+- *La clase de inicio está pensada únicamente para la instalación y el registro*. Evite el uso de servicios registrados en el inicio durante el proceso de inicio. Por ejemplo, no intente registrar un mensaje en un registrador que se está registrando durante el inicio. Este punto del proceso de registro es demasiado pronto para que los servicios estén disponibles para su uso. Una vez que se ejecuta el método `Configure`, el entorno de ejecución de Functions continúa registrando las dependencias adicionales, lo que puede afectar el funcionamiento de los servicios.
 
-- *El contenedor de inserción de dependencias solo contiene tipos registrados explícitamente* . Los únicos servicios disponibles como tipos insertables son lo que se configuran en el método `Configure`. Como resultado, los tipos específicos de Functions como `BindingContext` y `ExecutionContext` no están disponibles durante la instalación ni como tipos insertables.
+- *El contenedor de inserción de dependencias solo contiene tipos registrados explícitamente*. Los únicos servicios disponibles como tipos insertables son lo que se configuran en el método `Configure`. Como resultado, los tipos específicos de Functions como `BindingContext` y `ExecutionContext` no están disponibles durante la instalación ni como tipos insertables.
 
 ## <a name="use-injected-dependencies"></a>Uso de dependencias insertadas
 
@@ -118,9 +120,9 @@ En este ejemplo se usa el paquete [Microsoft.Extensions.Http](https://www.nuget.
 
 Las aplicaciones de Azure Functions proporcionan la misma vigencia de servicio que la [inserción de dependencias de ASP.NET](/aspnet/core/fundamentals/dependency-injection#service-lifetimes). En el caso de una aplicación de Functions, las distintas vigencias del servicio se comportan de la manera siguiente:
 
-- **Transitorio** : los servicios transitorios se crean en cada solicitud del servicio.
-- **De ámbito** : una vigencia de servicio de ámbito coincide con una vigencia de ejecución de la función. Los servicios de ámbito se crean una vez por cada ejecución. Las solicitudes posteriores para ese servicio durante la ejecución vuelven a usar la instancia de servicio existente.
-- **Singleton** : la vigencia singleton del servicio coincide con la vigencia del host y se reutiliza en ejecuciones de la función en esa instancia. Los servicios de vigencia singleton se recomiendan para conexiones y clientes, por ejemplo, para instancias `DocumentClient` o `HttpClient`.
+- **Transitorio**: los servicios transitorios se crean en cada resolución del servicio.
+- **De ámbito**: una vigencia de servicio de ámbito coincide con una vigencia de ejecución de la función. Los servicios de ámbito se crean una vez por ejecución de la función. Las solicitudes posteriores para ese servicio durante la ejecución vuelven a usar la instancia de servicio existente.
+- **Singleton**: la vigencia singleton del servicio coincide con la vigencia del host y se reutiliza en ejecuciones de la función en esa instancia. Los servicios de vigencia singleton se recomiendan para conexiones y clientes, por ejemplo, para instancias `DocumentClient` o `HttpClient`.
 
 Consulte o descargue un [ejemplo de vigencia de servicio diferente](https://github.com/Azure/azure-functions-dotnet-extensions/tree/main/src/samples/DependencyInjection/Scopes) en GitHub.
 
@@ -182,11 +184,13 @@ En el ejemplo siguiente, el archivo `host.json` se agrega al filtro de seguridad
 }
 ```
 
+Para más información sobre los niveles de registro, consulte [Configuración de niveles de registro](configure-monitoring.md#configure-log-levels).
+
 ## <a name="function-app-provided-services"></a>Servicios proporcionados por la aplicación de funciones
 
 El host de la función registra muchos servicios. Los siguientes servicios son seguros para tomar como dependencia en la aplicación:
 
-|Tipo de servicio|Vigencia|Descripción|
+|Tipo de servicio|Período de duración|Descripción|
 |--|--|--|
 |`Microsoft.Extensions.Configuration.IConfiguration`|Singleton|Configuración del entorno en tiempo de ejecución|
 |`Microsoft.Azure.WebJobs.Host.Executors.IHostIdProvider`|Singleton|Responsable de proporcionar el id. de la instancia de host|

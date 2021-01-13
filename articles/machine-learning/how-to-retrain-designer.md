@@ -1,7 +1,7 @@
 ---
-title: Volver a entrenar modelos mediante el diseñador de Azure Machine Learning
+title: Uso de parámetros de canalización para volver a entrenar modelos en el diseñador
 titleSuffix: Azure Machine Learning
-description: Aprenda a volver a entrenar modelos de Machine Learning con canalizaciones publicadas en el diseñador de Azure Machine Learning.
+description: Vuelva a entrenar modelos con canalizaciones publicadas y parámetros de canalización en el diseñador de Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,17 +10,17 @@ author: likebupt
 ms.date: 04/06/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: d754674fe3aa65fa9fd8540b05083979ce96aff8
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 6efb0f095f8a157f723a3b7c0c2b229546ebb36b
+ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96437123"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97708473"
 ---
-# <a name="retrain-models-with-azure-machine-learning-designer"></a>Volver a entrenar modelos con el diseñador de Azure Machine Learning
+# <a name="use-pipeline-parameters-to-retrain-models-in-the-designer"></a>Uso de parámetros de canalización para volver a entrenar modelos en el diseñador
 
 
-Siga los pasos de este artículo para aprender a usar el diseñador de Azure Machine Learning para volver a entrenar un modelo de aprendizaje automático. Usará canalizaciones publicadas para automatizar el flujo de trabajo y establecer los parámetros para entrenar el modelo con nuevos datos. 
+Siga los pasos de este artículo para aprender a usar el diseñador de Azure Machine Learning para volver a entrenar un modelo de aprendizaje automático mediante parámetros de canalización. Usará canalizaciones publicadas para automatizar el flujo de trabajo y establecer los parámetros para entrenar el modelo con nuevos datos. Los parámetros de canalización permiten volver a usar las canalizaciones existentes para distintos trabajos.  
 
 En este artículo aprenderá a:
 

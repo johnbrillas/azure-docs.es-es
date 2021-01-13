@@ -2,14 +2,14 @@
 author: alkohli
 ms.service: databox
 ms.topic: include
-ms.date: 08/31/2020
+ms.date: 12/21/2020
 ms.author: alkohli
-ms.openlocfilehash: 3a17e73c66c2296cc36b24e3b0a8abfcab00e46a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2443765ecc9116193cefbc729ced25fa5657e59
+ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89419420"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97763442"
 ---
 Para poder implementar VM en el dispositivo Azure Stack Edge, debe configurar el cliente para que se conecte al dispositivo mediante Azure Resource Manager con Azure PowerShell. Para consultar los pasos detallados, vaya a [Conectar con Azure Resource Manager desde el dispositivo Azure Stack Edge](../articles/databox-online/azure-stack-edge-j-series-connect-resource-manager.md).
 
@@ -34,13 +34,15 @@ Asegúrese de que se pueden usar los siguientes pasos para acceder al dispositiv
 
     Habilite el proceso en la interfaz de red. Azure Stack Edge creará y administrará un conmutador virtual correspondiente a esa interfaz de red. No especifique direcciones IP específicas para Kubernetes en este momento. La habilitación del proceso puede tardar varios minutos.
 
-    <!--If you decide to use another network interface for compute, make sure that you:
-    
-    - Delete all the VMs that you have deployed using Azure Resource Manager.
-    
-    - Delete all virtual network interfaces and the virtual network associated with this network interface. 
-    
-    - You can now enable another network interface for compute.-->
+    > [!NOTE]
+    > Si va a crear máquinas virtuales de GPU, seleccione una interfaz de red conectada a Internet, ya que ello le permite instalar la extensión de GPU en el dispositivo.
 
-<!--1. You may also need to configure TLS 1.2 on your client machine if running older versions of AzCopy.--> 
 
+1. Habilitación del rol de máquina virtual desde Azure Portal. En este paso se crea una suscripción única para el dispositivo que se usa para crear máquinas virtuales a través de las API locales del dispositivo. 
+
+    1. Para habilitar el rol de máquina virtual, en Azure Portal, vaya al recurso de Azure Stack Edge correspondiente a su dispositivo de Azure Stack Edge. Vaya a **Proceso perimetral > Máquinas virtuales**.
+
+        ![Agregar imagen de VM 1](../articles/databox-online/media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-1.png)
+
+    1. Seleccione **Máquinas virtuales** para ir a la página de **información general**. **Habilite** la administración en la nube de máquinas virtuales.
+        ![Agregar imagen de VM 2](../articles/databox-online/media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-2.png)

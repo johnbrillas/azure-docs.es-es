@@ -10,18 +10,18 @@ ms.author: justinha
 author: justinha
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32228e90e3cfc064cd5be9cd0655f321ab3e2809
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: f2e8bf2ccbf7a53563013c7ba653a6f6e8905337
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741157"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881317"
 ---
 # <a name="tutorial-secure-user-sign-in-events-with-azure-ad-multi-factor-authentication"></a>Tutorial: Protección de los eventos de inicio de sesión de usuario mediante Azure AD Multi-Factor Authentication
 
 La autenticación multifactor (MFA) es un proceso por el que, durante un evento de inicio de sesión, se solicitan a un usuario otras formas de identificación. En esta solicitud se puede pedir la introducción de un código en el teléfono móvil o el escaneado de la huella digital. Al exigir una segunda forma de autenticación, aumenta la seguridad, ya que este factor adicional no es algo que resulte fácil de obtener o duplicar para un atacante.
 
-Azure AD Multi-Factor Authentication y las directivas de acceso condicional proporcionan la flexibilidad necesaria a fin de habilitar la autenticación multifactor para los usuarios durante eventos de inicio de sesión específicos.
+Azure AD Multi-Factor Authentication y las directivas de acceso condicional proporcionan la flexibilidad necesaria a fin de habilitar la autenticación multifactor para los usuarios durante eventos de inicio de sesión específicos. Consulte este vídeo sobre [Configuración y aplicación de la autenticación multifactor en el inquilino](https://www.youtube.com/watch?v=qNndxl7gqVM) (**recomendado**).
 
 > [!IMPORTANT]
 > Este tutorial muestra al administrador cómo habilitar Azure AD Multi-Factor Authentication.

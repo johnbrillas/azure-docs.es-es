@@ -1,7 +1,7 @@
 ---
-title: Solución de problemas de implementación remota de servicios web
+title: Solución de problemas de una implementación de modelo remota
 titleSuffix: Azure Machine Learning
-description: Aprenda a resolver los errores comunes de implementación de Docker con Azure Kubernetes Service y Azure Container Instances.
+description: Aprenda a resolver algunos errores comunes de implementación de Docker con Azure Kubernetes Service y Azure Container Instances.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,16 +11,16 @@ ms.reviewer: jmartens
 ms.date: 11/25/2020
 ms.topic: troubleshooting
 ms.custom: contperf-fy20q4, devx-track-python, deploy, contperf-fy21q2
-ms.openlocfilehash: 92cd70e864ae0490ce3f9e7435d9518241f93c8e
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 4224e301d6410fc97da1f98cd0dd9577c6341cd3
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97031511"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740630"
 ---
-# <a name="troubleshoot-model-deployment"></a>Solución de problemas de implementación de modelos
+# <a name="troubleshooting-remote-model-deployment"></a>Solución de problemas de una implementación de modelo remota 
 
-Aprenda a abordar y solucionar los errores comunes de implementación remota de Docker con Azure Container Instances (ACI) y Azure Kubernetes Service (AKS) mediante Azure Machine Learning.
+Aprenda a solucionar errores comunes, o a proporcionar soluciones alternativas, que se producen al implementar un modelo en Azure Container Instances y Azure Kubernetes Service mediante Azure Machine Learning.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -177,6 +177,16 @@ Para obtener más información sobre cómo configurar `autoscale_target_utilizat
 Un código de estado 504 indica que la solicitud ha agotado el tiempo de espera. El tiempo de espera predeterminado es 1 minuto.
 
 Puede aumentar el tiempo de espera o intentar acelerar el servicio modificando el archivo score.py para quitar llamadas innecesarias. Si estas acciones no solucionan el problema, use la información de este artículo para depurar el archivo score.py. El código puede estar en un estado sin respuesta o en un bucle infinito.
+
+## <a name="other-error-messages"></a>Otros mensajes de error
+
+Realice estas acciones para los siguientes errores:
+
+|Error  | Solución  |
+|---------|---------|
+|Error de creación de imágenes al implementar el servicio web     |  Agregar "pynacl==1.2.1" como una dependencia pip al archivo de Conda para la configuración de la imagen.       |
+|`['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`     |   Cambie la SKU de las máquinas virtuales usadas en la implementación por otra que tenga más memoria. |
+|Error de FPGA     |  No podrá implementar modelos en FPGA hasta que haya solicitado y se haya aprobado para la cuota FPGA. Para solicitar acceso, rellene el formulario de solicitud de cuota: https://aka.ms/aml-real-time-ai       |
 
 ## <a name="advanced-debugging"></a>Depuración avanzada
 

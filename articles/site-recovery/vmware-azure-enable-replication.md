@@ -3,15 +3,15 @@ title: Habilitación de máquinas virtuales de VMware para la recuperación ante
 description: En este artículo, se describe cómo habilitar la replicación de máquinas virtuales de VMware para la recuperación ante desastres mediante el servicio Azure Site Recovery.
 author: Rajeswari-Mamilla
 ms.service: site-recovery
-ms.date: 04/01/2020
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.author: ramamill
-ms.openlocfilehash: 74870d10348421bf726b9bdc58504a74cf4105a9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7e4f18b5d4f074d6596b375cbc11f40c2ab69d68
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004218"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97616616"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Habilitación de máquinas virtuales de VMware en Azure
 
@@ -94,6 +94,41 @@ Para habilitar la replicación, siga estos pasos:
    :::image type="content" source="./media/vmware-azure-enable-replication/enable-replication7.png" alt-text="Ventana Habilitar la replicación":::
 
 1. Seleccione **Habilitar replicación**. Puede hacer un seguimiento del progreso del trabajo **Habilitar protección** en **Configuración** > **Trabajos** > **Trabajos de Site Recovery**. La máquina virtual estará preparada para la conmutación por error después de que finalice el trabajo de **Finalizar protección**.
+
+## <a name="monitor-initial-replication"></a>Supervisión de la replicación inicial
+
+Una vez que se han completado en el elemento protegido todos los pasos indicados en el apartado "Habilitación de la replicación", Azure Site Recovery inicia la replicación (que es sinónimo de sincronización) de los datos de la máquina de origen en la región de destino. En este periodo, se crean replicas de los discos de origen. Los cambios diferenciales no se copian en la región de destino hasta que haya finalizado de la copia de los discos originales. El tiempo necesario para copiar los discos originales depende de varios parámetros, como:
+
+- El tamaño de los discos de la máquina de origen.
+- El ancho de banda disponible para transferir los datos a Azure (se puede sacar provecho de Deployment Planner para identificar el ancho de banda óptimo necesario).
+- Los recursos del servidor de procesos, como la memoria, el espacio libre en disco, la CPU disponible para almacenar en caché y procesar los datos recibidos de elementos protegidos (asegúrese de que el servidor de procesos está en [buen estado](vmware-physical-azure-monitor-process-server.md#monitor-proactively)).
+
+Para realizar un seguimiento del progreso de la replicación inicial, vaya al almacén de Recovery Services en Azure Portal > elementos replicados-> supervisar el valor de la columna "Estado" del elemento replicado. El estado muestra el porcentaje de finalización de la replicación inicial. Al mantener el puntero sobre la columna de estado, estará disponible el "total de datos transferidos". Al hacer clic en el estado, se abre una página contextual y se muestran los siguientes parámetros:
+
+- Last refreshed at (Última actualización): indica la última hora a la que el servicio ha actualizado la información de replicación de toda la máquina.
+- Completed percentage (Porcentaje de finalización): indica el porcentaje de la replicación inicial completado en la máquina virtual.
+- Total data transferred (Total de datos transferidos): cantidad de datos transferidos desde la máquina virtual a Azure
+
+    :::image type="content" source="media/vmware-azure-enable-replication/initial-replication-state.png" alt-text="Estado de la replicación" lightbox="media/vmware-azure-enable-replication/initial-replication-state.png":::
+
+- Progreso de la sincronización (para realizar un seguimiento de los detalles a nivel de disco)
+    - Estado de la replicación
+      - Si la replicación aún no se ha iniciado, el estado se actualiza, pasa a ser "In queue" (En cola). Durante la replicación inicial, solo se replican tres discos a la vez. Este mecanismo se sigue para evitar la limitación en el servidor de procesos.
+      - Una vez iniciada la replicación, el estado se actualiza, pasa a ser "In progress" (En curso).
+      - Después de la finalización de la replicación inicial, el estado se marca como "Complete" (Completo).        
+   - Site Recovery lee el disco original, transfiere los datos a Azure y captura el progreso en el nivel de disco. Tenga en cuenta que Site Recovery omite la replicación del tamaño no ocupado del disco y lo agrega a los datos completados. Por consiguiente, es posible que la suma de los datos transferidos de todos los discos no se agregue hasta el "total de datos transferidos" en el nivel de máquina virtual.
+   - Al hacer clic en el globo de información de un disco, se puede saber cuándo se desencadenó la replicación (sinónimo de sincronización) en el disco, los datos transferidos a Azure en los últimos 15 min y la última marca de tiempo que se ha actualizado. Esta marca de tiempo indica la última hora a la que el servicio de Azure recibió información desde la máquina de origen :::image type="content" source="media/vmware-azure-enable-replication/initial-replication-info-balloon.png" alt-text="Datos que muestra el globo de información de la replicación inicial" lightbox="media/vmware-azure-enable-replication/initial-replication-info-balloon.png":::.
+   - Se muestra el estado de cada disco
+      - Si la replicación es más lenta de lo esperado, el disco pasa al estado de advertencia
+      - Si la replicación no progresa, el estado del disco cambia a crítico
+
+Si el estado es de advertencia o crítico, asegúrese de que tanto el estado de replicación de la máquina como el [servidor de procesos](vmware-physical-azure-monitor-process-server.md) sean correctos. 
+
+En cuanto se complete la habilitación del trabajo de replicación, el progreso de la replicación sería del 0 % y el valor del total de datos transferidos sería NA (no disponible). Al hacer clic, el valor de los datos de cada disco identificado sería "NA" (no disponible). Esto indica que la replicación aún no se ha iniciado y Azure Site Recovery aún tiene que recibir las estadísticas más recientes. El progreso se actualiza cada 30 minutos.
+
+> [!NOTE]
+> Asegúrese de actualizar los servidores de configuración, los servidores de procesos de escalabilidad horizontal y los agentes de movilidad a la versión 9.36, o posteriores, para asegurarse de que se captura el progreso preciso y se envía a los servicios de Site Recovery.
+
 
 ## <a name="view-and-manage-vm-properties"></a>Visualización y administración de las propiedades de la máquina virtual
 

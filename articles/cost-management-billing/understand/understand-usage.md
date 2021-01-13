@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 01/04/2021
 ms.author: banders
-ms.openlocfilehash: 559fe43bbd9b8951a97733ae1250046f65f10404
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 07e3cfdce238d5fc4e2737a49dde6fd624de8506
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149355"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882507"
 ---
 # <a name="understand-the-terms-in-your-azure-usage-and-charges-file"></a>Comprenda los términos en el archivo de uso y cargos de Azure
 
@@ -126,10 +126,24 @@ UsageDate | Date
 UsageEnd | Date
 UsageStart | Date
 
-
 ## <a name="ensure-charges-are-correct"></a>Asegurarse de que los cargos son correctos
 
 Para más información sobre la utilización y los cargos detallados, lea la descripción de la factura de [pago por uso](review-individual-bill.md) o [contrato del cliente de Microsoft](review-customer-agreement-bill.md).
+
+## <a name="unexpected-usage-or-charges"></a>Uso o cargos inesperados
+
+Si tiene uso o cargos que no reconoce, hay varias cosas que le pueden ayudar a comprender los motivos:
+
+- Revisar la factura que tiene los cargos por el recurso
+- Revisar los cargos facturados en Análisis de costos
+- Buscar a las personas responsables del recurso y solicitar su participación
+- Analizar los registros de auditoría
+- Análisis de los permisos de usuario en el ámbito principal del recurso
+- Crear una [solicitud de soporte técnico de Azure](https://go.microsoft.com/fwlink/?linkid=2083458) para ayudar a identificar los cargos
+
+Para más información, consulte [Análisis de cargos inesperados](analyze-unexpected-charges.md).
+
+Tenga en cuenta que Azure no registra la mayoría de las acciones del usuario. En vez de eso, Microsoft registra el uso de los recursos para la facturación. Si observa un pico de uso en el pasado y no tenía habilitado el registro, Microsoft no puede identificar la causa. Habilite el registro del servicio del que desea ver el aumento de uso para que el equipo técnico adecuado pueda ayudarle con el problema.
 
 ## <a name="need-help-contact-us"></a>¿Necesita ayuda? Póngase en contacto con nosotros.
 

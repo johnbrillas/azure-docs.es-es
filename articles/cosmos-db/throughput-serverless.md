@@ -5,13 +5,13 @@ author: ThomasWeiss
 ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/25/2020
-ms.openlocfilehash: 1943aae3a2b01490dca687bcdea99d76da238d51
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.date: 12/23/2020
+ms.openlocfilehash: a6f8b79ecc8dcac71dc8f5d1be2bb58a0288a307
+ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187262"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97760341"
 ---
 # <a name="how-to-choose-between-provisioned-throughput-and-serverless"></a>Elección entre el rendimiento aprovisionado y sin servidor
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -25,7 +25,7 @@ Azure Cosmos DB admite dos tipos de modos de capacidad: [rendimiento aprovision
 | Criterios | Rendimiento aprovisionado | Sin servidor |
 | --- | --- | --- |
 | Estado | Disponibilidad general | En versión preliminar |
-| Idónea para | Cargas de trabajo críticas que requieren un rendimiento predecible | Cargas de trabajo pequeñas y medianas no críticas con tráfico ligero e intermitente |
+| Idónea para | Cargas de trabajo críticas que requieren un rendimiento predecible | Cargas de trabajo pequeñas y medianas con tráfico ligero e intermitente que es difícil de predecir |
 | Funcionamiento | Para cada uno de los contenedores, aprovisiona una cantidad de rendimiento expresada en [unidades de solicitud](request-units.md) por segundo. Cada segundo, esta cantidad de unidades de solicitud está disponible para las operaciones de base de datos. El rendimiento aprovisionado se puede actualizar manualmente o ajustar automáticamente con [escalado automático](provision-throughput-autoscale.md). | Las operaciones de base de datos se ejecutan en los contenedores sin tener que aprovisionar ninguna capacidad. |
 | Distribución geográfica | Disponible (regiones de Azure ilimitadas) | No disponible (una cuenta sin servidor solo puede ejecutarse en una única región de Azure) |
 | Almacenamiento máximo por contenedor | Sin límite | 50 GB |

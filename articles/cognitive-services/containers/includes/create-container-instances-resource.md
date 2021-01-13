@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 09957461fd92114d1181a570550ee1a189edd8ea
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 874d44e3900b1edf24c2f6bee95d787c5fc3988d
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96009926"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97704855"
 ---
-## <a name="create-an-azure-container-instance-resource"></a>Crear un recurso de instancia de contenedor de Azure
+## <a name="create-an-azure-container-instance-resource-using-the-azure-portal"></a>Creación de un recurso de instancia de contenedor de Azure con Azure Portal
 
 1. Vaya a la página [Crear](https://ms.portal.azure.com/#create/Microsoft.ContainerInstances) de las instancias de contenedor.
 
@@ -43,9 +43,9 @@ ms.locfileid: "96009926"
 
     | Clave | Value |
     |--|--|
-    |`apikey`|Se copia desde la página **Claves** del recurso. Es una cadena de 32 caracteres alfanuméricos sin espacios ni guiones, `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.|
-    |`billing`|Se copia desde la página **Información general** del recurso.|
-    |`eula`|`accept`|
+    |`ApiKey`|Se copia de la página **Keys y endpoint** (Claves y punto de conexión) del recurso. Es una cadena de 32 caracteres alfanuméricos sin espacios ni guiones, `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.|
+    |`Billing`| La dirección URL del punto de conexión se copia de la página **Keys and endpoint** (Claves y punto de conexión) del recurso.|
+    |`Eula`|`accept`|
 
 5. Haga clic en **Revisar y crear**.
 6. Después de realizar correctamente la validación, haga clic en **Crear** para finalizar el proceso de creación.

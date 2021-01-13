@@ -3,14 +3,14 @@ title: 'Información general sobre las versiones de Durable Functions: Azure Fun
 description: Obtenga información sobre las versiones de Durable Functions.
 author: cgillum
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 12/23/2020
 ms.author: azfuncdf
-ms.openlocfilehash: d6662259494bba5747e01c4574186e9030112247
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4d10bab06428295bbc8c5319bd47787d7b1fb34
+ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88719417"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97763377"
 ---
 # <a name="durable-functions-versions-overview"></a>Información general sobre las versiones de Durable Functions
 
@@ -50,6 +50,8 @@ Instale la versión 2.x más reciente de la extensión de enlace Durable Functio
 
 Durable Functions 2.x está disponible en la versión 2.x del [conjunto de extensiones de Azure Functions](../functions-bindings-register.md#extension-bundles).
 
+La compatibilidad con Python en Durable Functions requiere Durable Functions 2.x.
+
 Para actualizar la versión del conjunto de extensiones en el proyecto, abra host.json y actualice la sección `extensionBundle` para usar la versión 2.x (`[2.*, 3.0.0)`).
 
 ```json
@@ -61,6 +63,9 @@ Para actualizar la versión del conjunto de extensiones en el proyecto, abra hos
     }
 }
 ```
+
+> [!NOTE]
+> Si Visual Studio Code no muestra las plantillas correctas después de cambiar la versión del paquete de extensión, vuelva a cargar la ventana ejecutando el comando *Desarrollador: Recargar ventana* (<kbd>Ctrl + R</kbd> en Windows y Linux, <kbd>Comando + R</kbd> en macOS).
 
 #### <a name="net"></a>.NET
 

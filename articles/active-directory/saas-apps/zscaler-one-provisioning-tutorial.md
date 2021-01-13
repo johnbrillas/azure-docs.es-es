@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: b8b6383c7808fd6c298d7776fc10572631bc6ddc
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f6725045064b74079e00ca5bbe1d560f3b19f3ff
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96006224"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937137"
 ---
 # <a name="tutorial-configure-zscaler-one-for-automatic-user-provisioning"></a>Tutorial: Configuración de Zscaler One para el aprovisionamiento automático de usuarios
 
@@ -77,6 +77,9 @@ Esta sección le guía por los pasos para configurar el servicio de aprovisionam
 
 > [!TIP]
 > También puede habilitar el inicio de sesión único basado en SAML para Zscaler One. Si lo hace, siga las instrucciones del [Tutorial del inicio de sesión único de Zscaler One](zscaler-One-tutorial.md). El inicio de sesión único puede configurarse independientemente del aprovisionamiento automático de usuarios, aunque estas dos características se complementan entre sí.
+
+> [!NOTE]
+> Cuando se aprovisionan o se desaprovisionan usuarios y grupos, se recomienda reiniciar el aprovisionamiento periódicamente para garantizar que las pertenencias a grupos se actualicen correctamente. Al ejecutar un reinicio, el servicio tendrá que evaluar de nuevo todos los grupos y actualizar las pertenencias.  
 
 ### <a name="configure-automatic-user-provisioning-for-zscaler-one-in-azure-ad"></a>Configuración del aprovisionamiento automático de usuarios para Zscaler One en Azure AD
 

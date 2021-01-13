@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 14a65b83195bff48934668ff029f925e13884bad
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 8789015c239aae58ec25f0f644d4c497da477c2b
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743707"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881249"
 ---
 # <a name="optimize-reauthentication-prompts-and-understand-session-lifetime-for-azure-ad-multi-factor-authentication"></a>Optimice los avisos de reautenticación y comprenda la duración de la sesión en Multi-Factor Authentication de Azure AD.
 
@@ -108,7 +108,7 @@ Para configurar o revisar la opción *Remain signed-in* (Permanecer conectado), 
 1. Seleccione **Personalización de marca de empresa** y, a continuación, para cada configuración regional, elija **Mostrar la opción para mantener la sesión iniciada**.
 1. Seleccione **Sí** y, después, *Guardar*.
 
-Para recordar la configuración de Multi-Factor Authentication, siga estos pasos:
+Para recordar la configuración de la autenticación multifactor en los dispositivos de confianza, siga estos pasos:
 
 1. En el portal de Azure AD, busque y seleccione *Azure Active Directory*.
 1. Seleccione **Seguridad** y luego **MFA**.

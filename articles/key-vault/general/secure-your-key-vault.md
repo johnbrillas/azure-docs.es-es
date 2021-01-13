@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: sudbalas
-ms.openlocfilehash: 3f28c50be73b2b87ed8b25429cfa2dee9a663f1b
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: ee1c59c71834ab9d80f1ed66a002e211bdcacbbf
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452174"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97796506"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Protección del acceso a un almacén de claves
 
@@ -186,8 +186,8 @@ En la tabla siguiente se resumen los permisos de acceso para los roles y la apli
 | --- | --- | --- | --- |
 | Equipo de seguridad | [Colaborador de almacén de claves](../../role-based-access-control/built-in-roles.md#key-vault-contributor) | Certificados: todas las operaciones <br> Claves: todas las operaciones <br> Secretos: todas las operaciones | [Administrador de almacén de claves (versión preliminar)](../../role-based-access-control/built-in-roles.md#key-vault-administrator-preview) |
 | Desarrolladores y&nbsp;operadores | Permiso de implementación en Key Vault<br><br> **Nota**: Este permiso permite que las máquinas virtuales implementadas recuperen los secretos de un almacén de claves. | None | None |
-| Auditores | None | Certificados: lista <br> Claves: enumeración<br>Secretos: enumeración<br><br> **Nota**: Este permiso permite a los auditores inspeccionar los atributos (etiquetas, fechas de activación y fechas de expiración) para las claves y los secretos que no se emiten en los registros. | [Lector de almacén de claves (versión preliminar)]https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-reader-preview |
-| Cuenta de Azure Storage | None | Claves: get, list, wrapKey, unwrapKey <br> | [Cifrado de servicio criptográfico de Key Vault](../../role-based-access-control/built-in-roles.md#key-vault-crypto-service-encryption-preview) |
+| Auditores | None | Certificados: lista <br> Claves: enumeración<br>Secretos: enumeración<br><br> **Nota**: Este permiso permite a los auditores inspeccionar los atributos (etiquetas, fechas de activación y fechas de expiración) para las claves y los secretos que no se emiten en los registros. | [Lector de almacén de claves (versión preliminar)](../../role-based-access-control/built-in-roles.md#key-vault-reader-preview) |
+| Cuenta de Azure Storage | None | Claves: get, list, wrapKey, unwrapKey <br> | [Usuario de cifrado de servicio criptográfico de Key Vault](../../role-based-access-control/built-in-roles.md#key-vault-crypto-service-encryption-user-preview) |
 | Application | None | Secretos: get y list <br> Certificados: get y list | [Lector de Key Vault Reader (versión preliminar)](../../role-based-access-control/built-in-roles.md#key-vault-reader-preview) y [usuario secreto de Key Vault (versión preliminar)](../../role-based-access-control/built-in-roles.md#key-vault-secrets-user-preview) |
 
 Los tres roles de equipo necesitan tener acceso a otros recursos junto con los permisos de Key Vault. Para implementar las máquinas virtuales (o la característica Web Apps de Azure App Service), los desarrolladores y operadores necesitan implementar el acceso. Los auditores necesitan acceso de lectura a la cuenta de almacenamiento donde se almacenan los registros de Key Vault.

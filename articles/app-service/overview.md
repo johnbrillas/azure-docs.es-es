@@ -5,12 +5,12 @@ ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.topic: overview
 ms.date: 07/06/2020
 ms.custom: devx-track-dotnet, mvc, seodec18
-ms.openlocfilehash: e9c49d472f6cf0b9f0e5b3e2f7728417034059b1
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: d59dfe5b0fe3268dcda20fbc83aa31bba8a8713b
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97007100"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936216"
 ---
 # <a name="app-service-overview"></a>Información general de App Service
 
@@ -45,6 +45,12 @@ App Service también puede hospedar las aplicaciones Web de forma nativa en Linu
 ### <a name="built-in-languages-and-frameworks"></a>Lenguajes y marcos integrados
 
 App Service en Linux admite varias imágenes integradas específicas del lenguaje. Solo implemente el código. Los lenguajes compatibles incluyen: Node.js, Java (JRE 8 y JRE 11), PHP, Python, .NET Core y Ruby. Ejecute [`az webapp list-runtimes --linux`](/cli/azure/webapp#az-webapp-list-runtimes) para ver los idiomas y las versiones admitidas más recientes. Si el motor de tiempo de ejecución que requiere la aplicación no se admite en las imágenes integradas, puede implementarlo con un contenedor personalizado.
+
+Los entornos de ejecución obsoletos se eliminan periódicamente de las hojas de creación y configuración de Web Apps del portal. Estos entornos de ejecución están ocultos en el portal cuando la organización que los mantiene los pone en desuso o se encuentran vulnerabilidades significativas. Estas opciones se ocultan para guiar a los clientes a los entornos de ejecución más recientes, en los que podrán conseguir mejores resultados. 
+
+Cuando se oculta un entorno de ejecución en el portal, cualquier sitio existente que use esa versión seguirá ejecutándose. Si se elimina un entorno de ejecución completamente de la plataforma App Service, los propietarios de la suscripción de Azure recibirán un aviso por correo electrónico antes de la eliminación.
+
+Si tiene que crear otra aplicación web con una versión del entorno de ejecución obsoleta que ya no aparece en el portal, consulte las guías de configuración de lenguaje para obtener instrucciones sobre cómo obtener la versión del entorno de ejecución de su sitio. Puede usar la CLI de Azure para crear otro sitio con el mismo entorno de ejecución. O bien, puede usar el botón **Exportar plantilla** de la hoja de la aplicación web en el portal para exportar una plantilla de Resource Manager del sitio. Puede volver a usar esta plantilla para implementar un nuevo sitio con el mismo entorno de ejecución y configuración.
 
 ### <a name="limitations"></a>Limitaciones
 

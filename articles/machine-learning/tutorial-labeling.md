@@ -11,12 +11,12 @@ author: sdgilley
 ms.reviewer: ranku
 ms.date: 04/09/2020
 ms.custom: data4ml
-ms.openlocfilehash: 5aec3d6bb2afeadda64ac19563f8334a6aef3b77
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 238801171d19191bcac505f0c95395320f96d75c
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347513"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882473"
 ---
 # <a name="tutorial-create-a-labeling-project-for-multi-class-image-classification"></a>Tutorial: Creación de un proyecto de etiquetado para la clasificación de imágenes con varias clases 
 
@@ -104,7 +104,8 @@ Ahora que tiene acceso a los datos que desea que se etiqueten, cree el proyecto 
 1. Use la siguiente entrada para el formulario **Creación de un conjunto de datos a partir de un almacén de datos**:
 
     1. En el formulario **Información básica**, agregue un nombre, aquí usaremos **images-for-tutorial**.  Si así lo desea, agregue una descripción.  Luego, seleccione **Siguiente**.
-    1. En el formulario **Datastore selection** (Selección de almacén de datos), utilice la lista desplegable para seleccionar la opción **Previously created datastore** (Almacén de datos creado anteriormente), por ejemplo **tutorial_images (Azure Blob Storage)**
+    1. En el formulario **Datastore selection** (Selección de almacén de datos), seleccione **Previously created datastore** (Almacén de datos creado anteriormente), haga clic en el nombre del almacén de datos y seleccione **Select datastore** (Seleccionar el almacén de datos).
+    1. En la página siguiente, compruebe que el almacén de datos seleccionado actualmente es correcto. Si no es así, seleccione **Previously created datastore** (Almacén de datos creado anteriormente) y repita el paso anterior.
     1. A continuación, en el formulario **Datastore selection** (Selección de almacén de datos), seleccione **Examinar** y, a continuación, **MultiClass - DogsCats**.  Seleccione **Guardar** para usar **/MultiClass - DogsCats** como ruta de acceso.
     1. Seleccione **Siguiente** para confirmar los detalles y, a continuación, **Crear** para crear el conjunto de datos.
     1. Seleccione el círculo situado junto al nombre del conjunto de datos en la lista, por ejemplo **images-for-tutorial**.

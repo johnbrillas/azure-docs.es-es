@@ -6,18 +6,18 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: fd33ca4c5d637e31230d8c124fdb9ec7c71d2ba7
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 3213df378bc3b8403ebd11f899d722106de67a65
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97094852"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882031"
 ---
 # <a name="azure-blob-storage-trigger-for-azure-functions"></a>Desencadenador de Azure Blob Storage para Azure Functions
 
 El desencadenador de Blob Storage inicia una función cuando se detecta un blob nuevo o actualizado. El contenido del blob se proporciona a modo de [entrada para la función](./functions-bindings-storage-blob-input.md).
 
-El desencadenador de Azure Blob Storage necesita una cuenta de almacenamiento de uso general. También se admiten las cuentas de almacenamiento v2 con [espacios de nombres jerárquicos](../storage/blobs/data-lake-storage-namespace.md). Para usar una cuenta solo para blobs, o si la aplicación tiene necesidades especializadas, revise las alternativas al uso de este desencadenador.
+El desencadenador de Azure Blob Storage necesita una cuenta de almacenamiento de uso general. También se admiten las cuentas de almacenamiento v2 con [espacios de nombres jerárquicos](../storage/blobs/data-lake-storage-namespace.md). Para usar una cuenta solo para blobs, o si la aplicación tiene necesidades especializadas, revise las alternativas al uso de este desencadenador.
 
 Para obtener información sobre los detalles de instalación y configuración, consulte la [información general](./functions-bindings-storage-blob.md).
 
@@ -114,6 +114,24 @@ public static void Run(CloudBlockBlob myBlob, string name, ILogger log)
 }
 ```
 
+# <a name="java"></a>[Java](#tab/java)
+
+Esta función escribe un registro cuando se agrega o actualiza un blob en el contenedor `myblob`.
+
+```java
+@FunctionName("blobprocessor")
+public void run(
+  @BlobTrigger(name = "file",
+               dataType = "binary",
+               path = "myblob/{name}",
+               connection = "MyStorageAccountAppSetting") byte[] content,
+  @BindingName("name") String filename,
+  final ExecutionContext context
+) {
+  context.getLogger().info("Name: " + filename + " Size: " + content.length + " bytes");
+}
+```
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 En el ejemplo siguiente se muestra un enlace de desencadenador de blob en un archivo *function.json* y el [código de JavaScript](functions-reference-node.md) que usa el enlace. La función escribe un registro cuando se agrega o actualiza un blob en el contenedor `samples-workitems`.
@@ -146,6 +164,34 @@ module.exports = function(context) {
     context.log('Node.js Blob trigger function processed', context.bindings.myBlob);
     context.done();
 };
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+En el ejemplo siguiente se muestra cómo crear una función que se ejecuta cuando se agrega un archivo al contenedor de almacenamiento de blobs `source`.
+
+El archivo de configuración de la función (_function.json_) incluye un enlace con `type` de `blobTrigger` y `direction` está establecido en `in`.
+
+```json
+{
+  "bindings": [
+    {
+      "name": "InputBlob",
+      "type": "blobTrigger",
+      "direction": "in",
+      "path": "source/{name}",
+      "connection": "MyStorageAccountConnectionString"
+    }
+  ]
+}
+```
+
+Este es el código asociado del archivo _run.ps1_.
+
+```powershell
+param([byte[]] $InputBlob, $TriggerMetadata)
+
+Write-Host "PowerShell Blob trigger: Name: $($TriggerMetadata.Name) Size: $($InputBlob.Length) bytes"
 ```
 
 # <a name="python"></a>[Python](#tab/python)
@@ -183,24 +229,6 @@ import azure.functions as func
 
 def main(myblob: func.InputStream):
     logging.info('Python Blob trigger function processed %s', myblob.name)
-```
-
-# <a name="java"></a>[Java](#tab/java)
-
-Esta función escribe un registro cuando se agrega o actualiza un blob en el contenedor `myblob`.
-
-```java
-@FunctionName("blobprocessor")
-public void run(
-  @BlobTrigger(name = "file",
-               dataType = "binary",
-               path = "myblob/{name}",
-               connection = "MyStorageAccountAppSetting") byte[] content,
-  @BindingName("name") String filename,
-  final ExecutionContext context
-) {
-  context.getLogger().info("Name: " + filename + " Size: " + content.length + " bytes");
-}
 ```
 
 ---
@@ -267,17 +295,21 @@ La cuenta de almacenamiento que se debe usar se determina en el orden siguiente:
 
 El script de C# no admite atributos.
 
+# <a name="java"></a>[Java](#tab/java)
+
+El atributo `@BlobTrigger` se usa para facilitar el acceso al blob que desencadenó la función. Vea el [ejemplo de desencadenador](#example) para más información.
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 JavaScript no admite atributos.
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+PowerShell no admite atributos.
+
 # <a name="python"></a>[Python](#tab/python)
 
 Python no admite atributos.
-
-# <a name="java"></a>[Java](#tab/java)
-
-El atributo `@BlobTrigger` se usa para facilitar el acceso al blob que desencadenó la función. Vea el [ejemplo de desencadenador](#example) para más información.
 
 ---
 
@@ -305,17 +337,21 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 
 [!INCLUDE [functions-bindings-blob-storage-trigger](../../includes/functions-bindings-blob-storage-trigger.md)]
 
+# <a name="java"></a>[Java](#tab/java)
+
+El atributo `@BlobTrigger` se usa para facilitar el acceso al blob que desencadenó la función. Vea el [ejemplo de desencadenador](#example) para más información.
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Acceda a los datos de BLOB mediante `context.bindings.<NAME>` donde `<NAME>` coincide con el valor definido en *function.json*.
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Acceda a los datos de blob con un parámetro que coincida con el nombre designado por el parámetro del nombre del enlace en el archivo _function.json_.
+
 # <a name="python"></a>[Python](#tab/python)
 
-Acceda a los datos de blob a través del parámetro con el tipo [InputStream](/python/api/azure-functions/azure.functions.inputstream?view=azure-python). Vea el [ejemplo de desencadenador](#example) para más información.
-
-# <a name="java"></a>[Java](#tab/java)
-
-El atributo `@BlobTrigger` se usa para facilitar el acceso al blob que desencadenó la función. Vea el [ejemplo de desencadenador](#example) para más información.
+Acceda a los datos de blob a través del parámetro con el tipo [InputStream](/python/api/azure-functions/azure.functions.inputstream?view=azure-python&preserve-view=true). Vea el [ejemplo de desencadenador](#example) para más información.
 
 ---
 
@@ -374,6 +410,10 @@ Si el blob se denomina *{20140101}-soundfile.mp3*, el valor de variable `name` e
 
 [!INCLUDE [functions-bindings-blob-storage-trigger](../../includes/functions-bindings-blob-storage-metadata.md)]
 
+# <a name="java"></a>[Java](#tab/java)
+
+En Java no hay metadatos disponibles.
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
@@ -383,13 +423,13 @@ module.exports = function (context, myBlob) {
 };
 ```
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Los metadatos están disponibles mediante el parámetro `$TriggerMetadata`.
+
 # <a name="python"></a>[Python](#tab/python)
 
 En Python no hay metadatos disponibles.
-
-# <a name="java"></a>[Java](#tab/java)
-
-En Java no hay metadatos disponibles.
 
 ---
 
@@ -399,11 +439,11 @@ El entorno en tiempo de ejecución de Azure Functions garantiza que no se llame 
 
 Azure Functions almacena confirmaciones de blobs en un contenedor llamado *azure-webjobs-hosts* en la cuenta de almacenamiento de Azure de la aplicación de función (que se especifica mediante la configuración de la aplicación `AzureWebJobsStorage`). Una recepción de blobs tiene la información siguiente:
 
-* La función desencadenada (" *&lt;nombre de aplicación de función>* .Functions. *&lt;nombre de función>* ", por ejemplo: "MyFunctionApp.Functions.CopyBlob")
+* La función desencadenada (`<FUNCTION_APP_NAME>.Functions.<FUNCTION_NAME>`, por ejemplo,`MyFunctionApp.Functions.CopyBlob`)
 * El nombre del contenedor
-* El tipo de blob ("BlockBlob" o "PageBlob")
+* El tipo de blob (`BlockBlob` o `PageBlob`)
 * El nombre del blob
-* ETag (un identificador de la versión del blob, por ejemplo: "0x8D1DC6E70A277EF")
+* La etiqueta de entidad (un identificador de la versión del blob, por ejemplo, `0x8D1DC6E70A277EF`)
 
 Si desea forzar el reprocesamiento de un blob, puede eliminar manualmente la recepción de ese blob desde el contenedor *azure-webjobs-hosts* . Al volver a procesar podría no producirse inmediatamente, pero se garantiza que se producirá más adelante en un momento dado. Para volver a procesarlo de inmediato, se puede actualizar el blob *scaninfo* en *azure-webjobs-hosts/blobscaninfo*. Cualquier blob con una marca de tiempo de última modificación después de la propiedad `LatestScan` se volverá a examinar.
 
@@ -413,11 +453,11 @@ Si se produce un error en una función de desencadenador de blob, Azure Function
 
 Si se produce un error en los 5 intentos, Azure Functions agregará un mensaje a una cola de Storage llamada *webjobs-blobtrigger-poison*. Es posible configurar el número máximo de reintentos. Se usa la misma configuración de MaxDequeueCount para controlar los blobs dudosos y los mensajes de cola dudosos. El mensaje de cola para los blobs dudosos es un objeto JSON que contiene las siguientes propiedades:
 
-* FunctionId (con el formato *&lt;nombre de aplicación de función>* .Functions. *&lt;nombre de función>* )
-* BlobType ("BlockBlob" o "PageBlob")
+* FunctionId (con formato `<FUNCTION_APP_NAME>.Functions.<FUNCTION_NAME>`)
+* BlobType (`BlockBlob` o `PageBlob`)
 * ContainerName
 * BlobName
-* ETag (un identificador de la versión del blob, por ejemplo: "0x8D1DC6E70A277EF")
+* ETag (un identificador de la versión del blob, por ejemplo, `0x8D1DC6E70A277EF`)
 
 ## <a name="concurrency-and-memory-usage"></a>Simultaneidad y uso de memoria
 

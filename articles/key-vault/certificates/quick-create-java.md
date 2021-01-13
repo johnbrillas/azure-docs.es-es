@@ -1,6 +1,6 @@
 ---
-title: 'Inicio rápido: Biblioteca cliente de certificados de Azure Key Vault para Java'
-description: Proporciona un inicio rápido para la biblioteca cliente de certificados de Azure Key Vault para Java
+title: 'Inicio rápido para la biblioteca cliente de certificados de Azure Key Vault: Java'
+description: Obtenga información sobre la biblioteca cliente de certificados de Azure Key Vault para Java con los pasos de esta guía de inicio rápido.
 author: msmbaldwin
 ms.custom: devx-track-java, devx-track-azurecli
 ms.author: mbaldwin
@@ -8,14 +8,14 @@ ms.date: 12/18/2020
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
-ms.openlocfilehash: 1890c2a3d4043d43dd890f06942dbe704e3f7689
-ms.sourcegitcommit: a89a517622a3886b3a44ed42839d41a301c786e0
+ms.openlocfilehash: 99b8c63060cebeffea0f3473e03b5f49a415230b
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97733495"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936046"
 ---
-# <a name="quickstart-azure-key-vault-certificate-client-library-for-java"></a>Inicio rápido: Biblioteca cliente de certificados de Azure Key Vault para Java
+# <a name="quickstart-azure-key-vault-certificate-client-library-for-java-certificates"></a>Inicio rápido: Biblioteca cliente de certificados de Azure Key Vault para Java (certificados)
 Empiece a trabajar con la biblioteca cliente de certificados de Azure Key Vault para Java. Siga estos pasos para instalar el paquete y probar el código de ejemplo para realizar tareas básicas.
 
 Recursos adicionales:
@@ -25,7 +25,7 @@ Recursos adicionales:
 * [Documentación del producto](index.yml)
 * [Muestras](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-certificates/src/samples/java/com/azure/security/keyvault/certificates)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 - Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Kit de desarrollo de Java (JDK)](/java/azure/jdk/), versión 8 o posterior
 - [Apache Maven](https://maven.apache.org)
@@ -126,7 +126,7 @@ set KEY_VAULT_NAME=<your-key-vault-name>
 ````
 Windows PowerShell
 ```powershell
-$Env:KEY_VAULT_NAME=<your-key-vault-name>
+$Env:KEY_VAULT_NAME="<your-key-vault-name>"
 ```
 
 macOS o Linux

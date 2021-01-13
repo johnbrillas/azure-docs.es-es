@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 12/14/2020
 ms.author: jgao
-ms.openlocfilehash: 4a7f21410bb97db0a7974870efb812c9954ac241
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: d12ec5e3fef45429741fff1665f435d68e6c83f6
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97503563"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97734188"
 ---
 # <a name="configure-development-environment-for-deployment-scripts-in-templates"></a>Configuración del entorno de desarrollo para scripts de implementación en plantillas
 
@@ -155,7 +155,10 @@ La siguiente plantilla de ARM crea una instancia de contenedor y un recurso comp
 ```
 El valor predeterminado de la ruta de montaje es **deploymentScript**.  Se trata de la ruta de acceso en la instancia de contenedor donde se monta en el recurso compartido de archivos.
 
-La imagen de contenedor predeterminada especificada en la plantilla es **mcr.microsoft.com/azuredeploymentscripts-powershell:az4.3"** .  Para obtener una lista de las versiones de Azure PowerShell y las versiones de la CLI de Azure admitidas, consulte [Azure PowerShell o CLI de Azure](./deployment-script-template.md#prerequisites).
+La imagen de contenedor predeterminada especificada en la plantilla es **mcr.microsoft.com/azuredeploymentscripts-powershell:az4.3"** .   Consulte una lista de [versiones de Azure PowerShell compatibles](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list). Consulte una lista de [versiones de la CLI de Azure compatibles](https://mcr.microsoft.com/v2/azure-cli/tags/list).
+
+  >[!IMPORTANT]
+  > El script de implementación usa las imágenes de la CLI disponibles de Microsoft Container Registry (MCR). Se tarda aproximadamente un mes en certificar una imagen de la CLI para el script de implementación. No utilice las versiones de la CLI que se publicaron en un plazo de 30 días. Para buscar las fechas de publicación de las imágenes, consulte las [notas de la versión de la CLI de Azure](/cli/azure/release-notes-azure-cli?view=azure-cli-latest&preserve-view=true). Si se usa una versión no compatible, el mensaje de error enumera las versiones admitidas.
 
 La plantilla suspende la instancia de contenedor 1800 segundos. Dispone de 30 minutos antes de que la instancia de contenedor pase al estado terminal y finalice la sesión.
 
@@ -200,7 +203,7 @@ También puede cargar el archivo mediante Azure Portal y la CLI de Azure.
 1. Seleccione **Conectar** y, después, **Conectar**. Si no puede conectarse a la instancia de contenedor, reinicie el grupo de contenedores e inténtelo de nuevo.
 1. En el panel de la consola, ejecute el siguiente comando:
 
-    ```
+    ```console
     cd deploymentScript
     ls
     pwsh ./hello.ps1 "John Dole"
@@ -209,6 +212,14 @@ También puede cargar el archivo mediante Azure Portal y la CLI de Azure.
     La salida es **Hello John Dole**.
 
     ![prueba de instancia de contenedor de script de implementación](./media/deployment-script-template-configure-dev/deployment-script-container-instance-test.png)
+
+1. Si usa la imagen del contenedor AZ CLI, ejecute este código:
+
+   ```console
+   cd /mnt/azscripts/azscriptinput
+   ls
+   ./userscript.sh
+   ```
 
 ## <a name="use-docker"></a>Uso de Docker
 

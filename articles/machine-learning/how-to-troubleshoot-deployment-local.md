@@ -1,7 +1,7 @@
 ---
-title: Solución de problemas de implementación de servicios web en el entorno local
+title: Solución de problemas de una implementación de modelo local
 titleSuffix: Azure Machine Learning
-description: Aprenda a abordar, solucionar y resolver los errores comunes de implementación de Docker con Azure Machine Learning en el entorno local.
+description: Pruebe una implementación de modelo local como primer paso para solucionar los errores de implementación de modelos.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,30 +11,28 @@ ms.reviewer: luquinta
 ms.date: 11/25/2020
 ms.topic: troubleshooting
 ms.custom: devx-track-python, deploy, contperf-fy21q2
-ms.openlocfilehash: 4f70978e7b7c2315aff4c51d8b019933df78e7e8
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: a879a81ae2bcb4e659c69a801f7c299c10ab3d77
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97028808"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740647"
 ---
-# <a name="troubleshoot-model-deployment-locally"></a>Solución de problemas de implementación de modelos en el entorno local
+# <a name="troubleshooting-with-a-local-model-deployment"></a>Solución de problemas con una implementación de modelo local
 
-Aprenda a abordar, solucionar y resolver los errores comunes de implementación del servicio web Docker con Azure Machine Learning en el entorno local.
+Pruebe una implementación de modelo local como primer paso para la solución de problemas de implementación en Azure Container Instances (ACI) o Azure Kubernetes Service (AKS).  El uso de un servicio web local facilita la detección y corrección de errores comunes de implementación del servicio web de Docker para Azure Machine Learning.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Una **suscripción de Azure**. Pruebe la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
 * El [SDK de Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
 * La[CLI de Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 * La [extensión de la CLI para Azure Machine Learning](reference-azure-machine-learning-cli.md).
-* Para depurar localmente, debe tener una instalación de Docker en funcionamiento en el sistema local.
+* Para depurar de forma local, puede implementar el modelo en la [instancia de proceso de Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-local-container-notebook-vm) o tener una instalación de Docker en funcionamiento en el sistema local.
 
     Para comprobar la instalación de Docker, use el comando `docker run hello-world` desde un símbolo del sistema o terminal. Para obtener información sobre la instalación de Docker o la solución de problemas de Docker, consulte la [Documentación de Docker](https://docs.docker.com/).
 
 ## <a name="debug-locally"></a>Depuración local
-
-Si tiene problemas al implementar un modelo en ACI o AKS, impleméntelo como servicio web local. El uso de un servicio web local facilita la solución de problemas.
 
 Puede encontrar un ejemplo de [cuaderno de implementación local](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/deploy-to-local/register-model-deploy-local.ipynb) en el repositorio de [MachineLearningNotebooks](https://github.com/Azure/MachineLearningNotebooks) para explorar un ejemplo ejecutable.
 

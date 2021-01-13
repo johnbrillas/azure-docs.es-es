@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/07/2019
 ms.author: Zhchia
-ms.openlocfilehash: da3ad4f70e0cc41fe95327eb74093c1471c877bd
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 14708ddcc5c0e06ee58f5e9db5945c4e9f1a1d08
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96351578"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937151"
 ---
 # <a name="tutorial-configure-zscaler-private-access-zpa-for-automatic-user-provisioning"></a>Tutorial: configuración de Zscaler Private Access (ZPA) para el aprovisionamiento automático de usuarios
 
@@ -115,6 +115,9 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 > [!TIP]
 > También puede optar por habilitar el inicio de sesión único basado en SAML para Zscaler Private Access (ZPA) siguiendo las instrucciones del [tutorial de inicio de sesión único de Zscaler Private Access (ZPA)](./zscalerprivateaccess-tutorial.md). El inicio de sesión único puede configurarse independientemente del aprovisionamiento automático de usuarios, aunque estas dos características se complementan entre sí.
+
+> [!NOTE]
+> Cuando se aprovisionan o se desaprovisionan usuarios y grupos, se recomienda reiniciar el aprovisionamiento periódicamente para garantizar que las pertenencias a grupos se actualicen correctamente. Al ejecutar un reinicio, el servicio tendrá que evaluar de nuevo todos los grupos y actualizar las pertenencias.  
 
 > [!NOTE]
 > Para obtener más información sobre el punto de conexión de SCIM de Zscaler Private Access, consulte [este documento](https://www.zscaler.com/partners/microsoft).

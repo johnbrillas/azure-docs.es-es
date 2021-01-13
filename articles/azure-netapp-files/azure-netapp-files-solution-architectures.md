@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/15/2020
+ms.date: 01/11/2021
 ms.author: b-juche
-ms.openlocfilehash: 2b567eba43cfec9af05ebea262b3f6bd61b00259
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: a66b5d59415aad7abf3e8dc95c7498b5d774d640
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562555"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98071279"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Arquitecturas de las soluciones con Azure NetApp Files
 En este artículo se proporcionan referencias a los procedimientos recomendados que pueden ayudarle a comprender las arquitecturas de soluciones para usar Azure NetApp Files.  
@@ -99,6 +99,7 @@ En esta sección se proporcionan referencias para las soluciones de infraestruct
 * [Creación de un contenedor de perfiles de FSLogix para un grupo host mediante Azure NetApp Files](../virtual-desktop/create-fslogix-profile-container.md)
 * [Windows Virtual Desktop a escala empresarial](/azure/architecture/example-scenario/wvd/windows-virtual-desktop)
 * [Microsoft FSLogix para la empresa: procedimientos recomendados de Azure NetApp Files](/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix#azure-netapp-files-best-practices)
+* [Configuración de Azure NetApp Files para la asociación de aplicaciones MSIX](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/setting-up-azure-netapp-files-for-msix-app-attach-step-by-step/m-p/1990021)
 
 ## <a name="hpc-solutions"></a>Soluciones HPC
 
@@ -135,6 +136,7 @@ En esta sección se proporcionan soluciones para los servicios de la plataforma 
 * [Integración de Azure NetApp Files con Azure Kubernetes Service](../aks/azure-netapp-files.md)
 * [Rendimiento Kubernetes fuera de este mundo en Azure con Azure NetApp Files](https://cloud.netapp.com/blog/ma-anf-blg-configure-kubernetes-openshift)
 * [Trident: orquestador de almacenamiento para contenedores](https://netapp-trident.readthedocs.io/en/stable-v20.04/kubernetes/operations/tasks/backends/anf.html)
+* [Plataforma de comercio electrónico Magento en Azure Kubernetes Service (AKS)](/azure/architecture/example-scenario/magento/magento-azure)
 
 ### <a name="azure-batch"></a>Azure Batch
 

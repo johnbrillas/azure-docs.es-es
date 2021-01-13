@@ -2,13 +2,13 @@
 title: Lectura de datos capturados de Azure Event Hubs desde una aplicación de Python (más reciente)
 description: En este artículo se muestra cómo escribir código de Python para capturar los datos que se envían a un centro de eventos y cómo leer los datos de eventos capturados de una cuenta de Azure Storage.
 ms.topic: quickstart
-ms.date: 06/23/2020
-ms.openlocfilehash: f513b35e300141f16ee4c4880bc54aaf37945d65
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.date: 01/04/2021
+ms.openlocfilehash: acc2ce04add5fd837e9edc789e9616a9f04fb4b9
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109919"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97883204"
 ---
 # <a name="capture-event-hubs-data-in-azure-storage-and-read-it-by-using-python-azure-eventhub"></a>Capture datos de Event Hubs en Azure Storage y léalos mediante Python (azure-eventhub)
 
@@ -27,7 +27,11 @@ En esta guía de inicio rápido:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Python 2.7 y 3.5 o posterior, con PIP instalado y actualizado.  
+- Python con PIP y los siguientes paquetes instalados. El código de este artículo se ha probado en estas versiones. 
+    - Python 3.7
+    - azure-eventhub 5.2.0
+    - azure-storage-blob 12.6.0
+    - avro-python3 1.10.1
 - Suscripción a Azure. Si no tiene una, [cree una cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.  
 - Un espacio de nombres de Event Hubs y un centro de eventos activos.
 [Crear un espacio de nombres de Event Hubs y un centro de eventos en el espacio de nombres](event-hubs-create.md). Registre el nombre del espacio de nombres de Event Hubs, el nombre del centro de eventos y la clave de acceso principal del espacio de nombres. Para obtener la clave de acceso, consulte [Obtención de una cadena de conexión de Event Hubs](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). El nombre de la clave predeterminada es *RootManageSharedAccessKey*. Para este inicio rápido solo necesita la clave principal. No necesita la cadena de conexión.  
@@ -155,6 +159,13 @@ En este ejemplo, los datos capturados se almacenan en Azure Blob Storage. El scr
    pip install azure-eventhub
    pip install avro-python3
    ```
+
+    > [!NOTE]
+    > El código de este artículo se ha probado en estas versiones. 
+    > - Python 3.7
+    > - azure-eventhub 5.2.0
+    > - azure-storage-blob 12.6.0
+    > - avro-python3 1.10.1
 2. Vaya al directorio en que guardó *sender.py* y *capturereader.py* y ejecute este comando:
    
    ```

@@ -11,12 +11,12 @@ ms.reviewer: luquinta
 ms.date: 11/16/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 17b0564b4b73f5a5032343dcb78669cbf4cabd5a
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 057f965c67c25d486771a4c037e13153a7f2cf66
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516156"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97901154"
 ---
 # <a name="use-azure-machine-learning-with-the-fairlearn-open-source-package-to-assess-the-fairness-of-ml-models-preview"></a>Uso de Azure Machine Learning con el paquete de código abierto Fairlearn para evaluar la equidad de los modelos de ML (versión preliminar)
 
@@ -46,7 +46,7 @@ Las versiones posteriores de Fairlearn también deberían funcionar en el siguie
 
 En el ejemplo siguiente se muestra cómo usar el paquete de equidad. Cargaremos información de equidad del modelo en Azure Machine Learning y veremos el panel de evaluación de equidad en Azure Machine Learning Studio.
 
-1. Entrenar un modelo de muestra en un cuaderno de Jupyter. 
+1. Entrene un modelo de ejemplo en Jupyter Notebook. 
 
     Para el conjunto de datos, usaremos el conocido conjunto de datos del censo de adultos, que obtendremos de OpenML. Imaginemos que tenemos un problema con la decisión de un préstamo que cuenta con una etiqueta que indica si una persona pagó un préstamo anterior. Entrenaremos un modelo para predecir si aquellas personas que no hayamos visto antes devolverán un préstamo. Este modelo podría usarse para tomar decisiones en los préstamos.
 

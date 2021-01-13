@@ -7,12 +7,12 @@ ms.service: sql-db-mi
 ms.subservice: service
 ms.topic: conceptual
 ms.date: 09/13/2020
-ms.openlocfilehash: b0a10744d2b48fa620b48b731144222199f711c7
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 96367b143711c4ec5f3f8d609f048c72c6fded16
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792538"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590858"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-sql-database--sql-managed-instance"></a>Descripción de los cambios en la entidad de certificación raíz en Azure SQL Database y SQL Managed Instance
 
@@ -44,7 +44,7 @@ Para evitar que se interrumpa la disponibilidad de la aplicación debido a la re
     *   https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem
     *   https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem
 
-*   Genere un almacén de certificados de CA combinado que incluya los certificados **BaltimoreCyberTrustRoot** y **DigiCertGlobalRootG2** .
+*   Genere un almacén de certificados de CA combinado que incluya los certificados **BaltimoreCyberTrustRoot** y **DigiCertGlobalRootG2**.
 
 ## <a name="what-can-be-the-impact"></a>¿Cuál puede ser el efecto?
 Si va a validar los certificados de servidor como se documenta aquí, la disponibilidad de la aplicación puede verse interrumpida, ya que no se podrá acceder a la base de datos. Según la aplicación, puede recibir distintos mensajes de error, entre los que se incluyen los siguientes:
@@ -72,7 +72,7 @@ En los servidores creados después del 26 de octubre de 2020, puede usar el cert
 ### <a name="how-often-does-microsoft-update-their-certificates-or-what-is-the-expiry-policy"></a>¿Con qué frecuencia actualiza Microsoft sus certificados o cuál es la directiva de expiración?
 Estos certificados utilizados por Azure SQL Database y Azure SQL Managed Instance provienen de entidades de certificación (CA) de confianza. Por lo tanto, la compatibilidad de estos certificados en Azure SQL Database y SQL Managed Instance está ligada a la compatibilidad de estos certificados por parte de la CA. Sin embargo, como en este caso, puede haber errores imprevistos en estos certificados predefinidos, que deben corregirse lo antes posible.
 
-### <a name="if-i-am-using-read-replicas-do-i-need-to-perform-this-update-only-on-master-server-or-all-the-read-replicas"></a>Si utilizo réplicas de lectura, ¿tengo que realizar esta actualización solo en el servidor maestro o en todas las réplicas de lectura?
+### <a name="if-i-am-using-read-replicas-do-i-need-to-perform-this-update-only-on-primary-server-or-all-the-read-replicas"></a>Si utilizo réplicas de lectura, ¿tengo que realizar esta actualización solo en el servidor principal o en todas las réplicas de lectura?
 Puesto que esta actualización es un cambio en el lado cliente, si el cliente leía los datos del servidor de réplicas, será necesario aplicar también los cambios para esos clientes. 
 
 ### <a name="do-we-have-server-side-query-to-verify-if-ssl-is-being-used"></a>¿Tenemos que consultar en el lado servidor para comprobar si se está utilizando SSL?

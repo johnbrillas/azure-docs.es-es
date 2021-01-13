@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 161348f7566ff64858d563f34ad8f3f4c7511adf
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 16fff00f04c4cd57ad46759cceb50134e58d5e01
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96009167"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97933122"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con F5
 
@@ -195,7 +195,7 @@ En esta sección, va a permitir que B.Simon acceda a F5 mediante el inicio de se
 1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 1. Haga clic en **Acceso condicional**.
 1. Haga clic en **Nueva directiva**.
-1. Ahora puede ver la aplicación F5 como un recurso para la directiva de CA y aplicar cualquier acceso condicional, como la autenticación multifactor, el control de acceso basado en dispositivo o la directiva de protección de identidades.
+1. Ahora puede ver la aplicación F5 como un recurso para la directiva de acceso condicional y aplicar cualquier acceso condicional, como la autenticación multifactor, el control de acceso basado en dispositivo o la directiva de protección de identidades.
 
 ## <a name="configure-f5-sso"></a>Configuración del inicio de sesión único de F5
 

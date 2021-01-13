@@ -4,12 +4,12 @@ description: Introducción a la reentrada Reliable Actors de Azure Service Fabri
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c2356db0eee82a133afad6aa95299ced0595db32
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 9578b676e46d21fe5d30de92ad59c852a8b05f70
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576067"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97915885"
 ---
 # <a name="reliable-actors-reentrancy"></a>Reentrada de Reliable Actors
 El runtime de Reliable Actors permite, de manera predeterminada, la reentrada basada en el contexto de llamadas lógicas. Esto permite que los actores sean reentrantes si están en la misma cadena de contexto de llamada. Por ejemplo, si el actor A envía un mensaje al actor B, quien envía el mensaje al actor C; como parte del procesamiento del mensaje, si el actor C llama al actor A, el mensaje es reentrante y, por los tanto, se permitirá. Los demás mensajes que formen parte de un contexto de llamada distinto se bloquearán en el actor A hasta que complete el procesamiento.
@@ -101,4 +101,4 @@ static class Program
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Aprenda más sobre la reentrada en la [documentación de referencia de Actor API](/previous-versions/azure/dn971626(v=azure.100))
+* Aprenda más sobre la reentrada en la [documentación de referencia de Actor API](/dotnet/api/microsoft.servicefabric.actors?view=azure-dotnet).

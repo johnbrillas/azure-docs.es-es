@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein
 ms.date: 10/15/2020
-ms.openlocfilehash: fb4746972f78dc40a3ec264d2e1964e8d4e99b3d
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: e706f64a7caab6873a3eec86505eaee11374ae2c
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097599"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882332"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-purchasing-model"></a>Límites de recursos para grupos elásticos que usan el modelo de compra de núcleo virtual
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -126,7 +126,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso (objetivo de servic
 |N.º máximo de sesiones simultáneas|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
 |Opciones de núcleo virtual mín./máx. de grupos elásticos por base de datos|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...6|0, 0.25, 0.5, 1...8|0, 0.25, 0.5, 1...10|0, 0.25, 0.5, 1...12|0, 0.25, 0.5, 1...14|
 |Número de réplicas|1|1|1|1|1|1|1|
-|AZ múltiple|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
+|AZ múltiple|[Disponible en versión preliminar](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponible en versión preliminar](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponible en versión preliminar](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponible en versión preliminar](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponible en versión preliminar](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponible en versión preliminar](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponible en versión preliminar](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|
 |Escalado horizontal de lectura|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
 
@@ -158,7 +158,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso (objetivo de servic
 |N.º máximo de sesiones simultáneas|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
 |Opciones de núcleo virtual mín./máx. de grupos elásticos por base de datos|0, 0.25, 0.5, 1...16|0, 0.25, 0.5, 1...18|0, 0.25, 0.5, 1...20|0, 0.25, 0.5, 1...20, 24|0, 0.25, 0.5, 1...20, 24, 32|0, 0.25, 0.5, 1...16, 24, 32, 40|0, 0.25, 0.5, 1...16, 24, 32, 40, 80|
 |Número de réplicas|1|1|1|1|1|1|1|
-|AZ múltiple|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
+|AZ múltiple|[Disponible en versión preliminar](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponible en versión preliminar](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponible en versión preliminar](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponible en versión preliminar](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponible en versión preliminar](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponible en versión preliminar](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponible en versión preliminar](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|
 |Escalado horizontal de lectura|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
 

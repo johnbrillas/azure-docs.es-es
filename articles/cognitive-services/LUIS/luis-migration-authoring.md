@@ -3,18 +3,20 @@ title: Migración a una clave de creación de recursos de Azure
 titleSuffix: Azure Cognitive Services
 description: En este artículo se describe cómo migrar la autenticación de creación de Language Understanding (LUIS) desde una cuenta de correo electrónico a un recurso de Azure.
 services: cognitive-services
+author: aahill
+ms.author: aahi
 manager: nitinme
-ms.custom: seodec18
+ms.custom: seodec18, contperf-fy21q2
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 12/07/2020
-ms.openlocfilehash: 243c9834aa256e26d620c00ac0fa7a262919aabd
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.date: 12/14/2020
+ms.openlocfilehash: 086bc17938064571e8759ecda633fb5f87d1060f
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96762688"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97616820"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>Migración a una clave de creación de recursos de Azure
 
@@ -26,41 +28,22 @@ La autenticación de creación de Language Understanding (LUIS) ha cambiado de u
 
 ## <a name="what-is-migration"></a>¿Qué es la migración?
 
-La migración es el proceso de cambiar la autenticación de creación de una cuenta de correo electrónico a un recurso de Azure. La cuenta se vinculará a una suscripción de Azure y un recurso de creación de Azure después de la migración. *Todos los usuarios de LUIS (colaboradores o propietarios de aplicaciones) tendrán que migrarse.*
+La migración es el proceso de cambiar la autenticación de creación de una cuenta de correo electrónico a un recurso de Azure. La cuenta se vinculará a una suscripción de Azure y un recurso de creación de Azure después de la migración.
 
-La migración debe realizarse desde el [portal de LUIS](https://www.luis.ai). Por ejemplo, si crea las claves de creación con la CLI de LUIS, de todos modos tendrá que completar el proceso de migración en el portal de LUIS. Puede seguir teniendo coautores en las aplicaciones después de la migración, pero se agregarán en el nivel de recursos de Azure en lugar de en el nivel de aplicación.
-
-> [!Note]
-> Antes de la migración, los coautores se conocen como _colaboradores_ en el nivel de aplicación de LUIS. Después de la migración, el rol de _colaborador_ de Azure se usa para la misma funcionalidad en el nivel de recurso de Azure.
-
-## <a name="notes-before-you-migrate"></a>A tener en cuenta antes de la migración
-
-* La migración no se puede revertir.
-* Si ha iniciado sesión en más de un [portal regional de LUIS](./luis-reference-regions.md#luis-authoring-regions), se le pedirá que migre en varias regiones a la vez.
-* Las aplicaciones se migrarán automáticamente si usted es el propietario de la aplicación.
-* El propietario no puede elegir un subconjunto de las aplicaciones que se van a migrar y el proceso no es reversible.
-* Las aplicaciones desaparecerán de la cuenta del colaborador después de que el propietario realice la migración.
-* Se solicitará a los propietarios que envíen correos electrónicos a los colaboradores para informarles de la migración.
-* Las aplicaciones no se migrarán con usted si es colaborador en la aplicación. Sin embargo, se solicitará a los colaboradores que exporten las aplicaciones que necesiten.
-* No hay ninguna manera de que un propietario sepa que los colaboradores se han migrado.
-* La migración no mueve ni agrega automáticamente colaboradores al recurso de creación de Azure. El propietario de la aplicación es el que necesita completar este paso después de la migración. Este paso requiere [permisos para el recurso de creación de Azure](./luis-how-to-collaborate.md).
-* Una vez que se hayan asignado colaboradores al recurso de Azure, deberán migrarse para poder tener acceso a las aplicaciones. De lo contrario, no tendrán acceso para crear las aplicaciones.
-* Un usuario migrado no se puede agregar como colaborador de la aplicación.
-
+La migración debe realizarse desde el [portal de LUIS](https://www.luis.ai). Por ejemplo, si crea las claves de creación con la CLI de LUIS, de todos modos tendrá que completar el proceso de migración en el portal de LUIS. Puede seguir teniendo coautores en las aplicaciones después de la migración, pero se agregarán en el nivel de recursos de Azure en lugar de en el nivel de aplicación. No se puede revertir la migración de la cuenta.
 
 > [!Note]
-> Si necesita crear un recurso de predicción en tiempo de ejecución, hay [un proceso independiente](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) para hacerlo.
+> * Si necesita crear un recurso de predicción en tiempo de ejecución, hay [un proceso independiente](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) para hacerlo.
+> * Consulte la sección [notas de migración](#migration-notes) a continuación para más información sobre cómo se verán afectadas las aplicaciones y los colaboradores. 
+> * La creación de la aplicación de LUIS es gratuita, lo que está indicado por el nivel F0. [Más información sobre planes de tarifa](luis-limits.md#key-limits).
 
 ## <a name="migration-prerequisites"></a>Requisitos previos de la migración
 
-* Debe estar asociado con una suscripción válida de Azure. Pídale al administrador de inquilinos que lo agregue a la suscripción, o bien [regístrese aquí para obtener una gratis](https://azure.microsoft.com/free/cognitive-services).
-* Debe crear un recurso de creación de LUIS de Azure desde el portal de LUIS o desde [Azure Portal](https://portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne). La creación de un recurso de creación desde el portal de LUIS forma parte del proceso de migración que se describe en la sección siguiente.
-* Si tiene rol de colaborador en las aplicaciones, estas no se migrarán automáticamente. Se le pedirá que exporte estas aplicaciones mientras completa el flujo de migración. También puede usar la [API de exportación](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40). Puede volver a importar la aplicación en LUIS después de la migración. El proceso de importación crea una aplicación nueva con un nuevo identificador de aplicación, para el que usted es el propietario.
+* Una suscripción válida a Azure. Pídale al administrador de inquilinos que lo agregue a la suscripción, o bien [regístrese aquí para obtener una gratis](https://azure.microsoft.com/free/cognitive-services).
+* Un recurso de creación de LUIS de Azure desde el portal de LUIS o desde [Azure Portal](https://portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne). 
+    * La creación de un recurso de creación desde el portal de LUIS forma parte del proceso de migración que se describe en la sección siguiente.
+* Si tiene rol de colaborador en las aplicaciones, estas no se migrarán automáticamente. Se le pedirá que exporte estas aplicaciones mientras completa el flujo de migración. También puede usar la [API de exportación](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40). Puede volver a importar la aplicación en LUIS después de la migración. El proceso de importación crea una aplicación nueva con un nuevo identificador de aplicación, para el que usted es el propietario.        
 * Si es el propietario de la aplicación, no tendrá que exportar las aplicaciones, ya que se migrarán automáticamente. Se proporciona una plantilla de correo electrónico con una lista de todos los colaboradores de cada aplicación, por lo que se les puede notificar sobre el proceso de migración.
-
-> [!Note]
-> La creación de la aplicación de LUIS es gratuita, lo que está indicado por el nivel F0. [Más información sobre planes de tarifa](luis-limits.md#key-limits).
-
 
 ## <a name="migration-steps"></a>Pasos de migración
 
@@ -69,7 +52,7 @@ La migración debe realizarse desde el [portal de LUIS](https://www.luis.ai). Po
     > [!div class="mx-imgBorder"]
     > ![Presentación de la ventana de migración](./media/migrate-authoring-key/notify-azure-migration.png)
 
-2. Si tiene colaboradores en cualquier aplicación, se mostrará una lista de los nombres de aplicación que le pertenecen, junto con los correos electrónicos del colaborador y de la región de creación en cada aplicación. Se recomienda enviar a los colaboradores un correo electrónico para notificarles sobre la migración. Para ello, haga clic en el botón del símbolo de **enviar** situado a la izquierda del nombre de la aplicación.
+2. Si tiene colaboradores en algunas de sus aplicaciones, verá una lista de los nombres de las aplicaciones que le pertenecen, junto con la región de creación y los correos electrónicos de los colaboradores de cada aplicación. Se recomienda enviar a los colaboradores un correo electrónico para notificarles sobre la migración. Para ello, haga clic en el botón del símbolo de **enviar** situado a la izquierda del nombre de la aplicación.
 Si un colaborador tiene un recurso de predicción asignado a la aplicación, aparecerá un símbolo de `*` junto al nombre de la aplicación. Después de la migración, estas aplicaciones seguirán teniendo estos recursos de predicción asignados, aunque los colaboradores no tendrán acceso para crear las aplicaciones. Sin embargo, esta asignación se interrumpirá si el propietario del recurso de predicción [regeneró las claves](./luis-how-to-azure-subscription.md#regenerate-an-azure-key) a partir de Azure Portal.  
 
    > [!div class="mx-imgBorder"]
@@ -117,6 +100,15 @@ Si tiene un recurso de predicción asignado a una aplicación, aparecerá un sí
 
 6. Una vez que haya migrado correctamente en todas las regiones, haga clic en Finalizar. Ahora dispondrá de acceso a las aplicaciones. Puede continuar con la creación y el mantenimiento de todas las aplicaciones en todas las regiones del portal.
 
+## <a name="migration-notes"></a>Notas de migración
+
+* Antes de la migración, los coautores se conocen como _colaboradores_ en el nivel de aplicación de LUIS. Después de la migración, el rol de _colaborador_ de Azure se usa para la misma funcionalidad en el nivel de recurso de Azure.
+* Si ha iniciado sesión en más de un [portal regional de LUIS](./luis-reference-regions.md#luis-authoring-regions), se le pedirá que migre en varias regiones a la vez.
+* Las aplicaciones se migrarán automáticamente si usted es el propietario de la aplicación. Las aplicaciones no se migrarán con usted si es colaborador en la aplicación. Sin embargo, se solicitará a los colaboradores que exporten las aplicaciones que necesiten.
+* Los propietarios de aplicaciones no pueden elegir un subconjunto de las aplicaciones para su migración y no hay ninguna manera de que un propietario sepa si los colaboradores han realizado alguna migración.
+* La migración no mueve ni agrega automáticamente colaboradores al recurso de creación de Azure. El propietario de la aplicación es el que necesita completar este paso después de la migración. Este paso requiere [permisos para el recurso de creación de Azure](./luis-how-to-collaborate.md).
+* Una vez que se hayan asignado colaboradores al recurso de Azure, deberán migrarse para poder tener acceso a las aplicaciones. De lo contrario, no tendrán acceso para crear las aplicaciones.
+
 
 ## <a name="using-apps-after-migration"></a>Uso de aplicaciones después de la migración
 
@@ -139,7 +131,6 @@ Puede agregar colaboradores al recurso de creación desde Azure Portal, en la p�
 
 > [!Note]
 > Si el propietario de la aplicación de LUIS ha realizado la migración y ha agregado el usuario como colaborador en el recurso de Azure, el colaborador seguirá sin tener acceso a la aplicación, salvo que también migre.
-
 
 ## <a name="troubleshooting-the-migration-process"></a>Solución de problemas del proceso de migración
 

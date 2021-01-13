@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 12/07/2020
-ms.openlocfilehash: ee314708f0d564bf1af639a3d864ea19472425cf
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 7122c960dc7921e833329d528f96f0efe0347bda
+ms.sourcegitcommit: 17e9cb8d05edaac9addcd6e0f2c230f71573422c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96937634"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97707476"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Información de límites y configuración para Azure Logic Apps
 
@@ -37,8 +37,8 @@ Estos son los límites de una definición de aplicación lógica:
 | Número máximo de `parameters` | 50 | |
 | Número máximo de `outputs` | 10 | |
 | Tamaño máximo de `trackedProperties` | 16 000 caracteres |
-| Acción de código en línea: número máximo de caracteres de código | 1024 caracteres | Para ampliar este límite a 100 000 caracteres, cree las aplicaciones lógicas con el tipo de recurso **Logic Apps (versión preliminar)** , [mediante Azure Portal](create-stateful-stateless-workflows-azure-portal.md) o [mediante Visual Studio Code y la extensión **Azure Logic Apps (versión preliminar)** ](create-stateful-stateless-workflows-visual-studio-code.md). |
-| Acción de código en línea: duración máxima para la ejecución de código | 5 segundos | Para ampliar este límite a 15 segundos, cree las aplicaciones lógicas con el tipo de recurso **Logic Apps (versión preliminar)** , [mediante Azure Portal](create-stateful-stateless-workflows-azure-portal.md) o [mediante Visual Studio Code y la extensión **Azure Logic Apps (versión preliminar)** ](create-stateful-stateless-workflows-visual-studio-code.md). |
+| Acción de código en línea: número máximo de caracteres de código | 1024 caracteres | Para ampliar este límite a 100 000 caracteres, cree las aplicaciones lógicas con el tipo de recurso **Logic Apps (versión preliminar)** , [mediante Azure Portal](create-stateful-stateless-workflows-azure-portal.md) o [mediante Visual Studio Code y la extensión **Azure Logic Apps (versión preliminar)**](create-stateful-stateless-workflows-visual-studio-code.md). |
+| Acción de código en línea: duración máxima para la ejecución de código | 5 segundos | Para ampliar este límite a 15 segundos, cree las aplicaciones lógicas con el tipo de recurso **Logic Apps (versión preliminar)** , [mediante Azure Portal](create-stateful-stateless-workflows-azure-portal.md) o [mediante Visual Studio Code y la extensión **Azure Logic Apps (versión preliminar)**](create-stateful-stateless-workflows-visual-studio-code.md). |
 ||||
 
 <a name="run-duration-retention-limits"></a>
@@ -305,12 +305,12 @@ Cada suscripción de Azure tiene estos límites de cuenta de integración:
 
 * 1000 cuentas de integración en total, incluidas las cuentas de integración de todos los [entornos de servicio de integración (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) en las SKU de [desarrollador y Premium](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level).
 
-* Cada ISE, ya sea [Developer o Premium](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level), está limitado a un número total de cuentas de integración, pero [puede aumentar este límite por un costo adicional](logic-apps-pricing.md#fixed-pricing):
+* Cada entorno de servicio de integración (ISE), [Developer o Premium](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level), puede usar una sola cuenta de integración sin costo adicional, aunque el tipo de cuenta incluido varíe por la SKU de ISE. Por un [costo adicional](logic-apps-pricing.md#fixed-pricing), puede crear más cuentas de integración para el ISE hasta el límite total:
 
   | SKU de ISE | Límites de cuenta de integración |
   |---------|----------------------------|
-  | **Premium** | 20 en total: solo cuentas [Estándar](../logic-apps/logic-apps-pricing.md#integration-accounts), incluida una gratuita. Puede conseguir [más cuentas de integración por un costo adicional](logic-apps-pricing.md#fixed-pricing). No se permiten cuentas Gratis ni Básicas. |
-  | **Developer** | 20 en total: combinación de cuentas [Gratis](../logic-apps/logic-apps-pricing.md#integration-accounts) (solo 1 cuenta) y [Estándar](../logic-apps/logic-apps-pricing.md#integration-accounts), o todo cuentas Estándar. Puede conseguir [más cuentas de integración por un costo adicional](logic-apps-pricing.md#fixed-pricing). No se permiten cuentas Básicas. Use la [SKU de Desarrollador](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) para experimentar, desarrollar y probar, no para pruebas de rendimiento ni en producción. |
+  | **Premium** | 20 cuentas en total, incluida una cuenta Estándar sin costo adicional. Con esta SKU, solo puede tener cuentas [Estándar](../logic-apps/logic-apps-pricing.md#integration-accounts). No se permiten cuentas Gratis ni Básicas. |
+  | **Developer** | 20 cuentas en total, incluida una cuenta [Gratuita](../logic-apps/logic-apps-pricing.md#integration-accounts) (limitada a 1). Con esta SKU, puede tener cualquier combinación: <p>- Una cuenta gratuita y hasta 19 cuentas [Estándar](../logic-apps/logic-apps-pricing.md#integration-accounts). <br>- Ninguna cuenta gratuita y hasta 20 cuentas Estándar. <p>No se permiten cuentas básicas ni gratuitas adicionales. <p><p>**Importante**: Use la [SKU de Desarrollador](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) para experimentar, desarrollar y probar, no para pruebas de rendimiento ni en producción. |
   |||
 
 Para saber cómo funcionan los precios y la facturación para los ISE, consulte [Modelo de precios de Logic Apps](../logic-apps/logic-apps-pricing.md#fixed-pricing). Para ver las tarifas de precios, consulte los [precios de Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/).
@@ -319,8 +319,7 @@ Para saber cómo funcionan los precios y la facturación para los ISE, consulte 
 
 ### <a name="artifact-limits-per-integration-account"></a>Límites de artefacto por cuenta de integración
 
-Estos son los límites en cuanto al número de artefactos de cada nivel de cuenta de integración.
-Para ver las tarifas de precios, consulte los [precios de Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/). Para saber cómo funcionan los precios y la facturación de las cuentas de integración, consulte [Modelo de precios de Logic Apps](../logic-apps/logic-apps-pricing.md#integration-accounts).
+Estos son los límites en cuanto al número de artefactos de cada nivel de cuenta de integración. Para ver las tarifas de precios, consulte los [precios de Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/). Para saber cómo funcionan los precios y la facturación de las cuentas de integración, consulte [Modelo de precios de Logic Apps](../logic-apps/logic-apps-pricing.md#integration-accounts).
 
 > [!NOTE]
 > Use el nivel Gratis solo en escenarios de exploración, no en escenarios de producción. Este nivel restringe el uso y el rendimiento, y no tiene ningún acuerdo de nivel de servicio (SLA).
@@ -413,7 +412,9 @@ En esta sección se enumeran las direcciones IP entrantes solo para el servicio 
 
 > [!TIP]
 > Para ayudar a reducir la complejidad al crear reglas de seguridad, tiene la opción de usar la [etiqueta de servicio](../virtual-network/service-tags-overview.md) **LogicAppsManagement**, en lugar de especificar prefijos de dirección IP entrante de Logic Apps para cada región.
-> Esta etiqueta funciona en las regiones en las que está disponible el servicio Logic Apps.
+> En el caso de los conectores administrados, puede usar opcionalmente la etiqueta de servicio **AzureConnectors**, en lugar de especificar prefijos de direcciones IP de conectores administrados de entrada para cada región.
+> Estas etiquetas funcionan en las regiones en las que está disponible el servicio Logic Apps.
+
 
 <a name="multi-tenant-inbound"></a>
 
@@ -477,7 +478,7 @@ En esta sección se enumeran las direcciones IP salientes para el servicio Azure
 
 > [!TIP]
 > Para ayudar a reducir la complejidad al crear reglas de seguridad, tiene la opción de usar la [etiqueta de servicio](../virtual-network/service-tags-overview.md) **LogicApps**, en lugar de especificar prefijos de dirección IP salientes de Logic Apps para cada región.
-> En el caso de los conectores administrados, puede usar opcionalmente la etiqueta de servicio **AzureConnectors**, en lugar de especificar prefijos de direcciones IP de conectores administrados salientes para cada región. Estas etiquetas funcionan en las regiones en las que está disponible el servicio Logic Apps. 
+> Esta etiqueta funciona en las regiones en las que está disponible el servicio Logic Apps. 
 
 <a name="multi-tenant-outbound"></a>
 

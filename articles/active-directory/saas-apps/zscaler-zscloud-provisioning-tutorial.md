@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 4579fa3c6dd1e34072a31747fda5113a5ac1be2a
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: fa90cbf1e467416010ae0ba83e9344a84ce52e21
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517436"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936505"
 ---
 # <a name="tutorial-configure-zscaler-zscloud-for-automatic-user-provisioning"></a>Tutorial: Configuración de Zscaler ZSCloud para el aprovisionamiento automático de usuarios
 
@@ -41,11 +41,11 @@ Para completar los pasos que describen en este tutorial, necesitará lo siguient
 
 Antes de configurar Zscaler ZSCloud para el aprovisionamiento automático de usuarios con Azure AD, es preciso agregar Zscaler ZSCloud desde la galería de aplicaciones de Azure AD hasta la lista de aplicaciones SaaS administradas.
 
-En [Azure Portal](https://portal.azure.com), en el panel izquierdo, seleccione **Azure Active Directory** :
+En [Azure Portal](https://portal.azure.com), en el panel izquierdo, seleccione **Azure Active Directory**:
 
 ![Seleccione Azure Active Directory.](common/select-azuread.png)
 
-Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones** :
+Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**:
 
 ![Aplicaciones empresariales](common/enterprise-applications.png)
 
@@ -53,7 +53,7 @@ Para agregar una aplicación, seleccione **Nueva aplicación** en la parte super
 
 ![Seleccionar Nueva aplicación](common/add-new-app.png)
 
-En el cuadro de búsqueda, escriba **Zscaler ZSCloud** . Seleccione **Zscaler ZSCloud** en los resultados y, después, seleccione **Agregar** .
+En el cuadro de búsqueda, escriba **Zscaler ZSCloud**. Seleccione **Zscaler ZSCloud** en los resultados y, después, seleccione **Agregar**.
 
 ![Lista de resultados](common/search-new-app.png)
 
@@ -76,11 +76,14 @@ Esta sección le guía por los pasos que debe seguir para configurar el servicio
 > [!TIP]
 > También puede habilitar el inicio de sesión único basado en SAML en Zscaler ZSCloud. Si lo hace, siga las instrucciones del [Tutorial del inicio de sesión único de Zscaler ZSCloud](zscaler-zsCloud-tutorial.md). El inicio de sesión único puede configurarse independientemente del aprovisionamiento automático de usuarios, pero las dos características se complementan entre sí.
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) y seleccione **Aplicaciones empresariales** > **Todas las aplicaciones** > **Zscaler ZSCloud** :
+> [!NOTE]
+> Cuando se aprovisionan o se desaprovisionan usuarios y grupos, se recomienda reiniciar el aprovisionamiento periódicamente para garantizar que las pertenencias a grupos se actualicen correctamente. Al ejecutar un reinicio, el servicio tendrá que evaluar de nuevo todos los grupos y actualizar las pertenencias. 
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) y seleccione **Aplicaciones empresariales** > **Todas las aplicaciones** > **Zscaler ZSCloud**:
 
     ![Aplicaciones empresariales](common/enterprise-applications.png)
 
-2. En la lista de aplicaciones, seleccione **Zscaler ZSCloud** :
+2. En la lista de aplicaciones, seleccione **Zscaler ZSCloud**:
 
     ![Lista de aplicaciones](common/all-applications.png)
 
@@ -94,7 +97,7 @@ Esta sección le guía por los pasos que debe seguir para configurar el servicio
 
 5. En la sección **Admin Credentials** (Credenciales de administrador), especifique los valores de **Tenant URL** (URL de inquilino) y **Secret Token** (Token secreto) de la cuenta de Zscaler ZSCloud, como se describe en el paso siguiente.
 
-6. Para obtener los valores de **Tenant URL** (URL de inquilino) y **Secret Token** , (Token secreto) vaya a **Administration** > **Authentication Settings** (Administración > Configuración de autenticación) en el portal de Zscaler ZSCloud y seleccione **SAML** en **Authentication Type** (Tipo de autenticación):
+6. Para obtener los valores de **Tenant URL** (URL de inquilino) y **Secret Token**, (Token secreto) vaya a **Administration** > **Authentication Settings** (Administración > Configuración de autenticación) en el portal de Zscaler ZSCloud y seleccione **SAML** en **Authentication Type** (Tipo de autenticación):
 
     ![Configuración de autenticación de Zscaler ZSCloud](./media/zscaler-zscloud-provisioning-tutorial/secrettoken1.png)
 
@@ -102,9 +105,9 @@ Esta sección le guía por los pasos que debe seguir para configurar el servicio
 
     ![Ventana Configure SAML (Configurar SAML)](./media/zscaler-zscloud-provisioning-tutorial/secrettoken2.png)
 
-    Seleccione **Enable SCIM-Based Provisioning** (Habilitar aprovisionamiento basado en SCIM) y copie los valores de **Base URL** (URL Base) y **Bearer Token** (Token de portador) y, después, guarde la configuración. En Azure Portal, pegue el valor de **Base URL** (URL Base) en el cuadro **URL de inquilino** y el valor de **Bearer Token** (Token de portador) en el cuadro **Token secreto** .
+    Seleccione **Enable SCIM-Based Provisioning** (Habilitar aprovisionamiento basado en SCIM) y copie los valores de **Base URL** (URL Base) y **Bearer Token** (Token de portador) y, después, guarde la configuración. En Azure Portal, pegue el valor de **Base URL** (URL Base) en el cuadro **URL de inquilino** y el valor de **Bearer Token** (Token de portador) en el cuadro **Token secreto**.
 
-7. Después de especificar los valores de los cuadros **URL de inquilino** y **Token secreto** , seleccione **Test Connection** (Probar conexión) para asegurarse de que Azure AD puede conectarse a Zscaler ZSCloud. Si la conexión no se establece, asegúrese de que la cuenta de Zscaler ZSCloud tiene permisos de administrador e inténtelo de nuevo.
+7. Después de especificar los valores de los cuadros **URL de inquilino** y **Token secreto**, seleccione **Test Connection** (Probar conexión) para asegurarse de que Azure AD puede conectarse a Zscaler ZSCloud. Si la conexión no se establece, asegúrese de que la cuenta de Zscaler ZSCloud tiene permisos de administrador e inténtelo de nuevo.
 
     ![Comprobación de la conexión](./media/zscaler-zscloud-provisioning-tutorial/testconnection.png)
 
@@ -112,13 +115,13 @@ Esta sección le guía por los pasos que debe seguir para configurar el servicio
 
     ![Configurar la dirección de correo electrónico para notificaciones](./media/zscaler-zscloud-provisioning-tutorial/Notification.png)
 
-9. Seleccione **Guardar** .
+9. Seleccione **Guardar**.
 
 10. En la sección **Mappings** (Asignaciones), seleccione **Synchronize Azure Active Directory Users to ZscalerZSCloud** (Sincronizar usuarios de Azure Active Directory con ZscalerZSCloud):
 
     ![Sincronizar usuarios de Azure AD](./media/zscaler-zscloud-provisioning-tutorial/usermappings.png)
 
-11. Examine los atributos de usuario que se sincronizan entre Azure AD y Zscaler ZSCloud en la sección **Attribute Mappings** (Asignaciones de atributos). Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de usuario de Zscaler ZSCloud con el objetivo de realizar operaciones de actualización. Para confirmar los cambios, seleccione **Guardar** .
+11. Examine los atributos de usuario que se sincronizan entre Azure AD y Zscaler ZSCloud en la sección **Attribute Mappings** (Asignaciones de atributos). Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de usuario de Zscaler ZSCloud con el objetivo de realizar operaciones de actualización. Para confirmar los cambios, seleccione **Guardar**.
 
     ![Captura de pantalla de la sección Asignaciones de atributos, con siete asignaciones mostradas.](./media/zscaler-zscloud-provisioning-tutorial/userattributemappings.png)
 
@@ -126,7 +129,7 @@ Esta sección le guía por los pasos que debe seguir para configurar el servicio
 
     ![Sincronizar grupos de Azure AD](./media/zscaler-zscloud-provisioning-tutorial/groupmappings.png)
 
-13. Examine los atributos de grupo que se sincronizan entre Azure AD y Zscaler ZSCloud en la sección **Attribute Mappings** (Asignaciones de atributos). Los atributos seleccionados como propiedades de **Matching** (Coincidencia) se usan para buscar coincidencias con los grupos de Zscaler ZSCloud para las operaciones de actualización. Para confirmar los cambios, seleccione **Guardar** .
+13. Examine los atributos de grupo que se sincronizan entre Azure AD y Zscaler ZSCloud en la sección **Attribute Mappings** (Asignaciones de atributos). Los atributos seleccionados como propiedades de **Matching** (Coincidencia) se usan para buscar coincidencias con los grupos de Zscaler ZSCloud para las operaciones de actualización. Para confirmar los cambios, seleccione **Guardar**.
 
     ![Captura de pantalla de la sección Asignaciones de atributos, con tres asignaciones mostradas.](./media/zscaler-zscloud-provisioning-tutorial/groupattributemappings.png)
 

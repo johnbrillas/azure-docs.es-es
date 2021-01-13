@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 12/22/2020
+ms.date: 01/04/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: 845eef6e119823af789c9a263bfb750845d55bc0
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 919ec1c3c2b71b7d9aecb90d434aa919c7188d38
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97740919"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97897649"
 ---
 # <a name="tutorial-transfer-data-via-shares-with-azure-stack-edge-pro-gpu"></a>Tutorial: Transferencia de datos a través de recursos compartidos de Azure Stack Edge Pro con GPU
 
@@ -43,7 +43,7 @@ Antes de agregar recursos compartidos a Azure Stack Edge Pro, asegúrese de que:
 
 Para crear un recurso compartido, realice el procedimiento siguiente:
 
-1. En [Azure Portal](https://portal.azure.com/), seleccione el recurso de Azure Stack Edge y, después, vaya a **Información general**. El dispositivo debe estar en línea.
+1. En [Azure Portal](https://portal.azure.com/), seleccione el recurso de Azure Stack Edge y, después, vaya a **Información general**. El dispositivo debe estar en línea. Seleccione **Cloud storage gateway** (Puerta de enlace de almacenamiento en la nube).
 
    ![Dispositivo en línea](./media/azure-stack-edge-j-series-deploy-add-shares/device-online-1.png)
 
@@ -51,7 +51,7 @@ Para crear un recurso compartido, realice el procedimiento siguiente:
 
    ![Agregar un recurso compartido](./media/azure-stack-edge-j-series-deploy-add-shares/select-add-share-1.png)
 
-3. En el panel **Agregar recurso compartido**, lleve a cabo el procedimiento siguiente:
+3. En el panel **Add share** (Agregar recurso compartido), siga estos pasos:
 
     a. En el cuadro **Nombre**, escriba un nombre único para el recurso compartido.  
     El nombre del recurso compartido solo puede incluir letras, números y guiones. Debe tener entre 3 y 63 caracteres y empezar por una letra o un número. Antes y después de los guiones debe haber una letra o un número.
@@ -66,7 +66,7 @@ Para crear un recurso compartido, realice el procedimiento siguiente:
     El tipo de servicio que seleccione dependerá del formato que quiere que usen los datos en Azure. En este ejemplo, como queremos almacenar los datos como blobs en bloques en Azure, seleccionamos **Blob en bloques**. Si selecciona **Blob en páginas**, asegúrese de que los datos tienen una alineación de 512 bytes. Por ejemplo, un VHDX siempre tiene una alineación de 512 bytes.
 
    > [!IMPORTANT]
-   > Asegúrese de que la cuenta de Azure Storage que usa no tiene directivas de inmutabilidad establecidas si la usa con un dispositivo de Azure Stack Edge Pro o Data Box Gateway. Para más información, consulte [Establecimiento y administración de directivas de inmutabilidad para el almacenamiento de blobs](../storage/blobs/storage-blob-immutability-policies-manage.md).
+   > Asegúrese de que la cuenta de Azure Storage que usa no tiene directivas de inmutabilidad establecidas si va a usarla con un dispositivo Azure Stack Edge Pro o Data Box Gateway. Para más información, consulte [Establecimiento y administración de directivas de inmutabilidad para el almacenamiento de blobs](../storage/blobs/storage-blob-immutability-policies-manage.md).
 
     e. Cree un nuevo contenedor de blobs o use uno ya existente de la lista desplegable. Si crea un contenedor de blobs, proporcione un nombre para este. Si todavía no existe un contenedor, se crea en la cuenta de almacenamiento con el nombre del recurso compartido recién creado.
    
