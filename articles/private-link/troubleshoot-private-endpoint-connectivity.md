@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: rdhillon
-ms.openlocfilehash: f861f9efa6ecc1886647ed6c460b6718ff97e8a1
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 90831c0e8d5ab73f65dc801319a357d59799cbc6
+ms.sourcegitcommit: 02ed9acd4390b86c8432cad29075e2204f6b1bc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95522335"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97807559"
 ---
 # <a name="troubleshoot-azure-private-endpoint-connectivity-problems"></a>Solución de problemas de conectividad de puntos de conexión privados de Azure
 
@@ -100,8 +100,24 @@ Revise estos pasos para asegurarse de que todas las configuraciones habituales s
     
        ![Reglas de salida de NSG](./media/private-endpoint-tsg/nsg-outbound-rules.png)
 
+1. La máquina virtual de origen debe tener la ruta a la dirección IP del punto de conexión privado del próximo salto como InterfaceEndpoints en las rutas efectivas de la NIC. 
+
+    a. Si no puede ver la ruta del punto de conexión privado en la máquina virtual de origen, compruebe los siguientes aspectos: 
+     - La máquina virtual de origen y el punto de conexión privado pertenecen a la misma red virtual. En caso afirmativo, deberá ponerse en contacto con el servicio de soporte técnico. 
+     - La máquina virtual de origen y el punto de conexión privado forman parte de redes virtuales diferentes; en este caso, compruebe la conectividad IP entre las redes virtuales. Si hay conectividad IP y sigue sin poder ver la ruta, póngase en contacto con el servicio de soporte técnico. 
+
 1. Si la conexión tiene resultados validados, el problema de conectividad puede estar relacionado con otros aspectos, como secretos, tokens o contraseñas en el nivel de aplicación.
    - En este caso, revise la configuración del recurso de Private Link asociado al punto de conexión privado. Para más información, consulte la [guía de solución de problemas de Azure Private Link](troubleshoot-private-link-connectivity.md).
+   
+1. Siempre es conveniente acotar el problema antes de generar la incidencia de soporte técnico. 
+
+    a. Si el origen es local y tiene problemas para conectarse localmente a un punto de conexión privado en Azure, intente estas conexiones: 
+      - A otra máquina virtual del entorno local; compruebe si tiene conectividad IP con la red virtual desde el entorno local. 
+      - Desde una máquina virtual de la red virtual al punto de conexión privado.
+      
+    b. Si el origen es Azure y el punto de conexión privado está en otra red virtual, intente estas conexiones: 
+      - Al punto de conexión privado desde un origen diferente. De este modo, puede aislar cualquier problema específico de la máquina virtual. 
+      - A cualquier máquina virtual que forme parte de la misma red virtual del punto de conexión privado.  
 
 1. Póngase en contacto con el equipo de [soporte técnico de Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) si el problema sigue sin resolverse y el problema de conectividad persiste.
 

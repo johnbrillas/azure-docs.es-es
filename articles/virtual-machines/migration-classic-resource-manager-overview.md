@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 219fe2d9d8ac46ba3dbeebe6aaae9dddc0883aa0
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: e7d013775861f290d532e0d7c132896ebeff8ae8
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500417"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680215"
 ---
 # <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager-in-linux"></a>Migración compatible con la plataforma de recursos de IaaS del modelo clásico al de Azure Resource Manager en Linux.
 
@@ -22,7 +22,7 @@ ms.locfileid: "96500417"
 
 
 
-En este artículo se describe la forma de migrar recursos de infraestructura como servicio (IaaS) de los modelos de implementación clásicos a Resource Manager y detalla cómo conectar los recursos de los dos modelos de implementación que coexisten en su suscripción mediante el uso de puertas de enlace de sitio a sitio de red virtual. Se puede leer más información sobre [características y ventajas de Azure Resource Manager](../azure-resource-manager/management/overview.md). 
+En este artículo se proporciona información general sobre la herramienta de migración compatible con la plataforma, se describe cómo migrar recursos de los modelos de implementación de Azure Service Manager (ASM, conocidos como clásicos) a Resource Manager (ARM) y se detalla cómo conectar recursos de los dos modelos de implementación que coexisten en la suscripción mediante puertas de enlace de sitio a sitio de red virtual. Se puede leer más información sobre [características y ventajas de Azure Resource Manager](../azure-resource-manager/management/overview.md). 
 
 ## <a name="goal-for-migration"></a>Objetivo para la migración
 Resource Manager permite implementar aplicaciones complejas a través de plantillas, configura las máquinas virtuales mediante extensiones de máquina virtual e incorpora la administración de acceso y el etiquetado. Azure Resource Manager incluye una implementación escalable en paralelo para máquinas virtuales en conjuntos de disponibilidad. El nuevo modelo de implementación también proporciona administración del ciclo de vida para procesos, redes y almacenamiento por separado. Por último, también se centra en habilitar la seguridad de forma predeterminada con la aplicación de máquinas virtuales en una red virtual.
@@ -37,7 +37,7 @@ En Azure Resource Manager, se admiten casi todas las características del modelo
 * Cuentas de almacenamiento
 * Virtual Networks
 * Puertas de enlace de VPN
-* Puertas de enlace de ExpressRoute _(en la misma suscripción que solo Virtual Network)_
+* [Puertas de enlace de ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-howto-move-arm) _(en la misma suscripción que solo la red virtual)_
 * Grupos de seguridad de red
 * Tablas de ruta
 * Direcciones IP reservadas

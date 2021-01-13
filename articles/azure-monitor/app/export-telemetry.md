@@ -3,12 +3,12 @@ title: Exportación de telemetría desde Application Insights | Microsoft Docs
 description: Exporte datos de diagnóstico y uso al almacenamiento en Microsoft Azure y descárguelos desde allí.
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.openlocfilehash: f67a5c555c438298cee701ca065aaf8c01c6406e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a6f636ce9fe30c666f08935d5830eb0c12e6cb5e
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87324342"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97674144"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exportación de telemetría desde Application Insights
 ¿Desea mantener la telemetría durante más tiempo que el período de retención estándar? ¿O quiere procesarla de algún modo especializado? La exportación continua es lo más conveniente para ello. Los eventos que se ven en el portal de Application Insights pueden exportarse a almacenamiento en Microsoft Azure en formato JSON. Desde allí puede descargar los datos y escribir el código necesario para procesarlos.  
@@ -37,6 +37,9 @@ La exportación continua **no admite** las siguientes características o configu
 * [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md).
 
 ## <a name="create-a-continuous-export"></a><a name="setup"></a>Creación de una exportación continua.
+
+> [!NOTE]
+> Una aplicación no puede exportar más de 3 TB de datos al día. Si se exportan más datos, se deshabilitará la exportación. Para exportar sin límite, use la [exportación basada en la configuración de diagnóstico](#diagnostic-settings-based-export).
 
 1. En el recurso de Application Insights de su aplicación en Configuración, a la izquierda, abra Exportación continua y elija **Agregar**:
 
@@ -207,6 +210,19 @@ En escalas más grandes, considere la posibilidad de clústeres de Hadoop en [HD
 * [Ejemplo de Stream Analytics](export-stream-analytics.md)
 * [Exportación a SQL con el Stream Analytics][exportasa]
 * [Referencia detallada del modelo de datos para los tipos y valores de propiedad.](export-data-model.md)
+
+## <a name="diagnostic-settings-based-export"></a>Exportación basada en la configuración de diagnóstico
+
+La exportación basada en la configuración de diagnóstico usa un esquema diferente al de la exportación continua. También admite características que no se aceptan en la exportación continua:
+
+* Cuentas de almacenamiento de Azure con redes virtuales, firewalls y vínculos privados.
+* Exportación al centro de eventos.
+
+Para migrar la exportación basada en la configuración de diagnóstico:
+
+1. Deshabilite la exportación continua actual.
+2. [Migre la aplicación a recursos basados en áreas de trabajo](convert-classic-resource.md).
+3. [Habilite la exportación basada en la configuración de diagnóstico](create-workspace-resource.md#export-telemetry). Seleccione **Configuración de diagnóstico > Agregar configuración de diagnóstico** en el recurso de Application Insights.
 
 <!--Link references-->
 

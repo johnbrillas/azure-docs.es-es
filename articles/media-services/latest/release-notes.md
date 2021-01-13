@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 10/21/2020
 ms.author: inhenkel
-ms.openlocfilehash: 4ddb02bbcf284566550517f8fa343a728e2275a9
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 895b4529a8b99ecc66e3566b4696a0e61c337153
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96483634"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881929"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de la versión de Azure Media Services v3
 
@@ -38,16 +38,23 @@ Para mantenerse al día con los avances más recientes, este artículo proporcio
 >
 > Para más detalles, consulte [las limitaciones de Azure Portal para Media Services v3](frequently-asked-questions.md#what-are-the-azure-portal-limitations-for-media-services-v3).
 
+## <a name="december-2020"></a>Diciembre de 2020
+
+### <a name="regional-availability"></a>Disponibilidad regional
+
+Azure Media Services ahora está disponible en la región este de Noruega en Azure Portal.  No hay ninguna restV2 en esta región.
+
 ## <a name="october-2020"></a>Octubre de 2020
 
 ### <a name="basic-audio-analysis"></a>Análisis de audio básico
+
 El valor preestablecido del análisis de audio ahora incluye un plan de tarifa de modo básico. El nuevo modo básico del analizador de audio ofrece una opción de bajo costo para extraer transcripciones de voz y dar formato a los subtítulos y CC resultantes. Este modo realiza la transcripción de voz a texto y la generación de un archivo de subtítulos VTT. La salida de este modo incluye un archivo JSON de información, que incluye solo las palabras clave, la transcripción y la información de tiempo. La detección automática de idioma y la diarización de los altavoces no se incluyen en este modo. Consulte la lista de [idiomas admitidos](analyzing-video-audio-files-concept.md#built-in-presets).
 
 Los clientes que usan el indexador v1 y el indexador v2 deben migrar al valor preestablecido de análisis de audio básico.
 
 Para obtener más información acerca del modo básico del analizador de audio, consulte [Análisis de archivos de audio y vídeo](analyzing-video-audio-files-concept.md).  Para aprender a usar el modo básico del analizador de audio con la API REST, consulte [Creación de una transformación de audio básica](how-to-create-basic-audio-transform.md).
 
-## <a name="live-events"></a>Eventos en vivo
+### <a name="live-events"></a>Eventos en vivo
 
 Ahora puede actualizar la mayoría de las propiedades cuando se detienen los eventos en directo. Además, los usuarios pueden especificar un prefijo para el nombre de host estático de las direcciones URL de entrada y versión preliminar del evento activo. VanityUrl ahora se llama `useStaticHostName`, para reflejar mejor la intención de la propiedad.
 
@@ -57,7 +64,7 @@ Un evento en directo permite recibir varias relaciones de aspecto de entrada. El
 
 La codificación en directo ahora agrega la capacidad de generar fragmentos de intervalo con fotogramas clave fijos de entre 0,5 y 20 segundos.
 
-## <a name="accounts"></a>Cuentas
+### <a name="accounts"></a>Cuentas
 
 > [!WARNING]
 > Si crea una cuenta de Media Services con la versión de API 2020-05-01, no funcionará con RESTv2. 

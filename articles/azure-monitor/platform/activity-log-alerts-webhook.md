@@ -4,12 +4,12 @@ description: Obtenga información acerca del esquema del archivo JSON que se pub
 ms.topic: conceptual
 ms.date: 03/31/2017
 ms.subservice: alerts
-ms.openlocfilehash: 026613c3f5710137fb110153b34f9ed74bbf8a7b
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: b48f094b460a2871b502c72b39b849ed68b9c085
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95522794"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916647"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhooks para alertas del registro de actividad de Azure
 Como parte de la definición de un grupo de acciones, se pueden configurar puntos de conexión de webhook para recibir notificaciones de alertas del registro de actividad. Los webhooks permiten enrutar estas notificaciones a otros sistemas para su procesamiento posterior o acciones personalizadas. Este artículo muestra el aspecto de la carga útil para HTTP POST a un webhook.
@@ -27,6 +27,20 @@ El webhook puede usar opcionalmente autorización basada en token para la autent
 
 ## <a name="payload-schema"></a>Esquema de carga
 La carga útil JSON incluida en la operación POST difiere según el campo data.context.activityLog.eventSource de la carga útil.
+
+> [!NOTE]
+> Actualmente, la descripción que forma parte del evento del registro de actividad se copia en la propiedad **"Descripción de la alerta"** activada.
+>
+> A fin de alinear la carga del registro de actividad con otros tipos de alerta, a partir del 1 de abril de 2021, la propiedad de alerta activada **"Descripción"** contendrá la descripción de la regla de alerta en su lugar.
+>
+> Como preparación para este cambio, hemos creado una nueva propiedad **"Descripción del evento del registro de actividad"** en la alerta activada del registro de actividad. Esta nueva propiedad se rellenará con la propiedad **"Descripción"** que ya está disponible para su uso. Esto significa que el nuevo campo **"Descripción del evento del registro de actividad"** contendrá la descripción que forma parte del evento del registro de actividad.
+>
+> Revise las reglas de alerta, las reglas de acción, los webhooks, la aplicación lógica o cualquier otra configuración en la que pueda estar usando la propiedad **"Descripción"** de la alerta activada y reemplácela por **"Descripción del evento del registro de actividad"** .
+>
+> Si su condición (en las reglas de acción, los webhooks, la aplicación lógica o cualquier otra configuración) se basa actualmente en la propiedad **"Descripción"** de las alertas del registro de actividad, puede que tenga que modificarla para que se base en la propiedad **"Descripción del evento del registro de actividad"** en su lugar.
+>
+> Para rellenar la nueva propiedad **"Descripción"** , puede agregar una descripción en la definición de la regla de alerta.
+> ![Alertas del registro de actividad activadas](media/activity-log-alerts-webhook/activity-log-alert-fired.png)
 
 ### <a name="common"></a>Comunes
 

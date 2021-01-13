@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 12/02/2020
-ms.openlocfilehash: 57b4b6f3f49e9b82ada4b37c8e2de0697781e063
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.date: 12/17/2020
+ms.openlocfilehash: 5d291ad745122d929c4b664e9da5e4649e463529
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96510597"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97679101"
 ---
 # <a name="execute-r-script-module"></a>Módulo Execute R Script
 
@@ -50,6 +50,9 @@ Para instalar paquetes de R adicionales, use el método `install.packages()`. Lo
 
 > [!NOTE]
 > Especifique el repositorio de CRAN al instalar paquetes, como `install.packages("zoo",repos = "http://cran.us.r-project.org")`.
+
+> [!WARNING]
+> El módulo Execute R Script (Ejecutar script R) no admite la instalación de paquetes que requieren compilación nativa, como el paquete `qdap`, que requiere JAVA, y el paquete `drc`, que requiere C++. Esto se debe a que este módulo se ejecuta en un entorno preinstalado con permisos que no son de administrador.
 
 En este ejemplo se muestra cómo instalar Zoo:
 ```R

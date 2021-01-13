@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 79a99d9f0ca117d8f47d56d76399210a72b91bb7
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: d77e145cabcef2931d5fe6e76599da7931e576e8
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94951662"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97669166"
 ---
 # <a name="define-an-id-token-hint-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico de sugerencias de token de id. en una directiva personalizada de Azure Active Directory B2C
 
@@ -36,10 +36,10 @@ id_token_hint debe ser un token JWT válido. En la siguiente tabla se enumeran l
 
 | Nombre | Notificación | Valor de ejemplo | Descripción |
 | ---- | ----- | ------------- | ----------- |
-| Público | `aud` | `a489fc44-3cc0-4a78-92f6-e413cd853eae` | Identifica al destinatario previsto del token. Se trata de una cadena arbitraria definida por el emisor del token. Azure AD B2C valida este valor y rechaza el token si no coincide.  |
-| Emisor | `iss` |`https://localhost` | Identifica el servicio de token de seguridad (emisor del token). Se trata de un URI arbitrario definido por el emisor del token. Azure AD B2C valida este valor y rechaza el token si no coincide.  |
-| Fecha de expiración | `exp` | `1600087315` | La hora en que el token deja de ser válido, que se representa en tiempo de época. Azure AD B2C no valida esta notificación. |
-| No antes de | `nbf` | `1599482515` | Hora a la que el token pasa a ser válido, representada en tiempo de época. Suele ser la misma hora a la que se emitió el token. Azure AD B2C no valida esta notificación. |
+| Público | `aud` | `a489fc44-3cc0-4a78-92f6-e413cd853eae` | Identifica al destinatario previsto del token. El público es una cadena arbitraria definida por el emisor de tokens. Azure AD B2C comprueba este valor y rechaza el token si no coincide.  |
+| Emisor | `iss` |`https://localhost` | Identifica el servicio de token de seguridad (emisor del token). El emisor es un URI arbitrario definido por el emisor de tokens. Azure AD B2C comprueba este valor y rechaza el token si no coincide.  |
+| Fecha de expiración | `exp` | `1600087315` | La hora en que el token deja de ser válido, que se representa en tiempo de época. Azure AD B2C comprueba este valor y rechaza el token si ha expirado.|
+| No antes de | `nbf` | `1599482515` | Hora a la que el token pasa a ser válido, representada en tiempo de época. Suele ser la misma hora a la que se emitió el token. Azure AD B2C comprueba este valor y rechaza el token si su duración no es válida. |
 
  El siguiente es un ejemplo de un token de id. válido:
 
@@ -85,7 +85,7 @@ Los metadatos siguientes son relevantes cuando se usa una clave simétrica.
 | Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
 | issuer | Sí | Identifica el servicio de token de seguridad (emisor del token). Este valor debe ser idéntico a la notificación `iss` dentro de la notificación del token JWT. | 
-| IdTokenAudience | Sí | Identifica al destinatario previsto del token. Debe ser idéntico a la notificación `aud` dentro de la notificación del token JWT. | 
+| IdTokenAudience | Sí | Identifica al destinatario previsto del token. Debe coincidir con la notificación `aud` dentro de la notificación del token JWT. | 
 
 Los metadatos siguientes son pertinentes cuando se usa una clave asimétrica. 
 
@@ -93,7 +93,7 @@ Los metadatos siguientes son pertinentes cuando se usa una clave asimétrica.
 | --------- | -------- | ----------- |
 | METADATOS| Sí | Una dirección URL que apunta a un documento de configuración del emisor del token, que es un punto de conexión de configuración conocido de OpenID.   |
 | issuer | No | Identifica el servicio de token de seguridad (emisor del token). Este valor se puede usar para sobrescribir el valor configurado en los metadatos y debe ser idéntico a la notificación `iss` dentro de la notificación del token JWT. |  
-| IdTokenAudience | No | Identifica al destinatario previsto del token. Debe ser idéntico a la notificación `aud` dentro de la notificación del token JWT. |  
+| IdTokenAudience | No | Identifica al destinatario previsto del token. Debe coincidir con la notificación `aud` dentro de la notificación del token JWT. |  
 
 ## <a name="cryptographic-keys"></a>Claves criptográficas
 
@@ -272,7 +272,7 @@ En ambos enfoques, simétrico y asimétrico, se llama al perfil técnico `id_tok
     </RelyingParty>
     ```
 
-En función de los requisitos de su empresa, es posible que deba agregar validaciones de tokens, por ejemplo, para comprobar la expiración del token, el formato de la dirección de correo electrónico y mucho más. Para ello, agregue pasos de orquestación que invoquen un [perfil técnico de transformación de notificaciones](claims-transformation-technical-profile.md). Agregue también un [perfil técnico autoafirmado](self-asserted-technical-profile.md) para presentar un mensaje de error. 
+En función de los requisitos de su empresa, es posible que deba agregar validaciones de tokens (por ejemplo, comprobar el formato de la dirección de correo electrónico). Para ello, agregue pasos de orquestación que invoquen un [perfil técnico de transformación de notificaciones](claims-transformation-technical-profile.md). Agregue también un [perfil técnico autoafirmado](self-asserted-technical-profile.md) para presentar un mensaje de error. 
 
 ### <a name="create-and-sign-a-token"></a>Creación y firma de un token
 

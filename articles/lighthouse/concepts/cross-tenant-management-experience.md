@@ -1,14 +1,14 @@
 ---
 title: Experiencias de administración entre inquilinos
 description: La administración de recursos delegados de Azure habilita una experiencia de administración entre inquilinos.
-ms.date: 11/19/2020
+ms.date: 12/16/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4550921fdefdca440b6757e7a3b7a03337599d16
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 111e5310f1dac01053eebc6592d7b56105358c41
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97510658"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97630095"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiencias de administración entre inquilinos
 
@@ -78,6 +78,11 @@ La mayoría de las tareas y servicios se pueden realizar en recursos delegados a
 
 - En el inquilino de administración, los asociados de CSP pueden ver, administrar y analizar los costos de consumo antes de impuestos (sin incluir compras) de los clientes que se encuentran en el plan de Azure. El costo se basará en las tarifas comerciales y el acceso de control de acceso basado en rol de Azure (RBAC de Azure) que tiene el asociado para la suscripción del cliente.
 
+[Azure Key Vault](../../key-vault/general/index.yml):
+
+- Creación de almacenes de claves en inquilinos de clientes
+- Uso de una identidad administrada para crear almacenes de claves en inquilinos de clientes
+
 [Azure Kubernetes Service (AKS)](../../aks/index.yml):
 
 - administre los entornos de Kubernetes hospedados e implemente y administre aplicaciones en contenedores en inquilinos de clientes
@@ -94,7 +99,7 @@ La mayoría de las tareas y servicios se pueden realizar en recursos delegados a
 - Ver los detalles del registro de actividad para las suscripciones delegadas
 - Log analytics: consulte datos de áreas de trabajo remotas en varios inquilinos
 - Cree alertas en inquilinos de cliente que desencadenen la automatización, como los runbooks de Azure Automation o Azure Functions, en el inquilino que realiza la administración a través de webhooks
-- Cree una configuración de diagnóstico en inquilinos de cliente para enviar registros de recursos a áreas de trabajo en el inquilino de administración.
+- Creación de una [configuración de diagnóstico](../..//azure-monitor/platform/diagnostic-settings.md) en inquilinos de cliente para enviar registros de recursos a áreas de trabajo en el inquilino de administración
 - Para las cargas de trabajo de SAP, [supervise las métricas de soluciones de SAP con una vista agregada a través de los inquilinos del cliente](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/using-azure-lighthouse-and-azure-monitor-for-sap-solutions-to/ba-p/1537293).
 
 [Redes de Azure](../../networking/networking-overview.md):

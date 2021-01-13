@@ -3,7 +3,7 @@ title: Uso de Azure Storage para la copia de seguridad y la restauración de SQL
 description: Aprenda a realizar una copia de seguridad de SQL Server en Azure Storage. Se explican las ventajas de realizar una copia de seguridad de bases de datos SQL en Azure Storage.
 services: virtual-machines-windows
 documentationcenter: ''
-author: MikeRayMSFT
+author: MashaMSFT
 tags: azure-service-management
 ms.assetid: 0db7667d-ef63-4e2b-bd4d-574802090f8b
 ms.service: virtual-machines-sql
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: mathoma
-ms.openlocfilehash: b4100800385792557358d3fb6438f52650483f89
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 35fff49a53f5a0a9532fd0dff841356c5deaf3ea
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359802"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724789"
 ---
 # <a name="use-azure-storage-for-sql-server-backup-and-restore"></a>Uso de Azure Storage para la copia de seguridad y la restauración de SQL Server
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-A partir de SQL Server 2012 SP1 CU2, ya puede escribir copias de seguridad de SQL Server directamente en Azure Blob Storage. Puede usar esta función para realizar copias de seguridad y restauraciones desde Azure Blob Storage y una base de datos de SQL Server. Las copias de seguridad en la nube ofrecen ventajas de disponibilidad, almacenamiento externo ilimitado replicado geográficamente y facilidad de migración de datos a la nube y desde ella. Puede emitir instrucciones BACKUP o RESTORE mediante T-SQL o SMO.
+A partir de SQL Server 2012 SP1 CU2, ya puede escribir copias de seguridad de bases de datos de SQL Server directamente en Azure Blob Storage. Use esta función para realizar copias de seguridad y restauraciones desde Azure Blob Storage. Las copias de seguridad en la nube ofrecen ventajas de disponibilidad, almacenamiento externo ilimitado replicado geográficamente y facilidad de migración de datos a la nube y desde ella. Puede emitir instrucciones `BACKUP` o `RESTORE` mediante Transact-SQL o SMO.
 
 ## <a name="overview"></a>Información general
 SQL Server 2016 presenta nuevas funcionalidades; puede usar [copias de seguridad de instantánea de archivos](/sql/relational-databases/backup-restore/file-snapshot-backups-for-database-files-in-azure) para realizar copias de seguridad prácticamente instantáneas y restauraciones increíblemente rápidas.
@@ -52,26 +52,26 @@ Cuando se realiza una copia de seguridad en Azure Blob Storage, se utilizan los 
 | --- | --- |
 | **Cuenta de almacenamiento** |La cuenta de almacenamiento es el punto de partida para todos los servicios de almacenamiento. Para acceder a Azure Blob Storage, primero debe crear una cuenta de Azure Storage. Para obtener más información acerca de Azure Blob Storage, consulte [Uso de Azure Blob Storage](https://azure.microsoft.com/develop/net/how-to-guides/blob-storage/). |
 | **Contenedor** |Un contenedor ofrece la agrupación de un conjunto de blobs y puede almacenar un número ilimitado de ellos. Para realizar una copia de seguridad de SQL Server en Azure Blob Storage, debe haber creado un contenedor raíz como mínimo. |
-| **Blob** |Un archivo de cualquier tipo y tamaño. Los blobs son direccionables mediante el formato de dirección URL siguiente: **https://[cuenta de almacenamiento].blob.core.windows.net/[contenedor]/[blob]** . Para más información sobre los blobs en páginas, consulte la [descripción de los blobs en bloques y en páginas](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) |
+| **Blob** |Un archivo de cualquier tipo y tamaño. Los blobs son direccionables mediante el siguiente formato de dirección URL: `https://<storageaccount>.blob.core.windows.net/<container>/<blob>`. Para más información sobre los blobs en páginas, consulte la [descripción de los blobs en bloques y en páginas](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) |
 
 ## <a name="sql-server-components"></a>Componentes de SQL Server
 Cuando se realiza una copia de seguridad en Azure Blob Storage, se utilizan los siguientes componentes de SQL Server.
 
 | Componente | Descripción |
 | --- | --- |
-| **URL** |Una dirección URL especifica un identificador uniforme de recursos (URI) para un archivo de copia de seguridad único. La URL se usa para proporcionar la ubicación y el nombre del archivo de la copia de seguridad de SQL Server. La dirección URL debe apuntar a un blob real, no solo a un contenedor. Si el blob no existe, se crea. Si se especifica un blob que ya existe, BACKUP provoca un error, a menos que se especifique la opción > WITH FORMAT. El siguiente es un ejemplo de la dirección URL que especificaría en el comando BACKUP: **http[s]://[storageaccount].blob.core.windows.net/[container]/[FILENAME.bak]** . Se recomienda HTTPS, pero no es obligatorio. |
+| **URL** |Una dirección URL especifica un identificador uniforme de recursos (URI) para un archivo de copia de seguridad único. La dirección URL proporciona la ubicación y el nombre del archivo de copia de seguridad de SQL Server. La dirección URL debe apuntar a un blob real, no solo a un contenedor. Si el blob no existe, lo crea Azure. Si se especifica un blob existente, se produce un error en el comando de copia de seguridad, a menos que se especifique la opción `WITH FORMAT`. El siguiente es un ejemplo de la dirección URL que especificaría en el comando BACKUP: `https://<storageaccount>.blob.core.windows.net/<container>/<FILENAME.bak>` .<br><br> Se recomienda HTTPS, pero no es obligatorio. |
 | **Credential:** |La información necesaria para conectarse y autenticarse en Azure Blob Storage se almacena como credencial. Para que SQL Server escriba copias de seguridad en un blob de Azure o realice la restauración desde él es preciso crear una credencial de SQL Server. Para obtener más información, vea [Credencial de SQL Server](/sql/t-sql/statements/create-credential-transact-sql). |
 
 > [!NOTE]
 > SQL Server 2016 se actualizó para admitir los blobs en bloques. Consulte el [Tutorial: Usar el servicio Azure Blob Storage con SQL Server 2016](/sql/relational-databases/tutorial-use-azure-blob-storage-service-with-sql-server-2016) para obtener más información.
 > 
-> 
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 1. Cree una cuenta de Azure si aún no tiene una. Si va a evaluar Azure, podría considerar la [evaluación gratuita](https://azure.microsoft.com/free/).
 2. A continuación, siga uno de los siguientes tutoriales para crear una cuenta de almacenamiento y realizar una restauración.
    
-   * **SQL Server 2014**: [Tutorial: Copia de seguridad y restauración de SQL Server en el servicio Azure Blob Storage](https://msdn.microsoft.com/library/jj720558\(v=sql.120\).aspx).
+   * **SQL Server 2014**: [Tutorial: Copia de seguridad y restauración de SQL Server en el servicio Azure Blob Storage](/previous-versions/sql/2014/relational-databases/backup-restore/sql-server-backup-to-url).
    * **SQL Server 2016**: [Tutorial: Usar el servicio Azure Blob Storage con SQL Server 2016](/sql/relational-databases/tutorial-use-azure-blob-storage-service-with-sql-server-2016).
 3. Revise la documentación adicional, empezando por [Copia de seguridad y restauración de SQL Server con el servicio Microsoft Azure Blob Storage](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service).
 

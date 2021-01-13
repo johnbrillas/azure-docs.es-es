@@ -5,12 +5,12 @@ author: sajayantony
 ms.topic: article
 ms.date: 09/18/2020
 ms.author: sajaya
-ms.openlocfilehash: a2cddc9bbe868a2d18ee8111aabf6db7dc8643cf
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 055f039d5bba0dba2906e1d3b8410af00c5600ef
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93347002"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606290"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Preguntas más frecuentes sobre Azure Container Registry
 
@@ -111,6 +111,7 @@ Lleva algún tiempo propagar los cambios en las reglas del firewall. Después de
 - [¿Cómo se puede conceder acceso para extraer o insertar imágenes sin permiso para administrar el recurso del registro?](#how-do-i-grant-access-to-pull-or-push-images-without-permission-to-manage-the-registry-resource)
 - [¿Cómo se habilita la cuarentena automática de imágenes para un registro?](#how-do-i-enable-automatic-image-quarantine-for-a-registry)
 - [¿Cómo se habilita el acceso de extracción anónimo?](#how-do-i-enable-anonymous-pull-access)
+- [¿Cómo puedo insertar capas no distribuibles en un registro?](#how-do-i-push-non-distributable-layers-to-a-registry)
 
 ### <a name="how-do-i-access-docker-registry-http-api-v2"></a>¿Cómo se accede a Docker Registry HTTP API V2?
 
@@ -264,6 +265,33 @@ La configuración de una instancia de Azure Container Registry para el acceso de
 > [!NOTE]
 > * Solo se puede acceder de forma anónima a las API necesarias para extraer una imagen conocida. No se puede acceder de forma anónima a ninguna otra API para operaciones como la lista de etiquetas o la lista de repositorios.
 > * Antes de intentar una operación de extracción anónima, ejecute `docker logout` para que se borren todas las credenciales de Docker existentes.
+
+### <a name="how-do-i-push-non-distributable-layers-to-a-registry"></a>¿Cómo puedo insertar capas no distribuibles en un registro?
+
+Una capa no distribuible de un manifiesto contiene un parámetro de dirección URL en el cual se puede obtener dicho contenido. Algunos casos de uso posibles para habilitar inserciones de capas no redistribuibles son para registros restringidos de red, registros con separación aérea con acceso restringido o para registros sin conectividad a Internet.
+
+Por ejemplo, si tiene reglas de grupo de seguridad de red configuradas para que una máquina virtual pueda extraer imágenes solo de su instancia de Azure Container Registry, Docker extraerá los errores de las capas externa o no distribuibles. Por ejemplo, una imagen de Windows Server básica contendría referencias de capas externas a Azure Container Registry en su manifiesto y no se podría extraer este escenario.
+
+Para habilitar la inserción de capas no redistribuibles:
+
+1. Edite el archivo `daemon.json`, que se encuentra en el directorio `/etc/docker/` en los hosts con Linux y en el arrchivo `C:\ProgramData\docker\config\daemon.json` en Windows Server. Suponiendo que el archivo estaba vacío anteriormente, agregue el siguiente contenido:
+
+   ```json
+   {
+     "allow-nondistributable-artifacts": ["myregistry.azurecr.io"]
+   }
+   ```
+   > [!NOTE]
+   > El valor es una matriz de direcciones de registro, separadas por comas.
+
+2. Guarde y cierre el archivo.
+
+3. Reinicie Docker.
+
+Al insertar imágenes en los registros de la lista, se insertan en el registro sus capas no redistribuibles.
+
+> [!WARNING]
+> Los artefactos no redistribuibles suelen tener restricciones sobre cómo y dónde se pueden distribuir y compartir. Use esta característica solo para insertar artefactos en registros privados. Asegúrese de que cumple con los términos que cubren la redistribución de artefactos no redistribuibles.
 
 ## <a name="diagnostics-and-health-checks"></a>Comprobaciones de mantenimiento y diagnóstico
 
@@ -457,7 +485,7 @@ Para obtener las reglas de nomenclatura de repositorios completas, vea la [Espec
 
 ### <a name="how-do-i-collect-http-traces-on-windows"></a>¿Cómo se pueden recopilar los seguimientos http en Windows?
 
-#### <a name="prerequisites"></a>Requisitos previos
+#### <a name="prerequisites"></a>Prerrequisitos
 
 - Habilite el descifrado de https en Fiddler: <https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS>
 - Habilite Docker para que use un proxy mediante la interfaz de usuario de Docker: <https://docs.docker.com/docker-for-windows/#proxies>

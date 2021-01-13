@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34f82fc060586e2df5acefa6b0836171e558aa4a
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 536a9641b68ccd2510a7891b46483a322fb6ecb7
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97615774"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900933"
 ---
 # <a name="conditional-access-grant"></a>Acceso condicional: Conceder
 
@@ -102,6 +102,7 @@ Esta configuración se aplica a las siguientes aplicaciones de iOS y Android:
 - Microsoft Word
 - Microsoft Yammer
 - Microsoft Whiteboard
+- Administrador de Microsoft 365
 
 **Comentarios:**
 

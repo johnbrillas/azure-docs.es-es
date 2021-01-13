@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 06/08/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8bacb7a434cfa04dbdfdaf39d9fd3a0baab5f11a
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: b0a5547928bd7d19343c50e40ab9fcb2c335e893
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489819"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97674538"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-postgresql-using-powershell"></a>Creación y administración de réplicas de lectura en Azure Database for PostgreSQL mediante PowerShell
 
@@ -56,16 +56,16 @@ El comando `New-AzPostgreSqlServerReplica` requiere los siguientes parámetros:
 | ResourceGroupName |  myresourcegroup |  Grupo de recursos donde se crea el servidor de réplica.  |
 | Nombre | mydemoreplicaserver | Nombre del nuevo servidor de réplica que se crea. |
 
-Para crear una réplica de lectura entre regiones, use el parámetro **Location** . En el siguiente ejemplo, se crea una réplica en la región **Oeste de EE. UU.** .
+Para crear una réplica de lectura entre regiones, use el parámetro **Location**. En el siguiente ejemplo, se crea una réplica en la región **Oeste de EE. UU.** .
 
 ```azurepowershell-interactive
 Get-AzPostgreSqlServer -Name mrdemoserver -ResourceGroupName myresourcegroup |
-  New-AzMariaDServerReplica -Name mydemoreplicaserver -ResourceGroupName myresourcegroup -Location westus
+  New-AzPostgreSQLServerReplica -Name mydemoreplicaserver -ResourceGroupName myresourcegroup -Location westus
 ```
 
 Para más información sobre las regiones en las que puede crear una réplica, consulte el [artículo sobre los conceptos de la réplica de lectura](concepts-read-replicas.md).
 
-De forma predeterminada, las réplicas de lectura se crean con la misma configuración de servidor que el servidor principal, a menos que se especifique el parámetro **Sku** .
+De forma predeterminada, las réplicas de lectura se crean con la misma configuración de servidor que el servidor principal, a menos que se especifique el parámetro **Sku**.
 
 > [!NOTE]
 > Se recomienda mantener la configuración del servidor de réplica con valores iguales o mayores que el principal para asegurarse de que la réplica trabaja al mismo nivel que el servidor maestro.
@@ -75,15 +75,23 @@ De forma predeterminada, las réplicas de lectura se crean con la misma configur
 Para ver todas las réplicas de un servidor principal determinado, ejecute el siguiente comando:
 
 ```azurepowershell-interactive
-Get-AzMariaDReplica -ResourceGroupName myresourcegroup -ServerName mydemoserver
+Get-AzPostgreSQLReplica -ResourceGroupName myresourcegroup -ServerName mydemoserver
 ```
 
-El comando `Get-AzMariaDReplica` requiere los siguientes parámetros:
+El comando `Get-AzPostgreSQLReplica` requiere los siguientes parámetros:
 
 | Configuración | Valor de ejemplo | Descripción  |
 | --- | --- | --- |
 | ResourceGroupName |  myresourcegroup |  Grupo de recursos donde se creará el servidor de réplica.  |
 | nombreDeServidor | mydemoserver | El nombre o el identificador del servidor principal. |
+
+### <a name="stop-a-replica-server"></a>Detención de un servidor de réplica
+
+La detención de un servidor de réplica de lectura promueve la réplica de lectura para que sea un servidor independiente. Se puede llevar a cabo ejecutando el cmdlet `Update-AzPostgreSqlServer` y estableciendo el valor de ReplicationRole en `None`.
+
+```azurepowershell-interactive
+Update-AzPostgreSqlServer -Name mydemoreplicaserver -ResourceGroupName myresourcegroup -ReplicationRole None
+```
 
 ### <a name="delete-a-replica-server"></a>Eliminación de un servidor de réplica
 

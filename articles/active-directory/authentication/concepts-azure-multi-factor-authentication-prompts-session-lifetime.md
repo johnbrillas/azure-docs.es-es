@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8789015c239aae58ec25f0f644d4c497da477c2b
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 0033b6985313de351ffdaf7028d2c1e9bd76ba72
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97881249"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97963526"
 ---
 # <a name="optimize-reauthentication-prompts-and-understand-session-lifetime-for-azure-ad-multi-factor-authentication"></a>Optimice los avisos de reautenticación y comprenda la duración de la sesión en Multi-Factor Authentication de Azure AD.
 
@@ -121,7 +121,7 @@ Para configurar directivas de acceso condicional para la frecuencia de inicio de
 1. Seleccione **Seguridad** y luego **Acceso condicional**.
 1. Configure una directiva mediante las opciones de administración de sesión recomendadas que se detallan en este artículo.
 
-Para revisar la vigencia de los tokens, [use Azure AD PowerShell para consultar las directivas de Azure AD](../develop/configure-token-lifetimes.md#prerequisites). Deshabilite las directivas que haya implementado.
+Para revisar la vigencia de los tokens, [use Azure AD PowerShell para consultar las directivas de Azure AD](../develop/configure-token-lifetimes.md#get-started). Deshabilite las directivas que haya implementado.
 
 Si hay más de una opción de configuración habilitada en el inquilino, se recomienda actualizar la configuración en función de las licencias disponibles. Por ejemplo, si tiene licencias Premium de Azure AD, solo debe usar la directiva de acceso condicional de *Frecuencia de inicio de sesión* y *Sesión del explorador persistente*. Si tiene aplicaciones de Microsoft 365 o licencias de Azure AD gratuitas, debe usar la configuración *Remain signed-in* (Permanecer conectado).
 

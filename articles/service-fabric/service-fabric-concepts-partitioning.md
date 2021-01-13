@@ -1,18 +1,21 @@
 ---
 title: Creación de particiones de los servicios de Service Fabric
-description: Describe cómo crear particiones en los servicios con estado de Service Fabric. Particiones permiten el almacenamiento de datos en las máquinas locales de forma que los datos y el proceso pueden escalarse juntos.
+description: Aprenda a crear particiones en los servicios sin estado y con estado de Service Fabric.
 ms.topic: conceptual
 ms.date: 06/30/2017
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d33e7b5ee293cf9dfb49e509bec2e1950033a956
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 199ae9d9844149c1931da638633110f717fe0517
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89005435"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97915902"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>Partición de Reliable Services de Service Fabric
-Este artículo proporciona una introducción a los conceptos básicos de la creación de particiones en Reliable Services de Azure Service Fabric. El código fuente que se usa en el artículo también está disponible en [Github](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
+Este artículo proporciona una introducción a los conceptos básicos de la creación de particiones en Reliable Services de Azure Service Fabric. La creación de particiones permite el almacenamiento de datos en las máquinas locales de forma que los datos y el proceso pueden escalarse juntos.
+
+> [!TIP]
+> Un [ejemplo completo](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions) del código de este artículo está disponible en GitHub.
 
 ## <a name="partitioning"></a>Creación de particiones
 La creación de particiones no es exclusiva de Service Fabric. De hecho, es una función básica de la compilación de servicios escalables. En un sentido amplio, podemos considerar la creación de particiones como un estado de división (datos) y procesamiento en unidades accesibles más pequeñas para mejorar el rendimiento y escalabilidad. Una forma conocida de partición es la [partición de datos][wikipartition] también conocida como particionamiento.
@@ -348,14 +351,14 @@ Puesto que literalmente queremos tener una partición por cada letra, podemos us
     
     ![Captura de pantalla de explorador](./media/service-fabric-concepts-partitioning/samplerunning.png)
 
-Todo el código fuente del ejemplo está disponible en [Github](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
+La solución completa del código que se usa en este artículo está disponible aquí: https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para obtener información sobre los conceptos de Service Fabric, vea lo siguiente:
+Más información sobre los servicios de Service Fabric:
 
+* [Conexión y comunicación con servicios en Service Fabric](service-fabric-connect-and-communicate-with-services.md)
 * [Disponibilidad de los servicios de Service Fabric](service-fabric-availability-services.md)
 * [Escalabilidad de servicios de Service Fabric](service-fabric-concepts-scalability.md)
-* [Planeación de la capacidad para las aplicaciones de Service Fabric](service-fabric-capacity-planning.md)
 
 [wikipartition]: https://en.wikipedia.org/wiki/Partition_(database)
 

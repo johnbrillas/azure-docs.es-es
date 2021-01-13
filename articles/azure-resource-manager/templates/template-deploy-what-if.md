@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: tomfitz
-ms.openlocfilehash: a1ce7f8f718b364dc4b47593cf9ea37e8baf1e72
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: fa70d88b046cf38aa74582066d230c15580465b9
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97563099"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673977"
 ---
 # <a name="arm-template-deployment-what-if-operation"></a>Operación what-if de la implementación de plantilla de Resource Manager
 
@@ -396,6 +396,7 @@ Puede usar la operación "what-if" a través de los SDK de Azure.
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Si observa resultados incorrectos de la operación hipotética, informe de los problemas en [https://aka.ms/whatifissues](https://aka.ms/whatifissues).
+- Para información sobre un módulo de Microsoft Learn que abarque el uso de hipótesis, consulte [Obtención de una vista previa de los cambios y validación de recursos de Azure mediante What If y el kit de herramientas de pruebas de plantillas de ARM](/learn/modules/arm-template-test/).
 - Para implementar plantillas con Azure PowerShell, consulte [Implementar recursos con plantillas de Resource Manager y Azure PowerShell](deploy-powershell.md).
 - Para implementar plantillas con la CLI de Azure, consulte [Implementación de recursos con plantillas de ARM y la CLI de Azure](deploy-cli.md).
 - Para implementar plantillas con REST, consulte [Implementación de recursos con plantillas de Resource Manager y Administrador de recursos API de REST](deploy-rest.md).

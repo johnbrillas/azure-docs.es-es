@@ -1,18 +1,18 @@
 ---
 title: Sintaxis y expresiones de plantillas
-description: En este artículo se describe la sintaxis JSON declarativa de las plantillas de Azure Resource Manager.
+description: En este artículo se describe la sintaxis JSON declarativa de las plantillas de Azure Resource Manager (plantillas de ARM).
 ms.topic: conceptual
 ms.date: 03/17/2020
-ms.openlocfilehash: baddedae1b918502e579d2ed230e0779960f45e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 44a386ed849771dfba717c8d1414e64422d0c7bd
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82203835"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97797050"
 ---
-# <a name="syntax-and-expressions-in-azure-resource-manager-templates"></a>Sintaxis y expresiones de las plantillas de Azure Resource Manager
+# <a name="syntax-and-expressions-in-arm-templates"></a>Sintaxis y expresiones en las plantillas de ARM
 
-La sintaxis básica de la plantilla es JSON. Sin embargo, puede utilizar expresiones para ampliar los valores JSON disponibles en la plantilla.  Las expresiones empiezan y terminan con corchetes: `[` y `]`, respectivamente. El valor de la expresión se evalúa cuando se implementa la plantilla. Una expresión puede devolver una cadena, un entero, un booleano, una matriz o un objeto.
+La sintaxis básica de la plantilla de Azure Resource Manager (plantilla de ARM) es la notación de objetos JavaScript (JSON). Sin embargo, puede utilizar expresiones para ampliar los valores JSON disponibles en la plantilla.  Las expresiones empiezan y terminan con corchetes: `[` y `]`, respectivamente. El valor de la expresión se evalúa cuando se implementa la plantilla. Una expresión puede devolver una cadena, un entero, un booleano, una matriz o un objeto.
 
 Las expresiones de plantilla no pueden superar los 24 576 caracteres.
 
@@ -31,7 +31,7 @@ Azure Resource Manager cuenta con [funciones](template-functions.md) que se pued
 
 En de la expresión, la sintaxis `resourceGroup()` llama a una de las funciones que Resource Manager proporciona para utilizarla dentro de una plantilla. En este caso, se trata de la función [resourceGroup](template-functions-resource.md#resourcegroup). Al igual que en JavaScript, las llamadas de función tienen el formato `functionName(arg1,arg2,arg3)`. La sintaxis `.location` recupera una propiedad del objeto devuelto por esta función.
 
-Las funciones de plantilla y sus parámetros no distinguen mayúsculas de minúsculas. Por ejemplo, Resource Manager resuelve **variables('var1')** y **VARIABLES('VAR1')** de la misma manera. Cuando se evalúa, a menos que la función modifique expresamente las mayúsculas (como toUpper o toLower), la función conserva las mayúsculas. Es posible que determinados tipos de recursos tengan requisitos de mayúsculas independientemente de cómo se evalúen las funciones.
+Las funciones de plantilla y sus parámetros no distinguen mayúsculas de minúsculas. Por ejemplo, Resource Manager resuelve `variables('var1')` y `VARIABLES('VAR1')` de la misma manera. Cuando se evalúa, a menos que la función modifique expresamente las mayúsculas y minúsculas (como `toUpper` o `toLower`), la función conserva lo que existe. Es posible que determinados tipos de recursos tengan requisitos de mayúsculas independientemente de cómo se evalúen las funciones.
 
 Para pasar un valor de cadena como parámetro a una función, use comillas simples.
 
@@ -123,7 +123,7 @@ Se aplica el mismo formato al pasar valores de un archivo de parámetros. Los ca
 
 ## <a name="null-values"></a>Valores NULL
 
-Para establecer una propiedad en null, puede utilizar **null** o **[json('null')]** . La [función json](template-functions-object.md#json) devuelve un objeto vacío cuando se proporciona `null` como parámetro. En ambos casos, las plantillas de Resource Manager lo tratan como si la propiedad no estuviera presente.
+Para establecer una propiedad en NULL, puede usar `null` o `[json('null')]`. La [función json](template-functions-object.md#json) devuelve un objeto vacío cuando se proporciona `null` como parámetro. En ambos casos, las plantillas de Resource Manager lo tratan como si la propiedad no estuviera presente.
 
 ```json
 "stringValue": null,
@@ -132,5 +132,5 @@ Para establecer una propiedad en null, puede utilizar **null** o **[json('null')
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para obtener la lista completa de las funciones de plantilla, consulte [Funciones de la plantilla del Administrador de recursos de Azure](template-functions.md).
-* Para más información sobre los archivos de plantilla, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](template-syntax.md).
+* Para la lista completa de las funciones de plantilla disponibles, consulte [Funciones de plantilla de ARM](template-functions.md).
+* Para más información sobre los archivos de plantilla, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de ARM](template-syntax.md).

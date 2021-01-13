@@ -3,17 +3,17 @@ title: Actualización de un clúster de Azure Kubernetes Service (AKS)
 description: Obtenga información sobre cómo actualizar un clúster de Azure Kubernetes Service (AKS) para obtener las últimas características y actualizaciones de seguridad.
 services: container-service
 ms.topic: article
-ms.date: 11/17/2020
-ms.openlocfilehash: c5de1a02a077ccb5f46b685572c6c43f5951b224
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.date: 12/17/2020
+ms.openlocfilehash: 947d669d436308a550bce31f04c7b1a2b8a8485a
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96751502"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97734359"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Actualización de un clúster de Azure Kubernetes Service (AKS)
 
-Como parte del ciclo de vida de un clúster de AKS, a menudo es preciso actualizar Kubernetes a su versión más reciente. Es importante que aplique las versiones de seguridad de Kubernetes más recientes o que realice la actualización necesaria para disfrutar de las últimas características. En este artículo se muestra cómo actualizar los componentes principales o un único grupo de nodos predeterminado en un clúster de AKS.
+Parte del ciclo de vida del clúster de AKS implica efectuar actualizaciones periódicas a la versión más reciente de Kubernetes. Es importante que aplique las versiones de seguridad más recientes o que actualice el software para obtener las últimas características. En este artículo se muestra cómo actualizar los componentes principales o un único grupo de nodos predeterminado en un clúster de AKS.
 
 Para los clústeres de AKS que usan varios grupos de nodos o nodos de Windows Server, consulte [Actualización de un grupo de nodos en AKS][nodepool-upgrade].
 
@@ -22,31 +22,30 @@ Para los clústeres de AKS que usan varios grupos de nodos o nodos de Windows S
 Para este artículo es preciso usar la versión 2.0.65 de la CLI de Azure, o cualquier versión posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure][azure-cli-install].
 
 > [!WARNING]
-> Una actualización del clúster de AKS desencadena un acordonamiento y purga de los nodos. Si tiene una cuota de proceso baja disponible, se puede producir un error en la actualización. Consulte el [aumento de cuotas](../azure-portal/supportability/resource-manager-core-quotas-request.md) para más información.
+> Una actualización del clúster de AKS desencadena un acordonamiento y purga de los nodos. Si tiene una cuota de proceso baja disponible, se puede producir un error en la actualización. Para más información, consulte [Solicitudes de aumento de cuota](../azure-portal/supportability/resource-manager-core-quotas-request.md).
 
 ## <a name="check-for-available-aks-cluster-upgrades"></a>Compruebe las actualizaciones disponibles del clúster de AKS
 
-Para comprobar qué versiones de Kubernetes están disponibles para su clúster, use el comando [az aks get-upgrades][az-aks-get-upgrades]. En el ejemplo siguiente se comprueba si hay actualizaciones disponibles para el clúster denominado *myAKSCluster* en el grupo de recursos denominado *myResourceGroup*:
+Para comprobar qué versiones de Kubernetes están disponibles para su clúster, use el comando [az aks get-upgrades][az-aks-get-upgrades]. En el siguiente ejemplo se comprueban las actualizaciones disponibles para *myAKSCluster* en *myResourceGroup*:
 
 ```azurecli-interactive
 az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster --output table
 ```
 
 > [!NOTE]
-> Cuando se actualiza un clúster de AKS compatible, no pueden omitirse las versiones secundarias de Kubernetes. Por ejemplo, se permiten las actualizaciones entre *1.12.x* -> *1.13.x* o *1.13.x* -> *1.14.x*, pero no entre *1.12.x* -> *1.14.x*.
->
-> Para actualizar de *1.12.x* -> *1.14.x*, la primera actualización sería de *1.12.x* -> *1.13.x* y, después, de *1.13.x* -> *1.14.x*.
->
-> Solo se pueden omitir varias versiones cuando se actualiza de una versión que no es compatible a otra que sí lo es. Por ejemplo, si se actualiza de la versión *1.10.x*, que no es compatible, a la versión *1.15.x*, que sí lo es.
+> Cuando se actualiza un clúster de AKS compatible, no pueden omitirse las versiones secundarias de Kubernetes. Todas las actualizaciones deben realizarse secuencialmente con arreglo al número de versión principal. Por ejemplo, las actualizaciones comprendidas entre *1.14.x* -> *1.15.x* o *1.15.x* -> *1.16.x* están permitidas, pero las comprendidas entre *1.14.x* -> *1.16.x* no lo están. 
+> > Solo se pueden omitir varias versiones al actualizar de una _versión que no es compatible_ a una _versión compatible_. Por ejemplo, se puede efectuar una actualización de una versión *1.10.x* no compatible a una versión *1.15.x* compatible.
 
-La siguiente salida de ejemplo muestra que el clúster puede actualizarse a las versiones *1.13.9* y *1.13.10*:
+La siguiente salida de ejemplo muestra que el clúster se puede actualizar a las versiones *1.19.1* y *1.19.3*:
 
 ```console
-Name     ResourceGroup     MasterVersion    NodePoolVersion    Upgrades
--------  ----------------  ---------------  -----------------  ---------------
-default  myResourceGroup   1.12.8           1.12.8             1.13.9, 1.13.10
+Name     ResourceGroup    MasterVersion    Upgrades
+-------  ---------------  ---------------  --------------
+default  myResourceGroup  1.18.10          1.19.1, 1.19.3
 ```
-Si no hay ninguna actualización disponible, obtendrá:
+
+Si no hay ninguna actualización disponible, verá el mensaje:
+
 ```console
 ERROR: Table output unavailable. Use the --query option to specify an appropriate query. Use --debug for more info.
 ```
@@ -58,23 +57,13 @@ ERROR: Table output unavailable. Use the --query option to specify an appropriat
 >
 > Si usa Azure CNI, compruebe que haya direcciones IP disponibles en la subred, además de [cumplir los requisitos de direcciones IP de Azure CNI](configure-azure-cni.md).
 
-De forma predeterminada, AKS configura las actualizaciones para la sobrecarga con un nodo adicional. Un valor predeterminado de uno para la configuración de sobrecarga máxima permite a AKS minimizar la interrupción de la carga de trabajo mediante la creación de un nodo adicional antes de acordonar o purgar las aplicaciones existentes para reemplazar un nodo de una versión anterior. El valor de sobrecarga máxima se puede personalizar por grupo de nodos para permitir un equilibrio entre la velocidad de actualización y la interrupción de la actualización. Al aumentar el valor de sobrecarga máxima, el proceso de actualización se completa más rápido, pero si se establece un valor alto para la sobrecarga máxima, pueden producirse interrupciones durante el proceso de actualización. 
+De forma predeterminada, AKS configura las actualizaciones para la sobrecarga con un nodo adicional. Un valor predeterminado de uno para la configuración de sobrecarga máxima permitirá a AKS minimizar la interrupción de la carga de trabajo mediante la creación de un nodo adicional antes de acordonar o purgar las aplicaciones existentes para reemplazar un nodo de una versión anterior. El valor de sobrecarga máxima se puede personalizar por grupo de nodos para permitir un equilibrio entre la velocidad de actualización y la interrupción de la actualización. Al aumentar el valor de sobrecarga máxima, el proceso de actualización se completa más rápido, pero si se establece un valor alto para la sobrecarga máxima, pueden producirse interrupciones durante el proceso de actualización. 
 
 Por ejemplo, un valor de sobrecarga máxima del 100 % proporciona el proceso de actualización más rápido posible (se duplica el número de nodos), pero también hace que todos los nodos del grupo de nodos se purguen simultáneamente. Es posible que desee usar un valor más alto, como este, para los entornos de prueba. En el caso de los grupos de nodos de producción, se recomienda un valor de sobrecarga máxima del 33 %.
 
 AKS acepta valores enteros y un valor de porcentaje para la sobrecarga máxima. Un entero como "5" indica cinco nodos adicionales para la sobrecarga. Un valor de "50 %" indica un valor de sobrecarga de la mitad del número de nodos actual del grupo. Los valores de porcentaje de sobrecarga máxima pueden ser de 1 % como mínimo y 100 % como máximo. Un valor de porcentaje se redondea al número de nodos más próximo. Si el valor de sobrecarga máxima es inferior al número de nodos actual en el momento de la actualización, el número de nodos actual se usa para el valor de sobrecarga máxima.
 
 Durante una actualización, el valor de sobrecarga máxima puede ser 1 como mínimo y un valor igual al número de nodos del grupo de nodos como máximo. Puede establecer valores mayores, pero el número máximo de nodos que se usan para la sobrecarga máxima no será mayor que el número de nodos del grupo en el momento de la actualización.
-
-Hasta la versión 2.16.0 de la CLI, necesitará la extensión *aks-preview* de la CLI para usar la sobrecarga máxima. Use el comando [az extension add][az-extension-add] y, a continuación, busque las actualizaciones disponibles mediante el comando [az extension update][az-extension-update]:
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
 
 > [!Important]
 > La configuración de sobrecarga máxima en un grupo de nodos es permanente.  Las actualizaciones posteriores de Kubernetes o las actualizaciones de la versión de nodo usarán esta configuración. Puede cambiar el valor de sobrecarga máxima para los grupos de nodos en cualquier momento. En el caso de los grupos de nodos de producción, se recomienda un valor de sobrecarga máxima del 33 %.
@@ -93,7 +82,12 @@ az aks nodepool update -n mynodepool -g MyResourceGroup --cluster-name MyManaged
 
 ## <a name="upgrade-an-aks-cluster"></a>Actualización de un clúster de AKS
 
-Con una lista de las versiones disponibles para el clúster de AKS, use el comando [az aks upgrade][az-aks-upgrade] para realizar la actualización. Durante el proceso de actualización, AKS agrega un nuevo nodo de búfer (o tantos nodos como los configurados en la [sobrecarga máxima](#customize-node-surge-upgrade)) al clúster que ejecuta la versión de Kubernetes especificada. A continuación, [acordonará y purgará][kubernetes-drain] uno de los nodos antiguos para minimizar la interrupción de las aplicaciones en ejecución (si usa la sobrecarga máxima, [acordonará y purgará][kubernetes-drain] tantos nodos al mismo tiempo como el número de nodos de búfer especificados). Cuando el nodo anterior se ha purgado por completo, se restablecerá la imagen inicial para recibir la nueva versión y se convertirá en el nodo de búfer para el siguiente nodo que se va a actualizar. Este proceso se repite hasta que se hayan actualizado todos los nodos del clúster. Al final del proceso, se eliminará el último nodo del búfer, manteniendo el número de nodos de agente existentes, así como el equilibrio de zona.
+Con una lista de las versiones disponibles para el clúster de AKS, use el comando [az aks upgrade][az-aks-upgrade] para realizar la actualización. Durante el proceso de actualización, AKS se ocupará de lo siguiente: 
+- Agregar un nuevo nodo de búfer (o tantos nodos como se hayan configurado en [sobrecarga máxima](#customize-node-surge-upgrade)) al clúster que ejecuta la versión especificada de Kubernetes. 
+- [Acordonar y purgar][kubernetes-drain] uno de los nodos antiguos para minimizar la interrupción de las aplicaciones en ejecución. Si se usa la sobrecarga máxima, [acordonará y purgará][kubernetes-drain] tantos nodos al mismo tiempo como el número de nodos de búfer que se haya especificado. 
+- Cuando el nodo anterior se ha purgado por completo, se restablecerá la imagen inicial para recibir la nueva versión y se convertirá en el nodo de búfer para el siguiente nodo que se va a actualizar. 
+- Este proceso se repite hasta que se hayan actualizado todos los nodos del clúster. 
+- Al final del proceso, se eliminará el último nodo del búfer, manteniendo el número de nodos de agente existentes, así como el equilibrio de zona.
 
 ```azurecli-interactive
 az aks upgrade \
@@ -118,23 +112,25 @@ En la salida de ejemplo siguiente se muestra que el clúster ahora ejecuta la ve
 
 ```json
 Name          Location    ResourceGroup    KubernetesVersion    ProvisioningState    Fqdn
-------------  ----------  ---------------  -------------------  -------------------  ---------------------------------------------------------------
-myAKSCluster  eastus      myResourceGroup  1.13.10               Succeeded            myaksclust-myresourcegroup-19da35-90efab95.hcp.eastus.azmk8s.io
+------------  ----------  ---------------  -------------------  -------------------  ----------------------------------------------
+myAKSCluster  eastus      myResourceGroup  1.18.10              Succeeded            myakscluster-dns-379cbbb9.hcp.eastus.azmk8s.io
 ```
 
-## <a name="set-auto-upgrade-channel-preview"></a>Establecimiento de un canal de actualización automática (versión preliminar)
+## <a name="set-auto-upgrade-channel"></a>Establecimiento de un canal de actualización automática
 
 Además de actualizar manualmente un clúster, puede establecer un canal de actualización automática en el clúster. Están disponibles los siguientes canales de actualización:
 
-* *none*, que deshabilita las actualizaciones automáticas y mantiene el clúster en su versión actual de Kubernetes. Este es el valor predeterminado y se usa si no se especifica ninguna opción.
-* *patch*, que actualizará automáticamente el clúster a la última versión de revisión compatible cuando esté disponible mientras se mantiene la misma versión secundaria. Por ejemplo, si un clúster ejecuta la versión *1.17.7* y las versiones *1.17.9*, *1.18.4*, *1.18.6* y *1.19.1* están disponibles, el clúster se actualiza a *1.17.9*.
-* *stable*, que actualizará automáticamente el clúster a la última versión de revisión compatible en la versión secundaria *N-1*, donde *N* es la última versión secundaria compatible. Por ejemplo, si un clúster ejecuta la versión *1.17.7* y las versiones *1.17.9*, *1.18.4*, *1.18.6* y *1.19.1* están disponibles, el clúster se actualiza a *1.18.6*.
-* *rapid*, que actualizará automáticamente el clúster a la última versión de revisión compatible en la última versión secundaria compatible. En los casos en los que el clúster está en una versión de Kubernetes que se encuentra en una versión secundaria *N-2* donde *N* es la última versión secundaria, el clúster se actualiza primero a la última versión de revisión compatible en la versión secundaria *N-1*. Por ejemplo, si un clúster ejecuta la versión *1.17.7* y las versiones *1.17.9*, *1.18.4*, *1.18.6* y *1.19.1* están disponibles, el clúster se actualiza primero a *1.18.6* y, a continuación, se actualiza a *1.19.1*.
+|Canal| Acción | Ejemplo
+|---|---|---|
+| `none`| Deshabilita las actualizaciones automáticas y mantiene la versión actual del clúster de Kubernetes.| Si no se hacen cambios, se usa la configuración predeterminada.|
+| `patch`| Actualiza automáticamente el clúster a la última versión de revisión compatible cuando esté disponible, mientras se mantiene la misma versión secundaria.| Por ejemplo, si un clúster ejecuta la versión *1.17.7* y las versiones *1.17.9*, *1.18.4*, *1.17.9* y *1.19.1* están disponibles, se actualizará a la *1.18.6*.|
+| `stable`| Actualiza automáticamente el clúster a la última versión de revisión compatible en la versión secundaria *N-1*, donde *N* es la última versión secundaria compatible.| Por ejemplo, si un clúster ejecuta la versión *1.17.7* y las versiones *1.17.9*, *1.18.4*, *1.18.6* y *1.19.1* están disponibles, el clúster se actualiza a *1.18.6*.
+| `rapid`| Actualiza automáticamente el clúster a la última versión de revisión compatible en la última versión secundaria compatible.| En los casos en los que el clúster está en una versión de Kubernetes que se encuentra en una versión secundaria *N-2* donde *N* es la última versión secundaria, el clúster se actualiza primero a la última versión de revisión compatible en la versión secundaria *N-1*. Por ejemplo, si un clúster ejecuta la versión *1.17.7* y las versiones *1.17.9*, *1.18.4*, *1.18.6* y *1.19.1* están disponibles, el clúster se actualiza primero a *1.18.6* y, a continuación, se actualiza a *1.19.1*.
 
 > [!NOTE]
 > La actualización automática del clúster solo se actualiza a las versiones de disponibilidad general de Kubernetes y no se actualizará a las versiones preliminares.
 
-La actualización automática de un clúster sigue el mismo proceso que la manual. Para obtener más detalles, consulte [Actualización de un clúster de Azure Kubernetes Service (AKS)][upgrade-cluster].
+La actualización automática de un clúster sigue el mismo proceso que la manual. Para obtener más detalles, consulte [Actualización de un clúster de AKS][upgrade-cluster].
 
 La actualización automática del clúster para los clústeres de AKS es una característica en vista previa (GB).
 
@@ -156,16 +152,6 @@ Cuando haya terminado, actualice el registro del proveedor de recursos *Microsof
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
-```
-
-Use el comando [az extension add][az-extension-add] para instalar la extensión *aks-preview* y, a continuación, busque las actualizaciones disponibles con el comando [az extension update][az-extension-update]:
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
 ```
 
 Para establecer el canal de actualización automática al crear un clúster, use el parámetro *auto-upgrade-channel*, similar al ejemplo siguiente.

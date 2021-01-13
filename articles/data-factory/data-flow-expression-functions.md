@@ -6,13 +6,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/01/2020
-ms.openlocfilehash: 875b84613bede922b01b1043f2d6dab9aedbc2e8
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.date: 12/18/2020
+ms.openlocfilehash: f715a51367a82f190d394ecb8e10dea24ca70e97
+ms.sourcegitcommit: 0830e02635d2f240aae2667b947487db01f5fdef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96436936"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97706922"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>Expresiones de transformación de datos en Asignación de Data Flow
 
@@ -1890,6 +1890,28 @@ Selecciona un valor de columna por su posición relativa (de base 1) en la secue
 * ``toBoolean(byName(4))``  
 * ``toString(byName($colName))``  
 * ``toString(byPosition(1234))``  
+
+## <a name="cached-lookup-functions"></a>Funciones de búsqueda almacenadas en caché
+Las siguientes funciones solo están disponibles cuando se usa una búsqueda almacenada en caché y ha incluido un receptor almacenado en caché.
+___
+### <code>lookup</code>
+<code><b>lookup(key, key2, ...) => complex[]</b></code><br/><br/>
+Busca la primera fila del receptor almacenado en caché con las claves especificadas, que coinciden con las claves del receptor almacenado en caché.
+* ``cacheSink#lookup(movieId)``  
+___
+### <code>mlookup</code>
+<code><b>mlookup(key, key2, ...) => complex[]</b></code><br/><br/>
+Busca todas las filas coincidentes del receptor almacenado en caché con las claves especificadas, que coinciden con las claves del receptor almacenado en caché.
+* ``cacheSink#mlookup(movieId)``  
+___
+### <code>output</code>
+<code><b>output() => any</b></code><br/><br/>
+Devuelve la primera fila de los resultados del receptor almacenado en caché * ``cacheSink#output()``.  
+___
+### <code>outputs</code>
+<code><b>output() => any</b></code><br/><br/>
+Devuelve el conjunto completo de filas de salida de los resultados del receptor almacenado en caché * ``cacheSink#outputs()``
+___.
 
 ## <a name="window-functions"></a>Funciones de ventana
 Las siguientes funciones solo están disponibles en las transformaciones de ventana.

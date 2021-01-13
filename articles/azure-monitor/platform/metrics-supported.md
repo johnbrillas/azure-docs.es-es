@@ -4,15 +4,15 @@ description: Lista de métricas disponibles para cada tipo de recurso con Azure 
 author: rboucher
 services: azure-monitor
 ms.topic: reference
-ms.date: 12/09/2020
+ms.date: 01/04/2021
 ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: 04f6cdae8a7601f94251516cf5c3c1fab07994a6
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 54ef00d32cea26a41581fc0bbd89d2be34919c02
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96929113"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97883034"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas compatibles con Azure Monitor
 
@@ -618,8 +618,8 @@ Para más información, consulte [Información general sobre los agentes de Azur
 
 |Métrica|¿Se puede exportar con la configuración de diagnóstico?|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Descripción|Dimensions|
 |---|---|---|---|---|---|---|
-|Créditos de CPU consumidos|Sí|Créditos de CPU consumidos|Count|Average|Número total de créditos consumidos por la máquina virtual|Sin dimensiones|
-|Créditos de CPU restantes|Sí|Créditos de CPU restantes|Count|Average|Número total de créditos disponibles para irrumpir|Sin dimensiones|
+|Créditos de CPU consumidos|Sí|Créditos de CPU consumidos|Count|Average|Número total de créditos consumidos por la máquina virtual. Solo está disponible en [máquinas virtuales ampliables de la serie B](../../virtual-machines/sizes-b-series-burstable.md). Vea |Sin dimensiones|
+|Créditos de CPU restantes|Sí|Créditos de CPU restantes|Count|Average|Número total de créditos disponibles para ampliar. Solo está disponible en [máquinas virtuales ampliables de la serie B](../../virtual-machines/sizes-b-series-burstable.md).|Sin dimensiones|
 |Porcentaje de ancho de banda consumido del disco de datos|Sí|Porcentaje de ancho de banda consumido del disco de datos|Percent|Average|Porcentaje de ancho de banda de disco de datos consumido por minuto|LUN|
 |Porcentaje de consumo de IOPS de disco de datos|Sí|Porcentaje de consumo de IOPS de disco de datos|Percent|Average|Porcentaje de operaciones de E/S de disco de datos consumido por minuto|LUN|
 |Profundidad de cola de discos de datos|Sí|Profundidad de cola de discos de datos (versión preliminar)|Count|Average|Profundidad de la cola del disco de datos (o longitud de la cola)|LUN|
@@ -671,8 +671,8 @@ Para más información, consulte [Información general sobre los agentes de Azur
 
 |Métrica|¿Se puede exportar con la configuración de diagnóstico?|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Descripción|Dimensions|
 |---|---|---|---|---|---|---|
-|Créditos de CPU consumidos|Sí|Créditos de CPU consumidos|Count|Average|Número total de créditos consumidos por la máquina virtual|Sin dimensiones|
-|Créditos de CPU restantes|Sí|Créditos de CPU restantes|Count|Average|Número total de créditos disponibles para irrumpir|Sin dimensiones|
+|Créditos de CPU consumidos|Sí|Créditos de CPU consumidos|Count|Average|Número total de créditos consumidos por la máquina virtual. Solo está disponible en [máquinas virtuales ampliables de la serie B](../../virtual-machines/sizes-b-series-burstable.md).|Sin dimensiones|
+|Créditos de CPU restantes|Sí|Créditos de CPU restantes|Count|Average|Número total de créditos disponibles para ampliar. Solo está disponible en [máquinas virtuales ampliables de la serie B](../../virtual-machines/sizes-b-series-burstable.md).|Sin dimensiones|
 |Profundidad de cola de discos de datos|Sí|Profundidad de cola de discos de datos (versión preliminar)|Count|Average|Profundidad de la cola del disco de datos (o longitud de la cola)|LUN, VMName|
 |Bytes de lectura de discos de datos por segundo|Sí|Bytes de lectura de discos de datos por segundo (versión preliminar)|CountPerSecond|Average|Bytes por segundo de lectura de un único disco durante el período de supervisión|LUN, VMName|
 |Operaciones de lectura de discos de datos por segundo|Sí|Operaciones de lectura de discos de datos por segundo (versión preliminar)|CountPerSecond|Average|IOPS de lectura de un único disco durante el período de supervisión|LUN, VMName|

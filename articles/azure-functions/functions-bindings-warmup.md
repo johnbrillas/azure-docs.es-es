@@ -10,16 +10,19 @@ ms.topic: reference
 ms.custom: devx-track-csharp
 ms.date: 11/08/2019
 ms.author: cshoe
-ms.openlocfilehash: 6a909b246e7cb3695533a75294c523d7c9aeaeda
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 7cefe75eefb746c150b051a7bd1f4513c103d205
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94832949"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97655865"
 ---
 # <a name="azure-functions-warm-up-trigger"></a>Desencadenador de preparación de Azure Functions
 
-En este artículo se explica cómo trabajar con el desencadenador de preparación en Azure Functions. El desencadenador de preparación solo se admite para las aplicaciones de funciones que se ejecutan en un [plan Premium](functions-premium-plan.md). Un desencadenador de preparación se invoca cuando se agrega una instancia para escalar una aplicación de funciones en ejecución. Puede usar un desencadenador de preparación para cargar con antelación las dependencias personalizadas durante el [proceso de preparación](./functions-premium-plan.md#pre-warmed-instances), de modo que las funciones estén listas para empezar a procesar solicitudes inmediatamente. 
+En este artículo se explica cómo trabajar con el desencadenador de preparación en Azure Functions. Un desencadenador de preparación se invoca cuando se agrega una instancia para escalar una aplicación de funciones en ejecución. Puede usar un desencadenador de preparación para cargar con antelación las dependencias personalizadas durante el [proceso de preparación](./functions-premium-plan.md#pre-warmed-instances), de modo que las funciones estén listas para empezar a procesar solicitudes inmediatamente. 
+
+> [!NOTE]
+> El desencadenador de preparación no se admite en las aplicaciones de funciones que se ejecutan en un plan de consumo.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 

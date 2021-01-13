@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 874d44e3900b1edf24c2f6bee95d787c5fc3988d
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 24f6052c436b73d0075371fa74160d21826e2209
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97704855"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97865958"
 ---
 ## <a name="create-an-azure-container-instance-resource-using-the-azure-portal"></a>Creación de un recurso de instancia de contenedor de Azure con Azure Portal
 
@@ -28,8 +28,8 @@ ms.locfileid: "97704855"
     |Resource group|Seleccione el grupo de recursos disponible o cree uno nuevo, como `cognitive-services`.|
     |Nombre del contenedor|Escriba un nombre como `cognitive-container-instance`. Este nombre debe estar en minúsculas.|
     |Location|Seleccione una región para la implementación.|
-    |Tipo de imagen|Si la imagen de contenedor está almacenada en un registro de contenedor que no requiere credenciales, elija `Public`. Si el acceso a la imagen de contenedor requiere credenciales, elija `Private`. Consulte los [repositorios de contenedores y las imágenes](../../cognitive-services-container-support.md#container-repositories-and-images) para información sobre si la imagen de contenedor es `Public` o `Private` ("versión preliminar pública"). |
-    |Nombre de la imagen|Escriba la ubicación del contenedor de Cognitive Services. La ubicación es lo que se usa como argumento para el comando `docker pull`. Consulte las [imágenes y los repositorios de contenedor](../../cognitive-services-container-support.md#container-repositories-and-images) para ver los nombres de imagen disponibles y su repositorio correspondiente.<br><br>El nombre de la imagen debe estar completo y especificar tres partes. La primera, el registro de contenedor, después el repositorio y, por último, el nombre de la imagen: `<container-registry>/<repository>/<image-name>`.<br><br>Este es un ejemplo, `mcr.microsoft.com/azure-cognitive-services/keyphrase` representaría la imagen de extracción de frases clave en el registro de contenedor de Microsoft del repositorio de Azure Cognitive Services. Otro ejemplo, `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text` representaría la imagen de conversión de voz en texto en el repositorio de Microsoft del registro de contenedor de la versión preliminar del contenedor. |
+    |Tipo de imagen|Si la imagen de contenedor está almacenada en un registro de contenedor que no requiere credenciales, elija `Public`. Si el acceso a la imagen de contenedor requiere credenciales, elija `Private`. Consulte los [repositorios de contenedores y las imágenes](../container-image-tags.md) para información sobre si la imagen de contenedor es `Public` o `Private` ("versión preliminar pública"). |
+    |Nombre de la imagen|Escriba la ubicación del contenedor de Cognitive Services. La ubicación es lo que se usa como argumento para el comando `docker pull`. Consulte las [imágenes y los repositorios de contenedor](../container-image-tags.md) para ver los nombres de imagen disponibles y su repositorio correspondiente.<br><br>El nombre de la imagen debe estar completo y especificar tres partes. La primera, el registro de contenedor, después el repositorio y, por último, el nombre de la imagen: `<container-registry>/<repository>/<image-name>`.<br><br>Este es un ejemplo, `mcr.microsoft.com/azure-cognitive-services/keyphrase` representaría la imagen de extracción de frases clave en el registro de contenedor de Microsoft del repositorio de Azure Cognitive Services. Otro ejemplo, `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text` representaría la imagen de conversión de voz en texto en el repositorio de Microsoft del registro de contenedor de la versión preliminar del contenedor. |
     |Tipo de SO|`Linux`|
     |Size|Seleccione el tamaño de las recomendaciones sugeridas para su contenedor específico de Cognitive Services:<br>2 núcleos de CPU<br>4 GB
 

@@ -2,16 +2,16 @@
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 07/17/2020
+ms.date: 12/28/2020
 ms.author: tamram
-ms.openlocfilehash: 85e7cb86217340e77a6f597a357c3de1f91fb8d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 85cfe3b062d7d9ef3a7bdcf29ef7d2125f8f3ae4
+ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87070557"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97812756"
 ---
-Azurite es compatible con una sola cuenta fija y una clave de autenticación ya conocida para autenticación de clave compartida. Esta cuenta y clave son las únicas credenciales de clave compartida que se admiten para su uso con Azurite. Son las siguientes:
+El emulador es compatible con una sola cuenta fija y una clave de autenticación ya conocida para la autenticación de clave compartida. Esta cuenta y clave son las únicas credenciales de clave compartida que se admiten para su uso con el emulador. Son las siguientes:
 
 ```
 Account name: devstoreaccount1
@@ -19,28 +19,28 @@ Account key: Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZ
 ```
 
 > [!NOTE]
-> La clave de autenticación compatible con Azurite está destinada únicamente a la realización de pruebas de funcionalidad del código de autenticación del cliente. No responde a ningún propósito de seguridad. No puede utilizar la cuenta de almacenamiento y la clave de producción con Azurite. Se debe tener en cuenta que no se puede utilizar la cuenta de desarrollo con datos de producción.
-> 
-> Azurite admite solo la conexión a través de HTTP. Sin embargo, HTTPS es el protocolo recomendado para obtener acceso a recursos en una cuenta de producción de Azure Storage.
-> 
+> La clave de autenticación admitida por el emulador está pensada para comprobar únicamente la funcionalidad de su código de autenticación de cliente. No responde a ningún propósito de seguridad. No puede utilizar la cuenta de almacenamiento y la clave de producción con el emulador. Se debe tener en cuenta que no se puede utilizar la cuenta de desarrollo con datos de producción.
+>
+> El emulador admite solo la conexión a través de HTTP. Sin embargo, HTTPS es el protocolo recomendado para obtener acceso a recursos en una cuenta de producción de Azure Storage.
+>
 
-#### <a name="connect-to-the-emulator-account-using-a-shortcut"></a>Conexión a la cuenta del emulador mediante un acceso directo
-La manera más fácil de conectarse a Azurite desde su aplicación consiste en configurar, dentro del archivo de configuración de la aplicación, una cadena de conexión que haga referencia al acceso directo `UseDevelopmentStorage=true`. Este es un ejemplo de una cadena de conexión con Azurite en un archivo *app.config*: 
+#### <a name="connect-to-the-emulator-account-using-the-shortcut"></a>Conexión a la cuenta del emulador mediante el acceso directo
 
-```xml
-<appSettings>
-  <add key="StorageConnectionString" value="UseDevelopmentStorage=true" />
-</appSettings>
-```
-
-#### <a name="connect-to-the-emulator-account-using-the-well-known-account-name-and-key"></a>Conexión a la cuenta del emulador con el nombre de cuenta y la clave conocidos
-Para crear una cadena de conexión que hace referencia al nombre de la cuenta del emulador y la clave, debe especificar los puntos de conexión para cada uno de los servicios que desea usar desde el emulador en la cadena de conexión. Esto es necesario para que la cadena de conexión haga referencia a los extremos del emulador, que son diferentes de los de una cuenta de almacenamiento de producción. Por ejemplo, el valor de la cadena de conexión será similar al siguiente:
+La manera más fácil de conectarse al emulador desde la aplicación consiste en configurar, dentro del archivo de configuración de la aplicación, una cadena de conexión que haga referencia al acceso directo `UseDevelopmentStorage=true`. El acceso directo equivale a la cadena de conexión completa para el emulador, que especifica el nombre de la cuenta, la clave de cuenta y los puntos de conexión del emulador para cada uno de los servicios de Azure Storage:
 
 ```
 DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;
 AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;
 BlobEndpoint=http://127.0.0.1:10000/devstoreaccount1;
 QueueEndpoint=http://127.0.0.1:10001/devstoreaccount1;
+TableEndpoint=http://127.0.0.1:10001/devstoreaccount1;
 ```
 
-Este valor es idéntico al acceso directo mostrado anteriormente, `UseDevelopmentStorage=true`.
+El siguiente fragmento de código de .NET muestra cómo se puede usar el acceso directo desde un método que toma una cadena de conexión. Por ejemplo, el constructor [BlobContainerClient(String, String)](/dotnet/api/azure.storage.blobs.blobcontainerclient.-ctor#Azure_Storage_Blobs_BlobContainerClient__ctor_System_String_System_String_) toma una cadena de conexión.
+
+```csharp
+BlobContainerClient blobContainerClient = new BlobContainerClient("UseDevelopmentStorage=true", "sample-container");
+blobContainerClient.CreateIfNotExists();
+```
+
+Asegúrese de que el emulador se está ejecutando antes de llamar al código del fragmento.

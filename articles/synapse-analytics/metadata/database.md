@@ -10,18 +10,18 @@ ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 14ae8b8670db53761d085bc019711e829633601b
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 93602e522338166abac98c3e4a198e1aff392d21
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96451813"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934975"
 ---
 # <a name="azure-synapse-analytics-shared-database"></a>Base de datos compartida de Azure Synapse Analytics
 
-Azure Synapse Analytics permite que los diferentes motores de cálculo de áreas de trabajo compartan bases de datos y tablas entre sus grupos de Apache Spark sin servidor y el grupo de SQL sin servidor.
+Azure Synapse Analytics permite que los diferentes motores de cálculo de áreas de trabajo compartan bases de datos y tablas. Actualmente, las bases de datos y las tablas de Parquet que se crean en los grupos de Apache Spark se comparten automáticamente con el motor del grupo de SQL sin servidor.
 
-Una base de datos creada con un trabajo de Spark será visible con el mismo nombre en todos los grupos de Spark actuales y futuros del área de trabajo, incluido el motor del grupo de SQL sin servidor.
+Una base de datos creada con un trabajo de Spark será visible con el mismo nombre en todos los grupos de Spark actuales y futuros del área de trabajo, incluido el motor del grupo de SQL sin servidor. No se pueden agregar objetos personalizados (tablas, vistas y procedimientos externos) directamente en esta base de datos replicada mediante el grupo de SQL sin servidor.
 
 La base de datos predeterminada de Spark, llamada `default`, también estará visible en el contexto del grupo de SQL sin servidor como una base de datos llamada `default`.
 

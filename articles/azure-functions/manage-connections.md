@@ -4,12 +4,12 @@ description: Aprenda a evitar problemas de rendimiento en Azure Functions median
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 02/25/2018
-ms.openlocfilehash: 53848e6273cf59439d44b431652981b18bdd5ba6
-ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
+ms.openlocfilehash: ec16ce3e7f9793be2a012a029bcca31c9a7ea4cf
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97755963"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936709"
 ---
 # <a name="manage-connections-in-azure-functions"></a>Administración de conexiones en Azure Functions
 
@@ -19,7 +19,7 @@ Las funciones dentro de una aplicación de función comparten recursos. Entre es
 
 El número de conexiones disponibles está limitado en parte porque una aplicación de función se ejecuta en un [entorno de espacio aislado](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox). Una de las restricciones que impone el espacio aislado en el código es un límite en el número de conexiones salientes, que actualmente es 600 (de total de 1200) conexiones activas por instancia. Cuando se alcanza este límite, el entorno de ejecución de las funciones crea un registro con el siguiente mensaje: `Host thresholds exceeded: Connections`. Para obtener más información, consulte [Límites de servicio en Functions](functions-scale.md#service-limits).
 
-Este límite es por instancia. Cuando el [controlador de escala agrega instancias de aplicación de función](functions-scale.md#how-the-consumption-and-premium-plans-work) para controlar más solicitudes, cada instancia tendrá un límite de conexión independiente. Esto significa que no hay ningún límite de conexión global y puede tener mucho más de 600 conexiones activas de todas las instancias activas.
+Este límite es por instancia. Cuando el [controlador de escala agrega instancias de aplicación de función](event-driven-scaling.md) para controlar más solicitudes, cada instancia tendrá un límite de conexión independiente. Esto significa que no hay ningún límite de conexión global y puede tener mucho más de 600 conexiones activas de todas las instancias activas.
 
 Para solucionar el problema, asegúrese de que ha habilitado Application Insights para su aplicación de funciones. Application Insights permite ver las métricas de las aplicaciones de funciones, como las ejecuciones. Para obtener más información, consulte [Visualización de la telemetría en Application Insights](analyze-telemetry-data.md#view-telemetry-in-application-insights).  
 

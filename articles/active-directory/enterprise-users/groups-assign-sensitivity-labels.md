@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b40171d87ccffa7c5c4fb72d2e79af015b1d16f
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: a78cf9b7d78078030ac0db8bd2f0fddb93a8dda4
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96859970"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881403"
 ---
 # <a name="assign-sensitivity-labels-to-microsoft-365-groups-in-azure-active-directory"></a>Asignación de etiquetas de confidencialidad a grupos de Microsoft 365 en Azure Active Directory
 
@@ -48,7 +48,7 @@ Para aplicar etiquetas publicadas a grupos, primero debe habilitar la caracterí
     ```
 
     > [!NOTE]
-    > Si no se ha creado ninguna configuración de grupo para esta organización de Azure AD, primero debe crearla. Siga los pasos de [Cmdlets de Azure Active Directory para configurar las opciones de grupo](../enterprise-users/groups-settings-cmdlets.md) y cree una configuración de grupo para esta organización de Azure AD.
+    > Si no se ha creado ninguna configuración de grupo para esta organización de Azure AD, recibirá un error en el cmdlet anterior que dice "No se puede enlazar el argumento al parámetro 'Id' porque es nulo". En este caso, primero debe crear la configuración. Siga los pasos de [Cmdlets de Azure Active Directory para configurar las opciones de grupo](../enterprise-users/groups-settings-cmdlets.md) y cree una configuración de grupo para esta organización de Azure AD.
 
 1. A continuación, muestre la configuración actual del grupo.
 

@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: troubleshooting
 ms.date: 10/16/2019
 ms.author: charwen
-ms.openlocfilehash: f3c142491363f30513877ae4368f291430aa3675
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4f5d4b7fed8f14f048794616ee272342d1e8343
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85831937"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97915562"
 ---
 # <a name="troubleshoot-azure-bastion"></a>Solución de problemas de Azure Bastion
 
@@ -81,7 +81,7 @@ The key's randomart image is:
 
 ## <a name="black-screen-in-the-azure-portal"></a><a name="blackscreen"></a>Pantalla negra en Azure Portal
 
-**P:** Cuando intento conectarme con Azure Bastion, aparece una pantalla negra en Azure Portal.
+**P:** Cuando intento conectarme mediante Azure Bastion, no puedo conectar con la máquina virtual de destino y obtengo una pantalla negra en Azure Portal.
 
 **R:** Esto sucede si hay un problema de conectividad de red entre el explorador web y Azure Bastion (el firewall de Internet del cliente puede estar bloqueando el tráfico de WebSockets o similar), o entre Azure Bastion y su máquina virtual de destino. La mayoría de los casos incluyen un grupo de seguridad de red aplicado a AzureBastionSubnet o a la subred de la máquina virtual de destino que bloquea el tráfico de RDP/SSH en la red virtual. Permita el tráfico de WebSockets en el firewall de Internet del cliente y compruebe el grupo de seguridad de red en la subred de la máquina virtual de destino.
 

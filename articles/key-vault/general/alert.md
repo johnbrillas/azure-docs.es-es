@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/06/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to learn the options available to monitor the health of my vaults
-ms.openlocfilehash: 9195bb59264731914740e1cca902707603e3502d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7ff3daded48612fd308396420dca65cd81d9fafc
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96018127"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724704"
 ---
 # <a name="monitoring-and-alerting-for-azure-key-vault"></a>Supervisión y alertas de Azure Key Vault
 
@@ -40,7 +40,7 @@ Una vez que haya empezado a usar Key Vault para almacenar los secretos de produc
 
 **Saturación del almacén**: el número de solicitudes por segundo que puede procesar un almacén de claves se basa en el tipo de operación que se realiza. Algunas operaciones del almacén tienen un umbral inferior de solicitudes por segundo. Esta métrica suma el uso total del almacén de claves de todos los tipos de operaciones para obtener un valor porcentual que indica el uso actual del almacén de claves. Para obtener una lista completa de los límites del servicio Key Vault, consulte el siguiente documento. [Límites de servicio de Azure Key Vault](service-limits.md)
 
-**Latencia de la API de servicio**: esta métrica muestra la latencia media de una llamada al almacén de claves. Aunque el almacén de claves puede estar dentro de los límites del servicio, un uso elevado del almacén podría generar una latencia que provoque un error en las aplicaciones de nivel inferior. 
+**Latencia de la API de servicio**: esta métrica muestra la latencia media de las llamadas al almacén de claves, que se mide en el servicio. No incluye el tiempo consumido por el cliente o por la red entre el cliente y el servicio.
 
 **Total de visitas de la API**: esta métrica muestra todas las llamadas realizadas al almacén de claves. Esto le ayudará a identificar qué aplicaciones realizan llamadas a su almacén de claves. 
 

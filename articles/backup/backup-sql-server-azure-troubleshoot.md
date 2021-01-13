@@ -3,12 +3,12 @@ title: Solución de problemas de copia de seguridad de bases de datos de SQL Se
 description: Información para solución de problemas para realizar copias de seguridad de bases de datos de SQL Server que se ejecutan en máquinas virtuales de Azure con Azure Backup.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: f215b848bedae333979f0fed8eb7f216fb6e25f4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d702959be70716f0c2bc85920bdb7aa3e061aff1
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91332787"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97733950"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Solución de problemas de la copia de seguridad de base de datos de SQL Server con Azure Backup
 
@@ -55,6 +55,40 @@ En ocasiones, es posible que se produzcan errores aleatorios en las operaciones 
     - TriggerExtensionJob.exe
 
 1. SQL también ofrece algunas instrucciones sobre cómo trabajar con programas antivirus. Consulte [este artículo](https://support.microsoft.com/help/309422/choosing-antivirus-software-for-computers-that-run-sql-server) para más información.
+
+## <a name="faulty-instance-in-a-vm-with-multiple-sql-server-instances"></a>Instancia con errores en una máquina virtual con varias instancias de SQL Server
+
+Solo puede restaurar en una máquina virtual de SQL si todas las instancias de SQL que se ejecutan dentro de la máquina virtual se notifican como correctas. Si una o más instancias tienen "errores", la máquina virtual no aparecerá como destino de restauración. Por lo tanto, este podría ser un posible motivo por el que una máquina virtual con varias instancias no aparezca en la lista desplegable "servidor" durante la operación de restauración.
+
+Puede validar la "preparación para la copia de seguridad" de todas las instancias de SQL de la máquina virtual, en **Configurar copia de seguridad**:
+
+![Validación de la preparación para la copia de seguridad](./media/backup-sql-server-azure-troubleshoot/backup-readiness.png)
+
+Si desea desencadenar una restauración en las instancias de SQL correctas, siga estos pasos:
+
+1. Inicie sesión en la máquina virtual de SQL y vaya a `C:\Program Files\Azure Workload Backup\bin`.
+1. Cree un archivo JSON llamado `ExtensionSettingsOverrides.json` (si aún no está presente). Si este archivo ya está presente en la máquina virtual, siga utilizándolo.
+1. Agregue el contenido siguiente en el archivo JSON y guarde el archivo:
+
+    ```json
+    {
+                  "<ExistingKey1>":"<ExistingValue1>",
+                    …………………………………………………… ,
+              "whitelistedInstancesForInquiry": "FaultyInstance_1,FaultyInstance_2"
+            }
+            
+            Sample content:        
+            { 
+              "whitelistedInstancesForInquiry": "CRPPA,CRPPB "
+            }
+
+    ```
+
+1. Desencadene la operación **Volver a detectar bases de datos** en el servidor afectado desde Azure Portal (en el mismo lugar donde se puede ver la preparación para la copia de seguridad). La máquina virtual empezará a aparecer como destino para las operaciones de restauración.
+
+    ![Volver a detectar bases de datos](./media/backup-sql-server-azure-troubleshoot/rediscover-dbs.png)
+
+1. Elimine la entrada *whitelistedInstancesForInquiry* del archivo ExtensionSettingsOverrides.json una vez finalizada la operación de restauración.
 
 ## <a name="error-messages"></a>Mensajes de error
 

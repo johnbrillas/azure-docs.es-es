@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/19/2020
-ms.openlocfilehash: 94c926c555a4bc96ac3c6fbe773650e16554bcf2
-ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
+ms.openlocfilehash: d04fa25b9c953d151fc16d11f304c48b7046ab76
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95315709"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680404"
 ---
 # <a name="configure-data-collection-for-the-azure-monitor-agent-preview"></a>Configuración de la recopilación de datos para el agente de Azure Monitor (versión preliminar)
 
@@ -35,6 +35,9 @@ Por ejemplo, imagine un entorno con un conjunto de máquinas virtuales que ejecu
 
 Puede usar Azure Portal para crear una regla de recopilación de datos y asociar las máquinas virtuales de su suscripción a esa regla. El agente de Azure Monitor se instalará automáticamente y se creará una identidad administrada para las máquinas virtuales que no lo tengan instalado.
 
+> [!IMPORTANT]
+> Actualmente hay un problema conocido por el que, si la regla de recopilación de datos crea una identidad administrada en una máquina virtual que ya tiene una identidad administrada asignada por el usuario, la identidad asignada por el usuario se deshabilita.
+
 En el menú **Azure Monitor** de Azure Portal, seleccione las **reglas de recopilación de datos** en la sección **Configuración**. Haga clic en **Agregar** para agregar una nueva asignación y regla de recopilación de datos.
 
 [![Reglas de recopilación de datos](media/azure-monitor-agent/data-collection-rules.png)](media/azure-monitor-agent/data-collection-rules.png#lightbox)
@@ -52,7 +55,7 @@ En la pestaña **Collect and deliver** (Recopilar y entregar), haga clic en **Ad
 [![Origen de datos básico](media/azure-monitor-agent/data-collection-rule-data-source-basic.png)](media/azure-monitor-agent/data-collection-rule-data-source-basic.png#lightbox)
 
 
-Para especificar otros registros y contadores de rendimiento, seleccione **Custom** (Personalizado). Después, puede especificar un [XPath](https://www.w3schools.com/xml/xpath_syntax.asp) para los valores específicos que se van a recopilar. Consulte la [regla de recopilación de datos de ejemplo](data-collection-rule-overview.md#sample-data-collection-rule) para ver ejemplos.
+Para especificar otros registros y contadores de rendimiento de los [orígenes de datos admitidos actualmente](azure-monitor-agent-overview.md#data-sources-and-destinations) o para filtrar eventos mediante consultas XPath, seleccione **Custom** (Personalizado). Después, puede especificar un [XPath](https://www.w3schools.com/xml/xpath_syntax.asp) para los valores específicos que se van a recopilar. Consulte la [regla de recopilación de datos de ejemplo](data-collection-rule-overview.md#sample-data-collection-rule) para ver ejemplos.
 
 [![Origen de datos personalizado](media/azure-monitor-agent/data-collection-rule-data-source-custom.png)](media/azure-monitor-agent/data-collection-rule-data-source-custom.png#lightbox)
 

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/26/2020
+ms.date: 01/07/2021
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: d0cb9dc3c54f409c3bdd71fbb57c823e15abc22d
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: 68a384197409115343a81aea23b0f7d42166d716
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97762969"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97976816"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Compatibilidad con idiomas y voces en el servicio de voz
 
@@ -53,9 +53,9 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Árabe (Emiratos Árabes Unidos)      | `ar-AE` | Modelo de lenguaje                                   |
 | Búlgaro (Bulgaria)               | `bg-BG` | Modelo de lenguaje                                   |
 | Catalán (España)                    | `ca-ES` | Modelo de lenguaje                                   |
-| Chino (cantonés, tradicional)   | `zh-HK` | Modelo de lenguaje                                   |
+| Chino (cantonés, tradicional)   | `zh-HK` | Modelo acústico<br>Modelo de lenguaje                 |
 | Chino (mandarín, simplificado)     | `zh-CN` | Modelo acústico<br>Modelo de lenguaje                 |
-| Chino (mandarín, Taiwán)       | `zh-TW` | Modelo de lenguaje                                   |
+| Chino (mandarín, Taiwán)       | `zh-TW` | Modelo acústico<br>Modelo de lenguaje                 |
 | Croata (Croacia)                 | `hr-HR` | Modelo de lenguaje                                   |
 | Checo (República Checa)             | `cs-CZ` | Modelo de lenguaje                                   |
 | Danés (Dinamarca)                   | `da-DK` | Modelo de lenguaje                                   |
@@ -83,8 +83,8 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Húngaro (Hungría)                | `hu-HU` | Modelo de lenguaje                                   |
 | Irlandés (Irlanda)                     | `ga-IE` | Modelo de lenguaje                                   |
 | Italiano (Italia)                    | `it-IT` | Modelo acústico<br>Modelo de lenguaje<br>Pronunciación|
-| Japonés (Japón)                   | `ja-JP` | Modelo de lenguaje                                   |
-| Coreano (Corea)                     | `ko-KR` | Modelo de lenguaje                                   |
+| Japonés (Japón)                   | `ja-JP` | Modelo acústico<br>Modelo de lenguaje                 |
+| Coreano (Corea)                     | `ko-KR` | Modelo acústico<br>Modelo de lenguaje                 |
 | Letón (Letonia)                   | `lv-LV` | Modelo de lenguaje                                   |
 | Lituano (Lituania)             | `lt-LT` | Modelo de lenguaje                                   |
 | Maltés (Malta)                     | `mt-MT` | Modelo de lenguaje                                   |

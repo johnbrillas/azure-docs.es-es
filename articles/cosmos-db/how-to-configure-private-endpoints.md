@@ -4,15 +4,15 @@ description: Aprenda a configurar Azure Private Link para acceder a una cuenta d
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 09/18/2020
+ms.date: 12/16/2020
 ms.author: thweiss
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4ba4e5f462a3cc88de5b23b32a5e749f9363e93f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 9a6db0d25165059581d7ffafa5b8e7fd19330c87
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93081899"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97629653"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Configuración de Azure Private Link para una cuenta de Azure Cosmos
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -32,18 +32,18 @@ En este artículo se describen los pasos para crear un punto de conexión privad
 
 Siga los pasos que se indican a continuación para crear un punto de conexión privado para una cuenta de Azure Cosmos existente mediante Azure Portal:
 
-1. En el panel **Todos los recursos** , elija una cuenta de Azure Cosmos.
+1. En el panel **Todos los recursos**, elija una cuenta de Azure Cosmos.
 
-1. Seleccione **Conexiones de punto de conexión privado** en la lista de valores y, a continuación, seleccione **Punto de conexión privado** :
+1. Seleccione **Conexiones de punto de conexión privado** en la lista de valores y, a continuación, seleccione **Punto de conexión privado**:
 
    :::image type="content" source="./media/how-to-configure-private-endpoints/create-private-endpoint-portal.png" alt-text="Selecciones para la creación de un punto de conexión privado en Azure Portal":::
 
-1. En el panel **Crear un punto de conexión privado: aspectos básicos** , escriba o seleccione los siguientes detalles:
+1. En el panel **Crear un punto de conexión privado: aspectos básicos**, escriba o seleccione los siguientes detalles:
 
     | Configuración | Value |
     | ------- | ----- |
     | **Detalles del proyecto** | |
-    | Subscription | Seleccione su suscripción. |
+    | Suscripción | Seleccione su suscripción. |
     | Resource group | Seleccione un grupo de recursos.|
     | **Detalles de instancia** |  |
     | Nombre | Escriba cualquier nombre para su punto de conexión privado. Si el nombre ya existe, cree uno único. |
@@ -55,14 +55,14 @@ Siga los pasos que se indican a continuación para crear un punto de conexión p
     | Configuración | Value |
     | ------- | ----- |
     |Método de conexión  | Seleccione **Conectarse a un recurso de Azure en mi directorio**. <br/><br/> A continuación, puede elegir uno de sus recursos para configurar Private Link. O bien, puede conectarse al recurso de otro usuario mediante un alias o identificador del recurso que haya compartido con usted.|
-    | Subscription| Seleccione su suscripción. |
+    | Suscripción| Seleccione su suscripción. |
     | Tipo de recurso | Seleccione **Microsoft.AzureCosmosDB/databaseAccounts**. |
     | Resource |Seleccione la cuenta de Azure Cosmos. |
-    |Recurso secundario de destino |Seleccione el tipo de API de Azure Cosmos DB que desea asignar. Este valor predeterminado es solo una opción para las API de SQL, MongoDB y Cassandra. En el caso de las API de Gremlin y Table, también puede elegir **Sql** , ya que estas API son interoperables con la API de SQL. |
+    |Recurso secundario de destino |Seleccione el tipo de API de Azure Cosmos DB que desea asignar. Este valor predeterminado es solo una opción para las API de SQL, MongoDB y Cassandra. En el caso de las API de Gremlin y Table, también puede elegir **Sql**, ya que estas API son interoperables con la API de SQL. |
     |||
 
 1. Seleccione **Siguiente: Configuration** (Siguiente: Configuración).
-1. En **Crear un punto de conexión privado: Configuración** , escriba o seleccione esta información:
+1. En **Crear un punto de conexión privado: Configuración**, escriba o seleccione esta información:
 
     | Configuración | Value |
     | ------- | ----- |
@@ -74,8 +74,8 @@ Siga los pasos que se indican a continuación para crear un punto de conexión p
     |Zona DNS privada |Seleccione **privatelink.documents.azure.com**. <br><br/> La zona DNS privada se determina automáticamente. No puede cambiarla con Azure Portal.|
     |||
 
-1. Seleccione **Revisar + crear**. En la página **Revisar y crear** , Azure valida la configuración.
-1. Cuando reciba el mensaje **Validación superada** , seleccione **Crear**.
+1. Seleccione **Revisar + crear**. En la página **Revisar y crear**, Azure valida la configuración.
+1. Cuando reciba el mensaje **Validación superada**, seleccione **Crear**.
 
 Cuando haya aprobado Private Link para una cuenta de Azure Cosmos, la opción **Todas las redes** en el panel **Firewall y redes virtuales** no estará disponible en Azure Portal.
 
@@ -616,6 +616,9 @@ foreach ($ipconfig in $networkInterface.properties.ipConfigurations) {
 Debe usar una zona DNS privada dentro de la subred en la que ha creado el punto de conexión privado. Configure los puntos de conexión de modo que cada dirección IP privada se asigne a una entrada DNS (consulte la propiedad `fqdns` en la respuesta mostrada anteriormente).
 
 Al crear el punto de conexión privado, puede integrarlo con una zona DNS privada en Azure. Si, en su lugar, elige usar una zona DNS personalizada, debe configurarla para agregar registros DNS para todas las direcciones IP privadas reservadas para el punto de conexión privado.
+
+> [!IMPORTANT]
+> Es la resolución DNS de las solicitudes la que determina si estas solicitudes se realizan a través de los puntos de conexión privados o toman la ruta pública estándar. Asegúrese de que el DNS local hace referencia correctamente a la dirección IP privada asignada por el punto de conexión privado.
 
 ## <a name="private-link-combined-with-firewall-rules"></a>Combinación de Private Link con las reglas de firewall
 
