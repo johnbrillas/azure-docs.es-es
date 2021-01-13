@@ -45,7 +45,7 @@ Data Box Gateway tiene las siguientes ventajas:
  
 - **Uso de ancho de banda limitado**: se pueden escribir datos en Azure incluso cuando la red limita el uso durante las horas pico comerciales.  
 
-## <a name="key-capabilities"></a>Principales Funciones
+## <a name="key-capabilities"></a>Principales capacidades
 
 Data Box Gateway tiene las siguientes funcionalidades:
 
@@ -87,7 +87,7 @@ La solución Data Box Gateway consta de un recurso Data Box Gateway, un disposit
 
 ## <a name="region-availability"></a>Disponibilidad en regiones
 
-El dispositivo virtual de Data Box Gateway, el recurso de Azure y la cuenta de almacenamiento de destino a la que transferirá los datos no tienen que estar en la misma región.
+El dispositivo físico de Data Box Gateway, el recurso de Azure y la cuenta de almacenamiento de destino a la que transferirá los datos no tienen que estar en la misma región.
 
 - **Disponibilidad de recursos**: para obtener una lista de todas las regiones en que está disponible el recurso de Azure Data Box Gateway, vaya a [Productos de Azure disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=databox). Data Box Gateway también se puede implementar en la nube de Azure Government. Para más información, consulte [¿Qué es Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
 
