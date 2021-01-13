@@ -23,9 +23,9 @@ Data Box Gateway es un dispositivo virtual basado en una máquina virtual aprovi
 
 ## <a name="use-cases"></a>Casos de uso
 
-Data Box Gateway puede usarse para transferir datos a la nube, como archivos en la nube, para la recuperación ante desastres o si es necesario procesar los datos en la nube. Estos son los distintos escenarios donde se puede usar Data Box Gateway para la transferencia de datos.
+Data Box Gateway puede usarse para transferir datos a la nube, como archivos en la nube, para recuperación de desastes o si es necesario procesar los datos en la nube. Estos son los distintos escenarios donde se puede usar Data Box Gateway para la transferencia de datos.
 
-- **Archivos en la nube**: copie cientos de TB de datos en Azure Storage mediante Data Box Gateway de manera segura y eficaz. Los datos pueden ingerirse de una vez o de forma continuada en los escenarios de archivo.
+- **Archivos en la nube**: copie cientos de TB de datos en Azure Storage mediante Data Box Gateway de manera segura y eficaz. Los datos pueden ingerirse de una vez o de forma continua para escenarios de archivo.
 
 - **Ingesta continua de datos**: los datos se ingieren continuamente en el dispositivo y se copian en la nube, sin importar su tamaño. Como los datos se escriben en el dispositivo de puerta de enlace, el dispositivo carga los datos en Azure Storage.  
 
@@ -37,13 +37,13 @@ Para más información, vaya a [Casos de uso de Azure Data Box Gateway](data-box
 
 Data Box Gateway tiene las siguientes ventajas:
 
-- **Transferencia de datos sencilla**: facilita el traslado de datos hacia y desde Azure Storage tan fácilmente como si estuviera trabajando con un recurso compartido de red local.  
-- **Alto rendimiento**: evita los inconvenientes de tener que transportar los datos de red con transferencias de alto rendimiento a y desde Azure.
-- **Acceso rápido y altas tasas de ingesta de datos durante el horario laboral**: Data Box Gateway tiene una caché local que se define como el tamaño de la capacidad local cuando se aprovisiona el dispositivo virtual. El tamaño del disco de datos debe especificarse según los [requisitos mínimos del dispositivo virtual](data-box-gateway-system-requirements.md#specifications-for-the-virtual-device). La caché local proporciona las siguientes ventajas:
-    - La memoria caché local permite la ingesta de datos a alta velocidad. Cuando se ingiere una gran cantidad de datos durante las horas punta, la caché puede retener los datos y cargarlos en la nube.
-    - La caché local permite un acceso rápido a la lectura hasta un determinado umbral. Hasta que el dispositivo esté lleno al 50-60 %, se accede a todas las lecturas del dispositivo desde la caché, lo que las hace más rápidas. Una vez que el espacio utilizado en el dispositivo supera este umbral, el dispositivo comienza a quitar los archivos locales.
+- **Transferencia de datos sencilla**: facilita el traslado de datos hacia y desde Azure Storage fácilmente como si estuviera trabajando con un recurso compartido de red local.  
+- **Alto rendimiento**: evita los inconvenientes de tener que transportar los datos de red con transferencias de alto rendimiento hacia y desde Azure.
+- **Acceso rápido y altas tasas de ingesta de datos durante el horario laboral**: Data Box Gateway tiene una memoria caché local que se define como el tamaño de la capacidad local cuando se aprovisiona el dispositivo virtual. El tamaño del disco de datos debe adecuarse a las especificaciones según los [requisitos mínimos del dispositivo virtual](data-box-gateway-system-requirements.md#specifications-for-the-virtual-device). La caché local proporciona las siguientes ventajas:
+    - La memoria caché local permite la ingesta de datos a alta velocidad. Cuando se ingiere una gran cantidad de datos durante las horas pico, la caché puede retener los datos y cargarlos en la nube.
+    - La caché local permite un acceso de lectura rápido hasta un determinado limite. Hasta que el dispositivo esté lleno al 50-60 %, se accede a todas las lecturas del dispositivo desde la caché, lo que las hace más rápidas. Una vez que el espacio utilizado en el dispositivo supera este umbral, el dispositivo comienza a quitar los archivos locales.
  
-- **Uso de ancho de banda limitado**: se pueden escribir datos en Azure incluso cuando la red limita el uso durante las horas punta comerciales.  
+- **Uso de ancho de banda limitado**: se pueden escribir datos en Azure incluso cuando la red limita el uso durante las horas pico comerciales.  
 
 ## <a name="key-capabilities"></a>Principales capacidades
 
@@ -52,8 +52,8 @@ Data Box Gateway tiene las siguientes funcionalidades:
 |Capacidad |Descripción  |
 |---------|---------|
 |Velocidad     | Transferencia de datos y ancho de banda totalmente automatizados y altamente optimizados.|
-|Protocolos admitidos     | Compatibilidad con los protocolos estándar SMB y NFS para la ingesta de datos. <br> Para obtener más información sobre las versiones compatibles, vaya a [Requisitos del sistema de Data Box Gateway](data-box-gateway-system-requirements.md).|
-|Acceso a datos     | Cuando los datos enviados por el dispositivo están en la nube, se pueden modificar aún más mediante el acceso directo a las API de nube.|
+|Protocolos soportados     | Compatibilidad con los protocolos estándar SMB y NFS para la ingesta de datos. <br> Para obtener más información sobre las versiones compatibles, vaya a [Requisitos del sistema de Data Box Gateway](data-box-gateway-system-requirements.md).|
+|Acceso a datos     | Cuando los datos enviados por el dispositivo están en la nube, se pueden modificar mediante el acceso directo a las API de nube.|
 |Acceso rápido     | Memoria caché local en el dispositivo para agilizar el acceso a los archivos usados más recientemente.|
 |Carga sin conexión     | El modo sin conexión es compatible con escenarios de carga sin conexión.|
 |Actualización de datos     | Capacidad para actualizar los archivos locales con la versión más reciente de la nube.|
@@ -77,7 +77,7 @@ El dispositivo virtual Data Box Gateway tiene las siguientes especificaciones:
 
 ## <a name="components"></a>Componentes
 
-La solución Data Box Gateway consta de un recurso Data Box Gateway, un dispositivo físico Data Box Gateway y una interfaz de usuario web local.
+La solución Data Box Gateway consta de un recurso Data Box Gateway, un dispositivo virtual Data Box Gateway y una interfaz de usuario web local.
 
 - **Dispositivo virtual Data Box Gateway**: es un dispositivo virtual basado en una máquina virtual aprovisionada en un entorno virtualizado o hipervisor que le permite enviar datos a Azure.
     
@@ -87,7 +87,7 @@ La solución Data Box Gateway consta de un recurso Data Box Gateway, un disposit
 
 ## <a name="region-availability"></a>Disponibilidad en regiones
 
-El dispositivo físico de Data Box Edge, el recurso de Azure y la cuenta de almacenamiento de destino a la que transferirá los datos no tienen que estar en la misma región.
+El dispositivo físico de Data Box Gateway, el recurso de Azure y la cuenta de almacenamiento de destino a la que transferirá los datos no tienen que estar en la misma región.
 
 - **Disponibilidad de recursos**: para obtener una lista de todas las regiones en que está disponible el recurso de Azure Data Box Gateway, vaya a [Productos de Azure disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=databox). Data Box Gateway también se puede implementar en la nube de Azure Government. Para más información, consulte [¿Qué es Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
 
