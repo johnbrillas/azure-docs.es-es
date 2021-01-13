@@ -1,18 +1,17 @@
 ---
 title: Uso de las API REST con el fin de realizar la integración continua y la entrega continua (CI/CD) para Azure Stream Analytics en IoT Edge
 description: Obtenga información sobre cómo implementar una canalización de integración e implementación continuas para Azure Stream Analytics mediante API REST.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: su-jie
+ms.author: sujie
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/04/2018
-ms.openlocfilehash: a7e56758a1a76933d6bb18883aa15ce33ce2e89e
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 3c3f776ad0996fa0b7422f0fca2d899a35e853d1
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130925"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98016140"
 ---
 # <a name="implement-cicd-for-stream-analytics-on-iot-edge-using-apis"></a>Implementación de CI/CD para Stream Analytics en IoT Edge mediante API
 
@@ -59,7 +58,7 @@ Para crear un trabajo de Stream Analytics, llame al método PUT con la API Strea
 |------|-----------|
 |PUT|`https://management.azure.com/subscriptions/{\**subscription-id**}/resourcegroups/{**resource-group-name**}/providers/Microsoft.StreamAnalytics/streamingjobs/{**job-name**}?api-version=2017-04-01-preview`|
  
-Ejemplo del comando mediante **curl** :
+Ejemplo del comando mediante **curl**:
 
 ```curl
 curl -u { <username:password> } -H "Content-Type: application/json" -X { <method> } -d "{ <request body> }" https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/Microsoft.StreamAnalytics/streamingjobs/{jobname}?api-version=2017-04-01-preview  
@@ -148,7 +147,7 @@ Para publicar un trabajo de Stream Analytics en IoT Edge, llame al método POST 
 
 Esta operación asincrónica devuelve un estado de 202 hasta que el trabajo se publique correctamente. El encabezado de la respuesta de la ubicación contiene el URI que se usa para obtener el estado del proceso. Mientras se ejecuta el proceso, una llamada al URI del encabezado de la ubicación devuelve un estado de 202. Cuando el proceso finaliza, el URI del encabezado de la ubicación devuelve un estado de 200. 
 
-Ejemplo de una llamada para publicar un paquete de Edge mediante **curl** : 
+Ejemplo de una llamada para publicar un paquete de Edge mediante **curl**: 
 
 ```bash
 curl -d -X POST https://management.azure.com/subscriptions/{subscriptionid}/resourceGroups/{resourcegroupname}/providers/Microsoft.StreamAnalytics/streamingjobs/{jobname}/publishedgepackage?api-version=2017-04-01-preview
@@ -163,7 +162,7 @@ https://management.azure.com/subscriptions/{**subscriptionid**}/resourcegroups/{
 ```
 Una espera de uno o dos minutos antes de ejecutar el comando siguiente para hacer una llamada API con la dirección URL que encontró en el ENCABEZADO de la respuesta. Reintente el comando si no recibe una respuesta 200.
  
-Ejemplo de cómo hacer una llamada API con la dirección URL devuelta mediante **curl** :
+Ejemplo de cómo hacer una llamada API con la dirección URL devuelta mediante **curl**:
 
 ```bash
 curl -d –X GET https://management.azure.com/subscriptions/{subscriptionid}/resourceGroups/{resourcegroupname}/providers/Microsoft.StreamAnalytics/streamingjobs/{resourcename}/publishedgepackage?api-version=2017-04-01-preview 

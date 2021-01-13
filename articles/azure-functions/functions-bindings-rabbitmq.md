@@ -4,22 +4,22 @@ description: Aprenda a enviar desencadenadores y enlaces de Azure RabbitMQ en Az
 author: cachai2
 ms.assetid: ''
 ms.topic: reference
-ms.date: 12/11/2020
+ms.date: 12/17/2020
 ms.author: cachai
 ms.custom: ''
-ms.openlocfilehash: cd6c8de0d9290aab273e25403bb1cb2d8fe07e27
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 2a480f25821f5022295b18ca24abfd2c0fb8a50c
+ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505676"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97746531"
 ---
 # <a name="rabbitmq-bindings-for-azure-functions-overview"></a>Introducción a los enlaces de RabbitMQ para Azure Functions
 
 > [!NOTE]
-> Los enlaces de RabbitMQ solo se admiten por completo en planes de **Windows Premium**. Consumo y Linux no se admiten actualmente.
+> Los enlaces de RabbitMQ solo se admiten por completo en planes **Premium y Dedicado**. El consumo no se admite.
 
-Azure Functions se integra con [RabbitMQ](https://www.rabbitmq.com/) mediante [desencadenadores y enlaces](./functions-triggers-bindings.md). Las extensiones de enlace de RabbitMQ para Azure Functions permiten enviar y recibir mensajes mediante RabbitMQ API con Functions.
+Azure Functions se integra con [RabbitMQ](https://www.rabbitmq.com/) mediante [desencadenadores y enlaces](./functions-triggers-bindings.md). La extensión de RabbitMQ para Azure Functions permite enviar y recibir mensajes mediante RabbitMQ API con Functions.
 
 | Acción | Tipo |
 |---------|---------|
@@ -30,11 +30,11 @@ Azure Functions se integra con [RabbitMQ](https://www.rabbitmq.com/) mediante [d
 
 Para empezar a desarrollar con esta extensión, asegúrese de [configurar primero un punto de conexión de RabbitMQ](https://github.com/Azure/azure-functions-rabbitmq-extension/wiki/Setting-up-a-RabbitMQ-Endpoint). Para más información sobre RabbitMQ, consulte la [página de introducción](https://www.rabbitmq.com/getstarted.html).
 
-### <a name="functions-2x-and-higher"></a>Functions 2.x y superiores
+### <a name="functions-3x-and-higher"></a>Functions 3.x y versiones posteriores
 
 Para trabajar con el desencadenador y los enlaces, es necesario hacer referencia al paquete adecuado. En las bibliotecas de clases de .NET se usa el paquete NuGet, mientras que en los demás tipos de aplicaciones se emplea el conjunto de extensiones.
 
-| Idioma                                        | Agregar mediante...                                   | Observaciones 
+| Idioma                                        | Agregar mediante...                                   | Observaciones
 |-------------------------------------------------|---------------------------------------------|-------------|
 | C#                                              | Instalación del [paquete NuGet], versión 4.x | |
 | Script de C#, Java, JavaScript, Python, PowerShell | Registro de [conjunto de extensiones]          | Se recomienda usar la [extensión Azure Tools] con Visual Studio Code. |
@@ -46,9 +46,9 @@ Para trabajar con el desencadenador y los enlaces, es necesario hacer referencia
 [Actualización de las extensiones]: ./functions-bindings-register.md
 [Extensión Azure Tools]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
 
-### <a name="functions-1x"></a>Functions 1.x
+### <a name="functions-1x-and-2x"></a>Functions 1.x y 2.x
 
-Functions 1.x no admite las extensiones de enlace de RabbitMQ. Use Functions 2.x y versiones posteriores.
+Functions 1.x y 2.x no admiten las extensiones de enlace de RabbitMQ. Use Functions 3.x y versiones posteriores.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

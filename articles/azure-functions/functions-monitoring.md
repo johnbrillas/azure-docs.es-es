@@ -5,12 +5,12 @@ ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 10/14/2020
 ms.custom: devx-track-csharp, fasttrack-edit, contperf-fy21q2, devx-track-js
-ms.openlocfilehash: 7dbaa8712e09de9084e2bcb66d43f2181af292a0
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 6dc3c582466fe0646b0350213947ff2173368bde
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033041"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936845"
 ---
 # <a name="monitor-azure-functions"></a>Monitor Azure Functions
 
@@ -113,7 +113,7 @@ Dado que Functions también se integra con Azure Monitor, puede usar la configur
 
 _Esta característica se encuentra en su versión preliminar._ 
 
-El [controlador de escala de Azure Functions](./functions-scale.md#runtime-scaling) supervisa las instancias del host de Azure Functions en el que se ejecuta la aplicación. Este controlador toma decisiones sobre cuándo agregar o quitar instancias en función del rendimiento actual. Puede hacer que el controlador de escala emita registros en Application Insights para comprender mejor las decisiones que este controlador está tomando para la aplicación de funciones. También puede almacenar los registros generados en Blob Storage para analizarlos mediante otro servicio. 
+El [controlador de escala de Azure Functions](./event-driven-scaling.md#runtime-scaling) supervisa las instancias del host de Azure Functions en el que se ejecuta la aplicación. Este controlador toma decisiones sobre cuándo agregar o quitar instancias en función del rendimiento actual. Puede hacer que el controlador de escala emita registros en Application Insights para comprender mejor las decisiones que este controlador está tomando para la aplicación de funciones. También puede almacenar los registros generados en Blob Storage para analizarlos mediante otro servicio. 
 
 Para habilitar esta característica, agregue una configuración de aplicación denominada `SCALE_CONTROLLER_LOGGING_ENABLED` a la configuración de la aplicación de funciones. Para obtener información sobre cómo hacerlo, consulte [Configuración de los registros del controlador de escala](configure-monitoring.md#configure-scale-controller-logs).
 

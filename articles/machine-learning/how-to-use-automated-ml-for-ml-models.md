@@ -8,15 +8,15 @@ ms.subservice: core
 ms.author: nibaccam
 author: aniththa
 ms.reviewer: nibaccam
-ms.date: 07/10/2020
+ms.date: 12/20/2020
 ms.topic: conceptual
 ms.custom: how-to, automl
-ms.openlocfilehash: 7cd704dad3d0ede55e4df4d9e222ff83fd7ae350
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: 4539936007de0b45ab33dbd391baacc8f7d2ce2a
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94919648"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97796064"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Creación, revisión e implementación de modelos de aprendizaje automático automatizado con Azure Machine Learning
 
@@ -91,7 +91,7 @@ De lo contrario, verá una lista de los experimentos de aprendizaje automático 
         Seleccione **Next** (Siguiente).
 1. Seleccione el conjunto de datos recién creado cuando aparezca. También puede ver una vista previa del conjunto de datos y las estadísticas de ejemplo. 
 
-1. En el formulario **Ejecutar la configuración**, escriba un nombre único para el experimento.
+1. En el formulario **Configurar ejecución**, seleccione **Crear nuevo** y escriba **Tutorial-automl-deploy** para el nombre del experimento.
 
 1. Seleccione una columna de destino; esta es la columna en la que realizará las predicciones.
 
@@ -164,7 +164,7 @@ Imputar con| Selecciona el valor con los cuales imputar los valores que faltan e
 Para ejecutar el experimento, seleccione **Finalizar**. El proceso de preparación del experimento puede tardar hasta 10 minutos. Los trabajos de entrenamiento pueden tardar de 2 a 3 minutos más para que cada canalización termine de ejecutarse.
 
 > [!NOTE]
-> Los algoritmos que el aprendizaje automático automatizado emplea llevan inherente la aleatoriedad, que puede provocar una ligera variación en la puntuación de las métricas finales de modelos recomendados, como la precisión. El aprendizaje automático automatizado también realiza operaciones en datos, como la división de la prueba de entrenamiento, la división de la validación de entrenamiento o la validación cruzada cuando es necesario. Por lo tanto, si ejecuta un experimento con las mismas opciones de configuración y métricas principales varias veces, es probable que vea una variación en las puntuaciones de las métricas finales de los experimentos debido a estos factores. 
+> Los algoritmos que el aprendizaje automático automatizado emplea llevan inherente la aleatoriedad, que puede provocar una ligera variación en la puntuación de las métricas finales del modelo recomendado, como la precisión. El aprendizaje automático automatizado también realiza operaciones en datos, como la división de la prueba de entrenamiento, la división de la validación de entrenamiento o la validación cruzada cuando es necesario. Por lo tanto, si ejecuta un experimento con las mismas opciones de configuración y métricas principales varias veces, es probable que vea una variación en las puntuaciones de las métricas finales de los experimentos debido a estos factores. 
 
 ### <a name="view-experiment-details"></a>Visualización de los detalles del experimento
 
@@ -172,7 +172,7 @@ Se abre la pantalla **Detalles de ejecución** en la pestaña **Detalles**. En e
 
 La pestaña **Modelos** contiene una lista de los modelos creados ordenados por la puntuación de la métrica. De forma predeterminada, el modelo que puntúa más alto en función de las métricas seleccionadas aparece en la parte superior de la lista. A medida que el trabajo de entrenamiento prueba más modelos, se agregan a la lista. Utilice esto para obtener una comparación rápida de las métricas para los modelos generados hasta ahora.
 
-[![Panel de detalles de ejecución](media/how-to-use-automated-ml-for-ml-models/run-details.png)](media/how-to-use-automated-ml-for-ml-models/run-details-expanded.png#lightbox)
+![Detalles de la ejecución](./media/how-to-use-automated-ml-for-ml-models/explore-models.gif)
 
 ### <a name="view-training-run-details"></a>Ver detalles de ejecución del entrenamiento
 
@@ -216,10 +216,10 @@ ML automatizado le ayuda a implementar el modelo sin escribir código:
 1. Seleccione **Implementar**. La implementación puede tardar unos 20 minutos en completarse.
     Una vez iniciada la implementación, aparece la pestaña **Resumen del modelo**. Consulte el progreso de la implementación en la sección **Estado de implementación**. 
 
-Ya tiene un servicio web operativo para generar predicciones. Puede probar las predicciones consultando el servicio de [soporte técnico de Azure Machine Learning de Power BI](how-to-consume-web-service.md#consume-the-service-from-power-bi).
+Ya tiene un servicio web operativo para generar predicciones. Puede probar las predicciones consultando el servicio de [soporte técnico de Azure Machine Learning de Power BI](https://docs.microsoft.com/power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Obtenga información sobre cómo consumir un servicio web](./how-to-consume-web-service.md).
+* [Obtenga información sobre cómo consumir un servicio web](how-to-consume-web-service.md).
 * [Descripción de los resultados de aprendizaje automático automatizado](how-to-understand-automated-ml.md).
 * [Más información sobre el aprendizaje automático automatizado](concept-automated-ml.md) y Azure Machine Learning.

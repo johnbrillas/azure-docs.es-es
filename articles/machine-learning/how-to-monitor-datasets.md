@@ -1,7 +1,7 @@
 ---
-title: Analizar y supervisar el desfase de datos en conjuntos de datos (versión preliminar)
+title: Detección del desfase de datos en los conjuntos de datos (versión preliminar)
 titleSuffix: Azure Machine Learning
-description: Cree monitores de conjuntos de datos de Azure Machine Learning (versión preliminar), supervise el desfase de datos en los conjuntos de datos y configure alertas.
+description: Aprenda a configurar la detección del desfase de datos en Azure Learning. Cree monitores de conjuntos de datos (versión preliminar), supervise el desfase de datos y configure alertas.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,20 +10,15 @@ ms.author: copeters
 author: lostmygithubaccount
 ms.date: 06/25/2020
 ms.topic: conceptual
-ms.custom: how-to, data4ml
-ms.openlocfilehash: 04882c71a2d80e01029dd0a8b476f21a658e632b
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.custom: how-to, data4ml, contperf-fy21q2
+ms.openlocfilehash: 1bf7856e807b04e35d28a3e262ae89ea9c298f3c
+ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359602"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97763598"
 ---
 # <a name="detect-data-drift-preview-on-datasets"></a>Detección del desfase de datos (versión preliminar) en los conjuntos de datos
-
-
-> [!IMPORTANT]
-> La detección de un desfase de datos en conjuntos de datos se encuentra actualmente en versión preliminar pública.
-> Se ofrece la versión preliminar sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Obtenga información sobre cómo supervisar el desfase de datos y establecer alertas cuando el desfase sea alto.  
 
@@ -33,10 +28,15 @@ Con los monitores del conjunto de datos de Azure Machine Learning (versión prel
 * **Supervisar los datos nuevos** para conocer las diferencias entre los conjuntos de datos de destino y los de referencia.
 * **Perfilar características en los datos** para realizar un seguimiento de cómo cambian las propiedades estadísticas con el tiempo.
 * **Configurar alertas sobre el desfase de datos** para tener advertencias tempranas de posibles problemas. 
+* **[Crear una nueva versión del conjunto de datos](how-to-version-track-datasets** al determinar que los datos se han desfasado demasiado.
 
 Para crear el monitor, se usa un [conjunto de datos de Azure Machine Learning](how-to-create-register-datasets.md). El conjunto de datos debe incluir una columna de marca de tiempo.
 
 Puede ver las métricas de desfase de datos con el SDK de Python o en Azure Machine Learning Studio.  Se pueden encontrar otras métricas e información detallada a través del recurso de [Azure Aplicación Insights](../azure-monitor/app/app-insights-overview.md) asociado al área de trabajo de Azure Machine Learning.
+
+> [!IMPORTANT]
+> La detección de un desfase de datos en conjuntos de datos se encuentra actualmente en versión preliminar pública.
+> Se ofrece la versión preliminar sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -92,15 +92,20 @@ Los monitores del conjunto de datos dependen de los siguientes servicios de Azur
 | *Application Insights*| El desfase emite métricas a Application Insights que pertenecen al área de trabajo de Machine Learning.
 | *Azure Blob Storage*| El desfase emite métricas en formato json a Azure Blob Storage.
 
-## <a name="how-dataset-monitors-data"></a>Supervisión de los datos por el conjunto de datos
+### <a name="baseline-and-target-datasets"></a>Conjunto de datos de destino y de referencia 
 
-Use conjuntos de datos de Machine Learning para supervisar el desfase de datos. Especifique un conjunto de datos de referencia, normalmente el conjunto de datos de entrenamiento para un modelo. Un conjunto de datos de destino (normalmente datos de entrada del modelo) con el tiempo se compara con el conjunto de datos de referencia. Esta comparación significa que el conjunto de datos de destino debe tener especificada una columna de marca de tiempo.
+Puede supervisar los [conjuntos de datos de Azure Machine Learning](how-to-create-register-datasets.md) para el desfase de datos. Al crear un monitor de conjunto de datos, hará referencia a:
+* Conjunto de datos de referencia: normalmente, el conjunto de datos de entrenamiento para un modelo.
+* Conjunto de datos de destino: normalmente, datos de entrada del modelo. Con el tiempo se compara con el conjunto de datos de referencia. Esta comparación significa que el conjunto de datos de destino debe tener especificada una columna de marca de tiempo.
+
+El monitor comparará los conjuntos de datos de referencia y de destino.
 
 ## <a name="create-target-dataset"></a>Creación del conjunto de datos de destino
 
 El conjunto de datos de destino debe tener configurado el rasgo `timeseries` especificando la columna de marca de tiempo de una columna de los datos o en una columna virtual derivada del patrón de ruta de los archivos. Cree el conjunto de datos con una marca de tiempo a través del [SDK de Python](#sdk-dataset) o [Azure Machine Learning Studio](#studio-dataset). Tiene que especificarse una columna que represente una "marca de tiempo" para poder agregar el rasgo `timeseries` al conjunto de datos. Si los datos se particionan en la estructura de carpetas con información de hora, como '{AAAA/MM/DD}', cree una columna virtual mediante la configuración del patrón de ruta de acceso y establézcala como la "marca de tiempo de partición" para mejorar la importancia de la funcionalidad de serie temporal.
 
-### <a name="python-sdk"></a><a name="sdk-dataset"></a>SDK para Python
+# <a name="python"></a>[Python](#tab/python)
+<a name="sdk-dataset"></a>
 
 El método [`Dataset`](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) de la clase [`with_timestamp_columns()`](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) define la columna de marca de tiempo del conjunto de datos.
 
@@ -129,17 +134,20 @@ dset = dset.with_timestamp_columns('date')
 dset = dset.register(ws, 'target')
 ```
 
-Para obtener un ejemplo completo de cómo usar el rasgo de `timeseries` de conjuntos de datos, vea el [cuaderno de ejemplo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb) o la [documentación del SDK de conjuntos de datos](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-).
+> [!TIP]
+> Para obtener un ejemplo completo de cómo usar el rasgo de `timeseries` de conjuntos de datos, vea el [cuaderno de ejemplo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb) o la [documentación del SDK de conjuntos de datos](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-).
 
-### <a name="azure-machine-learning-studio"></a><a name="studio-dataset"></a>Azure Machine Learning Studio
+# <a name="studio"></a>[Estudio](#tab/azure-studio)
+
+<a name="studio-dataset"></a>
 
 Si crea un conjunto de datos mediante Azure Machine Learning Studio, asegúrese de que la ruta de acceso a los datos contiene información de marca de tiempo, incluya todas las subcarpetas con datos y establezca el formato de la partición.
 
-En el ejemplo siguiente, se toman todos los datos de la subcarpeta *NoaaIsdFlorida/2019* , y el formato de la partición especifica el año, mes y día de la marca de tiempo.
+En el ejemplo siguiente, se toman todos los datos de la subcarpeta *NoaaIsdFlorida/2019*, y el formato de la partición especifica el año, mes y día de la marca de tiempo.
 
 [![Formato de partición](./media/how-to-monitor-datasets/partition-format.png)](media/how-to-monitor-datasets/partition-format-expand.png)
 
-En la configuración de **Esquema** , especifique la columna de marca de tiempo de una columna virtual o real del conjunto de datos especificado:
+En la configuración de **Esquema**, especifique la columna de marca de tiempo de una columna virtual o real del conjunto de datos especificado:
 
 :::image type="content" source="media/how-to-monitor-datasets/timestamp.png" alt-text="Configuración de la marca de tiempo":::
 
@@ -147,14 +155,14 @@ Si los datos tienen particiones por fecha, como es el caso aquí, también puede
 
 :::image type="content" source="media/how-to-monitor-datasets/timeseries-partitiontimestamp.png" alt-text="Marca de tiempo de partición":::
 
+---
 
-## <a name="create-dataset-monitors"></a>Creación de monitores de conjunto de datos
+## <a name="create-dataset-monitor"></a>Creación de un monitor de conjunto de datos
 
-Cree monitores de conjunto de datos para detectar y alertar sobre el desfase de datos en un nuevo conjunto de datos.  Use el [SDK de Python](#sdk-monitor) o [Azure Machine Learning Studio](#studio-monitor).
+Cree un monitor de conjunto de datos para detectar y alertar sobre el desfase de datos en un nuevo conjunto de datos.  Use el [SDK de Python](#sdk-monitor) o [Azure Machine Learning Studio](#studio-monitor).
 
-### <a name="python-sdk"></a><a name="sdk-monitor"></a>SDK para Python
-
-Consulte la [Documentación de referencia de Python SDK sobre el desfase de datos](/python/api/azureml-datadrift/azureml.datadrift) para obtener información completa. 
+# <a name="python"></a>[Python](#tab/python)
+<a name="sdk-monitor"></a> Consulte la [Documentación de referencia del SDK de Python sobre el desfase de datos](/python/api/azureml-datadrift/azureml.datadrift) para obtener información completa. 
 
 En el siguiente ejemplo se muestra cómo crear un monitor de conjunto de datos mediante el SDK de Python
 
@@ -202,9 +210,12 @@ monitor = monitor.disable_schedule()
 monitor = monitor.enable_schedule()
 ```
 
-Para ver un ejemplo completo de cómo configurar un conjunto de datos de `timeseries` y el detector de desfase de datos, consulte nuestro [cuaderno de ejemplos](https://aka.ms/datadrift-notebook).
+> [!TIP]
+> Para ver un ejemplo completo de cómo configurar un conjunto de datos de `timeseries` y el detector de desfase de datos, consulte nuestro [cuaderno de ejemplos](https://aka.ms/datadrift-notebook).
 
-### <a name="azure-machine-learning-studio"></a><a name="studio-monitor"></a> Azure Machine Learning Studio
+
+# <a name="studio"></a>[Estudio](#tab/azure-studio)
+<a name="studio-monitor"></a>
 
 1. Diríjase a la [página principal de Studio](https://ml.azure.com).
 1. Seleccione la pestaña **Conjuntos de datos** de la izquierda. 
@@ -233,6 +244,8 @@ Para ver un ejemplo completo de cómo configurar un conjunto de datos de `timese
     | Umbral | Umbral de porcentaje de desfase de datos para alertas de correo. | Se pueden establecer más alertas y eventos en muchas otras métricas del recurso de Application Insights asociado del área de trabajo. | Sí |
 
 Una vez finalizado el asistente, el monitor de conjunto de resultados resultante aparecerá en la lista. Selecciónelo para ir a la página de detalles de ese monitor.
+
+---
 
 ## <a name="understand-data-drift-results"></a>Descripción de los resultados del desfase de datos
 
@@ -319,9 +332,50 @@ Para definir la acción que se debe realizar cuando se cumplan las condiciones e
 
 ![Grupo de acciones nuevo](./media/how-to-monitor-datasets/action-group.png)
 
+
+## <a name="troubleshooting"></a>Solución de problemas
+
+Limitaciones y problemas conocidos de los monitores de desfase de datos:
+
+* El intervalo de tiempo del análisis de datos históricos está limitado a 31 intervalos de la configuración de frecuencia del monitor. 
+* Limitación de 200 características, a menos que no se especifique ninguna lista de características (se usan todas las características).
+* El tamaño de proceso debe ser lo suficientemente grande como para controlar los datos.
+* Asegúrese de que el conjunto de datos tiene datos dentro de las fechas de inicio y finalización de una ejecución de monitor determinada.
+* Los monitores del conjunto de datos solo funcionarán en conjuntos de datos que contengan 50 filas, o más.
+* Las columnas, o características, del conjunto de datos se clasifican como categóricas o numéricas en función de las condiciones de la tabla siguiente. Si la característica no cumple estas condiciones, por ejemplo, una columna de tipo cadena con > 100 valores únicos, la característica se quita de nuestro algoritmo de desfase de datos, pero se perfila aún así. 
+
+    | Tipo de característica | Tipo de datos | Condición | Limitaciones | 
+    | ------------ | --------- | --------- | ----------- |
+    | Categorías | string, bool, int, float | El número de valores únicos de la característica es menor que 100 y menor que el 5 % del número de filas. | NULL se trata como su propia categoría. | 
+    | Numérico | int, float | Los valores de la característica son de un tipo de datos numérico y no cumplen la condición de una característica de categoría. | Característica quitada si más del 15 % de los valores son NULL. | 
+
+* Cuando haya creado un monitor de desfase de datos, pero no pueda ver datos en la página **Monitores de conjuntos de datos** en Azure Machine Learning Studio, intente lo siguiente.
+
+    1. Compruebe si ha seleccionado el intervalo de fechas correcto en la parte superior de la página.  
+    1. En la pestaña **Monitores de conjuntos de datos**, seleccione el vínculo de experimento para comprobar el estado de la ejecución.  El vínculo se encuentra en el extremo derecho de la tabla.
+    1. Si la ejecución se completó correctamente, compruebe los registros del controlador para ver el número de métricas que se han generado o si hay algún mensaje de advertencia.  Busque registros de controladores en la pestaña **Output + logs** (Salida y registros) después de hacer clic en un experimento.
+
+* Si la función `backfill()` del SDK no genera la salida esperada, puede deberse a un problema de autenticación.  Cuando cree el proceso para pasar esta función, no utilice `Run.get_context().experiment.workspace.compute_targets`.  En su lugar, use una [ServicePrincipalAuthentication](/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?preserve-view=true&view=azure-ml-py) como la siguiente para crear el proceso que se pasa en esa función `backfill()`: 
+
+  ```python
+   auth = ServicePrincipalAuthentication(
+          tenant_id=tenant_id,
+          service_principal_id=app_id,
+          service_principal_password=client_secret
+          )
+   ws = Workspace.get("xxx", auth=auth, subscription_id="xxx", resource_group"xxx")
+   compute = ws.compute_targets.get("xxx")
+   ```
+
+* En el recopilador de datos del modelo, puede tardar hasta 10 minutos para que lleguen los datos a la cuenta de Blob Storage (pero normalmente, menos). En un script o Notebook, espere 10 minutos para asegurarse de que se ejecutarán las celdas siguientes.
+
+    ```python
+    import time
+    time.sleep(600)
+    ```
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Vaya a [Azure Machine Learning Studio](https://ml.azure.com) o al [cuaderno de Python](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datadrift-tutorial/datadrift-tutorial.ipynb) para configurar un monitor de conjunto de datos.
 * Vea cómo configurar un desfase de datos en los [modelos implementados en Azure Kubernetes Service](./how-to-enable-data-collection.md).
-* Configure los monitores de desfase de un conjunto de datos con [Event Grid](how-to-use-event-grid.md). 
-* Consulte estas [sugerencias para la solución de problemas](resource-known-issues.md#data-drift) recurrentes si lo necesita.
+* Configure los monitores de desfase de un conjunto de datos con [Event Grid](how-to-use-event-grid.md).

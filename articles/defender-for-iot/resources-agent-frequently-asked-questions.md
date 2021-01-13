@@ -13,17 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/07/2020
 ms.author: rkarlin
-ms.openlocfilehash: 9862519a2003eb373c43fef1b660986a8d830327
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: f584f11603e41b63f3c96749ed6c720eb5ce07a8
+ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92094209"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97835064"
 ---
 # <a name="azure-defender-for-iot-agent-frequently-asked-questions"></a>Preguntas más frecuentes sobre el agente de Azure Defender para IoT
 
 En este artículo se proporciona una lista de las preguntas más frecuentes y las respuestas sobre el agente de Defender para IoT.
-
 
 ## <a name="do-i-have-to-install-an-embedded-security-agent"></a>¿Tengo que instalar un agente de seguridad incrustado?
 
@@ -41,7 +40,6 @@ La instalación de un agente en los dispositivos de IoT no es obligatoria para h
 El agente de Defender para IoT proporciona cobertura de amenazas a nivel del dispositivo para la configuración, el comportamiento, el acceso (mediante el examen de la configuración), los procesos y la conectividad de los dispositivos. El agente de seguridad de Defender para IoT no examina los datos ni actividades relacionados con el negocio.
 
 El agente de seguridad de Defender para IoT es de código abierto y está disponible en GitHub para Windows y Linux en versiones de 32 y 64 bits: https://github.com/Azure/Azure-IoT-Security
-
 
 ## <a name="what-are-the-dependencies-and-prerequisites-of-the-agent"></a>¿Cuáles son las dependencias y los requisitos previos del agente?
 
@@ -87,13 +85,11 @@ El agente no puede desactivarse.
 
 Si el agente deja de comunicarse o no envía mensajes de seguridad, se genera una alerta **Device is silent** (El dispositivo está silencioso).
 
-
-
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre los primeros pasos con Defender para IoT, consulte los siguientes artículos:
 
 - Lea la [información general](overview.md) de Defender para IoT.
-- Verifique los [requisitos previos del servicio](service-prerequisites.md)
-- Más información sobre cómo [empezar a usar ASC para IoT](getting-started.md)
+- Compruebe los [requisitos previos del sistema](quickstart-system-prerequisites.md).
+- Obtenga más información sobre cómo [comenzar a usar Defender para IoT](getting-started.md).
 - Información sobre las [alertas de seguridad de Defender para IoT](concept-security-alerts.md)

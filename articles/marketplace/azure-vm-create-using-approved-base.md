@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: emuench
 ms.author: krsh
-ms.date: 10/20/2020
-ms.openlocfilehash: 74cab14cd162ba608a9c5d0168485e9055661f55
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.date: 01/06/2021
+ms.openlocfilehash: 9164c1e2542024a02bf4868658d0f29728f32c7b
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97590803"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97976867"
 ---
 # <a name="how-to-create-a-virtual-machine-using-an-approved-base"></a>Procedimiento para crear una máquina virtual con una base aprobada
 
@@ -40,15 +40,11 @@ Azure ofrece una gama de distribuciones de Linux aprobadas. Para obtener una lis
 2. Seleccione **Máquinas virtuales**.
 3. Seleccione **+ Agregar** para abrir la pantalla **Crear una máquina virtual**.
 4. Seleccione la imagen en la lista desplegable, o bien **Examinar todas las imágenes públicas y privadas** si desea buscar o examinar todas las imágenes de máquina virtual disponibles.
-5. Si desea crear una máquina virtual de **Gen 1**, vaya a la pestaña **Discos** y establezca la opción **Usar disco administrado** en **NO** para que pueda obtener el VHD de la máquina virtual en la cuenta de almacenamiento especificada.
-
-   :::image type="content" source="media/create-vm/create-virtual-machine-sizes-2.png" alt-text="Seleccione Disco no administrado.":::
-   
-6. Para crear una máquina virtual de **segunda generación**, vaya a la pestaña **Opciones avanzadas** y seleccione la opción **Generación 2**.
+5. Para crear una máquina virtual de **segunda generación**, vaya a la pestaña **Opciones avanzadas** y seleccione la opción **Generación 2**.
 
     :::image type="content" source="media/create-vm/vm-gen-option.png" alt-text="Selección Generación 1 o Generación 2.":::
 
-7. Seleccione el tamaño de la máquina virtual que va a implementar.
+6. Seleccione el tamaño de la máquina virtual que va a implementar.
 
     :::image type="content" source="media/create-vm/create-virtual-machine-sizes.png" alt-text="Seleccione un tamaño de máquina virtual recomendado para la imagen seleccionada.":::
 
@@ -56,7 +52,6 @@ Azure ofrece una gama de distribuciones de Linux aprobadas. Para obtener una lis
 8. Seleccione **Revisar y crear** para revisar sus selecciones. Cuando aparezca el mensaje **Validación superada**, seleccione **Crear**.
 
 Azure comienza el aprovisionamiento de la máquina virtual especificada. Para seguir su progreso, seleccione la pestaña **Máquinas virtuales** en el menú de la izquierda. En cuanto se crea, el estado de la máquina virtual cambia a **En ejecución**.
-
 
 ## <a name="configure-the-vm"></a>Configuración de la máquina virtual
 

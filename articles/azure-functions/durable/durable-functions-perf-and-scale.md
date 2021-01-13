@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: b9fc465b5e5f132264fd36e004fa3ee7623b87a5
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: c94218248f1122cdb60ab8124bc9d9365fe8947b
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96854995"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97931745"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Rendimiento y escalado horizontal en Durable Functions (Azure Functions)
 
@@ -51,7 +51,7 @@ La extensión Durable Task implementa un algoritmo de interrupción exponencial 
 El retraso de sondeo máximo se configura mediante la propiedad `maxQueuePollingInterval` en el [archivo host.json](../functions-host-json.md#durabletask). El establecimiento de esta propiedad en un valor más alto puede provocar mayores latencias de procesamiento de mensajes. Las latencias elevadas solo se pueden esperar después de períodos de inactividad. El establecimiento de esta propiedad en un valor más bajo puede provocar mayores costos de almacenamiento debido al mayor número de transacciones de almacenamiento.
 
 > [!NOTE]
-> Cuando se ejecuta en los planes Consumo y Premium de Azure Functions, el [controlador de escala de Azure Functions](../functions-scale.md#how-the-consumption-and-premium-plans-work) sondeará cada cola de control y elemento de trabajo una vez cada 10 segundos. Este sondeo adicional es necesario para determinar cuándo activar instancias de aplicaciones de función y tomar decisiones de escalado. En el momento de escribir este artículo, este intervalo de 10 segundos es constante y no se puede configurar.
+> Cuando se ejecuta en los planes Consumo y Premium de Azure Functions, el [controlador de escala de Azure Functions](../event-driven-scaling.md) sondeará cada cola de control y elemento de trabajo una vez cada 10 segundos. Este sondeo adicional es necesario para determinar cuándo activar instancias de aplicaciones de función y tomar decisiones de escalado. En el momento de escribir este artículo, este intervalo de 10 segundos es constante y no se puede configurar.
 
 ### <a name="orchestration-start-delays"></a>Retrasos en el inicio de la orquestación
 Las instancias de las orquestaciones se inician con la inserción de un mensaje `ExecutionStarted` en una de las colas de control de la central de tareas. En determinadas condiciones, se pueden observar retrasos de varios segundos entre el momento en que se programa la ejecución de una orquestación y el momento en el que se inicia la ejecución. Durante este intervalo de tiempo, la instancia de la orquestación permanece en estado `Pending`. Hay dos causas posibles de este retraso:
@@ -138,7 +138,7 @@ En general, las funciones de orquestador se han diseñado para que sean ligeras 
 
 ## <a name="auto-scale"></a>Escalado automático
 
-Al igual que todas las instancias de Azure Functions que se ejecutan en los planes Consumo y Elástico Premium, Durable Functions admite el escalado automático a través del [controlador de escalado de Azure Functions](../functions-scale.md#runtime-scaling). El controlador de escalado supervisa la latencia de todas las colas emitiendo periódicamente comandos _peek_. En función de las latencias de los mensajes inspeccionados, el controlador de escalado decidirá si desea agregar o quitar máquinas virtuales.
+Al igual que todas las instancias de Azure Functions que se ejecutan en los planes Consumo y Elástico Premium, Durable Functions admite el escalado automático a través del [controlador de escalado de Azure Functions](../event-driven-scaling.md#runtime-scaling). El controlador de escalado supervisa la latencia de todas las colas emitiendo periódicamente comandos _peek_. En función de las latencias de los mensajes inspeccionados, el controlador de escalado decidirá si desea agregar o quitar máquinas virtuales.
 
 Si el controlador de escalado determina que las latencias de mensaje de la cola de control son demasiado altas, agregará instancias de máquina virtual hasta que la latencia de mensajes se reduzca a un nivel aceptable o alcance el número de particiones de la cola de control. De igual forma, el controlador de escalado va a agregar continuamente instancias de máquina virtual si las latencias de la cola de elementos de trabajo son altas, independientemente del número de particiones.
 

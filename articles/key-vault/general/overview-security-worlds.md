@@ -8,12 +8,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 07/03/2017
-ms.openlocfilehash: 3584f83c5e1a5e83d069373395227b70c084eae9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d21deea13aac3d40c452a183c340d3108a1a01f4
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81426748"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936335"
 ---
 # <a name="azure-key-vault-security-worlds-and-geographic-boundaries"></a>Espacios de seguridad y límites geográficos de Azure Key Vault
 
@@ -43,6 +43,3 @@ En el artículo de productos por región, por ejemplo, la pestaña **América** 
 >Una excepción es que el Departamento de Defensa del este y del centro de Estados Unidos tienen sus propios ámbitos de seguridad. 
 
 De igual forma, en la pestaña **Europa**, tanto Europa del Norte como Europa occidental se asignan a la región de Europa. Lo mismo sirve también para la pestaña **Asia-Pacífico**.
-
-
-

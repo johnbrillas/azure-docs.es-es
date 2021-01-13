@@ -5,12 +5,12 @@ author: anthonychu
 ms.author: antchu
 ms.date: 12/1/2020
 ms.topic: article
-ms.openlocfilehash: 099f90ba8c5d9dabb6c4c505e50d8c077e3eaf0f
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: f527b387afc01eb60bd582adc13a4ad3d516055b
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746036"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936998"
 ---
 # <a name="azure-functions-custom-handlers"></a>Controladores personalizados de Azure Functions
 
@@ -407,7 +407,7 @@ Al establecer la salida `message` equivalente a los datos del pedido procedentes
 En el caso de las funciones desencadenadas por HTTP sin enlaces ni salidas adicionales, es posible que desee que el controlador trabaje directamente con la solicitud y respuesta HTTP en lugar de las cargas de [solicitud](#request-payload) y [respuesta](#response-payload) del controlador personalizadas. Este comportamiento se puede configurar en *host.json* mediante la configuración `enableForwardingHttpRequest`.
 
 > [!IMPORTANT]
-> El propósito principal de la característica de controladores personalizados es habilitar los lenguajes y runtimes que actualmente no tengan soporte de primera clase en Azure Functions. Aunque puede ser posible ejecutar aplicaciones web mediante controladores personalizados, Azure Functions no es un proxy inverso estándar. Algunas características como el streaming de respuesta, HTTP/2 y WebSockets no están disponibles. Pueden restringirse algunos componentes de la solicitud HTTP, por ejemplo, algunos encabezados y rutas. La aplicación también puede experimentar un [arranque en frío](functions-scale.md#cold-start) excesivo.
+> El propósito principal de la característica de controladores personalizados es habilitar los lenguajes y runtimes que actualmente no tengan soporte de primera clase en Azure Functions. Aunque puede ser posible ejecutar aplicaciones web mediante controladores personalizados, Azure Functions no es un proxy inverso estándar. Algunas características como el streaming de respuesta, HTTP/2 y WebSockets no están disponibles. Pueden restringirse algunos componentes de la solicitud HTTP, por ejemplo, algunos encabezados y rutas. La aplicación también puede experimentar un [arranque en frío](event-driven-scaling.md#cold-start) excesivo.
 >
 > Para abordar estas circunstancias, considere la posibilidad de ejecutar las aplicaciones web en [Azure App Service](../app-service/overview.md).
 

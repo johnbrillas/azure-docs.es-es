@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 334cbef7460306ef2954881a1cab918573e1e371
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb2a8a7bb14758ab21eb2183a119f456b53c8562
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400645"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654956"
 ---
 # <a name="set-up-vmware-disaster-recovery-in-a-multi-tenancy-environment-with-the-cloud-solution-provider-csp-program"></a>Configuración de la recuperación ante desastres de VMware en Azure en un entorno multiinquilino con el programa Proveedor de soluciones en la nube (CSP)
 
@@ -65,22 +65,22 @@ Ahora puede realizar todas las operaciones de Site Recovery para el inquilino me
 ## <a name="assign-tenant-access-to-the-subscription"></a>Asignación del acceso de inquilino a la suscripción
 
 1. Asegúrese de que esté configurada la infraestructura de recuperación ante desastres. Los asociados acceden a las suscripciones del inquilino mediante el portal de CSP, independientemente de si la recuperación ante desastres es administrada o autoservicio. Configure su propio almacén y registre la infraestructura en las suscripciones del inquilino.
-2. Proporcione al inquilino la [cuenta que ha creado](#create-a-tenant-account).
-3. También puede agregar un nuevo usuario a la suscripción de inquilino mediante el portal de CSP, de la manera siguiente:
+1. Proporcione al inquilino la [cuenta que ha creado](#create-a-tenant-account).
+1. También puede agregar un nuevo usuario a la suscripción de inquilino mediante el portal de CSP, de la manera siguiente:
 
-    a) Vaya a la página de suscripción de CSP del inquilino y seleccione la opción **Users and licenses** (Usuarios y licencias).
+    1. Vaya a la página de suscripción de CSP del inquilino y seleccione la opción **Users and licenses** (Usuarios y licencias).
 
-      ![Página de suscripción de CSP del inquilino](./media/vmware-azure-multi-tenant-csp-disaster-recovery/users-and-licences.png)
+       ![Página de suscripción de CSP del inquilino](./media/vmware-azure-multi-tenant-csp-disaster-recovery/users-and-licences.png)
 
-    b) Ahora cree un nuevo usuario; para ello, escriba los datos pertinentes y seleccione los permisos, o bien cargue la lista de usuarios en un archivo CSV.
-    
-    c) Después de crear un usuario, vuelva Azure Portal. En la página **Suscripción**, seleccione la correspondiente.
+    1. Ahora cree un nuevo usuario. Para ello, escriba los datos pertinentes y seleccione los permisos, o bien cargue la lista de usuarios en un archivo CSV.
 
-    Seleccione **Control de acceso (IAM)** y después **Asignaciones de roles**.
+    1. Después de crear un usuario, vuelva a Azure Portal. En la página **Suscripción**, seleccione la correspondiente.
 
-    (e) Haga clic en **Agregar asignación de roles** para agregar un usuario con el nivel de acceso pertinente. Los usuarios que se crearon mediante el portal de CSP se muestran en la pestaña Asignaciones de roles.
+    1. Seleccione **Control de acceso (IAM)** y después **Asignaciones de roles**.
 
-      ![Adición de un usuario](./media/vmware-azure-multi-tenant-csp-disaster-recovery/add-user-subscription.png)
+    1. Haga clic en **Agregar asignación de roles** para agregar un usuario con el nivel de acceso pertinente. Los usuarios que se crearon mediante el portal de CSP se muestran en la pestaña Asignaciones de roles.
+
+        ![Adición de un usuario](./media/vmware-azure-multi-tenant-csp-disaster-recovery/add-user-subscription.png)
 
 - Para la mayoría de las operaciones de administración, el rol de *Colaborador* es suficiente. Un usuario con este nivel de acceso puede hacerlo todo en una suscripción, excepto cambiar los niveles de acceso (para lo cual se necesita el nivel de acceso de *Propietario*).
 - Site Recovery también tiene tres [roles de usuario predefinidos](site-recovery-role-based-linked-access-control.md) que se pueden usar para restringir aún más los niveles de acceso según sea necesario.

@@ -9,12 +9,12 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: sstein
 ms.date: 06/04/2020
-ms.openlocfilehash: cfcdd143a26d36ed3c4646122fce7c19c41976d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 44a37a912c5c7a882d21631b8ce2da2c7ba9c05e
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448845"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97967708"
 ---
 # <a name="request-quota-increases-for-azure-sql-database-and-sql-managed-instance"></a>Solicitud de aumentos de cuota para Azure SQL Database y la instancia administrada de SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -109,16 +109,18 @@ Si su suscripción requiere acceso en una región determinada, seleccione la opc
 
    ![Solicitar acceso a la región](./media/quota-increase-request/quota-request.png)
 
-### <a name="enable-m-series-access-to-a-region"></a><a id="mseries"></a> Habilitar el acceso de la serie M a una región
+<!--
+### <a id="mseries"></a> Enable M-series access to a region
 
-Para habilitar hardware de la serie M para una suscripción y región, se debe abrir una solicitud de soporte técnico.
+To enable M-series hardware for a subscription and region, a support request must be opened.
 
-1. Seleccione el tipo de cuota **Acceso a la región de la serie M**.
+1. Select the **M-series region access** quota type.
 
-1. En la lista **Seleccionar una ubicación**, seleccione la región de Azure que se va a usar. La cuota es por suscripción en cada región.
+1. In the **Select a location** list, select the Azure region to use. The quota is per subscription in each region.
 
 
-   ![Solicitar acceso a la región de la serie M](./media/quota-increase-request/quota-m-series.png)
+   ![Request M-series region access](./media/quota-increase-request/quota-m-series.png)
+-->
 
 ## <a name="sql-managed-instance-quota-type"></a><a id="sqlmiquota"></a> Tipo de cuota de instancia administrada de SQL
 

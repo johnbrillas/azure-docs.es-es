@@ -3,12 +3,12 @@ title: Parámetros en plantillas
 description: Se describe cómo definir parámetros en una plantilla de Azure Resource Manager (plantilla de ARM).
 ms.topic: conceptual
 ms.date: 11/24/2020
-ms.openlocfilehash: 4ac1aeb579040b35b2a9b4cb90fb5687f91ebd3b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 929d871bc0087d4fda585773b349dee4e0945c7c
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353517"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934720"
 ---
 # <a name="parameters-in-arm-templates"></a>Parámetros en plantillas de ARM
 
@@ -20,7 +20,7 @@ Cada parámetro debe establecerse en uno de los [tipos de datos](template-syntax
 
 ## <a name="define-parameter"></a>Definición del parámetro
 
-En el ejemplo siguiente se muestra una definición simple de parámetro. Define un parámetro denominado **storageSKU**. El parámetro es un valor de cadena y solo acepta valores que son válidos para su uso previsto. Cuando no se proporciona ningún valor durante la implementación, el parámetro utiliza un valor predeterminado.
+En el ejemplo siguiente se muestra una definición simple de parámetro. Define un parámetro denominado `storageSKU`. El parámetro es un valor de cadena y solo acepta valores que son válidos para su uso previsto. Cuando no se proporciona ningún valor durante la implementación, el parámetro utiliza un valor predeterminado.
 
 ```json
 "parameters": {

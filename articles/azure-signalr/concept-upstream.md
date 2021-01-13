@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.author: chenyl
-ms.openlocfilehash: 1d51f5e8d2fac1e2b180a608c840d0a322e76271
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 33df4410b9dd82fd0b1c732eb03ab5e0e77e9869
+ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92143235"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97763122"
 ---
 # <a name="upstream-settings"></a>Configuración ascendente
 
@@ -53,6 +53,19 @@ Cuando un cliente del centro "chat" invoque el método de centro de conectividad
 http://host.com/chat/api/messages/broadcast
 ```
 
+### <a name="key-vault-secret-reference-in-url-template-settings"></a>Referencia de secreto de Key Vault en la configuración de la plantilla de dirección URL
+
+La dirección URL ascendente no es el cifrado en reposo. Si tiene información confidencial, se recomienda usar Key Vault para guardarla donde Access Control tenga mayor protección. Básicamente, puede habilitar la identidad administrada de Azure SignalR Service y conceder el permiso de lectura en una instancia de Key Vault y usar la referencia de Key Vault en lugar de texto no cifrado en el patrón de dirección URL ascendente.
+
+1. Agregue una identidad asignada por el sistema o una asignada por el usuario. Consulte [Adición de identidad administrada en Azure Portal](./howto-use-managed-identity.md#add-a-system-assigned-identity).
+
+2. Conceda el permiso de lectura de secreto para la identidad administrada en las directivas de acceso de Key Vault. Consulte [Asignación de una directiva de acceso de Key Vault mediante Azure Portal](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal).
+
+3. Reemplace el texto confidencial con la sintaxis `{@Microsoft.KeyVault(SecretUri=<secret-identity>)}` en el patrón de dirección URL ascendente.
+
+> [!NOTE]
+> El contenido del secreto solo se relee cuando se cambia la configuración ascendente o la identidad administrada. Asegúrese de que ha concedido el permiso de lectura del secreto a la identidad administrada antes de usar la referencia de secreto de Key Vault.
+
 ### <a name="rule-settings"></a>Configuración de reglas
 
 Puede establecer reglas para *reglas de centro*, *reglas de categoría* y *reglas de eventos* por separado. La regla coincidente admite tres formatos. Tome como ejemplo las reglas de eventos:
@@ -61,8 +74,8 @@ Puede establecer reglas para *reglas de centro*, *reglas de categoría* y *regla
 - Use el nombre de evento completo para que se asocie con el evento. Por ejemplo, `connected` asocia el evento conectado.
 
 > [!NOTE]
-> Si usa Azure Functions y el [desencadenador de SignalR](../azure-functions/functions-bindings-signalr-service-trigger.md), dicho desencadenador expondrá un punto de conexión único con el siguiente formato: `https://<APP_NAME>.azurewebsites.net/runtime/webhooks/signalr?code=<API_KEY>`.
-> Solo puede configurar la plantilla de dirección URL para esta URL.
+> Si usa Azure Functions y el [desencadenador de SignalR](../azure-functions/functions-bindings-signalr-service-trigger.md), dicho desencadenador expondrá un punto de conexión único con el siguiente formato: `<Function_App_URL>/runtime/webhooks/signalr?code=<API_KEY>`.
+> Solo puede establecer la **configuración de la plantilla de dirección URL** en esta dirección URL y mantener la **Configuración de la regla** como opción predeterminada. Consulte [Integración de SignalR Service](../azure-functions/functions-bindings-signalr-service-trigger.md#signalr-service-integration) para obtener más información sobre cómo buscar `<Function_App_URL>` y `<API_KEY>`.
 
 ### <a name="authentication-settings"></a>Configuración de autenticación
 
@@ -82,7 +95,7 @@ Al seleccionar `ManagedIdentity`, debe habilitar una identidad administrada en A
 3. Agregue las direcciones URL en **Upstream URL Pattern** (Patrón de dirección URL ascendente). A continuación, las opciones, como **Hub Rules** (Reglas de centros), mostrarán el valor predeterminado.
 4. Para establecer la configuración de **Hub Rules** (Reglas de centros), **Event Rules** (Reglas de eventos), **Category Rules** (Reglas de categorías) y **Upstream Authentication** (Autenticación ascendente), seleccione el valor de **Hub Rules**. Aparece una página que le permite editar la configuración:
 
-    :::image type="content" source="media/concept-upstream/upstream-detail-portal.png" alt-text="Configuración ascendente":::
+    :::image type="content" source="media/concept-upstream/upstream-detail-portal.png" alt-text="Detalles de configuración ascendente":::
 
 5. Para establecer **Upstream Authentication** (Autenticación ascendente), asegúrese de que ha habilitado primero una identidad administrada. A continuación, seleccione **Use Managed Identity** (Usar identidad administrada). Según sus necesidades, puede elegir cualquier opción en **Auth Resource ID** (Id. De recurso de autenticación). Para obtener más información, consulte [Identidades administradas para Azure SignalR Service](howto-use-managed-identity.md).
 
@@ -115,7 +128,7 @@ Para crear una configuración ascendente mediante una [plantilla de Azure Resour
 
 ## <a name="serverless-protocols"></a>Protocolos sin servidor
 
-Azure SignalR Service envía mensajes a los puntos de conexión que cumplen con los protocolos siguientes.
+Azure SignalR Service envía mensajes a los puntos de conexión que cumplen con los protocolos siguientes. Puede usar el [enlace del desencadenador de SignalR Service](../azure-functions/functions-bindings-signalr-service-trigger.md) con la aplicación de funciones, que controla estos protocolos.
 
 ### <a name="method"></a>Método
 
@@ -170,3 +183,5 @@ Hex_encoded(HMAC_SHA256(accessKey, connection-id))
 
 - [Identidades administradas para Azure SignalR Service](howto-use-managed-identity.md)
 - [Desarrollo y configuración de Azure Functions con Azure SignalR Service](signalr-concept-serverless-development-config.md)
+- [Control de mensajes enviados desde SignalR Service (enlace del desencadenador)](../azure-functions/functions-bindings-signalr-service-trigger.md)
+- [Ejemplo de enlace del desencadenador de SignalR Service](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/BidirectionChat)

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
 ms.date: 12/07/2020
-ms.openlocfilehash: 0c4d0416c107c9ceb4cd0dbdf80761ab9b52d56c
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 7c15b3a854b533d93bc05f7e5302671711da75c2
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96924058"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936131"
 ---
 # <a name="overview-azure-logic-apps-preview"></a>Introducción: Versión preliminar de Azure Logic Apps
 
@@ -148,7 +148,7 @@ La versión preliminar de Azure Logic Apps incluye muchas capacidades actuales y
 
 Al crear el nuevo tipo de aplicación lógica en Azure Portal o realizar la implementación desde Visual Studio Code, debe elegir un plan de hospedaje, ya sea [App Service o Premium](../azure-functions/functions-scale.md), para que lo use la aplicación lógica. Este plan determina el modelo de precios que se aplica a la hora de ejecutar la aplicación lógica. Si selecciona el plan de App Service, también debe elegir un [plan de tarifa](../app-service/overview-hosting-plans.md).
 
-Los flujos de trabajo *con estado* usan [almacenamiento externo](../azure-functions/functions-scale.md#storage-account-requirements), por lo que se aplican los [precios de Azure Storage](https://azure.microsoft.com/pricing/details/storage/) a las transacciones de almacenamiento que realiza el runtime de la versión preliminar de Azure Logic Apps. Por ejemplo, las colas se utilizan para la programación, mientras que las tablas y blobs se utilizan para almacenar los estados de los flujos de trabajo.
+Los flujos de trabajo *con estado* usan [almacenamiento externo](../azure-functions/storage-considerations.md#storage-account-requirements), por lo que se aplican los [precios de Azure Storage](https://azure.microsoft.com/pricing/details/storage/) a las transacciones de almacenamiento que realiza el runtime de la versión preliminar de Azure Logic Apps. Por ejemplo, las colas se utilizan para la programación, mientras que las tablas y blobs se utilizan para almacenar los estados de los flujos de trabajo.
 
 > [!NOTE]
 > Durante la versión preliminar pública, la ejecución de aplicaciones lógicas en App Service no incurre en cargos *adicionales* al plan seleccionado.

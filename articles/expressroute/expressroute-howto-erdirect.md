@@ -5,18 +5,27 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 09/28/2020
+ms.date: 12/14/2020
 ms.author: duau
-ms.openlocfilehash: a450c4057b4639206fd1db4b7f44d27c69441f7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 964af92006aad7b5ce8bdf25a332cbcf9c7ef144
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91569842"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98014525"
 ---
 # <a name="how-to-configure-expressroute-direct"></a>Cómo configurar ExpressRoute Direct
 
 ExpressRoute Direct le ofrece la posibilidad de conectarse directamente a la red global de Microsoft mediante ubicaciones de emparejamiento distribuidas estratégicamente por todo el mundo. Para obtener más información, consulte [Acerca de ExpressRoute Direct](expressroute-erdirect-about.md).
+
+## <a name="before-you-begin"></a>Antes de empezar
+
+Para poder usar ExpressRoute Direct, primero hay que inscribir la suscripción. Para ello, envíe un correo electrónico a <ExpressRouteDirect@microsoft.com> con el identificador de la suscripción, incluidos los detalles siguientes:
+
+* Los escenarios que desea lograr con **ExpressRoute Direct**
+* Las preferencias de ubicación: consulte el artículo [Asociados y ubicaciones de emparejamiento](expressroute-locations-providers.md) para obtener una lista completa de todas las ubicaciones
+* Escala de tiempo de implementación
+* ¿Alguna otra pregunta?
 
 ## <a name="create-the-resource"></a><a name="resources"></a>Crear el recurso
 

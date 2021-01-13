@@ -3,12 +3,12 @@ title: Funciones definidas por el usuario en plantillas
 description: Aquí se describe cómo definir y usar las funciones definidas por el usuario en una plantilla de Azure Resource Manager (plantilla de Resource Manager).
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: 12199aca788438e4558ed2c607b866f0dc723e2a
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: f428fa3bc827af3820ad9f928f4f92b881c9c84c
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96436970"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934686"
 ---
 # <a name="user-defined-functions-in-arm-template"></a>Funciones definidas por el usuario en plantillas de Resource Manager
 
@@ -44,7 +44,7 @@ Las funciones requieren un valor de espacio de nombres para evitar conflictos de
 
 ## <a name="use-the-function"></a>Uso de la función
 
-En el ejemplo siguiente se muestra una plantilla que incluye una función definida por el usuario. Esa función se utiliza para obtener un nombre único para una cuenta de almacenamiento. La plantilla tiene un parámetro denominado **storageNamePrefix** que se pasa como un parámetro a la función.
+En el ejemplo siguiente se muestra una plantilla que incluye una función definida por el usuario. Esa función se utiliza para obtener un nombre único para una cuenta de almacenamiento. La plantilla tiene un parámetro denominado `storageNamePrefix` que se pasa como un parámetro a la función.
 
 ```json
 {

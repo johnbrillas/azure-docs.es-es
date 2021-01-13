@@ -1,19 +1,19 @@
 ---
 title: Filtros de seguridad para restringir los resultados
 titleSuffix: Azure Cognitive Search
-description: Privilegios de seguridad en el nivel de documento de los resultados de la búsqueda de Azure Cognitive Search, mediante filtros de seguridad e identidades de usuario.
+description: Aprenda a implementar privilegios de seguridad en el nivel de documento de los resultados de la búsqueda de Azure Cognitive Search, mediante filtros de seguridad e identidades de usuario.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/04/2020
-ms.openlocfilehash: 8562fd1afaa01e362bd6d95fd4dcf90cf3145c5a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/16/2020
+ms.openlocfilehash: 8bd162fcf2011d2ccce716564763e7f54f19ff69
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88928530"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97631810"
 ---
 # <a name="security-filters-for-trimming-results-in-azure-cognitive-search"></a>Filtros de seguridad para restringir los resultados en Azure Cognitive Search
 
@@ -62,7 +62,7 @@ Supongamos que tenemos un índice de los archivos protegidos y que un conjunto d
   
 Emita una solicitud POST HTTP al punto de conexión de la dirección URL del índice. El cuerpo de la solicitud HTTP es un objeto JSON que contiene los documentos que se van a agregar:
 
-```
+```http
 POST https://[search service].search.windows.net/indexes/securedfiles/docs/index?api-version=2020-06-30  
 Content-Type: application/json
 api-key: [admin key]
@@ -110,17 +110,18 @@ Si necesita actualizar un documento existente con la lista de grupos, puede usar
 ```
 
 Para obtener detalles completos sobre cómo agregar o actualizar documentos, puede leer [Edición de documentos](/rest/api/searchservice/addupdate-or-delete-documents).
-   
+
 ## <a name="apply-the-security-filter"></a>Aplicación del filtro de seguridad
 
 Para recortar documentos basados en el acceso `group_ids`, debe emitir una consulta de búsqueda con un filtro `group_ids/any(g:search.in(g, 'group_id1, group_id2,...'))`, donde "group_id1, group_id2,..." son los grupos a los que pertenece el emisor de la solicitud de búsqueda.
+
 Este filtro coincide con todos los documentos para los que el campo `group_ids` contiene uno de los identificadores especificados.
 Para obtener detalles completos sobre cómo buscar documentos con Azure Cognitive Search, puede leer [Búsqueda en documentos](/rest/api/searchservice/search-documents).
 Tenga en cuenta que en este ejemplo se muestra cómo buscar en documentos mediante una solicitud POST.
 
 Emita la solicitud POST HTTP:
 
-```
+```http
 POST https://[service name].search.windows.net/indexes/securedfiles/docs/search?api-version=2020-06-30
 Content-Type: application/json  
 api-key: [admin or query key]
@@ -152,12 +153,12 @@ Debería obtener los documentos en que `group_ids` contenga "group_id1" o "group
  ]
 }
 ```
-## <a name="conclusion"></a>Conclusión
 
-Se explica cómo puede filtrar los resultados según la identidad del usuario y la función `search.in()` de Azure Cognitive Search. Puede usar esta función para pasar los identificadores de principio del usuario solicitante para que coincidan con los identificadores de entidad de seguridad asociados a cada documento de destino. Cuando se controla una solicitud de búsqueda, la función `search.in` filtra los resultados de la búsqueda para los que ninguna de las entidades de seguridad del usuario tiene acceso de lectura. Los identificadores de entidad de seguridad pueden representar elementos como los grupos de seguridad, los roles o incluso la identidad del usuario.
- 
-## <a name="see-also"></a>Consulte también
+## <a name="next-steps"></a>Pasos siguientes
 
-+ [Control de acceso basado en identidades de Active Directory mediante filtros de Azure Cognitive Search](search-security-trimming-for-azure-search-with-aad.md)
-+ [Filtros de Azure Cognitive Search](search-filters.md)
-+ [Control de acceso y seguridad de datos en las operaciones de Azure Cognitive Search](search-security-overview.md)
+En este artículo se describe un patrón para filtrar los resultados en función de la identidad del usuario y la función `search.in()`. Puede usar esta función para pasar los identificadores de principio del usuario solicitante para que coincidan con los identificadores de entidad de seguridad asociados a cada documento de destino. Cuando se controla una solicitud de búsqueda, la función `search.in` filtra los resultados de la búsqueda para los que ninguna de las entidades de seguridad del usuario tiene acceso de lectura. Los identificadores de entidad de seguridad pueden representar elementos como los grupos de seguridad, los roles o incluso la identidad del usuario.
+
+Para ver un patrón alternativo basado en Active Directory o para revisar otras características de seguridad, vea los vínculos siguientes.
+
+* [Filtros de seguridad para limitar los resultados mediante las identidades de Active Directory](search-security-trimming-for-azure-search-with-aad.md)
+* [Seguridad en Azure Cognitive Search](search-security-overview.md)

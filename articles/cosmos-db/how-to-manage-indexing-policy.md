@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/02/2020
 ms.author: tisande
 ms.custom: devx-track-python, devx-track-js, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: cd51210a64223fab5d2d48a91bd3d0a6521a9627
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 8d52f8c59e83a4aae8724100770965f756a439fb
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341321"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98015698"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Administración de directivas de indexación en Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -27,7 +27,7 @@ En Azure Cosmos DB, para indexar los datos se usan las [directivas de indexaci
 
 Estos son algunos ejemplos de directivas de indexación que se muestran en [su formato JSON](index-policy.md#include-exclude-paths), que es cómo se exponen en Azure Portal. Los mismos parámetros se pueden establecer a través de la CLI de Azure o cualquier SDK.
 
-### <a name="opt-out-policy-to-selectively-exclude-some-property-paths"></a>Directiva de rechazo que excluye de forma selectiva algunas rutas de acceso de propiedades
+### <a name="opt-out-policy-to-selectively-exclude-some-property-paths"></a><a id="range-index"></a>Directiva de rechazo que excluye de forma selectiva algunas rutas de acceso de propiedades
 
 ```json
     {
@@ -146,7 +146,7 @@ Esta directiva de indexación es equivalente a la siguiente, que establece manua
 > [!NOTE]
 > Por lo general se recomienda usar una directiva de indexación de **rechazo** para permitir que Azure Cosmos DB indexe de forma proactiva todas las propiedades nuevas que se puedan agregar al modelo de datos.
 
-### <a name="using-a-spatial-index-on-a-specific-property-path-only"></a>Uso de un índice espacial en una ruta de acceso de una propiedad concreta solo
+### <a name="using-a-spatial-index-on-a-specific-property-path-only"></a><a id="spatial-index"></a>Uso de un índice espacial en una ruta de acceso de una propiedad concreta solo
 
 ```json
 {
@@ -176,7 +176,7 @@ Esta directiva de indexación es equivalente a la siguiente, que establece manua
 }
 ```
 
-## <a name="composite-indexing-policy-examples"></a>Ejemplos de la directiva de índice compuesto
+## <a name="composite-indexing-policy-examples"></a><a id="composite-index"></a>Ejemplos de la directiva de índice compuesto
 
 Además de incluir o excluir rutas de acceso para las propiedades individuales, también puede especificar un índice compuesto. Si quiere hacer una consulta que tiene una cláusula `ORDER BY` para varias propiedades, necesita un [índice compuesto](index-policy.md#composite-indexes) en esas propiedades. Además, los índices compuestos tendrán una ventaja de rendimiento en las consultas que tienen varios filtros o bien un filtro y una cláusula ORDER BY.
 

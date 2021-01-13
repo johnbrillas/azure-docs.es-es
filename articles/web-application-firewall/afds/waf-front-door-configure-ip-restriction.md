@@ -5,20 +5,20 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
-ms.date: 03/26/2020
+ms.date: 12/22/2020
 ms.author: tyao
-ms.openlocfilehash: f260bfc7b097931cc1a978e790c1d9dd966703ac
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 60a4ef47bc30955c918983d54f613cbdb5cbed73
+ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94563518"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97746769"
 ---
 # <a name="configure-an-ip-restriction-rule-with-a-web-application-firewall-for-azure-front-door"></a>Configuración de una regla de restricción de IP con un firewall de aplicaciones web para Azure Front Door
 
 Este artículo muestra cómo configurar las reglas de restricción de IP en un firewall de aplicaciones web (WAF) para Azure Front Door con Azure Portal, la CLI de Azure, Azure PowerShell o una plantilla de Azure Resource Manager.
 
-Una regla de control de acceso basado en la dirección IP es una regla de WAF personalizada que permite controlar el acceso a las aplicaciones web. Para ello, especifica una lista de direcciones IP o rangos de direcciones IP en formato de Enrutamiento entre dominios sin clase (CIDR).
+Una regla de control de acceso basado en la dirección IP es una regla de WAF personalizada que permite controlar el acceso a las aplicaciones web. Para ello, especifica una lista de direcciones IP o rangos de direcciones IP en formato de Enrutamiento entre dominios sin clase (CIDR). Hay dos tipos de variables coincidentes en coincidencia de dirección IP, **RemoteAddr** y **SocketAddr**. RemoteAddr es la dirección IP del cliente original que se envía normalmente mediante el encabezado de solicitud X-Forwarded-For. SocketAddr es la dirección IP de origen que WAF ve. Si el usuario está detrás de un proxy, SocketAddr suele ser la dirección del servidor proxy.
 
 De forma predeterminada, se puede acceder a la aplicación web desde Internet. Si desea limitar el acceso a los clientes de una lista de direcciones IP conocidas o intervalos de direcciones IP, puede crear una regla de coincidencia de IP que contenga la lista de direcciones IP como valores coincidentes y establece el operador en "Not" (la negación es verdadera) y la acción en **Bloquear**. Después de que se aplique una regla de restricción de IP, las solicitudes que provengan de direcciones que no se encuentren en esta lita de permitidos reciben una respuesta 403 Prohibido.
 
@@ -37,7 +37,7 @@ Para crear un perfil de Azure Front Door, siga las instrucciones que se describe
    |Configuración  |Value  |
    |---------|---------|
    |Directiva de     |WAF global (Front Door)|
-   |Subscription     |Seleccione su suscripción.|
+   |Suscripción     |Seleccione su suscripción.|
    |Resource group     |Seleccione el grupo de recursos en que se encuentra Front Door.|
    |Nombre de la directiva     |Escriba un nombre para la directiva.|
    |Estado de directiva     |habilitado|
@@ -53,8 +53,8 @@ Para crear un perfil de Azure Front Door, siga las instrucciones que se describe
    |Configuración  |Value  |
    |---------|---------|
    |Nombre de la regla personalizada     |FdWafCustRule|
-   |Status     |habilitado|
-   |Tipo de regla     |Match|
+   |Estado     |habilitado|
+   |Tipo de regla     |Coincidir con|
    |Priority    |100|
    |Tipo de coincidencia     |Dirección IP|
    |Variable de coincidencia|RemoteAddr|
@@ -156,7 +156,7 @@ Establezca el identificador *WebApplicationFirewallPolicyLink* de Azure Front Do
      --name <frontdoor-name>
      --resource-group <resource-group-name>
    ```
-En este ejemplo, la directiva de WAF se aplica a **FrontendEndpoints [0]** . Puede vincular la directiva de WAF a cualquiera de los front-ends.
+En este ejemplo, la directiva de WAF se aplica a **FrontendEndpoints [0]**. Puede vincular la directiva de WAF a cualquiera de los front-ends.
 > [!Note]
 > Solo es necesario establecer la propiedad **WebApplicationFirewallPolicyLink** una vez para vincular una directiva de WAF a un front-end de Azure Front Door. Las posteriores actualizaciones de la directiva se aplican al front-end.
 
@@ -236,7 +236,7 @@ Vincule un objeto de directiva de WAF a un host de front-end existente y actuali
 ```
 
 > [!NOTE]
-> En este ejemplo, la directiva de WAF se aplica a **FrontendEndpoints [0]** . Una directiva de WAF se puede vincular a cualquiera de los front-ends. Solo es necesario establecer la propiedad **WebApplicationFirewallPolicyLink** una vez para vincular una directiva de WAF a un front-end de Azure Front Door. Las posteriores actualizaciones de la directiva se aplican al front-end.
+> En este ejemplo, la directiva de WAF se aplica a **FrontendEndpoints [0]**. Una directiva de WAF se puede vincular a cualquiera de los front-ends. Solo es necesario establecer la propiedad **WebApplicationFirewallPolicyLink** una vez para vincular una directiva de WAF a un front-end de Azure Front Door. Las posteriores actualizaciones de la directiva se aplican al front-end.
 
 
 ## <a name="configure-a-waf-policy-with-a-resource-manager-template"></a>Configuración de una directiva de WAF con una plantilla de Resource Manager

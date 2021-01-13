@@ -1,19 +1,18 @@
 ---
 title: Compilación de una solución de IoT con Azure Stream Analytics
 description: Tutorial de introducción a la solución de IoT de Stream Analytics de un escenario de cabinas de peaje.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 87ec59d19fb442293fb7f14d110cf513015ec9f7
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: ddec53b18cd6f374a5665298b43b46122bcfa143
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130806"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98016157"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Compilación de una solución de IoT con Stream Analytics
 
@@ -178,7 +177,7 @@ Siga estos pasos para iniciar el trabajo de streaming:
 
 1. En la página de **información general** del trabajo, seleccione **Iniciar**.
 
-2. En el panel **Iniciar trabajo** , seleccione **Ahora**.
+2. En el panel **Iniciar trabajo**, seleccione **Ahora**.
 
 3. Después de unos momentos, una vez que el trabajo esté en ejecución, en la página de **información general** del trabajo de streaming, consulte el gráfico de **supervisión**. El gráfico debería mostrar varios miles de eventos de entrada y decenas de eventos de salida.
 
@@ -226,7 +225,7 @@ AND DATEDIFF (minute, EntryStream, ExitStream ) BETWEEN 0 AND 15
 
 6. En la página de **información general** del trabajo, seleccione **Iniciar**.
 
-7. En el panel **Iniciar trabajo** , seleccione **Ahora**.
+7. En el panel **Iniciar trabajo**, seleccione **Ahora**.
 
 ### <a name="review-the-total-time-in-the-output"></a>Revisión del tiempo total en la salida
 Repita los pasos de la sección anterior para revisar los datos de salida de CosmosDB del trabajo de streaming. Revise los documentos JSON más recientes.

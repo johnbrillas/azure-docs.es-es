@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
 ms.date: 12/07/2020
-ms.openlocfilehash: d10689937a037469399863395e0190e399334bd3
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: a7e19894a4688fe270422e93f7081f98e0b699a3
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96924128"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936539"
 ---
 # <a name="create-stateful-and-stateless-workflows-in-the-azure-portal-with-azure-logic-apps-preview"></a>Creación de flujos de trabajo con estado y sin estado en Azure Portal con la versión preliminar de Azure Logic Apps
 
@@ -90,7 +90,7 @@ En este artículo se muestra cómo crear la aplicación lógica y el flujo de tr
    | Propiedad | Obligatorio | Value | Descripción |
    |----------|----------|-------|-------------|
    | **Cuenta de almacenamiento** | Sí | <*Azure-storage-account-name*> | La [cuenta de Azure Storage](../storage/common/storage-account-overview.md) que se usará para transacciones de almacenamiento. Este nombre de recurso debe ser único en todas las regiones y tener de 3 a 24 caracteres (solo números y letras minúsculas). Seleccione una cuenta existente o cree una nueva. <p><p>En este ejemplo se crea una cuenta de almacenamiento denominada `fabrikamstorageacct`. |
-   | **Tipo de plan** | Sí | <*plan-de-hospedaje-de-Azure*> | El [plan de hospedaje](../app-service/overview-hosting-plans.md) que se usará para implementar la aplicación lógica, que es [**Premium**](../azure-functions/functions-scale.md#premium-plan) o el [**plan de App Service**](../azure-functions/functions-scale.md#app-service-plan). Su elección afecta a los planes de tarifa que podrá elegir más adelante. <p><p>En este ejemplo se usa el **plan de App Service**. <p><p>**Nota**: De forma similar a Azure Functions, el tipo de recurso **Logic Apps (versión preliminar)** requiere un plan de hospedaje y un plan de tarifa. Los planes de hospedaje de consumo no son compatibles ni están disponibles para este tipo de recurso. Para obtener más información, consulte estos temas: <p><p>- [Escalado y hospedaje de Azure Functions](../azure-functions/functions-scale.md) <br>- [Detalles de precios de App Service](https://azure.microsoft.com/pricing/details/app-service/) <p><p> |
+   | **Tipo de plan** | Sí | <*plan-de-hospedaje-de-Azure*> | El [plan de hospedaje](../app-service/overview-hosting-plans.md) que se usará para implementar la aplicación lógica, que es [**Premium**](../azure-functions/functions-premium-plan.md) o el [**plan de App Service**](../azure-functions/dedicated-plan.md). Su elección afecta a los planes de tarifa que podrá elegir más adelante. <p><p>En este ejemplo se usa el **plan de App Service**. <p><p>**Nota**: De forma similar a Azure Functions, el tipo de recurso **Logic Apps (versión preliminar)** requiere un plan de hospedaje y un plan de tarifa. Los planes de hospedaje de consumo no son compatibles ni están disponibles para este tipo de recurso. Para obtener más información, consulte estos temas: <p><p>- [Escalado y hospedaje de Azure Functions](../azure-functions/functions-scale.md) <br>- [Detalles de precios de App Service](https://azure.microsoft.com/pricing/details/app-service/) <p><p> |
    | **Plan de Windows** | Sí | <*nombre-de-plan*> | El nombre de plan que se usará. Seleccione un plan existente o proporcione el nombre de un nuevo plan. <p><p>Este ejemplo usa el nombre de `Fabrikam-Service-Plan`. |
    | **SKU y tamaño** | Sí | <*plan-de-tarifa*> | El [plan de tarifa](../app-service/overview-hosting-plans.md) que se usará para hospedar la aplicación lógica. Las opciones se ven afectadas por el tipo de plan que ha elegido anteriormente. Para cambiar el nivel predeterminado, seleccione **Cambiar tamaño**. Después, puede seleccionar otros planes de tarifa, en función de la carga de trabajo que necesite. <p><p>En este ejemplo se usa el **plan de tarifa F1** gratuito para las cargas de trabajo de tipo **Desarrollo/pruebas**. Para obtener más información, consulte [Detalles de precios de App Service](https://azure.microsoft.com/pricing/details/app-service/). |
    |||||

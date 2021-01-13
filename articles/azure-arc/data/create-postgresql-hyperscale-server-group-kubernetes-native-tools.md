@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: f447c6028b1750aa96e531a97e7b0861f66a5749
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30852b6b3f9a4b490c4b58fe07f34ee49c60fa9f
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761675"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955253"
 ---
 # <a name="create-a-postgresql-hyperscale-server-group-using-kubernetes-tools"></a>Creación de un grupo de servidores de Hiperescala de PostgreSQL mediante herramientas de Kubernetes
 
@@ -34,7 +34,7 @@ Para crear un grupo de servidores de Hiperescala de PostgreSQL, debe crear un se
 
 ## <a name="create-a-yaml-file"></a>Creación de un archivo YAML
 
-Puede usar el archivo [YAML de plantilla](https://raw.githubusercontent.com/microsoft/azure_arc/master/arc_data_services/deploy/yaml/postsgresql.yaml) como un punto de partida para crear su propio archivo YAML personalizado del grupo de servidores de Hiperescala de PostgreSQL.  Descargue este archivo en el equipo local y ábralo en un editor de texto.  Resulta útil usar un editor de texto como [VS Code](https://code.visualstudio.com/download) que admita el linting y el resaltado de la sintaxis en archivos YAML.
+Puede usar el archivo [YAML de plantilla](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/postgresql.yaml) como un punto de partida para crear su propio archivo YAML personalizado del grupo de servidores de Hiperescala de PostgreSQL.  Descargue este archivo en el equipo local y ábralo en un editor de texto.  Resulta útil usar un editor de texto como [VS Code](https://code.visualstudio.com/download) que admita el linting y el resaltado de la sintaxis en archivos YAML.
 
 Este es un archivo YAML de ejemplo:
 

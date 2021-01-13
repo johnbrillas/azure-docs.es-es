@@ -3,12 +3,12 @@ title: Direcciones IP en Azure Functions
 description: Aprenda a buscar las direcciones IP entrantes y salientes de aplicaciones de función y descubra qué es lo que hace que cambien.
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.openlocfilehash: 1d2cf34ee4712705eaa1c0da5ad63712f9e649fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 291a1cda7b8a2acc5426ea255519e1c2e58a2d7c
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91652472"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936726"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Direcciones IP en Azure Functions
 
@@ -51,7 +51,7 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 ```
 
 > [!NOTE]
-> Cuando se escala una aplicación de función que se ejecuta en el [plan de consumo](functions-scale.md#consumption-plan) o el [plan premium](functions-scale.md#premium-plan), puede asignarse un nuevo intervalo de direcciones IP de salida. Cuando se ejecuta en uno de estos planes, es posible que deba incluir en la lista de permitidos el centro de datos completo.
+> Cuando se escala una aplicación de función que se ejecuta en el [plan de consumo](consumption-plan.md) o el [plan premium](functions-premium-plan.md), puede asignarse un nuevo intervalo de direcciones IP de salida. Cuando se ejecuta en uno de estos planes, es posible que deba incluir en la lista de permitidos el centro de datos completo.
 
 ## <a name="data-center-outbound-ip-addresses"></a>Direcciones IP de salida del centro de datos
 
@@ -89,7 +89,7 @@ La dirección IP de entrada **puede** cambiar cuándo se:
 - Elimina la última aplicación de función de una combinación de grupo de recursos y región, y se vuelve a crear.
 - Elimina un enlace TLS; por ejemplo, cuando se [renueva un certificado](../app-service/configure-ssl-certificate.md#renew-certificate).
 
-Si la aplicación de funciones se ejecuta en un [plan de consumo](functions-scale.md#consumption-plan) o un [plan premium](functions-scale.md#premium-plan), la dirección IP de entrada también podría cambiar aunque no se haya realizado ninguna acción como las que [se indicaron anteriormente](#inbound-ip-address-changes).
+Si la aplicación de funciones se ejecuta en un [plan de consumo](consumption-plan.md) o un [plan premium](functions-premium-plan.md), la dirección IP de entrada también podría cambiar aunque no se haya realizado ninguna acción como las que [se indicaron anteriormente](#inbound-ip-address-changes).
 
 ## <a name="outbound-ip-address-changes"></a>Cambios en la dirección IP de salida
 
@@ -98,7 +98,7 @@ El conjunto de direcciones IP de salida disponibles para una aplicación de func
 * Realiza alguna acción que puede cambiar la dirección IP de entrada.
 * Cambia el plan de tarifa del plan de App Service. La lista de todas las posibles direcciones IP de salida que puede utilizar una aplicación, para todos los planes de tarifa, está en la propiedad `possibleOutboundIPAddresses`. Consulte [Búsqueda de las direcciones IP de salida](#find-outbound-ip-addresses).
 
-Si la aplicación de funciones se ejecuta en un [plan de consumo](functions-scale.md#consumption-plan) o un [plan premium](functions-scale.md#premium-plan), la dirección IP de salida también podría cambiar, aunque no se haya realizado ninguna acción como las que [se indicaron anteriormente](#inbound-ip-address-changes).
+Si la aplicación de funciones se ejecuta en un [plan de consumo](consumption-plan.md) o un [plan premium](functions-premium-plan.md), la dirección IP de salida también podría cambiar, aunque no se haya realizado ninguna acción como las que [se indicaron anteriormente](#inbound-ip-address-changes).
 
 Para forzar deliberadamente el cambio de la dirección IP de salida:
 

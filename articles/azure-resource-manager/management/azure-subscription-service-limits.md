@@ -3,12 +3,12 @@ title: Límites y cuotas de suscripción de Azure
 description: Se proporciona una lista de límites, cuotas y restricciones de suscripción y servicio comunes de Azure. Este artículo incluye información acerca de cómo aumentar los límites junto con los valores máximos.
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 4d56c5c3fd33d1cda05e23d5bc53e7540428671b
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 20de08ee30deae74954f2857b4de756b8cf46f08
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96547855"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964202"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure
 
@@ -132,7 +132,7 @@ Para obtener más información sobre los límites de Azure Database for PostgreS
 
 [!INCLUDE [functions-limits](../../../includes/functions-limits.md)]
 
-Para más información, consulte [Comparación de los planes de hospedaje de Functions](../../azure-functions/functions-scale.md#hosting-plans-comparison).
+Para más información, consulte [Comparación de los planes de hospedaje de Functions](../../azure-functions/functions-scale.md).
 
 ## <a name="azure-kubernetes-service-limits"></a>Límites de Azure Kubernetes Service
 
@@ -175,6 +175,10 @@ Los valores más recientes para las cuotas de Proceso de Machine Learning pueden
 ## <a name="azure-policy-limits"></a>Límites de Azure Policy
 
 [!INCLUDE [policy-limits](../../../includes/azure-policy-limits.md)]
+
+## <a name="azure-role-based-access-control-limits"></a>Límites de control de acceso basado en rol de Azure
+
+[!INCLUDE [role-based-access-control-limits](../../../includes/role-based-access-control/limits.md)]
 
 ## <a name="azure-signalr-service-limits"></a>Límites de Azure SignalR Service
 
@@ -339,10 +343,6 @@ Los valores más recientes de las cuotas de Azure Purview se pueden encontrar en
 ## <a name="notification-hubs-limits"></a>Límites de Notification Hubs
 
 [!INCLUDE [notification-hub-limits](../../../includes/notification-hub-limits.md)]
-
-## <a name="azure-role-based-access-control-limits"></a>Límites de control de acceso basado en rol de Azure
-
-[!INCLUDE [role-based-access-control-limits](../../../includes/role-based-access-control-limits.md)]
 
 ## <a name="service-bus-limits"></a>Límites de Service Bus
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: noakup
 ms.author: noakuper
 ms.date: 09/03/2020
-ms.openlocfilehash: f221237bee441ec78d726dabf476d1085a27071d
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 0a2439f0ed18cf93691a1d0389e049b1b7993d93
+ms.sourcegitcommit: a89a517622a3886b3a44ed42839d41a301c786e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97095311"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97732073"
 ---
 # <a name="using-customer-managed-storage-accounts-in-azure-monitor-log-analytics"></a>Uso de cuentas de almacenamiento administradas por el cliente en Log Analytics de Azure Monitor
 
@@ -32,11 +32,11 @@ Tipos de datos admitidos:
 * Registros IIS
 
 ## <a name="using-private-links"></a>Uso de vínculos privados
-Las cuentas de almacenamiento administradas por el cliente se requieren en algunos casos de uso cuando se usan vínculos privados para conectarse a recursos de Azure Monitor. Uno de estos casos es la ingesta de registros personalizados o de registros de IIS. Estos tipos de datos se cargan primero como blobs en una cuenta intermediaria de Azure Storage y solo entonces se ingieren en un área de trabajo. Del mismo modo, algunas soluciones de Azure Monitor pueden usar cuentas de almacenamiento para almacenar archivos grandes, como archivos de volcado Watson, que se usan en la solución Azure Security Center. 
+Las cuentas de almacenamiento administradas por el cliente se requieren en algunos casos de uso cuando se usan vínculos privados para conectarse a recursos de Azure Monitor. Uno de estos casos es la ingesta de registros personalizados o de registros de IIS. Estos tipos de datos se cargan primero como blobs en una cuenta intermediaria de Azure Storage y solo entonces se ingieren en un área de trabajo. Del mismo modo, algunas soluciones de Azure Monitor pueden usar cuentas de almacenamiento para almacenar archivos grandes, como Azure Security Center (ASC), que puede necesitar cargar archivos. 
 
 ##### <a name="private-link-scenarios-that-require-a-customer-managed-storage"></a>Escenarios de Private Link que requieren un almacenamiento administrado por el cliente
 * Ingesta de registros personalizados y registros de IIS
-* Permitir que la solución ASC recopile archivos de volcado Watson
+* Permitir que la solución ASC cargue archivos
 
 ### <a name="how-to-use-a-customer-managed-storage-account-over-a-private-link"></a>Procedimiento para el uso de una cuenta de almacenamiento administrada por el cliente a través de Private Link
 ##### <a name="workspace-requirements"></a>Requisitos del área de trabajo
@@ -45,13 +45,14 @@ Al conectarse a Azure Monitor a través de un vínculo privado, los agentes de L
 Para que la cuenta de almacenamiento se conecte correctamente a su vínculo privado, debe:
 * Encontrarse en la red virtual o en una red emparejada y conectada a la red virtual a través de un vínculo privado. Esto permite que los agentes de la red virtual envíen registros a la cuenta de almacenamiento.
 * Debe encontrarse en la misma región que el área de trabajo a la que está vinculada.
-* Permitir que Azure Monitor tenga acceso a la cuenta de almacenamiento. Si eligió permitir solo el acceso de redes seleccionadas a la cuenta de almacenamiento, también debe permitir esta excepción: "permitir que los servicios de Microsoft de confianza accedan a esta cuenta de almacenamiento". Esto permite a Log Analytics leer los registros ingeridos en esta cuenta de almacenamiento.
+* Permitir que Azure Monitor tenga acceso a la cuenta de almacenamiento. Si decide permitir que solo las redes seleccionadas tengan acceso a la cuenta de almacenamiento, debe seleccionar la excepción: "Permitir que los servicios de Microsoft de confianza accedan a esta cuenta de almacenamiento".
+![Imagen de servicios de MS de confianza de la cuenta de almacenamiento](./media/private-storage/storage-trust.png)
 * Si el área de trabajo también controla el tráfico de otras redes, debe configurar la cuenta de almacenamiento para permitir el tráfico entrante procedente de las redes pertinentes o Internet.
 
 ##### <a name="link-your-storage-account-to-a-log-analytics-workspace"></a>Vinculación de la cuenta de almacenamiento a un área de trabajo de Log Analytics
 Puede vincular la cuenta de almacenamiento al área de trabajo a través de la [CLI de Azure](/cli/azure/monitor/log-analytics/workspace/linked-storage) o la [API de REST](/rest/api/loganalytics/linkedstorageaccounts). Valores de dataSourceType aplicables:
 * CustomLogs: para usar el almacenamiento para los registros personalizados y los registros de IIS durante la ingesta.
-* AzureWatson: para usar el almacenamiento para los archivos de volcado Watson cargados por la solución ASC (Azure Security Center). Para obtener más información sobre la administración de la retención, el reemplazo de una cuenta de almacenamiento vinculada y la supervisión de la actividad de la cuenta de almacenamiento, consulte [Administración de cuentas de almacenamiento vinculadas](#managing-linked-storage-accounts). 
+* AzureWatson: para usar el almacenamiento para los archivos cargados por la solución ASC (Azure Security Center). Para obtener más información sobre la administración de la retención, el reemplazo de una cuenta de almacenamiento vinculada y la supervisión de la actividad de la cuenta de almacenamiento, consulte [Administración de cuentas de almacenamiento vinculadas](#managing-linked-storage-accounts). 
 
 ## <a name="encrypting-data-with-cmk"></a>Cifrado de datos con CMK
 Azure Storage cifra todos los datos en reposo de una cuenta de almacenamiento. De manera predeterminada, cifra los datos con claves administradas por Microsoft (MMK). Sin embargo, en su lugar, Azure Storage le permitirá usar una clave administrada por el cliente (CMK) de Azure Key Vault para cifrar los datos de almacenamiento. Puede importar sus propias claves a Azure Key Vault, o puede usar las API de Azure Key Vault para generarlas.

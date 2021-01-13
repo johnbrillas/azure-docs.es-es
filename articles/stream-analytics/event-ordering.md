@@ -1,18 +1,17 @@
 ---
 title: Configuración de las directivas de ordenación de eventos para Azure Stream Analytics
 description: En este artículo se describe cómo establecer la configuración del orden de los eventos en Stream Analytics.
-author: sidram
+author: sidramadoss
 ms.author: sidram
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 08/06/2020
-ms.openlocfilehash: 80567a211f08d6322c80b6645f8b70ec7df64b59
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: f7ec6f32b48a93a29210311c7ba6747eb2e2d066
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130670"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98014302"
 ---
 # <a name="configuring-event-ordering-policies-for-azure-stream-analytics"></a>Configuración de las directivas de ordenación de eventos para Azure Stream Analytics
 
@@ -22,7 +21,7 @@ En este artículo se describe cómo configurar y utilizar las directivas de even
 
 El trabajo de Stream Analytics puede procesar eventos según la *hora del evento* o la *hora de llegada*. **La hora del evento/aplicación** es la marca de tiempo presente en la carga del evento (cuándo se generó el evento). **La hora de llegada** es la marca de tiempo de recepción del evento en el origen de entrada (Event Hubs/IoT Hub/Blob Storage). 
 
-De forma predeterminada, Stream Analytics procesa eventos por la *hora de llegada* , pero puede optar por procesar los eventos por la *hora del evento* utilizando la cláusula [TIMESTAMP BY](/stream-analytics-query/timestamp-by-azure-stream-analytics) en la consulta. Las directivas de desorden y llegada tardía solo son aplicables si procesa los eventos por la hora del evento. Tenga en cuenta los requisitos de latencia y la adecuación a su escenario al configurar estos ajustes. 
+De forma predeterminada, Stream Analytics procesa eventos por la *hora de llegada*, pero puede optar por procesar los eventos por la *hora del evento* utilizando la cláusula [TIMESTAMP BY](/stream-analytics-query/timestamp-by-azure-stream-analytics) en la consulta. Las directivas de desorden y llegada tardía solo son aplicables si procesa los eventos por la hora del evento. Tenga en cuenta los requisitos de latencia y la adecuación a su escenario al configurar estos ajustes. 
 
 ## <a name="what-is-late-arrival-policy"></a>¿Que es una directiva de llegada tardía?
 

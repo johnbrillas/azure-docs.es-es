@@ -5,14 +5,14 @@ services: application gateway
 author: amsriva
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 11/16/2019
+ms.date: 12/17/2020
 ms.author: amsriva
-ms.openlocfilehash: 16c6dd28d47573c2ad5b0d5a331b0dc48e7aacef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77239cd8586b8fb07abf6862be436979541bdb99
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85253637"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97631697"
 ---
 # <a name="application-gateway-tls-policy-overview"></a>Introducción a la directiva TLS de Application Gateway
 
@@ -24,9 +24,21 @@ La directiva TLS incluye el control de la versión del protocolo TLS, así como 
 
 Application Gateway tiene tres directivas de seguridad predefinidas. Puede configurar la puerta de enlace con cualquiera de estas directivas para conseguir el nivel adecuado de seguridad. Los nombres de directiva se anotan según el año y mes en el que se configuraron. Cada directiva ofrece diferentes versiones de protocolos TLS y conjuntos de cifrado. Se recomienda usar las directivas TLS más recientes para garantizar la máxima seguridad TLS.
 
+## <a name="known-issue"></a>Problema conocido
+Application Gateway v2 no admite los siguientes cifrados de DHE y estos no se usarán para las conexiones TLS con los clientes aunque se mencionen en las directivas predefinidas. En lugar de los cifrados de DHE, se recomiendan cifrados de ECDHE seguros y más rápidos.
+
+- TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
+- TLS_DHE_RSA_WITH_AES_128_CBC_SHA
+- TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
+- TLS_DHE_RSA_WITH_AES_256_CBC_SHA
+- TLS_DHE_DSS_WITH_AES_128_CBC_SHA256
+- TLS_DHE_DSS_WITH_AES_128_CBC_SHA
+- TLS_DHE_DSS_WITH_AES_256_CBC_SHA256
+- TLS_DHE_DSS_WITH_AES_256_CBC_SHA
+
 ### <a name="appgwsslpolicy20150501"></a>AppGwSslPolicy20150501
 
-|Propiedad  |Value  |
+|Propiedad.  |Value  |
 |---|---|
 |Nombre     | AppGwSslPolicy20150501        |
 |MinProtocolVersion     | TLSv1_0        |
@@ -35,7 +47,7 @@ Application Gateway tiene tres directivas de seguridad predefinidas. Puede confi
   
 ### <a name="appgwsslpolicy20170401"></a>AppGwSslPolicy20170401
   
-|Propiedad  |Value  |
+|Propiedad.  |Value  |
 |   ---      |  ---       |
 |Nombre     | AppGwSslPolicy20170401        |
 |MinProtocolVersion     | TLSv1_1        |
@@ -44,7 +56,7 @@ Application Gateway tiene tres directivas de seguridad predefinidas. Puede confi
   
 ### <a name="appgwsslpolicy20170401s"></a>AppGwSslPolicy20170401S
 
-|Propiedad  |Value  |
+|Propiedad.  |Value  |
 |---|---|
 |Nombre     | AppGwSslPolicy20170401S        |
 |MinProtocolVersion     | TLSv1_2        |
@@ -54,6 +66,10 @@ Application Gateway tiene tres directivas de seguridad predefinidas. Puede confi
 ## <a name="custom-tls-policy"></a>Directiva TLS personalizada
 
 Si una directiva TLS predefinida se debe configurar de acuerdo con sus requisitos, debe definir su propia directiva TLS personalizada. Con una directiva TLS personalizada, tiene un control completo sobre la versión mínima compatible del protocolo TLS, así como de los conjuntos de cifrado compatibles y su orden de prioridad.
+
+> [!IMPORTANT]
+> Si usa una directiva SSL personalizada en la SKU de Application Gateway v1 (Estándar o WAF), asegúrese de agregar el cifrado obligatorio "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256" a la lista. Este cifrado es necesario para habilitar las métricas y el registro en la SKU de Application Gateway v1.
+> No es obligatorio para la SKU de Application Gateway v2 (Standard_v2 o WAF_v2).
  
 ### <a name="tlsssl-protocol-versions"></a>Versiones del protocolo TLS/SSL
 
@@ -97,17 +113,6 @@ Application Gateway admite los siguientes conjuntos de cifrado desde los que pue
 
 > [!NOTE]
 > Los conjuntos de cifrado TLS que se usan para la conexión también se basan en el tipo de certificado que se utiliza. En las conexiones de cliente a Application Gateway, los conjuntos de cifrado usados se basan en el tipo de certificados de servidor en el agente de escucha de Application Gateway. En las conexiones de Application Gateway a grupo de back-end, los conjuntos de cifrado usados se basan en el tipo de certificados de servidor en los servidores de grupo de back-end.
-
-## <a name="known-issue"></a>Problema conocido
-Application Gateway v2 no es compatible actualmente con los siguientes cifrados:
-- DHE-RSA-AES128-GCM-SHA256
-- DHE-RSA-AES128-SHA
-- DHE-RSA-AES256-GCM-SHA384
-- DHE-RSA-AES256-SHA
-- DHE-DSS-AES128-SHA256
-- DHE-DSS-AES128-SHA
-- DHE-DSS-AES256-SHA256
-- DHE-DSS-AES256-SHA
 
 ## <a name="next-steps"></a>Pasos siguientes
 

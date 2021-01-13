@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/08/2020
 ms.author: raynew
-ms.openlocfilehash: 34064fe3fe88a34b0dd2430d7adec3ebcb17ebcc
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 79224c14fc5182df7a699864af3d78c9be36259f
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95528234"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97797287"
 ---
 # <a name="move-resources-across-regions-from-resource-group"></a>Traslado de recursos entre regiones (desde un grupo de recursos)
 
@@ -57,6 +57,9 @@ En este artículo, aprenderá a trasladar recursos de un grupo de recursos espec
 ## <a name="select-resources-to-move"></a>Selección de los recursos que se van a trasladar
 
 Seleccione los recursos que desea trasladar. Los recursos se trasladarán a una región de destino de la suscripción de la región de origen. Si desea cambiar la suscripción, puede hacerlo después de trasladar los recursos.
+
+> [!NOTE]
+>  No seleccione discos asociados o se producirá un error en la operación. Los discos asociados se incluyen automáticamente en la transferencia de una máquina virtual.
 
 1. En Azure Portal, abra el grupo de recursos correspondiente.
 2. En la página del grupo de recursos, seleccione los recursos que desea trasladar.

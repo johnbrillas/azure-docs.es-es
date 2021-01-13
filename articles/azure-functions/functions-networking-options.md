@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.author: jehollan
-ms.openlocfilehash: bed76a6f3a17332f9a1e411ff1d4efb52703f3e1
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f4d7611f285535680469f3a334ab889b0b644bfe
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021013"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936878"
 ---
 # <a name="azure-functions-networking-options"></a>Opciones de redes de Azure Functions
 
@@ -21,9 +21,9 @@ Los modelos de hospedaje tienen diferentes niveles de aislamiento de red disponi
 Puede hospedar aplicaciones de funciones de dos formas:
 
 * Puede elegir entre un conjunto de opciones de plan que se ejecutan en una infraestructura multiinquilino, con distintos niveles de conectividad de red virtual y opciones de escalado:
-    * El [plan de consumo](functions-scale.md#consumption-plan) se escala dinámicamente como respuesta a la carga y ofrece opciones de aislamiento de red mínimo.
-    * El [plan Premium](functions-scale.md#premium-plan) también se escala dinámicamente y ofrece un aislamiento de red más completo.
-    * El [plan de Azure App Service](functions-scale.md#app-service-plan) funciona en una escala fija y ofrece un aislamiento de red similar al del plan Premium.
+    * El [plan de consumo](consumption-plan.md) se escala dinámicamente como respuesta a la carga y ofrece opciones de aislamiento de red mínimo.
+    * El [plan Premium](functions-premium-plan.md) también se escala dinámicamente y ofrece un aislamiento de red más completo.
+    * El [plan de Azure App Service](dedicated-plan.md) funciona en una escala fija y ofrece un aislamiento de red similar al del plan Premium.
 * Puede ejecutar funciones en un [App Service Environment](../app-service/environment/intro.md). Este método implementa la función en la red virtual y ofrece aislamiento y control de la red completos.
 
 ## <a name="matrix-of-networking-features"></a>Matriz de las características de redes
@@ -34,7 +34,7 @@ Puede hospedar aplicaciones de funciones de dos formas:
 
 Puede usar restricciones de acceso para definir una lista de direcciones IP ordenadas por prioridad a las que se les permite o deniega el acceso a la aplicación. La lista puede incluir direcciones IPv4 e IPv6, bien o subredes de red virtual específicas con [puntos de conexión de servicio](#use-service-endpoints). Si hay una o varias entradas, existe un "denegar a todos" implícito al final de la lista. Las restricciones de IP funcionan con todas las opciones de hospedaje de funciones.
 
-Las restricciones de acceso están disponibles para [Premium](functions-premium-plan.md), [Consumo](functions-scale.md#consumption-plan) y [App Service](functions-scale.md#app-service-plan).
+Las restricciones de acceso están disponibles para [Premium](functions-premium-plan.md), [Consumo](consumption-plan.md) y [App Service](dedicated-plan.md).
 
 > [!NOTE]
 > Con las restricciones de red vigentes, solo puede implementar desde la red virtual o si ha incluido en la lista de destinatarios seguros la dirección IP del equipo que usa para acceder a Azure Portal. Sin embargo, todavía puede administrar la función en el portal.

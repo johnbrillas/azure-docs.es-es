@@ -6,14 +6,14 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 12/14/2020
+ms.date: 12/17/2020
 ms.author: alkohli
-ms.openlocfilehash: 18a1fc7f42884dcc194256e1f51ddecb62d2708c
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 87ec1f03a1f2294a4423e26129644eafcf7c915c
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516389"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97655482"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Preguntas más frecuentes
 
@@ -97,11 +97,11 @@ Recuerde que estos plazos son *estimaciones*. El tiempo de cada fase de procesam
 **Plazos estimados para un pedido de Data Box:**
 
 1. Realización de un pedido de Data Box: Unos minutos, desde el portal
-2. Preparación y asignación de dispositivos: 1 a 2 días laborables
+2. Preparación y asignación de dispositivos: 1 a 2 días laborables, sujetos a disponibilidad de inventario y otros pedidos pendientes de cumplimiento
 3. Envío: 2 a 3 días laborables
 4. Copia de datos en el sitio del cliente: Depende de la naturaleza de los datos, su tamaño y el número de archivos.
 5. Envío de devolución: 2 a 3 días laborables
-6. Procesamiento del dispositivo en el centro de datos: 1 a 2 días laborables
+6. Procesamiento del dispositivo en el centro de datos: 1 a 2 días laborables, sujetos a otros pedidos pendientes de procesamiento
 7. Cargar datos en Azure. Esta operación comienza en cuanto se completa el procesamiento y el dispositivo está conectado. El tiempo de carga depende de la naturaleza de los datos, su tamaño y el número de archivos.
 
 ### <a name="q-i-ordered-a-couple-of-data-box-devices-i-cant-create-any-additional-orders-why"></a>Q. Pedí un par de dispositivos de Data Box, No puedo hacer pedidos adicionales. ¿Por qué?

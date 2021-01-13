@@ -7,12 +7,12 @@ ms.topic: how-to
 author: github-2407
 ms.author: krsh
 ms.date: 10/15/2020
-ms.openlocfilehash: 36eebb218ed2b2d9a48cf7d970896115af5cf6f8
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: a9698981b1a658664bfc14886628bbfd0a4a64d2
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424858"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97976935"
 ---
 # <a name="test-a-virtual-machine-image"></a>Prueba de una imagen de máquina virtual
 
@@ -33,7 +33,7 @@ En esta sección se describe cómo crear e implementar una imagen de máquina vi
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 2. Cargue el VHD del sistema operativo generalizado y los VHD del disco de datos en su cuenta de Azure Storage.
-3. En la página principal, seleccione **Crear un recurso** , busque "Template Deployment" y seleccione **Crear**.
+3. En la página principal, seleccione **Crear un recurso**, busque "Template Deployment" y seleccione **Crear**.
 4. Seleccione **Cree su propia plantilla en el editor**.
 
     :::image type="content" source="media/vm/template-deployment.png" alt-text="Muestra la selección de una plantilla.":::
@@ -214,28 +214,6 @@ En esta sección se describe cómo crear e implementar una imagen de máquina vi
                             "id": "[resourceId('Microsoft.Network/networkInterfaces',parameters('nicName'))]"
                         }
                     ]
-                }
-            }
-        },
-        {
-            "type": "Microsoft.Compute/virtualMachines/extensions",
-            "apiVersion": "2015-06-15",
-            "name": "[concat(parameters('vmName'),'/WinRMCustomScriptExtension')]",
-            "location": "[parameters('location')]",
-            "dependsOn": [
-                "[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'))]"
-            ],
-            "properties": {
-                "publisher": "Microsoft.Compute",
-                "type": "CustomScriptExtension",
-                "typeHandlerVersion": "1.4",
-                "settings": {
-                    "fileUris": [
-                        "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-winrm-windows/ConfigureWinRM.ps1",
-                        "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-winrm-windows/makecert.exe",
-                        "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-winrm-windows/winrmconf.cmd"
-                    ],
-                    "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -file ConfigureWinRM.ps1 ',variables('hostDNSNameScriptArgument'))]"
                 }
             }
         }
@@ -578,7 +556,7 @@ Certification Test Tool for Azure Certified se ejecuta en un equipo Windows loca
 #### <a name="connect-the-certification-tool-to-a-vm-image"></a>Conectar la herramienta de certificación a una imagen de máquina virtual
 
 1. Seleccione el modo Autenticación SSH: Autenticación de contraseña o autenticación de archivo de clave.
-2. Si usa la autenticación de contraseña, escriba los valores para **Nombre DNS de máquina virtual** , **Nombre de usuario** y **Contraseña**. También puede cambiar el número predeterminado de Puerto SSH.
+2. Si usa la autenticación de contraseña, escriba los valores para **Nombre DNS de máquina virtual**, **Nombre de usuario** y **Contraseña**. También puede cambiar el número predeterminado de Puerto SSH.
 
     :::image type="content" source="media/vm/azure-vm-cert-2.png" alt-text="Muestra la selección de la información de la prueba de la máquina virtual.":::
 
@@ -705,11 +683,11 @@ $Content = $res | ConvertFrom-Json
 
 Estos ejemplos de pantalla muestra una llamada a la API en PowerShell:
 
-**Con la clave SSH** :
+**Con la clave SSH**:
 
  :::image type="content" source="media/vm/call-api-with-ssh-key.png" alt-text="Llamar a la API en PowerShell con una clave SSH.":::
 
-**Con contraseña** :
+**Con contraseña**:
 
  :::image type="content" source="media/vm/call-api-with-password.png" alt-text="Llamar a la API en PowerShell con una contraseña.":::
 

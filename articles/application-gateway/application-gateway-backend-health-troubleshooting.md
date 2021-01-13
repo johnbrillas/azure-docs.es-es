@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 06/09/2020
 ms.author: surmb
-ms.openlocfilehash: b8acf1b025a5943773821c8ab78de6288eb6bec2
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 05df2144b892aed764f9606fb19bd6a3242b97f3
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397905"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934907"
 ---
 <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Solución de problemas de estado del back-end en Application Gateway
 ==================================================
@@ -21,6 +21,9 @@ ms.locfileid: "93397905"
 --------
 
 De forma predeterminada, Application Gateway sondea los servidores back-end para comprobar su estado de mantenimiento y si están listos para atender solicitudes. Los usuarios pueden crear también sondeos personalizados para mencionar el nombre de host, la ruta de acceso que se va a sondear y los códigos de estado que se van a aceptar como correctos. En cada caso, si el servidor back-end no responde correctamente, Application Gateway lo marca como incorrecto y deja de reenviarle solicitudes. Una vez que el servidor comienza a responder correctamente, Application Gateway reanuda el reenvío de las solicitudes.
+
+> [!NOTE]
+> Este artículo contiene referencias al término *lista blanca*, un término que Microsoft ya no usa. Cuando se elimine el término del software, se eliminará también de este artículo.
 
 ### <a name="how-to-check-backend-health"></a>Comprobación del estado del servidor back-end
 
@@ -87,7 +90,7 @@ El mensaje que se muestra en la columna **Detalles** proporciona información m�
 ------------------------
 #### <a name="backend-server-timeout"></a>Tiempo de espera del servidor back-end
 
-**Mensaje** : Time taken by the backend to respond to application gateway\'s health probe is more than the time-out threshold in the probe setting. (El tiempo que tarda el servidor back-end en responder al sondeo de estado de Application Gateway es mayor que el umbral de tiempo de espera de la configuración de sondeo).
+**Mensaje**: Time taken by the backend to respond to application gateway\'s health probe is more than the time-out threshold in the probe setting. (El tiempo que tarda el servidor back-end en responder al sondeo de estado de Application Gateway es mayor que el umbral de tiempo de espera de la configuración de sondeo).
 
 **Causa:** una vez que Application Gateway envía una solicitud de sondeo HTTP(S) al servidor back-end, espera su respuesta durante un período configurado. Si el servidor back-end no responde dentro del período configurado (el valor de tiempo de espera), se marca como incorrecto hasta que empieza a responder de nuevo en el período de tiempo de espera configurado.
 
@@ -105,7 +108,7 @@ Para aumentar el valor de tiempo de espera, siga estos pasos:
 
 #### <a name="dns-resolution-error"></a>Error de resolución DNS
 
-**Mensaje** : Application Gateway could not create a probe for this backend. This usually happens when the FQDN of the backend has not been entered correctly. (Application Gateway no pudo crear un sondeo para este back-end. Esto suele ocurrir cuando el nombre de dominio completo del back-end no se ha escrito de forma apropiada). 
+**Mensaje**: Application Gateway could not create a probe for this backend. This usually happens when the FQDN of the backend has not been entered correctly. (Application Gateway no pudo crear un sondeo para este back-end. Esto suele ocurrir cuando el nombre de dominio completo del back-end no se ha escrito de forma apropiada). 
 
 **Causa:** si el grupo back-end es de tipo Dirección IP/Nombre de dominio completo o App Service, Application Gateway resuelve la dirección IP del nombre de dominio completo especificado mediante el Sistema de nombres de dominio (personalizado o predeterminado de Azure) e intenta conectarse al servidor en el puerto TCP mencionado en la configuración de HTTP. Sin embargo, la aparición de este mensaje sugiere que Application Gateway no pudo resolver correctamente la dirección IP del nombre de dominio completo especificado.
 
@@ -123,7 +126,7 @@ Para aumentar el valor de tiempo de espera, siga estos pasos:
 
 #### <a name="tcp-connect-error"></a>Error de conexión TCP
 
-**Mensaje** : Application Gateway could not connect to the backend.
+**Mensaje**: Application Gateway could not connect to the backend.
 Please check that the backend responds on the port used for the probe.
 Also check whether any NSG/UDR/Firewall is blocking access to the Ip and port of this backend (Application Gateway no pudo conectarse al back-end. Compruebe que el back-end responde en el puerto usado para el sondeo. Compruebe también si NSG, UDR o el Firewall están bloqueando el acceso a la dirección IP y al puerto de este back-end).
 
@@ -168,7 +171,7 @@ Also check whether any NSG/UDR/Firewall is blocking access to the Ip and port of
 
 #### <a name="http-status-code-mismatch"></a>Error de coincidencia en el código de estado HTTP
 
-**Mensaje** : Status code of the backend\'s HTTP response did not match the probe setting. Expected:{HTTPStatusCode0} Received:{HTTPStatusCode1}. (El código de estado de la respuesta HTTP del back-end no coincidía con la configuración de sondeo. Se esperaba: {HTTPStatusCode0} Se recibió: {HTTPStatusCode1}).
+**Mensaje**: Status code of the backend\'s HTTP response did not match the probe setting. Expected:{HTTPStatusCode0} Received:{HTTPStatusCode1}. (El código de estado de la respuesta HTTP del back-end no coincidía con la configuración de sondeo. Se esperaba: {HTTPStatusCode0} Se recibió: {HTTPStatusCode1}).
 
 **Causa:** cuando haya establecido la conexión TCP y se haya realizado el protocolo de enlace TLS (si TLS está habilitado), Application Gateway enviará el sondeo como una solicitud GET HTTP al servidor back-end. Tal y como se ha mencionado anteriormente, el sondeo predeterminado será en \<protocol\>://127.0.0.1:\<port\>/, y se considera que los códigos de estado de respuesta en el intervalo de 200 a 399 son correctos. Si el servidor devuelve cualquier otro código de estado, se marcará como incorrecto con este mensaje.
 
@@ -189,9 +192,9 @@ Para crear un sondeo personalizado, siga [estos pasos](./application-gateway-cre
 
 #### <a name="http-response-body-mismatch"></a>Error de coincidencia del cuerpo de la respuesta HTTP
 
-**Mensaje** : Body of the backend\'s HTTP response did not match the probe setting. Received response body does not contain {string}. (El cuerpo de la respuesta HTTP del back-end no coincidía con la configuración de sondeo. El cuerpo de respuesta recibido no contiene {string}).
+**Mensaje**: Body of the backend\'s HTTP response did not match the probe setting. Received response body does not contain {string}. (El cuerpo de la respuesta HTTP del back-end no coincidía con la configuración de sondeo. El cuerpo de respuesta recibido no contiene {string}).
 
-**Causa:** al crear un sondeo personalizado, tiene una opción para marcar un servidor back-end con estado correcto si hace coincidir una cadena del cuerpo de respuesta. Por ejemplo, puede configurar Application Gateway para que acepte "no autorizado" como una cadena que coincida. Si la respuesta del servidor back-end para la solicitud de sondeo contiene la cadena **no autorizado** , se marcará como correcta. De lo contrario, se marcará como incorrecta y se generará este mensaje.
+**Causa:** al crear un sondeo personalizado, tiene una opción para marcar un servidor back-end con estado correcto si hace coincidir una cadena del cuerpo de respuesta. Por ejemplo, puede configurar Application Gateway para que acepte "no autorizado" como una cadena que coincida. Si la respuesta del servidor back-end para la solicitud de sondeo contiene la cadena **no autorizado**, se marcará como correcta. De lo contrario, se marcará como incorrecta y se generará este mensaje.
 
 **Solución:** Para resolver el problema, siga estos pasos:
 
@@ -209,7 +212,7 @@ Más información sobre la [coincidencia del sondeo de Application Gateway](./ap
 
 #### <a name="backend-server-certificate-invalid-ca"></a>Entidad de certificación no válida del certificado de servidor back-end
 
-**Mensaje** : The server certificate used by the backend is not signed by a well-known Certificate Authority (CA). Allow the backend on the application gateway by uploading the root certificate of the server certificate used by the backend. (La entidad de certificación conocida no ha firmado el certificado de servidor usado por el back-end. Permita el back-end en la puerta de enlace de aplicaciones cargando el certificado raíz del certificado de servidor usado por el back-end).
+**Mensaje**: The server certificate used by the backend is not signed by a well-known Certificate Authority (CA). Allow the backend on the application gateway by uploading the root certificate of the server certificate used by the backend. (La entidad de certificación conocida no ha firmado el certificado de servidor usado por el back-end. Permita el back-end en la puerta de enlace de aplicaciones cargando el certificado raíz del certificado de servidor usado por el back-end).
 
 **Causa:** SSL de un extremo a otro con Application Gateway v2 requiere que se compruebe el certificado del servidor back-end para que el estado del servidor se considere correcto.
 Para que un certificado TLS o SSL sea de confianza, ese certificado del servidor back-end debe haberlo emitido una entidad de certificación incluida en el almacén de confianza de Application Gateway. Si no ha sido así (por ejemplo, se usaron certificados autofirmados), los usuarios deben cargar el certificado del emisor en Application Gateway.
@@ -228,7 +231,7 @@ Para que un certificado TLS o SSL sea de confianza, ese certificado del servidor
 
 1.  En Propiedades del certificado, seleccione la pestaña **Detalles**.
 
-1.  En la pestaña **Detalles** , seleccione la opción **Copiar a archivo** y guarde el archivo en el formato X.509 codificado en Base 64 (.CER).
+1.  En la pestaña **Detalles**, seleccione la opción **Copiar a archivo** y guarde el archivo en el formato X.509 codificado en Base 64 (.CER).
 
 1.  Abra la página **Configuración HTTP** de Application Gateway en Azure Portal.
 
@@ -242,7 +245,7 @@ Para más información sobre cómo extraer y cargar certificados raíz de confia
 
 #### <a name="trusted-root-certificate-mismatch"></a>Error de coincidencia de certificado raíz de confianza
 
-**Mensaje** : The root certificate of the server certificate used by the backend does not match the trusted root certificate added to the application gateway. Ensure that you add the correct root certificate to whitelist the backend (El certificado raíz del certificado de servidor utilizado por el back-end no coincide con el certificado raíz de confianza que se ha agregado a Application Gateway. Asegúrese de agregar el certificado raíz correcto para incluir en la lista de elementos permitidos en el back-end).
+**Mensaje**: The root certificate of the server certificate used by the backend does not match the trusted root certificate added to the application gateway. Ensure that you add the correct root certificate to whitelist the backend (El certificado raíz del certificado de servidor utilizado por el back-end no coincide con el certificado raíz de confianza que se ha agregado a Application Gateway. Asegúrese de agregar el certificado raíz correcto para incluir en la lista de elementos permitidos en el back-end).
 
 **Causa:** SSL de un extremo a otro con Application Gateway v2 requiere que se compruebe el certificado del servidor back-end para que el estado del servidor se considere correcto.
 Para que un certificado TLS o SSL sea de confianza, el certificado del servidor back-end debe haberlo emitido una entidad de certificación incluida en el almacén de confianza de Application Gateway. Si el certificado no lo ha emitido una entidad de certificación de confianza (por ejemplo, se usó un certificado autofirmado), los usuarios deben cargar el certificado del emisor en Application Gateway.
@@ -282,7 +285,7 @@ Si la salida no muestra la cadena completa del certificado que se devuelve, vuel
 
 #### <a name="backend-certificate-invalid-common-name-cn"></a>Nombre común (CN) del certificado de back-end no válido
 
-**Mensaje** : The Common Name (CN) of the backend certificate does not match the host header of the probe. [El nombre común (CN) del certificado de back-end no coincide con el encabezado de host del sondeo].
+**Mensaje**: The Common Name (CN) of the backend certificate does not match the host header of the probe. [El nombre común (CN) del certificado de back-end no coincide con el encabezado de host del sondeo].
 
 **Causa:** Application Gateway comprueba si el nombre de host especificado en la configuración HTTP del back-end coincide con el del nombre común (CN) presentado por el certificado TLS o SSL del servidor back-end. Este es un comportamiento de la SKU Standard_v2 y WAF_v2 (versión 2). La Indicación de nombre de servidor (SNI) de la SKU Standard y WAF (versión 1) se establece como el nombre de dominio completo en la dirección del grupo back-end. Para obtener más información sobre el comportamiento de SNI y las diferencias entre las versiones 1 y 2 de la SKU, consulte la página de [información general sobre la terminación TLS y la TLS de extremo a extremo con Application Gateway](ssl-overview.md).
 
@@ -292,7 +295,7 @@ Si hay un sondeo personalizado asociado a la configuración HTTP, la SNI se esta
 
 En caso de que la opción para **elegir el nombre de host desde la dirección de back-end** se establezca en la configuración HTTP, el grupo de direcciones de back-end debe contener un nombre de dominio completo válido.
 
-Si recibe este mensaje de error, significa que el CN del certificado de back-end no coincide con el nombre de host configurado en el sondeo personalizado o en la configuración HTTP (si se elige **Seleccionar el nombre de host de la configuración de HTTP** ). Si usa un sondeo predeterminado, el nombre de host se establecerá como **127.0.0.1**. Si no desea ese valor, debe crear un sondeo personalizado y asociarlo a la configuración HTTP.
+Si recibe este mensaje de error, significa que el CN del certificado de back-end no coincide con el nombre de host configurado en el sondeo personalizado o en la configuración HTTP (si se elige **Seleccionar el nombre de host de la configuración de HTTP**). Si usa un sondeo predeterminado, el nombre de host se establecerá como **127.0.0.1**. Si no desea ese valor, debe crear un sondeo personalizado y asociarlo a la configuración HTTP.
 
 **Solución:**
 
@@ -308,9 +311,9 @@ Para Windows:
 
 1.  Busque el certificado (normalmente en `\Certificates - Current User\\Personal\\Certificates`) y ábralo.
 
-1.  En la pestaña **Detalles** , compruebe el **asunto** del certificado.
+1.  En la pestaña **Detalles**, compruebe el **asunto** del certificado.
 
-1.  Compruebe el CN del certificado en los detalles y escriba el mismo en el campo de nombre de host del sondeo personalizado o en la configuración HTTP (si se elige **Seleccionar el nombre de host de la configuración de HTTP** ). Si ese no es el nombre de host deseado para el sitio web, debe obtener un certificado para ese dominio o escribir el nombre de host correcto en la configuración del sondeo personalizado o de HTTP.
+1.  Compruebe el CN del certificado en los detalles y escriba el mismo en el campo de nombre de host del sondeo personalizado o en la configuración HTTP (si se elige **Seleccionar el nombre de host de la configuración de HTTP**). Si ese no es el nombre de host deseado para el sitio web, debe obtener un certificado para ese dominio o escribir el nombre de host correcto en la configuración del sondeo personalizado o de HTTP.
 
 En Linux con OpenSSL:
 
@@ -323,7 +326,7 @@ En Linux con OpenSSL:
 
 #### <a name="backend-certificate-is-invalid"></a>El certificado de back-end no es válido.
 
-**Mensaje** : Backend certificate is invalid. (El certificado de back-end no es válido). La fecha actual está dentro del intervalo de fechas \"Válido desde\" y \"Válido hasta\" en el certificado.
+**Mensaje**: Backend certificate is invalid. (El certificado de back-end no es válido). La fecha actual está dentro del intervalo de fechas \"Válido desde\" y \"Válido hasta\" en el certificado.
 
 **Causa:** cada certificado viene con un intervalo de validez y la conexión HTTPS no será segura a menos que el certificado TLS o SSL del servidor sea válido. Los datos actuales deben estar dentro del intervalo **válido desde** y **válido hasta**. Si no es así, el certificado se considera no válido y se creará una incidencia de seguridad en la que Application Gateway marca el servidor back-end como incorrecto.
 
@@ -337,7 +340,7 @@ En Linux con OpenSSL:
 
 #### <a name="certificate-verification-failed"></a>Error en la verificación del certificado
 
-**Mensaje** : The validity of the backend certificate could not be verified. Para averiguar el motivo, compruebe el diagnóstico de OpenSSL para el mensaje asociado al código de error {errorCode}.
+**Mensaje**: The validity of the backend certificate could not be verified. Para averiguar el motivo, compruebe el diagnóstico de OpenSSL para el mensaje asociado al código de error {errorCode}.
 
 **Causa:** este error se produce cuando Application Gateway no puede comprobar la validez del certificado.
 
@@ -359,7 +362,7 @@ Este comportamiento puede producirse por uno o varios de los siguientes motivos:
 
 **Solución:**
 
-1.  compruebe si el grupo de seguridad de red está bloqueando el acceso a los puertos 65503-65534 (SKU v1) o 65200-65535 (SKU v2) desde **Internet** :
+1.  compruebe si el grupo de seguridad de red está bloqueando el acceso a los puertos 65503-65534 (SKU v1) o 65200-65535 (SKU v2) desde **Internet**:
 
     a.  En la pestaña **Overview** (Información general) de Application Gateway, seleccione el vínculo **Virtual Network/Subnet** (Red virtual/subred).
 
@@ -373,7 +376,7 @@ Este comportamiento puede producirse por uno o varios de los siguientes motivos:
 
     f.  Seleccione **Save** (Guardar) y compruebe que puede ver el back-end como correcto. Como alternativa, puede hacerlo en [PowerShell o la CLI](../virtual-network/manage-network-security-group.md).
 
-1.  Compruebe si el UDR tiene una ruta predeterminada (0.0.0.0/0) donde el próximo salto no esté establecido como **Internet** :
+1.  Compruebe si el UDR tiene una ruta predeterminada (0.0.0.0/0) donde el próximo salto no esté establecido como **Internet**:
     
     a.  Siga los pasos 1a y 1b para determinar la subred.
 
@@ -381,7 +384,7 @@ Este comportamiento puede producirse por uno o varios de los siguientes motivos:
 
     c.  Compruebe si hay rutas predeterminadas (0.0.0.0/0) donde el próximo salto no esté establecido como **Internet**. Si el valor es **Virtual Appliance** (Aplicación virtual) o **Virtual Network Gateway** (Puerta de enlace de red virtual), debe asegurarse de que la aplicación virtual o el dispositivo local puedan enrutar correctamente el paquete de vuelta al destino de Internet sin modificarlo.
 
-    d.  En caso contrario, cambie el próximo salto a **Internet** , seleccione **Guardar** y compruebe el mantenimiento del back-end.
+    d.  En caso contrario, cambie el próximo salto a **Internet**, seleccione **Guardar** y compruebe el mantenimiento del back-end.
 
 1.  La ruta predeterminada anunciada por la conexión ExpressRoute o VPN a la red virtual a través de BGP:
 

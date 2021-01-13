@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
 ms.date: 12/07/2020
-ms.openlocfilehash: a74244cc45e1a3d2116f98ac73290d184f4affc0
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: be8d00d795c19399d494db21578e9a7ba8dd9711
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97632067"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934023"
 ---
 # <a name="create-stateful-and-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Creación de flujos de trabajo con o sin estado en Visual Studio Code con la extensión Azure Logic Apps (versión preliminar)
 
@@ -742,7 +742,7 @@ Puede publicar la aplicación lógica como nuevo recurso, lo que crea automátic
 
       ![Captura de pantalla que muestra el panel "Azure: Logic Apps (versión preliminar)" y una solicitud para proporcionar un nombre para la nueva aplicación lógica que se va a crear.](./media/create-stateful-stateless-workflows-visual-studio-code/enter-logic-app-name.png)
 
-   1. Seleccione un plan de hospedaje para la nueva aplicación lógica, ya sea [**Plan de App Service**](../azure-functions/functions-scale.md#app-service-plan) o [**Premium**](../azure-functions/functions-scale.md#premium-plan). En este ejemplo se selecciona **Plan de App Service**.
+   1. Seleccione un plan de hospedaje para la nueva aplicación lógica, ya sea [**Plan de App Service**](../azure-functions/dedicated-plan.md) o [**Premium**](../azure-functions/functions-premium-plan.md). En este ejemplo se selecciona **Plan de App Service**.
 
       ![Captura de pantalla que muestra el panel "Azure: Logic Apps (versión preliminar)" y una solicitud para seleccionar "Plan de App Service" o "Premium".](./media/create-stateful-stateless-workflows-visual-studio-code/select-hosting-plan.png)
 

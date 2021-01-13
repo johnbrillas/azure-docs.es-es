@@ -3,16 +3,15 @@ title: Creación de deserializadores de .NET personalizados para trabajos en la 
 description: En este tutorial se muestra cómo crear un deserializador de .NET personalizado para un trabajo en la nube de Azure Stream Analytics mediante Visual Studio Code.
 author: su-jie
 ms.author: sujie
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/22/2020
-ms.openlocfilehash: 0f041910d1b02cc6d1fd48bfd773711c3361c0f5
-ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
+ms.openlocfilehash: 1813fb222bca74f355fec52252ce3d77fef06e5d
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97822428"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98013930"
 ---
 # <a name="create-custom-net-deserializers-for-azure-stream-analytics-in-visual-studio-code"></a>Creación de deserializadores de .NET personalizados para Azure Stream Analytics en Visual Studio Code
 

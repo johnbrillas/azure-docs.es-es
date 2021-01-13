@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: bonova, sstein
-ms.date: 11/10/2020
-ms.openlocfilehash: b40f618b65af6fd7a6d283431aaf63c2cc1dcd1a
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.reviewer: bonova, sstein, danil
+ms.date: 12/25/2020
+ms.openlocfilehash: 7bdde57c1d33118fd7d3c8e04a2507d8997c36d0
+ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368467"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97809520"
 ---
 # <a name="features-comparison-azure-sql-database-and-azure-sql-managed-instance"></a>Comparación de características: Azure SQL Database e Instancia administrada de Azure SQL
 
@@ -64,6 +64,7 @@ En la tabla siguiente se enumeran las características principales de SQL Server
 | [Transacciones distribuidas: MS DTC](/sql/relational-databases/native-client-ole-db-transactions/supporting-distributed-transactions) | No; consulte el artículo sobre [transacciones elásticas](elastic-transactions-overview.md). |  No; consulte las [diferencias de servidores vinculados](../managed-instance/transact-sql-tsql-differences-sql-server.md#linked-servers). Intente consolidar las bases de datos de varias instancias de SQL Server distribuidas en una Instancia administrada de SQL durante la migración. |
 | [Desencadenadores DML](/sql/relational-databases/triggers/create-dml-triggers) | La mayoría; consulte el artículo sobre instrucciones. |  Sí |
 | [DMV](/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views) | La mayoría; consulte el artículo sobre DMV |  Sí; consulte el artículo sobre [diferencias de T-SQL](../managed-instance/transact-sql-tsql-differences-sql-server.md) |
+| [Consulta elástica](elastic-query-overview.md) (en versión preliminar pública) | Sí, con el tipo RDBMS requerido. | Sí, con el tipo RDBMS requerido. |
 | [Notificaciones de eventos](/sql/relational-databases/service-broker/event-notifications) | No; consulte el artículo sobre [alertas](alerts-insights-configure-portal.md). | No |
 | [Expresiones](/sql/t-sql/language-elements/expressions-transact-sql) |Sí | Sí |
 | [Eventos extendidos (XEvent)](/sql/relational-databases/extended-events/extended-events) | Algunas; consulte [Eventos extendidos en SQL Database](xevent-db-diff-from-svr.md) | Sí: consulte el artículo sobre [diferencias de eventos extendidos](../managed-instance/transact-sql-tsql-differences-sql-server.md#extended-events) |
@@ -127,6 +128,7 @@ La plataforma de Azure proporciona una serie de funcionalidades de PaaS que se a
 | [Azure Resource Health](../../service-health/resource-health-overview.md) | Sí | No |
 | Retención de copias de seguridad | Sí. 7 días (predeterminado), máximo 35 días. | Sí. 7 días (predeterminado), máximo 35 días. |
 | [Data Migration Service (DMS)](/sql/dma/dma-overview) | Sí | Sí |
+| [Trabajos elásticos](elastic-jobs-overview.md) | Sí; consulte [Trabajos elásticos (versión preliminar)](elastic-jobs-overview.md) | No (se puede usar el [Agente SQL](../managed-instance/transact-sql-tsql-differences-sql-server.md#sql-server-agent) en su lugar). |
 | Acceso al sistema de archivos | No. Use [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) o [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql#i-accessing-data-from-a-file-stored-on-azure-blob-storage) para acceder y cargar datos de Azure Blob Storage como alternativa. | No. Use [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) o [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql#i-accessing-data-from-a-file-stored-on-azure-blob-storage) para acceder y cargar datos de Azure Blob Storage como alternativa. |
 | [Restauración geográfica](recovery-using-backups.md#geo-restore) | Sí | Sí |
 | [Arquitectura de hiperescala](service-tier-hyperscale.md) | Sí | No |
@@ -146,7 +148,7 @@ La plataforma de Azure proporciona una serie de funcionalidades de PaaS que se a
 | [Información de rendimiento de consultas (QPI)](query-performance-insight-use.md) | Sí | No. Usar informes integrados en SQL Server Management Studio y Azure Data Studio. |
 | [Red virtual](../../virtual-network/virtual-networks-overview.md) | Parcial; permite el acceso restringido mediante [puntos de conexión de red virtual](vnet-service-endpoint-rule-overview.md). | Sí, Instancia administrada de SQL se inserta en la red virtual del cliente. Consulte [subred](../managed-instance/transact-sql-tsql-differences-sql-server.md#subnet) y [red virtual](../managed-instance/transact-sql-tsql-differences-sql-server.md#vnet). |
 | Punto de conexión de servicio de VNet | [Sí](vnet-service-endpoint-rule-overview.md) | No |
-| Emparejamiento global de red virtual | Sí, uso de los [puntos de conexión de IP privada y de servicio](vnet-service-endpoint-rule-overview.md) | No, [Instancia administrada de SQL no se admite](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) debido a una [restricción del equilibrador de carga del emparejamiento global de red virtual](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints).
+| Emparejamiento global de red virtual | Sí, uso de los [puntos de conexión de IP privada y de servicio](vnet-service-endpoint-rule-overview.md) | Sí, mediante el [emparejamiento de red virtual](https://techcommunity.microsoft.com/t5/azure-sql/new-feature-global-vnet-peering-support-for-azure-sql-managed/ba-p/1746913). |
 
 ## <a name="tools"></a>Herramientas
 

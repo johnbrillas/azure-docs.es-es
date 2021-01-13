@@ -9,14 +9,14 @@ ms.topic: reference
 ms.reviewer: larryfr
 ms.author: andzha
 author: Anurzeuii
-ms.date: 08/24/2020
+ms.date: 12/21/2020
 ms.custom: references_regions
-ms.openlocfilehash: 0300dab1fa7d0ef0d20c4236cc452135b3ade20e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 88240f9b46997d11f1e7c2d93fa880b004615a11
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305752"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97725027"
 ---
 # <a name="azure-machine-learning-sovereign-cloud-parity"></a>Paridad de nube soberana de Azure Machine Learning
 
@@ -92,7 +92,7 @@ Nos esforzamos por proporcionar la máxima paridad entre nuestra nube pública y
 | Etiquetado asistido por ML (clasificación de imágenes y detección de objetos)           | Vista previa pública       | SÍ                | SÍ         |
 | **Aprendizaje automático responsable** |   | | |
 | Capacidad de explicación en la interfaz de usuario                                                       | Vista previa pública       | No                 | No          |
-| Kit de herramientas de privacidad diferencial WhiteNoise                                    | OSS                  | No                 | No          |
+| Kit de herramientas de privacidad diferencial SmartNoise                                    | OSS                  | No                 | No          |
 | Etiquetas personalizadas en Azure Machine Learning para implementar hojas de datos              | Disponibilidad general                   | No                 | No          |
 | Integración con AzureML de equidad                                               | Vista previa pública       | No                 | No          |
 | SDK de interpretabilidad                                                      | Disponibilidad general                   | SÍ                | SÍ         |
@@ -205,7 +205,7 @@ Nos esforzamos por proporcionar la máxima paridad entre nuestra nube pública y
 | Etiquetado asistido por ML (clasificación de imágenes y detección de objetos)           | Vista previa pública   | SÍ       | N/D        |
 | **Aprendizaje automático responsable** |    | | |
 | Capacidad de explicación en la interfaz de usuario                                                       | Vista previa pública   | No        | N/D        |
-| Kit de herramientas de privacidad diferencial WhiteNoise                                    | OSS              | No        | N/D        |
+| Kit de herramientas de privacidad diferencial SmartNoise                                    | OSS              | No        | N/D        |
 | Etiquetas personalizadas en Azure Machine Learning para implementar hojas de datos              | Disponibilidad general               | No        | N/D        |
 | Integración con AzureML de equidad                                               | Vista previa pública   | No        | N/D        |
 | SDK de interpretabilidad                                                      | Disponibilidad general               | SÍ       | N/D        |

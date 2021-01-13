@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: sttsinar
-ms.openlocfilehash: ea812df825288eae3822cce01b24ebc82534c541
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 5ba5c6799db6a32bce64a730f4888f59080300dd
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928824"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97657182"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>Tamaños de las máquinas virtuales ampliables serie B
 
@@ -112,7 +112,7 @@ Para más información acerca de cómo acceder a los datos de las métricas de A
 
 **Ejemplo**: Quiero implementar una máquina virtual con el tamaño B1ms para mi aplicación de base de datos a la que se dedica poco tiempo y atención. Este tamaño permite que mi aplicación use hasta el 20 % de una vCPU como base de referencia, lo cual significa 0,2 créditos por minuto que puedo usar o acumular.
 
-Mi aplicación está ocupada al principio y al final de la jornada laboral de mis empleados, es decir, de 7:00 a 9:00 A.M. y de 4:00 a 6:00 PM. Durante las otras 20 horas del día, la aplicación suele estar inactiva y solo usa el 10% de la vCPU. Durante las horas de poca actividad, gano 0,2 créditos por minuto y solo consumo 0,1 créditos por minuto, por lo que la máquina virtual acumulará 0,1 x 60 = 6 créditos por hora.  Es decir, durante las 20 horas de poca actividad acumularé 120 créditos.  
+Mi aplicación está ocupada al principio y al final de la jornada laboral de mis empleados, es decir, de 7:00 a 9:00 A.M. y de 4:00 a 6:00 PM. Durante las otras 20 horas del día, la aplicación suele estar inactiva y solo usa el 10% de la vCPU. Durante las horas de poca actividad, gano 0,2 créditos por minuto y solo consumió 0,1 créditos por minuto, por lo que la máquina virtual acumulará 0,1 x 60 = 6 créditos por hora.  Es decir, durante las 20 horas de poca actividad acumularé 120 créditos.  
 
 Durante las horas punta, la aplicación realiza un uso promedio del 60 % de la vCPU, sigo ganando 0,2 créditos por minuto pero consumo 0,6 créditos por minuto, lo cual supone un costo neto de 0,4 créditos por minuto o 0,4 x 60 = 24 créditos por hora. Si tengo 4 horas al día de uso máximo, eso significa 4 x 24 = 96 créditos de consumo al día.
 

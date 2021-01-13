@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: vinigam
-ms.openlocfilehash: ccfbb92c27e4508595f19c2ea6900730cde609b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 015b8e400e9d386fff8f35756a77139e61bbaff1
+ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74666382"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97809299"
 ---
 # <a name="schema-and-data-aggregation-in-traffic-analytics"></a>Esquema y agregación de datos en Análisis de tráfico
 
@@ -39,11 +39,11 @@ Análisis de tráfico es una solución basada en la nube, que proporciona visibi
 5. El campo FlowStartTime_t indica la primera aparición de este tipo de flujo agregado (misma tupla de cuatro) en el intervalo de procesamiento de registros de flujos entre "FlowIntervalStartTime_t" y "FlowIntervalEndTime_t".
 6. Para cualquier recurso en el Análisis de tráfico, los flujos que se indican en la interfaz de usuario son flujos totales vistos por NSG, pero en Log Anlaytics, el usuario verá solo el registro único reducido. Para ver todos los flujos, use el campo blob_id, al que se puede hacer referencia desde el almacenamiento. El número total de flujos de ese registro coincidirá con los flujos individuales que se ven en el blob.
 
-La siguiente consulta lo ayuda a analizar todos los registros de flujo locales en los últimos treinta días.
+La consulta siguiente le ayuda a ver todas las subredes que interactúan con direcciones IP públicas que no son de Azure en los últimos 30 días.
 ```
 AzureNetworkAnalytics_CL
 | where SubType_s == "FlowLog" and FlowStartTime_t >= ago(30d) and FlowType_s == "ExternalPublic"
-| project Subnet_s  
+| project Subnet1_s, Subnet2_s  
 ```
 Para ver la ruta de acceso de blob para los flujos en la consulta mencionada anteriormente, use la siguiente consulta:
 

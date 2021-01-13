@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f34ca47d5ff6c809eef40f89ee0049285cfd7d42
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: aa6726bb5c60dceab0a58632da99c04361183246
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97355400"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97932697"
 ---
 # <a name="add-an-api-connector-to-a-user-flow"></a>Adición de un conector de API a un flujo de usuario
 
@@ -319,7 +319,7 @@ Asegúrese de que:
 * La **URL del punto de conexión** del conector de API apunta al punto de conexión de API correcto.
 * La API comprueba explícitamente si hay valores NULL de las notificaciones recibidas.
 * La API responde lo más rápido posible para garantizar una experiencia de usuario fluida.
-    * Si usa una función sin servidor o un servicio web escalable, use un plan de hospedaje que mantenga la API "activa" o "caliente" Para Azure Functions, se recomienda usar el [plan Premium](../../azure-functions/functions-scale.md#premium-plan). 
+    * Si usa una función sin servidor o un servicio web escalable, use un plan de hospedaje que mantenga la API "activa" o "caliente" Para Azure Functions, se recomienda usar el [plan Premium](../../azure-functions/functions-premium-plan.md). 
 
 
 ### <a name="use-logging"></a>Uso del registro

@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 575903654a165bef0d09ac6abf0793af3f6784e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5fa0b6ca41349d20614a64006536e78d8ee71844
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90932545"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955372"
 ---
 # <a name="offline-deployment-overview"></a>Introducción a la implementación sin conexión
 
@@ -22,7 +22,7 @@ Normalmente, las imágenes de contenedor usadas en la creación del controlador 
 
 Dado que se proporcionan actualizaciones mensuales para los servicios de datos habilitados para Azure Arc y hay un gran número de imágenes de contenedor, es mejor realizar este proceso de extracción, etiquetado e inserción de las imágenes de contenedor en un registro de contenedor privado mediante un script.  El script se puede automatizar o ejecutar manualmente.
 
-Puede encontrar un [script de ejemplo](https://raw.githubusercontent.com/microsoft/azure_arc/master/arc_data_services/deploy/scripts/pull-and-push-arc-data-services-images-to-private-registry.py) en el repositorio de GitHub de Azure Arc.
+Puede encontrar un [script de ejemplo](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/scripts/pull-and-push-arc-data-services-images-to-private-registry.py) en el repositorio de GitHub de Azure Arc.
 
 > [!NOTE]
 > Este script requiere la instalación de Python y la [CLI de Docker](https://docs.docker.com/install/).

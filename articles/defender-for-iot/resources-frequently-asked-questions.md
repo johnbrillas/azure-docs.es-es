@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/07/2020
 ms.author: rkarlin
-ms.openlocfilehash: 5e7eabd44ea8c56fbb102f9e48812745a31de62a
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 0c303adb4ee7c7551c6b389ec169d92a661a63bc
+ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089203"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97835030"
 ---
 # <a name="azure-defender-for-iot-frequently-asked-questions"></a>Preguntas más frecuentes sobre Azure Defender para IoT
 
@@ -79,15 +79,11 @@ Sí. Puede establecer una alerta personalizada ante un conjunto predeterminado d
 
 Los sensores y agentes siguen ejecutándose y almacenan los datos, siempre y cuando el dispositivo esté en ejecución. Los datos se almacenan en la caché de mensajes de seguridad según la configuración de tamaño. Cuando el dispositivo vuelve a tener conectividad, se reanuda el envío de los mensajes de seguridad.
 
-
-
-
-
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre los primeros pasos con Defender para IoT, consulte los siguientes artículos:
 
 - Lea la [información general](overview.md) de Defender para IoT.
-- Verifique los [requisitos previos del servicio](service-prerequisites.md)
-- Más información sobre cómo [empezar a usar ASC para IoT](getting-started.md)
+- Compruebe los [requisitos previos del sistema](quickstart-system-prerequisites.md).
+- Obtenga más información sobre cómo [comenzar a usar Defender para IoT](getting-started.md).
 - Información sobre las [alertas de seguridad de Defender para IoT](concept-security-alerts.md)

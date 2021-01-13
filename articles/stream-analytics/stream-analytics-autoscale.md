@@ -3,16 +3,15 @@ title: Escalabilidad automática de trabajos de Stream Analytics
 description: En este artículo se describe cómo escalar automáticamente un trabajo de Stream Analytics según una programación predefinida o valores de métricas de trabajo.
 author: sidramadoss
 ms.author: sidram
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/03/2020
-ms.openlocfilehash: 8e5bcdaeaf1ec99387a708199f4353736b6bc60f
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: a8e089e302e9d40c69cf7ff2a3480c17894e1463
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129854"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98016293"
 ---
 # <a name="autoscale-stream-analytics-jobs-using-azure-automation"></a>Escalabilidad automática de trabajos de Stream Analytics mediante Azure Automation
 
@@ -73,7 +72,7 @@ Puede haber casos en los que no se pueda predecir la carga de entrada. En tales 
 5. Rellene los campos obligatorios. Elija **Runbook de Automation** al seleccionar el **Tipo de acción**. Seleccione el runbook que quiere desencadenar cuando se active la alerta. A continuación, cree el grupo de acciones.
 
    ![Creación de un grupo de acciones](./media/autoscale/create-actiongroup.png)
-6. Cree una [**Nueva regla de alertas**](./stream-analytics-set-up-alerts.md#set-up-alerts-in-the-azure-portal) en el trabajo. Especifique una condición basada en una métrica de su elección. [*Eventos de entrada* , *SU % Utilización* o *Backlogged Input Events*](./stream-analytics-monitoring.md#metrics-available-for-stream-analytics) (Eventos de entrada pendientes) son métricas recomendadas que se usarán para definir la lógica de escalabilidad automática. También se recomienda usar un valor de *Aggregation granularity* (Granularidad de agregación) y *Frequency of evaluation* (Frecuencia de evaluación) de 1 minuto al desencadenar operaciones de escala vertical. De este modo, se garantiza que el trabajo tiene amplios recursos para hacer frente a picos grandes en el volumen de entrada.
+6. Cree una [**Nueva regla de alertas**](./stream-analytics-set-up-alerts.md#set-up-alerts-in-the-azure-portal) en el trabajo. Especifique una condición basada en una métrica de su elección. [*Eventos de entrada*, *SU % Utilización* o *Backlogged Input Events*](./stream-analytics-monitoring.md#metrics-available-for-stream-analytics) (Eventos de entrada pendientes) son métricas recomendadas que se usarán para definir la lógica de escalabilidad automática. También se recomienda usar un valor de *Aggregation granularity* (Granularidad de agregación) y *Frequency of evaluation* (Frecuencia de evaluación) de 1 minuto al desencadenar operaciones de escala vertical. De este modo, se garantiza que el trabajo tiene amplios recursos para hacer frente a picos grandes en el volumen de entrada.
 7. Seleccione el grupo de acciones creado en el último paso y cree la alerta.
 8. Repita los pasos del 2 al 4 para las operaciones de escalado adicionales que quiera desencadenar en función de la condición de las métricas de trabajo.
 

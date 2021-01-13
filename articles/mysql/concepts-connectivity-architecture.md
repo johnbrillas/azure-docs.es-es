@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.openlocfilehash: 02919c8e31e556ab7b5e7e04fcbde27dcf981736
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 2a557bb436b3bc10cf83beb450761465b43f621f
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97511576"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97655363"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mysql"></a>Arquitectura de conectividad en Azure Database for MySQL
 En este artículo se explica la arquitectura de conectividad de Azure Database for MySQL y cómo se dirige el tráfico a la instancia de Azure Database for MySQL desde clientes internos y externos de Azure.
@@ -29,7 +29,7 @@ El servicio de puerta de enlace se hospeda en un grupo de nodos de proceso sin e
 
 Como parte del mantenimiento continuo del servicio, actualizaremos periódicamente el hardware de proceso que hospeda las puertas de enlace para garantizar que se proporcione la experiencia más segura y eficaz. Cuando se actualice el hardware de la puerta de enlace, primero se creará un nuevo anillo de los nodos de proceso. Este nuevo anillo atiende el tráfico de todos los servidores de Azure Database for MySQL recién creados, y tendrá una dirección IP diferente de los anillos de puertas de enlace más antiguos de la misma región, a efectos de diferenciar el tráfico. Según los planes, una vez que el nuevo anillo esté en pleno funcionamiento, se retirará el hardware de puertas de enlace anterior que atiende a los servidores existentes. Antes de retirar el hardware de una puerta de enlace, los clientes que ejecuten sus servidores y se conecten a los anillos de puertas de enlace más antiguos recibirán una notificación por correo electrónico y en Azure Portal, tres meses antes de la retirada. La retirada de las puertas de enlace puede afectar a la conectividad a los servidores si: 
 
-* Codifica de forma rígida las direcciones IP de las puertas de enlace en la cadena de conexión de la aplicación. **No se recomienda**. 
+* Codifica de forma rígida las direcciones IP de las puertas de enlace en la cadena de conexión de la aplicación. **No se recomienda**. Debe usar el nombre de dominio completo (FQDN) del servidor con el formato <servername>.mysql.database.azure.com en la cadena de conexión de la aplicación. 
 * No actualiza las direcciones IP de las puertas de enlace más recientes en el firewall del lado cliente para permitir que el tráfico de salida pueda comunicarse con nuestros nuevos anillos de puertas de enlace.
 
 En la siguiente tabla se enumeran las direcciones IP de las puertas de enlace de Azure Database for MySQL para todas las regiones de datos. La información más actualizada de las direcciones IP de las puertas de enlace para cada región se mantiene en la tabla siguiente. Las columnas representan lo siguiente:
@@ -48,7 +48,7 @@ En la siguiente tabla se enumeran las direcciones IP de las puertas de enlace de
 | Sur de Brasil |191.233.201.8, 191.233.200.16    |  | 104.41.11.5|
 | Centro de Canadá |40.85.224.249  | | |
 | Este de Canadá | 40.86.226.166    | | |
-| Centro de EE. UU. | 23.99.160.139, 13.67.215.62, 52.182.136.37, 52.182.136.38     | | |
+| Centro de EE. UU. | 23.99.160.139, 13.67.215.62, 52.182.136.37, 52.182.136.38 | | |
 | Este de China | 139.219.130.35    | | |
 | Este de China 2 | 40.73.82.1  | | |
 | Norte de China | 139.219.15.17    | | |

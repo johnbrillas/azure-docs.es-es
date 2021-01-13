@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/22/2020
 ms.author: aahi
-ms.openlocfilehash: 80e0de73bbeae2ee1a79199fde34a3c430959ac8
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: cc6bcef77ca1601b76468586aa6af202836f1438
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93356712"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97631999"
 ---
 # <a name="batch-processing-kit-for-speech-containers"></a>Kit de procesamiento por lotes para contenedores de voz
 
@@ -86,13 +86,13 @@ docker run --rm -ti -v  /mnt/my_nfs:/my_nfs --entrypoint /bin/bash /mn
 Para ejecutar el lote cliente:  
 
 ```Docker
-run-batch-client -config /my_nfs/config.yaml -input_folder /my_nfs/audio_files -output_folder /my_nfs/transcriptions -log_folder  /my_nfs/logs -log_level DEBUG -nbest 1 -m ONESHOT -diarization  None -language en-US -strict_config   
+run-batch-client -config /my_nfs/config.yaml -input_folder /my_nfs/audio_files -output_folder /my_nfs/transcriptions -log_folder  /my_nfs/logs -file_log_level DEBUG -nbest 1 -m ONESHOT -diarization  None -language en-US -strict_config   
 ```
 
 Para ejecutar el lote cliente y el contenedor en un solo comando:
 
 ```Docker
-docker run --rm -ti -v  /mnt/my_nfs:/my_nfs docker.io/batchkit/speech-batch-kit:latest  -config /my_nfs/config.yaml -input_folder /my_nfs/audio_files -output_folder /my_nfs/transcriptions -log_folder  /my_nfs/logs -log_level DEBUG -nbest 1 -m ONESHOT -diarization  None -language en-US -strict_config   
+docker run --rm -ti -v  /mnt/my_nfs:/my_nfs docker.io/batchkit/speech-batch-kit:latest  -config /my_nfs/config.yaml -input_folder /my_nfs/audio_files -output_folder /my_nfs/transcriptions -log_folder  /my_nfs/logs -file_log_level DEBUG -nbest 1 -m ONESHOT -diarization  None -language en-US -strict_config   
 ```
 
 
@@ -156,7 +156,7 @@ El modo `REST` es un modo de servidor API que proporciona un conjunto básico de
 > [!NOTE]
 > El cliente de lote puede sobrescribir el archivo *run.log* periódicamente si es demasiado grande.
 
-El cliente crea un archivo *run.log* en el directorio especificado por el argumento `-log_folder` en el comando `run` de Docker. Los registros se capturan en el nivel de depuración de forma predeterminada. Los mismos registros se envían al `stdout/stderr` y se filtran según el argumento `-log_level`. Este registro solo es necesario para la depuración o si necesita enviar un seguimiento para la compatibilidad. La carpeta de registro también contiene los registros del SDK de voz para cada archivo de audio.
+El cliente crea un archivo *run.log* en el directorio especificado por el argumento `-log_folder` en el comando `run` de Docker. Los registros se capturan en el nivel de depuración de forma predeterminada. Los mismos registros se envían al `stdout/stderr` y se filtran según los argumentos `-file_log_level` o `console_log_level`. Este registro solo es necesario para la depuración o si necesita enviar un seguimiento para la compatibilidad. La carpeta de registro también contiene los registros del SDK de voz para cada archivo de audio.
 
 El directorio de salida especificado por `-output_folder` contendrá un archivo *run_summary.json* , que se reescribe periódicamente cada 30 segundos o cada vez que se terminan nuevas transcripciones. Puede usar este archivo para comprobar el progreso a medida que el lote continúa. También contendrá las estadísticas de ejecución finales y el estado final de todos los archivos cuando se complete el lote. El lote se completa cuando el proceso tiene una salida limpia. 
 

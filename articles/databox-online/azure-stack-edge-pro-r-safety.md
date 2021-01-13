@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 10/26/2020
+ms.date: 12/18/2020
 ms.author: alkohli
-ms.openlocfilehash: ac3f2cc1c68ea552b2858d932217a28055fee0fd
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 627196c0a76f1de23f7e5421c47a33356a73967f
+ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96465854"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97709454"
 ---
 # <a name="azure-stack-edge-pro-r-safety-instructions"></a>Instrucciones de seguridad de Azure Stack Edge Pro R
 
@@ -86,6 +86,7 @@ Los siguientes iconos de riesgo se deben tener en mente al configurar y poner en
   * Aislado de campos electromagnéticos potentes generados por dispositivos eléctricos.
   * Equipado con enchufes con toma de tierra.
   * Dotado de espacio adecuado para acceder a los cables de la fuente de alimentación, ya que sirven como desconexión de energía principal del producto.
+* Los cables de Ethernet no se proporcionan con el producto. Para reducir las interferencias electromagnéticas, se recomienda usar el cableado de par trenzado blindado (STP) de categoría 6.
 * Configure el equipo en un área de trabajo que permita una adecuada circulación de aire alrededor del equipo; asegúrese de que las tapas delantera y trasera se hayan retirado completamente mientras el dispositivo se está usando.
 * Instale el equipo en un área con control de la temperatura y libre de contaminantes conductores, y deje un espacio adecuado para la circulación de aire alrededor del equipo.
 * Mantenga el equipo alejado de fuentes de líquidos y de entornos excesivamente húmedos.
@@ -115,6 +116,11 @@ Los siguientes iconos de riesgo se deben tener en mente al configurar y poner en
   * El dispositivo se cayó y su carcasa está dañada.
   * Sospecha que el dispositivo necesita ser reparado.
 * Desenchufe de forma definitiva la unidad antes de moverla o si piensa que se ha dañado de algún modo.
+* Para evitar una gran fuga actual, cuando un único caso de tránsito tiene más de una fuente de alimentación ininterrumpida [SAI (UPS)], se recomienda que cada SAI (UPS) esté conectado a un circuito de rama independiente. Sin embargo, en el caso de que se use una unidad de distribución de energía (PDU) u otro dispositivo en el que la toma de tierra de seguridad de cada SAI (UPS) se base en un único conductor de toma de tierra de alimentación de la PDU, el terminal de toma de tierra en el exterior de cada SAI (UPS) también debe usarse con un conductor de toma de tierra adicional.
+
+  > [!NOTE]
+  > Si se usa una PDU que ya tiene un conductor de toma de tierra adicional, no es necesario usar el terminal de toma de tierra adicional en el SAI (UPS).
+
 * Proporcione una fuente de alimentación adecuada con protección frente a sobrecargas eléctricas para cumplir con las especificaciones de energía siguientes:
 
   * Voltaje: 100 a 240 voltios CA
@@ -157,7 +163,7 @@ El dispositivo está diseñado para funcionar en los siguientes entornos:
 |:--- |:--- |
 |Especificaciones de temperatura | <ul><li>Temperatura de almacenamiento: -33 &deg;C a 63 &deg;C (-28 &deg;F a 145 &deg;F) </li><li>Operación continua: 5 &deg;C a 43 &deg;C (41 &deg;F a 110 &deg;F)</li><li>Gradiente máximo de temperatura (funcionamiento y almacenamiento): 20 &deg;C/h (68 &deg;F/h)</li></ul> |
 |Especificaciones de humedad relativa | <ul><li>Almacenamiento: del 5 al 95% de humedad relativa con 33 &deg;C (91 &deg;F) como punto de rocío máximo. La atmósfera debe encontrarse sin condensación en todo momento.</li><li>Operativo: del 5 al 85 % de humedad relativa con 29 &deg;C (84,2 &deg;F) como punto de rocío máximo</li></ul> |
-| Especificaciones de altitud máxima | <ul><li>Operativo (sin fuente de alimentación): 15 000 pies (4572 metros)</li><li>Operativo (con fuente de alimentación): 6561 pies (2000 metros)</li><li>Almacenamiento: 40 000 pies (12 192 metros)</li></ul> |
+| Especificaciones de altitud máxima | <ul><li>Operativo (sin fuente de alimentación): 15 000 pies (4572 metros)</li><li>Operativo (con fuente de alimentación): 10 000 pies (3048 metros)</li><li>Almacenamiento: 40 000 pies (12 192 metros)</li></ul> |
 
 <!--|Standard operating temperature specifications | <ul>Continuous operation (for altitude less than 950 m or 3117 ft): +5&deg;C–45&deg;C (41&deg;F–113&deg;F) with no direct sunlight on the equipment</ui>
 |Expanded operating temperature specifications | <ul><li>Continuous operation: 5&deg;C to 45&deg;C at 5% to 85% RH with 29&deg;C dew point.</li><li></= 1% of annual operating hours: –5&deg;C to 55&deg;C at 5% to 90% RH with 29&deg;C dew point. |

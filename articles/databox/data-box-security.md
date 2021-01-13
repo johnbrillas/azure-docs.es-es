@@ -1,23 +1,23 @@
 ---
 title: Introducción a la seguridad de Microsoft Azure Data Box | Microsoft Docs en datos
-description: Describe las características de seguridad de Azure Data Box en el dispositivo, el servicio y los datos que residen en Data Box
+description: Describe las características de seguridad de Azure Data Box en el dispositivo, el servicio y los datos que residen en Data Box.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: conceptual
-ms.date: 06/16/2020
+ms.date: 12/16/2020
 ms.author: alkohli
-ms.openlocfilehash: f9330f99a0473aa38da2fcbb8ae0624a37746613
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 4d6c77b3e8920cabc397cdcbc235baefa031e5ab
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444765"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97655499"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Protección de datos y seguridad de Azure Data Box
 
-Data Box proporciona una solución segura para proteger los datos al garantizar que solo las entidades autorizadas puedan ver, modificar o eliminar los datos. En este artículo se describen las características de seguridad de Azure Data Box que ayudan a proteger cada uno de los componentes de la solución Data Box y los datos almacenados en ellos. 
+Data Box proporciona una solución segura para proteger los datos al garantizar que solo las entidades autorizadas puedan ver, modificar o eliminar los datos. En este artículo se describen las características de seguridad de Azure Data Box que ayudan a proteger cada uno de los componentes de la solución Data Box y los datos almacenados en ellos.
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
@@ -26,7 +26,7 @@ Data Box proporciona una solución segura para proteger los datos al garantizar 
 La solución Microsoft Azure Data Box consta de cuatro componentes principales que interactúan entre sí:
 
 - **Servicio Azure Data Box hospedado en Azure**: el servicio de administración que se usa para crear el pedido del dispositivo, configurar el dispositivo y, a continuación, supervisar el pedido hasta que se realiza.
-- **Dispositivo de Data Box**: el dispositivo de transferencia que se envía para importar los datos del entorno local a Azure. 
+- **Dispositivo de Data Box**: el dispositivo de transferencia que se envía para importar los datos del entorno local a Azure.
 - **Clientes/hosts conectados al dispositivo**: los clientes en la infraestructura que se conectan al dispositivo de Data Box y contienen los datos que se deben proteger.
 - **Almacenamiento en la nube** : la ubicación en la nube de Azure donde se almacenan los datos. Suele ser la cuenta de almacenamiento vinculada al recurso de Azure Data Box que ha creado.
 
@@ -45,7 +45,7 @@ Mientras los datos fluyen a través de esta solución, se registran los eventos 
 
 ## <a name="security-features"></a>Características de seguridad
 
-Data Box proporciona una solución segura para proteger los datos al garantizar que solo las entidades autorizadas puedan ver, modificar o eliminar los datos. Las características de seguridad de esta solución están destinadas al disco y al servicio asociado, lo que garantiza la seguridad de los datos almacenados. 
+Data Box proporciona una solución segura para proteger los datos al garantizar que solo las entidades autorizadas puedan ver, modificar o eliminar los datos. Las características de seguridad de esta solución están destinadas al disco y al servicio asociado, lo que garantiza la seguridad de los datos almacenados.
 
 ### <a name="data-box-device-protection"></a>Protección del dispositivo Data Box
 
@@ -55,14 +55,19 @@ El dispositivo Data Box se protege mediante las siguientes características:
 - Detección de manipulaciones en hardware y software que impide más operaciones en el dispositivo.
 - Ejecuta solo el software específico para Data Box.
 - Arranca en un estado bloqueado.
-- Controla el dispositivo a través de una contraseña de desbloqueo de dispositivo.
+- Controla el dispositivo a través de una clave de paso de desbloqueo de dispositivo. Esta clave de paso está protegida por una clave de cifrado. Puede usar su propia clave administrada por el cliente para proteger la clave de paso. Para más información, consulte [Uso de claves administradas por el cliente en Azure Key Vault para Azure Data Box](data-box-customer-managed-encryption-key-portal.md).
 - Credenciales de acceso para copiar datos hacia y desde el dispositivo. Todos los accesos a la página **Credenciales del dispositivo** en Azure Portal quedan registrados en los [registros de actividad](data-box-logs.md#query-activity-logs-during-setup).
+- Puede usar sus propias contraseñas para el acceso de dispositivos y recursos compartidos. Para más información, consulte el [Tutorial: Realización de pedidos de Azure Data Box](data-box-deploy-ordered.md).
+
+### <a name="establish-trust-with-the-device-via-certificates"></a>Establecer la confianza con el dispositivo mediante certificados
+
+Un dispositivo Data Box le permite traer sus propios certificados e instalar los que se usarán para conectarse a la interfaz de usuario web local y a Blob Storage. Para obtener más información, consulte [Uso de sus propios certificados con los dispositivos Data Box y Data Box Heavy](data-box-bring-your-own-certificates.md).
 
 ### <a name="data-box-data-protection"></a>Protección de datos de Data Box
 
 Los datos que fluyen en Data Box se protegen mediante las siguientes características:
 
-- Cifrado AES de 256 bits para datos en reposo.
+- Cifrado AES de 256 bits para datos en reposo. En un entorno de alta seguridad, puede usar el cifrado doble basado en software. Para más información, consulte el [Tutorial: Realización de pedidos de Azure Data Box](data-box-deploy-ordered.md).
 - Se pueden usar protocolos cifrados para los datos en movimiento. Se recomienda utilizar SMB 3.0 con cifrado para proteger los datos cuando se copien de los servidores de datos.
 - Eliminación segura de los datos desde el dispositivo una vez completada la carga de datos en Azure. La eliminación de datos se ha establecido de acuerdo con las instrucciones del [Apéndice A para las unidades de disco duro ATA en el estándar NIST 800-88r1](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf). El evento de eliminación de datos se registra en el [historial de pedidos](data-box-logs.md#download-order-history).
 
@@ -73,7 +78,7 @@ El servicio Data Box se protege mediante las siguientes características:
 - El acceso al servicio Data Box requiere que la organización tenga una suscripción de Azure que incluya dicho servicio. Su suscripción regula las características a las que puede tener acceso en Azure Portal.
 - Dado que el servicio Data Box está hospedado en Azure, se encuentra protegido por las características de seguridad de Azure. Para obtener más información acerca de las características de seguridad que proporciona Microsoft Azure, visite el [Centro de confianza de Microsoft Azure](https://www.microsoft.com/TrustCenter/Security/default.aspx).
 - El acceso al pedido de Data Box se puede controlar a través del uso de roles de Azure. Para obtener más información, consulte [Set up access control for Data Box order](data-box-logs.md#set-up-access-control-on-the-order) (Configuración del control de accesos para el pedido de Data Box).
-- El servicio de Data Box almacena la contraseña de desbloqueo que se usa para desbloquear el dispositivo en el servicio.
+- El servicio Data Box almacena la contraseña de desbloqueo que se usa para desbloquear el dispositivo en el servicio.
 - El servicio Data Box almacena los detalles del pedido y del estado en el servicio. Esta información se elimina cuando se elimina el pedido.
 
 ## <a name="managing-personal-data"></a>Administración de datos personales
@@ -104,7 +109,7 @@ Para obtener más información, revise la directiva de privacidad de Microsoft e
 
 ## <a name="security-guidelines-reference"></a>Referencia de directrices de seguridad
 
-Las siguientes directrices de seguridad están implementadas en Data Box: 
+Las siguientes directrices de seguridad están implementadas en Data Box:
 
 |Directrices   |Descripción   |
 |---------|---------|

@@ -1,18 +1,17 @@
 ---
 title: Uso de datos de referencia de SQL Database en un trabajo de Azure Stream Analytics
 description: En este artículo se describe cómo utilizar una instancia de SQL Database como entrada de datos de referencia para un trabajo de Azure Stream Analytics en Azure Portal y en Visual Studio.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 01/29/2019
-ms.openlocfilehash: 7e2826221bd9d15472467c4dd8676d3d0538e0d6
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: e7d16de8a7a5c6f5353d64e25580b19845ce96c1
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96326580"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98016412"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job"></a>Uso de datos de referencia de una instancia de SQL Database para un trabajo de Azure Stream Analytics
 

@@ -1,14 +1,14 @@
 ---
 title: Información general del agente Connected Machine de Windows
 description: En este artículo se proporciona una descripción detallada del agente de servidores habilitados para Azure Arc disponible, que admite la supervisión de máquinas virtuales hospedadas en entornos híbridos.
-ms.date: 12/15/2020
+ms.date: 12/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 531041b7d7439dd2a48fa9e06eb82796f470e9ed
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: bff76cbaa678ed82538eb6d75633aa94cdce30bf
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97563031"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97723276"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Información general del agente de servidores habilitados para Azure Arc
 
@@ -49,7 +49,7 @@ El agente de Azure Connected Machine para Windows y Linux se puede actualizar a 
 
 Las siguientes versiones de los sistemas operativos Windows y Linux son compatibles oficialmente con el agente de Azure Connected Machine:
 
-- Windows Server 2012 R2 y versiones posteriores (incluido Windows Server Core)
+- Windows Server 2008 R2, Windows Server 2012 R2 y versiones posteriores (incluido Server Core)
 - Ubuntu 16.04 y 18.04 LTS (x64)
 - CentOS Linux 7 (x64)
 - SUSE Linux Enterprise Server (SLES) 15 (x64)
@@ -82,6 +82,10 @@ Para garantizar la seguridad de los datos en tránsito hacia Azure, se recomiend
 
 El agente de Connected Machine para Linux y Windows se comunica de forma segura con la salida de Azure Arc a través del puerto TCP 443. Si la máquina se conecta mediante un servidor proxy o un firewall para comunicarse a través de Internet, consulte la siguiente información para comprender qué configuración de red es necesaria.
 
+> [!NOTE]
+> Los servidores con ARC habilitado no admiten el uso de una [puerta de enlace de Log Analytics](../../azure-monitor/platform/gateway.md) como proxy para el agente de Connected Machine.
+>
+
 Si la conectividad saliente está restringida por el firewall o el servidor proxy, asegúrese de que las direcciones URL que se muestran a continuación no estén bloqueadas. Si solo permite los intervalos IP o los nombres de dominio necesarios para que el agente se comunique con el servicio, también debe permitir el acceso a las siguientes etiquetas y direcciones URL del servicio.
 
 Etiquetas de servicio:
@@ -97,9 +101,11 @@ Direcciones URL:
 |---------|---------|
 |`management.azure.com`|Azure Resource Manager|
 |`login.windows.net`|Azure Active Directory|
+|`login.microsoftonline.com`|Azure Active Directory|
 |`dc.services.visualstudio.com`|Application Insights|
 |`*.guestconfiguration.azure.com` |Configuración de invitado|
 |`*.his.arc.azure.com`|Servicio de identidad híbrida|
+|`www.office.com`|Office 365|
 
 Los agentes de versión preliminar (versión 0.11 y anteriores) también requieren acceso a las siguientes direcciones URL:
 
@@ -163,7 +169,7 @@ El agente Connected Machine para Windows se puede instalar con uno de los tres m
 * Ejecute manualmente el paquete de Windows Installer `AzureConnectedMachineAgent.msi` desde el shell de comandos.
 * Desde una sesión de PowerShell mediante un método con scripts.
 
-Después de instalar el agente Connected Machine para Windows, se aplican los siguientes cambios de configuración adicionales a todo el sistema.
+Después de instalar el agente de Connected Machine para Windows, se aplican los siguientes cambios de configuración a todo el sistema.
 
 * Durante la instalación se crean las carpetas de instalación siguientes.
 
@@ -215,7 +221,7 @@ Después de instalar el agente Connected Machine para Windows, se aplican los si
 
 El agente de Connected Machine de Linux se proporciona en el formato de paquete preferido para la distribución (.RPM o .DEB) que se hospeda en el [repositorio de paquetes](https://packages.microsoft.com/) de Microsoft. El agente se instala y configura con el paquete de scripts de shell [Install_linux_azcmagent.sh](https://aka.ms/azcmagent).
 
-Después de instalar el agente Connected Machine para Linux, se aplican los siguientes cambios de configuración adicionales a todo el sistema.
+Después de instalar el agente de Connected Machine para Linux, se aplican los siguientes cambios de configuración a todo el sistema.
 
 * Durante la instalación se crean las carpetas de instalación siguientes.
 

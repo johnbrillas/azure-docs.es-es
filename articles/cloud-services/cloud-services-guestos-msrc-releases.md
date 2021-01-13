@@ -10,47 +10,100 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/20/2020
+ms.date: 12/21/2020
 ms.author: yohaddad
-ms.openlocfilehash: 9cc86167b9d92289aa2edb605d8037a1bf6a9dcb
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 7f683b5002fd31b599ae6fadeb82e5c6f5ce56a0
+ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96338731"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97708913"
 ---
 # <a name="azure-guest-os"></a>SO invitado de Azure
 En las tablas siguientes se muestran las actualizaciones del Centro de respuestas de seguridad de Microsoft (MSRC) aplicadas al sistema operativo invitado de Azure. Busque en este artículo para determinar si una actualización concreta se aplica al SO invitado que usa. Las actualizaciones siempre se realizan para la [familia][family-explain] determinada en la que se introdujeron.
 
-## <a name="november-2020-guest-os"></a>SO invitado de noviembre de 2020
+## <a name="december-2020-guest-os"></a>SO invitado de diciembre de 2020
 >[!NOTE] 
 
->El sistema operativo invitado de noviembre se está implementando actualmente en las máquinas virtuales del servicio en la nube que están configuradas para las actualizaciones automáticas. Una vez completada la implementación, esta versión estará disponible para las actualizaciones manuales mediante Azure Portal y los archivos de configuración. Las revisiones siguientes se incluyen en el sistema operativo invitado de octubre. Esta lista está sujeta a cambios. 
+>El sistema operativo invitado de diciembre se está implementando actualmente en las máquinas virtuales del servicio en la nube que están configuradas para las actualizaciones automáticas. Una vez completada la implementación, esta versión estará disponible para las actualizaciones manuales mediante Azure Portal y los archivos de configuración. Se incluyen las siguientes revisiones en el sistema operativo invitado de diciembre. Esta lista está sujeta a cambios. 
 
 | Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
-|  Rel 20-11 OOB |  [4594442]  |  Actualización acumulativa más reciente | 6.25 | 17 de noviembre de 2020 |
-|  Rel 20-11 OOB |  [4594441]  |  Actualización acumulativa más reciente | 5.49 | 19 de noviembre de 2020 |
-|  Rel 20-11 |  [4580325]  |  Actualización de Flash | 3.91, 4.84, 5.49, 6.25 | 13 de octubre de 2020 |
-|  Rel 20-11 |  [4586768]  |  Actualización acumulativa de IE | 2.104, 3.91, 4.84 | 10 de noviembre de 2020 |
-|  Rel 20-11 |  [4578952]  |  Acumulación de seguridad y calidad de .NET Framework 3.5 | 2.104 | 10 de noviembre de 2020 |
-|  Rel 20-11 |  [4578955]  |  Acumulación de seguridad y calidad de .NET Framework 4.5.2 | 2.104 | 10 de noviembre de 2020 |
-|  Rel 20-11 |  [4578953]  |  Acumulación de seguridad y calidad de .NET Framework 3.5 | 4.84 | 10 de noviembre de 2020 |
-|  Rel 20-11 |  [4578956]  |  Acumulación de seguridad y calidad de .NET Framework 4.5.2 | 4.84 | 10 de noviembre de 2020 |
-|  Rel 20-11 |  [4578950]  |  Acumulación de seguridad y calidad de .NET Framework 3.5 | 3,91 | 10 de noviembre de 2020 |
-|  Rel 20-11 |  [4578954]  |  Acumulación de seguridad y calidad de .NET Framework 4.5.2 | 3,91 | 10 de noviembre de 2020 |
-|  Rel 20-11 |  [4578966]  |  Actualización acumulativa de .NET Framework 3.5 y 4.7.2 | 6.25 | 13 de octubre de 2020 |
-|  Rel 20-11 |  [4586827]  |  Acumulación mensual | 2.104 | 10 de noviembre de 2020 |
-|  Rel 20-11 |  [4586834]  |  Acumulación mensual | 3,91 | 10 de noviembre de 2020 |
-|  Rel 20-11 |  [4586845]  |  Acumulación mensual | 4.84 | 10 de noviembre de 2020 |
-|  Rel 20-11 |  [4566426]  |  Actualización de la pila de servicio | 3,91 | 14 de julio de 2020 |
-|  Rel 20-11 |  [4566425]  |  Actualización de la pila de servicio | 4.84 | 14 de julio de 2020 |
-|  Rel 20-11 OOB |  [4578013]  |  Actualización de seguridad independiente | 4.84 | 19 de agosto de 2020 |
-|  Rel 20-11 |  [4576750]  |  Actualización de la pila de servicio | 5.49 | 8 de septiembre de 2020 |
-|  Rel 20-11 |  [4580970]  |  Actualización de la pila de servicio | 2.104 | 13 de octubre de 2020 |
-|  Rel 20-11 |  [4587735]  |  Actualización de la pila de servicio | 6.25 | 10 de noviembre de 2020 |
-|  Rel 20-11 |  [4494175]  |  Microcódigo | 5.49 | 1 de septiembre de 2020 |
-|  Rel 20-11 |  [4494174]  |  Microcódigo | 6.25 | 3 de septiembre de 2020 |
+|  Versión 20-12 |  [4592440]  |  Actualización acumulativa más reciente | 6.26 | 8 de diciembre de 2020 |
+|  Versión 20-12 |  [4580325]  |  Actualización de Flash | 3.92, 4.85, 5.50, 6.26 | 13 de octubre de 2020 |
+|  Versión 20-12 |  [4586768]  |  Actualizaciones acumulativas de IE | 2.105, 3.92, 4.85 | 10 de noviembre de 2020 |
+|  Versión 20-12 |  [4593226]  |  Actualización acumulativa más reciente | 5.50 | 8 de diciembre de 2020 |
+|  Versión 20-12 |  [4052623]  |  Defender | 5.50, 6.26 | 13 de diciembre de 2020 |
+|  Versión 20-12 |  [4578952]  |  Acumulación de seguridad y calidad de .NET Framework 3.5 | 2.105 | 10 de noviembre de 2020 |
+|  Versión 20-12 |  [4578955]  |  Acumulación de seguridad y calidad de .NET Framework 4.5.2 | 2.105 | 10 de noviembre de 2020 |
+|  Versión 20-12 |  [4578953]  |  Acumulación de seguridad y calidad de .NET Framework 3.5 | 4.85 | 10 de noviembre de 2020 |
+|  Versión 20-12 |  [4578956]  |  Acumulación de seguridad y calidad de .NET Framework 4.5.2 | 4.85 | 10 de noviembre de 2020 |
+|  Versión 20-12 |  [4578950]  |  Acumulación de seguridad y calidad de .NET Framework 3.5 | 3.92 | 10 de noviembre de 2020 |
+|  Versión 20-12 |  [4578954]  |  Acumulación de seguridad y calidad de .NET Framework 4.5.2 | 3.92 | 10 de noviembre de 2020 |
+|  Versión 20-12 |  [4578966]  |  Actualización acumulativa de .NET Framework 3.5 y 4.7.2 | 6.26 | 13 de octubre de 2020 |
+|  Versión 20-12 |  [4592471]  |  Acumulación mensual | 2.105 | 8 de diciembre de 2020 |
+|  Versión 20-12 |  [4592468]  |  Acumulación mensual | 3.92 | 8 de diciembre de 2020 |
+|  Versión 20-12 |  [4592484]  |  Acumulación mensual | 4.85 | 8 de diciembre de 2020 |
+|  Versión 20-12 |  [4566426]  |  Actualización de la pila de servicio | 3.92 | 14 de julio de 2020 |
+|  Versión 20-12 |  [4566425]  |  Actualización de la pila de servicio | 4.85 | 14 de julio de 2020 |
+|  Versión 20-12 OOB |  [4578013]  |  Actualización de seguridad independiente | 4.85 | 19 de agosto de 2020 |
+|  Versión 20-12 |  [4576750]  |  Actualización de la pila de servicio | 5.50 | 8 de septiembre de 2020 |
+|  Versión 20-12 |  [4592510]  |  Actualización de la pila de servicio | 2.105 | 8 de diciembre de 2020 |
+|  Versión 20-12 |  [4587735]  |  Actualización de la pila de servicio | 6.26 | 10 de noviembre de 2020 |
+|  Versión 20-12 |  [4494175]  |  Microcódigo | 5.50 | 1 de septiembre de 2020 |
+|  Versión 20-12 |  [4494174]  |  Microcódigo | 6.26 | 3 de septiembre de 2020 |
+
+[4592440]: https://support.microsoft.com/kb/4592440
+[4580325]: https://support.microsoft.com/kb/4580325
+[4586768]: https://support.microsoft.com/kb/4586768
+[4593226]: https://support.microsoft.com/kb/4593226
+[4052623]: https://support.microsoft.com/kb/4052623
+[4578952]: https://support.microsoft.com/kb/4578952
+[4578955]: https://support.microsoft.com/kb/4578955
+[4578953]: https://support.microsoft.com/kb/4578953
+[4578956]: https://support.microsoft.com/kb/4578956
+[4578950]: https://support.microsoft.com/kb/4578950
+[4578954]: https://support.microsoft.com/kb/4578954
+[4578966]: https://support.microsoft.com/kb/4578966
+[4592471]: https://support.microsoft.com/kb/4592471
+[4592468]: https://support.microsoft.com/kb/4592468
+[4592484]: https://support.microsoft.com/kb/4592484
+[4566426]: https://support.microsoft.com/kb/4566426
+[4566425]: https://support.microsoft.com/kb/4566425
+[4578013]: https://support.microsoft.com/kb/4578013
+[4576750]: https://support.microsoft.com/kb/4576750
+[4592510]: https://support.microsoft.com/kb/4592510
+[4587735]: https://support.microsoft.com/kb/4587735
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494174]: https://support.microsoft.com/kb/4494174
+
+
+## <a name="november-2020-guest-os"></a>SO invitado de noviembre de 2020
+
+| Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
+| --- | --- | --- | --- | --- |
+|  Rel 20-11 OOB |  [4594442]  |  Actualización acumulativa más reciente | [6.25] | 17 de noviembre de 2020 |
+|  Rel 20-11 OOB |  [4594441]  |  Actualización acumulativa más reciente | [5.49] | 19 de noviembre de 2020 |
+|  Rel 20-11 |  [4580325]  |  Actualización de Flash | [3.91], [4.84], [5.49], [6.25] | 13 de octubre de 2020 |
+|  Rel 20-11 |  [4586768]  |  Actualización acumulativa de IE | [2.104], [3.91], [4.84] | 10 de noviembre de 2020 |
+|  Rel 20-11 |  [4578952]  |  Acumulación de seguridad y calidad de .NET Framework 3.5 | [2.104] | 10 de noviembre de 2020 |
+|  Rel 20-11 |  [4578955]  |  Acumulación de seguridad y calidad de .NET Framework 4.5.2 | [2.104] | 10 de noviembre de 2020 |
+|  Rel 20-11 |  [4578953]  |  Acumulación de seguridad y calidad de .NET Framework 3.5 | [4.84] | 10 de noviembre de 2020 |
+|  Rel 20-11 |  [4578956]  |  Acumulación de seguridad y calidad de .NET Framework 4.5.2 | [4.84] | 10 de noviembre de 2020 |
+|  Rel 20-11 |  [4578950]  |  Acumulación de seguridad y calidad de .NET Framework 3.5 | [3,91] | 10 de noviembre de 2020 |
+|  Rel 20-11 |  [4578954]  |  Acumulación de seguridad y calidad de .NET Framework 4.5.2 | [3,91] | 10 de noviembre de 2020 |
+|  Rel 20-11 |  [4578966]  |  Actualización acumulativa de .NET Framework 3.5 y 4.7.2 | [6.25] | 13 de octubre de 2020 |
+|  Rel 20-11 |  [4586827]  |  Acumulación mensual | [2.104] | 10 de noviembre de 2020 |
+|  Rel 20-11 |  [4586834]  |  Acumulación mensual | [3,91] | 10 de noviembre de 2020 |
+|  Rel 20-11 |  [4586845]  |  Acumulación mensual | [4.84] | 10 de noviembre de 2020 |
+|  Rel 20-11 |  [4566426]  |  Actualización de la pila de servicio | [3,91] | 14 de julio de 2020 |
+|  Rel 20-11 |  [4566425]  |  Actualización de la pila de servicio | [4.84] | 14 de julio de 2020 |
+|  Rel 20-11 OOB |  [4578013]  |  Actualización de seguridad independiente | [4.84] | 19 de agosto de 2020 |
+|  Rel 20-11 |  [4576750]  |  Actualización de la pila de servicio | [5.49] | 8 de septiembre de 2020 |
+|  Rel 20-11 |  [4580970]  |  Actualización de la pila de servicio | [2.104] | 13 de octubre de 2020 |
+|  Rel 20-11 |  [4587735]  |  Actualización de la pila de servicio | [6.25] | 10 de noviembre de 2020 |
+|  Rel 20-11 |  [4494175]  |  Microcódigo | [5.49] | 1 de septiembre de 2020 |
+|  Rel 20-11 |  [4494174]  |  Microcódigo | [6.25] | 3 de septiembre de 2020 |
 
 [4594442]: https://support.microsoft.com/kb/4594442
 [4594441]: https://support.microsoft.com/kb/4594441
@@ -74,6 +127,11 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 [4587735]: https://support.microsoft.com/kb/4587735
 [4494175]: https://support.microsoft.com/kb/4494175
 [4494174]: https://support.microsoft.com/kb/4494174
+[2.104]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3,91]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4.84]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5.49]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.25]: ./cloud-services-guestos-update-matrix.md#family-6-releases
 
 
 
@@ -1115,8 +1173,8 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | Versión 18-12 | [4470199] | Internet Explorer  | 2.81, 3.68, 4.61 | 11 de diciembre de 2018 |
 | N/D | [4468323] | Actualización de zona horaria    | 2.81, 3.68, 4.61 | 13 de diciembre de 2018 |
 | N/D | [4467107] | Paquete acumulativo de actualizaciones no relacionadas con la seguridad de noviembre   | 2.81 | 13 de noviembre de 2018 |
-| N/D | [4467701] | Paquete acumulativo de actualizaciones no relacionadas con la seguridad de noviembre     | 3.68 | 13 de noviembre de 2018 |
-| N/D | [4467697] | Paquete acumulativo de actualizaciones no relacionadas con la seguridad de noviembre     | 4.61 | 13 de noviembre de 2018 |
+| N/D | [4467701] | Paquete acumulativo de actualizaciones no relacionadas con la seguridad de noviembre | 3.68 | 13 de noviembre de 2018 |
+| N/D | [4467697] | Paquete acumulativo de actualizaciones no relacionadas con la seguridad de noviembre | 4.61 | 13 de noviembre de 2018 |
 
 [4471321]: https://support.microsoft.com/kb/4471321
 [4471328]: https://support.microsoft.com/kb/4471328

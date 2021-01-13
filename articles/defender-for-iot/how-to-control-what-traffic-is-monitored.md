@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 08afba8ade30775a49492f337bb5337320b9e282
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: b2f95ddb13896ed461a20f1948fef34569586d1f
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97837220"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97977088"
 ---
 # <a name="control-what-traffic-is-monitored"></a>Control del tráfico que se supervisa
 
@@ -228,7 +228,7 @@ Mediante el uso de un recurso de prueba, compruebe que la configuración definid
 
 3. Escriba una dirección en **Lookup Address** (Dirección de búsqueda) en el cuadro de diálogo **DNS reverse lookup test for server** (Prueba de búsqueda DNS inversa para el servidor).
 
-    :::image type="content" source="media/how-to-enrich-asset-information/dns-reverse-looup-test-screen.png" alt-text="Captura de pantalla que muestra el área de dirección de búsqueda.":::
+    :::image type="content" source="media/how-to-enrich-asset-information/dns-reverse-lookup-test-screen.png" alt-text="Captura de pantalla que muestra el área de dirección de búsqueda.":::
 
 4. Seleccione **Probar**.
 

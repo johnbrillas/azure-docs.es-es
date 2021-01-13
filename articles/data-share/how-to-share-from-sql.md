@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: how-to
 ms.date: 11/12/2020
-ms.openlocfilehash: 87d6ca8ee69ca49cf52b61e6beddb56721658afa
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: bdbbf3e808e1dda0970aaf87d154ee79bea4dcb1
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94593746"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964174"
 ---
 # <a name="share-and-receive-data-from-azure-sql-database-and-azure-synapse-analytics"></a>Uso compartido y recepción de datos de Azure SQL Database y Azure Synapse Analytics
 
@@ -98,7 +98,7 @@ Cree un recurso de Azure Data Share en un grupo de recursos de Azure.
 
      **Configuración** | **Valor sugerido** | **Descripción del campo**
     |---|---|---|
-    | Suscripción | Su suscripción | Seleccione la suscripción de Azure que desea usar para la cuenta del recurso compartido de datos.|
+    | Subscription | Su suscripción | Seleccione la suscripción de Azure que desea usar para la cuenta del recurso compartido de datos.|
     | Grupo de recursos | *test-resource-group* | Use un grupo de recursos existente o cree uno. |
     | Location | *Este de EE. UU. 2* | Seleccione una región para la cuenta de Azure Data Share.
     | Nombre | *datashareaccount* | Especifique un nombre para la cuenta del recurso compartido de datos. |
@@ -341,7 +341,7 @@ El rendimiento de la instantánea de SQL se ve afectado por una serie de factore
 * Ubicación de los almacenes de datos de origen y de destino. 
 
 ## <a name="troubleshoot-sql-snapshot-failure"></a>Solución de problemas de error de la instantánea de SQL
-La causa más común de error de la instantánea es que Data Share no tiene permiso para el almacén de datos de origen o de destino. Para conceder a Data Share permiso para la instancia de Azure SQL Database o Azure Synapse Analytics (anteriormente Azure SQL DW) de origen o de destino, debe ejecutar el script de SQL proporcionado al conectarse a la base de datos de SQL mediante la autenticación de Azure Active Directory. Para solucionar otro error de instantánea de SQL, consulte [Solucionar problemas de error de instantánea](data-share-troubleshoot.md#snapshot-failed).
+La causa más común de error de la instantánea es que Data Share no tiene permiso para el almacén de datos de origen o de destino. Para conceder a Data Share permiso para la instancia de Azure SQL Database o Azure Synapse Analytics (anteriormente Azure SQL DW) de origen o de destino, debe ejecutar el script de SQL proporcionado al conectarse a la base de datos de SQL mediante la autenticación de Azure Active Directory. Para solucionar otro error de instantánea de SQL, consulte [Solucionar problemas de error de instantánea](data-share-troubleshoot.md#snapshots).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ha obtenido información sobre cómo compartir y recibir datos de orígenes de almacenamiento mediante el servicio Azure Data Share. Para más información sobre el uso compartido desde otros orígenes de datos, vaya a los [almacenes de datos compatibles](supported-data-stores.md).

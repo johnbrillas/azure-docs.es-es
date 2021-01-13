@@ -3,16 +3,15 @@ title: Uso de puntos de conexión de Azure Machine Learning Studio (clásico) en
 description: En este artículo se describe cómo utilizar las funciones definidas por el usuario de lenguaje máquina en Azure Stream Analytics.
 author: jseb225
 ms.author: jeanb
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/11/2019
-ms.openlocfilehash: 236191710dac19a08db0e8ce94dc695d393009a7
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: a36162d24e18371fdf6b19835e4748e3043d1f24
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93127134"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98012532"
 ---
 # <a name="azure-machine-learning-studio-classic-integration-in-stream-analytics-preview"></a>Integración de Azure Machine Learning Studio (clásico) en Stream Analytics (versión preliminar)
 Stream Analytics admite funciones definidas por el usuario que llaman a puntos de conexión de Azure Machine Learning Studio (clásico). La compatibilidad con la API de REST para esta característica se detalla en la [biblioteca API de REST de Stream Analytics](/rest/api/streamanalytics/). Este artículo proporciona información adicional necesaria para una implementación correcta de esta capacidad en Stream Analytics. También se ha publicado un tutorial, que está disponible [aquí](stream-analytics-machine-learning-integration-tutorial.md).
@@ -20,10 +19,10 @@ Stream Analytics admite funciones definidas por el usuario que llaman a puntos d
 ## <a name="overview-azure-machine-learning-studio-classic-terminology"></a>Introducción: terminología de Azure Machine Learning Studio (clásico)
 Microsoft Azure Machine Learning Studio (clásico) proporciona una herramienta colaborativa de arrastrar y colocar que le permite crear, probar e implementar soluciones de análisis predictivo en sus datos. Esta herramienta de denomina *Azure Machine Learning Studio (clásico)* . Studio (clásico) se usa para interactuar con los recursos de Machine Learning, así como para compilar, probar e iterar fácilmente su diseño. A continuación, se proporcionan estos recursos y sus definiciones.
 
-* **Área de trabajo** : El *área de trabajo* es un contenedor con todos los demás recursos de Machine Learning en un solo lugar para la administración y el control.
-* **Experimento** : los científicos de datos crean *experimentos* para utilizar conjuntos de datos y entrenar un modelo de Aprendizaje automático.
-* **Punto de conexión** : Los *puntos de conexión* son el objeto de Studio (clásico) que se usa para tomar características como entradas, aplicar un modelo de Machine Learning especificado y devolver la salida puntuada.
-* **Servicio web de puntuación** : un *servicio web de puntuación* es una colección de puntos de conexión, como se mencionó anteriormente.
+* **Área de trabajo**: El *área de trabajo* es un contenedor con todos los demás recursos de Machine Learning en un solo lugar para la administración y el control.
+* **Experimento**: los científicos de datos crean *experimentos* para utilizar conjuntos de datos y entrenar un modelo de Aprendizaje automático.
+* **Punto de conexión**: Los *puntos de conexión* son el objeto de Studio (clásico) que se usa para tomar características como entradas, aplicar un modelo de Machine Learning especificado y devolver la salida puntuada.
+* **Servicio web de puntuación**: un *servicio web de puntuación* es una colección de puntos de conexión, como se mencionó anteriormente.
 
 Cada punto de conexión tiene varias API para la ejecución de lotes y la ejecución sincrónica. Stream Analytics usa la ejecución sincrónica. El servicio específico se denomina [servicio de solicitud y respuesta](../machine-learning/classic/consume-web-services.md) en Azure Machine Learning Studio (clásico).
 

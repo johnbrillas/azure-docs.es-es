@@ -1,6 +1,6 @@
 ---
-title: 'Creación de un rol personalizado de Azure mediante plantillas de Azure Resource Manager: Azure RBAC'
-description: Obtenga información sobre cómo crear un rol personalizado de Azure mediante una plantilla de Azure Resource Manager (ARM) y el control de acceso basado en rol de Azure (RBAC de Azure).
+title: 'Creación o actualización de roles personalizados de Azure mediante plantillas de Azure Resource Manager: Azure RBAC'
+description: Obtenga información sobre cómo crear o actualizar roles personalizados de Azure mediante una plantilla de Azure Resource Manager (ARM) y el control de acceso basado en rol de Azure (Azure RBAC).
 services: role-based-access-control,azure-resource-manager
 author: rolyon
 manager: mtillman
@@ -8,18 +8,18 @@ ms.service: role-based-access-control
 ms.topic: how-to
 ms.custom: subject-armqs
 ms.workload: identity
-ms.date: 06/25/2020
+ms.date: 12/16/2020
 ms.author: rolyon
-ms.openlocfilehash: 96dfdc0a1c32237c55d4e65bb25989656e2a4ad2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: beea0c5cecd7bb99973a4692a4cce17e7a69d708
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097029"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97631319"
 ---
-# <a name="create-an-azure-custom-role-using-an-arm-template"></a>Creación de un rol personalizado de Azure mediante una plantilla de Resource Manager
+# <a name="create-or-update-azure-custom-roles-using-an-arm-template"></a>Creación o actualización de roles personalizados de Azure mediante una plantilla de ARM
 
-Si los [roles integrados de Azure](built-in-roles.md) no cumplen las necesidades específicas de su organización, puede crear los [suyos propios](custom-roles.md). En este artículo se describe cómo crear un rol personalizado mediante una plantilla de Azure Resource Manager (ARM).
+Si los [roles integrados de Azure](built-in-roles.md) no cumplen las necesidades específicas de su organización, puede crear los [suyos propios](custom-roles.md). En este artículo se describe cómo crear o actualizar un rol personalizado mediante una plantilla de Azure Resource Manager (ARM).
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -66,15 +66,13 @@ Siga estos pasos para implementar la plantilla anterior.
     $location = Read-Host -Prompt "Enter a location (i.e. centralus)"
     [string[]]$actions = Read-Host -Prompt "Enter actions as a comma-separated list (i.e. action1,action2)"
     $actions = $actions.Split(',')
-
     $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/subscription-deployments/create-role-def/azuredeploy.json"
-
     New-AzDeployment -Location $location -TemplateUri $templateUri -actions $actions
     ```
 
-1. Escriba una ubicación para la implementación, como *centralus*.
+1. Escriba una ubicación para la implementación, como `centralus`.
 
-1. Escriba una lista de acciones para el rol personalizado como una lista separada por comas, como *Microsoft.Resources/resources/read,Microsoft.Resources/subscriptions/resourceGroups/read*.
+1. Escriba una lista de acciones para el rol personalizado como una lista separada por comas, como `Microsoft.Resources/resources/read,Microsoft.Resources/subscriptions/resourceGroups/read`.
 
 1. Si es necesario, presione Entrar para ejecutar el comando `New-AzDeployment`.
 
@@ -152,6 +150,47 @@ Siga estos pasos para comprobar que se ha creado el rol personalizado.
 1. Compruebe que se muestre el rol **Rol personalizado: lector RG**.
 
    ![Nuevo rol personalizado en Azure Portal](./media/custom-roles-template/custom-role-template-portal.png)
+
+## <a name="update-a-custom-role"></a>Actualización de un rol personalizado
+
+De forma similar a la creación de un rol personalizado, puede actualizar un rol personalizado existente mediante una plantilla. Para actualizar un rol personalizado, debe especificar el rol que quiere actualizar.
+
+Estos son los cambios que debe realizar en la plantilla de inicio rápido anterior para actualizar el rol personalizado.
+
+- Incluya el id. de rol como parámetro.
+    ```json
+        ...
+        "roleDefName": {
+          "type": "string",
+          "metadata": {
+            "description": "ID of the role definition"
+          }
+        ...
+    ```
+
+- Incluya el parámetro de id. de rol en la definición de roles.
+
+    ```json
+      ...
+      "resources": [
+        {
+          "type": "Microsoft.Authorization/roleDefinitions",
+          "apiVersion": "2018-07-01",
+          "name": "[parameters('roleDefName')]",
+          "properties": {
+            ...
+    ```
+
+A continuación proporcionamos un ejemplo de cómo implementar la plantilla.
+
+```azurepowershell
+$location = Read-Host -Prompt "Enter a location (i.e. centralus)"
+[string[]]$actions = Read-Host -Prompt "Enter actions as a comma-separated list (i.e. action1,action2)"
+$actions = $actions.Split(',')
+$roleDefName = Read-Host -Prompt "Enter the role ID to update"
+$templateFile = "rg-reader-update.json"
+New-AzDeployment -Location $location -TemplateFile $templateFile -actions $actions -roleDefName $roleDefName
+```
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

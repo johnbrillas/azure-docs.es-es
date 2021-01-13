@@ -5,12 +5,12 @@ author: eamonoreilly
 ms.topic: conceptual
 ms.custom: devx-track-dotnet, devx-track-azurepowershell
 ms.date: 04/22/2019
-ms.openlocfilehash: af9490433c344c712da55e9b29bf9df364380736
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 61ed3ed274505101c65e251260bd759fe78f7b31
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422542"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936794"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guía del desarrollador de PowerShell para Azure Functions
 
@@ -649,11 +649,11 @@ Al trabajar con las funciones de PowerShell, tenga en cuenta las consideraciones
 
 ### <a name="cold-start"></a>Arranque en frío
 
-Al desarrollar Azure Functions en el [modelo de hospedaje sin servidor](functions-scale.md#consumption-plan), los arranques en frío son una realidad. El *arranque en frío* se refiere al período de tiempo tarda la aplicación de funciones en empezar a ejecutarse para procesar una solicitud. El arranque en frío se produce con mayor frecuencia en el plan Consumo, puesto que la aplicación de funciones se cierra durante los períodos de inactividad.
+Al desarrollar Azure Functions en el [modelo de hospedaje sin servidor](consumption-plan.md), los arranques en frío son una realidad. El *arranque en frío* se refiere al período de tiempo tarda la aplicación de funciones en empezar a ejecutarse para procesar una solicitud. El arranque en frío se produce con mayor frecuencia en el plan Consumo, puesto que la aplicación de funciones se cierra durante los períodos de inactividad.
 
 ### <a name="bundle-modules-instead-of-using-install-module"></a>Módulos de agrupación en lugar de `Install-Module`
 
-El script se ejecuta en cada invocación. Evite el uso de `Install-Module` en el script. En su lugar, use `Save-Module` antes de publicar para que la función no tenga que perder tiempo descargando el módulo. Si los arranques en frío afectan a las funciones, considere la posibilidad de implementar la aplicación de funciones en un [plan de App Service](functions-scale.md#app-service-plan) establecido en *AlwaysOn* o [plan Premium](functions-scale.md#premium-plan).
+El script se ejecuta en cada invocación. Evite el uso de `Install-Module` en el script. En su lugar, use `Save-Module` antes de publicar para que la función no tenga que perder tiempo descargando el módulo. Si los arranques en frío afectan a las funciones, considere la posibilidad de implementar la aplicación de funciones en un [plan de App Service](dedicated-plan.md) establecido en *AlwaysOn* o [plan Premium](functions-premium-plan.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

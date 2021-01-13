@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: 4dca1fa0e823b482044d35f98412187af2fa72ed
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: f0620c4d373ee96c87b575ae7eb173b2f16eecb2
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97507768"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98013658"
 ---
 # <a name="tutorial-add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Tutorial: Adición del inicio de sesión en Microsoft a una aplicación web ASP.NET
 
@@ -374,7 +374,8 @@ Para registrar la aplicación y agregar la información de registro de la aplica
    1. Cambie SSL habilitado a `True`.
    1. Haga clic con el botón derecho en el proyecto en Visual Studio, seleccione **Propiedades** y, después, seleccione la pestaña **Web**. En la sección **Servidores**, cambie el valor **URL del proyecto** a **Dirección URL de SSL**.
    1. Copie la URL de SSL. En el siguiente paso, agregará esta dirección URL a la lista de URI de redirección del portal de registro correspondiente.<br/><br/>![Propiedades de proyecto](media/active-directory-develop-guidedsetup-aspnetwebapp-configure/vsprojectproperties.png)<br />
-1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+   
+1. Inicie sesión en <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 1. Si tiene acceso a varios inquilinos, use el filtro **Directorio + suscripción** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: del menú superior para seleccionar el inquilino en el que desea registrar una aplicación.
 1. Busque y seleccione **Azure Active Directory**.
 1. En **Administrar**, seleccione **Registros de aplicaciones** >  y, luego, **Nuevo registro**.

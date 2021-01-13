@@ -1,17 +1,17 @@
 ---
 title: Guía para la solución de problemas de Azure SignalR Service
 description: Información sobre cómo solucionar problemas comunes
-author: YanJin
+author: yjin81
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.author: yajin1
-ms.openlocfilehash: cc17dcef7a554bee2715c79ba7d0c2356db2c6b3
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 505176758e1dbba1d6bf262554568edd8a197a4d
+ms.sourcegitcommit: 17e9cb8d05edaac9addcd6e0f2c230f71573422c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185664"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97707680"
 ---
 # <a name="troubleshooting-guide-for-azure-signalr-service-common-issues"></a>Guía para la solución de problemas comunes de Azure SignalR Service
 
@@ -63,6 +63,8 @@ services.MapAzureSignalR(GetType().FullName, options =>
             });
 ```
 
+[¿Tiene problemas o comentarios sobre la solución de problemas? Háganoslo saber.](https://aka.ms/asrs/survey/troubleshooting)
+
 ## <a name="tls-12-required"></a>TLS 1.2 obligatorio
 
 ### <a name="possible-errors"></a>Errores posibles:
@@ -104,11 +106,15 @@ Agregue el siguiente código a su página de inicio:
 ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 ```
 
+[¿Tiene problemas o comentarios sobre la solución de problemas? Háganoslo saber.](https://aka.ms/asrs/survey/troubleshooting)
+
 ## <a name="400-bad-request-returned-for-client-requests"></a>Error 400 Solicitud incorrecta devuelto para solicitudes de cliente
 
 ### <a name="root-cause"></a>Causa principal
 
 Compruebe si la solicitud de cliente tiene varias cadenas de consulta `hub`. `hub` es un parámetro de consulta conservado, y el error 400 se generará si el servicio detecta más de un elemento `hub` en la consulta.
+
+[¿Tiene problemas o comentarios sobre la solución de problemas? Háganoslo saber.](https://aka.ms/asrs/survey/troubleshooting)
 
 ## <a name="401-unauthorized-returned-for-client-requests"></a>Se ha devuelto el error 401 No autorizado para las solicitudes de cliente.
 
@@ -128,6 +134,8 @@ Por motivos de seguridad, no se recomienda ampliar TTL. Se recomienda agregar l�
 
 Consulte [aquí](#restart_connection) cómo reiniciar las conexiones de cliente.
 
+[¿Tiene problemas o comentarios sobre la solución de problemas? Háganoslo saber.](https://aka.ms/asrs/survey/troubleshooting)
+
 ## <a name="404-returned-for-client-requests"></a>Error 404 devuelto para solicitudes de cliente
 
 En el caso de una conexión persistente de SignalR, primero realizará un proceso `/negotiate` en Azure SignalR Service y, a continuación, establecerá la conexión real con Azure SignalR Service.
@@ -138,17 +146,29 @@ En el caso de una conexión persistente de SignalR, primero realizará un proces
 * Compruebe la dirección URL de la solicitud cuando se produce el error 404. Si la dirección URL apunta a la aplicación web y es similar a `{your_web_app}/hubs/{hubName}`, compruebe si el cliente `SkipNegotiation` es `true`. Al usar Azure SignalR, el cliente recibe la dirección URL de redireccionamiento la primera vez que negocia con el servidor de aplicaciones. El cliente **NO** debe omitir la negociación al usar Azure SignalR.
 * Se puede producir otro error 404 cuando la solicitud de conexión se controla durante más de **5** segundos después de llamar a `/negotiate`. Compruebe la marca de tiempo de la solicitud de cliente e infórmenos del problema si la solicitud al servicio tiene una respuesta lenta.
 
+[¿Tiene problemas o comentarios sobre la solución de problemas? Háganoslo saber.](https://aka.ms/asrs/survey/troubleshooting)
+
 ## <a name="404-returned-for-aspnet-signalrs-reconnect-request"></a>Error 404 devuelto para la solicitud de reconexión de ASP.NET SignalR
 
 En el caso de ASP.NET SignalR, cuando la [conexión de cliente se interrumpe](#client_connection_drop), se vuelve a conectar con el mismo parámetro `connectionId` tres veces antes de detener la conexión. `/reconnect` puede ayudar si la conexión se interrumpe debido a problemas intermitentes de la red, ya que `/reconnect` puede restablecer la conexión persistente correctamente. En otras circunstancias, por ejemplo, si se interrumpe la conexión de cliente debido a la interrupción de la conexión del servidor enrutado, o SignalR Service tiene algunos errores internos, como el reinicio de la instancia, la conmutación por error o la implementación, la conexión ya no existe, entonces `/reconnect` devuelve `404`. Es el comportamiento esperado para `/reconnect` y, después de tres reintentos, la conexión se detiene. Se recomienda tener una lógica de [reinicio de conexión](#restart_connection) cuando se detiene la conexión.
 
+[¿Tiene problemas o comentarios sobre la solución de problemas? Háganoslo saber.](https://aka.ms/asrs/survey/troubleshooting)
+
 ## <a name="429-too-many-requests-returned-for-client-requests"></a>Error 429 Demasiadas solicitudes devueltas para solicitudes de cliente
 
-El error 429 se devuelve si su recuento de conexiones **simultáneas** supera el límite.
+Hay dos casos.
+
+### <a name="concurrent-connection-count-exceeds-limit"></a>El recuento de conexiones **simultáneas** supera el límite.
 
 En el caso de las instancias **Gratis**, el límite del número de conexiones **simultáneas** es 20 para instancias **Estándar** y el límite del número de conexiones **simultáneas** **por unidad** es 1000, lo que significa que 100 unidades permitirán 100 000 conexiones simultáneas.
 
 Las conexiones incluyen conexiones de cliente y de servidor. Consulte [aquí](./signalr-concept-messages-and-connections.md#how-connections-are-counted) cómo se cuentan las conexiones.
+
+### <a name="too-many-negotiate-requests-at-the-same-time"></a>Demasiadas solicitudes NEGOTIATE al mismo tiempo.
+
+Se recomienda tener un retraso aleatorio antes de volver a conectarse. Vaya [aquí](#restart_connection) para ver ejemplos de reintentos.
+
+[¿Tiene problemas o comentarios sobre la solución de problemas? Háganoslo saber.](https://aka.ms/asrs/survey/troubleshooting)
 
 ## <a name="500-error-when-negotiate-azure-signalr-service-is-not-connected-yet-please-try-again-later"></a>Error 500 al negociar: Azure SignalR Service no está conectado todavía. Vuelva a intentarlo más tarde.
 
@@ -209,6 +229,8 @@ Cuando use una versión del SDK posterior a la `1.0.0`, podrá habilitar los seg
 
 <a name="client_connection_drop"></a>
 
+[¿Tiene problemas o comentarios sobre la solución de problemas? Háganoslo saber.](https://aka.ms/asrs/survey/troubleshooting)
+
 ## <a name="client-connection-drops"></a>Interrupciones de la conexión de cliente
 
 Cuando el cliente está conectado a Azure SignalR, la conexión persistente entre el cliente y Azure SignalR a veces puede interrumpirse por distintas razones. En esta sección se describen varias causas posibles de esta interrupción de la conexión y se proporcionan instrucciones sobre cómo identificar la causa principal.
@@ -234,6 +256,7 @@ Las conexiones de cliente pueden interrumpirse en varias circunstancias:
 2. Compruebe el registro de eventos del servidor de aplicaciones para ver si se ha reiniciado el servidor de aplicaciones.
 3. Cree un problema para nosotros en el que debe indicar el plazo de tiempo y envíenos el nombre del recurso por correo electrónico.
 
+[¿Tiene problemas o comentarios sobre la solución de problemas? Háganoslo saber.](https://aka.ms/asrs/survey/troubleshooting)
 
 ## <a name="client-connection-increases-constantly"></a>Aumento constante de la conexión de cliente
 
@@ -289,6 +312,8 @@ Este problema suele producirse cuando alguien establece una conexión de cliente
 
 <a name="server_connection_drop"></a>
 
+[¿Tiene problemas o comentarios sobre la solución de problemas? Háganoslo saber.](https://aka.ms/asrs/survey/troubleshooting)
+
 ## <a name="server-connection-drops"></a>Interrupción de la conexión del servidor
 
 Cuando se inicia el servidor de aplicaciones, en segundo plano, el SDK de Azure empieza a iniciar conexiones del servidor con la instancia remota de Azure SignalR. Como se describe en el artículo sobre el [funcionamiento interno de Azure SignalR Service](https://github.com/Azure/azure-signalr/blob/dev/docs/internal.md), Azure SignalR enruta el tráfico de cliente entrante a estas conexiones de servidor. Una vez que se interrumpe una conexión de servidor, todas las conexiones de cliente que atiende se cerrarán también.
@@ -314,6 +339,8 @@ En esta sección se describen varias causas posibles de esta interrupción de la
 1. Abra el registro del lado servidor de la aplicación para ver si se ha producido alguna anomalía.
 2. Compruebe el registro de eventos del servidor de aplicaciones para ver si se ha reiniciado el servidor de aplicaciones.
 3. Cree un problema para nosotros en el que debe indicar el plazo de tiempo y envíenos el nombre del recurso por correo electrónico.
+
+[¿Tiene problemas o comentarios sobre la solución de problemas? Háganoslo saber.](https://aka.ms/asrs/survey/troubleshooting)
 
 ## <a name="tips"></a>Sugerencias
 
@@ -346,6 +373,8 @@ Considere ASP.NET Core como ejemplo (ASP.NET es similar):
     * [Cliente de C# en ASP.NET](https://github.com/Azure/azure-signalr/tree/dev/samples/AspNet.ChatSample/AspNet.ChatSample.CSharpClient/Program.cs#L78)
 
     * [Cliente de JavaScript en ASP.NET](https://github.com/Azure/azure-signalr/tree/dev/samples/AspNet.ChatSample/AspNet.ChatSample.JavaScriptClient/wwwroot/index.html#L71)
+
+[¿Tiene problemas o comentarios sobre la solución de problemas? Háganoslo saber.](https://aka.ms/asrs/survey/troubleshooting)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

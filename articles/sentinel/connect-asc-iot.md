@@ -12,60 +12,65 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/07/2020
+ms.date: 12/16/2020
 ms.author: yelevin
-ms.openlocfilehash: 822d0c742bbd54b5bab0c69e82652743584a0696
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95e78c7557092a4d1203a8df3a107fe7b63eac9b
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89659620"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97631448"
 ---
 # <a name="connect-your-data-from-azure-defender-formerly-azure-security-center-for-iot-to-azure-sentinel"></a>Conexión de los datos de Azure Defender (anteriormente Azure Security Center) para IoT con Azure Sentinel 
 
 
 > [!IMPORTANT]
-> El conector de datos de Azure Defender para IoT se encuentra actualmente en versión preliminar pública. Esta característica se ofrece sin contrato de nivel de servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> El conector de datos de Defender para IoT se encuentra actualmente en versión preliminar pública. Esta característica se ofrece sin contrato de nivel de servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Use el conector de Azure Defender para IoT a fin de transmitir todos los eventos de esta solución a Azure Sentinel. 
+Use el conector de Defender para IoT a fin de transmitir todos los eventos de esta solución a Azure Sentinel. 
 
+Esta integración permite a las organizaciones detectar rápidamente ataques de varias fases que, a menudo, cruzan los límites de TI y OT. Además, la integración de Defender para IoT con las funcionalidades de orquestación de seguridad, automatización y respuesta (SOAR) de Azure Sentinel permite la prevención y respuesta automatizadas mediante el uso de cuadernos de estrategias integrados optimizados para OT. 
 ## <a name="prerequisites"></a>Prerequisites
 
 - Permisos de **lectura** y **escritura** en el área de trabajo donde está implementado Azure Sentinel.
-- **Azure Defender para IoT** debe estar **habilitado** en las instancias pertinentes de IoT Hub.
-- Permisos de **lectura** y **escritura** en la instancia de **Azure IoT Hub** que quiere conectar.
-- Permisos de **lectura** y **escritura** en el **grupo de recursos de Azure IoT Hub**.
+- **Defender para IoT** debe estar **habilitado** en las instancias pertinentes de IoT Hub.
+- Debe tener permisos de **Colaborador** en la **Suscripción** a la que desea conectarse.
 
-## <a name="connect-to-azure-defender-for-iot"></a>Conexión a Azure Defender para IoT
+## <a name="connect-to-defender-for-iot"></a>Conexión a Defender para IoT
 
-1. En Azure Sentinel, seleccione **Data Connectors** (Conectores de datos) y, después, seleccione **Azure defender for IoT** (Azure defender para IoT) (es posible que todavía se llame Azure Security Center para IoT) desde la galería.
-1. Desde el panel inferior derecho, haga clic en **Abrir la página del conector**. 
+1. En Azure Sentinel, seleccione **Conectores de datos** y, después, seleccione **Defender para IoT** (es posible que todavía se llame Azure Security Center para IoT) desde la galería.
+
+1. Desde la parte inferior del panel derecho, haga clic en **Abrir la página del conector**. 
+
 1. Haga clic en **Conectar** junto a cada suscripción de IoT Hub cuyas alertas y alertas de dispositivo quiera transmitir a Azure Sentinel. 
-    - Si Azure Defender para IoT no está habilitado en ese centro, verá el mensaje de advertencia **Habilitar**. Haga clic en el enlace **Habilitar** para iniciar el servicio. 
-1. Puede decidir si quiere que las alertas de Azure Defender para IoT generen incidentes automáticamente en Azure Sentinel. En **Creación de incidentes**, seleccione **Habilitar** para habilitar la regla analítica predeterminada que crea incidentes automáticamente a partir de alertas generadas en el servicio de seguridad conectado. Esta regla se puede cambiar o editar en **Análisis** > **Activar** reglas.
+    - Recibirá un mensaje de error si Defender para IoT no está habilitado al menos en una instancia de IoT Hub dentro de una suscripción. Habilite Defender para IoT en la instancia de IoT Hub para eliminar el error.
+
+1. Puede decidir si quiere que las alertas de Defender para IoT generen incidentes automáticamente en Azure Sentinel. En **Crear incidentes**, seleccione **Habilitar** para que la regla de análisis predeterminada pueda crear incidentes de forma automática a partir de las alertas generadas. Esta regla puede cambiarse o editarse en **Análisis** > **Reglas activas**.
 
 > [!NOTE]
-> Puede tardar cierto tiempo en actualizar la lista de centros de conectividad tras realizar cambios en la conexión. 
+> Puede tardar 10 segundos o más en actualizar la lista de **Suscripción** tras realizar cambios en la conexión. 
 
-## <a name="log-analytics-alert-display"></a>Visualización de alertas de Log Analytics
+## <a name="log-analytics-alert-view"></a>Vista de alerta de Log Analytics
 
-Para usar el esquema correspondiente en Log Analytics a fin de mostrar las alertas de Azure Defender para IoT, haga lo siguiente:
+Para usar el esquema correspondiente en Log Analytics a fin de mostrar las alertas de Defender para IoT, haga lo siguiente:
 
 1. Abra **Registros** > **SecurityInsights** > **SecurityAlert** o busque **SecurityAlert**. 
-2. Use el siguiente filtro kql a fin de ver solo las alertas generadas por Azure Defender para IoT:
+
+2. Use el siguiente filtro kql a fin de ver solo las alertas generadas por Defender para IoT:
 
 ```kusto
-SecurityAlert | where ProductName == "Azure Defender for IoT"
+SecurityAlert | where ProductName == "Azure Security Center for IoT"
 ``` 
 
 ### <a name="service-notes"></a>Notas del servicio
 
-Tras conectar una instancia de IoT Hub, los datos del centro de conectividad están disponibles en Azure Sentinel aproximadamente 15 minutos más tarde.
+Tras conectar una **Suscripción**, los datos del centro de conectividad están disponibles en Azure Sentinel aproximadamente 15 minutos más tarde.
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este documento, ha descubierto cómo conectar datos de Azure Defender para IoT a Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
+En este documento, ha obtenido información sobre cómo conectar Defender para IoT a Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
+
 - Aprenda a [obtener visibilidad de los datos y de posibles amenazas](quickstart-get-visibility.md).
 - Empiece a [detectar amenazas con Azure Sentinel](tutorial-detect-threats-built-in.md).
 - [Use libros](tutorial-monitor-your-data.md) para supervisar los datos.

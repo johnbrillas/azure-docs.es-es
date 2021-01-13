@@ -4,12 +4,12 @@ description: Aprenda a desarrollar y probar Azure Functions mediante la extensi�
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 08/21/2019
-ms.openlocfilehash: 573177615ff898326eb29649a7f766b5df34b587
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 33adcb853099778c4b06a9cd428f480f6138ee8b
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96168462"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936981"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Desarrollo de Azure Functions con Visual Studio Code
 
@@ -255,7 +255,7 @@ Los pasos siguientes publican el proyecto en una nueva aplicación de funciones 
     | ------ | ----- | ----------- |
     | Selección de una aplicación de funciones en Azure | Crear una aplicación de funciones en Azure | En el siguiente aviso, escriba un nombre único global que identifique la nueva aplicación de funciones y seleccione ENTRAR. Los siguientes son caracteres válidos para un nombre de aplicación de función: `a-z`, `0-9` y `-`. |
     | Seleccione un sistema operativo | Windows | La aplicación de funciones se ejecuta en Windows. |
-    | Seleccione un plan de hospedaje | Plan de consumo | Se utiliza un [hospedaje del plan de consumo](functions-scale.md#consumption-plan) sin servidor. |
+    | Seleccione un plan de hospedaje | Plan de consumo | Se utiliza un [hospedaje del plan de consumo](consumption-plan.md) sin servidor. |
     | Seleccione un tiempo de ejecución para la nueva aplicación | El lenguaje del proyecto | El entorno de ejecución tiene que coincidir con el proyecto que va a publicar. |
     | Seleccionar un grupo de recursos para los nuevos recursos | Crear un nuevo grupo de recursos | En el siguiente aviso, escriba un nombre de grupo de recursos, como `myResourceGroup`, y presione ENTRAR. También puede seleccionar un grupo de recursos existente. |
     | Seleccione una cuenta de almacenamiento | Creación de una nueva cuenta de almacenamiento | En el siguiente aviso, escriba un nombre único global para la nueva cuenta de almacenamiento que va a usar la aplicación de funciones y seleccione ENTRAR. Los nombres de las cuentas de almacenamiento deben tener entre tres y 24 caracteres y solo pueden incluir números y letras en minúscula. También puede seleccionar una cuenta existente. |

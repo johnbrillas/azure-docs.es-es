@@ -1,17 +1,17 @@
 ---
 title: Niveles de compatibilidad de Azure Stream Analytics
 description: Obtenga información acerca de cómo establecer un nivel de compatibilidad para un trabajo de análisis de Azure Stream Analytics y de los principales cambios en el nivel de compatibilidad más reciente.
-author: mamccrea
-ms.author: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 11014c5a5c5cd0cabae1b62083bd5e662be2c6b7
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 8105988cd2036f44d214befad3365cf9ee96ee0d
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348940"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98015987"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Nivel de compatibilidad de los trabajos de Azure Stream Analytics
 
@@ -39,7 +39,7 @@ Para actualizar el nivel de compatibilidad del trabajo en Azure Portal:
 
 1. Use [Azure Portal](https://portal.azure.com) para buscar el trabajo de Stream Analytics.
 2. **Detenga** el trabajo antes de actualizar el nivel de compatibilidad. No se puede actualizar el nivel de compatibilidad si el trabajo está en un estado de ejecución.
-3. En el encabezado **Configurar** , seleccione **Nivel de compatibilidad**.
+3. En el encabezado **Configurar**, seleccione **Nivel de compatibilidad**.
 4. Seleccione el valor de nivel de compatibilidad que quiera.
 5. Seleccione **Guardar** en la parte inferior de la página.
 
@@ -53,7 +53,7 @@ En el nivel de compatibilidad 1.2 se han incorporado los siguientes cambios de i
 
 ###  <a name="amqp-messaging-protocol"></a>Protocolo de mensajería de AMQP
 
-**Nivel 1.2** : Azure Stream Analytics usa el protocolo de mensajería [Advanced Message Queuing Protocol (AMQP)](../service-bus-messaging/service-bus-amqp-overview.md) para escribir en colas y temas de Service Bus. AMQP le permite construir aplicaciones híbridas, entre plataformas, utilizando un protocolo estándar abierto.
+**Nivel 1.2**: Azure Stream Analytics usa el protocolo de mensajería [Advanced Message Queuing Protocol (AMQP)](../service-bus-messaging/service-bus-amqp-overview.md) para escribir en colas y temas de Service Bus. AMQP le permite construir aplicaciones híbridas, entre plataformas, utilizando un protocolo estándar abierto.
 
 ### <a name="geospatial-functions"></a>Funciones geoespaciales
 

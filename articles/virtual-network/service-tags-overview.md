@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: d01136ea4377bd7d35a2e11b4bcf654bcf677fbe
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: e357667e650e9feeb8dceeffe71c287cde9fe8a0
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97401566"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97631608"
 ---
 # <a name="virtual-network-service-tags"></a>Etiquetas de servicio de red virtual
 <a name="network-service-tags"></a>
@@ -53,6 +53,7 @@ De forma predeterminada, las etiquetas de servicio reflejan los intervalos de to
 | **AzureActiveDirectory** | Azure Active Directory. | Salida | No | Sí |
 | **AzureActiveDirectoryDomainServices** | Tráfico de administración para las implementaciones dedicadas a Azure Active Directory Domain Services. | Ambos | No | Sí |
 | **AzureAdvancedThreatProtection** | Azure Advanced Threat Protection | Salida | No | No |
+| **AzureArcInfrastructure** | Servidores habilitados para Azure Arc, Kubernetes habilitado para Azure Arc y tráfico de configuración de invitado.<br/><br/>*Nota:* Esta etiqueta tiene una dependencia en las etiquetas **AzureActiveDirectory**,**AzureTrafficManager** y **AzureResourceManager**. *Esta etiqueta no se puede configurar actualmente desde Azure Portal*.| Salida | No | Sí |
 | **AzureBackup** |Azure Backup.<br/><br/>*Nota:* Esta etiqueta tiene dependencia de las etiquetas **Storage** y **AzureActiveDirectory**. | Salida | No | Sí |
 | **AzureBotService** | Azure Bot Service. | Salida | No | No |
 | **AzureCloud** | Todos las [direcciones IP públicas del centro de recursos](https://www.microsoft.com/download/details.aspx?id=56519). | Salida | Sí | Sí |

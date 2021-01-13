@@ -2,17 +2,17 @@
 title: Análisis de JSON y AVRO en Azure Stream Analytics
 description: En este artículo se describe cómo trabajar con tipos de datos complejos como matrices, JSON, datos formateados CSV.
 ms.service: stream-analytics
-author: mamccrea
-ms.author: mamccrea
+author: sidramadoss
+ms.author: sidram
 ms.topic: conceptual
 ms.date: 01/29/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 6c2eb4225cb014b3251d12470e4e9827150a5cf2
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: f6cb131fb3ff3cab4122aac5e1c6960dee4f8421
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123360"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98012247"
 ---
 # <a name="parse-json-and-avro-data-in-azure-stream-analytics"></a>Análisis de datos JSON y AVRO en Azure Stream Analytics
 
@@ -121,7 +121,7 @@ WHERE
     GetRecordPropertyValue(input.SensorReadings, thresholds.SensorName) > thresholds.Value
 ```
 
-**GetRecordPropertyValue** selecciona la propiedad en *SensorReadings* , cuyo nombre coincide con el nombre de la propiedad que procede de los datos de referencia. Luego, se extrae el valor asociado de *SensorReadings*.
+**GetRecordPropertyValue** selecciona la propiedad en *SensorReadings*, cuyo nombre coincide con el nombre de la propiedad que procede de los datos de referencia. Luego, se extrae el valor asociado de *SensorReadings*.
 
 El resultado es el siguiente:
 
@@ -207,7 +207,7 @@ Después, puede crear un paso en la consulta de Stream Analytics, como se muestr
 
 Los tipos de datos de matriz son una colección ordenada de valores. A continuación se detallan algunas operaciones típicas en valores de matriz. Estos ejemplos utilizan las funciones [GetArrayElement](/stream-analytics-query/getarrayelement-azure-stream-analytics), [GetArrayElements](/stream-analytics-query/getarrayelements-azure-stream-analytics), [GetArrayLength](/stream-analytics-query/getarraylength-azure-stream-analytics) y el operador [APPLY](/stream-analytics-query/apply-azure-stream-analytics).
 
-Este es el ejemplo de un solo evento. Tanto `CustomSensor03` como `SensorMetadata` son de tipo **matriz** :
+Este es el ejemplo de un solo evento. Tanto `CustomSensor03` como `SensorMetadata` son de tipo **matriz**:
 
 ```json
 {

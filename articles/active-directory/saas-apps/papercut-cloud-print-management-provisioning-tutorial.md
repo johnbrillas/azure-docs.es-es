@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2020
 ms.author: Zhchia
-ms.openlocfilehash: 860b880faae9c5fe37a2c7eab2ef3a068ed4da3e
-ms.sourcegitcommit: 236014c3274b31f03e5fcee5de510f9cacdc27a0
+ms.openlocfilehash: 127a9568d4f129763bee26210efedeaee8fe4aa1
+ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96299097"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97709388"
 ---
 # <a name="tutorial-configure-papercut-cloud-print-management-for-automatic-user-provisioning"></a>Tutorial: Configuración de PaperCut Cloud Print Management para el aprovisionamiento automático de usuarios
 
@@ -37,9 +37,9 @@ En este tutorial se describen los pasos que debe realizar en PaperCut Cloud Prin
 
 En el escenario descrito en este tutorial se supone que ya cuenta con los requisitos previos siguientes:
 
-* [Un inquilino de Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 
+* [Un inquilino de Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant). 
 * Una cuenta de usuario en Azure AD con [permiso](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) para configurar el aprovisionamiento (por ejemplo, Administrador de aplicaciones, Administrador de aplicaciones en la nube, Propietario de la aplicación o Administrador global). 
-* Una cuenta de usuario en PaperCut Cloud Print Management con permisos de administrador
+* Una cuenta de administrador de PaperCut Cloud Print Management.
 
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Paso 1. Planeación de la implementación de aprovisionamiento
@@ -76,7 +76,7 @@ El servicio de aprovisionamiento de Azure AD le permite definir quién se aprov
 
 ## <a name="step-5-configure-automatic-user-provisioning-to-papercut-cloud-print-management"></a>Paso 5. Configuración del aprovisionamiento automático de usuarios en PaperCut Cloud Print Management
 
-Esta sección le guía por los pasos necesarios para configurar el servicio de aprovisionamiento de Azure AD a fin de crear, actualizar y deshabilitar usuarios o grupos en TestApp en función de las asignaciones de grupos o usuarios de Azure AD.
+Esta sección le guiará por los pasos necesarios para configurar el servicio de aprovisionamiento de Azure AD para crear, actualizar y deshabilitar usuarios o grupos en PaperCut Cloud Print Management en función de las asignaciones de grupos y usuarios de Azure AD.
 
 ### <a name="to-configure-automatic-user-provisioning-for-papercut-cloud-print-management-in-azure-ad"></a>Para configurar el aprovisionamiento automático de usuarios de PaperCut Cloud Print Management en Azure AD:
 
@@ -106,7 +106,8 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 7. Seleccione **Guardar**.
 
-8. En la sección **Asignaciones**, seleccione **Sincronizar usuarios de Azure Active Directory en PaperCut Cloud Print Management**.
+8. En la sección **Asignaciones**, seleccione **Aprovisionar usuarios de Azure Active Directory**.
+   ![Asignación de AAD](media/papercut-cloud-print-management-provisioning-tutorial/mapping.png)
 
 9. Revise los atributos de usuario que se sincronizan entre Azure AD y PaperCut Cloud Print Management en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de usuario de PaperCut Cloud Print Management con el objetivo de realizar operaciones de actualización. Si decide cambiar el [atributo de destino coincidente](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes), deberá asegurarse de que la API de PaperCut Cloud Print Management admite el filtrado de usuarios en función de ese atributo. Seleccione el botón **Guardar** para confirmar los cambios.
 
