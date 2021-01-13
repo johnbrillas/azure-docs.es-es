@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: d1c69f528328d5ff983c7de9d7fad052a7c41285
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 3394754f2829018f7862b3775f8ab2cb2d07d005
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96009303"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98051367"
 ---
 # <a name="upgrade-azure-internal-load-balancer---outbound-connection-required"></a>Actualización de Azure Load Balancer interno con necesidad de conexión de salida
 [Azure Standard Load Balancer](load-balancer-overview.md) ofrece un amplio conjunto de funcionalidades y alta disponibilidad gracias a la redundancia de zona. Para más información acerca de la SKU de Load Balancer, consulte la [tabla de comparación](./skus.md#skus). Dado que Standard Load Balancer interno no proporciona conexión de salida, se ofrece una solución para crear una instancia de Standard Public Load Balancer en su lugar.
@@ -129,10 +129,6 @@ Sí. Consulte [Advertencias y limitaciones](#caveatslimitations).
 ### <a name="does-the-azure-powershell-script-also-switch-over-the-traffic-from-my-basic-load-balancer-to-the-newly-created-standard-load-balancer"></a>¿Puede el script de Azure PowerShell cambiar el tráfico de la instancia de Basic Load Balancer a la instancia de Standard Load Balancer recién creada?
 
 No. El script de Azure PowerShell solo migra la configuración. Usted es el responsable de realizar y controlar la migración real del tráfico.
-
-### <a name="i-ran-into-some-issues-with-using-this-script-how-can-i-get-help"></a>Se han producido algunos problemas al usar este script. ¿Cómo puedo obtener ayuda?
-  
-Puede enviar un correo electrónico a slbupgradesupport@microsoft.com, abrir una incidencia con el Soporte técnico de Azure o hacer ambas cosas.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

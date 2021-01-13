@@ -1,15 +1,15 @@
 ---
 title: Definiciones de directivas integradas para servidores habilitados para Azure Arc
 description: Aquí se enumeran las definiciones de directivas integradas de Azure Policy para servidores habilitados para Azure Arc (versión preliminar). Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar los recursos de Azure.
-ms.date: 11/20/2020
+ms.date: 01/08/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: fcaa09ca5f19ccb4ca4b6efa0c1d243ee593ebd4
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 4aec47351a74a9f4d1dc330d25ff23756914ff81
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94990054"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98046652"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-arc-enabled-servers"></a>Definiciones de directivas integradas de Azure Policy para servidores habilitados para Azure Arc
 

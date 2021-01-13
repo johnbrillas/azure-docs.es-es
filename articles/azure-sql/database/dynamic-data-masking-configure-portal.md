@@ -11,12 +11,12 @@ author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/28/2020
-ms.openlocfilehash: 3f8c296860fc36772a85039e27c86a72614c2a50
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: e551925bbd1426256a81ac2ca3f245af7697245b
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791059"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028019"
 ---
 # <a name="get-started-with-sql-database-dynamic-data-masking-with-the-azure-portal"></a>Introducción al enmascaramiento dinámico de datos de SQL Database con Azure Portal
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "92791059"
 En este artículo se muestra cómo implementar el [enmascaramiento dinámico de datos](dynamic-data-masking-overview.md) con Azure Portal. También puede implementar el enmascaramiento dinámico de datos mediante [Cmdlets de Azure SQL Database](/powershell/module/az.sql/) o la [API REST](/rest/api/sql/).
 
 > [!NOTE]
-> Esta característica no se puede establecer para Azure Synapse mediante el portal (use PowerShell o la API REST) o Instancia administrada de SQL. Para obtener más información, vea [Dynamic Data Masking](/sql/relational-databases/security/dynamic-data-masking).
+> Esta característica no se puede establecer para la instancia administrada de SQL mediante el portal (use PowerShell o la API REST). Para obtener más información, vea [Dynamic Data Masking](/sql/relational-databases/security/dynamic-data-masking).
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-the-azure-portal"></a>Configuración del enmascaramiento dinámico de datos para la base de datos con Azure Portal
 
@@ -38,11 +38,11 @@ En este artículo se muestra cómo implementar el [enmascaramiento dinámico de 
 
     ![Captura de pantalla que muestra la página de configuración de Enmascaramiento dinámico de datos.](./media/dynamic-data-masking-configure-portal/5_ddm_recommendations.png)
 
-5. Para agregar una máscara para cualquier columna de la base de datos, en la parte superior de la hoja de configuración **Enmascaramiento dinámico de datos** , haga clic en **Agregar máscara** para abrir la página de configuración **Agregar regla de enmascaramiento** .
+5. Para agregar una máscara para cualquier columna de la base de datos, en la parte superior de la hoja de configuración **Enmascaramiento dinámico de datos**, haga clic en **Agregar máscara** para abrir la página de configuración **Agregar regla de enmascaramiento**.
 
     ![Captura de pantalla que muestra la página de configuración Agregar regla de enmascaramiento.](./media/dynamic-data-masking-configure-portal/6_ddm_add_mask.png)
 
-6. Seleccione los valores para **Esquema** , **Tabla** y **Columna** para definir el campo designado para enmascararse.
+6. Seleccione los valores para **Esquema**, **Tabla** y **Columna** para definir el campo designado para enmascararse.
 7. **Seleccione el método de enmascaramiento** en la lista de categorías de enmascaramiento de datos confidenciales.
 
     ![Captura de pantalla que muestra las categorías de enmascaramiento de datos confidenciales en la sección Seleccione el método de enmascaramiento.](./media/dynamic-data-masking-configure-portal/7_ddm_mask_field_format.png)

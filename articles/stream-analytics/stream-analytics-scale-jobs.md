@@ -3,16 +3,15 @@ title: Escalar vertical y horizontalmente en trabajos de Azure Stream Analytics
 description: En este artículo se describe cómo escalar un trabajo de Stream Analytics mediante la creación de particiones en datos de entrada, la optimización de la consulta y la configuración de unidades de streaming de trabajo.
 author: JSeb225
 ms.author: jeanb
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/22/2017
-ms.openlocfilehash: c12c4b9f4a3757a3974e4aff7699d0265bfd7840
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: e3d4fd6b6b83681284278d10409a1c16394db31f
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124380"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98018690"
 ---
 # <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>Escalado de un trabajo de Azure Stream Analytics para incrementar el rendimiento
 En este artículo se muestra cómo ajustar una consulta de Stream Analytics para aumentar la capacidad de procesamiento de trabajos de Stream Analytics. Puede usar la guía siguiente para escalar un trabajo para administrar una carga más elevada y aprovecha más recursos del sistema, como más ancho de banda, más recursos de CPU y más memoria.
@@ -24,7 +23,7 @@ Como requisito previo, es posible que tenga que leer los artículos siguientes:
 Si la consulta se puede paralelizar completamente de manera inherente en distintas particiones de entrada, puede seguir estos pasos:
 1.  Cree una consulta que sea embarazosamente paralela mediante la palabra clave **PARTITION BY**. Consulte más detalles en la sección de trabajos embarazosamente paralelos [en esta página](stream-analytics-parallelization.md).
 2.  En función de los tipos de salida que se usan en la consulta, es posible que algunas salidas no se puedan paralelizar o que necesiten una configuración adicional para ser embarazosamente paralelas. Por ejemplo, la salida de Power BI no se puede paralelizar. Las salidas siempre se combinan antes de enviarlas al receptor de salida. Blobs, Tables, ADLS, Service Bus y Azure Function se pueden paralelizar de manera automática. Las salidas de SQL y Azure Synapse Analytics tienen una opción de paralelización. Event Hub debe tener la configuración PartitionKey establecida de forma que coincida con el campo **PARTITION BY** (habitualmente, PartitionId). Para Event Hub, también debe poner atención en que el número de particiones de todas las entradas coincida con el de todas las salidas para evitar el intercambio entre las particiones. 
-3.  Ejecute la consulta con **6 SU** (que es la capacidad total de un solo nodo de ejecución) para medir el rendimiento máximo posible y si usa **GROUP BY** , mida cuántos grupos (cardinalidad) puede controlar el trabajo. Los síntomas generales de que el trabajo alcanza los límites de los recursos del sistema son los siguientes.
+3.  Ejecute la consulta con **6 SU** (que es la capacidad total de un solo nodo de ejecución) para medir el rendimiento máximo posible y si usa **GROUP BY**, mida cuántos grupos (cardinalidad) puede controlar el trabajo. Los síntomas generales de que el trabajo alcanza los límites de los recursos del sistema son los siguientes.
     - La métrica del porcentaje de uso de SU supera el 80 %. Esto indica que el uso de la memoria es alto. [Aquí](stream-analytics-streaming-unit-consumption.md) se describen los factores que contribuyen al incremento de esta métrica. 
     -   La marca de tiempo de salida se queda atrás con respecto al tiempo de reloj. En función de la lógica de la consulta, la marca de tiempo de salida puede tener un desplazamiento lógico del tiempo de reloj. Sin embargo, debería avanzar aproximadamente a la misma velocidad. Si la marca de tiempo de salida se queda cada vez más atrás, es un indicador de que el sistema está trabajando demasiado. Esto puede ser resultado de una limitación de receptor de salida de bajada o de un alto uso de CPU. En este momento, no proporcionamos una métrica de uso de CPU, por lo que puede resultar difícil diferenciar ambas opciones.
         - Si el problema se debe a la limitación de receptor, es posible que tenga que aumentar el número de particiones de salida (y también de las particiones de entrada para que el trabajo siga siendo posible de paralelizar completamente) o aumentar la cantidad de recursos del receptor (por ejemplo, el número de Unidades de solicitud para CosmosDB).

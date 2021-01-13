@@ -3,14 +3,14 @@ title: Seguridad de datos de Azure Automation
 description: En este artículo aprenderá cómo Azure Automation protege su privacidad y los datos.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 07/20/2020
+ms.date: 01/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: 610c2050150a533e246bc74ed7750ce87f7cf617
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40405607e7f7198f190f621121022537ac3b3171
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87004654"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98046046"
 ---
 # <a name="management-of-azure-automation-data"></a>Administración de datos de Azure Automation
 
@@ -26,11 +26,9 @@ Para garantizar la seguridad de los datos en tránsito hacia Azure Automation, s
 
 * Nodos de DSC
 
-Las versiones anteriores de TLS/Capa de sockets seguros (SSL) han demostrado ser vulnerables y, si bien todavía funcionan para permitir la compatibilidad con versiones anteriores, **no se recomiendan**. A partir de septiembre de 2020, comenzamos a aplicar TLS 1.2 y versiones posteriores del protocolo de cifrado.
+Las versiones anteriores de TLS/Capa de sockets seguros (SSL) han demostrado ser vulnerables y, si bien todavía funcionan para permitir la compatibilidad con versiones anteriores, **no se recomiendan**. No se recomienda establecer explícitamente el agente para que solo use TLS 1.2, a menos que sea absolutamente necesario, ya que esto puede interrumpir las características de seguridad a nivel de la plataforma que le permiten detectar y aprovechar automáticamente las ventajas de los protocolos más seguros más recientes a medida que estén disponibles, como TLS 1.3.
 
-No se recomienda establecer explícitamente el agente para que solo use TLS 1.2, a menos que sea absolutamente necesario, ya que esto puede interrumpir las características de seguridad a nivel de la plataforma que le permiten detectar y aprovechar automáticamente las ventajas de los protocolos más seguros más recientes a medida que estén disponibles, como TLS 1.3.
-
-Para obtener información sobre la compatibilidad de TLS 1.2 con el agente de Log Analytics para Windows y Linux, que es una dependencia del rol de Hybrid Runbook Worker, consulte la [introducción del agente de Log Analytics: TLS 1.2](..//azure-monitor/platform/log-analytics-agent.md#tls-12-protocol). 
+Para obtener información sobre la compatibilidad de TLS 1.2 con el agente de Log Analytics para Windows y Linux, que es una dependencia del rol de Hybrid Runbook Worker, consulte la [introducción del agente de Log Analytics: TLS 1.2](..//azure-monitor/platform/log-analytics-agent.md#tls-12-protocol).
 
 ### <a name="platform-specific-guidance"></a>Guía específica para la plataforma
 
@@ -51,7 +49,7 @@ La tabla siguiente resume la directiva de retención para distintos recursos.
 |:--- |:--- |
 | Cuentas |Una cuenta se elimina de manera permanente 30 días después de que un usuario la elimine. |
 | Recursos |Un recurso se elimina de forma permanente 30 días después de que un usuario lo elimina o 30 días después de que un usuario elimina la cuenta que contiene el recurso. Los recursos incluyen variables, programaciones, credenciales, certificados, paquetes de Python 2 y conexiones. |
-| Nodos de DSC |Un nodo de DSC se elimina de forma permanente 30 días después de que se anula el registro del nodo de la cuenta de Automation mediante Azure Portal o el cmdlet [Unregister-AzAutomationDscNode](/powershell/module/az.automation/unregister-azautomationdscnode?view=azps-3.7.0) de Windows PowerShell. Los nodos también se eliminan de forma permanente 30 días después de que el usuario elimine la cuenta que contiene el nodo. |
+| Nodos de DSC |Un nodo de DSC se elimina de forma permanente 30 días después de que se anula el registro del nodo de la cuenta de Automation mediante Azure Portal o el cmdlet [Unregister-AzAutomationDscNode](/powershell/module/az.automation/unregister-azautomationdscnode) de Windows PowerShell. Los nodos también se eliminan de forma permanente 30 días después de que el usuario elimine la cuenta que contiene el nodo. |
 | Trabajos |Un trabajo se elimina de forma permanente 30 días después de cualquier modificación, por ejemplo, después de que el trabajo se complete, detenga o suspenda. |
 | Módulos |Un módulo se elimina de forma permanente 30 días después de que un usuario lo elimina o 30 días después de que un usuario elimina la cuenta que contiene el módulo. |
 | Configuraciones de nodo y archivos MOF |La configuración de nodo anterior se elimina de forma permanente 30 días después de que se genere una nueva configuración. |
@@ -80,7 +78,7 @@ No es posible recuperar el valor de variables cifradas o del campo de contraseñ
 
 ### <a name="dsc-configurations"></a>Configuraciones DSC
 
-Puede exportar las configuraciones de DSC a archivos de script con Azure Portal o con el cmdlet [Export-AzAutomationDscConfiguration](/powershell/module/az.automation/export-azautomationdscconfiguration?view=azps-3.7.0) en Windows PowerShell. Puede importar y usar estas configuraciones en otra cuenta de Automation.
+Puede exportar las configuraciones de DSC a archivos de script con Azure Portal o con el cmdlet [Export-AzAutomationDscConfiguration](/powershell/module/az.automation/export-azautomationdscconfiguration) en Windows PowerShell. Puede importar y usar estas configuraciones en otra cuenta de Automation.
 
 ## <a name="geo-replication-in-azure-automation"></a>Replicación geográfica en Azure Automation
 

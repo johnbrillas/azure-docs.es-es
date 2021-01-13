@@ -5,12 +5,12 @@ ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
 ms.date: 11/17/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 21ab58095fa919e6302251c16e474b02f1445993
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 0b32efe3738dedbe8178889b3e9008964d485b00
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302001"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98034924"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guía para el desarrollador de JavaScript para Azure Functions
 
@@ -20,7 +20,7 @@ Como desarrollador Express.js, Node.js o JavaScript, si no está familiarizado c
 
 | Introducción | Conceptos| Aprendizaje guiado |
 | -- | -- | -- | 
-| <ul><li>[Función de Node.js mediante Visual Studio Code](./create-first-function-vs-code-node.md)</li><li>[Función de Node.js con el símbolo del sistema o terminal](./create-first-function-cli-java.md)</li></ul> | <ul><li>[Guía del desarrollador](functions-reference.md)</li><li>[Opciones de hospedaje](functions-scale.md)</li><li>[Funciones de TypeScript](#typescript)</li><li>[Consideraciones y rendimiento](functions-best-practices.md)</li></ul> | <ul><li>[Creación de aplicaciones sin servidor](/learn/paths/create-serverless-applications/)</li><li>[Refactorización de las API de Node.js y Express para las API sin servidor](/learn/modules/shift-nodejs-express-apis-serverless/)</li></ul> |
+| <ul><li>[Función de Node.js mediante Visual Studio Code](./create-first-function-vs-code-node.md)</li><li>[Función de Node.js con el símbolo del sistema o terminal](./create-first-function-cli-node.md)</li></ul> | <ul><li>[Guía del desarrollador](functions-reference.md)</li><li>[Opciones de hospedaje](functions-scale.md)</li><li>[Funciones de TypeScript](#typescript)</li><li>[Consideraciones y rendimiento](functions-best-practices.md)</li></ul> | <ul><li>[Creación de aplicaciones sin servidor](/learn/paths/create-serverless-applications/)</li><li>[Refactorización de las API de Node.js y Express para las API sin servidor](/learn/modules/shift-nodejs-express-apis-serverless/)</li></ul> |
 
 ## <a name="javascript-function-basics"></a>Fundamentos de las funciones de JavaScript
 
@@ -493,7 +493,7 @@ Cuando se trabaja con desencadenadores HTTP, hay varias maneras de acceder a los
 
 ## <a name="scaling-and-concurrency"></a>Escalado y simultaneidad
 
-De forma predeterminada, Azure Functions supervisa automáticamente la carga en la aplicación y crea instancias de host adicionales para Node.js según sea necesario. Functions usa umbrales integrados (no configurables por el usuario) en diferentes tipos de desencadenadores para decidir cuándo se deben agregar instancias, como la antigüedad de los mensajes y el tamaño de la cola para QueueTrigger. Para obtener más información, consulte [Cómo funcionan los planes de consumo y Premium](functions-scale.md#how-the-consumption-and-premium-plans-work).
+De forma predeterminada, Azure Functions supervisa automáticamente la carga en la aplicación y crea instancias de host adicionales para Node.js según sea necesario. Functions usa umbrales integrados (no configurables por el usuario) en diferentes tipos de desencadenadores para decidir cuándo se deben agregar instancias, como la antigüedad de los mensajes y el tamaño de la cola para QueueTrigger. Para obtener más información, consulte [Cómo funcionan los planes de consumo y Premium](event-driven-scaling.md).
 
 Este comportamiento de escalado es suficiente para muchas aplicaciones de Node.js. En las aplicaciones dependientes de la CPU, puede mejorar aún más el rendimiento mediante el uso de varios procesos de trabajo de lenguaje.
 

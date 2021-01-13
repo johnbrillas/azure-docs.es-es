@@ -11,12 +11,13 @@ ms.topic: reference
 ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e4463b932c95e224981b74093effbb355de24f6b
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.custom: fasttrack-edit
+ms.openlocfilehash: fed1e31380381b864530b3fa0b9e8c0886737d04
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97509825"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98033615"
 ---
 # <a name="microsoft-graph-operations-available-for-azure-ad-b2c"></a>Operaciones de Microsoft Graph disponibles para Azure AD B2C
 
@@ -57,10 +58,10 @@ Administre los proveedores de identidades disponibles para los flujos de usuario
 
 Configure las directivas predefinidas para el registro, el inicio de sesión, el registro y el inicio de sesión combinados, el restablecimiento de contraseña y la actualización del perfil.
 
-- [Enumerar flujos de usuario](/graph/api/identityuserflow-list)
-- [Crear flujos de usuario](/graph/api/identityuserflow-post-userflows)
-- [Obtener flujos de usuario](/graph/api/identityuserflow-get)
-- [Eliminar flujos de usuario](/graph/api/identityuserflow-delete)
+- [Enumerar flujos de usuario](/graph/api/identitycontainer-list-b2cuserflows)
+- [Crear flujos de usuario](/graph/api/identitycontainer-post-b2cuserflows)
+- [Obtener flujos de usuario](/graph/api/b2cidentityuserflow-get)
+- [Eliminar flujos de usuario](/graph/api/b2cidentityuserflow-delete)
 
 ## <a name="custom-policies"></a>Directivas personalizadas
 

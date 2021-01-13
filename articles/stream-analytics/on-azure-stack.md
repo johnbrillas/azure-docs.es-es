@@ -2,18 +2,17 @@
 title: Ejecución de Azure Stream Analytics en Azure Stack (versión preliminar)
 description: Cree un trabajo perimetral de Azure Stream Analytics e impleméntelo en Azure Stack Hub mediante el entorno de ejecución de IoT Edge.
 ms.service: stream-analytics
-author: raan
+author: an-emma
 ms.author: raan
-ms.reviewer: mamccrea
 ms.topic: how-to
 ms.date: 08/21/2020
 ms.custom: seodec18
-ms.openlocfilehash: 21cf432576829b575d70a94227f28df373a4d899
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 3463b3eae96c0a65206023ed0f21efe44294d4eb
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93126165"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020135"
 ---
 # <a name="run-azure-stream-analytics-on-azure-stack-preview"></a>Ejecución de Azure Stream Analytics en Azure Stack (versión preliminar)
 
@@ -67,7 +66,7 @@ Cuando se crea un trabajo de Azure Stream Analytics para ejecutarse en un dispos
    | Nombre | Especifique un nombre único para la cuenta de almacenamiento. |
    | Location | Elija una ubicación cercana a usted.|
    | Suscripción | Elija la misma suscripción que IoT Hub.|
-   | Grupo de recursos | Se recomienda usar el mismo grupo de recursos para todos los recursos de prueba que se crean en las guías de [inicio rápido de IoT Edge](../iot-edge/quickstart.md) y los tutoriales. Por ejemplo, **IoTEdgeResources**. |
+   | Grupo de recursos | Se recomienda usar el mismo grupo de recursos para todos los recursos de prueba que se crean en las [guías de inicio rápido de IoT Edge](../iot-edge/quickstart.md) y los tutoriales. Por ejemplo, **IoTEdgeResources**. |
 
 3. Mantenga los valores predeterminados en los restantes campos y seleccione **Crear**.
 
@@ -92,11 +91,11 @@ Cuando se crea un trabajo de Azure Stream Analytics para ejecutarse en un dispos
 Una vez que se ha creado el trabajo de Stream Analytics en Azure Portal, puede configurarlo con una entrada, una salida y una consulta para ejecutarlo en los datos que lo atraviesan. Puede especificar manualmente las entradas de una instancia de IoT Hub o de un centro de eventos en una suscripción de Azure Stack Hub.
 
 1. Vaya al trabajo de Stream Analytics en Azure Portal.
-2. En **Configurar** , seleccione **Configuración de cuenta de almacenamiento** y elija la cuenta de almacenamiento que creó en el paso anterior.
+2. En **Configurar**, seleccione **Configuración de cuenta de almacenamiento** y elija la cuenta de almacenamiento que creó en el paso anterior.
    > [!div class="mx-imgBorder"]
    > [ ![Configuración de la cuenta de almacenamiento del trabajo](media/on-azure-stack/storage-account-settings.png) ](media/on-azure-stack/storage-account-settings.png#lightbox)
-3. En **Topología de trabajo** , seleccione **Entradas** y, después, **Agregar entrada de flujo**.
-4. Elija **IoT Hub** , **Centro de eventos** o **Centro de Microsoft Edge** en la lista desplegable. 
+3. En **Topología de trabajo**, seleccione **Entradas** y, después, **Agregar entrada de flujo**.
+4. Elija **IoT Hub**, **Centro de eventos** o **Centro de Microsoft Edge** en la lista desplegable. 
 5. Si la entrada es un centro de eventos o IoT Hub en una suscripción de Azure Stack Hub, proporcione información manualmente como se muestra a continuación.
 
    #### <a name="event-hub"></a>Centro de eventos
@@ -104,7 +103,7 @@ Una vez que se ha creado el trabajo de Stream Analytics en Azure Portal, puede c
    | Campo | Value |
    | --- | --- |
    | Alias de entrada | Nombre descriptivo que se usará en la consulta del trabajo para hacer referencia a esta entrada. |
-   | Espacio de nombres de Service Bus | El espacio de nombres es un contenedor para un conjunto de entidades de mensajería. Al crear un centro de eventos, también se crea el espacio de nombres. (Ejemplo: *sb://<Event Hub Name>.eventhub.shanghai.azurestack.corp.microsoft.com* ) |
+   | Espacio de nombres de Service Bus | El espacio de nombres es un contenedor para un conjunto de entidades de mensajería. Al crear un centro de eventos, también se crea el espacio de nombres. (Ejemplo: *sb://<Event Hub Name>.eventhub.shanghai.azurestack.corp.microsoft.com*) |
    | Nombre del centro de eventos | Nombre del centro de eventos que se usa como entrada. |
    | Nombre de la directiva del centro de eventos | Directiva de acceso compartido que proporciona acceso al centro de eventos. Cada directiva de acceso compartido tiene un nombre, los permisos establecidos y las claves de acceso. Esta opción se rellena automáticamente, a menos que elija proporcionar la configuración del centro de eventos manualmente. |
    | Clave de la directiva del Centro de eventos | Clave de acceso compartido que se usa para autorizar el acceso al centro de eventos. Esta opción se rellena automáticamente, a menos que elija proporcionar la configuración del centro de eventos manualmente. Puede encontrarlo en la configuración del centro de eventos. |
@@ -119,7 +118,7 @@ Una vez que se ha creado el trabajo de Stream Analytics en Azure Portal, puede c
    | Campo | Value |
    | --- | --- |
    | Alias de entrada | Nombre descriptivo que se usará en la consulta del trabajo para hacer referencia a esta entrada. |
-   | IoT Hub | Nombre de la instancia de IoT Hub que se usa como entrada. (Ejemplo: *<IoT Hub Name>.shanghai.azurestack.corp.microsoft.com* ) |
+   | IoT Hub | Nombre de la instancia de IoT Hub que se usa como entrada. (Ejemplo: *<IoT Hub Name>.shanghai.azurestack.corp.microsoft.com*) |
    | El nombre de la directiva de acceso compartido | Directiva de acceso compartido que proporciona acceso a IoT Hub. Cada directiva de acceso compartido tiene un nombre, los permisos establecidos y las claves de acceso. |
    | Clave de directiva de acceso compartido | Clave de acceso compartido que se usa para autorizar el acceso a IoT Hub. Esta opción se rellena automáticamente, a menos que elija proporcionar la configuración de IoT Hub manualmente. |
    | Grupo de consumidores (opcional) | Se recomienda encarecidamente usar un grupo de consumidores distinto para cada trabajo de Stream Analytics. El grupo de consumidores que se usa para ingerir datos desde Azure IoT Hub. Stream Analytics usa el grupo de consumidores $Default, a menos que se especifique lo contrario. |
@@ -138,7 +137,7 @@ Una vez que se ha creado el trabajo de Stream Analytics en Azure Portal, puede c
    | Campo | Value |
    | --- | --- |
    | Alias de salida | Nombre descriptivo usado en las consultas para dirigir la salida de la consulta a este centro de eventos. |
-   | Espacio de nombres de Service Bus | Contenedor para un conjunto de entidades de mensajería. Cuando creó un nuevo centro de eventos, también creó un espacio de nombres de Service Bus. (Ejemplo: *sb://<Event Hub Name>.eventhub.shanghai.azurestack.corp.microsoft.com* ) |
+   | Espacio de nombres de Service Bus | Contenedor para un conjunto de entidades de mensajería. Cuando creó un nuevo centro de eventos, también creó un espacio de nombres de Service Bus. (Ejemplo: *sb://<Event Hub Name>.eventhub.shanghai.azurestack.corp.microsoft.com*) |
    | Nombre del centro de eventos | Nombre de la salida del centro de eventos. |
    | Nombre de la directiva del centro de eventos | Directiva de acceso compartido, que puede crear en la pestaña Configurar del centro de eventos. Cada directiva de acceso compartido tiene un nombre, los permisos establecidos y las claves de acceso. |
    | Clave de la directiva del Centro de eventos | Clave de acceso compartido usada para autenticar el acceso al espacio de nombres del centro de eventos. |
@@ -151,7 +150,7 @@ Una vez que se ha creado el trabajo de Stream Analytics en Azure Portal, puede c
    | Campo | Value |
    | --- | --- |
    | Alias de salida | Un nombre descriptivo usado en las consultas para dirigir la salida de la consulta a este almacenamiento de blobs. |
-   | Cuenta de almacenamiento | El nombre de la cuenta de almacenamiento a la que va a enviar la salida. (Ejemplo: *<Storage Account Name>.blob.shanghai.azurestack.corp.microsoft.com* ) |
+   | Cuenta de almacenamiento | El nombre de la cuenta de almacenamiento a la que va a enviar la salida. (Ejemplo: *<Storage Account Name>.blob.shanghai.azurestack.corp.microsoft.com*) |
    | Clave de cuenta de almacenamiento | La clave secreta asociada con la cuenta de almacenamiento. Esta opción se rellena automáticamente, a menos que elija proporcionar la configuración de Blob Storage manualmente. |
 
 > [!NOTE]
@@ -168,7 +167,7 @@ Una vez que se ha creado el trabajo de Stream Analytics en Azure Portal, puede c
    > [ ![Adición de módulos](media/on-azure-stack/edge-modules.png) ](media/on-azure-stack/edge-modules.png#lightbox)
 
 4. Haga clic en **Revisar y crear >** .
-5. En la pestaña **Revisar + crear** , seleccione **Crear**. 
+5. En la pestaña **Revisar + crear**, seleccione **Crear**. 
    > [!div class="mx-imgBorder"]
    > [ ![Manifiesto](media/on-azure-stack/module-content.png) ](media/on-azure-stack/module-content.png#lightbox)
 6. Confirme que el módulo se agrega a la lista.

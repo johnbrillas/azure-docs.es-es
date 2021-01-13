@@ -2,14 +2,14 @@
 title: Configuración de datos en directo (versión preliminar) de Azure Monitor para contenedores | Microsoft Docs
 description: En este artículo se describe cómo configurar la vista en tiempo real de los registros de contenedor (stdout/stderr) y eventos sin usar kubectl con Azure Monitor para contenedores.
 ms.topic: conceptual
-ms.date: 02/14/2019
+ms.date: 01/08/2020
 ms.custom: references_regions
-ms.openlocfilehash: 62bc7613995296504dfba551cdb631ac3386aa75
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.openlocfilehash: d5b978e7138e10ed88f5748b84ff62ddd22bebec
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97830792"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98050789"
 ---
 # <a name="how-to-set-up-the-live-data-preview-feature"></a>Cómo configurar la característica de datos en directo (versión preliminar)
 
@@ -29,8 +29,6 @@ En este artículo se explica cómo configurar la autenticación para controlar e
 - Clúster de AKS habilitado para los controles de acceso basado en rol de Kubernetes (RBAC de Kubernetes)
 - Azure Active Directory integrado en el clúster AKS.
 
->[!NOTE]
->No se admiten los clústeres de AKS habilitados como [clústeres privados](https://azure.microsoft.com/updates/aks-private-cluster/) con esta característica. Esta característica se basa en el acceso directo a la API de Kubernetes a través de un servidor proxy desde el explorador. La habilitación de la seguridad de red para bloquear la API de Kubernetes desde este proxy bloqueará este tráfico.
 
 ## <a name="authentication-model"></a>Modelo de autenticación
 

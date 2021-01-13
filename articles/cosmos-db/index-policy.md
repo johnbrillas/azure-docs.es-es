@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 12/07/2020
 ms.author: tisande
-ms.openlocfilehash: 2d99e0e2b65f7131e564e6ab64e454d2947c58a6
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 00c80fa311837918a78f26e941f00cb17f1dc279
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96903028"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019183"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Directivas de indexación en Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -135,7 +135,7 @@ De forma predeterminada, Azure Cosmos DB no creará ningún índice espacial. Si
 
 ## <a name="composite-indexes"></a>Índices compuestos
 
-Las consultas que tienen una cláusula `ORDER BY` con dos o más propiedades requieren un índice compuesto. También puede definir un índice compuesto para mejorar el rendimiento de muchas consultas de igualdad y de intervalo. De forma predeterminada, no hay índices compuestos definidos, por lo que debe [agregar índices compuestos](how-to-manage-indexing-policy.md#composite-indexing-policy-examples) según sea necesario.
+Las consultas que tienen una cláusula `ORDER BY` con dos o más propiedades requieren un índice compuesto. También puede definir un índice compuesto para mejorar el rendimiento de muchas consultas de igualdad y de intervalo. De forma predeterminada, no hay índices compuestos definidos, por lo que debe [agregar índices compuestos](how-to-manage-indexing-policy.md#composite-index) según sea necesario.
 
 A diferencia de las rutas de acceso incluidas o excluidas, no se puede crear una ruta de acceso con el carácter comodín `/*`. Cada ruta de acceso compuesta tiene un carácter `/?` implícito al final de la ruta de acceso que no es necesario especificar. Las rutas de acceso compuestas conducen a un valor escalar y éste es el único valor que se incluye en el índice compuesto.
 

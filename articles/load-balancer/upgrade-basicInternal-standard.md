@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 08/07/2020
 ms.author: irenehua
-ms.openlocfilehash: 59bf5eb22289238633b1f07c29a878bd0a9ae620
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 1b7bdbdb9e1d642f2ef4a715d4993e4f449ccd0a
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94696173"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98050704"
 ---
 # <a name="upgrade-azure-internal-load-balancer--no-outbound-connection-required"></a>Actualización de Azure Load Balancer interno sin necesidad de conexión de salida
 [Azure Standard Load Balancer](load-balancer-overview.md) ofrece un amplio conjunto de funcionalidades y alta disponibilidad gracias a la redundancia de zona. Para más información acerca de la SKU de Load Balancer, consulte la [tabla de comparación](./skus.md#skus).
@@ -101,10 +101,6 @@ Sí. Consulte [Advertencias y limitaciones](#caveatslimitations).
 ### <a name="does-the-azure-powershell-script-also-switch-over-the-traffic-from-my-basic-load-balancer-to-the-newly-created-standard-load-balancer"></a>¿Puede el script de Azure PowerShell cambiar el tráfico de la instancia de Basic Load Balancer a la instancia de Standard Load Balancer recién creada?
 
 Sí, lo migra. Si quiere migrar el tráfico de forma personal, use [este script](https://www.powershellgallery.com/packages/AzureILBUpgrade/1.0) que no mueve las máquinas virtuales automáticamente.
-
-### <a name="i-ran-into-some-issues-with-using-this-script-how-can-i-get-help"></a>Se han producido algunos problemas al usar este script. ¿Cómo puedo obtener ayuda?
-  
-Puede enviar un correo electrónico a slbupgradesupport@microsoft.com, abrir una incidencia con el Soporte técnico de Azure o hacer ambas cosas.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

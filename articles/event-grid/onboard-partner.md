@@ -3,12 +3,12 @@ title: Incorporación como asociado de Azure Event Grid mediante Azure Portal
 description: Use Azure Portal para incorporar a un asociado de Azure Event Grid.
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: 8344fcd822bfcdc67e2c27b200d97fa70dfefdf2
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 44dece4d46a6d702d48fa49983818986fcd59f7b
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96349393"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98050959"
 ---
 # <a name="onboard-as-an-azure-event-grid-partner-using-the-azure-portal"></a>Incorporación como asociado de Azure Event Grid mediante Azure Portal
 En este artículo se describe cómo los proveedores de SaaS de terceros, también conocidos como asociados o publicadores de eventos, se incorporan a Event Grid para poder publicar eventos desde sus servicios y cómo los usuarios finales consumen esos eventos.
@@ -112,7 +112,6 @@ Para completar los pasos restantes, asegúrese de tener lo siguiente:
     1. En la sección **Detalles del canal**, siga estos pasos:
         1. En **Nombre del canal de eventos**, escriba un nombre para el canal de eventos. 
         1. Escriba el **origen**. Consulte las [especificaciones de CloudEvents 1.0](https://github.com/cloudevents/spec/blob/v1.0/spec.md#source-1) para obtener una idea de un valor adecuado para el origen. Consulte también [este ejemplo de esquema de CloudEvents](cloud-event-schema.md#sample-event-using-cloudevents-schema).
-        1. Escriba el origen (¿QUÉ ES ESTO?).
     1. En la sección **Detalles del destino**, escriba los detalles del tema de asociado de destino que se creará para este canal de eventos. 
         1. Escriba el **id. de la suscripción** en la que se creará el tema de asociado. 
         1. Escriba el **nombre del grupo de recursos** en el que se creará el recurso de tema de asociado. 

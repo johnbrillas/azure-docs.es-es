@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/20/2020
+ms.date: 01/07/2021
 ms.author: damendo
-ms.openlocfilehash: 2e6a92a4d08f1603f480a990ad437a90302a8189
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: b5aa8167031c3b871c6a6a4d84159c3c284bf241
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966095"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98018435"
 ---
 # <a name="data-residency-for-azure-network-watcher"></a>Residencia de datos en Azure Network Watcher
 A excepción del servicio Connection Monitor (versión preliminar), Azure Network Watcher no almacena datos de los clientes.
@@ -28,7 +28,7 @@ A excepción del servicio Connection Monitor (versión preliminar), Azure Networ
 El servicio Connection Monitor (versión preliminar) almacena datos de los clientes. Network Watcher almacena automáticamente estos datos en una sola región. Por tanto, Connection Monitor (versión preliminar) satisface automáticamente los requisitos de residencia de datos en la región, incluidos los que se especifican en el [Centro de confianza](https://azuredatacentermap.azurewebsites.net/).
 
 ## <a name="data-residency"></a>Residencia de datos
-En Azure, la característica que permite almacenar los datos de clientes en una única región solo está disponible actualmente en la región de Sudeste Asiático (Singapur) de la geoárea Asia Pacífico y en la región Sur de Brasil (estado de Sao Paulo) de la geoárea Brasil. En todas las demás regiones, los datos del cliente se almacenan en la geoárea. Para más información, consulte el [Centro de confianza](https://azuredatacentermap.azurewebsites.net/).
+En Azure, la característica que permite almacenar los datos de clientes en una única región solo está disponible actualmente en la región de Sudeste Asiático (Singapur) de la geoárea Asia Pacífico y en la región Sur de Brasil (estado de Sao Paulo) de la geoárea Brasil. En todas las demás regiones, los datos de clientes se almacenan en la geoárea. Para más información, consulte el [Centro de confianza](https://azuredatacentermap.azurewebsites.net/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

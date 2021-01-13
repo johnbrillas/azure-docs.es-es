@@ -3,21 +3,20 @@ title: Supervisión y administración de Azure Stream Analytics con Visual Studi
 description: En este artículo se describe cómo usar Visual Studio para supervisar y administrar trabajos de Azure Stream Analytics.
 author: su-jie
 ms.author: sujie
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: a151d4ce5a2f9860c3b7919496a2edd25cc58ede
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: e0db101e47a5ec8eb88d3b999058e7c8521f0ff9
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123632"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020288"
 ---
 # <a name="monitor-and-manage-stream-analytics-jobs-with-visual-studio"></a>Supervisión y administración de trabajos de Stream Analytics con Visual Studio
 
-En este artículo se muestra cómo supervisar el trabajo de Stream Analytics en Visual Studio. Las herramientas de Azure Stream Analytics para Visual Studio proporcionan una experiencia de supervisión similar a Azure Portal sin tener que salir del IDE. Puede empezar a supervisar un trabajo tan pronto haga clic en **Enviar a Azure** desde su **Script.asaql** , o puede supervisar los trabajos existentes con independencia de cómo se hayan creado. 
+En este artículo se muestra cómo supervisar el trabajo de Stream Analytics en Visual Studio. Las herramientas de Azure Stream Analytics para Visual Studio proporcionan una experiencia de supervisión similar a Azure Portal sin tener que salir del IDE. Puede empezar a supervisar un trabajo tan pronto haga clic en **Enviar a Azure** desde su **Script.asaql**, o puede supervisar los trabajos existentes con independencia de cómo se hayan creado. 
 
 ## <a name="job-summary"></a>Resumen de trabajos
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: victorh
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 8c989e426faa77025a84515fe0a19424cb6bfa89
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: fad6e27c4ee7e8c10237cb3face5cfab9329b2ed
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91826634"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98059728"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Escalabilidad automática y Application Gateway con redundancia de zona v2 
 
@@ -101,7 +101,7 @@ En esta sección se describen las características y limitaciones de la SKU v2 q
 |Certificado de autenticación|No compatible.<br>Para más información, consulte [Introducción a TLS de un extremo a otro con Application Gateway](ssl-overview.md#end-to-end-tls-with-the-v2-sku).|
 |Combinación de Application Gateway Standard y Standard_v2 en la misma subred|No compatible|
 |Ruta definida por el usuario (UDR) en la subred de Application Gateway|Se admite (escenarios específicos). En versión preliminar.<br> Para obtener más información sobre los escenarios admitidos, consulte [Introducción a la configuración de Application Gateway](configuration-infrastructure.md#supported-user-defined-routes).|
-|NSG para el intervalo de puertos de entrada| - 65200 a 65535 para la SKU Standard_v2<br>- 65503 a 65534 para la SKU Standard.<br>Para más información, consulte las [preguntas más frecuentes](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet).|
+|NSG para el intervalo de puertos de entrada| - 65200 a 65535 para la SKU Standard_v2<br>- 65503 a 65534 para la SKU Standard.<br>Para más información, consulte las [preguntas más frecuentes](application-gateway-faq.yml#are-network-security-groups-supported-on-the-application-gateway-subnet).|
 |Registros de rendimiento en Azure Diagnostics|No compatible.<br>Se deben usar las métricas de Azure.|
 |Facturación|La facturación está programada para que comience el 1 de julio de 2019.|
 |Modo FIPS|Actualmente no se admiten.|

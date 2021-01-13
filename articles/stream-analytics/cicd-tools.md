@@ -4,16 +4,15 @@ description: En este artículo se explica cómo usar herramientas de CI/CD de Az
 services: stream-analytics
 author: su-jie
 ms.author: sujie
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/10/2020
-ms.openlocfilehash: aa75a553ffc131f4827aa045849f1317d894ddc5
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 9e79e0a2c030e2ebfcd5ddfd49e7c05afdb0dc3c
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123157"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019557"
 ---
 # <a name="automate-builds-tests-and-deployments-of-an-azure-stream-analytics-job-using-cicd-tools"></a>Automatización de compilaciones, pruebas e implementaciones de un trabajo de Azure Stream Analytics mediante herramientas de CI/CD
 
@@ -122,7 +121,7 @@ azure-streamanalytics-cicd addtestcase -project <projectFullPath> [-testConfigPa
 | Parámetro | Descripción |
 |---|---|
 | `-project` | La ruta del archivo **asaproj.json** en el caso del proyecto de Visual Studio Code o **[Nombre del proyecto].asaproj** en el caso del proyecto de Visual Studio. |
-| `-testConfigPath` | La ruta del archivo de configuración de prueba. Si no se especifica, el archivo se busca en **\test** en el directorio actual del archivo **asaproj.json** , con el nombre de archivo predeterminado **testConfig.json**. Se crea un nuevo archivo si no existe. |
+| `-testConfigPath` | La ruta del archivo de configuración de prueba. Si no se especifica, el archivo se busca en **\test** en el directorio actual del archivo **asaproj.json**, con el nombre de archivo predeterminado **testConfig.json**. Se crea un nuevo archivo si no existe. |
 
 #### <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
@@ -179,7 +178,7 @@ azure-streamanalytics-cicd test -project <projectFullPath> [-testConfigPath <tes
 | Parámetro | Descripción |
 |---|---|
 | `-project` | La ruta del archivo **asaproj.json** en el caso del proyecto de Visual Studio Code o **[Nombre del proyecto].asaproj** en el caso del proyecto de Visual Studio. |
-| `-testConfigPath` | La ruta del archivo de configuración de prueba. Si no se especifica, el archivo se busca en **\test** en el directorio actual del archivo **asaproj.json** , con el nombre de archivo predeterminado **testConfig.json**.
+| `-testConfigPath` | La ruta del archivo de configuración de prueba. Si no se especifica, el archivo se busca en **\test** en el directorio actual del archivo **asaproj.json**, con el nombre de archivo predeterminado **testConfig.json**.
 | `-outputPath` | La ruta de la carpeta de salida del resultado de la prueba. Si no se especifica, los archivos de resultados de salida se colocan en el directorio actual. |
 | `-customCodeZipFilePath` | La ruta del archivo zip en el caso del código personalizado, como una UDF o un deserializador, si se usan. |
 

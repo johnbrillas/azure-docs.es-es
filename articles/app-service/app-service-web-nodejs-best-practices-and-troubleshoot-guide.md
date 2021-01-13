@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 370b84f451e22c20c798018951a7a801e0bba826
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: 9763835142e66bbbce51cd5c863dff87f261c270
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96763951"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060167"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Guía de procedimientos recomendados y solución de problemas para aplicaciones Node en Azure App Service de Windows
 
@@ -245,9 +245,8 @@ La aplicación inicia excepciones no detectadas. Compruebe el archivo `d:\\home\
 La causa común de las demoras en el tiempo de inicio de aplicaciones es un gran número de archivos en node\_modules. La aplicación intenta cargar la mayoría de estos archivos al iniciarse. De forma predeterminada, puesto que los archivos están almacenados en el recurso compartido de red en Azure App Service, se puede tardar bastante tiempo en cargar muchos archivos.
 Algunas soluciones para que este proceso sea más rápido son:
 
-1. Asegúrese de tener una estructura de dependencias plana y sin dependencias duplicadas; para ello, use npm3 para instalar los módulos.
-2. Pruebe a cargar node\_modules en diferido y a no cargar todos los módulos durante el inicio de la aplicación. Para la carga en diferido de módulos, la llamada de necesidad ("module") debe realizarse cuando necesite realmente el módulo de la función antes de la primera ejecución del código de este.
-3. Azure App Service ofrece una característica denominada caché local. Esta característica copia el contenido del recurso compartido de red en el disco local de la máquina virtual. Como los archivos son locales, el tiempo de carga de node\_modules es mucho menor.
+1. Pruebe a cargar node\_modules en diferido y a no cargar todos los módulos durante el inicio de la aplicación. Para la carga en diferido de módulos, la llamada de necesidad ("module") debe realizarse cuando necesite realmente el módulo de la función antes de la primera ejecución del código de este.
+2. Azure App Service ofrece una característica denominada caché local. Esta característica copia el contenido del recurso compartido de red en el disco local de la máquina virtual. Como los archivos son locales, el tiempo de carga de node\_modules es mucho menor.
 
 ## <a name="iisnode-http-status-and-substatus"></a>Estado y subestado HTTP de IISNODE
 

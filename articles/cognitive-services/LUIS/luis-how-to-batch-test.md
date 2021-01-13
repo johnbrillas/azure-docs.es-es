@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 12/29/2020
-ms.openlocfilehash: 2668f969076fd2b9960995fec44350d61b405740
-ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
+ms.openlocfilehash: 0834b8f00e4c414b3a36314b80f6c99fb8f2aea2
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97809435"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955219"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>Pruebas por lotes con un conjunto de expresiones de ejemplo
 
@@ -168,17 +168,17 @@ Las dos secciones del gráfico en color verde coincidieron con la predicción es
 
 LUIS le permite realizar pruebas por lotes mediante el portal de LUIS y la API de REST. A continuación, se enumeran los puntos de conexión de la API de REST. Para obtener información sobre las pruebas por lotes mediante el portal de LUIS, vea [Tutorial: pruebas por lotes de conjuntos de datos](luis-tutorial-batch-testing.md). Use las direcciones URL completas que se indican a continuación y reemplace los valores de marcador de posición por su propia clave de predicción de LUIS y punto de conexión. 
 
-No olvide agregar la clave de LUIS a `Apim-Subscription-Id` en el encabezado y establecer `Content-Type` en `application/json`.
+No olvide agregar la clave de LUIS a `Ocp-Apim-Subscription-Key` en el encabezado y establecer `Content-Type` en `application/json`.
 
 ### <a name="start-a-batch-test"></a>Inicio de una prueba por lotes
 
 Inicie una prueba por lotes con un id. de versión de aplicación o una ranura de publicación. Envíe una solicitud **POST** a uno de los siguientes formatos de punto de conexión. Incluya el archivo por lotes en el cuerpo de la solicitud.
 
 Ranura de publicación
-* `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0/apps/<YOUR-APP-ID>/slots/<YOUR-SLOT-NAME>/evaluations`
+* `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0-preview/apps/<YOUR-APP-ID>/slots/<YOUR-SLOT-NAME>/evaluations`
 
 Id. de versión de aplicación
-* `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0/apps/<YOUR-APP-ID>/versions/<YOUR-APP-VERSION-ID>/evaluations`
+* `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0-preview/apps/<YOUR-APP-ID>/versions/<YOUR-APP-VERSION-ID>/evaluations`
 
 Estos puntos de conexión devolverán un id. de operación que se usará para comprobar el estado y obtener los resultados. 
 
@@ -188,20 +188,20 @@ Estos puntos de conexión devolverán un id. de operación que se usará para co
 Use el id. de operación de la prueba por lotes que inició para obtener su estado de los siguientes formatos de punto de conexión: 
 
 Ranura de publicación
-* `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0/apps/<YOUR-APP-ID>/slots/<YOUR-SLOT-ID>/evaluations/<YOUR-OPERATION-ID>/status`
+* `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0-preview/apps/<YOUR-APP-ID>/slots/<YOUR-SLOT-ID>/evaluations/<YOUR-OPERATION-ID>/status`
 
 Id. de versión de aplicación
-* `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0/apps/<YOUR-APP-ID>/versions/<YOUR-APP-VERSION-ID>/evaluations/<YOUR-OPERATION-ID>/status`
+* `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0-preview/apps/<YOUR-APP-ID>/versions/<YOUR-APP-VERSION-ID>/evaluations/<YOUR-OPERATION-ID>/status`
 
 ### <a name="get-the-results-from-a-batch-test"></a>Obtención de los resultados de una prueba por lotes
 
 Use el id. de operación de la prueba por lotes que inició para obtener sus resultados de los siguientes formatos de punto de conexión: 
 
 Ranura de publicación
-* `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0/apps/<YOUR-APP-ID>/slots/<YOUR-SLOT-ID>/evaluations/<YOUR-OPERATION-ID>/result`
+* `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0-preview/apps/<YOUR-APP-ID>/slots/<YOUR-SLOT-ID>/evaluations/<YOUR-OPERATION-ID>/result`
 
 Id. de versión de aplicación
-* `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0/apps/<YOUR-APP-ID>/versions/<YOUR-APP-VERSION-ID>/evaluations/<YOUR-OPERATION-ID>/result`
+* `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0-preview/apps/<YOUR-APP-ID>/versions/<YOUR-APP-VERSION-ID>/evaluations/<YOUR-OPERATION-ID>/result`
 
 
 ### <a name="batch-file-of-utterances"></a>Archivo por lotes de expresiones

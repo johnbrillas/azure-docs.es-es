@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 04/08/2020
 ms.reviewer: sngun
 ms.custom: seodec18, "seo-nov-2020"
-ms.openlocfilehash: c8c479050b434904de57397e5e7d73594090e031
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: c6856a0cb70123f1a3570b611c81660a592fdc1b
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94336138"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98027809"
 ---
 # <a name="change-feed-in-azure-cosmos-db"></a>Fuente de cambios en Azure Cosmos DB
-[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+[!INCLUDE[appliesto-all-apis-except-table](includes/appliesto-all-apis-except-table.md)]
 
 La fuente de cambios de Azure Cosmos DB es un registro persistente de cambios en un contenedor en el orden en que se producen. Para proporcionar compatibilidad con la fuente de cambios en Azure Cosmos DB, se observa si hay algún cambio en un contenedor de Azure Cosmos. A continuación, muestra la lista ordenada de los documentos que han cambiado en el orden en el que se modificaron. Los cambios se conservan y se pueden procesar de manera asincrónica e incremental, y la salida se puede distribuir entre uno o varios consumidores para procesarse en paralelo.
 

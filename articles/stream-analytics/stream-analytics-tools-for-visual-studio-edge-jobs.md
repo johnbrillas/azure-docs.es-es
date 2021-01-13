@@ -3,17 +3,16 @@ title: Trabajos de Azure Stream Analytics Edge en Visual Studio
 description: En este artículo se describe cómo crear y depurar sus trabajos de Stream Analytics en IoT Edge mediante las herramientas de Stream Analytics para Visual Studio.
 author: su-jie
 ms.author: sujie
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 55ff983169e15c74bf343993b66088932a538c36
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 09151ea0fe3d419401d576149f6655b8cdc09f8e
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93127525"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019965"
 ---
 # <a name="develop-stream-analytics-edge-jobs-using-visual-studio-tools"></a>Desarrollo de trabajos para dispositivos perimetrales de Stream Analytics mediante herramientas de Visual Studio
 
@@ -46,18 +45,18 @@ Una vez que se crea el proyecto, vaya al **Explorador de soluciones** para ver l
 
 ## <a name="define-inputs"></a>Definir las entradas
 
-1. En el **Explorador de soluciones** , expanda el nodo **Entradas** ; debería ver una entrada llamada **EdgeInput.json**. Haga doble clic para ver su configuración.  
+1. En el **Explorador de soluciones**, expanda el nodo **Entradas**; debería ver una entrada llamada **EdgeInput.json**. Haga doble clic para ver su configuración.  
 
-2. Establezca el tipo de origen en **Flujo de datos**. A continuación, establezca Origen en **Centro de IoT Edge** , Formato de serialización de eventos en **JSON** y Codificación en **UTF8**. Opcionalmente, puede cambiar el nombre del **Alias de entrada** , pero en este ejemplo lo dejaremos como está. En caso de cambiar el nombre del alias de entrada, use el nombre que especificó al definir la consulta. Haga clic en **Save** (Guardar) para guardar la configuración.  
+2. Establezca el tipo de origen en **Flujo de datos**. A continuación, establezca Origen en **Centro de IoT Edge**, Formato de serialización de eventos en **JSON** y Codificación en **UTF8**. Opcionalmente, puede cambiar el nombre del **Alias de entrada**, pero en este ejemplo lo dejaremos como está. En caso de cambiar el nombre del alias de entrada, use el nombre que especificó al definir la consulta. Haga clic en **Save** (Guardar) para guardar la configuración.  
    ![Configuración de la entrada del trabajo de Stream Analytics](./media/stream-analytics-tools-for-visual-studio-edge-jobs/stream-analytics-input-configuration.png)
  
 
 
 ## <a name="define-outputs"></a>Definir las salidas
 
-1. En el **Explorador de soluciones** , expanda el nodo **Salidas** ; debería ver una salida llamada **EdgeOutput.json**. Haga doble clic para ver su configuración.  
+1. En el **Explorador de soluciones**, expanda el nodo **Salidas**; debería ver una salida llamada **EdgeOutput.json**. Haga doble clic para ver su configuración.  
 
-2. Asegúrese de establecer el receptor para seleccionar **Centro de Microsoft Edge** , establezca el formato de serialización de eventos en **Json** , establezca la codificación en **UTF8** y establezca el formato en **Matriz**. Opcionalmente, puede cambiar el nombre del **Alias de salida** , pero en este ejemplo lo dejaremos como está. En caso de cambiar el nombre del alias de salida, use el nombre que especificó al definir la consulta. Haga clic en **Save** (Guardar) para guardar la configuración. 
+2. Asegúrese de establecer el receptor para seleccionar **Centro de Microsoft Edge**, establezca el formato de serialización de eventos en **Json**, establezca la codificación en **UTF8** y establezca el formato en **Matriz**. Opcionalmente, puede cambiar el nombre del **Alias de salida**, pero en este ejemplo lo dejaremos como está. En caso de cambiar el nombre del alias de salida, use el nombre que especificó al definir la consulta. Haga clic en **Save** (Guardar) para guardar la configuración. 
    ![Configuración de la salida del trabajo de Stream Analytics](./media/stream-analytics-tools-for-visual-studio-edge-jobs/stream-analytics-output-configuration.png)
  
 ## <a name="define-the-transformation-query"></a>Definir la consulta de transformación
@@ -71,7 +70,7 @@ Los trabajos de Stream Analytics implementados en entornos de Stream Analytics e
 
 Cuando se crea un trabajo de Stream Analytics en dispositivos perimetrales en el portal, el compilador le avisa automáticamente si no está usando un operador compatible.
 
-En Visual Studio, defina la siguiente consulta de transformación en el editor de consultas ( **archivo script.asaql** ).
+En Visual Studio, defina la siguiente consulta de transformación en el editor de consultas (**archivo script.asaql**).
 
 ```sql
 SELECT * INTO EdgeOutput
@@ -99,11 +98,11 @@ Para probar la consulta localmente, debe cargar los datos de ejemplo. Para obten
 
 ## <a name="submit-the-job-to-azure"></a>Enviar el trabajo a Azure
 
-1. Antes de enviar el trabajo a Azure, debe conectarse a su suscripción de Azure. Abra el **Explorador de servidores** , haga clic con el botón derecho en **Azure** > **Connect to Microsoft Azure subscription** (Conectarse a suscripción de Microsoft Azure) e inicie sesión en su suscripción de Azure.  
+1. Antes de enviar el trabajo a Azure, debe conectarse a su suscripción de Azure. Abra el **Explorador de servidores**, haga clic con el botón derecho en **Azure** > **Connect to Microsoft Azure subscription** (Conectarse a suscripción de Microsoft Azure) e inicie sesión en su suscripción de Azure.  
 
 2. Para enviar el trabajo a Azure, vaya al editor de consultas y seleccione **Enviar a Azure**.  
 
-3. Se abre una ventana emergente. Elija la opción para actualizar un trabajo de Stream Analytics en dispositivos perimetrales existente o crear uno nuevo. Cuando se actualiza un trabajo existente, reemplazará toda la configuración del trabajo; en este escenario, publicará un nuevo trabajo. Seleccione **Create a New Azure Stream Analytics Job** (Crear un nuevo trabajo de Azure Stream Analytics), escriba un nombre para el trabajo (algo como **MyASAEdgeJob** ), elija los valores adecuados de **Suscripción** , **Grupo de recursos** y **Ubicación** y seleccione **Enviar**.
+3. Se abre una ventana emergente. Elija la opción para actualizar un trabajo de Stream Analytics en dispositivos perimetrales existente o crear uno nuevo. Cuando se actualiza un trabajo existente, reemplazará toda la configuración del trabajo; en este escenario, publicará un nuevo trabajo. Seleccione **Create a New Azure Stream Analytics Job** (Crear un nuevo trabajo de Azure Stream Analytics), escriba un nombre para el trabajo (algo como **MyASAEdgeJob**), elija los valores adecuados de **Suscripción**, **Grupo de recursos** y **Ubicación** y seleccione **Enviar**.
 
    ![Enviar un trabajo de Stream Analytics a Azure desde Visual Studio](./media/stream-analytics-tools-for-visual-studio-edge-jobs/submit-stream-analytics-job-to-azure.png)
  
@@ -111,7 +110,7 @@ Para probar la consulta localmente, debe cargar los datos de ejemplo. Para obten
 
 ## <a name="manage-the-job"></a>Administrar el trabajo 
 
-Puede ver el estado del trabajo y el diagrama de trabajos desde el Explorador de servidores. En **Stream Analytics** en **Explorador de servidores** , expanda la suscripción y el grupo de recursos donde implementó el trabajo de Stream Analytics en dispositivos perimetrales. Puede ver que MyASAEdgejob tiene el estado **Creado**. Expanda el nodo de trabajos y haga doble clic en él para abrir la vista de trabajos.
+Puede ver el estado del trabajo y el diagrama de trabajos desde el Explorador de servidores. En **Stream Analytics** en **Explorador de servidores**, expanda la suscripción y el grupo de recursos donde implementó el trabajo de Stream Analytics en dispositivos perimetrales. Puede ver que MyASAEdgejob tiene el estado **Creado**. Expanda el nodo de trabajos y haga doble clic en él para abrir la vista de trabajos.
 
 ![Opciones de administración de trabajos del Explorador de servidores](./media/stream-analytics-tools-for-visual-studio-edge-jobs/server-explorer-options.png)
  

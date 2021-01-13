@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 09/09/2020
 ms.author: surmb
-ms.openlocfilehash: dc5efd6ad478710ba839634a49f041211756af71
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 732054ae2cd8f93d17694e9ea1bdd85680e9c314
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397678"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98058657"
 ---
 # <a name="application-gateway-front-end-ip-address-configuration"></a>Configuración de la dirección IP de front-end de Application Gateway
 
@@ -25,7 +25,7 @@ Actualmente, Application Gateway V2 no admite solo el modo IP privada. Admite la
 * Dirección IP privada y dirección IP pública
 * Solo dirección IP pública
 
-Para obtener más información, vea las [preguntas más frecuentes sobre Application Gateway](application-gateway-faq.md#how-do-i-use-application-gateway-v2-with-only-private-frontend-ip-address).
+Para obtener más información, vea las [preguntas más frecuentes sobre Application Gateway](application-gateway-faq.yml#how-do-i-use-application-gateway-v2-with-only-private-frontend-ip-address).
 
 
 No se necesita ninguna dirección IP pública para un punto de conexión interno que no está expuesto a Internet. Eso se conoce como un punto de conexión de *equilibrador de carga interno* (ILB) o una dirección IP de front-end privada. Un equilibrador de carga interno de puerta de enlace de aplicaciones es útil para aplicaciones de línea de negocio internas no expuestas a Internet. También es útil para los servicios y niveles de una aplicación de varios niveles dentro de un límite de seguridad que no están expuestos a Internet, pero que siguen necesitando distribución de carga round robin, permanencia de sesión o terminación TLS.

@@ -3,16 +3,15 @@ title: Depuración controlada por datos en Azure Stream Analytics
 description: En este artículo se describe cómo solucionar problemas de un trabajo de Azure Stream Analytics mediante el uso del diagrama de trabajo y métricas en Azure Portal.
 author: jseb225
 ms.author: jeanb
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 05/01/2017
-ms.openlocfilehash: e4ee868125ee30d40ef0d9ca5a42881ad003e9a8
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 6d20454515088ccca87665d9b3b27c0d82c3cdf9
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123989"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020407"
 ---
 # <a name="data-driven-debugging-by-using-the-job-diagram"></a>Depuración orientada a datos mediante el diagrama de trabajo
 
@@ -20,7 +19,7 @@ El diagrama de trabajo de la hoja **Supervisión** del portal de Azure puede ayu
 
 ## <a name="using-the-job-diagram"></a>Uso del diagrama de trabajo
 
-En el portal de Azure, mientras está en un trabajo de Stream Analytics, en **SOPORTE TÉCNICO Y SOLUCIÓN DE PROBLEMAS** , seleccione **Diagrama de trabajo** :
+En el portal de Azure, mientras está en un trabajo de Stream Analytics, en **SOPORTE TÉCNICO Y SOLUCIÓN DE PROBLEMAS**, seleccione **Diagrama de trabajo**:
 
 ![Diagrama de trabajo con métricas: ubicación](./media/stream-analytics-job-diagram-with-metrics/stream-analytics-job-diagram-with-metrics-portal-1.png)
 

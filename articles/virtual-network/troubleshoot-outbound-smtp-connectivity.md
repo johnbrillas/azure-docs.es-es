@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/20/2018
+ms.date: 01/04/2021
 ms.author: genli
-ms.openlocfilehash: 0a69df8a20c4e1502de151c38c60b54667c2d4dc
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: e1e7e78cab1f3a240737b5e25e0dff28c420add8
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814489"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97883119"
 ---
 # <a name="troubleshoot-outbound-smtp-connectivity-problems-in-azure"></a>Solución de problemas de conectividad SMTP saliente en Azure
 
@@ -76,10 +76,6 @@ Para las suscripciones de los tipos siguientes creadas después del 15 de noviem
 Si quiere poder enviar correo electrónico desde máquinas virtuales de Azure directamente a proveedores de correo electrónico externos (sin usar retransmisión SMTP autenticada), puede realizar una solicitud mediante la apertura de un caso de soporte técnico con el siguiente tipo de incidencia: **Técnico** > **Red virtual** > **Conectividad** > **No se puede enviar correo (SMTP/Puerto 25)** . Asegúrese de agregar detalles sobre por qué la implementación tiene que enviar correo directamente a los proveedores de correo en lugar de usar una retransmisión autenticada. Las solicitudes se revisarán y aprobarán a discreción de Microsoft. Las solicitudes se pueden conceder solo después de completar comprobaciones antifraudes adicionales. 
 
 Después de que una suscripción quede exenta y se hayan detenido e iniciado las máquinas virtuales en Azure Portal, todas las máquinas virtuales de esa suscripción estarán exentas en el futuro. La exención solo se aplica a la suscripción solicitada y al tráfico de la máquina virtual que se enruta directamente a Internet.
-
-## <a name="restrictions-and-limitations"></a>Restricciones y limitaciones
-
-No se admite el tráfico del puerto 25 de enrutamiento mediante servicios PaaS de Azure, como [Azure Firewall](https://azure.microsoft.com/services/azure-firewall/).
 
 ## <a name="need-help-contact-support"></a>¿Necesita ayuda? Ponerse en contacto con soporte técnico
 

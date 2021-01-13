@@ -3,12 +3,12 @@ title: Creación de directivas mediante programación
 description: Este artículo le guiará a través de la creación y administración de directivas para Azure Policy mediante programación con la CLI de Azure, Azure PowerShell y API REST.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 86c1b60608780cba4d8ae27e3c82ace458f09a26
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: 4c3a503e8d48573441093879511490608437b1e1
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94920022"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98033870"
 ---
 # <a name="programmatically-create-policies"></a>Creación de directivas mediante programación
 
@@ -95,7 +95,7 @@ El primer paso hacia una mejor visibilidad de los recursos es crear y asignar di
    - Suscripción `/subscriptions/{subId}`
    - Grupo de administración `/providers/Microsoft.Management/managementGroups/{mgName}`
 
-Para más información acerca de cómo administrar las directivas de recursos mediante el módulo PowerShell de Resource Manager, consulte [Az.Resources](/powershell/module/az.resources/#policies).
+Para más información acerca de cómo administrar las directivas de recursos mediante el módulo PowerShell de Resource Manager, consulte [Az.Resources](/powershell/module/az.resources/#policy).
 
 ### <a name="create-and-assign-a-policy-definition-using-armclient"></a>Creación y asignación de una definición de directiva con ARMClient
 
@@ -242,7 +242,7 @@ Para más información acerca de cómo administrar las directivas de recursos co
 Revise los artículos siguientes para más información sobre los comandos y las consultas en este artículo.
 
 - [Recursos de la API de REST de Azure](/rest/api/resources/)
-- [Módulos de Azure PowerShell](/powershell/module/az.resources/#policies)
+- [Módulos de Azure PowerShell](/powershell/module/az.resources/#policy)
 - [Comandos de directiva de la CLI de Azure](/cli/azure/policy)
 - [Referencia de API de REST de proveedor de recursos de Azure Policy Insights](/rest/api/policy-insights)
 - [Organización de los recursos con grupos de administración de Azure](../../management-groups/overview.md).
