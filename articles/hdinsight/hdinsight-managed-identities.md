@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/15/2020
-ms.openlocfilehash: 4d9a5900990ea41788ced5f25690619fbde68d33
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87bc2338ecc48f1115a406c276ef221cb185a4c5
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91854994"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98118632"
 ---
 # <a name="managed-identities-in-azure-hdinsight"></a>Identidades administradas en Azure HDInsight
 
@@ -55,6 +55,7 @@ Si ya ha creado un clúster de larga duración con varias identidades administra
  * En los clústeres de ESP, al cambiar el certificado LDAPS de AAD-DS, el certificado LDAPS no se actualiza automáticamente y, por tanto, empiezan a producirse errores en el escalado vertical y la sincronización de LDAP.
  * Empiezan a producirse errores en el acceso de MSI a ADLS Gen2.
  * Las claves de cifrado no se pueden girar en el escenario CMK.
+
 Después, debe asignar los roles y permisos necesarios para los escenarios anteriores a todas las identidades administradas que se usan en el clúster. Por ejemplo, si ha usado identidades administradas diferentes para los clústeres ADLS Gen2 y ESP, ambos deben tener asignados los roles "Propietario de datos de Storage Blob" y "Colaborador de HDInsight Domain Services" para evitar encontrarse con estos problemas.
 
 ## <a name="faq"></a>Preguntas más frecuentes

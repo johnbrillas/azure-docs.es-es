@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: c4fe512ff6db24498148ffa724c3144a2f61823f
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: ceb242dcd05105b533e365e91afd9601cc550392
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96451717"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98116735"
 ---
 # <a name="use-transactions-with-dedicated-sql-pool-in-azure-synapse-analytics"></a>Uso de transacciones con un grupo de SQL dedicado en Azure Synapse Analytics
 
@@ -29,7 +29,7 @@ Como cabría esperar, un grupo de SQL dedicado admite transacciones como parte d
 
 El grupo de SQL dedicado implementa transacciones ACID. El nivel de aislamiento de la compatibilidad transaccional se establece de forma predeterminada en READ UNCOMMITTED.  Para cambiarlo a READ COMMITTED SNAPSHOT ISOLATION, active la opción de base de datos READ_COMMITTED_SNAPSHOT de una base de datos de usuario cuando se conecte a la base de datos maestra.  
 
-Una vez habilitada, todas las transacciones de esta base de datos se ejecutan en READ COMMITTED SNAPSHOT ISOLATION y no se respeta la opción de configuración READ UNCOMMITTED en el nivel de sesión. Consulte [Opciones de ALTER DATABASE SET (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest&preserve-view=true) para obtener más información.
+Una vez habilitada, todas las transacciones de esta base de datos se ejecutan en READ COMMITTED SNAPSHOT ISOLATION y no se respeta la opción de configuración READ UNCOMMITTED en el nivel de sesión. Consulte [Opciones de ALTER DATABASE SET (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?preserve-view=true&view=azure-sqldw-latest) para obtener más información.
 
 ## <a name="transaction-size"></a>Tamaño de la transacción
 Una transacción de modificación de datos única tiene un tamaño limitado. El límite se aplica por distribución. Como tal, la asignación total puede calcularse multiplicando el límite por el recuento de distribución. 

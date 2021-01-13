@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9a3e2dd1ac58c89060fc3e09e97617cb2a68d8ac
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 2dac4b461d4506015f0ef374eae37f67c445791d
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97094580"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98107878"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Inicio de sesión único de conexión directa de Azure Active Directory: Preguntas más frecuentes
 
@@ -85,6 +85,7 @@ Siga estos pasos en el servidor local donde se ejecuta Azure AD Connect:
 
    > [!NOTE]
    >Para seguir estos pasos, necesitará credenciales de administrador de dominio y de administrador global.
+   >Si no es administrador de dominio pero el administrador del dominio le ha asignado permisos, debe llamar a `Update-AzureADSSOForest -OnPremCredentials $creds -PreserveCustomPermissionsOnDesktopSsoAccount`
 
    **Paso 1. Obtención de la lista de bosques de AD en los que se habilitó SSO de conexión directa**
 
@@ -105,9 +106,6 @@ Siga estos pasos en el servidor local donde se ejecuta Azure AD Connect:
    >La cuenta de administrador de dominio usada no puede ser miembro del grupo Usuarios protegidos. De lo contrario, la operación presentará un error.
 
    2. Llame a `Update-AzureADSSOForest -OnPremCredentials $creds`. Este comando actualiza la clave de descifrado de Kerberos de la cuenta de equipo `AZUREADSSO` en este bosque de AD concreto y la actualiza en Azure AD.
-   
-   >[!NOTE]
-   >Si no es administrador de dominio pero el administrador del dominio le ha asignado permisos, debe llamar a `Update-AzureADSSOForest -OnPremCredentials $creds -PreserveCustomPermissionsOnDesktopSsoAccount`
    
    3. Repita los pasos anteriores para cada bosque de AD en el que haya configurado la característica.
    

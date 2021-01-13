@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/14/2020
 ms.author: nichola
-ms.openlocfilehash: 59924c1f876d08aa504f19c5d6c86dca32fbd1e2
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 9c53ea5bad88eb79940274c409218045c06d7981
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96173471"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98064975"
 ---
 # <a name="support-single-sign-on-and-app-protection-policies-in-mobile-apps-you-develop"></a>Compatibilidad con inicio de sesión único y directivas de protección de aplicaciones en el desarrollo de aplicaciones móviles
 
@@ -36,7 +36,7 @@ Las [directivas de protección de aplicaciones (APP)](/mem/intune/apps/app-prote
 
 Para permitir que la aplicación aproveche las ventajas del inicio de sesión único, se recomienda lo siguiente.
 
-### <a name="use-microsoft-authentication-library-msal"></a>Uso de la Biblioteca de autenticación de Microsoft (MSAL)
+### <a name="use-the-microsoft-authentication-library-msal"></a>Uso de la Biblioteca de autenticación de Microsoft (MSAL)
 
 La mejor opción para implementar el inicio de sesión único en la aplicación es usar la [Biblioteca de autenticación de Microsoft (MSAL)](msal-overview.md). Con MSAL, puede agregar autenticación a la aplicación con un mínimo de código y llamadas API, obtener las características completas de la [plataforma de identidad de Microsoft](./index.yml) y dejar que Microsoft administre el mantenimiento de una solución de autenticación segura. De forma predeterminada, MSAL agrega compatibilidad con el inicio de sesión único en su aplicación. Además, el uso de MSAL es un requisito si también tiene previsto implementar directivas de protección de aplicaciones.
 

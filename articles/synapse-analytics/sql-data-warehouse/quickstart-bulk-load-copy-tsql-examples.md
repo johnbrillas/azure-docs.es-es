@@ -9,16 +9,16 @@ ms.subservice: sql-dw
 ms.date: 07/10/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: de446209104c113b10346645f79b461239c3efab
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 25c692ea9a2dce4723472f6812ac46d82b2b318d
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96901286"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120995"
 ---
 # <a name="securely-load-data-using-synapse-sql"></a>Carga de datos de forma segura mediante el uso de Synapse SQL
 
-En este artículo se resaltan los mecanismos de autenticación segura para la instrucción [COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) y se muestran ejemplos al respecto. La instrucción COPY es la forma más flexible y segura de cargar datos de forma masiva en Synapse SQL.
+En este artículo se resaltan los mecanismos de autenticación segura para la instrucción [COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) y se muestran ejemplos al respecto. La instrucción COPY es la forma más flexible y segura de cargar datos de forma masiva en Synapse SQL.
 ## <a name="supported-authentication-mechanisms"></a>Mecanismos de autenticación compatibles
 
 En la siguiente matriz se describen los métodos de autenticación compatibles tanto con cada tipo de archivo como con una cuenta de almacenamiento. Esto se aplica a la ubicación de almacenamiento de origen y a la ubicación del archivo de error.
@@ -136,7 +136,7 @@ La autenticación de Identidad administrada es necesaria cuando la cuenta de alm
 
     ![Concesión de permiso de RBAC de Azure para la carga](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
 
-2. Para configurar la autenticación de Azure AD, consulte la siguiente [documentación](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure?tabs=azure-powershell#create-an-azure-ad-administrator-for-azure-sql-server). 
+2. Para configurar la autenticación de Azure AD, consulte la siguiente [documentación](../../azure-sql/database/authentication-aad-configure.md?tabs=azure-powershell). 
 
 3. Conéctese a su grupo de SQL mediante Active Directory, donde ahora puede ejecutar la instrucción COPY sin especificar ninguna credencial:
 
@@ -152,11 +152,11 @@ La autenticación de Identidad administrada es necesaria cuando la cuenta de alm
 ## <a name="e-service-principal-authentication"></a>E. Autenticación de la entidad de servicio
 #### <a name="steps"></a>Pasos
 
-1. [Crear una aplicación de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application)
-2. [Obtención del identificador de la aplicación](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)
-3. [Obtención de la clave de autenticación](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-a-new-application-secret)
-4. [Obtención de la versión V1 del punto de conexión de token de OAuth 2.0](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#step-4-get-the-oauth-20-token-endpoint-only-for-java-based-applications)
-5. [Asignación de permisos de lectura, escritura y ejecución a una aplicación de Azure AD](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#step-3-assign-the-azure-ad-application-to-the-azure-data-lake-storage-gen1-account-file-or-folder) en la cuenta de almacenamiento
+1. [Crear una aplicación de Azure Active Directory](../..//active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal)
+2. [Obtención del identificador de la aplicación](../..//active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)
+3. [Obtención de la clave de autenticación](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options)
+4. [Obtención de la versión V1 del punto de conexión de token de OAuth 2.0](../../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json#step-4-get-the-oauth-20-token-endpoint-only-for-java-based-applications)
+5. [Asignación de permisos de lectura, escritura y ejecución a una aplicación de Azure AD](../../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json#step-3-assign-the-azure-ad-application-to-the-azure-data-lake-storage-gen1-account-file-or-folder) en la cuenta de almacenamiento
 6. Ya puede ejecutar la instrucción COPY:
 
     ```sql
@@ -176,5 +176,5 @@ La autenticación de Identidad administrada es necesaria cuando la cuenta de alm
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Consulte el artículo sobre la [instrucción COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest#syntax) para ver la sintaxis detallada
-- Consulte el artículo con [información general sobre la carga de datos](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/design-elt-data-loading#what-is-elt) para ver los procedimientos recomendados de la carga.
+- Consulte el artículo sobre la [instrucción COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest#syntax) para ver la sintaxis detallada
+- Consulte el artículo con [información general sobre la carga de datos](./design-elt-data-loading.md#what-is-elt) para ver los procedimientos recomendados de la carga.

@@ -1,25 +1,23 @@
 ---
 title: Introducción a la consulta de servicios entre Azure Monitor y Azure Data Explorer (versión preliminar)
 description: Consulte los datos de Azure Data Explorer a través de las herramientas de Azure Log Analytics, y viceversa, para unir y analizar todos los datos en un solo lugar.
-author: orens
+author: osalzberg
 ms.author: bwren
 ms.reviewer: bwren
 ms.subservice: logs
 ms.topic: conceptual
 ms.date: 06/12/2020
-ms.openlocfilehash: 0af9111223bb16f1c5843223e7fe1661ce99c623
-ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
+ms.openlocfilehash: e60f77495cdb822a0c50be936c2b0d3ac31348f3
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96749233"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98116716"
 ---
 # <a name="cross-service-query---azure-monitor-and-azure-data-explorer-preview"></a>Consulta entre servicios: Azure Monitor y Azure Data Explorer (versión preliminar)
 Cree consultas entre los servicios [Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/), [Application Insights](/azure/azure-monitor/app/app-insights-overview) y [Log Analytics](/azure/azure-monitor/platform/data-platform-logs).
 ## <a name="azure-monitor-and-azure-data-explorer-cross-service-querying"></a>Consulta entre los servicios Azure Monitor y Azure Data Explorer
 Esta experiencia le permite [crear consultas entre servicios entre Azure Data Explorer y Azure Monitor](https://docs.microsoft.com/azure/data-explorer/query-monitor-data) y [crear consultas entre servicios entre Azure Monitor y Azure Data Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/azure-monitor-data-explorer-proxy).
-
-:::image type="content" source="media\azure-data-explorer-monitor-proxy\azure-data-explorer-monitor-flow.png" alt-text="Flujo del proxy de Azure Data Explorer.":::
 
 Por ejemplo, (consultando Azure Data Explorer desde Log Analytics):
 ```kusto

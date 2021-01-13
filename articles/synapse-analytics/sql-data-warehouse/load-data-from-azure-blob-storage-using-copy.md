@@ -11,16 +11,16 @@ ms.date: 11/23/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: bd5c56ef74fbe0c60a9d395a7b8a0fbc496e773c
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: ec577e2a70e2b354b8d2013fe259aa9ea622c50e
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95534847"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120145"
 ---
 # <a name="tutorial-load-the-new-york-taxicab-dataset"></a>Tutorial: Carga de conjuntos de datos de taxis de Nueva York
 
-En este tutorial se usa la [instrucción COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) para cargar un conjunto de datos de taxis de Nueva York desde una cuenta de almacenamiento de un blob de Azure. El tutorial utiliza [Azure Portal](https://portal.azure.com) y [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS) para:
+En este tutorial se usa la [instrucción COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) para cargar un conjunto de datos de taxis de Nueva York desde una cuenta de almacenamiento de un blob de Azure. El tutorial utiliza [Azure Portal](https://portal.azure.com) y [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS) para:
 
 > [!div class="checklist"]
 >
@@ -35,7 +35,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Antes de completar este tutorial, descargue e instale la versión más reciente de [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS).  
 
-En este tutorial se supone que ya ha creado un grupo dedicado de SQL a partir del siguiente [tutorial](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/create-data-warehouse-portal#connect-to-the-server-as-server-admin).
+En este tutorial se supone que ya ha creado un grupo dedicado de SQL a partir del siguiente [tutorial](./create-data-warehouse-portal.md#connect-to-the-server-as-server-admin).
 
 ## <a name="create-a-user-for-loading-data"></a>Creación de un usuario para cargar datos
 
@@ -251,7 +251,7 @@ Ejecute los siguientes scripts SQL para especificar información acerca de los d
 
 ## <a name="load-the-data-into-your-data-warehouse"></a>Carga de datos en el almacenamiento de datos
 
-En esta sección se usa la [instrucción COPY para cargar](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) los datos de ejemplo desde Azure Storage Blob.  
+En esta sección se usa la [instrucción COPY para cargar](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) los datos de ejemplo desde Azure Storage Blob.  
 
 > [!NOTE]
 > En este tutorial se cargan los datos directamente en la tabla final. Normalmente, se cargan en una tabla de almacenamiento provisional para las cargas de trabajo de producción. Con los datos en la tabla de almacenamiento provisional, puede realizar las transformaciones necesarias. 
@@ -393,7 +393,7 @@ Siga estos pasos para limpiar los recursos según estime oportuno.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, aprendió a crear un almacenamiento de datos y a crear un usuario para cargar datos. Ha usado una [instrucción COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest#examples) sencilla para cargar datos en el almacenamiento de datos.
+En este tutorial, aprendió a crear un almacenamiento de datos y a crear un usuario para cargar datos. Ha usado una [instrucción COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest#examples) sencilla para cargar datos en el almacenamiento de datos.
 
 Hizo todo esto:
 > [!div class="checklist"]
@@ -413,6 +413,6 @@ Avance a la introducción al desarrollo para obtener información sobre cómo mi
 
 Para obtener más ejemplos y referencias de carga, consulte la siguiente documentación:
 
-- [Documentación de referencia de la instrucción COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest#syntax)
-- [Ejemplos de la instrucción COPY para cada método de autenticación](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql-examples)
-- [Inicio rápido de la instrucción COPY para una sola tabla](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql)
+- [Documentación de referencia de la instrucción COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest#syntax)
+- [Ejemplos de la instrucción COPY para cada método de autenticación](./quickstart-bulk-load-copy-tsql-examples.md)
+- [Inicio rápido de la instrucción COPY para una sola tabla](./quickstart-bulk-load-copy-tsql.md)

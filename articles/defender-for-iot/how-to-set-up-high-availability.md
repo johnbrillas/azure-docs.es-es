@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 6540b5f93bebfe39253a88dc495a3613568f8926
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: e5fa4bde316f4b1677f78c65e913a6303a9f4735
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97836568"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019149"
 ---
 # <a name="about-high-availability"></a>Acerca de la alta disponibilidad
 
@@ -52,7 +52,7 @@ Los procedimientos de instalación y configuración se realizan en cuatro fases 
 
 3. Instalación de un dispositivo secundario de consola de administración local. Para obtener más información, vea [Acerca de la instalación de Defender para IoT](how-to-install-software.md).
 
-4. Emparejamiento de los dispositivos primario y secundario de consola de administración local, como se describe [aquí](/create-the-primary-and-secondary-pair.md). La consola de administración local principal debe administrar al menos dos sensores para poder llevar a cabo la configuración.
+4. Emparejamiento de los dispositivos primario y secundario de consola de administración local, como se describe [aquí](https://infrascale.secure.force.com/pkb/articles/Support_Article/How-to-access-your-Appliance-Management-Console). La consola de administración local principal debe administrar al menos dos sensores para poder llevar a cabo la configuración.
 
 ## <a name="high-availability-requirements"></a>Requisitos de la alta disponibilidad
 

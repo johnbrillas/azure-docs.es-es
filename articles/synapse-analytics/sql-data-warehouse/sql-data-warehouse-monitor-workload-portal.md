@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 53c68f44273b14658bd4d95ce7cf3cf847c077d0
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: f780d5404d99435a61c4e3f9e90b1acbd9539af9
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93025959"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98118445"
 ---
 # <a name="monitor-workload---azure-portal"></a>Supervisión de la carga de trabajo - Azure Portal
 
@@ -24,7 +24,7 @@ En este artículo se describe cómo usar Azure Portal para supervisar la carga d
 ## <a name="prerequisites"></a>Prerrequisitos
 
 - Suscripción de Azure: Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
-- Grupo de SQL: se recopilarán registros para un grupo de SQL. Si no tiene un grupo de SQL aprovisionado, consulte las instrucciones de [Creación de un grupo de SQL](load-data-from-azure-blob-storage-using-polybase.md).
+- Grupo de SQL: se recopilarán registros para un grupo de SQL. Si no tiene un grupo de SQL aprovisionado, consulte las instrucciones de [Creación de un grupo de SQL](./load-data-from-azure-blob-storage-using-copy.md).
 
 ## <a name="create-a-log-analytics-workspace"></a>Creación de un área de trabajo de Log Analytics
 
@@ -63,7 +63,7 @@ Desplácese hasta el área de trabajo de Log Analytics, donde puede hacer lo si
 - Crear alertas del registro
 - Anclar los resultados de la consulta a un panel
 
-Para obtener más información sobre las capacidades de las consultas de registro, visite la siguiente [documentación](../../azure-monitor/log-query/query-language.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+Para obtener más información sobre las capacidades de las consultas de registro, visite la siguiente [documentación](/azure/data-explorer/kusto/query/?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json).
 
 ![Editor del área de trabajo de Log Analytics](./media/sql-data-warehouse-monitor-workload-portal/log_analytics_workspace_editor.png)
 

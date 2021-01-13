@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cfd7b5ac981fcb87d0fc929d944205dec9432b74
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: d482f21955b76e6b90523afe3b4933378c91d36e
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575829"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98107368"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Administración del grupo de administradores locales en dispositivos unidos a Azure AD
 
@@ -32,8 +32,7 @@ Al conectar un dispositivo Windows con Azure AD mediante una unión a Azure AD
 - El rol de administrador de dispositivos de Azure AD 
 - El usuario que realiza la unión a Azure AD   
 
-Al agregar los roles de Azure AD al grupo de administradores locales, puede actualizar los usuarios que pueden administrar un dispositivo en cualquier momento en Azure AD sin modificar nada en el dispositivo. Actualmente, no se pueden asignar grupos a un rol de administrador.
-Azure AD también agrega el rol de administrador de dispositivos de Azure AD al grupo de administradores locales para admitir el principio de privilegio mínimo (PoLP). Además de los administradores globales, también puede habilitar a los usuarios a los que *solo* se ha asignado el rol de administrador de dispositivos para administrar uno. 
+Al agregar los roles de Azure AD al grupo de administradores locales, puede actualizar los usuarios que pueden administrar un dispositivo en cualquier momento en Azure AD sin modificar nada en el dispositivo. Azure AD también agrega el rol de administrador de dispositivos de Azure AD al grupo de administradores locales para admitir el principio de privilegio mínimo (PoLP). Además de los administradores globales, también puede habilitar a los usuarios a los que *solo* se ha asignado el rol de administrador de dispositivos para administrar uno. 
 
 ## <a name="manage-the-global-administrators-role"></a>Administración del rol de administrador global
 

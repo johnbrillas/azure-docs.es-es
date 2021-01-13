@@ -6,12 +6,12 @@ ms.date: 03/14/2019
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 6b578cd03daa6e996a69c03afd327097d6123045
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 3144633f76d1c4738f2323f1e047d6f32329909f
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97607905"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98133249"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java-sdk"></a>Solución de problemas y preguntas frecuentes sobre el SDK de Application Insights para Java
 
@@ -23,7 +23,7 @@ Preguntas o problemas relacionados con [Azure Application Insights en Java][java
 ## <a name="build-errors"></a>Errores de compilación
 **En Eclipse o Intellij IDEA, al agregar el SDK de Application Insights a través de Maven o Gradle, obtengo errores de compilación o de validación de la suma de comprobación.**
 
-* Si el elemento `<version>` de dependencia usa un patrón con caracteres comodín (por ejemplo, (Maven) `<version>[2.0,)</version>` o (Gradle) `version:'2.0.+'`), pruebe a especificar una versión específica en su lugar, como `2.0.1`. Consulte la [notas de la versión](https://github.com/Microsoft/ApplicationInsights-Java/releases) para la versión más reciente.
+* Si el elemento `<version>` de dependencia usa un patrón con caracteres comodín (por ejemplo, (Maven) `<version>[2.0,)</version>` o (Gradle) `version:'2.+'`), pruebe a especificar una versión específica en su lugar, como `2.6.2`.
 
 ## <a name="no-data"></a>Sin datos
 **He agregado Application Insights correctamente y he ejecutado mi aplicación, pero no aparecen datos en el portal.**
@@ -36,7 +36,7 @@ Preguntas o problemas relacionados con [Azure Application Insights en Java][java
 * [Active el inicio de sesión](#debug-data-from-the-sdk). Para ello, agregue un elemento `<SDKLogger />` bajo el nodo raíz en el archivo ApplicationInsights.xml (en la carpeta de recursos del proyecto) y compruebe si hay entradas precedidas por la indicación AI: INFO/WARN/ERROR para cualquier registro sospechoso. 
 * Asegúrese de que se ha cargado correctamente el archivo ApplicationInsights.xml apropiado por parte del SDK de Java, examinando para ello los mensajes de salida de la consola para ver si hay una instrucción que haga referencia a que "el archivo de configuración se ha encontrado correctamente".
 * Si no se encuentra el archivo de configuración, compruebe los mensajes de salida para ver dónde se busca el archivo de configuración, y asegúrese de que ApplicationInsights.xml se encuentra en una de las ubicaciones de búsqueda. Como regla general, puede colocar el archivo de configuración cerca de los JAR de SDK de Application Insights. Por ejemplo: en Tomcat, esto significaría la carpeta WEB-INF/classes. Durante el desarrollo, puede colocar el archivo ApplicationInsights.xml en la carpeta de recursos del proyecto web.
-* Consulte también la [página de problemas de GitHub](https://github.com/Microsoft/ApplicationInsights-Java/issues) para ver los problemas conocidos relacionados con el SDK.
+* Consulte también la [página de problemas de GitHub](https://github.com/microsoft/ApplicationInsights-Java/issues) para ver los problemas conocidos relacionados con el SDK.
 * Asegúrese de usar la misma versión de los appender de inicio de sesión, agente, web y núcleo de Application Insights para evitar tener problemas de conflictos de versiones.
 
 #### <a name="i-used-to-see-data-but-it-has-stopped"></a>Solía ver datos, pero ya no sucede esto.
@@ -194,7 +194,7 @@ Application Insights usa `org.apache.http`. Se reubica en los archivos JAR princ
 
 ## <a name="get-help"></a>Obtener ayuda
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/ms-application-insights)
-* [Notificación de un problema en GitHub](https://github.com/Microsoft/ApplicationInsights-Java/issues)
+* [Notificación de un problema en GitHub](https://github.com/microsoft/ApplicationInsights-Java/issues)
 
 <!--Link references-->
 

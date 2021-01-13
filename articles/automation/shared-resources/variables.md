@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 12/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: d064eb0b748c361b76139b1a21d25cec8996e818
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.openlocfilehash: 6db0c82c034aab97deee1be4aa8bdc54368521bc
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97734783"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131532"
 ---
 # <a name="manage-variables-in-azure-automation"></a>Administración de variables en Azure Automation
 
@@ -26,7 +26,7 @@ Las variables de Automation son útiles para los siguientes escenarios:
 
 Azure Automation conserva las variables y hace que estén disponibles aunque se produzca un error en un runbook o en la configuración de DSC. Este comportamiento permite que un runbook o configuración de DSC establezca un valor para que otro runbook lo use, o bien que lo use el mismo runbook o la misma configuración de DSC la siguiente vez que se ejecute.
 
-Azure Automation almacena cada variable cifrada de forma segura. Al crear una variable, puede especificar su cifrado y almacenamiento por Azure Automation como recurso seguro. Después de crear la variable, no se puede cambiar su estado de cifrado sin volver a crearla. Si tiene variables en la cuenta de Automation que almacenan datos confidenciales que todavía no están cifrados, debe eliminarlos y volver a crearlos como variables cifradas. Una recomendación de Azure Security Center es cifrar todas las variables de Azure Automation como se describe en [Las variables de la cuenta de Automation deben estar cifradas](../../security-center/recommendations-reference.md#recs-computeapp). Si tiene variables sin cifrar que quiere excluir de esta recomendación de seguridad, consulte [Exclusión de un recurso de las recomendaciones y la puntuación segura](../../security-center/exempt-resource.md) para crear una regla de exención.
+Azure Automation almacena cada variable cifrada de forma segura. Al crear una variable, puede especificar su cifrado y almacenamiento por Azure Automation como recurso seguro. Después de crear la variable, no se puede cambiar su estado de cifrado sin volver a crearla. Si tiene variables en la cuenta de Automation que almacenan datos confidenciales que todavía no están cifrados, debe eliminarlos y volver a crearlos como variables cifradas. Una recomendación de Azure Security Center es cifrar todas las variables de Azure Automation como se describe en [Las variables de la cuenta de Automation deben estar cifradas](../../security-center/recommendations-reference.md#recs-compute). Si tiene variables sin cifrar que quiere excluir de esta recomendación de seguridad, consulte [Exclusión de un recurso de las recomendaciones y la puntuación segura](../../security-center/exempt-resource.md) para crear una regla de exención.
 
 >[!NOTE]
 >Los recursos protegidos en Azure Automation incluyen credenciales, certificados, conexiones y variables cifradas. Estos recursos se cifran y se almacenan en Azure Automation con una clave única que se genera para cada cuenta de Automation. Azure Automation almacena la clave en la instancia de Key Vault administrada por el sistema. Antes de almacenar un recurso seguro, Azure Automation carga la clave desde Key Vault y después la usa para cifrar el recurso.

@@ -3,12 +3,12 @@ title: Preguntas frecuentes sobre Azure Relay | Microsoft Docs
 description: En este artículo se responden algunas de las preguntas más frecuentes relativas al servicio Azure Relay.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 9d967d926c6ab59e027fe4d4cf98e8418a8ff9bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77d3122942289654c0f651f9f648307123b23546
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89299293"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131855"
 ---
 # <a name="azure-relay-faqs"></a>Preguntas frecuentes sobre Azure Relay
 
@@ -50,7 +50,6 @@ Presentamos tres escenarios de facturación de ejemplo para Conexiones híbridas
     *   Envía 6 GB de datos a través de la conexión B durante el mes.
     *   El cargo total es de 10,50 dólares. Son 5 dólares por la conexión A, más 5 dólares por la conexión B, más 0,50 dólares por el sexto GB de la conexión B.
 
-Tenga en cuenta que los precios que se utilizan en los ejemplos son aplicables únicamente durante el período de la versión preliminar de Conexiones híbridas. Los precios están sujetos a cambios en función de la disponibilidad general de Conexiones híbridas.
 
 ### <a name="how-are-hours-calculated-for-relay"></a>¿Cómo se calculan las horas de retransmisión?
 

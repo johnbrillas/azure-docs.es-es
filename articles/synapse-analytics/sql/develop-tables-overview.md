@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 33eb5977ecb373a0dba87c26cacea247f541be8f
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 3778b6046c750bb131be1e51bf1afdc7b0df7184
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452737"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98116796"
 ---
 # <a name="design-tables-using-synapse-sql-in-azure-synapse-analytics"></a>Diseño de tablas mediante Synapse SQL en Azure Synapse Analytics
 
@@ -102,7 +102,7 @@ Para más información, consulte [Tablas temporales](develop-tables-temporary.md
 
 Las [tablas externas](develop-tables-external-tables.md) apuntan a datos ubicados en Azure Storage Blob o Azure Data Lake Storage.
 
-Importe los datos de tablas externas a grupos de SQL dedicados mediante la instrucción [CREATE TABLE AS SELECT](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). Para un tutorial sobre la carga, consulte [Uso de PolyBase para cargar datos de Azure Blob Storage en Azure SQL Data Warehouse](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Importe los datos de tablas externas a grupos de SQL dedicados mediante la instrucción [CREATE TABLE AS SELECT](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). Para un tutorial sobre la carga, consulte [Uso de PolyBase para cargar datos de Azure Blob Storage en Azure SQL Data Warehouse](../sql-data-warehouse/load-data-from-azure-blob-storage-using-copy.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json).
 
 En el caso de un grupo de SQL sin servidor, puede utilizar [CETAS](develop-tables-cetas.md) para guardar el resultado de la consulta en una tabla externa en Azure Storage.
 

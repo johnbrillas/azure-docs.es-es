@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 12/12/2019
 ms.author: cynthn
-ms.openlocfilehash: 94db8ce46fc240a6c48c0919b6d2c2cd148522ac
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 6e3333ac780cfca02a6ce4f28d2b0e312016f713
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91976057"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131515"
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>Carga de un VHD generalizado y su uso para crear máquinas virtuales nuevas en Azure
 
@@ -38,13 +38,15 @@ Asegúrese de que los roles de servidor que se ejecutan en la máquina sean comp
 > 
 
 1. Inicie sesión en la máquina virtual de Windows.
-2. Abra una ventana del símbolo del sistema como administrador. Cambie el directorio a %windir%\system32\sysprep, y, después, ejecute `sysprep.exe`.
-3. En **Herramienta de preparación del sistema**, seleccione **Iniciar la Configuración rápida (OOBE)** y asegúrese de que la casilla **Generalizar** está seleccionada.
-4. En **Opciones de apagado**, seleccione **Apagar**.
-5. Seleccione **Aceptar**.
+1. Abra una ventana del símbolo del sistema como administrador. 
+1. Elimine el directorio de Panther (C:\Windows\Panther).
+1. Cambie el directorio a %windir%\system32\sysprep, y, después, ejecute `sysprep.exe`.
+1. En **Herramienta de preparación del sistema**, seleccione **Iniciar la Configuración rápida (OOBE)** y asegúrese de que la casilla **Generalizar** está seleccionada.
+1. En **Opciones de apagado**, seleccione **Apagar**.
+1. Seleccione **Aceptar**.
    
     ![Iniciar Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
-6. Cuando Sysprep finaliza, apaga la máquina virtual. No reinicie la VM.
+1. Cuando Sysprep finaliza, apaga la máquina virtual. No reinicie la VM.
 
 
 ## <a name="upload-the-vhd"></a>Carga del disco duro virtual 

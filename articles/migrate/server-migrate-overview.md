@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 075f113975e5f340493fe33584d8072190be77c8
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 130fcaacedc8aaea7790f6aa9ca7463b4e378e02
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97896488"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98070718"
 ---
 # <a name="select-a-vmware-migration-option"></a>Selección de una opción de migración de VMware
 
@@ -32,7 +32,7 @@ Use estas comparaciones seleccionadas para que le ayuden a decidir qué método 
 **Implementación del dispositivo** | El [dispositivo de Azure Migrate](migrate-appliance.md) se implementa de forma local. | El [dispositivo de replicación de Azure Migrate](migrate-replication-appliance.md) se implementa de forma local.
 **Compatibilidad con Site Recovery** | Compatible. | No se puede replicar con la migración del servidor de Azure Migrate si ha configurado la replicación para una máquina con Site Recovery.
 **Disco de destino** | Discos administrados | Discos administrados
-**Límites del disco** | Disco del sistema operativo: 2 TB<br/><br/> Disco de datos: 32 TB<br/><br/> Número máximo de discos: 60 | Disco del sistema operativo: 2 TB<br/><br/> Disco de datos: 8 TB<br/><br/> Número máximo de discos: 63
+**Límites del disco** | Disco del sistema operativo: 2 TB<br/><br/> Disco de datos: 32 TB<br/><br/> Número máximo de discos: 60 | Disco del sistema operativo: 2 TB<br/><br/> Disco de datos: 32 TB<br/><br/> Número máximo de discos: 63
 **Discos de acceso directo** | No compatible | Compatible
 **Arranque UEFI** | Compatible. | Compatible.
 

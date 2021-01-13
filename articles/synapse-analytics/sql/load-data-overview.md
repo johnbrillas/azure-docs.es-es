@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: a57abd080bdbbaefbe07258a2b241c093dc8c441
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 58e14ab04084871dfd5de400cac0c38401855d0c
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93308736"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120264"
 ---
 # <a name="design-a-polybase-data-loading-strategy-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Diseño de una estrategia de carga de datos de PolyBase para un grupo de SQL dedicado en Azure Synapse Analytics
 
@@ -38,9 +38,9 @@ Los pasos básicos para implementar un proceso ELT de PolyBase para un grupo de 
 5. Transformar los datos.
 6. Insertar los datos en tablas de producción.
 
-Si desea un tutorial sobre la carga, consulte [Use PolyBase to load data from Azure blob storage to Azure Synapse Analytics](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) (Usar PolyBase para cargar datos de Azure Blob Storage en Azure Synapse Analytics).
+Si desea un tutorial sobre la carga, consulte [Use PolyBase to load data from Azure blob storage to Azure Synapse Analytics](../sql-data-warehouse/load-data-from-azure-blob-storage-using-copy.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json) (Usar PolyBase para cargar datos de Azure Blob Storage en Azure Synapse Analytics).
 
-Para obtener más información, consulte [el blog de patrones de carga](https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-loading-patterns-and-strategies/).
+Para obtener más información, consulte [el blog de patrones de carga](/archive/blogs/sqlcat/azure-sql-data-warehouse-loading-patterns-and-strategies).
 
 ## <a name="1-extract-the-source-data-into-text-files"></a>1. Extraer los datos de origen en archivos de texto
 
@@ -118,10 +118,10 @@ Es una práctica recomendada para cargar datos en una tabla de almacenamiento pr
 
 Para cargar datos con PolyBase, puede usar cualquiera de estas opciones de carga:
 
-- [PolyBase con T-SQL](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) funciona bien cuando los datos están en Azure Blob Storage o Azure Data Lake Store. Le proporciona el máximo control sobre el proceso de carga, pero también es necesario definir objetos de datos externos. Los otros métodos definen estos objetos en segundo plano mientras asigna tablas de origen a las tablas de destino.  Para coordinar la carga de T-SQL, puede utilizar Azure Data Factory, SSIS o Azure Functions.
+- [PolyBase con T-SQL](../sql-data-warehouse/load-data-from-azure-blob-storage-using-copy.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json) funciona bien cuando los datos están en Azure Blob Storage o Azure Data Lake Store. Le proporciona el máximo control sobre el proceso de carga, pero también es necesario definir objetos de datos externos. Los otros métodos definen estos objetos en segundo plano mientras asigna tablas de origen a las tablas de destino.  Para coordinar la carga de T-SQL, puede utilizar Azure Data Factory, SSIS o Azure Functions.
 - [Polybase con SSIS](/sql/integration-services/load-data-to-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) funciona bien cuando los datos de origen están en SQL Server. SSIS define las asignaciones de la tabla de origen a la de destino y también organiza la carga. Si ya dispone de paquetes SSIS, puede modificar los paquetes con los que vaya a trabajar con el nuevo destino del almacenamiento de datos.
 - [PolyBase con Azure Data Factory (ADF)](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) es otra herramienta de orquestación.  Define una canalización y programa trabajos.
-- [PolyBase con Azure Databricks](../../azure-databricks/databricks-extract-load-sql-data-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) transfiere los datos de una tabla de Azure Synapse Analytics para una trama de datos de Databricks o escribe datos de una trama de datos de Databricks en una tabla de Azure Synapse Analytics con PolyBase.
+- [PolyBase con Azure Databricks](/azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json) transfiere los datos de una tabla de Azure Synapse Analytics para una trama de datos de Databricks o escribe datos de una trama de datos de Databricks en una tabla de Azure Synapse Analytics con PolyBase.
 
 ### <a name="non-polybase-loading-options"></a>Opciones de carga que no pertenecen a PolyBase
 

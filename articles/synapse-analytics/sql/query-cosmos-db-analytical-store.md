@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 12/04/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 22103ad580fa474f44eaf42c696d19bbbd137c8e
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: a0458264b6ea0c741244531fc104a7637108b06e
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97095107"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121352"
 ---
 # <a name="query-azure-cosmos-db-data-with-a-serverless-sql-pool-in-azure-synapse-link-preview"></a>Consulta de datos de Azure Cosmos DB con un grupo de SQL sin servidor en Azure Synapse Link (versión preliminar)
 
@@ -222,7 +222,7 @@ FROM OPENROWSET(
     ) with ( date_rep varchar(20), cases bigint, geo_id varchar(6) ) as rows
 ```
 
-No utilice `OPENROWSET` sin un esquema definido explícitamente, ya que podría afectar al rendimiento. Asegúrese de usar los tamaños más pequeños posibles para las columnas; por ejemplo, VARCHAR(100) en lugar de la opción VARCHAR(8000) predeterminada. Debe usar una intercalación UTF-8 como intercalación de base de datos predeterminada o establecerla como intercalación de columna explícita para evitar un [problema de conversión UTF-8](/azure/synapse-analytics/troubleshoot/reading-utf8-text). La intercalación `Latin1_General_100_BIN2_UTF8` proporciona el mejor rendimiento cuando se filtran los datos mediante algunas columnas de cadena.
+No utilice `OPENROWSET` sin un esquema definido explícitamente, ya que podría afectar al rendimiento. Asegúrese de usar los tamaños más pequeños posibles para las columnas; por ejemplo, VARCHAR(100) en lugar de la opción VARCHAR(8000) predeterminada. Debe usar una intercalación UTF-8 como intercalación de base de datos predeterminada o establecerla como intercalación de columna explícita para evitar un [problema de conversión UTF-8](../troubleshoot/reading-utf8-text.md). La intercalación `Latin1_General_100_BIN2_UTF8` proporciona el mejor rendimiento cuando se filtran los datos mediante algunas columnas de cadena.
 
 ## <a name="query-nested-objects-and-arrays"></a>Consulta de objetos y matrices anidados
 
@@ -268,8 +268,8 @@ El resultado de esta consulta podría ser similar al de la tabla siguiente:
 Obtenga más información sobre cómo analizar [tipos de datos complejos en Azure Synapse Link](../how-to-analyze-complex-schema.md) y [estructuras anidadas en un grupo de SQL sin servidor](query-parquet-nested-types.md).
 
 > [!IMPORTANT]
-> Si ve caracteres inesperados en el texto, como `MÃƒÂ©lade` en lugar de `Mélade`, la intercalación de la base de datos no está establecida en [UTF-8](https://docs.microsoft.com/sql/relational-databases/collations/collation-and-unicode-support#utf8).
-> [Cambie la intercalación de la base de datos](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-database-collation#to-change-the-database-collation) por una intercalación UTF-8 mediante una instrucción SQL como `ALTER DATABASE MyLdw COLLATE LATIN1_GENERAL_100_CI_AS_SC_UTF8`.
+> Si ve caracteres inesperados en el texto, como `MÃƒÂ©lade` en lugar de `Mélade`, la intercalación de la base de datos no está establecida en [UTF-8](/sql/relational-databases/collations/collation-and-unicode-support#utf8).
+> [Cambie la intercalación de la base de datos](/sql/relational-databases/collations/set-or-change-the-database-collation#to-change-the-database-collation) por una intercalación UTF-8 mediante una instrucción SQL como `ALTER DATABASE MyLdw COLLATE LATIN1_GENERAL_100_CI_AS_SC_UTF8`.
 
 ## <a name="flatten-nested-arrays"></a>Acoplamiento de matrices anidadas
 
@@ -325,7 +325,7 @@ Información complementaria Un estudio de epide… | `[{"first":"Nicolas","last"
 | Información complementaria Un estudio de epide… |   `[{"first":"Olivier","last":"Flores","suffix":"","affiliation":{"laboratory":"UMR C53 CIRAD, …` | Olivier | Flores |`{"laboratory":"UMR C53 CIRAD, …` |     
 
 > [!IMPORTANT]
-> Si ve caracteres inesperados en el texto, como `MÃƒÂ©lade` en lugar de `Mélade`, la intercalación de la base de datos no está establecida en [UTF-8](https://docs.microsoft.com/sql/relational-databases/collations/collation-and-unicode-support#utf8). [Cambie la intercalación de la base de datos](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-database-collation#to-change-the-database-collation) por una intercalación UTF-8 mediante una instrucción SQL como `ALTER DATABASE MyLdw COLLATE LATIN1_GENERAL_100_CI_AS_SC_UTF8`.
+> Si ve caracteres inesperados en el texto, como `MÃƒÂ©lade` en lugar de `Mélade`, la intercalación de la base de datos no está establecida en [UTF-8](/sql/relational-databases/collations/collation-and-unicode-support#utf8). [Cambie la intercalación de la base de datos](/sql/relational-databases/collations/set-or-change-the-database-collation#to-change-the-database-collation) por una intercalación UTF-8 mediante una instrucción SQL como `ALTER DATABASE MyLdw COLLATE LATIN1_GENERAL_100_CI_AS_SC_UTF8`.
 
 ## <a name="azure-cosmos-db-to-sql-type-mappings"></a>Asignaciones de Azure Cosmos DB a tipos de SQL
 

@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 91f612ba7f19deb739dbb6004e275ea044a5a3d3
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 45e1ae5b8a1084334b7596f62c272e16294c4c14
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462562"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98118768"
 ---
 # <a name="query-nested-types-in-parquet-and-json-files-by-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Consulta de tipos anidados en Parquet y archivos JSON mediante el grupo de SQL sin servidor en Azure Synapse Analytics
 
@@ -24,7 +24,7 @@ Los tipos anidados son estructuras complejas que representan objetos o matrices.
 - Los [archivos JSON](query-json-files.md) jerárquicos, donde puede leer un documento JSON complejo como una sola columna.
 - Colecciones de Azure Cosmos DB (actualmente en versión preliminar pública controlada), donde todos los documentos pueden contener propiedades anidadas complejas.
 
-El grupo de SQL sin servidor da formato a todos los tipos anidados como matrices y objetos JSON. Por lo tanto, puede [extraer o modificar objetos complejos mediante el uso de funciones JSON](https://docs.microsoft.com/sql/relational-databases/json/validate-query-and-change-json-data-with-built-in-functions-sql-server) o [analizar datos JSON mediante la función OPENJSON](https://docs.microsoft.com/sql/relational-databases/json/convert-json-data-to-rows-and-columns-with-openjson-sql-server). 
+El grupo de SQL sin servidor da formato a todos los tipos anidados como matrices y objetos JSON. Por lo tanto, puede [extraer o modificar objetos complejos mediante el uso de funciones JSON](/sql/relational-databases/json/validate-query-and-change-json-data-with-built-in-functions-sql-server) o [analizar datos JSON mediante la función OPENJSON](/sql/relational-databases/json/convert-json-data-to-rows-and-columns-with-openjson-sql-server). 
 
 A continuación se muestra un ejemplo de una consulta que extrae valores escalares y de objetos del archivo JSON [Conjunto de datos de investigación abierto para la COVID-19](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/), que contiene objetos anidados: 
 
@@ -121,7 +121,7 @@ El resultado se muestra en la tabla siguiente:
 | --- | --- | --- | --- |
 | Información complementaria Un estudio de epide… | Julien   | - Ilustración S1 : Filogenia de… | `{    "paper_id": "000b7d1517ceebb34e1e3e817695b6de03e2fa78",    "metadata": {        "title": "Supplementary Information An eco-epidemiological study of Morbilli-related paramyxovirus infection in Madagascar bats reveals host-switching as the dominant macro-evolutionary mechanism",        "authors": [            {                "first": "Julien"` |
 
-A diferencia de los archivos JSON, que en la mayoría de los casos devuelven una sola columna que contiene un objeto JSON complejo, los archivos Parquet pueden tener varias columnas complejas. Puede leer las propiedades de las columnas anidadas mediante la función `JSON_VALUE` en cada columna. `OPENROWSET` permite especificar directamente las rutas de acceso de las propiedades anidadas en una cláusula `WITH`. Puede establecer las rutas de acceso como el nombre de una columna o puede agregar una [expresión de ruta de acceso JSON](https://docs.microsoft.com/sql/relational-databases/json/json-path-expressions-sql-server) después del tipo de columna.
+A diferencia de los archivos JSON, que en la mayoría de los casos devuelven una sola columna que contiene un objeto JSON complejo, los archivos Parquet pueden tener varias columnas complejas. Puede leer las propiedades de las columnas anidadas mediante la función `JSON_VALUE` en cada columna. `OPENROWSET` permite especificar directamente las rutas de acceso de las propiedades anidadas en una cláusula `WITH`. Puede establecer las rutas de acceso como el nombre de una columna o puede agregar una [expresión de ruta de acceso JSON](/sql/relational-databases/json/json-path-expressions-sql-server) después del tipo de columna.
 
 La siguiente consulta lee el archivo structExample.parquet y muestra cómo exponer los elementos de una columna anidada. Hay dos formas de hacer referencia a un valor anidado:
 - Especificando la expresión de ruta de acceso del valor anidado después de la especificación de tipo.

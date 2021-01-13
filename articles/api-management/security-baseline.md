@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 62b4629d258f8779dc53b4b8e00684d3b793291d
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: ab4ae6980af9556f973ece93634b614d01c615e9
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183760"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132671"
 ---
 # <a name="azure-security-baseline-for-api-management"></a>Línea de base de seguridad de Azure para API Management
 
@@ -381,7 +381,7 @@ Siga las recomendaciones de Azure Security Center para la administración y el m
 
 * [Obtención de un rol de directorio en Azure AD con PowerShell](/powershell/module/az.resources/get-azroledefinition)
 
-* [Recomendaciones de identidad y acceso de Azure Security Center](../security-center/recommendations-reference.md#recs-identity)
+* [Recomendaciones de identidad y acceso de Azure Security Center](../security-center/recommendations-reference.md#recs-identityandaccess)
 
 **Supervisión de Azure Security Center**: Sí
 

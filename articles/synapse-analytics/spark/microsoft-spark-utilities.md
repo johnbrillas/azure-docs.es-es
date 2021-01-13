@@ -10,12 +10,12 @@ ms.date: 09/10/2020
 ms.author: ruxu
 ms.reviewer: ''
 zone_pivot_groups: programming-languages-spark-all-minus-sql
-ms.openlocfilehash: fee7e244e26a59a773a5d5c9c74e23acd4113ee6
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: c681195a60329320b875cc06919e9440b65eb9e5
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96446700"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120247"
 ---
 # <a name="introduction-to-microsoft-spark-utilities"></a>Introducción a las utilidades de Spark para Microsoft
 
@@ -706,12 +706,12 @@ Env.Help()
 
 Resultado obtenido:
 ```
-getUserName(): returns user name
-getUserId(): returns unique user id
-getJobId(): returns job id
-getWorkspaceName(): returns workspace name
-getPoolName(): returns Spark pool name
-getClusterId(): returns cluster id
+GetUserName(): returns user name
+GetUserId(): returns unique user id
+GetJobId(): returns job id
+GetWorkspaceName(): returns workspace name
+GetPoolName(): returns Spark pool name
+GetClusterId(): returns cluster id
 ```
 
 ### <a name="get-user-name"></a>Obtención del nombre de usuario
@@ -881,4 +881,4 @@ Env.GetClusterId()
 - [Consulte los cuadernos de ejemplo de Synapse](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks)
 - [Inicio rápido: Creación de un grupo de Apache Spark en Azure Synapse Analytics mediante herramientas web](../quickstart-apache-spark-notebook.md)
 - [Qué es Apache Spark en Azure Synapse Analytics](apache-spark-overview.md)
-- [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
+- [Azure Synapse Analytics](../index.yml)

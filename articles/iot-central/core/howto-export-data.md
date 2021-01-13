@@ -7,21 +7,18 @@ ms.author: viviali
 ms.date: 11/05/2020
 ms.topic: how-to
 ms.service: iot-central
-ms.custom: contperf-fy21q1
-ms.openlocfilehash: b84f1efd77ca757fd2ceaa8bb5605e3fc78297d0
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.custom: contperf-fy21q1, contperf-fy21q3
+ms.openlocfilehash: 3079b8384a24642322d6f6eb86e2ca7f0927db15
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032378"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98065395"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export"></a>Exportación de datos de IoT a destinos en la nube mediante la característica de exportación de datos
 
 > [!Note]
-> En este artículo se describen las características de exportación de datos de IoT Central.
->
-> - Para información sobre las características de exportación de datos heredadas, consulte [Exportación de datos de IoT a destinos en la nube mediante la característica de exportación de datos (versión heredada)](./howto-export-data-legacy.md).
-> - Para información sobre las diferencias entre las características de exportación de datos y la exportación de datos heredada, consulte la siguiente [tabla de comparación](#comparison-of-legacy-data-export-and-data-export).
+> En este artículo se describen las características de exportación de datos de IoT Central. Para información sobre las características de exportación de datos heredadas, consulte [Exportación de datos de IoT a destinos en la nube mediante la característica de exportación de datos (versión heredada)](./howto-export-data-legacy.md).
 
 En este artículo se describe cómo usar la nueva característica de exportación de datos de Azure IoT Central. Utilice esta característica para exportar continuamente los datos de IoT filtrados y enriquecidos desde su aplicación de IoT Central. La exportación de datos inserta los cambios casi en tiempo real en otras partes de la solución en la nube para su análisis y almacenamiento, y conocer los detalles de la ruta de acceso activa.
 

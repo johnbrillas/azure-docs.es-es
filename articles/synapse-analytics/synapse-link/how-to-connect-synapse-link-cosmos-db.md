@@ -9,12 +9,12 @@ ms.subservice: synapse-link
 ms.date: 04/21/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0e4bcc13a2eaddbf394d8468b29eeff475119e2d
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 5316f74ee38f597592ae4582aef31837f0f05fda
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96459030"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98119839"
 ---
 # <a name="connect-to-azure-synapse-link-for-azure-cosmos-db"></a>Conexión a Azure Synapse Link para Azure Cosmos DB
 
@@ -24,8 +24,8 @@ En este artículo se describe cómo acceder a una base de datos de Azure Cosmos 
 
 Para poder conectar una base de datos de Azure Cosmos DB a un área de trabajo, se necesita:
 
-* Una base de datos de Azure Cosmos DB existente o crear una siguiendo los pasos descritos en [Inicio rápido: Administración de una cuenta de Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-database-account).
-* Un área de trabajo de Azure Synapse existente o crear una siguiendo los pasos descritos en [Inicio rápido: Creación de un área de trabajo de Synapse](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-workspace).
+* Una base de datos de Azure Cosmos DB existente o crear una siguiendo los pasos descritos en [Inicio rápido: Administración de una cuenta de Azure Cosmos DB](../../cosmos-db/how-to-manage-database-account.md).
+* Un área de trabajo de Azure Synapse existente o crear una siguiendo los pasos descritos en [Inicio rápido: Creación de un área de trabajo de Synapse](../quickstart-create-workspace.md).
 
 > [!IMPORTANT]
 > Azure Synapse Link para Azure Cosmos DB es actualmente compatible con las áreas de trabajo que no tienen habilitada una red virtual administrada.

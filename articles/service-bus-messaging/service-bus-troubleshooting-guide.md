@@ -3,12 +3,12 @@ title: Guía para la solución de problemas de Azure Service Bus | Microsoft Doc
 description: Conozca las sugerencias y recomendaciones para la solución de algunos problemas que pueden aparecer al usar Azure Service Bus.
 ms.topic: article
 ms.date: 09/16/2020
-ms.openlocfilehash: aab7fa53b4af309c68cd91fdb1d25c5771f89828
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8c31d252d75a2ba75528cd12d3a94bad5bd9f677
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91261131"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98126876"
 ---
 # <a name="troubleshooting-guide-for-azure-service-bus"></a>Guía para la solución de problemas de Azure Service Bus
 En este artículo se proporcionan sugerencias y recomendaciones para la solución de algunos problemas que pueden aparecer al usar Azure Service Bus. 
@@ -26,7 +26,7 @@ Los pasos siguientes pueden ayudarle a solucionar problemas de conectividad, cer
     
     Un ejemplo de mensaje de error:
 
-    ```json
+    ```xml
     <Error>
         <Code>400</Code>
         <Detail>

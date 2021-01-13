@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: machine-learning
 ms.date: 09/13/2020
-ms.openlocfilehash: 805bc2aecda37599234c81dd928868d8c14aea4e
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 56b9a98eb72b375aacfeb7cb147997028d3d9ba7
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97091996"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98116813"
 ---
 # <a name="train-machine-learning-models"></a>Entrenamiento de modelos de Machine Learning
 Apache Spark en Azure Synapse Analytics permite el aprendizaje automático con macrodatos, lo que proporciona la capacidad de obtener información valiosa de grandes cantidades de datos estructurados, no estructurados y en rápido movimiento. Existen varias opciones cuando se entrenan modelos de Machine Learning mediante Azure Spark en Azure Synapse Analytics: Apache Spark MLlib, Azure Machine Learning y otras bibliotecas de código abierto. 
@@ -53,11 +53,11 @@ Si se usa ML automatizado en Azure Synapse Analytics, se puede aprovechar la int
 > Para más información sobre cómo crear experimentos de ML automatizado en Azure Machine Learning, consulte este [tutorial](./spark/../apache-spark-azure-machine-learning-tutorial.md).
 
 ## <a name="azure-cognitive-services"></a>Azure Cognitive Services
-[Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/what-are-cognitive-services) proporciona funciones de aprendizaje automático para solucionar problemas generales, como el análisis de texto para la opinión emocional o el análisis de imágenes para reconocer objetos o caras. No es necesario tener conocimientos de aprendizaje automático ni ciencia de datos para usar estos servicios. Un servicio de Cognitive Service proporciona una parte o todos los componentes de una solución de aprendizaje automático: datos, algoritmos y modelos entrenados. Estos servicios están diseñados para requerir conocimientos generales sobre los datos sin necesidad de tener experiencia con el aprendizaje automático o la ciencia de datos. Estos servicios de Cognitive Services se pueden entrenar previamente en Azure Synapse Analytics.
+[Azure Cognitive Services](../../cognitive-services/what-are-cognitive-services.md) proporciona funciones de aprendizaje automático para solucionar problemas generales, como el análisis de texto para la opinión emocional o el análisis de imágenes para reconocer objetos o caras. No es necesario tener conocimientos de aprendizaje automático ni ciencia de datos para usar estos servicios. Un servicio de Cognitive Service proporciona una parte o todos los componentes de una solución de aprendizaje automático: datos, algoritmos y modelos entrenados. Estos servicios están diseñados para requerir conocimientos generales sobre los datos sin necesidad de tener experiencia con el aprendizaje automático o la ciencia de datos. Estos servicios de Cognitive Services se pueden entrenar previamente en Azure Synapse Analytics.
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este artículo se proporciona información general sobre las distintas opciones para entrenar modelos de Machine Learning en los grupos de Apache Spark de Azure Synapse Analytics. Para más información sobre el entrenamiento de modelos, siga este tutorial:
 
-- Ejecute experimentos de ML automatizado mediante Azure Machine Learning y Azure Synapse Analytics: [Tutorial de ML automatizado](./spark/../apache-spark-autoscale.md) 
-- Ejecute experimentos de SparkML: [Tutorial de Apache SparkML](../spark/apache-spark-azure-machine-learning-tutorial.md)
+- Ejecute experimentos de ML automatizado mediante Azure Machine Learning y Azure Synapse Analytics: [Tutorial de ML automatizado](../spark/apache-spark-azure-machine-learning-tutorial.md) 
+- Ejecute experimentos de SparkML: [Tutorial de Apache SparkML](../spark/apache-spark-machine-learning-mllib-notebook.md)
 - Visualización de las bibliotecas predeterminadas: [Runtime de Azure Synapse Analytics](../spark/apache-spark-version-support.md)

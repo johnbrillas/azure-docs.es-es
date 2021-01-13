@@ -11,12 +11,12 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: c452d51018ef3f204cd7281971c07fb6337d39bf
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 3b61df954e913671eafff4b739e0f53a4d420c28
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96449705"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98117306"
 ---
 # <a name="guidance-for-designing-distributed-tables-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>Guía de diseño de tablas distribuidas mediante un grupo de SQL dedicado en Azure Synapse Analytics
 
@@ -68,7 +68,7 @@ Considere la opción de usar la distribución round robin para la tabla en los s
 - Si la combinación es menos importante que otras combinaciones de la consulta.
 - Cuando la tabla es una tabla de almacenamiento provisional
 
-El tutorial [Load New York taxicab data](load-data-from-azure-blob-storage-using-polybase.md#load-the-data-into-your-data-warehouse) (Carga de datos de taxis de Nueva York) proporciona un ejemplo de carga de datos en una tabla de almacenamiento provisional round robin.
+El tutorial [Load New York taxicab data](./load-data-from-azure-blob-storage-using-copy.md#load-the-data-into-your-data-warehouse) (Carga de datos de taxis de Nueva York) proporciona un ejemplo de carga de datos en una tabla de almacenamiento provisional round robin.
 
 ## <a name="choosing-a-distribution-column"></a>Elección de una columna de distribución
 

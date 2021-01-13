@@ -3,18 +3,18 @@ title: Seguridad de red para Azure Relay
 description: En este artículo se describe cómo usar las reglas de firewall de IP y los puntos de conexión privados con Azure Relay.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 3aa3ffd119f65ec5181b0c382472cc4ef3c8bac4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 608224f42fac8cd2d8ff06ab84989b1f675d418c
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91263732"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98134473"
 ---
 # <a name="network-security-for-azure-relay"></a>Seguridad de red para Azure Relay 
 En este artículo se describe cómo usar las siguientes características de seguridad con Azure Relay: 
 
 - Reglas de firewall de IP (versión preliminar)
-- Puntos de conexión privados (versión preliminar)
+- Puntos de conexión privados 
 
 > [!NOTE]
 > Azure Relay no admite puntos de conexión del servicio de red. 
@@ -29,14 +29,14 @@ Las reglas de firewall de IP se aplican en el nivel del espacio de nombres de Re
 
 Para obtener más información, consulte [Configuración de reglas de firewall de IP para un espacio de nombres de Relay](ip-firewall-virtual-networks.md).
 
+> [!NOTE]
+> Esta funcionalidad actualmente está en su **versión preliminar**. 
+
 ## <a name="private-endpoints"></a>Puntos de conexión privados
 
 El **servicio Azure Private Link** le permite acceder a los servicios de Azure (por ejemplo, Azure Relay, Azure Service Bus, Azure Event Hubs, Azure Storage y Azure Cosmos DB) y a los servicios de asociados o clientes hospedados por Azure mediante un punto de conexión privado de la red virtual. Para más información, consulte [¿Qué es Azure Private Link?](../private-link/private-link-overview.md)
 
 Un **punto de conexión privado** es una interfaz de red que permite que las cargas de trabajo que se ejecutan en una red virtual se conecten de forma privada y segura a un servicio que tiene un **recurso de vínculo privado** (por ejemplo, un espacio de nombres de Relay). El punto de conexión privado usa una dirección IP privada de la red virtual para incorporar el servicio de manera eficaz a su red virtual. Todo el tráfico dirigido al servicio se puede enrutar mediante el punto de conexión privado, por lo que no se necesitan puertas de enlace, dispositivos NAT, ExpressRoute, conexiones de VPN ni direcciones IP públicas. El tráfico entre la red virtual y el servicio atraviesa la red troncal de Microsoft y elimina la exposición a la red pública de Internet. Puede proporcionar un nivel de granularidad en el control de acceso si permite conexiones a espacios de nombres de Azure Relay específicos.
-
-> [!NOTE]
-> Esta funcionalidad actualmente está en su **versión preliminar**. 
 
 Para obtener más información, consulte [Configuración de los puntos de conexión privados](private-link-service.md).
 

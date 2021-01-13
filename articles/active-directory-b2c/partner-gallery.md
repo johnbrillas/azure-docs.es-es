@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/08/2020
+ms.date: 01/11/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4592742b99d7c3e915c31ca5a202355d32e76d68
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 15b4b61fd250dfb7d68c563f9f42c7d288a0019c
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97356130"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98070871"
 ---
 # <a name="azure-active-directory-b2c-isv-partners"></a>Asociados ISV de Azure Active Directory B2C
 
@@ -54,7 +54,7 @@ Microsoft se asocia con los siguientes ISV para la autenticación MFA y sin cont
 | ![Captura de pantalla de un logotipo de Nevis.](./media/partner-gallery/nevis-logo.png) | [Nevis](./partner-nevis.md) permite la autenticación sin contraseña y proporciona una experiencia de usuario final de marca completa, con prioridad para los dispositivos móviles con la aplicación Nevis Access, que ofrece la autenticación sólida de clientes y el cumplimiento de los requisitos de transacciones de PSD2. |
 | ![Captura de pantalla de un logotipo de Trusona](./media/partner-gallery/trusona-logo.png) | La integración de [Trusona](./partner-trusona.md) le ayuda a iniciar sesión de forma segura y permite la autenticación sin contraseñas, la autenticación multifactor y el examen de licencias digitales. |
 | ![Captura de pantalla de un logotipo de Twilio](./media/partner-gallery/twilio-logo.png) | La [aplicación Twilio Verify](./partner-twilio.md) proporciona varias soluciones que permiten MFA mediante la contraseña de un solo uso (OTP) de SMS, la contraseña de un solo uso y duración definida (TOTP) y las notificaciones push, así como el cumplimiento de los requisitos de SCA para PSD2. |
-| ![Captura de pantalla de un logotipo de TypingDNA](./media/partner-gallery/typingdna-logo.png) | [TypingDNA](./partner-twilio.md) permite una sólida autenticación del cliente mediante el análisis del patrón de escritura de un usuario. Ayuda a las empresas a permitir una autenticación MFA silenciosa y a cumplir con los requisitos de SCA para PSD2. |
+| ![Captura de pantalla de un logotipo de TypingDNA](./media/partner-gallery/typingdna-logo.png) | [TypingDNA](./partner-typingdna.md) permite una sólida autenticación del cliente mediante el análisis del patrón de escritura de un usuario. Ayuda a las empresas a permitir una autenticación MFA silenciosa y a cumplir con los requisitos de SCA para PSD2. |
 | ![Captura de pantalla de un logotipo de WhoIAM](./media/partner-gallery/whoiam-logo.png) | [WhoIAM](./partner-whoiam.md) es una aplicación del sistema de administración de identidades con marca (BRIMS) que permite a las organizaciones realizar la comprobación de su base de usuarios mediante voz, SMS y correo electrónico. |
 
 ## <a name="role-based-access-control"></a>Control de acceso basado en roles. 

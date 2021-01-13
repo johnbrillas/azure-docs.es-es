@@ -6,12 +6,12 @@ ms.date: 11/22/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 6bdad71f0b36995abdeb3b1edb87cbef32df8b67
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 115e1ec347cdcd80904b47a0c8798206360d0dad
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96919420"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131787"
 ---
 # <a name="quickstart-get-started-with-application-insights-in-a-java-web-project"></a>Inicio rápido: Introducción a Application Insights en un proyecto web de Java
 
@@ -56,7 +56,7 @@ A continuación, actualice las dependencias del proyecto, para obtener los archi
         <artifactId>applicationinsights-web-auto</artifactId>
         <!-- or applicationinsights-web for manual web filter registration -->
         <!-- or applicationinsights-core for bare API -->
-        <version>2.5.0</version>
+        <version>2.6.2</version>
       </dependency>
     </dependencies>
 ```
@@ -69,15 +69,11 @@ A continuación, actualice las dependencias del proyecto, para obtener los archi
 
 ```gradle
     dependencies {
-      compile group: 'com.microsoft.azure', name: 'applicationinsights-web-auto', version: '2.5.0'
+      compile group: 'com.microsoft.azure', name: 'applicationinsights-web-auto', version: '2.6.2'
       // or applicationinsights-web for manual web filter registration
       // or applicationinsights-core for bare API
     }
 ```
-
-# <a name="other-types"></a>[Otros tipos](#tab/other)
-
-Descargue el [versión más reciente](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest), copie los archivos necesarios en el proyecto y reemplace todos los de las versiones anteriores.
 
 ---
 
@@ -88,10 +84,7 @@ Descargue el [versión más reciente](https://github.com/Microsoft/ApplicationIn
   * `applicationinsights-core` solo proporciona la API básica, por ejemplo, si la aplicación no se basa en servlet.
   
 * *¿Cómo se debe actualizar el SDK a la versión más reciente?*
-  * Si usa Gradle o Maven...
-    * Actualice el archivo de compilación para especificar la última versión.
-  * Si va a administrar las dependencias manualmente...
-    * Descargue el [SDK más reciente de Application Insights para Java](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest) y sustituya los antiguos. Los cambios se describen en las [notas de la versión de SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).
+  * A partir de noviembre del 2020, para la supervisión de aplicaciones de Java se recomienda la instrumentación automática con el agente de Java 3.0 para Azure Monitor Application Insights. Para más información sobre cómo empezar, consulte [Agente de Java 3.0 para Application Insights](./java-in-process-agent.md).
 
 ## <a name="add-an-applicationinsightsxml-file"></a>Adición de un archivo *ApplicationInsights.xml*
 Agregue *ApplicationInsights.xml* a la carpeta de recursos del proyecto o asegúrese de que se agrega a la ruta de acceso de la clase de implementación del proyecto. Copie en ella el siguiente XML.
@@ -168,10 +161,6 @@ Los datos de las solicitudes HTTP aparecen en la hoja de información general. (
 Haga clic en cualquier gráfico para ver métricas agregadas más detalladas.
 
 ![Panel de errores de Application Insights con gráficos](./media/java-get-started/006-barcharts.png)
-
-<!--
-[TODO update image with 2.5.0 operation naming provided by agent]
--->
 
 ### <a name="instance-data"></a>Datos de instancia
 Haga clic en un tipo de solicitud específico para ver las instancias individuales.

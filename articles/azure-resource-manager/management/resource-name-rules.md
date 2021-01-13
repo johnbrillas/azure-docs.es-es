@@ -3,12 +3,12 @@ title: Restricciones de nomenclatura de recursos
 description: Muestra las reglas y las restricciones de nomenclatura de recursos de Azure.
 ms.topic: conceptual
 ms.date: 12/29/2020
-ms.openlocfilehash: edcf3f09b57ed7628611c482effddb210ef8e456
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: 59babd9298fdca96b450b2dc67832c86c043c49c
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814387"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132756"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Reglas y restricciones de nomenclatura para los recursos de Azure
 
@@ -83,7 +83,7 @@ En las tablas siguientes, el término carácter alfanumérico se refiere a:
 > | Entidad | Ámbito | Length | Caracteres válidos |
 > | --- | --- | --- | --- |
 > | locks | ámbito de asignación | 1-90 | Caracteres alfanuméricos, de subrayado, puntos, guiones y paréntesis.<br><br>No puede terminar con un punto. |
-> | policyAssignments | ámbito de asignación | 1-128 nombre para mostrar<br><br>1-64 nombre de recurso | El nombre para mostrar puede contener cualquier carácter.<br><br>El nombre de recurso no puede incluir `%` ni puede terminar con un punto o un espacio. |
+> | policyAssignments | ámbito de asignación | 1-128 nombre para mostrar<br><br>1-64 nombre de recurso<br><br>1-24 nombre del recurso en el ámbito del grupo de administración | El nombre para mostrar puede contener cualquier carácter.<br><br>El nombre de recurso no puede incluir `%` ni puede terminar con un punto o un espacio. |
 > | policyDefinitions | ámbito de definición | 1-128 nombre para mostrar<br><br>1-64 nombre de recurso | El nombre para mostrar puede contener cualquier carácter.<br><br>El nombre de recurso no puede incluir `%` ni puede terminar con un punto o un espacio. |
 > | policySetDefinitions | ámbito de definición | 1-128 nombre para mostrar<br><br>1-64 nombre de recurso<br><br>1-24 nombre del recurso en el ámbito del grupo de administración | El nombre para mostrar puede contener cualquier carácter.<br><br>El nombre de recurso no puede incluir `%` ni puede terminar con un punto o un espacio.  |
 

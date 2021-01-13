@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.subservice: machine-learning
 ms.date: 10/20/2020
 ms.author: midesa
-ms.openlocfilehash: 8735514b639cb0322a83ffb19d661027327c0f73
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 8768b8f8c7bf70b184971abc6ce27e2193823dea
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96458772"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121556"
 ---
 # <a name="analyze-data-with-apache-spark"></a>Análisis de datos con Apache Spark
 
@@ -25,7 +25,7 @@ En concreto, se analizará el [conjunto de datos de taxis de Nueva York (NYC)](h
 - Para crear un grupo de Apache Spark, siga el [tutorial Creación de un grupo de Apache Spark](../articles/../quickstart-create-apache-spark-pool-studio.md). 
 
 ## <a name="download-and-prepare-the-data"></a>Descarga y preparación de los datos
-1. Cree un cuaderno con el kernel de PySpark. Para obtener instrucciones al respecto, consulte la sección [Creación de un cuaderno](https://docs.microsoft.com/azure/synapse-analytics/quickstart-apache-spark-notebook#create-a-notebook). 
+1. Cree un cuaderno con el kernel de PySpark. Para obtener instrucciones al respecto, consulte la sección [Creación de un cuaderno](../quickstart-apache-spark-notebook.md#create-a-notebook). 
    
 > [!Note]
 > 
@@ -180,5 +180,5 @@ Una vez que finalice la ejecución de la aplicación, apague el cuaderno para li
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
+- [Azure Synapse Analytics](../index.yml)
 - [Documentación oficial de Apache Spark](https://spark.apache.org/docs/latest/)

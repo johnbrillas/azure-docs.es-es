@@ -6,16 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/02/2020
+ms.date: 01/08/2021
 ms.author: tamram
-ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 04b0b20452264493a0045c5adb6a1c32df5c6191
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 60ae6eb3142f8898f760027d37881ded8261f571
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97883136"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108099"
 ---
 # <a name="azure-storage-redundancy"></a>Redundancia de Azure Storage
 
@@ -156,6 +155,7 @@ En la tabla siguiente se describen los parámetros clave de cada opción de redu
 | Porcentaje de durabilidad de los objetos a lo largo de un año determinado | al menos 99,999999999 % (once nueves) | al menos 99,9999999999 % (doce nueves) | Como mínimo 99,99999999999999 % (dieciséis nueves) | Como mínimo 99,99999999999999 % (dieciséis nueves) |
 | Disponibilidad de las solicitudes de lectura | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) para GRS<br /><br />Al menos un 99,9 % (99,99 % para el nivel de acceso esporádico) para RA-GRS | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) para GZRS<br /><br />Al menos un 99,9 % (99,99 % para el nivel de acceso esporádico) para RA-GZRS |
 | Disponibilidad de las solicitudes de escritura | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) |
+| Cantidad de copias de datos mantenidas en nodos independientes                             | 3   | 3   | 6   | 6      |
 
 ### <a name="durability-and-availability-by-outage-scenario"></a>Durabilidad y disponibilidad por escenario de interrupción
 

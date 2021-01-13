@@ -9,12 +9,12 @@ ms.subservice: machine-learning
 ms.date: 11/13/2020
 ms.author: midesa
 ms.reviewer: jrasnick
-ms.openlocfilehash: ca55186a53b228aa97cc82d33a09aa3ffe455eee
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 0485f697b9360b0f2dfe94fdf07629978b5127c1
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97092013"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98116932"
 ---
 # <a name="machine-learning-with-apache-spark"></a>Machine Learning con Apache Spark
 
@@ -44,7 +44,7 @@ Para obtener más información sobre las funcionalidades de aprendizaje automát
 Las capacidades de cálculo distribuido en memoria de Spark lo convierten en una buena opción para algoritmos iterativos en los cálculos de gráficos y aprendizaje automático. ```spark.ml``` proporciona un conjunto uniforme de API de alto nivel que ayudan a los usuarios a crear y optimizar canalizaciones de aprendizaje automático. Para obtener más información acerca de ```spark.ml```, puede consultar la [guía de programación de Apache Spark ML](https://spark.apache.org/docs/1.2.2/ml-guide.html).
 
 ### <a name="azure-machine-learning-automated-ml"></a>ML automatizado de Azure Machine Learning
-[ML automatizado de Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-automated-ml) (aprendizaje automático automatizado) le permite automatizar el proceso de desarrollo de modelos de Machine Learning. Permite que los desarrolladores, analistas y científicos de datos creen modelos de aprendizaje automático con un escalado, eficiencia y productividad altos, al mismo tiempo que mantiene la calidad del modelo. Los componentes para ejecutar el SDK de ML automatizado de Azure Machine Learning se compilan directamente en el tiempo de ejecución de Synapse.
+[ML automatizado de Azure Machine Learning](../../machine-learning/concept-automated-ml.md) (aprendizaje automático automatizado) le permite automatizar el proceso de desarrollo de modelos de Machine Learning. Permite que los desarrolladores, analistas y científicos de datos creen modelos de aprendizaje automático con un escalado, eficiencia y productividad altos, al mismo tiempo que mantiene la calidad del modelo. Los componentes para ejecutar el SDK de ML automatizado de Azure Machine Learning se compilan directamente en el tiempo de ejecución de Synapse.
 
 ### <a name="open-source-libraries"></a>Bibliotecas de código abierto
 Cada grupo de Apache Spark de Azure Synapse Analytics incluye un conjunto de bibliotecas de aprendizaje automático conocidas y precargadas.  Algunas de las bibliotecas de aprendizaje automático relevantes que se incluyen de forma predeterminada son las siguientes:
@@ -56,13 +56,13 @@ Cada grupo de Apache Spark de Azure Synapse Analytics incluye un conjunto de bib
 - [PyTorch](https://pytorch.org/) & [Tensorflow](https://www.tensorflow.org/) son eficaces bibliotecas de aprendizaje profundo de Python. En los grupos de Apache Spark de Azure Synapse Analytics, estas bibliotecas se pueden usar para compilar modelos de máquina única estableciendo el número de ejecutores del grupo en cero. Aunque Apache Spark no funciona con esta configuración, es una manera sencilla y rentable de crear modelos de máquina única.
 
 ## <a name="track-model-development"></a>Seguimiento del desarrollo de modelos
-[MLflow](https://www.mlflow.org/) es una biblioteca de código abierto para administrar el ciclo de vida de los experimentos de aprendizaje automático. MLFlow Tracking es un componente de MLflow que registra las métricas de ejecución de entrenamiento y los artefactos de modelo y realiza un seguimiento de ellos. Para obtener más información sobre cómo puede usar el seguimiento de MLFlow a través de Azure Synapse Analytics y Azure Machine Learning, consulte este tutorial sobre [cómo usar MLFlow](https://docs.microsoft.com/azure/machine-learning/how-to-use-mlflow).
+[MLflow](https://www.mlflow.org/) es una biblioteca de código abierto para administrar el ciclo de vida de los experimentos de aprendizaje automático. MLFlow Tracking es un componente de MLflow que registra las métricas de ejecución de entrenamiento y los artefactos de modelo y realiza un seguimiento de ellos. Para obtener más información sobre cómo puede usar el seguimiento de MLFlow a través de Azure Synapse Analytics y Azure Machine Learning, consulte este tutorial sobre [cómo usar MLFlow](../../machine-learning/how-to-use-mlflow.md).
 
 ## <a name="model-scoring"></a>Puntuación del modelo
 La puntuación del modelo o la inferencia, es la fase en la que un modelo se usa para hacer predicciones. Para usar la puntuación del modelo con SparkML o MLLib, puede aprovechar los métodos de Spark nativos para realizar la inferencia directamente en una instancia de DataFrame de Spark. En cuanto a otras bibliotecas y tipos de modelo, puede crear una función definida por el usuario de Spark para escalar horizontalmente la inferencia en grandes conjuntos de datos. En el caso de conjuntos de datos más pequeños, también puede usar los métodos de inferencia de modelos nativos que proporciona la biblioteca.
 
 ## <a name="register-and-serve-models"></a>Registrar y servir modelos
-Al registrar un modelo, podrá almacenar, editar y realizar un seguimiento de los metadatos correspondientes a los modelos de su área de trabajo. Una vez que haya terminado de entrenar el modelo, puede registrarlo en el [registro del modelo de Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-model-management-and-deployment#register-package-and-deploy-models-from-anywhere). Una vez registrados, los modelos de ONNX también se pueden usar para [enriquecer los datos](../machine-learning/tutorial-sql-pool-model-scoring-wizard.md) almacenados en grupos de SQL dedicados.
+Al registrar un modelo, podrá almacenar, editar y realizar un seguimiento de los metadatos correspondientes a los modelos de su área de trabajo. Una vez que haya terminado de entrenar el modelo, puede registrarlo en el [registro del modelo de Azure Machine Learning](../../machine-learning/concept-model-management-and-deployment.md#register-package-and-deploy-models-from-anywhere). Una vez registrados, los modelos de ONNX también se pueden usar para [enriquecer los datos](../machine-learning/tutorial-sql-pool-model-scoring-wizard.md) almacenados en grupos de SQL dedicados.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para empezar a trabajar con el aprendizaje automático en Azure Synapse Analytics, asegúrese de consultar los siguientes tutoriales:
@@ -71,4 +71,3 @@ Para empezar a trabajar con el aprendizaje automático en Azure Synapse Analytic
 - [Entrenar un modelo de Machine Learning con ML automatizado](../spark/apache-spark-azure-machine-learning-tutorial.md)
 
 - [Entrenar un modelo de Machine Learning con Apache Spark MLlib](../spark/apache-spark-machine-learning-mllib-notebook.md)
-  

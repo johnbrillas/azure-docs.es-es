@@ -11,12 +11,12 @@ ms.date: 06/26/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 667629b7f613b11f40528b039c7525339b7a62d0
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: bd32b9690f8a9aef92eb1f2fbcc4ec926a65584e
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462858"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121199"
 ---
 # <a name="azure-advisor-recommendations-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Recomendaciones de Azure Advisor para el grupo de SQL dedicado en Azure Synapse Analytics
 
@@ -65,12 +65,12 @@ Actualmente Advisor solo mostrará como máximo cuatro candidatos de tabla repli
 
 
 ## <a name="adaptive-gen2-cache-utilization"></a>Uso de la memoria caché adaptable (Gen2)
-Si tiene un gran espacio de trabajo, puede experimentar un porcentaje de aciertos de caché bajo y un uso elevado de la memoria caché. En este escenario, debe escalar verticalmente para aumentar la capacidad de la memoria caché y volver a ejecutar la carga de trabajo. Para más información, visite la siguiente [documentación](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-how-to-monitor-cache). 
+Si tiene un gran espacio de trabajo, puede experimentar un porcentaje de aciertos de caché bajo y un uso elevado de la memoria caché. En este escenario, debe escalar verticalmente para aumentar la capacidad de la memoria caché y volver a ejecutar la carga de trabajo. Para más información, visite la siguiente [documentación](./sql-data-warehouse-how-to-monitor-cache.md). 
 
 ## <a name="tempdb-contention"></a>Contención de tempdb
 
-El rendimiento de las consultas puede reducirse si hay una gran contención de tempdb.  La contención de tempdb puede producirse a través de tablas temporales definidas por el usuario o cuando hay una gran cantidad de movimiento de datos. En este escenario, puede escalar para obtener más asignación de tempdb y [configurar las clases de recursos y la administración de cargas de trabajo](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-workload-management) para proporcionar más memoria a las consultas. 
+El rendimiento de las consultas puede reducirse si hay una gran contención de tempdb.  La contención de tempdb puede producirse a través de tablas temporales definidas por el usuario o cuando hay una gran cantidad de movimiento de datos. En este escenario, puede escalar para obtener más asignación de tempdb y [configurar las clases de recursos y la administración de cargas de trabajo](./sql-data-warehouse-workload-management.md) para proporcionar más memoria a las consultas. 
 
 ## <a name="data-loading-misconfiguration"></a>Error de configuración de la carga de datos
 
-Debe cargar siempre los datos desde una cuenta de almacenamiento que esté en la misma región que el grupo de SQL dedicado para minimizar la latencia. Use la [instrucción COPY para la ingesta de datos de alto rendimiento](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) y divida los archivos preconfigurados en la cuenta de almacenamiento para maximizar el rendimiento. Si no puede usar la instrucción COPY, puede usar la API SqlBulkCopy o bcp con un tamaño de lote alto para mejorar el rendimiento. Para obtener instrucciones adicionales sobre la carga de datos, consulte la siguiente [documentación](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/guidance-for-loading-data). 
+Debe cargar siempre los datos desde una cuenta de almacenamiento que esté en la misma región que el grupo de SQL dedicado para minimizar la latencia. Use la [instrucción COPY para la ingesta de datos de alto rendimiento](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) y divida los archivos preconfigurados en la cuenta de almacenamiento para maximizar el rendimiento. Si no puede usar la instrucción COPY, puede usar la API SqlBulkCopy o bcp con un tamaño de lote alto para mejorar el rendimiento. Para obtener instrucciones adicionales sobre la carga de datos, consulte la siguiente [documentación](./guidance-for-loading-data.md).

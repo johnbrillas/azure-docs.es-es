@@ -3,12 +3,12 @@ title: Información sobre cómo auditar el contenido de máquinas virtuales
 description: Obtenga información sobre la forma en que Azure Policy usa el cliente de configuración de invitado para auditar la configuración dentro de las máquinas virtuales.
 ms.date: 10/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 58fe1c630de4abfb2fe04ddedb45b360cfebd423
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: 5ec43516c60d2fe5d923a7b87cddbea0ad640453
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97862333"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98071840"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Información sobre Guest Configuration de Azure Policy
 
@@ -153,8 +153,6 @@ La extensión de la configuración de invitado escribe archivos de registro en l
 Windows: `C:\ProgramData\GuestConfig\gc_agent_logs\gc_agent.log`
 
 Linux: `/var/lib/GuestConfig/gc_agent_logs/gc_agent.log`
-
-Donde `<version>` se refiere al número de versión actual.
 
 ### <a name="collecting-logs-remotely"></a>Recopilar registros de forma remota
 

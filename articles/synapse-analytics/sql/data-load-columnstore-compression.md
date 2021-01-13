@@ -11,12 +11,12 @@ ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: e4656531f1424c3414ab00afbbe241a532738400
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 4f98d00477b7dc8fbbbe7d17705e398a708ce2af
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462272"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120944"
 ---
 # <a name="maximize-rowgroup-quality-for-columnstore-index-performance"></a>Maximización de la calidad de un grupo de filas para mejorar el rendimiento de un índice de almacén de columnas
 
@@ -142,6 +142,5 @@ Juntos, el tamaño de DWU y la clase de recursos de usuario, determinan cuánta 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para descubrir más formas de mejorar el rendimiento de SQL en Synapse, consulte el tema de [información general sobre rendimiento](../overview-cheat-sheet.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Para descubrir más formas de mejorar el rendimiento de SQL en Synapse, consulte el tema de [información general sobre rendimiento](../overview-terminology.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json).
 
- 

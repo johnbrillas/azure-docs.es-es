@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/30/2020
+ms.date: 01/07/2020
 ms.author: memildin
-ms.openlocfilehash: 854926c64b50cf4b8e7df9fa82da58b924ddbd83
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 835950cc68ca22ea3958d614d669d7a105fefe62
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96510427"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132926"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Archivo de novedades de Azure Security Center
 
@@ -28,6 +28,122 @@ En este página se proporciona información acerca de lo siguiente:
 - Nuevas características
 - Corrección de errores
 - Funciones obsoletas
+
+
+## <a name="july-2020"></a>Julio de 2020
+
+Las actualizaciones de julio incluyen:
+- [Evaluación de vulnerabilidades de las máquinas virtuales disponible ahora para las imágenes que no son de Marketplace](#vulnerability-assessment-for-virtual-machines-is-now-available-for-non-marketplace-images)
+- [Protección contra amenazas para Azure Storage expandido con el fin de incluir Azure Files y Azure Data Lake Storage Gen2 (versión preliminar)](#threat-protection-for-azure-storage-expanded-to-include-azure-files-and-azure-data-lake-storage-gen2-preview)
+- [Ocho nuevas recomendaciones para habilitar las características de protección contra amenazas](#eight-new-recommendations-to-enable-threat-protection-features)
+- [Mejoras en la seguridad de los contenedores: análisis del registro más rápido y documentación actualizada](#container-security-improvements---faster-registry-scanning-and-refreshed-documentation)
+- [Controles de aplicaciones adaptables actualizados con una nueva recomendación y compatibilidad para caracteres comodín en reglas de ruta de acceso](#adaptive-application-controls-updated-with-a-new-recommendation-and-support-for-wildcards-in-path-rules)
+- [Novedades de Azure Security Center](#six-policies-for-sql-advanced-data-security-deprecated)
+
+
+
+
+### <a name="vulnerability-assessment-for-virtual-machines-is-now-available-for-non-marketplace-images"></a>Evaluación de vulnerabilidades de las máquinas virtuales disponible ahora para las imágenes que no son de Marketplace
+
+Anteriormente, al implementar una solución de evaluación de vulnerabilidades, Security Center realizaba una comprobación de validación antes de la implementación. La comprobación se realizaba para confirmar la SKU de Marketplace de la máquina virtual de destino. 
+
+A partir de esta actualización, se ha eliminado esta comprobación y así ahora se pueden implementar herramientas de evaluación de vulnerabilidades en máquinas Windows y Linux personalizadas. Las imágenes personalizadas son aquellas que se han modificado a partir de los valores predeterminados de Marketplace.
+
+Aunque ahora puede implementar la extensión de evaluación de vulnerabilidades integrada (con tecnología de Qualys) en muchas más máquinas, la compatibilidad solo está disponible si usa uno de los sistemas operativos que se indica en [Implementación del detector de vulnerabilidades integrado en VM de nivel estándar](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-scanner-to-your-azure-and-hybrid-machines).
+
+Más información sobre el [Detector de vulnerabilidades integrado para máquinas virtuales (requiere Azure Defender)](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)
+
+Más información sobre el uso de su propia solución de evaluación de vulnerabilidades con licencia privada de Qualys o Rapid7 en [Implementación de una solución de examen de vulnerabilidades de asociados](deploy-vulnerability-assessment-vm.md)
+
+
+### <a name="threat-protection-for-azure-storage-expanded-to-include-azure-files-and-azure-data-lake-storage-gen2-preview"></a>Protección contra amenazas para Azure Storage expandido con el fin de incluir Azure Files y Azure Data Lake Storage Gen2 (versión preliminar)
+
+La protección contra amenazas para Azure Storage detecta actividades potencialmente dañinas en las cuentas de Azure Storage. Security Center muestra alertas cuando detecta intentos de acceder a las cuentas de almacenamiento o de aprovecharlas. 
+
+Los datos se pueden proteger tanto si se almacenan como contenedores de blobs, recursos compartidos de archivos o lagos de datos.
+
+
+
+
+### <a name="eight-new-recommendations-to-enable-threat-protection-features"></a>Ocho nuevas recomendaciones para habilitar las características de protección contra amenazas
+
+Se han agregado ocho nuevas recomendaciones para proporcionar una manera sencilla de habilitar las características de protección contra amenazas de Azure Security Center para los siguientes tipos de recursos: máquinas virtuales, planes de App Service, servidores de Azure SQL Database, servidores SQL Server en máquinas, cuentas de Azure Storage, clústeres de Azure Kubernetes Service, registros de Azure Container Registry y almacenes de Azure Key Vault.
+
+Las nuevas recomendaciones son:
+
+- **Advanced Data Security debe estar habilitado en los servidores de Azure SQL Database**
+- **Advanced Data Security debe estar habilitado en los servidores SQL Server en las máquinas**
+- **Advanced Threat Protection debe estar habilitado en los planes de Azure App Service**
+- **Advanced Threat Protection debe estar habilitado en los registros de Azure Container Registry**
+- **Advanced Threat Protection debe estar habilitado en los almacenes de Azure Key Vault**
+- **Advanced Threat Protection debe estar habilitado en los clústeres de Azure Kubernetes Service**
+- **Advanced Threat Protection debe estar habilitado en las cuentas de almacenamiento de Azure**
+- **Advanced Threat Protection debe estar habilitado en Virtual Machines**
+
+Estas nuevas recomendaciones pertenecen al control de seguridad **Habilitar Azure Defender**.
+
+Las recomendaciones también incluyen la funcionalidad de corrección rápida. 
+
+> [!IMPORTANT]
+> La corrección de cualquiera de estas recomendaciones dará lugar a cargos por la protección de los recursos pertinentes. Estos cargos se iniciarán de forma inmediata si tiene recursos relacionados en la suscripción actual. O en el futuro, si los agrega en una fecha posterior.
+> 
+> Por ejemplo, si no tiene ningún clúster de Azure Kubernetes Service en su suscripción y habilita la protección contra amenazas, no se aplicarán cargos. Si, en el futuro, agrega un clúster a la misma suscripción, este se protegerá automáticamente y a partir de ese momento, se iniciarán los cargos.
+
+Más información sobre cada una de estas recomendaciones en la [página de referencia de las recomendaciones de seguridad](recommendations-reference.md).
+
+Más información sobre la [protección contra amenazas en Azure Security Center](azure-defender.md).
+
+
+
+
+### <a name="container-security-improvements---faster-registry-scanning-and-refreshed-documentation"></a>Mejoras en la seguridad de los contenedores: análisis del registro más rápido y documentación actualizada
+
+Como parte de las inversiones continuas en el dominio de la seguridad de los contenedores, nos complace compartir una mejora significativa del rendimiento en los análisis dinámicos de las imágenes de contenedor de Security Center que se almacenan en Azure Container Registry. Los exámenes se completan ahora en aproximadamente dos minutos. En algunos casos, pueden tardar hasta 15 minutos.
+
+Para mejorar la claridad y la orientación con respecto a las funcionalidades de seguridad de los contenedores de Azure Security Center, también hemos actualizado las páginas de documentación sobre la seguridad de los contenedores. 
+
+Más información sobre la seguridad de los contenedores de Security Center en los artículos siguientes:
+
+- [Información general sobre las características de seguridad de los contenedores de Azure Security Center](container-security.md)
+- [Detalles de la integración con Azure Container Registry](defender-for-container-registries-introduction.md)
+- [Detalles de la integración con Azure Kubernetes Service](defender-for-kubernetes-introduction.md)
+- [Procedimientos para el examen de los registros y la protección de los hosts de Docker](container-security.md)
+- [Alertas de seguridad de las características de protección contra amenazas para clústeres de Azure Kubernetes Service](alerts-reference.md#alerts-akscluster)
+- [Alertas de seguridad de las características de protección contra amenazas para hosts de Azure Kubernetes Service](alerts-reference.md#alerts-containerhost)
+- [Recomendaciones de seguridad para contenedores](recommendations-reference.md#recs-compute)
+
+
+
+### <a name="adaptive-application-controls-updated-with-a-new-recommendation-and-support-for-wildcards-in-path-rules"></a>Controles de aplicaciones adaptables actualizados con una nueva recomendación y compatibilidad para caracteres comodín en reglas de ruta de acceso
+
+La característica de controles de aplicaciones adaptables ha recibido dos actualizaciones importantes:
+
+* Una nueva recomendación identifica un comportamiento potencialmente legítimo que no se ha permitido previamente. La nueva recomendación, **Se deben actualizar las reglas de la lista de permitidos de la directiva de controles de aplicaciones adaptables**, le pedirá que agregue nuevas reglas a la directiva existente para reducir el número de falsos positivos en las alertas de infracción de controles de aplicaciones adaptables.
+
+* Las reglas de ruta de acceso ahora admiten caracteres comodín. A partir de esta actualización, puede configurar las reglas de ruta de acceso permitidas mediante caracteres comodín. Se admiten dos escenarios:
+
+    * El uso de un carácter comodín al final de una ruta de acceso para permitir todos los ejecutables dentro de esta carpeta y subcarpetas
+
+    * El uso de un carácter comodín en medio de una ruta de acceso para habilitar un nombre ejecutable conocido con un nombre de carpeta cambiante (por ejemplo, carpetas de usuario personales con un archivo ejecutable conocido, nombres de carpeta generados automáticamente, etc.).
+
+
+[Más información acerca de los controles de aplicación adaptables](security-center-adaptive-application.md).
+
+
+
+### <a name="six-policies-for-sql-advanced-data-security-deprecated"></a>Seis directivas para la seguridad avanzada de datos de SQL en desuso
+
+Seis directivas relacionadas con la seguridad avanzada de datos para máquinas SQL están en desuso:
+
+- Los tipos de Advanced Threat Protection deben definirse como "Todos" en la configuración de Advanced Data Security para SQL Managed Instance.
+- Los tipos de Advanced Threat Protection deben definirse como "Todos" en la configuración de Advanced Data Security del servidor SQL Server.
+- La configuración de seguridad de datos avanzada para una instancia administrada SQL debe contener una dirección de correo electrónico para recibir alertas de seguridad
+- La configuración de seguridad de datos avanzada para SQL Server debe contener una dirección de correo electrónico para recibir alertas de seguridad
+- Las notificaciones a los administradores y a los propietarios de la suscripción deben estar habilitadas en la configuración de seguridad avanzada de datos de la instancia administrada de SQL
+- Las notificaciones por correo electrónico para administradores y propietarios de suscripciones deben estar habilitadas en la configuración de seguridad avanzada de datos de SQL Server
+
+Obtenga más información sobre las [directivas integradas](./policy-reference.md).
+
 
 
 ## <a name="june-2020"></a>Junio de 2020
@@ -79,7 +195,7 @@ Estas nuevas recomendaciones aparecerán en los mismos cuatro controles de segur
 
 Las recomendaciones también incluyen la función de corrección rápida para ayudar a acelerar el proceso de implementación. 
 
-Obtenga más información sobre estas dos nuevas recomendaciones en la tabla [Recomendaciones de proceso y aplicación](recommendations-reference.md#recs-computeapp).
+Obtenga más información sobre estas dos nuevas recomendaciones en la tabla [Recomendaciones de proceso y aplicación](recommendations-reference.md#recs-compute).
 
 Obtenga más información sobre la manera en que Azure Security Center usa el agente en [¿Qué es el agente de Log Analytics?](faq-data-collection-agents.md#what-is-the-log-analytics-agent)
 
@@ -116,7 +232,7 @@ El control de seguridad "implementar prácticas recomendadas de seguridad" inclu
 
 Una recomendación existente (**Las máquinas virtuales sin conexión a Internet deben protegerse con grupos de seguridad de red**) no distinguía entre las máquinas virtuales con y sin conexión a Internet. En ambos casos, se generaba una recomendación de alta gravedad si una máquina virtual no estaba asignada a un grupo de seguridad de red. Esta nueva recomendación separa las máquinas sin conexión a Internet para reducir los falsos positivos y evitar alertas innecesarias de alta gravedad.
 
-Obtenga más información en la tabla [Recomendaciones de red](recommendations-reference.md#recs-network).
+Obtenga más información en la tabla [Recomendaciones de red](recommendations-reference.md#recs-networking).
 
 
 
@@ -316,7 +432,7 @@ Los ejemplos de recomendaciones de identidad y acceso incluyen:
 
 Si tiene suscripciones en el plan de tarifa gratuito, su puntuación de seguridad se verá afectada por este cambio ya que nunca se evaluó su identidad y seguridad de acceso.
 
-Más información sobre [recomendaciones de identidad y acceso](recommendations-reference.md#recs-identity).
+Más información sobre [recomendaciones de identidad y acceso](recommendations-reference.md#recs-identityandaccess).
 
 Más información acerca de la [supervisión de la identidad y el acceso](security-center-identity-access.md).
 
@@ -621,7 +737,7 @@ Security Center admite ahora escenarios de administración entre inquilinos como
 
 Azure Security Center (ASC) ha lanzado nuevas recomendaciones de redes y ha mejorado algunas existentes. Ahora, el uso de Security Center garantiza una mayor protección de la red para los recursos. 
 
-[Más información sobre las recomendaciones de redes](recommendations-reference.md#recs-network).
+[Más información sobre las recomendaciones de redes](recommendations-reference.md#recs-networking).
 
 
 ## <a name="june-2019"></a>Junio de 2019

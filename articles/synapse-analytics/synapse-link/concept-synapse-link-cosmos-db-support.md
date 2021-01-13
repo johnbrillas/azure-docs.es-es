@@ -9,12 +9,12 @@ ms.subservice: synapse-link
 ms.date: 09/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3d12e60e2aeee667b89d56589870d53366772014
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: b58474758ac4d26b347dc72d84be401d15a3846b
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96459046"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98119822"
 ---
 # <a name="azure-synapse-link-for-azure-cosmos-db-supported-features"></a>Características admitidas de Azure Synapse Link para Azure Cosmos DB
 
@@ -31,7 +31,7 @@ Hay dos tipos de contenedores en Azure Cosmos DB:
 
 Puede conectarse a un contenedor de Azure Cosmos DB sin habilitar Synapse Link. En este escenario, solo se puede leer y escribir en el almacén transaccional. A continuación, se muestra la lista de las características admitidas actualmente en Synapse Link para Azure Cosmos DB. 
 
-| Category              | Descripción |[Grupo de Apache Spark](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) | [Grupo de SQL sin servidor](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) |
+| Category              | Descripción |[Grupo de Apache Spark](../sql/on-demand-workspace-overview.md) | [Grupo de SQL sin servidor](../sql/on-demand-workspace-overview.md) |
 | -------------------- | ----------------------------------------------------------- |----------------------------------------------------------- | ----------------------------------------------------------- |
 | **Compatibilidad con el tiempo de ejecución** |Tiempo de ejecución de Azure Synapse compatible para acceder a Azure Cosmos DB| ✓ | Vista previa |
 | **Compatibilidad con la API de Azure Cosmos DB** | Tipo de Azure Cosmos DB API compatible | SQL/MongoDB | SQL/MongoDB |
