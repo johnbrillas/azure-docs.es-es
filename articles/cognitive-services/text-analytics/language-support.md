@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 12/17/2020
 ms.author: aahi
-ms.openlocfilehash: 180de56e3c158802460d2ff995041e8572d4dcd7
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: a0cd968c90a27d6f1ae79d08fb2bd027169233db
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97844971"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98133793"
 ---
 # <a name="text-analytics-api-v3-language-support"></a>Idiomas admitidos en Text Analytics API v3 
 
@@ -86,11 +86,9 @@ ms.locfileid: "97844971"
 
 #### <a name="key-phrase-extraction"></a>[Extracción de frases clave](#tab/key-phrase-extraction)
 
-> [!NOTE]
-> Las versiones del modelo de Extracción de frases clave anteriores a la 2020-07-01 tienen un límite de 64 caracteres. Este límite no está presente en versiones posteriores del modelo.
-
 | Idioma              | Código de lenguaje | Compatibilidad con la versión 2 | Compatibilidad con la versión 3 | Disponible a partir de la versión del modelo 3: |       Notas        |
 |:----------------------|:-------------:|:----------:|:----------:|:-----------------------------------------:|:------------------:|
+| Danés                |     `da`      |     ✓      |      ✓     |                2019-10-01                 |                    |
 | Neerlandés                 |     `nl`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Inglés               |     `en`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Finés               |     `fi`      |     ✓      |     ✓      |                2019-10-01                 |                    |

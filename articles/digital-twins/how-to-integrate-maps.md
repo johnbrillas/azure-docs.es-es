@@ -8,12 +8,12 @@ ms.date: 6/3/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 3e5eb49a91e2c8bbd73f5dd37ed90f10b406fa3d
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 7b2039f8b1aebef65112067e4fd9184777192015
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92496033"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98051588"
 ---
 # <a name="use-azure-digital-twins-to-update-an-azure-maps-indoor-map"></a>Uso de Azure Digital Twins para actualizar un plano interior de Azure Maps
 
@@ -29,7 +29,7 @@ En estas instrucciones se tratará lo siguiente:
 
 * Siga el [*Tutorial de Azure Digital Twins: Conexión de una solución de un extremo a otro*](./tutorial-end-to-end.md).
     * En él ampliará este gemelo con un punto de conexión y una ruta adicionales. En dicho tutorial también agregará otra función a la aplicación de funciones. 
-* Siga el [*Tutorial de Azure Maps: Uso de Creator para crear planos interiores*](../azure-maps/tutorial-creator-indoor-maps.md) a fin de crear un plano interior de Azure Maps con un *conjunto de estados de características* .
+* Siga el [*Tutorial de Azure Maps: Uso de Creator para crear planos interiores*](../azure-maps/tutorial-creator-indoor-maps.md) a fin de crear un plano interior de Azure Maps con un *conjunto de estados de características*.
     * Los [conjuntos de estados de características](../azure-maps/creator-indoor-maps.md#feature-statesets) son colecciones de propiedades dinámicas (estados) asignadas a las características del conjunto de datos, como salas o equipamiento. En el tutorial anterior de Azure Maps, el conjunto de estados de las características almacena el estado de la sala que se mostrará en un plano.
     * Necesitará el *id. de conjunto de estados* de las características y el *id. de suscripción* de Azure Maps.
 
@@ -72,66 +72,13 @@ Este patrón realiza la lectura directamente desde el gemelo de la sala, en luga
 
 ## <a name="create-an-azure-function-to-update-maps"></a>Creación de una función de Azure para actualizar planos
 
-Va a crear una función desencadenada por Event Grid en la aplicación de funciones siguiendo el tutorial de un extremo a otro ( [*Tutorial: Conexión de una solución de un extremo a otro*](./tutorial-end-to-end.md)). Esta función desempaquetará esas notificaciones y enviará actualizaciones a un conjunto de estados de características de Azure Maps para actualizar la temperatura de una sala. 
+Va a crear una función desencadenada por Event Grid en la aplicación de funciones siguiendo el tutorial de un extremo a otro ([*Tutorial: Conexión de una solución de un extremo a otro*](./tutorial-end-to-end.md)). Esta función desempaquetará esas notificaciones y enviará actualizaciones a un conjunto de estados de características de Azure Maps para actualizar la temperatura de una sala. 
 
 Vea el documento siguiente para obtener información de referencia: [*Desencadenador de Azure Event Grid para Azure Functions*](../azure-functions/functions-bindings-event-grid-trigger.md).
 
 Reemplace el código de la función por el siguiente. Solo filtrará las actualizaciones de los gemelos de los espacios, leerá la temperatura actualizada y enviará esa información a Azure Maps.
 
-```C#
-using Microsoft.Azure.EventGrid.Models;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Extensions.EventGrid;
-using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System;
-using System.Threading.Tasks;
-using System.Net.Http;
-
-namespace SampleFunctionsApp
-{
-    public static class ProcessDTUpdatetoMaps
-    {   //Read maps credentials from application settings on function startup
-        private static string statesetID = Environment.GetEnvironmentVariable("statesetID");
-        private static string subscriptionKey = Environment.GetEnvironmentVariable("subscription-key");
-        private static HttpClient httpClient = new HttpClient();
-
-        [FunctionName("ProcessDTUpdatetoMaps")]
-        public static async Task Run([EventGridTrigger]EventGridEvent eventGridEvent, ILogger log)
-        {
-            JObject message = (JObject)JsonConvert.DeserializeObject(eventGridEvent.Data.ToString());
-            log.LogInformation("Reading event from twinID:" + eventGridEvent.Subject.ToString() + ": " +
-                eventGridEvent.EventType.ToString() + ": " + message["data"]);
-
-            //Parse updates to "space" twins
-            if (message["data"]["modelId"].ToString() == "dtmi:contosocom:DigitalTwins:Space;1")
-            {   //Set the ID of the room to be updated in your map. 
-                //Replace this line with your logic for retrieving featureID. 
-                string featureID = "UNIT103";
-
-                //Iterate through the properties that have changed
-                foreach (var operation in message["data"]["patch"])
-                {
-                    if (operation["op"].ToString() == "replace" && operation["path"].ToString() == "/Temperature")
-                    {   //Update the maps feature stateset
-                        var postcontent = new JObject(new JProperty("States", new JArray(
-                            new JObject(new JProperty("keyName", "temperature"),
-                                 new JProperty("value", operation["value"].ToString()),
-                                 new JProperty("eventTimestamp", DateTime.Now.ToString("s"))))));
-
-                        var response = await httpClient.PostAsync(
-                            $"https://atlas.microsoft.com/featureState/state?api-version=1.0&statesetID={statesetID}&featureID={featureID}&subscription-key={subscriptionKey}",
-                            new StringContent(postcontent.ToString()));
-
-                        log.LogInformation(await response.Content.ReadAsStringAsync());
-                    }
-                }
-            }
-        }
-    }
-}
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/updateMaps.cs":::
 
 Tendrá que establecer dos variables de entorno en la aplicación de funciones. Una es la [clave de suscripción principal de Azure Maps](../azure-maps/quick-demo-map-app.md#get-the-primary-key-for-your-account), y la otra, el [id. del conjunto de estados de Azure Maps](../azure-maps/tutorial-creator-indoor-maps.md#create-a-feature-stateset).
 
@@ -152,7 +99,7 @@ Para ver las actualizaciones directas de la temperatura, siga estos pasos:
 
 Ambos ejemplos envían la temperatura en un rango compatible, por lo que debería ver el color de la actualización de la sala 121 en el plano aproximadamente cada 30 segundos.
 
-:::image type="content" source="media/how-to-integrate-maps/maps-temperature-update.png" alt-text="Vista de los servicios de Azure en un escenario de un extremo a otro, resaltando la parte Integración de planos interiores":::
+:::image type="content" source="media/how-to-integrate-maps/maps-temperature-update.png" alt-text="Plano de una oficina que muestra la sala 121 de color naranja":::
 
 ## <a name="store-your-maps-information-in-azure-digital-twins"></a>Almacenamiento de la información de los planos en Azure Digital Twins
 

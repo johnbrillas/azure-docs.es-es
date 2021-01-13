@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/09/2020
 ms.author: kaprochi
-ms.openlocfilehash: 7e27c3dd6e70d9a532c326d8187d82e14bf7ddda
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: d37fca06a3d2eafa0af9e31c3a30ac66be5404f0
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97591623"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020611"
 ---
 # <a name="cicd-for-custom-speech"></a>CI/CD para Habla personalizada
 
@@ -83,7 +83,7 @@ En el caso de una solución DevOps ya implementada para Habla personalizada, vis
 El [repositorio de plantillas de DevOps para Voz](https://github.com/Azure-Samples/Speech-Service-DevOps-Template) proporciona la infraestructura y las instrucciones detalladas para:
 
 - Copiar el repositorio de plantillas en su cuenta de GitHub y, a continuación, crear los recursos de Azure y una [entidad de servicio](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) para los flujos de trabajo de CI/CD de Acciones de GitHub.
-- Realizar el "[bucle interno de desarrollo](https://mitchdenny.com/the-inner-loop/)". Actualizar los datos de entrenamiento y prueba desde una rama de características, probar los cambios con un modelo de desarrollo temporal y generar una solicitud de incorporación de cambios para proponer y revisar los cambios.
+- Realizar el "[bucle interno de desarrollo](/dotnet/architecture/containerized-lifecycle/design-develop-containerized-apps/docker-apps-inner-loop-workflow)". Actualizar los datos de entrenamiento y prueba desde una rama de características, probar los cambios con un modelo de desarrollo temporal y generar una solicitud de incorporación de cambios para proponer y revisar los cambios.
 - Entrenar modelos con el flujo de trabajo de CI mediante Acciones de GitHub cuando se actualizan los datos de entrenamiento en una solicitud de incorporación de cambios para la rama *master*.
 - Realizar pruebas de precisión automatizadas para establecer la métrica [Word Error Rate](how-to-custom-speech-evaluate-data.md#evaluate-custom-speech-accuracy) (WER) de un modelo. Almacenar los resultados de pruebas en el Blob de Azure.
 - Ejecutar el flujo de trabajo de CD para crear un punto de conexión cuando mejore el valor de WER.

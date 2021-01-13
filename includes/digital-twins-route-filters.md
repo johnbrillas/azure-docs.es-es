@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 12/04/2020
 ms.author: baanders
-ms.openlocfilehash: 5eafac1c1bc2e7dd28e0cae544dc178e5bdc601e
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: e06e660a43aaa0ff5eb79bc00bd8a5d2c61c6580
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96748222"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98045326"
 ---
 | Nombre de filtro | Descripción | Esquema de texto de filtro | Valores admitidos | 
 | --- | --- | --- | --- |
@@ -25,15 +25,7 @@ ms.locfileid: "96748222"
 
 Tenga en cuenta que puede agregar varios filtros a una solicitud como esta: 
 
-```json  
-{
-    "endpointName": "dt-endpoint", 
-    "filter": "true", 
-    "filter": "source = 'ADT-resource.api.wus2.digitaltwins.azure.net/myFloorID'", 
-    "filter": "type = 'Microsoft.DigitalTwins.Twin.Delete'", 
-    "filter": "specversion = '1.0'"
-}
-```
+:::code language="json" source="~/digital-twins-docs-samples/api-requests/filter-multiple.json":::
 
 Los siguientes tipos de datos se admiten como valores devueltos por las referencias a los datos anteriores:
 

@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: a1fc5be93e2b9729838aa9fb3a777936003c5f45
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: d9a6eb572b1ab870fdb848f8b0989f88e6dbc3c0
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93356402"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98045961"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>Explicación del concepto de gemelos digitales y su grafo gemelo
 
-En una solución de Azure Digital Twins, las entidades de su entorno se representan mediante **gemelos digitales** de Azure. Un gemelo digital es una instancia de uno de sus [modelos](concepts-models.md) definidos de forma personalizada. Se puede conectar a otros gemelos digitales a través de **relaciones** para formar una **grafo de gemelos** : este grafo de gemelos es la representación de todo el entorno.
+En una solución de Azure Digital Twins, las entidades de su entorno se representan mediante **gemelos digitales** de Azure. Un gemelo digital es una instancia de uno de sus [modelos](concepts-models.md) definidos de forma personalizada. Se puede conectar a otros gemelos digitales a través de **relaciones** para formar una **grafo de gemelos**: este grafo de gemelos es la representación de todo el entorno.
 
 > [!TIP]
 > "Azure Digital Twins" hace referencia a este servicio de Azure en conjunto. "Gemelos digitales" o simplemente "gemelos" hace referencia a nodos gemelos individuales dentro de la instancia del servicio.
@@ -25,13 +25,13 @@ En una solución de Azure Digital Twins, las entidades de su entorno se represen
 
 Para poder crear un gemelo digital en la instancia de Azure Digital Twins, debe tener un *modelo* cargado en el servicio. Un modelo describe el conjunto de propiedades, los mensajes de telemetría y las relaciones que puede tener un gemelo determinado, entre otras cosas. Para conocer los tipos de información que se definen en un modelo, consulte [*Conceptos: Modelos personalizados*](concepts-models.md).
 
-Después de crear y cargar un modelo, la aplicación cliente puede crear una instancia del tipo, que es un gemelo digital. Por ejemplo, después de crear un modelo de *Floor* , puede crear uno o varios gemelos digitales que usen este tipo (como un gemelo de tipo *Floor* denominado *GroundFloor* , otro denominado *Floor2* , etc.). 
+Después de crear y cargar un modelo, la aplicación cliente puede crear una instancia del tipo, que es un gemelo digital. Por ejemplo, después de crear un modelo de *Floor*, puede crear uno o varios gemelos digitales que usen este tipo (como un gemelo de tipo *Floor* denominado *GroundFloor*, otro denominado *Floor2*, etc.). 
 
 ## <a name="relationships-a-graph-of-digital-twins"></a>Relaciones: un grafo de gemelos digitales
 
 Los gemelos se conectan a un grafo de gemelos a través de sus relaciones. Las relaciones que un gemelo puede tener se definen como parte de su modelo.  
 
-Por ejemplo, el modelo *Floor* podría definir una relación *contains* dirigida a gemelos de tipo *Room*. Con esta definición, Azure Digital Twins le permitirá crear relaciones *contains* desde cualquier gemelo *Floor* en cualquier gemelo *Room* (incluidos los gemelos que son de subtipos *Room* ). 
+Por ejemplo, el modelo *Floor* podría definir una relación *contains* dirigida a gemelos de tipo *Room*. Con esta definición, Azure Digital Twins le permitirá crear relaciones *contains* desde cualquier gemelo *Floor* en cualquier gemelo *Room* (incluidos los gemelos que son de subtipos *Room*). 
 
 El resultado de este proceso es un conjunto de nodos (los gemelos digitales) conectado a través de bordes (sus relaciones) en un grafo.
 
@@ -47,7 +47,7 @@ A continuación se muestra un fragmento de código de cliente que usa las [API d
 
 Puede inicializar las propiedades de un gemelo cuando se crea o hacerlo más adelante. Para crear un gemelo con propiedades inicializadas, cree un documento JSON que proporcione los valores de inicialización necesarios.
 
-[!INCLUDE [Azure Digital Twins code: create twin](../../includes/digital-twins-code-create-twin.md)]
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="CreateTwin_noHelper":::
 
 También puede usar una clase auxiliar denominada `BasicDigitalTwin` para almacenar campos de propiedades en un objeto "gemelo" más directamente, como alternativa al uso de un diccionario. Para obtener más información sobre la clase auxiliar y observar ejemplos de su uso, vea la sección [*Creación de un gemelo digital*](how-to-manage-twin.md#create-a-digital-twin) de  *Administración de Digital Twins*.
 
@@ -58,25 +58,7 @@ También puede usar una clase auxiliar denominada `BasicDigitalTwin` para almace
 
 A continuación se incluye un ejemplo de código de cliente que usa las [API de DigitalTwins](/rest/api/digital-twins/dataplane/twins) para crear una relación entre un gemelo digital de tipo *Floor* denominado *GroundFloor* y un gemelo digital de tipo *Room* denominado *Cafe*.
 
-```csharp
-// Create Twins, using functions similar to the previous sample
-await CreateRoom("Cafe", 70, 66);
-await CreateFloor("GroundFloor", averageTemperature=70);
-// Create relationships
-var relationship = new BasicRelationship
-{
-    TargetId = "Cafe",
-    Name = "contains"
-};
-try
-{
-    string relId = $"GroundFloor-contains-Cafe";
-    await client.CreateOrReplaceRelationshipAsync<BasicRelationship>("GroundFloor", relId, relationship);
-} catch(ErrorResponseException e)
-{
-    Console.WriteLine($"*** Error creating relationship: {e.Response.StatusCode}");
-}
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_other.cs" id="CreateRelationship_3":::
 
 ## <a name="json-representations-of-graph-elements"></a>Representaciones JSON de elementos de grafo
 
@@ -90,7 +72,7 @@ Si se representa como un objeto JSON, un gemelo digital mostrará los campos sig
 | --- | --- |
 | `$dtId` | Cadena proporcionada por el usuario que representa el identificador del gemelo digital. |
 | `$etag` | Campo HTTP estándar asignado por el servidor web. |
-| `$conformance` | Enumeración que contiene el estado de conformidad de este gemelo digital ( *conforme* , *no conforme* o *desconocido* ) |
+| `$conformance` | Enumeración que contiene el estado de conformidad de este gemelo digital (*conforme*, *no conforme* o *desconocido*) |
 | `{propertyName}` | Valor de una propiedad en formato JSON (`string`, tipo de número u objeto). |
 | `$relationships` | Dirección URL de la ruta de acceso a la colección de relaciones. Este campo no está presente si el gemelo digital no tiene bordes de relación salientes. |
 | `$metadata.$model` | [Opcional] Identificador de la interfaz del modelo que caracteriza al gemelo digital. |

@@ -12,12 +12,12 @@ ms.date: 09/29/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: image recognition, image recognition app, custom vision
-ms.openlocfilehash: b57720b9d8fb05a605b9eace279b70b060c18450
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d644c323cb60e5ef9a89670cd9b828e3e9676299
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91596877"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131702"
 ---
 # <a name="quickstart-build-a-classifier-with-the-custom-vision-website"></a>Inicio rápido: Creación de un clasificador con el sitio web de Custom Vision
 
@@ -25,7 +25,7 @@ En este inicio rápido, aprenderá a usar el sitio web de Custom Vision para cre
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de empezar.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Un conjunto de imágenes con el que entrenar el clasificador. Consulte las siguientes sugerencias sobre cómo elegir imágenes.
 
@@ -105,7 +105,7 @@ Una vez finalizado el entrenamiento, se calcula el rendimiento del modelo y se m
 
 ![Los resultados de entrenamiento muestran la precisión y recuperación globales, junto con la precisión y recuperación de cada etiqueta en el clasificador.](./media/getting-started-build-a-classifier/train03.png)
 
-### <a name="probability-threshold"></a>Probability Threshold (Umbral de probabilidad)
+### <a name="probability-threshold"></a>Umbral de probabilidad
 
 [!INCLUDE [probability threshold](includes/probability-threshold.md)]
 
