@@ -17,7 +17,7 @@
       items:
         - name: Uso de blobs
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: storage-quickstart-blobs-portal.md
             - name: Explorador de Storage
               href: storage-quickstart-blobs-storage-explorer.md
@@ -307,6 +307,8 @@
               href: ../common/storage-account-recover.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Obtener el tipo de cuenta y el nombre de la SKU (.NET)
               href: ../common/storage-account-get-info.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Administración del nivel de acceso predeterminado de una cuenta de almacenamiento
+              href: ../common/manage-account-default-access-tier.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Creación y administración de contenedores
           items:
             - name: Creación o eliminación de un contenedor (.NET)
@@ -321,6 +323,8 @@
               href: storage-blobs-list.md
             - name: Administración de propiedades y metadatos de blobs (.NET)
               href: storage-blob-properties-metadata.md
+            - name: Administración del nivel de acceso de un blob
+              href: manage-access-tier.md
             - name: Copia de un blob (SDK)
               href: storage-blob-copy.md
             - name: Uso de etiquetas de índice de blobs

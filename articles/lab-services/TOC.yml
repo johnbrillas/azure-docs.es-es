@@ -6,7 +6,7 @@
       href: lab-services-overview.md
 - name: Guías de inicio rápido
   items:
-    - name: Introducción
+    - name: Primeros pasos
       href: get-started-manage-labs.md
 - name: Tutoriales
   items:
@@ -62,20 +62,9 @@
               href: class-type-pltw.md
         - name: Uso de Azure Lab Services en Teams
           items:
-            - name: Introducción
+            - name: Información general
+              displayName: labs within Teams
               href: lab-services-within-teams-overview.md
-            - name: Creación de un laboratorio desde Teams
-              href: how-to-get-started-create-lab-within-teams.md
-            - name: Administración de listas de usuarios
-              href: how-to-manage-user-lists-within-teams.md
-            - name: Administración del grupo de máquinas virtuales
-              href: how-to-manage-vm-pool-within-teams.md
-            - name: Eliminación de laboratorios
-              href: how-to-delete-lab-within-teams.md
-            - name: Programaciones y configuración
-              href: how-to-create-schedules-within-teams.md
-            - name: Acceso a una máquina virtual (vista de alumno)
-              href: how-to-access-vm-for-students-within-teams.md
 - name: Guías paso a paso
   items:
     - name: Guía del administrador
@@ -164,6 +153,20 @@
           href: how-to-set-virtual-machine-passwords-student.md
         - name: Visualización de información de soporte técnico (alumno)
           href: lab-user-support-information.md
+    - name: Uso de laboratorios en Teams
+      items:
+        - name: Creación de un laboratorio desde Teams
+          href: how-to-get-started-create-lab-within-teams.md
+        - name: Administración de listas de usuarios
+          href: how-to-manage-user-lists-within-teams.md
+        - name: Administración del grupo de máquinas virtuales
+          href: how-to-manage-vm-pool-within-teams.md
+        - name: Eliminación de laboratorios
+          href: how-to-delete-lab-within-teams.md
+        - name: Programaciones y configuración
+          href: how-to-create-schedules-within-teams.md
+        - name: Acceso a una máquina virtual (vista de alumno)
+          href: how-to-access-vm-for-students-within-teams.md
 - name: Referencia
   items:
     - name: API DE REST
