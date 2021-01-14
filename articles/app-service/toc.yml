@@ -102,6 +102,8 @@
   items:
     - name: Planes de App Service
       href: overview-hosting-plans.md
+    - name: Administración de costos
+      href: overview-manage-costs.md
     - name: Funcionalidad del sistema operativo
       href: operating-system-functionality.md
     - name: Procedimientos recomendados de implementación
