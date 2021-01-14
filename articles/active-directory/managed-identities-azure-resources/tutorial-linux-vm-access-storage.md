@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 10/23/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c093dcff46676dc5f8a25974c3c38c74ae7666b7
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: a4c7612188043be070ead92c88838b567b22787d
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546694"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131277"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage"></a>Tutorial: Uso de identidades administradas asignadas por el sistema de una máquina virtual Linux para acceder a Azure Storage 
 
@@ -34,16 +34,13 @@ En este tutorial, se explica cómo se utiliza una identidad administrada asignad
 > * Concesión de acceso a una identidad administrada de una máquina virtual Linux para un contenedor de Azure Storage
 > * Obtención de un token de acceso y su uso para llamar a Azure Storage
 
-> [!NOTE]
-> La autenticación de Azure Active Directory para Azure Storage está en versión preliminar pública.
-
 ## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
 Para ejecutar los ejemplos de script de la CLI de este tutorial, tiene dos opciones:
 
-- Use [Azure Cloud Shell](~/articles/cloud-shell/overview.md) desde Azure Portal o mediante el botón **Pruébelo** , situado en la esquina superior derecha de cada bloque de código.
+- Use [Azure Cloud Shell](~/articles/cloud-shell/overview.md) desde Azure Portal o mediante el botón **Pruébelo**, situado en la esquina superior derecha de cada bloque de código.
 - [Instale la versión más reciente de la CLI 2.0](/cli/azure/install-azure-cli) (2.0.23 o posterior), si prefiere usar una consola de la CLI local.
 
 ## <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento 
@@ -64,16 +61,16 @@ En esta sección se creará una cuenta de almacenamiento.
 Los archivos requieren almacenamiento de blobs, por lo que es necesario crear un contenedor de blobs donde se almacenará el archivo. Luego cargará un archivo en el contenedor de blobs de la cuenta de almacenamiento nueva.
 
 1. Vuelva a la cuenta de almacenamiento recién creada.
-2. En **Blob service** , haga clic en **Contenedores**.
+2. En **Blob service**, haga clic en **Contenedores**.
 3. Haga clic en **+ Contenedor** en la parte superior de la página.
-4. En **Nuevo contenedor** , escriba un nombre para el contenedor, y mantenga el valor predeterminado en **Nivel de acceso público**.
+4. En **Nuevo contenedor**, escriba un nombre para el contenedor, y mantenga el valor predeterminado en **Nivel de acceso público**.
 
     ![Creación de contenedores de almacenamiento](./media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
 5. Elija un editor de su preferencia y cree un archivo denominado *hello world.txt* en la máquina local.  Abra el archivo y agregue el texto (sin comillas) "Hola mundo :)" y guárdelo. 
 
 6. Para cargar el archivo en el contenedor recién creado, haga clic en el nombre del contenedor y en **Cargar**.
-7. En el panel **Carga de blob** , en **Archivos** , haga clic en el icono de carpeta y vaya al archivo **hello_world.txt** en la máquina virtual, selecciónelo y haga clic en **Cargar**.
+7. En el panel **Carga de blob**, en **Archivos**, haga clic en el icono de carpeta y vaya al archivo **hello_world.txt** en la máquina virtual, selecciónelo y haga clic en **Cargar**.
 
     ![Carga de un archivo de texto](./media/msi-tutorial-linux-vm-access-storage/upload-text-file.png)
 
@@ -87,10 +84,10 @@ Puede usar la identidad Managed Identity de la máquina virtual para recuperar l
 1. Vuelva a la cuenta de almacenamiento recién creada.  
 2. Haga clic en el vínculo **Control de acceso (IAM)** en el panel izquierdo.  
 3. Haga clic en **+ Agregar asignación de rol** en la parte superior de la página para agregar una asignación de roles nueva para la máquina virtual.
-4. En la lista desplegable de **Rol** , seleccione **Lector de datos de blobs de almacenamiento**. 
-5. En la lista desplegable siguiente, en **Asignar acceso a** , elija **Máquina virtual**.  
+4. En la lista desplegable de **Rol**, seleccione **Lector de datos de blobs de almacenamiento**. 
+5. En la lista desplegable siguiente, en **Asignar acceso a**, elija **Máquina virtual**.  
 6. A continuación, asegúrese de que la suscripción adecuada aparece en el menú desplegable **Suscripción** y establezca **Grupo de recursos** en **Todos los grupos de recursos**.  
-7. En **Seleccionar** , elija la máquina virtual y haga clic en **Guardar**.
+7. En **Seleccionar**, elija la máquina virtual y haga clic en **Guardar**.
 
     ![Asignación de permisos](./media/tutorial-linux-vm-access-storage/access-storage-perms.png)
 
@@ -100,7 +97,7 @@ Azure Storage admite de manera nativa la autenticación de Azure AD, por lo que 
 
 Para completar los pasos siguientes, deberá trabajar desde la máquina virtual que creó anteriormente y necesitará un cliente SSH para conectarse a ella. Si usa Windows, puede usar el cliente SSH en el [Subsistema de Windows para Linux](/windows/wsl/about). Si necesita ayuda para configurar las claves del cliente de SSH, consulte [Uso de SSH con Windows en Azure](~/articles/virtual-machines/linux/ssh-from-windows.md) o [Creación y uso de un par de claves SSH pública y privada para máquinas virtuales Linux en Azure](~/articles/virtual-machines/linux/mac-create-ssh-keys.md).
 
-1. En Azure Portal, vaya a **Máquinas virtuales** , vaya a la máquina virtual Linux y, a continuación, desde la página **Información general** , haga clic en **Conectar**. Copie la cadena para conectarse a la máquina virtual.
+1. En Azure Portal, vaya a **Máquinas virtuales**, vaya a la máquina virtual Linux y, a continuación, desde la página **Información general**, haga clic en **Conectar**. Copie la cadena para conectarse a la máquina virtual.
 2. **Conéctese** a la máquina virtual con el cliente SSH que elija. 
 3. En la ventana del terminal, con CURL, realice una solicitud al punto de conexión local de la identidad administrada local para obtener un token de acceso para Azure Storage.
     

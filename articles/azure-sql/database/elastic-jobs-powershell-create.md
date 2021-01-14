@@ -11,12 +11,12 @@ author: johnpaulkee
 ms.author: joke
 ms.reviwer: sstein
 ms.date: 10/21/2020
-ms.openlocfilehash: 27cd35eba7320022ea9b137a7b8bb079a1226751
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 1fc5653f08f8fc7916257dfdba570f451c0afa75
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427298"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131940"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell-preview"></a>Creación de un agente de trabajos elásticos mediante PowerShell (versión preliminar)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -59,7 +59,7 @@ Import-Module Az.Sql
 Get-Module Az.Sql
 ```
 
-Además del módulo **Az.Sql** , este tutorial también requiere el módulo *SqlServer* de PowerShell. Para más información, consulte [Instalación de un módulo de SQL Server PowerShell](/sql/powershell/download-sql-server-ps-module).
+Además del módulo **Az.Sql**, este tutorial también requiere el módulo *SqlServer* de PowerShell. Para más información, consulte [Instalación de un módulo de SQL Server PowerShell](/sql/powershell/download-sql-server-ps-module).
 
 ## <a name="create-required-resources"></a>Creación de los recursos necesarios
 
@@ -123,19 +123,11 @@ $db2 = New-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $targ
 $db2
 ```
 
-## <a name="use-elastic-jobs"></a>Uso de trabajos elásticos
-
-Para usar trabajos elásticos, registre la característica en su suscripción de Azure mediante la ejecución del siguiente comando. Ejecute este comando una vez para la suscripción en la que tiene pensado aprovisionar el agente de trabajos elásticos. No es necesario registrar las suscripciones que solo contengan bases de datos que son destinos de trabajos.
-
-```powershell
-Register-AzProviderFeature -FeatureName sqldb-JobAccounts -ProviderNamespace Microsoft.Sql
-```
-
 ### <a name="create-the-elastic-job-agent"></a>Creación del agente de trabajos elásticos
 
 Un agente de trabajos elásticos es un recurso de Azure para crear, ejecutar y administrar trabajos. El agente ejecuta los trabajos según una programación o como un trabajo único.
 
-El cmdlet **New-AzSqlElasticJobAgent** requiere que exista ya una base de datos de Azure SQL Database, por lo que los parámetros *resourceGroupName* , *serverName* y *databaseName* deben todos apuntar a recursos ya existentes.
+El cmdlet **New-AzSqlElasticJobAgent** requiere que exista ya una base de datos de Azure SQL Database, por lo que los parámetros *resourceGroupName*, *serverName* y *databaseName* deben todos apuntar a recursos ya existentes.
 
 ```powershell
 Write-Output "Creating job agent..."
@@ -205,7 +197,7 @@ $jobCred = $jobAgent | New-AzSqlElasticJobCredential -Name "jobuser" -Credential
 
 Un [grupo de destino](job-automation-overview.md#target-group) define el conjunto de una o varias bases de datos en las que se ejecutará un paso de un trabajo.
 
-El siguiente fragmento de código crea dos grupos de destino: *serverGroup* y *serverGroupExcludingDb2* . *serverGroup* tiene como destino todas las bases de datos que existen en el servidor en el momento de la ejecución, mientras que el destino de *serverGroupExcludingDb2* son todas las bases de datos del servidor, excepto *TargetDb2* :
+El siguiente fragmento de código crea dos grupos de destino: *serverGroup* y *serverGroupExcludingDb2*. *serverGroup* tiene como destino todas las bases de datos que existen en el servidor en el momento de la ejecución, mientras que el destino de *serverGroupExcludingDb2* son todas las bases de datos del servidor, excepto *TargetDb2*:
 
 ```powershell
 Write-Output "Creating test target groups..."
@@ -221,7 +213,7 @@ $serverGroupExcludingDb2 | Add-AzSqlElasticJobTarget -ServerName $targetServerNa
 
 ### <a name="create-a-job-and-steps"></a>Creación de un trabajo y pasos
 
-En este ejemplo se definen un trabajo y dos pasos para que ejecute el trabajo. El primer paso de trabajo ( *step1* ) crea una nueva tabla ( *Step1Table* ) en cada base de datos del grupo de destino *ServerGroup* . El segundo paso ( *step2* ) crea una tabla ( *Step2Table* ) en cada base de datos excepto en *TargetDb2* , ya que el grupo de destino definido anteriormente especificó que se excluyera.
+En este ejemplo se definen un trabajo y dos pasos para que ejecute el trabajo. El primer paso de trabajo (*step1*) crea una nueva tabla (*Step1Table*) en cada base de datos del grupo de destino *ServerGroup*. El segundo paso (*step2*) crea una tabla (*Step2Table*) en cada base de datos excepto en *TargetDb2*, ya que el grupo de destino definido anteriormente especificó que se excluyera.
 
 ```powershell
 Write-Output "Creating a new job..."

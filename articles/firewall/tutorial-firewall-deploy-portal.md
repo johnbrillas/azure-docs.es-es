@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/15/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: e73f11ec178c067941ee33e02f37c96605460ee0
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 40e4a3d3a819280255ee931e5e12206f99ef28fe
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658594"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98051520"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutorial: Implementación y configuración de Azure Firewall mediante Azure Portal
 
@@ -72,7 +72,7 @@ El grupo de recursos contiene todos los recursos necesarios para el tutorial.
 Esta red virtual contiene tres subredes.
 
 > [!NOTE]
-> El tamaño de la subred AzureFirewallSubnet es /26. Para más información sobre el tamaño de la subred, consulte [Preguntas más frecuentes sobre Azure Firewall](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
+> El tamaño de la subred AzureFirewallSubnet es /26. Para más información sobre el tamaño de la subred, consulte [Preguntas más frecuentes sobre Azure Firewall](firewall-faq.yml#why-does-azure-firewall-need-a--26-subnet-size).
 
 1. En el menú de Azure Portal o en la **página principal**, seleccione **Crear un recurso**.
 1. Seleccione **Redes** > **Red virtual**.
@@ -105,7 +105,7 @@ Ahora cree la máquina virtual de la carga de trabajo y colóquela en la subred 
 3. **Windows Server 2016 Datacenter** en la lista de destacados.
 4. Especifique estos valores para la máquina virtual:
 
-   |Configuración  |Value  |
+   |Configuración  |Valor  |
    |---------|---------|
    |Resource group     |**Test-FW-RG**|
    |Nombre de la máquina virtual     |**Srv-Work**|
@@ -132,7 +132,7 @@ Implemente el firewall en la red virtual.
 3. Seleccione **Firewall** y después **Crear**.
 4. En la página **Creación de un firewall**, utilice la tabla siguiente para configurar el firewall:
 
-   |Configuración  |Value  |
+   |Configuración  |Valor  |
    |---------|---------|
    |Suscripción     |\<your subscription\>|
    |Resource group     |**Test-FW-RG** |

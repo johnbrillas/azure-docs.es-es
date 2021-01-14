@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: tutorial
 ms.date: 11/16/2020
-ms.openlocfilehash: 791cab369dcbf9cab8d1256377cfee4a433c21b9
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 53fb256d3a0fba1cc10cafb239ff7f7bb21ac4eb
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96450890"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121080"
 ---
 # <a name="tutorial-create-a-power-bi-report-using-apache-spark-and-azure-synapse-analytics"></a>Tutorial: Creación de un informe de Power BI con Apache Spark y Azure Synapse Analytics
 
@@ -22,7 +22,7 @@ Es habitual que las organizaciones necesiten procesar grandes volúmenes de dato
 
 ## <a name="before-you-begin"></a>Antes de empezar
 - Necesitará un [área de trabajo de Synapse Analytics](../quickstart-create-workspace.md) con una cuenta de almacenamiento de ADLS Gen2 configurada como almacenamiento predeterminado. 
-- Necesitará un área de trabajo de Power BI y Power BI Desktop para visualizar los datos. Para más información, consulte estos artículos sobre la [creación de un área de trabajo de Power BI](https://docs.microsoft.com/power-bi/service-create-the-new-workspaces) y la [instalación de Power BI Desktop](https://powerbi.microsoft.com/downloads/)
+- Necesitará un área de trabajo de Power BI y Power BI Desktop para visualizar los datos. Para más información, consulte estos artículos sobre la [creación de un área de trabajo de Power BI](/power-bi/service-create-the-new-workspaces) y la [instalación de Power BI Desktop](https://powerbi.microsoft.com/downloads/)
 - Necesitará un servicio vinculado para conectar las áreas de trabajo de Power BI y Azure Synapse Analytics. Para más información, consulte este artículo sobre la [vinculación a un área de trabajo de Power BI](../quickstart-power-bi.md).
 - Necesitará un grupo de Apache Spark sin servidor en el área de trabajo de Synapse Analytics. Para más información, consulte este artículo sobre la [creación de un grupo de Apache Spark sin servidor.](../quickstart-create-apache-spark-pool-studio.md)
   
@@ -89,7 +89,7 @@ Para consultar la tabla de Apache Spark con el grupo de SQL sin servidor:
 A continuación, vamos a conectar el grupo de SQL sin servidor al área de trabajo de Power BI. Una vez conectada el área de trabajo, podrá crear informes de Power BI directamente desde Azure Synapse Analytics o desde Power BI Desktop.
 
 >[!Note]
-> Para poder empezar, necesitará configurar un servicio vinculado al [área de trabajo de Power BI](../quickstart-power-bi.md) y descargar [Power BI Desktop](https://docs.microsoft.com/power-bi/service-create-the-new-workspaces).  
+> Para poder empezar, necesitará configurar un servicio vinculado al [área de trabajo de Power BI](../quickstart-power-bi.md) y descargar [Power BI Desktop](/power-bi/service-create-the-new-workspaces).  
 
 Para conectar el grupo de SQL sin servidor al área de trabajo de Power BI:
 
