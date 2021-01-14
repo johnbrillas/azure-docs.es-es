@@ -13,12 +13,12 @@ ms.date: 09/18/2020
 ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: f04a8aa96b51ac9330e4302c3afcc48f7d305b39
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: c9e4997ad08f2dd1d96dd442f80ad4203abf6261
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97507717"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98015893"
 ---
 # <a name="tutorial-sign-in-users-and-call-microsoft-graph-from-an-ios-or-macos-app"></a>Tutorial: Inicio de sesión de los usuarios y llamada a Microsoft Graph desde una aplicación para iOS o macOS
 
@@ -71,7 +71,7 @@ Si desea descargar una versión completa de la aplicación que va a crear en est
 
 ## <a name="register-your-application"></a>Registrar su aplicación
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 1. Si tiene acceso a varios inquilinos, use el filtro **Directorio + suscripción** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: del menú superior para seleccionar el inquilino en el que desea registrar una aplicación.
 1. Busque y seleccione **Azure Active Directory**.
 1. En **Administrar**, seleccione **Registros de aplicaciones** >  y, luego, **Nuevo registro**.

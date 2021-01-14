@@ -1,15 +1,15 @@
 ---
 title: Lista de definiciones de directiva integradas
 description: Se enumeran las definiciones de directiva integradas para Azure Policy. Las categorías incluyen Etiquetas, Cumplimiento de normativas, Key Vault, Kubernetes, Configuración de invitados, etc.
-ms.date: 11/20/2020
+ms.date: 01/08/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 66563a4754d706f2c73e90ad3c2e8e0f4fe7d3a0
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: ccd310583f003fd381b9ddd48333644f2241ea88
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "96007829"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98047445"
 ---
 # <a name="azure-policy-built-in-policy-definitions"></a>Definiciones de directiva integradas de Azure Policy
 
@@ -49,6 +49,10 @@ El nombre de cada uno de los vínculos integrados a la definición de directiva 
 
 [!INCLUDE [azure-policy-reference-policies-azure-data-explorer](../../../../includes/policy/reference/bycat/policies-azure-data-explorer.md)]
 
+## <a name="azure-stack-edge"></a>Azure Stack Edge
+
+[!INCLUDE [azure-policy-reference-policies-azure-stack-edge](../../../../includes/policy/reference/bycat/policies-azure-stack-edge.md)]
+
 ## <a name="backup"></a>Copia de seguridad
 
 [!INCLUDE [azure-policy-reference-policies-backup](../../../../includes/policy/reference/bycat/policies-backup.md)]
@@ -56,6 +60,10 @@ El nombre de cada uno de los vínculos integrados a la definición de directiva 
 ## <a name="batch"></a>Batch
 
 [!INCLUDE [azure-policy-reference-policies-batch](../../../../includes/policy/reference/bycat/policies-batch.md)]
+
+## <a name="bot-services"></a>Servicios de bot
+
+[!INCLUDE [azure-policy-reference-policies-bot-services](../../../../includes/policy/reference/bycat/policies-bot-services.md)]
 
 ## <a name="cache"></a>Cache
 
@@ -80,6 +88,10 @@ El nombre de cada uno de los vínculos integrados a la definición de directiva 
 ## <a name="custom-provider"></a>Proveedor personalizado
 
 [!INCLUDE [azure-policy-reference-policies-custom-provider](../../../../includes/policy/reference/bycat/policies-custom-provider.md)]
+
+## <a name="data-box"></a>Data Box
+
+[!INCLUDE [azure-policy-reference-policies-data-box](../../../../includes/policy/reference/bycat/policies-data-box.md)]
 
 ## <a name="data-lake"></a>Data Lake
 

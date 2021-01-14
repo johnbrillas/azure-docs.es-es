@@ -1,14 +1,14 @@
 ---
 title: Controles de ejemplo de planos técnicos de Media
 description: Asignación de controles de los ejemplos de plano técnico de Media. Cada control se corresponde a una o varias definiciones de Azure Policy que ayudan en la evaluación.
-ms.date: 08/13/2020
+ms.date: 01/08/2021
 ms.topic: sample
-ms.openlocfilehash: ec4850b4e3061d267610bfd9c2c0e33c670472b4
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: e1356acfd7b6b9693322000077b221781b58681f
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91931876"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98035043"
 ---
 # <a name="control-mapping-of-the-media-blueprint-sample"></a>Asignación de controles del ejemplo de plano técnico de Media
 

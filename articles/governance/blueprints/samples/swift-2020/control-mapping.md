@@ -1,14 +1,14 @@
 ---
 title: Controles del ejemplo de plano técnico de la norma SWIFT CSP-CSCF v2020
 description: Asignación de controles del ejemplo de plano técnico SWIFT CSP-CSCF v2020. Cada control se corresponde a una o varias definiciones de Azure Policy que ayudan en la evaluación.
-ms.date: 08/18/2020
+ms.date: 01/08/2021
 ms.topic: sample
-ms.openlocfilehash: 5aa4ee556c4ec7348566f45592b5e9fbf00eaf20
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 466b37b287d79a891fba39b133ab5fa79dbd147e
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96009405"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98048800"
 ---
 # <a name="control-mapping-of-the-swift-csp-cscf-v2020-blueprint-sample"></a>Asignación de controles del ejemplo de plano técnico SWIFT CSP-CSCF v2020
 
@@ -31,7 +31,7 @@ Este plano técnico le ayudará a revisar aquellas cuentas que es posible que no
 
 ## <a name="26-51-64-and-65a-account-management--role-based-schemes"></a>2.6, 5.1, 6.4 y 6.5A Administración de cuentas | Esquemas basados en roles
 
-El [control de acceso basado en roles de Azure](../../../../role-based-access-control/overview.md) (Azure RBAC) ayuda a administrar quién tiene acceso a los recursos de Azure. Mediante Azure Portal, puede revisar quién tiene acceso a los recursos de Azure y sus permisos. Este proyecto también asigna definiciones de [Azure Policy](../../../policy/overview.md) para auditar el uso de la autenticación de Azure Active Directory de los servidores SQL Server y Service Fabric. El uso de la autenticación de Azure Active Directory simplifica la administración de permisos y centraliza la administración de identidades de usuarios de base de datos y otros servicios de Microsoft. Además, este plano técnico asigna una definición de Azure Policy para auditar el uso de reglas RBAC personalizadas de Azure. Comprender dónde se implementan las reglas RBAC personalizadas de Azure puede ayudarle a determinar la necesidad y correcta implementación, ya que estas reglas suelen producir errores.
+El [control de acceso basado en roles de Azure](../../../../role-based-access-control/overview.md) (Azure RBAC) ayuda a administrar quién tiene acceso a los recursos de Azure. Mediante Azure Portal, puede revisar quién tiene acceso a los recursos de Azure y sus permisos. Este proyecto también asigna definiciones de [Azure Policy](../../../policy/overview.md) para auditar el uso de la autenticación de Azure Active Directory de los servidores SQL Server y Service Fabric. El uso de la autenticación de Azure Active Directory simplifica la administración de permisos y centraliza la administración de identidades de usuarios de base de datos y otros servicios de Microsoft. Además, este plano técnico asigna una definición de Azure Policy para auditar el uso de reglas RBAC personalizadas de Azure. Comprender dónde se implementan las reglas personalizadas de Azure RBAC puede ayudarle a determinar su necesidad y correcta implementación, ya que estas reglas suelen producir errores.
 
 - El administrador de Azure Active Directory debe aprovisionarse para servidores SQL Server
 - Auditar las máquinas virtuales que no utilizan discos administrados

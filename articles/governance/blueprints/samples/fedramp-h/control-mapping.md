@@ -1,20 +1,20 @@
 ---
 title: Controles del ejemplo de plano técnico con un nivel de impacto alto de FedRAMP
 description: Asignación de controles del ejemplo de plano técnico con un nivel de impacto alto de FedRAMP. Cada control se corresponde a una o varias definiciones de Azure Policy que ayudan en la evaluación.
-ms.date: 10/26/2020
+ms.date: 01/08/2021
 ms.topic: sample
-ms.openlocfilehash: 0b729046d44d76f71dfb520db16e6fd268d421c9
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: ee2988e94422c96be52d0bc4fc7266ccab38780e
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92669375"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98034890"
 ---
 # <a name="control-mapping-of-the-fedramp-high-blueprint-sample"></a>Asignación de controles del ejemplo de plano técnico con un nivel de impacto alto de FedRAMP
 
 En el siguiente artículo se detalla cómo se asigna el ejemplo de plano técnico con un nivel de impacto alto de FedRAMP de Azure Blueprints a los controles de nivel de impacto alto de FedRAMP. Para obtener más información sobre los controles, vea [Base de referencia de los controles de seguridad de FedRAMP](https://www.fedramp.gov/).
 
-Las siguientes asignaciones son para los controles de **nivel de impacto alto de FedRAMP** . Use el panel de navegación de la derecha para ir directamente a una asignación de control específica. Muchos de los controles asignados se implementan con una iniciativa de [Azure Policy](../../../policy/overview.md). Para revisar la iniciativa completa, abra **Policy** en Azure Portal y seleccione la página **Definiciones** . Después, busque y seleccione la **\[versión preliminar\]: iniciativa de directivas integradas Auditoría de los controles de nivel de impacto alto de FedRAMP e implementación de extensiones de VM específicas para admitir los requisitos de auditoría** .
+Las siguientes asignaciones son para los controles de **nivel de impacto alto de FedRAMP**. Use el panel de navegación de la derecha para ir directamente a una asignación de control específica. Muchos de los controles asignados se implementan con una iniciativa de [Azure Policy](../../../policy/overview.md). Para revisar la iniciativa completa, abra **Policy** en Azure Portal y seleccione la página **Definiciones**. Después, busque y seleccione la **\[versión preliminar\]: iniciativa de directivas integradas Auditoría de los controles de nivel de impacto alto de FedRAMP e implementación de extensiones de VM específicas para admitir los requisitos de auditoría**.
 
 > [!IMPORTANT]
 > Cada control que se muestra a continuación está asociado a una o varias definiciones de [Azure Policy](../../../policy/overview.md). Estas directivas pueden ayudarle a [evaluar el cumplimiento](../../../policy/how-to/get-compliance-data.md) mediante el control. Sin embargo, con frecuencia no hay una correspondencia completa o exacta entre un control y una o varias directivas. Como tal, el **cumplimiento** con Azure Policy solo se refiere a las propias directivas; esto no garantiza que sea totalmente compatible con todos los requisitos de un control. Además, el estándar de cumplimiento incluye controles que no se abordan con las definiciones de Azure Policy en este momento. Por lo tanto, el cumplimiento en Azure Policy es solo una vista parcial del estado general de cumplimiento. Las asociaciones entre los controles y las definiciones de Azure Policy para este ejemplo de plano técnico de cumplimiento pueden cambiar con el tiempo. Para ver el historial de cambios, consulte el [historial de confirmación de GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/fedramp-h/control-mapping.md).
@@ -31,7 +31,7 @@ Este plano técnico le ayudará a revisar aquellas cuentas que es posible que no
 
 ## <a name="ac-2-7-account-management--role-based-schemes"></a>Administración de cuentas AC-2 (7) | Esquemas basados en roles
 
-Azure implementa el [control de acceso basado en rol (Azure RBAC) de Azure](../../../../role-based-access-control/overview.md) para ayudarle a administrar quién tiene acceso a los recursos de Azure. Mediante Azure Portal, puede revisar quién tiene acceso a los recursos de Azure y sus permisos. Este proyecto también asigna definiciones de [Azure Policy](../../../policy/overview.md) para auditar el uso de la autenticación de Azure Active Directory de los servidores SQL Server y Service Fabric. El uso de la autenticación de Azure Active Directory simplifica la administración de permisos y centraliza la administración de identidades de usuarios de base de datos y otros servicios de Microsoft. Además, este plano técnico asigna una definición de Azure Policy para auditar el uso de reglas RBAC personalizadas de Azure. Comprender dónde se implementan las reglas RBAC personalizadas de Azure puede ayudarle a determinar la necesidad y correcta implementación, ya que estas reglas suelen producir errores.
+Azure implementa el [control de acceso basado en rol (Azure RBAC) de Azure](../../../../role-based-access-control/overview.md) para ayudarle a administrar quién tiene acceso a los recursos de Azure. Mediante Azure Portal, puede revisar quién tiene acceso a los recursos de Azure y sus permisos. Este proyecto también asigna definiciones de [Azure Policy](../../../policy/overview.md) para auditar el uso de la autenticación de Azure Active Directory de los servidores SQL Server y Service Fabric. El uso de la autenticación de Azure Active Directory simplifica la administración de permisos y centraliza la administración de identidades de usuarios de base de datos y otros servicios de Microsoft. Además, este plano técnico asigna una definición de Azure Policy para auditar el uso de reglas RBAC personalizadas de Azure. Comprender dónde se implementan las reglas personalizadas de Azure RBAC puede ayudarle a determinar su necesidad y correcta implementación, ya que estas reglas suelen producir errores.
 
 - El administrador de Azure Active Directory debe aprovisionarse para servidores SQL Server
 - Auditar el uso de reglas de RBAC personalizadas
