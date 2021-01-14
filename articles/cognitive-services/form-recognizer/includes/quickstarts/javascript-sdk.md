@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 45654d55ac07bc9056a41cacba6f8f5890c56580
-ms.sourcegitcommit: 02ed9acd4390b86c8432cad29075e2204f6b1bc3
+ms.openlocfilehash: 6520c1e326dc95584030d3187fdaaaa7e06c498a
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97808647"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132295"
 ---
 > [!IMPORTANT]
 > * Por motivos de simplicidad, en el código de este artículo se usan métodos sincrónicos y almacenamiento de credenciales no protegidas. Para más información, consulte la siguiente documentación de referencia. 
@@ -102,8 +102,8 @@ Con Form Recognizer, puede crear dos tipos de cliente diferentes. El primero, `F
 Estos fragmentos de código muestran cómo realizar las siguientes tareas con la biblioteca cliente de Form Recognizer para JavaScript:
 
 * [Autenticar el cliente](#authenticate-the-client)
-* [Reconocer el contenido del formulario](#recognize-form-content)
-* [Reconocer recibos](#recognize-receipts)
+* [Análisis de diseño](#analyze-layout)
+* [Análisis de las confirmaciones de recepción](#analyze-receipts)
 * [Entrenar un modelo personalizado](#train-a-custom-model)
 * [Analizar formularios con un modelo personalizado](#analyze-forms-with-a-custom-model)
 * [Administrar modelos personalizados](#manage-your-custom-models)
@@ -126,7 +126,7 @@ También tendrá que agregar referencias a las direcciones URL de los datos de e
 * Use las imágenes de envío y de recepción que se incluyen en los ejemplos siguientes (también disponibles en [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/test-assets)). O bien, siga los pasos anteriores para obtener la dirección URL de SAS de un documento individual en el almacenamiento de blobs. 
 
 
-## <a name="recognize-form-content"></a>Reconocimiento del contenido del formulario
+## <a name="analyze-layout"></a>Análisis de diseño
 
 Puede usar Form Recognizer para reconocer tablas, líneas y palabras de los documentos sin necesidad de entrenar un modelo. Para reconocer el contenido de un archivo en un URI determinado, use el método `beginRecognizeContentFromUrl`.
 
@@ -152,7 +152,7 @@ cell [1,3] has text $56,651.49
 cell [1,5] has text PT
 ```
 
-## <a name="recognize-receipts"></a>Reconocimiento de recibos
+## <a name="analyze-receipts"></a>Análisis de las confirmaciones de recepción
 
 En esta sección se muestra cómo reconocer y extraer campos comunes de recibos de EE. UU. mediante un modelo de recibos entrenado previamente.
 

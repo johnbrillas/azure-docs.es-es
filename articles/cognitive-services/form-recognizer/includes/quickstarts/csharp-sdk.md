@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 10/06/2020
 ms.author: pafarley
-ms.openlocfilehash: 4b44a8375bc13709959e2401f9d772fdeab00f52
-ms.sourcegitcommit: 02ed9acd4390b86c8432cad29075e2204f6b1bc3
+ms.openlocfilehash: 9befe33f70341f218c3339a13dcc1d31dc452d34
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97808613"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132317"
 ---
 > [!IMPORTANT]
 > Por motivos de simplicidad, en el código de este artículo se usan métodos sincrónicos y almacenamiento de credenciales no protegidas.
@@ -113,8 +113,8 @@ Con Form Recognizer, puede crear dos tipos de cliente diferentes. El primero, `F
 `FormRecognizerClient` proporciona operaciones para:
 
  - Reconocimiento de los campos de formulario y del contenido, mediante el uso de modelos personalizados entrenados para reconocer los formularios personalizados.  Estos valores se devuelven en una colección de objetos `RecognizedForm`. Vea el ejemplo [Análisis de formularios personalizados](#analyze-forms-with-a-custom-model).
- - El reconocimiento del contenido de los formularios, incluidas tablas, líneas y palabras, sin necesidad de entrenar un modelo.  El contenido del formulario se devuelve en una colección de objetos `FormPage`. Vea el ejemplo [Reconocimiento del contenido del formulario](#recognize-form-content).
- - Reconocimiento de los campos comunes de los recibos de EE. UU. con un modelo de recibo entrenado previamente en el servicio Form Recognizer. Estos campos y metadatos se devuelven en una colección de objetos `RecognizedForm`. Vea el ejemplo [Reconocimiento de recibos](#recognize-receipts).
+ - El reconocimiento del contenido de los formularios, incluidas tablas, líneas y palabras, sin necesidad de entrenar un modelo.  El contenido del formulario se devuelve en una colección de objetos `FormPage`. Consulte el ejemplo [Análisis de diseño](#analyze-layout).
+ - Reconocimiento de los campos comunes de los recibos de EE. UU. con un modelo de recibo entrenado previamente en el servicio Form Recognizer. Estos campos y metadatos se devuelven en una colección de objetos `RecognizedForm`. Consulte el ejemplo [Análisis de confirmaciones de recepción](#analyze-receipts).
 
 ### <a name="formtrainingclient"></a>FormTrainingClient
 
@@ -137,8 +137,8 @@ Estos fragmentos de código muestran cómo realizar las siguientes tareas con la
 #### <a name="version-20"></a>[versión 2.0](#tab/ga)
 
 * [Autenticar el cliente](#authenticate-the-client)
-* [Reconocer el contenido del formulario](#recognize-form-content)
-* [Reconocer recibos](#recognize-receipts)
+* [Análisis de diseño](#analyze-layout)
+* [Análisis de las confirmaciones de recepción](#analyze-receipts)
 * [Entrenar un modelo personalizado](#train-a-custom-model)
 * [Analizar formularios con un modelo personalizado](#analyze-forms-with-a-custom-model)
 * [Administrar modelos personalizados](#manage-your-custom-models)
@@ -146,10 +146,10 @@ Estos fragmentos de código muestran cómo realizar las siguientes tareas con la
 #### <a name="version-21-preview"></a>[versión preliminar 2.1](#tab/preview)
 
 * [Autenticar el cliente](#authenticate-the-client)
-* [Reconocer el contenido del formulario](#recognize-form-content)
-* [Reconocer recibos](#recognize-receipts)
-* [Reconocer tarjetas de presentación](#recognize-business-cards)
-* [Reconocer facturas](#recognize-invoices)
+* [Análisis de diseño](#analyze-layout)
+* [Análisis de las confirmaciones de recepción](#analyze-receipts)
+* [Análisis de tarjetas de presentación](#analyze-business-cards)
+* [Análisis de facturas](#analyze-invoices)
 * [Entrenar un modelo personalizado](#train-a-custom-model)
 * [Analizar formularios con un modelo personalizado](#analyze-forms-with-a-custom-model)
 * [Administrar modelos personalizados](#manage-your-custom-models)
@@ -189,7 +189,7 @@ También tendrá que agregar referencias a las direcciones URL de los datos de e
 ---
 
 
-## <a name="recognize-form-content"></a>Reconocimiento del contenido del formulario
+## <a name="analyze-layout"></a>Análisis de diseño
 
 Puede usar Form Recognizer para reconocer tablas, líneas y palabras de los documentos sin necesidad de entrenar un modelo. El valor devuelto es una colección de objetos **FormPage**, uno para cada página del documento enviado. 
 
@@ -239,7 +239,7 @@ Table 0 has 2 rows and 6 columns.
     Cell (1, 5) contains text: 'PT'.
 ```
 
-## <a name="recognize-receipts"></a>Reconocimiento de recibos
+## <a name="analyze-receipts"></a>Análisis de las confirmaciones de recepción
 
 En esta sección se muestra cómo reconocer y extraer campos comunes de recibos de EE. UU. mediante un modelo de recibos entrenado previamente.
 
@@ -298,7 +298,7 @@ Item:
 Total: '1203.39', with confidence '0.774'
 ```
 
-## <a name="recognize-business-cards"></a>Reconocimiento de tarjetas de presentación
+## <a name="analyze-business-cards"></a>Análisis de tarjetas de presentación
 
 #### <a name="version-20"></a>[versión 2.0](#tab/ga)
 
@@ -323,7 +323,7 @@ El valor devuelto es una colección de objetos `RecognizedForm`, uno para cada t
 
 ---
 
-## <a name="recognize-invoices"></a>Reconocimiento de facturas
+## <a name="analyze-invoices"></a>Análisis de facturas
 
 #### <a name="version-20"></a>[versión 2.0](#tab/ga)
 

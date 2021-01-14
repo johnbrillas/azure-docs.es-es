@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 12/21/2020
 ms.author: alkohli
-ms.openlocfilehash: 6fa8705221e1f1f9a9143f274a53db21b657988f
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: 0a7f54d991d31594a6ab522dbf9e73958cde3023
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763722"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900151"
 ---
 # <a name="gpu-vms-for-your-azure-stack-edge-pro-device"></a>Máquinas virtuales con GPU para el dispositivo Azure Stack Edge Pro
 
@@ -338,7 +338,7 @@ Para más información, consulte [Extensión del controlador de GPU de NVIDIA pa
 
 ### <a name="gpu-extension-for-linux"></a>Extensión de GPU para Linux
 
-Para implementar los controladores de GPU de Nvidia para una máquina virtual existente, edite el archivo de parámetros `addGPUExtLinuxVM.parameters.json` y, a continuación, implemente la plantilla `addGPUextensiontoVM.json`.
+Para implementar los controladores de GPU de Nvidia para una máquina virtual existente, edite el archivo de parámetros y, a continuación, implemente la plantilla `addGPUextensiontoVM.json`. Hay determinados archivos de parámetros para Ubuntu y Red Hat Enterprise Linux (RHEL), como se describe en las secciones siguientes.
 
 #### <a name="edit-parameters-file"></a>Edición del archivo de parámetros
 
@@ -371,8 +371,7 @@ Si usa Ubuntu, el archivo `addGPUExtLinuxVM.parameters.json` toma los parámetro
     }
     }
 ```
-Si usa Red Hat Enterprise Linux (RHEL), el archivo toma los parámetros siguientes:
-
+Si usa Red Hat Enterprise Linux (RHEL), el archivo `addGPUExtensionRHELVM.parameters.json` toma los parámetros siguientes:
 
 ```powershell
 {

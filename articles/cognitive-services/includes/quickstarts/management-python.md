@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 616ad26e28db46f8c28aaa3fb763e2f0acf15409
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 074df0e79313a570e83ea72239394c1aa4946fc0
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97745755"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97956480"
 ---
 [Documentación de referencia](/python/api/azure-mgmt-cognitiveservices/azure.mgmt.cognitiveservices?view=azure-python) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-mgmt-cognitiveservices) | [Paquete (PyPi)](https://pypi.org/project/azure-mgmt-cognitiveservices/) | [Ejemplos](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-mgmt-cognitiveservices/tests)
 
@@ -56,7 +56,7 @@ Luego, agregue el siguiente código para construir un objeto **CognitiveServices
 
 [!code-python[](~/cognitive-services-quickstart-code/python/azure_management_service/create_delete_resource.py?name=snippet_auth)]
 
-## <a name="create-a-cognitive-services-resource"></a>Creación de un recurso de Cognitive Services
+## <a name="create-a-cognitive-services-resource-python"></a>Creación de un recurso de Cognitive Services (Python)
 
 Para crear un recurso de Cognitive Services y suscribirse a él, use la función **Create**. Esta función agrega un nuevo recurso facturable al grupo de recursos que se pasa. Cuando cree el recurso, deberá conocer el "tipo" de servicio que desea usar, el plan de tarifa (o SKU) y la ubicación de Azure. La siguiente función usa todos estos valores como argumentos y crea un recurso.
 

@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: e7d013775861f290d532e0d7c132896ebeff8ae8
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 137670715af8b90d8a867459fa50249cd9be8e70
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97680215"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97897123"
 ---
 # <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager-in-linux"></a>Migración compatible con la plataforma de recursos de IaaS del modelo clásico al de Azure Resource Manager en Linux.
 
@@ -23,6 +23,8 @@ ms.locfileid: "97680215"
 
 
 En este artículo se proporciona información general sobre la herramienta de migración compatible con la plataforma, se describe cómo migrar recursos de los modelos de implementación de Azure Service Manager (ASM, conocidos como clásicos) a Resource Manager (ARM) y se detalla cómo conectar recursos de los dos modelos de implementación que coexisten en la suscripción mediante puertas de enlace de sitio a sitio de red virtual. Se puede leer más información sobre [características y ventajas de Azure Resource Manager](../azure-resource-manager/management/overview.md). 
+
+ASM admite dos productos de proceso diferentes, Azure Virtual Machines (clásico), también conocido como máquinas virtuales de IaaS, y [Azure Cloud Services (clásico)](https://docs.microsoft.com/azure/cloud-services/), también conocido como máquinas virtuales PaaS o roles web o de trabajo. Este documento solo habla sobre la migración de Azure Virtual Machines (clásico).
 
 ## <a name="goal-for-migration"></a>Objetivo para la migración
 Resource Manager permite implementar aplicaciones complejas a través de plantillas, configura las máquinas virtuales mediante extensiones de máquina virtual e incorpora la administración de acceso y el etiquetado. Azure Resource Manager incluye una implementación escalable en paralelo para máquinas virtuales en conjuntos de disponibilidad. El nuevo modelo de implementación también proporciona administración del ciclo de vida para procesos, redes y almacenamiento por separado. Por último, también se centra en habilitar la seguridad de forma predeterminada con la aplicación de máquinas virtuales en una red virtual.

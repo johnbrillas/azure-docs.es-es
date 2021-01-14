@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/12/2020
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 34efef4a01b58cc26fd1567336184837a703ade2
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 7bbac0d8593d47c3162a8ea43e928343a88f2de4
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97836648"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861443"
 ---
 # <a name="manage-the-on-premises-management-console"></a>Administración de la consola de administración local
 
@@ -91,8 +91,8 @@ Se admiten los siguientes parámetros:
 
 - El archivo de certificado principal para su nombre de dominio
 - Algoritmo de firma = SHA256RSA
-- Cambio de algoritmo hash de firma = SHA256
-- Válido desde = Fecha pasada válida
+- Algoritmo hash de firma = SHA256
+- Válido desde = fecha pasada válida
 - Válido hasta = Fecha futura válida
 - Clave pública = RSA de 2048 bits (mínimo) o 4096 bits
 - Punto de distribución de CRL = Dirección URL para el archivo .crl
@@ -298,6 +298,26 @@ Para restablecer la contraseña:
 
 > [!NOTE]
 > El sensor está vinculado a la suscripción a la que se asoció originalmente. Solo puede recuperar la contraseña con la misma suscripción a la que está asociada.
+
+## <a name="update-the-software-version"></a>Actualización de la versión de software
+
+En el procedimiento siguiente se describe cómo actualizar la versión de software de la consola de administración local. El proceso de actualización tarda aproximadamente 30 minutos.
+
+1. Vaya a [Azure Portal](https://portal.azure.com/).
+
+1. Vaya a Defender para IoT.
+
+1. Vaya a la página **Actualizaciones**.
+
+1. Seleccione una versión de la sección de la consola de administración local.
+
+1. Seleccione **Descargar** y guarde el archivo.
+
+1. Inicie sesión en la consola de administración local y seleccione **Configuración del sistema** en el menú lateral.
+
+1. En el panel **Actualización de la versión**, seleccione **Actualizar**.
+
+1. Seleccione el archivo que descargó de la página **Actualizaciones** de Defender para IoT.
 
 ## <a name="see-also"></a>Consulte también
 

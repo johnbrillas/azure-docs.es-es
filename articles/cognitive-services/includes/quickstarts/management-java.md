@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/01/2020
 ms.author: pafarley
-ms.openlocfilehash: ed85faf9ffe38489eb00ed5a71b3eb841c399d24
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 62726b9da5166d365c6e386363d0a65007259f10
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97745753"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97956568"
 ---
 [Documentación de referencia](/java/api/com.microsoft.azure.management.cognitiveservices?view=azure-java-stable) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/mgmt-v2017_04_18/src/main/java/com/microsoft/azure/management/cognitiveservices/v2017_04_18) | [Paquete (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure/azure-mgmt-cognitiveservices)
 
@@ -94,7 +94,7 @@ Agregue el código siguiente al método **Main** para enumerar los recursos disp
 
 [!code-java[](~/cognitive-services-quickstart-code/java/azure_management_service/quickstart.java?name=snippet_calls)]
 
-## <a name="create-a-cognitive-services-resource"></a>Creación de un recurso de Cognitive Services
+## <a name="create-a-cognitive-services-resource-java"></a>Creación de un recurso de Cognitive Services (Java)
 
 Para crear un recurso de Cognitive Services y suscribirse a él, use el método **create**. Este método agrega un nuevo recurso facturable al grupo de recursos que se pasa. Cuando cree el recurso, deberá conocer el "tipo" de servicio que desea usar, junto con su plan de tarifa (o SKU) y una ubicación de Azure. El siguiente método usa todos estos valores como argumentos y crea un recurso.
 

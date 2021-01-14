@@ -6,12 +6,12 @@ ms.date: 04/04/2020
 ms.topic: include
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: d1fab57adfb675e8cc4ea604980e6f04a3f4a89f
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 08679bac77121ee2d276f3d2854e0b119c769582
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94425286"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98109453"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -76,6 +76,13 @@ Inserte este código debajo de `IntentRecognizer`. Asegúrese de reemplazar `"Yo
 
 En este ejemplo se usa la función `AddIntent()` para agregar intenciones individualmente. Si desea agregar todas las intenciones de un modelo, use `AddAllIntents(model)` y pase el modelo.
 
+> [!NOTE]
+> El SDK de Voz solo admite puntos de conexión de LUIS v2.0.
+> Debe modificar manualmente la dirección URL del punto de conexión v3.0 que se encuentra en el campo de consulta de ejemplo para usar un patrón de dirección URL v2.0.
+> Los puntos de conexión de LUIS v2.0 siempre siguen uno de estos dos patrones:
+> * `https://{AzureResourceName}.cognitiveservices.azure.com/luis/v2.0/apps/{app-id}?subscription-key={subkey}&verbose=true&q=`
+> * `https://{Region}.api.cognitive.microsoft.com/luis/v2.0/apps/{app-id}?subscription-key={subkey}&verbose=true&q=`
+
 ## <a name="recognize-an-intent"></a>Reconocimiento de una intención
 
 En el objeto `IntentRecognizer`, va a llamar al método `RecognizeOnceAsync()`. Este método permite que el servicio Voz sepa que solo va a enviar una frase para el reconocimiento y que, una vez que se identifica la frase, se detendrá el reconocimiento de voz. Por motivos de simplicidad, esperaremos a que se complete la devolución futura.
@@ -105,9 +112,9 @@ En este momento, el código debe tener esta apariencia:
 
 Ya está listo para compilar la aplicación y probar el reconocimiento de voz con el servicio Voz.
 
-1. **Compile el código** : en la barra de menús de Visual Studio, elija **Compilar** > **Compilar solución**.
-2. **Inicie la aplicación** : en la barra de menús, elija **Depurar** > **Iniciar depuración** o presione <kbd>F5</kbd>.
-3. **Inicie el reconocimiento** : se le pedirá que diga una frase en inglés. La voz se envía al servicio Voz, se transcribe como texto y se representa en la consola.
+1. **Compile el código**: en la barra de menús de Visual Studio, elija **Compilar** > **Compilar solución**.
+2. **Inicie la aplicación**: en la barra de menús, elija **Depurar** > **Iniciar depuración** o presione <kbd>F5</kbd>.
+3. **Inicie el reconocimiento**: se le pedirá que diga una frase en inglés. La voz se envía al servicio Voz, se transcribe como texto y se representa en la consola.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -3,12 +3,12 @@ title: Creación de directivas de Configuración de invitado para Windows
 description: Aprenda a crear una directiva de Configuración de invitado de Azure Policy para Windows.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: d01f4fff28debc3fabcfb32b32b02c5029ce7323
-ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
+ms.openlocfilehash: 85ffda54d58db0544858ca8ab61335b61f18299e
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97755980"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881793"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Creación de directivas de Configuración de invitado para Windows
 
@@ -138,9 +138,32 @@ class ResourceName : OMI_BaseResource
 };
 ```
 
+Si el recurso tiene las propiedades necesarias, también debe devolverlos `Get-TargetResource` en paralelo con la clase `reasons`. Si no se incluye `reasons`, el servicio incluye un comportamiento "comodín" que compara los valores de entrada con `Get-TargetResource` y los valores devueltos por `Get-TargetResource` y proporciona una comparación detallada como `reasons`.
+
 ### <a name="configuration-requirements"></a>Requisitos de configuración
 
-El nombre de la configuración personalizada debe ser coherente en todas partes. El nombre del archivo .zip para el paquete de contenido, el nombre de la configuración en el archivo MOF y el nombre de la asignación de invitado en la plantilla de Azure Resource Manager (plantilla de ARM) deben coincidir.
+El nombre de la configuración personalizada debe ser coherente en todas partes. El nombre del archivo .zip para el paquete de contenido, el nombre de la configuración en el archivo MOF y el nombre de la asignación de invitado en la plantilla de Azure Resource Manager (plantilla de ARM) deben ser el mismo.
+
+### <a name="policy-requirements"></a>Requisitos de la directiva
+
+La sección `metadata` de la definición de directiva debe incluir dos propiedades para que el servicio de configuración de invitado automatice el aprovisionamiento y la generación de informes de las asignaciones de la configuración de invitado. La propiedad `category` debe establecerse en "Configuración de invitado" y una sección denominada `Guest Configuration` debe contener información sobre la asignación de la configuración de invitado. El cmdlet `New-GuestConfigurationPolicy` crea este texto automáticamente.
+Consulte las instrucciones paso a paso en esta página.
+
+En el siguiente ejemplo se muestra la sección `metadata`.
+
+```json
+    "metadata": {
+      "category": "Guest Configuration",
+      "guestConfiguration": {
+        "name": "test",
+        "version": "1.0.0",
+        "contentType": "Custom",
+        "contentUri": "CUSTOM-URI-HERE",
+        "contentHash": "CUSTOM-HASH-VALUE-HERE",
+        "configurationParameter": {}
+      }
+    },
+```
 
 ### <a name="scaffolding-a-guest-configuration-project"></a>Aplicación de la técnica scaffolding a un proyecto de configuración de invitados
 

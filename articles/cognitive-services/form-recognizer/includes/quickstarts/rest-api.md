@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 12/15/2020
 ms.author: pafarley
-ms.openlocfilehash: a677623c030ff26567f14a4526f6d07bc6631a37
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: 31e1a0d912c6623f57d4ea256968102604ce42ff
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97853700"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132339"
 ---
 > [!NOTE]
 > En esta guía se usa cURL para ejecutar llamadas a la API REST. También hay [código de ejemplo en GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/python/FormRecognizer/rest) que muestra cómo llamar a las API REST con Python.
@@ -32,7 +32,7 @@ ms.locfileid: "97853700"
 * La dirección URL de una imagen de un recibo. Puede usar un [documento de ejemplo](https://raw.githubusercontent.com/Azure/azure-sdk-for-python/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms/forms/Invoice_1.pdf) para esta guía de inicio rápido.
 
 
-## <a name="recognize-form-content"></a>Reconocimiento del contenido del formulario
+## <a name="analyze-layout"></a>Análisis de diseño
 
 Puede usar Form Recognizer para reconocer y extraer tablas, líneas y palabras de los documentos sin necesidad de entrenar un modelo. Antes de ejecutar el comando, realice estos cambios:
 
@@ -319,7 +319,7 @@ Consulte la siguiente imagen de una factura y su correspondiente salida JSON. La
 
 ---
 
-## <a name="recognize-receipts"></a>Reconocimiento de recibos
+## <a name="analyze-receipts"></a>Análisis de las confirmaciones de recepción
 
 Para empezar a analizar un recibo, llame a la API **[Analyze Receipt](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeReceiptAsync)** con el siguiente comando cURL. Antes de ejecutar el comando, realice estos cambios:
 
@@ -699,7 +699,7 @@ El nodo `"readResults"` contiene todo el texto reconocido (si el parámetro *inc
 }
 ```
 
-## <a name="recognize-business-cards"></a>Reconocimiento de tarjetas de presentación
+## <a name="analyze-business-cards"></a>Análisis de tarjetas de presentación
 
 # <a name="v20"></a>[v2.0](#tab/v2-0)  
 
@@ -861,7 +861,7 @@ El script imprimirá las respuestas en la consola hasta que se complete la opera
 
 ---
 
-## <a name="recognize-invoices"></a>Reconocimiento de facturas
+## <a name="analyze-invoices"></a>Análisis de facturas
 
 # <a name="version-20"></a>[versión 2.0](#tab/v2-0)
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: 55692122461ef1b22b43b0def43e826ac7aeae30
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: e3a665e3615c9ff3a68cf13eeaef5e8f41632f6a
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97813792"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900367"
 ---
 # <a name="test-through-simulations"></a>Pruebas mediante simulaciones
 
@@ -42,9 +42,9 @@ Nos hemos asociado con [BreakingPoint Cloud](https://www.ixiacom.com/products/br
     |---------      |---------                                          |
     |Dirección IP de destino           | Escriba una de las direcciones IP públicas que desee probar.                     |
     |Número de puerto   | Escriba _443_.                       |
-    |Perfil de DDoS | Seleccione **TCP SYN Flood** (Desbordamiento de TCP SYN).|
-    |Tamaño de prueba       | Seleccione **200K pps, 100 Mbps and 8 source Ips** (200 Kpps, 100 Mbps y 8 direcciones IP de origen).                                  |
-    |Duración de la prueba | Seleccione **10 minutos**.|
+    |Perfil de DDoS | Entre los valores posibles se incluyen **DNS Flood**, **NTPv2 Flood**, **SSDP Flood**, **TCP SYN Flood**, **UDP 64B Flood**, **UDP 128B Flood**, **UDP 256B Flood**, **UDP 512B Flood**, **UDP 1024B Flood**, **UDP 1514B Flood**, **UDP Fragmentation** **UDP Memcached**.|
+    |Tamaño de prueba       | Entre los valores posibles se incluyen **100K pps, 50 Mbps and 4 source IPs** (100 KB de PPS, 50 Mbps y 4 direcciones IP de origen), **200K pps, 100 Mbps and 8 source IPs** (200 000 PPS, 100 Mbps y 8 direcciones IP de origen), **400K pps, 200Mbps and 16 source IPs** (400 000 PPS, 200 Mbps y 16 direcciones IP de origen), **800K pps, 400 Mbps and 32 source IPs** (800 000 PPS, 400 Mbps y 32 direcciones IP de origen).                                  |
+    |Duración de la prueba | Los valores posibles incluyen **10 minutos**, **15 minutos**, **20 minutos**, **25 minutos** y **30 minutos**.|
 
 Ahora debería aparecer como se muestra a continuación:
 

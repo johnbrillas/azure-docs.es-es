@@ -1,7 +1,7 @@
 ---
-title: 'Inicio rápido: Biblioteca cliente de Form Recognizer'
+title: 'Inicio rápido: Biblioteca cliente o API REST de Form Recognizer'
 titleSuffix: Azure Cognitive Services
-description: Use la biblioteca cliente de Form Recognizer para crear una aplicación de procesamiento de formularios que extraiga pares clave-valor y datos de tabla de los documentos personalizados.
+description: Use la biblioteca cliente o API REST de Form Recognizer con el fin de crear una aplicación de procesamiento de formularios que extraiga pares clave-valor y datos de tabla de los documentos personalizados.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -13,23 +13,23 @@ ms.author: pafarley
 zone_pivot_groups: programming-languages-set-formre
 ms.custom: devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 keywords: forms processing, automated data processing
-ms.openlocfilehash: f01adc472f94d679366af50c136ddc020b79b811
-ms.sourcegitcommit: 02ed9acd4390b86c8432cad29075e2204f6b1bc3
+ms.openlocfilehash: c915e7753487eba284d89dbb480f9848e90c1ef1
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97808579"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132290"
 ---
-# <a name="quickstart-use-the-form-recognizer-client-library"></a>Inicio rápido: Uso de la biblioteca cliente de Form Recognizer
+# <a name="quickstart-use-the-form-recognizer-client-library-or-rest-api"></a>Inicio rápido: Uso de la biblioteca cliente o API REST de Form Recognizer
 
-Comience a usar Form Recognizer en el idioma de su elección. Azure Form Recognizer es un servicio cognitivo que le permite crear software de procesamiento de datos automatizado mediante tecnología de aprendizaje automático. Identifique y extraiga texto, pares clave-valor y datos de tabla de los documentos de formulario; el servicio genera datos estructurados que incluyen las relaciones en el archivo original. Siga estos pasos para instalar el paquete SDK y probar el código de ejemplo para realizar tareas básicas. Actualmente, la biblioteca cliente de Form Recognizer tiene como destino la versión v2.0 del servicio Form Recognizer.
+Comience a usar Form Recognizer en el idioma de su elección. Azure Form Recognizer es un servicio cognitivo que le permite crear software de procesamiento de datos automatizado mediante tecnología de aprendizaje automático. Identifique y extraiga texto, pares clave-valor, marcas de selección, datos de tabla, etc., de los documentos de formulario; el servicio genera datos estructurados que incluyen las relaciones en el archivo original. Puede usar Form Recognizer a través de la API REST o el SDK. Siga estos pasos para instalar el paquete SDK y probar el código de ejemplo para realizar tareas básicas. 
 
-Use la biblioteca cliente de Form Recognizer para:
+Use Form Recognizer para:
 
-* [Reconocer el contenido del formulario](#recognize-form-content)
-* [Reconocer recibos](#recognize-receipts)
-* [Reconocer tarjetas de presentación](#recognize-business-cards)
-* [Reconocer facturas](#recognize-invoices)
+* [Análisis de diseño](#analyze-layout)
+* [Análisis de las confirmaciones de recepción](#analyze-receipts)
+* [Análisis de tarjetas de presentación](#analyze-business-cards)
+* [Análisis de facturas](#analyze-invoices)
 * [Entrenar un modelo personalizado](#train-a-custom-model)
 * [Analizar formularios con un modelo personalizado](#analyze-forms-with-a-custom-model)
 * [Administrar modelos personalizados](#manage-your-custom-models)

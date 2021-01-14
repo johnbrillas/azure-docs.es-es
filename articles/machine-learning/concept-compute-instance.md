@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: fafa4c1e8c12ce26a90cfdf9df940823abf5ff25
-ms.sourcegitcommit: 697638c20ceaf51ec4ebd8f929c719c1e630f06f
+ms.openlocfilehash: 54da62ce961156b64c917b448557c17e7516e222
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/04/2021
-ms.locfileid: "97857450"
+ms.locfileid: "97862144"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>¿Qué es una instancia de proceso de Azure Machine Learning?
 
@@ -130,7 +130,7 @@ RBAC de Azure puede controlar estas acciones:
 * *Microsoft.MachineLearningServices/workspaces/computes/stop/action*
 * *Microsoft.MachineLearningServices/workspaces/computes/restart/action*
 
-Tenga en cuenta que para crear una instancia de proceso, el usuario debe tener permisos para realizar las siguientes acciones:
+Para crear una instancia de proceso, debe tener permisos para realizar las siguientes acciones:
 * *Microsoft.MachineLearningServices/workspaces/computes/write*
 * *Microsoft.MachineLearningServices/workspaces/checkComputeNameAvailability/action*
 

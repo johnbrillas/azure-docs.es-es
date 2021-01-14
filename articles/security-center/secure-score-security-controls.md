@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/10/2020
+ms.date: 01/05/2021
 ms.author: memildin
-ms.openlocfilehash: 283dbf152778b5ef58e298444058f619356ef241
-ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
+ms.openlocfilehash: 1e6b66fce6b22dfd12c162d469ce44137c94ab87
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97756116"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916378"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Puntuación de seguridad de Azure Security Center
 
@@ -72,7 +72,7 @@ En resumen, la puntuación de seguridad se muestra en las siguientes ubicaciones
 
 ### <a name="get-your-secure-score-from-the-rest-api"></a>Obtención de la puntuación de seguridad desde la API de REST
 
-Ahora puede acceder a la puntuación a través de la API de puntuación de seguridad (actualmente en versión preliminar). Los métodos de API proporcionan la flexibilidad necesaria para consultar los datos y crear su propio mecanismo de creación de informes de las puntuaciones seguras a lo largo del tiempo. Por ejemplo, puede usar [Secure Scores](/rest/api/securitycenter/securescores) API para obtener la puntuación de una suscripción específica. Además, puede usar [Secure Score Controls API](/rest/api/securitycenter/securescorecontrols) para mostrar los controles de seguridad y la puntuación actual de las suscripciones.
+Puede acceder a la puntuación a través de la API de puntuación segura. Los métodos de API proporcionan la flexibilidad necesaria para consultar los datos y crear su propio mecanismo de creación de informes de las puntuaciones seguras a lo largo del tiempo. Por ejemplo, puede usar [Secure Scores](/rest/api/securitycenter/securescores) API para obtener la puntuación de una suscripción específica. Además, puede usar [Secure Score Controls API](/rest/api/securitycenter/securescorecontrols) para mostrar los controles de seguridad y la puntuación actual de las suscripciones.
 
 ![Recuperación de una sola puntuación de seguridad a través de la API](media/secure-score-security-controls/single-secure-score-via-api.png)
 

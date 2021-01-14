@@ -12,12 +12,12 @@ ms.date: 09/30/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: image recognition, image recognition app, custom vision
-ms.openlocfilehash: 8274ddd0e492d1a27ebc1579fc6efdcc8cc84955
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: b27864fc1fd1f94f99fccacd90a66120e6d044c4
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97912991"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132586"
 ---
 # <a name="quickstart-build-an-object-detector-with-the-custom-vision-website"></a>Inicio rápido: Creación de un detector de objetos con el sitio web de Custom Vision
 
@@ -104,9 +104,13 @@ Una vez finalizado el entrenamiento, se calcula y se muestra el rendimiento del 
 
 ![Los resultados de entrenamiento muestran la precisión y la coincidencia generales, así como la precisión media.](./media/get-started-build-detector/trained-performance.png)
 
-### <a name="probability-threshold"></a>Probability Threshold (Umbral de probabilidad)
+### <a name="probability-threshold"></a>Umbral de probabilidad
 
 [!INCLUDE [probability threshold](includes/probability-threshold.md)]
+
+### <a name="overlap-threshold"></a>Umbral de superposición
+
+El control deslizante **Overlap Threshold** (Umbral de superposición) sirve para indicar cómo de correcta debe ser una predicción de objeto para que se la considere "correcta" en el entrenamiento. Permite establecer la superposición mínima permitida entre el cuadro de límite del objeto predicho y el cuadro de límite especificado por el usuario real. Si los cuadros de límite no se superponen en el grado establecido, la predicción no se considerará correcta.
 
 ## <a name="manage-training-iterations"></a>Administración de iteraciones de entrenamiento
 

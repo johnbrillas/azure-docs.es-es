@@ -10,14 +10,14 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 12/21/2020
+ms.date: 1/4/2021
 ms.author: yohaddad
-ms.openlocfilehash: 5e61dcb5a329916ed2c95646282bbdccad3b5767
-ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
+ms.openlocfilehash: 429e343a61e61b01fa07c37a6c2b702f6ef633d1
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97708507"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882354"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Matriz de compatibilidad del SDK y versiones del SO invitado de Azure
 Proporciona información actualizada sobre los lanzamientos del SO invitado de Azure más recientes para Cloud Services. Esta información le ayuda a planear la ruta de actualización antes de que se deshabilite un SO invitado. Si configura los roles para utilizar actualizaciones *automáticas* del SO invitado como se describe en la documentación sobre la [configuración de actualización del SO invitado de Azure][Azure Guest OS Update Settings], no es fundamental que lea esta página.
@@ -187,7 +187,7 @@ Versión de .NET Framework instalada: 3.5, 4.6.2
 
 | Cadena de configuración | Fecha de la versión | Fecha de deshabilitación |
 | --- | --- | --- |
-|  WA-GUEST-OS-5.49_202011-02  |  19 de diciembre de 2020  |  Post 5.51  | 
+|  WA-GUEST-OS-5.49_202011-01  |  19 de diciembre de 2020  |  Post 5.51  | 
 |  WA-GUEST-OS-5.48_202010-02  |  17 de noviembre de 2020  |  Post 5.50  | 
 |~~WA-GUEST-OS-5.47_202009-01~~|  10 de octubre de 2020  |  19 de diciembre de 2020  | 
 |~~WA-GUEST-OS-5.46_202008-02~~|  5 de septiembre de 2020  |  17 de noviembre de 2020  |  

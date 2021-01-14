@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 04/03/2020
 ms.author: trbye
 ms.custom: devx-track-js
-ms.openlocfilehash: 4ac8ae4fd4218bbf74bbb6760d8344096c214a76
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: bbd7091eb2139801956d77ec8b3ca821c935ac64
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97820519"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98109457"
 ---
 ## <a name="start-with-some-boilerplate-code"></a>Inicio con código reutilizable
 
@@ -187,6 +187,14 @@ Inserte este código debajo de `IntentRecognizer`. Asegúrese de reemplazar `"Yo
           recognizer.addAllIntents(lm);
         }
 ```
+
+> [!NOTE]
+> El SDK de Voz solo admite puntos de conexión de LUIS v2.0.
+> Debe modificar manualmente la dirección URL del punto de conexión v3.0 que se encuentra en el campo de consulta de ejemplo para usar un patrón de dirección URL v2.0.
+> Los puntos de conexión de LUIS v2.0 siempre siguen uno de estos dos patrones:
+> * `https://{AzureResourceName}.cognitiveservices.azure.com/luis/v2.0/apps/{app-id}?subscription-key={subkey}&verbose=true&q=`
+> * `https://{Region}.api.cognitive.microsoft.com/luis/v2.0/apps/{app-id}?subscription-key={subkey}&verbose=true&q=`
+
 ## <a name="recognize-an-intent"></a>Reconocimiento de una intención
 
 En el objeto `IntentRecognizer`, va a llamar al método `recognizeOnceAsync()`. Este método permite que el servicio Voz sepa que solo va a enviar una frase para el reconocimiento y que, una vez que se identifica la frase, se detendrá el reconocimiento de voz.

@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 11/19/2020
 ms.author: aahi
 ms.reviewer: chtufts
-ms.openlocfilehash: c60adb09da05ba945bcf6ccb55e71c395f064211
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 2adca03a820d02731bca252dee99c76debc85e2e
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965109"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028138"
 ---
 # <a name="data-and-rate-limits-for-the-text-analytics-api"></a>Límites de datos y velocidad de la API Text Analytics
 <a name="data-limits"></a>
@@ -35,7 +35,15 @@ Use este artículo para encontrar los límites de tamaño y las velocidades a la
 | Tamaño máximo de un documento individual (punto de conexión de `/analyze`)  | 125 000 caracteres medidos por [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements). No se aplica a Text Analytics for Health. |
 | Tamaño máximo de la solicitud completa | 1 MB. También se aplica a Text Analytics for Health. |
 
-El número máximo de documentos que puede enviar en una única solicitud dependerá de la versión de la API y de la característica que use. El punto de conexión de `/analyze` rechazará toda la solicitud si algún documento supera el tamaño máximo (125 000 caracteres)
+
+Si un documento supera el límite de caracteres, la API se comportará de forma diferente en función del punto de conexión que esté usando:
+
+* Punto de conexión `/analyze`:
+  * La API rechazará toda la solicitud y devolverá un error `400 bad request` si algún documento de la misma supera el tamaño máximo.
+* Todos los demás puntos de conexión:  
+  * La API no procesará un documento que supere el tamaño máximo y devolverá un error de documento no válido. Si una solicitud de API tiene varios documentos, la API seguirá procesándolos si están dentro del límite de caracteres.
+
+El número máximo de documentos que puede enviar en una única solicitud dependerá de la versión de la API y de la característica que use, tal como se indica en la tabla siguiente.
 
 #### <a name="version-3"></a>[Versión 3](#tab/version-3)
 
