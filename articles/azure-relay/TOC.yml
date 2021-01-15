@@ -65,7 +65,7 @@
               href: relay-hybrid-connections-node-ws-api-overview.md
     - name: Seguridad
       items:
-        - name: Configuración de la dirección IP del firewall (versión preliminar)
+        - name: Configuración de la dirección IP del firewall
           href: ip-firewall-virtual-networks.md
         - name: Configuración de puntos de conexión privados
           href: private-link-service.md
