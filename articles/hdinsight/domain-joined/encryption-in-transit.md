@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/24/2020
-ms.openlocfilehash: ba1542d1bb10933edb34b697f1c81cc5e3e7f1c9
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 88a7a0240a4711bebad0ea9007caf6590436e371
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97705377"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98049786"
 ---
 # <a name="ipsec-encryption-in-transit-for-azure-hdinsight"></a>Cifrado IPSec en tránsito para Azure HDInsight
 
@@ -24,7 +24,7 @@ Azure HDInsight ofrece una variedad de características de seguridad para proteg
 
 El cifrado en reposo abarca el cifrado en el lado servidor que se realiza en las cuentas de almacenamiento de Azure, así como el cifrado de disco que tiene lugar en las máquinas virtuales de Azure que forman parte del clúster de HDInsight.
 
-El cifrado de datos en tránsito en HDInsight se consigue con la [Seguridad de la capa de transporte (TLS)](../transport-layer-security.md) para acceder a las puertas de enlace de clúster y con el [Protocolo de seguridad de Internet (IPSec)](https://wikipedia.org/wiki/IPsec) entre los nodos del clúster. IPSec se puede habilitar opcionalmente entre todos los nodos principales, de trabajo, perimetrales y de Zookeeper. No está habilitado para el tráfico entre nodos de puerta de enlace o de [agente de identidad](./identity-broker.md), que son máquinas virtuales basadas en Windows y otros nodos basados en Linux en el clúster.
+El cifrado de datos en tránsito en HDInsight se consigue con la [Seguridad de la capa de transporte (TLS)](../transport-layer-security.md) para acceder a las puertas de enlace de clúster y con el [Protocolo de seguridad de Internet (IPSec)](https://wikipedia.org/wiki/IPsec) entre los nodos del clúster. IPSec se puede habilitar opcionalmente entre todos los nodos principales, de trabajo, perimetrales y de Zookeeper, así como los nodos de puerta de enlace y [agente de identidad](./identity-broker.md).
 
 ## <a name="enable-encryption-in-transit"></a>Habilitar el cifrado en tránsito
 

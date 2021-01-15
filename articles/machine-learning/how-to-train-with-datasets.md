@@ -12,19 +12,21 @@ ms.reviewer: nibaccam
 ms.date: 07/31/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, data4ml
-ms.openlocfilehash: 8b95c5a45992c895713e0be056856172b14b830d
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 52b52c4c19b22fb1afd76d1e8dfa4163326c0244
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97740681"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108597"
 ---
 # <a name="train-with-datasets-in-azure-machine-learning"></a>Entrenamiento con conjuntos de datos en Azure Machine Learning
 
 
-En este artículo obtendrá información acerca de cómo usar [conjuntos de datos de Azure Machine Learning](/python/api/azureml-core/azureml.core.dataset%28class%29?preserve-view=true&view=azure-ml-py) en sus experimentos de entrenamiento.  Puede usar conjuntos de datos en el destino de proceso local o remoto sin preocuparse por las cadenas de conexión o las rutas de acceso a datos.
+En este artículo va a aprender a usar [conjuntos de datos de Azure Machine Learning](/python/api/azureml-core/azureml.core.dataset%28class%29?preserve-view=true&view=azure-ml-py) para entrenar modelos de Machine Learning.  Puede usar conjuntos de datos en el destino de proceso local o remoto sin preocuparse por las cadenas de conexión o las rutas de acceso a datos. 
 
 Los conjuntos de datos de Azure Machine Learning proporcionan una integración perfecta con funcionalidades de entrenamiento de Azure Machine Learning como [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py), [HyperDrive](/python/api/azureml-train-core/azureml.train.hyperdrive?preserve-view=true&view=azure-ml-py) y [canalizaciones de Azure Machine Learning](how-to-create-your-first-pipeline.md).
+
+Si no está preparado para poner los datos a disposición del entrenamiento del modelo, pero quiere cargarlos en el cuaderno para la exploración de datos, vea cómo [explorar los datos del conjunto de datos](how-to-create-register-datasets.md#explore-data). 
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -34,7 +36,7 @@ Para crear conjuntos de datos y entrenar con ellos, necesita:
 
 * Un [área de trabajo de Azure Machine Learning](how-to-manage-workspace.md).
 
-* El [SDK de Azure Machine Learning para Python instalado](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py) (>= 1.13.0), que incluye el paquete azureml-datasets.
+* El [SDK de Azure Machine Learning para Python instalado](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py) (>= 1.13.0), que incluye el paquete `azureml-datasets`.
 
 > [!Note]
 > Algunas clases Dataset tienen dependencias del paquete [azureml dataprep](/python/api/azureml-dataprep/?preserve-view=true&view=azure-ml-py). Para los usuarios de Linux, estas clases solo se admiten en las siguientes distribuciones:  Red Hat Enterprise Linux, Ubuntu, Fedora y CentOS.
@@ -65,7 +67,7 @@ El código siguiente configura el argumento de script `--input-data` que se espe
 > [!Note]
 > Si el origen de datos original contiene NaN, cadenas vacías o valores en blanco, cuando se utiliza `to_pandas_dataframe()`, esos valores se reemplazan como valor *Null*.
 
-Si necesita cargar los datos preparados en un nuevo conjunto de datos a partir de un dataframe de Pandas en memoria, escriba los datos en un archivo local, como un archivo Parquet, y cree el nuevo conjunto de datos a partir de ese archivo. También puede crear conjuntos de datos a partir de archivos o rutas de acceso locales en almacenes de datos. Más información sobre [cómo crear conjuntos de datos](how-to-create-register-datasets.md).
+Si necesita cargar los datos preparados en un nuevo conjunto de datos a partir de un dataframe de Pandas en memoria, escriba los datos en un archivo local, como un archivo Parquet, y cree el nuevo conjunto de datos a partir de ese archivo. Más información sobre [cómo crear conjuntos de datos](how-to-create-register-datasets.md).
 
 ```Python
 %%writefile $script_folder/train_titanic.py

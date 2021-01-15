@@ -31,6 +31,8 @@
           href: cache-python-get-started.md
         - name: Aplicación Go
           href: cache-go-get-started.md
+        - name: Aplicación Rust
+          href: cache-rust-get-started.md
 - name: Tutoriales
   items:
     - name: ASP.NET

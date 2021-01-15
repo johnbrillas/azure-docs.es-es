@@ -5,18 +5,17 @@ description: Más información sobre cómo habilitar HTTPS con la versión 1.2 d
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
-ms.date: 11/18/2020
+ms.date: 01/04/2021
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 86cd5a5cbbb17dc3d3e4d56e4267be2718f6081d
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.openlocfilehash: 8399cfb4ceed9f50a5c9de0d3d16912a718bbfaa
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97830877"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98070123"
 ---
 # <a name="use-tls-to-secure-a-web-service-through-azure-machine-learning"></a>Uso de TLS para proteger un servicio web con Azure Machine Learning
 
@@ -83,7 +82,7 @@ Para la implementación de ACI, puede habilitar la terminación TLS en el moment
   > [!NOTE]
   > La información de esta sección también se aplica al implementar un servicio web seguro para el diseñador. Si no está familiarizado con el uso del SDK para Python, consulte [What is the Azure Machine Learning SDK for Python?](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) (¿Qué es el SDK de Azure Machine Learning para Python?).
 
-Cuando se [crea o conecta un clúster de Azure Container Service](how-to-create-attach-kubernetes.md) en el área de trabajo de Azure Machine Learning, se puede habilitar la terminación de Seguridad de la capa de transporte con los objetos de configuración **[AksCompute.provisioning_configuration ()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#&preserve-view=trueprovisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none--cluster-purpose-none--load-balancer-type-none--load-balancer-subnet-none-)** y **[AksCompute.attach_configuration ()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#&preserve-view=trueattach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)** . Ambos métodos devuelven un objeto de configuración que tiene un método **enable_ssl** y se puede usar **enable_ssl** método para habilitar TLS.
+Cuando se [crea o conecta un clúster de Azure Container Service](how-to-create-attach-kubernetes.md) en el área de trabajo de Azure Machine Learning, se puede habilitar la terminación de Seguridad de la capa de transporte con los objetos de configuración **[AksCompute.provisioning_configuration ()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#&preserve-view=trueprovisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none--cluster-purpose-none--load-balancer-type-none--load-balancer-subnet-none-)** y **[AksCompute.attach_configuration ()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#&preserve-view=trueattach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)** . Ambos métodos devuelven un objeto de configuración que tiene un método **enable_ssl** y se puede usar el método **enable_ssl** para habilitar TLS.
 
 TLS se puede habilitar con el certificado de Microsoft o con un certificado personalizado adquirido en una CA. 
 
@@ -168,7 +167,7 @@ Los certificados TLS/SSL expiran y se deben renovar. Normalmente esto sucede cad
 
 ### <a name="update-a-microsoft-generated-certificate"></a>Actualización de un certificado generado por Microsoft
 
-Si Microsoft generó el certificado originalmente (al utilizar *leaf_domain_label* para crear el servicio), use uno de los ejemplos siguientes para actualizar el certificado:
+Si Microsoft ha generado el certificado originalmente (mediante *leaf_domain_label* para crear el servicio), **se renueva automáticamente** cuando resulta necesario. Si quiere renovarlo manualmente, use alguno de los ejemplos siguientes para actualizarlo:
 
 > [!IMPORTANT]
 > * Si el certificado existente sigue siendo válido, use `renew=True` (SDK) o `--ssl-renew` (CLI) para forzar que la configuración lo renueve. Por ejemplo, si el certificado existente sigue siendo válido durante 10 días y no usa `renew=True`, es posible que el certificado no se renueve.

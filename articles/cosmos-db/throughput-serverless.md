@@ -5,13 +5,13 @@ author: ThomasWeiss
 ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/23/2020
-ms.openlocfilehash: a6f8b79ecc8dcac71dc8f5d1be2bb58a0288a307
-ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
+ms.date: 01/08/2021
+ms.openlocfilehash: 3f5c3400f319a3f9d5f1544457b009f90d479634
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97760341"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98049837"
 ---
 # <a name="how-to-choose-between-provisioned-throughput-and-serverless"></a>Elección entre el rendimiento aprovisionado y sin servidor
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -25,11 +25,11 @@ Azure Cosmos DB admite dos tipos de modos de capacidad: [rendimiento aprovision
 | Criterios | Rendimiento aprovisionado | Sin servidor |
 | --- | --- | --- |
 | Estado | Disponibilidad general | En versión preliminar |
-| Idónea para | Cargas de trabajo críticas que requieren un rendimiento predecible | Cargas de trabajo pequeñas y medianas con tráfico ligero e intermitente que es difícil de predecir |
+| Idónea para | Cargas de trabajo con tráfico sostenido que requieren un rendimiento predecible | Cargas de trabajo con tráfico intermitente o imprevisible y una baja relación de tráfico de promedio a pico |
 | Funcionamiento | Para cada uno de los contenedores, aprovisiona una cantidad de rendimiento expresada en [unidades de solicitud](request-units.md) por segundo. Cada segundo, esta cantidad de unidades de solicitud está disponible para las operaciones de base de datos. El rendimiento aprovisionado se puede actualizar manualmente o ajustar automáticamente con [escalado automático](provision-throughput-autoscale.md). | Las operaciones de base de datos se ejecutan en los contenedores sin tener que aprovisionar ninguna capacidad. |
 | Distribución geográfica | Disponible (regiones de Azure ilimitadas) | No disponible (una cuenta sin servidor solo puede ejecutarse en una única región de Azure) |
 | Almacenamiento máximo por contenedor | Sin límite | 50 GB |
-| Rendimiento | Disponibilidad entre el 99,99 % y el 99,999 % del Acuerdo de Nivel de Servicio<br>< 10 ms de latencia para las lecturas de punto y escrituras que se incluyen en el Acuerdo de Nivel de Servicio<br>Rendimiento garantizado del 99,99 % que se incluye en el Acuerdo de Nivel de Servicio | Disponibilidad entre el 99,9 % y el 99,99 % que se incluye en el Acuerdo de Nivel de Servicio<br>< 10 ms de latencia para las lecturas de punto y < 30 ms para las escrituras que se incluyen en el Objetivo de nivel de servicio<br>Un 95 % de capacidad de ráfaga que se incluye en el Objetivo de nivel de servicio |
+| Rendimiento | < 10 ms de latencia para las lecturas de punto y escrituras que se incluyen en el Acuerdo de Nivel de Servicio | < 10 ms de latencia para las lecturas de punto y < 30 ms para las escrituras que se incluyen en el Objetivo de nivel de servicio |
 | Modelo de facturación | La facturación se realiza por hora para las RU/s aprovisionadas, independientemente de las que se consuman. | La facturación se realiza por horas para la cantidad de RU consumida por las operaciones de base de datos. |
 
 > [!IMPORTANT]

@@ -179,6 +179,8 @@
               href: database/performance-guidance.md
             - name: Uso de DMV para supervisar el rendimiento
               href: database/monitoring-with-dmvs.md
+            - name: Descripción y solución de bloqueo
+              href: database/understand-resolve-blocking.md
             - name: Registro de telemetría de diagnóstico
               href: database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md
             - name: OLTP en memoria (optimización en memoria
@@ -1098,7 +1100,7 @@
                           href: virtual-machines/windows/availability-group-clusterless-workgroup-configure.md
                         - name: Configuración manual
                           items:
-                            - name: Prerrequisitos
+                            - name: Requisitos previos
                               href: virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial.md
                             - name: Tutorial
                               href: virtual-machines/windows/availability-group-manually-configure-tutorial.md

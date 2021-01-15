@@ -1,5 +1,5 @@
 ---
-title: Protección del acceso externo a los recursos en Azure Active Directory
+title: Protección de la colaboración externa en Azure Active Directory
 description: Una guía para arquitectos y administradores de TI sobre cómo proteger el acceso externo a recursos internos
 services: active-directory
 author: BarbaraSelden
@@ -13,14 +13,14 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39300c887245a99dce2913661f6492c85a1e6722
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 7f09d2050617cbda539eee9fcda1ecfb204a015a
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97743746"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98059286"
 ---
-# <a name="securing-external-access-to-resources"></a>Protección del acceso externo a los recursos
+# <a name="securing-external-collaboration-in-azure-active-directory-and-microsoft-365"></a>Protección de la colaboración externa en Azure Active Directory y Microsoft 365
 
 La colaboración segura con asociados externos garantiza que estos asociados tengan acceso a los recursos internos apropiados por el período de tiempo adecuado. Mediante un enfoque global de gobernanza, puede reducir los riesgos de seguridad, lograr los objetivos de cumplimiento y cerciorarse de qué usuarios tienen acceso.
 
@@ -40,18 +40,18 @@ Esta documentación se ha concebido para ayudarle a cambiar de un entorno de col
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte los siguientes artículos sobre cómo proteger el acceso externo a los recursos. Se recomienda seguir los pasos por orden.
+Consulte los siguientes artículos sobre cómo proteger el acceso externo a los recursos. Se recomienda realizar las acciones en el orden indicado.
 
 
-1. [Determinación de la posición de seguridad deseada para el acceso externo](1-secure-access-posture.md)
+1. [Determinación de la posición de seguridad para el acceso externo](1-secure-access-posture.md)
 
-2. [Identificación del estado actual](2-secure-access-current-state.md)
+2. [Detección del estado actual](2-secure-access-current-state.md)
 
 3. [Creación de un plan de gobernanza](3-secure-access-plan.md)
 
 4. [Uso de grupos con fines de seguridad](4-secure-access-groups.md)
 
-5. [Transición a Azure AD B2B](5-secure-access-b2b.md)
+5. [Transición a B2B de Azure AD](5-secure-access-b2b.md)
 
 6. [Acceso seguro mediante la administración de derechos](6-secure-access-entitlement-managment.md)
 

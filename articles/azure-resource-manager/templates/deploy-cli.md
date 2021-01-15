@@ -3,12 +3,12 @@ title: Implementación de recursos con una plantilla y la CLI de Azure
 description: Use Azure Resource Manager y la CLI de Azure para implementar recursos en Azure. Los recursos se definen en una plantilla de Resource Manager.
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: 7b1639f31b696f300177d05107a98effc3f3ae23
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: a2caea70a51a737bfa433a089c03b43f252b5d6e
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676187"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028155"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-cli"></a>Implementación de recursos con plantillas de ARM y la CLI de Azure
 
@@ -18,19 +18,19 @@ Los comandos de implementación cambiaron en la CLI de Azure, versión 2.2.0. Lo
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-Si no tiene instalada la CLI de Azure, puede usar Cloud Shell. Para más información, consulte [Implementación de plantillas de Resource Manager desde Cloud Shell](deploy-cloud-shell.md).
+Si no tiene instalada la CLI de Azure, puede usar Azure Cloud Shell. Para obtener más información, vea [Implementación de plantillas de Resource Manager desde Cloud Shell](deploy-cloud-shell.md).
 
 ## <a name="deployment-scope"></a>Ámbito de la implementación
 
 La implementación puede tener como destino un grupo de recursos, una suscripción, un grupo de administración o un inquilino. Según el ámbito de la implementación, usará comandos diferentes.
 
-* Para implementar en un **grupo de recursos** , use [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create):
+* Para implementar en un **grupo de recursos**, use [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create):
 
   ```azurecli-interactive
   az deployment group create --resource-group <resource-group-name> --template-file <path-to-template>
   ```
 
-* Para implementar en una **suscripción** , use [az deployment sub create](/cli/azure/deployment/sub#az-deployment-sub-create):
+* Para implementar en una **suscripción**, use [az deployment sub create](/cli/azure/deployment/sub#az-deployment-sub-create):
 
   ```azurecli-interactive
   az deployment sub create --location <location> --template-file <path-to-template>
@@ -38,7 +38,7 @@ La implementación puede tener como destino un grupo de recursos, una suscripci�
 
   Para más información sobre las implementaciones en el nivel de suscripción, consulte [Creación de grupos de recursos y otros recursos en el nivel de suscripción](deploy-to-subscription.md).
 
-* Para implementar en un **grupo de administración** , use [az deployment mg create](/cli/azure/deployment/mg#az-deployment-mg-create):
+* Para implementar en un **grupo de administración**, use [az deployment mg create](/cli/azure/deployment/mg#az-deployment-mg-create):
 
   ```azurecli-interactive
   az deployment mg create --location <location> --template-file <path-to-template>
@@ -46,7 +46,7 @@ La implementación puede tener como destino un grupo de recursos, una suscripci�
 
   Para obtener más información sobre las implementaciones de nivel de grupo de administración, consulte [Creación de recursos en el nivel de grupo de administración](deploy-to-management-group.md).
 
-* Para implementar en un **inquilino** , use [az deployment tenant create](/cli/azure/deployment/tenant#az-deployment-tenant-create):
+* Para implementar en un **inquilino**, use [az deployment tenant create](/cli/azure/deployment/tenant#az-deployment-tenant-create):
 
   ```azurecli-interactive
   az deployment tenant create --location <location> --template-file <path-to-template>
@@ -191,7 +191,7 @@ az deployment group create \
 
 Obtener un valor de parámetro de un archivo es útil cuando se necesita proporcionar valores de configuración. Por ejemplo, puede proporcionar [valores de cloud-init para una máquina virtual Linux](../../virtual-machines/linux/using-cloud-init.md).
 
-El formato de arrayContent.json es:
+El formato de _arrayContent.json_ es:
 
 ```json
 [
@@ -228,7 +228,7 @@ En lugar de pasar parámetros como valores en línea en el script, quizá le res
 
 Para más información sobre el archivo de parámetro, consulte [Creación de un archivo de parámetros de Resource Manager](parameter-files.md).
 
-Para pasar un archivo de parámetros local, use `@` para especificar un archivo local denominado storage.parameters.json.
+Para pasar un archivo de parámetros local, use `@` para especificar un archivo local denominado _storage.parameters.json_.
 
 ```azurecli-interactive
 az deployment group create \

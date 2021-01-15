@@ -123,6 +123,8 @@
       items:
         - name: Directiva de registro o de inicio de sesión
           href: add-sign-up-and-sign-in-policy.md
+        - name: Directiva de inicio de sesión
+          href: add-sign-in-policy.md
         - name: Directiva de restablecimiento de contraseña
           href: add-password-reset-policy.md
         - name: Directiva de cambio de contraseña
@@ -148,6 +150,8 @@
           href: identity-provider-azure-ad-single-tenant.md
         - name: Azure AD (multiinquilino)
           href: identity-provider-azure-ad-multi-tenant.md
+        - name: Azure AD B2C
+          href: identity-provider-azure-ad-b2c.md
         - name: Facebook
           href: identity-provider-facebook.md
         - name: Proveedores de identidades genéricas

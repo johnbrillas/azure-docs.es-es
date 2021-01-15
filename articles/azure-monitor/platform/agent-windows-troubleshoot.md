@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: 3d99293ea83c883f8d0870d78dfbec58f74c9bd1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e2531d511193586ef4605cc3732968b6db28d9f
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87927324"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98050568"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-windows"></a>Procedimientos para solucionar problemas relacionados con el agente de Log Analytics para Windows 
 
@@ -21,6 +21,40 @@ Si ninguno de estos pasos funciona, también están disponibles los siguientes c
 * Los clientes con ventajas de soporte técnico Premier pueden abrir una solicitud de soporte técnico en [Premier](https://premier.microsoft.com/).
 * Los clientes con contratos de soporte técnico de Azure pueden abrir una solicitud de soporte técnico [en Azure Portal](https://manage.windowsazure.com/?getsupport=true).
 * Visite la página de comentarios de Log Analytics para revisar los errores e ideas enviadas [https://aka.ms/opinsightsfeedback](https://aka.ms/opinsightsfeedback) o registre uno nuevo. 
+
+## <a name="log-analytics-troubleshooting-tool"></a>Herramienta de solución de problemas de Log Analytics
+
+La herramienta de solución de problemas de Windows del agente de Log Analytics es una colección de scripts de PowerShell diseñada para ayudar a detectar y diagnosticar problemas del agente de Log Analytics. Se incluye automáticamente con el agente en la instalación. La ejecución de la herramienta debe ser el primer paso para diagnosticar un problema.
+
+### <a name="how-to-use"></a>Cómo se usa
+1. Abra el símbolo del sistema de PowerShell como administrador en la máquina donde está instalado el agente de Log Analytics.
+1. Desplácese al directorio donde se encuentra la herramienta.
+   * `cd "C:\Program Files\Microsoft Monitoring Agent\Agent\Troubleshooter"`
+1. Ejecute el script principal con este comando:
+   * `.\GetAgentInfo.ps1`
+1. Seleccione un escenario de solución de problemas.
+1. Siga las instrucciones de la consola. (Nota: Los pasos de los registros de seguimiento requieren la intervención manual para detener la recopilación de registros. En función de la posibilidad de reproducir el problema, espere mientras dura y presione «s» para detener la recopilación de registros y seguir con el paso siguiente).
+
+   Las ubicaciones del archivo de resultados se registran al finalizar y se abre una nueva ventana del explorador en donde se resalta este archivo.
+
+### <a name="installation"></a>Instalación
+La herramienta de solución de problemas se incluye automáticamente al instalar la compilación 10.20.18053.0 o posterior del agente de Log Analytics.
+
+### <a name="scenarios-covered"></a>Escenarios descritos
+A continuación se muestra una lista de escenarios comprobados por la herramienta de solución de problemas:
+
+- El agente no notifica datos o faltan datos de latido
+- Error de implementación de la extensión del agente
+- Bloqueo del agente
+- El agente consume mucha memoria o CPU
+- Errores de instalación o desinstalación
+- Problema de registros personalizados
+- Problema de puerta de enlace de OMS
+- Problema de contadores de rendimiento
+- Recopilación de todos los registros
+
+>[!NOTE]
+>Ejecute la herramienta de solución de problemas cuando experimente un problema. Al abrir un vale, el contar desde el principio con los registros ayuda considerablemente al equipo de soporte técnico a solucionar el problema más rápido.
 
 ## <a name="important-troubleshooting-sources"></a>Orígenes de solución de problemas importantes
 

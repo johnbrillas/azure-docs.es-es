@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/05/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: cbae833c1b207669e35b467707f946e9bafe31d2
-ms.sourcegitcommit: c538b6e4cf27b992500c079ad9c914c05d55eb7f
+ms.openlocfilehash: 077d200dcaf957f636acecebb441ff99a68eb96f
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2021
-ms.locfileid: "97854951"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97963594"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integración de su aplicación con una instancia de Azure Virtual Network
 
@@ -130,6 +130,12 @@ La interfaz de usuario de Integración con red virtual del plan de App Service m
 
 * **Sincronizar red**: la operación de sincronización de red solo se usa con la característica Integración con red virtual con requisito de puerta de enlace. Realizar una operación de sincronización de red garantiza que los certificados y la información de red estén sincronizados. Si agrega o cambia el DNS de la red virtual, debe ejecutar una operación de sincronización de la red. Esta operación reinicia todas las aplicaciones que usen esta red virtual. Esta operación no funcionará si usa una aplicación y una red virtual que pertenezcan a distintas suscripciones.
 * **Agregar rutas**: la adición de rutas impulsa el tráfico de salida a la red virtual.
+
+La dirección IP privada asignada a la instancia se expone por medio de la variable de entorno, **WEBSITE_PRIVATE_IP**. La interfaz de usuario de la consola de Kudu también muestra la lista de variables de entorno disponibles para la aplicación web. Esta dirección IP se asigna desde el intervalo de direcciones de la subred integrada. En el caso de la integración con red virtual regional, el valor de WEBSITE_PRIVATE_IP es una dirección IP del intervalo de direcciones de la subred delegada y, en el de la integración con red virtual con requisito de puerta de enlace, el valor es una dirección IP del intervalo de direcciones del grupo de direcciones de punto a sitio configurado en la puerta de enlace de red virtual. Esta es la dirección IP que va a usar la aplicación web para conectarse a los recursos a través de la red virtual. 
+
+> [!NOTE]
+> El valor de WEBSITE_PRIVATE_IP va a cambiar. Pero va a ser una dirección del intervalo de direcciones de la subred de integración o el intervalo de direcciones de punto a sitio, por lo que va a tener que permitir el acceso desde el intervalo de direcciones completo.
+>
 
 ### <a name="gateway-required-vnet-integration-routing"></a>Enrutamiento de Integración con red virtual con requisito de puerta de enlace
 Las rutas definidas en la red virtual se usan para dirigir el tráfico desde la aplicación hacia la red virtual. Para enviar más tráfico de salida a la red virtual, agregue aquí esos bloques de direcciones. Esta característica solo funciona con la Integración con red virtual con requisito de puerta de enlace. Las tablas de enrutamiento no afectan del mismo modo al tráfico de la aplicación cuando se utiliza la versión de Integración con red virtual que necesita una puerta de enlace del mismo modo que cuando se utiliza la versión regional.

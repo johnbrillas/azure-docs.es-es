@@ -12,6 +12,9 @@
       href: manage-ddos-protection-powershell.md
     - name: 'Creación de un plan de DDoS Protection: CLI'
       href: manage-ddos-protection-cli.md
+    - name: 'Creación de un plan de DDoS Protection: plantilla de Resource Manager'
+      displayName: Resource Manager
+      href: manage-ddos-protection-template.md
 - name: Tutoriales
   items:
     - name: Visualización y configuración de la telemetría de DDoS Protection

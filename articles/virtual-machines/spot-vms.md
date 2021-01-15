@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: b8e5c6b6b755134772cc8eaea3dab3af7f5346c9
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e1666b7e74ceefd7e7e4fe6e499667b09efa0ac7
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963370"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97963800"
 ---
 # <a name="use-spot-vms-in-azure"></a>Uso de las máquinas virtuales de Spot en Azure
 
@@ -81,7 +81,7 @@ Puede ver los precios históricos y las tasas de expulsión por tamaño en una r
 
 **Tabla**:
 
-:::image type="content" source="./media/spot-table.png" alt-text="Captura de pantalla de las opciones de región con la diferencia de precios y tasas de expulsión en forma de gráfico.":::
+:::image type="content" source="./media/spot-table.png" alt-text="Captura de pantalla de las opciones de región con la diferencia de precios y tasas de expulsión en forma de tabla.":::
 
 
 
@@ -110,6 +110,11 @@ Puede ver los precios históricos y las tasas de expulsión por tamaño en una r
 **P:** ¿Dónde puedo publicar preguntas?
 
 **R:** Puede publicar y etiquetar la pregunta con `azure-spot` en [Q&A](/answers/topics/azure-spot.html) (Preguntas y respuestas). 
+
+
+**P:** ¿Cómo puedo cambiar el precio máximo de una máquina virtual de acceso puntual?
+
+**R:** Para cambiar el precio máximo, debe desasignar la máquina virtual. Luego puede cambiar el precio máximo en el portal, en la sección **Configuración** de la máquina virtual. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 Use la [CLI](./linux/spot-cli.md), el [portal](spot-portal.md), una [plantilla de ARM](./linux/spot-template.md) o [PowerShell](./windows/spot-powershell.md) para implementar máquina virtuales de Spot.

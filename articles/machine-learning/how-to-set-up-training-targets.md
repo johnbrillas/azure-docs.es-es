@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: d8918181024715a57c6029d3ad0a36ea75140fcb
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: ec4917aa378f746eb2caac6a7b4ce99d1c44db90
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97739950"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127658"
 ---
 # <a name="configure-and-submit-training-runs"></a>Configuración y envío de ejecuciones de entrenamiento
 
@@ -175,6 +175,19 @@ Consulte estos cuadernos para ver ejemplos de configuración de ejecuciones en d
 
 ## <a name="troubleshooting"></a>Solución de problemas
 
+* **Error de ejecución con `jwt.exceptions.DecodeError`** : mensaje de error exacto: `jwt.exceptions.DecodeError: It is required that you pass in a value for the "algorithms" argument when calling decode()`. 
+    
+    Considere la posibilidad de actualizar a la versión más reciente de azureml-core: `pip install -U azureml-core`.
+    
+    Si se encuentra este problema en las ejecuciones locales, compruebe la versión de PyJWT instalada en el entorno en el que se inician esas ejecuciones. Las versiones compatibles de PyJWT son < 2.0.0. Desinstale PyJWT del entorno si la versión es >= 2.0.0. Puede comprobar la versión de PyJWT, desinstalar e instalar la versión correcta de la siguiente manera:
+    1. Inicie un shell de comandos y active el entorno de Conda donde está instalado azureml-core.
+    2. Escriba `pip freeze` y busque `PyJWT`; si se encuentra, la versión indicada debe ser < 2.0.0.
+    3. Si la versión indicada no es una versión compatible, escriba `pip uninstall PyJWT` en el shell de comandos y escriba "y" (sí) para confirmar la operación.
+    4. Instalación mediante `pip install 'PyJWT<2.0.0'`
+    
+    Si va a enviar un entorno creado por el usuario con la ejecución, considere la posibilidad de usar la versión más reciente de azureml-core en ese entorno. Las versiones > = 1.18.0 de azureml-core ya hacen pin a PyJWT < 2.0.0. Si necesita usar una versión de azureml-core < 1.18.0 en el entorno que envía, asegúrese de especificar PyJWT < 2.0.0 en las dependencias de PIP.
+
+
  * **ModuleErrors (ningún módulo con nombre)** :  Si está ejecutando ModuleErrors mientras envía experimentos en Azure ML, el script de entrenamiento espera que se instale un paquete pero no se agrega. Una vez que proporcione el nombre del paquete, Azure ML instala el paquete en el entorno que se usa para la ejecución de entrenamiento.
 
     Si usa Estimadores para enviar experimentos, puede especificar un nombre de paquete mediante el parámetro `pip_packages` o `conda_packages` en el estimador basado en el origen desde el que desea instalar el paquete. También puede especificar un archivo yml con todas sus dependencias mediante `conda_dependencies_file` o enumerar todos sus requisitos de pip en un archivo txt con el parámetro `pip_requirements_file`. Si tiene su propio objeto de entorno de Azure ML para invalidar la imagen predeterminada que usa el estimador, puede especificar ese entorno a través del parámetro `environment` del constructor del estimador.
@@ -204,6 +217,8 @@ Consulte estos cuadernos para ver ejemplos de configuración de ejecuciones en d
     ```
 
     De forma interna, Azure ML concatena los bloques con el mismo nombre de métrica en una lista contigua.
+
+* **El destino de proceso tarda mucho en iniciarse**: las imágenes de Docker de los destinos de proceso se cargan desde Azure Container Registry (ACR). De manera predeterminada, Azure Machine Learning crea una instancia de ACR que usa el nivel de servicio *Básico*. Si se cambia la instancia de ACR del área de trabajo al nivel Estándar o Premium, puede reducirse el tiempo que se tarda en compilar y cargar imágenes. Para más información, consulte [Niveles de servicio de Azure Container Registry](../container-registry/container-registry-skus.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
