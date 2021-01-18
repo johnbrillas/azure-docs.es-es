@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: troubleshooting
 ms.date: 10/16/2019
 ms.author: charwen
-ms.openlocfilehash: d4f5d4b7fed8f14f048794616ee272342d1e8343
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 23b7a66afcc91cf1cf4a5dd9f720aad24ad40071
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97915562"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98133997"
 ---
 # <a name="troubleshoot-azure-bastion"></a>Solución de problemas de Azure Bastion
 
@@ -22,11 +22,7 @@ Este artículo le mostrará cómo solucionar problemas de Azure Bastion.
 
 **P:** Cuando intento crear un NSG en la subred de Azure Bastion, aparece el siguiente error: *"El grupo de seguridad de red <NSG name> no tiene las reglas necesarias para la subred de Azure Bastion AzureBastionSubnet"* .
 
-**R:** Si crea y aplica un grupo de seguridad de red a *AzureBastionSubnet*, asegúrese de que ha agregado las siguientes reglas en él. Si no agrega estas reglas, se producirá un error en la creación o actualización de los grupos de seguridad de red.
-
-1. Conectividad del plano de control: entrante en 443 desde GatewayManager
-2. Registro de diagnósticos y otros: saliente en 443 a AzureCloud (todavía no se admiten etiquetas regionales dentro de esta etiqueta de servicio).
-3. Máquina virtual de destino: saliente de 3389 y 22 a VirtualNetwork
+**R:** Si crea y aplica un grupo de seguridad de red a *AzureBastionSubnet*, asegúrese de que le ha agregado las reglas necesarias. Puede encontrar una lista de las reglas necesarias en [Trabajo con acceso a grupos de seguridad de red y Azure Bastion](./bastion-nsg.md). Si no agrega estas reglas, se producirá un error en la creación o actualización de los grupos de seguridad de red.
 
 Hay un ejemplo de las reglas de los grupos de seguridad de red disponible como referencia en esta [plantilla de inicio rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azure-bastion-nsg).
 Para más información, consulte [Guía sobre los grupos de seguridad de red para Azure Bastion](bastion-nsg.md).

@@ -7,20 +7,20 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 12/14/2020
 ms.author: jgao
-ms.openlocfilehash: d12ec5e3fef45429741fff1665f435d68e6c83f6
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.openlocfilehash: 13dc072e31f0d27768de8d9a62ea942d55460713
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97734188"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936403"
 ---
-# <a name="configure-development-environment-for-deployment-scripts-in-templates"></a>Configuración del entorno de desarrollo para scripts de implementación en plantillas
+# <a name="configure-development-environment-for-deployment-scripts-in-arm-templates"></a>Configuración del entorno de desarrollo para scripts de implementación en plantillas de Resource Manager
 
 Aprenda a crear un entorno de desarrollo para desarrollar y probar scripts de implementación con una imagen de script de implementación. Puede crear una [instancia de contenedor de Azure](../../container-instances/container-instances-overview.md) o bien usar [Docker](https://docs.docker.com/get-docker/). Ambas opciones se describen en este artículo.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Si no tiene un script de implementación, puede crear un archivo **hello.ps1** con el siguiente contenido:
+Si no tiene un script de implementación, puede crear un archivo _hello.ps1_ con el siguiente contenido:
 
 ```powershell
 param([string] $name)
@@ -39,11 +39,11 @@ Para crear los scripts en el equipo, debe crear una cuenta de almacenamiento y m
 
 ### <a name="create-an-azure-container-instance"></a>Creación de una instancia de contenedor de Azure
 
-La siguiente plantilla de ARM crea una instancia de contenedor y un recurso compartido de archivos, y, a continuación, monta el recurso compartido de archivos en la imagen de contenedor.
+La siguiente plantilla de Resource Manager crea una instancia de contenedor y un recurso compartido de archivos, y, luego, monta este en la imagen de contenedor.
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "projectName": {
@@ -153,12 +153,13 @@ La siguiente plantilla de ARM crea una instancia de contenedor y un recurso comp
   ]
 }
 ```
-El valor predeterminado de la ruta de montaje es **deploymentScript**.  Se trata de la ruta de acceso en la instancia de contenedor donde se monta en el recurso compartido de archivos.
 
-La imagen de contenedor predeterminada especificada en la plantilla es **mcr.microsoft.com/azuredeploymentscripts-powershell:az4.3"** .   Consulte una lista de [versiones de Azure PowerShell compatibles](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list). Consulte una lista de [versiones de la CLI de Azure compatibles](https://mcr.microsoft.com/v2/azure-cli/tags/list).
+El valor predeterminado de la ruta de montaje es `deploymentScript`. Se trata de la ruta de acceso en la instancia de contenedor donde se monta en el recurso compartido de archivos.
+
+La imagen de contenedor predeterminada especificada en la plantilla es `mcr.microsoft.com/azuredeploymentscripts-powershell:az4.3` . Consulte una lista de [versiones de Azure PowerShell compatibles](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list). Consulte una lista de [versiones de la CLI de Azure compatibles](https://mcr.microsoft.com/v2/azure-cli/tags/list).
 
   >[!IMPORTANT]
-  > El script de implementación usa las imágenes de la CLI disponibles de Microsoft Container Registry (MCR). Se tarda aproximadamente un mes en certificar una imagen de la CLI para el script de implementación. No utilice las versiones de la CLI que se publicaron en un plazo de 30 días. Para buscar las fechas de publicación de las imágenes, consulte las [notas de la versión de la CLI de Azure](/cli/azure/release-notes-azure-cli?view=azure-cli-latest&preserve-view=true). Si se usa una versión no compatible, el mensaje de error enumera las versiones admitidas.
+  > El script de implementación usa las imágenes de la CLI disponibles de Microsoft Container Registry (MCR). Se tarda aproximadamente un mes en certificar una imagen de la CLI para el script de implementación. No utilice las versiones de la CLI que se publicaron en un plazo de 30 días. Para buscar las fechas de publicación de las imágenes, consulte las [notas de la versión de la CLI de Azure](/cli/azure/release-notes-azure-cli?view=azure-cli-latest&preserve-view=true). Si se usa una versión no compatible, el mensaje de error muestra las versiones admitidas.
 
 La plantilla suspende la instancia de contenedor 1800 segundos. Dispone de 30 minutos antes de que la instancia de contenedor pase al estado terminal y finalice la sesión.
 
@@ -196,7 +197,7 @@ También puede cargar el archivo mediante Azure Portal y la CLI de Azure.
 
 1. En Azure Portal, abra el grupo de recursos en el que implementó la instancia de contenedor y la cuenta de almacenamiento.
 1. Abra el grupo de contenedores. El nombre del grupo de contenedores predeterminado es el nombre del proyecto con **cg** anexado. Verá que la instancia de contenedor está en el estado **En ejecución**.
-1. Seleccione **Contenedores** en el menú de la izquierda. Verá una instancia de contenedor.  El nombre de la instancia de contenedor es el del proyecto con **container** (contenedor) anexado.
+1. Seleccione **Contenedores** en el menú de la izquierda. Verá una instancia de contenedor. El nombre de la instancia de contenedor es el del proyecto con **container** (contenedor) anexado.
 
     ![instancia de contenedor de conexión de script de implementación](./media/deployment-script-template-configure-dev/deployment-script-container-instance-connect.png)
 
@@ -248,7 +249,7 @@ También debe configurar el uso compartido de archivos para montar el directorio
     docker run -v <host drive letter>:/<host directory name>:/data -it mcr.microsoft.com/azuredeploymentscripts-powershell:az4.3
     ```
 
-    Reemplace **&lt;letra de unidad del host >** y **&lt;nombre del directorio host >** por una carpeta existente en la unidad compartida.  La carpeta se asigna a la carpeta **/data** del contenedor. Por ejemplo, para asignar D:\docker:
+    Reemplace **&lt;letra de unidad del host >** y **&lt;nombre del directorio host >** por una carpeta existente en la unidad compartida. La carpeta se asigna a la carpeta _/data_ del contenedor. Por ejemplo, para asignar _D:\docker_:
 
     ```command
     docker run -v d:/docker:/data -it mcr.microsoft.com/azuredeploymentscripts-powershell:az4.3
@@ -262,7 +263,7 @@ También debe configurar el uso compartido de archivos para montar el directorio
     docker run -v d:/docker:/data -it mcr.microsoft.com/azure-cli:2.0.80
     ```
 
-1. En la siguiente captura de pantalla se muestra cómo ejecutar un script de PowerShell, dado que tiene un archivo helloworld.ps1 en la unidad compartida.
+1. En la siguiente captura de pantalla se muestra cómo ejecutar un script de PowerShell, dado que tiene un archivo _helloworld.ps1_ en la unidad compartida.
 
     ![CMD de Docker del script de implementación de plantilla de Resource Manager](./media/deployment-script-template/resource-manager-deployment-script-docker-cmd.png)
 
@@ -273,4 +274,4 @@ Después de que el script se pruebe correctamente, puede usarlo como script de i
 En este artículo, aprendió a usar scripts de implementación. Para seguir un tutorial sobre scripts de implementación:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Uso de scripts de implementación en plantillas de Azure Resource Manager](./template-tutorial-deployment-script.md).
+> [Tutorial: Uso de scripts de implementación en plantillas de Resource Manager](./template-tutorial-deployment-script.md)

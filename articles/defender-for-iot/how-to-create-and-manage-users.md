@@ -4,15 +4,15 @@ description: Cree y administre usuarios de los sensores y de la consola de admin
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/21/2020
+ms.date: 1/3/2021
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: c3a9e1c7e96d0392e1f94b71549f612738622dea
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: c33b3e5fee19edc5d4ac85284e507b53e96234a0
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97837184"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97977020"
 ---
 # <a name="about-defender-for-iot-console-users"></a>Acerca de los usuarios de la consola de Defender para IoT
 
@@ -20,7 +20,7 @@ En este artículo se describe cómo crear y administrar usuarios de los sensores
 
 También hay características disponibles para realizar un seguimiento de la actividad del usuario y habilitar el inicio de sesión de Active Directory.
 
-De forma predeterminada, los sensores y la consola de administración local se instalan con un usuario *cyberx y de soporte técnico*. Estos usuarios tienen acceso a herramientas avanzadas para la solución de problemas y la configuración. Los usuarios administradores deben iniciar sesión con estas credenciales de usuario, crear un usuario administrador y crear usuarios adicionales para los analistas de seguridad y los usuarios de solo lectura.
+De forma predeterminada, los sensores y la consola de administración local se instalan con un usuario *cyberx y de soporte técnico*. Estos usuarios tienen acceso a herramientas avanzadas para la solución de problemas y la configuración. Los usuarios administradores deben iniciar sesión con estas credenciales de usuario, crear un usuario administrador y, luego, crear usuarios adicionales para los analistas de seguridad y los usuarios de solo lectura.
 
 ## <a name="role-based-permissions"></a>Permisos basados en roles
 Están disponibles los siguientes roles de usuario:
@@ -89,8 +89,8 @@ En esta sección se describe cómo definir usuarios. Los usuarios cyberx, de sop
 Para definir un usuario:
 
 1. En el panel izquierdo del sensor o de la consola de administración local, seleccione **Users** (Usuarios).
-2. En la ventana **Users** (Usuarios), seleccione **Create User** (Crear usuario).
-3. En el panel **Create User** (Crear usuario), defina los parámetros siguientes:
+1. En la ventana **Users** (Usuarios), seleccione **Create User** (Crear usuario).
+1. En el panel **Create User** (Crear usuario), defina los parámetros siguientes:
 
    - **Nombre de usuario**: Especifique un nombre de usuario.
    - **Correo electrónico**: Escriba la dirección de correo electrónico del usuario.
@@ -122,7 +122,7 @@ Para acceder al comando:
 
 1. Inicie sesión en la CLI del sensor o la consola de administración local con las credenciales administrativas de Defender para IoT.
 
-2. Escriba `sudo nano /var/cyberx/properties/authentication`.
+1. Escriba `sudo nano /var/cyberx/properties/authentication`.
 
 ```azurecli-interactive
     infinity_session_expiration = true
@@ -138,7 +138,6 @@ Para acceder al comando:
 Para deshabilitar la característica, cambie `infinity_session_expiration = true` a `infinity_session_expiration = false`.
 
 Para actualizar los períodos de recuento de cierre de sesión, ajuste el valor de `= <number>` al tiempo necesario.
-
 
 ## <a name="track-user-activity"></a>Seguimiento de la actividad del usuario 
 
@@ -171,11 +170,11 @@ Para configurar Active Directory:
 
     :::image type="content" source="media/how-to-setup-active-directory/ad-system-settings-v2.png" alt-text="Ver la configuración del sistema de Active Directory.":::
 
-2. En el panel **System Settings** (Configuración del sistema), seleccione **Active Directory**.
+1. En el panel **System Settings** (Configuración del sistema), seleccione **Active Directory**.
 
     :::image type="content" source="media/how-to-setup-active-directory/ad-configurations-v2.png" alt-text="Editar las configuraciones de Active Directory.":::
 
-3. En el cuadro de diálogo **Edit Active Directory Configuration** (Editar configuración de Active Directory), seleccione **Active Directory Integration Enabled** > **Save** (Integración de Active Directory habilitada > Guardar). El cuadro de diálogo **Edit Active Directory Configuration** (Editar configuración de Active Directory) se expande y ahora puede escribir los parámetros para configurar Active Directory.
+1. En el cuadro de diálogo **Edit Active Directory Configuration** (Editar configuración de Active Directory), seleccione **Active Directory Integration Enabled** > **Save** (Integración de Active Directory habilitada > Guardar). El cuadro de diálogo **Edit Active Directory Configuration** (Editar configuración de Active Directory) se expande y ahora puede escribir los parámetros para configurar Active Directory.
 
     :::image type="content" source="media/how-to-setup-active-directory/ad-integration-enabled-v2.png" alt-text="Escribir los parámetros para configurar Active Directory.":::
 
@@ -184,19 +183,87 @@ Para configurar Active Directory:
     > - Utilice únicamente minúsculas para todos los parámetros de Active Directory. Utilice minúsculas incluso cuando las configuraciones de Active Directory usen mayúsculas.
     > - No puede configurar LDAP y LDAPS para el mismo dominio. Sin embargo, puede usar ambos para dominios diferentes al mismo tiempo.
 
-4. Establezca los parámetros del servidor de Active Directory como se indica a continuación:
+1. Establezca los parámetros del servidor de Active Directory como se indica a continuación:
 
    | Parámetros de servidor | Descripción |
    |--|--|
-   | Nombre de dominio completo del controlador de dominio | Establezca el nombre de dominio completo (FQDN) exactamente como aparece en el servidor LDAP. Por ejemplo, escriba `host1.subdomain.domain.com`. |
+   | Nombre de dominio completo del controlador de dominio | Establezca el nombre de dominio completo (FQDN) exactamente como aparece en el servidor LDAP. Por ejemplo, escriba `host1.subdomain.domain.com`: |
    | Puerto del controlador de dominio | Defina el puerto en el que está configurado el servidor LDAP. |
    | Dominio principal | Establezca el nombre de dominio (por ejemplo, `subdomain.domain.com`) y el tipo de conexión según la configuración de LDAP. |
    | Grupos de Active Directory | Escriba los nombres de grupo que se han definido en la configuración de Active Directory en el servidor LDAP. |
    | Dominios de confianza | Para agregar un dominio de confianza, agregue el nombre de dominio y el tipo de conexión de un dominio de confianza. <br />Solo puede configurar dominios de confianza para los usuarios que se definieron en la sección de usuarios. |
 
-5. Seleccione **Guardar**.
+1. Seleccione **Guardar**.
 
-6. Para agregar un servidor de confianza, seleccione **Add Server** (Agregar servidor) y configure otro servidor.
+1. Para agregar un servidor de confianza, seleccione **Add Server** (Agregar servidor) y configure otro servidor.
+
+## <a name="resetting-a-users-password-for-the-sensor-or-on-premises-management-console"></a>Restablecimiento de la contraseña de un usuario en el sensor o la consola de administración local
+
+### <a name="cyberx-or-support-user"></a>Usuario de CyberX o de soporte técnico
+
+Solo el usuario de **CyberX** y de **soporte técnico** tiene acceso a la característica **Password recovery** (Recuperación de contraseña). Si el usuario de **CyberX** o de **soporte técnico** olvida su contraseña, puede restablecerla mediante la opción **Password recovery** (Recuperación de contraseña) de la página de inicio de sesión de Defender para IoT.
+
+Para restablecer la contraseña de un usuario de CyberX o de soporte técnico:
+
+1. En la pantalla de inicio de sesión de Defender para IoT, seleccione la opción **Password recovery** (Recuperación de contraseña). Se abre la pantalla **Password recovery** (Recuperación de contraseña).
+
+1. Seleccione **CyberX** o **Soporte técnico** y copie el identificador único.
+
+1. Vaya a Azure Portal y seleccione **Sites and Sensors** (Sitios y sensores).  
+
+1. Seleccione el icono **Filtro de suscripciones** :::image type="icon" source="media/password-recovery-images/subscription-icon.png" border="false"::: en la barra de herramientas superior y elija la suscripción a la que está conectado el sensor.
+
+1. Seleccione la pestaña **Recover on-premises management console password** (Recuperar la contraseña de la consola de administración local).
+
+   :::image type="content" source="media/password-recovery-images/recover-button.png" alt-text="Selección del botón de recuperación de administración local para descargar el archivo de recuperación.":::
+
+1. Escriba el identificador único que recibió en la pantalla **Password recovery** (Recuperación de contraseña) y seleccione **Recuperar**. Se descarga el archivo `password_recovery.zip`.
+
+    > [!NOTE]
+    > No modifique el archivo de recuperación de contraseña. Es un archivo firmado y no funcionará si se altera.
+
+1. En la pantalla **Password recovery** (Recuperación de contraseña), seleccione **Cargar**. Se abrirá la ventana **Upload Password Recovery File** (Cargar archivo de recuperación de contraseña).
+
+1. Seleccione **Examinar** para buscar el archivo `password_recovery.zip`, o arrástrelo a la ventana.
+
+    > [!NOTE]
+    > Puede aparecer un mensaje de error que indica que el archivo no es válido. Para corregirlo, asegúrese de que ha seleccionado la suscripción correcta antes de descargar `password_recovery.zip` y vuelva a descargarlo.  
+
+1. Seleccione **Siguiente**; aparecerán el usuario y la contraseña generada por el sistema para la consola de administración.
+
+### <a name="administrator-security-analyst-and-read-only-user"></a>Administrador, analista de seguridad y usuario de solo lectura
+
+Los analistas de seguridad y los usuarios de solo lectura no pueden restablecer su propia contraseña y deben ponerse en contacto con un usuario con los roles de administrador, soporte técnico o CyberX para tal fin. Un usuario administrador debe ponerse en contacto con el usuario de **CyberX** o de **soporte técnico** para restablecer su contraseña.
+
+Para restablecer la contraseña de un usuario en el sensor:
+
+1. Un usuario con el rol de administrador, soporte técnico o CyberX debe iniciar sesión en el sensor.
+
+1. Seleccione **Usuarios** en el panel izquierdo.
+
+   :::image type="content" source="media/password-recovery-images/sensor-page.png" alt-text="Selección de la opción de usuario en el panel izquierdo.":::
+
+1. Busque el usuario y seleccione **Editar** en el menú desplegable **Acciones**.
+
+   :::image type="content" source="media/password-recovery-images/edit.png" alt-text="Selección de Editar en el menú desplegable Acciones.":::
+
+1. Escriba la nueva contraseña en los campos **Nueva contraseña** y **Confirmar la nueva contraseña**.
+
+1. Selecciona **Actualización**.
+
+Para restablecer la contraseña de un usuario en la consola de administración local:
+
+1. Un usuario con el rol de administrador, soporte técnico o CyberX debe iniciar sesión en el sensor.
+
+1. Seleccione **Usuarios** en el panel izquierdo.
+
+   :::image type="content" source="media/password-recovery-images/console-page.png" alt-text="Selección en el panel izquierdo de la opción del usuario.":::
+
+1. Busque el usuario y seleccione el icono de edición :::image type="icon" source="media/password-recovery-images/edit-icon.png" border="false":::.
+
+1. Escriba la nueva contraseña en los campos **Nueva contraseña** y **Confirmar la nueva contraseña**.
+
+1. Selecciona **Actualización**.
 
 ## <a name="see-also"></a>Consulte también
 

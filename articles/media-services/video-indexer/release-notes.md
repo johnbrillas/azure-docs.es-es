@@ -10,14 +10,14 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 10/30/2020
+ms.date: 01/06/2021
 ms.author: juliako
-ms.openlocfilehash: 81e52d4a6827492931179055d040b541d51228eb
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: b6e18e077b717da65ca8d70b9bda6a133dba1f5c
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97916667"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120094"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Notas de la versión de Video Indexer de Azure Media Services
 
@@ -44,12 +44,15 @@ Video Indexer admite la detección, la agrupación y el reconocimiento de person
 
 ### <a name="planned-video-indexer-website-authenticatication-changes"></a>Cambios planeados en la autenticación del sitio web de Video Indexer
 
-A partir del 1 de enero de 2021, ya no podrá registrarse e iniciar sesión en el sitio web de [Video Indexer](https://www.videoindexer.ai/) (oferta de prueba) mediante Facebook ni LinkedIn.
+A partir del 1 de marzo de 2021, ya no podrá registrarse ni iniciar sesión en el [portal para desarrolladores](video-indexer-use-apis.md) del [sitio web de Video Indexer](https://www.videoindexer.ai/) mediante Facebook o LinkedIn.
 
 Podrá registrarse e iniciar sesión con uno de estos proveedores: Azure AD, Microsoft y Google.
 
 > [!NOTE]
-> Se recomienda exportar el contenido antes del 1 de enero de 2021, ya que las cuentas conectadas a LinkedIn y Facebook se eliminarán, y el contenido ya no estará disponible.
+> Después del 1 de marzo de 2021, no podrá acceder a las cuentas de Video Indexer conectadas a LinkedIn y Facebook. 
+> 
+> Para seguir teniendo acceso, debe [invitar](invite-users.md) a un correo electrónico de Azure AD, Microsoft o Google que posea a la cuenta de Video Indexer.<br/>
+> Como alternativa, puede crear una cuenta de pago y migrar los datos.
 
 ## <a name="august-2020"></a>Agosto de 2020
 

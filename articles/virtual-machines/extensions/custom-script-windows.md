@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/31/2020
 ms.author: robreed
-ms.openlocfilehash: aa95d6792f2f5754a237c7bf5e90a11e2e011ede
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: b0502fb05043a54d81d768a7809d19b108cc6248
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97861779"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97976850"
 ---
 # <a name="custom-script-extension-for-windows"></a>Extensión de la secuencia de comandos personalizada para Windows
 
@@ -50,6 +50,8 @@ Puede configurar la extensión para usar las credenciales de Azure Blob Storage 
 ### <a name="internet-connectivity"></a>Conectividad de Internet
 
 Si necesita descargar un script externamente, por ejemplo desde GitHub o Azure Storage, deben abrirse puertos adicionales de firewall y grupo de seguridad de red. Por ejemplo, si el script se encuentra en Azure Storage, puede permitir el acceso mediante las etiquetas del servicio NSG de Azure para [Storage](../../virtual-network/network-security-groups-overview.md#service-tags).
+
+Tenga en cuenta que la extensión CustomScript no tiene ninguna manera de omitir la validación de certificados. Por lo tanto, si va a realizar la descarga desde una ubicación protegida con un certificado autofirmado, por ejemplo, puede que acabe con errores como *"El certificado remoto no es válido según el procedimiento de validación"* . Asegúrese de que el certificado esté instalado correctamente en el almacén *"Entidades de certificación raíz de confianza"* de la máquina virtual.
 
 Si el script se encuentra en un servidor local, puede que aún necesite abrir puertos adicionales de firewall y grupo de seguridad de red.
 

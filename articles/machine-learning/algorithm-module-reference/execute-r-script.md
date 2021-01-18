@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 12/17/2020
-ms.openlocfilehash: 5d291ad745122d929c4b664e9da5e4649e463529
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: bdd7fd8e19bf2de6d0b3c6b2edd4515771fae237
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97679101"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98119034"
 ---
 # <a name="execute-r-script-module"></a>Módulo Execute R Script
 
@@ -49,10 +49,12 @@ azureml_main <- function(dataframe1, dataframe2){
 Para instalar paquetes de R adicionales, use el método `install.packages()`. Los paquetes se instalan para cada módulo Execute R Script (Ejecutar script R). No se comparten con otros módulos Execute R Script (Ejecutar script R).
 
 > [!NOTE]
+> **NO** se recomienda instalar el paquete de R desde la agrupación de scripts, sino hacerlo directamente en el editor de scripts.
 > Especifique el repositorio de CRAN al instalar paquetes, como `install.packages("zoo",repos = "http://cran.us.r-project.org")`.
 
 > [!WARNING]
 > El módulo Execute R Script (Ejecutar script R) no admite la instalación de paquetes que requieren compilación nativa, como el paquete `qdap`, que requiere JAVA, y el paquete `drc`, que requiere C++. Esto se debe a que este módulo se ejecuta en un entorno preinstalado con permisos que no son de administrador.
+> No instale paquetes que estén precompilados en o para Windows, ya que los módulos del diseñador se ejecutan en Ubuntu. Para comprobar si un paquete está precompilado en Windows, puede ir a [CRAN](https://cran.r-project.org/) y buscar el paquete, descargar un archivo binario correspondiente a su sistema operativo y comprobar la parte **Build:** del archivo **DESCRIPTION**. El siguiente es un ejemplo: :::image type="content" source="media/module/r-package-description.png" alt-text="Descripción del paquete de R" lightbox="media/module/r-package-page.png":::
 
 En este ejemplo se muestra cómo instalar Zoo:
 ```R

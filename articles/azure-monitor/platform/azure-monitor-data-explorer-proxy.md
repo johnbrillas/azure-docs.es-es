@@ -1,18 +1,18 @@
 ---
 title: Consulta entre recursos en Azure Data Explorer mediante Azure Monitor
 description: Use Azure Monitor para realizar consultas entre productos entre Azure Data Explorer, áreas de trabajo de Log Analytics y aplicaciones clásicas de Application Insights en Azure Monitor.
-author: orens
+author: osalzberg
 ms.author: bwren
 ms.reviewer: bwren
 ms.subservice: logs
 ms.topic: conceptual
 ms.date: 12/02/2020
-ms.openlocfilehash: cb586d15e762f88620fe0c91152af41b3f607d74
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 1a35b80ceec12b378a01555f42b7a0500b8f6229
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97674436"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060459"
 ---
 # <a name="cross-resource-query-azure-data-explorer-by-using-azure-monitor"></a>Consulta entre recursos en Azure Data Explorer mediante Azure Monitor
 Azure Monitor admite las consultas entre los servicios Azure Data Explorer, [Application Insights](/azure/azure-monitor/app/app-insights-overview) y [Log Analytics](/azure/azure-monitor/platform/data-platform-logs). Después puede consultar el clúster de Azure Data Explorer mediante las herramientas de Log Analytics o Application Insights y hacer referencia al mismo en una consulta entre servicios. En el artículo se muestra cómo realizar una consulta entre servicios.
@@ -22,7 +22,7 @@ En el diagrama siguiente se muestra el flujo entre servicios de Azure Monitor:
 :::image type="content" source="media\azure-data-explorer-monitor-proxy\azure-monitor-data-explorer-flow.png" alt-text="Diagrama que muestra el flujo de consultas entre un usuario, Azure Monitor, un proxy y Azure Data Explorer.":::
 
 >[!NOTE]
-> La consulta entre servicios de Azure Monitor está en versión preliminar privada. Debe agregarse a la lista de permitidos. Póngase en contacto con el [equipo de servicio](mailto:ADXProxy@microsoft.com) si tiene alguna duda.
+> La consulta entre servicios de Azure Monitor está en versión preliminar pública. Póngase en contacto con el [equipo de servicio](mailto:ADXProxy@microsoft.com) si tiene alguna duda.
 
 ## <a name="cross-query-your-log-analytics-or-application-insights-resources-and-azure-data-explorer"></a>Consulta entre los recursos de Log Analytics o Application Insights y Azure Data Explorer
 

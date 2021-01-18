@@ -3,12 +3,12 @@ title: Glosario de Azure Backup
 description: En este artículo se definen los términos útiles para su uso con Azure Backup.
 ms.topic: conceptual
 ms.date: 12/21/2020
-ms.openlocfilehash: 8baa47667e86b99ebbbf273610809814e768c077
-ms.sourcegitcommit: a89a517622a3886b3a44ed42839d41a301c786e0
+ms.openlocfilehash: 1e28f0c2ad5d14ea2a8dc6ce8d5fa2b21c7e65ac
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97733258"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935077"
 ---
 # <a name="azure-backup-glossary"></a>Glosario de Azure Backup
 
@@ -172,7 +172,7 @@ Almacena solo los bloques de datos que cambiaron desde la copia de seguridad ant
 
 ## <a name="instant-restore"></a>Restauración instantánea
 
-Implica restaurar una máquina directamente desde su instantánea de copia de seguridad en lugar de hacerlo desde la copia de la instantánea del almacén. Las restauraciones instantáneas son más rápidas que las que se realizan desde un almacén. El número de puntos de restauración instantánea disponibles depende de la duración de retención configurada para las instantáneas.
+(Término específico de la carga de trabajo) Implica restaurar al instante una máquina directamente desde su instantánea de copia de seguridad en lugar de hacerlo desde la copia de la instantánea del almacén. Las restauraciones instantáneas son más rápidas que las que se realizan desde un almacén. El número de puntos de restauración instantánea disponibles depende de la duración de retención configurada para las instantáneas. Actualmente solo se aplica a la copia de seguridad de máquina virtual de Azure.
 
 ## <a name="iops"></a>E/S
 
@@ -226,23 +226,19 @@ La que se realiza desde el punto de restauración a la ubicación de origen desd
 
 Una frase de contraseña se usa para cifrar y descifrar los datos durante la copia de seguridad o la restauración del entrono local o la máquina local mediante el agente de MARS en Azure o desde Azure.
 
-## <a name="point-in-time-restore"></a>Restauración a un momento dado
-
-Elemento que vuelve al estado de un momento determinado (PIT).
-
 ## <a name="private-endpoint"></a>Punto de conexión privado
 
 Consulte la [documentación del punto de conexión privado](https://docs.microsoft.com/azure/private-link/private-endpoint-overview).
 
 ## <a name="protected-instance"></a>Instancia protegida
 
-Hace referencia al equipo, físico o servidor virtual, que se usa para configurar la copia de seguridad en Azure.  Desde el **punto de vista de la facturación**, el recuento de instancias protegidas de una máquina depende del tamaño de su front-end. [Más información](https://azure.microsoft.com/pricing/details/backup/).
+Hace referencia al equipo, físico o servidor virtual, que se usa para configurar la copia de seguridad en Azure.  Desde el **punto de vista de la facturación**, el recuento de instancias protegidas de una máquina depende del tamaño de su front-end. Por lo tanto, una sola instancia de copia de seguridad (como una máquina virtual con copia de seguridad en Azure) puede corresponder a varias instancias protegidas, en función de su tamaño de front-end. [Más información](https://azure.microsoft.com/pricing/details/backup/).
 
 ## <a name="rbac-role-based-access-control"></a>Control de acceso basado en rol (RBAC)
 
 Consulte la [documentación de RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview).
 
-## <a name="recovery-point-restore-point-retention-point"></a>Punto de recuperación/punto de restauración/punto de retención
+## <a name="recovery-point-restore-point-retention-point--point-in-time-pit"></a>Punto de recuperación/punto de restauración/punto de retención/a un momento dado (PIT)
 
 Copia de los datos originales de los que se hace una copia de seguridad. Un punto de retención está asociado a una marca de tiempo, la cual puede usar para restaurar un elemento a un momento dado.
 
@@ -264,11 +260,11 @@ Regla definida por el usuario que especifica cuánto tiempo se deben conservar l
 
 ## <a name="rpo-recovery-point-objective"></a>RPO (objetivo de punto de recuperación)
 
-Indica la pérdida máxima de datos aceptable en caso de que se produzca. Esto lo determina la frecuencia de copia de seguridad.
+RPO indica la pérdida máxima de datos posible en caso de que se produzca. Esto lo determina la frecuencia de copia de seguridad.
 
 ## <a name="rto-recovery-time-objective"></a>RTO (objetivo de tiempo de recuperación)
 
-Indica la rapidez con la que se deben restaurar los datos al último momento disponible en caso de pérdida de datos.
+RTO indica el tiempo máximo posible en el que se deben restaurar los datos al último momento dado disponible después de un escenario de pérdida de datos.
 
 ## <a name="scheduled-backup"></a>Copia de seguridad programada
 
@@ -284,13 +280,13 @@ Característica que ayuda a proteger de la eliminación accidental los datos de 
 
 ## <a name="snapshot"></a>Instantánea
 
-Una instantánea es una copia completa de solo lectura de un disco duro virtual (VHD). [Más información](https://docs.microsoft.com/azure/virtual-machines/windows/snapshot-copy-managed-disk).
+Una instantánea es una copia completa de solo lectura de una unidad de disco duro virtual (VHD) o de un recurso compartido de archivos de Azure. Más información sobre [instantáneas de disco](https://docs.microsoft.com/azure/virtual-machines/windows/snapshot-copy-managed-disk) e [instantáneas de archivos](https://docs.microsoft.com/azure/storage/files/storage-snapshots-files).
 
 ## <a name="storage-account"></a>Cuenta de almacenamiento
 
 Consulte la [documentación de la cuenta de almacenamiento](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
 
-## <a name="subscription"></a>Suscripción
+## <a name="subscription"></a>Subscription
 
 Una suscripción de Azure es un contenedor lógico que se usa para aprovisionar recursos en Azure. Contiene los detalles de todos los recursos, como máquinas virtuales, bases de datos, etc.
 
@@ -314,7 +310,7 @@ Entidad de almacenamiento de Azure que alberga los datos de las copias de seguri
 
 ## <a name="vault-credentials"></a>Credenciales de almacén
 
-El archivo de credenciales de almacén es un certificado generado por el portal para cada almacén. Se usa al registrar un servidor en el almacén. [Más información](backup-azure-dpm-introduction.md).
+El archivo de credenciales de almacén es un certificado generado por el portal para cada almacén. Se usa al registrar un servidor local en el almacén. [Más información](backup-azure-dpm-introduction.md).
 
 ## <a name="vnet-virtual-network"></a>Red virtual (VNET)
 

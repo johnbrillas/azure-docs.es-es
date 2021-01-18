@@ -3,14 +3,14 @@ title: Azure Kubernetes Service (AKS) con acuerdo de nivel de servicio de tiempo
 description: Obtenga información sobre la oferta opcional de acuerdo de nivel de servicio de tiempo de actividad para el servidor de API de Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: conceptual
-ms.date: 06/24/2020
+ms.date: 01/08/2021
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: d9d22b54ef2534cf0adb205175fdc3f1c57205fb
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 95728ca14b96adf7396ca13888107477d953b2a9
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97607346"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98033343"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>Acuerdo de nivel de servicio de tiempo de actividad de Azure Kubernetes Service (AKS)
 
@@ -26,7 +26,7 @@ Los clientes todavía pueden crear un número ilimitado de clústeres gratuitos 
 ## <a name="region-availability"></a>Disponibilidad en regiones
 
 * El Acuerdo de Nivel de Servicio de tiempo de actividad está disponible en las regiones públicas y de Azure Government en las que [se admite AKS](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
-* El Acuerdo de Nivel de Servicio de tiempo de actividad está disponible para [clústeres AKS privados][private-clusters] en todas las regiones en las que se admite AKS.
+* El Acuerdo de Nivel de Servicio de tiempo de actividad está disponible para [clústeres AKS privados][private-clusters] en todas las regiones públicas en las que se admite AKS.
 
 ## <a name="sla-terms-and-conditions"></a>Términos y condiciones del acuerdo de nivel de servicio
 

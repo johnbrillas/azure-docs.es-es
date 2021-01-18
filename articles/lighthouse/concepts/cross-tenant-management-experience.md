@@ -1,14 +1,14 @@
 ---
 title: Experiencias de administración entre inquilinos
 description: La administración de recursos delegados de Azure habilita una experiencia de administración entre inquilinos.
-ms.date: 12/16/2020
+ms.date: 01/07/2020
 ms.topic: conceptual
-ms.openlocfilehash: 111e5310f1dac01053eebc6592d7b56105358c41
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: a550655b8076a1e3946ff015239715ddf0712236
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97630095"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131770"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiencias de administración entre inquilinos
 
@@ -62,7 +62,7 @@ La mayoría de las tareas y servicios se pueden realizar en recursos delegados a
 
 [Azure Automation](../../automation/index.yml):
 
-- Uso de cuentas de Automation para acceder a recursos de clientes delegados y trabajar con ellos
+- Use cuentas de Automation para acceder a recursos delegados y trabajar con ellos.
 
 [Azure Backup](../../backup/index.yml):
 
@@ -97,7 +97,7 @@ La mayoría de las tareas y servicios se pueden realizar en recursos delegados a
 
 - Ver las alertas de las suscripciones delegadas, con la capacidad de ver y actualizar alertas en todas las suscripciones
 - Ver los detalles del registro de actividad para las suscripciones delegadas
-- Log analytics: consulte datos de áreas de trabajo remotas en varios inquilinos
+- Log analytics: consulte datos de áreas de trabajo remotas situadas en varios inquilinos (tenga en cuenta que las cuentas de Automation que se usan para acceder a datos desde áreas de trabajo que se encuentran en inquilinos de cliente deben crearse en el mismo inquilino).
 - Cree alertas en inquilinos de cliente que desencadenen la automatización, como los runbooks de Azure Automation o Azure Functions, en el inquilino que realiza la administración a través de webhooks
 - Creación de una [configuración de diagnóstico](../..//azure-monitor/platform/diagnostic-settings.md) en inquilinos de cliente para enviar registros de recursos a áreas de trabajo en el inquilino de administración
 - Para las cargas de trabajo de SAP, [supervise las métricas de soluciones de SAP con una vista agregada a través de los inquilinos del cliente](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/using-azure-lighthouse-and-azure-monitor-for-sap-solutions-to/ba-p/1537293).

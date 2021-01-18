@@ -13,22 +13,22 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27c34135a59521eca361c59a1c82854469626616
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 8dd570a31813ef12ee8a007c84facb8aa5e7aca4
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97743747"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97933139"
 ---
 # <a name="manage-external-access-with-conditional-access-policies"></a>Administración del acceso externo mediante directivas de acceso condicional 
 
-El [acceso condicional](../conditional-access/overview.md) es la herramienta que usa Azure AD para agrupar señales, aplicar directivas y determinar si se debe permitir que un usuario acceda a los recursos. Para obtener información detallada sobre cómo crear y usar las directivas de acceso condicional (directivas de CA), consulte [Planeamiento de la implementación del acceso condicional](../conditional-access/plan-conditional-access.md). 
+El [acceso condicional](../conditional-access/overview.md) es la herramienta que usa Azure AD para agrupar señales, aplicar directivas y determinar si se debe permitir que un usuario acceda a los recursos. Para más información sobre cómo crear y usar directivas de acceso condicional, consulte [Planeamiento de la implementación del acceso condicional](../conditional-access/plan-conditional-access.md). 
 
 ![Diagrama de señales y decisiones relativas al acceso condicional](media/secure-external-access//7-conditional-access-signals.png)
 
 
 
-Este artículo aborda la aplicación de directivas de CA a usuarios externos y da por supuesto que no se tiene acceso a la funcionalidad de [administración de derechos](../governance/entitlement-management-overview.md). Las directivas de CA se pueden usar junto con la administración de derechos.
+Este artículo aborda la aplicación de directivas de acceso condicional a usuarios externos y da por supuesto que no tiene acceso a la funcionalidad de [administración de derechos](../governance/entitlement-management-overview.md). Las directivas de acceso condicional se pueden usar en combinación con la administración de derechos.
 
 Anteriormente en esta documentación, [creó un plan de seguridad](3-secure-access-plan.md) que describe lo siguiente:
 
@@ -36,27 +36,27 @@ Anteriormente en esta documentación, [creó un plan de seguridad](3-secure-acce
 
 * Los requisitos de inicio de sesión para usuarios externos.
 
-Ese plan se utilizará para crear las directivas de CA par el acceso externo. 
+Usará ese plan para crear las directivas de acceso condicional para el acceso externo. 
 
 > [!IMPORTANT]
 > Cree algunas cuentas de prueba de usuarios externos para las directivas que cree antes de aplicarlas a todos los usuarios externos.
 
 ## <a name="conditional-access-policies-for-external-access"></a>Directivas de acceso condicional para el acceso externo
 
-A continuación se muestran los procedimientos recomendados en relación con el control de acceso externo mediante directivas de CA.
+A continuación, se muestran los procedimientos recomendados en relación con la regulación del acceso externo mediante directivas de acceso condicional.
 
-* Si no puede usar organizaciones conectadas en la administración de derechos, cree un grupo de seguridad de Azure AD o un grupo de Microsoft 365 para cada organización asociada con la que trabaja. Asigne todos los usuarios de ese asociado al grupo. Después, puede usar esos grupos en directivas de CA.
+* Si no puede usar organizaciones conectadas en la administración de derechos, cree un grupo de seguridad de Azure AD o un grupo de Microsoft 365 para cada organización asociada con la que trabaja. Asigne todos los usuarios de ese asociado al grupo. Después, puede usar esos grupos en las directivas de acceso condicional.
 
-* Cree el menor número posible de directivas de CA. En el caso de las aplicaciones que tengan las mismas necesidades de acceso, agréguelas a la misma directiva.  
+* Cree el menor número posible de directivas de acceso condicional. En el caso de las aplicaciones que tengan las mismas necesidades de acceso, agréguelas a la misma directiva.  
 ‎ 
    > [!NOTE]
-   > Las directivas de CA se pueden aplicar a un máximo de 250 aplicaciones. Si hay más de 250 aplicaciones que tienen las mismas necesidades de acceso, duplique las directivas. La directiva A se aplicará a las aplicaciones que van de 1 a 250, la directiva B se aplicará a las aplicaciones que van de 251 a 500, etc.
+   > Se pueden aplicar directivas de acceso condicional a 250 aplicaciones como máximo. Si hay más de 250 aplicaciones que tienen las mismas necesidades de acceso, duplique las directivas. La directiva A se aplicará a las aplicaciones que van de 1 a 250, la directiva B se aplicará a las aplicaciones que van de 251 a 500, etc.
 
 * Utilice una convención de nomenclatura para identificar claramente las directivas específicas del acceso externo. Una convención de nomenclatura es ‎*ExternalAccess_actiontaken_AppGroup*. Por ejemplo, ExternalAccess_Block_FinanceApps.
 
 ## <a name="block-all-external-users-from-resources"></a>Bloqueo del acceso a recursos para todos los usuarios externos
 
-Puede impedir que los usuarios externos accedan a conjuntos específicos de recursos por medio de directivas de CA. Una vez que haya identificado el conjunto de recursos a los que desea impedir el acceso, cree una directiva.
+Puede impedir que los usuarios externos accedan a conjuntos específicos de recursos por medio de directivas de acceso condicional. Una vez que haya identificado el conjunto de recursos a los que desea impedir el acceso, cree una directiva.
 
 Para crear una directiva que bloquee el acceso de los usuarios externos a un conjunto de aplicaciones:
 
@@ -102,17 +102,17 @@ Muchas directivas comunes de acceso condicional están documentadas. Las siguien
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte los siguientes artículos sobre cómo proteger el acceso externo a los recursos. Se recomienda seguir los pasos por orden.
+Consulte los siguientes artículos sobre cómo proteger el acceso externo a los recursos. Se recomienda realizar las acciones en el orden indicado.
 
 1. [Determinación de la posición de seguridad deseada para el acceso externo](1-secure-access-posture.md)
 
-2. [Identificación del estado actual](2-secure-access-current-state.md)
+2. [Detección del estado actual](2-secure-access-current-state.md)
 
 3. [Creación de un plan de gobernanza](3-secure-access-plan.md)
 
 4. [Uso de grupos con fines de seguridad](4-secure-access-groups.md)
 
-5. [Transición a Azure AD B2B](5-secure-access-b2b.md)
+5. [Transición a B2B de Azure AD](5-secure-access-b2b.md)
 
 6. [Acceso seguro mediante la administración de derechos](6-secure-access-entitlement-managment.md)
 

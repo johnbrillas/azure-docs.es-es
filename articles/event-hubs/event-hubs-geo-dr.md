@@ -3,16 +3,16 @@ title: 'Recuperación ante desastres geográfica: Azure Event Hubs| Microsoft Do
 description: Cómo usar regiones geográficas para conmutar por error y llevar a cabo una recuperación ante desastres en Azure Event Hubs
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: e10ac5847a38190c8feaae5e51f9b55bee4c4fbc
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: 8824334e762237c3f18cb763d5b39fa55d6415a3
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97861481"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108495"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Event Hubs: recuperación ante desastres geográfica 
 
-Muchas empresas y, en algunos casos, las normativas del sector, imponen como requisito la resistencia frente a interrupciones desastrosas de los recursos de procesamiento de datos. 
+Muchas empresas y, en algunos casos, las normativas del sector imponen como requisito la resistencia frente a interrupciones desastrosas de los recursos de procesamiento de datos. 
 
 Azure Event Hubs ya reparte el riesgo de errores catastróficos de equipos individuales, o incluso bastidores completos, entre clústeres que abarcan varios dominios de error en un centro de recursos. Además, implementa mecanismos transparentes de detección de errores y conmutación por error, de modo que el servicio siga funcionando dentro de los niveles de servicio garantizados y normalmente sin interrupciones apreciables en caso de que se produzcan tales errores. Si se ha creado un espacio de nombres de Event Hubs con la opción habilitada para [zonas de disponibilidad](../availability-zones/az-overview.md), el riesgo de interrupción se reparte entre tres instalaciones separadas físicamente, y el servicio tiene suficientes reservas de capacidad para hacer frente de inmediato a la pérdida completa y catastrófica de toda la instalación. 
 
@@ -70,7 +70,29 @@ La siguiente sección contiene información general del proceso de conmutación 
 
 ### <a name="setup"></a>Configurar
 
-En primer lugar cree un espacio de nombres principal o use uno ya existente, y un nuevo espacio de nombres secundario, luego emparéjelos. Este emparejamiento le proporciona un alias que puede usar para conectarse. Al usar un alias, no es necesario que cambie las cadenas de conexión. Solo pueden agregarse nuevos espacios de nombres al emparejamiento de la conmutación por error. Por último, debe agregar alguna supervisión para detectar si es necesario realizar una conmutación por error. En la mayoría de los casos, el servicio forma parte de un ecosistema mayor, por lo que las conmutaciones por error automáticas raramente son posibles, ya que, a menudo, las conmutaciones por error tienen que realizarse en sincronía con el subsistema o infraestructura restantes.
+En primer lugar cree un espacio de nombres principal o use uno ya existente, y un nuevo espacio de nombres secundario, luego emparéjelos. Este emparejamiento le proporciona un alias que puede usar para conectarse. Al usar un alias, no es necesario que cambie las cadenas de conexión. Solo pueden agregarse nuevos espacios de nombres al emparejamiento de la conmutación por error. 
+
+1. Cree el espacio de nombres principal.
+1. Cree el espacio de nombres secundario. Este paso es opcional. Puede crear el espacio de nombres secundario mientras crea el emparejamiento en el paso siguiente. 
+1. En Azure Portal, vaya al espacio de nombres principal.
+1. Seleccione **Recuperación geográfica** en el menú de la izquierda e **Iniciar el emparejamiento** en la barra de herramientas. 
+
+    :::image type="content" source="./media/event-hubs-geo-dr/primary-namspace-initiate-pairing-button.png" alt-text="Inicio del emparejamiento desde el espacio de nombres principal":::    
+1. En la página **Iniciar el emparejamiento**, seleccione un espacio de nombres secundario existente o cree uno y, luego, elija **Crear**. En el ejemplo siguiente, se selecciona un espacio de nombres secundario existente. 
+
+    :::image type="content" source="./media/event-hubs-geo-dr/initiate-pairing-page.png" alt-text="Selección del espacio de nombres secundario":::        
+1. Ahora, cuando seleccione **Recuperación geográfica** para el espacio de nombres principal, debería ver la página **Geo-DR Alias** (Alias de recuperación ante desastres geográfica) que se parece a la siguiente imagen:
+
+    :::image type="content" source="./media/event-hubs-geo-dr/geo-dr-alias-page.png" alt-text="Página Geo-DR alias (Alias de recuperación ante desastres geográfica)":::    
+1. En esta página de **Información general**, puede realizar las siguientes acciones: 
+    1. Dividir el emparejamiento entre los espacios de nombres principal y secundario. Seleccione **Interrumpir el emparejamiento** en la barra de herramientas. 
+    1. Conmutar por error manualmente al espacio de nombres secundario. Seleccione **Conmutación por error** en la barra de herramientas. 
+    
+        > [!WARNING]
+        > La conmutación por error activará el espacio de nombres secundario y quitará el espacio de nombres principal del emparejamiento de la recuperación ante desastres geográfica. Cree otro espacio de nombres para tener un nuevo par de recuperación ante desastres geográfica. 
+1. En la página **Geo-DR Alias** (Alias de recuperación ante desastres geográfica), seleccione **Directivas de acceso compartido** para acceder a la cadena de conexión principal del alias. Use esta cadena de conexión en lugar de usar directamente la cadena de conexión al espacio de nombres principal o secundario. 
+
+Por último, debe agregar alguna supervisión para detectar si es necesario realizar una conmutación por error. En la mayoría de los casos, el servicio forma parte de un ecosistema mayor, por lo que las conmutaciones por error automáticas raramente son posibles, ya que, a menudo, las conmutaciones por error tienen que realizarse en sincronía con el subsistema o infraestructura restantes.
 
 ### <a name="example"></a>Ejemplo
 
@@ -133,7 +155,7 @@ Solo puede habilitar Availability Zones en los espacios de nombres nuevos median
 ![3][]
 
 ## <a name="private-endpoints"></a>Puntos de conexión privados
-En esta sección se proporcionan consideraciones adicionales cuando se usa la recuperación ante desastres geográfica con espacios de nombres que usan puntos de conexión privados. Para obtener información sobre el uso de puntos de conexión privados con Event Hubs en general, consulte [Configuración de puntos de conexión privados](private-link-service.md).
+En esta sección se proporcionan más aspectos que hay que tener en cuenta cuando se usa la recuperación ante desastres geográfica con espacios de nombres que emplean puntos de conexión privados. Para obtener información sobre el uso de puntos de conexión privados con Event Hubs en general, consulte [Configuración de puntos de conexión privados](private-link-service.md).
 
 ### <a name="new-pairings"></a>Nuevos emparejamientos
 Si intenta crear un emparejamiento entre un espacio de nombres primario con un punto de conexión privado y un espacio de nombres secundario sin un punto de conexión privado, se producirá un error. El emparejamiento solo se realizará correctamente si los espacios de nombres primario y secundario tienen puntos de conexión privados. Se recomienda utilizar las mismas configuraciones en los espacios de nombres principal y secundario y en las redes virtuales en las que se creen los puntos de conexión privados.  

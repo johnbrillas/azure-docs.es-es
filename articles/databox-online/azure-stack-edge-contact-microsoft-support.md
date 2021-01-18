@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 12/17/2020
+ms.date: 01/07/2021
 ms.author: alkohli
-ms.openlocfilehash: a457c2816d4075190a2174339f7e52a2ea41730a
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: 5bbd02f9e15a4ee29e244b2a0307accd151ba487
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97696022"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98033955"
 ---
 # <a name="open-a-support-ticket-for-azure-stack-edge-pro-and-azure-data-box-gateway"></a>Abra una incidencia de soporte técnico para Azure Stack Edge Pro y Azure Data Box Gateway
 
@@ -78,7 +78,7 @@ Esta información solo es aplicable a los dispositivos de Azure Stack. El proces
     * Se envía una unidad reemplazable de campo (FRU) para la pieza de hardware con errores. Actualmente, las unidades de fuente de alimentación y las unidades de estado sólido son las únicas FRU que se admiten.
     * Solo se sustituyen las FRU en el plazo del siguiente día laborable, todo lo demás requiere un reemplazo completo del sistema (FSR).
 
-3. Si una incidencia de soporte técnico se genera antes de las 4:30 p.m. hora local (de lunes a viernes), se envía un técnico presencial el siguiente día laborable a la ubicación para que realice una sustitución de FRU. Normalmente, un reemplazo completo del sistema tardará mucho más tiempo, ya que las piezas se envían desde fábrica y pueden estar sujetas a retrasos de transporte y aduanas.
+3. Si se determina la necesidad de un reemplazo de FRU antes de la 1 p.m. hora local (de lunes a viernes), se envía un técnico presencial el siguiente día laborable a la ubicación para que lo realice. Normalmente, un reemplazo completo del sistema tardará mucho más tiempo, ya que las piezas se envían desde fábrica y pueden estar sujetas a retrasos de transporte y aduanas.
 
 ## <a name="manage-a-support-request"></a>Administración de una solicitud de soporte técnico
 

@@ -10,16 +10,16 @@ ms.topic: reference
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 12/21/2020
-ms.openlocfilehash: 132c4b223b99f7110cd4553bb0dd93f1e58f4cdd
-ms.sourcegitcommit: a89a517622a3886b3a44ed42839d41a301c786e0
+ms.openlocfilehash: b675e72df4f128d0ce096b3ac398fab63c20557e
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97733233"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97930810"
 ---
 # <a name="service-limits-in-azure-machine-learning"></a>Límites de servicio en Azure Machine Learning
 
-En esta sección se muestra una lista de las cuotas básicas y los umbrales de limitación en Azure Machine Learning.
+En esta sección se muestra una lista de las cuotas básicas y los umbrales de limitación en Azure Machine Learning. Para aprender a aumentar las cuotas de recursos, consulte ["Administración y aumento de las cuotas de los recursos"](how-to-manage-quotas.md).
 
 ## <a name="workspaces"></a>Áreas de trabajo
 | Límite | Value |
@@ -73,3 +73,5 @@ Algunos límites se pueden aumentar en áreas de trabajo individuales; para ello
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Configurar el entorno de Azure Machine Learning](how-to-configure-environment.md)
+- Sepa cómo aumentar las cuotas de recursos en ["Administración y aumento de las cuotas de los recursos"](how-to-manage-quotas.md).
+

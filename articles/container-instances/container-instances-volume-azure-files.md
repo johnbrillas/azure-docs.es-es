@@ -4,16 +4,16 @@ description: Obtenga información sobre cómo montar un volumen de Azure Files p
 ms.topic: article
 ms.date: 07/02/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: afebdcdc9d9c5852d7fe66ed06ac457c1dbb0afb
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: d52ad8ad02735c98b29a83d8ca69cdea8c6af7d8
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97881810"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97954981"
 ---
 # <a name="mount-an-azure-file-share-in-azure-container-instances"></a>Montaje de un recurso compartido de archivos de Azure en Azure Container Instances
 
-De forma predeterminada, Azure Container Instances no tiene estado. Si el contenedor se bloquea o se detiene, se pierde todo su estado. Para conservar el estado más allá de la duración del contenedor, debe montar un volumen desde un almacén externo. Como se muestra en este artículo, Azure Container Instances puede montar un recurso compartido de archivos de Azure creado con [Azure Files](../storage/files/storage-files-introduction.md). Azure Files ofrece recursos compartidos de archivos totalmente administrados en Azure Storage, a los que se puede acceder mediante el protocolo de bloque de mensajes del servidor (SMB) estándar. El uso de un recurso compartido de archivos de Azure con Azure Container Instances ofrece características de uso compartido de archivos similares al uso de un recurso compartido de archivo de Azure con Azure Virtual Machines.
+De forma predeterminada, Azure Container Instances no tiene estado. Si el contenedor se reinicia, se bloquea o se detiene, se pierde todo su estado. Para conservar el estado más allá de la duración del contenedor, debe montar un volumen desde un almacén externo. Como se muestra en este artículo, Azure Container Instances puede montar un recurso compartido de archivos de Azure creado con [Azure Files](../storage/files/storage-files-introduction.md). Azure Files ofrece recursos compartidos de archivos totalmente administrados en Azure Storage, a los que se puede acceder mediante el protocolo de bloque de mensajes del servidor (SMB) estándar. El uso de un recurso compartido de archivos de Azure con Azure Container Instances ofrece características de uso compartido de archivos similares al uso de un recurso compartido de archivo de Azure con Azure Virtual Machines.
 
 > [!NOTE]
 > El montaje de un recurso compartido de Azure Files está actualmente restringido a los contenedores Linux. Busque las diferencias de plataforma actuales en la [Introducción](container-instances-overview.md#linux-and-windows-containers).

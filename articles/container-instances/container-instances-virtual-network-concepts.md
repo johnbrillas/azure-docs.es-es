@@ -3,12 +3,12 @@ title: Escenarios para usar una red virtual
 description: Escenarios, recursos y limitaciones para implementar grupos de contenedores en una red virtual de Azure.
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: 2fb468a6a860bcc076043c30606922f43fbdb1ad
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 65d7fa46ebbb9b072b50731bff68b9b88809075d
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97882439"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98033836"
 ---
 # <a name="virtual-network-scenarios-and-resources"></a>Escenarios y recursos de red virtual
 
@@ -33,6 +33,7 @@ Los grupos de contenedores implementados en una red virtual de Azure permiten es
 * **Azure Load Balancer**: no se admite la colocación de Azure Load Balancer al principio de las instancias de contenedor en un grupo de contenedores en red
 * **Emparejamiento de redes virtuales globales**: no se admite el emparejamiento global (conexión de redes virtuales entre regiones de Azure).
 * **Etiqueta de dirección IP o DNS pública**: los grupos de contenedores implementados en una red virtual no son compatibles actualmente con la exposición directa en Internet de contenedores con una dirección IP pública o un nombre de dominio completo.
+* **NAT de Virtual Network**: los grupos de contenedores implementados en una red virtual no admiten actualmente el uso de un recurso de puerta de enlace NAT para la conectividad saliente de Internet.
 
 ## <a name="other-limitations"></a>Otras limitaciones
 
