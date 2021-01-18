@@ -5,15 +5,15 @@ author: RonyMSFT
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: security
-ms.date: 10/16/2020
+ms.date: 01/12/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5258b1eab48f71d8d17f52849b5e57b467e7a2da
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 2d2b65261e09d056ec76b25d6fcb6627bc54770b
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460387"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165729"
 ---
 # <a name="synapse-managed-private-endpoints"></a>Puntos de conexión privados administrados de Synapse
 
@@ -21,27 +21,20 @@ En este artículo se explican los puntos de conexión privados administrados en 
 
 ## <a name="managed-private-endpoints"></a>Puntos de conexión privados administrados
 
-Los puntos de conexión privados se crean en Microsoft Azure Virtual Network del área de trabajo administrada y establecen un vínculo privado a los recursos de Azure. Azure Synapse administra estos puntos de conexión privados en su nombre.
+Los puntos de conexión privados administrados son puntos de conexión privados creados en una red virtual administrada asociada al área de trabajo de Azure Synapse. Los puntos de conexión privados administrados establecen un vínculo privado a los recursos de Azure. Azure Synapse administra estos puntos de conexión privados en su nombre. Puede crear puntos de conexión privados administrados desde el área de trabajo de Azure Synapse para acceder a los servicios de Azure (por ejemplo, Azure Storage o Azure Cosmos DB) y a los servicios de asociados o clientes hospedados en Azure.
 
-Azure Synapse admite vínculos privados. Private Link le permite acceder tanto a los servicios de Azure (como Azure Storage y Azure Cosmos DB) como a los servicios de cliente o asociado hospedados por Azure desde su red virtual de Azure de forma segura.
+Al administrar puntos de conexión privados, el tráfico entre el área de trabajo de Azure Synapse y otros recursos de Azure atraviesa completamente la red troncal de Microsoft. Los puntos de conexión privados administrados protegen contra la filtración de datos. Un punto de conexión privado administrado emplea la dirección IP privada de la red virtual administrada para, de forma efectiva, incorporar a la red virtual el servicio de Azure con el que se comunica el área de trabajo de Azure Synapse. Los puntos de conexión privados administrados se asignan a recursos específicos de Azure, no a todo el servicio. Los clientes pueden limitar la conectividad a un recurso específico aprobado por su organización. 
 
-Cuando se usa un vínculo privado, el tráfico entre la red virtual y el área de trabajo atraviesa completamente la red troncal de Microsoft. Private Link protege frente a los riesgos de la filtración de datos. El vínculo privado a un recurso se establece mediante la creación de un punto de conexión privado.
-
-El punto de conexión privado usa una dirección IP privada desde la red virtual para incorporar el servicio de manera eficaz a la red virtual. Los puntos de conexión privados se asignan a un recurso específico de Azure, no a todo el servicio. Los clientes pueden limitar la conectividad a un recurso específico aprobado por su organización. 
-
-Más información sobre [vínculos privados y puntos de conexión privados](https://docs.microsoft.com/azure/private-link/).
+Más información sobre [vínculos privados y puntos de conexión privados](../../private-link/index.yml).
 
 >[!IMPORTANT]
 >Los puntos de conexión privados administrados solo se admiten en áreas de trabajo de Azure Synapse con una red virtual de área de trabajo administrada.
 
 >[!NOTE]
->Todo el tráfico saliente de la red virtual del área de trabajo administrada, excepto el que atraviese puntos de conexión privados administrados, se bloqueará en el futuro. Se recomienda crear puntos de conexión privados administrados para conectarse a todos los orígenes de datos de Azure que se encuentren fuera del área de trabajo. 
+>Al crear un área de trabajo de Azure Synapse, puede elegir asociarle una red virtual administrada. Si decide hacerlo, puede también elegir limitar el tráfico saliente del área de trabajo a solo los destinos aprobados. Para estos destinos, debe crear puntos de conexión privados administrados. 
 
-Una conexión de punto de conexión privado se crea en un estado "pendiente" cuando se crea un punto de conexión privado administrado en Azure Synapse. Se inicia un flujo de trabajo de aprobación. El propietario del recurso de vínculo privado es responsable de aprobar o rechazar la conexión.
 
-Si el propietario aprueba la conexión, se establece el vínculo privado. Sin embargo, si el propietario no aprueba la conexión, no se establecerá el vínculo privado. En cualquier caso, el punto de conexión privado administrado se actualizará con el estado de la conexión.
-
-Solo un punto de conexión privado administrado en un estado aprobado puede enviar tráfico a un recurso de vínculo privado determinado.
+Una conexión de punto de conexión privado se crea en un estado "pendiente" cuando se crea un punto de conexión privado administrado en Azure Synapse. Se inicia un flujo de trabajo de aprobación. El propietario del recurso de vínculo privado es responsable de aprobar o rechazar la conexión. Si el propietario aprueba la conexión, se establece el vínculo privado. Sin embargo, si el propietario no aprueba la conexión, no se establecerá el vínculo privado. En cualquier caso, el punto de conexión privado administrado se actualizará con el estado de la conexión. Solo se puede usar un punto de conexión privado administrado con un estado aprobado para enviar tráfico al recurso de vínculo privado que está vinculado al punto de conexión privado administrado.
 
 ## <a name="managed-private-endpoints-for-dedicated-sql-pool-and-serverless-sql-pool"></a>Puntos de conexión privados administrados para el grupo de SQL dedicado y el grupo de SQL sin servidor
 

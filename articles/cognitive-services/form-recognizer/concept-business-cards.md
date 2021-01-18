@@ -10,39 +10,43 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: ed57c496443c9d1541bfa9933e7718213da116d7
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: 1fd4279cd35e54e2e04f88973c4a825218a75142
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97845607"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131139"
 ---
-# <a name="business-card-concepts"></a>Conceptos de tarjeta de presentación
+# <a name="form-recognizer-prebuilt-business-cards-model"></a>Modelo de tarjetas de presentación pregenerado de Form Recognizer 
 
-Azure Form Recognizer puede analizar y extraer información de contacto de tarjetas de presentación mediante alguno de los modelos precompilados. La API de tarjetas de presentación combina funcionalidades eficaces de reconocimiento óptico de caracteres (OCR) con nuestro modelo de comprensión de tarjetas de presentación para extraer información clave de las tarjetas de presentación en inglés. Extrae información de contacto personal, el nombre de la empresa, el puesto y mucho más. La API de tarjeta de presentación precompilada está disponible públicamente en la versión preliminar de Form Recognizer v2.1. 
+Azure Form Recognizer puede analizar y extraer información de contacto de tarjetas de presentación mediante alguno de los modelos pregenerados. Combina funcionalidades eficaces de reconocimiento óptico de caracteres (OCR) con nuestro modelo de comprensión de tarjetas de presentación para extraer información clave de las tarjetas de presentación en inglés. Extrae información de contacto personal, el nombre de la empresa, el puesto y mucho más. La API de tarjeta de presentación precompilada está disponible públicamente en la versión preliminar de Form Recognizer v2.1. 
 
-## <a name="what-does-the-business-card-api-do"></a>¿Qué hace la API de tarjeta de presentación?
+## <a name="what-does-the-business-card-service-do"></a>¿Qué hace el servicio de tarjetas de presentación?
 
-La API de tarjeta de presentación extrae campos clave de las tarjetas de presentación y los devuelve en una respuesta JSON organizada.
+La API de tarjeta de presentación pregenerada extrae campos clave de las tarjetas de presentación y los devuelve en una respuesta JSON organizada.
 
-![Imagen de Contoso detallada de FOTT y salida JSON](./media/business-card-english.jpg)
+![Imagen de Contoso detallada de FOTT y salida JSON](./media/business-card-example.jpg)
+
+
 
 ### <a name="fields-extracted"></a>Campos extraídos:
 
-* Nombres de contacto 
-  * Nombres
-  * Apellidos
-* Nombres de compañía 
-* Departments 
-* Puestos de trabajo 
-* Correos electrónicos 
-* Websites 
-* Direcciones 
-* Números de teléfono 
-  * Teléfonos móviles 
-  * Faxes 
-  * Teléfonos de trabajo 
-  * Otros teléfonos 
+|Nombre| Tipo | Descripción | Texto | 
+|:-----|:----|:----|:----|
+| ContactNames | matriz de objetos | Nombre de contacto extraído de la tarjeta de presentación | [{ "FirstName": "John", "LastName": "Doe" }] |
+| FirstName | string | Nombre (de nacimiento) del contacto | "John" | 
+| LastName | string | Apellidos del contacto |   "Doe" | 
+| CompanyNames | Matriz de cadenas | Nombre de la empresa extraído de la tarjeta de presentación | ["Contoso"] | 
+| Departments | Matriz de cadenas | Departamento u organización del contacto | ["R&D"] | 
+| JobTitles | Matriz de cadenas | Puesto mostrado del contacto | ["Software Engineer"] | 
+| Correos electrónicos | Matriz de cadenas | Dirección de correo electrónico de contacto extraída de la tarjeta de presentación | ["johndoe@contoso.com"] | 
+| Websites | Matriz de cadenas | Sitio web extraído de la tarjeta de presentación | ["https://www.contoso.com"] | 
+| Direcciones | Matriz de cadenas | Dirección extraída de la tarjeta de presentación | ["123 Main Street, Redmond, WA 98052"] | 
+| MobilePhones | matriz de números de teléfono | Número de teléfono móvil extraído de la tarjeta de presentación | ["+19876543210"] |
+| Faxes | matriz de números de teléfono | Número de fax extraído de la tarjeta de presentación | ["+19876543211"] |
+| WorkPhones | matriz de números de teléfono | Número de teléfono en el trabajo extraído de la tarjeta de presentación | ["+19876543231"] |
+| OtherPhones    | matriz de números de teléfono | Otros números de teléfono extraídos de la tarjeta de presentación | ["+19876543233"] |
+
 
 La API de tarjeta de presentación también puede devolver todo el texto reconocido de la tarjeta de presentación. Esta salida de OCR se incluye en la respuesta JSON.  
 

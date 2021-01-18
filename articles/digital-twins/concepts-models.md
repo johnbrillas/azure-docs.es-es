@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 0a38f9b8135fed08a95df68f108e44c34fec6325
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 599bb93e747acf504a4ebf43aaea771ed5064886
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94955334"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131396"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Descripción de los modelos gemelos de Azure Digital Twins
 
@@ -88,53 +88,7 @@ Esta sección contiene un ejemplo de un modelo típico, escrito como una interfa
  
 Tenga en cuenta que los planetas también pueden interactuar con **lunas**, que son sus satélites, y pueden contener **cráteres**. En el ejemplo siguiente, el modelo `Planet` expresa las conexiones con estas otras entidades haciendo referencia a dos modelos externos: `Moon` y `Crater`. Estos modelos también se definen en el código de ejemplo siguiente, pero se mantienen muy simples para no restar valor al ejemplo principal `Planet`.
 
-```json
-[
-  {
-    "@id": "dtmi:com:contoso:Planet;1",
-    "@type": "Interface",
-    "@context": "dtmi:dtdl:context;2",
-    "displayName": "Planet",
-    "contents": [
-      {
-        "@type": "Property",
-        "name": "name",
-        "schema": "string"
-      },
-      {
-        "@type": "Property",
-        "name": "mass",
-        "schema": "double"
-      },
-      {
-        "@type": "Telemetry",
-        "name": "Temperature",
-        "schema": "double"
-      },
-      {
-        "@type": "Relationship",
-        "name": "satellites",
-        "target": "dtmi:com:contoso:Moon;1"
-      },
-      {
-        "@type": "Component",
-        "name": "deepestCrater",
-        "schema": "dtmi:com:contoso:Crater;1"
-      }
-    ]
-  },
-  {
-    "@id": "dtmi:com:contoso:Crater;1",
-    "@type": "Interface",
-    "@context": "dtmi:dtdl:context;2"
-  },
-  {
-    "@id": "dtmi:com:contoso:Moon;1",
-    "@type": "Interface",
-    "@context": "dtmi:dtdl:context;2"
-  }
-]
-```
+:::code language="json" source="~/digital-twins-docs-samples/models/Planet-Crater-Moon.json":::
 
 Los campos del modelo son los siguientes:
 
@@ -166,57 +120,7 @@ En algunas ocasiones, puede que quiera especializar aún más un modelo. Por eje
 
 En el ejemplo siguiente se recrea el modelo *Planeta* del ejemplo de DTDL anterior como subtipo de un modelo *CuerpoCelestial* más grande. Primero se define el modelo "primario" y, a continuación, el modelo "secundario" se basa en él mediante el campo `extends`.
 
-```json
-[
-  {
-    "@id": "dtmi:com:contoso:CelestialBody;1",
-    "@type": "Interface",
-    "@context": "dtmi:dtdl:context;2",
-    "displayName": "Celestial body",
-    "contents": [
-      {
-        "@type": "Property",
-        "name": "name",
-        "schema": "string"
-      },
-      {
-        "@type": "Property",
-        "name": "mass",
-        "schema": "double"
-      },
-      {
-        "@type": "Telemetry",
-        "name": "temperature",
-        "schema": "double"
-      }
-    ]
-  },
-  {
-    "@id": "dtmi:com:contoso:Planet;1",
-    "@type": "Interface",
-    "@context": "dtmi:dtdl:context;2",
-    "displayName": "Planet",
-    "extends": "dtmi:com:contoso:CelestialBody;1",
-    "contents": [
-      {
-        "@type": "Relationship",
-        "name": "satellites",
-        "target": "dtmi:com:contoso:Moon;1"
-      },
-      {
-        "@type": "Component",
-        "name": "deepestCrater",
-        "schema": "dtmi:com:contoso:Crater;1"
-      }
-    ]
-  },
-  {
-    "@id": "dtmi:com:contoso:Crater;1",
-    "@type": "Interface",
-    "@context": "dtmi:dtdl:context;2"
-  }
-]
-```
+:::code language="json" source="~/digital-twins-docs-samples/models/CelestialBody-Planet-Crater.json":::
 
 En este ejemplo, *CuerpoCelestial* aporte un nombre, una masa y una temperatura a *Planeta*. La sección `extends` es un nombre de interfaz o una matriz de nombres de interfaz (lo que permite que la interfaz de extensión herede de varios modelos primarios si lo desea).
 
@@ -236,7 +140,7 @@ Al diseñar modelos para que reflejen las entidades de su entorno, puede resulta
 
 El uso de modelos que se basan en estándares del sector o que usan una representación estándar de la ontología, como RDF u OWL, proporciona un excelente punto de partida para diseñar modelos de Azure Digital Twins. Asimismo, el uso de modelos del sector también contribuye a la estandarización y el uso compartido de la información.
 
-Para usarse con Azure Digital Twins, los modelos se deben representar mediante el [**lenguaje de definición de Digital Twins (DTDL)**](concepts-models.md), basado en JSON-LD. Por consiguiente, en este artículo se describe cómo representar los modelos estándar del sector en DTDL mediante la integración de los conceptos existentes del sector con la semántica de DTDL para que Azure Digital Twins pueda usarlos. El modelo de DTDL sirve como origen confiable del modelo en Azure Digital Twins.
+Para usarse con Azure Digital Twins, los modelos se deben representar mediante el [**lenguaje de definición de Digital Twins (DTDL)**](concepts-models.md), basado en JSON-LD. Por lo tanto, para usar un modelo estándar del sector, primero debe convertirlo en DTDL para que Azure Digital Twins pueda usarlo. El modelo de DTDL sirve como origen confiable del modelo en Azure Digital Twins.
 
 Hay dos rutas de acceso principales para la integración de modelos estándar del sector con DTDL y la elección de una u otra depende de su situación:
 * Si aún no ha creado los modelos, puede diseñarlos en torno a las  **ontologías de DTDL del inicio existentes** que contengan un idioma específico para su sector.

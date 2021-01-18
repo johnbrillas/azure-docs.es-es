@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, devx-track-js
-ms.openlocfilehash: 643305057490cc550a5a8e39a892297b000cbc8e
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: c9aa73767fcb9d57ada11f5830fec00b10eee812
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96169416"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98017347"
 ---
 # <a name="quickstart-add-sign-in-using-openid-connect-to-a-nodejs-web-app"></a>Inicio rápido: Incorporación del inicio de sesión mediante OpenID Connect a una aplicación web de Node.js
 
@@ -29,38 +29,29 @@ En este inicio rápido, descargará y ejecutará un código de ejemplo que muest
 - [Node.js](https://nodejs.org/en/download/).
 
 ## <a name="register-your-application"></a>Registrar su aplicación
-1. Inicie sesión en [Azure Portal](https://portal.azure.com/) con una cuenta personal, profesional o educativa de Microsoft.
-1. Si su cuenta está presente en más de un inquilino de Azure AD:
-    - Seleccione su perfil en el menú en la esquina superior derecha de la página y, a continuación, **Cambiar directorio**.
-    - Cambie la sesión al inquilino de Azure AD en el que desea crear la aplicación.
 
-1. Vaya a [Azure Active Directory > Registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908) para registrar la aplicación.
-
-1. Seleccione **Nuevo registro**.
-
-1. Cuando aparezca la página **Registrar una aplicación**, escriba la información de registro de la aplicación:
-    - En la sección **Nombre**, escriba un nombre significativo que se mostrará a los usuarios de la aplicación. Por ejemplo: MyWebApp
-    - En **Tipos de cuenta compatibles**, seleccione **Cuentas en cualquier directorio organizativo y cuentas Microsoft personales (por ejemplo, Skype, Xbox, Outlook.com)** .
+1. Inicie sesión en <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Si tiene acceso a varios inquilinos, use el filtro **Directorio + suscripción** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: del menú superior para seleccionar el inquilino en el que desea registrar una aplicación.
+1. Busque y seleccione **Azure Active Directory**.
+1. En **Administrar**, seleccione **Registros de aplicaciones** >  y, luego, **Nuevo registro**.
+1. Escriba el **Nombre** de la aplicación, por ejemplo `MyWebApp`. Los usuarios de la aplicación pueden ver este nombre, el cual se puede cambiar más tarde.
+1. En **Tipos de cuenta compatibles**, seleccione **Cuentas en cualquier directorio organizativo y cuentas Microsoft personales (por ejemplo, Skype, Xbox, Outlook.com)** .
 
     Si hay más de un URI de redirección, deberá agregarlos desde la pestaña **Autenticación** más adelante, después de que la aplicación se haya creado correctamente.
 
 1. Seleccione **Registrar** para crear la aplicación.
-
 1. En la página **Información general** de la aplicación, busque el valor de **Id. de aplicación (cliente)** y regístrelo para usarlo más tarde. Necesitará este valor para configurar la aplicación más adelante en este proyecto.
+1. En **Administrar**, seleccione **Autenticación**.
+1. Seleccione **Agregar una plataforma** > **Web** 
+1. En la sección **URI de redirección**, escriba `http://localhost:3000/auth/openid/return`.
+1. Escriba en **URL de cierre de sesión** `https://localhost:3000`.
+1. En la sección Concesión implícita, marque **Tokens de id.** , ya que en este ejemplo es preciso que la opción [Flujo de concesión implícito](./v2-oauth2-implicit-grant-flow.md) esté habilitada para iniciar la sesión del usuario.
+1. Seleccione **Configurar**.
+1. En **Administrar**, seleccione **Certificados y secretos** > **Nuevo secreto de cliente**.
+1. Introduzca una descripción de clave (por ejemplo, secreto de aplicación).
+1. Seleccione la duración de clave **En 1 año, En 2 años** o **Nunca expira**.
+1. Seleccione **Agregar**. Se mostrará el valor de la clave. Copie el valor de clave y guárdelo en una ubicación segura para usarlo más adelante.
 
-1. En la lista de páginas de la aplicación, seleccione **Autenticación**.
-    - En la sección **URI de redirección**, seleccione **Web** en el cuadro combinado y escriba el siguiente URI de redirección: `http://localhost:3000/auth/openid/return`.
-    - En la sección **Configuración avanzada**, establezca **Dirección URL de cierre de sesión** en `https://localhost:3000`.
-    - En la sección **Configuración avanzada > Concesión implícita**, marque **Tokens de id.** ya que en este ejemplo es necesario habilitar el [flujo de concesión implícito](./v2-oauth2-implicit-grant-flow.md) para iniciar la sesión del usuario.
-
-1. Seleccione **Guardar**.
-
-1. Desde la página **Certificados y secretos**, en la sección **Secretos de cliente**, seleccione **Nuevo secreto de cliente**.
-    - Introduzca una descripción de clave (por ejemplo, secreto de aplicación).
-    - Seleccione la duración de clave **En 1 año, En 2 años** o **Nunca expira**.
-    - Al hacer clic en el botón **Agregar**, se mostrará el valor de la clave. Copie el valor de clave y guárdelo en una ubicación segura.
-
-    Necesitará esta clave más adelante para configurar la aplicación. Este valor de clave no se volverá a mostrar ni a recuperar de ninguna otra forma, de modo que regístrelo en cuanto esté visible en Azure Portal.
 
 ## <a name="download-the-sample-application-and-modules"></a>Descarga de la aplicación de ejemplo y los módulos
 

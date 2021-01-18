@@ -3,18 +3,18 @@ title: Información sobre los datos de Azure Cost Management
 description: Este artículo le ayudará a comprender mejor qué datos se incluyen en Azure Cost Management y con qué frecuencia se procesan, recopilan, muestran y cierran.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/26/2020
+ms.date: 01/06/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 97ae2ba26818bbc306da71af814d9b4f95858b6a
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: e6096c259ec1870a711a515bf02d5d00b4f75345
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032582"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964157"
 ---
 # <a name="understand-cost-management-data"></a>Descripción de los datos de Cost Management
 
@@ -101,7 +101,7 @@ Las siguientes tablas muestran los datos que se incluyen o no se incluyen en Cos
 
 _<sup>**5**</sup> El uso del servicio de Azure se basa en la reserva y la negociación de los precios._
 
-_<sup>**6**</sup> Las compras de Marketplace no están disponible para las ofertas de MSDN ni Visual Studio por el momento._
+_<sup>**6**</sup> En este momento, las compras del marketplace no están disponible para las ofertas de MSDN o Visual Studio._
 
 _<sup>**7**</sup> En este momento, las compras de reserva solo están disponibles para las cuentas de Contrato Enterprise (EA) y Contrato de cliente de Microsoft._
 
@@ -114,11 +114,11 @@ Azure Cost Management recibe etiquetas como parte de cada registro de uso enviad
 - Es posible que algunos recursos implementados no admitan etiquetas o que no incluyan etiquetas en los datos de uso.
 - Las etiquetas de recursos solo se incluyen en los datos de uso mientras se aplica la etiqueta; las etiquetas no se aplican a los datos históricos.
 - Las etiquetas de recursos solo están disponibles en Cost Management después de que se actualicen los datos.
-- Las etiquetas de recursos solo están disponibles en Cost Management cuando el recurso está activo o en ejecución y genera registros de uso (por ejemplo, no cuando una máquina virtual está desasignada).
+- Las etiquetas de recursos solo están disponibles en Cost Management cuando el recurso está activo o en ejecución y genera registros de uso. Por ejemplo, cuando se desasigna una máquina virtual.
 - La administración de etiquetas requiere el acceso de colaborador a cada recurso.
 - La administración de directivas de etiquetas requiere el acceso de propietario o de colaborador de directiva a un grupo de administración, suscripción o grupo de recursos.
     
-Si no ve una etiqueta específica en Cost Management, tenga en cuenta lo siguiente:
+Si no ve una etiqueta específica en Cost Management, podría plantearse las siguientes preguntas:
 
 - ¿Se aplicó la etiqueta directamente al recurso?
 - ¿Se aplicó la etiqueta hace más de 24 horas?
@@ -139,8 +139,7 @@ Estas son algunas sugerencias para trabajar con etiquetas:
 
 - Planee por anticipado y defina una estrategia de etiquetado que le permita desglosar los costos por organización, aplicación, entorno, etc.
 - Use Azure Policy para copiar las etiquetas de grupos de recursos en recursos individuales y aplicar la estrategia de etiquetado.
-- Use Tag API junto con Query o UsageDetails para obtener todo el costo basado en las etiquetas actuales.
-
+- Use Tags API junto con Query o UsageDetails para obtener todo el costo basado en las etiquetas actuales.
 
 ## <a name="cost-and-usage-data-updates-and-retention"></a>Retención y actualizaciones de datos de uso y costos
 
@@ -151,17 +150,18 @@ Los datos de uso y costos normalmente están disponibles en Administración de c
 - La estimación de los cargos para el período de facturación actual puede cambiar según se incurre en un uso mayor.
 - Cada actualización es acumulativa e incluye todos los elementos de línea y la información de la actualización anterior.
 - Azure finaliza o _cierra_ el período de facturación actual hasta 72 horas (tres días naturales) después de finalizado el período de facturación.
+- Durante el período mensual abierto (no facturado), los datos de administración de costos deben considerarse únicamente una estimación. En algunos casos, puede haber cargos latentes mientras llegan al sistema, después de que el uso ha tenido lugar realmente.
 
 Los ejemplos siguientes muestran cómo podrían terminar los períodos de facturación:
 
 * Suscripciones del contrato Enterprise (EA): si el mes de facturación termina el 31 de marzo, la estimación de cargos se actualiza hasta 72 horas más tarde. En este ejemplo, a la medianoche (UTC) del 4 de abril.
 * Suscripciones de pago por uso: si el mes de facturación termina el 15 de mayo, la estimación de cargos podría actualizarse hasta 72 horas más tarde. En este ejemplo, a la medianoche (UTC) del 19 de mayo.
 
-Cuando los datos de uso y costos están disponibles en Administración de costos + facturación, se conservarán durante al menos siete años.
+Una vez que los datos de uso y costos están disponibles en Administración de costos + facturación, se conservan durante al menos siete años.
 
 ### <a name="rerated-data"></a>Nueva valoración de los datos
 
-Si usa las API de Cost Management, Power BI o Azure Portal para recuperar datos, es posible que los cargos del período de facturación actual se vuelvan a valorar y, consecuentemente, cambien hasta que se cierre la factura.
+Si usa las API de Cost Management, o bien Power BI o Azure Portal para recuperar datos, es posible que los cargos del período de facturación actual se vuelvan a evaluar y, consecuentemente, cambien hasta que se cierre la factura.
 
 ## <a name="cost-rounding"></a>Redondeo de los costos
 
@@ -184,6 +184,6 @@ Es posible que los datos históricos de las ofertas basadas en crédito y pagada
 - MSDN (MS-AZR-0062P)
 - Visual Studio (MS-AZR-0029P, MS-AZR-0059P, MS-AZR-0060P, MS-AZR-0063P, MS-AZR-0064P)
 
-## <a name="see-also"></a>Consulte también
+## <a name="next-steps"></a>Pasos siguientes
 
 - Si aún no ha completado la primera guía rápida de Cost Management, léala en [Start analyzing costs](./quick-acm-cost-analysis.md) (Comenzar a analizar los costos).

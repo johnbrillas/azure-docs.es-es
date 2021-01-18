@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: panosper
-ms.openlocfilehash: a78e18de1f495feb6234fa5bfd97162d8b80de4c
-ms.sourcegitcommit: 697638c20ceaf51ec4ebd8f929c719c1e630f06f
+ms.openlocfilehash: a6f75a80fd73844c975b332db8a0e8919cde9f0d
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97857331"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98072180"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Preguntas más frecuentes sobre el servicio Speech to Text
 
@@ -134,11 +134,13 @@ Consulte [Cuotas y límites de los servicios de Voz](speech-services-quotas-and-
 
 **R.** : Sí. Puede transcribirlos usted mismo o utilizar un servicio de transcripción profesional. Algunos usuarios prefieren usar transcriptores profesionales, mientras que otros usan la colaboración abierta distribuida o realizan las transcripciones ellos mismos.
 
-**P: ¿Cuánto tiempo se tardará en entrenar los datos de audio de un modelo personalizado?**
+**P: ¿Cuánto tiempo se tardará en entrenar un modelo personalizado con datos de audio?**
 
-**R.** : Entrenar un modelo con datos de audio es un proceso largo. Dependiendo de la cantidad de datos, puede tardar varios días en crear un modelo personalizado. Si no se puede finalizar en una semana, el servicio podría anular la operación de entrenamiento y notificar que el modelo tiene errores. Para obtener resultados más rápidos, use una de las [regiones](custom-speech-overview.md#set-up-your-azure-account) donde se disponga de hardware dedicado para el entrenamiento. Puede copiar el modelo totalmente entrenado en otra región mediante la [API REST](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription). El entrenamiento con solo texto es mucho más rápido y normalmente finaliza en cuestión de minutos.
+**R.** : Entrenar un modelo con datos de audio puede ser un proceso largo. Dependiendo de la cantidad de datos, puede tardar varios días en crear un modelo personalizado. Si no se puede finalizar en una semana, el servicio podría anular la operación de entrenamiento y notificar que el modelo tiene errores.
 
-Algunos modelos base no se pueden personalizar con datos de audio. Para ellos, el servicio solo utilizará el texto de la transcripción para entrenar y descartar los datos de audio. Así, el entrenamiento se completará mucho más rápido y los resultados serán los mismos que los del entrenamiento solo con texto.
+Para obtener resultados más rápidos, use una de las [regiones](custom-speech-overview.md#set-up-your-azure-account) donde se disponga de hardware dedicado para el entrenamiento. En general, el servicio procesa aproximadamente 10 horas de datos de audio al día en regiones con este hardware. Solo puede procesar aproximadamente 1 hora de datos de audio al día en otras regiones. Puede copiar el modelo totalmente entrenado en otra región mediante la [API REST](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription). El entrenamiento con solo texto es mucho más rápido y normalmente finaliza en cuestión de minutos.
+
+Algunos modelos base no se pueden personalizar con datos de audio. Para ellos, el servicio solo utilizará el texto de la transcripción para el entrenamiento y omitirá los datos de audio. Así, el entrenamiento se completará mucho más rápido y los resultados serán los mismos que los del entrenamiento solo con texto.
 
 ## <a name="accuracy-testing"></a>Pruebas de precisión
 

@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 22bedcf7921e3c8d4f2566a70515eef3e3b136b6
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: a0f2b971eae5d37e8fb0771e213075289af6c519
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461029"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98045264"
 ---
 # <a name="understand-event-data"></a>Descripción de los datos de eventos
 
-Los distintos eventos de Azure Digital Twins generan **notificaciones** , que permiten que el back-end de solución sepa que están ocurriendo distintas acciones. A continuación, se [enrutan](concepts-route-events.md) a distintas ubicaciones dentro y fuera de Azure Digital Twins que pueden usar esta información para tomar medidas.
+Los distintos eventos de Azure Digital Twins generan **notificaciones**, que permiten que el back-end de solución sepa que están ocurriendo distintas acciones. A continuación, se [enrutan](concepts-route-events.md) a distintas ubicaciones dentro y fuera de Azure Digital Twins que pueden usar esta información para tomar medidas.
 
 Son varios los tipos de notificaciones que se pueden generar y los mensajes de notificación pueden tener un aspecto distinto en función del tipo de evento que los generó. En este artículo se proporcionan detalles sobre los diferentes tipos de mensajes y su aspecto.
 
@@ -93,7 +93,7 @@ En esta sección se explican con más detalle los distintos tipos de notificacio
 
 ### <a name="digital-twin-life-cycle-notifications"></a>Notificaciones del ciclo de vida de gemelos digitales
 
-Todos los [gemelos digitales](concepts-twins-graph.md) emiten notificaciones, independientemente de si representan [dispositivos de IoT Hub en Azure Digital Twins](how-to-ingest-iot-hub-data.md) o no. Esto se debe a las **notificaciones del ciclo de vida** , que son sobre el gemelo digital mismo.
+Todos los [gemelos digitales](concepts-twins-graph.md) emiten notificaciones, independientemente de si representan [dispositivos de IoT Hub en Azure Digital Twins](how-to-ingest-iot-hub-data.md) o no. Esto se debe a las **notificaciones del ciclo de vida**, que son sobre el gemelo digital mismo.
 
 Las notificaciones del ciclo de vida se desencadenan cuando:
 * Se crea un gemelo digital
@@ -116,7 +116,7 @@ Estos son los campos del cuerpo de una notificación del ciclo de vida.
 
 #### <a name="body-details"></a>Detalles del cuerpo
 
-El cuerpo es el gemelo digital afectado, representado en formato JSON. El esquema para esto es *Recurso de Digital Twins 7.1* .
+El cuerpo es el gemelo digital afectado, representado en formato JSON. El esquema para esto es *Recurso de Digital Twins 7.1*.
 
 En el caso de los eventos de creación, la carga refleja el estado del gemelo una vez creado el recurso, por lo que debe incluir todos los elementos generados por el sistema tal como una llamada `GET`.
 
@@ -262,20 +262,7 @@ El cuerpo de la notificación `Twin.Update` es un documento de revisión de JSON
 
 Por ejemplo, supongamos que se actualizó un gemelo digital con la revisión siguiente.
 
-```json
-[
-    {
-        "op": "replace",
-        "value": 40,
-        "path": "/Temperature"
-    },
-    {
-        "op": "add",
-        "value": 30,
-        "path": "/comp1/prop1"
-    }
-]
-```
+:::code language="json" source="~/digital-twins-docs-samples/models/patch-component-2.json":::
 
 La notificación correspondiente (si la ejecuta sincrónicamente el servicio, como la actualización de un gemelo digital por parte de Azure Digital Twins) tendría un cuerpo como el siguiente:
 

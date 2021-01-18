@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: trbye
-ms.openlocfilehash: b3e9c1e8ad23ea0ebf540eddbd6d4a03b8a72fe2
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 1a002b6efbe2603ae254c19f9e3cc7377198cea2
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97835081"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935825"
 ---
 # <a name="develop-custom-commands-applications"></a>Desarrollo de aplicaciones de Comandos personalizados
 
@@ -175,10 +175,10 @@ Empiece por editar el comando `TurnOn` existente para activar y desactivar vario
    1. En la parte superior del panel, seleccione **Agregar**. En el menú desplegable, seleccione **Parámetro**.
    1. En el panel de la derecha, en la sección **Parámetros**, en el cuadro **Nombre**, agregue `OnOff`.
    1. Seleccione **Requerido**. En la ventana **Add response for a required parameter** (Agregar respuesta para un parámetro requerido), seleccione **Simple editor** (Editor sencillo). En el campo **First variation** (Primera variación), agregue *On or Off?* ¿Encender o apagar?.
-   1. Seleccione **Actualizar**.
+   1. Selecciona **Actualización**.
 
        > [!div class="mx-imgBorder"]
-       > ![Captura de pantalla que muestra dónde crear una respuesta de parámetro necesario.](media/custom-commands/add-required-on-off-parameter-response.png)
+       > ![Captura de pantalla que muestra la sección "Add response for a required parameter" (Agregar respuesta para un parámetro requerido) con la pestaña "Simple editor" (Editor sencillo) seleccionada.](media/custom-commands/add-required-on-off-parameter-response.png)
    
    1. Configure las propiedades del parámetro mediante la tabla siguiente. Para obtener información sobre todas las propiedades de configuración de un comando, vea [Conceptos y definiciones de Comandos personalizados](./custom-commands-references.md).
       
@@ -422,7 +422,7 @@ Pruebe las validaciones mediante el comando `SetTemperature`. Use los siguientes
 1. En el panel de la izquierda, seleccione el comando **SetTemperature**.
 1. En el panel central, seleccione **Temperatura**.
 1. En el panel de la derecha, seleccione **Add a validation** (Agregar una validación).
-1. En la ventana **New validation** (Nueva validación), configure la validación tal como se muestra en la tabla siguiente Seleccione **Crear**.
+1. En la ventana **New validation** (Nueva validación), configure la validación tal como se muestra en la tabla siguiente Después, seleccione **Crear**.
 
 
     | Configuración de parámetros | Valor sugerido | Descripción |

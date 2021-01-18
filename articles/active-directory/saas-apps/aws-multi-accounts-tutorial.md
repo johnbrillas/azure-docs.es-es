@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/30/2020
+ms.date: 12/24/2020
 ms.author: jeedes
-ms.openlocfilehash: 7e71058e1899cf83e712025b534e51a1be1f6bdb
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: e6b4175f4f47c9dd378bec84da2575c079a2079f
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97591793"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98014457"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws-legacy-tutorial"></a>Tutorial: Integración de Azure Active Directory con Amazon Web Services (AWS) (tutorial heredado)
 
@@ -89,11 +89,11 @@ En Amazon Web Services (AWS), asigne el valor de **nombre de usuario** de Azure 
 
 Para configurar y probar el inicio de sesión único de Azure AD con Amazon Web Services (AWS), realice los pasos siguientes:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de Amazon Web Services (AWS)](#configure-amazon-web-services-aws-single-sign-on)** : para configurar los valores de Inicio de sesión único en la aplicación.
-3. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
+2. **[Configuración del inicio de sesión único en Amazon Web Services (AWS)](#configure-amazon-web-services-aws-sso)** : para configurar los valores de Inicio de sesión único en la aplicación.
+3. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
+### <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
 
 En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal y configurará el inicio de sesión único en la aplicación de Amazon Web Services (AWS).
 
@@ -107,7 +107,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Modo de selección de inicio de sesión único](common/select-saml-option.png)
 
-3. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
+3. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono del **lapicero** para abrir el cuadro de diálogo **Configuración básica de SAML**.
 
     ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
@@ -143,11 +143,14 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     g. Haga clic en **Save**(Guardar).
 
+    >[!NOTE]
+    >Para más información sobre los roles de Azure AD, haga clic [aquí](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps#app-roles-ui).
+
 7. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el archivo **XML de metadatos de federación**  y guárdelo en su equipo.
 
     ![Vínculo de descarga del certificado](common/metadataxml.png)
 
-### <a name="configure-amazon-web-services-aws-single-sign-on"></a>Configuración del inicio de sesión único en Amazon Web Services (AWS)
+### <a name="configure-amazon-web-services-aws-sso"></a>Configuración del inicio de sesión único en Amazon Web Services (AWS)
 
 1. En otra ventana del explorador, inicie sesión en su sitio de la compañía de Amazon Web Services (AWS) como administrador.
 
@@ -231,7 +234,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Captura de pantalla en la que se muestra dónde aparece el identificador de la cuenta en la ventana de AWS.](./media/aws-multi-accounts-tutorial/aws-accountid.png)
 
-1. Ahora inicie sesión en [Azure Portal](https://portal.azure.com/) y vaya a **Grupos**.
+1. Ahora inicie sesión en Azure Portal y vaya a **Grupos**.
 
 1. Cree nuevos grupos con el mismo nombre que el de los roles de IAM creados anteriormente y anote los **identificadores de objeto** de estos nuevos grupos.
 
@@ -347,11 +350,11 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     > [!Note]
     > Tenga en cuenta que debe actualizar la sesión en Azure Portal para ver los nuevos roles.
 
-### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
+### <a name="test-sso"></a>Prueba de SSO
 
-En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
+En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante Mis aplicaciones.
 
-Al hacer clic en el icono de Amazon Web Services (AWS) en el panel de acceso, debería acceder a la página de la aplicación Amazon Web Services (AWS) con la opción para seleccionar el rol.
+Al hacer clic en el icono de Amazon Web Services (AWS) de Aplicaciones, debería acceder a la página de la aplicación Amazon Web Services (AWS) con la opción para seleccionar el rol.
 
 ![Prueba de inicio de sesión único 1](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-test-screen.png)
 
@@ -359,7 +362,7 @@ También puede comprobar la respuesta de SAML para ver los roles que se usan com
 
 ![Prueba de inicio de sesión único 2](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-test-saml.png)
 
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

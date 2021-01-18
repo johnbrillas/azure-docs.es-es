@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: c2620b52c426871b0ec85e3db237be2d373d42f1
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 9a1a55bdf21b74116450ca32f66d891f1aa206d3
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96458707"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98045417"
 ---
 # <a name="add-tags-to-digital-twins"></a>Incorporación de etiquetas a gemelos digitales 
 
@@ -32,23 +32,7 @@ Las etiquetas de marcador se modelan como asignación [DTDL](https://github.com/
 
 Este es un extracto de un modelo gemelo que implementa una etiqueta de marcador como propiedad:
 
-```json
-{
-  "@type": "Property",
-  "name": "tags",
-  "schema": {
-    "@type": "Map",
-    "mapKey": {
-      "name": "tagName",
-      "schema": "string"
-    },
-    "mapValue": {
-      "name": "tagValue",
-      "schema": "boolean"
-    }
-  }
-}
-```
+:::code language="json" source="~/digital-twins-docs-samples/models/tags.json" range="2-16":::
 
 ### <a name="add-marker-tags-to-digital-twins"></a>Incorporación de etiquetas de marcador a gemelos digitales
 
@@ -56,11 +40,7 @@ Cuando la propiedad `tags` ya forme parte de un modelo de gemelos digitales, con
 
 Este es un ejemplo que rellena el marcador `tags` para tres gemelos:
 
-```csharp
-entity-01: "tags": { "red": true, "round": true } 
-entity-02: "tags": { "blue": true, "round": true } 
-entity-03: "tags": { "red": true, "large": true } 
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="TagPropertiesMarker":::
 
 ### <a name="query-with-marker-tags"></a>Consulta con etiquetas de marcador
 
@@ -68,15 +48,11 @@ Una vez que se han agregado etiquetas a gemelos digitales, estas se pueden usar 
 
 Esta es una consulta para obtener todos los gemelos etiquetados como "red": 
 
-```sql
-SELECT * FROM digitaltwins WHERE is_defined(tags.red) 
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryMarkerTags1":::
 
 También puede combinar etiquetas para consultas más complejas. Esta es una consulta para obtener todos los gemelos etiquetados como "round" y no "red": 
 
-```sql
-SELECT * FROM digitaltwins WHERE NOT is_defined(tags.red) AND is_defined(tags.round) 
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryMarkerTags2":::
 
 ## <a name="value-tags"></a>Etiquetas de valor 
 
@@ -88,23 +64,7 @@ Las etiquetas de valor se modelan como asignación [DTDL](https://github.com/Azu
 
 Este es un extracto de un modelo gemelo que implementa una etiqueta de valor como propiedad:
 
-```json
-{
-  "@type": "Property",
-  "name": "tags",
-  "schema": {
-    "@type": "Map",
-    "mapKey": {
-      "name": "tagName",
-      "schema": "string"
-    },
-    "mapValue": {
-      "name": "tagValue",
-      "schema": "string"
-    }
-  }
-} 
-```
+:::code language="json" source="~/digital-twins-docs-samples/models/tags.json" range="17-31":::
 
 ### <a name="add-value-tags-to-digital-twins"></a>Incorporación de etiquetas de valor a gemelos digitales
 
@@ -112,11 +72,7 @@ Al igual que con las etiquetas de marcador, puede establecer la etiqueta de valo
 
 Este es un ejemplo que rellena el valor `tags` para tres gemelos:
 
-```csharp
-entity-01: "tags": { "red": "", "size": "large" } 
-entity-02: "tags": { "purple": "", "size": "small" } 
-entity-03: "tags": { "red": "", "size": "small" } 
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="TagPropertiesValue":::
 
 Tenga en cuenta que `red` y `purple` se usan como etiquetas de marcador en este ejemplo.
 
@@ -124,17 +80,13 @@ Tenga en cuenta que `red` y `purple` se usan como etiquetas de marcador en este 
 
 Al igual que con las etiquetas de marcador, puede usar etiquetas de valor para filtrar gemelos en las consultas. También puede usar etiquetas de valor y etiquetas de marcador juntas.
 
-En el ejemplo anterior, `red` se usa como etiqueta de marcador. Esta es una consulta para obtener todos los gemelos etiquetados como "red": 
+En el ejemplo anterior, `red` se usa como etiqueta de marcador. Recuerde que esta es una consulta para obtener todos los gemelos etiquetados como "red": 
 
-```sql
-SELECT * FROM digitaltwins WHERE is_defined(tags.red) 
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryMarkerTags1":::
 
 Esta es una consulta para obtener todas las entidades que son "small" (etiqueta de valor) y no "red": 
 
-```sql
-SELECT * FROM digitaltwins WHERE NOT is_defined(tags.red) AND tags.size = 'small' 
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryMarkerValueTags":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

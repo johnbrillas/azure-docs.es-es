@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: trbye
-ms.openlocfilehash: 5a912790b4a7a86c44576b98ce7e95f44b810c9e
-ms.sourcegitcommit: 697638c20ceaf51ec4ebd8f929c719c1e630f06f
+ms.openlocfilehash: 41fdb3d2e69ae39dbe80f21a953fd9fdaa6d1127
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97857382"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97968473"
 ---
 # <a name="train-and-deploy-a-custom-speech-model"></a>Entrenamiento e implementación de un modelo de Habla personalizada
 
@@ -35,18 +35,23 @@ Si tiene problemas de reconocimiento con un modelo base, puede usar transcripcio
 
 El primer paso para entrenar un modelo es cargar los datos de entrenamiento. En el artículo sobre [preparación y realización de pruebas en los datos](./how-to-custom-speech-test-and-train.md) encontrará instrucciones detalladas para preparar transcripciones etiquetada por usuarios y texto relacionado (expresiones y pronunciaciones). Después de cargar los datos de entrenamiento, siga estas instrucciones para empezar a entrenar el modelo:
 
-1. Inicie sesión en el [portal de Habla personalizada](https://speech.microsoft.com/customspeech).
+1. Inicie sesión en el [portal de Habla personalizada](https://speech.microsoft.com/customspeech). Si planea entrenar un modelo con conjuntos de datos de audio y transcripción etiquetada por usuarios, seleccione una suscripción de Voz en una [región con hardware dedicado](custom-speech-overview.md#set-up-your-azure-account) para el entrenamiento.
 2. Vaya a **Speech-to-Text** > **Custom Speech** >  **[nombre del proyecto]**  > **Aprendizaje**.
 3. Seleccione **Entrenar modelo**
 4. Asigne un **nombre** y una **descripción** a su entrenamiento.
 5. En la lista **Scenario and Baseline model** (Escenario y modelo de línea base), seleccione el escenario que más se ajuste a su dominio. Si no está seguro de qué escenario elegir, seleccione **General**. El modelo de línea de base es el punto de partida para el entrenamiento. El modelo más reciente suele ser la mejor opción.
-6. En la página **Select training data** (Seleccionar datos de entrenamiento), elija uno o varios conjuntos de datos de audio + transcripción con la etiqueta humana que quiera usar para el entrenamiento.
+6. En la página **Select training data** (Seleccionar datos de entrenamiento), elija los conjuntos de datos de texto relacionados de audio y transcripción etiquetada por usuarios que quiera usar para el entrenamiento. Al entrenar un nuevo modelo, empiece con texto relacionado; el entrenamiento con audio y transcripción etiquetada por usuarios puede tardar mucho más (incluso [varios días](how-to-custom-speech-evaluate-data.md#improve-model-recognition)).
 7. Tras finalizar el entrenamiento, puede realizar pruebas de precisión en el modelo recién entrenado. Este paso es opcional.
 8. Seleccione **Create** (Crear) para generar el modelo personalizado.
 
 La tabla **Entrenamiento** muestra una nueva entrada que corresponde al modelo nuevo. En la tabla también se muestra el estado: **Procesando**, **Correcto** o **Error**.
 
 Consulte el [procedimiento](how-to-custom-speech-evaluate-data.md) para evaluar y mejorar la precisión de los modelos de Habla personalizada. Si elige probar la precisión, es importante seleccionar un conjunto de datos acústico diferente del usado para la creación del modelo para obtener una idea realista del rendimiento del modelo.
+
+> [!NOTE]
+> Los modelos base y los modelos personalizados solo se pueden usar hasta una fecha determinada (consulte [Ciclo de vida del modelo](custom-speech-overview.md#model-lifecycle)). Speech Studio muestra esta fecha en la columna **Expiración** de cada modelo y punto de conexión. Después de esa fecha, la solicitud a un punto de conexión o a la transcripción por lotes podría producir un error o revertir al modelo base.
+>
+> Vuelva a entrenar el modelo con el modelo base más reciente para beneficiarse de las mejoras de precisión y evitar que el modelo expire.
 
 ## <a name="deploy-a-custom-model"></a>Implementación de un modelo personalizado
 
@@ -63,7 +68,7 @@ A continuación, seleccione **Agregar punto de conexión** y escriba un **nombre
 
 A continuación, seleccione **Crear**. Esta acción le devolverá a la página **Implementación**. Ahora, la tabla incluye una entrada que se corresponde con el punto de conexión personalizado. El estado del punto de conexión muestra su estado actual. Se puede tardar hasta 30 minutos en crear una instancia de un nuevo punto de conexión con los modelos personalizados. Cuando el estado de la implementación cambie a **Completado**, el punto de conexión estará listo para su uso.
 
-Una vez implementado el punto de conexión, su nombre aparece como un vínculo. Seleccione el vínculo para ver información específica del punto de conexión, como su clave o su dirección URL, y código de ejemplo.
+Una vez implementado el punto de conexión, su nombre aparece como un vínculo. Seleccione el vínculo para ver información específica del punto de conexión, como su clave o su dirección URL, y código de ejemplo. Tome nota de la fecha de expiración y actualice el modelo del punto de conexión antes de esa fecha para garantizar un servicio ininterrumpido.
 
 ## <a name="view-logging-data"></a>Visualización de datos de registro
 

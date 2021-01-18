@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/23/2020
+ms.date: 01/08/2021
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: bfdea5f2e2bd20a35ee948e99b3be9bf55038b13
-ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
+ms.openlocfilehash: 9bee5fa6b76aad9305947ebe460f37c399340038
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97760663"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98033476"
 ---
 # <a name="text-to-speech-rest-api"></a>Text-to-speech REST API
 
@@ -35,7 +35,7 @@ Antes de utilizar esta API, comprenda:
 * La API REST de texto a voz requiere un encabezado de autorización. Esto significa que tiene que completar un intercambio de tokens para acceder al servicio. Para más información, consulte [Autenticación](#authentication).
 
 > [!TIP]
-> Consulte la [documentación de Azure Government](/azure/azure-government/compare-azure-government-global-azure) para conocer los puntos de conexión de la nube de administración pública (FairFax).
+> Consulte [este artículo](sovereign-clouds.md) para puntos de conexión de Azure Government y Azure China.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 
@@ -76,7 +76,10 @@ En esta tabla se enumeran los encabezados obligatorios y opcionales para las sol
 
 | Encabezado | Descripción | Obligatorio u opcional |
 |--------|-------------|---------------------|
-| `Authorization` | Un token de autorización precedido por la palabra `Bearer`. Para más información, consulte [Autenticación](#authentication). | Obligatorio |
+| `Ocp-Apim-Subscription-Key` | Clave de suscripción del servicio de voz. | Se necesita este encabezado, o bien `Authorization`. |
+| `Authorization` | Un token de autorización precedido por la palabra `Bearer`. Para más información, consulte [Autenticación](#authentication). | Se necesita este encabezado, o bien `Ocp-Apim-Subscription-Key`. |
+
+
 
 ### <a name="request-body"></a>Cuerpo de la solicitud
 
@@ -90,7 +93,7 @@ Esta solicitud solo requiere un encabezado de autorización.
 GET /cognitiveservices/voices/list HTTP/1.1
 
 Host: westus.tts.speech.microsoft.com
-Authorization: Bearer [Base64 access_token]
+Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY
 ```
 
 ### <a name="sample-response"></a>Respuesta de muestra

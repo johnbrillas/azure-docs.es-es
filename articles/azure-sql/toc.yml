@@ -55,6 +55,8 @@
               href: ./database/security-controls-policy.md
             - name: Línea de base de seguridad
               href: database/security-baseline.md
+            - name: Always Encrypted
+              href: database/always-encrypted-landing.yml
             - name: Azure Defender para SQL
               href: database/azure-defender-for-sql.md
             - name: Protección contra amenazas avanzada
@@ -255,12 +257,14 @@
               href: database/service-tier-hyperscale.md
             - name: Preguntas más frecuentes sobre Hiperescala
               href: database/service-tier-hyperscale-frequently-asked-questions-faq.md
+        - name: Planificación y administración de costos
+          href: database/cost-management.md
     - name: Guías de inicio rápido
       href: database/quickstart-content-reference-guide.md
       items:
         - name: Crear base de datos
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: database/single-database-create-quickstart.md
             - name: Plantilla ARM
               displayName: Resource Manager
@@ -293,14 +297,16 @@
               href: database/active-geo-replication-configure-portal.md
         - name: Seguridad
           items:
+            - name: Always Encrypted con enclaves seguros
+              href: database/always-encrypted-enclaves-getting-started.md
             - name: Configuración de seguridad
               href: database/secure-database-tutorial.md
+            - name: Creación de usuarios mediante entidades de servicio
+              href: database/authentication-aad-service-principal-tutorial.md
             - name: Rotación de claves BYOK de TDE
               href: database/transparent-data-encryption-byok-key-rotation.md
             - name: Eliminación del protector de TDE
               href: database/transparent-data-encryption-byok-remove-tde-protector.md
-            - name: Creación de usuarios mediante entidades de servicio
-              href: database/authentication-aad-service-principal-tutorial.md
         - name: Mover datos
           items:
             - name: Migración mediante DMS
@@ -371,6 +377,19 @@
               href: database/sql-data-sync-troubleshoot.md
         - name: Seguridad
           items:
+            - name: Always Encrypted
+              href: database/always-encrypted-landing.yml
+            - name: Always Encrypted con enclaves seguros
+              href: database/always-encrypted-with-secure-enclaves-landing.yml
+              items:
+                - name: Configuración y uso de Always Encrypted con enclaves seguros >
+                  href: /sql/relational-databases/security/encryption/configure-always-encrypted-enclaves
+                - name: Plan de atestación y enclaves de Intel SGX
+                  href: database/always-encrypted-enclaves-plan.md
+                - name: Habilitar Intel SGX
+                  href: database/always-encrypted-enclaves-enable-sgx.md
+                - name: Configuración de Azure Attestation
+                  href: database/always-encrypted-enclaves-configure-attestation.md
             - name: Auditoría de Azure SQL
               href: database/auditing-overview.md
             - name: Formato de los registros de auditoría
@@ -413,7 +432,7 @@
                   href: /sql/azure-data-studio/quickstart-sql-database?toc=%2Fazure%2Fazure-sql%2Ftoc.json
                 - name: SSMS
                   href: database/connect-query-ssms.md
-                - name: Azure Portal
+                - name: Azure portal
                   href: database/connect-query-portal.md
                 - name: Código de VS
                   href: database/connect-query-vscode.md
@@ -643,7 +662,7 @@
                       href: database/saas-multitenantdb-tenant-analytics.md
     - name: Ejemplos
       items:
-        - name: Azure CLI
+        - name: CLI de Azure
           href: database/az-cli-script-samples-content-guide.md?tabs=single-database
         - name: Azure PowerShell
           href: database/powershell-script-content-guide.md?tabs=single-database
@@ -922,10 +941,12 @@
               href: /sql/relational-databases/database-mail/database-mail?toc=%2fazure%2fazure-sql%2ftoc.json
         - name: Seguridad
           items:
-            - name: Protección de puntos de conexión públicos
-              href: managed-instance/public-endpoint-overview.md
+            - name: Always Encrypted
+              href: database/always-encrypted-landing.yml
             - name: Auditoría
               href: managed-instance/auditing-configure.md
+            - name: Protección de puntos de conexión públicos
+              href: managed-instance/public-endpoint-overview.md
             - name: Grupos de confianza del servidor
               href: managed-instance/server-trust-group-overview.md
     - name: Procedimientos
@@ -968,7 +989,7 @@
           href: managed-instance/user-initiated-failover.md
     - name: Ejemplos
       items:
-        - name: Azure CLI
+        - name: CLI de Azure
           href: database/az-cli-script-samples-content-guide.md?tabs=managed-instance
         - name: Azure PowerShell
           href: database/powershell-script-content-guide.md?tabs=managed-instance

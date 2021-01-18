@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 5fa8377b3cdddb2818c04c5a75e347ff73dc07d8
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 40d2f957ce115b43a1dcc138b86e05ec9cc47384
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96509331"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060628"
 ---
 Este tutorial requiere los siguientes recursos de Azure:
 
@@ -26,12 +26,15 @@ Para este inicio rápido, se recomienda usar el [script de configuración de rec
     bash -c "$(curl -sL https://aka.ms/lva-edge/setup-resources-for-samples)"
     ```
     
-    Si el script finaliza correctamente, debería ver todos los recursos necesarios en su suscripción.
+    Tras completar correctamente el script, debería ver todos los recursos necesarios en la suscripción.
 1. Después de que finalice el script, seleccione las llaves para exponer la estructura de carpetas. Verá algunos archivos en el directorio *~/clouddrive/lva-sample*. Archivos de interés en este inicio rápido:
 
      * * **~/clouddrive/lva-sample/edge-deployment/.env**: este archivo contiene las propiedades que utiliza Visual Studio Code para implementar módulos en un dispositivo perimetral.
-     ***~/clouddrive/lva-sample/appsetting.json***: Visual Studio Code utiliza este archivo para ejecutar el código de ejemplo.
+     **~/clouddrive/lva-sample/appsetting.json**: Visual Studio Code utiliza este archivo para ejecutar el código de ejemplo.
      
     Necesitará estos archivos al configurar el entorno de desarrollo en Visual Studio Code en la sección siguiente. Es posible que desee copiarlos en un archivo local por el momento.
     
     ![Configuración de la aplicación](../../../media/quickstarts/clouddrive.png)
+
+> [!TIP]
+> Si tiene problemas con los recursos de Azure que se crean, consulte la *[guía de solución de problemas](../../../troubleshoot-how-to.md#common-error-resolutions)* * para resolver algunos de los problemas más comunes que pueden surgir.

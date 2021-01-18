@@ -10,19 +10,17 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: f22213bf192b12e046bab12346e5d5d83fb36b96
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: baaf907d2fafe23805e6b49582ecc7592ee05e0b
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94364282"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028240"
 ---
 # <a name="translator-v2-to-v3-migration"></a>Migración de Translator V2 a V3
 
 > [!NOTE]
-> V2 quedó en desuso el 30 de abril de 2018. Migre sus aplicaciones a V3 para aprovechar la nueva funcionalidad disponible exclusivamente en V3.
-> 
-> Microsoft Translator Hub se retirará el 17 de mayo de 2019. [Ver información importante y fechas de migración](https://www.microsoft.com/translator/business/hub/).  
+> V2 quedó en desuso el 30 de abril de 2018. Migre sus aplicaciones a V3 para aprovechar la nueva funcionalidad disponible exclusivamente en V3. V2 se retirará el 24 de mayo de 2021. 
 
 El equipo de Microsoft Translator ha lanzado la versión 3 (V3) de Translator. En esta versión se incluyen nuevas características, métodos en desuso y un nuevo formato para enviar y recibir datos del servicio Microsoft Translator. Este documento proporciona información para cambiar las aplicaciones para que usen V3. 
 
@@ -119,7 +117,7 @@ La traducción neuronal con Text API V3 no admite el uso de categorías estánda
 | Versión | Punto de conexión | Compatible con el procesador GDPR | Utiliza Translator Hub | Utiliza Traductor personalizado (versión preliminar) |
 | :------ | :------- | :------------------------ | :----------------- | :------------------------------ |
 |Translator versión 2|    api.microsofttranslator.com|    No    |Sí    |No|
-|Translator versión 3|    api.cognitive.microsofttranslator.com|    Sí|    Sin|    Sí|
+|Translator versión 3|    api.cognitive.microsofttranslator.com|    Sí|    No|    Sí|
 
 **Translator versión 3**
 * Está disponible con carácter general y es totalmente compatible.

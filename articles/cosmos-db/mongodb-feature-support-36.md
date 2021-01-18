@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 08/07/2020
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: bb9efa3fde0ed840589b66db7b28392de67ee8dd
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 0ca1f1222881a2b4ca640fa31192bd1c151ebd9f
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94635626"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028852"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-36-version-supported-features-and-syntax"></a>API de Azure Cosmos DB para MongoDB (versión 3.6): características y sintaxis que se admiten
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -23,11 +23,14 @@ Con la API de Azure Cosmos DB para MongoDB, puede disfrutar de las ventajas de M
 
 ## <a name="protocol-support"></a>Compatibilidad con protocolos
 
-La API de Azure Cosmos DB para MongoDB es compatible de manera predeterminada con la versión del servidor de MongoDB **3.6** para las cuentas nuevas. A continuación se enumeran los operadores admitidos y las limitaciones o excepciones. Cualquier controlador de cliente que reconozca estos protocolos podrá conectarse a la API de Azure Cosmos DB para MongoDB. Tenga en cuenta que cuando se usa la API de Azure Cosmos DB para las cuentas de MongoDB, la versión 3.6 de las cuentas tiene el punto de conexión en el formato `*.mongo.cosmos.azure.com`, mientras que la versión 3.2 de las cuentas tiene el punto de conexión en el formato `*.documents.azure.com`.
+La API de Azure Cosmos DB para MongoDB es compatible de manera predeterminada con la versión del servidor de MongoDB **3.6** para las cuentas nuevas. A continuación se enumeran los operadores admitidos y las limitaciones o excepciones. Cualquier controlador de cliente que reconozca estos protocolos podrá conectarse a la API de Azure Cosmos DB para MongoDB. Tenga en cuenta que, cuando se usa la API de Azure Cosmos DB con las cuentas de MongoDB, la versión 3.6 de la cuenta tiene el punto de conexión en el formato `*.mongo.cosmos.azure.com`, mientras que la versión 3.2 de la cuenta tiene el punto de conexión en el formato `*.documents.azure.com`.
 
 ## <a name="query-language-support"></a>Compatibilidad con lenguajes de consulta
 
-La API de Azure Cosmos DB para MongoDB proporciona una compatibilidad completa con las construcciones del lenguaje de consulta de MongoDB. A continuación, encontrará una lista detallada de las opciones, comandos, fases, operadores y operaciones admitidos actualmente.
+La API de Azure Cosmos DB para MongoDB proporciona una compatibilidad completa con las construcciones del lenguaje de consulta de MongoDB. En las secciones siguientes se muestra la lista detallada de operaciones de servidor, operadores, fases, comandos y opciones admitidos actualmente en Azure Cosmos DB.
+
+> [!NOTE]
+> En este artículo solo se enumeran los comandos de servidor admitidos y se excluyen las funciones contenedoras del lado cliente. Las funciones contenedoras del lado cliente, como `deleteMany()` y `updateMany()` usan internamente los comandos de servidor `delete()` y `update()`. Las funciones que usan comandos de servidor admitidos son compatibles con la API de Azure Cosmos DB para MongoDB.
 
 ## <a name="database-commands"></a>Comandos de base de datos
 
@@ -592,7 +595,7 @@ Azure Cosmos DB admite el particionamiento de servidor automático. Administra l
 
 ## <a name="sessions"></a>Sesiones
 
-Azure Cosmos DB todavía no admite comandos de sesiones en el lado servidor.
+Azure Cosmos DB todavía no admite comandos de sesiones del lado servidor.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

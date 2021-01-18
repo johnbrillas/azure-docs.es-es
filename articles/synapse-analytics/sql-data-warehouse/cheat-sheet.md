@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: a236cf99d3131e83619cfab06e8ec028938a87ba
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: cc54ae66cda6bf8ecde07d1830448ec39a15cc29
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96454625"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120230"
 ---
 # <a name="cheat-sheet-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytic"></a>Hoja de referencia rápida de un grupo de SQL dedicado (anteriormente SQL DW) en Azure Synapse Analytics
 
@@ -37,7 +37,7 @@ Conocer los tipos de operaciones de antemano ayuda a optimizar el diseño de las
 
 ## <a name="data-migration"></a>Migración de datos
 
-Primero, cargue los datos en [Azure Data Lake Storage](../../data-factory/connector-azure-data-lake-store.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) o Azure Blob Storage. A continuación, use la [instrucción COPY](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (versión preliminar) para cargar los datos en tablas de almacenamiento provisional. Use la configuración siguiente:
+Primero, cargue los datos en [Azure Data Lake Storage](../../data-factory/connector-azure-data-lake-store.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) o Azure Blob Storage. A continuación, use la [instrucción COPY](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) para cargar los datos en tablas de almacenamiento provisional. Use la configuración siguiente:
 
 | Diseño | Recomendación |
 |:--- |:--- |
@@ -46,7 +46,7 @@ Primero, cargue los datos en [Azure Data Lake Storage](../../data-factory/connec
 | Creación de particiones | None |
 | Clase de recurso | largerc o xlargerc |
 
-Obtenga más información sobre la [migración de datos](https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-data-to-azure-sql-data-warehouse-in-practice/), la [carga de datos](design-elt-data-loading.md) y el [proceso de extracción, carga y transformación (ETL)](design-elt-data-loading.md).
+Obtenga más información sobre la [migración de datos](/archive/blogs/sqlcat/migrating-data-to-azure-sql-data-warehouse-in-practice), la [carga de datos](design-elt-data-loading.md) y el [proceso de extracción, carga y transformación (ETL)](design-elt-data-loading.md).
 
 ## <a name="distributed-or-replicated-tables"></a>Tablas replicadas o distribuidas
 
@@ -137,7 +137,7 @@ Realice el escalado automático ahora, en el momento que quiera con Azure Functi
 
 Se recomienda considerar la posibilidad de una arquitectura hub-and-spoke (concentrador y radio) con SQL Database y Azure Analysis Services. Esta solución puede proporcionar el aislamiento de la carga de trabajo entre diferentes grupos de usuarios, al tiempo que se aprovechan algunas características de seguridad avanzadas de SQL Database y Azure Analysis Services. También es una manera de proporcionar simultaneidad ilimitada a los usuarios.
 
-Más información sobre las [arquitecturas típicas que utilizan un grupo de SQL dedicado (anteriormente SQL DW) en Azure Synapse Analytics](https://blogs.msdn.microsoft.com/sqlcat/20../../common-isv-application-patterns-using-azure-sql-data-warehouse/).
+Más información sobre las [arquitecturas típicas que utilizan un grupo de SQL dedicado (anteriormente SQL DW) en Azure Synapse Analytics](/archive/blogs/sqlcat/common-isv-application-patterns-using-azure-sql-data-warehouse).
 
 Implemente con un clic sus radios en bases de datos SQL desde un grupo de SQL dedicado (anteriormente SQL DW):
 

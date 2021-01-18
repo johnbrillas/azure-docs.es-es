@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 04/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: af90166b688dee104e7bda18a88a2fe7c98f657b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7a3c4bc2a0445a2821e212986b495993695652a6
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "82996241"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165933"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint"></a>Inicio rápido: Creación de un perfil y un punto de conexión de Azure CDN
 
@@ -68,7 +68,7 @@ Después de crear un perfil de CDN, se usa para crear un punto de conexión.
     
    ![Punto de conexión de CDN](./media/cdn-create-new-endpoint/cdn-endpoint-success.png)
     
-   El tiempo que tarda el punto de conexión en propagarse depende del plan de tarifa que se seleccionó al crear el perfil. **Akamai estándar** normalmente finaliza en un minuto, **Microsoft estándar** en 10 minutos y **Verizon estándar** y **Verizon premium** en un máximo de 90 minutos.
+   El tiempo que tarda el punto de conexión en propagarse depende del plan de tarifa que se seleccionó al crear el perfil. **Akamai estándar** normalmente finaliza en un minuto, **Microsoft estándar** en 10 minutos y **Verizon estándar** y **Verizon premium** en 30 minutos como máximo.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

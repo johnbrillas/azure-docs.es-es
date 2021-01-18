@@ -123,7 +123,7 @@
         - name: Recursos de Cosmos DB
           expanded: true
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: create-cosmosdb-resources-portal.md
             - name: Plantilla ARM
               displayName: Resource Manager
@@ -1122,6 +1122,10 @@
           href: find-request-unit-charge-mongodb.md
         - name: Solución de problemas del rendimiento de las consultas
           href: mongodb-troubleshoot-query.md
+        - name: Solución de problemas comunes
+          href: mongodb-troubleshoot.md
+        - name: Evitar errores de limitación de volumen
+          href: prevent-rate-limiting-errors.md
         - name: Almacenamiento y administración de datos de Spring
           href: /azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db?context=%2fazure%2fcosmos-db%2fcontext%2fcontext
         - name: Comandos de extensión de MongoDB
@@ -1134,8 +1138,6 @@
           href: powershell-samples-mongodb.md
         - name: Administración mediante la CLI de Azure
           href: cli-samples-mongodb.md
-        - name: Solución de problemas comunes
-          href: mongodb-troubleshoot.md
     - name: Referencia
       items:
         - name: Proveedor de recursos de REST

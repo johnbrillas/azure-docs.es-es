@@ -3,17 +3,17 @@ title: Novedades de Windows Virtual Desktop - Azure
 description: Nuevas características y actualizaciones de productos para Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 12/02/2020
+ms.date: 01/06/2021
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
 ms.custom: references_regions
-ms.openlocfilehash: e42e49f69a159bf3bfdc732d41dc66a9a707f42f
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: df3dd8b5b18ec2997ee20ad4955ffd7bc1dc573d
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97617364"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955015"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Novedades de Windows Virtual Desktop
 
@@ -25,6 +25,44 @@ Windows Virtual Desktop se actualiza de forma periódica. En este artículo enco
 - Corrección de errores
 
 Este artículo se actualiza mensualmente. Asegúrese de volver aquí con frecuencia para mantenerse al día con las nuevas actualizaciones.
+
+## <a name="december-2020"></a>Diciembre de 2020
+
+Estos son los cambios que han tenido lugar en diciembre de 2020: 
+
+### <a name="azure-monitor-for-windows-virtual-desktop"></a>Azure Monitor para Windows Virtual Desktop
+
+Ya está disponible la versión preliminar pública de Azure Monitor para Windows Virtual Desktop. Esta nueva característica incluye un sólido panel basado en los libros de Azure Monitor que ayuda a los profesionales de TI a conocer sus entornos de Windows Virtual Desktop. Para más información, consulte [el anuncio en nuestro blog](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/azure-monitor-for-windows-virtual-desktop-public-preview/m-p/1946587). 
+
+### <a name="azure-resource-manager-template-change"></a>Cambio de plantilla de Azure Resource Manager 
+
+En la actualización más reciente, hemos quitado todos los parámetros de dirección IP pública de la plantilla de Azure Resource Manager para crear y aprovisionar grupos de hosts. Se recomienda encarecidamente evitar el uso de IP públicas para Windows Virtual Desktop, con el fin de mantener la implementación segura. Si para la implementación se han usado IP públicas, será preciso cambiar la configuración para que use direcciones IP privadas; de lo contrario, la implementación no funcionará correctamente.
+
+### <a name="msix-app-attach-public-preview"></a>Versión preliminar pública de conexión de aplicaciones MSIX 
+
+Conexión de aplicaciones MSIX es otro servicio que ha comenzado su versión preliminar pública este mes. Conexión de aplicaciones MSIX es un servicio que presenta dinámicamente aplicaciones MSIX en las máquinas virtuales de host de sesión de Windows Virtual Desktop. Para más información, consulte [el anuncio en nuestro blog](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/msix-app-attach-azure-portal-integration-public-preview/m-p/1986231). 
+
+### <a name="screen-capture-protection"></a>Protección de la captura de pantalla 
+
+Este mes también ha marcado el comienzo de la versión preliminar de la protección de la captura de pantalla. Esta característica se puede usar para evitar que se capture información confidencial en los puntos de conexión de cliente. Para probar la protección de la captura de pantalla, vaya a [esta página](https://aka.ms/WVDScreenCaptureProtection).  
+
+### <a name="built-in-roles"></a>Roles integrados
+
+Hemos agregado nuevos roles integrados a Windows Virtual Desktop para permisos de administrador. Para más información, consulte [Roles integrados de Windows Virtual Desktop](rbac.md). 
+
+### <a name="application-group-limit-increase"></a>Aumento del límite de grupos de aplicaciones
+
+Hemos aumentado el límite predeterminado de grupos de aplicaciones por inquilino de Azure Active Directory a 200 grupos.
+
+### <a name="client-updates-for-december-2020"></a>Actualizaciones del cliente de diciembre de 2020
+
+Hemos lanzado nuevas versiones de los siguientes clientes: 
+
+- Android
+- macOS
+- Windows
+
+Para más información sobre las actualizaciones de los clientes, consulte [Actualizaciones de clientes](whats-new.md#client-updates).
 
 ## <a name="november-2020"></a>Noviembre de 2020
 

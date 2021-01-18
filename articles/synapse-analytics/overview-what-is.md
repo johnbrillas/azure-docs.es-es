@@ -9,18 +9,18 @@ ms.subservice: overview
 ms.date: 10/28/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: c315dae7e5f02f112dfdfbec02e1ebaaa5e48a9f
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: e5b12632a60ad5580325fbcda294e1a600bb2b6b
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96445777"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121709"
 ---
 # <a name="what-is-azure-synapse-analytics"></a>¿Qué es Azure Synapse Analytics?
 
 El análisis empresarial debe trabajar a gran escala en cualquier tipo de datos, ya sean sin procesar, refinados o muy seleccionados. Esto suele requerir que las empresas combinen tecnologías de macrodatos y almacenamiento de datos en canalizaciones de datos complejas que trabajan con datos de almacenes relacionales y lagos de datos. Estos tipos de soluciones son difíciles de compilar, mantener y proteger. Su complejidad retrasa la entrega de la información que la empresa necesita.
 
-**Azure Synapse** es un servicio de análisis integrado que acelera el tiempo necesario para obtener información de los sistemas de almacenamientos de datos y de macrodatos. Azure Synapse reúne lo mejor de las tecnologías **SQL** que se usan en el almacenamiento de datos empresariales, las tecnologías **Spark** que se utilizan para macrodatos y **Pipelines** para la integración de datos y ETL/ELT. **Synapse Studio** proporciona una experiencia homogénea de administración, supervisión, programación y seguridad. Synapse ofrece una integración profunda con otros servicios de Azure, como **Power BI**, **Cosmos DB** y **Azure ML**.
+**Azure Synapse** es un servicio de análisis integrado que acelera el tiempo necesario para obtener información de los sistemas de almacenamientos de datos y de macrodatos. Azure Synapse reúne lo mejor de las tecnologías **SQL** que se usan en el almacenamiento de datos empresariales, las tecnologías de **Spark** que se utilizan para macrodatos, **Pipelines** para la integración de datos y ETL/ELT, y la integración profunda con otros servicios de Azure, como **Power BI**, **CosmosDB** y **Azure Machine Learning**.
 
 ## <a name="key-features--benefits"></a>Principales características y ventajas
 

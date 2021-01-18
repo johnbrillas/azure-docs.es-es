@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/10/2020
+ms.date: 01/08/2021
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c746666d58e21c2705a2ef1d6a17d0d1196f7590
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 1577d63822bdb21eff7fcbb3e1343243a3004409
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97504481"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98033649"
 ---
 # <a name="speech-to-text-rest-api"></a>Speech-to-text REST API
 
@@ -61,7 +61,7 @@ Antes de usar la API de REST de conversión de voz en texto, tenga en cuenta lo 
 Si el envío de un audio más grande es necesario para la aplicación, considere la posibilidad de usar el [SDK de voz](speech-sdk.md) o la [API de REST de conversión de voz en texto v3.0](#speech-to-text-rest-api-v30).
 
 > [!TIP]
-> Consulte la [documentación](../../azure-government/compare-azure-government-global-azure.md) de Azure Government para conocer los puntos de conexión de la nube de administración pública (FairFax).
+> Consulte [este artículo](sovereign-clouds.md) para puntos de conexión de Azure Government y Azure China.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 

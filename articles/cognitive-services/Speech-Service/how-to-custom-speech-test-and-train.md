@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: af5ed0296ce99a4450fffec6b047285307ed0ff2
-ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
+ms.openlocfilehash: d24565522a75427be04cacfdc20347056a515847
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97709306"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98070769"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Preparación de los datos para Habla personalizada
 
@@ -50,7 +50,7 @@ En esta tabla se enumeran los tipos de datos aceptados, cuándo se debe utilizar
 | [Transcripciones de audio con etiqueta humana](#audio--human-labeled-transcript-data-for-testingtraining) | Sí<br>Se utiliza para evaluar la precisión | De 0,5 a 5 horas de audio | Sí | De 1 a 20 horas de audio |
 | [Texto relacionado](#related-text-data-for-training) | No | N/a | Sí | De 1 a 200 MB de texto relacionado |
 
-Al entrenar un nuevo modelo, comience con [texto relacionado](#related-text-data-for-training). Estos datos mejorarán el reconocimiento de términos y frases especiales.
+Al entrenar un nuevo modelo, comience con [texto relacionado](#related-text-data-for-training). Estos datos mejorarán el reconocimiento de términos y frases especiales. El entrenamiento con texto es mucho más rápido que el entrenamiento con audio (minutos en comparación con días).
 
 Los archivos deben agruparse por tipo en un conjunto de datos y cargarse como archivo zip. Cada conjunto de datos solo puede contener un tipo de datos.
 
@@ -138,7 +138,9 @@ Cuando haya reunido los archivos de audio y las transcripciones correspondientes
 > [!div class="mx-imgBorder"]
 > ![Selección del audio desde el portal de Voz](./media/custom-speech/custom-speech-audio-transcript-pairs.png)
 
-Consulte [Configuración de la cuenta de Azure](custom-speech-overview.md#set-up-your-azure-account) para obtener una lista de las regiones recomendadas para las suscripciones del servicio de Voz. La configuración de las suscripciones de Voz en una de estas regiones reducirá el tiempo necesario para entrenar el modelo.
+Consulte [Configuración de la cuenta de Azure](custom-speech-overview.md#set-up-your-azure-account) para obtener una lista de las regiones recomendadas para las suscripciones del servicio de Voz. La configuración de las suscripciones de Voz en una de estas regiones reducirá el tiempo necesario para entrenar el modelo. En estas regiones, el entrenamiento puede procesar aproximadamente 10 horas de audio al día en comparación con solo 1 hora al día en otras regiones. Si el entrenamiento del modelo no se puede completar en una semana, el modelo se marcará como erróneo.
+
+No todos los modelos base son compatibles con el entrenamiento con datos de audio. Si el modelo base no lo admite, el servicio omitirá el audio y simplemente entrenará con el texto de las transcripciones. En este caso, el entrenamiento será el mismo que el del entrenamiento con texto relacionado.
 
 ## <a name="related-text-data-for-training"></a>Datos de texto relacionados para el entrenamiento
 
@@ -150,6 +152,8 @@ Los nombres de producto o las características que son únicas deben incluir dat
 | Pronunciaciones | Mejore la pronunciación de términos poco comunes, acrónimos u otras palabras de pronunciación indefinida. |
 
 Las frases se pueden proporcionar como un solo archivo de texto o como varios archivos de texto. Para mejorar la precisión, use datos de texto que estén más cerca de las expresiones orales esperadas. Las pronunciaciones deben proporcionarse como un único archivo de texto. Todo se puede empaquetar como un único archivo zip y cargarse en el <a href="https://speech.microsoft.com/customspeech" target="_blank">portal de Habla personalizada<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+
+El entrenamiento con texto relacionado normalmente se completa en unos minutos.
 
 ### <a name="guidelines-to-create-a-sentences-file"></a>Directrices para crear un archivo de frases
 

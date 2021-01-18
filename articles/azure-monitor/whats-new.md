@@ -5,17 +5,75 @@ ms.subservice: ''
 ms.topic: overview
 author: bwren
 ms.author: bwren
-ms.date: 12/04/2020
-ms.openlocfilehash: 91aa76fd3d9dbb54316f32fdb319e92ca2283b1d
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.date: 01/11/2021
+ms.openlocfilehash: 6347bd3710a4727b9d3f820072ffff21cb57752d
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745781"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98071874"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Novedades en la documentación de Azure Monitor
 
 En este artículo se enumeran los artículos de Azure Monitor que son nuevos o que se han actualizado de forma significativa. Se actualizará la primera semana de cada mes para que incluya las actualizaciones de artículos del mes anterior.
+
+## <a name="december-2020"></a>Diciembre de 2020
+
+### <a name="general"></a>General
+- [Clave administrada por el cliente de Azure Monitor](platform/customer-managed-keys.md): los mensajes de error agregados.
+- [Asociados que se integran con Azure Monitor](platform/partners.md): sección agregada a la integración de Event Hubs.
+
+### <a name="agents"></a>Agentes
+- [Consulta entre recursos en Azure Data Explorer mediante Azure Monitor](platform/azure-monitor-data-explorer-proxy.md): nuevo artículo.
+- [Introducción a los agentes de supervisión de Azure](platform/agents-overview.md): se ha agregado compatibilidad con Oracle 8.
+
+### <a name="alerts"></a>Alertas
+- [Solución de problemas de alertas de métricas de Azure](platform/alerts-troubleshoot-metric.md): se ha agregado información de solución de problemas para umbrales dinámicos.
+- [Conector de Administración de servicios de TI en Log Analytics](platform/itsmc-definition.md): nuevo artículo.
+- [Introducción al Conector de Administración de servicios de TI](platform/itsmc-overview.md): información de solución de problemas reestructurada.
+- [Conexión de Cherwell con el Conector de Administración de servicios de TI](platform/itsmc-connections-cherwell.md): nuevo artículo.
+- [Conexión de Provance con el Conector de Administración de servicios de TI](platform/itsmc-connections-provance.md): nuevo artículo.
+- [Conexión de SCSM con el Conector de Administración de servicios de TI](platform/itsmc-connections-scsm.md): nuevo artículo.
+- [Conexión de ServiceNow con el Conector de Administración de servicios de TI](platform/itsmc-connections-servicenow.md): nuevo artículo.
+- [Corrección manual de los problemas de sincronización de ServiceNow](platform/itsmc-resync-servicenow.md): información de solución de problemas reestructurada.
+
+
+
+
+### <a name="application-insights"></a>Application Insights
+- [Azure Application Insights para aplicaciones web de JavaScript](app/javascript.md): se ha agregado la configuración de la cadena de conexión.
+- [Métricas estándar de Azure Application Insights](app/standard-metrics.md): nuevo artículo.
+- [Azure Monitor Application Insights en Java](app/java-in-process-agent.md): información adicional sobre el envío de telemetría personalizada desde la aplicación.
+- [Exportación continua de telemetría desde Application Insights](app/export-telemetry.md): se ha agregado la exportación basada en la configuración de diagnóstico.
+- [Habilitación de Snapshot Debugger para aplicaciones .NET y .NET Core en Azure Functions](app/snapshot-debugger-function-app.md): nuevo artículo.
+- [Direcciones IP usadas por Application Insights y Log Analytics](app/ip-addresses.md): se han agregado direcciones IP para Azure Government.
+- [Solución de problemas relacionados con Azure Application Insights Profiler](app/profiler-troubleshooting.md): se ha agregado información sobre la página de estado de la extensión de sitio de los servicios de diagnóstico.
+- [Solución de problemas de las pruebas de disponibilidad de Azure Application Insights](app/troubleshoot-availability.md): actualizaciones para solucionar problemas de pruebas de ping.
+- [Solución de problemas de Application Insights de Azure Monitor para Java](app/java-standalone-troubleshoot.md): nuevo artículo.
+
+### <a name="containers"></a>Contenedores
+- [Informes de Azure Monitor para contenedores](insights/container-insights-reports.md): nuevo artículo.
+
+### <a name="logs"></a>Registros
+- [Clústeres dedicados de registros de Azure Monitor](log-query/logs-dedicated-clusters.md): se han agregado comandos automatizados, métodos para desvincular y quitar e información de solución de problemas.
+- [Consulta entre servicios entre Azure Monitor y Azure Data Explorer (versión preliminar)](platform/azure-data-explorer-monitor-cross-service-query.md): nuevo artículo.
+- [Exportación de datos del área de trabajo de Log Analytics en Azure Monitor (versión preliminar)](platform/logs-data-export.md): se han agregado plantillas de Resource Manager.
+
+### <a name="metrics"></a>Métricas
+- [Características avanzadas del Explorador de métricas de Azure](platform/metrics-charts.md): se ha agregado información sobre el selector de ámbitos de recursos.
+- [Visualización de varios recursos en el Explorador de métricas](platform/metrics-dynamic-scope.md): nuevo artículo.
+
+### <a name="networks"></a>Redes
+- [Solución Azure Networking Analytics en Azure Monitor](insights/azure-networking-analytics.md): se ha agregado información sobre el libro de información de red.
+
+### <a name="virtual-machines"></a>Virtual Machines
+- [Habilitación de Azure Monitor para un entorno híbrido](insights/vminsights-enable-hybrid.md): nueva versión del agente de dependencia.
+
+
+### <a name="visualizations"></a>Visualizaciones
+- [Visualizaciones de asignaciones de libros de Azure Monitor](platform/workbooks-map-visualizations.md): artículo nuevo.
+- [Los libros de Azure Monitor incorporan su propio almacenamiento](platform/workbooks-bring-your-own-storage.md): nuevo artículo.
+
 
 ## <a name="november-2020"></a>Noviembre de 2020
 

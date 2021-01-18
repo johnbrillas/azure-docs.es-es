@@ -10,18 +10,21 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 4516bbddd3fda593021288a440e1b354d4d7f1e3
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: cc373a67ee0f4ed2e900e7b41cbcb96d31d67b34
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96340244"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98126893"
 ---
 # <a name="how-to-create-human-labeled-transcriptions"></a>Creación de transcripciones con etiqueta humana
 
 Si quiere mejorar la precisión del reconocimiento, en especial cuando se producen problemas por eliminaciones o sustituciones incorrectas de palabras, le interesa usar las transcripciones con etiqueta humana junto con los datos de audio. ¿Qué son las transcripciones con etiqueta humana? Fácil; son transcripciones textuales, palabra por palabra, de un archivo de audio.
 
-Se necesita una muestra grande de datos de transcripciones para mejorar el reconocimiento; se recomienda proporcionar entre 10 y 1000 horas de datos de transcripción. En esta página revisaremos las instrucciones diseñadas para ayudarle a crear transcripciones de alta calidad. Esta guía se divide por configuración regional, con secciones para inglés de Estados Unidos, chino mandarín y alemán.
+Se necesita una muestra grande de datos de transcripciones para mejorar el reconocimiento; se recomienda proporcionar entre 10 y 20 horas de datos de transcripción. En esta página revisaremos las instrucciones diseñadas para ayudarle a crear transcripciones de alta calidad. Esta guía se divide por configuración regional, con secciones para inglés de Estados Unidos, chino mandarín y alemán.
+
+> [!NOTE]
+> No todos los modelos base admiten la personalización con archivos de audio. Si un modelo base no lo admite, el entrenamiento solo usará el texto de las transcripciones de la misma manera en que se usa el texto relacionado.
 
 ## <a name="us-english-en-us"></a>Inglés de Estados Unidos (en-US)
 
@@ -29,7 +32,7 @@ Las transcripciones con etiqueta humana para audio inglés deben proporcionarse 
 
 Estos son algunos ejemplos:
 
-| Caracteres para evitar | Substitution | Notas |
+| Caracteres para evitar | Sustitución | Notas |
 | ------------------- | ------------ | ----- |
 | “Hello world” | "Hello world" | Las comillas de apertura y cierre se han sustituido por los caracteres ASCII adecuados. |
 | John’s day | John's day | El apóstrofo se ha sustituido por el carácter ASCII adecuado. |
@@ -84,7 +87,7 @@ Las transcripciones con etiqueta humana de audio en chino mandarín deben codifi
 
 Estos son algunos ejemplos:
 
-| Caracteres para evitar | Substitution   | Notas |
+| Caracteres para evitar | Sustitución   | Notas |
 | ------------------- | -------------- | ----- |
 | "你好" | "你好" | Las comillas de apertura y cierre se han sustituido por los caracteres adecuados. |
 | 需要什么帮助? | 需要什么帮助？| El signo de interrogación se ha sustituido por el carácter adecuado. |

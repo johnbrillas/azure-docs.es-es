@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/18/2020
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 3fe1b966b56142fd312850ac5d77839b7d9db434
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 089b1b6f1af2f19c16866858324bde2e151e8bdb
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97706198"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98052925"
 ---
 | Recurso | Básico | Estándar | Premium |
 |---|---|---|---|
@@ -22,8 +22,8 @@ ms.locfileid: "97706198"
 | Tamaño máximo de la capa de imagen (GiB) | 200 | 200 | 200 |
 | Operaciones de lectura por minuto<sup>2, 3</sup> | 1,000 | 3000 | 10 000 |
 | Operaciones de escritura por minuto<sup>2, 4</sup> | 100 | 500 | 2\.000 |
-| Ancho de banda de descarga en MBps<sup>2</sup> | 30 | 60 | 100 |
-| Ancho de banda de carga en MBps<sup>2</sup> | 10 | 20 | 50 |
+| Ancho de banda de descarga <sup>2</sup> (Mbps) | 30 | 60 | 100 |
+| Ancho de banda de carga <sup>2</sup> (Mbps) | 10 | 20 | 50 |
 | webhooks | 2 | 10 | 500 |
 | Replicación geográfica | N/D | N/D | [Compatible][geo-replication] |
 | Zonas de disponibilidad | N/D | N/D | [Versión preliminar][zones] |
@@ -38,7 +38,7 @@ ms.locfileid: "97706198"
 | &bull; Repositorios por asignación de ámbito | N/D | N/D | 500 |
 
 
-<sup>1</sup> Almacenamiento incluido en la tarifa diaria de cada nivel. En el caso del almacenamiento adicional, se cobra una tarifa diaria adicional por GiB, hasta el límite de almacenamiento. Para más información, consulte [Precios de Azure Container Registry][pricing].
+<sup>1</sup> Almacenamiento incluido en la tarifa diaria de cada nivel. Se puede usar más almacenamiento, hasta el límite que imponga el almacenamiento del registro, con una tarifa diaria por GiB adicional. Para más información, consulte [Precios de Azure Container Registry][pricing]. Si necesita más almacenamiento que el que proporciona el límite de almacenamiento del registro, póngase en contacto con el soporte técnico de Azure.
 
 <sup>2</sup>*ReadOps*, *WriteOps* y *ancho de banda* son estimaciones mínimas. Azure Container Registry se esfuerza por mejorar el rendimiento adaptado a su uso.
 

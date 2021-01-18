@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 11c20f3f79a4fceafaca9b1a948f1b4a425dad87
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 00aa24f0ff8c918c645239ca36888c6a214062c8
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96572718"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028767"
 ---
 # <a name="voice-and-video-concepts"></a>Conceptos de voz y vídeo
 
@@ -50,7 +50,7 @@ En los SDK nativos (iOS y Android), se admite hasta Full HD 1080p. Para el SDK
 
 ### <a name="rooms-concept"></a>Concepto de salas
 Las salas son un conjunto de API y SDK que permiten agregar fácilmente interacciones de audio, vídeo, uso compartido de pantalla, RTC y SMS a su sitio web o aplicación nativa.
-Durante la vista previa, puede usar el identificador de grupo para unirse a la misma conversación. Puede crear tantos id. de grupo como necesite y separar los usuarios por "salas". Al avanzar, se introducirán más controles relativos a las "salas". 
+Durante la vista previa, puede usar el identificador de grupo para unirse a la misma conversación. Puede crear tantos identificadores de grupo como necesite y separar los usuarios por "salas". Al avanzar, se introducirán más controles relativos a las "salas". 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

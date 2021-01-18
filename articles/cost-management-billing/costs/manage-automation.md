@@ -3,17 +3,17 @@ title: Administración de costos de Azure con Automation
 description: En este artículo se explica cómo administrar los costos de Azure con Automation.
 author: bandersmsft
 ms.author: banders
-ms.date: 11/19/2020
+ms.date: 01/06/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
-ms.openlocfilehash: 47d9c2838c5c806214e3be2f9ba7ce335bc0af67
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 02215bace693ac5ac36f9fc29758215d45b23eb1
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94956099"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98051792"
 ---
 # <a name="manage-costs-with-automation"></a>Administración de costos con Automation
 
@@ -56,6 +56,22 @@ Se recomienda _no realizar más de una solicitud_ a Usage Details API por día. 
 **Establecer ámbitos de alto nivel sin filtrado como destino**
 
 Use la API para obtener todos los datos que necesite en el ámbito de nivel más alto disponible. Espere hasta que se ingieran todos los datos necesarios antes de realizar ningún filtrado, agrupación o análisis agregado. La API está optimizada específicamente para proporcionar grandes cantidades de datos de costos sin procesar no agregados. Para más información sobre los ámbitos disponibles en Cost Management, consulte [Descripción y uso de ámbitos](./understand-work-scopes.md). Una vez que haya descargado los datos necesarios para un ámbito, use Excel para analizar más datos con filtros y tablas dinámicas.
+
+### <a name="notes-about-pricing"></a>Notas sobre los precios
+
+Si quiere conciliar el uso y los cargos con la hoja de precios o la factura, tenga en cuenta la siguiente información.
+
+Comportamiento de los precios de la hoja de precios: los precios que se muestran en la hoja de precios son los precios que se reciben de Azure. Se ajustan de acuerdo con una unidad de medida específica. Por desgracia, la unidad de medida no siempre coincide con aquella en la que se emiten los cargos y el uso reales de los recursos.
+
+Comportamiento de los precios de los detalles de uso: los archivos de uso muestran información ajustada que puede no coincidir exactamente con la hoja de precios. Concretamente:
+
+- Precio unitario: el precio se ajusta para que coincida con la unidad de medida en la que se emiten realmente los cargos por los recursos de Azure. Si se han escalonado los precios, estos no coincidirán con los observados en la hoja de precios.
+- Unidad de medida: representa la unidad de medida en la que se emiten realmente los cargos por los recursos de Azure.
+- Precio efectivo/tasa de recursos: el precio representa la tasa real que acaba pagando por unidad, una vez que se tienen en cuenta los descuentos. Es el precio que se debe usar con la cantidad en los cálculos de precio x cantidad para conciliar los cargos. En el precio se tienen en cuenta los siguientes escenarios y el precio unitario ajustado que también está presente en los archivos. Como resultado, podría ser diferente a este.
+  - Precios por niveles: por ejemplo, 10 USD para las 100 primeras unidades, 8 USD para las siguientes 100 unidades.
+  - Cantidad incluida: por ejemplo, las 100 primeras unidades son gratuitas y, luego, cada unidad tiene un costo de 10 USD.
+  - Reservations
+  - Redondeo que se produce durante el cálculo: el redondeo tiene en cuenta la cantidad consumida, los precios de cantidades por niveles e incluidas, y el precio unitario ajustado.
 
 ## <a name="example-usage-details-api-requests"></a>Ejemplo de solicitudes de Usage Details API
 
@@ -325,7 +341,7 @@ Puede configurar presupuestos para iniciar acciones automatizadas mediante los g
 
 ## <a name="data-latency-and-rate-limits"></a>Latencia de datos y límites de frecuencia
 
-Se recomienda llamar a las API no más de una vez al día. Los datos de Cost Management se actualizan cada cuatro horas a medida que se reciben nuevos datos de uso de los proveedores de recursos de Azure. Llamar con mayor frecuencia no proporcionará datos adicionales. En su lugar, creará una carga mayor. Para más información sobre la frecuencia con que cambian los datos y cómo se controla su latencia, consulte [Descripción de los datos de Cost Management](understand-cost-mgt-data.md).
+Se recomienda llamar a las API no más de una vez al día. Los datos de Cost Management se actualizan cada cuatro horas a medida que se reciben nuevos datos de uso de los proveedores de recursos de Azure. Una frecuencia mayor de llamada no proporciona más datos, sino que crea un aumento de la carga. Para más información sobre la frecuencia con que cambian los datos y cómo se controla su latencia, consulte [Descripción de los datos de Cost Management](understand-cost-mgt-data.md).
 
 ### <a name="error-code-429---call-count-has-exceeded-rate-limits"></a>Código de error 429: el recuento de llamadas ha superado los límites de frecuencia
 

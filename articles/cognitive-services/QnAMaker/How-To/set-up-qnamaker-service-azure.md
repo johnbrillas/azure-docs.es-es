@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 83917214705546b21553e997ccab11a7511f77fd
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: af9087f0dd45212ec88b620dcd965c895b86bbce
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353313"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108199"
 ---
 # <a name="manage-qna-maker-resources"></a>Administración de recursos de QnA Maker
 
@@ -128,12 +128,18 @@ Para mantener cargada la aplicación del punto de conexión de predicción inclu
 Aprenda más sobre cómo realizar la [configuración general](../../../app-service/configure-common.md#configure-general-settings) de App Service.
 
 ### <a name="configure-app-service-environment-to-host-qna-maker-app-service"></a>Configuración de App Service Environment para hospedar una instancia de App Service de QnA Maker
-App Service Environment se puede usar para hospedar un servicio de aplicaciones de QnA Maker. Si App Service Environment es interno, debe seguir estos pasos:
-1. Cree un servicio de aplicaciones y un servicio de búsqueda de Azure.
-2. Exponga el servicio de aplicaciones y permita la disponibilidad de QnA Maker como:
-    * Disponible públicamente (predeterminado)
-    * Etiqueta de servicio DNS: `CognitiveServicesManagement`
-3. Cree una instancia de Cognitive Services de QnA Maker (Microsoft.CognitiveServices/accounts) mediante Azure Resource Manager, donde el punto de conexión de QnA Maker debe establecerse en App Service Environment.
+App Service Environment se puede usar para hospedar la instancia de App Service para QnA Maker. Siga estos pasos:
+
+1. Cree una instancia de App Service Environment y márquela como "externa". Para obtener instrucciones, siga este [tutorial](https://docs.microsoft.com/azure/app-service/environment/create-external-ase).
+2.  Cree una instancia de App Service en App Service Environment.
+    * Compruebe la configuración de App Service y agregue "PrimaryEndpointKey" como configuración de la aplicación. El valor de "PrimaryEndpointKey" debe establecerse en "\<app-name\>-PrimaryEndpointKey". El nombre de la aplicación se define en la dirección URL de App Service. Por ejemplo, si la dirección URL de App Service es "misitioweb.myase.p.azurewebsite.net", el nombre de la aplicación será "misitioweb". En este caso, el valor de "PrimaryEndpointKey" se debe establecer en "misitioweb-PrimaryEndpointKey".
+    * Cree un servicio Azure Search.
+    * Asegúrese de que Azure Search y la configuración de la aplicación estén configuradas correctamente. 
+      Siga este [tutorial](https://docs.microsoft.com/azure/cognitive-services/qnamaker/reference-app-service?tabs=v1#app-service).
+3.  Actualización del grupo de seguridad de red asociado con App Service Environment
+    * Actualice las reglas de seguridad de entrada creadas previamente según sus requisitos.
+    * Agregue una nueva regla de seguridad de entrada con el origen "etiqueta de servicio" y la etiqueta de servicio de origen como "CognitiveServicesManagement".
+4.  Cree una instancia de Cognitive Services de QnA Maker (Microsoft.CognitiveServices/accounts) mediante Azure Resource Manager, donde el punto de conexión de QnA Maker debe establecerse en el punto de conexión de App Service creado anteriormente (https:// misitioweb.myase.p.azurewebsite.net).
 
 ### <a name="network-isolation-for-app-service"></a>Aislamiento de red en App Service
 

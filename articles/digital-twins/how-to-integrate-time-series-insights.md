@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 7/14/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 58d101bb93b4635e362c5ec78a03a659b71b63da
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: f776482c684004c8d661f69d8158ba9597c923b2
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495276"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127045"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-time-series-insights"></a>Integración de Azure Digital Twins con Azure Time Series Insights
 
@@ -22,7 +22,7 @@ La solución que se describe en este artículo le permitirá recopilar y analiza
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Antes de poder configurar una relación con Time Series Insights, debe tener una **instancia de Azure Digital Twins** . Esta instancia debe estar configurada con la posibilidad de actualizar la información del gemelo digital en función de los datos, ya que tendrá que actualizar la información del gemelo digital varias veces para ver que se ha hecho el seguimiento de los datos en Time Series Insights. 
+Antes de poder configurar una relación con Time Series Insights, debe tener una **instancia de Azure Digital Twins**. Esta instancia debe estar configurada con la posibilidad de actualizar la información del gemelo digital en función de los datos, ya que tendrá que actualizar la información del gemelo digital varias veces para ver que se ha hecho el seguimiento de los datos en Time Series Insights. 
 
 Si todavía no tiene esta configuración, puede crearla si sigue las instrucciones sobre Azure Digital Twins que aparecen en [*Tutorial: Conexión de una solución de un extremo a otro*](./tutorial-end-to-end.md). El tutorial lo guiará a través de la configuración de una instancia de Azure Digital Twins que funciona con un dispositivo IoT virtual para desencadenar las actualizaciones de gemelos digitales.
 
@@ -82,63 +82,19 @@ El [*Tutorial: Conexión de una solución de un extremo a otro*](./tutorial-end-
     az dt route create -n <your Azure Digital Twins instance name> --endpoint-name <Event Hub endpoint from above> --route-name <name for your route> --filter "type = 'Microsoft.DigitalTwins.Twin.Update'"
     ```
 
-Antes de seguir, anote el *espacio de nombres de Event Hubs* y el *grupo de recursos* , porque los volverá a usar más adelante en este artículo para crear otro centro de eventos.
+Antes de seguir, anote el *espacio de nombres de Event Hubs* y el *grupo de recursos*, porque los volverá a usar más adelante en este artículo para crear otro centro de eventos.
 
-## <a name="create-an-azure-function"></a>Creación de una función de Azure 
+## <a name="create-a-function-in-azure"></a>Crear una función en Azure
 
-A continuación, creará una función desencadenada por Event Hubs dentro de una aplicación de funciones. Puede usar la aplicación de funciones creada en el tutorial integral ( [*Tutorial: Conexión de una solución de un extremo a otro*](./tutorial-end-to-end.md)) o una propia. 
+A continuación, usará Azure Functions para crear una función desencadenada por Event Hubs dentro de una aplicación de funciones. Puede usar la aplicación de funciones creada en el tutorial integral ([*Tutorial: Conexión de una solución de un extremo a otro*](./tutorial-end-to-end.md)) o una propia. 
 
 Esta función convertirá esos eventos de actualización de gemelos de su forma original como documentos de revisión JSON a objetos JSON, que contienen solo valores actualizados y agregados de su gemelos.
 
-Para más información sobre cómo usar Event Hubs con funciones de Azure, consulte [*Desencadenador de Azure Event Hubs para Azure Functions*](../azure-functions/functions-bindings-event-hubs-trigger.md).
+Para más información sobre cómo usar Event Hubs con Azure Functions, consulte [*Desencadenador de Azure Event Hubs para Azure Functions*](../azure-functions/functions-bindings-event-hubs-trigger.md).
 
 Dentro de la aplicación de funciones publicada, reemplace el código de la función por el código siguiente.
 
-```C#
-using Microsoft.Azure.EventHubs;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System.Threading.Tasks;
-using System.Text;
-using System.Collections.Generic;
-
-namespace SampleFunctionsApp
-{
-    public static class ProcessDTUpdatetoTSI
-    { 
-        [FunctionName("ProcessDTUpdatetoTSI")]
-        public static async Task Run(
-            [EventHubTrigger("twins-event-hub", Connection = "EventHubAppSetting-Twins")]EventData myEventHubMessage, 
-            [EventHub("tsi-event-hub", Connection = "EventHubAppSetting-TSI")]IAsyncCollector<string> outputEvents, 
-            ILogger log)
-        {
-            JObject message = (JObject)JsonConvert.DeserializeObject(Encoding.UTF8.GetString(myEventHubMessage.Body));
-            log.LogInformation("Reading event:" + message.ToString());
-
-            // Read values that are replaced or added
-            Dictionary<string, object> tsiUpdate = new Dictionary<string, object>();
-            foreach (var operation in message["patch"]) {
-                if (operation["op"].ToString() == "replace" || operation["op"].ToString() == "add")
-                {
-                    //Convert from JSON patch path to a flattened property for TSI
-                    //Example input: /Front/Temperature
-                    //        output: Front.Temperature
-                    string path = operation["path"].ToString().Substring(1);                    
-                    path = path.Replace("/", ".");                    
-                    tsiUpdate.Add(path, operation["value"]);
-                }
-            }
-            //Send an update if updates exist
-            if (tsiUpdate.Count>0){
-                tsiUpdate.Add("$dtId", myEventHubMessage.Properties["cloudEvents:subject"]);
-                await outputEvents.AddAsync(JsonConvert.SerializeObject(tsiUpdate));
-            }
-        }
-    }
-}
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/updateTSI.cs":::
 
 A partir de aquí, la función enviará los objetos JSON que crea a un segundo centro de eventos, el que se conectará a Time Series Insights.
 
@@ -202,20 +158,20 @@ A continuación, tendrá que establecer variables de entorno en la aplicación d
 A continuación, configurará una instancia de Time Series Insights para recibir los datos del segundo centro de eventos. Siga los pasos que aparecen a continuación y, para más detalles sobre este proceso, consulte [*Tutorial: Configuración de un entorno de pago por uso de Azure Time Series Insights Gen2*](../time-series-insights/tutorials-set-up-tsi-environment.md).
 
 1. En Azure Portal, empiece a crear un recurso de Time Series Insights. 
-    1. Seleccione el plan de tarifa **PAYG (Preview)** [Pago por uso (versión preliminar)].
-    2. Tenga que elegir un **identificador de serie temporal** para este entorno. El identificador de serie temporal puede tener hasta tres valores que usará para buscar los datos en Time Series Insights. Para este tutorial, puede usar **$dtId** . Obtenga más información sobre cómo seleccionar un valor de id. en [*Procedimientos recomendados al elegir un id. de serie temporal*](../time-series-insights/how-to-select-tsid.md).
+    1. Seleccione el plan de tarifa **Gen2(L1)** .
+    2. Tenga que elegir un **identificador de serie temporal** para este entorno. El identificador de serie temporal puede tener hasta tres valores que usará para buscar los datos en Time Series Insights. Para este tutorial, puede usar **$dtId**. Obtenga más información sobre cómo seleccionar un valor de id. en [*Procedimientos recomendados al elegir un id. de serie temporal*](../time-series-insights/how-to-select-tsid.md).
     
-        :::image type="content" source="media/how-to-integrate-time-series-insights/create-twin-id.png" alt-text="Una vista de los servicios de Azure en un escenario integral, con Time Series Insights resaltado":::
+        :::image type="content" source="media/how-to-integrate-time-series-insights/create-twin-id.png" alt-text="La experiencia de usuario del portal de creación para un entorno de Time Series Insights. Está seleccionado el plan de tarifa Gen2(L1) y el nombre de la propiedad de identificador de serie temporal es $dtId" lightbox="media/how-to-integrate-time-series-insights/create-twin-id.png":::
 
 2. Seleccione **Siguiente: Origen del evento** y seleccione la información de Event Hubs que se indicó anteriormente. También necesitará crear un grupo de consumidores de Event Hubs.
     
-    :::image type="content" source="media/how-to-integrate-time-series-insights/event-source-twins.png" alt-text="Una vista de los servicios de Azure en un escenario integral, con Time Series Insights resaltado":::
+    :::image type="content" source="media/how-to-integrate-time-series-insights/event-source-twins.png" alt-text="La experiencia de usuario del portal de creación para un origen de eventos del entorno de Time Series Insights. Está creando un origen de eventos con la información del centro de eventos que se indicó anteriormente. También creará un grupo de consumidores." lightbox="media/how-to-integrate-time-series-insights/event-source-twins.png":::
 
 ## <a name="begin-sending-iot-data-to-azure-digital-twins"></a>Envío de datos de IoT a Azure Digital Twins
 
 Para empezar a enviar datos a Time Series Insights, deberá iniciar la actualización de las propiedades de gemelos digitales en Azure Digital Twins con valores de datos variables. Use el comando [az dt twin update](/cli/azure/ext/azure-iot/dt/twin?view=azure-cli-latest&preserve-view=true#ext-azure-iot-az-dt-twin-update).
 
-Si usa el tutorial integral ( [*Tutorial: Conexión de una solución de un extremo a otro*](tutorial-end-to-end.md)) para ayudar a configurar el entorno, puede empezar a enviar datos simulados de IoT mediante la ejecución del proyecto *DeviceSimulator* del ejemplo. Las instrucciones se encuentran en la sección [*Configuración y ejecución de la simulación*](tutorial-end-to-end.md#configure-and-run-the-simulation) del tutorial.
+Si usa el tutorial integral ([*Tutorial: Conexión de una solución de un extremo a otro*](tutorial-end-to-end.md)) para ayudar a configurar el entorno, puede empezar a enviar datos simulados de IoT mediante la ejecución del proyecto *DeviceSimulator* del ejemplo. Las instrucciones se encuentran en la sección [*Configuración y ejecución de la simulación*](tutorial-end-to-end.md#configure-and-run-the-simulation) del tutorial.
 
 ## <a name="visualize-your-data-in-time-series-insights"></a>Visualización de los datos en Time Series Insights
 
@@ -223,19 +179,19 @@ Ahora, los datos deben fluir a la instancia de Time Series Insights, listos para
 
 1. Abra la instancia de Time Series Insights en [Azure Portal](https://portal.azure.com) (puede buscar el nombre de la instancia en la barra de búsqueda del portal). Vaya a la *dirección URL del Explorador de Time Series Insights* que se muestra en la información general de la instancia.
     
-    :::image type="content" source="media/how-to-integrate-time-series-insights/view-environment.png" alt-text="Una vista de los servicios de Azure en un escenario integral, con Time Series Insights resaltado":::
+    :::image type="content" source="media/how-to-integrate-time-series-insights/view-environment.png" alt-text="Selección de la dirección URL del Explorador de Time Series Insights en la pestaña de información general del entorno de Time Series Insights":::
 
-2. En el explorador, verá los tres gemelos de Azure Digital Twins que se muestran a la izquierda. Seleccione _**thermostat67**_ , **Temperature** (Temperatura) y haga clic en **Add** (Agregar).
+2. En el explorador, verá los tres gemelos de Azure Digital Twins que se muestran a la izquierda. Seleccione _**thermostat67**_, **Temperature** (Temperatura) y haga clic en **Add** (Agregar).
 
-    :::image type="content" source="media/how-to-integrate-time-series-insights/add-data.png" alt-text="Una vista de los servicios de Azure en un escenario integral, con Time Series Insights resaltado":::
+    :::image type="content" source="media/how-to-integrate-time-series-insights/add-data.png" alt-text="Seleccione **thermostat67**, **temperature** (Temperatura) y haga clic en **add** (Agregar)":::
 
 3. Ahora debería ver las lecturas de temperatura iniciales del termostato, como se muestra a continuación. La misma lectura de temperatura se actualiza para *room21* y *floor1* y puede visualizar esos flujos de datos de manera simultánea.
     
-    :::image type="content" source="media/how-to-integrate-time-series-insights/initial-data.png" alt-text="Una vista de los servicios de Azure en un escenario integral, con Time Series Insights resaltado":::
+    :::image type="content" source="media/how-to-integrate-time-series-insights/initial-data.png" alt-text="Los datos de temperatura inicial se representan gráficamente en el explorador de TSI. Es una línea de valores aleatorios entre 68 y 85":::
 
 4. Si permite que la simulación se ejecute durante mucho más tiempo, la visualización tendrá un aspecto similar al siguiente:
     
-    :::image type="content" source="media/how-to-integrate-time-series-insights/day-data.png" alt-text="Una vista de los servicios de Azure en un escenario integral, con Time Series Insights resaltado":::
+    :::image type="content" source="media/how-to-integrate-time-series-insights/day-data.png" alt-text="Los datos de temperatura de cada gemelo se representan gráficamente en tres líneas paralelas de colores distintos.":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

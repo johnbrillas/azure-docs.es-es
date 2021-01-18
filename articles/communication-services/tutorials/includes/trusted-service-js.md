@@ -8,12 +8,12 @@ ms.author: dademath
 ms.date: 07/28/2020
 ms.topic: include
 ms.service: azure-communication-services
-ms.openlocfilehash: daf2d675bbbee324769b6e1e8d8d34587d37c72f
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 9755cebf66a8c468b29737262bc3c32ae9f5422f
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94886630"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98024381"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -112,14 +112,8 @@ module.exports = async function (context, req) {
 
     const userToken = await tokenClient.issueToken(user, ["voip"]);
 
-    const response = {
-        "User" : userToken.user,
-        "Token": userToken.token,
-        "ExpiresOn": userToken.expiresOn
-    }
-
     context.res = {
-        body: response
+        body: userToken
     };
 }
 ```
@@ -130,7 +124,7 @@ En el caso del `CommunicationUser` existente de Communication Services, puede om
 
 Ejecute la instancia de Azure Functions localmente con `F5`. Esto inicializará la instancia de Azure Functions localmente y hará que sea accesible a través de `http://localhost:7071/api/FUNCTION_NAME`. Consulte la documentación adicional sobre la [ejecución local](../../../azure-functions/create-first-function-vs-code-csharp.md?pivots=programming-language-javascript#run-the-function-locally).
 
-Abra la dirección URL en el explorador y debería ver un cuerpo de respuesta con el identificador de usuario de la comunicación, el token y la expiración del token.
+Abra la dirección URL en el explorador; verá un cuerpo de respuesta con el identificador de usuario de la comunicación, el token y la expiración del token.
 
 :::image type="content" source="../media/trusted-service-sample-response.png" alt-text="Captura de pantalla que muestra un ejemplo de respuesta para la instancia de Azure Functions creada.":::
 

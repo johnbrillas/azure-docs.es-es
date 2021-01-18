@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 12/14/2020
-ms.openlocfilehash: e017fac551e3122cc6586b32423ff166462ccad8
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 402ee6d5efdd489914cb7d283c7c46d4f7d175f6
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97513562"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97968065"
 ---
 # <a name="introduction-to-computer-vision-spatial-analysis"></a>Introducción al análisis espacial de Computer Vision
 
@@ -23,7 +23,7 @@ El análisis espacial de Computer Vision es una nueva característica de Azure C
 
 ## <a name="the-basics-of-spatial-analysis"></a>Aspectos básicos del análisis espacial
 
-En la actualidad, las habilidades principales del análisis espacial se basan en una canalización que ingiere el vídeo, detecta personas en él, realiza un seguimiento de esas personas a medida que aparecen en el vídeo y genera eventos a medida que la gente interactúa con regiones de interés.
+En la actualidad, las operaciones principales del análisis espacial se basan en una canalización que ingiere el vídeo, detecta personas en él, realiza un seguimiento de esas personas a medida que aparecen en el vídeo y genera eventos a medida que la gente interactúa con regiones de interés.
 
 ## <a name="spatial-analysis-terms"></a>Términos de análisis espaciales
 

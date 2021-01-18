@@ -365,7 +365,7 @@
               items:
                 - name: Creación de una aplicación Comandos personalizados
                   href: quickstart-custom-commands-application.md
-            - name: Guías de procedimientos
+            - name: Guías paso a paso
               items:
                 - name: Desarrollo y personalización de aplicaciones de Comandos personalizados
                   href: how-to-develop-custom-commands-application.md
@@ -467,11 +467,19 @@
       displayName: SPX
       items:
         - name: Introducción a la CLI de Voz
-          displayName: What is SPX?
+          displayName: 'What is SPX?, spx, spx overview'
           href: spx-overview.md
-        - name: Conceptos básicos de la CLI de Voz
-          displayName: SPX basics
+        - name: Inicio rápido de la CLI de Voz
+          displayName: 'spx basics, spx quickstart, spx get started, speech cli get started'
           href: spx-basics.md
+        - name: Guías paso a paso
+          items:
+            - name: Opciones de configuración de la CLI de Voz
+              displayName: 'SPX configuration options, speech cli config, speech cli data store, data store, datastore, speech cli datastore'
+              href: spx-data-store-configuration.md
+            - name: Operaciones por lotes de la CLI de Voz
+              displayName: 'spx batch, spx batch operations, speech batch, speech cli speech to text batch, speech cli tex to speech batch'
+              href: spx-batch-operations.md
     - name: Speech Studio
       items:
         - name: Introducción a Speech Studio

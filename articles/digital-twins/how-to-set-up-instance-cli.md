@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 26302fa67394e6c3122b159866c3814fb5677ba6
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 8e82f8974b53224b3e471d1628a1ca5819ce2955
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92494987"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98044499"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-cli"></a>Configuración de una instancia de Azure Digital Twins y autenticación (CLI)
 
 [!INCLUDE [digital-twins-setup-selector.md](../../includes/digital-twins-setup-selector.md)]
 
-En este artículo se describen los pasos para **configurar una nueva instancia de Azure Digital Twins** , incluidas la creación de la instancia y la configuración de la autenticación. Después de completar este artículo, tendrá una instancia de Azure Digital Twins lista para empezar a programar.
+En este artículo se describen los pasos para **configurar una nueva instancia de Azure Digital Twins**, incluidas la creación de la instancia y la configuración de la autenticación. Después de completar este artículo, tendrá una instancia de Azure Digital Twins lista para empezar a programar.
 
 En esta versión de este artículo se realizan los pasos manualmente, uno por uno, mediante la CLI.
 * Para seguir estos pasos manualmente con Azure Portal, consulte la versión del portal de este artículo: [*Procedimiento: Configuración de una instancia y autenticación (Azure Portal)*](how-to-set-up-instance-portal.md).
@@ -35,12 +35,12 @@ En esta versión de este artículo se realizan los pasos manualmente, uno por un
 ## <a name="create-the-azure-digital-twins-instance"></a>Creación de una instancia de Azure Digital Twins
 
 En esta sección, **creará una nueva instancia de Azure Digital Twins** mediante el comando de Cloud Shell. Tendrá que proporcionar:
-* Un grupo de recursos donde se realizará la implementación. Si todavía no tiene un grupo de recursos existente, puede crear uno ahora con este comando:
+* Un grupo de recursos en el que se implementará la instancia. Si todavía no tiene un grupo de recursos existente, puede crear uno ahora con este comando:
     ```azurecli-interactive
     az group create --location <region> --name <name-for-your-resource-group>
     ```
 * Una región para la implementación. Para ver qué regiones admiten Azure Digital Twins, visite [*Productos de Azure disponibles por región*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
-* Un nombre para la instancia. El nombre de la nueva instancia debe ser único dentro de la región de la suscripción (lo que significa que si la suscripción tiene otra instancia de Azure Digital Twins en la región que ya usa el nombre elegido, se le solicitará que elija otro nombre).
+* Un nombre para la instancia. Si su suscripción tiene otra instancia de Azure Digital Twins en la región que ya usa el nombre especificado, se le pedirá que elija un nombre diferente.
 
 Use estos valores en el comando siguiente para crear la instancia:
 
@@ -54,7 +54,7 @@ Si la instancia se creó correctamente, el resultado en Cloud Shell tiene un asp
 
 :::image type="content" source="media/how-to-set-up-instance/cloud-shell/create-instance.png" alt-text="Ventana Comandos con la creación correcta del grupo de recursos y la instancia de Azure Digital Twins":::
 
-Anote *hostName* , *name* y *resourceGroup* del resultado de la instancia de Azure Digital Twins. Estos son todos los valores importantes que puede necesitar a medida que sigue trabajando con la instancia de Azure Digital Twins para configurar la autenticación y los recursos de Azure relacionados. Si otros usuarios van a programar en la instancia, debe compartirlos con ellos.
+Anote **hostName**, **name** y **resourceGroup** del resultado de la instancia de Azure Digital Twins. Estos son todos los valores importantes que puede necesitar a medida que sigue trabajando con la instancia de Azure Digital Twins para configurar la autenticación y los recursos de Azure relacionados. Si otros usuarios van a programar en la instancia, debe compartirlos con ellos.
 
 > [!TIP]
 > Puede ver estas propiedades, junto con todas las propiedades de la instancia, en cualquier momento si ejecuta `az dt show --dt-name <your-Azure-Digital-Twins-instance>`.
@@ -74,7 +74,7 @@ az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --ass
 El resultado de este comando es la información de salida acerca de la asignación de roles que se ha creado.
 
 > [!NOTE]
-> Si este comando devuelve un error que indica que la CLI **no puede encontrar el usuario ni la entidad de servicio en la base de datos de grafos** :
+> Si este comando devuelve un error que indica que la CLI **no puede encontrar el usuario ni la entidad de servicio en la base de datos de grafos**:
 >
 > Asigne el rol mediante el *id. de objeto* del usuario en su lugar. Esto puede ocurrir para los usuarios de [cuentas de Microsoft (MSA)](https://account.microsoft.com/account) personales. 
 >
@@ -96,5 +96,5 @@ Pruebe las llamadas individuales de la API de REST en su instancia mediante los 
 * [Referencia de az dt](/cli/azure/ext/azure-iot/dt?preserve-view=true&view=azure-cli-latest)
 * [*Procedimiento: Uso de la CLI de Azure Digital Twins*](how-to-use-cli.md).
 
-O bien, consulte cómo conectar una aplicación cliente a la instancia mediante el código de autenticación:
+O bien consulte cómo conectar una aplicación cliente a la instancia mediante el código de autenticación:
 * [*Procedimiento: Escritura de código de autenticación de aplicación*](how-to-authenticate-client.md)

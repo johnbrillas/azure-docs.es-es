@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/30/2020
 ms.author: cfowler
 ms.custom: include file
-ms.openlocfilehash: d73a8d743a948cbd94a3af81fe2e77c45c0eeb67
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c6352ee9d29e4e45aa4be449046a0715fee06047
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "82996284"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165916"
 ---
 ## <a name="create-a-new-cdn-profile"></a>Crear un nuevo perfil de CDN
 
@@ -35,7 +35,7 @@ Un perfil de CDN es un contenedor para los puntos de conexión de CDN y especifi
     | **Suscripción** | Seleccione una suscripción de Azure en la lista desplegable. |
     | **Grupos de recursos** | Seleccione **Crear nuevo** y escriba *CDNQuickstart-rg* como nombre del grupo de recursos, o bien seleccione **Usar existente** y elija *CDNQuickstart-rg* si ya tiene el grupo. | 
     | **Ubicación del grupo de recursos** | Seleccione una ubicación cercana en la lista desplegable. |
-    | **Plan de tarifa** | Seleccione la opción **Akamai estándar** en la lista desplegable. (el tiempo de implementación del nivel Akamai es aproximadamente un minuto. El nivel Microsoft tarda aproximadamente 10 minutos y los niveles de Verizon tardan aproximadamente 90 minutos). |
+    | **Plan de tarifa** | Seleccione la opción **Akamai estándar** en la lista desplegable. (el tiempo de implementación del nivel Akamai es aproximadamente un minuto. El nivel Microsoft tarda aproximadamente 10 minutos y los niveles de Verizon tardan unos 30 minutos). |
     | **Crear un punto de conexión de CDN ahora** | Déjelo sin seleccionar. |  
    
     ![Nuevo perfil de CDN](./media/cdn-create-profile/cdn-new-profile.png)

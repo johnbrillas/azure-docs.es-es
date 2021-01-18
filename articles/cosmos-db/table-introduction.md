@@ -5,14 +5,14 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: overview
-ms.date: 11/25/2020
+ms.date: 01/08/2021
 ms.author: sngun
-ms.openlocfilehash: 98b1db18b72aad0c68f2faee031cc040a2a1f369
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 1cf3bf30b37a09b5dfe94bf1e754a7f8e9dcd82c
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181244"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98045672"
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Introducción a Azure Cosmos DB: Table API
 [!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
@@ -20,7 +20,7 @@ ms.locfileid: "96181244"
 [Azure Cosmos DB](introduction.md) proporciona Table API para aplicaciones escritas para Azure Table Storage y que necesitan funcionalidades premium como:
 
 * [Distribución global inmediata](distribute-data-globally.md).
-* [Rendimiento dedicado](partitioning-overview.md) en todo el mundo.
+* [Rendimiento dedicado](partitioning-overview.md) en todo el mundo (cuando se usa el rendimiento aprovisionado).
 * Latencias en milisegundos de un solo dígito en el percentil 99.
 * Alta disponibilidad garantizada.
 * Indexación secundaria automática.
@@ -44,7 +44,7 @@ Si actualmente usa Azure Table Storage, obtendrá las siguientes ventajas al act
 | Indización | Índice principal solo en PartitionKey y RowKey. No hay índices secundarios. | Indexación automática y completa en todas las propiedades de forma predeterminada, sin administración de índices. |
 | Consultar | La ejecución de consultas usa el índice de la clave principal y, en caso contrario, examina. | Las consultas pueden aprovechar la indexación automática en las propiedades para reducir el tiempo de consulta. |
 | Coherencia | Seguro dentro de la región principal. Ocasional en la región secundaria. | [Cinco niveles de coherencia bien definidos](consistency-levels.md) para compensar la disponibilidad, la latencia, el rendimiento y la coherencia en función de las necesidades de la aplicación. |
-| Precios | Optimizado para el almacenamiento. | Optimizado para el rendimiento. |
+| Precios | Basado en el consumo. | Disponible en los modos [basado en el consumo](serverless.md) y [capacidad aprovisionada](set-throughput.md). |
 | SLA | Disponibilidad del 99,9 % al 99,99 %, en función de la estrategia de replicación. | Disponibilidad de lectura del 99,999 %, disponibilidad de escritura del 99,99 % en una cuenta de una sola región y disponibilidad de escritura del 99,999 % en cuentas de varias regiones. [SLA completos](https://azure.microsoft.com/support/legal/sla/cosmos-db/) que abarcan disponibilidad, latencia, rendimiento y coherencia. |
 
 ## <a name="get-started"></a>Introducción

@@ -1,18 +1,18 @@
 ---
-title: Creación de la primera función en Azure con Kotlin y Maven
-description: Cree y publique una función desencadenada por HTTP en Azure con Kotlin y Maven.
+title: Creación de una función de Kotlin en Azure Functions mediante Maven
+description: Cree y publique una aplicación de funciones desencadenada por HTTP en Azure Functions con Kotlin y Maven.
 author: dglover
 ms.service: azure-functions
 ms.topic: quickstart
 ms.date: 03/25/2020
 ms.author: dglover
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 167e7c447fe43851255677a44043c508cbdc4239
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 6f7b79b6e3e72b34a27e5b4f0e1fb5426c539699
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934839"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98035247"
 ---
 # <a name="quickstart-create-your-first-function-with-kotlin-and-maven"></a>Inicio rápido: Creación de la primera función con Kotlin y Maven
 
@@ -32,9 +32,9 @@ Para desarrollar funciones con Kotlin, debe tener instalado lo siguiente:
 > [!IMPORTANT]
 > La variable de entorno JAVA_HOME se debe establecer en la ubicación de instalación del JDK para completar esta guía de inicio rápido.
 
-## <a name="generate-a-new-functions-project"></a>Generación de un nuevo proyecto de Functions
+## <a name="generate-a-new-azure-functions-project"></a>Generación de un nuevo proyecto de Azure Functions
 
-En una carpeta vacía, ejecute el comando siguiente para generar el proyecto de Functions desde un [arquetipo Maven](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html).
+En una carpeta vacía, ejecute el comando siguiente para generar el proyecto de Azure Functions desde un [arquetipo de Maven](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html).
 
 # <a name="bash"></a>[bash](#tab/bash)
 ```bash
@@ -164,16 +164,16 @@ El proceso de implementación en Azure Functions usa las credenciales de cuenta 
 az login
 ```
 
-Implemente el código en una aplicación de función nueva `azure-functions:deploy` con el destino de Maven.
+Implemente el código en una nueva aplicación de funciones mediante el destino de Maven `azure-functions:deploy`.
 
 > [!NOTE]
-> Cuando se usa Visual Studio Code para implementar la aplicación de función, recuerde que debe elegir una suscripción de pago o se producirá un error. Puede ver la suscripción en el lado izquierdo del IDE.
+> Cuando use Visual Studio Code para implementar la aplicación de funciones, recuerde que debe elegir una suscripción de pago o se producirá un error. Puede ver la suscripción en el lado izquierdo del IDE.
 
 ```
 mvn azure-functions:deploy
 ```
 
-Cuando se complete la implementación, verá la dirección URL que puede usar para acceder a la aplicación de función de Azure:
+Cuando finalice la implementación, verá la dirección URL que puede usar para acceder a la aplicación de funciones:
 
 <pre>
 [INFO] Successfully deployed Function App with package.
@@ -198,7 +198,7 @@ Hello AzureFunctions!
 
 ## <a name="make-changes-and-redeploy"></a>Cambios y reimplementación
 
-Edite el archivo de código fuente `src/main.../Function.java` en el proyecto generado para modificar el texto que devuelve la aplicación de función. Cambie esta línea:
+Edite el archivo de código fuente `src/main.../Function.java` en el proyecto generado para modificar el texto que devuelve la aplicación de funciones. Cambie esta línea:
 
 ```kotlin
 return request
@@ -231,7 +231,7 @@ Hi, AzureFunctionsTest
 
 ## <a name="reference-bindings"></a>Enlaces de referencia
 
-Para trabajar con [desencadenadores y enlaces de Functions](functions-triggers-bindings.md) que no sean los desencadenadores HTTP y de temporizador, debe instalar las extensiones de enlace. Aunque no es necesario en este artículo, deberá saber cómo habilitar las extensiones al trabajar con otros tipos de enlaces.
+Para trabajar con [desencadenadores y enlaces de Azure Functions](functions-triggers-bindings.md) que no sean los desencadenadores HTTP y de temporizador, debe instalar las extensiones de enlace. Aunque no es necesario en este artículo, deberá saber cómo habilitar las extensiones al trabajar con otros tipos de enlaces.
 
 [!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
@@ -239,7 +239,7 @@ Para trabajar con [desencadenadores y enlaces de Functions](functions-triggers-b
 
 Ha creado una aplicación de función de Kotlin con un desencadenador HTTP simple y la ha implementado en Azure Functions.
 
-- Revise la [guía para desarrolladores de Functions en Java](functions-reference-java.md) para más información sobre cómo desarrollar funciones de Java y Kotlin.
+- Para más información sobre cómo desarrollar funciones de Java y Kotlin, revise la [guía para desarrolladores de Azure Functions en Java](functions-reference-java.md).
 - Agregue funciones adicionales con desencadenadores distintos en el proyecto con el destino de Maven `azure-functions:add`.
 - Escriba y depure localmente las funciones con [Visual Studio Code](https://code.visualstudio.com/docs/java/java-azurefunctions), [IntelliJ](functions-create-maven-intellij.md) y [Eclipse](functions-create-maven-eclipse.md). 
 - Depure las funciones implementadas en Azure con Visual Studio Code. Consulte la documentación sobre las [aplicaciones Java sin servidor](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud) de Visual Studio Code para instrucciones.

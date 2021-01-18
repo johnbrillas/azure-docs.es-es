@@ -6,12 +6,12 @@ author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
 ms.date: 7/20/2020
-ms.openlocfilehash: aeae1f1a99d1fa574df8202efd2405232855628b
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 1517c066fe20d478094f57d85d6e27f355a93601
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93091810"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98049820"
 ---
 # <a name="service-request-failed-status-403-forbidden"></a>Error en la solicitud del servicio. Estado: 403 (Prohibido)
 
@@ -44,7 +44,7 @@ La primera solución es comprobar que el usuario de Azure tenga el rol _**Propie
 Tenga en cuenta que este rol es diferente del...
 * nombre anterior de este rol durante la versión preliminar, *Propietario de Azure Digital Twins (versión preliminar)* (el rol es el mismo, pero el nombre ha cambiado)
 * rol de *propietario* de toda la suscripción de Azure *Propietario de datos de Azure Digital Twins* es un rol dentro de Azure Digital Twins y tiene el ámbito de esa instancia individual de Azure Digital Twins.
-* rol de *propietario* en Azure Digital Twins. Son dos roles de administración distintos de Azure Digital Twins; *Propietario de datos de Azure Digital Twins* es el rol que debe usar para la administración durante la versión preliminar.
+* rol de *propietario* en Azure Digital Twins. Son dos roles de administración distintos de Azure Digital Twins; *Propietario de datos de Azure Digital Twins* es el rol que debe usar para la administración.
 
 #### <a name="check-current-setup"></a>Comprobación de la configuración actual
 

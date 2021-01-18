@@ -10,16 +10,16 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 82f6c5989149b50a1ef5e6c6fb5350d474476436
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: 43eae43d11a48ee6c395e4a86b8e8c1353843991
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97845478"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131462"
 ---
-# <a name="receipt-concepts"></a>Conceptos de recepción
+# <a name="form-recognizer-prebuilt-receipt-model"></a>Modelo de recibo creado previamente de Form Recognizer
 
-Azure Form Recognizer puede analizar los recibos mediante uno de sus modelos precompilados. Receipt API extrae la información clave de los recibos de venta en inglés, como el nombre del comerciante, la fecha de la transacción, el total de la transacción, los apuntes, etc. 
+Azure Form Recognizer puede analizar y extraer información de recibos de ventas mediante sus modelos de recibos creados previamente. Combina nuestras eficaces funcionalidades de [reconocimiento óptico de caracteres (OCR)](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text) con modelos de aprendizaje profundo de reconocimiento de recibos para extraer información clave de recibos en inglés. Receipt API extrae la información clave de los recibos de venta en inglés, como el nombre del comerciante, la fecha de la transacción, el total de la transacción, los apuntes, etc. 
 
 ## <a name="understanding-receipts"></a>Descripción de los recibos 
 
@@ -27,32 +27,39 @@ Muchas empresas y particulares todavía realizan la extracción manual de los da
 
 La extracción automática de datos de estos recibos puede resultar complicada. Los recibos pueden estar arrugados o tener partes impresas o manuscritas difíciles de leer, y las imágenes de los smartphones de los recibos pueden tener poca calidad. Además, las plantillas y los campos de los recibos pueden variar considerablemente según el mercado, la región y el comerciante. Estos desafíos en la extracción de datos y la detección de campos hacen que el procesamiento de recibos sea un problema único.  
 
-Mediante el reconocimiento óptico de caracteres (OCR) y nuestro modelo precompilado de recibos, Receipt API habilita estos escenarios de procesamiento de recibos y extrae datos de ellos, por ejemplo, el nombre del comerciante, la propina, el total, los apuntes, etc. Con esta API, no es necesario entrenar un modelo, solo tiene que enviar el recibo a Analyze Receipt API y se extraerán los datos.
+Mediante el reconocimiento óptico de caracteres (OCR) y nuestro modelo precompilado de recibos, Receipt API habilita estos escenarios de procesamiento de recibos y extrae datos de ellos, por ejemplo, el nombre del comerciante, la propina, el total, los apuntes, etc. Con esta API, no es necesario entrenar un modelo, solo tiene que enviar la imagen del recibo a Analyze Receipt API y se extraerán los datos.
 
-![recibo de ejemplo](./media/contoso-receipt-small.png)
+![recibo de ejemplo](./media/receipts-example.jpg)
 
-## <a name="what-does-the-receipt-api-do"></a>¿Qué hace Receipt API? 
 
-La Receipt API precompilada extrae el contenido de los recibos de venta: el tipo de recibo que se obtendría normalmente en un restaurante, una tienda minorista o una tienda de comestibles.
+## <a name="what-does-the-receipt-service-do"></a>¿Qué hace el servicio de recibos? 
+
+El servicio de recibos pregenerado extrae el contenido de los recibos de venta: el tipo de recibo que se obtendría normalmente en un restaurante, una tienda minorista o una tienda de comestibles.
 
 ### <a name="fields-extracted"></a>Campos extraídos
 
-* Nombre del comerciante 
-* Dirección del comerciante 
-* Número de teléfono del comerciante 
-* Fecha de transacción 
-* Tiempo de transacción 
-* Subtotal 
-* Impuesto 
-* Total 
-* Sugerencia 
-* Extracción de los apuntes (por ejemplo, cantidad, precio y nombre del artículo)
+|Nombre| Tipo | Descripción | Texto | Valor (salida estándar) |
+|:-----|:----|:----|:----| :----|
+| ReceiptType | string | Tipo de recibo de venta | Detallados |  |
+| MerchantName | string | Nombre del comerciante que emite el recibo | Contoso |  |
+| MerchantPhoneNumber | phoneNumber | Número de teléfono mostrado del comerciante | 987-654-3210 | +19876543210 |
+| MerchantAddress | string | Dirección mostrada del comerciante | 123 Main St Redmond WA 98052 |  |
+| Fecha de transacción | date | Fecha de emisión del recibo | 06 de junio de 2019 | 2019-06-26  |
+| TransactionTime | time | Hora de emisión del recibo | 4:49 pm | 16:49:00  |
+| Total | number | Número total de transacciones de recibos | $14.34 | 14,34 |
+| Subtotal | number | Subtotal del recibo, a menudo antes de aplicar impuestos | $12.34 | 12.34 |
+| Impuesto | number | Impuestos sobre el recibo o equivalentes | $2.00 | 2.00 |
+| Sugerencia | number | Propina incluida por el comprador | $1.00 | 1.00 |
+| Elementos | matriz de objetos | Líneas del artículo extraídas, con el nombre, la cantidad, el precio por unidad y el precio total extraídos | |
+| Nombre | string | Nombre del elemento | Surface Pro 6 | |
+| Cantidad | number | Cantidad de cada artículo | 1 | |
+| Precio | number | Precio individual de cada unidad del artículo | $999.00 | 999.00 |
+| Precio total | number | Precio total del artículo | $999.00 | 999.00 |
 
 ### <a name="additional-features"></a>Características adicionales
 
 Receipt API también devuelve la siguiente información:
 
-* Tipo de recibo (por ejemplo, con apuntes, tarjeta de crédito, etc.)
 * Nivel de confianza de campo (cada campo devuelve un valor de confianza asociado)
 * Texto sin formato OCR (salida de texto extraído mediante OCR para todo el recibo)
 * Rectángulo delimitador de cada valor, apunte y palabra

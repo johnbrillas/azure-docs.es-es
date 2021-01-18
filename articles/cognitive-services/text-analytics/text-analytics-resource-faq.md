@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 01/05/2021
 ms.author: aahi
-ms.openlocfilehash: ffa70afa0edf29181bc622cbef6ff8716134b1f7
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 9a4e179767cc38169cd794f4cd629604bdcdaab0
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94364945"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955049"
 ---
-# <a name="frequently-asked-questions-faq-about-the-text-analytics-cognitive-service"></a>Preguntas más frecuentes (P+F) sobre Text Analytics en Cognitive Services
+# <a name="frequently-asked-questions-faq-about-the-text-analytics-api"></a>Preguntas más frecuentes (P+F) sobre Text Analytics API
 
- Encuentre respuestas a preguntas habituales sobre conceptos, códigos y escenarios relacionados con Text Analytics API para Microsoft Cognitive Services en Azure.
+ Encuentre respuestas a preguntas habituales acerca de conceptos, códigos y escenarios relacionados con la Text Analytics API de Azure Cognitive Services.
 
 ## <a name="can-text-analytics-identify-sarcasm"></a>¿Text Analytics puede identificar sarcasmo?
 
@@ -47,11 +47,21 @@ Normalmente, la salida consiste en nombres y objetos de la oración. La salida s
 
 Los algoritmos y las mejoras en los modelos se anuncian si el cambio es principal o se realiza una instalación integrada discretamente en el servicio si la actualización es secundaria. Con el tiempo, es posible que encuentre los mismos resultados de entrada de texto en una puntuación de opiniones o en una salida de la frase clave diferentes. Se trata de una consecuencia normal e intencionada del uso de recursos de aprendizaje automático administrados en la nube.
 
+## <a name="service-availability-and-redundancy"></a>Disponibilidad y redundancia del servicio
+
+### <a name="is-text-analytics-service-zone-resilient"></a>¿Tiene el servicio Text Analytics resistencia de zona?
+
+Sí. El servicio Text Analytics tiene resistencia de zona de manera predeterminada.
+
+### <a name="how-do-i-configure-the-text-analytics-service-to-be-zone-resilient"></a>¿Cómo se configura el servicio Text Analytics para que tenga resistencia de zona?
+
+No es necesaria ninguna configuración de parte del cliente para habilitar la resistencia de zonas. La resistencia de zonas para los recursos de Text Analytics está disponible de manera predeterminada y la administra el propio servicio.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 ¿Es su pregunta acerca de una característica o funcionalidad que falta? Considere la posibilidad de solicitarla o votarla en nuestro [sitio web de UserVoice](https://cognitive.uservoice.com/forums/555922-text-analytics).
 
-## <a name="see-also"></a>Consulte también
+## <a name="see-also"></a>Vea también
 
- [StackOverflow: Text Analytics API](https://stackoverflow.com/questions/tagged/text-analytics-api)   
- [StackOverflow: Cognitive Services](https://stackoverflow.com/questions/tagged/microsoft-cognitive)
+ * [StackOverflow: Text Analytics API](https://stackoverflow.com/questions/tagged/text-analytics-api)   
+ * [StackOverflow: Cognitive Services](https://stackoverflow.com/questions/tagged/microsoft-cognitive)

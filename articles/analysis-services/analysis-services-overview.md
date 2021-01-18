@@ -4,16 +4,16 @@ description: Obtenga información sobre Azure Analysis Services, una plataforma 
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 12/01/2020
+ms.date: 01/07/2021
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: e70d02c02ba9a3f14d1659851919fbccf71776d1
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: c4a14ab1e5b52eb36a532c6d69713d588864d288
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96487361"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019081"
 ---
 # <a name="what-is-azure-analysis-services"></a>¿Qué es Azure Analysis Services?
 
@@ -91,6 +91,7 @@ Azure Analysis Services se admite en regiones de todo el mundo. Los planes admit
 |Centro de EE. UU.     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |Centro de EE. UU.     |    S8v2, S9v2     |    1     |
 |Centro-sur de EE. UU.     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
+|Centro-sur de EE. UU.     |    S8v2, S9v2     |    1     |
 |Centro-Oeste de EE. UU.   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
 |Oeste de EE. UU.     |    B1, B2, S0, S1, S2, S4, D1    |    7   |
 |Oeste de EE. UU.     |    S8v2, S9v2   |    2  |
@@ -115,6 +116,7 @@ Azure Analysis Services se admite en regiones de todo el mundo. Los planes admit
 |Este de Australia     |    S8v2, S9v2    |    1     |
 |Sudeste de Australia     | B1, B2, S0, S1, S2, S4, D1       |    1     |
 |Japón Oriental     |   B1, B2, S0, S1, S2, S4, D1       |    1     |
+|Japón Oriental     |    S8v2, S9v2    |    1     |
 |Sudeste de Asia     |     B1, B2, S0, S1, S2, S4, D1     |   1      |
 |Sudeste de Asia     |     S8v2, S9v2     |   1      |
 |Oeste de la India     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
@@ -160,7 +162,7 @@ Nivel de compatibilidad hace referencia a los comportamientos específicos de la
 
 ## <a name="your-data-is-secure"></a>Los datos están seguros
 
-Azure Analysis Services proporciona seguridad a los datos confidenciales a varios niveles. Como servicio de Azure, Analysis Services proporciona un nivel **Básico** de ataques de denegación de servicio distribuido (DDoS) habilitados automáticamente como parte de la plataforma Azure. Para más información, consulte [Introducción a Azure DDoS Protection estándar](../ddos-protection/ddos-protection-overview.md). 
+Azure Analysis Services proporciona seguridad a los datos confidenciales a varios niveles. Como servicio de Azure, Analysis Services proporciona el nivel de protección **básico** de ataques de denegación de servicio distribuido (DDoS) habilitados automáticamente como parte de la plataforma Azure. Para más información, consulte [Introducción a Azure DDoS Protection estándar](../ddos-protection/ddos-protection-overview.md). 
 
 En el nivel de servidor, Analysis Services proporciona firewall, autenticación de Azure, roles del administrador de servidor y cifrado del lado del servidor. En el nivel de modelo de datos, los roles de usuario y la seguridad a nivel de fila y a nivel de objeto garantizan que los datos están seguros y los ver solo los usuarios que deben verlos.
 
@@ -211,7 +213,7 @@ Desarrolle e implemente modelos con Visual Studio con proyectos de Analysis Ser
 
 Microsoft Analysis Services Projects está disponible como un paquete VSIX que se puede instalar de manera gratuita. [Descargar de Marketplace](https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftAnalysisServicesModelingProjects). La extensión funciona con cualquier versión de Visual Studio 2017 y versiones posteriores, incluida la edición Community gratuita.
 
-### <a name="sql-server-management-studio"></a>SQL Server Management Studio
+### <a name="sql-server-management-studio"></a>SQL Server Management Studio
 
 Administrar los servidores y las bases de datos modelo mediante el uso de [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms). Conéctese a los servidores en la nube. Ejecute scripts de TMSL directamente desde la ventana de consultas XMLA y automatice las tareas mediante los scripts de TMSL y PowerShell. Surgen nuevas características y funcionalidades con gran rapidez: SSMS se actualiza mensualmente.
 

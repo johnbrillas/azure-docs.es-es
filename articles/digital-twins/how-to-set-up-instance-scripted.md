@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 5806ea094abd3431cd7e22064c6acd8ad150726a
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 1667c21b9a35b8e93feffb8cf1b37d4409da73c3
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495013"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98044313"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Configuración de una instancia de Azure Digital Twins y autenticación (con scripts)
 
 [!INCLUDE [digital-twins-setup-selector.md](../../includes/digital-twins-setup-selector.md)]
 
-En este artículo se describen los pasos para **configurar una nueva instancia de Azure Digital Twins** , incluidas la creación de la instancia y la configuración de la autenticación. Después de completar este artículo, tendrá una instancia de Azure Digital Twins lista para empezar a programar.
+En este artículo se describen los pasos para **configurar una nueva instancia de Azure Digital Twins**, incluidas la creación de la instancia y la configuración de la autenticación. Después de completar este artículo, tendrá una instancia de Azure Digital Twins lista para empezar a programar.
 
 En esta versión de este artículo se completan estos pasos mediante la ejecución de un [**script de implementación automatizada** de ejemplo](/samples/azure-samples/digital-twins-samples/digital-twins-samples/) que simplifica el proceso. 
 * Para ver los pasos manuales de la CLI que el script se ejecuta en segundo plano, consulte la versión de la CLI de este artículo: [*Procedimiento: Configuración de una instancia y autenticación (CLI)*](how-to-set-up-instance-cli.md).
@@ -56,7 +56,7 @@ Estos son los pasos para ejecutar el script de implementación en Cloud Shell.
 
     :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Ventana de Cloud Shell que muestra la selección del icono Cargar":::
 
-    Vaya al archivo _**deploy.ps1**_ en la máquina (en _Azure_Digital_Twins_end_to_end_samples > scripts > **deploy.ps1**_ ) y presione "Abrir". Con esta acción se cargará el archivo en Cloud Shell para que pueda ejecutarlo en la ventana de Cloud Shell.
+    Vaya al archivo _**deploy.ps1**_ en la máquina (en _Azure_Digital_Twins_end_to_end_samples > scripts > **deploy.ps1**_) y presione "Abrir". Con esta acción se cargará el archivo en Cloud Shell para que pueda ejecutarlo en la ventana de Cloud Shell.
 
 4. Ejecute el script mediante el envío del comando `./deploy.ps1` en la ventana de Cloud Shell. Puede copiar el comando siguiente (recuerde que, para pegar contenido en Cloud Shell, puede usar **Control + Mayús + V** en Windows y Linux, o **Cmd + Mayús + V** en macOS. También puede utilizar el menú contextual).
 
@@ -70,7 +70,7 @@ Estos son los pasos para ejecutar el script de implementación en Cloud Shell.
     * Por ejemplo, el *identificador de suscripción* de la suscripción de Azure.
     * Por ejemplo, una *ubicación* en la que quiera implementar la instancia. Para ver qué regiones admiten Azure Digital Twins, visite [*Productos de Azure disponibles por región*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
     * Por ejemplo, el nombre de un *grupo de recursos*. Puede usar un grupo de recursos existente o escribir un nuevo nombre para crear uno.
-    * Por ejemplo, un *nombre* para la instancia de Azure Digital Twins. El nombre de la nueva instancia debe ser único dentro de la región de la suscripción (lo que significa que si la suscripción tiene otra instancia de Azure Digital Twins en la región que ya usa el nombre elegido, se le solicitará que elija otro nombre).
+    * Por ejemplo, un *nombre* para la instancia de Azure Digital Twins. Si su suscripción tiene otra instancia de Azure Digital Twins en la región que ya usa el nombre especificado, se le pedirá que elija un nombre diferente.
 
 A continuación se muestra un extracto del registro de salida del script:
 
@@ -79,7 +79,7 @@ A continuación se muestra un extracto del registro de salida del script:
 Si el script se completa correctamente, la copia impresa final indicará `Deployment completed successfully`. De lo contrario, solucione el mensaje de error y vuelva a ejecutar el script. Omitirá los pasos que ya ha completado y volverá a solicitar la entrada en el punto en el que se quedó.
 
 > [!NOTE]
-> Actualmente, el script asigna el rol de administración necesario en Azure Digital Twins ( *Propietario de datos de Azure Digital Twins* ) al mismo usuario que ejecuta el script desde Cloud Shell. Si tiene que asignar este rol a otra persona que vaya a administrar la instancia, puede hacerlo ahora a través de Azure Portal ([instrucciones](how-to-set-up-instance-portal.md#set-up-user-access-permissions)) o la CLI ([instrucciones](how-to-set-up-instance-cli.md#set-up-user-access-permissions)).
+> Actualmente, el script asigna el rol de administración necesario en Azure Digital Twins (*Propietario de datos de Azure Digital Twins*) al mismo usuario que ejecuta el script desde Cloud Shell. Si tiene que asignar este rol a otra persona que vaya a administrar la instancia, puede hacerlo ahora a través de Azure Portal ([instrucciones](how-to-set-up-instance-portal.md#set-up-user-access-permissions)) o la CLI ([instrucciones](how-to-set-up-instance-cli.md#set-up-user-access-permissions)).
 
 >[!NOTE]
 >Actualmente hay un **problema conocido** con la instalación con scripts, por el que algunos usuarios (especialmente los usuarios de las [cuentas de Microsoft personales o MSA](https://account.microsoft.com/account)) pueden encontrar que no se creó la **asignación de roles para el _Propietario de datos de Azure Digital Twins_**.
@@ -104,7 +104,7 @@ Si la comprobación no se ha realizado correctamente, puede volver a intentar la
 
 ### <a name="collect-instance-values"></a>Recopilación de valores de la instancia
 
-Seleccione el nombre de la instancia en la [página Azure Digital Twins](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.DigitalTwins%2FdigitalTwinsInstances) para abrir la página *Información general* de la instancia. Anote su *Nombre* , *Grupo de recursos* y *Nombre de host*. Puede necesitarlos más adelante para identificar la instancia y conectarse a ella.
+Seleccione el nombre de la instancia en la [página Azure Digital Twins](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.DigitalTwins%2FdigitalTwinsInstances) para abrir la página *Información general* de la instancia. Anote su *Nombre*, *Grupo de recursos* y *Nombre de host*. Puede necesitarlos más adelante para identificar la instancia y conectarse a ella.
 
 :::image type="content" source="media/how-to-set-up-instance/portal/instance-important-values.png" alt-text="Resaltado de los valores importantes en la página de información general de la instancia":::
 

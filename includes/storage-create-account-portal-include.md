@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 09/25/2020
+ms.date: 01/11/2021
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: f8959904482bda8dc26e4df626377027e1ab4bd1
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 3da4fd26b3f985e034ca60039c09412e8237e965
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96005558"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98109499"
 ---
 Para crear una cuenta de almacenamiento de uso general v2 en Azure Portal, siga estos pasos:
 
@@ -26,8 +26,7 @@ Para crear una cuenta de almacenamiento de uso general v2 en Azure Portal, siga 
 1. Seleccione un nivel de rendimiento. El valor predeterminado es *Estándar*.
 1. En el campo **Tipo de cuenta**, elija *Storage V2 (general-purpose v2)* [Storage V2 (uso general v2)].
 1. Especifique cómo se replicará la cuenta de almacenamiento. La opción de replicación predeterminada es *Almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS)* . Para más información acerca de las opciones de replicación disponibles, consulte [Redundancia de Azure Storage](../articles/storage/common/storage-redundancy.md).
-1. Especifique el nivel de acceso de los blobs en la cuenta de almacenamiento. El nivel predeterminado es *frecuente*. Para más información acerca de los niveles de acceso de los blobs, consulte [Niveles de acceso frecuente, esporádico y de archivo de los blobs](../articles/storage/blobs/storage-blob-storage-tiers.md).
-1. Para utilizar Azure Data Lake Storage, elija la pestaña **Opciones avanzadas** y, después, establezca **Espacio de nombres jerárquico** en **Habilitado**. Para más información, consulte [Introducción a Azure Data Lake Storage Gen2](../articles/storage/blobs/data-lake-storage-introduction.md).
+1. Hay otras opciones disponibles en las pestañas **Redes**, **Protección de datos**, **Opciones avanzadas** y **Etiquetas**. Para utilizar Azure Data Lake Storage, elija la pestaña **Opciones avanzadas** y, después, establezca **Espacio de nombres jerárquico** en **Habilitado**. Para más información, consulte [Introducción a Azure Data Lake Storage Gen2](../articles/storage/blobs/data-lake-storage-introduction.md).
 1. Seleccione **Revisar y crear** para revisar la configuración de la cuenta de almacenamiento y crear la cuenta.
 1. Seleccione **Crear**.
 

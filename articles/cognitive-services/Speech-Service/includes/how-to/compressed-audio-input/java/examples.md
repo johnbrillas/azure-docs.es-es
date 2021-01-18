@@ -4,14 +4,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/09/2020
 ms.author: trbye
-ms.openlocfilehash: caada98d3a2bcc4acb566cb02065c6451c233066
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e9b980dcbe42694137c7b29ee3bddaa7802db3da
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86544972"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97978812"
 ---
-Para hacer streaming en un formato de audio comprimido al servicio de voz, cree un elemento `PullAudioInputStream` o `PushAudioInputStream`. A continuación, cree un objeto `AudioConfig` a partir de una instancia de la clase de secuencia, especificando el formato de compresión de la secuencia.
+Para configurar el SDK de Voz para que acepte entradas de audio comprimidas, cree `PullAudioInputStream` o `PushAudioInputStream`. A continuación, cree un objeto `AudioConfig` a partir de una instancia de la clase de secuencia, especificando el formato de compresión de la secuencia.
 
 Supongamos que tiene una clase de flujo de entrada llamada `pullStream` y que usa OPUS/OGG. El aspecto del código sería el siguiente:
 

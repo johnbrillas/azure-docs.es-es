@@ -9,13 +9,13 @@ manager: diviso
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
-ms.date: 10/02/2020
-ms.openlocfilehash: 3956f8d91793367f7200d2f349a8713aff3d2f59
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.date: 01/11/2021
+ms.openlocfilehash: cb5bac06ab6eeaa00e72ba6068328a972b8ac37b
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95016231"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98119368"
 ---
 # <a name="quickstart-explore-the-azure-time-series-insights-gen2-demo-environment"></a>Inicio rápido: Exploración del entorno de demo de Azure Time Series Insights Gen2
 
@@ -38,12 +38,27 @@ El explorador de Azure Time Series Insights Gen2 muestra datos históricos y an�
 
 ## <a name="work-with-historical-data"></a>Trabajo con datos históricos
 
-1. En **Contoso Plant 1**, examine la turbina eólica **W7**.  
+1. Seleccione **Jerarquía de Contoso WindFarm**.
+
+   [![Jerarquía de Contoso WindFarm](media/quickstart-explore/quick-start-contoso-1.png)](media/quickstart-explore/quick-start-contoso-1.png#lightbox)
+
+1. En **Contoso Plant 1**, examine la turbina eólica **W7**.
+
+   [![W7 en Contoso Plant 1](media/quickstart-explore/quick-start-contoso-2.png)](media/quickstart-explore/quick-start-contoso-2.png#lightbox)
 
    1. Cambie el intervalo de la vista a **1/1/17 20:00:00.00 to 3/10/17 20:00:00.00 (UTC)** .
+
+      [![Vista de intervalo](media/quickstart-explore/range-setting-1.png)](media/quickstart-explore/range-setting-1.png#lightbox)
+
+      [![Configuración de la vista de intervalo](media/quickstart-explore/range-setting-2.png)](media/quickstart-explore/range-setting-2.png#lightbox)
+
+   1. Ajuste la vista de intervalo: acerque **(+)** y aleje **(-)** y mueva la barra de desplazamiento.
+
+      [![Ajuste de la vista de intervalo](media/quickstart-explore/view-range-setting.png)](media/quickstart-explore/view-range-setting.png#lightbox)
+
    1. Para seleccionar el sensor, elija **Contoso Plant 1** > **W7** > **Generator System** > **GeneratorSpeed**. Luego, revise los valores que se muestran.
 
-      [![W7 en Contoso Plant 1](media/v2-update-quickstart/quick-start-generator-speed.png)](media/v2-update-quickstart/quick-start-generator-speed.png#lightbox)
+      [![Velocidad del generador](media/quickstart-explore/quick-start-generator-speed-1.png)](media/quickstart-explore/quick-start-generator-speed-1.png#lightbox)
 
 1. Recientemente, Contoso encontró un incendio en el **aerogenerador número 7**. Las opiniones sobre lo que ha provocado el fuego varían. En Azure Time Series Insights Gen2, se muestra el sensor de alerta de incendio que se activó durante el incendio.
 

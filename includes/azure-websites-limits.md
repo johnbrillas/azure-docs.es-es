@@ -4,12 +4,12 @@ ms.service: app-service
 ms.topic: include
 ms.date: 03/04/2020
 ms.author: jroth
-ms.openlocfilehash: 6265a7cde8e276570409238cadfd5ebc777b4527
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 71782661fd960cae3248005a8b90944eff9bef45
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97531881"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98024282"
 ---
 | Resource | Gratuito | Compartido | Básica | Estándar | Premium (v1-v3) | Aislado </th> |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -31,6 +31,7 @@ ms.locfileid: "97531881"
 | Compatibilidad con dominio [Compatibilidad con SSL](../articles/app-service/configure-ssl-certificate.md) |No admitido, certificado comodín para \*.azurewebsites.net disponible de forma predeterminada.|No admitido, certificado comodín para \*.azurewebsites.net disponible de forma predeterminada.|Conexiones SSL SNI ilimitadas |Se incluyen conexiones SNI SSL ilimitadas y 1 conexión SSL de IP |Se incluyen conexiones SNI SSL ilimitadas y 1 conexión SSL de IP | Se incluyen conexiones SNI SSL ilimitadas y 1 conexión SSL de IP|
 | Conexiones híbridas | | | 5 por plan | 25 por plan | 200 por aplicación | 200 por aplicación |
 | [Integración de Virtual Network](../articles/app-service/web-sites-integrate-with-vnet.md) | | |   |  X |  X  |  X  |
+| [Puntos de conexión privados](../articles/app-service/networking/private-endpoint.md) | | |   |   |  100 por aplicación  |    |
 | Equilibrador de carga integrado | |X |X |X |X |X<sup>10</sup> |
 | [Restricciones de acceso](../articles/app-service/networking-features.md#access-restrictions) | 512 reglas por aplicación | 512 reglas por aplicación | 512 reglas por aplicación | 512 reglas por aplicación | 512 reglas por aplicación | 512 reglas por aplicación |
 | [Always On](../articles/app-service/configure-common.md) | | |X |X |X |X |

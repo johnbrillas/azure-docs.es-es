@@ -7,14 +7,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: reference
-ms.date: 10/01/2020
+ms.date: 01/12/2020
 ms.author: mbaldwin
-ms.openlocfilehash: dbbde397ab235068ea90280da721e3e3dc38866a
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: ef2c42ae76dc5e1511494635904228a8b574d483
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792368"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132195"
 ---
 # <a name="whats-new-for-azure-key-vault"></a>Novedades de Azure Key Vault
 
@@ -37,7 +37,7 @@ Para admitir la [activación predeterminada de la eliminación temporal](#soft-d
 
 ### <a name="soft-delete-on-by-default"></a>Activación predeterminada de la eliminación temporal
 
-A finales de 2020, la **eliminación temporal estará activada de forma predeterminada en todos los almacenes de claves** , tanto nuevos como existentes. Para obtener toda la información no solo sobre este posible cambio importante, sino también sobre los pasos necesarios para buscar los almacenes de claves afectados y actualizarlos de antemano, consulte el artículo [La eliminación temporal se habilitará en todos los almacenes de claves](soft-delete-change.md).
+**Es preciso habilitar la eliminación temporal en todos los almacenes de claves**, tanto nuevos como preexistentes. En los próximos meses, la posibilidad de optar por no realizar la eliminación temporal estará en desuso. Para obtener toda la información no solo sobre este posible cambio importante, sino también sobre los pasos necesarios para buscar los almacenes de claves afectados y actualizarlos de antemano, consulte el artículo [La eliminación temporal se habilitará en todos los almacenes de claves](soft-delete-change.md).
 
 ### <a name="azure-tls-certificate-changes"></a>Cambios en los certificados TLS de Azure
 

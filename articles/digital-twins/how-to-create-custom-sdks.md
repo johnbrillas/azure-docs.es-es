@@ -8,12 +8,12 @@ ms.date: 4/24/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: devx-track-js
-ms.openlocfilehash: c1dbdc4761c107a8e5028a43ead9710d45526016
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 3bc24e88368af056e4d4506a5cf688e1172d4930
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461177"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98051571"
 ---
 # <a name="create-custom-sdks-for-azure-digital-twins-using-autorest"></a>Creación de SDK personalizados para Azure Digital Twins con AutoRest
 
@@ -99,17 +99,7 @@ Siempre que se produzca un error en el SDK (incluidos los errores HTTP, como 404
 
 A continuación se muestra un fragmento de código que intenta agregar un gemelo y detecta cualquier error en este proceso:
 
-```csharp
-try
-{
-    await client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>(id, initData);
-    Console.WriteLine($"Created a twin successfully: {id}");
-}
-catch (ErrorResponseException e)
-{
-    Console.WriteLine($"*** Error creating twin {id}: {e.Response.StatusCode}"); 
-}
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="CreateTwin_errorHandling":::
 
 ### <a name="paging"></a>Paginación
 
@@ -117,62 +107,15 @@ AutoRest genera dos tipos de patrones de paginación para el SDK:
 * Uno para todas las API, excepto la API de consulta
 * Uno para la API de consulta
 
-En el patrón de paginación sin consultas se incluye un fragmento de código que muestra cómo recuperar una lista paginada de relaciones de salida de Azure Digital Twins:
+En el patrón de paginación sin consultas se incluye un método de ejemplo que muestra cómo recuperar una lista paginada de relaciones de salida de Azure Digital Twins:
 
-```csharp
- try 
- {
-     // List the relationships.
-    AsyncPageable<BasicRelationship> results = client.GetRelationshipsAsync<BasicRelationship>(srcId);
-    Console.WriteLine($"Twin {srcId} is connected to:");
-    // Iterate through the relationships found.
-    int numberOfRelationships = 0;
-    await foreach (string rel in results)
-    {
-         ++numberOfRelationships;
-         // Do something with each relationship found
-         Console.WriteLine($"Found relationship-{rel.Name}->{rel.TargetId}");
-    }
-    Console.WriteLine($"Found {numberOfRelationships} relationships on {srcId}");
-} catch (RequestFailedException rex) {
-    Console.WriteLine($"Relationship retrieval error: {rex.Status}:{rex.Message}");   
-}
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="FindOutgoingRelationshipsMethod":::
 
 El segundo patrón solo se genera para la API de consulta. Usa `continuationToken` explícitamente.
 
 A continuación, se indica un ejemplo con este patrón:
 
-```csharp
-string query = "SELECT * FROM digitaltwins";
-string conToken = null; // continuation token from the query
-int page = 0;
-try
-{
-    // Repeat the query while there are pages
-    do
-    {
-        QuerySpecification spec = new QuerySpecification(query, conToken);
-        QueryResult qr = await client.Query.QueryTwinsAsync(spec);
-        page++;
-        Console.WriteLine($"== Query results page {page}:");
-        if (qr.Items != null)
-        {
-            // Query returns are JObjects
-            foreach(JObject o in qr.Items)
-            {
-                string twinId = o.Value<string>("$dtId");
-                Console.WriteLine($"  Found {twinId}");
-            }
-        }
-        Console.WriteLine($"== End query results page {page}");
-        conToken = qr.ContinuationToken;
-    } while (conToken != null);
-} catch (ErrorResponseException e)
-{
-    Console.WriteLine($"*** Error in twin query: ${e.Response.StatusCode}");
-}
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/queries.cs" id="PagedQuery":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

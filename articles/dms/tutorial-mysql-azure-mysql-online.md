@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 01/08/2020
-ms.openlocfilehash: 41c0bd23bbd2d69506a979c5a36ac40f73258f2c
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: ab03e0bdf7761e45a134ec90685955403fbc433b
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97605520"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060391"
 ---
 # <a name="tutorial-migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>Tutorial: Migración de MySQL a Azure Database for MySQL en línea mediante DMS
 
@@ -237,7 +237,7 @@ Después de crear el servicio, búsquelo en Azure Portal, ábralo y cree un proy
 
     ![Asignación a bases de datos de destino](media/tutorial-mysql-to-azure-mysql-online/dms-map-target-details.png)
    > [!NOTE] 
-   > Aunque puede seleccionar varias bases de datos en este paso, cada instancia de Azure Database Migration Service admite hasta cuatro bases de datos para la migración simultánea. Además, hay un límite de dos instancias de Azure Database Migration Service por región en una suscripción. Por ejemplo, si tiene 40 bases de datos para migrar, solo puede migrar ocho simultáneamente y solo si ha creado dos instancias de Azure Database Migration Service.
+   > Aunque en este paso se pueden seleccionar varias bases de datos, cada instancia de Azure Database Migration Service admite un máximo de cuatro para la migración simultánea. Además, hay un límite de diez instancias de Azure Database Migration Service por suscripción y región. Por ejemplo, si tiene 80 bases de datos para migrar, no puede migrar más de 40 simultáneamente, y solo si ha creado 10 instancias de Azure Database Migration Service.
 
 3. Seleccione **Guardar**, en la pantalla **Resumen de migración**, en el cuadro de texto **Nombre de la actividad**, especifique un nombre para la actividad de migración y, a continuación, revise el resumen para asegurarse de que los detalles de origen y destino coinciden con lo que especificó anteriormente.
 
