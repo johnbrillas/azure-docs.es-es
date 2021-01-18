@@ -125,7 +125,7 @@ Estos valores predeterminados de seguridad gratis permiten el registro y el uso 
 | Método | Valores predeterminados de seguridad | Acceso condicional |
 | --- | --- | --- |
 | Notificación a través de aplicación móvil | X | X |
-| Código de verificación de aplicación móvil o token de hardware | X** | X |
+| Código de verificación de aplicación móvil o token de hardware | X* | X |
 | Mensaje de texto al teléfono |   | X |
 | Llamada al teléfono |   | X |
 | Contraseñas de aplicación |   | X**_ |
