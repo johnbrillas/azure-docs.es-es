@@ -730,7 +730,7 @@
               href: ../data-factory/connector-azure-databricks-delta-lake.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Azure File Storage
               href: ../data-factory/connector-azure-file-storage.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Azure SQL Database
+            - name: "Azure\_SQL\_Database"
               href: ../data-factory/connector-azure-sql-database.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Instancia administrada de Azure SQL
               href: ../data-factory/connector-azure-sql-managed-instance.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json
@@ -1094,25 +1094,26 @@
     - name: Tutoriales
       items:
         - name: Visualización de data con Apache Spark
+          displayname: machine learning
           href: ./spark/apache-spark-data-visualization-tutorial.md
-          displayname: machine learning
         - name: Uso del Asistente para puntuación para los grupos de SQL dedicados
-          href: machine-learning/tutorial-sql-pool-model-scoring-wizard.md
           displayname: machine learning
+          href: machine-learning/tutorial-sql-pool-model-scoring-wizard.md
         - name: Entrenamiento de un modelo sin código con AutoML
+          displayname: machine learning
           href: ./machine-learning/tutorial-automl.md
         - name: Entrenamiento de un modelo en Python con AutoML
+          displayname: machine learning
           href: ./spark/apache-spark-azure-machine-learning-tutorial.md
-          displayname: machine learning
         - name: Creación de un modelo con Apache Spark MLlib
-          href: ./spark/apache-spark-machine-learning-mllib-notebook.md
           displayname: machine learning
+          href: ./spark/apache-spark-machine-learning-mllib-notebook.md
+        - name: Configuración de Cognitive Services para Azure Synapse
+          href: ./machine-learning/tutorial-configure-cognitive-services-synapse.md
         - name: Análisis de sentimiento con Cognitive Services
           href: ./machine-learning/tutorial-cognitive-services-sentiment.md
         - name: Detección de anomalías con Cognitive Services
           href: ./machine-learning/tutorial-cognitive-services-anomaly.md
-        - name: Configuración de Cognitive Services para Azure Synapse
-          href: ./machine-learning/tutorial-configure-cognitive-services-synapse.md
 - name: Data Catalog y gobernanza
   items:
     - name: Guías de inicio rápido
