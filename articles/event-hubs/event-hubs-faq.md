@@ -3,12 +3,12 @@ title: Preguntas más frecuentes sobre Azure Event Hubs | Microsoft Docs
 description: En este artículo se proporciona una lista de las preguntas más frecuentes (P+F) acerca de Azure Event Hubs y sus respuestas.
 ms.topic: article
 ms.date: 10/27/2020
-ms.openlocfilehash: c756d0bccd9b2ad303bd97d3bfb7aed8b0b82b09
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: e7a34fe0f2ef04fffeeddc5615d3ac1749467902
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96002804"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955423"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Preguntas frecuentes sobre Event Hubs
 
@@ -153,7 +153,7 @@ Para obtener instrucciones paso a paso y más información sobre la configuraci�
 ## <a name="partitions"></a>Particiones
 
 ### <a name="how-many-partitions-do-i-need"></a>¿Cuántas particiones necesito?
-El número de particiones se especifica en el momento de la creación y debe estar comprendido entre 1 y 32. El número de particiones no es modificable, por lo que debería tener en cuenta el escalado a largo plazo a la hora de configurar este número. Las particiones son un mecanismo de organización de datos relacionado con el paralelismo de bajada necesario para consumir las aplicaciones. El número de particiones de un centro de eventos está directamente relacionado con el número de lectores simultáneos que espera tener. Para más información sobre las particiones, consulte [Particiones](event-hubs-features.md#partitions).
+El número de particiones se especifica en el momento de la creación y debe estar comprendido entre 1 y 32. El número de particiones no es modificable en ninguno de los niveles, excepto en el [nivel dedicado](event-hubs-dedicated-overview.md), por lo que debería tener en cuenta el escalado a largo plazo a la hora de configurar este número. Las particiones son un mecanismo de organización de datos relacionado con el paralelismo de bajada necesario para consumir las aplicaciones. El número de particiones de un centro de eventos está directamente relacionado con el número de lectores simultáneos que espera tener. Para más información sobre las particiones, consulte [Particiones](event-hubs-features.md#partitions).
 
 Es posible que quiera establecer el valor lo más alto posible, que es 32, en el momento de la creación. Recuerde que, si hay más de una partición, los eventos se enviarán a varias particiones sin conservar el orden, a menos que configure los remitentes para que solo realicen el envío a una única partición de las 32, lo que hará que las 31 restantes sean redundantes. En el primer caso, tendrá que leer eventos en las 32 particiones. En el último caso, no hay ningún costo adicional obvio aparte de la configuración adicional que debe realizar en el host del procesador de eventos.
 

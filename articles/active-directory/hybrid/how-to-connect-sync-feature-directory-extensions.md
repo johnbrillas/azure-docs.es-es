@@ -16,12 +16,12 @@ ms.date: 11/12/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74bc659c11c4f43ab3cf85cdc53f704cd07a1cde
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 25d4152783129fa1c5950d6cf6287332bf90d32a
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96172374"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97976884"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Sincronización de Azure AD Connect: Sincronización de Azure AD Connect: Extensiones de directorio
 Puede usar extensiones de directorio para ampliar el esquema de Azure Active Directory (Azure AD) con sus propios atributos desde Active Directory local. Esta característica le permite compilar aplicaciones de LOB mediante el consumo de atributos que sigue administrando de forma local. Estos atributos se pueden consumir mediante [extensiones](/graph/extensibility-overview
@@ -46,7 +46,7 @@ La instalación muestra los atributos siguientes, que son candidatos válidos:
 
 
 >[!NOTE]
-> Aunque Azure AD Connect admite la sincronización con varios valores de atributos de Active Directory con Azure AD como extensiones de directorio con varios valores, actualmente no hay forma de recuperar o consumir los datos cargados en los atributos de extensiones de directorio con varios valores.
+> Después de que Azure AD Connect haya sincronizado un atributo de Active Directory con varios valores para Azure AD como extensión de atributo con varios valores, es posible incluir el atributo en la declaración de SAML. Sin embargo, no es posible consumir estos datos a través de la llamada API.
 
 La lista de atributos se lee de la memoria caché de esquemas creada durante la instalación de Azure AD Connect. Si ha ampliado el esquema de Active Directory con atributos adicionales, se debe [actualizar el esquema](how-to-connect-installation-wizard.md#refresh-directory-schema) para que los nuevos atributos estén visibles.
 

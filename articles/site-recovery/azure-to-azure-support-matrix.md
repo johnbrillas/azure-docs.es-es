@@ -4,12 +4,12 @@ description: Resume la compatibilidad con la recuperación ante desastres de má
 ms.topic: article
 ms.date: 11/29/2020
 ms.author: raynew
-ms.openlocfilehash: a6a5d78385cc61838a606a3f3d2a7277f6b66a4d
-ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
+ms.openlocfilehash: 9670178a9c9d772d8966413371f998aa1f0cf5f3
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97858542"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97968315"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matriz de soporte para la recuperación ante desastres de máquinas virtuales de Azure entre regiones de Azure
 
@@ -198,6 +198,7 @@ Máquinas virtuales migradas con Site Recovery | Compatible | Si se migró una m
 Directivas de RBAC de Azure | No compatible | Las directivas de control de acceso basado en rol de Azure (RBAC de Azure) de las máquinas virtuales no se replican en la máquina virtual de conmutación por error de la región de destino.
 Extensiones | No compatible | Las extensiones no se replican en la máquina virtual de conmutación por error en la región de destino. Deben instalarse manualmente después de la conmutación por error.
 Grupos con ubicación por proximidad | Compatible | Las máquinas virtuales que se encuentran dentro de un grupo con ubicación por proximidad se pueden proteger mediante Site Recovery.
+Etiquetas  | Compatible | Las etiquetas generadas por el usuario aplicadas en máquinas virtuales de origen se trasladan a máquinas virtuales de destino después de la conmutación por error o conmutación por error de prueba.
 
 
 ## <a name="replicated-machines---disk-actions"></a>Máquinas replicadas: acciones de disco
@@ -256,6 +257,7 @@ Discos NVMe | No compatible
 Discos compartidos de Azure | No compatible
 Opción de transferencia segura | Compatible
 Discos con el acelerador de escritura habilitado | No compatible
+Etiquetas  | Las etiquetas generadas por el usuario se replican cada 24 horas.
 
 >[!IMPORTANT]
 > Para evitar cualquier problema de rendimiento, asegúrese de respetar los objetivos de escalabilidad y rendimiento del disco de la máquina virtual de máquinas virtuales [Linux](../virtual-machines/linux/disk-scalability-targets.md) o [Windows](../virtual-machines/windows/disk-scalability-targets.md). Si usa la configuración predeterminada, Site Recovery crea las cuentas de almacenamiento y los discos necesarios en función de la configuración de origen. Si personaliza y selecciona su propia configuración, respete los objetivos de escalabilidad y rendimiento del disco de las máquinas virtuales de origen.
@@ -302,6 +304,7 @@ Redes aceleradas | Compatible | Se deben habilitar las redes aceleradas en una m
 Dispositivo de Palo Alto Networks | No compatible | Con los dispositivos de terceros, a menudo hay restricciones impuestas por el proveedor dentro de la máquina virtual. Azure Site Recovery necesita que el agente, las extensiones y la conectividad saliente estén disponibles. Pero el dispositivo no permite que se configure ninguna actividad saliente dentro de la máquina virtual.
 IPv6  | No compatible | Tampoco se admiten configuraciones mixtas que incluyan IPv4 e IPv6. Libere la subred del intervalo IPv6 antes de cualquier operación de Site Recovery.
 Acceso de vínculo privado al servicio Site Recovery | Compatible | [Más información](azure-to-azure-how-to-enable-replication-private-endpoints.md)
+Etiquetas  | Compatible | Las etiquetas generadas por el usuario en NIC se replican cada 24 horas.
 
 
 

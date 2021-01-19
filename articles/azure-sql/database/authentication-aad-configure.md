@@ -12,12 +12,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, sstein
 ms.date: 08/17/2020
-ms.openlocfilehash: 5558480f568e802637deb30c9f1b41c00826c9b5
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 2c7db937905baed94c6fe81adeb44c8b3f5be52b
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96454508"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936080"
 ---
 # <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Configuración y administración de la autenticación de Azure AD con Azure SQL
 
@@ -395,7 +395,7 @@ CREATE USER [appName] FROM EXTERNAL PROVIDER;
 ```
 
 > [!NOTE]
-> Este comando requiere acceso de SQL a Azure AD ("proveedor externo") en nombre del usuario que ha iniciado sesión. A veces, surgen circunstancias que hacen que Azure AD devuelva una excepción a SQL. En estos casos, el usuario verá el error 33134 de SQL, que debe contener el mensaje de error específico de Azure AD. La mayor parte de las veces el error indica que se deniega el acceso, que el usuario debe inscribirse en MFA para acceder al recurso, o que el acceso entre las aplicaciones propias debe controlarse con autorización previa. En los dos primeros casos, el problema se debe normalmente a las directivas de acceso condicional que se establecen en el inquilino de Azure AD del usuario, ya que impiden que el usuario acceda al proveedor externo. Si se actualizan las directivas de la entidad de certificación para permitir el acceso a la aplicación "00000002-0000-0000-c000-000000000000" (identificador de aplicación de Graph API de Azure AD), se debería resolver el problema. En caso de que el error indique que el acceso entre las aplicaciones propias debe controlarse con autorización previa, el problema se debe a que el usuario ha iniciado sesión como entidad de servicio. El comando debe ejecutarse correctamente si lo ejecuta un usuario.
+> Este comando requiere acceso de SQL a Azure AD ("proveedor externo") en nombre del usuario que ha iniciado sesión. A veces, surgen circunstancias que hacen que Azure AD devuelva una excepción a SQL. En estos casos, el usuario verá el error 33134 de SQL, que debe contener el mensaje de error específico de Azure AD. La mayor parte de las veces el error indica que se deniega el acceso, que el usuario debe inscribirse en MFA para acceder al recurso, o que el acceso entre las aplicaciones propias debe controlarse con autorización previa. En los dos primeros casos, el problema se debe normalmente a las directivas de acceso condicional que se establecen en el inquilino de Azure AD del usuario, ya que impiden que el usuario acceda al proveedor externo. Si se actualizan las directivas de acceso condicional para permitir el acceso a la aplicación "00000002-0000-0000-c000-000000000000" (identificador de aplicación de Graph API de Azure AD), se debería resolver el problema. En caso de que el error indique que el acceso entre las aplicaciones propias debe controlarse con autorización previa, el problema se debe a que el usuario ha iniciado sesión como entidad de servicio. El comando debe ejecutarse correctamente si lo ejecuta un usuario.
 
 > [!TIP]
 > No puede crear directamente un usuario a partir de una instancia de Azure Active Directory distinta a la que esté asociada a su suscripción de Azure. Sin embargo, se pueden agregar miembros de otras instancias de AD que sean usuarios importados en el Active Directory asociado (que se conocen como "usuarios externos") a un grupo de Active Directory del AD inquilino. Al crear un usuario de la base de datos independiente para ese grupo de AD, los usuarios del Active Directory externo pueden obtener acceso a SQL Database.

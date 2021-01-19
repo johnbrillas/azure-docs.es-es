@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81f4407ee7721332a4143952d1720151bb70d8c9
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 61f655d459592022a2e34b87adc50e3d49b03dc9
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94837545"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935774"
 ---
 # <a name="conditional-access-securing-security-info-registration"></a>Acceso condicional: Protección del registro de información de seguridad
 
@@ -61,7 +61,7 @@ Algunos pueden optar por usar el estado del dispositivo en lugar de la ubicació
 
 > [!WARNING]
 > Si usa el estado del dispositivo como condición en la directiva, esto puede afectar a los usuarios invitados en el directorio. El [Modo de solo informe](concept-conditional-access-report-only.md) puede ayudar a determinar el impacto de las decisiones de la directiva.
-> Tenga en cuenta que el modo de solo informe no es aplicable a las directivas de CA con el ámbito "acciones del usuario".
+> Tenga en cuenta que el modo de solo informe no es aplicable a las directivas de acceso condicional con el ámbito "Acciones del usuario".
 
 ## <a name="next-steps"></a>Pasos siguientes
 

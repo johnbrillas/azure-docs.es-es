@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2020
 ms.author: terrylan
-ms.openlocfilehash: af61b6ee1e69d175f47170df30f75832033d61d5
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 84229ce3562f9cdcc4b55704eaa4f3b891a43d75
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96489724"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97968949"
 ---
 # <a name="penetration-testing"></a>Pruebas de penetración
 
@@ -46,7 +46,7 @@ Entre las pruebas estándar que puede realizar se incluyen:
 Un tipo de prueba que no puede realizar es cualquier tipo de ataque de [denegación de servicio (DoS)](https://en.wikipedia.org/wiki/Denial-of-service_attack). Esta prueba incluye iniciar un ataque de denegación de servicio o realizar pruebas relacionadas que puedan determinar, demostrar o simular cualquier tipo de ataque de denegación de servicio.
 
 >[!Note]
->Microsoft se ha asociado con BreakingPoint Cloud para crear una interfaz en la que pueda generar tráfico destinado a las direcciones IP públicas que tengan habilitado el servicio DDoS Protection con fines de simulación. Para más información sobre la simulación de la nube de punto de interrupción, consulte [Validación de la detección de DDoS](../../ddos-protection/manage-ddos-protection.md#validate-and-test).
+>Microsoft se ha asociado con BreakingPoint Cloud para crear una interfaz en la que pueda generar tráfico destinado a las direcciones IP públicas que tengan habilitado el servicio DDoS Protection con fines de simulación. Para obtener más información sobre la simulación de BreakingPoint Cloud, consulte [Pruebas a través de simulaciones](../../ddos-protection/test-through-simulations.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

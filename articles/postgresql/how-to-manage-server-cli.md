@@ -3,15 +3,15 @@ title: Administración de un servidor mediante la CLI de Azure en Azure Database
 description: Obtenga información sobre cómo administrar un servidor de Azure Database for PostgreSQL desde la CLI de Azure.
 author: ajlam
 ms.author: andrela
-ms.service: mysql
+ms.service: postgresql
 ms.topic: how-to
 ms.date: 9/22/2020
-ms.openlocfilehash: d99634388b9c4db99c996cfccb9bb5f12682f217
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 2ea07e2bc12e6fc0d62abd462b8537c6a93689f9
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490125"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935808"
 ---
 # <a name="manage-an-azure-database-for-postgresql-single-server-using-the-azure-cli"></a>Administración con la CLI de Azure de una instancia de Azure Database for PostgreSQL: Servidor único
 
@@ -21,7 +21,7 @@ En este artículo se muestra cómo administrar los servidores únicos implementa
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar. En este artículo es necesario que ejecute la versión 2.0 de la CLI de Azure, o cualquier versión posterior, de forma local. Para ver la versión instalada, ejecute el comando `az --version`. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
 
-Será preciso que inicie sesión en su cuenta mediante el comando [az login](/cli/azure/reference-index#az-login). Tenga en cuenta la propiedad **id** , que hace referencia al **identificador de suscripción** para su cuenta de Azure.
+Será preciso que inicie sesión en su cuenta mediante el comando [az login](/cli/azure/reference-index#az-login). Tenga en cuenta la propiedad **id**, que hace referencia al **identificador de suscripción** para su cuenta de Azure.
 
 ```azurecli-interactive
 az login
@@ -45,7 +45,7 @@ Puede escalar verticalmente su plan de tarifa de forma sencilla, así como el pr
 az postgres server update --resource-group myresourcegroup --name mydemoserver --sku-name GP_Gen5_4 --storage-size 6144
 ```
 
-Estos son los detalles de los argumentos anteriores:
+Estos son los datos de los argumentos anteriores:
 
 **Configuración** | **Valor de ejemplo** | **Descripción**
 ---|---|---

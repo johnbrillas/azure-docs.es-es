@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Uso de GitOps para configurar un clúster de Kubernetes habilitado para Azure Arc (versión preliminar)
 keywords: GitOps, Kubernetes, K8s, Azure, Arc, Azure Kubernetes Service, AKS, contenedores
-ms.openlocfilehash: 85771824a6cecd10346937220e400028a4570377
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 906021377cbfd6960769f98f9dbd15a5c430c71f
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97653459"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955338"
 ---
 # <a name="deploy-configurations-using-gitops-on-arc-enabled-kubernetes-cluster-preview"></a>Implementación de configuraciones mediante GitOps en clústeres de Kubernetes habilitados para Arc (versión preliminar)
 
@@ -150,7 +150,7 @@ Para personalizar la configuración, estos son otros parámetros que puede usar:
 
 `--helm-operator-chart-version`: *Opcional* versión del gráfico para el operador de Helm (si está habilitado). Valor predeterminado: "1.2.0".
 
-`--operator-namespace`: *Opcional* nombre para el espacio de nombres del operador. Valor predeterminado: "default"
+`--operator-namespace`: *Opcional* nombre para el espacio de nombres del operador. Valor predeterminado: "default". Máx. 23 caracteres.
 
 `--operator-params`: *Opcional* parámetros para el operador. Se debe proporcionar entre comillas simples. Por ejemplo: ```--operator-params='--git-readonly --git-path=releases --sync-garbage-collection' ```
 
@@ -169,12 +169,6 @@ Opciones admitidas en --operator-params
 | --git-email  | Correo electrónico que se va a usar para la confirmación de Git. |
 
 * Si no se establece "--git-user" o "--git-email" (lo que significa que no quiere que Flux escriba en el repositorio), --git-readonly se establecerá de forma automática (si todavía no lo ha establecido).
-
-* Si enableHelmOperator es true, las cadenas operatorInstanceName + operatorNamespace no pueden superar los 47 caracteres combinados.  Si no cumple este límite, aparece el siguiente error:
-
-   ```console
-   {"OperatorMessage":"Error: {failed to install chart from path [helm-operator] for release [<operatorInstanceName>-helm-<operatorNamespace>]: err [release name \"<operatorInstanceName>-helm-<operatorNamespace>\" exceeds max length of 53]} occurred while doing the operation : {Installing the operator} on the config","ClusterState":"Installing the operator"}
-   ```
 
 Para obtener más información, vea la [documentación de Flux](https://aka.ms/FluxcdReadme).
 
@@ -251,7 +245,7 @@ Mientras se produce el proceso de aprovisionamiento, `sourceControlConfiguration
 
 ## <a name="apply-configuration-from-a-private-git-repository"></a>Aplicación de la configuración desde un repositorio de Git privado
 
-Si usa un repositorio de Git privado, debe configurar la clave pública SSH en el repositorio. Puede configurar la clave pública en el repositorio de Git o en el usuario de Git que tenga acceso al repositorio. La clave pública SSH será la que proporcione o la que genere Flux.
+Si usa un repositorio de Git privado, debe configurar la clave pública SSH en el repositorio. Puede configurar la clave pública en el repositorio de Git específico o en el usuario de Git que tenga acceso al repositorio. La clave pública SSH será la que proporcione o la que genere Flux.
 
 **Obtención de una clave pública propia**
 
@@ -260,7 +254,7 @@ Si ha generado claves SSH propias, ya dispone de las claves públicas y privadas
 **Obtención de la clave pública mediante la CLI de Azure (útil si Flux genera las claves)**
 
 ```console
-$ az k8sconfiguration show --resource-group <resource group name> --cluster-name <connected cluster name> --name <configuration name> --query 'repositoryPublicKey'
+$ az k8sconfiguration show --resource-group <resource group name> --cluster-name <connected cluster name> --name <configuration name> --cluster-type connectedClusters --query 'repositoryPublicKey' 
 Command group 'k8sconfiguration' is in preview. It may be changed/removed in a future release.
 "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAREDACTED"
 ```

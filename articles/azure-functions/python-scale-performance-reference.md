@@ -4,19 +4,19 @@ description: Obtenga información sobre cómo desarrollar aplicaciones de Azure 
 ms.topic: article
 ms.date: 10/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 3383ec322903d15c6090630890d14ce6d90bc96f
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: baa362f029678f266f154df912a9178a6626667d
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97899387"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935876"
 ---
 # <a name="improve-throughput-performance-of-python-apps-in-azure-functions"></a>Mejora del rendimiento de las aplicaciones de Python en Azure Functions
 
 Al desarrollar contenido para Azure Functions con Python, necesita comprender el rendimiento de las funciones y cómo afecta a la manera en la que se escala la aplicación de funciones. Esto es todavía más importante al diseñar aplicaciones de alto rendimiento. Los principales factores que hay que tener en cuenta al diseñar, escribir y configurar aplicaciones de funciones son las configuraciones de rendimiento y de escalado horizontal.
 
 ## <a name="horizontal-scaling"></a>Escalado horizontal
-De forma predeterminada, Azure Functions supervisa automáticamente la carga en la aplicación y crea instancias de host adicionales para Python según sea necesario. Azure Functions usa umbrales integrados para diferentes tipos de desencadenadores a la hora de decidir cuándo se deben agregar instancias, como la antigüedad de los mensajes y el tamaño de la cola para QueueTrigger. Estos umbrales no puede configurarlos el usuario. Para obtener más información, consulte [Cómo funcionan los planes de consumo y Premium](functions-scale.md#how-the-consumption-and-premium-plans-work).
+De forma predeterminada, Azure Functions supervisa automáticamente la carga en la aplicación y crea instancias de host adicionales para Python según sea necesario. Azure Functions usa umbrales integrados para diferentes tipos de desencadenadores a la hora de decidir cuándo se deben agregar instancias, como la antigüedad de los mensajes y el tamaño de la cola para QueueTrigger. Estos umbrales no puede configurarlos el usuario. Para obtener más información, consulte [Escalado basado en eventos en Azure Functions](event-driven-scaling.md).
 
 ## <a name="improving-throughput-performance"></a>Mejora del rendimiento
 

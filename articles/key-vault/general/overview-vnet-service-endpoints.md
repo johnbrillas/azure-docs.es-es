@@ -1,5 +1,5 @@
 ---
-title: Puntos de conexión de servicio de red virtual para Azure Key Vault | Microsoft Docs
+title: Puntos de conexión de servicio de red virtual para Azure Key Vault
 description: Obtenga información sobre el modo en que los puntos de conexión de servicio de red virtual para Azure Key Vault permiten restringir el acceso a una red virtual especificada, incluidos escenarios de uso.
 services: key-vault
 author: amitbapat
@@ -9,12 +9,12 @@ ms.date: 01/02/2019
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: 9cbce00e2c2743aec57cd857b6f38d20bce33698
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 9dcabe10822fd09c8f7a0da6259d81a089c1a042
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96532914"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936301"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Puntos de conexión de servicio de red virtual para Azure Key Vault
 
@@ -35,28 +35,6 @@ Estos son algunos ejemplos de cómo puede usar los puntos de conexión de servic
 * Si quiere bloquear el acceso al almacén de claves para que solo la aplicación o una lista breve de los hosts designados puedan conectarse al almacén de claves.
 * Tiene una aplicación que se ejecuta en su red virtual de Azure y esta red virtual está bloqueada para todo el tráfico entrante y saliente. Su aplicación aún necesita conectarse a Key Vault para capturar secretos o certificados, o usar claves criptográficas.
 
-## <a name="configure-key-vault-firewalls-and-virtual-networks"></a>Configuración de firewalls y redes virtuales de Key Vault
-
-Estos son los pasos necesarios para configurar firewalls y redes virtuales. Estos pasos se aplican si usa PowerShell, la CLI de Azure o Azure Portal.
-
-1. Habilite el [registro de Key Vault](logging.md) para ver registros de acceso detallados. Esto ayuda a realizar diagnósticos cuando los firewall y las reglas de red virtual impiden el acceso a un almacén de claves. Este paso es opcional, pero muy recomendable.
-2. Habilite los **puntos de conexión de servicio para el almacén de claves** de las redes y subredes virtuales de destino.
-3. Establezca firewall y reglas de red virtual para un almacén de claves, y así limitar el acceso a ese almacén de claves desde redes virtuales, subredes y rangos de direcciones IPv4 específicos.
-4. Si este almacén de claves debe ser accesible para los servicios de confianza de Microsoft, debe habilitar la opción para permitir que los **servicios de confianza de Azure** se conecten a Key Vault.
-
-Para más información, vea [Configuración de firewalls y redes virtuales de Azure Key Vault](network-security.md).
-
-> [!IMPORTANT]
-> Una vez que las reglas del firewall están en vigor, los usuarios solo pueden realizar operaciones del [plano de datos](secure-your-key-vault.md#data-plane-access-control) de Key Vault cuando las solicitudes se originan desde redes virtuales o rangos de direcciones IPv4 permitidos. Esto también se aplica al acceso de Key Vault desde Azure Portal. Aunque los usuarios pueden ir a un almacén de claves desde Azure Portal, es posible que no pueda enumerar las claves, los secretos o los certificados si su equipo cliente no está en la lista de dispositivos permitidos. Esto también afecta al selector de Key Vault de otros servicios de Azure. Los usuarios podrían ver la lista de almacenes de claves, pero no enumerar las claves si las reglas del firewall limitan su equipo cliente.
-
-
-> [!NOTE]
-> Tenga en cuenta las siguientes limitaciones de configuración:
-> * Se permite un máximo de 127 reglas de red virtual y 127 reglas de IPv4. 
-> * Los rangos de dirección pequeños con tamaños de prefijos "/31" o "/32" no son compatibles. En su lugar, configure estos rangos utilizando reglas de direcciones IP individuales.
-> * Las reglas de red IP solo se permiten para direcciones IP públicas. No se permiten intervalos de direcciones IP reservados para redes privadas (tal y como se define en RFC 1918) en las reglas IP. Las redes privadas incluyen direcciones que comienzan por **10.** , **172.16-31** y **192.168.** . 
-> * Solo se admiten direcciones IPV4 en este momento.
-
 ## <a name="trusted-services"></a>Servicios de confianza
 
 Esta es una lista de servicios de confianza que tienen permiso para acceder a un almacén de claves si está habilitada la opción **Permitir servicios de confianza**.
@@ -71,7 +49,7 @@ Esta es una lista de servicios de confianza que tienen permiso para acceder a un
 |Exchange Online y SharePoint Online|Permitir el acceso a la clave de cliente para Azure Storage Service Encryption con la [clave de cliente](/microsoft-365/compliance/customer-key-overview).|
 |Azure Information Protection|Permitir el acceso a la clave de inquilino para [Azure Information Protection.](/azure/information-protection/what-is-information-protection)|
 |Azure App Service|[Implementar un certificado de Azure Web App mediante Key Vault](https://azure.github.io/AppService/2016/05/24/Deploying-Azure-Web-App-Certificate-through-Key-Vault.html).|
-|Azure SQL Database|[Cifrado de datos transparente con compatibilidad con Bring Your Own Key para Azure SQL Database y Azure Synapse Analytics](../../azure-sql/database/transparent-data-encryption-byok-overview.md?view=sql-server-2017&viewFallbackFrom=azuresqldb-current).|
+|Azure SQL Database|[Cifrado de datos transparente con compatibilidad con Bring Your Own Key para Azure SQL Database y Azure Synapse Analytics](../../azure-sql/database/transparent-data-encryption-byok-overview.md?view=sql-server-2017&preserve-view=true&viewFallbackFrom=azuresqldb-current).|
 |Azure Storage|[Storage Service Encryption mediante claves administradas por el cliente en Azure Key Vault](../../storage/common/customer-managed-keys-configure-key-vault.md).|
 |Azure Data Lake Store|[Cifrado de datos en Azure Data Lake Store](../../data-lake-store/data-lake-store-encryption.md) con una clave administrada de cliente.|
 |Azure Databricks|[Servicio de análisis rápido, sencillo y de colaboración basado en Apache Spark](/azure/databricks/scenarios/what-is-azure-databricks)|
@@ -87,5 +65,5 @@ Esta es una lista de servicios de confianza que tienen permiso para acceder a un
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Protección de Key Vault](secure-your-key-vault.md)
-* [Configuración de firewalls y redes virtuales de Azure Key Vault](network-security.md)
+- Para ver las instrucciones detalladas paso a paso, consulte [Configuración de firewalls y redes virtuales de Azure Key Vault](network-security.md).
+- Consulte [Introducción a la seguridad de Azure Key Vault](security-overview.md).

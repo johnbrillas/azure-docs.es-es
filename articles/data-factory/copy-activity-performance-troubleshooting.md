@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/09/2020
-ms.openlocfilehash: d22d040b0001ee30e29c551e686a7cb6bc47c2af
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.date: 01/07/2021
+ms.openlocfilehash: ee6105376f5e8dc884f13e04db51126c039328e9
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96921919"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97968898"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>Solución de problemas de rendimiento de la actividad de copia
 
@@ -172,6 +172,60 @@ Si el rendimiento de la copia no satisface sus expectativas, quiere solucionar p
 
   - Considere la posibilidad de ajustar gradualmente las [copias en paralelo](copy-activity-performance-features.md); tenga en cuenta que demasiadas copias en paralelo pueden perjudicar el rendimiento.
 
+
+## <a name="connector-and-ir-performance"></a>Rendimiento del conector e IR
+
+En esta sección se exploran algunas guías de solución de problemas de rendimiento para un tipo de conector o entorno de ejecución de integración concretos.
+
+### <a name="activity-execution-time-varies-using-azure-ir-vs-azure-vnet-ir"></a>El tiempo de ejecución de la actividad varía según se use Azure IR o IR de red virtual de Azure
+
+El tiempo de ejecución de la actividad varía cuando el conjunto de datos se basa en diferentes entornos de ejecución de integración.
+
+- **Síntomas**: El simple cambio de la lista desplegable Servicio vinculado en el conjunto de datos realiza las mismas actividades de canalización, pero tiene tiempos de ejecución radicalmente diferentes. Cuando el conjunto de datos se basa en el entorno de ejecución de integración de la red virtual administrada, tarda más de dos minutos por término medio en completarse la ejecución, pero unos 20 segundos cuando se basa en el entorno de ejecución de integración predeterminado.
+
+- **Causa**: Al comprobar los detalles de las ejecuciones de canalización, puede observar que la canalización lenta se ejecuta en el entorno de ejecución de integración de la VNET administrada (Virtual Network), mientras que la normal se ejecuta en Azure IR. Por diseño, el entorno de ejecución de integración de la VNET administrada se lleva más tiempo en la cola que Azure IR, ya que no se reserva un nodo de proceso por factoría de datos, por lo que hay una preparación en torno a dos minutos para que se inicie cada actividad de copia y se produce principalmente en la unión a una red virtual y no en Azure IR.
+
+    
+### <a name="low-performance-when-loading-data-into-azure-sql-database"></a>Bajo rendimiento al cargar datos en Azure SQL Database
+
+- **Síntomas**: La copia de datos en Azure SQL Database es lenta.
+
+- **Causa**: La causa principal del problema suele ser un cuello de botella en el lado de Azure SQL Database. Las posibles causas son las siguientes:
+
+    - El nivel de Azure SQL Database no es suficientemente alto.
+
+    - El uso de la DTU de Azure SQL Database está cerca del 100 %. Puede [supervisar el rendimiento](https://docs.microsoft.com/azure/azure-sql/database/monitor-tune-overview) y considerar la posibilidad de actualizar el nivel de Azure SQL Database.
+
+    - Los índices no están configurados correctamente. Quite todos los índices antes de la carga de datos y vuelva a crearlos después de completar la carga.
+
+    - WriteBatchSize no es lo suficientemente grande como para ajustarse al tamaño de fila del esquema. Intente aumentar la propiedad para solucionar el problema.
+
+    - En lugar de Bulk insert, se usa el procedimiento almacenado, cuyo rendimiento es previsiblemente menor. 
+
+- **Solución:** Consulte [Solución de problemas de rendimiento de la actividad de copia](https://docs.microsoft.com/azure/data-factory/copy-activity-performance-troubleshooting).
+
+### <a name="timeout-or-slow-performance-when-parsing-large-excel-file"></a>Tiempo de espera o rendimiento lento al analizar un archivo de Excel de gran tamaño
+
+- **Síntomas**:
+
+    - Al crear un conjunto de datos de Excel e importar el esquema de la conexión o el almacenamiento, obtener una vista previa de los datos, enumerar o actualizar las hojas de cálculo, es posible que se produzca un error de tiempo de espera si el tamaño del archivo de Excel es grande.
+
+    - Cuando use la actividad de copia para copiar datos de un archivo de Excel de gran tamaño (> = 100 MB) en otro almacén de datos, es posible que experimente un rendimiento lento o un problema de memoria insuficiente.
+
+- **Causa**: 
+
+    - En operaciones como la importación de esquemas, la vista previa de datos y la enumeración de hojas de cálculo en un conjunto de datos de Excel, el tiempo de espera es de 100 s y es estático. Para un archivo de Excel de gran tamaño, es posible que estas operaciones no finalicen dentro del valor del tiempo de espera.
+
+    - La actividad de copia de ADF lee el archivo de Excel completo en la memoria y, luego, busca la hoja de cálculo y las celdas especificadas para leer los datos. Este comportamiento se debe a que usa ADF del SDK subyacente.
+
+- **Solución:** 
+
+    - Para importar el esquema, puede generar un archivo de ejemplo más pequeño que sea un subconjunto del archivo original y elegir "Importar esquema de archivo de ejemplo" en lugar de "Importar esquema desde conexión/almacén".
+
+    - Para mostrar una hoja de cálculo, en la lista desplegable de hoja de cálculo, puede hacer clic en "Editar" e introducir en su lugar el nombre/índice de la hoja.
+
+    - Para copiar un archivo de Excel de gran tamaño (> 100 MB) en otro almacén, puede usar el origen de Excel de Data Flow cuyo streaming de Sport lee y funciona mejor.
+    
 ## <a name="other-references"></a>Otras referencias
 
 Estas son algunas referencias para la supervisión y la optimización del rendimiento para algunos de los almacenes de datos admitidos:

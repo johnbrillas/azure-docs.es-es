@@ -4,12 +4,12 @@ description: Conozca el esquema de los eventos y servicios admitidos para los re
 ms.subservice: logs
 ms.topic: reference
 ms.date: 09/01/2020
-ms.openlocfilehash: f5ea6d3f28fe85cf1453f3cf2b9eb0132bda0013
-ms.sourcegitcommit: 02ed9acd4390b86c8432cad29075e2204f6b1bc3
+ms.openlocfilehash: 56de1f4f275eba46d5f8b146829e444a75eabb88
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97808307"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955321"
 ---
 # <a name="common-and-service-specific-schema-for-azure-resource-logs"></a>Esquema específico de servicio y común para los registros de recursos de Azure
 
@@ -77,7 +77,7 @@ El esquema para los registros de recursos varía según la categoría de registr
 | Load Balancer |[Log Analytics para Azure Load Balancer](../../load-balancer/load-balancer-monitor-log.md) |
 | Logic Apps |[Esquema de seguimiento personalizado de Logic Apps B2B](../../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | Grupos de seguridad de red |[Análisis del registro para grupos de seguridad de red (NSG)](../../virtual-network/virtual-network-nsg-manage-log.md) |
-| DDOS Protection | [Administración de Azure DDoS Protection estándar](../../ddos-protection/diagnostic-logging.md#log-schemas) |
+| DDoS Protection | [Registro en el estándar de Azure DDoS Protection](../../ddos-protection/diagnostic-logging.md#log-schemas) |
 | Power BI dedicado | [Registro para Power BI Embedded en Azure](/power-bi/developer/azure-pbie-diag-logs) |
 | Recovery Services | [Modelo de datos para Azure Backup](../../backup/backup-azure-reports-data-model.md)|
 | Search |[Habilitación y uso de Análisis de tráfico de búsqueda](../../search/search-traffic-analytics.md) |

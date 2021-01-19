@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df25278d37e518e99bc315a315e017b98c7f4e58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: deced953089fcbb2640cbf3e402db24cb511e769
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89049390"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935893"
 ---
 # <a name="what-is-conditional-access-report-only-mode"></a>¿Qué es el modo de solo informe de acceso condicional?
 
@@ -30,7 +30,7 @@ El modo de solo informe es un nuevo estado de la directiva de acceso condicional
 - Los clientes con una suscripción de Azure Monitor pueden supervisar el impacto de sus directivas de acceso condicional  mediante el libro Conditional Access Insights.
 
 > [!WARNING]
-> Las directivas en modo de solo informe que requieren dispositivos compatibles pueden solicitar a los usuarios de Mac, iOS y Android que seleccionen un certificado de dispositivo durante la evaluación de directiva, aunque el cumplimiento de dispositivos no se fuerce. Estos mensajes pueden repetirse hasta que el dispositivo sea compatible. Para evitar que los usuarios finales reciban mensajes durante el inicio de sesión, excluya las plataformas de dispositivo Mac, iOS y Android de las directivas de solo informe que realizan comprobaciones de cumplimiento de dispositivos. Tenga en cuenta que el modo de solo informe no es aplicable a las directivas de CA con el ámbito "acciones del usuario".
+> Las directivas en modo de solo informe que requieren dispositivos compatibles pueden solicitar a los usuarios de Mac, iOS y Android que seleccionen un certificado de dispositivo durante la evaluación de directiva, aunque el cumplimiento de dispositivos no se fuerce. Estos mensajes pueden repetirse hasta que el dispositivo sea compatible. Para evitar que los usuarios finales reciban mensajes durante el inicio de sesión, excluya las plataformas de dispositivo Mac, iOS y Android de las directivas de solo informe que realizan comprobaciones de cumplimiento de dispositivos. Tenga en cuenta que el modo de solo informe no es aplicable a las directivas de acceso condicional con el ámbito "Acciones del usuario".
 
 ![Pestaña Solo informe del registro de inicio de sesión de Azure AD](./media/concept-conditional-access-report-only/report-only-detail-in-sign-in-log.png)
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: c13b6ed991403e65c4c4d71c964f1f7f4d1ffe7b
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 9416005c708cafe5adbad2b09ce70c41fae66fd7
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443320"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936029"
 ---
 # <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>Aplicación de demonio que llama a las API web: adquisición de un token
 
@@ -91,6 +91,10 @@ catch (MsalServiceException ex) when (ex.Message.Contains("AADSTS70011"))
     // Mitigation: Change the scope to be as expected.
 }
 ```
+
+### <a name="acquiretokenforclient-uses-the-application-token-cache"></a>AcquireTokenForClient usa la caché de tokens de aplicación.
+
+En MSAL.NET, `AcquireTokenForClient` usa la caché de tokens de aplicación. (Todos los demás métodos AcquireToken *XX* usan la caché de tokens de usuario). No llame a `AcquireTokenSilent` antes de llamar a `AcquireTokenForClient`, ya que `AcquireTokenSilent` usa la caché de tokens de *usuario*. `AcquireTokenForClient` comprueba la propia caché de tokens de *aplicación* y la actualiza.
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -200,10 +204,6 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 
 Para más información, consulte la documentación del protocolo: [La Plataforma de identidad de Microsoft y el flujo de credenciales de cliente de OAuth 2.0](v2-oauth2-client-creds-grant-flow.md)
 
-## <a name="application-token-cache"></a>Caché de tokens de aplicación
-
-En MSAL.NET, `AcquireTokenForClient` usa la caché de tokens de aplicación. (Todos los demás métodos AcquireToken *XX* usan la caché de tokens de usuario). No llame a `AcquireTokenSilent` antes de llamar a `AcquireTokenForClient`, ya que `AcquireTokenSilent` usa la caché de tokens de *usuario*. `AcquireTokenForClient` comprueba la propia caché de tokens de *aplicación* y la actualiza.
-
 ## <a name="troubleshooting"></a>Solución de problemas
 
 ### <a name="did-you-use-the-resourcedefault-scope"></a>¿Ha usado el ámbito de recurso/.default?
@@ -228,6 +228,12 @@ Content: {
   }
 }
 ```
+
+### <a name="are-you-calling-your-own-api"></a>¿Está llamando a su propia API?
+
+Si llama a su propia API web y no pudo agregar un permiso de aplicación al registro de aplicación para la aplicación de demonio, ¿expuso un rol de aplicación en la API web?
+
+Para obtener más información, consulte [Exposición de permisos de aplicación (roles de aplicación)](scenario-protected-web-api-app-registration.md#exposing-application-permissions-app-roles) y, en particular, [Asegurarse de que Azure AD emite tokens para la API web solo para los clientes permitidos](scenario-protected-web-api-app-registration.md#ensuring-that-azure-ad-issues-tokens-for-your-web-api-to-only-allowed-clients).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

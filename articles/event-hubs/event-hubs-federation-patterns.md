@@ -3,12 +3,12 @@ title: 'Patrones de tareas de replicación de eventos: Azure Event Hubs | Micros
 description: En este artículo se proporcionan instrucciones detalladas para implementar patrones de tareas de replicación de eventos específicos.
 ms.topic: article
 ms.date: 12/12/2020
-ms.openlocfilehash: 7702b1987faabfce8d97e7b5c9b18766df72caad
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 438964c228f060dede93abf582c9504b698db8b0
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803993"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934618"
 ---
 # <a name="event-replication-tasks-patterns"></a>Patrones de tareas de replicación de eventos
 
@@ -20,7 +20,7 @@ En este artículo, se detallan las instrucciones de implementación de algunos d
 
 El patrón de replicación copia los eventos de un centro de eventos al siguiente, o de un centro de eventos a otro destino, como una cola de Service Bus. Los eventos se reenvían sin realizar ninguna modificación en la carga del evento.
 
-La implementación de este patrón está incluida en los ejemplos de [replicación de eventos entre instancias de Event Hubs](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopy) y [replicación de eventos entre Event Hubs y Service Bus](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopyToServiceBus).
+La implementación de este patrón está incluida en los ejemplos de [replicación de eventos entre Event Hubs](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopy) y [replicación de eventos entre Event Hubs y Service Bus](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopyToServiceBus) y en el tutorial [Uso de Apache Kafka MirrorMaker con Event Hubs](event-hubs-kafka-mirror-maker-tutorial.md) para el caso específico de replicación de datos de un agente de Apache Kafka en Event Hubs.
 
 ### <a name="streams-and-order-preservation"></a>Secuencias y conservación del orden
 

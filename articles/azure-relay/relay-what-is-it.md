@@ -3,12 +3,12 @@ title: ¿Qué es Relay de Azure? | Microsoft Docs
 description: En este artículo se proporciona información general sobre el servicio Azure Relay que le permite desarrollar aplicaciones en la nube que consumen servicios locales que se ejecutan en la red corporativa sin necesidad de abrir una conexión de firewall ni realizar cambios molestos en la infraestructura de red.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 0c9a67bcad47ad2e7284bcf6e70914d2ffb06a8c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fbf1b2134a4c2dce7a3e6a62668d0852dc08c18a
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85322640"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955389"
 ---
 # <a name="what-is-azure-relay"></a>¿Qué es Relay de Azure?
 El servicio Azure Relay le permite exponer de forma segura servicios que se ejecutan en la red corporativa en la nube pública. Eso se puede hacer sin tener que abrir un puerto en el firewall y sin realizar cambios molestos en la infraestructura de la red corporativa. 
@@ -56,7 +56,7 @@ Conexiones híbridas y WCF Relay habilitan una conexión segura a los recursos d
 | **WCF** |x | |
 | **.NET Core** | |x |
 | **.NET Framework** |x |x |
-| **Script de Java/Node.JS** | |x |
+| **JavaScript/Node.js** | |x |
 | **Protocolo abierto basado en estándares** | |x |
 | **Modelos de programación de RPC** | |x |
 

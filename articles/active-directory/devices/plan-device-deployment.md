@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf30570f10f176c47aed0f99127e03a027eff775
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: fc631e4329c1df2cdcbfe57c2b43ccccf14afa85
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093096"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936454"
 ---
 # <a name="plan-your-azure-active-directory-device-deployment"></a>Planeación de la implementación de dispositivos de Azure Active Directory
 
@@ -44,7 +44,7 @@ Principales ventajas de ofrecer a los dispositivos una identidad de Azure AD:
 
 * Mayor productividad: con Azure AD, los usuarios pueden usar el [inicio de sesión único (SSO) sin problemas](./azuread-join-sso.md) con los recursos locales y en la nube, lo que les permite ser productivos dondequiera que estén.
 
-* Mayor seguridad: los dispositivos de Azure AD permiten aplicar [directivas de acceso condicional](../conditional-access/require-managed-devices.md) a los recursos en función de la identidad del dispositivo o el usuario. Las directivas de acceso condicional pueden ofrecer protección adicional mediante [Azure AD Identity Protection](../identity-protection/overview-identity-protection.md). Unir un dispositivo a Azure AD es un requisito previo para aumentar la seguridad con una estrategia de [autenticación sin contraseñas](../authentication/concept-authentication-passwordless.md).
+* Mayor seguridad: los dispositivos de Azure AD permiten aplicar [directivas de acceso condicional](../conditional-access/require-managed-devices.md) a los recursos en función de la identidad del dispositivo o el usuario. Las directivas de acceso condicional pueden ofrecer protección adicional mediante [Azure AD Identity Protection](../identity-protection/overview-identity-protection.md). Unir un dispositivo a Azure AD es un requisito previo para aumentar la seguridad con una estrategia de [autenticación sin contraseñas](../authentication/concept-authentication-passwordless.md).
 
 * Mejor experiencia del usuario: tener las identidades de dispositivo en Azure AD permite ofrecer a los usuarios un acceso sencillo a los recursos basados en la nube de su organización desde sus dispositivos personales y corporativos. Los administradores pueden habilitar [Enterprise State Roaming](enterprise-state-roaming-overview.md) para obtener una experiencia unificada en todos los dispositivos Windows.
 
