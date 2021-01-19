@@ -1,73 +1,82 @@
 ---
 title: Almacenes de datos admitidos en Azure Data Share
-description: Obtenga información sobre los almacenes de datos que se admiten para usar Azure Data Share.
+description: Obtenga información sobre los almacenes de datos que se pueden usar en Azure Data Share.
 ms.service: data-share
 author: jifems
 ms.author: jife
 ms.topic: conceptual
 ms.date: 12/16/2020
-ms.openlocfilehash: d45d9a29f671e66c6caba689f49e1748780545e0
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 852c44f5edc5c0b0f5f655f63ab040927bd9bc7b
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97616752"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97963686"
 ---
 # <a name="supported-data-stores-in-azure-data-share"></a>Almacenes de datos admitidos en Azure Data Share
 
-Azure Data Share proporciona un uso compartido de datos abierto y flexible, lo que incluye la habilidad de compartir desde y hacia diferentes almacenes de datos. Los proveedores de datos pueden compartir datos de un tipo de almacén de datos y sus consumidores pueden elegir en qué almacén se van a recibir los datos. 
+Azure Data Share proporciona un uso compartido de datos abierto y flexible, lo que incluye la habilidad de compartir desde y hacia diferentes almacenes de datos. Los proveedores de datos pueden compartir datos de un tipo de almacén de datos y los consumidores pueden elegir en qué almacén van a recibir los datos. 
 
-En este artículo, obtendrá información sobre el amplio conjunto de almacenes de datos de Azure que se admiten en Azure Data Share. También puede encontrar información sobre las combinaciones de almacenes de datos que pueden aprovechar los proveedores y los consumidores de datos. 
+En este artículo obtendrá información sobre el amplio conjunto de almacenes de datos de Azure que se admiten en Azure Data Share. También aprenderá cómo los proveedores y los consumidores de datos pueden combinar distintos almacenes de datos. 
 
-## <a name="what-data-stores-are-supported-in-azure-data-share"></a>¿Qué almacenes de datos se admiten en Azure Data Share? 
+## <a name="supported-data-stores"></a>Almacenes de datos compatibles 
 
-La siguiente tabla detalla los orígenes de datos admitidos en Azure Data Share. 
+En la siguiente tabla se explican los almacenes de datos que admite Azure Data Share. 
 
-| Almacén de datos | Uso compartido basado en instantáneas (instantánea completa) | Uso compartido basado en instantáneas (instantánea incremental) | Uso compartido en contexto 
+| Almacén de datos | Uso compartido basado en instantáneas completas | Uso compartido basado en instantáneas incrementales | Uso compartido en contexto 
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
 | Azure Blob Storage |✓ |✓ | |
 | Azure Data Lake Storage Gen1 |✓ |✓ | |
 | Azure Data Lake Storage Gen2 |✓ |✓ ||
 | Azure SQL Database |✓ | | |
-| Azure Synapse Analytics (anteriormente Azure SQL DW) |✓ | | |
+| Azure Synapse Analytics (anteriormente Azure SQL Data Warehouse) |✓ | | |
 | Grupo de SQL dedicado de Azure Synapse Analytics (área de trabajo) |✓ | | |
 | Explorador de datos de Azure | | |✓ |
 
 ## <a name="data-store-support-matrix"></a>Matriz de soporte de almacén de datos
 
-Azure Data Share ofrece a los consumidores de datos flexibilidad a la hora de decidir un almacén en donde aceptar datos. Por ejemplo, los datos compartidos de Azure SQL Database se pueden recibir en Azure Data Lake Store Gen2, Azure SQL Database o Azure Synapse Analytics. Los clientes pueden elegir en qué formato recibir los datos cuando configuran un recurso compartido de datos recibidos. 
+Azure Data Share permite a los consumidores de datos elegir un almacén para aceptar los datos. Por ejemplo, los datos compartidos de Azure SQL Database se pueden recibir en Azure Data Lake Storage Gen2, Azure SQL Database o Azure Synapse Analytics. Cuando los clientes configuran un recurso compartido de datos recibidos, pueden elegir en qué formato los reciben. 
 
-La siguiente tabla detalla las diferentes combinaciones y opciones que tienen los consumidores de datos cuando aceptan y configuran sus datos compartidos. Para más información sobre cómo configurar asignaciones de conjuntos de datos, consulte [cómo configurar asignaciones de conjuntos de datos](how-to-configure-mapping.md).
+En la siguiente tabla se explican las combinaciones y opciones que los consumidores de datos pueden elegir cuando aceptan y configuran un recurso compartido de datos. Para obtener más información, consulte cómo [configurar una asignación de conjunto de datos](how-to-configure-mapping.md).
 
-| Almacén de datos | Azure Blob Storage | Azure Data Lake Storage Gen1 | Azure Data Lake Storage Gen2 | Azure SQL Database | Azure Synapse Analytics (anteriormente Azure SQL DW) | Grupo de SQL dedicado de Azure Synapse Analytics (área de trabajo) | Explorador de datos de Azure
+| Almacén de datos | Blob Storage | Data Lake Storage Gen1 | Data Lake Storage Gen2 | SQL Database | Synapse Analytics (anteriormente SQL Data Warehouse) | Grupo de SQL dedicado de Synapse Analytics (área de trabajo) | Data Explorer
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- | :--- |
-| Azure Blob Storage | ✓ || ✓ |||
-| Azure Data Lake Storage Gen1 | ✓ | | ✓ |||
-| Azure Data Lake Storage Gen2 | ✓ | | ✓ |||
-| Azure SQL Database | ✓ | | ✓ | ✓ | ✓ | ✓ ||
-| Azure Synapse Analytics (anteriormente Azure SQL DW) | ✓ | | ✓ | ✓ | ✓ | ✓ ||
-| Grupo de SQL dedicado de Azure Synapse Analytics (área de trabajo) | ✓ | | ✓ | ✓ | ✓ | ✓ ||
-| Explorador de datos de Azure ||||||| ✓ |
+| Blob Storage | ✓ || ✓ |||
+| Data Lake Storage Gen1 | ✓ | | ✓ |||
+| Data Lake Storage Gen2 | ✓ | | ✓ |||
+| SQL Database | ✓ | | ✓ | ✓ | ✓ | ✓ ||
+| Synapse Analytics (anteriormente SQL Data Warehouse) | ✓ | | ✓ | ✓ | ✓ | ✓ ||
+| Grupo de SQL dedicado de Synapse Analytics (área de trabajo) | ✓ | | ✓ | ✓ | ✓ | ✓ ||
+| Data Explorer ||||||| ✓ |
 
 ## <a name="share-from-a-storage-account"></a>Uso compartido desde una cuenta de almacenamiento
-Azure Data Share admite el uso compartido de archivos, carpetas y sistemas de archivos desde Azure Data Lake Gen1 y Azure Data Lake Gen2. También admite el uso compartido de blobs, carpetas y contenedores desde Azure Blob Storage. Actualmente, solo se admiten blobs en bloques. Cuando los sistemas de archivos, contenedores o carpetas se comparten mediante el uso compartido basado en instantáneas, el consumidor de datos puede optar por hacer una copia completa de los datos de los recursos compartidos o aprovechar la capacidad de realizar instantáneas incrementales para copiar solo los archivos nuevos o actualizados. La instantánea incremental se basa en la hora de la última modificación de los archivos. Los archivos existentes con el mismo nombre se sobrescribirán durante la instantánea. El archivo eliminado del origen no se elimina en el destino. 
+Azure Data Share admite el uso compartido de archivos, carpetas y sistemas de archivos desde Azure Data Lake Storage Gen1 y Azure Data Lake Storage Gen2. También admite el uso compartido de blobs, carpetas y contenedores desde Azure Blob Storage. Actualmente solo se admiten blobs en bloques. 
 
-Para obtener más detalles, consulte [Uso compartido y recepción de datos de Azure Blob Storage y Azure Data Lake Storage](how-to-share-from-storage.md).
+Cuando los sistemas de archivos, los contenedores o las carpetas se comparten en el uso compartido basado en instantáneas, los consumidores de datos pueden optar por hacer una copia completa de los datos compartidos. O bien, pueden usar la funcionalidad de instantáneas incrementales para copiar solo los archivos nuevos o actualizados. 
+
+La instantánea incremental se basa en la hora de última modificación de los archivos. Los archivos existentes con el mismo nombre que los archivos de los datos recibidos se sobrescriben en la instantánea. Los archivos que se eliminan del origen no se eliminan en el destino. 
+
+Para obtener más información, consulte[Uso compartido y recepción de datos de Azure Blob Storage y Azure Data Lake Storage](how-to-share-from-storage.md).
 
 ## <a name="share-from-a-sql-based-source"></a>Uso compartido desde un origen basado en SQL
-Azure Data Share admite el uso compartido de tablas y vistas desde Azure SQL Database y Azure Synapse Analytics (anteriormente Azure SQL DW) y el uso compartido de tablas desde el grupo de SQL dedicado de Azure Synapse Analytics (área de trabajo). Actualmente, no se admite el uso compartido desde el grupo de SQL sin servidor de Azure Synapse Analytics (área de trabajo). Los consumidores de datos pueden elegir aceptar los datos en Azure Data Lake Storage Gen2 o Azure Blob Storage como archivo CSV o Parquet, así como en Azure SQL Database y Azure Synapse Analytics como tablas.
+Azure Data Share admite el uso compartido de tablas y vistas desde Azure SQL Database y Azure Synapse Analytics (anteriormente Azure SQL Data Warehouse). También admite el uso compartido de tablas desde el grupo de SQL dedicado de Azure Synapse Analytics (área de trabajo). Actualmente, no se admite el uso compartido desde el grupo de SQL sin servidor de Azure Synapse Analytics (área de trabajo). 
 
-Al aceptar los datos en Azure Data Lake Store Gen2 o Azure Blob Storage, las instantáneas completas sobrescriben el contenido del archivo de destino si este ya existe.
-Cuando se reciben los datos en la tabla y si la tabla de destino no existe todavía, Azure Data Share crea la tabla SQL con el esquema de origen. Si ya existe una tabla de destino con el mismo nombre, se quitará y se sobrescribirá con la instantánea completa más reciente. Actualmente no se admiten instantáneas incrementales.
+El consumidor de datos puede optar por aceptar los datos en Azure Data Lake Storage Gen2 o Azure Blob Storage como un archivo CSV o Parquet. También pueden aceptar los datos como tablas en Azure SQL Database y Azure Synapse Analytics.
 
-Para obtener más detalles, consulte [Uso compartido y recepción de datos de Azure SQL Database y Azure Synapse Analytics](how-to-share-from-sql.md).
+Cuando los consumidores aceptan los datos en Azure Data Lake Storage Gen2 o Azure Blob Storage, las instantáneas completas sobrescriben el contenido del archivo de destino si este ya existe. Cuando los datos se reciben en una tabla y la tabla de destino todavía no existe, Azure Data Share crea una tabla SQL con el esquema de origen. Si ya existe una tabla de destino con el mismo nombre, se quitará y se sobrescribirá con la instantánea completa más reciente. Actualmente no se admiten las instantáneas incrementales.
 
-## <a name="share-from-azure-data-explorer"></a>Uso compartido desde Azure Data Explorer
-Azure Data Share permite compartir bases de datos en contexto desde los clústeres de Azure Data Explorer. El proveedor de datos puede compartir en el nivel de base de datos o de clúster. Cuando se comparta en el nivel de base de datos, el consumidor de datos solo podrá acceder a las bases de datos específicas compartidas por el proveedor de datos. Cuando se comparta en el nivel de clúster, el consumidor de datos puede acceder a todas las bases de datos desde el clúster del proveedor, incluidas todas las bases de datos futuras creadas por el proveedor de datos.
+Para obtener más información, consulte [Uso compartido y recepción de datos de Azure SQL Database y Azure Synapse Analytics](how-to-share-from-sql.md).
 
-Para acceder a las bases de datos compartidas, el consumidor de datos debe tener su propio clúster de Azure Data Explorer. Un clúster de Azure Data Explorer del consumidor de datos tiene que encontrarse en el mismo centro de datos de Azure que el clúster de Data Explorer del proveedor de datos. Cuando se establece la relación de uso compartido, Azure Data Share crea un vínculo simbólico entre los clústeres de Azure Data Explorer del consumidor y el proveedor. Los datos ingeridos mediante el uso del modo por lotes en el clúster de Azure Data Explorer de origen se mostrarán en el clúster de destino en unos segundos o unos minutos.
+## <a name="share-from-data-explorer"></a>Uso compartido desde Data Explorer
+Azure Data Share permite compartir bases de datos en contexto desde los clústeres de Azure Data Explorer. Un proveedor de datos puede compartir en el nivel de base de datos o de clúster. 
 
-Para obtener más detalles, consulte [Uso compartido y recepción de datos de Azure Data Explorer](/azure/data-explorer/data-share). 
+Cuando los datos se comparten en el nivel de base de datos, los consumidores de datos solo pueden acceder a las bases de datos que comparte el proveedor de datos. Si un proveedor comparte datos en el nivel de clúster, los consumidores de datos pueden acceder a todas las bases de datos del clúster del proveedor, incluidas las bases de datos futuras que cree el proveedor.
+
+Para acceder a las bases de datos compartidas, los consumidores de datos necesitan su propio clúster de Azure Data Explorer. Este clúster debe estar en el mismo centro de datos de Azure que el clúster de Azure Data Explorer del proveedor de datos. 
+
+Cuando se establece la relación de uso compartido, Azure Data Share crea un vínculo simbólico entre los clústeres del consumidor y el proveedor. Los datos que se ingieren en el clúster de origen mediante el modo por lotes aparecen en el clúster de destino en cuestión de minutos.
+
+Para obtener más información, consulte el tema sobre [uso compartido y recepción de datos de Azure Data Explorer](/azure/data-explorer/data-share). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

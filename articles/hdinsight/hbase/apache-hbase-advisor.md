@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/03/2021
-ms.openlocfilehash: 36d40215f759190cc9e6c6e3f4918dcbc384f94f
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 73af7e2a1920e6cfdad9245d965908255ef95a1f
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97893250"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964599"
 ---
 # <a name="apache-hbase-advisories-in-azure-hdinsight"></a>Recomendaciones para Apache HBase en Azure HDInsight
 
@@ -21,7 +21,7 @@ En este artículo se describen varias recomendaciones que ayudan a optimizar el 
 
 ## <a name="optimize-hbase-to-read-most-recently-written-data"></a>Optimización de HBase para leer los datos escritos más recientemente
 
-Al usar Apache HBase en Azure HDInsight, puede optimizar la configuración de HBase para el escenario en el que la aplicación lee los datos escritos más recientemente. Para un mayor rendimiento, lo ideal es que las lecturas de HBase procedan de memstore, en lugar del almacenamiento remoto.
+Si el caso de uso implica la lectura de los datos escritos más recientemente de HBase, este aviso puede serle de ayuda. Para un mayor rendimiento, lo ideal es que las lecturas de HBase procedan de memstore, en lugar del almacenamiento remoto.
 
 El aviso de consulta indica que para una familia de columnas determinada de una tabla, más del 75 % de las lecturas proceden de memstore. Este indicador sugiere que, aunque memstore se vacíe, es necesario acceder al archivo reciente, que además debe estar en la memoria caché. Los datos se escriben primero en memstore y el sistema accede allí a los datos recientes. Los subprocesos de vaciado de HBase internos podrían detectar que una región determinada ha alcanzado el tamaño de 128 M (predeterminado) y desencadenar un vaciado. Este escenario se produciría incluso con los datos más recientes que se escribieran cuando el tamaño de memstore fuera de unos 128 M. Por lo tanto, para leer después esos registros recientes podría ser necesaria una lectura de archivo en lugar de desde memstore. Por este motivo, es mejor establecer que incluso los datos recientes que se hayan vaciado recientemente puedan residir en la memoria caché.
 
@@ -35,7 +35,7 @@ Para optimizar los datos recientes en la memoria caché, tenga en cuenta las sig
 
 4. Si está seguro de que solo necesita leer los datos recientes, establezca la configuración de `hbase.rs.cachecompactedblocksonwrite` en **ON**. Esta configuración indica al sistema que, aunque se produzca la compactación, los datos permanecen en la memoria caché. También se pueden establecer las configuraciones en el nivel de familia. 
 
-   En el shell de HBase, ejecute el comando siguiente:
+   En el shell de HBase, ejecute el comando siguiente para establecer la configuración de `hbase.rs.cachecompactedblocksonwrite`:
    
    ```
    alter '<TableName>', {NAME => '<FamilyName>', CONFIGURATION => {'hbase.hstore.blockingStoreFiles' => '300'}}
@@ -43,15 +43,15 @@ Para optimizar los datos recientes en la memoria caché, tenga en cuenta las sig
 
 5. La caché de bloques se puede desactivar para una familia determinada de una tabla. Asegúrese de que está en **ON** para las familias con las lecturas de datos más recientes. De forma predeterminada, la memoria caché de bloques está activada (ON) para todas las familias de una tabla. Si ha deshabilitado la memoria caché de bloques para una familia y necesita activarla, use el comando alter del shell de HBase.
 
-   Estas configuraciones ayudan a garantizar que los datos están en la memoria caché y que los recientes no se compactan. Si su escenario admite TTL, considere la posibilidad de usar la compactación con niveles de fecha. Para más información, consulte la [Guía de referencia de Apache HBase: compactación con niveles de fecha](https://hbase.apache.org/book.html#ops.date.tiered).  
+   Estas configuraciones ayudan a garantizar que los datos están disponibles en la memoria caché y que los recientes no se compactan. Si su escenario admite TTL, considere la posibilidad de usar la compactación con niveles de fecha. Para más información, consulte la [Guía de referencia de Apache HBase: compactación con niveles de fecha](https://hbase.apache.org/book.html#ops.date.tiered).  
 
 ## <a name="optimize-the-flush-queue"></a>Optimización de la cola de vaciado
 
-El aviso para optimizar la cola de vaciado indica que el vaciado de HBase podría necesitar ajustes. Los controladores de vaciado podrían no ser lo suficientemente altos como están configurados.
+Este aviso indica que el vaciado de HBase podría necesitar ajustes. Puede que los controladores de vaciado no sean lo suficientemente altos tal como están configurados como para controlar el tráfico de escritura, lo que puede provocar una ralentización del vaciado.
 
 En la interfaz de usuario del servidor de regiones, observe si la cola de vaciado supera los 100. Este umbral indica que los vaciados son lentos y es posible que tenga que ajustar la configuración de `hbase.hstore.flusher.count`. De forma predeterminada, el valor es 2. Asegúrese de que el número máximo de subprocesos de vaciado no supera los 6.
 
-Además, consulte las recomendaciones de ajuste del número de regiones. En primer lugar, pruebe a ajustar la región para ver si esto ayuda a agilizar el vaciado. Optimizar los subprocesos de vaciado puede ayudar de varias maneras. 
+Además, consulte las recomendaciones de ajuste del número de regiones. Si hay una, le recomendamos que pruebe a ajustar la región para ver si esto ayuda a agilizar el vaciado. De lo contrario, puede que le sirva de ayuda ajustar los subprocesos de vaciado.
 
 ## <a name="region-count-tuning"></a>Optimización del número de regiones
 
@@ -65,7 +65,7 @@ Escenario de ejemplo:
 
 - Con esta configuración vigente, el número de regiones es 100. Los 4 GB globales de memstore ahora se dividen entre 100 regiones. Por lo tanto, efectivamente, cada región obtiene solo 40 MB de memstore. Cuando las escrituras son uniformes, el sistema realiza vaciados frecuentes y reduce el tamaño al orden de < 40 MB. Tener muchos subprocesos de vaciado podría aumentar la velocidad de vaciado de `hbase.hstore.flusher.count`.
 
-El aviso significa que sería conveniente reevaluar el número de regiones por servidor, el tamaño del montón y la configuración global del tamaño de memstore junto con la optimización de los subprocesos de vaciado para evitar el bloqueo de estas actualizaciones.
+El aviso significa que sería conveniente reevaluar el número de regiones por servidor, el tamaño del montón y la configuración global del tamaño de memstore junto con el ajuste de los subprocesos de vaciado para evitar el bloqueo de estas actualizaciones.
 
 ## <a name="compaction-queue-tuning"></a>Optimización de la cola de compactación
 
