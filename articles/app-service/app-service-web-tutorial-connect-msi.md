@@ -5,12 +5,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.custom: devx-track-csharp, mvc, cli-validate, devx-track-azurecli
-ms.openlocfilehash: 1f6757a9f78e3c400d92fd65a0795ceae7570c99
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: f043f7ed63353dcb9cf9fd26690da97b902f32a6
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347581"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108626"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Tutorial: Protección de la conexión con Azure SQL Database desde App Service mediante una identidad administrada
 
@@ -229,6 +229,9 @@ Escriba `EXIT` para volver al símbolo del sistema de Cloud Shell.
 > [!NOTE]
 > Los servicios de back-end de las identidades administradas también [mantienen una caché de token](overview-managed-identity.md#obtain-tokens-for-azure-resources) que actualiza el token de un recurso de destino solo cuando expira. Si realiza algún error al configurar los permisos de SQL Database e intenta modificarlos *después* de intentar obtener un token con su aplicación, no obtendrá realmente un token nuevo con permisos actualizados hasta que expire el token de la caché.
 
+> [!NOTE]
+> AAD no se admite para SQL Server local y esto incluye las MSI. 
+
 ### <a name="modify-connection-string"></a>Modificación de la cadena de conexión
 
 Recuerde que los mismos cambios que haya realizado en *Web.config* o *appsettings.json* funcionan con la identidad administrada, por lo que lo único necesario es eliminar la cadena de conexión existente de App Service, que Visual Studio creó al implementar la aplicación inicialmente. En los siguientes comandos, reemplace *\<app-name>* por el nombre de la aplicación.
@@ -251,7 +254,7 @@ En la página de publicación, haga clic en **Publicar**.
 
 ```bash
 git commit -am "configure managed identity"
-git push azure master
+git push azure main
 ```
 
 Cuando la página web nueva muestra su lista de tareas pendientes, la aplicación se conecta a la base de datos mediante la identidad administrada.

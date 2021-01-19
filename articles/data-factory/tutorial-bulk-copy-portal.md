@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 12/09/2020
-ms.openlocfilehash: 16b924f486215d972477e93c4e199e7076a0a531
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.date: 01/12/2021
+ms.openlocfilehash: 2fcb8f6d22e93f3a95be26b7bc61f3b5226ba090
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97508890"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98117136"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory-in-the-azure-portal"></a>Copia masiva de varias tablas mediante Azure Data Factory en Azure Portal
 
@@ -51,20 +51,8 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="prerequisites"></a>Requisitos previos
 * **Cuenta de Azure Storage**. La cuenta de Azure Storage se usa como almacenamiento de blobs de almacenamiento provisional en la operación de copia masiva. 
-* **Azure SQL Database**. Esta base de datos contiene los datos de origen. 
-* **Azure Synapse Analytics**. Este almacén de datos contiene los datos que se copian de SQL Database. 
-
-### <a name="prepare-sql-database-and-azure-synapse-analytics"></a>Preparación de SQL Database y Azure Synapse Analytics 
-
-**Preparación de la base de datos de Azure SQL de origen**:
-
-Cree una base de datos en SQL Database con los datos de ejemplo de Adventure Works LT siguiendo el artículo [Creación de una base de datos en Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md). En este tutorial se copiarán todas las tablas de esta base de datos de ejemplo a una de Azure Synapse Analytics.
-
-**Preparación de la instancia receptora de Azure Synapse Analytics**:
-
-1. Si no tiene un área de trabajo de Azure Synapse Analytics, consulte el artículo [Introducción a Azure Synapse Analytics](..\synapse-analytics\get-started.md) para conocer los pasos para crear una.
-
-1. Cree los esquemas de tabla correspondientes en Azure Synapse Analytics. Debe usar Azure Data Factory para migrar o copiar datos en un paso posterior.
+* **Azure SQL Database**. Esta base de datos contiene los datos de origen. Cree una base de datos en SQL Database con los datos de ejemplo de Adventure Works LT siguiendo el artículo [Creación de una base de datos en Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md). En este tutorial se copiarán todas las tablas de esta base de datos de ejemplo a una de Azure Synapse Analytics.
+* **Azure Synapse Analytics**. Este almacén de datos contiene los datos que se copian de SQL Database. Si no tiene un área de trabajo de Azure Synapse Analytics, consulte el artículo [Introducción a Azure Synapse Analytics](..\synapse-analytics\get-started.md) para conocer los pasos para crear una.
 
 ## <a name="azure-services-to-access-sql-server"></a>Servicios de Azure para acceder a SQL Server
 
@@ -241,6 +229,7 @@ La canalización **IterateAndCopySQLTables** toma una lista de tablas como pará
     ![Generador de parámetros de ForEach](./media/tutorial-bulk-copy-portal/for-each-parameter-builder.png)
     
     d. Cambie a la pestaña **Activities** (Actividades), haga clic en el **icono de lápiz** para agregar una actividad secundaria a la actividad **ForEach**.
+    
     ![Generador de la actividad ForEach](./media/tutorial-bulk-copy-portal/for-each-activity-builder.png)
 
 1. En el cuadro de herramientas **Activities** (Actividades), expanda **Move & Transfer** (Mover y transferir), arrastre la actividad **Copy data** (Copiar datos) y colóquela en la superficie del diseñador de canalizaciones. Tenga en cuenta el menú de la ruta de navegación de la parte superior. **IterateAndCopySQLTable** es el nombre de la canalización y **IterateSQLTables** es el nombre de la actividad ForEach. El diseñador está en el ámbito de la actividad. Para volver al editor de canalización desde el editor de la actividad ForEach (Para cada uno), puede hacer clic en el vínculo del menú de la ruta de navegación. 
@@ -257,7 +246,6 @@ La canalización **IterateAndCopySQLTables** toma una lista de tablas como pará
         SELECT * FROM [@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]
         ``` 
 
-
 1. Cambie a la pestaña **Sink** (Receptor) y realice los pasos siguientes: 
 
     1. Seleccione **AzureSqlDWDataset** en **Sink Dataset** (Conjunto de datos receptor).
@@ -265,6 +253,7 @@ La canalización **IterateAndCopySQLTables** toma una lista de tablas como pará
     1. Haga clic en el cuadro de entrada de VALUE del parámetro DWSchema, seleccione **Add dynamic content** (Agregar contenido dinámico) a continuación, escriba la expresión `@item().TABLE_SCHEMA` como script y seleccione **Finish** (Finalizar).
     1. Como método de copia, seleccione **PolyBase**. 
     1. Desactive la opción **Use type default** (Usar tipo predeterminado). 
+    1. En la opción de tabla, el valor predeterminado es "none". Si no tiene tablas creadas previamente en la instancia de Azure Synapse Analytics del receptor, habilite la opción **Auto create table** (Crear tabla automáticamente) y la actividad de copia creará automáticamente las tablas en función de los datos de origen. Para más información, consulte [Creación automática de tablas de receptores](copy-activity-overview.md#auto-create-sink-tables). 
     1. Haga clic en el cuadro de entrada **Script previo a la copia** -> seleccione el vínculo **Agregar contenido dinámico** que aparece a continuación -> escriba la siguiente expresión como script -> seleccione **Finalizar**. 
 
         ```sql
@@ -272,6 +261,8 @@ La canalización **IterateAndCopySQLTables** toma una lista de tablas como pará
         ```
 
         ![Copia de la configuración del receptor](./media/tutorial-bulk-copy-portal/copy-sink-settings.png)
+
+
 1. Cambie a la pestaña **Settings** (Configuración) y realice los pasos siguientes: 
 
     1. Active la casilla de **Enable Staging** (Habilitar almacenamiento provisional).

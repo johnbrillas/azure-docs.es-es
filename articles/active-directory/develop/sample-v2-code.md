@@ -12,12 +12,12 @@ ms.date: 11/04/2020
 ms.author: marsma
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 169a8dba979571a5f4b8c8056737fce72db1d058
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 3baeb87bf3fe1cdcd5e9f27aed2587eed060c5a8
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97629874"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98064528"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Ejemplos de código de la Plataforma de identidad de Microsoft (punto de conexión v2.0)
 
@@ -140,7 +140,7 @@ En los ejemplos siguientes se muestra cómo proteger una función de Azure media
 | ![Esta imagen muestra el logotipo de ASP.NET Core](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core | Función de Azure de API web de ASP.NET Core (servicio) de [dotnet-native-aspnetcore-v2](https://github.com/Azure-Samples/ms-identity-dotnet-webapi-azurefunctions)  |
 | ![Esta imagen muestra el logotipo de Python](media/sample-v2-code/logo_python.png)</p>Python | API web API (servicio) de [Python](https://github.com/Azure-Samples/ms-identity-python-webapi-azurefunctions) |
 | ![Esta imagen muestra el logotipo de Node.js](media/sample-v2-code/logo_nodejs.png)</p>Node.js | API web (servicio) de [Node.js y passport-azure-ad](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-azurefunctions) |
-| ![Esta imagen muestra el logotipo de Node.js](media/sample-v2-code/logo_nodejs.png)</p>NodeJS | API web (servicio) de [NodeJS y passport-azure-ad mediante behalf of](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-onbehalfof-azurefunctions) |
+| ![Esta imagen muestra el logotipo de Node.js](media/sample-v2-code/logo_nodejs.png)</p>Node.js | API web (servicio) de [Node.js y passport-azure-ad en nombre de un usuario](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-onbehalfof-azurefunctions) |
 
 ## <a name="other-microsoft-graph-samples"></a>Otros ejemplos de Microsoft Graph
 

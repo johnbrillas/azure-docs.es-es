@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 11/19/2020
 ms.author: alkohli
-ms.openlocfilehash: db97a34a79ac45525177a79a59a17426003aeab0
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: aad6a3ef754b5ba2c65a9b93fbdfcfdc26348487
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302627"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98186165"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Tutorial: Realización de pedidos de Azure Data Box
 
@@ -336,7 +336,7 @@ Para solicitar un dispositivo, realice los pasos siguientes en Azure Portal.
 
     Una identidad administrada asignada por el usuario es un recurso independiente de Azure que se puede usar para administrar varios recursos. Para más información, consulte [Tipos de identidad administrada](/azure/active-directory/managed-identities-azure-resources/overview).  
 
-    Si necesita crear una nueva identidad administrada, siga las instrucciones que se muestran en [Creación, enumeración, eliminación o asignación de un rol a una identidad administrada asignada por el usuario mediante Azure Portal](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal).
+    Si necesita crear una identidad administrada, siga la guía que se proporciona en [Creación, enumeración, eliminación o asignación de un rol a una identidad administrada asignada por el usuario mediante Azure Portal](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal).
     
     ![Seleccionar una identidad de usuario](./media/data-box-deploy-ordered/customer-managed-key-10.png)
 

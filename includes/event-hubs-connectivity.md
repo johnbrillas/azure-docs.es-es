@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/19/2020
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: dac82692c76d9d36b1f25d7b93b5c3a2e2400672
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7ebb9dbce020086a716872c86221b97b4b7a6653
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96002805"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97978903"
 ---
 ### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>¿Qué puertos es necesario abrir en el firewall? 
 Puede usar los siguientes protocolos con Azure Event Hubs para enviar y recibir eventos:
@@ -72,7 +72,7 @@ Si usa la **redundancia de zona** para el espacio de nombres, deberá realizar a
     > [!NOTE]
     > La dirección IP devuelta por el comando `nslookup` no es una dirección IP estática. Sin embargo, permanece constante hasta que la implementación subyacente se elimine o se mueva a otro clúster.
 
-### <a name="where-can-i-find-client-ip-sending-or-receiving-messages-to-my-namespace"></a>¿Dónde puedo encontrar la IP de cliente que envía o recibe mensajes en mi espacio de nombres?
+### <a name="what-client-ips-are-sending-events-to-or-receiving-events-from-my-namespace"></a>¿Qué direcciones IP de cliente envían o reciben eventos desde mi espacio de nombres?
 En primer lugar, habilite el [filtrado de IP](../articles/event-hubs/event-hubs-ip-filtering.md) en el espacio de nombres. 
 
 A continuación, habilite los registros de diagnóstico para [eventos de conexión de red virtual de Event Hubs](../articles/event-hubs/event-hubs-diagnostic-logs.md#event-hubs-virtual-network-connection-event-schema) siguiendo las instrucciones indicadas en [Habilitar registros de diagnóstico](../articles/event-hubs/event-hubs-diagnostic-logs.md#enable-diagnostic-logs). Verá la dirección IP para la que se deniega la conexión.
@@ -92,3 +92,6 @@ A continuación, habilite los registros de diagnóstico para [eventos de conexi�
 
 > [!IMPORTANT]
 > Los registros de red virtual solo se generan si el espacio de nombres permite el acceso desde **direcciones IP específicas** (reglas de filtro de IP). Si no desea restringir el acceso al espacio de nombres mediante estas características y desea obtener registros de red virtual para realizar el seguimiento de las direcciones IP de los clientes que se conectan al espacio de nombres de Event Hubs, puede usar la siguiente alternativa: Habilite el filtrado de IP y agregue el intervalo IPv4 direccionable total (1.0.0.0/1 - 255.0.0.0/1). Event Hubs no admite los intervalos de direcciones IPv6. 
+
+> [!NOTE]
+> Actualmente no es posible determinar la IP de origen de un mensaje o evento individual. 

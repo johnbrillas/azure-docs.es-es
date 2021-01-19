@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 5fb7c0df653048adcffceda4d8a384be823b5c3a
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 0d759b3af097067ba0c9215b65b212d50474d571
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97507700"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178354"
 ---
 # <a name="tutorial-call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Tutorial: Llamada a Microsoft Graph API desde una aplicación de escritorio de Windows
 
@@ -43,7 +43,7 @@ En este tutorial, aprenderá a:
 
 ![Muestra cómo funciona la aplicación de ejemplo generada por este tutorial](./media/active-directory-develop-guidedsetup-windesktop-intro/windesktophowitworks.svg)
 
-La aplicación de ejemplo que se crea con esta guía permite que una aplicación de escritorio de Windows consulte Microsoft Graph API o una API web que acepte tokens de un punto de conexión de la Plataforma de identidad de Microsoft. En este escenario, agregará un token a las solicitudes HTTP mediante el encabezado de autorización. La Biblioteca de autenticación de Microsoft (MSAL) administra la adquisición y renovación de los tokens.
+La aplicación de ejemplo que se crea con esta guía permite que una aplicación de escritorio de Windows consulte Microsoft Graph API o una API web que acepte tokens de un punto de conexión de la Plataforma de identidad de Microsoft. En este escenario, agregará un token a las solicitudes HTTP mediante el encabezado de autorización. La biblioteca de autenticación de Microsoft (MSAL) administra la adquisición y renovación de los tokens.
 
 ## <a name="handling-token-acquisition-for-accessing-protected-web-apis"></a>Tratamiento de la adquisición de tokens para acceder a API web protegidas
 
@@ -97,14 +97,14 @@ Puede registrar la aplicación de dos maneras.
 ### <a name="option-1-express-mode"></a>Opción 1: Modo rápido
 
 Puede registrar rápidamente la aplicación mediante estos pasos:
-1. Vaya a [Azure Portal: registro de aplicaciones](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/WinDesktopQuickstartPage/sourceType/docs).
+1. Vaya a la experiencia de inicio rápido <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/WinDesktopQuickstartPage/sourceType/docs" target="_blank">Azure Portal: Registros de aplicaciones<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 1. Escriba un nombre para la aplicación y seleccione **Registrar**.
 1. Siga las instrucciones para descargar y configurar automáticamente la nueva aplicación con un solo clic.
 
 ### <a name="option-2-advanced-mode"></a>Opción 2: Modo avanzado
 
 Para registrar la aplicación y agregar la información de registro de aplicación a la solución, siga estos pasos:
-1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 1. Si tiene acceso a varios inquilinos, use el filtro **Directorio + suscripción** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: del menú superior para seleccionar el inquilino en el que desea registrar una aplicación.
 1. Busque y seleccione **Azure Active Directory**.
 1. En **Administrar**, seleccione **Registros de aplicaciones** >  y, luego, **Nuevo registro**.

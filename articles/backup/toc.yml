@@ -66,6 +66,8 @@
           href: sap-hana-backup-support-matrix.md
         - name: Matriz de compatibilidad de copia de seguridad de recursos compartidos de archivos de Azure
           href: azure-file-share-support-matrix.md
+        - name: Matriz de compatibilidad de Azure Disk Backup
+          href: disk-backup-support-matrix.md
         - name: Controladores de dominio de Active Directory
           href: active-directory-backup-restore.md
         - name: Referencias de almacén de máquina virtual admitidas en Azure Policy
@@ -82,6 +84,8 @@
           href: backup-azure-file-folder-backup-faq.md
         - name: Preguntas frecuentes sobre la copia de seguridad de archivos de Azure
           href: backup-azure-files-faq.md
+        - name: Preguntas frecuentes sobre Azure Disk Backup
+          href: disk-backup-faq.md
         - name: Preguntas más frecuentes sobre la copia de seguridad de bases de datos de SQL Server en máquinas virtuales de Azure
           href: faq-backup-sql-server.md
         - name: Preguntas más frecuentes sobre la copia de seguridad de bases de datos de SAP HANA en máquinas virtuales de Azure
@@ -210,6 +214,14 @@
               href: backup-azure-restore-system-state.md
         - name: Administrar
           href: backup-azure-manage-mars.md
+    - name: Azure Disk Backup
+      items:
+        - name: Información general
+          href: disk-backup-overview.md
+        - name: Copia de seguridad
+          href: backup-managed-disks.md
+        - name: Restauración
+          href: restore-managed-disks.md
     - name: Copia de seguridad de un recurso compartido de archivos de Azure
       items:
         - name: Información general
@@ -441,6 +453,8 @@
           href: backup-azure-scdpm-troubleshooting.md
         - name: Recurso compartido de archivos de Azure
           href: troubleshoot-azure-files.md
+        - name: Azure Disk Backup
+          href: disk-backup-troubleshoot.md
         - name: SQL Server
           href: backup-sql-server-azure-troubleshoot.md
         - name: Copia de seguridad de SAP HANA en máquinas virtuales de Azure

@@ -11,16 +11,14 @@ ms.author: laobri
 ms.reviewer: laobri
 ms.date: 10/13/2020
 ms.custom: contperf-fy20q4, devx-track-python
-ms.openlocfilehash: b0b415cce37e464abcba9fab5ad4c1196b1b2e1b
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 8222f88f5118c4ac8f489bb05ee5ca2724dbf067
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033483"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98184091"
 ---
 # <a name="tutorial-build-an-azure-machine-learning-pipeline-for-batch-scoring"></a>Tutorial: Compilación de una canalización de Azure Machine Learning para la puntuación por lotes
-
-
 
 En este tutorial avanzado, aprenderá a crear una [canalización de Azure Machine Learning](concept-ml-pipelines.md) para ejecutar un trabajo de puntuación por lotes. Las canalizaciones de Machine Learning optimizan el flujo de trabajo con velocidad, portabilidad y reutilización, con el fin de que pueda centrarse en el aprendizaje automático, en lugar de en la infraestructura y la automatización. Después de compilar y publicar una canalización, configurará un punto de conexión REST para desencadenar la canalización desde cualquier biblioteca HTTP en cualquier plataforma. 
 
@@ -79,26 +77,24 @@ def_data_store = ws.get_default_datastore()
 
 ## <a name="create-dataset-objects"></a>Crear objetos de conjunto de datos
 
-Al compilar canalizaciones, se usan objetos `Dataset` para leer datos de los almacenes de datos del área de trabajo, y objetos `PipelineData` para transferir los datos intermedios entre los pasos de la canalización.
+Al compilar canalizaciones, se usan objetos `Dataset` para leer datos de los almacenes de datos del área de trabajo, y objetos `OutputFileDatasetConfig` para transferir los datos intermedios entre los pasos de la canalización.
 
 > [!Important]
 > En el ejemplo de puntuación por lotes de este tutorial solo se usa un paso de canalización. En los casos de uso con varios pasos, el flujo típico incluirá los siguientes:
 >
-> 1. Use objetos `Dataset` como *entradas* para capturar datos sin procesar, realizar algunas transformaciones y generar un objeto `PipelineData` de *salida*.
+> 1. Use objetos `Dataset` como *entradas* para capturar los datos sin procesar, realice algunas transformaciones y *genere una salida* con un objeto `OutputFileDatasetConfig`.
 >
-> 2. Use el `PipelineData` *objeto de salida* del paso anterior como *objeto de entrada*. Repítalo en pasos posteriores.
+> 2. Use el `OutputFileDatasetConfig` *objeto de salida* del paso anterior como *objeto de entrada*. Repítalo en pasos posteriores.
 
-En este escenario se crean objetos `Dataset` correspondientes a los directorios del almacén de datos para las imágenes de entrada y las etiquetas de clasificación (valores de la prueba de la y). También se crea un objeto `PipelineData` para los datos de salida de puntuación por lotes.
+En este escenario se crean objetos `Dataset` correspondientes a los directorios del almacén de datos para las imágenes de entrada y las etiquetas de clasificación (valores de la prueba de la y). También se crea un objeto `OutputFileDatasetConfig` para los datos de salida de la puntuación por lotes.
 
 ```python
 from azureml.core.dataset import Dataset
-from azureml.pipeline.core import PipelineData
+from azureml.data import OutputFileDatasetConfig
 
 input_images = Dataset.File.from_files((batchscore_blob, "batchscoring/images/"))
 label_ds = Dataset.File.from_files((batchscore_blob, "batchscoring/labels/"))
-output_dir = PipelineData(name="scores", 
-                          datastore=def_data_store, 
-                          output_path_on_compute="batchscoring/results")
+output_dir = OutputFileDatasetConfig(name="scores")
 ```
 
 Registre los conjuntos de datos en el área de trabajo si desea volver a usarlos más adelante. Este paso es opcional.
@@ -345,7 +341,7 @@ from azureml.core import Experiment
 from azureml.pipeline.core import Pipeline
 
 pipeline = Pipeline(workspace=ws, steps=[batch_score_step])
-pipeline_run = Experiment(ws, 'batch_scoring').submit(pipeline)
+pipeline_run = Experiment(ws, 'Tutorial-Batch-Scoring').submit(pipeline)
 pipeline_run.wait_for_completion(show_output=True)
 ```
 
@@ -409,7 +405,7 @@ import requests
 rest_endpoint = published_pipeline.endpoint
 response = requests.post(rest_endpoint, 
                          headers=auth_header, 
-                         json={"ExperimentName": "batch_scoring",
+                         json={"ExperimentName": "Tutorial-Batch-Scoring",
                                "ParameterAssignments": {"process_count_per_node": 6}})
 run_id = response.json()["Id"]
 ```
@@ -422,7 +418,7 @@ y su aspecto será similar al de la canalización que se ejecutó anteriormente 
 from azureml.pipeline.core.run import PipelineRun
 from azureml.widgets import RunDetails
 
-published_pipeline_run = PipelineRun(ws.experiments["batch_scoring"], run_id)
+published_pipeline_run = PipelineRun(ws.experiments["Tutorial-Batch-Scoring"], run_id)
 RunDetails(published_pipeline_run).show()
 ```
 

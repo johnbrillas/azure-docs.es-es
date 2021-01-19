@@ -9,120 +9,102 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/24/2018
+ms.date: 12/24/2020
 ms.author: jeedes
-ms.openlocfilehash: 1c2251967a0c48064ec70a4fb370b8c825f96b8e
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: ed41a2f3e967cc947f671b73e3f44aabf8c4034c
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521822"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97967732"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ultipro"></a>Tutorial: integración de Azure Active Directory con UltiPro
 
-En este tutorial, obtendrá información sobre cómo integrar UltiPro con Azure Active Directory (Azure AD).
-La integración de UltiPro con Azure AD proporciona las siguientes ventajas:
+En este tutorial, obtendrá información sobre cómo integrar UltiPro con Azure Active Directory (Azure AD). Al integrar UltiPro con Azure AD, puede hacer lo siguiente:
 
-* En Azure AD puede controlar quién tiene acceso a UltiPro.
-* Puede permitir que los usuarios inicien sesión automáticamente en UltiPro (inicio de sesión único) con sus cuentas de Azure AD.
-* Puede administrar sus cuentas en una ubicación central: Azure Portal.
+* Controlar en Azure AD quién tiene acceso a UltiPro.
+* Permitir que los usuarios inicien sesión automáticamente en UltiPro con sus cuentas de Azure AD.
+* Administrar las cuentas desde una ubicación central (Azure Portal).
 
-Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
-Para configurar la integración de Azure AD con UltiPro, necesita los siguientes elementos:
+Para empezar, necesita los siguientes elementos:
 
-* Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/)
-* Una suscripción habilitada para inicio de sesión único en UltiPro
+* Una suscripción de Azure AD. Si no tiene una suscripción, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/).
+* Una suscripción habilitada para el inicio de sesión único (SSO) en UltiPro.
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
-En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
+En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* UltiPro admite el inicio de sesión único iniciado por **SP** .
+* UltiPro admite el inicio de sesión único iniciado por **SP**.
 
 ## <a name="adding-ultipro-from-the-gallery"></a>Incorporación de UltiPro desde la galería
 
 Para configurar la integración de UltiPro en Azure AD, deberá agregar UltiPro desde la galería a la lista de aplicaciones SaaS administradas.
 
-**Para agregar UltiPro desde la galería, siga estos pasos:**
+1. Inicie sesión en Azure Portal con una cuenta personal, profesional o educativa de Microsoft.
+1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
+1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
+1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
+1. En la sección **Agregar desde la galería**, escriba **UltiPro** en el cuadro de búsqueda.
+1. Seleccione **UltiPro** en el panel de resultados y, a continuación, agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory** .
 
-    ![Botón Azure Active Directory](common/select-azuread.png)
+## <a name="configure-and-test-azure-ad-sso-for-ultipro"></a>Configuración y prueba del inicio de sesión único de Azure AD para UltiPro
 
-2. Vaya a **Aplicaciones empresariales** y seleccione la opción **Todas las aplicaciones** .
+Configure y pruebe el inicio de sesión único de Azure AD con UltiPro mediante un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es necesario establecer una relación de vinculación entre un usuario de Azure AD y el usuario correspondiente de UltiPro.
 
-    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
+Para configurar y probar el inicio de sesión único de Azure AD con UltiPro, siga estos pasos:
 
-3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
+2. **[Configuración del inicio de sesión único en UltiPro](#configure-ultipro-sso)** : para configurar los valores de inicio de sesión único en la aplicación.
+    1. **[Creación de un usuario de prueba de UltiPro](#create-ultipro-test-user)** : para tener un homólogo de B.Simon en UltiPro vinculado a la representación del usuario en Azure AD.
+3. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
-    ![Botón Nueva aplicación](common/add-new-app.png)
+## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
 
-4. En el cuadro de búsqueda, escriba **UltiPro** , seleccione **UltiPro** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
+Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
-     ![UltiPro en la lista de resultados](common/search-new-app.png)
+1. En Azure Portal, en la página de integración de la aplicación **UltiPro**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
+1. En la página **Seleccione un método de inicio de sesión único**, seleccione **SAML**.
+1. En la página **Configuración del inicio de sesión único con SAML**, haga clic en el icono de lápiz de **Configuración básica de SAML** para editar la configuración.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
+   ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-En esta sección, configurará y probará el inicio de sesión único de Azure AD con UltiPro con un usuario de prueba llamado **Britta Simon** .
-Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de UltiPro.
+1. En la sección **Configuración básica de SAML**, siga estos pasos:
 
-Para configurar y probar el inicio de sesión único de Azure AD con UltiPro, es preciso completar los siguientes bloques de creación:
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con uno de los siguientes patrones:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de UltiPro](#configure-ultipro-single-sign-on)** : para configurar los valores de inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de UltiPro](#create-ultipro-test-user)** : para tener un homólogo de Britta Simon en UltiPro vinculado a la representación del usuario en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
-
-En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal.
-
-Para configurar el inicio de sesión único de Azure AD con UltiPro, siga estos pasos:
-
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **UltiPro** , seleccione **Inicio de sesión único** .
-
-    ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
-
-2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único** , seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
-
-    ![Modo de selección de inicio de sesión único](common/select-saml-option.png)
-
-3. En la página **Configurar el inicio de sesión único con SAML** , haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML** .
-
-    ![Edición de la configuración básica de SAML](common/edit-urls.png)
-
-4. En la sección **Configuración básica de SAML** , siga estos pasos:
-
-    ![Información de dominio y direcciones URL de inicio de sesión único de UltiPro](common/sp-identifier-reply.png)
-
-    a. En el cuadro de texto **URL de inicio de sesión** , escriba una dirección URL con el siguiente patrón:
-
-    - `https://<companyname>.ultipro.com/`
-    - `https://<companyname>.ultiproworkplace.com?cpi=AZUREADISSSUERURL`
-    - `https://<companyname>.ultipro.ca`
+    | URL de inicio de sesión |
+    |-------------|
+    | `https://<companyname>.ultipro.com/` |
+    | `https://<companyname>.ultiproworkplace.com?cpi=AZUREADISSSUERURL` |
+    | `https://<companyname>.ultipro.ca` |
     
-    b. En el cuadro de texto **Identificador** , escriba una dirección URL con el siguiente patrón:
+    b. En el cuadro de texto **Identificador**, escriba una dirección URL con uno de los siguientes patrones:
 
-    - `https://<companyname>.ultipro.com/adfs/services/trust`
-    - `https://<companyname>.ultiproworkplace.com/adfs/services/trust`
-    - `https://<companyname>.ultipro.ca/adfs/services/trust`
+    | Identificador |
+    |-------------|
+    | `https://<companyname>.ultipro.com/adfs/services/trust` |
+    | `https://<companyname>.ultiproworkplace.com/adfs/services/trust` |
+    | `https://<companyname>.ultipro.ca/adfs/services/trust` |
     
-    c. En el cuadro de texto **URL de respuesta** , escriba una dirección URL con el siguiente patrón:
-    
-    - `https://<companyname>.ultipro.com/<instancename>`
-    - `https://<companyname>.ultiproworkplace.com/<instancename>`
-    - `https://<companyname>.ultipro.ca/<instancename>`
+    c. En el cuadro de texto **URL de respuesta** , escriba una dirección URL con uno de los siguientes patrones:
+
+    | URL de respuesta |
+    |-------------|
+    | `https://<companyname>.ultipro.com/<instancename>` |
+    | `https://<companyname>.ultiproworkplace.com/<instancename>` |
+    | `https://<companyname>.ultipro.ca/<instancename>` |
 
     > [!NOTE]
     > Estos valores no son reales. Actualícelos con la dirección URL de inicio de sesión, el identificador y la dirección URL de respuesta reales. Póngase en contacto con el [equipo de soporte al cliente de UltiPro](https://www.ultimatesoftware.com/ContactUs) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-4. En la página **Configurar el inicio de sesión único con SAML** , en la sección **Certificado de firma de SAML** , haga clic en **Descargar** para descargar el **certificado (Base64)** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
+4. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **certificado (Base64)** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
     ![Vínculo de descarga del certificado](common/certificatebase64.png)
 
@@ -130,81 +112,50 @@ Para configurar el inicio de sesión único de Azure AD con UltiPro, siga estos 
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
-    a. URL de inicio de sesión
+### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
-    b. Identificador de Azure AD
+En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Portal.
 
-    c. URL de cierre de sesión
-
-### <a name="configure-ultipro-single-sign-on"></a>Configuración del inicio de sesión único de UltiPro
-
-Para configurar el inicio de sesión único en **UltiPro** , es preciso enviar el **certificado (Base64)** descargado y las direcciones URL apropiadas copiadas de Azure Portal al [equipo de soporte técnico de UltiPro](https://www.ultimatesoftware.com/ContactUs). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
-
-### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD 
-
-El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
-
-1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory** , **Usuarios** y **Todos los usuarios** .
-
-    ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](common/users.png)
-
-2. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
-
-    ![Botón Nuevo usuario](common/new-user.png)
-
-3. En las propiedades Usuario, siga estos pasos.
-
-    ![Cuadro de diálogo Usuario](common/user-properties.png)
-
-    a. En el campo **Nombre** , escriba **BrittaSimon** .
-  
-    b. En el campo **Nombre de usuario** , escriba **brittasimon\@yourcompanydomain.extension** .  
-    Por ejemplo: BrittaSimon@contoso.com
-
-    c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
-
-    d. Haga clic en **Crear** .
+1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
+1. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
+1. En las propiedades del **usuario**, siga estos pasos:
+    1. En el campo **Nombre**, escriba `B.Simon`.  
+    1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
+    1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
+    1. Haga clic en **Crear**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
-En esta sección, concederá acceso a Britta Simon a UltiPro para que use el inicio de sesión único de Azure.
+En esta sección, va a permitir que B.Simon acceda a UltiPro mediante el inicio de sesión único de Azure.
 
-1. En Azure Portal, seleccione **Aplicaciones empresariales** , **Todas las aplicaciones** y luego **UltiPro** .
+1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
+1. En la lista de aplicaciones, seleccione **UltiPro**.
+1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
+1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
+1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
+1. Si espera que se asigne un rol a los usuarios, puede seleccionarlo en la lista desplegable **Seleccionar un rol**. Si no se ha configurado ningún rol para esta aplicación, verá seleccionado el rol "Acceso predeterminado".
+1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
-    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-2. En la lista de aplicaciones, escriba y seleccione **UltiPro** .
+## <a name="configure-ultipro-sso"></a>Configuración del inicio de sesión único de UltiPro
 
-    ![Vínculo a UltiPro en la lista de aplicaciones](common/all-applications.png)
-
-3. En el menú de la izquierda, seleccione **Usuarios y grupos** .
-
-    ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
-
-4. Haga clic en el botón **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación** .
-
-    ![Panel Agregar asignación](common/add-assign-user.png)
-
-5. En el cuadro de diálogo **Usuarios y grupos** , seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
-
-6. Si espera cualquier valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** seleccione en la lista el rol adecuado para el usuario y, después, haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
-
-7. En el cuadro de diálogo **Agregar asignación** , haga clic en el botón **Asignar** .
+Para configurar el inicio de sesión único en **UltiPro**, es preciso enviar el **certificado (Base64)** descargado y las direcciones URL apropiadas copiadas de Azure Portal al [equipo de soporte técnico de UltiPro](https://www.ultimatesoftware.com/ContactUs). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 ### <a name="create-ultipro-test-user"></a>Creación de un usuario de prueba de UltiPro
 
 En esta sección, creará un usuario llamado Britta Simon en UltiPro. Trabaje con el [equipo de soporte técnico de Ultipro](https://www.ultimatesoftware.com/ContactUs) para agregar usuarios a la plataforma de UltiPro. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
-### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único 
+## <a name="test-sso"></a>Prueba de SSO 
 
-En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
+En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
 
-Al hacer clic en el icono de UltiPro en el panel de acceso, debería iniciar sesión automáticamente en la versión de UltiPro para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+* Haga clic en **Probar esta aplicación** en Azure Portal. Esta acción le redirigirá a la dirección URL de inicio de sesión de UltiPro, donde puede iniciar el flujo de inicio de sesión. 
 
-## <a name="additional-resources"></a>Recursos adicionales
+* Vaya directamente a la dirección URL de inicio de sesión de UltiPro y comience el flujo de inicio de sesión desde ahí.
 
-- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](./tutorial-list.md)
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de UltiPro en Aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de UltiPro. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](../conditional-access/overview.md)
+## <a name="next-steps"></a>Pasos siguientes
+
+Una vez configurado UltiPro, puede aplicar controles de sesión, que protegen contra la filtración y la infiltración de la información confidencial de la organización en tiempo real. Los controles de sesión proceden del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

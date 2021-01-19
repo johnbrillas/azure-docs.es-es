@@ -15,16 +15,16 @@ ms.date: 11/17/2019
 ms.author: zhenlwa
 ms.custom: devx-track-csharp, azure-functions
 ms.tgt_pltfrm: Azure Functions
-ms.openlocfilehash: e603aa8ba85fdd214c04de515f405bcf9028791e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: add4b54adb02db09536f4e56a7f039c46245c182
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88207101"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97963571"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-azure-functions-app"></a>Tutorial: Uso de la configuración dinámica en una aplicación de Azure Functions
 
-El proveedor de configuración de App Configuration para .NET Standard admite el almacenamiento en caché y la actualización de la configuración controlada dinámicamente por la actividad de la aplicación. Este tutorial le muestra cómo puede implementar las actualizaciones de configuración dinámica en el código. Se basa en la aplicación de Azure Functions que se presentó en las guías de inicio rápido. Antes de continuar, finalice primero el tutorial [Creación de una aplicación de Azure Functions con Azure App Configuration](./quickstart-azure-functions-csharp.md).
+El proveedor de configuración de App Configuration para .NET admite el almacenamiento en caché y la actualización de la configuración controlada dinámicamente por la actividad de la aplicación. Este tutorial le muestra cómo puede implementar las actualizaciones de configuración dinámica en el código. Se basa en la aplicación de Azure Functions que se presentó en las guías de inicio rápido. Antes de continuar, finalice primero el tutorial [Creación de una aplicación de Azure Functions con Azure App Configuration](./quickstart-azure-functions-csharp.md).
 
 En este tutorial, aprenderá a:
 
@@ -41,44 +41,71 @@ En este tutorial, aprenderá a:
 
 ## <a name="reload-data-from-app-configuration"></a>Recarga de datos de App Configuration
 
-1. Abra *Function1.cs*. Además de la propiedad de tipo `static``Configuration`, agregue una nueva propiedad `static``ConfigurationRefresher` para mantener una instancia singleton de `IConfigurationRefresher` que se utilizará para indicar actualizaciones de configuración durante las llamadas posteriores a Azure Functions.
+1. Abra *Startup.cs* y actualice el método `ConfigureAppConfiguration`. 
+
+   El método `ConfigureRefresh` registra un valor donde se comprobarán los cambios que se produzcan siempre que se desencadene una actualización en la aplicación, lo cual hará en el paso posterior al agregar `_configurationRefresher.TryRefreshAsync()`. El parámetro `refreshAll` indica al proveedor App Configuration que vuelva a cargar toda la configuración siempre que se detecte un cambio en la configuración registrada.
+
+    Todas las configuraciones registradas para la actualización tienen un tiempo de expiración predeterminado de 30 segundos de la caché. Puede actualizarse al llamar al método `AzureAppConfigurationRefreshOptions.SetCacheExpiration`.
 
     ```csharp
-    private static IConfiguration Configuration { set; get; }
-    private static IConfigurationRefresher ConfigurationRefresher { set; get; }
-    ```
-
-2. Actualice el constructor y use el método `ConfigureRefresh` para especificar la configuración que se va a actualizar desde el almacén de App Configuration. Una instancia de `IConfigurationRefresher` se recupera mediante el método `GetRefresher`. Opcionalmente, también cambiamos la ventana de tiempo de expiración de la memoria caché de configuración a 1 minuto desde el valor predeterminado de 30 segundos.
-
-    ```csharp
-    static Function1()
+    public override void ConfigureAppConfiguration(IFunctionsConfigurationBuilder builder)
     {
-        var builder = new ConfigurationBuilder();
-        builder.AddAzureAppConfiguration(options =>
+        builder.ConfigurationBuilder.AddAzureAppConfiguration(options =>
         {
             options.Connect(Environment.GetEnvironmentVariable("ConnectionString"))
+                   // Load all keys that start with `TestApp:`
+                   .Select("TestApp:*")
+                   // Configure to reload configuration if the registered 'Sentinel' key is modified
                    .ConfigureRefresh(refreshOptions =>
-                        refreshOptions.Register("TestApp:Settings:Message")
-                                      .SetCacheExpiration(TimeSpan.FromSeconds(60))
-            );
-            ConfigurationRefresher = options.GetRefresher();
+                      refreshOptions.Register("TestApp:Settings:Sentinel", refreshAll: true));
         });
-        Configuration = builder.Build();
     }
     ```
 
-3. Actualice el método `Run` y señalice para actualizar la configuración mediante el método `TryRefreshAsync` al principio de la llamada a Azure Functions. Esto no será operativo si no se alcanza la ventana de tiempo de expiración de la memoria caché. Elimine el operador `await` si prefiere que la configuración se actualice sin bloqueos.
+   > [!TIP]
+   > Al actualizar varios valores de clave en App Configuration, normalmente no se desea que la aplicación vuelva a cargar la configuración hasta que se hayan realizado los cambios. Puede registrar una clave de **Sentinel** y actualizarla solo cuando se hayan completado los demás cambios de configuración. Esto ayuda a garantizar la coherencia de la configuración en la aplicación.
+
+2. Actualice el método `Configure` para que los servicios de Azure App Configuration estén disponibles mediante la inserción de dependencias.
 
     ```csharp
-    public static async Task<IActionResult> Run(
+    public override void Configure(IFunctionsHostBuilder builder)
+    {
+        builder.Services.AddAzureAppConfiguration();
+    }
+    ```
+
+3. Abra *Function1.cs* y agregue los espacios de nombres siguientes.
+
+    ```csharp
+    using System.Linq;
+    using Microsoft.Extensions.Configuration.AzureAppConfiguration;
+    ```
+
+   Actualice el constructor para obtener la instancia de `IConfigurationRefresherProvider` mediante la inserción de dependencias, desde la que podrá obtener la instancia de `IConfigurationRefresher`.
+
+    ```csharp
+    private readonly IConfiguration _configuration;
+    private readonly IConfigurationRefresher _configurationRefresher;
+
+    public Function1(IConfiguration configuration, IConfigurationRefresherProvider refresherProvider)
+    {
+        _configuration = configuration;
+        _configurationRefresher = refresherProvider.Refreshers.First();
+    }
+    ```
+
+4. Actualice el método `Run` y señalice para actualizar la configuración mediante el método `TryRefreshAsync` al principio de la llamada a Azure Functions. No será operativo si no se alcanza la ventana de tiempo de expiración de la memoria caché. Elimine el operador `await` si prefiere que la configuración se actualice sin bloqueos en la llamada a Functions actual. De ese modo, las llamadas a Functions posteriores obtendrán el valor actualizado.
+
+    ```csharp
+    public async Task<IActionResult> Run(
         [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req, ILogger log)
     {
         log.LogInformation("C# HTTP trigger function processed a request.");
 
-        await ConfigurationRefresher.TryRefreshAsync(); 
+        await _configurationRefresher.TryRefreshAsync(); 
 
         string keyName = "TestApp:Settings:Message";
-        string message = Configuration[keyName];
+        string message = _configuration[keyName];
             
         return message != null
             ? (ActionResult)new OkObjectResult(message)
@@ -116,19 +143,27 @@ En este tutorial, aprenderá a:
 
     ![Inicio rápido: inicio de funciones locales](./media/quickstarts/dotnet-core-function-launch-local.png)
 
-5. Inicie sesión en [Azure Portal](https://portal.azure.com). Seleccione **Todos los recursos** y seleccione la instancia de almacén de App Configuration que creó en el inicio rápido.
+5. Inicie sesión en [Azure Portal](https://portal.azure.com). Seleccione **Todos los recursos** y seleccione el almacén de App Configuration que creó en el inicio rápido.
 
-6. Seleccione **Explorador de configuración** y actualice los valores de la clave siguiente:
+6. Seleccione **Explorador de configuración** y actualice el valor de la clave siguiente:
 
     | Clave | Value |
     |---|---|
     | TestApp:Settings:Message | Datos de Azure App Configuration, actualizados |
 
-7. Actualice el explorador varias veces. Cuando la configuración almacenada en la memoria caché expira después de un minuto, la página muestra la respuesta de la llamada a Azure Functions con el valor actualizado.
+   A continuación, cree la clave de Sentinel o modifique su valor si ya existe; por ejemplo,
+
+    | Clave | Valor |
+    |---|---|
+    | TestApp:Settings:Sentinel | v1 |
+
+
+7. Actualice el explorador varias veces. Cuando la configuración almacenada en la memoria caché expira después de 30 segundos, la página muestra la respuesta de la llamada a Azure Functions con el valor actualizado.
 
     ![Función de inicio rápido de actualización local](./media/quickstarts/dotnet-core-function-refresh-local.png)
 
-El código de ejemplo que se usa en este tutorial se puede descargar desde el [repositorio de GitHub de App Configuration](https://github.com/Azure/AppConfiguration/tree/master/examples/DotNetCore/AzureFunction).
+> [!NOTE]
+> El código de ejemplo que se usa en este tutorial se puede descargar desde el [repositorio de GitHub de App Configuration](https://github.com/Azure/AppConfiguration/tree/master/examples/DotNetCore/AzureFunction).
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

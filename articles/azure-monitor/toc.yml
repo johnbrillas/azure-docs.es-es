@@ -571,7 +571,11 @@
             - name: Datos sincronizados desde un producto de Administración de servicios de TI
               href: platform/itsmc-synced-data.md
             - name: Solución de problemas del Conector de Administración de servicios de TI
-              href: platform/itsmc-resync-servicenow.md
+              items:
+                - name: Información general
+                  href: platform/itsmc-resync-servicenow.md
+                - name: Panel Investigación
+                  href: platform/itsmc-dashboard.md
             - name: Integración con exportación segura
               items:
                 - name: Información general

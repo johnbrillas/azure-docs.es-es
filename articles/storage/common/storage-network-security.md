@@ -9,18 +9,18 @@ ms.date: 12/08/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: c2074402225c8134329e00003e4fbdfd95b5dba6
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 13d1ad0b1b5e32ea2ca86e7556dd910c542bcbe2
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96938416"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98070582"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configuración de redes virtuales y firewalls de Azure Storage
 
 Azure Storage proporciona un modelo de seguridad por capas. Este modelo le permite proteger y controlar el nivel de acceso a las cuentas de almacenamiento que exigen sus aplicaciones y entornos empresariales, en función del tipo y el subconjunto de redes usadas. Cuando se configuran las reglas de red, solo las aplicaciones que solicitan datos del conjunto especificado de redes pueden acceder a una cuenta de almacenamiento. Puede limitar el acceso a su cuenta de almacenamiento a las solicitudes procedentes de direcciones IP especificadas, intervalos IP o una lista de subredes de instancias de Azure Virtual Network (VNet).
 
-Las cuentas de almacenamiento tienen un punto de conexión público accesible a través de Internet. También puede crear [puntos de conexión privados para la cuenta de almacenamiento](storage-private-endpoints.md), lo que asigna una dirección IP privada de la red virtual a la cuenta de almacenamiento, y protege todo el tráfico entre la red virtual y la cuenta de almacenamiento a través de un vínculo privado. El firewall de almacenamiento de Azure proporciona acceso de control de acceso para el punto de conexión público de la cuenta de almacenamiento. También puede usar el firewall para bloquear todo el acceso a través del punto de conexión público al usar puntos de conexión privados. La configuración del firewall de almacenamiento también permite seleccionar servicios de la plataforma de Azure de confianza para acceder a la cuenta de almacenamiento de forma segura.
+Las cuentas de almacenamiento tienen un punto de conexión público accesible a través de Internet. También puede crear [puntos de conexión privados para la cuenta de almacenamiento](storage-private-endpoints.md), lo que asigna una dirección IP privada de la red virtual a la cuenta de almacenamiento, y protege todo el tráfico entre la red virtual y la cuenta de almacenamiento a través de un vínculo privado. El firewall de almacenamiento de Azure proporciona control de acceso para el punto de conexión público de la cuenta de almacenamiento. También puede usar el firewall para bloquear todo el acceso a través del punto de conexión público al usar puntos de conexión privados. La configuración del firewall de almacenamiento también permite seleccionar servicios de la plataforma de Azure de confianza para acceder a la cuenta de almacenamiento de forma segura.
 
 Una aplicación que accede a una cuenta de almacenamiento cuando las reglas de red están en vigor aún requiere la autorización adecuada para la solicitud. La autorización es compatible con las credenciales de Azure Active Directory (Azure AD) (para blobs y colas), con una clave de acceso de cuenta válida o un token de SAS.
 
@@ -33,13 +33,13 @@ Una aplicación que accede a una cuenta de almacenamiento cuando las reglas de r
 
 ## <a name="scenarios"></a>Escenarios
 
-Para proteger la cuenta de almacenamiento, primero debe configurar una regla para denegar el acceso al tráfico desde todas las redes (incluido el tráfico de Internet) en el punto de conexión público de forma predeterminada. A continuación, debe configurar las reglas que conceden acceso al tráfico desde redes virtuales específicas. También puede configurar reglas para conceder acceso al tráfico desde intervalos de direcciones IP de Internet públicos, lo que permite habilitar conexiones desde clientes locales o específicos de Internet. Esta configuración le permite crear un límite de red seguro para las aplicaciones.
+Para proteger la cuenta de almacenamiento, primero debe configurar una regla para denegar el acceso al tráfico desde todas las redes (incluido el tráfico de Internet) en el punto de conexión público de forma predeterminada. A continuación, debe configurar las reglas que conceden acceso al tráfico desde redes virtuales específicas. También puede configurar reglas para conceder acceso al tráfico desde intervalos de direcciones IP de Internet públicos seleccionados, lo que permite habilitar conexiones desde clientes locales o específicos de Internet. Esta configuración le permite crear un límite de red seguro para las aplicaciones.
 
 Puede combinar reglas de firewall que permitan el acceso desde redes virtuales específicas y desde intervalos de direcciones IP públicas en la misma cuenta de almacenamiento. Las reglas de firewall de almacenamiento se pueden aplicar a cuentas de almacenamiento existentes o al crear nuevas cuentas de almacenamiento.
 
 Las reglas de firewall de almacenamiento se aplican al punto de conexión público de una cuenta de almacenamiento. No se necesitan reglas de acceso de firewall para permitir el tráfico de los puntos de conexión privados de una cuenta de almacenamiento. El proceso de aprobación de la creación de un punto de conexión privado concede acceso implícito al tráfico desde la subred que hospeda el punto de conexión privado.
 
-Se aplican reglas de red en todos los protocolos de red para Azure Storage, incluidos REST y SMB. Para tener acceso a los datos mediante herramientas como Azure Portal, el Explorador de Storage y AZCopy, deben configurarse reglas de red explícitas.
+Se aplican reglas de red en todos los protocolos de red para Azure Storage, incluidos REST y SMB. Para tener acceso a los datos mediante herramientas como Azure Portal, el Explorador de Storage y AZCopy, deben configurarse reglas de red explícitas.
 
 Una vez que se apliquen las reglas de red, se aplicarán a todas las solicitudes. Los tokens de SAS que conceden acceso a una dirección IP específica sirven para limitar el acceso del titular del token, pero no conceden un acceso nuevo más allá de las reglas de red configuradas.
 

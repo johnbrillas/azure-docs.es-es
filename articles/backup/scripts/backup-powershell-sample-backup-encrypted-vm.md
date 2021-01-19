@@ -4,16 +4,16 @@ description: En este artículo, aprenderá a usar un ejemplo de script de Azure 
 ms.topic: sample
 ms.date: 03/05/2019
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 6e3af44284acdc96f6f0197c4153c6f7538570d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 73dc119e8db34aed04ce8926bfa85f557027c8e2
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89069549"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97967334"
 ---
 # <a name="back-up-an-encrypted-azure-virtual-machine-with-powershell"></a>Copia de seguridad de una máquina virtual de Azure cifrada con PowerShell
 
-Este script crea un almacén de Recovery Services con almacenamiento con redundancia geográfica (GRS) para una máquina virtual de Azure cifrada. Se aplica la directiva de protección predeterminada al almacén. La directiva genera una copia de seguridad diaria de la máquina virtual y conserva cada copia de seguridad durante 30 días. El script también desencadena el punto de recuperación inicial para la máquina virtual y retiene ese punto de recuperación durante 365 días.
+Este script crea un almacén de Recovery Services con almacenamiento con redundancia geográfica (GRS) para una máquina virtual de Azure cifrada. Se aplica la directiva de protección predeterminada al almacén. La directiva genera una copia de seguridad diaria de la máquina virtual y la conserva durante 365 días. El script también desencadena el punto de recuperación inicial para la máquina virtual y lo conserva durante 30 días.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: jeedes
-ms.openlocfilehash: a0b76c21ee76731f78ecd7f482472908fe93a9ee
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 72072feebfcf8dba249d2045a399e09714177698
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92513337"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97963696"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-palo-alto-networks---globalprotect"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Palo Alto Networks - GlobalProtect
 
@@ -37,23 +37,23 @@ Para empezar, necesita los siguientes elementos:
 
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* Palo Alto Networks - GlobalProtect admite el inicio de sesión único iniciado por **SP** .
-* Palo Alto Networks - GlobalProtect admite el aprovisionamiento de usuarios **Just In Time** .
+* Palo Alto Networks - GlobalProtect admite el inicio de sesión único iniciado por **SP**.
+* Palo Alto Networks - GlobalProtect admite el aprovisionamiento de usuarios **Just In Time**.
 
 ## <a name="adding-palo-alto-networks---globalprotect-from-the-gallery"></a>Agregar Palo Alto Networks - GlobalProtect desde la galería
 
 Para configurar la integración de Palo Alto Networks - GlobalProtect en Azure AD, es preciso agregar Palo Alto Networks - GlobalProtect desde la galería a la lista de aplicaciones SaaS administradas.
 
 1. Inicie sesión en Azure Portal con una cuenta personal, profesional o educativa de Microsoft.
-1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory** .
-1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones** .
-1. Para agregar una nueva aplicación, seleccione **Nueva aplicación** .
-1. En la sección **Agregar desde la galería** , escriba **Palo Alto Networks - GlobalProtect** en el cuadro de búsqueda.
+1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
+1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
+1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
+1. En la sección **Agregar desde la galería**, escriba **Palo Alto Networks - GlobalProtect** en el cuadro de búsqueda.
 1. Seleccione **Palo Alto Networks - GlobalProtect** en el panel de resultados y, a continuación, agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
 ## <a name="configure-and-test-azure-ad-sso-for-palo-alto-networks---globalprotect"></a>Configuración y prueba del inicio de sesión único de Azure AD para Palo Alto Networks - GlobalProtect
 
-Configure y pruebe el inicio de sesión único de Azure AD con Palo Alto Networks - GlobalProtect mediante un usuario de prueba llamado **B.Simon** . Para que el inicio de sesión único funcione, es necesario establecer una relación de vinculación entre un usuario de Azure AD y el usuario relacionado de Palo Alto Networks - GlobalProtect.
+Configure y pruebe el inicio de sesión único de Azure AD con Palo Alto Networks - GlobalProtect mediante un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es necesario establecer una relación de vinculación entre un usuario de Azure AD y el usuario relacionado de Palo Alto Networks - GlobalProtect.
 
 Para configurar y probar el inicio de sesión único de Azure AD con Palo Alto Networks - GlobalProtect, siga estos pasos:
 
@@ -68,22 +68,22 @@ Para configurar y probar el inicio de sesión único de Azure AD con Palo Alto 
 
 Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
-1. En Azure Portal, en la página de integración de la aplicación **Palo Alto Networks - GlobalProtect** , busque la sección **Administrar** y seleccione **Inicio de sesión único** .
-1. En la página **Seleccione un método de inicio de sesión único** , elija **SAML** .
-1. En la página **Configurar el inicio de sesión único con SAML** , haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+1. En Azure Portal, en la página de integración de la aplicación **Palo Alto Networks - GlobalProtect**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
+1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
+1. En la página **Configuración del inicio de sesión único con SAML**, haga clic en el icono de lápiz de **Configuración básica de SAML** para editar la configuración.
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En la sección **Configuración básica de SAML** , especifique los valores de los siguientes campos:
+1. En la sección **Configuración básica de SAML**, especifique los valores de los siguientes campos:
 
-    a. En el cuadro de texto **URL de inicio de sesión** , escriba una dirección URL con el siguiente patrón: `https://<Customer Firewall URL>`
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<Customer Firewall URL>`
 
     b. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón: `https://<Customer Firewall URL>/SAML20/SP`
 
     > [!NOTE]
     > Estos valores no son reales. Actualice estos valores con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico del cliente de Palo Alto Networks - GlobalProtect](https://support.paloaltonetworks.com/support) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-1. En la página **Configurar el inicio de sesión único con SAML** , en la sección **Certificado de firma de SAML** , busque **XML de metadatos de federación** y seleccione **Descargar** para descargar el certificado y guardarlo en su equipo.
+1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **XML de metadatos de federación** y seleccione **Descargar** para descargar el certificado y guardarlo en su equipo.
 
     ![Vínculo de descarga del certificado](common/metadataxml.png)
 
@@ -95,31 +95,31 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Portal.
 
-1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory** , **Usuarios** y **Todos los usuarios** .
+1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
 1. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
-1. En las propiedades del **usuario** , siga estos pasos:
-   1. En el campo **Nombre** , escriba `B.Simon`.  
-   1. En el campo **Nombre de usuario** , escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
-   1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña** .
-   1. Haga clic en **Crear** .
+1. En las propiedades del **usuario**, siga estos pasos:
+   1. En el campo **Nombre**, escriba `B.Simon`.  
+   1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
+   1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
+   1. Haga clic en **Crear**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
 En esta sección, permitirá que B.Simon use el inicio de sesión único de Azure al concederle acceso a Palo Alto Networks - GlobalProtect.
 
-1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones** .
-1. En la lista de aplicaciones, seleccione **Palo Alto Networks - GlobalProtect** .
-1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos** .
-1. Seleccione **Agregar usuario** . A continuación, en el cuadro de diálogo **Agregar asignación** , seleccione **Usuarios y grupos** .
-1. En el cuadro de diálogo **Usuarios y grupos** , seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
-1. Si espera que se asigne un rol a los usuarios, puede seleccionarlo en la lista desplegable **Seleccionar un rol** . Si no se ha configurado ningún rol para esta aplicación, verá seleccionado el rol "Acceso predeterminado".
-1. En el cuadro de diálogo **Agregar asignación** , haga clic en el botón **Asignar** .
+1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
+1. En la lista de aplicaciones, seleccione **Palo Alto Networks - GlobalProtect**.
+1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
+1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
+1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
+1. Si espera que se asigne un rol a los usuarios, puede seleccionarlo en la lista desplegable **Seleccionar un rol**. Si no se ha configurado ningún rol para esta aplicación, verá seleccionado el rol "Acceso predeterminado".
+1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
 ## <a name="configure-palo-alto-networks---globalprotect-sso"></a>Configuración del inicio de sesión único de Palo Alto Networks - GlobalProtect
 
 1. Abra Palo Alto Networks - GlobalProtect como administrador en otra ventana del explorador.
 
-2. Haga clic en **Dispositivo** .
+2. Haga clic en **Dispositivo**.
 
     ![Configuración del inicio de sesión único de Palo Alto 1](./media/paloaltoglobalprotect-tutorial/tutorial_paloaltoadmin_admin1.png)
 
@@ -133,7 +133,7 @@ En esta sección, permitirá que B.Simon use el inicio de sesión único de Azur
 
     a. En el cuadro de texto **Profile Name** (Nombre de perfil), proporcione un nombre, por ejemplo, Azure AD GlobalProtect.
 
-    b. En **Metadatos del proveedor de identidades** , haga clic en **Examinar** y seleccione el archivo metadata.xml que ha descargado de Azure Portal.
+    b. En **Metadatos del proveedor de identidades**, haga clic en **Examinar** y seleccione el archivo metadata.xml que ha descargado de Azure Portal.
 
     c. Haga clic en **Aceptar**
 
@@ -145,11 +145,11 @@ En esta sección, se va a crear un usuario llamado B.Simon en Palo Alto Networks
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
 
-1. Haga clic en **Probar esta aplicación** en Azure Portal. Esta acción le redirigirá a la dirección URL de inicio de sesión de Palo Alto Networks - GlobalProtect, desde donde puede comenzar el flujo de inicio de sesión. 
+* Haga clic en **Probar esta aplicación** en Azure Portal. Esta acción le redirigirá a la dirección URL de inicio de sesión de Palo Alto Networks - GlobalProtect, desde donde puede comenzar el flujo de inicio de sesión. 
 
-2. Vaya directamente a la dirección URL de inicio de sesión de Palo Alto Networks - GlobalProtect y comience el flujo de inicio de sesión desde allí.
+* Vaya directamente a la dirección URL de inicio de sesión de Palo Alto Networks - GlobalProtect y comience el flujo de inicio de sesión desde allí.
 
-3. Puede usar el Panel de acceso de Microsoft. Al hacer clic en el icono de Palo Alto Networks - GlobalProtect en el panel de acceso, se debería iniciar sesión automáticamente en la instancia de Palo Alto Networks - GlobalProtect para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Palo Alto Networks - GlobalProtect en Aplicaciones, se debería iniciar sesión automáticamente en la instancia de Palo Alto Networks - GlobalProtect para la que configurara el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/08/2020
 ms.author: jeedes
-ms.openlocfilehash: 237ed71f058ae099f19924481eb4dbeb2e2aba05
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 3db6fd2e6df96590d7d405157cbb33900c7d8531
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97589447"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127811"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amazon-web-services-aws"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Amazon Web Services (AWS)
 
@@ -388,7 +388,11 @@ También puede usar el Panel de acceso de Microsoft para probar la aplicación e
 * Los roles deben cumplir los siguientes requisitos para que se puedan importar desde AWS en Azure AD:
 
   * Los roles deben tener exactamente un proveedor SAML definido en AWS
-  * La longitud combinada del ARN (nombre del recurso de Amazon) del rol y el ARN para el proveedor de SAML asociado debe ser menor que 120 caracteres.
+  * La longitud combinada del ARN (nombre del recurso de Amazon) del rol y el ARN para el proveedor de SAML asociado debe ser de 240 caracteres como máximo.
+
+## <a name="change-log"></a>Registro de cambios
+
+* 01/12/2020: mayor límite de longitud de rol, de 119 a 239 caracteres. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -3,12 +3,12 @@ title: Métricas de Azure Event Hubs en Azure Monitor | Microsoft Docs
 description: En este artículo se proporciona información sobre cómo usar Azure Monitoring para supervisar Azure Event Hubs.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 7ad570a41fd9dfff01e3a1da6b2d309a7a8464cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5b055c02783c40d844d1c6306bbb71cb23d602f2
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88931155"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98118802"
 ---
 # <a name="azure-event-hubs-metrics-in-azure-monitor"></a>Métricas de Azure Event Hubs en Azure Monitor
 
@@ -46,58 +46,8 @@ Las siguientes métricas ofrecen una visión general del estado de su servicio.
 
 Los valores de las métricas se envían a Azure Monitor cada minuto. La granularidad de tiempo define el intervalo de tiempo para el que se presentan los valores de las métricas. El intervalo de tiempo compatible para todas las métricas de Event Hubs es 1 minuto.
 
-## <a name="request-metrics"></a>Solicitud de métricas
-
-Cuenta el número de solicitudes de operaciones de datos y administración.
-
-| Nombre de la métrica | Descripción |
-| ------------------- | ----------------- |
-| Solicitudes entrantes  | Número de solicitudes realizadas al servicio de Azure Event Hubs durante un período determinado. <br/><br/> Unidad: recuento <br/> Tipo de agregación: total <br/> Dimensión: EntityName |
-| Solicitudes correctas    | Número de solicitudes correctas realizadas al servicio de Azure Event Hubs durante un período determinado. <br/><br/> Unidad: recuento <br/> Tipo de agregación: total <br/> Dimensión: EntityName |
-| Errores del servidor  | Número de solicitudes no procesadas debido a un error en el servicio de Azure Event Hubs durante un período determinado. <br/><br/>Unidad: recuento <br/> Tipo de agregación: total <br/> Dimensión: EntityName |
-|Errores de usuario |Número de solicitudes no procesadas debido a errores de usuario durante un período determinado.<br/><br/> Unidad: recuento <br/> Tipo de agregación: total <br/> Dimensión: EntityName|
-|Cuota de errores superada |El número de solicitudes que superó la cuota disponible. Para más información sobre las cuotas de Event Hubs, vea [este artículo](event-hubs-quotas.md).<br/><br/> Unidad: recuento <br/> Tipo de agregación: total <br/> Dimensión: EntityName|
-
-## <a name="throughput-metrics"></a>Métricas de procesamiento
-
-| Nombre de la métrica | Descripción |
-| ------------------- | ----------------- |
-|Solicitudes limitadas |Número de solicitudes que se han limitado porque se superó el uso de la unidad de procesamiento.<br/><br/> Unidad: recuento <br/> Tipo de agregación: total <br/> Dimensión: EntityName|
-
-## <a name="message-metrics"></a>Métricas de mensaje
-
-| Nombre de la métrica | Descripción |
-| ------------------- | ----------------- |
-|Mensajes entrantes |Número de eventos o mensajes enviados a Event Hubs durante un período determinado.<br/><br/> Unidad: recuento <br/> Tipo de agregación: total <br/> Dimensión: EntityName|
-|Mensajes salientes |Número de eventos o mensajes recuperados de Event Hubs durante un período determinado.<br/><br/> Unidad: recuento <br/> Tipo de agregación: total <br/> Dimensión: EntityName|
-|Bytes entrantes |El número de bytes enviado al servicio de Azure Event Hubs durante un período determinado.<br/><br/> Unidad: bytes <br/> Tipo de agregación: total <br/> Dimensión: EntityName|
-|Bytes salientes |El número de bytes recuperado del servicio de Azure Event Hubs durante un período determinado.<br/><br/> Unidad: bytes <br/> Tipo de agregación: total <br/> Dimensión: EntityName|
-
-## <a name="connection-metrics"></a>Métricas de conexión
-
-| Nombre de la métrica | Descripción |
-| ------------------- | ----------------- |
-|ActiveConnections |Número de conexiones activas en un espacio de nombres, así como en una entidad.<br/><br/> Unidad: recuento <br/> Tipo de agregación: total <br/> Dimensión: EntityName|
-|Conexiones abiertas |Número de conexiones abiertas.<br/><br/> Unidad: recuento <br/> Tipo de agregación: total <br/> Dimensión: EntityName|
-|Conexiones cerradas |Número de conexiones cerradas.<br/><br/> Unidad: recuento <br/> Tipo de agregación: total <br/> Dimensión: EntityName|
-
-## <a name="event-hubs-capture-metrics"></a>Métricas de captura de Event Hubs
-
-Puede supervisar las métricas de captura de Event Hubs cuando se habilita la característica de captura de los centros de eventos. Las métricas siguientes describen lo que puede supervisar con la característica de captura habilitada.
-
-| Nombre de la métrica | Descripción |
-| ------------------- | ----------------- |
-|Capture el trabajo pendiente |El número de bytes que se aún se tiene que capturar en el destino elegido.<br/><br/> Unidad: bytes <br/> Tipo de agregación: total <br/> Dimensión: EntityName|
-|Mensajes capturados |El número de mensajes o eventos que se capturan en el destino elegido durante un período determinado.<br/><br/> Unidad: recuento <br/> Tipo de agregación: total <br/> Dimensión: EntityName|
-|Bytes capturados |El número de bytes que se capturan en el destino elegido durante un período determinado.<br/><br/> Unidad: bytes <br/> Tipo de agregación: total <br/> Dimensión: EntityName|
-
-## <a name="metrics-dimensions"></a>Dimensiones de métricas
-
-Azure Event Hubs admite las siguientes dimensiones para las métricas de Azure Monitor. La adición de dimensiones a las métricas es opcional. Si no agrega dimensiones, las métricas se especifican en el nivel de espacio de nombres. 
-
-| Nombre de la métrica | Descripción |
-| ------------------- | ----------------- |
-|EntityName| Event Hubs admite las entidades de concentrador de eventos en el espacio de nombres.|
+## <a name="azure-event-hubs-metrics"></a>Métricas de Azure Event Hubs
+Para obtener una lista de las métricas admitidas por el servicio, consulte [Azure Event Hubs](../azure-monitor/platform/metrics-supported.md#microsofteventhubnamespaces).
 
 ## <a name="azure-monitor-integration-with-siem-tools"></a>Integración de Azure Monitor con las herramientas SIEM
 El enrutamiento de los datos de supervisión (registros de actividad, registros de diagnóstico, etc.) a un centro de eventos con Azure Monitor permite conseguir una integración sencilla con las herramientas de Administración de eventos e información de seguridad (SIEM). Para más información, consulte los siguientes artículos o entradas de blog:

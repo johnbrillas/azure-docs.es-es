@@ -2,25 +2,21 @@
 title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con FortiGate SSL VPN | Microsoft Docs'
 description: Obtenga información sobre los pasos necesarios para integrar FortiGate SSL VPN con Azure Active Directory (Azure AD).
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 18a3d9d5-d81c-478c-be7e-ef38b574cb88
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 08/11/2020
+ms.date: 12/26/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 021550598452516d45ae67c1139c2f891629a875
-ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
+ms.openlocfilehash: b9a22025f124e7639aa1b9a157dbbd020e2ff966
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96296580"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020271"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-fortigate-ssl-vpn"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con FortiGate SSL VPN
 
@@ -29,8 +25,6 @@ En este tutorial, obtendrá información sobre cómo integrar FortiGate SSL VPN 
 * Usar Azure AD para determinar quién puede acceder a FortiGate SSL VPN.
 * Permitir que los usuarios inicien sesión automáticamente en FortiGate SSL VPN con sus cuentas de Azure AD.
 * Administrar sus cuentas en una ubicación central: Azure Portal.
-
-Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -45,13 +39,12 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 
 FortiGate SSL VPN admite el inicio de sesión único iniciado por SP.
 
-Una vez que haya configurado FortiGate SSL VPN, puede aplicar el control de sesión, que protege su organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="add-fortigate-ssl-vpn-from-the-gallery"></a>Incorporación de FortiGate SSL VPN desde la galería
 
 Para configurar la integración de FortiGate SSL VPN en Azure AD, es preciso agregar FortiGate SSL VPN desde la galería a la lista de aplicaciones SaaS administradas:
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta profesional o educativa o con una cuenta Microsoft personal.
+1. Inicie sesión en Azure Portal con una cuenta profesional o educativa o con una cuenta Microsoft personal.
 1. En el panel izquierdo, seleccione **Azure Active Directory**.
 1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
 1. Para agregar una aplicación, seleccione **Nueva aplicación**.
@@ -69,13 +62,13 @@ Para configurar y probar el inicio de sesión único de Azure AD con FortiGate 
     1. **[Concesión de acceso al usuario de prueba](#grant-access-to-the-test-user)** , para que ese usuario pueda usar el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único de FortiGate SSL VPN](#configure-fortigate-ssl-vpn-sso)** en la aplicación.
     1. **Creación de un usuario de prueba de FortiGate SSL VPN** como homólogo de la representación de usuario de Azure AD.
-1. **[Prueba del inicio de sesión único](#test-single-sign-on)** para comprobar que la configuración funciona.
+1. **[Prueba del inicio de sesión único](#test-sso)** para comprobar que la configuración funciona.
 
 ### <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
 
 Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal:
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **FortiGate SSL VPN**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
+1. En Azure Portal, en la página de integración de la aplicación **FortiGate SSL VPN**, en la sección **Administrar**, seleccione **Inicio de sesión único**.
 1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
 1. En la página **Configuración del inicio de sesión único con SAML**, seleccione el botón de lápiz para **Configuración básica de SAML** para editar la configuración:
 
@@ -106,17 +99,26 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
    | group | user.groups |
    
    Para crear estas notificaciones adicionales:
+
+   a. Seleccione **Editar** junto a **Atributos y notificaciones de usuario**.
+
+   b. Seleccione **Agregar nueva notificación**.
+
+   c. En **Nombre**, escriba **username**.
+
+   d. En **Atributo de origen**, seleccione **user.userprincipalname**.
+
+   e. Seleccione **Guardar**.
+
+   f. Seleccione **Agregar una notificación de grupo**.
+
+   g. Seleccione **Todos los grupos**.
+
+   h. Seleccione la casilla **Personalizar nombre de la notificación del grupo**.
+
+   i. En **Nombre**, escriba **group**.
    
-   1. Seleccione **Editar** junto a **Atributos y notificaciones de usuario**.
-   1. Seleccione **Agregar nueva notificación**.
-   1. En **Nombre**, escriba **username**.
-   1. En **Atributo de origen**, seleccione **user.userprincipalname**.
-   1. Seleccione **Guardar**.
-   1. Seleccione **Agregar una notificación de grupo**.
-   1. Seleccione **Todos los grupos**.
-   1. Seleccione la casilla de verificación **Personalizar nombre de la notificación del grupo**.
-   1. En **Nombre**, escriba **group**.
-   1. Seleccione **Guardar**.   
+   j. Seleccione **Guardar**.   
 
 1. En la página **Configurar inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, seleccione el vínculo **Descargar** junto a **Certificado (Base64)** para descargar y guardar el certificado en el equipo:
 
@@ -144,14 +146,8 @@ En esta sección va a permitir que B.Simon acceda a FortiGate SSL VPN mediante e
 
 1. En Azure Portal, seleccione **Aplicaciones empresariales** y, a continuación, seleccione **Todas las aplicaciones**.
 1. En la lista de aplicaciones, seleccione **FortiGate SSL VPN**.
-1. En la sección **Administrar** de la página de información general de la aplicación, seleccione **Usuarios y grupos**:
-
-   ![Captura de pantalla que muestra la opción Usuarios y grupos.](common/users-groups-blade.png)
-
-1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**:
-
-    ![Captura de pantalla que muestra el botón Agregar usuario.](common/add-assign-user.png)
-
+1. En la sección **Administrar** de la página de información general de la aplicación, seleccione **Usuarios y grupos**.
+1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
 1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** en la lista **Usuarios** y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 1. Si espera algún valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione el rol adecuado para el usuario en la lista. Haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 1. En el cuadro de diálogo **Agregar asignación**, seleccione **Asignar**.
@@ -256,22 +252,17 @@ En esta sección, configurará una directiva de firewall y de portales de VPN de
 
 Trabaje con el [equipo de soporte técnico de FortiGate](mailto:tac_amer@fortinet.com) para agregar los portales de VPN y la directiva de firewall a la plataforma de VPN de FortiGate. Debe completar este paso antes de usar el inicio de sesión único.
 
-### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único 
+## <a name="test-sso"></a>Prueba de SSO 
 
-En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
+En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
 
-Al hacer clic en el icono de FortiGate SSL VPN en el Panel de acceso, se debería iniciar sesión automáticamente en la versión de FortiGate SSL VPN para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+* Haga clic en **Probar esta aplicación** en Azure Portal. Esta acción le redirigirá a la dirección URL de inicio de sesión de la VPN de FortiGate, donde puede iniciar el flujo de inicio de sesión. 
 
-Microsoft y FortiGate recomiendan usar el cliente VPN de Fortinet, FortiClient, para obtener la mejor experiencia del usuario final.
+* Vaya directamente a la dirección URL de inicio de sesión de la VPN de FortiGate e inicie el flujo de inicio de sesión desde allí.
 
-## <a name="additional-resources"></a>Recursos adicionales
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de VPN de FortiGate de Aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de la VPN de FortiGate. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-- [Tutoriales para la integración de aplicaciones SaaS con Azure Active Directory ](./tutorial-list.md)
 
-- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+## <a name="next-steps"></a>Pasos siguientes
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](../conditional-access/overview.md)
-
-- [Prueba de FortiGate SSL VPN con Azure AD](https://aad.portal.azure.com/)
-
-- [¿Qué es el control de sesiones en Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
+Una vez que configure la VPN de FortiGate, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

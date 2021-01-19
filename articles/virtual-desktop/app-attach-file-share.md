@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 2157a1cb96475209762e829c549d628f2c35fd91
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 49a350b77958901aae5e54e82d856e4f3772702e
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97417488"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97930793"
 ---
 # <a name="set-up-a-file-share-for-msix-app-attach-preview"></a>Configuración de un recurso compartido de archivos para asociar aplicaciones en formato MSIX (versión preliminar)
 
@@ -64,6 +64,12 @@ Estas son algunas de las otras cosas que se recomiendan para optimizar el rendim
 El proceso de instalación del recurso compartido de archivos de asociaciones en formato MSIX es, en gran medida, igual que el [de los recursos compartidos de archivos de perfiles de FSLogix](create-host-pools-user-profile.md). Sin embargo, deberá asignar distintos permisos a los usuarios. La asociación de aplicaciones en formato MSIX requiere permisos de solo lectura para acceder al recurso compartido de archivos.
 
 Si va a almacenar aplicaciones en formato MSIX en Azure Files, para los hosts de sesión deberá asignar a todas las máquinas virtuales de host de sesión tanto permisos de control de acceso basado en rol (RBAC) en la cuenta de almacenamiento como permisos NTFS (New Technology File System) en el recurso compartido.
+
+| Objeto de Azure                      | Rol necesario                                     | Función de rol                                  |
+|-----------------------------------|--------------------------------------------------|-----------------------------------------------|
+| Host de sesión (objetos de equipo de máquina virtual)| Colaborador de recursos compartidos de SMB de datos de archivos de almacenamiento          | Lectura y ejecución, Lectura, Mostrar el contenido de la carpeta  |
+| Administradores en un recurso compartido de archivos              | Colaborador elevado de recursos compartidos de SMB de datos de archivos de Storage | Control total                                  |
+| Usuarios en un recurso compartido de archivos               | Colaborador de recursos compartidos de SMB de datos de archivos de almacenamiento          | Lectura y ejecución, Lectura, Mostrar el contenido de la carpeta  |
 
 Para asignar a las máquinas virtuales de host de sesión permisos en la cuenta de almacenamiento y el recurso compartido de archivos:
 

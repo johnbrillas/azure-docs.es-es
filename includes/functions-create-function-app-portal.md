@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/04/2020
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 754ca10e72ca2274607e954748bfa8cb5286c6ab
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 3289db9b0f27aa528e027ab2e355852947187e76
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97954536"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98187167"
 ---
 1. En el menú de Azure Portal o en la página **Principal**, seleccione **Crear un recurso**.
 
@@ -27,29 +27,23 @@ ms.locfileid: "97954536"
     | **[Grupo de recursos](../articles/azure-resource-manager/management/overview.md)** |  *myResourceGroup* | Nombre para el nuevo grupo de recursos en el que se va a crear la Function App. |
     | **Nombre de la aplicación de función** | Nombre único globalmente | Nombre que identifica la nueva Function App. Los caracteres válidos son `a-z` (no distingue mayúsculas de minúsculas), `0-9` y `-`.  |
     |**Publicar**| Código | Opción para publicar archivos de código o un contenedor de Docker. |
-    | **Pila en tiempo de ejecución** | Lenguaje preferido | Elija un tiempo de ejecución que admita su lenguaje de programación de funciones preferido. Elija **.NET Core** para las funciones de C# y F#. |
-    |**Versión**| Número de la versión | Elija la versión del entorno de ejecución instalado.  |
+    | **Pila en tiempo de ejecución** | Lenguaje preferido | Elija un tiempo de ejecución que admita su lenguaje de programación de funciones preferido. Actualmente no se admite la edición en el portal para el [desarrollo con Python](../articles/azure-functions/functions-reference-python.md). |
+    |**Versión**| Número de la versión | Elija la versión del entorno de ejecución instalado. |
     |**Región**| Región preferida | Elija una [región](https://azure.microsoft.com/regions/) cerca de usted o cerca de otros servicios a los que tendrán acceso las funciones. |
-
-    ![Aspectos básicos](./media/functions-create-function-app-portal/function-app-create-basics.png)
 
 1. Seleccione **Siguiente: Hospedaje**. En la página **Hospedaje**, escriba la siguiente configuración.
 
     | Configuración      | Valor sugerido  | Descripción |
     | ------------ | ---------------- | ----------- |
     | **[Cuenta de almacenamiento](../articles/storage/common/storage-account-create.md)** |  Nombre único globalmente |  Cree una cuenta de almacenamiento que use la aplicación de función. Los nombres de las cuentas de almacenamiento deben tener entre 3 y 24 caracteres y solo pueden incluir números y letras en minúscula. También puede usar una cuenta existente que debe cumplir los [requisitos de la cuenta de almacenamiento](../articles/azure-functions/storage-considerations.md#storage-account-requirements). |
-    |**Sistema operativo**| Sistema operativo preferido | Se preselecciona un sistema operativo en función de la selección de pila en tiempo de ejecución, pero puede cambiar esta configuración si es necesario. |
+    |**Sistema operativo**| Windows | Se preselecciona un sistema operativo en función de la selección de pila en tiempo de ejecución, pero puede cambiar esta configuración si es necesario. La edición en el portal solo se admite en Windows. |
     | **[Plan](../articles/azure-functions/functions-scale.md)** | **Consumo (sin servidor)** | Plan de hospedaje que define cómo se asignan los recursos a la Function App. En el plan de **Consumo** predeterminado, los recursos se agregan dinámicamente según lo requieran sus funciones. En este hospedaje [sin servidor](https://azure.microsoft.com/overview/serverless-computing/), solo paga por el tiempo durante el cual se ejecutan las funciones. Si ejecuta un plan de App Service, debe administrar el [escalado de la aplicación de función](../articles/azure-functions/functions-scale.md).  |
-
-    ![Hospedaje](./media/functions-create-function-app-portal/function-app-create-hosting.png)
 
 1. Seleccione **Siguiente: Supervisión**. En la página **Supervisión**, escriba la siguiente configuración.
 
     | Configuración      | Valor sugerido  | Descripción |
     | ------------ | ---------------- | ----------- |
     | **[Application Insights](../articles/azure-functions/functions-monitoring.md)** | Valor predeterminado | Crea un recurso de Application Insights con el mismo *nombre de aplicación* en la región más cercana que lo admita. Si expande esta configuración o selecciona **Crear nuevo** puede cambiar el nombre de Application Insights o elegir otra región de una [geografía de Azure](https://azure.microsoft.com/global-infrastructure/geographies/) en la que quiera almacenar los datos. |
-
-    ![Supervisión](./media/functions-create-function-app-portal/function-app-create-monitoring.png)
 
 1. Seleccione **Revisar y crear** para revisar las selecciones de configuración de la aplicación.
 

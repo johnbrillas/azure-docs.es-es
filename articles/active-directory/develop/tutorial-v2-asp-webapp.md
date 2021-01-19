@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: f0620c4d373ee96c87b575ae7eb173b2f16eecb2
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: dcb8675350442274418920bb9439b65643f1b046
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98013658"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178252"
 ---
 # <a name="tutorial-add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Tutorial: Adición del inicio de sesión en Microsoft a una aplicación web ASP.NET
 
@@ -361,7 +361,7 @@ Tiene dos opciones para registrar la aplicación y agregar la información de re
 
 Para registrar rápidamente la aplicación, siga estos pasos:
 
-1. Vaya al nuevo panel de [Azure Portal: Registros de aplicaciones](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs).
+1. Vaya a la experiencia de inicio rápido <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs" target="_blank">Azure Portal: Registros de aplicaciones<span class="docon docon-navigate-external x-hidden-focus"></span></a>.  
 1. Escriba un nombre para la aplicación y seleccione **Registrar**.
 1. Siga las instrucciones para descargar y configurar automáticamente la nueva aplicación con un solo clic.
 

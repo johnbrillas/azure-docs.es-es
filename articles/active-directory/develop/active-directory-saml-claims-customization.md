@@ -13,12 +13,12 @@ ms.date: 12/09/2020
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 1c88b9f77513021609b99c81ea572c2b5b3d365b
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 9fb5e229882532fed076f2e0d800f32acfcdbf4c
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96936801"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98013794"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Cómo: personalizar las notificaciones emitidas en el token SAML para aplicaciones empresariales
 
@@ -81,7 +81,7 @@ Para obtener más información, consulte [Tabla 3: Valores de Id. válidos por o
 
 También puede asignar cualquier valor constante (estático) a cualquier notificación que defina en Azure AD. Siga los pasos que se indican a continuación para asignar un valor constante:
 
-1. En [Azure Portal](https://portal.azure.com/), en la sección **Atributos y notificaciones de usuario**, haga clic en el icono de **edición** para modificar las notificaciones.
+1. En <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span></a>, en la sección **User Attributes & Claims** (Atributos y notificaciones del usuario), haga clic en el **icono de edición** para modificar las notificaciones.
 
 1. Haga clic en la notificación que desea modificar.
 
@@ -135,7 +135,7 @@ Puede utilizar las siguientes funciones para transformar notificaciones.
 | **StartWith()** | Genera un atributo o una constante si la entrada empieza con el valor especificado. En caso contrario, puede especificar otra salida si no hay ninguna coincidencia.<br/>Por ejemplo, si quiere emitir una notificación en la que el valor es el Id. de empleado del usuario, si el país o la región comienza por "US", en caso contrario, quiere generar un atributo de extensión. Para ello, configuraría los siguientes valores:<br/>*Parámetro 1 (entrada)* : user.country<br/>*Valor*: "US"<br/>Parámetro 2 (salida): user.employeeid<br/>Parámetro 3 (salida si no hay ninguna coincidencia): user.extensionattribute1 |
 | **Extract(): después de la coincidencia** | Devuelve el valor de substring que aparece después de la coincidencia con el valor especificado.<br/>Por ejemplo, si el valor de la entrada es "Finance_BSimon", el valor coincidente es "Finance_" y, por lo tanto, el resultado de la notificación es "BSimon". |
 | **Extract(): antes de la coincidencia** | Devuelve el valor de substring que aparece antes de la coincidencia con el valor especificado.<br/>Por ejemplo, si el valor de la entrada es "BSimon_US", el valor coincidente es "_US" y, por lo tanto, el resultado de la notificación es "BSimon". |
-| **Extract(): entre coincidencias** | Devuelve el valor de substring que aparece antes de la coincidencia con el valor especificado.<br/>Por ejemplo, si el valor de la entrada es "Finance_BSimon_US", el valor coincidente es "Finance_", el segundo valor coincidente es "_US" y, por lo tanto, el resultado de la notificación es "BSimon". |
+| **Extract(): entre coincidencias** | Devuelve el valor de substring que aparece antes de la coincidencia con el valor especificado.<br/>Por ejemplo, si el valor de la entrada es "Finance_BSimon_US", el primer valor coincidente es "Finance\_", el segundo valor coincidente es "\_US" y, por lo tanto, el resultado de la notificación es "BSimon". |
 | **ExtractAlpha(): prefijo** | Devuelve la parte alfabética del prefijo de la cadena.<br/>Por ejemplo, si el valor de la entrada es "BSimon_123", devuelve "BSimon". |
 | **ExtractAlpha(): sufijo** | Devuelve la parte alfabética del sufijo de la cadena.<br/>Por ejemplo, si el valor de la entrada es "123_Simon", devuelve "Simon". |
 | **ExtractNumeric(): prefijo** | Devuelve la parte numérica del prefijo de la cadena.<br/>Por ejemplo, si el valor de la entrada es "123_BSimon", devuelve "123". |

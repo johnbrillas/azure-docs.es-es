@@ -13,12 +13,12 @@ ms.date: 11/26/2019
 ms.author: hahamil
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 7ba15e66cca7baefdf8cca5cabd5e5d5b1e2c7f7
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 1282c27378e6a088a600a3ab3105f3f548984d03
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97507819"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98063151"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-application"></a>Tutorial: Inicio de sesión de los usuarios y llamada a Microsoft Graph API desde una aplicación de Android
 
@@ -71,11 +71,11 @@ Si aún no tiene una aplicación Android, siga estos pasos para configurar un nu
 6. Establezca el **nivel de API mínimo** en **API 19** o superior y haga clic en **Finalizar**.
 7. En la vista de proyecto, seleccione **Proyecto** en la lista desplegable para mostrar los archivos de proyecto de origen y no de origen, abra **app/build.gradle** y establezca `targetSdkVersion` en `28`.
 
-## <a name="integrate-with-microsoft-authentication-library"></a>Integración con la biblioteca de autenticación de Microsoft
+## <a name="integrate-with-the-microsoft-authentication-library"></a>Integración con la Biblioteca de autenticación de Microsoft
 
 ### <a name="register-your-application"></a>Registrar su aplicación
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 1. Si tiene acceso a varios inquilinos, use el filtro **Directorio + suscripción** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: del menú superior para seleccionar el inquilino en el que desea registrar una aplicación.
 1. Busque y seleccione **Azure Active Directory**.
 1. En **Administrar**, seleccione **Registros de aplicaciones** >  y, luego, **Nuevo registro**.

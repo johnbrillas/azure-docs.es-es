@@ -9,28 +9,24 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/14/2019
+ms.date: 12/27/2020
 ms.author: jeedes
-ms.openlocfilehash: c53b7fed17ba4ef2000b905b202286338cd461ed
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 3b60ab21bb1e8f5270512d3f1e77aeab2baedc31
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92442970"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97968643"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hubspot"></a>Tutorial: Integración de Azure Active Directory con HubSpot
 
-En este tutorial, aprenderá a integrar HubSpot con Azure Active Directory (Azure AD).
+En este tutorial aprenderá a integrar HubSpot con Azure Active Directory (Azure AD). Al integrar HubSpot con Azure AD, podrá hacer lo siguiente:
 
-La integración de HubSpot con Azure AD le proporciona las siguientes ventajas:
+* Controlar en Azure AD quién tiene acceso a HubSpot.
+* Permitir que los usuarios inicien sesión automáticamente en HubSpot con sus cuentas de Azure AD.
+* Administrar las cuentas desde una ubicación central (Azure Portal).
 
-* Puede usar Azure AD para controlar quién tiene acceso a HubSpot.
-* Puede permitir que los usuarios inicien sesión automáticamente en HubSpot (inicio de sesión único) con sus cuentas de Azure AD.
-* Puede administrar sus cuentas en una ubicación central: Azure Portal.
-
-Para más información acerca de la integración de aplicaciones SaaS (software como servicio) con Azure AD, consulte [Inicio de sesión único en aplicaciones de Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
-
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con HubSpot, necesita los siguientes elementos:
 
@@ -46,31 +42,20 @@ HubSpot admite las siguientes características:
 * **Inicio de sesión único iniciado por SP**
 * **Inicio de sesión único iniciado por IDP**
 
-## <a name="add-hubspot-in-the-azure-portal"></a>Adición de HubSpot en Azure Portal
+## <a name="adding-hubspot-from-the-gallery"></a>Incorporación de HubSpot desde la galería
 
-Para integrar HubSpot con Azure AD, debe agregar HubSpot a la lista de aplicaciones SaaS administradas.
+Para configurar la integración de HubSpot en Azure AD, será preciso que agregue HubSpot desde la galería a la lista de aplicaciones SaaS administradas.
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en Azure Portal con una cuenta personal, profesional o educativa de Microsoft.
+1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
+1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
+1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
+1. En la sección **Agregar desde la galería**, escriba **HubSpot** en el cuadro de búsqueda.
+1. Seleccione **HubSpot** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
-1. Seleccione **Azure Active Directory** en el menú izquierdo.
+## <a name="configure-and-test-azure-ad-sso-for-hubspot"></a>Configuración y prueba del inicio de sesión único de Azure AD para HubSpot
 
-    ![Opción de Azure Active Directory](common/select-azuread.png)
-
-1. Seleccione **Aplicaciones empresariales** > **Todas las aplicaciones** .
-
-    ![Panel Aplicaciones empresariales](common/enterprise-applications.png)
-
-1. Para agregar una aplicación, seleccione **Nueva aplicación** .
-
-    ![Opción Nueva aplicación](common/add-new-app.png)
-
-1. En el cuadro de búsqueda, escriba **HubSpot** . En los resultados de búsqueda, seleccione **HubSpot** y, luego, **Agregar** .
-
-    ![HubSpot en la lista de resultados](common/search-new-app.png)
-
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
-
-En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con HubSpot con un usuario de prueba llamado **Britta Simon** . Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de HubSpot.
+En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con HubSpot con un usuario de prueba llamado **Britta Simon**. Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de HubSpot.
 
 Para configurar y probar el inicio de sesión único de Azure AD con HubSpot, es preciso completar los siguientes bloques de creación:
 
@@ -85,44 +70,36 @@ Para configurar y probar el inicio de sesión único de Azure AD con HubSpot, e
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
-En esta sección, configurará el inicio de sesión único de Azure AD con HubSpot en Azure Portal.
+1. En Azure Portal, en la página de integración de la aplicación **HubSpot**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
+1. En la página **Seleccione un método de inicio de sesión único**, seleccione **SAML**.
+1. En la página **Configuración del inicio de sesión único con SAML**, haga clic en el icono de lápiz de **Configuración básica de SAML** para editar la configuración.
 
-1. En [Azure Portal](https://portal.azure.com/), en el panel de integración de aplicaciones de **HubSpot** , seleccione **Inicio de sesión único** .
+   ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-    ![Configuración de la opción de inicio de sesión único](common/select-sso.png)
+1. En el panel **Configuración básica de SAML**, para configurar el *modo iniciado por IDP*, siga estos pasos:
 
-1. En el panel **Seleccionar un método de inicio de sesión único** , seleccione el modo **SAML** o **SAML/WS-Fed** para habilitar el inicio de sesión único.
+    1. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: https:\//api.hubspot.com/login-api/v1/saml/login?portalId=\<CUSTOMER ID\>.
 
-    ![Modo de selección de inicio de sesión único](common/select-saml-option.png)
-
-1. En el panel **Configurar el inicio de sesión único con SAML** , seleccione **Editar** (icono de lápiz) para abrir el panel **Configuración básica de SAML** .
-
-    ![Edición de la configuración básica de SAML](common/edit-urls.png)
-
-1. En el panel **Configuración básica de SAML** , para configurar el *modo iniciado por IDP* , siga estos pasos:
-
-    1. En el cuadro de texto **Identificador** , escriba una dirección URL con el siguiente patrón: https:\//api.hubspot.com/login-api/v1/saml/login?portalId=\<CUSTOMER ID\>.
-
-    1. En el cuadro de texto **Dirección URL de respuesta** , escriba una dirección URL con el siguiente patrón: https:\//api.hubspot.com/login-api/v1/saml/acs?portalId=\<CUSTOMER ID\>.
+    1. En el cuadro de texto **Dirección URL de respuesta**, escriba una dirección URL con el siguiente patrón: https:\//api.hubspot.com/login-api/v1/saml/acs?portalId=\<CUSTOMER ID\>.
 
     ![Información de dominio y direcciones URL de inicio de sesión único de HubSpot](common/idp-intiated.png)
 
     > [!NOTE]
     > Para dar formato a las direcciones URL, también puede hacer referencia a los patrones que se muestran en el panel **Configuración básica de SAML** de Azure Portal.
 
-1. Para configurar la aplicación en modo *iniciado por SP* :
+1. Para configurar la aplicación en modo *iniciado por SP*:
 
-    1. Seleccione **Establecer direcciones URL adicionales** .
+    1. Seleccione **Establecer direcciones URL adicionales**.
 
-    1. En el cuadro de texto **Dirección URL de inicio de sesión** , escriba **https:\//app.hubspot.com/login** .
+    1. En el cuadro de texto **Dirección URL de inicio de sesión**, escriba **https:\//app.hubspot.com/login**.
 
     ![Opción Establecer direcciones URL adicionales](common/metadata-upload-additional-signon.png)
 
-1. En el panel **Configurar el inicio de sesión único con SAML** , en la sección **Certificado de firma de SAML** , seleccione **Descargar** junto a **Certificado (base 64)** . Seleccione una opción de descarga según sus requisitos. Guarde el certificado en el equipo.
+1. En el panel **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, seleccione **Descargar** junto a **Certificado (base 64)** . Seleccione una opción de descarga según sus requisitos. Guarde el certificado en el equipo.
 
     ![Opción de descarga del certificado (Base64)](common/certificatebase64.png)
 
-1. En la sección **Configurar HubSpot** , copie las direcciones URL siguientes según sus necesidades:
+1. En la sección **Configurar HubSpot**, copie las direcciones URL siguientes según sus necesidades:
 
     * URL de inicio de sesión
     * Identificador de Azure AD
@@ -148,9 +125,9 @@ En esta sección, configurará el inicio de sesión único de Azure AD con HubS
 
 1. En la sección **Set Up Single Sign-On** (Configurar inicio de sesión único), realice los pasos siguientes:
 
-    1. En el cuadro de texto **Audience URl (Service Provider Entity ID)** (Identificador URl de audiencia [identificador de entidad del proveedor de servicio]), seleccione **Copy** (Copiar) para copiar el valor. En Azure Portal, en el panel **Configuración básica de SAML** , pegue el valor en el cuadro **Identificador** .
+    1. En el cuadro de texto **Audience URl (Service Provider Entity ID)** (Identificador URl de audiencia [identificador de entidad del proveedor de servicio]), seleccione **Copy** (Copiar) para copiar el valor. En Azure Portal, en el panel **Configuración básica de SAML**, pegue el valor en el cuadro **Identificador**.
 
-    1. En el cuadro de texto **Sign on URl, ACS, Recipient, or Redirect** , seleccione **Copy** (Copiar) para copiar el valor. En Azure Portal, en el panel **Configuración básica de SAML** , pegue el valor en el cuadro **Dirección URL de respuesta** .
+    1. En el cuadro de texto **Sign on URl, ACS, Recipient, or Redirect**, seleccione **Copy** (Copiar) para copiar el valor. En Azure Portal, en el panel **Configuración básica de SAML**, pegue el valor en el cuadro **Dirección URL de respuesta**.
 
     1. En HubSpot, en el cuadro de texto **Identity Provider Identifier or Issuer URL** (Dirección URL del emisor o identificador de proveedor de identidades), pegue el valor de **Identificador de Azure AD** que ha copiado de Azure Portal.
 
@@ -158,59 +135,33 @@ En esta sección, configurará el inicio de sesión único de Azure AD con HubS
 
     1. En el Bloc de notas de Windows, abra el archivo de certificado (base64) descargado. Seleccione y copie el contenido del archivo. A continuación, en HubSpot, péguelo en el cuadro de texto **X.509 Certificate** (Certificado X.509).
 
-    1. Seleccione **Comprobar** .
+    1. Seleccione **Comprobar**.
 
         ![Sección de configuración del inicio de sesión único en HubSpot](./media/hubspot-tutorial/config4.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
-En esta sección, creará un usuario de prueba llamado Britta Simon en Azure Portal.
+En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Portal.
 
-1. En Azure Portal, seleccione **Azure Active Directory** > **Usuarios** > **Todos los usuarios** .
-
-    ![Opciones Usuarios y Todos los usuarios](common/users.png)
-
-1. Seleccione **Nuevo usuario** .
-
-    ![Opción Nuevo usuario](common/new-user.png)
-
-1. En el panel **Usuario** , siga estos pasos:
-
-    1. En el cuadro **Nombre** , escriba **BrittaSimon** .
-  
-    1. En el cuadro **Nombre de usuario** , escriba **brittasimon\@\<your-company-domain>.\<extension\>** . Por ejemplo, **brittasimon\@contoso.com** .
-
-    1. Active la casilla de verificación **Mostrar contraseña** . Anote el valor que se muestra en el cuadro **Contraseña** .
-
-    1. Seleccione **Crear** .
-
-    ![Panel Usuario](common/user-properties.png)
+1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
+1. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
+1. En las propiedades del **usuario**, siga estos pasos:
+    1. En el campo **Nombre**, escriba `B.Simon`.  
+    1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
+    1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
+    1. Haga clic en **Crear**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
-En esta sección, concederá a Britta Simon acceso a HubSpot para que use el inicio de sesión único de Azure.
+En esta sección va a conceder a B.Simon acceso a HubSpot mediante el inicio de sesión único de Azure.
 
-1. En Azure Portal, seleccione **Aplicaciones empresariales** > **Todas las aplicaciones** > **HubSpot** .
-
-    ![Panel Aplicaciones empresariales](common/enterprise-applications.png)
-
-1. En la lista de aplicaciones, seleccione **HubSpot** .
-
-    ![HubSpot en la lista de aplicaciones](common/all-applications.png)
-
-1. En el menú, seleccione **Usuarios y grupos** .
-
-    ![Opción Usuarios y grupos](common/users-groups-blade.png)
-
-1. Seleccione **Agregar usuario** . Después, en el panel **Agregar asignación** , seleccione **Usuarios y grupos** .
-
-    ![El panel Agregar asignación](common/add-assign-user.png)
-
-1. En el panel **Usuarios y grupos** , en la lista de usuarios, seleccione **Britta Simon** . Elija **Seleccionar** .
-
-1. Si espera algún valor de rol en la aserción de SAML, en el panel **Seleccionar rol** , seleccione el rol adecuado para el usuario de la lista. Elija **Seleccionar** .
-
-1. En el panel **Agregar asignación** , seleccione **Asignar** .
+1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
+1. En la lista de aplicaciones, seleccione **HubSpot**.
+1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
+1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
+1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
+1. Si espera que se asigne un rol a los usuarios, puede seleccionarlo en la lista desplegable **Seleccionar un rol**. Si no se ha configurado ningún rol para esta aplicación, verá seleccionado el rol "Acceso predeterminado".
+1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
 ### <a name="create-a-hubspot-test-user"></a>Creación de un usuario de prueba de HubSpot
 
@@ -236,7 +187,7 @@ Para aprovisionar una cuenta de usuario en HubSpot:
 
     ![Cuadro de direcciones de correo electrónico de la sección Crear usuarios de HubSpot](./media/hubspot-tutorial/user3.png)
 
-1. En la sección **Create users** (Crear usuarios), seleccione cada pestaña. En cada pestaña, establezca las opciones y los permisos adecuados para el usuario. Después, seleccione **Siguiente** .
+1. En la sección **Create users** (Crear usuarios), seleccione cada pestaña. En cada pestaña, establezca las opciones y los permisos adecuados para el usuario. Después, seleccione **Siguiente**.
 
     ![Pestañas de la sección Crear usuarios de Hubspot](./media/hubspot-tutorial/user4.png)
 
@@ -249,14 +200,21 @@ Para aprovisionar una cuenta de usuario en HubSpot:
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 
-En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el portal Aplicaciones.
+En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
 
-Después de configurar el inicio de sesión único, cuando se selecciona **HubSpot** en el portal Aplicaciones, se inicia automáticamente sesión en HubSpot. Para más información acerca del portal Aplicaciones, consulte [Acceso y uso de aplicaciones en el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+#### <a name="sp-initiated"></a>Iniciado por SP:
+
+* Haga clic en **Probar esta aplicación** en Azure Portal. Esto le redirigirá a la dirección URL de inicio de sesión de HubSpot, donde podrá iniciar el flujo de inicio de sesión.  
+
+* Vaya directamente a la dirección URL de inicio de sesión de HubSpot e inicie el flujo de inicio de sesión desde allí.
+
+#### <a name="idp-initiated"></a>Iniciado por IDP:
+
+* Haga clic en **Test this application** (Probar esta aplicación) en Azure Portal; debería iniciar sesión automáticamente en la instancia de HubSpot para la que configurara el inicio de sesión único. 
+
+También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de HubSpot en Aplicaciones, si se ha configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para comenzar el flujo de inicio de sesión; y, si se ha configurado en modo IDP, se debería iniciar sesión automáticamente en la instancia de HubSpot para la que configurara el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información, consulte estos artículos:
-
-- [Lista de tutoriales para integrar aplicaciones SaaS con Azure Active Directory](./tutorial-list.md)
-- [Inicio de sesión único en aplicaciones en Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
-- [¿Qué es el acceso condicional en Azure Active Directory?](../conditional-access/overview.md)
+Una vez configurado HubSpot, podrá aplicar el control de sesión, que protege la información confidencial de la organización de la filtración y la infiltración en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

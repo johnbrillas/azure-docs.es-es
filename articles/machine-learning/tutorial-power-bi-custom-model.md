@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Creación del modelo predictivo con un cuaderno (parte 1 de 2)'
 titleSuffix: Azure Machine Learning
-description: Aprenda a crear e implementar un modelo de aprendizaje automático mediante código en un cuaderno de Jupyter Notebook. Este modelo se puede usar para predecir los resultados en Microsoft Power BI.
+description: Aprenda a crear e implementar un modelo de aprendizaje automático mediante código en un cuaderno de Jupyter Notebook. Cree también un script de puntuación que defina la entrada y la salida para facilitar la integración en Microsoft Power BI.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,16 +10,16 @@ ms.author: samkemp
 author: samuel100
 ms.reviewer: sdgilley
 ms.date: 12/11/2020
-ms.openlocfilehash: 1dfee56f90011d3c532767e136b383e4eb95c234
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: 29b340448f3ce3e18a649065bdcd0b335bab8b73
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814778"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108252"
 ---
-# <a name="tutorial-power-bi-integration---create-the-predictive-model-by-using-a-jupyter-notebook-part-1-of-2"></a>Tutorial: Integración de Power BI: creación del modelo predictivo mediante un cuaderno de Jupyter Notebook (parte 1 de 2)
+# <a name="tutorial-power-bi-integration---create-the-predictive-model-with-a-jupyter-notebook-part-1-of-2"></a>Tutorial: Integración de Power BI: creación del modelo predictivo con un cuaderno de Jupyter Notebook (parte 1 de 2)
 
-En la parte 1 de este tutorial, va a entrenar e implementar un modelo de aprendizaje automático predictivo mediante código en un cuaderno de Jupyter Notebook. En la parte 2, usará el modelo para predecir los resultados en Microsoft Power BI.
+En la parte 1 de este tutorial, va a entrenar e implementar un modelo de aprendizaje automático predictivo mediante código en un cuaderno de Jupyter Notebook. También creará un script de puntuación para definir el esquema de entrada y salida del modelo para la integración en Power BI.  En la parte 2, usará el modelo para predecir los resultados en Microsoft Power BI.
 
 En este tutorial ha:
 
@@ -27,6 +27,7 @@ En este tutorial ha:
 > * Crear un cuaderno de Jupyter Notebook.
 > * Creará una instancia de proceso de Azure Machine Learning.
 > * Entrenará un modelo de regresión mediante scikit-learn.
+> * Escriba un script de puntuación que defina la entrada y la salida para facilitar la integración en Microsoft Power BI.
 > * Implementará el modelo en un punto de conexión de puntuación en tiempo real.
 
 Existen tres formas de crear e implementar el modelo que se va a usar en Power BI.  En este artículo se describe la "Opción A: Entrenamiento e implementación de modelos mediante cuadernos".  Esta opción es una experiencia de creación de tipo "código primero". En ella se usan cuadernos de Jupyter Notebook que se hospedan en Azure Machine Learning Studio. 
@@ -157,7 +158,7 @@ También puede ver el modelo en Azure Machine Learning Studio. En el menú de la
 
 :::image type="content" source="media/tutorial-power-bi/model.png" alt-text="Captura de pantalla que muestra cómo ver un modelo.":::
 
-### <a name="define-the-scoring-script"></a>Definición del script de puntuación
+## <a name="define-the-scoring-script"></a>Definición del script de puntuación
 
 Al implementar un modelo que se va a integrar en Power BI, debe definir un *script de puntuación* de Python y un entorno personalizado. El script de puntuación contiene dos funciones:
 
@@ -165,7 +166,7 @@ Al implementar un modelo que se va a integrar en Power BI, debe definir un *scr
 - La función `run(data)` se ejecuta cuando una llamada al servicio incluye datos de entrada que se deben puntuar. 
 
 >[!NOTE]
-> En este artículo se usan decoradores en Python para definir el esquema de los datos de entrada y salida. Esta configuración es importante para la integración de Power BI.
+> Los decoradores de Python del siguiente código definen el esquema de los datos de entrada y salida, que es importante para la integración en Power BI.
 
 Copie el código siguiente y péguelo en una nueva *celda de código* del cuaderno. El siguiente fragmento de código tiene una instrucción mágica de celda que escribe el código para un archivo denominado *score.py*.
 

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/13/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: dce2cd0d77ff0a98d4d68e1c99edb472e61ce8a5
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 63d56d8afc584a760f4b31c6021d4c764afd52b3
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97509468"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98064426"
 ---
 # <a name="tutorial-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Tutorial: Llamar a Microsoft Graph API desde una aplicación de la Plataforma universal de Windows (UWP)
 
@@ -50,7 +50,7 @@ Esta guía utiliza los siguientes paquetes NuGet:
 
 |Biblioteca|Descripción|
 |---|---|
-|[Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)|Biblioteca de autenticación de Microsoft|
+|[Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)| Biblioteca de autenticación de Microsoft|
 |[Microsoft.Graph](https://www.nuget.org/packages/Microsoft.Graph)|Biblioteca de cliente de Microsoft Graph|
 
 ## <a name="set-up-your-project"></a>Configurar su proyecto
@@ -71,7 +71,7 @@ En esta guía se crea una aplicación que muestra un botón que consulta Microso
 
    ![Versiones mínima y de destino](./media/tutorial-v2-windows-uwp/select-uwp-target-minimum.png)
 
-### <a name="add-microsoft-authentication-library-to-your-project"></a>Adición de la biblioteca de autenticación de Microsoft a su proyecto
+### <a name="add-the-microsoft-authentication-library-to-your-project"></a>Adición de la Biblioteca de autenticación de Microsoft al proyecto
 
 1. En Visual Studio, seleccione **Herramientas** > **Administrador de paquetes NuGet** > **Consola del administrador de paquetes**.
 1. Copie y pegue los siguientes comandos en la ventana de la **Consola del administrador de paquetes**:
@@ -103,7 +103,7 @@ Visual Studio crea *MainPage.xaml* como parte de la plantilla de proyecto. Abra
 </Grid>
 ```
 
-### <a name="use-microsoft-authentication-library-to-get-a-token-for-the-microsoft-graph-api"></a>Utilice la Biblioteca de autenticación de Microsoft para obtener un token para Microsoft Graph API.
+### <a name="use-the-microsoft-authentication-library-to-get-a-token-for-the-microsoft-graph-api"></a>Uso de la Biblioteca de autenticación de Microsoft para obtener un token para Microsoft Graph API
 
 En esta sección se muestra cómo usar la Biblioteca de autenticación de Microsoft para obtener un token para Microsoft Graph API. Haga cambios en el archivo *MainPage.xaml.cs*.
 
@@ -225,7 +225,7 @@ El método `AcquireTokenInteractive` genera una ventana que pide al usuario que 
 
 #### <a name="get-a-user-token-silently"></a>Obtención de un token de usuario en silencio
 
-El método `AcquireTokenSilent` controla las renovaciones y las adquisiciones de tokens sin la interacción del usuario. Después de que `AcquireTokenInteractive` se ejecute por primera vez y solicite las credenciales del usuario, use el método `AcquireTokenSilent` para solicitar tokens para las llamadas posteriores. Ese método adquiere los tokens de forma silenciosa. La Biblioteca de autenticación de Microsoft controla la renovación y la memoria caché de tokens.
+El método `AcquireTokenSilent` controla las renovaciones y las adquisiciones de tokens sin la interacción del usuario. Después de que `AcquireTokenInteractive` se ejecute por primera vez y solicite las credenciales del usuario, use el método `AcquireTokenSilent` para solicitar tokens para las llamadas posteriores. Ese método adquiere los tokens de forma silenciosa. La Biblioteca de autenticación de Microsoft controla la renovación y el almacenamiento en caché de los tokens.
 
 En última instancia, se producirá un error en el método `AcquireTokenSilent`. El error puede deberse a que los usuarios hayan cerrado sesión o cambiado su contraseña en otro dispositivo. Cuando la Biblioteca de autenticación de Microsoft detecta que el problema requiere una acción interactiva, se produce una excepción `MsalUiRequiredException`. La aplicación puede abordar esta excepción de dos maneras:
 
@@ -346,7 +346,7 @@ private async Task DisplayMessageAsync(string message)
 
 Ahora debe registrar la aplicación:
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 1. Si tiene acceso a varios inquilinos, use el filtro **Directorio + suscripción** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: del menú superior para seleccionar el inquilino en el que desea registrar una aplicación.
 1. Busque y seleccione **Azure Active Directory**.
 1. En **Administrar**, seleccione **Registros de aplicaciones** >  y, luego, **Nuevo registro**.
@@ -357,7 +357,7 @@ Ahora debe registrar la aplicación:
 
 Configure la autenticación para su aplicación:
 
-1. De nuevo en [Azure Portal](https://portal.azure.com), en **Administrar**, seleccione **Autenticación** > **Agregar una plataforma** y, luego, elija **Aplicaciones móviles y de escritorio**.
+1. De nuevo en <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span></a>, en **Administrar**, seleccione **Autenticación** > **Agregar una plataforma** y, a continuación, seleccione **Aplicaciones móviles y de escritorio**.
 1. En la sección **URI de redirección**, consulte **https://login.microsoftonline.com/common/oauth2/nativeclient** .
 1. Seleccione **Configurar**.
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: amqp, devx-track-azurecli
-ms.openlocfilehash: bc62590b9517b2c6d16fdf2637990b845248d2ec
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 74d77d8c81455116cec861bf6704c6cb96526561
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96932360"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121097"
 ---
 # <a name="tutorial-configure-an-iot-edge-device"></a>Tutorial: Configure un dispositivo IoT Edge
 
@@ -81,7 +81,7 @@ En esta sección, crearemos los certificados autofirmados con una imagen de Dock
 
 ## <a name="upload-certificates-to-azure-key-vault"></a>Carga de certificados a Azure Key Vault
 
-Para almacenar nuestros certificados de forma segura y para que sean accesibles desde varios dispositivos, se cargarán en Azure Key Vault. Como puede ver en la lista anterior, tenemos dos tipos de archivos de certificado: PFX y PEM. El archivo PFX se tratará como certificados de Key Vault para cargarse en Key Vault. Los archivos PEM son texto sin formato y se tratarán como secretos de Key Vault. Usaremos la instancia de Key Vault asociada con el área de trabajo de Azure Machine Learning mediante la ejecución de [Azure Notebooks](tutorial-machine-learning-edge-04-train-model.md#run-azure-notebooks).
+Para almacenar nuestros certificados de forma segura y para que sean accesibles desde varios dispositivos, se cargarán en Azure Key Vault. Como puede ver en la lista anterior, tenemos dos tipos de archivos de certificado: PFX y PEM. El archivo PFX se tratará como certificados de Key Vault para cargarse en Key Vault. Los archivos PEM son texto sin formato y se tratarán como secretos de Key Vault. Usaremos la instancia de Key Vault asociada al área de trabajo de Azure Machine Learning creada mediante la ejecución de los cuadernos de [Jupyter Notebooks](tutorial-machine-learning-edge-04-train-model.md#run-jupyter-notebooks).
 
 1. En [Azure Portal](https://portal.azure.com), vaya al área de trabajo de Azure Machine Learning.
 

@@ -5,16 +5,16 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 12/30/2020
+ms.date: 01/07/2021
 ms.author: jingwang
 ms.reviewer: craigg
 ms.custom: has-adal-ref
-ms.openlocfilehash: e6591762ed6a7e2b462a209730276f3198d86ae8
-ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
+ms.openlocfilehash: 68547b8fb673cd54b7c21963ede122553bbbc390
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97821475"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97967130"
 ---
 # <a name="troubleshoot-azure-data-factory-connectors"></a>Solución de problemas de conectores en Azure Data Factory
 
@@ -458,34 +458,15 @@ En este artículo se exploran métodos comunes de solución de problemas de cone
 - **Causa**: se produce un problema en Azure Synapse Analytics al consultar la tabla externa en Azure Storage.
 
 - **Solución:** Ejecute la misma consulta en SSMS y compruebe si ve el mismo resultado. En caso afirmativo, abra una incidencia de soporte técnico en Azure Synapse Analytics y proporcione el nombre del servidor y de la base de datos de Azure Synapse Analytics para solucionar los problemas.
-            
-
-### <a name="low-performance-when-load-data-into-azure-sql"></a>Bajo rendimiento al cargar datos en Azure SQL
-
-- **Síntomas**: la copia de datos en Azure SQL es lenta.
-
-- **Causa**: la causa principal del problema suele ser un cuello de botella en el lado de Azure SQL. Las posibles causas son las siguientes:
-
-    - El nivel de la base de datos de Azure no es suficientemente alto.
-
-    - El uso de DTU de la base de datos de Azure está cerca del 100%. Puede [supervisar el rendimiento](https://docs.microsoft.com/azure/azure-sql/database/monitor-tune-overview) y considerar la posibilidad de actualizar el nivel de la base de datos.
-
-    - Los índices no están configurados correctamente. Quite todos los índices antes de la carga de datos y vuelva a crearlos después de completar la carga.
-
-    - WriteBatchSize no es lo suficientemente grande como para ajustarse al tamaño de fila del esquema. Intente aumentar la propiedad para solucionar el problema.
-
-    - En lugar de Bulk insert, se usa el procedimiento almacenado, cuyo rendimiento es previsiblemente menor. 
-
-- **Solución:** Consulte el TSG para obtener el [rendimiento de la actividad de copia](https://docs.microsoft.com/azure/data-factory/copy-activity-performance-troubleshooting).
 
 
 ### <a name="performance-tier-is-low-and-leads-to-copy-failure"></a>El nivel de rendimiento es bajo y genera un error de copia
 
-- **Síntomas**: apareció el siguiente mensaje de error al copiar datos en Azure SQL: `Database operation failed. Error message from database execution : ExecuteNonQuery requires an open and available Connection. The connection's current state is closed.`
+- **Síntomas**: apareció el siguiente mensaje de error al copiar datos en Azure SQL Database: `Database operation failed. Error message from database execution : ExecuteNonQuery requires an open and available Connection. The connection's current state is closed.`
 
-- **Causa**: se está utilizando Azure SQL s1, el cual hace que se alcance el límite de E/S en este caso.
+- **Causa**: se está utilizando Azure SQL Database s1, lo que hace que se alcance el límite de E/S en este caso.
 
-- **Solución:** Actualice el nivel de rendimiento de Azure SQL para corregir el problema. 
+- **Solución:** actualice el nivel de rendimiento de Azure SQL Database para corregir el problema. 
 
 
 ### <a name="sql-table-cannot-be-found"></a>No se encuentra la tabla SQL. 
@@ -619,31 +600,6 @@ En este artículo se exploran métodos comunes de solución de problemas de cone
 - **Causa**: El servidor de Dynamics es inestable o no es accesible, o bien en la red se experimentan problemas.
 
 - **Recomendación:**  Compruebe la conectividad de red o compruebe el registro del servidor de Dynamics para obtener más detalles. Póngase en contacto con el soporte técnico de Dynamics para obtener más ayuda.
-
-
-## <a name="excel-format"></a>Formato Excel
-
-### <a name="timeout-or-slow-performance-when-parsing-large-excel-file"></a>Tiempo de espera o rendimiento lento al analizar un archivo de Excel de gran tamaño
-
-- **Síntomas**:
-
-    - Al crear un conjunto de datos de Excel e importar el esquema de la conexión o el almacenamiento, obtener una vista previa de los datos, enumerar o actualizar las hojas de cálculo, es posible que se produzca un error de tiempo de espera si el tamaño del archivo de Excel es grande.
-
-    - Cuando use la actividad de copia para copiar datos de un archivo de Excel de gran tamaño (> = 100 MB) en otro almacén de datos, es posible que experimente un rendimiento lento o un problema de memoria insuficiente.
-
-- **Causa**: 
-
-    - En operaciones como la importación de esquemas, la vista previa de datos y la enumeración de hojas de cálculo en un conjunto de datos de Excel, el tiempo de espera es de 100 s y es estático. Para un archivo de Excel de gran tamaño, es posible que estas operaciones no finalicen dentro del valor del tiempo de espera.
-
-    - La actividad de copia de ADF lee el archivo de Excel completo en la memoria y, luego, busca la hoja de cálculo y las celdas especificadas para leer los datos. Este comportamiento se debe a que usa ADF del SDK subyacente.
-
-- **Solución:** 
-
-    - Para importar el esquema, puede generar un archivo de ejemplo más pequeño que sea un subconjunto del archivo original y elegir "Importar esquema de archivo de ejemplo" en lugar de "Importar esquema desde conexión/almacén".
-
-    - Para mostrar una hoja de cálculo, en la lista desplegable de hoja de cálculo, puede hacer clic en "Editar" e introducir en su lugar el nombre/índice de la hoja.
-
-    - Para copiar un archivo de Excel de gran tamaño (> 100 MB) en otro almacén, puede usar el origen de Excel de Data Flow cuyo streaming de Sport lee y funciona mejor.
     
 
 ## <a name="ftp"></a>FTP

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/16/2020
+ms.date: 12/28/2020
 ms.author: jeedes
-ms.openlocfilehash: 12a282b1f53dde570f5f6647a45df82808b20350
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 23f1fad851e2c2aeff29e596dd7550b4c7d7bd6a
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93080862"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97967742"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-salesforce-sandbox"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Salesforce Sandbox
 
@@ -26,9 +26,7 @@ En este tutorial, aprenderá a integrar Salesforce Sandbox con Azure Active Di
 * Permitir que los usuarios inicien sesión automáticamente en Salesforce Sandbox con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -42,13 +40,12 @@ En este tutorial, puede configurar y probar el inicio de sesión único de Azure
 * Salesforce Sandbox admite el inicio de sesión único iniciado por **SP e IDP**
 * Salesforce Sandbox admite el aprovisionamiento de usuarios **Just-In-Time**
 * Salesforce Sandbox admite el aprovisionamiento [**Automatizado** de usuarios](salesforce-sandbox-provisioning-tutorial.md)
-* Una vez configurado Salesforce Sandbox, puede aplicar controles de sesión, que protegen la filtración y la infiltración de la información confidencial de la organización en tiempo real. Los controles de sesión proceden del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
 
 ## <a name="adding-salesforce-sandbox-from-the-gallery"></a>Adición de Salesforce Sandbox desde la galería
 
 Para configurar la integración de Salesforce Sandbox, deberá agregar Salesforce Sandbox desde la galería a la lista de aplicaciones SaaS administradas.
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta personal, profesional o educativa de Microsoft.
+1. Inicie sesión en Azure Portal con una cuenta personal, profesional o educativa de Microsoft.
 1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
 1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
 1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
@@ -56,26 +53,26 @@ Para configurar la integración de Salesforce Sandbox, deberá agregar Salesforc
 1. Seleccione **Salesforce Sandbox** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-salesforce-sandbox"></a>Configuración y prueba del inicio de sesión único de Azure AD para Salesforce Sandbox
+## <a name="configure-and-test-azure-ad-sso-for-salesforce-sandbox"></a>Configuración y prueba del inicio de sesión único de Azure AD para Salesforce Sandbox
 
 Configure y pruebe el inicio de sesión único de Azure AD con Salesforce Sandbox mediante un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es preciso establecer una relación de vinculación entre un usuario de Azure AD y el usuario relacionado de Salesforce Sandbox.
 
-Para configurar y probar el inicio de sesión único de Azure AD con Salesforce Sandbox, complete los siguientes bloques de creación:
+Para configurar y probar el inicio de sesión único de Azure AD con Salesforce Sandbox, complete los siguientes pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    * **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
-    * **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único de Salesforce Sandbox](#configure-salesforce-sandbox-sso)** , para configurar los valores de Inicio de sesión único en la aplicación.
-    * **[Creación de un usuario de prueba de Salesforce Sandbox](#create-salesforce-sandbox-test-user)** , para tener un homólogo de B.Simon en Salesforce Sandbox vinculado a la representación del usuario en Azure AD.
+    1. **[Creación de un usuario de prueba de Salesforce Sandbox](#create-salesforce-sandbox-test-user)** , para tener un homólogo de B.Simon en Salesforce Sandbox vinculado a la representación del usuario en Azure AD.
 1. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
 
 Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicaciones de **Salesforce Sandbox**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
+1. En Azure Portal, en la página de integración de la aplicación **Salesforce Sandbox**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
 1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
-1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+1. En la página **Configuración del inicio de sesión único con SAML**, haga clic en el icono de lápiz de **Configuración básica de SAML** para editar la configuración.
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
@@ -107,12 +104,6 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
-    a. URL de inicio de sesión
-
-    b. Identificador de Azure AD
-
-    c. URL de cierre de sesión
-
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
 En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Portal.
@@ -132,15 +123,9 @@ En esta sección va a permitir que B.Simon acceda a Salesforce Sandbox mediante 
 1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
 1. En la lista de aplicaciones, seleccione **Salesforce Sandbox**.
 1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
-
-   ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
-
 1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
-
-    ![Vínculo de Agregar usuario](common/add-assign-user.png)
-
 1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
-1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+1. Si espera que se asigne un rol a los usuarios, puede seleccionarlo en la lista desplegable **Seleccionar un rol**. Si no se ha configurado ningún rol para esta aplicación, verá seleccionado el rol "Acceso predeterminado".
 1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
 ## <a name="configure-salesforce-sandbox-sso"></a>Configuración del inicio de sesión único de Salesforce Sandbox
@@ -251,22 +236,21 @@ En esta sección, creará un usuario llamado a Britta Simon en Salesforce Sandbo
 
 ## <a name="test-sso"></a>Prueba de SSO 
 
-En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
+En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
 
-Al hacer clic en el icono de Salesforce Sandbox en el panel de acceso, debería iniciar sesión automáticamente en la instancia de Salesforce Sandbox para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+#### <a name="sp-initiated"></a>Iniciado por SP:
 
-## <a name="additional-resources"></a>Recursos adicionales
+* Haga clic en **Probar esta aplicación** en Azure Portal. Esta acción le redirigirá a la dirección URL de inicio de sesión de Salesforce Sandbox, donde podrá iniciar el flujo de inicio de sesión.  
 
-- [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](./tutorial-list.md)
+* Vaya directamente a la dirección URL de inicio de sesión de Salesforce Sandbox e inicie el flujo de inicio de sesión desde allí.
 
-- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
+#### <a name="idp-initiated"></a>Iniciado por IDP:
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](../conditional-access/overview.md)
+* Haga clic en **Test this application** (Probar esta aplicación) en Azure Portal; debería iniciar sesión automáticamente en la instancia de Salesforce Sandbox para la que configurara el inicio de sesión único. 
 
-- [Pruebe Salesforce Sandbox con Azure AD](https://aad.portal.azure.com/)
+También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de Salesforce Sandbox en Aplicaciones, si se ha configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para comenzar el flujo de inicio de sesión; y, si se ha configurado en modo IDP, debería iniciar sesión automáticamente en la instancia de Salesforce Sandbox para la que configurara el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-- [¿Qué es el control de sesiones en Microsoft Cloud App Security?](/cloud-app-security/protect-salesforce)
 
-- [Configuración del aprovisionamiento de usuarios](salesforce-sandbox-provisioning-tutorial.md)
+## <a name="next-steps"></a>Pasos siguientes
 
-- [Protección de Salesforce Sandbox con controles y visibilidad avanzados](/cloud-app-security/proxy-intro-aad)
+Una vez configurado Salesforce Sandbox, puede aplicar controles de sesión que protegen la información confidencial de la organización de la filtración y la infiltración en tiempo real. Los controles de sesión proceden del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

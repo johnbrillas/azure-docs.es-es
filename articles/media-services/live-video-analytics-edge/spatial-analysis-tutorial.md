@@ -3,12 +3,12 @@ title: 'Análisis de vídeo en directo con Computer Vision para análisis espaci
 description: En este tutorial se muestra cómo usar Live Video Analytics junto con la característica de IA de análisis espacial de Computer Vision, parte de Azure Cognitive Services, para analizar una fuente de vídeo en directo desde una cámara IP (simulada).
 ms.topic: tutorial
 ms.date: 09/08/2020
-ms.openlocfilehash: 5cebedec11b91f5b0b94df25a860da3d517bb997
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 5b979bfeb6961b285cfeb2287888d8f157608d96
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400541"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060187"
 ---
 # <a name="analyze-live-video-with-computer-vision-for-spatial-analysis-preview"></a>Análisis de vídeo en directo con Computer Vision para análisis espacial (versión preliminar)
 
@@ -166,7 +166,7 @@ El manifiesto de implementación define los módulos que se implementan en un di
 Siga estos pasos para generar el manifiesto a partir del archivo de plantilla y, después, impleméntelo en el dispositivo perimetral.
 
 1. Abra Visual Studio Code.
-1. Al lado del panel AZURE IOT HUB, seleccione el icono Más acciones para establecer la cadena de conexión de IoT Hub. Puede copiar la cadena del archivo src/cloud-to-device-console-app/appsettings.json.
+1. Al lado del panel AZURE IOT HUB, seleccione el icono Más acciones para establecer la cadena de conexión de IoT Hub. La cadena se puede copiar del archivo `src/cloud-to-device-console-app/appsettings.json`.
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/spatial-analysis-tutorial/connection-string.png" alt-text="Análisis espacial: cadena de conexión":::
@@ -222,13 +222,13 @@ Un archivo program.cs invocará los métodos directos en src/cloud-to-device-con
 
 En operations.json:
 
-* Establezca la topología de este modo (topologyFile para la topología local, topologyUrl para la topología en línea):
+* Establezca la topología de la siguiente manera:
 
 ```json
 {
     "opName": "GraphTopologySet",
     "opParams": {
-        "topologyFile": "../edge/spatialAnalysisTopology.json"
+        "topologyUrl": "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/lva-spatial-analysis/2.0/topology.json"
     }
 },
 ```
@@ -261,17 +261,6 @@ En operations.json:
     }
 },
 ```
-* Cambie el vínculo a la topología del grafo:
-
-`topologyUrl` : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/lva-spatial-analysis/topology.json"
-
-En **GraphInstanceSet**, edite el nombre de la topología del grafo para que coincida con el valor del vínculo anterior:
-
-`topologyName`: InferencingWithCVExtension
-
-En **GraphTopologyDelete**, edite el nombre:
-
-`name`: InferencingWithCVExtension
 
 >[!Note]
 Consulte el uso de MediaGraphRealTimeComputerVisionExtension para conectarse con el módulo de análisis espacial. Establezca ${grpcUrl} to **tcp://spatialAnalysis:<NúmeroDePuerto>** , por ejemplo, tcp://spatialAnalysis:50051
@@ -281,40 +270,51 @@ Consulte el uso de MediaGraphRealTimeComputerVisionExtension para conectarse con
     "@type": "#Microsoft.Media.MediaGraphCognitiveServicesVisionExtension",
     "name": "computerVisionExtension",
     "endpoint": {
-    "@type": "#Microsoft.Media.MediaGraphUnsecuredEndpoint",
-    "url": "${grpcUrl}",
-    "credentials": {
-        "@type": "#Microsoft.Media.MediaGraphUsernamePasswordCredentials",
-        "username": "${spatialanalysisusername}",
-        "password": "${spatialanalysispassword}"
-    }
+        "@type": "#Microsoft.Media.MediaGraphUnsecuredEndpoint",
+        "url": "${grpcUrl}",
+        "credentials": {
+            "@type": "#Microsoft.Media.MediaGraphUsernamePasswordCredentials",
+            "username": "${spatialanalysisusername}",
+            "password": "${spatialanalysispassword}"
+        }
     },
     "image": {
-    "scale": {
-        "mode": "pad",
-        "width": "1408",
-        "height": "786"
+        "scale": {
+            "mode": "pad",
+            "width": "1408",
+            "height": "786"
+        },
+        "format": {
+            "@type": "#Microsoft.Media.MediaGraphImageFormatRaw",
+            "pixelFormat": "bgr24"
+        }
     },
-    "format": {
-        "@type": "#Microsoft.Media.MediaGraphImageFormatRaw",
-        "pixelFormat": "bgr24"
-    }
+    "samplingOptions": {
+        "skipSamplesWithoutAnnotation": "false",
+        "maximumSamplesPerSecond": "20"
     },
     "inputs": [
-    {
-        "nodeName": "frameRateFilter"
-    }
+        {
+            "nodeName": "rtspSource",
+            "outputSelectors": [
+                {
+                    "property": "mediaType",
+                    "operator": "is",
+                    "value": "video"
+                }
+            ]
+        }
     ]
 }
 ```
 
-Ejecute una sesión de depuración y siga las instrucciones de TERMINAL; se establecerá la topología, se establecerá la instancia del grafo, se activará la instancia del grafo y, por último, se eliminarán los recursos.
+Ejecute una sesión de depuración y siga las instrucciones de **TERMINAL**; se establecerá la topología, se establecerá la instancia del grafo, se activará la instancia del grafo y, por último, se eliminarán los recursos.
 
 ## <a name="interpret-results"></a>Interpretación de los resultados
 
 Cuando se cree una instancia de un grafo de elementos multimedia, verá el evento "MediaSessionEstablished"; este es un [evento MediaSessionEstablished de ejemplo](detect-motion-emit-events-quickstart.md#mediasessionestablished-event).
 
-El módulo de análisis espacial también enviará eventos de información de inteligencia artificial a Live Video Analytics y, luego, a IoTHub; también se mostrarán en SALIDA. ENTITY son los objetos de detección y EVENT es el evento spaceanalytics. Esta salida se pasará a Live Video Analytics.
+El módulo de análisis espacial también enviará eventos de información de inteligencia artificial a Live Video Analytics y, luego, a IoTHub; también se mostrarán en **SALIDA**. ENTITY son los objetos de detección y EVENT es el evento spaceanalytics. Esta salida se pasará a Live Video Analytics.
 
 Salida de ejemplo de personZoneEvent (de la operación cognitiveservices.vision.spatialanalysis-personcrossingpolygon.livevideoanalytics):
 

@@ -1,35 +1,35 @@
 ---
 title: Integración de Azure Key Vault con Kubernetes
 description: En este tutorial, accederá a los secretos de Azure Key Vault y los recuperará mediante el controlador Secrets Store Container Storage Interface (CSI) para montarlos en los pods de Kubernetes.
-author: ShaneBala-keyvault
-ms.author: sudbalas
+author: msmbaldwin
+ms.author: mbaldwin
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/25/2020
-ms.openlocfilehash: 2645842130b83fe7b4cfb33b9389b19a1306506d
-ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
+ms.openlocfilehash: f0699ed065da4c63bc88945d75a866abcfbb9053
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97756031"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121369"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-the-secrets-store-csi-driver-on-kubernetes"></a>Tutorial: Configuración y ejecución del proveedor de Azure Key Vault para el controlador Secrets Store CSI en Kubernetes
 
 > [!IMPORTANT]
-> El controlador de CSI es un proyecto de código abierto que no es compatible con el soporte técnico de Azure. Informe de todos los comentarios y problemas relacionados con la integración de Key Vault para el controlador de CSI en el vínculo de GitHub en la parte inferior de la página. Esta herramienta se proporciona para que los usuarios se ocupen por sí mismos de su instalación en los clústeres y recopilen comentarios de nuestra comunidad.
+> El controlador de CSI es un proyecto de código abierto que no es compatible con el soporte técnico de Azure. Informe de todos los comentarios y problemas relacionados con la integración de Key Vault para el controlador de CSI en [este vínculo](https://github.com/Azure/secrets-store-csi-driver-provider-azure/issues) de GitHub. Esta herramienta se proporciona para que los usuarios se ocupen por sí mismos de su instalación en los clústeres y recopilen comentarios de nuestra comunidad.
+
 
 En este tutorial, accederá a los secretos de Azure Key Vault y los recuperará mediante el controlador Secrets Store Container Storage Interface (CSI) para montar los secretos en los pods de Kubernetes.
 
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-> * Crear una entidad de servicio o usar identidades administradas.
+> * Usar las identidades administradas.
 > * Implementar un clúster de Azure Kubernetes Service (AKS) mediante la CLI de Azure.
 > * Instalar Helm y el controlador Secrets Store CSI.
 > * Crear una instancia de Azure Key Vault y establecer secretos.
 > * Crear su propio objeto SecretProviderClass.
-> * Asignar la entidad de servicio o usar identidades administradas.
 > * Implementar el pod con los secretos montados desde Key Vault.
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -38,22 +38,7 @@ En este tutorial, aprenderá a:
 
 * Antes de iniciar este tutorial, instale la [CLI de Azure](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
 
-## <a name="create-a-service-principal-or-use-managed-identities"></a>Creación de una entidad de servicio o uso de identidades administradas
-
-Si tiene planea usar identidades administradas, puede pasar a la sección siguiente.
-
-Cree una entidad de servicio para controlar los recursos a los que se puede acceder desde Azure Key Vault. El acceso de esta entidad de servicio está restringido por los roles que se le hayan asignado. Esta característica permite controlar el modo en que la entidad de servicio puede administrar sus secretos. En el ejemplo siguiente, el nombre de la entidad de servicio es *contosoServicePrincipal*.
-
-```azurecli
-az ad sp create-for-rbac --name contosoServicePrincipal --skip-assignment
-```
-Esta operación devuelve una serie de pares clave-valor:
-
-![Captura de pantalla que muestra el identificador de aplicación y la contraseña para contosoServicePrincipal](../media/kubernetes-key-vault-1.png)
-
-Copie las credenciales **appId** y **password** para su uso posterior.
-
-## <a name="flow-for-using-managed-identity"></a>Flujo para usar Identidad administrada
+## <a name="use-managed-identities"></a>Uso de identidades administradas
 
 En este diagrama se muestra el flujo de integración de AKS y Key Vault con Identidad administrada:
 
@@ -66,7 +51,7 @@ No es necesario utilizar Azure Cloud Shell. El símbolo del sistema (terminal) c
 Complete las secciones "Creación de un grupo de recursos", "Creación de un clúster de AKS" y "Conexión con el clúster" de [Implementación de un clúster de Azure Kubernetes Service mediante la CLI de Azure](../../aks/kubernetes-walkthrough.md). 
 
 > [!NOTE] 
-> Si planea usar una identidad de pod en lugar de una entidad de servicio, asegúrese de habilitarla al crear el clúster de Kubernetes, como se muestra en el siguiente comando:
+> Si planea usar una identidad de pod, asegúrese de habilitarla al crear el clúster de Kubernetes, como se muestra en el siguiente comando:
 >
 > ```azurecli
 > az aks create -n contosoAKSCluster -g contosoResourceGroup --kubernetes-version 1.16.9 --node-count 1 --enable-managed-identity
@@ -121,7 +106,7 @@ Para crear su propio almacén de claves y establecer los secretos, siga las inst
 
 En el archivo YAML SecretProviderClass de ejemplo, rellene los parámetros que faltan. Se necesitan los siguientes parámetros:
 
-* **userAssignedIdentityID**: # [Obligatorio] Si usa una entidad de servicio, use el id. de cliente para especificar la identidad administrada asignada por el usuario que se va a usar. Si usa una identidad asignada por el usuario como identidad administrada de la máquina virtual, especifique el id. de cliente de la identidad. Si el valor está vacío, se usa de forma predeterminada la identidad asignada por el sistema en la máquina virtual. 
+* **userAssignedIdentityID**: # [REQUIRED] Si el valor está vacío, se usa de forma predeterminada la identidad asignada por el sistema en la máquina virtual. 
 * **keyvaultName**: nombre del almacén de claves.
 * **objects**: contenedor para todo el contenido secreto que desea montar.
     * **objectName**: nombre del contenido del secreto.
@@ -147,9 +132,8 @@ spec:
   parameters:
     usePodIdentity: "false"                   # [REQUIRED] Set to "true" if using managed identities
     useVMManagedIdentity: "false"             # [OPTIONAL] if not provided, will default to "false"
-    userAssignedIdentityID: "servicePrincipalClientID"       # [REQUIRED] If you're using a service principal, use the client id to specify which user-assigned managed identity to use. If you're using a user-assigned identity as the VM's managed identity, specify the identity's client id. If the value is empty, it defaults to use the system-assigned identity on the VM
-                                                             #     az ad sp show --id http://contosoServicePrincipal --query appId -o tsv
-                                                             #     the preceding command will return the client ID of your service principal
+    userAssignedIdentityID: "servicePrincipalClientID"       # [REQUIRED]  If you're using a user-assigned identity as the VM's managed identity, specify the identity's client id. If the value is empty, it defaults to use the system-assigned identity on the VM
+                                                         
     keyvaultName: "contosoKeyVault5"          # [REQUIRED] the name of the key vault
                                               #     az keyvault show --name contosoKeyVault5
                                               #     the preceding command will display the key vault metadata, which includes the subscription ID, resource group name, key vault 
@@ -174,58 +158,18 @@ En la imagen siguiente se muestra la salida de consola de **az keyvault show --n
 
 ![Captura de pantalla que muestra la salida de consola de "az keyvault show --name contosoKeyVault5"](../media/kubernetes-key-vault-4.png)
 
-## <a name="assign-your-service-principal-or-use-managed-identities"></a>Asignación de una entidad de servicio o uso de identidades administradas
+## <a name="assign-managed-identity"></a>Identidad administrada asignada
 
-### <a name="assign-a-service-principal"></a>Asignación de una entidad de servicio
-
-Si usa una entidad de servicio, deberá conceder permisos para acceder al almacén de claves y recuperar los secretos. Asigne el rol *Lector* y conceda a la entidad de servicio permisos para *obtener* los secretos del almacén de claves; para ello, debe ejecutar este comando:
-
-1. Asigne la entidad de servicio al almacén de claves existente. El parámetro **$AZURE_CLIENT_ID** es el valor de **appId** que copió después de crear la entidad de servicio.
-    ```azurecli
-    az role assignment create --role Reader --assignee $AZURE_CLIENT_ID --scope /subscriptions/$SUBID/resourcegroups/$KEYVAULT_RESOURCE_GROUP/providers/Microsoft.KeyVault/vaults/$KEYVAULT_NAME
-    ```
-
-    La salida del comando se muestra en la siguiente imagen: 
-
-    ![Captura de pantalla que muestra el valor de principalId](../media/kubernetes-key-vault-5.png)
-
-1. Conceda a la entidad de servicio permisos para obtener secretos:
-    ```azurecli
-    az keyvault set-policy -n $KEYVAULT_NAME --secret-permissions get --spn $AZURE_CLIENT_ID
-    az keyvault set-policy -n $KEYVAULT_NAME --key-permissions get --spn $AZURE_CLIENT_ID
-    ```
-
-1. Ya ha configurado la entidad de servicio con permisos para leer secretos desde el almacén de claves. **$AZURE_CLIENT_SECRET** es la contraseña de la entidad de servicio. Agregue las credenciales de la entidad de servicio como un secreto de Kubernetes al que pueda acceder el controlador Secrets Store CSI:
-    ```azurecli
-    kubectl create secret generic secrets-store-creds --from-literal clientid=$AZURE_CLIENT_ID --from-literal clientsecret=$AZURE_CLIENT_SECRET
-    ```
-
-> [!NOTE] 
-> Si va a implementar el pod de Kubernetes y recibe un error sobre un identificador de secreto de cliente no válido, es posible que tenga un identificador de secreto de cliente anterior que haya expirado o se haya restablecido. Para resolver este problema, elimine el secreto *secrets-store-creds* y cree uno nuevo con el identificador de secreto de cliente actual. Ejecute el siguiente comando para eliminar *secrets-store-creds*:
->
-> ```azurecli
-> kubectl delete secrets secrets-store-creds
-> ```
-
-Si olvidó el identificador de secreto de cliente de la entidad de servicio, puede restablecerlo con el siguiente comando:
-
-```azurecli
-az ad sp credential reset --name contosoServicePrincipal --credential-description "APClientSecret" --query password -o tsv
-```
-
-### <a name="use-managed-identities"></a>Uso de identidades administradas
-
-Si usa identidades administradas, asigne roles específicos al clúster de AKS que ha creado. 
+Asigne roles específicos al clúster de AKS que ha creado. 
 
 1. Para crear, enumerar o leer una identidad administrada asignada por el usuario, es preciso asignar el rol [Operador de identidades administradas](../../role-based-access-control/built-in-roles.md#managed-identity-operator) al clúster de AKS. Asegúrese de que **$clientId** sea el identificador de cliente del clúster de Kubernetes. Con respecto al ámbito, estará en el servicio de suscripción de Azure, específicamente el grupo de recursos de nodo que se creó al tiempo que el clúster de AKS. Este ámbito garantizará que solo los recursos de ese grupo se vean afectados por los roles asignados a continuación. 
 
     ```azurecli
     RESOURCE_GROUP=contosoResourceGroup
-    az role assignment create --role "Managed Identity Operator" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$RESOURCE_GROUP
     
-    az role assignment create --role "Managed Identity Operator" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$NODE_RESOURCE_GROUP
+    az role assignment create --role "Managed Identity Operator" --assignee $clientId --scope /subscriptions/<SUBID>/resourcegroups/$RESOURCE_GROUP
     
-    az role assignment create --role "Virtual Machine Contributor" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$NODE_RESOURCE_GROUP
+    az role assignment create --role "Virtual Machine Contributor" --assignee $clientId --scope /subscriptions/<SUBID>/resourcegroups/$RESOURCE_GROUP
     ```
 
 1. Instale la identidad de Azure Active Directory (Azure AD) en AKS.
@@ -242,7 +186,7 @@ Si usa identidades administradas, asigne roles específicos al clúster de AKS q
 
 1. Asigne el rol *Lector* a la identidad de Azure AD que creó en el paso anterior para el almacén de claves y, a continuación, conceda permisos a la identidad para obtener los secretos del almacén de claves. Use los valores de **clientId** y **principalId** de la identidad de Azure AD.
     ```azurecli
-    az role assignment create --role "Reader" --assignee $principalId --scope /subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/contosoResourceGroup/providers/Microsoft.KeyVault/vaults/contosoKeyVault5
+    az role assignment create --role "Reader" --assignee $principalId --scope /subscriptions/<SUBID>/resourceGroups/contosoResourceGroup/providers/Microsoft.KeyVault/vaults/contosoKeyVault5
 
     az keyvault set-policy -n contosoKeyVault5 --secret-permissions get --spn $clientId
     az keyvault set-policy -n contosoKeyVault5 --key-permissions get --spn $clientId
@@ -253,16 +197,6 @@ Si usa identidades administradas, asigne roles específicos al clúster de AKS q
 Para configurar el objeto SecretProviderClass, ejecute el siguiente comando:
 ```azurecli
 kubectl apply -f secretProviderClass.yaml
-```
-
-### <a name="use-a-service-principal"></a>Uso de una entidad de servicio
-
-Si usa una entidad de servicio, utilice el siguiente comando para implementar los pods de Kubernetes con los objetos SecretProviderClass y secrets-store-creds que configuró anteriormente. Estas son las plantillas de implementación:
-* Para [Linux](https://github.com/Azure/secrets-store-csi-driver-provider-azure/blob/master/examples/nginx-pod-inline-volume-service-principal.yaml)
-* Para [Windows](https://github.com/Azure/secrets-store-csi-driver-provider-azure/blob/master/examples/windows-pod-secrets-store-inline-volume-secret-providerclass.yaml)
-
-```azurecli
-kubectl apply -f updateDeployment.yaml
 ```
 
 ### <a name="use-managed-identities"></a>Uso de identidades administradas
@@ -318,8 +252,6 @@ spec:
         readOnly: true
         volumeAttributes:
           secretProviderClass: azure-kvname
-        nodePublishSecretRef:           # Only required when using service principal mode
-          name: secrets-store-creds     # Only required when using service principal mode
 ```
 
 Ejecute el siguiente comando para implementar el pod:

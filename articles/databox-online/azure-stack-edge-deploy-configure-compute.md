@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 09/03/2019
+ms.date: 01/06/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: d2961bbf65fe1cf3ddf59c648f506cee85e248a5
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 10741fbf2deb61d63f444ff9e2247bc59f41af38
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951628"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97968812"
 ---
 # <a name="tutorial-transform-the-data-with-azure-stack-edge-pro"></a>Tutorial: Transformación de datos con Azure Stack Edge Pro
 
@@ -42,30 +42,35 @@ Antes de configurar un rol de proceso en el dispositivo de Azure Stack Edge Pro,
 
 Para configurar el proceso en Azure Stack Edge Pro, creará un recurso de IoT Hub.
 
-1. En la instancia de Azure Portal del recurso de Azure Stack Edge, vaya a Información general. En el panel derecho, en el icono **Proceso**, seleccione **Comenzar**.
+1. En la instancia de Azure Portal del recurso de Azure Stack Edge, vaya a **Información general**. En el panel derecho, seleccione **IoT Edge**.
 
     ![Introducción al proceso](./media/azure-stack-edge-deploy-configure-compute/configure-compute-1.png)
 
-2. En el icono **Configurar el proceso de Edge**, seleccione **Configurar proceso**.
-3. En la hoja **Configurar el proceso de Edge**, escriba lo siguiente:
-
-   
-    |Campo  |Value  |
-    |---------|---------|
-    |IoT Hub     | Elija entre **Nuevo** o **Existente**. <br> De forma predeterminada, se usa un nivel estándar (S1) para crear un recurso de IoT. Para usar un recurso de IoT de nivel gratuito, cree uno y, a continuación, seleccione el recurso existente. <br> En cualquier caso, el recurso de IoT Hub usa la misma suscripción y el mismo grupo de recursos que el recurso de Azure Stack Edge.     |
-    |Nombre     |Escriba un nombre para el recurso de IoT Hub.         |
+1. En el icono **Enable IoT Edge** (Habilitar IoT Edge), seleccione **Add** (Agregar). Mediante esta acción se habilita el servicio IoT Edge lo cual le permite implementar módulos de IoT Edge de forma local en el dispositivo.
 
     ![Introducción al proceso 2](./media/azure-stack-edge-deploy-configure-compute/configure-compute-2.png)
 
-4. Seleccione **Crear**. La creación del recurso de IoT Hub tarda unos minutos. Después de crear el recurso de IoT Hub, el icono **Configurar proceso** se actualiza para mostrar la configuración de proceso. Para confirmar que se ha configurado el rol de proceso perimetral, seleccione **Ver proceso** en el icono **Configurar proceso**.
-    
+1. En la hoja **Create IoT Edge service** (Crear servicio IoT Edge), escriba lo siguiente:
+
+   
+    |Campo  |Valor  |
+    |---------|---------|
+    |Suscripción     |Seleccione una suscripción para el recurso de IoT Hub. Puede emplear la misma suscripción que usa el recurso de Azure Stack Edge.         |
+    |Resource group     |Seleccione un grupo de recursos para el recurso de IoT Hub. Puede emplear el mismo grupo de recursos que usa el recurso de Azure Stack Edge.         |
+    |IoT Hub     | Elija entre **Nuevo** o **Existente**. <br> De forma predeterminada, se usa un nivel estándar (S1) para crear un recurso de IoT. Para usar un recurso de IoT de nivel gratuito, cree uno y, a continuación, seleccione el recurso existente. <br> En cualquier caso, el recurso de IoT Hub usa la misma suscripción y el mismo grupo de recursos que el recurso de Azure Stack Edge.     |
+    |Nombre     |Escriba un nombre para el recurso de IoT Hub.         |
+
     ![Introducción al proceso 3](./media/azure-stack-edge-deploy-configure-compute/configure-compute-3.png)
 
-    > [!NOTE]
-    > Si el cuadro de diálogo **Configurar proceso** se cierra antes de que IoT Hub esté asociado con el dispositivo de Azure Stack Edge Pro, la instancia de IoT Hub se crea, pero no se muestra en la configuración de proceso. 
-    
-    Cuando el rol de proceso de Edge está configurado en el dispositivo de Edge, este crea dos dispositivos: uno IoT y el otro IoT Edge. Ambos se pueden ver en el recurso de IoT Hub. Un entorno de ejecución de IoT Edge también se ejecuta en este dispositivo de IoT Edge. En este momento, solo está disponible la plataforma Linux para el dispositivo IoT Edge.
+4. Seleccione **Revisar + crear**. La creación del recurso de IoT Hub tarda unos minutos. Una vez creado el recurso de IoT Hub, **Overview** (Información general) se actualiza e indica que el servicio IoT Edge está en ejecución. 
 
+    ![Introducción al proceso 4](./media/azure-stack-edge-deploy-configure-compute/configure-compute-4.png)    
+    
+    Cuando el servicio IoT Edge está configurado en el dispositivo Edge, este crea dos dispositivos: uno IoT y el otro IoT Edge. Ambos se pueden ver en el recurso de IoT Hub. Un entorno de ejecución de IoT Edge también se ejecuta en este dispositivo de IoT Edge. En este momento, solo está disponible la plataforma Linux para el dispositivo IoT Edge.
+
+    Para confirmar que se ha configurado el rol de proceso de Edge, seleccione el servicio **IoT Edge > Properties** (IoT Edge > Propiedades) y consulte el dispositivo IoT y el dispositivo IoT Edge.
+
+    ![Introducción al proceso 5](./media/azure-stack-edge-deploy-configure-compute/configure-compute-5.png) 
 
 ## <a name="add-shares"></a>Agregar recursos compartidos
 
@@ -73,8 +78,8 @@ En este tutorial, se realizará una implementación sencilla con dos recursos co
 
 1. Para agregar un recurso compartido perimetral al dispositivo, siga estos pasos:
 
-    1. En el recurso de Azure Stack Edge, vaya a **Proceso perimetral > Comenzar**.
-    2. En el icono **Add share(s)** (Agregar recursos compartidos), seleccione **Agregar**.
+    1. En el recurso de Azure Stack Edge, vaya a **IoT Edge > Shares** (IoT Edge > Recursos compartidos).
+    2. En la barra de comandos, seleccione **+ Agregar recurso compartido**.
     3. En la hoja **Agregar recurso compartido**, proporcione el nombre del recurso compartido y seleccione el tipo de recurso compartido.
     4. Para montar el recurso compartido perimetral, active la casilla **Usar el recurso compartido con el proceso perimetral**.
     5. Seleccione la **cuenta de almacenamiento**, el **servicio de almacenamiento**, un usuario existente y, luego, **Crear**.
@@ -94,7 +99,7 @@ En este tutorial, se realizará una implementación sencilla con dos recursos co
     ![Agregar un recurso compartido local perimetral](./media/azure-stack-edge-deploy-configure-compute/add-edge-share-2.png)
 
   
-3. Seleccione **Add share(s)** (Agregar recursos compartidos) para ver la lista actualizada de recursos compartidos.
+3. Vaya a **IoT Edge > Recursos Compartidos** para ver la lista actualizada de recursos compartidos.
 
     ![Lista de recursos compartidos actualizada](./media/azure-stack-edge-deploy-configure-compute/add-edge-share-3.png) 
  
@@ -105,11 +110,11 @@ Puede agregar un módulo personalizado o uno creado previamente. No hay módulos
 
 En esta sección, agregará un módulo personalizado al dispositivo de IoT Edge que creó en [Desarrollo de un módulo C# para Azure Stack Edge Pro](azure-stack-edge-create-iot-edge-module.md). Este módulo personalizado toma los archivos de un recurso compartido local perimetral del dispositivo perimetral y los mueve a un recurso compartido perimetral (nube) del dispositivo. A continuación, el recurso compartido en la nube inserta los archivos en la cuenta de Azure Storage asociada con este.
 
-1. Vaya a **Proceso perimetral > Comenzar**. En el icono **Agregar módulos**, seleccione el tipo de escenario como **simple**. Seleccione **Agregar**.
+1. Vaya a **IoT Edge > Módulos**. Seleccione **+ Agregar módulo** en la barra de comandos del dispositivo.
 2. En la hoja **Configurar y agregar módulo**, escriba los valores siguientes:
 
     
-    |Campo  |Value  |
+    |Campo  |Valor  |
     |---------|---------|
     |Nombre     | Un nombre único para el módulo. Este módulo es un contenedor de Docker que puede implementar en el dispositivo de IoT Edge asociado a Azure Stack Edge Pro.        |
     |URI de imagen     | El URI de la imagen de contenedor correspondiente del módulo.        |
@@ -122,7 +127,7 @@ En esta sección, agregará un módulo personalizado al dispositivo de IoT Edge 
 
     ![Agregar y configurar el módulo](./media/azure-stack-edge-deploy-configure-compute/add-module-1.png)
 
-3. Seleccione **Agregar**. Se agrega el módulo. El icono **Agregar módulo** se actualiza para indicar que el módulo se ha implementado. 
+3. Seleccione **Agregar**. Se agrega el módulo. La página **IoT Edge > Información general** se actualiza para indicar que el módulo se ha implementado. 
 
     ![Módulo implementado](./media/azure-stack-edge-deploy-configure-compute/add-module-2.png)
 

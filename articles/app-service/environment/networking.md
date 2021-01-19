@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/16/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 61059c3e0f9737df6ace338f4252a338ea1f200c
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 680b1f3b6af186eba27a4dd926016a04cd863760
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94663377"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98013499"
 ---
 # <a name="app-service-environment-networking"></a>Redes de App Service Environment
 
@@ -34,7 +34,11 @@ ASE tiene las siguientes direcciones en la creación:
 | Dirección de salida de Windows | De forma predeterminada, las aplicaciones de Windows de ASE usarán esta dirección al realizar llamadas de salida a Internet. |
 | Dirección de salida de Linux | De forma predeterminada, las aplicaciones de Linux de ASE usarán esta dirección al realizar llamadas de salida a Internet. |
 
-Si elimina el punto de conexión privado que ASE usa, no podrá acceder a las aplicaciones de ASE. No elimine la zona privada de Azure DNS asociada con su ASE.  
+ASEv3 tiene detalles sobre las direcciones que usa el ASE en la parte de **direcciones IP** del portal de ASE.
+
+![Interfaz de usuario de direcciones de ASE](./media/networking/networking-ip-addresses.png)
+
+Si elimina el punto de conexión privado que ASE usa, no podrá acceder a las aplicaciones de ASE.  
 
 ASE usa las direcciones de la subred de salida para admitir la infraestructura usada por ASE. A medida que escale los planes de App Service en su ASE, usará más direcciones. Las aplicaciones de ASE no tienen direcciones dedicadas en la subred de salida. Las direcciones que usa una aplicación de la subred de salida cambiarán con el tiempo.
 
@@ -48,7 +52,7 @@ A diferencia de ASEv2, con ASEv3 puede establecer grupos de seguridad de red (NS
 
 ## <a name="dns"></a>DNS
 
-Las aplicaciones de ASE usarán el DNS con el que está configurada la VNet. Si desea que algunas aplicaciones usen un servidor DNS diferente, puede establecerla manualmente en cada aplicación con las configuraciones de aplicación WEBSITE_DNS_SERVER y WEBSITE_DNS_ALT_SERVER. La configuración de aplicación WEBSITE_DNS_ALT_SERVER configura el servidor DNS secundario. El servidor DNS secundario solo se usa cuando no hay ninguna respuesta del servidor DNS principal. 
+Las aplicaciones de ASE usarán el DNS con el que está configurada la VNet. Siga las instrucciones que se indican en [Uso de App Service Environment](https://docs.microsoft.com/azure/app-service/environment/using#dns-configuration) para configurar el servidor DNS de modo que apunte a su ASE. Si desea que algunas aplicaciones usen un servidor DNS distinto al que está configurado en la VNet, puede establecerlo manualmente en cada aplicación con las configuraciones de aplicación WEBSITE_DNS_SERVER y WEBSITE_DNS_ALT_SERVER. La configuración de aplicación WEBSITE_DNS_ALT_SERVER configura el servidor DNS secundario. El servidor DNS secundario solo se usa cuando no hay ninguna respuesta del servidor DNS principal. 
 
 ## <a name="preview-limitation"></a>Limitación de la versión preliminar
 

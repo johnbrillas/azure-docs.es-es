@@ -3,16 +3,16 @@ title: Conexión a SQL Server, Azure SQL Database o Azure SQL Managed Instance
 description: Automatización de tareas en bases de datos SQL locales o en la nube mediante Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, jonfan, logicappspm
+ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
-ms.date: 10/22/2020
+ms.date: 01/07/2021
 tags: connectors
-ms.openlocfilehash: ce7679fff86d2c96588cf2b704d44238535963b3
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 75c657236b6e06a7e0f6c717d746bcc8c034d423
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130942"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98013454"
 ---
 # <a name="automate-workflows-for-a-sql-database-by-using-azure-logic-apps"></a>Automatización de flujos de trabajo en una base de datos SQL mediante Azure Logic Apps
 
@@ -38,7 +38,7 @@ Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azu
 
   * Para Azure SQL Database, puede encontrar estos detalles en la cadena de conexión.
   
-    Por ejemplo, para buscar esta cadena en Azure Portal, abra la base de datos. En el menú de base de datos, seleccione **Cadenas de conexión** o **Propiedades** :
+    Por ejemplo, para buscar esta cadena en Azure Portal, abra la base de datos. En el menú de base de datos, seleccione **Cadenas de conexión** o **Propiedades**:
 
     `Server=tcp:{your-server-name}.database.windows.net,1433;Initial Catalog={your-database-name};Persist Security Info=False;User ID={your-user-name};Password={your-password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;`
 
@@ -72,7 +72,7 @@ Para acceder a Azure SQL Managed Instance sin usar la puerta de enlace de datos 
 
 La primera vez que agregue un [desencadenador SQL](#add-sql-trigger) o una [acción de SQL](#add-sql-action) y no haya creado previamente una conexión a la base de datos, se le pedirá que complete estos pasos:
 
-1. En **Tipo de autenticación** , seleccione la autenticación necesaria y habilitada en la base de datos en Azure SQL Database o en Azure SQL Managed Instance:
+1. En **Tipo de autenticación**, seleccione la autenticación necesaria y habilitada en la base de datos en Azure SQL Database o en Azure SQL Managed Instance:
 
    | Authentication | Descripción |
    |----------------|-------------|
@@ -80,11 +80,11 @@ La primera vez que agregue un [desencadenador SQL](#add-sql-trigger) o una [acci
    | [**Autenticación de SQL Server**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | - Admite el conector de SQL Server tanto si es ISE como si no. <p><p>- Requiere un nombre de usuario y una contraseña segura válidos que se creen y almacenen en la base de datos. <p>Para más información, consulte los temas siguientes: <p>- [Información general sobre la seguridad de Azure SQL: autenticación](../azure-sql/database/security-overview.md#authentication) <br>- [Autorización del acceso de bases de datos a Azure SQL: autenticación y autorización](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) |
    |||
 
-   Este ejemplo continúa con **Azure AD integrado** :
+   Este ejemplo continúa con **Azure AD integrado**:
 
    ![Captura de pantalla que muestra la ventana de conexión "SQL Server" con la lista "Tipo de autenticación" abierta y la opción "Azure AD integrado" seleccionada.](./media/connectors-create-api-sqlazure/select-azure-ad-authentication.png)
 
-1. Después de seleccionar **Azure AD integrado** , seleccione **Iniciar sesión**. En función de si usa Azure SQL Database o Azure SQL Managed Instance, seleccione las credenciales de usuario para la autenticación.
+1. Después de seleccionar **Azure AD integrado**, seleccione **Iniciar sesión**. En función de si usa Azure SQL Database o Azure SQL Managed Instance, seleccione las credenciales de usuario para la autenticación.
 
 1. Seleccione estos valores para la base de datos:
 
@@ -121,7 +121,7 @@ La primera vez que agregue un [desencadenador SQL](#add-sql-trigger) o una [acci
 
    De lo contrario, su recurso de puerta de enlace de datos no aparecerá en la lista **Puerta de enlace de conexión** al crear la conexión.
 
-1. En **Tipo de autenticación** , seleccione la autenticación necesaria y habilitada en el servidor SQL Server:
+1. En **Tipo de autenticación**, seleccione la autenticación necesaria y habilitada en el servidor SQL Server:
 
    | Authentication | Descripción |
    |----------------|-------------|
@@ -129,7 +129,7 @@ La primera vez que agregue un [desencadenador SQL](#add-sql-trigger) o una [acci
    | [**Autenticación de SQL Server**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | - Admite el conector de SQL Server tanto si es ISE como si no. <p><p>- Requiere un nombre de usuario y una contraseña segura válidos que se crean y se almacenan en el servidor SQL Server. <p>Para más información, consulte [Autenticación de SQL Server](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication). |
    |||
 
-   Este ejemplo continúa con la **Autenticación de Windows** :
+   Este ejemplo continúa con la **Autenticación de Windows**:
 
    ![Selección del tipo de autenticación](./media/connectors-create-api-sqlazure/select-windows-authentication.png)
 
@@ -142,7 +142,7 @@ La primera vez que agregue un [desencadenador SQL](#add-sql-trigger) o una [acci
    | **Nombre de usuario** | Sí | Su nombre de usuario para el servidor SQL Server y la base de datos |
    | **Contraseña** | Sí | La contraseña para el servidor SQL Server y la base de datos |
    | **Suscripción** |  Sí, para la autenticación de Windows | La suscripción a Azure para el recurso de puerta de enlace de datos que creó anteriormente en Azure |
-   | **Puerta de enlace de conexión** | Sí, para la autenticación de Windows | El nombre del recurso de puerta de enlace de datos que creó anteriormente en Azure <p><p>**Sugerencia** : Si la puerta de enlace no aparece en la lista, compruebe que la [configuró](../logic-apps/logic-apps-gateway-connection.md) correctamente. |
+   | **Puerta de enlace de conexión** | Sí, para la autenticación de Windows | El nombre del recurso de puerta de enlace de datos que creó anteriormente en Azure <p><p>**Sugerencia**: Si la puerta de enlace no aparece en la lista, compruebe que la [configuró](../logic-apps/logic-apps-gateway-connection.md) correctamente. |
    |||
 
    > [!TIP]
@@ -178,12 +178,18 @@ La primera vez que agregue un [desencadenador SQL](#add-sql-trigger) o una [acci
 1. Para agregar el resto de propiedades disponibles para este desencadenador, abra la lista **Agregar nuevo parámetro**.
 
    Este desencadenador solo devuelve una fila de la tabla seleccionada. Para realizar otras tareas, continúe agregando una [acción de conector SQL](#add-sql-action) u [otra acción](../connectors/apis-list.md) que lleve a cabo la siguiente tarea que desee en el flujo de trabajo de la aplicación lógica.
-   
+
    Por ejemplo, para ver los datos de esta fila, puede agregar otras acciones que creen un archivo que incluya los campos de la fila devuelta y, luego, que luego envíen alertas por correo electrónico. Para información sobre otras acciones disponibles para este conector, consulte la [página de referencia del conector](/connectors/sql/).
 
 1. En la barra de herramientas del diseñador, seleccione **Save** (Guardar).
 
    Aunque este paso habilita y publica de forma automática la aplicación lógica en Azure, la única acción que la aplicación lógica necesita actualmente es comprobar la base de datos según el intervalo y la frecuencia especificados.
+
+<a name="trigger-recurrence-shift-drift"></a>
+
+### <a name="trigger-recurrence-shift-and-drift"></a>Desencadenamiento del cambio de periodicidad y el desfase
+
+Los desencadenadores basados en conexión en los que es necesario crear antes una conexión, como el desencadenador de SQL, difieren de los desencadenadores integrados que se ejecutan de forma nativa en Azure Logic Apps, como el [desencadenador de periodicidad](../connectors/connectors-native-recurrence.md). En los desencadenadores periódicos basados en conexión, la programación de la periodicidad no es el único elemento que controla la ejecución y la zona horaria solo determina la hora de inicio inicial. Las ejecuciones posteriores dependen de la programación de periodicidad, de la última ejecución del desencadenador *y* de otros factores que pueden provocar que haya un desfase o un comportamiento inesperado en los tiempos de ejecución; por ejemplo, no mantener la programación especificada cuando comienza y finaliza el horario de verano (DST). Para asegurarse de que el valor de periodicidad no se desplaza cuando se aplica el horario de verano, ajuste manualmente la periodicidad para que la aplicación lógica siga ejecutándose en el momento esperado. De lo contrario, el inicio se retrasará una hora cuando se inicie el DST y se adelantará una hora cuando finalice el DST. Para obtener más información, consulte la información sobre [periodicidad en los desencadenadores basados en conexión](../connectors/apis-list.md#recurrence-connection-based).
 
 <a name="add-sql-action"></a>
 
@@ -199,13 +205,13 @@ En este ejemplo, la aplicación lógica empieza con el [desencadenador de period
 
    O bien, para agregar una acción entre los pasos existentes, mueva el mouse sobre la flecha de conexión. Seleccione el signo más ( **+** ) que aparece y, luego, seleccione **Agregar una acción**.
 
-1. En **Elegir una acción** , en el cuadro de búsqueda, escriba `sql server`. En la lista de acciones, seleccione la acción SQL que quiera. En este ejemplo se usa la acción **Obtener fila** , que obtiene un único registro.
+1. En **Elegir una acción**, en el cuadro de búsqueda, escriba `sql server`. En la lista de acciones, seleccione la acción SQL que quiera. En este ejemplo se usa la acción **Obtener fila**, que obtiene un único registro.
 
    ![Selección de la acción "Obtener fila" de SQL](./media/connectors-create-api-sqlazure/select-sql-get-row-action.png)
 
 1. Si se va a conectar a la base de datos SQL por primera vez, se le pedirá que [cree la conexión a la base de datos de SQL ahora](#create-connection). Después de crear esta conexión, puede continuar con el siguiente paso.
 
-1. Seleccione **Nombre de tabla** , que es `SalesLT.Customer` en este ejemplo. Escriba el **identificador de fila** para el registro que desee.
+1. Seleccione **Nombre de tabla**, que es `SalesLT.Customer` en este ejemplo. Escriba el **identificador de fila** para el registro que desee.
 
    ![Selección del nombre de la tabla y especificación del identificador de fila](./media/connectors-create-api-sqlazure/specify-table-row-id.png)
 
@@ -244,9 +250,9 @@ Cuando llama a un procedimiento almacenado con el conector de SQL Server, a vece
 
 1. En el diseñador, en la acción para llamar al procedimiento almacenado, seleccione **Nuevo paso**.
 
-1. En **Elegir una acción** , busque la acción [**Analizar JSON**](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action) y selecciónela.
+1. En **Elegir una acción**, busque la acción [**Analizar JSON**](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action) y selecciónela.
 
-1. En la acción **Análisis del archivo JSON** , seleccione **Usar una carga de ejemplo para generar el esquema**.
+1. En la acción **Análisis del archivo JSON**, seleccione **Usar una carga de ejemplo para generar el esquema**.
 
 1. En la ventana **Enter or paste a sample JSON payload** (Especificar o pegar una carga JSON de ejemplo), proporcione una salida de ejemplo y seleccione **Listo**.
 
@@ -259,13 +265,17 @@ Cuando llama a un procedimiento almacenado con el conector de SQL Server, a vece
 
 ## <a name="troubleshoot-problems"></a>Solucionar problemas
 
-* Se suelen producir problemas de conexión, por lo que para solucionar este tipo de problemas, revise [Solución de problemas de conectividad en SQL Server](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server). Estos son algunos ejemplos:
+<a name="connection-problems"></a>
 
-  * `A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections.`
+### <a name="connection-problems"></a>Problemas de conexión
 
-  * `(provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) (Microsoft SQL Server, Error: 53)`
+Se suelen producir problemas de conexión, por lo que para solucionar este tipo de problemas, revise [Solución de problemas de conectividad en SQL Server](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server). Estos son algunos ejemplos:
 
-  * `(provider: TCP Provider, error: 0 - No such host is known.) (Microsoft SQL Server, Error: 11001)`
+* `A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections.`
+
+* `(provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) (Microsoft SQL Server, Error: 53)`
+
+* `(provider: TCP Provider, error: 0 - No such host is known.) (Microsoft SQL Server, Error: 11001)`
 
 ## <a name="connector-specific-details"></a>Detalles específicos del conector
 

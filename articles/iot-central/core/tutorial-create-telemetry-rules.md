@@ -3,16 +3,16 @@ title: 'Tutorial: Creación y administración de reglas en la aplicación de Azu
 description: En este tutorial se muestra cómo las reglas de Azure IoT Central le permiten supervisar los dispositivos casi en tiempo real e invocar automáticamente acciones, como el envío de correo electrónico, cuando la regla se desencadena.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/16/2020
+ms.date: 01/08/2021
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 6d49e3585460c95ca931f497a63cbc281aed1db1
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 6be49ec3777b4bcaa033a60546e95711090662a4
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94991020"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98065293"
 ---
 # <a name="tutorial-create-a-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Tutorial: Creación de una regla y configuración de las notificaciones en la aplicación de Azure IoT Central
 
@@ -38,6 +38,9 @@ Antes de comenzar, complete los inicios rápidos [Creación de una aplicación d
 ## <a name="create-a-rule"></a>Crear una regla
 
 Para crear una regla de telemetría, la plantilla de dispositivo debe incluir al menos un valor de telemetría. En este tutorial se usa un dispositivo **Sensor Controller** simulado que envía datos de telemetría de temperatura y humedad. Ha agregado esta plantilla de dispositivo y creado un dispositivo simulado en el inicio rápido [Incorporación de un dispositivo simulado a la aplicación de IoT Central](./quick-create-simulated-device.md). La regla supervisa la temperatura notificada por el dispositivo y envía un correo electrónico cada vez que sube de 70 grados.
+
+> [!NOTE]
+> Hay un límite de 50 reglas por aplicación.
 
 1. En el panel izquierdo, seleccione **Rules** (Reglas).
 
@@ -115,4 +118,4 @@ En este tutorial, ha aprendido a:
 Ahora que ha definido una regla basada en umbral, el siguiente paso que se recomienda dar es:
 
 > [!div class="nextstepaction"]
-> [Configuración de la exportación continua de datos](./howto-export-data.md).
+> [Creación de webhooks en reglas](./howto-create-webhooks.md).

@@ -11,12 +11,12 @@ ms.devlang: na
 ms.date: 12/16/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 7eda805a5fdf24a7a55b9296a0f0a1c9a5bfc576
-ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
+ms.openlocfilehash: 36fb54b4b6521d87c7461936c84a644bf22f7e31
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97683505"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97963970"
 ---
 # <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate"></a>Tutorial: Uso de scripts de implementación para crear un certificado autofirmado
 
@@ -329,13 +329,13 @@ El script de implementación agrega un certificado al almacén de claves. Config
 
     ![Recursos del script de implementación de la plantilla de Resource Manager](./media/template-tutorial-deployment-script/resource-manager-template-deployment-script-resources.png)
 
-    Ambos archivos tienen el sufijo **azscripts**. Uno es una cuenta de almacenamiento y el otro es una instancia de contenedor.
+    Ambos archivos tienen el sufijo _azscripts_. Uno es una cuenta de almacenamiento y el otro es una instancia de contenedor.
 
     Seleccione **Mostrar tipos ocultos** para mostrar el recurso `deploymentScripts`.
 
-1. Seleccione la cuenta de almacenamiento con el sufijo **azscripts**.
-1. Seleccione el icono **Recursos compartidos de archivos**. Verá una carpeta **azscripts**. Esta contiene los archivos de ejecución del script de implementación.
-1. Seleccione **azscripts**. Verá dos carpetas: **azscriptinput** y **azscriptoutput**. La carpeta de entrada contiene un archivo de script de PowerShell del sistema y los archivos de script de implementación del usuario. La carpeta de salida contiene un archivo _executionresult.json_ y el archivo de salida del script. Puede ver el mensaje de error en _executionresult.json_. El archivo de salida no está allí porque se produjo un error en la ejecución.
+1. Seleccione la cuenta de almacenamiento con el sufijo _azscripts_.
+1. Seleccione el icono **Recursos compartidos de archivos**. Verá la carpeta _azscripts_, que contiene los archivos de ejecución del script de implementación.
+1. Seleccione _azscripts_. Verá dos carpetas: _azscriptinput_ y _azscriptoutput_. La carpeta de entrada contiene un archivo de script de PowerShell del sistema y los archivos de script de implementación del usuario. La carpeta de salida contiene un archivo _executionresult.json_ y el archivo de salida del script. Puede ver el mensaje de error en _executionresult.json_. El archivo de salida no está allí porque se produjo un error en la ejecución.
 
 Quite la línea `Write-Output1` y vuelva a implementar la plantilla.
 

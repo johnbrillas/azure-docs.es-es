@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 5df8b478c550522d4602398afd208c1e001c96a2
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 2f33fe4fafbe194238fcfbd4942807ed2fc4d6ff
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97883306"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98183547"
 ---
 # <a name="tutorial-get-started-with-azure-machine-learning-in-your-development-environment-part-1-of-4"></a>Tutorial: Introducción a Azure Machine Learning en el entorno de desarrollo (parte 1 de 4)
 
@@ -32,30 +32,49 @@ En la parte 1 de esta serie de tutoriales, deberá realizar lo siguiente:
 > * Configure un clúster de proceso.
 
 > [!NOTE]
-> Esta serie de tutoriales se centra en los conceptos de Azure Machine Learning que se adaptan a las tareas de aprendizaje automático *basadas en trabajos* de Python que tienen muchos procesos o que requieren reproducibilidad. Si está más interesado en un flujo de trabajo exploratorio, podría usar mejor [Jupyter o RStudio en una instancia de proceso de Azure Machine Learning](tutorial-1st-experiment-sdk-setup.md).
+> Esta serie de tutoriales se centra en los conceptos de Azure Machine Learning necesarios para enviar **trabajos por lotes**: aquí es donde el código se envía a la nube para ejecutarse en segundo plano sin interacción del usuario. Esto resulta útil para scripts terminados o código que se desea ejecutar repetidamente, o para tareas de aprendizaje automático de proceso intensivo. Si está más interesado en un flujo de trabajo exploratorio, podría usar mejor [Jupyter o RStudio en una instancia de proceso de Azure Machine Learning](tutorial-1st-experiment-sdk-setup.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Suscripción a Azure. Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar. Pruebe [Azure Machine Learning](https://aka.ms/AMLFree).
-- Familiaridad con los [conceptos de Machine Learning](concept-azure-machine-learning-architecture.md) y Python. Entre los ejemplos se incluyen entornos, entrenamiento y puntuación.
-- Entorno de desarrollo local, como Visual Studio Code, Jupyter o PyCharm.
-- Python (versión 3.5 a 3.7)
-
+- Se recomienda usar [Anaconda](https://www.anaconda.com/download/) o [Miniconda](https://www.anaconda.com/download/) para administrar los entornos virtuales de Python e instalar los paquetes.
 
 ## <a name="install-the-azure-machine-learning-sdk"></a>Instalación del SDK de Azure Machine Learning
 
-En este tutorial se usa el SDK de Azure Machine Learning para Python.
+En este tutorial se usa el SDK de Azure Machine Learning para Python. Para evitar problemas de dependencia de Python, debe crear un entorno aislado. En esta serie de tutoriales se usa Conda para crear ese entorno. Si prefiere usar otras soluciones, como `venv`, `virtualenv` o Docker, asegúrese de que usa una versión de Python >= 3.5 y < 3.9.
 
-Puede usar las herramientas con las que esté más familiarizado (por ejemplo, Conda y PIP) para configurar el entorno de Python que se usará en este tutorial. Instale en el entorno de Python el SDK de Azure Machine Learning para Python mediante PIP:
+Compruebe si tiene Conda instalado en el sistema:
+    
+```bash
+conda --version
+```
+    
+Si este comando devuelve un error `conda not found`, [descargue e instale Miniconda](https://docs.conda.io/en/latest/miniconda.html). 
+
+Una vez instalado Conda, utilice una ventana del símbolo del sistema de terminal o Anaconda para crear un entorno:
 
 ```bash
-pip install azureml-sdk
+conda create -n tutorial python=3.8
 ```
+
+A continuación, instale el SDK de Azure Machine Learning en el entorno de Conda que creó:
+
+```bash
+conda activate tutorial
+pip install azureml-core
+```
+    
+> [!NOTE]
+> La instalación del SDK de Azure Machine Learning tarda aproximadamente 2 minutos.
+>
+> Si recibe un error de tiempo de espera, intente `pip install --default-timeout=100 azureml-core` en su lugar.
+
 
 > [!div class="nextstepaction"]
 > [He instalado el SDK](?success=install-sdk#dir) [He tenido un problema](https://www.research.net/r/7C8Z3DN?issue=install-sdk)
 
 ## <a name="create-a-directory-structure-for-code"></a><a name="dir"></a>Creación de una estructura de directorio del código
+
 Se recomienda configurar la siguiente estructura de directorio sencilla para este tutorial:
 
 ```markdown
@@ -68,8 +87,9 @@ tutorial
 
 > [!TIP]
 > Puede crear el subdirectorio oculto .azureml en una ventana de terminal.  O bien, use lo siguiente:
+>
 > * En una ventana de Finder de Mac, use **Comando + Mayús + .** para alternar la capacidad de ver y crear directorios que comienzan por un punto.  
-> * En Windows 10, consulte [Ver archivos y carpetas ocultos en Windows 10](https://support.microsoft.com/en-us/windows/view-hidden-files-and-folders-in-windows-10-97fbc472-c603-9d90-91d0-1166d1d9f4b5). 
+> * En el Explorador de archivos de Windows 10, consulte [Ver carpetas y archivos ocultos en Windows 10](https://support.microsoft.com/en-us/windows/view-hidden-files-and-folders-in-windows-10-97fbc472-c603-9d90-91d0-1166d1d9f4b5). 
 > * En la interfaz gráfica de Linux, use **Ctrl + h** o el menú **Ver** y active la casilla **Mostrar archivos ocultos**.
 
 > [!div class="nextstepaction"]
@@ -104,7 +124,7 @@ ws = Workspace.create(name='<my_workspace_name>', # provide a name for your work
 ws.write_config(path='.azureml')
 ```
 
-Ejecute este código desde el directorio de `tutorial`:
+En la ventana que tiene activado el entorno de Conda *tutorial1*, ejecute este código desde el directorio `tutorial`.
 
 ```bash
 cd <path/to/tutorial>
@@ -163,7 +183,7 @@ except ComputeTargetException:
 cpu_cluster.wait_for_completion(show_output=True)
 ```
 
-Ejecución del archivo de Python:
+En la ventana que tiene activado el entorno de Conda *tutorial1*, ejecute el archivo de Python:
 
 ```bash
 python ./02-create-compute.py
@@ -185,6 +205,19 @@ tutorial
 
 > [!div class="nextstepaction"]
 > [He creado un clúster de proceso](?success=create-compute-cluster#next-steps) [He tenido un problema](https://www.research.net/r/7C8Z3DN?issue=create-compute-cluster)
+
+## <a name="view-in-the-studio"></a>Visualización en Studio
+
+Inicie sesión en [Azure Machine Learning Studio](https://ml.azure.com) para ver el área de trabajo y la instancia de proceso que ha creado.
+
+1. Seleccione la **suscripción** que usó para crear el área de trabajo.
+1. Seleccione el **área de trabajo de Machine Learning** que ha creado, *tutorial-ws*.
+1. Una vez cargada el área de trabajo, en el lado izquierdo, seleccione **Compute** (Proceso).
+1. En la parte superior, seleccione la pestaña **Compute clusters** (Clústeres de proceso).
+
+:::image type="content" source="media/tutorial-1st-experiment-sdk-local/compute-instance-in-studio.png" alt-text="Captura de pantalla: visualización de la instancia de proceso en el área de trabajo.":::
+
+En esta vista se muestra el clúster de proceso aprovisionado, junto con el número de nodos inactivos, de nodos ocupados y de nodos no aprovisionados.  Dado que aún no ha usado el clúster, los nodos no están aprovisionados actualmente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

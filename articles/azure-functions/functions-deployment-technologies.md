@@ -4,12 +4,12 @@ description: Conozca las distintas formas de implementación de código en Azure
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: 7a75408008a90a2c40553b1f6c5c196775a48e61
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 04d96a09d41ace64bed5667bb9f0fa6e4beed244
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96168107"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936964"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Tecnologías de implementación en Azure Functions
 
@@ -25,7 +25,7 @@ En la tabla siguiente se describen los métodos de implementación disponibles p
 | -- | -- | -- |
 | Basado en herramientas | &bull;&nbsp;[Publicación de&nbsp;Visual&nbsp;Studio&nbsp;Code](functions-develop-vs-code.md#publish-to-azure)<br/>&bull;&nbsp;[Publicación de Visual Studio](functions-develop-vs.md#publish-to-azure)<br/>&bull;&nbsp;[Publicación de Core Tools](functions-run-local.md#publish) | Implementaciones durante el desarrollo y otras implementaciones ad-hock. Las implementaciones se administran de forma local mediante las herramientas. | 
 | Administrado por App Service| &bull;&nbsp;[Centro de&nbsp;implementación&nbsp;(CI/CD)](functions-continuous-deployment.md)<br/>&bull;&nbsp;[Implementaciones de&nbsp;contenedores](functions-create-function-linux-custom-image.md#enable-continuous-deployment-to-azure) |  Implementación continua (CI/CD) desde el control de código fuente o un registro de contenedor. Las implementaciones se administran mediante la plataforma App Service (Kudu).|
-| Canalizaciones externas|&bull;&nbsp;[Canalizaciones de DevOps](functions-how-to-azure-devops.md)<br/>&bull;&nbsp;[Acciones de GitHub](functions-how-to-github-actions.md) | Las canalizaciones de producción y DevOps que incluyen validación, pruebas y otras acciones adicionales se ejecutan como parte de una implementación automatizada. La canalización administra las implementaciones. |
+| Canalizaciones externas|&bull;&nbsp;[Azure Pipelines](functions-how-to-azure-devops.md)<br/>&bull;&nbsp;[Acciones de GitHub](functions-how-to-github-actions.md) | Las canalizaciones de producción y DevOps que incluyen validación, pruebas y otras acciones adicionales se ejecutan como parte de una implementación automatizada. La canalización administra las implementaciones. |
 
 Aunque las implementaciones concretas de Functions usan la tecnología óptima en función de su contexto, la mayoría de los métodos de implementación se basan en la [implementación zip](#zip-deploy).
 
@@ -33,9 +33,9 @@ Aunque las implementaciones concretas de Functions usan la tecnología óptima e
 
 Azure Functions admite el desarrollo local multiplataforma y hospedaje en Windows y Linux. Actualmente, hay tres planes de hospedaje disponibles:
 
-+ [Consumo](functions-scale.md#consumption-plan)
-+ [Premium](functions-scale.md#premium-plan)
-+ [Dedicado (App Service)](functions-scale.md#app-service-plan)
++ [Consumo](consumption-plan.md)
++ [Premium](functions-premium-plan.md)
++ [Dedicado (App Service)](dedicated-plan.md)
 
 Cada plan tiene diferentes comportamientos. No todas las tecnologías de implementación están disponibles para todos los tipos de instancia de Azure Functions. En el gráfico siguiente se muestran las tecnologías de implementación que se admiten para cada combinación de sistema operativo y plan de hospedaje:
 
@@ -96,7 +96,7 @@ Las aplicaciones de funciones de Linux que se ejecutan en el plan de consumo no 
 
 ##### <a name="dedicated-and-premium-plans"></a>Planes dedicados y Premium
 
-Las aplicaciones de funciones que se ejecutan en Linux con el [plan dedicado (App Service )](functions-scale.md#app-service-plan) y el [plan Premium](functions-scale.md#premium-plan) también tienen un sitio SCM/Kudu limitado.
+Las aplicaciones de funciones que se ejecutan en Linux con el [plan dedicado (App Service )](dedicated-plan.md) y el [plan Premium](functions-premium-plan.md) también tienen un sitio SCM/Kudu limitado.
 
 ## <a name="deployment-technology-details"></a>Detalles de la tecnología de implementación
 

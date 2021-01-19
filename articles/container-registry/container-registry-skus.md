@@ -1,14 +1,14 @@
 ---
 title: Niveles y características del servicio de registro
-description: Obtenga información sobre las características y los límites de los niveles de servicio Básico, Estándar y Premium (SKU) de Azure Container Registry.
+description: Obtenga información sobre las características y los límites (cuotas) de los niveles de servicio (SKU) Básico, Estándar y Premium de Azure Container Registry.
 ms.topic: article
 ms.date: 05/18/2020
-ms.openlocfilehash: e2a5ad52775e9000aa0beb0a926d809da1c5a0e0
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: b55fc16dcd6dcb544ed4597ce4bdc6ba17b52646
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048481"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98015675"
 ---
 # <a name="azure-container-registry-service-tiers"></a>Niveles del servicio Azure Container Registry
 
@@ -31,6 +31,8 @@ En la tabla siguiente se detallan las características y los límites de registr
 ## <a name="changing-tiers"></a>Cambio de niveles de servicio
 
 Puede cambiar el nivel de servicio de un registro con la CLI de Azure o en Azure Portal. Puede moverse libremente de un nivel de servicio a otro siempre que el nivel al que se vaya a cambiar tenga la capacidad de almacenamiento máximo necesaria. 
+
+Moverse entre los niveles de servicio no produce ningún tiempo de inactividad en el registro ni afecta a las operaciones del registro.
 
 ### <a name="azure-cli"></a>Azure CLI
 
