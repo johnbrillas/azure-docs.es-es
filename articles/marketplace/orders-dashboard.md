@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: 943f1361a2a9d6bf8d891f8b4f2137b8738f0836
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 31216db98cc02724ac3625eb1a8fa18b0f75c6ee
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96450757"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955032"
 ---
 # <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>Panel Pedidos de los análisis de marketplace comercial
 
@@ -109,14 +109,13 @@ En la tabla Detalles del pedido se muestra una lista numerada de los 1000 pedid
 - Los datos se pueden extraer a un archivo .csv o .tsv si el recuento de los registros es inferior a 1000.
 - Si el número de registros es superior a 1000, los datos exportados se colocarán de forma asincrónica en una página de descargas durante los próximos 30 días.
 - Aplique filtros a la tabla **Detalles del pedido** a fin de mostrar solo los datos que le interesen. Filtre por país o región, tipo de licencia de Azure, tipo de licencia del marketplace comercial, tipo de oferta, estado de pedido, evaluaciones gratuitas, identificador de suscripción del marketplace comercial, identificador de cliente y nombre de la empresa.
-- Dado que las ofertas de SaaS compradas a través de Azure Marketplace o Microsoft AppSource no requieren una suscripción a Azure, el identificador de suscripción de Marketplace aparecerá con la forma 00000000-0000-0000-0000-000000000000 en la sección **Datos de pedidos detallados**.
 - Cuando un cliente protegido adquiere un pedido, la información de **Customer Detailed Data** (Datos detallados del pedido) se enmascara (************).
 
 **_Tabla 1: Diccionario de términos de datos_* _
 
 | Nombre de la columna | Nombre del atributo | Definición |
 | ------------ | ------------- | ------------- |
-| Identificador de la suscripción a Marketplace | Identificador de la suscripción a Marketplace | Identificador único asociado a la suscripción a Azure que el cliente usó para comprar la oferta de Marketplace comercial. Antes era el GUID de la suscripción a Azure. |
+| Identificador de la suscripción a Marketplace | Identificador de la suscripción a Marketplace | Identificador único asociado a la suscripción a Azure que el cliente usó para comprar la oferta de Marketplace comercial. En el caso de las ofertas de infraestructura, este es el GUID de la suscripción de Azure del cliente. En el caso de las ofertas de SaaS, se muestra como ceros, ya que las compras de SaaS no requieren una suscripción a Azure. |
 | MonthStartDate | Fecha de inicio del mes | Fecha de inicio del mes representa el mes de la compra. |
 | Tipo de oferta | Tipo de oferta | Tipo de oferta de Marketplace comercial. |
 | Azure License Type (Tipo de licencia de Azure) | Azure License Type (Tipo de licencia de Azure) | Tipo de contrato de licencia que los clientes utilizan para comprar Azure. También conocido como Canal. Los valores posibles son:<ul><li>Proveedor de soluciones en la nube</li><li>Enterprise</li><li>Enterprise a través de revendedor</li><li>Pago por uso</li></ul> |

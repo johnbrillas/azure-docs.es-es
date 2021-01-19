@@ -12,12 +12,12 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 47c3c091e767cac63bb814469397ef1a0aeca3a4
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 011acdf98c8430bfb7ba1b02ec24a170f829e48f
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516495"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98063797"
 ---
 # <a name="microsoft-identity-platform-best-practices-and-recommendations"></a>Procedimientos recomendados y recomendaciones de la plataforma de identidad de Microsoft
 
@@ -70,7 +70,7 @@ Utilice la siguiente lista de comprobación para asegurarse de que su aplicació
 
 ![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) No programa directamente con protocolos como OAuth 2.0 y Open ID. En su lugar, aproveche la [biblioteca de autenticación de Microsoft (MSAL)](msal-overview.md). Las bibliotecas MSAL encapsulan los protocolos de seguridad de forma segura en una biblioteca fácil de usar, y se obtiene compatibilidad integrada con escenarios de [acceso condicional](../conditional-access/overview.md) e [inicio de sesión único (SSO)](../manage-apps/what-is-single-sign-on.md) en todo el dispositivo, así como compatibilidad integrada con el almacenamiento en caché de tokens. Para más información, consulte la lista de [bibliotecas cliente](reference-v2-libraries.md#microsoft-supported-client-libraries) y [bibliotecas de middleware](reference-v2-libraries.md#microsoft-supported-server-middleware-libraries) admitidas por Microsoft y la lista de [bibliotecas cliente de terceros compatibles](reference-v2-libraries.md#compatible-client-libraries).<br/><br/>Si debe codificar manualmente los protocolos de autenticación, debe seguir una metodología como la de [SDL de Microsoft](https://www.microsoft.com/sdl/default.aspx). Preste mucha atención a las consideraciones de seguridad en las especificaciones de estándares para cada protocolo.
 
-![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) Migrar las aplicaciones existentes de la [biblioteca de autenticación de Azure Active Directory (ADAL)](../azuread-dev/active-directory-authentication-libraries.md) a la [biblioteca de autenticación de Microsoft](msal-overview.md). MSAL es la solución más reciente de plataforma de identidad de Microsoft y es preferible a ADAL. Está disponible en .NET, JavaScript, Android, iOS, macOS y también en versión preliminar pública para Python y Java. Conozca mejor cómo migrar [ADAL.NET](msal-net-migration.md) y [ADAL.js](msal-compare-msal-js-and-adal-js.md), y las aplicaciones de [ADAL.NET y de agente iOS](msal-net-migration-ios-broker.md).
+![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) Migre las aplicaciones existentes de la [Biblioteca de autenticación de Azure Active Directory (ADAL)](../azuread-dev/active-directory-authentication-libraries.md) a la [Biblioteca de autenticación de Microsoft](msal-overview.md). MSAL es la solución más reciente de plataforma de identidad de Microsoft y es preferible a ADAL. Está disponible en .NET, JavaScript, Android, iOS, macOS y también en versión preliminar pública para Python y Java. Conozca mejor cómo migrar [ADAL.NET](msal-net-migration.md) y [ADAL.js](msal-compare-msal-js-and-adal-js.md), y las aplicaciones de [ADAL.NET y de agente iOS](msal-net-migration-ios-broker.md).
 
 ![casilla](./media/active-directory-integration-checklist/checkbox-two.svg) En el caso de las aplicaciones móviles, configure cada plataforma con la experiencia de registro de aplicaciones. Para que la aplicación pueda aprovechar las ventajas de Microsoft Authenticator o del Portal de empresa de Microsoft para el inicio de sesión único, debe tener configurado un "URI de redirección del agente". De esta manera, Microsoft puede devolver el control a la aplicación después de la autenticación. Al configurar cada plataforma, la experiencia de registro de aplicaciones le guía por el proceso. Use el inicio rápido para descargar un ejemplo práctico. En iOS, use los agentes y la vista web siempre que sea posible.
 

@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
-ms.date: 05/04/2020
-ms.openlocfilehash: 2d6d18cc73c02d3139074555fdd22a40c797ce40
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.date: 01/12/2021
+ms.openlocfilehash: 429f0b2ffe486279a1c429fc7a153e6528642f54
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825140"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131668"
 ---
 # <a name="plan-a-virtual-network-for-azure-hdinsight"></a>Planificación de una red virtual para Azure HDInsight
 
@@ -51,7 +51,8 @@ Debe responder a las preguntas siguientes cuando planifique instalar HDInsight e
 Use los pasos de esta sección para saber cómo agregar un nuevo HDInsight a una instancia de Azure Virtual Network existente.
 
 > [!NOTE]  
-> No se puede agregar un clúster de HDInsight existente a una red virtual.
+> - No se puede agregar un clúster de HDInsight existente a una red virtual.
+> - La red virtual y el clúster que se van a crear deben estar en la misma suscripción.
 
 1. ¿Está usando un modelo de implementación clásico o de Resource Manager para la red virtual?
 

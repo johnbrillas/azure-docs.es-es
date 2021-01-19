@@ -4,15 +4,15 @@ description: La asignación de dispositivos ofrece una representación gráfica 
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/07/2020
+ms.date: 1/7/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: dd0f28411dccab1a1dd36fbd01d2d1acbcc689e0
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: fd1721060bdc4b18f324a94f7c367bacde6ed4e8
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97837385"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97976765"
 ---
 # <a name="investigate-sensor-detections-in-the-device-map"></a>Investigación de las detecciones de sensores en la asignación de dispositivos
 
@@ -59,7 +59,7 @@ Cada subred se presenta como una sola entidad en la asignación de dispositivos,
 
 En la ilustración siguiente se muestra una subred de TI contraída con 27 elementos de red de TI.
 
-:::image type="content" source="media/how-to-work-with-maps/shrunk-it-subnet.png" alt-text="subred de TI contraída con 27 elementos de red de TI":::
+:::image type="content" source="media/how-to-work-with-maps/shrunk-it-subnet-v2.png" alt-text="subred de TI contraída con 27 elementos de red de TI":::
 
 Para habilitar la capacidad de contracción de redes de TI:
 
@@ -226,7 +226,7 @@ El icono de tipo de dispositivo se muestra con los dispositivos conectados.
 
 En la vista detallada se presentan los dispositivos y los indicadores y las etiquetas de dispositivo con la siguiente información:
 
-:::image type="content" source="media/how-to-work-with-maps/device-map.png" alt-text="Vista detallada":::
+:::image type="content" source="media/how-to-work-with-maps/device-map-v2.png" alt-text="Vista detallada":::
 
 ### <a name="control-the-zoom-view"></a>Control de la vista de zoom
 

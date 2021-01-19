@@ -7,12 +7,12 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.openlocfilehash: 408ba76c44d1161a4b91ccc037721796c7b94661
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 3ae300ca2746ab9e3478d3fe14fd6fc49c95a93d
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500757"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98071738"
 ---
 # <a name="azure-boot-diagnostics"></a>Diagnósticos de arranque de Azure
 
@@ -21,10 +21,14 @@ Diagnósticos de arranque es una característica de depuración para máquinas v
 ## <a name="boot-diagnostics-storage-account"></a>Cuenta de almacenamiento de diagnóstico de arranque
 Al crear una máquina virtual en Azure Portal, los diagnósticos de arranque están habilitados de forma predeterminada. La experiencia de los diagnósticos de arranque recomendada consiste en usar una cuenta de almacenamiento administrada, ya que proporciona importantes mejoras de rendimiento en el momento de crear una máquina virtual de Azure. Esto se debe a que se usará una cuenta de almacenamiento administrada de Azure y se eliminará el tiempo necesario para crear una nueva cuenta de almacenamiento de usuario para almacenar los datos de diagnóstico de arranque.
 
-Una experiencia alternativa de los diagnósticos de arranque consiste en usar una cuenta de almacenamiento administrada por el usuario. Un usuario puede crear una cuenta de almacenamiento o usar una existente. 
-
 > [!IMPORTANT]
 > Los blobs de datos de diagnósticos de arranque (que constan de registros e imágenes de instantáneas) se almacenan en una cuenta de almacenamiento administrada. A los clientes solo se les cobrarán los GiB utilizados por los blobs, no por el tamaño aprovisionado del disco. Los medidores de las instantáneas se usarán para la facturación de la cuenta de almacenamiento administrada. Dado que las cuentas administradas se crean en ZRS estándar o LRS estándar, a los clientes se les cobrará a 0,05 USD/GB al mes solo para el tamaño de los blobs de datos de diagnóstico. Para obtener más información sobre los precios, consulte [Precios de Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/). Los clientes verán este cargo asociado al URI de recurso de la VM. 
+
+Una experiencia alternativa de diagnóstico de arranque consiste en usar una cuenta de almacenamiento administrada por el usuario. Un usuario puede crear una cuenta de almacenamiento o usar una existente.
+> [!NOTE]
+> Las cuentas de almacenamiento administradas por el usuario asociadas con los diagnósticos de arranque requieren que la cuenta de almacenamiento y las máquinas virtuales asociadas residan en la misma suscripción. 
+
+
 
 ## <a name="boot-diagnostics-view"></a>Vista de diagnósticos de arranque
 Situada en la hoja de la máquina virtual, la opción Diagnósticos de arranque se encuentra en la sección *Soporte técnico y solución de problemas* de Azure Portal. Al seleccionar los diagnósticos de arranque se mostrará una captura de pantalla e información de registro serie. El registro serie contiene la mensajería del kernel y la captura de pantalla es una instantánea del estado actual de las máquinas virtuales. El aspecto de la captura de pantalla esperada, depende de si la máquina virtual se ejecuta en Windows o Linux. En Windows, los usuarios verán un fondo de escritorio y en Linux, los usuarios verán un mensaje de inicio de sesión.

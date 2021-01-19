@@ -3,12 +3,12 @@ title: Lenguajes admitidos en Azure Functions
 description: Obtenga información sobre los lenguajes admitidos (GA) y los que se encuentran en versión preliminar, y las maneras de ampliar el desarrollo de Functions a otros lenguajes.
 ms.topic: conceptual
 ms.date: 11/27/2019
-ms.openlocfilehash: 91a6ea886c3828678771b24d69bb7987af1fb105
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da3100521faae61e9803aaa82dbf91045a7ecbc9
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83994908"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108558"
 ---
 # <a name="supported-languages-in-azure-functions"></a>Lenguajes admitidos en Azure Functions
 
@@ -27,9 +27,9 @@ Hay disponibles [tres versiones del entorno en tiempo de ejecución de Azure Fun
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
 
-## <a name="custom-handlers-preview"></a>Controladores personalizados (versión preliminar) 
+## <a name="custom-handlers"></a>Controladores personalizados
 
-Los controladores personalizados son servidores web ligeros que reciben eventos del host de Azure Functions. Cualquier lenguaje que admita primitivas de HTTP puede implementar un controlador personalizado. Esto significa que los controladores personalizados se pueden usar para crear funciones en lenguajes que no se admiten oficialmente. Para obtener más información, consulte [Controladores personalizados de Azure Functions (versión preliminar)](functions-custom-handlers.md).
+Los controladores personalizados son servidores web ligeros que reciben eventos del host de Azure Functions. Cualquier lenguaje que admita primitivas de HTTP puede implementar un controlador personalizado. Esto significa que los controladores personalizados se pueden usar para crear funciones en lenguajes que no se admiten oficialmente. Para obtener más información, consulte [Controladores personalizados de Azure Functions](functions-custom-handlers.md).
 
 ## <a name="language-extensibility"></a>Extensibilidad de lenguaje
 

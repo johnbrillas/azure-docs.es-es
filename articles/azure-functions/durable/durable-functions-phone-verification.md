@@ -4,12 +4,12 @@ description: Aprenda a controlar la interacción humana y los tiempos de espera 
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 4e0f71369bc02fdce5625d9c74e1d52264ed86be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cba3cd0fd5d8727c4ffa4d1b42d7cd9250f21032
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80335760"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028310"
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Las interacciones humanas en Durable Functions: comprobación telefónica de ejemplo
 
@@ -45,7 +45,7 @@ En este artículo se explican las funciones siguientes en la aplicación de ejem
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/PhoneVerification.cs?range=17-70)]
 
 > [!NOTE]
-> Puede no resultar obvio al principio, pero esta función de orquestador es totalmente determinista. Es determinista porque la propiedad `CurrentUtcDateTime` se usa para calcular la fecha de expiración del temporizador y devuelve el mismo valor en cada reproducción en ese momento en el código del orquestador. Este comportamiento es importante para garantizar que `winner` es igual en todas las llamadas a `Task.WhenAny` repetidas.
+> Es posible que no sea obvio al principio, pero este orquestador no infringe la [restricción de orquestación determinista](durable-functions-code-constraints.md). Es determinista porque la propiedad `CurrentUtcDateTime` se usa para calcular la fecha de expiración del temporizador y devuelve el mismo valor en cada reproducción en ese momento en el código del orquestador. Este comportamiento es importante para garantizar que `winner` es igual en todas las llamadas a `Task.WhenAny` repetidas.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -58,7 +58,20 @@ Este es el código que implementa la función:
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E4_SmsPhoneVerification/index.js)]
 
 > [!NOTE]
-> Puede no resultar obvio al principio, pero esta función de orquestador es totalmente determinista. Es determinista porque la propiedad `currentUtcDateTime` se usa para calcular la fecha de expiración del temporizador y devuelve el mismo valor en cada reproducción en ese momento en el código del orquestador. Este comportamiento es importante para garantizar que `winner` es igual en todas las llamadas a `context.df.Task.any` repetidas.
+> Es posible que no sea obvio al principio, pero este orquestador no infringe la [restricción de orquestación determinista](durable-functions-code-constraints.md). Es determinista porque la propiedad `currentUtcDateTime` se usa para calcular la fecha de expiración del temporizador y devuelve el mismo valor en cada reproducción en ese momento en el código del orquestador. Este comportamiento es importante para garantizar que `winner` es igual en todas las llamadas a `context.df.Task.any` repetidas.
+
+# <a name="python"></a>[Python](#tab/python)
+
+La función **E4_SmsPhoneVerification** utiliza la norma *function.json* para las funciones de orquestador.
+
+[!code-json[Main](~/samples-durable-functions-python/samples/human_interaction/E4_SmsPhoneVerification/function.json)]
+
+Este es el código que implementa la función:
+
+[!code-python[Main](~/samples-durable-functions-python/samples/human_interaction/E4_SmsPhoneVerification/\_\_init\_\_.py)]
+
+> [!NOTE]
+> Es posible que no sea obvio al principio, pero este orquestador no infringe la [restricción de orquestación determinista](durable-functions-code-constraints.md). Es determinista porque la propiedad `currentUtcDateTime` se usa para calcular la fecha de expiración del temporizador y devuelve el mismo valor en cada reproducción en ese momento en el código del orquestador. Este comportamiento es importante para garantizar que `winner` es igual en todas las llamadas a `context.df.Task.any` repetidas.
 
 ---
 
@@ -94,6 +107,16 @@ La función **E4_SendSmsChallenge** usa el enlace de Twilio para enviar el mensa
 Y este es el código que genera el código de desafío de cuatro dígitos y envía el mensaje SMS:
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E4_SendSmsChallenge/index.js)]
+
+# <a name="python"></a>[Python](#tab/python)
+
+*function.json* se define como sigue:
+
+[!code-json[Main](~/samples-durable-functions-python/samples/human_interaction/SendSMSChallenge/function.json)]
+
+Y este es el código que genera el código de desafío de cuatro dígitos y envía el mensaje SMS:
+
+[!code-python[Main](~/samples-durable-functions-python/samples/human_interaction/SendSMSChallenge/\_\_init\_\_.py)]
 
 ---
 

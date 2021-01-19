@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: d7cad0592c5c4c0487f582ce5405c275b94b7bd0
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 018b5396563ac3a4b92b371d396c38afa3d2962f
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444034"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98064273"
 ---
 # <a name="call-a-web-api-from-a-mobile-app"></a>Llamada a una API web desde una aplicación móvil
 

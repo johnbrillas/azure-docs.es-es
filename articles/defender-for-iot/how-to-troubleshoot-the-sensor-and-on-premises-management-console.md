@@ -4,15 +4,15 @@ description: Solucione los problemas de su sensor y la consola de administració
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/12/2020
+ms.date: 1/3/2021
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: a57db4f88de4a3b32b4fb315fb331500f955d501
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: b91827fc0a6fb8380c9f8aa87a3def3bc1819523
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97837049"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955440"
 ---
 # <a name="troubleshoot-the-sensor-and-on-premises-management-console"></a>Solución de problemas del sensor y de la consola de administración local
 
@@ -28,22 +28,33 @@ En este artículo se describen las herramientas básicas de solución de problem
 
 ### <a name="investigate-password-failure-at-initial-sign-in"></a>Investigar el error de contraseña en el inicio de sesión inicial
 
-Al iniciar sesión en un sensor Arrow preconfigurado por primera vez, deberá realizar la siguiente recuperación de contraseña:
+Al iniciar sesión en un sensor Arrow preconfigurado por primera vez, deberá realizar la recuperación de contraseña.
 
-1. En la pantalla de inicio de sesión de Defender para IoT, seleccione la opción **Recuperación de contraseña**. 
+Para recuperar la contraseña:
 
-   Se abre la pantalla **Recuperación de contraseña**. Allí se le pedirá que seleccione el usuario y la suscripción, y se le asignará un identificador único.
+1. En la pantalla de inicio de sesión de Defender para IoT, seleccione la opción **Recuperación de contraseña**. Se abre la pantalla **Recuperación de contraseña**.
 
-1. Vaya a la página **Sitios y sensores** de Defender para IoT y seleccione la pestaña **Recuperar mi contraseña**.
+1. Seleccione **CyberX** o **Soporte técnico** y copie el identificador único.
+
+1. Vaya a Azure Portal y seleccione **Sitios y sensores**.  
+
+1. Seleccione la pestaña **Recuperar la contraseña de la consola de administración local**.
+
+   :::image type="content" source="media/password-recovery-images/recover-button.png" alt-text="Selección del botón de recuperación de administración local para descargar el archivo de recuperación.":::
 
 1. Escriba el identificador único que recibió en la pantalla **Recuperación de contraseña** y seleccione **Recuperar**. Se descarga el archivo `password_recovery.zip`.
 
-   > [!NOTE]
-   > No modifique el archivo de activación. Es un archivo firmado y no funcionará si se altera.
+    > [!NOTE]
+    > No modifique el archivo de recuperación de contraseña. Es un archivo firmado y no funcionará si se altera.
 
-1. En la pantalla **Recuperación de contraseña**, cargue el archivo `password_recovery.zip` y seleccione **Siguiente**.
+1. En la pantalla **Recuperación de contraseña**, seleccione **Cargar**. Se abrirá la ventana **Cargar archivo de recuperación de contraseña**.
 
-A continuación, recibirá la contraseña generada por el sistema para la consola de administración. 
+1. Seleccione **Examinar** para buscar el archivo `password_recovery.zip`, o arrástrelo a la ventana.
+
+1. Seleccione **Siguiente**; aparecerá el usuario y la contraseña generada por el sistema para la consola de administración.
+
+    > [!NOTE]
+    > Cuando inicie sesión en un sensor o en una consola de administración local por primera vez, se vinculará a la suscripción a la que lo conectó. Si necesita restablecer la contraseña para el usuario de CyberX o soporte técnico, deberá seleccionar esa suscripción. Para obtener más información sobre cómo recuperar una contraseña de usuario de CyberX o de soporte técnico, consulte [Restablecimiento de la contraseña de un usuario para el sensor o la consola de administración local](how-to-create-and-manage-users.md#resetting-a-users-password-for-the-sensor-or-on-premises-management-console).
 
 ### <a name="investigate-a-lack-of-traffic"></a>Investigar la falta de tráfico
 
@@ -65,35 +76,35 @@ Para comprobar el rendimiento del sistema:
 
    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/dashboard-view-v2.png" alt-text="Captura de pantalla de un panel de información de ejemplo."::: 
 
-2. Seleccione **Dispositivos** en el menú lateral.
+1. Seleccione **Dispositivos** en el menú lateral.
 
-3. En la ventana **Dispositivos**, asegúrese de que se detectan los dispositivos.
+1. En la ventana **Dispositivos**, asegúrese de que se detectan los dispositivos.
 
     :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/discovered-devices.png" alt-text="Asegúrese de que se detectan los dispositivos.":::
 
-4. Seleccione **Minería de datos** en el menú lateral.
+1. Seleccione **Minería de datos** en el menú lateral.
 
-5. En la ventana **Minería de datos**, seleccione **TODOS** y genere un informe.
+1. En la ventana **Minería de datos**, seleccione **TODOS** y genere un informe.
 
     :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/new-report-generated.png" alt-text="Genere un nuevo informe mediante minería de datos.":::
 
-6. Asegúrese de que el informe contiene datos.
+1. Asegúrese de que el informe contiene datos.
 
     :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/new-report-generated.png" alt-text="Asegúrese de que el informe contiene datos.":::
 
-7. En el menú lateral, seleccione **Tendencias y estadísticas**.
+1. En el menú lateral, seleccione **Tendencias y estadísticas**.
 
-8. En la ventana **Tendencias y estadísticas**, seleccione **Agregar widget**.
+1. En la ventana **Tendencias y estadísticas**, seleccione **Agregar widget**.
 
     :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/add-widget.png" alt-text="Seleccione un widget para agregarlo.":::
 
-9. Agregue un widget y asegúrese de que muestre datos.
+1. Agregue un widget y asegúrese de que muestre datos.
 
     :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/widget-data.png" alt-text="Asegúrese de que el widget muestre datos.":::
 
-10. Seleccione **Alertas** en el menú lateral. Aparecerá la ventana **Alertas**.
+1. Seleccione **Alertas** en el menú lateral. Aparecerá la ventana **Alertas**.
 
-11. Asegúrese de que se han creado las alertas.
+1. Asegúrese de que se han creado las alertas.
 
     :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/alerts-created.png" alt-text="Asegúrese de que se han creado las alertas.":::
 
@@ -154,9 +165,9 @@ Para corregir la configuración:
 
 1. Haga clic con el botón derecho en el icono de la nube en el mapa del dispositivo y seleccione **Exportar direcciones IP**. Copie los intervalos públicos que son privados y agréguelos a la lista de subredes. Para obtener más información, consulte [Configurar subredes](how-to-control-what-traffic-is-monitored.md#configure-subnets).
 
-2. Generar un nuevo informe de minería de datos para las conexiones a Internet.
+1. Generar un nuevo informe de minería de datos para las conexiones a Internet.
 
-3. En el informe de minería de datos, seleccione :::image type="icon" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/administrator-mode.png" border="false"::: para entrar en el modo de administrador y eliminar las direcciones IP de los dispositivos ICS.
+1. En el informe de minería de datos, seleccione :::image type="icon" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/administrator-mode.png" border="false"::: para entrar en el modo de administrador y eliminar las direcciones IP de los dispositivos ICS.
 
 ### <a name="tweak-the-sensors-quality-of-service"></a>Ajustar la calidad de servicio del sensor
 
@@ -179,7 +190,7 @@ Para ajustar la calidad del servicio:
    > [!NOTE]
    > Para un dispositivo físico, use la interfaz em1.
 
-2. Para borrar la limitación de la interfaz, escriba `sudo cyberx-xsense-limit-interface -i eth0 -l 1mbps -c`.
+1. Para borrar la limitación de la interfaz, escriba `sudo cyberx-xsense-limit-interface -i eth0 -l 1mbps -c`.
 
 ## <a name="on-premises-management-console-troubleshooting-tools"></a>Herramientas de solución de problemas de la consola de administración local
 
@@ -203,7 +214,7 @@ Para ajustar la calidad del servicio:
 
 1. Inicie sesión como un usuario de Defender para IoT. 
 
-2. Compruebe los valores predeterminados:
+1. Compruebe los valores predeterminados:
 
    ```bash
    grep \"notifications\" /var/cyberx/properties/management.properties
@@ -216,20 +227,20 @@ Para ajustar la calidad del servicio:
    notifications.max_time_to_report=10 (seconds)
    ```
 
-3. Edite la configuración predeterminada:
+1. Edite la configuración predeterminada:
 
    ```bash
    sudo nano /var/cyberx/properties/management.properties
    ```
 
-4. Edite la configuración de las siguientes líneas:
+1. Edite la configuración de las siguientes líneas:
 
    ```bash
    notifications.max_number_to_report=50
    notifications.max_time_to_report=10 (seconds)
    ```
 
-5. Guarde los cambios. No es necesario reiniciar.
+1. Guarde los cambios. No es necesario reiniciar.
 
 ## <a name="export-information-for-troubleshooting"></a>Exportar información para solucionar problemas
 
@@ -239,13 +250,13 @@ Para exportar registros:
 
 1. En el panel izquierdo, seleccione **Configuración del sistema**.
 
-2. Seleccione **Exportar registros**.
+1. Seleccione **Exportar registros**.
 
     :::image type="content" source="media/how-to-export-information-for-troubleshooting/export-a-log.png" alt-text="Exporte un registro al soporte del sistema.":::
 
-3. En el cuadro **Nombre de archivo**, escriba el nombre de archivo que desea utilizar para la exportación del registro. La fecha predeterminada es la actual.
+1. En el cuadro **Nombre de archivo**, escriba el nombre de archivo que desea utilizar para la exportación del registro. La fecha predeterminada es la actual.
 
-4. Para definir los datos que desea exportar, seleccione las categorías de datos:  
+1. Para definir los datos que desea exportar, seleccione las categorías de datos:  
 
     | Exportar categoría | Descripción |
     |--|--|
@@ -264,9 +275,9 @@ Para exportar registros:
     | **Registros de base de datos** | Seleccione esta opción para exportar los registros de la base de datos del sistema. La investigación de los registros del sistema ayuda a identificar los problemas del sistema. |
     | **Configuración** | Seleccione esta opción para exportar información acerca de todos los parámetros configurables para asegurarse de que todo se configuró correctamente. |
 
-5. Para seleccionar todas las opciones, seleccione **Seleccionar todas** junto a **Elegir categorías**.
+1. Para seleccionar todas las opciones, seleccione **Seleccionar todas** junto a **Elegir categorías**.
 
-6. Seleccione **Exportar registros**.
+1. Seleccione **Exportar registros**.
 
 Los registros exportados se agregan a la lista **Registros archivados**. Envíe la OTP al equipo de soporte técnico en un mensaje independiente y en medio de los registros exportados. El equipo de soporte técnico podrá extraer los registros exportados solo mediante la OTP única que se usa para cifrar los registros.
 

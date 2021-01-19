@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
-ms.openlocfilehash: be7c6ec9dbc577143e6c7219580f42c876f536bc
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 563edae0292062e1ed7f216c69aeeb84ef0fa7a8
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499975"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98119482"
 ---
 # <a name="how-to-index-cosmos-db-data-using-an-indexer-in-azure-cognitive-search"></a>Indexación de datos de Cosmos DB mediante un indizador en Azure Cognitive Search 
 
@@ -137,7 +137,7 @@ En este artículo ya se ha mencionado que la [indexación de Azure Cosmos DB](..
 
 ### <a name="1---assemble-inputs-for-the-request"></a>1\. Ensamblado de las entradas para la solicitud
 
-Para cada solicitud, debe proporcionar el nombre del servicio y la clave de administrador de Azure Cognitive Search (en el encabezado POST) y el nombre de cuenta de almacenamiento y la clave para Blob Storage. Puede usar [Postman o Visual Studio Code](search-get-started-rest.md) para enviar solicitudes HTTP a Azure Cognitive Search.
+Para cada solicitud, debe proporcionar el nombre del servicio y la clave de administrador de Azure Cognitive Search (en el encabezado POST) y el nombre de cuenta de almacenamiento y la clave para Blob Storage. Puede usar [Postman](search-get-started-rest.md) o [Visual Studio Code](search-get-started-vs-code.md) para enviar solicitudes HTTP a Azure Cognitive Search.
 
 Copie los cuatro valores siguientes en el Bloc de notas para poder pegarlos en una solicitud:
 

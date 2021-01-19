@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d634978333e2b833324228fb0908cfba61a786d
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 568584b849b2c5977d4bbb6216697dce3c498cfd
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96919752"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98107929"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permisos de roles de administrador en Azure Active Directory
 
@@ -87,6 +87,14 @@ El rol [Administrador de autenticación con privilegios](#privileged-authenticat
 >* Propietarios del grupo de seguridad y el grupo de Microsoft 365, que pueden administrar la pertenencia a grupos. Dichos grupos pueden conceder acceso a información confidencial o privada o a configuración crítica en Azure AD y en cualquier otra parte.
 >* Los administradores de otros servicios fuera de Azure AD, como Exchange Online, Office Security y Compliance Center y sistemas de recursos humanos.
 >* Usuarios no administradores como empleados ejecutivos, de asesoramiento jurídico y de recursos humanos que pueden tener acceso a información confidencial o privada.
+
+### <a name="attack-payload-author"></a>[Autor de la carga de ataque](#attack-payload-author-permissions)
+
+Los usuarios de este rol pueden crear cargas de ataque, pero no iniciarlas ni programarlas. Las cargas de ataque están disponibles para todos los administradores del inquilino, que pueden usarlas para crear una simulación.
+
+### <a name="attack-simulation-administrator"></a>[Administrador de simulación de ataque](#attack-simulation-administrator-permissions)
+
+Los usuarios de este rol pueden crear y administrar todos los aspectos de la creación de una simulación de ataque, iniciar o programar una simulación y revisar los resultados de la simulación. Los miembros de este rol tienen este acceso para todas las simulaciones del inquilino.
 
 ### <a name="azure-devops-administrator"></a>[Administrador de Azure DevOps](#azure-devops-administrator-permissions)
 
@@ -489,6 +497,10 @@ Los usuarios con este rol pueden administrar [dispositivos certificados para Tea
 
 los usuarios con este rol pueden administrar todos los aspectos de la carga de trabajo de Microsoft Teams a través del centro de administración de Microsoft Teams y Skype Empresarial y los módulos de PowerShell correspondientes. Esto incluye, entre otras áreas, todas las herramientas de administración relacionadas con telefonía, mensajería, reuniones y los propios equipos. Este rol además ofrece la capacidad de crear y administrar todos los grupos de Microsoft 365, administrar las incidencias de soporte técnico y supervisar el estado del servicio.
 
+### <a name="usage-summary-reports-reader"></a>[Lector de informes de resumen de uso](#usage-summary-reports-reader-permissions)
+
+Los usuarios con este rol pueden acceder a los datos agregados de nivel de inquilino y a la información asociada del Centro de administración de Microsoft 365 para obtener la puntuación de uso y productividad, pero no pueden acceder a los detalles ni a la información de nivel de usuario. En el Centro de administración de Microsoft 365 de los dos informes, se diferencia entre los datos agregados de nivel de inquilino y los detalles de nivel de usuario. Este rol proporciona una capa adicional de protección para los datos de identificación de usuario individuales, que ya habían solicitado clientes y equipos jurídicos. 
+
 ### <a name="user-administrator"></a>[Administrador de usuarios](#user-administrator-permissions)
 
 Los usuarios con este rol pueden crear y administrar todos los aspectos de los usuarios con algunas restricciones (vea la tabla) y pueden actualizar las directivas de expiración de las contraseñas. Además, los usuarios con este rol pueden crear y administrar todos los grupos. Este rol también incluye la capacidad de crear y administrar vistas de usuarios, administrar las incidencias de soporte técnico y supervisar el estado del servicio. Los administradores de usuarios no tienen permiso para administrar algunas propiedades de usuario en la mayoría de los roles de administrador. El usuario con este rol no tiene los permisos para administrar MFA. En la tabla siguiente se indican los roles que son excepciones a esta restricción.
@@ -591,6 +603,25 @@ Puede ver, configurar y restablecer la información de los métodos de autentica
 | microsoft.office365.serviceHealth/allEntities/allTasks | Leer y configurar Service Health para Microsoft 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Crea y administra incidencias de soporte técnico de Office 365. |
 | microsoft.directory/users/password/update | Actualizar las contraseñas de todos los usuarios de la organización de Microsoft 365. Para obtener más información, consulte la documentación en línea. |
+
+### <a name="attack-payload-author-permissions"></a>Permisos de autor de carga de ataque
+
+Permite crear cargas de ataque que un administrador podrá implementar más adelante.
+
+| **Acciones** | **Descripción** |
+| --- | --- |
+| microsoft.office365.protectionCenter/attackSimulator/payload/allProperties/allTasks | Permite crear y administrar cargas de ataque en el Simulador de ataques. |
+| microsoft.office365.protectionCenter/attackSimulator/reports/allProperties/read | Permite leer informes de simulación de ataques, respuestas y aprendizaje asociado. |
+
+### <a name="attack-simulation-administrator-permissions"></a>Permisos de administrador de simulación de ataques
+
+Puede crear y administrar todos los aspectos de las campañas de simulación de ataques.
+
+| **Acciones** | **Descripción** |
+| --- | --- |
+| microsoft.office365.protectionCenter/attackSimulator/payload/allProperties/allTasks | Permite crear y administrar cargas de ataque en el Simulador de ataques. |
+| microsoft.office365.protectionCenter/attackSimulator/reports/allProperties/read | Permite leer informes de simulación de ataques, respuestas y aprendizaje asociado. |
+| microsoft.office365.protectionCenter/attackSimulator/simulation/allProperties/allTasks | Permite crear y administrar plantillas de simulación de ataques en el Simulador de ataques. |
 
 ### <a name="azure-devops-administrator-permissions"></a>Permisos de administrador de Azure DevOps
 
@@ -739,6 +770,7 @@ Puede administrar todos los aspectos de los servicios de Azure AD y Microsoft qu
 | microsoft.directory/directoryRoles/allProperties/allTasks | Crea y elimina elementos directoryRoles, y lee y actualiza todas las propiedades en Azure Active Directory. |
 | microsoft.directory/directoryRoleTemplates/allProperties/allTasks | Crea y elimina elementos directoryRoleTemplates, y lee y actualiza todas las propiedades en Azure Active Directory. |
 | microsoft.directory/domains/allProperties/allTasks | Crea y elimina dominios, y lee y actualiza todas las propiedades en Azure Active Directory. |
+| microsoft.directory/entitlementManagement/allProperties/allTasks | Permite crear y eliminar recursos, y leer y actualizar todas las propiedades de administración de derechos de Azure AD. |
 | microsoft.directory/groups/allProperties/allTasks | Crea y elimina grupos, y lee y actualiza todas las propiedades en Azure Active Directory. |
 | microsoft.directory/groupsAssignableToRoles/allProperties/update | Actualiza los grupos con la propiedad isAssignableToRole establecida en True en Azure Active Directory. |
 | microsoft.directory/groupsAssignableToRoles/create | Crea grupos con la propiedad isAssignableToRole establecida en True en Azure Active Directory. |
@@ -800,6 +832,7 @@ Puede leer y administrar los informes y la configuración de cumplimiento en Azu
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Leer y configurar Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Crear y administrar solicitudes de soporte técnico de Azure para servicios de nivel de directorio. |
+| microsoft.directory/entitlementManagement/allProperties/read | Permite leer todas las propiedades de administración de derechos de Azure AD. |
 | microsoft.office365.complianceManager/allEntities/allTasks | Administra todos los aspectos del Administrador de cumplimiento de Office 365 |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Leer y configurar Service Health para Microsoft 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Crea y administra incidencias de soporte técnico de Office 365. |
@@ -1102,6 +1135,7 @@ Puede leer los mismos elementos que un administrador global, pero no puede edita
 | microsoft.directory/directoryRoles/eligibleMembers/read    | Lee la propiedad directoryRoles.eligibleMembers en Azure Active Directory. |
 | microsoft.directory/directoryRoles/members/read    | Lee la propiedad directoryRoles.members en Azure Active Directory. |
 | microsoft.directory/domains/basic/read    | Lee las propiedades básicas de los dominios de Azure Active Directory. |
+| microsoft.directory/entitlementManagement/allProperties/read | Permite leer todas las propiedades de administración de derechos de Azure AD. |
 | microsoft.directory/groups/appRoleAssignments/read    | Lee la propiedad groups.appRoleAssignments en Azure Active Directory. |
 | microsoft.directory/groups/basic/read    | Lee las propiedades básicas de los grupos en Azure Active Directory. |
 | microsoft.directory/groups/hiddenMembers/read    | Lee la propiedad groups.hiddenMembers en Azure Active Directory. |
@@ -1200,7 +1234,7 @@ Puede restablecer contraseñas de usuarios que no son administradores y de admin
 
 ### <a name="hybrid-identity-administrator-permissions"></a>Permisos de administrador de identidades híbridas
 
-Habilite, implemente, configure, administre, supervise y solucione problemas de los servicios de autenticación y de aprovisionamiento en la nube. 
+Puede administrar AD para la configuración de federación y el aprovisionamiento en la nube de Azure AD. 
 
 | **Acciones** | **Descripción** |
 | --- | --- |
@@ -1218,8 +1252,10 @@ Habilite, implemente, configure, administre, supervise y solucione problemas de 
 | microsoft.directory/applicationTemplates/instantiate | Cree una instancia de las aplicaciones de la galería a partir de plantillas de aplicación. |
 | microsoft.directory/auditLogs/allProperties/read | Lee todas las propiedades (incluidas las propiedades con privilegios) en auditLogs en Azure Active Directory. |
 | microsoft.directory/cloudProvisioning/allProperties/allTasks | Lea y configure todas las propiedades del servicio de aprovisionamiento en la nube de Azure AD. |
-| microsoft.directory/federatedAuthentication/allProperties/allTasks | Administre todos los aspectos de Servicios de federación de Active Directory (ADFS) o de un proveedor de federación de terceros en Azure AD. |
+| microsoft.directory/domains/allProperties/read | Permite leer todas las propiedades de los dominios. |
+| microsoft.directory/domains/federation/update | Permite actualizar la propiedad de federación de los dominios. |
 | microsoft.directory/organization/dirSync/update | Actualiza la propiedad organization.dirSync en Azure Active Directory. |
+| microsoft.directory/provisioningLogs/allProperties/read | Permite leer todas las propiedades de los registros de aprovisionamiento. |
 | microsoft.directory/servicePrincipals/audience/update | Actualiza la propiedad servicePrincipals.audience en Azure Active Directory. |
 | microsoft.directory/servicePrincipals/authentication/update | Actualiza la propiedad servicePrincipals.authentication en Azure Active Directory. |
 | microsoft.directory/servicePrincipals/basic/update | Actualiza las propiedades básicas de servicePrincipals en Azure Active Directory. |
@@ -1434,6 +1470,14 @@ No lo use. No está pensado para el uso general.
 
 | **Acciones** | **Descripción** |
 | --- | --- |
+| microsoft.directory/applications/appRoles/update | Permite administrar roles de aplicación y solicitar permisos delegados para las aplicaciones. |
+| microsoft.directory/applications/audience/update | Permite actualizar el público en todos los tipos de aplicaciones. |
+| microsoft.directory/applications/authentication/update | Permite actualizar la autenticación en todos los tipos de aplicaciones. |
+| microsoft.directory/applications/basic/update | Permite actualizar las propiedades básicas en todos los tipos de aplicaciones. |
+| microsoft.directory/applications/credentials/update | Permite actualizar las credenciales en todos los tipos de aplicaciones. |
+| microsoft.directory/applications/owners/update | Permite actualizar los propietarios en todos los tipos de aplicaciones. |
+| microsoft.directory/applications/permissions/update | Permite actualizar los permisos expuestos y los permisos necesarios en todos los tipos de aplicaciones. |
+| microsoft.directory/applications/policies/update | Actualiza la propiedad applications.policies en Azure Active Directory. |
 | microsoft.directory/contacts/basic/update | Actualiza las propiedades básicas de los contactos en Azure Active Directory. |
 | microsoft.directory/contacts/create | Crea contactos en Azure Active Directory. |
 | microsoft.directory/contacts/delete | Elimina los contactos en Azure Active Directory. |
@@ -1467,6 +1511,14 @@ No lo use. No está pensado para el uso general.
 
 | **Acciones** | **Descripción** |
 | --- | --- |
+| microsoft.directory/applications/appRoles/update | Permite administrar roles de aplicación y solicitar permisos delegados para las aplicaciones. |
+| microsoft.directory/applications/audience/update | Permite actualizar el público en todos los tipos de aplicaciones. |
+| microsoft.directory/applications/authentication/update | Permite actualizar la autenticación en todos los tipos de aplicaciones. |
+| microsoft.directory/applications/basic/update | Permite actualizar las propiedades básicas en todos los tipos de aplicaciones. |
+| microsoft.directory/applications/credentials/update | Permite actualizar las credenciales en todos los tipos de aplicaciones. |
+| microsoft.directory/applications/owners/update | Permite actualizar los propietarios en todos los tipos de aplicaciones. |
+| microsoft.directory/applications/permissions/update | Permite actualizar los permisos expuestos y los permisos necesarios en todos los tipos de aplicaciones. |
+| microsoft.directory/applications/policies/update | Actualiza la propiedad applications.policies en Azure Active Directory. |
 | microsoft.directory/contacts/basic/update | Actualiza las propiedades básicas de los contactos en Azure Active Directory. |
 | microsoft.directory/contacts/create | Crea contactos en Azure Active Directory. |
 | microsoft.directory/contacts/delete | Elimina los contactos en Azure Active Directory. |
@@ -1661,9 +1713,10 @@ Puede leer la información y los informes de seguridad, así como administrar la
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Leer y configurar Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Crear y administrar solicitudes de soporte técnico de Azure para servicios de nivel de directorio. |
-| microsoft.directory/bitlockerKeys/key/read | Lea objetos y propiedades de clave de BitLocker (incluida la clave de recuperación) en Azure Active Directory. |
 | microsoft.directory/applications/policies/update | Actualiza la propiedad applications.policies en Azure Active Directory. |
 | microsoft.directory/auditLogs/allProperties/read | Lee todas las propiedades (incluidas las propiedades con privilegios) en auditLogs en Azure Active Directory. |
+| microsoft.directory/bitlockerKeys/key/read | Lea objetos y propiedades de clave de BitLocker (incluida la clave de recuperación) en Azure Active Directory. |
+| microsoft.directory/entitlementManagement/allProperties/read | Permite leer todas las propiedades de administración de derechos de Azure AD. |
 | microsoft.directory/identityProtection/allProperties/read | Lee todos los recursos en microsoft.aad.identityProtection. |
 | microsoft.directory/identityProtection/allProperties/update | Actualiza todos los recursos en microsoft.aad.identityProtection. |
 | microsoft.directory/policies/basic/update | Actualiza las propiedades básicas en las directivas de Azure Active Directory. |
@@ -1714,6 +1767,7 @@ Puede leer la información y los informes de seguridad de Azure AD y Microsoft�
 | --- | --- |
 | microsoft.directory/auditLogs/allProperties/read | Lee todas las propiedades (incluidas las propiedades con privilegios) en auditLogs en Azure Active Directory. |
 | microsoft.directory/bitlockerKeys/key/read | Lea objetos y propiedades de clave de BitLocker (incluida la clave de recuperación) en Azure Active Directory. |
+| microsoft.directory/entitlementManagement/allProperties/read | Permite leer todas las propiedades de administración de derechos de Azure AD. |
 | microsoft.directory/policies/conditionalAccess/basic/read | Lee la propiedad policies.conditionalAccess en Azure Active Directory. |
 | microsoft.directory/signInReports/allProperties/read | Lee todas las propiedades (incluidas las propiedades con privilegios) en signInReports en Azure Active Directory. |
 | microsoft.aad.identityProtection/allEntities/read | Lee todos los recursos en microsoft.aad.identityProtection. |
@@ -1860,6 +1914,14 @@ Puede administrar el servicio Microsoft Teams.
 | microsoft.office365.webPortal/allEntities/basic/read | Lee las propiedades básicas de todos los recursos en microsoft.office365.webPortal. |
 | microsoft.teams/allEntities/allProperties/allTasks | Administrar todos los recursos de Teams. |
 
+### <a name="usage-summary-reports-reader-permissions"></a>Permisos del lector de informes de resumen de uso
+Solo permite ver agregados de nivel de inquilino en Análisis de uso y Puntuación de productividad de M365.
+
+| **Acciones** | **Descripción** |
+| --- | --- |
+| microsoft.office365.usageReports/allEntities/standard/read | Permite leer informes de uso de Office 365 agregados de nivel de inquilino. |
+| microsoft.office365.webPortal/allEntities/standard/read | Lee las propiedades básicas de todos los recursos en microsoft.office365.webPortal.|
+
 ### <a name="user-administrator-permissions"></a>Permisos de administrador de usuarios
 Puede administrar todos los aspectos de usuarios y grupos, incluido el restablecimiento de contraseñas para administradores limitados.
 
@@ -1871,6 +1933,7 @@ Puede administrar todos los aspectos de usuarios y grupos, incluido el restablec
 | microsoft.directory/contacts/basic/update | Actualiza las propiedades básicas de los contactos en Azure Active Directory. |
 | microsoft.directory/contacts/create | Crea contactos en Azure Active Directory. |
 | microsoft.directory/contacts/delete | Elimina los contactos en Azure Active Directory. |
+| microsoft.directory/entitlementManagement/allProperties/allTasks | Permite crear y eliminar recursos, y leer y actualizar todas las propiedades de administración de derechos de Azure AD. |
 | microsoft.directory/groups/appRoleAssignments/update | Actualiza la propiedad groups.appRoleAssignments en Azure Active Directory. |
 | microsoft.directory/groups/basic/update | Actualiza las propiedades básicas de los grupos en Azure Active Directory. |
 | microsoft.directory/groups/create | Crea grupos en Azure Active Directory. |
@@ -1906,6 +1969,8 @@ Nombre para mostrar de Graph | Nombre para mostrar de Azure Portal | directoryRo
 Administrador de aplicaciones | Administrador de aplicaciones | 9B895D92-2CD3-44C7-9D02-A6AC2D5EA5C3
 Desarrollador de aplicaciones | Desarrollador de aplicaciones | CF1C38E5-3621-4004-A7CB-879624DCED7C
 Administrador de autenticación | Administrador de autenticación | c4e39bd9-1100-46d3-8c65-fb160da0071f
+Autor de carga de ataque | Autor de carga de ataque | 9c6df0f2-1e7c-4dc3-b195-66dfbd24aa8f
+Administrador de simulación de ataque | Administrador de simulación de ataque | c430b396-e693-46cc-96f3-db01bf8bb62a
 Administrador de Azure DevOps | Administrador de Azure DevOps | e3973bdf-4987-49ae-837a-ba8e231c7286
 Administrador de Azure Information Protection | Administrador de Azure Information Protection | 7495fdc4-34c4-4d15-a289-98788ce399fd
 Administrador de conjuntos de claves B2C con IEF | Administrador de conjuntos de claves B2C con IEF | aaf43236-0c0d-4d5f-883a-6955382ac081
@@ -1969,6 +2034,7 @@ Ingeniero de soporte técnico de comunicaciones de Teams | Ingeniero de soporte 
 Especialista de soporte técnico de comunicaciones de Teams | Especialista de soporte técnico de comunicaciones de Teams | fcf91098-03e3-41a9-b5ba-6f0ec8188a12
 Administrador de dispositivos de Teams | Administrador de dispositivos de Teams | 3d762c5a-1b6c-493f-843e-55a3b42923d4
 Administrador de servicios de Teams | Administrador de servicios de Teams | 69091246-20e8-4a56-aa4d-066075b2a7a8
+Lector de informes de resumen de uso | Lector de informes de resumen de uso | 75934031-6c7e-415a-99d7-48dbd49e875e
 Usuario | No se muestra porque no se puede usar | a0b1b346-4d3e-4e8b-98f8-753987be4970
 Administrador de cuenta de usuario | Administrador de usuarios | fe930be7-5e62-47db-91af-98c3a49a38b1
 Combinación de dispositivos de área de trabajo | Obsoleto | c34f683f-4d5a-4403-affd-6615e00e3a7f

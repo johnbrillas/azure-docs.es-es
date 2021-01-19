@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: 878fa181ff09d547ef6594a238e9c1d883cc89b7
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: c98b47507a7543002f00aae82370f5ea0043510d
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460489"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97954284"
 ---
 # <a name="customers-dashboard-in-commercial-marketplace-analytics"></a>Panel Clientes de los análisis de marketplace comercial
 
@@ -144,14 +144,14 @@ _**Tabla 1: diccionario de términos de datos**_
 
 | Nombre de la columna | Nombre del atributo | Definición |
 | ------------ | ------------- | ------------- |
-| Identificador de la suscripción a Marketplace | Identificador de la suscripción a Marketplace | Identificador único asociado a la suscripción a Azure que el cliente usó para comprar la oferta de Marketplace comercial. Antes era el GUID de la suscripción a Azure. |
+| Identificador de la suscripción a Marketplace | Identificador de la suscripción a Marketplace | Identificador único asociado a la suscripción a Azure que el cliente usó para comprar la oferta de Marketplace comercial. En el caso de las ofertas de infraestructura, este es el GUID de la suscripción de Azure del cliente. En el caso de las ofertas de SaaS, se muestra como ceros, ya que las compras de SaaS no requieren una suscripción a Azure. |
 | DateAcquired | Date Acquired (Fecha de adquisición) | Primera fecha en que el cliente adquirió cualquier oferta publicada por usted. |
 | DateLost | Date Lost (Fecha de pérdida) | Última fecha en que el cliente canceló la última de todas las ofertas que había comprado anteriormente. |
 | Nombre del proveedor | Nombre del proveedor | Nombre del proveedor que participa en la relación entre Microsoft y el cliente. Si el cliente es una empresa a través de un revendedor, será el revendedor. Si participa un proveedor de soluciones en la nube (CSP), será el CSP. |
 | Correo electrónico del proveedor | Correo electrónico del proveedor | Dirección de correo electrónico del proveedor que participa en la relación entre Microsoft y el cliente. Si el cliente es una empresa a través de un revendedor, será el revendedor. Si participa un proveedor de soluciones en la nube (CSP), será el CSP. |
 | Nombre | Customer First Name (Nombre del cliente) | Nombre proporcionado por el cliente. El nombre podría ser diferente del nombre proporcionado en la suscripción a Azure del cliente. |
 | Apellidos | Customer Last Name (Apellidos del cliente) | Apellidos proporcionados por el cliente. El nombre podría ser diferente del nombre proporcionado en la suscripción a Azure del cliente. |
-| Correo electrónico | Customer Email (Correo electrónico del cliente) | Dirección de correo electrónico proporcionada por el cliente final. El correo electrónico podría ser diferente de la dirección de correo electrónico de la suscripción a Azure del cliente. |
+| Email | Customer Email (Correo electrónico del cliente) | Dirección de correo electrónico proporcionada por el cliente final. El correo electrónico podría ser diferente de la dirección de correo electrónico de la suscripción a Azure del cliente. |
 | Customer Company Name (Nombre de la empresa del cliente) | Customer Company Name (Nombre de la empresa del cliente) | Nombre de empresa proporcionado por el cliente. El nombre podría ser diferente de la ciudad de la suscripción a Azure del cliente. |
 | Ciudad del cliente | Ciudad del cliente | Nombre de ciudad proporcionado por el cliente. La ciudad podría ser diferente de la ciudad de la suscripción a Azure del cliente. |
 | Customer Postal Code (Código postal del cliente) | Customer Postal Code (Código postal del cliente) | Código postal proporcionado por el cliente. El código podría ser diferente del código postal proporcionado en la suscripción a Azure del cliente. |

@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a08a4f4a31893fc93789d019ea87dff390552f6a
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: fd04d24e0e46b053381858be037a009b1987f8e9
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97743815"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97932527"
 ---
 # <a name="3-create-a-security-plan-for-external-access"></a>3. Creación de un plan de seguridad para el acceso externo 
 
@@ -175,7 +175,7 @@ Azure AD P2 y Microsoft 365 E5 poseen el conjunto completo de herramientas d
 | Administración de derechos| **Agregar usuarios mediante asignación o acceso de autoservicio**| **Paquetes de acceso**| **Paquetes de acceso**|  |
 | Grupo de Office 365| | Acceso a los sitios (y al contenido asociado) incluidos con el grupo| Acceso a los equipos (y al contenido asociado) incluidos con el grupo|  |
 | Etiquetas de confidencialidad| | **Clasificar y restringir el acceso de forma manual y automática**| **Clasificar y restringir el acceso de forma manual y automática**| **Clasificar y restringir el acceso de forma manual y automática** |
-| Grupos de seguridad de Azure AD| **Directivas de CA de acceso no incluidas en los paquetes de acceso**| | |  |
+| Grupos de seguridad de Azure AD| **Directivas de acceso condicional de acceso no incluidas en los paquetes de acceso**| | |  |
 
 
 ### <a name="entitlement-management"></a>Administración de derechos 
@@ -195,7 +195,7 @@ Puede lograr una gobernanza sólida con Azure AD P1 y Microsoft 365 E3.
 | Colaboración B2B de Azure AD| **Invitación por correo electrónico, OTP, autoservicio**| Federación de B2B directa| **Revisión periódica por asociado**| Quitar cuenta<br>Restringir el inicio de sesión |
 | Grupos de Microsoft u Office 365| | | | Expiración o eliminación de grupos.<br>Eliminación del grupo. |
 | Grupos de seguridad| | **Agregar usuarios externos a grupos de seguridad (organización, equipo, proyecto, etc.)**| |  |
-| Directivas de acceso condicional| | **Directivas de CA de inicio de sesión para usuarios externos**| |  |
+| Directivas de acceso condicional| | **Directivas de acceso condicional de inicio de sesión para usuarios externos**| |  |
 
 
  ### <a name="access-to-resources"></a>Acceso a los recursos.
@@ -204,7 +204,7 @@ Puede lograr una gobernanza sólida con Azure AD P1 y Microsoft 365 E3.
 | - |-|-|-|-|
 | Grupos de Microsoft u Office 365| | **Acceso a los sitios incluidos con el grupo (y al contenido asociado)**|**Acceso a los equipos incluidos con el grupo de Microsoft 365 (y al contenido asociado)**|  |
 | Etiquetas de confidencialidad| | Clasificar y restringir el acceso manualmente| Clasificar y restringir el acceso manualmente| Clasificar manualmente para restringir y cifrar |
-| Directivas de acceso condicional| Directivas de CA para el control de acceso| | |  |
+| Directivas de acceso condicional| Directivas de acceso condicional del control de acceso| | |  |
 | Otros métodos| | Restrinja el acceso al sitio de SharePoint de forma pormenorizada con grupos de seguridad.<br>No permita el uso compartido directo.| **Restringir las invitaciones externas desde equipos**|  |
 
 

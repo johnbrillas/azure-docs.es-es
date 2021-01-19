@@ -4,28 +4,20 @@ description: Automatice las tareas que supervisan, crean, administran, envían y
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
-ms.reviewer: estfan, logicappspm
+ms.reviewer: estfan, logicappspm, azla
 ms.topic: article
-ms.date: 11/03/2020
+ms.date: 01/07/2021
 tags: connectors
-ms.openlocfilehash: 31714eee2e79481bbc8afb47718ed38e178d5b82
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 388d747da692160ab6d0a89c0c35de348d921486
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324238"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98016769"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Supervisión, creación y administración de archivos SFTP mediante SSH y Azure Logic Apps
 
 Para automatizar las tareas que supervisan, crean, envían y reciben archivos en un servidor [Secure File Transfer Protocol (SFTP)](https://www.ssh.com/ssh/sftp/) mediante el protocolo [Secure Shell (SSH)](https://www.ssh.com/ssh/protocol/), puede crear y automatizar los flujos de trabajo de integración mediante Azure Logic Apps y el conector SFTP-SSH. SFTP es un protocolo de red que proporciona acceso a archivos, transferencia de archivos y administración de archivos a través de cualquier flujo de datos confiable.
-
-> [!NOTE]
-> El conector SFTP-SSH no es compatible actualmente con estos servidores SFTP:
-> 
-> * IBM DataPower
-> * MessageWay
-> * OpenText Secure MFT
-> * OpenText GXS
 
 Estas son algunas tareas de ejemplo que se pueden automatizar:
 
@@ -40,6 +32,13 @@ Puede usar desencadenadores que supervisen eventos en el servidor SFTP y permiti
 Para conocer las diferencias entre el conector SFTP-SSH y el conector SFTP, revise [Comparación de SFTP-SSH y SFTP](#comparison) más adelante en este tema.
 
 ## <a name="limits"></a>Límites
+
+* El conector SFTP-SSH no es compatible actualmente con estos servidores SFTP:
+
+  * IBM DataPower
+  * MessageWay
+  * OpenText Secure MFT
+  * OpenText GXS
 
 * El conector SFTP-SSH admite la autenticación de clave privada o la autenticación de contraseña, no ambas.
 
@@ -82,11 +81,11 @@ Estas son otras diferencias importantes entre el conector SFTP-SSH y el conector
 
 * Usa la biblioteca [SSH.NET](https://github.com/sshnet/SSH.NET), que es una biblioteca de Secure Shell (SSH) de código abierto que admite .NET.
 
-* Proporciona la acción **Crear carpeta** , que crea una carpeta en la ruta de acceso especificada en el servidor SFTP.
+* Proporciona la acción **Crear carpeta**, que crea una carpeta en la ruta de acceso especificada en el servidor SFTP.
 
-* Proporciona la acción **Cambiar nombre de archivo** , que cambia el nombre de un archivo en el servidor SFTP.
+* Proporciona la acción **Cambiar nombre de archivo**, que cambia el nombre de un archivo en el servidor SFTP.
 
-* Almacena en caché la conexión al servidor SFTP *durante hasta 1 hora* , lo que mejora el rendimiento y reduce el número de intentos de conexión al servidor. Para establecer la duración de este comportamiento de almacenamiento en caché, modifique la propiedad [**ClientAliveInterval**](https://man.openbsd.org/sshd_config#ClientAliveInterval) en la configuración de SSH del servidor SFTP.
+* Almacena en caché la conexión al servidor SFTP *durante hasta 1 hora*, lo que mejora el rendimiento y reduce el número de intentos de conexión al servidor. Para establecer la duración de este comportamiento de almacenamiento en caché, modifique la propiedad [**ClientAliveInterval**](https://man.openbsd.org/sshd_config#ClientAliveInterval) en la configuración de SSH del servidor SFTP.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -98,13 +97,13 @@ Estas son otras diferencias importantes entre el conector SFTP-SSH y el conector
   >
   > El conector SFTP-SSH *solo* admite estas claves privadas, formatos, algoritmos y huellas digitales:
   >
-  > * **Formatos de clave privada** : claves RSA (Rivest Shamir Adleman) y DSA (Digital Signature Algorithm) en formatos OpenSSH y ssh.com. Si la clave privada tiene el formato de archivo PuTTy (.ppk), en primer lugar [convierta la clave al formato de archivo OpenSSH (.pem)](#convert-to-openssh).
+  > * **Formatos de clave privada**: claves RSA (Rivest Shamir Adleman) y DSA (Digital Signature Algorithm) en formatos OpenSSH y ssh.com. Si la clave privada tiene el formato de archivo PuTTy (.ppk), en primer lugar [convierta la clave al formato de archivo OpenSSH (.pem)](#convert-to-openssh).
   >
-  > * **Algoritmos de cifrado** : DES-EDE3-CBC, DES-EDE3-CFB, DES-CBC, AES-128-CBC, AES-192-CBC y AES-256-CBC
+  > * **Algoritmos de cifrado**: DES-EDE3-CBC, DES-EDE3-CFB, DES-CBC, AES-128-CBC, AES-192-CBC y AES-256-CBC
   >
-  > * **Huella digital** : MD5
+  > * **Huella digital**: MD5
   >
-  > Después de agregar el desencadenador o la acción SFTP-SSH que quiera a la aplicación lógica, debe proporcionar información de conexión para el servidor SFTP. Cuando proporcione su clave privada SSH para esta conexión, * *_no escriba ni edite manualmente la clave_* _, ya que podría provocar un error en la conexión. En su lugar, asegúrese de _*_copiar la clave_*_ del archivo de clave privada SSH y _*_pegar_*_ esa clave en los detalles de la conexión. 
+  > Después de agregar el desencadenador o la acción SFTP-SSH que quiera a la aplicación lógica, debe proporcionar información de conexión para el servidor SFTP. Cuando proporcione su clave privada SSH para esta conexión, **_no escriba ni edite manualmente la clave_* _, ya que podría provocar un error en la conexión. En su lugar, asegúrese de _*_copiar la clave_*_ del archivo de clave privada SSH y _*_pegar_*_ esa clave en los detalles de la conexión. 
   > Para obtener más información, consulte la sección [Conectarse a SFTP con SSH](#connect) que se detalla más adelante en este artículo.
 
 _ Conocimientos básicos sobre [cómo crear aplicaciones lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md)
@@ -113,7 +112,11 @@ _ Conocimientos básicos sobre [cómo crear aplicaciones lógicas](../logic-apps
 
 ## <a name="how-sftp-ssh-triggers-work"></a>Cómo funcionan los desencadenadores SFTP-SSH
 
-El método de funcionamiento de los desencadenadores SFTP-SSH es sondear el sistema de archivos SFTP y buscar cualquier archivo que se haya cambiado desde el último sondeo. Algunas herramientas le permiten conservar la marca de tiempo cuando cambian los archivos. En estos casos, tiene que deshabilitar esta característica para que el desencadenador funcione. Estas son algunas opciones de configuración habituales:
+<a name="polling-behavior"></a>
+
+### <a name="polling-behavior"></a>Comportamiento de sondeo
+
+Los desencadenadores SFTP-SSH sondean el sistema de archivos SFTP y buscan cualquier archivo que se haya modificado desde el último sondeo. Algunas herramientas le permiten conservar la marca de tiempo cuando cambian los archivos. En estos casos, tiene que deshabilitar esta característica para que el desencadenador funcione. Estas son algunas opciones de configuración habituales:
 
 | Cliente SFTP | Acción |
 |-------------|--------|
@@ -123,6 +126,12 @@ El método de funcionamiento de los desencadenadores SFTP-SSH es sondear el sist
 
 Cuando un desencadenador encuentra un nuevo archivo, el desencadenador comprueba que el nuevo archivo se ha escrito por completo y no parcialmente. Por ejemplo, un archivo podría tener los cambios en curso cuando el desencadenador comprueba el servidor de archivos. Para evitar devolver un archivo parcialmente escrito, el desencadenador anota la marca de tiempo del archivo que tiene cambios recientes, pero no devuelve inmediatamente dicho archivo. El desencadenador devuelve el archivo solo al volver a sondear el servidor. En ocasiones, este comportamiento puede provocar un retraso de hasta dos veces el intervalo de sondeo del desencadenador.
 
+<a name="trigger-recurrence-shift-drift"></a>
+
+### <a name="trigger-recurrence-shift-and-drift"></a>Desencadenamiento del cambio de periodicidad y el desfase
+
+Los desencadenadores basados en conexión en los que es necesario crear una conexión en primer lugar, como el desencadenador SFTP-SSH, difieren de los desencadenadores integrados que se ejecutan de forma nativa en Azure Logic Apps, como el [desencadenador de periodicidad](../connectors/connectors-native-recurrence.md). En los desencadenadores periódicos basados en conexión, la programación de periodicidad no es el único controlador que controla la ejecución y la zona horaria solo determina la hora de inicio inicial. Las ejecuciones posteriores dependen de la programación de periodicidad, de la última ejecución del desencadenador, *y* de otros factores que pueden provocar que haya un desfase o un comportamiento inesperado en los tiempos de ejecución, por ejemplo, no mantener la programación especificada cuando se inicia y finaliza el horario de verano (DST). Para asegurarse de que el tiempo de periodicidad no se desplaza cuando el DST surte efecto, ajuste manualmente la periodicidad para que la aplicación lógica siga ejecutándose en el momento esperado. De lo contrario, la hora de inicio se desplazará una hora hacia delante cuando se inicie el DST y una hora hacia atrás cuando finalice el DST. Para obtener más información, consulte [Periodicidad de los desencadenadores basados en conexión](../connectors/apis-list.md#recurrence-connection-based).
+
 <a name="convert-to-openssh"></a>
 
 ## <a name="convert-putty-based-key-to-openssh"></a>Convertir la clave basada en PuTTy en OpenSSH
@@ -131,7 +140,7 @@ Si la clave privada está en formato PuTTy, que usa la extensión de nombre de a
 
 ### <a name="unix-based-os"></a>Sistema operativo basado en UNIX
 
-1. Si las herramientas de PuTTy no están ya instaladas en el sistema, puede instalarlas ahora; por ejemplo:
+1. Si no tiene instaladas las herramientas de PuTTY en el sistema, hágalo ahora, por ejemplo:
 
    `sudo apt-get install -y putty`
 
@@ -189,7 +198,7 @@ Para crear un archivo en el servidor SFTP, puede usar la acción **Crear archivo
 
    > [!IMPORTANT]
    >
-   > Al escribir la clave privada SSH en la propiedad **SSH private key** , siga estos pasos adicionales para asegurarse de proporcionar el valor completo y correcto para esta propiedad. Una clave no válida provoca un error de conexión.
+   > Al escribir la clave privada SSH en la propiedad **SSH private key**, siga estos pasos adicionales para asegurarse de proporcionar el valor completo y correcto para esta propiedad. Una clave no válida provoca un error de conexión.
 
    Aunque puede usar cualquier editor de texto, estos son los pasos de ejemplo que muestran cómo copiar y pegar correctamente la clave mediante Notepad.exe.
 
@@ -199,9 +208,9 @@ Para crear un archivo en el servidor SFTP, puede usar la acción **Crear archivo
 
    1. Seleccione **Editar** > **Copiar**.
 
-   1. En el desencadenador o la acción SFTP-SSH que ha agregado, pegue la clave *completa* que copió en la propiedad **SSH private key** , que admite varias líneas.  **_Asegúrese de pegar_* _ la clave. _*_No escriba ni edite la clave manualmente_*_.
+   1. En el desencadenador o la acción SFTP-SSH que ha agregado, pegue la clave *completa* que copió en la propiedad **SSH private key**, que admite varias líneas.  **_Asegúrese de pegar_* _ la clave. _*_No escriba ni edite la clave manualmente_*_.
 
-1. Cuando haya terminado de especificar los detalles de conexión, seleccione _*Crear**.
+1. Cuando termine de especificar los detalles de conexión, seleccione _*Crear**.
 
 1. Ahora, proporcione los detalles necesarios para el desencadenador o la acción seleccionados y continúe con la compilación del flujo de trabajo de la aplicación lógica.
 
@@ -215,11 +224,11 @@ Para invalidar el comportamiento adaptable predeterminado que usa la fragmentaci
 
    ![Apertura de la configuración de SFTP-SSH](./media/connectors-sftp-ssh/sftp-ssh-connector-setttings.png)
 
-1. En **Transferencia de contenido** , en la propiedad **Tamaño de fragmento** , escriba un valor entero de `5` a `50`, por ejemplo: 
+1. En **Transferencia de contenido**, en la propiedad **Tamaño de fragmento**, escriba un valor entero de `5` a `50`, por ejemplo: 
 
    ![Especificación del tamaño de fragmento que se usará en su lugar](./media/connectors-sftp-ssh/specify-chunk-size-override-default.png)
 
-1. Cuando haya finalizado, seleccione **Listo**.
+1. Cuando termine, seleccione **Listo**.
 
 ## <a name="examples"></a>Ejemplos
 
@@ -229,7 +238,7 @@ Para invalidar el comportamiento adaptable predeterminado que usa la fragmentaci
 
 Este desencadenador inicia un flujo de trabajo de aplicación lógica cuando se agrega o se modifica un archivo en un servidor SFTP. Por ejemplo, puede agregar una condición que compruebe el contenido del archivo y obtenga el contenido en función de si cumple una condición especificada. Luego, puede agregar una acción que obtenga el contenido del archivo y lo coloque en una carpeta en el servidor SFTP.
 
-**Ejemplo Enterprise** : Puede usar este desencadenador para supervisar nuevos archivos en una carpeta de SFTP que representan los pedidos de los clientes. Seguidamente, puede usar una acción SFTP, como **Get file content** para obtener el contenido del pedido para su posterior procesamiento y almacenar ese pedido en una base de datos de pedidos.
+**Ejemplo Enterprise**: Puede usar este desencadenador para supervisar nuevos archivos en una carpeta de SFTP que representan los pedidos de los clientes. Seguidamente, puede usar una acción SFTP, como **Get file content** para obtener el contenido del pedido para su posterior procesamiento y almacenar ese pedido en una base de datos de pedidos.
 
 <a name="get-content"></a>
 
@@ -239,21 +248,9 @@ Esta acción obtiene el contenido de un archivo en un servidor SFTP especificand
 
 <a name="troubleshooting-errors"></a>
 
-## <a name="troubleshoot-errors"></a>Solución de errores
+## <a name="troubleshoot-problems"></a>Solucionar problemas
 
 En esta sección se describen posibles soluciones a errores o problemas comunes.
-
-<a name="file-does-not-exist"></a>
-
-### <a name="404-error-a-reference-was-made-to-a-file-or-folder-which-does-not-exist"></a>Error 404: "Se ha hecho referencia a un archivo o carpeta que no existe"
-
-Este error puede producirse cuando la aplicación lógica crea un nuevo archivo en el servidor SFTP a través de la acción **Crear archivo** de SFTP-SSH, pero el archivo recién creado se mueve inmediatamente antes de que el servicio Logic Apps pueda obtener los metadatos del archivo. Cuando la aplicación lógica ejecuta la acción **Crear archivo** , el servicio Logic Apps también llama automáticamente al servidor SFTP para obtener los metadatos del archivo. Sin embargo, si se mueve el archivo, el servicio Logic Apps ya no podrá encontrarlo, por lo que obtendrá el mensaje de error `404`.
-
-Si no puede evitar o retrasar el traslado del archivo, puede omitir la lectura de los metadatos del mismo después de la creación del archivo en su lugar siguiendo estos pasos:
-
-1. En la acción **Crear archivo** , abra la lista **Agregar nuevo parámetro** , seleccione la propiedad **Obtener todos los metadatos del archivo** y establezca el valor en **No**.
-
-1. Si necesita estos metadatos del archivo más adelante, puede usar la acción **Obtener metadatos de archivo**.
 
 <a name="connection-attempt-failed"></a>
 
@@ -272,6 +269,18 @@ Este error puede producirse cuando la aplicación lógica no puede establecer co
 * Para reducir el costo del establecimiento de conexión, en la configuración de SSH en el servidor SFTP incremente la propiedad [**ClientAliveInterval**](https://man.openbsd.org/sshd_config#ClientAliveInterval) a una hora aproximadamente.
 
 * Revise el registro del servidor SFTP para ver si la solicitud de la aplicación lógica llegó al servidor SFTP. Para obtener más información sobre el problema de conectividad, también puede ejecutar un seguimiento de red en el firewall y el servidor SFTP.
+
+<a name="file-does-not-exist"></a>
+
+### <a name="404-error-a-reference-was-made-to-a-file-or-folder-which-does-not-exist"></a>Error 404: "Se ha hecho referencia a un archivo o carpeta que no existe"
+
+Este error puede producirse cuando la aplicación lógica crea un nuevo archivo en el servidor SFTP a través de la acción **Crear archivo** de SFTP-SSH, pero mueve de inmediato el archivo recién creado antes de que el servicio Logic Apps pueda obtener los metadatos del archivo. Cuando la aplicación lógica ejecuta la acción **Crear archivo**, el servicio Logic Apps también llama automáticamente al servidor SFTP para obtener los metadatos del archivo. Sin embargo, si la aplicación lógica mueve el archivo, el servicio Logic Apps ya no podrá encontrarlo, por lo que obtendrá el mensaje de error `404`.
+
+Si no puede evitar o retrasar el traslado del archivo, puede omitir la lectura de los metadatos del mismo después de la creación del archivo en su lugar siguiendo estos pasos:
+
+1. En la acción **Crear archivo**, abra la lista **Agregar nuevo parámetro**, seleccione la propiedad **Obtener todos los metadatos del archivo** y establezca el valor en **No**.
+
+1. Si necesita estos metadatos del archivo más adelante, puede usar la acción **Obtener metadatos de archivo**.
 
 ## <a name="connector-reference"></a>Referencia de conectores
 

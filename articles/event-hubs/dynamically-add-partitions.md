@@ -3,12 +3,12 @@ title: Adición de particiones de forma dinámica a un centro de eventos en Azur
 description: En este artículo se muestra cómo agregar particiones de forma dinámica a un centro de eventos en Azure Event Hubs.
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: 4a729147eaa11497c66f82a9764dfee9492786b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ebe4491338c24a331812041f4d3e6d37b934117
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87002546"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132178"
 ---
 # <a name="dynamically-add-partitions-to-an-event-hub-apache-kafka-topic-in-azure-event-hubs"></a>Agregar particiones de forma dinámica a un centro de eventos (tema Apache Kafka) en Azure Event Hubs
 Event Hubs proporciona streaming de mensajes mediante un patrón de consumidor con particiones en el que cada consumidor lee solo un subconjunto específico o una partición del flujo de mensajes. Este patrón permite un escalado horizontal para el procesamiento de eventos y ofrece otras características centradas en los flujos que no están disponibles en las colas y los temas. Una partición es una secuencia ordenada de eventos que se mantiene en un centro de eventos. A medida que llegan eventos más recientes, se agregan al final de esta secuencia. Para más información sobre las particiones en general, consulte [Particiones](event-hubs-scalability.md#partitions).
@@ -71,7 +71,7 @@ Event Hubs proporciona tres opciones de remitente:
 
 - **Remitente de la partición**: en este escenario, los clientes envían eventos directamente a una partición. Aunque las particiones son identificables y se pueden enviar eventos directamente a estas, no se recomienda este patrón. La adición de particiones no afecta a este escenario. Se recomienda reiniciar las aplicaciones para que puedan detectar las particiones recién agregadas. 
 - **Remitente de la clave de partición**: en este escenario, los clientes envían los eventos con una clave para que todos los eventos que pertenecen a esa clave terminen en la misma partición. En este caso, el servicio aplica un algoritmo hash a la clave y la enruta a la partición correspondiente. La actualización del recuento de particiones puede provocar problemas de desorden debido a un cambio de hash. Por lo tanto, si le preocupa el orden, asegúrese de que la aplicación consume todos los eventos de las particiones existentes antes de aumentar el número de particiones.
-- **Remitente de round robin (predeterminado)** : en este escenario, el servicio Event Hubs aplica el método round robin a los eventos en las particiones. El servicio de Event Hubs es consciente de los cambios en el número de particiones y se enviará a nuevas particiones en cuestión de segundos después de modificar el número de particiones.
+- **Remitente de round robin (predeterminado)** : en este escenario, el servicio Event Hubs aplica el método round robin a los eventos en las particiones y también usa un algoritmo de equilibrio de cargas. El servicio de Event Hubs es consciente de los cambios en el número de particiones y se enviará a nuevas particiones en cuestión de segundos después de modificar el número de particiones.
 
 ### <a name="receiverconsumer-clients"></a>Clientes del receptor/consumidor
 Event Hubs proporciona receptores directos y una biblioteca de consumidor sencilla denominada [host del procesador de eventos (SDK antiguo)](event-hubs-event-processor-host.md) o [procesador de eventos (SDK nuevo)](event-processor-balance-partition-load.md).
@@ -99,7 +99,7 @@ Cuando un miembro del grupo de consumidores realiza una actualización de metada
     > [!IMPORTANT]
     > Aunque los datos existentes conservan el orden, el hash de partición se interrumpirá para los mensajes con hash aplicados cuando el número de particiones cambie debido a la adición de particiones.
 - Se recomienda agregar una partición a un tema existente o a una instancia del centro de eventos en los siguientes casos:
-    - Cuando se usa el método round robin (predeterminado) para enviar eventos.
+    - Cuando se usa el método predeterminado para enviar eventos.
      - Con estrategias de creación de particiones predeterminadas de Kafka, como Sticky Assignor.
 
 

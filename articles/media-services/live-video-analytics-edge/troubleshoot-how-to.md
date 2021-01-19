@@ -5,12 +5,12 @@ author: IngridAtMicrosoft
 ms.topic: how-to
 ms.author: inhenkel
 ms.date: 12/04/2020
-ms.openlocfilehash: 31cf89cb66dfbc404d65f8fc09b96c03e1be2f8f
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: d49f048df7a624dc490acf7cb4c8e5f33aa5f1c6
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97401318"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060238"
 ---
 # <a name="troubleshoot-live-video-analytics-on-iot-edge"></a>Solución de problemas de Live Video Analytics on IoT Edge
 
@@ -65,6 +65,8 @@ Puede usar Azure Portal para ejecutar el diagnóstico del grafo multimedia media
     * 406 - El dispositivo de IoT Edge está sin conexión o no envía informes de estado.
     * 500 - Error en el entorno en tiempo de ejecución de Azure IoT Edge.
 
+    > [!TIP]
+    > Si experimenta problemas al ejecutar módulos de Azure IoT Edge en el entorno, use **[Pasos de diagnóstico estándar de Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/troubleshoot?view=iotedge-2018-06&preserve-view=true)** como guía para la solución de problemas y el diagnóstico.
 ### <a name="post-deployment-direct-method-error-code"></a>Después de la implementación: Código de error de método directo
 1. Si recibe un `501 code` de estado, compruebe si el nombre del método directo es adecuado. Si el nombre del método y la carga útil de la solicitud son adecuados, debería obtener resultados junto con el código 200 de ejecución correcta. 
 1. Si la carga de la solicitud es incorrecta, obtendrá un estado `400 code` y una carga de respuesta que indica el código de error, así como un mensaje que debería resultar útil para diagnosticar el problema con la llamada de método directo.
@@ -93,6 +95,8 @@ Live Video Analytics se implementa como un módulo de IoT Edge en el dispositivo
 * [Live Video Analytics o cualquier otro módulo de IoT Edge personalizado no puede enviar un mensaje al centro de IoT Edge con el error 404](../../iot-edge/troubleshoot-common-errors.md#iot-edge-module-fails-to-send-a-message-to-edgehub-with-404-error).
 * [El módulo de IoT Edge se implementa correctamente y, a continuación, desaparece del dispositivo](../../iot-edge/troubleshoot-common-errors.md#iot-edge-module-deploys-successfully-then-disappears-from-device).
 
+    > [!TIP]
+    > Si experimenta problemas al ejecutar módulos de Azure IoT Edge en el entorno, use **[Pasos de diagnóstico estándar de Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/troubleshoot?view=iotedge-2018-06&preserve-view=true)** como guía para la solución de problemas y el diagnóstico.
 ### <a name="live-video-analytics-working-with-external-modules"></a>Live Video Analytics trabajando con módulos externos
 
 Live Video Analytics, mediante el procesador de extensiones del grafo multimedia, puede ampliar el grafo multimedia para enviar y recibir datos de otros módulos de IoT Edge mediante HTTP o protocolos gRPC. Como [ejemplo específico](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/httpExtension), este grafo multimedia puede enviar fotogramas de vídeo como imágenes a un módulo de inferencia externo, como Yolo v3, y recibir resultados de análisis basados en JSON mediante el protocolo HTTP. En esta topología, el destino final de los eventos es, principalmente, el centro de IoT. En situaciones en las que no vea los eventos de inferencia en el centro de conectividad, compruebe lo siguiente:
@@ -165,7 +169,7 @@ Configure el módulo de Live Video Analytics para que recopile registros detalla
 ```
 
 Esto se puede hacer:
-* En **Azure Portal**, actualizando las propiedades de Identidad de módulo gemela en el módulo de Live Video Analytics. [ ![Propiedades de Identidad de módulo gemela.](media/troubleshoot-how-to/module-twin.png) ](media/troubleshoot-how-to/module-twin.png#lightbox)    
+* En **Azure Portal**, actualizando las propiedades de Identidad de módulo gemela en el módulo de Live Video Analytics. [ ![Propiedades de Identidad de módulo gemela.](media/troubleshoot-how-to/module-twin.png)](media/troubleshoot-how-to/module-twin.png#lightbox)    
 * O bien, en el archivo de **manifiesto de implementación**, puede agregar estas entradas en el nodo de propiedades del módulo de Live Video Analytics.
 
 ### <a name="use-the-support-bundle-command"></a>Uso del comando support-bundle

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/20/2020
 ms.author: memildin
-ms.openlocfilehash: 10fa47a8f613218b1331259040be77df867ade95
-ms.sourcegitcommit: c538b6e4cf27b992500c079ad9c914c05d55eb7f
+ms.openlocfilehash: 553151aebeadf4ad4764e747b1bf6dcd8c552721
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2021
-ms.locfileid: "97854849"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98126859"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Proteja los puntos de conexión con la solución EDR integrada de Security Center: Microsoft Defender para punto de conexión
 
@@ -71,7 +71,7 @@ Mediante la integración de Defender para punto de conexión con Security Center
 
 Al usar Azure Security Center para supervisar los servidores, se crea automáticamente un inquilino Microsoft Defender para punto de conexión. Los datos que recopila Defender para punto de conexión se almacenan en la ubicación geográfica del inquilino identificada durante el aprovisionamiento. Los datos de cliente en formato seudonimizado también se pueden almacenar en los sistemas de procesamiento y almacenamiento central en el Estados Unidos. 
 
-Una vez configurada la ubicación, no se puede cambiar. Si necesita mover los datos a otra ubicación, póngase en contacto con el Soporte técnico de Microsoft para restablecer el inquilino.
+Una vez configurada la ubicación, no se puede cambiar. Si tiene su propia licencia de Microsoft Defender para el punto de conexión y necesita trasladar los datos a otra ubicación, póngase en contacto con Soporte técnico de Microsoft para restablecer el inquilino.
 
 
 ## <a name="enabling-the-microsoft-defender-for-endpoint-integration"></a>Habilitar la integración de Microsoft Defender para punto de conexión
@@ -121,13 +121,19 @@ Para generar una alerta de prueba benigna de Microsoft Defender para punto de co
 
 ## <a name="faq-for-security-centers-integrated-microsoft-defender-for-endpoint"></a>Preguntas más frecuentes sobre la instancia de Microsoft Defender para punto de conexión integrada en Security Center
 
-### <a name="what-are-the-licensing-requirements-for-microsoft-defender-for-endpoint"></a>¿Cuáles son los requisitos de licencia de Microsoft Defender para punto de conexión?
+- [¿Cuáles son los requisitos de licencia de Microsoft Defender para punto de conexión?](#what-are-the-licensing-requirements-for-microsoft-defender-for-endpoint)
+- [Si tengo una licencia de Microsoft Defender para punto de conexión, ¿puedo obtener un descuento en Azure Defender?](#if-i-already-have-a-license-for-microsoft-defender-for-endpoint-can-i-get-a-discount-for-azure-defender)
+- [¿Cómo puedo cambiar una herramienta de EDR de terceros?](#how-do-i-switch-from-a-third-party-edr-tool)
 
+### <a name="what-are-the-licensing-requirements-for-microsoft-defender-for-endpoint"></a>¿Cuáles son los requisitos de licencia de Microsoft Defender para punto de conexión?
 Defender para punto de conexión se incluye sin costo adicional en los **servidores de Azure Defender**. Como alternativa, se puede adquirir por separado para 50 máquinas o más.
 
+### <a name="if-i-already-have-a-license-for-microsoft-defender-for-endpoint-can-i-get-a-discount-for-azure-defender"></a>Si tengo una licencia de Microsoft Defender para punto de conexión, ¿puedo obtener un descuento en Azure Defender?
+Si ya tiene una licencia de Microsoft Defender para punto de conexión, no tendrá que pagar esa parte de la licencia de Azure Defender.
+
+Para confirmar su descuento, póngase en contacto con el equipo de soporte técnico de Security Center y especifique el identificador de área de trabajo, la región y la información de licencia pertinentes de cada licencia.
 
 ### <a name="how-do-i-switch-from-a-third-party-edr-tool"></a>¿Cómo puedo cambiar una herramienta de EDR de terceros?
-
 Las instrucciones completas para cambiarse de una solución de punto de conexión que no es de Microsoft están disponibles en la documentación de Microsoft Defender para punto de conexión: [Información general sobre la migración](/windows/security/threat-protection/microsoft-defender-atp/switch-to-microsoft-defender-migration).
   
 

@@ -7,12 +7,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.custom: references_regions
-ms.openlocfilehash: 1f7a493c071e86114afd7d4a9e08e204bbab509d
-ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
+ms.openlocfilehash: 717a1bc4361ba4a7366f4864c1fe44f93b6f4b5e
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97809486"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127862"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-it-service-management-connector"></a>Conexión de Azure a las herramientas de ITSM mediante el Conector de Administración de servicios de TI
 
@@ -64,7 +64,7 @@ Una vez que haya preparado las herramientas de ITSM, siga estos pasos para crear
 
 1. En **Todos los recursos**, busque **ServiceDesk(*nombre de su área de trabajo*)** :
 
-   ![Captura de pantalla en la que se muestran los recursos recientes en Azure Portal.](media/itsmc-overview/itsm-connections.png)
+   ![Captura de pantalla en la que se muestran los recursos recientes en Azure Portal.](media/itsmc-definition/create-new-connection-from-resource.png)
 
 1. En **Orígenes de datos del área de trabajo** en el panel de la izquierda, seleccione **Conexiones de ITSM**:
 
@@ -127,14 +127,34 @@ Use el procedimiento siguiente para crear grupos de acciones:
 
 8. Si desea rellenar los campos predeterminados con valores fijos, seleccione **Usar la plantilla personalizada**. De lo contrario, elija una [plantilla](#template-definitions) existente en la lista **Plantilla** y escriba los valores fijos en los campos de la plantilla.
 
-9. Al seleccionar **Crear elementos de trabajo individuales para cada elemento de configuración**, cada elemento de configuración tendrá su propio elemento de trabajo. Lo que significa que habrá un elemento de trabajo por cada elemento de configuración.
+9. En la última sección de la definición del grupo de acciones ITSM puede definir cuántos elementos de trabajo se crearán para cada alerta.Esta sección solo es pertinente para las alertas de búsqueda de registros.
 
-    * En caso de que seleccione en la lista desplegable de elemento de trabajo "Incidente" o "Alerta": Si desactiva la casilla **Crear elementos de trabajo individuales para cada elemento de configuración**, cada alerta creará un elemento de trabajo. Puede haber más de una alerta por elemento de configuración.
+    >[!NOTE]
+    >
+    > * This section is relevant only for Log Search Alerts.
+    > * Para todos los demás tipos de alerta, se creará un elemento de trabajo por cada alerta.
 
-       ![Captura de pantalla que muestra la ventana Incidente de ITSM.](media/itsmc-overview/itsm-action-configuration.png)
+    * En caso de que seleccione en la lista desplegable "Elemento de trabajo" el valor "Incidente" o "Alerta": ![Captura de pantalla que muestra la ventana Incidente de ITSM.](media/itsmc-overview/itsm-action-configuration.png)
+        * Si activa la casilla **"Crear elementos de trabajo individuales para cada elemento de configuración"** , cada elemento de configuración en cada alerta creará un elemento de trabajo. Como resultado de varias alertas para los mismos elementos de configuración afectados, habrá más de un elemento de trabajo para cada elemento de configuración.
 
-    * En caso de que seleccione en la lista desplegable de elemento de trabajo "Evento": Al seleccionar **Crear elementos de trabajo individuales para cada entrada de registro** en la selección de botones de radio, cada alerta creará un nuevo elemento de trabajo. Al seleccionar **Crear elementos de trabajo individuales para cada elemento de configuración** en la selección de botones de radio, cada elemento de configuración tendrá su propio elemento de trabajo.
-   ![Captura de pantalla en la que se muestra la ventana Evento de ITSM.](media/itsmc-overview/itsm-action-configuration-event.png)
+             Por ejemplo:
+             1) Alerta 1 con tres elementos de configuración: A, B, C: crearán tres elementos de trabajo.
+             2) Alerta 2 con un elemento de configuración: A: creará un elemento de trabajo.
+
+        * Si desactiva la casilla **"Crear elementos de trabajo individuales para cada elemento de configuración"** , el conector de ITSM creará un único elemento de trabajo para cada regla de alerta y le anexará todos los elementos de configuración afectados. Si el anterior está cerrado, se creará un nuevo elemento de trabajo.
+
+        >[!NOTE]
+        > En este caso, algunas de las alertas desencadenadas no generarán elementos de trabajo nuevos en la herramienta ITSM.
+
+        Por ejemplo:
+         1) Alerta 1 con tres elementos de configuración: A, B, C: crearán un elemento de trabajo.
+         2) Alerta 2 para la misma regla de alerta que en el paso A con un elemento de configuración: D: el elemento D se adjuntará a la lista de elementos de configuración afectados, en el elemento de trabajo creado en el paso A.
+         3) Alerta 3 para una regla de alerta diferente con un elemento de configuración: E: creará un elemento de trabajo.
+
+    * En caso de que seleccione en la lista desplegable "Elemento de trabajo" el elemento "Evento": ![Captura de pantalla en la que se muestra la ventana Evento de ITSM.](media/itsmc-overview/itsm-action-configuration-event.png)
+
+        * Si selecciona **"Crear elementos de trabajo individuales para cada entrada de registro (no se rellena el campo de elemento de configuración. Puede dar como resultado un gran número de elementos de trabajo)."** en la selección de botones de radio, se creará un elemento de trabajo por cada fila de los resultados de búsqueda de la consulta de alerta de búsqueda de registros. La propiedad description de la carga útil del elemento de trabajo contendrá la fila de los resultados de la búsqueda.
+        * Si selecciona **"Crear elementos de trabajo individuales para cada elemento de configuración"** en la selección de botones de radio, cada elemento de configuración en cada alerta creará un nuevo de elemento de trabajo. Puede haber más de un elemento de trabajo por cada elemento de configuración en el sistema ITSM. Será lo mismo que activar la casilla en la sección Incidente o alerta.
 
 10. Seleccione **Aceptar**.
 

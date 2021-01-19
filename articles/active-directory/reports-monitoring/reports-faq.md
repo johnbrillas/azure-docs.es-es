@@ -16,12 +16,12 @@ ms.date: 05/12/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c274424641ee0173d68f0de9061415815b0df588
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 45b6b182d030c267dcec7ed57c0c0dd1901b0cb1
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97107437"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935094"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Preguntas frecuentes en torno a los informes de Azure Active Directory
 
@@ -143,8 +143,8 @@ Este artículo incluye respuestas a preguntas más frecuentes sobre los informes
 
 **R:** El estado Acceso condicional puede tener los siguientes valores:
 
-* **No aplicado**: significa que no existía en el ámbito ninguna directiva de acceso condicional con el usuario y la aplicación. 
-* **Correcto**: significa que existía en el ámbito una directiva de acceso condicional con el usuario y la aplicación y que las directivas de acceso condicional se cumplieron correctamente. 
+* **No aplicado**: significa que no había ninguna directiva de acceso condicional con el usuario y la aplicación en el ámbito. 
+* **Correcto**: significa que había una directiva de acceso condicional con el usuario y la aplicación en el ámbito y las directivas de acceso condicional se cumplieron correctamente. 
 * **Error**: El inicio de sesión cumplió la condición de usuario y aplicación de al menos una directiva de acceso condicional, y los controles de concesión no se han cumplido o se han establecido para bloquear el acceso.
     
 **P: ¿Cuáles son los valores posibles del resultado de la directiva de acceso condicional?**
@@ -158,7 +158,7 @@ Este artículo incluye respuestas a preguntas más frecuentes sobre los informes
     
 **P: El nombre de la directiva del informe de todos los inicios de sesión no coincide con el nombre de la directiva de acceso condicional. ¿Por qué?**
 
-**R:** El nombre de la directiva del informe de todos los inicios de sesión se basa en el nombre de la directiva de acceso condicional en el momento en que se inicia sesión. Puede ser incoherente con el nombre de la directiva de acceso condicional si actualizó el nombre de la directiva más tarde, es decir, después de iniciar sesión.
+**R:** El nombre de la directiva del informe de todos los inicios de sesión se basa en el nombre de la directiva de acceso condicional en el momento de inicio de sesión. Puede ser incoherente con el nombre de la directiva de acceso condicional si actualizó el nombre de la directiva más tarde, es decir, después de iniciar sesión.
 
 **P: Mi inicio de sesión se ha bloqueado debido a una directiva de acceso condicional, pero el informe de actividad de inicio de sesión muestra que el inicio de sesión se realizó correctamente. ¿Por qué?**
 

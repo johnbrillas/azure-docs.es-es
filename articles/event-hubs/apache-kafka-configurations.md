@@ -2,13 +2,13 @@
 title: 'Configuraciones recomendadas para clientes de Apache Kafka: Azure Event Hubs'
 description: En este artículo se proporcionan configuraciones de Apache Kafka recomendadas para los clientes que interactúan con Azure Event Hubs para Apache Kafka.
 ms.topic: reference
-ms.date: 07/20/2020
-ms.openlocfilehash: f9a03d1d3433461a575b32cd69893408a8b0ef97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/07/2021
+ms.openlocfilehash: 713900a3cc7e2b9f6f176edb21455faa577098d6
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87095108"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028835"
 ---
 # <a name="recommended-configurations-for-apache-kafka-clients"></a>Configuraciones recomendadas para clientes de Apache Kafka
 Estas son las configuraciones recomendadas para usar Azure Event Hubs desde las aplicaciones cliente de Apache Kafka. 
@@ -79,7 +79,7 @@ Consulte la siguiente tabla de escenarios de errores comunes relacionados con la
 
 Síntomas | Problema | Solución
 ----|---|-----
-Errores de confirmación de desplazamiento debido al reequilibrio | El consumidor está esperando demasiado tiempo entre las llamadas a poll() y el servicio está echando al consumidor fuera del grupo. | Tiene varias opciones: <ul><li>Aumentar el tiempo de espera de la sesión.</li><li>Reducir el tamaño de lote de los mensajes para acelerar el procesamiento.</li><li>Mejorar la paralelización del procesamiento para evitar el bloqueo de consumer.poll().</li></ul> La aplicación de alguna combinación de estas tres opciones es probablemente la más acertada.
+Errores de confirmación de desplazamiento debido al reequilibrio | El consumidor está esperando demasiado tiempo entre las llamadas a poll() y el servicio está echando al consumidor fuera del grupo. | Tiene varias opciones: <ul><li>Aumentar el tiempo de espera de procesamiento de sondeo (`max.poll.interval.ms`)</li><li>Reducir el tamaño de lote de los mensajes para acelerar el procesamiento.</li><li>Mejorar la paralelización del procesamiento para evitar el bloqueo de consumer.poll().</li></ul> La aplicación de alguna combinación de estas tres opciones es probablemente la más acertada.
 Excepciones de red con un alto rendimiento de producción | ¿Usa el cliente de Java y el valor predeterminado de max.request.size?  Es posible que las solicitudes sean demasiado grandes. | Consulte las configuraciones de Java anteriores.
 
 ## <a name="next-steps"></a>Pasos siguientes

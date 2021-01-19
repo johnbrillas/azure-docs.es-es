@@ -3,18 +3,18 @@ title: Guía del protocolo de conexiones híbridas de Retransmisión de Azure | 
 description: En este artículo se describen las interacciones en el lado cliente con el servicio de retransmisión de Conexiones híbridas para la conexión de clientes en los roles de agente de escucha y remitente.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 8a812aa401077b81934d89ada99cf1dc312d8dbc
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 36321f88de173a37c9aa6615c4c0f2b29aec9f20
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96862333"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97976969"
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Protocolo de conexiones híbridas de Azure Relay
 
 Relay de Azure es uno de los pilares básicos de las funcionalidades de la plataforma Azure Service Bus. La nueva funcionalidad _Conexiones híbridas_ de Relay es una evolución segura y de protocolo abierto basada en HTTP y WebSockets. Sustituye a la antigua característica de _BizTalk Services_ con el mismo nombre que se basaba en un protocolo propietario. La integración de Conexiones híbridas en Azure App Service seguirá funcionando de la misma forma.
 
-El servicio Conexiones híbridas permite la comunicación de flujo binario bidireccional y el flujo de datagrama sencillo entre dos aplicaciones en red. Una o ambas partes pueden residir detrás de los firewalls o de los dispositivos NAT.
+El servicio Conexiones híbridas permite la comunicación de flujo binario bidireccional, solicitud-respuesta, y el flujo de datagrama sencillo entre dos aplicaciones en red. Una o ambas partes pueden estar detrás de los firewalls o de los dispositivos NAT.
 
 En este artículo se describen las interacciones en el lado cliente con el servicio de retransmisión de Conexiones híbridas para la conexión de clientes en los roles de agente de escucha y remitente. También se describe cómo los agentes de escucha aceptan nuevas conexiones y solicitudes.
 
@@ -49,7 +49,7 @@ En Conexiones híbridas, si hay dos o más agentes de escucha activos, las conex
 Cuando un remitente abre una nueva conexión en el servicio, este elige a uno de los agentes de escucha activos de la conexión híbrida y le envía una notificación. Esta notificación se envía al agente de escucha a través del canal de control abierto como un mensaje JSON. El mensaje contiene la dirección URL del punto de conexión de WebSocket al que debe conectarse el agente de escucha para aceptar la conexión.
 
 La dirección URL puede, y debe, usarla directamente el agente de escucha sin tener que realizar ningún proceso adicional.
-La información codificada solo es válida durante un breve período, básicamente, el tiempo que el remitente esté dispuesto a esperar a que se establezca la conexión de un extremo a otro. Se supone un límite máximo de 30 segundos. La dirección URL solo puede utilizarse para realizar un intento de conexión correcta. En cuanto se establece la conexión WebSocket con la dirección URL de encuentro, toda la actividad posterior en ese WebSocket se retransmite desde y hacia el remitente. Esto sucede sin intervención ni interpretación por parte del servicio.
+La información codificada solo es válida durante un breve período, básicamente, el tiempo que el remitente esté dispuesto a esperar a que se establezca la conexión de un extremo a otro. Se supone un límite máximo de 30 segundos. La dirección URL solo puede utilizarse para realizar un intento de conexión correcta. En cuanto se establece la conexión WebSocket con la dirección URL de encuentro, toda la actividad posterior en ese WebSocket se retransmite desde y hacia el remitente. Este comportamiento sucede sin intervención ni interpretación por parte del servicio.
 
 ### <a name="request-message"></a>Mensaje de solicitud
 
@@ -65,7 +65,7 @@ El flujo de solicitud/respuesta usa el canal de control de forma predeterminada,
 
 En el canal de control, los cuerpos de solicitud y respuesta se limitan a 64 kB de tamaño como máximo. Los metadatos de encabezado HTTP se limitan a un total de 32 kB. Si la solicitud o la respuesta superan ese umbral, el agente de escucha se DEBE actualizar a un WebSocket de encuentro mediante un gesto equivalente a administrar la [aceptación](#accept-message).
 
-Con las solicitudes, el servicio decide si se deben enrutar a través del canal de control. Esto incluye, entre otros, los casos en los que una solicitud supera los 64 kB (encabezados y cuerpo) directamente, o si la solicitud se envía con [ codificación de transferencia "fragmentada"](https://tools.ietf.org/html/rfc7230#section-4.1) y el servicio tiene alguna razón para esperar que la solicitud supere los 64 kB o que la lectura de la solicitud no sea instantánea. Si el servicio elige entregar la solicitud a través del punto de encuentro, solo se pasa la dirección de encuentro al agente de escucha.
+Con las solicitudes, el servicio decide si se deben enrutar a través del canal de control. Esto incluye, entre otros, los casos en los que una solicitud supera los 64 KB (encabezados y cuerpo) directamente, o si la solicitud se envía con [ codificación de transferencia "fragmentada"](https://tools.ietf.org/html/rfc7230#section-4.1) y el servicio tiene alguna razón para esperar que la solicitud supere los 64 KB o que la lectura de la solicitud no sea instantánea. Si el servicio elige entregar la solicitud a través del punto de encuentro, solo se pasa la dirección de encuentro al agente de escucha.
 El agente de escucha DEBE establecer el WebSocket de encuentro y el servicio entrega inmediatamente la solicitud completa, incluidos los cuerpos, a través de este. La respuesta también debe usar el WebSocket de encuentro.
 
 En el caso de las solicitudes que llegan a través del canal de control, el agente de escucha decide si responder a través de dicho canal o del punto de encuentro. El servicio DEBE incluir una dirección de encuentro donde cada solicitud se enrute a través del canal de control. Esta dirección solo es válida para actualizaciones desde la solicitud actual.
@@ -164,7 +164,7 @@ La notificación de aceptación la envía el servicio al agente de escucha a tra
 El mensaje contiene un objeto JSON denominado "accept", que define las siguientes propiedades:
 
 * **address**: la cadena de dirección URL que se usará para establecer que el WebSocket del servicio acepte una conexión entrante.
-* **id**: el identificador único para esta conexión. Si ha sido el cliente remitente quien ha suministrado el id., será el valor que ha especificado este; de lo contrario, será uno generado por el sistema.
+* **id**: el identificador único para esta conexión. Si ha sido el cliente remitente quien ha suministrado el identificador, será el valor que ha especificado este; de lo contrario, será uno generado por el sistema.
 * **connectHeaders**: todos los encabezados HTTP que ha suministrado el remitente al punto de conexión de Relay, que también incluyen los encabezados Sec-WebSocket-Protocol y Sec-WebSocket-Extensions.
 
 ```json
@@ -202,7 +202,7 @@ La URL debe utilizarse tal cual para establecer el socket de aceptación, pero d
 `{path}` es la ruta de acceso del espacio de nombres con codificación URL de la conexión híbrida preconfigurada en la que se registra este agente de escucha. Esta expresión se anexa a la parte de la ruta de acceso `$hc/` fija.
 
 La expresión `path` se puede ampliar con un sufijo y una expresión de cadena de consulta que vaya después del nombre registrado después de una barra diagonal de separación.
-Esto permite que el cliente remitente pase los argumentos de envío al agente de escucha receptor cuando no sea posible incluir encabezados HTTP. La expectativa es que el marco del agente de escucha analice la parte fija y el nombre registrado de la ruta de acceso, y cree el resto, posiblemente sin ningún argumento de cadena de consulta con el prefijo `sb-`, disponible para la aplicación para decidir si acepta la conexión.
+Este parámetro permite que el cliente remitente pase los argumentos de envío al agente de escucha receptor cuando no sea posible incluir encabezados HTTP. La expectativa es que el marco del agente de escucha analice la parte fija y el nombre registrado de la ruta de acceso, y cree el resto, posiblemente sin ningún argumento de cadena de consulta con el prefijo `sb-`, disponible para la aplicación para decidir si acepta la conexión.
 
 Para más información, consulte la sección "Protocolo del remitente", que encontrará a continuación.
 
@@ -210,7 +210,7 @@ Si hay un error, el servicio puede responder como se indica a continuación:
 
 | Código | Error          | Descripción
 | ---- | -------------- | -----------------------------------
-| 403  | Prohibido      | La URL no es válida.
+| 403  | Prohibido      | La dirección URL no es válida.
 | 500  | Error interno | Se produjo un error en el servicio.
 
  Una vez que se establece la conexión, el servidor apaga el WebSocket cuando se apaga el WebSocket remitente, o cuando el estado es el siguiente:
@@ -241,7 +241,7 @@ Cuando se completa correctamente, este protocolo de enlace genera un error de fo
 
 | Código | Error          | Descripción                          |
 | ---- | -------------- | ------------------------------------ |
-| 403  | Prohibido      | La URL no es válida.                |
+| 403  | Prohibido      | La dirección URL no es válida.                |
 | 500  | Error interno | Se ha producido un error en el servicio. |
 
 #### <a name="request-message"></a>Mensaje de solicitud
@@ -249,7 +249,7 @@ Cuando se completa correctamente, este protocolo de enlace genera un error de fo
 El servicio envía el mensaje `request` al agente de escucha a través del canal de control. El mismo mensaje también se envía a través del WebSocket de encuentro una vez establecido.
 
 El mensaje `request` consta de dos partes: un encabezado y uno o varios marcos de cuerpo binarios.
-Si no hay ningún cuerpo, se omiten los marcos de cuerpo. El indicador que dice si un cuerpo está presente es la propiedad booleana `body` en el mensaje de solicitud.
+Si no hay ningún cuerpo, se omiten los marcos de cuerpo. La propiedad `body` booleana indica si un cuerpo está presente en el mensaje de solicitud.
 
 En una solicitud con un cuerpo de solicitud, la estructura puede ser similar a la siguiente:
 
@@ -485,7 +485,7 @@ El servicio agrega el nombre de host del espacio de nombres de retransmisión a 
 | 200  | Aceptar       | Al menos un agente de escucha atiende la solicitud.  |
 | 202  | Accepted | Al menos un agente de escucha ha aceptado la solicitud. |
 
-Si hay un error, el servicio puede responder como se indica a continuación: Si la respuesta se origina desde el servicio o desde el agente de escucha, se puede identificar a través de la presencia del encabezado `Via`. Si el encabezado está presente, la respuesta procede del agente de escucha.
+Si hay un error, el servicio puede responder como se indica a continuación. Si la respuesta se origina desde el servicio o desde el agente de escucha, se puede identificar a través de la presencia del encabezado `Via`. Si el encabezado está presente, la respuesta procede del agente de escucha.
 
 | Código | Error           | Descripción
 | ---- | --------------- |--------- |

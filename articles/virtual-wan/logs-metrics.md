@@ -8,18 +8,24 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: 53b8d74d6eb35347d6ac5b27d12fa5b5eaed2582
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 62979a2cbe2a5912476ca65327a06eef9c36c1cb
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566374"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127896"
 ---
 # <a name="azure-virtual-wan-logs-and-metrics"></a>Registros y métricas de Azure Virtual WAN
 
-Puede supervisar Azure Virtual WAN mediante Azure Monitor. Virtual WAN es un servicio de red que aporta muchas funciones de red, seguridad y enrutamiento para proporcionar una única interfaz operativa. Las puertas de enlace de VPN de Virtual WAN, las puertas de enlace de ExpressRoute y Azure Firewall tienen registros y métricas disponibles a través de Azure Monitor. Para obtener información de Azure Firewall, consulte [Métricas y registros de Azure Firewall](../firewall/logs-and-metrics.md).
+Puede supervisar Azure Virtual WAN mediante Azure Monitor. Virtual WAN es un servicio de red que aporta muchas funciones de red, seguridad y enrutamiento para proporcionar una única interfaz operativa. Las puertas de enlace de VPN de Virtual WAN, las puertas de enlace de ExpressRoute y Azure Firewall tienen registros y métricas disponibles a través de Azure Monitor.
 
 En este artículo se describen las métricas y los diagnósticos que están disponibles a través del portal. Las métricas son ligeras y pueden admitir escenarios casi en tiempo real, lo que las hace útiles para alertas y detección rápida de problemas.
+
+## <a name="monitoring-secured-hub-azure-firewall"></a>Supervisión del centro protegido (Azure Firewall) 
+
+Puede supervisar el centro protegido mediante los registros de Azure Firewall. También puede usar los registros de actividad para auditar las operaciones de los recursos de Azure Firewall.
+
+Si ha elegido proteger el centro virtual mediante Azure Firewall, los registros y las métricas pertinentes están disponibles aquí: [Métricas y registros de Azure Firewall](../firewall/logs-and-metrics.md).
 
 ## <a name="metrics"></a>Métricas
 

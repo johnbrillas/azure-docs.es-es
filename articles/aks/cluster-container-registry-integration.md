@@ -4,19 +4,22 @@ description: Obtenga información sobre cómo integrar Azure Kubernetes Service 
 services: container-service
 manager: gwallace
 ms.topic: article
-ms.date: 02/25/2020
-ms.openlocfilehash: 4338f4ce1fe60a3a9002be93feab134dd2601720
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/08/2021
+ms.openlocfilehash: 4157195260e5c685faaddeaca87db81d199ffb23
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87406510"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98043853"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Autenticación con Azure Container Registry desde Azure Kubernetes Service
 
 Cuando se usa Azure Container Registry (ACR) con Azure Kubernetes Service (AKS), es preciso establecer un mecanismo de autenticación. Esta operación se implementa como parte de la experiencia de la CLI y del portal mediante la concesión de los permisos necesarios para ACR. En este artículo se proporcionan ejemplos para configurar la autenticación entre estos dos servicios de Azure. 
 
 Puede configurar la integración de AKS en ACR con unos pocos comandos sencillos con la CLI de Azure. Esta integración asigna el rol AcrPull a la entidad de servicio asociada al clúster de AKS.
+
+> [!NOTE]
+> En este artículo se trata la autenticación automática entre AKS y ACR. Si necesita extraer una imagen de un registro externo privado, use un [secreto de extracción de imágenes][Image Pull Secret].
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -152,3 +155,4 @@ nginx0-deployment-669dfc4d4b-xdpd6   1/1     Running   0          20s
 
 <!-- LINKS - external -->
 [AKS AKS CLI]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
+[Image Pull secret]: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/

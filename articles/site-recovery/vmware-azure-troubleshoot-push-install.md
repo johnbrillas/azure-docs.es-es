@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
 ms.date: 04/03/2020
-ms.openlocfilehash: 8ee6449f357a578b30809bb03723ac1556e4f459
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 62c8240a4d2e50aa3b584f322baf7d2ee217c6d3
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88816202"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127879"
 ---
 # <a name="troubleshoot-mobility-service-push-installation"></a>Solución de problemas de instalación de inserción del servicio de movilidad
 
@@ -106,7 +106,22 @@ El servidor de configuración o el servidor de procesos de escalabilidad horizon
 
 Para resolver el error:
 
+* Verifique si la cuenta de usuario tiene acceso administrativo en el equipo de origen, con una cuenta local o cuenta de dominio. Si no utiliza una cuenta de dominio, deberá deshabilitar el control de acceso del usuario remoto en el equipo local.
+  * Para agregar manualmente una clave del Registro que deshabilite el control de acceso de usuarios remotos:
+    * `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System`
+    * Agregue un nuevo `DWORD`: `LocalAccountTokenFilterPolicy`
+    * Establezca el valor en `1`
+  * Para agregar la clave del Registro, desde el símbolo del sistema, ejecute el siguiente comando:
+
+    `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`
+
 * Asegúrese de que puede hacer ping a la máquina de origen desde el servidor de configuración. Si ha elegido el servidor de procesos de escalabilidad horizontal durante la habilitación de la replicación, asegúrese de que puede hacer ping a la máquina de origen desde el servidor de procesos.
+
+* Asegúrese de que esté habilitado el servicio de uso compartido de archivos e impresoras en la máquina virtual. Consulte [estos](vmware-azure-troubleshoot-push-install.md#file-and-printer-sharing-services-check-errorid-95105--95106) pasos.
+
+* Asegúrese de que el servicio WMI esté habilitado en la máquina virtual. Consulte [estos](vmware-azure-troubleshoot-push-install.md#windows-management-instrumentation-wmi-configuration-check-error-code-95103) pasos.
+
+* Asegúrese de que las carpetas compartidas de red de la máquina virtual sean accesibles desde el servidor de procesos. Consulte [estos](vmware-azure-troubleshoot-push-install.md#check-access-for-network-shared-folders-on-source-machine-errorid-9510595523) pasos.
 
 * Desde la línea de comandos de la máquina del servidor de origen, use `Telnet` para hacer ping al servidor de configuración o al servidor de procesos de escalabilidad horizontal en el puerto HTTPS 135 como se muestra en el siguiente comando. Este comando comprueba si hay problemas de conectividad de red o problemas de bloqueo de puertos del firewall.
 

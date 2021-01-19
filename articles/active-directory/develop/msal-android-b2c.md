@@ -13,16 +13,16 @@ ms.date: 9/18/2019
 ms.author: brianmel
 ms.reviewer: rapong
 ms.custom: aaddev
-ms.openlocfilehash: 1c4f47fd771cfb92b3896963c96b39d9eb7d97b8
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: a8c7ae8de41a01cb07a4bbbcd5943fb6290eced8
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96344885"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131651"
 ---
 # <a name="use-msal-for-android-with-b2c"></a>Uso de MSAL para Android con B2C
 
-La biblioteca de autenticación de Microsoft (MSAL) permite a los desarrolladores de aplicaciones autenticar a los usuarios con identidades sociales y locales mediante [Azure Active Directory B2C (Azure AD B2C)](../../active-directory-b2c/index.yml). Azure AD B2C es un servicio de administración de identidades. Utilícelo para personalizar y controlar el modo en que los clientes se suscriben, inician sesión y administran sus perfiles cuando usan las aplicaciones.
+La biblioteca de autenticación de Microsoft (MSAL) permite a los desarrolladores de aplicaciones autenticar a los usuarios con identidades sociales y locales mediante [Azure Active Directory B2C (Azure AD B2C)](../../active-directory-b2c/index.yml). Azure AD B2C es un servicio de administración de identidades. Utilícelo para personalizar y controlar el modo en que los clientes se suscriben, inician sesión y administran sus perfiles cuando usan las aplicaciones.
 
 ## <a name="configure-known-authorities-and-redirect-uri"></a>Configuración de autoridades conocidas y URI de redireccionamiento
 
@@ -36,11 +36,14 @@ Dada una aplicación B2C que tiene dos directivas:
 
 El archivo de configuración para la aplicación declararía dos `authorities`. Una para cada directiva. La propiedad `type` de cada autoridad es `B2C`.
 
+>Nota: El valor de `account_mode` debe establecerse en **MULTIPLE** para las aplicaciones B2C. Consulte la documentación para obtener más información acerca de las [aplicaciones cliente públicas de varias cuentas](https://docs.microsoft.com/azure/active-directory/develop/single-multi-account#multiple-account-public-client-application).
+
 ### `app/src/main/res/raw/msal_config.json`
 ```json
 {
     "client_id": "<your_client_id_here>",
     "redirect_uri": "<your_redirect_uri_here>",
+    "account_mode" : "MULTIPLE",
     "authorities": [{
             "type": "B2C",
             "authority_url": "https://contoso.b2clogin.com/tfp/contoso.onmicrosoft.com/B2C_1_SISOPolicy/",

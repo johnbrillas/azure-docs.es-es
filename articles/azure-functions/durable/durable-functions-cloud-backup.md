@@ -4,12 +4,12 @@ description: Aprenda a implementar un escenario de distribución ramificada de e
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: d61600801286126ea6ffb9a97bc5655b6f233816
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 91128033696af6a56488db7991987f1e384b719e
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77562197"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98027662"
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>Escenario de distribución ramificada de entrada/salida en Durable Functions: ejemplo de copia de seguridad en la nube
 
@@ -72,6 +72,23 @@ Observe la línea `yield context.df.Task.all(tasks);`. *No* se generó ninguna d
 
 Después de la generación desde `context.df.Task.all`, sabemos que todas las llamadas de función han finalizado y nos han devuelto valores. Cada llamada a `E2_CopyFileToBlob` devuelve el número de bytes cargados, por lo que calcular el recuento total de bytes es cuestión de agregar todos los valores devueltos.
 
+# <a name="python"></a>[Python](#tab/python)
+
+La función utiliza la norma *function.json* para las funciones de orquestador.
+
+[!code-json[Main](~/samples-durable-functions-python/samples/fan_in_fan_out/E2_BackupSiteContent/function.json)]
+
+Este es el código que implementa la función de orquestador:
+
+[!code-python[Main](~/samples-durable-functions-python/samples/fan_in_fan_out/E2_BackupSiteContent/\_\_init\_\_.py)]
+
+Observe la línea `yield context.task_all(tasks);`. *No* se generó ninguna de las llamadas individuales a la función `E2_CopyFileToBlob`, lo que permite que se ejecuten en paralelo. Cuando se pasa esta matriz de tareas a `context.task_all`, obtenemos una tarea que no finalizará *hasta que se completen todas las operaciones de copia*. Si está familiarizado con [`asyncio.gather`](https://docs.python.org/3/library/asyncio-task.html#asyncio.gather) en Python, no le parecerá nada nuevo. La diferencia es que estas tareas se pueden ejecutar en varias máquinas virtuales al mismo tiempo y la extensión Durable Functions garantiza que la ejecución de un extremo a otro es resistente al reciclaje de procesos.
+
+> [!NOTE]
+> Aunque las tareas son conceptualmente similares a las previstas de Python, las funciones de orquestador deben usar `yield`, así como las API `context.task_all` y `context.task_any` para administrar la paralelización de tareas.
+
+Después de la generación desde `context.task_all`, sabemos que todas las llamadas de función han finalizado y nos han devuelto valores. Cada llamada a `E2_CopyFileToBlob` devuelve el número de bytes cargados, por lo que calcular el recuento total de bytes es cuestión de agregar todos los valores devueltos.
+
 ---
 
 ### <a name="helper-activity-functions"></a>Funciones auxiliares de actividad
@@ -95,6 +112,16 @@ Y esta es la implementación:
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E2_GetFileList/index.js)]
 
 La función usa el módulo `readdirp` (versión 2.x) para leer de forma recursiva la estructura de directorios.
+
+# <a name="python"></a>[Python](#tab/python)
+
+El archivo *function.json* para `E2_GetFileList` tiene el siguiente aspecto:
+
+[!code-json[Main](~/samples-durable-functions-python/samples/fan_in_fan_out/E2_GetFileList/function.json)]
+
+Y esta es la implementación:
+
+[!code-python[Main](~/samples-durable-functions-python/samples/fan_in_fan_out/E2_GetFileList/\_\_init\_\_.py)]
 
 ---
 
@@ -122,6 +149,16 @@ La implementación de JavaScript usa [Azure Storage SDK for Node](https://github
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E2_CopyFileToBlob/index.js)]
 
+# <a name="python"></a>[Python](#tab/python)
+
+El archivo *function.json* para `E2_CopyFileToBlob` es igual de simple:
+
+[!code-json[Main](~/samples-durable-functions-python/samples/fan_in_fan_out/E2_CopyFileToBlob/function.json)]
+
+La implementación de Python usa el [SDK de Azure Storage para Python](https://github.com/Azure/azure-storage-python) para cargar los archivos en Azure Blob Storage.
+
+[!code-python[Main](~/samples-durable-functions-python/samples/fan_in_fan_out/E2_CopyFileToBlob/\_\_init\_\_.py)]
+
 ---
 
 Con la implementación se carga el archivo desde el disco y transmite de forma asincrónica el contenido a un blob con el mismo nombre en el contenedor "backups". El valor devuelto es el número de bytes copiados en el almacenamiento, que utilizará la función de orquestador para calcular el agregado total.
@@ -131,7 +168,7 @@ Con la implementación se carga el archivo desde el disco y transmite de forma a
 
 ## <a name="run-the-sample"></a>Ejecución del ejemplo
 
-Puede iniciar la orquestación mediante el envío de la siguiente solicitud HTTP POST.
+Puede iniciar la orquestación en Windows mediante el envío de la siguiente solicitud HTTP POST.
 
 ```
 POST http://{host}/orchestrators/E2_BackupSiteContent
@@ -139,6 +176,16 @@ Content-Type: application/json
 Content-Length: 20
 
 "D:\\home\\LogFiles"
+```
+
+Como alternativa, en una aplicación de funciones Linux (Python actualmente solo se ejecuta en Linux para App Service), puede iniciar la orquestación de la siguiente manera:
+
+```
+POST http://{host}/orchestrators/E2_BackupSiteContent
+Content-Type: application/json
+Content-Length: 20
+
+"/home/site/wwwroot"
 ```
 
 > [!NOTE]

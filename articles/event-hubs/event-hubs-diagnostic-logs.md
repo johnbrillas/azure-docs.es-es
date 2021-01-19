@@ -3,12 +3,12 @@ title: 'Configuración de registros de diagnóstico: Azure Event Hub | Microsoft
 description: Obtenga información sobre cómo configurar registros de actividad y registros de diagnóstico para centros de eventos en Azure.
 ms.topic: article
 ms.date: 10/27/2020
-ms.openlocfilehash: a7230746dc4225b04b0507c872416368aa14442b
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 015814b9a56ec963f5209f971f096ac6c173d7e1
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92912606"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131991"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Configuración de registros de diagnóstico de Azure Event Hubs
 
@@ -28,8 +28,8 @@ Los registros de diagnóstico están inhabilitados de forma predeterminada. Para
 2. Seleccione **Configuración de diagnóstico** en **Supervisión** en el panel izquierdo y, luego, elija **+ Agregar configuración de diagnóstico**. 
 
     ![Página Configuración de diagnóstico: Agregar configuración de diagnóstico](./media/event-hubs-diagnostic-logs/diagnostic-settings-page.png)
-4. En la sección **Detalles de la categoría** , seleccione los **tipos de registros de diagnóstico** que quiere habilitar. Más adelante en este artículo encontrará información sobre estas categorías. 
-5. En la sección **Detalles de destino** , establezca el destino de archivo que prefiera; por ejemplo, una cuenta de almacenamiento, un centro de eventos o un área de trabajo de Log Analytics.
+4. En la sección **Detalles de la categoría**, seleccione los **tipos de registros de diagnóstico** que quiere habilitar. Más adelante en este artículo encontrará información sobre estas categorías. 
+5. En la sección **Detalles de destino**, establezca el destino de archivo que prefiera; por ejemplo, una cuenta de almacenamiento, un centro de eventos o un área de trabajo de Log Analytics.
 
     ![Agregar página de configuración de diagnóstico](./media/event-hubs-diagnostic-logs/aDD-diagnostic-settings-page.png)
 6.  Seleccione **Guardar** en la barra de herramientas para guardar la configuración de diagnóstico.
@@ -100,12 +100,12 @@ Las cadenas JSON de registros operativos incluyen elementos enumerados en la tab
 Nombre | Descripción
 ------- | -------
 `ActivityId` | Identificador interno, usado con fines de seguimiento. |
-`EventName` | Nombre de operación |
+`EventName` | Nombre de la operación. Para consultar una lista de los valores de este elemento, consulte [Nombres de evento.](#event-names) |
 `resourceId` | El identificador de recursos de Azure Resource Manager |
 `SubscriptionId` | Id. de suscripción |
 `EventTimeString` | Hora de la operación |
-`EventProperties` | Propiedades de la operación |
-`Status` | Estado de la operación |
+`EventProperties` |Propiedades de la operación. Este elemento proporciona más información sobre el evento, como se muestra en el ejemplo siguiente. |
+`Status` | Estado de la operación. El valor puede ser **Succeeded** o **Failed**.  |
 `Caller` | Autor de la llamada de la operación (Azure Portal o Management Client) |
 `Category` | OperationalLogs |
 
@@ -125,6 +125,13 @@ Example:
    "category": "OperationalLogs"
 }
 ```
+
+### <a name="event-names"></a>Nombres de eventos
+El nombre del evento se rellena como el tipo de operación y el tipo de recurso de las siguientes enumeraciones. Por ejemplo, `Create Queue`, `Retrieve Event Hu` o `Delete Rule`. 
+
+| Tipo de operación | Tipo de recurso | 
+| -------------- | ------------- | 
+| <ul><li>Crear</li><li>Actualizar</li><li>Eliminar</li><li>Recuperar</li><li>Unknown</li></ul> | <ul><li>Espacio de nombres</li><li>Cola</li><li>Tema</li><li>Subscription</li><li>EventHub</li><li>EventHubSubscription</li><li>NotificationHub</li><li>NotificationHubTier</li><li>SharedAccessPolicy</li><li>UsageCredit</li><li>NamespacePnsCredentials</li>Regla</li>ConsumerGroup</li> |
 
 ## <a name="autoscale-logs-schema"></a>Esquema de registros de escalabilidad automática
 Las cadenas JSON del registro de escalabilidad automática incluyen los elementos enumerados en la tabla siguiente:
@@ -200,7 +207,7 @@ Las cadenas JSON del evento de conexión de red virtual (VNet) de Event Hubs con
 | `Count` | Número de repeticiones de una acción dada. |
 | `ResourceId` | Identificador de recursos de Azure Resource Manager. |
 
-Los registros de red virtual solo se generan si el espacio de nombres permite el acceso desde **redes seleccionadas** o desde **direcciones IP específicas** (reglas de filtro de IP). Si no desea restringir el acceso al espacio de nombres mediante estas características y desea obtener registros de red virtual para realizar el seguimiento de las direcciones IP de los clientes que se conectan al espacio de nombres de Event Hubs, puede usar la siguiente alternativa. Habilite el filtrado de IP y agregue el intervalo IPv4 direccionable total (1.0.0.0/1 - 255.0.0.0/1). Event Hubs no admite intervalos IPv6. 
+Los registros de red virtual solo se generan si el espacio de nombres permite el acceso desde **redes seleccionadas** o desde **direcciones IP específicas** (reglas de filtro de IP). Si no quiere restringir el acceso al espacio de nombres mediante estas características y quiere obtener registros de red virtual para realizar el seguimiento de las direcciones IP de los clientes que se conectan al espacio de nombres de Event Hubs, puede usar la siguiente alternativa. Habilite el filtrado de IP y agregue el intervalo IPv4 direccionable total (1.0.0.0/1 - 255.0.0.0/1). Event Hubs no admite intervalos IPv6. 
 
 ### <a name="example"></a>Ejemplo
 

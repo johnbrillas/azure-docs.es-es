@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/08/2020
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95f70005f2c7f53833163dcd5f0d2ee89b3db37c
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: d7e4d0c41990fcc23dd19b5682997f6381bfdb20
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96861296"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937100"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Crear una estrategia de administración de control de acceso resistente con Azure Active Directory
 
@@ -38,8 +38,8 @@ En este documento se proporcionan instrucciones sobre las estrategias que una or
 Hay cuatro puntos clave en este documento:
 
 * Evite el bloqueo de administrador mediante el uso de cuentas de acceso de emergencia.
-* Implemente MFA mediante el acceso condicional (CA) en lugar de MFA por usuario.
-* Mitigue el bloqueo de usuario mediante el uso de varios controles de acceso condicional (CA).
+* Implemente MFA mediante el acceso condicional en lugar de MFA por usuario.
+* Mitigue el bloqueo de usuarios mediante varios controles de acceso condicional.
 * Mitigue el bloqueo de usuario mediante el aprovisionamiento de varios métodos de autenticación o equivalentes para cada usuario.
 
 ## <a name="before-a-disruption"></a>Antes de una interrupción
@@ -138,9 +138,9 @@ Este estándar de nomenclatura para las directivas de contingencia será del mod
 EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions]
 ```
 
-En el ejemplo siguiente: **Ejemplo A: directiva de CA de contingencia para restaurar el acceso a aplicaciones de colaboración críticas**, es una contingencia corporativa típica. En este escenario, la organización normalmente requiere MFA para todos los accesos de Exchange Online y SharePoint Online y, en este caso, la interrupción se da porque el proveedor de MFA para el cliente tiene una interrupción del servicio (ya sea Azure AD MFA, un proveedor de MFA local o MFA de terceros). Esta directiva mitiga esta interrupción al permitir que los usuarios de destino específicos accedan a estas aplicaciones desde dispositivos Windows de confianza solo cuando acceden a la aplicación desde su red corporativa de confianza. También excluirá las cuentas de emergencia y los administradores principales de estas restricciones. Los usuarios de destino tendrán entonces acceso a Exchange Online y SharePoint Online, mientras que otros usuarios seguirán sin tener acceso a las aplicaciones debido a la interrupción. En este ejemplo se necesita una ubicación de red denominada **CorpNetwork** y un grupo de seguridad **ContingencyAccess** con los usuarios de destino, un grupo denominado **CoreAdmins** con los administradores principales y un grupo denominado **EmergencyAccess** con las cuentas de acceso de emergencia. La contingencia requiere cuatro directivas para proporcionar el acceso deseado. 
+En el ejemplo siguiente: **Ejemplo A: Directiva de acceso condicional de contingencia para restaurar el acceso a aplicaciones de colaboración críticas**, es una contingencia corporativa habitual. En este escenario, la organización normalmente requiere MFA para todos los accesos de Exchange Online y SharePoint Online y, en este caso, la interrupción se da porque el proveedor de MFA para el cliente tiene una interrupción del servicio (ya sea Azure AD MFA, un proveedor de MFA local o MFA de terceros). Esta directiva mitiga esta interrupción al permitir que los usuarios de destino específicos accedan a estas aplicaciones desde dispositivos Windows de confianza solo cuando acceden a la aplicación desde su red corporativa de confianza. También excluirá las cuentas de emergencia y los administradores principales de estas restricciones. Los usuarios de destino tendrán entonces acceso a Exchange Online y SharePoint Online, mientras que otros usuarios seguirán sin tener acceso a las aplicaciones debido a la interrupción. En este ejemplo se necesita una ubicación de red denominada **CorpNetwork** y un grupo de seguridad **ContingencyAccess** con los usuarios de destino, un grupo denominado **CoreAdmins** con los administradores principales y un grupo denominado **EmergencyAccess** con las cuentas de acceso de emergencia. La contingencia requiere cuatro directivas para proporcionar el acceso deseado. 
 
-**Ejemplo A. Directiva de CA de contingencia para restaurar el acceso a aplicaciones de colaboración críticas:**
+**Ejemplo A. Directivas de acceso condicional de contingencia para restaurar el acceso a aplicaciones de colaboración críticas:**
 
 * Directiva 1: Requiera dispositivos unidos a un dominio para Exchange y SharePoint
   * Nombre: EM001 - HABILITAR EN CASO DE EMERGENCIA: Interrupción de MFA [1/4]: Exchange SharePoint: Requerir la unión a Azure AD híbrido
@@ -180,9 +180,9 @@ Orden de activación:
 5. Habilitar Directiva 4: Compruebe que ningún usuario puede acceder a Exchange Online desde las aplicaciones de correo nativo en dispositivos móviles.
 6. Deshabilite la directiva de MFA existente para SharePoint Online y Exchange Online.
 
-En el ejemplo siguiente, **Ejemplo B. Directivas de CA de contingencia para permitir el acceso móvil a Salesforce**, se restaurará el acceso de una aplicación empresarial. En este escenario, el cliente normalmente requiere que el acceso de los empleados de ventas a Salesforce (configurada para inicio de sesión único con Azure AD) desde dispositivos móviles solo se permita desde dispositivos compatibles. La interrupción en este caso es que hay un problema con la evaluación del cumplimiento de dispositivos y la interrupción se produce en un momento delicado en el que el equipo de ventas necesita acceder a Salesforce para cerrar acuerdos. Estas directivas de contingencia conceden a los usuarios críticos acceso a Salesforce desde un dispositivo móvil para que sigan cerrando tratos y, de esta forma, que el negocio no se vea afectado. En este ejemplo, **SalesforceContingency** contiene todos los empleados de ventas que necesitan conservar el acceso y **SalesAdmins** contiene los administradores necesarios de Salesforce.
+En el ejemplo siguiente, **Ejemplo B. Directivas de acceso condicional de contingencia para permitir el acceso móvil a Salesforce**, se restaura el acceso de una aplicación empresarial. En este escenario, el cliente normalmente requiere que el acceso de los empleados de ventas a Salesforce (configurada para inicio de sesión único con Azure AD) desde dispositivos móviles solo se permita desde dispositivos compatibles. La interrupción en este caso es que hay un problema con la evaluación del cumplimiento de dispositivos y la interrupción se produce en un momento delicado en el que el equipo de ventas necesita acceder a Salesforce para cerrar acuerdos. Estas directivas de contingencia conceden a los usuarios críticos acceso a Salesforce desde un dispositivo móvil para que sigan cerrando tratos y, de esta forma, que el negocio no se vea afectado. En este ejemplo, **SalesforceContingency** contiene todos los empleados de ventas que necesitan conservar el acceso y **SalesAdmins** contiene los administradores necesarios de Salesforce.
 
-**Ejemplo B. Directivas de CA de contingencia:**
+**Ejemplo B: Directivas de acceso condicional de contingencia:**
 
 * Directiva 1: Bloquear a todos los usuarios que no están en el equipo SalesContingency
   * Nombre: EM001 - HABILITAR EN CASO DE EMERGENCIA: Interrupción del cumplimiento de dispositivo [1/2]: Salesforce: Bloquear todos los usuarios excepto SalesforceContingency

@@ -6,14 +6,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
-ms.date: 06/24/2019
+ms.date: 01/12/2021
 ms.author: hrasheed
-ms.openlocfilehash: d6dd67e9e0cd9dcd4afb8f1ae2cc32ccf30617fd
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 87d8074772863d0ca1cbf98220e5ca9b027fb085
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97704952"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98134303"
 ---
 # <a name="set-up-hdinsight-clusters-with-a-custom-ambari-db"></a>Configuración de clústeres de HDInsight con una base de datos de Ambari personalizada
 
@@ -64,6 +64,20 @@ az deployment group create --name HDInsightAmbariDBDeployment \
     --template-file azuredeploy.json \
     --parameters azuredeploy.parameters.json
 ```
+
+## <a name="database-sizing"></a>Dimensionamiento de la base de datos
+
+En la tabla siguiente se proporcionan instrucciones sobre el nivel de Azure SQL Database que se debe seleccionar según el tamaño del clúster de HDInsight.
+
+| Número de nodos de trabajo | Nivel de base de datos requerido |
+|---|---|
+| menor o igual que 4 | S0 |
+| mayor que 4 y menor o igual que 8 | S1 |
+| mayor que 8 y menor o igual que 16 | S2 |
+| mayor que 16 y menor o igual que 32 | S3 |
+| mayor que 32 y menor o igual que 64 | S4 |
+| mayor que 64 y menor o igual que 128 | P2 |
+| mayor que 128 | Ponerse en contacto con el servicio de soporte técnico |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

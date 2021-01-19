@@ -2,13 +2,13 @@
 title: Autenticación de la entrega de eventos en los controladores de eventos (Azure Event Grid).
 description: En este artículo se describen diferentes formas de autenticar los controladores de eventos en Azure Event Grid.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: abe16c9598c8c10caa832150aafac997dd7f1624
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/07/2021
+ms.openlocfilehash: 8360aa49e3d83879499af79448ff9f85082f47ac
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87460650"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98015545"
 ---
 # <a name="authenticate-event-delivery-to-event-handlers-azure-event-grid"></a>Autenticación de la entrega de eventos en los controladores de eventos (Azure Event Grid).
 En este artículo se proporciona información sobre cómo autenticar la entrega de eventos a los controladores de eventos. También muestra como proteger los puntos de conexión de webhook que se usan para recibir eventos de Event Grid mediante Azure Active Directory (Azure AD) o un secreto compartido.
@@ -41,6 +41,9 @@ Para más información sobre cómo entregar eventos a webhooks, consulte [Entreg
 
 > [!IMPORTANT]
 Azure Event Grid solo admite puntos de conexión de webhook **HTTPS**. 
+
+## <a name="endpoint-validation-with-cloudevents-v10"></a>Validación de puntos de conexión con CloudEvents v1.0
+Si ya está familiarizado con Event Grid, es posible que conozca el protocolo de enlace de validación de punto de conexión para evitar el uso inapropiado. CloudEvents v1.0 implementa su propia [semántica de protección contra abusos](webhook-event-delivery.md) mediante el método **HTTP OPTIONS**. Para más información al respecto, consulte [Webhooks de HTTP 1.1 para la entrega de eventos: versión 1.0](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection). Cuando usa el esquema de CloudEvents para la salida, Event Grid usa la protección contra abusos de CloudEvents v1.0 en lugar del mecanismo de eventos de validación de Event Grid. Para obtener más información, vea [Uso del esquema CloudEvents v1.0 con Event Grid](cloudevents-schema.md). 
 
 
 ## <a name="next-steps"></a>Pasos siguientes

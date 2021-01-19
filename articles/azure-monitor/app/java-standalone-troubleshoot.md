@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo solucionar problemas del agente de
 ms.topic: conceptual
 ms.date: 11/30/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 14644f76b7de53b2b6ee3f04131daaf59267a5ff
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 54bf2440dff20fc757f37e3f31a53c57ebd59120
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97507649"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98133198"
 ---
 # <a name="troubleshooting-guide-azure-monitor-application-insights-for-java"></a>Guía de solución de problemas: Application Insights de Azure Monitor para Java
 
@@ -20,6 +20,10 @@ En este artículo se tratan algunos de los problemas comunes que podría encontr
 De forma predeterminada, el agente para Java 3.0 para Application Insights genera un archivo de registro denominado `applicationinsights.log` en el mismo directorio que contiene el archivo `applicationinsights-agent-3.0.0.jar`.
 
 Este archivo de registro es la primera ubicación en la que buscar sugerencias sobre cualquier problema que se experimente.
+
+## <a name="jvm-fails-to-start"></a>JVM no se inicia
+
+Si JVM no se inicia con el mensaje "Error al abrir el archivo ZIP o falta el manifiesto JAR", intente volver a descargar el archivo JAR del agente, porque puede que se haya dañado durante la transferencia de archivos.
 
 ## <a name="upgrade-from-the-application-insights-java-2x-sdk"></a>Actualización del SDK de Application Insights para Java 2.x
 

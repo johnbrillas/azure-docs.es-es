@@ -3,15 +3,15 @@ title: Conectores para Azure Logic Apps
 description: Automatice los flujos de trabajo con conectores para Azure Logic Apps, como los conectores integrados, administrados, locales, de cuenta de integración, ISE y empresariales
 services: logic-apps
 ms.suite: integration
-ms.reviewer: jonfan, logicappspm
+ms.reviewer: estfan, logicappspm, azla
 ms.topic: article
-ms.date: 06/11/2020
-ms.openlocfilehash: 8bf91a3b7843d3212b62ced5b6a7c6fa54892ec9
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.date: 01/07/2021
+ms.openlocfilehash: c2b89450c0e474f5030f8812e888890f1fedde7e
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359755"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019642"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Conectores para Azure Logic Apps
 
@@ -28,7 +28,7 @@ Los conectores están disponibles como desencadenadores y acciones integrados, o
 
 <a name="built-in"></a>
 
-* [**Integrados**](#built-ins): las acciones y desencadenadores integrados son "nativos" en Azure Logic Apps y ayudan a realizar estas tareas para las aplicaciones lógicas:
+* [**Integrados**](#built-ins): Los desencadenadores y las acciones integrados se ejecutan de forma nativa en Azure Logic Apps, por lo que no requieren la creación de una conexión antes de usarlos y lo ayudan a realizar estas tareas para las aplicaciones lógicas:
 
   * Ejecutarse durante programaciones personalizadas y avanzadas.
 
@@ -390,6 +390,54 @@ Los desencadenadores y las acciones de cada conector proporcionan sus propias pr
 En el caso de los conectores que usan Azure Active Directory (Azure AD) OAuth, crear una conexión significa iniciar sesión en el servicio (por ejemplo, Office 365, Salesforce o GitHub), donde el token de acceso [se cifra](../security/fundamentals/encryption-overview.md) y se almacena de forma segura en un almacén de secretos de Azure. Otros conectores (como FTP y SQL) requieren una conexión con detalles de configuración como la dirección del servidor, el nombre de usuario y la contraseña. Estos detalles sobre la configuración de la conexión también se cifran y se almacenan de forma segura. Más información sobre el [cifrado en Azure ](../security/fundamentals/encryption-overview.md).
 
 Las conexiones pueden acceder al servicio o sistema de destino siempre que ese servicio o sistema lo permita. En el caso de los servicios que usan conexiones de Azure AD OAuth, como Office 365 y Dynamics, Azure Logic Apps actualiza los tokens de acceso de forma indefinida. Es posible que otros servicios tengan límites con respecto a cuánto tiempo puede usar Azure Logic Apps un token sin actualizar. Por lo general, algunas acciones invalidarán todos los tokens de acceso, por ejemplo, el cambio de la contraseña.
+
+<a name="recurrence-behavior"></a>
+
+## <a name="recurrence-behavior"></a>Comportamiento de periodicidad
+
+El comportamiento de los desencadenadores integrados recurrentes que se ejecutan de forma nativa en Azure Logic Apps, como el [desencadenador de periodicidad](../connectors/connectors-native-recurrence.md), difiere del comportamiento de los desencadenadores basados en conexión periódicos en los que es necesario crear una conexión en primer lugar, como el desencadenador del conector SQL.
+
+Sin embargo, para ambos tipos de desencadenadores, si una periodicidad no especifica una fecha y hora de inicio específicas, la primera periodicidad se ejecuta inmediatamente al guardar o implementar la aplicación lógica, independientemente de la configuración de periodicidad del desencadenador. Para evitar este comportamiento, proporcione una fecha y hora de inicio para cuando quiera que se ejecute la primera periodicidad.
+
+<a name="recurrence-built-in"></a>
+
+### <a name="recurrence-for-built-in-triggers"></a>Periodicidad de los desencadenadores integrados
+
+Los desencadenadores periódicos integrados respetan la programación establecida, incluida cualquier zona horaria que especifique. Sin embargo, si una periodicidad no especifica ninguna otra opción de programación avanzada, como horas específicas para ejecutar futuras repeticiones, esas repeticiones se basan en la última ejecución del desencadenador. Como resultado, las horas de inicio de estas periodicidades pueden cambiar debido a factores como la latencia durante las llamadas de almacenamiento. Además, si no selecciona una zona horaria, el horario de verano (DST) puede afectar al momento en que se ejecutan los desencadenadores, por ejemplo, adelantando una hora la hora de inicio cuando se inicia el horario de verano y atrasándola una hora cuando este finaliza.
+
+Para asegurarse de que la aplicación lógica se ejecuta a la hora de inicio especificada y no pierde una periodicidad, especialmente cuando la frecuencia se especifica en días o unidades superiores, pruebe con estas soluciones:
+
+* Asegúrese de seleccionar una zona horaria para que la aplicación lógica se ejecute a la hora de inicio especificada. De lo contrario, el horario de verano (DST) puede afectar al momento en que se ejecutan los desencadenadores, por ejemplo, adelantando una hora la hora de inicio cuando se inicia el horario de verano y atrasándola una hora cuando este finaliza.
+
+  Al programar trabajos, Logic Apps coloca el mensaje en la cola para su procesamiento y especifica el momento en que el mensaje está disponible, en función de la hora UTC en que se ejecutó el último trabajo y la hora UTC en la que se programó la ejecución del siguiente trabajo. Al especificar una zona horaria, la hora UTC de la aplicación lógica también se cambia para contrarrestar el cambio horario estacional. Sin embargo, algunas ventanas de tiempo pueden causar problemas cuando se cambia la hora. Para obtener más información y ejemplos, consulte [Periodicidad de horario de verano y hora estándar](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#daylight-saving-standard-time).
+
+* Use el desencadenador de periodicidad y proporcione una fecha y hora de inicio para la periodicidad más las horas específicas en las que se ejecutarán las repeticiones posteriores mediante las propiedades denominadas **A estas horas** y **En estos minutos**, que solo están disponibles para las frecuencias **Día** y **Semana**.
+
+* Use el [desencadenador de ventana deslizante](../connectors/connectors-native-sliding-window.md), en lugar del de periodicidad.
+
+<a name="recurrence-connection-based"></a>
+
+### <a name="recurrence-for-connection-based-triggers"></a>Periodicidad de los desencadenadores basados en conexión
+
+En los desencadenadores periódicos basados en conexión, como SQL o SFTP-SSH, la programación no es el único controlador que controla la ejecución y la zona horaria solo determina la hora de inicio inicial. Las ejecuciones posteriores dependen de la programación de periodicidad, de la última ejecución del desencadenador, *y* de otros factores que pueden provocar que haya un desfase o un comportamiento inesperado en los tiempos de ejecución, por ejemplo:
+
+* Si el desencadenador tiene acceso a un servidor que tiene más datos, que el desencadenador intenta capturar inmediatamente.
+
+* Los errores o reintentos en que incurre el desencadenador.
+
+* La latencia durante las llamadas de almacenamiento.
+
+* No mantener la programación especificada cuando se inicia y finaliza el horario de verano (DST).
+
+* Otros factores que pueden afectar al siguiente tiempo de ejecución.
+
+Para resolver estos problemas, pruebe estas soluciones:
+
+* Para asegurarse de que el tiempo de periodicidad no se desplaza cuando el DST surte efecto, ajuste manualmente la periodicidad para que la aplicación lógica siga ejecutándose en el momento esperado. De lo contrario, la hora de inicio se desplazará una hora hacia delante cuando se inicie el DST y una hora hacia atrás cuando finalice el DST.
+
+* Use el desencadenador de periodicidad para especificar una zona horaria, una fecha y hora de inicio, *más* las horas específicas en las que se ejecutarán las repeticiones posteriores mediante las propiedades denominadas **A estas horas** y **En estos minutos**, que solo están disponibles para las frecuencias **Día** y **Semana**. Sin embargo, es posible que algunas ventanas de tiempo sigan provocando problemas cuando se cambia la hora. Para obtener más información y ejemplos, consulte [Periodicidad de horario de verano y hora estándar](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#daylight-saving-standard-time).
+
+* Para evitar que se pierdan repeticiones, use el [desencadenador de ventana deslizante](../connectors/connectors-native-sliding-window.md) en lugar del de periodicidad.
 
 <a name="custom"></a>
 

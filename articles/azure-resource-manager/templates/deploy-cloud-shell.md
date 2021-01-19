@@ -1,18 +1,18 @@
 ---
 title: Implementación de plantillas con Cloud Shell
-description: Use Azure Resource Manager y Cloud Shell para implementar recursos en Azure. Los recursos se definen en una plantilla de Azure Resource Manager.
+description: Use Azure Resource Manager y Azure Cloud Shell para implementar recursos en Azure. Los recursos se definen en una plantilla de Azure Resource Manager (plantilla de ARM).
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: d0b519955cb877f5fb9640cc0cf95a898e1743ef
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: c67251a33b6197603be27086bcc6cd047e0c414b
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92681322"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028614"
 ---
-# <a name="deploy-arm-templates-from-cloud-shell"></a>Implementación de plantillas de Resource Manager desde Cloud Shell
+# <a name="deploy-arm-templates-from-azure-cloud-shell"></a>Implementación de plantillas de ARM desde Azure Cloud Shell
 
-Puede usar [Cloud Shell](../../cloud-shell/overview.md) para implementar una plantilla de Azure Resource Manager (plantilla de Resource Manager). Puede implementar una plantilla de Resource Manager que se almacena de forma remota o una plantilla de Resource Manager que se almacena en la cuenta de almacenamiento local de Cloud Shell.
+Puede usar [Azure Cloud Shell](../../cloud-shell/overview.md) para implementar una plantilla de Azure Resource Manager (plantilla de Resource Manager). Puede implementar una plantilla de Resource Manager que se almacena de forma remota o una plantilla de Resource Manager que se almacena en la cuenta de almacenamiento local de Cloud Shell.
 
 Asimismo, puede realizar la implementación en cualquier ámbito. En este artículo se muestra la implementación en un grupo de recursos.
 

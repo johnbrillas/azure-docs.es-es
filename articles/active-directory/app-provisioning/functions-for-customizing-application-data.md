@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 02/05/2020
 ms.author: kenwith
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: fe18513bbfc69fb63f8b1b248b7cf02ad55b467d
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 462f60bbae9fd7b61993a2ccccd40fa5ca4ccc28
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97027380"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98012974"
 ---
 # <a name="reference-for-writing-expressions-for-attribute-mappings-in-azure-ad"></a>Referencia para la escritura de expresiones para la asignación de atributos en Azure AD
 
@@ -327,7 +327,7 @@ Devuelve True si el atributo no está presente o si es una cadena vacía.
 | **índice** |Obligatorio |Entero | Índice de un elemento en la cadena multivalor.|
 
 **Ejemplo:** 
-`Item([proxyAddresses], 1)`
+`Item([proxyAddresses], 1)` devuelve el segundo elemento en el atributo de varios valores.
 
 ---
 ### <a name="join"></a>Join

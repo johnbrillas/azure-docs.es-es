@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/02/2020
 ms.custom: references_regions
-ms.openlocfilehash: 8295e619cfda0d4b83a7356d5fd21d4b80f83849
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 6b1079797f1a753fa8362d6e920f3394087d7e9f
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96530891"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98119295"
 ---
 # <a name="configure-customer-managed-keys-for-data-encryption-in-azure-cognitive-search"></a>Configuración de claves administradas por el cliente para el cifrado de datos en Azure Cognitive Search
 
@@ -52,7 +52,7 @@ En este escenario se usan los servicios y las herramientas siguientes.
 Debe tener una aplicación de búsqueda que pueda crear el objeto cifrado. En este código, hará referencia a una clave del almacén de claves y a la información de registro de Active Directory. Este código puede ser una aplicación de trabajo o un código de prototipo como el [ejemplo de código de C# DotNetHowToEncryptionUsingCMK](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToEncryptionUsingCMK).
 
 > [!TIP]
-> Puede usar [Postman o Visual Studio Code](search-get-started-rest.md), o [Azure PowerShell](./search-get-started-powershell.md), para llamar a las API REST que crean índices y asignaciones de sinónimos que incluyen un parámetro de clave de cifrado. En este momento, no se admite en el portal la adición de una clave a índices o mapas de sinónimos.
+> Puede usar [Postman](search-get-started-rest.md), [Visual Studio Code](search-get-started-vs-code.md) o [Azure PowerShell](./search-get-started-powershell.md), para llamar a las API REST que crean índices y asignaciones de sinónimos que incluyen un parámetro de clave de cifrado. En este momento, no se admite en el portal la adición de una clave a índices o mapas de sinónimos.
 
 ## <a name="1---enable-key-recovery"></a>1\. Habilitación de la recuperación de claves
 

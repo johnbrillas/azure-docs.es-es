@@ -1,7 +1,7 @@
 ---
 title: Consideraciones sobre Xamarin iOS (MSAL.NET) | Azure
 titleSuffix: Microsoft identity platform
-description: Conozca las consideraciones para usar Xamarin iOS con la biblioteca de autenticación de Microsoft para .NET (MSAL.NET).
+description: Conozca las consideraciones para usar Xamarin iOS con la Biblioteca de autenticación de Microsoft para .NET (MSAL.NET).
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -13,16 +13,16 @@ ms.date: 09/09/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 70ab4a151fe73b59663fd8fa16170b2e507c2511
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 62eb4ab9eb6e4b0e7be0f7aadae1173950d21615
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91258066"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98064494"
 ---
 # <a name="considerations-for-using-xamarin-ios-with-msalnet"></a>Consideraciones para usar Xamarin iOS con MSAL.NET
 
-Cuando use la biblioteca de autenticación de Microsoft para .NET (MSAL.NET) en Xamarin iOS, debe:
+Cuando use la Biblioteca de autenticación de Microsoft para .NET (MSAL.NET) en Xamarin iOS, debe:
 
 - Reemplazar e implementar la función `OpenUrl` en `AppDelegate`.
 - Habilitar grupos de cadenas de claves.

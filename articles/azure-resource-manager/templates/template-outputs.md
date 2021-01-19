@@ -3,16 +3,16 @@ title: Salidas en plantillas
 description: Se describe cómo definir valores de salida en una plantilla de Azure Resource Manager (plantilla de ARM).
 ms.topic: conceptual
 ms.date: 11/24/2020
-ms.openlocfilehash: 6a375dfbc767bcbbfd8ec6b7f8cb9e942e275582
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: f8f13b6caf063cea79dc71775fb936f406a3ee6c
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353534"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964021"
 ---
 # <a name="outputs-in-arm-templates"></a>Salidas en plantillas de ARM
 
-En este artículo se describe cómo definir valores de salida en una plantilla de Azure Resource Manager (plantilla de ARM). Las salidas se usan cuando es necesario devolver valores de los recursos implementados.
+En este artículo se describe cómo definir valores de salida en una plantilla de Azure Resource Manager (plantilla de ARM). Se usa `outputs` cuando es necesario devolver valores de los recursos implementados.
 
 El formato de cada valor de salida debe coincidir con uno de los [tipos de datos](template-syntax.md#data-types).
 
@@ -31,7 +31,7 @@ En el ejemplo siguiente se muestra cómo devolver el identificador de recurso pa
 
 ## <a name="conditional-output"></a>Salida condicional
 
-En la sección de salidas, puede devolver un valor condicionalmente. Normalmente, la condición de las salidas se usa cuando se [implementa condicionalmente](conditional-resource-deployment.md) un recurso. En el ejemplo siguiente, se muestra cómo se devuelve condicionalmente el identificador de recurso de una dirección IP pública en función de si se ha implementado una nueva:
+En la sección `outputs`, puede devolver un valor condicionalmente. Normalmente, se usa `condition` en `outputs` cuando ha [implementado condicionalmente](conditional-resource-deployment.md) un recurso. En el ejemplo siguiente, se muestra cómo se devuelve condicionalmente el identificador de recurso de una dirección IP pública en función de si se ha implementado una nueva:
 
 ```json
 "outputs": {
@@ -47,7 +47,7 @@ Para obtener un ejemplo sencillo de salida condicional, consulte la [plantilla d
 
 ## <a name="dynamic-number-of-outputs"></a>Número dinámico de salidas
 
-En algunos escenarios, no se conoce el número de instancias de un valor que se debe devolver al crear la plantilla. Puede devolver un número variable de valores mediante el elemento **copy**.
+En algunos escenarios, no se conoce el número de instancias de un valor que se debe devolver al crear la plantilla. Puede devolver un número variable de valores mediante el elemento `copy`.
 
 ```json
 "outputs": {
@@ -61,7 +61,7 @@ En algunos escenarios, no se conoce el número de instancias de un valor que se 
 }
 ```
 
-Para más información, consulte [Iteración de salidas en plantillas de Azure Resource Manager](copy-outputs.md).
+Para más información, vea [Iteración de salida en plantillas de ARM](copy-outputs.md).
 
 ## <a name="linked-templates"></a>Plantillas vinculadas
 

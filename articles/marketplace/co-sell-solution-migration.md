@@ -7,12 +7,12 @@ ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.date: 12/07/2020
-ms.openlocfilehash: 6ad58283ad9078088f241a67426657eb7a538e10
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 0114c75d99d79041631e5078deb33f77863dc35a
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96781137"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98043785"
 ---
 # <a name="migration-of-co-sell-solutions-from-ocp-gtm-to-the-commercial-marketplace"></a>Migración de soluciones de venta conjunta de OCP GTM al marketplace comercial
 
@@ -136,7 +136,7 @@ Para obtener instrucciones detalladas sobre la información que debe proporciona
 
     :::image type="content" source="media/co-sell-migrate/offer-setup.png" alt-text="Las pestañas de configuración e información general de ofertas del Centro de partners.":::
 
-3. Algunos de los detalles visibles para los vendedores de Microsoft se copiaron de la solución de OCP GTM. Complete la información necesaria restante en la pestaña **Co-sell with Microsoft** (Realizar venta conjunta con Microsoft) para hacer que la oferta de venta conjunta esté lista. Cuando haya terminado, seleccione **Review and publish** (Revisar y publicar).
+3. Algunos de los detalles visibles para los vendedores de Microsoft se copiaron de la solución de OCP GTM. Complete la información necesaria restante en la pestaña **Co-sell with Microsoft** (Realizar venta conjunta con Microsoft) para hacer que la oferta de venta conjunta esté lista. Cuando haya terminado, seleccione **Review and publish** (Revisar y publicar). Para más información, consulte [Envío de materiales de venta conjunta en el Centro de partners](marketplace-co-sell.md#how-to-submit-co-sell-materials-in-partner-center).
 
     :::image type="content" source="media/co-sell-migrate/co-sell-page.png" alt-text="La pestaña Co-sell with Microsoft (Realizar venta conjunta con Microsoft) del Centro de partners.":::
 
@@ -154,4 +154,6 @@ Para obtener instrucciones detalladas sobre la información que debe proporciona
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Reventa a través de asociados de CSP](cloud-solution-providers.md)
+- [Envío de materiales de venta conjunta en el Centro de partners](marketplace-co-sell.md#how-to-submit-co-sell-materials-in-partner-center)
 - Revisión de estas [preguntas más frecuentes](https://partner.microsoft.com/resources/detail/co-sell-requirements-publish-commercial-marketplace-faq-pdf) (PDF)
+

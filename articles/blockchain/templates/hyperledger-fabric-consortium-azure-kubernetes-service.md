@@ -1,15 +1,15 @@
 ---
 title: Implementación del consorcio Hyperledger Fabric en Azure Kubernetes Service
 description: Implementación y configuración de una red del consorcio de Hyperledger Fabric en Azure Kubernetes Service
-ms.date: 08/06/2020
+ms.date: 01/08/2021
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: 081c7a10ee091f573e8f999c94588ef85c784f74
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1ab5b9fadfbb0f1c9c1cdf25ee319c7775a593ed
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89651568"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060323"
 ---
 # <a name="deploy-hyperledger-fabric-consortium-on-azure-kubernetes-service"></a>Implementación del consorcio Hyperledger Fabric en Azure Kubernetes Service
 
@@ -106,7 +106,7 @@ Para empezar a trabajar con la implementación de componentes de red de Hyperled
     - **Prefijo de DNS**: escriba un prefijo del nombre del Sistema de nombres de dominio (DNS) para el clúster de AKS. Usará DNS para conectarse a la API de Kubernetes al administrar los contenedores después de crear el clúster.
     - **Tamaño del nodo**: para el tamaño del nodo de Kubernetes, puede elegir en la lista de referencia de almacén (SKU) de máquinas virtuales disponible en Azure. Para obtener un rendimiento óptimo, se recomienda el estándar DS3 v2.
     - **Node count** (Número de nodos): escriba el número de nodos de Kubernetes que se van a implementar en el clúster. Se recomienda mantener este número de nodos igual o superior al número de nodos de Hyperledger Fabric especificados en la pestaña **Fabric settings** (Configuración de Fabric).
-    - **Identificador de cliente de la entidad de servicio**: Puede especificar un id. de cliente de una entidad de servicio existente o crear uno. Se requiere una entidad de servicio para la autenticación de AKS. Siga los [pasos para crear una entidad de servicio](/powershell/azure/create-azure-service-principal-azureps?view=azps-3.2.0#create-a-service-principal).
+    - **Identificador de cliente de la entidad de servicio**: Puede especificar un id. de cliente de una entidad de servicio existente o crear uno. Se requiere una entidad de servicio para la autenticación de AKS. Siga los [pasos para crear una entidad de servicio](/powershell/azure/create-azure-service-principal-azureps#create-a-service-principal).
     - **Secreto de cliente de la entidad de servicio**: Escriba el secreto de cliente de la entidad de servicio proporcionada en el id. de cliente de la entidad de servicio.
     - **Confirmar secreto del cliente**: Confirme el secreto de cliente para la entidad de servicio.
     - **Habilitar la supervisión de contenedores**: Opte por habilitar la supervisión de AKS, que permite que los registros de AKS se inserten en el área de trabajo de Log Analytics especificada.
@@ -393,23 +393,35 @@ Pase el nombre de la función de consulta y la lista de argumentos separados por
 
 ## <a name="troubleshoot"></a>Solución de problemas
 
-Ejecute los siguientes comandos para buscar la versión de implementación de la plantilla.
+### <a name="find-deployed-version"></a>Búsqueda de la versión implementada
 
-Establezca las siguientes variables de entorno según el grupo de recursos en el que haya implementado la plantilla.
-
-```bash
-
-SWITCH_TO_AKS_CLUSTER() { az aks get-credentials --resource-group $1 --name $2 --subscription $3; }
-AKS_CLUSTER_SUBSCRIPTION=<AKSClusterSubscriptionID>
-AKS_CLUSTER_RESOURCE_GROUP=<AKSClusterResourceGroup>
-AKS_CLUSTER_NAME=<AKSClusterName>
-```
-Ejecute el comando siguiente para imprimir la versión de la plantilla.
+Ejecute los siguientes comandos para buscar la versión de implementación de la plantilla. Establezca las siguientes variables de entorno según el grupo de recursos en el que haya implementado la plantilla.
 
 ```bash
 SWITCH_TO_AKS_CLUSTER $AKS_CLUSTER_RESOURCE_GROUP $AKS_CLUSTER_NAME $AKS_CLUSTER_SUBSCRIPTION
 kubectl describe pod fabric-tools -n tools | grep "Image:" | cut -d ":" -f 3
+```
 
+### <a name="patch-previous-version"></a>Revisión de la versión anterior
+
+Si tiene problemas con la ejecución de código de cadena en cualquier implementación de una versión de plantilla por debajo de v3.0.0, siga los pasos que se indican a continuación para revisar los nodos del mismo nivel con una corrección.
+
+Descargue el script de implementación del mismo nivel.
+
+```bash
+curl https://raw.githubusercontent.com/Azure/Hyperledger-Fabric-on-Azure-Kubernetes-Service/master/scripts/patchPeerDeployment.sh -o patchPeerDeployment.sh; chmod 777 patchPeerDeployment.sh
+```
+
+Ejecute el script con el comando siguiente y reemplace los parámetros del nodo del mismo nivel.
+
+```bash
+source patchPeerDeployment.sh <peerOrgSubscription> <peerOrgResourceGroup> <peerOrgAKSClusterName>
+```
+
+Espere a que se revisen todos los nodos del mismo nivel. Siempre puede comprobar el estado de los nodos del mismo nivel en una instancia diferente del shell mediante el siguiente comando.
+
+```bash
+kubectl get pods -n hlf
 ```
 
 ## <a name="support-and-feedback"></a>Soporte y comentarios

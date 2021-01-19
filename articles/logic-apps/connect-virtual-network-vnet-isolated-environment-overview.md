@@ -3,19 +3,19 @@ title: Acceso a redes virtuales de Azure
 description: Introducción sobre la forma en que los entornos de servicio de integración (ISE) facilitan el acceso de las aplicaciones lógicas a las redes virtuales (VNET) de Azure.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: jonfan, logicappspm
+ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
-ms.date: 11/12/2020
-ms.openlocfilehash: 19c9ec39d85bfc56b118498aba62c3752d6d771c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 01/11/2021
+ms.openlocfilehash: 7bb9c8552f673587891fde12e25d4fb899726c22
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95996328"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108575"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Acceso a recursos de Azure Virtual Network desde Azure Logic Apps mediante entornos de servicio de integración (ISE)
 
-En ocasiones, las aplicaciones lógicas necesitan acceder a recursos protegidos, como máquinas virtuales y otros sistemas o servicios que están dentro de una [red virtual de Azure](../virtual-network/virtual-networks-overview.md) o conectados a ella. Para configurar este acceso, puede [crear un *entorno del servicio de integración* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md). Un ISE es una instancia del servicio Logic Apps que usa recursos dedicados y se ejecuta de forma independiente al servicio Logic Apps multiinquilino "global".
+En ocasiones, las aplicaciones lógicas necesitan acceder a recursos protegidos, como máquinas virtuales y otros sistemas o servicios que están dentro de una [red virtual de Azure](../virtual-network/virtual-networks-overview.md) o conectados a ella. Para configurar este acceso, puede [crear un *entorno del servicio de integración* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md). Un ISE es una instancia del servicio Logic Apps que usa recursos dedicados y se ejecuta de forma independiente al servicio Logic Apps multiinquilino "global". Los datos de un ISE permanecen en la [misma región en la que crea e implementa ese ISE](https://azure.microsoft.com/global-infrastructure/data-residency/).
 
 Por ejemplo, algunas redes virtuales de Azure usan puntos de conexión privados (que se pueden configurar mediante [Azure Private Link](../private-link/private-link-overview.md)) para proporcionar acceso a los servicios PaaS de Azure, como Azure Storage, Azure Cosmos DB o Azure SQL Database, servicios de asociados o servicios de clientes que se hospedan en Azure. Si las aplicaciones lógicas necesitan acceder a redes virtuales que usan puntos de conexión privados, debe crear, implementar y ejecutar esas aplicaciones lógicas dentro de un ISE.
 

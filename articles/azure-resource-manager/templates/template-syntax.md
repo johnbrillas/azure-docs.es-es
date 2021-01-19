@@ -3,12 +3,12 @@ title: Estructura y sintaxis de plantillas
 description: Describe la estructura y las propiedades de plantillas de Azure Resource Manager (plantillas de ARM) mediante la sintaxis declarativa de JSON.
 ms.topic: conceptual
 ms.date: 12/17/2020
-ms.openlocfilehash: 698309c5aa0817c4b758ec81133d4c98061aa355
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 4c08612325d2776f8f1a7fe4486e6f592ca474a0
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97653136"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934703"
 ---
 # <a name="understand-the-structure-and-syntax-of-arm-templates"></a>Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager
 
@@ -35,7 +35,7 @@ En la estructura más simple, una plantilla tiene los siguientes elementos:
 
 | Nombre del elemento | Obligatorio | Descripción |
 |:--- |:--- |:--- |
-| $schema |Sí |Ubicación del archivo de esquema JSON que describe la versión del idioma de la plantilla. El número de versión que use dependerá del ámbito de la implementación y del editor de JSON.<br><br>Si usa [Visual Studio Code con la extensión de herramientas de Azure Resource Manager](quickstart-create-templates-use-visual-studio-code.md), use la versión más reciente de las implementaciones del grupo de recursos:<br>`https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#`<br><br>Es posible que otros editores (incluido Visual Studio) no puedan procesar este esquema. Para esos editores, use:<br>`https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>Para implementaciones de suscripciones, use:<br>`https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#`<br><br>Para implementaciones del grupo de administración, use:<br>`https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#`<br><br>Para implementaciones de inquilino, use:<br>`https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#` |
+| $schema |Sí |Ubicación del archivo de esquema de notación de objetos JavaScript (JSON) que describe la versión del lenguaje de plantilla. El número de versión que use dependerá del ámbito de la implementación y del editor de JSON.<br><br>Si usa [Visual Studio Code con la extensión de herramientas de Azure Resource Manager](quickstart-create-templates-use-visual-studio-code.md), utilice la versión más reciente de las implementaciones del grupo de recursos:<br>`https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#`<br><br>Es posible que otros editores (incluido Visual Studio) no puedan procesar este esquema. Para esos editores, use:<br>`https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>Para implementaciones de suscripciones, use:<br>`https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#`<br><br>Para implementaciones del grupo de administración, use:<br>`https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#`<br><br>Para implementaciones de inquilino, use:<br>`https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#` |
 | contentVersion |Sí |Versión de la plantilla (por ejemplo, 1.0.0.0). Puede especificar cualquier valor para este elemento. Use este valor para documentar los cambios importantes de la plantilla. Al implementar los recursos con la plantilla, este valor se puede usar para asegurarse de que se está usando la plantilla correcta. |
 | apiProfile |No | Una versión de API que actúa como una colección de versiones de API para los tipos de recursos. Use este valor para evitar tener que especificar las versiones de API para cada recurso de la plantilla. Si especifica una versión del perfil de API y no especifica una versión de API para el tipo de recurso, Resource Manager usa la versión de API para el tipo de recurso que está definido en el perfil.<br><br>La propiedad del perfil de API es especialmente útil al implementar una plantilla en diferentes entornos, como Azure Stack y Azure global. Use la versión del perfil de API para asegurarse de que la plantilla utilice automáticamente las versiones que se admiten en ambos entornos. Para obtener una lista de las versiones del perfil de API actuales y de las versiones de API de recursos definidas en el perfil, consulte [API Profile](https://github.com/Azure/azure-rest-api-specs/tree/master/profile) (Perfil de API).<br><br>Para más información, consulte [Seguimiento de versiones mediante perfiles de API](templates-cloud-consistency.md#track-versions-using-api-profiles). |
 | [parameters](#parameters) |No |Valores que se proporcionan cuando se ejecuta la implementación para personalizar la implementación de recursos. |
@@ -98,13 +98,13 @@ La cadena segura usa el mismo formato que la cadena y el objeto seguro usa el mi
 
 En el caso de los enteros pasados como parámetros en línea, el intervalo de valores puede estar limitado por el SDK o la herramienta de línea de comandos que use para la implementación. Por ejemplo, al usar PowerShell para implementar una plantilla, los tipos de enteros pueden oscilar entre -2 147 483 648 y 2 147 483 647. Para evitar esta limitación, especifique valores enteros grandes en un [archivo de parámetros](parameter-files.md). Los tipos de recursos aplican sus propios límites para las propiedades de enteros.
 
-Al especificar valores booleanos y enteros en la plantilla, no incluya el valor entre comillas. Los valores de cadena inicial y final se incluyen entre comillas dobles.
+Al especificar valores booleanos y enteros en la plantilla, no incluya el valor entre comillas. Los valores de cadena inicial y final se incluyen entre comillas dobles (`"string value"`).
 
-Los objetos comienzan con una llave de apertura y terminan con una llave de cierre. Las matrices comienzan con un corchete de apertura y terminan con un corchete de cierre.
+Los objetos comienzan con una llave de apertura (`{`) y terminan con una llave de cierre (`}`). Las matrices comienzan con un corchete de apertura (`[`) y terminan con un corchete de cierre (`]`).
 
 ## <a name="parameters"></a>Parámetros
 
-En la sección de parámetros de la plantilla, especifique los valores que el usuario puede introducir al implementar los recursos. Está limitado a 256 parámetros en una plantilla. Puede reducir el número de parámetros mediante el uso de objetos que contienen varias propiedades.
+En la sección `parameters` de la plantilla, especifique los valores que el usuario puede introducir al implementar los recursos. Está limitado a 256 parámetros en una plantilla. Puede reducir el número de parámetros mediante el uso de objetos que contienen varias propiedades.
 
 Las propiedades disponibles para un parámetro son:
 
@@ -141,7 +141,7 @@ Para ejemplos de cómo usar los parámetros, ve [Parámetros en plantillas de AR
 
 ## <a name="variables"></a>variables
 
-En la sección de variables, se crean valores que pueden usarse en toda la plantilla. No es necesario definir las variables, pero a menudo simplifican la plantilla reduciendo expresiones complejas. El formato de cada variable coincide con uno de los [tipos de datos](#data-types).
+En la sección `variables`, se crean valores que pueden usarse en toda la plantilla. No es necesario definir las variables, pero a menudo simplifican la plantilla reduciendo expresiones complejas. El formato de cada variable coincide con uno de los [tipos de datos](#data-types).
 
 En el ejemplo siguiente se muestran las opciones disponibles para definir una variable:
 
@@ -211,7 +211,7 @@ Al definir una función de usuario, hay algunas restricciones:
 | Nombre del elemento | Obligatorio | Descripción |
 |:--- |:--- |:--- |
 | espacio de nombres |Sí |Espacio de nombres para las funciones personalizadas. Se usa para evitar conflictos de nomenclatura con funciones de plantilla. |
-| nombre-de-la-función |Sí |Nombre de la función personalizada. Al llamar a la función, combine el nombre de la función con el espacio de nombres. Por ejemplo, para llamar a una función denominada uniqueName en el espacio de nombres contoso, use `"[contoso.uniqueName()]"`. |
+| nombre-de-la-función |Sí |Nombre de la función personalizada. Al llamar a la función, combine el nombre de la función con el espacio de nombres. Por ejemplo, para llamar a una función denominada `uniqueName` en el espacio de nombres contoso, use `"[contoso.uniqueName()]"`. |
 | nombre-del-parámetro |No |Nombre del parámetro que se va a usar en la función personalizada. |
 | valor-del-parámetro |No |Tipo del valor del parámetro. Los tipos y valores permitidos son **string**, **secureString**, **int**, **bool**, **objet**, **secureObject** y **array**. |
 | tipo de salida |Sí |Tipo del valor de salida. Los valores de salida admiten los mismos tipos que los parámetros de entrada de función. |
@@ -221,7 +221,7 @@ Para ejemplos de cómo usar las funciones personalizadas, vea [Funciones definid
 
 ## <a name="resources"></a>Recursos
 
-En la sección de recursos, se define que los recursos se implementan o se actualizan.
+En la sección `resources`, se definen los recursos que se implementan o se actualizan.
 
 Defina recursos con la siguiente estructura:
 
@@ -282,7 +282,7 @@ Defina recursos con la siguiente estructura:
 | Nombre del elemento | Obligatorio | Descripción |
 |:--- |:--- |:--- |
 | condición | No | Valor booleano que indica si el recurso se aprovisionará durante esta implementación. Si es `true`, el recurso se crea durante la implementación. Si es `false`, el recurso se omite para esta implementación. Consulte [condition](conditional-resource-deployment.md). |
-| type |Sí |Tipo de recurso. Este valor es una combinación del espacio de nombres del proveedor de recursos y el tipo de recurso (como **Microsoft.Storage/storageAccounts**). Para determinar los valores disponibles, consulte la [referencia de plantilla](/azure/templates/). Para un recurso secundario, el formato del tipo depende de si está anidado dentro del recurso primario o se ha definido fuera del recurso primario. Consulte [Establecimiento del nombre y el tipo de recursos secundarios](child-resource-name-type.md). |
+| type |Sí |Tipo de recurso. Este valor es una combinación del espacio de nombres del proveedor de recursos y el tipo de recurso (por ejemplo, `Microsoft.Storage/storageAccounts`). Para determinar los valores disponibles, consulte la [referencia de plantilla](/azure/templates/). Para un recurso secundario, el formato del tipo depende de si está anidado dentro del recurso primario o se ha definido fuera del recurso primario. Consulte [Establecimiento del nombre y el tipo de recursos secundarios](child-resource-name-type.md). |
 | apiVersion |Sí |Versión de la API de REST que debe usar para crear el recurso. Al crear una plantilla, establezca este valor en la última versión del recurso que va a implementar. Siempre que la plantilla funcione según sea necesario, siga usando la misma versión de la API. Al seguir usando la misma versión de la API, se minimiza el riesgo de que una nueva versión de la API cambie el funcionamiento de la plantilla. Considere la posibilidad de actualizar la versión de la API solo cuando desee usar una característica nueva que se presenta en una versión posterior. Para determinar los valores disponibles, consulte la [referencia de plantilla](/azure/templates/). |
 | name |Sí |Nombre del recurso. El nombre debe cumplir las restricciones de componente URI definidas en RFC3986. Los servicios de Azure que exponen el nombre del recurso a partes externas validan el nombre para asegurarse de que no es un intento de suplantar otra identidad. Para un recurso secundario, el formato del nombre depende de si está anidado dentro del recurso primario o se ha definido fuera del recurso primario. Consulte [Establecimiento del nombre y el tipo de recursos secundarios](child-resource-name-type.md). |
 | comments |No |Notas para documentar los recursos de la plantilla. Para más información, consulte [Comentarios en plantillas](template-syntax.md#comments). |
@@ -298,7 +298,7 @@ Defina recursos con la siguiente estructura:
 
 ## <a name="outputs"></a>Salidas
 
-En la sección de salidas, especifique valores que se devuelven de la implementación. Normalmente, devuelve valores de los recursos implementados.
+En la sección `outputs`, especifique los valores que se devuelven de la implementación. Normalmente, devuelve valores de los recursos implementados.
 
 En el ejemplo siguiente se muestra la estructura de una definición de salida:
 
@@ -351,7 +351,7 @@ Para los comentarios en línea, puede usar `//` o `/* ... */`, pero esta sintaxi
   ],
 ```
 
-En Visual Studio Code, la [extensión de herramientas de Azure Resource Manager](quickstart-create-templates-use-visual-studio-code.md) puede detectar automáticamente una plantilla de ARM y cambiar el modo de lenguaje. Si ve **Plantilla de Azure Resource Manager** en la esquina inferior derecha de VS Code, puede usar los comentarios en línea. Los comentarios insertados ya no están marcados como no válidos.
+En Visual Studio Code, la [extensión de herramientas de Azure Resource Manager](quickstart-create-templates-use-visual-studio-code.md) puede detectar automáticamente una plantilla de ARM y cambiar el modo de lenguaje. Si ve **Plantilla de Azure Resource Manager** en la esquina inferior derecha de Visual Studio Code, puede usar los comentarios en línea. Los comentarios insertados ya no están marcados como no válidos.
 
 ![Modo de plantillas de Azure Resource Manager en Visual Studio Code](./media/template-syntax/resource-manager-template-editor-mode.png)
 
@@ -369,7 +369,7 @@ Puede agregar un objeto `metadata` prácticamente en cualquier parte de la plant
   },
 ```
 
-Para **parameters**, agregue un objeto `metadata` con una propiedad `description`.
+Para `parameters`, agregue un objeto `metadata` con una propiedad `description`.
 
 ```json
 "parameters": {
@@ -385,7 +385,7 @@ Al implementar la plantilla a través del portal, el texto que proporciona en la
 
 ![Mostrar sugerencia de parámetros](./media/template-syntax/show-parameter-tip.png)
 
-Para **resources**, agregue un elemento `comments` o un objeto de metadatos. En el ejemplo siguiente se muestra un elemento de comentarios y un objeto de metadatos.
+Para `resources`, agregue un elemento `comments` o un objeto `metadata`. En el ejemplo siguiente se muestra un elemento `comments` y un objeto `metadata`.
 
 ```json
 "resources": [
@@ -411,7 +411,7 @@ Para **resources**, agregue un elemento `comments` o un objeto de metadatos. En 
 ]
 ```
 
-Para **outputs**, agregue un objeto de metadatos para el valor de salida.
+Para `outputs`, agregue un objeto `metadata` al valor de salida.
 
 ```json
 "outputs": {
@@ -424,11 +424,11 @@ Para **outputs**, agregue un objeto de metadatos para el valor de salida.
   },
 ```
 
-No se puede agregar un objeto de metadatos a las funciones definidas por el usuario.
+No se puede agregar un objeto `metadata` a las funciones definidas por el usuario.
 
 ## <a name="multi-line-strings"></a>Cadenas de varias líneas
 
-Una cadena se puede dividir en varias líneas. Por ejemplo, consulte la propiedad location y uno de los comentarios del ejemplo de JSON siguiente.
+Una cadena se puede dividir en varias líneas. Por ejemplo, consulte la propiedad `location` y uno de los comentarios del ejemplo de JSON siguiente.
 
 ```json
 {
@@ -448,7 +448,8 @@ Una cadena se puede dividir en varias líneas. Por ejemplo, consulte la propieda
   ],
 ```
 
-Para implementar plantillas con cadenas de varias líneas mediante la CLI de Azure con la versión 2.3.0 o posterior, debe usar el modificador `--handle-extended-json-format`.
+> [!NOTE]
+> Para implementar plantillas con cadenas de varias líneas mediante la CLI de Azure con la versión 2.3.0 o posterior, debe usar el modificador `--handle-extended-json-format`.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

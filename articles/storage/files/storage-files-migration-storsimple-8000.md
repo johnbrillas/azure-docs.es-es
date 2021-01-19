@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 1e45c39a8f562ca6264ab631dfadc84315b58030
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 08ed07adbfe0fc4b22d8a3d0afcfc9ab1312dba4
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97723985"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98134354"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>Migración de las series 8100 y 8600 de StorSimple a Azure File Sync
 
@@ -441,6 +441,9 @@ En este momento, hay diferencias entre el servidor de la instancia de Windows S
 1. Es posible que el trabajo de transformación de datos haya omitido algunos archivos debido a caracteres no válidos. Si es así, cópielos en la instancia de Windows Server habilitada para Azure File Sync. Más adelante, puede ajustarlos para que se sincronicen. Si no usa Azure File Sync para un recurso compartido determinado, es mejor cambiar el nombre de los archivos por caracteres no válidos en el volumen de StorSimple. Después, ejecute RoboCopy directamente en el recurso compartido de archivos de Azure.
 
 > [!WARNING]
+> En la actualidad, Robocopy en Windows Server 2019 experimenta un problema que provocará que los archivos organizados por niveles con Azure File Sync en el servidor de destino se copien nuevamente desde el origen y se vuelvan a cargar en Azure cuando se usa la función /MIR de Robocopy. Es indispensable que use Robocopy en una versión de Windows Server que no sea 2019. La mejor opción es Windows Server 2016. Esta nota se actualizará en caso de que el problema se resuelva a través de Windows Update.
+
+> [!WARNING]
 > *No debe* iniciar RoboCopy antes de que el servidor tenga el espacio de nombres de un recurso compartido de archivos de Azure descargado completamente. Para obtener más información, consulte [Determinación de si el espacio de nombres se ha sincronizado por completo en el servidor](#determine-when-your-namespace-has-fully-synced-to-your-server).
 
  Solo desea copiar los archivos que se cambiaron después de la última vez que se ejecutó el trabajo de migración y los archivos que no se trasladaron antes a través de estos trabajos. Puede solucionar el problema por el que no se trasladaron al servidor, una vez que haya finalizado la migración. Para más información, vea [Solución de problemas de Azure File Sync](storage-sync-files-troubleshoot.md#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing).
@@ -448,7 +451,7 @@ En este momento, hay diferencias entre el servidor de la instancia de Windows S
 RoboCopy tiene varios parámetros. El siguiente ejemplo muestra un comando terminado y una lista de razones para elegir estos parámetros.
 
 ```console
-Robocopy /MT:16 /UNILOG:<file name> /TEE /NP /B /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
+Robocopy /MT:16 /UNILOG:<file name> /TEE /NP /B /MIR /IT /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
 ```
 
 Fondo:
@@ -499,6 +502,14 @@ Fondo:
    :::column-end:::
    :::column span="1":::
       Permite que RoboCopy solo tenga en cuenta los diferenciales entre el origen (aplicación StorSimple) y el destino (directorio de Windows Server).
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      /IT
+   :::column-end:::
+   :::column span="1":::
+      Garantiza que se conserve la fidelidad en ciertos escenarios de reflejo.</br>Ejemplo: Entre dos ejecuciones de Robocopy, un archivo experimenta un cambio de ACL y una actualización de atributo, por ejemplo, también está marcado como *oculto*. Sin /IT, Robocopy podría omitir el cambio de ACL y, por tanto, no se transferiría a la ubicación de destino.
    :::column-end:::
 :::row-end:::
 :::row:::

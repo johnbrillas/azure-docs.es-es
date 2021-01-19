@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 09/11/2018
 ms.author: kenwith
-ms.openlocfilehash: 714cbb06506cc3e0dffe74007712d9cbad072284
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: f873608d07785e6b99bd8e0fcdadf64a8899d490
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94655075"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108422"
 ---
 # <a name="troubleshoot-common-problem-adding-or-removing-an-application-to-azure-active-directory"></a>Solución de problemas comunes al agregar o eliminar una aplicación en Azure Active Directory
 Este artículo le ayuda a comprender los problemas comunes a los que los usuarios se enfrentan al agregar o eliminar una aplicación en Azure Active Directory.
@@ -43,7 +43,7 @@ El botón Eliminar se deshabilitará en los escenarios siguientes:
 
 - En el caso de las aplicaciones de Microsoft, no podrá eliminarlas de la interfaz de usuario, independientemente de su rol.
 
-- Para servicePrincipals que se corresponden con una identidad administrada. Las entidades de servicio de identidades administradas no se pueden eliminar en la hoja Aplicaciones empresariales. Debe ir al recurso de Azure para administrarlo. Más información sobre la [identidad administrada](../managed-identities-azure-resources/overview.md)
+- Para servicePrincipals que se corresponden con una identidad administrada. Las entidades de servicio de identidades administradas no se pueden eliminar en la hoja Aplicaciones empresariales. Debe ir al recurso de Azure para administrarlo. Obtenga más información sobre la [identidad administrada](../managed-identities-azure-resources/overview.md).
 
 ## <a name="how-to-see-the-details-of-a-portal-notification"></a>Visualización de los detalles de una notificación del portal
 Puede ver los detalles de cualquier notificación del portal si sigue los pasos siguientes:

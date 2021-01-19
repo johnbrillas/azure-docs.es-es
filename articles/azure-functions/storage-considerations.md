@@ -3,12 +3,12 @@ title: Consideraciones de almacenamiento de Azure Functions
 description: Conozca los requisitos de almacenamiento de Azure Functions y aprenda a cifrar los datos almacenados.
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.openlocfilehash: 67ff822208f065041e479fc484173d9f06a773ba
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 66bfded384be47224e86ee8e0a2999fe3d4ed5d9
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97107250"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936165"
 ---
 # <a name="storage-considerations-for-azure-functions"></a>Consideraciones de almacenamiento de Azure Functions
 
@@ -18,7 +18,7 @@ Azure Functions necesita una cuenta de Azure Storage para crear una instancia de
 |Servicio de Storage  | Uso de Functions  |
 |---------|---------|
 | [Almacenamiento de blobs de Azure](../storage/blobs/storage-blobs-introduction.md)     | Mantener el estado de los enlaces y las teclas de función.  <br/>También se utiliza en la [central de tareas de Durable Functions](durable/durable-functions-task-hubs.md). |
-| [Archivos de Azure](../storage/files/storage-files-introduction.md)  | Recurso compartido de archivos que se utiliza para almacenar y ejecutar el código de la aplicación de funciones en un [plan de consumo](functions-scale.md#consumption-plan) y un [plan prémium](functions-scale.md#premium-plan). |
+| [Archivos de Azure](../storage/files/storage-files-introduction.md)  | Recurso compartido de archivos que se utiliza para almacenar y ejecutar el código de la aplicación de funciones en un [plan de consumo](consumption-plan.md) y un [plan prémium](functions-premium-plan.md). |
 | [Azure Queue Storage](../storage/queues/storage-queues-introduction.md)     | Se utiliza en la [central de tareas de Durable Functions](durable/durable-functions-task-hubs.md).   |
 | [Azure Table Storage](../storage/tables/table-storage-overview.md)  |  Se utiliza en la [central de tareas de Durable Functions](durable/durable-functions-task-hubs.md).       |
 
@@ -32,6 +32,8 @@ Al crear una aplicación de funciones, debe crear o vincular una cuenta de Azure
 Para más información sobre los tipos de cuenta de almacenamiento, consulte [Introducción de los servicios Azure Storage](../storage/common/storage-introduction.md#core-storage-services). 
 
 Aunque puede usar una cuenta de almacenamiento existente con la aplicación de funciones, debe asegurarse de que cumple estos requisitos. Las cuentas de almacenamiento creadas como parte del flujo de creación de aplicaciones de funciones en Azure Portal tienen la garantía de que satisfacen estos requisitos de la cuenta de almacenamiento. En el portal, las cuentas no admitidas se filtran al elegir una cuenta de almacenamiento existente durante la creación de una aplicación de funciones. En este flujo, solo se permite elegir cuentas de almacenamiento existentes en la misma región que la aplicación de funciones que está creando. Para más información, consulte [Ubicación de la cuenta de almacenamiento](#storage-account-location).
+
+<!-- JH: Does using a Premium Storage account improve perf? -->
 
 ## <a name="storage-account-guidance"></a>Guía de la cuenta de almacenamiento
 
@@ -59,7 +61,15 @@ Una misma cuenta de almacenamiento puede estar compartida entre varias aplicacio
 
 [!INCLUDE [functions-storage-encryption](../../includes/functions-storage-encryption.md)]
 
-## <a name="mount-file-shares-linux"></a>Montaje de recursos compartidos de archivos (Linux)
+### <a name="in-region-data-residency"></a>Residencia de datos en la región
+
+Cuando todos los datos del cliente deban permanecer dentro de una única región, la cuenta de almacenamiento asociada a la aplicación de funciones debe ser una que tenga [redundancia en la región](../storage/common/storage-redundancy.md). También se debe usar una cuenta de almacenamiento con redundancia en la región con [Azure Durable Functions](./durable/durable-functions-perf-and-scale.md#storage-account-selection).
+
+Otros datos de clientes administrados por la plataforma solo se almacenan dentro de la región cuando se hospedan en una instancia de App Service Environment (ASE) con equilibrio de carga interno. Para más información, consulte [Redundancia de zona de ASE](../app-service/environment/zone-redundancy.md#in-region-data-residency).
+
+## <a name="mount-file-shares"></a>Montaje de recursos compartidos de archivos
+
+_Esta funcionalidad solo está disponible cuando se ejecuta en Linux._ 
 
 Puede montar recursos compartidos de Azure Files existentes en las aplicaciones de funciones de Linux. Al montar un recurso compartido en la aplicación de funciones de Linux, puede aprovechar los modelos de aprendizaje automático existentes u otros datos en sus funciones. Puede usar el comando [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account#az-webapp-config-storage-account-add) para montar un recurso compartido existente en la aplicación de funciones de Linux. 
 

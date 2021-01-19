@@ -3,12 +3,12 @@ title: Procedimientos recomendados
 description: Obtenga información sobre los procedimientos recomendados y sugerencias útiles para desarrollar sus soluciones de Azure Batch.
 ms.date: 12/18/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5c3521a3b5fe0dd9c2d1534f6e2a6864647f5da3
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: 7e2a49c8307af89fb3898f5f2513fb493d0f5d90
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97694169"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934295"
 ---
 # <a name="azure-batch-best-practices"></a>Procedimientos recomendados de Azure Batch
 
@@ -24,6 +24,9 @@ Los [grupos](nodes-and-pools.md#pools) de Batch son los recursos de proceso para
 ### <a name="pool-configuration-and-naming"></a>Configuración y nomenclatura de grupos
 
 - **Modo de asignación de grupo** Al crear una cuenta de Batch, puede elegir entre dos modos de asignación de grupo: **Servicio de Batch** o **Suscripción de usuario**. En la mayoría de los casos, debe usar el modo predeterminado servicio Batch, en el que los grupos se asignan en segundo plano en las suscripciones administradas por Batch. En el modo de suscripción de usuario alternativo, tanto las máquinas virtuales de Batch como otros recursos se crean directamente en su suscripción cuando se crea un grupo. Las cuentas de suscripción de usuario se utilizan principalmente para habilitar un subconjunto importante, pero pequeño, de escenarios. Puede obtener más información sobre el modo de suscripción de usuario en [Configuración adicional para el modo de suscripción de usuario](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode).
+
+- **"cloudServiceConfiguration" o "virtualMachineConfiguration".**
+    Se debe usar "virtualMachineConfiguration". Todas las características de Batch son compatibles con grupos "virtualMachineConfiguration". No todas las características se admiten en los grupos "cloudServiceConfiguration" y no está prevista ninguna nueva funcionalidad.
 
 - **Tenga en cuenta el tiempo de ejecución del trabajo y de la tarea al determinar la asignación del trabajo al grupo.**
     Si tiene trabajos compuestos principalmente de tareas de ejecución breve y los recuentos de tareas totales esperados son pequeños (por lo que el tiempo de ejecución global previsto del trabajo no es largo), no asigne un nuevo grupo a cada trabajo. El tiempo de asignación de los nodos acortará el tiempo de ejecución del trabajo.

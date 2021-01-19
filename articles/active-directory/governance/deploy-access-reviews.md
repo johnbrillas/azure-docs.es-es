@@ -16,12 +16,12 @@ ms.date: 12/23/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2e670525840b801df874e3f8dcbdbadc0955a12
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.openlocfilehash: 4122e645b76751e8944704a6405cf5dee09129f1
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97746310"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97932442"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Planeamiento de una implementación de revisiones de acceso de Azure Active Directory
 
@@ -333,9 +333,9 @@ Los grupos que se sincronizan desde una instancia local de Active Directory no p
 > [!NOTE]
 > Se recomienda definir directivas empresariales que determinen cómo se crean los grupos para establecer la propiedad y responsabilidad de los grupos de forma clara y revisar periódicamente la pertenencia. 
 
-### <a name="review-membership-of-exclusion-groups-in-ca-policies"></a>Revisión de la pertenencia a grupos de exclusión en directivas de CA 
+### <a name="review-membership-of-exclusion-groups-in-conditional-access-policies"></a>Revisión de la pertenencia de los grupos de exclusión en las directivas de acceso condicional 
 
-Hay ocasiones en las que las directivas de acceso condicional (CA) diseñadas para proteger su red no se deben aplicar a todos los usuarios. Por ejemplo, una directiva de CA que solo permita a los usuarios iniciar sesión cuando están conectados a la red corporativa podría no aplicarse al equipo de ventas, que viaja constantemente. En ese caso, los miembros del equipo de ventas se incluirían en un grupo, y ese grupo se excluiría de la directiva de CA. 
+Hay ocasiones en las que las directivas de acceso condicional diseñadas para proteger su red no se deberían aplicar a todos los usuarios. Por ejemplo, una directiva de acceso condicional que solo permita a los usuarios iniciar sesión cuando están conectados a la red corporativa podría no aplicarse al equipo de ventas, que viaja constantemente. En ese caso, los miembros del equipo de ventas se incluirían en un grupo, y ese grupo se excluiría de la directiva de acceso condicional. 
 
 Revise la pertenencia a este grupo con regularidad, ya que la exclusión plantea un riesgo potencial si los miembros equivocados se excluyen del requisito.
 

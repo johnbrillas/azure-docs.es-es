@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 11/16/2020
+ms.date: 01/11/2021
 ms.author: victorh
-ms.openlocfilehash: c5613dda7adbbc47f989bc2a772777e716620b3c
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 0df91680dadbc4ac19299a4df48a585a11f044e8
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97348040"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98072248"
 ---
 # <a name="azure-firewall-snat-private-ip-address-ranges"></a>Intervalos de direcciones IP privadas de SNAT de Azure Firewall
 
@@ -25,6 +25,9 @@ Si su organización usa un intervalo de direcciones IP públicas para las redes
 - Para configurar Azure Firewall en **nunca** aplicar SNAT, independientemente de la dirección IP de destino, use **0.0.0.0/0** como intervalo de direcciones IP privadas. Con esta configuración, Azure Firewall nunca puede enrutar el tráfico directamente a Internet. 
 
 - Para configurar el firewall en **siempre** aplicar SNAT, independientemente de la dirección IP de destino, use **255.255.255.255/32** como intervalo de direcciones IP privadas.
+
+> [!IMPORTANT]
+> El intervalo de direcciones privadas que especifique solo se aplicará a las reglas de red. Actualmente, las reglas de aplicación siempre son SNAT.
 
 > [!IMPORTANT]
 > Si desea especificar sus propios intervalos de direcciones IP privadas y mantener los intervalos de direcciones RFC 1918 de IANA predeterminados, asegúrese de que la lista personalizada todavía incluye el intervalo de RFC 1918 de IANA. 

@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
-ms.date: 11/16/2020
-ms.openlocfilehash: aaf0374bcafdb91f316b7133de1c2d019b12b285
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.date: 12/18/2020
+ms.openlocfilehash: 091af70383eb3cab32a0453d7f7542d8a4395d0b
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302858"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98107402"
 ---
 # <a name="introduction-to-listing-options"></a>Introducción a las opciones de lista
 
@@ -26,21 +26,23 @@ Cuando crea un tipo de oferta, debe elegir una o varias opciones de la lista. Es
 
 En esta tabla se muestra qué opciones de lista están disponibles para cada tipo de oferta.
 
-| Tipo de oferta | Versión de prueba gratuita | Versión de prueba | Ponerse en contacto conmigo | Obtener ahora (procesable) |
+| Tipo de oferta | Versión de prueba gratuita | Versión de prueba | Ponerse en contacto conmigo | Obténgalo ahora `*` |
 | ------------ | ------------- | ------------- | ------------- | ------------- |
 | Aplicación de Azure (aplicación administrada) |   | &#10004; |   | &#10004; |
-| Aplicación de Azure (plantilla de solución) |  |  |  |  |
+| Aplicación de Azure (plantilla de solución) |  |  |  | &#10004; |
 | Servicios de consultoría |  |  | &#10004; |  |
-| Contenedor de Azure |  |  |  |  |
-| Dynamics 365 Business Central | &#10004; | &#10004; | &#10004; |  |
-| Dynamics 365 Customer Engagement & PowerApps | &#10004; | &#10004; | &#10004; |  |
-| Dynamics 365 for Operations | &#10004; | &#10004; | &#10004; |  |
-| Módulo IoT Edge |  |  |  |  |
-| Servicio administrado |  |  |  |  |
-| Aplicación Power BI |  |  |  |  |
+| Contenedor de Azure |  |  |  | &#10004; |
+| Dynamics 365 Business Central | &#10004; | &#10004; | &#10004; | &#10004; |
+| Dynamics 365 Customer Engagement & PowerApps | &#10004; | &#10004; | &#10004; | &#10004; |
+| Dynamics 365 for Operations | &#10004; | &#10004; | &#10004; | &#10004; |
+| Módulo IoT Edge |  |  |  | &#10004; |
+| Servicio administrado |  |  |  | &#10004; |
+| Aplicación Power BI |  |  |  | &#10004; |
 | Máquina virtual de Azure | &#10004; | &#10004; |  | &#10004; |
 | Software como servicio | &#10004; | &#10004; | &#10004; | &#10004; |
 ||||||
+
+`*` La opción de lista Obténgalo ahora incluye Obténgalo ahora (de forma gratuita), Traiga su propia licencia (BYOL), Suscripción y Precios basados en el uso. Para obtener información detallada, vea [Obténgalo ahora](#get-it-now).
 
 ### <a name="free-trial"></a>Versión de prueba gratuita
 

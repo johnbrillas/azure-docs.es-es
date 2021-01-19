@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2020
 ms.author: blehr
-ms.openlocfilehash: add763b713b93604e089d7aec586876fecd2887c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: bd35d3288591a01c14e306960601eef6dea7e761
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95895645"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97954148"
 ---
 # <a name="quickstart-create-a-public-ip-address-using-the-azure-portal"></a>Inicio rápido: Creación de una dirección IP pública mediante Azure Portal
 
@@ -36,6 +36,7 @@ Use los pasos siguientes para crear una dirección IP pública estándar con red
     | ---                     | ---                         |
     | Versión de la dirección IP              | Seleccione IPv4                 |    
     | SKU                     | Seleccione **Estándar**.         |
+    | Nivel (si se muestra *)                  | Seleccione **Regional**.         |
     | Nombre                    | Escriba *myStandardZRPublicIP*          |
     | Asignación de dirección IP   | Tenga en cuenta que se bloqueará como "estática".                                        |
     | Tiempo de espera de inactividad (minutos)  | Deje el valor en 4.        |
@@ -46,6 +47,8 @@ Use los pasos siguientes para crear una dirección IP pública estándar con red
     | Zona de disponibilidad       | Seleccione **Con redundancia de zona** o elija una zona específica (consulte la nota siguiente). |
 
 Tenga en cuenta que estas opciones solo son selecciones válidas en regiones con [zonas de disponibilidad](https://docs.microsoft.com/azure/availability-zones/az-overview?toc=/azure/virtual-network/toc.json#availability-zones).  (También puede seleccionar una zona específica en estas regiones, aunque no sea resistente a errores de zona).
+
+\* = el nivel está relacionado con la funcionalidad [Equilibrador de carga entre regiones](https://docs.microsoft.com/azure/load-balancer/cross-region-overview), actualmente en versión preliminar.
 
 # <a name="basic-sku"></a>[**SKU básica**](#tab/option-create-public-ip-basic)
 

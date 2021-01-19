@@ -13,12 +13,12 @@ ms.date: 01/04/2021
 ms.author: damendo
 ms.reviewer: vinigam
 ms.custom: references_regions
-ms.openlocfilehash: 8b1eedc47d2a89b9552c22b3ae770f655f926945
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 6cd1965ab51e7a7bbcc65836383000f0773b9b82
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97898783"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98070967"
 ---
 # <a name="traffic-analytics"></a>Análisis de tráfico
 
@@ -269,7 +269,7 @@ Algunas de las informaciones detalladas que puede obtener una vez que Análisis 
 - Estadísticas del tráfico bloqueado.
     - ¿Por qué un host bloquea un volumen significativo de tráfico benigno? Este comportamiento requiere más investigación y probablemente se deba optimizar la configuración.
 - Estadísticas de tráfico malintencionado permitido o bloqueado
-  - ¿Por qué un host recibe tráfico malintencionado y por qué se permiten flujos provenientes de un origen malintencionado? Este comportamiento requiere más investigación y probablemente se deba optimizar la configuración.
+  - ¿Por qué un host recibe tráfico malintencionado y por qué se permiten flujos provenientes de orígenes malintencionados? Este comportamiento requiere más investigación y probablemente se deba optimizar la configuración.
 
     Seleccione **Ver todo** en **Host**, como se muestra en la imagen siguiente:
 

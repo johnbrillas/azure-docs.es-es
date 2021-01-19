@@ -3,12 +3,12 @@ title: Dirección IP estática del grupo de contenedores
 description: Creación de un grupo de contenedores en una red virtual y uso de una instancia de Azure Application Gateway para exponer una dirección IP de front-end estática en una aplicación web en contenedor
 ms.topic: article
 ms.date: 03/16/2020
-ms.openlocfilehash: bc128da0f4c2e92af98781cef45f48f9e8aeab31
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0131780fdb04a71837d5ae9bf5498bf2bd499f8a
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86260777"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98035060"
 ---
 # <a name="expose-a-static-ip-address-for-a-container-group"></a>Exposición de una dirección IP estática para un grupo de contenedores
 
@@ -100,6 +100,9 @@ ACI_IP=$(az container show \
   --resource-group myResourceGroup \
   --query ipAddress.ip --output tsv)
 ```
+
+> [!IMPORTANT]
+> Si el grupo de contenedores se detiene, se inicia o se reinicia, la dirección IP privada del grupo de contenedores está sujeta a cambios. Si esto sucede, tendrá que actualizar la configuración de la puerta de enlace de aplicación.
 
 ## <a name="create-application-gateway"></a>Creación de una puerta de enlace de aplicaciones
 

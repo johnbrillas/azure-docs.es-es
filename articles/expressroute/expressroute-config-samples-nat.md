@@ -5,18 +5,18 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: article
-ms.date: 12/06/2018
+ms.date: 01/07/2021
 ms.author: duau
-ms.openlocfilehash: 4b57dec32a3a008cadf68c19ea52353a23fb2cd3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae0a39d65bf0f1bc5221cd5e46493c489f7630f8
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89397501"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98012672"
 ---
 # <a name="router-configuration-samples-to-set-up-and-manage-nat"></a>Ejemplos de configuración de enrutadores para configurar y administrar NAT
 
-En esta página se proporcionan ejemplos de configuración de NAT para enrutadores Cisco serie ASA y Juniper serie SRX al trabajar con ExpressRoute. Solo pretenden ser ejemplos de carácter informativo y no se deben usar tal cual. Puede trabajar con el proveedor para elaborar las configuraciones adecuadas para la red.
+En este artículo se proporcionan ejemplos de configuración de NAT para enrutadores Cisco serie ASA y Juniper serie SRX al trabajar con ExpressRoute. Estas configuraciones de enrutador pretenden ser ejemplos de carácter informativo y no se deben usar tal cual. Tendrá que trabajar con el proveedor para elaborar las configuraciones adecuadas para la red.
 
 > [!IMPORTANT]
 > Los ejemplos de esta página pretenden tener un carácter meramente informativo. Debe trabajar con los equipos técnico y de ventas del proveedor y su equipo de red para elaborar las configuraciones adecuadas que satisfagan sus necesidades. Microsoft no dará soporte técnico en problemas relacionados con las configuraciones que aparecen en esta página. Debe ponerse en contacto con el fabricante del dispositivo para problemas de soporte técnico.
@@ -361,5 +361,5 @@ Consulte ejemplos en la página [Ejemplos de configuración de enrutamiento ](ex
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte [P+F de ExpressRoute](expressroute-faqs.md) para obtener más detalles.
+Para más información, consulte el artículo sobre [Preguntas más frecuentes de ExpressRoute](expressroute-faqs.md).
 

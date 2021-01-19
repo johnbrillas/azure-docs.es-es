@@ -1,90 +1,90 @@
 ---
 title: Solución de problemas de Azure Data Share
-description: Obtenga información sobre cómo solucionar problemas con invitaciones y errores al crear o recibir recursos compartidos de datos con Azure Data Share.
+description: Aprenda a solucionar problemas con invitaciones y errores al crear o recibir recursos compartidos de datos en Azure Data Share.
 services: data-share
 author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: troubleshooting
 ms.date: 12/16/2020
-ms.openlocfilehash: c93ce9c81ada3c30128846b43041603e132abd88
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 3aa1c0b8579bd37d2bb51cbde70997131c696813
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97617245"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964514"
 ---
-# <a name="troubleshoot-common-issues-in-azure-data-share"></a>Solución de problemas habituales de Azure Data Share 
+# <a name="troubleshoot-common-problems-in-azure-data-share"></a>Solucionar problemas comunes de Azure Data Share 
 
-En este artículo se muestra cómo solucionar problemas habituales de Azure Data Share. 
+En este artículo se explica cómo solucionar problemas comunes de Azure Data Share. 
 
 ## <a name="azure-data-share-invitations"></a>Invitaciones de Azure Data Share 
 
-En algunos casos, si un usuario nuevo hace clic en **Accept Invitation** (Aceptar invitación) en la invitación de correo electrónico que se envió, pueden aparecer una lista vacía de invitaciones. 
+En algunos casos, cuando un usuario nuevo selecciona **Accept Invitation** (Aceptar invitación) en una invitación de correo electrónico, es posible que vea una lista de invitaciones vacía. 
 
-![No hay invitaciones](media/no-invites.png)
+:::image type="content" source="media/no-invites.png" alt-text="Captura de pantalla que muestra una lista de invitaciones vacía.":::
 
-Esto puede deberse a los siguientes motivos:
+Este problema puede deberse a uno de los siguientes motivos:
 
-* **El servicio Azure Data Share no está registrado como proveedor de recursos de ninguna suscripción de Azure en el inquilino de Azure.** Tendrá este problema si no hay ningún recurso compartido de datos en su inquilino de Azure. Cuando se crea un recurso de Azure Data Share, se registra automáticamente el proveedor de recursos en la suscripción de Azure. También puede registrar manualmente el servicio Data Share si sigue estos pasos. Para completar estos pasos, debe tener el rol Colaborador de Azure.
+* **El servicio Azure Data Share no está registrado como proveedor de recursos de ninguna suscripción de Azure en el inquilino de Azure.** Este problema se produce si no hay ningún recurso compartido de datos en su inquilino de Azure. 
 
-    1. En Azure Portal, vaya a **Suscripciones**
-    1. Seleccione la suscripción de Azure que quiere usar para crear un recurso de Azure Data Share
-    1. Haga clic en **Proveedores de recursos**
-    1. Busque **Microsoft.DataShare**
-    1. Haga clic en **Registrar**. 
+    Cuando se crea un recurso de Azure Data Share, se registra automáticamente el proveedor de recursos en la suscripción de Azure. Puede registrar manualmente el servicio Data Share siguiendo estos pasos. Para completar estos pasos, debe tener el [rol Colaborador](../role-based-access-control/built-in-roles.md#contributor)de la suscripción de Azure. 
 
-    Para completar estos pasos, debe tener el [rol Colaborador de Azure](../role-based-access-control/built-in-roles.md#contributor) para la suscripción de Azure. 
+    1. En Azure Portal, vaya a **Suscripciones**.
+    1. Seleccione la suscripción de Azure que quiere usar para crear un recurso de Azure Data Share.
+    1. Seleccione **Proveedores de recursos**.
+    1. Busque **Microsoft.DataShare**.
+    1. Seleccione **Registrar**.
 
-* **La invitación se envía a su alias de correo electrónico en lugar de a su correo electrónico de inicio de sesión de Azure.** Si ha registrado el servicio de Azure Data Share o ya ha creado un recurso compartido de datos en el inquilino de Azure, pero sigue sin poder ver la invitación, es posible que el proveedor haya escrito su alias de correo electrónico como destinatario en lugar de su dirección de correo electrónico de inicio de sesión de Azure. Póngase en contacto con el proveedor de datos y asegúrese de que ha enviado la invitación a su dirección de correo electrónico de inicio de sesión de Azure y no a su alias de correo electrónico.
+* **La invitación se envía a su alias de correo electrónico en lugar de a su dirección de correo de inicio de sesión de Azure.** Si ya ha registrado el servicio de Azure Data Share o ya ha creado un recurso compartido de datos en el inquilino de Azure, pero sigue sin poder ver la invitación, es posible que su alias de correo electrónico aparezca como destinatario. Póngase en contacto con el proveedor de datos y asegúrese de que la invitación ha sido enviada a su dirección de correo electrónico de inicio de sesión de Azure, y no a su alias de correo electrónico.
 
-* **Ya se aceptó la invitación.** El vínculo del correo electrónico le lleva a la página Invitación de recurso compartido de datos en Azure Portal, que solo muestra las invitaciones pendientes. Si ha aceptado la invitación, ya no aparecerá en la página Invitación de recurso compartido de datos. Continúe con el recurso compartido de datos que usó para aceptar la invitación para ver los recursos compartidos recibidos y configurar la opción del clúster de Azure Data Explorer.
+* **La invitación ya se aceptó.** El vínculo del correo electrónico le lleva a la página **Invitaciones de Data Share** en Azure Portal. En esta página solo aparecen las invitaciones pendientes. Las invitaciones aceptadas no se ven en la página. Para ver los recursos compartidos recibidos y configurar la configuración del clúster de Azure Data Explorer de destino, diríjase al recurso Data Share que usó para aceptar la invitación.
 
-## <a name="error-when-creating-or-receiving-a-new-share"></a>Error al crear o recibir un nuevo recurso compartido
+## <a name="creating-and-receiving-shares"></a>Al crear y recibir recursos compartidos
 
-"No se pudo agregar conjuntos de datos"
+Los siguientes errores pueden aparecer cuando crea un nuevo recurso compartido, agrega conjuntos de datos o asigna conjuntos de datos:
 
-"No se pudo asignar conjuntos de datos"
+* No se pudo agregar conjunto de datos.
+* No se pudo asignar conjunto de datos.
+* No se puede conceder acceso de x para y al recurso de Data Share.
+* No tiene los permisos apropiados para x.
+* No hemos podido agregar permisos de escritura para la cuenta de Azure Data Share en uno o más de sus recursos seleccionados.
 
-"No se puede conceder acceso de x para x al recurso de Data Share"
+Es posible que vea uno de estos errores si no tiene permisos suficientes en el almacén de datos de Azure. Para más información, consulte los [roles y requisitos](concepts-roles-permissions.md). 
 
-"No tiene los permisos apropiados para x"
+Necesita permiso de escritura para compartir o recibir datos de un almacén de datos de Azure. Por lo general, este permiso existe en el rol Colaborador. 
 
-"No hemos podido agregar permisos de escritura para la cuenta de Azure Data Share en uno o más de los recursos seleccionados"
+Si esta es la primera vez que va a compartir o recibir datos del almacén de datos de Azure, también necesita el permiso *Microsoft.Authorization/role assignments/write*. Este permiso es, normalmente, parte del rol Propietario. Aunque haya creado el recurso del almacén de datos de Azure, usted no es automáticamente el propietario del recurso. 
 
-Si recibe un error similar a los anteriores al crear un nuevo recurso compartido, agregar conjuntos de datos o asignar conjuntos de datos, podría deberse a la falta de permisos en el almacén de datos de Azure. Consulte [Roles y requisitos](concepts-roles-permissions.md) para obtener los permisos necesarios. 
+Cuando tiene los permisos adecuados, el servicio de Azure Data Share concede automáticamente a la identidad administrada del recurso compartido de datos acceso al almacén de datos. Este proceso puede tardar unos minutos. Si experimenta un error debido a este retraso, inténtelo de nuevo pasados unos minutos.
 
-Necesita permiso de escritura para compartir o recibir datos de un almacén de datos de Azure, que normalmente existe en el rol **Colaborador**. 
+El uso compartido basado en SQL necesita permisos adicionales. Para obtener información sobre los requisitos previos, consulte [Compartir desde orígenes SQL](how-to-share-from-sql.md).
 
-Si esta es la primera vez que va a compartir o recibir datos del almacén de datos de Azure, también necesita el permiso *Microsoft.Authorization/role assignments/write*, que normalmente existe en el rol **Propietario**. Aunque haya creado el recurso del almacén de datos de Azure, ello NO le convierte automáticamente el propietario del recurso. Con el permiso adecuado, el servicio de Azure Data Share concede automáticamente a la identidad administrada del recurso compartido de datos acceso al almacén de datos. Ese proceso podría tardar unos minutos en surtir efecto. Si experimenta un error debido a este retraso, vuelva a intentarlo en unos minutos.
+## <a name="snapshots"></a>Instantáneas
+Una instantánea puede fallar por diversos motivos. Abra un mensaje de error detallado seleccionando la hora de inicio de la instantánea y luego el estado de cada conjunto de datos. 
 
-El uso compartido basado en SQL requiere permisos adicionales. Vea [Compartir desde orígenes de SQL](how-to-share-from-sql.md) para obtener una lista detallada de los requisitos previos.
+Normalmente se produce un error en una instantánea por estos motivos:
 
-## <a name="snapshot-failed"></a>La instantánea generó un error
-La instantánea podría generar un error debido a diversos motivos. Puede encontrar un mensaje de error detallado si hace clic en la hora de inicio de la instantánea y, a continuación, en el estado de cada conjunto de datos. Estos son los motivos comunes por los que se produce un error en la instantánea:
+* Data Share no tiene permiso para leer desde el almacén de datos de origen, y tampoco tiene permiso para escribir en el almacén de datos de destino. Para más información, consulte los [roles y requisitos](concepts-roles-permissions.md). Si es la primera vez que toma una instantánea, puede que el recurso de Data Share necesite unos minutos para obtener acceso al almacén de datos de Azure. Espere unos minutos y vuelva a intentarlo.
+* El firewall bloquea la conexión de Data Share al almacén de datos de origen o al almacén de datos de destino.
+* Se eliminó un conjunto de datos compartido o el almacén de datos de origen o de destino.
 
-* Data Share no tiene permiso para leer desde el almacén de datos de origen ni para escribir en el almacén de datos de destino. Vea [Roles y requisitos](concepts-roles-permissions.md) para conocer los requisitos de permisos detallados. Si es la primera vez que toma una instantánea, podría llevar unos minutos conceder al recurso compartido de datos el acceso al almacén de datos de Azure. Espere y vuelva a intentarlo.
-* El firewall bloquea la conexión de Data Share al almacén de datos de origen o de destino.
-* Se elimina el conjunto de datos compartido o el almacén de datos de origen o de destino.
+En el caso de las cuentas de almacenamiento, se puede producir un error en una instantánea porque se está actualizando un archivo en el origen mientras se crea la instantánea. Esto puede dar lugar a un archivo de 0 bytes en el destino. Una vez realizada la actualización en el origen, la instantánea debería poder hacerse correctamente.
 
-Para la cuenta de almacenamiento, las siguientes son causas adicionales de errores de instantáneas.
+En el caso de los orígenes SQL, se puede producir un error en una instantánea por uno de estos motivos:
 
-* El archivo se está actualizando en el origen mientras se crea la instantánea. Esto puede dar lugar a un archivo de 0 bytes en el destino. La instantánea posterior después de completar la actualización en el origen debe realizarse correctamente.
+* El script SQL de origen o destino que concede permiso para Data Share no se ha ejecutado. O para Azure SQL Database o Azure Synapse Analytics (anteriormente Azure SQL Data Warehouse), el script se ejecuta mediante la autenticación de SQL en lugar de la autenticación de Azure Active Directory.  
+* El almacén de datos de origen o los datos de destino SQL están en pausa.
+* El proceso de hacer la instantánea o el almacén de datos de destino son incompatibles con los tipos de datos SQL. Para obtener más información, consulte [Compartir desde orígenes de SQL](how-to-share-from-sql.md#supported-data-types).
+* El almacén de datos de origen o los datos de destino SQL están bloqueados por otros procesos. Azure Data Share no bloquea estos almacenes de datos. Los bloqueos existentes en estos almacenes de datos pueden hacer que la instantánea falle.
+* Una restricción de clave externa hace referencia a la tabla SQL de destino. Durante una instantánea, si una tabla de destino tiene el mismo nombre que una tabla en los datos de origen, Azure Data Share descarta la tabla y crea una nueva tabla. Si una restricción de clave externa hace referencia a la tabla SQL de destino, la tabla no se puede descartar.
+* Se genera un archivo CSV de destino, pero los datos no se pueden leer en Excel. Esto puede ocurrir cuando la tabla SQL de origen contiene datos con caracteres no ingleses. En Excel, seleccione la pestaña **Obtener datos** y elija el archivo CSV. Seleccione el origen del archivo como **65001: Unicode (UTF-8)** , y después cargue los datos.
 
-Otras causas de errores de instantánea en el caso de los orígenes SQL son las siguientes. 
-
-* El script SQL de origen o destino para conceder permiso para Data Share no se ejecuta. O bien para Azure SQL Database o Azure Synapse Analytics (anteriormente Azure SQL DW), se ejecuta mediante la autenticación de SQL en lugar de la autenticación de Azure Active Directory.  
-* El almacén de datos SQL de origen o de destino está en pausa.
-* Los tipos de datos SQL no son compatibles con el proceso de instantánea o el almacén de datos de destino. Vea [Compartir desde orígenes de SQL](how-to-share-from-sql.md#supported-data-types) para obtener más información.
-* El almacén de datos SQL de origen o de destino está bloqueado por otros procesos. Azure Data Share no aplica bloqueos al almacén de datos SQL de origen y de destino. Sin embargo, los bloqueos existentes en el almacén de datos SQL de origen y de destino provocarán errores de instantánea.
-* Una restricción de clave externa hace referencia a la tabla SQL de destino. Durante la instantánea, si existe una tabla de destino con el mismo nombre, Azure Data Share descarta la tabla y crea una nueva tabla. Si una restricción de clave externa hace referencia a la tabla SQL de destino, la taba no se puede descartar.
-* Se genera el archivo CSV de destino, pero los datos no se pueden leer en Excel. Esto puede ocurrir cuando la tabla SQL de origen contiene datos con caracteres que no son ingleses. En Excel, seleccione la pestaña "Obtener datos" y elija el archivo CSV, seleccione el origen del archivo como 65001: Unicode (UTF-8) y cargue los datos.
-
-## <a name="snapshot-issue-after-updating-snapshot-schedule"></a>Problema de instantánea después de actualizar la programación de instantáneas
-Una vez que el proveedor de datos actualiza la programación de instantáneas para el recurso compartido enviado, el consumidor de datos debe deshabilitar la programación de instantáneas anterior y volver a habilitar la programación de instantáneas actualizada para el recurso compartido recibido. 
+## <a name="updated-snapshot-schedules"></a>Programación actualizada de instantáneas
+Una vez que el proveedor de datos actualiza la programación de la instantánea para el recurso compartido enviado, el consumidor de datos debe deshabilitar la anterior programación de la instantánea. A continuación, ha de habilitar la programación actualizada de instantáneas para el recurso compartido recibido. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener información acerca de cómo empezar a compartir datos, vaya al tutorial que cubre cómo [compartir sus datos](share-your-data.md). 
+Para obtener información sobre cómo empezar a compartir datos, continúe con el tutorial [Compartir datos](share-your-data.md). 
 
-Para información sobre cómo recibir los datos, continúe con el tutorial [Aceptación y recepción de datos con Azure Data Share](subscribe-to-data-share.md).
+Para información sobre cómo recibir datos, continúe con el tutorial [Aceptación y recepción de datos](subscribe-to-data-share.md).

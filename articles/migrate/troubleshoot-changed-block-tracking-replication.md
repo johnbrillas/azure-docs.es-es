@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: troubleshooting
 ms.date: 08/17/2020
-ms.openlocfilehash: e19c5064dd69538dfc025b0d244baf4fa74706b2
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 33e2bf641b75a5dd360498478f1ea70c7614fb38
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753542"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98071381"
 ---
 # <a name="troubleshooting-replication-issues-in-agentless-vmware-vm-migration"></a>Solución de problemas de replicación en la migración de máquinas virtuales VMware sin agente
 
@@ -297,6 +297,24 @@ Se trata de un problema conocido de VMware en el que el tamaño de disco indicad
 ### <a name="error-message-an-internal-error-occurred-memory-allocation-failed-out-of-memory"></a>Mensaje de error: Error interno. [Memory allocation failed. Out of memory.] ([Error de asignación de memoria. Memoria insuficiente.])
 
 Esto sucede cuando el búfer del host NFC no tiene memoria suficiente. Para resolver este problema, debe trasladar la máquina virtual (proceso vMotion) a un host diferente que disponga de recursos.
+
+## <a name="replication-cycle-failed"></a>Error en el ciclo de replicación
+
+**Identificador del error:** 181008
+
+**Mensaje de error:** Máquina virtual "VMName". Error: No se encontró ningún elemento disksnapshots para la replicación de instantáneas con el identificador de instantánea: "SnapshotID".
+
+**Causas posibles:**
+
+Los posibles motivos son:
+1. Se cambió la ruta de acceso de uno o varios discos incluidos debido a Storage VMotion.
+2. Uno o varios discos incluidos ya no están conectados a la VM.
+      
+**Recomendación:**
+
+También se proporcionan las siguientes recomendaciones:
+1. Restaure los discos incluidos en la ruta de acceso original mediante Storage vMotion y, después, deshabilite Storage VMotion.
+2. Deshabilite Storage VMotion, si está habilitado, detenga la replicación en la máquina virtual y vuelva a replicarla. Si el problema persiste, póngase en contacto con el soporte técnico.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

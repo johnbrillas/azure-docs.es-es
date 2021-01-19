@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: jingwang
-ms.openlocfilehash: 2b54ee29b1b03bab5af8410a3fae06438180299d
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: ce7c0cba4a231fbdb33679f8cdac7d57c79845f5
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97507530"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97968881"
 ---
 # <a name="schema-and-data-type-mapping-in-copy-activity"></a>Asignación de esquemas y tipos de datos en la actividad de copia
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -66,7 +66,7 @@ Se admiten las siguientes propiedades en `translator` además de `mappings`:
 
 Por ejemplo, para copiar datos de Salesforce a Azure SQL Database y asignar explícitamente tres columnas:
 
-1. En actividad de copia > pestaña Asignación, haga clic en el botón **Importar esquema** para importar los esquemas de origen y de receptor.
+1. En la pestaña actividad de copia > asignación, haga clic en el botón **Importar esquemas** para importar los esquemas de origen y de receptor.
 
 2. Asigne los campos necesarios y excluya o elimine los demás.
 
@@ -180,7 +180,7 @@ Y quiere copiarlo en un archivo de texto del formato siguiente con línea de enc
 
 Puede definir dicha asignación en la interfaz de usuario de creación de Data Factory:
 
-1. En actividad de copia > pestaña Asignación, haga clic en el botón **Importar esquema** para importar los esquemas de origen y de receptor. Ya que Data Factory muestrea los objetos más importantes al importar el esquema, si no aparece algún campo, puede agregarlo a la capa correcta en la jerarquía; para ello, mantenga el puntero sobre un nombre de campo existente y elija la opción para agregar un nodo, un objeto o una matriz.
+1. En la pestaña actividad de copia > asignación, haga clic en el botón **Importar esquemas** para importar los esquemas de origen y de receptor. Ya que Data Factory muestrea los objetos más importantes al importar el esquema, si no aparece algún campo, puede agregarlo a la capa correcta en la jerarquía; para ello, mantenga el puntero sobre un nombre de campo existente y elija la opción para agregar un nodo, un objeto o una matriz.
 
 2. Seleccione la matriz en la que quiere iterar y extraer datos. Se cumplimentará automáticamente como una **referencia de colecciones**. Nota: Solo se admite una matriz única para esta operación.
 

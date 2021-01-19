@@ -9,13 +9,13 @@ ms.topic: reference
 ms.custom: devx-track-python
 author: likebupt
 ms.author: keli19
-ms.date: 12/02/2020
-ms.openlocfilehash: d1e4ffa525c5628d0b6c9a3ca67f3e069c44e823
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.date: 01/02/2021
+ms.openlocfilehash: 7b5bc77375d684340116a21b7f95cf576d99dad2
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97679190"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98065361"
 ---
 # <a name="execute-python-script-module"></a>Módulo Ejecutar script de Python
 
@@ -60,7 +60,7 @@ if spec is None:
 > [!WARNING]
 > El módulo Ejecutar script de Python no admite la instalación de paquetes que dependan de bibliotecas nativas adicionales con comandos de tipo "apt-get", como Java, PyODBC, etc. Esto se debe a que este módulo se ejecuta en un entorno sencillo solo con Python preinstalado y con permisos que no son de administrador.  
 
-## <a name="access-to-registered-datasets"></a>Acceso a conjuntos de datos registrados
+## <a name="access-to-current-workspace-and-registered-datasets"></a>Acceso al área de trabajo actual y a los conjuntos de datos registrados
 
 Puede consultar el siguiente código de ejemplo para acceder a los [conjuntos de datos registrados](../how-to-create-register-datasets.md) en el área de trabajo:
 
@@ -71,8 +71,10 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
     print(f'Input pandas.DataFrame #1: {dataframe1}')
     from azureml.core import Run
     run = Run.get_context(allow_offline=True)
+    #access to current workspace
     ws = run.experiment.workspace
 
+    #access to registered dataset of current workspace
     from azureml.core import Dataset
     dataset = Dataset.get_by_name(ws, name='test-register-tabular-in-designer')
     dataframe1 = dataset.to_pandas_dataframe()
@@ -219,7 +221,9 @@ El módulo Ejecución de script de Python contiene código de Python de ejemplo 
 
 6. Envíe la canalización.
 
-    Todos los datos y el código se cargan en una máquina virtual y se ejecutan con el entorno de Python especificado.
+    Si el módulo se ha completado, compruebe si la salida es la prevista.
+
+    Si se produce un error en el módulo, debe realizar algunas tareas de solución de problemas. Seleccione el módulo y abra **Resultados y registros** en el panel derecho. Abra **70_driver_log.txt** y busque **in azureml_main**. A continuación, busque la línea que causó el error. Por ejemplo, la línea 17, "File "/tmp/tmp01_ID/user_script.py" de azureml_main" indica que el error se produjo en la línea 17 del script de Python.
 
 ## <a name="results"></a>Results
 

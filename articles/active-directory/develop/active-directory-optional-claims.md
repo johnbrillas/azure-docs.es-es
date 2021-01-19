@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 1/04/2021
+ms.date: 1/06/2021
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 6f95b4eca8dbaf6cfaa7546fddada7577a1541b3
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 1debeab6e420d9021ebba1cecb2d551cf21c9fe2
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97916259"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028478"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Procedimientos: Proporcionar notificaciones opcionales a la aplicación
 
@@ -87,14 +87,16 @@ Estas notificaciones siempre se incluyen en los tokens de la versión 1.0 de Azu
 | `given_name`  | Nombre                      | Proporciona el nombre de pila o "dado" del usuario, tal como se establece en el objeto de usuario.<br>"given_name": "Frank"                   | Se admite en MSA y Azure AD.  Requiere el ámbito `profile`. |
 | `upn`         | Nombre principal del usuario | Un identificador del usuario que se puede usar con el parámetro username_hint.  No es un identificador duradero para el usuario y no debe usarse para identificar de forma exclusiva la información del usuario (por ejemplo, como una clave de base de datos). En su lugar, use el id. de objeto de usuario (`oid`) como clave de base de datos. Los usuarios que inician sesión con un [id. de inicio de sesión alternativo](../authentication/howto-authentication-use-email-signin.md) no deben mostrar su nombre principal de usuario (UPN). En su lugar, use la notificación `preferred_username` para mostrar el estado de inicio de sesión al usuario. | Consulte a continuación las [propiedades adicionales](#additional-properties-of-optional-claims) de la configuración de la notificación. Requiere el ámbito `profile`.|
 
+## <a name="v10-specific-optional-claims-set"></a>Conjunto de notificaciones opcionales específicas de la versión 1.0
+
+Algunas de las mejoras del formato de token de la versión 2 están disponibles para las aplicaciones que usan el formato de token de la 1, ya que ayudan a mejorar la seguridad y la confiabilidad. Estas no surtirán efecto en los tokens de identificador solicitados desde el punto de conexión de la versión 2 ni en los tokens de acceso para las API que usan el formato de token de la versión 2. Estos solo se aplican a los token de JWT, no a los de SAML. 
 
 **Tabla 4: Notificaciones opcionales exclusivas de la versión 1.0**
 
-Algunas de las mejoras del formato de token de la versión 2 están disponibles para las aplicaciones que usan el formato de token de la 1, ya que ayudan a mejorar la seguridad y la confiabilidad. Estas no surtirán efecto en los tokens de identificador solicitados desde el punto de conexión de la versión 2 ni en los tokens de acceso para las API que usan el formato de token de la versión 2. 
 
 | Notificación de JWT     | Nombre                            | Descripción | Notas |
 |---------------|---------------------------------|-------------|-------|
-|`aud`          | Público | Siempre está presente en los tokens JWT, pero en los tokens de acceso de la versión 1 se puede emitir de varias maneras, lo que puede resultar difícil de codificar al realizar la validación de tokens.  Use las [propiedades adicionales para esta notificación](#additional-properties-of-optional-claims) a fin de asegurarse de que siempre se establezca en un GUID en los tokens de acceso de la versión 1. | Solo tokens de acceso JWT de la versión 1|
+|`aud`          | Público | Siempre está presente en JWT, pero en los tokens de acceso v1 se puede emitir de varias maneras: cualquier URI de appID, con o sin una barra diagonal final, así como el identificador de cliente del recurso. Puede resultar difícil de codificar con esta aleatoriedad al realizar la validación de tokens.  Use las [propiedades adicionales para esta notificación](#additional-properties-of-optional-claims) a fin de asegurarse de que siempre se establezca en el identificador del cliente del recurso en los tokens de acceso de la versión 1. | Solo tokens de acceso JWT de la versión 1|
 |`preferred_username` | Nombre de usuario preferido        | Proporciona la notificación de nombre de usuario preferido en los tokens de la versión 1. Esto facilita que las aplicaciones proporcionen sugerencias de nombre de usuario e indiquen nombres para mostrar legibles, independientemente de su tipo de token.  Se recomienda usar esta notificación opcional en lugar de `upn` o `unique_name`, por ejemplo. | Tokens de identificador y tokens de acceso de la versión 1 |
 
 ### <a name="additional-properties-of-optional-claims"></a>Propiedades adicionales de las notificaciones opcionales
@@ -108,8 +110,8 @@ Algunas notificaciones opcionales se pueden configurar para cambiar la manera de
 | `upn`          |                          | Puede usarse en respuestas SAML y JWT y para los token v1.0 y v2.0. |
 |                | `include_externally_authenticated_upn`  | Incluye el nombre principal de usuario invitado tal como se almacenó en el inquilino de recursos. Por ejemplo: `foo_hometenant.com#EXT#@resourcetenant.com` |
 |                | `include_externally_authenticated_upn_without_hash` | Igual que antes, excepto que las marcas hash (`#`) se reemplazan con guiones bajos (`_`); por ejemplo, `foo_hometenant.com_EXT_@resourcetenant.com`|
-| `aud`          |                          | En los tokens de acceso de la versión 1, se usa para cambiar el formato de la notificación `aud`.  Esto no tiene ningún efecto en los tokens de identificador o los tokens de la versión 2, donde la notificación `aud` es siempre el identificador del cliente. Use esta configuración para asegurarse de que la API pueda realizar la validación de las audiencias más fácilmente. Al igual que todas las notificaciones opcionales que afectan al token de acceso, el recurso de la solicitud debe establecer esta notificación opcional, ya que los recursos poseen el token de acceso.|
-|                | `use_guid`               | Emite el identificador de cliente del recurso (API) en formato de GUID como notificación `aud`, en lugar de un URI o GUID appid. Por tanto, si el identificador de cliente de un recurso es `bb0a297b-6a42-4a55-ac40-09a501456577`, cualquier aplicación que solicite un token de acceso para ese recurso recibirá un token de acceso con `aud`: `bb0a297b-6a42-4a55-ac40-09a501456577`.|
+| `aud`          |                          | En los tokens de acceso de la versión 1, se usa para cambiar el formato de la notificación `aud`.  Esto no tiene ningún efecto en los tokens de la versión 2 ni en los tokens de identificador de ninguna versión, donde la notificación `aud` es siempre el identificador del cliente. Use esta configuración para asegurarse de que la API pueda realizar la validación de las audiencias más fácilmente. Al igual que todas las notificaciones opcionales que afectan al token de acceso, el recurso de la solicitud debe establecer esta notificación opcional, ya que los recursos poseen el token de acceso.|
+|                | `use_guid`               | Emite el identificador de cliente del recurso (API) en formato GUID como notificación `aud` siempre en lugar de que sea dependiente del entorno de ejecución. Por tanto, si un recurso establece esta marca y su identificador de cliente es `bb0a297b-6a42-4a55-ac40-09a501456577`, cualquier aplicación que solicite un token de acceso para ese recurso recibirá un token de acceso con `aud`: `bb0a297b-6a42-4a55-ac40-09a501456577`. </br></br> Sin este conjunto de notificaciones, una API podría obtener tokens con una notificación `aud` de `api://MyApi.com`, `api://MyApi.com/`, `api://myapi.com/AdditionalRegisteredField` o cualquier otro valor establecido como un URI de identificador de aplicación para esa API, así como el identificador de cliente del recurso. |
 
 #### <a name="additional-properties-example"></a>Ejemplo de propiedades adicionales
 
@@ -136,7 +138,7 @@ Este objeto OptionalClaims hace que el token de identificador devuelto al client
 
 Puede configurar notificaciones opcionales para la aplicación mediante la interfaz de usuario o el manifiesto.
 
-1. Vaya a [Azure Portal](https://portal.azure.com). 
+1. Vaya a <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>. 
 1. Busque y seleccione **Azure Active Directory**.
 1. En **Administrar**, seleccione **Registros de aplicaciones**.
 1. Seleccione en la lista la aplicación para la que desea configurar notificaciones opcionales.
@@ -245,7 +247,7 @@ En esta sección se describen las opciones de configuración de notificaciones o
 
 **Configuración de notificaciones opcionales de grupo mediante la interfaz de usuario:**
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 1. Después de haberse autenticado, elija el inquilino de Azure AD; para ello, selecciónelo en la esquina superior derecha de la página.
 1. Busque y seleccione **Azure Active Directory**.
 1. En **Administrar**, seleccione **Registros de aplicaciones**.
@@ -258,7 +260,7 @@ En esta sección se describen las opciones de configuración de notificaciones o
 
 **Configuración de notificaciones opcionales de grupo mediante el manifiesto de aplicación:**
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 1. Después de haberse autenticado, elija el inquilino de Azure AD; para ello, selecciónelo en la esquina superior derecha de la página.
 1. Busque y seleccione **Azure Active Directory**.
 1. Seleccione en la lista la aplicación para la que desea configurar notificaciones opcionales.
@@ -389,7 +391,7 @@ En el siguiente ejemplo usará la interfaz de usuario de **Configuración del to
 
 **Configuración en la interfaz de usuario:**
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 1. Después de haberse autenticado, elija el inquilino de Azure AD; para ello, selecciónelo en la esquina superior derecha de la página.
 
 1. Busque y seleccione **Azure Active Directory**.
@@ -412,7 +414,7 @@ En el siguiente ejemplo usará la interfaz de usuario de **Configuración del to
 
 **Configuración en el manifiesto:**
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 1. Después de haberse autenticado, elija el inquilino de Azure AD; para ello, selecciónelo en la esquina superior derecha de la página.
 1. Busque y seleccione **Azure Active Directory**.
 1. Busque la aplicación para la que quiera configurar notificaciones opcionales en la lista y selecciónela.

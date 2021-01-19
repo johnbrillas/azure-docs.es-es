@@ -3,12 +3,12 @@ title: Variables en plantillas
 description: Se describe cómo definir variables en una plantilla de Azure Resource Manager (plantilla de ARM).
 ms.topic: conceptual
 ms.date: 11/24/2020
-ms.openlocfilehash: 5d9b58d63e96656c45d3494d24099bbeadc46b11
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 7f782f9c7d3107472a74fcab73290c4cebf73693
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353466"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934669"
 ---
 # <a name="variables-in-arm-template"></a>Variables en la plantilla de ARM
 
@@ -28,7 +28,7 @@ El ejemplo siguiente muestra una variable de definición. Crea un valor de caden
 },
 ```
 
-La función no puede usar la función [reference](template-functions-resource.md#reference) ni ninguna de las funciones [list](template-functions-resource.md#list) de la sección de variables. Estas funciones obtienen el estado de tiempo de ejecución de un recurso y no se pueden ejecutar antes de la implementación cuando se resuelven variables.
+No se puede usar la función [reference](template-functions-resource.md#reference) ni ninguna de las funciones [list](template-functions-resource.md#list) de la sección `variables`. Estas funciones obtienen el estado de tiempo de ejecución de un recurso y no se pueden ejecutar antes de la implementación cuando se resuelven variables.
 
 ## <a name="use-variable"></a>Uso de la variable
 
@@ -63,7 +63,7 @@ Puede definir variables que contengan valores relacionados para configurar un en
 },
 ```
 
-En parámetros, se crea un valor que indica que valores de configuración usar.
+En `parameters`, se crea un valor que indica qué valores de configuración usar.
 
 ```json
 "parameters": {

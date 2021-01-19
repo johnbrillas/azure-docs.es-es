@@ -1,7 +1,7 @@
 ---
 title: Serialización de la caché de tokens (MSAL.NET) | Azure
 titleSuffix: Microsoft identity platform
-description: Obtenga información acerca de la serialización y la serialización de cliente de la caché de tokens mediante Microsoft Authentication Library for .NET (MSAL.NET).
+description: Obtenga información acerca de la serialización y la serialización de cliente de la caché de tokens mediante la Biblioteca de autenticación de Microsoft para .NET (MSAL.NET).
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -13,15 +13,15 @@ ms.date: 09/16/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 4a0d5af8faafac8b733bd2daa9655e663da6fe71
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 7e80123f21efded92ab6d59d550965ca72427b1c
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873530"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98064664"
 ---
 # <a name="token-cache-serialization-in-msalnet"></a>Serialización de la caché de tokens en MSAL.NET
-Después de [adquirir un token](msal-acquire-cache-tokens.md), Microsoft Authentication Library for .NET (MSAL) lo almacena en la caché.  El código de la aplicación debe intentar obtener un token de la caché antes de adquirirlo por otro método.  Este artículo describe la serialización predeterminada y personalizada de la caché de tokens en MSAL.NET.
+Después de [adquirir un token](msal-acquire-cache-tokens.md), la Biblioteca de autenticación de Microsoft para .NET (MSAL) lo almacena en la caché.  El código de la aplicación debe intentar obtener un token de la caché antes de adquirirlo por otro método.  Este artículo describe la serialización predeterminada y personalizada de la caché de tokens en MSAL.NET.
 
 Este artículo es para MSAL.NET 3.x. Si está interesado en MSAL.NET 2.x, consulte [Token cache serialization in MSAL.NET 2.x](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Token-cache-serialization-2x) (Serialización de la caché de tokens en MSAL.NET 2.x).
 

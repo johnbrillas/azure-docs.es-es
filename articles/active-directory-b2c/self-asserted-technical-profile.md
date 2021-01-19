@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 14195ad4638c724cf0c8dd46945a0da79ec0e4ec
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 08b08e3e799ff7b579889a62ecec70677a3cbce9
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97509707"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98059065"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico autoafirmado en una directiva personalizada en Azure Active Directory B2C
 
@@ -208,7 +208,7 @@ También puede llamar a un perfil técnico de la API de REST con la lógica de n
 | setting.showCancelButton | No | Muestra el botón para cancelar. Valores posibles: `true` (opción predeterminada) o `false` |
 | setting.showContinueButton | No | Muestra el botón para continuar. Valores posibles: `true` (opción predeterminada) o `false` |
 | setting.showSignupLink <sup>2</sup>| No | Muestra el botón para registrarse. Valores posibles: `true` (opción predeterminada) o `false` |
-| setting.forgotPasswordLinkLocation <sup>2</sup>| No| Muestra el vínculo de contraseña olvidada. Valores posibles: `AfterInput` (valor predeterminado) el vínculo se muestra en la parte inferior de la página o `None` quita el vínculo de contraseña olvidada.|
+| setting.forgotPasswordLinkLocation <sup>2</sup>| No| Muestra el vínculo de contraseña olvidada. Valores posibles: `AfterLabel` (valor predeterminado) muestra el vínculo directamente después de la etiqueta o después del campo de entrada de contraseña cuando no hay ninguna etiqueta, `AfterInput` muestra el vínculo después del campo de entrada de contraseña, `AfterButtons` muestra el vínculo en la parte inferior del formulario después de los botones y `None` quita el vínculo de contraseña olvidada.|
 | setting.enableRememberMe <sup>2</sup>| No| Muestra la casilla [Mantener la sesión iniciada](session-behavior.md?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi). Valores posibles: `true` o `false` (valor predeterminado). |
 | setting.inputVerificationDelayTimeInMilliseconds <sup>3</sup>| No| Mejora la experiencia del usuario, ya que espera a que el usuario deje de escribir y, a continuación, valida el valor. El valor predeterminado es 2000 milisegundos. |
 | IncludeClaimResolvingInClaimsHandling  | No | En el caso de las notificaciones de entrada y salida, especifica si se incluye la [resolución de notificaciones](claim-resolver-overview.md) en el perfil técnico. Valores posibles: `true` o `false` (valor predeterminado). Si desea utilizar un solucionador de notificaciones en el perfil técnico, establézcalo en `true`. |

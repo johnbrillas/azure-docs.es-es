@@ -9,12 +9,12 @@ ms.subservice: keys
 ms.topic: conceptual
 ms.date: 10/22/2020
 ms.author: ambapat
-ms.openlocfilehash: b483ffc480f9ad750f8d9901d6bec382db2378c2
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 675c4f04ece322000ae0ebb44d6291c455db9397
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368926"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98133283"
 ---
 # <a name="key-types-algorithms-and-operations"></a>Tipos de claves, algoritmos y operaciones
 
@@ -26,7 +26,7 @@ En la siguiente tabla se muestra un resumen de los tipos de clave y los algoritm
 | --- | --- | --- |
 |EC-P256, EC-P256K, EC-P384, EC-521|N/D|ES256<br>ES256K<br>ES384<br>ES512|
 |RSA 2K, 3K, 4K| RSA1_5<br>RSA-OAEP<br>RSA-OAEP-256|PS256<br>PS384<br>PS512<br>RS256<br>RS384<br>RS512<br>RSNULL| 
-|AES 128-bit, 256-bit| AES-KW<br>AES-GCM<br>AES-CBC| N/D| 
+|AES 128-bit, 256-bit <br/>(solo HSM administrado)| AES-KW<br>AES-GCM<br>AES-CBC| N/D| 
 |||
 
 ##  <a name="ec-algorithms"></a>Algoritmos de EC
@@ -65,7 +65,7 @@ En la siguiente tabla se muestra un resumen de los tipos de clave y los algoritm
 -   **RS512**: RSASSA-PKCS-v1_5 con SHA-512. El valor de hash proporcionado por la aplicación debe calcularse mediante SHA-512 y debe tener 64 bytes de longitud.  
 -   **RSNULL**: consulte [RFC2437](https://tools.ietf.org/html/rfc2437), un caso de uso especializado para habilitar ciertos escenarios de TLS.  
 
-##  <a name="symmetric-key-algorithms"></a>Algoritmos de clave simétrica
+##  <a name="symmetric-key-algorithms-managed-hsm-only"></a>Algoritmos de clave simétrica (solo HSM administrado)
 - **AES-KW**: encapsulado de claves AES ([RFC3394](https://tools.ietf.org/html/rfc3394)).
 - **AES-GCM**: cifrado AES en el modo de contador Galois ([NIST SP 800-38d](https://csrc.nist.gov/publications/sp800))
 - **AES-CBC**: cifrado AES en el modo de encadenamiento de bloques de cifrado ([NIST SP 800-38a](https://csrc.nist.gov/publications/sp800))

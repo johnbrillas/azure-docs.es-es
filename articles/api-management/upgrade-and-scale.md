@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: 466af29a3f073f73d4a0fc62d74709cd59f82425
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: bd36434bbfe435a53567c46728610627f99f987f
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183794"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127794"
 ---
 # <a name="upgrade-and-scale-an-azure-api-management-instance"></a>Actualización y escalado de una instancia de Azure API Management  
 
@@ -88,4 +88,5 @@ Si los requisitos de seguridad incluyen [aislamiento de proceso](../azure-govern
 
 - [Implementación de una instancia del servicio Azure API Management en varias regiones de Azure](api-management-howto-deploy-multi-region.md)
 - [Escalado automático de una instancia de servicio de Azure API Management](api-management-howto-autoscale.md)
-- [Optimización y ahorro del gasto en la nube](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+- [Planeamiento y administración de costos de API Management](plan-manage-costs.md).
+- [Límites de API Management](../azure-resource-manager/management/azure-subscription-service-limits.md#api-management-limits)

@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 86e84c60aec99246f58b5dc9d67584b23a3969f3
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: dddaad3e171c757b353deb81ffcb77cfbe706340
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93394938"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108269"
 ---
 # <a name="track-data-changes-in-azure-sql-edge"></a>Seguimiento de cambios de datos en Azure SQL Edge
 
@@ -36,6 +36,9 @@ Para administrar y supervisar esta característica, consulte [Administrar y supe
 
 Para saber cómo consultar y trabajar con los datos modificados, consulte [Trabajar con datos modificados (SQL Server)](/sql/relational-databases/track-changes/work-with-change-data-sql-server).
 
+> [!NOTE]
+> Las funciones de captura de datos modificados que dependen de CLR no se admiten en Azure SQL Edge.
+
 ## <a name="change-tracking"></a>seguimiento de cambios
 
 Para comprender los detalles de cómo funciona esta característica, consulte [Acerca del seguimiento de cambios (SQL Server)](/sql/relational-databases/track-changes/about-change-tracking-sql-server).
@@ -48,13 +51,13 @@ Para saber cómo consultar y trabajar con los datos modificados, consulte [Traba
 
 ## <a name="temporal-tables"></a>Tablas temporales
 
-Azure SQL Edge también admite la característica de tablas temporales de SQL Server. Esta característica (también conocida como *tablas temporales con versiones del sistema* ) ofrece compatibilidad integrada para proporcionar información sobre los datos almacenados en la tabla en cualquier momento. La característica no solo proporciona información sobre los datos que son correctos en el momento actual.
+Azure SQL Edge también admite la característica de tablas temporales de SQL Server. Esta característica (también conocida como *tablas temporales con versiones del sistema*) ofrece compatibilidad integrada para proporcionar información sobre los datos almacenados en la tabla en cualquier momento. La característica no solo proporciona información sobre los datos que son correctos en el momento actual.
 
 Una tabla temporal con versiones del sistema es un tipo de tabla de usuario pensada para conservar un historial completo de los cambios de datos y para facilitar los análisis en un momento específico. Este tipo de tabla temporal se conoce como tabla temporal con versiones del sistema, porque el período de validez de cada fila lo administra el sistema (es decir, el motor de base de datos).
 
 Cada tabla temporal tiene dos columnas definidas explícitamente, cada una con un tipo de datos `datetime2`. Estas columnas se conocen como columnas de *período*. El sistema utiliza estas columnas de período exclusivamente para registrar el período de validez de cada fila cada vez que se modifica una fila.
 
-Aparte de estas columnas, una tabla temporal contiene también una referencia a otra tabla con un esquema reflejado. El sistema usa esta tabla para almacenar automáticamente la versión anterior de una fila de la tabla temporal cada vez que dicha fila se actualiza o elimina. Esta tabla adicional se conoce como tabla de *historial* , mientras que la tabla principal que almacena las versiones de fila actuales (reales) se conoce como tabla *actual* o, simplemente, como tabla temporal. Durante la creación de una tabla temporal, los usuarios pueden especificar una tabla de historial existente (debe ser compatible con el esquema) o dejar que el sistema cree la tabla de historial predeterminada.
+Aparte de estas columnas, una tabla temporal contiene también una referencia a otra tabla con un esquema reflejado. El sistema usa esta tabla para almacenar automáticamente la versión anterior de una fila de la tabla temporal cada vez que dicha fila se actualiza o elimina. Esta tabla adicional se conoce como tabla de *historial*, mientras que la tabla principal que almacena las versiones de fila actuales (reales) se conoce como tabla *actual* o, simplemente, como tabla temporal. Durante la creación de una tabla temporal, los usuarios pueden especificar una tabla de historial existente (debe ser compatible con el esquema) o dejar que el sistema cree la tabla de historial predeterminada.
 
 Para más información, consulte [Tablas temporales](/sql/relational-databases/tables/temporal-tables).
 

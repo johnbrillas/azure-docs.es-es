@@ -1,31 +1,31 @@
 ---
-title: Azure Functions como controlador de eventos para eventos de Azure Event Grid
-description: Aquí se describe cómo puede usar Azure Functions como un controlador de eventos para eventos de Event Grid.
+title: Uso de una función en Azure como controlador de eventos para eventos de Azure Event Grid
+description: Describe cómo se pueden usar las funciones creadas en Azure Functions y hospedadas en tal servicio como controladores de eventos para eventos de Event Grid.
 ms.topic: conceptual
 ms.date: 09/18/2020
-ms.openlocfilehash: 9e04fd3e04dab7a50940c2a4a799a56d447fbb6e
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 5a1ec575b58829a422e4d263ae0324e0343d5ad3
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145761"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98034975"
 ---
-# <a name="azure-function-as-an-event-handler-for-event-grid-events"></a>Azure Functions como controlador de eventos para eventos de Event Grid
+# <a name="use-a-function-as-an-event-handler-for-event-grid-events"></a>Uso de una función como controlador de eventos para eventos de Event Grid
 
 Un controlador de eventos es el lugar al que se envía el evento. El controlador realiza una acción para procesar el evento. Varios servicios de Azure se configuran automáticamente para controlar los eventos y **Azure Functions** es uno de ellos. 
 
 
 Para usar una función de Azure como controlador de eventos, siga uno de estos métodos: 
 
--   Use el [desencadenador de Event Grid](../azure-functions/functions-bindings-event-grid-trigger.md).  Seleccione **Función de Azure** como **tipo de punto de conexión**. A continuación, especifique la aplicación de funciones de Azure y la función que controlará los eventos. 
--   Use el [desencadenador de HTTP](../azure-functions/functions-bindings-http-webhook.md).  Seleccione **Webhook** como **tipo de punto de conexión**. A continuación, especifique la URL de la función de Azure que controlará los eventos. 
+-   Use el [desencadenador de Event Grid](../azure-functions/functions-bindings-event-grid-trigger.md).  Seleccione **Función de Azure** como **tipo de punto de conexión**. A continuación, especifique la aplicación de funciones y la función que controlará los eventos. 
+-   Use el [desencadenador de HTTP](../azure-functions/functions-bindings-http-webhook.md).  Seleccione **Webhook** como **tipo de punto de conexión**. A continuación, especifique la dirección URL de la función que controlará los eventos. 
 
 Se recomienda usar el primer enfoque (desencadenador de Event Grid), ya que presenta las siguientes ventajas respecto al segundo enfoque:
 -   Event Grid valida automáticamente los desencadenadores de Event Grid. Con los desencadenadores HTTP genéricos, debe implementar la [respuesta de validación](webhook-event-delivery.md) usted mismo.
 -   Event Grid ajusta automáticamente la velocidad a la que se entregan los eventos a una función desencadenada por un evento de Event Grid basándose en la tasa percibida a la que la función puede procesar eventos. Esta característica de coincidencia de velocidad evita los errores de entrega que provienen de la incapacidad de una función para procesar eventos, ya que la tasa de procesamiento de eventos de la función puede variar con el tiempo. Para mejorar la eficacia con un alto rendimiento, habilite el procesamiento por lotes en la suscripción de eventos. Para obtener más información, consulte [Habilitar el procesamiento por lotes](#enable-batching).
 
     > [!NOTE]
-    > Actualmente, no puede usar un desencadenador de Event Grid para una aplicación de Azure Functions cuando el evento se entrega en el esquema de **CloudEvents**. En cambio, debe usar un desencadenador HTTP.
+    > Actualmente, no puede usar un desencadenador de Event Grid para una aplicación de funciones cuando el evento se entrega en el esquema de **CloudEvents**. En cambio, debe usar un desencadenador HTTP.
 
 ## <a name="tutorials"></a>Tutoriales
 
@@ -69,7 +69,7 @@ En el momento de crear una suscripción en la UI, en la página **Crear suscripc
 
 Puede actualizar estos valores para una suscripción existente en la pestaña **Características** de la página **Tema de Event Grid**. 
 
-:::image type="content" source="./media/custom-event-to-function/features-batch-settings.png" alt-text="Habilitación del procesamiento por lotes en el momento de crear una suscripción":::
+:::image type="content" source="./media/custom-event-to-function/features-batch-settings.png" alt-text="Habilitación del procesamiento por lotes después de la creación":::
 
 ### <a name="azure-resource-manager-template"></a>Plantilla del Administrador de recursos de Azure
 Puede establecer **maxEventsPerBatch** y **preferredBatchSizeInKilobytes** en una plantilla de Azure Resource Manager. Para obtener más información, consulte el artículo sobre la [referencia de las plantillas de Microsoft.EventGrid eventSubscriptions](/azure/templates/microsoft.eventgrid/eventsubscriptions).

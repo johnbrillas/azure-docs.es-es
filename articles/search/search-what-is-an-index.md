@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/15/2020
-ms.openlocfilehash: aa7c06c3bad59bad11fa288631042cca86109706
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 3d5663177bb087e936a49dd7289659b684d85860
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701140"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98116201"
 ---
 # <a name="create-a-basic-search-index-in-azure-cognitive-search"></a>Creación de un índice básico en Azure Cognitive Search
 
@@ -70,7 +70,7 @@ Llegar a un diseño de índice final es un proceso iterativo. Es habitual comenz
 Durante el desarrollo, haga planes para realizar recompilaciones con frecuencia. Como se crean estructuras físicas en el servicio, la mayoría de las modificaciones realizadas en una definición de campo existente, requieren [quitar los índices y volverlos a crear](search-howto-reindex.md). Considere la posibilidad de trabajar con un subconjunto de los datos para asegurarse de que las recompilaciones van más rápido. 
 
 > [!Tip]
-> Para trabajar en el diseño de índices y la importación de datos simultáneamente, se recomienda el código en lugar del enfoque de portal. Como alternativa, las herramientas como [Postman y Visual Studio Code](search-get-started-rest.md) son útiles con pruebas de concepto cuando los proyectos de desarrollo están aún en las fases iniciales. Puede realizar cambios incrementales en una definición de índice de un cuerpo de solicitud y, luego, enviar la solicitud al servicio para volver a crear un índice mediante un esquema actualizado.
+> Para trabajar en el diseño de índices y la importación de datos simultáneamente, se recomienda el código en lugar del enfoque de portal. Como alternativa, las herramientas como [Postman](search-get-started-rest.md) o [Visual Studio Code](search-get-started-vs-code.md) son útiles con pruebas de concepto cuando los proyectos de desarrollo están aún en las fases iniciales. Puede realizar cambios incrementales en una definición de índice de un cuerpo de solicitud y, luego, enviar la solicitud al servicio para volver a crear un índice mediante un esquema actualizado.
 
 ## <a name="index-schema"></a>Esquema de índices
 

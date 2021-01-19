@@ -3,18 +3,18 @@ title: Recursos secundarios en plantillas
 description: Describe cómo establecer el nombre y el tipo de los recursos secundarios en una plantilla de Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 12/21/2020
-ms.openlocfilehash: c594096fd95f663db2120b29c575b341924dcc36
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: a950d72751b829c0a2aa3ba5ca27316a0544d9cc
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97721950"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97963919"
 ---
 # <a name="set-name-and-type-for-child-resources"></a>Establecimiento del nombre y el tipo de los recursos secundarios
 
 Los recursos secundarios son recursos que solo existen en el contexto de otro recurso. Por ejemplo, una [extensión de máquina virtual](/azure/templates/microsoft.compute/virtualmachines/extensions) no puede existir sin una [máquina virtual](/azure/templates/microsoft.compute/virtualmachines). El recurso de extensión es un elemento secundario de la máquina virtual.
 
-Cada recurso primario solo acepta determinados tipos de recursos como recursos secundarios. El tipo de recurso para el recurso secundario incluye el tipo de recurso para el recurso primario. Por ejemplo, **Microsoft.Web/sites/config** y **Microsoft.Web/sites/extensions** son recursos secundarios de **Microsoft.Web/sites**. Los tipos de recursos que se aceptan se especifican en el [esquema de plantilla](https://github.com/Azure/azure-resource-manager-schemas) del recurso principal.
+Cada recurso primario solo acepta determinados tipos de recursos como recursos secundarios. El tipo de recurso para el recurso secundario incluye el tipo de recurso para el recurso primario. Por ejemplo, `Microsoft.Web/sites/config` y `Microsoft.Web/sites/extensions` son recursos secundarios de `Microsoft.Web/sites`. Los tipos de recursos que se aceptan se especifican en el [esquema de plantilla](https://github.com/Azure/azure-resource-manager-schemas) del recurso principal.
 
 En una plantilla de Azure Resource Manager (plantilla de ARM), puede especificar el recurso secundario dentro del recurso primario o fuera de él. En el ejemplo siguiente se muestra el recurso secundario incluido en la propiedad resources del recurso primario.
 
@@ -89,7 +89,7 @@ En el ejemplo siguiente se muestra una red virtual con una subred. Observe que l
 ]
 ```
 
-El tipo de recurso completo sigue siendo **Microsoft.Network/virtualNetworks/subnets**. No se proporciona **Microsoft.Network/virtualNetworks/** porque se asume a partir del tipo de recurso primario.
+El tipo de recurso completo sigue siendo `Microsoft.Network/virtualNetworks/subnets`. No se proporciona `Microsoft.Network/virtualNetworks/` porque se supone que viene del tipo de recurso primario.
 
 El nombre del recurso secundario se establece en **Subnet1**, pero el nombre completo incluye el primario. No se proporciona **VNet1** porque se asume a partir del recurso primario.
 
@@ -102,7 +102,7 @@ Cuando el recurso secundario se define fuera del recurso primario, los valores t
 "name": "{parent-resource-name}/{child-resource-name}",
 ```
 
-En el ejemplo siguiente se muestra una red virtual y una subred que se definen en el nivel raíz. Observe que la subred no está incluida dentro de la matriz de recursos de la red virtual. El nombre se establece en **VNet1/Subnet1** y el tipo se establece en **Microsoft.Network/virtualNetworks/subnets**. El recurso secundario se marca como dependiente del recurso primario porque este debe existir antes de que se pueda implementar el recurso secundario.
+En el ejemplo siguiente se muestra una red virtual y una subred que se definen en el nivel raíz. Observe que la subred no está incluida dentro de la matriz de recursos de la red virtual. El nombre se establece en **VNet1/Subnet1** y el tipo se establece en `Microsoft.Network/virtualNetworks/subnets`. El recurso secundario se marca como dependiente del recurso primario porque este debe existir antes de que se pueda implementar el recurso secundario.
 
 ```json
 "resources": [
@@ -136,6 +136,5 @@ En el ejemplo siguiente se muestra una red virtual y una subred que se definen e
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para obtener información sobre cómo crear plantillas de ARM, vea [Creación de plantillas](template-syntax.md).
-
+* Para obtener información sobre cómo crear plantillas de Resource Manager, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](template-syntax.md).
 * Para información sobre el formato del nombre del recurso al hacer referencia a él, consulte la [función reference](template-functions-resource.md#reference).

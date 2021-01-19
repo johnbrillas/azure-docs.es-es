@@ -9,12 +9,12 @@ author: deepakpalled
 ms.author: dpalled
 manager: diviso
 ms.custom: include file
-ms.openlocfilehash: e7b5dfe9380612d56e591c3f619dfcb8582f8dee
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 016ad0e11f3378dba887e0a235f235fa91e3aa03
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95559098"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98109529"
 ---
 ### <a name="property-limits"></a>Límites de propiedad
 
@@ -32,7 +32,7 @@ Los límites de propiedad de Azure Time Series Insights han aumentado a 1000 pa
 
 * Los procedimientos recomendados y la orientación general para los orígenes de eventos está disponible [aquí](../articles/time-series-insights/concepts-streaming-ingestion-event-sources.md#streaming-ingestion-best-practices).
 
-* De forma predeterminada, Azure Time Series Insights Gen2 puede ingerir los datos entrantes a una velocidad de **hasta 1 megabyte por segundo (MBps) por entorno de Azure Time Series Insights Gen2**. Existen limitaciones adicionales [por partición de centro de conectividad](../articles/time-series-insights/concepts-streaming-ingress-throughput-limits.md#hub-partitions-and-per-partition-limits). Se pueden obtener velocidades de hasta 8 MBps mediante el envío de una incidencia de soporte técnico a través de Azure Portal. Para obtener más información, consulte [Límites de rendimiento de ingesta de streaming](../articles/time-series-insights/concepts-streaming-ingress-throughput-limits.md).
+* De forma predeterminada, Azure Time Series Insights Gen2 puede ingerir los datos entrantes a una velocidad de **hasta 1 megabyte por segundo (MBps) por entorno de Azure Time Series Insights Gen2**. Existen limitaciones adicionales [por partición de centro de conectividad](../articles/time-series-insights/concepts-streaming-ingress-throughput-limits.md#hub-partitions-and-per-partition-limits). Se pueden obtener velocidades de hasta 2 MBps mediante el envío de una incidencia de soporte técnico a través de Azure Portal. Para obtener más información, consulte [Límites de rendimiento de ingesta de streaming](../articles/time-series-insights/concepts-streaming-ingress-throughput-limits.md).
 
 ### <a name="api-limits"></a>Límites de API
 

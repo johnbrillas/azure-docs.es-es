@@ -9,12 +9,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 10/01/2020
-ms.openlocfilehash: a77f9c8f7e37d2c5a040a48b6bd96bef11d51f14
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 183d8b415ccb35d22dcc23ccf11d0707ad0778dd
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94533487"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97963662"
 ---
 # <a name="monitor-azure-machine-learning"></a>Supervisión de Azure Machine Learning
 
@@ -91,6 +91,8 @@ Todas las métricas de Azure Machine Learning se encuentran en el espacio de nom
 
 Como referencia, puede ver una lista de [todas las métricas de recursos que se admiten en Azure Monitor](../azure-monitor/platform/metrics-supported.md).
 
+> [!TIP]
+> Los datos de métricas de Azure Monitor están disponibles durante 90 días. Sin embargo, cuando se crean gráficos, solo se pueden visualizar durante 30 días. Por ejemplo, si quiere visualizar un período de 90 días, debe dividirlo en tres gráficos de 30 días dentro de ese período.
 ### <a name="filtering-and-splitting"></a>Filtrar y dividir
 
 En el caso de las métricas que admiten dimensiones, puede aplicar filtros con un valor de dimensión. Por ejemplo, el filtrado de **Núcleos activos** para un **Nombre de clúster** de `cpu-cluster`. 

@@ -3,12 +3,12 @@ title: Implementación y actualización con Azure Resource Manager
 description: Aprenda a implementar aplicaciones y servicios en un clúster de Service Fabric mediante una plantilla de Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 12/06/2017
-ms.openlocfilehash: bb866eb24fb1b286f496bad9845d1ee557baa221
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: ed6bc7d96cb3ea0934929e6543c5e637a9f42c1f
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94681676"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97930844"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>Administración de aplicaciones y servicios como recursos de Azure Resource Manager
 
@@ -50,13 +50,12 @@ En el siguiente fragmento se muestran los diferentes tipos de recursos que se pu
 }
 ```
 
-
 ## <a name="add-a-new-application-to-your-resource-manager-template"></a>Adición de una nueva aplicación a la plantilla de Resource Manager
 
 1. Prepare la plantilla de Resource Manager del clúster para la implementación. Para más información al respecto, consulte [Creación de un clúster de Service Fabric con Azure Resource Manager](service-fabric-cluster-creation-via-arm.md).
 2. Piense en algunas de las aplicaciones que planea implementar en el clúster. ¿Habrá alguna que siempre esté en ejecución de la que puedan tener dependencias otras aplicaciones? ¿Tiene pensado implementar aplicaciones de configuración o de gobernanza del clúster? Estos tipos de aplicaciones se administran mejor mediante una plantilla de Resource Manager, como se ha indicado anteriormente. 
-3. Una vez que ha estimado qué aplicaciones quiere implementar de esta forma, las aplicaciones se deben empaquetar, comprimir y colocar en un recurso compartido de archivos. El recurso compartido debe ser accesible a través de un punto de conexión de REST para que Azure Resource Manager lo use durante la implementación.
-4. En la plantilla de Resource Manager, debajo de la declaración del clúster, describe las propiedades de cada aplicación. Estas propiedades incluyen el recuento de instancias o réplicas y las cadenas de dependencia entre los recursos (otras aplicaciones o servicios). Para obtener una lista completa de propiedades, consulte la [especificación de Swagger de la API de REST](https://aka.ms/sfrpswaggerspec). Tenga en cuenta que esta especificación no sustituye a los manifiestos de aplicación o servicio, sino que describe algo de lo que contienen como parte de la plantilla de Resource Manager del clúster. A continuación se muestra una plantilla de ejemplo que incluye la implementación de un servicio sin estado *Service1* y un servicio con estado *Service2* como parte de *Application1*:
+3. Una vez que ha estimado qué aplicaciones quiere implementar de esta forma, se deben empaquetar, comprimir y colocar en un recurso compartido de archivos. El recurso compartido debe ser accesible a través de un punto de conexión de REST para que Azure Resource Manager lo use durante la implementación. Para más información, consulte [Creación de una cuenta de almacenamiento](service-fabric-concept-resource-model.md#create-a-storage-account).
+4. En la plantilla de Resource Manager, debajo de la declaración del clúster, describe las propiedades de cada aplicación. Estas propiedades incluyen el recuento de instancias o réplicas y las cadenas de dependencia entre los recursos (otras aplicaciones o servicios). Tenga en cuenta que esta especificación no sustituye a los manifiestos de aplicación o servicio, sino que describe algo de lo que contienen como parte de la plantilla de Resource Manager del clúster. A continuación se muestra una plantilla de ejemplo que incluye la implementación de un servicio sin estado *Service1* y un servicio con estado *Service2* como parte de *Application1*:
 
    ```json
    {
@@ -244,7 +243,7 @@ En el siguiente fragmento se muestran los diferentes tipos de recursos que se pu
    ```
 
    > [!NOTE] 
-   > El elemento *apiVersion* debe estar establecido en `"2019-03-01"`. Esta plantilla se puede implementar también con independencia del clúster, siempre y cuando este se haya implementado.
+   > Consulte la [referencia de Azure Resource Manager](/azure/templates/microsoft.servicefabric/clusters/applicationtypes) de Service Fabric para buscar el uso y los detalles de las propiedades de plantilla individuales.
 
 5. Así que, implemente. 
 

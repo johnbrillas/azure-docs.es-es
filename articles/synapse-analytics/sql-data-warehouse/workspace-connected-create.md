@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/25/2020
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: a1fbc6eede6c82020b765185602c672c1162fdf8
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 769ca4cf0ecbdba5fd80d977eb69c8a4f58df55f
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548195"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98071194"
 ---
 # <a name="enabling-synapse-workspace-features-for-a-dedicated-sql-pool-formerly-sql-dw"></a>Habilitación de las características del área de trabajo de Synapse en un grupo de SQL dedicado (anteriormente, SQL DW)
 
@@ -57,6 +57,9 @@ Se deben completar los pasos siguientes para asegurarse de que se puede acceder 
 4. Seleccione una de las instancias del grupo de SQL dedicado (anteriormente, SQL DW) hospedadas en el servidor lógico. En la página de información general, seleccione **Iniciar Synapse Studio** o vaya a [Iniciar sesión en Synapse Studio](https://web.azuresynapse.net) e inicie sesión en el área de trabajo.
 
 5. Abra el **centro de datos** y expanda el grupo de SQL dedicado en el explorador de objetos para asegurarse de que tiene acceso y puede consultar el almacenamiento de datos.
+
+    > [!NOTE] 
+    > Un área de trabajo conectada se puede eliminar en cualquier momento. Al eliminar el área de trabajo, no se eliminará el grupo de SQL dedicado conectado (anteriormente SQL DW). La característica Área de trabajo se puede volver a habilitar en el grupo de SQL dedicado (anteriormente SQL DW) cuando se ha completado la operación de eliminación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Introducción al [área de trabajo de Synapse y Studio](../get-started.md).

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/17/2020
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 739e59ea8e5737abbc6f0f0799129be5f59fb9b0
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 3bf3ecefb17f4c9fda6405da7fb2bdc2650f5324
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97674504"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131481"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Notas de la versión del agente de Azure File Sync
 Azure File Sync le permite centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Las instalaciones de Windows Server se transforman en una memoria caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a los datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -236,14 +236,14 @@ Las notas siguientes corresponden a la versión 9.0.0.0 del agente de Azure File
 ### <a name="improvements-and-issues-that-are-fixed"></a>Mejoras y problemas que se han solucionado
 
 - Compatibilidad con el Autoservicio de restauración
-    - Los usuarios pueden ahora restaurar sus archivos mediante la característica de la versión anterior. Antes de la versión v9, no se admitía la característica de la versión anterior en los volúmenes que tenían habilitada la nube por niveles. Esta característica tiene que habilitarse por separado para cada volumen en el que existe un punto de conexión con nube por niveles habilitada. Para obtener más información, consulte:  
+    - Ahora los usuarios también pueden restaurar archivos por niveles (junto con archivos en disco) mediante la característica de versión anterior, a partir de las instantáneas de VSS creadas después de habilitar la característica de Autoservicio de restauración en el volumen. Antes de la versión v9, no se admitía la característica de la versión anterior para los archivos por niveles. Esta característica tiene que habilitarse por separado para cada volumen en el que existe un punto de conexión con nube por niveles habilitada. Para obtener más información, consulte:  
 [Autoservicio de restauración a través de versiones anteriores y VSS (Servicio de instantáneas de volumen)](./storage-sync-files-deployment-guide.md#self-service-restore-through-previous-versions-and-vss-volume-shadow-copy-service). 
  
 - Compatibilidad con tamaños de recurso compartido de archivos más grandes 
     - Azure File Sync admite hasta 64 TiB y 100 millones de archivos en un mismo espacio de nombres de sincronización.  
  
 - Compatibilidad de desduplicación de datos en Server 2019 
-    - La desduplicación de datos es ahora compatible con la nube por niveles habilitada en Windows Server 2019. Para admitir la desduplicación de datos en volúmenes con nube por niveles, es necesario instalar Windows Update [KB4520062](https://support.microsoft.com/help/4520062). 
+    - Ahora se admite la desduplicación de datos (independientemente de si la nube por niveles está habilitada o deshabilitada en uno o varios puntos de conexión de servidor del volumen) en Windows Server 2016 y Windows Server 2019. Para admitir la desduplicación de datos en volúmenes con nube por niveles de Server 2019, es necesario instalar Windows Update [KB4520062](https://support.microsoft.com/help/4520062). 
  
 - Tamaño mínimo de archivo mejorado para organizar un archivo en niveles 
     - El tamaño mínimo para organizar un archivo en niveles se basa ahora en el tamaño del clúster del sistema de archivos (el doble del tamaño del clúster del sistema de archivos). Por ejemplo, de forma predeterminada, el tamaño del clúster del sistema de archivos NTFS es 4 KB, el tamaño mínimo de archivo resultante para organizar un archivo en niveles es 8 KB. 

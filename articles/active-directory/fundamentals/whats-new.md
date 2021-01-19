@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d40e460c150fa616144180d4f677fe0211143e5
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: b6da9f27e25fa5543f949716824f54af2b9f1ad1
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97862421"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132552"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>¿Cuáles son las novedades de Azure Active Directory?
 
@@ -107,8 +107,6 @@ Ahora, puede automatizar la creación, actualización y eliminación de cuentas 
 Para más información acerca de cómo proteger mejor una organización mediante el aprovisionamiento automatizado de cuentas de usuario, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md).
  
 ---
- 
-[1233182](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1233182&triage=true&fullScreen=false&_a=edit)
 
 ### <a name="new-federated-apps-available-in-azure-ad-application-gallery---december-2020"></a>Nuevas aplicaciones federadas disponibles en la galería de aplicaciones de Azure AD: diciembre de 2020
 
@@ -123,6 +121,29 @@ En diciembre de 2020 se han agregado las siguientes 18 aplicaciones nuevas a la
 La documentación de todas las aplicaciones está disponible en https://aka.ms/AppsTutorial.
 
 Para mostrar su aplicación en la galería de aplicaciones de Azure AD, lea los detalles aquí: https://aka.ms/AzureADAppRequest.
+
+---
+
+### <a name="navigate-to-teams-directly-from-my-access-portal"></a>Navegación a Teams directamente desde el portal Mi acceso
+
+**Tipo:** Característica modificada  
+**Categoría del servicio:** Administración de acceso a usuarios **Funcionalidad del producto:** Administración de derechos
+
+Ahora puede iniciar Teams directamente desde el portal Mi acceso. Para ello, inicie sesión en [Mi acceso](https://myaccess.microsoft.com/), diríjase a **Paquetes de acceso** y, a continuación, vaya a la pestaña **Activos** para ver todos los paquetes de acceso a los que ya tiene acceso. Al expandir el paquete de acceso y mantener el mouse sobre una instancia de Teams, puede iniciarla al hacer clic en el botón **Abrir**. 
+
+Para obtener más información sobre el uso del portal Mi acceso, visite [Solicitud de acceso a un paquete de acceso en la administración de derechos de Azure AD](../governance/entitlement-management-request-access.md#sign-in-to-the-my-access-portal).
+
+---
+
+### <a name="public-preview---second-level-manager-can-be-set-as-alternate-approver"></a>Versión preliminar pública: el administrador de segundo nivel se puede establecer como aprobador alternativo
+
+**Tipo:** Característica modificada  
+**Categoría del servicio:** Administración de acceso de usuarios  
+**Funcionalidad del producto:** Administración de derechos
+
+Ahora está disponible una opción adicional en el proceso de aprobación de la administración de derechos. Si selecciona a un administrador como aprobador para el primer aprobador, tendrá una opción adicional disponible para elegir en el campo de aprobador alternativo: Administrador de segundo nivel como aprobador alternativo. Si selecciona esta opción, debe agregar un aprobador de reserva al que reenviar la solicitud en caso de que el sistema no encuentre el administrador de segundo nivel.
+
+Para obtener más información, diríjase a [Cambio de la configuración de aprobación para un paquete de acceso de administración de derechos de Azure AD](../governance/entitlement-management-access-package-approval-policy.md#alternate-approvers).
 
 --- 
 
@@ -188,7 +209,7 @@ Estos son algunos escenarios de delegación comunes:
 
 ---
 
-### <a name="azure-ad-application-proxy-natively-supports-single-sign-on-access-to-applications-that-use-headers-for-authentication"></a>Application Proxy de Azure AD admite de forma nativa el acceso de inicio sesión único a las aplicaciones que usan encabezados para la autenticación
+### <a name="public-preview---azure-ad-application-proxy-natively-supports-single-sign-on-access-to-applications-that-use-headers-for-authentication"></a>Versión preliminar pública: Application Proxy de Azure AD admite de manera nativa el acceso de inicio sesión único a las aplicaciones que usan encabezados para la autenticación
 
 **Tipo:** Nueva característica  
 **Categoría del servicio:** Proxy de aplicaciones  

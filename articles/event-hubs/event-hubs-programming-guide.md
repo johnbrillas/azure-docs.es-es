@@ -4,12 +4,12 @@ description: En este artículo se proporciona información sobre cómo escribir 
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 17bec931f79a6dbb3d98270ab0ff6e2d1d4c6541
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46bd0c3c1488d6dd7afbae5e88e0b83f56654bb8
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89013918"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131243"
 ---
 # <a name="net-programming-guide-for-azure-event-hubs-legacy-microsoftazureeventhubs-package"></a>Guía de programación de .NET para Azure Event Hubs (paquete heredado Microsoft.Azure.EventHubs)
 En este artículo se describen algunos escenarios comunes para escribir código mediante Azure Event Hubs. En él se presupone un conocimiento previo de Event Hubs. Para obtener una visión general conceptual de Event Hubs, consulte la [Información general de Azure Event Hubs](./event-hubs-about.md).
@@ -77,7 +77,7 @@ Al enviar datos de eventos, puede especificar un valor con hash para generar una
 
 ### <a name="availability-considerations"></a>Consideraciones sobre disponibilidad
 
-El uso de una clave de partición es opcional y debe considerar detenidamente si desea o no utilizar uno. Si no especifica una clave de partición cuando se publica un evento, se usa una asignación de tipo round robin. En muchos casos, el uso de una clave de partición es una buena elección si el orden de los eventos es importante. Cuando se usa una clave de partición, estas particiones requieren la disponibilidad en un solo nodo y las interrupciones pueden producirse a lo largo del tiempo; por ejemplo, cuando los nodos de ejecución se reinician y revisan. Por lo tanto, si establece un identificador de partición y esa partición deja de estar disponible por alguna razón, un intento de acceder a los datos de esa partición provocará un error. Si la alta disponibilidad es más importante, no especifique una clave de partición; en ese caso, los eventos se envían a las particiones que usan el modelo round robin descrito anteriormente. En este escenario, se realiza una selección explícita entre disponibilidad (ningún identificador de partición) y coherencia (anclar eventos a un identificador de partición).
+El uso de una clave de partición es opcional y debe considerar detenidamente si desea o no utilizar uno. Si no especifica una clave de partición al publicar un evento, Event Hubs equilibra la carga entre las particiones. En muchos casos, el uso de una clave de partición es una buena elección si el orden de los eventos es importante. Cuando se usa una clave de partición, estas particiones requieren la disponibilidad en un solo nodo y las interrupciones pueden producirse a lo largo del tiempo; por ejemplo, cuando los nodos de ejecución se reinician y revisan. Por lo tanto, si establece un identificador de partición y esa partición deja de estar disponible por alguna razón, un intento de acceder a los datos de esa partición provocará un error. Si la alta disponibilidad es lo más importante, no especifique una clave de partición. En ese caso, los eventos se envían a las particiones mediante un algoritmo de equilibrio de cargas interno. En este escenario, se realiza una selección explícita entre disponibilidad (ningún identificador de partición) y coherencia (anclar eventos a un identificador de partición).
 
 Otra consideración es el control de retrasos en el procesamiento de eventos. En algunos casos podría ser mejor quitar datos y reintentarlo que intentar seguir con el procesamiento, lo que puede provocar más retrasos de procesamiento descendente. Por ejemplo, con un tablero de cotizaciones es preferible esperar a tener todos los datos actualizados, pero en un escenario de chat en directo o VOIP sería preferible disponer de los datos rápidamente, aunque no estén completos.
 
@@ -93,7 +93,7 @@ Para obtener más información y una explicación sobre las ventajas y desventaj
 
 El envío de eventos por lotes puede ayudar a aumentar el rendimiento. Puede usar la API [CreateBatch](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createbatch) para crear un lote al que más tarde se pueden agregar objetos de datos para una llamada [SendAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync).
 
-Un único lote no debe superar el límite de 1 MB de un evento. Además, cada mensaje del lote usa la misma identidad del publicador. Es responsabilidad del remitente asegurarse de que el lote no supera el tamaño máximo del evento. Si es así, se generará un error de **envío** de cliente. Puede utilizar el método auxiliar [EventHubClient.CreateBatch](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createbatch) para asegurarse de que el lote no supera los 1 MB. Obtiene una salida vacía [EventDataBatch](/dotnet/api/microsoft.azure.eventhubs.eventdatabatch) de la API [CreateBatch](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createbatch) y, después, use [TryAdd](/dotnet/api/microsoft.azure.eventhubs.eventdatabatch.tryadd) para agregar eventos para construir el lote. 
+Un único lote no debe superar el límite de 1 MB de un evento. Además, cada mensaje del lote usa la misma identidad del publicador. Es responsabilidad del remitente asegurarse de que el lote no supera el tamaño máximo del evento. Si lo hace, se genera un error de **envío** de cliente. Puede utilizar el método auxiliar [EventHubClient.CreateBatch](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createbatch) para asegurarse de que el lote no supera los 1 MB. Obtiene una salida vacía [EventDataBatch](/dotnet/api/microsoft.azure.eventhubs.eventdatabatch) de la API [CreateBatch](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createbatch) y, después, use [TryAdd](/dotnet/api/microsoft.azure.eventhubs.eventdatabatch.tryadd) para agregar eventos para construir el lote. 
 
 ## <a name="send-asynchronously-and-send-at-scale"></a>Enviar de forma asincrónica y enviar a escala
 
@@ -144,7 +144,6 @@ Además de las características avanzadas del entorno en tiempo de ejecución de
 > [!NOTE]
 > Actualmente, solo la API REST es compatible con esta característica ([revocación del editor](/rest/api/eventhub/revoke-publisher)).
 
-Para más información acerca de la revocación del publicador y cómo realizar envíos a Event Hubs como publicador, consulte el ejemplo de [Event Hubs Large Scale Secure Publishing](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-99ce67ab) (Publicación segura a gran escala de Event Hubs).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -5,13 +5,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 author: kanshiG
 ms.author: govindk
-ms.date: 06/25/2020
-ms.openlocfilehash: dc47f2f7a0f1586b197d14015fe2167293c806c6
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.date: 01/07/2021
+ms.openlocfilehash: ec82532b54e7834b62fcc03d3ee7de1345a0f546
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099358"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98027815"
 ---
 # <a name="how-to-monitor-normalized-rus-for-an-azure-cosmos-container-or-an-account"></a>Cómo supervisar RU/s normalizadas para un contenedor de Azure Cosmos o una cuenta
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -30,9 +30,7 @@ Para buscar las solicitudes que tienen una velocidad limitada, el método recome
 
 Si hay un pico continuo del consumo de RU/s normalizado del 100 % o cercano al 100 % en varios intervalos de claves de partición, se recomienda aumentar el rendimiento. Puede averiguar qué operaciones son de consumo intenso y su uso máximo al usar las métricas de Azure Monitor y los registros de diagnósticos de Azure Monitor.
 
-En resumen, la métrica de **Consumo de RU normalizado** se usa para ver cuál es el intervalo de claves de partición más eficiente en términos de uso. Por tanto, permite sesgar el rendimiento hacia un intervalo de claves de partición. Después, puede consultar el registro **PartitionKeyRUConsumption** en los registros de Azure Monitor para obtener información acerca de las claves de partición lógicas que están activas en términos de uso. Esto apuntará a un cambio ya sea en la opción de clave de partición o a un cambio en la lógica de aplicación. Para resolver la limitación de velocidad, distribuya la carga de datos en varias particiones o simplemente aumente el rendimiento, ya que es realmente necesario. 
-
-
+En resumen, la métrica de **Consumo de RU normalizado** se usa para ver cuál es el intervalo de claves de partición más eficiente en términos de uso. Por tanto, permite sesgar el rendimiento hacia un intervalo de claves de partición. Después, puede consultar el registro **PartitionKeyRUConsumption** en los registros de Azure Monitor para obtener información acerca de las claves de partición lógicas que están activas en términos de uso. Esto apuntará a un cambio ya sea en la opción de clave de partición o a un cambio en la lógica de aplicación. Para resolver la limitación de velocidad, distribuya la carga de datos en varias particiones o simplemente aumente el rendimiento, ya que es necesario. 
 
 ## <a name="view-the-normalized-request-unit-consumption-metric"></a>Ver la métrica de consumo normalizado de unidades de solicitud
 
@@ -42,7 +40,7 @@ En resumen, la métrica de **Consumo de RU normalizado** se usa para ver cuál e
 
    :::image type="content" source="./media/monitor-normalized-request-units/monitor-metrics-blade.png" alt-text="Panel Métricas en Azure Monitor":::
 
-3. En el panel **Métricas** panel > **Seleccionar un recurso** > elija la **suscripción** , y el **grupo de recursos** requeridos. En **Tipo de recurso** , seleccione **Cuentas de Azure Cosmos DB** , elija una de las cuentas de Azure Cosmos existentes y seleccione **Aplicar**.
+3. En el panel **Métricas** panel > **Seleccionar un recurso** > elija la **suscripción**, y el **grupo de recursos** requeridos. En **Tipo de recurso**, seleccione **Cuentas de Azure Cosmos DB**, elija una de las cuentas de Azure Cosmos existentes y seleccione **Aplicar**.
 
    :::image type="content" source="./media/monitor-normalized-request-units/select-cosmos-db-account.png" alt-text="Elección de una cuenta de Azure Cosmos DB para ver las métricas":::
 
@@ -54,9 +52,9 @@ En resumen, la métrica de **Consumo de RU normalizado** se usa para ver cuál e
 
 ### <a name="filters-for-normalized-request-unit-consumption"></a>Filtros para el consumo normalizado de unidades de solicitud
 
-También puede filtrar las métricas y el gráfico que se muestra por una propiedad **CollectionName** , **DatabaseName** , **PartitionKeyRangeID** y **Region** concreta. Para filtrar las métricas, seleccione **Agregar filtro** y elija la propiedad necesaria, como **CollectionName** y el valor correspondiente que le interese. A continuación, el gráfico muestra las unidades de consumo de RU normalizado utilizadas para el contenedor durante el período seleccionado.  
+También puede filtrar las métricas y el gráfico que se muestra por una propiedad **CollectionName**, **DatabaseName**, **PartitionKeyRangeID** y **Region** concreta. Para filtrar las métricas, seleccione **Agregar filtro** y elija la propiedad necesaria, como **CollectionName** y el valor correspondiente que le interese. A continuación, el gráfico muestra las unidades de consumo de RU normalizado utilizadas para el contenedor durante el período seleccionado.  
 
-Para agrupar las métricas puede usar la opción **Apply splitting** (Aplicar división).  
+Para agrupar las métricas puede usar la opción **Apply splitting** (Aplicar división). En el caso de las bases de datos de rendimiento compartidas, la métrica de RU normalizada solo muestra datos hasta el detalle de base de datos; no muestra ningún dato por recopilación. Por lo tanto, para la base de datos de rendimiento compartida, no verá ningún dato al aplicar la división por nombre de la colección.
 
 La métrica de consumo normalizado de unidades de solicitud para cada contenedor aparece como se muestra en la siguiente imagen:
 

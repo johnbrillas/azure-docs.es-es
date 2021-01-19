@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 5e0007f3b0dad8a68e9d81cebbe9fe24b5a7db3c
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 0e1ce841f6da8f15bd977437bca6b835a7b0d745
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285644"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108745"
 ---
 # <a name="how-to-enable-key-vault-logging"></a>Habilitación del registro de Key Vault
 
@@ -25,20 +25,10 @@ Después de crear uno o varios almacenes de claves, es probable que desee superv
 Para realizar este tutorial, debe disponer de lo siguiente:
 
 * Un Almacén de claves existente que ha utilizado.  
-* La CLI de Azure o Azure PowerShell
+* [Azure Cloud Shell](https://shell.azure.com): entorno de Bash.
 * Suficiente almacenamiento en Azure para sus registros de Key Vault.
 
-Si decide instalar y usar la CLI localmente, necesitará la versión 2.0.4 o posterior de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli). Para iniciar sesión en Azure mediante la CLI puede escribir:
-
-```azurecli-interactive
-az login
-```
-
-Si decide instalar y usar PowerShell localmente, necesitará la versión 1.0.0 o posterior del módulo de Azure PowerShell. Escriba `$PSVersionTable.PSVersion` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-az-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Connect-AzAccount` para crear una conexión con Azure.
-
-```powershell-interactive
-Connect-AzAccount
-```
+A los comandos de esta guía se les da formato para [Cloud Shell](https://shell.azure.com) con Bash como entorno.
 
 ## <a name="connect-to-your-key-vault-subscription"></a>Conexión a su suscripción de Key Vault
 
@@ -162,7 +152,7 @@ az storage blob list --account-name "<your-unique-storage-account-name>" --conta
 Con Azure PowerShell, use el cmdlet [Get-AzStorageBlob](/powershell/module/az.storage/get-azstorageblob?view=azps-4.7.0). Para obtener la lista de todos los blobs de este contenedor, escriba:
 
 ```powershell
-Get-AzStorageBlob -Container $container -Context $sa.Context
+Get-AzStorageBlob -Container "insights-logs-auditevent" -Context $sa.Context
 ```
 
 Como podrá ver en la salida del comando de la CLI de Azure o del cmdlet de Azure PowerShell, el nombre de los blobs tiene el formato `resourceId=<ARM resource ID>/y=<year>/m=<month>/d=<day of month>/h=<hour>/m=<minute>/filename.json`. Los valores de fecha y hora usan UTC.
@@ -178,7 +168,7 @@ az storage blob download --container-name "insights-logs-auditevent" --file <pat
 Con Azure PowerShell, use el cmdlet [Gt-AzStorageBlobs](/powershell/module/az.storage/get-azstorageblob?view=azps-4.7.0) para obtener una lista de los blobs y, después, canalícela al cmdlet [Get-AzStorageBlobContent](/powershell/module/az.storage/get-azstorageblobcontent?view=azps-4.7.0) para descargar los registros en la ruta de acceso elegida.
 
 ```powershell-interactive
-$blobs = Get-AzStorageBlob -Container $container -Context $sa.Context | Get-AzStorageBlobContent -Destination "<path-to-file>"
+$blobs = Get-AzStorageBlob -Container "insights-logs-auditevent" -Context $sa.Context | Get-AzStorageBlobContent -Destination "<path-to-file>"
 ```
 
 Al ejecutar este segundo comando en PowerShell, el delimitador **/** de los nombres de blobs crea una estructura de carpetas completa en la carpeta de destino. Usará esta estructura para descargar y almacenar los blobs como archivos.
@@ -188,19 +178,19 @@ Para descargar blobs de forma selectiva, utilice caracteres comodín. Por ejempl
 * Si tiene varios almacenes de claves y desea descargar los registros solo para un Almacén de claves, denominado CONTOSOKEYVAULT3:
 
   ```powershell
-  Get-AzStorageBlob -Container $container -Context $sa.Context -Blob '*/VAULTS/CONTOSOKEYVAULT3
+  Get-AzStorageBlob -Container "insights-logs-auditevent" -Context $sa.Context -Blob '*/VAULTS/CONTOSOKEYVAULT3
   ```
 
 * Si tiene varios grupos de recursos y desea descargar los registros solo de un grupo de recursos específico, use `-Blob '*/RESOURCEGROUPS/<resource group name>/*'`:
 
   ```powershell
-  Get-AzStorageBlob -Container $container -Context $sa.Context -Blob '*/RESOURCEGROUPS/CONTOSORESOURCEGROUP3/*'
+  Get-AzStorageBlob -Container "insights-logs-auditevent" -Context $sa.Context -Blob '*/RESOURCEGROUPS/CONTOSORESOURCEGROUP3/*'
   ```
 
 * Si desea descargar todos los registros del mes de enero de 2019, use `-Blob '*/year=2019/m=01/*'`:
 
   ```powershell
-  Get-AzStorageBlob -Container $container -Context $sa.Context -Blob '*/year=2016/m=01/*'
+  Get-AzStorageBlob -Container "insights-logs-auditevent" -Context $sa.Context -Blob '*/year=2016/m=01/*'
   ```
 
 Ahora está listo para comenzar a ver lo que está en los registros. Pero antes de pasar a ello, debe conocer dos comandos más:

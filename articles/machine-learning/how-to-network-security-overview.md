@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions, contperf-fy21q1
-ms.openlocfilehash: dd24c4f20fa3a56d25ef142947268b2d2b75474a
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 664264f2cd810f232b967f5af78ba3d522f0a41f
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97029607"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060017"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Información general sobre la privacidad y el aislamiento de la red virtual
 
@@ -152,7 +152,8 @@ Si el almacenamiento se encuentra en una red virtual, primero debe realizar paso
 Para habilitar la funcionalidad de Studio completa desde una red virtual, consulte [Uso de Azure Machine Learning Studio en una red virtual](how-to-enable-studio-virtual-network.md#configure-data-access-in-the-studio). Studio admite cuentas de almacenamiento que usan puntos de conexión de servicio o puntos de conexión privados.
 
 ### <a name="limitations"></a>Limitaciones
-- [El etiquetado de datos asistido por ML](how-to-create-labeling-projects.md#use-ml-assisted-labeling) no es compatible con las cuentas de almacenamiento predeterminadas que están protegidas en una red virtual. Debe usar una cuenta de almacenamiento no predeterminada para el etiquetado de datos asistidos por ML. No obstante, la cuenta de almacenamiento no predeterminada se puede proteger en la red virtual. 
+
+[El etiquetado de datos asistido por ML](how-to-create-labeling-projects.md#use-ml-assisted-data-labeling) no es compatible con las cuentas de almacenamiento predeterminadas que están protegidas en una red virtual. Debe usar una cuenta de almacenamiento no predeterminada para el etiquetado de datos asistidos por ML. No obstante, la cuenta de almacenamiento no predeterminada se puede proteger en la red virtual. 
 
 ## <a name="configure-firewall-settings"></a>Configuración del firewall
 

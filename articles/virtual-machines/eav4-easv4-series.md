@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 3d1b8481aa4d4a81c95643727c1eff2a4a22da2f
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 80cacdcda39d3a7c443c1c94a797e69ba9a52bfd
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94426262"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98065463"
 ---
 # <a name="eav4-and-easv4-series"></a>Series Eav4 y Easv4
 
@@ -28,19 +28,19 @@ Las series Eav4 y Easv4 emplean el procesador EPYC<sup>TM</sup> 7452 de 2,35 GH
 [Compatibilidad con generación de VM](generation-2.md): Generaciones 1 y 2<br>
 <br>
 
-Los tamaños de la serie Eav4 se basan en el procesador EPYC<sup>TM</sup> 7452 de AMD de 2,35 Ghz que pueden alcanzar una frecuencia máxima incrementada de 3,35 Ghz y usar SSD Premium. Los tamaños de la serie Eav4 son ideales para aplicaciones empresariales de uso intensivo de memoria. El almacenamiento en disco de datos se factura de forma independiente a las máquinas virtuales. Para usar SSD Premium, use los tamaños de la serie Easv4. El precio y los medidores de facturación para los tamaños Easv4 son los mismos que para la serie Eav3.
+Los tamaños de la serie Eav4 se basan en el procesador EPYC<sup>TM</sup> 7452 de AMD de 2,35 GHz que pueden alcanzar una frecuencia máxima incrementada de 3,35 GHz. Los tamaños de la serie Eav4 son ideales para aplicaciones empresariales de uso intensivo de memoria. El almacenamiento en disco de datos se factura de forma independiente a las máquinas virtuales. Para usar SSD Premium, use los tamaños de la serie Easv4. El precio y los medidores de facturación para los tamaños Easv4 son los mismos que para la serie Eav3.
 
 | Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal: IOPS / MBps de lectura / MBps de escritura | Nº máx. NIC | Ancho de banda de red esperado (Mbps) |
 | -----|-----|-----|-----|-----|-----|-----|-----|
-| Standard\_E2a\_v4|2|16|50|4|3000 / 46 / 23|2 | 1000 |
-| Standard\_E4a\_v4|4|32|100|8|6000 / 93 / 46|2 | 2000 |
-| Standard\_E8a\_v4|8|64|200|16|12000 / 187 / 93|4 | 4000 |
-| Standard\_E16a\_v4|16|128|400|32|24000 / 375 / 187|8 | 8000 |
-| Standard\_E20a\_v4|20|160|500|32|30000 / 468 / 234|8 | 10000 |
-| Standard\_E32a\_v4|32|256|800|32|48000 / 750 / 375|8 | 16000 |
-| Standard\_E48a\_v4|48|384|1200|32|96000/1000 (500)|8 | 24000 |
-| Standard\_E64a\_v4|64|512|1600|32|96000/1000 (500)|8 | 30000 |
-| Standard\_E96a\_v4|96|672|2400|32|96000/1000 (500)|8 | 30000 |
+| Standard\_E2a\_v4|2|16|50|4|3000 / 46 / 23|2 | 800 |
+| Standard\_E4a\_v4|4|32|100|8|6000 / 93 / 46|2 | 1600 |
+| Standard\_E8a\_v4|8|64|200|16|12000 / 187 / 93|4 | 3200 |
+| Standard\_E16a\_v4|16|128|400|32|24000 / 375 / 187|8 | 6400 |
+| Standard\_E20a\_v4|20|160|500|32|30000 / 468 / 234|8 | 8000 |
+| Standard\_E32a\_v4|32|256|800|32|48000 / 750 / 375|8 | 12800 |
+| Standard\_E48a\_v4|48|384|1200|32|96000/1000 (500)|8 | 19200 |
+| Standard\_E64a\_v4|64|512|1600|32|96000/1000 (500)|8 | 25 600 |
+| Standard\_E96a\_v4|96|672|2400|32|96000/1000 (500)|8 | 32000 |
 
 ## <a name="easv4-series"></a>Serie Easv4
 
@@ -56,15 +56,15 @@ Los tamaños de la serie Easv4 se basan en el procesador EPYC<sup>TM</sup> 7452 
 
 | Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal y en caché: IOPS / MBps (tamaño de caché en GiB) | Rendimiento máximo del disco sin almacenamiento en la caché: IOPS / MBps | Nº máx. NIC | Ancho de banda de red esperado (Mbps) |
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|
-| Standard_E2as_v4|2|16|32|4|4000/32 (50)|3200/48|2 | 1000 |
-| Standard_E4as_v4|4|32|64|8|8000/64 (100)|6400/96|2 | 2000 |
-| Standard_E8as_v4|8|64|128|16|16000/128 (200)|12800/192|4 | 4000 |
-| Standard_E16as_v4|16|128|256|32|32 000 / 255 (400)|25600/384|8 | 8000 |
-| Standard_E20as_v4|20|160|320|32|40000 / 320 (500)|32000 / 480|8 | 10000 |
-| Standard_E32as_v4|32|256|512|32|64 000 / 510 (800)|51200/768|8 | 16000 |
-| Standard_E48as_v4|48|384|768|32|96000/1020 (1200)|76800/1148|8 | 24000 |
-| Standard_E64as_v4|64|512|1024|32|128000/1020 (1600)|80000/1200|8 | 30000 |
-| Standard_E96as_v4 <sup>1</sup>|96|672|1344|32|192000/1020 (2400)|80000/1200|8 | 30000 |
+| Standard_E2as_v4|2|16|32|4|4000/32 (50)|3200/48|2 | 800 |
+| Standard_E4as_v4|4|32|64|8|8000/64 (100)|6400/96|2 | 1600 |
+| Standard_E8as_v4|8|64|128|16|16000/128 (200)|12800/192|4 | 3200 |
+| Standard_E16as_v4|16|128|256|32|32 000 / 255 (400)|25600/384|8 | 6400 |
+| Standard_E20as_v4|20|160|320|32|40000 / 320 (500)|32000 / 480|8 | 8000 |
+| Standard_E32as_v4|32|256|512|32|64 000 / 510 (800)|51200/768|8 | 12800 |
+| Standard_E48as_v4|48|384|768|32|96000/1020 (1200)|76800/1148|8 | 19200 |
+| Standard_E64as_v4|64|512|1024|32|128000/1020 (1600)|80000/1200|8 | 25 600 |
+| Standard_E96as_v4 <sup>1</sup>|96|672|1344|32|192000/1020 (2400)|80000/1200|8 | 32000 |
 
 <sup>1</sup> [Tamaños de núcleos restringidos disponibles](./constrained-vcpu.md).
 

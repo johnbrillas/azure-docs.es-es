@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: troubleshooting
-ms.date: 10/07/2020
+ms.date: 01/07/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6eb63a4a0b7b7fdefd636d3460b182f8d907dd36
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: 0d80b8f41e11f2fffa86dc7597fdf44dd27825fc
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96558936"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028903"
 ---
 # <a name="frequently-asked-questions-identity-protection-in-azure-active-directory"></a>Preguntas más frecuentes sobre Identity Protection en Azure Active Directory
 
@@ -35,7 +35,7 @@ Actualmente hay un problema conocido que provoca latencia en el flujo de descart
 
 Si es un cliente de Azure AD Identity Protection, vaya a la vista [de usuarios de riesgo](howto-identity-protection-investigate-risk.md#risky-users) y haga clic en un usuario en riesgo. En el cajón de la parte inferior, la pestaña "Historial de riesgos" mostrará todos los eventos que provocaron un cambio de riesgo del usuario. Para ver todos los inicios de sesión de riesgo para el usuario, haga clic en "Inicios de sesión de riesgo del usuario". Para ver todas las detecciones de riesgo del usuario, haga clic en "Detecciones de riesgos del usuario".
 
-## <a name="why-was-my-sign-in-blocked-but-identity-protection-didnt-generate-a-risk-detection"></a>¿Por qué se bloqueó mi inicio de sesión, pero Identity Protection no generó una detección de riesgos?
+### <a name="why-was-my-sign-in-blocked-but-identity-protection-didnt-generate-a-risk-detection"></a>¿Por qué se bloqueó mi inicio de sesión, pero Identity Protection no generó una detección de riesgos?
 Los inicios de sesión se pueden bloquear por varios motivos. Debe tener en cuenta que Identity Protection solo genera detecciones de riesgo cuando se usan las credenciales correctas en la solicitud de autenticación. Si un usuario usa credenciales incorrectas, no se marcará con Identity Protection, ya que no hay riesgo de que las credenciales se pongan en peligro a menos que un infiltrado use las credenciales correctas. Algunos de los motivos por los que se podría bloquear a un usuario sin generar una detección de Identity Protection incluyen:
 * La **IP se puede bloquear** debido a actividad malintencionada de la dirección IP. El mensaje IP bloqueada no distingue si las credenciales son correctas o no. Si la dirección IP está bloqueada y no se usan credenciales correctas, no se generará una detección de Identity Protection.
 * El **[bloqueo inteligente](../authentication/howto-password-smart-lockout.md)** puede impedir que la cuenta inicie sesión después de varios intentos erróneos.
@@ -96,3 +96,7 @@ Dado que el riesgo del usuario es de naturaleza acumulativa y no expira, un usua
 ### <a name="why-does-a-sign-in-have-a-sign-in-risk-aggregate-score-of-high-when-the-detections-associated-with-it-are-of-low-or-medium-risk"></a>¿Por qué un inicio de sesión tiene una puntuación alta en "sign-in risk (aggregate)" [Riesgo de inicio de sesión (agregado)] cuando las detecciones asociadas con él son de riesgo medio o bajo?
 
 La puntuación agregada de riesgo alto podría basarse en otras características del inicio de sesión, o en el hecho de que se desencadenó más de una detección para ese inicio de sesión. Y a la inversa, un inicio de sesión puede tener un riesgo de inicio de sesión (agregado) de nivel Medio, incluso si las detecciones asociadas con el inicio de sesión son de riesgo alto.
+
+### <a name="what-is-the-difference-between-the-activity-from-anonymous-ip-address-and-anonymous-ip-address-detections"></a>¿Cuál es la diferencia entre las detecciones de "Actividad desde una dirección IP anónima" y "Dirección IP anónima"?
+
+El origen de la detección de "Dirección IP anónima" es Azure AD Identity Protection, mientras que la detección de"Actividad desde una dirección IP anónima" se integra desde MCAS (Microsoft Cloud App Security). Aunque tienen nombres muy similares y es posible que pueda ver la superposición en estas señales, tienen detecciones de back-end distintas.

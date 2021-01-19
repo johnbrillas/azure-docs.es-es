@@ -3,12 +3,12 @@ title: Autenticación y autorización de Azure Service Bus | Microsoft Docs
 description: Autentique aplicaciones en Service Bus con la autenticación de firma de acceso compartido (SAS).
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: a71cef6aad973f3c39ef61a8dbab313ebfca44ef
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 7b287b209fbcd5bc2782505095aeae4390107803
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517287"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060221"
 ---
 # <a name="service-bus-authentication-and-authorization"></a>Autenticación y autorización de Service Bus
 Hay dos maneras de autenticar y autorizar el acceso a los recursos de Azure Service Bus: Azure Activity Directory (Azure AD) y firma de acceso compartido (SAS). En este artículo se proporcionan detalles sobre el uso de estos dos tipos de mecanismos de seguridad. 
@@ -34,10 +34,10 @@ Puede configurar claves para SAS en un espacio de nombres de Service Bus. La cla
 
 Para usar SAS, puede configurar un objeto [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) en un espacio de nombres, cola o tema. Esta regla está formada por los siguientes elementos:
 
-* *KeyName* : identifica la regla.
-* *PrimaryKey* : es una clave criptográfica usada para firmar o validar tokens SAS.
-* *SecondaryKey* : es una clave criptográfica usada para firmar o validar tokens SAS.
-* *Rights* : representa la recopilación de derechos de **escucha** , **envío** o **administración** concedidos.
+* *KeyName*: identifica la regla.
+* *PrimaryKey*: es una clave criptográfica usada para firmar o validar tokens SAS.
+* *SecondaryKey*: es una clave criptográfica usada para firmar o validar tokens SAS.
+* *Rights*: representa la recopilación de derechos de **escucha**, **envío** o **administración** concedidos.
 
 Las reglas de autorización configuradas en el nivel de espacio de nombres pueden conceder acceso a todas las entidades de un espacio de nombres a los clientes con tokens firmados con la clave correspondiente. Se puede configurar un máximo de 12 reglas de autorización en un espacio de nombres, cola o tema de Service Bus. De forma predeterminada, se configura un objeto [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) con todos los derechos para cada espacio de nombres cuando se aprovisiona por primera vez.
 

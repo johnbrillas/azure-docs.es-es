@@ -1,22 +1,22 @@
 ---
 title: Extensión de Azure Policy para Visual Studio Code
 description: Obtenga información acerca de cómo usar la extensión de Azure Policy para Visual Studio Code para buscar alias de Azure Resource Manager.
-ms.date: 10/20/2020
+ms.date: 01/11/2021
 ms.topic: how-to
-ms.openlocfilehash: 8c7357d70323fa74ec77cf43bd11f149a2f99154
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 4c4ba0eeb0506179ff92ead0ee86f048600d157e
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96906308"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98107946"
 ---
 # <a name="use-azure-policy-extension-for-visual-studio-code"></a>Use la extensión de Azure Policy para Visual Studio Code
 
-> Se aplica a la versión de extensión de Azure Policy **0.1.0** y versiones más recientes.
+> Se aplica a la versión de extensión de Azure Policy **0.1.1** y versiones más recientes.
 
 Aprenda a usar la extensión de Azure Policy para Visual Studio Code y así poder buscar [alias](../concepts/definition-structure.md#aliases), revisar recursos y directivas, exportar objetos y evaluar definiciones de directivas. Primero, describiremos cómo instalar la extensión de Azure Policy en Visual Studio Code. Después, veremos cómo buscar alias.
 
-La extensión de Azure Policy para Visual Studio Code se puede instalar en todas las plataformas compatibles con Visual Studio Code. Esta compatibilidad incluye Windows, Linux y macOS.
+La extensión de Azure Policy para Visual Studio Code se puede instalar en Windows.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

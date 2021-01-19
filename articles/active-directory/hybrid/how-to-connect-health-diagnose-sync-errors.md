@@ -3,7 +3,7 @@ title: 'Azure AD Connect Health: diagnóstico de errores de sincronización de a
 description: En este documento se describe el proceso de diagnóstico de los errores de sincronización de atributos duplicados y una posible solución de los objetos huérfanos directamente desde Azure Portal.
 services: active-directory
 documentationcenter: ''
-author: zhiweiwangmsft
+author: billmath
 manager: maheshu
 editor: billmath
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 05/11/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2bd2e72b05cc01b1a351880d565323662635364
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5942d208fa3859d0a4a80de5f072f2e798fe040f
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89278690"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028937"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>Diagnóstico y solución de errores de sincronización de atributos duplicados
 
@@ -137,6 +137,9 @@ El usuario con el atributo en conflicto en Azure AD debe limpiarse para poder ap
 
 **No se admite la actualización del delimitador de origen al usuario basado en la nube en el inquilino.**  
 El usuario basado en la nube de Azure AD no debe tener el delimitador de origen. En este caso no se admite la actualización del delimitador de origen. Se requiere una corrección manual en el entorno local. 
+
+**El proceso de corrección no pudo actualizar los valores.**
+No se admite la configuración específica, como [UserWriteback en Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-preview#user-writeback). Deshabilítela en la configuración. 
 
 ## <a name="faq"></a>Preguntas más frecuentes
 **P.** ¿Qué ocurre si se produce un error al ejecutarse **Aplicar corrección**?  

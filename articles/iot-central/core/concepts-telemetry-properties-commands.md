@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: c29af68433f29d7bdd363bedfa6d36316b952f4c
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: 5a9f6fa79da59425e4972dddd21ffdea15af73e7
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97795350"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127913"
 ---
 # <a name="telemetry-property-and-command-payloads"></a>Cargas de telemetría, propiedades y comandos
 
@@ -187,6 +187,9 @@ El siguiente fragmento de código de un modelo de dispositivo muestra la definic
   "schema": "geopoint"
 }
 ```
+
+> [!NOTE]
+> El tipo de esquema **geopoint** no forma parte de la [especificación del lenguaje de definición de Digital Twins](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). Actualmente, IoT Central admite el tipo de esquema **geopoint** y el tipo semántico **location** para la compatibilidad con versiones anteriores.
 
 Un cliente de dispositivo debe enviar la telemetría como JSON con un aspecto similar al del ejemplo siguiente. IoT Central muestra el valor como una chincheta en un mapa:
 
@@ -576,6 +579,9 @@ En el siguiente fragmento de código de un modelo de dispositivo se muestra la d
 }
 ```
 
+> [!NOTE]
+> El tipo de esquema **geopoint** no forma parte de la [especificación del lenguaje de definición de Digital Twins](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). Actualmente, IoT Central admite el tipo de esquema **geopoint** y el tipo semántico **location** para la compatibilidad con versiones anteriores.
+
 Un cliente de dispositivo debe enviar una carga JSON similar a la del ejemplo siguiente como una propiedad notificada en el dispositivo gemelo:
 
 ```json
@@ -721,7 +727,7 @@ IoT Central espera una respuesta del dispositivo a las actualizaciones de las pr
 | ----- | ----- | ----------- |
 | `'ac': 200` | Completed | La operación de cambio de propiedad se ha completado correctamente. |
 | `'ac': 202` o `'ac': 201` | Pending | La operación de cambio de propiedad está pendiente o en curso. |
-| `'ac': 4xx` | Error | El cambio de propiedad solicitado no era válido o tenía un error. |
+| `'ac': 4xx` | Error | El cambio de propiedad solicitado no era válido o tenía un error |
 | `'ac': 5xx` | Error | El dispositivo experimentó un error inesperado al procesar el cambio solicitado. |
 
 `av` es el número de versión enviado al dispositivo.
@@ -828,9 +834,6 @@ El dispositivo debe enviar la siguiente carga JSON a IoT Central después de pro
 ```
 
 ## <a name="commands"></a>Comandos:
-
-> [!NOTE]
-> En la interfaz de usuario web de IoT Central, puede seleccionar la opción **Queue if offline** (Poner en cola si no está conectado) para un comando. Esta configuración no se incluye si exporta un modelo o una interfaz desde la plantilla de dispositivo.
 
 El siguiente fragmento de código de un modelo de dispositivo muestra la definición de un comando que no tiene ningún parámetro y que no espera que el dispositivo devuelva nada:
 
@@ -1000,6 +1003,91 @@ Cuando el dispositivo termina de procesar la solicitud, debe enviar una propieda
 }
 ```
 
+### <a name="offline-commands"></a>Comandos sin conexión
+
+En la interfaz de usuario web de IoT Central, puede seleccionar la opción **Queue if offline** (Poner en cola si no está conectado) para un comando. Los comandos sin conexión son notificaciones unidireccionales al dispositivo desde la solución que se entregan en cuanto el dispositivo se conecta. Los comandos sin conexión pueden tener parámetros de solicitud, pero no devuelven una respuesta.
+
+La configuración **Poner en cola si no hay conexión** no se incluye si exporta un modelo o una interfaz desde la plantilla de dispositivo. Al examinar un modelo exportado o JSON de interfaz, no es posible saber si se trata de un comando sin conexión.
+
+Los comandos sin conexión usan [mensajes de la nube al dispositivo de IoT Hub](../../iot-hub/iot-hub-devguide-messages-c2d.md) para enviar el comando y la carga útil al dispositivo.
+
+El siguiente fragmento de código de un modelo de dispositivo muestra la definición de un comando. El comando tiene un parámetro object con un campo datetime y una enumeración:
+
+```json
+{
+  "@type": "Command",
+  "displayName": {
+    "en": "Generate Diagnostics"
+  },
+  "name": "GenerateDiagnostics",
+  "request": {
+    "@type": "CommandPayload",
+    "displayName": {
+      "en": "Payload"
+    },
+    "name": "Payload",
+    "schema": {
+      "@type": "Object",
+      "displayName": {
+        "en": "Object"
+      },
+      "fields": [
+        {
+          "displayName": {
+            "en": "StartTime"
+          },
+          "name": "StartTime",
+          "schema": "dateTime"
+        },
+        {
+          "displayName": {
+            "en": "Bank"
+          },
+          "name": "Bank",
+          "schema": {
+            "@type": "Enum",
+            "displayName": {
+              "en": "Enum"
+            },
+            "enumValues": [
+              {
+                "displayName": {
+                  "en": "Bank 1"
+                },
+                "enumValue": 1,
+                "name": "Bank1"
+              },
+              {
+                "displayName": {
+                  "en": "Bank2"
+                },
+                "enumValue": 2,
+                "name": "Bank2"
+              },
+              {
+                "displayName": {
+                  "en": "Bank3"
+                },
+                "enumValue": 2,
+                "name": "Bank3"
+              }
+            ],
+            "valueSchema": "integer"
+          }
+        }
+      ]
+    }
+  }
+}
+```
+
+Si habilita la opción **Poner en cola si no hay conexión** en la interfaz de usuario de la plantilla de dispositivo para el comando del fragmento de código anterior, el mensaje que recibe el dispositivo incluye las siguientes propiedades:
+
+| Nombre de propiedad | Valor de ejemplo |
+| ---------- | ----- |
+| `custom_properties` | `{'method-name': 'GenerateDiagnostics'}` |
+| `data` | `{"StartTime":"2021-01-05T08:00:00.000Z","Bank":2}` |
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-Como desarrollador de dispositivos, ahora conoce las plantillas de dispositivos, el siguiente paso que se sugiere es leer [Conexión a Azure IoT Central](./concepts-get-connected.md) para más información sobre cómo registrar dispositivos con IoT Central y cómo IoT Central protege las conexiones de dispositivos.
+Como desarrollador de dispositivos, ahora conoce las plantillas de dispositivos, el siguiente paso que se sugiere es leer [Conexión a Azure IoT Central](./concepts-get-connected.md) para más información sobre cómo registrar dispositivos con IoT Central y cómo IoT Central protege las conexiones de dispositivos.

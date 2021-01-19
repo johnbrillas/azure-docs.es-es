@@ -9,57 +9,89 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 01/04/2021
 ms.author: ryanwi
 ms.custom: aaddev, content-perf, FY21Q1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: e663cdd3846e804d1dcf96076c07b9a3db84272c
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 4d6a7150c854ba89c3cd8eacd6b553c4b8e97343
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97507751"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97963356"
 ---
 # <a name="configure-token-lifetime-policies-preview"></a>Configuración de las directivas de vigencia de tokens (versión preliminar)
-En Azure AD, hay muchos escenarios posibles a la hora de crear y administrar la vigencia de los tokens para aplicaciones, entidades de servicio y la organización en general.  
+Puede especificar la duración de un token de acceso, SAML o identificador emitido por la plataforma de Microsoft Identity. La vigencia de los tokens se puede configurar para todas las aplicaciones de una organización, para una aplicación multiinquilino (multiorganización) o para una entidad de servicio específica de una organización. Para obtener más información, lea [Vigencias de tokens configurables](active-directory-configurable-token-lifetimes.md).
 
-> [!IMPORTANT]
-> Después de mayo de 2020, los inquilinos ya no podrán configurar la vigencia de los tokens de sesión y la actualización.  Azure Active Directory dejará de respetar la configuración existente de los tokens de sesión y la actualización en las directivas después del 30 de enero de 2021. Después, podrá seguir configurando la duración del token de acceso.  Para obtener más información, lea [Vigencias de los tokens configurables en la Plataforma de identidad de Microsoft](active-directory-configurable-token-lifetimes.md).
-> Se han implementado  [funciones de administración de sesiones de autenticación](../conditional-access/howto-conditional-access-session-lifetime.md) en el acceso condicional de Azure AD. Puede usar esta nueva característica para configurar la vigencia de los tokens de actualización mediante la configuración de la frecuencia de inicio de sesión.
+En esta sección, se explica un escenarios de directiva común que le ayudará a imponer nuevas reglas para la vigencia del token. En este ejemplo, aprende a crear una directiva que requerirá que los usuarios se autentiquen con más frecuencia en la aplicación web.
 
-
-En esta sección, se explican algunos escenarios de directiva comunes que le ayudarán a imponer nuevas reglas para:
-
-* Duración del token
-* Tiempos máximos de inactividad del token
-* Antigüedad máxima del token
-
-En los ejemplos, puede aprender a:
-
-* Administrar una directiva predeterminada de una organización
-* Crear una directiva para inicio de sesión web
-* Crear una directiva para una aplicación nativa que llama a una API web
-* Administrar una directiva avanzada
-
-## <a name="prerequisites"></a>Requisitos previos
-En los ejemplos siguientes, va a crear, actualizar, vincular y eliminar directivas de aplicaciones, entidades de servicio y de la organización en general. Si no está familiarizado con Azure AD, se recomienda que aprenda [cómo obtener un inquilino de Azure AD](quickstart-create-new-tenant.md) antes de continuar con estos ejemplos.  
-
+## <a name="get-started"></a>Introducción
 Para comenzar, realice uno de los pasos siguientes:
 
 1. Descargue la [versión preliminar pública más reciente del módulo de PowerShell de Azure AD](https://www.powershellgallery.com/packages/AzureADPreview).
-2. Ejecute el comando `Connect` para iniciar sesión en la cuenta de administrador de Azure AD. Ejecute este comando cada vez que inicie una nueva sesión.
+1. Ejecute el comando `Connect` para iniciar sesión en la cuenta de administrador de Azure AD. Ejecute este comando cada vez que inicie una nueva sesión.
 
     ```powershell
     Connect-AzureAD -Confirm
     ```
 
-3. Ejecute el siguiente comando para ver todas las directivas que se han creado en la organización. Este comando debe ejecutarse después de la mayoría de las operaciones en los escenarios siguientes. La ejecución del comando también lo ayudará a obtener el valor de ** ** de sus directivas.
+1. Para ver todas las directivas creadas en la organización, ejecute el cmdlet [Get-AzureADPolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true).  Los resultados con valores de propiedad definidos que difieren de los valores predeterminados mencionados anteriormente se encuentran en el ámbito de la retirada.
 
     ```powershell
-    Get-AzureADPolicy
+    Get-AzureADPolicy -All
     ```
 
-## <a name="manage-an-organizations-default-policy"></a>Administrar una directiva predeterminada de una organización
+1. Para ver qué aplicaciones y entidades de servicio están vinculadas a una directiva específica que identificó, ejecute el siguiente cmdlet [Get-AzureADPolicyAppliedObject](/powershell/module/azuread/get-azureadpolicyappliedobject?view=azureadps-2.0-preview&preserve-view=true) reemplazando **1a37dad8-5da7-4cc8-87c7-efbc0326cf20** con cualquiera de los identificadores de directiva. A continuación, puede decidir si desea configurar la frecuencia de inicio de sesión de acceso condicional o mantener los valores predeterminados de Azure AD.
+
+    ```powershell
+    Get-AzureADPolicyAppliedObject -id 1a37dad8-5da7-4cc8-87c7-efbc0326cf20
+    ```
+
+Si el inquilino tiene directivas que definen valores personalizados para las propiedades de configuración de tokens de sesión y actualización, Microsoft recomienda actualizarlas a los valores que reflejen los valores predeterminados descritos anteriormente. Si no se realiza ningún cambio, Azure AD respetará de forma automática los valores predeterminados.
+
+## <a name="create-a-policy-for-web-sign-in"></a>Crear una directiva para inicio de sesión web
+
+En este ejemplo, va a crear una directiva que requerirá que los usuarios se autentiquen con más frecuencia en la aplicación web. Esta directiva establecerá la vigencia de los tokens de acceso y de identificador y la antigüedad máxima de un token de sesión de varios factores en la entidad de servicio de su aplicación web.
+
+1. Cree una directiva de vigencia del token.
+
+    Para el inicio de sesión web esta directiva establecerá la vigencia del token de acceso y de identificador y la antigüedad máxima del token de sesión de un solo factor en 2 horas.
+
+    1. Para crear la directiva, ejecute el cmdlet [New-AzureADPolicy](/powershell/module/azuread/new-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true):
+
+        ```powershell
+        $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"AccessTokenLifetime":"02:00:00","MaxAgeSessionSingleFactor":"02:00:00"}}') -DisplayName "WebPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
+        ```
+
+    1. Para ver la nueva directiva y obtener la directiva de tipo **ObjectId**, ejecute el cmdlet [Get-AzureADPolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true):
+
+        ```powershell
+        Get-AzureADPolicy -Id $policy.Id
+        ```
+
+1. Asigne la directiva a su entidad de servicio. También necesitará obtener el valor de **ObjectId** de su entidad de servicio.
+
+    1. Utilice el cmdlet [Get-AzureADServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal) para ver todas las entidades de servicio de la organización o una única entidad de servicio.
+        ```powershell
+        # Get ID of the service principal
+        $sp = Get-AzureADServicePrincipal -Filter "DisplayName eq '<service principal display name>'"
+        ```
+
+    1. Cuando tenga la entidad de servicio, ejecute el cmdlet [Add-AzureADServicePrincipalPolicy](/powershell/module/azuread/add-azureadserviceprincipalpolicy?view=azureadps-2.0-preview&preserve-view=true):
+        ```powershell
+        # Assign policy to a service principal
+        Add-AzureADServicePrincipalPolicy -Id $sp.ObjectId -RefObjectId $policy.Id
+        ```
+
+## <a name="create-token-lifetime-policies-for-refresh-and-session-tokens"></a>Creación de directivas de vigencia del token para tokens de actualización y de sesión
+> [!IMPORTANT]
+> A partir de mayo de 2020, los nuevos inquilinos no pueden configurar la vigencia de los tokens de actualización y de sesión.  Los inquilinos con una configuración existente pueden modificar las directivas de token de actualización y de sesión hasta el 30 de enero de 2021.  Azure Active Directory dejará de respetar la configuración existente de los tokens de sesión y la actualización en las directivas después del 30 de enero de 2021. Después de la retirada, todavía podrá configurar la vigencia de los tokens de acceso, SAML e identificador.
+>
+> Si necesita seguir definiendo el período de tiempo antes de que se pida al usuario que vuelva a iniciar sesión, configure la frecuencia de inicio de sesión en el acceso condicional. Para obtener más información sobre el acceso condicional, consulte [Configuración de la administración de las sesiones de autenticación con el acceso condicional](/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime).
+>
+> Si no desea usar el acceso condicional después de la fecha de retirada, los tokens de actualización y de sesión se establecerán en la [configuración predeterminada](active-directory-configurable-token-lifetimes.md#configurable-token-lifetime-properties-after-the-retirement) en esa fecha y ya no podrá cambiar su vigencia.
+
+### <a name="manage-an-organizations-default-policy"></a>Administrar una directiva predeterminada de una organización
 En este ejemplo, crearemos una directiva que permita a sus usuarios iniciar sesión con menos frecuencia en toda su organización. Para ello, creamos una directiva de vigencia del token para tokens de actualización de un solo factor que se aplica en toda la organización. Esta directiva se aplicará a todas las aplicaciones de su organización y a todas las entidades de servicio que aún no tengan una directiva establecida en ella.
 
 1. Cree una directiva de vigencia del token.
@@ -102,41 +134,7 @@ En este ejemplo, crearemos una directiva que permita a sus usuarios iniciar sesi
     Set-AzureADPolicy -Id $policy.Id -DisplayName $policy.DisplayName -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"2.00:00:00"}}')
     ```
 
-## <a name="create-a-policy-for-web-sign-in"></a>Crear una directiva para inicio de sesión web
-
-En este ejemplo, va a crear una directiva que requerirá que los usuarios se autentiquen con más frecuencia en la aplicación web. Esta directiva establecerá la vigencia de los tokens de acceso y de identificador y la antigüedad máxima de un token de sesión de varios factores en la entidad de servicio de su aplicación web.
-
-1. Cree una directiva de vigencia del token.
-
-    Para el inicio de sesión web esta directiva establecerá la vigencia del token de acceso y de identificador y la antigüedad máxima del token de sesión de un solo factor en 2 horas.
-
-    1. Para crear la directiva, ejecute el cmdlet [New-AzureADPolicy](/powershell/module/azuread/new-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true):
-
-        ```powershell
-        $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"AccessTokenLifetime":"02:00:00","MaxAgeSessionSingleFactor":"02:00:00"}}') -DisplayName "WebPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
-        ```
-
-    1. Para ver la nueva directiva y obtener la directiva de tipo **ObjectId**, ejecute el cmdlet [Get-AzureADPolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true):
-
-        ```powershell
-        Get-AzureADPolicy -Id $policy.Id
-        ```
-
-1. Asigne la directiva a su entidad de servicio. También necesitará obtener el valor de **ObjectId** de su entidad de servicio.
-
-    1. Utilice el cmdlet [Get-AzureADServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal) para ver todas las entidades de servicio de la organización o una única entidad de servicio.
-        ```powershell
-        # Get ID of the service principal
-        $sp = Get-AzureADServicePrincipal -Filter "DisplayName eq '<service principal display name>'"
-        ```
-
-    1. Cuando tenga la entidad de servicio, ejecute el cmdlet [Add-AzureADServicePrincipalPolicy](/powershell/module/azuread/add-azureadserviceprincipalpolicy?view=azureadps-2.0-preview&preserve-view=true):
-        ```powershell
-        # Assign policy to a service principal
-        Add-AzureADServicePrincipalPolicy -Id $sp.ObjectId -RefObjectId $policy.Id
-        ```
-
-## <a name="create-a-policy-for-a-native-app-that-calls-a-web-api"></a>Crear una directiva para una aplicación nativa que llama a una API web
+### <a name="create-a-policy-for-a-native-app-that-calls-a-web-api"></a>Crear una directiva para una aplicación nativa que llama a una API web
 En este ejemplo, va a crear una directiva que requerirá que los usuarios se autentiquen con menos frecuencia. La directiva también aumenta la cantidad de tiempo que un usuario puede estar inactivo antes de que este deba volver a autenticarse. La directiva se aplica a la API web. Cuando la aplicación nativa solicita la API web como recurso, se aplica esta directiva.
 
 1. Cree una directiva de vigencia del token.
@@ -165,7 +163,7 @@ En este ejemplo, va a crear una directiva que requerirá que los usuarios se aut
     Add-AzureADApplicationPolicy -Id $app.ObjectId -RefObjectId $policy.Id
     ```
 
-## <a name="manage-an-advanced-policy"></a>Administrar una directiva avanzada
+### <a name="manage-an-advanced-policy"></a>Administrar una directiva avanzada
 En este ejemplo, va a crear algunas directivas para obtener información sobre cómo funciona el sistema de prioridad. También puede aprender a administrar varias directivas que se aplican a varios objetos.
 
 1. Cree una directiva de vigencia del token.

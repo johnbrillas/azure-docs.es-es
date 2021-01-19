@@ -7,12 +7,12 @@ ms.service: virtual-network
 ms.topic: article
 ms.date: 12/07/2020
 ms.author: kumud
-ms.openlocfilehash: fb828d239266691766f55c1b156831afab7cc5bc
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: bc2d7bb7ba17a4a47fecf2144157f79f5367fca7
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96854689"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98059180"
 ---
 # <a name="azure-network-round-trip-latency-statistics"></a>Estadísticas de latencia de ida y vuelta de red de Azure
 
@@ -22,9 +22,9 @@ Azure supervisa continuamente la latencia (velocidad) de las áreas principales 
 
 Las medidas de latencia se recopilan de agentes de ThousandEyes hospedados en regiones en la nube de Azure de todo el mundo, que envían continuamente sondeos de red entre ellos, en intervalos de 1 minuto. Las estadísticas de latencia mensuales se derivan de calcular el promedio de las muestras recopiladas del mes.
 
-## <a name="november-2020-round-trip-latency-figures"></a>Cifras de latencia de recorrido de ida y vuelta de noviembre de 2020
+## <a name="december-2020-round-trip-latency-figures"></a>Cifras de latencia de recorrido de ida y vuelta de diciembre de 2020
 
-A continuación se muestra el promedio mensual de los tiempos de ida y vuelta entre las regiones de Azure durante los últimos 30 días (con fin el 30 de noviembre de 2020). Las siguientes medidas cuentan con la tecnología de [ThousandEyes](https://thousandeyes.com).
+A continuación se muestra el promedio mensual de los tiempos de ida y vuelta entre las regiones de Azure durante los últimos 30 días (con fin el 31 de diciembre de 2020). Las siguientes medidas cuentan con la tecnología de [ThousandEyes](https://thousandeyes.com).
 
 [![Estadísticas de latencia interregionales de Azure](media/azure-network-latency/azure-network-latency.png)](media/azure-network-latency/azure-network-latency.png#lightbox)
 

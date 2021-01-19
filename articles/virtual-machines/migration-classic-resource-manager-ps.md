@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 02/06/2020
 ms.author: tagore
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 07b511182950095c356887d72ffde75ac098674d
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 82eaa597796bf3772faa90a9dbc4151da935c46a
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94904655"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98027730"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-powershell"></a>Migración de recursos de IaaS del modelo clásico al de Azure Resource Manager mediante PowerShell
 
@@ -265,7 +265,7 @@ Si la configuración preparada parece correcta, puede continuar y confirmar los 
 Cuando haya terminado de migrar las máquinas virtuales, realice las comprobaciones siguientes de requisitos previos antes de migrar las cuentas de almacenamiento.
 
 > [!NOTE]
-> Si su cuenta de almacenamiento no tiene discos asociados ni datos de máquina virtual, puede ir directamente a la sección "Validación de las cuentas de almacenamiento y comienzo de la migración".
+> Si su cuenta de almacenamiento no tiene discos asociados ni datos de máquina virtual, puede ir directamente a la sección "Validación de las cuentas de almacenamiento y comienzo de la migración". Tenga en cuenta también que la eliminación de los discos clásicos, las imágenes de máquina virtual o las imágenes de sistema operativo no quita los archivos de VHD de origen de la cuenta de almacenamiento. Sin embargo, interrumpe la concesión en esos archivos de VHD para que se puedan volver a usar para crear discos o imágenes de ARM después de la migración.
 
 * Comprobación de requisitos previos si ha migrado cualquier máquina virtual o la cuenta de almacenamiento tiene recursos de disco:
     * Migración de máquinas virtuales cuyos discos se almacenan en la cuenta de almacenamiento.

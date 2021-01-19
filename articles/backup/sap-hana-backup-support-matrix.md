@@ -4,12 +4,12 @@ description: En este artículo se proporciona información sobre los escenarios 
 ms.topic: conceptual
 ms.date: 11/7/2019
 ms.custom: references_regions
-ms.openlocfilehash: cb7f31986b9ebd91c631d2b896600039c93084de
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: 7f287206c40e4556db2ee4b38bb46ef8e5352102
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96607099"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98072197"
 ---
 # <a name="support-matrix-for-backup-of-sap-hana-databases-on-azure-vms"></a>Matriz de compatibilidad de la copia de seguridad de bases de datos de SAP HANA en máquinas virtuales de Azure
 
@@ -27,7 +27,7 @@ Azure Backup admite la realización de copias de seguridad de bases de datos de 
 | **Versiones del SO**            | SLES 12 con SP2, SP3, SP4 y SP5; SLES 15 con SP0, SP1 y SP2 <br><br>  A partir del 1 de agosto de 2020, la copia de seguridad de SAP HANA para RHEL (7.4, 7.6, 7.7 y 8.1) está disponible con carácter general.                |                                             |
 | **Versiones de HANA**          | SDC en HANA 1.x, MDC en HANA 2.x <= SPS04 rev. 48, SPS05 (aún pendiente de validación para los escenarios habilitados para el cifrado)      |                                                            |
 | **Implementaciones de HANA**       | SAP HANA en una sola máquina virtual de Azure: solo escalado vertical. <br><br> En el caso de las implementaciones de alta disponibilidad, ambos nodos de las dos máquinas diferentes se tratan como individuales con cadenas de datos independientes.               | Escalado horizontal <br><br> En las implementaciones de alta disponibilidad, la copia de seguridad no conmutará por error automáticamente al nodo secundario. La configuración de la copia de seguridad debe realizarse por separado para cada nodo.                                           |
-| **Instancias de HANA**         | Una sola instancia de SAP HANA en una sola máquina virtual de Azure: solo escalado vertical | Varias instancias de SAP HANA en una sola máquina virtual                  |
+| **Instancias de HANA**         | Una sola instancia de SAP HANA en una sola máquina virtual de Azure: solo escalado vertical | Varias instancias de SAP HANA en una sola VM. Solo puede proteger una de estas instancias múltiples a la vez.                  |
 | **Tipos de base de datos HANA**    | Contenedor de base de datos única (SDC) en la versión 1.x, contenedor de varias bases de datos (MDC) en la versión 2.x | MDC en HANA 1.x                                              |
 | **Tamaño de base de datos de HANA**     | Bases de datos de HANA de tamaño menor o igual que 2 TB (este tamaño no es el de la memoria del sistema de HANA)               |                                                              |
 | **Tipos de copia de seguridad**           | Copias de seguridad completas, diferenciales, incrementales (versión preliminar) y de registro                          |  Instantáneas                                       |

@@ -7,18 +7,17 @@ author: vladvino
 manager: erikre
 editor: ''
 ms.service: api-management
-ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/10/2020
 ms.author: apimpm
 ms.custom: references_regions
-ms.openlocfilehash: e36f7c6085908630d5e7aa2593fe4d57202d6ee7
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: d0d5434de747b48464df1c07f8c7b6a7e785c858
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97107658"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98070975"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Usar Azure API Management con redes virtuales
 Azure Virtual Network (redes virtuales) le permiten colocar cualquier recurso de Azure en una red distinta de Internet que se pueda enrutar y a la que controle el acceso. Después, estas redes se pueden conectar a sus redes locales mediante diversas tecnologías de VPN. Para más información sobre Azure Virtual Network, vea: [Información general sobre Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
@@ -147,6 +146,9 @@ A continuación se muestra una lista de problemas de errores de configuración c
   > El cambio de clústeres anterior con la zona DNS **.nsatc.net** a **.microsoftmetrics.com** es principalmente un cambio de DNS. La dirección IP del clúster no cambiará.
 
 + **Etiquetas de servicio regional**: Las reglas de NSG que permiten la conectividad saliente a las etiquetas de servicio de Storage, SQL y Event Hubs pueden usar las versiones regionales correspondientes de las etiquetas de la región que contiene la instancia de API Management (por ejemplo, Storage.WestUS para una instancia de API Management en la región Oeste de EE. UU.). En las implementaciones para varias regiones, el NSG de cada región debe permitir el tráfico a las etiquetas de servicio de esa región y de la región primaria.
+
+    > [!IMPORTANT]
+    > Para habilitar la publicación del [portal para desarrolladores](api-management-howto-developer-portal.md) para una instancia de API Management en una red virtual, asegúrese de que también permite la conectividad saliente a Blob Storage en la región Oeste de EE. UU. Por ejemplo, use la etiqueta de servicio **Storage.WestUS** en una regla de NSG. La conectividad con Blob Storage en la región Oeste de EE. UU. es actualmente necesaria para publicar el portal para desarrolladores para cualquier instancia de API Management.
 
 + **Retransmisión de SMTP**: conectividad de red de salida para la retransmisión de SMTP, que se resuelve en el host `smtpi-co1.msn.com`, `smtpi-ch1.msn.com`, `smtpi-db3.msn.com`, `smtpi-sin.msn.com` y `ies.global.microsoft.com`.
 

@@ -3,22 +3,20 @@ title: Introducción a Hybrid Runbook Worker de Azure Automation
 description: En este artículo se ofrece información general de Hybrid Runbook Worker, que puede usar para ejecutar runbooks en máquinas de su centro de datos local o proveedor de nube.
 services: automation
 ms.subservice: process-automation
-ms.date: 11/23/2020
+ms.date: 01/11/2021
 ms.topic: conceptual
-ms.openlocfilehash: 7feac3ccb94cd8b4b0fab509477d4dbf772df2ae
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: a23d30047a13b1d176b086a9923e140e7f8d3e45
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505535"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98072146"
 ---
 # <a name="hybrid-runbook-worker-overview"></a>Introducción a Hybrid Runbook Worker
 
 Es posible que los runbooks de Azure Automation no tengan acceso a los recursos de otras nubes o del entorno local, porque se ejecutan en plataforma de nube de Azure. La característica Hybrid Runbook Worker de Azure Automation permite ejecutar runbooks directamente en la máquina que hospeda el rol y en los recursos del entorno para administrar dichos recursos locales. Los runbooks se almacenan y administran en Azure Automation y después se entregan a una o más máquinas asignadas.
 
-En la imagen siguiente se muestra esta funcionalidad:
-
-![Introducción a Hybrid Runbook Worker](media/automation-hybrid-runbook-worker/automation.png)
+## <a name="runbook-worker-types"></a>Tipos de Runbook Worker
 
 Hay dos tipos de instancias de Runbook Worker: sistema y usuario. En la siguiente tabla se describen las diferencias entre ellas.
 
@@ -29,18 +27,19 @@ Hay dos tipos de instancias de Runbook Worker: sistema y usuario. En la siguient
 
 Una instancia de Hybrid Runbook Worker puede ejecutarse en el sistema operativo Windows o Linux, y este rol depende de que el [agente de Log Analytics](../azure-monitor/platform/log-analytics-agent.md) envíe informes a un [área de trabajo de Log Analytics](../azure-monitor/platform/design-logs-deployment.md) de Azure Monitor. El área de trabajo no sirve solo para supervisar el sistema operativo compatible de la máquina, sino también para descargar los componentes necesarios para instalar Hybrid Runbook Worker.
 
-Si habilita [Update Management](./update-management/overview.md) de Azure Automation, las máquinas conectadas al área de trabajo de Log Analytics se configurarán automáticamente como una instancia de Hybrid Runbook Worker del sistema.
+Si habilita [Update Management](./update-management/overview.md) de Azure Automation, las máquinas conectadas al área de trabajo de Log Analytics se configurarán automáticamente como una instancia de Hybrid Runbook Worker del sistema. Para configurarla como una instancia de Hybrid Runbook Worker de Windows del usuario, consulte [Implementación de Hybrid Runbook Worker en Windows](automation-windows-hrw-install.md) e [Implementación de Hybrid Runbook Worker en Linux](automation-linux-hrw-install.md).
 
-Cada Hybrid Runbook Worker de usuario es miembro de un grupo de instancias de Hybrid Runbook Worker que especifica cuando instala el trabajo. Un grupo puede incluir solo un trabajo, pero puede incluir varios en un grupo para contar con alta disponibilidad. Cada máquina puede hospedar una instancia de Hybrid Runbook Worker que envía informes a una cuenta de Automation; no se puede registrar a la instancia de Hybrid Worker en varias cuentas de Automation. Esto se debe a que una instancia de Hybrid Worker solo puede escuchar trabajos de una sola cuenta de Automation. Las máquinas que hospedan la instancia de Hybrid Runbook Worker del sistema administrada por Update Management se pueden agregar a un grupo de Hybrid Runbook Worker. Sin embargo, debe usar la misma cuenta de Automation para Update Management y para la pertenencia al grupo de Hybrid Runbook Worker.
+## <a name="how-does-it-work"></a>¿Cómo funciona?
+
+![Introducción a Hybrid Runbook Worker](media/automation-hybrid-runbook-worker/automation.png)
+
+Cada Hybrid Runbook Worker de usuario es miembro de un grupo de instancias de Hybrid Runbook Worker que especifica cuando instala el trabajo. Un grupo puede incluir solo un trabajo, pero puede incluir varios en un grupo para contar con alta disponibilidad. Cada máquina puede hospedar una instancia de Hybrid Runbook Worker que envía informes a una cuenta de Automation; no se puede registrar a la instancia de Hybrid Worker en varias cuentas de Automation. Una instancia de Hybrid Worker solo puede escuchar trabajos de una única cuenta de Automation. Las máquinas que hospedan la instancia de Hybrid Runbook Worker del sistema administrada por Update Management se pueden agregar a un grupo de Hybrid Runbook Worker. Sin embargo, debe usar la misma cuenta de Automation para Update Management y para la pertenencia al grupo de Hybrid Runbook Worker.
 
 Cuando se inicia un runbook en un Hybrid Runbook Worker de usuario, se especifica el grupo en el que se ejecuta. Cada rol de trabajo del grupo sondea Azure Automation para ver si hay trabajos disponibles. Si un trabajo está disponible, el primer rol trabajo en obtener el trabajo lo toma. El tiempo de procesamiento de la cola de trabajos depende de la carga y del perfil de hardware de Hybrid Worker. No se puede especificar un trabajo determinado. Hybrid Worker usa un mecanismo de sondeo (cada 30 segundos) y respeta un orden de servir primero al primero en llegar. En función del momento en que se insertó un trabajo, la instancia de Hybrid Worker que haga ping al servicio Automation toma el trabajo. Normalmente, una sola instancia de Hybrid Worker puede seleccionar cuatro trabajos por ping (es decir, cada 30 segundos). Si la velocidad de inserción de trabajos es superior a cuatro por cada 30 segundos, es muy probable que otra instancia de Hybrid Worker del grupo de Hybrid Runbook Worker realice el trabajo.
 
+Una instancia de Hybrid Runbook Worker no tiene muchos de los [límites](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits) del [espacio aislado de Azure](automation-runbook-execution.md#runbook-execution-environment) en el espacio en disco, la memoria o los sockets de red. Los límites de una instancia de Hybrid Worker solo están relacionados con los propios recursos del trabajo y no están limitados por el límite de tiempo de [distribución equilibrada](automation-runbook-execution.md#fair-share) que tienen los espacios aislados de Azure.
+
 Para controlar la distribución de runbooks en las instancias de Hybrid Runbook Worker y cuándo o cómo se desencadenan los trabajos, puede registrar la instancia de Hybrid Worker en distintos grupos de Hybrid Runbook Worker de la cuenta de Automation. Establezca como destino los trabajos en el grupo o grupos específicos para admitir la organización de ejecuciones.
-
-Use una instancia de Hybrid Runbook Worker en lugar de un [espacio aislado de Azure](automation-runbook-execution.md#runbook-execution-environment), ya que no tiene muchos de los [límites](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits) del espacio aislado en el espacio en disco, la memoria o los sockets de red. Los límites de una instancia de Hybrid Worker solo están relacionados con los propios recursos del rol de trabajo.
-
-> [!NOTE]
-> Las instancias de Hybrid Runbook Worker no están restringidas por el límite tiempo de [distribución equilibrada](automation-runbook-execution.md#fair-share) que tienen los espacios aislados de Azure.
 
 ## <a name="hybrid-runbook-worker-installation"></a>Instalación de una instancia de Hybrid Runbook Worker
 
@@ -99,7 +98,7 @@ Hybrid Runbook Worker de Azure Automation se puede usar en Azure Government para
 
 ### <a name="update-management-addresses-for-hybrid-runbook-worker"></a>Direcciones de Update Management para Hybrid Runbook Worker
 
-Además de las direcciones y puertos estándar necesarios para Hybrid Runbook Worker, Update Management tiene requisitos de configuración de red adicionales que se describen en la sección [planeamiento de red](./update-management/overview.md#ports).
+Además de las direcciones y puertos estándar necesarios para Hybrid Runbook Worker, Update Management tiene otros requisitos de configuración de red que se describen en la sección [Planeamiento de red](./update-management/overview.md#ports).
 
 ## <a name="azure-automation-state-configuration-on-a-hybrid-runbook-worker"></a>State Configuration de Azure Automation en una instancia de Hybrid Runbook Worker
 
@@ -107,7 +106,7 @@ Puede ejecutar [State Configuration de Azure Automation](automation-dsc-overview
 
 ## <a name="runbook-worker-limits"></a>Límites de Runbook Worker
 
-El número máximo de grupos de Hybrid Worker por cada cuenta de Automation es 4000, y este límite se aplica a las instancias de Hybrid Worker del sistema y de usuarios. Si tiene que administrar más de 4000 máquinas, se recomienda crear cuentas de Automation adicionales.
+El número máximo de grupos de Hybrid Worker por cada cuenta de Automation es 4000, y este límite se aplica a las instancias de Hybrid Worker del sistema y de usuarios. Si tiene que administrar más de 4000 máquinas, se recomienda crear otra cuenta de Automation.
 
 ## <a name="runbooks-on-a-hybrid-runbook-worker"></a>Runbooks en Hybrid Runbook Worker
 

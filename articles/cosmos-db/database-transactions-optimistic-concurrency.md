@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 12/04/2019
 ms.reviewer: sngun
-ms.openlocfilehash: bdfbe5106f220a9fe4a3568709187b9071bc7917
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 96652b2a1eb35668bd8a810b309ab31cec5afdb7
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93334283"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97967266"
 ---
 # <a name="transactions-and-optimistic-concurrency-control"></a>Transacciones y control de simultaneidad optimista
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -53,7 +53,9 @@ La capacidad de ejecutar JavaScript directamente en el motor de base de datos pr
 
 El control de simultaneidad optimista le permite evitar la pérdida de actualizaciones y eliminaciones. Las operaciones simultáneas en conflicto están sujetas al bloqueo pesimista normal del motor de base de datos que hospeda la partición lógica que posee el elemento. Cuando dos operaciones simultáneas intentan actualizar la versión más reciente de un elemento de una partición lógica, uno de ellos tendrá prioridad y en el otro se producirá un error. No obstante, si una o dos operaciones que están intentando actualizar simultáneamente el mismo elemento habían leído anteriormente un valor más antiguo de este, la base de datos no sabrá si el valor leído anteriormente por cualquiera de las operaciones en conflicto, o por ambas, era realmente el valor más reciente de ese elemento. Afortunadamente, esta situación se puede detectar con el **control de simultaneidad optimista (OCC)** antes de permitir que las dos operaciones escriban el límite de la transacción en el motor de base de datos. El control de simultaneidad optimista protege los datos frente a cambios accidentales por sobrescritura realizados por otros. También impide que otros usuarios sobrescriban accidentalmente sus propios cambios.
 
-Las actualizaciones simultáneas de un elemento están sujetas al control de simultaneidad optimista mediante la capa del protocolo de comunicación de Azure Cosmos DB Azure Cosmos DB garantiza que la versión del elemento en el lado del cliente que está actualizando (o eliminando) es la misma que la versión del elemento en el contenedor de Azure Cosmos. Esto garantiza que las escrituras están protegidas frente a la sobrescritura accidental por escrituras de otros y viceversa. En un entorno multiusuario, el control de simultaneidad optimista le protege de eliminar o actualizar accidentalmente la versión equivocada de un elemento. Por tanto, los elementos están protegidos contra los desastrosos problemas de "Actualización perdida" o "Eliminación perdida".
+Las actualizaciones simultáneas de un elemento están sujetas al control de simultaneidad optimista mediante la capa del protocolo de comunicación de Azure Cosmos DB En el caso de las cuentas de Azure Cosmos configuradas para **escrituras de una sola región**, Azure Cosmos DB garantiza que la versión del elemento en el lado del cliente que está actualizando (o eliminando) es la misma que la versión del elemento en el contenedor de Azure Cosmos. Esto garantiza que las escrituras están protegidas frente a la sobrescritura accidental por escrituras de otros y viceversa. En un entorno multiusuario, el control de simultaneidad optimista le protege de eliminar o actualizar accidentalmente la versión equivocada de un elemento. Por tanto, los elementos están protegidos contra los desastrosos problemas de "Actualización perdida" o "Eliminación perdida".
+
+En una cuenta de Azure Cosmos configurada con **escrituras de varias regiones**, los datos se pueden confirmar de forma independiente en las regiones secundarias si su valor `_etag` coincide con el de los datos de la región local. Una vez que los nuevos datos se confirman localmente en una región secundaria, se combinan en el concentrador o en la región primaria. Si la directiva de resolución de conflictos combina los nuevos datos en la región del concentrador, estos datos se replicarán globalmente con el nuevo valor `_etag`. Si la directiva de resolución de conflictos rechaza los nuevos datos, la región secundaria se revertirá a los datos y el valor `_etag` originales.
 
 Todos los elementos almacenados en un contenedor de Azure Cosmos tienen una propiedad `_etag` definida por el sistema. El servidor genera y actualiza automáticamente el valor de `_etag` cada vez que se actualiza el elemento. `_etag` se puede usar con el encabezado de solicitud `if-match` proporcionado por el cliente para permitir al servidor decidir si un elemento se puede actualizar de manera condicional. Si el valor del encabezado `if-match` coincide con el valor de `_etag` en el servidor, el elemento se actualiza. Si el valor del encabezado de solicitud `if-match` ya no es el actual, el servidor rechaza la operación con un mensaje de respuesta "HTTP 412 Precondition failure" (HTTP 412: error de condición previa). El cliente puede, posteriormente, volver a obtener el elemento para adquirir la versión actual de este en el servidor o reemplazar la versión del elemento en el servidor por su propio valor `_etag` para el elemento. Además, `_etag` puede emplearse con el encabezado `if-none-match` para determinar si hay que volver a recuperar un recurso.
 

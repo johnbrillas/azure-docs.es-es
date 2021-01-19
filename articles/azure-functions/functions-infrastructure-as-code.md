@@ -5,12 +5,12 @@ ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 708478f50078276245a7dfab7d185dd50d597407
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: dbb380dca231f75f6d6e77676c9059ef3762dac5
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97589804"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98050942"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatización de la implementación de recursos para una aplicación de función en Azure Functions
 
@@ -140,7 +140,7 @@ Una aplicación de funciones debe incluir esta configuración de la aplicación:
 | Nombre del valor                 | Descripción                                                                               | Valores de ejemplo                        |
 |------------------------------|-------------------------------------------------------------------------------------------|---------------------------------------|
 | AzureWebJobsStorage          | Cadena de conexión a una cuenta de almacenamiento que Functions Runtime usará para la cola interna | Consulte [Cuenta de almacenamiento](#storage).       |
-| FUNCTIONS_EXTENSION_VERSION  | Versión del entorno de ejecución de Azure Functions.                                                | `~2`                                  |
+| FUNCTIONS_EXTENSION_VERSION  | Versión del entorno de ejecución de Azure Functions.                                                | `~3`                                  |
 | FUNCTIONS_WORKER_RUNTIME     | Pila de lenguaje que se usará para las funciones de esta aplicación.                                   | `dotnet`, `node`, `java`, `python` o `powershell` |
 | WEBSITE_NODE_DEFAULT_VERSION | Solo es necesario si usa la pila de lenguaje `node` y especifica la versión que se usará.              | `10.14.1`                             |
 
@@ -164,7 +164,7 @@ Estas propiedades se especifican en la colección `appSettings` de la propiedad 
             },
             {
                 "name": "FUNCTIONS_EXTENSION_VERSION",
-                "value": "~2"
+                "value": "~3"
             }
         ]
     }
@@ -175,7 +175,7 @@ Estas propiedades se especifican en la colección `appSettings` de la propiedad 
 
 ## <a name="deploy-on-consumption-plan"></a>Implementación en el plan de consumo
 
-El plan de consumo asigna automáticamente potencia de proceso cuando se ejecuta código, se escala horizontalmente cuando es necesario para gestionar la carga y se reduce horizontalmente cuando no se ejecuta código. No tiene que pagar por VM inactivas y no tiene que reservar capacidad de antemano. Para más información, consulte [Escalado y hospedaje de Azure Functions](functions-scale.md#consumption-plan).
+El plan de consumo asigna automáticamente potencia de proceso cuando se ejecuta código, se escala horizontalmente cuando es necesario para gestionar la carga y se reduce horizontalmente cuando no se ejecuta código. No tiene que pagar por VM inactivas y no tiene que reservar capacidad de antemano. Para más información, consulte [Escalado y hospedaje de Azure Functions](consumption-plan.md).
 
 Para obtener una plantilla de Azure Resource Manager de ejemplo, vea [Aplicación de función en el plan de consumo].
 
@@ -251,7 +251,7 @@ En Windows, un plan de consumo requiere dos configuraciones adicionales en la co
                 },
                 {
                     "name": "FUNCTIONS_EXTENSION_VERSION",
-                    "value": "~2"
+                    "value": "~3"
                 }
             ]
         }
@@ -290,7 +290,7 @@ En Linux, la aplicación de funciones debe tener `kind` establecido en `function
                 },
                 {
                     "name": "FUNCTIONS_EXTENSION_VERSION",
-                    "value": "~2"
+                    "value": "~3"
                 }
             ]
         },
@@ -371,7 +371,7 @@ Una aplicación de funciones en un plan Premium debe tener la propiedad `serverF
                 },
                 {
                     "name": "FUNCTIONS_EXTENSION_VERSION",
-                    "value": "~2"
+                    "value": "~3"
                 }
             ]
         }
@@ -459,7 +459,7 @@ Una aplicación de funciones en un plan de App Service debe tener la propiedad `
                 },
                 {
                     "name": "FUNCTIONS_EXTENSION_VERSION",
-                    "value": "~2"
+                    "value": "~3"
                 }
             ]
         }
@@ -467,13 +467,13 @@ Una aplicación de funciones en un plan de App Service debe tener la propiedad `
 }
 ```
 
-Las aplicaciones de Linux también deberían incluir una propiedad `linuxFxVersion` en `siteConfig`. Si solo implementa código, el valor viene determinado por la pila en tiempo de ejecución deseada:
+Las aplicaciones de Linux también deberían incluir una propiedad `linuxFxVersion` en `siteConfig`. Si solo implementa código, el valor viene determinado por la pila en tiempo de ejecución deseada con el formato de ```runtime|runtimeVersion```:
 
 | Pila            | Valor de ejemplo                                         |
 |------------------|-------------------------------------------------------|
-| Python           | `DOCKER|microsoft/azure-functions-python3.6:2.0`      |
-| JavaScript       | `DOCKER|microsoft/azure-functions-node8:2.0`          |
-| .NET             | `DOCKER|microsoft/azure-functions-dotnet-core2.0:2.0` |
+| Python           | `python|3.7`      |
+| JavaScript       | `node|12`          |
+| .NET             | `dotnet|3.0` |
 
 ```json
 {
@@ -504,10 +504,10 @@ Las aplicaciones de Linux también deberían incluir una propiedad `linuxFxVersi
                 },
                 {
                     "name": "FUNCTIONS_EXTENSION_VERSION",
-                    "value": "~2"
+                    "value": "~3"
                 }
             ],
-            "linuxFxVersion": "DOCKER|microsoft/azure-functions-node8:2.0"
+            "linuxFxVersion": "node|12"
         }
     }
 }
@@ -544,7 +544,7 @@ Si está [implementando una imagen de contenedor personalizada](./functions-crea
                 },
                 {
                     "name": "FUNCTIONS_EXTENSION_VERSION",
-                    "value": "~2"
+                    "value": "~3"
                 },
                 {
                     "name": "DOCKER_REGISTRY_SERVER_URL",
@@ -594,7 +594,7 @@ Una aplicación de función tiene muchos recursos secundarios que puede usar en 
         "appSettings": [
             {
                 "name": "FUNCTIONS_EXTENSION_VERSION",
-                "value": "~2"
+                "value": "~3"
             },
             {
                 "name": "Project",
@@ -616,7 +616,7 @@ Una aplicación de función tiene muchos recursos secundarios que puede usar en 
         "properties": {
           "AzureWebJobsStorage": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2019-06-01').keys[0].value)]",
           "AzureWebJobsDashboard": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2019-06-01').keys[0].value)]",
-          "FUNCTIONS_EXTENSION_VERSION": "~2",
+          "FUNCTIONS_EXTENSION_VERSION": "~3",
           "FUNCTIONS_WORKER_RUNTIME": "dotnet",
           "Project": "src"
         }

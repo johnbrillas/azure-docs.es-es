@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/15/2019
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: e971af5d415ea788f97ab11b58541e629c7eb0ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: db13884e3deed8e990d21d82e215a1e837371275
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76694575"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98052947"
 ---
 ## <a name="lifecycle"></a>Ciclo de vida
 
@@ -33,7 +33,7 @@ En la sección **Ciclo de vida**, especificará cuándo expira la asignación de
 
 1. Para permitir que el usuario amplíe sus asignaciones, establezca **Permitir que los usuarios extiendan el acceso** en **Sí**.
 
-    Si se permiten las extensiones en la directiva, el usuario recibirá un correo electrónico 14 días y 1 día antes de que se establezca la expiración de su asignación de paquete de acceso en el que se le solicitará que amplíe la asignación. Si el usuario envía una solicitud para extender el acceso, la fecha de la extensión debe ser igual o anterior a la expiración de las asignaciones, tal y como se define en la drectiva que se usó para conceder al usuario acceso al paquete de acceso. Por ejemplo, si la directiva indica que las asignaciones están configuradas para expirar el 30 de junio, la extensión máxima que un usuario puede solicitar es el 30 de junio.
+    Si se permiten las extensiones en la directiva, el usuario recibirá un correo electrónico 14 días y 1 día antes de que se establezca la expiración de su asignación de paquete de acceso en el que se le solicitará que amplíe la asignación. El usuario todavía debe estar en el ámbito de la directiva en el momento de solicitar una extensión. Asimismo, si la directiva tiene una fecha de finalización explícita para las asignaciones y el usuario envía una solicitud para extender el acceso, la fecha de la extensión de la solicitud debe ser igual o anterior a la de expiración de las asignaciones, tal y como se define en la directiva que se usó para conceder al usuario acceso al paquete de acceso. Por ejemplo, si la directiva indica que las asignaciones están configuradas para expirar el 30 de junio, la extensión máxima que un usuario puede solicitar es el 30 de junio.
 
     Si se extiende el acceso de un usuario, no podrán solicitar el paquete de acceso después de la fecha de extensión especificada (la fecha está establecida en la zona horaria del usuario que ha creado la directiva).
 

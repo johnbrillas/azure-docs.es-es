@@ -3,14 +3,14 @@ title: Integración de Azure Relay con el servicio Azure Private Link
 description: Información sobre la integración de Azure Relay con el servicio Azure Private Link
 ms.date: 09/24/2020
 ms.topic: article
-ms.openlocfilehash: 10d82fe8e272ed18dcc339830dfef0f71d4b2ddb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 13644082160704ba9918e6bd6257fa314bb463a6
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91263880"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98134388"
 ---
-# <a name="integrate-azure-relay-with-azure-private-link-preview"></a>Integración de Azure Relay con Azure Private Link (versión preliminar)
+# <a name="integrate-azure-relay-with-azure-private-link"></a>Integración de Azure Relay con Azure Private Link 
 El **servicio Azure Private Link** le permite acceder a los servicios de Azure (por ejemplo, Azure Relay, Azure Service Bus, Azure Event Hubs, Azure Storage y Azure Cosmos DB) y a los servicios de asociados o clientes hospedados por Azure mediante un punto de conexión privado de la red virtual. Para más información, consulte [¿Qué es Azure Private Link?](../private-link/private-link-overview.md)
 
 Un **punto de conexión privado** es una interfaz de red que permite que las cargas de trabajo que se ejecutan en una red virtual se conecten de forma privada y segura a un servicio que tiene un **recurso de vínculo privado** (por ejemplo, un espacio de nombres de Relay). El punto de conexión privado usa una dirección IP privada de la red virtual para incorporar el servicio de manera eficaz a su red virtual. Todo el tráfico dirigido al servicio se puede enrutar mediante el punto de conexión privado, por lo que no se necesitan puertas de enlace, dispositivos NAT, ExpressRoute, conexiones de VPN ni direcciones IP públicas. El tráfico entre la red virtual y el servicio atraviesa la red troncal de Microsoft y elimina la exposición a la red pública de Internet. Puede proporcionar un nivel de granularidad en el control de acceso si permite conexiones a espacios de nombres de Azure Relay específicos. 
@@ -19,7 +19,7 @@ Un **punto de conexión privado** es una interfaz de red que permite que las car
 ## <a name="add-a-private-endpoint-using-azure-portal"></a>Incorporación de un punto de conexión privado mediante Azure Portal
 
 ### <a name="prerequisites"></a>Requisitos previos
-Para integrar un espacio de nombres de Azure Relay con Azure Private Link (versión preliminar), necesitará los permisos o las entidades siguientes:
+Para integrar un espacio de nombres de Azure Relay con Azure Private Link, necesitará los permisos o las entidades siguientes:
 
 - Un espacio de nombres de Azure Relay.
 - Una red virtual de Azure.
@@ -37,7 +37,7 @@ Para obtener instrucciones paso a paso sobre cómo crear un nuevo espacio de nom
 2. En la barra de búsqueda, escriba **Retransmisiones**.
 3. En la lista, seleccione el **espacio de nombres** al que desea agregar un punto de conexión privado.
 4. Seleccione la pestaña **Redes** en **Configuración**.
-5. Seleccione la pestaña **Conexiones de puntos de conexión privadas (versión preliminar)** en la parte superior de la página.
+5. Seleccione la pestaña **Conexiones de puntos de conexión privado** en la parte superior de la página.
 6. Seleccione el botón **+ Punto de conexión privado** en la parte superior de la página.
 
     ![Incorporación del botón de un punto de conexión privado](./media/private-link-service/add-private-endpoint-button.png)
@@ -81,7 +81,7 @@ Para obtener instrucciones paso a paso sobre cómo crear un nuevo espacio de nom
 12. En la página **Punto de conexión privado**, puede ver el estado de la conexión del punto de conexión privado. Si es el propietario del espacio de nombres de Relay o tiene acceso de administración sobre este y ha seleccionado la opción **Conectarse a un recurso de Azure en mi directorio** en **Método de conexión**, la conexión del punto de conexión debe ser **Aprobada automáticamente**. Si está en el estado **pendiente**, consulte la sección [Administración de puntos de conexión privados desde Azure Portal](#manage-private-endpoints-using-azure-portal).
 
     ![Página Punto de conexión privado](./media/private-link-service/private-endpoint-page.png)
-13. Vuelva a la página **Redes** del **espacio de nombres** y cambie a la pestaña **Conexiones de punto de conexión privado (versión preliminar)** . Debería ver el punto de conexión privado que ha creado. 
+13. Vuelva a la página **Redes** del **espacio de nombres** y cambie a la pestaña **Conexiones de punto de conexión privado**. Debería ver el punto de conexión privado que ha creado. 
 
     ![Punto de conexión privado creado](./media/private-link-service/private-endpoint-created.png)
 
@@ -230,8 +230,7 @@ Aliases:  <namespace-name>.servicebus.windows.net
 ## <a name="limitations-and-design-considerations"></a>Limitaciones y consideraciones de diseño
 
 ### <a name="design-considerations"></a>Consideraciones de diseño
-- El punto de conexión privado de Azure Relay está en **versión preliminar pública**. 
-- Para más información sobre los precios, consulte [Precios de Azure Private Link (versión preliminar)](https://azure.microsoft.com/pricing/details/private-link/).
+- Para más información sobre los precios, consulte [Precios de Azure Private Link](https://azure.microsoft.com/pricing/details/private-link/).
 
 ### <a name="limitations"></a>Limitaciones 
 - Número máximo de puntos de conexión privados por espacio de nombres de Azure Relay: 64.
@@ -240,5 +239,5 @@ Aliases:  <namespace-name>.servicebus.windows.net
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga más información sobre el [servicio Azure Private Link](../private-link/private-link-service-overview.md).
+- Más información sobre [Azure Private Link](../private-link/private-link-service-overview.md).
 - Más información acerca de [Azure Relay](relay-what-is-it.md)

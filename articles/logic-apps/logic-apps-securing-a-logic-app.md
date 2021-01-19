@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 12/08/2020
-ms.openlocfilehash: cdaa054559be9db52eeef6f3aaa0f86ccf84206f
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.date: 01/09/2020
+ms.openlocfilehash: 5ad01e31cb9af18fa018d99424b25dee338981d7
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96922947"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98034516"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteger el acceso y los datos en Azure Logic Apps
 
@@ -308,12 +308,13 @@ Para agregar más [protocolos de autenticación](../active-directory/develop/aut
 
 Junto con la Firma de acceso compartido (SAS), es posible que quiera especificar el límite de clientes que pueden llamar a su aplicación lógica. Por ejemplo, si administra el punto de conexión de solicitud mediante [Azure API Management](../api-management/api-management-key-concepts.md), puede restringir la aplicación lógica para que solo acepte solicitudes procedentes de la dirección IP de la [instancia de servicio de API Management que crea](../api-management/get-started-create-service-instance.md).
 
-> [!NOTE]
-> Independientemente de las direcciones IP que se especifiquen, es posible ejecutar una aplicación lógica que tenga un desencadenador basado en una solicitud mediante la [API REST de Logic Apps: desencadenadores de flujo de trabajo: ejecutar](/rest/api/logic/workflowtriggers/run) o de API Management. Sin embargo, en este escenario aún se necesita la [autenticación](../active-directory/develop/authentication-vs-authorization.md) con la API REST de Azure. Todos los eventos aparecen en el registro de auditoría de Azure. Asegúrese de establecer las directivas de control de acceso como corresponda.
+Independientemente de las direcciones IP que se especifiquen, es posible ejecutar una aplicación lógica que tenga un desencadenador basado en una solicitud mediante la [API REST de Logic Apps: desencadenadores de flujo de trabajo: ejecutar](/rest/api/logic/workflowtriggers/run) o de API Management. Sin embargo, en este escenario aún se necesita la [autenticación](../active-directory/develop/authentication-vs-authorization.md) con la API REST de Azure. Todos los eventos aparecen en el registro de auditoría de Azure. Asegúrese de establecer las directivas de control de acceso como corresponda.
 
 <a name="restrict-inbound-ip-portal"></a>
 
 #### <a name="restrict-inbound-ip-ranges-in-azure-portal"></a>Restricción de los intervalos IP entrantes en Azure Portal
+
+Cuando se usa el portal para restringir las direcciones IP entrantes para la aplicación lógica, estas restricciones afectan a los desencadenadores *y* a las acciones, a pesar de la descripción del portal en **Direcciones IP entrantes permitidas**. Para configurar restricciones en los desencadenadores por separado de las acciones, use el [objeto `accessControl` en la plantilla de Azure Resource Manager de la aplicación lógica](#restrict-inbound-ip-template) o la [operación de la API de REST de Logic Apps: Flujo de trabajo: crear o actualizar](/rest/api/logic/workflows/createorupdate).
 
 1. En [Azure Portal](https://portal.azure.com), abra la aplicación lógica en Diseñador de aplicación lógica.
 
@@ -929,7 +930,7 @@ Si la opción [Básica](../active-directory-b2c/secure-rest-api.md) está dispon
 
 | Propiedad (diseñador) | Propiedad (JSON) | Obligatorio | Value | Descripción |
 |---------------------|-----------------|----------|-------|-------------|
-| **Autenticación** | `type` | Sí | Básico | Tipo de autenticación que se debe usar. |
+| **Autenticación** | `type` | Sí | Básica | Tipo de autenticación que se debe usar. |
 | **Nombre de usuario** | `username` | Sí | <*nombre-de-usuario*>| Nombre de usuario para autenticar el acceso al extremo del servicio de destino. |
 | **Contraseña** | `password` | Sí | <*contraseña*> | Contraseña para autenticar el acceso al extremo del servicio de destino. |
 ||||||
@@ -1082,7 +1083,7 @@ Si la opción [Identidad administrada](../active-directory/managed-identities-az
 
 1. Para que la aplicación lógica pueda usar una identidad administrada, siga los pasos descritos en [Autenticación de acceso a los recursos de Azure con identidades administradas en Azure Logic Apps](../logic-apps/create-managed-service-identity.md). En estos pasos se habilita la identidad administrada en la aplicación lógica y se configura el acceso de dicha identidad al recurso de Azure de destino.
 
-1. Para que una función de Azure pueda usar una identidad administrada, primero [habilite la autenticación de Azure Functions](../logic-apps/logic-apps-azure-functions.md#enable-authentication-for-azure-functions).
+1. Para que una función de Azure pueda usar una identidad administrada, primero [habilite la autenticación de Azure Functions](../logic-apps/logic-apps-azure-functions.md#enable-authentication-for-functions).
 
 1. En el desencadenador o la acción donde quiere usar la identidad administrada, especifique estos valores de propiedad:
 
@@ -1125,7 +1126,7 @@ Puede usar Azure Logic Apps en [Azure Government](../azure-government/documentat
 
 * Para ejecutar su propio código o realizar la transformación XML, [cree y llame a una función de Azure](../logic-apps/logic-apps-azure-functions.md), en vez de usar la [funcionalidad de código en línea](../logic-apps/logic-apps-add-run-inline-code.md) o proporcionar [ensamblados para usarlos como mapas](../logic-apps/logic-apps-enterprise-integration-maps.md), respectivamente. Asimismo, configure el entorno de hospedaje de la aplicación de funciones para cumplir los requisitos de aislamiento.
 
-  Por ejemplo, para cumplir los requisitos de nivel de impacto 5, cree la aplicación de funciones con el [plan de App Service](../azure-functions/functions-scale.md#app-service-plan) mediante el plan de tarifa [**aislado**](../app-service/overview-hosting-plans.md) junto con una instancia de [App Service Environment (ASE)](../app-service/environment/intro.md) que también usa el plan de tarifa **aislado**. En este entorno, las aplicaciones de funciones se ejecutan en máquinas virtuales y redes virtuales de Azure dedicadas, que proporcionan aislamiento de red sobre el aislamiento de proceso para las aplicaciones y las máximas posibilidades de escalabilidad horizontal. Para obtener más información, consulte la [guía de aislamiento de nivel de impacto 5 de Azure Government: Azure Functions](../azure-government/documentation-government-impact-level-5.md#azure-functions).
+  Por ejemplo, para cumplir los requisitos de nivel de impacto 5, cree la aplicación de funciones con el [plan de App Service](../azure-functions/dedicated-plan.md) mediante el plan de tarifa [**aislado**](../app-service/overview-hosting-plans.md) junto con una instancia de [App Service Environment (ASE)](../app-service/environment/intro.md) que también usa el plan de tarifa **aislado**. En este entorno, las aplicaciones de funciones se ejecutan en máquinas virtuales y redes virtuales de Azure dedicadas, que proporcionan aislamiento de red sobre el aislamiento de proceso para las aplicaciones y las máximas posibilidades de escalabilidad horizontal. Para obtener más información, consulte la [guía de aislamiento de nivel de impacto 5 de Azure Government: Azure Functions](../azure-government/documentation-government-impact-level-5.md#azure-functions).
 
   Para más información, consulte los temas siguientes:<p>
 

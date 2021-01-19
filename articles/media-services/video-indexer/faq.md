@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/12/2020
 ms.author: juliako
-ms.openlocfilehash: 721af069a76497576b92c4203a93656d19c283aa
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 0fc28a1f808eeb2977b1dcca5046ed29933b8aa8
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217735"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028801"
 ---
 # <a name="video-indexer-frequently-asked-questions"></a>Preguntas más frecuentes sobre Video Indexer
 
@@ -197,7 +197,7 @@ Los tokens de acceso expiran cada hora, por lo que tendrá que generar un nuevo 
 
 ### <a name="what-are-the-login-options-to-video-indexer-developer-portal"></a>¿Cuáles son las opciones de inicio de sesión para el portal para desarrolladores de Video Indexer?
 
-Puede iniciar sesión con Azure AD o con una cuenta de Microsoft, Google o Facebook. 
+Vea una nota de la versión relacionada con la [información de inicio de sesión](release-notes.md#october-2020).
 
 Una vez que haya registrado su cuenta de correo electrónico mediante un proveedor de identidades, no podrá usarla con otro proveedor de identidades.
 

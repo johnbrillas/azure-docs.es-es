@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/03/2020
+ms.date: 01/11/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 296679135063e2c7e1b7f0e3ffd193c8f18c3acf
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 5038bde01a6b183a25a47f3b4e206c1ce80e6b6d
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576271"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127845"
 ---
 # <a name="user-management-enhancements-preview-in-azure-active-directory"></a>Mejoras en la administración de usuarios (versión preliminar) en Azure Active Directory
 
@@ -60,6 +60,9 @@ A continuación se muestran las propiedades de usuario mostradas en la página *
 - Nombre: Nombre para mostrar del usuario.
 - Nombre principal del usuario: El nombre principal de usuario (UPN) del usuario.
 - Tipo de usuario: miembro, invitado y ninguno.
+- Hora de creación: la fecha y hora de creación del usuario.
+- Puesto: el puesto del usuario.
+- Departamento: el departamento en el que trabaja el usuario.
 - Directorio sincronizado: indica si el usuario se ha sincronizado desde un directorio local.
 - Emisor de identidades: los emisores de la identidad utilizados para iniciar sesión en una cuenta de usuario.
 - Identificador de objeto: el identificador de objeto del usuario.
@@ -76,7 +79,8 @@ A continuación se muestran las propiedades de usuario mostradas en la página *
 En la página **Usuarios eliminados** se incluyen todas las columnas que están disponibles en la página **Todos los usuarios** y algunas columnas adicionales, que son:
 
 - Fecha de eliminación: la fecha en que el usuario se eliminó por primera vez de la organización (el usuario es restaurable).
-- Fecha de eliminación permanente: Fecha después de la cual comienza de forma automática el proceso de eliminación permanente del usuario de la organización. 
+- Fecha de eliminación permanente: Fecha después de la cual comienza de forma automática el proceso de eliminación permanente del usuario de la organización.
+- Nombre principal de usuario original: UPN original del usuario antes de que el id. de objeto se agregara como prefijo al UPN eliminado.
 
 > [!NOTE]
 > Las fechas de eliminación se muestran en hora universal coordinada (UTC).
@@ -105,6 +109,10 @@ A continuación se muestran las propiedades que se pueden filtrar en la página 
 - Tipo de usuario: miembro, invitado y ninguno
 - Estado de Directorio sincronizado: sí/no
 - Tipo de creación: Invitación, Correo electrónico comprobado y Cuenta local
+- Hora de creación: últimos 7, 14, 30, 90, 360 o hace más de 360 días
+- Puesto: escriba el puesto
+- Departamento: escriba un nombre de departamento
+- Group: búsqueda de un grupo
 - Estado de invitación: Aceptación pendiente y Aceptadas
 - Nombre de dominio: escriba un nombre de dominio
 - Nombre de la empresa: escriba un nombre de compañía
@@ -117,6 +125,9 @@ La página **Usuarios eliminados** tiene más filtros que no están en la págin
 - Tipo de usuario: miembro, invitado y ninguno
 - Estado de Directorio sincronizado: sí/no
 - Tipo de creación: Invitación, Correo electrónico comprobado y Cuenta local
+- Hora de creación: últimos 7, 14, 30, 90, 360 o hace más de 360 días
+- Puesto: escriba el puesto
+- Departamento: escriba un nombre de departamento
 - Estado de invitación: Aceptación pendiente y Aceptada
 - Fecha de eliminación: últimos 7, 14 o 30 días
 - Nombre de dominio: escriba un nombre de dominio

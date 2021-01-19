@@ -8,14 +8,14 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 12/02/2020
+ms.date: 01/07/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 260df85f3e380e40d153fc17ce77bd56ca068982
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: c5f070f59df69bb186041af450e6ca922469d960
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96532829"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98043751"
 ---
 # <a name="upgrade-to-azure-cognitive-search-net-sdk-version-11"></a>Actualización a la versión 11 del SDK de .NET para Azure Cognitive Search
 
@@ -30,8 +30,7 @@ Algunas de las principales diferencias que observará en la nueva versión son e
 + Tres clientes en lugar de dos: `SearchClient`, `SearchIndexClient` y `SearchIndexerClient`
 + Diferencias de nomenclatura en una serie de API y pequeñas diferencias estructurales que simplifican algunas tareas
 
-> [!NOTE]
-> Revise el [**registro de cambios**](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/CHANGELOG.md) para obtener una lista detallada de los cambios en el SDK de .NET versión 11.
+Además de este artículo, puede revisar el [registro de cambios](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/CHANGELOG.md) para obtener una lista detallada de los cambios en el SDK de .NET versión 11.
 
 ## <a name="package-and-library-consolidation"></a>Consolidación de paquetes y bibliotecas
 
@@ -109,6 +108,41 @@ Se han optimizado las definiciones de campo: [SearchableField](/dotnet/api/azure
 | [DocumentSearchResult](/dotnet/api/microsoft.azure.search.models.documentsearchresult-1) | [SearchResult](/dotnet/api/azure.search.documents.models.searchresult-1) o [SearchResults](/dotnet/api/azure.search.documents.models.searchresults-1), en función de si el resultado está en un único documento o en varios. |
 | [DocumentSuggestResult](/dotnet/api/microsoft.azure.search.models.documentsuggestresult-1) | [SuggestResults](/dotnet/api/azure.search.documents.models.suggestresults-1) |
 | [SearchParameters](/dotnet/api/microsoft.azure.search.models.searchparameters) |  [SearchOptions](/dotnet/api/azure.search.documents.searchoptions)  |
+
+### <a name="json-serialization"></a>Serialización de JSON
+
+De forma predeterminada, el SDK de Azure usa [System.Text.Json](/dotnet/api/system.text.json) para la serialización de JSON. Para ello, se basa en las capacidades de esas API para controlar las transformaciones de texto que se implementaron previamente a través de una clase nativa [SerializePropertyNamesAsCamelCaseAttribute](/dotnet/api/microsoft.azure.search.models.serializepropertynamesascamelcaseattribute), que no tiene homólogo en la nueva biblioteca.
+
+Para serializar los nombres de propiedad en camelCase, puede usar [JsonPropertyNameAttribute](/dotnet/api/system.text.json.serialization.jsonpropertynameattribute) (similar a [este ejemplo](https://github.com/Azure/azure-sdk-for-net/tree/d263f23aa3a28ff4fc4366b8dee144d4c0c3ab10/sdk/search/Azure.Search.Documents#use-c-types-for-search-results)).
+
+Como alternativa, puede establecer una propiedad [JsonNamingPolicy](/dotnet/api/system.text.json.jsonnamingpolicy) proporcionada en [JsonSerializerOptions](/dotnet/api/system.text.json.jsonserializeroptions). El siguiente ejemplo de código System.Text.Json, tomado del [archivo Léame Microsoft.Azure.Core.Spatial](https://github.com/Azure/azure-sdk-for-net/blob/259df3985d9710507e2454e1591811f8b3a7ad5d/sdk/core/Microsoft.Azure.Core.Spatial/README.md#deserializing-documents) muestra el uso de camelCase sin tener que atribuir cada propiedad:
+
+```csharp
+// Get the Azure Cognitive Search endpoint and read-only API key.
+Uri endpoint = new Uri(Environment.GetEnvironmentVariable("SEARCH_ENDPOINT"));
+AzureKeyCredential credential = new AzureKeyCredential(Environment.GetEnvironmentVariable("SEARCH_API_KEY"));
+
+// Create serializer options with our converter to deserialize geographic points.
+JsonSerializerOptions serializerOptions = new JsonSerializerOptions
+{
+    Converters =
+    {
+        new MicrosoftSpatialGeoJsonConverter()
+    },
+    PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+};
+
+SearchClientOptions clientOptions = new SearchClientOptions
+{
+    Serializer = new JsonObjectSerializer(serializerOptions)
+};
+
+SearchClient client = new SearchClient(endpoint, "mountains", credential, clientOptions);
+Response<SearchResults<Mountain>> results = client.Search<Mountain>("Rainier");
+```
+
+Si usa Newtonsoft.Json para la serialización de JSON, puede pasar directivas de nomenclatura globales mediante atributos similares o mediante las propiedades de [JsonSerializerSettings](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_JsonSerializerSettings.htm). Para obtener un ejemplo equivalente al anterior, vea el [ejemplo de deserialización de documentos](https://github.com/Azure/azure-sdk-for-net/blob/259df3985d9710507e2454e1591811f8b3a7ad5d/sdk/core/Microsoft.Azure.Core.Spatial.NewtonsoftJson/README.md) en el archivo Léame de Newtonsoft.Json.
+
 
 <a name="WhatsNew"></a>
 
@@ -202,7 +236,7 @@ Los pasos siguientes le ayudarán a comenzar a realizar una migración de códig
 
 <a name="ListOfChanges"></a>
 
-## <a name="breaking-changes-in-version-11"></a>Cambios importantes en la versión 11
+## <a name="breaking-changes"></a>Últimos cambios
 
 Dado los cambios radicales producidos en las bibliotecas y las API, una actualización a la versión 11 no es algo trivial y constituye un cambio importante en el sentido de que el código ya no será compatible con la versión 10 y anteriores. Para ver todas las diferencias, vea el [registro de cambios](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/CHANGELOG.md) de `Azure.Search.Documents`.
 

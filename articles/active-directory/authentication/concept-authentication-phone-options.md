@@ -10,12 +10,12 @@ ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9d3a00491bc0628244a5a7907f0dee03a5f8d3c
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: fdff7e62753e75a14d6711b77dd451603353dae5
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96744200"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98012842"
 ---
 # <a name="authentication-methods-in-azure-active-directory---phone-options"></a>Métodos de autenticación en Azure Active Directory: opciones de teléfono
 
@@ -58,6 +58,8 @@ Si tiene problemas con la autenticación telefónica en Azure AD, revise los si
 
 * Mensajes de error "Ha alcanzado el límite de llamadas de verificación" o "Ha alcanzado el límite de códigos de verificación de texto" durante el inicio de sesión
    * Microsoft puede limitar los intentos de autenticación repetidos que realiza el mismo usuario en un breve período de tiempo. Esta limitación no se aplica a Microsoft Authenticator ni al código de verificación. Si ha alcanzado estos límites, puede usar la aplicación Authenticator, el código de verificación o intentar iniciar sesión de nuevo en unos minutos.
+* Mensaje de error "Lo sentimos, estamos teniendo problemas para comprobar su cuenta" durante el inicio de sesión.
+   * Microsoft puede limitar o bloquear los intentos de autenticación de voz o SMS realizados por el mismo usuario, número de teléfono u organización debido a un gran número de intentos de autenticación de voz o SMS con errores. Si experimenta este error, puede probar con otro método, como la aplicación Authenticator o un código de verificación, o bien ponerse en contacto con el administrador para obtener soporte técnico.
 * Identificador de llamada bloqueado en un solo dispositivo.
    * Revise los números bloqueados configurados en el dispositivo.
 * Número de teléfono incorrecto o código de país o región incorrecto, o confusión entre el número telefónico personal y el número telefónico del trabajo.

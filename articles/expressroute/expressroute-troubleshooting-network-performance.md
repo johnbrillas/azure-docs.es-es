@@ -5,21 +5,21 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: troubleshooting
-ms.date: 12/20/2017
+ms.date: 01/07/2021
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: a021d658711e77c3e3be0df722223cefe506abba
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 35e080e0fe45c18ad6a6d5392e0c78b116853c3e
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92204595"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98027475"
 ---
 # <a name="troubleshooting-network-performance"></a>Solución de problemas de rendimiento de red
 ## <a name="overview"></a>Información general
-Azure ofrece formas estables y rápidas de conectarse desde la red local a Azure. Clientes grandes y pequeños usan correctamente métodos como VPN de sitio a sitio y ExpressRoute para ejecutar sus negocios en Azure. Pero, ¿qué ocurre cuando el rendimiento no satisface sus expectativas o la experiencia anterior? Este documento puede ayudar a normalizar la forma de probar su entorno específico y de crear una base de referencia para él.
+Azure ofrece una forma estable y rápida de conectarse desde la red local a Azure. Clientes grandes y pequeños usan correctamente métodos como VPN de sitio a sitio y ExpressRoute para ejecutar sus negocios en Azure. Pero, ¿qué ocurre cuando el rendimiento no satisface sus expectativas o la experiencia anterior? Este artículo puede ayudar a normalizar la forma de probar su entorno específico y de crear una base de referencia para este.
 
-En este documento se explica cómo puede probar la latencia de red y el ancho de banda de forma fácil y coherente entre dos hosts. En este documento también se proporcionan algunos consejos para examinar la red de Azure y ayudar a aislar puntos problemáticos. Las herramientas y el script de PowerShell descritos requieren dos hots en la red (en cualquiera de los extremos del vínculo que se va a probar). Un host debe ejecutar el Escritorio de Windows o Windows Server; el otro puede ejecutar Windows o Linux. 
+Obtendrá información sobre cómo puede probar la latencia de red y el ancho de banda de forma fácil y coherente entre dos hosts. También se proporcionan algunos consejos para examinar la red de Azure y ayudar a aislar puntos problemáticos. Las herramientas y el script de PowerShell descritos requieren dos hots en la red (en cualquiera de los extremos del vínculo que se va a probar). Un host debe ejecutar el Escritorio de Windows o Windows Server; el otro puede ejecutar Windows o Linux. 
 
 >[!NOTE]
 >El enfoque para solucionar problemas, las herramientas y los métodos utilizados son preferencias personales. En este documento se describen el enfoque y las herramientas que suelo utilizar. Puede que el enfoque sea distinto, pero no hay ningún inconveniente con usar enfoques diferentes para solucionar problemas. Sin embargo, si no tiene un enfoque establecido, este documento puede ayudarle a comenzar a compilar métodos, herramientas y preferencias propios para solucionar problemas de red.
@@ -37,26 +37,28 @@ En el nivel más alto, describo los tres dominios de enrutamiento de red princip
 - la red corporativa (la red naranja de la izquierda)
 
 Vamos a analizar brevemente cada componente fijándonos en el diagrama de derecha a izquierda:
- - **Virtual Machine**: el servidor puede tener varias NIC; asegúrese de que todas las rutas estáticas, las rutas predeterminadas y la configuración del sistema operativo envían y reciben tráfico según lo previsto. Además, cada SKU de máquina virtual tiene una restricción de ancho de banda. Si usa una SKU de máquina virtual más pequeña, el ancho de banda disponible para la NIC limita el tráfico. Suelo usar una máquina virtual DS5v2 para las pruebas, que elimino una vez completadas las pruebas para ahorrar dinero, a fin de garantizar la disponibilidad de un ancho de banda apropiado en la máquina virtual.
+ - **Máquina virtual**: el servidor puede tener varias NIC. Asegúrese de que todas las rutas estáticas, las rutas predeterminadas y la configuración del sistema operativo envían y reciben tráfico según lo previsto. Además, cada SKU de máquina virtual tiene una restricción de ancho de banda. Si usa una SKU de máquina virtual más pequeña, el ancho de banda disponible para la NIC limita el tráfico. Suelo usar una máquina virtual DS5v2 para las pruebas, que elimino una vez completadas las pruebas para ahorrar dinero, a fin de garantizar la disponibilidad de un ancho de banda apropiado en la máquina virtual.
  - **NIC**: asegúrese de que conoce la dirección IP privada asignada a la NIC en cuestión.
  - **NIC NSG**: puede haber NSG específicos aplicados a nivel de la NIC; asegúrese de que el conjunto de reglas de NSG es apropiado para el tráfico que intenta transmitir. Por ejemplo, asegúrese de que los puertos 5201 para iPerf, 3389 para RDP o 22 para SSH están abiertos para permitir la transferencia del tráfico de prueba.
  - **VNet Subnet**: la NIC está asignada a una subred específica; asegúrese de saber cuál es y las reglas asociadas a dicha subred.
- - **Subnet NSG**: al igual que la NIC, los NSG también pueden aplicarse a la subred. Asegúrese de que el conjunto de reglas de NSG es apropiado para el tráfico que intenta transmitir. (Para el tráfico entrante en la NIC, primero se aplica el NSG de la subred y luego el NSG de la NIC; a la inversa, para el tráfico saliente de la máquina virtual, primero se aplica el NSG de la NIC y luego el NSG de la subred).
- - **Subnet UDR**: las rutas definidas por el usuario puede dirigir el tráfico a un salto intermedio (como un firewall o un equilibrador de carga). Asegúrese de saber si existe una UDR para el tráfico y, en su caso, dónde se dirige y qué hará el siguiente salto con el tráfico. (Por ejemplo, un firewall puede pasar algún tráfico y denegar otro entre los mismos dos hosts).
- - **Gateway subnet / NSG / UDR**: de la misma manera que la subred de máquina virtual, la subred de puerta de enlace puede tener NSG y UDR. Asegúrese de que existan y de qué efectos tienen en el tráfico.
- - **VNet Gateway (ExpressRoute)** : una vez habilitado el emparejamiento (ExpressRoute) o VPN, existen muchas configuraciones que pueden afectar a que el tráfico se redirija o no y a cómo se lleva. Si tiene varios circuitos ExpressRoute o túneles VPN conectados a la misma puerta de enlace de red virtual, debe tener en cuenta la configuración del peso de la conexión, ya que este valor afecta a las preferencias de conexión y a la ruta que el tráfico sigue.
- - **Route Filter** (no se muestra): un filtro de ruta solo se aplica al Emparejamiento de Microsoft en ExpressRoute, pero es crítico para comprobar si no aparecen las rutas previstas en el Emparejamiento de Microsoft. 
+ - **Subnet NSG**: al igual que la NIC, los NSG también pueden aplicarse a la subred. Asegúrese de que el conjunto de reglas de NSG es apropiado para el tráfico que intenta transmitir. (Para el tráfico entrante a la NIC, el NSG de la subred se aplica primero y luego el NSG de la NIC. Cuando el tráfico sale de la VM, el NSG de la NIC se aplica primero y luego el NSG de la subred).
+ - **UDR de subred**: las rutas definidas por el usuario pueden dirigir el tráfico a un salto intermedio (como un firewall o un equilibrador de carga). Asegúrese de que sabe si hay un UDR implementado para el tráfico. Si es así, comprenda cuál es su destino y cómo afectará el próximo salto al tráfico. (Por ejemplo, un firewall puede pasar algún tráfico y denegar otro entre los mismos dos hosts).
+ - **Gateway subnet / NSG / UDR**: de la misma manera que la subred de máquina virtual, la subred de puerta de enlace puede tener NSG y UDR. Asegúrese de que existen y de qué efectos tienen en el tráfico.
+ - **VNet Gateway (ExpressRoute)** : una vez habilitado el emparejamiento (ExpressRoute) o VPN, existen muchas configuraciones que pueden afectar a que el tráfico se redirija o no y a cómo se lleva. Si tiene una instancia de VNet Gateway conectada a varios circuitos ExpressRoute o túneles VPN, debe tener en cuenta la configuración del peso de la conexión. El peso de la conexión afecta a la preferencia de conexión y determina la ruta de acceso que toma el tráfico.
+ - **Filtro de ruta** (no se muestra): es necesario un filtro de ruta al usar el emparejamiento de Microsoft a través de ExpressRoute. Si no recibe ninguna ruta, compruebe si el filtro de ruta está configurado y aplicado correctamente al circuito.
 
-En este punto, está en la parte WAN del vínculo. Este dominio de enrutamiento puede ser el proveedor de servicios, la WAN corporativa o Internet. Muchos saltos, tecnologías y empresas relacionados con estos vínculos pueden dificultar en cierta medida la solución de problemas. A menudo, trata de descartar Azure y las redes corporativas antes de pasar a este grupo de empresas y saltos.
+En este punto, está en la parte WAN del vínculo. Este dominio de enrutamiento puede ser el proveedor de servicios, la WAN corporativa o Internet. Existen muchos saltos, tecnologías y empresas relacionados con estos vínculos, lo que puede dificultar la solución de problemas. En primer lugar, debe descartar tanto Azure como las redes corporativas para poder investigar los saltos intermedios.
 
 En el diagrama anterior, en el extremo izquierdo, se muestra la red corporativa. Según el tamaño de su empresa, este dominio de enrutamiento puede corresponderse con unos cuantos dispositivos de red entre usted y la WAN o con varias capas de dispositivos de una red empresarial o de campus.
 
-Dada la complejidad que plantean estos tres entornos de red de alto nivel distintos, suele ser una opción óptima empezar por los bordes y tratar de mostrar dónde el rendimiento es bueno y dónde se reduce. Este enfoque puede ayudar a identificar el dominio de enrutamiento de problemas de entre los tres disponibles y después centrar la solución de problemas en dicho entorno específico.
+Dada la complejidad de estos tres entornos de red de alto nivel diferentes, a menudo es ideal empezar en los bordes e intentar mostrar dónde se obtiene un buen rendimiento y dónde se degrada. Este enfoque puede ayudar a identificar el dominio de enrutamiento del problema de los tres. Después, puede centrar la solución de problemas en ese entorno específico.
 
 ## <a name="tools"></a>Herramientas
-La mayoría de los problemas de red se pueden analizar y aislar con herramientas básicas como ping y traceroute. Es raro que necesite indagar tanto como un análisis de paquetes como Wireshark. Para facilitar la solución de problemas, se desarrolló Azure Connectivity Toolkit (AzureCT) para incluir algunas de estas herramientas en un paquete sencillo. Para pruebas de rendimiento, me gusta usar iPerf y PSPing. iPerf es una herramienta de uso frecuente que se ejecuta en la mayoría de los sistemas operativos. iPerf es una buena opción para pruebas de rendimiento básicas y resulta bastante fácil de usar. PSPing es una herramienta Ping desarrollada por SysInternals. PSPing es una forma sencilla de ejecutar ICMP y TCP hace ping en un comando que también es fácil de utilizar. Ambas herramientas son ligeras y se "instalan" solo con copiar los archivos en un directorio del host.
+La mayoría de los problemas de red se pueden analizar y aislar con herramientas básicas como ping y traceroute. Es raro que necesite indagar tanto como un análisis de paquetes con herramientas como Wireshark. 
 
-He encapsulado todas estas herramientas y métodos en un módulo de PowerShell (AzureCT) que puede instalar y usar.
+Para facilitar la solución de problemas, se desarrolló Azure Connectivity Toolkit (AzureCT) para incluir algunas de estas herramientas en un paquete sencillo. Para las pruebas de rendimiento, las herramientas como iPerf y PSPing pueden proporcionarle información sobre la red. iPerf es una herramienta que se usa habitualmente para pruebas de rendimiento básicas y resulta bastante fácil de usar. PSPing es una herramienta Ping desarrollada por SysInternals. PSPing puede hacer ping de ICMP y TCP para llegar a un host remoto. Ambas herramientas son ligeras y se "instalan" solo con copiar los archivos en un directorio del host.
+
+Estas herramientas y estos métodos se encapsulan en un módulo de PowerShell (AzureCT) que puede instalar y usar.
 
 ### <a name="azurect---the-azure-connectivity-toolkit"></a>AzureCT (Azure Connectivity Toolkit)
 El módulo AzureCT de PowerShell tiene dos componentes: [pruebas de disponibilidad][Availability Doc] y [pruebas de rendimiento][Performance Doc]. En este documento solo se tratan las pruebas de rendimiento, por lo que vamos a centrarnos en dos comandos para medir el rendimiento de los vínculos en este módulo de PowerShell.
@@ -80,7 +82,7 @@ Hay tres pasos básicos para usar este kit de herramientas para pruebas de rendi
 
 3. Ejecución de la prueba de rendimiento
 
-    En primer lugar, debe instalar y ejecutar iPerf en modo de servidor en el host remoto. Asegúrese también de que el host remoto escucha en los puertos 3389 (RDP para Windows) o 22 (SSH para Linux) y que se permite el tráfico a través del puerto 5201 para iPerf. Si el host remoto ejecuta Windows, instale AzureCT y ejecute el comando Install-LinkPerformance para configurar iPerf y las reglas de firewall necesarias para iniciar iPerf correctamente en modo de servidor. 
+    En primer lugar, debe instalar y ejecutar iPerf en modo de servidor en el host remoto. Asegúrese también de que el host remoto escucha en los puertos 3389 (RDP para Windows) o 22 (SSH para Linux) y que se permite el tráfico a través del puerto 5201 para iPerf. Si el host remoto es Windows, instale AzureCT y ejecute el comando Install-LinkPerformance. El comando configurará iPerf y las reglas de firewall necesarias para iniciar iPerf en modo de servidor correctamente. 
     
     Una vez preparada la máquina remota, abra PowerShell en la máquina local e inicie la prueba:
     ```powershell
@@ -98,25 +100,25 @@ Hay tres pasos básicos para usar este kit de herramientas para pruebas de rendi
     Los resultados detallados de todas las pruebas de iPerf y PSPing están en archivos de texto individuales en el directorio de herramientas de AzureCT en "C:\ACTTools".
 
 ## <a name="troubleshooting"></a>Solución de problemas
-Si la prueba de rendimiento no ofrece los resultados esperados, averigüe por qué debe aplicar un proceso detallado progresivo. Dado el número de componentes de la ruta, un enfoque sistemático suele ofrecer una ruta más rápida para la resolución que saltar de un lado a otro y realizar las mismas pruebas varias veces innecesariamente.
+Si la prueba de rendimiento no ofrece los resultados esperados, averigüe por qué debe aplicar un proceso detallado progresivo. Dado el número de componentes de la ruta de acceso, un enfoque sistemático proporcionará una ruta de acceso más rápida a la resolución que los saltos. Al solucionar problemas sistemáticamente, puede evitar realizar pruebas innecesarias varias veces.
 
 >[!NOTE]
 >El escenario que se presenta aquí representa un problema de rendimiento, no de conectividad. Los pasos serían distintos si no pasara absolutamente nada de tráfico.
 >
 >
 
-En primer lugar, cuestione sus hipótesis. ¿Su expectativa es razonable? Por ejemplo, si tiene un circuito ExpressRoute de 1 Gbps y 100 ms de latencia, resulta poco razonable esperar que se transmita todo el tráfico de 1 Gbps debido a las características de rendimiento de TCP a través de vínculos de latencia alta. Consulte la [sección Referencias](#references) para obtener más información sobre las hipótesis de rendimiento.
+En primer lugar, cuestione sus hipótesis. ¿Su expectativa es razonable? Por ejemplo, si tiene un circuito ExpressRoute de 1 Gbps y 100 ms de latencia. No es razonable esperar el trafico máximo de 1 Gbps debido a las características de rendimiento de TCP sobre los vínculos de latencia alta. Consulte la [sección Referencias](#references) para obtener más información sobre las hipótesis de rendimiento.
 
-A continuación, recomiendo empezar a partir de los bordes entre los dominios de enrutamiento y tratar de aislar el problema en un único dominio de enrutamiento principal, a saber, la red corporativa, la red WAN o la red de Azure. Los usuarios suelen echar la culpa a la "caja negra" de la ruta, pero, aunque es fácil echar la culpa a la caja negra, esto puede retrasar bastante la resolución, sobre todo si el problema radica realmente en un área en la que existe la posibilidad de realizar cambios. Asegúrese de actuar correctamente antes de recurrir al proveedor de servicios o ISP.
+A continuación, recomiendo empezar a partir de los bordes entre los dominios de enrutamiento y tratar de aislar el problema en un único dominio de enrutamiento principal. Puede comenzar en la red corporativa, la WAN o la red de Azure. A menudo, los usuarios culpan a la "caja negra" en la ruta de acceso. Aunque culpar a la caja negra es fácil, puede retrasar significativamente la resolución. Especialmente, si el problema se encuentra en un área en la que puede realizar cambios para corregir el problema. Asegúrese de actuar correctamente antes de recurrir al proveedor de servicios o ISP.
 
-Después de identificar el dominio de enrutamiento principal que parece contener el problema, debe crear un diagrama del área en cuestión. Un diagrama en una pizarra, en el Bloc de notas o en Visio ofrece un "mapa de trabajo" para permitir un enfoque metódico para aislar más el problema. Puede planear puntos de prueba y actualizar el mapa al borrar áreas o profundizar más a medida que las pruebas avanzan.
+Después de identificar el dominio de enrutamiento principal que parece contener el problema, debe crear un diagrama del área en cuestión. Al dibujar un diagrama en una pizarra, en el Bloc de notas o en Visio, puede trabajar y aislar el problema de forma metódica. Puede planear puntos de prueba y actualizar el mapa al borrar áreas o profundizar más a medida que las pruebas avanzan.
 
 Ahora que tiene un diagrama, empiece a dividir la red en segmentos para limitar el problema. Averigüe dónde funciona y dónde no. Continúe moviendo los puntos de prueba para aislar el componente que genera el problema.
 
 Además, no olvide examinar otras capas del modelo OSI. Es fácil centrarse en la red y en las capas 1 a 3 (física, datos y red), pero los problemas pueden llegar también hasta la capa 7 en el nivel de aplicación. Mantenga una mente abierta y verifique sus hipótesis.
 
 ## <a name="advanced-expressroute-troubleshooting"></a>Solución avanzada de problemas de ExpressRoute
-Si no está seguro de dónde está realmente el perímetro de la nube, aislar los componentes de Azure puede ser un desafío. Cuando se utiliza ExpressRoute, el perímetro es un componente de red llamado Microsoft Enterprise Edge (MSEE). **Al usar ExpressRoute**, MSEE es el primer punto de contacto en la red de Microsoft y el último salto que sale de la red de Microsoft. Al crear un objeto de conexión entre la puerta de enlace de red virtual y el circuito ExpressRoute, lo que se hace realmente es establecer una conexión a MSEE. Reconocer MSEE en el primer o último salto (según la dirección que siga) es fundamental para aislar los problemas de la red de Azure, a fin de demostrar que el problema está en Azure o en un nivel inferior en la red WAN o corporativa. 
+Si no está seguro de dónde está realmente el perímetro de la nube, aislar los componentes de Azure puede ser un desafío. Cuando se utiliza ExpressRoute, el perímetro es un componente de red llamado Microsoft Enterprise Edge (MSEE). **Al usar ExpressRoute**, MSEE es el primer punto de contacto en la red de Microsoft y el último salto al salir de la red de Microsoft. Al crear un objeto de conexión entre la puerta de enlace de red virtual y el circuito ExpressRoute, lo que se hace realmente es establecer una conexión a MSEE. El reconocimiento de MSEE como primer o último salto en función de la dirección del tráfico es fundamental para aislar un problema de redes de Azure. Conocer la dirección determinará si el problema está en Azure o en un nivel inferior de la red WAN o de la red corporativa. 
 
 ![2][2]
 
@@ -125,12 +127,12 @@ Si no está seguro de dónde está realmente el perímetro de la nube, aislar lo
 >
 >
 
-Si dos redes virtuales (redes virtuales A y B en el diagrama) están conectadas al **mismo** circuito ExpressRoute, puede realizar una serie de pruebas para aislar el problema en Azure o para demostrar que el problema no está en Azure.
+Si dos redes virtuales están conectadas al **mismo** circuito ExpressRoute, puede realizar una serie de pruebas para aislar el problema en Azure.
  
 ### <a name="test-plan"></a>Plan de pruebas
 1. Ejecute la prueba Get-LinkPerformance entre VM1 y VM2. Esta prueba proporciona información sobre si el problema es local o no. Si la prueba genera resultados de latencia y ancho de banda aceptables, puede marcar la red virtual local como correcta.
 2. Suponiendo que el tráfico de la red virtual local es correcto, ejecute la prueba Get-LinkPerformance entre VM1 y VM3. Esta prueba establece la conexión a través de la red de Microsoft en orden descendente hasta llegar a MSEE y vuelve a Azure. Si la prueba genera resultados de latencia y ancho de banda aceptables, puede marcar la red de Azure como correcta.
-3. Si se descarta Azure, puede realizar una secuencia similar de pruebas en su red corporativa. Si estas pruebas también se realizan correctamente, es el momento de recurrir al proveedor de servicios o ISP para diagnosticar la conexión WAN. Ejemplo: Ejecute esta prueba entre dos sucursales o entre su escritorio y el servidor de un centro de datos. Según lo que vaya a probar, busque puntos de conexión (servidores, equipos, etc.) que puedan probar esa ruta.
+3. Si se descarta Azure, puede realizar una secuencia similar de pruebas en su red corporativa. Si estas pruebas también se realizan correctamente, es el momento de recurrir al proveedor de servicios o ISP para diagnosticar la conexión WAN. Ejemplo: Ejecute esta prueba entre dos sucursales o entre su escritorio y el servidor de un centro de datos. Según lo que vaya a probar, busque puntos de conexión, como servidores y equipos de cliente, que puedan probar esa ruta de acceso.
 
 >[!IMPORTANT]
 > Es fundamental que, para cada prueba, indique la hora del día a la que se debe ejecutar la prueba y que registre los resultados en una ubicación común (como OneNote o Excel). Cada serie de pruebas deben tener resultados idénticos para que pueda comparar los datos resultantes entre ejecuciones de pruebas y no tener "carencia" de datos. La coherencia entre varias pruebas es la razón principal por la que uso AzureCT para solucionar problemas. El *truco* no está en los escenarios de carga exactos que ejecuto, sino en el hecho de que obtengo un *resultado de pruebas y datos coherente* de cada prueba. Registrar la hora y disponer de datos coherentes de cada prueba resulta especialmente útil si más tarde descubre que el problema es esporádico. Sea minucioso con la recopilación anticipada de datos y, de esta forma, evitar horas de pruebas repetidas de los mismos escenarios (aprendí esta lección hace muchos años).
@@ -138,11 +140,11 @@ Si dos redes virtuales (redes virtuales A y B en el diagrama) están conectadas 
 >
 
 ## <a name="the-problem-is-isolated-now-what"></a>El problema ya está aislado, ¿ahora qué?
-Cuanto más pueda aislar el problema, más fácil será solucionarlo; no obstante, a menudo se da el caso de que se llega a un punto en que ya no es posible profundizar más o continuar con la solución del problema. Ejemplo: encuentra un vínculo del proveedor de servicios que realiza saltos por toda Europa, pero esperaba que la ruta radicara en Asia. Ahora es cuando debe solicitar ayuda. A quién pregunte depende del dominio de enrutamiento en que ha aislado el problema o, todavía mejor, del hecho de que haya logrado aislar el problema en un componente específico.
+Cuanto más aísle el problema, más rápido podrá encontrar la solución. En algún momento, llega a un punto en el que no puede continuar con la solución de problemas. Por ejemplo, encuentra un vínculo del proveedor de servicios que realiza saltos por toda Europa, pero espera que la ruta de acceso se encuentre íntegramente en Asia. En este momento, debe pedir a alguien que le ayude. A quién solicite ayuda dependerá del dominio de enrutamiento en el que aísle el problema. Si puede restringirlo a un componente específico, sería incluso mejor.
 
-Si se trata de problemas con la red corporativa, el departamento de TI o el proveedor de servicios que presta soporte técnico para la red (que puede ser el fabricante de hardware) puede ayudar con la configuración del dispositivo o la reparación del hardware.
+En el caso de problemas de la red corporativa, el proveedor de servicios o el departamento de TI interno pueden ayudar con la configuración del dispositivo o la reparación de hardware.
 
-Si se trata de un problema con la red WAN, compartir los resultados de la prueba con el proveedor de servicios o ISP puede ayudarlos a ponerse manos a la obra y evitar que realicen las mismas pruebas que usted ya ha hecho. Sin embargo, no debe ofenderse si desean verificar los resultados que usted ha obtenido. "Confiar pero verificar" es un buen principio para solucionar problemas según los resultados notificados por los usuarios.
+En el caso de la WAN, si comparte los resultados de las pruebas con el proveedor de servicios o el ISP les ayudará a comenzar. Si lo hace, también evitará la duplicación del mismo trabajo que ya ha realizado. No se ofenda si desean comprobar los resultados ellos mismos. "Confiar pero verificar" es un buen principio para solucionar problemas según los resultados notificados por los usuarios.
 
 Con Azure, una vez aislado el problema con toda la información posible, debe revisar la [documentación sobre la red de Azure][Network Docs] y, después, considerar si aún resulta necesario [abrir un vale de soporte][Ticket Link].
 
@@ -160,7 +162,7 @@ Configuración de la prueba:
  - Un circuito ExpressRoute premium de 10 Gbps en la ubicación identificada con el emparejamiento privado habilitado.
  - Una red virtual de Azure con una puerta de enlace UltraPerformance en la región especificada.
  - Una VM DS5v2 que ejecuta Windows Server 2016 en la red virtual. La máquina virtual no estaba unida a un dominio y se compiló a partir de la imagen predeterminada de Azure (sin optimización ni personalización) con AzureCT instalado.
- - Todas las pruebas se realizaron mediante el comando Get-LinkPerformance de AzureCT con una prueba de carga de cinco minutos para cada una de las seis series de pruebas. Por ejemplo:
+ - Todas las pruebas utilizan el comando Get-LinkPerformance de AzureCT con una prueba de carga de cinco minutos para cada una de las seis series de pruebas. Por ejemplo:
 
     ```powershell
     Get-LinkPerformance -RemoteHost 10.0.0.1 -TestSeconds 300
@@ -194,7 +196,7 @@ Configuración de la prueba:
 | Seattle | Sur de Brasil *   | 10 930 km | 189 ms |   8,2 Mbits/s |   699 Mbits/s |
 | Seattle | Sur de la India      | 12 918 km | 202 ms |   7,7 Mbits/s |   634 Mbits/s |
 
-\* La latencia de Brasil es un buen ejemplo de que la distancia lineal varía significativamente de la distancia del tenido de fibra. Esperaba que la latencia fuera de 160 ms aproximadamente, pero realmente es de 189 ms. Esta variación con lo que esperaba podría ser un indicio de que existe un problema de red en algún punto, pero lo más probable es que el tendido de fibra no llegue hasta Brasil en línea recta y que tenga una distancia de 1000 km o más para llegar a Brasil desde Seattle.
+\* La latencia de Brasil es un buen ejemplo de que la distancia lineal varía significativamente de la distancia del tenido de fibra. La latencia prevista sería aproximadamente de 160 ms, pero en realidad es de 189 ms. La diferencia de latencia parecería indicar un problema de red en algún lugar. Pero la realidad es que la línea de fibra no va a Brasil en línea recta. Por lo tanto, debería esperar unos 1000 km adicionales para llegar a Brasil desde Seattle.
 
 ## <a name="next-steps"></a>Pasos siguientes
 1. Descargue Azure Connectivity Toolkit de GitHub en [https://aka.ms/AzCT][ACT]

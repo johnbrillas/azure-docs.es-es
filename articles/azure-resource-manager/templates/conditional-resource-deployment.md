@@ -3,12 +3,12 @@ title: Implementación condicional con plantillas
 description: En este artículo se describe cómo realizar la implementación condicional de un recurso en una plantilla de Azure Resource Manager (plantilla de ARM).
 ms.topic: conceptual
 ms.date: 12/17/2020
-ms.openlocfilehash: 1492e9f9f45f23628f9933628fd2740e08ad9eb0
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 5650f7fb9f1483f2dc7059607732ecc68cbb7b9d
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97672855"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934788"
 ---
 # <a name="conditional-deployment-in-arm-templates"></a>Implementación condicional en las plantillas de ARM
 
@@ -19,7 +19,7 @@ A veces, tiene la opción de implementar un recurso en una plantilla de Azure Re
 
 ## <a name="new-or-existing-resource"></a>Recurso nuevo o existente
 
-Puede usar la implementación condicional para crear un recurso nuevo o usar uno existente. En el ejemplo siguiente se muestra cómo usar una condición para implementar una cuenta de almacenamiento nueva o usar una existente.
+Puede usar la implementación condicional para crear un recurso nuevo o usar uno existente. En el ejemplo siguiente se muestra cómo usar `condition` para implementar una cuenta de almacenamiento nueva o usar una existente.
 
 ```json
 {
@@ -36,7 +36,7 @@ Puede usar la implementación condicional para crear un recurso nuevo o usar uno
 }
 ```
 
-Cuando el parámetro **newOrExisting** está establecido en **new**, la condición se evalúa como true. Se implementa la cuenta de almacenamiento. Sin embargo, cuando **newOrExisting** está establecido **existing**, la condición se evalúa como false y no se implementa la cuenta de almacenamiento.
+Cuando el parámetro `newOrExisting` está establecido en **new**, la condición se evalúa como true. Se implementa la cuenta de almacenamiento. Sin embargo, cuando `newOrExisting` está establecido **existing**, la condición se evalúa como false y no se implementa la cuenta de almacenamiento.
 
 Para una plantilla de ejemplo completo que usa el elemento `condition`, consulte [VM with a new or existing Virtual Network, Storage, and Public IP](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions) (Máquina virtual con una red virtual nueva o existente, almacenamiento y dirección IP pública).
 
@@ -80,13 +80,13 @@ Para ver la plantilla completa, consulte el artículo sobre el [servidor lógico
 
 Si usa una función [reference](template-functions-resource.md#reference) o [list](template-functions-resource.md#list) con un recurso que se implementa de forma condicional, se puede evaluar la función incluso si el recurso no está implementado. Se genera un error si la función hace referencia a un recurso que no existe.
 
-Use la función [if](template-functions-logical.md#if) para asegurarse de que la función se evalúa solo para las condiciones en las que se implementa el recurso. Consulte la función [if](template-functions-logical.md#if) para una plantilla de ejemplo que use if y reference con un recurso implementado de forma condicional.
+Use la función [if](template-functions-logical.md#if) para asegurarse de que la función se evalúa solo para las condiciones en las que se implementa el recurso. Consulte la [función if](template-functions-logical.md#if) con una plantilla de ejemplo que use `if` y `reference` con un recurso implementado de forma condicional.
 
 Puede establecer un [recurso como dependiente](define-resource-dependency.md) en un recurso condicional exactamente como lo haría con cualquier otro recurso. Cuando un recurso condicional no está implementado, Azure Resource Manager lo quita automáticamente de las dependencias necesarias.
 
 ## <a name="complete-mode"></a>Modo completo
 
-Si implementa una plantilla con [modo completo](deployment-modes.md) y no se implementa un recurso porque la condición se evalúa como false, el resultado depende de la versión de API REST que use para implementar la plantilla. Si usa una versión anterior a 2019-05-10, el recurso **no se elimina**. Con 2019-05-10 o posterior, el recurso **se elimina**. Las versiones más recientes de Azure PowerShell y la CLI de Azure eliminan el recurso cuando la condición es falsa.
+Si implementa una plantilla con el [modo completo](deployment-modes.md) y no se implementa un recurso porque `condition` se evalúa como false, el resultado depende de la versión de API REST que use para implementar la plantilla. Si usa una versión anterior a 2019-05-10, el recurso **no se elimina**. Con 2019-05-10 o posterior, el recurso **se elimina**. Las versiones más recientes de Azure PowerShell y la CLI de Azure eliminan el recurso cuando la condición es falsa.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -1,14 +1,14 @@
 ---
 title: Información general del agente Connected Machine de Windows
 description: En este artículo se proporciona una descripción detallada del agente de servidores habilitados para Azure Arc disponible, que admite la supervisión de máquinas virtuales hospedadas en entornos híbridos.
-ms.date: 12/21/2020
+ms.date: 01/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: bff76cbaa678ed82538eb6d75633aa94cdce30bf
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 86d524665b70725108324b1d88521a4c3cb8ff05
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97723276"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98033972"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Información general del agente de servidores habilitados para Azure Arc
 
@@ -69,6 +69,8 @@ Las siguientes versiones de los sistemas operativos Windows y Linux son compatib
 
 Antes de configurar las máquinas con servidores habilitados para Azure Arc, revise los [límites de suscripción](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits) y los [límites del grupo de recursos](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits) de Azure Resource Manager para planear el número de máquinas que se van a conectar.
 
+Los servidores habilitados para Azure Arc admiten hasta 5000 instancias de máquina en un grupo de recursos.
+
 ### <a name="transport-layer-security-12-protocol"></a>Protocolo Seguridad de la capa de transporte 1.2
 
 Para garantizar la seguridad de los datos en tránsito hacia Azure, se recomienda encarecidamente configurar la máquina para que use Seguridad de la capa de transporte (TLS) 1.2. Las versiones anteriores de TLS/Capa de sockets seguros (SSL) han demostrado ser vulnerables y, si bien todavía funcionan para permitir la compatibilidad con versiones anteriores, **no se recomiendan**.
@@ -83,7 +85,7 @@ Para garantizar la seguridad de los datos en tránsito hacia Azure, se recomiend
 El agente de Connected Machine para Linux y Windows se comunica de forma segura con la salida de Azure Arc a través del puerto TCP 443. Si la máquina se conecta mediante un servidor proxy o un firewall para comunicarse a través de Internet, consulte la siguiente información para comprender qué configuración de red es necesaria.
 
 > [!NOTE]
-> Los servidores con ARC habilitado no admiten el uso de una [puerta de enlace de Log Analytics](../../azure-monitor/platform/gateway.md) como proxy para el agente de Connected Machine.
+> Los servidores con ARC habilitado no admiten el uso de una puerta de enlace de [Log Analytics](../../azure-monitor/platform/gateway.md) como proxy para el agente de máquina conectado.
 >
 
 Si la conectividad saliente está restringida por el firewall o el servidor proxy, asegúrese de que las direcciones URL que se muestran a continuación no estén bloqueadas. Si solo permite los intervalos IP o los nombres de dominio necesarios para que el agente se comunique con el servicio, también debe permitir el acceso a las siguientes etiquetas y direcciones URL del servicio.

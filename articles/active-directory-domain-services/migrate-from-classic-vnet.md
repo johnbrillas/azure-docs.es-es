@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 09/24/2020
 ms.author: justinha
-ms.openlocfilehash: 1fcd46870a4f85d1b88d22d77de5c201404c3a09
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 694ed5304e838057141b7df043565d58188fc870
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96619375"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98013046"
 ---
 # <a name="migrate-azure-active-directory-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>Migración de Azure Active Directory Domain Services desde el modelo de red virtual clásica a Resource Manager
 
@@ -155,8 +155,8 @@ La migración al modelo de implementación y la red virtual de Resource Manager 
 |---------|--------------------|-----------------|-----------|-------------------|
 | [Paso 1: Actualización y ubicación de la nueva red virtual](#update-and-verify-virtual-network-settings) | Azure portal | 15 minutos | No se requiere tiempo de inactividad. | N/D |
 | [Paso 2: Preparación del dominio administrado para la migración](#prepare-the-managed-domain-for-migration) | PowerShell | De 15 a 30 minutos como media | El tiempo de inactividad de Azure AD DS comienza una vez finalizado este comando. | Reversión y restauración disponibles. |
-| [Paso 3: Traslado del dominio administrado a una red virtual existente](#migrate-the-managed-domain) | PowerShell | De 1 a 3 horas como media | Una vez finalizado este comando está disponible un controlador de dominio; finaliza el tiempo de inactividad. | En caso de error, están disponibles la reversión (autoservicio) y la restauración. |
-| [Paso 4: Prueba y espera del controlador de dominio de réplica](#test-and-verify-connectivity-after-the-migration)| PowerShell y Azure Portal | 1 hora o más, en función del número de pruebas | Ambos controladores de dominio están disponibles y deben funcionar con normalidad. | N/D Una vez que la primera máquina virtual se ha migrado correctamente, no hay ninguna opción de reversión o restauración. |
+| [Paso 3: Traslado del dominio administrado a una red virtual existente](#migrate-the-managed-domain) | PowerShell | De 1 a 3 horas como media | Una vez finalizado este comando, está disponible un controlador de dominio. | En caso de error, están disponibles la reversión (autoservicio) y la restauración. |
+| [Paso 4: Prueba y espera del controlador de dominio de réplica](#test-and-verify-connectivity-after-the-migration)| PowerShell y Azure Portal | 1 hora o más, en función del número de pruebas | Ambos controladores de dominio están disponibles y deben funcionar con normalidad, y finaliza el tiempo de inactividad. | N/D Una vez que la primera máquina virtual se ha migrado correctamente, no hay ninguna opción de reversión o restauración. |
 | [Paso 5: Pasos de configuración opcionales](#optional-post-migration-configuration-steps) | Azure Portal y máquinas virtuales | N/D | No se requiere tiempo de inactividad. | N/D |
 
 > [!IMPORTANT]
@@ -262,16 +262,14 @@ En esta fase, puede trasladar otros recursos existentes desde el modelo de imple
 
 ## <a name="test-and-verify-connectivity-after-the-migration"></a>Prueba y comprobación de la conectividad después de la migración
 
-El segundo controlador de dominio puede tardar un tiempo en implementarse correctamente y estar disponible para su uso en el dominio administrado.
+El segundo controlador de dominio puede tardar un tiempo en implementarse correctamente y estar disponible para su uso en el dominio administrado. El segundo controlador de dominio debe estar disponible de una a dos horas después de que finalice el cmdlet de migración. Con el modelo de implementación de Resource Manager, los recursos de red para el dominio administrado se muestran en Azure Portal o en Azure PowerShell. Para comprobar si el segundo controlador de dominio está disponible, consulte la página **Propiedades** del dominio administrado en Azure Portal. Si se muestran dos direcciones IP, el segundo controlador de dominio está listo.
 
-Con el modelo de implementación de Resource Manager, los recursos de red para el dominio administrado se muestran en Azure Portal o en Azure PowerShell. Para más información sobre qué son y qué hacen estos recursos de red, consulte [Recursos de red usados por Azure AD DS][network-resources].
-
-Cuando haya al menos un controlador de dominio disponible, complete los siguientes pasos de configuración para la conectividad de red con las máquinas virtuales:
+Cuando esté disponible el segundo controlador de dominio, complete los siguientes pasos de configuración para la conectividad de red con las máquinas virtuales:
 
 * **Actualice la configuración del servidor DNS**. Para permitir que otros recursos de la red virtual de Resource Manager resuelvan y usen el dominio administrado, actualice la configuración de DNS con las direcciones IP de los nuevos controladores de dominio. Azure Portal puede configurar automáticamente estos valores.
 
     Para más información sobre cómo configurar la red virtual de Resource Manager, consulte [Actualización de la configuración DNS para la red virtual de Azure][update-dns].
-* **Reinicie las máquinas virtuales unidas a los dominios**. Las direcciones IP del servidor DNS para los controladores de dominio de Azure AD DS cambian, por lo que debe reiniciar las máquinas virtuales unidas a los dominios; de este modo usarán la nueva configuración de servidor DNS. Si las aplicaciones o las máquinas virtuales tienen configuraciones de DNS manuales, actualícelas también manualmente con las nuevas direcciones IP del servidor DNS para los controladores de dominio que se muestran en Azure Portal.
+* **Reinicie las máquinas virtuales unidas a un dominio (opcional)** . Las direcciones IP del servidor DNS para los controladores de dominio de Azure AD DS cambian, por lo que puede reiniciar las máquinas virtuales unidas a uno dominio; de este modo, usarán la nueva configuración de servidor DNS. Si las aplicaciones o las máquinas virtuales tienen configuraciones de DNS manuales, actualícelas también manualmente con las nuevas direcciones IP del servidor DNS para los controladores de dominio que se muestran en Azure Portal. El reinicio de las máquinas virtuales unidas a un dominio evita problemas de conectividad causados por direcciones IP que no se actualizan.
 
 Ahora pruebe la conexión y la resolución de nombres de la red virtual. En una máquina virtual conectada a la red virtual de Resource Manager, o emparejada con ella, realice las siguientes pruebas de comunicación de red:
 
@@ -280,7 +278,7 @@ Ahora pruebe la conexión y la resolución de nombres de la red virtual. En una 
 1. Compruebe la resolución de nombres del dominio administrado; por ejemplo, `nslookup aaddscontoso.com`.
     * Especifique el nombre DNS de su propio dominio administrado para comprobar que la configuración de DNS es correcta y se resuelve.
 
-El segundo controlador de dominio debe estar disponible de una a dos horas después de que finalice el cmdlet de migración. Para comprobar si el segundo controlador de dominio está disponible, consulte la página **Propiedades** del dominio administrado en Azure Portal. Si se muestran dos direcciones IP, el segundo controlador de dominio está listo.
+Para obtener más información sobre otros recursos de red, consulte [Recursos de red usados por Azure AD DS][network-resources].
 
 ## <a name="optional-post-migration-configuration-steps"></a>Pasos de configuración opcionales posteriores a la migración
 

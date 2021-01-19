@@ -2,16 +2,25 @@
 title: Integración de Apache Kafka Connect con Azure Event Hubs | Microsoft Docs
 description: En este artículo se proporciona información sobre cómo usar Kafka Connect con Azure Event Hubs para Kafka.
 ms.topic: how-to
-ms.date: 06/23/2020
-ms.openlocfilehash: d37d2465d9389a0bcfaabdec32bad0c86846cfb2
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.date: 01/06/2021
+ms.openlocfilehash: f82dcdafa7921f4a994361371536b2f1ace7cbc5
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369546"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935162"
 ---
-# <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-preview"></a>Integración de la compatibilidad con Apache Kafka Connect en Azure Event Hubs (versión preliminar)
-A medida que aumenta la ingesta para las necesidades del negocio, también aumenta la necesidad de ingerir para varios orígenes y receptores externos. [Apache Kafka Connect](https://kafka.apache.org/documentation/#connect) proporciona dicha plataforma para conectar e importar o exportar datos desde y hacia cualquier sistema externo como MySQL, HDFS y sistema de archivos mediante un clúster de Kafka. Este tutorial le guiará por el uso del marco Kafka Connect con Event Hubs.
+# <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs"></a>Integración de la compatibilidad con Apache Kafka Connect en Azure Event Hubs (versión preliminar)
+[Apache Kafka Connect](https://kafka.apache.org/documentation/#connect) es un marco de trabajo para conectar e importar o exportar datos desde y hacia cualquier sistema externo, como MySQL, HDFS y el sistema de archivos mediante un clúster de Kafka. Este tutorial le guiará por el uso del marco Kafka Connect con Event Hubs.
+
+> [!WARNING]
+> El uso del marco Apache Kafka Connect, y sus conectores, **no es apto para el soporte técnico del producto a través de Microsoft Azure**.
+>
+> En Apache Kafka Connect se supone que su configuración dinámica se mantiene en temas compactados con retención ilimitada por otro lado. Azure Event Hubs [no implementa la compactación como una característica de agente](event-hubs-federation-overview.md#log-projections) y siempre impone un límite de retención basado en el tiempo en eventos retenidos, que se basa en el principio de que Azure Event Hubs es un motor de streaming de eventos en tiempo real y no un almacén de configuración o de datos a largo plazo.
+>
+> Aunque es posible que el proyecto de Apache Kafka se adapte a la combinación de estos roles, Azure considera que esa información se administra mejor en una base de datos o un almacén de configuración adecuados.
+>
+> Muchos escenarios de Apache Kafka Connect serán funcionales, pero estas diferencias conceptuales entre los modelos de retención de Apache Kafka y Azure Event Hubs pueden hacer que determinadas configuraciones no funcionen según lo previsto. 
 
 Este tutorial le guiará por la integración de Kafka Connect con un centro de eventos de Azure y la implementación de conectores básicos FileStreamSource y FileStreamSink. Esta funcionalidad actualmente está en su versión preliminar. Aunque estos conectores no están pensados para su uso en la producción, muestran un escenario de un extremo a otro de Kafka Connect en el que Azure Event Hubs actúa como un agente de Kafka.
 
@@ -92,7 +101,7 @@ plugin.path={KAFKA.DIRECTORY}/libs # path to the libs directory within the Kafka
 ```
 
 > [!IMPORTANT]
-> Reemplace `{YOUR.EVENTHUBS.CONNECTION.STRING}` por la cadena de conexión para el espacio de nombres de Event Hubs. Para obtener instrucciones sobre cómo obtener la cadena de conexión, consulte [Obtención de la cadena de conexión de un centro de eventos](event-hubs-get-connection-string.md). A continuación se muestra un ejemplo de configuración: `sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://mynamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXX";`
+> Reemplace `{YOUR.EVENTHUBS.CONNECTION.STRING}` por la cadena de conexión para el espacio de nombres de Event Hubs. Para obtener instrucciones sobre cómo obtener la cadena de conexión, consulte [Obtención de una cadena de conexión de Event Hubs](event-hubs-get-connection-string.md). A continuación se muestra un ejemplo de configuración: `sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://mynamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXX";`
 
 
 ## <a name="run-kafka-connect"></a>Ejecución de Kafka Connect

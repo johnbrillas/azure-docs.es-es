@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 08/24/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: beb38be985457ea36b2cea9a6dc337ba305d503f
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 4237aba81a01423a3356a30879fbd27450c876bd
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97108508"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97976510"
 ---
 # <a name="page-layout-versions"></a>Versiones de diseño de página
 
@@ -51,7 +51,7 @@ Los paquetes de diseño de página se actualizan periódicamente para incluir co
 - El foco se sitúa ahora en el campo de contraseña después de comprobar el correo electrónico.
 - Se ha eliminado `autofocus` del control CheckBox. 
 - Se ha agregado compatibilidad con un control de pantalla para la comprobación del número de teléfono.
-- Ahora puede agregar el atributo `data-preload="true"` [en las etiquetas HTML] (customize-ui-with-html.md#guidelines-for
+- Ahora puede agregar el atributo `data-preload="true"` [en las etiquetas HTML](customize-ui-with-html.md#guidelines-for-using-custom-page-content).
   - Cargue los archivos CSS vinculados al mismo tiempo que la plantilla HTML para que no "vacile" durante la carga de los archivos.
   - Controle el orden en el que se capturan y ejecutan las etiquetas `script` antes de la carga de la página.
 - El campo de correo electrónico es ahora `type=email` y los teclados para móviles proporcionarán las sugerencias correctas.

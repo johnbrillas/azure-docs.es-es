@@ -3,21 +3,21 @@ title: Uso de runbooks y módulos de Azure Automation en la Galería de PowerShe
 description: En este artículo se indica cómo usar runbooks y módulos de Microsoft y la comunidad en la Galería de PowerShell.
 services: automation
 ms.subservice: process-automation
-ms.date: 12/17/2020
+ms.date: 01/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: 26dfedf1961cf39645c3bcf3ce5fa2db6c14119e
-ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
+ms.openlocfilehash: 590220782a7f43e785cc7885e68eefa99afb7d1d
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97682768"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98049123"
 ---
 # <a name="use-runbooks-and-modules-in-powershell-gallery"></a>Uso de runbooks y módulos en la Galería de PowerShell
 
 En lugar de crear sus propios runbooks y módulos en Azure Automation, dispone de acceso a escenarios ya compilados por Microsoft y la comunidad. Puede obtener runbooks y [módulos](#modules-in-powershell-gallery) de PowerShell de la Galería de PowerShell y [runbooks de Python](#use-python-runbooks) de la organización GitHub de Azure Automation. También puede contribuir a la comunidad si comparte los [escenarios que desarrolle](#add-a-powershell-runbook-to-the-gallery).
 
 > [!NOTE]
-> El Centro de scripts de TechNet se va a retirar. Todos los runbooks del Centro de scripts de la Galería de runbooks se han migrado a la [organización GitHub de Automation](https://github.com/azureautomation).
+> El Centro de scripts de TechNet se va a retirar. Todos los runbooks del Centro de scripts de la Galería de runbooks se han migrado a la [organización GitHub de Automation](https://github.com/azureautomation). Para obtener más información, vea [aquí](https://techcommunity.microsoft.com/t5/azure-governance-and-management/azure-automation-runbooks-moving-to-github/ba-p/2039337).
 
 ## <a name="runbooks-in-powershell-gallery"></a>Runbooks en la Galería de PowerShell
 

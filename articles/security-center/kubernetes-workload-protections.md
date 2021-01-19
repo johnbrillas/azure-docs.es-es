@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 09/12/2020
 ms.author: memildin
-ms.openlocfilehash: 08bcb74fd50be0eeb7a73c0743db2c4f3a57be32
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: dfa562be4561e8aaec66d4bff51aadeba77cf35f
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96030856"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131345"
 ---
 # <a name="protect-your-kubernetes-workloads"></a>Protección de las cargas de trabajo de Kubernetes
 
@@ -27,7 +27,7 @@ Security Center ofrece más características de seguridad del contenedor si habi
 - Obtenga alertas de detección de amenazas para los clústeres K8s en [Azure Defender para Kubernetes](defender-for-kubernetes-introduction.md)
 
 > [!TIP]
-> Para obtener una lista de *todas* las recomendaciones de seguridad que pueden aparecer para los clústeres y nodos de Kubernetes, consulte la [sección de contenedores](recommendations-reference.md#recs-containers) de la tabla de referencia de recomendaciones.
+> Para obtener una lista de *todas* las recomendaciones de seguridad que pueden aparecer para los clústeres y nodos de Kubernetes, consulte la [sección de proceso](recommendations-reference.md#recs-compute) de la tabla de referencia de recomendaciones.
 
 
 
@@ -251,6 +251,6 @@ En este artículo, ha aprendido a configurar la protección de cargas de trabajo
 
 Para obtener material relacionado, consulte las páginas siguientes: 
 
-- [Recomendaciones de Security Center para contenedores](recommendations-reference.md#recs-containers)
+- [Recomendaciones de Security Center para proceso](recommendations-reference.md#recs-compute)
 - [Alertas del nivel de clúster de AKS](alerts-reference.md#alerts-akscluster)
 - [Alertas del nivel de host de contenedor](alerts-reference.md#alerts-containerhost)

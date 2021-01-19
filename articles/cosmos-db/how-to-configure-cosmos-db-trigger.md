@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/19/2020
 ms.author: maquaran
-ms.openlocfilehash: c47d18726d9581b1b03aa2e676a71d6ca1bc1b7d
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: f753010eb994c9f3c286ad6eca6392ca7b643075
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93086473"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97932918"
 ---
 # <a name="how-to-configure-logging-and-connectivity-with-the-azure-functions-trigger-for-cosmos-db"></a>Configuración del registro y la conectividad con el desencadenador de Azure Functions para Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -82,7 +82,7 @@ Si el proyecto de Azure Functions funciona con el runtime de Azure Functions V1,
 ```
 
 > [!NOTE]
-> Cuando se trabaja con el plan de hospedaje Plan de consumo de Azure Functions, cada instancia tiene un límite de conexiones de socket que puede mantener. Cuando se trabaja con el modo directo/TCP, por diseño se crean más conexiones y se puede alcanzar el [límite del Plan de consumo](../azure-functions/manage-connections.md#connection-limit), en cuyo caso se puede utilizar el modo de puerta de enlace, o bien ejecutar Azure Functions en [modo App Service](../azure-functions/functions-scale.md#app-service-plan).
+> Al hospedar la aplicación de funciones en un plan de consumo, cada instancia tiene un límite en cuanto a la cantidad de conexiones de socket que puede mantener. Cuando se trabaja con el modo directo/TCP, se crean más conexiones de forma intencionada y se puede llegar al [límite del plan de consumo](../azure-functions/manage-connections.md#connection-limit), en cuyo caso puede usar el modo de puerta de enlace u hospedar la aplicación de funciones en un [plan Prémium](../azure-functions/functions-premium-plan.md) o en un [plan dedicado (App Service)](../azure-functions/dedicated-plan.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

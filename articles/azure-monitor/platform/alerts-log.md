@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.subservice: alerts
-ms.openlocfilehash: a8dbadd3af9dc21ced54af151e4de705f854e011
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: 950482a96604165a8f1ff20cab9e3eafe1224c90
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97696054"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98029005"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Creación, visualización y administración de alertas de registro mediante Azure Monitor
 
@@ -33,7 +33,7 @@ También puede crear reglas de alertas de registro mediante plantillas de Azure 
 
 A continuación se indican los pasos para empezar a escribir consultas para las alertas:
 
-1. Vaya al recurso para el que le gustaría crear la alerta.
+1. Vaya al recurso para el que le gustaría crear la alerta. Considere la posibilidad de configurar reglas de alerta en varios recursos mediante la selección de un ámbito de suscripción o grupo de recursos siempre que sea posible. La alerta de varios recursos reduce los costos y la necesidad de administrar varias reglas de alerta.
 1. En **Supervisar**, seleccione **Registros**.
 1. Consulte los datos de registro que pueden indicar el problema. Puede usar el [tema de ejemplos de consultas de alertas](../log-query/example-queries.md) para comprender qué puede detectar, o bien puede [empezar a escribir su propia consulta](../log-query/log-analytics-tutorial.md). Además, [aprenda a crear consultas de alertas optimizadas](alerts-log-query.md).
 1. Presione el botón "+ Nueva regla de alertas" para iniciar el flujo de creación de alerta.
@@ -155,7 +155,7 @@ A continuación se indican los pasos para empezar a escribir consultas para las 
     1. Elija la [división de alertas por dimensiones](alerts-unified-log.md#split-by-alert-dimensions), si es necesario: 
        - En **Resource ID column** (Columna de id. de recurso) se selecciona automáticamente la columna, si se detecta, y se cambia el contexto de la alerta activada al recurso del registro. 
        - Se puede anular la selección de **Resource ID column** (Columna de id. de recurso) para activar alertas en grupos de recursos o suscripciones. La anulación de la selección resulta útil cuando los resultados se basan en consultas entre recursos; por ejemplo, una consulta que comprueba si en el 80 % de las máquinas virtuales del grupo de recursos se está dando un uso intensivo de la CPU.
-       - También se pueden seleccionar hasta seis divisiones adicionales para cualquier tipo de columna de número o de texto mediante la tabla de dimensiones.
+       - También se pueden seleccionar hasta seis divisiones más para cualquier tipo de columna de número o de texto mediante la tabla de dimensiones.
        - Las alertas se activan por separado en función de la división que se basa en combinaciones únicas; la carga útil de alertas incluye esta información.
     
         ![Selección de parámetros de agregación y división](media/alerts-log/select-aggregation-parameters-and-splitting.png)

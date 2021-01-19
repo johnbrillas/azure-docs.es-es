@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 01/05/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f74e6435af9084b0c8f222c33dc922fe678bc4c7
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: e3a4c367bbe0770495a63c00ca33861ac815460f
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97914526"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121012"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Uso de Azure para hospedar y ejecutar escenarios de carga de trabajo de SAP
 
@@ -83,6 +83,7 @@ En esta sección encontrará documentos sobre la integración de Microsoft Powe
 
 ## <a name="change-log"></a>Registro de cambios
 
+- 01/11/2021: Cambios menores en [Alta disponibilidad de Azure Virtual Machines para SAP NetWeaver en Red Hat Enterprise Linux para aplicaciones SAP](./high-availability-guide-rhel.md), [Alta disponibilidad de Azure Virtual Machines para SAP NetWeaver en Red Hat Enterprise Linux con Azure NetApp Files](./high-availability-guide-rhel-netapp-files.md) y [Alta disponibilidad para SAP NetWeaver en VM de Azure en Red Hat Enterprise Linux: guía de varios SID](./high-availability-guide-rhel-multi-sid.md) para ajustar los comandos que funcionan tanto para RHEL8 como para RHEL7, ENSA1 y ENSA2
 - 05/01/2021: Se ha cambiado el [escalado horizontal de SAP HANA con el nodo en espera en máquinas virtuales de Azure con ANF en SLES](./sap-hana-scale-out-standby-netapp-files-suse.md) y el [escalado horizontal de SAP HANA con nodo en espera en máquinas virtuales de Azure con ANF en RHEL](./sap-hana-scale-out-standby-netapp-files-rhel.md), revisando la configuración recomendada para permitir que el agente de host de SAP administre el intervalo de puertos local.  
 - 04/01/2021: Se han agregado nuevas regiones de Azure compatibles con HLI en [¿Qué es SAP HANA en Azure (instancias grandes)?](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)
 - 29/12/2020: Se han agregado recomendaciones de arquitectura para regiones de Azure específicas en [Configuraciones de cargas de trabajo de SAP con Azure Availability Zones](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ha-availability-zones).

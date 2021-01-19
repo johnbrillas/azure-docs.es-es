@@ -6,19 +6,37 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.author: jmartens
-author: j-martens
+ms.author: larryfr
+author: BlackMist
 ms.date: 09/10/2020
-ms.openlocfilehash: 695702c04e2eeb74ee27b7d4276a3be94d9d1cf7
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 4ba06af98714004e4429fe802a206acdfa8fb148
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97881827"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127624"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de la versión de Azure Machine Learning
 
 En este artículo conocerá las versiones de Azure Machine Learning.  Para obtener el contenido completo de referencia del SDK, visite la página de referencia del [**SDK principal para Python**](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) de Azure Machine Learning.
+
+
+ ## <a name="2021-01-11"></a>2021-01-11
+
+### <a name="azure-machine-learning-sdk-for-python-v1200"></a>SDK de Azure Machine Learning para Python v1.20.0
++ **Mejoras y correcciones de errores**
+  + **azure-cli-ml**
+    + Se agregó framework_version en OptimizationConfig. Se usará cuando el modelo se registre con el marco MULTI.
+  + **azureml-contrib-optimization**
+    + Se agregó framework_version en OptimizationConfig. Se usará cuando el modelo se registre con el marco MULTI.
+  + **azureml-pipeline-steps**
+    + Se incluye CommandStep, que toma un comando para procesar. El comando puede incluir ejecutables, comandos de Shell, scripts, etc.
+  + **azureml-core**
+    + Ahora la creación del área de trabajo admite las identidades asignadas por el usuario. Se agregó compatibilidad con UAI desde SDK/CLI
+    + Se corrigió un problema en service.reload() para recoger los cambios de score.py en la implementación local.
+    + `run.get_details()` tiene un campo adicional denominado "submittedBy" que muestra el nombre del autor para esta ejecución.
+    + Se editó la documentación del método Model.register para mencionar cómo registrar el modelo desde la ejecución directa
+   
 
 ## <a name="2020-12-31"></a>31/12/2020
 ### <a name="azure-machine-learning-studio-notebooks-experience-december-update"></a>Experiencia con los cuadernos de Estudio de Azure Machine Learning (actualización de diciembre)
@@ -31,6 +49,7 @@ En este artículo conocerá las versiones de Azure Machine Learning.  Para obten
   + Se han mejorado los tiempos de carga de las páginas.
   + rendimiento mejorado. 
   + Se han mejorado la velocidad y la confiabilidad del kernel.
+
   
 ## <a name="2020-12-07"></a>2020-12-07
 

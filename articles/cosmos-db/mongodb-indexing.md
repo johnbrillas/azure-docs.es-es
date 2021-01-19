@@ -5,16 +5,16 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: how-to
-ms.date: 11/06/2020
+ms.date: 01/08/2020
 author: timsander1
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: e920af85c511387e66bcafcb6a140844d25f204c
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 34caca47746814046a894494ec43d9b5c977389a
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369297"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060095"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Administración de la indexación en la API de Azure Cosmos DB para MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -29,6 +29,16 @@ Para indexar campos adicionales, se aplican los comandos de administración de �
 
 Para aplicar una ordenación a una consulta, debe crear un índice en los campos utilizados en la operación de ordenación.
 
+### <a name="editing-indexing-policy"></a>Edición de la directiva de indexación
+
+Se recomienda editar la directiva de indexación en Data Explorer en Azure Portal.
+. Puede agregar índices de campo único y comodín desde el editor de directivas de indexación en Data Explorer:
+
+:::image type="content" source="./media/mongodb-indexing/indexing-policy-editor.png" alt-text="Editor de directivas de indexación":::
+
+> [!NOTE]
+> No se pueden crear índices compuestos mediante el editor de directivas de indexación en Data Explorer.
+
 ## <a name="index-types"></a>Tipos de índice
 
 ### <a name="single-field"></a>Campo único
@@ -36,6 +46,10 @@ Para aplicar una ordenación a una consulta, debe crear un índice en los campos
 Puede crear índices en cualquier campo único. El criterio de ordenación del índice de campo único no es importante. El comando siguiente crea un índice en el campo `name`:
 
 `db.coll.createIndex({name:1})`
+
+Puede crear el mismo índice de campo único en `name` en Azure Portal:
+
+:::image type="content" source="./media/mongodb-indexing/add-index.png" alt-text="Agregar un índice de nombres en el editor de directivas de indexación":::
 
 Una consulta utiliza varios índices de campo único, siempre que estén disponibles. Puede crear hasta 500 índices de un solo campo por contenedor.
 
@@ -134,6 +148,10 @@ Puede crear los siguientes tipos de índice mediante la sintaxis de caracteres c
 A continuación se muestra cómo puede crear un índice de caracteres comodín en todos los campos:
 
 `db.coll.createIndex( { "$**" : 1 } )`
+
+También puede crear índices de caracteres comodín mediante Data Explorer en Azure Portal:
+
+:::image type="content" source="./media/mongodb-indexing/add-wildcard-index.png" alt-text="Agregar un índice de caracteres comodín en el editor de directivas de indexación":::
 
 > [!NOTE]
 > Si acaba de empezar a desarrollar, se recomienda **encarecidamente** empezar con un índice comodín en todos los campos. Esto puede simplificar el desarrollo y facilitar la optimización de las consultas.

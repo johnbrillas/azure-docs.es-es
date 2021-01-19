@@ -4,12 +4,12 @@ description: Aprenda a implementar un monitor de estado con la extensión Durabl
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: ed92156df9d8e1e07b56cea4b1e64edee11d68d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e70c50098ece516312e1e92984185624c276301b
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77562129"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028427"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Escenario de supervisión en Durable Functions: ejemplo de supervisión meteorológica
 
@@ -72,6 +72,9 @@ Este es el código que implementa la función:
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_Monitor/index.js)]
 
+# <a name="python"></a>[Python](#tab/python)
+Tenemos un tutorial diferente para el patrón de supervisión en Python. Consúltelo [aquí](durable-functions-monitor-python.md).
+
 ---
 
 Esta función de orquestador realiza las acciones siguientes:
@@ -83,8 +86,7 @@ Esta función de orquestador realiza las acciones siguientes:
 5. Crea un temporizador duradero para reanudar la orquestación en el siguiente intervalo de sondeo. El ejemplo utiliza un valor modificable por brevedad.
 6. Continúa ejecutándose hasta que la hora universal coordinada actual pasa la hora de expiración de la supervisión o se envía una alerta por SMS.
 
-Se pueden ejecutar varias instancias de orquestador de forma simultanea llamando varias veces a la función de orquestador. Se puede especificar la ubicación que se va a supervisar, así como el número de teléfono para enviar una alerta por SMS.
-
+Se pueden ejecutar varias instancias de orquestador de forma simultanea llamando varias veces a la función de orquestador. Se puede especificar la ubicación que se va a supervisar, así como el número de teléfono para enviar una alerta por SMS. Por último, tenga en cuenta que la función de orquestador *no* se ejecuta mientras se espera el temporizador, por lo que no se aplica ningún cargo por ello.
 ### <a name="e3_getisclear-activity-function"></a>Función de actividad E3_GetIsClear
 
 Al igual que otros ejemplos, las funciones auxiliares de actividad son básicamente funciones normales que usan el enlace del desencadenador `activityTrigger`. La función **E3_GetIsClear** obtiene las condiciones meteorológicas actuales utilizando la API de Weather Underground y determina si el cielo está despejado.
@@ -102,6 +104,9 @@ Al igual que otros ejemplos, las funciones auxiliares de actividad son básicame
 Y esta es la implementación.
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_GetIsClear/index.js)]
+
+# <a name="python"></a>[Python](#tab/python)
+Tenemos un tutorial diferente para el patrón de supervisión en Python. Consúltelo [aquí](durable-functions-monitor-python.md).
 
 ---
 
@@ -125,6 +130,9 @@ La *function.json* es simple:
 Y este es el código que envía el mensaje SMS:
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_SendGoodWeatherAlert/index.js)]
+
+# <a name="python"></a>[Python](#tab/python)
+Tenemos un tutorial diferente para el patrón de supervisión en Python. Consúltelo [aquí](durable-functions-monitor-python.md).
 
 ---
 
@@ -169,7 +177,7 @@ Puede ver los resultados de la actividad de orquestación al examinar los regist
 2018-03-01T01:14:54.030 Function completed (Success, Id=561d0c78-ee6e-46cb-b6db-39ef639c9a2c, Duration=62ms)
 ```
 
-La orquestación [finalizará](durable-functions-instance-management.md) una vez que se alcance el tiempo de espera o se detecten cielos despejados. También puede usar `TerminateAsync` (.NET) o `terminate` (JavaScript) dentro de otra función, o bien invocar el webhook HTTP POST **terminatePostUri** al que se hace referencia en la respuesta 202 anterior y reemplazar `{text}` por el motivo de la finalización:
+La orquestación se completa cuando se alcanza el tiempo de espera o se detectan cielos despejados. También puede usar la API `terminate` dentro de otra función o invocar el webhook HTTP POST **terminatePostUri** al que se hace referencia en la respuesta 202 anterior. Para usar el webhook, reemplace `{text}` por el motivo de la terminación temprana. La dirección URL de HTTP POST tendrá un aspecto similar al siguiente:
 
 ```
 POST https://{host}/runtime/webhooks/durabletask/instances/f6893f25acf64df2ab53a35c09d52635/terminate?reason=Because&taskHub=SampleHubVS&connection=Storage&code={systemKey}

@@ -3,23 +3,23 @@ title: Botón Implementación en Azure
 description: Use el botón para implementar plantillas de Azure Resource Manager desde un repositorio de GitHub.
 ms.topic: conceptual
 ms.date: 11/10/2020
-ms.openlocfilehash: 65891cace1cb17614abbfe091e1592d6f13feff4
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: abe59f377474540e9209691df8b1d1a7b806c26d
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185732"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028750"
 ---
 # <a name="use-a-deployment-button-to-deploy-templates-from-github-repository"></a>Usar un botón de implementación para implementar plantillas desde el repositorio de GitHub
 
-En este artículo se describe cómo usar el botón **Implementar en Azure** para implementar plantillas desde un repositorio de GitHub. Puede agregar el botón directamente al archivo README.md en el repositorio de GitHub. O bien, puede agregar el botón a una página web que haga referencia al repositorio.
+En este artículo se describe cómo usar el botón **Implementar en Azure** para implementar plantillas desde un repositorio de GitHub. Puede agregar el botón directamente al archivo _README.md_ en el repositorio de GitHub. O bien, puede agregar el botón a una página web que haga referencia al repositorio.
 
 El ámbito de implementación viene determinado por el esquema de plantilla. Para más información, consulte:
 
-* [resource groups](deploy-to-resource-group.md)
-* [subscriptions](deploy-to-subscription.md)
-* [grupos de administración](deploy-to-management-group.md)
-* [tenants](deploy-to-tenant.md)
+- [resource groups](deploy-to-resource-group.md)
+- [subscriptions](deploy-to-subscription.md)
+- [grupos de administración](deploy-to-management-group.md)
+- [tenants](deploy-to-tenant.md)
 
 ## <a name="use-common-image"></a>Uso de una imagen común
 
@@ -78,7 +78,7 @@ Ya tiene la dirección URL completa del vínculo.
 
 Normalmente, la plantilla se hospeda en un repositorio público. Si usa un repositorio privado, debe incluir un token para tener acceso al contenido sin procesar de la plantilla. El token generado por GitHub solo es válido durante un breve período de tiempo. Deberá actualizar el vínculo a menudo.
 
-Si usa [Git con Azure Repos](/azure/devops/repos/git/) en lugar de un repositorio de GitHub, puede seguir usando el botón de Implementar en Azure. Asegúrese de que el repositorio es público. Use la [operación Elementos](/rest/api/azure/devops/git/items/get) para obtener la plantilla. La solicitud debería tener el siguiente formato:
+Si usa [Git con Azure Repos](/azure/devops/repos/git/) en lugar de un repositorio de GitHub, puede seguir usando el botón **Implementar en Azure**. Asegúrese de que el repositorio es público. Use la [operación Elementos](/rest/api/azure/devops/git/items/get) para obtener la plantilla. La solicitud debería tener el siguiente formato:
 
 ```http
 https://dev.azure.com/{organization-name}/{project-name}/_apis/git/repositories/{repository-name}/items?scopePath={url-encoded-path}&api-version=6.0
@@ -90,7 +90,7 @@ Codifique esta dirección URL de solicitud.
 
 Por último, coloque el vínculo y la imagen juntos.
 
-Para agregar el botón con Markdown en el archivo README.md en el repositorio de GitHub o en una página web, use:
+Para agregar el botón con Markdown en el archivo _README.md_ en el repositorio de GitHub o en una página web, use:
 
 ```markdown
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-storage-account-create%2Fazuredeploy.json)
@@ -122,4 +122,4 @@ El portal muestra un panel que le permite proporcionar fácilmente los valores d
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para obtener más información sobre las plantillas, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](template-syntax.md).
+- Para información sobre las plantillas, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de ARM](template-syntax.md).

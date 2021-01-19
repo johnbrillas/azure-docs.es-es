@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/14/2020
+ms.date: 01/11/2021
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 6648cfb717ade4b842e8ff470a46bf744b630363
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 580ec0761c997a0ee7611f7104aa48650c8573e7
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88612323"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98107419"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Plataforma de identidad y flujo de código de autorización de OAuth 2.0
 
@@ -58,7 +58,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &response_type=code
 &redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 &response_mode=query
-&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read
+&scope=https%3A%2F%2Fgraph.microsoft.com%2Fmail.read%20api%3A%2F%2F
 &state=12345
 &code_challenge=YTFjNjI1OWYzMzA3MTI4ZDY2Njg5M2RkNmVjNDE5YmEyZGRhOGYyM2IzNjdmZWFhMTQ1ODg3NDcxY2Nl
 &code_challenge_method=S256
@@ -72,10 +72,10 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 |--------------|-------------|--------------|
 | `tenant`    | requerido    | El valor `{tenant}` de la ruta de acceso de la solicitud se puede usar para controlar quién puede iniciar sesión en la aplicación. Los valores permitidos son `common`, `organizations`, `consumers` y los identificadores de inquilinos. Para obtener más información, consulte los [conceptos básicos sobre el protocolo](active-directory-v2-protocols.md#endpoints).  |
 | `client_id`   | requerido    | El **identificador de aplicación (cliente)** que la experiencia [Azure Portal: Registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908) asignó a la aplicación.  |
-| `response_type` | requerido    | Debe incluir `code` para el flujo de código de autorización.       |
-| `redirect_uri`  | necesarias | El redirect_uri de su aplicación, a donde su aplicación puede enviar y recibir las respuestas de autenticación. Debe coincidir exactamente con uno de los redirect_uris que registró en el portal, con la excepción de que debe estar codificado como URL. En el caso de las aplicaciones nativas y móviles, es preciso usar el valor predeterminado, `https://login.microsoftonline.com/common/oauth2/nativeclient`.   |
+| `response_type` | requerido    | Debe incluir `code` para el flujo de código de autorización. También puede incluir `id_token` o `token` si usa el [flujo híbrido](#request-an-id-token-as-well-hybrid-flow). |
+| `redirect_uri`  | requerido | El redirect_uri de su aplicación, a donde su aplicación puede enviar y recibir las respuestas de autenticación. Debe coincidir exactamente con uno de los redirect_uris que registró en el portal, con la excepción de que debe estar codificado como URL. En el caso de las aplicaciones nativas y móviles, es preciso usar el valor predeterminado, `https://login.microsoftonline.com/common/oauth2/nativeclient`.   |
 | `scope`  | requerido    | Una lista separada por espacios de [ámbitos](v2-permissions-and-consent.md) que desea que el usuario consienta.  El tramo `/authorize` de la solicitud puede abarcar varios recursos, lo que permite que la aplicación obtenga el consentimiento para las diversas API web a las que quiere llamar. |
-| `response_mode`   | recomendado | Especifica el método que debe usarse para enviar el token resultante de nuevo a la aplicación. Puede ser uno de los siguientes:<br/><br/>- `query`<br/>- `fragment`<br/>- `form_post`<br/><br/>`query` proporciona el código como un parámetro de cadena de consulta en el URI de redirección. Si solicita un token de identificador con el flujo implícito, no puede usar `query` según lo indicado en la [especificación de OpenID](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations). Si solicita solo el código, puede usar `query`, `fragment` o `form_post`. `form_post` ejecuta una prueba POST que contiene el código para el URI de redirección. Para más información, consulte [Protocolo OpenID Connect](../azuread-dev/v1-protocols-openid-connect-code.md).  |
+| `response_mode`   | recomendado | Especifica el método que debe usarse para enviar el token resultante de nuevo a la aplicación. Puede ser uno de los siguientes:<br/><br/>- `query`<br/>- `fragment`<br/>- `form_post`<br/><br/>`query` proporciona el código como un parámetro de cadena de consulta en el URI de redirección. Si solicita un token de identificador con el flujo implícito, no puede usar `query` según lo indicado en la [especificación de OpenID](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations). Si solicita solo el código, puede usar `query`, `fragment` o `form_post`. `form_post` ejecuta una prueba POST que contiene el código para el URI de redirección. |
 | `state`                 | recomendado | Un valor incluido en la solicitud que se devolverá también en la respuesta del token. Puede ser una cadena de cualquier contenido que desee. Normalmente se usa un valor único generado de forma aleatoria para [evitar los ataques de falsificación de solicitudes entre sitios](https://tools.ietf.org/html/rfc6749#section-10.12). El valor también puede codificar información sobre el estado del usuario en la aplicación antes de que se produzca la solicitud de autenticación, por ejemplo, la página o vista en la que estaba. |
 | `prompt`  | opcional    | Indica el tipo de interacción necesaria con el usuario. Los únicos valores válidos en este momento son `login`, `none` y `consent`.<br/><br/>- `prompt=login` obligará al usuario a escribir sus credenciales en esa solicitud, negando el inicio de sesión único.<br/>- `prompt=none` es lo contrario, se asegurará de que al usuario no se le presenta ninguna solicitud interactiva del tipo que sea. Si la solicitud no se puede completar sin notificaciones mediante el inicio de sesión único, el punto de conexión de la Plataforma de identidad de Microsoft devolverá un error `interaction_required`.<br/>- `prompt=consent` desencadenará el cuadro de diálogo de consentimiento de OAuth después de que el usuario inicie sesión y solicitará a este que conceda permisos a la aplicación.<br/>- `prompt=select_account` interrumpirá el inicio de sesión único, lo que proporciona una experiencia de selección de cuentas en la que se enumeran todas las cuentas de la sesión o cualquier cuenta recordada, o bien una opción para usar una cuenta diferente.<br/> |
 | `login_hint`  | opcional    | Puede usarse para rellenar previamente el campo de nombre de usuario y dirección de correo electrónico de la página de inicio de sesión del usuario, si sabe su nombre de usuario con antelación. A menudo las aplicaciones usarán este parámetro durante la reautenticación, dado que ya han extraído el nombre de usuario de un inicio de sesión anterior mediante la notificación `preferred_username`.   |
@@ -103,7 +103,7 @@ code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...
 | `code` | El authorization_code que solicitó la aplicación. La aplicación puede utilizar el código de autorización para solicitar un token de acceso para el recurso de destino. Los authorization_codes son de corta duración y normalmente expiran después de unos 10 minutos. |
 | `state` | Si se incluye un parámetro de estado en la solicitud, debería aparecer el mismo valor en la respuesta. La aplicación debería comprobar que los valores de estado de la solicitud y la respuesta son idénticos. |
 
-También puede recibir un token de acceso y un token de identificador si solicita uno y tiene habilitada la concesión implícita en el registro de aplicaciones.  A veces, esto se conoce como "flujo híbrido" y se usa en marcos como ASP.NET.
+También puede recibir un token de identificador si lo solicita y tiene habilitada la concesión implícita en el registro de aplicaciones.  A veces, esto se conoce como ["flujo híbrido"](#request-an-id-token-as-well-hybrid-flow) y se usa en marcos como ASP.NET.
 
 #### <a name="error-response"></a>Respuesta de error
 
@@ -129,12 +129,59 @@ En la tabla siguiente se describen los distintos códigos de error que pueden de
 | `invalid_request` | Error de protocolo, como un parámetro obligatorio que falta. | Corrija el error y vuelva a enviar la solicitud. Se trata de un error de desarrollo que suele detectarse durante las pruebas iniciales. |
 | `unauthorized_client` | La aplicación cliente no puede solicitar un código de autorización. | Este error suele producirse cuando la aplicación cliente no está registrada en Azure AD o no se ha agregado al inquilino de Azure AD del usuario. La aplicación puede pedir al usuario consentimiento para instalar la aplicación y agregarla a Azure AD. |
 | `access_denied`  | El propietario del recurso ha denegado el consentimiento.  | La aplicación cliente puede notificar al usuario que no puede continuar, salvo que este dé su consentimiento. |
-| `unsupported_response_type` | El servidor de autorización no admite el tipo de respuesta de la solicitud. | Corrija el error y vuelva a enviar la solicitud. Se trata de un error de desarrollo que suele detectarse durante las pruebas iniciales.  |
+| `unsupported_response_type` | El servidor de autorización no admite el tipo de respuesta de la solicitud. | Corrija el error y vuelva a enviar la solicitud. Se trata de un error de desarrollo que suele detectarse durante las pruebas iniciales. Cuando aparece en el [flujo híbrido](#request-an-id-token-as-well-hybrid-flow), indica que debe habilitar la configuración de concesión implícita del token de identificador en el registro de la aplicación cliente. |
 | `server_error`  | El servidor ha detectado un error inesperado.| Vuelva a intentarlo. Estos errores pueden deberse a condiciones temporales. La aplicación cliente podría explicar al usuario que su respuesta se retrasó debido a un error temporal. |
 | `temporarily_unavailable`   | De manera temporal, el servidor está demasiado ocupado para atender la solicitud. | Vuelva a intentarlo. La aplicación podría explicar al usuario que su respuesta se retrasó debido a una condición temporal. |
 | `invalid_resource`  | El recurso de destino no es válido porque no existe, Azure AD no lo encuentra o no está configurado correctamente. | Este error indica que el recurso, en caso de que exista, no se ha configurado en el inquilino. La aplicación puede pedir al usuario consentimiento para instalar la aplicación y agregarla a Azure AD. |
 | `login_required` | Se han encontrado demasiados usuarios o no se ha encontrado ninguno | El cliente solicitó la autenticación en modo silencioso (`prompt=none`), pero no se pudo encontrar un único usuario. Esto puede significar que hay varios usuarios activos en la sesión o que no hay ninguno. Esto tiene en cuenta el inquilino elegido (por ejemplo, si hay dos cuentas de Azure AD activas y una cuenta de Microsoft, y se elige `consumers`, la autenticación silenciosa funcionará). |
 | `interaction_required` | La solicitud requiere la interacción del usuario. | Es necesario realizar un paso de autenticación o consentimiento más. Vuelva a intentar realizar la solicitud sin `prompt=none`. |
+
+### <a name="request-an-id-token-as-well-hybrid-flow"></a>Solicitar también un token de identificador (flujo híbrido)
+
+Para saber quién es el usuario antes de canjear un código de autorización, es habitual que las aplicaciones también soliciten un token de identificador al solicitar el código de autorización. Esto se conoce como *flujo híbrido* porque combina la concesión implícita con el flujo del código de autorización. El flujo híbrido se usa normalmente en aplicaciones web que quieren representar una página para un usuario sin bloquear el canje del código, especialmente [ASP.NET](quickstart-v2-aspnet-core-webapp.md). Las aplicaciones de una sola página y las aplicaciones web tradicionales se benefician de la menor latencia en este modelo.
+
+El flujo híbrido es el mismo que el flujo del código de autorización descrito anteriormente, pero con tres adiciones, todas ellas necesarias para solicitar un token de identificador: nuevos ámbitos, un nuevo parámetro response_type y un nuevo parámetro de consulta `nonce`.
+
+```
+// Line breaks for legibility only
+
+https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
+client_id=6731de76-14a6-49ae-97bc-6eba6914391e
+&response_type=code%20id_token
+&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
+&response_mode=fragment
+&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fuser.read
+&state=12345
+&nonce=abcde
+&code_challenge=YTFjNjI1OWYzMzA3MTI4ZDY2Njg5M2RkNmVjNDE5YmEyZGRhOGYyM2IzNjdmZWFhMTQ1ODg3NDcxY2Nl
+&code_challenge_method=S256
+```
+
+| Parámetros actualizado | Obligatorio/opcional | Descripción |
+|---------------|-------------|--------------|
+|`response_type`| Obligatorio | La adición de `id_token` indica al servidor que la aplicación desea un token de identificador en la respuesta del punto de conexión `/authorize`.  |
+|`scope`| Obligatorio | En el caso de los tokens de identificador, debe actualizarse para incluir los ámbitos de token de identificador `openid` y, opcionalmente, `profile` y `email`. |
+|`nonce`| Obligatorio|     Valor generado por la aplicación que se incluye en la solicitud y que se incluirá en el parámetro id_token resultante como una notificación. La aplicación puede comprobar este valor para mitigar los ataques de reproducción de token. Normalmente, el valor es una cadena única aleatoria que se puede usar para identificar el origen de la solicitud. |
+|`response_mode`| Recomendado | Especifica el método que debe usarse para enviar el token resultante de nuevo a la aplicación. Se establece de forma predeterminada en `query` solo para un código de autorización, pero en `fragment` si la solicitud incluye un parámetro id_token `response_type`.|
+
+El uso de `fragment` como modo de respuesta puede causar problemas para las aplicaciones web que leen el código de la redirección, ya que los exploradores no pasan el fragmento al servidor web.  En estas situaciones, se recomienda que las aplicaciones usen el modo de respuesta `form_post` para asegurarse de que todos los datos se envían al servidor. 
+
+#### <a name="successful-response"></a>Respuesta correcta
+
+Una respuesta correcta al usar `response_mode=fragment` tiene el siguiente aspecto:
+
+```HTTP
+GET https://login.microsoftonline.com/common/oauth2/nativeclient#
+code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...
+&id_token=eYj...
+&state=12345
+```
+
+| Parámetro | Descripción  |
+|-----------|--------------|
+| `code` | El código de autorización que la aplicación solicitó. La aplicación puede utilizar el código de autorización para solicitar un token de acceso para el recurso de destino. Los códigos de autorización son de corta duración y normalmente expiran después de unos 10 minutos. |
+| `id_token` | Un token de identificador para el usuario, emitido a través de la *concesión implícita*. Contiene una notificación `c_hash` especial, que es el hash del elemento `code` en la misma solicitud. |
+| `state` | Si se incluye un parámetro de estado en la solicitud, debería aparecer el mismo valor en la respuesta. La aplicación debería comprobar que los valores de state de la solicitud y la respuesta sean idénticos. |
 
 ## <a name="request-an-access-token"></a>Solicitud de un token de acceso
 
@@ -167,7 +214,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `scope`      | opcional   | Lista de ámbitos separados por espacios. Todos los ámbitos deben provenir de un recurso único, junto con los ámbitos de OIDC (`profile`, `openid`, `email`). Para obtener una explicación más detallada de los ámbitos, consulte [permisos, consentimiento y ámbitos](v2-permissions-and-consent.md). Se trata de una extensión de Microsoft para el flujo de código de autorización, diseñada para permitir que las aplicaciones declaren el recurso para el que quieren el token durante el canje de tokens.|
 | `code`          | requerido  | El authorization_code que adquirió en el primer segmento del flujo. |
 | `redirect_uri`  | requerido  | El mismo valor redirect_uri usado para adquirir el código de autorización. |
-| `client_secret` | requerido para las aplicaciones web confidenciales | El secreto de la aplicación que creó en el portal de registro de aplicaciones para su aplicación. No debe usar el secreto de aplicación en una aplicación nativa ni en una aplicación de página única, porque no es posible almacenar los client_secrets de manera segura en los dispositivos ni páginas web. Es necesario para aplicaciones web y las API web, que tienen la capacidad de almacenar el client_secret de manera segura en el lado del servidor.  El secreto de cliente debe codificarse como dirección URL antes de enviarse. Para obtener más información sobre la codificación de URI, consulte la [especificación sobre la sintaxis genérica de URI](https://tools.ietf.org/html/rfc3986#page-12). |
+| `client_secret` | requerido para las aplicaciones web confidenciales | El secreto de la aplicación que creó en el portal de registro de aplicaciones para su aplicación. No debe usar el secreto de aplicación en una aplicación nativa ni en una aplicación de página única, porque no es posible almacenar los client_secrets de manera segura en los dispositivos ni páginas web. Es necesario para aplicaciones web y las API web, que tienen la capacidad de almacenar el client_secret de manera segura en el lado del servidor.  Al igual que todos los parámetros que se describen aquí, el secreto de cliente debe estar codificado como URL antes de enviarse, un paso que normalmente realiza el SDK. Para obtener más información sobre la codificación de URI, consulte la [especificación sobre la sintaxis genérica de URI](https://tools.ietf.org/html/rfc3986#page-12). |
 | `code_verifier` | recomendado  | El mismo valor de code_verifier que usó para obtener el valor de authorization_code. Se requiere si PKCE se utilizó en la solicitud de concesión de código de autorización. Para obtener más información, consulte [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
 
 ### <a name="successful-response"></a>Respuesta correcta

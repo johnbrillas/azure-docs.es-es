@@ -15,12 +15,12 @@ ms.date: 11/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, contperf-fy21q2
-ms.openlocfilehash: e7a8f54abbadb63c870c4d92843699c67f59752c
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 393d0c69201f87ad7c96bd2f9a1f9f57df512e31
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505637"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964531"
 ---
 # <a name="register-sql-server-vm-with-sql-iaas-agent-extension"></a>Registro de VM con SQL Server con la extensión Agente de IaaS de SQL
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -188,6 +188,9 @@ $sqlvm.SqlManagementType
 ## <a name="upgrade-to-full"></a>Actualizar a completo  
 
 Las VM con SQL Server que han registrado la extensión en modo *ligero* pueden actualizarse al modo _completo_ mediante Azure Portal, la CLI de Azure o Azure PowerShell. Las máquinas virtuales con SQL Server en el modo _NoAgent_ pueden actualizar al modo _completo_ tras actualizar el sistema operativo a Windows 2008 R2 y versiones posteriores. No es posible cambiar a un modo inferior: para ello, deberá [anular el registro](#unregister-from-extension) de la VM con SQL Server de la extensión Agente de IaaS de SQL. Al hacerlo, se quitará el **recurso** de la _máquina virtual SQL_, pero no se eliminará la máquina virtual real. 
+
+> [!NOTE]
+> Al actualizar el modo de administración de la extensión IaaS de SQL a completo, se reiniciará el servicio de SQL Server. En algunos casos, el reinicio puede hacer que los nombres de entidad de seguridad de servicio (SPN) asociados al servicio SQL Server cambien a una cuenta de usuario incorrecta. Si tiene problemas de conectividad después de actualizar el modo de administración a completo, [anule el registro y vuelva a registrar los nombres de entidad de seguridad de servicio](/sql/database-engine/configure-windows/register-a-service-principal-name-for-kerberos-connections).
 
 
 ### <a name="azure-portal"></a>Azure portal

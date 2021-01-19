@@ -1,16 +1,16 @@
 ---
-title: Configuración de la aplicación de funciones en Azure
-description: Obtenga información sobre cómo definir la configuración de Azure Function App.
+title: Configuración de la aplicación de funciones en Azure Functions
+description: Obtenga información sobre cómo configurar las opciones de la aplicación de funciones en Azure Functions.
 ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.topic: conceptual
 ms.date: 04/13/2020
 ms.custom: cc996988-fb4f-47, devx-track-azurecli
-ms.openlocfilehash: f597e58c70d6ac9daff753f5c0a54199c2383c42
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 2526fd60d6e07ecf43864945f2b05858b41ca567
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96019519"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98035213"
 ---
 # <a name="manage-your-function-app"></a>Administración de la aplicación de funciones 
 
@@ -35,7 +35,7 @@ En este artículo se describe cómo configurar y administrar la aplicación de f
 
 Puede navegar a todo lo que necesita para administrar Function App desde la página de información general, en particular la **[Configuración de la aplicación](#settings)** y las **[Características de la plataforma](#platform-features)** .
 
-## <a name="application-settings"></a><a name="settings"></a>Configuración de la aplicación
+## <a name="work-with-application-settings"></a><a name="settings"></a>Trabajo con la configuración de la aplicación
 
 La pestaña **Configuración de la aplicación** mantiene la configuración de la aplicación que la aplicación de funciones usa. Esta configuración se almacena cifrada y debe seleccionar **Mostrar valores** para ver los valores en el portal. También puede acceder a esta configuración de la aplicación mediante la CLI de Azure.
 
@@ -68,6 +68,56 @@ az functionapp config appsettings set --name <FUNCTION_APP_NAME> \
 [!INCLUDE [functions-environment-variables](../../includes/functions-environment-variables.md)]
 
 Al desarrollar una aplicación de funciones localmente, debe mantener copias locales de estos valores en el archivo del proyecto local.settings.json. Para más información, consulte el [archivo de configuración local](functions-run-local.md#local-settings-file).
+
+## <a name="hosting-plan-type"></a>Tipo de plan de hospedaje
+
+Al crear una aplicación de funciones, también crea un plan de hospedaje de App Service en el que se ejecuta la aplicación. Un plan puede tener una o varias aplicaciones de funciones. La funcionalidad, el escalado y el precio de las funciones dependen del tipo de plan. Para obtener más información, consulte la [página de precios de Azure Functions](https://azure.microsoft.com/pricing/details/functions/).
+
+Puede determinar el tipo de plan que usa la aplicación de funciones desde Azure Portal o mediante el uso de las API de la CLI de Azure o Azure PowerShell. 
+
+Los valores siguientes indican el tipo de plan:
+
+| Tipo de plan | Portal | Azure CLI/PowerShell |
+| --- | --- | --- |
+| [Consumo](consumption-plan.md) | **Consumo** | `Dynamic` |
+| [Premium](functions-premium-plan.md) | **ElasticPremium** | `ElasticPremium` |
+| [Dedicado (App Service)](dedicated-plan.md) | Varios | Varios |
+
+# <a name="portal"></a>[Portal](#tab/portal)
+
+Para determinar el tipo de plan que usa la aplicación de funciones, consulte **Plan de App Service** en la pestaña **Introducción** de la aplicación de funciones en [Azure Portal](https://portal.azure.com). Para ver el plan de tarifa, seleccione el nombre del **Plan de App Service** y, a continuación, seleccione **Propiedades** en el panel izquierdo.
+
+![Vista del plan de escalado en el portal](./media/functions-scale/function-app-overview-portal.png)
+
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azurecli)
+
+Ejecute el siguiente comando de CLI de Azure para obtener el tipo de plan de hospedaje:
+
+```azurecli-interactive
+functionApp=<FUNCTION_APP_NAME>
+resourceGroup=FunctionMonitoringExamples
+appServicePlanId=$(az functionapp show --name $functionApp --resource-group $resourceGroup --query appServicePlanId --output tsv)
+az appservice plan list --query "[?id=='$appServicePlanId'].sku.tier" --output tsv
+
+```  
+
+En el ejemplo anterior, reemplace `<RESOURCE_GROUP>` y `<FUNCTION_APP_NAME>` por los nombres del grupo de recursos y de la aplicación de funciones, respectivamente. 
+
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/powershell)
+
+Ejecute el siguiente comando de Azure PowerShell para obtener el tipo de plan de hospedaje:
+
+```azurepowershell-interactive
+$FunctionApp = '<FUNCTION_APP_NAME>'
+$ResourceGroup = '<RESOURCE_GROUP>'
+
+$PlanID = (Get-AzFunctionApp -ResourceGroupName $ResourceGroup -Name $FunctionApp).AppServicePlan
+(Get-AzFunctionAppPlan -Name $PlanID -ResourceGroupName $ResourceGroup).SkuTier
+```
+En el ejemplo anterior, reemplace `<RESOURCE_GROUP>` y `<FUNCTION_APP_NAME>` por los nombres del grupo de recursos y de la aplicación de funciones, respectivamente. 
+
+---
+
 
 ## <a name="platform-features"></a>Características de la plataforma
 

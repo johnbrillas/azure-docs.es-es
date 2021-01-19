@@ -1,19 +1,18 @@
 ---
 title: Conexión de trabajos de Stream Analytics a recursos en una instancia de Azure Virtual Network (VNet)
 description: En este artículo se describe cómo conectar un trabajo de Azure Stream Analytics con recursos que se encuentran en una VNet.
-author: sidram
+author: sidramadoss
 ms.author: sidram
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/23/2020
+ms.date: 01/04/2021
 ms.custom: devx-track-js
-ms.openlocfilehash: a2d26689a3036f05d7c8e7f417fbbb447402aedc
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: 99563760bf37c4046e7dd81e779fedbe415380bc
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97762867"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019489"
 ---
 # <a name="connect-stream-analytics-jobs-to-resources-in-an-azure-virtual-network-vnet"></a>Conexión de trabajos de Stream Analytics a recursos en una instancia de Azure Virtual Network (VNet)
 
@@ -41,7 +40,7 @@ Los trabajos pueden conectarse a los siguientes servicios de Azure mediante esta
 1. [Blob Storage o Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/stream-analytics/blob-output-managed-identity): puede ser la entrada o la salida de streaming o la cuenta de almacenamiento del trabajo.
 2. [Azure Event Hubs](https://docs.microsoft.com/azure/stream-analytics/event-hubs-managed-identity): puede ser la entrada o la salida de streaming del trabajo.
 
-Si los trabajos necesitan conectarse a otros tipos de entrada o salida, la única opción es usar puntos de conexión privados en clústeres de Stream Analytics.
+Si los trabajos deben conectarse a otros tipos de entrada o salida, podría escribir desde Stream Analytics a la salida de Event Hubs primero y luego a cualquier destino de su elección mediante Azure Functions. Si desea escribir directamente desde Stream Analytics a otros tipos de salida protegidos en una red virtual o un firewall, la única opción es usar puntos de conexión privados en clústeres de Stream Analytics.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

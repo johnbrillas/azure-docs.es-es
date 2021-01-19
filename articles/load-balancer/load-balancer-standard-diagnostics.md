@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2019
 ms.author: allensu
-ms.openlocfilehash: 9c322620e1d66182937be41bb02d48fd1469f459
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 386e0051a64f73b18c1ff76ed33af5f9eebe8aa0
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94697567"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121420"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>Diagnóstico de Standard Load Balancer con métricas, alertas y estado de los recursos
 
@@ -39,15 +39,18 @@ Las distintas configuraciones de Load Balancer Estándar proporcionan las siguie
 | --- | --- | --- | --- |
 | Disponibilidad de la ruta de acceso de datos | Equilibrador de carga interno y público | Load Balancer Estándar usa continuamente la ruta de acceso a los datos desde una región hasta el servidor front-end del equilibrador de carga y, finalmente, hasta la pila de SDN que respalda la máquina virtual. Siempre que permanezcan las instancias correctas, la medida sigue la misma ruta de acceso que el tráfico con equilibrio de carga de las aplicaciones. También se valida la ruta de acceso a los datos que usan los clientes. La medida es invisible para la aplicación y no interfiere con otras operaciones.| Average |
 | Estado del sondeo de mantenimiento | Equilibrador de carga interno y público | Load Balancer Estándar usa un servicio de sondeo de mantenimiento distribuido que supervisa el mantenimiento del punto de conexión de la aplicación de acuerdo con la configuración. Esta métrica proporciona una vista agregada o filtrada por punto de conexión de cada punto de conexión de instancia del grupo del equilibrador de carga. Puede ver cómo Load Balancer observa el estado de su aplicación según se indica en la configuración de sondeo de estado. |  Average |
-| Paquetes SYN (sincronizar) | Equilibrador de carga interno y público | Load Balancer Estándar no finaliza las conexiones de Protocolo de control de transmisión (TCP) ni interactúa con los flujos de paquetes TCP o UDP. Los flujos y los protocolos de enlace son siempre entre el origen y la instancia de máquina virtual. Para solucionar mejor los escenarios de protocolo TCP, puede hacer uso de estos contadores de paquetes SYN para saber el número de intentos de conexión TCP realizados. La métrica indica el número de paquetes TCP SYN recibidos.| Average |
-| Conexiones SNAT | Equilibrador de carga público |Load Balancer Estándar informa del número de flujos salientes enmascarados en el servidor front-end de dirección IP pública. Los puertos de traducción de direcciones de red de origen (SNAT) son un recurso agotable. Esta métrica puede proporcionar una indicación de la dependencia que su aplicación tiene de SNAT en los flujos salientes originados. Los contadores de los flujos de salida de SNAT que se realizaron con éxito y los que tuvieron algún error se notifican y se pueden utilizar para solucionar problemas y comprender el estado de los flujos de salida.| Average |
+| Recuento SYN (sincronizar) | Equilibrador de carga interno y público | Load Balancer Estándar no finaliza las conexiones de Protocolo de control de transmisión (TCP) ni interactúa con los flujos de paquetes TCP o UDP. Los flujos y los protocolos de enlace son siempre entre el origen y la instancia de máquina virtual. Para solucionar mejor los escenarios de protocolo TCP, puede hacer uso de estos contadores de paquetes SYN para saber el número de intentos de conexión TCP realizados. La métrica indica el número de paquetes TCP SYN recibidos.| Sum |
+| Recuento de conexiones SNAT | Equilibrador de carga público |Load Balancer Estándar informa del número de flujos salientes enmascarados en el servidor front-end de dirección IP pública. Los puertos de traducción de direcciones de red de origen (SNAT) son un recurso agotable. Esta métrica puede proporcionar una indicación de la dependencia que su aplicación tiene de SNAT en los flujos salientes originados. Los contadores de los flujos de salida de SNAT que se realizaron con éxito y los que tuvieron algún error se notifican y se pueden utilizar para solucionar problemas y comprender el estado de los flujos de salida.| Sum |
 | Puertos SNAT asignados | Equilibrador de carga público | Standard Load Balancer informa del número de puertos SNAT asignados por instancia de back-end. | Average |
 | Puertos SNAT usados | Equilibrador de carga público | Standard Load Balancer informa del número de puertos SNAT usados por instancia de back-end. | Average | 
-| Contadores de bytes |  Equilibrador de carga interno y público | Load Balancer Estándar informa de los datos procesados por front-end. Es posible que observe que los bytes no se distribuyen equitativamente entre las instancias de back-end. Se espera que el algoritmo de Azure Load Balancer se base en flujos. | Average |
-| Contadores de paquetes |  Equilibrador de carga interno y público | Load Balancer Estándar informa de los paquetes procesados por front-end.| Average |
+| Recuento de bytes |  Equilibrador de carga interno y público | Load Balancer Estándar informa de los datos procesados por front-end. Es posible que observe que los bytes no se distribuyen equitativamente entre las instancias de back-end. Se espera que el algoritmo de Azure Load Balancer se base en flujos. | Sum |
+| Recuento de paquetes |  Equilibrador de carga interno y público | Load Balancer Estándar informa de los paquetes procesados por front-end.| Sum |
 
   >[!NOTE]
-  >Cuando se usa la distribución del tráfico de un equilibrador de carga interno a través de una NVA o un paquete SYN de firewall, las métricas del contador de bytes y del contador de paquetes no están disponibles y se mostrarán como cero. 
+  >Cuando se usa la distribución del tráfico de un equilibrador de carga interno a través de una NVA o un paquete SYN de firewall, las métricas del recuento de bytes y del recuento de paquetes no están disponibles y se mostrarán como cero. 
+  
+  >[!NOTE]
+  >Las agregaciones máxima y mínima no están disponibles para el recuento SYN, el recuento de paquetes, el recuento de conexiones SNAT y las métricas de recuento de bytes. 
   
 ### <a name="view-your-load-balancer-metrics-in-the-azure-portal"></a>Visualización de las métricas del equilibrador de carga en Azure Portal
 
@@ -231,7 +234,14 @@ El gráfico permite a los clientes solucionar los problemas de la implementació
 
 ## <a name="resource-health-status"></a><a name = "ResourceHealth"></a>Estado de mantenimiento de los recursos
 
-El estado de mantenimiento de los recursos de Load Balancer Estándar se expone en **Mantenimiento de los recursos**, en **Supervisar > Estado del servicio**.
+El estado de mantenimiento de los recursos de Load Balancer Estándar se expone en **Mantenimiento de los recursos**, en **Supervisar > Estado del servicio**. Se evalúa cada **dos minutos** mediante la medición de la disponibilidad de la ruta de acceso de datos, que determina si los puntos de conexión de equilibrio de carga del front-end están disponibles.
+
+| Estado de mantenimiento de los recursos | Descripción |
+| --- | --- |
+| Disponible | El recurso de Standard Load Balancer está listo y disponible. |
+| Degradado | El equilibrador de carga estándar tiene eventos iniciados por el usuario o la plataforma que afectan al rendimiento. La métrica de disponibilidad de la ruta de acceso a los datos ha informado un mantenimiento de menos del 90 %, pero superior que el 25 % durante al menos dos minutos. Experimentará un impacto entre moderado y grave en el rendimiento. [Siga la guía de solución de problemas de dRHC](https://docs.microsoft.com/azure/load-balancer/troubleshoot-rhc) para determinar si hay eventos iniciados por el usuario que provoquen un impacto en la disponibilidad.
+| No disponible | El recurso de Standard Load Balancer público no es correcto. La métrica de disponibilidad de la ruta de acceso a los datos ha informado un mantenimiento de menos del 25 % durante al menos dos minutos. Experimentará un impacto significativo en el rendimiento o falta de disponibilidad para la conectividad entrante. Puede haber eventos de usuario o plataforma que generan la falta de disponibilidad. [Siga la guía de solución de problemas de dRHC](https://docs.microsoft.com/azure/load-balancer/troubleshoot-rhc) para determinar si hay eventos iniciados por el usuario afectando la disponibilidad. |
+| Unknown | El estado de mantenimiento de recurso del recurso de Standard Load Balancer no se ha actualizado todavía o no ha recibido la información de disponibilidad de la ruta de acceso a los datos durante los últimos 10 minutos. Este estado debe ser transitorio y reflejará el estado correcto en cuanto se reciban dichos datos. |
 
 Para ver el mantenimiento de los recursos públicos de Load Balancer Estándar:
 1. Seleccione **Monitor** > **Service Health**.
@@ -254,12 +264,6 @@ Para ver el mantenimiento de los recursos públicos de Load Balancer Estándar:
  
 La descripción genérica del estado de mantenimiento de los recursos está disponible en la [documentación de RHC](../service-health/resource-health-overview.md). En la tabla siguiente se enumeran los estados específicos de Azure Load Balancer: 
 
-| Estado de mantenimiento de los recursos | Descripción |
-| --- | --- |
-| Disponible | El recurso de Standard Load Balancer está listo y disponible. |
-| Degradado | El equilibrador de carga estándar tiene eventos iniciados por el usuario o la plataforma que afectan al rendimiento. La métrica de disponibilidad de la ruta de acceso a los datos ha informado un mantenimiento de menos del 90 %, pero superior que el 25 % durante al menos dos minutos. Experimentará un impacto entre moderado y grave en el rendimiento. [Siga la guía de solución de problemas de disponibilidad de la ruta de acceso a los datos] para determinar si hay eventos iniciados por el usuario que provoquen un impacto en la disponibilidad.
-| No disponible | El recurso de Standard Load Balancer público no es correcto. La métrica de disponibilidad de la ruta de acceso a los datos ha informado un mantenimiento de menos del 25 % durante al menos dos minutos. Experimentará un impacto significativo en el rendimiento o falta de disponibilidad para la conectividad entrante. Puede haber eventos de usuario o plataforma que generan la falta de disponibilidad. [Siga la guía de solución de problemas de disponibilidad de la ruta de acceso a los datos] para determinar si hay eventos iniciados por el usuario que afecten a la disponibilidad. |
-| Unknown | El estado de mantenimiento de recurso del recurso de Standard Load Balancer no se ha actualizado todavía o no ha recibido la información de disponibilidad de la ruta de acceso a los datos durante los últimos 10 minutos. Este estado debe ser transitorio y reflejará el estado correcto en cuanto se reciban dichos datos. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/04/2020
+ms.date: 01/06/2021
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: fd341a4f6e2402ce934bdffd4f024e0ef569eec1
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: d5f5e1098b688fc307bae5ea3538c818cb529b0a
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96340924"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97962404"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>Aplicación de escritorio que llama a API web: Adquisición de un token
 
@@ -949,7 +949,7 @@ Este método toma como parámetros:
 
   ![Propiedades de DeviceCodeResult](https://user-images.githubusercontent.com/13203188/56024968-7af1b980-5d11-11e9-84c2-5be2ef306dc5.png)
 
-El código de ejemplo siguiente presenta el caso más reciente, con explicaciones de la clase de excepciones que se pueden obtener y su mitigación.
+El código de ejemplo siguiente presenta la sinopsis de los casos más actuales, con explicaciones de la clase de excepciones que se pueden obtener y su mitigación. Para ver un ejemplo de código totalmente funcional, consulte [active-directory-dotnetcore-devicecodeflow-v2](https://github.com/azure-samples/active-directory-dotnetcore-devicecodeflow-v2) en GitHub.
 
 ```csharp
 private const string ClientId = "<client_guid>";
@@ -981,7 +981,7 @@ static async Task<AuthenticationResult> GetATokenForGraph()
     }
 }
 
-private async Task<AuthenticationResult> AcquireByDeviceCodeAsync(IPublicClientApplication pca)
+private static async Task<AuthenticationResult> AcquireByDeviceCodeAsync(IPublicClientApplication pca)
 {
     try
     {
@@ -1005,6 +1005,7 @@ private async Task<AuthenticationResult> AcquireByDeviceCodeAsync(IPublicClientA
         Console.WriteLine(result.Account.Username);
         return result;
     }
+
     // TODO: handle or throw all these exceptions depending on your app
     catch (MsalServiceException ex)
     {
@@ -1038,6 +1039,7 @@ private async Task<AuthenticationResult> AcquireByDeviceCodeAsync(IPublicClientA
     }
 }
 ```
+
 # <a name="java"></a>[Java](#tab/java)
 
 Este extracto procede de los [ejemplos de desarrollo de Java de MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/public-client/).
@@ -1180,7 +1182,7 @@ La personalización de la serialización de la caché de tokens para compartir e
 
 ### <a name="simple-token-cache-serialization-msal-only"></a>Serialización de la caché de tokens simple (solo MSAL)
 
-El siguiente ejemplo es una implementación sencilla de serialización personalizada de una caché de tokens para aplicaciones de escritorio. En él, la caché de tokens de usuario está en un archivo de la misma carpeta que la aplicación.
+El siguiente ejemplo es una implementación sencilla de serialización personalizada de una caché de tokens para aplicaciones de escritorio. Aquí, la caché de tokens de usuario se encuentra en un archivo en la misma carpeta que la aplicación, o en una carpeta por usuario y por aplicación, en el caso de que la aplicación sea una [aplicación de escritorio empaquetada](https://docs.microsoft.com/windows/msix/desktop/desktop-to-uwp-behind-the-scenes). Para obtener el código completo, consulte el ejemplo siguiente: [active-directory-dotnet-desktop-msgraph-v2](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2).
 
 Después de compilar la aplicación, se llama a ``TokenCacheHelper.EnableSerialization()`` y se pasa la aplicación `UserTokenCache` para habilitar la serialización.
 
@@ -1199,15 +1201,27 @@ static class TokenCacheHelper
   {
    tokenCache.SetBeforeAccess(BeforeAccessNotification);
    tokenCache.SetAfterAccess(AfterAccessNotification);
+   try
+   {
+    // For packaged desktop apps (MSIX packages) the executing assembly folder is read-only. 
+    // In that case we need to use Windows.Storage.ApplicationData.Current.LocalCacheFolder.Path + "\msalcache.bin" 
+    // which is a per-app read/write folder for packaged apps.
+    // See https://docs.microsoft.com/windows/msix/desktop/desktop-to-uwp-behind-the-scenes
+    CacheFilePath = System.IO.Path.Combine(Windows.Storage.ApplicationData.Current.LocalCacheFolder.Path, "msalcache.bin3");
+   }
+   catch (System.InvalidOperationException)
+   {
+    // Fall back for an un-packaged desktop app
+    CacheFilePath = System.Reflection.Assembly.GetExecutingAssembly().Location + ".msalcache.bin";
+   }
   }
 
   /// <summary>
   /// Path to the token cache
   /// </summary>
-  public static readonly string CacheFilePath = System.Reflection.Assembly.GetExecutingAssembly().Location + ".msalcache.bin3";
+  public static string CacheFilePath { get; private set; }
 
   private static readonly object FileLock = new object();
-
 
   private static void BeforeAccessNotification(TokenCacheNotificationArgs args)
   {

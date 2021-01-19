@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/30/2020
 ms.author: mlottner
-ms.openlocfilehash: c2b440413599ce07112231af17daa0bc14817b76
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 9ac283721526488f587fcabc68348dafac1835db
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97832784"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98033360"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>Implementación de un módulo de seguridad en el dispositivo IoT Edge
 
@@ -51,13 +51,13 @@ Siga estos pasos para implementar un módulo de seguridad de Defender para IoT p
 
 1. Desde Azure Portal, abra **Marketplace**.
 
-1. Seleccione **Internet de las cosas** y luego busque **Defender para IoT** y selecciónelo.
+1. Seleccione **Internet de las cosas** y luego busque **Azure Security Center para IoT** y selecciónelo.
 
    :::image type="content" source="media/howto/edge-onboarding-8.png" alt-text="Selección de Defender para IoT":::
 
-1. Haga clic en **Crear** para configurar la implementación.
+1. Seleccione **Crear** para configurar la implementación.
 
-1. Elija la **suscripción** de Azure de IoT Hub y luego seleccione su **IoT Hub**.<br>Seleccione **Implementar en un dispositivo** para un único dispositivo de destino o seleccione **Implementar a escala** para varios dispositivos de destino y haga clic en **Crear**. Para más información sobre la implementación a escala, consulte [Implementación y supervisión de módulos de IoT Edge a escala mediante Azure Portal](../iot-edge/how-to-deploy-at-scale.md).
+1. Elija la **suscripción** de Azure de IoT Hub y luego seleccione su **IoT Hub**.<br>Seleccione **Implementar en un dispositivo** para un único dispositivo de destino o **Implementar a escala** para varios dispositivos de destino y, a continuación, seleccione **Crear**. Para más información sobre la implementación a escala, consulte [Implementación y supervisión de módulos de IoT Edge a escala mediante Azure Portal](../iot-edge/how-to-deploy-at-scale.md).
 
     >[!Note]
     >Si seleccionó **Implementar a escala**, agregue el nombre del dispositivo y los detalles antes de continuar con la pestaña **Agregar módulos** en las instrucciones siguientes.
@@ -68,7 +68,7 @@ Complete cada uno de los pasos para completar la implementación de IoT Edge de 
 
 1. Seleccione el módulo **AzureSecurityCenterforIoT**.
 1. En la pestaña **Configuración del módulo**, cambie el **nombre** a **azureiotsecurity**.
-1. Si es necesario, en la pestaña **Variables de entorno**, agregue una variable (por ejemplo, en el nivel de depuración).
+1. En la pestaña **Variables de entorno**, agregue una variable si es necesario (por ejemplo, puede agregar la variable *debug level* y establecerla en uno de los valores siguientes: "Fatal", "Error", "Warning" o "Information").
 1. En la pestaña **Opciones de creación del contenedor**, agregue la configuración siguiente:
 
     ``` json
@@ -112,8 +112,12 @@ Complete cada uno de los pasos para completar la implementación de IoT Edge de 
 #### <a name="step-2-runtime-settings"></a>Paso 2: Configuración del entorno de ejecución
 
 1. Seleccione **Configuración del entorno de ejecución**.
-1. En **Centro de Microsoft Edge**, cambie el valor de **Imagen** a **mcr.microsoft.com/azureiotedge-hub:1.0.8.3**.
-1. Compruebe que la opción **Opciones de creación** está establecida tal y como se muestra a continuación:
+2. En **Centro de Microsoft Edge**, cambie el valor de **Imagen** a **mcr.microsoft.com/azureiotedge-hub:1.0.8.3**.
+
+    >[!Note]
+    > Actualmente, se admite la versión 1.0.8.3 o posterior.
+
+3. Compruebe que la opción **Opciones de creación** está establecida tal y como se muestra a continuación:
 
     ``` json
     {
@@ -139,9 +143,9 @@ Complete cada uno de los pasos para completar la implementación de IoT Edge de 
     }
     ```
 
-1. Seleccione **Guardar**.
+4. Seleccione **Guardar**.
 
-1. Seleccione **Next** (Siguiente).
+5. Seleccione **Next** (Siguiente).
 
 #### <a name="step-3-specify-routes"></a>Paso 3: Especificación de rutas
 

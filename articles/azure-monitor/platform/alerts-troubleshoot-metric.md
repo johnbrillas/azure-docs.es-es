@@ -4,14 +4,14 @@ description: Problemas comunes con las alertas de métricas de Azure Monitor y p
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 01/03/2021
+ms.date: 01/11/2021
 ms.subservice: alerts
-ms.openlocfilehash: 9a05fe509e032681a0bf5ed989595a25f66d33c6
-ms.sourcegitcommit: 697638c20ceaf51ec4ebd8f929c719c1e630f06f
+ms.openlocfilehash: e4e876b58c82605df0c005b225dcf2cdbcda1b34
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97857348"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98070741"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Solución de problemas en las alertas de métricas de Azure Monitor 
 
@@ -91,9 +91,9 @@ Si quiere alertar sobre una métrica específica pero no puede verla al crear un
 Si quiere generar una alerta sobre [valores de dimensión específicos de una métrica](./alerts-metric-overview.md#using-dimensions), pero no puede encontrar estos valores, tenga en cuenta lo siguiente:
 
 1. Los valores de dimensión pueden tardar unos minutos en aparecer en la lista de **valores de dimensión**.
-1. Los valores de dimensión mostrados se basan en los datos de métrica recopilados en los últimos tres días.
-1. Si aún no se ha emitido el valor de dimensión, haga clic en el signo "+" para agregar un valor personalizado.
-1. Si quiere generar alertas sobre todos los valores posibles de una dimensión (incluidos los valores futuros), active la casilla "Seleccionar*".
+1. Los valores de dimensión mostrados se basan en los datos de métrica recopilados el último día.
+1. Si el valor de la dimensión aún no se ha emitido o no se muestra, puede usar la opción "Agregar valor personalizado" para agregar un valor de dimensión personalizado.
+1. Si quiere generar alertas sobre todos los valores posibles de una dimensión (incluidos los valores futuros), elija la opción "Seleccionar todos los valores actuales y futuros".
 
 ## <a name="metric-alert-rules-still-defined-on-a-deleted-resource"></a>Reglas de alertas de métricas aún definidas en un recurso eliminado 
 

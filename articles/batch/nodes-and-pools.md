@@ -3,12 +3,12 @@ title: Nodos y grupos en Azure Batch
 description: Obtenga información sobre los grupos y nodos de proceso, y cómo se usan en un flujo de trabajo de Azure Batch desde el punto de vista del desarrollo.
 ms.topic: conceptual
 ms.date: 11/20/2020
-ms.openlocfilehash: 880a956a2d839483c59578afad1b62146799578a
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: c229381ba1019a5a40a4ca6b7db88f534f57de29
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95243076"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934652"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Nodos y grupos en Azure Batch
 
@@ -63,6 +63,9 @@ Al crear un grupo de Batch, se especifica la configuración de máquina virtual 
 ## <a name="configurations"></a>Configurations
 
 Hay dos tipos de configuraciones de grupo disponibles en Batch.
+
+> [!IMPORTANT]
+> Los grupos deben configurarse con "Configuración de máquina virtual" y no con "Cloud Services Configuration" (Configuración de Cloud Services). Los grupos de "Configuración de máquina virtual" admiten todas las características de Batch, y se van a agregar nuevas características. Los grupos de "Cloud Services Configuration" (Configuración de Cloud Services) no admiten todas las características y no están previstas nuevas funcionalidades.
 
 ### <a name="virtual-machine-configuration"></a>Configuración de máquina virtual
 

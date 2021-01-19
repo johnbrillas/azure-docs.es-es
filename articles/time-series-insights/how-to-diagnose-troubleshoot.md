@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: eca2009ee0470dec9c9ce60d8754f8f7a71619d3
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: d9dd07e3a35d83ff6bd9c7c493768d1197667c39
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97740545"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108796"
 ---
 # <a name="diagnose-and-troubleshoot-an-azure-time-series-insights-gen2-environment"></a>Diagnóstico y solución de problemas de un entorno de Azure Time Series Insights Gen2
 
@@ -71,7 +71,7 @@ Podría estar enviando datos sin el identificador de Time Series.
 - Este problema puede producirse porque se está limitando su entorno.
 
     > [!NOTE]
-    > En este momento, Time Series Insights admite una tasa máxima de ingesta de 6 Mbps.
+    > En este momento, Time Series Insights admite una tasa máxima de ingesta de 1 Mbps.
 
 ## <a name="problem-data-was-showing-but-now-ingestion-has-stopped"></a>Problema: Los datos se mostraban, pero la ingesta ahora se detuvo
 

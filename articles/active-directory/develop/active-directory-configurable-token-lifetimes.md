@@ -1,7 +1,7 @@
 ---
 title: Vigencia de tokens configurable
 titleSuffix: Microsoft identity platform
-description: Obtenga información sobre cómo establecer la vigencia de los tokens emitidos por la Plataforma de identidad de Microsoft.
+description: Obtenga información sobre cómo establecer la vigencia de los tokens de acceso, SAML y de identificador emitidos por la Plataforma de identidad de Microsoft.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -9,65 +9,20 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/14/2020
+ms.date: 01/04/2021
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1, contperf-fy21q1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: f73186612fe79af88e84956bb4d0f0b374f4c986
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 0b3c2f74edff661326e97da7b06860914468c43b
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97507802"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98059354"
 ---
 # <a name="configurable-token-lifetimes-in-microsoft-identity-platform-preview"></a>Vigencia de tokens configurable en la Plataforma de identidad de Microsoft (versión preliminar)
 
-> [!IMPORTANT]
-> Después de mayo de 2020, los inquilinos ya no podrán configurar la vigencia de los tokens de sesión y la actualización.  Azure Active Directory dejará de respetar la configuración existente de los tokens de sesión y la actualización en las directivas después del 30 de enero de 2021. Después, podrá seguir configurando la duración del token de acceso.
->
-> Si necesita seguir definiendo el período de tiempo antes de que se pida al usuario que vuelva a iniciar sesión, configure la frecuencia de inicio de sesión en el acceso condicional. Para obtener más información sobre el acceso condicional, consulte [Configuración de la administración de las sesiones de autenticación con el acceso condicional](/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime).
->
-> En el caso de los inquilinos que no usan el acceso condicional después de la fecha de retirada, pueden esperar que Azure AD respetará la configuración predeterminada que se describe en la sección siguiente.
-
-## <a name="configurable-token-lifetime-properties-after-the-retirement"></a>Propiedades de vigencia de tokens configurables después de la retirada
-La configuración de los tokens de actualización y sesión se ve afectada por las siguientes propiedades y sus correspondientes valores establecidos. Después de la retirada de la configuración de tokens de actualización y sesión, Azure AD solo respetará el valor predeterminado que se describe a continuación, con independencia de que las directivas tengan valores personalizados configurados. Después de la retirada, todavía podrá configurar la duración de los tokens de acceso. 
-
-|Propiedad   |Cadena de propiedad de directiva    |Afecta a |Valor predeterminado |
-|----------|-----------|------------|------------|
-|Tiempo máximo de inactividad del token de actualización |MaxInactiveTime  |Tokens de actualización |90 días  |
-|Antigüedad máxima del token de actualización (un solo factor)  |MaxAgeSingleFactor  |Tokens de actualización (para los usuarios)  |Hasta que se revoca  |
-|Antigüedad máxima del token de actualización (varios factores)  |MaxAgeMultiFactor  |Tokens de actualización (para los usuarios) |180 días  |
-|Antigüedad máxima del token de sesión (un solo factor)  |MaxAgeSessionSingleFactor |Tokens de sesión (persistentes y no persistentes)  |Hasta que se revoca |
-|Antigüedad máxima del token de sesión (varios factores)  |MaxAgeSessionMultiFactor  |Tokens de sesión (persistentes y no persistentes)  |180 días |
-
-## <a name="identify-configuration-in-scope-of-retirement"></a>Identificación de la configuración en el ámbito de la retirada
-
-Para comenzar, realice uno de los pasos siguientes:
-
-1. Descargue la [versión preliminar pública más reciente del módulo de PowerShell de Azure AD](https://www.powershellgallery.com/packages/AzureADPreview).
-1. Ejecute el comando `Connect` para iniciar sesión en la cuenta de administrador de Azure AD. Ejecute este comando cada vez que inicie una nueva sesión.
-
-    ```powershell
-    Connect-AzureAD -Confirm
-    ```
-
-1. Para ver todas las directivas creadas en la organización, ejecute el cmdlet [Get-AzureADPolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true).  Los resultados con valores de propiedad definidos que difieren de los valores predeterminados mencionados anteriormente se encuentran en el ámbito de la retirada.
-
-    ```powershell
-    Get-AzureADPolicy -All
-    ```
-
-1. Para ver qué aplicaciones y entidades de servicio están vinculadas a una directiva específica que identificó, ejecute el siguiente cmdlet [Get-AzureADPolicyAppliedObject](/powershell/module/azuread/get-azureadpolicyappliedobject?view=azureadps-2.0-preview&preserve-view=true) reemplazando **1a37dad8-5da7-4cc8-87c7-efbc0326cf20** con cualquiera de los identificadores de directiva. A continuación, puede decidir si desea configurar la frecuencia de inicio de sesión de acceso condicional o mantener los valores predeterminados de Azure AD.
-
-    ```powershell
-    Get-AzureADPolicyAppliedObject -id 1a37dad8-5da7-4cc8-87c7-efbc0326cf20
-    ```
-
-Si el inquilino tiene directivas que definen valores personalizados para las propiedades de configuración de tokens de sesión y actualización, Microsoft recomienda actualizarlas a los valores que reflejen los valores predeterminados descritos anteriormente. Si no se realiza ningún cambio, Azure AD respetará de forma automática los valores predeterminados.  
-
-## <a name="overview"></a>Información general
-
-Puede especificar la vigencia de un token emitido por la Plataforma de identidad de Microsoft. La vigencia de los tokens se puede configurar para todas las aplicaciones de una organización, para una aplicación multiinquilino (multiorganización) o para una entidad de servicio específica de una organización. No obstante, actualmente no se admite la configuración de la vigencia de los tokens para las [entidades de servicio de identidad administrada](../managed-identities-azure-resources/overview.md).
+Puede especificar la vigencia de un token de acceso, identificador o SAML emitido por la Plataforma de identidad de Microsoft. La vigencia de los tokens se puede configurar para todas las aplicaciones de una organización, para una aplicación multiinquilino (multiorganización) o para una entidad de servicio específica de una organización. No obstante, actualmente no se admite la configuración de la vigencia de los tokens para las [entidades de servicio de identidad administrada](../managed-identities-azure-resources/overview.md).
 
 En Azure AD, un objeto de directiva representa un conjunto de reglas que se exigen en algunas o todas las aplicaciones de una organización. Cada tipo de directiva tiene una estructura única con un conjunto de propiedades que luego se aplican a los objetos a los que están asignadas.
 
@@ -79,13 +34,19 @@ Para obtener ejemplos, lea [Configuración de la vigencia de los tokens](configu
 > La directiva de vigencia del token configurable solo se aplica a los clientes móviles y de escritorio que tienen acceso a los recursos SharePoint Online y OneDrive para la Empresa, y no se aplica a las sesiones del explorador web.
 > Para administrar la vigencia de las sesiones del explorador web para SharePoint Online y OneDrive para la Empresa, use la característica de [vigencia de sesiones de acceso condicional](../conditional-access/howto-conditional-access-session-lifetime.md). Consulte el [blog de SharePoint Online](https://techcommunity.microsoft.com/t5/SharePoint-Blog/Introducing-Idle-Session-Timeout-in-SharePoint-and-OneDrive/ba-p/119208) para más información sobre cómo configurar los tiempos de expiración de sesiones inactivas.
 
-## <a name="token-types"></a>Tipos de token
+## <a name="license-requirements"></a>Requisitos de licencia
 
-Las directivas de vigencia del token se pueden establecer para tokens de actualización, tokens de acceso, tokens SAML, tokens de sesión y tokens de identificador.
+Necesita una licencia de Azure AD Premium P1 para usar esta característica. Para obtener la licencia correcta para sus requisitos, consulte [Comparación de las características con disponibilidad general de las ediciones Gratis y Prémium](https://azure.microsoft.com/pricing/details/active-directory/).
+
+Los clientes con [licencias de Microsoft 365 Empresa](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description) también tienen acceso a características de acceso condicional.
+
+## <a name="token-lifetime-policies-for-access-saml-and-id-tokens"></a>Directivas de vigencia para los tokens de acceso, SAML e identificador
+
+Las directivas de vigencia de tokens se pueden establecer para los tokens de acceso, SAML y de identificador. 
 
 ### <a name="access-tokens"></a>Tokens de acceso
 
-Los clientes utilizan tokens de acceso para acceder a un recurso protegido. Solo se puede utilizar un token de acceso para una combinación específica de usuario, cliente y recurso. Los tokens de acceso no se pueden revocar y son válidos hasta que caducan. Un individuo maltintencionado que haya obtenido un token de acceso puede usarlo durante toda su vigencia. El ajuste de la vigencia de un token de acceso es un balance entre la mejora del rendimiento del sistema y el aumento de la cantidad de tiempo que el cliente conserva el acceso después de que la cuenta de usuario está deshabilitada. Se consigue un rendimiento mejorado del sistema al reducir el número de veces que un cliente necesita adquirir un token de acceso nuevo.  El valor predeterminado es 1 hora. Después de 1 hora, el cliente debe usar el token de actualización para adquirir un nuevo token de actualización (normalmente en modo silencioso) y un token de acceso. 
+Los clientes utilizan tokens de acceso para acceder a un recurso protegido. Solo se puede utilizar un token de acceso para una combinación específica de usuario, cliente y recurso. Los tokens de acceso no se pueden revocar y son válidos hasta que caducan. Un individuo maltintencionado que haya obtenido un token de acceso puede usarlo durante toda su vigencia. El ajuste de la vigencia de un token de acceso es un balance entre la mejora del rendimiento del sistema y el aumento de la cantidad de tiempo que el cliente conserva el acceso después de que la cuenta de usuario está deshabilitada. Se consigue un rendimiento mejorado del sistema al reducir el número de veces que un cliente necesita adquirir un token de acceso nuevo.  El valor predeterminado es 1 hora. Después de 1 hora, el cliente debe usar el token de actualización para adquirir un nuevo token de actualización (normalmente en modo silencioso) y un token de acceso.
 
 ### <a name="saml-tokens"></a>Tokens de SAML
 
@@ -94,6 +55,38 @@ Muchas aplicaciones SAAS basadas en web usan tokens SAML, que se obtienen median
 El valor de NotOnOrAfter se puede cambiar mediante el parámetro `AccessTokenLifetime` en un `TokenLifetimePolicy`. Se establecerá en la duración configurada en la directiva, si la hay, más un factor de sesgo de reloj de cinco minutos.
 
 Tenga en cuenta que la confirmación de asunto NotOnOrAfter especificada en el elemento `<SubjectConfirmationData>` no se ve afectada por la configuración de la vigencia del token. 
+
+### <a name="id-tokens"></a>Tokens de identificador
+
+Los tokens de identificador se pasan a los clientes nativos y de sitios web. Los tokens de identificador contienen información de perfil de un usuario. Un token de identificador se enlaza a una combinación específica de usuario y cliente. Los tokens de identificador se consideran válidos hasta que expiran. Normalmente, una aplicación web relaciona la vigencia de la sesión de un usuario en la aplicación con la vigencia del token de identificador emitido para el usuario. Puede ajustar la vigencia de un token de identificador para controlar la frecuencia con la que la aplicación web expira la sesión de la aplicación y requiere que el usuario se vuelva a autenticar en la Plataforma de identidad de Microsoft (de forma silenciosa o interactiva).
+
+### <a name="token-lifetime-policy-properties"></a>Propiedades de la directiva de vigencia del token
+
+Una directiva de vigencia del token es un tipo de objeto de directiva que contiene reglas de vigencia del token. Esta directiva controla cuánto tiempo se consideran válidos los tokens de acceso, SAML y de identificador para este recurso. Si no se establece ninguna directiva, el sistema aplica el valor de vigencia predeterminado. 
+
+Reducir la vigencia de los tokens de acceso disminuye el riesgo de que un individuo malintencionado use un token de acceso o de identificador durante un período de tiempo prolongado. (Estos tokens no se pueden revocar). El inconveniente es que afecta negativamente al rendimiento, ya que los tokens tendrán que reemplazarse con más frecuencia.
+
+Para obtener un ejemplo, consulte [Creación de una directiva para inicio de sesión web](configure-token-lifetimes.md#create-a-policy-for-web-sign-in).
+
+| Propiedad | Cadena de propiedad de directiva | Afecta a | Valor predeterminado | Mínima | Máxima |
+| --- | --- | --- | --- | --- | --- |
+| Vigencia del token de acceso |AccessTokenLifetime |Tokens de acceso, tokens de identificador, tokens de SAML2 |1 hora |10 minutos |1 día |
+
+> [!NOTE]
+> Para asegurarse de que el cliente web de Microsoft Teams funciona, se recomienda mantener AccessTokenLifetime en un valor superior a 15 minutos para Microsoft Teams.
+
+## <a name="token-lifetime-policies-for-refresh-tokens-and-session-tokens"></a>Directivas de vigencia para los tokens de actualización y los tokens de sesión
+
+Las directivas de vigencia del token se pueden establecer para los tokens de actualización y los tokens de sesión.
+
+> [!IMPORTANT]
+> A partir de mayo de 2020, los nuevos inquilinos no pueden configurar la vigencia de los tokens de actualización ni de sesión.  Los inquilinos con configuración existente pueden modificar las directivas de tokens de actualización y de sesión hasta el 30 de enero de 2021.   Azure Active Directory dejará de respetar la configuración existente de los tokens de sesión y la actualización en las directivas después del 30 de enero de 2021. Después de la retirada, todavía podrá configurar la vigencia de los tokens de acceso, SAML y de identificador.
+>
+> Si necesita seguir definiendo el período de tiempo antes de que se pida al usuario que vuelva a iniciar sesión, configure la frecuencia de inicio de sesión en el acceso condicional. Para obtener más información sobre el acceso condicional, consulte [Configuración de la administración de las sesiones de autenticación con el acceso condicional](/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime).
+>
+> Si no quiere usar el acceso condicional después de la fecha de retirada, los tokens de actualización y de sesión se establecerán en la [configuración predeterminada](#configurable-token-lifetime-properties-after-the-retirement) en esa fecha y ya no podrá cambiar su vigencia.
+
+:::image type="content" source="./media/active-directory-configurable-token-lifetimes/roadmap.svg" alt-text="Información sobre la retirada":::
 
 ### <a name="refresh-tokens"></a>Tokens de actualización
 
@@ -111,9 +104,6 @@ Los clientes públicos no pueden almacenar de forma segura una contraseña (secr
 > [!NOTE]
 > La propiedad Max Age es el período de tiempo que se puede usar un token único. 
 
-### <a name="id-tokens"></a>Tokens de identificador
-Los tokens de identificador se pasan a los clientes nativos y de sitios web. Los tokens de identificador contienen información de perfil de un usuario. Un token de identificador se enlaza a una combinación específica de usuario y cliente. Los tokens de identificador se consideran válidos hasta que expiran. Normalmente, una aplicación web relaciona la vigencia de la sesión de un usuario en la aplicación con la vigencia del token de identificador emitido para el usuario. Puede ajustar la vigencia del token de identificador para controlar la frecuencia con la que la aplicación web expirará la sesión de la aplicación y requerirá que el usuario se vuelva a autenticar en la Plataforma de identidad de Microsoft (de forma silenciosa o interactiva).
-
 ### <a name="single-sign-on-session-tokens"></a>Tokens de sesión de inicio de sesión único
 Cuando un usuario se autentica con la Plataforma de identidad de Microsoft, se establece una sesión mediante inicio de sesión único (SSO) con la Plataforma de identidad de Microsoft y el explorador del usuario. El token de SSO, en forma de cookie, representa esta sesión. El token de sesión SSO no está enlazado a una aplicación cliente o de recursos específica. Los tokens de sesión SSO se pueden revocar y su validez se comprueba cada vez que se utilizan.
 
@@ -123,23 +113,21 @@ Los tokens de sesión no persistentes tienen una vigencia de 24 horas. Los token
 
 Puede utilizar una directiva para establecer el período de tiempo después de la emisión del primer token de sesión, más allá del cual ya no se aceptará este token. (Para ello, utilice la propiedad de antigüedad máxima del token de sesión). Puede ajustar la vigencia de un token de sesión para controlar cuándo y con qué frecuencia el usuario debe volver a escribir las credenciales en lugar de autenticarse de forma silenciosa cuando se usa una aplicación web.
 
-### <a name="token-lifetime-policy-properties"></a>Propiedades de la directiva de vigencia del token
+### <a name="refresh-and-session-token-lifetime-policy-properties"></a>Propiedades de las directivas de vigencia de los tokens de actualización y de sesión
 Una directiva de vigencia del token es un tipo de objeto de directiva que contiene reglas de vigencia del token. Use las propiedades de la directiva para controlar las vigencias de tokens especificados. Si no se establece ninguna directiva, el sistema aplica el valor de vigencia predeterminado.
 
-### <a name="configurable-token-lifetime-properties"></a>Propiedades de vigencia de tokens configurables
+#### <a name="configurable-token-lifetime-properties"></a>Propiedades de vigencia de tokens configurables
 | Propiedad | Cadena de propiedad de directiva | Afecta a | Valor predeterminado | Mínima | Máxima |
 | --- | --- | --- | --- | --- | --- |
-| Vigencia del token de acceso |AccessTokenLifetime<sup>2</sup> |Tokens de acceso, tokens de identificador, tokens de SAML2 |1 hora |10 minutos |1 día |
 | Tiempo máximo de inactividad del token de actualización |MaxInactiveTime |Tokens de actualización |90 días |10 minutos |90 días |
 | Antigüedad máxima del token de actualización (un solo factor) |MaxAgeSingleFactor |Tokens de actualización (para los usuarios) |Hasta que se revoca |10 minutos |Hasta que se revoca<sup>1</sup> |
-| Antigüedad máxima del token de actualización (varios factores) |MaxAgeMultiFactor |Tokens de actualización (para los usuarios) | 180 días |10 minutos |180 días<sup>1</sup> |
+| Antigüedad máxima del token de actualización (varios factores) |MaxAgeMultiFactor |Tokens de actualización (para los usuarios) | Hasta que se revoca |10 minutos |180 días<sup>1</sup> |
 | Antigüedad máxima del token de sesión (un solo factor) |MaxAgeSessionSingleFactor |Tokens de sesión (persistentes y no persistentes) |Hasta que se revoca |10 minutos |Hasta que se revoca<sup>1</sup> |
-| Antigüedad máxima del token de sesión (varios factores) |MaxAgeSessionMultiFactor |Tokens de sesión (persistentes y no persistentes) | 180 días |10 minutos | 180 días<sup>1</sup> |
+| Antigüedad máxima del token de sesión (varios factores) |MaxAgeSessionMultiFactor |Tokens de sesión (persistentes y no persistentes) | Hasta que se revoca |10 minutos | 180 días<sup>1</sup> |
 
 * <sup>1</sup>365 días es la vigencia explícita máxima que se puede establecer para estos atributos.
-* <sup>2</sup>Para que funcione el cliente web de Microsoft Teams, se recomienda establecer AccessTokenLifetime en un valor superior a 15 minutos para Microsoft Teams.
 
-### <a name="exceptions"></a>Excepciones
+#### <a name="exceptions"></a>Excepciones
 | Propiedad | Afecta a | Valor predeterminado |
 | --- | --- | --- |
 | Antigüedad máxima de los tokens de actualización (emitidos para usuarios federados con información de revocación insuficiente<sup>1</sup>) |Tokens de actualización (emitidos para usuarios federados con información de revocación insuficiente<sup>1</sup>) |12 horas |
@@ -148,52 +136,9 @@ Una directiva de vigencia del token es un tipo de objeto de directiva que contie
 
 * <sup>1</sup> Entre los usuarios federados que tienen información de revocación insuficiente se incluyen todos los usuarios que no tienen el atributo "LastPasswordChangeTimestamp" sincronizado. A estos usuarios se les da esta antigüedad máxima tan corta porque Azure Active Directory no puede comprobar cuándo se deben revocar los tokens asociados a una credencial antigua (como una contraseña que se ha modificado) y deben realizar comprobaciones más frecuentes para asegurarse de que el usuario y los tokens asociados están aún activos. Para mejorar esta experiencia, los administradores de los inquilinos deben asegurarse de que sincronizan el atributo "LastPasswordChangeTimestamp" (esto se puede establecer en el objeto de usuario con PowerShell o mediante AADSync).
 
-### <a name="policy-evaluation-and-prioritization"></a>Evaluación y prioridades de directivas
-Puede crear y, a continuación, asignar una directiva de vigencia del token a una aplicación específica, a su organización y a las entidades de servicio. Se pueden aplicar varias directivas a una aplicación específica. La directiva de vigencia del token que entra en vigor sigue estas reglas:
+### <a name="configurable-policy-property-details"></a>Detalles de las propiedades de directiva configurables
 
-* Si una directiva se asigna explícitamente a la entidad de servicio, se aplicará.
-* Si no hay ninguna directiva que se asigne explícitamente a la entidad de servicio, se aplicará una directiva asignada explícitamente a la organización primaria de la entidad de servicio.
-* Si no hay ninguna directiva que se asigne explícitamente a la entidad de servicio o a la organización, se aplicará la directiva asignada a la aplicación.
-* Si no se ha asignado ninguna directiva a la entidad de servicio, la organización o el objeto de aplicación, se aplican los valores predeterminados. (Consulte la tabla que aparece en [Propiedades de vigencia de tokens configurables](#configurable-token-lifetime-properties)).
-
-Para más información sobre la relación entre objetos de aplicación y objetos de entidad de servicio, consulte [Objetos de aplicación y de entidad de servicio de Azure Active Directory](app-objects-and-service-principals.md).
-
-La validez de un token se evalúa en el momento en el que se usa. La directiva con la prioridad más alta en la aplicación a la que se accede es la que se aplica.
-
-Todos los intervalos de tiempo usados aquí tienen formato según el objeto [TimeSpan](/dotnet/api/system.timespan) de C#: D.HH:MM:SS.  Por lo tanto, 80 días y 30 minutos sería `80.00:30:00`.  La D inicial puede eliminarse si es cero, por lo que 90 minutos sería `00:90:00`.  
-
-> [!NOTE]
-> Este es un escenario de ejemplo.
->
-> Un usuario desea acceder a dos aplicaciones web: Aplicación web A y B.
-> 
-> Factores:
-> * Ambas aplicaciones web están en la misma organización primaria.
-> * La directiva 1 de vigencia del token con una antigüedad máxima del token de sesión de ocho horas se establece como valor predeterminado de la organización primaria.
-> * La aplicación web A es una aplicación web de uso habitual que no está vinculada a ninguna directiva.
-> * La aplicación web B se usa para procesos altamente confidenciales. Su entidad de servicio está vinculada a la directiva 2 de vigencia del token, que tiene una antigüedad máxima de token de sesión de 30 minutos.
->
-> A las 12:00 p.m. el usuario inicia una nueva sesión en el explorador e intenta acceder a la aplicación web A. El usuario es redirigido a la Plataforma de identidad de Microsoft y se le pide que inicie sesión. Esta acción crea una cookie con un token de sesión en el explorador. El usuario es redirigido de nuevo a la aplicación web A con un token de identificador que le permite acceder a la aplicación.
->
-> A las 12:15 p.m., el usuario intenta acceder a la aplicación web B. El explorador le redirige a la Plataforma de identidad de Microsoft, que detecta la cookie de sesión. La entidad de servicio de la aplicación web B está vinculada a la directiva 2 de vigencia del token, pero también forma parte de la organización primaria con la directiva 1 de vigencia del token predeterminada. La directiva 2 de vigencia del token se aplica porque las directivas vinculadas a entidades de servicio tienen una prioridad más alta que las directivas predeterminadas de la organización. El token de sesión se emitió originalmente en los últimos 30 minutos, por lo que se considera válido. El usuario es redirigido de nuevo a la aplicación web B con un token de identificador que le concede acceso.
->
-> A la 1:00 p.m., el usuario intenta acceder a la aplicación web A y se le redirige a la Plataforma de identidad de Microsoft. La aplicación web A no está vinculada a ninguna directiva, pero como está en una organización con la directiva predeterminada 1 de vigencia del token, se aplica esta directiva. Se detectó la cookie de sesión que se emitió originalmente en las últimas ocho horas. En modo silencioso, se redirige al usuario a la aplicación web A con un nuevo token de identificador. No es necesario que el usuario se autentique.
->
-> Inmediatamente después, el usuario intenta acceder a la aplicación web B y se le redirige a la Plataforma de identidad de Microsoft. Como antes, se aplica la directiva 2 de vigencia del token. Dado que el token se emitió hace más de 30 minutos, se le solicita al usuario que vuelva a escribir sus credenciales de inicio de sesión. Se emite un nuevo token de sesión y de identificador. El usuario puede acceder entonces a la aplicación web B.
->
->
-
-## <a name="configurable-policy-property-details"></a>Detalles de las propiedades de directiva configurables
-### <a name="access-token-lifetime"></a>Vigencia del token de acceso
-**Cadena:** AccessTokenLifetime
-
-**Afecta a:** Tokens de acceso, tokens de identificador, tokens de SAML2
-
-**Resumen:** esta directiva controla cuánto tiempo se consideran válidos los token de acceso y de identificador para este recurso. Reducir la vigencia de los tokens de acceso disminuye el riesgo de que un individuo malintencionado use un token de acceso o de identificador durante un período de tiempo prolongado. (Estos tokens no se pueden revocar). El inconveniente es que afecta negativamente al rendimiento, ya que los tokens tendrán que reemplazarse con más frecuencia.
-
-Para obtener un ejemplo, consulte [Creación de una directiva para inicio de sesión web](configure-token-lifetimes.md#create-a-policy-for-web-sign-in).
-
-### <a name="refresh-token-max-inactive-time"></a>Tiempo máximo de inactividad del token de actualización
+#### <a name="refresh-token-max-inactive-time"></a>Tiempo máximo de inactividad del token de actualización
 **Cadena:** MaxInactiveTime
 
 **Afecta a:** Tokens de actualización
@@ -206,7 +151,7 @@ El tiempo máximo de inactividad del token de actualización debe establecerse e
 
 Para obtener un ejemplo, consulte [Creación de una directiva para una aplicación nativa que llama a una API web](configure-token-lifetimes.md#create-a-policy-for-a-native-app-that-calls-a-web-api).
 
-### <a name="single-factor-refresh-token-max-age"></a>Antigüedad máxima del token de actualización (un solo factor)
+#### <a name="single-factor-refresh-token-max-age"></a>Antigüedad máxima del token de actualización (un solo factor)
 **Cadena:** MaxAgeSingleFactor
 
 **Afecta a:** Tokens de actualización
@@ -217,7 +162,7 @@ Reducir la antigüedad máxima obliga a los usuarios a autenticarse con más fre
 
 Para obtener un ejemplo, consulte [Creación de una directiva para una aplicación nativa que llama a una API web](configure-token-lifetimes.md#create-a-policy-for-a-native-app-that-calls-a-web-api).
 
-### <a name="multi-factor-refresh-token-max-age"></a>Antigüedad máxima del token de actualización (varios factores)
+#### <a name="multi-factor-refresh-token-max-age"></a>Antigüedad máxima del token de actualización (varios factores)
 **Cadena:** MaxAgeMultiFactor
 
 **Afecta a:** Tokens de actualización
@@ -228,7 +173,7 @@ Reducir la antigüedad máxima obliga a los usuarios a autenticarse con más fre
 
 Para obtener un ejemplo, consulte [Creación de una directiva para una aplicación nativa que llama a una API web](configure-token-lifetimes.md#create-a-policy-for-a-native-app-that-calls-a-web-api).
 
-### <a name="single-factor-session-token-max-age"></a>Antigüedad máxima del token de sesión (un solo factor)
+#### <a name="single-factor-session-token-max-age"></a>Antigüedad máxima del token de sesión (un solo factor)
 **Cadena:** MaxAgeSessionSingleFactor
 
 **Afecta a:** Tokens de sesión (persistentes y no persistentes)
@@ -239,7 +184,7 @@ Reducir la antigüedad máxima obliga a los usuarios a autenticarse con más fre
 
 Para obtener un ejemplo, consulte [Creación de una directiva para inicio de sesión web](configure-token-lifetimes.md#create-a-policy-for-web-sign-in).
 
-### <a name="multi-factor-session-token-max-age"></a>Antigüedad máxima del token de sesión (varios factores)
+#### <a name="multi-factor-session-token-max-age"></a>Antigüedad máxima del token de sesión (varios factores)
 **Cadena:** MaxAgeSessionMultiFactor
 
 **Afecta a:** Tokens de sesión (persistentes y no persistentes)
@@ -247,6 +192,52 @@ Para obtener un ejemplo, consulte [Creación de una directiva para inicio de ses
 **Resumen:** esta directiva controla cuánto tiempo un usuario puede seguir usando tokens de actualización para obtener un nuevo token de identificador y de sesión desde la última vez que se autenticara correctamente con varios factores. Después de que un usuario se autentica y recibe un nuevo token de sesión, este puede utilizar el flujo del token de sesión durante el período de tiempo especificado. (Esto ocurre siempre que el token de sesión actual no esté revocado y no haya expirado). Tras el período de tiempo especificado, el usuario se ve obligado a autenticarse para recibir un nuevo token de sesión.
 
 Reducir la antigüedad máxima obliga a los usuarios a autenticarse con más frecuencia. Puesto que la autenticación de un solo factor se considera menos segura que la autenticación multifactor, se recomienda establecer esta propiedad en un valor igual o superior al de la propiedad de antigüedad máxima del token de sesión de un solo factor.
+
+## <a name="configurable-token-lifetime-properties-after-the-retirement"></a>Propiedades de vigencia de tokens configurables después de la retirada
+La configuración de los tokens de actualización y sesión se ve afectada por las siguientes propiedades y sus correspondientes valores establecidos. Después de la retirada de la configuración de los tokens de actualización y de sesión el 30 de enero de 2021, Azure AD solo aceptará los valores predeterminados que se describen a continuación. Si decide no usar el acceso condicional para administrar la frecuencia de inicio de sesión, los tokens de actualización y de sesión se establecerán en la configuración predeterminada en esa fecha y ya no podrá cambiar su vigencia.  
+
+|Propiedad   |Cadena de propiedad de directiva    |Afecta a |Valor predeterminado |
+|----------|-----------|------------|------------|
+|Vigencia del token de acceso |AccessTokenLifetime |Tokens de acceso, tokens de identificador, tokens de SAML2 |1 hora |
+|Tiempo máximo de inactividad del token de actualización |MaxInactiveTime  |Tokens de actualización |90 días  |
+|Antigüedad máxima del token de actualización (un solo factor)  |MaxAgeSingleFactor  |Tokens de actualización (para los usuarios)  |Hasta que se revoca  |
+|Antigüedad máxima del token de actualización (varios factores)  |MaxAgeMultiFactor  |Tokens de actualización (para los usuarios) |Hasta que se revoca  |
+|Antigüedad máxima del token de sesión (un solo factor)  |MaxAgeSessionSingleFactor |Tokens de sesión (persistentes y no persistentes)  |Hasta que se revoca |
+|Antigüedad máxima del token de sesión (varios factores)  |MaxAgeSessionMultiFactor  |Tokens de sesión (persistentes y no persistentes)  |Hasta que se revoca |
+
+Puede usar PowerShell para buscar las directivas que se verán afectadas por la retirada.  Use los [cmdlets de PowerShell](configure-token-lifetimes.md#get-started) para ver todas las directivas creadas en su organización o para averiguar qué aplicaciones y entidades de servicio están vinculadas a una directiva específica.
+
+## <a name="policy-evaluation-and-prioritization"></a>Evaluación y prioridades de directivas
+Puede crear y, a continuación, asignar una directiva de vigencia del token a una aplicación específica, a su organización y a las entidades de servicio. Se pueden aplicar varias directivas a una aplicación específica. La directiva de vigencia del token que entra en vigor sigue estas reglas:
+
+* Si una directiva se asigna explícitamente a la entidad de servicio, se aplicará.
+* Si no hay ninguna directiva que se asigne explícitamente a la entidad de servicio, se aplicará una directiva asignada explícitamente a la organización primaria de la entidad de servicio.
+* Si no hay ninguna directiva que se asigne explícitamente a la entidad de servicio o a la organización, se aplicará la directiva asignada a la aplicación.
+* Si no se ha asignado ninguna directiva a la entidad de servicio, la organización o el objeto de aplicación, se aplican los valores predeterminados. (Consulte la tabla que aparece en [Propiedades de vigencia de tokens configurables](#configurable-token-lifetime-properties-after-the-retirement)).
+
+Para más información sobre la relación entre objetos de aplicación y objetos de entidad de servicio, consulte [Objetos de aplicación y de entidad de servicio de Azure Active Directory](app-objects-and-service-principals.md).
+
+La validez de un token se evalúa en el momento en el que se usa. La directiva con la prioridad más alta en la aplicación a la que se accede es la que se aplica.
+
+Todos los intervalos de tiempo usados aquí tienen formato según el objeto [TimeSpan](/dotnet/api/system.timespan) de C#: D.HH:MM:SS.  Por lo tanto, 80 días y 30 minutos sería `80.00:30:00`.  La D inicial puede eliminarse si es cero, por lo que 90 minutos sería `00:90:00`.  
+
+### <a name="example-scenario"></a>Escenario de ejemplo
+
+Un usuario desea acceder a dos aplicaciones web: Aplicación web A y B.
+
+Factores:
+* Ambas aplicaciones web están en la misma organización primaria.
+* La directiva 1 de vigencia del token con una antigüedad máxima del token de sesión de ocho horas se establece como valor predeterminado de la organización primaria.
+* La aplicación web A es una aplicación web de uso habitual que no está vinculada a ninguna directiva.
+* La aplicación web B se usa para procesos altamente confidenciales. Su entidad de servicio está vinculada a la directiva 2 de vigencia del token, que tiene una antigüedad máxima de token de sesión de 30 minutos.
+
+A las 12:00 p.m. el usuario inicia una nueva sesión en el explorador e intenta acceder a la aplicación web A. El usuario es redirigido a la Plataforma de identidad de Microsoft y se le pide que inicie sesión. Esta acción crea una cookie con un token de sesión en el explorador. El usuario es redirigido de nuevo a la aplicación web A con un token de identificador que le permite acceder a la aplicación.
+
+A las 12:15 p.m., el usuario intenta acceder a la aplicación web B. El explorador le redirige a la Plataforma de identidad de Microsoft, que detecta la cookie de sesión. La entidad de servicio de la aplicación web B está vinculada a la directiva 2 de vigencia del token, pero también forma parte de la organización primaria con la directiva 1 de vigencia del token predeterminada. La directiva 2 de vigencia del token se aplica porque las directivas vinculadas a entidades de servicio tienen una prioridad más alta que las directivas predeterminadas de la organización. El token de sesión se emitió originalmente en los últimos 30 minutos, por lo que se considera válido. El usuario es redirigido de nuevo a la aplicación web B con un token de identificador que le concede acceso.
+
+A la 1:00 p.m., el usuario intenta acceder a la aplicación web A y se le redirige a la Plataforma de identidad de Microsoft. La aplicación web A no está vinculada a ninguna directiva, pero como está en una organización con la directiva predeterminada 1 de vigencia del token, se aplica esta directiva. Se detectó la cookie de sesión que se emitió originalmente en las últimas ocho horas. En modo silencioso, se redirige al usuario a la aplicación web A con un nuevo token de identificador. No es necesario que el usuario se autentique.
+
+Inmediatamente después, el usuario intenta acceder a la aplicación web B y se le redirige a la Plataforma de identidad de Microsoft. Como antes, se aplica la directiva 2 de vigencia del token. Dado que el token se emitió hace más de 30 minutos, se le solicita al usuario que vuelva a escribir sus credenciales de inicio de sesión. Se emite un nuevo token de sesión y de identificador. El usuario puede acceder entonces a la aplicación web B.
 
 ## <a name="cmdlet-reference"></a>Referencia de cmdlets
 
@@ -281,12 +272,6 @@ Los cmdlets siguientes se pueden usar para las directivas de entidad de servicio
 | [Add-AzureADServicePrincipalPolicy](/powershell/module/azuread/add-azureadserviceprincipalpolicy?view=azureadps-2.0-preview&preserve-view=true) | Vincula la directiva especificada a una entidad de servicio. |
 | [Get-AzureADServicePrincipalPolicy](/powershell/module/azuread/get-azureadserviceprincipalpolicy?view=azureadps-2.0-preview&preserve-view=true) | Obtiene cualquier directiva vinculada a la entidad de servicio especificada.|
 | [Remove-AzureADServicePrincipalPolicy](/powershell/module/azuread/remove-azureadserviceprincipalpolicy?view=azureadps-2.0-preview&preserve-view=true) | Quita la directiva de la entidad de servicio especificada.|
-
-## <a name="license-requirements"></a>Requisitos de licencia
-
-Necesita una licencia de Azure AD Premium P1 para usar esta característica. Para obtener la licencia correcta para sus requisitos, consulte [Comparación de las características con disponibilidad general de las ediciones Gratis y Prémium](https://azure.microsoft.com/pricing/details/active-directory/).
-
-Los clientes con [licencias de Microsoft 365 Empresa](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description) también tienen acceso a características de acceso condicional.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -7,16 +7,16 @@ ms.date: 11/06/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: a517f7a796b6543c8d60f0d1ebdba16afa0bc4b7
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 36329987e510372ff286a10584a115ea259afc60
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96751434"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98119091"
 ---
 # <a name="use-properties-in-an-azure-iot-central-solution"></a>Uso de las propiedades en una solución de Azure IoT Central
 
-En este artículo se muestra cómo usar las propiedades del dispositivo que se definen en una plantilla de dispositivo en la aplicación de Azure IoT Central.
+En esta guía paso a paso se muestra qué debe hacer un desarrollador de dispositivos para usar las propiedades del dispositivo que se definen en una plantilla de dispositivo en la aplicación de Azure IoT Central.
 
 Las propiedades representan valores de un momento dado. Por ejemplo, un dispositivo puede usar una propiedad para notificar la temperatura objetivo que está intentando alcanzar. De manera predeterminada, las propiedades del dispositivo son de solo lectura en IoT Central. Las propiedades editables permiten sincronizar el estado entre el dispositivo y la aplicación de Azure IoT Central.
 
@@ -35,7 +35,7 @@ En la siguiente tabla se muestran las opciones de configuración de una funciona
 | Campo           | Descripción                                                                                                                                                                                                                        |
 |-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Nombre para mostrar    | El nombre para mostrar del valor de propiedad que se usa en los paneles y formularios.                                                                                                                                                              |
-| Nombre            | El nombre de la propiedad. Azure IoT Central genera un valor para este campo a partir del nombre para mostrar, pero puede elegir su propio valor si es necesario. Este campo debe ser alfanumérico.                                                 |
+| Nombre            | El nombre de la propiedad. Azure IoT Central genera un valor para este campo a partir del nombre para mostrar, pero puede elegir su propio valor si es necesario. Este campo debe ser alfanumérico.  El código del dispositivo usa este valor de **Nombre**.           |
 | Tipo de funcionalidad | Propiedad.                                                                                                                                                                                                                          |
 | Tipo semántico   | El tipo semántico de la propiedad, como la temperatura, el estado o el evento. La elección del tipo semántico determina cuál de los campos siguientes está disponible.                                                                       |
 | Schema          | El tipo de datos de la propiedad, como doble, cadena o vector. Las opciones disponibles vienen determinadas por el tipo semántico. El esquema no está disponible para los tipos semánticos de evento y estado.                                               |
@@ -160,7 +160,7 @@ hubClient.getTwin((err, twin) => {
 });
 ```
 
-En este artículo se usa Node.js por motivos de simplicidad. Para información completa sobre los ejemplos de aplicaciones de dispositivo, consulte el tutorial [Creación y conexión de un aplicación cliente a una aplicación de Azure IoT Central](tutorial-connect-device.md).
+En este artículo se usa Node.js por motivos de simplicidad. Para ver ejemplos de otros lenguajes, consulte el tutorial [Creación y conexión de una aplicación cliente a una aplicación de Azure IoT Central](tutorial-connect-device.md).
 
 En la siguiente vista de la aplicación de Azure IoT Central se muestran las propiedades que puede ver. La vista hace que la propiedad **modelo del dispositivo** pase a ser _propiedad de dispositivo de solo lectura_.
 

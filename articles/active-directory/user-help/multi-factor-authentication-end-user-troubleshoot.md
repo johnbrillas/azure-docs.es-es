@@ -13,12 +13,12 @@ ms.date: 09/01/2020
 ms.author: curtand
 ms.reviewer: kexia
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: caa2c66d66cce09f5b5b0fe0948ab924389d756e
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 0cb5e3463eda5d77bbbdefe223954105fd125c71
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033789"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98033989"
 ---
 # <a name="common-problems-with-two-factor-verification-and-your-work-or-school-account"></a>Problemas comunes con la verificación en dos fases y la cuenta profesional o educativa
 
@@ -74,7 +74,7 @@ Este es un problema común. Normalmente, está relacionado con su dispositivo m�
 
 Probar esto | Directrices
 --------- | ------------
-Usar la aplicación Microsoft Authenticator o los códigos de verificación | Aparecen los mensajes de error “Ha alcanzado el límite de llamadas de verificación” o “Ha alcanzado el límite de códigos de verificación de texto” durante el inicio de sesión. <br/><br/>Microsoft puede limitar los intentos de autenticación repetidos que realiza el mismo usuario en un breve período de tiempo. Esta limitación no se aplica a Microsoft Authenticator ni al código de verificación. Si ha alcanzado estos límites, puede usar la aplicación Authenticator, el código de verificación o intentar iniciar sesión de nuevo en unos minutos.
+Usar la aplicación Microsoft Authenticator o los códigos de verificación | Aparecen los mensajes de error “Ha alcanzado el límite de llamadas de verificación” o “Ha alcanzado el límite de códigos de verificación de texto” durante el inicio de sesión. <br/><br/>Microsoft puede limitar los intentos de autenticación repetidos que realiza el mismo usuario en un breve período de tiempo. Esta limitación no se aplica a Microsoft Authenticator ni al código de verificación. Si ha alcanzado estos límites, puede usar la aplicación Authenticator, el código de verificación o intentar iniciar sesión de nuevo en unos minutos. <br/><br/> Recibe el mensaje de error "Lo sentimos, estamos teniendo problemas para comprobar su cuenta" durante el inicio de sesión. <br/><br/> Microsoft puede limitar o bloquear los intentos de autenticación de voz o SMS realizados por el mismo usuario, número de teléfono u organización debido a un gran número de intentos de autenticación de voz o SMS con errores. Si experimenta este error, puede probar con otro método, como la aplicación Authenticator o un código de verificación, o bien ponerse en contacto con el administrador para obtener soporte técnico.
 Reiniciar el dispositivo móvil | A veces, el dispositivo solo necesita una actualización. Al reiniciar el dispositivo, se cierran todos los procesos y servicios en segundo plano. El reinicio también apaga los componentes principales del dispositivo. Los servicios o componentes se actualizan después de reiniciar el dispositivo.
 Comprobar que la información de seguridad sea correcta | Asegúrese de que la información de seguridad del método de verificación es correcta, especialmente los números de teléfono. Si pone un número de teléfono equivocado, todas las alertas irán a ese número incorrecto. Afortunadamente, ese usuario no podrá hacer nada con esas alertas, pero esto tampoco le permitirá iniciar sesión en su cuenta. Para asegurarse de que la información es correcta, consulte las instrucciones del artículo [Administración de la configuración del método de verificación en dos fases](multi-factor-authentication-end-user-manage-settings.md).
 Comprobar que las notificaciones estén activadas | Asegúrese de que el dispositivo móvil tenga activadas las notificaciones. Compruebe que los siguientes modos de notificación están permitidos: <br/><br/> &bull; Llamadas de teléfono <br/> &bull; La aplicación de autenticación <br/> &bull; La aplicación de mensajería de texto <br/><br/> Asegúrese de que estos modos generan una alerta _visible_ en el dispositivo.

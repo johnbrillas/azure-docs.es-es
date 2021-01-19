@@ -11,16 +11,28 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2020
 ms.author: errobin
-ms.openlocfilehash: dcfce06bb158888b56483a73ededd354c229a99b
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 3acaaba86c9a546a0bd45b5386287908168d50d0
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94696326"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955627"
 ---
-# <a name="troubleshoot-resource-health-frontend-and-backend-availability-issues"></a>Solución de problemas de disponibilidad de front-end y back-end y de mantenimiento de recursos 
+# <a name="troubleshoot-resource-health-and-inbound-availability-issues"></a>Solución de problemas de estado y disponibilidad de entrada de los recursos 
 
 Este artículo sirve de guía para investigar los problemas que afectan a la disponibilidad de la IP de front-end y los recursos de back-end del equilibrador de carga. 
+
+La comprobación de Resource Health (RHC) de Load Balancer se usa para determinar el estado del equilibrador de carga. Esta funcionalidad analiza la métrica de disponibilidad de la ruta de acceso de datos durante un intervalo de **2 minutos** para determinar si los puntos de conexión de equilibrio de carga y las combinaciones de puertos de front-end e IP de front-end con reglas de equilibrio de carga están disponibles.
+
+En la tabla siguiente se describe la lógica de RHC que se usa para determinar el estado de mantenimiento del equilibrador de carga.
+
+| Estado de mantenimiento de los recursos | Descripción |
+| --- | --- |
+| Disponible | El recurso de Standard Load Balancer está listo y disponible. |
+| Degradado | El equilibrador de carga estándar tiene eventos iniciados por el usuario o la plataforma que afectan al rendimiento. La métrica de disponibilidad de la ruta de acceso a los datos ha informado un mantenimiento de menos del 90 %, pero superior que el 25 % durante al menos dos minutos. Experimentará un impacto entre moderado y grave en el rendimiento. 
+| No disponible | El recurso de Standard Load Balancer público no es correcto. La métrica de disponibilidad de la ruta de acceso a los datos ha informado un mantenimiento de menos del 25 % durante al menos dos minutos. Experimentará un impacto significativo en el rendimiento o falta de disponibilidad para la conectividad entrante. Puede haber eventos de usuario o plataforma que generan la falta de disponibilidad. |
+| Unknown | El estado de mantenimiento de recurso del recurso de Standard Load Balancer no se ha actualizado todavía o no ha recibido la información de disponibilidad de la ruta de acceso a los datos durante los últimos 10 minutos. Este estado debe ser transitorio y reflejará el estado correcto en cuanto se reciban dichos datos. |
+
 
 ## <a name="about-the-metrics-well-use"></a>Acerca de las métricas que se van a usar
 Las dos métricas que se van a usar son la *disponibilidad de la ruta de acceso de datos* y el *estado de sondeo de mantenimiento*, y es importante comprender su significado para obtener información correcta. 

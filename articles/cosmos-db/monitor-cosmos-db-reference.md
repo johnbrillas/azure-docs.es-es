@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 12/07/2020
 ms.author: sngun
 ms.custom: subject-monitoring
-ms.openlocfilehash: 75df985377e6ed1764985f8d0b6b44323f249b8a
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 04103de47e82764f7ec4effa84a9b2b7b90b9363
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97632016"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98034642"
 ---
 # <a name="monitoring-azure-cosmos-db-data-reference"></a>Referencia de datos de supervisión de Azure Cosmos DB
 
@@ -81,7 +81,7 @@ En la tabla siguiente se enumeran las propiedades de los registros de recursos d
 | --- | --- | --- |
 | **time** | **TimeGenerated** | La fecha y hora (UTC) cuando se produjo la operación. |
 | **resourceId** | **Recurso** | La cuenta de Azure Cosmos DB para la cual los registros están habilitados.|
-| **category** | **Categoría** | En el caso de Azure Cosmos DB, los tipos de registro disponibles son **DataPlaneRequests**, **MongoRequests**, **QueryRuntimeStatistics**, **PartitionKeyStatistics**, **PartitionKeyRUConsumption** y **ControlPlaneRequests**. |
+| **category** | **Categoría** | En el caso de Azure Cosmos DB, los tipos de registro disponibles son **DataPlaneRequests**, **MongoRequests**, **QueryRuntimeStatistics**, **PartitionKeyStatistics**, **PartitionKeyRUConsumption**, **ControlPlaneRequests**, **CassandraRequests** y **GremlinRequests**. |
 | **operationName** | **OperationName** | Nombre de la operación. El nombre de la operación puede ser `Create`, `Update`, `Read`, `ReadFeed`, `Delete`, `Replace`, `Execute`, `SqlQuery`, `Query`, `JSQuery`, `Head`, `HeadFeed` o `Upsert`.   |
 | **properties** | N/D | El contenido de este campo se describe en las filas siguientes. |
 | **activityId** | **activityId_g** | GUID único para la operación registrada. |

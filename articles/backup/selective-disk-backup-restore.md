@@ -4,12 +4,12 @@ description: En este artículo, se describen la copia de seguridad y la restaura
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.custom: references_regions , devx-track-azurecli
-ms.openlocfilehash: 95104f231e7b4d4d2135ac3c5dde27512d465775
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 1f4d27563cf292632c6b14c82e36542b86c5d356
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746982"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127726"
 ---
 # <a name="selective-disk-backup-and-restore-for-azure-virtual-machines"></a>Copia de seguridad y restauración selectivas de discos para máquinas virtuales de Azure
 
@@ -46,7 +46,7 @@ az account set -s {subscriptionID}
 
 ### <a name="configure-backup-with-azure-cli"></a>Configuración de la copia de seguridad con la CLI de Azure
 
-Durante la operación de configuración de la protección, debe especificar la configuración de la lista de discos con un parámetro de **inclusión** / **exclusión** , proporcionando los números LUN de los discos que se van a incluir o excluir en la copia de seguridad.
+Durante la operación de configuración de la protección, debe especificar la configuración de la lista de discos con un parámetro de **inclusión** / **exclusión**, proporcionando los números LUN de los discos que se van a incluir o excluir en la copia de seguridad.
 
 ```azurecli
 az backup protection enable-for-vm --resource-group {resourcegroup} --vault-name {vaultname} --vm {vmname} --policy-name {policyname} --disk-list-setting include --diskslist {LUN number(s) separated by space}
@@ -189,14 +189,25 @@ Cuando ejecute estos comandos, verá `"diskExclusionProperties": null`.
 
 Asegúrese de usar Azure PowerShell versión 3.7.0 o posterior.
 
+Durante la operación de configuración de la protección, debe especificar la configuración de la lista de discos con un parámetro de inclusión/exclusión, proporcionando los números LUN de los discos que se van a incluir o excluir en la copia de seguridad.
+
 ### <a name="enable-backup-with-powershell"></a>Habilitación de la copia de seguridad con PowerShell
 
+Por ejemplo:
+
 ```azurepowershell
-Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGroupName "RGName1"  -InclusionDisksList[Strings] -VaultId $targetVault.ID
+$disks = ("0","1")
+$targetVault = Get-AzRecoveryServicesVault -ResourceGroupName "rg-p-recovery_vaults" -Name "rsv-p-servers"
+Get-AzRecoveryServicesBackupProtectionPolicy
+$pol = Get-AzRecoveryServicesBackupProtectionPolicy -Name "P-Servers"
 ```
 
 ```azurepowershell
-Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGroupName "RGName1"  -ExclusionDisksList[Strings] -VaultId $targetVault.ID
+Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGroupName "RGName1"  -InclusionDisksList $disks -VaultId $targetVault.ID
+```
+
+```azurepowershell
+Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGroupName "RGName1"  -ExclusionDisksList $disks -VaultId $targetVault.ID
 ```
 
 ### <a name="backup-only-os-disk-during-configure-backup-with-powershell"></a>Copia de seguridad solo del disco del sistema operativo durante la configuración de la copia de seguridad con PowerShell
@@ -302,7 +313,7 @@ Actualmente, la copia de seguridad de VM de Azure no admite VM con discos Ultra 
 
 La copia de seguridad de máquinas virtuales de Azure sigue el modelo de precios existente, que se explica en detalle [aquí](https://azure.microsoft.com/pricing/details/backup/).
 
-El **costo de instancia protegida (PI)** se calcula para el disco del sistema operativo solo si elige realizar una copia de seguridad con la opción **Solo el disco del SO** .  Si configura la copia de seguridad y selecciona al menos un disco de datos, el costo de PI se calculará para todos los discos conectados a la máquina virtual. El **costo del almacenamiento de copia de seguridad** se calcula solo en función de los discos incluidos, lo que supone un ahorro. El **costo de las instantáneas** siempre se calcula para todos los discos de la máquina virtual (tanto los discos incluidos como los excluidos).
+El **costo de instancia protegida (PI)** se calcula para el disco del sistema operativo solo si elige realizar una copia de seguridad con la opción **Solo el disco del SO**.  Si configura la copia de seguridad y selecciona al menos un disco de datos, el costo de PI se calculará para todos los discos conectados a la máquina virtual. El **costo del almacenamiento de copia de seguridad** se calcula solo en función de los discos incluidos, lo que supone un ahorro. El **costo de las instantáneas** siempre se calcula para todos los discos de la máquina virtual (tanto los discos incluidos como los excluidos).
 
 Si ha elegido la característica de restauración entre regiones (CRR), los [precios de CRR](https://azure.microsoft.com/pricing/details/backup/) se aplican al costo de almacenamiento de copia de seguridad después de excluir el disco.
 

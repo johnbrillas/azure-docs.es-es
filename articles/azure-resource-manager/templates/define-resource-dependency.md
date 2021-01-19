@@ -1,24 +1,24 @@
 ---
 title: Establecimiento del orden de implementación para recursos
-description: En este artículo se describe cómo establecer un recurso como dependiente de otro recurso durante la implementación. Las dependencias garantizan que los recursos se implementan en el orden correcto.
+description: En este artículo se describe cómo establecer un recurso de Azure como dependiente de otro recurso durante la implementación. Las dependencias garantizan que los recursos se implementan en el orden correcto.
 ms.topic: conceptual
 ms.date: 12/21/2020
-ms.openlocfilehash: a96dca0ab30d0baee2688427d78867ea128e673a
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: f6b63b066da06a17c3a2e51ab0f3ab9bf521a144
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97722018"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934754"
 ---
 # <a name="define-the-order-for-deploying-resources-in-arm-templates"></a>Definición del orden de implementación de recursos en las plantillas de ARM
 
-Al implementar recursos, es posible que tenga que asegurarse de que existen algunos recursos antes de crear otros. Por ejemplo, necesitará un servidor SQL lógico para poder implementar una base de datos. Establezca esta relación marcando un recurso como dependiente de otro recurso. Use el elemento **dependsOn** para definir una dependencia explícita. Utilice las funciones **reference** o **list** para definir una dependencia implícita.
+Al implementar recursos, es posible que tenga que asegurarse de que existen algunos recursos antes de crear otros. Por ejemplo, necesitará un servidor SQL lógico para poder implementar una base de datos. Establezca esta relación marcando un recurso como dependiente de otro recurso. Use el elemento `dependsOn` para definir una dependencia explícita. Utilice las funciones **reference** o **list** para definir una dependencia implícita.
 
-Administrador de recursos evalúa las dependencias entre recursos y los implementa en su orden dependiente. Cuando no hay recursos dependientes entre sí, Resource Manager los implementa en paralelo. Solo tiene que definir las dependencias de recursos que se implementan en la misma plantilla.
+Azure Resource Manager evalúa las dependencias entre recursos y los implementa en su orden dependiente. Cuando no hay recursos dependientes entre sí, Resource Manager los implementa en paralelo. Solo tiene que definir las dependencias de recursos que se implementan en la misma plantilla.
 
 ## <a name="dependson"></a>dependsOn
 
-Dentro de la plantilla, el elemento dependsOn permite definir un recurso como dependiente de uno o varios recursos. Su valor es una matriz JSON de cadenas, cada una de las cuales es un nombre de recurso o identificador. La lista puede incluir recursos que [se implementan condicionalmente](conditional-resource-deployment.md). Cuando un recurso condicional no está implementado, Azure Resource Manager lo quita automáticamente de las dependencias necesarias.
+Dentro de la plantilla de Azure Resource Manager, el elemento `dependsOn` permite definir un recurso como dependiente de uno o más recursos. Su valor es una matriz de cadenas de notación de objetos JavaScript (JSON), cada una de las cuales es un nombre o identificador de recurso. La lista puede incluir recursos que [se implementan condicionalmente](conditional-resource-deployment.md). Cuando un recurso condicional no está implementado, Azure Resource Manager lo quita automáticamente de las dependencias necesarias.
 
 En el ejemplo siguiente se muestra una interfaz de red que depende de una red virtual, un grupo de seguridad de red y una dirección IP pública. Para ver la plantilla completa, consulte la [plantilla de inicio rápido de una máquina virtual Linux](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-simple-linux/azuredeploy.json).
 
@@ -37,11 +37,11 @@ En el ejemplo siguiente se muestra una interfaz de red que depende de una red vi
 }
 ```
 
-Si bien puede que se sienta tentado a usar dependsOn para asignar relaciones entre los recursos, es importante comprender por qué lo hace. Por ejemplo, para documentar cómo están interconectados los recursos, dependsOn no es el enfoque correcto. No se pueden consultar los recursos que se definieron en el elemento dependsOn después de realizar la implementación. La configuración de dependencias innecesarias reduce el tiempo de implementación porque Resource Manager no puede implementar esos recursos en paralelo.
+Si bien puede que se sienta tentado a usar `dependsOn` para asignar relaciones entre los recursos, es importante comprender por qué lo hace. Por ejemplo, para documentar cómo están interconectados los recursos, `dependsOn` no es el enfoque correcto. Después de realizar la implementación, no se pueden consultar los recursos que se definieron en el elemento `dependsOn`. La configuración de dependencias innecesarias reduce el tiempo de implementación porque Resource Manager no puede implementar esos recursos en paralelo.
 
 ## <a name="child-resources"></a>Recursos secundarios
 
-Una dependencia de implementación implícita no se crea automáticamente entre un [recurso secundario](child-resource-name-type.md) y el primario. Si necesita implementar el recurso secundario después del primario, establezca la propiedad dependsOn.
+Una dependencia de implementación implícita no se crea automáticamente entre un [recurso secundario](child-resource-name-type.md) y el primario. Si necesita implementar el recurso secundario después del primario, establezca la propiedad `dependsOn`.
 
 En el siguiente ejemplo se muestran un servidor SQL lógico y una base de datos. Observe que se ha definido una dependencia explícita entre la base de datos y el servidor, a pesar de que la base de datos es un elemento secundario del servidor.
 
@@ -85,13 +85,13 @@ Las expresiones de referencia y lista declaran implícitamente que un recurso de
 
 Para aplicar una dependencia implícita, haga referencia al recurso por su nombre, y no por el identificador de recurso. Si se pasa el identificador de recurso a las funciones de referencia o lista, no se crea una referencia implícita.
 
-El formato general de la función de referencia es:
+El formato general de la función `reference` es:
 
 ```json
 reference('resourceName').propertyPath
 ```
 
-El formato general de la función listKeys es:
+El formato general de la función `listKeys` es:
 
 ```json
 listKeys('resourceName', 'yyyy-mm-dd')
@@ -165,7 +165,7 @@ En el ejemplo siguiente se muestra cómo implementar varias máquinas virtuales.
 }
 ```
 
-En el ejemplo siguiente, se muestra cómo se implementan tres cuentas de almacenamiento antes de implementar la máquina virtual. Tenga en cuenta que el elemento copy tiene el nombre establecido en `storagecopy` y que el elemento dependsOn de la máquina virtual también está establecido en `storagecopy`.
+En el ejemplo siguiente, se muestra cómo se implementan tres cuentas de almacenamiento antes de implementar la máquina virtual. Observe que el elemento `copy` tiene `name` establecido en `storagecopy` y el elemento `dependsOn` de la máquina virtual también está establecido en `storagecopy`.
 
 ```json
 {
@@ -213,10 +213,9 @@ Para información sobre cómo evaluar el orden de implementación y resolver err
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para seguir los pasos de un tutorial, consulte [Tutorial: Creación de plantillas de Azure Resource Manager con recursos dependientes](template-tutorial-create-templates-with-dependent-resources.md).
+* Para realizar un tutorial, consulte [Tutorial: Creación de plantillas de Resource Manager con recursos dependientes](template-tutorial-create-templates-with-dependent-resources.md).
 * Para un módulo de Microsoft Learn que abarca las dependencias de los recursos, consulte [Administración de implementaciones complejas en la nube mediante características avanzadas de la plantilla de ARM](/learn/modules/manage-deployments-advanced-arm-template-features/).
-* Para obtener recomendaciones al establecer las dependencias, consulte [Procedimientos recomendados de plantilla de Azure Resource Manager](template-best-practices.md).
+* Para obtener recomendaciones sobre cómo establecer las dependencias, consulte [Procedimientos recomendados para plantillas de Resource Manager](template-best-practices.md).
 * Para aprender a solucionar los problemas de dependencias durante la implementación, consulte [Solución de errores comunes de implementación de Azure con Azure Resource Manager](common-deployment-errors.md).
-* Para más información sobre la creación de plantillas del Administrador de recursos de Azure, consulte [Creación de plantillas](template-syntax.md).
-* Para obtener una lista de las funciones disponibles en una plantilla, consulte [Funciones de plantilla](template-functions.md).
-
+* Para aprender a crear plantillas de Azure Resource Manager, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](template-syntax.md).
+* Para obtener una lista de las funciones disponibles en una plantilla, consulte [Funciones de plantilla de ARM](template-functions.md).

@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: tisande
-ms.openlocfilehash: 4211f13324b9fda0b0823b2d035eb03863cb686d
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: b7349a08b93810dcc3befd6058302d6c4573ab8d
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339765"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019336"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Indexación en Azure Cosmos DB: introducción
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -64,13 +64,13 @@ Estas son las rutas de acceso de cada propiedad del elemento de ejemplo descrito
 
 Cuando se escribe un elemento, Azure Cosmos DB indexa eficazmente la ruta de acceso de cada propiedad y su valor correspondiente.
 
-## <a name="index-kinds"></a>Tipos de índices
+## <a name="types-of-indexes"></a><a id="index-types"></a>Tipos de índice
 
-Actualmente, Azure Cosmos DB admite tres tipos de índices.
+Actualmente, Azure Cosmos DB admite tres tipos de índices. Puede configurar estos tipos de índice al definir la directiva de indexación.
 
 ### <a name="range-index"></a>Índice de rangos
 
-El **índice de rangos** se basa en una estructura de árbol ordenada. El tipo de índice de rango se usa con:
+El **índice de rangos** se basa en una estructura de árbol ordenada. El tipo de índice de rango se usa para:
 
 - Consultas de igualdad:
 
@@ -122,7 +122,7 @@ El **índice de rangos** se basa en una estructura de árbol ordenada. El tipo d
    SELECT child FROM container c JOIN child IN c.properties WHERE child = 'value'
    ```
 
-Los índices de rango se pueden usar en valores escalares (cadena o número).
+Los índices de rango se pueden usar en valores escalares (cadena o número). La directiva de indexación predeterminada para los contenedores recién creados exige que se usen índices de intervalo para todas las cadenas o números. Para obtener información sobre cómo configurar los índices de rango, consulte los [ejemplos de la directiva de indexación de rangos](how-to-manage-indexing-policy.md#range-index).
 
 ### <a name="spatial-index"></a>Índice espacial
 
@@ -146,7 +146,7 @@ Los índices **espaciales** permiten realizar consultas eficaces en objetos geoe
    SELECT * FROM c WHERE ST_INTERSECTS(c.property, { 'type':'Polygon', 'coordinates': [[ [31.8, -5], [32, -5], [31.8, -5] ]]  })  
    ```
 
-Los índices espaciales pueden usarse en objetos [GeoJSON](./sql-query-geospatial-intro.md) con un formato correcto. Actualmente, se admiten Points, LineStrings, Polygons y MultiPolygons.
+Los índices espaciales pueden usarse en objetos [GeoJSON](./sql-query-geospatial-intro.md) con un formato correcto. Actualmente, se admiten Points, LineStrings, Polygons y MultiPolygons. Para usar este tipo de índice, establézcalo mediante la propiedad `"kind": "Range"` al configurar la directiva de indexación. Para obtener información sobre cómo configurar los índices espaciales, vea [ejemplos de la directiva de indexación espacial](how-to-manage-indexing-policy.md#spatial-index).
 
 ### <a name="composite-indexes"></a>Índices compuestos
 
@@ -175,6 +175,8 @@ Siempre y cuando un predicado de filtro use un tipo de índice, el motor de cons
 * La consulta anterior primero filtrará las entradas en las que firstName = "Andrew" mediante el índice. Después, pasa todas las entradas firstName = "Andrew" a través de una canalización subsiguiente para evaluar el predicado de filtro CONTAINS.
 
 * Puede acelerar las consultas y evitar exámenes de todo el contenedor cuando emplee funciones que no usen el índice (por ejemplo, CONTAINS) mediante la incorporación de predicados de filtro adicionales que utilicen el índice. El orden de las cláusulas de filtro no es importante. El motor de consultas determinará qué predicados son más selectivos y ejecutará la consulta en consecuencia.
+
+Para obtener información sobre cómo configurar los índices compuestos, consulte los [ejemplos de la directiva de indexación compuesta](how-to-manage-indexing-policy.md#composite-index).
 
 ## <a name="querying-with-indexes"></a>Consultas con índices
 

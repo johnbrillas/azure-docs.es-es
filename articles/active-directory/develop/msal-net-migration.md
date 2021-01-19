@@ -1,7 +1,7 @@
 ---
 title: Migración a MSAL.NET
 titleSuffix: Microsoft identity platform
-description: Conozca las diferencias entre la Microsoft Authentication Library for .NET (MSAL.NET) y Azure AD Authentication Library for .NET (ADAL.NET) y cómo migrar a MSAL.NET.
+description: Conozca las diferencias entre la Biblioteca de autenticación de Microsoft para .NET (MSAL.NET) y la Biblioteca de autenticación de Azure AD para .NET (ADAL.NET) y cómo migrar a MSAL.NET.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -13,16 +13,16 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 21f29135cc3b94e5b8c2dfc99b0f7be26b37d123
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c6049bf55e379a2629e8cd4ef1427f91fc31d2cd
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995206"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98063610"
 ---
 # <a name="migrating-applications-to-msalnet"></a>Migración de aplicaciones a MSAL.NET
 
-Tanto Microsoft Authentication Library for .NET (MSAL.NET) como Azure AD Authentication Library for .NET (ADAL.NET) se usan para autenticar entidades de Azure AD y solicitar tokens a Azure AD. Hasta ahora, la mayoría de los desarrolladores ha usado la plataforma Azure AD para desarrolladores (v1.0) para autenticar identidades de Azure AD (cuentas profesionales y educativas) mediante la solicitud de tokens conAzure AD Authentication Library (ADAL). Con MSAL:
+Tanto la Biblioteca de autenticación de Microsoft para .NET (MSAL.NET) como la Biblioteca de autenticación de Azure AD para .NET (ADAL.NET) se usan para autenticar entidades de Azure AD y solicitar tokens a Azure AD. Hasta ahora, la mayoría de los desarrolladores ha usado la plataforma Azure AD para desarrolladores (v1.0) para autenticar identidades de Azure AD (cuentas profesionales y educativas) mediante la solicitud de tokens conAzure AD Authentication Library (ADAL). Con MSAL:
 
 - puede autenticar un conjunto más amplio de identidades de Microsoft (identidades de Azure AD y cuentas Microsoft, así como cuentas de redes sociales y locales mediante Azure AD B2C) puesto que se usa el punto de conexión de la plataforma de identidad de Microsoft.
 - los usuarios obtendrán la mejor experiencia de inicio de sesión único.

@@ -13,12 +13,12 @@ ms.date: 07/16/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: c71c55adbf79af780169380269b5081322f94baf
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 6451368baf9c047f0318eb74d53ffac075d4a184
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93083446"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98063457"
 ---
 # <a name="considerations-for-using-universal-windows-platform-with-msalnet"></a>Consideraciones para usar la Plataforma universal de Windows con MSAL.NET
 Los desarrolladores de aplicaciones que usan la Plataforma universal de Windows (UWP) con MSAL.NET deben tener en cuenta los conceptos que se presentan en este artículo.
@@ -28,7 +28,7 @@ En la plataforma de Windows Runtime (WinRT), `PublicClientApplication` tiene la 
 
 > [!IMPORTANT]
 > Si establece la propiedad `UseCorporateNetwork` en true, se da por supuesto que el desarrollador de aplicaciones ha habilitado IWA en la aplicación. Para habilitar IWA:
-> - En `Package.appxmanifest` de la aplicación para UWP, en la pestaña **Funcionalidades** , habilite las siguientes funcionalidades:
+> - En `Package.appxmanifest` de la aplicación para UWP, en la pestaña **Funcionalidades**, habilite las siguientes funcionalidades:
 >   - **Autenticación empresarial**
 >   - **Redes privadas (cliente y servidor)**
 >   - **Certificado de usuario compartido**

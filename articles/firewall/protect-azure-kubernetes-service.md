@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 09/03/2020
+ms.date: 01/11/2021
 ms.author: victorh
-ms.openlocfilehash: 43755b312a64c429b38a07c8c4fad8c85b08342a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 51af9ff4972f5edef02426a6e81e8582123c9a7a
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89437860"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98107861"
 ---
 # <a name="use-azure-firewall-to-protect-azure-kubernetes-service-aks-deployments"></a>Uso de Azure Firewall para proteger las implementaciones de Azure Kubernetes Service (AKS)
 
@@ -47,7 +47,7 @@ Azure Firewall proporciona una etiqueta FQDN AKS para simplificar la configuraci
    - TCP [*IPAddrOfYourAPIServer*]:443 es necesario si tiene una aplicación que debe comunicarse con el servidor de API. Este cambio se puede establecer después de crear el clúster.
    - Puerto TCP 9000 y puerto UDP 1194 para el pod de la parte delantera del túnel para comunicarse con el extremo de túnel en el servidor de la API.
 
-      Para información más concreta, consulte el sitio *.hcp.<location>.azmk8s.io* y las direcciones en la tabla siguiente:
+      Para información más concreta, consulte las direcciones en la tabla siguiente:
 
    | Punto de conexión de destino                                                             | Protocolo | Port    | Uso  |
    |----------------------------------------------------------------------------------|----------|---------|------|

@@ -3,15 +3,15 @@ title: Programación de tareas y flujos de trabajo periódicos en Azure Logic Ap
 description: Información general sobre la programación de tareas, procesos y flujos de trabajo automatizados y periódicos con Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: deli, jonfan, logicappspm
+ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
-ms.date: 03/25/2020
-ms.openlocfilehash: 27763536b859b7bc3e9aa0a7c490cb510c0fda41
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.date: 01/07/2021
+ms.openlocfilehash: fd0a779ec5ac5537dd3e3ed6a82cf818b42cff15
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97588461"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98018799"
 ---
 # <a name="schedule-and-run-recurring-automated-tasks-processes-and-workflows-with-azure-logic-apps"></a>Programación y ejecución de tareas, procesos y flujos de trabajo automatizados y periódicos con Azure Logic Apps
 
@@ -48,13 +48,28 @@ En este artículo se describen las funcionalidades de los desencadenadores y las
 
 ## <a name="schedule-triggers"></a>Programación de desencadenadores
 
-Puede iniciar el flujo de trabajo de la aplicación lógica mediante el desencadenador de periodicidad o el de ventana deslizante, que no están asociados con ningún servicio o sistema específicos. Estos desencadenadores inician y ejecutan su flujo de trabajo en función de la periodicidad que especifica, en la que debe seleccionar el intervalo y la frecuencia, como el número de segundos, minutos, horas, días, semanas o meses. También puede establecer la fecha de inicio y la hora, así como la zona horaria. Cada vez que se activa un desencadenador, Logic Apps crea una instancia de flujo de trabajo para la aplicación lógica y la ejecuta.
+Puede iniciar el flujo de trabajo de la aplicación lógica mediante el desencadenador de periodicidad o el de ventana deslizante, que no están asociados con ningún servicio o sistema específicos. Estos desencadenadores inician y ejecutan su flujo de trabajo en función de la periodicidad que especifica, en la que debe seleccionar el intervalo y la frecuencia, como el número de segundos, minutos, horas, días, semanas o meses. También puede establecer la fecha de inicio y la hora junto con la zona horaria. Cada vez que se activa un desencadenador, Logic Apps crea una instancia de flujo de trabajo para la aplicación lógica y la ejecuta.
 
 Las diferencias entre estos desencadenadores son las siguientes:
 
-* **Periodicidad**: su flujo de trabajo se ejecuta en intervalos de tiempo regulares según la programación especificada. Si se pierden las periodicidades, por ejemplo, debido a interrupciones o flujos de trabajo deshabilitados, el desencadenador de periodicidad no procesa las periodicidades perdidas, sino que las reinicia con el siguiente intervalo programado. También puede establecer una fecha de inicio y una hora, así como la zona horaria. Si selecciona "Día", puede especificar horas del día y los minutos de la hora, por ejemplo, cada día a las 2:30. Si selecciona "Semana", también puede seleccionar los días de la semana, por ejemplo, el miércoles y el sábado. Para obtener más información, consulte [Creación, programación y ejecución de tareas y flujos de trabajo periódicos con el desencadenador de periodicidad](../connectors/connectors-native-recurrence.md).
+* **Periodicidad**: su flujo de trabajo se ejecuta en intervalos de tiempo regulares según la programación especificada. Si el desencadenador pierde periodicidades, por ejemplo, debido a interrupciones o flujos de trabajo deshabilitados, el desencadenador de periodicidad no procesa las periodicidades perdidas, sino que las reinicia con el siguiente intervalo programado.
 
-* **Ventana deslizante**: su flujo de trabajo se ejecuta a intervalos de tiempo regulares que administran los datos en fragmentos continuos. Si se pierden las periodicidades, por ejemplo, debido a interrupciones o flujos de trabajo deshabilitados, el desencadenador de ventana deslizante retrocede y procesa las repeticiones perdidas. Puede especificar una fecha de inicio y una hora, la zona horaria y una duración para retrasar cada periodicidad del flujo de trabajo. Este desencadenador no admite programaciones avanzadas; por ejemplo, las horas específicas del día, los minutos de la hora y los días de la semana. Para obtener más información, consulte [Creación, programación y ejecución de tareas y flujos de trabajo periódicos con el desencadenador de ventana deslizante](../connectors/connectors-native-sliding-window.md).
+  Si selecciona **Día** como frecuencia, puede especificar las horas del día y los minutos de la hora, por ejemplo, cada día a las 2:30. Si selecciona **Semana** como frecuencia, también puede seleccionar los días de la semana, por ejemplo, el miércoles y el sábado. También puede especificar una fecha y hora de inicio junto con una zona horaria para la programación de periodicidad.
+
+  > [!TIP]
+  > Si una periodicidad no especifica una [fecha y hora de inicio](#start-time) específicas, la primera periodicidad se ejecuta inmediatamente al guardar o implementar la aplicación lógica, independientemente de la configuración de periodicidad del desencadenador. Para evitar este comportamiento, proporcione una fecha y hora de inicio para cuando quiera que se ejecute la primera periodicidad.
+  >
+  > Si una periodicidad no especifica ninguna otra opción de programación avanzada, como horas específicas para ejecutar futuras repeticiones, esas repeticiones se basan en la hora de la última ejecución. Como resultado, las horas de inicio de estas periodicidades pueden cambiar debido a factores como la latencia durante las llamadas de almacenamiento. Para asegurarse de que la aplicación lógica no pierde una periodicidad, especialmente cuando la frecuencia se especifica en días o unidades superiores, pruebe con una de estas opciones:
+  >
+  > * Proporcione una fecha y hora de inicio para la periodicidad más las horas específicas en las que se ejecutarán las repeticiones posteriores mediante las propiedades denominadas **A estas horas** y **En estos minutos**, que solo están disponibles para las frecuencias **Día** y **Semana**.
+  >
+  > * Use el [desencadenador de ventana deslizante](../connectors/connectors-native-sliding-window.md), en lugar del de periodicidad.
+
+  Para obtener más información, consulte [Creación, programación y ejecución de tareas y flujos de trabajo periódicos con el desencadenador de periodicidad](../connectors/connectors-native-recurrence.md).
+
+* **Ventana deslizante**: su flujo de trabajo se ejecuta a intervalos de tiempo regulares que administran los datos en fragmentos continuos. Si el desencadenador pierde periodicidades, por ejemplo, debido a interrupciones o flujos de trabajo deshabilitados, el desencadenador de ventana deslizante retrocede y procesa las periodicidades perdidas.
+
+  Puede especificar una fecha de inicio y una hora, la zona horaria y una duración para retrasar cada periodicidad del flujo de trabajo. Este desencadenador no admite programaciones avanzadas; por ejemplo, las horas específicas del día, los minutos de la hora y los días de la semana. Para obtener más información, consulte [Creación, programación y ejecución de tareas y flujos de trabajo periódicos con el desencadenador de ventana deslizante](../connectors/connectors-native-sliding-window.md).
 
 <a name="schedule-actions"></a>
 
@@ -66,28 +81,18 @@ Después de realizar cualquier acción en el flujo de trabajo de la aplicación 
 
 * **Retraso hasta**: permite esperar hasta la fecha y hora especificadas antes de ejecutar la siguiente acción. Para obtener más información, consulte [Delay the next action in workflows](../connectors/connectors-native-delay.md) (Retraso de la acción siguiente en los flujos de trabajo).
 
-## <a name="patterns-for-start-date-and-time"></a>Patrones para la fecha y hora de inicio
-
 <a name="start-time"></a>
+
+## <a name="patterns-for-start-date-and-time"></a>Patrones para la fecha y hora de inicio
 
 Estos son algunos patrones que muestran no solo cómo se puede controlar la periodicidad con la fecha y hora de inicio, sino también la forma en que el servicio Logic Apps ejecuta estas periodicidades:
 
 | Hora de inicio | Periodicidad sin programación | Periodicidad con programación (desencadenador de periodicidad solo) |
 |------------|-----------------------------|----------------------------------------------------|
 | {none} | Ejecuta la primera carga de trabajo al instante. <p>Ejecuta futuras cargas de trabajo en función de la hora de la última ejecución. | Ejecuta la primera carga de trabajo al instante. <p>Ejecuta futuras cargas de trabajo en función de la programación especificada. |
-| Hora de inicio en el pasado | Desencadenador de **periodicidad**: Calcula los tiempos de ejecución en función de la hora de inicio especificada y descarta las horas de ejecución anteriores. Ejecuta la primera carga de trabajo la hora de la próxima ejecución. <p>Ejecuta futuras cargas de trabajo en función de los cálculos de la hora de la última ejecución. <p><p>Desencadenador de **ventana deslizante**: Calcula los tiempos de ejecución en función de la hora de inicio especificada y respeta las horas de ejecución anteriores. <p>Ejecuta futuras cargas de trabajo en función de los cálculos de la hora de inicio especificada. <p><p>Para más información, vea el ejemplo a continuación de esta tabla. | Ejecuta la primera carga de trabajo *no antes* de la hora de inicio, en función de la programación calculada a partir de la hora de inicio. <p>Ejecuta futuras cargas de trabajo en función de la programación especificada. <p>**Nota:** Si especifica una periodicidad con una programación, pero no especifica horas o minutos para la programación, las horas de la futura ejecución se calculan usando las horas o los minutos, respectivamente, a partir de la hora de la primera ejecución. |
-| Hora de inicio en la actualidad o en el futuro | Ejecuta la primera carga de trabajo a la hora de inicio especificada. <p>Ejecuta futuras cargas de trabajo en función de los cálculos de la hora de la última ejecución. | Ejecuta la primera carga de trabajo *no antes* de la hora de inicio, en función de la programación calculada a partir de la hora de inicio. <p>Ejecuta futuras cargas de trabajo en función de la programación especificada. <p>**Nota:** Si especifica una periodicidad con una programación, pero no especifica horas o minutos para la programación, las horas de la futura ejecución se calculan usando las horas o los minutos, respectivamente, a partir de la hora de la primera ejecución. |
+| Hora de inicio en el pasado | Desencadenador de **periodicidad**: Calcula los tiempos de ejecución en función de la hora de inicio especificada y descarta las horas de ejecución anteriores. Ejecuta la primera carga de trabajo la hora de la próxima ejecución. <p>Ejecuta futuras cargas de trabajo en función de los cálculos de la hora de la última ejecución. <p><p>Desencadenador de **ventana deslizante**: Calcula los tiempos de ejecución en función de la hora de inicio especificada y respeta las horas de ejecución anteriores. <p>Ejecuta futuras cargas de trabajo en función de los cálculos de la hora de inicio especificada. <p><p>Para más información, vea el ejemplo a continuación de esta tabla. | Ejecuta la primera carga de trabajo *no antes* de la hora de inicio, en función de la programación calculada a partir de la hora de inicio. <p>Ejecuta futuras cargas de trabajo en función de la programación especificada. <p>**Nota:** Si especifica una periodicidad con una programación, pero no especifica horas o minutos para la programación, Logic Apps calcula las horas de la futura ejecución usando las horas o los minutos, respectivamente, a partir de la hora de la primera ejecución. |
+| Hora de inicio en la actualidad o en el futuro | Ejecuta la primera carga de trabajo a la hora de inicio especificada. <p>Ejecuta futuras cargas de trabajo en función de los cálculos de la hora de la última ejecución. | Ejecuta la primera carga de trabajo *no antes* de la hora de inicio, en función de la programación calculada a partir de la hora de inicio. <p>Ejecuta futuras cargas de trabajo en función de la programación especificada. <p>**Nota:** Si especifica una periodicidad con una programación, pero no especifica horas o minutos para la programación, Logic Apps calcula las horas de la futura ejecución usando las horas o los minutos, respectivamente, a partir de la hora de la primera ejecución. |
 ||||
-
-> [!IMPORTANT]
-> Cuando las periodicidades no especifican opciones de programación avanzadas, las futuras periodicidades se basan en la hora de la última ejecución.
-> Las horas de inicio de estas periodicidades pueden cambiar debido a factores como la latencia durante las llamadas de almacenamiento. Para asegurarse de que la aplicación lógica no pierde una periodicidad, especialmente cuando la frecuencia se especifica en días o unidades superiores, use una de estas opciones:
-> 
-> * Proporcione una hora de inicio para la periodicidad.
-> 
-> * Especifique las horas y los minutos en que se ejecutará la periodicidad mediante las propiedades **A estas horas** y **En estos minutos**.
-> 
-> * Use el [desencadenador de ventana deslizante](../connectors/connectors-native-sliding-window.md), en lugar del de periodicidad.
 
 *Ejemplo de una hora de inicio anterior con periodicidad, pero sin programación*
 
@@ -120,6 +125,81 @@ Este es el aspecto de esta periocidad:
 
 Por tanto, no importa el tiempo que haya transcurrido desde que especificó la hora de inicio; por ejemplo, **05**-09-2017 a las 2:00 p. m. o **01**-09-2017 a las 2:00 p. m., ya que su primera ejecución siempre usa la hora de inicio especificada.
 
+<a name="daylight-saving-standard-time"></a>
+
+## <a name="recurrence-for-daylight-saving-time-and-standard-time"></a>Periodicidad de horario de verano y hora estándar
+
+Los desencadenadores periódicos integrados respetan la programación establecida, incluida cualquier zona horaria que especifique. Si no selecciona una zona horaria, el horario de verano (DST) puede afectar al momento en que se ejecutan los desencadenadores, por ejemplo, al adelantar una hora la hora de inicio cuando se inicia el horario de verano y atrasarla una hora cuando este finaliza. Al programar trabajos, Logic Apps coloca el mensaje en la cola para su procesamiento y especifica el momento en que el mensaje está disponible, en función de la hora UTC en que se ejecutó el último trabajo y la hora UTC en la que se programó la ejecución del siguiente trabajo.
+
+Para evitar este cambio para que la aplicación lógica se ejecute a la hora de inicio especificada, asegúrese de seleccionar una zona horaria. De este modo, la hora UTC de la aplicación lógica también se cambia para contrarrestar el cambio horario estacional.
+
+<a name="dst-window"></a>
+
+> [!NOTE]
+> Los desencadenadores que empiezan entre las 2:00 a. m. y las 3:00 a. m. pueden tener problemas porque los cambios de horario de verano se producen a las 2:00 a. m., lo que podría hacer que la hora de inicio sea ambigua o deje de ser válida. Si tiene varias aplicaciones lógicas dentro del mismo intervalo ambiguo, podrían superponerse. Por este motivo, puede que quiera evitar las horas de inicio entre las 2:00 a. m. y las 3:00 a. m.
+
+Por ejemplo, supongamos que tiene dos aplicaciones lógicas que se ejecutan a diario. Una aplicación lógica se ejecuta a la 1:30 a. m. hora local, mientras que la otra se ejecuta una hora más tarde, a las 2:30 a. m. hora local. ¿Qué ocurre con las horas de inicio de estas aplicaciones cuando se inicia y finaliza el horario de verano?
+
+* ¿Se ejecutan los desencadenadores en todo momento cuando la hora se adelanta una hora?
+
+* ¿Se ejecutan los desencadenadores dos veces cuando la hora se atrasa una hora?
+
+Si estas aplicaciones lógicas usan la zona UTC-6:00 de hora central (EE. UU. y Canadá), esta simulación muestra cómo se cambiaron las horas UTC en 2019 para contrarrestar los cambios de horario de verano, y se adelanta o atrasa una hora según sea necesario para que las aplicaciones sigan ejecutándose a las horas locales esperadas sin ejecuciones omitidas o duplicadas.
+
+* **10/03/2019: El horario de verano comienza a las 2:00 a. m., al adelantar la hora una hora**
+
+  Para compensar una vez que se inicia el horario de verano, la hora UTC se atrasa una hora para que la aplicación lógica siga ejecutándose en la misma hora local:
+
+  * Aplicación lógica 1
+
+    | Date | Hora (local) | Hora (UTC) | Notas |
+    |------|--------------|------------|-------|
+    | 09/03/2019 | 1:30:00 a. m. | 7:30:00 a. m. | Hora UTC antes del día en que el horario de verano entra en vigor. |
+    | 10/03/2019 | 1:30:00 a. m. | 7:30:00 a. m. | La hora UTC es la misma porque el horario de verano no ha entrado en vigor. |
+    | 11/03/2019 | 1:30:00 a. m. | 6:30:00 a.m. | Hora UTC atrasada una hora después de que el horario de verano entre en vigor. |
+    |||||
+
+  * Aplicación lógica 2
+
+    | Date | Hora (local) | Hora (UTC) | Notas |
+    |------|--------------|------------|-------|
+    | 09/03/2019 | 2:30:00 a. m. | 8:30:00 a. m. | Hora UTC antes del día en que el horario de verano entra en vigor. |
+    | 10/03/2019 | 3:30:00 a. m. | 8:30:00 a. m. | El horario de verano ya está en vigor, por lo que la hora local se ha adelantado una hora porque la zona horaria UTC-6:00 cambia a UTC-5:00. Para obtener más información, consulte [Desencadenadores que comienzan entre 2:00 a. m. y 3:00 a. m.](#dst-window). |
+    | 11/03/2019 | 2:30:00 a. m. | 7:30:00 a. m. | Hora UTC atrasada una hora después de que el horario de verano entre en vigor. |
+    |||||
+
+* **03/11/2019: El horario de verano finaliza a las 2:00 a. m. y se atrasa una hora**
+
+  Para compensar, la hora UTC se adelanta una hora para que la aplicación lógica siga ejecutándose en la misma hora local:
+
+  * Aplicación lógica 1
+
+    | Date | Hora (local) | Hora (UTC) | Notas |
+    |------|--------------|------------|-------|
+    | 02/11/2019 | 1:30:00 a. m. | 6:30:00 a.m. ||
+    | 03/11/2019 | 1:30:00 a. m. | 6:30:00 a.m. ||
+    | 04/11/2019 | 1:30:00 a. m. | 7:30:00 a. m. ||
+    |||||
+
+  * Aplicación lógica 2
+
+    | Date | Hora (local) | Hora (UTC) | Notas |
+    |------|--------------|------------|-------|
+    | 02/11/2019 | 2:30:00 a. m. | 7:30:00 a. m. ||
+    | 03/11/2019 | 2:30:00 a. m. | 8:30:00 a. m. ||
+    | 04/11/2019 | 2:30:00 a. m. | 8:30:00 a. m. ||
+    |||||
+
+<a name="run-once"></a>
+
+## <a name="run-one-time-only"></a>Ejecución de solo una vez
+
+Si quiere ejecutar su aplicación lógica solo una vez en el futuro, puede usar la plantilla **Scheduler: Run once jobs** (Programador:ejecutar trabajos una vez). Después de crear una nueva aplicación lógica, pero antes de abrir el Diseñador de aplicaciones lógicas, en la sección **Plantillas**, en la lista **Categoría**, seleccione **Programación** y, a continuación, seleccione esta plantilla:
+
+![Seleccione la plantilla "Scheduler: Run once jobs" (Programador:ejecutar trabajos una vez)](./media/concepts-schedule-automated-recurring-tasks-workflows/choose-run-once-template.png)
+
+O bien, si puede iniciar la aplicación lógica con el desencadenador **Cuando se recibe una solicitud HTTP - Solicitar**, pase la hora de inicio como parámetro para el desencadenador. Para la primera acción, agregue la acción **Retraso hasta: Programación** y especifique la hora en que empezará a ejecutarse la acción siguiente.
+
 <a name="example-recurrences"></a>
 
 ## <a name="example-recurrences"></a>Ejemplo de periodicidades
@@ -130,10 +210,10 @@ A continuación, se incluyen varias periodicidades de ejemplo que puede configur
 |---------|------------|----------|-----------|------------|---------------|----------------|------------------|------|
 | Periodicidad, <br>Ventana deslizante | Ejecutar cada 15 minutos (ninguna fecha y hora de inicio) | 15 | Minute | {none} | {unavailable} | {none} | {none} | Esta programación se inicia inmediatamente y después calcula las futuras periodicidades en función de la hora de la última ejecución. |
 | Periodicidad, <br>Ventana deslizante | Ejecutar cada 15 minutos (con fecha y hora de inicio) | 15 | Minute | *startDate* T *startTime* Z | {unavailable} | {none} | {none} | Esta programación no se inicia *antes* de la fecha y hora de inicio especificadas y después calcula las futuras periodicidades en función de la hora de la última ejecución. |
-| Periodicidad, <br>Ventana deslizante | Ejecutar cada hora, a la hora (con fecha y hora de inicio) | 1 | Hour | *startDate* Thh:00:00Z | {unavailable} | {none} | {none} | Esta programación no se inicia *antes* de la fecha y hora de inicio especificadas. Las periodicidades futuras se ejecutan cada hora en la marca de minuto "00", que se calcula a partir de la hora de inicio. <p>Si la frecuencia es "Week" o "Month", esta programación se ejecuta respectivamente solo un día de la semana o un día del mes. |
+| Periodicidad, <br>Ventana deslizante | Ejecutar cada hora, a la hora (con fecha y hora de inicio) | 1 | Hour | *startDate* Thh:00:00Z | {unavailable} | {none} | {none} | Esta programación no se inicia *antes* de la fecha y hora de inicio especificadas. Las periodicidades futuras se ejecutan cada hora en la marca de minuto "00", que Logic Apps calcula a partir de la hora de inicio. <p>Si la frecuencia es "Week" o "Month", esta programación se ejecuta respectivamente solo un día de la semana o un día del mes. |
 | Periodicidad, <br>Ventana deslizante | Ejecutar cada hora todos los días (sin fecha y hora de inicio) | 1 | Hour | {none} | {unavailable} | {none} | {none} | Esta programación se inicia inmediatamente y calcula las futuras periodicidades en función de la hora de la última ejecución. <p>Si la frecuencia es "Week" o "Month", esta programación se ejecuta respectivamente solo un día de la semana o un día del mes. |
 | Periodicidad, <br>Ventana deslizante | Ejecutar cada hora todos los días (con fecha y hora de inicio) | 1 | Hour | *startDate* T *startTime* Z | {unavailable} | {none} | {none} | Esta programación no se inicia *antes* de la fecha y hora de inicio especificadas y después calcula las futuras periodicidades en función de la hora de la última ejecución. <p>Si la frecuencia es "Week" o "Month", esta programación se ejecuta respectivamente solo un día de la semana o un día del mes. |
-| Periodicidad, <br>Ventana deslizante | Ejecutar cada 15 minutos después de la hora, cada hora (con fecha y hora de inicio) | 1 | Hour | *startDate* T00:15:00Z | {unavailable} | {none} | {none} | Esta programación no se inicia *antes* de la fecha y hora de inicio especificadas. Las futuras periodicidades se ejecutan en la marca de minuto "15", que se calcula a partir de la hora de inicio, es decir, a las 00:15 a. m., 1:15 a. m., 2:15 a. m. y así sucesivamente. |
+| Periodicidad, <br>Ventana deslizante | Ejecutar cada 15 minutos después de la hora, cada hora (con fecha y hora de inicio) | 1 | Hour | *startDate* T00:15:00Z | {unavailable} | {none} | {none} | Esta programación no se inicia *antes* de la fecha y hora de inicio especificadas. Las futuras periodicidades se ejecutan en la marca de minuto "15", que Logic Apps calcula a partir de la hora de inicio, es decir, a las 00:15 a. m., 1:15 a. m., 2:15 a. m. y así sucesivamente. |
 | Periodicidad | Ejecutar cada 15 minutos después de la hora, cada hora (sin fecha y hora de inicio) | 1 | Día | {none} | {unavailable} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 15 | Esta programación se ejecuta a las 00:15 a. m., 1:15 a. m., 2:15 a. m., etc. Además, esta programación tiene una frecuencia equivalente de "Hour" y una hora de inicio de "15" minutos. |
 | Periodicidad | Ejecutar cada 15 minutos en las marcas de minuto especificadas (sin fecha ni hora de inicio) | 1 | Día | {none} | {unavailable} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 0, 15, 30, 45 | Esta programación no se inicia hasta la siguiente marca especificada de 15 minutos. |
 | Periodicidad | Ejecutar diariamente a las 8:00 a.m. *más* la marca de minuto de cuando guarde la aplicación lógica | 1 | Día | {none} | {unavailable} | 8 | {none} | Sin una fecha y hora de inicio, esta programación se ejecuta en función de la hora a la que se guarda la aplicación lógica (operación PUT). |
@@ -150,16 +230,6 @@ A continuación, se incluyen varias periodicidades de ejemplo que puede configur
 | Periodicidad | Ejecutar cada mes | 1 | Month | *startDate* T *startTime* Z | {unavailable} | {unavailable} | {unavailable} | Esta programación no se inicia *antes* de la fecha y hora de inicio especificadas y calcula las futuras periodicidades en función de la fecha y hora de inicio. Si no se especifica una fecha y hora de inicio, esta programación usa la fecha y hora de creación. |
 | Periodicidad | Ejecutar cada hora durante un día al mes | 1 | Month | {see note} | {unavailable} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | {see note} | Si no se especifica una fecha y hora de inicio, esta programación usa la fecha y hora de creación. Para controlar los minutos de la programación de periodicidad, especifique los minutos de la hora, una hora de inicio o use la hora de creación. Por ejemplo, si la hora de inicio u hora de creación es 8:25 a. m., esta programación se ejecuta a las 8:25 a. m., 9:25 a. m., 10:25 a. m., y así sucesivamente. |
 |||||||||
-
-<a name="run-once"></a>
-
-## <a name="run-one-time-only"></a>Ejecución de solo una vez
-
-Si quiere ejecutar su aplicación lógica solo una vez en el futuro, puede usar la plantilla **Scheduler: Run once jobs** (Programador:ejecutar trabajos una vez). Después de crear una nueva aplicación lógica, pero antes de abrir el Diseñador de aplicaciones lógicas, en la sección **Plantillas**, en la lista **Categoría**, seleccione **Programación** y, a continuación, seleccione esta plantilla:
-
-![Seleccione la plantilla "Scheduler: Run once jobs" (Programador:ejecutar trabajos una vez)](./media/concepts-schedule-automated-recurring-tasks-workflows/choose-run-once-template.png)
-
-O bien, si puede iniciar la aplicación lógica con el desencadenador **Cuando se recibe una solicitud HTTP - Solicitar**, pase la hora de inicio como parámetro para el desencadenador. Para la primera acción, agregue la acción **Retraso hasta: Programación** y especifique la hora en que empezará a ejecutarse la acción siguiente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
