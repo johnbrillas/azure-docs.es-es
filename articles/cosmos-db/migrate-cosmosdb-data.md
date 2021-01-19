@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/23/2019
-ms.openlocfilehash: c45445415f3eaa7cb0f9069dd5f64b57c19e5836
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: b24ea79737c9e1f64abb7f62807352dbd9573695
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96437157"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98018078"
 ---
 # <a name="migrate-hundreds-of-terabytes-of-data-into-azure-cosmos-db"></a>Migre cientos de terabytes de datos a Azure Cosmos DB 
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -43,7 +43,7 @@ Los desafíos descritos en la sección anterior se pueden resolver con una herra
 
 La herramienta personalizada usa la biblioteca BulkExecutor y admite la escalabilidad horizontal en varios clientes y el seguimiento de los errores durante el proceso de ingesta. Para usar esta herramienta, los datos de origen se deben dividir en archivos distintos en Azure Data Lake Storage (ADLS) para que los distintos trabajadores de migración puedan recoger los archivos e ingerirlos en Azure Cosmos DB. La herramienta personalizada hace uso de una colección independiente, que almacena los metadatos sobre el progreso de migración de cada archivo de origen individual en ADLS y realiza un seguimiento de los errores asociados a ellos.  
 
-En la imagen siguiente se describe el proceso de migración mediante esta herramienta personalizada. La herramienta se ejecuta en un conjunto de máquinas virtuales y cada una de ellas consulta la colección de seguimiento en Azure Cosmos DB para adquirir una concesión en una de las particiones de datos de origen. Una vez hecho esto, la herramienta lee la partición de datos de origen y se ingiere en Azure Cosmos DB mediante la biblioteca BulkExecutor. A continuación, la colección de seguimiento se actualiza para registrar el progreso de la ingesta de datos y los errores encontrados. Una vez procesada una partición de datos, la herramienta intenta consultar la siguiente partición de origen disponible. Continúa procesando la siguiente partición de origen hasta que se migren todos los datos. El código fuente de la herramienta está disponible [aquí](https://github.com/Azure-Samples/azure-cosmosdb-bulkingestion).  
+En la imagen siguiente se describe el proceso de migración mediante esta herramienta personalizada. La herramienta se ejecuta en un conjunto de máquinas virtuales y cada una de ellas consulta la colección de seguimiento en Azure Cosmos DB para adquirir una concesión en una de las particiones de datos de origen. Una vez hecho esto, la herramienta lee la partición de datos de origen y se ingiere en Azure Cosmos DB mediante la biblioteca BulkExecutor. A continuación, la colección de seguimiento se actualiza para registrar el progreso de la ingesta de datos y los errores encontrados. Una vez procesada una partición de datos, la herramienta intenta consultar la siguiente partición de origen disponible. Continúa procesando la siguiente partición de origen hasta que se migren todos los datos. El código fuente de la herramienta está disponible en el repositorio de [ingesta en bloque de Azure Cosmos DB](https://github.com/Azure-Samples/azure-cosmosdb-bulkingestion).  
 
  
 :::image type="content" source="./media/migrate-cosmosdb-data/migrationsetup.png" alt-text="Configuración de la herramienta de migración" border="false":::

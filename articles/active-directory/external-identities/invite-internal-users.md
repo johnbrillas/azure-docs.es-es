@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75839893d0048841440f2c790df7d23ad825d962
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 8acc547552cecaebb60888bb7b9777f6279b9b7c
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97093475"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98015766"
 ---
 # <a name="invite-internal-users-to-b2b-collaboration"></a>Invitar a usuarios internos a la colaboración B2B
 
@@ -44,8 +44,7 @@ En estos casos, si el usuario interno debe cambiarse a un usuario de B2B, debe e
 
 Puede usar PowerShell o la API de invitación para enviar una invitación a B2B al usuario interno. Asegúrese de que la dirección de correo electrónico que desea usar para la invitación está establecida como la dirección de correo electrónico externa en el objeto de usuario interno.
 
-- Para un usuario solo en la nube, use la dirección de correo electrónico en la propiedad User.OtherMails de la invitación.
-- Para un usuario sincronizado local, debe usar el valor de la propiedad User.Mail para la invitación.
+- Debe usar la dirección de correo electrónico de la propiedad User.Mail en la invitación.
 - El dominio de la propiedad Mail del usuario debe coincidir con la cuenta que usan para iniciar sesión. De lo contrario, algunos servicios, como Teams, no podrán autenticar al usuario.
 
 De forma predeterminada, se enviará un correo electrónico al usuario para notificarle que se le ha invitado, pero puede suprimir el mensaje y escribir uno personalizado.

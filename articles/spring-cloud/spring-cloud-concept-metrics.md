@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 015aadb791172f5033bf0198caad567c9bc03221
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0c4299bc41a656fd678c14d63ae1d4987dba327b
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95974670"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060646"
 ---
 # <a name="understand-metrics-for-azure-spring-cloud"></a>Descripción de las métricas en Azure Spring Cloud
 
@@ -114,7 +114,7 @@ En las tablas siguientes se muestran las métricas y los detalles disponibles.
 >[!div class="mx-tdCol2BreakAll"]
 >| Nombre | Nombre de la métrica de Spring Actuator | Unidad | Detalles |
 >|------|-----------------------------|------|---------|
->| Uso de CPU       | cpu-usage      | Milisegundos | Cantidad de tiempo que el proceso ha utilizado la CPU. |
+>| Uso de CPU       | cpu-usage      | Percent      | Porcentaje del uso de CPU del proceso en relación con todos los recursos de CPU del sistema [0-100]. |
 >| Espacio de trabajo     | working-set    | Megabytes    | Cantidad de memoria del espacio de trabajo usada por el proceso. |
 >| Tamaño del montón de GC    | gc-heap-size   | Megabytes    | Tamaño total del montón indicado por el recolector de elementos no utilizados. |
 >| Recuento de GC de generación 0  | gen-0-gc-count | Count        | Número de recolecciones de elementos no utilizados de generación 0 por segundo. |

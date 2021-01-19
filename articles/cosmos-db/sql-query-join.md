@@ -1,25 +1,25 @@
 ---
 title: Consultas JOIN de SQL para Azure Cosmos DB
 description: Obtenga información sobre cómo combinar (JOIN) varias tablas en Azure Cosmos DB para consultar los datos.
-author: markjbrown
+author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 05/17/2019
-ms.author: mjbrown
-ms.openlocfilehash: c3fad0c7eed2b42a9ac340a091f17b90e22b000a
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.date: 01/07/2021
+ms.author: tisande
+ms.openlocfilehash: cb7b2e62a9fabeeca675edb8e6aa356213e0999e
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93333858"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98011414"
 ---
 # <a name="joins-in-azure-cosmos-db"></a>Combinaciones en Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 En una base de datos relacional, las combinaciones entre tablas son la consecuencia lógica de diseñar esquemas normalizados. En cambio, la API de SQL usa el modelo de datos desnormalizado de los elementos sin esquemas, que es el equivalente lógico de una *autocombinación*.
 
-Las combinaciones internas derivan en un producto cruzado completo con los conjuntos participantes en la combinación. El resultado de una combinación de N es un conjunto de tuplas de N elementos, donde cada valor de la tupla se asocia con el conjunto del alias participante en la combinación, accesible mediante una referencia a ese alias en otras cláusulas.
+Las combinaciones derivan en un producto cruzado completo de los conjuntos participantes en la combinación. El resultado de una combinación de N es un conjunto de tuplas de N elementos, donde cada valor de la tupla se asocia con el conjunto del alias participante en la combinación, accesible mediante una referencia a ese alias en otras cláusulas.
 
 ## <a name="syntax"></a>Sintaxis
 
@@ -29,7 +29,7 @@ Observemos la siguiente cláusula FROM: `<from_source1> JOIN <from_source2> JOIN
   
  Los orígenes definirán `input_alias1, input_alias2, …, input_aliasN`. Esta cláusula FROM devuelve un conjunto de N tuplas (tupla con N valores). Cada tupla tiene valores generados mediante la iteración de todos los alias de contenedor en los conjuntos correspondientes.  
   
-**Ejemplo 1** : 2 orígenes  
+**Ejemplo 1**: 2 orígenes  
   
 - `<from_source1>` tendrá ámbito de contenedor y representa el conjunto {A, B, C}.  
   
@@ -47,7 +47,7 @@ Observemos la siguiente cláusula FROM: `<from_source1> JOIN <from_source2> JOIN
   
     `(A, 1), (A, 2), (B, 3), (C, 4), (C, 5)`  
   
-**Ejemplo 2** : 3 orígenes  
+**Ejemplo 2**: 3 orígenes  
   
 - `<from_source1>` tendrá ámbito de contenedor y representa el conjunto {A, B, C}.  
   
@@ -74,7 +74,7 @@ Observemos la siguiente cláusula FROM: `<from_source1> JOIN <from_source2> JOIN
   > [!NOTE]
   > Faltan tuplas para otros valores de `input_alias1` y `input_alias2`, para los cuales `<from_source3>` no devolvió ningún valor.  
   
-**Ejemplo 3** : 3 orígenes  
+**Ejemplo 3**: 3 orígenes  
   
 - <from_source1> tendrá ámbito de contenedor y representa el conjunto {A, B, C}.  
   
@@ -253,6 +253,8 @@ Los resultados son:
       }
     ]
 ```
+
+Si la consulta contiene una combinación (JOIN) y filtros, puede volver a escribir parte de ella como una [subconsulta](sql-query-subquery.md#optimize-join-expressions) para mejorar el rendimiento.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 853ab82ab40cc7ebee1c74feaf6aad87adf39ece
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: f60e21f98092df65ef01e68fe9c2e64833a24855
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443116"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98063219"
 ---
 # <a name="scenario-mobile-application-that-calls-web-apis"></a>Escenario: Una aplicación móvil que llama a las API web
 
@@ -34,7 +34,7 @@ Si aún no lo ha hecho, cree su primera aplicación siguiendo un inicio rápido:
 
 ## <a name="overview"></a>Información general
 
-Para las aplicaciones móviles es esencial una experiencia de usuario personalizada y sin problemas.  La plataforma de identidad de Microsoft permite a los desarrolladores de aplicaciones móviles crear esa misma experiencia para usuarios de iOS y Android. La aplicación puede iniciar la sesión de los usuarios de Azure Active Directory (Azure AD), los usuarios de cuentas personales de Microsoft y los usuarios de Azure AD B2C. También puede adquirir tokens para llamar a una API web en su nombre. Para implementar estos flujos, se usa la biblioteca de autenticación de Microsoft (MSAL). MSAL implementa el estándar del sector [Flujo de código de autorización de OAuth 2.0](v2-oauth2-auth-code-flow.md).
+Para las aplicaciones móviles es esencial una experiencia de usuario personalizada y sin problemas.  La plataforma de identidad de Microsoft permite a los desarrolladores de aplicaciones móviles crear esa misma experiencia para usuarios de iOS y Android. La aplicación puede iniciar la sesión de los usuarios de Azure Active Directory (Azure AD), los usuarios de cuentas personales de Microsoft y los usuarios de Azure AD B2C. También puede adquirir tokens para llamar a una API web en su nombre. Para implementar estos flujos, se usa la Biblioteca de autenticación de Microsoft (MSAL). MSAL implementa el estándar del sector [Flujo de código de autorización de OAuth 2.0](v2-oauth2-auth-code-flow.md).
 
 ![Aplicaciones de demonio](./media/scenarios/mobile-app.svg)
 

@@ -6,16 +6,16 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 23961a03d1da1137d92ecd3b8003241120b11d80
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: c2a6a88e9f730e17c929cf7949352448903435f6
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96493790"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98118462"
 ---
 # <a name="azure-database-for-postgresql-single-server-data-encryption-with-a-customer-managed-key"></a>Cifrado de datos del servidor único de Azure Database for PostgreSQL con clave administrada por el cliente
 
-El cifrado de datos con claves administradas por el cliente del servidor único de Azure Database for PostgreSQL le permite traer su propia clave (BYOK) para la protección de datos en reposo. También permite a las organizaciones implementar la separación de tareas en la administración de claves y datos. Con el cifrado administrado por el cliente, el usuario es responsable y tiene el control total del ciclo de vida de una clave, los permisos de uso de la clave y la auditoría de operaciones con claves.
+Azure PostgreSQL aprovecha el [cifrado de Azure Storage](../storage/common/storage-service-encryption.md) para cifrar datos en reposo de manera predeterminada mediante claves administradas por Microsoft. En el caso de los usuarios de Azure PostgreSQL, es muy similar al Cifrado de datos transparente (TDE) de otras bases de datos, como SQL Server. Muchas organizaciones requieren un control total sobre el acceso a los datos mediante una clave administrada por el cliente. El cifrado de datos con claves administradas por el cliente del servidor único de Azure Database for PostgreSQL le permite traer su propia clave (BYOK) para la protección de datos en reposo. También permite a las organizaciones implementar la separación de tareas en la administración de claves y datos. Con el cifrado administrado por el cliente, el usuario es responsable y tiene el control total del ciclo de vida de una clave, los permisos de uso de la clave y la auditoría de operaciones con claves.
 
 El cifrado de datos con claves administradas por el cliente del servidor único de Azure Database for PostgreSQL se establece en el nivel de servidor. En un servidor determinado, se usa una clave administrada por el cliente, denominada clave de cifrado de claves (KEK), para cifrar la clave de cifrado de datos (DEK) que usa el servicio. KEK es una clave asimétrica almacenada en una instancia de [Azure Key Vault](../key-vault/general/secure-your-key-vault.md) administrada por el cliente y de su propiedad. La clave de cifrado de claves (KEK) y la clave de cifrado de datos (DEK) se describen con más detalle más adelante en este artículo.
 
@@ -60,7 +60,9 @@ Cuando el servidor está configurado para usar la clave administrada por el clie
 A continuación se indican los requisitos para configurar Key Vault:
 
 * Key Vault y el servidor único de Azure Database for PostgreSQL deben pertenecer al mismo inquilino de Azure Active Directory (Azure AD). No se admiten las interacciones de servidor y Key Vault entre inquilinos. Para mover los recursos de Key Vault posteriormente, es necesario volver a configurar el cifrado de datos.
-* Habilita la característica de eliminación temporal en el almacén de claves para protegerse frente a la pérdida de datos en caso de una eliminación accidental de claves (o de Key Vault). Los recursos eliminados temporalmente se conservan durante 90 días, a menos que el usuario los recupere o los purgue mientras tanto. Las acciones de recuperación y purga tienen permisos propios asociados a una directiva de acceso a Key Vault. La característica de eliminación temporal está desactivada de forma predeterminada, pero puede habilitarla mediante PowerShell o la CLI de Azure (tenga en cuenta que no puede habilitarla mediante Azure Portal).
+* El número de días que se conservarán los almacenes eliminados del almacén de claves debe establecerse en 90. Si el almacén de claves existente se ha configurado con un número inferior, deberá crear uno nuevo, ya que no se puede modificar después de la creación.
+* Habilita la característica de eliminación temporal en el almacén de claves para protegerse frente a la pérdida de datos en caso de una eliminación accidental de claves (o de Key Vault). Los recursos eliminados temporalmente se conservan durante 90 días, a menos que el usuario los recupere o los purgue mientras tanto. Las acciones de recuperación y purga tienen permisos propios asociados a una directiva de acceso a Key Vault. La característica de eliminación temporal está desactivada de forma predeterminada, pero puede habilitarla mediante PowerShell o la CLI de Azure (tenga en cuenta que no puede habilitarla mediante Azure Portal). 
+* Habilitación de la protección de purga para aplicar un período de retención obligatorio para los almacenes eliminados y los objetos de almacén
 * Conceda al servidor único de Azure Database for PostgreSQL acceso al almacén de claves con los permisos get, wrapKey y unwrapKey mediante su identidad administrada única. En Azure Portal, la identidad única de "Servicio" se crea automáticamente cuando se habilita el cifrado de datos en el servidor único de PostgreSQL. Consulte [Cifrado de datos para un servidor único de Azure Database for PostgreSQL mediante Azure Portal](howto-data-encryption-portal.md) para obtener instrucciones detalladas cuando usa Azure Portal.
 
 A continuación se indican los requisitos para configurar la clave administrada por el cliente:

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/16/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 3679bf9d55ddccefddb4bf3b2a96ec1b427315af
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: c0ceae8727681c045c3bbf3e6626937633b38997
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94663345"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98013539"
 ---
 # <a name="using-an-app-service-environment"></a>Uso de App Service Environment
 
@@ -78,13 +78,20 @@ La dirección URL del SCM se utiliza para obtener acceso a la consola de Kudu o 
 
 ### <a name="dns-configuration"></a>Configuración de DNS 
 
-El ASE usa puntos de conexión privados con el tráfico entrante y se configura automáticamente con zonas privadas de Azure DNS. Si quiere usar su propio servidor DNS, debe agregar los siguientes registros:
+ASE usa puntos de conexión privados para el tráfico entrante. No se configura automáticamente con zonas privadas de Azure DNS. Si quiere usar su propio servidor DNS, debe agregar los siguientes registros:
 
 1. Cree una zona para el &lt;nombre de ASE&gt;.appserviceenvironment.net.
 1. Cree un registro D en esa zona que apunte * a la dirección IP de entrada usada por el punto de conexión privado del ASE.
 1. Cree un registro D en esa zona que apunte @ a la dirección IP de entrada usada por el punto de conexión privado del ASE.
 1. Cree una zona en el &lt;nombre de ASE&gt;.appserviceenvironment.net denominada SCM.
 1. Cree un registro D en la zona SCM que apunte * a la dirección IP usada por el punto de conexión privado del ASE.
+
+Para configurar DNS en las zonas privadas de Azure DNS:
+
+1. cree una zona privada de Azure DNS denominada <ASE name>.appserviceenvironment.net.
+1. Cree un registro D en esa zona que apunte * a la dirección IP de ILB.
+1. Cree un registro D en esa zona que apunte a la dirección IP de ILB.
+1. cree un registro A en esa zona que apunte *.scm a la dirección IP de ILB.
 
 La configuración de DNS para el sufijo de dominio predeterminado del ASE no restringe las aplicaciones a solo aquellas que son accesibles por esos nombres. Puede establecer un nombre de dominio personalizado sin ninguna validación en las aplicaciones de un ASE. Si quiere crear una zona denominada *contoso.net*, puede hacerlo y que apunte a la dirección IP de entrada. El nombre de dominio personalizado funciona para las solicitudes de aplicación, pero no para el sitio SCM. El sitio SCM solo está disponible en *&lt;appname&gt;.scm.&lt;asename&gt;.appserviceenvironment.net*. 
 

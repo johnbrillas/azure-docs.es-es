@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to,automl,contperf-fy21q2
 ms.date: 12/18/2020
-ms.openlocfilehash: b26b0d9086f464556cbca2c70773374c3cccbd52
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 5fcb57d1ef909d7c15e21b34c3f584c6615a6a44
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97915868"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98134422"
 ---
 # <a name="data-featurization-in-automated-machine-learning"></a>Caracterización de datos en aprendizaje automático automatizado
 
@@ -122,6 +122,9 @@ Las personalizaciones compatibles incluyen:
 |**Actualización de parámetros del transformador** |Actualizar los parámetros para el transformador especificado. Actualmente admite *Imputer* (media, más frecuente y mediana) y *HashOneHotEncoder*.|
 |**Quitar columnas** |Especifica las columnas que se van a eliminar de la caracterización.|
 |**Transformadores de bloque**| Especifica los transformadores de bloque que se van a usar en el proceso de características.|
+
+>[!NOTE]
+> La funcionalidad **Quitar columnas** está en desuso a partir de la versión 1.19 del SDK. Quite columnas del conjunto de datos como parte de la limpieza de datos antes de consumirlos en el experimento de aprendizaje automático automatizado. 
 
 Cree el objeto `FeaturizationConfig` mediante llamadas API:
 

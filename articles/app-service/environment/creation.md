@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/16/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 12c9fd43933f9f54e013752c5fe482ce31650536
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 52a43874060748479beebc994bf0a9b663cde9dc
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95238401"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020186"
 ---
 # <a name="create-an-app-service-environment"></a>Creación de una instancia de App Service Environment
 
@@ -20,10 +20,9 @@ ms.locfileid: "95238401"
 > Este artículo trata sobre App Service Environment v3 (versión preliminar).
 > 
 
-[App Service Environment (ASE)][Intro] es una implementación de inquilino único de Azure App Service que se ejecuta en una instancia de Azure Virtual Network (VNet).  ASEv3 solo admite la exposición de aplicaciones en una dirección privada de la red virtual. Cuando se crea una instancia de ASEv3 durante la versión preliminar, se agregan tres recursos a la suscripción.
+[App Service Environment (ASE)][Intro] es una implementación de inquilino único de Azure App Service que se ejecuta en una instancia de Azure Virtual Network (VNet).  ASEv3 solo admite la exposición de aplicaciones en una dirección privada de la red virtual. Cuando se crea una instancia de ASEv3 durante la versión preliminar, se agregan estos recursos a la suscripción.
 
 - Entorno de App Service
-- Zona privada de Azure DNS
 - Punto de conexión privado
 
 Para implementar un ASE, será necesario el uso de dos subredes.  Una subred contendrá el punto de conexión privado.  Esta subred se puede usar para otras cosas, como las máquinas virtuales.  La otra subred se utiliza para las llamadas salientes realizadas desde el ASE.  Esta subred no se puede usar para ninguna otra cosa que no sea el ASE. 
@@ -33,7 +32,7 @@ Para implementar un ASE, será necesario el uso de dos subredes.  Una subred con
 Después de crear el ASE, no se puede cambiar:
 
 - Location
-- Suscripción
+- Subscription
 - Resource group
 - Instancia de Azure Virtual Network (red virtual) usada
 - Subredes usadas

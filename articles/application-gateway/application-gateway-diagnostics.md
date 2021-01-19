@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/22/2019
 ms.author: victorh
-ms.openlocfilehash: 9d2fba48762e11a92f6f3925c969b01aebbe3630
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: e18267d5a810826e41e05eb3dde3cd82a8eb9197
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347598"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98065327"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Mantenimiento del back-end y registros de diagnóstico para Application Gateway
 
@@ -222,7 +222,7 @@ El registro de acceso solo se genera si lo habilitó para cada instancia de Appl
 |serverRouted| Servidor back-end al que Application Gateway redirige la solicitud.|
 |serverStatus| Código de estado HTTP del servidor back-end.|
 |serverResponseLatency| Latencia de la respuesta del servidor back-end.|
-|host| Dirección que aparece en el encabezado de host de la solicitud. Si se reescribe, este campo contiene el nombre de host actualizado|
+|host| Dirección que aparece en el encabezado de host de la solicitud. Si se reescribe mediante una reescritura de encabezado, este campo contiene el nombre de host actualizado|
 |originalRequestUriWithArgs| Este campo contiene la dirección URL de la solicitud original |
 |requestUri| Este campo contiene la dirección URL posterior a la operación de reescritura en Application Gateway |
 |originalHost| Este campo contiene el nombre de host de la solicitud original
