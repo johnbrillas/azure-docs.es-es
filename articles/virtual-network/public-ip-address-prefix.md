@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/29/2020
 ms.author: allensu
-ms.openlocfilehash: 53dd6d2dda762b3cbf53f4aaec6cd3692a9656e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d98107075c215c0a00bc2035325a6ad8bf5bfc5
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87432580"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222435"
 ---
 # <a name="public-ip-address-prefix"></a>Prefijo de dirección IP pública
 
 Un prefijo de dirección IP pública es un rango reservado de direcciones IP en Azure. Azure proporciona a las suscripciones un rango contiguo de direcciones en función de la cantidad de ellas que se especifiquen. 
 
-Si no está familiarizado con las direcciones públicas, consulte [Direcciones IP públicas](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses).
+Si no está familiarizado con las direcciones públicas, consulte [Direcciones IP públicas](./public-ip-addresses.md#public-ip-addresses).
 
 Las direcciones IP públicas se asignan desde un grupo de direcciones en cada región de Azure. Puede [descargar](https://www.microsoft.com/download/details.aspx?id=56519) la lista de intervalos que Azure usa para cada región. Por ejemplo, 40.121.0.0/16 es uno de los más de 100 intervalos que Azure usa en la región Este de EE. UU. El intervalo incluye las direcciones utilizables de 40.121.0.1 a 40.121.255.254.
 
@@ -68,9 +68,9 @@ Puede asociar los siguientes recursos a una dirección IP pública estática des
 ## <a name="constraints"></a>Restricciones
 
 - No se pueden especificar las direcciones IP del prefijo. Azure proporciona las direcciones IP para el prefijo, en función del tamaño que especifique.
-- De manera predeterminada puede crear un prefijo de hasta 16 direcciones IP o un /28. Para más información, consulte [Solicitudes de aumento de los límites de redes](https://docs.microsoft.com/azure/azure-portal/supportability/networking-quota-requests) y [Límites de Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+- De manera predeterminada puede crear un prefijo de hasta 16 direcciones IP o un /28. Para más información, consulte [Solicitudes de aumento de los límites de redes](../azure-portal/supportability/networking-quota-requests.md) y [Límites de Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 - Una vez que se ha creado el prefijo no se puede cambiar el intervalo.
-- Solo se pueden asignar direcciones IP públicas estáticas del intervalo del prefijo creadas con la SKU Estándar. Para más información sobre las SKU de direcciones IP públicas, consulte [Direcciones IP publicas](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses).
+- Solo se pueden asignar direcciones IP públicas estáticas del intervalo del prefijo creadas con la SKU Estándar. Para más información sobre las SKU de direcciones IP públicas, consulte [Direcciones IP publicas](./public-ip-addresses.md#public-ip-addresses).
 - Las direcciones del intervalo solo se pueden asignar a recursos de Azure Resource Manager. En el modelo de implementación clásico no se pueden asignar direcciones a recursos.
 - Todas las direcciones IP públicas creadas a partir del prefijo deben existir en la misma región y suscripción de Azure que el prefijo. Las direcciones se deben asignar a recursos de la misma región y suscripción.
 - No se puede eliminar un prefijo si tiene direcciones asignadas a recursos de dirección IP públicas asociados a un recurso. En primer lugar, debe desasociar todos los recursos de dirección IP pública que tienen asignadas direcciones IP del prefijo.

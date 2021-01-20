@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
-ms.openlocfilehash: 1e46cf78c76e873bcb78af4942f42a5c4be45391
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: deb9f60cd3f75eacdf0adc06f6f7470819949555
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955593"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223234"
 ---
 # <a name="public-ip-addresses"></a>Direcciones IP públicas
 
@@ -44,7 +44,7 @@ Para obtener información acerca de la actualización de SKU, consulte [Actualiz
 Las direcciones IP públicas se crean con una de las SKU siguientes:
 
 >[!IMPORTANT]
-> En los recursos de IP pública y en el equilibrador de carga se requieren SKU coincidentes. No puede tener una combinación de recursos de SKU básica y recursos de SKU estándar. No se pueden asociar máquinas virtuales independientes, máquinas virtuales en un recurso de conjunto de disponibilidad o conjuntos de escalado de máquinas virtuales a ambas SKU simultáneamente.  Para los nuevos diseños, deberá considerar usar los recursos de SKU estándar.  Consulte [Load Balancer Estándar](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para obtener más información.
+> En los recursos de IP pública y en el equilibrador de carga se requieren SKU coincidentes. No puede tener una combinación de recursos de SKU básica y recursos de SKU estándar. No se pueden asociar máquinas virtuales independientes, máquinas virtuales en un recurso de conjunto de disponibilidad o conjuntos de escalado de máquinas virtuales a ambas SKU simultáneamente.  Para los nuevos diseños, deberá considerar usar los recursos de SKU estándar.  Consulte [Load Balancer Estándar](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para obtener más información.
 
 ### <a name="standard"></a>Estándar
 
@@ -52,13 +52,13 @@ Las direcciones IP públicas de SKU estándar:
 
 - Utilice siempre el método de asignación estática.
 - Tiene un tiempo espera de inactividad del flujo originado de entrada ajustable de entre 4 y 30 minutos, y un valor predeterminado de 4 minutos, y el valor predeterminado del tiempo de espera del flujo originado es de 4 minutos.
-- Son seguras de forma predeterminada y se cierran al tráfico de entrada. Permiten mostrar el tráfico de entrada con un [grupo de seguridad de red](security-overview.md#network-security-groups).
-- Se asignan a interfaces de red, equilibradores de carga estándar públicos o puertas de enlace de aplicaciones. Para más información sobre Standard Load Balancer, consulte [¿Qué es Azure Load Balancer?](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-- Puede ser con redundancia de zona (publicitado desde las tres zonas) o zonal (se pueden crear zonal y garantizada en una zona de disponibilidad específica). Para obtener más información acerca de las zonas de disponibilidad, consulte [Introducción a las zonas de disponibilidad](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) y [Standard Load Balancer and Availability Zones](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Load Balancer Standard y zonas de disponibilidad). **Las direcciones IP con redundancia de zona solo se pueden crear en regiones de [en las que haya tres zonas de disponibilidad](https://docs.microsoft.com/azure/availability-zones/az-region) activas.** Las direcciones IP creadas antes de que las zonas estén activas no tendrán redundancia de zona.
-- Se puede usar como dirección IP de front-end de difusión por proximidad (anycast) para [equilibradores de carga entre regiones](https://docs.microsoft.com/azure/load-balancer/cross-region-overview) (funcionalidad de versión preliminar).
+- Son seguras de forma predeterminada y se cierran al tráfico de entrada. Permiten mostrar el tráfico de entrada con un [grupo de seguridad de red](./network-security-groups-overview.md#network-security-groups).
+- Se asignan a interfaces de red, equilibradores de carga estándar públicos o puertas de enlace de aplicaciones. Para más información sobre Standard Load Balancer, consulte [¿Qué es Azure Load Balancer?](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Puede ser con redundancia de zona (publicitado desde las tres zonas) o zonal (se pueden crear zonal y garantizada en una zona de disponibilidad específica). Para obtener más información acerca de las zonas de disponibilidad, consulte [Introducción a las zonas de disponibilidad](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) y [Standard Load Balancer and Availability Zones](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Load Balancer Standard y zonas de disponibilidad). **Las direcciones IP con redundancia de zona solo se pueden crear en regiones de [en las que haya tres zonas de disponibilidad](../availability-zones/az-region.md) activas.** Las direcciones IP creadas antes de que las zonas estén activas no tendrán redundancia de zona.
+- Se puede usar como dirección IP de front-end de difusión por proximidad (anycast) para [equilibradores de carga entre regiones](../load-balancer/cross-region-overview.md) (funcionalidad de versión preliminar).
  
 > [!NOTE]
-> Para evitar que se produzca un error en la comunicación de entrada con el recurso SKU estándar, debe crear un [grupo de seguridad de red](security-overview.md#network-security-groups), asociarlo y permitir explícitamente el tráfico de entrada deseado.
+> Para evitar que se produzca un error en la comunicación de entrada con el recurso SKU estándar, debe crear un [grupo de seguridad de red](./network-security-groups-overview.md#network-security-groups), asociarlo y permitir explícitamente el tráfico de entrada deseado.
 
 > [!NOTE]
 > Cuando se usa el [servicio de metadatos de instancia IMDS](../virtual-machines/windows/instance-metadata-service.md), solo hay direcciones IP públicas con SKU básica disponibles. No se admiten las SKU estándar.
@@ -150,7 +150,7 @@ Puede asociar una dirección IP pública de [SKU](#sku) con una instancia de [Az
 
 Puede asignar una dirección IP pública estática o dinámica al front-end de un equilibrador de carga. Puede asignar varias direcciones IP públicas a un front-end de equilibrador de carga. Esta configuración habilita escenarios de [varias VIP](../load-balancer/load-balancer-multivip-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), como un entorno de varios inquilinos con sitios web basados en TLS. 
 
-Para más información sobre las SKU de los equilibradores de carga de Azure, consulte [Azure load balancer standard SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (SKU estándar de equilibrador de carga de Azure).
+Para más información sobre las SKU de los equilibradores de carga de Azure, consulte [Azure load balancer standard SKU](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (SKU estándar de equilibrador de carga de Azure).
 
 ## <a name="vpn-gateways"></a>Puertas de enlace de VPN
 
@@ -163,7 +163,7 @@ Se asigna una dirección IP pública a la instancia de VPN Gateway para habilita
 
 ## <a name="application-gateways"></a>Puertas de enlace de aplicaciones
 
-Puede asociar una dirección IP pública con una [puerta de enlace de aplicaciones](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)de Azure asignándola a la configuración del **front-end** de la puerta de enlace. 
+Puede asociar una dirección IP pública con una [puerta de enlace de aplicaciones](../application-gateway/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)de Azure asignándola a la configuración del **front-end** de la puerta de enlace. 
 
 * Asigne una dirección IP pública **dinámica** de nivel básico a una configuración front-end V1 de la puerta de enlace de aplicaciones. 
 * Asigne un dirección de SKU estándar **estática** a una configuración de front-end V2.
@@ -200,4 +200,3 @@ Las direcciones IP públicas pueden tener un precio simbólico. Para más inform
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtener información sobre las [direcciones IP privadas en Azure](private-ip-addresses.md)
 * [Implementar una máquina virtual con una dirección IP pública estática mediante el portal de Azure](virtual-network-deploy-static-pip-arm-portal.md)
-

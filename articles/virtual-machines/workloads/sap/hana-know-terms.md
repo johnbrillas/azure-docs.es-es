@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 11/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7777888bd27325e9094032458922969494a9a64e
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: c1e4e223e7932f7fc8699c04a94b079b7f16e3d5
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94984964"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98198907"
 ---
 # <a name="know-the-terms"></a>Conocer los términos
 
@@ -36,7 +36,7 @@ En la Guía de implementación técnica y arquitectura, se utilizan con frecuenc
 - **SAP HANA en Azure (instancias grandes):** nombre oficial de la oferta de Azure para ejecutar instancias de HANA en hardware con certificación SAP HANA TDI que se implementa en demarcaciones de instancias grandes en diferentes regiones de Azure. El término relacionado *HANA (instancias grandes)* es la versión abreviada de *SAP HANA en Azure (instancias grandes)* y se usa con frecuencia en esta guía de implementación técnica.
 - **Entre locales**: describe un escenario donde se implementan VM en una suscripción de Azure con conexión de sitio a sitio, entre varios sitios o de Azure ExpressRoute entre los centros de datos locales y Azure. En la documentación habitual de Azure, este tipo de implementaciones se denominan "escenarios entre locales". La razón de la conexión es extender los dominios locales, Azure Active Directory, OpenLDAP local y DNS local en Azure. La infraestructura local se extiende a los recursos de Azure de las suscripciones de Azure. Con esta extensión, las máquinas virtuales pueden formar parte del dominio local. 
 
-   Los usuarios del dominio local pueden tener acceso a los servidores y ejecutar servicios en esas máquinas virtuales (por ejemplo, servicios de DBMS). Es posible la comunicación y resolución de nombres entre máquinas virtuales implementadas de forma local y en Azure. Se trata del escenario típico en que se implementan la mayoría de los recursos de SAP. Para obtener más información, consulte [Azure VPN Gateway](../../../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) y [Creación de una red virtual con una conexión de sitio a sitio mediante Azure Portal](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+   Los usuarios del dominio local pueden tener acceso a los servidores y ejecutar servicios en esas máquinas virtuales (por ejemplo, servicios de DBMS). Es posible la comunicación y resolución de nombres entre máquinas virtuales implementadas de forma local y en Azure. Se trata del escenario típico en que se implementan la mayoría de los recursos de SAP. Para obtener más información, consulte [Azure VPN Gateway](../../../vpn-gateway/vpn-gateway-about-vpngateways.md) y [Creación de una red virtual con una conexión de sitio a sitio mediante Azure Portal](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
 - **Tenant**: un cliente implementado en la demarcación de HANA (instancias grandes) se aísla en un *inquilino*. Un inquilino se aísla en el nivel de redes, almacenamiento y proceso de otros inquilinos. Las unidades de almacenamiento y proceso asignadas a los distintos inquilinos no pueden verse ni comunicarse entre sí en el nivel de la demarcación de HANA (instancias grandes). Un cliente puede elegir que las implementaciones se realicen en diferentes inquilinos. Aún así, no hay ninguna comunicación entre los inquilinos a nivel de la marca de la instancia grande HANA.
 - **Categoría de SKU**: para HANA (instancias grandes), se ofrecen las siguientes dos categorías de SKU:
     - **Clase de tipo I**: S72, S72m, S96, S144, S144m, S192, S192m, S192xm, S224 y S224m
@@ -47,7 +47,7 @@ En la Guía de implementación técnica y arquitectura, se utilizan con frecuenc
     - "Revisión 4" (Rev 4): es un nuevo diseño que puede proporcionar una mayor proximidad a los hosts de Azure Virtual Machine y con menor latencia de red entre las VM de Azure y las unidades de instancia grande de HANA. 
     - "Revisión 4.2" (Rev 4,2): en los controladores de dominio de la revisión 4 existente, los recursos se remarcan con la infraestructura BareMetal.  Los clientes pueden acceder a sus recursos como instancias de BareMetal desde Azure Portal. 
 
-Hay una serie de recursos adicionales sobre cómo implementar una carga de trabajo SAP en la nube. Si planea ejecutar una implementación de SAP HANA en Azure, debe poseer conocimientos y experiencia con los principios de IaaS de Azure y la implementación de cargas de trabajo de SAP en IaaS de Azure. Antes de continuar, consulte [Uso de soluciones de SAP enAzure Virtual Machines](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para más información. 
+Hay una serie de recursos adicionales sobre cómo implementar una carga de trabajo SAP en la nube. Si planea ejecutar una implementación de SAP HANA en Azure, debe poseer conocimientos y experiencia con los principios de IaaS de Azure y la implementación de cargas de trabajo de SAP en IaaS de Azure. Antes de continuar, consulte [Uso de soluciones de SAP enAzure Virtual Machines](get-started.md) para más información. 
 
 **Pasos siguientes**
 - Consulte [Certificación de HLI](hana-certification.md).

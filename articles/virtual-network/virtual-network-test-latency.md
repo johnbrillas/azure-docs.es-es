@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/29/2019
 ms.author: steveesp
-ms.openlocfilehash: 77ea14097538f722569acb5a0371674776aac8e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8f167a7947c42ce837ec83b336ae636f593f2e4
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84687810"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219265"
 ---
 # <a name="test-vm-network-latency"></a>Comprobación de la latencia de red de VM
 
@@ -55,7 +55,7 @@ Con estas herramientas se asegura de que solo se miden los tiempos de entrega de
 Al crear la configuración de una máquina virtual, tenga en cuenta las siguientes recomendaciones:
 - Use la versión más reciente de Windows o Linux.
 - Habilite Redes aceleradas para obtener los mejores resultados.
-- Implemente las máquinas virtuales con un [grupo de selección de ubicación de proximidad de Azure](https://docs.microsoft.com/azure/virtual-machines/linux/co-location).
+- Implemente las máquinas virtuales con un [grupo de selección de ubicación de proximidad de Azure](../virtual-machines/co-location.md).
 - Las máquinas virtuales grandes generalmente funcionan mejor que las pequeñas.
 
 ### <a name="tips-for-analysis"></a>Sugerencias para el análisis
@@ -200,7 +200,7 @@ En este ejemplo de SockPerf se usa un tamaño de mensaje de 350 bytes, el cual 
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Mejore la latencia con un [grupo de selección de ubicación de proximidad de Azure](https://docs.microsoft.com/azure/virtual-machines/linux/co-location).
+* Mejore la latencia con un [grupo de selección de ubicación de proximidad de Azure](../virtual-machines/co-location.md).
 * Aprenda a [optimizar las redes para las máquinas virtuales](../virtual-network/virtual-network-optimize-network-bandwidth.md) en su escenario.
 * Obtenga información acerca de la [asignación del ancho de banda a las máquinas virtuales](../virtual-network/virtual-machine-network-throughput.md).
 * Para más información, consulte [Preguntas más frecuentes acerca de Azure Virtual Network](../virtual-network/virtual-networks-faq.md).

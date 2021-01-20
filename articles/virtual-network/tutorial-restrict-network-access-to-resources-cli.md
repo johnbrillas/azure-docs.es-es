@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: kumud
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1a1eab081a7c1e83a57ef4735c6eb5248d92defc
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: b4f9dcf6fd43749cdf71098b3cd0da8a42020f6d
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94734130"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98221772"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-cli"></a>Restricción del acceso a la red a los recursos de PaaS con puntos de conexión de servicio de red virtual mediante la CLI de Azure
 
@@ -39,7 +39,7 @@ Los puntos de conexión de servicio de red virtual permiten que el acceso de la 
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-- This article requires version 2.0.28 or later of the Azure CLI. Si usa Azure Cloud Shell, ya está instalada la versión más reciente.
+- En este artículo se necesita la versión 2.0.28 o posterior de la CLI de Azure. Si usa Azure Cloud Shell, ya está instalada la versión más reciente.
 
 ## <a name="create-a-virtual-network"></a>Creación de una red virtual
 
@@ -120,7 +120,7 @@ az network nsg rule create \
   --destination-port-range "*"
 ```
 
-Cada grupo de seguridad de red contiene varias [reglas de seguridad predeterminadas](security-overview.md#default-security-rules). La regla siguiente invalida una regla de seguridad predeterminada que permite el acceso de salida a todas las direcciones IP públicas. La opción `destination-address-prefix "Internet"` deniega el acceso de salida a todas las direcciones IP públicas. La regla anterior invalida esta regla porque su prioridad es más alta, lo que permite el acceso a las direcciones IP públicas de Azure Storage.
+Cada grupo de seguridad de red contiene varias [reglas de seguridad predeterminadas](./network-security-groups-overview.md#default-security-rules). La regla siguiente invalida una regla de seguridad predeterminada que permite el acceso de salida a todas las direcciones IP públicas. La opción `destination-address-prefix "Internet"` deniega el acceso de salida a todas las direcciones IP públicas. La regla anterior invalida esta regla porque su prioridad es más alta, lo que permite el acceso a las direcciones IP públicas de Azure Storage.
 
 ```azurecli-interactive
 az network nsg rule create \

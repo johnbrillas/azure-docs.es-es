@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/16/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: a18a36b8583f8534b2a2e643e5c155dc7a2d65e2
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: e2c632de3d602fe2d3e5bfa74f78e90f48412067
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444068"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208920"
 ---
 # <a name="configure-a-mobile-app-that-calls-web-apis"></a>Configuración de una aplicación móvil que llama a las API web
 
@@ -249,8 +249,8 @@ Para registrar el esquema de dirección URL de la aplicación, siga estos pasos:
 
    Aquí, `BundleId` identifica su dispositivo de manera exclusiva. Por ejemplo, si `BundleId` es `yourcompany.xforms`, el esquema de dirección URL es `msauth.com.yourcompany.xforms`.
 
-   > [!NOTE]
-   > Este esquema de dirección URL se convertirá en parte del URI de redirección que se usa para identificar de forma única la aplicación cuando recibe la respuesta del agente.
+  
+      Este esquema de dirección URL se convertirá en parte del URI de redirección que se usa para identificar de forma única la aplicación cuando recibe la respuesta del agente.
 
    ```XML
     <key>CFBundleURLTypes</key>
@@ -310,10 +310,9 @@ Cuando MSAL para iOS y macOS llama al agente, este a su vez vuelve a llamar a la
     }
 ```
 
-> [!NOTE]
-> Si adoptó `UISceneDelegate` en iOS 13 o posterior, coloque la devolución de llamada de MSAL en `scene:openURLContexts:` de `UISceneDelegate` en su lugar. MSAL `handleMSALResponse:sourceApplication:` solo debe llamarse una vez para cada dirección URL.
->
-> Para más información, consulte la [documentación de Apple](https://developer.apple.com/documentation/uikit/uiscenedelegate/3238059-scene?language=objc).
+Si adoptó `UISceneDelegate` en iOS 13 o posterior, coloque la devolución de llamada de MSAL en `scene:openURLContexts:` de `UISceneDelegate` en su lugar. MSAL `handleMSALResponse:sourceApplication:` solo debe llamarse una vez para cada dirección URL.
+
+Para más información, consulte la [documentación de Apple](https://developer.apple.com/documentation/uikit/uiscenedelegate/3238059-scene?language=objc).
 
 #### <a name="step-2-register-a-url-scheme"></a>Paso 2: Registrar un esquema de dirección URL
 
@@ -329,8 +328,7 @@ Para registrar un esquema para la aplicación:
 
    Aquí, `BundleId` identifica su dispositivo de manera exclusiva. Por ejemplo, si `BundleId` es `yourcompany.xforms`, el esquema de dirección URL es `msauth.com.yourcompany.xforms`.
 
-   > [!NOTE]
-   > Este esquema de dirección URL se convertirá en parte del URI de redirección que se usa para identificar de forma única la aplicación cuando recibe la respuesta del agente. Asegúrese de que el URI de redirección con el formato `msauth.(BundleId)://auth` está registrado para la aplicación en [Azure Portal](https://portal.azure.com).
+    Este esquema de dirección URL se convertirá en parte del URI de redirección que se usa para identificar de forma única la aplicación cuando recibe la respuesta del agente. Asegúrese de que el URI de redirección con el formato `msauth.(BundleId)://auth` está registrado para la aplicación en [Azure Portal](https://portal.azure.com).
 
    ```XML
    <key>CFBundleURLTypes</key>

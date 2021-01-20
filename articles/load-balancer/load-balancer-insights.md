@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/27/2020
 ms.author: errobin
-ms.openlocfilehash: 63b91194c9ffb10fd8f4c5f1341eaf74bc81f5e1
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 88c287c4aa87b4df41bfe6bbc1992262b21d07aa
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94694888"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98232767"
 ---
 # <a name="using-insights-to-monitor-and-configure-your-azure-load-balancer"></a>Uso de la información para supervisar y configurar Azure Load Balancer
 
@@ -68,7 +68,7 @@ La pestaña Rendimiento de los datos permite revisar el rendimiento de entrada y
 ### <a name="flow-distribution"></a>Distribución del flujo
 La pestaña Distribución del flujo le ayudará a visualizar y administrar el número de flujos que las instancias de back-end van a recibir y producir. Muestra la velocidad de creación de flujos y el número de flujos para el tráfico entrante y saliente, así como el tráfico de red que recibe cada máquina virtual y cada instancia del conjunto de escalado de máquinas virtuales. 
 
-Estas vistas pueden proporcionar comentarios sobre si la configuración de Load Balancer o los patrones de tráfico conducen a un tráfico desequilibrado. Por ejemplo, si tiene configurada la afinidad de la sesión y un solo cliente está realizando un número desproporcionado de solicitudes. También le indicará si se está aproximando al [límite de flujo por máquina virtual](../virtual-network/virtual-machine-network-throughput.md#flow-limits-and-recommendations) para el tamaño de la máquina.
+Estas vistas pueden proporcionar comentarios sobre si la configuración de Load Balancer o los patrones de tráfico conducen a un tráfico desequilibrado. Por ejemplo, si tiene configurada la afinidad de la sesión y un solo cliente está realizando un número desproporcionado de solicitudes. También le indicará si se está aproximando al [límite de flujo por máquina virtual](../virtual-network/virtual-machine-network-throughput.md#flow-limits-and-active-connections-recommendations) para el tamaño de la máquina.
 
 ### <a name="connection-monitors"></a>Monitores de conexión
 La pestaña de instancias Connection Monitor le mostrará la latencia de recorrido de ida y vuelta en un mapa global para todas las instancias de [Connection Monitor](../network-watcher/connection-monitor.md) que ha configurado. Estos objetos visuales proporcionan información útil para los servicios con requisitos de latencia estrictos. Para satisfacer sus necesidades, puede que necesite agregar implementaciones regionales adicionales o cambiar a un modelo de [equilibrio de carga entre regiones](./cross-region-overview.md).

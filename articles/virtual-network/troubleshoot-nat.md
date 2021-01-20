@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/20/2020
 ms.author: allensu
-ms.openlocfilehash: 690543ebc91e346e77509fbf993493f6978374ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 70410e58acb30c7694e6fe4a6dcaff57bee98607
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87836112"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223438"
 ---
 # <a name="troubleshoot-azure-virtual-network-nat-connectivity"></a>Solución de problemas de conectividad de Azure Virtual Network NAT
 
@@ -68,10 +68,10 @@ _**Solución:**_ Uso de patrones y procedimientos recomendados apropiados
 El agotamiento de SNAT también se puede amplificar con otros antipatrones en la aplicación subyacente. Revise estos patrones y procedimientos recomendados adicionales para mejorar la escala y la confiabilidad del servicio.
 
 - Explore el impacto de reducir el [tiempo de espera de inactividad de TCP](nat-gateway-resource.md#timers) a valores inferiores, incluido el tiempo de espera predeterminado de inactividad de cuatro minutos para liberar antes el inventario de puertos SNAT.
-- Considere la posibilidad de usar [patrones de sondeo asincrónicos](https://docs.microsoft.com/azure/architecture/patterns/async-request-reply) para las operaciones de ejecución prolongada, con el fin de liberar recursos de conexión para otras operaciones.
+- Considere la posibilidad de usar [patrones de sondeo asincrónicos](/azure/architecture/patterns/async-request-reply) para las operaciones de ejecución prolongada, con el fin de liberar recursos de conexión para otras operaciones.
 - Los flujos de larga duración (como las conexiones TCP reutilizadas) deberían usar paquetes keepalive de TCP o de la capa de la aplicación para evitar que los sistemas intermedios superen el tiempo de espera. Aumentar el tiempo de espera de inactividad es un último recurso y es posible que no resuelva la causa principal. Un tiempo de espera prolongado puede causar errores de baja tasa cuando expira el tiempo de espera e introducir retrasos y errores innecesarios.
-- Se deben usar [patrones de reintento](https://docs.microsoft.com/azure/architecture/patterns/retry) correctos para evitar reintentos o ráfagas agresivos durante un error transitorio o la recuperación de un error.
-La creación de una conexión TCP para cada operación HTTP (también conocidas como "conexiones atómicas") es un antipatrón.  Las conexiones atómicas evitarán que su aplicación se escale de forma correcta y malgastarán recursos.  Canalice siempre varias operaciones a la misma conexión.  Su aplicación aumentará la velocidad de las transacciones y reducirá los costos de los recursos.  Cuando la aplicación usa un cifrado de la capa de transporte (por ejemplo, TLS), se produce un considerable costo asociado con el procesamiento de nuevas conexiones.  Para conocer otros patrones de procedimientos recomendados, consulte [Patrones de diseño en la nube de Azure](https://docs.microsoft.com/azure/architecture/patterns/).
+- Se deben usar [patrones de reintento](/azure/architecture/patterns/retry) correctos para evitar reintentos o ráfagas agresivos durante un error transitorio o la recuperación de un error.
+La creación de una conexión TCP para cada operación HTTP (también conocidas como "conexiones atómicas") es un antipatrón.  Las conexiones atómicas evitarán que su aplicación se escale de forma correcta y malgastarán recursos.  Canalice siempre varias operaciones a la misma conexión.  Su aplicación aumentará la velocidad de las transacciones y reducirá los costos de los recursos.  Cuando la aplicación usa un cifrado de la capa de transporte (por ejemplo, TLS), se produce un considerable costo asociado con el procesamiento de nuevas conexiones.  Para conocer otros patrones de procedimientos recomendados, consulte [Patrones de diseño en la nube de Azure](/azure/architecture/patterns/).
 
 #### <a name="additional-possible-mitigations"></a>Posibles mitigaciones adicionales
 
@@ -96,7 +96,7 @@ La siguiente tabla se puede usar como punto de partida para saber qué herramien
 | Sistema operativo | Prueba de conexión TCP genérica | Prueba de la capa de la aplicación de TCP | UDP |
 |---|---|---|---|
 | Linux | nc (prueba de conexión genérica) | curl (prueba de la capa de la aplicación de TCP) | específica de la aplicación |
-| Windows | [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) | [Invoke-WebRequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest) de PowerShell | específica de la aplicación |
+| Windows | [PsPing](/sysinternals/downloads/psping) | [Invoke-WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest) de PowerShell | específica de la aplicación |
 
 ### <a name="connectivity-failures"></a>Errores de conectividad
 
@@ -113,7 +113,7 @@ Use herramientas como la siguiente para la validación de la conectividad. [No s
 | Sistema operativo | Prueba de conexión TCP genérica | Prueba de la capa de la aplicación de TCP | UDP |
 |---|---|---|---|
 | Linux | nc (prueba de conexión genérica) | curl (prueba de la capa de la aplicación de TCP) | específica de la aplicación |
-| Windows | [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) | [Invoke-WebRequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest) de PowerShell | específica de la aplicación |
+| Windows | [PsPing](/sysinternals/downloads/psping) | [Invoke-WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest) de PowerShell | específica de la aplicación |
 
 #### <a name="configuration"></a>Configuración
 
@@ -202,4 +202,3 @@ Si sigue teniendo problemas, abra un caso de soporte técnico para solucionar el
 * Obtenga información sobre los [recursos de puerta de enlace de NAT](nat-gateway-resource.md)
 * Obtenga información acerca de las [métricas y alertas de los recursos de puerta de enlace NAT](nat-metrics.md).
 * [Indíquenos qué crear a continuación para Virtual Network NAT en UserVoice](https://aka.ms/natuservoice).
-

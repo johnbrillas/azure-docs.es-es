@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 06/11/2020
 ms.author: allensu
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 0ec054d55432ad2680314b4ff91a067d37b629d4
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: e99ee28460c1639a7f0b9dd989bbe5a287a9158c
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94734338"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98221902"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-azure-cli-and-test-the-nat-service"></a>Tutorial: Creación de una puerta de enlace de NAT mediante la CLI de Azure y prueba del servicio NAT
 
@@ -34,7 +34,7 @@ En este tutorial, creará una puerta de enlace de NAT para proporcionar conectiv
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Cree un grupo de recursos con [az group create](https://docs.microsoft.com/cli/azure/group). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure.
+Cree un grupo de recursos con [az group create](/cli/azure/group). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure.
 
 En el ejemplo siguiente se crea un grupo de recursos llamado **myResourceGroupNAT** en la ubicación **eastus2**:
 
@@ -49,7 +49,7 @@ En el ejemplo siguiente se crea un grupo de recursos llamado **myResourceGroupNA
 
 ### <a name="create-a-public-ip-address"></a>Crear una dirección IP pública
 
-Para acceder a la red pública de Internet, necesita una o varias direcciones IP públicas para la puerta de enlace de NAT. Use [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip) para crear un recurso de dirección IP pública llamado **myPublicIPsource** en **myResourceGroupNAT**.
+Para acceder a la red pública de Internet, necesita una o varias direcciones IP públicas para la puerta de enlace de NAT. Use [az network public-ip create](/cli/azure/network/public-ip) para crear un recurso de dirección IP pública llamado **myPublicIPsource** en **myResourceGroupNAT**.
 
 ```azurecli-interactive
   az network public-ip create \
@@ -77,7 +77,7 @@ En esta sección se detalla cómo crear y configurar los componentes siguientes 
   - Un grupo de direcciones IP públicas y un prefijo de dirección IP pública que se usarán en los flujos salientes traducidos por el recurso de puerta de enlace de NAT.
   - Cambie el tiempo de espera de inactividad de 4 (el valor predeterminado) a 10 minutos.
 
-Cree una puerta de enlace de NAT de Azure global con [az network nat gateway create](https://docs.microsoft.com/cli/azure/network/nat?view=azure-cli-latest) llamada **myNATgateway**. El comando usa la dirección IP pública **myPublicIP** y el prefijo de dirección IP pública **myPublicIPprefix**. El comando también cambia el tiempo de espera de inactividad a 10 minutos.
+Cree una puerta de enlace de NAT de Azure global con [az network nat gateway create](/cli/azure/network/nat?view=azure-cli-latest) llamada **myNATgateway**. El comando usa la dirección IP pública **myPublicIP** y el prefijo de dirección IP pública **myPublicIPprefix**. El comando también cambia el tiempo de espera de inactividad a 10 minutos.
 
 ```azurecli-interactive
   az network nat gateway create \
@@ -99,7 +99,7 @@ Se le va a guiar por la configuración de un entorno de prueba completo. Configu
 
 Antes de implementar una máquina virtual y probar la puerta de enlace de NAT, es necesario crear la red virtual.
 
-Cree una red virtual llamada **myVnetsource** con una subred llamada **mySubnetsource** en el grupo de recursos **myResourceGroupNAT** con [az network Microsoft Azure Virtual Network create](https://docs.microsoft.com/cli/azure/network/vnet).  El espacio de direcciones IP de la red virtual es **192.168.0.0/16**. La subred de la red virtual es **192.168.0.0/24**.
+Cree una red virtual llamada **myVnetsource** con una subred llamada **mySubnetsource** en el grupo de recursos **myResourceGroupNAT** con [az network Microsoft Azure Virtual Network create](/cli/azure/network/vnet).  El espacio de direcciones IP de la red virtual es **192.168.0.0/16**. La subred de la red virtual es **192.168.0.0/24**.
 
 ```azurecli-interactive
   az network vnet create \
@@ -113,7 +113,7 @@ Cree una red virtual llamada **myVnetsource** con una subred llamada **mySubnets
 
 ### <a name="configure-nat-service-for-source-subnet"></a>Configuración del servicio NAT para la subred de origen
 
-Configure la subred de origen **mySubnetsource** de la red virtual **myVnetsource** para usar el recurso de puerta de enlace de NAT específico **myNATgateway** con [az network Microsoft Azure Virtual Network subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet). Este comando activará el servicio NAT en la subred especificada.
+Configure la subred de origen **mySubnetsource** de la red virtual **myVnetsource** para usar el recurso de puerta de enlace de NAT específico **myNATgateway** con [az network Microsoft Azure Virtual Network subnet update](/cli/azure/network/vnet/subnet). Este comando activará el servicio NAT en la subred especificada.
 
 ```azurecli-interactive
     az network vnet subnet update \
@@ -132,7 +132,7 @@ Como ejercicio, también puede crear esta máquina virtual sin una dirección IP
 
 ### <a name="create-public-ip-for-source-vm"></a>Creación de una dirección IP pública para la máquina virtual de origen
 
-Se va a crear una dirección IP pública que se usará para acceder a la máquina virtual de origen. Use [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip) para crear un recurso de dirección IP pública llamado **myPublicIPsourceVM** en **myResourceGroupNAT**.
+Se va a crear una dirección IP pública que se usará para acceder a la máquina virtual de origen. Use [az network public-ip create](/cli/azure/network/public-ip) para crear un recurso de dirección IP pública llamado **myPublicIPsourceVM** en **myResourceGroupNAT**.
 
 ```azurecli-interactive
   az network public-ip create \
@@ -144,7 +144,7 @@ Se va a crear una dirección IP pública que se usará para acceder a la máquin
 
 ### <a name="create-an-nsg-for-source-vm"></a>Creación de un grupo de seguridad de red para la máquina virtual de origen
 
-Dado que las direcciones IP públicas estándar son "seguras de forma predeterminada", es necesario crear un grupo de seguridad de red para permitir el acceso de entrada mediante SSH.  El servicio Azure NAT depende de la dirección del flujo. Este grupo de seguridad de red no se usará para la salida una vez que la puerta de enlace de NAT esté configurada en la misma subred. Use [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg?view=azure-cli-latest#az-network-nsg-create) para crear un recurso de grupo de seguridad de red llamado **myNSGsource** en **myResourceGroupNAT**.
+Dado que las direcciones IP públicas estándar son "seguras de forma predeterminada", es necesario crear un grupo de seguridad de red para permitir el acceso de entrada mediante SSH.  El servicio Azure NAT depende de la dirección del flujo. Este grupo de seguridad de red no se usará para la salida una vez que la puerta de enlace de NAT esté configurada en la misma subred. Use [az network nsg create](/cli/azure/network/nsg?view=azure-cli-latest#az-network-nsg-create) para crear un recurso de grupo de seguridad de red llamado **myNSGsource** en **myResourceGroupNAT**.
 
 ```azurecli-interactive
   az network nsg create \
@@ -155,7 +155,7 @@ Dado que las direcciones IP públicas estándar son "seguras de forma predetermi
 
 ### <a name="expose-ssh-endpoint-on-source-vm"></a>Exposición del punto de conexión SSH en la máquina virtual de origen
 
-Se va a crear una regla en el grupo de seguridad de red para el acceso mediante SSH a la máquina virtual de origen. Use [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-create) para crear una regla de grupo de seguridad de red llamada **ssh**. Esta regla se creará en el grupo de seguridad de red llamado **myNSGsource** en el grupo de recursos **myResourceGroupNAT**.
+Se va a crear una regla en el grupo de seguridad de red para el acceso mediante SSH a la máquina virtual de origen. Use [az network nsg rule create](/cli/azure/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-create) para crear una regla de grupo de seguridad de red llamada **ssh**. Esta regla se creará en el grupo de seguridad de red llamado **myNSGsource** en el grupo de recursos **myResourceGroupNAT**.
 
 ```azurecli-interactive
   az network nsg rule create \
@@ -211,7 +211,7 @@ Ahora se va a crear un destino para el tráfico saliente traducido por el servic
 
  Es necesario crear una red virtual donde estará la máquina virtual de destino.  Estos comandos son los mismos que para la máquina virtual de origen con pequeños cambios para exponer el punto de conexión de destino.
 
-Cree una red virtual llamada **myVnetdestination** con una subred llamada **mySubnetdestination** en el grupo de recursos **myResourceGroupNAT** con [az network Microsoft Azure Virtual Network create](https://docs.microsoft.com/cli/azure/network/vnet).  El espacio de direcciones IP de la red virtual es **192.168.0.0/16**. La subred de la red virtual es **192.168.0.0/24**.
+Cree una red virtual llamada **myVnetdestination** con una subred llamada **mySubnetdestination** en el grupo de recursos **myResourceGroupNAT** con [az network Microsoft Azure Virtual Network create](/cli/azure/network/vnet).  El espacio de direcciones IP de la red virtual es **192.168.0.0/16**. La subred de la red virtual es **192.168.0.0/24**.
 
 ```azurecli-interactive
   az network vnet create \
@@ -225,7 +225,7 @@ Cree una red virtual llamada **myVnetdestination** con una subred llamada **mySu
 
 ### <a name="create-public-ip-for-destination-vm"></a>Creación de una dirección IP pública para la máquina virtual de destino
 
-Se va a crear una dirección IP pública que se usará para acceder a la máquina virtual de origen. Use [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip) para crear un recurso de dirección IP pública llamado **myPublicIPdestinationVM** en **myResourceGroupNAT**. 
+Se va a crear una dirección IP pública que se usará para acceder a la máquina virtual de origen. Use [az network public-ip create](/cli/azure/network/public-ip) para crear un recurso de dirección IP pública llamado **myPublicIPdestinationVM** en **myResourceGroupNAT**. 
 
 ```azurecli-interactive
   az network public-ip create \
@@ -237,7 +237,7 @@ Se va a crear una dirección IP pública que se usará para acceder a la máquin
 
 ### <a name="create-an-nsg-for-destination-vm"></a>Creación de un grupo de seguridad de red para la máquina virtual de destino
 
-Las direcciones IP públicas estándar son "seguras de forma predeterminada", por lo que deberá crear un grupo de seguridad de red para permitir el acceso de entrada mediante SSH. El servicio Azure NAT depende de la dirección del flujo. Este grupo de seguridad de red no se usará para la salida una vez que la puerta de enlace de NAT esté configurada en la misma subred. Use [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg?view=azure-cli-latest#az-network-nsg-create) para crear un recurso de grupo de seguridad de red llamado **myNSGdestination** en **myResourceGroupNAT**.
+Las direcciones IP públicas estándar son "seguras de forma predeterminada", por lo que deberá crear un grupo de seguridad de red para permitir el acceso de entrada mediante SSH. El servicio Azure NAT depende de la dirección del flujo. Este grupo de seguridad de red no se usará para la salida una vez que la puerta de enlace de NAT esté configurada en la misma subred. Use [az network nsg create](/cli/azure/network/nsg?view=azure-cli-latest#az-network-nsg-create) para crear un recurso de grupo de seguridad de red llamado **myNSGdestination** en **myResourceGroupNAT**.
 
 ```azurecli-interactive
     az network nsg create \
@@ -248,7 +248,7 @@ Las direcciones IP públicas estándar son "seguras de forma predeterminada", po
 
 ### <a name="expose-ssh-endpoint-on-destination-vm"></a>Exposición del punto de conexión SSH en la máquina virtual de destino
 
-Se va a crear una regla en el grupo de seguridad de red para el acceso mediante SSH a la máquina virtual de destino. Use [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-create) para crear una regla de grupo de seguridad de red llamada **ssh**. Esta regla se creará en el grupo de seguridad de red llamado **myNSGdestination** en el grupo de recursos **myResourceGroupNAT**.
+Se va a crear una regla en el grupo de seguridad de red para el acceso mediante SSH a la máquina virtual de destino. Use [az network nsg rule create](/cli/azure/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-create) para crear una regla de grupo de seguridad de red llamada **ssh**. Esta regla se creará en el grupo de seguridad de red llamado **myNSGdestination** en el grupo de recursos **myResourceGroupNAT**.
 
 ```azurecli-interactive
     az network nsg rule create \
@@ -266,7 +266,7 @@ Se va a crear una regla en el grupo de seguridad de red para el acceso mediante 
 
 ### <a name="expose-http-endpoint-on-destination-vm"></a>Exposición de un punto de conexión HTTP en la máquina virtual de destino
 
-Se va a crear una regla en el grupo de seguridad de red para el acceso mediante HTTP a la máquina virtual de destino. Use [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-create) para crear una regla de grupo de seguridad de red llamada **http** en el NSG llamado **myNSGdestination** en **myResourceGroupNAT**.
+Se va a crear una regla en el grupo de seguridad de red para el acceso mediante HTTP a la máquina virtual de destino. Use [az network nsg rule create](/cli/azure/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-create) para crear una regla de grupo de seguridad de red llamada **http** en el NSG llamado **myNSGdestination** en **myResourceGroupNAT**.
 
 ```azurecli-interactive
     az network nsg rule create \
@@ -434,4 +434,3 @@ Revise las métricas de Azure Monitor para ver el funcionamiento del servicio NA
 - Inicio rápido para la implementación de [recursos de puerta de enlace de NAT con Azure Portal](./quickstart-create-nat-gateway-portal.md).
 
 > [!div class="nextstepaction"]
-

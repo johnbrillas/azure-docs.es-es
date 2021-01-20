@@ -8,20 +8,20 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 699a7321646167b0a9fb20a77a40999ec33b14f0
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 9782cce4165487b612c0295dc893d120ed043225
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461327"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98218270"
 ---
 # <a name="connect-to-your-azure-synapse-workspace-using-private-links"></a>Conexión a su área de trabajo de Azure Synapse mediante vínculos privados (versión preliminar)
 
-En este artículo se explica cómo crear un punto de conexión privado a su área de trabajo de Azure Synapse. Para obtener más información, consulte [vínculos privados y puntos de conexión privados](https://docs.microsoft.com/azure/private-link/).
+En este artículo se explica cómo crear un punto de conexión privado a su área de trabajo de Azure Synapse. Para obtener más información, consulte [vínculos privados y puntos de conexión privados](../../private-link/index.yml).
 
 ## <a name="step-1-register-network-resource-provider"></a>Paso 1: Registro del proveedor de recursos de red
 
-Si todavía no lo ha hecho, registre el proveedor de recursos de red. Al registrar un proveedor de recursos se configura la suscripción para que funcione con este. Elija *Microsoft.Network* en la lista de proveedores de recursos al [efectuar el registro](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types). Si el proveedor de recursos de red ya está registrado, continúe con el paso 2.
+Si todavía no lo ha hecho, registre el proveedor de recursos de red. Al registrar un proveedor de recursos se configura la suscripción para que funcione con este. Elija *Microsoft.Network* en la lista de proveedores de recursos al [efectuar el registro](../../azure-resource-manager/management/resource-providers-and-types.md). Si el proveedor de recursos de red ya está registrado, continúe con el paso 2.
 
 ## <a name="step-2-open-your-azure-synapse-workspace-in-azure-portal"></a>Paso 2: Apertura del área de trabajo de Azure Synapse en Azure Portal
 

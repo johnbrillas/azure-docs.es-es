@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/08/2018
 ms.author: kumud
-ms.openlocfilehash: 6eab1803bf5adab42be87b5f8567682c6d75947e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8cb1a490ac8edf2630253b45d99c3394bbe721b8
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74483540"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234161"
 ---
 # <a name="disaster-recovery-using-azure-dns-and-traffic-manager"></a>Recuperación ante desastres mediante Azure DNS y Traffic Manager
 
@@ -45,7 +45,7 @@ La mayoría de los clientes de empresa eligen una arquitectura de varias regione
     
     *Figura: configuración de recuperación ante desastres activo/pasivo con estado de espera semiactiva*
     
-Para más información sobre la conmutación por error y la alta disponibilidad, consulte [Recuperación ante desastres para aplicaciones de Azure](https://docs.microsoft.com/azure/architecture/resiliency/disaster-recovery-azure-applications).
+Para más información sobre la conmutación por error y la alta disponibilidad, consulte [Recuperación ante desastres para aplicaciones de Azure](/azure/architecture/resiliency/disaster-recovery-azure-applications).
 
 
 ## <a name="planning-your-disaster-recovery-architecture"></a>Planeamiento de la arquitectura de recuperación ante desastres
@@ -54,7 +54,7 @@ Hay dos aspectos técnicos en la configuración de la arquitectura de recuperaci
 -  El uso de un mecanismo de implementación para replicar instancias, datos y configuraciones entre entornos principales y en espera. Este tipo de recuperación ante desastres se puede realizar de forma nativa con Azure Site Recovery y mediante dispositivos o servicios de asociados de Microsoft Azure como Veritas o NetApp. 
 - El desarrollo de una solución para desviar el tráfico de red y el tráfico web desde el sitio principal al sitio en espera. Este tipo de recuperación ante desastres se puede lograr con Azure DNS, Azure Traffic Manager (DNS) o equilibradores de carga globales de otros fabricantes.
 
-Este artículo se limita a los enfoques de redireccionamiento del tráfico de red y del tráfico web. Para instrucciones sobre la configuración de Azure Site Recovery, consulte la [Documentación de Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/).
+Este artículo se limita a los enfoques de redireccionamiento del tráfico de red y del tráfico web. Para instrucciones sobre la configuración de Azure Site Recovery, consulte la [Documentación de Azure Site Recovery](../site-recovery/index.yml).
 DNS es uno de los mecanismos más eficaces para desviar el tráfico de red porque a menudo es global y externo al centro de datos y está aislado de los errores del nivel de zona de disponibilidad (AZ) o región. Se puede usar un mecanismo de conmutación por error basado en DNS y en Azure dos servicios DNS pueden lograr lo mismo de algún modo: Azure DNS (DNS autoritativo) y Azure Traffic Manager (enrutamiento de tráfico inteligente basado en DNS). 
 
 Es importante entender algunos conceptos sobre DNS que se utilizan ampliamente para explicar las soluciones proporcionadas en este artículo:
@@ -170,12 +170,3 @@ Durante un desastre, se sondea el punto de conexión principal y el estado cambi
 ## <a name="next-steps"></a>Pasos siguientes
 - Más información acerca de [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md).
 - Obtenga más información sobre [Azure DNS](../dns/dns-overview.md).
-
-
-
-
-
-
-
-
-

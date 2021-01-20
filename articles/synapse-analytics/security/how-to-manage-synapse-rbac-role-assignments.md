@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/1/2020
 ms.author: billgib
 ms.reviewer: jrasnick
-ms.openlocfilehash: f26b54a18ff137575cac208d70e4693c0b9914a8
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: c88371eb450d5b0e2e8b821cdec0e87190e291f8
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96572293"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98218202"
 ---
 # <a name="how-to-manage-synapse-rbac-role-assignments-in-synapse-studio"></a>Cómo administrar asignaciones de roles de Synapse RBAC en Synapse Studio
 
@@ -65,7 +65,7 @@ Para asignar un rol en un ámbito más preciso, seleccione **Elemento de área d
 
 ![Agregue la asignación de roles al elemento del área de trabajo: seleccione el tipo de elemento](./media/how-to-manage-synapse-rbac-role-assignments/access-control-add-workspace-item-assignment-select-item-type.png) 
 
-Seleccione el **elemento** específico que se va a usar como ámbito y, a continuación, seleccione el **rol** que se va a asignar en la lista desplegable.  La lista desplegable muestra solo los roles que son válidos para el tipo de elemento seleccionado. [Más información](https://go.microsoft.com/fwlink/?linkid=2148306).  
+Seleccione el **elemento** específico que se va a usar como ámbito y, a continuación, seleccione el **rol** que se va a asignar en la lista desplegable.  La lista desplegable muestra solo los roles que son válidos para el tipo de elemento seleccionado. [Más información](./synapse-workspace-synapse-rbac.md).  
 
 ![Agregue la asignación de roles al elemento del área de trabajo: seleccione el rol](./media/how-to-manage-synapse-rbac-role-assignments/access-control-add-workspace-item-assignment-select-role.png) 
  
@@ -81,4 +81,4 @@ Recuerde que los cambios en las asignaciones de roles tardarán de 2 a 5 minuto
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Descripción de los roles de Synapse RBAC necesarios para realizar tareas comunes](./synapse-workspace-understand-what-role-you-need.md) 
+[Descripción de los roles de Synapse RBAC necesarios para realizar tareas comunes](./synapse-workspace-understand-what-role-you-need.md)

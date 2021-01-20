@@ -13,12 +13,12 @@ ms.date: 04/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: b29d8007ba7c6fb41209ad4f792069667416616b
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: d855e124c84dee8554073d05fa04fe078b92ddaa
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98011550"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208896"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Manifiesto de aplicación de Azure Active Directory
 
@@ -115,17 +115,6 @@ Ejemplo:
     "allowPublicClient": false,
 ```
 
-### <a name="availabletoothertenants-attribute"></a>Atributo availableToOtherTenants
-
-| Clave | Tipo de valor |
-| :--- | :--- |
-| availableToOtherTenants | Boolean |
-
-Es "true" si la aplicación se comparte con otros inquilinos; de lo contrario, es "false".
-
-> [!NOTE]
-> Este atributo solo está disponible en la experiencia **Registros de aplicaciones (heredados)** . Se reemplaza por `signInAudience` en la experiencia [Registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908).
-
 ### <a name="appid-attribute"></a>Atributo appId
 
 | Clave | Tipo de valor |
@@ -165,17 +154,6 @@ Ejemplo:
     ],
 ```
 
-### <a name="displayname-attribute"></a>Atributo displayName
-
-| Clave | Tipo de valor |
-| :--- | :--- |
-| DisplayName | String |
-
-El nombre para mostrar de la aplicación.
-
-> [!NOTE]
-> Este atributo solo está disponible en la experiencia **Registros de aplicaciones (heredados)** . Se reemplaza por `name` en la experiencia [Registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908).
-
 ### <a name="errorurl-attribute"></a>Atributo errorUrl
 
 | Clave | Tipo de valor |
@@ -203,33 +181,6 @@ Ejemplo:
     "groupMembershipClaims": "SecurityGroup",
 ```
 
-### <a name="homepage-attribute"></a>Atributo homepage
-
-| Clave | Tipo de valor |
-| :--- | :--- |
-| página principal |String |
-
-URL a la página principal de la aplicación.
-
-> [!NOTE]
-> Este atributo solo está disponible en la experiencia **Registros de aplicaciones (heredados)** . Se reemplaza por `signInUrl` en la experiencia [Registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908).
-
-### <a name="objectid-attribute"></a>Atributo objectId
-
-| Clave | Tipo de valor |
-| :--- | :--- |
-|objectId | String |
-
-El identificador único de la aplicación en el directorio.
-
-Esto solo está disponible en la experiencia **Registros de aplicaciones (heredados)** . Se reemplaza por `id` en la experiencia [Registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908).
-
-Ejemplo:
-
-```json
-    "objectId": "f7f9acfc-ae0c-4d6c-b489-0a81dc1652dd",
-```
-
 ### <a name="optionalclaims-attribute"></a>Atributo optionalClaims
 
 | Clave | Tipo de valor |
@@ -245,7 +196,6 @@ Ejemplo:
 ```json
     "optionalClaims": null,
 ```
-
 
 
 ### <a name="identifieruris-attribute"></a>Atributo identifierUris
@@ -489,16 +439,6 @@ Ejemplo:
     ],
 ```
 
-### <a name="publicclient-attribute"></a>Atributo publicClient
-
-| Clave | Tipo de valor |
-| :--- | :--- |
-| publicClient | Boolean|
-
-Especifica si esta aplicación es un cliente público (como una aplicación instalada que se ejecuta en un dispositivo móvil).
-
-Esta propiedad solo está disponible en la experiencia **Registros de aplicaciones (heredados)** . Se reemplaza por `allowPublicClient` en la experiencia [Registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908).
-
 ### <a name="publisherdomain-attribute"></a>Atributo publisherDomain
 
 | Clave | Tipo de valor |
@@ -511,17 +451,7 @@ Ejemplo:
 
 ```json
     "publisherDomain": "https://www.contoso.com",
-````
-
-### <a name="replyurls-attribute"></a>Atributo replyUrls
-
-| Clave | Tipo de valor |
-| :--- | :--- |
-| replyUrls | Matriz de cadena |
-
-Esta propiedad multivalor contiene la lista de valores de redirect_uri registrados que Azure AD aceptará como destinos cuando se devuelvan tokens.
-
-Esta propiedad solo está disponible en la experiencia **Registros de aplicaciones (heredados)** . Se reemplaza por `replyUrlsWithType` en la experiencia [Registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908).
+```
 
 ### <a name="replyurlswithtype-attribute"></a>Atributo replyUrlsWithType
 

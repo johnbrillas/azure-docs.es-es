@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: allensu
-ms.openlocfilehash: 9b5fc9e4118d98905138b7f205f61d85a96b60b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76f92b5da2331748fbbbfc68f1e456fd50dd71ee
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88035474"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223030"
 ---
 # <a name="associate-a-public-ip-address-to-a-virtual-machine"></a>Asociar una dirección IP pública a una máquina virtual
 
@@ -65,7 +65,7 @@ Puede usar [Azure Portal](#azure-portal), la [interfaz de la línea de comandos]
 Instale la [CLI de Azure](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json) o use Azure Cloud Shell. Azure Cloud Shell es un shell de Bash gratuito que se puede ejecutar directamente en Azure Portal. Tiene la CLI de Azure preinstalada y configurada para utilizarla con la cuenta. Seleccione el botón **Probar** en los comandos siguientes de la CLI. Al seleccionar **Probar**, se invoca una instancia de Cloud Shell con la que puede iniciar sesión en la cuenta de Azure.
 
 1. Si usa la CLI localmente en Bash, inicie sesión en Azure con `az login`.
-2. Una dirección IP pública está asociada a una configuración de IP de una interfaz de red conectada a una VM. Use el comando [az network nic-ip-config update](/cli/azure/network/nic/ip-config?view=azure-cli-latest#az-network-nic-ip-config-update) para asociar una dirección IP pública a una configuración de IP. El siguiente ejemplo asocia una dirección IP pública denominada *myVMPublicIP*a la configuración de IP *ipconfigmyVM* de una interfaz de red existente *myVMVMNic* que existe en un grupo de recursos denominado *myResourceGroup*.
+2. Una dirección IP pública está asociada a una configuración de IP de una interfaz de red conectada a una VM. Use el comando [az network nic-ip-config update](/cli/azure/network/nic/ip-config?view=azure-cli-latest#az-network-nic-ip-config-update) para asociar una dirección IP pública a una configuración de IP. El siguiente ejemplo asocia una dirección IP pública denominada *myVMPublicIP* a la configuración de IP *ipconfigmyVM* de una interfaz de red existente *myVMVMNic* que existe en un grupo de recursos denominado *myResourceGroup*.
   
    ```azurecli-interactive
    az network nic ip-config update \
@@ -214,4 +214,4 @@ Para poder conectarse a la dirección IP pública desde Internet, asegúrese de 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Permita el tráfico entrante de Internet a la VM con un grupo de seguridad de red. Para obtener información sobre cómo crear un grupo de seguridad de red, consulte [Trabajar con grupos de seguridad de red](manage-network-security-group.md#work-with-network-security-groups). Para obtener más información sobre los grupos de seguridad de red, consulte [Grupos de seguridad](security-overview.md).
+Permita el tráfico entrante de Internet a la VM con un grupo de seguridad de red. Para obtener información sobre cómo crear un grupo de seguridad de red, consulte [Trabajar con grupos de seguridad de red](manage-network-security-group.md#work-with-network-security-groups). Para obtener más información sobre los grupos de seguridad de red, consulte [Grupos de seguridad](./network-security-groups-overview.md).

@@ -9,12 +9,12 @@ ms.subservice: security
 ms.date: 12/03/2020
 ms.author: billgib
 ms.reviewer: jrasnick
-ms.openlocfilehash: 62c30356017b5ea5d93351e6f22b8b7b0c22718c
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 7dbbe3afb2a5eb19b5c4893bd73eddbf11e788d4
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109273"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98218083"
 ---
 # <a name="how-to-set-up-access-control-for-your-synapse-workspace"></a>Cómo configurar el control de acceso para el área de trabajo de Synapse 
 
@@ -73,8 +73,8 @@ El grupo de `workspace1_SQLAdmins` se usará al configurar permisos SQL en grupo
 En el caso de una configuración básica, estos cinco grupos son suficientes. Más adelante, podrá agregar grupos de seguridad para administrar los usuarios que necesiten acceso más especializado o para proporcionar acceso a los usuarios solo a recursos específicos.
 
 > [!NOTE]
->- Obtenga información sobre cómo crear un grupo de seguridad en [este artículo](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal).
->- Obtenga información sobre cómo agregar un grupo de seguridad de otro grupo de seguridad en [este artículo](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-membership-azure-portal).
+>- Obtenga información sobre cómo crear un grupo de seguridad en [este artículo](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+>- Obtenga información sobre cómo agregar un grupo de seguridad de otro grupo de seguridad en [este artículo](../../active-directory/fundamentals/active-directory-groups-membership-azure-portal.md).
 
 >[!Tip]
 >Los usuarios individuales de Synapse pueden usar Azure Active Directory en Azure Portal para ver las pertenencias a grupos y determinar qué roles se les han concedido.

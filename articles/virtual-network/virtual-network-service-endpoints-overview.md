@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2019
 ms.author: sumi
 ms.custom: ''
-ms.openlocfilehash: 7d937542201792c0d1c0be69df9bd1c2b34edea3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 93feaef01b234eeb7ac363c18d8e9d8f52b009de
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004949"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98216536"
 ---
 # <a name="virtual-network-service-endpoints"></a>Puntos de conexión de servicio de red virtual
 
@@ -33,14 +33,14 @@ Esta característica está disponible para las siguientes regiones y servicios d
 - **[Azure Synapse Analytics](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft.Sql*): disponibilidad general en todas las regiones de Azure.
 - **[Servidor de Azure Database for PostgreSQL](../postgresql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft.Sql*): disponibilidad general en las regiones de Azure en las que el servicio de base de datos esté disponible.
 - **[Servidor de Azure Database for MySQL](../mysql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft.Sql*): disponibilidad general en las regiones de Azure en las que el servicio de base de datos esté disponible.
-- **[Azure Database for MariaDB](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet)** (*Microsoft.Sql*): disponibilidad general en las regiones de Azure en las que el servicio de base de datos esté disponible.
-- **[Azure Cosmos DB](../cosmos-db/vnet-service-endpoint.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft.AzureCosmosDB*): disponibilidad general en todas las regiones de Azure.
+- **[Azure Database for MariaDB](../mariadb/concepts-data-access-security-vnet.md)** (*Microsoft.Sql*): disponibilidad general en las regiones de Azure en las que el servicio de base de datos esté disponible.
+- **[Azure Cosmos DB](../cosmos-db/how-to-configure-vnet-service-endpoint.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft.AzureCosmosDB*): disponibilidad general en todas las regiones de Azure.
 - **[Azure Key Vault](../key-vault/general/overview-vnet-service-endpoints.md)** (*Microsoft.KeyVault*): disponibilidad general en todas las regiones de Azure.
 - **[Azure Service Bus](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft.ServiceBus*): disponibilidad general en todas las regiones de Azure.
 - **[Azure Event Hubs](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft.EventHub*): disponibilidad general en todas las regiones de Azure.
 - **[Azure Data Lake Store Gen 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft.AzureActiveDirectory*): Disponible con carácter general en todas las regiones de Azure donde ADLS Gen1 está disponible.
-- **[Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions)** (*Microsoft.Web*): disponible con carácter general en todas las regiones de Azure en que App Service esté disponible.
-- **[Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal)** (*Microsoft.CognitiveServices*): disponible con carácter general en todas las regiones de Azure en que Cognitive Services esté disponible.
+- **[Azure App Service](../app-service/app-service-ip-restrictions.md)** (*Microsoft.Web*): disponible con carácter general en todas las regiones de Azure en que App Service esté disponible.
+- **[Azure Cognitive Services](../cognitive-services/cognitive-services-virtual-networks.md?tabs=portal)** (*Microsoft.CognitiveServices*): disponible con carácter general en todas las regiones de Azure en que Cognitive Services esté disponible.
 
 **Versión preliminar pública**
 
@@ -98,7 +98,7 @@ Los puntos de conexión de servicio proporcionan las siguientes ventajas:
 
 - Grupos de seguridad de red (NSG) con puntos de conexión de servicio:
   - De forma predeterminada, los grupos de seguridad de red no solo permiten el tráfico de Internet saliente, sino también el tráfico de su red virtual a los servicios de Azure. Este tráfico sigue funcionando con puntos de conexión de servicio tal cual. 
-  - Si desea denegar todo el tráfico de Internet saliente y permitir únicamente el tráfico a servicios de Azure concretos, puede hacerlo mediante las [etiquetas de servicio](security-overview.md#service-tags) de sus grupos de seguridad de red. Puede especificar los servicios de Azure compatibles como destino en las reglas de grupos de seguridad de red y Azure también proporciona el mantenimiento de las direcciones IP subyacentes en cada etiqueta. Para más información, consulte las [etiquetas de servicio de Azure para grupos de seguridad de red](security-overview.md#service-tags). 
+  - Si desea denegar todo el tráfico de Internet saliente y permitir únicamente el tráfico a servicios de Azure concretos, puede hacerlo mediante las [etiquetas de servicio](./network-security-groups-overview.md#service-tags) de sus grupos de seguridad de red. Puede especificar los servicios de Azure compatibles como destino en las reglas de grupos de seguridad de red y Azure también proporciona el mantenimiento de las direcciones IP subyacentes en cada etiqueta. Para más información, consulte las [etiquetas de servicio de Azure para grupos de seguridad de red](./network-security-groups-overview.md#service-tags). 
 
 ### <a name="scenarios"></a>Escenarios
 
@@ -138,11 +138,11 @@ Para determinados servicios de Azure (por ejemplo, cuentas de Azure Storage), pu
 
 ## <a name="vnet-service-endpoint-policies"></a>Directivas de punto de conexión de servicio de una red virtual 
 
-Las directivas de punto de conexión de servicio de una red virtual permiten filtrar el tráfico de la red virtual a los servicios de Azure. Este filtro solo permite determinados recursos de servicio de Azure a través de puntos de conexión de servicio. Las directivas de punto de conexión de servicio ofrecen un control de acceso pormenorizado para el tráfico de red virtual a los servicios de Azure. Para más información, consulte [Directivas de punto de conexión de servicio de red virtual](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview).
+Las directivas de punto de conexión de servicio de una red virtual permiten filtrar el tráfico de la red virtual a los servicios de Azure. Este filtro solo permite determinados recursos de servicio de Azure a través de puntos de conexión de servicio. Las directivas de punto de conexión de servicio ofrecen un control de acceso pormenorizado para el tráfico de red virtual a los servicios de Azure. Para más información, consulte [Directivas de punto de conexión de servicio de red virtual](./virtual-network-service-endpoint-policies-overview.md).
 
 ## <a name="faqs"></a>Preguntas más frecuentes
 
-Consulte las [preguntas más frecuentes acerca de los puntos de conexión de servicio de red virtual](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#virtual-network-service-endpoints).
+Consulte las [preguntas más frecuentes acerca de los puntos de conexión de servicio de red virtual](./virtual-networks-faq.md#virtual-network-service-endpoints).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -151,5 +151,5 @@ Consulte las [preguntas más frecuentes acerca de los puntos de conexión de ser
 - [Protección de una instancia de Azure SQL Database para una red virtual](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Establecimiento de una instancia de Azure Synapse Analytics a una red virtual](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fsql-data-warehouse%2ftoc.json)
 - [Integración de servicios de Azure en redes virtuales](virtual-network-for-azure-services.md)
-- [Directivas de puntos de conexión de servicio de red virtual](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
+- [Directivas de puntos de conexión de servicio de red virtual](./virtual-network-service-endpoint-policies-overview.md)
 - [Plantilla de Azure Resource Manager](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration)

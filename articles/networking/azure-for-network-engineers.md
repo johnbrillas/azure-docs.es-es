@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 06/25/2020
 ms.author: osamaz
-ms.openlocfilehash: e13dc868512dba15c5b335c1774aaa540eef8157
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: 9a22e58e4407897fb9418cae0ba9f32408cda8e1
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97861404"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234212"
 ---
 # <a name="azure-for-network-engineers"></a>Azure para ingenieros de red
 Como ingeniero de red convencional, ha trabajado con recursos físicos, como enrutadores, conmutadores, cables y firewalls, para crear infraestructuras. En una capa lógica, ha configurado la LAN virtual (VLAN), el protocolo de árbol de expansión (STP), los protocolos de enrutamiento (RIP, OSPF, BGP). Ha administrado la red mediante herramientas de administración y la CLI. Las redes en la nube son diferentes cuando los puntos de conexión de red son lógicos y el uso de los protocolos de enrutamiento es mínimo. Trabajará con la API Azure Resource Manager, la CLI de Azure y PowerShell para configurar y administrar recursos en Azure. Para comenzar el recorrido de la red en la nube, deberá comprender los inquilinos básicos de las redes de Azure. 
@@ -88,7 +88,6 @@ Más información sobre el [enrutamiento de redes virtuales][vnet-routing].
 Más información sobre los [grupos de seguridad de red][network-security].
 
 <!--Link References-->
-[VNet]: https://docs.microsoft.com/azure/virtual-network/tutorial-connect-virtual-networks-portal
-[vnet-routing]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview
-[network-security]: https://docs.microsoft.com/azure/virtual-network/security-overview
-
+[VNet]: ../virtual-network/tutorial-connect-virtual-networks-portal.md
+[vnet-routing]: ../virtual-network/virtual-networks-udr-overview.md
+[network-security]: ../virtual-network/network-security-groups-overview.md

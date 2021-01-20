@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/06/2020
 ms.author: steveesp
-ms.openlocfilehash: 0b009b7c44084e76194c1447fefdb2ff59f8086a
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.openlocfilehash: 7a2f6750a4d0a48c6971f60241976fb55410b65c
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91812291"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98221449"
 ---
 # <a name="bandwidththroughput-testing-ntttcp"></a>Pruebas de ancho de banda y rendimiento (NTTTCP)
 
@@ -26,7 +26,7 @@ Al probar el rendimiento de la red de Azure, se recomienda usar una herramienta 
 Copie la herramienta en dos máquinas virtuales de Azure del mismo tamaño. Una máquina virtual funciona como remitente y la otra como receptora.
 
 #### <a name="deploying-vms-for-testing"></a>Implementación de máquinas virtuales para pruebas
-Para realizar esta prueba, las dos VM deben tener el mismo [Grupo con ubicación por proximidad](../virtual-machines/windows/co-location.md) o el mismo conjunto de disponibilidad para que podamos usar sus direcciones IP internas y excluir los equilibradores de carga de la prueba. Es posible realizar pruebas con la dirección VIP, pero este tipo de pruebas está fuera del ámbito de este documento.
+Para realizar esta prueba, las dos VM deben tener el mismo [Grupo con ubicación por proximidad](../virtual-machines/co-location.md) o el mismo conjunto de disponibilidad para que podamos usar sus direcciones IP internas y excluir los equilibradores de carga de la prueba. Es posible realizar pruebas con la dirección VIP, pero este tipo de pruebas está fuera del ámbito de este documento.
 
 Tome nota de la dirección IP del DESTINATARIO. Vamos a llamar a esa dirección IP "a.b.c.r".
 
@@ -65,7 +65,7 @@ Permita NTTTCP a través del Firewall de Windows de la siguiente forma:
 
 netsh advfirewall firewall add rule program=\<PATH\>\\ntttcp.exe name="ntttcp" protocol=any dir=in action=allow enable=yes profile=ANY
 
-Por ejemplo, si ha copiado ntttcp.exe a la carpeta "c:\\tools", este sería el comando: 
+Por ejemplo, si ha copiado ntttcp.exe a la carpeta "c:\\tools", este sería el comando: 
 
 netsh advfirewall firewall add rule program=c:\\tools\\ntttcp.exe name="ntttcp" protocol=any dir=in action=allow enable=yes profile=ANY
 
@@ -82,7 +82,7 @@ ntttcp -r –m 8,\*,10.0.0.4 -t 300
 
 Inicie NTTTCP en el REMITENTE (**se ejecuta desde CMD**, no desde PowerShell)::
 
-ntttcp -s –m 8,\*,10.0.0.4 -t 300 
+ntttcp -s –m 8,\*,10.0.0.4 -t 300 
 
 Espere a que se muestren los resultados.
 
@@ -91,23 +91,23 @@ Espere a que se muestren los resultados.
 
 Use nttcp-for-linux. Está disponible en <https://github.com/Microsoft/ntttcp-for-linux>.
 
-En las máquinas virtuales de Linux (REMITENTE y RECEPTOR), ejecute estos comandos para preparar ntttcp-for-linux en las máquinas virtuales:
+En las máquinas virtuales Linux (REMITENTE y RECEPTOR), ejecute estos comandos para preparar ntttcp-for-linux en las máquinas virtuales:
 
 CentOS: instalación de Git:
 ``` bash
-  yum install gcc -y  
-  yum install git -y
+  yum install gcc -y  
+  yum install git -y
 ```
 Ubuntu: instalación de Git:
 ``` bash
- apt-get -y install build-essential  
- apt-get -y install git
+ apt-get -y install build-essential  
+ apt-get -y install git
 ```
 Cree e instale en ambas:
 ``` bash
- git clone https://github.com/Microsoft/ntttcp-for-linux
- cd ntttcp-for-linux/src
- make && make install
+ git clone https://github.com/Microsoft/ntttcp-for-linux
+ cd ntttcp-for-linux/src
+ make && make install
 ```
 
 Como en el ejemplo de Windows, supongamos que la IP del RECEPTOR Linux es 10.0.0.4.
@@ -123,7 +123,7 @@ Y en el REMITENTE, ejecute:
 ``` bash
 ntttcp -s10.0.0.4 -t 300
 ```
- 
+ 
 Los valores predeterminados de duración de prueba están establecidos en 60 segundos si no hay ningún parámetro de tiempo.
 
 ## <a name="testing-between-vms-running-windows-and-linux"></a>Pruebas entre máquinas virtuales que ejecutan Windows y Linux:

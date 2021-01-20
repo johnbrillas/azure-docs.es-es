@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 10/21/2020
 ms.author: ccompy
-ms.openlocfilehash: 57b2955f8cec059cd20d353eba31dc39ad992d50
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 3f9dd35959980eef4e1bec550bf7e9f583cf30d2
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97506273"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98225629"
 ---
 Cuando se utiliza la versión regional de Integración con red virtual, la aplicación puede acceder a:
 
@@ -48,7 +48,6 @@ Existen algunas limitaciones cuando se la característica Integración con red v
 * La característica requiere una subred sin usar que sea /28 o mayor en una red virtual de Azure Resource Manager.
 * La aplicación y la VNet deben estar en la misma región.
 * No puede eliminar una VNet con una aplicación integrada. Quite la integración antes de eliminar la VNet.
-* Solo puede integrar con redes virtuales de la misma suscripción que la aplicación.
 * Solo se puede tener una característica Integración con red virtual regional por plan de App Service. Varias aplicaciones en el mismo plan de App Service pueden usar la misma red virtual.
 * No se puede cambiar la suscripción de una aplicación o un plan mientras haya una aplicación que use Integración con red virtual regional.
 * La aplicación no puede resolver direcciones en Azure DNS Private Zones sin que se realicen cambios en la configuración

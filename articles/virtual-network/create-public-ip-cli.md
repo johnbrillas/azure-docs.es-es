@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2020
 ms.author: blehr
-ms.openlocfilehash: 76af225b6f93e0a47799234e3e2b430344f68787
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 70fb502e45a6cdcc196f5fb97ee4c8c59ba6c27d
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96010000"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223557"
 ---
 # <a name="quickstart-create-a-public-ip-address-using-azure-cli"></a>Inicio rápido: Creación de una dirección IP pública mediante la CLI de Azure
 
-En este artículo se muestra cómo crear un recurso de dirección IP pública mediante la CLI de Azure. Para más información sobre los recursos que se pueden asociar, la diferencia entre la SKU básica y estándar y otra información relacionada, consulte [Direcciones IP públicas](https://docs.microsoft.com/azure/virtual-network/public-ip-addresses).  En este ejemplo, nos centraremos solo en las direcciones IPv4. Para más información sobre las direcciones IPv6, consulte [IPv6 para la red virtual de Azure](https://docs.microsoft.com/azure/virtual-network/ipv6-overview).
+En este artículo se muestra cómo crear un recurso de dirección IP pública mediante la CLI de Azure. Para más información sobre los recursos que se pueden asociar, la diferencia entre la SKU básica y estándar y otra información relacionada, consulte [Direcciones IP públicas](./public-ip-addresses.md).  En este ejemplo, nos centraremos solo en las direcciones IPv4. Para más información sobre las direcciones IPv6, consulte [IPv6 para la red virtual de Azure](./ipv6-overview.md).
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
@@ -30,7 +30,7 @@ En este artículo se muestra cómo crear un recurso de dirección IP pública m
 
 Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure.
 
-Cree un grupo de recursos con [az group create](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create) llamado **myResourceGroup** en la ubicación **eastus2**.
+Cree un grupo de recursos con [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create) llamado **myResourceGroup** en la ubicación **eastus2**.
 
 ```azurecli-interactive
   az group create \
@@ -44,9 +44,9 @@ Cree un grupo de recursos con [az group create](https://docs.microsoft.com/cli/a
 # <a name="standard-sku---using-zones"></a>[**SKU estándar: uso de zonas**](#tab/option-create-public-ip-standard-zones)
 
 >[!NOTE]
->El siguiente comando funciona con la versión de API 2020-08-01 o posterior.  Para más información sobre la versión de API que se usa actualmente, consulte [Tipos y proveedores de recursos](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types).
+>El siguiente comando funciona con la versión de API 2020-08-01 o posterior.  Para más información sobre la versión de API que se usa actualmente, consulte [Tipos y proveedores de recursos](../azure-resource-manager/management/resource-providers-and-types.md).
 
-Use [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) para crear una dirección IP pública estándar y con redundancia de zona denominada **myStandardZRPublicIP** en **myResourceGroup**.
+Use [az network public-ip create](/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) para crear una dirección IP pública estándar y con redundancia de zona denominada **myStandardZRPublicIP** en **myResourceGroup**.
 
 ```azurecli-interactive
   az network public-ip create \
@@ -69,14 +69,14 @@ Para crear una dirección IP pública estándar de zona en la Zona 2 llamada **m
     --zone 2
 ```
 
-Tenga en cuenta que las opciones anteriores para zonas son solo selecciones válidas en regiones con [Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview?toc=/azure/virtual-network/toc.json#availability-zones).
+Tenga en cuenta que las opciones anteriores para zonas son solo selecciones válidas en regiones con [Availability Zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
 
 # <a name="standard-sku---no-zones"></a>[**SKU estándar: sin zonas**](#tab/option-create-public-ip-standard)
 
 >[!NOTE]
->El siguiente comando funciona con la versión de API 2020-08-01 o posterior.  Para más información sobre la versión de API que se usa actualmente, consulte [Tipos y proveedores de recursos](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types).
+>El siguiente comando funciona con la versión de API 2020-08-01 o posterior.  Para más información sobre la versión de API que se usa actualmente, consulte [Tipos y proveedores de recursos](../azure-resource-manager/management/resource-providers-and-types.md).
 
-Use [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) para crear una dirección IP pública estándar como un recurso no de zona llamado **myStandardZRPublicIP** en **myResourceGroup**.
+Use [az network public-ip create](/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) para crear una dirección IP pública estándar como un recurso no de zona llamado **myStandardZRPublicIP** en **myResourceGroup**.
 
 ```azurecli-interactive
   az network public-ip create \
@@ -84,11 +84,11 @@ Use [az network public-ip create](https://docs.microsoft.com/cli/azure/network/p
     --name myStandardPublicIP \
     --sku Standard
 ```
-Esta selección es válida en todas las regiones y es la selección predeterminada para las direccionesIP públicas estándar en regiones sin [zonas de disponibilidad](https://docs.microsoft.com/azure/availability-zones/az-overview?toc=/azure/virtual-network/toc.json#availability-zones).
+Esta selección es válida en todas las regiones y es la selección predeterminada para las direccionesIP públicas estándar en regiones sin [zonas de disponibilidad](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
 
 # <a name="basic-sku"></a>[**SKU básica**](#tab/option-create-public-ip-basic)
 
-Utilice [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) para crear una dirección IP pública estática básica llamada **myBasicPublicIP** en **myResourceGroup**.  Las direcciones IP públicas básicas no tienen el concepto de zonas de disponibilidad.
+Utilice [az network public-ip create](/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) para crear una dirección IP pública estática básica llamada **myBasicPublicIP** en **myResourceGroup**.  Las direcciones IP públicas básicas no tienen el concepto de zonas de disponibilidad.
 
 ```azurecli-interactive
   az network public-ip create \
@@ -103,9 +103,9 @@ Si es aceptable que la dirección IP cambie con el tiempo, se puede seleccionar
 
 ## <a name="additional-information"></a>Información adicional 
 
-Para más información sobre las variables individuales enumeradas anteriormente, consulte [Administración de direcciones IP públicas](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address#create-a-public-ip-address).
+Para más información sobre las variables individuales enumeradas anteriormente, consulte [Administración de direcciones IP públicas](./virtual-network-public-ip-address.md#create-a-public-ip-address).
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Asocie una [dirección IP pública a una máquina virtual](https://docs.microsoft.com/azure/virtual-network/associate-public-ip-address-vm#azure-portal).
-- Obtenga más información acerca de las [direcciones IP públicas](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) en Azure.
+- Asocie una [dirección IP pública a una máquina virtual](./associate-public-ip-address-vm.md#azure-portal).
+- Obtenga más información acerca de las [direcciones IP públicas](./public-ip-addresses.md#public-ip-addresses) en Azure.
 - Obtenga más información acerca de toda la [configuración de direcciones IP públicas](virtual-network-public-ip-address.md#create-a-public-ip-address).

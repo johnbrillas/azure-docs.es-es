@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 12/01/2020
 ms.author: kumud
-ms.openlocfilehash: a25d6d0d1990682287b5962a7bd93a0c525db133
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: a29454f09268406511730c63dcc3bc3063b909c6
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97882371"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98218661"
 ---
 # <a name="integrate-azure-services-with-virtual-networks-for-network-isolation"></a>Integración de servicios de Azure con redes virtuales para el aislamiento de red
 
@@ -66,7 +66,7 @@ Para obtener más información, vea [Puntos de conexión de servicio de red virt
 
 ## <a name="service-tags"></a>Etiquetas de servicio
 
-Una etiqueta de servicio representa un grupo de prefijos de direcciones IP de un servicio de Azure determinado. Mediante etiquetas de servicio, puede definir controles de acceso a la red en [grupos de seguridad de red](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) o [Azure Firewall](https://docs.microsoft.com/azure/firewall/service-tags). Al especificar el nombre de la etiqueta de servicio (por ejemplo, AzureEventGrid) en el campo de origen o destino apropiado de una regla, puede permitir o denegar el tráfico para el servicio correspondiente.
+Una etiqueta de servicio representa un grupo de prefijos de direcciones IP de un servicio de Azure determinado. Mediante etiquetas de servicio, puede definir controles de acceso a la red en [grupos de seguridad de red](./network-security-groups-overview.md#security-rules) o [Azure Firewall](../firewall/service-tags.md). Al especificar el nombre de la etiqueta de servicio (por ejemplo, AzureEventGrid) en el campo de origen o destino apropiado de una regla, puede permitir o denegar el tráfico para el servicio correspondiente.
 
 ![Permitir o denegar el tráfico mediante etiquetas de servicio](./media/network-isolation/service-tags.png)
 
@@ -78,4 +78,4 @@ Para más información sobre las etiquetas de servicio y los servicios de Azure 
 
 - Obtenga información sobre cómo [integrar la aplicación con una red de Azure](../app-service/web-sites-integrate-with-vnet.md).
 - Obtenga información sobre cómo [restringir el acceso a los recursos mediante etiquetas de servicio](tutorial-restrict-network-access-to-resources.md).
-- Obtenga información sobre cómo [conectarse de forma privada a una cuenta de Azure Cosmos mediante Azure Private Link](../private-link/create-private-endpoint-cosmosdb-portal.md).
+- Obtenga información sobre cómo [conectarse de forma privada a una cuenta de Azure Cosmos mediante Azure Private Link](../private-link/tutorial-private-endpoint-cosmosdb-portal.md).

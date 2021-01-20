@@ -3,15 +3,15 @@ title: Supervisión de Key Vault con Azure Monitor para Key Vault | Microsoft
 description: En este artículo se describe Azure Monitor para Key Vault.
 services: azure-monitor
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
+author: lgayhardt
+ms.author: lagayhar
 ms.date: 09/10/2020
-ms.openlocfilehash: d28138b251cf159b7cbc5cc6942bb287e57a95d7
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 41b058cf41aa1a8fb1def68851457385c8187823
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93088104"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209889"
 ---
 # <a name="monitoring-your-key-vault-service-with-azure-monitor-for-key-vault"></a>Supervisión del servicio Key Vault con Azure Monitor para Key Vault
 Azure Monitor para Key Vault proporciona supervisión general de los almacenes de claves, ya que ofrece una vista unificada de las solicitudes, el rendimiento, los errores y la latencia de la instancia de Key Vault.
@@ -20,9 +20,9 @@ Este artículo ayuda a entender cómo se incorpora y se personaliza la experienc
 ## <a name="introduction-to-azure-monitor-for-key-vault"></a>Introducción a Azure Monitor para Key Vault
 
 Antes de saltar a la experiencia, debe entender cómo se presenta y se visualiza la información.
--    **Perspectiva a gran escala** , mostrando una vista de instantánea del rendimiento en función de las solicitudes, el desglose de errores y una visión general de las operaciones y la latencia.
+-    **Perspectiva a gran escala**, mostrando una vista de instantánea del rendimiento en función de las solicitudes, el desglose de errores y una visión general de las operaciones y la latencia.
 -   **Análisis en profundidad** de un almacén de claves determinado para realizar un análisis detallado.
--    **Personalizable** , que le permite cambiar las métricas que desea ver y modificar, o establecer umbrales en consonancia con sus límites y guardar su propio libro. Los gráficos del libro se pueden anclar a los paneles de Azure.
+-    **Personalizable**, que le permite cambiar las métricas que desea ver y modificar, o establecer umbrales en consonancia con sus límites y guardar su propio libro. Los gráficos del libro se pueden anclar a los paneles de Azure.
 
 Azure Monitor para Key Vault combina los registros y las métricas para proporcionar una solución de supervisión global. Todos los usuarios pueden acceder a los datos de supervisión basados en métricas; sin embargo, la inclusión de visualizaciones basadas en registros puede requerir que los usuarios [habiliten el registro de su instancia de Azure Key Vault](../../key-vault/general/logging.md).
 
@@ -127,8 +127,8 @@ Puede configurar los libros Información general o Errores de varias suscripcion
 
 1. Seleccione **Supervisar** en el portal y luego **Almacenes de claves** en el panel de la izquierda.
 2. En el libro **Overview** (Información general), elija **Edit** (Editar) en la barra de comandos.
-3. En la lista desplegable **Suscripciones** , seleccione una o varias suscripciones que quiera que sean las predeterminadas. Recuerde que el libro admite la selección de hasta 10 suscripciones.
-4. En la lista desplegable **Almacenes de claves** , seleccione una o varias cuentas que quiera usar como las predeterminadas. Recuerde que el libro admite la selección de hasta 200 cuentas de almacenamiento.
+3. En la lista desplegable **Suscripciones**, seleccione una o varias suscripciones que quiera que sean las predeterminadas. Recuerde que el libro admite la selección de hasta 10 suscripciones.
+4. En la lista desplegable **Almacenes de claves**, seleccione una o varias cuentas que quiera usar como las predeterminadas. Recuerde que el libro admite la selección de hasta 200 cuentas de almacenamiento.
 5. Seleccione **Save as** (Guardar como) en la barra de comandos para guardar una copia del libro con las personalizaciones y, luego, haga clic en **Done editing** (Edición finalizada) para regresar el modo de lectura.
 
 ## <a name="troubleshooting"></a>Solución de problemas

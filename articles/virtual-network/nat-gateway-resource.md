@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: allensu
-ms.openlocfilehash: 62c1b323899f03a043904f4b10d5fe3bb551e0f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4ef8e6207d53a192b19f8343a60093e82368fa6
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91441767"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223387"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources"></a>Diseño de redes virtuales con recursos de puertas de enlace de NAT
 
@@ -60,7 +60,7 @@ En el siguiente diagrama se muestran las referencias en cuanto a lo que se puede
 
 NAT se recomienda para la mayoría de las cargas de trabajo, salvo que se tenga una dependencia concreta de la [conectividad de salida de Load Balancer basada en grupos](../load-balancer/load-balancer-outbound-connections.md).  
 
-Puede migrar desde escenarios del equilibrador de carga estándar, incluidas las [reglas salientes](../load-balancer/load-balancer-outbound-rules-overview.md), a una puerta de enlace de NAT. Para realizar la migración, mueva los recursos de IP pública y de prefijo de IP pública desde los servidores front-end de Load Balancer a la puerta de enlace de NAT. No se requieren direcciones IP nuevas para la puerta de enlace de NAT. Se pueden reutilizar tanto los recursos de la dirección IP pública como el recurso del prefijo de la dirección IP pública, siempre que el total no supere las 16 direcciones IP. Planee la migración y tenga en cuenta la interrupción del servicio durante la transición.  Si el proceso se automatiza, el periodo de interrupción se reduce considerablemente. Pruebe la migración en un entorno de ensayo primero.  Durante la transición, los flujos de entrada originados no resultan afectados.
+Puede migrar desde escenarios del equilibrador de carga estándar, incluidas las [reglas salientes](../load-balancer/load-balancer-outbound-connections.md#outboundrules), a una puerta de enlace de NAT. Para realizar la migración, mueva los recursos de IP pública y de prefijo de IP pública desde los servidores front-end de Load Balancer a la puerta de enlace de NAT. No se requieren direcciones IP nuevas para la puerta de enlace de NAT. Se pueden reutilizar tanto los recursos de la dirección IP pública como el recurso del prefijo de la dirección IP pública, siempre que el total no supere las 16 direcciones IP. Planee la migración y tenga en cuenta la interrupción del servicio durante la transición.  Si el proceso se automatiza, el periodo de interrupción se reduce considerablemente. Pruebe la migración en un entorno de ensayo primero.  Durante la transición, los flujos de entrada originados no resultan afectados.
 
 
 El siguiente ejemplo es un fragmento de código de una plantilla de Azure Resource Manager.  Esta plantilla implementa varios recursos, incluida una puerta de enlace NAT.  La plantilla tiene los parámetros siguientes en este ejemplo:
@@ -230,7 +230,7 @@ Aunque parece que el escenario funciona, su modelo de estado y modo de error no 
 
 Cada recurso de puerta de enlace NAT puede proporcionar hasta 50 Gbps de rendimiento. Puede dividir las implementaciones en varias subredes y asignar a cada subred o grupos de subredes una puerta de enlace NAT para realizar escalar horizontalmente.
 
-Cada puerta de enlace NAT puede admitir 64 000 flujos para TCP y UDP respectivamente por dirección IP de salida asignada.  Revise la siguiente sección sobre la traducción de direcciones de red de origen (SNAT) para más información, así como el [artículo de solución de problemas ](https://docs.microsoft.com/azure/virtual-network/troubleshoot-nat) para obtener instrucciones específicas sobre la resolución de problemas.
+Cada puerta de enlace NAT puede admitir 64 000 flujos para TCP y UDP respectivamente por dirección IP de salida asignada.  Revise la siguiente sección sobre la traducción de direcciones de red de origen (SNAT) para más información, así como el [artículo de solución de problemas ](./troubleshoot-nat.md) para obtener instrucciones específicas sobre la resolución de problemas.
 
 ## <a name="source-network-address-translation"></a>Traducción de direcciones de red de origen
 
@@ -264,7 +264,7 @@ Las puertas de enlace NAT reutilizan los puertos de origen (SNAT) oportunamente.
 |:---:|:---:|:---:|
 | 4 | 192.168.0.16:4285 | 65.52.0.2:80 |
 
-Probablemente, una puerta de enlace NAT traducirá el flujo 4 a un puerto que también se puede usar para otros destinos.  Consulte [Escalado](https://docs.microsoft.com/azure/virtual-network/nat-gateway-resource#scaling) para más información sobre el ajuste correcto del aprovisionamiento de direcciones IP.
+Probablemente, una puerta de enlace NAT traducirá el flujo 4 a un puerto que también se puede usar para otros destinos.  Consulte [Escalado](#scaling) para más información sobre el ajuste correcto del aprovisionamiento de direcciones IP.
 
 | Flujo | Tupla de origen | Tupla de origen con SNAT | Tupla de destino | 
 |:---:|:---:|:---:|:---:|
@@ -307,7 +307,7 @@ Los recursos de puerta de enlace NAT reutilizan los puertos de origen (SNAT) opo
 
 Es más probable que se reutilicen los puertos SNAT a destinos diferentes cuando sea posible. Y, a medida que se aproxime el agotamiento de los puertos SNAT, los flujos pueden no realizarse correctamente.  
 
-Consulte [Aspectos básicos de SNAT](https://docs.microsoft.com/azure/virtual-network/nat-gateway-resource#source-network-address-translation) por ver ejemplos.
+Consulte [Aspectos básicos de SNAT](#source-network-address-translation) por ver ejemplos.
 
 
 ### <a name="protocols"></a>Protocolos
@@ -359,10 +359,10 @@ Queremos saber cómo podemos mejorar el servicio. ¿Falta una funcionalidad? Pro
   - [Portal](./quickstart-create-nat-gateway-portal.md)
   - [Plantilla](./quickstart-create-nat-gateway-template.md)
 * Información acerca de la API de recursos de la puerta de enlace de NAT
-  - [REST API](https://docs.microsoft.com/rest/api/virtualnetwork/natgateways)
-  - [CLI de Azure](https://docs.microsoft.com/cli/azure/network/nat/gateway)
-  - [PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-aznatgateway)
+  - [REST API](/rest/api/virtualnetwork/natgateways)
+  - [CLI de Azure](/cli/azure/network/nat/gateway)
+  - [PowerShell](/powershell/module/az.network/new-aznatgateway)
 * Información acerca de las [zonas de disponibilidad](../availability-zones/az-overview.md).
-* Información acerca del [equilibrador de carga estándar](../load-balancer/load-balancer-standard-overview.md).
+* Información acerca del [equilibrador de carga estándar](../load-balancer/load-balancer-overview.md).
 * Información sobre las [zonas de disponibilidad y el equilibrador de carga estándar](../load-balancer/load-balancer-standard-availability-zones.md).
 * [Indíquenos qué crear a continuación para Virtual Network NAT en UserVoice](https://aka.ms/natuservoice).

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2019
 ms.author: kumud
-ms.openlocfilehash: 61617777efa8241c93b2b5ffe42fc1d914b6ebcf
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: feea2d54edd8a93e6e0effbef03389ef895d5ffb
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004983"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98216757"
 ---
 # <a name="virtual-network-peering"></a>Emparejamiento de redes virtuales de Azure
 
@@ -48,7 +48,7 @@ La latencia de red entre las máquinas virtuales de redes virtuales emparejadas 
 El tráfico entre las máquinas virtuales en las redes virtuales emparejadas se enruta directamente a través de la infraestructura de red troncal de Microsoft, no de una puerta de enlace ni de una red Internet pública.
 
 En cualquier red virtual, se pueden aplicar grupos de seguridad de red para bloquear el acceso a otras redes o subredes virtuales.
-Al configurar el emparejamiento de red virtual, abra o cierre las reglas del grupo de seguridad de red entre las redes virtuales. Si abre la conectividad completa entre redes virtuales emparejadas, puede aplicar grupos de seguridad de red a subredes o máquinas virtuales concretas para bloquear o denegar el acceso específico. La opción predeterminada es la conectividad total. Para obtener más información sobre los grupos de seguridad de red, consulte [Grupos de seguridad](security-overview.md).
+Al configurar el emparejamiento de red virtual, abra o cierre las reglas del grupo de seguridad de red entre las redes virtuales. Si abre la conectividad completa entre redes virtuales emparejadas, puede aplicar grupos de seguridad de red a subredes o máquinas virtuales concretas para bloquear o denegar el acceso específico. La opción predeterminada es la conectividad total. Para obtener más información sobre los grupos de seguridad de red, consulte [Grupos de seguridad](./network-security-groups-overview.md).
 
 ## <a name="service-chaining"></a>Encadenamiento de servicios
 

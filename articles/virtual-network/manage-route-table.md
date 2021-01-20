@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: kumud
-ms.openlocfilehash: 664e3851370be812cd7a0e58cf9beb1fddb5d991
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8c38f4e84a6a653c3a4d887c82340409fc363af
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87290996"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98220599"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Creación, modificación o eliminación de una tabla de rutas
 
@@ -348,4 +348,4 @@ Para realizar tareas en rutas y en tablas de rutas, la cuenta debe tener asignad
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Crear una tabla de rutas usando scripts de ejemplo de [PowerShell](powershell-samples.md) o de la [CLI de Azure](cli-samples.md) o [plantillas de Azure Resource Manager](template-samples.md)
-- Crear y asignar [definiciones de Azure Policy](policy-samples.md) para redes virtuales
+- Crear y asignar [definiciones de Azure Policy](./policy-reference.md) para redes virtuales

@@ -14,12 +14,12 @@ ms.subservice: roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a7304ffbb7718205ead48e27989d4a169375997
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: c981bde4e0699c4da33ada7e287b16e54b899a58
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96861993"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98198924"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Protección del acceso con privilegios para las implementaciones híbridas y en la nube en Azure AD
 
@@ -255,7 +255,7 @@ Los atacantes podrían intentar dirigirse a cuentas con privilegios con el fin d
 * Ataques de suplantación.
 * Ataques de robo de credenciales, como el registro de pulsaciones de teclas, Pass-the-Hash y Pass-the-Ticket.
 
-Mediante la implementación de estaciones de trabajo de acceso con privilegios, se puede reducir el riesgo de que los administradores escriban las credenciales de administrador en un entorno de escritorio que no se haya protegido. Para más información, consulte [Estaciones de trabajo con privilegios de acceso](/windows-server/identity/securing-privileged-access/privileged-access-workstations).
+Mediante la implementación de estaciones de trabajo de acceso con privilegios, se puede reducir el riesgo de que los administradores escriban las credenciales de administrador en un entorno de escritorio que no se haya protegido. Para más información, consulte [Estaciones de trabajo con privilegios de acceso](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/).
 
 #### <a name="review-national-institute-of-standards-and-technology-recommendations-for-handling-incidents"></a>Consulte las recomendaciones de control de incidentes que realiza el Instituto Nacional de Normas y Tecnología
 

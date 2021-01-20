@@ -10,16 +10,16 @@ ms.topic: how-to
 ms.custom: mvc
 ms.date: 08/11/2020
 ms.author: sebansal
-ms.openlocfilehash: 0925b51ed960b8007d2df86115ea7e5cf627fe7e
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: b3c917c9652954783fcddd92b9a7370c358ab3cc
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97826133"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233651"
 ---
 # <a name="export-certificates-from-azure-key-vault"></a>Exportación de certificados de Azure Key Vault
 
-Aprenda a exportar certificados de Azure Key Vault. Para exportar certificados se deben usar Azure Portal, Azure PowerShell o la CLI de Azure. Azure Portal también se puede usar para exportar certificados de Azure App Service.
+Aprenda a exportar certificados de Azure Key Vault. Para exportar certificados se deben usar Azure Portal, Azure PowerShell o la CLI de Azure. 
 
 ## <a name="about-azure-key-vault-certificates"></a>Acerca de los certificados de Azure Key Vault
 
@@ -114,7 +114,7 @@ Para descargar el certificado, seleccione **Descargar en formato CER** o **Desca
 
 **Exportación de certificados de Azure App Service**
 
-Los certificados de Azure App Service son una forma cómoda de comprar certificados SSL. Se pueden asignar a aplicaciones de Azure desde el portal. Estos certificados también se pueden exportar desde el portal en forma de archivos PFX para usarse en otro lugar. Después de importarlos, los certificados de App Service se encuentran en **secrets**.
+Los certificados de Azure App Service son una forma cómoda de comprar certificados SSL. Se pueden asignar a aplicaciones de Azure desde el portal. Después de importarlos, los certificados de App Service se encuentran en **secrets**.
 
 Para más información, consulte los pasos necesarios para [exportar los certificados de Azure App Service](https://social.technet.microsoft.com/wiki/contents/articles/37431.exporting-azure-app-service-certificates.aspx).
 

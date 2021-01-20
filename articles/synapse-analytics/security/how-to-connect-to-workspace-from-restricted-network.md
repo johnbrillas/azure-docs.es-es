@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 10/25/2020
 ms.author: xujiang1
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2e96cbf0c1464e27b0a384e8a813118056103b91
-ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
+ms.openlocfilehash: 41403a59be0395a6d9874c7369bfe59c22f5ac17
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96296715"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98218372"
 ---
 # <a name="connect-to-workspace-resources-from-a-restricted-network"></a>Conexión a los recursos de un área de trabajo desde una red restringida
 
@@ -40,7 +40,7 @@ En la captura de pantalla siguiente se muestran los detalles de la regla de sali
 
 Al crear las otras tres reglas, reemplace el valor de **Etiqueta de servicio de destino** por **AzureFrontDoor.Frontend**, **AzureActiveDirectory** o **AzureMonitor** en la lista.
 
-Para más información, consulte la [información general sobre las etiquetas de servicio](/azure/virtual-network/service-tags-overview).
+Para más información, consulte la [información general sobre las etiquetas de servicio](../../virtual-network/service-tags-overview.md).
 
 ## <a name="step-2-create-private-link-hubs"></a>Paso 2: Creación de centros de vínculos privados
 

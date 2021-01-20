@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 27372207df66b4198bd9c785ecc099fa88cbe548
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: b974af343907c98ebd7a318bc60a0e553a07a233
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94335701"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219358"
 ---
 # <a name="troubleshooting-failed-to-delete-a-virtual-network-in-azure"></a>Solución de problemas: No se pudo eliminar una red virtual en Azure
 
@@ -72,7 +72,7 @@ Si hay una puerta de enlace de aplicación, debe quitarla para poder eliminar la
 
 1. Vuelva a eliminar la subred o la red virtual.
 
-Si estos pasos no resuelven el problema, use estos [comandos de la CLI de Azure](https://docs.microsoft.com/azure/container-instances/container-instances-vnet#clean-up-resources) para limpiar los recursos. 
+Si estos pasos no resuelven el problema, use estos [comandos de la CLI de Azure](../container-instances/container-instances-vnet.md#clean-up-resources) para limpiar los recursos. 
 
 ### <a name="check-whether-azure-active-directory-domain-service-is-enabled-in-the-virtual-network"></a>Compruebe si Azure Active Directory Domain Services está habilitado en la red virtual
 

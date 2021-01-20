@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 12/08/2020
 ms.author: blehr
 ms.custom: references_regions
-ms.openlocfilehash: 3e2905019244279129528c177a76291cb7d75e11
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: d6e8c4f4b6646254aeea12cf587f47047e661e3f
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825766"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222877"
 ---
 # <a name="upgrade-public-ip-addresses"></a>Actualización de direcciones IP públicas
 
@@ -33,15 +33,15 @@ En este artículo se revisan los siguientes escenarios:
 
 ## <a name="upgrade-public-ip-address-from-basic-to-standard-sku"></a>Actualización de la dirección IP pública con una SKU de nivel básico a estándar
 
-Para actualizar una dirección IP pública, no debe estar asociada a ningún recurso (consulte [esta página](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address#view-modify-settings-for-or-delete-a-public-ip-address) para más información sobre cómo desasociar direcciones IP públicas).
+Para actualizar una dirección IP pública, no debe estar asociada a ningún recurso (consulte [esta página](./virtual-network-public-ip-address.md#view-modify-settings-for-or-delete-a-public-ip-address) para más información sobre cómo desasociar direcciones IP públicas).
 
 >[!IMPORTANT]
->Las direcciones IP públicas actualizadas con una SKU de nivel básico a estándar continúan sin tener [zonas de disponibilidad](https://docs.microsoft.com/azure/availability-zones/az-overview?toc=/azure/virtual-network/toc.json#availability-zones).  Esto significa que no se pueden asociar a un recurso de Azure que tenga redundancia de zona o que esté vinculado a una zona especificada previamente en regiones en las que se ofrezca esta posibilidad.
+>Las direcciones IP públicas actualizadas con una SKU de nivel básico a estándar continúan sin tener [zonas de disponibilidad](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).  Esto significa que no se pueden asociar a un recurso de Azure que tenga redundancia de zona o que esté vinculado a una zona especificada previamente en regiones en las que se ofrezca esta posibilidad.
 
 ---
 # <a name="basic-to-standard---powershell"></a>[**Básico a estándar: PowerShell**](#tab/option-upgrade-powershell)
 
-En el ejemplo siguiente se da por supuesto que se ha creado previamente una dirección IP pública con una SKU de nivel básico mediante el ejemplo proporcionado en [esta página](https://docs.microsoft.com/azure/virtual-network/create-public-ip-powershell?tabs=option-create-public-ip-basic) con una dirección IP pública básica **myBasicPublicIP** en **myResourceGroup**.
+En el ejemplo siguiente se da por supuesto que se ha creado previamente una dirección IP pública con una SKU de nivel básico mediante el ejemplo proporcionado en [esta página](./create-public-ip-powershell.md?tabs=option-create-public-ip-basic) con una dirección IP pública básica **myBasicPublicIP** en **myResourceGroup**.
 
 Para actualizar la dirección IP, simplemente ejecute los comandos siguientes con PowerShell.  Tenga en cuenta que, si la dirección IP ya está asignada estáticamente, se puede omitir esa sección.
 
@@ -63,7 +63,7 @@ Set-AzPublicIpAddress -PublicIpAddress $pubIP
 
 # <a name="basic-to-standard---cli"></a>[**Básica a estándar: CLI**](#tab/option-upgrade-cli)
 
-En el ejemplo siguiente se da por supuesto que se ha creado previamente una dirección IP pública con una SKU de nivel básico mediante el ejemplo proporcionado en [esta página](https://docs.microsoft.com/azure/virtual-network/create-public-ip-cli?tabs=option-create-public-ip-basic) con una dirección IP pública básica **myBasicPublicIP** en **myResourceGroup**.
+En el ejemplo siguiente se da por supuesto que se ha creado previamente una dirección IP pública con una SKU de nivel básico mediante el ejemplo proporcionado en [esta página](./create-public-ip-cli.md?tabs=option-create-public-ip-basic) con una dirección IP pública básica **myBasicPublicIP** en **myResourceGroup**.
 
 Para actualizar la dirección IP, simplemente ejecute los comandos siguientes mediante la CLI de Azure.  Tenga en cuenta que, si la dirección IP ya está asignada estáticamente, se puede omitir esa sección.
 
@@ -95,7 +95,7 @@ Para beneficiarse de las nuevas funcionalidades de Azure Resource Manager, puede
 
 # <a name="reserved-to-basic---powershell"></a>[**Reservada a básica: PowerShell**](#tab/option-migrate-powershell)
 
-En el ejemplo siguiente se da por supuesto que se ha creado previamente una IP reservada de Azure clásico **myReservedIP** en **myResourceGroup**. Otro requisito previo para la migración es asegurarse de que la suscripción de Azure Resource Manager se ha registrado. Este aspecto se trata de forma detallada en los pasos 3 y 4 de [esta página](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-ps).
+En el ejemplo siguiente se da por supuesto que se ha creado previamente una IP reservada de Azure clásico **myReservedIP** en **myResourceGroup**. Otro requisito previo para la migración es asegurarse de que la suscripción de Azure Resource Manager se ha registrado. Este aspecto se trata de forma detallada en los pasos 3 y 4 de [esta página](../virtual-machines/migration-classic-resource-manager-ps.md).
 
 Para migrar la IP reservada, ejecute los siguientes comandos con PowerShell.  Tenga en cuenta que, si la dirección IP no está asociada a ningún servicio (a continuación, se muestra el servicio denominado **myService**), ese paso se puede omitir.
 
@@ -119,7 +119,7 @@ Se crea un grupo de recursos en Azure Resource Manager con el nombre de la direc
 
 # <a name="reserved-to-basic---cli"></a>[**Reservada a básica: CLI**](#tab/option-migrate-cli)
 
-En el ejemplo siguiente se da por supuesto que se ha creado previamente una IP reservada de Azure clásico **myReservedIP** en **myResourceGroup**. Otro requisito previo para la migración es asegurarse de que la suscripción de Azure Resource Manager se ha registrado. Este aspecto se trata de forma detallada en los pasos 3 y 4 de [esta página](https://docs.microsoft.com/azure/virtual-machines/linux/migration-classic-resource-manager-cli).
+En el ejemplo siguiente se da por supuesto que se ha creado previamente una IP reservada de Azure clásico **myReservedIP** en **myResourceGroup**. Otro requisito previo para la migración es asegurarse de que la suscripción de Azure Resource Manager se ha registrado. Este aspecto se trata de forma detallada en los pasos 3 y 4 de [esta página](../virtual-machines/migration-classic-resource-manager-cli.md).
 
 Para migrar la dirección IP reservada, ejecute los siguientes comandos con la CLI de Azure.  Tenga en cuenta que, si la dirección IP no está asociada a ningún servicio (a continuación, se muestra el servicio denominado **myService** y la implementación **myDeployment**), ese paso se puede omitir.
 
@@ -145,12 +145,12 @@ Se crea un grupo de recursos en Azure Resource Manager con el nombre de la direc
 
 ## <a name="limitations"></a>Limitaciones
 
-* Para actualizar una dirección IP pública básica, no se puede asociar con ningún recurso de Azure.  Examine [esta página](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address#view-modify-settings-for-or-delete-a-public-ip-address) para más información sobre cómo desasociar las direcciones IP públicas.  Del mismo modo, para migrar una dirección IP reservada, no se puede asociar con ningún servicio en la nube.  Revise [esta página](https://docs.microsoft.com/azure/virtual-network/remove-public-ip-address-vm) para más información sobre cómo desasociar direcciones IP reservadas.  
-* Las direcciones IP públicas actualizadas de la SKU de nivel básico a estándar seguirán sin tener [zonas de disponibilidad](https://docs.microsoft.com/azure/availability-zones/az-overview?toc=/azure/virtual-network/toc.json#availability-zones) y, por lo tanto, no se pueden asociar a un recurso de Azure con redundancia de zona o zonal.  Tenga en cuenta que esto solo se aplica a las regiones que ofrecen zonas de disponibilidad.
+* Para actualizar una dirección IP pública básica, no se puede asociar con ningún recurso de Azure.  Examine [esta página](./virtual-network-public-ip-address.md#view-modify-settings-for-or-delete-a-public-ip-address) para más información sobre cómo desasociar las direcciones IP públicas.  Del mismo modo, para migrar una dirección IP reservada, no se puede asociar con ningún servicio en la nube.  Revise [esta página](./remove-public-ip-address-vm.md) para más información sobre cómo desasociar direcciones IP reservadas.  
+* Las direcciones IP públicas actualizadas de la SKU de nivel básico a estándar seguirán sin tener [zonas de disponibilidad](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones) y, por lo tanto, no se pueden asociar a un recurso de Azure con redundancia de zona o zonal.  Tenga en cuenta que esto solo se aplica a las regiones que ofrecen zonas de disponibilidad.
 * No se puede cambiar de estándar a básico.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Más información sobre las [direcciones IP públicas](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) en Azure, incluida la diferencia entre los tipos de SKU, así como la [configuración de la dirección IP pública](virtual-network-public-ip-address.md#create-a-public-ip-address).
-- Más información sobre cómo [actualizar los equilibradores de carga públicos de Azure de nivel básico a estándar](https://docs.microsoft.com/azure/load-balancer/upgrade-basic-standard).
-- Aprenda sobre las [direcciones IP reservadas de Azure clásico](https://docs.microsoft.com/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip) y la [migración de recursos clásicos a Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview).
+- Más información sobre las [direcciones IP públicas](./public-ip-addresses.md#public-ip-addresses) en Azure, incluida la diferencia entre los tipos de SKU, así como la [configuración de la dirección IP pública](virtual-network-public-ip-address.md#create-a-public-ip-address).
+- Más información sobre cómo [actualizar los equilibradores de carga públicos de Azure de nivel básico a estándar](../load-balancer/upgrade-basic-standard.md).
+- Aprenda sobre las [direcciones IP reservadas de Azure clásico](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip) y la [migración de recursos clásicos a Azure Resource Manager](../virtual-machines/migration-classic-resource-manager-overview.md).

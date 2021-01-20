@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
-ms.openlocfilehash: 13688b73c0cd73e13e407f1b75beb8dda61a754f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36db885cab734c037b0032c714de28b905595ef0
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84172260"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223268"
 ---
 # <a name="private-ip-addresses"></a>Direcciones IP privadas
 Las direcciones IP privadas permiten la comunicación entre los recursos de Azure. 
@@ -82,8 +82,8 @@ Las máquinas virtuales configuradas con DNS administrado por Azure resuelven lo
 
 Puede asignar una dirección IP privada a la configuración de **front-end** de los siguientes:
 
-* [Equilibrador de carga interno de Azure](../load-balancer/load-balancer-internal-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (ILB)
-* [Introducción a Puerta de enlace de aplicaciones](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 
+* [Equilibrador de carga interno de Azure](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (ILB)
+* [Introducción a Puerta de enlace de aplicaciones](../application-gateway/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 
 
 Esta dirección IP privada funciona como punto de conexión interno. A este punto de conexión solo pueden acceder los recursos en su red virtual y las redes remotas conectadas a dicha red virtual. Se puede asignar una dirección IP estática o dinámica.
 

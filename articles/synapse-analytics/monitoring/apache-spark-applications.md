@@ -9,12 +9,12 @@ ms.subservice: monitoring
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: 16b37258d922db59f520d4e30c45773f6d1108cf
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 2f9fa6e7ef9a7ee8ea7dd2a09622f26f6fd9739e
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341139"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223132"
 ---
 # <a name="use-synapse-studio-to-monitor-your-apache-spark-applications"></a>Uso de Synapse Studio para supervisar sus aplicaciones de Apache Spark
 
@@ -33,7 +33,7 @@ En este tutorial se describen las tareas siguientes:
 
 Antes de comenzar este tutorial, asegúrese de que se cumplen los requisitos siguientes:
 
-- Un área de trabajo de Synapse Studio. Para instrucciones, consulte [Creación de un área de trabajo de Synapse Studio](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace#create-a-workspace).
+- Un área de trabajo de Synapse Studio. Para instrucciones, consulte [Creación de un área de trabajo de Synapse Studio](../../machine-learning/how-to-manage-workspace.md#create-a-workspace).
 
 - Un grupo de Apache Spark.
 
@@ -47,7 +47,7 @@ Abra **Supervisar** y, a continuación, seleccione la opción **Apache Spark app
 
   ![Seleccionar el trabajo completado](./media/how-to-monitor-spark-applications/select-completed-job.png)
 
-1. Compruebe los valores de **Tareas completadas** , **Estado** y **Duración total**.
+1. Compruebe los valores de **Tareas completadas**, **Estado** y **Duración total**.
 
 2. Actualice la consulta del registro.
 
@@ -96,7 +96,7 @@ Abra **Supervisar** y, a continuación, seleccione la opción **Apache Spark app
 
    ![Seleccionar un trabajo en ejecución](./media/how-to-monitor-spark-applications/select-running-job.png)
 
-1. Compruebe los valores de **Tareas completadas** , **Estado** y **Duración total**.
+1. Compruebe los valores de **Tareas completadas**, **Estado** y **Duración total**.
 
 2. Haga clic en **Cancel** (Cancelar) para cancelar la aplicación de Apache Spark.
 
@@ -120,7 +120,7 @@ Abra **Supervisar** y, a continuación, seleccione la opción **Apache Spark app
 
  ![Seleccionar el trabajo cancelado](./media/how-to-monitor-spark-applications/select-cancelled-job.png) 
 
-1. Compruebe los valores de **Tareas completadas** , **Estado** y **Duración total**.
+1. Compruebe los valores de **Tareas completadas**, **Estado** y **Duración total**.
 
 2. Actualice la consulta del registro.
 
@@ -142,7 +142,7 @@ Abra **Supervisar** y, a continuación, seleccione la opción **Apache Spark app
 
 ![Seleccionar el trabajo con errores](./media/how-to-monitor-spark-applications/select-failed-job.png)
 
-1. Compruebe los valores de **Tareas completadas** , **Estado** y **Duración total**.
+1. Compruebe los valores de **Tareas completadas**, **Estado** y **Duración total**.
 
 2. Actualice la consulta del registro.
 
@@ -158,4 +158,4 @@ Abra **Supervisar** y, a continuación, seleccione la opción **Apache Spark app
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre la supervisión de ejecuciones de canalización, consulte el artículo [Supervisión de ejecuciones de canalización en Synapse Studio](how-to-monitor-pipeline-runs.md).  
+Para más información sobre la supervisión de ejecuciones de canalización, consulte el artículo [Supervisión de ejecuciones de canalización en Synapse Studio](how-to-monitor-pipeline-runs.md).

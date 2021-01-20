@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2020
 ms.author: rdhillon
-ms.openlocfilehash: 13535a82f8aca741a1e25755e5a2d971ce45514e
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 9766379807e6d2708fd6935dd2ffbd7660f9988f
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97739304"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98216655"
 ---
 # <a name="virtual-network-service-endpoint-policies-for-azure-storage"></a>Directivas de punto de conexión de servicio de red virtual para Azure Storage
 
@@ -32,7 +32,7 @@ Las directivas de puntos de conexión de servicio de red virtual proporcionan la
 
 - __Seguridad mejorada para el tráfico de red virtual a Azure Storage__
 
-  Las [etiquetas de servicio de Azure para grupos de seguridad de red](https://aka.ms/servicetags) permiten restringir el tráfico de salida de red virtual a regiones concretas de Azure Storage. Pero esto permite el tráfico a cualquier cuenta dentro de la región de Azure Storage seleccionada.
+  Las [etiquetas de servicio de Azure para grupos de seguridad de red](./network-security-groups-overview.md) permiten restringir el tráfico de salida de red virtual a regiones concretas de Azure Storage. Pero esto permite el tráfico a cualquier cuenta dentro de la región de Azure Storage seleccionada.
   
   Las directivas de punto de conexión permiten especificar las cuentas de Azure Storage a las que se permite el acceso de salida de red virtual y restringir el acceso a todas las demás cuentas de almacenamiento. Esto proporciona un control de seguridad mucho más pormenorizado para proteger el filtrado de datos de la red virtual.
 

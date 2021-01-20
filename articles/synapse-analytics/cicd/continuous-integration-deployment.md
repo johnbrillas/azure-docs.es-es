@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: d38c57a8c8504e1e03406f7cd8a0b61725cb0511
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 7a665bf05167a6bdf20c7325c66a5d0e439aa7f1
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97008097"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223693"
 ---
 # <a name="continuous-integration-and-delivery-for-azure-synapse-workspace"></a>Integración y entrega continuas para las áreas de trabajo de Azure Synapse
 
@@ -21,7 +21,7 @@ ms.locfileid: "97008097"
 
 La integración continua (CI) es el proceso de automatizar la compilación y las pruebas de código cada vez que un miembro del equipo confirma cambios en el control de versiones. La implementación continua (CD) es el proceso de compilar, probar, configurar e implementar desde varios entornos de pruebas o ensayo en un entorno de producción.
 
-En las áreas de trabajo de Azure Synapse, la integración y la entrega continuas (CI/CD) mueven todas las entidades de un entorno (desarrollo, prueba, producción) a otro. Para promover el área de trabajo a otra área de trabajo, hay dos partes: use [plantillas de Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview) para crear o actualizar los recursos del área de trabajo (grupos y área de trabajo); migrar artefactos (scripts de SQL, cuadernos, definiciones de trabajos de Spark, canalizaciones, conjuntos de datos, flujos de datos, etc.) con herramientas de CI/CD de Synapse en Azure DevOps. 
+En las áreas de trabajo de Azure Synapse, la integración y la entrega continuas (CI/CD) mueven todas las entidades de un entorno (desarrollo, prueba, producción) a otro. Para promover el área de trabajo a otra área de trabajo, hay dos partes: use [plantillas de Azure Resource Manager](../../azure-resource-manager/templates/overview.md) para crear o actualizar los recursos del área de trabajo (grupos y área de trabajo); migrar artefactos (scripts de SQL, cuadernos, definiciones de trabajos de Spark, canalizaciones, conjuntos de datos, flujos de datos, etc.) con herramientas de CI/CD de Synapse en Azure DevOps. 
 
 En este artículo se describe el uso de canalizaciones de versión de Azure para automatizar la implementación de un área de trabajo de Synapse en varios entornos.
 
@@ -46,7 +46,7 @@ En este artículo se describe el uso de canalizaciones de versión de Azure para
 
 1.  En el cuadro **Nombre de la fase**, escriba el nombre del entorno.
 
-1.  Seleccione **Agregar artefacto** y, luego, elija el mismo repositorio de Git configurado con la instancia de Synapse Studio de desarrollo. Seleccione el repositorio de Git que usó para administrar la plantilla de Resource Manager de grupos y áreas de trabajo. Si usa GitHub como origen, debe crear una conexión de servicio para la cuenta de GitHub y los repositorios de incorporación de cambios. Para más información, consulte [Conexiones de servicio](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints). 
+1.  Seleccione **Agregar artefacto** y, luego, elija el mismo repositorio de Git configurado con la instancia de Synapse Studio de desarrollo. Seleccione el repositorio de Git que usó para administrar la plantilla de Resource Manager de grupos y áreas de trabajo. Si usa GitHub como origen, debe crear una conexión de servicio para la cuenta de GitHub y los repositorios de incorporación de cambios. Para más información, consulte [Conexiones de servicio](/azure/devops/pipelines/library/service-endpoints). 
 
     ![Adición de una rama de publicación](media/release-creation-github.png)
 
@@ -87,7 +87,7 @@ Agregue una tarea de implementación de Azure Resource Manager para crear o actu
     ![Concesión de permisos](media/release-creation-grant-permission.png)
 
  > [!WARNING]
-> En el modo de implementación completa, se **eliminarán** aquellos recursos que existan en el grupo de recursos, pero no estén especificados en la nueva plantilla de Resource Manager. Para más información, consulte [Modos de implementación de Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/templates/deployment-modes).
+> En el modo de implementación completa, se **eliminarán** aquellos recursos que existan en el grupo de recursos, pero no estén especificados en la nueva plantilla de Resource Manager. Para más información, consulte [Modos de implementación de Azure Resource Manager](../../azure-resource-manager/templates/deployment-modes.md).
 
 ## <a name="set-up-a-stage-task-for-artifacts-deployment"></a>Configuración de una tarea de fase para la implementación de artefactos 
 
@@ -122,7 +122,7 @@ Use la extensión [Synapse workspace deployment](https://marketplace.visualstudi
 
 ## <a name="create-release-for-deployment"></a>Creación de una versión para la implementación 
 
-Después de guardar todos los cambios, puede seleccionar **Create release** (Crear versión) para crear manualmente una versión. Para automatizar la creación de versiones, consulte [Desencadenadores de versión de Azure DevOps](https://docs.microsoft.com/azure/devops/pipelines/release/triggers).
+Después de guardar todos los cambios, puede seleccionar **Create release** (Crear versión) para crear manualmente una versión. Para automatizar la creación de versiones, consulte [Desencadenadores de versión de Azure DevOps](/azure/devops/pipelines/release/triggers).
 
    ![Selección de Crear versión](media/release-creation-manually.png)
 
@@ -133,6 +133,4 @@ Si usa la integración de Git con el área de trabajo de Synapse y tiene una can
 -   **Integración de Git**. Configure solo el área de trabajo de desarrollo de Synapse con la integración de Git. Los cambios en las áreas de trabajo de prueba y producción se implementan a través de CI/CD y no se necesita la integración de Git.
 -   **Prepare los grupos antes de la migración de los artefactos**. Si tiene un script de SQL o un cuaderno asociados a grupos del área de trabajo de desarrollo, se espera el mismo nombre de los grupos en distintos entornos. 
 -   **Infraestructura como código (IaC)** . Administración de la infraestructura (redes, máquinas virtuales, equilibradores de carga y topología de conexión) en un modelo descriptivo, donde se usa el mismo control de versiones que utiliza el equipo de DevOps para el código fuente. 
--   **Otros**. Consulte [Procedimientos recomendados para artefactos de ADF](/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd).
-
-
+-   **Otros**. Consulte [Procedimientos recomendados para artefactos de ADF](../../data-factory/continuous-integration-deployment.md#best-practices-for-cicd).

@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: fb3c7dd7b3d7e8e42e230eedcd0d1b43af104327
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: af6afa2b0285fe741241183ed99712a132953a30
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452534"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98220123"
 ---
 # <a name="secure-a-linked-service-with-private-links"></a>Protección de un servicio vinculado con vínculos privados
 
@@ -23,7 +23,7 @@ En este artículo, aprenderá a proteger un servicio vinculado en Synapse con un
 ## <a name="prerequisites"></a>Prerrequisitos
 
 * **Suscripción de Azure**: Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
-* **Cuenta de Azure Storage**: Puede usar Azure Data Lake Gen2 como almacén de datos de *origen*. Si no tiene una cuenta de almacenamiento, consulte [Crear una cuenta de almacenamiento](../../storage/blobs/data-lake-storage-quickstart-create-account.md) para crear una. Asegúrese de que la cuenta de almacenamiento tenga el filtrado de IP de Synapse Studio para acceder a ella y de que solo permita **Redes seleccionadas** para acceder a la cuenta de almacenamiento. La configuración de la hoja **Firewalls y redes virtuales** debe parecerse a la imagen siguiente.
+* **Cuenta de Azure Storage**: Puede usar Azure Data Lake Gen2 como almacén de datos de *origen*. Si no tiene una cuenta de almacenamiento, consulte [Crear una cuenta de almacenamiento](../../storage/common/storage-account-create.md) para crear una. Asegúrese de que la cuenta de almacenamiento tenga el filtrado de IP de Synapse Studio para acceder a ella y de que solo permita **Redes seleccionadas** para acceder a la cuenta de almacenamiento. La configuración de la hoja **Firewalls y redes virtuales** debe parecerse a la imagen siguiente.
 
 ![Cuenta de almacenamiento protegida](./media/secure-storage-account.png)
 

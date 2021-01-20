@@ -8,12 +8,12 @@ ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: fb193637525722bf227241a614cd977fbf70c9ac
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: df4bd0ae0884feae8bd21e33f4d27b6ceb207337
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93074189"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234008"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Preguntas más frecuentes sobre la configuración y administración de Web Apps en Azure
 
@@ -60,7 +60,7 @@ En [Limitaciones de App Service](../azure-resource-manager/management/move-limit
 Para establecer la zona horaria de servidor para la aplicación web:
 
 1. En Azure Portal, en la suscripción de App Service, vaya al menú **Configuración de la aplicación**.
-2. En **Configuración de la aplicación** , agregue este valor:
+2. En **Configuración de la aplicación**, agregue este valor:
     * Clave = WEBSITE_TIME_ZONE
     * Valor = *la zona horaria que desea*
 3. Seleccione **Guardar**.
@@ -185,7 +185,7 @@ Para capturar un seguimiento F12, tiene dos opciones:
 ### <a name="f12-console-output"></a>Salida de consola de F12
 
 1. Seleccione la pestaña **Consola**.
-2. Para cada pestaña que contenga más de cero elementos, seleccione la pestaña ( **Error** , **Advertencia** o **Información** ). Si la pestaña no está seleccionada, el icono de la pestaña está de color gris o negro al mover el cursor fuera de ella.
+2. Para cada pestaña que contenga más de cero elementos, seleccione la pestaña (**Error**, **Advertencia** o **Información**). Si la pestaña no está seleccionada, el icono de la pestaña está de color gris o negro al mover el cursor fuera de ella.
 3. Haga clic con el botón derecho en el área de mensajes del panel y luego seleccione **Copiar todo**.
 4. Pegue el texto copiado en un archivo y luego guarde el archivo.
 
@@ -317,3 +317,8 @@ También puede especificar los tipos MIME dinámicos y estáticos específicos q
 ## <a name="how-do-i-migrate-from-an-on-premises-environment-to-app-service"></a>¿Cómo se migra desde un entorno local a App Service?
 
 Para migrar sitios de servidores web de Windows y Linux a App Service, puede usar Azure App Service Migration Assistant. La herramienta de migración crea las aplicaciones web y las bases de datos en Azure que son necesarias y luego publica el contenido. Para más información, consulte [Azure App Service Migration Assistant](https://appmigration.microsoft.com/).
+
+## <a name="why-is-my-certificate-issued-for-11-months-and-not-for-a-full-year"></a>¿Por qué mi certificado se emite durante 11 meses y no durante un año completo?
+
+En todos los certificados emitidos después de 9/1/2020, la duración máxima es ahora de 397 días. Los certificados emitidos antes 9/1/2020 tienen una validez máxima de 825 días hasta que se renuevan, se vuelven a especificar las claves, etc. Los certificados renovados después 9/1/2020 se verán afectados por este cambio y los usuarios pueden observar una validez más corta en sus certificados renovados.
+GoDaddy ha implementado un servicio de suscripción que cumple los requisitos nuevos al tiempo que se respetan los certificados de cliente existentes. Treinta días antes de que expire el certificado recién emitido, el servicio emite automáticamente un segundo certificado que extiende la duración a la fecha de expiración original. App Service está trabajando con GoDaddy para abordar este cambio y asegurarse de que nuestros clientes reciben la duración completa de sus certificados.

@@ -3,17 +3,17 @@ title: Seguridad de red para Azure Relay
 description: En este artículo se describe cómo usar las reglas de firewall de IP y los puntos de conexión privados con Azure Relay.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 608224f42fac8cd2d8ff06ab84989b1f675d418c
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 735a0b7dc303ad63cb301151e3e14e4488c856b1
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98134473"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98217250"
 ---
 # <a name="network-security-for-azure-relay"></a>Seguridad de red para Azure Relay 
 En este artículo se describe cómo usar las siguientes características de seguridad con Azure Relay: 
 
-- Reglas de firewall de IP (versión preliminar)
+- Reglas de firewall de IP
 - Puntos de conexión privados 
 
 > [!NOTE]
@@ -28,9 +28,6 @@ Esta característica es útil en escenarios en los que Azure Relay debe ser acce
 Las reglas de firewall de IP se aplican en el nivel del espacio de nombres de Relay. Por lo tanto, las reglas se aplican a todas las conexiones de clientes que usan cualquier protocolo admitido. Cualquier intento de conexión desde una dirección IP que no coincida con una regla IP admitida en el espacio de nombres de Relay se rechaza como no autorizado. La respuesta no menciona la regla IP. Las reglas de filtro IP se aplican en orden y la primera regla que coincida con la dirección IP determina la acción de aceptar o rechazar.
 
 Para obtener más información, consulte [Configuración de reglas de firewall de IP para un espacio de nombres de Relay](ip-firewall-virtual-networks.md).
-
-> [!NOTE]
-> Esta funcionalidad actualmente está en su **versión preliminar**. 
 
 ## <a name="private-endpoints"></a>Puntos de conexión privados
 

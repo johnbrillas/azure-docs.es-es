@@ -4,15 +4,15 @@ description: 'Servicios de comercialización: en esta sección se describen los 
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 09/24/2020
+ms.date: 01/13/2021
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: ad86ebe1ca397004745e75dd279ea0a7cfe8348e
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 07535add495484abae06fc6ac8ac435d84bccc52
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94746574"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246254"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Las ventajas de Marketplace comercial
 
@@ -26,7 +26,7 @@ Las Recompensas de Marketplace están diseñadas para ayudarlo en su fase de cre
 
 El programa crea un bucle de retroalimentación positivo: las ventajas de cada fase de crecimiento están diseñadas para llevarle hasta la fase siguiente, lo que le permite llevar el negocio a los clientes de Microsoft, con el campo de Microsoft, y a través del canal de Microsoft mediante el aprovechamiento de Marketplace comercial como plataforma.
 
-Sus ventajas se diferencian en función de si la oferta es de [Lista, Prueba o Transacción](determine-your-listing-type.md#available-listing-options-by-offer-type).
+Sus ventajas se diferencian en función de si la oferta es de [Lista, Prueba o Transacción](determine-your-listing-type.md).
 
 Un miembro del equipo de Recompesas se pondrá en contacto con usted cuando se publique la oferta, en función de su idoneidad.
 
@@ -65,7 +65,7 @@ Si publica un taller, una implementación o una prueba de concepto de prueba o c
 
 En la tabla siguiente se resumen los requisitos de elegibilidad para las ofertas de lista, prueba y consultoría:
 
-![Ventajas de comercialización](./media/marketplace-publishers-guide/gtm-eligibility-requirements.png)
+![Ventajas de comercialización](./media/marketplace-publishers-guide/go-to-market-gtm-eligibility-requirements.png)
 
 Puede encontrar descripciones detalladas de todas estas ventajas en la [presentación del programa Recompensas de Marketplace](https://aka.ms/marketplacerewards).
 
@@ -104,16 +104,16 @@ Los anunciantes de ofertas de [lista y prueba](determine-your-listing-type.md) p
 
 Microsoft se reserva el derecho de revocar y finalizar las ventajas de las Recompensas de Marketplace para los anunciantes que:
 
-* participen en una actividad ilícita con su lista de Marketplace;
-* reciban una compra conocida o que se cree que sea fraudulenta.
-* hayan sido eliminados de las listas de Marketplace comercial;
-* usen su oferta para mostrar contenido de marketing o de otro tipo que infrinja los derechos de autor o las leyes de marcas comerciales;
-* infrinjan las directivas del [programa de patrocinio de Azure](https://azure.microsoft.com/offers/ms-azr-0036p/), que incluyen, entre otras, el uso de fondos de patrocinio de Azure para sus propias operaciones internas o minería de bitcoins.
+- participen en una actividad ilícita con su lista de Marketplace;
+- reciban una compra conocida o que se cree que sea fraudulenta.
+- hayan sido eliminados de las listas de Marketplace comercial;
+- usen su oferta para mostrar contenido de marketing o de otro tipo que infrinja los derechos de autor o las leyes de marcas comerciales;
+- infrinjan las directivas del [programa de patrocinio de Azure](https://azure.microsoft.com/offers/ms-azr-0036p/), que incluyen, entre otras, el uso de fondos de patrocinio de Azure para sus propias operaciones internas o minería de bitcoins.
 
 Microsoft se reserva el derecho de revocar y finalizar Marketplace Rewards cuando:
 
-* el cliente que realiza la compra lo hizo por accidente y quiere cancelar la compra.
-* el cliente cancela antes de usar el producto del asociado.
+- el cliente que realiza la compra lo hizo por accidente y quiere cancelar la compra.
+- el cliente cancela antes de usar el producto del asociado.
 
 ### <a name="offer-availability"></a>Disponibilidad de la oferta
 
