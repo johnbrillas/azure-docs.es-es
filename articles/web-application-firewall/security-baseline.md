@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: cb5fae022957dd5fdc56058ed08b92734929d13e
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: b44ea6f55717712cfba4045205e02bd9f2b851df
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94562305"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202664"
 ---
 # <a name="azure-security-baseline-for-azure-web-application-firewall"></a>Línea base de seguridad de Azure Web Application Firewall
 
@@ -259,7 +259,7 @@ Cree procedimientos operativos estándar en torno al uso de cuentas administrati
 
 **Guía**: Utilice una estación de trabajo de acceso con privilegios (PAW) con la autenticación multifactor (MFA) configurada para iniciar sesión en recursos de Azure Web Application Firewall (WAF) y recursos relacionados y configurarlos. 
 
-- [Más información sobre las estaciones de trabajo con privilegios de acceso](/windows-server/identity/securing-privileged-access/privileged-access-workstations) 
+- [Más información sobre las estaciones de trabajo con privilegios de acceso](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/) 
 
 - [Procedimiento para habilitar la MFA en Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 

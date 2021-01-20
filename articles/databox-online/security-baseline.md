@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/18/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 14e19732423da3842b2f2748a46219691fe222b9
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 0de08c166aba7609210892a32836bee9b07d5394
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803160"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98203055"
 ---
 # <a name="azure-security-baseline-for-azure-stack-edge"></a>Base de referencia de seguridad de Azure para Azure Stack Edge
 
@@ -234,7 +234,7 @@ Se puede encontrar información adicional en el vínculo al que se hace referenc
 
 Las estaciones de trabajo protegidas se pueden administrar de forma centralizada para aplicar una configuración segura, como autenticación sólida, líneas de base de software y hardware y acceso lógico y de red restringido.
 
-- [Descripción de las estaciones de trabajo con privilegios de acceso](/azure/active-directory/devices/concept-azure-managed-workstation) 
+- [Descripción de las estaciones de trabajo con privilegios de acceso](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/) 
 
 - [Implementación de una estación de trabajo con privilegios de acceso](/azure/active-directory/devices/howto-azure-managed-workstation)
 

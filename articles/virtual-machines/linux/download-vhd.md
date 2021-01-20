@@ -6,12 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: how-to
 ms.date: 08/03/2020
 ms.author: cynthn
-ms.openlocfilehash: 897cae53e589f4058e5499c0e6e941d4f1d9bb2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f0c5e51665b4b1d31e7d2b3e25e7be31b481d0d9
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87761077"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98203174"
 ---
 # <a name="download-a-linux-vhd-from-azure"></a>Descarga de un VHD de Linux desde Azure
 
@@ -42,11 +42,11 @@ Para descargar el archivo de VHD, debe generar una dirección URL de [firma de a
 
 1.  En la dirección URL generada, seleccione **Descargar el archivo VHD**.
 
-    :::image type="content" source="./media/download-vhd/export-download.PNG" alt-text="Muestra el botón de menú para detener la máquina virtual.":::
+    :::image type="content" source="./media/download-vhd/export-download.PNG" alt-text="Muestra el botón para descargar el VHD.":::
 
 2.  Es posible que tenga que seleccionar **Guardar** en el explorador para iniciar la descarga. El nombre predeterminado del archivo de VHD es *abcd*.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga información sobre cómo [cargar y crear una máquina virtual de Linux desde un disco personalizado con la CLI de Azure](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
-- [Administración de discos de Azure con la CLI de Azure](tutorial-manage-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+- Obtenga información sobre cómo [cargar y crear una máquina virtual de Linux desde un disco personalizado con la CLI de Azure](upload-vhd.md). 
+- [Administración de discos de Azure con la CLI de Azure](tutorial-manage-disks.md).

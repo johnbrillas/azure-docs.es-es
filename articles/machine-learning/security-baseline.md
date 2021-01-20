@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f3f66209b2d0a1bae18364e38790c237952e729f
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 380aa826030df14b4b88b86ac2962c988796c0f9
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96458263"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202647"
 ---
 # <a name="azure-security-baseline-for-azure-machine-learning"></a>Base de referencia de seguridad de Azure Machine Learning
 
@@ -365,7 +365,7 @@ También puede habilitar un acceso Just-in-Time a cuentas administrativas median
 
 **Instrucciones**: use una estación de trabajo segura y administrada por Azure (también conocida como una estación de trabajo de acceso con privilegios o PAW) para las tareas administrativas que requieren privilegios elevados.
 
-- [Descripción de las estaciones de trabajo seguras administradas por Azure](../active-directory/devices/concept-azure-managed-workstation.md)
+- [Descripción de las estaciones de trabajo seguras administradas por Azure](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 - [Cómo habilitar MFA de Azure AD](../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -983,7 +983,7 @@ Use Azure Key Vault para pasar secretos a las ejecuciones remotas de forma segur
 
 - [Creación de un almacén de claves](../key-vault/general/quick-create-portal.md)
 
-- [Autenticación en Key Vault](../key-vault/general/authentication.md)
+- [Autenticación en Azure Key Vault](../key-vault/general/authentication.md)
 
 - [Asignación de una directiva de acceso de Key Vault](../key-vault/general/assign-access-policy-portal.md)
 

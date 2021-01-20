@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 09/27/2018
 ms.author: cynthn
 ms.custom: legacy
-ms.openlocfilehash: 751fa9f9fe2ba17a982b71a6332be302804f0dcc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d06dc03a016f057a9a3407a82a114f8df6757599
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89047299"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200692"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Captura de una imagen administrada de una máquina virtual generalizada en Azure
 
@@ -33,7 +33,7 @@ Asegúrese de que los roles de servidor que se ejecutan en la máquina sean comp
 >
 >Sysprep requiere que las unidades se descifren por completo. Si ha habilitado el cifrado en la VM, deshabilite el cifrado antes de ejecutar Sysprep.
 >
-> Si tiene pensado ejecutar Sysprep antes de cargar el disco duro virtual (VHD) en Azure por primera vez, asegúrese de que tiene [preparada la máquina virtual](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).  
+> Si tiene pensado ejecutar Sysprep antes de cargar el disco duro virtual (VHD) en Azure por primera vez, asegúrese de que tiene [preparada la máquina virtual](prepare-for-upload-vhd-image.md).  
 > 
 > 
 
@@ -250,4 +250,4 @@ Para crear una imagen administrada a partir de una máquina virtual que no usa d
 
     
 ## <a name="next-steps"></a>Pasos siguientes
-- [Creación de una máquina virtual a partir de una imagen administrada](create-vm-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)    
+- [Creación de una máquina virtual a partir de una imagen administrada](create-vm-generalized-managed.md) 

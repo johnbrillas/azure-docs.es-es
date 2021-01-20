@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/22/2018
 ms.author: duau
-ms.openlocfilehash: d96cd9b3c83357c2591edf4bbb09a82b897c6a24
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5f2aa3d05d349880b5eb2d35a2c58af0741b9855
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91826040"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185587"
 ---
 # <a name="nested-traffic-manager-profiles"></a>Perfiles anidados del Administrador de tráfico
 
@@ -97,23 +97,23 @@ La configuración de supervisión en un perfil de Traffic Manager se aplica a to
 
 ## <a name="faqs"></a>Preguntas más frecuentes
 
-* [¿Cómo se configuran los perfiles anidados?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#traffic-manager-nested-profiles)
+* [¿Cómo se configuran los perfiles anidados?](./traffic-manager-faqs.md#traffic-manager-nested-profiles)
 
-* [¿Cuántas capas de anidamiento admite Traffic Manager?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-many-layers-of-nesting-does-traffic-manger-support)
+* [¿Cuántas capas de anidamiento admite Traffic Manager?](./traffic-manager-faqs.md#how-many-layers-of-nesting-does-traffic-manger-support)
 
-* [¿Puedo combinar otros tipos de puntos de conexión con perfiles secundarios anidados en el mismo perfil de Traffic Manager?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-mix-other-endpoint-types-with-nested-child-profiles-in-the-same-traffic-manager-profile)
+* [¿Puedo combinar otros tipos de puntos de conexión con perfiles secundarios anidados en el mismo perfil de Traffic Manager?](./traffic-manager-faqs.md#can-i-mix-other-endpoint-types-with-nested-child-profiles-in-the-same-traffic-manager-profile)
 
-* [¿Cómo se aplica el modelo de facturación para perfiles anidados?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-the-billing-model-apply-for-nested-profiles)
+* [¿Cómo se aplica el modelo de facturación para perfiles anidados?](./traffic-manager-faqs.md#how-does-the-billing-model-apply-for-nested-profiles)
 
-* [¿Se ve afectado el rendimiento por el uso de perfiles anidados?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#is-there-a-performance-impact-for-nested-profiles)
+* [¿Se ve afectado el rendimiento por el uso de perfiles anidados?](./traffic-manager-faqs.md#is-there-a-performance-impact-for-nested-profiles)
 
-* [¿Cómo calcula Traffic Manager el estado de un punto de conexión anidado en un perfil primario?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-traffic-manager-compute-the-health-of-a-nested-endpoint-in-a-parent-profile)
+* [¿Cómo calcula Traffic Manager el estado de un punto de conexión anidado en un perfil primario?](./traffic-manager-faqs.md#how-does-traffic-manager-compute-the-health-of-a-nested-endpoint-in-a-parent-profile)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Más información sobre los [perfiles de Traffic Manager](traffic-manager-overview.md)
 
-Aprenda a [crear un perfil del Administrador de tráfico](traffic-manager-create-profile.md)
+Aprenda a [crear un perfil del Administrador de tráfico](./quickstart-create-traffic-manager-profile.md)
 
 <!--Image references-->
 [1]: ./media/traffic-manager-nested-profiles/figure-1.png

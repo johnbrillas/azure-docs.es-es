@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: bf593eab54233ab65435585485dd8e3940f5addb
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d2abc357a5a636aa15909a3645e284c978fb903f
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96489826"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98197598"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Procedimientos recomendados para la administración de identidades y la seguridad del control de acceso en Azure
 
@@ -275,7 +275,7 @@ Requiera Azure AD Multi-Factor Authentication en el inicio de sesión para todo
 **Detalles**: use una estación de trabajo de administración. Elija el nivel de seguridad de la estación de trabajo:
 
 - Los dispositivos de productividad con una protección elevada proporcionan seguridad avanzada en operaciones de exploración y otras tareas de productividad.
-- Las [estaciones de trabajo con privilegios de acceso (PAW)](/windows-server/identity/securing-privileged-access/privileged-access-workstations) proporcionan un sistema operativo dedicado que está protegido de ataques de Internet y vectores de amenazas al realizar tareas delicadas.
+- Las [estaciones de trabajo con privilegios de acceso (PAW)](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/) proporcionan un sistema operativo dedicado que está protegido de ataques de Internet y vectores de amenazas al realizar tareas delicadas.
 
 **Procedimiento recomendado**: desaprovisionar las cuentas de administrador de empleados que dejen la organización.
 **Detalles**: tenga implantado un proceso que deshabilite o elimine las cuentas de administrador de los empleados que dejen la organización.

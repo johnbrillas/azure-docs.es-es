@@ -11,16 +11,18 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/14/2020
 ms.author: nichola
-ms.openlocfilehash: 9c53ea5bad88eb79940274c409218045c06d7981
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 4f0588667df6acb11a43e8c3469c67f65ed3cdd9
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98064975"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165185"
 ---
 # <a name="support-single-sign-on-and-app-protection-policies-in-mobile-apps-you-develop"></a>Compatibilidad con inicio de sesión único y directivas de protección de aplicaciones en el desarrollo de aplicaciones móviles
 
 El inicio de sesión único (SSO) es una oferta clave de la plataforma de identidad de Microsoft y Azure Active Directory, que proporciona inicios de sesión sencillos y seguros para los usuarios de la aplicación. Además, las directivas de protección de aplicaciones (APP) permiten respaldar las directivas de seguridad principales que mantienen seguros los datos del usuario. Juntas, estas características permiten inicios de sesión de usuario seguros y la administración de los datos de la aplicación.
+
+> [!VIDEO https://www.youtube.com/embed/JpeMeTjQJ04]
 
 En este artículo se explica por qué SSO y APP son importantes, y se proporcionan instrucciones de alto nivel para la creación de aplicaciones móviles que admitan estas características. Es aplicable tanto a aplicaciones de teléfonos como de tabletas. Si es un administrador de TI que quiere implementar el inicio de sesión único en el inquilino de Azure Active Directory de la organización, consulte nuestra [guía para planear una implementación de inicio de sesión único](../manage-apps/plan-sso-deployment.md).
 

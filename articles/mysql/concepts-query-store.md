@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 5/12/2020
-ms.openlocfilehash: 70e1e5d06ef025801322e15e589d26e31f116fc3
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 82482b260233994672e603c16fe8cf919c92337f
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94535085"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201032"
 ---
 # <a name="monitor-azure-database-for-mysql-performance-with-query-store"></a>Supervisión del rendimiento de Azure Database for MySQL con el Almacén de consultas
 
@@ -69,7 +69,7 @@ SELECT * FROM mysql.query_store_wait_stats;
 ## <a name="finding-wait-queries"></a>Búsqueda de consultas de espera
 
 > [!NOTE]
-> Las estadísticas de espera no deben habilitarse durante las horas de carga de trabajo máximas ni activarse indefinidamente para cargas de trabajo confidenciales. <br>En el caso de cargas de trabajo que hacen un uso intensivo de la CPU o en servidores configurados con menos núcleos virtuales, tenga cuidado al habilitar las estadísticas de espera. No deben activarse indefinidamente. 
+> Las estadísticas de espera no deben habilitarse durante las horas de carga de trabajo máximas ni activarse indefinidamente para cargas de trabajo confidenciales. <br>En el caso de cargas de trabajo que hacen un uso intensivo de la CPU o en servidores configurados con menos núcleos virtuales, tenga cuidado al habilitar las estadísticas de espera. No deben activarse indefinidamente.
 
 Los tipos de evento de espera combinan eventos de espera diferentes en ciclos por similitud. El Almacén de consultas proporciona el tipo de evento de espera, el nombre del evento de espera específico y la consulta en cuestión. Poder correlacionar esta información de espera con las estadísticas de tiempo de ejecución de consultas significa que puede mejorar la comprensión de lo que contribuye a las características de rendimiento de consulta.
 
@@ -79,7 +79,7 @@ Estos son algunos ejemplos de cómo puede obtener más información sobre la car
 |---|---|
 |Largas esperas de bloqueo | Compruebe los textos de consulta para las consultas afectadas e identifique las entidades de destino. Busque en el Almacén de consultas otras consultas que modifiquen la misma entidad, que se ejecuta con frecuencia o tiene una gran duración. Tras identificar estas consultas, considere la posibilidad de cambiar la lógica de aplicación para mejorar la simultaneidad o usar un nivel de aislamiento menos restrictivo. |
 |Largas esperas de E/S de búfer | Encuentre las consultas con un gran número de lecturas físicas en el Almacén de consultas. Si coinciden con las consultas con largas esperas de E/S, considere la posibilidad de introducir un índice en la entidad subyacente para llevar a cabo búsquedas en lugar de exámenes. Esto podría minimizar la sobrecarga de E/S de las consultas. Compruebe las **Recomendaciones de rendimiento** para el servidor en el portal para ver si hay recomendaciones de índices para este servidor que optimizarían las consultas. |
-|Largas esperas de memoria | Encuentre las consultas que más memoria consumen en el Almacén de consultas. Estas consultas probablemente retrasan el progreso de las consultas afectadas. Compruebe las **Recomendaciones de rendimiento** para el servidor en el portal para ver si hay recomendaciones de índices que optimizarían estas consultas.|
+|Largas esperas de memoria | Encuentre las consultas que más memoria consumen en el Almacén de consultas. Estas consultas probablemente retrasan el progreso de las consultas afectadas. Compruebe las **Recomendaciones de rendimiento** para el servidor en el portal para ver si hay recomendaciones de índices que optimizarían estas consultas. |
 
 ## <a name="configuration-options"></a>Opciones de configuración
 
@@ -108,7 +108,7 @@ Use [Azure Portal](howto-server-parameters.md) o la [CLI de Azure](howto-configu
 
 ## <a name="views-and-functions"></a>Funciones y vistas
 
-Vea y administre el Almacén de consultas mediante las siguientes vistas y funciones. Cualquier usuario en el [rol público con privilegios seleccionado](howto-create-users.md#to-create-additional-admin-users-in-azure-database-for-mysql) puede usar estas vistas para ver los datos en el Almacén de consultas. Estas vistas solo están disponibles en la base de datos **mysql**.
+Vea y administre el Almacén de consultas mediante las siguientes vistas y funciones. Cualquier usuario en el [rol público con privilegios seleccionado](howto-create-users.md#to-create-more-admin-users-in-azure-database-for-mysql) puede usar estas vistas para ver los datos en el Almacén de consultas. Estas vistas solo están disponibles en la base de datos **mysql**.
 
 Las consultas se normalizan examinando su estructura después de quitar los literales y constantes. Si dos consultas son idénticas salvo por los valores literales, tienen el mismo hash.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 636bc3c64dcd15ead36a9a4e969e802d49895dca
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: b38d86402f418e5c2b484bb9101e2b4cc3575d6e
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95522250"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98196629"
 ---
 # <a name="azure-security-baseline-for-azure-private-link"></a>Línea base de seguridad de Azure para Azure Private Link
 
@@ -176,7 +176,7 @@ También puede habilitar el acceso Just-in-Time/Just-Enough usando roles de Azur
 
 **Guía**: Utilice una estación de acceso con privilegios (PAW) con Multi-Factor Authentication configurada para iniciar sesión en recursos de red de Azure y configurarlos.
 
-- [Más información sobre las estaciones de trabajo con privilegios de acceso](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+- [Más información sobre las estaciones de trabajo con privilegios de acceso](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 - [Procedimiento para habilitar la MFA en Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 

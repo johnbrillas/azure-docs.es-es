@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/31/2017
 ms.author: mimckitt
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 181f226a4d7aa37ffd8c667db4736a96450e2be5
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: a91e21994dda126e14c100bcf1d2a69c36b13e1e
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94955963"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202171"
 ---
 # <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>Uso de la supervisión y el diagnóstico con una máquina virtual Windows y plantillas de Azure Resource Manager
 La extensión Azure Diagnostics proporciona funcionalidades de supervisión y diagnóstico en una máquina virtual de Azure basada en Windows. Para habilitar estas funcionalidades en la máquina virtual, incluya la extensión como parte de la plantilla de Azure Resource Manager. Para obtener más información sobre cómo incluir cualquier extensión como parte de una plantilla de máquina virtual, consulte [Creación de plantillas del Administrador de recursos de Azure con extensiones de máquina virtual](../windows/template-description.md#extensions) . En este artículo se describe cómo agregar la extensión de Diagnósticos de Azure a una plantilla de máquina virtual de Windows.  
@@ -179,5 +179,5 @@ Cada tabla WADMetrics contiene las columnas siguientes:
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para obtener una plantilla de ejemplo de una máquina virtual Windows con la extensión Diagnostics, consulte [201-vm-monitoring-diagnostics-extension](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-monitoring-diagnostics-extension).   
-* Implemente la plantilla de Azure Resource Manager mediante [Azure PowerShell](../windows/ps-template.md) o la [línea de comandos de Azure](../linux/create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Implemente la plantilla de Azure Resource Manager mediante [Azure PowerShell](../windows/ps-template.md) o la [línea de comandos de Azure](../linux/create-ssh-secured-vm-from-template.md).
 * Obtenga más información sobre la [creación de plantillas del Administrador de recursos de Azure](../../azure-resource-manager/templates/template-syntax.md)

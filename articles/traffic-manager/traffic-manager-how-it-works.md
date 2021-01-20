@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
 ms.author: duau
-ms.openlocfilehash: 471895f1a615770521584a627e6bca850b87d0ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a1e1bd107e8b3b9209f99d1abfc4d7e391c3c4a6
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89462639"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98184346"
 ---
 # <a name="how-traffic-manager-works"></a>Funcionamiento de Traffic Manager
 
@@ -30,7 +30,7 @@ Traffic Manager ofrece dos ventajas principales:
 
 Cuando un cliente intenta conectarse a un servicio, debe resolver primero el nombre DNS del servicio en una dirección IP. Luego, el cliente se conecta a esa dirección IP para tener acceso al servicio.
 
-**Es fundamental entender que Traffic Manager funciona a nivel de DNS.**  Traffic Manager usa DNS para dirigir a los clientes a puntos de conexión específicos del servicio basados en las reglas del método de enrutamiento de tráfico. Los clientes se conectan **directamente**al punto de conexión seleccionado. Traffic Manager no es un proxy ni una puerta de enlace. Traffic Manager no ve el tráfico que circula entre el cliente y el servicio.
+**Es fundamental entender que Traffic Manager funciona a nivel de DNS.**  Traffic Manager usa DNS para dirigir a los clientes a puntos de conexión específicos del servicio basados en las reglas del método de enrutamiento de tráfico. Los clientes se conectan **directamente** al punto de conexión seleccionado. Traffic Manager no es un proxy ni una puerta de enlace. Traffic Manager no ve el tráfico que circula entre el cliente y el servicio.
 
 ## <a name="traffic-manager-example"></a>Ejemplo de Traffic Manager
 
@@ -71,27 +71,27 @@ El servicio DNS recursivo almacena en la memoria caché las respuestas DNS que r
 
 ## <a name="faqs"></a>Preguntas más frecuentes
 
-* [¿Qué dirección IP usa Traffic Manager?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-ip-address-does-traffic-manager-use)
+* [¿Qué dirección IP usa Traffic Manager?](./traffic-manager-faqs.md#what-ip-address-does-traffic-manager-use)
 
-* [¿Qué tipos de tráfico se pueden enrutar mediante Traffic Manager?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-types-of-traffic-can-be-routed-using-traffic-manager)
+* [¿Qué tipos de tráfico se pueden enrutar mediante Traffic Manager?](./traffic-manager-faqs.md#what-types-of-traffic-can-be-routed-using-traffic-manager)
 
-* [¿Admite Traffic Manager sesiones temporales?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-traffic-manager-support-sticky-sessions)
+* [¿Admite Traffic Manager sesiones temporales?](./traffic-manager-faqs.md#does-traffic-manager-support-sticky-sessions)
 
-* [¿Por qué obtengo un error HTTP al utilizar Traffic Manager?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#why-am-i-seeing-an-http-error-when-using-traffic-manager)
+* [¿Por qué obtengo un error HTTP al utilizar Traffic Manager?](./traffic-manager-faqs.md#why-am-i-seeing-an-http-error-when-using-traffic-manager)
 
-* [¿Cómo afecta al rendimiento el uso de Traffic Manager?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-is-the-performance-impact-of-using-traffic-manager)
+* [¿Cómo afecta al rendimiento el uso de Traffic Manager?](./traffic-manager-faqs.md#what-is-the-performance-impact-of-using-traffic-manager)
 
-* [¿Qué protocolos de aplicación puedo usar con Traffic Manager?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-application-protocols-can-i-use-with-traffic-manager)
+* [¿Qué protocolos de aplicación puedo usar con Traffic Manager?](./traffic-manager-faqs.md#what-application-protocols-can-i-use-with-traffic-manager)
 
-* [¿Puedo usar Traffic Manager con un nombre de dominio desnudo?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-a-naked-domain-name)
+* [¿Puedo usar Traffic Manager con un nombre de dominio desnudo?](./traffic-manager-faqs.md#can-i-use-traffic-manager-with-a-naked-domain-name)
 
-* [¿Traffic Manager considera la dirección de subred de cliente cuando controla las consultas de DNS?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-traffic-manager-consider-the-client-subnet-address-when-handling-dns-queries)
+* [¿Traffic Manager considera la dirección de subred de cliente cuando controla las consultas de DNS?](./traffic-manager-faqs.md#does-traffic-manager-consider-the-client-subnet-address-when-handling-dns-queries)
 
-* [¿Qué es el TTL de DNS y cómo afecta a mis usuarios?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-is-dns-ttl-and-how-does-it-impact-my-users)
+* [¿Qué es el TTL de DNS y cómo afecta a mis usuarios?](./traffic-manager-faqs.md#what-is-dns-ttl-and-how-does-it-impact-my-users)
 
-* [¿Cuál es el límite superior e inferior en que puedo establecer el TTL para las respuestas de Traffic Manager?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-high-or-low-can-i-set-the-ttl-for-traffic-manager-responses)
+* [¿Cuál es el límite superior e inferior en que puedo establecer el TTL para las respuestas de Traffic Manager?](./traffic-manager-faqs.md#how-high-or-low-can-i-set-the-ttl-for-traffic-manager-responses)
 
-* [¿Cómo puedo comprender el volumen de las consultas que llegan a mi perfil?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-understand-the-volume-of-queries-coming-to-my-profile)
+* [¿Cómo puedo comprender el volumen de las consultas que llegan a mi perfil?](./traffic-manager-faqs.md#how-can-i-understand-the-volume-of-queries-coming-to-my-profile)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -102,4 +102,3 @@ Obtenga más información sobre los [métodos de enrutamiento del tráfico](traf
 <!--Image references-->
 [1]: ./media/traffic-manager-how-traffic-manager-works/dns-configuration.png
 [2]: ./media/traffic-manager-how-traffic-manager-works/flow.png
-

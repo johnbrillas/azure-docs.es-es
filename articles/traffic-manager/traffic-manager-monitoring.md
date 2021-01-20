@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: duau
-ms.openlocfilehash: 78a1681c743f65081b30657f4fd747ff8aaef5f5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31048a0abd939c81b64e87b4a146ae3b6934803f
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89392840"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98183916"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Supervisión de puntos de conexión de Traffic Manager
 
@@ -79,7 +79,7 @@ El estado de supervisión de un punto de conexión es un valor generado por Traf
 Para obtener más información sobre cómo se calcula el valor de estado de supervisión del punto de conexión en el caso de puntos de conexión anidados, consulte [Perfiles anidados de Traffic Manager](traffic-manager-nested-profiles.md).
 
 >[!NOTE]
-> Un estado de supervisión de punto de conexión detenido puede ocurrir en App Service si la aplicación web no se ejecutan en el nivel estándar o superior. Para obtener más información, consulte [Integración de Traffic Manager con App Service](/azure/app-service/web-sites-traffic-manager).
+> Un estado de supervisión de punto de conexión detenido puede ocurrir en App Service si la aplicación web no se ejecutan en el nivel estándar o superior. Para obtener más información, consulte [Integración de Traffic Manager con App Service](../app-service/web-sites-traffic-manager.md).
 
 ### <a name="profile-monitor-status"></a>Estado de supervisión de perfiles
 
@@ -137,7 +137,7 @@ Cuando un punto de conexión tiene un estado Degradado, ya no se devuelve en res
 * **Rendimiento**. Se devuelve el punto de conexión más cercano al usuario final. Si ese punto de conexión no está disponible, Traffic Manager moverá el tráfico a los puntos de conexión de la región de Azure siguiente más cercana. Puede configurar planes de conmutación por error alternativos para el enrutamiento del tráfico de rendimiento mediante los [perfiles anidados de Traffic Manager](traffic-manager-nested-profiles.md#example-4-controlling-performance-traffic-routing-between-multiple-endpoints-in-the-same-region).
 * **Geográfico**. Se devuelve el punto de conexión asignado para dar servicio a la ubicación geográfica en función de la dirección IP de la solicitud de consulta. Si ese punto de conexión no está disponible, no se seleccionará otro punto de conexión para la conmutación por error, ya que una ubicación geográfica se puede asignar solo a un punto de conexión en un perfil (puede encontrar más detalles en el artículo [preguntas más frecuentes](traffic-manager-FAQs.md#traffic-manager-geographic-traffic-routing-method)). Como práctica recomendada al usar enrutamiento geográfico, se recomienda que los clientes usen perfiles de Traffic Manager anidados con más de un punto de conexión como puntos de conexión del perfil.
 * **Multivalor**. Se devuelven varios puntos de conexión asignados a direcciones IPv4/IPv6. Al recibirse una consulta relacionada con este perfil, se devuelven los puntos de conexión correctos en función del valor de **Maximum record count in response** (Máximo de registros por respuesta) especificado. El número predeterminado de respuestas es dos puntos de conexión.
-* **Subred**. Se devuelve el punto de conexión asignado a un conjunto de intervalos de direcciones IP. Al recibirse una solicitud de esa dirección IP, se devuelve el punto de conexión asignado a ella. 
+* **Subred**. Se devuelve el punto de conexión asignado a un conjunto de intervalos de direcciones IP. Al recibirse una solicitud de esa dirección IP, se devuelve el punto de conexión asignado a ella. 
 
 Para más información, consulte [Métodos de enrutamiento del Administrador de tráfico](traffic-manager-routing-methods.md).
 
@@ -155,43 +155,43 @@ Para obtener más información sobre la solución de problemas de comprobaciones
 
 ## <a name="faqs"></a>Preguntas más frecuentes
 
-* [¿Traffic Manager es resistente a errores de región de Azure?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#is-traffic-manager-resilient-to-azure-region-failures)
+* [¿Traffic Manager es resistente a errores de región de Azure?](./traffic-manager-faqs.md#is-traffic-manager-resilient-to-azure-region-failures)
 
-* [¿Cómo afecta a Traffic Manager la elección de la ubicación del grupo de recursos?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-the-choice-of-resource-group-location-affect-traffic-manager)
+* [¿Cómo afecta a Traffic Manager la elección de la ubicación del grupo de recursos?](./traffic-manager-faqs.md#how-does-the-choice-of-resource-group-location-affect-traffic-manager)
 
-* [¿Cómo se determina el estado actual de cada punto de conexión?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-do-i-determine-the-current-health-of-each-endpoint)
+* [¿Cómo se determina el estado actual de cada punto de conexión?](./traffic-manager-faqs.md#how-do-i-determine-the-current-health-of-each-endpoint)
 
-* [¿Puedo supervisar puntos de conexión HTTPS?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-monitor-https-endpoints)
+* [¿Puedo supervisar puntos de conexión HTTPS?](./traffic-manager-faqs.md#can-i-monitor-https-endpoints)
 
-* [¿Uso una dirección IP o un nombre DNS al agregar un punto de conexión?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#do-i-use-an-ip-address-or-a-dns-name-when-adding-an-endpoint)
+* [¿Uso una dirección IP o un nombre DNS al agregar un punto de conexión?](./traffic-manager-faqs.md#do-i-use-an-ip-address-or-a-dns-name-when-adding-an-endpoint)
 
-* [¿Qué tipos de direcciones IP puedo usar al agregar un punto de conexión?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-types-of-ip-addresses-can-i-use-when-adding-an-endpoint)
+* [¿Qué tipos de direcciones IP puedo usar al agregar un punto de conexión?](./traffic-manager-faqs.md#what-types-of-ip-addresses-can-i-use-when-adding-an-endpoint)
 
-* [¿Puedo usar tipos de direccionamiento de punto de conexión diferentes en un único perfil?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-different-endpoint-addressing-types-within-a-single-profile)
+* [¿Puedo usar tipos de direccionamiento de punto de conexión diferentes en un único perfil?](./traffic-manager-faqs.md#can-i-use-different-endpoint-addressing-types-within-a-single-profile)
 
-* [¿Qué ocurre cuando el tipo de registro de la consulta entrante es diferente del tipo de registro asociado con el tipo de direccionamiento de los puntos de conexión?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-happens-when-an-incoming-querys-record-type-is-different-from-the-record-type-associated-with-the-addressing-type-of-the-endpoints)
+* [¿Qué ocurre cuando el tipo de registro de la consulta entrante es diferente del tipo de registro asociado con el tipo de direccionamiento de los puntos de conexión?](./traffic-manager-faqs.md#what-happens-when-an-incoming-querys-record-type-is-different-from-the-record-type-associated-with-the-addressing-type-of-the-endpoints)
 
-* [¿Puedo usar un perfil con puntos de conexión con direcciones IPv4 o IPv6 en un perfil anidado?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-a-profile-with-ipv4--ipv6-addressed-endpoints-in-a-nested-profile)
+* [¿Puedo usar un perfil con puntos de conexión con direcciones IPv4 o IPv6 en un perfil anidado?](./traffic-manager-faqs.md#can-i-use-a-profile-with-ipv4--ipv6-addressed-endpoints-in-a-nested-profile)
 
-* [Detuve un punto de conexión de una aplicación web en mi perfil de Traffic Manager, pero no recibo tráfico ni siquiera después de haberlo reiniciado. ¿Cómo lo puedo corregir?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#i-stopped-an-web-application-endpoint-in-my-traffic-manager-profile-but-i-am-not-receiving-any-traffic-even-after-i-restarted-it-how-can-i-fix-this)
+* [Detuve un punto de conexión de una aplicación web en mi perfil de Traffic Manager, pero no recibo tráfico ni siquiera después de haberlo reiniciado. ¿Cómo lo puedo corregir?](./traffic-manager-faqs.md#i-stopped-an-web-application-endpoint-in-my-traffic-manager-profile-but-i-am-not-receiving-any-traffic-even-after-i-restarted-it-how-can-i-fix-this)
 
-* [¿Puedo usar Traffic Manager incluso si mi aplicación no tiene compatibilidad para HTTP o HTTPS?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-even-if-my-application-does-not-have-support-for-http-or-https)
+* [¿Puedo usar Traffic Manager incluso si mi aplicación no tiene compatibilidad para HTTP o HTTPS?](./traffic-manager-faqs.md#can-i-use-traffic-manager-even-if-my-application-does-not-have-support-for-http-or-https)
 
-* [¿Qué respuestas específicas se necesitan del punto de conexión cuando se usa la supervisión TCP?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-specific-responses-are-required-from-the-endpoint-when-using-tcp-monitoring)
+* [¿Qué respuestas específicas se necesitan del punto de conexión cuando se usa la supervisión TCP?](./traffic-manager-faqs.md#what-specific-responses-are-required-from-the-endpoint-when-using-tcp-monitoring)
 
-* [¿Con qué rapidez mueve Traffic Manager mis usuarios de un punto de conexión incorrecto?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-fast-does-traffic-manager-move-my-users-away-from-an-unhealthy-endpoint)
+* [¿Con qué rapidez mueve Traffic Manager mis usuarios de un punto de conexión incorrecto?](./traffic-manager-faqs.md#how-fast-does-traffic-manager-move-my-users-away-from-an-unhealthy-endpoint)
 
-* [¿Cómo puedo especificar diferentes opciones de supervisión para los diferentes puntos de conexión de un perfil?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-specify-different-monitoring-settings-for-different-endpoints-in-a-profile)
+* [¿Cómo puedo especificar diferentes opciones de supervisión para los diferentes puntos de conexión de un perfil?](./traffic-manager-faqs.md#how-can-i-specify-different-monitoring-settings-for-different-endpoints-in-a-profile)
 
-* [¿Cómo puedo asignar encabezados HTTP para las comprobaciones de estado de Traffic Manager a mis puntos de conexión?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-assign-http-headers-to-the-traffic-manager-health-checks-to-my-endpoints)
+* [¿Cómo puedo asignar encabezados HTTP para las comprobaciones de estado de Traffic Manager a mis puntos de conexión?](./traffic-manager-faqs.md#how-can-i-assign-http-headers-to-the-traffic-manager-health-checks-to-my-endpoints)
 
-* [¿Qué encabezado de host se utiliza en las comprobaciones de estado del punto de conexión?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-host-header-do-endpoint-health-checks-use)
+* [¿Qué encabezado de host se utiliza en las comprobaciones de estado del punto de conexión?](./traffic-manager-faqs.md#what-host-header-do-endpoint-health-checks-use)
 
-* [¿Cuáles son las direcciones IP desde las que proceden las comprobaciones de estado?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-the-ip-addresses-from-which-the-health-checks-originate)
+* [¿Cuáles son las direcciones IP desde las que proceden las comprobaciones de estado?](./traffic-manager-faqs.md#what-are-the-ip-addresses-from-which-the-health-checks-originate)
 
-* [¿Cuántas comprobaciones de estado en mi punto de conexión puedo esperar de Traffic Manager?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-many-health-checks-to-my-endpoint-can-i-expect-from-traffic-manager)
+* [¿Cuántas comprobaciones de estado en mi punto de conexión puedo esperar de Traffic Manager?](./traffic-manager-faqs.md#how-many-health-checks-to-my-endpoint-can-i-expect-from-traffic-manager)
 
-* [¿Cómo puedo recibir notificación si uno de mis puntos de conexión deja de funcionar?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-get-notified-if-one-of-my-endpoints-goes-down)
+* [¿Cómo puedo recibir notificación si uno de mis puntos de conexión deja de funcionar?](./traffic-manager-faqs.md#how-can-i-get-notified-if-one-of-my-endpoints-goes-down)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

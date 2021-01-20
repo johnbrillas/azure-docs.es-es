@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71d64552520db28b3fe38cc354a30ee5470ee091
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 97893dece068dfdde85159f734095401288231d2
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060685"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201355"
 ---
 # <a name="protecting-microsoft-365-from-on-premises-attacks"></a>Protección de Microsoft 365 contra ataques locales
 
@@ -131,7 +131,7 @@ El aprovisionamiento se refiere a la creación de cuentas de usuario y grupos en
 
    *  Limitar el acceso de invitado a los grupos de exploración y otras propiedades del directorio. Use la configuración de colaboración externa para restringir la capacidad del invitado para leer los grupos de los que no son miembros. 
 
-    *   Bloquear el acceso a Azure Portal. Puede hacer excepciones raras, pero necesarias.  Cree una directiva de acceso condicional que incluya a todos los usuarios invitados y externos y luego [implemente una directiva para bloquear el acceso](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management.md). 
+    *   Bloquear el acceso a Azure Portal. Puede hacer excepciones raras, pero necesarias.  Cree una directiva de acceso condicional que incluya a todos los usuarios invitados y externos y luego [implemente una directiva para bloquear el acceso](/azure/role-based-access-control/conditional-access-azure-management). 
 
 * **Bosques desconectados**: use el [aprovisionamiento en la nube de Azure AD](../cloud-provisioning/what-is-cloud-provisioning.md). Esto le permite conectarse a los bosques desconectados, eliminando la necesidad de establecer una conexión o relaciones de confianza entre los bosques, lo que puede ampliar el impacto de una vulneración local. * 
  

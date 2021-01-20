@@ -7,12 +7,12 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: jafreebe
-ms.openlocfilehash: 74bd7bc159f7f5974452adf6b2f51148d869b4ed
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 3b49177eb592906e3bf84d359699b354f8c87c6e
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97589243"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185672"
 ---
 # <a name="deployment-best-practices"></a>Procedimientos recomendados de implementación
 
@@ -113,7 +113,7 @@ jobs:
 
 Los pasos enumerados anteriormente se aplican a otras utilidades de automatización como CircleCI o Travis CI. Sin embargo, debe usar la CLI de Azure para actualizar los espacios de implementación con nuevas etiquetas de imagen en el paso final. Para usar la CLI de Azure en el script de automatización, genere una entidad de servicio con el siguiente comando.
 
-```shell
+```azurecli
 az ad sp create-for-rbac --name "myServicePrincipal" --role contributor \
    --scopes /subscriptions/{subscription}/resourceGroups/{resource-group} \
    --sdk-auth

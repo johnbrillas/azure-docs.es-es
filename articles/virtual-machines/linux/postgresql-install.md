@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: cynthn
-ms.openlocfilehash: fdde7613627c9fec0694f3985f78cf10e52f59c2
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 4052a9c8614a17c3b5cdd871ad78be8cc3258c5a
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91397103"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202596"
 ---
 # <a name="install-and-configure-postgresql-on-azure"></a>Instalación y configuración de PostgreSQL en Azure
 PostgreSQL es una base de datos de código abierto avanzada similar a DB2 y Oracle. Incluye características preparadas para el ámbito empresarial, como el cumplimiento de ACID completo, un procesamiento transaccional confiable y un control de simultaneidad de múltiples versiones. También admite estándares como ANSI SQL y SQL/MED (incluidos los contenedores de datos externos para Oracle, MySQL, MongoDB y muchas otras). Es altamente extensible al admitir más de 12 lenguajes procedimentales, índices GIN y GiST, datos espaciales y múltiples características NoSQL para JSON o aplicaciones basadas en clave-valor.
@@ -24,13 +24,13 @@ En este artículo aprenderá a instalar y configurar PostgreSQL en una máquina 
 
 ## <a name="install-postgresql"></a>Instalación de PostgreSQL
 > [!NOTE]
-> Debe tener una máquina virtual de Azure en la que se ejecuta Linux para completar este tutorial. Para crear y configurar una máquina virtual Linux antes de continuar, consulte el [tutorial de máquinas virtuales Linux de Azure](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> Debe tener una máquina virtual de Azure en la que se ejecuta Linux para completar este tutorial. Para crear y configurar una máquina virtual Linux antes de continuar, consulte el [tutorial de máquinas virtuales Linux de Azure](quick-create-cli.md).
 > 
 > 
 
 En este caso, use el puerto 1999 como puerto PostgreSQL.  
 
-Conéctese a la máquina virtual Linux que creó mediante PuTTY. Si es la primera vez que usa una máquina virtual Linux de Azure, consulte [Utilización de SSH con Linux en Azure](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para aprender cómo usar PuTTY para conectarse a una máquina virtual Linux.
+Conéctese a la máquina virtual Linux que creó mediante PuTTY. Si es la primera vez que usa una máquina virtual Linux de Azure, consulte [Utilización de SSH con Linux en Azure](mac-create-ssh-keys.md) para aprender cómo usar PuTTY para conectarse a una máquina virtual Linux.
 
 1. Ejecute el siguiente comando para cambiar a la raíz (admin):
 

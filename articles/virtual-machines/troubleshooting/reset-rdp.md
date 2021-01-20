@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 03/25/2019
 ms.author: genli
-ms.openlocfilehash: 80bcac36271d86334e11cb3cd161cd96777e6fe5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f242de3bfa6a2bc95dc46b4ca5c10222b755a2f
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87832457"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200930"
 ---
 # <a name="reset-remote-desktop-services-or-its-administrator-password-in-a-windows-vm"></a>Restablecer los Servicios de Escritorio remoto o su contraseña de administrador en una máquina virtual Windows
 Si no puede conectarse a una máquina virtual Windows, puede restablecer la contraseña de administrador local o la configuración de los Servicios de Escritorio remoto (esto no se admite en los controladores de dominio de Windows). Para restablecer la contraseña, use Azure Portal o la extensión de acceso de máquina virtual en Azure PowerShell. Una vez haya iniciado sesión en la máquina virtual, restablezca la contraseña del administrador local.  
@@ -86,14 +86,14 @@ En primer lugar, asegúrese de tener [instalado y configurado el módulo de Powe
     > [!TIP]
     > En cualquier momento, una VM puede tener un solo agente de acceso a VM. Para establecer las propiedades del agente de acceso a la máquina virtual, use la opción `-ForceRerun`. Cuando use `-ForceRerun`, asegúrese de usar el mismo nombre que haya usado en cualquier comando anterior para el agente de acceso a la máquina virtual.
 
-1. Si sigue sin poder conectarse de forma remota a la máquina virtual, consulte [Solución de problemas de conexiones del Escritorio remoto a una máquina virtual de Azure con Windows](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Si pierde la conexión con el controlador de dominio de Windows, deberá restaurarla a partir de una copia de seguridad del controlador de dominio.
+1. Si sigue sin poder conectarse de forma remota a la máquina virtual, consulte [Solución de problemas de conexiones del Escritorio remoto a una máquina virtual de Azure con Windows](troubleshoot-rdp-connection.md). Si pierde la conexión con el controlador de dominio de Windows, deberá restaurarla a partir de una copia de seguridad del controlador de dominio.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Si la extensión de acceso de la máquina virtual de Azure no responde y no puede restablecer la contraseña, puede [restablecer la contraseña de Windows local sin tener conexión](reset-local-password-without-agent.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Este método es un proceso más avanzado y requiere que se conecte el disco duro virtual de la máquina virtual problemática a otra máquina virtual. Si los pasos indicados no surten efecto, primero siga los pasos descritos en este artículo e intente realizar solamente el método de restablecimiento de contraseña sin conexión.
+- Si la extensión de acceso de la máquina virtual de Azure no responde y no puede restablecer la contraseña, puede [restablecer la contraseña de Windows local sin tener conexión](reset-local-password-without-agent.md). Este método es un proceso más avanzado y requiere que se conecte el disco duro virtual de la máquina virtual problemática a otra máquina virtual. Si los pasos indicados no surten efecto, primero siga los pasos descritos en este artículo e intente realizar solamente el método de restablecimiento de contraseña sin conexión.
 
-- [Más información sobre las características y extensiones de la máquina virtual de Azure](../extensions/features-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+- [Más información sobre las características y extensiones de la máquina virtual de Azure](../extensions/features-windows.md)
 
 - [Conexión a una máquina virtual de Azure con RDP o SSH](/previous-versions/azure/dn535788(v=azure.100))
 
-- [Solucionar problemas de conexiones de Escritorio remoto a una máquina virtual de Azure basada en Windows](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+- [Solucionar problemas de conexiones de Escritorio remoto a una máquina virtual de Azure basada en Windows](troubleshoot-rdp-connection.md)

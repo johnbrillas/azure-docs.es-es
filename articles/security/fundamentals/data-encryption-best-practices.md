@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/09/2020
 ms.author: terrylan
-ms.openlocfilehash: c88a2cf33cf1149a17af4a82dcf2858822f0c6d4
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 3808da24c1baf6dd6e3332d4bd26fd176b761c65
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94696156"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98196085"
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Procedimientos recomendados de cifrado y seguridad de datos en Azure
 En este artículo se describen los procedimientos recomendados para el cifrado y la seguridad de datos.
@@ -74,7 +74,7 @@ Use Azure RBAC para controlar a qué tienen acceso los usuarios. Por ejemplo, si
 Puesto que la mayoría de los ataques van destinados al usuario final, el punto de conexión se convierte en uno de los principales puntos de ataque. Un atacante que ponga en peligro el punto de conexión puede aprovechar las credenciales del usuario para acceder a los datos de la organización. La mayoría de los ataques a los puntos de conexión aprovechan el hecho de que los usuarios finales son administradores en sus estaciones de trabajo locales.
 
 **Procedimiento recomendado**: use una estación de trabajo de administración segura para proteger los datos, las tareas y las cuentas confidenciales.   
-**Detalles**: use una [estación de trabajo con privilegios](/windows-server/identity/securing-privileged-access/privileged-access-workstations) para reducir la superficie expuesta a ataques de las estaciones de trabajo. Estas estaciones de trabajo de administración seguras pueden ayudar a mitigar algunos de estos ataques y a garantizar la mayor seguridad de sus datos.
+**Detalles**: use una [estación de trabajo con privilegios](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/) para reducir la superficie expuesta a ataques de las estaciones de trabajo. Estas estaciones de trabajo de administración seguras pueden ayudar a mitigar algunos de estos ataques y a garantizar la mayor seguridad de sus datos.
 
 **Procedimiento recomendado**: asegúrese de que los puntos de conexión están protegidos.   
 **Detalles**: aplique directivas de seguridad en todos los dispositivos que se usen para consumir datos, independientemente de la ubicación de dichos datos (nube o entorno local).

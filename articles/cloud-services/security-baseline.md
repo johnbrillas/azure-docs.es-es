@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/02/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 100871ab2188aa638c4c9f2b058021706c7741bb
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: e6a42a39e55e379865332fce8a9aed8dfe78f57b
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96531911"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201338"
 ---
 # <a name="azure-security-baseline-for-azure-cloud-services"></a>Base de referencia de seguridad de Azure para Azure Cloud Services
 
@@ -345,7 +345,7 @@ Revise las diferencias entre los roles administrativos de la suscripción clási
 
 **Guía**: Se recomienda usar una estación de trabajo segura y administrada por Azure (también conocida como "estación de trabajo de acceso con privilegios") para las tareas administrativas, que requieren privilegios elevados.
 
-- [Descripción de las estaciones de trabajo seguras administradas por Azure](../active-directory/devices/concept-azure-managed-workstation.md)
+- [Descripción de las estaciones de trabajo seguras administradas por Azure](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 - [Cómo habilitar MFA de Azure AD](../active-directory/authentication/howto-mfa-getstarted.md)
 

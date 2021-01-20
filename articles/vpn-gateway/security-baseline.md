@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 68299bae559d25155dda04a58aa1e4826a188b7f
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 8221e814b4555a75d596cec3ab00aa3b63e41a14
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94657846"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98197411"
 ---
 # <a name="azure-security-baseline-for-vpn-gateway"></a>Línea de base de seguridad de Azure para VPN Gateway
 
@@ -226,7 +226,7 @@ También puede habilitar el acceso Just-in-Time mediante Azure AD Privileged Ide
 
 **Instrucciones**: use una estación de trabajo segura y administrada por Azure (también conocida como una estación de trabajo de acceso con privilegios o PAW) para las tareas administrativas que requieren privilegios elevados.
 
-- [Descripción de las estaciones de trabajo seguras administradas por Azure](../active-directory/devices/concept-azure-managed-workstation.md)
+- [Descripción de las estaciones de trabajo seguras administradas por Azure](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 - [Cómo habilitar MFA de Azure AD](../active-directory/authentication/howto-mfa-getstarted.md)
 

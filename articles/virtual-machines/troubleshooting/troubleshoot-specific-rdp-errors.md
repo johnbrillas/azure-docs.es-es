@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: f3e4c411223a3e8fc0602602cd941a00f7a19cca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 808443cb805b2dee2426198f9cd4f7ba502d8999
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87028250"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98197513"
 ---
 # <a name="troubleshooting-specific-rdp-error-messages-to-a-windows-vm-in-azure"></a>Solución de problemas de mensajes de error específicos de RDP en una máquina virtual Windows en Azure
 Puede recibir un mensaje de error específico al usar la conexión Escritorio remoto a una máquina virtual (VM) Windows en Azure. Este artículo describe algunos de los mensajes de error más comunes que se pueden obtener, junto con los pasos de solución de problemas para resolverlos. Si tiene problemas para conectarse a la máquina virtual mediante RDP, pero no ve un mensaje de error específico, consulte la [Guía de solución de problemas de Escritorio remoto](troubleshoot-rdp-connection.md).
@@ -109,7 +109,7 @@ Todos los equipos de Windows tienen un grupo local Usuarios de escritorio remoto
 Asegúrese de que la cuenta que usa para conectarse tiene derechos de inicio de sesión de Escritorio remoto. Como alternativa, use una cuenta de administrador local o de dominio para conectarse a través de Escritorio remoto. Use el complemento Microsoft Management Console (**Herramientas del sistema > Usuarios y grupos locales > Grupos > Usuarios de escritorio remoto**) para agregar la cuenta que quiera al grupo local de usuarios de escritorio remoto.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Si no se produjo ninguno de estos errores y tiene un problema desconocido al conectarse mediante RDP, consulte la [Guía de solución de problemas de Escritorio remoto](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Si no se produjo ninguno de estos errores y tiene un problema desconocido al conectarse mediante RDP, consulte la [Guía de solución de problemas de Escritorio remoto](troubleshoot-rdp-connection.md).
 
 * Para ver los pasos sobre cómo solucionar problemas de acceso a las aplicaciones, consulte [Solucionar problemas de acceso a una aplicación que se ejecuta en una máquina virtual de Azure](./troubleshoot-app-connection.md?toc=/azure/virtual-machines/linux/toc.json).
 * Si tiene problemas con Secure Shell (SSH) para conectarse a una máquina virtual Linux en Azure, consulte el artículo sobre cómo [solucionar problemas con las conexiones SSH en una máquina virtual Linux en Azure](./troubleshoot-ssh-connection.md?toc=/azure/virtual-machines/linux/toc.json).

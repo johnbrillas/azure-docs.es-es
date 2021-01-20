@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 10/10/2019
 ms.author: cynthn
-ms.openlocfilehash: cddc7f4f453f22b0cb36b1d3a1e9c2fba2dcabaf
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 577b8527d95a6410deca8002cddfaae31be1fc97
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96455092"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98197496"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>Creación de una VM de Windows desde un disco especializado mediante PowerShell
 
@@ -54,7 +54,7 @@ Puede cargar el VHD de una máquina virtual especializada creada con una herrami
 ### <a name="prepare-the-vm"></a>Preparación de la VM
 Use el disco duro virtual tal cual para crear una nueva máquina virtual. 
   
-  * [Preparar de un VHD de Windows para cargar en Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). **No** generalice la VM mediante Sysprep.
+  * [Preparar de un VHD de Windows para cargar en Azure](prepare-for-upload-vhd-image.md). **No** generalice la VM mediante Sysprep.
   * Quite todas las herramientas de virtualización de invitado y los agentes instalados en la VM (como las herramientas de VMware).
   * Asegúrese de que la VM se configura para obtener la dirección IP y la configuración de DNS desde DHCP. Esto garantiza que el servidor obtiene una dirección IP dentro de la red virtual cuando se inicia. 
 
@@ -193,7 +193,7 @@ $nsg = New-AzNetworkSecurityGroup `
     
 ```
 
-Para obtener más información sobre puntos de conexión y las reglas NSG, consulte [Apertura de puertos para una máquina virtual en Azure mediante PowerShell](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Para obtener más información sobre puntos de conexión y las reglas NSG, consulte [Apertura de puertos para una máquina virtual en Azure mediante PowerShell](nsg-quickstart-powershell.md).
 
 ### <a name="create-a-public-ip-address-and-nic"></a>Creación de una dirección IP pública y una NIC
 Para permitir la comunicación con la máquina virtual en la red virtual, necesitará una [dirección IP pública](../../virtual-network/public-ip-addresses.md) y una interfaz de red.

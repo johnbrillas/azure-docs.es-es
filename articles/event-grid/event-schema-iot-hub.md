@@ -2,13 +2,13 @@
 title: Azure IoT Hub como origen de Event Grid
 description: En este artículo se proporcionan las propiedades y los esquemas de los eventos de Azure IoT Hub. Enumera los tipos de eventos disponibles, un evento de ejemplo y las propiedades de evento.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 02ecf8d4df55aa6b4319e40892778f85f94e29a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/13/2021
+ms.openlocfilehash: 7e1c480bd2a662a2ee3418b35dc9c3b50d412a60
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86113656"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185842"
 ---
 # <a name="azure-iot-hub-as-an-event-grid-source"></a>Azure IoT Hub como origen de Event Grid
 En este artículo se proporcionan las propiedades y los esquemas de los eventos de Azure IoT Hub. Para una introducción a los esquemas de eventos, consulte [Esquema de eventos de Azure Event Grid](event-schema.md). 
@@ -26,8 +26,6 @@ Azure IoT Hub emite los siguientes tipos de eventos:
 | Microsoft.Devices.DeviceConnected | Se publica cuando se conecta un dispositivo a una instancia de IoT Hub. |
 | Microsoft.Devices.DeviceDisconnected | Se publica cuando se desconecta un dispositivo de una instancia de IoT Hub. | 
 | Microsoft.Devices.DeviceTelemetry | Se publica cuando se envía un mensaje de telemetría a un centro de IoT. |
-
-Todos los eventos del dispositivo, excepto los eventos de telemetría del dispositivo, están disponibles con carácter general en todas las regiones admitidas por Event Grid. El evento de telemetría del dispositivo está en versión preliminar pública y está disponible en todas las regiones, excepto en Este de EE. UU., Oeste de EE. UU., Oeste de Europa, [Azure Government](../azure-government/documentation-government-welcome.md), [Azure China 21Vianet](/azure/china/china-welcome) y [Azure Alemania](https://azure.microsoft.com/global-infrastructure/germany/).
 
 ### <a name="example-event"></a>Evento de ejemplo
 

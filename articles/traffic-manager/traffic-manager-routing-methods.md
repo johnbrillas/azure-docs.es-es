@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: duau
-ms.openlocfilehash: 3cf493beab6dfe1767ae35ea36732dc364e29736
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0eb49f3c2acc31cba7b245995cf3bcb579113e4c
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89401663"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98183820"
 ---
 # <a name="traffic-manager-routing-methods"></a>Métodos de enrutamiento del Administrador de tráfico
 
@@ -28,7 +28,7 @@ En Traffic Manager, los métodos de enrutamiento de tráfico disponibles son los
 * **[Rendimiento](#performance):** Seleccione **Rendimiento** cuanto tenga puntos de conexión en ubicaciones geográficas diferentes y quiera que los usuarios finales utilicen el punto de conexión "más cercano" según la latencia de red más baja.
 * **[Geográfico](#geographic):** Seleccione **Geográfico** para dirigir a los usuarios a puntos de conexión concretos (Azure, Externo o Anidado) en función de la ubicación geográfica de la que parta su consulta de DNS. Esto permite a los clientes de Traffic Manager habilitar escenarios en los que es importante conocer la región geográfica de un usuario y enrutarlo en función de dicha región. Algunos ejemplos incluyen cumplir los mandatos de soberanía de datos, la localización del contenido y de la experiencia del usuario, y la medición del tráfico de otras regiones.
 * **[Multivalor](#multivalue):** seleccione **Multivalor** para los perfiles de Traffic Manager que solo pueden tener direcciones IPv4/IPv6 como puntos de conexión. Cuando se recibe una consulta para este perfil, se devuelven todos los puntos de conexión correctos.
-* **[Subred](#subnet):** seleccione el método de enrutamiento de tráfico se **subred** para asignar conjuntos de rangos de direcciones IP de usuario final a un punto de conexión específico dentro de un perfil de Traffic Manager. Al recibirse una solicitud, se devuelve el punto de conexión asignado a esa dirección IP de origen de la solicitud. 
+* **[Subred](#subnet):** seleccione el método de enrutamiento de tráfico se **subred** para asignar conjuntos de rangos de direcciones IP de usuario final a un punto de conexión específico dentro de un perfil de Traffic Manager. Al recibirse una solicitud, se devuelve el punto de conexión asignado a esa dirección IP de origen de la solicitud. 
 
 
 Todos los perfiles de Traffic Manager incluyen supervisión del estado y conmutación por error automática del punto de conexión. Para más información, consulte [Acerca de la supervisión de Traffic Manager](traffic-manager-monitoring.md). Con un único perfil de Administrador de tráfico solo se puede usar un método de enrutamiento de tráfico. El método de enrutamiento de tráfico para el perfil se puede cambiar en cualquier momento. Los cambios se aplican en un minuto, sin tiempo de inactividad. Los métodos de enrutamiento de tráfico se pueden combinar mediante perfiles anidados del Administrador de tráfico. La anidación hace posible la creación de configuraciones de enrutamiento de tráfico sofisticadas y flexibles que satisfacen las necesidades de aplicaciones más grandes y complejas. Para más información, consulte [Nested Traffic Manager profiles](traffic-manager-nested-profiles.md)(Perfiles anidados de Administrador de tráfico).
@@ -125,36 +125,36 @@ Como se explica en [Cómo funciona Traffic Manager](traffic-manager-how-it-works
 
 ### <a name="faqs"></a>Preguntas más frecuentes
 
-* [¿En qué casos de uso resulta útil el enrutamiento geográfico?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-some-use-cases-where-geographic-routing-is-useful)
+* [¿En qué casos de uso resulta útil el enrutamiento geográfico?](./traffic-manager-faqs.md#what-are-some-use-cases-where-geographic-routing-is-useful)
 
-* [¿Cómo decido si debo usar el método de enrutamiento por rendimiento o el método de enrutamiento geográfico?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-do-i-decide-if-i-should-use-performance-routing-method-or-geographic-routing-method)
+* [¿Cómo decido si debo usar el método de enrutamiento por rendimiento o el método de enrutamiento geográfico?](./traffic-manager-faqs.md#how-do-i-decide-if-i-should-use-performance-routing-method-or-geographic-routing-method)
 
-* [¿Cuáles son las regiones admitidas por Traffic Manager para el enrutamiento geográfico?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-the-regions-that-are-supported-by-traffic-manager-for-geographic-routing)
+* [¿Cuáles son las regiones admitidas por Traffic Manager para el enrutamiento geográfico?](./traffic-manager-faqs.md#what-are-the-regions-that-are-supported-by-traffic-manager-for-geographic-routing)
 
-* [¿Cómo determina Traffic Manager desde dónde consulta un usuario?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-traffic-manager-determine-where-a-user-is-querying-from)
+* [¿Cómo determina Traffic Manager desde dónde consulta un usuario?](./traffic-manager-faqs.md#how-does-traffic-manager-determine-where-a-user-is-querying-from)
 
-* [¿Está garantizado que Traffic Manager puede determinar correctamente la ubicación geográfica exacta del usuario en cada caso?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#is-it-guaranteed-that-traffic-manager-can-correctly-determine-the-exact-geographic-location-of-the-user-in-every-case)
+* [¿Está garantizado que Traffic Manager puede determinar correctamente la ubicación geográfica exacta del usuario en cada caso?](./traffic-manager-faqs.md#is-it-guaranteed-that-traffic-manager-can-correctly-determine-the-exact-geographic-location-of-the-user-in-every-case)
 
-* [¿Un punto de conexión debe encontrarse físicamente en la misma región que la configurada para el enrutamiento geográfico?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-an-endpoint-need-to-be-physically-located-in-the-same-region-as-the-one-it-is-configured-with-for-geographic-routing)
+* [¿Un punto de conexión debe encontrarse físicamente en la misma región que la configurada para el enrutamiento geográfico?](./traffic-manager-faqs.md#does-an-endpoint-need-to-be-physically-located-in-the-same-region-as-the-one-it-is-configured-with-for-geographic-routing)
 
-* [¿Se pueden asignar regiones geográficas a puntos de conexión en un perfil que no está configurado para el enrutamiento geográfico?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-assign-geographic-regions-to-endpoints-in-a-profile-that-is-not-configured-to-do-geographic-routing)
+* [¿Se pueden asignar regiones geográficas a puntos de conexión en un perfil que no está configurado para el enrutamiento geográfico?](./traffic-manager-faqs.md#can-i-assign-geographic-regions-to-endpoints-in-a-profile-that-is-not-configured-to-do-geographic-routing)
 
-* [¿Por qué obtengo un error cuando intento cambiar el método de enrutamiento de un perfil existente a geográfico?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#why-am-i-getting-an-error-when-i-try-to-change-the-routing-method-of-an-existing-profile-to-geographic)
+* [¿Por qué obtengo un error cuando intento cambiar el método de enrutamiento de un perfil existente a geográfico?](./traffic-manager-faqs.md#why-am-i-getting-an-error-when-i-try-to-change-the-routing-method-of-an-existing-profile-to-geographic)
 
-* [¿Por qué se recomienda que los clientes creen perfiles anidados en lugar de puntos de conexión en un perfil con el enrutamiento geográfico habilitado?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#why-is-it-strongly-recommended-that-customers-create-nested-profiles-instead-of-endpoints-under-a-profile-with-geographic-routing-enabled)
+* [¿Por qué se recomienda que los clientes creen perfiles anidados en lugar de puntos de conexión en un perfil con el enrutamiento geográfico habilitado?](./traffic-manager-faqs.md#why-is-it-strongly-recommended-that-customers-create-nested-profiles-instead-of-endpoints-under-a-profile-with-geographic-routing-enabled)
 
-* [¿Existen restricciones en la versión de API que admite este tipo de enrutamiento?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#are-there-any-restrictions-on-the-api-version-that-supports-this-routing-type)
+* [¿Existen restricciones en la versión de API que admite este tipo de enrutamiento?](./traffic-manager-faqs.md#are-there-any-restrictions-on-the-api-version-that-supports-this-routing-type)
 
 ## <a name="multivalue-traffic-routing-method"></a><a name = "multivalue"></a>Método de enrutamiento de tráfico de varios valores
 El método de enrutamiento de tráfico **Multivalor** permite obtener varios puntos de conexión correctos en una única respuesta de consulta de DNS. Esto permite al autor de la llamada hacer reintentos en el lado del cliente con otros puntos de conexión en el caso de que un punto de conexión devuelto no responda. Este patrón puede aumentar la disponibilidad de un servicio y reducir la latencia asociada a una nueva consulta de DNS para obtener un punto de conexión correcto. El método de enrutamiento Multivalor solo funciona si todos los puntos de conexión del tipo "Externo" están especificados como direcciones IPv4 o IPv6. Al recibirse una consulta relacionada con este perfil, se devuelven todos los puntos de conexión correctos y están sujetos a un número máximo de devoluciones configurado.
 
 ### <a name="faqs"></a>Preguntas más frecuentes
 
-* [¿En qué casos de uso resulta útil el enrutamiento de varios valores?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-some-use-cases-where-multivalue-routing-is-useful)
+* [¿En qué casos de uso resulta útil el enrutamiento de varios valores?](./traffic-manager-faqs.md#what-are-some-use-cases-where-multivalue-routing-is-useful)
 
-* [¿Cuántos puntos de conexión se devuelven cuando se usa el enrutamiento de varios valores?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-many-endpoints-are-returned-when-multivalue-routing-is-used)
+* [¿Cuántos puntos de conexión se devuelven cuando se usa el enrutamiento de varios valores?](./traffic-manager-faqs.md#how-many-endpoints-are-returned-when-multivalue-routing-is-used)
 
-* [¿Obtendré el mismo conjunto de puntos de conexión cuando se use el enrutamiento de varios valores?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#will-i-get-the-same-set-of-endpoints-when-multivalue-routing-is-used)
+* [¿Obtendré el mismo conjunto de puntos de conexión cuando se use el enrutamiento de varios valores?](./traffic-manager-faqs.md#will-i-get-the-same-set-of-endpoints-when-multivalue-routing-is-used)
 
 ## <a name="subnet-traffic-routing-method"></a><a name = "subnet"></a>Método de enrutamiento de tráfico de subred
 El método de enrutamiento de tráfico **Subred** permite asignar un conjunto de intervalos de direcciones IP de usuario final a puntos de conexión específicos en un perfil. Después de eso, si Traffic Manager recibe una consulta de DNS para ese perfil, inspeccionará la dirección IP de origen de esa solicitud (en la mayoría de los casos esta será la dirección IP saliente de la resolución DNS utilizada por el autor de la llamada), determinará a qué punto de conexión está asignada y devolverá ese punto de conexión en la respuesta de la consulta. 
@@ -166,21 +166,17 @@ El enrutamiento de subredes se puede utilizar para ofrecer una experiencia difer
 
 ### <a name="faqs"></a>Preguntas más frecuentes
 
-* [¿En qué casos de uso resulta útil el enrutamiento de subredes?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-some-use-cases-where-subnet-routing-is-useful)
+* [¿En qué casos de uso resulta útil el enrutamiento de subredes?](./traffic-manager-faqs.md#what-are-some-use-cases-where-subnet-routing-is-useful)
 
-* [¿Cómo sabe Traffic Manager la dirección IP del usuario final?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-traffic-manager-know-the-ip-address-of-the-end-user)
+* [¿Cómo sabe Traffic Manager la dirección IP del usuario final?](./traffic-manager-faqs.md#how-does-traffic-manager-know-the-ip-address-of-the-end-user)
 
-* [¿Cómo se pueden especificar direcciones IP cuando se usa el enrutamiento de subredes?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-specify-ip-addresses-when-using-subnet-routing)
+* [¿Cómo se pueden especificar direcciones IP cuando se usa el enrutamiento de subredes?](./traffic-manager-faqs.md#how-can-i-specify-ip-addresses-when-using-subnet-routing)
 
-* [¿Cómo se puede especificar un punto de conexión de reserva cuando se usa el enrutamiento de subredes?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-specify-a-fallback-endpoint-when-using-subnet-routing)
+* [¿Cómo se puede especificar un punto de conexión de reserva cuando se usa el enrutamiento de subredes?](./traffic-manager-faqs.md#how-can-i-specify-a-fallback-endpoint-when-using-subnet-routing)
 
-* [¿Qué ocurre si se deshabilita un punto de conexión en un perfil de tipo de enrutamiento de subredes?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-happens-if-an-endpoint-is-disabled-in-a-subnet-routing-type-profile)
+* [¿Qué ocurre si se deshabilita un punto de conexión en un perfil de tipo de enrutamiento de subredes?](./traffic-manager-faqs.md#what-happens-if-an-endpoint-is-disabled-in-a-subnet-routing-type-profile)
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Aprenda a desarrollar aplicaciones de alta disponibilidad mediante la [Traffic Manager endpoint monitoring](traffic-manager-monitoring.md)
-
-
-
-

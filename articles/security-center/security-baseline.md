@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 3b648168cd80920b8042f1edeacca893c21b98e2
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 0e4c749d875ab22f8cdf26adf6050e1fa0476b28
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498955"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202256"
 ---
 # <a name="azure-security-baseline-for-security-center"></a>Línea de base de seguridad de Azure para Security Center
 
@@ -248,7 +248,7 @@ Además, para ayudarle a realizar un seguimiento de las cuentas administrativas 
 
 **Instrucciones**: use una estación de trabajo segura y administrada por Azure (también conocida como una estación de trabajo de acceso con privilegios o PAW) para las tareas administrativas que requieren privilegios elevados.
 
-- [Descripción de las estaciones de trabajo seguras administradas por Azure](../active-directory/devices/concept-azure-managed-workstation.md)
+- [Descripción de las estaciones de trabajo seguras administradas por Azure](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 - [Cómo habilitar MFA de Azure AD](../active-directory/authentication/howto-mfa-getstarted.md)
 

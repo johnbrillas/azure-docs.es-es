@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: duau
-ms.openlocfilehash: 86758c355566fb67ebd8a606068e2044e0b8bd64
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 17ccfeb709c530a868a75ecd87052618aaea4846
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89400184"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98184584"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Preguntas más frecuentes (P+F) sobre Traffic Manager
 
@@ -96,7 +96,7 @@ La diferencia clave entre estos dos populares métodos de enrutamiento es que en
 
 ### <a name="what-are-the-regions-that-are-supported-by-traffic-manager-for-geographic-routing"></a>¿Cuáles son las regiones que son compatibles con Traffic Manager para el enrutamiento geográfica?
 
-Puede encontrar la jerarquía de países o regiones utilizada por Traffic Manager [aquí](traffic-manager-geographic-regions.md). Aunque esta página se mantiene actualizada con cualquier cambio que se realice, puede recuperar mediante programación la misma información mediante la [API de REST de Azure Traffic Manager](https://docs.microsoft.com/rest/api/trafficmanager/). 
+Puede encontrar la jerarquía de países o regiones utilizada por Traffic Manager [aquí](traffic-manager-geographic-regions.md). Aunque esta página se mantiene actualizada con cualquier cambio que se realice, puede recuperar mediante programación la misma información mediante la [API de REST de Azure Traffic Manager](/rest/api/trafficmanager/). 
 
 ### <a name="how-does-traffic-manager-determine-where-a-user-is-querying-from"></a>¿Cómo determina Traffic Manager desde dónde consulta un usuario?
 
@@ -116,11 +116,11 @@ No, la ubicación del punto de conexión no impone restricción alguna sobre qu�
 
 ### <a name="can-i-assign-geographic-regions-to-endpoints-in-a-profile-that-is-not-configured-to-do-geographic-routing"></a>¿Se pueden asignar regiones geográficas a puntos de conexión en un perfil que no está configurado para el enrutamiento geográfico?
 
-Sí, si el método de enrutamiento de un perfil no es geográfico, puede usar la [API de REST de Azure Traffic Manager](https://docs.microsoft.com/rest/api/trafficmanager/) para asignar las regiones geográficas a puntos de conexión de dicho perfil. En el caso de perfiles de tipo de enrutamiento no geográficos, se omite esta configuración. Si cambia después este perfil al tipo de enrutamiento geográfico, Traffic Manager puede usar esas asignaciones.
+Sí, si el método de enrutamiento de un perfil no es geográfico, puede usar la [API de REST de Azure Traffic Manager](/rest/api/trafficmanager/) para asignar las regiones geográficas a puntos de conexión de dicho perfil. En el caso de perfiles de tipo de enrutamiento no geográficos, se omite esta configuración. Si cambia después este perfil al tipo de enrutamiento geográfico, Traffic Manager puede usar esas asignaciones.
 
 ### <a name="why-am-i-getting-an-error-when-i-try-to-change-the-routing-method-of-an-existing-profile-to-geographic"></a>¿Por qué cuando intento cambiar el método de enrutamiento de un perfil existente a geográfico obtengo un error?
 
-Todos los puntos de conexión en un perfil con una necesidad de enrutamiento geográfico deben tener al menos una región asignada a ellos. Para convertir un perfil existente al tipo de enrutamiento geográfico, primero debe asociar las regiones geográficas a todos sus puntos de conexión mediante la [API de REST de Azure Traffic Manager](https://docs.microsoft.com/rest/api/trafficmanager/) antes de cambiar el tipo de enrutamiento a geográfico. Si usa el portal, tendrá que eliminar primero los puntos de conexión, cambiar el método de enrutamiento del perfil a geográfico y, después, agregar los puntos de conexión junto con su asignación de región geográfica.
+Todos los puntos de conexión en un perfil con una necesidad de enrutamiento geográfico deben tener al menos una región asignada a ellos. Para convertir un perfil existente al tipo de enrutamiento geográfico, primero debe asociar las regiones geográficas a todos sus puntos de conexión mediante la [API de REST de Azure Traffic Manager](/rest/api/trafficmanager/) antes de cambiar el tipo de enrutamiento a geográfico. Si usa el portal, tendrá que eliminar primero los puntos de conexión, cambiar el método de enrutamiento del perfil a geográfico y, después, agregar los puntos de conexión junto con su asignación de región geográfica.
 
 ### <a name="why-is-it-strongly-recommended-that-customers-create-nested-profiles-instead-of-endpoints-under-a-profile-with-geographic-routing-enabled"></a>¿Por qué se recomienda encarecidamente que los clientes creen perfiles anidados en lugar de puntos de conexión en un perfil con el enrutamiento geográfico habilitado?
 
@@ -306,7 +306,7 @@ El precio de Traffic View se basa en el número de puntos de datos usados para c
 
 No se pueden usar puntos de conexión de varias suscripciones con Azure Web Apps. Azure Web Apps requiere que cualquier nombre de dominio personalizado usado con Web Apps se use únicamente en una suscripción. No es posible usar Web Apps desde varias suscripciones con el mismo nombre de dominio.
 
-Para otros tipos de punto de conexión, es posible usar el Administrador de tráfico con puntos de conexión de más de una suscripción. En Resource Manager, pueden agregarse puntos de conexión de cualquier suscripción al Administrador de tráfico, siempre y cuando la persona que configura el perfil de este servicio tenga acceso de lectura al punto de conexión. Estos permisos pueden concederse mediante la funcionalidad de [control de acceso basado en roles de Azure (RBAC de Azure)](../role-based-access-control/role-assignments-portal.md). Los puntos de conexión de otras suscripciones se pueden agregar mediante [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.trafficmanager/new-aztrafficmanagerendpoint) o la [CLI de Azure](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-create).
+Para otros tipos de punto de conexión, es posible usar el Administrador de tráfico con puntos de conexión de más de una suscripción. En Resource Manager, pueden agregarse puntos de conexión de cualquier suscripción al Administrador de tráfico, siempre y cuando la persona que configura el perfil de este servicio tenga acceso de lectura al punto de conexión. Estos permisos pueden concederse mediante la funcionalidad de [control de acceso basado en roles de Azure (RBAC de Azure)](../role-based-access-control/role-assignments-portal.md). Los puntos de conexión de otras suscripciones se pueden agregar mediante [Azure PowerShell](/powershell/module/az.trafficmanager/new-aztrafficmanagerendpoint) o la [CLI de Azure](/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-create).
 
 ### <a name="can-i-use-traffic-manager-with-cloud-service-staging-slots"></a>¿Puedo usar Traffic Manager con espacios de ensayo de servicio en la nube?
 
@@ -345,9 +345,9 @@ Azure Resource Manager requiere que todos los grupos de recursos especifiquen un
 
 ### <a name="how-do-i-determine-the-current-health-of-each-endpoint"></a>¿Cómo se determina el estado actual de cada punto de conexión?
 
-El estado de supervisión actual de cada punto de conexión, junto con el del perfil global, se muestra en el Portal de Azure. Esta información también está disponible a través de la [API de REST](https://msdn.microsoft.com/library/azure/mt163667.aspx), los [cmdlets de PowerShell](https://docs.microsoft.com/powershell/module/az.trafficmanager) y la [CLI de Azure multiplataforma](../cli-install-nodejs.md) del Monitor de tráfico.
+El estado de supervisión actual de cada punto de conexión, junto con el del perfil global, se muestra en el Portal de Azure. Esta información también está disponible a través de la [API de REST](/rest/api/trafficmanager/), los [cmdlets de PowerShell](/powershell/module/az.trafficmanager) y la [CLI de Azure multiplataforma](/cli/azure/install-classic-cli) del Monitor de tráfico.
 
-También puede usar Azure Monitor para hacer un seguimiento del mantenimiento de los puntos de conexión y ver una representación visual de los mismos. Para más información sobre cómo usar Azure Monitor, consulte la [documentación de supervisión de Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics).
+También puede usar Azure Monitor para hacer un seguimiento del mantenimiento de los puntos de conexión y ver una representación visual de los mismos. Para más información sobre cómo usar Azure Monitor, consulte la [documentación de supervisión de Azure](../azure-monitor/platform/data-platform.md).
 
 ### <a name="can-i-monitor-https-endpoints"></a>¿Puedo supervisar puntos de conexión HTTPS?
 
@@ -458,7 +458,7 @@ El número de comprobaciones de estado de Traffic Manager que llega a su punto d
 
 ### <a name="how-can-i-get-notified-if-one-of-my-endpoints-goes-down"></a>¿Cómo puedo recibir notificación de si uno de mis puntos de conexión deja de funcionar?
 
-Una de las métricas que proporciona Traffic Manager es el estado de mantenimiento de los puntos de conexión de un perfil. Puede ver esto como un agregado de todos los puntos de conexión dentro de un perfil (por ejemplo, el 75 % de los puntos de conexión tienen un estado correcto) o en un nivel por punto de conexión. Las métricas de Traffic Manager se exponen a través de Azure Monitor y puede usar sus [funcionalidades de alerta](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) para recibir notificaciones cuando se produzca un cambio en el estado de mantenimiento del punto de conexión. Para obtener más detalles, consulte [Métricas y alertas de Traffic Manager](traffic-manager-metrics-alerts.md).  
+Una de las métricas que proporciona Traffic Manager es el estado de mantenimiento de los puntos de conexión de un perfil. Puede ver esto como un agregado de todos los puntos de conexión dentro de un perfil (por ejemplo, el 75 % de los puntos de conexión tienen un estado correcto) o en un nivel por punto de conexión. Las métricas de Traffic Manager se exponen a través de Azure Monitor y puede usar sus [funcionalidades de alerta](../azure-monitor/platform/alerts-metric.md) para recibir notificaciones cuando se produzca un cambio en el estado de mantenimiento del punto de conexión. Para obtener más detalles, consulte [Métricas y alertas de Traffic Manager](traffic-manager-metrics-alerts.md).  
 
 ## <a name="traffic-manager-nested-profiles"></a>Perfiles anidados de Traffic Manager
 

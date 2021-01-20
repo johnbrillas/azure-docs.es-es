@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 76c3f729a8520c7bff7b49a1d2200d7950f8a9f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55dcd65e901a5ce8665ef8d3a2a29d7943581df9
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87074298"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200726"
 ---
 # <a name="vm-is-unresponsive-with-c01a001d-error-when-applying-windows-update"></a>La máquina virtual no responde y aparece el error C01A001D al aplicar Windows Update
 
@@ -56,7 +56,7 @@ No se puede crear un archivo de volcado del proceso en el sistema de archivos. E
 
 Si el disco no tiene 1 TB, debe cambiar su tamaño. Una vez que el disco tenga 1 TB, realice una limpieza del disco y una desfragmentación de la unidad.
 
-1. Compruebe si el disco está lleno. Si el disco no llega a 1 TB, [expándalo hasta un máximo de 1 TB mediante PowerShell](../windows/expand-os-disk.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json).
+1. Compruebe si el disco está lleno. Si el disco no llega a 1 TB, [expándalo hasta un máximo de 1 TB mediante PowerShell](../windows/expand-os-disk.md).
 2. Una vez que el disco tenga 1 TB, realice una limpieza del disco.
     - [Desconecte el disco de datos de la máquina virtual rota](../windows/detach-disk.md).
     - [Conecte el disco de datos a una máquina virtual que funcione](../windows/attach-disk-ps.md#attach-an-existing-data-disk-to-a-vm).

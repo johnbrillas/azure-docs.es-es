@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 6c2a15ac8d0863539ca878a048940b19794e920d
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 2773a76ed1166a26ebc12b97550876eaa66bad14
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842914"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98197326"
 ---
 # <a name="azure-security-baseline-for-azure-data-box"></a>Base de referencia de seguridad de Azure para Azure Data Box
 
@@ -44,7 +44,7 @@ Para más información, consulte [Introducción a la línea de base de seguridad
 
 ### <a name="13-protect-critical-web-applications"></a>1.3: Proteja las aplicaciones web críticas
 
-**Instrucciones**: No aplicable; esta recomendación está pensada para las aplicaciones web que se ejecutan en Azure App Service o en recursos de proceso.
+**Guía**: No aplicable; esta recomendación está pensada para las aplicaciones web que se ejecutan en Azure App Service o en recursos de proceso.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -273,9 +273,9 @@ Además, para ayudarle a realizar un seguimiento de las cuentas administrativas 
 
 **Guía**: Utilice una estación de trabajo de acceso con privilegios (PAW) que tenga habilitado Multi-Factor Authentication (MFA) de Azure AD para iniciar sesión en los pedidos de Azure Data Box y configurarlos.
 
-* [Uso de estaciones de trabajo con privilegios de acceso](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+* [Uso de estaciones de trabajo con privilegios de acceso](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
-* [Planeamiento de una implementación de Multi-Factor Authentication de Azure AD basado en la nube](../active-directory/authentication/howto-mfa-getstarted.md)
+* [Planeamiento de una implementación de Azure AD Multi-Factor Authentication basada en la nube](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 

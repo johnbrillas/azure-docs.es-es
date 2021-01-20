@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/27/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: e0cf0f30d1110a58ff8087fd348c4916c34e4603
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 0f0c771b11dfc029f18681e7a4c11b8ee271252c
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96351817"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98197700"
 ---
 # <a name="azure-security-baseline-for-container-instances"></a>Base de referencia de seguridad de Azure para Container Instances
 
@@ -385,7 +385,7 @@ Si usa un registro de contenedor de Azure con Azure Container Instances, cree pr
 
 **Guía**: Utilice PAW (estaciones de trabajo de acceso privilegiado) con la MFA configurada para iniciar la sesión y configurar recursos de Azure.
 
-* [Más información sobre las estaciones de trabajo con privilegios de acceso](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+* [Más información sobre las estaciones de trabajo con privilegios de acceso](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 * [Procedimiento para habilitar la MFA en Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -988,7 +988,7 @@ Use Azure Policy para establecer restricciones en el tipo de recursos que se pu
 
 * [Creación de un almacén de claves](../key-vault/secrets/quick-create-portal.md)
 
-* [Autenticación en Key Vault](../key-vault/general/authentication.md)
+* [Autenticación en Azure Key Vault](../key-vault/general/authentication.md)
 
 * [Asignación de una directiva de acceso de Azure Key Vault](../key-vault/general/assign-access-policy-portal.md)
 
@@ -1028,7 +1028,7 @@ Use Azure Policy para establecer restricciones en el tipo de recursos que se pu
 
 ### <a name="81-use-centrally-managed-anti-malware-software"></a>8.1: Use software antimalware administrado centralmente
 
-**Instrucciones**: no aplicable; esta guía está pensada para recursos de proceso de IaaS.
+**Guía**: no aplicable; esta guía está pensada para recursos de proceso de IaaS.
 
 **Supervisión de Azure Security Center**: No aplicable
 

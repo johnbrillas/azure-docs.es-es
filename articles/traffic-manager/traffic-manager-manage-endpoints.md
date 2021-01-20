@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: duau
-ms.openlocfilehash: fc6e8bcda17f9d788a430ed763bd9f8702eaf250
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 3d5a888bf132725ff64c2a128b77f0257f435585
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96003555"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98184261"
 ---
 # <a name="add-disable-enable-or-delete-endpoints"></a>Incorporación, deshabilitación, habilitación o eliminación de puntos de conexión
 
@@ -45,7 +45,7 @@ También puede deshabilitar los extremos individuales que forman parte de un per
 7.  Cuando termine de agregar ambos puntos de conexión, aparecerán en la hoja **Perfil de Traffic Manager** junto con el estado de supervisión como **En línea**.
 
 > [!NOTE]
-> Después de agregar o quitar un punto de conexión de un perfil mediante el método de enrutamiento de tráfico *Conmutación por error*, no podrá ordenar como desee la lista de prioridad de conmutación por error. Puede ajustar el orden de la lista de prioridad de conmutación por error en la página Configuración. Para obtener más información, consulte [Método de enrutamiento del tráfico de conmutación por error](traffic-manager-configure-failover-routing-method.md).
+> Después de agregar o quitar un punto de conexión de un perfil mediante el método de enrutamiento de tráfico *Conmutación por error*, no podrá ordenar como desee la lista de prioridad de conmutación por error. Puede ajustar el orden de la lista de prioridad de conmutación por error en la página Configuración. Para obtener más información, consulte [Método de enrutamiento del tráfico de conmutación por error](./traffic-manager-configure-priority-routing-method.md).
 
 ## <a name="to-disable-an-endpoint"></a>Para deshabilitar un extremo
 
@@ -77,8 +77,7 @@ También puede deshabilitar los extremos individuales que forman parte de un per
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Administración de perfiles de Traffic Manager](traffic-manager-manage-profiles.md)
-* [Configurar métodos de enrutamiento](traffic-manager-configure-routing-method.md)
+* [Configurar métodos de enrutamiento](./traffic-manager-configure-priority-routing-method.md)
 * [Solución de problemas de estado degradado del Administrador de tráfico](traffic-manager-troubleshooting-degraded.md)
 * [Consideraciones de rendimiento sobre el Administrador de tráfico](traffic-manager-performance-considerations.md)
-* [Operaciones del Administrador de tráfico (referencia de la API de REST)](https://go.microsoft.com/fwlink/p/?LinkID=313584)
-
+* [Operaciones del Administrador de tráfico (referencia de la API de REST)](/previous-versions/azure/reference/hh758255(v=azure.100))

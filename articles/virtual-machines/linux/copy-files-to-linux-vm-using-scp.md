@@ -8,18 +8,18 @@ ms.topic: how-to
 ms.date: 07/12/2017
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: f56118750fc980c249c88b796728f4ecb2641a88
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 83c054a9e2dd829dbfb34a3873f06332e504b832
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86510963"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201202"
 ---
 # <a name="move-files-to-and-from-a-linux-vm-using-scp"></a>Traslado de archivos a una máquina virtual Linux o desde ella mediante SCP
 
 Este artículo muestra cómo trasladar archivos desde su estación de trabajo hasta una máquina virtual Linux de Azure, o desde una máquina virtual Linux de Azure hasta la estación de trabajo, mediante Secure Copy (SCP). El traslado de archivos entre su estación de trabajo y una máquina virtual Linux, de forma rápida y segura, es una parte fundamental de la administración de la infraestructura de Azure. 
 
-En este artículo, necesita una máquina virtual Linux implementada en Azure mediante [archivos de clave privada y pública de SSH](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). También necesita un cliente SCP para el equipo local. Está compilado sobre SSH y se incluye en el shell de Bash predeterminado de la mayoría de los equipos Linux y Mac y de algunos shells de Windows.
+En este artículo, necesita una máquina virtual Linux implementada en Azure mediante [archivos de clave privada y pública de SSH](mac-create-ssh-keys.md). También necesita un cliente SCP para el equipo local. Está compilado sobre SSH y se incluye en el shell de Bash predeterminado de la mayoría de los equipos Linux y Mac y de algunos shells de Windows.
 
 ## <a name="quick-commands"></a>Comandos rápidos
 
@@ -43,7 +43,7 @@ Como ejemplos, estamos trasladando un archivo de configuración de Azure a una m
 
 SCP usa SSH para el nivel de transporte. SSH administra la autenticación en el host de destino y traslada el archivo en un túnel cifrado proporcionado de forma predeterminada con SSH. Para la autenticación SSH, se pueden utilizar nombres de usuario y contraseñas. Sin embargo, se recomienda la autenticación clave pública y privada de SSH como procedimiento recomendado de seguridad. Una vez que SSH ha autenticado la conexión, SCP comienza a copiar el archivo. Con claves públicas y privadas de SSH y un `~/.ssh/config` configurado adecuadamente, la conexión de SCP puede establecerse usando únicamente un nombre del servidor (o dirección IP). Si solo tiene una clave SSH, SCP la busca en el directorio `~/.ssh/` y la usa de forma predeterminada para iniciar sesión en la máquina virtual.
 
-Para más información acerca de cómo configurar las claves públicas y privadas de SSH y `~/.ssh/config`, consulte [Creación de claves SSH](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Para más información acerca de cómo configurar las claves públicas y privadas de SSH y `~/.ssh/config`, consulte [Creación de claves SSH](mac-create-ssh-keys.md).
 
 ## <a name="scp-a-file-to-a-linux-vm"></a>SCP en un archivo para una máquina virtual Linux
 

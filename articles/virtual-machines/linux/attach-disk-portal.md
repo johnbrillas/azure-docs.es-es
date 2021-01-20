@@ -7,20 +7,20 @@ ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 8f60c83417e9c614ca30f140e6acbbf08e5643cf
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: ca8584d6cce3f5487d84f6647c42274879d610dd
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500655"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98198074"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>Uso del portal para conectar un disco de datos a una máquina virtual Linux 
-En este artículo se muestra cómo adjuntar discos nuevos y existentes a una máquina virtual Linux a través del Portal de Azure. También puede [adjuntar un disco de datos a una máquina virtual con Windows en Azure Portal](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+En este artículo se muestra cómo adjuntar discos nuevos y existentes a una máquina virtual Linux a través del Portal de Azure. También puede [adjuntar un disco de datos a una máquina virtual con Windows en Azure Portal](../windows/attach-managed-disk-portal.md). 
 
 Antes de conectar discos a la VM, revise estas sugerencias:
 
-* El tamaño de la máquina virtual controla cuántos discos de datos puede conectar. Para obtener más información, consulte [Tamaños de máquinas virtuales](../sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* Los discos conectados a las máquinas virtuales son, en realidad, archivos .vhd almacenados en Azure. Para más información, consulte [Introducción a Azure Managed Disks](../managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* El tamaño de la máquina virtual controla cuántos discos de datos puede conectar. Para obtener más información, consulte [Tamaños de máquinas virtuales](../sizes.md).
+* Los discos conectados a las máquinas virtuales son, en realidad, archivos .vhd almacenados en Azure. Para más información, consulte [Introducción a Azure Managed Disks](../managed-disks-overview.md).
 * Después de adjuntar el disco, deberá [conectarse a la VM de Linux para montar el nuevo disco](#connect-to-the-linux-vm-to-mount-the-new-disk).
 
 

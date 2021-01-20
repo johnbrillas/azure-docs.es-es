@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: a6a1b41dd4ede055ba81c069c2164bb36da99876
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 93d444d781edbcfe4ab171460668aeb328070bff
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602315"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201644"
 ---
 # <a name="azure-security-baseline-for-azure-lighthouse"></a>Línea de base de seguridad de Azure para Azure Lighthouse
 
@@ -206,7 +206,7 @@ Debe asegurarse de que las credenciales (como contraseña, certificado o tarjeta
 
 **Guía**: Las estaciones de trabajo seguras y aisladas son de una importancia vital para la seguridad de los roles con acceso a información confidencial como administradores, desarrolladores y operadores de servicios críticos. En función de sus requisitos, puede usar estaciones de trabajo de usuario de alta seguridad o Azure Bastion para realizar tareas de administración administrativas con Azure Lighthouse en entornos de producción. Use Azure Active Directory, Protección contra amenazas avanzada de Microsoft Defender (ATP) o Microsoft Intune para implementar una estación de trabajo de usuario segura y administrada para las tareas administrativas. Las estaciones de trabajo protegidas se pueden administrar de forma centralizada para aplicar una configuración segura, como autenticación sólida, líneas de base de software y hardware y acceso lógico y de red restringido. 
 
-- [Descripción de las estaciones de trabajo con privilegios de acceso](../active-directory/devices/concept-azure-managed-workstation.md)
+- [Descripción de las estaciones de trabajo con privilegios de acceso](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 - [Implementación de una estación de trabajo con privilegios de acceso](../active-directory/devices/howto-azure-managed-workstation.md)
 

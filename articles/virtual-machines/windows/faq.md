@@ -7,15 +7,15 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: cynthn
-ms.openlocfilehash: d5dda567d0cfa89863731a3e8e651aede4ab5957
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eaa3f56389e8cc101b57aefce833266fa20f66f7
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87825198"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98197479"
 ---
 # <a name="frequently-asked-question-about-windows-virtual-machines"></a>Preguntas más frecuentes sobre máquinas virtuales Windows
-En este artículo se responden algunas preguntas frecuentes que los usuarios plantean sobre las máquinas virtuales Windows creadas en Azure mediante el modelo de implementación de Resource Manager. Para la versión de Linux de este tema, vea [Preguntas frecuentes sobre las máquinas virtuales de Linux](../linux/faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+En este artículo se responden algunas preguntas frecuentes que los usuarios plantean sobre las máquinas virtuales Windows creadas en Azure mediante el modelo de implementación de Resource Manager. Para la versión de Linux de este tema, vea [Preguntas frecuentes sobre las máquinas virtuales de Linux](../linux/faq.md).
 
 ## <a name="what-can-i-run-on-an-azure-vm"></a>¿Qué puedo ejecutar en una máquina virtual de Azure?
 Todos los suscriptores pueden ejecutar software de servidor en una máquina virtual de Azure. Para saber más sobre la directiva de soporte de software de servidor de Microsoft ejecutado en Azure, vea [Soporte técnico del software de servidor de Microsoft para máquinas virtuales de Microsoft Azure](https://support.microsoft.com/kb/2721672).
@@ -23,14 +23,14 @@ Todos los suscriptores pueden ejecutar software de servidor en una máquina virt
 Existen determinadas versiones de Windows 7, Windows 8.1 y Windows 10 para suscriptores de ventajas de MSDN Azure y suscriptores de pago por uso de desarrollo y prueba de MSDN, para tareas de desarrollo y prueba. Para obtener más información, como instrucciones y limitaciones, consulte [Imágenes de cliente de Windows para los suscriptores de MSDN](https://azure.microsoft.com/blog/2014/05/29/windows-client-images-on-azure/). 
 
 ## <a name="how-much-storage-can-i-use-with-a-virtual-machine"></a>¿Cuánto almacenamiento puedo usar con una máquina virtual?
-Cada disco de datos puede ser de hasta 32 767 GiB. El número de discos de datos que puede usar depende del tamaño de la máquina virtual. Para obtener más información, consulte [Tamaños de máquinas virtuales](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Cada disco de datos puede ser de hasta 32 767 GiB. El número de discos de datos que puede usar depende del tamaño de la máquina virtual. Para obtener más información, consulte [Tamaños de máquinas virtuales](../sizes.md).
 
 Azure Managed Disks son las nuevas ofertas de almacenamiento en disco recomendadas que se pueden usar con Azure Virtual Machines para almacenar los datos de forma persistente. Puede usar varios de estos discos con cada máquina virtual. Managed Disks ofrece dos tipos de opciones de almacenamiento duraderas: discos administrados premium y estándar. Para más información, consulte los [precios de Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks).
 
 Las cuentas de Azure Storage también pueden proporcionar almacenamiento para el disco del sistema operativo y los discos de datos. Cada disco es un archivo .vhd almacenado como un blob en páginas. Para obtener información detallada sobre los precios, consulte [Detalles de precios de almacenamiento](https://azure.microsoft.com/pricing/details/storage/).
 
 ## <a name="how-can-i-access-my-virtual-machine"></a>¿Cómo puedo tener acceso a mi máquina virtual?
-Establezca una conexión remota mediante conexión a Escritorio remoto (RDP) para una máquina virtual Windows. Para obtener instrucciones, vea [Conexión a una máquina virtual de Azure donde se ejecuta Windows e inicio de sesión en ella](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Se admite un máximo de 2 conexiones simultáneas, a menos que el servidor esté configurado como un host de sesión de servicios de escritorio remoto.  
+Establezca una conexión remota mediante conexión a Escritorio remoto (RDP) para una máquina virtual Windows. Para obtener instrucciones, vea [Conexión a una máquina virtual de Azure donde se ejecuta Windows e inicio de sesión en ella](connect-logon.md). Se admite un máximo de 2 conexiones simultáneas, a menos que el servidor esté configurado como un host de sesión de servicios de escritorio remoto.  
 
 Si tiene problemas con el Escritorio remoto, consulte [Solución de problemas de conexiones del Escritorio remoto a una máquina virtual de Azure con Windows](../troubleshooting/troubleshoot-rdp-connection.md?toc=/azure/virtual-machines/windows/toc.json). 
 
@@ -39,11 +39,11 @@ Si está familiarizado con Hyper-V, puede que esté buscando una herramienta sim
 ## <a name="can-i-use-the-temporary-disk-the-d-drive-by-default-to-store-data"></a>¿Puedo usar el disco temporal (la unidad D: de forma predeterminada) para almacenar datos?
 No utilice el disco temporal para almacenar datos. Solo proporciona almacenamiento de forma temporal, por lo que se arriesgaría a perder datos que no se pueden recuperar. La pérdida de datos puede ocurrir cuando se mueve la máquina virtual a un host diferente. Cambiar el tamaño de una máquina virtual, actualizar el host o un error de hardware en el host son algunas de las razones por las que se puede mover una máquina virtual.
 
-Si tiene una aplicación que necesita usar la letra de unidad D:, puede reasignar las letras de unidad para que el disco temporal utilice otra distinta a D:. Para obtener instrucciones, consulte [Cambio de la letra de unidad del disco temporal de Windows](change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Si tiene una aplicación que necesita usar la letra de unidad D:, puede reasignar las letras de unidad para que el disco temporal utilice otra distinta a D:. Para obtener instrucciones, consulte [Cambio de la letra de unidad del disco temporal de Windows](change-drive-letter.md).
 
 
 ## <a name="how-can-i-change-the-drive-letter-of-the-temporary-disk"></a>¿Cómo puedo cambiar la letra de la unidad del disco temporal?
-Para cambiar la letra de la unidad, mueva el archivo de paginación y reasigne las letras de unidad; sin embargo, debe asegurarse de realizar los pasos en un orden específico. Para obtener instrucciones, consulte [Cambio de la letra de unidad del disco temporal de Windows](change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Para cambiar la letra de la unidad, mueva el archivo de paginación y reasigne las letras de unidad; sin embargo, debe asegurarse de realizar los pasos en un orden específico. Para obtener instrucciones, consulte [Cambio de la letra de unidad del disco temporal de Windows](change-drive-letter.md).
 
 ## <a name="can-i-add-an-existing-vm-to-an-availability-set"></a>¿Puedo agregar una máquina virtual existente a un conjunto de disponibilidad?
 No. Si desea que la máquina virtual forme parte de un conjunto de disponibilidad, debe crearla dentro del conjunto. Actualmente no es posible agregar una máquina virtual a un conjunto de disponibilidad una vez creada.
@@ -52,7 +52,7 @@ No. Si desea que la máquina virtual forme parte de un conjunto de disponibilida
 Sí. Para obtener instrucciones, consulte [Migrating on-premises VMs to Azure](on-prem-to-azure.md) (Migración de máquinas virtuales locales a Azure).
 
 ## <a name="can-i-resize-the-os-disk"></a>¿Puedo cambiar el tamaño del disco del sistema operativo?
-Sí. Para obtener instrucciones, consulte [Cómo ampliar la unidad de sistema operativo de una máquina virtual en un grupo de recursos de Azure](expand-os-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Sí. Para obtener instrucciones, consulte [Cómo ampliar la unidad de sistema operativo de una máquina virtual en un grupo de recursos de Azure](expand-os-disk.md).
 
 ## <a name="can-i-copy-or-clone-an-existing-azure-vm"></a>¿Puedo copiar o clonar una máquina virtual de Azure existente?
 Sí. Mediante el uso de imágenes administradas, puede crear una imagen de una máquina virtual y luego usar la imagen para crear varias máquinas virtuales nuevas. Para obtener instrucciones, consulte [Creación de una imagen personalizada de una máquina virtual](tutorial-custom-images.md).

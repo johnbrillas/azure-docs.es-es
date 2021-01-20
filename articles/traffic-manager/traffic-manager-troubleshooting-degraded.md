@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: duau
-ms.openlocfilehash: 83dc432a1f88b443d500bf9a977abfed69211156
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b76eab5771d724e4f0ec56b7d5acd5cf5f91edc0
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96003861"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98183462"
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Solución de problemas de estado degradado en el Administrador de tráfico de Azure
 
-En este artículo se describe cómo solucionar problemas de un perfil de Azure Traffic Manager que muestra un estado degradado. El primer paso para solucionar un estado degradado de Azure Traffic Manager es habilitar el registro.  Para más información, consulte [Habilitación de los registros de recursos](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-diagnostic-logs). Para este escenario, considere que ha configurado un perfil de Traffic Manager orientado a algunos de sus servicios hospedados cloudapp.net. Si el estado de su instancia de Traffic Manager muestra **Degradado**, entonces el estado de uno o varios puntos de conexión puede ser **Degradado**:
+En este artículo se describe cómo solucionar problemas de un perfil de Azure Traffic Manager que muestra un estado degradado. El primer paso para solucionar un estado degradado de Azure Traffic Manager es habilitar el registro.  Para más información, consulte [Habilitación de los registros de recursos](./traffic-manager-diagnostic-logs.md). Para este escenario, considere que ha configurado un perfil de Traffic Manager orientado a algunos de sus servicios hospedados cloudapp.net. Si el estado de su instancia de Traffic Manager muestra **Degradado**, entonces el estado de uno o varios puntos de conexión puede ser **Degradado**:
 
 ![estado de punto de conexión degradado](./media/traffic-manager-troubleshooting-degraded/traffic-manager-degradedifonedegraded.png)
 
@@ -31,8 +31,8 @@ Si el estado de su instancia de Traffic Manager muestra **Inactivo**, ambos punt
 
 ## <a name="understanding-traffic-manager-probes"></a>Descripción de los sondeos de Traffic Manager
 
-* Traffic Manager considera que un punto de conexión está EN LÍNEA solo cuando el sondeo recibe una respuesta HTTP 200 desde la ruta de acceso del sondeo. Si la aplicación devuelve cualquier otro código de respuesta HTTP, debe agregar ese código de respuesta a los [intervalos de código de estado esperados](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring#configure-endpoint-monitoring) del perfil de Traffic Manager.
-* Una respuesta de redireccionamiento de 30x se trata como un error, a menos que se haya especificado como un código de respuesta válido en los [intervalos de código de estado esperados](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring#configure-endpoint-monitoring) del perfil de Traffic Manager. Traffic Manager no sondea el destino de la redirección.
+* Traffic Manager considera que un punto de conexión está EN LÍNEA solo cuando el sondeo recibe una respuesta HTTP 200 desde la ruta de acceso del sondeo. Si la aplicación devuelve cualquier otro código de respuesta HTTP, debe agregar ese código de respuesta a los [intervalos de código de estado esperados](./traffic-manager-monitoring.md#configure-endpoint-monitoring) del perfil de Traffic Manager.
+* Una respuesta de redireccionamiento de 30x se trata como un error, a menos que se haya especificado como un código de respuesta válido en los [intervalos de código de estado esperados](./traffic-manager-monitoring.md#configure-endpoint-monitoring) del perfil de Traffic Manager. Traffic Manager no sondea el destino de la redirección.
 * En los sondeos HTTPs, se omiten los errores de certificado.
 * No importa el contenido real de la ruta de acceso del sondeo, siempre y cuando se devuelva una respuesta 200. Realizar un sondeo de una dirección URL en algún contenido estático, como "/favicon.ico" es una técnica habitual. Los contenidos dinámicos, como las páginas ASP, puede que no siempre devuelvan una respuesta 200, incluso si la aplicación está en buen estado.
 * Un procedimiento recomendado consiste en establecer la ruta de acceso del sondeo en algo que tenga una lógica suficiente para determinar si el sitio está activo o inactivo. En el ejemplo anterior, al establecer la ruta de acceso en "/favicon.ico", solo prueba que w3wp.exe está respondiendo. Puede que este sondeo no indique que la aplicación web está funcionando correctamente. Sería una mejor opción establecer una ruta de acceso a algo como "/Probe.aspx" que tiene lógica para determinar el estado del sitio. Por ejemplo, podría usar contadores de rendimiento para medir el uso de la CPU o el número de solicitudes con error. O bien, podría intentar acceder a los recursos de la base de datos o al estado de la sesión para asegurarse de que la aplicación web funciona.
@@ -87,12 +87,12 @@ public class TrustAllCertsPolicy : ICertificatePolicy {
 
 [¿Qué es el Administrador de tráfico?](traffic-manager-overview.md)
 
-[Cloud Services](https://go.microsoft.com/fwlink/?LinkId=314074)
+[Cloud Services](/previous-versions/azure/jj155995(v=azure.100))
 
 [Azure App Service](https://azure.microsoft.com/documentation/services/app-service/web/)
 
-[Operaciones del Administrador de tráfico (referencia de la API de REST)](https://go.microsoft.com/fwlink/?LinkId=313584)
+[Operaciones del Administrador de tráfico (referencia de la API de REST)](/previous-versions/azure/reference/hh758255(v=azure.100))
 
 [Cmdlets del Administrador de tráfico de Azure][1]
 
-[1]: https://docs.microsoft.com/powershell/module/az.trafficmanager
+[1]: /powershell/module/az.trafficmanager

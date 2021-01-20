@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 6cf106f6d7aef4324eeeaf232a28cdd91a8a774b
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: c2595d75acfacf3d501b6efb83b383d9a56215a6
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843135"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98203293"
 ---
 # <a name="azure-security-baseline-for-customer-lockbox-for-microsoft-azure"></a>Base de referencia de seguridad de Azure para Caja de seguridad del cliente para Microsoft Azure
 
@@ -285,9 +285,9 @@ Además, para ayudarle a realizar un seguimiento de las cuentas administrativas 
 
 **Guía**: Utilice una estación de acceso con privilegios (PAW) que tenga habilitado Multi-Factor Authentication (MFA) de Azure AD para iniciar sesión en las solicitudes de la Caja de seguridad del cliente y configurarlas.
 
-* [Uso de estaciones de trabajo con privilegios de acceso](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+* [Uso de estaciones de trabajo con privilegios de acceso](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
-* [Planeamiento de una implementación de Multi-Factor Authentication de Azure AD basado en la nube](../../active-directory/authentication/howto-mfa-getstarted.md)
+* [Planeamiento de una implementación de Azure AD Multi-Factor Authentication basada en la nube](../../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 

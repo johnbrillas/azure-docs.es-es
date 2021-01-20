@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: jushiman
-ms.openlocfilehash: 1809194ce551fc828389cc31f5c7d6f28a2cddd6
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 1cbd4c92ec4c124cfd384f45a4cd6f47fdc60be6
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91972380"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98180173"
 ---
 # <a name="dcsv2-series"></a>Serie DCsv2
 
@@ -25,7 +25,7 @@ Entre los casos de uso de ejemplo se incluyen el uso compartido de datos confide
 [Almacenamiento en caché de Premium Storage](premium-storage-performance.md): Compatible<br>
 [Migración en vivo](maintenance-and-updates.md): No compatible<br>
 [Actualizaciones con conservación de memoria](maintenance-and-updates.md): No compatible<br>
-[Compatibilidad con generación de VM](generation-2.md): Generación 1 y 2<br>
+[Compatibilidad con generación de VM](generation-2.md): Generación 2<br>
 
 *Excepto para Standard_DC8_v2
 

@@ -14,18 +14,18 @@ ms.workload: infrastructure
 ms.date: 06/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9254b3d19bd840b62d2f5f7023eba9a91e605d1e
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 2729369347de92153e9e8b84e008e5e22e732081
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967523"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98197445"
 ---
 # <a name="sap-hana-large-instances-storage-architecture"></a>Arquitectura de almacenamiento de SAP HANA (instancias grandes)
 
 El diseño de almacenamiento para SAP HANA en Azure (instancias grandes) es configurado por SAP HANA en el modelo de implementación clásica según las instrucciones recomendadas de SAP. Las instrucciones se documentan en las notas del producto [Requisitos de almacenamiento de SAP HANA](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html).
 
-La clase de tipo I de HANA (instancias grandes) suele tener cuatro veces el volumen de memoria como volumen de almacenamiento. Para las unidades de HANA (instancias grandes) de clase de tipo II, el almacenamiento no es cuatro veces superior. Las unidades tienen un volumen previsto para almacenar copias de seguridad del registro de transacciones de HANA. Para más información, consulte [Instalación y configuración de SAP HANA en Azure (instancias grandes)](hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+La clase de tipo I de HANA (instancias grandes) suele tener cuatro veces el volumen de memoria como volumen de almacenamiento. Para las unidades de HANA (instancias grandes) de clase de tipo II, el almacenamiento no es cuatro veces superior. Las unidades tienen un volumen previsto para almacenar copias de seguridad del registro de transacciones de HANA. Para más información, consulte [Instalación y configuración de SAP HANA en Azure (instancias grandes)](hana-installation.md).
 
 Vea la tabla siguiente en relación a la asignación de almacenamiento. En la tabla se enumera la capacidad aproximada de los diferentes volúmenes que se proporcionan con las diferentes unidades de HANA (instancias grandes).
 
@@ -94,7 +94,7 @@ Estos tamaños son números de volumen aproximados que pueden variar ligeramente
 
 Podría necesitar más almacenamiento. Puede agregar almacenamiento comprando almacenamiento adicional en unidades de 1 TB. Este almacenamiento adicional se puede agregar como volumen adicional. También se puede utilizar para extender uno o varios de los volúmenes existentes. No es posible reducir el tamaño de los volúmenes que implementó originalmente y que se documentan principalmente en las tablas anteriores. Tampoco es posible cambiar los nombres de los volúmenes ni los de montaje. Los volúmenes de almacenamiento descritos anteriormente se conectan a las unidades de HANA (instancias grandes) como volúmenes NFS4.
 
-Puede usar instantáneas de almacenamiento para la copia de seguridad y la restauración, además de para la recuperación ante desastres. Para más información, consulte [Alta disponibilidad y recuperación ante desastres de SAP HANA en Azure (instancias grandes)](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Puede usar instantáneas de almacenamiento para la copia de seguridad y la restauración, además de para la recuperación ante desastres. Para más información, consulte [Alta disponibilidad y recuperación ante desastres de SAP HANA en Azure (instancias grandes)](hana-overview-high-availability-disaster-recovery.md).
 
 Consulte los [escenarios admitidos por HLI](hana-supported-scenario.md) para información detallada sobre la distribución de almacenamiento en su caso.
 

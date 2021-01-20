@@ -7,12 +7,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: 228814db76ea14fa8b74c0c5d634e5afd6d54ac6
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 2726ba3b337dc785de58b06fb5e8372058f71879
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96483052"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202103"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Máquinas virtuales de una plantilla de Azure Resource Manager
 
@@ -282,7 +282,7 @@ Al definir un recurso de máquina virtual, se utilizan varios elementos de perfi
 
 ## <a name="disks-and-images"></a>Discos e imágenes
    
-En Azure, los archivos de VHD pueden representar [discos o imágenes](../managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Cuando el sistema operativo de un archivo de VHD está especializado para ser una máquina virtual específica, se conoce como "disco". Cuando el sistema operativo de un archivo de VHD está generalizado para crear muchas máquinas virtuales, se conoce como "imagen".   
+En Azure, los archivos de VHD pueden representar [discos o imágenes](../managed-disks-overview.md). Cuando el sistema operativo de un archivo de VHD está especializado para ser una máquina virtual específica, se conoce como "disco". Cuando el sistema operativo de un archivo de VHD está generalizado para crear muchas máquinas virtuales, se conoce como "imagen".   
     
 ### <a name="create-new-virtual-machines-and-new-disks-from-a-platform-image"></a>Creación de máquinas virtuales y discos a partir de una imagen de plataforma
 
@@ -453,5 +453,5 @@ No pasa nada por usar la misma plantilla para crear o actualizar recursos existe
 
 - Cree su propia plantilla con las [Creación de plantillas de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md).
 - Implemente la plantilla que creó mediante [Creación de una máquina virtual Windows con una plantilla de Resource Manager](ps-template.md).
-- Aprenda a administrar la máquina virtual que ha creado repasando el tema [Creación y administración de máquinas virtuales Windows con el módulo de Azure PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- Aprenda a administrar la máquina virtual que ha creado repasando el tema [Creación y administración de máquinas virtuales Windows con el módulo de Azure PowerShell](tutorial-manage-vm.md).
 - Para información sobre la sintaxis de JSON y las propiedades de los tipos de recursos de las plantillas, consulte [Azure Resource Manager template reference](/azure/templates/) (Referencia de las plantillas de Azure Resource Manager).

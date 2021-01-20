@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: e07e9035dc55f77a2e76b4f4ee306deab829980a
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 1626ee074d51048dbf45c629f261a550822d746c
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182757"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200845"
 ---
 # <a name="azure-security-baseline-for-automation"></a>Base de referencia de seguridad de Azure para Automation
 
@@ -66,7 +66,7 @@ Aunque las reglas de grupo de seguridad de red y las rutas definidas por el usua
 
 ### <a name="13-protect-critical-web-applications"></a>1.3: Proteja las aplicaciones web críticas
 
-**Instrucciones**: No aplicable; esta recomendación está pensada para las aplicaciones web que se ejecutan en Azure App Service o en recursos de proceso.
+**Guía**: No aplicable; esta recomendación está pensada para las aplicaciones web que se ejecutan en Azure App Service o en recursos de proceso.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -402,7 +402,7 @@ También puede habilitar el acceso Just-in-Time/Just-Enough usando roles de Azur
 
 **Guía**: Use PAW con la autenticación multifactor configurada para iniciar sesión y configurar los recursos de la cuenta de Azure Automation en entornos de producción.
 
-* [Más información sobre las estaciones de trabajo con privilegios de acceso](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+* [Más información sobre las estaciones de trabajo con privilegios de acceso](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 * [Procedimiento para habilitar la MFA en Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -556,7 +556,7 @@ Siga las recomendaciones de Azure Security Center para el cifrado en reposo y el
 
 * [Descripción del cifrado en tránsito con Azure](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit)
 
-* [Aplicación de TLS 1.2 para Azure Automation](https://azure.microsoft.com/updates/azure-automation-tls12-enforcement/)
+* [Aplicación de TLS 1.2 para Azure Automation](/azure/active-directory/hybrid/reference-connect-tls-enforcement)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -1042,7 +1042,7 @@ Cuando use la característica Hybrid Runbook Worker, use State Configuration de 
 
 * [Creación de un almacén de claves](../key-vault/general/quick-create-portal.md)
 
-* [Autenticación en Key Vault](../key-vault/general/authentication.md)
+* [Autenticación en Azure Key Vault](../key-vault/general/authentication.md)
 
 * [Asignación de una directiva de acceso de Key Vault](../key-vault/general/assign-access-policy-portal.md)
 

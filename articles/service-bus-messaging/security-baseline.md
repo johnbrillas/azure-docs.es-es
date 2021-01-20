@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 9dda02e483f3437237837a9b3b8bdcbcf84fcd1d
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 16320e3f667c413778e166bfaacf81347226f4b1
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96489605"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202749"
 ---
 # <a name="azure-security-baseline-for-service-bus"></a>Base de referencia de seguridad de Azure para Service Bus
 
@@ -299,7 +299,7 @@ También puede crear definiciones de directivas personalizadas si las definicion
 
 **Guía**: use estaciones de trabajo con acceso con privilegios (PAW) con Multi-Factor Authentication (MFA) configurada para iniciar sesión en recursos habilitados para Service Bus y configurarlos.
 
-- [Más información sobre las estaciones de trabajo con privilegios de acceso](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+- [Más información sobre las estaciones de trabajo con privilegios de acceso](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 - [Procedimiento para habilitar la MFA en Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/01/2020
 ms.author: radeltch
-ms.openlocfilehash: 9c9979699b5bcb3636adc0f9b58331568ea9cad1
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 525c705db81dc0f152c8dbc55de5ebac841e5d57
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96486309"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201746"
 ---
 # <a name="public-endpoint-connectivity-for-virtual-machines-using-azure-standard-load-balancer-in-sap-high-availability-scenarios"></a>Conectividad del punto de conexión público para las máquinas virtuales que usan Azure Standard Load Balancer en escenarios de alta disponibilidad de SAP
 
@@ -100,7 +100,7 @@ La configuración sería similar a la siguiente:
 2. Cree el grupo de back-end **MyBackendPoolOfPublicILB** y agregue las máquinas virtuales.  
    1. Seleccione la red virtual.  
    1. Seleccione las máquinas virtuales y sus direcciones IP y agréguelas al grupo de back-end.  
-3. [Cree reglas de salida](../../../load-balancer/quickstart-load-balancer-standard-public-cli.md?tabs=option-1-create-load-balancer-standard%3ftabs%3doption-1-create-load-balancer-standard#create-outbound-rule-configuration). Actualmente no es posible crear reglas de salida desde Azure Portal. Puede crear reglas de salida con la [CLI de Azure](../../../cloud-shell/overview.md?view=azure-cli-latest).  
+3. [Cree reglas de salida](../../../load-balancer/quickstart-load-balancer-standard-public-cli.md?tabs=option-1-create-load-balancer-standard%3ftabs%3doption-1-create-load-balancer-standard#create-outbound-rule-configuration). Actualmente no es posible crear reglas de salida desde Azure Portal. Puede crear reglas de salida con la [CLI de Azure](../../../cloud-shell/overview.md).  
 
    ```azurecli
     az network lb outbound-rule create --address-pool MyBackendPoolOfPublicILB --frontend-ip-configs MyPublicILBFrondEndIP --idle-timeout 30 --lb-name MyPublicILB --name MyOutBoundRules  --outbound-ports 10000 --enable-tcp-reset true --protocol All --resource-group MyResourceGroup

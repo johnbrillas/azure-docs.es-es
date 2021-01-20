@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2016
 ms.author: duau
-ms.openlocfilehash: 431eaff9da95063648d3e80acb54be9cc5c25bc5
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: eaf50f3bdacaf5680bc5ecb1379faff20133b5ce
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021697"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98184380"
 ---
 # <a name="using-load-balancing-services-in-azure"></a>Uso de servicios de equilibrio de carga en Azure
 
@@ -92,11 +92,11 @@ En el siguiente diagrama se muestra la arquitectura de este escenario:
 4. Defina la red virtual, la subred, la IP de front-end y las configuraciones de agente de escucha para la puerta de enlace de aplicaciones. En este escenario, la dirección IP de front-end es **pública**, lo que permite que se agregue como punto de conexión al perfil de Traffic Manager más adelante.
 5. Configure el agente de escucha con una de las siguientes opciones:
     * Si usa HTTP, no hay nada que configurar. Haga clic en **OK**.
-    * Para usar HTTPS, se requiere configuración adicional. Consulte [Creación de una puerta de enlace de aplicaciones](../application-gateway/application-gateway-create-gateway-portal.md) y comience en el paso 9. Cuando se haya completado la configuración, haga clic en **Aceptar**.
+    * Para usar HTTPS, se requiere configuración adicional. Consulte [Creación de una puerta de enlace de aplicaciones](../application-gateway/quick-create-portal.md) y comience en el paso 9. Cuando se haya completado la configuración, haga clic en **Aceptar**.
 
 #### <a name="configure-url-routing-for-application-gateways"></a>Configuración del enrutamiento de direcciones URL para puertas de enlace de aplicaciones
 
-Cuando elige un grupo de back-end, una puerta de enlace de aplicaciones configurada con una regla basada en ruta de acceso usa un patrón de ruta de acceso de la dirección URL de solicitud junto con la distribución round robin. En este escenario, se agrega una regla basada en ruta de acceso para dirigir a cualquier dirección URL con "/images/\*" al grupo de servidores de imagen. Para más información sobre la configuración del enrutamiento basado en rutas de acceso de dirección URL para una puerta de enlace de aplicaciones, consulte [Create a path-based rule for an application gateway](../application-gateway/application-gateway-create-url-route-portal.md) (Creación de una regla basada en ruta de acceso para una puerta de enlace de aplicaciones).
+Cuando elige un grupo de back-end, una puerta de enlace de aplicaciones configurada con una regla basada en ruta de acceso usa un patrón de ruta de acceso de la dirección URL de solicitud junto con la distribución round robin. En este escenario, se agrega una regla basada en ruta de acceso para dirigir a cualquier dirección URL con "/images/\*" al grupo de servidores de imagen. Para más información sobre la configuración del enrutamiento basado en rutas de acceso de dirección URL para una puerta de enlace de aplicaciones, consulte [Create a path-based rule for an application gateway](../application-gateway/create-url-route-portal.md) (Creación de una regla basada en ruta de acceso para una puerta de enlace de aplicaciones).
 
 ![Diagrama de nivel de web de Application Gateway](./media/traffic-manager-load-balancing-azure/web-tier-diagram.png)
 
@@ -156,7 +156,7 @@ En este escenario, Load Balancer distribuye conexiones desde el nivel web hasta 
 
 Si el clúster de base de datos de alta disponibilidad usa SQL Server AlwaysOn, consulte [Configuración de uno o varios agentes de escucha de grupo de disponibilidad AlwaysOn](../azure-sql/virtual-machines/windows/availability-group-listener-powershell-configure.md) para ver las instrucciones paso a paso.
 
-Para más información cómo configurar un equilibrador de carga interno, consulte [Creación de un equilibrador de carga interno en Azure Portal](../load-balancer/load-balancer-get-started-ilb-arm-portal.md).
+Para más información cómo configurar un equilibrador de carga interno, consulte [Creación de un equilibrador de carga interno en Azure Portal](../load-balancer/quickstart-load-balancer-standard-internal-portal.md).
 
 1. En Azure Portal, vaya al panel izquierdo y haga clic en **Crear un recurso** > **Redes** > **Equilibrador de carga**.
 2. Elija un nombre para el equilibrador de carga.
@@ -210,5 +210,5 @@ Ahora se configuran la dirección IP y el puerto de front-end del equilibrador d
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [¿Qué es Traffic Manager?](traffic-manager-overview.md)
-* [Introducción a Application Gateway](../application-gateway/application-gateway-introduction.md)
+* [Introducción a Application Gateway](../application-gateway/overview.md)
 * [Información general sobre Azure Load Balancer](../load-balancer/load-balancer-overview.md)

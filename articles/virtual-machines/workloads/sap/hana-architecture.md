@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 05/25/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a23a177945316bca89aa5cbcc46f840213dbe832
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: cd81139c15e6bba65fe9b9a53a2e8e950ebd754b
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94964820"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201763"
 ---
 # <a name="sap-hana-large-instances-architecture-on-azure"></a>Arquitectura de SAP HANA en Azure (instancias grandes)
 
@@ -43,7 +43,7 @@ La arquitectura que se muestra se divide en tres secciones:
    Para más información sobre las aplicaciones y bases de datos de SAP NetWeaver que admiten la ejecución en Azure, consulte [SAP Support Note #1928533 – SAP Applications on Azure: Supported products and Azure VM types](https://launchpad.support.sap.com/#/notes/1928533). (Nota de SAP 1928533: Aplicaciones de SAP en Azure: productos y tipos de máquina virtual de Azure admitidos) Para obtener documentación sobre cómo implementar soluciones de SAP en Azure, consulte:
 
   -  [Uso de SAP en máquinas virtuales Windows](./get-started.md?toc=/azure/virtual-machines/linux/toc.json)
-  -  [Uso de soluciones de SAP en Azure Virtual Machines](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+  -  [Uso de soluciones de SAP en Azure Virtual Machines](get-started.md)
 
 - **Izquierda**: muestra el hardware con certificación SAP HANA TDI en la demarcación de instancias grandes de Azure. Las unidades de HANA (Instancias grandes) se conectan a las redes virtuales de su suscripción de Azure con la misma tecnología que la empleada para la conectividad entre la infraestructura local y la de Azure. A partir de mayo de 2019, se introdujo una optimización que permite la comunicación entre las unidades de HANA (Instancias grandes) y las máquinas virtuales de Azure sin la participación de la puerta de enlace de ExpressRoute. Esta optimización llamada ExpressRoute Fast Path se muestra en esta arquitectura (líneas rojas). 
 

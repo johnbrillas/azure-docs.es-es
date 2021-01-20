@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/03/2020
+ms.date: 01/13/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6abc3316e18fc70a2969bc220fd75e10e10f0e6e
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: ff3cd858de86d21637f4a7a9ab9d9a83c7022f5a
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97507785"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178881"
 ---
 # <a name="manage-azure-ad-b2c-user-accounts-with-microsoft-graph"></a>Administrar cuentas de usuario de Azure AD B2C con Microsoft Graph
 
@@ -43,85 +43,6 @@ Las siguientes operaciones de administración de usuarios están disponibles en 
 - [Actualizar usuario](/graph/api/user-update)
 - [Eliminar un usuario](/graph/api/user-delete)
 
-## <a name="user-properties"></a>Propiedades de usuario
-
-### <a name="display-name-property"></a>Propiedad de nombre para mostrar
-
-`displayName` es el nombre que se va a mostrar en la administración de usuarios de Azure Portal para el usuario y, en el token de acceso que Azure AD B2C devuelve a la aplicación. Esta propiedad es obligatoria.
-
-### <a name="identities-property"></a>Propiedad de identidades
-
-Una cuenta de cliente, que podría ser un consumidor, un asociado o un ciudadano, puede asociarse con estos tipos de identidad:
-
-- Identidad **Local**: el nombre de usuario y la contraseña almacenados localmente en el directorio de Azure AD B2C. A menudo se hace referencia a estas identidades como "cuentas locales".
-- Identidad **Federado**: también denominada cuenta *social* o de *empresa*, la identidad del usuario se administra mediante un proveedor de identidades federado, como Facebook, Microsoft, ADFS o Salesforce.
-
-Un usuario con una cuenta de cliente puede iniciar sesión con varias identidades. Por ejemplo, el nombre de usuario, el correo electrónico, el Id. de empleado, el Id. oficial y otros. Una sola cuenta puede tener varias identidades, tanto locales como sociales, con la misma contraseña.
-
-En Microsoft Graph API, las identidades locales y federadas se almacenan en el atributo `identities` de usuario, que es de tipo [objectIdentity][graph-objectIdentity]. La colección `identities` representa un conjunto de identidades que se usan para iniciar sesión en una cuenta de usuario. Esta colección permite al usuario iniciar sesión en la cuenta de usuario con cualquiera de sus identidades asociadas.
-
-| Propiedad   | Tipo |Descripción|
-|:---------------|:--------|:----------|
-|signInType|string| Especifica los tipos de inicio de sesión de usuario del directorio. Para la cuenta local: `emailAddress`, `emailAddress1`, `emailAddress2`, `emailAddress3`, `userName` o cualquier otro tipo que desee. La cuenta social debe estar establecida en `federated`.|
-|issuer|string|Especifica el emisor de la identidad. En el caso de las cuentas locales (donde **signInType** no es `federated`), esta propiedad es el nombre de dominio predeterminado del inquilino de B2C local, por ejemplo `contoso.onmicrosoft.com`. En el caso de la identidad social (donde **signInType** es `federated`), el valor es el nombre del emisor; por ejemplo, `facebook.com`|
-|issuerAssignedId|string|Especifica el identificador único asignado al usuario por el emisor. La combinación de **issuer** e **issuerAssignedId** debe ser única dentro del inquilino. En el caso de la cuenta local, cuando **signInType** se establece en `emailAddress` o `userName`, representa el nombre de inicio de sesión del usuario.<br>Cuando **signInType** se establece en: <ul><li>`emailAddress` (o empieza por `emailAddress` como `emailAddress1`) **issuerAssignedId** debe ser una dirección de correo electrónico válida.</li><li>`userName` (o cualquier otro valor), **issuerAssignedId** debe ser una [parte local válida de una dirección de correo electrónico](https://tools.ietf.org/html/rfc3696#section-3).</li><li>`federated`, **issuerAssignedId** representa el identificador único de la cuenta federada.</li></ul>|
-
-La siguiente propiedad **Identities**, con una identidad de cuenta local con un nombre de inicio de sesión, una dirección de correo electrónico como inicio de sesión y con una identidad social. 
-
- ```json
- "identities": [
-     {
-       "signInType": "userName",
-       "issuer": "contoso.onmicrosoft.com",
-       "issuerAssignedId": "johnsmith"
-     },
-     {
-       "signInType": "emailAddress",
-       "issuer": "contoso.onmicrosoft.com",
-       "issuerAssignedId": "jsmith@yahoo.com"
-     },
-     {
-       "signInType": "federated",
-       "issuer": "facebook.com",
-       "issuerAssignedId": "5eecb0cd"
-     }
-   ]
- ```
-
-En las identidades federadas, en función del proveedor de identidades, **issuerAssignedId** es un valor único para un usuario determinado por aplicación o cuenta de desarrollo. Configure la directiva de Azure AD B2C con el mismo identificador de aplicación que asignó previamente el proveedor de redes sociales u otra aplicación con la misma cuenta de desarrollo.
-
-### <a name="password-profile-property"></a>Propiedad de perfil de contraseña
-
-En el caso de una identidad local, se requiere la propiedad **passwordProfile** y contiene la contraseña del usuario. La propiedad `forceChangePasswordNextSignIn` debe establecerse en `false`.
-
-En el caso de una identidad federada (social), no se requiere la propiedad **passwordProfile**.
-
-```json
-"passwordProfile" : {
-    "password": "password-value",
-    "forceChangePasswordNextSignIn": false
-  }
-```
-
-### <a name="password-policy-property"></a>Propiedad de directiva de contraseñas
-
-La directiva de contraseñas de Azure AD B2C (para cuentas locales) se basa en la directiva de [seguridad de contraseña segura](../active-directory/authentication/concept-sspr-policy.md) de Azure Active Directory. Las directivas de restablecimiento de la contraseña, registro e inicio de sesión de Azure AD B2C requieren esta seguridad de contraseña segura y las contraseñas no expiran.
-
-En los escenarios de migración de usuarios, si las cuentas que se van a migrar cuentan con una seguridad de contraseña inferior a la [seguridad de contraseña segura](../active-directory/authentication/concept-sspr-policy.md) que exige Azure AD B2C, puede deshabilitar el requisito de contraseña segura. Para cambiar la directiva de contraseñas predeterminada, establezca la propiedad `passwordPolicies` en `DisableStrongPassword`. Por ejemplo, puede modificar la solicitud de creación de usuario de la siguiente manera:
-
-```json
-"passwordPolicies": "DisablePasswordExpiration, DisableStrongPassword"
-```
-
-### <a name="extension-properties"></a>Propiedades de extensión
-
-Todas las aplicaciones orientadas al cliente tienen requisitos únicos para la información que debe recopilarse. El inquilino de Azure AD B2C incluye un conjunto integrado de información almacenada en propiedades, como el nombre propio, los apellidos, la ciudad y el código postal. Con Azure AD B2C, puede ampliar el conjunto de propiedades que se almacenan en cada cuenta de cliente. Para obtener más información sobre la definición de atributos personalizados, consulte [atributos personalizados](user-flow-custom-attributes.md).
-
-Microsoft Graph API admite la creación y actualización de un usuario con atributos de extensión. Los atributos de extensión de Graph API se denominan mediante la convención `extension_ApplicationClientID_attributename`, donde `ApplicationClientID` es el **id. de la aplicación (cliente)** de la aplicación `b2c-extensions-app` (se encuentra en la opción **Registros de aplicaciones** > **Todas las aplicaciones** en Azure Portal). Tenga en cuenta que el **id. de la aplicación (cliente)** , tal como se representa en el nombre del atributo de extensión, no incluye guiones. Por ejemplo:
-
-```json
-"extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyNumber": "212342"
-```
 
 ## <a name="code-sample-how-to-programmatically-manage-user-accounts"></a>Ejemplo de código: Administración de cuentas de usuario mediante programación
 

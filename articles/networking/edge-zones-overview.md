@@ -2,17 +2,17 @@
 title: Acerca de Azure Edge Zone (versión preliminar)
 description: 'Más información sobre las ofertas de proceso perimetral de Microsoft: Azure Edge Zone.'
 services: vnf-manager
-author: ganesr
+author: cherylmc
 ms.service: vnf-manager
 ms.topic: article
-ms.date: 07/07/2020
-ms.author: ganesr
-ms.openlocfilehash: 68aa3342ab09be73a82f4f896ffdff99d15a5350
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/13/2021
+ms.author: cherylmc
+ms.openlocfilehash: 04555303d5128db6c183d27a0c5fcb69063fdc28
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91329593"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185417"
 ---
 # <a name="about-azure-edge-zone-preview"></a>Acerca de Azure Edge Zone (versión preliminar)
 
@@ -38,7 +38,7 @@ Hay tres tipos de instancias de Azure Edge Zone:
 
 ![Instancias de Azure Edge Zone](./media/edge-zones-overview/edge-zones.png "Azure Edge Zones")
 
-Las instancias de Azure Edge Zone son pequeñas extensiones de superficie de Azure ubicadas en centros de población que están lejos de las regiones de Azure. Azure Edge Zone admite VM, contenedores y un conjunto seleccionado de servicios de Azure que permite ejecutar aplicaciones sensibles a la latencia y de alto rendimiento cerca de los usuarios finales. Las instancias de Azure Edge Zone forman parte de la red global de Microsoft. Proporcionan conectividad segura, confiable y de alto ancho de banda entre las aplicaciones que se ejecutan en la instancia de Edge Zone próxima al usuario. Además, ofrecen el conjunto completo de servicios de Azure que se ejecutan en las regiones de Azure. Microsoft posee y opera las instancias de Azure Edge Zone. Puede usar el mismo conjunto de herramientas de Azure y el mismo portal para administrar e implementar servicios en instancias de Edge Zone.
+Las instancias de Azure Edge Zone son pequeñas extensiones de superficie de Azure ubicadas en centros de población que están lejos de las regiones de Azure. Azure Edge Zone admite VM, contenedores y un conjunto seleccionado de servicios de Azure que permite ejecutar aplicaciones sensibles a la latencia y de alto rendimiento cerca de los usuarios finales. Las instancias de Azure Edge Zone forman parte de la red global de Microsoft. Proporcionan conectividad segura, confiable y de alto ancho de banda entre las aplicaciones que se ejecutan en la instancia de Edge Zone próxima al usuario. Microsoft posee y opera las instancias de Azure Edge Zone. Puede usar el mismo conjunto de herramientas de Azure y el mismo portal para administrar e implementar servicios en instancias de Edge Zone.
 
 Entre los casos de uso comunes se incluyen:
 
@@ -61,7 +61,7 @@ Azure Edge Zone estará disponible en las siguientes áreas metropolitanas:
 
 Las instancias de Azure Edge Zone with Carrier son pequeñas extensiones de superficie de Azure que están ubicadas en centros de datos de operadores móviles de centros de población. La infraestructura de Azure Edge Zone with Carrier se coloca ligeramente apartada de la red 5G del operador móvil. Esta selección de ubicación ofrece una latencia de menos de 10 milisegundos a las aplicaciones de dispositivos móviles.
 
-Las instancias de Azure Edge Zone with Carrier se implementan en los centros de datos de los operadores móviles y están conectadas a la red global de Microsoft. Proporcionan conectividad segura, confiable y de alto ancho de banda entre las aplicaciones que se ejecutan cerca del usuario. Además, ofrecen el conjunto completo de servicios de Azure que se ejecutan en las regiones de Azure. Los desarrolladores pueden usar el mismo conjunto de herramientas conocidas para crear e implementar servicios en Edge Zones.
+Las instancias de Azure Edge Zone with Carrier se implementan en los centros de datos de los operadores móviles y están conectadas a la red global de Microsoft. Proporcionan conectividad segura, confiable y de alto ancho de banda entre las aplicaciones que se ejecutan cerca del usuario. Los desarrolladores pueden usar el mismo conjunto de herramientas conocidas para crear e implementar servicios en Edge Zones.
 
 Entre los casos de uso comunes se incluyen:
 

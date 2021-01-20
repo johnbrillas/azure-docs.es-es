@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2016
 ms.author: duau
-ms.openlocfilehash: 93a8076f12b8f006d600cbd32ce39169f4b47c67
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e0e2acfb0ec0068dcd08ae660e397f65e039a665
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96014336"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98183751"
 ---
 # <a name="point-a-company-internet-domain-to-an-azure-traffic-manager-domain"></a>Hacer que un dominio de Internet de la compañía indique un dominio de Azure Traffic Manager
 
@@ -33,5 +33,5 @@ Todas las solicitudes de tráfico hacia *www\.contoso.com* se redirigen a *conto
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Métodos de enrutamiento del Administrador de tráfico](traffic-manager-routing-methods.md)
-* [Administrador de tráfico: deshabilitación, habilitación o eliminación de un perfil](disable-enable-or-delete-a-profile.md)
-* [Administrador de tráfico: deshabilitación o habilitación de un extremo](disable-or-enable-an-endpoint.md)
+* [Administrador de tráfico: deshabilitación, habilitación o eliminación de un perfil](./traffic-manager-manage-profiles.md)
+* [Administrador de tráfico: deshabilitación o habilitación de un extremo](./traffic-manager-manage-endpoints.md)

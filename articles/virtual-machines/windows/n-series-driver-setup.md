@@ -10,18 +10,18 @@ ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: vikancha
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2dccfebed26c8064db697413e7417ae08d69a3ac
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 38d9727cadd925b944809956eaee51103499a2df
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96022051"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200913"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-windows"></a>Instalación de controladores de GPU de NVIDIA en VM de la serie N con Windows 
 
 Para aprovechar las funcionalidades de GPU de las VM de la serie N de Azure respaldadas por GPU de NVIDIA, deben instalarse controladores de GPU de NVIDIA. La [extensión de controlador de GPU de NVIDIA](../extensions/hpccompute-gpu-windows.md) instala los controladores CUDA de NVIDIA o GRID adecuados en una máquina virtual de la serie N. Instale o administre la extensión mediante Azure Portal o con herramientas como las plantillas de Azure PowerShell o Azure Resource Manager. Consulte la [documentación de la extensión de controlador de GPU de NVIDIA](../extensions/hpccompute-gpu-windows.md) para los sistemas operativos compatibles y los pasos de implementación.
 
-Si decide instalar manualmente los controladores de GPU de NVIDIA, este artículo proporciona pasos de instalación y verificación, controladores y los sistemas operativos compatibles. También está disponible la información de instalación manual del controlador para las [máquinas virtuales Linux](../linux/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Si decide instalar manualmente los controladores de GPU de NVIDIA, este artículo proporciona pasos de instalación y verificación, controladores y los sistemas operativos compatibles. También está disponible la información de instalación manual del controlador para las [máquinas virtuales Linux](../linux/n-series-driver-setup.md).
 
 Para conocer las especificaciones básicas, las capacidades de almacenamiento y los detalles del disco, consulte [Tamaño de máquinas virtuales para GPU Windows](../sizes-gpu.md?toc=/azure/virtual-machines/windows/toc.json). 
 

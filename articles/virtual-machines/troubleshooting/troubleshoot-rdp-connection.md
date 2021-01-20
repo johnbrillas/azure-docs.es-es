@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 03/23/2018
 ms.author: akjosh
-ms.openlocfilehash: ba6dda86475456b6797d27e11727d70261be2e1a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66e4ea622f546981d1f0651b20368590e59056d3
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91439989"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201627"
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>Solución de problemas de conexiones del Escritorio remoto a una máquina virtual de Azure
 La conexión de Protocolo de escritorio remoto (RDP) a la máquina virtual (VM) de Azure basada en Windows puede presentar errores por varios motivos que le impedirán acceder a la máquina virtual. El problema puede originar en el servicio de Escritorio remoto de la máquina virtual, la conexión de red o el cliente de Escritorio remoto en el equipo host. Este artículo le guía por algunos de los métodos más comunes para resolver problemas de conexión de RDP. 
@@ -101,7 +101,7 @@ Después de cada paso de solución de problemas, intente conectarse de nuevo a l
 
 10. Asegúrese de que cualquier firewall local, o firewall del equipo, permite el tráfico saliente del puerto TCP 3389 a Azure.
 
-Si sigue teniendo problemas con RDP, puede [abrir una solicitud de soporte técnico](https://azure.microsoft.com/support/options/) o leer [más pasos y conceptos detallados de solución de problemas de RDP](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Si sigue teniendo problemas con RDP, puede [abrir una solicitud de soporte técnico](https://azure.microsoft.com/support/options/) o leer [más pasos y conceptos detallados de solución de problemas de RDP](detailed-troubleshoot-rdp.md).
 
 ## <a name="troubleshoot-using-azure-powershell"></a>Solución de problemas mediante Azure PowerShell
 Si aún no lo ha hecho, [instale y configure la última versión de Azure PowerShell](/powershell/azure/).
@@ -154,7 +154,7 @@ Después de cada paso de solución de problemas, intente conectarse de nuevo a l
     Direction                : Inbound
     ```
    
-    Si no dispone de una regla que permita el tráfico RDP, [cree una regla de grupo de seguridad de red](../windows/nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Permita el puerto TCP 3389.
+    Si no dispone de una regla que permita el tráfico RDP, [cree una regla de grupo de seguridad de red](../windows/nsg-quickstart-powershell.md). Permita el puerto TCP 3389.
 3. **Restablezca las credenciales de usuario**. En este paso para solucionar problemas se restablece la contraseña en una cuenta de administrador local que haya especificado cuando no está seguro de las credenciales o las haya olvidado.
    
     En primer lugar, especifique el nombre de usuario y una contraseña nueva mediante la asignación de credenciales a la variable `$cred`, tal como se indica a continuación:
@@ -190,7 +190,7 @@ Después de cada paso de solución de problemas, intente conectarse de nuevo a l
 
 7. Asegúrese de que cualquier firewall local, o firewall del equipo, permite el tráfico saliente del puerto TCP 3389 a Azure.
 
-Si sigue teniendo problemas con RDP, puede [abrir una solicitud de soporte técnico](https://azure.microsoft.com/support/options/) o leer [más pasos y conceptos detallados de solución de problemas de RDP](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Si sigue teniendo problemas con RDP, puede [abrir una solicitud de soporte técnico](https://azure.microsoft.com/support/options/) o leer [más pasos y conceptos detallados de solución de problemas de RDP](detailed-troubleshoot-rdp.md).
 
 ## <a name="troubleshoot-vms-created-using-the-classic-deployment-model"></a>Solución de problemas de máquinas virtuales creadas con el modelo de implementación clásica
 
@@ -234,7 +234,7 @@ Después de cada paso de solución de problemas, intente volver a conectarse a l
 
 7. Asegúrese de que cualquier firewall local, o firewall del equipo, permite el tráfico saliente del puerto TCP 3389 a Azure.
 
-Si sigue teniendo problemas con RDP, puede [abrir una solicitud de soporte técnico](https://azure.microsoft.com/support/options/) o leer [más pasos y conceptos detallados de solución de problemas de RDP](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Si sigue teniendo problemas con RDP, puede [abrir una solicitud de soporte técnico](https://azure.microsoft.com/support/options/) o leer [más pasos y conceptos detallados de solución de problemas de RDP](detailed-troubleshoot-rdp.md).
 
 ## <a name="troubleshoot-specific-rdp-errors"></a>Solución de errores específicos de RDP
 Es posible que al intentar conectarse a la máquina virtual mediante RDP, encuentre un mensaje error específico. Los siguientes son los mensajes de error más comunes:
@@ -246,6 +246,6 @@ Es posible que al intentar conectarse a la máquina virtual mediante RDP, encuen
 * [Este equipo no se puede conectar al equipo remoto](troubleshoot-specific-rdp-errors.md#rdpconnect).
 
 ## <a name="additional-resources"></a>Recursos adicionales
-Si no se ha producido ninguno de estos errores y sigue sin poder conectarse a la máquina virtual a través de Escritorio remoto, consulte [Solucionar problemas de conexiones de Escritorio remoto a una máquina virtual de Azure basada en Windows](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Si no se ha producido ninguno de estos errores y sigue sin poder conectarse a la máquina virtual a través de Escritorio remoto, consulte [Solucionar problemas de conexiones de Escritorio remoto a una máquina virtual de Azure basada en Windows](detailed-troubleshoot-rdp.md).
 * Para ver los pasos sobre cómo solucionar problemas de acceso a las aplicaciones, consulte [Solucionar problemas de acceso a una aplicación que se ejecuta en una máquina virtual de Azure](./troubleshoot-app-connection.md?toc=/azure/virtual-machines/linux/toc.json).
 * Si tiene problemas con Secure Shell (SSH) para conectarse a una máquina virtual Linux en Azure, consulte el artículo sobre cómo [solucionar problemas con las conexiones SSH en una máquina virtual Linux en Azure](./troubleshoot-ssh-connection.md?toc=/azure/virtual-machines/linux/toc.json).

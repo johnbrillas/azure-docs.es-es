@@ -6,12 +6,12 @@ ms.author: tefa
 ms.date: 11/12/2020
 ms.service: signalr
 ms.topic: conceptual
-ms.openlocfilehash: 06aa91ff414e5575f7b1a743d2cc17765437ef72
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: d9dd7ce9cf321628598a7bb866c5d1b1a6fb0e1e
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97797411"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201678"
 ---
 # <a name="server-graceful-shutdown"></a>Apagado correcto del servidor
 Microsoft Azure SignalR Service ofrece dos modos de apagar correctamente los servidores. 
@@ -43,7 +43,7 @@ En general, el proceso de apagado correcto consta de cuatro fases:
 
     Quizá deba diseñar una manera de dejar que los clientes decidan cuándo cerrar la conexión o volver a conectarse, por ejemplo, enviarles un mensaje de cierre a todos.
 
-    Lea [ChatSample](https://github.com/Azure/azure-signalr/tree/dev/samples/ChatSample/ChatSample) para un ejemplo de uso donde se difunde un mensaje "de salida" para desencadenar el cierre del cliente en el enlace de apagado.
+    Lea [ChatSample](https://github.com/Azure/azure-signalr/tree/dev/samples/ChatSample) para un ejemplo de uso donde se difunde un mensaje "de salida" para desencadenar el cierre del cliente en el enlace de apagado.
 
     **Modo establecido en MigrateClients**
 

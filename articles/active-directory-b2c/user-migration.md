@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 5d680da7a5f09a55bec5d791642b80fd76c6088e
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: fea8d93121fcb5622f86257febcc7d834b444098
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97509621"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178813"
 ---
 # <a name="migrate-users-to-azure-ad-b2c"></a>Migrar usuarios a Azure AD B2C
 
@@ -97,7 +97,7 @@ Antes de comenzar el proceso de migración, aproveche la oportunidad para limpia
 
 ### <a name="password-policy"></a>Directiva de contraseñas
 
-Si las cuentas que se van a migrar tienen una seguridad de contraseña inferior a la [seguridad de contraseña segura](../active-directory/authentication/concept-sspr-policy.md) que exige Azure AD B2C, puede deshabilitar el requisito de contraseña segura. Para obtener más información, vea [Propiedad de directiva de contraseñas](manage-user-accounts-graph-api.md#password-policy-property).
+Si las cuentas que se van a migrar tienen una seguridad de contraseña inferior a la [seguridad de contraseña segura](../active-directory/authentication/concept-sspr-policy.md) que exige Azure AD B2C, puede deshabilitar el requisito de contraseña segura. Para obtener más información, vea [Propiedad de directiva de contraseñas](user-profile-attributes.md#password-policy-attribute).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

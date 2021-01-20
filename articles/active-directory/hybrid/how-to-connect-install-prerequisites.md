@@ -16,12 +16,12 @@ ms.date: 11/05/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: edace0298514d1fc3cfd3afcff73fa0d29e18f0c
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 73376994e01ed89891726a8f6e1b727f89dab2fb
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96858780"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201729"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Requisitos previos de Azure AD Connect
 En este artículo se describen los requisitos previos y los requisitos de hardware de Azure Active Directory (Azure AD) Connect.
@@ -83,7 +83,7 @@ Se recomienda reforzar el servidor de Azure AD Connect para reducir la superfic
 - Siga las instrucciones que se proporcionan en [Protección del acceso con privilegios](/windows-server/identity/securing-privileged-access/securing-privileged-access). 
 - Deniegue el uso de la autenticación NTLM con el servidor AADConnect. A continuación, se indican algunas maneras de hacerlo: [restringir NTLM en el servidor AADConnect](/windows/security/threat-protection/security-policy-settings/network-security-restrict-ntlm-outgoing-ntlm-traffic-to-remote-servers) y [restringir NTLM en un dominio](/windows/security/threat-protection/security-policy-settings/network-security-restrict-ntlm-ntlm-authentication-in-this-domain)
 - Asegúrese de que todas las máquinas tienen una contraseña de administrador local única. Para más información, vea cómo la [solución de contraseña de administrador local (LAPS)](https://support.microsoft.com/help/3062591/microsoft-security-advisory-local-administrator-password-solution-laps) puede configurar contraseñas aleatorias únicas en cada estación de trabajo y almacenarlas en Active Directory protegidas mediante una ACL. Solo los usuarios autorizados válidos pueden leer o solicitar el restablecimiento de estas contraseñas de cuenta de administrador local. Puede obtener las soluciones de contraseña de administrador local para su uso en estaciones de trabajo y servidores desde el [Centro de descarga de Microsoft](https://www.microsoft.com/download/details.aspx?id=46899). Puede encontrar orientación adicional para el funcionamiento de un entorno con soluciones de contraseña de administrador local y estaciones de trabajo de acceso privilegiado en [Estándares operativos basados en el principio del origen limpio](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#operational-standards-based-on-clean-source-principle). 
-- Implemente [estaciones de trabajo de acceso privilegiado](/windows-server/identity/securing-privileged-access/privileged-access-workstations) dedicadas para todo el personal con acceso con privilegios a los sistemas de información de su organización. 
+- Implemente [estaciones de trabajo de acceso privilegiado](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/) dedicadas para todo el personal con acceso con privilegios a los sistemas de información de su organización. 
 - Siga estas [instrucciones adicionales](/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface) para reducir la superficie expuesta a ataques de su entorno de Active Directory.
 
 

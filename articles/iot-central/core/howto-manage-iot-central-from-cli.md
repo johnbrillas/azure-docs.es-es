@@ -9,12 +9,12 @@ ms.date: 03/27/2020
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 manager: philmea
-ms.openlocfilehash: 201318a5a5680f248b831bb480888f106286fbe1
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 6496e944d30724fe9e8db7168f9c9cb1552dcd1b
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660054"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "98203342"
 ---
 # <a name="manage-iot-central-from-azure-cli"></a>Administración de IoT Central desde la CLI de Azure
 
@@ -26,11 +26,13 @@ En lugar de crear y administrar aplicaciones de IoT Central desde el sitio web d
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
- - Si tiene que ejecutar los comandos de la CLI en otra suscripción a Azure, consulte [Cambio de la suscripción activa](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#change-the-active-subscription).
+ - Si tiene que ejecutar los comandos de la CLI en otra suscripción a Azure, consulte [Cambio de la suscripción activa](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#change-the-active-subscription&preserve-view=true).
 
 ## <a name="create-an-application"></a>Crear una aplicación
 
-Use el comando [az iot central app create](/cli/azure/iot/central/app?view=azure-cli-latest#az-iot-central-app-create) para crear una aplicación de IoT Central en su suscripción de Azure. Por ejemplo:
+[!INCLUDE [Warning About Access Required](../../../includes/iot-central-warning-contribitorrequireaccess.md)]
+
+Use el comando [az iot central app create](/cli/azure/iot/central/app?view=azure-cli-latest#az-iot-central-app-create&preserve-view=true) para crear una aplicación de IoT Central en su suscripción de Azure. Por ejemplo:
 
 ```azurecli-interactive
 # Create a resource group for the IoT Central application
@@ -63,11 +65,11 @@ Estos comandos crean en primer lugar un grupo de recursos en la región Este de 
 
 ## <a name="view-your-applications"></a>Visualización de sus aplicaciones
 
-Use el comando [az iot central app list](/cli/azure/iot/central/app?view=azure-cli-latest#az-iot-central-app-list) para enumerar las aplicaciones de IoT Central y ver los metadatos.
+Use el comando [az iot central app list](/cli/azure/iot/central/app?view=azure-cli-latest#az-iot-central-app-list&preserve-view=true) para enumerar las aplicaciones de IoT Central y ver los metadatos.
 
 ## <a name="modify-an-application"></a>Modificación de una aplicación
 
-Use el comando [az iot central app update](/cli/azure/iot/central/app?view=azure-cli-latest#az-iot-central-app-update) para actualizar los metadatos de una aplicación de IoT Central. Por ejemplo, para cambiar el nombre para mostrar de la aplicación, use:
+Use el comando [az iot central app update](/cli/azure/iot/central/app?view=azure-cli-latest#az-iot-central-app-update&preserve-view=true) para actualizar los metadatos de una aplicación de IoT Central. Por ejemplo, para cambiar el nombre para mostrar de la aplicación, use:
 
 ```azurecli-interactive
 az iot central app update --name myiotcentralapp \
@@ -77,7 +79,7 @@ az iot central app update --name myiotcentralapp \
 
 ## <a name="remove-an-application"></a>Eliminación de una aplicación
 
-Use el comando [az iot central app delete](/cli/azure/iot/central/app?view=azure-cli-latest#az-iot-central-app-delete) para eliminar una aplicación de IoT Central. Por ejemplo:
+Use el comando [az iot central app delete](/cli/azure/iot/central/app?view=azure-cli-latest#az-iot-central-app-delete&preserve-view=true) para eliminar una aplicación de IoT Central. Por ejemplo:
 
 ```azurecli-interactive
 az iot central app delete --name myiotcentralapp \

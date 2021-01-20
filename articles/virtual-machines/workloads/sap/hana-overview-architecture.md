@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 01/04/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c06988bf9c3558f5ef82862bdbcd821dc42ca28a
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 5ec3500c124d3e4f8cb1b46445c28c6a64c93526
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97880994"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195456"
 ---
 #  <a name="what-is-sap-hana-on-azure-large-instances"></a>¿Qué es SAP HANA en Azure (instancias grandes)?
 
@@ -52,11 +52,11 @@ Este documento es uno de varios documentos que tratan sobre SAP HANA en Azure (i
 
 Los distintos documentos de orientación de la instancia grande de HANA abarcan las siguientes áreas:
 
-- [Introducción y arquitectura de SAP HANA en Azure (instancias grandes)](hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Infraestructura y conectividad con SAP HANA en Azure (instancias grandes)](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Instalación y configuración de SAP HANA en Azure (instancias grandes)](hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Alta disponibilidad y recuperación ante desastres de SAP HANA en Azure (instancias grandes)](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Solución de problemas y supervisión de SAP HANA en Azure (instancias grandes)](troubleshooting-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Introducción y arquitectura de SAP HANA en Azure (instancias grandes)](hana-overview-architecture.md)
+- [Infraestructura y conectividad con SAP HANA en Azure (instancias grandes)](hana-overview-infrastructure-connectivity.md)
+- [Instalación y configuración de SAP HANA en Azure (instancias grandes)](hana-installation.md)
+- [Alta disponibilidad y recuperación ante desastres de SAP HANA en Azure (instancias grandes)](hana-overview-high-availability-disaster-recovery.md)
+- [Solución de problemas y supervisión de SAP HANA en Azure (instancias grandes)](troubleshooting-monitoring.md)
 - [Configuración de alta disponibilidad en SUSE mediante STONITH](./ha-setup-with-stonith.md)
 - [Copia de seguridad y restauración del sistema operativo para SKU de tipo II de los sellos de revisión 3](./os-backup-type-ii-skus.md)
 - [Ahorre en SAP HANA (instancias grandes) con una reserva de Azure](../../../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md)
