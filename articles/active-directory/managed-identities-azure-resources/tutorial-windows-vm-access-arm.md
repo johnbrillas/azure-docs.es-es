@@ -32,7 +32,7 @@ En este tutorial, se muestra cómo acceder a la API de Azure Resource Manager me
 > * Concesión a una máquina virtual de acceso a un grupo de recursos en Azure Resource Manager 
 > * Obtención de un token de acceso mediante la identidad de máquina virtual y su uso para llamar a Azure Resource Manager
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Conocimientos básicos sobre identidades administradas. Si no está familiarizado con la característica Managed Identities for Azure Resources, consulte esta [introducción](overview.md).
 - Una cuenta de Azure, [regístrese para obtener una cuenta gratuita](https://azure.microsoft.com/free/).
