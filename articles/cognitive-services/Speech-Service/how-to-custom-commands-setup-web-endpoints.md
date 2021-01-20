@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: e50d7aba5cc5b3d5d620d844cc9ad169ad8b3bf6
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 6f2dfdbb5833b34441b4abba7359ad70c4717d1d
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95025898"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602160"
 ---
 # <a name="set-up-web-endpoints"></a>Configuración de puntos de conexión web
 
@@ -23,7 +23,7 @@ En este artículo, aprenderá a configurar los puntos de conexión web en una ap
 
 - Configurar los puntos de conexión web en la aplicación de Comandos personalizados.
 - Llamar a puntos de conexión web en la aplicación de Comandos personalizados.
-- Recibir la respuesta de los puntos de conexión web. 
+- Recibir la respuesta de los puntos de conexión web.
 - Integrar la respuesta de los puntos de conexión web en una carga JSON personalizada, enviarla y visualizarla desde una aplicación cliente UWP en C# del SDK de Voz.
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -35,7 +35,7 @@ En este artículo, aprenderá a configurar los puntos de conexión web en una ap
 
 ## <a name="setup-web-endpoints"></a>Configuración de puntos de conexión web
 
-1. Abra la aplicación de Comandos personalizados que creó anteriormente. 
+1. Abra la aplicación de Comandos personalizados que creó anteriormente.
 1. Vaya a "Puntos de conexión web" y haga clic en "New web endpoint" (nuevo punto de conexión web).
 
    > [!div class="mx-imgBorder"]
@@ -61,7 +61,7 @@ En este artículo, aprenderá a configurar los puntos de conexión web en una ap
 1. Diríjase al comando **TurnOnOff**, seleccione **ConfirmationResponse** en regla de finalización y, a continuación, seleccione **Agregar una acción.**
 1. En **Nuevo tipo de acción**, seleccione **Call web endpoint** (llamar a un punto de conexión web).
 1. En **Editar acción: puntos de conexión**, seleccione **UpdateDeviceState**, que es el punto de conexión web que hemos creado.  
-1. En **Configuración**, introduzca los siguientes valores: 
+1. En **Configuración**, introduzca los siguientes valores:
    > [!div class="mx-imgBorder"]
    > ![Parámetros de la acción para llamar a puntos de conexión web](media/custom-commands/setup-web-endpoint-edit-action-parameters.png)
 
@@ -75,16 +75,16 @@ En este artículo, aprenderá a configurar los puntos de conexión web en una ap
     > - Los parámetros de consulta sugeridos solo son necesarios para el punto de conexión de ejemplo.
 
 1. Desde **En caso de éxito: acción para ejecutar**, seleccione **Send speech response** (enviar respuesta de voz).
-    
+
     En **Simple editor** (Editor sencillo), escriba `{SubjectDevice} is {OnOff}`.
-   
+
    > [!div class="mx-imgBorder"]
    > ![Captura de pantalla que muestra la pantalla Acierto - Acción para ejecutar.](media/custom-commands/setup-web-endpoint-edit-action-on-success-send-response.png)
 
    | Configuración | Valor sugerido | Descripción |
    | ------- | --------------- | ----------- |
    | Acción para ejecutar | Enviar respuesta de voz | Acción que se va a ejecutar si la solicitud al punto de conexión web se realiza correctamente. |
-   
+
    > [!NOTE]
    > - También puede acceder directamente a los campos de la respuesta HTTP mediante `{YourWebEndpointName.FieldName}`. Por ejemplo: `{UpdateDeviceState.TV}`
 
@@ -101,7 +101,7 @@ En este artículo, aprenderá a configurar los puntos de conexión web en una ap
 
    > [!NOTE]
    > - `{WebEndpointErrorMessage}` es opcional. Puede quitarlo si no quiere exponer ningún mensaje de error.
-   > - En nuestro punto de conexión de ejemplo, se devuelve una respuesta HTTP con mensajes de error detallados para los errores comunes, tales como los parámetros de encabezado faltantes. 
+   > - En nuestro punto de conexión de ejemplo, se devuelve una respuesta HTTP con mensajes de error detallados para los errores comunes, tales como los parámetros de encabezado faltantes.
 
 ### <a name="try-it-out-in-test-portal"></a>Prueba en el portal de pruebas
 - Respuesta en caso de éxito\
@@ -119,7 +119,7 @@ En [Procedimiento: Envío de actividad a la aplicación cliente (versión prelim
 Sin embargo, en la mayoría de los casos solo querrá enviar la actividad a la aplicación cliente cuando la llamada al punto de conexión web se realice correctamente. En este ejemplo, es cuando el estado del dispositivo se actualizó correctamente.
 
 1. Elimine la acción **Send activity to client** (enviar una actividad al cliente) que agregó anteriormente.
-1. Edite la acción de llamada a un punto de conexión web: 
+1. Edite la acción de llamada a un punto de conexión web:
     1. En **Configuración**, asegúrese de que **Parámetros de consulta** sea `item={SubjectDevice}&&value={OnOff}`
     1. Desde **En caso de éxito**, cambie **Acción para ejecutar** por **Send activity to client** (enviar una actividad al cliente).
     1. Copie el código JSON siguiente en el campo **Activity content** (contenido de la actividad).
@@ -133,7 +133,6 @@ Sin embargo, en la mayoría de los casos solo querrá enviar la actividad a la a
       }
     }
    ```
-   
 Ahora solo enviará la actividad al cliente cuando la solicitud al punto de conexión web se realice correctamente.
 
 ### <a name="create-visuals-for-syncing-device-state"></a>Creación de objetos visuales para sincronizar el estado del dispositivo
@@ -147,7 +146,7 @@ Agregue el siguiente código XML a `MainPage.xaml` antes del bloque de `"EnableM
         .........../>
 ```
 
-### <a name="sync-device-state"></a>Sincronización del estado de dispositivo 
+### <a name="sync-device-state"></a>Sincronización del estado de dispositivo
 
 En `MainPage.xaml.cs`, agregue la referencia `using Windows.Web.Http;`. Agregue el siguiente código a la clase `MainPage` . Este método enviará una solicitud GET al punto de conexión de ejemplo y extraerá el estado actual del dispositivo para la aplicación. Asegúrese de cambiar `<your_app_name>` por el valor que usó en el **encabezado** del punto de conexión web de comandos personalizados.
 
@@ -157,7 +156,7 @@ private async void SyncDeviceState_ButtonClicked(object sender, RoutedEventArgs 
     //Create an HTTP client object
     var httpClient = new HttpClient();
 
-    //Add a user-agent header to the GET request. 
+    //Add a user-agent header to the GET request.
     var your_app_name = "<your-app-name>";
 
     Uri endpoint = new Uri("https://webendpointexample.azurewebsites.net/api/DeviceState");

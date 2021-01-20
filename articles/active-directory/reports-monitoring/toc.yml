@@ -6,7 +6,7 @@
       href: overview-reports.md
     - name: ¿Qué es la supervisión de Azure AD?
       href: overview-monitoring.md
-    - name: ¿Qué es el diagnóstico de la información de inicio de sesión?
+    - name: ¿Cuál es el diagnóstico de la información de inicio de sesión?
       href: overview-sign-in-diagnostics.md
 - name: Guías de inicio rápido
   expanded: true

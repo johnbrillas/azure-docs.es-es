@@ -2,13 +2,13 @@
 title: Implementación de recursos con una plantilla y PowerShell
 description: Use Azure Resource Manager y Azure PowerShell para implementar recursos para Azure. Los recursos se definen en una plantilla de Resource Manager.
 ms.topic: conceptual
-ms.date: 10/22/2020
-ms.openlocfilehash: 40ee659f5892c983f84409a10634c6a8d6d78cc5
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.date: 01/15/2021
+ms.openlocfilehash: d895c6e029b0b4a70333dde987706549609c8bd3
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98028496"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251035"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-powershell"></a>Implementación de recursos con las plantillas de Resource Manager y Azure PowerShell
 
@@ -135,7 +135,7 @@ Para evitar conflictos con las implementaciones simultáneas y garantizar que la
 
 En lugar de implementar una plantilla local o remota, puede crear una [especificación de plantilla](template-specs.md). La especificación de plantilla es un recurso de su suscripción de Azure que contiene una plantilla de ARM. Facilita el uso compartido de la plantilla de forma segura con los usuarios de la organización. Use el control de acceso basado en rol de Azure (RBAC de Azure) para conceder acceso a la especificación de la plantilla. Esta funcionalidad actualmente está en su versión preliminar.
 
-En los ejemplos siguientes se muestra cómo se crea e implementa una especificación de plantilla. Estos comandos solo están disponibles si se ha [registrado en la versión preliminar](https://aka.ms/templateSpecOnboarding).
+En los ejemplos siguientes se muestra cómo se crea e implementa una especificación de plantilla.
 
 En primer lugar, proporcione la plantilla de Resource Manager para crear la especificación de plantilla.
 

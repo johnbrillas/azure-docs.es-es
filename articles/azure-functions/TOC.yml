@@ -247,7 +247,7 @@
           items:
             - name: Desencadenador HTTP
               items:
-                - name: Azure Portal
+                - name: Azure portal
                   href: functions-create-function-app-portal.md
                 - name: Línea de comandos
                   href: ./create-first-function-cli-csharp.md
@@ -413,8 +413,6 @@
           href: ./functions-create-vnet.md
         - name: Creación de una definición de OpenAPI 2.0
           href: ./functions-openapi-definition.md
-        - name: Exportación a PowerApps y Microsoft Flow
-          href: app-service-export-api-to-powerapps-and-flow.md
         - name: Uso de una identidad administrada
           href: ../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json
         - name: Personalización del punto de conexión de la función HTTP
@@ -461,7 +459,7 @@
             - name: Output
               displayName: Blob storage
               href: functions-bindings-storage-blob-output.md
-        - name: Azure Cosmos DB
+        - name: "Azure Cosmos\_DB"
           items:
             - name: Functions 1.x
               href: functions-bindings-cosmosdb.md

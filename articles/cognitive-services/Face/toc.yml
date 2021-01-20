@@ -35,6 +35,8 @@
       href: Face-API-How-to-Topics/specify-recognition-model.md
     - name: Especificación de un modelo de detección de caras
       href: Face-API-How-to-Topics/specify-detection-model.md
+    - name: Mitigación de la latencia cuando se usa el servicio Face
+      href: Face-API-How-to-Topics/how-to-mitigate-latency.md
     - name: Usar la característica a gran escala
       href: Face-API-How-to-Topics/how-to-use-large-scale.md
     - name: Análisis de vídeos en tiempo real

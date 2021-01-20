@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 6c4f23406c97d647002fbb3ab4a3544866303cf4
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 6f74f973abc33d809624bd8abd5a514a52ccfe70
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98051350"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602695"
 ---
 # <a name="connect-function-apps-in-azure-for-processing-data"></a>Configuración de aplicaciones de funciones de Azure para procesar datos
 
@@ -63,24 +63,20 @@ Para poder usar el SDK, debe incluir los siguientes paquetes en el proyecto. Pue
 Para ello, haga clic con el botón derecho en el proyecto y seleccione _Administrar paquetes NuGet_ en la lista. A continuación, en la ventana que se abre, seleccione la pestaña _Examinar_ y busque los siguientes paquetes. Seleccione _Instalar_ y _acepte_ el contrato de licencia para instalar los paquetes.
 
 * `Azure.DigitalTwins.Core`
-* `Azure.Identity` 
-
-Para que la configuración de la canalización de Azure SDK se configure correctamente para Azure Functions, también necesitará los paquetes siguientes. Repita el mismo proceso que antes para instalar todos los paquetes.
-
+* `Azure.Identity`
 * `System.Net.Http`
-* `Azure.Core.Pipeline`
+* `Azure.Core`
 
 **Opción 2. Agregar paquetes mediante la herramienta de línea de comandos `dotnet`:**
 
 Como alternativa, puede usar los comandos `dotnet add` siguientes en una herramienta de línea de comandos:
-```cmd/sh
-dotnet add package System.Net.Http
-dotnet add package Azure.Core.Pipeline
-```
 
-A continuación, agregue dos dependencias más al proyecto ya que las necesitará para trabajar con Azure Digital Twins. Puede usar los vínculos siguientes para desplazarse a los paquetes NuGet, en donde encontrará los comandos de la consola (incluida la CLI de .NET) para agregar la versión más reciente de cada paquete al proyecto.
- * [**Azure.DigitalTwins.Core**](https://www.nuget.org/packages/Azure.DigitalTwins.Core). Este es el paquete del [SDK de Azure Digital Twins para .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true).
- * [**Azure.Identity**](https://www.nuget.org/packages/Azure.Identity). Esta biblioteca proporciona herramientas para facilitar la autenticación en Azure.
+```cmd/sh
+dotnet add package Azure.DigitalTwins.Core
+dotnet add package Azure.Identity
+dotnet add package System.Net.Http
+dotnet add package Azure.Core
+```
 
 Después, en el Explorador de soluciones de Visual Studio, abra el archivo _function.cs_ en el que tiene el código de ejemplo y agregue las siguientes instrucciones _using_ a la función. 
 
