@@ -8,19 +8,13 @@ ms.technology: azure-cli
 ms.service: azure-cli
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 01e1f956270ebbc9b9d5d0ebdfdff52875cafedf
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ef12dc95e1394a1735d329b6af0ec6473b26ff7a
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96000066"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98225642"
 ---
 ### <a name="prepare-your-environment-for-the-azure-cli"></a>Preparación del entorno para la CLI de Azure
 
-- Use [Azure Cloud Shell](../articles/cloud-shell/quickstart.md) con el entorno de Bash.
-
-   [![Insertar inicio](https://shell.azure.com/images/launchcloudshell.png "Inicio de Azure Cloud Shell")](https://shell.azure.com)   
-- Si lo prefiere, [instale](/cli/azure/install-azure-cli) la CLI de Azure para ejecutar sus comandos de referencia.
-   - Si usa una instalación local, inicie sesión con la CLI de Azure mediante el comando [az login](/cli/azure/reference-index#az-login).  Siga los pasos que se muestran en el terminal para completar el proceso de autenticación.  Para ver otras opciones de inicio de sesión, consulte [Inicio de sesión con la CLI de Azure](/cli/azure/authenticate-azure-cli).
-  - Cuando se le solicite, instale las extensiones de la CLI de Azure la primera vez que la use.  Para más información, consulte [Uso de extensiones con la CLI de Azure](/cli/azure/azure-cli-extensions-overview).
-  - Ejecute [az version](/cli/azure/reference-index?#az_version) para buscar cuál es la versión y las bibliotecas dependientes que están instaladas. Para realizar la actualización a la versión más reciente, ejecute [az upgrade](/cli/azure/reference-index?#az_upgrade).
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](azure-cli-prepare-your-environment-no-header.md)]
