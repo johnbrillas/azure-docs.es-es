@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: jingwang
-ms.openlocfilehash: 4741053acdefe27eadc380d9144c548af4b5143c
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: a29cf81a6e074f680fc9c04337a07d273ac456cf
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97346119"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98555379"
 ---
 # <a name="copy-data-to-or-from-a-file-system-by-using-azure-data-factory"></a>Copia de datos con un sistema de archivos como origen o destino mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -151,7 +151,7 @@ Las propiedades siguientes se admiten para el sistema de archivos en la configur
 | type                     | La propiedad type de `storeSettings` se debe establecer en **FileServerReadSettings**. | Sí                                           |
 | **_Buscar los archivos para copiar:_* |  |  |
 | OPCIÓN 1: ruta de acceso estática<br> | Copia de la ruta de acceso de archivo o carpeta especificada en el conjunto de datos. Si quiere copiar todos los archivos de una carpeta, especifique también `wildcardFileName` como `_`. |  |
-| OPCIÓN 2: filtro del lado servidor<br>- fileFilter  | Filtro nativo del lado servidor de archivos que proporciona un mejor rendimiento que el filtro comodín de la opción 3. Use `*` para buscar coincidencias con cero o más caracteres y `?` para buscar coincidencias con cero o un solo carácter. Obtenga más información sobre la sintaxis y las notas del apartado **Comentarios** en [esta sección](/dotnet/api/system.io.directory.getfiles?view=netframework-4.7.2#System_IO_Directory_GetFiles_System_String_System_String_System_IO_SearchOption_). | No                                                          |
+| OPCIÓN 2: filtro del lado servidor<br>- fileFilter  | Filtro nativo del lado servidor de archivos que proporciona un mejor rendimiento que el filtro comodín de la opción 3. Use `*` para buscar coincidencias con cero o más caracteres y `?` para buscar coincidencias con cero o un solo carácter. Obtenga más información sobre la sintaxis y las notas del apartado **Comentarios** en [esta sección](/dotnet/api/system.io.directory.getfiles#System_IO_Directory_GetFiles_System_String_System_String_System_IO_SearchOption_). | No                                                          |
 | OPCIÓN 3: filtro del lado cliente<br>- wildcardFolderPath | Ruta de acceso de carpeta con caracteres comodín para filtrar las carpetas de origen. Este filtro se produce en el lado del ADF: ADF enumera las carpetas o los archivos en la ruta de acceso especificada y luego se aplica el filtro de caracteres comodín.<br>Los caracteres comodín permitidos son: `*` (coincide con cero o más caracteres) y `?` (coincide con cero o carácter individual); use `^` para el escape si el nombre real de la carpeta tiene un carácter comodín o este carácter de escape dentro. <br>Ver más ejemplos en [Ejemplos de filtros de carpetas y archivos](#folder-and-file-filter-examples). | No                                            |
 | OPCIÓN 3: filtro del lado cliente<br>- wildcardFileName | Nombre de archivo con caracteres comodín en la propiedad folderPath o wildcardFolderPath indicada para filtrar los archivos de origen. Este filtro se produce en el lado del ADF: ADF enumera los archivos en la ruta de acceso especificada y luego se aplica el filtro de caracteres comodín.<br>Los caracteres comodín permitidos son: `*` (coincide con cero o más caracteres) y `?` (coincide con cero o carácter individual); use `^` para el escape si el nombre real del archivo tiene un carácter comodín o este carácter de escape dentro.<br>Ver más ejemplos en [Ejemplos de filtros de carpetas y archivos](#folder-and-file-filter-examples). | Sí |
 | OPCIÓN 3: una lista de archivos<br>- fileListPath | Indica que se copie un conjunto de archivos determinado. Apunte a un archivo de texto que incluya una lista de archivos que quiera copiar, un archivo por línea que constituye la ruta de acceso relativa a la ruta de acceso configurada en el conjunto de datos.<br/>Al utilizar esta opción, no especifique el nombre de archivo en el conjunto de datos. Ver más ejemplos en [Ejemplos de lista de archivos](#file-list-examples). |No |

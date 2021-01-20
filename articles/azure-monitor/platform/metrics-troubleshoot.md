@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 7c3af0865282475ded0172d18aecad1dfb61721b
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: 5219553fe300d607212af1ef6cedf72ce6506762
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814268"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250339"
 ---
 # <a name="troubleshooting-metrics-charts"></a>Solución de problemas de gráficos de métricas
 
@@ -48,7 +48,7 @@ Algunos recursos no emiten constantemente sus métricas. Por ejemplo, Azure no r
 
 ### <a name="all-metric-values-were-outside-of-the-locked-y-axis-range"></a>Todos los valores de métricas estaban fuera del intervalo del eje Y bloqueado
 
-Al [bloquear los límites del eje Y del gráfico](metrics-charts.md#lock-boundaries-of-chart-y-axis), puede hacer que por accidente el área de visualización del gráfico no muestre la línea del gráfico. Por ejemplo, si el eje Y está bloqueado en un intervalo entre el 0 y el 50 %, y la métrica tiene un valor constante del 100 %, la línea se representa siempre fuera del área visible, lo que hace que el gráfico parezca estar en blanco.
+Al [bloquear los límites del eje Y del gráfico](metrics-charts.md#locking-the-range-of-the-y-axis), puede hacer que por accidente el área de visualización del gráfico no muestre la línea del gráfico. Por ejemplo, si el eje Y está bloqueado en un intervalo entre el 0 y el 50 %, y la métrica tiene un valor constante del 100 %, la línea se representa siempre fuera del área visible, lo que hace que el gráfico parezca estar en blanco.
 
 **Solución:** Verifique que los límites del eje Y del gráfico no queden bloqueados fuera del intervalo de los valores de las métricas. Si los límites del eje Y se bloquean, puede querer restablecerlos temporalmente para asegurarse de que los valores de las métricas no se encuentren fuera del intervalo del gráfico. No se recomienda bloquear el intervalo del eje Y con granularidad automática para los gráficos con agregación **sum**, **min** y **max**, ya que sus valores cambiarán con la granularidad al cambiar el tamaño de la ventana del explorador o al pasar de una resolución de pantalla a otra. Cambiar la granularidad puede hacer que el área de visualización del gráfico quede vacía.
 

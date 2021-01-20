@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 01/23/2018
-ms.openlocfilehash: d620df0b55b024cd5d7c25ea17d9b09c5c5da8ff
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 3d9360b167a246e257d8c0b2ec4cb88f1ae39dcd
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97722885"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600153"
 ---
 # <a name="create-service-manager-web-app-using-the-automated-script"></a>Creación de una aplicación web de Service Manager mediante el script automatizado
 
@@ -317,6 +317,11 @@ if(!$err)
 }
 ```
 
+## <a name="troubleshoot-service-manager-web-app-deployment"></a>Solución de problemas de implementación de aplicaciones web de Service Manager
+
+-   Si tiene problemas con la implementación de la aplicación web, asegúrese de tener los permisos para crear o implementar recursos en la suscripción.
+-   Si aparece el mensaje de error **Referencia a objeto no establecida como instancia de un objeto** al ejecutar el [script](itsmc-service-manager-script.md), asegúrese de que especificó valores válidos en la sección **Configuración de usuario**.
+-   Si no puede crear el espacio de nombres de retransmisión de Service Bus, asegúrese de que el proveedor de recursos necesario está registrado en la suscripción. Si no está registrado, cree el espacio de nombres de retransmisión de Service Bus manualmente desde Azure Portal. También puede crearlo mientras [crea la conexión híbrida](./itsmc-connections-scsm.md#configure-the-hybrid-connection) en Azure Portal.
+
 ## <a name="next-steps"></a>Pasos siguientes
 [Configuración de la conexión híbrida](./itsmc-connections-scsm.md#configure-the-hybrid-connection).
-

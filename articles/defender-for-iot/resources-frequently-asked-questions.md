@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/07/2020
 ms.author: rkarlin
-ms.openlocfilehash: 0c303adb4ee7c7551c6b389ec169d92a661a63bc
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 678b50ffb2df2cd16312548109b93f6f1a7f08ff
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97835030"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247472"
 ---
 # <a name="azure-defender-for-iot-frequently-asked-questions"></a>Preguntas más frecuentes sobre Azure Defender para IoT
 
@@ -38,7 +38,7 @@ Azure Defender para IoT ofrece compatibilidad completa con protocolos. Además d
 Esta solución única para desarrollar protocolos como complementos no requiere de equipos de desarrolladores dedicados ni lanzamientos de versión para admitir un nuevo protocolo. Los desarrolladores, los socios y los clientes pueden desarrollar protocolos y compartir información y conclusiones con Horizon de forma segura. 
 
 ## <a name="do-i-have-to-purchase-hardware-appliances-from-microsoft-partners"></a>¿Tengo que comprar dispositivos de hardware de los socios de Microsoft?
-El sensor de Azure Defender para IoT se ejecuta con especificaciones de hardware específicas, como se describe en la [guía de especificaciones de hardware](https://aka.ms/AzureDefenderforIoTBareMetalAppliance). Los clientes pueden adquirir hardware certificado de los socios de Microsoft o usar la lista de materiales (BOM) suministrada y adquirirlos por su cuenta. 
+El sensor de Azure Defender para IoT se ejecuta con especificaciones de hardware específicas, como se describe en la [guía de especificaciones de hardware](./how-to-identify-required-appliances.md). Los clientes pueden adquirir hardware certificado de los socios de Microsoft o usar la lista de materiales (BOM) suministrada y adquirirlos por su cuenta. 
 
 El hardware certificado se ha probado en nuestros laboratorios para garantizar la estabilidad del controlador, la colocación de paquetes y el tamaño de la red.
 

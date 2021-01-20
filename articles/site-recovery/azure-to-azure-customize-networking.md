@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/21/2019
 ms.author: sideeksh
-ms.openlocfilehash: 599ad76f38833e06cc458fd0687921e6975e190b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f63021275574e294fa372357d6e62724f5efe0f7
+ms.sourcegitcommit: 949c0a2b832d55491e03531f4ced15405a7e92e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89426374"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98541197"
 ---
 # <a name="customize-networking-configurations-of-the-target-azure-vm"></a>Personalización de las configuraciones de red de la máquina virtual de Azure de destino
 
@@ -44,7 +44,7 @@ Al replicar máquinas virtuales de Azure, se pueden proporcionar las siguientes 
 
      ![Personalización de las configuraciones de red de conmutación por error](media/azure-to-azure-customize-networking/edit-networking-properties.png)
 
-4. Seleccione una red virtual de conmutación por error de prueba. Puede optar por dejarla en blanco y seleccionar una en el momento de la conmutación por error de prueba.
+4. Seleccione una red virtual de conmutación por error de prueba.
 5. Seleccione **Editar** junto a la NIC que desee configurar. En la siguiente hoja que se abre, seleccione los recursos creados previamente correspondientes en la conmutación por error de prueba y a la ubicación de conmutación por error.
 
     ![Edición de la configuración de la NIC](media/azure-to-azure-customize-networking/nic-drilldown.png) 

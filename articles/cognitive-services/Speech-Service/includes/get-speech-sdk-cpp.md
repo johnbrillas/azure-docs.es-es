@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: 5a06a0663601c221dd456b9cf4437cb9f32a18f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99bc49dfe7b3f7b6a9d49c2947d8d8c01ad98dac
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81399905"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98256361"
 ---
 :::row:::
     :::column span="3":::
@@ -30,20 +30,6 @@ El SDK de voz de C++ se puede instalar desde el **administrador de paquetes** co
 ```powershell
 Install-Package Microsoft.CognitiveServices.Speech
 ```
-
-#### <a name="c-binaries-and-header-files"></a>Archivos binarios y de encabezado de C++
-
-El SDK de voz de C++ también se puede instalar desde archivos binarios. Descargue el SDK en forma de <a href="https://aka.ms/csspeech/linuxbinary" target="_blank">paquete .tar<span class="docon docon-navigate-external x-hidden-focus"></span></a> y descomprima los archivos en el directorio que prefiera. El contenido de este paquete (que incluye los archivos de encabezado para las arquitecturas de destino x86 y x64) se estructura de la manera siguiente:
-
-  | Path                   | Descripción                                          |
-  |------------------------|------------------------------------------------------|
-  | `license.md`           | Licencia                                              |
-  | `ThirdPartyNotices.md` | Avisos de terceros                                  |
-  | `include`              | Archivos de encabezado para C++                                 |
-  | `lib/x64`              | Biblioteca x64 nativa para vincular con la aplicación |
-  | `lib/x86`              | Biblioteca x86 nativa para vincular con la aplicación |
-
-  Para crear una aplicación, copie o mueva los binarios (y bibliotecas) necesarios a su entorno de desarrollo. Inclúyalos según sea necesario en el proceso de compilación.
 
 #### <a name="additional-resources"></a>Recursos adicionales
 

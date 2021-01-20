@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/08/2021
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: 9bee5fa6b76aad9305947ebe460f37c399340038
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: d858474eca34243a007d0d0ac1e023a4a0fab8ec
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98033476"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98572347"
 ---
 # <a name="text-to-speech-rest-api"></a>Text-to-speech REST API
 
@@ -60,9 +60,11 @@ El punto de conexión `voices/list` le permite obtener una lista completa de las
 | Centro de Corea del Sur | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Centro-Norte de EE. UU | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Norte de Europa | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Norte de Sudáfrica | `https://southafricanorth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Centro-sur de EE. UU. | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Sudeste de Asia | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Sur de Reino Unido | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Sur de Reino Unido 2 | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Centro-Oeste de EE. UU. | `https://westcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Oeste de Europa | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Oeste de EE. UU. | `https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Oeste de EE. UU. 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |

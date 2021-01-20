@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 9751bd082947e66b3fc5ea47448857558301a1e7
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 59329fccda77f16e4a595e9b1789ef684c5cbf95
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97366434"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98256352"
 ---
 ### <a name="networking-limits---azure-resource-manager"></a><a name="azure-resource-manager-virtual-networking-limits"></a>Límites de redes - Azure Resource Manager
 Los límites siguientes solo se aplican a los recursos de redes administrados mediante **Azure Resource Manager** por región y por suscripción. Aprenda a [ver el uso de recursos actual comparado con los límites de su suscripción](../articles/networking/check-usage-against-limits.md).
@@ -34,7 +34,7 @@ Los límites siguientes solo se aplican a los recursos de redes administrados me
 | Direcciones IP privadas por máquina virtual |256 |
 | Direcciones IP públicas por interfaz de red |256 |
 | Direcciones IP públicas por máquina virtual |256 |
-| [Conexiones TCP concurrentes o flujo UDP por NIC de una máquina virtual o instancia de rol](../articles/virtual-network/virtual-machine-network-throughput.md#flow-limits-and-recommendations) |500.000 |
+| [Conexiones TCP concurrentes o flujo UDP por NIC de una máquina virtual o instancia de rol](../articles/virtual-network/virtual-machine-network-throughput.md#flow-limits-and-active-connections-recommendations) |500.000 |
 | Tarjetas adaptadoras de red |65 536 |
 | Grupos de seguridad de red |5\.000 |
 | Reglas de NSG por NSG |1,000 |

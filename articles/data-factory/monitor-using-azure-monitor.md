@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.openlocfilehash: 35d2073dca21b4a0d48a43bed9933bb7549cf8f3
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d1325ac1afbca8b30cc640f1f22cb598506a5c91
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96497901"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98555719"
 ---
 # <a name="monitor-and-alert-data-factory-by-using-azure-monitor"></a>Alerta y supervisión de Data Factory mediante Azure Monitor
 
@@ -583,7 +583,7 @@ Estos son los atributos de registro de las operaciones de inicio, detención y m
 
 #### <a name="ssis-event-message-context-log-attributes"></a>Atributos de los registros contextuales de los mensajes de eventos de SSIS
 
-Estos son los atributos de registro de las condiciones relacionadas con los mensajes de eventos generados por las ejecuciones de paquetes SSIS en la instancia de SSIS IR. Transmiten información similar a la de la [tabla o vista del contexto de mensajes de eventos del catálogo de SSIS (SSISDB)](/sql/integration-services/system-views/catalog-event-message-context?view=sql-server-ver15) que muestra los valores de tiempo de ejecución de muchas propiedades de los paquetes SSIS. Se generan al seleccionar el nivel de registro `Basic/Verbose` y resultan útiles para la depuración o la comprobación de cumplimiento.
+Estos son los atributos de registro de las condiciones relacionadas con los mensajes de eventos generados por las ejecuciones de paquetes SSIS en la instancia de SSIS IR. Transmiten información similar a la de la [tabla o vista del contexto de mensajes de eventos del catálogo de SSIS (SSISDB)](/sql/integration-services/system-views/catalog-event-message-context) que muestra los valores de tiempo de ejecución de muchas propiedades de los paquetes SSIS. Se generan al seleccionar el nivel de registro `Basic/Verbose` y resultan útiles para la depuración o la comprobación de cumplimiento.
 
 ```json
 {
@@ -620,7 +620,7 @@ Estos son los atributos de registro de las condiciones relacionadas con los mens
 | **operationId**            | String | Id. exclusivo para realizar el seguimiento de una operación determinada en SSISDB          | `1` (1 significa operaciones relacionadas con paquetes que **no** están almacenados en SSISDB o no se invocan mediante T-SQL) |
 | **contextDepth**           | String | Profundidad del contexto del mensaje del evento                              | `0` (0 significa el contexto antes de que se inicie la ejecución del paquete y 1 significa el contexto cuando se produce un error, que aumenta a medida que el contexto va más allá del error) |
 | **packagePath**            | String | Ruta de acceso del objeto de paquete como origen del contexto del mensaje del evento      | `\Package` |
-| **contextType**            | String | Tipo de objeto de paquete como origen del contexto del mensaje del evento      | `60`(ver [más tipos de contexto](/sql/integration-services/system-views/catalog-event-message-context?view=sql-server-ver15#remarks)) |
+| **contextType**            | String | Tipo de objeto de paquete como origen del contexto del mensaje del evento      | `60`(ver [más tipos de contexto](/sql/integration-services/system-views/catalog-event-message-context#remarks)) |
 | **contextSourceName**      | String | Nombre del objeto de paquete como origen del contexto del mensaje del evento      | `MyPackage` |
 | **contextSourceId**        | String | Id. exclusivo del objeto de paquete como origen del contexto del mensaje del evento | `{E2CF27FB-EA48-41E9-AF6F-3FE938B4ADE1}` |
 | **propertyName**           | String | Nombre de la propiedad del paquete para el origen del contexto del mensaje del evento   | `DelayValidation` |
@@ -629,7 +629,7 @@ Estos son los atributos de registro de las condiciones relacionadas con los mens
 
 #### <a name="ssis-event-messages-log-attributes"></a>Atributos de los registros de los mensajes de eventos de SSIS
 
-Estos son los atributos de registro de los mensajes de eventos que generan las ejecuciones de paquetes SSIS en la instancia de SSIS IR. Transmiten información similar a la de la [tabla o vista de mensajes de eventos de SSISDB](/sql/integration-services/system-views/catalog-event-messages?view=sql-server-ver15) que muestra los metadatos o el texto detallado de los mensajes de los eventos. Se generan en cualquier nivel de registro, excepto en `None`.
+Estos son los atributos de registro de los mensajes de eventos que generan las ejecuciones de paquetes SSIS en la instancia de SSIS IR. Transmiten información similar a la de la [tabla o vista de mensajes de eventos de SSISDB](/sql/integration-services/system-views/catalog-event-messages) que muestra los metadatos o el texto detallado de los mensajes de los eventos. Se generan en cualquier nivel de registro, excepto en `None`.
 
 ```json
 {
@@ -669,8 +669,8 @@ Estos son los atributos de registro de los mensajes de eventos que generan las e
 | **level**                  | String | Nivel de los registros de diagnóstico                                       | `Informational` |
 | **operationId**            | String | Id. exclusivo para realizar el seguimiento de una operación determinada en SSISDB        | `1` (1 significa operaciones relacionadas con paquetes que **no** están almacenados en SSISDB o no se invocan mediante T-SQL) |
 | **messageTime**            | String | Hora a la que se crea el mensaje del evento en formato UTC          | `2017-06-28T21:00:27.3534352Z` |
-| **messageType**            | String | Tipo de mensaje de evento                                     | `70`(ver [más tipos de mensajes](/sql/integration-services/system-views/catalog-operation-messages-ssisdb-database?view=sql-server-ver15#remarks)) |
-| **messageSourceType**      | String | Tipo de origen del mensaje del evento                              | `20`(ver [más tipos de orígenes de mensajes](/sql/integration-services/system-views/catalog-operation-messages-ssisdb-database?view=sql-server-ver15#remarks)) |
+| **messageType**            | String | Tipo de mensaje de evento                                     | `70`(ver [más tipos de mensajes](/sql/integration-services/system-views/catalog-operation-messages-ssisdb-database#remarks)) |
+| **messageSourceType**      | String | Tipo de origen del mensaje del evento                              | `20`(ver [más tipos de orígenes de mensajes](/sql/integration-services/system-views/catalog-operation-messages-ssisdb-database#remarks)) |
 | **message**                | String | Texto del mensaje del evento                                     | `MyPackage:Validation has started.` |
 | **packageName**            | String | Nombre del archivo del paquete ejecutado                             | `MyPackage.dtsx` |
 | **eventName**              | String | Nombre del evento de tiempo de ejecución relacionado                                 | `OnPreValidate` |
@@ -683,7 +683,7 @@ Estos son los atributos de registro de los mensajes de eventos que generan las e
 
 #### <a name="ssis-executable-statistics-log-attributes"></a>Atributos del registro de estadísticas de archivos ejecutables de SSIS
 
-Estos son los atributos de registro de las estadísticas de los archivos ejecutables que generan las ejecuciones de paquetes SSIS en la instancia de SSIS IR, en la que los archivos ejecutables son contenedores o tareas de los flujos de control de paquetes. Transmiten información similar a la de la [tabla o vista de estadísticas de archivos ejecutables de SSISDB](/sql/integration-services/system-views/catalog-executable-statistics?view=sql-server-ver15) que muestra una fila para cada archivo ejecutable en ejecución, incluidas sus iteraciones. Se generan en cualquier nivel de registro, excepto `None`, y resultan útiles para identificar los errores o cuellos de botella a nivel de tarea.
+Estos son los atributos de registro de las estadísticas de los archivos ejecutables que generan las ejecuciones de paquetes SSIS en la instancia de SSIS IR, en la que los archivos ejecutables son contenedores o tareas de los flujos de control de paquetes. Transmiten información similar a la de la [tabla o vista de estadísticas de archivos ejecutables de SSISDB](/sql/integration-services/system-views/catalog-executable-statistics) que muestra una fila para cada archivo ejecutable en ejecución, incluidas sus iteraciones. Se generan en cualquier nivel de registro, excepto `None`, y resultan útiles para identificar los errores o cuellos de botella a nivel de tarea.
 
 ```json
 {
@@ -727,7 +727,7 @@ Estos son los atributos de registro de las estadísticas de los archivos ejecuta
 
 #### <a name="ssis-execution-component-phases-log-attributes"></a>Atributos del registro de fases de los componentes de ejecución de SSIS
 
-Estos son los atributos de registro de las estadísticas de tiempo de ejecución para los componentes de flujo de datos que generan las ejecuciones de paquetes SSIS en la instancia de SSIS IR. Transmiten información similar a la de la [tabla o vista de las fases de los componentes de ejecución de SSISDB](/sql/integration-services/system-views/catalog-execution-component-phases?view=sql-server-ver15) que muestra el tiempo empleado por los componentes de flujo de datos en todas sus fases de ejecución. Se generan al seleccionar el nivel de registro `Performance/Verbose` y resultan útiles para capturar las estadísticas de ejecución del flujo de datos.
+Estos son los atributos de registro de las estadísticas de tiempo de ejecución para los componentes de flujo de datos que generan las ejecuciones de paquetes SSIS en la instancia de SSIS IR. Transmiten información similar a la de la [tabla o vista de las fases de los componentes de ejecución de SSISDB](/sql/integration-services/system-views/catalog-execution-component-phases) que muestra el tiempo empleado por los componentes de flujo de datos en todas sus fases de ejecución. Se generan al seleccionar el nivel de registro `Performance/Verbose` y resultan útiles para capturar las estadísticas de ejecución del flujo de datos.
 
 ```json
 {
@@ -773,7 +773,7 @@ Estos son los atributos de registro de las estadísticas de tiempo de ejecución
 
 #### <a name="ssis-execution-data-statistics-log-attributes"></a>Atributos del registro de estadísticas de los datos de ejecución de SSIS
 
-Estos son los atributos de registro de los movimientos de datos a través de cada una de las canalizaciones de flujo de datos, desde los componentes ascendentes hasta los descendentes, que generan las ejecuciones de paquetes SSIS en la instancia de SSIS IR. Transmiten información similar a la de la [tabla o vista de estadísticas de datos de ejecución de SSISDB](/sql/integration-services/system-views/catalog-execution-data-statistics?view=sql-server-ver15) que muestra los recuentos de filas de los datos que se mueven a través de las tareas Flujo de datos. Se generan al seleccionar el nivel de registro `Verbose` y resultan útiles para calcular el rendimiento del flujo de datos.
+Estos son los atributos de registro de los movimientos de datos a través de cada una de las canalizaciones de flujo de datos, desde los componentes ascendentes hasta los descendentes, que generan las ejecuciones de paquetes SSIS en la instancia de SSIS IR. Transmiten información similar a la de la [tabla o vista de estadísticas de datos de ejecución de SSISDB](/sql/integration-services/system-views/catalog-execution-data-statistics) que muestra los recuentos de filas de los datos que se mueven a través de las tareas Flujo de datos. Se generan al seleccionar el nivel de registro `Verbose` y resultan útiles para calcular el rendimiento del flujo de datos.
 
 ```json
 {

@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 95993b35174b80dae8c878c22554ee60afeb8a14
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 57a9f6f11283e020efc25f55f1df473a6cb2d321
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92206227"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98570004"
 ---
 # <a name="server-side-performance-queries"></a>Consultas de rendimiento del lado del servidor
 
@@ -65,9 +65,9 @@ El objeto `FrameStatistics` recuperado contiene los siguientes miembros:
 | Member | Explicación |
 |:-|:-|
 | latencyPoseToReceive | La latencia de la estimación de la posición de la cámara en el dispositivo cliente hasta que un fotograma de servidor en esta posición esté totalmente disponible para la aplicación cliente. Este valor incluye los ciclos de ida y vuelta de red, el tiempo de representación del servidor, la descodificación de vídeo y la compensación por vibración. Consulte el **intervalo 1 en la ilustración anterior.**|
-| latencyReceiveToPresent | Latencia de la disponibilidad de un fotograma remoto recibido hasta que la aplicación cliente llama a PresentFrame en la CPU. |
-| latencyPresentToDisplay  | Latencia desde la presentación de un fotograma en la CPU hasta que la pantalla se enciende. Este valor incluye el tiempo de GPU del cliente, cualquier almacenamiento en búfer de fotogramas realizado por el sistema operativo, la reproyección de hardware y el tiempo de examen de la visualización dependiente del dispositivo. Consulte el **intervalo 2 en la ilustración anterior.**|
-| timeSinceLastPresent | El tiempo entre las llamadas posteriores a PresentFrame en la CPU. Unos valores mayores que la duración de la visualización (por ejemplo 16,6 ms en un dispositivo cliente de 60 Hz) indican problemas causados por la aplicación cliente que no finalizan la carga de trabajo de la CPU a tiempo. Consulte el **intervalo 3 de la ilustración anterior.**|
+| latencyReceiveToPresent | Latencia de la disponibilidad de un fotograma remoto recibido hasta que la aplicación cliente llama a PresentFrame en la CPU. Consulte el **intervalo 2 en la ilustración anterior.**|
+| latencyPresentToDisplay  | Latencia desde la presentación de un fotograma en la CPU hasta que la pantalla se enciende. Este valor incluye el tiempo de GPU del cliente, cualquier almacenamiento en búfer de fotogramas realizado por el sistema operativo, la reproyección de hardware y el tiempo de examen de la visualización dependiente del dispositivo. Consulte el **intervalo 3 de la ilustración anterior.**|
+| timeSinceLastPresent | El tiempo entre las llamadas posteriores a PresentFrame en la CPU. Unos valores mayores que la duración de la visualización (por ejemplo 16,6 ms en un dispositivo cliente de 60 Hz) indican problemas causados por la aplicación cliente que no finalizan la carga de trabajo de la CPU a tiempo.|
 | videoFramesReceived | Número de fotogramas recibidos del servidor en el último segundo. |
 | videoFrameReusedCount | Número de fotogramas recibidos en el último segundo que se usaron en el dispositivo más de una vez. Unos valores distintos de cero indican que los fotogramas han tenido que reutilizarse y reproyectarse debido a la vibración de la red o a un tiempo excesivo de representación del servidor. |
 | videoFramesSkipped | Número de fotogramas recibidos en el último segundo que se descodificaron, pero que no se mostraron en la pantalla porque llegó un fotograma más reciente. Unos valores distintos de cero indican que la vibración de la red ha provocado que varios fotogramas se retrasaran y que llegaran juntos al dispositivo cliente en una ráfaga. |

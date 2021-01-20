@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 12/28/2020
+ms.date: 1/19/2021
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 56818862b6bc4eb38b819185aceb121e6e78488e
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 05a514debcf8036a296bbe66b2dd75c7dacacdc2
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803534"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600749"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Informes de aprovisionamiento en el portal de Azure Active Directory (versión preliminar)
 
@@ -215,8 +215,6 @@ En la pestaña **Resumen** se proporciona información general sobre lo que suce
 - Azure Portal almacena durante 30 días los datos de aprovisionamiento detectados si tiene una edición Premium, y durante siete días si tiene una edición gratuita. Los registros de aprovisionamiento pueden publicarse en [Log Analytics](../app-provisioning/application-provisioning-log-analytics.md) si se quiere realizar una retención superior a 30 días. 
 
 - Puede usar el atributo Id. de cambio como identificador único. Esto es útil, por ejemplo, al hablar con el soporte técnico del producto.
-
-- Actualmente no hay ninguna opción para descargar los datos de aprovisionamiento como un archivo CSV, aunque puede exportar los datos mediante [Microsoft Graph](/graph/api/provisioningobjectsummary-list?tabs=http&view=graph-rest-beta).
 
 - Es posible que vea eventos omitidos para los usuarios que no estén en el ámbito. Esto es normal, especialmente cuando el ámbito de sincronización se establece en todos los usuarios y grupos. Nuestro servicio evaluará todos los objetos del inquilino, incluso los que estén fuera del ámbito. 
 

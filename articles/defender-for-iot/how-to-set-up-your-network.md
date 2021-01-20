@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 01/03/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: b5cb7d0e421657b84c365d8dca536191cafd4e72
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: 2053632f24504f896d1045f99d581b9aa6050b55
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97861973"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98573146"
 ---
 # <a name="about-azure-defender-for-iot-network-setup"></a>Acerca de la configuración de red de Azure Defender para IoT
 
@@ -223,7 +223,7 @@ En una red en estrella, cada host está conectado a un concentrador central. En 
 
 Estas son algunas recomendaciones para la implementación de varios sensores:
 
-| **Número **| **Metros** | **Dependencia** | **Número de sensores** |
+| **Number** | **Metros** | **Dependencia** | **Número de sensores** |
 |--|--|--|--|
 | Distancia máxima entre los conmutadores | 80 metros | Cable Ethernet preparado | Más de 1 |
 | Número de redes OT | Más de 1 | Sin conectividad física | Más de 1 |

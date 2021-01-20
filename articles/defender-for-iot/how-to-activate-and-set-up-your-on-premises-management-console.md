@@ -4,15 +4,15 @@ description: La activación y configuración de la consola de administración ga
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/24/2020
+ms.date: 1/12/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 56092d61e1eed4e4ebe4f8cb7f97d01e91e8543e
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: d344b3d9ea54243d61cc6a1f3f0982eb5ab1d238
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97837372"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98538586"
 ---
 # <a name="activate-and-set-up-your-on-premises-management-console"></a>Activación y configuración de la consola de administración local 
 
@@ -51,7 +51,7 @@ Después de la activación inicial, el número de dispositivos supervisados pued
 
 ## <a name="set-up-a-certificate"></a>Configurar un certificado
 
-Tras la instalación de la consola de administración, se genera un certificado autofirmado local que se usa para acceder a la consola. Cuando un administrador inicia sesión en la consola de administración por primera vez, se le solicita que incorpore un certificado SSL/TLS. Se recomienda trabajar con un certificado firmado por una CA de confianza y no usar el certificado autofirmado generado localmente.
+Tras la instalación de la consola de administración, se genera un certificado autofirmado local que se usa para acceder a la consola. Cuando un administrador inicia sesión en la consola de administración por primera vez, se le solicita que incorpore un certificado SSL/TLS. 
 
 Hay dos niveles de seguridad disponibles:
 
@@ -61,7 +61,9 @@ Hay dos niveles de seguridad disponibles:
 La consola admite los siguientes tipos de certificados:
 
 - Infraestructura de clave empresarial y privada (PKI privada)
+
 - Infraestructura de clave pública (PKI pública)
+
 - Generado localmente en el dispositivo (autofirmado localmente) 
 
   > [!IMPORTANT]

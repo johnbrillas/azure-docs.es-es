@@ -4,12 +4,12 @@ description: Aprenda a utilizar identidades administradas en Azure Kubernetes Se
 services: container-service
 ms.topic: article
 ms.date: 12/16/2020
-ms.openlocfilehash: 948a189e1c6e03efca046b6d43dddcaf3d141957
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: fe11170b1cdf18aacf832f4c8171bfc082339395
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97607293"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599601"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Uso de identidades administradas en Azure Kubernetes Service
 
@@ -131,7 +131,7 @@ Actualice la identidad asignada por el usuario:
 az aks update -g <RGName> -n <AKSName> --enable-managed-identity --assign-identity <UserAssignedIdentityResourceID> 
 ```
 > [!NOTE]
-> Una vez que se hayan actualizado las identidades asignadas por el sistema o por el usuario, realice una operación `az nodepool upgrade --node-image-only` en los nodos para completar la actualización a la identidad administrada.
+> Una vez que se hayan actualizado las identidades asignadas por el sistema o por el usuario, realice una operación `az aks nodepool upgrade --node-image-only` en los nodos para completar la actualización a la identidad administrada.
 
 ## <a name="bring-your-own-control-plane-mi"></a>Traer su propia instancia administrada de plano de control
 Una identidad de plano de control personalizado permite que se conceda acceso a la identidad existente antes de la creación del clúster. Esta característica permite escenarios como el uso de una red virtual personalizada o outboundType de UDR con una identidad administrada previamente creada.

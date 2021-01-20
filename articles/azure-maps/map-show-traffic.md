@@ -9,22 +9,26 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: ec7459a356221fb7b599cbbc02f1cb825920b5b3
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: b6fcf39e05c4649503f0b7a80aadaaa16df24674
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92890673"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599557"
 ---
 # <a name="show-traffic-on-the-map"></a>Visualización del tráfico en el mapa
 
 Hay dos tipos de datos de tráfico disponibles en Azure Maps:
 
 - Datos de incidentes, que se componen de datos basados en puntos y líneas para aspectos como construcción, cierres de carreteras y accidentes.
-- Datos de flujo, que proporcionan métricas sobre el flujo de tráfico en las carreteras. A menudo, los datos de flujo de tráfico se utilizan para colorear las carreteras. Los colores se basan en la cantidad de tráfico que ralentiza el flujo en relación con el límite de velocidad u otra métrica. Los datos de flujo de tráfico en Azure Maps tienen tres métricas de medida diferentes:
-    - `relative`: está relacionada con la velocidad de flujo libre de la carretera.
-    - `absolute`: es la velocidad absoluta de todos los vehículos de la carretera.
-    - `relative-delay`: muestra las áreas que son más lentas que el retraso promedio esperado.
+- Datos de flujo, que proporcionan métricas sobre el flujo de tráfico en las carreteras. A menudo, los datos de flujo de tráfico se utilizan para colorear las carreteras. Los colores se basan en la cantidad de tráfico que ralentiza el flujo en relación con el límite de velocidad u otra métrica. Hay cuatro valores que se pueden pasar a la opción `flow` de tráfico del mapa.
+
+    |Valor de flujo | Descripción|
+    | :-- | :-- |
+    | `none` | No muestra los datos de tráfico en el mapa. |
+    | `relative` | Muestra los datos de tráfico relativos a la velocidad de flujo libre de la carretera. |
+    | `relative-delay` | Muestra las áreas que son más lentas que el retraso promedio esperado. |
+    | `absolute` | Muestra la velocidad absoluta de todos los vehículos en la carretera. |
 
 En el código siguiente se muestra cómo mostrar los datos de tráfico en el mapa.
 

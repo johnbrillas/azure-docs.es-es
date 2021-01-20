@@ -11,12 +11,12 @@ ms.reviewer: sawinark
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 04/15/2019
-ms.openlocfilehash: b4902e1fb7a2a181d3d5b2ce2ac6d1d458500fce
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 9609c382161514611ddc41af040e8fb438431fdf
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844189"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98556008"
 ---
 # <a name="troubleshoot-package-execution-in-the-ssis-integration-runtime"></a>Solución de problemas de ejecución de paquetes en SSIS Integration Runtime
 
@@ -28,7 +28,7 @@ En este artículo se incluyen los errores más comunes que puede encontrar al ej
 
 Use el portal de Azure Data Factory para comprobar la salida de la actividad de ejecución del paquete de SSIS. La salida incluye el resultado de la ejecución, los mensajes de error y el identificador de la operación. Para obtener instrucciones detalladas, consulte [Supervisar la canalización](how-to-invoke-ssis-package-ssis-activity.md#monitor-the-pipeline).
 
-Use el catálogo de SSIS (SSISDB) para comprobar los registros de detalle de la ejecución. Para obtener más información, consulte [Monitor de ejecución de paquetes y otras operaciones](/sql/integration-services/performance/monitor-running-packages-and-other-operations?view=sql-server-2017).
+Use el catálogo de SSIS (SSISDB) para comprobar los registros de detalle de la ejecución. Para obtener más información, consulte [Monitor de ejecución de paquetes y otras operaciones](/sql/integration-services/performance/monitor-running-packages-and-other-operations).
 
 ## <a name="common-errors-causes-and-solutions"></a>Errores, causas y soluciones comunes
 
@@ -91,7 +91,7 @@ Este error significa que el disco local está agotado en el nodo de SSIS Integra
 Este error se produce cuando la ejecución del paquete no encuentra un archivo en el disco local en SSIS Integration Runtime. Pruebe estas acciones:
 * No use la ruta de acceso absoluta en el paquete que se está ejecutando en SSIS Integration Runtime. Use el directorio de trabajo de ejecución actual (.) o la carpeta temporal (%TEMP%).
 * Si necesita conservar algunos archivos en nodos de SSIS Integration Runtime, prepare los archivos como se describe en [Personalizar la configuración](how-to-configure-azure-ssis-ir-custom-setup.md). Cuando finalice la ejecución, se limpiarán todos los archivos del directorio de trabajo.
-* En lugar de almacenar el archivo en el nodo de SSIS Integration Runtime, use Azure Files. Para obtener más información, consulte [Usar recursos compartidos de archivos de Azure](/sql/integration-services/lift-shift/ssis-azure-files-file-shares?view=sql-server-2017#use-azure-file-shares).
+* En lugar de almacenar el archivo en el nodo de SSIS Integration Runtime, use Azure Files. Para obtener más información, consulte [Usar recursos compartidos de archivos de Azure](/sql/integration-services/lift-shift/ssis-azure-files-file-shares#use-azure-file-shares).
 
 ### <a name="error-message-the-database-ssisdb-has-reached-its-size-quota"></a>Mensaje de error: "La base de datos “SSISDB” ha alcanzado su cuota de tamaño"
 
@@ -154,7 +154,7 @@ Una posible causa es que el entorno de ejecución de integración autohospedado 
 
 * Causa posible y acción recomendada:
   * Si se muestra también un mensaje de advertencia que indica que el componente no admite el uso del administrador de conexiones con el valor de ConnectByProxy establecido en true en el registro de ejecución, significa que se usa un administrador de conexiones en un componente que todavía no ha admitido "ConnectByProxy". Los componentes admitidos se pueden encontrar en [Configuración del entorno de ejecución de integración autohospedado como un proxy para Azure-SSIS IR en Azure Data Factory](self-hosted-integration-runtime-proxy-ssis.md#enable-ssis-packages-to-connect-by-proxy).
-  * El registro de ejecución se puede encontrar en el [informe de SSMS](/sql/integration-services/performance/monitor-running-packages-and-other-operations?view=sql-server-2017#reports) o en la carpeta de registro especificada en la actividad de ejecución de paquetes SSIS.
+  * El registro de ejecución se puede encontrar en el [informe de SSMS](/sql/integration-services/performance/monitor-running-packages-and-other-operations#reports) o en la carpeta de registro especificada en la actividad de ejecución de paquetes SSIS.
   * Como alternativa, la red virtual también se puede usar para acceder a los datos locales. Se puede encontrar más información en [Unión de Azure-SSIS Integration Runtime a una red virtual](join-azure-ssis-integration-runtime-virtual-network.md).
 
 ### <a name="error-message-staging-task-status-failed-staging-task-error-errorcode-2906-errormessage-package-execution-failed-output-operationerrormessages-ssis-executor-exit-code--1n-loglocation-ssistelemetryexecutionlog-effectiveintegrationruntime--executionduration--durationinqueue--integrationruntimequeue--"></a>Mensaje de error: "Staging task status: Failed. Staging task error: ErrorCode: 2906, ErrorMessage: Package execution failed., Output: {"OperationErrorMessages": "SSIS Executor exit code: -1.\n", "LogLocation": "...\\SSISTelemetry\\ExecutionLog\\...", "effectiveIntegrationRuntime": "...", "executionDuration": ..., "durationInQueue": { "integrationRuntimeQueue": ... }}" (Estado de la tarea provisional: Con error. Error de la tarea provisional: Código de error: 2906, Mensaje de error: Error de ejecución del paquete, Salida: {"OperationErrorMessages": "Código de salida del ejecutor SSIS: -1.\n", "LogLocation": "...SSISTelemetry ExecutionLog...", "effectiveIntegrationRuntime": "...", "executionDuration": ..., "durationInQueue": { "integrationRuntimeQueue": ... }})

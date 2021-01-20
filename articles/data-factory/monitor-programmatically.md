@@ -11,12 +11,12 @@ author: dcstwh
 ms.author: weetok
 manager: anandsub
 ms.custom: devx-track-python
-ms.openlocfilehash: e7b435080fda48e1df0bb31d16dafed30ac3d3db
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: b5d1f0c0d6aa848e590e68e1f18abf7861674483
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96497867"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98556569"
 ---
 # <a name="programmatically-monitor-an-azure-data-factory"></a>Supervisión mediante programación de una factoría de datos de Azure
 
@@ -68,7 +68,7 @@ Para ver un tutorial completo sobre cómo crear y supervisar una canalización m
     Console.ReadKey();
     ```
 
-Para obtener la documentación completa del SDK de .NET. consulte la [referencia del SDK de .NET de Data Factory](/dotnet/api/microsoft.azure.management.datafactory?view=azure-dotnet).
+Para obtener la documentación completa del SDK de .NET. consulte la [referencia del SDK de .NET de Data Factory](/dotnet/api/microsoft.azure.management.datafactory).
 
 ## <a name="python"></a>Python
 Para ver un tutorial completo sobre cómo crear y supervisar una canalización mediante el SDK. de Python, consulte [Creación de una factoría de datos y una canalización con Python](quickstart-create-data-factory-python.md).
@@ -86,7 +86,7 @@ activity_runs_paged = list(adf_client.activity_runs.list_by_pipeline_run(
 print_activity_run_details(activity_runs_paged[0])
 ```
 
-Para obtener la documentación completa del SDK de .NET. consulte la [referencia del SDK de Python de Data Factory](/python/api/overview/azure/datafactory?view=azure-python).
+Para obtener la documentación completa del SDK de .NET. consulte la [referencia del SDK de Python de Data Factory](/python/api/overview/azure/datafactory).
 
 ## <a name="rest-api"></a>API DE REST
 Para ver un tutorial completo sobre cómo crear y supervisar una canalización mediante la API de REST, consulte [Creación de una instancia de Azure Data Factory y una canalización mediante la API de REST](quickstart-create-data-factory-rest-api.md).

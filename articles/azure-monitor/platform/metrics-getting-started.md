@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 710de93a24037031784ca8d37a8ae0be76bff9e6
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 2bf56379a32bf8035ea2d0d3fe797776ec6ba40d
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97614600"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250407"
 ---
 # <a name="getting-started-with-azure-metrics-explorer"></a>Introducción al Explorador de métricas de Azure
 
@@ -38,7 +38,7 @@ Para crear un gráfico de métricas, abra la pestaña **Métricas** desde el rec
 
     > ![Selección de una métrica](./media/metrics-getting-started/metrics-dropdown.png)
 
-4. Si lo desea, puede [cambiar la agregación de la métrica](metrics-charts.md#changing-aggregation). Por ejemplo, puede que quiera que el gráfico muestre los valores mínimos, máximos o promedio de la métrica.
+4. Si lo desea, puede [cambiar la agregación de la métrica](metrics-charts.md#aggregation). Por ejemplo, puede que quiera que el gráfico muestre los valores mínimos, máximos o promedio de la métrica.
 
 > [!TIP]
 > Use el botón **Agregar métrica** y repita estos pasos si quiere ver varias métricas trazadas en el mismo gráfico. Para ver varios gráficos en una vista, seleccione el botón **Agregar gráfico** en la parte superior.
@@ -57,7 +57,7 @@ El gráfico muestra las últimas 24 horas de los datos de métricas de forma pre
 
 ## <a name="apply-dimension-filters-and-splitting"></a>Aplicar filtros de dimensión y divisiones
 
-El [filtrado](metrics-charts.md#apply-filters-to-charts) y las [divisiones](metrics-charts.md#apply-splitting-to-a-chart) son herramientas de diagnóstico tremendamente eficaces con las métricas que tienen dimensiones. Estas características ponen de manifiesto el modo en que varios segmentos de la métrica ("valores de dimensión") influyen en el valor total de la métrica, y le permiten identificar posibles valores atípicos.
+El [filtrado](metrics-charts.md#filters) y las [divisiones](metrics-charts.md#apply-splitting) son herramientas de diagnóstico tremendamente eficaces con las métricas que tienen dimensiones. Estas características ponen de manifiesto el modo en que varios segmentos de la métrica ("valores de dimensión") influyen en el valor total de la métrica, y le permiten identificar posibles valores atípicos.
 
 - El **filtrado** permite elegir qué valores de dimensión se van a incluir en el gráfico. Por ejemplo, puede que le interese mostrar las solicitudes correctas al representar gráficamente la métrica de *Tiempo de respuesta del servidor*. En tal caso, habría que aplicar el filtro en la dimensión de *solicitud correcta*. 
 

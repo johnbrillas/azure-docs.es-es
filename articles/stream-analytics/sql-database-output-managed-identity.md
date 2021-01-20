@@ -6,12 +6,12 @@ ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 11/30/2020
-ms.openlocfilehash: 244f8a446e33102e018881b3ec8f32ba9d8cbcc6
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 7d624f2dd2c0c9b4c7e99d5628a1d47e4303da7f
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98014152"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98555600"
 ---
 # <a name="use-managed-identities-to-access-azure-sql-database-or-azure-synapse-analytics-from-an-azure-stream-analytics-job-preview"></a>Uso de identidades administradas para acceder a Azure SQL Database o Azure Synapse Analytics desde un trabajo de Azure Stream Analytics (versión preliminar)
 
@@ -123,7 +123,7 @@ Una vez que se haya creado un usuario de base de datos independiente y se le hay
 
 Una vez que se haya creado un usuario de base de datos independiente y se le haya proporcionado acceso a los servicios de Azure en el portal como se ha descrito en la sección anterior, el trabajo de Stream Analytics tiene permiso de identidad administrada para **CONECTARSE** al recurso de base de datos de Azure Synapse a través de la identidad administrada. Se recomienda conceder los permisos SELECT, INSERT y ADMINISTER DATABASE BULK OPERATIONS al trabajo de Stream Analytics, ya que se necesitarán más adelante en el flujo de trabajo de Stream Analytics. El permiso **SELECT** permite que el trabajo pruebe su conexión con la tabla de la instancia de base de datos de Azure Synapse. Los permisos **INSERTAR** y **ADMINISTER DATABASE BULK OPERATIONS** permiten probar las consultas de Stream Analytics de un extremo a otro una vez que haya configurado una entrada y la salida de la base de datos de Azure Synapse.
 
-Para conceder el permiso ADMINISTER DATABASE BULK OPERATIONS, tendrá que conceder todos los permisos etiquetados como **CONTROL** en [Implícito en el permiso de base de datos](/sql/t-sql/statements/grant-database-permissions-transact-sql?view=azure-sqldw-latest#remarks) al trabajo de Stream Analytics. Necesita este permiso porque el trabajo de Stream Analytics realiza la instrucción COPY, que requiere los permisos [ADMINISTER DATABASE BULK OPERATIONS e INSERT](/sql/t-sql/statements/copy-into-transact-sql).
+Para conceder el permiso ADMINISTER DATABASE BULK OPERATIONS, tendrá que conceder todos los permisos etiquetados como **CONTROL** en [Implícito en el permiso de base de datos](/sql/t-sql/statements/grant-database-permissions-transact-sql?view=azure-sqldw-latest&preserve-view=true#remarks) al trabajo de Stream Analytics. Necesita este permiso porque el trabajo de Stream Analytics realiza la instrucción COPY, que requiere los permisos [ADMINISTER DATABASE BULK OPERATIONS e INSERT](/sql/t-sql/statements/copy-into-transact-sql).
 
 ---
 

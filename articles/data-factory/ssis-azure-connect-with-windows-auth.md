@@ -10,12 +10,12 @@ ms.technology: integration-services
 author: swinarko
 ms.author: sawinark
 ms.reviewer: maghan
-ms.openlocfilehash: 545f698f444e99d3f3807f22b308963172018fcb
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 77283596e4b0d7e25d757c9de76c284ca4f5d4f2
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746658"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98556407"
 ---
 # <a name="access-data-stores-and-file-shares-with-windows-authentication-from-ssis-packages-in-azure"></a>Acceso a los almacenes de datos y los recursos compartidos de archivos con la autenticación de Windows desde paquetes SSIS en Azure
 
@@ -99,7 +99,7 @@ Para comprobar que puede conectarse a una instancia local de SQL Server, haga lo
 
 3. En SSMS, compruebe que puede conectarse a SQL Server en el entorno local.
 
-### <a name="prerequisites"></a>Prerrequisitos
+### <a name="prerequisites"></a>Requisitos previos
 
 Para acceder a una instancia local de SQL Server desde paquetes que se ejecutan en Azure, lleve a cabo los pasos siguientes:
 
@@ -126,7 +126,7 @@ Para comprobar que puede conectarse a un recurso compartido de archivos local, h
 
 3. Compruebe que se devuelve la lista de directorios del recurso compartido de archivos local.
 
-### <a name="prerequisites"></a>Prerrequisitos
+### <a name="prerequisites"></a>Requisitos previos
 
 Para acceder a un recurso compartido de archivos en el entorno local desde paquetes que se ejecutan en Azure, realice lo siguiente:
 
@@ -170,4 +170,4 @@ Para acceder a un recurso compartido de archivos en Azure Files desde paquetes q
 
 - Implemente los paquetes. Para más información, consulte [Implementar un proyecto de SSIS en Azure con SSMS](/sql/integration-services/ssis-quickstart-deploy-ssms).
 - Ejecute los paquetes. Para más información, consulte [Ejecutar paquetes SSIS en Azure con SSMS](/sql/integration-services/ssis-quickstart-run-ssms).
-- Programe los paquetes. Para más información, vea [Programar paquetes SSIS en Azure](/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms?view=sql-server-ver15).
+- Programe los paquetes. Para más información, vea [Programar paquetes SSIS en Azure](/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms).

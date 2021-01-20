@@ -8,25 +8,13 @@ ms.topic: include
 ms.date: 04/02/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: de0cf260207747f4acb02a377819a13de8b8ba22
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e207866b61d21334bc9923d0d784b900906b0045
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96002532"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539717"
 ---
-[!INCLUDE [virtual-machines-disks-incremental-snapshots-description](virtual-machines-disks-incremental-snapshots-description.md)]
-
-## <a name="regional-availability"></a>Disponibilidad regional
-[!INCLUDE [virtual-machines-disks-incremental-snapshots-regions](virtual-machines-disks-incremental-snapshots-regions.md)]
-
-### <a name="restrictions"></a>Restricciones
-
-[!INCLUDE [virtual-machines-disks-incremental-snapshots-restrictions](virtual-machines-disks-incremental-snapshots-restrictions.md)]
-
-## <a name="portal"></a>Portal
-
-
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) y navegue hasta el disco del que desea crear una instantánea.
 1. En el disco, seleccione **Crear una instantánea**.
 
@@ -40,7 +28,3 @@ ms.locfileid: "96002532"
 1. Seleccione **Crear**
 
     :::image type="content" source="media/virtual-machines-disks-incremental-snapshots-portal/create-incremental-snapshot-validation.png" alt-text="Captura de pantalla. Página de validación de la instantánea. Confirme sus selecciones y, a continuación, cree la instantánea.":::
-
-## <a name="next-steps"></a>Pasos siguientes
-
-Si quiere ver un código de ejemplo que muestre la funcionalidad diferencial de las instantáneas incrementales con .NET, consulte [Copia de las copias de seguridad de Azure Managed Disks en otra región con una funcionalidad diferencial de instantáneas incrementales](https://github.com/Azure-Samples/managed-disks-dotnet-backup-with-incremental-snapshots).

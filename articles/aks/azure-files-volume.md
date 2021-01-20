@@ -5,12 +5,12 @@ description: Aprenda a crear manualmente un volumen con Azure Files para usarlo 
 services: container-service
 ms.topic: article
 ms.date: 03/01/2019
-ms.openlocfilehash: 89976211763f5d4729718c4e4c6503650f27f7cc
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: a6e28464df2ff9c9dcc7734a127cc00f887e08dd
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93126280"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246968"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-files-share-in-azure-kubernetes-service-aks"></a>Creación manual y uso de un volumen con un recurso compartido de Azure Files en Azure Kubernetes Service (AKS)
 
@@ -26,7 +26,7 @@ También es preciso que esté instalada y configurada la versión 2.0.59 de la C
 
 ## <a name="create-an-azure-file-share"></a>Creación de un recurso compartido de archivos de Azure
 
-Para poder utilizar Azure Files como volumen de Kubernetes, es preciso crear una cuenta de Azure Storage y el recurso compartido de archivos. Los comandos siguientes crean un grupo de recursos denominado *myAKSShare* , una cuenta de almacenamiento y un recurso compartido de Azure Files denominado *aksshare* :
+Para poder utilizar Azure Files como volumen de Kubernetes, es preciso crear una cuenta de Azure Storage y el recurso compartido de archivos. Los comandos siguientes crean un grupo de recursos denominado *myAKSShare*, una cuenta de almacenamiento y un recurso compartido de Azure Files denominado *aksshare*:
 
 ```azurecli-interactive
 # Change these four parameters as needed for your own environment
@@ -133,7 +133,7 @@ Volumes:
 
 ## <a name="mount-options"></a>Opciones de montaje
 
-El valor predeterminado de *fileMode* y *dirMode* es *0755* para la versión de Kubernetes 1.9.1 y posteriores. Si utiliza un clúster con la versión 1.8.5 o superior de Kubernetes y crea estáticamente el objeto de volumen persistente, deben especificarse las opciones de montaje en el objeto *PersistentVolume*. En el ejemplo siguiente se establece *0777* :
+El valor predeterminado de *fileMode* y *dirMode* es *0755* para la versión de Kubernetes 1.9.1 y posteriores. Si utiliza un clúster con la versión 1.8.5 o superior de Kubernetes y crea estáticamente el objeto de volumen persistente, deben especificarse las opciones de montaje en el objeto *PersistentVolume*. En el ejemplo siguiente se establece *0777*:
 
 ```yaml
 apiVersion: v1
@@ -145,7 +145,6 @@ spec:
     storage: 5Gi
   accessModes:
     - ReadWriteMany
-  storageClassName: azurefile
   azureFile:
     secretName: azure-secret
     shareName: aksshare
@@ -173,7 +172,6 @@ spec:
     storage: 5Gi
   accessModes:
     - ReadWriteMany
-  storageClassName: azurefile
   azureFile:
     secretName: azure-secret
     shareName: aksshare
@@ -197,7 +195,7 @@ metadata:
 spec:
   accessModes:
     - ReadWriteMany
-  storageClassName: azurefile
+  storageClassName: ""
   resources:
     requests:
       storage: 5Gi

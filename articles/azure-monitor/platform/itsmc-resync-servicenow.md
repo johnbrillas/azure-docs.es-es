@@ -5,92 +5,20 @@ ms.subservice: alerts
 ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
-ms.date: 04/12/2020
-ms.openlocfilehash: cea4503c4e3b9dd58cc475aaec355a2bb2e0bd29
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.date: 01/17/2021
+ms.openlocfilehash: aede7e3dec886d6a6213c64b386cacd725dd74f5
+ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98065229"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98562801"
 ---
-# <a name="troubleshooting-problems-in-itsm-connector"></a>Solución de problemas del Conector de Administración de servicios de TI
-
-En este artículo se describen los problemas comunes de Conector ITSM y cómo solucionarlos.
-
-Las alertas de Azure Monitor le informan de forma proactiva cuando se detectan condiciones importantes en los datos que se supervisan. Le permiten identificar y solucionar los problemas antes de que los usuarios del sistema puedan verlos. Para más información sobre las alertas, consulte Información general sobre las alertas en Microsoft Azure.
-El cliente puede seleccionar cómo desea recibir notificaciones en la alerta, ya sea por correo, SMS, webhook, o incluso automatizar una solución. Otra opción que se va a notificar es el uso de ITSM.
-ITSM le ofrece la opción de enviar las alertas a un sistema externo de vales como ServiceNow.
-
-## <a name="visualize-and-analyze-the-incident-and-change-request-data"></a>Visualizar y analizar los datos de incidentes y solicitudes de cambios
-
-En función de las opciones de configuración de una conexión, ITSMC puede sincronizar hasta 120 días de datos referentes a incidentes y a solicitudes cambios. El esquema de registros de estos datos se proporciona en la [sección Información adicional](./itsmc-synced-data.md) de este artículo.
-
-Puede visualizar los datos de incidentes y solicitudes de cambio mediante el panel de ITSMC:
-
-![Captura de pantalla en la que se muestra el panel de ITSMC.](media/itsmc-overview/itsmc-overview-sample-log-analytics.png)
-
-El panel también proporciona información sobre el estado del conector, que puede usar como punto de partida para analizar los problemas con las conexiones.
-
-### <a name="error-investigation-using-the-dashboard"></a>Investigación de errores mediante el panel
-
-Para ver los errores en el panel, siga estos pasos:
-
-1. En **Todos los recursos**, busque **ServiceDesk(*nombre de su área de trabajo*)** :
-
-   ![Captura de pantalla en la que se muestran los recursos recientes en Azure Portal.](media/itsmc-definition/create-new-connection-from-resource.png)
-
-2. En **Orígenes de datos del área de trabajo** en el panel de la izquierda, seleccione **Conexiones de ITSM**:
-
-   ![Captura de pantalla en la que se muestra el elemento de menú Conexiones de ITSM.](media/itsmc-overview/add-new-itsm-connection.png)
-
-3. En **Resumen**, en el cuadro **Conector de Administración de servicios de TI** de la izquierda, seleccione **Ver resumen**:
-
-    ![Captura de pantalla que muestra Ver resumen.](media/itsmc-resync-servicenow/dashboard-view-summary.png)
-
-4. En **Resumen**, en el cuadro **Conector de Administración de servicios de TI** de la izquierda, haga clic en el grafo:
-
-    ![Captura de pantalla que muestra el clic en el grafo.](media/itsmc-resync-servicenow/dashboard-graph-click.png)
-
-5. Con este panel podrá revisar el estado y los errores del conector.
-    ![Captura de pantalla que muestra el estado del conector.](media/itsmc-resync-servicenow/connector-dashboard.png)
-
-### <a name="service-map"></a>Mapa de servicio
-
-También puede visualizar los incidentes sincronizados con los equipos afectados en Service Map.
-
-Mapa de servicio detecta automáticamente los componentes de la aplicación en sistemas Windows y Linux y asigna la comunicación entre servicios. Permite ver los servidores a medida que piensa en ellos: como los sistemas interconectados que ofrecen servicios críticos. Service Map muestra las conexiones entre servidores, procesos y puertos en cualquier arquitectura con conexión TCP. No se requiere ninguna configuración aparte de la instalación de un agente. Para más información, vea [Uso de la solución Service Map en Azure](../insights/service-map.md).
-
-Si usa Service Map, puede ver los elementos de la consola de servicio creados en las soluciones de ITSM, como se muestra aquí:
-
-![Captura de pantalla en la que se muestra la pantalla de Log Analytics.](media/itsmc-overview/itsmc-overview-integrated-solutions.png)
-
-## <a name="troubleshoot-itsm-connections"></a>Solución de problemas de conexión de ITSM
-
-- Si una conexión no puede conectarse al sistema ITSM y recibe un mensaje **Error al guardar la conexión**, siga estos pasos:
-   - En el caso de conexiones de ServiceNow, Cherwell y Provance:  
-     - Asegúrese de que ha introducido correctamente el nombre de usuario, la contraseña, el identificador de cliente y el secreto de cliente de cada una de las conexiones.  
-     - Asegúrese de disponer de privilegios suficientes en el producto de ITSM correspondiente para realizar la conexión.  
-   - En el caso de conexiones de Service Manager:  
-     - Asegúrese de que la aplicación web se implementa correctamente y de que se crea la conexión híbrida. Para comprobar que la conexión se ha establecido correctamente con el equipo de Service Manager local, visite la dirección URL de la aplicación web como se detalla en la documentación para realizar la [conexión híbrida](./itsmc-connections-scsm.md#configure-the-hybrid-connection).  
-
-- Si los datos de ServiceNow no se sincronizan con Log Analytics, asegúrese de que la instancia de ServiceNow no esté suspendida. En algunas ocasiones, las instancias de desarrollo de ServiceNow se suspenden si están inactivas durante mucho tiempo. Si no sucede eso, informe del problema.
-- Si se generan alertas de Log Analytics, pero no se crean elementos de trabajo en el producto de ITSM, si no se crean elementos de configuración o no se vinculan a elementos de trabajo, o si necesita información adicional, vea estos recursos:
-   -  ITSMC: La solución muestra un resumen de conexiones, elementos de trabajo, equipos, etc. Seleccione el icono que tiene la etiqueta **Estado del conector**. Al hacerlo, se le remitirá a **Búsqueda de registros** con la consulta pertinente. Consulte las entradas de registro con un elemento `LogType_S` de `ERROR` para obtener más información.
-   - Página de **búsqueda de registros**: vea los errores y la información relacionada directamente mediante la consulta `*ServiceDeskLog_CL*`.
-
-### <a name="troubleshoot-service-manager-web-app-deployment"></a>Solución de problemas de implementación de aplicaciones web de Service Manager
-
--   Si tiene problemas con la implementación de la aplicación web, asegúrese de tener los permisos para crear o implementar recursos en la suscripción.
--   Si aparece el mensaje de error **Referencia a objeto no establecida como instancia de un objeto** al ejecutar el [script](itsmc-service-manager-script.md), asegúrese de que especificó valores válidos en la sección **Configuración de usuario**.
--   Si no puede crear el espacio de nombres de retransmisión de Service Bus, asegúrese de que el proveedor de recursos necesario está registrado en la suscripción. Si no está registrado, cree el espacio de nombres de retransmisión de Service Bus manualmente desde Azure Portal. También puede crearlo mientras [crea la conexión híbrida](./itsmc-connections-scsm.md#configure-the-hybrid-connection) en Azure Portal.
-
-### <a name="how-to-manually-fix-sync-problems"></a>Cómo corregir manualmente los problemas de sincronización
+# <a name="how-to-manually-fix-sync-problems"></a>Cómo corregir manualmente los problemas de sincronización
 
 Azure Monitor puede conectarse a otros proveedores de Administración de servicios de TI (ITSM) de terceros. ServiceNow es uno de estos proveedores.
 
 Por motivos de seguridad, puede que tenga que actualizar el token de autenticación que se usa para la conexión con ServiceNow.
 Use el proceso de sincronización siguiente para volver a activar la conexión y actualizar el token:
-
 
 1. Busque la solución en el banner de búsqueda superior y, luego, seleccione las soluciones apropiadas.
 

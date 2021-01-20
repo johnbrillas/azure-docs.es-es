@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: alkohli
-ms.openlocfilehash: fb0e56c5eeebb4f3a869feacb996d690ea7dde86
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: e003d0121721838bd5ae038a3a8b4d1b8cd9d1eb
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92124176"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98573197"
 ---
 # <a name="azure-data-box-disk-limits"></a>Límites de Azure Data Box Disk
 
@@ -76,7 +76,7 @@ Estos son los tamaños de los objetos de Azure que se pueden escribir. Asegúres
 | Blob en bloques        | ~4,75 TiB                                                 |
 | Blob en páginas         | 8 TiB <br> Todos los archivos cargados en formato de blob en páginas deben tener 512 bytes alineados; de lo contrario, se produce un error en la carga. <br> VHD y VHDX tienen 512 bytes alineados. |
 |Azure Files        | 1 TiB <br> Máx. tamaño del recurso compartido es de 5 TiB     |
-| Discos administrados     |4 TiB <br> Para más información sobre el tamaño y los límites, consulte: <li>[Objetivos de escalabilidad para discos administrados](../virtual-machines/windows/disk-scalability-targets.md#managed-virtual-machine-disks)</li>|
+| Discos administrados     |4 TiB <br> Para más información sobre el tamaño y los límites, consulte: <li>[Objetivos de escalabilidad para discos administrados](../virtual-machines/disks-scalability-targets.md#managed-virtual-machine-disks)</li>|
 
 
 ## <a name="azure-block-blob-page-blob-and-file-naming-conventions"></a>Convenciones de nomenclatura de archivos, blobs en páginas y blobs en bloques de Azure

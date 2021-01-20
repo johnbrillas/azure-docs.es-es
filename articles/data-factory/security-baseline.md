@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: e48b1357b8576baca0e8defca94f4c5248c6f74e
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: ff777f079116942eba32e49f359c7f7e0b99f65d
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461282"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98555787"
 ---
 # <a name="azure-security-baseline-for-azure-data-factory"></a>Línea de referencia de seguridad de Azure para Azure Data Factory
 
@@ -311,7 +311,7 @@ Además, asegúrese de habilitar la configuración de diagnóstico para los serv
 
 ### <a name="210-enable-command-line-audit-logging"></a>2.10: Habilitación del registro de auditoría de la línea de comandos
 
-**Guía**: Si ejecuta Integration Runtime en una máquina virtual (VM) de Azure, puede habilitar el registro de auditoría de la línea de comandos. Azure Security Center proporciona supervisión del registro de eventos de seguridad para las máquinas virtuales de Azure. Security Center aprovisiona Microsoft Monitoring Agent en todas las máquinas virtuales de Azure compatibles y en las que se crean si el aprovisionamiento automático está habilitado o puede instalar el agente manualmente. El agente habilita el evento 4688 de creación de procesos y el campo CommandLine dentro del evento 4688. El registro de eventos registra los nuevos procesos creados en la VM y los servicios de detección de Security Center los supervisan.
+**Guía**: Si ejecuta Integration Runtime en una máquina virtual (VM) de Azure, puede habilitar el registro de auditoría de la línea de comandos. Azure Security Center proporciona supervisión del registro de eventos de seguridad para las máquinas virtuales de Azure. Security Center aprovisiona Microsoft Monitoring Agent en todas las máquinas virtuales de Azure compatibles y en las que se crean si el aprovisionamiento automático está habilitado o puede instalar el agente manualmente. El agente habilita el evento 4688 de creación de procesos y el campo CommandLine dentro del evento 4688. El registro de eventos registra los nuevos procesos creados en la VM y los servicios de detección de Security Center supervisa dichos procesos.
 
 * [Recopilación de datos en Azure Security Center](../security-center/security-center-enable-data-collection.md#data-collection-tier)
 
@@ -335,9 +335,9 @@ Si bien Azure AD es el método recomendado para administrar el acceso de los usu
 
 * [Información sobre Privileged Identity Manager](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-* [Obtención de un rol de directorio en Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+* [Obtención de un rol de directorio en Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 
-* [Obtención de los miembros de un rol de directorio en Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+* [Obtención de los miembros de un rol de directorio en Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 * [Información de cuentas locales](../active-directory/devices/assign-local-admin.md#manage-the-device-administrator-role)
 
@@ -408,7 +408,7 @@ Si ejecuta Integration Runtime en una máquina virtual de Azure, las cuentas de 
 
 **Instrucciones**: Utilice estaciones de trabajo de acceso con privilegios (PAW), con Multi-Factor Authentication (MFA) configurado para iniciar sesión en recursos de Azure y configurarlos.
 
-* [Más información sobre las estaciones de trabajo con privilegios de acceso](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+* [Más información sobre las estaciones de trabajo con privilegios de acceso](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 * [Procedimiento para habilitar la MFA en Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -744,7 +744,7 @@ Aunque los recursos clásicos de Azure se pueden detectar a través de Resource 
 
 * [Creación de consultas con Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-* [Visualización de las suscripciones de Azure](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+* [Visualización de las suscripciones de Azure](/powershell/module/az.accounts/get-azsubscription)
 
 * [Descripción de Azure RBAC](../role-based-access-control/overview.md)
 
@@ -880,7 +880,7 @@ Tenga en cuenta que esto solo se aplica si Integration Runtime se ejecuta en una
 
 **Guía**: Si ejecuta Runtime Integration en una máquina virtual de Azure, según el tipo de scripts, puede usar configuraciones específicas del sistema operativo o recursos de terceros para limitar la capacidad de los usuarios de ejecutar scripts en los recursos de proceso de Azure. También puede usar los controles de aplicación adaptables de Azure Security Center para asegurarse de que solo se ejecute software autorizado y de que todo el software no autorizado no se ejecute en Azure Virtual Machines.
 
-* [Control de la ejecución de scripts de PowerShell en entornos Windows](/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6)
+* [Control de la ejecución de scripts de PowerShell en entornos Windows](/powershell/module/microsoft.powershell.security/set-executionpolicy)
 
 * [Uso de los controles de aplicaciones adaptables de Azure Security Center](../security-center/security-center-adaptive-application.md)
 
@@ -918,7 +918,7 @@ Tenga en cuenta que esto solo se aplica si Integration Runtime se ejecuta en una
 
 **Guía**: Defina e implemente configuraciones de seguridad estándar para Azure Data Factory con Azure Policy. Use alias de Azure Policy en el espacio de nombres "Microsoft.DataFactory" para crear directivas personalizadas a fin de auditar o aplicar la configuración de las instancias de Azure Data Factory.
 
-* [Visualización de los alias de Azure Policy disponibles](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+* [Visualización de los alias de Azure Policy disponibles](/powershell/module/az.resources/get-azpolicyalias)
 
 * [Configuración y administración de Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -964,7 +964,7 @@ En la mayoría de los escenarios, las plantillas de máquina virtual base de Mic
 
 * [Información sobre la creación de plantillas de Azure Resource Manager](../virtual-machines/windows/ps-template.md)
 
-* [Carga de un VHD de máquina virtual personalizado en Azure](/azure-stack/operator/azure-stack-add-vm-image?view=azs-1910)
+* [Carga de un VHD de máquina virtual personalizado en Azure](/azure-stack/operator/azure-stack-add-vm-image)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -974,9 +974,9 @@ En la mayoría de los escenarios, las plantillas de máquina virtual base de Mic
 
 **Guía**: Si usa definiciones de personalizadas de Azure Policy, use Azure DevOps o Azure Repos para almacenar y administrar el código de forma segura.
 
-* [Almacenamiento de código en Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
+* [Almacenamiento de código en Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
-* [Documentación de Azure Repos](/azure/devops/repos/index?view=azure-devops)
+* [Documentación de Azure Repos](/azure/devops/repos/index)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -1050,7 +1050,7 @@ También puede almacenar credenciales o valores de secreto en una instancia de A
 
 * [Creación de un almacén de claves](../key-vault/secrets/quick-create-portal.md)
 
-* [Autenticación en Key Vault](../key-vault/general/authentication.md)
+* [Autenticación en Azure Key Vault](../key-vault/general/authentication.md)
 
 * [Asignación de una directiva de acceso de Key Vault](../key-vault/general/assign-access-policy-portal.md)
 
@@ -1150,7 +1150,7 @@ Para cualquiera de los almacenes de datos, consulte la base de referencia de seg
 
 * [Información general sobre la copia de seguridad de máquinas virtuales de Azure](../backup/backup-azure-vms-introduction.md)
 
-* [Creación de una copia de seguridad de las claves del almacén de claves en Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+* [Creación de una copia de seguridad de las claves del almacén de claves en Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -1164,7 +1164,7 @@ Para cualquiera de los almacenes de datos, consulte la base de referencia de seg
 
 * [Recuperación de archivos desde una copia de seguridad de máquina virtual de Azure](../backup/backup-azure-restore-files-from-vm.md)
 
-* [Restauración de las claves del almacén de claves en Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+* [Restauración de las claves del almacén de claves en Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -1214,7 +1214,7 @@ Además, marque claramente las suscripciones (por ejemplo, producción, no produ
 
 ### <a name="103-test-security-response-procedures"></a>10.3: Prueba de los procedimientos de respuesta de seguridad
 
-**Instrucciones**: Realice ejercicios para probar las capacidades de respuesta a los incidentes de los sistemas con regularidad. Identifique puntos débiles y brechas y revise el plan según sea necesario.
+**Guía**: Realice ejercicios para probar las capacidades de respuesta a los incidentes de los sistemas con regularidad. Identifique puntos débiles y brechas y revise el plan según sea necesario.
 
 * [Consulte la publicación de NIST: Guía para probar, entrenar y ejecutar programas para planes y funcionalidades de TI](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)
 
@@ -1264,7 +1264,7 @@ Además, marque claramente las suscripciones (por ejemplo, producción, no produ
 
 * [Siga las reglas de compromiso de Microsoft para asegurarse de que las pruebas de penetración no infrinjan las directivas de Microsoft](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
-* [Puede encontrar más información sobre la estrategia y ejecución de Microsoft en las pruebas de penetración del equipo rojo y los sitios activos en la infraestructura de nube, los servicios y las aplicaciones administradas por Microsoft aquí.](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+* [Aquí encontrará más información sobre la estrategia y puesta en marcha de un equipo rojo de Microsoft, y las pruebas de penetración en sitios activos de la infraestructura en la nube, las aplicaciones y los servicios administrados por Microsoft](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Supervisión de Azure Security Center**: No aplicable
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: v-miegge
-ms.openlocfilehash: 53fd2332224d903c5a4b33563470cf3569f82b13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec605fd30252b9a0cfb80d0bc3ff145ed3b5a1d4
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86526663"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98573316"
 ---
 # <a name="troubleshoot-azure-virtual-machine-performance-on-linux-or-windows"></a>Solución de problemas de rendimiento de máquinas virtuales de Azure en Linux o Windows
 
@@ -208,7 +208,7 @@ Para identificar si va a alcanzar el límite de IOPS, vaya a los diagnósticos d
 
 Con las nuevas ofertas de disco en Standard Storage, los límites de IOPS y rendimiento pueden diferir, pero el límite acumulativo de la cuenta de Standard Storage es de 20 000 IOPS (Premium Storage tiene límites distintos en el nivel de cuenta o de disco). Obtenga más información sobre las distintas ofertas de disco de almacenamiento estándar y los límites por disco:
 
-* [Objetivos de escalabilidad y rendimiento para discos de máquinas virtuales con Windows](../windows/disk-scalability-targets.md).
+* [Objetivos de escalabilidad y rendimiento para discos de máquinas virtuales con Windows](../disks-scalability-targets.md).
 
 #### <a name="references"></a>Referencias
 
@@ -224,7 +224,7 @@ Compruebe los límites de rendimiento de los discos duros virtuales asociados a 
 
 Las nuevas ofertas de disco en Standard Storage tienen distintos límites de IOPS y rendimiento (las IOPS no se exponen por VHD). Examine los datos para ver si va a alcanzar los límites de MB de rendimiento combinado de los discos duros virtuales en el nivel de máquina virtual mediante Lectura y escritura de disco y, luego, optimice la configuración del almacenamiento de máquina virtual para escalar los límites anteriores de un único disco duro virtual. Obtenga más información sobre las distintas ofertas de disco de almacenamiento estándar y los límites por disco:
 
-* [Objetivos de escalabilidad y rendimiento para discos de máquinas virtuales con Windows](../windows/disk-scalability-targets.md).
+* [Objetivos de escalabilidad y rendimiento para discos de máquinas virtuales con Windows](../disks-scalability-targets.md).
 
 ### <a name="high-disk-utilizationlatency-remediation"></a>Uso elevado del disco y corrección de la latencia
 

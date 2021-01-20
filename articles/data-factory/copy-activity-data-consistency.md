@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 3/27/2020
 ms.author: yexu
-ms.openlocfilehash: 3591bfe046fa1c3e1e55aa49a0ae3ad698bc57b3
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 274250fecdf69b6a488c33ff25df3728a1c90af0
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94593678"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98556382"
 ---
 #  <a name="data-consistency-verification-in-copy-activity"></a>Comprobación de la coherencia de los datos en la actividad de copia
 
@@ -81,7 +81,7 @@ linkedServiceName | Servicio vinculado de [Azure Blob Storage](connector-azure-b
 path | Ruta de acceso de los archivos de registro. | Especifique la ruta de acceso donde quiere almacenar los archivos de registro. Si no se proporciona una ruta de acceso, el servicio creará un contenedor para usted. | No
 
 >[!NOTE]
->- Al copiar archivos binarios desde o hacia Blob de Azure o Azure Data Lake Storage Gen2, ADF realiza la comprobación de la suma de comprobación MD5 de nivel de bloque aprovechando la [API de Blob de Azure](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions?view=azure-dotnet-legacy) y la [API de Azure Data Lake Storage Gen2](/rest/api/storageservices/datalakestoragegen2/path/update#request-headers). Si ContentMD5 en los archivos se encuentra en Blob de Azure o en Azure Data Lake Storage Gen2 como orígenes de datos, ADF realiza la comprobación de la suma de comprobación MD5 del nivel de archivo también después de leer los archivos. Después de copiar los archivos en Blob de Azure o en Azure Data Lake Storage Gen2 como destino de los datos, ADF escribe ContentMD5 en el Blob de Azure o en Azure Data Lake Storage Gen2, y las aplicaciones de nivel inferior pueden usarlo después para la comprobación de la coherencia de los datos.
+>- Al copiar archivos binarios desde o hacia Blob de Azure o Azure Data Lake Storage Gen2, ADF realiza la comprobación de la suma de comprobación MD5 de nivel de bloque aprovechando la [API de Blob de Azure](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions?view=azure-dotnet-legacy&preserve-view=true) y la [API de Azure Data Lake Storage Gen2](/rest/api/storageservices/datalakestoragegen2/path/update#request-headers). Si ContentMD5 en los archivos se encuentra en Blob de Azure o en Azure Data Lake Storage Gen2 como orígenes de datos, ADF realiza la comprobación de la suma de comprobación MD5 del nivel de archivo también después de leer los archivos. Después de copiar los archivos en Blob de Azure o en Azure Data Lake Storage Gen2 como destino de los datos, ADF escribe ContentMD5 en el Blob de Azure o en Azure Data Lake Storage Gen2, y las aplicaciones de nivel inferior pueden usarlo después para la comprobación de la coherencia de los datos.
 >- ADF realiza la comprobación del tamaño de archivo al copiar los archivos binarios entre almacenes de almacenamiento.
 
 ## <a name="monitoring"></a>Supervisión

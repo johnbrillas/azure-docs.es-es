@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a531692264a768e4f6cb8e6475807789df049d03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e257ab39257b23c52aaadbe32f0325e8d71a8409
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89049153"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98597973"
 ---
 # <a name="conditional-access-block-access-by-location"></a>Acceso condicional: Bloqueo del acceso por ubicación
 
@@ -43,6 +43,8 @@ Para más información sobre la condición de ubicación en el acceso condiciona
 1. Asigne un nombre a la directiva. Se recomienda que las organizaciones creen un estándar significativo para los nombres de sus directivas.
 1. En **Asignaciones**, seleccione **Usuarios y grupos**.
    1. En **Incluir**, seleccione **Todos los usuarios**.
+   1. En **Excluir**, seleccione **Usuarios y grupos** y, luego, elija las cuentas de acceso de emergencia de la organización. 
+   1. Seleccione **Listo**.
 1. En **Aplicaciones en la nube o acciones** > **Incluir**, seleccione **Todas las aplicaciones en la nube**.
 1. En **Condiciones** > **Ubicación**:
    1. Establezca **Configurar** en **Sí**.

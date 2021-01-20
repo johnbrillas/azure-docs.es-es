@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/23/2020
 ms.author: memildin
-ms.openlocfilehash: 3899b00038f3c12add4dbf49a7f05e07141d8606
-ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
+ms.openlocfilehash: c9d11f1ddc3e1dd2239bdfce9c41f58fe9e20497
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97755861"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539957"
 ---
 # <a name="azure-defender-for-sql-servers-on-machines"></a>Azure Defender para servidores SQL en máquinas 
 
@@ -79,7 +79,7 @@ Ambos métodos se describen a continuación.
 
 
 1. Opcionalmente, configure notificaciones de alertas de seguridad por correo electrónico. 
-    Puede establecer una lista de destinatarios que reciban una notificación por correo electrónico cuando se generen alertas de Security Center. El correo electrónico contiene un SK directo a la alerta de Azure Security Center con todos los detalles pertinentes. Para más información, consulte el artículo sobre cómo [configurar las notificaciones por correo electrónico para recibir alertas](security-center-provide-security-contact-details.md).
+    Puede establecer una lista de destinatarios que reciban una notificación por correo electrónico cuando se generen alertas de Security Center. El correo electrónico contiene un vínculo directo a la alerta de Azure Security Center con todos los detalles pertinentes. Para más información, consulte el artículo sobre cómo [configurar las notificaciones por correo electrónico para recibir alertas](security-center-provide-security-contact-details.md).
 
 
 

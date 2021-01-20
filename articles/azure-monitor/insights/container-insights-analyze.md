@@ -3,12 +3,12 @@ title: Supervisión de Kubernetes con Azure Monitor para contenedores | Microsof
 description: En este artículo se describe cómo puede ver y analizar el rendimiento de un clúster de Kubernetes con Azure Monitor para contenedores.
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.openlocfilehash: a1f661089b3a6357abb3eed584401e6a8ae2e2fb
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 68d0ac03ae0f6029e0f984e296a89048536f4eb7
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905713"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251291"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>Supervisión del rendimiento del clúster de Kubernetes con Azure Monitor para contenedores
 
@@ -130,7 +130,7 @@ En el Explorador de métricas se pueden ver el nodo agregado y las métricas de 
 | insights.container/pods | |
 | | PodCount | Número de pods de Kubernetes.|
 
-Puede [dividir](../platform/metrics-charts.md#apply-splitting-to-a-chart) una métrica para verla por dimensión y visualizar la comparación de unos segmentos con otros. Para un nodo, puede segmentar el gráfico según la dimensión *host*. Para un pod, puede segmentar el gráfico según las dimensiones siguientes:
+Puede [dividir](../platform/metrics-charts.md#apply-splitting) una métrica para verla por dimensión y visualizar la comparación de unos segmentos con otros. Para un nodo, puede segmentar el gráfico según la dimensión *host*. Para un pod, puede segmentar el gráfico según las dimensiones siguientes:
 
 * Controller
 * Espacio de nombres de Kubernetes

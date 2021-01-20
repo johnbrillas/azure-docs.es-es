@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 11/10/2020
-ms.openlocfilehash: e6582443ddc56b315c1c666c81a596fa71b1d54f
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 02757477ca4a07f4526df0339291122eda57c9b5
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753984"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567419"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Matriz de compatibilidad para la evaluación de VMware 
 
@@ -23,7 +23,7 @@ Si quiere migrar máquinas virtuales de VMware a Azure, revise la [matriz de com
 
 ## <a name="limitations"></a>Limitaciones
 
-**Soporte técnico** | **Detalles**
+**Requisito** | **Detalles**
 --- | ---
 **Límites del proyecto** | Puede crear varios proyectos en una suscripción a Azure.<br/><br/> Puede detectar y evaluar hasta 35 000 máquinas virtuales de VMware en un único [proyecto](migrate-support-matrix.md#azure-migrate-projects). Un proyecto también puede incluir servidores físicos y máquinas virtuales de Hyper-V, hasta sus respectivos límites de evaluación.
 **Detección** | Un dispositivo de Azure Migrate puede detectar hasta 10 000 VM de VMware en una instancia de vCenter Server.
@@ -81,9 +81,9 @@ Además de detectar máquinas, Server Assessment puede detectar aplicaciones, ro
 
 ## <a name="dependency-analysis-requirements-agentless"></a>Requisitos para el análisis de dependencias (sin agentes)
 
-El [análisis de dependencias](concepts-dependency-visualization.md) le ayuda a identificar las dependencias entre las máquinas locales que quiere evaluar y migrar a Azure. En esta tabla se resumen los requisitos para configurar el análisis de dependencia sin agentes.
+El [análisis de dependencias](concepts-dependency-visualization.md) le ayuda a identificar las dependencias entre las máquinas locales que quiere evaluar y migrar a Azure. En esta tabla se resumen los requisitos para configurar el análisis de dependencia sin agentes. 
 
-**Requisito** | **Detalles**
+**Soporte técnico** | **Detalles**
 --- | --- 
 **Máquinas compatibles** | Actualmente solo se admite en máquinas virtuales VMware.
 **Máquinas virtuales Windows** | Windows Server 2016<br/> Windows Server 2012 R2<br/> Windows Server 2012<br/> Windows Server 2008 R2 (64 bits).<br/>Microsoft Windows Server 2008 (32 bits). 

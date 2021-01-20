@@ -3,17 +3,17 @@ title: Búsqueda de ubicaciones con los servicios Search de Azure Maps
 description: Obtenga información sobre el servicio Search de Azure Maps. Vea cómo usar este conjunto de API para la geocodificación, la geocodificación inversa, las búsquedas parciales y las búsquedas de calles transversales.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 10/05/2020
+ms.date: 01/19/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 00ddb53276c052d538d658f2c40384e86cf72aee
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: dddf56edf2037d87a28589a59834db32f8d04a4c
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92910991"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98598373"
 ---
 # <a name="search-for-a-location-using-azure-maps-search-services"></a>Búsqueda de ubicaciones con los servicios Search de Azure Maps
 
@@ -169,7 +169,7 @@ En este ejemplo, buscaremos una calle transversal en función de las coordenadas
 
     :::image type="content" source="./media/how-to-search-for-address/search-address-cross.png" alt-text="Búsqueda de calle transversal.":::
   
-3. Haga clic en **Enviar** y revise el cuerpo de la respuesta. Verá que la respuesta contiene un valor `crossStreet` de `Occidental Avenue South`.
+3. Haga clic en **Enviar** y revise el cuerpo de la respuesta. Verá que la respuesta contiene un valor `crossStreet` de `South Atlantic Street`.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
