@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 09/03/2020
 ms.author: allensu
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 3c03a207e91ae969836e208f4e6bf4ea32086c7d
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: b3ca4f11b02f32e65cf80adc65ec12d25e6e7905
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121332"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98573180"
 ---
 # <a name="what-is-azure-private-link"></a>¿Qué es Azure Private Link? 
 Azure Private Link le permite acceder a los servicios PaaS de Azure (por ejemplo, Azure Storage y SQL Database) y a los servicios hospedados en Azure que son propiedad de los clientes, o a los servicios de asociados, a través de un [punto de conexión privado](private-endpoint-overview.md) de la red virtual.
@@ -66,7 +66,7 @@ Azure Private Link proporciona las ventajas siguientes:
 |Azure Event Grid| Todas las regiones públicas<br/> Todas las regiones de Azure Government       |  | Disponibilidad general   <br/> [Aprenda a crear un punto de conexión privado para Azure Event Grid.](../event-grid/network-security.md) |
 |Azure Web Apps | Todas las regiones públicas      | Compatible con PremiumV2, PremiumV3 o el plan Premium de Functions  | Disponibilidad general   <br/> [Aprenda a crear un punto de conexión privado para Azure Web Apps.](./tutorial-private-endpoint-webapp-portal.md)   |
 |Azure Machine Learning | Todas las regiones públicas    |  | Disponibilidad general   <br/> [Aprenda a crear un punto de conexión privado para Azure Machine Learning.](../machine-learning/how-to-configure-private-link.md)   |
-| Azure Automation  | Todas las regiones públicas |  | Vista previa </br> [Aprenda a crear un punto de conexión privado para Azure Automation.](../automation/how-to/private-link-security.md)| |
+| Azure Automation  | Todas las regiones públicas<br/> Todas las regiones de Azure Government |  | Vista previa </br> [Aprenda a crear un punto de conexión privado para Azure Automation.](../automation/how-to/private-link-security.md)| |
 | Azure IoT Hub | Todas las regiones públicas    |  | Disponibilidad general   <br/> [Aprenda a crear un punto de conexión privado para Azure IoT Hub.](../iot-hub/virtual-network-support.md) |
 | Azure SignalR | ESTE DE EE. UU, CENTRO-SUR DE EE. UU,<br/>OESTE DE EE. UU. 2, todas las regiones de China      |  | Vista previa   <br/> [Aprenda a crear un punto de conexión privado para Azure SignalR Service.](../azure-signalr/howto-private-endpoints.md)   |
 | Azure Monitor <br/>(Log Analytics y Application Insights) | Todas las regiones públicas      |  | Disponibilidad general   <br/> [Aprenda a crear un punto de conexión privado para Azure Monitor.](../azure-monitor/platform/private-link-security.md)   | 

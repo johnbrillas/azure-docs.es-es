@@ -9,12 +9,12 @@ ms.custom: devx-track-csharp, contperf-fy21q1
 ms.topic: quickstart
 ms.date: 09/25/2020
 ms.author: alkemper
-ms.openlocfilehash: d1582cda4b083623daf7bb756d0bc8aa3e74eae8
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: d0e564b98ab6331677451afd32a0848e7f5594dd
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033653"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98598743"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Inicio rápido: Creación de una aplicación ASP.NET Core con Azure App Configuration
 
@@ -70,7 +70,7 @@ dotnet new mvc --no-https --output TestAppConfig
     ```
 
     > [!IMPORTANT]
-    > Algunos shells truncarán la cadena de conexión, salvo que esté entre comillas. Asegúrese de que la salida del comando `dotnet user-secrets` muestra toda la cadena de conexión. Si no lo hace, vuelva a ejecutar el comando y escriba la cadena de conexión entre comillas.
+    > Algunos shells truncarán la cadena de conexión, salvo que esté entre comillas. Asegúrese de que la salida del comando `dotnet user-secrets list` muestra toda la cadena de conexión. Si no lo hace, vuelva a ejecutar el comando y escriba la cadena de conexión entre comillas.
 
     Secret Manager solo se utiliza para probar la aplicación web localmente. Cuando la aplicación se implementa en [Azure App Service](https://azure.microsoft.com/services/app-service/web), usará el valor de la aplicación configuración de la aplicación **Cadenas de conexión** en App Service, en lugar de Administrador de secretos para almacenar la cadena de conexión.
 

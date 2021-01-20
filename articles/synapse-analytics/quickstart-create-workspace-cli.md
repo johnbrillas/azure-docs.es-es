@@ -9,12 +9,12 @@ ms.subservice: workspace
 ms.date: 08/25/2020
 ms.author: alehall
 ms.reviewer: jrasnick
-ms.openlocfilehash: 46ab1df1b776bf8dc9d6d917e5394c3efeec0de4
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 2658240e670e617f7296881f733ff369b9bf8f87
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94659393"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219052"
 ---
 # <a name="quickstart-create-an-azure-synapse-workspace-with-azure-cli"></a>Inicio rápido: Creación de un área de trabajo de Azure Synapse con la CLI de Azure
 
@@ -30,7 +30,7 @@ En este inicio rápido aprenderá a crear un área de trabajo de Synapse mediant
 - Una [cuenta de almacenamiento de Azure Data Lake Storage Gen2](../storage/common/storage-account-create.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
     > [!IMPORTANT]
-    > El área de trabajo de Azure Synapse debe poder leer y escribir en la cuenta de ADLS Gen2 seleccionada. Además, para cualquier cuenta de almacenamiento que vincule como cuenta de almacenamiento principal, debe haber habilitado el **espacio de nombres jerárquico** al crearla, como se describe en la sección [Creación de una cuenta de almacenamiento](https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal#create-a-storage-account). 
+    > El área de trabajo de Azure Synapse debe poder leer y escribir en la cuenta de ADLS Gen2 seleccionada. Además, para cualquier cuenta de almacenamiento que vincule como cuenta de almacenamiento principal, debe haber habilitado el **espacio de nombres jerárquico** al crearla, como se describe en la sección [Creación de una cuenta de almacenamiento](../storage/common/storage-account-create.md?tabs=azure-portal#create-a-storage-account). 
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 

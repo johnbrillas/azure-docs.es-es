@@ -13,12 +13,12 @@ ms.date: 09/24/2019
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
-ms.openlocfilehash: 766035490c96d42de33d0b27d976b8e56ba50993
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 2fbff2abeb454fe02aa4bd50615033b9a0b7f27b
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98017500"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178609"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>Inicio rápido: Inicio de sesión de los usuarios y llamada a Microsoft Graph API desde una aplicación de iOS o macOS
 
@@ -46,7 +46,7 @@ Este inicio rápido va dirigido a las aplicaciones de iOS y macOS. Algunos pasos
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-the-code-sample"></a>Opción 1: Registrar y configurar de modo automático la aplicación y, luego, descargar el código de ejemplo
 > #### <a name="step-1-register-your-application"></a>Paso 1: Registrar su aplicación
 > Registro de aplicaciones
-> 1. Vaya al nuevo panel de [Azure Portal: Registros de aplicaciones](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/IosQuickstartPage/sourceType/docs).
+> 1. Vaya a la experiencia de inicio rápido <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/IosQuickstartPage/sourceType/docs" target="_blank">Azure Portal: Registros de aplicaciones<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 > 1. Escriba un nombre para la aplicación y seleccione **Registrar**.
 > 1. Siga las instrucciones para descargar y configurar automáticamente la nueva aplicación con un solo clic.
 >

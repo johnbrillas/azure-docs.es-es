@@ -7,12 +7,12 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 11/04/2020
-ms.openlocfilehash: f71bcc1fd3b92a32a3e6d9fa056bae7131a663bd
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: b8f3a8e06bb27051417205c4dc3141948960bb00
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492614"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567806"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>Inicio rápido: Creación de un servidor de Azure Database for MySQL mediante Azure Portal
 
@@ -45,7 +45,7 @@ Se necesita una suscripción de Azure. Si no tiene una suscripción a Azure, cre
    Nombre de servidor | **mydemoserver** | Escriba un nombre único. El nombre del servidor solo puede contener letras minúsculas, números y el carácter de guion (-). Debe contener entre 3 y 63 caracteres.
    Origen de datos |**None** | Seleccione **None** para crear un servidor desde cero. Seleccione **Copia de seguridad** solo si va a restaurar a partir de una copia de seguridad geográfica de un servidor existente.
    Location |Su ubicación deseada | Seleccione una ubicación de la lista.
-   Versión | La versión principal más reciente| Use la versión principal más reciente. Consulte [todas las versiones admitidas](../postgresql/concepts-supported-versions.md).
+   Versión | La versión principal más reciente| Use la versión principal más reciente. Consulte [todas las versiones admitidas](concepts-supported-versions.md).
    Proceso y almacenamiento | Uso de los valores predeterminados| El plan de tarifa predeterminado es **De uso general** con **cuatro núcleos virtuales** y **100 GB** de almacenamiento. La retención de copias de seguridad se establece en **siete días** con opción de copia de seguridad con **redundancia geográfica**.<br/>Revise la página de [precios](https://azure.microsoft.com/pricing/details/mysql/) y actualice los valores predeterminados si es necesario.
    Nombre de usuario administrador | **mydemoadmin** | Escriba su nombre de usuario administrador del servidor. El nombre de usuario administrador no puede ser **azure_superuser**, **admin**, **administrator**, **root**, **guest** ni **public**.
    Contraseña | Una contraseña | Una contraseña nueva para el usuario administrador del servidor. La contraseña debe tener entre 8 y 128 caracteres de longitud y debe contener una combinación de letras mayúsculas o minúsculas, números y caracteres no alfanuméricos (!, $, #,%, etc.).

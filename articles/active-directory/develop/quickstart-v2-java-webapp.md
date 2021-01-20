@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/09/2019
 ms.author: sagonzal
 ms.custom: aaddev, scenarios:getting-started, languages:Java, devx-track-java
-ms.openlocfilehash: efd9730123f7427e97d5494d9790bff2a26c4c4e
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 91aa6c96c714bff26ea7e0df5b2b6971c68edec0
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98011856"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178576"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>Inicio rápido: Adición de inicio de sesión con Microsoft a una aplicación web de Java
 
@@ -38,7 +38,7 @@ Para ejecutar esta muestra, necesita:
 >
 > ### <a name="option-1-register-and-automatically-configure-your-app-and-then-download-the-code-sample"></a>Opción 1: Registrar y configurar de modo automático una aplicación y, luego, descargar el código de ejemplo
 >
-> 1. Vaya a la experiencia de inicio rápido [Azure Portal > **Registrar una aplicación**](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/JavaQuickstartPage/sourceType/docs).
+> 1. Vaya a la experiencia de inicio rápido <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/JavaQuickstartPage/sourceType/docs" target="_blank">Azure Portal: Registros de aplicaciones<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 > 1. Escriba un nombre para la aplicación y seleccione **Registrar**.
 > 1. Siga las instrucciones de la experiencia de inicio rápido del portal para descargar el código de aplicación configurado automáticamente.
 >

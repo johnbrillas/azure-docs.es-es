@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 11/09/2020
 ms.author: spelluru
 ms.custom: devx-track-js
-ms.openlocfilehash: aac3b6339c318c76e9b0c9abd0bc3778f2563a6f
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: a1afe4207ce3833f3bcb55bc7bc2e8e27f393f63
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498700"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98180003"
 ---
 # <a name="quickstart-service-bus-topics-and-subscriptions-with-nodejs-and-the-preview-azureservice-bus-package"></a>Inicio rápido: Uso de los temas y las suscripciones de Service Bus con Node.js y la versión preliminar del paquete azure/services-bus
 En este tutorial aprenderá a usar el paquete [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) de un programa de JavaScript para enviar mensajes a un tema de Service Bus y recibirlos de una suscripción de Service Bus a ese tema.
@@ -80,7 +80,7 @@ En el código de ejemplo siguiente se muestra cómo enviar un lote de mensajes a
                     await sender.sendMessages(batch);
     
                     // then, create a new batch 
-                    batch = await sender.createBatch();
+                    batch = await sender.createMessageBatch();
      
                     // now, add the message failed to be added to the previous batch to this batch
                     if (!batch.tryAddMessage(messages[i])) {

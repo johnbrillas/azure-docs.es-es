@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, devx-track-js
-ms.openlocfilehash: c9aa73767fcb9d57ada11f5830fec00b10eee812
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: bd750a05f34a18a1260226fb979a82cc620dfbfb
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98017347"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178286"
 ---
 # <a name="quickstart-add-sign-in-using-openid-connect-to-a-nodejs-web-app"></a>Inicio rápido: Incorporación del inicio de sesión mediante OpenID Connect a una aplicación web de Node.js
 
@@ -42,7 +42,7 @@ En este inicio rápido, descargará y ejecutará un código de ejemplo que muest
 1. Seleccione **Registrar** para crear la aplicación.
 1. En la página **Información general** de la aplicación, busque el valor de **Id. de aplicación (cliente)** y regístrelo para usarlo más tarde. Necesitará este valor para configurar la aplicación más adelante en este proyecto.
 1. En **Administrar**, seleccione **Autenticación**.
-1. Seleccione **Agregar una plataforma** > **Web** 
+1. Seleccione **Agregar una plataforma** > **Web**. 
 1. En la sección **URI de redirección**, escriba `http://localhost:3000/auth/openid/return`.
 1. Escriba en **URL de cierre de sesión** `https://localhost:3000`.
 1. En la sección Concesión implícita, marque **Tokens de id.** , ya que en este ejemplo es preciso que la opción [Flujo de concesión implícito](./v2-oauth2-implicit-grant-flow.md) esté habilitada para iniciar la sesión del usuario.

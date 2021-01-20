@@ -7,12 +7,12 @@ ms.author: askaur
 ms.date: 12/08/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: ea66e4295e8228aa382aa29a46fcca8147dcbc98
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 1ad6b7241c7167c6da8952e7db2797fa275b7246
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97578049"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251937"
 ---
 # <a name="quickstart-join-your-chat-app-to-a-teams-meeting"></a>Inicio rápido: Incorporación de una aplicación de chat a una reunión de Teams
 
@@ -29,11 +29,7 @@ Comience a usar Azure Communication Services mediante la conexión de la soluci�
 
 Cualquier usuario de Communication Services que se una a una reunión de Teams como invitado solo puede acceder al chat cuando se haya unido a la llamada de la reunión de Teams. Consulte la documentación de la [interoperabilidad de Teams](../voice-video-calling/get-started-teams-interop.md) para aprender a agregar un usuario de Communication Services a una llamada de reunión de Teams.
 
-La característica de interoperabilidad de Teams se encuentra actualmente en versión preliminar privada. Para habilitar esta característica para el recurso de Communication Services, envíe un correo electrónico a acsfeedback@microsoft.com que incluya: 
-1. El identificador de la suscripción de Azure que contiene el recurso de Communication Services. 
-2. El identificador de inquilino de Teams. La forma más fácil de conseguirlo es obtener y compartir un vínculo con la instancia de Teams. 
-
-Para usar esta característica debe ser miembro de la organización propietaria de ambas entidades. 
+Para usar esta característica debe ser miembro de la organización propietaria de ambas entidades.
 
 [!INCLUDE [Join Teams meetings](./includes/meeting-interop-javascript.md)]
 

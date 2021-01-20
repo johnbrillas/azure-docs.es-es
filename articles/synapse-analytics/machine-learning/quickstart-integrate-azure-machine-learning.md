@@ -9,12 +9,12 @@ ms.reviewer: jrasnick, garye
 ms.date: 09/25/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: a5d84b936679cdd5ebd5bec4938d6db7fcb641e7
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 800cbf9b7a7fa415452f29b253347188c8917c52
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96455509"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219460"
 ---
 # <a name="quickstart-create-a-new-azure-machine-learning-linked-service-in-synapse"></a>Inicio rápido: Creación de un servicio vinculado de Azure Machine Learning en Synapse
 
@@ -22,7 +22,7 @@ En este inicio rápido, vinculará un área de trabajo de Azure Synapse Analytic
 
 Por ejemplo, el vínculo a un área de trabajo de Azure Machine Learning permite estas experiencias:
 
-- Ejecutar canalizaciones de Azure Machine Learning como un paso en las canalizaciones de Synapse. Para más información, consulte [Ejecución de canalizaciones de Azure Machine Learning](/azure/data-factory/transform-data-machine-learning-service).
+- Ejecutar canalizaciones de Azure Machine Learning como un paso en las canalizaciones de Synapse. Para más información, consulte [Ejecución de canalizaciones de Azure Machine Learning](../../data-factory/transform-data-machine-learning-service.md).
 
 - Enriquecer sus datos con predicciones mediante la incorporación de un modelo de Machine Learning del registro de modelos de Azure Machine Learning y puntuar el modelo en grupos de Synapse SQL. Para más información, consulte [Tutorial: Asistente para puntuación de modelos de Machine Learning en grupos de Synapse SQL](tutorial-sql-pool-model-scoring-wizard.md).
 
@@ -30,7 +30,7 @@ Por ejemplo, el vínculo a un área de trabajo de Azure Machine Learning permite
 
 - Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/).
 - Un [área de trabajo de Synapse Analytics](../get-started-create-workspace.md) con una cuenta de almacenamiento de ADLS Gen2 configurada como el almacenamiento predeterminado. Debe ser el **Colaborador de datos de blobs de almacenamiento** del sistema de archivos de ADLS Gen2 con el que quiere trabajar.
-- [Un área de trabajo de Azure Machine Learning](/azure/machine-learning/how-to-manage-workspace).
+- [Un área de trabajo de Azure Machine Learning](../../machine-learning/how-to-manage-workspace.md).
 - Necesita permisos (o una solicitud de alguien que tenga permisos) para crear una entidad de servicio y un secreto que puede usar para crear el servicio vinculado. Tenga en cuenta que esta entidad de servicio debe tener asignado el rol de colaborador en el área de trabajo de Azure Machine Learning.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal

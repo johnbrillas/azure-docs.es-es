@@ -11,12 +11,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/05/2020
 ms.author: kumud
-ms.openlocfilehash: dfeb9c6bc3dbe33881fc51ccb08a776b827dfe9c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: cc3ba3a0519400368e0cbfec7abe2d9bd1731b34
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86082444"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98217641"
 ---
 # <a name="quickstart-create-a-virtual-network-using-the-azure-portal"></a>Inicio rápido: Creación de una red virtual mediante el Portal de Azure
 
@@ -38,14 +38,14 @@ Inicie sesión en [Azure Portal](https://portal.azure.com).
 
     | Configuración | Value |
     | ------- | ----- |
-    | Suscripción | Seleccione su suscripción.|
+    | Subscription | Seleccione su suscripción.|
     | Resource group | Seleccione **Crear nuevo**, escriba *myResourceGroup* y, después, seleccione **Aceptar**. |
     | Nombre | Escriba *myVirtualNetwork*. |
     | Location | Seleccione **Este de EE. UU**.|
 
 1. Seleccione **Siguiente: Direcciones IP** y, para el **espacio de direcciones IPv4**, escriba *10.1.0.0/16*.
 
-1. Seleccione **Agregar subred** y, a continuación, escriba *myVirtualSubnet* para el **nombre de subred** y *10.1.0.0/24*para**Intervalo de direcciones de subred**.
+1. Seleccione **Agregar subred** y, a continuación, escriba *myVirtualSubnet* para el **nombre de subred** y *10.1.0.0/24* para **Intervalo de direcciones de subred**.
 
 1. Seleccione **Agregar** y, después, **Revisar y crear**. Deje el resto tal como está y seleccione **Crear**.
 
@@ -66,7 +66,7 @@ Cree dos máquinas virtuales en la red virtual:
     | Configuración | Value |
     | ------- | ----- |
     | **Detalles del proyecto** | |
-    | Suscripción | Seleccione su suscripción. |
+    | Subscription | Seleccione su suscripción. |
     | Resource group | Seleccione **myResourceGroup**. Ha creado este grupo de recursos en la sección anterior. |
     | **Detalles de instancia** |  |
     | Nombre de la máquina virtual | Escriba *myVm1*. |
@@ -225,4 +225,4 @@ Para más información sobre la configuración de red virtual, consulte [Crear, 
 De forma predeterminada, Azure permite una comunicación segura entre las máquinas virtuales. Azure solo permite conexiones de Escritorio remoto entrantes a las máquinas virtuales Windows desde Internet. Para más información sobre los tipos de comunicaciones de red de máquinas virtuales, consulte el artículo sobre el [filtrado del tráfico de red](tutorial-filter-network-traffic.md).
 
 > [!NOTE] 
-> Los servicios de Azure cuestan dinero. Azure Cost Management le ayuda a establecer presupuestos y a configurar alertas para mantener el gasto bajo control. Analice, administre y optimice sus costos de Azure con Cost Management. Para obtener más información, consulte el [inicio rápido sobre el análisis de los costos](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+> Los servicios de Azure cuestan dinero. Azure Cost Management le ayuda a establecer presupuestos y a configurar alertas para mantener el gasto bajo control. Analice, administre y optimice sus costos de Azure con Cost Management. Para obtener más información, consulte el [inicio rápido sobre el análisis de los costos](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).

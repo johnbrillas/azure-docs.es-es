@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: e75bab664bdd0d6a4ac898905226c9956f62b4ff
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: ffa9e7b5685f9a200f6a403045687626f67f66f4
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96450512"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98218304"
 ---
 # <a name="quickstart-use-serverless-sql-pool"></a>Inicio rápido: Uso de grupos de SQL sin servidor
 
@@ -26,7 +26,7 @@ Este inicio rápido muestra cómo realizar consultas en: archivos CSV, Apache Pa
 
 Elija un cliente SQL para emitir consultas:
 
-- [Azure Synapse Studio](quickstart-synapse-studio.md) es una herramienta web que se puede usar para examinar archivos en el almacenamiento y crear consultas SQL.
+- [Azure Synapse Studio](./get-started-create-workspace.md) es una herramienta web que se puede usar para examinar archivos en el almacenamiento y crear consultas SQL.
 - [Azure Data Studio](sql/get-started-azure-data-studio.md) es una herramienta de cliente que permite ejecutar consultas SQL y cuadernos en la base de datos a petición.
 - [SQL Server Management Studio](sql/get-started-ssms.md) es una herramienta de cliente que permite ejecutar consultas SQL en la base de datos a petición.
 

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 06/23/2020
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: c9e9ea2e59537a1c0c8e372a766fba3aa9a1b9a0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: bc0ac1a6e882f4197828bf79c7989c16b2eb16f7
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88122163"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98217675"
 ---
 # <a name="quickstart-create-a-virtual-network---resource-manager-template"></a>Inicio rápido: Creación de una red virtual: plantilla de Resource Manager
 
@@ -36,8 +36,8 @@ La plantilla usada en este inicio rápido forma parte de las [plantillas de inic
 :::code language="json" source="~/quickstart-templates/101-vnet-two-subnets/azuredeploy.json" range="001-96" highlight="56-92":::
 
 En la plantilla se han definido los siguientes recursos de Azure:
-- [**Microsoft.Network/virtualNetworks**](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks): cree una red virtual de Azure.
--  [**Microsoft.Network/virtualNetworks/subnets**](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks/subnets): cree una subred.
+- [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks): cree una red virtual de Azure.
+-  [**Microsoft.Network/virtualNetworks/subnets**](/azure/templates/microsoft.network/virtualnetworks/subnets): cree una subred.
 
 ## <a name="deploy-the-template"></a>Implementación de la plantilla
 
@@ -56,7 +56,7 @@ Implementación de la plantilla de Resource Manager en Azure:
 
 Explore los recursos que se crearon con la red virtual.
 
-Para obtener información sobre la sintaxis y las propiedades de JSON de una red virtual en una plantilla, consulte [Microsoft.Network/virtualNetworks](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks).
+Para obtener información sobre la sintaxis y las propiedades de JSON de una red virtual en una plantilla, consulte [Microsoft.Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks).
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

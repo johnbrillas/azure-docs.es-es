@@ -3,14 +3,14 @@ title: 'Inicio rápido: Implementación de un clúster de AKS mediante PowerShel
 description: Aprenda a crear rápidamente un clúster de Kubernetes, implementar una aplicación y supervisar el rendimiento en Azure Kubernetes Service (AKS) mediante PowerShell.
 services: container-service
 ms.topic: quickstart
-ms.date: 09/11/2020
+ms.date: 01/13/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e5abcf9bfbf661abf5212d94d849d27c25fe9a8d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 41412a4ec95bb9b89df5fded6962965594e823fc
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91461060"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98248520"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-cluster-using-powershell"></a>Inicio rápido: Implementación de un clúster de Azure Kubernetes Service mediante PowerShell
 
@@ -66,7 +66,7 @@ Use el cmdlet [New-AzAks][new-azaks] para crear un clúster de AKS. En el siguie
 > Al crear un clúster de AKS, se crea automáticamente un segundo grupo de recursos para almacenar los recursos de AKS. Para más información, consulte [¿Por qué se crean dos grupos de recursos con AKS?](./faq.md#why-are-two-resource-groups-created-with-aks)
 
 ```azurepowershell-interactive
-New-AzAks -ResourceGroupName myResourceGroup -Name myAKSCluster -NodeCount 1
+New-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster -NodeCount 1
 ```
 
 Transcurridos unos minutos, el comando se completa y devuelve información en formato JSON sobre el clúster.

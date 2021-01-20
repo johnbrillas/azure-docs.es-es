@@ -9,12 +9,12 @@ ms.subservice: business-intelligence
 ms.date: 10/27/2020
 ms.author: jocaplan
 ms.reviewer: jrasnick
-ms.openlocfilehash: 996233e2526b8b69c13abd4340ead4c5e2175916
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 9c63e5e24495f373f288d2789780a6c671a7cc24
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96450670"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98218406"
 ---
 # <a name="quickstart-linking-a-power-bi-workspace-to-a-synapse-workspace"></a>Inicio rápido: Vinculación de un área de trabajo de Power BI a un área de trabajo de Synapse
 
@@ -25,7 +25,7 @@ Si no tiene una suscripción a Azure, [cree una cuenta gratuita antes de empezar
 ## <a name="prerequisites"></a>Requisitos previos
 
 - [Creación de un área de trabajo de Azure Synapse y una cuenta de almacenamiento asociada](quickstart-create-workspace.md).
-- [Un área de trabajo de Power BI Professional o Premium](https://docs.microsoft.com/power-bi/service-create-the-new-workspaces).
+- [Un área de trabajo de Power BI Professional o Premium](/power-bi/service-create-the-new-workspaces).
 
 ## <a name="link-power-bi-workspace-to-your-synapse-workspace"></a>Vinculación de un área de trabajo de Power BI a su área de trabajo de Synapse
 

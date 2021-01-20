@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, contperf-fy21q1
-ms.openlocfilehash: 11c479c6cc8f330a2b3b1edd25bad39321d6ed1c
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: dbddf35b0aa1494ef719803fa84cafae04f3ec50
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98017551"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178592"
 ---
 # <a name="quickstart-add-microsoft-identity-platform-sign-in-to-an-aspnet-web-app"></a>Inicio rápido: Adición del inicio de sesión de la plataforma de identidad de Microsoft a una aplicación web de ASP.NET
 
@@ -38,7 +38,7 @@ Para ilustrar este tema, consulte el apartado en el que se explica el [funcionam
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opción 1: registrar y configurar de modo automático la aplicación y, a continuación, descargar el código de ejemplo
 >
-> 1. Vaya al nuevo panel de [Azure Portal: Registros de aplicaciones](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs).
+> 1. Vaya a la experiencia de inicio rápido <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs" target="_blank">Azure Portal: Registros de aplicaciones<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 > 1. Escriba un nombre para la aplicación y seleccione **Registrar**.
 > 1. Siga las instrucciones para descargar y configurar automáticamente la nueva aplicación en un solo clic.
 >
@@ -53,7 +53,7 @@ Para ilustrar este tema, consulte el apartado en el que se explica el [funcionam
 > 1. En **Administrar**, seleccione **Registros de aplicaciones** >  y, luego, **Nuevo registro**.
 > 1. Escriba el **Nombre** de la aplicación, por ejemplo `ASPNET-Quickstart`. Los usuarios de la aplicación pueden ver este nombre, el cual se puede cambiar más tarde.
 > 1. En **URI de redirección**, agregue `https://localhost:44368/` y seleccione **Registrar**.
-> 1. En el panel de navegación izquierdo, en la sección Administrar, seleccione **Autenticación**
+> 1. En **Administrar**, seleccione **Autenticación**.
 > 1. En la subsección **Concesión implícita** , seleccione **Tokens de id**.
 > 1. Seleccione **Guardar**.
 

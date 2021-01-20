@@ -2,13 +2,13 @@
 title: '¿Qué es Azure Event Hubs? : un servicio de ingesta de macrodatos | Microsoft Docs'
 description: Obtenga más información sobre Azure Event Hubs, un servicio de streaming de macrodatos que ingiere millones de eventos por segundo.
 ms.topic: overview
-ms.date: 06/23/2020
-ms.openlocfilehash: b0124f023eab6638c986beb2305b1c4c375b47ee
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.date: 01/13/2021
+ms.openlocfilehash: 36eeb38d9ed1696c9524ae9b346065756ce49c46
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97954352"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195776"
 ---
 # <a name="azure-event-hubs--a-big-data-streaming-platform-and-event-ingestion-service"></a>Azure Event Hubs: una plataforma de streaming de macrodatos y un servicio de ingesta de eventos
 Azure Event Hubs es una plataforma de streaming de macrodatos y un servicio de ingesta de eventos. Puede recibir y procesar millones de eventos por segundo. Los datos enviados a un centro de eventos se pueden transformar y almacenar con cualquier proveedor de análisis en tiempo real o adaptadores de procesamiento por lotes y almacenamiento.
@@ -66,7 +66,7 @@ Event Hubs contiene los siguientes [componentes clave](event-hubs-features.md):
 
 La siguiente ilustración muestra la arquitectura de procesamiento del flujo de Event Hubs:
 
-![Event Hubs](./media/event-hubs-about/event_hubs_architecture.png)
+![Event Hubs](./media/event-hubs-about/event_hubs_architecture.svg)
 
 ## <a name="event-hubs-on-azure-stack-hub"></a>Event Hubs en Azure Stack Hub
 Event Hubs en Azure Stack Hub permite desarrollar escenarios de nube híbrida. Se admiten las soluciones de streaming y basadas en eventos, tanto en el procesamiento local como en la nube de Azure. Tanto si el escenario es híbrido (con conexión) como sin conexión, la solución puede admitir el procesamiento de eventos o secuencias a gran escala. El escenario solo está limitado por el tamaño del clúster de Event Hubs, que puede aprovisionar según sus necesidades. 

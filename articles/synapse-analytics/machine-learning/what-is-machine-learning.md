@@ -9,12 +9,12 @@ ms.reviewer: jrasnick, garye
 ms.date: 09/25/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: 906d3d28aabf8f6ecd6e04c38b4519937fa95c2b
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 68b113de63cfefde805c1c46e9303829c4eb33a7
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97092166"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222146"
 ---
 # <a name="machine-learning-capabilities-in-azure-synapse-analytics"></a>Funcionalidades de Machine Learning en Azure Synapse Analytics
 
@@ -40,7 +40,7 @@ La mayoría de los proyectos de aprendizaje automático implican pasos bien esta
 
 #### <a name="data-source-and-pipelines"></a>Origen de datos y canalizaciones
 
-Gracias a [Azure Data Factory](/azure/data-factory/introduction), una parte integrada de forma nativa de Azure Synapse, hay un conjunto eficaz de herramientas disponibles para las canalizaciones de ingesta de datos y de orquestación de datos. Esto le permite crear fácilmente canalizaciones de datos para acceder a los datos y transformarlos a un formato que se pueda consumir para el aprendizaje automático. [Obtenga más información sobre las canalizaciones de datos](/azure/data-factory/concepts-pipelines-activities?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) en Synapse. 
+Gracias a [Azure Data Factory](../../data-factory/introduction.md), una parte integrada de forma nativa de Azure Synapse, hay un conjunto eficaz de herramientas disponibles para las canalizaciones de ingesta de datos y de orquestación de datos. Esto le permite crear fácilmente canalizaciones de datos para acceder a los datos y transformarlos a un formato que se pueda consumir para el aprendizaje automático. [Obtenga más información sobre las canalizaciones de datos](../../data-factory/concepts-pipelines-activities.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json) en Synapse. 
 
 #### <a name="data-preparation-and-explorationvisualization"></a>Preparación de datos y su exploración o visualización
 
@@ -64,13 +64,13 @@ Además de MLlib, también se pueden usar bibliotecas populares, como [Scikit Le
 
 #### <a name="train-models-with-azure-machine-learning-automated-ml"></a>Entrenamiento de modelos con aprendizaje automático automatizado de Azure Machine Learning
 
-Otra manera de entrenar modelos de Machine Learning, que no requiere estar muy familiarizado con el aprendizaje automático, es usar ML automatizado. [ML automatizado](/azure/machine-learning/concept-automated-ml) es una característica que entrena automáticamente un conjunto de modelos de Machine Learning y permite al usuario seleccionar el mejor modelo en función de métricas específicas. Gracias a una perfecta integración con Azure Machine Learning de los cuadernos de Azure Synapse, los usuarios pueden usar fácilmente ML automatizado en Synapse con la autenticación de paso a través de Azure Active Directory.  Esto significa que solo tiene que apuntar a su área de trabajo de Azure Machine Learning y no es necesario que escriba ninguna credencial. Este es un [tutorial de ML automatizado](../spark/apache-spark-azure-machine-learning-tutorial.md) que describe cómo entrenar modelos con ML automatizado de Azure Machine Learning en grupos de Spark de Synapse.
+Otra manera de entrenar modelos de Machine Learning, que no requiere estar muy familiarizado con el aprendizaje automático, es usar ML automatizado. [ML automatizado](../../machine-learning/concept-automated-ml.md) es una característica que entrena automáticamente un conjunto de modelos de Machine Learning y permite al usuario seleccionar el mejor modelo en función de métricas específicas. Gracias a una perfecta integración con Azure Machine Learning de los cuadernos de Azure Synapse, los usuarios pueden usar fácilmente ML automatizado en Synapse con la autenticación de paso a través de Azure Active Directory.  Esto significa que solo tiene que apuntar a su área de trabajo de Azure Machine Learning y no es necesario que escriba ninguna credencial. Este es un [tutorial de ML automatizado](../spark/apache-spark-azure-machine-learning-tutorial.md) que describe cómo entrenar modelos con ML automatizado de Azure Machine Learning en grupos de Spark de Synapse.
 
 ### <a name="model-deployment-and-scoring"></a>Implementación y puntuación de modelos
 
 Los modelos entrenados tanto en Azure Synapse como fuera de Azure Synapse se pueden usar fácilmente para la puntuación por lotes. Actualmente en Synapse, hay dos maneras en las que puede ejecutar la puntuación por lotes.
 
-* Puede usar la [función TSQL PREDICT](../sql-data-warehouse/sql-data-warehouse-predict.md) en grupos de Synapse SQL para ejecutar sus predicciones donde residen los datos. Esta función eficaz y escalable le permite enriquecer sus datos sin moverlos fuera de su almacenamiento de datos. Se introdujo una nueva [experiencia guiada de modelo de Machine Learning en Synapse Studio](https://aka.ms/synapse-ml-ui), donde puede implementar un modelo de ONNX desde el registro de modelos de Azure Machine Learning en grupos de Synapse SQL para la puntuación por lotes con PREDICT.
+* Puede usar la [función TSQL PREDICT](../sql-data-warehouse/sql-data-warehouse-predict.md) en grupos de Synapse SQL para ejecutar sus predicciones donde residen los datos. Esta función eficaz y escalable le permite enriquecer sus datos sin moverlos fuera de su almacenamiento de datos. Se introdujo una nueva [experiencia guiada de modelo de Machine Learning en Synapse Studio](./tutorial-sql-pool-model-scoring-wizard.md), donde puede implementar un modelo de ONNX desde el registro de modelos de Azure Machine Learning en grupos de Synapse SQL para la puntuación por lotes con PREDICT.
 
 * Otra opción para los modelos de Machine Learning de puntuación por lotes en Azure Synapse es aprovechar los grupos de Apache Spark para Azure Synapse. En función de las bibliotecas usadas para entrenar los modelos, puede usar una experiencia de código para ejecutar la puntuación por lotes.
 

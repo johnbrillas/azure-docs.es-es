@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/03/2020
 ms.author: kumud
-ms.openlocfilehash: 11651b7a76ea0e61f78f3b2f305e39ed621df391
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: e1efd02d60ba874178f24da2b441fc122e4a1912
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109324"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98218541"
 ---
 # <a name="what-is-azure-virtual-network"></a>¿Qué es Azure Virtual Network?
 
@@ -31,7 +31,7 @@ Una red virtual de Azure permite que los recursos de Azure se comuniquen de form
 De manera predeterminada, todos los recursos de una red virtual tienen comunicación de salida hacia Internet. Para comunicarse con un recurso entrante, asígnele una dirección IP pública o un equilibrador de carga público. También puede usar la dirección IP pública o el equilibrador de carga público para administrar las conexiones salientes.  Para más información sobre las conexiones salientes en Azure, consulte [Conexiones salientes](../load-balancer/load-balancer-outbound-connections.md), [Direcciones IP públicas](virtual-network-public-ip-address.md) y [Equilibrador de carga](../load-balancer/load-balancer-overview.md).
 
 >[!NOTE]
->Cuando se usa solo una instancia interna de [Standard Load Balancer](../load-balancer/load-balancer-standard-overview.md), la conectividad de salida no está disponible hasta que define cómo desea que las [conexiones salientes](../load-balancer/load-balancer-outbound-connections.md) trabajen con una dirección IP pública o un equilibrador de carga público en el nivel de instancia.
+>Cuando se usa solo una instancia interna de [Standard Load Balancer](../load-balancer/load-balancer-overview.md), la conectividad de salida no está disponible hasta que define cómo desea que las [conexiones salientes](../load-balancer/load-balancer-outbound-connections.md) trabajen con una dirección IP pública o un equilibrador de carga público en el nivel de instancia.
 
 ### <a name="communicate-between-azure-resources"></a>Comunicación entre recursos de Azure
 
@@ -53,7 +53,7 @@ Puede conectar sus equipos y redes local a una red virtual mediante cualquier co
 
 Puede filtrar el tráfico de red entre subredes mediante una o ambas de las siguientes opciones:
 
-- **Grupos de seguridad de red:** los grupos de seguridad de red y los grupos de seguridad de aplicaciones pueden contener varias reglas de seguridad de entrada y salida que le permiten filtrar el tráfico que llega y sale de los recursos por dirección IP, puerto y protocolo de origen y destino. Para más información, vea [grupos de seguridad de red](security-overview.md#network-security-groups) y [grupos de seguridad de aplicaciones](security-overview.md#application-security-groups).
+- **Grupos de seguridad de red:** los grupos de seguridad de red y los grupos de seguridad de aplicaciones pueden contener varias reglas de seguridad de entrada y salida que le permiten filtrar el tráfico que llega y sale de los recursos por dirección IP, puerto y protocolo de origen y destino. Para más información, vea [grupos de seguridad de red](./network-security-groups-overview.md#network-security-groups) y [grupos de seguridad de aplicaciones](./network-security-groups-overview.md#application-security-groups).
 - **Aplicaciones virtuales de red**: una aplicación de red virtual es una máquina virtual que ejecuta una función de red, como un firewall, la optimización de WAN u otra función de red. Para ver una lista de las aplicaciones virtuales de red que se pueden implementar en una red virtual, consulte [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances).
 
 ### <a name="route-network-traffic"></a>Enrutado del tráfico de red

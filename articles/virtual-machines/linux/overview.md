@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 54982189a5da584c7daf66855ffb655e403a455a
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: a2145c217c19e80c2ca70880e0f9b01ae2ba140e
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500519"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202579"
 ---
 # <a name="linux-virtual-machines-in-azure"></a>Máquinas virtuales Linux en Azure
 
@@ -50,7 +50,7 @@ En esta tabla se muestran algunas de las formas en que puede obtener una lista d
 | Azure portal |Seleccione una ubicación en la lista cuando cree una máquina virtual. |
 | Azure PowerShell |Use el comando [Get-AzLocation](/powershell/module/az.resources/get-azlocation). |
 | API DE REST |Use la operación para [mostrar la lista de ubicaciones](/rest/api/resources/subscriptions). |
-| Azure CLI |Use la operación[az account list-locations](/cli/azure/account?view=azure-cli-latest). |
+| Azure CLI |Use la operación[az account list-locations](/cli/azure/account). |
 
 ### <a name="singapore-data-residency"></a>Residencia de datos en Singapur
 
@@ -60,7 +60,7 @@ En Azure, la característica que permite almacenar los datos de clientes en una 
 Azure anunció un Acuerdo de Nivel de Servicio líder de la industria de máquinas virtuales de una sola instancia del 99,9 % siempre y cuando la máquina virtual se implemente con Premium Storage en todos los discos.  Para que su implementación pueda optar al Acuerdo de Nivel de Servicio estándar de máquina virtual del 99,95 %, debe implementar dos o más máquinas virtuales que ejecuten la carga de trabajo dentro de un conjunto de disponibilidad. Un conjunto de disponibilidad garantiza que las máquinas virtuales se distribuyen en varios dominios de error de los centros de datos de Azure y que se implementan en hosts con diferentes ventanas de mantenimiento. En el [SLA de Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) completo se explica la disponibilidad garantizada de Azure como un conjunto.
 
 ## <a name="vm-size"></a>Tamaño de VM
-El [tamaño](../sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) de la máquina virtual que use depende de la carga de trabajo que vaya a ejecutar. El tamaño que elija determina factores tales como la capacidad de almacenamiento, la memoria y la capacidad de procesamiento. Azure ofrece una amplia variedad de tamaños para admitir muchos tipos de usos.
+El [tamaño](../sizes.md) de la máquina virtual que use depende de la carga de trabajo que vaya a ejecutar. El tamaño que elija determina factores tales como la capacidad de almacenamiento, la memoria y la capacidad de procesamiento. Azure ofrece una amplia variedad de tamaños para admitir muchos tipos de usos.
 
 Azure cobra un [precio por hora](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) en función del tamaño y el sistema operativo de la máquina virtual. Para las fracciones de hora, solo cobra los minutos usados. El precio del almacenamiento se calcula y se cobra por separado.
 
