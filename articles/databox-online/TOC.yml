@@ -397,6 +397,11 @@
   items:
     - name: Línea de base de seguridad
       href: security-baseline.md
+- name: Referencias
+  items:
+    - name: Elementos integrados de Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Recursos
   items:
     - name: "Ejemplos del módulo de\_C# de Azure Stack Edge Pro (.NET)"
