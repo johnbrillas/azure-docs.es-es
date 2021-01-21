@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 10/02/2020
-ms.openlocfilehash: 15708e35fa27bb4a1f72368df6f49ff747eb799b
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 36781e7f975ee9d4a03cf899650701bf2d3940ac
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97739797"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98555957"
 ---
 # <a name="register-and-scan-an-azure-sql-database"></a>Registro y examen de una instancia de Azure SQL Database
 
@@ -28,7 +28,7 @@ El origen de datos de Azure SQL Database admite la funcionalidad siguiente:
 
 ### <a name="known-limitations"></a>Restricciones conocidas
 
-Azure Purview no admite el examen de [vistas](https://docs.microsoft.com/sql/relational-databases/views/views?view=sql-server-ver15&preserve-view=true) en Azure SQL Database. 
+Azure Purview no admite el examen de [vistas](/sql/relational-databases/views/views?view=azuresqldb-current&preserve-view=true) en Azure SQL Database.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -50,7 +50,7 @@ Autenticación para examinar Azure SQL Database. Si necesita crear una autentica
 > [!Note]
 > Solo pueden crear inicios de sesión el inicio de sesión de entidad de seguridad a nivel de servidor (creado por el proceso de aprovisionamiento) o los miembros del rol de base de datos `loginmanager` en la base de datos maestra. Unos **15 minutos** después de conceder el permiso, la cuenta de Purview debería tener los permisos adecuados para poder examinar los recursos.
 
-Puede seguir las instrucciones de [CREAR INICIO DE SESIÓN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current&preserve-view=true#examples-1) para crear un inicio de sesión de Azure SQL Database si aún no tiene uno. En los pasos siguientes necesitará un **nombre de usuario** y una **contraseña**.
+Puede seguir las instrucciones de [CREAR INICIO DE SESIÓN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current&preserve-view=true#examples-1) para crear un inicio de sesión de Azure SQL Database si aún no tiene uno. En los pasos siguientes necesitará un **nombre de usuario** y una **contraseña**.
 
 1. Vaya al almacén de claves en Azure Portal.
 1. Seleccione **Configuración > Secretos**.
@@ -100,7 +100,7 @@ La entidad de servicio o la identidad administrada debe tener permiso para obten
     ```
 
     > [!Note]
-    > `Username` es la entidad de servicio propia o la identidad administrada de Purview. Puede leer más información sobre [roles fijos de base de datos y sus funcionalidades](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/database-level-roles?view=sql-server-ver15&preserve-view=true#fixed-database-roles).
+    > `Username` es la entidad de servicio propia o la identidad administrada de Purview. Puede leer más información sobre [roles fijos de base de datos y sus funcionalidades](/sql/relational-databases/security/authentication-access/database-level-roles?view=sql-server-ver15&preserve-view=true#fixed-database-roles).
     
 ##### <a name="add-service-principal-to-key-vault-and-purviews-credential"></a>Incorporación de la entidad de servicio al almacén de claves y la credencial de Purview
 

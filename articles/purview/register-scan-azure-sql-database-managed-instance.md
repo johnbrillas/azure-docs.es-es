@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: 6eb17537fd64b192f64c36b38bab57e11d751328
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 3513ba0cd1a894b55da604d54964affa79b6adf4
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400784"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98555974"
 ---
 # <a name="register-and-scan-an-azure-sql-database-managed-instance"></a>Registro y examen de una Instancia administrada de Azure SQL Database
 
@@ -28,19 +28,19 @@ El origen de datos de la Instancia administrada de Azure SQL Database admite la 
 
 ### <a name="known-limitations"></a>Restricciones conocidas
 
-Azure Purview no admite el examen de [vistas](https://docs.microsoft.com/sql/relational-databases/views/views?view=sql-server-ver15) en la Instancia administrada Azure SQL.
+Azure Purview no admite el examen de [vistas](/sql/relational-databases/views/views?view=azuresqldb-mi-current&preserve-view=true) en la Instancia administrada Azure SQL.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
 - Cree una cuenta de Purview si aún no tiene una.
 
-- [Configuración de un punto de conexión público en Instancia administrada de Azure SQL](https://docs.microsoft.com/azure/azure-sql/managed-instance/public-endpoint-configure)
+- [Configuración de un punto de conexión público en Instancia administrada de Azure SQL](/azure/azure-sql/managed-instance/public-endpoint-configure)
     > [!Note]
     > La organización debe poder permitir el punto de conexión público, ya que en Purview el **punto de conexión privado todavía no se admite**. Si usa un punto de conexión privado, el examen no se realizará correctamente.
 
 ### <a name="setting-up-authentication-for-a-scan"></a>Configuración de la autenticación para un examen
 
-Autenticación para examinar una Instancia administrada de Azure SQL Database. Si necesita crear una autenticación, debe [autorizar el acceso a la base de datos a la Instancia administrada de SQL Database](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage). A día de hoy, Purview admite tres métodos de autenticación:
+Autenticación para examinar una Instancia administrada de Azure SQL Database. Si necesita crear una autenticación, debe [autorizar el acceso a la base de datos a la Instancia administrada de SQL Database](/azure/azure-sql/database/logins-create-manage). A día de hoy, Purview admite tres métodos de autenticación:
 
 - Autenticación SQL
 - Entidad de servicio
@@ -51,7 +51,7 @@ Autenticación para examinar una Instancia administrada de Azure SQL Database. S
 > [!Note]
 > Solo pueden crear inicios de sesión el inicio de sesión de entidad de seguridad a nivel de servidor (creado por el proceso de aprovisionamiento) o los miembros del rol de base de datos `loginmanager` en la base de datos maestra. Unos **15 minutos** después de conceder el permiso, la cuenta de Purview debería tener los permisos adecuados para poder examinar los recursos.
 
-Puede seguir las instrucciones de [CREAR INICIO DE SESIÓN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current&preserve-view=true#examples-1) para crear un inicio de sesión de Instancia administrada de Azure SQL Database si aún no tiene uno. En los pasos siguientes necesitará un **nombre de usuario** y una **contraseña**.
+Puede seguir las instrucciones de [CREAR INICIO DE SESIÓN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current&preserve-view=true#examples-1) para crear un inicio de sesión de Instancia administrada de Azure SQL Database si aún no tiene uno. En los pasos siguientes necesitará un **nombre de usuario** y una **contraseña**.
 
 1. Vaya al almacén de claves en Azure Portal.
 1. Seleccione **Configuración > Secretos**.
@@ -85,8 +85,8 @@ Puede usar una entidad de servicio existente o crear una.
 ##### <a name="configure-azure-ad-authentication-in-the-database-account"></a>Configuración de la autenticación de Azure AD en la cuenta de la base de datos
 
 La entidad de servicio o la identidad administrada debe tener permiso para obtener los metadatos de la base de datos, los esquemas y las tablas. También debe ser capaz de consultar las tablas para realizar el muestreo para la clasificación.
-- [Configuración y administración de la autenticación de Azure AD con Azure SQL](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure)
-- Cree un usuario de Azure AD en Instancia administrada de Azure SQL Database según los requisitos previos y el tutorial sobre la [Creación de usuarios independientes asignados a identidades de Azure AD](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure?tabs=azure-powershell#create-contained-users-mapped-to-azure-ad-identities).
+- [Configuración y administración de la autenticación de Azure AD con Azure SQL](/azure/azure-sql/database/authentication-aad-configure)
+- Cree un usuario de Azure AD en Instancia administrada de Azure SQL Database según los requisitos previos y el tutorial sobre la [Creación de usuarios independientes asignados a identidades de Azure AD](/azure/azure-sql/database/authentication-aad-configure?tabs=azure-powershell#create-contained-users-mapped-to-azure-ad-identities).
 - Asigne el permiso `db_owner` (**recomendado**) a la identidad.
 
 ##### <a name="add-service-principal-to-key-vault-and-purviews-credential"></a>Incorporación de la entidad de servicio al almacén de claves y la credencial de Purview

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/13/2020
 ms.author: kumud
-ms.openlocfilehash: d630a41f9b83a852605ffad2a85ad6dd14bbac73
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e047f46e110e1f7b1d544545c80bd1097ae65167
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86079656"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98221925"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>Tutorial: Enrutamiento del tráfico de red con una tabla de rutas mediante Azure Portal
 
@@ -189,7 +189,7 @@ A continuación, active el reenvío IP para la nueva máquina virtual NVA, *myVm
 
 1. En la barra de menús de la interfaz de red, seleccione **Configuraciones de IP**.
 
-1. En la página **Configuraciones de IP**, establezca **Reenvío IP**en **Habilitado** y seleccione **Guardar**.
+1. En la página **Configuraciones de IP**, establezca **Reenvío IP** en **Habilitado** y seleccione **Guardar**.
 
     ![Habilitar reenvío IP, configuraciones de IP, interfaz de red, dispositivo virtual de red (NVA), máquina virtual, Azure Portal](./media/tutorial-create-route-table-portal/enable-ip-forwarding.png)
 
@@ -361,4 +361,4 @@ Aunque puede implementar muchos recursos de Azure en una red virtual, Azure no p
 > [Restringir el acceso de red a los recursos de PaaS](tutorial-restrict-network-access-to-resources.md)
 
 > [!NOTE] 
-> Los servicios de Azure cuestan dinero. Azure Cost Management le ayuda a establecer presupuestos y a configurar alertas para mantener el gasto bajo control. Analice, administre y optimice sus costos de Azure con Cost Management. Para obtener más información, consulte el [inicio rápido sobre el análisis de los costos](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+> Los servicios de Azure cuestan dinero. Azure Cost Management le ayuda a establecer presupuestos y a configurar alertas para mantener el gasto bajo control. Analice, administre y optimice sus costos de Azure con Cost Management. Para obtener más información, consulte el [inicio rápido sobre el análisis de los costos](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).

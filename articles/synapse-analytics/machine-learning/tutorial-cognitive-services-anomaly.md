@@ -9,16 +9,16 @@ ms.reviewer: jrasnick, garye
 ms.date: 11/20/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: 4052d6a0773aa27e0a378ee04975c7946f1ffbfe
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 5e7b914d459d2452704f93987ce1bf91bfba988c
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96464462"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222214"
 ---
 # <a name="tutorial-anomaly-detection-with-cognitive-services-preview"></a>Tutorial: Detección de anomalías con Cognitive Services (versión preliminar)
 
-En este tutorial, aprenderá a enriquecer fácilmente los datos en Azure Synapse con [Cognitive Services](https://go.microsoft.com/fwlink/?linkid=2147492). Vamos a utilizar [Anomaly Detector](https://go.microsoft.com/fwlink/?linkid=2147493) para realizar la detección de anomalías. Un usuario de Azure Synapse puede seleccionar simplemente una tabla para enriquecer la detección de anomalías.
+En este tutorial, aprenderá a enriquecer fácilmente los datos en Azure Synapse con [Cognitive Services](../../cognitive-services/index.yml). Vamos a utilizar [Anomaly Detector](../../cognitive-services/anomaly-detector/index.yml) para realizar la detección de anomalías. Un usuario de Azure Synapse puede seleccionar simplemente una tabla para enriquecer la detección de anomalías.
 
 Esta tutorial abarca lo siguiente:
 
@@ -94,7 +94,7 @@ El cuaderno que acaba de abrir utiliza la [biblioteca mmlspark](https://github.c
 
 Los detalles de Azure Key Vault que ha proporcionado le permiten hacer referencia de forma segura a sus secretos desde esta experiencia sin revelarlos.
 
-Ya puede **Ejecutar todas** las celdas para proceder a la detección de anomalías. Más información sobre [Cognitive Services - Anomaly Detector](https://go.microsoft.com/fwlink/?linkid=2147493).
+Ya puede **Ejecutar todas** las celdas para proceder a la detección de anomalías. Más información sobre [Cognitive Services - Anomaly Detector](../../cognitive-services/anomaly-detector/index.yml).
 
 ![Ejecución de detección de anomalías](media/tutorial-cognitive-services/tutorial-cognitive-services-anomaly-00f.png)
 

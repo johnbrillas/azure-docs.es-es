@@ -9,16 +9,16 @@ ms.reviewer: jrasnick, garye
 ms.date: 11/20/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: 1b407cbee5218149f794ab125ac058e32b422558
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 6a4833cf0d73939e01fd3e3e7263c6cba3c0a28a
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96465221"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222197"
 ---
 # <a name="tutorial-sentiment-analysis-with-cognitive-services-preview"></a>Tutorial: Análisis de sentimiento con Cognitive Services (versión preliminar)
 
-En este tutorial, aprenderá a enriquecer fácilmente los datos en Azure Synapse con [Cognitive Services](https://go.microsoft.com/fwlink/?linkid=2147492). Vamos a usar las funcionalidades de [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) para realizar análisis de sentimiento. Un usuario de Azure Synapse puede simplemente seleccionar una tabla que contenga una columna de texto para enriquecerla con opiniones. Estas opiniones pueden ser positivas, negativas, mixtas o neutras, y también se devolverá una probabilidad.
+En este tutorial, aprenderá a enriquecer fácilmente los datos en Azure Synapse con [Cognitive Services](../../cognitive-services/index.yml). Vamos a usar las funcionalidades de [Text Analytics](../../cognitive-services/text-analytics/index.yml) para realizar análisis de sentimiento. Un usuario de Azure Synapse puede simplemente seleccionar una tabla que contenga una columna de texto para enriquecerla con opiniones. Estas opiniones pueden ser positivas, negativas, mixtas o neutras, y también se devolverá una probabilidad.
 
 Esta tutorial abarca lo siguiente:
 
@@ -98,7 +98,7 @@ El cuaderno que acaba de abrir utiliza la [biblioteca mmlspark](https://github.c
 
 Los detalles de Azure Key Vault que ha proporcionado le permiten hacer referencia de forma segura a sus secretos desde esta experiencia sin revelarlos.
 
-Ahora puede **Ejecutar todas** las celdas para enriquecer los datos con opiniones. Las opiniones se devolverán como positivas, negativas, neutras o mixtas, y también obtendrá las probabilidades de cada opinión. Para más información, consulte [Procedimiento: análisis de sentimiento y minería de opiniones](https://go.microsoft.com/fwlink/?linkid=2147792).
+Ahora puede **Ejecutar todas** las celdas para enriquecer los datos con opiniones. Las opiniones se devolverán como positivas, negativas, neutras o mixtas, y también obtendrá las probabilidades de cada opinión. Para más información, consulte [Procedimiento: análisis de sentimiento y minería de opiniones](../../cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md).
 
 ![Ejecución del análisis de sentimiento](media/tutorial-cognitive-services/tutorial-cognitive-services-sentiment-00h.png)
 

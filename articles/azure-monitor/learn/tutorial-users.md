@@ -3,16 +3,16 @@ title: Información sobre sus clientes en Azure Application Insights | Microsoft
 description: Tutorial sobre el uso de Azure Application Insights para entender la forma en que los clientes utilizan su aplicación.
 ms.subservice: application-insights
 ms.topic: tutorial
-author: mrbullwinkle
-ms.author: mbullwin
+author: lgayhardt
+ms.author: lagayhar
 ms.date: 09/20/2017
 ms.custom: mvc
-ms.openlocfilehash: ce9bf6fe6d130cf8511db2b2351c0de01b753d81
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f6eeb5265d99a17ed18ace91fa5f2d2f744dbb2
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87318409"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98210178"
 ---
 # <a name="use-azure-application-insights-to-understand-how-customers-are-using-your-application"></a>Use Azure Application Insights para entender la forma en que los clientes utilizan su aplicación
 

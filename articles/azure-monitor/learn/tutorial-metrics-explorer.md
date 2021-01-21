@@ -6,12 +6,12 @@ ms.author: bwren
 ms.subservice: metrics
 ms.topic: tutorial
 ms.date: 03/09/2020
-ms.openlocfilehash: 5dcb86ff4af2a68ecf0bb361e6da4f788ea32b62
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 121de67ddb251e7431873c76e379eb223ceacd0d
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97881300"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250679"
 ---
 # <a name="tutorial-create-a-metrics-chart-in-azure-monitor"></a>Tutorial: Creación de un gráfico de métricas en Azure Monitor
 El explorador de métricas es una característica de Azure Monitor de Azure Portal que permite crear gráficos a partir de valores de métricas, correlacionar visualmente las tendencias e investigar los repuntes o las caídas en los valores de las métricas. Utilice el explorador de métricas para investigar el estado y el uso de los recursos de Azure o para trazar gráficos a partir de métricas personalizadas. 
@@ -70,20 +70,20 @@ Use la herramienta del **pincel de tiempo** para investigar un área interesante
 ## <a name="apply-dimension-filters-and-splitting"></a>Aplicar filtros de dimensión y divisiones
 Consulte las siguientes referencias para características avanzadas que permiten realizar análisis adicionales de las métricas e identificar posibles valores atípicos en los datos.
 
-- El [filtrado](../platform/metrics-charts.md#apply-filters-to-charts) permite elegir qué valores de dimensión se van a incluir en el gráfico. Por ejemplo, puede que le interese mostrar las solo las solicitudes correctas al representar gráficamente una métrica de *tiempo de respuesta del servidor*. 
+- El [filtrado](../platform/metrics-charts.md#filters) permite elegir qué valores de dimensión se van a incluir en el gráfico. Por ejemplo, puede que le interese mostrar las solo las solicitudes correctas al representar gráficamente una métrica de *tiempo de respuesta del servidor*. 
 
-- Las [divisiones](../platform/metrics-charts.md#apply-splitting-to-a-chart) controlan si el gráfico va a mostrar líneas independientes por cada valor de una dimensión, o si por el contrario va a agregar los valores en una sola línea. Por ejemplo, puede ver una línea correspondiente a un tiempo de respuesta promedio de todas las instancias de servidor, o ver líneas independientes para cada servidor. 
+- Las [divisiones](../platform/metrics-charts.md#apply-splitting) controlan si el gráfico va a mostrar líneas independientes por cada valor de una dimensión, o si por el contrario va a agregar los valores en una sola línea. Por ejemplo, puede ver una línea correspondiente a un tiempo de respuesta promedio de todas las instancias de servidor, o ver líneas independientes para cada servidor. 
 
 Vea [ejemplos de gráficos](../platform/metric-chart-samples.md) que tienen filtrado y divisiones aplicados.
 
 ## <a name="advanced-chart-settings"></a>Configuración gráfico avanzada
 
-Se puede personalizar el estilo y el título de un gráfico, así como modificar la configuración de gráfico avanzada. Cuando haya terminado de personalizarlo, puede anclarlo a un panel para guardar el trabajo. También se pueden configurar alertas de métricas. Consulte [Características avanzadas del Explorador de métricas de Azure](../platform/metrics-charts.md#lock-boundaries-of-chart-y-axis) para aprender sobre estas y otras características avanzadas del explorador de métricas de Azure Monitor.
+Se puede personalizar el estilo y el título de un gráfico, así como modificar la configuración de gráfico avanzada. Cuando haya terminado de personalizarlo, puede anclarlo a un panel para guardar el trabajo. También se pueden configurar alertas de métricas. Consulte [Características avanzadas del Explorador de métricas de Azure](../platform/metrics-charts.md#locking the-range-of-the-y-axis) para aprender sobre estas y otras características avanzadas del explorador de métricas de Azure Monitor.
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que ha aprendido a trabajar con métricas en Azure Monitor, aprenda a usar métricas para enviar alertas proactivas.
 
 > [!div class="nextstepaction"]
-> [Creación, visualización y administración de alertas de métricas mediante Azure Monitor](../platform/metrics-charts.md#create-alert-rules)
+> [Creación, visualización y administración de alertas de métricas mediante Azure Monitor](../platform/metrics-charts.md#alert-rules)
 
