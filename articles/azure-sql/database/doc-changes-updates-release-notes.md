@@ -96,7 +96,7 @@ Las características siguientes están habilitadas en el modelo de implementaci�
 
 ## <a name="known-issues"></a>Problemas conocidos
 
-|Incidencia  |Fecha de detección  |Estado  |Fecha de resolución  |
+|Problema  |Fecha de detección  |Estado  |Fecha de resolución  |
 |---------|---------|---------|---------|
 |[Las transacciones distribuidas se pueden ejecutar después de quitar Managed Instance del grupo de confianza de servidor](#distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group)|Octubre de 2020|Tiene solución alternativa||
 |[No se pueden ejecutar transacciones distribuidas después de la operación de escalado de Managed Instance](#distributed-transactions-cannot-be-executed-after-managed-instance-scaling-operation)|Octubre de 2020|Tiene solución alternativa||
@@ -115,7 +115,7 @@ Las características siguientes están habilitadas en el modelo de implementaci�
 |[Es posible que sea necesario volver a configurar Resource Governor en el nivel de servicio Crítico para la empresa después de la conmutación por error](#resource-governor-on-business-critical-service-tier-might-need-to-be-reconfigured-after-failover)|Septiembre de 2019|Tiene solución alternativa||
 |[Los cuadros de diálogo de Service Broker entre bases de datos se deben volver a inicializar después de la actualización del nivel de servicio](#cross-database-service-broker-dialogs-must-be-reinitialized-after-service-tier-upgrade)|Agosto de 2019|Tiene solución alternativa||
 |[No se admite la suplantación de tipos de inicio de sesión de Azure AD](#impersonation-of-azure-ad-login-types-is-not-supported)|Julio de 2019|No hay solución alternativa||
-|[No se admite el parámetro @query en sp_send_db_mail](#-parameter-not-supported-in-sp_send_db_mail)|Abril de 2019|No hay solución alternativa||
+|[@queryNo se admite el parámetro  en sp_send_db_mail](#-parameter-not-supported-in-sp_send_db_mail)|Abril de 2019|No hay solución alternativa||
 |[La replicación transaccional debe volver a configurarse después de la conmutación por error geográfica](#transactional-replication-must-be-reconfigured-after-geo-failover)|Marzo de 2019|No hay solución alternativa||
 |[La base de datos temporal se usa durante la operación RESTORE](#temporary-database-is-used-during-restore-operation)||Tiene solución alternativa||
 |[Se vuelve a crear la estructura y el contenido de TEMPDB](#tempdb-structure-and-content-is-re-created)||No hay solución alternativa||
@@ -238,9 +238,9 @@ No se admite la suplantación con `EXECUTE AS USER` o `EXECUTE AS LOGIN` de las 
 -   Usuarios de Azure AD con alias. Se devuelve el error siguiente en este caso: `15517`.
 - Inicios de sesión y usuarios de Azure AD basados en aplicaciones de Azure AD o entidades de servicio. Se devuelven los errores siguientes en este caso: `15517` y `15406`.
 
-### <a name="query-parameter-not-supported-in-sp_send_db_mail"></a>No se admite el parámetro @query en sp_send_db_mail
+### <a name="query-parameter-not-supported-in-sp_send_db_mail"></a>@queryNo se admite el parámetro en sp_send_db_mail
 
-El parámetro `@query` del procedimiento [sp_send_db_mail](/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql) no funciona.
+El `@query`parámetro del procedimiento [sp_send_db_mail](/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql) no funciona.
 
 ### <a name="transactional-replication-must-be-reconfigured-after-geo-failover"></a>La replicación transaccional debe volver a configurarse después de la conmutación por error geográfica
 
