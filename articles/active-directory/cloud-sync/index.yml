@@ -1,0 +1,50 @@
+### YamlMime:Landing
+title: Documentación de la sincronización en la nube de Azure AD Connect
+summary: La sincronización en la nube de Azure AD Connect ayuda a simplificar y automatizar la administración de los usuarios de Azure AD, mediante reglas administradas en la nube para sincronizar esos usuarios desde bosques de AD existentes.
+metadata:
+  author: billmath
+  description: La sincronización en la nube ayuda a simplificar y automatizar la administración de los usuarios de Azure AD, mediante reglas administradas en la nube para sincronizar esos usuarios desde bosques de AD existentes.
+  ms.author: billmath
+  ms.collection: na
+  ms.date: 09/05/2019
+  ms.service: active-directory
+  ms.subservice: na
+  ms.topic: landing-page
+  services: active-directory
+  ms.openlocfilehash: 52032c39e77fb4ebd6488f25d660428ba59dfbd3
+  ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 01/20/2021
+  ms.locfileid: "98611786"
+landingContent:
+- title: Acerca de la sincronización en la nube
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ¿Qué es la sincronización en la nube de Azure AD Connect?
+      url: what-is-cloud-sync.md
+- title: Más información sobre cómo implementar la mejor solución para administrar el ciclo de vida de los usuarios y grupos
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Integración de un único bosque de AD con un único inquilino de Azure AD
+      url: tutorial-single-forest.md
+    - text: Integración de un bosque existente y un nuevo bosque con un único inquilino de Azure AD
+      url: tutorial-existing-forest.md
+    - text: Sincronización piloto en la nube para un bosque de AD sincronizado existente
+      url: tutorial-pilot-aadc-aadccp.md
+- title: Introducción a la sincronización en la nube
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Requisitos previos de la sincronizar en la nube de Azure AD Connect
+      url: how-to-prerequisites.md
+    - text: Instalación de la sincronización en la nube de Azure AD Connect
+      url: how-to-install.md
+    - text: Configuración del agente de aprovisionamiento de Azure AD Connect
+      url: how-to-configure.md
+  - linkListType: reference
+    links:
+    - text: Escenarios y topologías admitidos
+      url: plan-cloud-sync-topologies.md
