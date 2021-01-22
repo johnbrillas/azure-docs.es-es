@@ -59,8 +59,12 @@
   items:
     - name: "Ejemplos del método directo de\_C#"
       href: 'https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp'
+    - name: Ejemplos del SDK de C#
+      href: 'https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp-sdk'
     - name: Ejemplos del método directo de Python
       href: 'https://github.com/Azure-Samples/live-video-analytics-iot-edge-python'
+    - name: Ejemplos de SDK de Python
+      href: 'https://github.com/Azure-Samples/live-video-analytics-iot-edge-python-sdk'
 - name: Conceptos
   items:
     - name: Grafo multimedia

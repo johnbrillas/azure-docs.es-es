@@ -55,7 +55,7 @@
               href: manage-vm-extensions-powershell.md
             - name: Implementación de extensiones mediante la plantilla de Resource Manager
               href: manage-vm-extensions-template.md
-        - name: Identidades administradas utilizadas en el servidor
+        - name: Uso de identidades administradas utilizadas en un servidor
           href: managed-identity-authentication.md
         - name: Administración de agente
           href: manage-agent.md
@@ -82,7 +82,7 @@
     - name: .NET
       href: /dotnet/api/overview/azure/hybridcompute/management
     - name: Azure Stack HCI REST
-      href: 'https://docs.microsoft.com/rest/api/stackhci'
+      href: /rest/api/stackhci
     - name: REST
       href: /rest/api/hybridcompute
     - name: Go

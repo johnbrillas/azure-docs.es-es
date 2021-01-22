@@ -58,6 +58,8 @@
       href: fqdn-filtering-network-rules.md
     - name: Línea de base de seguridad
       href: security-baseline.md
+    - name: Compatibilidad con FTP activa
+      href: active-ftp-support.md
 - name: Guías paso a paso
   items:
     - name: Implementación mediante Azure PowerShell
@@ -91,7 +93,7 @@
       href: firewall-workbook.md
 - name: Referencia
   items:
-    - name: CLI de Azure
+    - name: Azure CLI
       href: /cli/azure/ext/azure-firewall/network/firewall
     - name: Azure PowerShell
       href: /powershell/module/az.network/new-azfirewall

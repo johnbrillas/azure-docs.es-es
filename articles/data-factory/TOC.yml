@@ -109,8 +109,8 @@
               href: tutorial-data-flow.md
             - name: Tutoriales en vídeo del flujo de datos de asignación
               href: data-flow-tutorials.md
-        - name: Preparación de datos con flujos de datos de limpieza y transformación
-          href: wrangling-data-flow-tutorial.md
+        - name: Preparación con una limpieza y transformación de datos
+          href: wrangling-tutorial.md
         - name: Usar servicios externos
           items:
             - name: HDInsight Spark
@@ -197,12 +197,12 @@
               href: concepts-data-flow-expression-builder.md
             - name: Lenguaje de expresiones
               href: data-flow-expression-functions.md
-        - name: Preparación de datos con un flujo de datos de limpieza y transformación
+        - name: Preparación de datos con la limpieza y transformación de datos de Power Query
           items:
-            - name: Introducción a los flujos de datos de limpieza y transformación
-              href: wrangling-data-flow-overview.md
+            - name: Introducción a la limpieza y transformación de datos
+              href: wrangling-overview.md
             - name: Funciones admitidas
-              href: wrangling-data-flow-functions.md
+              href: wrangling-functions.md
     - name: Roles y permisos
       href: concepts-roles-permissions.md
     - name: Reglas de nomenclatura
@@ -464,6 +464,8 @@
       items:
         - name: Ejecución de actividad de Data Flow
           href: control-flow-execute-data-flow-activity.md
+        - name: Ejecución de una actividad de Power Query
+          href: control-flow-power-query-activity.md
         - name: Actividad de función de Azure
           href: control-flow-azure-function-activity.md
         - name: Actividad personalizada
