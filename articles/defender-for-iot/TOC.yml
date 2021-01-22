@@ -73,8 +73,6 @@
           href: concept-baseline.md
         - name: Agregación de datos
           href: event-aggregation.md
-        - name: Precios y costos asociados
-          href: concept-pricing.md
 - name: Guías paso a paso
   items:
     - name: Una solución sin agente para organizaciones
@@ -252,6 +250,6 @@
         - name: Disponibilidad regional
           href: 'https://azure.microsoft.com/regions/services/'
         - name: Precios
-          href: 'https://azure.microsoft.com/pricing/details/security-center/'
+          href: 'https://azure.microsoft.com/pricing/details/azure-defender/'
         - name: Vídeos
           href: 'https://azure.microsoft.com/resources/videos/index/?services=security-center&service=internet-of-things&page=1&sort=newest'

@@ -70,10 +70,6 @@
         - name: Datos de imagen de etiqueta
           displayName: 'tag, tagging, images'
           href: tutorial-labeling.md
-    - name: SDK de R
-      items:
-        - name: Creación del primer experimento de Machine Learning (R)
-          href: tutorial-1st-r-experiment.md
     - name: CLI
       items:
         - name: Entrenamiento e implementación con la CLI

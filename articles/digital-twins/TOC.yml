@@ -164,9 +164,9 @@
             - name: "SDK de .NET\_(C#): código fuente"
               href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins'
             - name: 'SDK de Java: Maven'
-              href: 'https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_10_31/azure-mgmt-digitaltwins/1.0.0/jar'
+              href: 'https://search.maven.org/search?q=a:azure-mgmt-digitaltwins'
             - name: 'SDK de Java: código fuente'
-              href: 'https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/mgmt-v2020_10_31'
+              href: 'https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins'
             - name: 'SDK de JavaScript: NPM'
               href: 'https://www.npmjs.com/package/@azure/arm-digitaltwins'
             - name: 'SDK de JavaScript: código fuente'
