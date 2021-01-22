@@ -3,12 +3,12 @@ author: PatrickFarley
 ms.author: pafarley
 ms.service: cognitive-services
 ms.date: 09/15/2020
-ms.openlocfilehash: 0a682f2aaaa63f0fcc76c07230792a26cdbef3db
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: d177f667f7bae2d061dfe7d79247c5cc2fd40d5b
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97582613"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98256423"
 ---
 Introducción a la biblioteca cliente de Custom Vision para .NET. Siga estos pasos para instalar el paquete y probar el código de ejemplo para crear un modelo de detección de objetos. Creará un proyecto, agregará etiquetas, entrenará el proyecto en las imágenes de ejemplo y usará la dirección URL del punto de conexión de predicción del proyecto para probarlo mediante programación. Utilice este ejemplo como plantilla para crear su propia aplicación de reconocimiento de imágenes.
 
@@ -143,6 +143,9 @@ Este método define las etiquetas en las que se va a entrenar el modelo.
 
 En primer lugar, descargue las imágenes de ejemplo de este proyecto. Guarde el contenido de la [carpeta de imágenes de ejemplo](https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/CustomVision/ObjectDetection/Images) en el dispositivo local.
 
+> [!NOTE]
+> Trove, un proyecto de Microsoft Garage, le permite recopilar y comprar conjuntos de imágenes con fines de aprendizaje. Una vez que haya recopilado sus imágenes, puede descargarlas y, a continuación, importarlas en el proyecto de Custom Vision de la manera habitual. Visite la [página de Trove](https://www.microsoft.com/en-us/ai/trove?activetab=pivot1:primaryr3) para más información.
+
 Cuando se etiquetan imágenes en los proyectos de detección de objetos, es preciso especificar la región de cada objeto etiquetado mediante coordenadas normalizadas. El código siguiente asocia cada una de las imágenes del ejemplo a su región etiquetada.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/CustomVision/ObjectDetection/Program.cs?name=snippet_upload_regions)]
@@ -180,7 +183,7 @@ Este método carga la imagen de prueba, consulta el punto de conexión del model
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/CustomVision/ObjectDetection/Program.cs?name=snippet_prediction)]
 
-## <a name="run-the-application"></a>Ejecutar la aplicación
+## <a name="run-the-application"></a>Ejecución de la aplicación
 
 #### <a name="visual-studio-ide"></a>[IDE de Visual Studio](#tab/visual-studio)
 

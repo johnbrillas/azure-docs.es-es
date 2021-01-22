@@ -4,13 +4,13 @@ description: Este artículo se actualiza periódicamente con noticias sobre la A
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: overview
-ms.date: 01/05/2021
-ms.openlocfilehash: 4591bc26c848032d1c0f8b96720c4ec66b9b064d
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.date: 01/12/2021
+ms.openlocfilehash: 4bcd25e96aba1ca103737679540cb9ff67674914
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97916361"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98179136"
 ---
 # <a name="whats-new-in-language-understanding"></a>Novedades de Language Understanding
 
@@ -18,10 +18,14 @@ Conozca las novedades del servicio. Estos elementos incluyen notas de la versió
 
 ## <a name="release-notes"></a>Notas de la versión
 
+### <a name="january-2021"></a>Enero de 2021
+
+* La API de predicción V3 ahora es compatible con [Bing Spellcheck API](luis-how-to-publish-app.md#spelling-correction).
+
 ### <a name="december-2020"></a>Diciembre de 2020
 
 * Todos los usuarios de LUIS deben [migrar a un recurso de creación de LUIS](luis-migration-authoring.md).
-* Nuevos [puntos de conexión de evaluación](luis-how-to-batch-test.md#batch-testing-using-the-rest-api), que permiten enviar pruebas por lotes con la API REST y obtener resultados de precisión para las intenciones y entidades. Disponible a partir dela versión v3.0-preview del punto de conexión de LUIS.
+* Nuevos [puntos de conexión de evaluación](luis-how-to-batch-test.md#batch-testing-using-the-rest-api) que permiten enviar pruebas por lotes con la API REST y obtener resultados de precisión para las intenciones y entidades. Disponible a partir dela versión v3.0-preview del punto de conexión de LUIS.
 
 ### <a name="june-2020"></a>Junio de 2020
 

@@ -8,18 +8,29 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 12/15/2020
+ms.date: 01/13/2021
 ms.author: pafarley
-ms.openlocfilehash: 98b8cca95b8815b32fb5de6567adcf4f150551eb
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 33987be39258adc74cf4f88dbb0544f7026f6086
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97561977"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98183360"
 ---
 # <a name="whats-new-in-computer-vision"></a>Novedades de Computer Vision
 
 Conozca las novedades del servicio. Estos elementos pueden ser notas de la versión, vídeos, entradas de blogs y otros tipos de información. Agregue esta página a sus marcadores para mantenerse actualizado con el servicio.
+
+## <a name="january-2021"></a>Enero de 2021
+
+### <a name="spatial-analysis-container-update"></a>Actualización del contenedor de análisis espacial
+
+Se ha lanzado una nueva versión del [contenedor de análisis espacial](spatial-analysis-container.md) con un nuevo conjunto de características. Este contenedor de Docker permite analizar vídeo de streaming en tiempo real para comprender las relaciones espaciales entre las personas y su movimiento en entornos físicos. 
+
+* Las [operaciones de análisis espaciales](spatial-analysis-operations.md) se pueden configurar para detectar si una persona tiene algún tipo de protección facial, como una mascarilla. 
+    * Se puede habilitar un clasificador de mascarillas para las operaciones `personcount`, `personcrossingline` y `personcrossingpolygon` mediante la configuración del parámetro `ENABLE_FACE_MASK_CLASSIFIER`.
+    * Los atributos `face_mask` y `face_noMask` se devolverán como metadatos con una puntuación de confianza para cada persona detectada en el flujo de vídeo
+
 
 ## <a name="october-2020"></a>Octubre de 2020
 

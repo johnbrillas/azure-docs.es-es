@@ -4,12 +4,12 @@ ms.author: pafarley
 ms.service: cognitive-services
 ms.date: 12/09/2020
 ms.topic: include
-ms.openlocfilehash: a53b316f6d942f070ef925b369bcea8476fbfffd
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: 8890a0132e5f510a0af2862c483206fd025a68d8
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97853701"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98256397"
 ---
 Introducción a la API REST de Custom Vision Siga estos pasos para llamar a la API y crear un modelo de clasificación de imágenes. Podrá crear un proyecto, agregar etiquetas, entrenar el proyecto y utilizar la dirección URL del punto de conexión de predicción del proyecto para probarlo mediante programación. Utilice este ejemplo como plantilla para crear su propia aplicación de reconocimiento de imágenes.
 
@@ -102,6 +102,9 @@ Recibirá una respuesta JSON como la siguiente. Guarde el valor del elemento `"i
 ## <a name="upload-and-tag-images"></a>Carga y etiquetado de imágenes
 
 A continuación, descargue las imágenes de ejemplo de este proyecto. Guarde el contenido de la [carpeta de imágenes de ejemplo](https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/CustomVision/ImageClassification/Images) en el dispositivo local.
+
+> [!NOTE]
+> Trove, un proyecto de Microsoft Garage, le permite recopilar y comprar conjuntos de imágenes con fines de aprendizaje. Una vez que haya recopilado sus imágenes, puede descargarlas y, a continuación, importarlas en el proyecto de Custom Vision de la manera habitual. Visite la [página de Trove](https://www.microsoft.com/en-us/ai/trove?activetab=pivot1:primaryr3) para más información.
 
 Use el siguiente comando para cargar las imágenes y aplicar las etiquetas; una vez para las imágenes correspondientes a "Hemlock" y por separado para las imágenes correspondientes a "Japanese Cherry". Para más opciones, consulte la API [CreateImagesFromData](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeb5).
 

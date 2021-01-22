@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 11/02/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: fd958c09a14334d8230e52413c590febb2148851
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 37bd7d91dfe9e4b9e620f89e7504331d8f631a6a
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98048965"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602117"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>Tutorial: Programación con las API de Azure Digital Twins
 
@@ -57,9 +57,12 @@ Se crean varios archivos dentro del directorio, incluido uno llamado *Program.cs
 
 Mantenga abierta la ventana de comandos, ya que la seguirá usando durante todo el tutorial.
 
-A continuación, **agregue dos dependencias al proyecto**, que necesitará para trabajar con Azure Digital Twins. Puede usar los vínculos siguientes para desplazarse a los paquetes NuGet, en donde encontrará los comandos de la consola (incluida la CLI de .NET) para agregar la versión más reciente de cada paquete al proyecto.
-* [**Azure.DigitalTwins.Core**](https://www.nuget.org/packages/Azure.DigitalTwins.Core). Este es el paquete del [SDK de Azure Digital Twins para .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true).
-* [**Azure.Identity**](https://www.nuget.org/packages/Azure.Identity). Esta biblioteca proporciona herramientas para facilitar la autenticación en Azure.
+A continuación, **agregue dos dependencias al proyecto**, que necesitará para trabajar con Azure Digital Twins. El primero es el paquete para el [SDK de Azure Digital Twins para .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true), el segundo proporciona herramientas para ayudar con la autenticación en Azure.
+
+```cmd/sh
+dotnet add package Azure.DigitalTwins.Core
+dotnet add package Azure.Identity
+```
 
 ## <a name="get-started-with-project-code"></a>Introducción al código del proyecto
 
