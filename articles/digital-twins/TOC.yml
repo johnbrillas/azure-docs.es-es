@@ -243,8 +243,10 @@
           href: /samples/azure-samples/dtdl-validator/dtdl-validator/
         - name: Especificación DTMI
           href: 'https://github.com/Azure/digital-twin-model-identifier'
-        - name: Solicitudes de datos del cliente
+    - name: Solicitudes de datos del cliente
       href: resources-customer-data-requests.md
+    - name: Límites del servicio Digital Twins
+      href: reference-service-limits.md
     - name: Precios y disponibilidad
       items:
         - name: Precios
@@ -253,8 +255,6 @@
           href: 'https://azure.microsoft.com/support/legal/sla/digital-twins'
         - name: Regiones y disponibilidad
           href: 'https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins'
-        - name: Límites del servicio Digital Twins
-          href: reference-service-limits.md
     - name: Testimonios de clientes
       href: 'https://customers.microsoft.com/en-us/search?sq=%22Azure%20Digital%20Twins%22&ff=&p=0&so=story_publish_date%20desc'
     - name: Vídeos de Channel 9
