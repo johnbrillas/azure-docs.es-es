@@ -301,12 +301,6 @@
         - name: Comparación de ejemplos
           href: migrate-v-2-v-3-migration-samples.md
           displayName: 'migration, samples'
-        - name: "Versión\_2 frente a versión\_3"
-          displayName: 'migrate, v2 to v3'
-          href: media-services-v2-vs-v3.md
-        - name: Guía de migración
-          href: migrate-from-v2-to-v3.md
-          displayName: naming
 - name: Guías paso a paso
   items:
     - name: Creación de recursos y carga de soportes físicos

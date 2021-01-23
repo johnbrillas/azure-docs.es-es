@@ -51,8 +51,6 @@
           href: non-gallery-apps.md
         - name: Planeamiento de una implementación de Aplicaciones
           href: access-panel-deployment-plan.md
-        - name: Instrucciones para desarrolladores
-          href: developer-guidance-for-integrating-applications.md
     - name: Inicio de sesión único
       items:
         - name: Planeación de una implementación de inicio de sesión único
