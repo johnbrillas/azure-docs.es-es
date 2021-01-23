@@ -21,8 +21,13 @@
         - name: Uso de una plantilla de Resource Manager
           displayName: Resource Manager
           href: fhir-paas-arm-template-quickstart.md
-    - name: 'Implementación del conector de Azure IoT para FHIR (versión preliminar): Azure Portal'
-      href: iot-fhir-portal-quickstart.md
+    - name: Implementación de Azure IoT Connector para FHIR (versión preliminar)
+      expanded: false
+      items:
+        - name: Uso del Portal
+          href: iot-fhir-portal-quickstart.md
+        - name: Uso de una plantilla de Resource Manager
+          href: iot-fhir-arm-template-quickstart.md
 - name: Tutoriales
   expanded: false
   items:
