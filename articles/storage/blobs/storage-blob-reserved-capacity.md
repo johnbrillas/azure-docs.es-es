@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/08/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 1c957330fbd54660367fa350d6985929f0bbd3d1
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 6fd791495602846b95e2dd3e99423db5505f5307
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95531396"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600922"
 ---
 # <a name="optimize-costs-for-blob-storage-with-reserved-capacity"></a>Optimización de los costos de almacenamiento de blobs con capacidad reservada
 
@@ -82,7 +82,7 @@ Siga estos pasos para adquirir la capacidad reservada:
    |Campo  |Descripción  |
    |---------|---------|
    |**Ámbito**   |  Indica el número de suscripciones que pueden usar la ventaja de facturación asociada con la reserva. También controla cómo se aplica la reserva a suscripciones concretas. <br/><br/> Si selecciona **Compartido**, el descuento de la reserva se aplica a la capacidad de Azure Storage en cualquier suscripción en el contexto de facturación. El contexto de facturación se basa en cómo se haya suscrito a Azure. Para los clientes Enterprise, el ámbito compartido es la inscripción e incluye todas las suscripciones que esta contiene. Para los clientes de pago por uso, el ámbito compartido incluye todas las suscripciones con tarifas de pago por uso creadas por el administrador de la cuenta.  <br/><br/>  Si selecciona **Suscripción única**, el descuento de reserva se aplica a la capacidad de Azure Storage de la suscripción seleccionada. <br/><br/> Si selecciona **Grupo de recursos único**, el descuento de reserva se aplica a la capacidad de Azure Storage de la suscripción seleccionada y al grupo de recursos seleccionado dentro de esa suscripción. <br/><br/> Puede cambiar el ámbito de reserva después de comprar la reserva.  |
-   |**Suscripción**  | La suscripción que se usa para pagar la reserva de Azure Storage. El método de pago en la suscripción seleccionada se usa al cargar los costos. La suscripción debe ser uno de los tipos siguientes: <br/><br/>  Contrato Enterprise (números de oferta: MS-AZR-0017P o MS-AZR-0148P): Para una suscripción Enterprise, los cargos se deducen del saldo de compromiso monetario de la inscripción o se cobran como uso por encima del límite. <br/><br/> Suscripción individual con tarifas de pago por uso (números de la oferta: MS-AZR-0003P o MS-AZR-0023P): en una suscripción individual con tarifas de pago por uso, los cargos se cobran en el método de pago de tarjeta de crédito o factura de la suscripción.    |
+   |**Suscripción**  | La suscripción que se usa para pagar la reserva de Azure Storage. El método de pago en la suscripción seleccionada se usa al cargar los costos. La suscripción debe ser uno de los tipos siguientes: <br/><br/>  Contrato Enterprise (números de oferta: MS-AZR-0017P o MS-AZR-0148P): En el caso de una suscripción Enterprise, los cargos se deducirán del saldo de pago por adelantado de la inscripción de Azure (anteriormente llamado compromiso monetario) o se cobrarán como parte del uso por encima del límite. <br/><br/> Suscripción individual con tarifas de pago por uso (números de la oferta: MS-AZR-0003P o MS-AZR-0023P): en una suscripción individual con tarifas de pago por uso, los cargos se cobran en el método de pago de tarjeta de crédito o factura de la suscripción.    |
    | **Región** | La región donde está en vigor la reserva. |
    | **Nivel de acceso** | El nivel de acceso donde está en vigor la reserva. Entre las opciones se incluyen *Frecuente*, *Esporádico* o *De archivo*. Para más información acerca de los niveles de acceso, consulte [Azure Blob Storage: niveles de almacenamiento de archivo, esporádico y frecuente](storage-blob-storage-tiers.md). |
    | **Redundancia** | La opción de redundancia para la reserva. Entre las opciones se incluyen *LRS*, *ZRS*, *GRS*, *GZRS*, *RA-GRS* y *RA-GZRS*. Para más información sobre las opciones de redundancia, consulte [Redundancia de Azure Storage](../common/storage-redundancy.md). |

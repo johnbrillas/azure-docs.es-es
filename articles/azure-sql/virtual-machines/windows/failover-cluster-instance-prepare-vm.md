@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 52d6bc97245423a4add392ab05634d21bcf83a0d
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 1b8d88167dac6b2d0b1ba2afc90c443fd80b9e46
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97358019"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223166"
 ---
 # <a name="prepare-virtual-machines-for-an-fci-sql-server-on-azure-vms"></a>Preparación de máquinas virtuales para una FCI (SQL Server en máquinas virtuales de Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -68,7 +68,7 @@ En un clúster de conmutación por error invitado de máquina virtual de Azure, 
 Coloque ambas máquinas virtuales:
 
 - En el mismo grupo de recursos de Azure en el que se encuentra su conjunto de disponibilidad, si está utilizando este tipo de conjuntos.
-- En la misma red virtual que el controlador de dominio.
+- En la misma red virtual que el controlador de dominio o en una red virtual que tenga la conectividad adecuada con el controlador de dominio.
 - En una subred que tenga suficiente espacio de direcciones IP para ambas máquinas virtuales y todas las FCI que finalmente puede utilizar en este clúster.
 - En el conjunto de disponibilidad o la zona de disponibilidad de Azure.
 

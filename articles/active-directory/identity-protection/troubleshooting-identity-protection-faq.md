@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d80b8f41e11f2fffa86dc7597fdf44dd27825fc
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.openlocfilehash: c169847c96d10d1c9fb47b210bc85a15e0690e32
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98028903"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98183122"
 ---
 # <a name="frequently-asked-questions-identity-protection-in-azure-active-directory"></a>Preguntas más frecuentes sobre Identity Protection en Azure Active Directory
 
@@ -31,7 +31,7 @@ Actualmente hay un problema conocido que provoca latencia en el flujo de descart
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 
-### <a name="why-is-a-user-is-at-risk"></a>¿Por qué un usuario está en riesgo?
+### <a name="why-is-a-user-at-risk"></a>¿Por qué un usuario está en riesgo?
 
 Si es un cliente de Azure AD Identity Protection, vaya a la vista [de usuarios de riesgo](howto-identity-protection-investigate-risk.md#risky-users) y haga clic en un usuario en riesgo. En el cajón de la parte inferior, la pestaña "Historial de riesgos" mostrará todos los eventos que provocaron un cambio de riesgo del usuario. Para ver todos los inicios de sesión de riesgo para el usuario, haga clic en "Inicios de sesión de riesgo del usuario". Para ver todas las detecciones de riesgo del usuario, haga clic en "Detecciones de riesgos del usuario".
 

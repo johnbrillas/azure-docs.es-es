@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/06/2021
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: d5f5e1098b688fc307bae5ea3538c818cb529b0a
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: e15dce586dc4dd43cf56fd1cbb08b84ebcda1787
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97962404"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98232308"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>Aplicación de escritorio que llama a API web: Adquisición de un token
 
@@ -420,8 +420,8 @@ Para iniciar la sesión de un usuario de dominio en un equipo unido a un dominio
 - La autenticación integrada de Windows solo es útil para usuarios *federados*, es decir, los usuarios creados en Active Directory y respaldados por Azure AD. Los usuarios creados directamente en Azure AD sin el respaldo de Active Directory, conocidos como usuarios *administrados*, no pueden usar este flujo de autenticación. Esta limitación no afecta al flujo de nombre de usuario y contraseña.
 - IWA es para aplicaciones escritas para las plataformas .NET Framework, .NET Core y Plataforma universal de Windows (UPW).
 - IWA no omite [la autenticación multifactor (MFA)](../authentication/concept-mfa-howitworks.md). Si se ha configurado MFA, IWA podría producir un error si es necesario un desafío de MFA, porque MFA necesita interacción del usuario.
-  > [!NOTE]
-  > Esto es complicado. IWA no es interactiva, pero MFA requiere interactividad del usuario. El usuario no es quien controla si el proveedor de identidades solicita que se realice MFA, sino el administrador de inquilinos. Por lo que se ha observado, MFA se requiere al iniciar sesión desde otro país o región, cuando no se está conectado a través de VPN a una red corporativa y, a veces, incluso cuando se está. No espere un conjunto determinista de reglas. Azure AD usa inteligencia artificial para aprender continuamente si se requiere MFA. Si se produce un error de IWA, recurra a un mensaje de usuario como la autenticación interactiva o el flujo de código de dispositivo.
+  
+    IWA no es interactiva, pero MFA requiere interactividad del usuario. El usuario no es quien controla si el proveedor de identidades solicita que se realice MFA, sino el administrador de inquilinos. Por lo que se ha observado, MFA se requiere al iniciar sesión desde otro país o región, cuando no se está conectado a través de VPN a una red corporativa y, a veces, incluso cuando se está. No espere un conjunto determinista de reglas. Azure AD usa inteligencia artificial para aprender continuamente si se requiere MFA. Si se produce un error de IWA, recurra a un mensaje de usuario como la autenticación interactiva o el flujo de código de dispositivo.
 
 - La autoridad pasada en `PublicClientApplicationBuilder` debe ser:
   - Con inquilino con formato `https://login.microsoftonline.com/{tenant}/`, donde `tenant` es el GUID que representa el identificador de inquilino o un dominio asociado al inquilino.
@@ -602,14 +602,13 @@ También puede adquirir un token proporcionando el nombre de usuario y la contra
 
 ### <a name="this-flow-isnt-recommended"></a>Este flujo no es recomendable.
 
-*No se recomienda* este flujo porque no es seguro que la aplicación le pida a un usuario la contraseña. Para más información, consulte [What's the solution to the growing problem of passwords?](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/) (¿Cuál es la solución al creciente problema de las contraseñas?). El flujo preferido para adquirir un token de forma silenciosa en equipos unidos a un dominio de Windows es la [autenticación integrada de Windows](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Integrated-Windows-Authentication). También puede usar [flujo de código de dispositivo](https://aka.ms/msal-net-device-code-flow).
+*No se recomienda* el flujo de nombre de usuario y contraseña porque no es seguro que la aplicación le pida a un usuario la contraseña. Para más información, consulte [¿Cuál es la solución al creciente problema de las contraseñas?](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/). El flujo preferido para adquirir un token de forma silenciosa en equipos unidos a un dominio de Windows es la [autenticación integrada de Windows](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Integrated-Windows-Authentication). También puede usar [flujo de código de dispositivo](https://aka.ms/msal-net-device-code-flow).
 
-> [!NOTE]
-> El empleo de un nombre de usuario y una contraseña resulta útil en algunos casos, como los escenarios de DevOps. Pero si quiere usar un nombre de usuario y una contraseña en escenarios interactivos en los que proporciona su propia interfaz de usuario, piense en cómo dejar de hacerlo. Al usar un nombre de usuario y una contraseña, está renunciando a una serie de cosas:
->
-> - Principios básicos de identidad moderna. Una contraseña puede ser objeto de suplantación de identidad (phishing) y reproducción porque un secreto compartido se puede interceptar. No es compatible con el inicio de sesión sin contraseña.
-> - Los usuarios que necesitan realizar MFA no pueden iniciar sesión porque no hay interacción.
-> - Los usuarios no pueden realizar inicio de sesión único (SSO).
+El empleo de un nombre de usuario y una contraseña resulta útil en algunos casos, como los escenarios de DevOps. Pero si quiere usar un nombre de usuario y una contraseña en escenarios interactivos en los que proporciona su propia interfaz de usuario, piense en cómo dejar de hacerlo. Al usar un nombre de usuario y una contraseña, está renunciando a una serie de cosas:
+
+- Principios básicos de identidad moderna. Una contraseña puede ser objeto de suplantación de identidad (phishing) y reproducción porque un secreto compartido se puede interceptar. No es compatible con el inicio de sesión sin contraseña.
+- Los usuarios que necesitan realizar MFA no pueden iniciar sesión porque no hay interacción.
+- Los usuarios no pueden realizar inicio de sesión único (SSO).
 
 ### <a name="constraints"></a>Restricciones
 

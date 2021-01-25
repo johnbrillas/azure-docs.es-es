@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 10/02/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a47126a48ea63efd4e49097428679b85b7a95a61
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ec900f0537030d3ed0d1c875e8125806159bd51
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91667170"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251461"
 ---
 # <a name="create-a-windows-virtual-desktop-host-pool-with-powershell"></a>Creación de un grupo de hosts de Windows Virtual Desktop con PowerShell
 
@@ -124,7 +124,7 @@ Para registrar los agentes de Windows Virtual Desktop, realice los siguientes pa
 
 Es necesario actualizar el agente en cualquiera de estas situaciones:
 
-- Quiere migrar una sesión registrada previamente a un nuevo grupo de hosts
+- Quiere migrar un host de sesión registrado previamente a un nuevo grupo de hosts
 - El host de sesión no aparece en el grupo de hosts tras una actualización
 
 Para actualizar el agente:

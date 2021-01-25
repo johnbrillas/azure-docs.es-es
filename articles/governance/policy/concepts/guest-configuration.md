@@ -1,14 +1,14 @@
 ---
 title: Información sobre cómo auditar el contenido de máquinas virtuales
 description: Obtenga información sobre la forma en que Azure Policy usa el cliente de configuración de invitado para auditar la configuración dentro de las máquinas virtuales.
-ms.date: 10/14/2020
+ms.date: 01/14/2021
 ms.topic: conceptual
-ms.openlocfilehash: 5ec43516c60d2fe5d923a7b87cddbea0ad640453
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: c141169545379f1ac0dd18a97e85652f97b90e6f
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98071840"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98210127"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Información sobre Guest Configuration de Azure Policy
 
@@ -101,11 +101,11 @@ En el caso de los servidores conectados a Arc en centros de datos privados, perm
 
 ## <a name="managed-identity-requirements"></a>Requisitos de identidad administrada
 
-Las definiciones de directiva de la iniciativa [Implementar los requisitos previos para habilitar directivas de configuración de invitado en máquinas virtuales](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12794019-7a00-42cf-95c2-882eed337cc8) habilitan una identidad administrada asignada por el sistema, si no existe ninguna. Hay dos definiciones de directivas en la iniciativa que administran la creación de identidades. Las condiciones IF en las definiciones de directiva garantizan el comportamiento correcto en función del estado actual del recurso de máquina en Azure.
+Las definiciones de directiva de la iniciativa _Implementar los requisitos previos para habilitar directivas de configuración de invitado en máquinas virtuales_ habilitan una identidad administrada asignada por el sistema, si no existe ninguna. Hay dos definiciones de directivas en la iniciativa que administran la creación de identidades. Las condiciones IF en las definiciones de directiva garantizan el comportamiento correcto en función del estado actual del recurso de máquina en Azure.
 
-Si la máquina no tiene ninguna identidad administrada actualmente, la directiva efectiva será: [\[Versión preliminar\]: Agregar una identidad administrada asignada por el sistema para habilitar las asignaciones de configuración de invitado en máquinas virtuales sin identidades](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3cf2ab00-13f1-4d0c-8971-2ac904541a7e)
+Si la máquina no tiene ninguna identidad administrada actualmente, la directiva efectiva será: [Agregar una identidad administrada asignada por el sistema para habilitar las asignaciones de configuración de invitado en máquinas virtuales sin identidades](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3cf2ab00-13f1-4d0c-8971-2ac904541a7e)
 
-Si la maquina tiene actualmente una identidad del sistema asignada por el usuario, la directiva efectiva será: [\[Versión preliminar\]: Agregar una identidad administrada asignada por el sistema para habilitar las asignaciones de configuración de invitado en máquinas virtuales con una identidad asignada por el usuario](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F497dff13-db2a-4c0f-8603-28fa3b331ab6)
+Si la maquina tiene actualmente una identidad del sistema asignada por el usuario, la directiva efectiva será: [Agregar una identidad administrada asignada por el sistema para habilitar las asignaciones de configuración de invitado en VM con una identidad asignada por el usuario](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F497dff13-db2a-4c0f-8603-28fa3b331ab6)
 
 ## <a name="guest-configuration-definition-requirements"></a>Requisitos de definición de Guest Configuration
 
@@ -120,7 +120,7 @@ Azure Policy usa la propiedad **complianceStatus** de los proveedores de recurso
 
 #### <a name="auditing-operating-system-settings-following-industry-baselines"></a>Auditoría de la configuración del sistema operativo siguiendo las líneas de base del sector
 
-Una iniciativa de Azure Policy proporciona la capacidad de auditar la configuración del sistema operativo después de una "línea de base". La definición, _\[Versión preliminar\]: Auditar las VM Windows que no coinciden con la configuración de línea de base de seguridad de Azure_ incluye un conjunto de reglas basadas en la directiva de grupo de Active Directory.
+Una iniciativa de Azure Policy permite realizar la auditoría de la configuración del sistema operativo en función de una "línea de base". La definición, _\[Versión preliminar\]: Windows machines should meet requirements for the Azure security baseline_ (Versión preliminar: Las máquinas Windows deben cumplir los requisitos de la línea de base de seguridad de Azure) incluye un conjunto de reglas basadas en la directiva de grupo de Active Directory.
 
 La mayoría de las opciones de configuración están disponibles como parámetros. Los parámetros le permiten personalizar lo que se audita.
 Alinee la directiva con sus requisitos o asigne la directiva a información de terceros, como estándares normativos del sector.

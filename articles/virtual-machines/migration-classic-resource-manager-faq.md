@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 24e52f517f46de06fef8aa52e889185826c20d44
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: abf4e4621a7e42829032923a67d21c5322f432ec
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498402"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98232733"
 ---
 # <a name="frequently-asked-questions-about-classic-to-azure-resource-manager-migration"></a>Preguntas más frecuentes sobre la migración del método clásico al de Azure Resource Manager
 
@@ -82,11 +82,11 @@ Durante la migración, los recursos se transforman del modelo clásico al de Res
 
 Cuando traslade una máquina virtual del modo clásico al de Resource Manager, las copias de seguridad realizadas antes de la migración no migrarán a la máquina virtual de Resource Manager recién migrada. Sin embargo, si quiere mantener las copias de seguridad de las máquinas virtuales clásicas, siga estos pasos antes de la migración. 
 
-1. En el almacén de Recovery Services, vaya a la pestaña **Elementos protegidos** y seleccione la máquina virtual. 
-2. Haga clic en Stop Protection (Detener protección). Deje la opción *Eliminar los datos de copia de seguridad asociados* **desactivada**.
+1. En el almacén de Recovery Services, vaya a la hoja **Elementos de copia de seguridad** y seleccione la máquina virtual. 
+2. Haga clic en Detener copia de seguridad. Seleccione "Retener datos de copia de seguridad" en el menú desplegable.
 
 > [!NOTE]
-> Se le cobrará el costo de la instancia de la copia de seguridad hasta que retenga los datos. Las copias de seguridad se eliminarán según el intervalo de retención. Sin embargo, siempre se conserva la última copia de seguridad hasta que elimina explícitamente los datos de copia de seguridad. Se recomienda comprobar el intervalo de retención de la máquina virtual y el desencadenador "Eliminar datos de copia de seguridad" en el elemento protegido en el almacén una vez finalizado el intervalo de retención. 
+> Esta opción detendrá la protección para todos los trabajos de copia de seguridad futuros de la máquina virtual. Sin embargo, el servicio Azure Backup conservará los puntos de recuperación de los que se ha realizado una copia de seguridad.  Deberá pagar para mantener los puntos de recuperación en el almacén (consulte [Precios de Azure Backup](https://azure.microsoft.com/pricing/details/backup/) para obtener detalles). Podrá restaurar la máquina virtual si es necesario. Si decide reanudar la protección de máquina virtual, podrá usar la opción *Reanudar copia de seguridad*.
 >
 >
 

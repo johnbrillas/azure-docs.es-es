@@ -1,8 +1,6 @@
 ---
 title: Notificación de expiración y actualización automática del entorno de ejecución de integración autohospedado
 description: Obtenga información sobre la notificación de expiración y actualización automática del entorno de ejecución de integración autohospedado
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
@@ -11,12 +9,12 @@ ms.author: lle
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 12/25/2020
-ms.openlocfilehash: 6a6c897d92d469fd6247dd51f2bacb91032ac123
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 8c51839e760dcca32bfc0d150c5e4d10767d95a4
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121933"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222707"
 ---
 # <a name="self-hosted-integration-runtime-auto-update-and-expire-notification"></a>Notificación de expiración y actualización automática del entorno de ejecución de integración autohospedado
 
@@ -33,7 +31,7 @@ La manera más cómoda de hacerlo consiste en habilitar la actualización autom�
 
 Puede comprobar el valor de datetime de la última actualización en el cliente del entorno de ejecución de integración autohospedado.
 
-![Habilitación de la actualización automática](media/create-self-hosted-integration-runtime/shir-auto-update-2.png)
+![Captura de pantalla de la comprobación de la hora de actualización](media/create-self-hosted-integration-runtime/shir-auto-update-2.png)
 
 > [!NOTE]
 > Para garantizar la estabilidad del entorno de ejecución de integración autohospedado, aunque lancemos dos versiones, solo se actualizará automáticamente una vez al mes. Por lo tanto, en ocasiones verá que la versión de la actualización automática es la anterior a la versión más reciente real. Si quiere obtener la versión más reciente, puede ir al [Centro de descarga](https://www.microsoft.com/download/details.aspx?id=39717).

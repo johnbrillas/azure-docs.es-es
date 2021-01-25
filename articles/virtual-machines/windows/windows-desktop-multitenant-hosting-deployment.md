@@ -6,13 +6,13 @@ ms.service: virtual-machines-windows
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 1/24/2018
-ms.author: xujing
-ms.openlocfilehash: 101f2cfe57624502764d145351a6343cfdd2a334
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.author: mimckitt
+ms.openlocfilehash: 444c6a9c131916a2a07f41fd5c1ff38fc1e7bfb2
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96572871"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98210331"
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>Implementación de Windows 10 en Azure con derechos de hospedaje multiinquilino 
 Para los clientes con Windows 10 Enterprise E3/E5 por usuario o con acceso a escritorios virtuales de Windows por usuario (licencias de suscripción de usuarios o licencias de suscripción de usuario de complemento), los derechos de hospedaje multiinquilino de Windows 10 le permiten llevar sus licencias de Windows 10 a la nube y ejecutar máquinas virtuales de Windows 10 en Azure sin pagar por otra licencia. Para más información, consulte [Multitenant Hosting for Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx) (Hospedaje multiinquilino para Windows 10).
@@ -24,14 +24,22 @@ Para los clientes con Windows 10 Enterprise E3/E5 por usuario o con acceso a esc
 >
 
 ## <a name="deploying-windows-10-image-from-azure-marketplace"></a>Implementación de la imagen de Windows 10 desde Azure Marketplace 
-Para las implementaciones de plantilla de Powershell, CLI y Azure Resource Manager, la imagen de Windows 10 puede encontrarse con el siguiente nombre de editor, oferta o sku.
+En el caso de las implementaciones de plantillas de PowerShell, CLI y Azure Resource Manager, se pueden encontrar imágenes de Windows 10 mediante `PublisherName: MicrosoftWindowsDesktop` y `Offer: Windows-10`.
 
-| SO  |      PublisherName      |  Oferta | SKU |
-|:----------|:-------------:|:------|:------|
-| Windows 10 Pro    | MicrosoftWindowsDesktop | Windows-10  | RS2-Pro   |
-| Windows 10 Pro N  | MicrosoftWindowsDesktop | Windows-10  | RS2-ProN  |
-| Windows 10 Pro    | MicrosoftWindowsDesktop | Windows-10  | RS3-Pro   |
-| Windows 10 Pro N  | MicrosoftWindowsDesktop | Windows-10  | RS3-ProN  |
+```powershell
+Get-AzVmImageSku -Location '$location' -PublisherName 'MicrosoftWindowsDesktop' -Offer 'Windows-10'
+
+Skus                        Offer      PublisherName           Location 
+----                        -----      -------------           -------- 
+rs4-pro                     Windows-10 MicrosoftWindowsDesktop eastus   
+rs4-pron                    Windows-10 MicrosoftWindowsDesktop eastus   
+rs5-enterprise              Windows-10 MicrosoftWindowsDesktop eastus   
+rs5-enterprisen             Windows-10 MicrosoftWindowsDesktop eastus   
+rs5-pro                     Windows-10 MicrosoftWindowsDesktop eastus   
+rs5-pron                    Windows-10 MicrosoftWindowsDesktop eastus  
+```
+
+Para más información sobre las imágenes disponibles, consulte [Búsqueda y uso de imágenes de máquina virtual de Azure Marketplace con Azure PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimage).
 
 ## <a name="qualify-for-multi-tenant-hosting-rights"></a>Cualificación para los derechos de hospedaje multiinquilino 
 Para optar a los derechos de hospedaje multiinquilino y ejecutar imágenes en Azure, los usuarios deben tener una de las siguientes suscripciones: 

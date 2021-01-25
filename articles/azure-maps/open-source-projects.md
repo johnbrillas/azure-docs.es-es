@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 0f0d94dbc7b2c720faa1da41a88e3c3313dac377
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: df82e76fa2e5a9ea70c447411beafb8a2df9b036
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97680751"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98601593"
 ---
 # <a name="azure-maps-community---open-source-projects"></a>Comunidad de Azure Maps: proyectos de código abierto
 
@@ -65,6 +65,12 @@ A continuación se muestra una lista de proyectos de código abierto que amplía
 | [Control remoto de IoT para .NET UWP en Azure Maps](https://github.com/Azure-Samples/azure-maps-dotnet-webgl-uwp-iot-remote-control) | Se trata de una aplicación de ejemplo que muestra cómo crear un mapa controlado de forma remota con los servicios de Azure Maps e IoT Hub. |
 | [Implementación del análisis espacial de IoT mediante Azure Maps](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing) | El seguimiento y la captura de eventos pertinentes que se producen en el espacio y en el tiempo es un escenario común de IoT. |
 
+**Complementos de control de mapa de terceros**
+
+| Nombre de proyecto | Descripción |
+|-|-|
+| [Complemento Leaftlet de Azure Maps](https://github.com/azure-samples/azure-maps-leaflet) | Un complemento de [folleto](https://leafletjs.com/) de JavaScript que facilita la superposición de las capas de mosaico en los [servicios de mosaico de Azure Maps](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview). |
+ 
 **Herramientas y recursos**
 
 | Nombre de proyecto | Descripción |

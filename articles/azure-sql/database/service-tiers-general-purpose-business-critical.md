@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
 ms.date: 12/14/2020
-ms.openlocfilehash: 9ee7440b10bc348d3ba87a4779208791a7b0e9ac
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: b5a30846a6e2aaf85ded2e55641aa5fba9507a29
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97512035"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165780"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-service-tiers"></a>Niveles de servicio de Azure SQL Database e Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -78,6 +78,7 @@ Los siguientes factores afectan a la cantidad de almacenamiento utilizado para l
   - Para el almacenamiento en niveles de servicio premium o crítico para la empresa, aumente o disminuya el tamaño en incrementos de 250 GB.
 - En el nivel de servicio de uso general, `tempdb` usa una SSD asociada y este costo de almacenamiento se incluye en el precio del núcleo virtual.
 - En el nivel de servicio crítico para la empresa, `tempdb` comparte la SSD asociada con los archivos MDF y LDF, y el costo de almacenamiento de `tempdb` se incluye en el precio del núcleo virtual.
+- En el nivel de servicio de DTU Premium, `tempdb` comparte la SSD conectada con archivos MDF y LDF.
 - El tamaño de almacenamiento para una Instancia administrada de SQL debe especificarse en múltiplos de 32 GB.
 
 

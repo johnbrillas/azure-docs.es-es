@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/09/2019
 ms.author: madsd
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 954e94063ec91cd2a6d67d154dfd7da553e0935a
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 58886a8f7dc505a7e68d69eb00b4a2ebd776dd5a
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94560900"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209872"
 ---
 # <a name="application-gateway-integration-with-service-endpoints"></a>Integración de Application Gateway con puntos de conexión de servicio
 Hay tres variaciones de App Service que requieren una configuración ligeramente diferente de la integración con Azure Application Gateway. Por ejemplo, la versión normal de App Service, también conocida como "multiinquilino", el equilibrador de carga interno (ILB) y el ASE externo. En este artículo se explica cómo configurarlo con App Service (multiinquilino) y se explican las consideraciones sobre ILB y el ASE externo.
@@ -27,20 +27,20 @@ Hay tres variaciones de App Service que requieren una configuración ligerament
 ## <a name="integration-with-app-service-multi-tenant"></a>Integración con App Service (multiinquilino)
 App Service (multiinquilino) tiene un punto de conexión público accesible desde Internet. Con los [puntos de conexión de servicio](../../virtual-network/virtual-network-service-endpoints-overview.md) puede permitir el tráfico solo desde una subred específica en una instancia de Azure Virtual Network y bloquear todo lo demás. En el siguiente escenario, usaremos esta funcionalidad para garantizar que una instancia de App Service solo pueda recibir tráfico de una instancia específica de Application Gateway.
 
-![En el diagrama se muestra el flujo de Internet a una instancia de Application Gateway en una red virtual de Azure y el flujo desde allí a través de un icono de firewall a instancias de aplicaciones de App Service.](./media/app-gateway-with-service-endpoints/service-endpoints-appgw.png)
+:::image type="content" source="./media/app-gateway-with-service-endpoints/service-endpoints-appgw.png" alt-text="En el diagrama se muestra el flujo de Internet a una instancia de Application Gateway en una red virtual de Azure y el flujo desde allí a través de un icono de firewall a instancias de aplicaciones de App Service.":::
 
 Esta configuración tiene dos partes, además, crearemos las instancias de App Service y Application Gateway. La primera parte consiste en habilitar los puntos de conexión de servicio en la subred de Virtual Network donde se implementó Application Gateway. Los puntos de conexión de servicio garantizarán que todo el tráfico de red que sale de la subred hacia App Service se etiquete con el identificador de subred específico. La segunda parte consiste en establecer una restricción de acceso de la aplicación web específica para garantizar que solo se permita el tráfico etiquetado con este identificador de subred específico. Puede establecer la configuración con distintas herramientas en función de sus preferencias.
 
 ## <a name="using-azure-portal"></a>Uso de Azure Portal
 Con Azure Portal, siga estos cuatro pasos para aprovisionar y realizar la configuración. Si ya tiene los recursos, puede saltarse los primeros pasos.
-1. Creación de una instancia de App Service con uno de los inicios rápidos de la documentación de App Service, por ejemplo, [Inicio rápido de .NET Core](../quickstart-dotnetcore.md)
+1. Cree una instancia de App Service con uno de los inicios rápidos de la documentación de App Service, por ejemplo, [Inicio rápido de .NET Core](../quickstart-dotnetcore.md).
 2. Cree una instancia de Application Gateway mediante el [inicio rápido del portal](../../application-gateway/quick-create-portal.md), pero sáltese la sección para agregar destinos de back-end.
 3. Configure [App Service como back-end en Application Gateway](../../application-gateway/configure-web-app-portal.md), pero sáltese la sección de restricción del acceso.
-4. Por último, cree la [restricción de acceso usando puntos de conexión de servicio](../../app-service/app-service-ip-restrictions.md#use-service-endpoints).
+4. Por último, cree la [restricción de acceso usando puntos de conexión de servicio](../../app-service/app-service-ip-restrictions.md#set-a-service-endpoint-based-rule).
 
 Ahora puede acceder a App Service a través de Application Gateway, pero si trata de obtener acceso a App Service directamente, debería recibir un error HTTP 403 que indica que el sitio web está detenido.
 
-![Captura de pantalla que muestra el texto de un error 403: esta aplicación web se ha detenido.](./media/app-gateway-with-service-endpoints/web-site-stopped.png)
+![Captura de pantalla que muestra el texto de un error 403: prohibido.](./media/app-gateway-with-service-endpoints/website-403-forbidden.png)
 
 ## <a name="using-azure-resource-manager-template"></a>Uso de la plantilla de Azure Resource Manager
 La [plantilla de implementación de Resource Manager][template-app-gateway-app-service-complete] aprovisionará un escenario completo. El escenario consta de una instancia de App Service bloqueada con puntos de conexión de servicio y restricciones de acceso para recibir únicamente el tráfico de Application Gateway. La plantilla incluye muchos valores predeterminados inteligentes y versiones de reparación únicas agregadas a los nombres de recursos para que sea simple. Para invalidarlos, tendrá que clonar el repositorio o descargar la plantilla y editarla. 

@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 01/06/2021
 ms.author: sngun
-ms.openlocfilehash: 82f29fa89373c64e424d5f42035d7edb1bbca18c
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: bfc17af99a435c7c17f308f913346045aa22b18d
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98044652"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165559"
 ---
 # <a name="monitor-azure-cosmos-db-data-by-using-diagnostic-settings-in-azure"></a>Supervisión de datos de Azure Cosmos DB mediante la configuración de diagnóstico en Azure
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -35,26 +35,54 @@ Las métricas de la plataforma y el registro de actividad se recopilan automáti
 
  * **DataPlaneRequests**: seleccione esta opción para registrar las solicitudes de back-end a las API que incluyen las cuentas de SQL, Graph, MongoDB, Cassandra y Table API en Azure Cosmos DB. Las propiedades clave que se deben tener en cuenta son: `Requestcharge`, `statusCode`, `clientIPaddress`, `partitionID`, `resourceTokenPermissionId` y `resourceTokenPermissionMode`.
 
-    ```json
+   ```json
     { "time": "2019-04-23T23:12:52.3814846Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "DataPlaneRequests", "operationName": "ReadFeed", "properties": {"activityId": "66a0c647-af38-4b8d-a92a-c48a805d6460","requestResourceType": "Database","requestResourceId": "","collectionRid": "","statusCode": "200","duration": "0","userAgent": "Microsoft.Azure.Documents.Common/2.2.0.0","clientIpAddress": "10.0.0.24","requestCharge": "1.000000","requestLength": "0","responseLength": "372", "resourceTokenPermissionId": "perm-prescriber-app","resourceTokenPermissionMode": "all", "resourceTokenUserRid": "","region": "East US","partitionId": "062abe3e-de63-4aa5-b9de-4a77119c59f8","keyType": "PrimaryReadOnlyMasterKey","databaseName": "","collectionName": ""}}
-    ```
+   ```
+   
+   Use la siguiente consulta para obtener los registros correspondientes a las solicitudes del plano de datos:
+  
+   ```kusto
+   AzureDiagnostics 
+   | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests"
+   ```
 
 * **MongoRequests**: seleccione esta opción para registrar las solicitudes iniciadas por el usuario procedentes del front-end con el fin de atender solicitudes para las API de Azure Cosmos DB de MongoDB. Este tipo de registro solo está disponible para otras cuentas de API. Las propiedades que debe tener en cuenta son las siguientes: `Requestcharge`, `opCode`. Al habilitar MongoRequests en los registros de diagnóstico, asegúrese de desactivar DataPlaneRequests. Verá un registro para cada solicitud realizada en la API.
 
     ```json
     { "time": "2019-04-10T15:10:46.7820998Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "MongoRequests", "operationName": "ping", "properties": {"activityId": "823cae64-0000-0000-0000-000000000000","opCode": "MongoOpCode_OP_QUERY","errorCode": "0","duration": "0","requestCharge": "0.000000","databaseName": "admin","collectionName": "$cmd","retryCount": "0"}}
     ```
+  
+  Use la siguiente consulta para obtener los registros correspondientes a las solicitudes de MongoDB:
+  
+  ```kusto
+   AzureDiagnostics 
+   | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="MongoRequests"
+  ```
 
 * **CassandraRequests**: seleccione esta opción para registrar las solicitudes iniciadas por el usuario procedentes del front-end con el fin de atender las solicitudes a la API de Azure Cosmos DB de Cassandra. Este tipo de registro solo está disponible para otras cuentas de API. Las propiedades clave que debe tener en cuenta son `operationName`, `requestCharge` y `piiCommandText`. Al habilitar CassandraRequests en los registros de diagnóstico, asegúrese de desactivar DataPlaneRequests. Verá un registro para cada solicitud realizada en la API.
 
    ```json
    { "time": "2020-03-30T23:55:10.9579593Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "CassandraRequests", "operationName": "QuerySelect", "properties": {"activityId": "6b33771c-baec-408a-b305-3127c17465b6","opCode": "<empty>","errorCode": "-1","duration": "0.311900","requestCharge": "1.589237","databaseName": "system","collectionName": "local","retryCount": "<empty>","authorizationTokenType": "PrimaryMasterKey","address": "104.42.195.92","piiCommandText": "{"request":"SELECT key from system.local"}","userAgent": """"}}
    ```
+   
+  Use la siguiente consulta para obtener los registros correspondientes a las solicitudes de Cassandra:
+  
+  ```kusto
+   AzureDiagnostics 
+   | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="CassandraRequests"
+  ```
 
 * **GremlinRequests**: Seleccione esta opción para registrar las solicitudes iniciadas por el usuario procedentes del front-end con el fin de atender solicitudes para las API de Azure Cosmos DB de Gremlin. Este tipo de registro solo está disponible para otras cuentas de API. Las propiedades clave que se deben tener en cuenta son `operationName` y `requestCharge`. Al habilitar GremlinRequests en los registros de diagnóstico, asegúrese de desactivar DataPlaneRequests. Verá un registro para cada solicitud realizada en la API.
 
   ```json
   { "time": "2021-01-06T19:36:58.2554534Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "GremlinRequests", "operationName": "eval", "properties": {"activityId": "b16bd876-0e5c-4448-90d1-7f3134c6b5ff", "errorCode": "200", "duration": "9.6036", "requestCharge": "9.059999999999999", "databaseName": "GraphDemoDatabase", "collectionName": "GraphDemoContainer", "authorizationTokenType": "PrimaryMasterKey", "address": "98.225.2.189", "estimatedDelayFromRateLimitingInMilliseconds": "0", "retriedDueToRateLimiting": "False", "region": "Australia East", "requestLength": "266", "responseLength": "364", "userAgent": "<empty>"}}
+  ```
+  
+  Use la siguiente consulta para obtener los registros correspondientes a las solicitudes de Gremlin:
+  
+  ```kusto
+   AzureDiagnostics 
+   | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="GremlinRequests"
   ```
 
 * **QueryRuntimeStatistics**: seleccione esta opción para registrar el texto de la consulta que se ha ejecutado. Este tipo de registro solo está disponible para las cuentas de la API de SQL.

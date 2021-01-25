@@ -4,15 +4,15 @@ description: En este artículo se describe cómo iniciar sesión en una consola 
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/26/2020
+ms.date: 1/12/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 9305609b624a96e4d785657dfb63af6639e132c4
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 4ad1562bdd9853b6ff3c537790a54dbeab96b5b8
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97836864"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98538574"
 ---
 # <a name="activate-and-set-up-your-sensor"></a>Activación y configuración del sensor
 
@@ -65,10 +65,13 @@ Hay dos niveles de seguridad disponibles:
 La consola admite los siguientes tipos de certificado:
 
 - Infraestructura de clave empresarial y privada (PKI privada)
+
 - Infraestructura de clave pública (PKI pública)
+
 - Generado localmente en el dispositivo (autofirmado localmente) 
 
-  > [IMPORTANTE] No se recomienda usar el certificados autofirmado predeterminado. Este certificado no es seguro y debe usarse solo para entornos de prueba. No se puede validar el propietario del certificado y no se puede mantener la seguridad del sistema. Esta opción nunca debe usarse para redes de producción.
+  > [!IMPORTANT]
+  > No se recomienda usar el certificados autofirmado predeterminado. Este certificado no es seguro y debe usarse solo para entornos de prueba. No se puede validar el propietario del certificado y no se puede mantener la seguridad del sistema. Esta opción nunca debe usarse para redes de producción.
 
 ### <a name="sign-in-and-activate-the-sensor"></a>Inicio de sesión y activación del sensor
 

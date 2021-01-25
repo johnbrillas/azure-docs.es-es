@@ -8,12 +8,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/02/2020
-ms.openlocfilehash: 6bc9f69440be772910ea8200b5ccf7d5a5122ae6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9894da7486ec3c0dfb92c94c7c7f4db2247ebeb7
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907807"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98210212"
 ---
 # <a name="train-vowpal-wabbit-model"></a>Entrenamiento del modelo de Vowpal Wabbit
 En este artículo se describe cómo usar el módulo **Entrenamiento del modelo de Vowpal Wabbit** en el diseñador de Azure Machine Learning para crear un modelo de Machine Learning con Vowpal Wabbit.  

@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 06/17/2020
-ms.openlocfilehash: ce528e268e0ed1e34f53e32196bceef5ad8a2fcb
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: e85c97df29bbbcc5d446d788cc190f3c90f24024
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452490"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602230"
 ---
 # <a name="azure-sql-database-and-azure-synapse-ip-firewall-rules"></a>Reglas de firewall de Azure SQL Database y Azure Synapse
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -43,6 +43,9 @@ Puede configurar reglas de firewall de IP de nivel de servidor mediante Azure Po
 
 - Para usar el portal o PowerShell, debe ser propietario o colaborador de la suscripción.
 - Para usar Transact-SQL, debe conectarse a la base de datos *maestra* como el inicio de sesión de la entidad de seguridad a nivel de servidor o como administrador de Azure Active Directory. Antes un usuario con permisos en el nivel de Azure debe crear una regla de firewall de IP en el nivel de servidor.
+
+> [!NOTE]
+> De forma predeterminada, durante la creación de un nuevo servidor SQL lógico en Azure Portal, la opción **Permitir que los servicios y recursos de Azure accedan a este servidor** está establecida en **No**.
 
 ### <a name="database-level-ip-firewall-rules"></a>Reglas de firewall de IP en el nivel de base de datos
 
@@ -270,7 +273,7 @@ Tenga en cuenta los aspectos siguientes cuando el acceso a Azure SQL Database no
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Confirme que su entorno de red corporativo permite la comunicación entrante desde los intervalos de direcciones IP de proceso (incluidos los intervalos SQL) usados por los centros de datos de Azure. Es posible que tenga que agregar esas direcciones IP a la lista de permitidos. Consulte [Intervalos de direcciones IP del centro de datos de Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653).  
-- Para obtener un inicio rápido sobre la creación de una regla de firewall de IP de nivel de servidor, vea [Creación de una única base de datos en Azure SQL Database](single-database-create-quickstart.md).
+- Consulte nuestro inicio rápido sobre cómo [crear una base de datos única en Azure SQL Database](single-database-create-quickstart.md).
 - Para obtener ayuda con la conexión a una base de Azure SQL Database desde aplicaciones de código abierto o de terceros, vea [Ejemplos de código de inicio rápido de cliente para Azure SQL Database](connect-query-content-reference-guide.md#libraries).
 - Para información sobre los puertos adicionales que puede necesitar abrir, vea la sección "Fuera o dentro" de [Puertos más allá de 1433 para ADO.NET 4.5 y SQL Database](adonet-v12-develop-direct-route-ports.md).
 - Para obtener información general sobre la seguridad de Azure SQL Database, consulte [Protección de bases de datos](security-overview.md).

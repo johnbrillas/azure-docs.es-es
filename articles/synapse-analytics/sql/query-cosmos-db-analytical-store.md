@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 12/04/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: a0458264b6ea0c741244531fc104a7637108b06e
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 4681039f60154b95eeb7e40196ca33055a192c74
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121352"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222112"
 ---
 # <a name="query-azure-cosmos-db-data-with-a-serverless-sql-pool-in-azure-synapse-link-preview"></a>Consulta de datos de Azure Cosmos DB con un grupo de SQL sin servidor en Azure Synapse Link (versión preliminar)
 
@@ -205,6 +205,8 @@ El resultado de esta consulta podría ser similar al de la tabla siguiente:
 Para obtener más información sobre los tipos de SQL que se deben usar para los valores de Azure Cosmos DB, revise las [reglas de asignaciones de tipos SQL](#azure-cosmos-db-to-sql-type-mappings) al final del artículo.
 
 ## <a name="create-view"></a>Creación de vistas
+
+No se recomienda ni se ofrece asistencia para la creación de vistas en las bases de datos maestra o predeterminada. Por lo tanto, debe crear una base de datos de usuario para las vistas.
 
 Una vez que identifique el esquema, puede preparar una vista sobre los datos de Azure Cosmos DB. Debe colocar la clave de cuenta de Azure Cosmos DB en unas credenciales independientes y hacer referencia a ellas a partir de la función `OPENROWSET`. No mantenga su clave de cuenta en la definición de la vista.
 

@@ -2,13 +2,13 @@
 title: Implementación de recursos en una suscripción
 description: Se describe cómo crear un grupo de recursos en una plantilla de Azure Resource Manager. También se muestra cómo implementar recursos en el ámbito de la suscripción de Azure.
 ms.topic: conceptual
-ms.date: 11/24/2020
-ms.openlocfilehash: 2d4bd0db32a4bf0224b9da3af6e03ca86d7b496e
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.date: 01/13/2021
+ms.openlocfilehash: 1daf95945f619d0e904880d8a8a778810a685d9a
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95807704"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98183989"
 ---
 # <a name="subscription-deployments-with-arm-templates"></a>Implementaciones de suscripción con plantillas de Resource Manager
 
@@ -142,7 +142,8 @@ Al implementar en una suscripción, puede implementar los recursos en:
 * cualquier suscripción en el inquilino
 * grupos de recursos en la suscripción o en otras
 * inquilino para la suscripción
-* se pueden aplicar [recursos de extensión](scope-extension-resources.md) a los recursos
+
+Un [recurso de extensión](scope-extension-resources.md) se puede aplicar al ámbito de un destino distinto del destino de implementación.
 
 El usuario que implementa la plantilla debe tener acceso al ámbito especificado.
 
@@ -181,6 +182,8 @@ Puede usar una implementación anidada con los valores de `scope` y `location` e
 O bien, puede establecer el ámbito en `/` para algunos tipos de recursos, como los grupos de administración.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/subscription-create-mg.json" highlight="12,15":::
+
+Para más información, consulte [Grupo de administración](deploy-to-management-group.md#management-group).
 
 ## <a name="resource-groups"></a>Grupos de recursos
 

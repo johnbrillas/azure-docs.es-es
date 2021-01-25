@@ -9,12 +9,12 @@ ms.subservice: azure-sentinel
 ms.topic: how-to
 ms.date: 09/01/2020
 ms.author: yelevin
-ms.openlocfilehash: b5d98a834ed4f87fb95a13e666967a7b2d80975d
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: c54b5b785f6da1bb651d8b1f508da42ab0fb802d
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94656061"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98538380"
 ---
 # <a name="connect-data-from-azure-ddos-protection"></a>Conexión de datos desde Azure DDoS Protection
 
@@ -38,7 +38,7 @@ Los ataques de denegación de servicio distribuido (DDoS) intentan agotar los re
 
 1. Seleccione **Azure DDoS Protection** en la galería de conectores de datos y, luego, seleccione **Abrir página del conector** en el panel de vista previa.
 
-1. Habilite **Registros de diagnóstico** en todos los firewalls cuyos registros quiere conectar:
+1. Habilite **Registros de diagnóstico** en todas las direcciones IP públicas cuyos registros desea conectar:
 
     1. Seleccione el vínculo **Abrir Configuración de diagnóstico >** y elija un recurso de **IP pública** de la lista.
 

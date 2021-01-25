@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/29/2020
 ms.author: martinco
-ms.openlocfilehash: 4703a76ff0a0b55a438f9f0d164cd7f2d3242a02
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: ffc5bafca305086b0c524c76eb91b8aec2e2655d
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842029"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602442"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinco pasos para asegurar su infraestructura de identidad
 
@@ -81,7 +81,7 @@ Si crea identidades directamente en Azure AD, puede usar [PowerShell para evitar
 
 Si la organización utiliza una solución de identidad híbrida con federación o autenticación de paso a través, debe habilitar la sincronización de hash de contraseñas por estos dos motivos:
 
-* El informe [Usuarios con credenciales filtradas](../../active-directory/identity-protection/overview-identity-protection.md) de la administración de Azure AD le advierte sobre los pares de nombre de usuario y contraseña que se expusieron en la "web oscura". Se filtra un volumen increíble de contraseñas a través del phishing, el malware y la reutilización de contraseñas en sitios de terceros que luego se vulneran. Cuando Microsoft encuentre estas credenciales filtradas, le indicará en este informe si coinciden con las credenciales de la organización; sin embargo, para ello, debe [habilitar la sincronización del hash de contraseñas](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md).
+* El informe [Usuarios con credenciales filtradas](../../active-directory/identity-protection/overview-identity-protection.md) de la administración de Azure AD le advierte sobre los pares de nombre de usuario y contraseña que se expusieron en la "web oscura". Se filtra un volumen increíble de contraseñas a través del phishing, el malware y la reutilización de contraseñas en sitios de terceros que luego se vulneran. Cuando Microsoft encuentre estas credenciales filtradas, le indicará en este informe si coinciden con las credenciales de la organización; sin embargo, para ello, debe [habilitar la sincronización del hash de contraseñas](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md) o contar con identidades solo en la nube.
 * Si se produce una interrupción en el entorno local (por ejemplo, si sufre un ataque de ransomware), podrá cambiar a la [autenticación en la nube mediante la sincronización del hash de contraseñas](../../active-directory/hybrid/choose-ad-authn.md). Este método de autenticación de copias de seguridad le permitirá continuar accediendo a las aplicaciones configuradas, gracias a la autenticación con Azure Active Directory, incluyendo Microsoft 365. En este caso, el personal de TI no necesitará recurrir a las cuentas de correo electrónico personales para compartir los datos hasta que la interrupción del entorno local se resuelva.
 
 Obtenga más información sobre el funcionamiento de la [sincronización del hash de contraseñas](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md).

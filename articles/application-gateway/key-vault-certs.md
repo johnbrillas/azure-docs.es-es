@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: victorh
-ms.openlocfilehash: 95ca4933b97199ba6d8ac1bed7587af5d3bd559f
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 694868f2a75cc66bf9e3ede9d12e30a2cc3d7af9
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94648130"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185944"
 ---
 # <a name="tls-termination-with-key-vault-certificates"></a>Terminación TLS con certificados de Key Vault
 
@@ -43,7 +43,7 @@ La integración de Application Gateway con Key Vault requiere un proceso de conf
 
 1. **Creación de una identidad administrada asignada por el usuario**
 
-   Debe crear o volver a usar una identidad administrada asignada por el usuario existente, que Application Gateway usará para recuperar los certificados de Key Vault en su nombre. Para obtener más información, consulte [Creación, enumeración, eliminación o asignación de un rol a una identidad administrada que haya asignado el usuario mediante Azure Portal](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md). Con este paso se crea una nueva identidad en el inquilino de Azure Active Directory. La identidad es de confianza para la suscripción que se usa para crear la identidad.
+   Debe crear o volver a usar una identidad administrada asignada por el usuario existente, que Application Gateway usará para recuperar los certificados de Key Vault en su nombre. Para obtener más información, consulte [Creación, enumeración, eliminación o asignación de un rol a una identidad administrada asignada por el usuario mediante Azure Portal](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md). Con este paso se crea una nueva identidad en el inquilino de Azure Active Directory. La identidad es de confianza para la suscripción que se usa para crear la identidad.
 
 1. **Configuración del almacén de claves**
 

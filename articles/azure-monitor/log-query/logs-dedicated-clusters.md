@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: 34524626cc213233c3db2ca438261b238eb18a2a
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.openlocfilehash: 93b05a5535b80d0e0d1a07c88aa9b19052f1b703
+ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97831778"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98562682"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Clústeres dedicados de registros de Azure Monitor
 
@@ -58,7 +58,7 @@ Encontrará más detalles sobre la facturación de los clústeres dedicados de L
 
 ## <a name="asynchronous-operations-and-status-check"></a>Operaciones asincrónicas y comprobación de estado
 
-Algunos de los pasos de configuración se ejecutan de forma asincrónica porque no se pueden completar rápidamente. El estado en la respuesta puede ser uno de las siguientes: "EnCurso", "Actualizando", "Eliminando", "Correcto" o "Incorrecto", incluido el código de error. Cuando se utiliza REST, la respuesta devuelve inicialmente un código de estado HTTP 200 (Correcto) y un encabezado con la propiedad Azure-AsyncOperation cuando se acepta:
+Algunos de los pasos de configuración se ejecutan de forma asincrónica porque no se pueden completar rápidamente. El estado en la respuesta puede ser uno de las siguientes: "EnCurso", "Actualizando", "Eliminando", "Correcto" o "Incorrecto", incluido el código de error. Cuando se usa REST, la respuesta devuelve inicialmente un código de estado HTTP 202 (Aceptado) y un encabezado con la propiedad Azure-AsyncOperation:
 
 ```JSON
 "Azure-AsyncOperation": "https://management.azure.com/subscriptions/subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2020-08-01"
@@ -125,7 +125,7 @@ Content-type: application/json
 
 *Respuesta*
 
-Debe ser 200 Correcto y un encabezado.
+Debe ser 202 (Aceptado) y un encabezado.
 
 ### <a name="check-cluster-provisioning-status"></a>Comprobación del estado de aprovisionamiento del clúster
 
@@ -229,7 +229,7 @@ Content-type: application/json
 
 *Respuesta*
 
-200 Correcto y encabezado.
+202 (Aceptado) y encabezado.
 
 ### <a name="check-workspace-link-status"></a>Comprobación del estado de vinculación del área de trabajo
   

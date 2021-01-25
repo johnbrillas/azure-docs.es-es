@@ -13,12 +13,12 @@ ms.date: 10/27/2020
 ms.author: hirsin
 ms.reviewer: mmacy, hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: ceb5acbee2e572b1859a5577b58dd586fc924b3b
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 4a798443560f62673ef8fcf0bce970a66071d011
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97653289"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98232393"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Tokens de acceso de la Plataforma de identidad de Microsoft
 
@@ -292,10 +292,7 @@ Un *inicio de sesión no basado en contraseña* es aquel en el que el usuario no
 - Voz
 - PIN
 
-> [!NOTE]
-> Los tokens de actualización principales (PRT) en Windows 10 se segregan en función de la credencial. Por ejemplo, Windows Hello y la contraseña tienen sus respectivos PRT, aislados entre sí. Cuando un usuario inicia sesión con una credencial de Hello (PIN o biométrica) y, a continuación, cambia la contraseña, se revocará el PRT basado en la contraseña obtenido previamente. Al volver a iniciar sesión con una contraseña, se invalida el PRT antiguo y se solicita uno nuevo.
->
-> Los tokens de actualización no se invalidan ni revocan cuando se utilizan para capturar un token de acceso y un token de actualización nuevos.  Sin embargo, la aplicación debe descartar el token antiguo en cuanto se use y reemplazarlo por el nuevo, ya que el nuevo token tiene una nueva fecha de expiración.
+Consulte [Tokens de actualización principales](../devices/concept-primary-refresh-token.md) para obtener más detalles sobre estos tokens.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

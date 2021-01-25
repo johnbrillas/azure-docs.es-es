@@ -10,13 +10,13 @@ ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: wiassaf, sstein
-ms.date: 03/10/2020
-ms.openlocfilehash: a016781e5b05c8f43c043bf1f3368a58064e43ad
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 1/14/2021
+ms.openlocfilehash: db24f280f66e567572821297cfc9bb9b1e19743b
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96501267"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222350"
 ---
 # <a name="query-performance-insight-for-azure-sql-database"></a>Información de rendimiento de consultas para Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -155,7 +155,7 @@ Para ver los detalles de una consulta:
 
 Dos métricas de Información de rendimiento de consultas pueden ayudarle a encontrar posibles cuellos de botella: duración y recuento de ejecuciones.
 
-Las consultas de larga ejecución tienen el máximo potencial para bloquear recursos durante más tiempo, bloquear otros usuarios y limitar la escalabilidad. También son las mejores candidatas para la optimización.
+Las consultas de larga ejecución tienen el máximo potencial para bloquear recursos durante más tiempo, bloquear otros usuarios y limitar la escalabilidad. También son las mejores candidatas para la optimización. Para obtener más información, consulte [Descripción y resolución de problemas de bloqueo en Azure SQL](understand-resolve-blocking.md).
 
 Para identificar consultas de larga ejecución:
 
