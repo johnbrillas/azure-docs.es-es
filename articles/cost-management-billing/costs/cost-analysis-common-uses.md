@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
-ms.openlocfilehash: c03bf5e52ae7f6b259c7b744e6033d760af23dd0
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 72b371fd1184c9c9e69593c5ad7e57310abf1de2
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683681"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600037"
 ---
 # <a name="common-cost-analysis-uses"></a>Usos del análisis de costos comunes
 
@@ -198,7 +198,7 @@ Solo se muestran los costos de la inscripción activa. Si transfirió una inscri
 
 
 1. En Azure Portal, vaya a **Administración de costos + facturación** > **Información general**.
-1. Haga clic en **Desglose** para el mes en curso y vea la evolución del compromiso monetario.  
+1. Haga clic en **Desglose** para el mes en curso y compruebe la evolución del prepago de Azure (anteriormente llamado compromiso monetario).  
     [![Información general sobre costos de EA: desglose](./media/cost-analysis-common-uses/breakdown1.png)](./media/cost-analysis-common-uses/breakdown1.png#lightbox)
 1.  Haga clic en la pestaña **Usage and Charges** (Uso y cargos) y vea el desglose del mes anterior en el intervalo de tiempo seleccionado.  
     [![Pestaña Usage and charges (Uso y cargos)](./media/cost-analysis-common-uses/breakdown2.png)](./media/cost-analysis-common-uses/breakdown2.png#lightbox)

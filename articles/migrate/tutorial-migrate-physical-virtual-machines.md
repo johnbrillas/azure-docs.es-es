@@ -7,12 +7,12 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 01/02/2021
 ms.custom: MVC
-ms.openlocfilehash: bd560a6ef4a3b4ab5eb4632e7741c764f6e314e1
-ms.sourcegitcommit: c538b6e4cf27b992500c079ad9c914c05d55eb7f
+ms.openlocfilehash: c0f4f1d7f0213ad24d25d8d34235475bbdb0316a
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2021
-ms.locfileid: "97854934"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567097"
 ---
 # <a name="migrate-machines-as-physical-servers-to-azure"></a>Migración de máquinas como servidores físicos a Azure
 
@@ -163,6 +163,8 @@ En las máquinas que desea migrar, debe instalar el agente de Mobility Service. 
     - Puede obtener la frase de contraseña en el dispositivo de replicación. Desde la línea de comandos, ejecute **C:\ProgramData\ASR\home\svsystems\bin\genpassphrase.exe -v** para ver la frase de contraseña actual.
     - No regenere la frase de contraseña. Esto interrumpirá la conectividad y tendrá que volver a registrar el dispositivo de replicación.
 
+> [!NOTE]
+> En el parámetro */Platform*, se especifica *VMware* si se migran máquinas virtuales de VMware o máquinas físicas.
 
 ### <a name="install-on-windows"></a>Instalación en Windows
 
@@ -230,38 +232,41 @@ Ahora, seleccione las máquinas para la migración.
     -  La zona de disponibilidad para anclar la máquina migrada a una zona de disponibilidad específica de la región. Use esta opción para distribuir los servidores que forman una capa de aplicación de varios nodos en Availability Zones. Si selecciona esta opción, deberá especificar la zona de disponibilidad que se va a usar en cada una de las máquinas seleccionadas en la pestaña Proceso. Esta opción solo está disponible si la región de destino seleccionada para la migración admite Availability Zones.
     -  El conjunto de disponibilidad para colocar la máquina migrada en un conjunto de disponibilidad. Para usar esta opción, el grupo de recursos de destino seleccionado debe tener uno o varios conjuntos de disponibilidad.
     - No se requiere ninguna opción de redundancia de infraestructura si no necesita ninguna de estas configuraciones de disponibilidad para las máquinas migradas.
-12. En **Ventaja híbrida de Azure**:
+    
+12. En **Disk encryption type** (Tipo de cifrado de disco), seleccione:
+    - Cifrado en reposo con clave administrada por la plataforma
+    - Cifrado en reposo con clave administrada por el cliente
+    - Cifrado doble con claves administradas por el cliente y por la plataforma
+
+   > [!NOTE]
+   > Para replicar máquinas virtuales con CMK, será necesario [crear un conjunto de cifrado de disco](https://go.microsoft.com/fwlink/?linkid=2151800) en el grupo de recursos de destino. Un objeto de conjunto de cifrado de disco asigna instancias de Managed Disks a una instancia de Key Vault que contiene las claves CMK que se van a usar para SSE.
+  
+13. En **Ventaja híbrida de Azure**:
 
     - Seleccione **No** si no desea aplicar la Ventaja híbrida de Azure. A continuación, haga clic en **Siguiente**.
     - Seleccione **Sí** si tiene equipos con Windows Server que están incluidos en suscripciones activas de Software Assurance o Windows Server y desea aplicar el beneficio a las máquinas que va a migrar. A continuación, haga clic en **Siguiente**.
 
-    ![Configuración de destino](./media/tutorial-migrate-physical-virtual-machines/target-settings.png)
+    ![Configuración de destino](./media/tutorial-migrate-vmware/target-settings.png)
 
-13. En **Proceso**, revise el nombre, el tamaño, el tipo de disco del sistema operativo y la configuración de disponibilidad (si se ha seleccionado en el paso anterior) de la máquina virtual. Las máquinas virtuales deben cumplir los [requisitos de Azure](migrate-support-matrix-physical-migration.md#azure-vm-requirements).
+14. En **Proceso**, revise el nombre, el tamaño, el tipo de disco del sistema operativo y la configuración de disponibilidad (si se ha seleccionado en el paso anterior) de la máquina virtual. Las máquinas virtuales deben cumplir los [requisitos de Azure](migrate-support-matrix-physical-migration.md#azure-vm-requirements).
 
     - **Tamaño de VM**: si usa las recomendaciones de la evaluación, el menú desplegable de tamaño de máquina virtual muestra el tamaño recomendado. De lo contrario, Azure Migrate elige un tamaño en función de la coincidencia más cercana en la suscripción de Azure. También puede elegir un tamaño de manera manual en **Tamaño de la máquina virtual de Azure**.
     - **Disco del sistema operativo**: especifique el disco del sistema operativo (arranque) de la máquina virtual. Este es el disco que tiene el cargador de arranque y el instalador del sistema operativo.
     - **Zona de disponibilidad**: especifique la zona de disponibilidad que se va a usar.
     - **Conjunto de disponibilidad**: especifique el conjunto de disponibilidad que se va a usar.
 
-> [!NOTE]
-> Si quiere seleccionar otra opción de disponibilidad para un conjunto de máquinas virtuales, vaya al paso 1 y repita los pasos seleccionando diferentes opciones de disponibilidad tras el inicio de la replicación de uno de los conjuntos de máquinas virtuales.
+![Configuración de Proceso](./media/tutorial-migrate-physical-virtual-machines/compute-settings.png)
 
-   ![Configuración de Proceso](./media/tutorial-migrate-physical-virtual-machines/compute-settings.png)
-
-13. En **Discos**, especifique si los discos de máquina virtual se deben replicar en Azure y seleccione el tipo de disco (discos SSD o HDD estándar o bien discos administrados premium) en Azure. A continuación, haga clic en **Siguiente**.
+15. En **Discos**, especifique si los discos de máquina virtual se deben replicar en Azure y seleccione el tipo de disco (discos SSD o HDD estándar o bien discos administrados premium) en Azure. A continuación, haga clic en **Siguiente**.
     - Puede excluir discos de la replicación.
     - Si excluye discos, no estarán presentes en la máquina virtual de Azure después de la migración. 
 
     ![Configuración de discos](./media/tutorial-migrate-physical-virtual-machines/disks.png)
 
-
-14. En **Revisar e iniciar la replicación**, revise la configuración y haga clic en **Replicar** para iniciar la replicación inicial de los servidores.
+16. En **Revisar e iniciar la replicación**, revise la configuración y haga clic en **Replicar** para iniciar la replicación inicial de los servidores.
 
 > [!NOTE]
 > Puede actualizar la configuración de replicación en cualquier momento antes de que esta comience; para ello, vaya a **Administrar** > **Replicación de máquinas**. Una vez iniciada la replicación, su configuración no se puede cambiar.
-
-
 
 ## <a name="track-and-monitor"></a>Seguimiento y supervisión
 

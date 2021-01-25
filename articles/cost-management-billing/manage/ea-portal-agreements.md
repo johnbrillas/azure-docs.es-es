@@ -3,17 +3,17 @@ title: Acuerdos y enmiendas de Contrato Enterprise de Azure
 description: En este artículo se explica cómo los acuerdos y enmiendas del Contrato Enterprise de Azure afectan al uso del portal del Contrato Enterprise de Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/03/2020
+ms.date: 01/19/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: 9e6750bd8404b4f9b910dda93859a0ca3fd268d4
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: c2c3636e98d67616826b03cca9657b806c5bd653
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442537"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98598014"
 ---
 # <a name="azure-ea-agreements-and-amendments"></a>Acuerdos y enmiendas de Contrato Enterprise de Azure
 
@@ -21,7 +21,7 @@ En este artículo se describe cómo los acuerdos y modificaciones del Contrato E
 
 ## <a name="enrollment-provisioning-status"></a>Estado de aprovisionamiento de inscripciones
 
-La fecha de inicio de un nuevo prepago de Azure se define por la fecha en que el centro de operaciones regional lo ha procesado. Como los pedidos de prepago de Azure a través de Azure EA Portal se procesan en la zona horaria UTC, puede producirse algún retraso si el pedido de compra de prepago de Azure se procesó en otra región. La fecha de inicio de la cobertura en el pedido de compra muestra el inicio del prepago de Azure. La fecha de inicio de la cobertura es cuando el prepago de Azure aparece en Azure EA Portal.
+La fecha de inicio de un nuevo prepago de Azure (anteriormente llamado compromiso monetario) depende de la fecha en la que el centro de operaciones regional lo haya procesado. Como los pedidos de prepago de Azure a través de Azure EA Portal se procesan en la zona horaria UTC, puede producirse algún retraso si el pedido de compra de prepago de Azure se procesó en otra región. La fecha de inicio de la cobertura en el pedido de compra muestra el inicio del prepago de Azure. La fecha de inicio de la cobertura es cuando el prepago de Azure aparece en Azure EA Portal.
 
 ## <a name="support-for-enterprise-customers"></a>Soporte técnico para clientes de Enterprise
 
@@ -60,7 +60,7 @@ Microsoft no tendrá acceso ni usará el incremento proporcionado ni los precios
 
 ### <a name="how-the-calculation-works"></a>Realización del cálculo
 
-El Proveedor de soluciones de licencia proporciona un único número de porcentaje en EA Portal.  Toda la información comercial del portal se elevará según este porcentaje proporcionado. Ejemplo:
+El Proveedor de soluciones de licencia proporciona un único número de porcentaje en EA Portal.    Toda la información comercial del portal se elevará según este porcentaje proporcionado. Ejemplo:
 
 - El cliente firma un Contrato Enterprise con un prepago de Azure de 100 000 USD.
 - La tasa de medidor para el servicio A es de 10 USD por hora.
@@ -101,13 +101,14 @@ Asegúrese de revisar la información comercial —información de saldo monetar
 Revise el incremento de precio en _Usage Summary_ (Resumen de uso) para el período de prepago en la vista de cliente. El precio de Microsoft seguirá estando disponible en la vista de asociado. Las vistas se pueden alternar mediante el texto de alternancia "People" (Personas) de incremento del asociado en la parte superior derecha.
 
 1. Revise los precios de la hoja de precios.
-1. Se pueden realizar cambios antes de la publicación seleccionando **Edit** (Editar) en la pestaña _View Usage Summary > Customer View_ (Ver resumen de uso > Vista de cliente). 
-  Tanto los precios de los servicios como los saldos de prepago se incrementarán con los mismos porcentajes. Si cuenta con porcentajes diferentes para el saldo monetario y para las tasas de medidor, o bien diferentes porcentajes para diferentes servicios, no use esta característica.
+1. Se pueden realizar cambios antes de la publicación seleccionando **Edit** (Editar) en la pestaña _View Usage Summary > Customer View_ (Ver resumen de uso > Vista de cliente).
+   
+Tanto los precios de los servicios como los saldos de prepago se incrementarán con los mismos porcentajes. Si cuenta con porcentajes diferentes para el saldo monetario y para las tasas de medidor, o bien diferentes porcentajes para diferentes servicios, no use esta característica.
 
 **Paso tres: Publicar**
 
 Después de revisar y validar los precios, haga clic en **Publish** (Publicar).
-  
+  
 Los precios con el incremento estarán disponibles para los administradores de empresa inmediatamente después de seleccionar la opción de publicación. Ya no se pueden realizar modificaciones en el incremento. Deberá deshabilitarlo y comenzar en el paso uno.
 
 ### <a name="which-enrollments-have-a-markup-enabled"></a>¿Qué inscripciones tienen el incremento habilitado?

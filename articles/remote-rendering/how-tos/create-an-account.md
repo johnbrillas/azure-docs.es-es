@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: how-to
-ms.openlocfilehash: 8169b277dfae918e86ac493259325ff84d0b6a4e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 83bd4a7ae0082d24f7ac617719e628f4db4baeb9
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95998539"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98197646"
 ---
 # <a name="create-an-azure-remote-rendering-account"></a>Creación de una cuenta de Azure Remote Rendering
 
@@ -71,35 +71,26 @@ El valor de **`arrAccountKey`** puede ser una clave principal o secundaria.
 
 Aquí se explica cómo vincular cuentas de almacenamiento a la cuenta de Remote Rendering. Cuando se vincula una cuenta de almacenamiento, no es necesario generar un URI de SAS cada vez que desee interactuar con los datos de la cuenta, por ejemplo al cargar un modelo. En su lugar, puede usar los nombres de cuenta de almacenamiento directamente como se describe en la [sección Carga de un modelo](../concepts/models.md#loading-models).
 
-Los pasos de este procedimiento deben realizarse para cada cuenta de almacenamiento que deba usar este método de acceso alternativo. Si aún no ha creado las cuentas de almacenamiento, puede seguir el paso correspondiente en el [inicio rápido para convertir un modelo para la representación](../quickstarts/convert-model.md#storage-account-creation).
+Los pasos de este procedimiento deben realizarse con cada cuenta de almacenamiento que requiera este método de acceso. Si aún no ha creado las cuentas de almacenamiento, puede seguir el paso correspondiente en el [inicio rápido para convertir un modelo para la representación](../quickstarts/convert-model.md#storage-account-creation).
 
 Ahora se supone que tiene una cuenta de almacenamiento. Vaya a ella en el portal y, después, vaya a la pestaña **Access Control (IAM)** de esa cuenta de almacenamiento:
 
 ![IAM de la cuenta de almacenamiento](./media/azure-storage-account.png)
 
- Asegúrese de que tiene permisos de propietario en esta cuenta de almacenamiento para confirmar que puede agregar asignaciones de roles. Si no tiene acceso, se deshabilitará la opción **Agregar una asignación de roles**.
+Asegúrese de que tiene permisos de propietario en esta cuenta de almacenamiento para confirmar que puede agregar asignaciones de roles. Si no tiene acceso, se deshabilitará la opción **Agregar una asignación de roles**.
 
- Debe agregar tres roles distintos, como se describe en los pasos siguientes. Si no proporciona los tres niveles de acceso, habrá problemas con los permisos al intentar acceder a la cuenta de almacenamiento.
-
- Haga clic en el botón **Agregar** en el icono "Agregar una asignación de roles" para agregar el primer rol:
+Haga clic en el botón **Agregar** en el icono "Agregar una asignación de roles" para agregar el rol.
 
 ![IAM de la cuenta de almacenamiento: Agregar asignación de roles](./media/azure-add-role-assignment.png)
 
-* El primer rol que se va a asignar es el de **Propietario**, como se muestra en la captura de pantalla anterior.
-* Seleccione la cuenta **Remote Rendering** en la lista desplegable de **Asignar acceso a**.
+* Asigne el rol **Colaborador de datos de blobs de almacenamiento**, tal como se muestra en la captura de pantalla anterior.
+* Seleccione la identidad administrada asignada a la **cuenta de Remote Rendering** en el menú desplegable **Asignar acceso a**.
 * Seleccione la suscripción y la cuenta de Remote Rendering en las últimas listas desplegables.
+* Haga clic en "Guardar" para guardar los cambios.
 
 > [!WARNING]
 > En caso de que la cuenta de Remote Rendering no aparezca en la lista, consulte la [sección de solución de problemas](../resources/troubleshoot.md#cant-link-storage-account-to-arr-account).
 
-Repita la adición de nuevos roles dos veces más para las selecciones correspondientes en la lista desplegable **Rol**:
-
-* **Colaborador de la cuenta de almacenamiento**
-* **Colaborador de datos de blobs de almacenamiento**
-
-Las demás listas desplegables se seleccionan como en el primer paso.
-
-Si ha agregado los tres roles, la cuenta de Azure Remote Rendering tiene acceso a la cuenta de almacenamiento mediante las identidades de servicio administradas asignadas por el sistema.
 > [!IMPORTANT]
 > Azure Storage almacena en caché las asignaciones de roles de Azure, por lo que puede haber un retraso de hasta 30 minutos entre el momento en que se concede acceso a la cuenta de representación remota y el momento en que se puede usar para acceder a la cuenta de almacenamiento. Consulte [Documentación del control de acceso basado en roles de Azure (RBAC de Azure)](../../role-based-access-control/troubleshooting.md#role-assignment-changes-are-not-being-detected) para más información.
 

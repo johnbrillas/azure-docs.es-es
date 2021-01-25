@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 11/10/2020
-ms.openlocfilehash: baeb5fbadfaf128c2c491a1fdb7e880b413878d6
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 731a1fdf9520efc43c954cba79602ed84f983b3d
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491093"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247257"
 ---
 # <a name="quickstart-create-an-azure-cosmos-account-database-container-and-items-from-the-azure-portal"></a>Inicio rápido: Creación de una base de datos, un contenedor y elementos de Azure Cosmos desde Azure Portal
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -55,7 +55,7 @@ Vaya a [Azure Portal](https://portal.azure.com/) para crear una cuenta de Azure 
     |Nombre de cuenta|Un nombre único|Escriba un nombre para identificar la cuenta de Azure Cosmos. Dado que *documents.azure.com* se anexa al nombre que se proporciona para crear el identificador URI, debe usar un nombre único.<br><br>El nombre solo puede contener letras minúsculas, números y el carácter de guion (-). Debe tener una longitud de entre 3 y 31 caracteres.|
     |API|El tipo de cuenta que se va a crear|Seleccione **Core(SQL)** para crear una base de datos de documentos y consultarla mediante la sintaxis SQL. <br><br>La API determina el tipo de cuenta que se va a crear. Azure Cosmos DB proporciona cinco API: Core (SQL) y MongoDB para datos de documento, Gremlin para datos de gráfico, Azure Table y Cassandra. Actualmente, debe crear una cuenta independiente para cada API. <br><br>[Más información acerca de SQL API](introduction.md).|
     |Capacity mode (Modo de capacidad)|Rendimiento aprovisionado o sin servidor|Seleccione **Provisioned throughput** (Rendimiento aprovisionado) para crear una cuenta en modo de [rendimiento aprovisionado](set-throughput.md). Seleccione **Serverless** (Sin servidor) para crear una cuenta en modo [sin servidor](serverless.md).|
-    |Aplicación de descuento por nivel Gratis|Aplicar o no aplicar|Con el nivel Gratis de Azure Cosmos DB, obtendrá los primeros 400 RU/s y 5 GB de almacenamiento gratis en una cuenta. Más información acerca del [nivel Gratis](https://azure.microsoft.com/pricing/details/cosmos-db/).|
+    |Aplicar el descuento del nivel Gratis de Azure Cosmos DB|Aplicar o no aplicar|Con el nivel Gratis de Azure Cosmos DB, obtendrá los primeros 400 RU/s y 5 GB de almacenamiento gratis en una cuenta. Más información acerca del [nivel Gratis](https://azure.microsoft.com/pricing/details/cosmos-db/).|
     |Location|Región más cercana a los usuarios|Seleccione una ubicación geográfica para hospedar la cuenta de Azure Cosmos DB. Use la ubicación más cercana a los usuarios para que puedan acceder de la forma más rápida posible a los datos.|
     |Tipo de cuenta|Producción o no producción|Seleccione **Producción** si la cuenta se va a usar para una carga de trabajo de producción. Seleccione **No producción** si la cuenta se va a usar para entornos que no son de producción, como desarrollo, pruebas, control de calidad o almacenamiento provisional. Se trata de una configuración de etiquetas de recursos de Azure que ajusta la experiencia del portal, pero no afecta a la cuenta de Azure Cosmos DB subyacente. Este valor se puede cambiar en cualquier momento.|
     |Redundancia geográfica|Habilitar o deshabilitar|Habilite o deshabilite la distribución global en su cuenta. Para ello, debe emparejar su región con una región de par. Puede agregar más regiones a su cuenta más adelante.|
@@ -94,12 +94,12 @@ Para crear una base de datos y un contenedor, puede usar Data Explorer en Azure 
     
     :::image type="content" source="./media/create-sql-api-dotnet/azure-cosmosdb-data-explorer-dotnet.png" alt-text="Explorador de datos de Azure Portal, panel Agregar contenedor":::
     
-1.  En el panel **Agregar contenedor** , especifique la configuración del nuevo contenedor.
+1.  En el panel **Agregar contenedor**, especifique la configuración del nuevo contenedor.
     
     |Configuración|Valor sugerido|Descripción
     |---|---|---|
     |**Identificador de base de datos**|ToDoList|Escriba *ToDoList* como nombre de la nueva base de datos. Los nombres de base de datos tienen que tener entre 1 y 255 caracteres y no pueden contener `/, \\, #, ?` o espacios finales. Seleccione la opción **Provision database throughput** (Aprovisionar rendimiento de la base de datos) que le permite compartir el rendimiento aprovisionado de la base de datos entre todos los contenedores de esta. Esta opción también le ayudará a reducir los costos. |
-    |**Rendimiento**|400|Deje el rendimiento en 400 unidades de solicitud por segundo (RU/s). Si quiere reducir la latencia, puede escalar verticalmente el rendimiento más adelante.<br><br>**Nota** : Este valor no está disponible cuando se crea un contenedor en una cuenta sin servidor.| 
+    |**Rendimiento**|400|Deje el rendimiento en 400 unidades de solicitud por segundo (RU/s). Si quiere reducir la latencia, puede escalar verticalmente el rendimiento más adelante.<br><br>**Nota**: Este valor no está disponible cuando se crea un contenedor en una cuenta sin servidor.| 
     |**ID de contenedor**|Elementos|Escriba *Elementos* como nombre del nuevo contenedor. Los identificadores de contenedor tienen los mismos requisitos de caracteres que los nombres de las bases de datos.|
     |**Clave de partición**| /categoría| El ejemplo que se describe en este artículo usa */category* como clave de partición.|
 
@@ -112,11 +112,11 @@ Para crear una base de datos y un contenedor, puede usar Data Explorer en Azure 
 
 Agregue datos a una base de datos nueva mediante Data Explorer.
 
-1. En **Data Explorer** , expanda la base de datos **ToDoList** y el contenedor **Items**. A continuación, seleccione **Elementos** y, después, **Nuevo elemento**. 
+1. En **Data Explorer**, expanda la base de datos **ToDoList** y el contenedor **Items**. A continuación, seleccione **Elementos** y, después, **Nuevo elemento**. 
    
    :::image type="content" source="./media/create-sql-api-dotnet/azure-cosmosdb-new-document.png" alt-text="Creación de documentos en el Explorador de datos En Azure Portal":::
    
-1. Agregue la siguiente estructura al documento de la derecha del panel **Documentos** :
+1. Agregue la siguiente estructura al documento de la derecha del panel **Documentos**:
 
      ```json
      {
@@ -145,7 +145,7 @@ Agregue datos a una base de datos nueva mediante Data Explorer.
 Si desea eliminar solo la base de datos y usar la cuenta de Azure Cosmos en el futuro, puede eliminar la base de datos con los pasos siguientes:
 
 * Vaya a la cuenta de Azure Cosmos.
-* Abra **Explorador de datos** , haga clic con el botón derecho en la base de datos que desee eliminar y seleccione **Eliminar base de datos**.
+* Abra **Explorador de datos**, haga clic con el botón derecho en la base de datos que desee eliminar y seleccione **Eliminar base de datos**.
 * Escriba el nombre de la base de datos o su identificador para confirmar la eliminación. 
 
 ## <a name="next-steps"></a>Pasos siguientes

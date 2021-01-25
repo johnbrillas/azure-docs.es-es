@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: 7c8a35e7c8ecd0952f8e02b66c5071253d9b0445
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 072377f98939d996547cb6ee9f9a535b4b32a3dc
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348932"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98597961"
 ---
 # <a name="azure-ea-vm-reserved-instances"></a>Instancias reservadas de máquinas virtuales de Azure EA
 
@@ -25,7 +25,7 @@ Puede intercambiar una reserva por otra del mismo tipo. También puede reembolsa
 
 ### <a name="partial-refunds"></a>Reembolsos parciales
 
-Se emitirá un reembolso parcial cuando los clientes de EA devuelvan las reservas que compraron mediante las modalidades de uso por encima del objetivo y no compromiso monetario.
+Se hará un reembolso parcial cuando los clientes de EA devuelvan las reservas que hayan adquirido a través del modelo de uso por encima del límite y no mediante el prepago de Azure (anteriormente llamado compromiso monetario).
 
 El reembolso se mostrará en el portal de EA como un ajuste negativo en el mes anterior y un ajuste positivo en el mes actual. Se mostrará de forma similar a un intercambio de reservas. El abono hará referencia al número de factura original; por lo tanto, para conciliar la compra inicial con el abono, consulte el número de factura original.
 

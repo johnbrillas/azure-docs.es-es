@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
 ms.custom: references_regions
-ms.openlocfilehash: 6a587ecbe7ff67908b22d4f2429cfdd0c511e07d
-ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
+ms.openlocfilehash: 0d1b2bd039f3e110c83d7ad4bf32f1e53e4c7a79
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96748780"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98610155"
 ---
 # <a name="microsoft-azure-attestation-preview"></a>Microsoft Azure Attestation (versión preliminar)
 
@@ -39,6 +39,12 @@ Las aplicaciones cliente se pueden diseñar para aprovechar las ventajas de los 
 [Open Enclave](https://openenclave.io/sdk/) (OE) es una colección de bibliotecas destinadas a crear una única abstracción unificada de enclave para que los desarrolladores creen aplicaciones basadas en TEE. Ofrece un modelo de aplicación segura universal que reduce las características específicas de cada plataforma. Microsoft considera que esta colección es un paso esencial para democratizar las tecnologías de enclave basadas en hardware, como SGX, y aumentar su aceptación en Azure.
 
 OE normaliza los requisitos específicos para la comprobación de una evidencia de enclave. Esto hace de OE un consumidor de atestación de Azure Attestation con gran capacidad de ajuste.
+
+### <a name="tpm-attestation"></a>Atestación de TPM 
+
+La atestación basada en el Módulo de plataforma segura (TPM) es fundamental para proporcionar una prueba del estado de las plataformas. TPM actúa como raíz de confianza y coprocesador de seguridad para proporcionar validez criptográfica de las medidas (evidencia). Los dispositivos con un TPM pueden confiar en la atestación para comprobar que la integridad del arranque no se ve comprometida, junto con el uso de las notificaciones para detectar la habilitación de los estados de características durante el arranque. 
+
+Las aplicaciones cliente se pueden diseñar para aprovechar las ventajas de la atestación de TPM mediante la delegación de tareas que afectan a la seguridad para que solo tengan lugar después de que se haya validado una plataforma como segura. Estas aplicaciones pueden usar Azure Attestation para establecer de forma rutinaria la confianza en la plataforma y su capacidad para acceder a datos confidenciales.
 
 ## <a name="azure-attestation-can-run-in-a-tee"></a>Azure Attestation se puede ejecutar en un TEE
 

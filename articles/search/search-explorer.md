@@ -7,41 +7,41 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 09/25/2020
-ms.openlocfilehash: adcd07ad370ad9f1301caa41c494a33958743dd8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 01/12/2021
+ms.openlocfilehash: e9607a71ed6b045ac704c43bf4ea54c9f181bbf4
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91398415"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98179782"
 ---
 # <a name="quickstart-use-search-explorer-to-run-queries-in-the-portal"></a>Inicio rápido: Uso del Explorador de búsqueda para ejecutar consultas en el portal
 
 El **Explorador de búsqueda** es una herramienta de consulta integrada que se usa para ejecutar consultas en un índice de búsqueda en Azure Cognitive Search. Esta herramienta facilita aprender la sintaxis de las consultas, probar una expresión de consulta o filtro, o verificar si existe contenido nuevo en el índice para confirmar la actualización de datos.
 
-En esta guía de inicio rápido se usa un índice existente para hacer una demostración del Explorador de búsqueda. Las solicitudes se formulan mediante la [API de REST de Search](/rest/api/searchservice/), donde las respuestas se devuelven como documentos JSON.
+En esta guía de inicio rápido se usa un índice existente para hacer una demostración del Explorador de búsqueda. Las solicitudes se formulan mediante la [API de REST de Search](/rest/api/searchservice/search-documents), donde las respuestas se devuelven como documentos JSON detallados.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Antes de empezar, debe disponer de lo siguiente:
+Antes de comenzar, tiene que cumplir los siguientes requisitos previos:
 
 + Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/).
 
 + Un servicio Azure Cognitive Search. [Cree un servicio](search-create-service-portal.md) o [busque uno existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) en su suscripción actual. Puede usar un servicio gratuito para este inicio rápido. 
 
-+ En esta guía de inicio rápido se usa *realestate-us-sample-index*. Use el asistente para la [**importación de datos**](search-import-data-portal.md) para crear el índice. En el primer paso, cuando se le pida el origen de datos, elija **Ejemplos** y, después, seleccione el origen de datos **realestate-us-sample**. Acepte todos los valores predeterminados del asistente para crear el índice.
++ En esta guía de inicio rápido se usa *realestate-us-sample-index*. Utilice el [tutorial rápido para crear un índice](search-import-data-portal.md) con los valores predeterminados. Un origen de datos de ejemplo integrado hospedado por Microsoft (**realestate-us-sample**) proporciona los datos.
 
 ## <a name="start-search-explorer"></a>Inicio del Explorador de búsqueda
 
-1. En [Azure Portal](https://portal.azure.com), abra la página del servicio de búsqueda desde el panel o [busque el servicio](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
+1. En [Azure Portal](https://portal.azure.com), abra la página del información general de búsqueda desde el panel o [busque el servicio](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
 
 1. Abra el Explorador de búsqueda desde la barra de comandos:
 
-   :::image type="content" source="media/search-explorer/search-explorer-cmd2.png" alt-text="Comando del Explorador de búsqueda en el portal" border="false":::
+   :::image type="content" source="media/search-explorer/search-explorer-cmd2.png" alt-text="Comando del Explorador de búsqueda en el portal" border="true":::
 
     O bien, use la pestaña **Explorador de búsqueda** insertada en un índice abierto:
 
-   :::image type="content" source="media/search-explorer/search-explorer-tab.png" alt-text="Comando del Explorador de búsqueda en el portal" border="false":::
+   :::image type="content" source="media/search-explorer/search-explorer-tab.png" alt-text="Pestaña Explorador de búsqueda" border="true":::
 
 ## <a name="unspecified-query"></a>Consulta sin especificar
 
@@ -55,7 +55,7 @@ La sintaxis equivalente para una búsqueda vacía es `*` o `search=*`.
 
    **Resultados**
    
-   :::image type="content" source="media/search-explorer/search-explorer-example-empty.png" alt-text="Comando del Explorador de búsqueda en el portal" border="false":::
+   :::image type="content" source="media/search-explorer/search-explorer-example-empty.png" alt-text="Ejemplo de consulta vacía o incompleta" border="true":::
 
 ## <a name="free-text-search"></a>Búsqueda de texto libre
 
@@ -71,11 +71,11 @@ Tenga en cuenta que, al proporcionar criterios de búsqueda, como expresiones o 
 
    Puede usar Ctrl-F para buscar términos específicos de interés en los resultados.
 
-   :::image type="content" source="media/search-explorer/search-explorer-example-freetext.png" alt-text="Comando del Explorador de búsqueda en el portal" border="false":::
+   :::image type="content" source="media/search-explorer/search-explorer-example-freetext.png" alt-text="Ejemplo de consulta de texto libre" border="true":::
 
 ## <a name="count-of-matching-documents"></a>Recuento de documentos coincidentes 
 
-Agregue **$count=true** para obtener el número de coincidencias encontradas en un índice. En una búsqueda vacía, el recuento corresponde al número total de documentos en el índice. En una búsqueda completa, corresponde al número de documentos que coinciden con la entrada de la consulta.
+Agregue **$count=true** para obtener el número de coincidencias encontradas en un índice. En una búsqueda vacía, el recuento corresponde al número total de documentos en el índice. En una búsqueda completa, corresponde al número de documentos que coinciden con la entrada de la consulta. Recuerde que el servicio devuelve las 50 coincidencias principales de forma predeterminada, por lo que es posible que tenga más coincidencias en el índice de lo que se incluye en los resultados.
 
    ```http
    $count=true
@@ -83,7 +83,7 @@ Agregue **$count=true** para obtener el número de coincidencias encontradas en 
 
    **Resultados**
 
-   :::image type="content" source="media/search-explorer/search-explorer-example-count.png" alt-text="Comando del Explorador de búsqueda en el portal" border="false":::
+   :::image type="content" source="media/search-explorer/search-explorer-example-count.png" alt-text="Número de documentos coincidentes en el índice" border="true":::
 
 ## <a name="limit-fields-in-search-results"></a>Limitación de campos en los resultados de la búsqueda
 
@@ -95,11 +95,13 @@ Agregue [ **$select**](search-query-odata-select.md) para limitar los resultados
 
    **Resultados**
 
-   :::image type="content" source="media/search-explorer/search-explorer-example-selectfield.png" alt-text="Comando del Explorador de búsqueda en el portal" border="false":::
+   :::image type="content" source="media/search-explorer/search-explorer-example-selectfield.png" alt-text="Restricción de campos en los resultados de la búsqueda" border="true":::
 
 ## <a name="return-next-batch-of-results"></a>Devolución del lote siguiente de resultados
 
-Azure Cognitive Search devuelve las primeras 50 coincidencias en función de la clasificación de búsqueda. Para obtener el siguiente conjunto de documentos coincidentes, anexe **$top=100,&$skip=50** para aumentar el conjunto de resultados a 100 documentos (el valor predeterminado es 50, el máximo es 1000), lo que omite los primeros 50 documentos. Recuerde que debe proporcionar criterios de búsqueda, como una expresión o un término de consulta, para obtener los resultados clasificados. Tenga en cuenta que las puntuaciones de búsqueda disminuyen cuanto más profundamente se llega en los resultados de la búsqueda.
+Azure Cognitive Search devuelve las primeras 50 coincidencias en función de la clasificación de búsqueda. Para obtener el siguiente conjunto de documentos coincidentes, anexe **$top=100,&$skip=50** para aumentar el conjunto de resultados a 100 documentos (el valor predeterminado es 50, el máximo es 1000), lo que omite los primeros 50 documentos. Puede comprobar la clave del documento (listingID) para identificar el documento. 
+
+Recuerde que debe proporcionar criterios de búsqueda, como una expresión o un término de consulta, para obtener los resultados clasificados. Tenga en cuenta que las puntuaciones de búsqueda disminuyen cuanto más profundamente se llega en los resultados de la búsqueda.
 
    ```http
    search=seattle condo&$select=listingId,beds,baths,description,street,city,price&$count=true&$top=100&$skip=50
@@ -107,7 +109,7 @@ Azure Cognitive Search devuelve las primeras 50 coincidencias en función de la
 
    **Resultados**
 
-   :::image type="content" source="media/search-explorer/search-explorer-example-topskip.png" alt-text="Comando del Explorador de búsqueda en el portal" border="false":::
+   :::image type="content" source="media/search-explorer/search-explorer-example-topskip.png" alt-text="Devolución del lote siguiente de los resultados de búsqueda" border="true":::
 
 ## <a name="filter-expressions-greater-than-less-than-equal-to"></a>Expresiones de filtro (mayor que, menor que, igual a)
 
@@ -119,7 +121,7 @@ Utilice el parámetro [ **$filter**](search-query-odata-filter.md) cuando quiera
    
    **Resultados**
 
-   :::image type="content" source="media/search-explorer/search-explorer-example-filter.png" alt-text="Comando del Explorador de búsqueda en el portal" border="false":::
+   :::image type="content" source="media/search-explorer/search-explorer-example-filter.png" alt-text="Filtrar por criterios" border="true":::
 
 ## <a name="order-by-expressions"></a>Expresiones OrderBy
 
@@ -131,7 +133,7 @@ Agregue [ **$orderby**](search-query-odata-orderby.md) para ordenar los resultad
    
    **Resultados**
 
-   :::image type="content" source="media/search-explorer/search-explorer-example-ordery.png" alt-text="Comando del Explorador de búsqueda en el portal" border="false":::
+   :::image type="content" source="media/search-explorer/search-explorer-example-ordery.png" alt-text="Cambio del criterio de ordenación" border="true":::
 
 Ambas expresiones, **$filter** y **$orderby** son construcciones de OData. Para más información, consulte la [sintaxis de filtro de OData](/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 
@@ -141,13 +143,13 @@ Ambas expresiones, **$filter** y **$orderby** son construcciones de OData. Para 
 
 En esta guía de inicio rápido, ha usado el **Explorador de búsqueda** para consultar un índice mediante la API de REST.
 
-+ Los resultados se devuelven como documentos JSON detallados para que pueda ver la construcción y el contenido del documento en su totalidad. Puede usar expresiones de consulta, que se muestran en los ejemplos, para limitar los campos que se devuelven.
++ Los resultados se devuelven como documentos JSON detallados para que pueda ver la construcción y el contenido del documento en su totalidad. El parámetro **$select** de una expresión de consulta puede limitar los campos que se devuelven.
 
 + Los documentos se componen de todos los campos marcados como **Recuperable** en el índice. Para ver los atributos del índice en el portal, haga clic en *realestate-us-sample* en la lista **Índices** de la página de información general de búsqueda.
 
 + Las consultas de forma libre, similares a las que se pueden escribir en un explorador web comercial, resultan útiles para probar una experiencia de usuario final. Por ejemplo, si partimos del índice realestate de ejemplo integrado, podría escribir "Apartamentos Seattle Lake Washington" y luego usar Ctrl-F para buscar términos dentro de los resultados de búsqueda. 
 
-+ Las expresiones de consulta y de filtro se articulan en una sintaxis admitida por Azure Cognitive Search. El valor predeterminado es una [sintaxis simple](/rest/api/searchservice/simple-query-syntax-in-azure-search), pero también puede usar la sintaxis de [Lucene completa](/rest/api/searchservice/lucene-query-syntax-in-azure-search) para realizar consultas más eficaces. Las [expresiones de filtro](/rest/api/searchservice/odata-expression-syntax-for-azure-search) son una sintaxis de OData.
++ Las expresiones de consulta y de filtro se articulan en una sintaxis implementada por Azure Cognitive Search. El valor predeterminado es una [sintaxis simple](/rest/api/searchservice/simple-query-syntax-in-azure-search), pero también puede usar la sintaxis de [Lucene completa](/rest/api/searchservice/lucene-query-syntax-in-azure-search) para realizar consultas más eficaces. Las [expresiones de filtro](/rest/api/searchservice/odata-expression-syntax-for-azure-search) son una sintaxis de OData.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -159,7 +161,7 @@ Si está usando un servicio gratuito, recuerde que está limitado a tres índice
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información sobre las estructuras y la sintaxis de consulta, use Postman o una herramienta equivalente para crear expresiones de consulta que aprovechen más partes de la API. La [API de REST de Search](/rest/api/searchservice/) es especialmente útil para el aprendizaje y la exploración.
+Para obtener más información sobre las estructuras y la sintaxis de consulta, use Postman o una herramienta equivalente para crear expresiones de consulta que aprovechen más partes de la API. La [API de REST de Search](/rest/api/searchservice/search-documents) es especialmente útil para el aprendizaje y la exploración.
 
 > [!div class="nextstepaction"]
-> [Creación de una consulta básica en Postman](search-query-simple-examples.md)
+> [Creación de una consulta básica en Postman](search-get-started-rest.md)

@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: Vea cómo configurar rutas de eventos de Azure Digital Twins a Azure Time Series Insights.
 author: alexkarcher-msft
 ms.author: alkarche
-ms.date: 7/14/2020
+ms.date: 1/19/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: f776482c684004c8d661f69d8158ba9597c923b2
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: 24b4f56e5798acc4d9bd0962be7059a359958645
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127045"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98573248"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-time-series-insights"></a>Integración de Azure Digital Twins con Azure Time Series Insights
 
@@ -44,25 +44,22 @@ Las instancias de Azure Digital Twins pueden emitir [eventos de actualización d
 
 El [*Tutorial: Conexión de una solución de un extremo a otro*](./tutorial-end-to-end.md) de Azure Digital Twins lo guía a través de un escenario en el que se usa un termómetro para actualizar un atributo de temperatura en un gemelo digital que representa una sala. Este patrón se basa en las actualizaciones de gemelos, en lugar de reenviar la telemetría desde un dispositivo IoT, lo que ofrece la flexibilidad necesaria para cambiar el origen de datos subyacente sin necesidad de actualizar la lógica de Time Series Insights.
 
-1. Primero, cree un espacio de nombres del centro de eventos, que recibirá eventos de la instancia de Azure Digital Twins. Puede usar las instrucciones de la CLI de Azure que aparecen a continuación o usar Azure Portal: [*Guía de inicio rápido: Creación de un centro de eventos mediante Azure Portal*](../event-hubs/event-hubs-create.md).
+1. Primero, cree un espacio de nombres del centro de eventos que recibirá eventos de la instancia de Azure Digital Twins. Puede usar las instrucciones de la CLI de Azure que aparecen a continuación o usar Azure Portal: [*Guía de inicio rápido: Creación de un centro de eventos mediante Azure Portal*](../event-hubs/event-hubs-create.md). Para ver qué regiones admiten Event Hubs, visite [*Productos de Azure disponibles por región*](https://azure.microsoft.com/global-infrastructure/services/?products=event-hubs).
 
     ```azurecli-interactive
-    # Create an Event Hubs namespace. Specify a name for the Event Hubs namespace.
-    az eventhubs namespace create --name <name for your Event Hubs namespace> --resource-group <resource group name> -l <region, for example: East US>
+    az eventhubs namespace create --name <name for your Event Hubs namespace> --resource-group <resource group name> -l <region>
     ```
 
-2. Cree un centro de eventos dentro del espacio de nombres.
+2. Cree un centro de eventos en el espacio de nombres para recibir eventos de cambio de gemelo. Especifique un nombre para el centro de eventos.
 
     ```azurecli-interactive
-    # Create an event hub to receive twin change events. Specify a name for the event hub. 
     az eventhubs eventhub create --name <name for your Twins event hub> --resource-group <resource group name> --namespace-name <Event Hubs namespace from above>
     ```
 
-3. Cree una [regla de autorización](/cli/azure/eventhubs/eventhub/authorization-rule?view=azure-cli-latest&preserve-view=true#az-eventhubs-eventhub-authorization-rule-create) con permisos de envío y recepción.
+3. Cree una [regla de autorización](/cli/azure/eventhubs/eventhub/authorization-rule?view=azure-cli-latest&preserve-view=true#az-eventhubs-eventhub-authorization-rule-create) con permisos de envío y recepción. Especifique un nombre para la regla.
 
     ```azurecli-interactive
-    # Create an authorization rule. Specify a name for the rule.
-    az eventhubs eventhub authorization-rule create --rights Listen Send --resource-group <resource group name> --namespace-name <Event Hubs namespace from above> --eventhub-name <Twins event hub name from above> --name <name for your Twins auth rule>
+        az eventhubs eventhub authorization-rule create --rights Listen Send --resource-group <resource group name> --namespace-name <Event Hubs namespace from above> --eventhub-name <Twins event hub name from above> --name <name for your Twins auth rule>
     ```
 
 4. Cree un [punto de conexión](concepts-route-events.md#create-an-endpoint) de Azure Digital Twins que vincule el centro de eventos con la instancia de Azure Digital Twins.
@@ -86,7 +83,7 @@ Antes de seguir, anote el *espacio de nombres de Event Hubs* y el *grupo de recu
 
 ## <a name="create-a-function-in-azure"></a>Crear una función en Azure
 
-A continuación, usará Azure Functions para crear una función desencadenada por Event Hubs dentro de una aplicación de funciones. Puede usar la aplicación de funciones creada en el tutorial integral ([*Tutorial: Conexión de una solución de un extremo a otro*](./tutorial-end-to-end.md)) o una propia. 
+A continuación, usará Azure Functions para crear una **función desencadenada por Event Hubs** dentro de una aplicación de funciones. Puede usar la aplicación de funciones creada en el tutorial integral ([*Tutorial: Conexión de una solución de un extremo a otro*](./tutorial-end-to-end.md)) o una propia. 
 
 Esta función convertirá esos eventos de actualización de gemelos de su forma original como documentos de revisión JSON a objetos JSON, que contienen solo valores actualizados y agregados de su gemelos.
 
@@ -110,15 +107,15 @@ Para crear el segundo centro de eventos, puede usar las instrucciones de la CLI 
 
 1. Prepare el *espacio de nombres de Event Hubs* y el nombre del *grupo de trabajos* que anotó anteriormente en este artículo.
 
-2. Creación de un centro de eventos
+2. Cree un nuevo centro de eventos. Especifique un nombre para el centro de eventos.
+
     ```azurecli-interactive
-    # Create an event hub. Specify a name for the event hub. 
     az eventhubs eventhub create --name <name for your TSI event hub> --resource-group <resource group name from earlier> --namespace-name <Event Hubs namespace from earlier>
     ```
-3. Cree una [regla de autorización](/cli/azure/eventhubs/eventhub/authorization-rule?view=azure-cli-latest&preserve-view=true#az-eventhubs-eventhub-authorization-rule-create) con permisos de envío y recepción.
+3. Cree una [regla de autorización](/cli/azure/eventhubs/eventhub/authorization-rule?view=azure-cli-latest&preserve-view=true#az-eventhubs-eventhub-authorization-rule-create) con permisos de envío y recepción. Especifique un nombre para la regla.
+
     ```azurecli-interactive
-    # Create an authorization rule. Specify a name for the rule.
-    az eventhubs eventhub authorization-rule create --rights Listen Send --resource-group <resource group name> --namespace-name <Event Hubs namespace from earlier> --eventhub-name <TSI event hub name from above> --name <name for your TSI auth rule>
+        az eventhubs eventhub authorization-rule create --rights Listen Send --resource-group <resource group name> --namespace-name <Event Hubs namespace from earlier> --eventhub-name <TSI event hub name from above> --name <name for your TSI auth rule>
     ```
 
 ## <a name="configure-your-function"></a>Configuración de la función

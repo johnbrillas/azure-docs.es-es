@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: trbye
-ms.openlocfilehash: 9356cbb6eb210d6745d90e8ad001917e73592cd3
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 597a7c3954912a3a86b5db9f92ba75e8aaee63f6
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96022000"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98601825"
 ---
 # <a name="about-the-speech-sdk"></a>Acerca del SDK de Voz
 
@@ -58,7 +58,7 @@ El servicio de **texto a voz (TTS)** está disponible en las siguientes platafor
 
 ### <a name="voice-assistants"></a>Asistentes de voz
 
-Los [asistentes de voz](voice-assistants.md) que usan el SDK de voz permiten a los desarrolladores crear interfaces de conversación naturales, similares a la humana, para sus aplicaciones y experiencias. El servicio del asistente de voz proporciona una interacción rápida y confiable entre un dispositivo y un asistente. La implementación utiliza el canal Direct Line Speech de Bot Framework o el servicio integrado de comandos personalizados (versión preliminar) para la finalización de tareas. Además, los asistentes de voz pueden usar las voces personalizadas creadas en el [Portal de voz personalizado](https://aka.ms/customvoice) para agregar una experiencia de salida de voz única.
+Los [asistentes de voz](voice-assistants.md) que usan el SDK de voz permiten a los desarrolladores crear interfaces de conversación naturales, similares a la humana, para sus aplicaciones y experiencias. El servicio del asistente de voz proporciona una interacción rápida y confiable entre un dispositivo y un asistente. La implementación utiliza el canal Direct Line Speech de Bot Framework o el servicio integrado de comandos personalizados para la finalización de tareas. Además, los asistentes de voz pueden usar las voces personalizadas creadas en el [Portal de voz personalizado](https://aka.ms/customvoice) para agregar una experiencia de salida de voz única.
 
 Los **asistentes de voz** están disponibles en las siguientes plataformas:
 

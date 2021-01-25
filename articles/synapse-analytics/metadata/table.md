@@ -10,12 +10,12 @@ ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9ee18edd563d94a85dedf48b7a4d6df394c09707
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: b93addfe659847187dffe61f12f5a2bfac9dca21
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461377"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209634"
 ---
 # <a name="azure-synapse-analytics-shared-metadata-tables"></a>Tablas de metadatos compartidos de Azure Synapse Analytics
 
@@ -32,7 +32,7 @@ Dado que las tablas se sincronizan con el grupo de SQL sin servidor de forma asi
 
 Use Spark para administrar las bases de datos creadas con Spark. Por ejemplo, elimínela mediante un trabajo del grupo de Apache Spark sin servidor y cree tablas en ella desde Spark.
 
-Si crea objetos en una base de datos de este tipo desde el grupo de SQL sin servidor o intenta eliminar la base de datos, la operación se realizará correctamente, pero la base de datos original de Spark no se cambiará.
+Si crea objetos en una base de datos creada con Spark desde el grupo de SQL sin servidor o intenta eliminar la base de datos, se producirá un error en la operación. No se puede cambiar la base de datos de Spark original mediante el grupo de SQL sin servidor.
 
 ## <a name="expose-a-spark-table-in-sql"></a>Exposición de una tabla de Spark en SQL
 

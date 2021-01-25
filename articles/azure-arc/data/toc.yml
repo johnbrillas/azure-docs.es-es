@@ -50,6 +50,8 @@
           href: create-data-controller-using-azdata.md
         - name: Herramientas de Kubernetes
           href: create-data-controller-using-kubernetes-native-tools.md
+        - name: Aplicación de SCC (OpenShift)
+          href: how-to-apply-security-context-constraint.md
     - name: Experiencias comunes en los servicios de datos habilitados para Azure Arc
       items:
         - name: Supervisión con paneles (Azure Data Studio)
@@ -233,4 +235,4 @@
 - name: Recursos
   items:
     - name: Azure Arc Jumpstart
-      href: 'https://github.com/microsoft/azure_arc'
+      href: 'https://azurearcjumpstart.io'

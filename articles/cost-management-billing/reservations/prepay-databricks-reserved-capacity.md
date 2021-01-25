@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: b7d7380114046fbeaaf4b6eb2660997d64168715
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 390a8b421a7b34391bde689e4b968fa98cdbaf76
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91368573"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599168"
 ---
 # <a name="optimize-azure-databricks-costs-with-a-pre-purchase"></a>Optimización de los costes de Azure Databricks con una compra anticipada
 
@@ -48,7 +48,7 @@ Puede comprar planes de Databricks en [Azure Portal](https://portal.azure.com/#b
 **Para comprar:**
 
 1. Vaya a [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22Databricks%22%7D).
-1. Seleccione una suscripción. Use la lista **Suscripción** para seleccionar la que se va a usar para pagar la capacidad reservada. Los costos anticipados de la capacidad reservada se cobran en el método de pago de la suscripción. Los cargos se deducen del saldo de compromiso monetario de la inscripción o se cobran como uso por encima del límite.
+1. Seleccione una suscripción. Use la lista **Suscripción** para seleccionar la que se va a usar para pagar la capacidad reservada. Los costos anticipados de la capacidad reservada se cobran en el método de pago de la suscripción. Los cargos se deducirán del saldo de prepago de Azure (antes llamado compromiso monetario) de la inscripción o se cobrarán como parte del uso por encima del límite.
 1. Seleccione un ámbito. Use la lista **Ámbito** para seleccionar el ámbito de la suscripción:
     - **Single resource group scope** (Ámbito de grupo de recursos único): aplica el descuento por reserva a los recursos coincidentes solo en el grupo de recursos seleccionado.
     - **Single subscription scope** (Ámbito de suscripción única): aplica el descuento por reserva a los recursos coincidentes de la suscripción seleccionada.

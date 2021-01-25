@@ -1,0 +1,54 @@
+- name: Documentación de Microsoft Azure Import/Export
+  href: ./index.yml
+- name: Información general
+  expanded: true
+  items:
+    - name: ¿Qué es Microsoft Azure Import/Export?
+      href: storage-import-export-service.md
+- name: Conceptos
+  items:
+    - name: Revisión de los requisitos
+      href: storage-import-export-requirements.md
+    - name: Preguntas más frecuentes
+      href: storage-import-export-service-faq.md
+- name: Procedimientos
+  expanded: true
+  items:
+    - name: Implementación
+      items:
+        - name: Importación de datos en blobs
+          href: storage-import-export-data-to-blobs.md
+        - name: Importación de datos en archivos
+          href: storage-import-export-data-to-files.md
+        - name: Exportación de datos de blobs
+          href: storage-import-export-data-from-blobs.md
+    - name: Uso de claves administradas por el cliente
+      href: storage-import-export-encryption-key-portal.md
+    - name: Supervisión
+      items:
+        - name: Visualización de estado de la unidad
+          href: storage-import-export-view-drive-status.md
+        - name: Revisión del estado del trabajo
+          href: storage-import-export-tool-reviewing-job-status-v1.md
+    - name: Solución de problemas
+      items:
+        - name: Solución de errores comunes
+          href: storage-import-export-tool-troubleshooting-v1.md
+        - name: Reparación de un trabajo de importación
+          href: storage-import-export-tool-repairing-an-import-job-v1.md
+        - name: Reparación de un trabajo de exportación
+          href: storage-import-export-tool-repairing-an-export-job-v1.md
+        - name: Ponerse en contacto con el servicio de soporte técnico
+          href: storage-import-export-contact-microsoft-support.md
+- name: Referencia
+  items:
+    - name: API DE REST
+      href: /rest/api/storageimportexport/jobs
+    - name: Azure PowerShell
+      href: /powershell/module/Az.ImportExport
+- name: Recursos
+  items:
+    - name: Exportación de datos sin conexión
+      href: /learn/modules/export-data-with-azure-import-export
+    - name: Otras opciones de transferencia sin conexión
+      href: ../databox/index.yml

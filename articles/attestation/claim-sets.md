@@ -7,92 +7,135 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: e17002534d35f477467f0c35833560a0267dd596
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: afe2cf288cd4a15091e8278309b3ecf74a2d35a4
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92909784"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98572755"
 ---
 # <a name="claim-sets"></a>Conjuntos de notificaciones
 
 Las notificaciones generadas en el proceso de atestación de enclaves mediante Microsoft Azure Attestation se pueden dividir en las siguientes categorías:
 
-- **Notificaciones entrantes** : notificaciones generadas por Microsoft Azure Attestation después de analizar la evidencia de atestación.
+- **Notificaciones entrantes**: las notificaciones generadas por Microsoft Azure Attestation después de analizar la evidencia de atestación; las pueden usar los autores de directivas para definir las reglas de autorización en una directiva personalizada.
 
-- **Notificaciones salientes** : notificaciones creadas como salida por Azure Attestation. Contiene todas las notificaciones que deben acabar en el token de atestación.
+- **Notificaciones salientes**: notificaciones generadas por Azure Attestation; contiene todas las notificaciones que terminan en el token de atestación.
 
-- **Notificaciones de propiedad** : notificaciones creadas como salida por Azure Attestation. Contiene todas las notificaciones que representan las propiedades del token de atestación, como la codificación del informe, la duración de la validez del informe, etc.
+- **Notificaciones de propiedad**: notificaciones creadas como salida por Azure Attestation. Contiene todas las notificaciones que representan las propiedades del token de atestación, como la codificación del informe, la duración de la validez del informe, etc.
 
-A continuación se incluyen las notificaciones definidas por la RFC de JWT que usa Azure Attestation en el objeto de respuesta:
+### <a name="common-incoming-claims-across-all-attestation-types"></a>Notificaciones entrantes comunes en todos los tipos de atestación
 
-- **Notificación "iss" (emisor)** : La notificación "iss" (emisor) identifica la entidad de seguridad que ha emitido el JWT. Por lo general, el procesamiento de esta notificación es específico de la aplicación. El valor "iss" es una cadena que distingue mayúsculas de minúsculas y que contiene un valor StringOrURI.
-- **Notificación "iat" (emitido a las)** : esta notificación señala en qué momento se emitió el JWT. Se puede usar para determinar la antigüedad del JWT. Su valor debe ser un número que contenga un valor NumericDate.
-- **Notificación "exp" (fecha de expiración)** : La notificación "exp" (fecha de expiración) identifica la hora de expiración en la que o después de la que el token JWT no debe ser aceptado para su procesamiento. El procesamiento de esta notificación requiere que la fecha y hora actual sea anterior a la fecha y hora de expiración indicada en ella.
+Las siguientes notificaciones se generan en Azure Attestation y se pueden usar para definir reglas de autorización en una directiva personalizada:
+- **x-ms-ver**: versión de esquema de JWT (se espera que sea "1.0").
+- **x-ms-attestation-type**: valor de cadena que representa el tipo de atestación. 
+- **x-ms-policy-hash**: hash de la directiva de evaluación de Azure Attestation calculada como BASE64URL (SHA256 (UTF8 (BASE64URL (UTF8 (texto de directiva))))
+- **x-ms-policy-signer**: objeto JSON con un miembro "jwk" que representa la clave que un cliente usó para firmar su directiva, cuando el cliente carga una directiva firmada.
 
-  Nota: se suma un margen de 5 minutos a la hora del problema (iat) para tener en cuenta el sesgo del reloj.
-- **Notificación "nbf" (no antes de)** : esta notificación identifica la hora antes de la cual no se aceptará el token JWT para su procesamiento. El procesamiento de esta notificación requiere que la fecha y hora actual sea posterior o igual a la fecha y hora indicada en ella.
-  Nota: se suma un margen de 5 minutos a la hora del problema (iat) para tener en cuenta el sesgo del reloj.
+Las siguientes notificaciones se consideran en desuso, pero se admiten por completo. Se recomienda usar los nombres de notificaciones que no estén en desuso.
 
-## <a name="claims-issued-by-azure-attestation-in-sgx-enclaves"></a>Notificaciones emitidas por Azure Attestation en enclaves SGX
+Notificación en desuso | Notificación recomendada 
+--- | --- 
+ver | x-ms-ver
+tee | x-ms-attestation-type
+maa-policyHash | x-ms-policy-hash
+policy_hash | x-ms-policy-hash
+policy_signer | x-ms-policy-signer
 
-### <a name="incoming-claims"></a>Notificaciones entrantes 
+### <a name="common-outgoing-claims-across-all-attestation-types"></a>Notificaciones salientes comunes en todos los tipos de atestación
 
-- **$is-debuggable** : valor booleano que indica si el enclave tiene habilitada la depuración o no
-- **$sgx-mrsigner** : valor hexadecimal codificado del campo "mrsigner" de la oferta
-- **$sgx-mrenclave** : valor hexadecimal codificado del campo "mrenclave" de la oferta
-- **$product-id**
-- **$svn** : número de versión de seguridad codificado en la oferta 
-- **$tee** : tipo de enclave 
+Las siguientes notificaciones se definen en [JWT de IETF](https://tools.ietf.org/html/rfc7519) y se usan en Azure Attestation en el objeto de respuesta:
 
-### <a name="outgoing-claims"></a>Notificaciones salientes
+- **Notificación "jti" (identificador de JWT)** :
+- **Notificación "iss" (emisor)** :
+- **Notificación "iat" (emitido a las)** :
+- **Notificación "exp" (fecha de expiración)** :
+- **Notificación "nbf" (no antes de)** :
 
-- **is-debuggable** : valor booleano que indica si el enclave tiene habilitada la depuración o no
-- **sgx-mrsigner** : valor hexadecimal codificado del campo "mrsigner" de la oferta
-- **sgx-mrenclave** : valor hexadecimal codificado del campo "mrenclave" de la oferta
-- **product-id**
-- **svn** : número de versión de seguridad codificado en la oferta 
-- **tee** : tipo de enclave 
-- **maa-ehd** :  versión codificada en Base64Url de los datos contenidos en el enclave especificados en la solicitud de atestación 
-- **aas-ehd** :  versión codificada en Base64Url de los datos contenidos en el enclave especificados en la solicitud de atestación 
+Las siguientes notificaciones se definen en [EAT de IETF](https://tools.ietf.org/html/draft-ietf-rats-eat-03#page-9) y se usan en Azure Attestation en el objeto de respuesta:
+- **"Notificación de nonce" (nonce)**
 
-## <a name="claims-issued-by-azure-attestation-in-vbs-enclaves"></a>Notificaciones emitidas por Azure Attestation en enclaves VBS
+## <a name="claims-specific-to-sgx-enclaves"></a>Notificaciones específicas de enclaves SGX
+
+### <a name="incoming-claims-specific-to-sgx-attestation"></a>Notificaciones entrantes específicas de la atestación de SGX
+
+Las siguientes notificaciones se generan en el servicio para la atestación de SGX y se pueden usar para definir reglas de autorización en una directiva personalizada:
+- **x-ms-sgx-is-debuggable**: valor booleano que indica si el enclave tiene habilitada la depuración o no
+- **x-ms-sgx-product-id**
+- **sgx-mrsigner**: valor hexadecimal codificado del campo "mrsigner" de la oferta.
+- **x-ms-sgx-mrenclave**: valor hexadecimal codificado del campo "mrenclave" de la oferta.
+- **x-ms-sgx-svn**: número de versión de seguridad codificado en la oferta. 
+
+### <a name="outgoing-claims-specific-to-sgx-attestation"></a>Notificaciones salientes específicas de la atestación de SGX
+
+Las siguientes notificaciones se generan en el servicio y se incluyen en el objeto de respuesta para la atestación de SGX:
+- **x-ms-sgx-is-debuggable**: valor booleano que indica si el enclave tiene habilitada la depuración o no
+- **x-ms-sgx-product-id**
+- **x-ms-ver**
+- **sgx-mrsigner**: valor hexadecimal codificado del campo "mrsigner" de la oferta.
+- **x-ms-sgx-mrenclave**: valor hexadecimal codificado del campo "mrenclave" de la oferta.
+- **x-ms-sgx-svn**: número de versión de seguridad codificado en la oferta. 
+- **x-MS-SGX-EHD**: datos contenidos en el enclave con el formato BASE64URL (datos contenidos en el encave).
+- **x-ms-sgx-collateral**: objeto JSON que describe el colateral que se usa para realizar la atestación. El valor de la notificación colateral x-ms-sgx es un objeto JSON anidado con los siguientes pares clave-valor:
+    - **qeidcertshash**: valor SHA256 de los certificados de emisión de identidad de QE.
+    - **qeidcrlhash**: valor SHA256 de la lista CRL de certificados de emisión de identidades de QE.
+    - **qeidhash**: valor SHA256 del colateral de identidad de QE.
+    - **quotehash**: valor SHA256 del presupuesto evaluado.
+    - **tcbinfocertshash**: valor SHA256 de los certificados de emisión de información de TCB.
+    - **tcbinfocrlhash**: valor SHA256 de la lista CRL de certificados de emisión de información de TCB.
+    - **tcbinfohash**: objeto JSON que describe el colateral que se usa para realizar la atestación.
+
+Las siguientes notificaciones se consideran en desuso, pero se admiten por completo y seguirán estando incluidas en el futuro. Se recomienda usar los nombres de notificaciones que no estén en desuso.
+
+Notificación en desuso | Notificación recomendada
+--- | --- 
+$is-debuggable | x-ms-sgx-is-debuggable
+$sgx-mrsigner | x-ms-sgx-mrsigner
+$sgx-mrenclave | x-ms-sgx-mrenclave
+$product-id | x-ms-sgx-product-id
+$svn | x-ms-sgx-svn
+$tee | x-ms-attestation-type
+maa-ehd | x-ms-sgx-ehd
+aas-ehd | x-ms-sgx-ehd
+maa-attestationcollateral | x-ms-sgx-collateral
+
+## <a name="claims-issued-specific-to-trusted-platform-module-tpm-attestation"></a>Notificaciones emitidas específicas de la atestación del Módulo de plataforma segura (TPM)
 
 ### <a name="incoming-claims-can-also-be-used-as-outgoing-claims"></a>Notificaciones entrantes (también se pueden usar como notificaciones salientes)
 
-- **aikValidated** :  valor booleano que indica si se ha validado o no el certificado de la clave de identidad de la atestación.
-- **aikPubHash** :  cadena que contiene el hash SHA256 en base64 (clave pública de identidad de atestación en formato DER).
-- **tpmVersion** :   valor entero que contiene la versión principal del Módulo de plataforma segura (TPM).
-- **secureBootEnabled** : valor booleano que indica si está habilitado el arranque seguro.
-- **iommuEnabled** :  valor booleano que indica si está habilitada la unidad de administración de memoria de entrada y salida (IOMMU).
-- **bootDebuggingDisabled** : valor booleano que indica si está deshabilitada la depuración de arranque.
-- **notSafeMode** :  valor booleano que indica si Windows no se está ejecutando en modo seguro.
-- **notWinPE** :  valor booleano que indica si Windows no se está ejecutando en modo WinPE.
-- **vbsEnabled** :  valor booleano que indica si VBS está habilitado.
-- **vbsReportPresent** :  valor booleano que indica si está disponible el informe de enclaves VBS.
-- **enclaveAuthorId** :  valor de cadena que contiene el valor codificado en Base64Url del identificador de autor del enclave; es decir, el identificador de autor del módulo principal del enclave.
-- **enclaveImageId** :  valor de cadena que contiene el valor codificado en Base64Url del identificador de imagen del enclave, es decir, el identificador de imagen del módulo principal del enclave.
-- **enclaveOwnerId** :  valor de cadena que contiene el valor codificado en Base64Url del identificador de propietario del enclave.
-- **enclaveFamilyId** :  valor de cadena que contiene el valor codificado en Base64Url del identificador de familia del enclave; es decir, el identificador de familia del módulo principal del enclave.
-- **enclaveSvn** :  valor entero que contiene el número de versión de seguridad del módulo principal del enclave.
-- **enclavePlatformSvn** :  valor entero que contiene el número de versión de seguridad de la plataforma que hospeda el enclave.
-- **enclaveFlags** :  valor entero que contiene las marcas que describen la directiva de tiempo de ejecución del enclave.
+- **aikValidated**:  valor booleano que indica si se ha validado o no el certificado de la clave de identidad de la atestación.
+- **aikPubHash**:  cadena que contiene el hash SHA256 en base64 (clave pública de identidad de atestación en formato DER).
+- **tpmVersion**:   valor entero que contiene la versión principal del Módulo de plataforma segura (TPM).
+- **secureBootEnabled**: valor booleano que indica si está habilitado el arranque seguro.
+- **iommuEnabled**:  valor booleano que indica si está habilitada la unidad de administración de memoria de entrada y salida (IOMMU).
+- **bootDebuggingDisabled**: valor booleano que indica si está deshabilitada la depuración de arranque.
+- **notSafeMode**:  valor booleano que indica si Windows no se está ejecutando en modo seguro.
+- **notWinPE**:  valor booleano que indica si Windows no se está ejecutando en modo WinPE.
+- **vbsEnabled**:  valor booleano que indica si VBS está habilitado.
+- **vbsReportPresent**:  valor booleano que indica si está disponible el informe de enclaves VBS.
+- **enclaveAuthorId**:  valor de cadena que contiene el valor codificado en Base64Url del identificador de autor del enclave; es decir, el identificador de autor del módulo principal del enclave.
+- **enclaveImageId**:  valor de cadena que contiene el valor codificado en Base64Url del identificador de imagen del enclave, es decir, el identificador de imagen del módulo principal del enclave.
+- **enclaveOwnerId**:  valor de cadena que contiene el valor codificado en Base64Url del identificador de propietario del enclave.
+- **enclaveFamilyId**:  valor de cadena que contiene el valor codificado en Base64Url del identificador de familia del enclave; es decir, el identificador de familia del módulo principal del enclave.
+- **enclaveSvn**:  valor entero que contiene el número de versión de seguridad del módulo principal del enclave.
+- **enclavePlatformSvn**:  valor entero que contiene el número de versión de seguridad de la plataforma que hospeda el enclave.
+- **enclaveFlags**:  valor entero que contiene las marcas que describen la directiva de tiempo de ejecución del enclave.
   
-### <a name="outgoing-claims"></a>Notificaciones salientes
+### <a name="outgoing-claims-specific-to-tpm-attestation"></a>Notificaciones salientes específicas de la atestación de TPM
 
-- **policy_hash** :  valor de cadena que contiene el hash SHA256 del texto de la directiva calculado por BASE64URL(SHA256(BASE64URL(UTF8(texto de directiva)))).
-- **policy_signer** :  contiene un JWK con la clave pública o la cadena de certificados presente en el encabezado de la directiva firmada.
+- **policy_hash**:  valor de cadena que contiene el hash SHA256 del texto de la directiva calculado por BASE64URL(SHA256(BASE64URL(UTF8(texto de directiva)))).
+- **policy_signer**:  contiene un JWK con la clave pública o la cadena de certificados presente en el encabezado de la directiva firmada.
 - **ver (versión)** :  valor de cadena que contiene la versión del informe. Actualmente 1.0.
-- **Notificación cnf (confirmación)** :  esta notificación se usa para identificar la clave de la prueba de posesión. Tal y como se define en RFC 7800, contiene la parte pública de la clave del enclave atestado que se representa como un objeto de clave web JSON (JWK) (RFC 7517).
+- **Notificación cnf (confirmación)** :  esta notificación se usa para identificar la clave de la prueba de posesión. Tal y como se define en RFC 7800, contiene la parte pública de la clave del enclave atestado que se representa como JSON Web Key (JWK) (RFC 7517).
 - **rp_data (datos de usuario de confianza)** :  datos de usuario de confianza, si los hay, especificados en la solicitud, que utiliza este usuario como nonce para garantizar que el informe está actualizado.
 - **Notificación "jti" (Id. de JWT)** : La notificación "jti" (Id. de JWT) proporciona un identificador único para el JWT. El valor del identificador se asigna de manera que se garantiza que la probabilidad de que el mismo valor se asigne accidentalmente a un objeto de datos diferente sea insignificante.
 
 ### <a name="property-claims"></a>Notificaciones de propiedad
 
-- **report_validity_in_minutes** : notificación de entero que indica cuánto tiempo es válido el token.
+- **report_validity_in_minutes**: notificación de entero que indica cuánto tiempo es válido el token.
   - **Valor predeterminado (tiempo)** : un día, expresado en minutos.
   - **Valor máximo (tiempo)** : un año, expresado en minutos.
-- **omit_x5c** : notificación booleana que indica si Azure Attestation debe omitir el certificado usado para proporcionar la autenticidad de la prueba de servicio. Si es True, se agrega x5t al token de atestación. Si es False (valor predeterminado), se agregar x5c al token de atestación.
+- **omit_x5c**: notificación booleana que indica si Azure Attestation debe omitir el certificado usado para proporcionar la autenticidad de la prueba de servicio. Si es True, se agrega x5t al token de atestación. Si es False (valor predeterminado), se agregar x5c al token de atestación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Creación y firma de una directiva de atestación](author-sign-policy.md)

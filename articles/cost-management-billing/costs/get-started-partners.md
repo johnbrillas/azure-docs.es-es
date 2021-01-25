@@ -3,18 +3,18 @@ title: Introducción a Azure Cost Management para los asociados
 description: En este artículo se explica cómo los asociados usan las características de Azure Cost Management y cómo permiten a sus clientes el acceso a Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 11/16/2020
+ms.date: 01/19/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: cd3ca4d3ddf73469cd1f1fc065eccb369cf765af
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 8a04cb2c590bc4f0104a93ac7c7c2cf7b71a4662
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905686"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602173"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Introducción a Azure Cost Management para los asociados
 
@@ -71,9 +71,9 @@ Después de incorporar a los clientes a un contrato de cliente de Microsoft, est
 
 Use el ámbito de la cuenta de facturación para ver los costos antes de los impuestos de todos los clientes y perfiles de facturación. Los costos de las facturas solo se muestran para los productos basados en el consumo de los clientes que forman parte del contrato de cliente de Microsoft. Sin embargo, se muestran los costos de las facturas de los productos de compra relativos a los clientes tanto del contrato de cliente de Microsoft como de la oferta de CSP. Actualmente, la moneda predeterminada para ver los costos en el ámbito es dólares estadounidenses. Los presupuestos establecidos para el ámbito también están en USD.
 
-Con independencia de las distintas monedas de facturación del cliente, los asociados usan el ámbito de la cuenta de facturación para establecer presupuestos y administrar los costos en USD de los clientes, las suscripciones, los recursos y los grupos de recursos.
+Con independencia de las distintas monedas de facturación, los asociados usan el ámbito de la cuenta de facturación para establecer presupuestos y administrar los costos en USD de los clientes, las suscripciones, los recursos y los grupos de recursos.
 
-Los asociados también filtran los costos en una moneda de facturación específica para todos los clientes de la vista de análisis de costos. Seleccione la lista **Costo real** para ver los costos en las monedas de facturación del cliente admitidas.
+Los asociados también filtran los costos en una moneda de facturación específica para todos los clientes de la vista de análisis de costos. Seleccione la lista **Costo real** para ver los costos en las monedas de facturación admitidas.
 
 ![Ejemplo que muestra la selección de costos reales para las monedas](./media/get-started-partners/actual-cost-selector.png)
 
@@ -83,7 +83,7 @@ Use la [vista de costo amortizado](quick-acm-cost-analysis.md#customize-cost-vie
 
 Use el ámbito del perfil de facturación para ver los costos antes de los impuestos en la moneda de facturación relativos a todos los clientes de todos los productos y suscripciones incluidos en una factura. Puede filtrar los costos de un perfil de facturación de una factura específica mediante el filtro **InvoiceID**. El filtro muestra el consumo y los costos de compra de productos de una factura específica. También se pueden filtrar la factura de un cliente concreto para ver los costos antes de los impuestos.
 
-Una vez que haya incorporado clientes a un contrato de cliente de Microsoft, recibirá una factura que incluirá todos los cargos de todos los productos (consumos, compras y derechos) de estos clientes en relación con el contrato de cliente de Microsoft. Cuando se facturan en la misma moneda, estas facturas también incluyen los cargos por los derechos y productos adquiridos como SaaS, Azure Marketplace, así como las reservas para los clientes que todavía están en la oferta de CSP.
+Una vez que haya incorporado clientes a un contrato de cliente de Microsoft, recibirá una factura que incluirá todos los cargos de todos los productos (consumos, compras y derechos) de estos clientes en relación con el contrato de cliente de Microsoft. Cuando se facturan en la misma moneda, estas facturas también incluyen los cargos por los derechos y productos adquiridos, como SaaS, Azure Marketplace y las reservas para los clientes que todavía usan la oferta clásica de CSP en el plan de Azure.
 
 Para conciliar los cargos con la factura del cliente, el ámbito del perfil de facturación le permite ver todos los costos que se acumulan en una factura para sus clientes. Al igual que la factura, el ámbito muestra los costos de cada cliente en el nuevo contrato de cliente de Microsoft. El ámbito también muestra todos los cargos de los productos de derechos de cliente que todavía están en la oferta de CSP actual.
 
@@ -91,7 +91,7 @@ Los ámbitos de perfil de facturación y cuenta de facturación son los únicos 
 
 Los perfiles de facturación definen las suscripciones que se incluyen en una factura. Son el equivalente funcional de una inscripción de contrato Enterprise. Un perfil de facturación es el ámbito en el que se generan las facturas.
 
-Actualmente, la moneda de facturación del cliente es la moneda predeterminada cuando se ven los costos en el ámbito del perfil de facturación. Los presupuestos establecidos en este ámbito se encuentran en la moneda de facturación.
+Actualmente, la moneda de facturación es la moneda predeterminada al examinar los costos en el ámbito del perfil de facturación. Los presupuestos establecidos en este ámbito se encuentran en la moneda de facturación.
 
 Los asociados pueden usar el ámbito para conciliar las facturas. Además, usan el ámbito para establecer los presupuestos en la moneda de facturación para los siguientes elementos:
 
@@ -220,7 +220,7 @@ Los siguientes campos de datos se encuentran en los archivos de detalles de uso 
 | Cantidad | Cantidad medida comprada o consumida. La cantidad del medidor usado durante el período de facturación. | Número de unidades. Asegúrese de que coincide con la información del sistema de facturación durante la conciliación. |
 | unitOfMeasure | Identifica la unidad en que se cobra el servicio. Por ejemplo, GB y horas. | Identifica la unidad en que se cobra el servicio. Por ejemplo, GB, horas y 10 000 s. |
 | pricingCurrency | Moneda que define el precio unitario. | Moneda de la lista de precios.|
-| billingCurrency | Moneda que define el costo facturado. | Moneda de la región geográfica del cliente. |
+| billingCurrency | Moneda que define el costo facturado. | La moneda definida como moneda de facturación en la factura. |
 | chargeType | Define el tipo de cargo que representa el costo en Azure Cost Management, como compra y reembolso. | Tipo de cargo o ajuste. No está disponible para la actividad actual. |
 | costinBillingCurrency | Costo combinado o ampliado en la moneda facturada. | N/D |
 | costinPricingCurrency | Costo combinado o ampliado antes de impuestos en la moneda de los precios para poner en correlación con estos. | N/D |

@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: d6d0d0a4c4b3328fa50777b5106bac202c9972ef
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: ea1ee2311d8655ce17017c73309bc69e89f4b5f4
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151503"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599110"
 ---
 # <a name="save-on-sap-hana-large-instances-with-an-azure-reservation"></a>Ahorre en SAP HANA (instancias grandes) con una reserva de Azure
 
@@ -224,7 +224,7 @@ En la siguiente información se explica el significado de los distintos campos d
 
   **Reserved Resource type** `SapHana`
 
-  **Subscription** Suscripción que se usa para pagar la reserva. Los costos de la reserva se cobran en el método de pago de la suscripción. El tipo de suscripción debe ser Contrato Enterprise (números de oferta: MS-AZR-0017P o MS-AZR-0148P) o Contrato de cliente de Microsoft. Los cargos se deducen del saldo de compromiso monetario, si está disponible, o se cobran como uso por encima del límite.
+  **Subscription** Suscripción que se usa para pagar la reserva. Los costos de la reserva se cobran en el método de pago de la suscripción. El tipo de suscripción debe ser Contrato Enterprise (números de oferta: MS-AZR-0017P o MS-AZR-0148P) o Contrato de cliente de Microsoft. Los cargos se deducirán del saldo de prepago de Azure (anteriormente llamado compromiso monetario) si hay fondos disponibles o se cobrarán como parte del uso por encima del límite.
 
   **Scope** El ámbito de la reserva debe ser único.
 

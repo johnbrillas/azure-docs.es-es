@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 01/12/2021
-ms.openlocfilehash: 8151c9ce177d0cd54826603d1a395a8d5828b623
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: d07b52d8abeab34d565ebde4bac58eec66780dce
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98133827"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98179272"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-cognitive-skillset-in-the-azure-portal"></a>Inicio rápido: Creación de un conjunto de aptitudes cognitivas de Azure Cognitive Search en Azure Portal
 
@@ -23,7 +23,7 @@ En este inicio rápido, combinará servicios y datos en la nube de Azure para cr
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Antes de empezar, cree los siguientes servicios:
+Antes de comenzar, tiene que cumplir los siguientes requisitos previos:
 
 + Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/).
 

@@ -7,12 +7,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 12/15/2020
 ms.author: banders
-ms.openlocfilehash: b0f17149eb646b6108dc6a81922e6e5b00f143d6
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 045ab35a35aa4caefb1e1bcbbf7bf78b726c09f7
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97560549"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98601467"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Autoservicio de cambios y reembolsos de reservas de Azure
 
@@ -47,7 +47,7 @@ En primer lugar, Microsoft cancela la reserva existente y reembolsa la cantidad 
 
 ### <a name="enterprise-agreement-customers"></a>Clientes con contrato Enterprise
 
-Se agrega el dinero al compromiso monetario para los cambios y devoluciones en caso de que se utilizara alguno en la compra original. Si el término de compromiso monetario que se compró con la reserva ya no está activo, se agregará crédito al término de compromiso monetario de su contrato Entreprise actual. El crédito es válido durante 90 días a partir de la fecha de reembolso. El crédito no utilizado expira una vez transcurridos los 90 días.
+Si la compra original se efectuó mediante prepago, se agregará dinero al prepago de Azure (anteriormente llamado compromiso monetario) en el caso de cambios y devoluciones. Si el plazo de prepago de Azure que se adquirió utilizando la reserva ya no está activo, el crédito se agregará al plazo de prepago de Azure del contrato Entreprise actual. El crédito es válido durante 90 días a partir de la fecha de reembolso. El crédito no utilizado expira una vez transcurridos los 90 días.
 
 Si la compra original se realizó como uso por encima del límite, tanto la factura original en la que se compró la reserva como todas las facturas posteriores se vuelven a abrir y a reajustar. Microsoft emite un nota de crédito cuando se realiza una devolución.
 

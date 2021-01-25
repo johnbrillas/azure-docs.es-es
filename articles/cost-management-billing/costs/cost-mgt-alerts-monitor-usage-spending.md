@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
-ms.openlocfilehash: c59bd7f9bc8c5049572afdf93343222b30c0007b
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: d1546ef92d923b9d72c4aca0ddf61d2b93646656
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131911"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602338"
 ---
 # <a name="use-cost-alerts-to-monitor-usage-and-spending"></a>Uso de alertas de costes para supervisar el uso y el gasto
 
@@ -29,7 +29,7 @@ Puede usar Budgets API para enviar alertas por correo electrónico en otro idiom
 
 ## <a name="credit-alerts"></a>Alertas de crédito
 
-Las alertas de crédito le avisan cuando se consumen los compromisos monetarios de crédito de Azure. Los compromisos monetarios son para organizaciones con contratos Enterprise. Las alertas de crédito se generan de forma automática al 90 % y al 100 % del saldo de crédito de Azure. Cada vez que se genera una alerta, se refleja en las alertas sobre los costos y en el correo electrónico que se envía a los propietarios de la cuenta.
+Cuando el saldo de prepago de Azure (anteriormente llamado compromiso monetario) se haya terminado, recibirá alertas de crédito. El prepago de Azure está dirigido a organizaciones que tienen contratos Enterprise. Cuando el saldo de crédito de Azure alcance el 90 % y el 100 % se generarán alertas de crédito. Cada vez que se genera una alerta, se refleja en las alertas sobre los costos y en el correo electrónico que se envía a los propietarios de la cuenta.
 
 ## <a name="department-spending-quota-alerts"></a>Alertas de cuota de gasto de departamento
 

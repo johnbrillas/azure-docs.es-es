@@ -8,15 +8,15 @@ tags: billing,top-support-issue
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 11/11/2020
+ms.date: 01/06/2021
 ms.author: banders
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: d37225f988cc906bdd92467afcf3f286220eebda
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: ae588708a41c1259628b726a3a471034dba7d131
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97027873"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98601522"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Transferencia de la propiedad de facturación de una suscripción de Azure a otra cuenta
 
@@ -72,6 +72,18 @@ Si ha aceptado la propiedad de facturación de una suscripción de Azure, se rec
    1. Claves de acceso para servicios como Almacenamiento. Para más información, consulte [Acerca de las cuentas de almacenamiento de Azure](../../storage/common/storage-account-create.md).
    1. Credenciales de acceso remoto para servicios como Azure Virtual Machines.
 1. Si trabaja con un asociado, considere la posibilidad de actualizar el id. de asociado en esta suscripción. Puede actualizar el identificador de asociado en [Azure Portal](https://portal.azure.com). Para más información, consulte [Vinculación de un Id. de partner a cuentas de Azure](link-partner-id.md).
+
+## <a name="cancel-a-transfer-request"></a>Cancelación de una solicitud de transferencia
+
+No puede haber más de una solicitud de transferencia activa en un momento dado. Una solicitud de transferencia es válida durante 15 días. Una vez transcurridos los 15 días, la solicitud de transferencia expirará.
+
+Para cancelar una solicitud de transferencia:
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Vaya a **Suscripciones**, seleccione la suscripción a la que envió la solicitud de transferencia y, a continuación, **Transferir propiedad de facturación**.
+1. En la parte inferior de la página, seleccione **Cancelar la solicitud de transferencia**.
+
+:::image type="content" source="./media/billing-subscription-transfer/transfer-billing-owership-cancel-request.png" alt-text="Ejemplo que muestra la ventana Transferir propiedad de facturación, con la opción Cancelar la solicitud de transferencia" lightbox="./media/billing-subscription-transfer/transfer-billing-owership-cancel-request.png" :::
 
 ## <a name="troubleshooting"></a>Solución de problemas
 

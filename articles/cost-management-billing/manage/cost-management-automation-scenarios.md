@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: reference
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 8cef36cf26231758eb839379d0c020484cbe09fb
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: e0a7553269e1223a5e744db967d65814877878ab
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132608"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98598270"
 ---
 # <a name="automation-scenarios-for-billing-and-cost-management"></a>Escenarios de automatización de administración de costos y facturación
 
@@ -103,7 +103,7 @@ Las siguientes API son solo para Enterprise:
 ### <a name="whats-the-difference-between-the-enterprise-reporting-apis-and-the-consumption-apis-when-should-i-use-each"></a>¿Cuál es la diferencia entre Enterprise Reporting APIs y Consumption APIs? ¿Cuándo se debe usar cada una?
 Estas API tienen un conjunto similar de funcionalidades y pueden responder al mismo conjunto amplio de preguntas en el ámbito de administración de costos y facturación. Se dirigen a distintas audiencias:
 
-- Enterprise Reporting APIs están disponibles para los clientes que han firmado un Contrato Enterprise con Microsoft que les concede acceso a compromisos monetarios negociados y precios personalizados. Las API necesitan una clave que se obtiene de [Enterprise Portal](https://ea.azure.com). Para obtener una descripción de estas API, vea [Información general de API de informes para clientes de Enterprise](enterprise-api.md).
+- Las API de informes para Enterprise están disponibles para los clientes con un Contrato Enterprise de Microsoft que les proporciona acceso al prepago de Azure (anteriormente llamado compromiso monetario) y a los precios personalizados que se hayan negociado. Las API necesitan una clave que se obtiene de [Enterprise Portal](https://ea.azure.com). Para obtener una descripción de estas API, vea [Información general de API de informes para clientes de Enterprise](enterprise-api.md).
 
 - Consumption APIs están disponibles para todos los clientes, con algunas excepciones. Para más información, consulte [Información general sobre la API de consumo de Azure](consumption-api-overview.md) y la [referencia de la API de consumo de Azure](/rest/api/consumption/). Se recomiendan las API proporcionadas como la solución para los escenarios de desarrollo más recientes.
 
@@ -112,7 +112,7 @@ Estas API ofrecen básicamente distintos datos:
 
 - [Usage Details API](/rest/api/consumption/usagedetails) proporciona información sobre los costos y el uso de Azure por instancia del medidor. Los datos proporcionados ya han pasado por el sistema de medición de costos de Azure y se les habían aplicado costos junto con otros posibles cambios:
 
-   - Cambios que tienen en cuenta el uso de compromisos monetarios de prepago
+   - Cambios en la cuenta para el uso del prepago de Azure
    - Cambios que tienen en cuenta las discrepancias de uso detectadas por Azure
 
 - [Usage API](/previous-versions/azure/reference/mt219003(v=azure.100)) proporciona información de uso de Azure sin procesar antes de pasar por el sistema de medición de costos de Azure. Estos datos no pueden tener ninguna correlación con la cantidad de uso o el importe de los cargos que se ven después del sistema de medición de cargos de Azure.

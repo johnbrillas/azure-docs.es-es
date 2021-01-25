@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 8ae5bcf103bbb2d2b952fa647ba591e49002f2ff
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: c6c09dc771692cb2fc2f36840e729874cfaf2d09
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96921624"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98572823"
 ---
 # <a name="basic-concepts"></a>Conceptos básicos
 
@@ -28,9 +28,7 @@ La [clave web de JSON](https://tools.ietf.org/html/rfc7517) (JWK) es una estruct
 
 ## <a name="attestation-provider"></a>Proveedor de atestación
 
-El proveedor de atestación pertenece al proveedor de recursos de Azure denominado Microsoft.Attestation. El proveedor de recursos es un punto de conexión de servicio que proporciona el contrato REST de Azure Attestation y se implementa mediante [Azure Resource Manager](../azure-resource-manager/management/overview.md). Cada proveedor de atestación respeta una directiva específica y reconocible. 
-
-Los proveedores de atestación se crean con una directiva predeterminada para cada tipo de atestación (tenga en cuenta que el enclave de VBS no tiene ninguna directiva predeterminada). Consulte los [ejemplos de directivas de atestación](policy-examples.md) para más información sobre la directiva predeterminada de SGX.
+El proveedor de atestación pertenece al proveedor de recursos de Azure denominado Microsoft.Attestation. El proveedor de recursos es un punto de conexión de servicio que proporciona el contrato REST de Azure Attestation y se implementa mediante [Azure Resource Manager](../azure-resource-manager/management/overview.md). Cada proveedor de atestación respeta una directiva específica y reconocible. Los proveedores de atestación se crean con una directiva predeterminada para cada tipo de atestación (tenga en cuenta que el enclave de VBS no tiene ninguna directiva predeterminada). Consulte los [ejemplos de directivas de atestación](policy-examples.md) para más información sobre la directiva predeterminada de SGX.
 
 ### <a name="regional-default-provider"></a>Proveedor predeterminado regional
 
@@ -38,11 +36,16 @@ Azure Attestation proporciona un proveedor predeterminado en cada región. Los c
 
 | Region | URI de atestación | 
 |--|--|
+| Este de EE. UU. | `https://sharedeus.eus.attest.azure.net` | 
+| Oeste de EE. UU. | `https://sharedwus.wus.attest.azure.net` | 
 | Sur de Reino Unido | `https://shareduks.uks.attest.azure.net` | 
+| Oeste de Reino Unido| `https://sharedukw.ukw.attest.azure.net  ` | 
+| Este de Canadá | `https://sharedcae.cae.attest.azure.net` | 
+| Centro de Canadá | `https://sharedcac.cac.attest.azure.net` | 
+| Norte de Europa | `https://sharedneu.neu.attest.azure.net` | 
+| Oeste de Europa| `https://sharedweu.weu.attest.azure.net` | 
 | Este de EE. UU. 2 | `https://sharedeus2.eus2.attest.azure.net` | 
 | Centro de EE. UU. | `https://sharedcus.cus.attest.azure.net` | 
-| Este de EE. UU.| `https://sharedeus.eus.attest.azure.net` | 
-| Centro de Canadá | `https://sharedcac.cac.attest.azure.net` | 
 
 ## <a name="attestation-request"></a>Solicitud de atestación
 
@@ -58,7 +61,7 @@ La directiva de atestación se usa para procesar la evidencia de atestación. Lo
 
 Si la directiva predeterminada del proveedor de atestación no satisface las necesidades, los clientes podrán crear directivas personalizadas en cualquiera de las regiones que Azure Attestation admita. La administración de directivas es una característica clave que se proporciona a los clientes mediante Azure Attestation. Las directivas serán específicas del tipo de atestación y se pueden usar para identificar enclaves, agregar notificaciones al token de salida o modificar notificaciones en un token de salida. 
 
-Consulte [ejemplos de una directiva de atestación](policy-examples.md) para obtener ejemplos y contenido predeterminados para las directivas.
+Para ver ejemplos de directivas, consulte [Ejemplos de una directiva de atestación](policy-examples.md).
 
 ## <a name="benefits-of-policy-signing"></a>Ventajas de la firma de directivas
 
@@ -80,25 +83,55 @@ Ejemplo de JWT generado para un enclave de SGX:
 
 ```
 {
-  “alg”: “RS256”,
-  “jku”: “https://tradewinds.us.attest.azure.net/certs”,
-  “kid”: “f1lIjBlb6jUHEUp1/Nh6BNUHc6vwiUyMKKhReZeEpGc=”,
-  “typ”: “JWT”
+  "alg": "RS256",
+  "jku": "https://tradewinds.us.attest.azure.net/certs",
+  "kid": <self signed certificate reference to perform signature verification of attestation token,
+  "typ": "JWT"
 }.{
-  “maa-ehd”: <input enclave held data>,
-  “exp”: 1568187398,
-  “iat”: 1568158598,
-  “is-debuggable”: false,
-  “iss”: “https://tradewinds.us.attest.azure.net”,
-  “nbf”: 1568158598,
-  “product-id”: 4639,
-  “sgx-mrenclave”: “”,
-  “sgx-mrsigner”: “”,
-  “svn”: 0,
-  “tee”: “sgx”
+  "aas-ehd": <input enclave held data>,
+  "exp": 1568187398,
+  "iat": 1568158598,
+  "is-debuggable": false,
+  "iss": "https://tradewinds.us.attest.azure.net",
+  "maa-attestationcollateral": 
+    {
+      "qeidcertshash": <SHA256 value of QE Identity issuing certs>,
+      "qeidcrlhash": <SHA256 value of QE Identity issuing certs CRL list>,
+      "qeidhash": <SHA256 value of the QE Identity collateral>,
+      "quotehash": <SHA256 value of the evaluated quote>, 
+      "tcbinfocertshash": <SHA256 value of the TCB Info issuing certs>, 
+      "tcbinfocrlhash": <SHA256 value of the TCB Info issuing certs CRL list>, 
+      "tcbinfohash": <SHA256 value of the TCB Info collateral>
+     },
+  "maa-ehd": <input enclave held data>,
+  "nbf": 1568158598,
+  "product-id": 4639,
+  "sgx-mrenclave": <SGX enclave mrenclave value>,
+  "sgx-mrsigner": <SGX enclave msrigner value>,
+  "svn": 0,
+  "tee": "sgx"
+  "x-ms-attestation-type": "sgx", 
+  "x-ms-policy-hash": <>,
+  "x-ms-sgx-collateral": 
+    {
+      "qeidcertshash": <SHA256 value of QE Identity issuing certs>,
+      "qeidcrlhash": <SHA256 value of QE Identity issuing certs CRL list>,
+      "qeidhash": <SHA256 value of the QE Identity collateral>,
+      "quotehash": <SHA256 value of the evaluated quote>, 
+      "tcbinfocertshash": <SHA256 value of the TCB Info issuing certs>, 
+      "tcbinfocrlhash": <SHA256 value of the TCB Info issuing certs CRL list>, 
+      "tcbinfohash": <SHA256 value of the TCB Info collateral>
+     },
+  "x-ms-sgx-ehd": <>, 
+  "x-ms-sgx-is-debuggable": true,
+  "x-ms-sgx-mrenclave": <SGX enclave mrenclave value>,
+  "x-ms-sgx-mrsigner": <SGX enclave msrigner value>, 
+  "x-ms-sgx-product-id": 1, 
+  "x-ms-sgx-svn": 1,
+  "x-ms-ver": "1.0"
 }.[Signature]
 ```
-Las notificaciones como "exp", "iat", "iss" o "nbf" se definen mediante el [RFC de JWT](https://tools.ietf.org/html/rfc7517) y el resto las genera Azure Attestation. Para más información, consulte las [notificaciones emitidas por Azure Attestation](claim-sets.md).
+Algunas de las notificaciones usadas anteriormente se consideran en desuso, pero se admiten por completo.  Se recomienda que todas las herramientas y el código futuros usen los nombres de notificaciones que no estén en desuso. Para más información, consulte las [notificaciones emitidas por Azure Attestation](claim-sets.md).
 
 ## <a name="encryption-of-data-at-rest"></a>Cifrado de datos en reposo
 

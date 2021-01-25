@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: texto a voz
-ms.openlocfilehash: af0c9338cb9661402c3a76bab55f34b01304c7b6
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 54db794d4e9cf0cd2a049a865f2e7bb52698a4bd
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024524"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599540"
 ---
 # <a name="what-is-text-to-speech"></a>¿Qué es el texto a voz?
 
@@ -39,7 +39,7 @@ En esta introducción, encontrará información sobre las ventajas y las funcion
 
 * Voces neuronales: las redes neuronales profundas se usan para superar los límites de la síntesis de voz tradicional con respecto al acento y la entonación del lenguaje hablado. La predicción de la prosodia y la síntesis de voz se realizan simultáneamente, lo que resulta en una voz más fluida y natural. Las voces neuronales se pueden usar para que las interacciones con los bots de chat y los asistentes de voz sean más naturales y atractivas, para convertir textos digitales (por ejemplo, los libros electrónicos) en audiolibros y para mejorar los sistemas de navegación de los automóviles. Gracias a su prosodia natural similar a la humana y a la clara articulación de las palabras, las voces neuronales reducen considerablemente la fatiga al escucharlas que suele aparecer cuando los usuarios interactúan con sistemas de inteligencia artificial. Hay una lista completa de voces neuronales en [Idiomas admitidos](language-support.md#text-to-speech).
 
-* Lenguaje de marcado de síntesis de voz (SSML): lenguaje de marcado basado en XML que se usa para personalizar las salidas de voz a texto. Con SSML, puede ajustar el tono, agregar pausas, mejorar la pronunciación, acelerar o ralentizar la velocidad del habla, subir o bajar el volumen y atribuir varias voces a un solo documento. Consulte [SSML](speech-synthesis-markup.md).
+* Ajuste de estilos de habla con SSML: Lenguaje de marcado de síntesis de voz (SSML) es un lenguaje de marcado basado en XML que se usa para personalizar las salidas de voz a texto. Con SSML, puede ajustar el tono, agregar pausas, mejorar la pronunciación, acelerar o ralentizar la velocidad del habla, subir o bajar el volumen y atribuir varias voces a un solo documento. Consulte el [procedimiento](speech-synthesis-markup.md) para ajustar estilos de habla.
 
 ## <a name="get-started"></a>Introducción
 

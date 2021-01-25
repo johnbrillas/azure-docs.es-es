@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 09/11/2020
+ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: 8e951e6cb18596b19f49bf42179297f656e3fa5f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 849afe54125588cb7664ee221e4f229e83be8f96
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91304308"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185485"
 ---
 # <a name="camera-placement-guide"></a>Guía de selección de ubicación de la cámara
 
@@ -52,7 +52,7 @@ En la ilustración siguiente se muestra la vista de elevación correspondiente a
 
 ## <a name="camera-height"></a>Altura de la cámara
 
-Por lo general, las cámaras se deben montar a 12 o 14 pies del suelo. Al planear el montaje de la cámara en este rango, tome en cuenta los obstáculos (por ejemplo, estantes, luminarias, letreros colgantes y pantallas) que podrían afectar la vista de la cámara y ajuste la altura según sea necesario.
+Por lo general, las cámaras se deben montar a 12 o 14 pies del suelo. Para la detección de máscaras faciales, se recomienda montar las cámaras a una altura de entre 8 y 12 pies del suelo. Al planear el montaje de la cámara en este rango, tome en cuenta los obstáculos (por ejemplo, estantes, luminarias, letreros colgantes y pantallas) que podrían afectar la vista de la cámara y ajuste la altura según sea necesario.
 
 ## <a name="camera-to-focal-point-distance"></a>Distancia entre el punto focal y la cámara
 
@@ -68,7 +68,7 @@ Desde arriba, tiene el aspecto siguiente:
 
 ![Medición de la distancia entre el punto focal y la cámara desde arriba](./media/spatial-analysis/camera-focal-point-above.png)
 
-Use la tabla siguiente para determinar la distancia de la cámara desde el punto focal en función de alturas de montaje específicas. Estas distancias son para lograr una ubicación óptima. Tenga en cuenta que la tabla proporciona directrices por debajo de la recomendación de 12'-14', puesto que muchos cielos rasos pueden limitar la altura.
+Use la tabla siguiente para determinar la distancia de la cámara desde el punto focal en función de alturas de montaje específicas. Estas distancias son para lograr una ubicación óptima. Tenga en cuenta que la tabla proporciona directrices por debajo de la recomendación de 12'-14', puesto que muchos cielos rasos pueden limitar la altura. Para la detección de máscaras faciales, la distancia recomendada de la cámara al punto focal (mín./máx.) es de entre 4 y 10 pulgadas para una altura de cámara de entre 8 y 12 pulgadas.
 
 | Altura de la cámara | Distancia entre el punto focal y la cámara (mín./máx.) |  
 | ------------- | ---------------------------------------- |  
@@ -91,7 +91,7 @@ En esta sección se describen los rangos de montaje del ángulo de cámara acept
 
 ### <a name="line-configuration"></a>Configuración de línea
 
-En la tabla siguiente se muestran las recomendaciones para las cámaras configuradas para la operación **cognitiveservices.vision.spatialanalysis-personcrossingline**. 
+En la tabla siguiente se muestran las recomendaciones para las cámaras configuradas para la operación **cognitiveservices.vision.spatialanalysis-personcrossingline**. Para la detección de máscaras faciales, el ángulo de montaje óptimo de la cámara para una altura de cámara de entre 8 y 12 pulgadas es de +/-30 grados.
 
 | Altura de la cámara | Distancia entre el punto focal y la cámara | Ángulo de montaje de cámara óptimo (mín./máx.) |  
 | ------------- | ------------------------------ | ------------------------------------------ |  

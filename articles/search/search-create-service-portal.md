@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 10/14/2020
-ms.openlocfilehash: 1b3804029a4174698ed1e4e4f8d75fbed4fba981
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 3f55e2a7d62d2f32173d382dc9be0d6eb4f83fae
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102819"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98249761"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Inicio rápido: Creación de un servicio Azure Cognitive Search en el portal
 
@@ -30,7 +30,7 @@ En este artículo, aprenderá a crear un recurso en [Azure Portal](https://porta
 Las siguientes propiedades de servicio son fijas para la vigencia del servicio y su cambio requiere un nuevo servicio. Dado que son fijas, tenga en cuenta las implicaciones de uso al rellenar cada propiedad:
 
 * El nombre del servicio pasa a formar parte del punto de conexión de la dirección URL ([examine las sugerencias](#name-the-service) para elegir nombres de servicio útiles).
-* El nivel de servicio [afecta a la facturación](search-sku-tier.md) y establece un límite superior en la capacidad. Algunas características no están disponibles en el nivel gratuito.
+* El [nivel de servicio](search-sku-tier.md) afecta a la facturación y establece un límite superior en la capacidad. Algunas características no están disponibles en el nivel gratuito.
 * La región del servicio puede determinar la disponibilidad de ciertos escenarios. Si necesita [características de alta seguridad](search-security-overview.md) o [enriquecimiento con IA](cognitive-search-concept-intro.md), Azure Cognitive Search deberá estar en la misma región que los restantes servicios, o bien en aquellas regiones que proporcionen la característica en cuestión. 
 
 ## <a name="subscribe-free-or-paid"></a>Suscripción (gratuita o de pago)
@@ -45,7 +45,7 @@ Opcionalmente, [puede activar los beneficios de suscriptores de MSDN](https://az
 
 1. Haga clic en el signo más ("+ Crear recurso") en la esquina superior izquierda.
 
-1. Escriba "Azure Cognitive Search" en la barra de búsqueda o vaya al recurso a través de **Web** > **Azure Cognitive Search** .
+1. Escriba "Azure Cognitive Search" en la barra de búsqueda o vaya al recurso a través de **Web** > **Azure Cognitive Search**.
 
 :::image type="content" source="media/search-create-service-portal/find-search3.png" alt-text="Creación de un recurso en el portal" border="false":::
 
@@ -59,18 +59,18 @@ Un grupo de recursos es un contenedor que almacena los recursos relacionados con
 
 Si no combina recursos para formar un solo grupo o si los grupos de recursos existentes se rellenan con los recursos usados en soluciones no relacionadas, cree un grupo de recursos solo para su recurso de Azure Cognitive Search. 
 
-:::image type="content" source="media/search-create-service-portal/new-resource-group.png" alt-text="Creación de un recurso en el portal" border="false":::
+:::image type="content" source="media/search-create-service-portal/new-resource-group.png" alt-text="Creación de un nuevo grupo de recursos" border="false":::
 
 Con el tiempo, puede realizar un seguimiento de todos los costos actuales y previstos, o bien puede ver los cargos de los recursos individuales. En la captura de pantalla siguiente se muestra el tipo de información de costos que puede esperar ver al combinar varios recursos en un solo grupo.
 
-:::image type="content" source="media/search-create-service-portal/resource-group-cost-management.png" alt-text="Creación de un recurso en el portal" border="false":::
+:::image type="content" source="media/search-create-service-portal/resource-group-cost-management.png" alt-text="Administración de costos en el nivel del grupo de recursos" border="false":::
 
 > [!TIP]
 > Los grupos de recursos simplifican la limpieza porque, al eliminar uno de ellos, se eliminan también todos los servicios que contiene. En el caso de proyectos de prototipo que usan muchos servicios, si se ponen todos ellos en el mismo grupo de recursos, la limpieza resulta más fácil después de que el proyecto ha finalizado.
 
 ## <a name="name-the-service"></a>Asignación de un nombre al servicio
 
-En Detalles de la instancia, proporcione un nombre de servicio en el campo **URL** . Un nombre de servicio forma parte del punto de conexión de la dirección URL con que se emiten llamadas API: `https://your-service-name.search.windows.net`. Por ejemplo, si quiere que el punto de conexión sea `https://myservice.search.windows.net`, debe escribir `myservice`.
+En Detalles de la instancia, proporcione un nombre de servicio en el campo **URL**. Un nombre de servicio forma parte del punto de conexión de la dirección URL con que se emiten llamadas API: `https://your-service-name.search.windows.net`. Por ejemplo, si quiere que el punto de conexión sea `https://myservice.search.windows.net`, debe escribir `myservice`.
 
 Requisitos de nombre de servicio:
 
@@ -94,7 +94,7 @@ Azure Cognitive Search no está disponible en la mayoría de las regiones. Se pu
 
 ### <a name="requirements"></a>Requisitos
 
- Si usa el enriquecimiento con IA, cree el servicio de búsqueda en la misma región que Cognitive Services. *La coubicación de Azure Cognitive Search y Cognitive Services en la misma región es un requisito para el enriquecimiento con inteligencia artificial* .
+ Si usa el enriquecimiento con IA, cree el servicio de búsqueda en la misma región que Cognitive Services. *La coubicación de Azure Cognitive Search y Cognitive Services en la misma región es un requisito para el enriquecimiento con inteligencia artificial*.
 
  Los clientes con requisitos de continuidad empresarial y recuperación ante desastres (BCDR) deben crear sus servicios en [pares regionales](../best-practices-availability-paired-regions.md#azure-regional-pairs). Por ejemplo, si está trabajando en Norteamérica, puede elegir Este de EE. UU. y Oeste de EE. UU., o Centro-norte de EE. UU. y Centro-sur de EE. UU., para cada servicio.
 
@@ -114,21 +114,21 @@ Recuerde que una vez que se crea el servicio, el plan de tarifa no se puede camb
 
 Después de proporcionar los datos necesarios, ya puede crear el servicio. 
 
-:::image type="content" source="media/search-create-service-portal/new-service3.png" alt-text="Creación de un recurso en el portal" border="false":::
+:::image type="content" source="media/search-create-service-portal/new-service3.png" alt-text="Revisar y crear el servicio" border="false":::
 
 El servicio se implementa en cuestión de minutos. El progreso se puede supervisar mediante las notificaciones de Azure. Considere la posibilidad de anclar el servicio al panel para facilitar el acceso en el futuro.
 
-:::image type="content" source="media/search-create-service-portal/monitor-notifications.png" alt-text="Creación de un recurso en el portal" border="false":::
+:::image type="content" source="media/search-create-service-portal/monitor-notifications.png" alt-text="Supervisar y ajustar el servicio" border="false":::
 
 ## <a name="get-a-key-and-url-endpoint"></a>Obtención de una clave y un punto de conexión de dirección URL
 
 Excepto en el caso de que use el portal, para acceder mediante programación al nuevo servicio, tendrá que especificar el punto de conexión de la dirección URL y una clave de API de autenticación.
 
-1. En la página **Información general** , busque y copie el punto de conexión de dirección URL en el lado derecho de la página.
+1. En la página **Información general**, busque y copie el punto de conexión de dirección URL en el lado derecho de la página.
 
-2. En la página **Claves** , copie una de las claves de administración (son equivalentes). Las claves de API de administrador son necesarias para crear, actualizar y eliminar objetos en el servicio. Por el contrario, las claves de consulta proporcionan acceso de lectura al contenido del índice.
+2. En la página **Claves**, copie una de las claves de administración (son equivalentes). Las claves de API de administrador son necesarias para crear, actualizar y eliminar objetos en el servicio. Por el contrario, las claves de consulta proporcionan acceso de lectura al contenido del índice.
 
-   :::image type="content" source="media/search-create-service-portal/get-url-key.png" alt-text="Creación de un recurso en el portal" border="false":::
+   :::image type="content" source="media/search-create-service-portal/get-url-key.png" alt-text="Página de información general del servicio con punto de conexión de dirección URL" border="false":::
 
 Para las tareas basadas en el portal, no se necesita un punto de conexión y una clave. El portal ya está vinculado a un recurso de Azure Cognitive Search con derechos de administrador. Para un tutorial del portal, empiece por [Inicio rápido: Creación de un índice de Azure Cognitive Search en el portal](search-get-started-portal.md).
 
@@ -136,9 +136,9 @@ Para las tareas basadas en el portal, no se necesita un punto de conexión y una
 
 Después de aprovisionado el servicio, se puede escalar para satisfacer sus necesidades. Si ha elegido el nivel Estándar para el servicio Azure Cognitive Search, puede escalar el servicio en dos dimensiones: réplicas y particiones. Si ha elegido el nivel Básico, solo puede agregar réplicas. Si ha aprovisionado el servicio gratuito, el escalado no está disponible.
 
-Las ***particiones*** permiten que el servicio almacene y busque en más documentos.
+Las **_particiones_* _ permiten que el servicio almacene y busque en más documentos.
 
-Las ***réplicas*** permiten al servicio administrar una carga más elevada de consultas de búsqueda.
+Las _*_réplicas_*_ permiten al servicio administrar una carga más elevada de consultas de búsqueda.
 
 La incorporación de recursos aumenta la factura mensual. La [calculadora de precios](https://azure.microsoft.com/pricing/calculator/) puede ayudarle a entender cómo repercute la incorporación de recursos en la facturación. Recuerde que puede ajustar los recursos en base a la carga. Por ejemplo, puede aumentar los recursos para crear un índice inicial completo y luego reducir los recursos más adelante a un nivel más adecuado para la indexación incremental.
 
@@ -146,10 +146,10 @@ La incorporación de recursos aumenta la factura mensual. La [calculadora de pre
 > Un servicio debe tener [2 réplicas para SLA de solo lectura y 3 réplicas para SLA de lectura y escritura](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
 1. Vaya a la página del servicio de búsqueda de Azure Portal.
-2. En el panel de navegación de la izquierda, seleccione **Configuración** > **Escala** .
+2. En el panel de navegación de la izquierda, seleccione *Configuración* * > **Escala**.
 3. Use la barra deslizante para agregar recursos de cualquier tipo.
 
-:::image type="content" source="media/search-create-service-portal/settings-scale.png" alt-text="Creación de un recurso en el portal" border="false":::
+:::image type="content" source="media/search-create-service-portal/settings-scale.png" alt-text="Aumento de capacidad mediante réplicas y particiones" border="false":::
 
 > [!Note]
 > El almacenamiento y velocidad por partición aumenta en los niveles más altos. Para más información, consulte [capacidad y límites](search-limits-quotas-capacity.md).

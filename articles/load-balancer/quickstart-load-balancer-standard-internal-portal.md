@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 14203021846e97a53f59c3bc24a1586774613dec
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: f70116847a8743cf8b3cb56ff35f9d913f13f359
+ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97704340"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98562359"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Inicio rápido: Creación de un equilibrador de carga interno para equilibrar la carga de las máquinas virtuales mediante Azure Portal
 
@@ -41,11 +41,13 @@ Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azur
 >[!NOTE]
 >Se recomienda usar la SKU Estándar de Load Balancer para las cargas de trabajo de producción.  Para más información sobre las SKU, consulte **[SKU de Azure Load Balancer](skus.md)** .
 
-:::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/resources-diagram-internal.png" alt-text="Recursos de Standard Load Balancer creados para el inicio rápido." border="false":::
-
 En esta sección, va a crear un equilibrador de carga que equilibra la carga de las máquinas virtuales. 
 
-Cuando se crea un equilibrador de carga interno, se configura una red virtual como red para el equilibrador de carga. 
+Cuando se crea un equilibrador de carga interno, se configura una red virtual como red para él. 
+
+En el diagrama siguiente se muestran los recursos creados en este inicio rápido:
+
+:::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/resources-diagram-internal.png" alt-text="Recursos de Standard Load Balancer creados para el inicio rápido." border="false":::
 
 Una dirección IP privada de la red virtual se configura como front-end (denominado **LoadBalancerFrontend** de manera predeterminada) para el equilibrador de carga. 
 
@@ -110,7 +112,7 @@ En esta sección, creará una red virtual y una subred.
 
     | Configuración                 | Value                                              |
     | ---                     | ---                                                |
-    | Suscripción               | Seleccione su suscripción.    |    
+    | Subscription               | Seleccione su suscripción.    |    
     | Resource group         | Seleccione el grupo de recursos **CreateIntLBQS-rg**, que ha creado en el paso anterior.|
     | Nombre                   | Escriba **myLoadBalancer**.                                   |
     | Region         | Seleccione **Oeste de Europa**.                                        |
@@ -199,12 +201,8 @@ En esta sección va a crear una regla de equilibrador de carga:
     | Sondeo de mantenimiento | Seleccione **myHealthProbe**. |
     | Tiempo de espera de inactividad (minutos) | Mueva el control deslizante a **15** minutos. |
     | Restablecimiento de TCP | Seleccione **Habilitado**. |
-    | Traducción de direcciones de red de origen (SNAT) de salida | Seleccione **(Recomendado) Usar reglas de salida para proporcionar acceso a Internet a los miembros del grupo de back-end**. |
-
+    
 4. Deje el resto de valores predeterminados y después seleccione **Aceptar**.
-
->[!NOTE]
->Las máquinas virtuales del grupo de back-end no tendrán conectividad de salida a Internet con esta configuración. </br> Para más información acerca de cómo proporcionar conectividad de salida, consulte: </br> **[Conexiones salientes en Azure](load-balancer-outbound-connections.md)**</br> Opciones para proporcionar conectividad: </br> **[Configuración del equilibrador de carga solo de salida](egress-only.md)** </br> **[¿Qué es NAT de Virtual Network?](../virtual-network/nat-overview.md)**
 
 ## <a name="create-backend-servers"></a>Creación de servidores back-end
 
@@ -278,11 +276,13 @@ Estas máquinas virtuales se agregan al grupo de back-end del equilibrador de ca
 >[!NOTE]
 >Se recomienda usar la SKU Estándar de Load Balancer para las cargas de trabajo de producción.  Para más información sobre las SKU, consulte **[SKU de Azure Load Balancer](skus.md)** .
 
-:::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/resources-diagram-internal-basic.png" alt-text="Recursos de Basic Load Balancer creados en el inicio rápido." border="false":::
-
 En esta sección, va a crear un equilibrador de carga que equilibra la carga de las máquinas virtuales. 
 
 Cuando se crea un equilibrador de carga interno, se configura una red virtual como red para él. 
+
+En el diagrama siguiente se muestran los recursos creados en este inicio rápido:
+
+:::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/resources-diagram-internal-basic.png" alt-text="Recursos de Basic Load Balancer creados en el inicio rápido." border="false":::
 
 Una dirección IP privada de la red virtual se configura como front-end (denominado **LoadBalancerFrontend** de manera predeterminada) para el equilibrador de carga. 
 
@@ -347,7 +347,7 @@ En esta sección, creará una red virtual y una subred.
 
     | Configuración                 | Value                                              |
     | ---                     | ---                                                |
-    | Suscripción               | Seleccione su suscripción.    |    
+    | Subscription               | Seleccione su suscripción.    |    
     | Resource group         | Seleccione el grupo de recursos **CreateIntLBQS-rg**, que ha creado en el paso anterior.|
     | Nombre                   | Escriba **myLoadBalancer**.                                   |
     | Region         | Seleccione **Oeste de Europa**.                                        |

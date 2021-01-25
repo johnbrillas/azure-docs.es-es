@@ -5,12 +5,12 @@ author: christophermanthei
 ms.author: chmant
 ms.date: 03/07/2020
 ms.topic: article
-ms.openlocfilehash: fc82d046caa3663cffcda585258642813ab3a7d8
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 76bb9d289e984dd8c229bdaaab09e679e11283fe
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207264"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246288"
 ---
 # <a name="camera"></a>Cámara
 
@@ -32,7 +32,7 @@ Las siguientes propiedades se pueden cambiar en la configuración de la cámara:
 
 **Plano cercano y alejado:**
 
-Para asegurarse de que no se pueden establecer intervalos no válidos, las propiedades **NearPlane** y **FarPlane** son de solo lectura y hay una función independiente, **SetNearAndFarPlane** para cambiar el intervalo. Estos datos se enviarán al servidor al final del fotograma.
+Para asegurarse de que no se pueden establecer intervalos no válidos, las propiedades **NearPlane** y **FarPlane** son de solo lectura y hay una función independiente, **SetNearAndFarPlane** para cambiar el intervalo. Estos datos se enviarán al servidor al final del fotograma. Al establecer estos valores, **NearPlane** debe ser menor que **FarPlane**. De lo contrario, se producirá un error.
 
 > [!IMPORTANT]
 > En Unity, esto se controla automáticamente cuando se cambian los planos cercano y alejado de la cámara.
@@ -44,6 +44,21 @@ En ocasiones, resulta útil deshabilitar la escritura del búfer de profundidad 
 > [!TIP]
 > En Unity, se proporciona un componente de depuración llamado **EnableDepthComponent** que se puede usar para activar o desactivar esta característica en la interfaz de usuario del editor.
 
+**InverseDepth**:
+
+> [!NOTE]
+> Esta configuración solo es relevante si `EnableDepth` se ha establecido en `true`. En los demás casos, no tendrá ninguna repercusión.
+
+Normalmente, los búferes de profundidad registran valores z en un intervalo de punto flotante de [0;1], donde 0 indica la profundidad del plano cercano y 1 denota la profundidad del plano lejano. También es posible invertir este intervalo y registrar valores de profundidad en el intervalo [1;0]; es decir, la profundidad del plano cercano se convierte en 1 y la profundidad del plano lejano se convierte en 0. Por lo general, la última profundidad mejora la distribución de la precisión de punto flotante en el intervalo z no lineal.
+
+> [!WARNING]
+> Un enfoque habitual consiste en invertir los valores de plano cercano y plano lejano en los objetos de cámara. Esto producirá un error en Azure Remote Rendering al probarlo en `CameraSettings`.
+
+La API Azure Remote Rendering debe conocer la convención del búfer de profundidad del representador local para componer correctamente la profundidad remota en el búfer de profundidad local. Si el intervalo del búfer de profundidad es [0;1], deje esta marca como `false`. Si usa un búfer de profundidad invertido con un intervalo de [1;0], establezca la marca `InverseDepth` en `true`.
+
+> [!NOTE]
+> En el caso de Unity, el valor correcto ya lo aplica `RemoteManager`, por lo que no hay necesidad de intervención manual.
+
 Para cambiar la configuración de la cámara, se puede hacer lo siguiente:
 
 ```cs
@@ -53,6 +68,7 @@ void ChangeCameraSetting(AzureSession session)
 
     settings.SetNearAndFarPlane(0.1f, 20.0f);
     settings.EnableDepth = false;
+    settings.InverseDepth = false;
 }
 ```
 
@@ -63,6 +79,7 @@ void ChangeStageSpace(ApiHandle<AzureSession> session)
 
     settings->SetNearAndFarPlane(0.1f, 20.0f);
     settings->SetEnableDepth(false);
+    settings->SetInverseDepth(false);
 }
 ```
 

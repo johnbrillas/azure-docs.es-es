@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 11/03/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: dd5197f99f7187e21eb466bfa213f68a7638e24d
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 037e7fd13f55a0f5de939197f71324221392bd55
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98045349"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98601066"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Administración de un grafo de gemelos digitales con relaciones
 
@@ -137,9 +137,12 @@ En el fragmento de código se usan las definiciones de modelo [*Room.json*](http
 Antes de ejecutar el ejemplo, haga lo siguiente:
 1. Descargue los archivos del modelo, colóquelos en el proyecto y reemplace los marcadores de posición `<path-to>` en el código siguiente para indicar al programa dónde encontrarlos.
 2. Reemplace el marcador de posición `<your-instance-hostname>` por el nombre de host de la instancia de Azure Digital Twins.
-3. Agregue dos dependencias al proyecto ya que las necesitará para trabajar con Azure Digital Twins. Puede usar los vínculos siguientes para desplazarse a los paquetes NuGet, en donde encontrará los comandos de la consola (incluida la CLI de .NET) para agregar la versión más reciente de cada paquete al proyecto.
-    * [**Azure.DigitalTwins.Core**](https://www.nuget.org/packages/Azure.DigitalTwins.Core). Este es el paquete del [SDK de Azure Digital Twins para .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true).
-    * [**Azure.Identity**](https://www.nuget.org/packages/Azure.Identity). Esta biblioteca proporciona herramientas para facilitar la autenticación en Azure.
+3. Agregue dos dependencias al proyecto ya que las necesitará para trabajar con Azure Digital Twins. El primero es el paquete para el [SDK de Azure Digital Twins para .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true), el segundo proporciona herramientas para ayudar con la autenticación en Azure.
+
+      ```cmd/sh
+      dotnet add package Azure.DigitalTwins.Core
+      dotnet add package Azure.Identity
+      ```
 
 También necesitará configurar las credenciales locales si desea ejecutar el ejemplo directamente. La siguiente sección le indicará cómo hacerlo.
 [!INCLUDE [Azure Digital Twins: local credentials prereq (outer)](../../includes/digital-twins-local-credentials-outer.md)]
@@ -157,7 +160,7 @@ Esta es la salida de consola del programa anterior:
 > [!TIP]
 > El grafo de gemelos es un concepto de creación de relaciones entre gemelos. Si desea ver la representación visual del grafo de gemelos, consulte la sección [*Visualización*](how-to-manage-graph.md#visualization) de este artículo. 
 
-### <a name="create-a-twin-graph-from-a-csv-file"></a>Creación de un grafo de gemelos a partir de un archivo .csv
+## <a name="create-graph-from-a-csv-file"></a>Creación de un grafo a partir de un archivo .csv
 
 En casos de uso prácticos, las jerarquías de gemelos se crean a menudo a partir de los datos almacenados en una base de datos diferente o quizás en una hoja de cálculo o un archivo .csv. En esta sección se ilustra cómo leer datos de un archivo .csv y crear un grafo gemelo con ellos.
 
@@ -166,7 +169,7 @@ Observe la siguiente tabla de datos, que describe un conjunto de gemelos digital
 |  Id. de modelo    | Identificador del gemelo (debe ser único) | Nombre de relación  | Identificador del gemelo de destino  | Datos de inicialización del gemelo |
 | --- | --- | --- | --- | --- |
 | dtmi:example:Floor;1    | Floor1 | contiene | Room1 | |
-| dtmi:example:Floor;1    | Floor0 | contains | Room0 | |
+| dtmi:example:Floor;1    | Floor0 | contiene | Room0 | |
 | dtmi:example:Room;1    | Room1 | | | {"Temperature": 80} |
 | dtmi:example:Room;1    | Room0 | | | {"Temperature": 70} |
 

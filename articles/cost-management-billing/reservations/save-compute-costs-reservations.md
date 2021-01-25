@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: overview
 ms.date: 12/15/2020
 ms.author: banders
-ms.openlocfilehash: b79bde204d82b069b3314855a45a680b863c3f69
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 0e45e9741e92bb9e1fe23af79695cae06e64e871
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97560498"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602061"
 ---
 # <a name="what-are-azure-reservations"></a>¿Qué es Azure Reservations?
 
@@ -56,7 +56,7 @@ Para más información, consulte  [Adquisición de una reserva](prepare-buy-re
 
 ## <a name="how-is-a-reservation-billed"></a>¿Cómo se factura una reserva? 
 
-La reserva se cobra en el método de pago vinculado a la suscripción. El costo de la reserva se deducirá del saldo del compromiso monetario, si está disponible. Cuando este no sea suficiente para cubrir el costo de la reserva, se le cobrará el monto restante. Si tiene una suscripción de un plan individual con tarifas de pago por uso, se factura inmediatamente en la tarjeta de crédito que tiene en su cuenta por las compras por adelantado. Los pagos mensuales aparecen en la factura y la tarjeta de crédito se cobra mensualmente. Cuando se le facture por factura, verá los cargos la próxima vez que reciba una. 
+La reserva se cobra en el método de pago vinculado a la suscripción. El costo de reserva se deducirá del saldo de prepago de Azure (anteriormente llamado compromiso monetario) si hay fondos disponibles. Cuando el saldo de prepago de Azure no sea suficiente para cubrir el costo de la reserva, se le cobrará el uso por encima del límite. Si tiene una suscripción de un plan individual con tarifas de pago por uso, se factura inmediatamente en la tarjeta de crédito que tiene en su cuenta por las compras por adelantado. Los pagos mensuales aparecen en la factura y la tarjeta de crédito se cobra mensualmente. Cuando se le facture por factura, verá los cargos la próxima vez que reciba una. 
 
 ## <a name="who-can-manage-a-reservation-by-default"></a>Quiénes pueden administrar una reservas de manera predeterminada
 

@@ -4,20 +4,23 @@ description: Obtenga información sobre cómo conceder a un usuario o a una enti
 author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.reviewer: amberb
+ms.reviewer: andalmia
 ms.topic: conceptual
-ms.date: 08/26/2020
+ms.date: 01/13/2021
 ms.author: banders
-ms.openlocfilehash: c13670df26e5d0f7774b5a2aac81f656de94c960
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 039e728f6518d21ddfb9c7c359a6cf2ec743f232
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844717"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185111"
 ---
 # <a name="grant-access-to-create-azure-enterprise-subscriptions-preview"></a>Concesión de acceso para crear suscripciones de Azure Enterprise (versión preliminar)
 
 Como cliente de Azure del [Contrato Enterprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/), puede conceder a otro usuario u otra entidad de servicio permisos para crear suscripciones facturadas en su cuenta. En este artículo, aprenderá a usar el [control de acceso basado en rol (RBAC)](../../role-based-access-control/role-assignments-portal.md) para compartir la capacidad de crear suscripciones y cómo auditar creaciones de suscripciones. Debe tener el rol de propietario en la cuenta que desea compartir.
+
+> [!NOTE]
+> Esta API solo funciona con las [API de versión preliminar para la de creación de suscripciones](programmatically-create-subscription-preview.md). Si desea emplear la [versión de disponibilidad general](programmatically-create-subscription-enterprise-agreement.md), utilice la versión de API más reciente en [2019-10-01-Preview](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put). Si va a hacer una migración para usar las API más recientes, debe conceder permisos de propietario nuevamente con [2019-10-01-Preview](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put). La configuración anterior que utiliza las siguientes API no permite usar automáticamente las API más recientes.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

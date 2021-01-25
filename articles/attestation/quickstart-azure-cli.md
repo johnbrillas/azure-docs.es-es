@@ -7,16 +7,16 @@ ms.service: attestation
 ms.topic: quickstart
 ms.date: 11/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: fb8b0f12844ce1057bd3cfc4716a32ee64ec5586
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: df1064128d6a4eca8497ebf3ea0c6ae8cd42255c
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96937226"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208444"
 ---
 # <a name="quickstart-set-up-azure-attestation-with-azure-cli"></a>Inicio rápido: Configuración de Azure Attestation con la CLI de Azure
 
-Comience a usar Azure Attestation mediante la CLI de Azure para configurar la atestación.
+Comience a usar [Azure Attestation mediante la CLI de Azure](/cli/azure/ext/attestation/attestation?view=azure-cli-latest).
 
 ## <a name="get-started"></a>Introducción
 
@@ -65,7 +65,7 @@ Comience a usar Azure Attestation mediante la CLI de Azure para configurar la at
 
 A continuación se incluyen comandos que puede usar para crear y administrar el proveedor de atestación:
 
-1. Ejecute el comando [az attestation create](/cli/azure/ext/attestation/attestation?view=azure-cli-latest#ext_attestation_az_attestation_create) para crear un proveedor de atestación:
+1. Ejecute el comando [az attestation create](/cli/azure/ext/attestation/attestation?view=azure-cli-latest#ext_attestation_az_attestation_create) para crear un proveedor de atestación sin requisito de firma de directivas:
 
    ```azurecli
    az attestation create --name "myattestationprovider" --resource-group "MyResourceGroup" --location westus
@@ -128,7 +128,7 @@ Para establecer la directiva en formato JWT para un tipo determinado de atestaci
 
 ```azurecli
 az attestation policy set --name "myattestationprovider" --resource-group "MyResourceGroup" \
---attestation-type SGX-IntelSDK --new-attestation-policy-file "{file_path}" --policy-format JWT
+--attestation-type SGX-IntelSDK -f "{file_path}" --policy-format JWT
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

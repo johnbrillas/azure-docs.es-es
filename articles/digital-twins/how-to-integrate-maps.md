@@ -1,19 +1,19 @@
 ---
 title: Integración con Azure Maps
 titleSuffix: Azure Digital Twins
-description: Vea cómo crear una función de Azure que pueda usar las notificaciones de Azure Digital Twins y el grafo de gemelos para actualizar un mapa de interiores de Azure Maps.
+description: Vea cómo usar Azure Functions para crear una función que pueda usar las notificaciones de Azure Digital Twins y el grafo de gemelos para actualizar un mapa de interiores de Azure Maps.
 author: alexkarcher-msft
 ms.author: alkarche
-ms.date: 6/3/2020
+ms.date: 1/19/2021
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 7b2039f8b1aebef65112067e4fd9184777192015
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 6a654f74ff6a32ad37646021d504359c84942c12
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98051588"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98573044"
 ---
 # <a name="use-azure-digital-twins-to-update-an-azure-maps-indoor-map"></a>Uso de Azure Digital Twins para actualizar un plano interior de Azure Maps
 
@@ -22,7 +22,7 @@ En este artículo se explican los pasos necesarios para usar los datos de Azure 
 En estas instrucciones se tratará lo siguiente:
 
 1. Configurar la instancia de Azure Digital Twins para enviar eventos de actualización de gemelos a una función en [Azure Functions](../azure-functions/functions-overview.md).
-2. Crear una función de Azure para actualizar un conjunto de estados de características de planos interiores de Azure Maps.
+2. Crear una función para actualizar un conjunto de estados de características de planos interiores de Azure Maps.
 3. Procedimientos para almacenar id. de planos y de conjuntos de estados de características en el grafo de Azure Digital Twins.
 
 ### <a name="prerequisites"></a>Requisitos previos
@@ -31,7 +31,7 @@ En estas instrucciones se tratará lo siguiente:
     * En él ampliará este gemelo con un punto de conexión y una ruta adicionales. En dicho tutorial también agregará otra función a la aplicación de funciones. 
 * Siga el [*Tutorial de Azure Maps: Uso de Creator para crear planos interiores*](../azure-maps/tutorial-creator-indoor-maps.md) a fin de crear un plano interior de Azure Maps con un *conjunto de estados de características*.
     * Los [conjuntos de estados de características](../azure-maps/creator-indoor-maps.md#feature-statesets) son colecciones de propiedades dinámicas (estados) asignadas a las características del conjunto de datos, como salas o equipamiento. En el tutorial anterior de Azure Maps, el conjunto de estados de las características almacena el estado de la sala que se mostrará en un plano.
-    * Necesitará el *id. de conjunto de estados* de las características y el *id. de suscripción* de Azure Maps.
+    * Necesitará el *id. de conjunto de estados* de las características y la *clave de suscripción* de Azure Maps.
 
 ### <a name="topology"></a>Topología
 
@@ -41,7 +41,7 @@ En la imagen siguiente se muestra dónde encajan los elementos de integración d
 
 ## <a name="create-a-function-to-update-a-map-when-twins-update"></a>Creación de una función para actualizar un plano al actualizar los gemelos
 
-En primer lugar, creará una ruta en Azure Digital Twins para reenviar todos los eventos de actualización de gemelos a un tema de Event Grid. Después, usará una función de Azure para leer los mensajes de la actualización y actualizar un conjunto de estados de características en Azure Maps. 
+En primer lugar, creará una ruta en Azure Digital Twins para reenviar todos los eventos de actualización de gemelos a un tema de Event Grid. Después, usará una función para leer los mensajes de la actualización y actualizar un conjunto de estados de características en Azure Maps. 
 
 ## <a name="create-a-route-and-filter-to-twin-update-notifications"></a>Creación de una ruta y un filtro para las notificaciones de actualización de gemelos
 
@@ -70,9 +70,9 @@ Este patrón realiza la lectura directamente desde el gemelo de la sala, en luga
     az dt route create -n <your-Azure-Digital-Twins-instance-name> --endpoint-name <Event-Grid-endpoint-name> --route-name <my_route> --filter "type = 'Microsoft.DigitalTwins.Twin.Update'"
     ```
 
-## <a name="create-an-azure-function-to-update-maps"></a>Creación de una función de Azure para actualizar planos
+## <a name="create-a-function-to-update-maps"></a>Creación de una función para actualizar planos
 
-Va a crear una función desencadenada por Event Grid en la aplicación de funciones siguiendo el tutorial de un extremo a otro ([*Tutorial: Conexión de una solución de un extremo a otro*](./tutorial-end-to-end.md)). Esta función desempaquetará esas notificaciones y enviará actualizaciones a un conjunto de estados de características de Azure Maps para actualizar la temperatura de una sala. 
+Va a crear una **función desencadenada por Event Grid** en la aplicación de funciones siguiendo el tutorial de un extremo a otro ([*Tutorial: Conexión de una solución de un extremo a otro*](./tutorial-end-to-end.md)). Esta función desempaquetará esas notificaciones y enviará actualizaciones a un conjunto de estados de características de Azure Maps para actualizar la temperatura de una sala.
 
 Vea el documento siguiente para obtener información de referencia: [*Desencadenador de Azure Event Grid para Azure Functions*](../azure-functions/functions-bindings-event-grid-trigger.md).
 
@@ -83,8 +83,8 @@ Reemplace el código de la función por el siguiente. Solo filtrará las actuali
 Tendrá que establecer dos variables de entorno en la aplicación de funciones. Una es la [clave de suscripción principal de Azure Maps](../azure-maps/quick-demo-map-app.md#get-the-primary-key-for-your-account), y la otra, el [id. del conjunto de estados de Azure Maps](../azure-maps/tutorial-creator-indoor-maps.md#create-a-feature-stateset).
 
 ```azurecli-interactive
-az functionapp config appsettings set --settings "subscription-key=<your-Azure-Maps-primary-subscription-key> -g <your-resource-group> -n <your-App-Service-(function-app)-name>"
-az functionapp config appsettings set --settings "statesetID=<your-Azure-Maps-stateset-ID> -g <your-resource-group> -n <your-App-Service-(function-app)-name>
+az functionapp config appsettings set --name <your-App-Service-(function-app)-name> --resource-group <your-resource-group> --settings "subscription-key=<your-Azure-Maps-primary-subscription-key>"
+az functionapp config appsettings set --name <your-App-Service-(function-app)-name>  --resource-group <your-resource-group> --settings "statesetID=<your-Azure-Maps-stateset-ID>"
 ```
 
 ### <a name="view-live-updates-on-your-map"></a>Consulta de actualizaciones directas en el plano
@@ -94,7 +94,7 @@ Para ver las actualizaciones directas de la temperatura, siga estos pasos:
 1. Comience a enviar datos de IoT simulados mediante la ejecución del proyecto **DeviceSimulator** desde el [*Tutorial de Azure Digital Twins: Conexión de una solución de un extremo a otro*](tutorial-end-to-end.md). Las instrucciones se encuentran en la sección [*Configuración y ejecución de la simulación*](././tutorial-end-to-end.md#configure-and-run-the-simulation).
 2. Use [el módulo **Azure Maps Indoor**](../azure-maps/how-to-use-indoor-module.md) para representar planos interiores creados en el Creador de Azure Maps.
     1. Copie el HTML de la sección [*Ejemplo: Uso del módulo de planos interiores*](../azure-maps/how-to-use-indoor-module.md#example-use-the-indoor-maps-module) del [*Tutorial: Uso del módulo de mapas de Azure Maps Indoor*](../azure-maps/how-to-use-indoor-module.md) en un archivo local.
-    1. Reemplace los elementos *tilesetId* y *statesetId* en el archivo HTML local por sus valores.
+    1. Reemplace la *clave de suscripción* y los elementos *tilesetId* y *statesetID* en el archivo HTML local por sus valores.
     1. Abra ese archivo en el explorador.
 
 Ambos ejemplos envían la temperatura en un rango compatible, por lo que debería ver el color de la actualización de la sala 121 en el plano aproximadamente cada 30 segundos.

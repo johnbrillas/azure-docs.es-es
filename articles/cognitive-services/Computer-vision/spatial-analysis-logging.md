@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 09/11/2020
+ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: dd1b6d216f6225a13d86aa2435b5b1c807547ec3
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: dda3ece27fd2c687647e0aa289bd1596a87b274f
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95014584"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98186029"
 ---
 # <a name="telemetry-and-troubleshooting"></a>Telemetría y solución de problemas
 
@@ -68,7 +68,7 @@ az iot hub list
 az ad sp create-for-rbac --role="Monitoring Metrics Publisher" --name "<principal name>" --scopes="<resource ID of IoT Hub>"
 ```
 
-En el manifiesto de implementación del [dispositivo de Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179) u otra [máquina de escritorio](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json), busque el módulo *Telegraf* y reemplace los siguientes valores por la información de la entidad de servicio del paso anterior y vuelva a implementarlo.
+En el manifiesto de implementación del [dispositivo Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179), la [máquina de escritorio](https://go.microsoft.com/fwlink/?linkid=2152270) o [Azure VM con GPU](https://go.microsoft.com/fwlink/?linkid=2152189), busque el módulo *Telegraf*, reemplace los siguientes valores por la información de la entidad de servicio del paso anterior y repita la implementación.
 
 ```json
 
@@ -129,7 +129,7 @@ Puede usar la herramienta de línea de comandos `iotedge` para comprobar el esta
 
 ## <a name="collect-log-files-with-the-diagnostics-container"></a>Recopilación de archivos de registro con el contenedor de diagnósticos
 
-El análisis espacial genera registros de depuración de Docker que puede usar para diagnosticar problemas en tiempo de ejecución o incluir en incidencias de soporte técnico. El módulo de diagnóstico de análisis espacial está disponible en Microsoft Container Registry para su descarga. En el archivo de implementación del manifiesto del [dispositivo de Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179) o de cualquier otra [máquina de escritorio](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json), busque el módulo de *diagnóstico*.
+El análisis espacial genera registros de depuración de Docker que puede usar para diagnosticar problemas en tiempo de ejecución o incluir en incidencias de soporte técnico. El módulo de diagnóstico de análisis espacial está disponible en Microsoft Container Registry para su descarga. En el archivo del manifiesto de implementación del [dispositivo Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179), la [máquina de escritorio](https://go.microsoft.com/fwlink/?linkid=2152270) o [Azure VM con GPU](https://go.microsoft.com/fwlink/?linkid=2152189), busque el módulo de *diagnóstico*.
 
 En la sección "env", agregue la siguiente configuración:
 
@@ -188,13 +188,13 @@ También pueden establecerse a través del documento del módulo gemelo IoT Edge
 > El módulo `diagnostics` no afecta al contenido del registro, solo sirve para recopilar, filtrar y cargar los registros existentes.
 > Para usar este módulo, debe tener la versión 1.40 o superior de la API de Docker.
 
-El archivo del manifiesto de implementación de ejemplo del [dispositivo de Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179) o de cualquier otra [máquina de escritorio](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) incluye un módulo denominado `diagnostics` que recopila y carga registros. Este módulo está deshabilitado de forma predeterminada y debe habilitarse a través de la configuración del módulo IoT Edge cuando tenga que acceder a los registros. 
+El archivo del manifiesto de implementación de ejemplo del [dispositivo Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179), la [máquina de escritorio](https://go.microsoft.com/fwlink/?linkid=2152270) o [Azure VM con GPU](https://go.microsoft.com/fwlink/?linkid=2152189) incluye un módulo denominado `diagnostics` que recopila y carga registros. Este módulo está deshabilitado de forma predeterminada y debe habilitarse a través de la configuración del módulo IoT Edge cuando tenga que acceder a los registros. 
 
 La recopilación de `diagnostics` se realiza a petición y se controla a través de un método directo de IoT Edge, y puede enviar registros a una instancia de Azure Blob Storage.
 
 ### <a name="configure-diagnostics-upload-targets"></a>Configuración de destinos de carga de diagnósticos
 
-En el portal de IoT Edge, seleccione el dispositivo y luego el módulo de **diagnóstico**. En el archivo del manifiesto de implementación de ejemplo del [dispositivo de Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179) o de cualquier otra [máquina de escritorio](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json), busque la sección **Variables de entorno** para los diagnósticos, denominada `env`, y agregue la siguiente información:
+En el portal de IoT Edge, seleccione el dispositivo y luego el módulo de **diagnóstico**. En el archivo del manifiesto de implementación de ejemplo del [dispositivo Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179), la [máquina de escritorio](https://go.microsoft.com/fwlink/?linkid=2152270) o [Azure VM con GPU](https://go.microsoft.com/fwlink/?linkid=2152189), busque la sección **Variables de entorno** para los diagnósticos, denominada `env`, y agregue la siguiente información:
 
 **Configuración de la carga en Azure Blob Storage**
 

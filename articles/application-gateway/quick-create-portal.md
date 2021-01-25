@@ -6,15 +6,15 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 12/08/2020
+ms.date: 01/19/2021
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 42701fbcee9833fd31fff3ace55d48079015dbcd
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: c1b17d8c624d4bef74278acc24ece37a736a5ca8
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96906410"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98572976"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>Inicio rápido: Dirección del tráfico web con Azure Application Gateway: Azure Portal
 
@@ -78,7 +78,7 @@ Creará la puerta de enlace de aplicaciones mediante las pestañas de la página
    > [!NOTE]
    > Para la SKU de Application Gateway v2, solo debe haber una configuración IP de front-end **pública**. Todavía puede tener una configuración de IP de front-end pública y privada, pero la configuración de IP de front-end solo privada (solo el modo ILB) no está habilitada actualmente para la SKU v2. 
 
-2. Elija **Crear nuevo** para la **Dirección IP pública** y escriba *myAGPublicIPAddress* para el nombre de dirección IP pública y seleccione **Aceptar**. 
+2. En **Dirección IP pública**, seleccione **Agregar nueva** y escriba *myAGPublicIPAddress* como nombre de la dirección IP pública y, luego, elija **Aceptar**. 
 
      ![Crear una nueva puerta de enlace de aplicaciones: front-end](./media/application-gateway-create-gateway-portal/application-gateway-create-frontends.png)
 
@@ -86,9 +86,9 @@ Creará la puerta de enlace de aplicaciones mediante las pestañas de la página
 
 ### <a name="backends-tab"></a>Pestaña Back-end
 
-El grupo de back-end se usa para enrutar las solicitudes a los servidores back-end, que atienden la solicitud. Los grupos de back-end pueden constar de NIC, conjuntos de escalado de máquinas virtuales, direcciones IP públicas e internas, nombres de dominio completos (FQDN) y servidores back-end multiinquilino como Azure App Service. En este ejemplo, creará un grupo de back-end vacío con la puerta de enlace de aplicaciones y, luego, agregará destinos de back-end al grupo de back-end.
+El grupo de back-end se usa para enrutar las solicitudes a los servidores back-end, que atienden la solicitud. Los grupos de back-end puede estar compuestos por NIC, conjuntos de escalado de máquinas virtuales, direcciones IP públicas e internas, nombres de dominio completos (FQDN) y servidores back-end multiinquilino, como Azure App Service. En este ejemplo, creará un grupo de back-end vacío con la puerta de enlace de aplicaciones y, luego, agregará destinos de back-end al grupo de back-end.
 
-1. En la pestaña **Back-end**, seleccione **+Agregar un grupo de back-end**.
+1. En la pestaña **Back-end**, seleccione **Agregar un grupo de back-end**.
 
 2. En la ventana **Agregar un grupo de back-end**, escriba los valores siguientes para crear un grupo de back-end vacío:
 
@@ -105,7 +105,7 @@ El grupo de back-end se usa para enrutar las solicitudes a los servidores back-e
 
 En la pestaña **Configuración**, conecte el grupo de front-end y back-end que ha creado con una regla de enrutamiento.
 
-1. Seleccione **Agregar una regla** en la columna **Reglas de enrutamiento**.
+1. Seleccione **Agregar una regla de enrutamiento** en la columna **Reglas de enrutamiento**.
 
 2. En la ventana **Agregar una regla de enrutamiento** que se abre, escriba *myRoutingRule* para el **Nombre de regla**.
 
@@ -120,7 +120,7 @@ En la pestaña **Configuración**, conecte el grupo de front-end y back-end que 
 
 4. En la pestaña **Destinos de back-end**, seleccione **myBackendPool** para el **Destino de back-end**.
 
-5. Para la **Configuración de HTTP**, seleccione **Crear nueva** para crear una nueva configuración de HTTP. La configuración de HTTP determinará el comportamiento de la regla de enrutamiento. En la ventana **Agregar una configuración HTTP** que se abre, escriba *miConfiguraciónHTTP* en el **Nombre de la configuración de HTTP** y *80* en **Puerto back-end**. Acepte los valores predeterminados para las demás opciones de la ventana **Agregar una configuración de HTTP** y, a continuación, seleccione **Agregar** para volver a la ventana **Agregar una regla de enrutamiento**. 
+5. En **Configuración de HTTP**, seleccione **Agregar nueva** para agregar una nueva configuración HTTP. La configuración de HTTP determinará el comportamiento de la regla de enrutamiento. En la ventana **Agregar una configuración HTTP** que se abre, escriba *miConfiguraciónHTTP* en el **Nombre de la configuración de HTTP** y *80* en **Puerto back-end**. Acepte los valores predeterminados para las demás opciones de la ventana **Agregar una configuración de HTTP** y, a continuación, seleccione **Agregar** para volver a la ventana **Agregar una regla de enrutamiento**. 
 
      ![Crear una nueva puerta de enlace de aplicaciones: Configuración de HTTP](./media/application-gateway-create-gateway-portal/application-gateway-create-httpsetting.png)
 
@@ -147,7 +147,7 @@ Para ello, necesitará lo siguiente:
 ### <a name="create-a-virtual-machine"></a>Creación de una máquina virtual
 
 1. En el menú de Azure Portal o en la **página principal**, seleccione **Crear un recurso**. Aparece la ventana **Nuevo**.
-2. Seleccione **Windows Server 2016 Datacenter** en la lista **Popular**. Aparecerá la página **Creación de una máquina virtual**.<br>Application Gateway puede enrutar el tráfico a cualquier tipo de máquina virtual que se use en el grupo de back-end. En este ejemplo se usa un Windows Server 2016 Datacenter.
+2. Seleccione **Windows Server 2016 Datacenter** en la lista **Popular**. Aparecerá la página **Creación de una máquina virtual**.<br>Application Gateway puede enrutar el tráfico a cualquier tipo de máquina virtual que se use en el grupo de back-end. En este ejemplo se usa una máquina virtual de Windows Server 2016 Datacenter.
 3. Especifique estos valores en la pestaña **Datos básicos** de la siguiente configuración de máquina virtual:
 
     - **Grupo de recursos**: Seleccione **myResourceGroupAG** como nombre del grupo de recursos.
@@ -167,7 +167,9 @@ Para ello, necesitará lo siguiente:
 
 En este ejemplo se instala IIS en las máquinas virtuales con el fin de comprobar que Azure creó correctamente la puerta de enlace de aplicaciones.
 
-1. Abra Azure PowerShell. Seleccione **Cloud Shell** en la barra de navegación superior de Azure Portal y, a continuación, seleccione **PowerShell** en la lista desplegable. 
+1. Abra Azure PowerShell.
+
+   Seleccione **Cloud Shell** en la barra de navegación superior de Azure Portal y, a continuación, seleccione **PowerShell** en la lista desplegable. 
 
     ![Instalación de la extensión personalizada](./media/application-gateway-create-gateway-portal/application-gateway-extension.png)
 
@@ -208,7 +210,9 @@ En este ejemplo se instala IIS en las máquinas virtuales con el fin de comproba
 
 ## <a name="test-the-application-gateway"></a>Prueba de la puerta de enlace de aplicaciones
 
-No es necesario instalar IIS para crear la puerta de enlace de aplicaciones, pero se instaló en este inicio rápido para comprobar si Azure creó correctamente la puerta de enlace de aplicaciones. Use IIS para probar la puerta de enlace de aplicaciones:
+No es necesario instalar IIS para crear la puerta de enlace de aplicaciones, pero se instaló en este inicio rápido para comprobar si Azure creó correctamente la puerta de enlace de aplicaciones. 
+
+Use IIS para probar la puerta de enlace de aplicaciones:
 
 1. Busque la dirección IP pública de la puerta de enlace de aplicaciones en la página de **información general**.![ Registre la dirección IP pública de la puerta de enlace de aplicaciones](./media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png). O bien, puede seleccionar **Todos los recursos**, escribir *myAGPublicIPAddress* en el cuadro de búsqueda y luego seleccionarlo en los resultados de la búsqueda. Azure muestra la dirección IP pública en la página de **información general**.
 2. Copie la dirección IP pública y, luego, péguela en la barra de direcciones del explorador para ir a esa dirección IP.

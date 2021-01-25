@@ -5,15 +5,15 @@ author: RonyMSFT
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: security
-ms.date: 04/15/2020
+ms.date: 01/18/2021
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 949b7e55569cc6fceacc37677ed06a28bb85d7c2
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: f55251932c8aa8f632bd3b498943ac722f006dee
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98116371"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98569930"
 ---
 # <a name="azure-synapse-analytics-managed-virtual-network"></a>Red virtual administrada de Azure Synapse Analytics
 
@@ -52,8 +52,21 @@ Si deja la casilla desactivada, el área de trabajo no tendrá asociada ninguna 
 
 ![Habilitar una red virtual de área de trabajo administrada](./media/synapse-workspace-managed-vnet/enable-managed-vnet-1.png)
 
+Después de elegir asociar una red virtual de área de trabajo administrada con el área de trabajo, puede permitir la conectividad de salida desde dicha red solo a destinos aprobados mediante [puntos de conexión privados administrados](./synapse-workspace-managed-private-endpoints.md) con el fin de protegerse contra la filtración de datos. Seleccione **Sí** para limitar el tráfico saliente de la red virtual de área de trabajo administrada hacia los destinos mediante puntos de conexión privados administrados. 
 
-Para comprobar si el área de trabajo de Azure Synapse está asociada a una red virtual de área de trabajo administrada, seleccione **Información general** en Azure Portal.
+
+>[!IMPORTANT]
+>Metastore está deshabilitada en las áreas de trabajo de Synapse que tienen una red virtual administrada con la protección contra la filtración de datos habilitada. En estas áreas de trabajo, no podrá usar Spark SQL.
+
+![Tráfico saliente con puntos de conexión privados administrados](./media/synapse-workspace-managed-vnet/select-outbound-connectivity.png)
+
+Seleccione **No** para permitir el tráfico saliente desde el área de trabajo a cualquier destino.
+
+También puede controlar los destinos en los que se crean puntos de conexión privados administrados desde el área de trabajo de Azure Synapse. De forma predeterminada, se permiten los puntos de conexión privados administrados a los recursos del mismo inquilino de AAD a los que pertenezca su suscripción. Si quiere crear un punto de conexión privado administrado a un recurso de un inquilino de AAD diferente de aquel al que pertenece la suscripción, puede agregar ese inquilino de AAD mediante **+ Agregar**. Puede seleccionar el inquilino de AAD de la lista desplegable o escribir manualmente el identificador de inquilino de AAD.
+
+![Adición de inquilinos de AAD adicionales](./media/synapse-workspace-managed-vnet/add-additional-azure-active-directory-tenants.png)
+
+Después de crear el área de trabajo, puede comprobar si el área de trabajo de Azure Synapse está asociada a una red virtual de área de trabajo administrada; para ello, seleccione **Información general** en Azure Portal.
 
 ![Introducción al área de trabajo en Azure Portal](./media/synapse-workspace-managed-vnet/enable-managed-vnet-2.png)
 

@@ -3,18 +3,20 @@ title: 'Publicar aplicación: LUIS'
 titleSuffix: Azure Cognitive Services
 description: Cuando termine de compilar y probar la aplicación de LUIS activa, haga que esté disponible para la aplicación cliente mediante su publicación en el punto de conexión.
 services: cognitive-services
+author: aahill
 manager: nitinme
+ms.author: aahi
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 05/17/2020
-ms.openlocfilehash: b72f1fd64cca0fa77ebc486670a512c5228e1146
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/12/2021
+ms.openlocfilehash: 8db0f5fa39c7f489db0e30e98ee2684c74eee7e8
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541482"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98180037"
 ---
 # <a name="publish-your-active-trained-app-to-a-staging-or-production-endpoint"></a>Publicación de la aplicación activa y entrenada en un punto de conexión de almacenamiento provisional o de producción
 
@@ -55,7 +57,7 @@ Por ejemplo, para una aplicación creada en [www.luis.ai](https://www.luis.ai), 
 Después de seleccionar la ranura, configure las opciones de publicación para realizar lo siguiente:
 
 * análisis de opiniones
-* [Corrección ortográfica](luis-tutorial-bing-spellcheck.md): solo punto de conexión de predicción v2
+* [Corrección ortográfica](luis-tutorial-bing-spellcheck.md)
 * Preparación para la voz
 
 Después de la publicación, esta configuración estará disponible para su revisión en la página de **configuración de publicación** de la sección **Administrar**. La configuración se puede cambiar en cada publicación. Si cancela una publicación, también se cancelarán los cambios realizados durante la misma.
@@ -80,7 +82,32 @@ Para obtener más información acerca de la respuesta del punto de conexión JSO
 
 ## <a name="spelling-correction"></a>Corrección ortográfica
 
-[!INCLUDE [Not supported in V3 API prediction endpoint](./includes/v2-support-only.md)]
+Prediction API V3 ahora es compatible con Bing Spellcheck API. Para agregar la revisión ortográfica a la aplicación, incluya la clave del recurso de búsqueda de Bing en el encabezado de las solicitudes. Puede usar esta característica con un recurso de Bing existente, si ya tiene uno, o [crear otro](https://portal.azure.com/#create/Microsoft.BingSearch). 
+
+|Clave del encabezado|Valor de encabezado|
+|--|--|
+|`mkt-bing-spell-check-key`|Claves que se encuentran en la hoja **Keys and Endpoint** (Claves y punto de conexión) del recurso|
+
+Ejemplo de salida de predicción de una consulta mal escrita:
+
+```json
+{
+  "query": "bouk me a fliht to kayro",
+  "prediction": {
+    "alteredQuery": "book me a flight to cairo",
+    "topIntent": "book a flight",
+    "intents": {
+      "book a flight": {
+        "score": 0.9480589
+      }
+      "None": {
+        "score": 0.0332136229
+      }
+    },
+    "entities": {}
+  }
+}
+```
 
 Las correcciones de ortografía se realizan antes que la predicción de expresiones de usuario de LUIS. Puede ver cualquier cambio en la expresión original (incluida la ortografía) en la respuesta.
 

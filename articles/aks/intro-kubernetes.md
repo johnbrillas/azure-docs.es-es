@@ -5,12 +5,12 @@ services: container-service
 ms.topic: overview
 ms.date: 05/06/2019
 ms.custom: mvc
-ms.openlocfilehash: 75f4602be15ef2487272ed5790d92c4c884c551f
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 4115ab2140cd3bf67135e494e16fb8121c040ff6
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94681557"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246203"
 ---
 # <a name="azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS)
 
@@ -60,13 +60,13 @@ Para obtener más información sobre las versiones del ciclo de vida, vea [Versi
 
 ### <a name="gpu-enabled-nodes"></a>Nodos habilitados para GPU
 
-AKS admite la creación de grupos de nodo habilitados para GPU. Azure proporciona actualmente única o varias máquinas virtuales habilitadas para GPU. Las máquinas virtuales habilitadas para GPU están diseñadas para cargas de trabajo de proceso intensivo, uso intensivo de gráficos y visualización.
+AKS admite la creación de grupos de nodos habilitados para GPU. Azure proporciona actualmente máquinas virtuales habilitadas para una o varias GPU. Las máquinas virtuales habilitadas para GPU están diseñadas para cargas de trabajo de proceso intensivo, uso intensivo de gráficos y visualización.
 
 Para más información, consulte [Uso de GPU en AKS][aks-gpu].
 
 ### <a name="confidential-computing-nodes-public-preview"></a>Nodos de computación confidencial (versión preliminar pública)
 
-AKS admite la creación de grupos de nodos de computación confidencial basados en Intel SGX (máquinas virtuales DCSv2). Los nodos de computación confidencial permiten que los contenedores se ejecuten en un entorno de ejecución aislado y de confianza basado en hardware (enclaves). El aislamiento entre contenedores en combinación con la integridad del código mediante la atestación puede contribuir a la estrategia de seguridad de contenedores de defensa en profundidad. Los nodos de computación confidencial admiten tanto contenedores confidenciales (aplicaciones de Docker existentes) como contenedores compatibles con enclave.
+AKS admite la creación de grupos de nodos de computación confidencial basados en Intel SGX (máquinas virtuales DCSv2). Los nodos de computación confidencial permiten que los contenedores se ejecuten en un entorno de ejecución de confianza basado en hardware (enclaves). El aislamiento entre contenedores en combinación con la integridad del código mediante la atestación puede contribuir a la estrategia de seguridad de contenedores de defensa en profundidad. Los nodos de computación confidencial admiten tanto contenedores confidenciales (aplicaciones de Docker existentes) como contenedores compatibles con enclave.
 
 Para más información, consulte [Nodos de computación confidencial en Azure Kubernetes Service][conf-com-node].
 
@@ -98,9 +98,9 @@ Kubernetes cuenta con un completo ecosistema de herramientas de desarrollo y adm
 
 Además, Azure Dev Spaces proporciona una experiencia de desarrollo rápida e iterativa para los equipos. Con una configuración mínima, puede ejecutar y depurar contenedores directamente en AKS. Para empezar, consulte [Azure Dev Spaces][azure-dev-spaces].
 
-El proyecto de Azure DevOps ofrece una solución sencilla para llevar a Azure el código y el repositorio de Git existentes. El proyecto de DevOps crea automáticamente recursos de Azure, como AKS, una canalización de versión en Azure DevOps Services que incluye una canalización de compilación para CI, configura una canalización de versión para CD y crea un recurso de Azure Application Insights para la supervisión.
+DevOps Starter ofrece una solución sencilla para llevar a Azure el código y los repositorios de Git existentes. DevOps Starter crea automáticamente recursos de Azure, como AKS, una canalización de versión en Azure DevOps Services que incluye una canalización de compilación para CI, configura una canalización de versión para CD y crea un recurso de Azure Application Insights para la supervisión.
 
-Para más información, consulte [Proyecto de Azure DevOps][azure-devops].
+Para más información, consulte [DevOps Starter][azure-devops].
 
 ## <a name="docker-image-support-and-private-container-registry"></a>Compatibilidad con imágenes de Docker y registro de contenedor privado
 

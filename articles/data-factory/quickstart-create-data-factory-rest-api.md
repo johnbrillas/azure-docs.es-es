@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: rest-api
 ms.topic: quickstart
-ms.date: 06/10/2019
+ms.date: 01/18/2021
 ms.author: jingwang
-ms.openlocfilehash: 48928c5c4f3a2787e8f00e4084daacf6a64f1ea7
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 34a2e423e06782b0d43766cccac9319ce68239d4
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461574"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98569477"
 ---
 # <a name="quickstart-create-an-azure-data-factory-and-pipeline-by-using-the-rest-api"></a>Inicio rápido: Creación de una instancia de Azure Data Factory y una canalización mediante la API de REST
 
@@ -303,7 +303,7 @@ Este es la salida de ejemplo:
 ```
 ## <a name="create-pipeline"></a>Creación de una canalización
 
-En este ejemplo, esta canalización contiene una actividad y se usan dos parámetros: ruta de acceso de blob de entrada y de salida. Los valores para estos parámetros se establecen cuando se desencadena/ejecuta la canalización. La actividad de copia hace referencia al mismo conjunto de datos de blob creado en el paso anterior como entrada y salida. Cuando se usa el conjunto de datos como conjunto de datos de entrada, se especifica una ruta de acceso de entrada. Cuando se usa el conjunto de datos como conjunto de datos de salida, se especifica una ruta de acceso de salida.
+En este ejemplo, esta canalización contiene una actividad de copia. La actividad de copia hace referencia a los conjunto de datos "InputDataset" y "OutputDataset" creados en el paso anterior como entrada y salida.
 
 ```powershell
 $request = "https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.DataFactory/factories/${dataFactoryName}/pipelines/Adfv2QuickStartPipeline?api-version=${apiVersion}"
@@ -383,10 +383,7 @@ Este es la salida de ejemplo:
 
 ## <a name="create-pipeline-run"></a>Creación de una ejecución de canalización
 
-En este paso, se definen los valores de los parámetros **inputPath** y **outputPath** especificados en la canalización con los valores reales de rutas de acceso de blob de origen y receptor, así como un desencadenador y una ejecución de canalización. El id. de ejecución de canalización que se devuelve en el cuerpo de la respuesta se usa más adelante en la API de supervisión.
-
-Reemplace el valor de **inputPath** y **outputPath** con la ruta de acceso de blob de origen y receptor para copiar los datos antes de guardar el archivo.
-
+En este paso, desencadenará una ejecución de canalización. El id. de ejecución de canalización que se devuelve en el cuerpo de la respuesta se usa más adelante en la API de supervisión.
 
 ```powershell
 $request = "https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.DataFactory/factories/${factoryName}/pipelines/Adfv2QuickStartPipeline/createRun?api-version=${apiVersion}"

@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: pafarley
-ms.openlocfilehash: 92b19941f34b9bf5656c9beb188a68d2cf01f674
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 68d1e9744d937cf80327c3f41cc69f4af97d3400
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92504136"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600191"
 ---
 # <a name="face-detection-and-attributes"></a>Atributos y detección de caras
 
@@ -64,14 +64,16 @@ Utilice las siguientes sugerencias para asegurarse de que las imágenes de entra
 
 * Los formatos de imagen de entrada admitidos son JPEG, PNG, GIF para el primer fotograma y BMP.
 * El tamaño del archivo de imagen no debe ser superior a 6 MB.
-* El intervalo de tamaño de cara detectable es 36 x 36 a 4096 × 4096 píxeles. Las caras que se encuentren fuera de este intervalo no se detectarán.
+* El tamaño mínimo detectable de la cara es de 36 x 36 píxeles en una imagen no superior a 1920 x 1080 píxeles. Las imágenes de más de 1920 x 1080 píxeles tienen un tamaño mínimo detectable de la cara proporcionalmente mayor. Reducir el tamaño de la cara podría provocar que no se detecten algunas caras, aunque sean mayores que el tamaño mínimo detectable.
+* El tamaño máximo de cara detectable es 4096 x 4096 píxeles.
+* Las caras fuera del intervalo de tamaño de 36 x 36 a 4096 x 4096 píxeles no se detectarán.
 * Es posible que no se puedan detectar algunas caras debido a desafíos técnicos. Unos ángulos de cara extremos (posición de la cabeza) o una oclusión de la cara (objetos como gafas de sol o manos que bloquean parte de la cara) pueden afectar a la detección. Las caras de frente y casi de frente proporcionan los mejores resultados.
 
 Si está detectando caras de una fuente de vídeo, puede mejorar el rendimiento mediante el ajuste de determinados valores de la cámara de vídeo:
 
-* **Suavizado** : muchas cámaras de vídeo aplican un efecto de suavizado. Debe desactivar esta opción, si es posible, porque crea un desenfoque entre fotogramas y reduce la claridad.
-* **Velocidad de obturación** : una velocidad de obturación más rápida reduce la cantidad de movimiento entre fotogramas y hace que cada fotograma sea más claro. Se recomienda utilizar velocidades de obturación de 1/60 de segundo o más rápidas.
-* **Ángulo de obturación** : algunas cámaras especifican el ángulo de obturación en lugar de la velocidad de obturación. Debe usar un ángulo de obturación inferior si es posible. Esto generará unos fotogramas de vídeo más claros.
+* **Suavizado**: muchas cámaras de vídeo aplican un efecto de suavizado. Debe desactivar esta opción, si es posible, porque crea un desenfoque entre fotogramas y reduce la claridad.
+* **Velocidad de obturación**: una velocidad de obturación más rápida reduce la cantidad de movimiento entre fotogramas y hace que cada fotograma sea más claro. Se recomienda utilizar velocidades de obturación de 1/60 de segundo o más rápidas.
+* **Ángulo de obturación**: algunas cámaras especifican el ángulo de obturación en lugar de la velocidad de obturación. Debe usar un ángulo de obturación inferior si es posible. Esto generará unos fotogramas de vídeo más claros.
 
     >[!NOTE]
     > Una cámara con un ángulo de obturación inferior recibirá menos luz en cada fotograma, por lo que la imagen será más oscura. Deberá determinar el nivel adecuado que vaya a usar.

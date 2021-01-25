@@ -12,12 +12,12 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, contperf-fy21q1, contperf-fy21q2
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: cc0d908f479fe5bdf14abb2ace0e6c046fd6d7d5
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 45280ec41a9fd9423e4184b2e1ce593720ab6488
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98011956"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98232359"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Inicio rápido: Registro de una aplicación en la plataforma de identidad de Microsoft
 
@@ -97,7 +97,7 @@ Existen ciertas restricciones con respecto al formato de los URI de redirección
 
 ## <a name="add-credentials"></a>Adición de credenciales
 
-Las credenciales se usan con las aplicaciones cliente confidenciales que acceden a una API web. Ejemplos de aplicaciones cliente confidenciales son, entre otras, las aplicaciones web, las API web o las aplicaciones demonio y de servicios. Las credenciales permiten que la aplicación se autentique a sí misma, por lo que no se requiere la interacción del usuario en tiempo de ejecución.
+Las credenciales se usan en las [aplicaciones cliente confidenciales](msal-client-applications.md) que acceden a una API web. Ejemplos de aplicaciones cliente confidenciales son, entre otras, las [aplicaciones web](scenario-web-app-call-api-overview.md), las [API web](scenario-protected-web-api-overview.md) o las [aplicaciones demonio y de servicios](scenario-daemon-overview.md). Las credenciales permiten que la aplicación se autentique a sí misma, por lo que no se requiere la interacción del usuario en tiempo de ejecución. 
 
 Puede agregar certificados y secretos de cliente (una cadena) como credenciales al registro de la aplicación cliente confidencial.
 
@@ -105,7 +105,7 @@ Puede agregar certificados y secretos de cliente (una cadena) como credenciales 
 
 ### <a name="add-a-certificate"></a>Incorporación de un certificado
 
-Los certificados, a veces denominados *claves públicas*, son el tipo de credenciales que se recomienda, ya que proporcionan un mayor nivel de seguridad que un secreto de cliente.
+Los certificados, a veces denominados *claves públicas*, son el tipo de credenciales que se recomienda, ya que proporcionan un mayor nivel de seguridad que un secreto de cliente. Para más información sobre cómo usar el certificado como método de autenticación en la aplicación, consulte [Credenciales de certificado para la autenticación de aplicaciones en la plataforma de identidad de Microsoft](active-directory-certificate-credentials.md).
 
 1. Seleccione la aplicación en **Registros de aplicaciones** en Azure Portal.
 1. Seleccione **Certificados y secretos** > **Cargar certificado**.
@@ -114,7 +114,7 @@ Los certificados, a veces denominados *claves públicas*, son el tipo de credenc
 
 ### <a name="add-a-client-secret"></a>Agregar un secreto de cliente
 
-El secreto de cliente, conocido también como *contraseña de aplicación*, es un valor de cadena que la aplicación puede usar en lugar de un certificado a fin de identificarse. Este es el tipo de credenciales más fácil de usar y, con frecuencia, se emplea en la fase de desarrollo, pero se considera menos seguro que un certificado. Debería utilizar los certificados cuando las aplicaciones se ejecuten en el entorno de producción.
+El secreto de cliente, conocido también como *contraseña de aplicación*, es un valor de cadena que la aplicación puede usar en lugar de un certificado a fin de identificarse. Este es el tipo de credenciales más fácil de usar y, con frecuencia, se emplea en la fase de desarrollo, pero se considera menos seguro que un certificado. Debería utilizar los certificados cuando las aplicaciones se ejecuten en el entorno de producción. Para más información sobre las recomendaciones de seguridad de aplicaciones, consulte [Procedimientos recomendados y recomendaciones de la plataforma de identidad de Microsoft](identity-platform-integration-checklist.md#security).
 
 1. Seleccione la aplicación en **Registros de aplicaciones** en Azure Portal.
 1. Seleccione **Certificados y secretos** >  **Nuevo secreto de cliente**.
@@ -122,6 +122,8 @@ El secreto de cliente, conocido también como *contraseña de aplicación*, es u
 1. Seleccione una duración.
 1. Seleccione **Agregar**.
 1. **Tome nota del valor del secreto** para utilizarlo en el código de la aplicación cliente, ya que *no volverá a mostrarse* una vez que salga de esta página.
+
+**Nota:** El identificador generado junto con el valor del secreto es el identificador del secreto, que es diferente del identificador de la aplicación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

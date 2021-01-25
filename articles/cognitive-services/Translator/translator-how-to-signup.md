@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: a9050b85c974a3c04ca717e8fe3d5188c1bf7a40
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6773c6b29ecfd8354c54a6214cfe0b4050edcd38
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88244319"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602658"
 ---
 # <a name="how-to-sign-up-for-translator"></a>Cómo suscribirse a Translator
 
@@ -41,7 +41,7 @@ Después de iniciar sesión el portal, puede crear una suscripción a Translator
 Cuando se registre en Translator, obtendrá una clave de acceso personalizado única para su suscripción. Esta clave es necesaria en cada llamada a Translator.
 
 1. Para recuperar su clave de autenticación, seleccione primero la suscripción adecuada.
-1. Seleccione **Claves** en la sección **Administración de recursos** de los detalles de la suscripción.
+1. Seleccione **Claves y punto de conexión** en la sección **Administración de recursos** de los detalles de la suscripción.
 1. Copie cualquiera de las claves que se muestran para la suscripción.
 
 ## <a name="learn-test-and-get-support"></a>Obtener información, realizar pruebas y obtener soporte técnico

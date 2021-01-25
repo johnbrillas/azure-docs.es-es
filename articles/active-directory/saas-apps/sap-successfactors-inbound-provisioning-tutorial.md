@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 08/05/2020
+ms.date: 01/19/2021
 ms.author: chmutali
-ms.openlocfilehash: 53707261070e8efbd014614ee700df63a0925ef8
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ce48d87c6e04e6c349b681e953647feb5e7ddda5
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95999712"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98570123"
 ---
 # <a name="tutorial-configure-sap-successfactors-to-active-directory-user-provisioning"></a>Tutorial: Configuración del aprovisionamiento de usuarios de SAP SuccessFactors a Active Directory 
 El objetivo de este tutorial es mostrar los pasos que debe realizar para aprovisionar usuarios de SuccessFactors Employee Central a Active Directory (AD) y Azure AD, con escritura diferida opcional de la dirección de correo electrónico en SuccessFactors. 
@@ -94,55 +94,61 @@ Trabaje con el equipo de administración de SuccessFactors o con el asociado de 
 
 ### <a name="create-an-api-permissions-role"></a>Creación de un rol de permisos de API
 
-* Inicie sesión en SAP SuccessFactors con una cuenta de usuario que tenga acceso al centro de administración.
-* Busque *Manage Permission Roles* (Administrar roles de permisos) y, después, seleccione **Manage Permission Roles** (Administrar roles de permisos) en los resultados de la búsqueda.
+1. Inicie sesión en SAP SuccessFactors con una cuenta de usuario que tenga acceso al centro de administración.
+1. Busque *Manage Permission Roles* (Administrar roles de permisos) y, después, seleccione **Manage Permission Roles** (Administrar roles de permisos) en los resultados de la búsqueda.
   ![Administración de roles de permisos](./media/sap-successfactors-inbound-provisioning/manage-permission-roles.png)
-* En Permission Role List (Lista de roles de permisos), haga clic en **Create New** (Crear).
-  > [!div class="mx-imgBorder"]
-  > ![Creación de un rol de permisos](./media/sap-successfactors-inbound-provisioning/create-new-permission-role-1.png)
-* Agregue valores en **Role Name** (Nombre de rol) y **Description** (Descripción) para el nuevo rol de permisos. El nombre y la descripción deben indicar que el rol se utilizará para los permisos de uso de la API.
-  > [!div class="mx-imgBorder"]
-  > ![Detalle de rol de permisos](./media/sap-successfactors-inbound-provisioning/permission-role-detail.png)
-* En Permission settings (Configuración de los permisos), haga clic en **Permission...** (Permiso), desplácese hacia abajo en la lista de permisos y haga clic en **Manage Integration Tools** (Administrar herramientas de integración). Active la casilla **Allow Admin to Access to OData API through Basic Authentication** (Permitir que el administrador acceda a la API OData mediante autenticación básica).
-  > [!div class="mx-imgBorder"]
-  > ![Administración de herramientas de integración](./media/sap-successfactors-inbound-provisioning/manage-integration-tools.png)
-* Desplácese hacia abajo en el mismo cuadro y seleccione **Employee Central API**. Agregue permisos, tal como se muestra a continuación, de lectura y edición mediante la API ODATA. Seleccione la opción de edición si tiene previsto usar la misma cuenta para el escenario de escritura diferida en SuccessFactors. 
-  > [!div class="mx-imgBorder"]
-  > ![Permisos de lectura y escritura](./media/sap-successfactors-inbound-provisioning/odata-read-write-perm.png)
+1. En Permission Role List (Lista de roles de permisos), haga clic en **Create New** (Crear).
+    > [!div class="mx-imgBorder"]
+    > ![Creación de un rol de permisos](./media/sap-successfactors-inbound-provisioning/create-new-permission-role-1.png)
+1. Agregue valores en **Role Name** (Nombre de rol) y **Description** (Descripción) para el nuevo rol de permisos. El nombre y la descripción deben indicar que el rol se utilizará para los permisos de uso de la API.
+    > [!div class="mx-imgBorder"]
+    > ![Detalle de rol de permisos](./media/sap-successfactors-inbound-provisioning/permission-role-detail.png)
+1. En Permission settings (Configuración de los permisos), haga clic en **Permission...** (Permiso), desplácese hacia abajo en la lista de permisos y haga clic en **Manage Integration Tools** (Administrar herramientas de integración). Active la casilla **Allow Admin to Access to OData API through Basic Authentication** (Permitir que el administrador acceda a la API OData mediante autenticación básica).
+    > [!div class="mx-imgBorder"]
+    > ![Administración de herramientas de integración](./media/sap-successfactors-inbound-provisioning/manage-integration-tools.png)
+1. Desplácese hacia abajo en el mismo cuadro y seleccione **Employee Central API**. Agregue permisos, tal como se muestra a continuación, de lectura y edición mediante la API ODATA. Seleccione la opción de edición si tiene previsto usar la misma cuenta para el escenario de escritura diferida en SuccessFactors. 
+    > [!div class="mx-imgBorder"]
+    > ![Permisos de lectura y escritura](./media/sap-successfactors-inbound-provisioning/odata-read-write-perm.png)
 
-  >[!NOTE]
-  >Para obtener la lista completa de atributos recuperados por esta aplicación de aprovisionamiento, consulte [Referencia de atributos de SuccessFactors](../app-provisioning/sap-successfactors-attribute-reference.md).
+1. En el mismo cuadro de permisos, vaya a **User Permissions -> Employee Data** (Permisos de usuario > Datos de empleados) y revise los atributos que la cuenta de servicio puede leer desde el inquilino de SuccessFactors. Por ejemplo, para recuperar el atributo del *nombre de usuario* de SuccessFactors, asegúrese de que se conceda el permiso "View" (Ver) para este atributo. De igual forma, revise cada atributo para ver el permiso. 
 
-* Haga clic en **Done** (Acabado). Haga clic en **Guardar cambios**.
+    > [!div class="mx-imgBorder"]
+    > ![Permisos de datos de empleados](./media/sap-successfactors-inbound-provisioning/review-employee-data-permissions.png)
+   
+
+    >[!NOTE]
+    >Para obtener la lista completa de atributos recuperados por esta aplicación de aprovisionamiento, consulte [Referencia de atributos de SuccessFactors](../app-provisioning/sap-successfactors-attribute-reference.md).
+
+1. Haga clic en **Done** (Acabado). Haga clic en **Guardar cambios**.
 
 ### <a name="create-a-permission-group-for-the-api-user"></a>Creación de un grupo de permisos para el usuario de la API
 
-* En el centro de administración de SuccessFactors, busque *Manage Permission Groups* (Administrar grupos de permisos) y, después, seleccione **Manage Permission Groups** (Administrar grupos de permisos) en los resultados de la búsqueda.
-  > [!div class="mx-imgBorder"]
-  > ![Administración de grupos de permisos](./media/sap-successfactors-inbound-provisioning/manage-permission-groups.png)
-* En la ventana Manage Permission Groups (Administrar grupos de permisos), haga clic en **Create New** (Crear).
-  > [!div class="mx-imgBorder"]
-  > ![Incorporación de un nuevo grupo](./media/sap-successfactors-inbound-provisioning/create-new-group.png)
-* Agregue un valor en Group Name (Nombre de grupo) para el nuevo grupo. El nombre del grupo debe indicar que se utilizará para los usuarios de la API.
-  > [!div class="mx-imgBorder"]
-  > ![Nombre del grupo de permisos](./media/sap-successfactors-inbound-provisioning/permission-group-name.png)
-* Agregue miembros al grupo. Por ejemplo, puede seleccionar **Username** (Nombre de usuario) en el menú desplegable People Pool (Grupo de personas) y, a continuación, escribir el nombre de usuario de la cuenta de API que se usará para la integración. 
-  > [!div class="mx-imgBorder"]
-  > ![Adición de miembros del grupo](./media/sap-successfactors-inbound-provisioning/add-group-members.png)
-* Haga clic en **Done** (Listo) para terminar de crear el grupo de permisos.
+1. En el centro de administración de SuccessFactors, busque *Manage Permission Groups* (Administrar grupos de permisos) y, después, seleccione **Manage Permission Groups** (Administrar grupos de permisos) en los resultados de la búsqueda.
+    > [!div class="mx-imgBorder"]
+    > ![Administración de grupos de permisos](./media/sap-successfactors-inbound-provisioning/manage-permission-groups.png)
+1. En la ventana Manage Permission Groups (Administrar grupos de permisos), haga clic en **Create New** (Crear).
+    > [!div class="mx-imgBorder"]
+    > ![Incorporación de un nuevo grupo](./media/sap-successfactors-inbound-provisioning/create-new-group.png)
+1. Agregue un valor en Group Name (Nombre de grupo) para el nuevo grupo. El nombre del grupo debe indicar que se utilizará para los usuarios de la API.
+    > [!div class="mx-imgBorder"]
+    > ![Nombre del grupo de permisos](./media/sap-successfactors-inbound-provisioning/permission-group-name.png)
+1. Agregue miembros al grupo. Por ejemplo, puede seleccionar **Username** (Nombre de usuario) en el menú desplegable People Pool (Grupo de personas) y, a continuación, escribir el nombre de usuario de la cuenta de API que se usará para la integración. 
+    > [!div class="mx-imgBorder"]
+    > ![Adición de miembros del grupo](./media/sap-successfactors-inbound-provisioning/add-group-members.png)
+1. Haga clic en **Done** (Listo) para terminar de crear el grupo de permisos.
 
 ### <a name="grant-permission-role-to-the-permission-group"></a>Concesión del rol de permisos al grupo de permisos
 
-* En el centro de administración de SuccessFactors, busque *Manage Permission Roles* (Administrar roles de permisos) y, después, seleccione **Manage Permission Roles** (Administrar roles de permisos) en los resultados de la búsqueda.
-* En **Permission Role List** (Lista de roles de permisos), seleccione el rol que creó para los permisos de uso de la API.
-* En **Grant this role to...** (Conceder este rol a), haga clic en el botón **Add...** (Agregar).
-* Seleccione **Permission Group...** (Grupo de permisos) en el menú desplegable y, a continuación, haga clic en **Select...** (Seleccionar) para abrir la ventana Groups (Grupos), en la que deberá buscar y seleccionar el grupo creado anteriormente. 
-  > [!div class="mx-imgBorder"]
-  > ![Incorporación del grupo de permisos](./media/sap-successfactors-inbound-provisioning/add-permission-group.png)
-* Revise la concesión del rol de permisos al grupo de permisos. 
-  > [!div class="mx-imgBorder"]
-  > ![Detalles de rol y grupo de permisos](./media/sap-successfactors-inbound-provisioning/permission-role-group.png)
-* Haga clic en **Guardar cambios**.
+1. En el centro de administración de SuccessFactors, busque *Manage Permission Roles* (Administrar roles de permisos) y, después, seleccione **Manage Permission Roles** (Administrar roles de permisos) en los resultados de la búsqueda.
+1. En **Permission Role List** (Lista de roles de permisos), seleccione el rol que creó para los permisos de uso de la API.
+1. En **Grant this role to...** (Conceder este rol a), haga clic en el botón **Add...** (Agregar).
+1. Seleccione **Permission Group...** (Grupo de permisos) en el menú desplegable y, a continuación, haga clic en **Select...** (Seleccionar) para abrir la ventana Groups (Grupos), en la que deberá buscar y seleccionar el grupo creado anteriormente. 
+    > [!div class="mx-imgBorder"]
+    > ![Incorporación del grupo de permisos](./media/sap-successfactors-inbound-provisioning/add-permission-group.png)
+1. Revise la concesión del rol de permisos al grupo de permisos. 
+    > [!div class="mx-imgBorder"]
+    > ![Detalles de rol y grupo de permisos](./media/sap-successfactors-inbound-provisioning/permission-role-group.png)
+1. Haga clic en **Guardar cambios**.
 
 ## <a name="configuring-user-provisioning-from-successfactors-to-active-directory"></a>Configuración del aprovisionamiento de usuarios de SuccessFactors a Active Directory
 
@@ -173,68 +179,14 @@ En esta sección se describen los pasos para el aprovisionamiento de cuentas de 
 7. Cambie el **Modo de** **aprovisionamiento** a **Automático**.
 
 8. Haga clic en el banner de información que se muestra para descargar el agente de aprovisionamiento. 
-   > [!div class="mx-imgBorder"]
-   > ![Descarga del agente](./media/sap-successfactors-inbound-provisioning/download-pa-agent.png "Pantalla de descarga de agente")
-
+   >[!div class="mx-imgBorder"]
+   >![Descarga del agente](./media/workday-inbound-tutorial/pa-download-agent.png "Pantalla de descarga de agente")
 
 ### <a name="part-2-install-and-configure-on-premises-provisioning-agents"></a>Parte 2: Instalación y configuración de agentes de aprovisionamiento en el entorno local
 
-Para realizar el aprovisionamiento en Active Directory local, el agente de aprovisionamiento debe estar instalado en un servidor que tenga .NET 4.7.1+ Framework y acceso de red a los dominios de Active Directory deseados.
+Para realizar el aprovisionamiento en Active Directory local, el agente de aprovisionamiento debe estar instalado en un servidor unido a un dominio que tenga acceso de red a los dominios de Active Directory deseados.
 
-> [!TIP]
-> Puede comprobar la versión de la plataforma de .NET en el servidor mediante las instrucciones proporcionadas [aquí](/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed).
-> Si el servidor no tiene instalado .NET 4.7.1 o posterior, puede descargarlo [aquí](https://support.microsoft.com/help/4033342/the-net-framework-4-7-1-offline-installer-for-windows).  
-
-Transfiera el instalador del agente descargado al host del servidor y siga los pasos indicados a continuación para completar la configuración del agente.
-
-1. Inicie sesión en el servidor Windows Server donde quiera instalar el nuevo agente.
-
-1. Inicie el instalador del agente de aprovisionamiento, acepte los términos y haga clic en el botón **Instalar**.
-
-   ![Pantalla de instalación](./media/workday-inbound-tutorial/pa_install_screen_1.png "Pantalla de instalación")
-   
-1. Una vez completada la instalación, se iniciará el asistente y verá la pantalla **Conectar a Azure AD**. Haga clic en el botón **Autenticar** para conectarse a su instancia de Azure AD.
-
-   ![Conexión de Azure AD](./media/workday-inbound-tutorial/pa_install_screen_2.png "Conexión de Azure AD")
-   
-1. Autentíquese en su instancia de Azure AD con las credenciales de administrador global.
-
-   ![Autenticación de administrador](./media/workday-inbound-tutorial/pa_install_screen_3.png "Autenticación de administrador")
-
-   > [!NOTE]
-   > Las credenciales de administrador de Azure AD se usan solo para conectarse al inquilino de Azure AD. El agente no almacena las credenciales localmente en el servidor.
-
-1. Tras una autenticación correcta con Azure AD, verá la pantalla **Conectar a Active Directory**. En este paso, escriba su nombre de dominio de AD y haga clic en el botón **Agregar directorio**.
-
-   ![Agregar directorio](./media/workday-inbound-tutorial/pa_install_screen_4.png "Agregar directorio")
-  
-1. Ahora se pedirá que escriba las credenciales necesarias para conectarse al dominio de AD. En la misma pantalla, puede usar la opción **Select domain controller priority** (Seleccionar prioridad del controlador de dominio) para especificar los controladores de dominio que el agente debe utilizar para enviar las solicitudes de aprovisionamiento.
-
-   ![Credenciales del dominio](./media/workday-inbound-tutorial/pa_install_screen_5.png)
-   
-1. Después de configurar el dominio, el instalador muestra una lista de los dominios configurados. En esta pantalla, puede repetir los pasos 5 y 6 para agregar más dominios, o hacer clic en **Siguiente** para continuar con el registro del agente.
-
-   ![Dominios configurados](./media/workday-inbound-tutorial/pa_install_screen_6.png "Dominios configurados")
-
-   > [!NOTE]
-   > Si tiene varios dominios de AD (por ejemplo, na.contoso.com o emea.contoso.com), agregue cada dominio individualmente a la lista.
-   > No basta solo con agregar el dominio primario (por ejemplo, contoso.com). Debe registrar cada dominio secundario en el agente.
-   
-1. Revise los detalles de configuración y haga clic en **Confirmar** para registrar el agente.
-  
-   ![Pantalla de confirmación](./media/workday-inbound-tutorial/pa_install_screen_7.png "Pantalla de confirmación")
-   
-1. El Asistente para configuración muestra el progreso del registro del agente.
-  
-   ![Registro de agente](./media/workday-inbound-tutorial/pa_install_screen_8.png "Registro del agente")
-   
-1. Una vez que se realiza el registro del agente, puede hacer clic en **Salir** para salir del asistente.
-  
-   ![Pantalla de salida](./media/workday-inbound-tutorial/pa_install_screen_9.png "Pantalla de salida")
-   
-1. Compruebe la instalación del agente y asegúrese de que se está ejecutando; para ello, abra el complemento "Servicios" y busque el servicio denominado "Microsoft Azure AD Connect Provisioning Agent".
-  
-   ![Captura de pantalla del agente de aprovisionamiento de Microsoft Azure AD Connect que se ejecuta en los servicios.](./media/workday-inbound-tutorial/services.png)
+Transfiera el instalador del agente descargado al host del servidor y siga los pasos indicados [en la sección del agente de instalación](../cloud-provisioning/how-to-install.md) para completar la configuración del agente.
 
 ### <a name="part-3-in-the-provisioning-app-configure-connectivity-to-successfactors-and-active-directory"></a>Parte 3: En la aplicación de aprovisionamiento, configure la conectividad a SuccessFactors y Active Directory
 En este paso, se establece la conectividad con SuccessFactors y Active Directory en Azure Portal. 
@@ -331,24 +283,22 @@ En esta sección, configurará cómo fluyen los datos de los usuarios de Success
 
 1. Para guardar las asignaciones, haga clic en **Guardar** en la parte superior de la sección Asignación de atributos.
 
-Una vez completada la configuración de la asignación de atributos, ahora puede [habilitar e iniciar el servicio de aprovisionamiento de usuarios](#enable-and-launch-user-provisioning).
+Una vez completada la configuración de la asignación de atributos, puede probar el aprovisionamiento de un solo usuario mediante [el aprovisionamiento a petición](../app-provisioning/provision-on-demand.md) y, a continuación, [habilitar e iniciar el servicio de aprovisionamiento de usuarios](#enable-and-launch-user-provisioning).
 
 ## <a name="enable-and-launch-user-provisioning"></a>Habilitar e iniciar el aprovisionamiento de usuarios
 
-Una vez completadas las configuraciones de la aplicación de aprovisionamiento de SuccessFactors, puede activar el servicio de aprovisionamiento en Azure Portal.
+Cuando se hayan completado las configuraciones de la aplicación de aprovisionamiento de SuccessFactors y se haya comprobado el aprovisionamiento de un solo usuario con el [aprovisionamiento a petición](../app-provisioning/provision-on-demand.md), puede activar el servicio de aprovisionamiento en Azure Portal.
 
 > [!TIP]
-> De forma predeterminada, al activar el servicio de aprovisionamiento, se iniciarán las operaciones de aprovisionamiento para todos los usuarios del ámbito. Si hay errores en la asignación o problemas con los datos de SuccessFactors, puede que se produzcan errores con el trabajo de aprovisionamiento y que entre en estado de cuarentena. Para evitar esto, como procedimiento recomendado, es conveniente configurar el filtro **Ámbito de objeto de origen** y probar las asignaciones de atributos con algunos usuarios de prueba antes de iniciar la sincronización completa de todos los usuarios. Una vez haya verificado que las asignaciones funcionan y que obtiene los resultados deseados, puede quitar el filtro o expandirlo gradualmente para incluir más usuarios.
+> De forma predeterminada, al activar el servicio de aprovisionamiento, se iniciarán las operaciones de aprovisionamiento para todos los usuarios del ámbito. Si hay errores en la asignación o problemas con los datos de SuccessFactors, puede que se produzcan errores con el trabajo de aprovisionamiento y que entre en estado de cuarentena. Para evitar esto, como procedimiento recomendado, es conveniente configurar el filtro **Ámbito de objeto de origen** y probar las asignaciones de atributos con algunos usuarios de prueba mediante el [aprovisionamiento a petición](../app-provisioning/provision-on-demand.md) antes de iniciar la sincronización completa de todos los usuarios. Una vez haya verificado que las asignaciones funcionan y que obtiene los resultados deseados, puede quitar el filtro o expandirlo gradualmente para incluir más usuarios.
 
-1. En la pestaña **Aprovisionamiento**, establezca **Estado de aprovisionamiento** en **Activado**.
+1. Vaya a la hoja **Aprovisionamiento** y haga clic en **Iniciar aprovisionamiento**.
 
-2. Haga clic en **Save**(Guardar).
+1. Esta operación dará comienzo a la sincronización inicial, que puede tardar una cantidad de horas variable, según el número de usuarios que haya en el inquilino de SuccessFactors. Puede consultar en la barra de progreso el seguimiento del progreso del ciclo de sincronización. 
 
-3. Esta operación dará comienzo a la sincronización inicial, que puede tardar una cantidad de horas variable, según el número de usuarios que haya en el inquilino de SuccessFactors. Puede consultar en la barra de progreso el seguimiento del progreso del ciclo de sincronización. 
+1. En cualquier momento, compruebe la pestaña **Registros de auditoría** en Azure Portal para ver las acciones que ha realizado el servicio de aprovisionamiento. Los registros de auditoría muestran todos los eventos de sincronización individuales realizados por el servicio de aprovisionamiento, por ejemplo, los usuarios que se leen fuera de SuccessFactors y que luego se agregan o actualizan en Active Directory. 
 
-4. En cualquier momento, compruebe la pestaña **Registros de auditoría** en Azure Portal para ver las acciones que ha realizado el servicio de aprovisionamiento. Los registros de auditoría muestran todos los eventos de sincronización individuales realizados por el servicio de aprovisionamiento, por ejemplo, los usuarios que se leen fuera de SuccessFactors y que luego se agregan o actualizan en Active Directory. 
-
-5. Una vez completada la sincronización inicial, se escribe un informe resumido de auditoría en la pestaña **Aprovisionamiento**, tal y como se muestra a continuación.
+1. Una vez completada la sincronización inicial, se escribe un informe resumido de auditoría en la pestaña **Aprovisionamiento**, tal y como se muestra a continuación.
 
    > [!div class="mx-imgBorder"]
    > ![Barra de progreso de aprovisionamiento](./media/sap-successfactors-inbound-provisioning/prov-progress-bar-stats.png)

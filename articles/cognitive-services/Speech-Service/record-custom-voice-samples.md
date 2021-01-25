@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/13/2020
 ms.author: erhopf
-ms.openlocfilehash: dae7b8e0485c1a2456b85e0910f60b2164d4e41c
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 966b11e2c9a0f7ffc5e6ec9238080b9076d37af6
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95026325"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98572432"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Grabación de muestras de voz para crear una voz personalizada
 
@@ -24,6 +24,14 @@ Crear una voz personalizada con calidad de producción partiendo de cero no es u
 No obstante, para poder realizar estas grabaciones, necesita un guion: las palabras que dirá el actor de voz para crear las muestras de audio. Para obtener mejores resultados, el guion debe tener una buena cobertura fonética y variedad suficiente para entrenar el modelo de voz personalizada.
 
 Muchos detalles pequeños pero importantes intervienen en la creación de una grabación de voz profesional. Esta guía es una guía básica de un proceso que le ayudará a obtener resultados buenos y uniformes.
+
+> [!NOTE]
+> Si desea entrenar una voz neuronal, debe especificar un perfil de talento de voz con el archivo de consentimiento de audio del talento de voz aceptando que se usen sus datos de voz para entrenar un modelo de voz personalizado. Cuando prepare el script de grabación, asegúrese de incluir la frase siguiente. 
+
+> "I [state your first and last name] am aware that recordings of my voice will be used by [state the name of the company] to create and use a synthetic version of my voice." ("Yo [indique su nombre y apellido] acepto que [indique el nombre de empresa] use grabaciones de mi voz para crear y usar una versión sintética de la voz").
+Esta frase se usará para comprobar si los datos de entrenamiento se corresponden con la persona que otorga el consentimiento. Para más información sobre la comprobación del talento de voz, consulte [aquí](https://aka.ms/CNV-data-privacy).
+
+> Voz neuronal personalizada está disponible con acceso limitado. Asegúrese de comprender los [requisitos de IA responsable](https://aka.ms/gating-overview) y [aplicar el acceso aquí](https://aka.ms/customneural). 
 
 > [!TIP]
 > Para conseguir resultados de máxima calidad, considere la posibilidad de acudir a Microsoft para ayudar a desarrollar su voz personalizada. Microsoft posee una gran experiencia en producir voces de alta calidad para sus propios productos, como Cortana y Office.
@@ -56,14 +64,14 @@ Su actor de voz es la otra mitad de la ecuación. Debe ser capaz de hablar a una
 
 La grabación de muestras de voz personalizada puede ser más fatigoso que otros trabajos de voz. La mayoría de los actores de voz pueden grabar durante dos o tres horas al día. Limite las sesiones a tres o cuatro a la semana, con un día de descanso entre medias si es posible.
 
-Las grabaciones realizadas para un modelo de voz deben ser emocionalmente neutras. Es decir, un enunciado triste no debe leerse de forma triste. El estado de ánimo se puede agregar a la voz sintetizada más adelante mediante controles de la prosodia. Trabaje con el actor de voz para desarrollar una "persona" que defina el sonido y el torno emocional general de la voz personalizada. En el proceso, identificará lo que suena "neutro" para esa persona.
+Trabaje con el actor de voz para desarrollar una "persona" que defina el sonido y el torno emocional general de la voz personalizada. En el proceso, identificará lo que suena "neutro" para esa persona. Mediante la funcionalidad de Voz neuronal personalizada, puede entrenar un modelo que hable con emociones. Defina "estilos de habla" y pida al talento de voz que lea el script de tal manera que reproduzca los estilos que desea.  
 
 Es posible que, por ejemplo, una persona tenga una personalidad animada por naturaleza. Por tanto, "su" voz puede transmitir una nota de optimismo incluso aunque hable de forma neutra. Sin embargo, tal rasgo de personalidad debe ser sutil y uniforme. Escuche las lecturas de voces existentes para hacerse una idea de lo que busca.
 
 > [!TIP]
 > Por lo general, querrá quedarse con las grabaciones de voz que realice. Así que el actor de voz debe aceptar un contrato de trabajo a comisión para el proyecto.
 
-## <a name="create-a-script"></a>Creación de un guion
+## <a name="create-a-script"></a>Creación de un script
 
 El punto de partida de cualquier sesión de grabación de voz personalizada es el guion, que contiene los enunciados que dirá el actor de voz. (El término "enunciados" abarca tanto oraciones completas como frases más cortas).
 
@@ -75,7 +83,7 @@ Si bien la uniformidad es importante a la hora de elegir un actor de voz, la var
 
 Además, el texto debe incorporar todas las formas en que puede representarse un sonido determinado al escribir, y colocar cada sonido en distintos lugares en las oraciones. Se deben incluir tanto oraciones afirmativas como preguntas y se deben leer con la entonación adecuada.
 
-Es difícil escribir un guion que proporcione *suficientes* datos para permitir que el portal de Habla personalizada genere una buena voz. En la práctica, la manera más sencilla de crear un guion que logre una sólida cobertura fonética es incluir un gran número de muestras. Las voces estándar que proporciona Microsoft se han creado a partir de decenas de miles de expresiones. Deberá estar preparado para grabar unos cuantos miles de expresiones para generar una voz personalizada con calidad de producción.
+Es difícil escribir un guion que proporcione *suficientes* datos para permitir que el portal Custom Speech genere una buena voz. En la práctica, la manera más sencilla de crear un guion que logre una sólida cobertura fonética es incluir un gran número de muestras. Las voces estándar que proporciona Microsoft se han creado a partir de decenas de miles de expresiones. Deberá estar preparado para grabar unos cuantos miles de expresiones para generar una voz personalizada con calidad de producción.
 
 Compruebe el guion con mucho cuidado para detectar posibles errores. Si es posible, que otra persona también lo revise. Cuando repase el guion con el actor de voz, es probable que detecte algunos errores más.
 
@@ -211,7 +219,7 @@ Escuche atentamente cada archivo. En esta fase, puede editar pequeños sonidos n
 
 Convierta todos los archivos a 16 bits y una velocidad de muestreo de 16 kHz antes de guardar y, si graba la charla del estudio, quite el segundo canal. Guarde cada archivo en formato WAV y nombre los archivos con el número de enunciado del guion.
 
-Por último, cree la *transcripción* que asocia cada archivo WAV con una versión de texto del enunciado correspondiente. En [Crear fuentes de voz personalizada](./how-to-custom-voice-create-voice.md) se incluye información detallada del formato requerido. Puede copiar el texto directamente del guion. Después, cree un archivo ZIP de los archivos WAV y de la transcripción de texto.
+Por último, cree la *transcripción* que asocia cada archivo WAV con una versión de texto del enunciado correspondiente. En [Crear voces personalizada](./how-to-custom-voice-create-voice.md) se incluye información detallada sobre el formato requerido. Puede copiar el texto directamente del guion. Después, cree un archivo ZIP de los archivos WAV y de la transcripción de texto.
 
 Archive las grabaciones originales en un lugar seguro en caso de que las necesite más adelante. También, conserve el guion y las notas.
 

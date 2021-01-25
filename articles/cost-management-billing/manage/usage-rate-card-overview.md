@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 02/12/2020
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: b3ae2b8323c9f278dcec432dfaac05e9fcfb4b49
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 15e8a31c7ca3b87a8bf92a520bcf07de1e063efd
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132115"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599150"
 ---
 # <a name="use-azure-billing-apis-to-programmatically-get-insight-into-your-azure-usage"></a>Use las API de facturación de Azure para obtener información mediante programación sobre cómo usa Azure
 Use las API de facturación de Azure para extraer datos de uso y de recursos e incorporarlos en las herramientas de análisis de datos de su preferencia. Las API de RateCard y de uso de recursos de Azure pueden ayudarlo a predecir y administrar los costos de forma precisa. Las API se implementan como proveedor de recursos, como parte de la familia de API expuesta por Azure Resource Manager.  
@@ -36,13 +36,13 @@ Use la [API de uso de recursos](/previous-versions/azure/reference/mt219003(v=az
 * **Agregaciones cada hora o diarias** : los autores de llamadas pueden especificar si desean sus datos de uso de Azure en depósitos cada hora o diarios. El valor predeterminado es diario.
 * **Metadatos de instancia (incluye etiquetas de recursos)** : obtenga detalles de nivel de instancia, como el URI de recurso completo (/subscriptions/{id-suscripción}/..), la información del grupo de recursos y las etiquetas de recursos. Estos metadatos lo ayudarán de forma determinista y mediante programación a asignar el uso mediante las etiquetas, para casos de uso como cargos cruzados.
 * **Metadatos de recursos**: detalles de recursos, como el nombre del medidor, la categoría del medidor, la subcategoría del medidor, la unidad y la región permiten que el autor de la llamada comprenda mejor lo que se ha consumido. También estamos trabajando para alinear la terminología de metadatos de recursos en todo Azure Portal, CSV de uso de Azure, CSV de facturación de EA y otras experiencias orientadas al público, para permitirle que pueda poner en correlación los datos en todas las experiencias.
-* **Uso para diferentes tipos de ofertas**: los datos de uso están disponibles para tipos de ofertas como el pago por uso, MSDN, compromiso monetario, crédito monetario y EA, excepto [CSP](/partner-center).
+* **Uso para diferentes tipos de oferta**: los datos de uso están disponibles para tipos de oferta como el pago por uso, MSDN, el prepago de Azure (anteriormente llamado compromiso monetario), el crédito de prepago de Azure y EA, excepto [CSP](/partner-center).
 
 ## <a name="azure-resource-ratecard-api-preview"></a>API de RateCard de recursos de Azure (vista previa)
 Use la [API de RateCard de recursos de Azure](/previous-versions/azure/reference/mt219005(v=azure.100)) para obtener la lista de recursos disponibles de Azure y una información de precios estimada para cada uno. La API incluye:
 
 * **Control de acceso basado en rol de Azure (Azure RBAC)** : configure las directivas de acceso en [Azure Portal](https://portal.azure.com) o mediante [cmdlets de Azure PowerShell](/powershell/azure/) para especificar qué usuarios o aplicaciones pueden obtener acceso a los datos de RateCard. Los autores de llamadas deben utilizar tokens de Azure Active Directory estándar para la autenticación. Agregue el autor de la llamada al rol Lector, Propietario o Colaborador para que obtenga acceso a los datos de uso de una suscripción de Azure determinada.
-* **Compatibilidad con ofertas de pago por uso, MSDN, compromiso monetario y crédito monetario (no compatible con EA y [CSP](/partner-center))** : esta API proporciona información de tarifas de nivel de oferta de Azure.  El autor de llamada de esta API debe pasar la información de oferta para obtener detalles y tarifas de recursos Actualmente no podemos proporcionar tarifas de EA porque las ofertas de EA tienen tarifas personalizadas por inscripción.
+* **Compatibilidad con las ofertas de pago por uso, MSDN, crédito de prepago de Azure (excluidos EA y [CSP](/partner-center))** : esta API proporciona información sobre tarifas vinculadas a ofertas de Azure.  El autor de llamada de esta API debe pasar la información de oferta para obtener detalles y tarifas de recursos Actualmente no podemos proporcionar tarifas de EA porque las ofertas de EA tienen tarifas personalizadas por inscripción.
 
 ## <a name="scenarios"></a>Escenarios
 Éstos son algunos de los escenarios posibles con la combinación de las API de uso y de RateCard:
@@ -50,7 +50,7 @@ Use la [API de RateCard de recursos de Azure](/previous-versions/azure/reference
 * **Gasto en Azure durante el mes**: use la combinación de las API de uso y de RateCard para obtener información más detallada sobre el gasto por usar la nube durante el mes. Puede analizar los depósitos por hora y diarios de las estimaciones de usos y cargos.
 * **Configurar alertas**: use las API de uso y de RateCard para obtener una estimación del consumo de la nube y los cargos, y configure alertas basadas en recursos o basadas en importes monetarios.
 * **Predicción de facturas**: obtenga el gasto en la nube y el consumo estimados, y aplique algoritmos de aprendizaje automático para poder predecir cuál sería la factura al final del ciclo de facturación.
-* **Análisis de costos previos al consumo**: use la API de RateCard para predecir cuál sería el importe de su factura para el uso esperado cuando mueva las cargas de trabajo a Azure. Si tiene cargas de trabajo existentes en otras nubes o nubes privadas, también puede asignar su uso con las tarifas de Azure para obtener una mejor estimación del gasto de Azure. Esta estimación le permite tener la capacidad de dinamizar una oferta y de comparar y contrastar los distintos tipos de ofertas que van más allá del pago por uso, como son el compromiso monetario y el crédito monetario. La API también le ofrece la posibilidad de ver las diferencias de costos por región y le permite realizar un análisis de hipótesis para ayudarlo a tomar decisiones en cuanto a la implementación.
+* **Análisis de costos previos al consumo**: use la API de RateCard para predecir cuál sería el importe de su factura para el uso esperado cuando mueva las cargas de trabajo a Azure. Si tiene cargas de trabajo existentes en otras nubes o nubes privadas, también puede asignar su uso con las tarifas de Azure para obtener una mejor estimación del gasto de Azure. Esta estimación le permite cambiar de oferta, además de comparar los distintos tipos de ofertas que van más allá del pago por uso, como el prepago y el crédito de prepago de Azure. La API también le ofrece la posibilidad de ver las diferencias de costos por región y le permite realizar un análisis de hipótesis para ayudarlo a tomar decisiones en cuanto a la implementación.
 * **Análisis de hipótesis** -
 
   * Puede determinar si es más rentable ejecutar las cargas de trabajo en otra región o en otra configuración del recurso de Azure. Los costos de los recursos de Azure pueden variar en función de la región de Azure que usa.

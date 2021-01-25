@@ -366,6 +366,8 @@
           href: sql-data-warehouse-restore-deleted-dw.md
         - name: Realizar una restauración a partir de una copia de seguridad de replicación geográfica
           href: sql-data-warehouse-restore-from-geo-backup.md
+        - name: Deshabilitación de copias de seguridad de replicación geográfica
+          href: disable-geo-backup.md
     - name: Integrate
       items:
         - name: Uso de Machine Learning

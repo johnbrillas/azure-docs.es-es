@@ -8,19 +8,19 @@ ms.subservice: enterprise
 ms.topic: reference
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: b78b046e2991fa4ebfb575e4f6a1cc900df0d298
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: a1c420eed89b7b45ea6c50345737b8615f39ad8c
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686911"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602081"
 ---
 # <a name="overview-of-reporting-apis-for-enterprise-customers"></a>Información general de API de informes para clientes de Enterprise
 
 > [!Note]
 > Microsoft ha dejado de actualizar las API de informes empresariales de facturación de Azure. En su lugar, debe usar las API de [Azure Consumption](/rest/api/consumption).
 
-Las API de informes permiten a los clientes de Azure Enterprise extraer datos de facturación y consumo mediante programación en las herramientas de análisis de datos preferidas. Los clientes de empresa han firmado un [Contrato Enterprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) con Azure para negociar compromisos monetarios y conseguir acceso a precios personalizados por los recursos de Azure.
+Las API de informes permiten a los clientes de Azure Enterprise extraer datos de facturación y consumo mediante programación en las herramientas de análisis de datos preferidas. Los clientes empresariales han firmado un [Contrato Enterprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) con Azure para negociar el prepago de Azure (anteriormente llamado compromiso monetario) y obtener acceso a precios personalizados para los recursos de Azure.
 
 Todos los parámetros de fecha y hora necesarios para las API deben representarse como valores combinados de Hora universal coordinada (UTC). Los valores devueltos por las API se muestran en formato UTC.
 

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: troubleshooting
 ms.date: 11/09/2020
-ms.openlocfilehash: e8b1d985fcb2852df52382e005ec0f0266e23d9d
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: aea205bee41aed232b8453417dca521d2dfc83ab
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96345651"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233787"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>Solución de problemas para QnA Maker
 
@@ -323,6 +323,29 @@ Si tiene contenido en varios idiomas, asegúrese de crear un servicio independie
 
 1. Inicie el servicio de aplicaciones.
 1. Obtenga acceso a la base de conocimiento para comprobar que funcione ahora.
+
+</details>
+<details>
+<summary><b>¿Por qué no funciona mi instancia de Application Insights?</b></summary>
+
+**Respuesta**: Para solucionar el problema, compruebe y actualice los pasos siguientes:
+
+1. En App Service-> Grupo de valores -> Sección de configuración > Configuración de la aplicación, los parámetros de nombre "UserAppInsightsKey" se han configurado correctamente y se han establecido en el GUID de la pestaña correspondiente de información general de Application Insights ("clave de instrumentación"). 
+
+1. En App Service > Grupo de valores > sección "Application Insights", asegúrese de que App Insights se haya habilitado y conectado al recurso correspondiente de Application Insights.
+
+</details>
+
+<details>
+<summary><b>Mi instancia de Application Insights está habilitada, pero ¿por qué no funciona correctamente?</b></summary>
+
+**Respuesta**: Siga los pasos indicados a continuación: 
+
+1.  Copie el valor del nombre "APPINSIGHTS_INSTRUMENTATIONKEY" en el nombre "UserAppInsightsKey" mediante un reemplazo si ya existe algún valor. 
+
+1.  Si la clave "UserAppInsightsKey" no existe en la configuración de la aplicación, agregue una nueva clave con ese nombre y copie el valor.
+
+1.  Guarde el valor y App Service se reiniciará automáticamente. De este modo, se debería resolver el problema. 
 
 </details>
 

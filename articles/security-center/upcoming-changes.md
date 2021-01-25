@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/05/2021
+ms.date: 01/18/2021
 ms.author: memildin
-ms.openlocfilehash: 0656000a1d6449306e8afe538f846c55c79a31a2
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: ba9a640c2231c7098e58ad6e29bbfa196436a7f9
+ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97915293"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98562325"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Próximos cambios importantes en Azure Security Center
 
@@ -31,8 +31,37 @@ Si busca las notas de la versión más recientes, puede encontrarlas en [Novedad
 
 ## <a name="planned-changes"></a>Cambios planeados
 
+- [Dos recomendaciones del control de seguridad "Aplicar actualizaciones del sistema" entran en desuso](#two-recommendations-from-apply-system-updates-security-control-being-deprecated)
+- [Mejoras en la recomendación de clasificación de datos de SQL](#enhancements-to-sql-data-classification-recommendation)
 - [Recursos en estado "No aplicable" que se van a notificar como "Compatible" en las valoraciones de Azure Policy](#not-applicable-resources-to-be-reported-as-compliant-in-azure-policy-assessments)
 - [Se han agregado 35 recomendaciones en versión preliminar para aumentar la cobertura de Azure Security Benchmark](#35-preview-recommendations-being-added-to-increase-coverage-of-azure-security-benchmark).
+
+
+### <a name="two-recommendations-from-apply-system-updates-security-control-being-deprecated"></a>Dos recomendaciones del control de seguridad "Aplicar actualizaciones del sistema" entran en desuso 
+
+**Fecha estimada del cambio:** Febrero de 2021
+
+Las dos recomendaciones siguientes están programadas para dejar de usarse en febrero de 2021:
+
+- **Las máquinas deben reiniciarse para aplicar las actualizaciones del sistema**. Esto puede dar lugar a un leve impacto en la puntuación de seguridad.
+- **El agente de supervisión debe instalarse en las máquinas**. Esta recomendación solo está relacionada con máquinas locales y parte de su lógica se transferirá a otra recomendación, **Se deben resolver los problemas de estado del agente de Log Analytics en las máquinas**. Esto puede dar lugar a un leve impacto en la puntuación de seguridad.
+
+Se recomienda comprobar las configuraciones de exportación continua y de automatización del flujo de trabajo para ver si estas recomendaciones están incluidas en ellas. Además, los paneles u otras herramientas de supervisión que puedan estar usándolas se deben actualizar en consecuencia.
+
+Más información sobre estas recomendaciones en la [página de referencia de las recomendaciones de seguridad](recommendations-reference.md).
+
+
+### <a name="enhancements-to-sql-data-classification-recommendation"></a>Mejoras en la recomendación de clasificación de datos de SQL
+
+**Fecha estimada del cambio:** Segundo trimestre de 2021
+
+La versión actual de la recomendación **Se deben clasificar los datos confidenciales de las bases de datos SQL** del control de seguridad **Aplicar clasificación de datos** entrará en desuso y se reemplazará por una nueva versión que esté más alineada con la estrategia de clasificación de datos de Microsoft. Como resultado:
+
+- La recomendación ya no afectará a la puntuación de seguridad.
+- El control de seguridad ("Aplicar clasificación de datos") ya no afectará a la puntuación de seguridad.
+- El identificador de la recomendación también cambiará (actualmente es b0df6f56-862d-4730-8597-38c0fd4ebd59).
+
+
 
 ### <a name="not-applicable-resources-to-be-reported-as-compliant-in-azure-policy-assessments"></a>Recursos en estado "No aplicable" que se van a notificar como "Compatible" en las valoraciones de Azure Policy
 

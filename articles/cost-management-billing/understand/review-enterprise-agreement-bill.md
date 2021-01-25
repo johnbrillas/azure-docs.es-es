@@ -9,18 +9,18 @@ ms.subservice: enterprise
 ms.topic: tutorial
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: d707051e20b4ce9d1289557aec6f8256c2e6bfba
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 643aac7927cc7b14693387fbb5765bdcd0214dc2
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150072"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98598255"
 ---
 # <a name="understand-your-azure-enterprise-agreement-bill"></a>Descripción de la factura de Azure Enterprise
 
 Los clientes de Azure con un Contrato Enterprise reciben una factura cuando superan el crédito de la organización o usan servicios que no están incluidos en ese crédito.
 
-El crédito de su organización incluye su compromiso monetario. El compromiso monetario es la cantidad que su organización paga por adelantado por el uso de los servicios de Azure. Para agregar fondos al compromiso monetario de su Contrato Enterprise, póngase en contacto con el administrador de la cuenta Microsoft o el distribuidor.
+El crédito de su organización incluye el prepago de Azure (anteriormente llamado compromiso monetario). El prepago de Azure es la cantidad que su organización pagó por adelantado para usar los servicios de Azure. Para agregar los fondos de prepago de Azure al Contrato Enterprise, póngase en contacto con el revendedor o el administrador de la cuenta Microsoft.
 
 Este tutorial se aplica solo a los clientes de Azure con un Contrato Enterprise de Azure.
 
@@ -155,7 +155,7 @@ Algunos motivos para las diferencias de precios:
 
 ## <a name="request-detailed-usage-information"></a>Solicitud de información de uso detallada
 
-Los administradores de empresa pueden ver un resumen de sus datos de uso, el compromiso monetario consumido y los cargos asociados con el uso adicional en Azure Enterprise Portal. Los cargos se presentan en el nivel de resumen en todas las cuentas y suscripciones.
+Los administradores de empresa pueden ver un resumen de sus datos de uso, el pago por adelantado de Azure consumido y los cargos asociados con el uso adicional en Azure Enterprise Portal. Los cargos se presentan en el nivel de resumen en todas las cuentas y suscripciones.
 
 Para ver el uso detallado en cuentas específicas, descargue el informe de detalles de uso en **Informes** > **Descargar uso**.
 
@@ -166,7 +166,7 @@ En el caso de inscripciones indirectas, el asociado debe habilitar la función d
 
 ## <a name="reports"></a>Informes
 
-Los administradores de empresa pueden ver un resumen de sus datos de uso, el compromiso monetario consumido y los cargos asociados con el uso adicional en Azure Enterprise Portal. Los cargos se presentan en el nivel de resumen en todas las cuentas y suscripciones.
+Los administradores de empresa pueden ver un resumen de sus datos de uso, el pago por adelantado de Azure consumido y los cargos asociados con el uso adicional en Azure Enterprise Portal. Los cargos se presentan en el nivel de resumen en todas las cuentas y suscripciones.
 
 ### <a name="azure-enterprise-reports"></a>Informes de Azure Enterprise
 

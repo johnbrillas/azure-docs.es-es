@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: rbeckers
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e9e5db87f983c5db59715eb8b6a9561acf5fad14
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 9c8016b566db8be1b7f5c5ddb8d92123d6673db5
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97630622"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98569851"
 ---
 # <a name="migrate-code-from-v20-to-v30-of-the-rest-api"></a>Migración de código de la versión v2.0 a v3.0 de API REST
 
@@ -24,11 +24,51 @@ En comparación con v2, la versión v3 de la API REST de los servicios de voz pa
 
 ## <a name="forward-compatibility"></a>Compatibilidad con versiones posteriores
 
-Todas las entidades de v2 también se pueden encontrar en la versión v3 de la API con la misma identidad. Cuando el esquema de un resultado cambia (por ejemplo, las transcripciones), el resultado de una operación Get en la versión v3 de la API usa el esquema v3. El resultado de una operación Get en la versión v2 de la API usa el mismo esquema v2. Las entidades recién creadas en v3 **no** están disponibles en los resultados de las API de v2.
+Todas las entidades de v2 también se pueden encontrar en la versión v3 de la API con la misma identidad. Cuando el esquema de un resultado cambia (por ejemplo, las transcripciones), el resultado de una operación Get en la versión v3 de la API usa el esquema v3. El resultado de una operación Get en la versión v2 de la API usa el mismo esquema v2. Las entidades recién creadas en v3 **no** están disponibles en las respuestas de las API de v2. 
+
+## <a name="migration-steps"></a>Pasos de migración
+
+Esta es una lista resumida de los elementos que debe tener en cuenta al preparar la migración. Los detalles se encuentran en los vínculos individuales. En función del uso actual de la API, es posible que no se apliquen todos los pasos que se enumeran aquí. Solo algunos cambios requieren cambios no triviales en el código de llamada. La mayoría de los cambios solo requieren un cambio en los nombres de los elementos. 
+
+Cambios generales: 
+
+1. [Cambiar el nombre de host](#host-name-changes)
+
+1. [Cambiar el identificador de la propiedad a self en el código de cliente](#identity-of-an-entity) 
+
+1. [Cambiar el código para iterar en colecciones de entidades](#working-with-collections-of-entities)
+
+1. [Cambiar el nombre de la propiedad a displayName en el código de cliente](#name-of-an-entity)
+
+1. [Ajustar la recuperación de los metadatos de las entidades referenciadas](#accessing-referenced-entities)
+
+1. Si usa la transcripción por lotes: 
+
+    * [Ajustar el código para crear transcripciones por lotes](#creating-transcriptions) 
+
+    * [Adaptar el código al nuevo esquema de resultados de transcripción](#format-of-v3-transcription-results)
+
+    * [Ajustar el código para el modo de recuperación de los resultados](#getting-the-content-of-entities-and-the-results)
+
+1. Si usa las API de entrenamiento y pruebas del modelo personalizado: 
+
+    * [Aplicar modificaciones al entrenamiento del modelo personalizado](#customizing-models)
+
+    * [Cambiar el modo en que se recuperan los modelos base y personalizado](#retrieving-base-and-custom-models)
+
+    * [Cambiar el nombre del segmento de línea de accuracytests a evaluations en el código de cliente](#accuracy-tests)
+
+1. Si usa API de punto de conexión:
+
+    * [Cambiar el modo en que se recuperan los registros del punto de conexión](#retrieving-endpoint-logs)
+
+1. Otros cambios secundarios: 
+
+    * [Pasar todas las propiedades personalizadas como customProperties en lugar de propiedades en las solicitudes POST](#using-custom-properties)
+
+    * [Leer la ubicación desde el encabezado de respuesta en lugar de Operation-Location](#response-headers)
 
 ## <a name="breaking-changes"></a>Últimos cambios
-
-La lista de cambios importantes se ha ordenado por la magnitud de los cambios necesarios para adaptarse. Solo algunos cambios requieren cambios no triviales en el código de llamada. La mayoría de los cambios solo requieren un cambio en los nombres de los elementos.
 
 ### <a name="host-name-changes"></a>Cambios de los nombres de host
 

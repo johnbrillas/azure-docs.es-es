@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: trbye
-ms.openlocfilehash: 6ae164b1300119481e495e647dd491beafdd5241
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: e48dfd224a9656c7d8327dd77f1b55e9a744f3af
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95025085"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98573095"
 ---
 # <a name="get-started-with-custom-voice"></a>Introducción a voz personalizada
 
@@ -39,10 +39,10 @@ En el diagrama siguiente se resaltan los pasos necesarios para crear un modelo d
 
 ## <a name="custom-neural-voices"></a>Voces neuronales personalizadas
 
-La funcionalidad de personalización de voz neuronal se encuentra actualmente en versión preliminar, limitada a clientes seleccionados. Rellene este [formulario de aplicación](https://go.microsoft.com/fwlink/?linkid=2108737) para empezar.
+La voz personalizada admite actualmente los niveles estándar y neuronal. Voz neuronal personalizada permite a los usuarios crear modelos de voz de mayor calidad, requiere menos datos y proporciona medidas para ayudarle a implementar la IA de manera responsable. Se recomienda usar Voz neuronal personalizada para desarrollar voces más realistas dirigidas a interfaces de conversación más naturales y permitir que clientes y usuarios finales se beneficien de la tecnología de texto a voz más moderna, de forma responsable. [Más información sobre Voz neuronal personalizada](https://aka.ms/CNV-Transparency-Note). 
 
 > [!NOTE]
-> Como parte del compromiso de Microsoft de diseñar inteligencia artificial responsable, nuestra intención es proteger los derechos de los individuos y la sociedad, y fomentar unas interacciones transparentes de personas y equipos. Por esta razón, Voz neuronal personalizada no está disponible con carácter general para todos los clientes. Es posible que obtenga acceso a la tecnología solo tras la revisión de sus aplicaciones y después de que se haya comprometido a usarla en consonancia con nuestros principios éticos. Obtenga más información sobre nuestro [proceso de acceso según la aplicación](./concepts-gating-overview.md).
+> Como parte del compromiso de Microsoft de diseñar tecnología de IA responsable, hemos limitado el uso de Voz neuronal personalizada. Tan solo podrá obtener acceso a la tecnología una vez que se hayan revisado sus aplicaciones y se comprometa a utilizarla de acuerdo con nuestros principios éticos. Obtenga más información sobre nuestra [directiva sobre la limitación de acceso](https://aka.ms/gating-overview) y [haga una solicitud aquí](https://aka.ms/customneural). Los [idiomas](language-support.md#customization) y las [regiones](regions.md#custom-voices) compatibles con las versiones estándar y neuronal de la voz personalizada son diferentes. Compruebe los detalles antes de empezar.  
 
 ## <a name="set-up-your-azure-account"></a>Configuración de la cuenta de Azure
 
@@ -56,7 +56,7 @@ Después de crear una cuenta de Azure y la suscripción al servicio de voz, debe
 4. Si desea cambiar a otra suscripción de voz, utilice el icono de engranaje situado en el panel de navegación superior.
 
 > [!NOTE]
-> Debe tener una clave F0 o S0 creada en Azure para poder usar el servicio.
+> Debe tener una clave de servicio de voz F0 o S0 creada en Azure para poder usar el servicio. Voz neuronal personalizada solo admite el nivel S0. 
 
 ## <a name="how-to-create-a-project"></a>Creación de un proyecto
 
