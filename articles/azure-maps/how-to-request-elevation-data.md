@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 76232a917e8856a06645fabc0ab4716195c5c0e1
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: a303f5e6177d0dc4205eaec8c3b1911e8e004fe3
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97094206"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602429"
 ---
 # <a name="request-elevation-data-using-the-azure-maps-elevation-service-preview"></a>Solicitud de datos de elevación mediante el servicio Elevation de Azure Maps (versión preliminar)
 
@@ -469,9 +469,9 @@ En la página web de ejemplo siguiente se indica cómo usar el control de mapa p
 Consulte el pen <a href='https://codepen.io/azuremaps/pen/619c888c70089c3350a3e95d499f3e48'>Elevaciones por rectángulo delimitador</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-### <a name="get-elevation-data-by-polyline-path"></a>Obtención de datos de elevación por trazado de PolyLine
+### <a name="get-elevation-data-by-polyline-path"></a>Obtención de datos de elevación por trazado de Polilínea
 
-En la página web de ejemplo siguiente se muestra cómo usar el control de mapa para mostrar los datos de elevación a lo largo de un trazado. Para definir el trazado, el usuario hace clic en el icono `PolyLine` en la esquina superior izquierda y dibuja la polilínea en el mapa. A continuación, el control de mapa representa los datos de elevación de acuerdo con los colores especificados en la clave que se encuentra en la esquina superior derecha.
+En la página web de ejemplo siguiente se muestra cómo usar el control de mapa para mostrar los datos de elevación a lo largo de un trazado. Para definir el trazado, el usuario hace clic en el icono `Polyline` en la esquina superior izquierda y dibuja la Polilínea en el mapa. A continuación, el control de mapa representa los datos de elevación de acuerdo con los colores especificados en la clave que se encuentra en la esquina superior derecha.
 
 <br/>
 
