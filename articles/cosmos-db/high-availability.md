@@ -4,22 +4,22 @@ description: En este artículo se describe cómo Azure Cosmos DB ofrece una alta
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/04/2020
+ms.date: 01/18/2021
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 58507703ca3440e73dbc41757e0bc70f56e886c3
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: d827011c4f831433a7446c90eed0c30c7b1e94d7
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360163"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600552"
 ---
 # <a name="how-does-azure-cosmos-db-provide-high-availability"></a>¿Cómo proporciona Azure Cosmos DB la alta disponibilidad?
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB proporciona la alta disponibilidad de dos maneras principales. En primer lugar, Azure Cosmos DB replica los datos entre las regiones configuradas dentro de una cuenta de Cosmos. En segundo lugar, Azure Cosmos DB mantiene 4 réplicas de datos dentro de una región.
 
-Azure Cosmos DB es un servicio de base de datos distribuido globalmente y es un servicio fundamental de Azure. De forma predeterminada, está disponible en [todas las regiones en las que Azure está disponible](https://azure.microsoft.com/global-infrastructure/services/?products=cosmos-db&regions=all). Puede asociar cualquier número de regiones de Azure con su cuenta de Azure Cosmos y los datos se replican de forma automática y transparente. Puede agregar o quitar una región a la cuenta de Azure Cosmos en cualquier momento. Cosmos DB está disponible en los cinco entornos en la nube de Azure disponibles para los clientes:
+Azure Cosmos DB es un servicio básico de base de datos distribuido globalmente disponible en [todas las regiones en las que Azure está disponible](https://azure.microsoft.com/global-infrastructure/services/?products=cosmos-db&regions=all). Puede asociar cualquier número de regiones de Azure con su cuenta de Azure Cosmos y los datos se replican de forma automática y transparente. Puede agregar o quitar una región a la cuenta de Azure Cosmos en cualquier momento. Cosmos DB está disponible en los cinco entornos en la nube de Azure disponibles para los clientes:
 
 * La nube **pública de Azure**, que está disponible globalmente.
 
@@ -39,15 +39,15 @@ Dentro de una región, Azure Cosmos DB mantiene cuatro copias de los datos como
 
 * Un conjunto de particiones es una colección de varios conjuntos de réplicas. En cada una de las regiones, cada partición está protegida por un conjunto de réplicas con todas las escrituras replicadas y confirmadas de forma duradera por la mayoría de las réplicas. Las réplicas se distribuyen entre unos 10 o 20 dominios de error como máximo.
 
-* Se replica cada partición de todas las regiones. Cada región contiene todas las particiones de datos de un contenedor de Azure Cosmos y puede aceptar operaciones de escritura y atender lecturas.  
+* Se replica cada partición de todas las regiones. Cada región contiene todas las particiones de datos de un contenedor de Azure Cosmos y puede atender operaciones tanto de lectura como de escritura cuando están habilitadas las operaciones de escritura en varias regiones.  
 
 Si la cuenta de Azure Cosmos se distribuye entre *N* regiones de Azure, habrá al menos *N* x 4 copias de todos los datos. Tener una cuenta de Azure Cosmos en más de dos regiones mejora la disponibilidad de la aplicación y proporciona una latencia baja en las regiones asociadas.
 
 ## <a name="slas-for-availability"></a>SLA para disponibilidad
 
-Como base de datos distribuida globalmente, Azure Cosmos DB proporciona contratos de nivel de servicio completos que abarcan rendimiento, latencia en el percentil 99, coherencia y alta disponibilidad. En la tabla siguiente se muestran las garantías de alta disponibilidad proporcionadas por Azure Cosmos DB para cuentas de una y varias regiones. Para lograr alta disponibilidad, configure siempre las cuentas de Azure Cosmos para que tengan varias regiones de escritura.
+Azure Cosmos DB proporciona Acuerdos de Nivel de Servicio completos que abarcan rendimiento, latencia en el percentil 99, coherencia y alta disponibilidad. En la tabla siguiente se muestran las garantías de alta disponibilidad proporcionadas por Azure Cosmos DB para cuentas de una y varias regiones. Para lograr una disponibilidad mayor de las operaciones de escritura, configure las cuentas de Azure Cosmos para que tengan operaciones de escritura en varias regiones.
 
-|Tipo de operación  | Región única |Varias regiones (escrituras de región única)|Varias regiones (escrituras de varias regiones) |
+|Tipo de operación  | Región única |Varias regiones (operaciones de escritura en una única región)|Varias regiones (operaciones de escritura de varias regiones) |
 |---------|---------|---------|-------|
 |Escrituras    | 99,99    |99,99   |99,999|
 |Lecturas     | 99,99    |99,999  |99,999|
@@ -90,41 +90,37 @@ En los infrecuentes casos en que se produce una interrupción regional, Azure Co
 
 * Las siguientes lecturas se redirigen a la región recuperada sin necesidad de realizar cambios en el código de la aplicación. Durante la conmutación por error y cuando se vuelva a unir una región previamente errónea, Azure Cosmos DB seguirá cumpliendo las garantías de coherencia de lectura.
 
-* Incluso en un caso poco frecuente y desafortunado en que la región de Azure sea irrecuperable de forma permanente, no se produce pérdida de datos si se configura la cuenta de Azure Cosmos de varias regiones con coherencia *fuerte*. En el caso de una región de escritura irrecuperable de forma permanente, una cuenta de Azure Cosmos de varias regiones configurada con coherencia de obsolescencia limitada, la posible ventana de pérdida de datos se restringe a la ventana de obsolescencia (*K* o *T*) donde K = 100 000 actualizaciones y T = 5 minutos. En cuanto a los niveles de posible coherencia y prefijo coherente por sesión, el período de pérdida potencial de datos se restringe a un máximo de 15 minutos. Para obtener más información sobre los objetivos de RPO y RTO de Azure Cosmos DB, consulte [Durabilidad de datos y los niveles de coherencia](./consistency-levels.md#rto).
+* Incluso en un caso poco frecuente y desafortunado en que la región de Azure sea irrecuperable de forma permanente, no se produce pérdida de datos si se configura la cuenta de Azure Cosmos de varias regiones con coherencia *fuerte*. En el caso de una región de escritura irrecuperable de forma permanente, una cuenta de Azure Cosmos de varias regiones configurada con coherencia de obsolescencia limitada, la posible ventana de pérdida de datos se restringe a la ventana de obsolescencia (*K* o *T*) donde K = 100 000 actualizaciones o T = 5 minutos, lo que antes suceda. En cuanto a los niveles de posible coherencia y prefijo coherente por sesión, el período de pérdida potencial de datos se restringe a un máximo de 15 minutos. Para obtener más información sobre los objetivos de RPO y RTO de Azure Cosmos DB, consulte [Durabilidad de datos y los niveles de coherencia](./consistency-levels.md#rto).
 
 ## <a name="availability-zone-support"></a>Compatibilidad de zonas de disponibilidad
 
-Además de la resistencia entre regiones, ahora puede habilitar la **redundancia de zona** al seleccionar una región que asociar a su base de datos de Azure Cosmos.
+Además de la resistencia entre regiones, Azure Cosmos DB también admite la **redundancia de zona** en las regiones que se admiten al seleccionar la región que se desea asociar a una base de datos de Azure Cosmos.
 
-Gracias a la compatibilidad de zonas de disponibilidad, Azure Cosmos DB garantizará que las réplicas estén colocadas en varias zonas de una región determinada para proporcionar alta disponibilidad y resistencia durante errores zonales. No hay ningún cambio en la latencia ni en otros SLA en esta configuración. En el caso de que haya un error de una sola zona, la redundancia de zona proporciona durabilidad total de los datos con el RPO=0 y la disponibilidad con RTO=0.
+Gracias a la compatibilidad de zona de disponibilidad, Azure Cosmos DB garantizará que las réplicas se coloquen en varias zonas de una región determinada para proporcionar alta disponibilidad y resistencia en los errores zonales. Availability Zones proporciona un Acuerdo de Nivel de Servicio de disponibilidad del 99,995 % sin cambios en la latencia. En el caso de que haya un error de una sola zona, la redundancia de zona proporciona durabilidad total de los datos con el RPO=0 y la disponibilidad con RTO=0. La redundancia de zona es una funcionalidad complementaria a la replicación regional. No se puede confiar en la redundancia de zona por sí sola para lograr la resistencia regional.
 
-La redundancia de zona es una *funcionalidad complementaria* de la característica de [replicación en escrituras de varias regiones](how-to-multi-master.md). No se puede confiar en la redundancia de zona por sí sola para lograr la resistencia regional. Por ejemplo, si se producen interrupciones regionales o un acceso de baja latencia en las regiones, se recomienda tener varias regiones de escritura además de la redundancia de zona.
+La redundancia de zona solo se puede configurar cuando se agrega una nueva región a una cuenta de Azure Cosmos. En el caso de las regiones existentes, para habilitar la redundancia de zona es preciso quitar la región y, después, volver a agregarla con la redundancia de zona habilitada. En el caso de una cuenta de una sola región, es preciso agregar una región adicional a la que poder realizar la conmutación por error de forma temporal y, después, quitar y agregar la región deseada con la redundancia de zona habilitada.
 
-Al configurar las escrituras en varias regiones para la cuenta de Azure Cosmos, puede optar por recibir la redundancia de zona sin ningún costo adicional. En caso contrario, consulte la nota siguiente sobre los precios de la compatibilidad de la redundancia de zona. Puede habilitar la redundancia de zona en una región existente de su cuenta de Azure Cosmos si quita la región y la vuelve a agregar con la redundancia de zona habilitada. Para obtener una lista de las regiones en las que se admiten las zonas de disponibilidad, consulte la documentación sobre las [zonas de disponibilidad](../availability-zones/az-region.md).
+Al configurar las escrituras en varias regiones para la cuenta de Azure Cosmos, puede optar por recibir la redundancia de zona sin ningún costo adicional. En caso contrario, consulte la tabla siguiente sobre los precios de la compatibilidad de la redundancia de zona. Para obtener una lista de las regiones en que las zonas de disponibilidad están disponibles, consulte el artículo sobre [zonas de disponibilidad](../availability-zones/az-region.md).
 
 En la tabla siguiente se resume la funcionalidad de alta disponibilidad de varias configuraciones de cuenta:
 
-|KPI  |Región única sin Availability Zones (sin AZ)  |Región única con Availability Zones (AZ)  |Escrituras en varias regiones con Availability Zones (AZ, 2 regiones): configuración más recomendada |
-|---------|---------|---------|---------|
-|Contrato de Nivel de Servicio de disponibilidad de escritura | 99,99% | 99,99% | 99,999 % |
-|Contrato de Nivel de Servicio de disponibilidad de lectura  | 99,99% | 99,99% | 99,999 % |
-|Price | Tarifa de facturación de una sola región | Tarifa de facturación de zona de disponibilidad de una sola región | Tarifa de facturación de varias regiones |
-|Errores de zona: pérdida de datos | Pérdida de datos | No se produce pérdida de datos | No se produce pérdida de datos |
-|Errores de zona: disponibilidad | Pérdida de disponibilidad | Sin pérdida de disponibilidad | Sin pérdida de disponibilidad |
-|Latencia de lectura | Entre regiones | Entre regiones | Bajo |
-|Latencia de escritura | Entre regiones | Entre regiones | Bajo |
-|Interrupción regional: pérdida de datos | Pérdida de datos |  Pérdida de datos | Pérdida de datos <br/><br/> Al usar la coherencia de obsolescencia limitada con varias regiones de escritura y más de una región, la pérdida de datos se limita a la obsolescencia limitada configurada en su cuenta. <br /><br />Puede evitar la pérdida de datos durante una interrupción regional configurando una coherencia alta con varias regiones. Esta opción conlleva ciertos inconvenientes que afectan al rendimiento y la disponibilidad. Solo se puede configurar en cuentas que estén configuradas para escrituras de una sola región. |
-|Interrupción regional: disponibilidad | Pérdida de disponibilidad | Pérdida de disponibilidad | Sin pérdida de disponibilidad |
-|Throughput | X RU/s de rendimiento aprovisionado | X RU/s de rendimiento aprovisionado * 1,25 | 2X RU/s de rendimiento aprovisionado <br/><br/> Este modo de configuración requiere dos veces la cantidad de rendimiento en comparación con una sola región con Availability Zones porque hay dos regiones. |
+|KPI|Una sola región sin zonas de disponibilidad|Una sola región con zonas de disponibilidad|Varias regiones, operaciones de escritura en una sola región con zonas de disponibilidad|Varias regiones, operaciones de escritura en varias regiones con zonas de disponibilidad|
+|---------|---------|---------|---------|---------|
+|Contrato de Nivel de Servicio de disponibilidad de escritura | 99,99% | 99,995 % | 99,995 % | 99,999 % |
+|Contrato de Nivel de Servicio de disponibilidad de lectura  | 99,99% | 99,995 % | 99,995 % | 99,999 % |
+|Errores de zona: pérdida de datos | Pérdida de datos | No se produce pérdida de datos | No se produce pérdida de datos | No se produce pérdida de datos |
+|Errores de zona: disponibilidad | Pérdida de disponibilidad | Sin pérdida de disponibilidad | Sin pérdida de disponibilidad | Sin pérdida de disponibilidad |
+|Interrupción regional: pérdida de datos | Pérdida de datos |  Pérdida de datos | Depende del nivel de coherencia. Para más información, consulte el artículo que explica el [equilibrio entre coherencia, disponibilidad y rendimiento](consistency-levels-tradeoffs.md). | Depende del nivel de coherencia. Para más información, consulte el artículo que explica el [equilibrio entre coherencia, disponibilidad y rendimiento](consistency-levels-tradeoffs.md).
+|Interrupción regional: disponibilidad | Pérdida de disponibilidad | Pérdida de disponibilidad | No hay pérdida de disponibilidad en caso de error de la región de lectura y temporal en caso de error de la región de escritura | Sin pérdida de disponibilidad |
+|Precio (**_1_* _) | N/D | Unidades de solicitud aprovisionadas x 1,25 | Unidades de solicitud aprovisionadas x 1,25 (_*_2_*_) | Velocidad de operaciones de escritura en varias regiones |
 
-> [!NOTE]
-> Para habilitar la compatibilidad de Availability Zones para una cuenta de Azure Cosmos DB de varias regiones, la cuenta debe tener habilitadas las escrituras de varias regiones.
+_*_1_*_ En el caso de las cuentas sin servidor, las unidades de solicitud se multiplican por un factor de 1,25.
 
-Puede habilitar la redundancia de zona al agregar una región a cuentas de Azure Cosmos nuevas o existentes. Para habilitar la redundancia de zona en su cuenta de Azure Cosmos, debe establecer la marca `isZoneRedundant` en `true` para una ubicación específica. Puede establecer esta marca en la propiedad de ubicaciones. Por ejemplo, el siguiente fragmento de código de PowerShell habilita la redundancia de zona de la región "Sudeste Asiático":
+_*_2_*_ La velocidad 1,25 solo se aplica a las regiones en que está habilitada la zona de disponibilidad.
 
 Availability Zones se puede habilitar mediante:
 
-* [Azure Portal](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
+_ [Azure Portal](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 
 * [Azure PowerShell](manage-with-powershell.md#create-account)
 

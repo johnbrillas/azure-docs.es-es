@@ -5,13 +5,13 @@ author: abhijitpai
 ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/19/2020
-ms.openlocfilehash: 9d351bc945c08c82e96791059b00dc94eb94b918
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.date: 01/19/2021
+ms.openlocfilehash: 9ace9a319f4cc6bcc1545d6d1becce61b1892765
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368763"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98598678"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Cuotas de servicio de Azure Cosmos DB
 
@@ -37,7 +37,7 @@ Puede aprovisionar el rendimiento en un nivel de contenedor o de base de datos e
 | Almacenamiento máximo por contenedor | Sin límite |
 | Almacenamiento máximo por base de datos | Sin límite |
 | Tamaño máximo de datos adjuntos por cuenta (la característica de datos adjuntos está en desuso) | 2 GB |
-| Mínimo de RU/s requeridas por 1 GB | 10 RU/s<br>**Nota:** Si el contenedor o la base de datos contienen más de 1 TB de datos, la cuenta puede ser válida para nuestro [programa de "almacenamiento alto/rendimiento bajo"](set-throughput.md#high-storage-low-throughput-program). |
+| Mínimo de RU/s requeridas por 1 GB | 10 RU/s<br>**Nota:** este mínimo puede reducirse si la cuenta es válida para nuestro [programa de "almacenamiento alto y bajo rendimiento"](set-throughput.md#high-storage-low-throughput-program) |
 
 > [!NOTE]
 > Para obtener información sobre el procedimiento recomendado para administrar las cargas de trabajo que tienen claves de partición que requieren límites más altos para el almacenamiento o el rendimiento, consulte [Crear una clave de partición sintética ](synthetic-partition-keys.md).
@@ -60,7 +60,7 @@ Para calcular el rendimiento mínimo necesario de un contenedor con un rendimien
 
 Ejemplo: Supongamos que tiene un contenedor aprovisionado con 400 RU/s y 0 GB de almacenamiento. Aumente el rendimiento a 50 000 RU/s e importe 20 GB de datos. El valor mínimo de RU/s ahora es `MAX(400, 20 * 10 RU/s per GB, 50,000 RU/s / 100)` = 500 RU/s. Con el tiempo, el almacenamiento crece hasta 200 GB. El valor mínimo de RU/s ahora es `MAX(400, 200 * 10 RU/s per GB, 50,000 / 100)` = 2000 RU/s. 
 
-**Nota:** Si el contenedor o la base de datos contienen más de 1 TB de datos, la cuenta puede ser válida para nuestro [programa de "almacenamiento alto/rendimiento bajo"](set-throughput.md#high-storage-low-throughput-program).
+**Nota:** el rendimiento mínimo de 10 RU/s por GB de almacenamiento puede reducirse si la cuenta es válida para nuestro [programa de "almacenamiento alto y bajo rendimiento"](set-throughput.md#high-storage-low-throughput-program).
 
 #### <a name="minimum-throughput-on-shared-throughput-database"></a>Rendimiento mínimo en base de datos de rendimiento compartido 
 Para calcular el rendimiento mínimo necesario de una base de datos de rendimiento compartido con un rendimiento manual, busque el valor máximo de:
@@ -72,7 +72,7 @@ Para calcular el rendimiento mínimo necesario de una base de datos de rendimien
 
 Ejemplo: Supongamos que tiene una base de datos aprovisionada con 400 RU/s, 15 GB de almacenamiento y 10 contenedores. El valor mínimo de RU/s es `MAX(400, 15 * 10 RU/s per GB, 400 / 100, 400 + 0 )` = 400 RU/s. Si hubiera 30 contenedores en la base de datos, el valor mínimo de RU/s sería `400 + MAX(30 - 25, 0) * 100 RU/s` = 900 RU/s. 
 
-**Nota:** Si el contenedor o la base de datos contienen más de 1 TB de datos, la cuenta puede ser válida para nuestro [programa de "almacenamiento alto/rendimiento bajo"](set-throughput.md#high-storage-low-throughput-program).
+**Nota:** el rendimiento mínimo de 10 RU/s por GB de almacenamiento puede reducirse si la cuenta es válida para nuestro [programa de "almacenamiento alto y bajo rendimiento"](set-throughput.md#high-storage-low-throughput-program).
 
 En resumen, los límites de RU de aprovisionamiento mínimos son los siguientes. 
 
@@ -256,7 +256,8 @@ En la tabla siguiente se enumeran los límites de la prueba de encontrará en [P
 
 La Prueba de Cosmos DB admite la distribución global solo en las regiones de Centro de EE. UU., el Norte de Europa y el Sudeste de Asia. No se pueden crear incidencias de soporte técnico de Azure para las cuentas de prueba de Azure Cosmos DB. Sin embargo, se ofrece soporte técnico para aquellos suscriptores que cuenten con planes de soporte técnico existentes.
 
-## <a name="free-tier-account-limits"></a>Límites de cuenta de nivel Gratis
+## <a name="azure-cosmos-db-free-tier-account-limits"></a>Límites de las cuentas de nivel Gratis de Azure Cosmos DB
+
 En la tabla siguiente se enumeran los límites de las [cuentas de nivel Gratis de Azure Cosmos DB](optimize-dev-test.md#azure-cosmos-db-free-tier).
 
 | Resource | Límite predeterminado |
@@ -268,7 +269,10 @@ En la tabla siguiente se enumeran los límites de las [cuentas de nivel Gratis d
 | Número máximo de bases de datos de rendimiento compartido | 5 |
 | Número máximo de contenedores en una base de datos de rendimiento compartido | 25 <br>En las cuentas de nivel Gratis, el número mínimo de RU/s para una base de datos de rendimiento compartido con un máximo de 25 contenedores es 400 RU/s. |
 
-  Además de lo anterior, los [límites por cuenta](#per-account-limits) también se aplican a las cuentas de nivel Gratis.
+Además de lo anterior, los [límites por cuenta](#per-account-limits) también se aplican a las cuentas de nivel Gratis.
+
+> [!NOTE]
+> El nivel Gratis de Azure Cosmos DB es diferente de la cuenta gratuita de Azure. La cuenta gratuita de Azure ofrece créditos y recursos de Azure de forma gratuita durante un tiempo limitado. Al usar Azure Cosmos DB como parte de esta cuenta gratuita, obtendrá 25 GB de almacenamiento y 400 RU/s de rendimiento aprovisionado durante 12 meses.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

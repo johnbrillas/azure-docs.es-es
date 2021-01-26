@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.date: 12/07/2020
 ms.topic: conceptual
 ms.author: ramamill
-ms.openlocfilehash: 7e4f18b5d4f074d6596b375cbc11f40c2ab69d68
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 19a98b5786f35839d84e1e969c29e45e2b5e8dea
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97616616"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98573401"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Habilitación de máquinas virtuales de VMware en Azure
 
@@ -141,7 +141,7 @@ Después, compruebe las propiedades de la máquina virtual de origen. Recuerde q
    :::image type="content" source="./media/vmware-azure-enable-replication/vmproperties.png" alt-text="Ventana Propiedades de proceso y red":::
 
    - **Nombre de la máquina virtual de Azure**: modifique el nombre en caso necesario para que cumpla los requisitos de Azure.
-   - **Tamaño de la VM de destino o Tipo de máquina virtual**: el tamaño predeterminado de la máquina virtual se elige según unos parámetros que incluyen el número de discos, el número de tarjetas NIC, el recuento de núcleos de CPU, la memoria y los tamaños de rol de máquina virtual disponibles en la región de Azure de destino. Azure Site Recovery elige el primer tamaño de máquina virtual disponible que satisface todos los criterios. Puede seleccionar otro tamaño de máquina virtual según sea necesario en cualquier momento anterior a la conmutación por error. El tamaño del disco de la máquina virtual también se basa en el tamaño del disco de origen y solo puede modificarse después de la conmutación por error. Obtenga más información sobre los tamaños de disco y las tasas de IOPS en [Objetivos de escalabilidad y rendimiento para discos de máquinas virtuales con Windows](../virtual-machines/windows/disk-scalability-targets.md).
+   - **Tamaño de la VM de destino o Tipo de máquina virtual**: el tamaño predeterminado de la máquina virtual se elige según unos parámetros que incluyen el número de discos, el número de tarjetas NIC, el recuento de núcleos de CPU, la memoria y los tamaños de rol de máquina virtual disponibles en la región de Azure de destino. Azure Site Recovery elige el primer tamaño de máquina virtual disponible que satisface todos los criterios. Puede seleccionar otro tamaño de máquina virtual según sea necesario en cualquier momento anterior a la conmutación por error. El tamaño del disco de la máquina virtual también se basa en el tamaño del disco de origen y solo puede modificarse después de la conmutación por error. Obtenga más información sobre los tamaños de disco y las tasas de IOPS en [Objetivos de escalabilidad y rendimiento para discos de máquinas virtuales](../virtual-machines/disks-scalability-targets.md).
    - **Grupo de recursos**: puede seleccionar un [grupo de recursos](../azure-resource-manager/management/overview.md#resource-groups) desde el que la máquina virtual forme parte de una conmutación por error posterior. Puede cambiar este valor en cualquier momento antes de la conmutación por error. Después de la conmutación por error, si se migra la máquina virtual a otro grupo de recursos, la configuración de protección de dicha máquina virtual se interrumpe.
    - **Conjunto de disponibilidad**: puede seleccionar un [conjunto de disponibilidad](../virtual-machines/windows/tutorial-availability-sets.md) si la máquina debe formar parte de una conmutación por error posterior. Al seleccionar un conjunto de disponibilidad, tenga en cuenta la siguiente información:
      - Solo se muestran los conjuntos de disponibilidad que pertenecen al grupo de recursos especificado.

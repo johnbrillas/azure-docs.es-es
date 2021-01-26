@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
 ms.workload: identity
-ms.date: 07/20/2020
+ms.date: 01/19/2021
 ms.author: chmutali
-ms.openlocfilehash: 805cdc0713afd43502bb224cce60167adbc418ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e97be7fef09287e6c4f8696e217702b97853fa6a
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90969519"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98569460"
 ---
 # <a name="how-azure-active-directory-provisioning-integrates-with-sap-successfactors"></a>Integración del aprovisionamiento de Azure Active Directory con SAP SuccessFactors 
 
@@ -55,21 +55,22 @@ El servicio de aprovisionamiento de Azure AD recupera las siguientes entidades 
 | 6  | Usuario                                   | employmentNav/userNav        | Siempre           |
 | 7  | EmpJob                                 | employmentNav/jobInfoNav     | Siempre           |
 | 8  | EmpEmploymentTermination               | activeEmploymentsCount       | Siempre           |
-| 9  | FOCompany                              | employmentNav/jobInfoNav/companyNav | Solo si está asignado el atributo `company` o `companyId` |
-| 10 | FODepartment                           | employmentNav/jobInfoNav/companyNav | Solo si está asignado el atributo `department` o `departmentId` |
-| 11 | FOBusinessUnit                         | employmentNav/jobInfoNav/businessUnitNav | Solo si está asignado el atributo `businessUnit` o `businessUnitId` |
-| 12 | FOCostCenter                           | employmentNav/jobInfoNav/costCenterNav | Solo si está asignado el atributo `costCenter` o `costCenterId` |
-| 13 | FODivision                             | employmentNav/jobInfoNav/divisionNav  | Solo si está asignado el atributo `division` o `divisionId` |
-| 14 | FOJobCode                              | employmentNav/jobInfoNav/jobCodeNav  | Solo si está asignado el atributo `jobCode` o `jobCodeId` |
-| 15 | FOPayGrade                             | employmentNav/jobInfoNav/payGradeNav  | Solo si está asignado el atributo `payGrade` |
-| 16 | FOLocation                             | employmentNav/jobInfoNav/locationNav  | Solo si está asignado el atributo `location` |
-| 17 | FOCorporateAddressDEFLT                | employmentNav/jobInfoNav/addressNavDEFLT  | Si la asignación contiene uno de los siguientes atributos: `officeLocationAddress,  officeLocationCity, officeLocationZipCode` |
-| 18 | FOEventReason                          | employmentNav/jobInfoNav/eventReasonNav  | Solo si está asignado el atributo `eventReason` |
-| 19 | EmpGlobalAssignment                    | employmentNav/empGlobalAssignmentNav | Solo si está asignado `assignmentType` |
-| 20 | Lista desplegable EmploymentType                | employmentNav/jobInfoNav/employmentTypeNav | Solo si está asignado `employmentType` |
-| 21 | Lista desplegable EmployeeClass                 | employmentNav/jobInfoNav/employeeClassNav | Solo si está asignado `employeeClass` |
-| 22 | Lista desplegable EmplStatus                    | employmentNav/jobInfoNav/emplStatusNav | Solo si está asignado `emplStatus` |
-| 23 | Lista desplegable AssignmentType                | employmentNav/empGlobalAssignmentNav/assignmentTypeNav | Solo si está asignado `assignmentType` |
+| 9  | Administrador del usuario                         | employmentNav/userNav/manager/empInfo | Siempre  |
+| 10 | FOCompany                              | employmentNav/jobInfoNav/companyNav | Solo si está asignado el atributo `company` o `companyId` |
+| 11 | FODepartment                           | employmentNav/jobInfoNav/companyNav | Solo si está asignado el atributo `department` o `departmentId` |
+| 12 | FOBusinessUnit                         | employmentNav/jobInfoNav/businessUnitNav | Solo si está asignado el atributo `businessUnit` o `businessUnitId` |
+| 13 | FOCostCenter                           | employmentNav/jobInfoNav/costCenterNav | Solo si está asignado el atributo `costCenter` o `costCenterId` |
+| 14 | FODivision                             | employmentNav/jobInfoNav/divisionNav  | Solo si está asignado el atributo `division` o `divisionId` |
+| 15 | FOJobCode                              | employmentNav/jobInfoNav/jobCodeNav  | Solo si está asignado el atributo `jobCode` o `jobCodeId` |
+| 16 | FOPayGrade                             | employmentNav/jobInfoNav/payGradeNav  | Solo si está asignado el atributo `payGrade` |
+| 17 | FOLocation                             | employmentNav/jobInfoNav/locationNav  | Solo si está asignado el atributo `location` |
+| 18 | FOCorporateAddressDEFLT                | employmentNav/jobInfoNav/addressNavDEFLT  | Si la asignación contiene uno de los siguientes atributos: `officeLocationAddress,  officeLocationCity, officeLocationZipCode` |
+| 19 | FOEventReason                          | employmentNav/jobInfoNav/eventReasonNav  | Solo si está asignado el atributo `eventReason` |
+| 20 | EmpGlobalAssignment                    | employmentNav/empGlobalAssignmentNav | Solo si está asignado `assignmentType` |
+| 21 | Lista desplegable EmploymentType                | employmentNav/jobInfoNav/employmentTypeNav | Solo si está asignado `employmentType` |
+| 22 | Lista desplegable EmployeeClass                 | employmentNav/jobInfoNav/employeeClassNav | Solo si está asignado `employeeClass` |
+| 23 | Lista desplegable EmplStatus                    | employmentNav/jobInfoNav/emplStatusNav | Solo si está asignado `emplStatus` |
+| 24 | Lista desplegable AssignmentType                | employmentNav/empGlobalAssignmentNav/assignmentTypeNav | Solo si está asignado `assignmentType` |
 
 ## <a name="how-full-sync-works"></a>Cómo funciona la sincronización completa
 En función de la asignación de atributos, durante la sincronización completa el servicio de aprovisionamiento de Azure AD envía la siguiente consulta "GET" de API de OData para capturar datos efectivos de todos los usuarios activos. 
@@ -289,7 +290,7 @@ En esta sección se tratan diferentes escenarios de escritura diferida. Se recom
 
 ### <a name="supported-scenarios-for-phone-and-email-write-back"></a>Escenarios admitidos para la escritura diferida del correo electrónico y el teléfono 
 
-| \# | Requisito del escenario | Valor de marca principal <br> de correo electrónico | Teléfono del trabajo <br> de teléfono del trabajo | Valor de marca principal <br> de teléfono móvil | Teléfono del trabajo <br> mapping | Asignación <br> mapping |
+| \# | Requisito del escenario | Valor de marca principal <br> de correo electrónico | Teléfono del trabajo <br> de teléfono del trabajo | Asignación <br> de teléfono móvil | Teléfono del trabajo <br> mapping | Asignación <br> mapping |
 |--|--|--|--|--|--|--|
 | 1 | * Establezca solo el correo empresarial como principal. <br> * No establezca números de teléfono. | true | true | false | \[Sin establecer\] | \[Sin establecer\] | 
 | 2 | * En SuccessFactors, el correo empresarial y el teléfono del trabajo son el valor principal. <br> * Dirija siempre el número de teléfono de Azure AD al teléfono del trabajo y el móvil al teléfono móvil. | true | true | false | telephoneNumber | mobile | 

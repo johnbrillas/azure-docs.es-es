@@ -12,12 +12,12 @@ ms.date: 10/27/2016
 ms.author: sumuth
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: references_regions
-ms.openlocfilehash: 25cc4dfaabee58a47cc33fe4be8dc7375bc804d2
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d9d4ae746c192e8b4afd1781c1e072fc0dc70422
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96491649"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599799"
 ---
 # <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>P+F sobre bases de datos MySql ClearDB con Azure App Service
 Estas P+F responden a preguntas comunes sobre el uso y la adquisición de bases de datos MySQL ClearDB para Azure Web Apps.
@@ -42,7 +42,7 @@ Depende del tipo de suscripción que esté utilizando. Estos son algunos tipos d
 * [Pago por uso](https://azure.microsoft.com/offers/ms-azr-0003p/): requiere una tarjeta de crédito. Al adquirir una base de datos MySQL de pago, se cargará el importe correspondiente en su tarjeta de crédito.
 * [Prueba gratuita](https://azure.microsoft.com/pricing/free-trial/): incluye créditos para usarlos con los servicios de Microsoft Azure pero no permite la adquisición de recursos de terceros. Para adquirir servicios de terceros o una base de datos MySQL de pago, tiene que usar una suscripción con tarjeta de crédito habilitada. Para Web Apps, puede crear una base de datos MySQL ClearDB GRATUITA.
 * [Suscripción a MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/) y **pruebas de desarrollo MSDN de pago por uso**: Al igual que la versión de prueba gratuita, una suscripción a MSDN requiere una tarjeta de crédito para adquirir una solución de MySQL de pago de ClearDB.
-* [Contrato Enterprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/): los clientes de EA reciben su facturación de EA cada trimestre para todas sus compras en Azure Marketplace (terceros) mediante una factura independiente y consolidada. Se le facturará fuera el compromiso monetario para las compras en Marketplace. Tenga en cuenta que, en este momento, la tienda de Azure no está disponible para los clientes inscritos en Azerbaiyán, Croacia, Noruega y Puerto Rico. 
+* [Contrato Enterprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/): los clientes de EA reciben su facturación de EA cada trimestre para todas sus compras en Azure Marketplace (terceros) mediante una factura independiente y consolidada. Las compras en Marketplace se le facturarán fuera del pago por adelantado de Azure (anteriormente denominado compromiso monetario). Tenga en cuenta que, en este momento, la tienda de Azure no está disponible para los clientes inscritos en Azerbaiyán, Croacia, Noruega y Puerto Rico. 
 
 ## <a name="why-was-i-charged-350-for-a-web-app--mysql-from-the-azure-marketplace"></a>¿Por qué se me ha cobrado 3,50 USD por una aplicación web + MySQL desde Azure Marketplace?
 La opción de base de datos predeterminada es Titan, que cuesta 3,50 USD. El costo no aparece durante la creación de la base de datos y, por error, puede adquirir una base de datos que no deseaba. Estamos intentando encontrar una manera de mejorar la experiencia pero, hasta entonces, debe comprobar todos los planes de tarifa seleccionados para la aplicación web y la base de datos antes de hacer clic en **Crear** e iniciar la implementación de los recursos.
@@ -94,10 +94,10 @@ Las bases de datos existentes de ClearDB utilizan la tarjeta de crédito asociad
 * Actualice la aplicación para que use la nueva base de datos.
 * Elimine la base de datos antigua de ClearDB.
 
-Al crear una nueva aplicación web con MySQL (ClearDB) o al crear una base de datos de MySQL (ClearDB), la suscripción que elija determinará cómo se paga por el servicio. Con una suscripción de EA, no se bloqueará la adquisición de servicios de terceros como ClearDB en Azure Portal. Las suscripciones de EA se facturan fuera del compromiso monetario y se facturan de forma trimestral a pago vencido. Los clientes de EA tendrán que establecer un método de pago, como una tarjeta de crédito, para pagar los servicios de Marketplace de terceros.
+Al crear una nueva aplicación web con MySQL (ClearDB) o al crear una base de datos de MySQL (ClearDB), la suscripción que elija determinará cómo se paga por el servicio. Con una suscripción de EA, no se bloqueará la adquisición de servicios de terceros como ClearDB en Azure Portal. Las suscripciones de EA se facturan fuera del pago por adelantado de Azure y se facturan de forma trimestral a pago vencido. Los clientes de EA tendrán que establecer un método de pago, como una tarjeta de crédito, para pagar los servicios de Marketplace de terceros.
 
 ## <a name="where-can-i-see-the-charges-for-cleardb-resources-in-an-ea-subscription"></a>¿Dónde puedo ver los cargos para los recursos de ClearDB en una suscripción de EA?
-Para los clientes directos de EA, los gastos de Azure Marketplace están visibles en Enterprise Portal. Tenga en cuenta que todas las compras y los consumos de Marketplace se facturan fuera del compromiso monetario y se facturan trimestralmente a pago vencido. Los clientes de EA tienen que pagar directamente a los proveedores de servicios de terceros. Para ello, pueden habilitar un método de pago, como una tarjeta de crédito, con su cuenta de EA.
+Para los clientes directos de EA, los gastos de Azure Marketplace están visibles en Enterprise Portal. Tenga en cuenta que todas las compras y los consumos de Marketplace se facturan fuera del pago por adelantado de Azure y se facturan trimestralmente a pago vencido. Los clientes de EA tienen que pagar directamente a los proveedores de servicios de terceros. Para ello, pueden habilitar un método de pago, como una tarjeta de crédito, con su cuenta de EA.
 
 Los clientes indirectos de EA pueden encontrar sus suscripciones de Azure Marketplace en la página **Administrar suscripciones** de Enterprise Portal, pero no se muestran los precios. Los clientes deben ponerse en contacto con su LSP para obtener información sobre los gastos en Marketplace.
 

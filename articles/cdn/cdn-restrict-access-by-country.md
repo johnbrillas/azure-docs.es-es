@@ -1,37 +1,34 @@
 ---
-title: Restricción del contenido de Azure CDN por país o región | Microsoft Docs
+title: Restricción del contenido de Azure CDN por país o región
 description: Aprenda cómo restringir el acceso por país o región a su contenido de Azure CDN mediante la característica de filtrado geográfico.
 services: cdn
 documentationcenter: ''
 author: asudbring
-manager: danielgi
-editor: ''
-ms.assetid: 12c17cc5-28ee-4b0b-ba22-2266be2e786a
 ms.service: azure-cdn
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 06/19/2018
+ms.date: 01/16/2021
 ms.author: allensu
-ms.openlocfilehash: ed82adcc1432bde27042d5775c454bfabcdb96ca
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 8901dffb752409acd7fb08a2025bed9a4cc70132
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91358141"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539508"
 ---
 # <a name="restrict-azure-cdn-content-by-countryregion"></a>Restricción del contenido de Azure CDN por país o región
 
 ## <a name="overview"></a>Información general
-Cuando un usuario solicita su contenido, de forma predeterminada, el contenido se proporciona sin tener en cuenta la ubicación desde la que el usuario realiza esta solicitud. Sin embargo, puede que en algunos casos desee restringir el acceso al contenido por país o región. Con la característica de *filtrado geográfico* puede crear reglas en rutas de acceso específicas de su punto de conexión de CDN para permitir o bloquear contenido en países o regiones determinados.
+Cuando un usuario solicita su contenido, este se sirve a los usuarios de todas las ubicaciones. No obstante, se puede restringir el acceso al contenido por país o región. 
+
+Con la característica de *filtrado geográfico*, se pueden crear reglas sobre rutas de acceso específicas en su punto de conexión de CDN. Se puede establecer que las reglas permitan o bloqueen el contenido en determinados países o regiones.
 
 > [!IMPORTANT]
 > Los perfiles **Azure CDN Estándar de Microsoft** no admiten el filtrado geográfico basado en rutas.
 > 
 
 ## <a name="standard-profiles"></a>Perfiles estándar
-Los procedimientos de esta sección se aplican solo a perfiles de **Azure CDN Estándar de Akamai** y **Azure CDN Estándar de Verizon**. 
+
+Estas instrucciones se aplican a los perfiles de **Azure CDN Estándar de Akamai** y **Azure CDN Estándar de Verizon**.
 
 Con los perfiles de **Azure CDN Premium de Verizon**, debe usar el **Portal de administración** para activar el filtrado geográfico. Para más información, consulte [Perfiles de Azure CDN Premium de Verizon](#azure-cdn-premium-from-verizon-profiles).
 
@@ -42,7 +39,7 @@ Para acceder a la característica de filtrado geográfico, seleccione el punto d
 
 En el cuadro **Ruta de acceso**, especifique la ruta de acceso relativa a la ubicación a la que se les permitirá o denegará el acceso a los usuarios. 
 
-Puede aplicar el filtrado geográfico a todos los archivos mediante una barra diagonal (/), o seleccionar carpetas concretas mediante la especificación de rutas de acceso a directorio (por ejemplo, */pictures/* ). También puede aplicar el filtrado geográfico a un único archivo (por ejemplo, */pictures/city.png*). Se permiten varias reglas; después de especificar una regla, aparece una fila en blanco para que escriba la siguiente regla.
+Puede aplicar el filtrado geográfico a todos los archivos mediante una barra diagonal (/), o seleccionar carpetas concretas mediante la especificación de rutas de acceso a directorio (por ejemplo, */pictures/* ). También puede aplicar el filtrado geográfico a un único archivo (por ejemplo, */pictures/city.png*). Se permiten varias reglas. Después de especificar una regla, aparece una fila en blanco para que escriba la siguiente regla.
 
 Por ejemplo, todos los filtros siguientes de ruta de acceso a directorio son válidos:   
 */*                                 
@@ -63,6 +60,7 @@ Por ejemplo, una regla de filtrado geográfico para bloquear la ruta de acceso *
 *http:\//\<endpoint>.azureedge.net/Photos/Strasbourg/Cathedral/1000.jpg*
 
 ### <a name="define-the-countriesregions"></a>Definición de los países o regiones
+
 En la lista **Códigos de país**, seleccione los países o regiones para los que quiere bloquear o permitir la ruta de acceso. 
 
 Cuando haya terminado de seleccionar los países o regiones, seleccione **Guardar** para activar la nueva regla de filtrado geográfico. 
@@ -70,31 +68,33 @@ Cuando haya terminado de seleccionar los países o regiones, seleccione **Guarda
 ![Captura de pantalla que muestra los CÓDIGOS DE PAÍS que se usan para bloquear o permitir países o regiones.](./media/cdn-filtering/cdn-geo-filtering-rules.png)
 
 ### <a name="clean-up-resources"></a>Limpieza de recursos
+
 Para eliminar una regla, selecciónela de la lista en la página **Filtrado geográfico** y luego elija **Eliminar**.
 
 ## <a name="azure-cdn-premium-from-verizon-profiles"></a>Perfiles de Azure CDN Premium de Verizon
-En los perfiles de **Azure CDN Premium de Verizon**, la interfaz de usuario para crear una regla de filtrado geográfico es diferente:
+
+En los perfiles de **Azure CDN Prémium de Verizon**, la interfaz de usuario para crear una regla de filtrado geográfico es diferente:
 
 1. En el menú superior del perfil de Azure CDN, seleccione **Administrar**.
 
 2. En el portal de Verizon, seleccione **HTTP Large** (HTTP grande) y, luego, **Country Filtering** (Filtrado de países).
 
-    ![Captura de pantalla que muestra cómo seleccionar el filtrado de países en Azure CDN.](./media/cdn-filtering/cdn-geo-filtering-premium.png)
-
+    :::image type="content" source="./media/cdn-filtering/cdn-geo-filtering-premium.png" alt-text="Captura de pantalla que muestra cómo seleccionar el filtrado de países en Azure CDN" border="true":::
+  
 3. Seleccione **Add Country Filter** (Agregar filtro de país).
 
-    Aparece la página **Step One:** (Paso 1:).
+4. En el **paso uno:** , escriba la ruta de acceso del directorio. Seleccione **Bloquear** o **Agregar** y, después, seleccione **Siguiente**.
 
-4. Escriba la ruta de acceso al directorio, seleccione **Block** (Bloquear) o **Add** (Agregar) y, luego, seleccione **Next** (Siguiente).
-
-    Aparece la página **Step Two:** (Paso 2:). 
-
-5. Seleccione uno o varios países o regiones de la lista y, luego, seleccione **Finalizar** para activar la regla. 
+    > [!IMPORTANT]
+    > El nombre del punto de conexión debe estar en la ruta de acceso.  Ejemplo: **/myendpoint8675/MyFolder**.  Reemplace **myendpoint8675** por el nombre del punto de conexión.
+    > 
+    
+5. En el **paso dos**, seleccione uno o varios países o regiones de la lista. Seleccione **Finalizar** para activar la regla. 
     
     La nueva regla aparece en la tabla en la página **Country Filtering** (Filtrado de países).
-
-    ![Captura de pantalla que muestra dónde aparece la regla en el filtrado de países.](./media/cdn-filtering/cdn-geo-filtering-premium-rules.png)
-
+    
+    :::image type="content" source="./media/cdn-filtering/cdn-geo-filtering-premium-rules.png" alt-text="Captura de pantalla que muestra dónde aparece la regla en el filtrado de países." border="true":::
+ 
 ### <a name="clean-up-resources"></a>Limpieza de recursos
 En la tabla de reglas de filtrado de países o regiones, seleccione el icono de eliminación situado junto a una regla para eliminarla o el icono de edición para modificarla.
 
@@ -104,7 +104,7 @@ En la tabla de reglas de filtrado de países o regiones, seleccione el icono de 
    * En los perfiles de **Azure CDN estándar**, la propagación normalmente se completa en un minuto. 
    * En los perfiles **Azure CDN Estándar de Verizon** y **Azure CDN Premium de Verizon**, la propagación se completa normalmente en 10 minutos. 
  
-* Esta característica no admite caracteres comodín (por ejemplo, ‘*’).
+* Esta característica no admite caracteres comodín (por ejemplo, *).
 
 * La configuración de filtrado geográfico asociada a la ruta de acceso relativa se aplica de forma recursiva a esa ruta.
 

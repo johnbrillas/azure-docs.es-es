@@ -13,15 +13,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/20/2020
+ms.date: 01/18/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3e99b3a8960eb49856e9a016eb054eed41eccde9
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: b4cf2e79acf4cd58ff94a2e90f07202341672a1d
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965262"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98569443"
 ---
 # <a name="azure-virtual-machines-oracle-dbms-deployment-for-sap-workload"></a>Implementación de DBMS de Oracle de Azure Virtual Machines para la carga de trabajo de SAP
 
@@ -445,15 +445,19 @@ En este caso, se recomienda instalar/ubicar Oracle Home, Stage, `saptrace`, `sap
 
 ### <a name="storage-configuration"></a>Configuración de almacenamiento
 
-Los sistemas de archivos ext4, xfs u Oracle ASM se admiten para los archivos de Oracle Database en Azure. Todos los archivos de la base de datos se deben almacenar en estos sistemas de archivos basados en discos VHD o Managed Disks. Estos discos se montan en la máquina virtual de Azure y se basan en [Azure Page BLOB Storage](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) o en [Azure Managed Disks](../../managed-disks-overview.md).
+Los sistemas de archivos de ext4, xfs y NFSv 4.1 [solo en Azure NetApp Files (ANF)] u Oracle ASM (consulte la nota de SAP [#2039619](https://launchpad.support.sap.com/#/notes/2039619) para conocer los requisitos de versión) son compatibles con los archivos de Oracle Database en Azure. Todos los archivos de la base de datos se deben almacenar en estos sistemas de archivos en VHD, Managed Disks o Azure NetApp Files. Estos discos se montan en la máquina virtual de Azure y se basan en [Azure Page Blob Storage](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs), [Azure Managed Disks](../../managed-disks-overview.md) o [Azure NetApp Files](https://azure.microsoft.com/services/netapp/).
 
-Para los kernels de Oracle Linux UEK, se requiere como mínimo la versión 4 de UEK para que sea compatible con los [discos SSD Azure Premium](../../premium-storage-performance.md#disk-caching).
+Estos son los requisitos mínimos: 
+
+- Para los kernels de Oracle Linux UEK, se requiere como mínimo la versión 4 de UEK para que sea compatible con los [discos SSD Azure Premium](../../premium-storage-performance.md#disk-caching).
+- Para Oracle con Azure NetApp Files, la versión mínima admitida de Oracle Linux es la 8.2.
+- Para Oracle con Azure NetApp Files, la versión mínima admitida de Oracle es la 19c (19.8.0.0).
 
 Consulte el artículo [Tipos de Azure Storage para una carga de trabajo de SAP](./planning-guide-storage.md) para obtener más detalles sobre los tipos de almacenamiento de bloque de Azure específicos adecuados para la carga de trabajo de DBMS.
 
-Se recomienda encarecidamente el uso de [Azure Managed Disks](../../managed-disks-overview.md). También se recomienda encarecidamente usar [discos SSD Azure Premium](../../disks-types.md) para las implementaciones de Oracle Database.
+Si se usa Azure Block Storage, se recomienda encarecidamente utilizar [Azure Managed Disks](../../managed-disks-overview.md) y [SSD Prémium de Azure](../../disks-types.md) para las implementaciones de Oracle Database.
 
-Las unidades de red o los recursos compartidos remotos, como los servicios de archivos de Azure, no son compatibles con los archivos de Oracle Database. Para obtener más información, vea lo siguiente: 
+Salvo Azure NetApp Files, los restantes discos compartidos, unidades de red o recursos compartidos remotos, como Azure File Services (AFS), no son compatibles con los archivos de Oracle Database. Para obtener más información, vea lo siguiente: 
 
 - [Introducing Microsoft Azure File Service (Introducción al servicio de archivos de Microsoft Azure)](/archive/blogs/windowsazurestorage/introducing-microsoft-azure-file-service)
 
@@ -469,10 +473,10 @@ Configuración mínima:
 
 | Componente | Disco | Almacenamiento en memoria caché | Recorte* |
 | --- | ---| --- | --- |
-| /oracle/\<SID>/origlogaA & mirrlogB | Disco Premium o Ultra | None | No es necesario |
-| /oracle/\<SID>/origlogaB & mirrlogA | Disco Premium o Ultra | None | No es necesario |
-| /oracle/\<SID>/sapdata1...n | Disco Premium o Ultra | Solo lectura | Se puede usar para Premium. |
-| /oracle/\<SID>/oraarch | Estándar | None | No es necesario |
+| /oracle/\<SID>/origlogaA & mirrlogB | Prémium, Disco Ultra o ANF | None | No es necesario |
+| /oracle/\<SID>/origlogaB & mirrlogA | Prémium, Disco Ultra o ANF | None | No es necesario |
+| /oracle/\<SID>/sapdata1...n | Prémium, Disco Ultra o ANF | Solo lectura | Se puede usar para Premium. |
+| /oracle/\<SID>/oraarch | Estándar o ANF | None | No es necesario |
 | Oracle Home, `saptrace`, ... | Disco del sistema operativo (Premium) | | No es necesario |
 
 *Eliminación: franja LVM o MDADM mediante RAID0
@@ -483,13 +487,13 @@ Configuración del rendimiento:
 
 | Componente | Disco | Almacenamiento en memoria caché | Recorte* |
 | --- | ---| --- | --- |
-| /oracle/\<SID>/origlogaA | Disco Premium o Ultra | Ninguno | Se puede usar para Premium.  |
-| /oracle/\<SID>/origlogaB | Disco Premium o Ultra | Ninguno | Se puede usar para Premium. |
-| /oracle/\<SID>/mirrlogAB | Disco Premium o Ultra | Ninguno | Se puede usar para Premium. |
-| /oracle/\<SID>/mirrlogBA | Disco Premium o Ultra | Ninguno | Se puede usar para Premium. |
-| /oracle/\<SID>/sapdata1...n | Disco Premium o Ultra | Solo lectura | Recomendado para Premium  |
-| /oracle/\<SID>/sapdata(n+1)* | Disco Premium o Ultra | Ninguno | Se puede usar para Premium. |
-| /oracle/\<SID>/oraarch* | Disco Premium o Ultra | None | No es necesario |
+| /oracle/\<SID>/origlogaA | Prémium, Disco Ultra o ANF | Ninguno | Se puede usar para Premium.  |
+| /oracle/\<SID>/origlogaB | Prémium, Disco Ultra o ANF | Ninguno | Se puede usar para Premium. |
+| /oracle/\<SID>/mirrlogAB | Prémium, Disco Ultra o ANF | Ninguno | Se puede usar para Premium. |
+| /oracle/\<SID>/mirrlogBA | Prémium, Disco Ultra o ANF | Ninguno | Se puede usar para Premium. |
+| /oracle/\<SID>/sapdata1...n | Prémium, Disco Ultra o ANF | Solo lectura | Recomendado para Premium  |
+| /oracle/\<SID>/sapdata(n+1)* | Prémium, Disco Ultra o ANF | Ninguno | Se puede usar para Premium. |
+| /oracle/\<SID>/oraarch* | Prémium, Disco Ultra o ANF | None | No es necesario |
 | Oracle Home, `saptrace`, ... | Disco del sistema operativo (Premium) | No es necesario |
 
 *Eliminación: franja LVM o MDADM mediante RAID0
@@ -500,6 +504,10 @@ Configuración del rendimiento:
 
 
 Si se requieren más IOPS al usar Azure Premium Storage, se recomienda usar LVM (administrador de volúmenes lógicos) o MDADM para crear un volumen lógico de gran tamaño en varios discos montados. Para más información, consulte el documento [Consideraciones para la implementación de DBMS de Azure Virtual Machines para la carga de trabajo de SAP](dbms_guide_general.md) en relación con las directrices e indicadores sobre cómo aprovechar LVM o MDADM. Este enfoque simplifica la sobrecarga de administración para administrar el espacio en disco y ayuda a evitar el esfuerzo de distribuir archivos manualmente en varios discos montados.
+
+Si planea usar Azure NetApp Files, asegúrese de que el cliente de dNFS está configurado correctamente. El uso de dNFS es obligatorio para tener un entorno compatible. En el artículo en que se explica [cómo crear una instancia de Oracle Database en Direct NFS](https://docs.oracle.com/en/database/oracle/oracle-database/19/ntdbi/creating-an-oracle-database-on-direct-nfs.html#GUID-2A0CCBAB-9335-45A8-B8E3-7E8C4B889DEA), encontrará la información necesaria para configurar dNFS.
+
+En el blog sobre la [implementación de SAP AnyDB (Oracle 19c) con Azure NetApp Files](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/deploy-sap-anydb-oracle-19c-with-azure-netapp-files/ba-p/2064043), encontrará un ejemplo en el que se muestra el uso de Azure NetApp Files para bases de datos de Oracle.
 
 
 #### <a name="write-accelerator"></a>Acelerador de escritura

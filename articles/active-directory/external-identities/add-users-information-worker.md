@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 352d5218f91fa55134a7515b6aeee49857847468
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 345cbe2efb644fe2b84d4a6021ff962337e29285
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96173216"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219919"
 ---
 # <a name="how-users-in-your-organization-can-invite-guest-users-to-an-app"></a>¿Cómo pueden los usuarios de la organización invitar a usuarios invitados a una aplicación?
 
@@ -28,8 +28,8 @@ Una vez que se haya agregado un usuario invitado al directorio en Azure AD, un p
  - Configure la aplicación para el autoservicio y asigne el grupo a la aplicación
 
 > [!NOTE]
-> En este artículo se describe cómo configurar la administración autoservicio para la galería y las aplicaciones basadas en SAML que ha agregado al inquilino de Azure AD. También puede [configurar grupos de autoservicio de Microsoft 365](../enterprise-users/groups-self-service-management.md) para que los usuarios puedan administrar el acceso a sus propios grupos de Microsoft 365. Para conocer más formas en las que los usuarios pueden compartir sus archivos y aplicaciones, consulte [Agregar invitados a grupos de Microsoft 365](https://support.office.com/article/guest-access-in-office-365-groups-bfc7a840-868f-4fd6-a390-f347bf51aff6) y [Uso compartido de archivos o carpetas de SharePoint](https://support.office.com/article/share-sharepoint-files-or-folders-1fe37332-0f9a-4719-970e-d2578da4941c).
-
+> * En este artículo se describe cómo configurar la administración autoservicio para la galería y las aplicaciones basadas en SAML que ha agregado al inquilino de Azure AD. También puede [configurar grupos de autoservicio de Microsoft 365](../enterprise-users/groups-self-service-management.md) para que los usuarios puedan administrar el acceso a sus propios grupos de Microsoft 365. Para conocer más formas en las que los usuarios pueden compartir sus archivos y aplicaciones, consulte [Agregar invitados a grupos de Microsoft 365](https://support.office.com/article/guest-access-in-office-365-groups-bfc7a840-868f-4fd6-a390-f347bf51aff6) y [Uso compartido de archivos o carpetas de SharePoint](https://support.office.com/article/share-sharepoint-files-or-folders-1fe37332-0f9a-4719-970e-d2578da4941c).
+> * Los usuarios solo pueden realizar invitaciones si tienen el rol **Invitador de usuarios invitados**.
 ## <a name="invite-a-guest-user-to-an-app-from-the-access-panel"></a>Invitación a un usuario invitado a una aplicación desde el panel de acceso
 
 Después de configurar una aplicación para el autoservicio, los propietarios de la aplicación pueden usar su propio panel de acceso para invitar a un usuario invitado a la aplicación que desean compartir. No es necesario que se agregue el usuario invitado a Azure AD con antelación. 

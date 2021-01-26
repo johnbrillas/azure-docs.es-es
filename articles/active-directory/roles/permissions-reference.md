@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 568584b849b2c5977d4bbb6216697dce3c498cfd
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: 62fb239fd9cb8c1817dea5ab5c22684a65955ed5
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98107929"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98555736"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permisos de roles de administrador en Azure Active Directory
 
@@ -56,7 +56,7 @@ Los roles de administrador disponibles son los siguientes:
 
 los usuarios con este rol pueden crear y administrar todos los aspectos de las aplicaciones empresariales, los registros de aplicaciones y la configuración del proxy de aplicación. Tenga en cuenta que los usuarios asignados a este rol no se agregan como propietarios al crear nuevos registros de aplicaciones o aplicaciones empresariales.
 
-Este rol proporciona igualmente la capacidad de _dar el consentimiento_ para permisos delegados y permisos de aplicaciones, con la excepción de los permisos relacionados con Microsoft Graph API.
+Este rol proporciona igualmente la capacidad de _dar el consentimiento_ para permisos delegados y permisos de aplicaciones, con la excepción de los permisos de aplicación relacionados con Microsoft Graph API.
 
 > [!IMPORTANT]
 > Esta excepción significa que puede seguir dando su consentimiento a los permisos para _otras_ aplicaciones (por ejemplo, aplicaciones no de Microsoft o de terceros que haya registrado), pero no a los permisos propios de Azure AD. Estos permisos se pueden seguir _solicitando_ como parte del registro de la aplicación, pero para _concederlos_ (es decir, dar su consentimiento a ellos) es necesario ser un administrador de Azure AD. Esto significa que un usuario malintencionado no puede elevar fácilmente sus permisos. Por ejemplo, no podría crear y dar su consentimiento a una aplicación que pueda escribir en todo el directorio y a través de los permisos de esa aplicación elevar sus permisos para convertirse en administrador global.

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/11/2021
+ms.date: 01/19/2021
 ms.author: b-juche
-ms.openlocfilehash: a66b5d59415aad7abf3e8dc95c7498b5d774d640
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: f50cde2fa67351552d1f31500da09a5f800b2bcc
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98071279"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600111"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Arquitecturas de las soluciones con Azure NetApp Files
 En este artículo se proporcionan referencias a los procedimientos recomendados que pueden ayudarle a comprender las arquitecturas de soluciones para usar Azure NetApp Files.  
@@ -77,7 +77,12 @@ En esta sección se proporcionan referencias de soluciones de SAP en Azure.
 * [Escalabilidad horizontal de SAP HANA con nodo en espera en máquinas virtuales de Azure con Azure NetApp Files en SUSE Linux Enterprise Server](../virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse.md)
 * [Escalabilidad horizontal de SAP HANA con nodo en espera en máquinas virtuales de Azure con Azure NetApp Files en Red Hat Enterprise Linux](../virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel.md)
 
+### <a name="sap-anydb"></a>SAP AnyDB
+
+* [Implementación de SAP AnyDB (Oracle 19c) con Azure NetApp Files](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/deploy-sap-anydb-oracle-19c-with-azure-netapp-files/ba-p/2064043)
+
 ### <a name="sap-iq-nls"></a>SAP IQ-NLS
+
 *   [Implementación de la solución de alta disponibilidad SAP IQ-NLS con Azure NetApp Files en SUSE Linux Enterprise Server](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/deploy-sap-iq-nls-ha-solution-using-azure-netapp-files-on-suse/ba-p/1651172#.X2tDfpNzBh4.linkedin)
 
 ### <a name="sap-tech-community-and-blog-posts"></a>Publicaciones de blog y comunidad tecnológica de SAP 

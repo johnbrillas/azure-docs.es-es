@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 08/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c6083dbcc270c0e9dde1da45ed01369d03146237
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 097c97d16cf62793d03ac42662267e0553383bc1
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108973"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539626"
 ---
 # <a name="troubleshoot-the-remote-desktop-client"></a>Solución de problemas del cliente de Escritorio remoto
 
@@ -103,5 +103,6 @@ Si no encuentra el id. de la aplicación 9cdead84-A844-4324-93f2-b2e6bb768d07 en
 - Para obtener información general sobre cómo solucionar problemas de Windows Virtual Desktop y las pistas de escalación, consulte [Introducción, comentarios y soporte técnico para solucionar problemas](troubleshoot-set-up-overview.md).
 - Para solucionar problemas durante la creación de un entorno de Windows Virtual Desktop y de un grupo de hosts de este, consulte [Creación de entorno y grupo de hosts](troubleshoot-set-up-issues.md).
 - Para solucionar problemas al configurar una máquina virtual (VM) en Windows Virtual Desktop, consulte [Configuración de la máquina virtual del host de sesión](troubleshoot-vm-configuration.md).
+- Para solucionar problemas relacionados con el agente de Windows Virtual Desktop o la conectividad de sesión, consulte [Solución de problemas comunes del agente de Windows Virtual Desktop](troubleshoot-agent.md).
 - Para solucionar problemas al usar PowerShell con Windows Virtual Desktop, consulte [PowerShell para Windows Virtual Desktop](troubleshoot-powershell.md).
 - Para realizar un tutorial de solución de problemas, consulte [Tutorial: Solución de problemas de las implementaciones de plantillas de Resource Manager](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).

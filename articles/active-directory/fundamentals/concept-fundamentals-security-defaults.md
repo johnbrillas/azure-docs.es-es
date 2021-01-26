@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 9c912b7122a40ae39bcbb703e1387af25fff2bc8
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: efaf6060c0b09e071546038d9e30f2c8065059e7
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97029913"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600129"
 ---
 # <a name="what-are-security-defaults"></a>¿Cuáles son los valores de seguridad predeterminados?
 
@@ -76,7 +76,7 @@ Se tiende a pensar que las cuentas de administrador son las únicas cuentas que 
 
 Una vez que estos atacantes obtienen acceso, pueden solicitar acceso a información privilegiada en nombre del titular de la cuenta original. Incluso pueden descargar todo el directorio para realizar un ataque de suplantación de identidad (phishing) en toda la organización. 
 
-Un método común para mejorar la protección de todos los usuarios es exigir a todos una forma más estricta de verificación de cuentas, como Multi-Factor Authentication (MFA). Cuando los usuarios finalicen el registro de Multi-Factor Authentication, se les pedirá una autenticación adicional siempre que sea necesario. Esta funcionalidad protege todas las aplicaciones registradas con Azure AD, incluidas las aplicaciones SaaS.
+Un método común para mejorar la protección de todos los usuarios es exigir a todos una forma más estricta de verificación de cuentas, como Multi-Factor Authentication (MFA). Cuando los usuarios finalicen el registro de Multi-Factor Authentication, se les pedirá una autenticación adicional siempre que sea necesario. Se solicitará a los usuarios principalmente cuando se autentiquen mediante un nuevo dispositivo o aplicación, o cuando desempeñen tareas y roles críticos. Esta funcionalidad protege todas las aplicaciones registradas con Azure AD, incluidas las aplicaciones SaaS.
 
 ### <a name="blocking-legacy-authentication"></a>Bloqueo de la autenticación heredada
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: damendo
-ms.openlocfilehash: 5342c4505bd300d1287acba246ca59610f2697bd
-ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
+ms.openlocfilehash: 0d0597c2df8731171505a090de6959d8a112c004
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97858644"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98569987"
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Introducción a la solución de problemas de recursos en Azure Network Watcher
 
@@ -209,7 +209,9 @@ Elapsed Time            330 sec
 ```
 
 ## <a name="considerations"></a>Consideraciones 
+* Solo se puede ejecutar una operación de solución de problemas a la vez por suscripción. Para ejecutar otra operación de solución de problemas, espere a que finalice la anterior. Desencadenar más operaciones si una operación anterior no se ha completado provocará un error en las operaciones posteriores. 
 * Error de la CLI: Si usa la CLI de Azure para ejecutar el comando, la instancia de VPN Gateway y la cuenta de Storage deben estar en el mismo grupo de recursos. Los clientes con recursos de distintos grupos de recursos pueden usar PowerShell o Azure Portal en su lugar.  
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

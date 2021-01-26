@@ -1,23 +1,99 @@
 ---
-title: Cálculo de capacidad y costos
+title: Cálculo de costos
 titleSuffix: Azure Cognitive Search
-description: Revise las instrucciones para estimar la capacidad y administrar los costos del servicio de búsqueda, incluida la infraestructura y las herramientas de Azure, así como las prácticas recomendadas para usar los recursos de manera más eficaz.
+description: Obtenga información acerca de los eventos que se facturan y del modelo de precios, así como sugerencias para administrar el costo de ejecutar un servicio Cognitive Search.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/15/2020
-ms.openlocfilehash: d48ae71a979a2d0f1457b0cefa8a98a02710dd96
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.date: 01/15/2021
+ms.openlocfilehash: 4ad362b983f81e2cdc10cdbccafd8dda951482d7
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97577578"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539556"
 ---
-# <a name="how-to-estimate-capacity-and-costs-of-an-azure-cognitive-search-service"></a>Cómo calcular la capacidad y los costos de un servicio de Azure Cognitive Search
+# <a name="how-to-estimate-and-manage-costs-of-an-azure-cognitive-search-service"></a>Procedimientos para el cálculo y administración de los costos de un servicio Azure Cognitive Search
 
-Como parte del planeamiento de la capacidad de Azure Cognitive Search, las siguientes instrucciones pueden ayudarle a reducir costos o a administrarlos de forma más eficaz:
+En este artículo obtendrá información sobre el modelo de precios y los eventos que se facturan, así como sugerencias para administrar el costo de ejecutar un servicio Azure Cognitive Search.
+
+## <a name="pricing-model"></a>Modelo de precios
+
+La arquitectura de escalabilidad de Azure Cognitive Search se basa en combinaciones flexibles de réplicas y particiones que permiten variar la capacidad en función de si se necesita una mayor potencia de indexación o consulta, y pagar solo por lo que se necesite.
+
+Para determinar el costo del servicio hay que multiplicar la cantidad de recursos que utiliza el servicio de búsqueda por la tarifa de facturación que establece por el nivel de servicio. Los costos y la capacidad están estrechamente enlazados. En el momento de calcular costos, conocer la capacidad necesaria para ejecutar las cargas de trabajo de indexación y consulta permite hacerse una idea muy exacta de cuáles serán los costos previstos.
+
+A efectos de facturación, hay dos fórmulas simples que se deben tener en cuenta:
+
+| Fórmula | Descripción |
+|---------|-------------|
+| **R x P = SU** | Para saber cuántas *unidades de búsqueda* (SU) usa un servicio, hay que multiplicar el número de réplicas usadas por el número de particiones usadas. Una unidad de búsqueda es una unidad de recurso y puede ser una partición o una réplica. |
+| **SU * tarifa de facturación = gasto mensual** | El elemento que tiene más peso al determinar la factura mensual general es el número de unidades de búsqueda multiplicado por la tarifa de facturación del nivel en el que se aprovisionó el servicio. Algunas características o cargas de trabajo tienen dependencias en otros servicios de Azure, lo que puede aumentar el costo de la solución en el nivel de suscripción. La sección de eventos facturables que encontrará a continuación identifica las características que se pueden agregar a una factura. |
+
+Cada servicio se inicia como mínimo con una SU (una réplica multiplicada por una partición). El máximo para cualquier servicio es 36 unidades de búsqueda. Este valor máximo se puede conseguir de varias maneras: por ejemplo, 6 particiones por 6 réplicas, o 3 particiones por 12 réplicas. Es habitual usar menos capacidad total (por ejemplo, un servicio de 3 réplicas y 3 particiones facturado como 9 SU). Vea el gráfico [Combinaciones de particiones y réplicas](search-capacity-planning.md#chart) para ver las combinaciones válidas.
+
+La tarifa de facturación es de una hora por unidad. Cada nivel tiene una tarifa mayor de forma progresiva. Los niveles superiores incluyen particiones mayores y más rápidas, y esto contribuye a un total superior para ese nivel. Puede ver las tarifas de cada nivel en la página [detalles de precios](https://azure.microsoft.com/pricing/details/search/).
+
+La mayoría de los clientes solo ponen en línea una parte de la capacidad total, manteniendo el resto en la reserva. Para la facturación, el número de particiones y réplicas que tiene en línea, calculado mediante la fórmula de SU, determina lo que se paga por hora. 
+
+## <a name="billable-events"></a>Eventos facturables
+
+Una solución basada en Azure Cognitive Search puede incurrir en costos de las siguientes maneras:
+
++ [Costo del propio servicio](#service-costs), que se ejecuta de forma ininterrumpida con una configuración mínima (una partición y una réplica) a la tasa base. Puede considerar esto como el costo fijo de ejecutar el servicio.
+
++ La adición de capacidad (réplicas o particiones), donde los costos aumentan en incrementos de la tarifa facturable. Si la empresa requiere alta disponibilidad, se necesitarán tres réplicas.
+
++ Cargos de ancho de banda (transferencia de datos salientes)
+
++ Servicios complementarios necesarios para funcionalidades o características específicas:
+
+  + Enriquecimiento con inteligencia artificial (requiere [Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/))
+  + almacén de conocimiento (requiere [Azure Storage](https://azure.microsoft.com/pricing/details/storage/))
+  + enriquecimiento incremental (requiere [Azure Storage](https://azure.microsoft.com/pricing/details/storage/), se aplica al enriquecimiento con inteligencia artificial)
+  + claves administradas por el cliente y cifrado doble (requiere [Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/))
+  + puntos de conexión privados para un modelo de acceso sin Internet (requiere [Azure Private Link](https://azure.microsoft.com/pricing/details/private-link/))
+
+### <a name="service-costs"></a>Costos de servicio
+
+A diferencia de las máquinas virtuales u otros recursos que se pueden "pausar" para evitar cargos, un servicio de Azure Cognitive Search siempre está disponible en el hardware dedicado para su uso exclusivo. Así, la creación de un servicio es un evento facturable que se inicia cuando se crea el servicio y termina cuando se elimina este. 
+
+El cargo mínimo es la primera unidad de búsqueda (una réplica x una partición) a la tasa facturable. Este valor mínimo es fijo durante la vigencia del servicio porque el servicio no se puede ejecutar en ninguna otra configuración menor que esta. 
+
+Más allá del mínimo, puede agregar réplicas y particiones por separado. Los aumentos incrementales de la capacidad mediante réplicas y particiones aumentan la factura en función de la siguiente fórmula: **(réplicas x particiones x tarifa de facturación)** , donde la tarifa que se le cobra depende del plan que seleccione.
+
+Al calcular el costo de una solución de búsqueda, tenga en cuenta que los precios y la capacidad no son lineales (la duplicación de la capacidad, supone más del doble de costo). Para ver un ejemplo de cómo funciona la fórmula, eche un vistazo a [Cómo asignar particiones y réplicas](search-capacity-planning.md#how-to-allocate-replicas-and-partitions).
+
+### <a name="bandwidth-charges"></a>Cargos de ancho de banda
+
+El uso de [indexadores](search-indexer-overview.md) puede afectar a la facturación si el origen de datos de Azure está en una región diferente de Azure Cognitive Search. En este escenario, mover datos salientes desde el origen de datos de Azure a Azure Cognitive Search puede implicar un costo. Para más información, consulte las páginas de precios de la plataforma de datos de Azure en cuestión.
+
+Puede eliminar por completo los cargos de salida de datos si crea el servicio Azure Cognitive Search en la misma región que los datos. Para saber más, eche un vistazo a la [página de precios de ancho de banda](https://azure.microsoft.com/pricing/details/bandwidth/):
+
++ Datos de entrada: Microsoft no cobra por los datos de entrada a ningún servicio de Azure. 
+
++ Datos de salida:  los datos de salida son los resultados de la consulta. Cognitive Search no cobra los datos de salida, pero Azure puede cobrarlos si los servicios se encuentran en regiones diferentes.
+
+  Estos cargos realmente no forman parte de la factura de Azure Cognitive Search. Se mencionan aquí porque si los resultados se envían a otras regiones o aplicaciones que no son de Azure, podría ver los costos reflejados en la factura global.
+
+### <a name="ai-enrichment-with-cognitive-services"></a>Enriquecimientos de inteligencia artificial con Cognitive Services
+
+Para el [enriquecimiento de inteligencia artificial](cognitive-search-concept-intro.md), debe planear [asociar un recurso facturable de Azure Cognitive Services](cognitive-search-attach-cognitive-services.md), en la misma región que Azure Cognitive Search, en el plan de tarifa S0 para el procesamiento de pago por uso. No hay ningún costo fijo por asociar Cognitive Services. Solo se paga por el procesamiento que necesita.
+
+| Operación | Impacto en la facturación |
+|-----------|----------------|
+| Descifrado de documentos, extracción de texto | Gratuito |
+| Descifrado de documentos, extracción de imágenes | Se factura según el número de imágenes extraídas de los documentos. En una [configuración de indexador](/rest/api/searchservice/create-indexer#indexer-parameters), **imageAction** es el parámetro que desencadena la extracción de imágenes. Si **imageAction** está establecido en "none" (valor predeterminado), no se le cobrará por la extracción de imágenes. La tarifa por extracción de imágenes está documentada en la página de [detalles de precios](https://azure.microsoft.com/pricing/details/search/) de Azure Cognitive Search.|
+| [Aptitudes cognitivas integradas](cognitive-search-predefined-skills.md) | Se facturan a la misma tarifa que si se hubiera realizado la tarea mediante Cognitive Services directamente. |
+| Aptitudes personalizadas | Una aptitud personalizada es funcionalidad que proporciona el usuario. El costo de usar una aptitud personalizada depende completamente de si el código personalizado está llamando a otros servicios de uso medido. |
+
+La característica [enriquecimiento incremental (versión preliminar)](cognitive-search-incremental-indexing-conceptual.md) le posibilita proporcionar una memoria caché que permite que el indexador sea más eficaz al ejecutar solo las aptitudes cognitivas necesarias si modifica el conjunto de aptitudes en el futuro, lo que le ahorra tiempo y dinero.
+
+## <a name="tips-for-managing-costs"></a>Sugerencias para administrar costos
+
+Las siguientes instrucciones pueden ayudarle a reducir costos, o al menos a administrarlos de forma más eficaz:
 
 + Cree todos los recursos en la misma región, o en el menor número de regiones posible, para minimizar o eliminar los cargos de ancho de banda.
 
@@ -27,98 +103,15 @@ Como parte del planeamiento de la capacidad de Azure Cognitive Search, las sigui
 
 + Escale verticalmente las operaciones que consumen muchos recursos, como la indización, y vuelva a ajustar hacia abajo para las cargas de trabajo de consulta normales. Comience con la configuración mínima de Azure Cognitive Search (una SU compuesta de una partición y una réplica) y luego supervise la actividad de los usuarios para identificar patrones de uso que indiquen la necesidad de más capacidad. Si hay un patrón predecible, es posible que pueda sincronizar la escala con la actividad (necesitaría escribir código para automatizar esto).
 
-Los eventos facturables, la fórmula de facturación y la tarifa facturable se explican en [Elección de un plan de tarifa](search-sku-tier.md). Asimismo, puede consultar [Facturación y administración de costos](../cost-management-billing/cost-management-billing-overview.md) para ver las herramientas y características integradas relacionadas con los gastos.
++ Cost Management está integrado en la infraestructura de Azure. En el artículo sobre [Facturación y administración de costos](../cost-management-billing/cost-management-billing-overview.md) encontrará más información sobre el seguimiento de costos, así como sobre las herramientas y API disponibles para tal fin.
 
 No es posible quitar un servicio de búsqueda de forma temporal. Los recursos dedicados siempre están operativos y se asignan para su uso exclusivo mientras el servicio esté vigente. La eliminación de un servicio es permanente y también elimina los datos asociados.
 
 En lo que respecta al propio servicio, la única manera de reducir la factura es reducir las réplicas y las particiones a un nivel que aún proporcione rendimiento aceptable y [cumplimiento del SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/), o crear un servicio en un nivel inferior (las tarifas por hora de S1 son inferiores a las de S2 o S3). Supongamos que aprovisiona su servicio con la menor de las previsiones de carga; si se supera el servicio, puede crear un segundo servicio con un nivel mayor, regenerar los índices en el segundo servicio y eliminar el primero.
 
-## <a name="how-to-evaluate-capacity-requirements"></a>Cómo evaluar los requisitos de capacidad
-
-En Azure Cognitive Search, la capacidad se estructura como *réplicas* y *particiones*.
-
-+ Las réplicas son instancias del servicio de búsqueda. Cada réplica hospeda una copia de carga equilibrada de un índice. Por ejemplo, un servicio con seis réplicas tiene seis copias de todos los índices cargados en el servicio.
-
-+ Las particiones almacenan índices y dividen automáticamente los datos utilizables en búsquedas. Dos particiones dividen el índice por la mitad; tres particiones lo dividen en tercios y así sucesivamente. En términos de capacidad, el *tamaño de partición* es la principal característica diferenciadora entre niveles.
-
-> [!NOTE]
-> Todos los niveles Estándar y Almacenamiento optimizado admiten [combinaciones flexibles de réplicas y particiones](search-capacity-planning.md#chart) para que pueda [optimizar el sistema para velocidad o para almacenamiento](search-performance-optimization.md) con solo cambiar el equilibrio. El nivel Básico ofrece hasta tres réplicas para alta disponibilidad, pero solo tiene una partición. El nivel Gratis no proporciona recursos dedicados: los recursos de cálculo se comparten entre varios suscriptores.
-
-### <a name="evaluating-capacity"></a>Evaluar la capacidad
-
-La capacidad y los costos de ejecución del servicio están relacionados. Los planes de tarifa imponen límites en dos niveles: almacenamiento y contenido (número de índices, por ejemplo). Debe tener en cuenta estos dos aspectos, porque el límite real será el que se alcance primero.
-
-Los requisitos empresariales suelen imponer el número de índices que se necesitará. Por ejemplo, podría necesitar un índice global para un repositorio de documentos de gran tamaño. O podría necesitar varios índices en función de la región, la aplicación o el nicho de negocio.
-
-Para determinar el tamaño de un índice, tendrá que [crear uno](search-what-is-an-index.md). Su tamaño se basará en los datos importados y en la configuración del índice, por ejemplo, si habilita los proveedores de sugerencias, el filtrado y la ordenación.
-
-Para la búsqueda de texto completo, la estructura de datos principal es una estructura de [índice invertido](https://en.wikipedia.org/wiki/Inverted_index), que tiene características diferentes de los datos de origen. Para un índice invertido, el tamaño y la complejidad vienen determinados por el contenido, y no necesariamente por la cantidad de datos que se incorporan. Un origen de datos de gran tamaño con mucha redundancia podría dar lugar a un índice más pequeño que un conjunto de datos más pequeño que incluya contenido muy variable. Así que es poco probable deducir el tamaño del índice en función del tamaño del conjunto de datos original.
-
-> [!NOTE] 
-> Aunque el cálculo de las necesidades futuras de índices y almacenamiento se hace a partir de suposiciones, vale la pena hacerlo. Si la capacidad de un nivel resulta demasiado baja, tendrá que aprovisionar un nuevo servicio en un nivel superior y luego [volver a cargar los índices](search-howto-reindex.md). No existe ninguna actualización local de un servicio de un nivel a otro.
->
-
-## <a name="estimate-with-the-free-tier"></a>Estimación con el nivel Gratis
-
-Un enfoque para calcular la capacidad es empezar con el nivel Gratis. Recuerde que el servicio Gratis ofrece hasta 3 índices, 50 MB de almacenamiento y 2 minutos de tiempo de indexación. Puede resultar complicado calcular un tamaño de índice proyectado con estas restricciones, pero estos son los pasos:
-
-+ [Cree un servicio gratuito](search-create-service-portal.md).
-+ Prepare un conjunto de datos pequeño y representativo.
-+ [Genere un índice inicial en el portal](search-get-started-portal.md) y anote su tamaño. Las características y los atributos afectan al almacenamiento. Por ejemplo, al agregar proveedores de sugerencias (consultas al escribir), aumentan los requisitos de almacenamiento. Con el mismo conjunto de datos, puede intentar crear varias versiones de un índice, con atributos diferentes en cada campo, para ver cómo varían los requisitos de almacenamiento. Para obtener más información, vea ["Implicaciones de almacenamiento" en Creación de un índice básico](search-what-is-an-index.md#index-size).
-
-Con una estimación aproximada, podría doblar esa cantidad a fin de presupuestar dos índices (desarrollo y producción) y luego elegir el nivel en consecuencia.
-
-## <a name="estimate-with-a-billable-tier"></a>Estimación con un nivel facturable
-
-Los recursos dedicados pueden adaptarse a mayores tiempos de muestreo y procesamiento para realizar estimaciones más realistas de cantidad de índices, tamaño y volúmenes de consulta durante el desarrollo. Algunos clientes pasan directamente a un nivel facturable y luego reevalúan a medida que el proyecto de desarrollo madura.
-
-1. [Revise los límites del servicio en cada nivel](./search-limits-quotas-capacity.md#index-limits) para determinar si los niveles más bajos pueden admitir la cantidad de índices que necesita. En los niveles Básico, S1 y S2, los límites de índices son 15, 50 y 200 respectivamente. El nivel Almacenamiento optimizado tiene un límite de 10 índices porque se ha diseñado para admitir un número reducido de índices muy grandes.
-
-1. [Cree un servicio en un nivel facturable](search-create-service-portal.md):
-
-    + Comience por abajo, en Básico o S1, si no está seguro de la carga proyectada.
-    + Empiece por arriba, con un nivel S2 o incluso S3, si sabe que va a tener cargas de consulta e indexación a gran escala.
-    + Empiece con Almacenamiento optimizado, en L1 o L2, si va a indexar una gran cantidad de datos y la carga de consultas es relativamente baja, como con una aplicación empresarial interna.
-
-1. [Genere un índice inicial](search-what-is-an-index.md) para determinar cómo se traducen los datos de origen a un índice. Esta es la única manera de calcular el tamaño del índice.
-
-1. [Supervise el almacenamiento, los límites del servicio, el volumen de consultas y la latencia](search-monitor-usage.md) en el portal. El portal muestra las consultas por segundo, las consultas limitadas y la latencia de búsqueda. Todos estos valores pueden ayudarle a decidir si ha seleccionado el nivel correcto. 
-
-El tamaño y la cantidad de índices son igualmente importantes para el análisis. Esto es así porque se alcanzan los límites máximos al usar por completo el almacenamiento (particiones) o al agotar todos los recursos (índices, indexadores, etc.), lo que ocurra primero. El portal le ayuda a realizar un seguimiento de ambos, mostrando el uso actual y los límites máximos en paralelo en la página Información general.
-
-> [!NOTE]
-> Los requisitos de almacenamiento pueden parecer excesivos si los documentos contienen datos extraños. Lo ideal es que los documentos contengan solo los datos que necesita para la experiencia de búsqueda. No es posible realizar búsquedas en datos binarios, así que deben almacenarse por separado (quizás en Azure Blob Storage o en una tabla de Azure). Después hay que agregar un campo en el índice para mantener una referencia de URL a los datos externos. El tamaño máximo de un documento individual es 16 MB (o menos si va a cargar de forma masiva varios documentos en una sola solicitud). Para más información, vea [Límites de servicio en Azure Cognitive Search](search-limits-quotas-capacity.md).
->
-
-**Consideraciones del volumen de consultas**
-
-Las consultas por segundo (QPS) son una medida importante durante la optimización del rendimiento, pero solo suele ser una consideración de nivel si espera un volumen elevado de consultas desde el principio.
-
-El nivel Estándar puede proporcionar un equilibrio entre réplicas y particiones. Puede aumentar el tiempo de respuesta de las consultas mediante la adición de réplicas para el equilibrio de carga o agregar particiones para el procesamiento paralelo. Luego puede ajustar el rendimiento después de aprovisionar el servicio.
-
-Si prevé grandes volúmenes de consultas sostenidos desde el principio, considere la opción de los niveles Estándar superiores, respaldados por un hardware más potente. Luego puede desconectar particiones y réplicas, o incluso cambiar a un servicio de nivel inferior, si no llega a tener los volúmenes de consultas previstos. Para más información sobre cómo calcular el rendimiento de las consultas, consulte [Rendimiento y optimización de Azure Cognitive Search](search-performance-optimization.md).
-
-El nivel Almacenamiento optimizado es útil para cargas de trabajo de datos de gran tamaño, ya que admite más almacenamiento de índice general disponible para cuando los requisitos de latencia de consulta sean menos importantes. Tendrá que seguir usando réplicas adicionales para el equilibrio de carga y particiones adicionales para el procesamiento paralelo. Luego puede ajustar el rendimiento después de aprovisionar el servicio.
-
-**Contratos de nivel de servicio**
-
-El nivel Gratis y las características en vista previa no ofrecen [contratos de nivel de servicio (SLA)](https://azure.microsoft.com/support/legal/sla/search/v1_0/). Para todos los niveles facturables, los SLA tomarán efecto cuando se aprovisione suficiente redundancia para el servicio. Necesitará dos o más réplicas para los SLA de consulta (lectura). Necesitará tres o más réplicas para los SLA de consulta e indización (lectura-escritura). El número de particiones no afecta a los SLA.
-
-## <a name="tips-for-tier-evaluation"></a>Sugerencias para la evaluación de nivel
-
-+ Cree métricas sobre las consultas y recopile datos sobre los patrones de uso (consultas durante el horario laboral, indexación durante las horas de menor uso). Use estos datos para respaldar las decisiones de aprovisionamiento del servicio. Aunque no resulta práctico en una cadencia horaria o diaria, puede ajustar dinámicamente las particiones y los recursos para adaptar los cambios planeados en el volumen de consultas. También puede adaptar los cambios no planeados pero sostenidos si los niveles se mantienen lo suficiente para garantizar que se puedan realizar acciones.
-
-+ Recuerde que la única desventaja de un aprovisionamiento inferior es que es posible que deba anular un servicio si los requisitos reales son mayores que los que había previsto. Para evitar la interrupción del servicio, se crea un nuevo servicio en un nivel superior y se ejecuta en paralelo hasta que todas las solicitudes y las aplicaciones se dirijan al nuevo punto de conexión.
-
 ## <a name="next-steps"></a>Pasos siguientes
 
-Comience con un nivel Gratis y cree un índice inicial usando un subconjunto de los datos para comprender sus características. La estructura de datos de Azure Cognitive Search es una estructura de índice invertido. El tamaño y la complejidad de un índice invertido vienen determinados por el contenido. Recuerde que un contenido de gran redundancia tiende a producir un índice más pequeño que el contenido de alta irregularidad. Por tanto, son las características del contenido más que el tamaño del conjunto de datos lo que determina los requisitos de almacenamiento de índices.
+Aprenda a supervisar y administrar los costos de su suscripción de Azure.
 
-Una vez que tenga un cálculo inicial del tamaño del índice, [aprovisione un servicio facturable](search-create-service-portal.md) en uno de los niveles que hemos descrito en este artículo: Básico, Estándar o Almacenamiento optimizado. Rebaje cualquier restricción artificial sobre el tamaño de los datos y [recompile el índice](search-howto-reindex.md) para que incluya todos los datos sobre los que quiera realizar búsquedas.
-
-[Asigne particiones y réplicas](search-capacity-planning.md) según sea necesario para obtener el rendimiento y la escala que necesite.
-
-Si la capacidad y el rendimiento son válidos, ya estará listo. En caso contrario, vuelva a crear un servicio de búsqueda en otro nivel que se adapte más estrechamente a sus necesidades.
-
-> [!NOTE]
-> Si tiene alguna duda, puede publicarla en [StackOverflow](https://stackoverflow.com/questions/tagged/azure-search) o [ponerse en contacto con el Soporte técnico de Azure](https://azure.microsoft.com/support/options/).
+> [!div class="nextstepaction"]
+> [Documentación de Azure Cost Management y facturación](../cost-management-billing/cost-management-billing-overview.md)

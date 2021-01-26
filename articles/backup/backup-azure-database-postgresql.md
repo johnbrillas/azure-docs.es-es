@@ -4,12 +4,12 @@ description: Más información sobre la copia de seguridad de Azure Database for
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.custom: references_regions
-ms.openlocfilehash: 32837e5bb871f7db5024569efc27940047aeacd7
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.openlocfilehash: 628f43788c11558185a7b8a735373f0a663fdad1
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97734647"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98569494"
 ---
 # <a name="azure-database-for-postgresql-backup-with-long-term-retention-preview"></a>Copia de seguridad de Azure Database for PostgreSQL con retención a largo plazo (versión preliminar)
 
@@ -135,7 +135,7 @@ Las siguientes instrucciones son una guía paso a paso para configurar la copia 
 
 1. Defina la configuración de **Retención**. Puede agregar una o varias reglas de retención. En cada regla de retención se suponen entradas para copias de seguridad específicas, así como el almacén de datos y el tiempo que se retienen esas copias de seguridad.
 
-1. Puede optar por almacenar las copias de seguridad en uno de los dos almacenes de datos (o niveles): **Almacén de datos de copia de seguridad** (nivel de acceso frecuente) o **Almacén de datos de archivo** (en versión preliminar). Puede elegir entre **dos opciones de niveles** para definir cuándo las copias de seguridad se dividen en niveles entre los dos almacenes de datos:
+1. Puede optar por almacenar las copias de seguridad en uno de los dos almacenes de datos (o niveles): **Almacén de datos de copia de seguridad** (nivel estándar) o **Almacén de datos de archivo** (en versión preliminar). Puede elegir entre **dos opciones de niveles** para definir cuándo las copias de seguridad se dividen en niveles entre los dos almacenes de datos:
 
     - Elija la opción **Inmediatamente** si prefiere tener una copia de seguridad en los almacenes de datos de copia de seguridad y de archivo simultáneamente.
     - Elija la opción **On-expiry** (Al expirar) si prefiere trasladar la copia de seguridad al almacén de datos de archivo cuando expire en el almacén de datos de copia de seguridad.

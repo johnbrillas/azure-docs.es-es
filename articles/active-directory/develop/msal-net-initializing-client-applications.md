@@ -13,12 +13,12 @@ ms.date: 09/18/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: fd836afd6b8574be71ad22d26d67f49971834a88
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 6616b0573019703f287d3be521569f5953aeb032
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98064732"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600293"
 ---
 # <a name="initialize-client-applications-using-msalnet"></a>Inicialización de aplicaciones cliente con MSAL.NET
 En este artículo se describe la inicialización de aplicaciones cliente confidenciales y públicas mediante la Biblioteca de autenticación de Microsoft para .NET (MSAL.NET).  Para obtener más información sobre los tipos de aplicaciones cliente y las opciones de configuración de la aplicación, lea la [Introducción](msal-client-applications.md).
@@ -166,3 +166,12 @@ app = PublicClientApplicationBuilder.Create(clientId)
         .WithB2CAuthority("https://fabrikamb2c.b2clogin.com/tfp/{tenant}/{PolicySignInSignUp}")
         .Build();
 ```
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Después de inicializar la aplicación cliente, la siguiente tarea consiste en agregar compatibilidad con el inicio de sesión del usuario, el acceso a la API autorizado o ambos.
+
+La documentación de nuestro escenario de aplicación proporciona instrucciones para iniciar la sesión de un usuario y adquirir un token de acceso para acceder a una API en nombre de dicho usuario:
+
+- [Aplicación web que inicia sesión de usuarios: Inicio y cierre de sesión](scenario-web-app-sign-user-sign-in.md)
+- [Aplicación web que llama a las API web: adquisición de un token](scenario-web-app-call-api-acquire-token.md)

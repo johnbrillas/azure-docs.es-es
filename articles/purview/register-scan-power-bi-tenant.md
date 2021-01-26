@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/19/2020
-ms.openlocfilehash: 3d8107e980b9cad9bc55cb51cc78b63985986ba5
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: 3370215e9a69e62596f214ba4330fc4914a2837f
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97696234"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539692"
 ---
 # <a name="register-and-scan-a-power-bi-tenant-preview"></a>Registro y examen de un inquilino de Power BI (versión preliminar)
 
@@ -55,7 +55,7 @@ Para configurar la autenticación, cree un grupo de seguridad y agréguele la id
     > [!Important]
     > Debe ser administrador de Power BI para ver la página de configuración de inquilinos.
 
-1. Seleccione **Configuración de desarrollador** > **Concesión de permisos a las entidades de servicio para utilizar las API de administración de Power BI de solo lectura (versión preliminar)** .
+1. Seleccione **Configuración de la API de administración** > **Concesión de permisos a las entidades de servicio para utilizar las API de administración de Power BI de solo lectura (versión preliminar)** .
 1. Seleccione **Grupos de seguridad específicos**.
 
     :::image type="content" source="./media/setup-power-bi-scan-PowerShell/allow-service-principals-power-bi-admin.png" alt-text="Imagen en la que se muestra cómo permitir a las entidades de servicio obtener permisos de API de administración de Power BI de solo lectura":::
