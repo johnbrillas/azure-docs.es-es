@@ -21,17 +21,17 @@
   expanded: true
 - name: Conceptos
   items:
+    - name: Extensiones
+      href: extensions.md
     - name: Tamaños de máquina virtual disponibles
       href: available-sizes.md
-    - name: Preguntas más frecuentes
-      href: faq.md
     - name: Revisiones del SO invitado
       href: ../cloud-services/cloud-services-guestos-msrc-releases.md?toc=/azure/cloud-services-extended-support/toc.json&bc=/azure/cloud-services-extended-support/breadcrumb/toc.json
     - name: Retirada de SO invitado
       href: ../cloud-services/cloud-services-guestos-retirement-policy.md?toc=/azure/cloud-services-extended-support/toc.json&bc=/azure/cloud-services-extended-support/breadcrumb/toc.json
     - name: Novedades de la versión del SO invitado
       href: ../cloud-services/cloud-services-guestos-update-matrix.md?toc=/azure/cloud-services-extended-support/toc.json&bc=/azure/cloud-services-extended-support/breadcrumb/toc.json
-    - name: esquema XML
+    - name: Esquema XML
       items:
         - name: Esquema XML de .csdef
           href: schema-csdef-file.md
@@ -49,10 +49,10 @@
           href: schema-cscfg-role.md
         - name: Esquema de NetworkConfiguration
           href: schema-cscfg-networkconfiguration.md
+    - name: Preguntas más frecuentes
+      href: faq.md
 - name: Procedimientos
   items:
-    - name: Introducción a las extensiones
-      href: extensions.md
     - name: Aplicación de extensión de Escritorio remoto
       href: enable-rdp.md
     - name: Aplicación de extensión WAD
@@ -65,7 +65,7 @@
       href: certificates-and-key-vault.md
 - name: Ejemplos
   items:
-    - name: crea un nuevo servicio en la nube
+    - name: Creación de un servicio en la nube
       href: sample-create-cloud-service.md
     - name: Obtención de detalles del servicio en la nube
       href: sample-get-cloud-service.md
@@ -83,6 +83,8 @@
       href: 'https://docs.microsoft.com/azure/templates/microsoft.compute/cloudservices'
     - name: REST
       href: 'https://docs.microsoft.com/rest/api/compute/cloudservices'
+    - name: SDK
+      href: 'https://www.nuget.org/packages/Microsoft.Azure.Management.Compute/43.0.0-preview'
 - name: Recursos
   items:
     - name: Azure Roadmap
