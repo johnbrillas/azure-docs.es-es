@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd438a09b929274808984322981f6d21da0bf68f
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 73946eea846b06b28d0a0f017ea1317c8cc7326d
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96860956"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165151"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Preguntas más frecuentes sobre la administración de dispositivos de Azure Active Directory
 
@@ -142,6 +142,12 @@ Vea a continuación cómo se pueden rectificar estas acciones.
 >* Si un dispositivo se quita de un ámbito de sincronización en Azure AD Connect y se vuelve a agregar.
 >
 >En ambos casos, debe volver a registrar el dispositivo manualmente en cada uno de estos dispositivos. Para revisar si el dispositivo se registró anteriormente, puede [solucionar problemas de los dispositivos mediante el comando dsregcmd](troubleshoot-device-dsregcmd.md).
+
+---
+
+### <a name="q-i-cannot-add-more-than-3-azure-ad-user-accounts-under-the-same-user-session-on-a-windows-10-device-why"></a>P: No puedo agregar más de tres cuentas de usuario de Azure AD en la misma sesión de usuario en un dispositivo Windows 10, ¿por qué?
+
+**R.** : A partir de la versión 1803 de Windows 10, se pueden utilizar varias cuentas de Azure AD. Sin embargo, Windows 10 restringe el número de cuentas de Azure AD en un dispositivo a tres para limitar el tamaño de las solicitudes de token y permitir un inicio de sesión único (SSO) de confianza. Una vez que se han agregado tres cuentas, los usuarios verán un error al intentar agregar más cuentas. La información adicional sobre el problema que aparece en la pantalla de error muestra un mensaje para indicar que la operación Agregar cuenta está bloqueada porque se ha alcanzado el límite de cuentas. 
 
 ---
 ## <a name="azure-ad-join-faq"></a>P+F de unión a Azure AD

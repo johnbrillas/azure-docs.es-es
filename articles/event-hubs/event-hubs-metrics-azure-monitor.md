@@ -3,12 +3,12 @@ title: Métricas de Azure Event Hubs en Azure Monitor | Microsoft Docs
 description: En este artículo se proporciona información sobre cómo usar Azure Monitoring para supervisar Azure Event Hubs.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 5b055c02783c40d844d1c6306bbb71cb23d602f2
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 74830775a4f31e6f8e486b4d6cc434335b4ee723
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98118802"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165899"
 ---
 # <a name="azure-event-hubs-metrics-in-azure-monitor"></a>Métricas de Azure Event Hubs en Azure Monitor
 
@@ -20,7 +20,7 @@ Azure Monitor proporciona interfaces de usuario unificadas para la supervisión 
 
 Azure Monitor proporciona varias maneras de tener acceso a las métricas. Puede acceder a las métricas desde [Azure Portal](https://portal.azure.com), o usar las API de Azure Monitor (REST y .NET) y soluciones de análisis como Log Analytics y Event Hubs. Para más información, vea [Datos de supervisión recopilados por Azure Monitor](../azure-monitor/platform/data-platform.md).
 
-De forma predeterminada, las métricas están habilitadas y puede acceder a datos de los últimos 30 días. Si es necesario conservar los datos durante un periodo mayor, se pueden archivar en una cuenta de Azure Storage. Esto se configura en la [configuración de diagnóstico](../azure-monitor/platform/diagnostic-settings.md) de Azure Monitor.
+De forma predeterminada, las métricas están habilitadas y puede acceder a datos de los últimos 30 días. Si es necesario conservar los datos durante un período mayor, se pueden archivar los datos de las métricas en una cuenta de Azure Storage. Este valor se establece en la [configuración de diagnóstico](../azure-monitor/platform/diagnostic-settings.md) de Azure Monitor.
 
 
 ## <a name="access-metrics-in-the-portal"></a>Acceso a métricas del portal
@@ -29,7 +29,7 @@ Una vez transcurrido un tiempo, las métricas se pueden supervisar en [Azure Por
 
 ![Ver las métricas de éxito][1]
 
-También puede tener acceso a las métricas directamente a través del espacio de nombres. Para ello, seleccione el espacio de nombres y, después, haga clic en **Métricas**. Para mostrar las métricas filtradas al ámbito del centro de eventos, seleccione el centro de eventos y, después, haga clic en **Métricas**.
+También puede tener acceso a las métricas directamente a través del espacio de nombres. Para ello, seleccione el espacio de nombres y, después, seleccione **Métricas**. Para mostrar las métricas filtradas al ámbito del centro de eventos, seleccione el centro de eventos y, después, seleccione **Métricas**.
 
 Para ver métricas que admitan las dimensiones, debe filtrar por el valor de la dimensión que desee como se muestra en el siguiente ejemplo:
 
@@ -48,6 +48,9 @@ Los valores de las métricas se envían a Azure Monitor cada minuto. La granular
 
 ## <a name="azure-event-hubs-metrics"></a>Métricas de Azure Event Hubs
 Para obtener una lista de las métricas admitidas por el servicio, consulte [Azure Event Hubs](../azure-monitor/platform/metrics-supported.md#microsofteventhubnamespaces).
+
+> [!NOTE]
+> Cuando se produce un error de usuario, Azure Event Hubs actualiza la métrica **Errores de usuario**, pero no registra ninguna otra información de diagnóstico. Por lo tanto, debe capturar los detalles de los errores de usuario en las aplicaciones. También puede convertir los datos de telemetría generados cuando se envían o se reciben mensajes en Application Insights. Para obtener un ejemplo, consulte [Realizar un seguimiento con Application Insights](../service-bus-messaging/service-bus-end-to-end-tracing.md#tracking-with-azure-application-insights).
 
 ## <a name="azure-monitor-integration-with-siem-tools"></a>Integración de Azure Monitor con las herramientas SIEM
 El enrutamiento de los datos de supervisión (registros de actividad, registros de diagnóstico, etc.) a un centro de eventos con Azure Monitor permite conseguir una integración sencilla con las herramientas de Administración de eventos e información de seguridad (SIEM). Para más información, consulte los siguientes artículos o entradas de blog:

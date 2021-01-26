@@ -1,41 +1,30 @@
 ---
-title: ¿Qué son las canalizaciones de Azure Machine Learning?
+title: ¿Qué son las canalizaciones de Machine Learning?
 titleSuffix: Azure Machine Learning
-description: Obtenga información sobre cómo las canalizaciones de Machine Learning (ML) ayudan a crear, optimizar y administrar los flujos de trabajo de Machine Learning.
+description: Obtenga información sobre cómo las canalizaciones de Machine Learning ayudan a crear, optimizar y administrar los flujos de trabajo de aprendizaje automático.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: laobri
 author: lobrien
-ms.date: 01/11/2021
+ms.date: 01/12/2021
 ms.custom: devx-track-python
-ms.openlocfilehash: ee3d7d1cf285573db894d64549cf79babb517d95
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: a6ee4c08a7ecf9bcfcbc9cf6f630efe126248e9f
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131294"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185713"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>¿Qué son las canalizaciones de Azure Machine Learning?
 
-En este artículo, obtenga información sobre cómo las canalizaciones de Azure Machine Learning ayudan a crear, optimizar y administrar los flujos de trabajo de Machine Learning. Estos flujos de trabajo tienen una serie de ventajas: 
-
-+ Simplicidad
-+ Velocidad
-+ Repetibilidad
-+ Flexibilidad
-+ Control de versiones y seguimiento
-+ Modularidad 
-+ Control de calidad
-+ Control de costos
-
-Estas ventajas pasan a ser significativas cuando el proyecto de aprendizaje automático va más allá de la exploración pura y pasa a la iteración. Incluso las canalizaciones sencillas de un solo paso pueden ser valiosas. Por lo general, los proyectos de aprendizaje automático se encuentran en un estado complejo, y puede ser un alivio lograr que un flujo de trabajo único sea un proceso trivial.
+En este artículo, descubrirá cómo las canalizaciones de Machine Learning le ayudan a crear, optimizar y administrar los flujos de trabajo de aprendizaje automático. 
 
 <a name="compare"></a>
-### <a name="which-azure-pipeline-technology-should-i-use"></a>¿Qué tecnología de canalización de Azure se debe usar?
+## <a name="which-azure-pipeline-technology-should-i-use"></a>¿Qué tecnología de canalización de Azure se debe usar?
 
-La nube de Azure proporciona otras canalizaciones, cada una con una finalidad diferente. En la tabla siguiente se enumeran las diferentes canalizaciones y para qué se usan:
+La nube de Azure proporciona varios tipos de canalizaciones, cada una con una finalidad diferente. En la tabla siguiente se enumeran las diferentes canalizaciones y para qué se usan:
 
 | Escenario | Rol principal | Oferta de Azure | Oferta de OSS | Canalización canónica | Puntos destacados | 
 | -------- | --------------- | -------------- | ------------ | -------------- | --------- | 
@@ -43,7 +32,7 @@ La nube de Azure proporciona otras canalizaciones, cada una con una finalidad di
 | Orquestación de datos (preparación de datos) | Ingeniero de datos | [Canalizaciones de Azure Data Factory](../data-factory/concepts-pipelines-activities.md) | Airflow de Apache | Datos -> Datos | Actividades centradas en datos y movimiento fuertemente tipado |
 | Orquestación de códigos y aplicaciones (CI/CD) | Desarrollo/operaciones de aplicaciones | [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) | Jenkins | Código + modelo-> Aplicación o servicio | Compatibilidad con la mayoría de las actividades abiertas y flexibles, colas de aprobación, fases con restricción de acceso | 
 
-## <a name="what-can-azure-ml-pipelines-do"></a>¿Qué pueden hacer las canalizaciones de Azure ML?
+## <a name="what-can-machine-learning-pipelines-do"></a>¿Qué pueden hacer las canalizaciones de Machine Learning?
 
 Una canalización de Azure Machine Learning es un flujo de trabajo ejecutable independiente de una tarea de aprendizaje automático completa. Las subtareas se encapsulan como una serie de pasos en la canalización. Una canalización de Azure Machine Learning puede ser tan simple como una llamada a un script de Python, por lo que _puede_ hacer prácticamente de todo. Las canalizaciones _se deben_ centrar en tareas de aprendizaje automático como:
 
@@ -64,9 +53,9 @@ En resumen, las canalizaciones pueden ayudar con todas las tareas complejas del 
 
 ### <a name="analyzing-dependencies"></a>Análisis de dependencias
 
-Muchos ecosistemas de programación tienen herramientas que organizan las dependencias de recursos, bibliotecas o compilaciones. Por lo general, estas herramientas usan marcas de tiempo de archivo para calcular las dependencias. Cuando se cambia un archivo, solo se actualiza el archivo y sus elementos dependientes (se descargan, recompilan o empaquetan). Las canalizaciones de Azure ML amplían este concepto. Al igual que las herramientas de compilación tradicionales, las canalizaciones calculan las dependencias entre los pasos y solo realizan los recálculos necesarios. 
+Muchos ecosistemas de programación tienen herramientas que organizan las dependencias de recursos, bibliotecas o compilaciones. Por lo general, estas herramientas usan marcas de tiempo de archivo para calcular las dependencias. Cuando se cambia un archivo, solo se actualiza el archivo y sus elementos dependientes (se descargan, recompilan o empaquetan). Las canalizaciones de Azure Machine Learning amplían este concepto. Al igual que las herramientas de compilación tradicionales, las canalizaciones calculan las dependencias entre los pasos y solo realizan los recálculos necesarios. 
 
-Sin embargo, el análisis de dependencias de las canalizaciones de Azure ML es más sofisticado que las marcas de tiempo sencillas. Cada paso puede ejecutarse en un entorno de hardware y software diferente. La preparación de los datos puede ser un proceso lento, pero no es necesario ejecutarlo en hardware con GPU eficaces, es posible que algunos pasos requieran software específico del sistema operativo, puede que quiera usar entrenamiento distribuido, etc. 
+El análisis de dependencias de las canalizaciones de Azure Machine Learning es más sofisticado que una simple marca de tiempo. Cada paso puede ejecutarse en un entorno de hardware y software diferente. La preparación de los datos puede ser un proceso lento, pero no es necesario ejecutarlo en hardware con GPU eficaces, es posible que algunos pasos requieran software específico del sistema operativo, puede que quiera usar entrenamiento distribuido, etc. 
 
 Azure Machine Learning organiza automáticamente todas las dependencias entre los pasos de la canalización. Esta orquestación podría incluir la rotación de imágenes de Docker, la asociación y desasociación de recursos de proceso y el movimiento de datos entre los pasos de manera coherente y automática.
 
@@ -92,7 +81,7 @@ Al crear y ejecutar un objeto `Pipeline`, se producen los siguientes pasos de al
 
 En el [SDK de Python para Azure Machine Learning ](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py), una canalización es un objeto de Python definido en el módulo de `azureml.pipeline.core`. Un objeto [Pipeline](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?preserve-view=true&view=azure-ml-py) contiene una secuencia ordenada de uno o varios objetos [PipelineStep](/python/api/azureml-pipeline-core/azureml.pipeline.core.builder.pipelinestep?preserve-view=true&view=azure-ml-py). La clase `PipelineStep` es abstracta y los pasos reales serán de subclases como [EstimatorStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.estimatorstep?preserve-view=true&view=azure-ml-py), [PythonScriptStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.pythonscriptstep?preserve-view=true&view=azure-ml-py) o [DataTransferStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?preserve-view=true&view=azure-ml-py). La clase [ModuleStep ](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.modulestep?preserve-view=true&view=azure-ml-py) contiene una secuencia reutilizable de pasos que se pueden compartir entre las canalizaciones. Un `Pipeline` se ejecuta como parte de un `Experiment`.
 
-Una canalización de Azure ML está asociada a un área de trabajo de Azure Machine Learning y un paso de la canalización está asociado a un destino de proceso disponible dentro de esa área de trabajo. Para más información, consulte [Creación y administración de áreas de trabajo de Azure Machine Learning en Azure Portal](./how-to-manage-workspace.md) o [¿Qué son los destinos de proceso en Azure Machine Learning?](./concept-compute-target.md)
+Una canalización de Azure Machine Learning está asociada a un área de trabajo de Azure Machine Learning y un paso de la canalización está asociado a un destino de proceso disponible dentro de esa área de trabajo. Para más información, consulte [Creación y administración de áreas de trabajo de Azure Machine Learning en Azure Portal](./how-to-manage-workspace.md) o [¿Qué son los destinos de proceso en Azure Machine Learning?](./concept-compute-target.md)
 
 ### <a name="a-simple-python-pipeline"></a>Una canalización de Python sencilla
 
@@ -129,7 +118,7 @@ pipeline_run = experiment.submit(pipeline)
 pipeline_run.wait_for_completion()
 ```
 
-El fragmento de código se inicia con objetos comunes de Azure Machine Learning, un `Workspace`, a `Datastore`, un [ComputeTarget](/python/api/azureml-core/azureml.core.computetarget?preserve-view=true&view=azure-ml-py) y un `Experiment`. Luego, el código crea los objetos para contener `input_data` y `output_data`. El objeto `input_data` es una instancia de [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py&preserve-view=true) y el objeto `output_data` es una instancia de [OutputFileDatasetConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.data.output_dataset_config.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true). En el caso de `OutputFileDatasetConfig`, el comportamiento predeterminado es copiar el resultado en el almacén de datos `workspaceblobstore` en la ruta de acceso `/dataset/{run-id}/{output-name}`, en la que `run-id` es el id. de la ejecución y `output-name` es un valor generado automáticamente si no lo especifica el desarrollador.
+El fragmento de código se inicia con objetos comunes de Azure Machine Learning, un `Workspace`, a `Datastore`, un [ComputeTarget](/python/api/azureml-core/azureml.core.computetarget?preserve-view=true&view=azure-ml-py) y un `Experiment`. Luego, el código crea los objetos para contener `input_data` y `output_data`. El objeto `input_data` es una instancia de [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py&preserve-view=true) y el objeto `output_data` es una instancia de [OutputFileDatasetConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.data.output_dataset_config.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true). En el caso de `OutputFileDatasetConfig`, el comportamiento predeterminado es copiar la salida en el almacén de datos `workspaceblobstore` en la ruta de acceso `/dataset/{run-id}/{output-name}`, donde `run-id` es el identificador de la ejecución y `output-name` es un valor generado automáticamente si no lo especifica el desarrollador.
 
 La matriz `steps` contiene un elemento único, un `PythonScriptStep` que utilizará los objetos de datos y se ejecutará en el `compute_target`. A continuación, el código crea una instancia del propio objeto `Pipeline` y pasa la matriz de pasos y el área de trabajo. La llamada a `experiment.submit(pipeline)` inicia la ejecución de la canalización de Azure ML. La llamada a `wait_for_completion()` se bloquea hasta que finaliza la canalización. 
 
@@ -158,8 +147,7 @@ Las ventajas clave de usar canalizaciones para los flujos de trabajo de aprendiz
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Las canalizaciones de Azure ML son una potente instalación que comienza a entregar valor en las primeras fases del desarrollo. El valor aumenta a medida que crece el equipo y el proyecto. En este artículo se ha explicado cómo se especifican las canalizaciones con el SDK de Azure Machine Learning Python y cómo se organizan en Azure. Ha visto código fuente simple y ha conocido algunas de las clases de `PipelineStep` que están disponibles. Ya debe saber cuándo usar las canalizaciones de Azure ML y cómo las ejecuta Azure. 
-
+Las canalizaciones de Azure Machine Learning constituyen un potente recurso que ya comienza a ofrecer valor en las primeras fases del desarrollo. El valor aumenta a medida que crece el equipo y el proyecto. En este artículo se ha explicado cómo se especifican las canalizaciones con el SDK de Azure Machine Learning Python y cómo se organizan en Azure. Ha visto código fuente simple y ha conocido algunas de las clases de `PipelineStep` que están disponibles. Ya debe tener una idea de cuándo usar las canalizaciones de Azure Machine Learning y cómo las ejecuta Azure. 
 
 + Aprenda a [crear su primera canalización](how-to-create-your-first-pipeline.md).
 
