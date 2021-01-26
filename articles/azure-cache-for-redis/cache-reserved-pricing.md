@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: 9931dd9acb51e74c34a57b0475bca79fb9ba79cf
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 2f3472aa495042749410bc0b9635f0924a02e1fd
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96184185"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98598559"
 ---
 # <a name="prepay-for-azure-cache-for-redis-compute-resources-with-reserved-capacity"></a>Pago por adelantado de recursos de proceso de Azure Cache for Redis con capacidad reservada
 
@@ -52,7 +52,7 @@ En la siguiente tabla se describen los campos obligatorios.
 
 | Campo | Descripción |
 | :------------ | :------- |
-| Suscripción   | La suscripción usada para pagar la reserva de capacidad reservada de Azure Cache for Redis. Los costos anticipados por la reserva de capacidad reservada de Azure Cache for Redis se cobran mediante el método de pago de la suscripción. El tipo de suscripción debe ser Contrato Enterprise (números de oferta: MS-AZR-0017P o MS-AZR-0148P) o un contrato individual con precios de pago por uso (números de oferta: MS-AZR-0003P o MS-AZR-0023P). Para una suscripción Enterprise, los cargos se deducen del saldo de compromiso monetario de la inscripción o se cobran como uso por encima del límite. Para una suscripción individual con precios de pago por uso, los cargos se cobran en el método de pago de la factura o la tarjeta de crédito de la suscripción.
+| Suscripción   | La suscripción usada para pagar la reserva de capacidad reservada de Azure Cache for Redis. Los costos anticipados por la reserva de capacidad reservada de Azure Cache for Redis se cobran mediante el método de pago de la suscripción. El tipo de suscripción debe ser Contrato Enterprise (números de oferta: MS-AZR-0017P o MS-AZR-0148P) o un contrato individual con precios de pago por uso (números de oferta: MS-AZR-0003P o MS-AZR-0023P). Para una suscripción Enterprise, los cargos se deducen del pago por adelantado de Azure (antes conocido como saldo de compromiso monetario) de la inscripción, o se cobran como uso por encima del límite. Para una suscripción individual con precios de pago por uso, los cargos se cobran en el método de pago de la factura o la tarjeta de crédito de la suscripción.
 | Ámbito | El ámbito de la reserva puede cubrir una o varias suscripciones (ámbito compartido). Si selecciona: </br></br> **Compartido**: el descuento de la reserva se aplica a las instancias de Azure Cache for Redis que se ejecutan en cualquier suscripción en el contexto de facturación. Para los clientes Enterprise, el ámbito compartido es la inscripción e incluye todas las suscripciones que esta contiene. Para los clientes de Pago por uso, el ámbito compartido incluye todas las suscripciones de Pago por uso creadas por el administrador de la cuenta.</br></br> **Suscripción única**: el descuento de reserva se aplica a las instancias de Azure Cache for Redis de esta suscripción. </br></br> **Grupo de recursos único**: el descuento de reserva se aplica a las instancias de Azure Cache for Redis de la suscripción seleccionada y al grupo de recursos seleccionado de esa suscripción.
 | Region | Región de Azure que abarca la reserva de capacidad reservada de Azure Cache for Redis.
 | Plan de tarifa | Nivel de servicio de los servidores de Azure Cache for Redis.

@@ -3,15 +3,15 @@ title: Acceso seguro y datos
 description: Proteja el acceso a las entradas, las salidas, los desencadenadores basados en solicitudes, el historial de ejecución, las tareas de administración y el acceso a otros recursos en Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: rarayudu, logicappspm
+ms.reviewer: estfan, logicappspm, azla, rarayudu
 ms.topic: conceptual
-ms.date: 01/09/2020
-ms.openlocfilehash: 5ad01e31cb9af18fa018d99424b25dee338981d7
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.date: 01/15/2021
+ms.openlocfilehash: c889498d6341875682055e9d67b8d2b958bac70a
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98034516"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251070"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteger el acceso y los datos en Azure Logic Apps
 
@@ -911,6 +911,10 @@ Los extremos HTTP y HTTPS admiten varios tipos de autenticación. En algunos des
 > Para proteger la información confidencial que controla la aplicación lógica, use los parámetros seguros y codifique los datos según sea necesario.
 > Para obtener más información acerca de cómo usar y proteger los parámetros, consulte [Acceso a las entradas de parámetro](#secure-action-parameters).
 
+<a name="authentication-types-supported-triggers-actions"></a>
+
+#### <a name="authentication-types-for-triggers-and-actions-that-support-authentication"></a>Tipos de autenticación para desencadenadores y acciones que admiten la autenticación
+
 En esta tabla se identifican los tipos de autenticación que están disponibles en los desencadenadores y las acciones donde puede seleccionar un tipo de autenticación:
 
 | Tipo de autenticación | Desencadenadores y acciones admitidos |
@@ -919,12 +923,12 @@ En esta tabla se identifican los tipos de autenticación que están disponibles 
 | [Certificado de cliente](#client-certificate-authentication) | Azure API Management, Azure App Services, HTTP, HTTP y Swagger, webhook HTTP |
 | [Active Directory OAuth](#azure-active-directory-oauth-authentication) | Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP + Swagger, webhook HTTP |
 | [Sin formato](#raw-authentication) | Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP + Swagger, webhook HTTP |
-| [Identidad administrada](#managed-identity-authentication) | Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP Webhook |
+| [Identidad administrada](#managed-identity-authentication) | **Acciones y desencadenadores integrados** <p><p>Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP Webhook <p><p>**Conectores administrados** <p><p>Azure AD Identity Protection, Azure Automation, Azure Container Instances, Azure Data Explorer, Azure Data Factory, Azure Data Lake, Azure Event Grid, Azure IoT Central V3, Azure Key Vault, Azure Log Analytics, registros de Azure Monitor, Azure Resource Manager, Azure Sentinel, HTTP con Azure AD <p><p>**Nota**: La compatibilidad con conectores administrados está actualmente en versión preliminar. |
 |||
 
 <a name="basic-authentication"></a>
 
-### <a name="basic-authentication"></a>Autenticación básica
+#### <a name="basic-authentication"></a>Autenticación básica
 
 Si la opción [Básica](../active-directory-b2c/secure-rest-api.md) está disponible, especifique estos valores de propiedad:
 
@@ -955,7 +959,7 @@ Al usar [parámetros protegidos](#secure-action-parameters) para administrar y p
 
 <a name="client-certificate-authentication"></a>
 
-### <a name="client-certificate-authentication"></a>Autenticación de certificados de cliente
+#### <a name="client-certificate-authentication"></a>Autenticación de certificados de cliente
 
 Si la opción [Certificado de cliente](../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md) está disponible, especifique estos valores de propiedad:
 
@@ -994,7 +998,7 @@ Para obtener más información acerca de cómo proteger los servicios mediante l
 
 <a name="azure-active-directory-oauth-authentication"></a>
 
-### <a name="azure-active-directory-open-authentication"></a>Azure Active Directory Open Authentication
+#### <a name="azure-active-directory-open-authentication"></a>Azure Active Directory Open Authentication
 
 En los desencadenadores Request (Solicitud), se puede usar [Azure Active Directory Open Authentication (Azure AD OAuth)](../active-directory/develop/index.yml) para autenticar las llamadas entrantes después de [configurar las directivas de autorización de Azure AD](#enable-oauth) de la aplicación lógica. En el caso del resto de desencadenadores y acciones que proporcionan el tipo de autenticación **Active Directory OAuth**, especifique estos valores de propiedad:
 
@@ -1034,7 +1038,7 @@ Al usar [parámetros protegidos](#secure-action-parameters) para administrar y p
 
 <a name="raw-authentication"></a>
 
-### <a name="raw-authentication"></a>Autenticación sin formato
+#### <a name="raw-authentication"></a>Autenticación sin formato
 
 Si la opción **Raw** está disponible, puede usar este tipo de autenticación cuando tenga que usar [esquemas de autenticación](https://iana.org/assignments/http-authschemes/http-authschemes.xhtml) que no siguen el [protocolo OAuth 2.0](https://oauth.net/2/). Con este tipo, se crea manualmente el valor del encabezado de autorización que se envía con la solicitud saliente y se especifica ese valor de encabezado en el desencadenador o la acción.
 
@@ -1077,15 +1081,17 @@ Al usar [parámetros protegidos](#secure-action-parameters) para administrar y p
 
 <a name="managed-identity-authentication"></a>
 
-### <a name="managed-identity-authentication"></a>Autenticación de identidad administrada
+#### <a name="managed-identity-authentication"></a>Autenticación de identidad administrada
 
-Si la opción [Identidad administrada](../active-directory/managed-identities-azure-resources/overview.md) está disponible en un [desencadenador o acción específicos](#add-authentication-outbound), la aplicación lógica puede usar la identidad asignada por el sistema o una identidad *única* asignada por el usuario creada de forma manual para autenticar el acceso a otros recursos que están protegidos por Azure Active Directory (Azure AD) sin iniciar la sesión. Azure administra esta identidad y le ayuda a proteger las credenciales porque, de esta forma, no tiene que proporcionar secretos o cambiarlos. Obtenga más información sobre [Servicios de Azure que admiten las identidades administradas para la autenticación de Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+Cuando la opción [Identidad administrada](../active-directory/managed-identities-azure-resources/overview.md) está disponible en el [desencadenador o acción que admite la autenticación de identidad administrada](#add-authentication-outbound), la aplicación lógica puede usar la identidad asignada por el sistema o una identidad *única* asignada por el usuario creada de forma manual para autenticar el acceso a recursos de Azure que están protegidos por Azure Active Directory (Azure AD), en lugar de credenciales, secretos o tokens de Azure AD. Azure administra esta identidad y le ayuda a proteger las credenciales porque, de esta forma, no tiene que administrar secretos ni usar directamente tokens de Azure AD. Obtenga más información sobre [Servicios de Azure que admiten las identidades administradas para la autenticación de Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
 1. Para que la aplicación lógica pueda usar una identidad administrada, siga los pasos descritos en [Autenticación de acceso a los recursos de Azure con identidades administradas en Azure Logic Apps](../logic-apps/create-managed-service-identity.md). En estos pasos se habilita la identidad administrada en la aplicación lógica y se configura el acceso de dicha identidad al recurso de Azure de destino.
 
 1. Para que una función de Azure pueda usar una identidad administrada, primero [habilite la autenticación de Azure Functions](../logic-apps/logic-apps-azure-functions.md#enable-authentication-for-functions).
 
-1. En el desencadenador o la acción donde quiere usar la identidad administrada, especifique estos valores de propiedad:
+1. En el desencadenador o la acción que admite el uso de una identidad administrada, proporcione esta información:
+
+   **Acciones y desencadenadores integrados**
 
    | Propiedad (diseñador) | Propiedad (JSON) | Obligatorio | Value | Descripción |
    |---------------------|-----------------|----------|-------|-------------|
@@ -1094,7 +1100,7 @@ Si la opción [Identidad administrada](../active-directory/managed-identities-az
    | **Audiencia** | `audience` | Sí | <*Id-recurso-destino*> | El Id. de recurso para el recurso de destino al que quiere obtener acceso. <p>Por ejemplo, `https://storage.azure.com/` hace que los [tokens de acceso](../active-directory/develop/access-tokens.md) para la autenticación sean válidos con todas las cuentas de almacenamiento. Sin embargo, también puede especificar una dirección URL de servicio raíz, como `https://fabrikamstorageaccount.blob.core.windows.net` para una cuenta de almacenamiento específica. <p>**Nota**: La propiedad **Audiencia** puede estar oculta en algunos desencadenadores o acciones. Para que la propiedad sea visible, en el desencadenador o la acción, abra la lista **Agregar nuevo parámetro** y seleccione **Público**. <p><p>**Importante**: Asegúrese de que el identificador de este recurso de destino *coincide exactamente* con el valor esperado en Azure AD, incluida toda barra diagonal necesaria al final. Por lo tanto, el Id. de recurso de `https://storage.azure.com/` para todas las cuentas de Azure Blob Storage requiere una barra diagonal final. Sin embargo, el Id. de recurso de una cuenta de almacenamiento específica no requiere una barra diagonal final. Para buscar estos Id. de recursos, consulte [Servicios de Azure que admiten la autenticación de Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). |
    |||||
 
-   Al usar [parámetros protegidos](#secure-action-parameters) para administrar y proteger la información confidencial, por ejemplo, en una [plantilla de Azure Resource Manager para automatizar la implementación](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), puede usar expresiones para acceder a estos valores de parámetros en tiempo de ejecución. Esta definición de acción HTTP de ejemplo especifica el `type` de autenticación como `ManagedServiceIdentity` y usa la [función parameters()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) para obtener los valores de parámetro:
+   Al usar [parámetros protegidos](#secure-action-parameters) para administrar y proteger la información confidencial, por ejemplo, en una [plantilla de Azure Resource Manager para automatizar la implementación](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), puede usar expresiones para acceder a estos valores de parámetros en tiempo de ejecución. Por ejemplo, esta definición de acción HTTP especifica el `type` de autenticación como `ManagedServiceIdentity` y usa la [función parameters()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) para obtener los valores de parámetro:
 
    ```json
    "HTTP": {
@@ -1111,6 +1117,15 @@ Si la opción [Identidad administrada](../active-directory/managed-identities-az
       "runAfter": {}
    }
    ```
+
+   **Desencadenadores y acciones del conector administrado**
+
+   | Propiedad (diseñador) | Obligatorio | Value | Descripción |
+   |---------------------|----------|-------|-------------|
+   | **Nombre de la conexión** | Sí | <*connection-name*> ||
+   | **Identidad administrada** | Sí | **Identidad administrada asignada por el sistema** <br>or <br> <*user-assigned-managed-identity-name*> | Tipo de autenticación que se debe usar. |
+   |||||
+
 
 <a name="block-connections"></a>
 

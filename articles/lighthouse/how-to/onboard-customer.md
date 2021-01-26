@@ -1,14 +1,14 @@
 ---
 title: Incorporación de un cliente a Azure Lighthouse
 description: Obtenga información sobre cómo incorporar un cliente a Azure Lighthouse, lo que permite administrar sus recursos y acceder a ellos desde su propio inquilino mediante la administración de recursos delegados de Azure.
-ms.date: 12/15/2020
+ms.date: 01/14/2021
 ms.topic: how-to
-ms.openlocfilehash: 023b44a77cb38a14df8aa6a885ff137c02942061
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 1a7c8fc85819b2c34b5c64dc83cb908b7bee3c41
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516137"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98232682"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Incorporación de un cliente a Azure Lighthouse
 
@@ -62,14 +62,17 @@ az account show
 
 ## <a name="define-roles-and-permissions"></a>Definir roles y permisos
 
-Como proveedor de servicios, es posible que quiera realizar varias tareas para un solo cliente, lo que requiere un acceso diferente para distintos ámbitos. Puede definir tantas autorizaciones como necesite para asignar los [roles integrados de Azure](../../role-based-access-control/built-in-roles.md) adecuados a los usuarios de su inquilino.
+Como proveedor de servicios, es posible que quiera realizar varias tareas para un solo cliente, lo que requiere un acceso diferente para distintos ámbitos. Puede definir tantas autorizaciones como necesite para asignar los [roles integrados de Azure](../../role-based-access-control/built-in-roles.md) adecuados. Cada autorización incluye un valor **principalId** que hace referencia a un usuario, grupo o entidad de servicio de Azure AD en el inquilino de administración.
 
-Para facilitar la administración, se recomienda usar grupos de usuarios de Azure AD para cada rol. Esto le ofrece la flexibilidad para agregar o quitar usuarios individuales del grupo que tiene acceso, de modo que no tenga que repetir el proceso de incorporación para realizar cambios en el usuario. Puede asignar roles a una entidad de servicio, lo que puede ser útil para escenarios de automatización.
+> [!NOTE]
+> A menos que se especifique explícitamente, las referencias a un "usuario" en la documentación de Azure Lighthouse pueden referirse a un usuario, grupo o entidad de servicio de Azure AD en una autorización.
+
+A fin de facilitar la administración, se recomienda usar grupos de usuarios de Azure AD para cada rol siempre que sea posible, y no para usuarios individuales. Esto le ofrece la flexibilidad para agregar o quitar usuarios individuales del grupo que tiene acceso, de modo que no tenga que repetir el proceso de incorporación para realizar cambios en el usuario. También puede asignar roles a una entidad de servicio, lo que puede ser útil para escenarios de automatización.
 
 > [!IMPORTANT]
 > Para agregar permisos a un grupo de Azure AD, el **Tipo de grupo** debe establecerse en **Seguridad**. Esta opción se selecciona cuando se crea el grupo. Para obtener más información vea [Creación de un grupo básico e incorporación de miembros con Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
-Al definir las autorizaciones, asegúrese de seguir el principio de privilegios mínimos para que los usuarios solo tengan los permisos necesarios para completar su trabajo. Para obtener recomendaciones e información sobre los roles admitidos, consulte [Inquilinos, usuarios y roles en escenarios de Azure Lighthouse](../concepts/tenants-users-roles.md).
+Al definir las autorizaciones, asegúrese de seguir el principio de privilegios mínimos para que los usuarios solo tengan los permisos necesarios para completar su trabajo. Para obtener información sobre los roles admitidos y los procedimientos recomendados, vea [Inquilinos, usuarios y roles en escenarios de Azure Lighthouse](../concepts/tenants-users-roles.md).
 
 Para definir las autorizaciones, tiene que conocer los valores de identificador de cada usuario, grupo de usuarios o entidad de servicio en el inquilino del proveedor de servicios al que quiera conceder acceso. También necesitará el identificador de definición de roles para cada rol integrado que quiera asignar. Si aún no los tiene, puede recuperarlos ejecutando los comandos a continuación en el inquilino del proveedor de servicios.
 
@@ -195,7 +198,7 @@ En el ejemplo siguiente se muestra un archivo **delegatedResourceManagement.para
 }
 ```
 
-La última autorización del ejemplo anterior agrega un valor de **principalId** con el rol de administrador de acceso de usuario (18d7d88d-d35e-4fb5-a5c3-7773c20a72d9). Al asignar este rol, debe incluir la propiedad **delegatedRoleDefinitionIds** y uno o más roles integrados. El usuario creado en esta autorización podrá asignar los roles integrados a las [identidades administradas](../../active-directory/managed-identities-azure-resources/overview.md) en el inquilino del cliente, algo necesario para [implementar directivas que pueden corregirse](deploy-policy-remediation.md).  El usuario también puede crear incidentes de soporte técnico.  No se aplicará a este usuario ningún otro permiso asociado normalmente al rol Administrador de acceso de usuario.
+La última autorización del ejemplo anterior agrega un valor de **principalId** con el rol de administrador de acceso de usuario (18d7d88d-d35e-4fb5-a5c3-7773c20a72d9). Al asignar este rol, debe incluir la propiedad **delegatedRoleDefinitionIds** y uno o más roles integrados de Azure compatibles. El usuario creado en esta autorización podrá asignar estos roles a las [identidades administradas](../../active-directory/managed-identities-azure-resources/overview.md) en el inquilino del cliente, algo necesario para [implementar directivas que pueden corregirse](deploy-policy-remediation.md).  El usuario también puede crear incidentes de soporte técnico. No se aplicará a este **principalId** ningún otro permiso asociado normalmente al rol Administrador de acceso de usuario.
 
 ## <a name="deploy-the-azure-resource-manager-templates"></a>Implementación de las plantillas de Azure Resource Manager
 
@@ -278,7 +281,7 @@ En el inquilino del cliente:
 3. Confirme que puede ver las suscripciones con el nombre de la oferta que proporcionó en la plantilla de Resource Manager.
 
 > [!NOTE]
-> Una vez completada la implementación, las actualizaciones pueden tardar unos minutos en verse reflejadas en Azure Portal.
+> Una vez completada la implementación, las actualizaciones pueden tardar hasta 15 minutos en verse reflejadas en Azure Portal. Puede ver las actualizaciones antes si actualiza el token de Azure Resource Manager actualizando el explorador, iniciando y cerrando la sesión o solicitando un token nuevo.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -312,6 +315,7 @@ Si no puede incorporar correctamente el cliente, o si los usuarios tienen proble
 - El proveedor de recursos **Microsoft.ManagedServices** se debe registrar para la suscripción delegada. Esto se debería realizar automáticamente durante la implementación, pero si no es así, puede [registrarlo manualmente](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 - Las autorizaciones no deben incluir ningún usuario con el rol integrado [Propietario](../../role-based-access-control/built-in-roles.md#owner) ni ningún rol integrado con [DataActions](../../role-based-access-control/role-definitions.md#dataactions).
 - Los grupos se deben crear con [**Tipo de grupo**](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md#group-types) establecido en **Security** y no en **Microsoft 365**.
+- Puede experimentarse un retraso adicional antes de que se habilite el acceso para [grupos anidados](../..//active-directory/fundamentals/active-directory-groups-membership-azure-portal.md).
 - Los usuarios que necesiten ver los recursos de Azure Portal deben tener el rol [Lector](../../role-based-access-control/built-in-roles.md#reader) (o cualquier otro rol integrado que incluya acceso de lectura).
 
 ## <a name="next-steps"></a>Pasos siguientes

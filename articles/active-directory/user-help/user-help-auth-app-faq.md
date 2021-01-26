@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 12/09/2020
+ms.date: 01/15/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: a1307aa19c66e3f6fcb71f677e6c67551d2a01f9
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: f799ed5c18537b862a4971075ae9107b7a722fdd
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928331"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251512"
 ---
 # <a name="frequently-asked-questions-faq-about-the-microsoft-authenticator-app"></a>Preguntas frecuentes (P+F) sobre la aplicación Microsoft Authenticator
 
@@ -33,13 +33,17 @@ La aplicación Microsoft Authenticator reemplaza a la aplicación Azure Authenti
 
 **R.** : El registro de un dispositivo permite que el dispositivo acceda a los servicios de la organización, pero no que la organización acceda al dispositivo.
 
-## <a name="too-many-app-permissions"></a>Demasiados permisos de aplicación
+### <a name="too-many-app-permissions"></a>Demasiados permisos de aplicación
 
 **P.** : ¿Por qué la aplicación solicita tantos permisos?
 
-**R.** : Esta es una lista completa de permisos que se pueden solicitar y una explicación de cómo se utilizan en la aplicación. Los permisos específicos que aparezcan dependerán del tipo de teléfono que tenga.
+**R.** : Esta es una lista completa de permisos que se pueden solicitar y una explicación de cómo se utilizan en la aplicación. Los permisos específicos que aparezcan dependerán del tipo de teléfono que tenga. A veces, su organización quiere conocer su **ubicación** antes de permitirle acceder a determinados recursos. La aplicación solicitará este permiso solo si su organización tiene una directiva que requiera la ubicación.
 
-- **Ubicación**. A veces, su organización quiere conocer su ubicación antes de permitirle tener acceso a determinados recursos. La aplicación solicitará este permiso solo si su organización tiene una directiva que requiera la ubicación. 
+### <a name="error-adding-account"></a>Error al agregar cuenta
+
+**P.** : Cuando intento agregar mi cuenta, obtengo un mensaje de error que indica "La cuenta que está intentando agregar no es válida en este momento. Póngase en contacto con el administrador para corregir este problema (validación de unicidad)". ¿Cuál debo hacer?
+
+**R.** : Póngase en contacto con su administrador y hágale saber que se le impidió agregar su cuenta a Authenticator debido a un problema de validación de unicidad. Deberá proporcionar el nombre de usuario de inicio de sesión para que el administrador pueda buscarlo en la organización.
 
 ### <a name="legacy-apns-support-deprecated"></a>Compatibilidad con APNs heredado en desuso
 

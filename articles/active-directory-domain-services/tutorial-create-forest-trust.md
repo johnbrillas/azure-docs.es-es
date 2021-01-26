@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: justinha
-ms.openlocfilehash: 0231689acef3345fb2b0f25170522d59552171ba
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: faa46178262777454d4d67d23bbd0bb013974ab5
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96618338"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208495"
 ---
 # <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services"></a>Tutorial: Creación de una confianza de bosque de salida en un dominio local de Azure Active Directory Domain Services
 
@@ -73,8 +73,8 @@ Antes de configurar una confianza de bosque en Azure AD DS, asegúrese de que la
 
 Para resolver correctamente el dominio administrado desde el entorno local, quizá tenga que agregar reenviadores a los servidores DNS existentes. Si no ha configurado el entorno local para comunicarse con el dominio administrado, complete los pasos siguientes desde una estación de trabajo de administración para el dominio de AD DS local:
 
-1. Seleccione **Inicio | Herramientas administrativas | DNS**.
-1. Haga clic con el botón derecho en el servidor DNS, como *myAD01*, y seleccione **Propiedades**.
+1. Seleccione **Inicio** > **Herramientas administrativas** > **DNS**.
+1. Haga clic con el botón derecho en el servidor DNS (por ejemplo, *myAD01*) y seleccione **Propiedades**.
 1. Elija **Reenviadores** y, después, **Editar** para agregar reenviadores adicionales.
 1. Agregue las direcciones IP del dominio administrado, como *10.0.2.4* y *10.0.2.5*.
 
@@ -85,14 +85,14 @@ El dominio de AD DS local necesita una confianza de bosque de entrada para el d
 Para configurar la confianza de entrada en el dominio de AD DS local, complete los pasos siguientes desde una estación de trabajo de administración para el dominio de AD DS local:
 
 1. Seleccione **Inicio | Herramientas administrativas | Dominios y confianzas de Active Directory**.
-1. Haga clic con el botón derecho en el dominio, como *onprem.contoso.com*, y seleccione **Propiedades**.
+1. Haga clic con el botón derecho en el dominio (por ejemplo, *onprem.contoso.com*) y seleccione **Propiedades**.
 1. Elija la pestaña **Confianzas** y, a continuación, **Nueva confianza**.
-1. Escriba el nombre de dominio de Azure AD DS, por ejemplo, *aaddscontoso.com* y, después, seleccione **Siguiente**.
+1. Escriba el nombre de dominio de Azure AD DS (por ejemplo, *aaddscontoso.com*) y seleccione **Siguiente**.
 1. Seleccione la opción para crear una **Confianza de bosque** y, a continuación, para crear una confianza **Unidireccional: de entrada**.
 1. Elija la opción para crear la confianza **Solo para este dominio**. En el paso siguiente, creará la confianza en Azure Portal para el dominio administrado.
 1. Elija usar **Autenticación en todo el bosque** y después escriba y confirme una contraseña de confianza. Esta misma contraseña también se escribe en Azure Portal en la sección siguiente.
 1. Deje las opciones predeterminadas de las siguientes ventanas y después elija la opción **No, no confirmar la confianza saliente**.
-1. Seleccione **Finish** (Finalizar).
+1. Seleccione **Finalizar**.
 
 ## <a name="create-outbound-forest-trust-in-azure-ad-ds"></a>Creación de una confianza de bosque de salida en Azure AD DS
 
@@ -100,16 +100,16 @@ Con el dominio local de AD DS configurado para resolver el dominio administrado
 
 Para crear la confianza de salida para el dominio administrado en Azure Portal, realice los pasos siguientes:
 
-1. En Azure Portal, busque y seleccione **Azure AD Domain Services** y después seleccione el dominio administrado, como *aaddscontoso.com*.
+1. En Azure Portal, busque y seleccione **Azure AD Domain Services** y seleccione el dominio administrado (por ejemplo, como *aaddscontoso.com*).
 1. En el menú del lado izquierdo del dominio administrado, seleccione **Confianzas** y, a continuación, elija **+ Agregar** una confianza.
 
    > [!NOTE]
    > Si no ve la opción de menú **Confianzas**, compruebe bajo **Propiedades** el *Tipo de bosque*. Solo los bosques de *recursos* pueden crear confianzas. Si el bosque es de tipo *Usuario*, no se pueden crear confianzas. Actualmente no hay ninguna manera de cambiar el tipo de bosque de un dominio administrado. Debe eliminar y volver a crear el dominio administrado como un bosque de recursos.
 
-1. Escriba un nombre para mostrar que identifique la confianza y, después, el nombre DNS del bosque de confianza local, como *onprem.contoso.com*.
+1. Especifique un nombre para mostrar que identifique la confianza y, a continuación, el nombre DNS del bosque de confianza local (por ejemplo, *onprem.contoso.com*).
 1. Proporcione la misma contraseña de confianza que usó al configurar la confianza de bosque de entrada para el dominio local de AD DS en la sección anterior.
-1. Proporcione al menos dos servidores DNS para el dominio local de AD DS, como *10.1.1.4* y *10.1.1.5*.
-1. Cuando esté listo, **Guarde** la confianza de bosque de salida.
+1. Proporcione al menos dos servidores DNS para el dominio local de AD DS (por ejemplo, *10.1.1.4* y *10.1.1.5*).
+1. Cuando esté listo, **guarde** la confianza de bosque de salida.
 
     ![Creación de una confianza de bosque de salida en Azure Portal](./media/tutorial-create-forest-trust/portal-create-outbound-trust.png)
 
@@ -181,7 +181,7 @@ Con la máquina virtual de Windows Server unida al bosque de recursos de Azure A
 1. En el cuadro de diálogo *Permisos para CrossForestShare*, seleccione **Agregar**.
 1. Escriba *FileServerAccess* en **Escriba los nombres de objeto que desea seleccionar** y, a continuación, seleccione **Aceptar**.
 1. Seleccione *FileServerAccess* de la lista **Nombres de grupos o usuarios**. En la lista **Permisos para FileServerAccess**, elija *Permitir* para los permisos **Modificar** y **Escribir** y después seleccione **Aceptar**.
-1. Seleccione la pestaña **Compartir** y después elija **Uso compartido avanzado...**
+1. Seleccione la pestaña **Compartir** y elija **Uso compartido avanzado...**
 1. Elija **Compartir esta carpeta** y escriba un nombre fácil de recordar para el recurso compartido de archivos en **Nombre del recurso compartido**, como *CrossForestShare*.
 1. Seleccione **Permisos**. En la lista **Permisos para todos**, elija **Permitir** para el permiso **Cambiar**.
 1. Seleccione **Aceptar** dos veces y, a continuación, **Cerrar**.

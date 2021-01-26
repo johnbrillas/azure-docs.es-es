@@ -8,12 +8,12 @@ author: emuench
 ms.author: mingshen
 ms.date: 10/15/2020
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: d8cb5179583dd23ea2bd4baf5ebe7d84b0ae9cbf
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: 748b6c3506127de8fce153a77571664ea531ffa1
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814438"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98601350"
 ---
 # <a name="azure-consumption-commitment-benefit"></a>Ventaja del compromiso de consumo de Azure
 
@@ -24,7 +24,7 @@ Un conjunto seleccionado de ofertas del Marketplace comercial de Microsoft que c
 
 Validamos todas las ofertas que participan en este programa para garantizar de que recibe soluciones de alta calidad.
 
-Para aprovechar esta ventaja, solo tiene que comprar una oferta apta en Azure Marketplace con una suscripción que esté relacionada con su contrato de Azure. El pago por adelantado y los compromisos monetarios de Azure no cumplen los requisitos de esta ventaja.
+Para aprovechar esta ventaja, solo tiene que comprar una oferta apta en Azure Marketplace con una suscripción que esté relacionada con su contrato de Azure. El pago por adelantado de Azure (que anteriormente se denominaba "compromiso monetario") no cumple los requisitos de esta ventaja.
 
 > [!IMPORTANT]
 > Las exclusiones pueden aplicarse a los contratos de CtC que se firmaron antes de recibir esta ventaja de Marketplace. Si tiene alguna pregunta sobre la elegibilidad, póngase en contacto con su ejecutivo de cuenta de Microsoft.

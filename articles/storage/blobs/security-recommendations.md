@@ -7,15 +7,15 @@ author: tamram
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.date: 01/12/2021
+ms.date: 01/13/2021
 ms.author: tamram
 ms.custom: security-recommendations
-ms.openlocfilehash: 55c4fa00cfd20a83e65a3d57c6020991734f9d9f
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: e3cfede444b65ee6990afd006d3b174d65f9cfad
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98132485"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98179170"
 ---
 # <a name="security-recommendations-for-blob-storage"></a>Recomendaciones de seguridad para Blob Storage
 
@@ -35,7 +35,7 @@ Azure Security Center analiza periódicamente el estado de seguridad de los recu
 | Activar la eliminación temporal de contenedores | La eliminación temporal de los contenedores le permite recuperar un contenedor después de haberlo eliminado. Para más información sobre la eliminación temporal de blobs, consulte [Eliminación temporal de contenedores (versión preliminar)](./soft-delete-container-overview.md). | - |
 | Bloquear la cuenta de almacenamiento para evitar la eliminación por error de cuentas | Puede bloquear los recursos de Azure Resource Manager, como una suscripción, un grupo de recursos o una cuenta de almacenamiento para impedir que otros usuarios de la organización los eliminen o modifiquen por error. El bloqueo de una cuenta de almacenamiento no impide que se eliminen los datos de esa cuenta. Solo evita que se elimine la cuenta. Para obtener más información, vea [Bloqueo de recursos para impedir cambios inesperados](../../azure-resource-manager/management/lock-resources.md).
 | Almacenar datos críticos para la empresa en blobs inmutables | Configure las suspensiones legales y las directivas de retención durante un tiempo para almacenar los datos de los blobs en estado WORM (escribir una vez, leer muchas). Los blobs que se hayan almacenado de forma inmutable se pueden leer, pero no se pueden modificar ni eliminar mientras dure el intervalo de retención. Para más información, consulte [Almacenamiento de datos de blobs críticos para la empresa con almacenamiento inmutable](storage-blob-immutable-storage.md). | - |
-| Exigir la transferencia segura (HTTPS) a la cuenta de almacenamiento | ??? | - |
+| Exigir la transferencia segura (HTTPS) a la cuenta de almacenamiento | Cuando se requiere una transferencia segura para una cuenta de almacenamiento, todas las solicitudes a la cuenta de almacenamiento deben realizarse mediante HTTPS. Las solicitudes realizadas a través de HTTP se rechazan. Microsoft recomienda que siempre se requiera una transferencia segura para todas las cuentas de almacenamiento. Para obtener más información, consulte [Requisito de transferencia segura para garantizar conexiones seguras](../common/storage-require-secure-transfer.md). | - |
 | Limitar los tokens de firma de acceso compartido (SAS) solo a conexiones HTTPS | Requerir HTTPS cuando un cliente usa un token de SAS para acceder a los datos de los blobs ayuda a minimizar el riesgo de espionaje. Para obtener más información, consulte [Otorgar acceso limitado a recursos de Azure Storage con firmas de acceso compartido (SAS)](../common/storage-sas-overview.md). | - |
 
 ## <a name="identity-and-access-management"></a>Administración de identidades y acceso

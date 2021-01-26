@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 4/26/2019
 ms.author: steveesp
 ms.reviewer: kumud, mareat
-ms.openlocfilehash: f0bad935c7c3d44f57dd171f714f31856bc2089c
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 280b3cbef8307691b0d50c4a26f6dca18b7fb65b
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91361320"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233872"
 ---
 # <a name="virtual-machine-network-bandwidth"></a>Ancho de banda de la red de máquinas virtuales
 
@@ -32,11 +32,11 @@ La entrada no se mide o no está directamente limitada. Sin embargo, hay otros f
 
 Las redes aceleradas son una característica diseñada para mejorar el rendimiento de red, incluida la utilización de la CPU, el rendimiento y la latencia. Mientras que las redes aceleradas pueden mejorar el rendimiento de una máquina virtual, puede hacerlo solo hasta el ancho de banda asignado de la máquina virtual. Para más información sobre las redes aceleradas, consulte los temas sobre redes aceleradas para máquinas virtuales [Windows](create-vm-accelerated-networking-powershell.md) o [Linux](create-vm-accelerated-networking-cli.md).
  
-Las máquinas virtuales de Azure deben tener una interfaz de red, pero pueden tener varias conectadas a ellas. El ancho de banda asignado a una máquina virtual es la suma de todo el tráfico saliente en todas las interfaces de red conectadas a una máquina virtual. En otras palabras, el ancho de banda asignado es por máquina virtual, independientemente de la cantidad de interfaces de red conectadas a la máquina virtual. Para obtener información sobre la cantidad de interfaces de red que admiten los distintos tamaños de máquinas virtuales de Azure, vea los tamaños de máquinas virtuales [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) y [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
+Las máquinas virtuales de Azure deben tener una interfaz de red, pero pueden tener varias conectadas a ellas. El ancho de banda asignado a una máquina virtual es la suma de todo el tráfico saliente en todas las interfaces de red conectadas a una máquina virtual. En otras palabras, el ancho de banda asignado es por máquina virtual, independientemente de la cantidad de interfaces de red conectadas a la máquina virtual. Para obtener información sobre la cantidad de interfaces de red que admiten los distintos tamaños de máquinas virtuales de Azure, vea los tamaños de máquinas virtuales [Windows](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) y [Linux](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
 
 ## <a name="expected-network-throughput"></a>Rendimiento esperado de la red
 
-El rendimiento de salida esperado y el número de interfaces de red compatibles con cada tamaño de máquina virtual se detallan en los tamaños de máquinas virtuales [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) y [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) de Azure. Seleccione un tipo, como fin general, y luego seleccione una serie de tamaños en la página resultante, como la serie Dv2. Cada serie tiene una tabla con las especificaciones de red en la última columna con el nombre **N.º máx. NIC/rendimiento de red esperado (Mbps)** . 
+El rendimiento de salida esperado y el número de interfaces de red compatibles con cada tamaño de máquina virtual se detallan en los tamaños de máquinas virtuales [Windows](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) y [Linux](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) de Azure. Seleccione un tipo, como fin general, y luego seleccione una serie de tamaños en la página resultante, como la serie Dv2. Cada serie tiene una tabla con las especificaciones de red en la última columna con el nombre **N.º máx. NIC/rendimiento de red esperado (Mbps)** . 
 
 El límite de rendimiento se aplica a la máquina virtual. El rendimiento no se ve afectado por los siguientes factores:
 - **Número de interfaces de red**: el límite de ancho de banda es el cúmulo de todo el tráfico saliente de la máquina virtual.
@@ -52,15 +52,13 @@ La transferencia de datos entre puntos de conexión exige la creación de varios
 
 ![Recuento de flujo de conversación TCP a través de un dispositivo de reenvío](media/virtual-machine-network-throughput/flow-count-through-network-virtual-appliance.png)
 
-## <a name="flow-limits-and-recommendations"></a>Límites y recomendaciones de flujo
+## <a name="flow-limits-and-active-connections-recommendations"></a>Recomendaciones sobre límites de flujo y conexiones activas
 
-Hoy en día, la pila de red de Azure admite 250 mil flujos de red totales con buen rendimiento para máquinas virtuales con más de 8 núcleos de CPU y 100 mil flujos totales con buen rendimiento para máquinas virtuales con menos de 8 núcleos de CPU. Más allá de este límite, el rendimiento de red decae gradualmente para flujos adicionales hasta un límite máximo de 500 000 flujos totales, 250 000 entrantes y 250 000 salientes, después de lo cual se eliminan los flujos adicionales.
+Actualmente, la pila de redes de Azure admite un total de 1 millón de flujos (500 mil de entrada y 500 mil de salida) para una máquina virtual. Las conexiones activas totales que una VM puede controlar en distintos escenarios son las siguientes.
+- Las máquinas virtuales que pertenecen a la red virtual pueden controlar 500 000 **_conexiones activas_* _ para todos los tamaños de máquina virtual con 500 000 _*_flujos activos en cada dirección_*_.  
+- Las máquinas virtuales con aplicaciones virtuales de red (NVA) como la puerta de enlace, el proxy y el firewall pueden controlar 250 000 _*_conexiones activas_*_ con 500 000 *_flujos activos en cada dirección_** debido al reenvío y a la creación de flujos adicionales en la nueva configuración de conexión al próximo salto, tal como se muestra en el diagrama anterior. 
 
-| Nivel de rendimiento | Máquinas virtuales con menos de 8 núcleos de CPU | Máquinas virtuales con más de 8 núcleos de CPU |
-| ----------------- | --------------------- | --------------------- |
-|<b>Buen rendimiento</b>|100 mil flujos |250 mil flujos|
-|<b>Rendimiento reducido</b>|Más de 100 mil flujos|Más de 250 mil flujos|
-|<b>Límite de flujos</b>|500 000 flujos|500 000 flujos|
+Una vez alcanzado este límite, se quitan las conexiones adicionales. Las tasas de establecimiento y finalización de conexiones también pueden afectar al rendimiento de red, ya que el establecimiento y la finalización de conexiones comparten CPU con rutinas de procesamiento de paquetes. Se recomienda evaluar las cargas de trabajo en patrones de tráfico esperados y escalar horizontalmente las cargas de trabajo adecuadamente para satisfacer las necesidades de rendimiento.
 
 Hay métricas disponibles en [Azure Monitor](../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines) para realizar un seguimiento del número de flujos de red y la velocidad de creación de flujos en las instancias de VM o VMSS.
 

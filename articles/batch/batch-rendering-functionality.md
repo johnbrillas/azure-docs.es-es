@@ -3,14 +3,14 @@ title: Funcionalidades de representación
 description: Las funcionalidades estándar de Azure Batch se utilizan para ejecutar aplicaciones y cargas de trabajo de representación. Batch incluye características específicas para admitir cargas de trabajo de representación.
 author: mscurrell
 ms.author: markscu
-ms.date: 08/02/2018
+ms.date: 01/14/2021
 ms.topic: how-to
-ms.openlocfilehash: 77a6ec54495b394c597f6d6b4ddb5f5fe3285550
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: d9d196897800467fd02397bb774af0bbb9ebabf0
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107477"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234280"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Funcionalidades de representación de Azure Batch
 
@@ -18,7 +18,15 @@ Las funcionalidades estándar de Azure Batch se utilizan para ejecutar aplicacio
 
 Para obtener información general sobre los conceptos de Batch, incluidos grupos, trabajos y tareas, consulte [este artículo](./batch-service-workflow-features.md).
 
-## <a name="batch-pools"></a>Grupos de Batch
+## <a name="batch-pools-using-custom-vm-images-and-standard-application-licensing"></a>Grupos de Batch con imágenes de máquina virtual personalizadas y licencias de aplicaciones estándar
+
+Al igual que con otras cargas de trabajo y tipos de aplicación, se puede crear una imagen de máquina virtual personalizada con las aplicaciones de representación y los complementos necesarios. La imagen de máquina virtual personalizada se coloca en [Shared Image Gallery](../virtual-machines/shared-image-galleries.md) y [se puede usar para crear grupos de Batch](batch-sig-images.md).
+
+Las cadenas de línea de comandos de la tarea deberán hacer referencia a las aplicaciones y las rutas de acceso que se usan al crear la imagen de máquina virtual personalizada.
+
+La mayoría de las aplicaciones de representación requerirán licencias obtenidas de un servidor de licencias. Si existe un servidor de licencias local, el grupo y el servidor de licencias deben estar en la misma [red virtual](../virtual-network/virtual-networks-overview.md). También es posible ejecutar un servidor de licencias en una máquina virtual de Azure, con el grupo de Batch y la máquina virtual del servidor de licencias en la misma red virtual.
+
+## <a name="batch-pools-using-rendering-vm-images"></a>Grupos de Batch mediante imágenes de máquina virtual de representación
 
 ### <a name="rendering-application-installation"></a>Instalación de la aplicación de representación
 
@@ -71,13 +79,13 @@ Arnold 2017 command line|kick.exe|ARNOLD_2017_EXEC|
 |Arnold 2018 command line|kick.exe|ARNOLD_2018_EXEC|
 |Blender|blender.exe|BLENDER_2018_EXEC|
 
-### <a name="azure-vm-families"></a>Familias de VM de Azure
+## <a name="azure-vm-families"></a>Familias de VM de Azure
 
 Al igual que con otras cargas de trabajo, los requisitos del sistema de las aplicaciones de representación varían, y los requisitos de rendimiento varían para los proyectos y los trabajos.  En Azure hay disponible una gran variedad de familias de VM según sus requisitos: menor costo, mejor relación precio/rendimiento, mejor rendimiento, etc.
 Algunas aplicaciones de representación, como Arnold, se basan en CPU; otras, como V-Ray y Blender Cycles, pueden utilizar CPU o GPU.
 Para obtener una descripción de las familias de VM y los tamaños de VM disponibles, [consulte los tamaños y tipos de VM](../virtual-machines/sizes.md).
 
-### <a name="low-priority-vms"></a>VM de prioridad baja
+## <a name="low-priority-vms"></a>VM de prioridad baja
 
 Al igual que con otras cargas de trabajo, se pueden utilizar VM de prioridad baja en grupos de Batch para la representación.  Las VM de prioridad baja tienen un rendimiento similar a las VM dedicadas normales, pero utilizan la capacidad sobrante de Azure y están disponibles con un gran descuento.  El inconveniente del uso de máquinas virtuales de prioridad baja es que esas máquinas virtuales pueden no estar disponibles para su asignación o pueden reemplazarse en cualquier momento, según la capacidad disponible. Por este motivo, las VM de prioridad baja no son adecuadas para todos los trabajos de representación. Por ejemplo, si las imágenes tardan muchas horas en representarse, es probable que no sea aceptable interrumpir y reiniciar la representación de esas imágenes debido al reemplazo por baja prioridad de las VM.
 

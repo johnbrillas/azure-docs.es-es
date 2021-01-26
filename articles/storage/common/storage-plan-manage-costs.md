@@ -9,12 +9,12 @@ ms.date: 11/13/2020
 ms.author: normesta
 ms.subservice: common
 ms.custom: subject-cost-optimization
-ms.openlocfilehash: 6942c3ecd631a141f1df741ff827a6889605e536
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 0bad4637f13bbcf02047416499e4f82fdc53eb4f
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498207"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98601302"
 ---
 # <a name="plan-and-manage-costs-for-azure-blob-storage"></a>Planeamiento y administración de costos de Azure Blob Storage
 
@@ -41,7 +41,7 @@ Use la [calculadora de precios de Azure](https://azure.microsoft.com/pricing/cal
 4. Modifique las demás opciones cómo afectan a la estimación.
 
    > [!NOTE]
-   > Puede pagar los cargos de Azure Blob Storage con el crédito del compromiso monetario del Contrato Enterprise de Azure. Sin embargo, no puede usar el crédito del compromiso monetario para pagar los cargos de productos y servicios de terceros, incluidos los de Azure Marketplace.
+   > Puede pagar los cargos de Azure Blob storage con el crédito del pago por adelantado de Azure (antes conocido como compromiso monetario). Sin embargo, no puede usar el crédito del pago por adelantado de Azure para pagar los gastos de productos y servicios de terceros, incluidos los que proceden de Azure Marketplace.
 
 ## <a name="optimize-costs"></a>Optimización de costos
 
@@ -75,16 +75,16 @@ Para más información, consulte [Administración del ciclo de vida de Azure Blo
 
 ## <a name="create-budgets"></a>Creación de presupuestos
 
-Puede crear [presupuestos](../../cost-management-billing/costs/tutorial-acm-create-budgets.md) para administrar los costos y crear alertas que envíen notificaciones automáticamente a las partes interesadas sobre anomalías en los gastos y riesgos de gastos adicionales. Las alertas se basan en el gasto comparado con los umbrales de presupuesto y costo. Los presupuestos y las alertas se crean para las suscripciones y los grupos de recursos de Azure, por lo que son útiles como parte de una estrategia general de supervisión de costos. Sin embargo, pueden tener una funcionalidad limitada para administrar los costos de servicios individuales de Azure, como el costo de Azure Storage, porque están diseñados para realizar un seguimiento de los costos en un nivel más alto.
+Puede crear [presupuestos](../../cost-management-billing/costs/tutorial-acm-create-budgets.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) para administrar los costos y crear alertas que envíen notificaciones automáticamente a las partes interesadas sobre anomalías en los gastos y riesgos de gastos adicionales. Las alertas se basan en el gasto comparado con los umbrales de presupuesto y costo. Los presupuestos y las alertas se crean para las suscripciones y los grupos de recursos de Azure, por lo que son útiles como parte de una estrategia general de supervisión de costos. Sin embargo, pueden tener una funcionalidad limitada para administrar los costos de servicios individuales de Azure, como el costo de Azure Storage, porque están diseñados para realizar un seguimiento de los costos en un nivel más alto.
 
 ## <a name="monitor-costs"></a>Supervisión de costos
 
-A medida que se usan recursos con Azure Storage, se incurre en costos. Los costos de la unidad de uso de recursos varían en función de intervalos de tiempo (segundos, minutos, horas y días) o en función del uso de unidades (bytes, megabytes, etc.). Tan pronto como empieza el uso de Azure Storage, se incurre en costos. Puede ver los costos en el panel [Análisis de costos](../../cost-management-billing/costs/quick-acm-cost-analysis.md) de Azure Portal.
+A medida que se usan recursos con Azure Storage, se incurre en costos. Los costos de la unidad de uso de recursos varían en función de intervalos de tiempo (segundos, minutos, horas y días) o en función del uso de unidades (bytes, megabytes, etc.). Tan pronto como empieza el uso de Azure Storage, se incurre en costos. Puede ver los costos en el panel [Análisis de costos](../../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) de Azure Portal.
 
 Al usar el análisis de costos, puede ver los costos de Azure Storage en gráficos y tablas para diferentes intervalos de tiempo. Algunos ejemplos son: por día, mes actual y anterior y año. También puede ver los costos comparados con los presupuestos y los costos previstos. Cambiar a vistas más largas en el tiempo puede ayudarle a identificar las tendencias de gasto y ver dónde podría haber ocurrido un gasto excesivo. Si ha creado presupuestos, también podrá ver fácilmente dónde se han excedido.
 
 >[!NOTE]
-> El análisis de costos es compatible con varios tipos de cuenta de Azure. Para ver la lista completa de tipos de cuenta compatibles, consulte [Understand Cost Management data](../../cost-management-billing/costs/understand-cost-mgt-data.md) (Información sobre los datos de Cost Management). Para ver los datos de costos, se necesita al menos acceso de lectura en la cuenta de Azure. Para más información acerca de cómo asignar acceso a los datos de Azure Cost Management, consulte [Asignación de acceso a los datos](../../cost-management-billing/costs/assign-access-acm-data.md).
+> El análisis de costos es compatible con varios tipos de cuenta de Azure. Para ver la lista completa de tipos de cuenta compatibles, consulte [Understand Cost Management data](../../cost-management-billing/costs/understand-cost-mgt-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) (Información sobre los datos de Cost Management). Para ver los datos de costos, se necesita al menos acceso de lectura en la cuenta de Azure. Para más información acerca de cómo asignar acceso a los datos de Azure Cost Management, consulte [Asignación de acceso a los datos](../../cost-management-billing/costs/assign-access-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 
 Para ver los costos de Azure Storage en los análisis de costos:
 

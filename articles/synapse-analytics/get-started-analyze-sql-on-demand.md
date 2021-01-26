@@ -9,13 +9,13 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
-ms.date: 07/20/2020
-ms.openlocfilehash: 4ca9ababbeb7843f1a014a4bd51a5e24a74acbae
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 12/31/2020
+ms.openlocfilehash: c9f8760bd1a7b5d3700f3fdf03331fe7013e116f
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322945"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209414"
 ---
 # <a name="analyze-data-with-serverless-sql-pool-in-azure-synapse-analytics"></a>Análisis de datos con un grupo de SQL sin servidor en Azure Synapse Analytics
 
@@ -23,10 +23,11 @@ En este tutorial, aprenderá a analizar datos con un grupo de SQL sin servidor m
 
 ## <a name="analyze-nyc-taxi-data-in-blob-storage-using-serverless-sql-pool"></a>Análisis de los datos de taxis de Nueva York en Blob Storage mediante un grupo de SQL sin servidor
 
-1. En el centro de conectividad **Data** (Datos) de **Linked** (Vinculados), haga clic con el botón derecho en **Azure Blob Storage > Sample Datasets > nyc_tlc_yellow** (Azure Blob Storage > Conjuntos de datos de ejemplo > nyc_tlc_yellow) y seleccione **SELECT New notebook** (SELECCIONAR 100 PRIMERAS filas).
+1. En el centro de conectividad **Data** (Datos) de **Linked** (Vinculados), haga clic con el botón derecho en **Azure Blob Storage > Sample Datasets > nyc_tlc_yellow** (Azure Blob Storage > Conjuntos de datos de ejemplo > nyc_tlc_yellow), **New SQL Script** (Nuevo script SQL) y seleccione **SELECT TOP 100 rows** (SELECCIONAR 100 PRIMERAS filas).
 1. Así se creará un script de SQL con el código siguiente:
 
     ```
+    -- This is auto-generated code
     SELECT
         TOP 100 *
     FROM
@@ -42,7 +43,7 @@ En este tutorial, aprenderá a analizar datos con un grupo de SQL sin servidor m
 Las tablas de las bases de datos de Spark se ven automáticamente y se pueden consultar mediante un grupo de SQL sin servidor.
 
 1. En Synapse Studio, vaya al centro **Develop** (Desarrollo) y cree un script de SQL.
-1. Establezca **Conectarse a** en **grupo de SQL sin servidor**.
+1. Establezca **Conectarse a** en el grupo de SQL sin servidor **integrado**.
 1. Pegue el siguiente texto en el script y ejecute el script.
 
     ```sql

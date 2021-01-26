@@ -5,13 +5,14 @@ author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/26/2020
-ms.openlocfilehash: 730b634f23599c5eef8c4c6c988820ae5e4fa9c8
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.date: 01/13/2021
+ms.custom: references_regions
+ms.openlocfilehash: c380a3edb556adb72d067cb2910c8afbf66b99a0
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94535119"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250271"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Réplicas de lectura en Azure Database for MySQL
 
@@ -22,22 +23,21 @@ Las réplicas son nuevos servidores que se administran de forma similar a los se
 Para más información sobre los problemas y las características de replicación de MySQL, consulte la [documentación de replicación de MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html).
 
 > [!NOTE]
-> Comunicación sin prejuicios
->
-> Microsoft admite un entorno diverso e inclusivo. En este artículo se incluyen referencias a la palabra _esclavo_. En la [guía de estilo para la comunicación sin prejuicios](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) de Microsoft se reconoce que se trata de una palabra excluyente. Se usa en este artículo por coherencia, ya que actualmente es la palabra que aparece en el software. Cuando se actualice el software para quitarla, este artículo se actualizará para que esté alineado.
+> Este artículo contiene referencias al término _esclavo_, un término que Microsoft ya no usa. Cuando se elimine el término del software, se eliminará también de este artículo.
 >
 
 ## <a name="when-to-use-a-read-replica"></a>Casos en los que utilizar las réplicas de lectura
 
-La finalidad de la característica de réplica de lectura es ayudar a mejorar el rendimiento y la escala de las cargas de trabajo que conllevan un gran número de operaciones de lectura. Las cargas de trabajo de lectura se pueden aislar en las réplicas, mientras que las cargas de trabajo de escritura se pueden dirigir al servidor maestro.
+La finalidad de la característica de réplica de lectura es ayudar a mejorar el rendimiento y la escala de las cargas de trabajo que conllevan un gran número de operaciones de lectura. Las cargas de trabajo de lectura se pueden aislar en las réplicas, mientras que las cargas de trabajo de escritura se pueden dirigir al origen.
 
 Un caso habitual es que las cargas de trabajo de análisis e inteligencia empresarial utilicen la réplica de lectura como origen de datos para los informes.
 
-Dado que las réplicas son de solo lectura, no reducen directamente las cargas de capacidad de escritura en el servidor maestro. Esta característica no está destinada a cargas de trabajo intensivas de escritura.
+Dado que las réplicas son de solo lectura, no reducen directamente las cargas de capacidad de escritura en el origen. Esta característica no está destinada a cargas de trabajo intensivas de escritura.
 
-Esta característica de réplica de lectura utiliza la replicación asincrónica de MySQL. La característica no está diseñada para escenarios de replicación sincrónica. Habrá un retraso medible entre el origen y la réplica. Los datos de la réplica se vuelven finalmente coherentes con los datos del servidor maestro. Use esta característica con cargas de trabajo que puedan admitir este retraso.
+Esta característica de réplica de lectura utiliza la replicación asincrónica de MySQL. La característica no está diseñada para escenarios de replicación sincrónica. Habrá un retraso medible entre el origen y la réplica. Los datos de la réplica se vuelven finalmente coherentes con los datos del origen. Use esta característica con cargas de trabajo que puedan admitir este retraso.
 
 ## <a name="cross-region-replication"></a>Replicación entre regiones
+
 Puede crear una réplica de lectura en una región distinta a la del servidor de origen. La replicación entre regiones puede ser útil para escenarios como el planeamiento de la recuperación ante desastres o la incorporación de datos más cerca de los usuarios.
 
 Puede tener un servidor de origen en cualquier [región de Azure Database for MySQL](https://azure.microsoft.com/global-infrastructure/services/?products=mysql).  Un servidor de origen puede tener una réplica en su región emparejada o en las regiones de réplica universales. En la imagen siguiente se muestran las regiones de réplica disponibles en función de la región de origen.
@@ -45,11 +45,13 @@ Puede tener un servidor de origen en cualquier [región de Azure Database for M
 [ :::image type="content" source="media/concepts-read-replica/read-replica-regions.png" alt-text="Regiones de réplica de lectura":::](media/concepts-read-replica/read-replica-regions.png#lightbox)
 
 ### <a name="universal-replica-regions"></a>Regiones de réplica universal
+
 Puede crear una réplica de lectura en cualquiera de las siguientes regiones, con independencia de dónde se encuentre el servidor de origen. Entre las regiones de réplica universales admitidas se incluyen:
 
 Este de Australia, Sudeste de Australia, Sur de Brasil, Centro de Canadá, Este de Canadá, Centro de EE. UU., Este de Asia, Este de EE. UU. 2, Este de Japón, Oeste de Japón, Centro de Corea del Sur, Sur de Corea del Sur, Centro y norte de EE. UU., Norte de Europa, Centro-sur de EE. UU., Sudeste de Asia, Sur de Reino Unido, Oeste de Reino Unido, Oeste de Europa, Oeste de EE. UU., Oeste de EE. UU. 2, Centro-oeste de EE. UU.
 
 ### <a name="paired-regions"></a>Regiones emparejadas
+
 Además de las regiones de réplica universales, puede crear una réplica de lectura en la región emparejada de Azure del servidor de origen. Si no conoce el par de la región, puede obtener más información en el [artículo sobre regiones emparejadas de Azure](../best-practices-availability-paired-regions.md).
 
 Si usa réplicas entre regiones para planear la recuperación ante desastres, se recomienda que cree la réplica en la región emparejada en lugar de en una de las otras regiones. Las regiones emparejadas evitan actualizaciones simultáneas y priorizan el aislamiento físico y la residencia de datos.  
@@ -57,8 +59,8 @@ Si usa réplicas entre regiones para planear la recuperación ante desastres, se
 Sin embargo, existen limitaciones que deben considerarse: 
 
 * Disponibilidad regional: Azure Database for MySQL está disponible en el Centro de Francia, Norte de Emiratos Árabes Unidos y Centro de Alemania. Sin embargo, sus regiones emparejadas no están disponibles.
-    
-* Pares unidireccionales: Algunas regiones de Azure se emparejan solo en una dirección. Estas regiones incluyen Oeste de la India, Sur de Brasil y US Gov Virginia. 
+
+* Pares unidireccionales: Algunas regiones de Azure se emparejan solo en una dirección. Estas regiones incluyen Oeste de la India, Sur de Brasil y US Gov Virginia.
    Esto significa que un servidor de origen del Oeste de la India puede crear una réplica en el Sur de la India. Sin embargo, un servidor de origen del Sur de la India no puede crear una réplica en el Oeste de la India. Esto es debido a que la región secundaria del Oeste de la India es Sur de la India, pero la región secundaria de esta última no es Oeste de la India.
 
 ## <a name="create-a-replica"></a>Creación de una réplica
@@ -98,7 +100,7 @@ Si ve un mayor retraso en la replicación, consulte [Solución de problemas de l
 
 Puede detener la replicación entre un servidor de origen y una réplica. Una vez que se ha detenido la replicación entre un servidor de origen y una réplica de lectura, la réplica se convierte en un servidor independiente. Los datos del servidor independiente son los datos que estaban disponibles en la réplica en el momento en que se inició el comando para detener la replicación. El servidor independiente no alcanza al servidor de origen.
 
-Si decide detener la replicación en una réplica, perderá todos los vínculos con su servidor de origen anterior y otras réplicas. Recuerde que no se produce ninguna conmutación por error automatizada entre un servidor de origen y su réplica.
+Si decide detener la replicación en una réplica, perderá todos los vínculos con su servidor de origen anterior y otras réplicas. No se produce ninguna conmutación por error automatizada entre un origen y su réplica.
 
 > [!IMPORTANT]
 > Este servidor independiente no puede volver a convertirse en una réplica.
@@ -108,22 +110,22 @@ Aprenda a [detener la replicación en una réplica](howto-read-replicas-portal.m
 
 ## <a name="failover"></a>Conmutación por error
 
-No se produce ninguna conmutación por error automatizada entre el servidor de origen y la réplica. 
+No se produce ninguna conmutación por error automatizada entre el origen y los servidores de réplica.
 
-Dado que la replicación es asincrónica, se produce un retraso entre el origen y la réplica. La cantidad de retraso puede verse afectada por varios factores, como lo pesada que sea la carga de trabajo que se ejecuta en el servidor de origen y la latencia entre los centros de datos. En la mayoría de los casos, el retraso de la réplica oscila entre unos segundos y un par de minutos. Puede realizar un seguimiento del retraso real de la replicación mediante la métrica *Replica Lag* (Retraso de réplica), que está disponible para cada réplica. Esta métrica muestra el tiempo desde la última transacción reproducida. Se recomienda que observe el retraso de la réplica durante un período de tiempo para identificar el retraso medio. Puede establecer una alerta sobre el retraso de la réplica, para que si se sale del intervalo esperado, puede tomar medidas.
+Dado que la replicación es asincrónica, se produce un desfase entre el origen y la réplica. La cantidad de desfase puede verse afectada por muchos factores, como lo pesada que sea la carga de trabajo que se ejecuta en el servidor de origen y la latencia entre los centros de datos. En la mayoría de los casos, el retraso de la réplica oscila entre unos segundos y un par de minutos. Puede realizar un seguimiento del retraso real de la replicación mediante la métrica *Replica Lag* (Retraso de réplica), que está disponible para cada réplica. Esta métrica muestra el tiempo desde la última transacción reproducida. Se recomienda que observe el retraso de la réplica durante un período de tiempo para identificar el retraso medio. Puede establecer una alerta sobre el retraso de la réplica, para que si se sale del intervalo esperado, puede tomar medidas.
 
 > [!Tip]
 > Si realiza la conmutación por error a la réplica, el retraso en el momento de desvincular la réplica del origen indicará la cantidad de datos perdidos.
 
-Cuando haya decidido que quiere conmutar por error a una réplica, realice estos pasos: 
+Cuando haya decidido que quiere conmutar por error a una réplica, realice estos pasos:
 
 1. Detenga la replicación en la réplica.<br/>
-   Este paso es necesario para que el servidor de la réplica pueda aceptar escrituras. Como parte de este proceso, el servidor de réplica se desvinculará del maestro. Una vez iniciada la detención de la replicación, el proceso de back-end tarda aproximadamente dos minutos en completarse. Consulte la sección [Detención de la replicación](#stop-replication) de este artículo para conocer las implicaciones de esta acción.
-    
+   Este paso es necesario para que el servidor de la réplica pueda aceptar escrituras. Como parte de este proceso, el servidor de réplica se desvinculará del origen. Una vez iniciada la detención de la replicación, el proceso de back-end suele tardar aproximadamente dos minutos en completarse. Consulte la sección [Detención de la replicación](#stop-replication) de este artículo para conocer las implicaciones de esta acción.
+
 2. Haga que la replicación apunte a la réplica (anterior).<br/>
-   Cada servidor tiene una cadena de conexión única. Actualice la aplicación para que apunte a la réplica (anterior) en lugar de al servidor maestro.
-    
-Una vez que la aplicación procesa correctamente las lecturas y las escrituras, ya está completa la conmutación por error. La cantidad de tiempo de inactividad que experimente su aplicación dependerá del momento en que se detecte una incidencia y se realicen los pasos 1 y 2 anteriores.
+   Cada servidor tiene una cadena de conexión única. Actualice la aplicación para que apunte a la réplica (anterior) en lugar de al origen.
+
+Una vez que la aplicación procesa correctamente las lecturas y las escrituras, ya está completa la conmutación por error. La cantidad de tiempo de inactividad que experimente su aplicación dependerá del momento en que se detecte una incidencia y se realicen los pasos 1 y 2 indicados anteriormente.
 
 ## <a name="global-transaction-identifier-gtid"></a>Identificador de transacción global (GTID)
 
@@ -139,7 +141,7 @@ Los siguientes parámetros de servidor se pueden usar para configurar GTID:
 |`enforce_gtid_consistency`|Aplica la coherencia de GTID, ya que solo permite que se ejecuten las instrucciones que se pueden registrar de una manera transaccionalmente segura. Este valor debe establecerse en `ON` antes de habilitar la replicación de GTID. |`OFF`|`OFF`: a todas las transacciones se les permite infringir la coherencia de GTID.  <br> `ON`: no se permite a ninguna transacción infringir la coherencia de GTID. <br> `WARN`: a todas las transacciones se les permite infringir la coherencia de GTID, pero se genera una advertencia. | 
 
 > [!NOTE]
-> Una vez que GTID está habilitado, no se puede volver a desactivar. Si necesita desactivar GTID, póngase en contacto con el servicio de soporte técnico. 
+> Una vez habilitado GTID, no se puede volver a desactivar. Si necesita desactivar GTID, póngase en contacto con el servicio de soporte técnico. 
 
 Para habilitar GTID y configurar el comportamiento de la coherencia, actualice los parámetros de servidor `gtid_mode` y `enforce_gtid_consistency` mediante [Azure Portal](howto-server-parameters.md), la [CLI de Azure](howto-configure-server-parameters-using-cli.md) o [ PowerShell](howto-configure-server-parameters-using-powershell.md).
 
@@ -156,7 +158,7 @@ Actualmente, las réplicas de lectura solo están disponibles en los planes de t
 
 ### <a name="source-server-restart"></a>Reinicio del servidor de origen
 
-Cuando se crea una réplica para un origen que no tiene réplicas existentes, el origen se reiniciará primero a fin de prepararse para la replicación. Téngalo en cuenta y realice estas operaciones durante un período de poca actividad.
+Cuando se crea la réplica de origen que no tiene réplicas existentes, el origen se reiniciará primero a fin de prepararse para la replicación. Téngalo en cuenta y realice estas operaciones durante un período de poca actividad.
 
 ### <a name="new-replicas"></a>Nuevas réplicas
 
@@ -164,10 +166,10 @@ Las réplicas de lectura se crean como nuevos servidores Azure Database for MySQ
 
 ### <a name="replica-configuration"></a>Configuración de réplicas
 
-Las réplicas se crean con la misma configuración de servidor que el servidor maestro. Después de crear una réplica, se pueden cambiar varios valores independientemente del servidor de origen: generación de proceso, núcleos virtuales, almacenamiento y período de retención de copias de seguridad. El plan de tarifa también se puede cambiar de forma independiente, excepto si es con origen o destino en el nivel Básico.
+Las réplicas se crean con la misma configuración de servidor que el origen. Después de crear una réplica, se pueden cambiar varios valores independientemente del servidor de origen: generación de proceso, núcleos virtuales, almacenamiento y período de retención de copias de seguridad. El plan de tarifa también se puede cambiar de forma independiente, excepto si es con origen o destino en el nivel Básico.
 
 > [!IMPORTANT]
-> Antes de actualizar la configuración de un servidor de origen con nuevos valores, actualice la configuración de las réplicas a valores iguales o mayores. Esta acción garantiza que la réplica puede hacer frente a los cambios realizados en el servidor maestro.
+> Antes de actualizar la configuración de un servidor de origen con nuevos valores, actualice la configuración de las réplicas a valores iguales o mayores. Esta acción garantiza que la réplica puede hacer frente a los cambios realizados en el servidor de origen.
 
 Las reglas de firewall y la configuración de parámetros se heredan del servidor de origen y van a la réplica cuando esta se crea. Después, las reglas de la réplica son independientes.
 
@@ -188,31 +190,33 @@ Los usuarios del servidor de origen se replican en las réplicas de lectura. Sol
 Para evitar que los datos dejen de estar sincronizados y evitar posibles pérdidas o daños en los datos, se bloquean algunos parámetros del servidor para que no se actualicen mientras se usan réplicas de lectura.
 
 Los siguientes parámetros de servidor están bloqueados tanto en el servidor de origen como en los de réplica:
-- [`innodb_file_per_table`](https://dev.mysql.com/doc/refman/8.0/en/innodb-file-per-table-tablespaces.html) 
-- [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators)
 
-El parámetro [`event_scheduler`](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_event_scheduler) está bloqueado en los servidores de réplica. 
+* [`innodb_file_per_table`](https://dev.mysql.com/doc/refman/8.0/en/innodb-file-per-table-tablespaces.html) 
+* [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators)
 
-Para actualizar uno de los parámetros anteriores en el servidor de origen, elimine los servidores de réplica, actualice el valor del parámetro en el maestro y vuelva a crear las réplicas.
+El parámetro [`event_scheduler`](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_event_scheduler) está bloqueado en los servidores de réplica.
+
+Para actualizar uno de los parámetros anteriores en el servidor de origen, elimine los servidores de réplica, actualice el valor del parámetro en el origen y vuelva a crear las réplicas.
 
 ### <a name="gtid"></a>GTID
 
 GTID se admite en:
-- Las versiones 5.7 y 8.0 de MySQL 
-- Servidores que admiten almacenamiento de hasta 16 TB. Consulte el artículo sobre el [plan de tarifa](concepts-pricing-tiers.md#storage) para ver la lista completa de las regiones que admiten el almacenamiento de 16 TB. 
 
-GTID está desactivado de forma predeterminada, pero una vez que se habilita, no se puede volver a desactivar. Si necesita desactivar GTID, póngase en contacto con el servicio de soporte técnico. 
+* Las versiones 5.7 y 8.0 de MySQL.
+* Servidores que admiten almacenamiento de hasta 16 TB. Consulte el artículo sobre el [plan de tarifa](concepts-pricing-tiers.md#storage) para ver la lista completa de las regiones que admiten el almacenamiento de 16 TB.
+
+GTID está desactivado de forma predeterminada, Una vez habilitado GTID, no se puede volver a desactivar. Si tiene que desactivar GTID, póngase en contacto con el servicio de soporte técnico.
 
 Si GTID está habilitado en un servidor de origen, las réplicas recién creadas también tendrán GTID habilitado y usarán la replicación de GTID. Para que la replicación se realice de forma consistente, no puede actualizar `gtid_mode` en los servidores de origen ni de réplica.
 
 ### <a name="other"></a>Otros
 
-- No permite crear réplicas de réplicas.
-- Las tablas en memoria pueden provocar que las réplicas dejen de sincronizarse. Esto es una limitación de la tecnología de replicación de MySQL. Puede obtener más información en la [documentación de referencia de MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features-memory.html).
-- Asegúrese de que las tablas del servidor de origen tienen claves principales. La falta de claves principales puede generar una latencia en la replicación entre el origen y las réplicas.
-- Consulte la lista completa de las limitaciones de la replicación de MySQL en la [documentación de MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html).
+* No permite crear réplicas de réplicas.
+* Las tablas en memoria pueden provocar que las réplicas dejen de sincronizarse. Esto es una limitación de la tecnología de replicación de MySQL. Puede obtener más información en la [documentación de referencia de MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features-memory.html).
+* Asegúrese de que las tablas del servidor de origen tienen claves principales. La falta de claves principales puede generar una latencia en la replicación entre el origen y las réplicas.
+* Consulte la lista completa de las limitaciones de la replicación de MySQL en la [documentación de MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga información sobre cómo [crear y administrar réplicas de lectura mediante Azure Portal](howto-read-replicas-portal.md).
-- Aprenda a [crear y administrar réplicas de lectura mediante la CLI de Azure y API REST](howto-read-replicas-cli.md).
+* Obtenga información sobre cómo [crear y administrar réplicas de lectura mediante Azure Portal](howto-read-replicas-portal.md).
+* Aprenda a [crear y administrar réplicas de lectura mediante la CLI de Azure y API REST](howto-read-replicas-cli.md).

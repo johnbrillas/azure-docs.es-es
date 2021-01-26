@@ -5,13 +5,13 @@ author: ambhatna
 ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/26/2020
-ms.openlocfilehash: 3fe63deb8115c0043023301c6d0dc3731e97743f
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 01/14/2021
+ms.openlocfilehash: fa7cc9b9a09bfd2bc503640272b5e7ac3a0a7b58
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492632"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251308"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql---flexible-server"></a>Réplicas de lectura en Azure Database for MySQL: Servidor flexible
 
@@ -24,14 +24,12 @@ En el caso de las aplicaciones, la aplicación se desarrolla normalmente en Java
 
 La característica de réplica de lectura permite replicar datos de Azure Database for MySQL con servidor flexible en un servidor de solo lectura. Puede crear hasta **10** réplicas desde el servidor de origen. Las réplicas se actualizan asincrónicamente mediante la tecnología de replicación basada en la posición de los archivos de registros binarios nativos (binlog) del motor de MySQL. Para obtener más información acerca de la replicación de binlog, consulte la [Introducción a la replicación de binlog de MySQL](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
 
-Las réplicas son nuevos servidores que se administran de forma similar a los servidores flexibles de Azure Database for MySQL de origen. Se producirán cargos de facturación por cada réplica de lectura en función del proceso aprovisionado en núcleos virtuales y el almacenamiento aprovisionado en GB/mes. Para obtener más información, consulte los [precios](./concepts-compute-storage.md#pricing).
+Las réplicas son nuevos servidores que se administran de forma similar a los servidores flexibles de Azure Database for MySQL de origen. Se producirán cargos de facturación por cada réplica de lectura en función del proceso aprovisionado en núcleos virtuales y el almacenamiento aprovisionado en GB/mes. Para más información, consulte los [precios](./concepts-compute-storage.md#pricing).
 
 Para más información sobre los problemas y las características de replicación de MySQL, consulte la [documentación de replicación de MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html).
 
 > [!NOTE]
-> Comunicación sin prejuicios
->
-> Microsoft admite un entorno diverso e inclusivo. En este artículo se incluyen referencias a la palabra _esclavo_. En la [guía de estilo para la comunicación sin prejuicios](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) de Microsoft se reconoce que se trata de una palabra excluyente. Se usa en este artículo por coherencia, ya que actualmente es la palabra que aparece en el software. Cuando se actualice el software para quitarla, este artículo se actualizará para que esté alineado.
+> Este artículo contiene referencias al término _esclavo_, un término que Microsoft ya no usa. Cuando se elimine el término del software, se eliminará también de este artículo.
 >
 
 ## <a name="common-use-cases-for-read-replica"></a>Casos de uso habituales de las réplicas de lectura
@@ -93,23 +91,23 @@ Aprenda a [detener la replicación en una réplica](how-to-read-replicas-portal.
 
 ## <a name="failover"></a>Conmutación por error
 
-No se produce ninguna conmutación por error automatizada entre el servidor de origen y la réplica. 
+No se produce ninguna conmutación por error automatizada entre el servidor de origen y la réplica.
 
 Las réplicas de lectura están pensadas para escalar cargas de trabajo intensivas de lectura y no están diseñadas para satisfacer las necesidades de alta disponibilidad de un servidor. No se produce ninguna conmutación por error automatizada entre el servidor de origen y la réplica. Detener la replicación en la réplica de lectura para ponerla en línea en el modo de lectura y escritura es el medio por el que se realiza esta conmutación por error manual.
 
-Dado que la replicación es asincrónica, se produce un retraso entre el origen y la réplica. La cantidad de retraso puede verse afectada por varios factores, como lo pesada que sea la carga de trabajo que se ejecuta en el servidor de origen y la latencia entre los centros de datos. En la mayoría de los casos, el retraso de la réplica oscila entre unos segundos y un par de minutos. Puede realizar un seguimiento del retraso real de la replicación mediante la métrica *Replica Lag* (Retraso de réplica), que está disponible para cada réplica. Esta métrica muestra el tiempo desde la última transacción reproducida. Se recomienda que observe el retraso de la réplica durante un período de tiempo para identificar el retraso medio. Puede establecer una alerta sobre el retraso de la réplica, para que si se sale del intervalo esperado, puede tomar medidas.
+Dado que la replicación es asincrónica, se produce un retraso entre el origen y la réplica. La cantidad de desfase puede verse afectada por muchos factores, como lo pesada que sea la carga de trabajo que se ejecuta en el servidor de origen y la latencia entre los centros de datos. En la mayoría de los casos, el retraso de la réplica oscila entre unos segundos y un par de minutos. Puede realizar un seguimiento del retraso real de la replicación mediante la métrica *Replica Lag* (Retraso de réplica), que está disponible para cada réplica. Esta métrica muestra el tiempo desde la última transacción reproducida. Se recomienda que observe el retraso de la réplica durante un período de tiempo para identificar el retraso medio. Puede establecer una alerta sobre el retraso de la réplica, para que si se sale del intervalo esperado, puede tomar medidas.
 
 > [!Tip]
 > Si realiza la conmutación por error a la réplica, el retraso en el momento de desvincular la réplica del origen indicará la cantidad de datos perdidos.
 
-Cuando haya decidido que quiere conmutar por error a una réplica, realice estos pasos: 
+Después de haber decidido que quiere conmutar por error a una réplica, realice estos pasos:
 
 1. Detenga la replicación en la réplica.<br/>
-   Este paso es necesario para que el servidor de la réplica pueda aceptar escrituras. Como parte de este proceso, el servidor de réplica se desvinculará del origen. Una vez iniciada la detención de la replicación, el proceso de back-end tarda aproximadamente dos minutos en completarse. Consulte la sección [Detención de la replicación](#stop-replication) de este artículo para conocer las implicaciones de esta acción.
-    
+   Este paso es necesario para que el servidor de la réplica pueda aceptar escrituras. Como parte de este proceso, el servidor de réplica se desvinculará del origen. Una vez iniciada la detención de la replicación, el proceso de back-end suele tardar aproximadamente dos minutos en completarse. Consulte la sección [Detención de la replicación](#stop-replication) de este artículo para conocer las implicaciones de esta acción.
+
 2. Haga que la replicación apunte a la réplica (anterior).<br/>
    Cada servidor tiene una cadena de conexión única. Actualice la aplicación para que apunte a la réplica (anterior) en lugar de al origen.
-    
+
 Una vez que la aplicación procesa correctamente las lecturas y las escrituras, ya está completa la conmutación por error. La cantidad de tiempo de inactividad que experimente su aplicación dependerá del momento en que se detecte una incidencia y se realicen los pasos 1 y 2 anteriores.
 
 ## <a name="considerations-and-limitations"></a>Consideraciones y limitaciones
@@ -130,5 +128,5 @@ Una vez que la aplicación procesa correctamente las lecturas y las escrituras, 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga información sobre cómo [crear y administrar réplicas de lectura mediante Azure Portal](how-to-read-replicas-portal.md).
-- Obtenga información sobre cómo [crear y administrar réplicas de lectura mediante la CLI de Azure](how-to-read-replicas-cli.md).
+* Obtenga información sobre cómo [crear y administrar réplicas de lectura mediante Azure Portal](how-to-read-replicas-portal.md).
+* Obtenga información sobre cómo [crear y administrar réplicas de lectura mediante la CLI de Azure](how-to-read-replicas-cli.md).

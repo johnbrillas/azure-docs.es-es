@@ -1,14 +1,14 @@
 ---
 title: Descripción del lenguaje de consultas
 description: Describe las tablas de Resource Graph y los tipos de datos, los operadores y las funciones de Kusto disponibles que se pueden usar con Azure Resource Graph.
-ms.date: 11/18/2020
+ms.date: 01/14/2021
 ms.topic: conceptual
-ms.openlocfilehash: 3023991c76d94dc8aa87cfe950c18ab5d6a07ba9
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: f94023d47153dc64ca78e0386edd87a9821515be
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97883068"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251733"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Información del lenguaje de consulta de Azure Resource Graph
 
@@ -26,16 +26,19 @@ En este artículo se tratan los componentes de idioma admitidos por Resource Gra
 
 Resource Graph proporciona varias tablas para los datos que almacena sobre los tipos de recursos de Azure Resource Manager y sus propiedades. Algunas tablas se pueden utilizar con los operadores `join` o `union` para obtener propiedades de tipos de recursos relacionados. Esta es la lista de tablas disponibles en Resource Graph:
 
-|Tabla de Resource Graph |¿Tiene capacidad de `join`? |Descripción |
+|Tabla de Resource Graph |¿Se puede usar `join` con otras tablas? |Descripción |
 |---|---|
 |Recursos |Sí |La tabla predeterminada, si no se ha definido ninguna en la consulta. La mayoría de los tipos de recursos y propiedades de Resource Manager están aquí. |
 |ResourceContainers |Sí |Incluye los datos y los tipos de recursos de suscripción (en versión preliminar: `Microsoft.Resources/subscriptions`) y grupo de recursos (`Microsoft.Resources/subscriptions/resourcegroups`). |
-|AdvisorResources |No |Incluye recursos _relacionados_ con `Microsoft.Advisor`. |
-|AlertsManagementResources |No |Incluye recursos _relacionados_ con `Microsoft.AlertsManagement`. |
+|AdvisorResources |Sí (versión preliminar) |Incluye recursos _relacionados_ con `Microsoft.Advisor`. |
+|AlertsManagementResources |Sí (versión preliminar) |Incluye recursos _relacionados_ con `Microsoft.AlertsManagement`. |
 |GuestConfigurationResources |No |Incluye recursos _relacionados_ con `Microsoft.GuestConfiguration`. |
-|MaintenanceResources |No |Incluye recursos _relacionados_ con `Microsoft.Maintenance`. |
+|MaintenanceResources |Parcial, solo conectar _con_. (versión preliminar) |Incluye recursos _relacionados_ con `Microsoft.Maintenance`. |
+|PatchAssessmentResources|No |Incluye los recursos _relacionados_ con la evaluación de revisiones de Azure Virtual Machines. |
+|PatchInstallationResources|No |Incluye los recursos _relacionados_ con la instalación de revisiones de Azure Virtual Machines. |
 |PolicyResources |No |Incluye recursos _relacionados_ con `Microsoft.PolicyInsights`. (**Versión preliminar**)|
-|SecurityResources |No |Incluye recursos _relacionados_ con `Microsoft.Security`. |
+|RecoveryServicesResources |Parcial, solo unirse _con_. (versión preliminar) |Incluye recursos _relacionados_ con `Microsoft.DataProtection` y `Microsoft.RecoveryServices`. |
+|SecurityResources |Parcial, solo unirse _con_. (versión preliminar) |Incluye recursos _relacionados_ con `Microsoft.Security`. |
 |ServiceHealthResources |No |Incluye recursos _relacionados_ con `Microsoft.ResourceHealth`. |
 
 Para obtener una lista completa, incluidos los tipos de recursos, consulte [Referencia: tablas y tipos de recursos admitidos](../reference/supported-tables-resources.md).
@@ -45,7 +48,7 @@ Para obtener una lista completa, incluidos los tipos de recursos, consulte [Refe
 
 Use Azure Resource Graph en el portal para detectar qué tipos de recursos están disponibles en cada tabla. Como alternativa, utilice una consulta como `<tableName> | distinct type` para obtener una lista de los tipos de recursos que admite la tabla de Resource Graph que existe en su entorno.
 
-En la consulta siguiente se muestra un uso sencillo de `join`. El resultado de la consulta combina las columnas y los nombres de columna duplicados de la tabla combinada, _ResourceContainers_ en este ejemplo, se anexan con **1**. Como la tabla _ResourceContainers_ tiene tipos para suscripciones y grupos de recursos, se puede usar cualquier tipo para unirse al recurso desde la tabla _recursos_.
+En la consulta siguiente se muestra un uso sencillo de `join`. El resultado de la consulta combina las columnas y los nombres de columna duplicados de la tabla combinada, _ResourceContainers_ en este ejemplo, se anexan con **1**. Como la tabla _ResourceContainers_ tiene tipos para suscripciones y grupos de recursos, se puede usar cualquier tipo para unirse al recurso desde la tabla _Resources_.
 
 ```kusto
 Resources
@@ -53,13 +56,14 @@ Resources
 | limit 1
 ```
 
-En la consulta siguiente se muestra un uso más complejo de `join`. La consulta limita la tabla combinada a los recursos de suscripciones y con `project` para incluir solo el campo original _subscriptionId_ y el campo _name_ con el nombre cambiado a _SubName_. El cambio de nombre del campo evita `join` se agregue como _name1_, ya que el campo ya existe en _Resources_ (Recursos). La tabla original se filtra por `where` y el `project` siguiente incluye columnas de ambas tablas. El resultado de la consulta es un solo almacén de claves que muestra su tipo, su nombre y el nombre de la suscripción en que se encuentra.
+En la consulta siguiente se muestra un uso más complejo de `join`. En primer lugar, la consulta usa `project` para obtener los campos de _Resources_ para el tipo de recurso de los almacenes de Azure Key Vault. En el paso siguiente se usa `join` para combinar los resultados con _ResourceContainers_, donde el tipo es una suscripción _en_ una propiedad que se encuentra en el elemento `project` de la primera tabla y en el elemento `project` de la tabla combinada. El cambio de nombre del campo evita que `join` lo agregue como _name1_, ya que el campo ya se encuentra en el elemento project de _Resources_. El resultado de la consulta es un solo almacén de claves que muestra su tipo, nombre, ubicación y el grupo de recursos del almacén de claves, junto con el nombre de la suscripción en que se encuentra.
 
 ```kusto
 Resources
 | where type == 'microsoft.keyvault/vaults'
+| project name, type, location, subscriptionId, resourceGroup
 | join (ResourceContainers | where type=='microsoft.resources/subscriptions' | project SubName=name, subscriptionId) on subscriptionId
-| project type, name, SubName
+| project type, name, location, resourceGroup, SubName
 | limit 1
 ```
 
@@ -125,7 +129,7 @@ Esta es la lista de operadores tabulares de KQL admitidos por Resource Graph con
 |[count](/azure/kusto/query/countoperator) |[Contador de almacenes de claves](../samples/starter.md#count-keyvaults) | |
 |[distinct](/azure/kusto/query/distinctoperator) |[Mostrar los recursos que contienen almacenamiento](../samples/starter.md#show-storage) | |
 |[extend](/azure/kusto/query/extendoperator) |[Count virtual machines by OS type](../samples/starter.md#count-os) | |
-|[join](/azure/kusto/query/joinoperator) |[Almacén de claves con el nombre de la suscripción](../samples/advanced.md#join) |Tipos de combinación admitidos: [innerunique](/azure/kusto/query/joinoperator#default-join-flavor), [inner](/azure/kusto/query/joinoperator#inner-join), [leftouter](/azure/kusto/query/joinoperator#left-outer-join). Límite de 3 `join` en una sola consulta. No se permiten las estrategias de combinación personalizadas, como la combinación de difusión. Para conocer las tablas que pueden usar `join`, consulte [Tablas de Resource Graph](#resource-graph-tables). |
+|[join](/azure/kusto/query/joinoperator) |[Almacén de claves con el nombre de la suscripción](../samples/advanced.md#join) |Tipos de combinación admitidos: [innerunique](/azure/kusto/query/joinoperator#default-join-flavor), [inner](/azure/kusto/query/joinoperator#inner-join), [leftouter](/azure/kusto/query/joinoperator#left-outer-join). Límite de 3 `join` en una sola consulta, 1 de los cuales puede ser un elemento `join` entre tablas. Si todos los usos de `join` entre tablas se realiza entre _Resources_ y _ResourceContainers_, se permiten tres `join` entre tablas. No se permiten las estrategias de combinación personalizadas, como la combinación de difusión. Para conocer las tablas que pueden usar `join`, consulte [Tablas de Resource Graph](#resource-graph-tables). |
 |[limit](/azure/kusto/query/limitoperator) |[List all public IP addresses](../samples/starter.md#list-publicip) |Sinónimo de `take`. No funciona con [Skip](./work-with-data.md#skipping-records). |
 |[mvexpand](/azure/kusto/query/mvexpandoperator) | | Operador heredado, use `mv-expand` en su lugar. Máximo de _RowLimit_ de 400. El valor predeterminado es 128. |
 |[mv-expand](/azure/kusto/query/mvexpandoperator) |[Enumeración de Cosmos DB con ubicaciones de escritura concretas](../samples/advanced.md#mvexpand-cosmosdb) |Máximo de _RowLimit_ de 400. El valor predeterminado es 128. |

@@ -1,14 +1,14 @@
 ---
 title: Inquilinos, usuarios y roles en escenarios de Azure Lighthouse
 description: Comprenda los conceptos de los inquilinos, los usuarios y los roles de Azure Active Directory, así como la forma en que se pueden usar en escenarios de Azure Lighthouse.
-ms.date: 10/29/2020
+ms.date: 01/14/2021
 ms.topic: conceptual
-ms.openlocfilehash: 411b9bae19166e1875011360aa011c05d590b237
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d78828cc739030f8e456c64885d77ddf59dd13fb
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023949"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233923"
 ---
 # <a name="tenants-users-and-roles-in-azure-lighthouse-scenarios"></a>Inquilinos, usuarios y roles en escenarios de Azure Lighthouse
 
@@ -18,7 +18,10 @@ Un *inquilino* es una instancia dedicada y de confianza de Azure AD. Normalment
 
 Para lograr esta proyección lógica, una suscripción (o uno o varios grupos de recursos dentro de una suscripción) en el inquilino del cliente tiene que estar *incorporado* a Azure Lighthouse. Este proceso de incorporación puede realizarse [a través de plantillas de Azure Resource Manager](../how-to/onboard-customer.md) o [mediante la publicación de una oferta pública o privada en Azure Marketplace](../how-to/publish-managed-services-offers.md).
 
-Sea cual sea el método de incorporación que elija, tendrá que definir las *autorizaciones*. Cada autorización especifica una cuenta de usuario en el inquilino de administración que tendrá acceso a los recursos delegados y a un rol integrado que establece los permisos que cada uno de estos usuarios tendrá en relación con estos recursos.
+Sea cual sea el método de incorporación que elija, tendrá que definir las *autorizaciones*. Cada autorización especifica un elemento **principalId** que tendrá acceso a los recursos delegados y un rol integrado que establece los permisos que cada uno de estos usuarios tendrá en relación con estos recursos. Este **principalId** define un usuario, un grupo o una entidad de servicio de Azure AD en el inquilino de administración.
+
+> [!NOTE]
+> A menos que se especifique explícitamente, las referencias a un "usuario" en la documentación de Azure Lighthouse pueden referirse a un usuario, grupo o entidad de servicio de Azure AD en una autorización.
 
 ## <a name="best-practices-for-defining-users-and-roles"></a>Prácticas recomendadas para definir usuarios y roles
 

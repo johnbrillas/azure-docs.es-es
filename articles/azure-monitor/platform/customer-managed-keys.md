@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 01/10/2021
-ms.openlocfilehash: 6c1f323828eb48b61b38370bc2fe56d4c93bf036
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: 889ee48c43119086047d6f52737266f4c611fc8d
+ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127216"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98562750"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Clave administrada por el cliente de Azure Monitor 
 
@@ -95,7 +95,7 @@ N/D
 
 # <a name="rest"></a>[REST](#tab/rest)
 
-Cuando se utiliza REST, la respuesta devuelve inicialmente un código de estado HTTP 200 (Correcto) y un encabezado con la propiedad *Azure-AsyncOperation* cuando se acepta:
+Cuando se usa REST, la respuesta devuelve inicialmente un código de estado HTTP 202 (Aceptado) y un encabezado con la propiedad *Azure-AsyncOperation*:
 ```json
 "Azure-AsyncOperation": "https://management.azure.com/subscriptions/subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2020-08-01"
 ```
@@ -200,7 +200,7 @@ La propagación de la clave tarda unos minutos en completarse. Puede comprobar e
 1. Copie el valor de la dirección URL de Azure-AsyncOperation de la respuesta y siga la [comprobación del estado de operaciones asincrónicas](#asynchronous-operations-and-status-check).
 2. Envíe una solicitud GET en el clúster y examine las propiedades de *KeyVaultProperties*. La clave actualizada recientemente se debe devolver en la respuesta.
 
-Una respuesta a la solicitud GET debe ser similar a la siguiente cuando se complete la actualización de la clave: 200 Correcto y encabezado
+Una respuesta a la solicitud GET debe ser similar a la siguiente cuando se complete la actualización de la clave: 202 (Aceptado) y encabezado
 ```json
 {
   "identity": {

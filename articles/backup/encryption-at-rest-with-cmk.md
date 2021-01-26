@@ -3,12 +3,12 @@ title: Cifrado de datos de copia de seguridad mediante claves administradas por 
 description: Obtenga información sobre el modo en que Azure Backup le permite cifrar los datos de copia de seguridad mediante claves administradas por el cliente.
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: 6e3eea4b5f44203b68c1263c0fb3ae843cabbe72
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 30bcf907e1a2759c8a9977e50cb4880c2e254ca2
+ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895994"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98562767"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Cifrado de datos de copia de seguridad mediante claves administradas por el cliente
 
@@ -25,19 +25,22 @@ En este artículo se tratan los temas siguientes:
 
 ## <a name="before-you-start"></a>Antes de comenzar
 
-- Esta característica le permite cifrar **solo nuevos almacenes de Recovery Services** . No se admiten los almacenes que contienen elementos existentes registrados o que se intentaron registrar en estos.
+- Esta característica le permite cifrar **solo nuevos almacenes de Recovery Services**. No se admiten los almacenes que contienen elementos existentes registrados o que se intentaron registrar en estos.
 
 - Una vez que se ha habilitado para un almacén de Recovery Services, el cifrado mediante claves administradas por el cliente no se puede revertir para usar claves administradas por la plataforma (valor predeterminado). Puede cambiar las claves de cifrado de acuerdo con sus requisitos.
 
-- Actualmente, esta característica **no admite la copia de seguridad mediante el agente de MARS** , y es posible que no pueda usar un almacén cifrado por CMK para este. El agente de MARS usa un cifrado basado en una frase de contraseña del usuario. Esta característica tampoco admite la copia de seguridad de máquinas virtuales clásicas.
+- Actualmente, esta característica **no admite la copia de seguridad mediante el agente de MARS**, y es posible que no pueda usar un almacén cifrado por CMK para este. El agente de MARS usa un cifrado basado en una frase de contraseña del usuario. Esta característica tampoco admite la copia de seguridad de máquinas virtuales clásicas.
 
 - Esta característica no está relacionada con [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md), que usa el cifrado basado en invitado de los discos de una máquina virtual con BitLocker (para Windows) y DM-Crypt (para Linux).
 
-- El almacén de Recovery Services solo se puede cifrar con las claves almacenadas en un almacén de Azure Key Vault ubicado en la **misma región** . Además, las claves deben ser solo **claves de RSA 2048** y deben estar en estado **habilitado** .
+- El almacén de Recovery Services solo se puede cifrar con las claves almacenadas en un almacén de Azure Key Vault ubicado en la **misma región**. Además, las claves deben ser solo **claves de RSA 2048** y deben estar en estado **habilitado**.
 
 - Actualmente no se admite la migración del almacén de Recovery Services cifrado de CMK entre grupos de recursos y suscripciones.
 
-- Actualmente, esta característica solo se puede configurar desde Azure Portal.
+- Esta característica se puede configurar mediante Azure Portal y PowerShell.
+
+    >[!NOTE]
+    >Use la versión 5.3.0 del módulo Az o una versión posterior para utilizar las claves administradas del cliente en las copias de seguridad del almacén de Recovery Services.
 
 Si no ha creado y configurado un almacén de Recovery Services, [lea aquí cómo hacerlo](backup-create-rs-vault.md).
 
@@ -62,23 +65,49 @@ Azure Backup usa la identidad administrada asignada por el sistema para autentic
 >[!NOTE]
 >Una vez habilitada, la identidad administrada **no** debe deshabilitarse (ni siquiera temporalmente). Deshabilitar la identidad administrada puede provocar un comportamiento incoherente.
 
-1. Vaya al almacén de Recovery Services -> **Identidad** .
+**En el portal:**
+
+1. Vaya al almacén de Recovery Services -> **Identidad**.
 
     ![Configuración de identidad](./media/encryption-at-rest-with-cmk/managed-identity.png)
 
-1. Cambie el **Estado** a **Activado** y seleccione **Guardar** .
+1. Cambie el **Estado** a **Activado** y seleccione **Guardar**.
 
 1. Se genera un identificador de objeto, que es la identidad administrada del almacén.
+
+**Con PowerShell:**
+
+Use el comando [Update-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/update-azrecoveryservicesvault) para habilitar la identidad administrada asignada por el sistema para el almacén de Recovery Services.
+
+Ejemplo:
+
+```AzurePowerShell
+$vault=Get-AzRecoveryServicesVault -ResourceGroupName "testrg" -Name "testvault"
+
+Update-AzRecoveryServicesVault -IdentityType SystemAssigned -VaultId $vault.ID
+
+$vault.Identity | fl
+```
+
+Salida:
+
+```output
+PrincipalId : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+TenantId    : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+Type        : SystemAssigned
+```
 
 ### <a name="assign-permissions-to-the-recovery-services-vault-to-access-the-encryption-key-in-the-azure-key-vault"></a>Asignación de permisos al almacén de Recovery Services para tener acceso a la clave de cifrado en Azure Key Vault
 
 Ahora debe permitir que el almacén de Recovery Services tenga acceso al almacén de Azure Key Vault que contiene la clave de cifrado. Para ello, se permite que la identidad administrada del almacén de Recovery Services tenga acceso al almacén de Key Vault.
 
-1. Vaya a Azure Key Vault > **Directivas de acceso** . Continúe a **+Add Access Policies** (+Agregar directivas de acceso).
+**En el portal**:
+
+1. Vaya a Azure Key Vault > **Directivas de acceso**. Continúe a **+Add Access Policies** (+Agregar directivas de acceso).
 
     ![Agregar directivas de acceso](./media/encryption-at-rest-with-cmk/access-policies.png)
 
-1. En **Permisos de clave** , seleccione las operaciones **Obtener** , **Enumerar** , **Encapsular clave** y **Desencapsular clave** . Esto especifica las acciones de la clave que se permitirán.
+1. En **Permisos de clave**, seleccione las operaciones **Obtener**, **Enumerar**, **Encapsular clave** y **Desencapsular clave**. Esto especifica las acciones de la clave que se permitirán.
 
     ![Asignar permisos de las claves](./media/encryption-at-rest-with-cmk/key-permissions.png)
 
@@ -89,6 +118,32 @@ Ahora debe permitir que el almacén de Recovery Services tenga acceso al almacé
 1. A continuación, seleccione **Agregar** para agregar la nueva directiva de acceso.
 
 1. Seleccione **Guardar** para guardar los cambios realizados en la directiva de acceso de Azure Key Vault.
+
+**Con PowerShell**:
+
+Use el comando [Set-AzRecoveryServicesVaultProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultproperty) para habilitar el cifrado mediante claves administradas por el cliente y para asignar o actualizar la clave de cifrado que se va a usar.
+
+Ejemplo:
+
+```azurepowershell
+$keyVault = Get-AzKeyVault -VaultName "testkeyvault" -ResourceGroupName "testrg" 
+$key = Get-AzKeyVaultKey -VaultName $keyVault -Name "testkey" 
+Set-AzRecoveryServicesVaultProperty -EncryptionKeyId $key.ID -KeyVaultSubscriptionId "xxxx-yyyy-zzzz"  -VaultId $vault.ID
+
+
+$enc=Get-AzRecoveryServicesVaultProperty -VaultId $vault.ID
+$enc.encryptionProperties | fl
+```
+
+Salida:
+
+```output
+EncryptionAtRestType          : CustomerManaged
+KeyUri                        : testkey
+SubscriptionId                : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx 
+LastUpdateStatus              : Succeeded
+InfrastructureEncryptionState : Disabled
+```
 
 ### <a name="enable-soft-delete-and-purge-protection-on-the-azure-key-vault"></a>Habilitación de la eliminación temporal y la protección de purga para Azure Key Vault
 
@@ -144,29 +199,37 @@ Una vez comprobado lo anterior, continúe con la selección de la clave de cifra
 
 Para asignar la clave:
 
-1. Vaya al almacén de Recovery Services -> **Propiedades** .
+1. Vaya al almacén de Recovery Services -> **Propiedades**.
 
     ![Configuración de cifrado](./media/encryption-at-rest-with-cmk/encryption-settings.png)
 
-1. Seleccione **Actualizar** en **Configuración de cifrado** .
+1. Seleccione **Actualizar** en **Configuración de cifrado**.
 
 1. En el panel Configuración de cifrado, seleccione **Usar su propia clave** y continúe especificando la clave mediante una de las siguientes formas. **Asegúrese de que la clave que desea usar es una clave RSA 2048, que se encuentra en un estado habilitado.**
 
     1. Escriba el **URI de clave** con el que quiere cifrar los datos de este almacén de Recovery Services. También debe especificar la suscripción en la que está presente el almacén de Azure Key Vault (que contiene esta clave). Este URI de clave se puede obtener a partir de la clave correspondiente en el almacén de Azure Key Vault. Asegúrese de que el URI de la clave se copia correctamente. Se recomienda usar el botón **Copiar en el Portapapeles** proporcionado con el identificador de clave.
 
+        >[!NOTE]
+        >Al especificar la clave de cifrado mediante el URI de clave, la clave no rotará automáticamente. Por lo tanto, las actualizaciones de claves deberán realizarse de manera manual, especificando la clave nueva cuando sea necesario.
+
         ![Especificación del URI de la clave](./media/encryption-at-rest-with-cmk/key-uri.png)
 
     1. Busque y seleccione la clave en el almacén de Key Vault en el panel del selector de claves.
 
+        >[!NOTE]
+        >Al especificar la clave de cifrado mediante el panel Selector de claves, la clave rotará automáticamente cada vez que se habilite una versión nueva de la clave.
+
         ![Selección de clave del almacén de claves](./media/encryption-at-rest-with-cmk/key-vault.png)
 
-1. Seleccione **Guardar** .
+1. Seleccione **Guardar**.
 
-1. **Seguimiento del progreso de la actualización de la clave de cifrado:** puede realizar un seguimiento del progreso de la asignación de claves mediante el **Registro de actividad** del almacén de Recovery Services. El estado debería cambiar pronto a **Correcto** . El almacén cifrará ahora todos los datos con la clave especificada como KEK.
+1. **Seguimiento del progreso y estado de la actualización de la clave de cifrado**: puede llevar un seguimiento del progreso y el estado de la asignación de la clave de cifrado mediante la vista **Trabajos de copia de seguridad** de la barra de navegación de la izquierda. El estado pronto debería cambiar a **Correcto**. El almacén cifrará ahora todos los datos con la clave especificada como KEK.
 
-    ![Seguimiento del progreso con el registro de actividad](./media/encryption-at-rest-with-cmk/activity-log.png)
+    ![Estado completado](./media/encryption-at-rest-with-cmk/status-succeeded.png)
 
-    ![Estado correcto](./media/encryption-at-rest-with-cmk/status-succeeded.png)
+    Las actualizaciones de la clave de cifrado también se registran en el registro de actividad del almacén.
+
+    ![Registro de actividades](./media/encryption-at-rest-with-cmk/activity-log.png)
 
 >[!NOTE]
 > El proceso para actualizar o cambiar la clave de cifrado sigue siendo el mismo. Si desea actualizar y usar una clave de otro almacén de Key Vault (diferente del que se está usando actualmente), asegúrese de lo siguiente:
@@ -192,7 +255,7 @@ Antes de continuar con la configuración de la protección, recomendamos encarec
 >
 >Si se han confirmado todos los pasos anteriores, siga con la configuración de la copia de seguridad.
 
-El proceso para configurar y realizar copias de seguridad en un almacén de Recovery Services cifrado con claves administradas por el cliente es igual que para un almacén que usa claves administradas por la plataforma, **sin cambios en la experiencia** . Esto se aplica igualmente a la [copia de seguridad de máquinas virtuales de Azure](./quick-backup-vm-portal.md), así como a la copia de seguridad de cargas de trabajo que se ejecutan dentro de una máquina virtual (por ejemplo, bases de datos de [SAP HANA](./tutorial-backup-sap-hana-db.md) o [SQL Server](./tutorial-sql-backup.md)).
+El proceso para configurar y realizar copias de seguridad en un almacén de Recovery Services cifrado con claves administradas por el cliente es igual que para un almacén que usa claves administradas por la plataforma, **sin cambios en la experiencia**. Esto se aplica igualmente a la [copia de seguridad de máquinas virtuales de Azure](./quick-backup-vm-portal.md), así como a la copia de seguridad de cargas de trabajo que se ejecutan dentro de una máquina virtual (por ejemplo, bases de datos de [SAP HANA](./tutorial-backup-sap-hana-db.md) o [SQL Server](./tutorial-sql-backup.md)).
 
 ## <a name="restoring-data-from-backup"></a>Restauración de datos a partir de una copia de seguridad
 
@@ -212,9 +275,11 @@ Puede cifrar el disco o la máquina virtual restaurados una vez completada la re
 
 #### <a name="select-a-disk-encryption-set-while-restoring-from-vault-recovery-point"></a>Selección de un conjunto de cifrado de discos durante la restauración desde el punto de recuperación del almacén
 
+**En el portal**:
+
 El conjunto de cifrado de discos se especifica en Configuración de cifrado en el panel de restauración, como se muestra a continuación:
 
-1. En **Encrypt disk(s) using your key** (Cifrar discos con su clave), seleccione **Sí** .
+1. En **Encrypt disk(s) using your key** (Cifrar discos con su clave), seleccione **Sí**.
 
 1. En el menú desplegable, seleccione el DES que quiere usar para los discos restaurados. **Asegúrese de que tiene acceso al DES.**
 
@@ -222,6 +287,21 @@ El conjunto de cifrado de discos se especifica en Configuración de cifrado en e
 >No es posible elegir un DES durante la restauración si va a restaurar una máquina virtual que usa Azure Disk Encryption.
 
 ![Cifrado del disco con la clave](./media/encryption-at-rest-with-cmk/encrypt-disk-using-your-key.png)
+
+**Con PowerShell**:
+
+Use el comando [Get-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem) con el parámetro [`-DiskEncryptionSetId <string>`] para [especificar el DES](https://docs.microsoft.com/powershell/module/az.compute/get-azdiskencryptionset) que se usará para cifrar el disco restaurado. Para más información sobre cómo restaurar discos a partir de una copia de seguridad de VM, consulte [este artículo](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#restore-an-azure-vm).
+
+Ejemplo:
+
+```azurepowershell
+$namedContainer = Get-AzRecoveryServicesBackupContainer  -ContainerType "AzureVM" -Status "Registered" -FriendlyName "V2VM" -VaultId $vault.ID
+$backupitem = Get-AzRecoveryServicesBackupItem -Container $namedContainer  -WorkloadType "AzureVM" -VaultId $vault.ID
+$startDate = (Get-Date).AddDays(-7)
+$endDate = Get-Date
+$rp = Get-AzRecoveryServicesBackupRecoveryPoint -Item $backupitem -StartDate $startdate.ToUniversalTime() -EndDate $enddate.ToUniversalTime() -VaultId $vault.ID
+$restorejob = Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "DestAccount" -StorageAccountResourceGroupName "DestRG" -TargetResourceGroupName "DestRGforManagedDisks" -DiskEncryptionSetId “testdes1” -VaultId $vault.ID
+```
 
 #### <a name="restoring-files"></a>Restauración de archivos
 

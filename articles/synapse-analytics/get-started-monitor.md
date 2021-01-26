@@ -9,13 +9,13 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: monitoring
 ms.topic: tutorial
-ms.date: 10/15/2020
-ms.openlocfilehash: c2260cc0d2c6b889b44c738576e33abceebe23f1
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.date: 12/31/2020
+ms.openlocfilehash: 8c0cdcad9a7803e0d8063362ca62887990045c86
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96444402"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209821"
 ---
 # <a name="monitor-your-synapse-workspace"></a>Supervisión del área de trabajo de Synapse
 
@@ -25,7 +25,7 @@ En este tutorial, aprenderá a supervisar actividades en el área de trabajo de 
 
 Abra Synapse Studio y vaya al centro **Supervisar**. Aquí, puede ver un historial de todas las actividades que se realizan en el área de trabajo y las que están activas ahora. 
 
-* En **Integration** (Integración), puede supervisar canalizaciones, desencadenadores y entornos de ejecución de integración.
+* En **Integration** (Integración), puede supervisar las canalizaciones, los desencadenadores y los entornos de ejecución de integración.
 * En **Actividades**, puede supervisar las actividades de Spark y SQL. 
 
 ## <a name="integration"></a>Integración
@@ -36,15 +36,15 @@ Abra Synapse Studio y vaya al centro **Supervisar**. Aquí, puede ver un histori
 
 ## <a name="apache-spark-activities"></a>Actividades de Apache Spark
 
-1. Vaya a **Integration > Activities > Apache Spark applications** (Integración > Actividades > Aplicaciones de Apache Spark). Ahora puede ver todas las aplicaciones de Spark que se están ejecutando o que se han ejecutado en el área de trabajo.
+1. Vaya a **Actividades > Aplicaciones de Apache Spark**. Ahora puede ver todas las aplicaciones de Spark que se están ejecutando o que se han ejecutado en el área de trabajo.
 1. Busque una aplicación que ya no esté en ejecución y haga clic en el **Nombre de aplicación**. Ahora puede ver los detalles de la aplicación de Spark.
 1. Si está familiarizado con Apache Spark, puede encontrar la interfaz de usuario del servidor de historial de Apache Spark estándar haciendo clic en **Servidor de historial de Spark**.
 
 ## <a name="sql-activities"></a>Actividades de SQL
 
-1. Vaya a **Integration > Activities > SQL requests** (Integración > Actividades > Solicitudes SQL).
+1. Vaya a **Actividades > Solicitudes de SQL**.
 1. En esta vista puede ver las solicitudes de SQL.
-1. Seleccione un **Grupo** al cual supervisar. Ahora puede ver todas las aplicaciones de SQL que se están ejecutando o que se han ejecutado en el área de trabajo de ese grupo.
+1. Seleccione un **grupo** para supervisar con el filtro **Grupo**. Ahora puede ver todas las aplicaciones de SQL que se están ejecutando o que se han ejecutado en el área de trabajo de ese grupo.
 1. Busque una solicitud de SQL específica y mantenga el puntero sobre ese elemento. Una vez que mantenga el puntero, verá aparecer un icono de script SQL.
 1. Haga clic en el icono de script SQL para ver el texto completo de la solicitud SQL.
 

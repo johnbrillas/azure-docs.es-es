@@ -6,12 +6,12 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: 4531d68c2fbd0698c33d70a75bb82ac9c7f52f49
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 944d867ef888e70faa659adcc0e2d4c02f003c97
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96752250"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567409"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Detección, valoración y análisis de dependencias: preguntas comunes
 
@@ -46,7 +46,8 @@ Puede detectar hasta 10 000 máquinas virtuales de VMware, 5000 máquinas virtu
 En el caso de la evaluación "en función del rendimiento", la exportación del informe de valoración indica "PercentageOfCoresUtilizedMissing" o "PercentageOfMemoryUtilizedMissing" cuando el dispositivo de Azure Migrate no puede recopilar datos de rendimiento de las máquinas virtuales locales pertinentes. Compruebe:
 
 - Si las máquinas virtuales están encendidas durante el tiempo que ha estado creando la evaluación
-- Si solo faltan contadores de memoria y está intentando evaluar las máquinas virtuales de Hyper-V, compruebe si tiene habilitada la memoria dinámica en estas máquinas virtuales. Existe un problema conocido debido a que el dispositivo de Azure Migrate no puede recopilar el uso de memoria de dichas máquinas virtuales.
+- Si solo faltan los contadores de memoria y está intentando evaluar las VM de Hyper-V. En este caso, habilite la memoria dinámica en las VM y "vuelva a calcular" la evaluación para reflejar los últimos cambios. El dispositivo solo puede recopilar los valores de uso de la memoria de las VM de Hyper-V si la VM tiene habilitada la memoria dinámica.
+
 - Si faltan todos los contadores de rendimiento, asegúrese de que se permiten las conexiones de salida en los puertos 443 (HTTPS).
 
 Nota: Si falta alguno de los contadores de rendimiento, Azure Migrate: Server Assessment vuelve a la memoria y los núcleos locales asignados, y recomienda un tamaño de máquina virtual acorde.
@@ -57,7 +58,12 @@ La clasificación de confianza se calcula para las evaluaciones "en función del
 
 - No generó un perfil de su entorno durante el tiempo que está creando la evaluación. Por ejemplo, si está creando una evaluación con la duración de rendimiento establecida en una semana, debe esperar al menos una semana después de iniciar la detección para que se recopilen todos los puntos de datos. Si no puede esperar a la duración, cambie la duración del rendimiento a un período más pequeño y "recalcule" la evaluación.
  
-- La evaluación del servidor no puede recopilar los datos de rendimiento de algunas o de todas las máquinas virtuales en el período de evaluación. Compruebe si las máquinas virtuales se encendieron mientras dura la evaluación, se permiten las conexiones salientes en los puertos 443. En el caso de las máquinas virtuales Hyper-V, si la memoria dinámica está habilitada, los contadores de memoria no tendrán una clasificación de confianza baja. "Recalcule" la evaluación para reflejar los cambios más recientes en la clasificación de confianza. 
+- La evaluación del servidor no puede recopilar los datos de rendimiento de algunas o de todas las máquinas virtuales en el período de evaluación. Para obtener una clasificación de confianza alta, asegúrese de que: 
+    - Las VM estén activadas mientras dure la evaluación.
+    - Se permiten las conexiones salientes en los puertos 443.
+    - La memoria dinámica está habilitada en las VM dinámicas de Hyper-V. 
+
+    "Recalcule" la evaluación para reflejar los cambios más recientes en la clasificación de confianza.
 
 - Algunas máquinas virtuales se crearon después de iniciar la detección en Server Assessment. Por ejemplo, si va a crear una valoración para el historial de rendimiento del último mes, pero algunas máquinas virtuales se crearon en el entorno hace solo una semana. En este caso, los datos de rendimiento de las nuevas máquinas virtuales no estarán disponibles en ningún momento y la clasificación de confianza sería baja.
 
@@ -145,7 +151,7 @@ La diferencia entre la visualización sin agente y la visualización basada en a
 --- | --- | ---
 Soporte técnico | Esta opción se encuentra actualmente en versión preliminar y solo está disponible para máquinas virtuales de VMware. [Revise](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) los sistemas operativos compatibles. | En disponibilidad general (GA).
 Agente | No es necesario instalar agentes en las máquinas que quiere comprobar. | Agentes que debe instalar en las máquinas locales que quiere analizar: [Microsoft Monitoring Agent (MMA)](../azure-monitor/platform/agent-windows.md) y el [agente de dependencia](../azure-monitor/platform/agents-overview.md#dependency-agent). 
-Prerrequisitos | [Revise](concepts-dependency-visualization.md#agentless-analysis) los requisitos previos y los requisitos de implementación. | [Revise](concepts-dependency-visualization.md#agent-based-analysis) los requisitos previos y los requisitos de implementación.
+Requisitos previos | [Revise](concepts-dependency-visualization.md#agentless-analysis) los requisitos previos y los requisitos de implementación. | [Revise](concepts-dependency-visualization.md#agent-based-analysis) los requisitos previos y los requisitos de implementación.
 Log Analytics | No se requiere. | Azure Migrate utiliza la solución [Service Map](../azure-monitor/insights/service-map.md) de los [registros de Azure Monitor](../azure-monitor/log-query/log-query-overview.md) para la visualización de dependencias. [Más información](concepts-dependency-visualization.md#agent-based-analysis).
 Funcionamiento | Captura los datos de conexión TCP en las máquinas habilitadas para la visualización de dependencias. Después de la detección, recopila datos en intervalos de cinco minutos. | Los agentes de Service Map instalados en una máquina recopilan datos acerca de los procesos de TCP, así como de las conexiones de entrada o salida para cada proceso.
 data | Nombre de aplicación, proceso y nombre del servidor de la máquina de origen.<br/><br/> Puerto, nombre de aplicación, proceso y nombre del servidor de la máquina de destino. | Nombre de aplicación, proceso y nombre del servidor de la máquina de origen.<br/><br/> Puerto, nombre de aplicación, proceso y nombre del servidor de la máquina de destino.<br/><br/> Se recopila la información sobre el número de conexiones, la latencia y la transferencia de datos, y está disponible para las consultas de Log Analytics. 

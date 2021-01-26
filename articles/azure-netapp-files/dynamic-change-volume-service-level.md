@@ -12,20 +12,19 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/12/2020
+ms.date: 01/14/2021
 ms.author: b-juche
-ms.openlocfilehash: e5219e1c87221ade8da68c21209f41b4d6139be2
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 78cc68d2be600cec78c433ae3eae1de09d31ac94
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579086"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251818"
 ---
 # <a name="dynamically-change-the-service-level-of-a-volume"></a>Cambio dinámico del nivel de servicio de un volumen
 
 > [!IMPORTANT] 
-> * El registro de la versión preliminar pública para esta característica está en espera hasta nuevo aviso. 
-> * Actualmente no se admite el cambio dinámico del nivel de servicio de un volumen de destino de replicación.
+> Actualmente no se admite el cambio dinámico del nivel de servicio de un volumen de destino de replicación.
 
 Puede cambiar el nivel de servicio de un volumen existente al moverlo a otro grupo de capacidad que use el [nivel de servicio](azure-netapp-files-service-levels.md) que quiere para dicho volumen. Este cambio de nivel de servicio local para el volumen no requiere que se migren los datos. Tampoco afecta al acceso al volumen.  
 
@@ -38,27 +37,27 @@ El grupo de capacidad al que quiera trasladar el volumen ya debe existir. Ademá
 * Después de que el volumen se haya movido a otro grupo de capacidad, ya no tendrá acceso a los registros de actividad del volumen anteriores, ni a las métricas del volumen. El volumen se iniciará con nuevos registros de actividad y métricas en el grupo de capacidad nuevo.
 
 * Si mueve un volumen a un grupo de capacidad de un nivel de servicio superior (por ejemplo, al pasar del nivel de servicio *Estándar* a *Premium* o *Ultra*), deberá esperar al menos siete días para mover ese volumen *de nuevo* a un grupo de capacidad de un nivel de servicio inferior (por ejemplo, para pasar de *Ultra* a *Premium* o *Standard*).  
-<!-- 
-## Register the feature
 
-The feature to move a volume to another capacity pool is currently in preview. If you are using this feature for the first time, you need to register the feature first.
+## <a name="register-the-feature"></a>Registrar la característica
 
-1. Register the feature: 
+La característica para trasladar un volumen a otro grupo de capacidad está actualmente en versión preliminar. Si usa esta característica por primera vez, debe registrarla primero.
+
+1. Registre la característica: 
 
     ```azurepowershell-interactive
     Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFTierChange
     ```
 
-2. Check the status of the feature registration: 
+2. Compruebe el estado del registro de la característica: 
 
     > [!NOTE]
-    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is **Registered** before continuing.
+    > **RegistrationState** puede estar en el estado `Registering` hasta 60 minutos antes de cambiar a `Registered`. Espere hasta que el estado sea **Registrado** antes de continuar.
 
     ```azurepowershell-interactive
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFTierChange
     ```
-You can also use [Azure CLI commands](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` and `az feature show` to register the feature and display the registration status. 
---> 
+También puede usar los comandos de la [CLI de Azure](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` y `az feature show` para registrar la característica y mostrar el estado del registro. 
+ 
 ## <a name="move-a-volume-to-another-capacity-pool"></a>Traslado de un volumen a otro grupo de capacidad
 
 1.  En la página Volúmenes, haga clic con el botón secundario en el volumen cuyo nivel de servicio quiere cambiar. Seleccione **Cambiar grupo**.
@@ -76,3 +75,4 @@ You can also use [Azure CLI commands](/cli/azure/feature?preserve-view=true&view
 
 * [Niveles de servicio para Azure NetApp Files](azure-netapp-files-service-levels.md)
 * [Configuración de un grupo de capacidad](azure-netapp-files-set-up-capacity-pool.md)
+* [Solución de problemas al cambiar el grupo de capacidad de un volumen](troubleshoot-capacity-pools.md#issues-when-changing-the-capacity-pool-of-a-volume)

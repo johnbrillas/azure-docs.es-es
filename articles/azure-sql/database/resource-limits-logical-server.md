@@ -10,13 +10,13 @@ ms.topic: reference
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
-ms.date: 09/15/2020
-ms.openlocfilehash: 9dfe70cf6c91a0c12604f91e583a9a4eb9b4e088
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 1/14/2021
+ms.openlocfilehash: e21a5a5be03ffa4ada362247c488ee7d12bd50f7
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93308831"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222231"
 ---
 # <a name="resource-limits-for-azure-sql-database-and-azure-synapse-analytics-servers"></a>Límites de recursos para los servidores de Azure SQL Database y Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -80,7 +80,7 @@ Al encontrar un uso elevado de sesión o de trabajo, las opciones de mitigación
 - Aumentar el nivel de servicio o el tamaño de proceso de la base de datos o del grupo elástico. Consulte [Scale single database resources](single-database-scale.md) (Escala de recursos de bases de datos únicas) y [Scale elastic pool resources](elastic-pool-scale.md) (Escala de recursos de grupos elásticos).
 - Optimizar las consultas para reducir el uso de recursos de cada consulta si la causa del mayor uso de trabajo es debida a la contención de los recursos de proceso. Para más información, consulte [Optimización y sugerencias de consultas](performance-guidance.md#query-tuning-and-hinting).
 - Reducir el valor de [MAXDOP](/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option#Guidelines) (grado máximo de paralelismo).
-- Optimizar la carga de trabajo de consultas para reducir el número de repeticiones y la duración del bloqueo de consultas.
+- Optimizar la carga de trabajo de consultas para reducir el número de repeticiones y la duración del bloqueo de consultas. Para obtener más información, consulte [Descripción y resolución de problemas de bloqueo en Azure SQL](understand-resolve-blocking.md).
 
 ### <a name="memory"></a>Memoria
 

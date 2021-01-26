@@ -3,31 +3,48 @@ title: Autenticación con identidades administradas
 description: Acceda a recursos protegidos por Azure Active Directory sin iniciar sesión con credenciales ni secretos mediante una identidad administrada
 services: logic-apps
 ms.suite: integration
-ms.reviewer: jonfan, logicappspm
+ms.reviewer: estfan, logicappspm, azla
 ms.topic: article
-ms.date: 10/27/2020
-ms.openlocfilehash: 1152c8b72bcb830a7ba4efa053d3ffff667f9dc8
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.date: 01/15/2021
+ms.openlocfilehash: 9ac8a23569d9a85787768419a0377967026e9bd9
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98034176"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251602"
 ---
 # <a name="authenticate-access-to-azure-resources-by-using-managed-identities-in-azure-logic-apps"></a>Autenticar el acceso a los recursos de Azure mediante identidades administradas en Azure Logic Apps
 
-Para acceder fácilmente a otros recursos protegidos por Azure Active Directory (Azure AD) y autenticar la identidad sin iniciar sesión, la aplicación lógica puede usar una [identidad administrada](../active-directory/managed-identities-azure-resources/overview.md) (anteriormente conocida como Managed Service Identity o MSI), en lugar de credenciales o secretos. Azure administra esta identidad y le ayuda a proteger las credenciales porque, de esta forma, no tiene que proporcionar secretos o cambiarlos.
+Para acceder fácilmente a otros recursos protegidos por Azure Active Directory (Azure AD) y autenticar la identidad, la aplicación lógica puede usar una [identidad administrada](../active-directory/managed-identities-azure-resources/overview.md) (anteriormente conocida como Managed Service Identity o MSI), en lugar de credenciales, secretos o tokens de Azure AD. Azure administra esta identidad y le ayuda a proteger las credenciales porque, de esta forma, no tiene que administrar secretos ni usar directamente tokens de Azure AD.
 
-Azure Logic Apps admite identidades administradas tanto [*asignadas por el sistema*](../active-directory/managed-identities-azure-resources/overview.md) como [*asignadas por el usuario*](../active-directory/managed-identities-azure-resources/overview.md). Su aplicación lógica puede usar la identidad asignada por el sistema o una *sola* identidad asignada por el usuario, que puede compartir en un grupo de aplicaciones lógicas, pero no ambas. Actualmente, solo [las acciones y los desencadenadores integrados específicos](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound) admiten identidades administradas y conexiones o conectores no administrados, tales como:
+Azure Logic Apps admite identidades administradas tanto [*asignadas por el sistema*](../active-directory/managed-identities-azure-resources/overview.md) como [*asignadas por el usuario*](../active-directory/managed-identities-azure-resources/overview.md). Su aplicación lógica o sus conexiones individuales pueden usar la identidad asignada por el sistema o una *sola* identidad asignada por el usuario, que puede compartir en un grupo de aplicaciones lógicas, pero no ambas.
 
-* HTTP
-* Azure Functions
+## <a name="where-can-logic-apps-use-managed-identities"></a>¿Dónde pueden las aplicaciones lógicas usar identidades administradas?
+
+Actualmente, solo las [acciones y desencadenadores integrados específicos](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions) y los [conectores administrados específicos](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions) que admiten OAuth de Azure AD pueden usar una identidad administrada para la autenticación. Por ejemplo, a continuación se muestra una selección:
+
+**Acciones y desencadenadores integrados**
+
 * Azure API Management
 * Azure App Services
+* Azure Functions
+* HTTP
+* HTTP + Webhook
+
+**Conectores administrados**
+
+* Azure Automation
+* Azure Event Grid
+* Azure Key Vault
+* Registros de Azure Monitor
+* Azure Resource Manager
+* HTTP with Azure AD
+
+La compatibilidad con conectores administrados está actualmente en versión preliminar. Para ver la lista actual, consulte [Tipos de autenticación para desencadenadores y acciones que admiten la autenticación](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions).
 
 En este artículo se muestra cómo configurar ambos tipos de identidades administradas para la aplicación lógica. Para más información, consulte los temas siguientes:
 
-* [Desencadenadores y acciones que admiten identidades administradas](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)
-* [Tipos de autenticación que se admiten en llamadas salientes](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)
+* [Desencadenadores y acciones que admiten identidades administradas](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions)
 * [Límites sobre las identidades administradas para aplicaciones lógicas](../logic-apps/logic-apps-limits-and-config.md#managed-identity)
 * [Servicios de Azure que admiten la autenticación de Azure AD con las identidades administradas](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)
 
@@ -39,7 +56,7 @@ En este artículo se muestra cómo configurar ambos tipos de identidades adminis
 
 * El recurso de Azure de destino al que quiere acceder. En este recurso, agregará un rol para la identidad administrada, lo que ayuda a la aplicación lógica a autenticar el acceso al recurso de destino.
 
-* La aplicación lógica en la que desea usar el [desencadenador o las acciones que admiten identidades administradas](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
+* La aplicación lógica en la que desea usar el [desencadenador o las acciones que admiten identidades administradas](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions).
 
 ## <a name="enable-managed-identity"></a>Habilitación de una entidad administrada
 
@@ -70,7 +87,7 @@ A diferencia de las identidades asignadas por el usuario, no tiene que crear man
    > [!NOTE]
    > Si recibe un error que le indica que solo puede tener una identidad administrada, la aplicación lógica ya está asociada a la identidad asignada por el usuario. Para poder agregar la identidad asignada por el sistema, primero debe *quitar* la identidad asignada por el usuario de la aplicación lógica.
 
-   Ahora, la aplicación lógica puede usar la identidad asignada por el sistema, que se registra con Azure Active Directory y se representa mediante un identificador de objeto.
+   Ahora, la aplicación lógica puede usar la identidad asignada por el sistema, que se registra con Azure AD y se representa mediante un identificador de objeto.
 
    ![Identificador de objeto para la identidad asignada por el sistema](./media/create-managed-service-identity/object-id-system-assigned-identity.png)
 
@@ -294,6 +311,8 @@ Para poder usar la identidad administrada de la aplicación lógica para la aute
 
 ### <a name="assign-access-in-the-azure-portal"></a>Asignación del acceso en Azure Portal
 
+En el recurso de Azure de destino al que quiere que la identidad administrada tenga acceso, asigne a esa identidad acceso basado en rol al recurso de destino.
+
 1. En el [Azure Portal](https://portal.azure.com), vaya al recurso de Azure en el que quiere asignar acceso para la identidad administrada.
 
 1. En el menú del recurso, seleccione **Control de acceso (IAM)**  > **asignaciones de roles** donde pueda revisar las asignaciones de roles actuales para ese recurso. En la barra de herramientas, seleccione **Agregar** > **Agregar asignación de roles**.
@@ -345,7 +364,7 @@ Para poder usar la identidad administrada de la aplicación lógica para la aute
 
 ## <a name="authenticate-access-with-managed-identity"></a>Autenticación del acceso con una identidad administrada
 
-Después de [habilitar la identidad administrada para la aplicación lógica](#azure-portal-system-logic-app) y [conceder a esa identidad acceso al recurso o a la entidad de destino](#access-other-resources), puede usar esa identidad en [desencadenadores y acciones que admiten identidades administradas](logic-apps-securing-a-logic-app.md#managed-identity-authentication).
+Después de [habilitar la identidad administrada para la aplicación lógica](#azure-portal-system-logic-app) y [conceder a esa identidad acceso al recurso o a la entidad de destino](#access-other-resources), puede usar esa identidad en [desencadenadores y acciones que admiten identidades administradas](logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions).
 
 > [!IMPORTANT]
 > Antes de que una función de Azure pueda usar la identidad asignada por el sistema, primero [habilite la autenticación de Azure Functions](../logic-apps/logic-apps-azure-functions.md#enable-authentication-for-functions).
@@ -354,44 +373,120 @@ En estos pasos se muestra cómo usar la identidad administrada con un desencaden
 
 1. En [Azure Portal](https://portal.azure.com), abra la aplicación lógica en Diseñador de aplicación lógica.
 
-1. Si todavía no lo ha hecho, agregue el [desencadenador o la acción que admita identidades administradas](logic-apps-securing-a-logic-app.md#managed-identity-authentication).
+1. Si todavía no lo ha hecho, agregue el [desencadenador o la acción que admita identidades administradas](logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions).
 
-   Por ejemplo, el desencadenador o la acción HTTP pueden usar la identidad asignada por el sistema que habilitó para la aplicación lógica. En general, el desencadenador o la acción HTTP utiliza estas propiedades para especificar el recurso o la entidad a los que desea obtener acceso:
+   > [!NOTE]
+   > No todos los desencadenadores y las acciones permiten agregar un tipo de autenticación. Para más información, consulte [Tipos de autenticación para desencadenadores y acciones que admiten la autenticación](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions).
 
-   | Propiedad | Obligatorio | Descripción |
-   |----------|----------|-------------|
-   | **Método** | Sí | El método HTTP usado por la operación que desea ejecutar |
-   | **URI** | Sí | La dirección URL del punto de conexión para acceder a la entidad o recurso de Azure de destino. La sintaxis del URI normalmente incluye el [Id. de recurso](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) para el recurso o servicio de Azure. |
-   | **Encabezados** | No | Los valores de encabezado que necesita o desea incluir en la solicitud saliente, como el tipo de contenido |
-   | **Consultas** | No | Los parámetros de consulta que necesita o desea incluir en la solicitud, como el parámetro para una operación específica o la versión de la API para la operación que desea ejecutar |
-   | **Autenticación** | Sí | El tipo de autenticación que se va a usar para autenticar el acceso al recurso o entidad de destino |
-   ||||
+1. Siga estos pasos en el desencadenador o en la acción que agregó:
 
-   Como ejemplo específico, supongamos que desea ejecutar la [Operación instantánea de blob](/rest/api/storageservices/snapshot-blob) en un BLOB de la cuenta Azure Storage en la que previamente configuró el acceso para su identidad. Sin embargo, el [conector de Azure Blob Storage](/connectors/azureblob/) no ofrece actualmente esta operación. En su lugar, puede ejecutar esta operación mediante la [acción HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action) u otra [operación de la API REST de servicios blob](/rest/api/storageservices/operations-on-blobs).
+   * **Acciones y desencadenadores integrados que admiten el uso de una identidad administrada**
 
-   > [!IMPORTANT]
-   > Para acceder a cuentas de Azure Storage detrás de firewalls mediante solicitudes HTTP e identidades administradas, asegúrese de que también configura la cuenta de almacenamiento con la [excepción que permite el acceso a los servicios de Microsoft de confianza](../connectors/connectors-create-api-azureblobstorage.md#access-trusted-service).
+     1. Agregue la propiedad **Autenticación** si todavía no aparece la propiedad.
 
-   Para ejecutar la [operación blob de instantáneas](/rest/api/storageservices/snapshot-blob), la acción HTTP especifica estas propiedades:
+     1. En **Tipo de autenticación**, seleccione **Identidad administrada**.
 
-   | Propiedad | Obligatorio | Valor de ejemplo | Descripción |
-   |----------|----------|---------------|-------------|
-   | **Método** | Sí | `PUT`| El método HTTP que utiliza la operación blob de instantáneas |
-   | **URI** | Sí | `https://{storage-account-name}.blob.core.windows.net/{blob-container-name}/{folder-name-if-any}/{blob-file-name-with-extension}` | El identificador de recurso de un archivo Azure Blob Storage en el entorno de Azure Global (público), que usa esta sintaxis |
-   | **Encabezados** | Para Azure Storage | `x-ms-blob-type` = `BlockBlob` <p>`x-ms-version` = `2019-02-02` <p>`x-ms-date` = `@{formatDateTime(utcNow(),'r'}` | Los valores de encabezado `x-ms-blob-type`, `x-ms-version` y `x-ms-date` son necesarios para las operaciones de Azure Storage. <p><p>**Importante**: En el desencadenador HTTP saliente y en las solicitudes de acción de Azure Storage, el encabezado requiere la propiedad `x-ms-version` y la versión de la API para la operación que se desea ejecutar. El valor `x-ms-date` debe ser la fecha actual. En caso contrario, se produce un error de tipo `403 FORBIDDEN` en la aplicación lógica. Para obtener la fecha actual en el formato requerido, puede usar la expresión del valor de ejemplo. <p>Para más información, consulte los temas siguientes: <p><p>- [Encabezados de solicitud - Blob de instantáneas](/rest/api/storageservices/snapshot-blob#request) <br>- [Control de versiones para servicios de Azure Storage](/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests) |
-   | **Consultas** | Solo para la operación del blob de instantáneas | `comp` = `snapshot` | El nombre y el valor del parámetro de consulta para la operación. |
-   |||||
+     Para más información, vea [Ejemplo: Autentique una acción o un desencadenador integrado con una identidad administrada](#authenticate-built-in-managed-identity).
+ 
+   * **Acciones y desencadenadores de conector administrado que admiten el uso de una identidad administrada**
 
-   Este es un ejemplo de la acción HTTP que muestra todos estos valores de propiedad:
+     1. En la página de selección de inquilinos, seleccione **Conexión con identidad administrada**.
 
-   ![Incorporación de una acción HTTP para acceder a un recurso de Azure](./media/create-managed-service-identity/http-action-example.png)
+     1. En la página siguiente, proporcione un nombre de conexión.
 
-1. Ahora agregue la propiedad **Autenticación** a la acción HTTP. En la lista **Agregar nuevo parámetro**, seleccione **Autenticación**.
+        De manera predeterminada, la lista de identidades administradas muestra solo la identidad administrada actualmente habilitada porque una aplicación lógica solo admite la habilitación de una identidad administrada a la vez, por ejemplo:
+
+        ![Captura de pantalla que muestra la página de nombre de conexión y la identidad administrada seleccionada.](./media/create-managed-service-identity/system-assigned-managed-identity.png)
+
+     Para más información, vea [Ejemplo: Autentique una acción o un desencadenador de conector administrado con una identidad administrada](#authenticate-managed-connector-managed-identity).
+
+     Las conexiones que se crean para usar una identidad administrada son un tipo de conexión especial que solo funciona con una identidad administrada. En tiempo de ejecución, la conexión usa la identidad administrada que está habilitada en la aplicación lógica. Esta configuración se guarda en el objeto `parameters` de la definición de recursos de la aplicación lógica, que contiene el objeto `$connections` que incluye punteros al identificador de recurso de la conexión junto con el identificador de recurso de la identidad, si la identidad asignada por el usuario está habilitada.
+
+     En este ejemplo se muestra el aspecto de la configuración cuando la aplicación lógica habilita la identidad administrada asignada por el sistema:
+
+     ```json
+     "parameters": {
+        "$connections": {
+           "value": {
+              "<action-name>": {
+                 "connectionId": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/connections/{connection-name}",
+                 "connectionName": "{connection-name}",
+                 "connectionProperties": {
+                    "authentication": {
+                       "type": "ManagedServiceIdentity"
+                    }
+                 },
+                 "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region}/managedApis/{managed-connector-type}"
+              }
+           }
+        }
+     }
+     ```
+
+     En este ejemplo se muestra el aspecto de la configuración cuando la aplicación lógica habilita una identidad administrada asignada por el usuario:
+
+     ```json
+     "parameters": {
+        "$connections": {
+           "value": {
+              "<action-name>": {
+                 "connectionId": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/connections/{connection-name}",
+                 "connectionName": "{connection-name}",
+                 "connectionProperties": {
+                    "authentication": {
+                       "identity": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resourceGroupName}/providers/microsoft.managedidentity/userassignedidentities/{managed-identity-name}",
+                       "type": "ManagedServiceIdentity"
+                    }
+                 },
+                 "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region}/managedApis/{managed-connector-type}"
+              }
+           }
+        }
+     }
+     ```
+
+     Durante el tiempo de ejecución, el servicio Logic Apps comprueba si las acciones o los desencadenadores de conector administrado de la aplicación lógica están configurados para usar la identidad administrada y si todos los permisos necesarios están configurados para usar la identidad administrada a fin de acceder a los recursos de destino especificados por el desencadenador y las acciones. Si la comprobación se completa correctamente, el servicio Logic Apps recupera el token de Azure AD que está asociado a la identidad administrada y usa dicha identidad para autenticar el acceso al recurso de destino y realizar la operación configurada en desencadenadores y acciones.
+
+<a name="authenticate-built-in-managed-identity"></a>
+
+#### <a name="example-authenticate-built-in-trigger-or-action-with-a-managed-identity"></a>Ejemplo: Autentique una acción o un desencadenador integrado con una identidad administrada
+
+El desencadenador o la acción HTTP pueden usar la identidad asignada por el sistema que habilitó para la aplicación lógica. En general, el desencadenador o la acción HTTP utiliza estas propiedades para especificar el recurso o la entidad a los que desea obtener acceso:
+
+| Propiedad | Obligatorio | Descripción |
+|----------|----------|-------------|
+| **Método** | Sí | El método HTTP usado por la operación que desea ejecutar |
+| **URI** | Sí | La dirección URL del punto de conexión para acceder a la entidad o recurso de Azure de destino. La sintaxis del URI normalmente incluye el [Id. de recurso](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) para el recurso o servicio de Azure. |
+| **Encabezados** | No | Los valores de encabezado que necesita o desea incluir en la solicitud saliente, como el tipo de contenido |
+| **Consultas** | No | Los parámetros de consulta que necesita o desea incluir en la solicitud, como el parámetro para una operación específica o la versión de la API para la operación que desea ejecutar |
+| **Autenticación** | Sí | El tipo de autenticación que se va a usar para autenticar el acceso al recurso o entidad de destino |
+||||
+
+Como ejemplo específico, supongamos que desea ejecutar la [Operación instantánea de blob](/rest/api/storageservices/snapshot-blob) en un BLOB de la cuenta Azure Storage en la que previamente configuró el acceso para su identidad. Sin embargo, el [conector de Azure Blob Storage](/connectors/azureblob/) no ofrece actualmente esta operación. En su lugar, puede ejecutar esta operación mediante la [acción HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action) u otra [operación de la API REST de servicios blob](/rest/api/storageservices/operations-on-blobs).
+
+> [!IMPORTANT]
+> Para acceder a cuentas de Azure Storage detrás de firewalls mediante solicitudes HTTP e identidades administradas, asegúrese de que también configura la cuenta de almacenamiento con la [excepción que permite el acceso a los servicios de Microsoft de confianza](../connectors/connectors-create-api-azureblobstorage.md#access-trusted-service).
+
+Para ejecutar la [operación blob de instantáneas](/rest/api/storageservices/snapshot-blob), la acción HTTP especifica estas propiedades:
+
+| Propiedad | Obligatorio | Valor de ejemplo | Descripción |
+|----------|----------|---------------|-------------|
+| **Método** | Sí | `PUT`| El método HTTP que utiliza la operación blob de instantáneas |
+| **URI** | Sí | `https://{storage-account-name}.blob.core.windows.net/{blob-container-name}/{folder-name-if-any}/{blob-file-name-with-extension}` | El identificador de recurso de un archivo Azure Blob Storage en el entorno de Azure Global (público), que usa esta sintaxis |
+| **Encabezados** | Para Azure Storage | `x-ms-blob-type` = `BlockBlob` <p>`x-ms-version` = `2019-02-02` <p>`x-ms-date` = `@{formatDateTime(utcNow(),'r'}` | Los valores de encabezado `x-ms-blob-type`, `x-ms-version` y `x-ms-date` son necesarios para las operaciones de Azure Storage. <p><p>**Importante**: En el desencadenador HTTP saliente y en las solicitudes de acción de Azure Storage, el encabezado requiere la propiedad `x-ms-version` y la versión de la API para la operación que se desea ejecutar. El valor `x-ms-date` debe ser la fecha actual. En caso contrario, se produce un error de tipo `403 FORBIDDEN` en la aplicación lógica. Para obtener la fecha actual en el formato requerido, puede usar la expresión del valor de ejemplo. <p>Para más información, consulte los temas siguientes: <p><p>- [Encabezados de solicitud - Blob de instantáneas](/rest/api/storageservices/snapshot-blob#request) <br>- [Control de versiones para servicios de Azure Storage](/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests) |
+| **Consultas** | Solo para la operación del blob de instantáneas | `comp` = `snapshot` | El nombre y el valor del parámetro de consulta para la operación. |
+|||||
+
+Este es un ejemplo de la acción HTTP que muestra todos estos valores de propiedad:
+
+![Incorporación de una acción HTTP para acceder a un recurso de Azure](./media/create-managed-service-identity/http-action-example.png)
+
+1. Después de agregar la acción HTTP, agregue la propiedad **Autenticación** a la acción HTTP. En la lista **Agregar nuevo parámetro**, seleccione **Autenticación**.
 
    ![Agregar la propiedad "Autenticación" a la acción HTTP](./media/create-managed-service-identity/add-authentication-property.png)
 
    > [!NOTE]
-   > No todos los desencadenadores y las acciones permiten agregar un tipo de autenticación. Para obtener más información, consulte [Incorporación de la autenticación en las llamadas salientes](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
+   > No todos los desencadenadores y las acciones permiten agregar un tipo de autenticación. Para más información, consulte [Tipos de autenticación para desencadenadores y acciones que admiten la autenticación](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions).
 
 1. En la lista **Tipo de autenticación**, seleccione **Identidad administrada**.
 
@@ -422,6 +517,32 @@ En estos pasos se muestra cómo usar la identidad administrada con un desencaden
 
    * [Autorización del acceso a blobs y colas de Azure con Azure Active Directory](../storage/common/storage-auth-aad.md)
    * [Autorización del acceso a Azure Storage con Azure Active Directory](/rest/api/storageservices/authorize-with-azure-active-directory#use-oauth-access-tokens-for-authentication)
+
+1. Siga creando la aplicación lógica de la forma que desee.
+
+<a name="authenticate-managed-connector-managed-identity"></a>
+
+#### <a name="example-authenticate-managed-connector-trigger-or-action-with-a-managed-identity"></a>Ejemplo: Autentique una acción o un desencadenador de conector administrado con una identidad administrada
+
+La acción de Azure Resource Manager, **Leer un recurso**, puede usar la identidad administrada que habilitó para la aplicación lógica. En este ejemplo se muestra cómo usar la identidad administrada asignada por el sistema.
+
+1. Después de agregar la acción al flujo de trabajo, en la página selección de inquilinos, seleccione **Conexión con identidad administrada**.
+
+   ![Captura de pantalla que muestra la acción de Azure Resource Manager y la opción "Conexión con identidad administrada" seleccionada.](./media/create-managed-service-identity/select-connect-managed-identity.png)
+
+   La acción ahora muestra la página de nombre de conexión con la lista de identidades administradas, que incluye el tipo de identidad administrada que está habilitado actualmente en la aplicación lógica.
+
+1. En la página de nombre de la conexión, escriba un nombre para la conexión. En la lista de identidades administradas, seleccione la identidad administrada, que en este ejemplo es la **Identidad administrada asignada por el sistema**, y seleccione **Crear**. Por el contrario, si habilitó una identidad administrada asignada por el usuario, seleccione esa.
+
+   ![Captura de pantalla que muestra la acción de Azure Resource Manager con el nombre de conexión especificado y la opción "Identidad administrada asignada por el sistema" seleccionada.](./media/create-managed-service-identity/system-assigned-managed-identity.png)
+
+   Si la identidad administrada no está habilitada, aparece el error siguiente al intentar crear la conexión:
+
+   *You must enable managed identity for your logic app and then grant required access to the identity in the target resource* (Debe habilitar la identidad administrada para la aplicación lógica y luego conceder el acceso necesario a la identidad en el recurso de destino).
+
+   ![Captura de pantalla que muestra la acción de Azure Resource Manager con error cuando no hay habilitada ninguna identidad administrada.](./media/create-managed-service-identity/system-assigned-managed-identity-disabled.png)
+
+1. Después de crear correctamente la conexión, el diseñador puede usar la autenticación de identidad administrada para capturar cualquier esquema, contenido o valores dinámicos.
 
 1. Siga creando la aplicación lógica de la forma que desee.
 

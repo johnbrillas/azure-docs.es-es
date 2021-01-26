@@ -7,12 +7,12 @@ ms.reviewer: deli, logicappspm
 ms.topic: article
 ms.date: 12/07/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 1736a1d22ccfb0f00061534d1c733ab72da4c7b0
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 3f88fa38d62778bc3c4c1e29571d1d0ae4eeb5ff
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96922504"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98179612"
 ---
 # <a name="add-and-run-code-snippets-by-using-inline-code-in-azure-logic-apps"></a>Adición y ejecución de fragmentos de código mediante código en línea en Azure Logic Apps
 
@@ -31,7 +31,7 @@ Si desea ejecutar un fragmento de código dentro de su aplicación lógica, pued
   > [!NOTE]
   > La función `require()` no es compatible con la acción Código en línea para la ejecución de JavaScript.
 
-Esta acción ejecuta el fragmento de código y devuelve la salida de ese fragmento como un token denominado `Result`. Puede usar este token en acciones posteriores del flujo de trabajo de la aplicación lógica. Para otros escenarios en los que desee crear una función para el código intente, en su lugar, [crear y llamar a una función de Azure](../logic-apps/logic-apps-azure-functions.md) en la aplicación lógica.
+Esta acción ejecuta el fragmento de código y devuelve la salida de ese fragmento como un token denominado `Result`. Puede usar este token en acciones posteriores del flujo de trabajo de la aplicación lógica. Para otros escenarios en los que quiera crear una función para el código intente, en su lugar, [crear y llamar a una función mediante Azure Functions](../logic-apps/logic-apps-azure-functions.md) en la aplicación lógica.
 
 En este artículo, la aplicación lógica de ejemplo se desencadena cuando un nuevo correo electrónico llega a una cuenta profesional o educativa. El fragmento de código extrae y devuelve todas las direcciones de correo electrónico que aparecen en el cuerpo del correo electrónico.
 

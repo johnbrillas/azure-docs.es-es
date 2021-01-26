@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - contperf-fy21q1
 - device-developer
-ms.openlocfilehash: 9e5e96d97494f4ba9aa28e84b046cd057fe8eba7
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 236acc2ded3fcb651295e0342ab4e1e88174be46
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033415"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202970"
 ---
 # <a name="define-a-new-iot-device-type-in-your-azure-iot-central-application"></a>Definición de un nuevo tipo de dispositivo IoT en la aplicación de Azure IoT Central
 
@@ -42,8 +42,16 @@ En las aplicaciones de IoT Central, las plantillas de dispositivo usan modelos d
 
 - Diseñe la plantilla de dispositivo en IoT Central e [implemente su modelo de dispositivo en el código del dispositivo](concepts-telemetry-properties-commands.md).
 - Importe una plantilla de dispositivo del [catálogo de dispositivos Azure Certified for IoT](https://aka.ms/iotdevcat). Personalice la plantilla de dispositivos según sus requisitos en IoT Central.
+> [!NOTE]
+> IoT Central requiere el modelo completo con todas las interfaces a las que se hace referencia en el mismo archivo; al importar un modelo desde el repositorio de modelos, use la palabra clave "expanded" para obtener la versión completa.
+Por ejemplo. https://devicemodels.azure.com/dtmi/com/example/thermostat-1.expanded.json
+
 - Cree un modelo de dispositivo, para lo que debe usar el [lenguaje de definición de Digital Twins (DTDL), versión 2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). Visual Studio Code tiene una extensión que admite la creación de modelos DTDL. Para obtener más información, consulte [Instalación y uso de las herramientas de creación de DTDL](../../iot-pnp/howto-use-dtdl-authoring-tools.md). Luego, publique el modelo en el repositorio de modelos público. Para más información, consulte [Repositorio de modelos de dispositivo](../../iot-pnp/concepts-model-repository.md). Implemente el código del dispositivo desde el modelo y conecte el dispositivo real a la aplicación de IoT Central. IoT Central busca e importa automáticamente el modelo del dispositivo desde el repositorio público y genera una plantilla de dispositivo. Después, puede agregar las propiedades, las personalizaciones y los paneles en la nube que la aplicación de IoT Central necesita a la plantilla del dispositivo.
 - Cree un modelo de dispositivo mediante DTDL. Implemente el código del dispositivo a partir del modelo. Importe manualmente el modelo de dispositivo en la aplicación de IoT Central y agregue las propiedades, las personalizaciones y los paneles de la nube que la aplicación de IoT Central necesite.
+
+> [!TIP]
+> IoT Central requiere el modelo completo con todas las interfaces a las que se hace referencia en el mismo archivo. Al importar un modelo desde el repositorio de modelos, use la palabra clave *expanded* para obtener la versión completa.
+> Por ejemplo, [https://devicemodels.azure.com/dtmi/com/example/thermostat-1.expanded.json](https://devicemodels.azure.com/dtmi/com/example/thermostat-1.expanded.json).
 
 También puede agregar plantillas de dispositivo a una aplicación de IoT Central mediante la [API de REST](/learn/modules/manage-iot-central-apps-with-rest-api/) o la [CLI](howto-manage-iot-central-from-cli.md).
 

@@ -13,12 +13,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 06/25/2019
-ms.openlocfilehash: eedc3dc1422d4eb6dcce80766077e8056f8509cf
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 7bd991bd709bb4be69325afe967d7e5600a9e1a4
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92678048"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222571"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Introducción a la continuidad empresarial con Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -48,7 +48,7 @@ SQL Database e Instancia administrada de SQL también proporcionan varias carac
 
 - [Tablas temporales](../temporal-tables.md) que le permiten restaurar versiones de fila desde cualquier momento dado.
 - Las [copias de seguridad automatizadas integradas](automated-backups-overview.md) y la [restauración a un momento dado](recovery-using-backups.md#point-in-time-restore) le permiten restaurar la base de datos completa a un momento dado dentro del período de retención configurado de hasta 35 días.
-- Puede [restaurar una base de datos eliminada](recovery-using-backups.md#deleted-database-restore) al momento en que se ha eliminado si el **servidor no se ha eliminado** .
+- Puede [restaurar una base de datos eliminada](recovery-using-backups.md#deleted-database-restore) al momento en que se ha eliminado si el **servidor no se ha eliminado**.
 - La [retención de copia de seguridad a largo plazo](long-term-retention-overview.md) le permite conservar las copias de seguridad hasta 10 años. Se trata de una versión preliminar pública limitada para Instancia administrada de SQL
 - La [replicación geográfica activa](active-geo-replication-overview.md) permite crear réplicas legibles y realizar una conmutación por error manual a cualquier réplica en el caso de una interrupción en el centro de datos o una actualización de la aplicación.
 - El [grupo de conmutación por error automática](auto-failover-group-overview.md#terminology-and-capabilities) permite que la aplicación se recupere automáticamente en el caso de que se produzca una interrupción en el centro de datos.

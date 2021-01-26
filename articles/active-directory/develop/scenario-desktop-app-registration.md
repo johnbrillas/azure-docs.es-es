@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/09/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 08e07ac3a8079d725611f9b072e8d21dabb32867
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: c769fd86f432d135542c1f09b83ea5a01c6ab0a6
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98011567"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250611"
 ---
 # <a name="desktop-app-that-calls-web-apis-app-registration"></a>Aplicación de escritorio que llama a las API web: Registro de aplicación
 
@@ -42,7 +42,7 @@ Los URI de redirección que se utilizan en una aplicación de escritorio depende
 - Si usa la autenticación interactiva o el flujo de código del dispositivo, use `https://login.microsoftonline.com/common/oauth2/nativeclient`. Para lograr esta configuración, seleccione la dirección URL correspondiente en la sección **Autenticación** de la aplicación.
 
   > [!IMPORTANT]
-  > Hoy en día, MSAL.NET usa otro URI de redirección de forma predeterminada en las aplicaciones de escritorio que se ejecutan en Windows (`urn:ietf:wg:oauth:2.0:oob`). En el futuro, querremos cambiar este comportamiento predeterminado, por lo que le recomendamos que use `https://login.microsoftonline.com/common/oauth2/nativeclient`.
+  > Se recomienda usar `https://login.microsoftonline.com/common/oauth2/nativeclient` como el URI de redireccionamiento como procedimiento recomendado de seguridad.  Si no se especifica ningún URI de redireccionamiento, MSAL.NET utiliza `urn:ietf:wg:oauth:2.0:oob` de forma predeterminada, lo que no se recomienda.  Este valor predeterminado se actualizará como un cambio importante en la próxima versión principal.
 
 - Si compila una aplicación nativa de Objective-C o Swift para macOS, registre el URI de redirección en función del identificador de agrupación de la aplicación, con el formato siguiente: `msauth.<your.app.bundle.id>://auth`. Reemplace `<your.app.bundle.id>` por el identificador de paquete de la aplicación.
 - Si la aplicación solo utiliza la autenticación integrada de Windows o un nombre de usuario y una contraseña, no es necesario que registre ningún URI de redirección para la aplicación. Estos flujos realizan un recorrido de ida y vuelta al punto de conexión de la plataforma de identidad de Microsoft v2.0. No se volverá a llamar a la aplicación en ningún URI específico.

@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: b0e2cc3f23a8c39e51523e6f6fd974ebf46f7322
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 3ddae808fbb2e3dcfe20909c8b3d0c5a20bb04bd
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097454"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247529"
 ---
 # <a name="optimize-development-and-testing-cost-in-azure-cosmos-db"></a>Optimización del coste de desarrollo y pruebas en Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -37,7 +37,7 @@ La opción para [probar Azure Cosmos DB gratis](https://azure.microsoft.com/try/
 
 ## <a name="azure-free-account"></a>Cuenta gratuita de Azure
 
-Azure Cosmos DB se incluye en la [cuenta gratuita de Azure](https://azure.microsoft.com/free), que ofrece créditos y recursos de Azure de forma gratuita durante un período de tiempo determinado. Específicamente para Azure Cosmos DB, esta cuenta gratuita ofrece 5 GB de almacenamiento y 400 RU de rendimiento aprovisionado para todo el año. Esta experiencia permite a cualquier desarrollador probar fácilmente las características de Azure Cosmos DB o integrarlo con otros servicios de Azure sin ningún costo. Junto con la cuenta gratuita de Azure obtendrá un saldo de 200 USD para gastar durante los primeros 30 días. No se le cobrará nada hasta que decida actualizar la suscripción; incluso si comienza a usar los servicios. Para comenzar, visite la página de la [cuenta gratuita de Azure](https://azure.microsoft.com/free).
+Azure Cosmos DB se incluye en la [cuenta gratuita de Azure](https://azure.microsoft.com/free), que ofrece créditos y recursos de Azure de forma gratuita durante un período de tiempo determinado. Específicamente para Azure Cosmos DB, esta cuenta gratuita ofrece 25 GB de almacenamiento y 400 RU de rendimiento aprovisionado para todo el año. Esta experiencia permite a cualquier desarrollador probar fácilmente las características de Azure Cosmos DB o integrarlo con otros servicios de Azure sin ningún costo. Junto con la cuenta gratuita de Azure obtendrá un saldo de 200 USD para gastar durante los primeros 30 días. No se le cobrará nada hasta que decida actualizar la suscripción; incluso si comienza a usar los servicios. Para comenzar, visite la página de la [cuenta gratuita de Azure](https://azure.microsoft.com/free).
 
 ## <a name="azure-cosmos-db-serverless"></a>Azure Cosmos DB sin servidor
 

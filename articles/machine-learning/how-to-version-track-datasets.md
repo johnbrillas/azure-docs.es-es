@@ -1,7 +1,7 @@
 ---
 title: Control de versiones del conjunto de datos
 titleSuffix: Azure Machine Learning
-description: Obtenga información sobre cómo mejorar la versión de los conjuntos de datos y sobre cómo funciona el control de versiones con las canalizaciones de aprendizaje automático.
+description: Obtenga información sobre cómo controlar las versiones de los conjuntos de datos de aprendizaje automático y sobre cómo funciona el control de versiones con las canalizaciones de aprendizaje automático.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,14 +11,14 @@ ms.reviewer: nibaccam
 ms.date: 03/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, data4ml
-ms.openlocfilehash: 7eb8010853ba370f4502b6bc155c6a098e64965b
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 3290574b26abe544c8c749165e22bef41a83ecf3
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98133453"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98538152"
 ---
-# <a name="version-and-track-datasets-in-experiments"></a>Versión y seguimiento de conjuntos de valores en experimentos
+# <a name="version-and-track-azure-machine-learning-datasets"></a>Control de versiones y seguimiento de conjuntos de datos de Azure Machine Learning
 
 En este artículo, aprenderá a controlar versiones y realizar un seguimiento de los conjuntos de datos de Azure Machine Learning para fines de reproducibilidad. El control de versiones del conjunto de datos es una manera de delimitar el estado de los datos, con el fin de que pueda aplicar una versión específica del conjunto de datos para futuros experimentos.
 

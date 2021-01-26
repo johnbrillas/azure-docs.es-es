@@ -7,18 +7,18 @@ ms.author: shhazam
 ms.date: 12/2/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 5e33a7adc7b529df8c7c821cbfdcb0ad5709803b
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 49a0129ff26d4a12392066aa6304317d71fdb0f1
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97836684"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247597"
 ---
 # <a name="defender-for-iot-installation"></a>Instalación de Defender para IoT
 
 En este artículo se describe cómo instalar los siguientes elementos de Azure Defender para IoT:
 
-- **Sensor**: los sensores de Defender para IoT recopilan el tráfico de ICS mediante la supervisión pasiva (sin agente). Los sensores, pasivos y no invasivos, tienen un impacto nulo sobre el rendimiento en las redes y los dispositivos de OT e IoT. El sensor se conecta a un puerto SPAN o a un TAP de red e inicia inmediatamente la supervisión de la red. Las detecciones se ven en la consola del sensor. Allí puede verlas, investigarlas y analizarlas en un mapa de red, un inventario de dispositivos y una amplia variedad de informes. Algunos ejemplos son los informes de evaluación de riesgos, las consultas de minería de datos y los vectores de ataque. Obtenga más información sobre las funcionalidades del sensor en la [Guía de usuario del sensor de Defender para IoT (descarga directa)](https://aka.ms/AzureDefenderforIoTUserGuide).
+- **Sensor**: los sensores de Defender para IoT recopilan el tráfico de ICS mediante la supervisión pasiva (sin agente). Los sensores, pasivos y no invasivos, tienen un impacto nulo sobre el rendimiento en las redes y los dispositivos de OT e IoT. El sensor se conecta a un puerto SPAN o a un TAP de red e inicia inmediatamente la supervisión de la red. Las detecciones se ven en la consola del sensor. Allí puede verlas, investigarlas y analizarlas en un mapa de red, un inventario de dispositivos y una amplia variedad de informes. Algunos ejemplos son los informes de evaluación de riesgos, las consultas de minería de datos y los vectores de ataque. Obtenga más información sobre las funcionalidades del sensor en la [Guía de usuario del sensor de Defender para IoT (descarga directa)](./getting-started.md).
 
 - **Consola de administración local**: la consola de administración local le permite llevar a cabo la administración de dispositivos, riesgos y vulnerabilidades. También puede usarla para llevar a cabo la supervisión de amenazas y la respuesta a incidentes en toda la empresa. Ofrece una vista unificada de todos los dispositivos de red e indicadores de riesgo y alertas clave de OT e IoT detectados en las instalaciones en las que los sensores están implementados. Use la consola de administración local para ver y administrar sensores en redes aisladas.
 
@@ -230,9 +230,9 @@ En este artículo se explica cómo configurar el BIOS mediante el archivo de con
 
 4. Las credenciales del dispositivo son:
 
-   - Nombre de usuario: **cyberx**
+   - Nombre de usuario: **XXX**
 
-   - Contraseña: **xhxvhttju,@4338**
+   - Contraseña: **XXX**
 
      Se inicia la operación de importación del perfil de servidor.
 
@@ -274,7 +274,7 @@ Para realizar la configuración manualmente:
 
    - Si no se trata de un dispositivo de Defender para IoT, abra un explorador web y vaya a la dirección IP que se configuró antes. Inicie sesión con los privilegios de administrador predeterminados de Dell. Use **root** como nombre de usuario y **calvin** como contraseña.
 
-   - Si se trata de un dispositivo de Defender para IoT, inicie sesión con **cyberx** como nombre de usuario y **xhxvhttju,@4338** como contraseña.
+   - Si se trata de un dispositivo de Defender para IoT, inicie sesión con **XXX** como nombre de usuario y **XXX** como contraseña.
 
 2. Después de acceder al BIOS, diríjase a **Device Settings** (Configuración del dispositivo).
 

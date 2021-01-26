@@ -1,86 +1,89 @@
 ---
-title: Visualización de varios recursos en el Explorador de métricas
-description: Obtenga información sobre cómo visualizar varios recursos en el Explorador de métricas de Azure Monitor
+title: Visualización de varios recursos en el Explorador de métricas de Azure
+description: Obtenga información sobre cómo visualizar varios recursos mediante el Explorador de métricas de Azure.
 author: ritaroloff
 services: azure-monitor
 ms.topic: conceptual
 ms.date: 12/14/2020
 ms.author: riroloff
 ms.subservice: metrics
-ms.openlocfilehash: 9d1460a8bebe75a3ee471eb304fcf642d566b5dd
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 4c895b287f72929e2a0571ccc2cae8cc4f673388
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97614649"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250492"
 ---
-# <a name="viewing-multiple-resources-in-metrics-explorer"></a>Visualización de varios recursos en el Explorador de métricas
+# <a name="view-multiple-resources-in-the-azure-metrics-explorer"></a>Visualización de varios recursos en el Explorador de métricas de Azure
 
-El selector del ámbito de recursos le permite ver las métricas en varios recursos que se encuentren en la misma suscripción y región. A continuación se proporcionan instrucciones sobre cómo ver varios recursos en el Explorador de métricas de Azure Monitor. 
+El selector del ámbito de recursos le permite ver las métricas en varios recursos que se encuentren en la misma suscripción y región. En este artículo se explica cómo ver varios recursos mediante la característica Explorador de métricas de Azure de Azure Monitor. 
 
-## <a name="selecting-a-resource"></a>Seleccionar un recurso 
+## <a name="select-a-resource"></a>Selección de un recurso 
 
-Seleccione **Métricas** en el menú de **Azure Monitor** o en la sección **Supervisión** del menú de un recurso. Haga clic en el botón "Seleccionar un ámbito" para abrir el selector del ámbito de recursos, que le permitirá seleccionar los recursos de los que quiera ver las métricas. El ámbito ya aparece rellenado al abrir el explorador de métricas desde el menú de un recurso. 
+Seleccione **Métricas** en el menú de **Azure Monitor** o en la sección **Supervisión** del menú de un recurso. A continuación, elija **Seleccionar un ámbito** para abrir el selector de ámbitos. 
 
-![Captura de pantalla del selector del ámbito de recursos resaltado en rojo](./media/metrics-charts/019.png)
+Use el selector de ámbitos para seleccionar los recursos cuyas métricas desea ver. El ámbito se debe rellenar al abrir el Explorador de métricas de Azure desde el menú de un recurso. 
 
-## <a name="selecting-multiple-resources"></a>Selección de varios recursos 
+![Captura de pantalla que muestra cómo abrir el selector de ámbitos de recursos.](./media/metrics-charts/019.png)
 
-Algunos tipos de recursos tienen habilitada la capacidad de consultar métricas en varios recursos, siempre y cuando se encuentren en la misma suscripción y ubicación. Estos tipos de recursos se pueden encontrar en la parte superior de la lista desplegable "Tipos de recursos". 
+## <a name="select-multiple-resources"></a>Seleccionar varios recursos 
 
-![Captura de pantalla que muestra una lista desplegable de los recursos compatibles con varios recursos. ](./media/metrics-charts/020.png)
+Algunos tipos de recursos pueden consultar las métricas de varios recursos. Las métricas deben estar en la misma suscripción y ubicación. Busque estos tipos de recursos en la parte superior del menú **Tipos de recursos**.
+
+![Captura de pantalla que muestra un menú de recursos que son compatibles con varios recursos.](./media/metrics-charts/020.png)
 
 > [!WARNING] 
-> Debe tener el permiso de tipo Lector de supervisión en el nivel de suscripción para visualizar las métricas de varios recursos, grupos de recursos o de una suscripción. Para ello, siga las instrucciones de [este documento](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+> Debe tener el permiso de tipo Lector de supervisión en el nivel de suscripción para visualizar las métricas de varios recursos, grupos de recursos o de una suscripción. Para obtener más información, consulte [Incorporación o eliminación de asignaciones de roles mediante Azure Portal](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 
 Para visualizar las métricas en varios recursos, seleccione varios recursos en el selector del ámbito de recursos. 
 
 ![Captura de pantalla que muestra cómo seleccionar varios recursos.](./media/metrics-charts/021.png)
 
 > [!NOTE]
-> Solo se pueden seleccionar varios recursos dentro del mismo tipo de recurso, ubicación y suscripción. Tenga en cuenta que los recursos que no cumplan este criterio no se podrán seleccionar. 
+> Los recursos que seleccione deben estar en el mismo tipo de recurso, ubicación y suscripción. Los recursos que no se ajustan a estos criterios no se pueden seleccionar. 
 
-Cuando haya terminado de seleccionar los recursos, haga clic en el botón "Aplicar" para guardar la selección. 
+Cuando termine, elija **Aplicar** para guardar las selecciones. 
 
-## <a name="selecting-a-resource-group-or-subscription"></a>Selección de un grupo de recursos o suscripción 
+## <a name="select-a-resource-group-or-subscription"></a>Selección de un grupo de recursos o suscripción 
 
 > [!WARNING]
 > Debe tener el permiso de tipo Lector de supervisión en el nivel de suscripción para visualizar las métricas de varios recursos, grupos de recursos o de una suscripción. 
 
-En el caso de los tipos compatibles con varios recursos, también puede consultar las métricas en una suscripción o en varios grupos de recursos. Para comenzar, seleccione una suscripción o uno o varios grupos de recursos: 
+En el caso de los tipos que son compatibles con varios recursos, puede consultar las métricas en una suscripción o en varios grupos de recursos. Para comenzar, seleccione una suscripción o uno o varios grupos de recursos: 
 
-![Captura de pantalla que muestra cómo realizar consultas en varios grupos de recursos. ](./media/metrics-charts/022.png)
+![Captura de pantalla que muestra cómo realizar consultas en varios grupos de recursos.](./media/metrics-charts/022.png)
 
-A continuación, debe seleccionar un tipo de recurso y una ubicación para poder seguir aplicando el nuevo ámbito. 
+Seleccione un tipo de recurso y una ubicación. 
 
-![Captura de pantalla que muestra los grupos de recursos seleccionados. ](./media/metrics-charts/023.png)
+![Captura de pantalla que muestra los grupos de recursos seleccionados.](./media/metrics-charts/023.png)
 
-También puede expandir los ámbitos seleccionados para comprobar los recursos a los que se aplicará esta opción.
+Puede expandir los ámbitos seleccionados para comprobar los recursos a los que se aplican las selecciones.
 
-![Captura de pantalla que muestra los recursos seleccionados dentro de los grupos. ](./media/metrics-charts/024.png)
+![Captura de pantalla que muestra los recursos seleccionados dentro de los grupos.](./media/metrics-charts/024.png)
 
-Una vez que haya terminado de seleccionar los ámbitos, haga clic en "Aplicar" para guardar lo que haya seleccionado. 
+Cuando termine de seleccionar ámbitos, seleccione **Aplicar**. 
 
-## <a name="splitting-and-filtering-by-resource-group-or-resources"></a>División y filtrado por grupo de recursos o por recursos
+## <a name="split-and-filter-by-resource-group-or-resources"></a>División y filtrado por grupo de recursos o recursos
 
-Después de trazar los recursos, puede usar la herramienta de división y filtrado para obtener más información sobre los datos. 
+Después de trazar los recursos, puede usar la división y el filtrado para obtener más información sobre los datos. 
 
-La opción de división le permite visualizar el modo en que los distintos segmentos de la métrica se comparan entre sí. Por ejemplo, cuando se traza una métrica de varios recursos, puede usar la herramienta "Aplicar división" para dividir en función del id. del recurso o del grupo de recursos. Esto le permitirá comparar fácilmente una sola métrica entre varios recursos o grupos de recursos.  
+La opción de división le permite visualizar el modo en que los distintos segmentos de la métrica se comparan entre sí. Por ejemplo, cuando se traza una métrica de varios recursos, puede elegir **Aplicar división** para dividir en función del id. de recurso o del grupo de recursos. La división le permite comparar una sola métrica entre varios recursos o grupos de recursos.  
 
-Por ejemplo, a continuación se muestra un gráfico con un porcentaje de la CPU en 9 VM. Gracias a la división en función del id. de recurso, puede ver fácilmente el porcentaje de CPU que se diferencia por VM. 
+Por ejemplo, en el siguiente gráfico se muestra el porcentaje de CPU en nueve máquinas virtuales. Al dividir por id. de recurso, verá cómo difiere el porcentaje de CPU según la máquina virtual. 
 
-![Captura de pantalla que muestra cómo puede usar la opción de división para ver el porcentaje de CPU por VM.](./media/metrics-charts/026.png)
+![Captura de pantalla que muestra cómo usar la división para ver el porcentaje de CPU entre máquinas virtuales.](./media/metrics-charts/026.png)
 
-Además de la división, puede usar la característica de filtrado para mostrar solo los grupos de recursos que quiera ver.  Por ejemplo, si quiere ver el porcentaje de la CPU de las VM de un determinado grupo de recursos, puede usar la herramienta "Agregar filtro" para filtrar por grupo de recursos. En este ejemplo, filtramos por el valor TailspinToysDemo, que quitará las métricas asociadas a los recursos de TailspinToys. 
+Junto con la división, puede usar el filtrado para mostrar solo los grupos de recursos que desea ver.  Por ejemplo, para ver el porcentaje de CPU de las VM de un determinado grupo de recursos, puede seleccionar **Agregar filtro** para filtrar por grupo de recursos. 
 
-![Captura de pantalla que muestra cómo se puede filtrar por grupo de recursos.](./media/metrics-charts/027.png)
+En este ejemplo, se filtra por TailspinToysDemo. En este caso, el filtro quita las métricas asociadas a los recursos en TailspinToys. 
 
-## <a name="pinning-your-multi-resource-charts"></a>Anclaje de los gráficos de varios recursos 
+![Captura de pantalla que muestra cómo filtrar por grupo de recursos.](./media/metrics-charts/027.png)
 
-> [!WARNING] 
-> Debe tener el permiso de tipo Lector de supervisión en el nivel de suscripción para visualizar las métricas de varios recursos, grupos de recursos o de una suscripción. Para ello, siga las instrucciones de [este documento](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal). 
+## <a name="pin-multiple-resource-charts"></a>Anclar gráficos de varios recursos 
 
-Para anclar el gráfico de varios recursos, siga las instrucciones que tiene [aquí](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts#pin-charts-to-dashboards). 
+Los gráficos de varios recursos que visualizan las métricas de grupos de recursos y suscripciones requieren que el usuario tenga permiso de tipo *Lector de supervisión* en el nivel de suscripción. Asegúrese de que todos los usuarios de los paneles a los que ancla gráficos de varios recursos tienen permisos suficientes. Para obtener más información, consulte [Incorporación o eliminación de asignaciones de roles mediante Azure Portal](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+
+Para anclar el gráfico de varios recursos a un panel, consulte [Anclar a paneles](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts#pinning-to-dashboards). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

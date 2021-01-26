@@ -10,12 +10,12 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd1c7f5dec57127f92da52be908bd6faa2c90e85
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d348b8c2325c7bc2cdaa28356151647a9430684f
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500230"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247053"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Migración a la autenticación en la nube mediante un lanzamiento preconfigurado (versión preliminar)
 
@@ -67,7 +67,7 @@ Se admiten estos escenarios en el lanzamiento preconfigurado: La característica
 
 Los siguientes escenarios no se admiten en el lanzamiento preconfigurado:
 
-- Las aplicaciones o los servicios en la nube usan la autenticación heredada, como POP3 y SMTP.
+- No se admite la autenticación heredada, como POP3 y SMTP.
 
 - Ciertas aplicaciones envían el parámetro de consulta "domain_hint" a Azure AD durante la autenticación. Estos flujos continuarán, y los usuarios habilitados para el lanzamiento preconfigurado seguirán usando la federación en la autenticación.
 

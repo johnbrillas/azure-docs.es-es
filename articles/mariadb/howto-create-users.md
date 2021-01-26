@@ -5,39 +5,38 @@ author: savjani
 ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
-ms.date: 10/1/2020
-ms.openlocfilehash: 882c8365bda87e97bfbc3bee9bdd320b312b4114
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.date: 01/18/2021
+ms.openlocfilehash: 28ec060e95d09cb150fc699919dde6cc0e1eaf23
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542718"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539983"
 ---
-# <a name="create-users-in-azure-database-for-mariadb"></a>Crear usuarios en Azure Database for MariaDB 
-En este artículo se describe cómo puede crear usuarios en Azure Database for MariaDB.
+# <a name="create-users-in-azure-database-for-mariadb"></a>Crear usuarios en Azure Database for MariaDB
 
-> [!NOTE]
-> Comunicación sin prejuicios
->
-> Microsoft admite un entorno diverso e inclusivo. En este artículo se incluyen referencias a la palabra _esclavo_. En la [guía de estilo para la comunicación sin prejuicios](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) de Microsoft se reconoce que se trata de una palabra excluyente. Se usa en este artículo por coherencia, ya que actualmente es la palabra que aparece en el software. Cuando se actualice el software para quitarla, este artículo se actualizará para que esté alineado.
->
+En este artículo se describe cómo puede crear usuarios en Azure Database for MariaDB.
 
 La primera vez que creó su instancia de Azure Database for MariaDB, proporcionó un nombre de usuario y una contraseña de inicio de sesión de administrador del servidor. Para más información, puede seguir la [Guía de inicio rápido](quickstart-create-mariadb-server-database-using-azure-portal.md). Puede encontrar su nombre de usuario de inicio de sesión de administrador del servidor en Azure Portal.
 
+> [!NOTE]
+> Este artículo contiene referencias al término _esclavo_, un término que Microsoft ya no usa. Cuando se elimine el término del software, se eliminará también de este artículo.
+
 El usuario administrador del servidor obtiene ciertos privilegios para el servidor, según se indica a continuación: SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT y TRIGGER
 
-Una vez creado el servidor de Azure Database for MariaDB, puede usar la primera cuenta de usuario administrador del servidor para crear usuarios adicionales y concederles acceso de administrador. Además, la cuenta de administrador del servidor puede usarse para crear usuarios con menos privilegios que tengan acceso a esquemas de base de datos individuales.
+Una vez creado el servidor de Azure Database for MariaDB, puede usar la primera cuenta de usuario administrador del servidor para crear más usuarios y concederles acceso de administrador. Además, la cuenta de administrador del servidor puede usarse para crear usuarios con menos privilegios que tengan acceso a esquemas de base de datos individuales.
 
 > [!NOTE]
 > El privilegio SUPER y el rol DBA no se admiten. Revise los [privilegios](concepts-limits.md#privileges--data-manipulation-support) en el artículo que trata sobre las limitaciones para saber lo que no se admite en el servicio.<br><br>
 > Los complementos de contraseñas como "validate_password" y "caching_sha2_password" no son compatibles con el servicio.
 
-## <a name="create-additional-admin-users"></a>Crear usuarios administradores adicionales
-1. Obtenga la información de conexión y el nombre de usuario administrador.
-   Para conectarse al servidor de bases de datos, es preciso utilizar el nombre completo del servidor y las credenciales de inicio de sesión de administrador. Puede encontrar fácilmente el nombre del servidor y la información de inicio de sesión en la página **Información general** del servidor o en la página **Propiedades** de Azure Portal. 
+## <a name="create-more-admin-users"></a>Creación de más usuarios administradores
 
-2. Use la cuenta y la contraseña de administrador para conectarse a su servidor de base de datos. Use la herramienta preferida de cliente, como MySQL Workbench, mysql.exe, HeidiSQL u otras. 
-   Si no está seguro de cómo conectarse, consulte [Uso de MySQL Workbench para conectarse y consultar datos](./connect-workbench.md).
+1. Obtenga la información de conexión y el nombre de usuario administrador.
+   Para conectarse al servidor de bases de datos, es preciso utilizar el nombre completo del servidor y las credenciales de inicio de sesión de administrador. Puede encontrar fácilmente el nombre del servidor y la información de inicio de sesión en la página **Información general** del servidor o en la página **Propiedades** de Azure Portal.
+
+2. Use la cuenta y la contraseña de administrador para conectarse a su servidor de base de datos. Use la herramienta preferida de cliente, como MySQL Workbench, mysql.exe, HeidiSQL u otras.
+   Si no está seguro de cómo conectarse, consulte [Uso de MySQL Workbench para conectarse y consultar datos](./connect-workbench.md)
 
 3. Modifique y ejecute el siguiente código SQL. Reemplace el valor de marcador de posición `new_master_user` por el nuevo nombre de usuario. Esta sintaxis concede los privilegios enumerados en todos los esquemas de base de datos ( *.* ) al nombre de usuario (new_master_user en este ejemplo). 
 
@@ -49,7 +48,8 @@ Una vez creado el servidor de Azure Database for MariaDB, puede usar la primera 
    FLUSH PRIVILEGES;
    ```
 
-4. Comprobación de las concesiones 
+4. Compruebe las concesiones.
+
    ```sql
    USE sys;
    
@@ -61,7 +61,7 @@ Una vez creado el servidor de Azure Database for MariaDB, puede usar la primera 
 1. Obtenga la información de conexión y el nombre de usuario administrador.
    Para conectarse al servidor de bases de datos, es preciso utilizar el nombre completo del servidor y las credenciales de inicio de sesión de administrador. Puede encontrar fácilmente el nombre del servidor y la información de inicio de sesión en la página **Información general** del servidor o en la página **Propiedades** de Azure Portal. 
 
-2. Use la cuenta y la contraseña de administrador para conectarse a su servidor de base de datos. Use la herramienta preferida de cliente, como MySQL Workbench, mysql.exe, HeidiSQL u otras. 
+2. Use la cuenta y la contraseña de administrador para conectarse a su servidor de base de datos. Use la herramienta preferida de cliente, como MySQL Workbench, mysql.exe, HeidiSQL u otras.
    Si no está seguro de cómo conectarse, consulte [Uso de MySQL Workbench para conectarse y consultar datos](./connect-workbench.md).
 
 3. Modifique y ejecute el siguiente código SQL. Reemplace el valor de marcador de posición `db_user` por su nuevo nombre de usuario deseado y el valor de marcador de posición `testdb` por su propio nombre de base de datos.
@@ -79,6 +79,7 @@ Una vez creado el servidor de Azure Database for MariaDB, puede usar la primera 
    ```
 
 4. Compruebe las concesiones dentro de la base de datos.
+
    ```sql
    USE testdb;
    
@@ -90,6 +91,7 @@ Una vez creado el servidor de Azure Database for MariaDB, puede usar la primera 
    ```bash
    mysql --host mydemoserver.mariadb.database.azure.com --database testdb --user db_user@mydemoserver -p
    ```
+
    Para obtener más información respecto a la administración de cuentas de usuario, consulte la documentación del producto MariaDB relativa a la [administración de cuentas de usuario](https://mariadb.com/kb/en/library/user-account-management/), la [sintaxis GRANT](https://mariadb.com/kb/en/library/grant/) y los [privilegios](https://mariadb.com/kb/en/library/grant/#privilege-levels).
 
 ## <a name="azure_superuser"></a>azure_superuser
@@ -97,6 +99,7 @@ Una vez creado el servidor de Azure Database for MariaDB, puede usar la primera 
 Todos los servidores de Azure Database for MySQL se crean con un usuario llamado "azure_superuser". Se trata de una cuenta del sistema que crea Microsoft para administrar el servidor con el fin de realizar tareas de supervisión, copias de seguridad y otros tipos de mantenimiento estándar. Los ingenieros de guardia también pueden usar esta cuenta para obtener acceso al servidor durante un incidente relacionado con la autenticación de certificados, pero deben solicitar acceso mediante procesos Just-in-Time (JIT).
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 Abra el firewall para las direcciones IP de las máquinas de los nuevos usuarios para permitirles conectarse: [Crear y administrar reglas de firewall de Azure Database for MariaDB mediante Azure Portal](howto-manage-firewall-portal.md)  
 
 <!--or [Azure CLI](howto-manage-firewall-using-cli.md).-->

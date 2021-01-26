@@ -5,13 +5,14 @@ author: savjani
 ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 10/15/2020
-ms.openlocfilehash: b2dbaa932c01c96582cb038143fa7686707be67d
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.date: 01/18/2021
+ms.custom: references_regions
+ms.openlocfilehash: 39547e3156a684293a0624f974a8b0930f656485
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541171"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98540019"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Réplicas de lectura en Azure Database for MariaDB
 
@@ -22,34 +23,34 @@ Las réplicas son nuevos servidores que se administran de forma similar a los se
 Para más información acerca de la replicación de GTID, consulte la [documentación de replicación de MariaDB](https://mariadb.com/kb/en/library/gtid/).
 
 > [!NOTE]
-> Comunicación sin prejuicios
->
-> Microsoft admite un entorno diverso e inclusivo. En este artículo se incluyen referencias a la palabra _esclavo_. En la [guía de estilo para la comunicación sin prejuicios](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) de Microsoft se reconoce que se trata de una palabra excluyente. Se usa en este artículo por coherencia, ya que actualmente es la palabra que aparece en el software. Cuando se actualice el software para quitarla, este artículo se actualizará para que esté alineado.
->
+> Este artículo contiene referencias al término _esclavo_, un término que Microsoft ya no usa. Cuando se elimine el término del software, se eliminará también de este artículo.
 
 ## <a name="when-to-use-a-read-replica"></a>Casos en los que utilizar las réplicas de lectura
 
-La finalidad de la característica de réplica de lectura es ayudar a mejorar el rendimiento y la escala de las cargas de trabajo que conllevan un gran número de operaciones de lectura. Las cargas de trabajo de lectura se pueden aislar en las réplicas, mientras que las cargas de trabajo de escritura se pueden dirigir al servidor maestro.
+La finalidad de la característica de réplica de lectura es ayudar a mejorar el rendimiento y la escala de las cargas de trabajo que conllevan un gran número de operaciones de lectura. Las cargas de trabajo de lectura se pueden aislar en las réplicas, mientras que las cargas de trabajo de escritura se pueden dirigir al servidor principal.
 
 Un caso habitual es que las cargas de trabajo de análisis e inteligencia empresarial utilicen la réplica de lectura como origen de datos para los informes.
 
-Dado que las réplicas son de solo lectura, no reducen directamente las cargas de capacidad de escritura en el servidor maestro. Esta característica no está destinada a cargas de trabajo intensivas de escritura.
+Dado que las réplicas son de solo lectura, no reducen directamente las cargas de capacidad de escritura en el servidor principal. Esta característica no está destinada a cargas de trabajo intensivas de escritura.
 
-Esta característica de réplica de lectura utiliza la replicación asincrónica nativa. La característica no está diseñada para escenarios de replicación sincrónica. Habrá un retraso medible entre el origen y la réplica. Los datos de la réplica se vuelven finalmente coherentes con los datos del servidor maestro. Use esta característica con cargas de trabajo que puedan admitir este retraso.
+Esta característica de réplica de lectura utiliza la replicación asincrónica nativa. La característica no está diseñada para escenarios de replicación sincrónica. Habrá un retraso medible entre el origen y la réplica. Los datos de la réplica se vuelven finalmente coherentes con los datos del servidor principal. Use esta característica con cargas de trabajo que puedan admitir este retraso.
 
 ## <a name="cross-region-replication"></a>Replicación entre regiones
+
 Puede crear una réplica de lectura en una región distinta a la del servidor de origen. La replicación entre regiones puede ser útil para escenarios como el planeamiento de la recuperación ante desastres o la incorporación de datos más cerca de los usuarios.
 
 Puede tener un servidor de origen en cualquier [región de Azure Database for MariaDB](https://azure.microsoft.com/global-infrastructure/services/?products=mariadb).  Un servidor de origen puede tener una réplica en su región emparejada o en las regiones de réplica universales. En la imagen siguiente se muestran las regiones de réplica disponibles en función de la región de origen.
 
-[ ![Regiones de réplica de lectura](media/concepts-read-replica/read-replica-regions.png)](media/concepts-read-replica/read-replica-regions.png#lightbox)
+[![Regiones de réplica de lectura](media/concepts-read-replica/read-replica-regions.png)](media/concepts-read-replica/read-replica-regions.png#lightbox)
 
 ### <a name="universal-replica-regions"></a>Regiones de réplica universal
+
 Puede crear una réplica de lectura en cualquiera de las siguientes regiones, con independencia de dónde se encuentre el servidor de origen. Entre las regiones de réplica universales admitidas se incluyen:
 
 Este de Australia, Sudeste de Australia, Sur de Brasil, Centro de Canadá, Este de Canadá, Centro de EE. UU., Este de Asia, Este de EE. UU. 2, Este de Japón, Oeste de Japón, Centro de Corea del Sur, Sur de Corea del Sur, Centro y norte de EE. UU., Norte de Europa, Centro-sur de EE. UU., Sudeste de Asia, Sur de Reino Unido, Oeste de Reino Unido, Oeste de Europa, Oeste de EE. UU., Oeste de EE. UU. 2, Centro-oeste de EE. UU.
 
 ### <a name="paired-regions"></a>Regiones emparejadas
+
 Además de las regiones de réplica universales, puede crear una réplica de lectura en la región emparejada de Azure del servidor de origen. Si no conoce el par de la región, puede obtener más información en el [artículo sobre regiones emparejadas de Azure](../best-practices-availability-paired-regions.md).
 
 Si usa réplicas entre regiones para planear la recuperación ante desastres, se recomienda que cree la réplica en la región emparejada en lugar de en una de las otras regiones. Las regiones emparejadas evitan actualizaciones simultáneas y priorizan el aislamiento físico y la residencia de datos.  
@@ -57,7 +58,7 @@ Si usa réplicas entre regiones para planear la recuperación ante desastres, se
 Sin embargo, existen limitaciones que deben considerarse: 
 
 * Disponibilidad regional: Azure Database for MariaDB está disponible en el Centro de Francia, Norte de Emiratos Árabes Unidos y Centro de Alemania. Sin embargo, sus regiones emparejadas no están disponibles.
-    
+
 * Pares unidireccionales: Algunas regiones de Azure se emparejan solo en una dirección. Estas regiones incluyen Oeste de la India, Sur de Brasil y US Gov Virginia. 
    Esto significa que un servidor de origen del Oeste de la India puede crear una réplica en el Sur de la India. Sin embargo, un servidor de origen del Sur de la India no puede crear una réplica en el Oeste de la India. Esto es debido a que la región secundaria del Oeste de la India es Sur de la India, pero la región secundaria de esta última no es Oeste de la India.
 
@@ -111,21 +112,23 @@ Aprenda a [detener la replicación en una réplica](howto-read-replicas-portal.m
 
 ## <a name="failover"></a>Conmutación por error
 
-No se produce ninguna conmutación por error automatizada entre el servidor de origen y la réplica. 
+No se produce ninguna conmutación por error automatizada entre el servidor de origen y la réplica.
 
 Dado que la replicación es asincrónica, se produce un retraso entre el origen y la réplica. La cantidad de retraso puede verse afectada por varios factores, como lo pesada que sea la carga de trabajo que se ejecuta en el servidor de origen y la latencia entre los centros de datos. En la mayoría de los casos, el retraso de la réplica oscila entre unos segundos y un par de minutos. Puede realizar un seguimiento del retraso real de la replicación mediante la métrica *Replica Lag* (Retraso de réplica), que está disponible para cada réplica. Esta métrica muestra el tiempo desde la última transacción reproducida. Se recomienda que observe el retraso de la réplica durante un período de tiempo para identificar el retraso medio. Puede establecer una alerta sobre el retraso de la réplica, para que si se sale del intervalo esperado, puede tomar medidas.
 
 > [!Tip]
 > Si realiza la conmutación por error a la réplica, el retraso en el momento de desvincular la réplica del origen indicará la cantidad de datos perdidos.
 
-Cuando haya decidido que quiere conmutar por error a una réplica, realice estos pasos: 
+Después de haber decidido que quiere conmutar por error a una réplica, realice estos pasos:
 
-1. Detenga la replicación en la réplica.<br/>
-   Este paso es necesario para que el servidor de la réplica pueda aceptar escrituras. Como parte de este proceso, el servidor de réplica se desvinculará del maestro. Una vez iniciada la detención de la replicación, el proceso de back-end tarda aproximadamente dos minutos en completarse. Consulte la sección [Detención de la replicación](#stop-replication) de este artículo para conocer las implicaciones de esta acción.
-    
-2. Haga que la replicación apunte a la réplica (anterior).<br/>
-   Cada servidor tiene una cadena de conexión única. Actualice la aplicación para que apunte a la réplica (anterior) en lugar de al servidor maestro.
-    
+1. Detenga la replicación en la réplica.
+
+   Este paso es necesario para que el servidor de la réplica pueda aceptar escrituras. Como parte de este proceso, el servidor de réplica se desvinculará del principal. Una vez iniciada la detención de la replicación, el proceso de back-end suele tardar aproximadamente 2 minutos en completarse. Consulte la sección [Detención de la replicación](#stop-replication) de este artículo para conocer las implicaciones de esta acción.
+
+2. Haga que la aplicación apunte a la réplica (anterior).
+
+   Cada servidor tiene una cadena de conexión única. Actualice la aplicación para que apunte a la réplica (anterior), en lugar de al servidor principal.
+
 Una vez que la aplicación procesa correctamente las lecturas y las escrituras, ya está completa la conmutación por error. La cantidad de tiempo de inactividad que experimente su aplicación dependerá del momento en que se detecte una incidencia y se realicen los pasos 1 y 2 anteriores.
 
 ## <a name="considerations-and-limitations"></a>Consideraciones y limitaciones
@@ -139,7 +142,7 @@ Actualmente, las réplicas de lectura solo están disponibles en los planes de t
 
 ### <a name="source-server-restart"></a>Reinicio del servidor de origen
 
-Cuando se crea una réplica para un origen que no tiene réplicas existentes, el origen se reiniciará primero a fin de prepararse para la replicación. Téngalo en cuenta y realice estas operaciones durante un período de poca actividad.
+Cuando se crea la réplica de origen que no tiene réplicas existentes, el origen se reiniciará primero a fin de prepararse para la replicación. Téngalo en cuenta y realice estas operaciones durante un período de poca actividad.
 
 ### <a name="new-replicas"></a>Nuevas réplicas
 
@@ -147,10 +150,10 @@ Las réplicas de lectura se crean como nuevos servidores Azure Database for Mari
 
 ### <a name="replica-configuration"></a>Configuración de réplicas
 
-Las réplicas se crean con la misma configuración de servidor que el servidor maestro. Después de crear una réplica, se pueden cambiar varias configuraciones con independencia del servidor de origen: generación de proceso, núcleos virtuales, almacenamiento, período de retención de copia de seguridad y versión del motor de MariaDB. El plan de tarifa también se puede cambiar de forma independiente, excepto si es con origen o destino en el nivel Básico.
+Las réplicas se crean con la misma configuración de servidor que el servidor principal. Después de crear una réplica, se pueden cambiar varias configuraciones con independencia del servidor de origen: generación de proceso, núcleos virtuales, almacenamiento, período de retención de copia de seguridad y versión del motor de MariaDB. El plan de tarifa también se puede cambiar de forma independiente, excepto si es con origen o destino en el nivel Básico.
 
 > [!IMPORTANT]
-> Antes de actualizar la configuración de un servidor de origen con nuevos valores, actualice la configuración de las réplicas a valores iguales o mayores. Esta acción garantiza que la réplica puede hacer frente a los cambios realizados en el servidor maestro.
+> Antes de actualizar la configuración de un servidor de origen con nuevos valores, actualice la configuración de las réplicas a valores iguales o mayores. Esta acción garantiza que la réplica puede hacer frente a los cambios realizados en el servidor principal.
 
 Las reglas de firewall y la configuración de parámetros se heredan del servidor de origen y van a la réplica cuando esta se crea. Después, las reglas de la réplica son independientes.
 
@@ -171,20 +174,21 @@ Los usuarios del servidor de origen se replican en las réplicas de lectura. Sol
 Para evitar que los datos dejen de estar sincronizados y evitar posibles pérdidas o daños en los datos, se bloquean algunos parámetros del servidor para que no se actualicen mientras se usan réplicas de lectura.
 
 Los siguientes parámetros de servidor están bloqueados tanto en el servidor de origen como en los de réplica:
-- [`innodb_file_per_table`](https://mariadb.com/kb/en/library/innodb-system-variables/#innodb_file_per_table) 
-- [`log_bin_trust_function_creators`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#log_bin_trust_function_creators)
+
+* [`innodb_file_per_table`](https://mariadb.com/kb/en/library/innodb-system-variables/#innodb_file_per_table) 
+* [`log_bin_trust_function_creators`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#log_bin_trust_function_creators)
 
 El parámetro [`event_scheduler`](https://mariadb.com/kb/en/library/server-system-variables/#event_scheduler) está bloqueado en los servidores de réplica.
 
-Para actualizar uno de los parámetros anteriores en el servidor de origen, elimine los servidores de réplica, actualice el valor del parámetro en el maestro y vuelva a crear las réplicas.
+Para actualizar uno de los parámetros anteriores en el servidor de origen, elimine los servidores de réplica, actualice el valor del parámetro en el servidor principal y vuelva a crear las réplicas.
 
 ### <a name="other"></a>Otros
 
-- No permite crear réplicas de réplicas.
-- Las tablas en memoria pueden provocar que las réplicas dejen de sincronizarse. Esto es una limitación de la tecnología de replicación de MariaDB.
-- Asegúrese de que las tablas del servidor de origen tienen claves principales. La falta de claves principales puede generar una latencia en la replicación entre el origen y las réplicas.
+* No permite crear réplicas de réplicas.
+* Las tablas en memoria pueden provocar que las réplicas dejen de sincronizarse. Esto es una limitación de la tecnología de replicación de MariaDB.
+* Asegúrese de que las tablas del servidor de origen tienen claves principales. La falta de claves principales puede generar una latencia en la replicación entre el origen y las réplicas.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga información sobre cómo [crear y administrar réplicas de lectura mediante Azure Portal](howto-read-replicas-portal.md).
-- Aprenda a [crear y administrar réplicas de lectura mediante la CLI de Azure y API REST](howto-read-replicas-cli.md).
+* Obtenga información sobre cómo [crear y administrar réplicas de lectura mediante Azure Portal](howto-read-replicas-portal.md).
+* Aprenda a [crear y administrar réplicas de lectura mediante la CLI de Azure y API REST](howto-read-replicas-cli.md).

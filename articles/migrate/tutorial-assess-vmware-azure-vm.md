@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: MVC
-ms.openlocfilehash: aad1e2a1c8d7ce6a1b6219c42893b1f4a59c6f42
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: e7251f8b83110bc24a7ba3d7b078993b39a2c001
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753151"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98566863"
 ---
 # <a name="tutorial-assess-vmware-vms-for-migration-to-azure-vms"></a>Tutorial: Evaluación de máquinas virtuales de VMware para la migración a máquinas virtuales de Azure
 
@@ -69,14 +69,13 @@ Las evaluaciones se realizan como se indica a continuación:
     - Si ha detectado máquinas que usan el dispositivo, seleccione **Máquinas detectadas desde el dispositivo de Azure Migrate**.
     - Si ha detectado máquinas que usan un archivo CSV importado, seleccione **Máquinas importadas**. 
     
-1. Especifique un nombre para la valoración. 
-1. Haga clic en **View all** (Ver todo) para revisar la configuración de la valoración.
+1. Haga clic en **Editar** para revisar las propiedades de la evaluación.
 
     ![Ubicación del botón Ver todo para revisar las propiedades de valoración](./media/tutorial-assess-vmware-azure-vm/assessment-name.png)
 
 1. En **Assessment properties** (Propiedades de la evaluación)  > **Propiedades de destino**:
     - En **Ubicación de destino**, especifique la región de Azure a la que desee migrar.
-        - Las recomendaciones de tamaño y costo se basan en la ubicación que especifique.
+        - Las recomendaciones de tamaño y costo se basan en la ubicación que especifique. Una vez que cambie la ubicación de destino predeterminada, se le pedirá que especifique **Instancias reservadas** y **Serie de VM**.
         - En Azure Government, puede dirigir las valoraciones en [estas regiones](migrate-support-matrix.md#supported-geographies-azure-government).
     - En **Tipo de almacenamiento**:
         - Si desea usar datos basados en el rendimiento en la valoración, seleccione **Automático** para que Azure Migrate recomiende un tipo de almacenamiento, en función de la IOPS y del rendimiento del disco.
@@ -84,17 +83,21 @@ Las evaluaciones se realizan como se indica a continuación:
     - En **Instancias reservadas**, especifique si desea usar las instancias reservadas para la máquina virtual en la migración.
         - Si selecciona usar una instancia reservada, no puede especificar '**Descuento (%)** ni **Tiempo de actividad de la máquina virtual**. 
         - [Más información](https://aka.ms/azurereservedinstances).
- 7. En **Tamaño de VM**:
- 
-    - En **Sizing criterion** (Criterios de ajuste de tamaño), seleccione si desea basar la valoración en metadatos o datos de configuración de la máquina, o bien en datos basados en el rendimiento. Si utiliza datos de rendimiento:
+ 1. En **Tamaño de VM**:
+     - En **Sizing criterion** (Criterios de ajuste de tamaño), seleccione si desea basar la valoración en metadatos o datos de configuración de la máquina, o bien en datos basados en el rendimiento. Si utiliza datos de rendimiento:
         - En **Historial de rendimiento**, indique la duración de los datos en los que desee basar la valoración.
         - En **Uso de percentil**, especifique el valor de percentil que desee utilizar para la muestra de rendimiento. 
     - En **Series de máquinas virtuales**, especifique la serie de máquinas virtuales de Azure que desea considerar.
         - Si usa la valoración basada en el rendimiento, Azure Migrate sugiere un valor.
         - Ajuste la configuración según sea necesario. Por ejemplo, si no tiene un entorno de producción que necesite máquinas virtuales de la serie A en Azure, puede excluir esta serie de la lista.
-    - En **Factor de confort**, indique el búfer que desee usar durante la valoración. Tiene en cuenta problemas como el uso estacional, el historial de rendimiento corto y los posibles aumentos en el uso futuro. Por ejemplo, si usa un factor de confort de dos: **Componente** | **Utilización efectiva** | **Agregar factor de confort (2,0)** Núcleos | 2 | 4 Memoria | 8 GB | 16 GB     
+    - En **Factor de confort**, indique el búfer que desee usar durante la valoración. Tiene en cuenta problemas como el uso estacional, el historial de rendimiento corto y los posibles aumentos en el uso futuro. Por ejemplo, si usa un factor de confort de dos:
+    
+        **Componente** | **Utilización efectiva** | **Agregar factor de confort (2,0)**
+        --- | --- | ---
+        Núcleos | 2  | 4
+        Memoria | 8 GB | 16 GB
    
-8. En **Precios**:
+1. En **Precios**:
     - En **Oferta**, especifique la [oferta de Azure](https://azure.microsoft.com/support/legal/offer-details/) si está inscrito. Server Assessment calcula el costo de esa oferta.
     - En **Moneda**, seleccione la moneda de facturación para la cuenta.
     - En **Descuento (%)** , agregue cualquier descuento específico de la suscripción que reciba a partir de la oferta de Azure. La configuración predeterminada es 0 %.
@@ -102,23 +105,30 @@ Las evaluaciones se realizan como se indica a continuación:
         - Esto resulta útil para las máquinas virtuales de Azure que no se ejecuten de forma continua.
         - Las estimaciones de costos se basan en la duración especificada.
         - El valor predeterminado es de 31 días al mes y 24 horas al día.
-
     - En **Suscripción a EA**, especifique si desea tener en cuenta un descuento por suscripción al Contrato Enterprise (EA) para la estimación de costos. 
     - En **Ventaja híbrida de Azure**, especifique si ya tiene una licencia de Windows Server. Si la tiene y está incluido en Active software Assurance de Windows Server Subscriptions, puede solicitar la [Ventaja híbrida de Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/) al incorporar licencias a Azure.
 
-9. Haga clic en **Guardar** si realiza cambios.
+1. Haga clic en **Guardar** si realiza cambios.
 
     ![Propiedades de la evaluación](./media/tutorial-assess-vmware-azure-vm/assessment-properties.png)
 
-10. En **Evaluar los servidores**, haga clic en **Siguiente**.
-11. En **Select machines to assess** (Seleccionar las máquinas que valorar), seleccione **Crear nuevo** y especifique un nombre de grupo. 
-12. Seleccione el dispositivo y las máquinas virtuales que desee agregar al grupo. A continuación, haga clic en **Siguiente**.
+1. En **Evaluar los servidores**, haga clic en **Siguiente**.
 
+1. En **Select machines to assess** >  (Seleccionar máquinas que evaluar) **Nombre de la evaluación**, especifique un nombre para la evaluación. 
+
+1. En **Seleccionar o crear un grupo**, elija **Crear nuevo** y especifique un nombre de grupo. 
+    
      ![Adición de máquinas virtuales a un grupo](./media/tutorial-assess-vmware-azure-vm/assess-group.png)
 
-13. En **Revisar y crear evaluación, revise los detalles de la valoración y haga clic en **Crear evaluación** para crear el grupo y ejecutar la valoración.
+
+1. Seleccione el dispositivo y las máquinas virtuales que desee agregar al grupo. A continuación, haga clic en **Siguiente**.
 
 
+1. En **Revisar y crear valoración**, revise los detalles de la valoración y haga clic en **Crear evaluación** para crear el grupo y ejecutar la evaluación.
+
+1. Una vez creada la evaluación, se puede ver en **Servidores** > **Azure Migrate: Server Assessment** > **Evaluaciones**.
+
+1. Haga clic en **Exportar la evaluación** para descargarla como un archivo de Excel.
     > [!NOTE]
     > En el caso de las valoraciones basadas en el rendimiento, se recomienda esperar al menos un día después de iniciar la detección antes de crear una. De este modo, gana tiempo para recopilar los datos de rendimiento con mayor confianza. Lo mejor es que, después de iniciar la detección, espere el tiempo que especifique (día/semana/mes) para que la confianza sea alta.
 

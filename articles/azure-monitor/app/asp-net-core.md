@@ -4,12 +4,12 @@ description: Supervise la disponibilidad, el rendimiento y el uso de las aplicac
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 04/30/2020
-ms.openlocfilehash: 2921c6379b34e002013b5f0087cefd502ab0ab84
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 2f17f4fbed196932ad7a5680338c459740e4d3bd
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96904540"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98249115"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights para aplicaciones de ASP.NET Core
 
@@ -69,7 +69,7 @@ En en caso de Visual Studio para Mac, use las [instrucciones manuales](#enable-a
 
     ```xml
         <ItemGroup>
-          <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.13.1" />
+          <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.16.0" />
         </ItemGroup>
     ```
 
@@ -232,7 +232,7 @@ Consulte los [valores configurables en `ApplicationInsightsServiceOptions`](http
 
 ### <a name="configuration-recommendation-for-microsoftapplicationinsightsaspnetcore-sdk-2150--above"></a>Recomendación de configuración para la versión 2.15.0 y superior del SDK de Microsoft.ApplicationInsights.AspNetCore
 
-A partir de la versión [2.15.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.15.0) del SDK de Microsoft.ApplicationInsights.AspNetCore, la recomendación es configurar cada opción disponible en `ApplicationInsightsServiceOptions`, incluida la clave de instrumentación, usando la instancia `IConfiguration` de las aplicaciones. La configuración debe estar en la sección "ApplicationInsights", como se muestra en el ejemplo siguiente. La siguiente sección de appSettings.json configura la clave de instrumentación y también deshabilita el muestreo adaptable y la recopilación de contadores de rendimiento.
+A partir de la versión [2.15.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.15.0) del SDK de Microsoft.ApplicationInsights.AspNetCore, se recomienda configurar cada opción disponible en `ApplicationInsightsServiceOptions`, incluida la clave de instrumentación, usando la instancia `IConfiguration` de las aplicaciones. La configuración debe estar en la sección "ApplicationInsights", como se muestra en el ejemplo siguiente. La siguiente sección de appSettings.json configura la clave de instrumentación y también deshabilita el muestreo adaptable y la recopilación de contadores de rendimiento.
 
 ```json
 {

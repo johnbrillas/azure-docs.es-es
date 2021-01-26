@@ -11,12 +11,12 @@ ms.author: lle
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 12/25/2020
-ms.openlocfilehash: 76d53458154a7e66589c16f955373975bb04b25b
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: fd56ef74a7641a01eae2354f149f45e84ff56833
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121635"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98217454"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Creación y configuración de un entorno de ejecución de integración autohospedado
 
@@ -157,21 +157,21 @@ Estos son los detalles de las acciones y los argumentos de la aplicación:
 
 |ACTION|args|Descripción|
 |------|----|-----------|
-|-rn,<br/>-RegisterNewNode|"`<AuthenticationKey>`" ["`<NodeName>`"]|Registre un nodo del entorno de ejecución de integración autohospedado con la clave de autenticación y el nombre de nodo especificados.|
-|-era,<br/>-EnableRemoteAccess|"`<port>`" ["`<thumbprint>`"]|Permite habilitar el acceso remoto al nodo actual para configurar un clúster de alta disponibilidad. También permite la configuración de credenciales directamente en el IR autohospedado sin necesidad de acceder a través de Azure Data Factory. Para ello, use el cmdlet **New-AzDataFactoryV2LinkedServiceEncryptedCredential** desde una máquina remota en la misma red.|
-|-erac,<br/>-EnableRemoteAccessInContainer|"`<port>`" ["`<thumbprint>`"]|Permite habilitar el acceso remoto al nodo actual cuando el nodo se ejecuta en un contenedor.|
-|-dra,<br/>-DisableRemoteAccess||Permite deshabilitar el acceso remoto al nodo actual. Es necesario obtener acceso remoto para realizar la configuración de varios nodos. El cmdlet de PowerShell **New-AzDataFactoryV2LinkedServiceEncryptedCredential** funcionará incluso cuando el acceso remoto esté deshabilitado. Este comportamiento se produce siempre y cuando el cmdlet se ejecute en la misma máquina que el nodo de IR autohospedado.|
-|-k,<br/>-Key|"`<AuthenticationKey>`"|Permite sobrescribir o actualizar la clave de autenticación anterior. Debe tener cuidado con esta acción. El nodo de IR autohospedado anterior puede desconectarse si la clave es un nuevo entorno de ejecución de integración.|
-|-gbf,<br/>-GenerateBackupFile|"`<filePath>`" "`<password>`"|Permite generar un archivo de copia de seguridad del nodo actual. El archivo de copia de seguridad incluye la clave del nodo y las credenciales del almacén de datos.|
-|-ibf,<br/>-ImportBackupFile|"`<filePath>`" "`<password>`"|Permite restaurar el nodo desde un archivo de copia de seguridad.|
-|-r,<br/>-Restart||Permite reiniciar el servicio de host del entorno de ejecución de integración autohospedado.|
-|-s,<br/>-Start||Permite iniciar el servicio de host del entorno de ejecución de integración autohospedado.|
-|-t,<br/>-Stop||Permite detener el servicio de host del entorno de ejecución de integración autohospedado.|
-|-sus,<br/>-StartUpgradeService||Permite iniciar el servicio de actualización del entorno de ejecución de integración autohospedado.|
-|-tus,<br/>-StopUpgradeService||Permite detener el servicio de actualización del entorno de ejecución de integración autohospedado.|
-|-tonau,<br/>-TurnOnAutoUpdate||Permite activar la actualización automática del entorno de ejecución de integración autohospedado.|
-|-toffau,<br/>-TurnOffAutoUpdate||Permite desactivar la actualización automática del entorno de ejecución de integración autohospedado.|
-|-ssa,<br/>-SwitchServiceAccount|"`<domain\user>`" ["`<password>`"]|Permite configurar DIAHostService para que se ejecute como una cuenta nueva. Use la contraseña vacía "" para cuentas del sistema o cuentas virtuales.|
+|`-rn`,<br/>`-RegisterNewNode`|"`<AuthenticationKey>`" ["`<NodeName>`"]|Registre un nodo del entorno de ejecución de integración autohospedado con la clave de autenticación y el nombre de nodo especificados.|
+|`-era`,<br/>`-EnableRemoteAccess`|"`<port>`" ["`<thumbprint>`"]|Permite habilitar el acceso remoto al nodo actual para configurar un clúster de alta disponibilidad. También permite la configuración de credenciales directamente en el IR autohospedado sin necesidad de acceder a través de Azure Data Factory. Para ello, use el cmdlet **New-AzDataFactoryV2LinkedServiceEncryptedCredential** desde una máquina remota en la misma red.|
+|`-erac`,<br/>`-EnableRemoteAccessInContainer`|"`<port>`" ["`<thumbprint>`"]|Permite habilitar el acceso remoto al nodo actual cuando el nodo se ejecuta en un contenedor.|
+|`-dra`,<br/>`-DisableRemoteAccess`||Permite deshabilitar el acceso remoto al nodo actual. Es necesario obtener acceso remoto para realizar la configuración de varios nodos. El cmdlet de PowerShell **New-AzDataFactoryV2LinkedServiceEncryptedCredential** funcionará incluso cuando el acceso remoto esté deshabilitado. Este comportamiento se produce siempre y cuando el cmdlet se ejecute en la misma máquina que el nodo de IR autohospedado.|
+|`-k`,<br/>`-Key`|"`<AuthenticationKey>`"|Permite sobrescribir o actualizar la clave de autenticación anterior. Debe tener cuidado con esta acción. El nodo de IR autohospedado anterior puede desconectarse si la clave es un nuevo entorno de ejecución de integración.|
+|`-gbf`,<br/>`-GenerateBackupFile`|"`<filePath>`" "`<password>`"|Permite generar un archivo de copia de seguridad del nodo actual. El archivo de copia de seguridad incluye la clave del nodo y las credenciales del almacén de datos.|
+|`-ibf`,<br/>`-ImportBackupFile`|"`<filePath>`" "`<password>`"|Permite restaurar el nodo desde un archivo de copia de seguridad.|
+|`-r`,<br/>`-Restart`||Permite reiniciar el servicio de host del entorno de ejecución de integración autohospedado.|
+|`-s`,<br/>`-Start`||Permite iniciar el servicio de host del entorno de ejecución de integración autohospedado.|
+|`-t`,<br/>`-Stop`||Permite detener el servicio de host del entorno de ejecución de integración autohospedado.|
+|`-sus`,<br/>`-StartUpgradeService`||Permite iniciar el servicio de actualización del entorno de ejecución de integración autohospedado.|
+|`-tus`,<br/>`-StopUpgradeService`||Permite detener el servicio de actualización del entorno de ejecución de integración autohospedado.|
+|`-tonau`,<br/>`-TurnOnAutoUpdate`||Permite activar la actualización automática del entorno de ejecución de integración autohospedado.|
+|`-toffau`,<br/>`-TurnOffAutoUpdate`||Permite desactivar la actualización automática del entorno de ejecución de integración autohospedado.|
+|`-ssa`,<br/>`-SwitchServiceAccount`|"`<domain\user>`" ["`<password>`"]|Permite configurar DIAHostService para que se ejecute como una cuenta nueva. Use la contraseña vacía "" para cuentas del sistema o cuentas virtuales.|
 
 
 ## <a name="install-and-register-a-self-hosted-ir-from-microsoft-download-center"></a>Instalación y registro de un IR autohospedado desde el Centro de descarga de Microsoft
@@ -205,9 +205,9 @@ La cuenta de servicio de inicio de sesión predeterminada del entorno de ejecuci
 
 Asegúrese de que la cuenta tenga permiso de inicio de sesión como servicio. De lo contrario, el entorno de ejecución de integración autohospedado no puede iniciarse correctamente. Puede comprobar el permiso en **Directiva de seguridad local -> Configuración de seguridad -> Directivas locales-> Asignación de permisos de usuario-> Iniciar sesión como servicio**
 
-![Permiso de cuenta de servicio](media/create-self-hosted-integration-runtime/shir-service-account-permission.png)
+![Captura de pantalla de la directiva de seguridad local: asignación de derechos de usuario](media/create-self-hosted-integration-runtime/shir-service-account-permission.png)
 
-![Permiso de cuenta de servicio](media/create-self-hosted-integration-runtime/shir-service-account-permission-2.png)
+![Captura de pantalla de la asignación de derechos de usuario Iniciar sesión como servicio](media/create-self-hosted-integration-runtime/shir-service-account-permission-2.png)
 
 
 ## <a name="notification-area-icons-and-notifications"></a>Iconos y notificaciones del área de notificación

@@ -8,14 +8,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 11/25/2020
+ms.date: 01/15/2021
 ms.custom: designer
-ms.openlocfilehash: 14be695f2f58b9738af11a3d2ca3f06592a1cc6e
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 6bba5ad17cbb6f1ed72d06b37c6d6af9ebd26495
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575965"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246475"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer"></a>Tutorial: Implementación de un modelo de Machine Learning con el diseñador
 
@@ -97,11 +97,30 @@ Después de que el servicio AKS haya terminado de aprovisionarse, vuelva a la ca
 
 1. Seleccione el clúster de AKS que ha creado.
 
-1. Seleccione **Implementar**.
-    
     :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/setup-endpoint.png"alt-text="Captura de pantalla que muestra cómo configurar un nuevo punto de conexión en tiempo real":::
 
+    También puede cambiar la configuración **avanzada** del punto de conexión en tiempo real.
+    
+    |Configuración avanzada|Descripción|
+    |---|---|
+    |Enable Application Insights diagnostics and data collection (Habilitar la recopilación de datos y el diagnóstico de Application Insights)| Si se va a habilitar Azure Application Insights para recopilar datos de los puntos de conexión implementados. </br> Valor predeterminado: false |
+    |Scoring timeout (Tiempo de espera de la puntuación)| Tiempo de espera en milisegundos para forzar la puntuación de las llamadas al servicio web.</br>De forma predeterminada: 60000|
+    |Auto scale enabled (Escalado automático habilitado)|   Indica si se debe habilitar la escalabilidad automática para el servicio web.</br>Valor predeterminado: true|
+    |Min replicas (Número mínimo de réplicas)| Número mínimo de contenedores que se van a usar al escalar automáticamente este servicio web.</br>De forma predeterminada: 1|
+    |Max replicas (Número máximo de réplicas)| Número máximo de contenedores que se van a usar al escalar automáticamente este servicio web.</br> De forma predeterminada: 10|
+    |Target utilization (Uso de destino)|Uso objetivo (en un porcentaje de 100) que el escalador automático debe intentar mantener para este servicio web.</br> De forma predeterminada: 70|
+    |Refresh period (Período de actualización)|Frecuencia (en segundos) con la que la escalabilidad automática intenta escalar este servicio web.</br> De forma predeterminada: 1|
+    |CPU reserve capacity (Capacidad de reserva de CPU)|Número de núcleos de CPU que se asigna a este servicio web.</br> De forma predeterminada: 0,1|
+    |Memory reserve capacity (Capacidad de reserva de memoria)|Cantidad de memoria (en GB) que se va a asignar a este servicio web.</br> De forma predeterminada: 0.5|
+        
+
+1. Seleccione **Implementar**. 
+
     Aparece una notificación de finalización correcta en la parte superior del lienzo una vez que termina la implementación. Esto puede llevar unos minutos.
+
+> [!TIP]
+> También puede realizar la implementación en **Instancia de Azure Container** (ACI) mediante la selección de **Instancia de Azure Container** en **Tipo de proceso** en el cuadro de configuración de puntos de conexión en tiempo real.
+> Instancia de Azure Container se usa con fines de pruebas o desarrollo. Use ACI con cargas de trabajo basadas en CPU a pequeña escala que requieran menos de 48 GB de RAM.
 
 ## <a name="view-the-real-time-endpoint"></a>Visualización del punto de conexión en tiempo real
 

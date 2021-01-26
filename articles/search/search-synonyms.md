@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/18/2020
-ms.openlocfilehash: b62621a77f383b5c6413e7c187e7ba3d60beabad
-ms.sourcegitcommit: a89a517622a3886b3a44ed42839d41a301c786e0
+ms.openlocfilehash: 5e608d38ff70d51b569088629a6d80cb08e74ed4
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97732094"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251631"
 ---
 # <a name="synonyms-in-azure-cognitive-search"></a>Sinónimos de Azure Cognitive Search
 
@@ -21,9 +21,9 @@ Con los mapas de sinónimos, puede asociar términos equivalentes que expanden e
 
 ## <a name="create-synonyms"></a>Creación de sinónimos
 
-Un mapa de sinónimos es un recurso que se puede crear una vez y usar en muchos índices. El [nivel de servicio](search-limits-quotas-capacity.md#synonym-limits) determina el número de mapas de sinónimos que se pueden crear, que oscilan entre 3 para los niveles Gratuito y Básico, y hasta 20 para los niveles Estándar. 
+Un mapa de sinónimos es un recurso que se puede crear una vez y usar en muchos índices. El [nivel de servicio](search-limits-quotas-capacity.md#synonym-limits) determina el número de mapas de sinónimos que se pueden crear, que oscilan entre tres para los niveles Gratuito y Básico, y hasta 20 para los niveles Estándar. 
 
-Puede crear varios mapas de sinónimos para distintos idiomas, como versiones en inglés y francés, o bien léxicos si el contenido incluye terminología técnica o compleja. Aunque se pueden crear varios mapas de sinónimos, actualmente en un campo solo se puede usar uno.
+Puede crear varios mapas de sinónimos para distintos idiomas, como versiones en inglés y francés, o bien léxicos si el contenido incluye terminología técnica o compleja. Aunque se pueden crear varios mapas de sinónimos en el servicio de búsqueda, un campo solo puede usar uno.
 
 Un mapa de sinónimos está formado por el nombre, el formato y las reglas que funcionan como entradas del mapa de sinónimos. El único formato que se admite es `solr` y el formato `solr` determina la construcción de reglas.
 
@@ -50,7 +50,7 @@ Las reglas de asignación se adhieren a la especificación del filtro de sinóni
 
 Cada regla debe estar delimitada por el carácter de nueva línea (`\n`). Puede definir hasta 5000 reglas por mapa de sinónimos en un servicio gratuito y 20 000 reglas por mapa en otros niveles. Cada regla puede tener hasta 20 expansiones (o elementos). Para obtener más información, vea [Límites de sinónimos](search-limits-quotas-capacity.md#synonym-limits).
 
-Los analizadores de consultas convertirán en minúsculas todos los términos en mayúsculas o con mayúsculas y minúsculas mezcladas, pero si quiere conservar los caracteres especiales en la cadena, como una coma o un guion, agregue los caracteres de escape adecuados al crear el mapa de sinónimos. 
+Los analizadores de consultas convertirán en minúsculas todos los términos en mayúsculas o con mayúsculas y minúsculas mezcladas, pero si quiere conservar los caracteres especiales en la cadena, como una coma o un guion, agregue los caracteres de escape adecuados al crear el mapa de sinónimos.
 
 ### <a name="equivalency-rules"></a>Reglas de equivalencia
 
@@ -85,7 +85,7 @@ En el caso explícito, una consulta para `Washington`, `Wash.` o `WA` se volver�
 
 ### <a name="escaping-special-characters"></a>Escape de caracteres especiales
 
-Si necesita definir sinónimos que contengan comas u otros caracteres especiales, puede usar una barra diagonal inversa como carácter de escape, como en este ejemplo:
+Los sinónimos se analizan durante el procesamiento de consultas. Si necesita definir sinónimos que contengan comas u otros caracteres especiales, puede usar una barra diagonal inversa como carácter de escape, como en este ejemplo:
 
 ```json
 {
@@ -143,11 +143,15 @@ POST /indexes?api-version=2020-06-30
 
 La adición de sinónimos no impone nuevos requisitos en la construcción de consultas. Puede emitir consultas de términos y frases como ha hecho antes de agregar sinónimos. La única diferencia es que si existe un término de consulta en el mapa de sinónimos, el motor de consultas expandirá o volverá a escribir el término o la frase, en función de la regla.
 
-## <a name="how-synonyms-interact-with-other-features"></a>Cómo interactúan los sinónimos con otras características
+## <a name="how-synonyms-are-used-during-query-execution"></a>Cómo se usan los sinónimos durante la ejecución de la consulta
 
-La característica Sinónimos reescribe la consulta original con sinónimos con el operador OR. Por este motivo, el resaltado de referencias y los perfiles de puntuación tratan el término original y los sinónimos como equivalentes.
+Los sinónimos son una técnica de expansión de consultas que complementa el contenido de un índice con términos equivalentes, aunque solo para los campos que tienen una asignación de sinónimo. Si una consulta de ámbito de campo *excluye* un campo habilitado para sinónimos, no se mostrarán coincidencias de la asignación de sinónimos.
 
-Los sinónimos solo se aplican a las consultas de búsqueda y no se admiten para los filtros, las facetas, la función autocompletar o las sugerencias. Autocompletar y las sugerencias se basan solo en el término original; las coincidencias de sinónimos no aparecen en la respuesta.
+En el caso de los campos habilitados para sinónimos, estos sinónimos están sujetos al mismo análisis de texto que el campo asociado. Por ejemplo, si un campo se analiza con el analizador de Lucene estándar, los términos de sinónimo también estarán sujetos al analizador de Lucene estándar en el momento de la consulta. Si quiere conservar los signos de puntuación, como los puntos o los guiones en el término sinónimo, aplique en el campo un analizador que conserve el contenido.
+
+De manera interna, la característica Sinónimos reescribe la consulta original con sinónimos mediante el operador OR. Por este motivo, el resaltado de referencias y los perfiles de puntuación tratan el término original y los sinónimos como equivalentes.
+
+Los sinónimos solo se aplican a las consultas de texto libre y no se admiten para los filtros, las facetas, la función autocompletar o las sugerencias. Autocompletar y las sugerencias se basan solo en el término original; las coincidencias de sinónimos no aparecen en la respuesta.
 
 Las expansiones de sinónimos no se aplican a los términos de búsqueda de carácter comodín; los prefijos, las coincidencias parciales y las regex no se expanden.
 

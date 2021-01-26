@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 11/16/2020
-ms.openlocfilehash: 611d2163e242d7851398821344c3ed595df364cb
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 59364a0a2c1d1e411f41dc35dee812c8e920b72d
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460266"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209209"
 ---
 # <a name="explore-the-synapse-knowledge-center"></a>Exploración del Centro de conocimientos de Synapse
 
@@ -39,22 +39,22 @@ El **Centro de conocimientos** le permite hacer tres cosas:
 
 ## <a name="exploring-blob-storage-with-serverless-sql-pool"></a>Exploración del almacenamiento de blobs con un grupo de SQL sin servidor
 
-1. Vaya al **Centro de conocimientos**, haga clic en **Usar ejemplos inmediatamente**.
-1. Seleccione **Consultar datos con SQL**. 
-1. Haga clic en **Usar ejemplos inmediatamente**.
-1. Se creará un nuevo script de SQL.
+1. Vaya al **Centro de conocimientos** y haga clic en **Usar ejemplos inmediatamente**.
+1. Seleccione **Consultar datos con SQL**.
+1. Haga clic en **Usar ejemplo**.
+1. Se abrirá un nuevo script SQL de ejemplo.
 1. Desplácese hasta la primera consulta (líneas 28 a 32) y seleccione el texto de la consulta.
-1. Haga clic en Ejecutar. Se ejecutará el texto seleccionado.
+1. Haga clic en Ejecutar. Solo se ejecutará el código que haya seleccionado.
 
 ## <a name="loading-more-nyc-taxi-data"></a>Carga de más datos de taxis de Nueva York
-1. Vaya al **Centro de conocimiento** y haga clic en **Examinar la galería**. 
+1. Vaya al **Centro de conocimiento** y haga clic en **Examinar la galería**.
 1. Seleccione la pestaña **Scripts de SQL** en la parte superior.
-1. Seleccione **Carga de conjunto de datos de taxis de Nueva York**
-1. En **Entradas**, elija **Seleccione un grupo existente** y seleccione **SQLDB1**.
+1. Seleccione el ejemplo de ingesta de datos **Carga de conjuntos de datos de taxis de Nueva York** y haga clic en **Continuar**.
+1. En **Grupo de SQL**, elija **Seleccionar un grupo existente**, seleccione **SQLPOOL1** y, a continuación, seleccione la base de datos **SQLPOOL1** que creó anteriormente.
 1. Haga clic en **Abrir script**.
-1. Aparecerá un nuevo script de SQL.
+1. Se abrirá un nuevo script SQL de ejemplo.
 1. Haga clic en **Ejecutar**
-1. Se crearán varias tablas para todos los datos de taxi de Nueva York y se cargarán con el comando T-SQL COPY.
+1. Se crearán varias tablas para todos los datos de taxi de Nueva York y se cargarán con el comando T-SQL COPY. Si ha creado estas tablas en los pasos de inicio rápido anteriores, seleccione y ejecute solo el código para crear y copiar las tablas que no existen.
 
     > [!NOTE] 
     > Al utilizar la galería de ejemplo para el script de SQL con un grupo de SQL dedicado (anteriormente SQL DW), solo podrá usar un grupo de SQL dedicado existente (anteriormente SQL DW).

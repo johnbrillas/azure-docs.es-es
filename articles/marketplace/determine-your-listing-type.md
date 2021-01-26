@@ -6,21 +6,15 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
-ms.date: 12/18/2020
-ms.openlocfilehash: 091af70383eb3cab32a0453d7f7542d8a4395d0b
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.date: 01/14/2021
+ms.openlocfilehash: 89cd9f46474e8e311f003f317b90bdb21eae55fe
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98107402"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247563"
 ---
 # <a name="introduction-to-listing-options"></a>Introducción a las opciones de lista
-
-Puede usar las _opciones de lista_ disponibles en el Marketplace comercial para interactuar de varias maneras con los clientes potenciales. Una vez publicada la oferta, las opciones de lista elegidas para ella aparecen en forma de botón en la esquina superior izquierda de la página de descripción de la oferta de las tiendas en línea. Por ejemplo, en la siguiente captura de pantalla se muestra una página de la lista de ofertas de la tienda en línea de Microsoft AppSource con los botones **Contacto** y **Versión de prueba**.
-
-:::image type="content" source="./media/listing-options.png" alt-text="Aquí se muestra la página de lista de una oferta. Asimismo, se muestran los botones Contacto y Versión de prueba.":::
-
-## <a name="available-listing-options-by-offer-type"></a>Opciones de lista disponibles en función del tipo de oferta
 
 Cuando crea un tipo de oferta, debe elegir una o varias opciones de la lista. Estas opciones determinan los botones que los clientes ven en la página de la lista de ofertas en las tiendas en línea. Entre las opciones de lista se incluyen las opciones _Evaluación gratuita_, _Versión de prueba_, _Contacto_ y _Obtener ahora_.
 
@@ -42,7 +36,7 @@ En esta tabla se muestra qué opciones de lista están disponibles para cada tip
 | Software como servicio | &#10004; | &#10004; | &#10004; | &#10004; |
 ||||||
 
-`*` La opción de lista Obténgalo ahora incluye Obténgalo ahora (de forma gratuita), Traiga su propia licencia (BYOL), Suscripción y Precios basados en el uso. Para obtener información detallada, vea [Obténgalo ahora](#get-it-now).
+&#42; La opción de anuncio Obtener ahora incluye Obtener ahora (gratis), Traiga su propia licencia (BYOL), Suscripción y Precios basados en el uso. Para obtener información detallada, vea [Obténgalo ahora](#get-it-now).
 
 ### <a name="free-trial"></a>Versión de prueba gratuita
 
@@ -102,9 +96,15 @@ En esta tabla se muestran los tipos de ofertas que admiten las opciones de preci
 
 Use esta opción de lista para ofrecer su aplicación de forma gratuita. Los clientes usan el botón _Obténgalo ahora_ para obtener la oferta gratuita.
 
-#### <a name="byol"></a>BYOL
+> [!NOTE]
+> Las ofertas Obtener ahora (gratis) no son aptas para las ventajas de Marketplace Rewards en las ofertas procesables. Dado que no hay ninguna transacción a través del escaparate, se clasifican como "prueba". Vea [Marketplace Rewards](#marketplace-rewards) a continuación.
 
-Use Marketplace comercial para mejorar la detectabilidad y automatizar el aprovisionamiento de la solución, así como para completar la transacción financiera independientemente de Marketplace. La opción de lista Traiga su propia licencia (BYOL) es ideal para realizar migraciones de entornos locales a la nube. Los clientes usan el botón _Obténgalo ahora_ para comprar la oferta mediante una licencia que hayan adquirido previamente.
+#### <a name="bring-your-own-license-byol"></a>Traiga su propia licencia (BYOL)
+
+Use esta opción de anuncio para permitir que los clientes implementen su oferta con una licencia adquirida fuera del marketplace comercial. Esta opción es ideal para las migraciones desde el entorno local a la nube. Los clientes usan el botón _Obtener ahora_ para comprar la oferta mediante una licencia que adquirieron previamente.
+
+> [!NOTE]
+> Las ofertas BYOL no son aptas para las ventajas de Marketplace Rewards en las ofertas procesables. Dado que requieren que un cliente adquiera la licencia del asociado y que no hay ninguna transacción a través del escaparate del marketplace comercial, se clasifican como "Anuncio". Vea [Marketplace Rewards](#marketplace-rewards) a continuación.
 
 #### <a name="subscription"></a>Suscripción
 
@@ -117,11 +117,17 @@ Puede cobrar una tarifa plana para estos tipos de oferta:
 
 Los siguientes tipos de oferta admiten precios basados en el uso:
 
-- Ofertas de la aplicación de Azure (aplicación administrada) que admite la facturación de uso medido. Para obtener más información, consulte [Facturación de uso medido de aplicaciones administradas](./partner-center-portal/azure-app-metered-billing.md).
-- Ofertas de SaaS que admiten la facturación de uso medido y los precios por usuario (por puesto). Para obtener más información sobre la facturación del uso medido, consulte [Facturación de uso medido para SaaS mediante el servicio de medición de Marketplace comercial](./partner-center-portal/saas-metered-billing.md).
+- Ofertas de la aplicación de Azure (aplicación administrada) que admite la facturación de uso medido. Para obtener más información, consulte [Facturación de uso medido de aplicaciones administradas](partner-center-portal/azure-app-metered-billing.md).
+- Ofertas de SaaS que admiten la facturación de uso medido y los precios por usuario (por puesto). Para obtener más información sobre la facturación del uso medido, consulte [Facturación de uso medido para SaaS mediante el servicio de medición de Marketplace comercial](partner-center-portal/saas-metered-billing.md).
 - La máquina virtual de Azure ofrece soporte técnico en función del núcleo, del tamaño del núcleo y de los precios según el mercado y el tamaño del núcleo. Estas opciones de precios se calculan por hora y se facturan mensualmente.
 
 Cuando se crea una oferta procesable, es importante comprender los detalles de los precios, la facturación y el pago antes de seleccionar un tipo de oferta y crearla. Para obtener más información, consulte [Tiendas en línea de Marketplace comercial](overview.md#commercial-marketplace-online-stores).
+
+## <a name="sample-offer"></a>Oferta de ejemplo
+
+Una vez publicada la oferta, las opciones de anuncio elegidas aparecen en forma de botón en la esquina superior izquierda de la página de anuncios de las tiendas en línea. Por ejemplo, en la siguiente pantalla se muestra una página de anuncios de ofertas de la tienda en línea de Microsoft AppSource con los botones **Obtener ahora** y **Versión de prueba**:
+
+:::image type="content" source="media/listing-options.png" alt-text="Muestra la página del anuncio de una oferta con los botones Ponerse en contacto conmigo y Versión de prueba":::.
 
 ## <a name="listing-and-pricing-options-by-online-store"></a>Opciones de lista y precios en función de la tienda en línea
 
@@ -149,10 +155,14 @@ En la tabla siguiente se muestran las opciones disponibles para los distintos ti
 
 &#42;&#42; Los complementos de Microsoft 365 se pueden instalar de forma gratuita y se pueden rentabilizar mediante una oferta de SaaS. Para más información, consulte el artículo sobre cómo [monetizar el complemento de Office 365 a través de Marketplace comercial de Microsoft](/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace).
 
-## <a name="marketplace-rewards"></a>Marketplace Rewards
+## <a name="marketplace-rewards"></a>Recompensas de Marketplace
 
 Las recompensas de Marketplace Rewards se diferencian según la opción de lista que elija. Para obtener más información, consulte [Ventajas de Marketplace comercial](gtm-your-marketplace-benefits.md).
 
+Si su oferta es negociable, obtendrá ventajas a medida que aumente las ventas facturadas.
+
+Las ofertas no negociables consiguen ventajas en función de si se adjunta o no una evaluación gratuita.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para elegir el tipo de oferta que va a crear, consulte la [guía de publicación en función del tipo de oferta](./publisher-guide-by-offer-type.md).
+- Para elegir el tipo de oferta que va a crear, consulte la [guía de publicación en función del tipo de oferta](publisher-guide-by-offer-type.md).

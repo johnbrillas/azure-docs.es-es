@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/12/2021
-ms.openlocfilehash: 2478148f946ddc88e571b76396544b028455ec75
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 82e1c6bdcd508bf1844223b331bf8363efa7b573
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98132114"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98555328"
 ---
 # <a name="cluster-creation-fails-with-invalidnetworkconfigurationerrorcode-in-azure-hdinsight"></a>Error al crear el clúster con InvalidNetworkConfigurationErrorCode en Azure HDInsight
 
@@ -50,7 +50,7 @@ Este error indica un problema con la configuración de DNS personalizada. Los se
 
 ### <a name="issue"></a>Problema
 
-La descripción del error contiene el mensaje "Failed to connect to Azure Storage Account” ("No se pudo conectar a la cuenta de Azure Storage") o “Failed to connect to Azure SQL" (No se pudo conectar a Azure SQL).
+La descripción del error contiene el mensaje "Failed to connect to Azure Storage Account” (No se pudo conectar a la cuenta de Azure Storage) o “Failed to connect to Azure SQL" (No se pudo conectar a Azure SQL).
 
 ### <a name="cause"></a>Causa
 
@@ -153,7 +153,7 @@ Otra causa de este código de error `InvalidNetworkConfigurationErrorCode` podr�
 
 ### <a name="resolution"></a>Solución
 
-Use los parámetros válidos para `Get-AzVirtualNetwork` como se documenta en el [SDK de Az PowerShell.](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork?view=azps-5.3.0&viewFallbackFrom=azps-4.2.0)
+Use los parámetros válidos para `Get-AzVirtualNetwork` como se documenta en el [SDK de Az PowerShell.](/powershell/module/az.network/get-azvirtualnetwork)
 
 ---
 

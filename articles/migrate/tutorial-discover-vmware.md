@@ -5,20 +5,20 @@ author: vineetvikram
 ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 09/14/2020
+ms.date: 9/14/2020
 ms.custom: mvc
-ms.openlocfilehash: e11c3277ffa07fe0a8d5fc7495e2c09152ce585f
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 0e06d82c30743a4084cfc5ff856b4a9c8d548146
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97704302"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98566953"
 ---
 # <a name="tutorial-discover-vmware-vms-with-server-assessment"></a>Tutorial: Detección de máquinas virtuales de VMware con Server Assessment
 
-Como parte del recorrido de la migración a Azure, puede detectar el inventario y las cargas de trabajo locales. 
+Como parte del recorrido de la migración a Azure, puede detectar el inventario y las cargas de trabajo locales.
 
-En este tutorial se muestra cómo detectar las máquinas virtuales locales de VMware con la herramienta Azure Migrate: Server Assessment, con un dispositivo ligero de Azure Migrate. El dispositivo se implementa como una máquina virtual de VMware para detectar continuamente los metadatos de las máquinas virtuales y del rendimiento, las aplicaciones que se ejecutan en máquinas virtuales y las dependencias de las máquinas virtuales.
+En este tutorial se muestra cómo detectar las máquinas virtuales locales de VMware con la herramienta Azure Migrate: Server Assessment, con un dispositivo ligero de Azure Migrate. El dispositivo se implementa como una máquina virtual de VMware para detectar continuamente las máquinas virtuales y los metadatos del rendimiento, las aplicaciones que se ejecutan en las máquinas virtuales y las dependencias de máquina virtual.
 
 En este tutorial, aprenderá a:
 
@@ -42,16 +42,17 @@ Antes de empezar este tutorial, compruebe que dispone de estos requisitos previo
 
 **Requisito** | **Detalles**
 --- | ---
-**Host vCenter Server/ESXi** | Necesita una instancia de vCenter Server que ejecute las versiones 5.5, 6.0, 6.5 o 6.7.<br/><br/> Las máquinas virtuales deben estar hospedadas en un host ESXi que ejecute la versión 5.5 o posterior.<br/><br/> En vCenter Server, permita las conexiones entrantes en el puerto TCP 443 para que el dispositivo pueda recopilar los datos de evaluación.<br/><br/> De forma predeterminada, el dispositivo se conecta a vCenter en el puerto 443. Si el servidor vCenter escucha en un puerto diferente, podrá modificarlo cuando se conecte desde el dispositivo al servidor para iniciar la detección.<br/><br/> En el servidor de EXSi que hospeda las máquinas virtuales, asegúrese de que se permita el acceso de entrada en el puerto TCP 443 para la detección de aplicaciones.
-**Dispositivo** | vCenter Server necesita recursos para asignar una máquina virtual al dispositivo de Azure Migrate:<br/><br/> - Windows Server 2016<br/><br/> - 32 GB de RAM, ocho vCPU y alrededor de 80 GB de almacenamiento en disco.<br/><br/> - Un conmutador virtual externo y acceso a Internet en la máquina virtual, directamente o a través de un proxy.
-**Máquinas virtuales** | Para usar este tutorial, las máquinas virtuales de Windows deben ejecutar Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 o Windows Server 2008 R2.<br/><br/> Las máquinas virtuales Linux deben ejecutar Red Hat Enterprise Linux 7/6/5, Ubuntu Linux 14.04/16.04, Debian 7/8, Oracle Linux 6/7 o CentOS 5/6/7.<br/><br/> Las máquinas virtuales necesitan que las herramientas de VMware (una versión posterior a la 10.2.0) estén instaladas y en ejecución.<br/><br/> En las máquinas virtuales Windows, debe estar instalado Windows PowerShell 2.0 o posterior.
+**Host vCenter Server/ESXi** | Necesita una instancia de vCenter Server que ejecute las versiones 5.5, 6.0, 6.5 o 6.7.<br/><br/> Las máquinas virtuales deben estar hospedadas en un host ESXi que ejecute la versión 5.5 o posterior.<br/><br/> En vCenter Server, permita conexiones entrantes en el puerto TCP 443 para que el dispositivo recopile los metadatos de configuración y rendimiento.<br/><br/> De forma predeterminada, el dispositivo se conecta a vCenter en el puerto 443. Si vCenter Server escucha a través de un puerto diferente, se puede modificar el puerto al proporcionar los detalles de vCenter Server en el administrador de configuración del dispositivo.<br/><br/> En el servidor ESXi que hospeda las máquinas virtuales, asegúrese de que permite el acceso de entrada en el puerto TCP 443 para detectar las aplicaciones instaladas en las máquinas virtuales y las dependencias de máquina virtual.
+**Dispositivo** | vCenter Server necesita recursos para asignar una máquina virtual al dispositivo de Azure Migrate:<br/><br/> - 32 GB de RAM, 8 CPU virtuales y alrededor de 80 GB de almacenamiento en disco.<br/><br/> - Un conmutador virtual externo y acceso a Internet en la máquina virtual del dispositivo, directamente o a través de un proxy.
+**Máquinas virtuales** | Todas las versiones de sistemas operativos Windows y Linux son compatibles con la detección de metadatos de configuración y rendimiento, y con la detección de las aplicaciones instaladas en las máquinas virtuales. <br/><br/> Consulte [esta página](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) para ver las versiones de sistemas operativos compatibles con el análisis de dependencia sin agente.<br/><br/> Para detectar las aplicaciones instaladas y las dependencias de máquina virtual, el conjunto de utilidades VMware Tools (versión posterior a la 10.2.0) debe estar instalado y en ejecución en las máquinas virtuales, y las máquinas virtuales Windows deben tener instalado PowerShell 2.0 o una versión posterior.
 
 
 ## <a name="prepare-an-azure-user-account"></a>Preparación de una cuenta de usuario de Azure
 
 Para crear un proyecto de Azure Migrate y registrar el dispositivo Azure Migrate, necesita una cuenta con:
-- Permisos de nivel de colaborador o propietario en una suscripción de Azure.
-- Permisos para registrar aplicaciones de Azure Active Directory.
+- Permisos de Colaborador o Propietario en la suscripción de Azure.
+- Permisos para registrar aplicaciones de Azure Active Directory (AAD).
+- Permisos de Colaborador o Propietario, más Administrador de acceso de usuario en la suscripción de Azure para crear un almacén de claves, que se usará durante la migración de VMware sin agente.
 
 Si acaba de crear una cuenta de Azure gratuita, es el propietario de la suscripción. Si no es el propietario, trabaje con él para asignar los permisos, como se indica a continuación:
 
@@ -70,16 +71,19 @@ Si acaba de crear una cuenta de Azure gratuita, es el propietario de la suscripc
 
     ![Se abre la página Agregar asignación de roles para asignar un rol a la cuenta.](./media/tutorial-discover-vmware/assign-role.png)
 
-7. En el portal, busque los usuarios y, en **Servicios**, seleccione **Usuarios**.
-8. En **Configuración de usuario**, compruebe que los usuarios de Azure AD puedan registrar aplicaciones (establecido en **Sí** de forma predeterminada).
+1. Con el fin de registrar el dispositivo, la cuenta de Azure necesita **permisos para registrar aplicaciones de AAD**.
+1. En Azure Portal, vaya a **Azure Active Directory** > **Usuarios** > **Configuración de usuario**.
+1. En **Configuración de usuario**, compruebe que los usuarios de Azure AD puedan registrar aplicaciones (establecido en **Sí** de forma predeterminada).
 
     ![Comprobación en la configuración de usuario de que los usuarios puedan registrar aplicaciones de Active Directory](./media/tutorial-discover-vmware/register-apps.png)
 
-9. Como alternativa, el administrador de inquilinos o administrador global puede asignar el rol de **desarrollador de aplicaciones** a una cuenta para permitir el registro de aplicaciones de AAD. [Más información](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
+9. Si la configuración de "Registros de aplicaciones" se ha establecido en "No", solicite al administrador global o de inquilinos que asigne el permiso necesario. Como alternativa, el administrador global o de inquilinos puede asignar el rol **Desarrollador de aplicaciones** a una cuenta para permitir el registro de aplicaciones de AAD. [Más información](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ## <a name="prepare-vmware"></a>Preparación de VMware
 
-En vCenter Server, cree una cuenta que el dispositivo pueda usar para acceder al servidor de vCenter Server y compruebe que los puertos necesarios estén abiertos. También necesita una cuenta que el dispositivo pueda usar para acceder a las máquinas virtuales. 
+En vCenter Server, compruebe que la cuenta tiene permisos para crear una máquina virtual mediante un archivo OVA. Esto es necesario al implementar el dispositivo Azure Migrate como una máquina virtual VMware mediante un archivo OVA.
+
+La herramienta Server Assessment necesita una cuenta de vCenter Server de solo lectura con fines de detección y evaluación de las máquinas virtuales de VMware. Si además desea detectar las aplicaciones instaladas y las dependencias de máquina virtual, la cuenta necesita tener privilegios habilitados para **Máquinas virtuales > Operaciones de invitado**.
 
 ### <a name="create-an-account-to-access-vcenter"></a>Creación de una cuenta para acceder a vCenter
 
@@ -90,20 +94,20 @@ En el cliente web de vSphere, configure una cuenta de la siguiente manera:
 3. En **Users** (Usuarios), agregue un nuevo usuario.
 4. En **New User** (Nuevo usuario), escriba los detalles de la cuenta. A continuación, haga clic en **Aceptar**.
 5. En **Global Permissions** (Permisos globales), seleccione la cuenta de usuario y asígnele el rol **Read-only** (Solo lectura). A continuación, haga clic en **Aceptar**.
-6. En **Roles** > seleccione el rol **Read-only** (Solo lectura) y, en **Privileges** (Privilegios), seleccione **Guest Operations** (operaciones de invitado). Estos privilegios son necesarios para detectar las aplicaciones que se ejecutan en las máquinas virtuales y analizar las dependencias de la máquina virtual.
+6. Si también desea detectar las aplicaciones instaladas y las dependencias de máquina virtual, vaya a **Roles**, seleccione el rol de **solo lectura** y, en **Privilegios**, seleccione **Operaciones de invitado**. Los privilegios se pueden propagar a todos los objetos de vCenter Server. Para ello, seleccione la casilla "Propagate to children" (Propagar a elementos secundarios).
  
     ![Casilla para permitir las operaciones de invitado en el rol de solo lectura](./media/tutorial-discover-vmware/guest-operations.png)
 
 
 ### <a name="create-an-account-to-access-vms"></a>Creación de una cuenta para acceder a las máquinas virtuales
 
-El dispositivo accede a las máquinas virtuales para detectar las aplicaciones y analizar las dependencias de la máquina virtual. El dispositivo no instala ningún agente en las máquinas virtuales.
+Necesita una cuenta de usuario que tenga los privilegios exigidos en las máquinas virtuales para detectar las aplicaciones instaladas y las dependencias de máquina virtual. Puede proporcionar la cuenta de usuario en el administrador de configuración del dispositivo. El dispositivo no instala ningún agente en las máquinas virtuales.
 
-1. Cree una cuenta de administrador local que el dispositivo pueda usar para detectar las aplicaciones y las dependencias en las máquinas virtuales Windows.
-2. En el caso de las máquinas Linux, cree una cuenta de usuario con privilegios raíz o, como alternativa, una cuenta de usuario con estos permisos en los archivos /bin/netstat y /bin/ls: CAP_DAC_READ_SEARCH y CAP_SYS_PTRACE.
+1. Para las máquinas virtuales Windows, cree una cuenta (local o de dominio) que tenga permisos administrativos en las máquinas virtuales.
+2. Para las máquinas virtuales Linux, cree una cuenta con privilegios raíz. Como alternativa, puede crear una cuenta con los siguientes permisos en los archivos/bin/netstat y/bin/ls: CAP_DAC_READ_SEARCH y CAP_SYS_PTRACE.
 
 > [!NOTE]
-> Azure Migrate admite una credencial para la detección de aplicaciones en todos los servidores de Windows y una credencial para la detección de aplicaciones en todas las máquinas Linux.
+> Actualmente Azure Migrate admite una cuenta de usuario para las máquinas virtuales Windows y una cuenta de usuario para las máquinas virtuales Linux, que se pueden proporcionar en el dispositivo para la detección de aplicaciones instaladas y dependencias de máquina virtual.
 
 
 ## <a name="set-up-a-project"></a>Configuración de un proyecto
@@ -119,34 +123,30 @@ Configure un proyecto nuevo de Azure Migrate.
    ![Cuadros de nombre de proyecto y región](./media/tutorial-discover-vmware/new-project.png)
 
 7. Seleccione **Crear**.
-8. Espere unos minutos para que se implemente el proyecto de Azure Migrate.
-
-La herramienta **Azure Migrate: Server Assessment** se agrega de forma predeterminada al nuevo proyecto.
+8. Espere unos minutos a que se implemente el proyecto de Azure Migrate. La herramienta **Azure Migrate: Server Assessment** se agrega de forma predeterminada al nuevo proyecto.
 
 ![Página que muestra la herramienta Server Assessment agregada de forma predeterminada](./media/tutorial-discover-vmware/added-tool.png)
 
+> [!NOTE]
+> Si ya ha creado un proyecto, puede usarlo para registrar dispositivos adicionales con el fin de detectar y evaluar un número mayor de máquinas virtuales. [Más información](create-manage-projects.md#find-a-project).
 
 ## <a name="set-up-the-appliance"></a>Configuración del dispositivo
 
-Para configurar el dispositivo mediante una plantilla de OVA:
-- Proporcione un nombre de dispositivo y genere una clave del proyecto de Azure Migrate en el portal.
-- Descargue una plantilla OVA e impórtela en vCenter Server.
-- Crear el dispositivo y comprobar que se puede conectar a Azure Migrate Server Assessment.
-- Configure el dispositivo por primera vez y regístrelo en el proyecto de Azure Migrate mediante la clave del proyecto de Azure Migrate.
+Azure Migrate: Server Assessment usa un dispositivo de Azure Migrate ligero. El dispositivo realiza la detección de máquinas virtuales y envía los metadatos de configuración y rendimiento de las máquinas virtuales a Azure Migrate. El dispositivo se puede configurar mediante una plantilla OVA que se descarga del proyecto de Azure Migrate.
 
 > [!NOTE]
-> Si, por alguna razón, no puede configurar el dispositivo mediante la plantilla, puede usar un script de PowerShell. [Más información](deploy-appliance-script.md#set-up-the-appliance-for-vmware).
+> Si, por algún motivo, no puede configurar el dispositivo mediante la plantilla, puede hacerlo con un script de PowerShell en un servidor de Windows Server 2016 existente. [Más información](deploy-appliance-script.md#set-up-the-appliance-for-vmware).
 
 
 ### <a name="deploy-with-ova"></a>Implementación con OVA
 
 Para configurar el dispositivo mediante una plantilla de OVA:
-- Proporcione un nombre de dispositivo y genere una clave del proyecto de Azure Migrate en el portal.
-- Descargue una plantilla OVA e impórtela en vCenter Server.
-- Crear el dispositivo y comprobar que se puede conectar a Azure Migrate Server Assessment.
-- Configure el dispositivo por primera vez y regístrelo en el proyecto de Azure Migrate mediante la clave del proyecto de Azure Migrate.
+1. Proporcione un nombre de dispositivo y genere una clave del proyecto de Azure Migrate en el portal.
+1. Descargue una plantilla OVA e impórtela en vCenter Server. Compruebe que la plantilla OVA sea segura.
+1. Crear el dispositivo y comprobar que se puede conectar a Azure Migrate Server Assessment.
+1. Configure el dispositivo por primera vez y regístrelo en el proyecto de Azure Migrate mediante la clave del proyecto de Azure Migrate.
 
-### <a name="generate-the-azure-migrate-project-key"></a>Generación de la clave del proyecto de Azure Migrate
+### <a name="1-generate-the-azure-migrate-project-key"></a>1. Generación de la clave del proyecto de Azure Migrate
 
 1. En **Objetivos de migración** > **Servidores** > **Azure Migrate: Server Assessment**, seleccione **Detectar**.
 2. En **Detectar máquinas** >  **¿Las máquinas están virtualizadas?** , haga clic en **Sí, con VMware vSphere Hypervisor**.
@@ -155,10 +155,9 @@ Para configurar el dispositivo mediante una plantilla de OVA:
 1. Después de la creación correcta de los recursos de Azure, se genera una **clave del proyecto Azure Migrate**.
 1. Copie la clave, ya que la necesitará para completar el registro del dispositivo durante su configuración.
 
-### <a name="download-the-ova-template"></a>Descarga de la plantilla OVA
+### <a name="2-download-the-ova-template"></a>2. Descarga de la plantilla OVA
 
-En **2: Descargar dispositivo de Azure Migrate**, seleccione el archivo .OVA y haga clic en **Descargar**. 
-
+En **2: Descargar dispositivo de Azure Migrate**, seleccione el archivo .OVA y haga clic en **Descargar**.
 
 ### <a name="verify-security"></a>Comprobación de la seguridad
 
@@ -185,10 +184,7 @@ Compruebe que el archivo OVA es seguro antes de implementarlo:
         --- | --- | ---
         VMware (85,8 MB) | [La versión más reciente](https://go.microsoft.com/fwlink/?linkid=2140337) | 2daaa2a59302bf911e8ef195f8add7d7c8352de77a9af0b860e2a627979085ca
 
-
-
-
-### <a name="create-the-appliance-vm"></a>Creación de la máquina virtual del dispositivo
+### <a name="3-create-the-appliance-vm"></a>3. Creación de la máquina virtual del dispositivo
 
 Importe el archivo descargado y cree una máquina virtual.
 
@@ -207,7 +203,7 @@ Importe el archivo descargado y cree una máquina virtual.
 Asegúrese de que la VM del dispositivo pueda conectarse a las direcciones URL de Azure para las nubes [públicas](migrate-appliance.md#public-cloud-urls) y [gubernamentales](migrate-appliance.md#government-cloud-urls).
 
 
-### <a name="configure-the-appliance"></a>Configuración del dispositivo
+### <a name="4-configure-the-appliance"></a>4. Configuración del dispositivo
 
 Configure el dispositivo por primera vez.
 
@@ -263,15 +259,16 @@ El dispositivo necesita conectarse a vCenter Server para detectar los datos de c
 1. Puede **volver a validar** la conectividad a vCenter Server en cualquier momento antes de iniciar la detección.
 1. En **Paso 3: Proporcionar las credenciales de la máquina virtual para detectar las aplicaciones instaladas y para realizar la asignación de dependencias sin agente**, haga clic en **Agregar credenciales** y especifique el sistema operativo para el que se proporcionan las credenciales, el nombre descriptivo de las credenciales y el **nombre de usuario** y la **contraseña**. A continuación, haga clic en **Guardar**.
 
-    - Si lo desea, agregue las credenciales aquí si ha creado una cuenta para utilizarla en la [característica de detección de aplicaciones](how-to-discover-applications.md) o [en la característica de análisis de dependencias sin agente](how-to-create-group-machine-dependencies-agentless.md).
+    - Si lo desea, agregue las credenciales aquí si ha creado una cuenta para utilizarla con la [detección de aplicaciones](how-to-discover-applications.md) o el [análisis de dependencias sin agente](how-to-create-group-machine-dependencies-agentless.md).
     - Si no quiere usar estas características, puede hacer clic en el control deslizante para omitir el paso. Puede invertir la intención en cualquier momento más tarde.
-    - Consulte cuáles son las credenciales necesarias para la [detección de aplicaciones](migrate-support-matrix-vmware.md#application-discovery-requirements) o para el [análisis de dependencias sin agente](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless).
+    - Revise los permisos necesarios en la cuenta para la [detección de aplicaciones](migrate-support-matrix-vmware.md#application-discovery-requirements) o el [análisis de dependencia sin agente](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless).
 
 5. Haga clic en **Iniciar detección** para iniciar la detección de máquinas virtuales. Una vez que la detección se ha iniciado correctamente, puede comprobar el estado de detección de la dirección IP o el FQDN de vCenter en la tabla.
 
 La detección funciona como se indica a continuación:
 - Los metadatos de las máquinas virtuales detectadas tardan unos 15 minutos en aparecer en el portal.
 - La detección de las aplicaciones, los roles y las características instaladas tarda un rato. Todo depende del número de máquinas virtuales que se detectan. En el caso de 500 máquinas virtuales, el inventario de la aplicación tarda aproximadamente una hora en aparecer en el portal de Azure Migrate.
+- Una vez completada la detección de máquinas virtuales, puede habilitar el análisis de dependencia sin agente en las máquinas virtuales deseadas desde el portal.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

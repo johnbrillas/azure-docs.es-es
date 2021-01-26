@@ -1,15 +1,15 @@
 ---
 title: Comprender cómo funcionan las alertas de métricas en Azure Monitor.
 description: Obtenga información general acerca de lo que puede hacer con las alertas de métricas y cómo funcionan en Azure Monitor.
-ms.date: 01/11/2021
+ms.date: 01/19/2021
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: 424cc9db01f1eb6300c2915795f3e2c37b34449f
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 031768b8a72fbe9498abd3c17e0f79fd157d4f52
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98071058"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98572738"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Comprender cómo funcionan las alertas de métricas en Azure Monitor
 
@@ -26,7 +26,7 @@ Supongamos que ha creado una regla de alerta de métrica de umbral estático sim
 - Recurso de objetivo (el recurso de Azure que quiere supervisar): myVM
 - Métrica: Porcentaje de CPU
 - Tipo de condición: estática
-- Agregación de tiempo (estadística que se ejecuta sobre valores de métrica sin procesar. [Las agregaciones de tiempo compatibles](metrics-charts.md#changing-aggregation) son Min, Max, Avg, Total y Count): Average
+- Tipo de agregación (una estadística que se ejecuta sobre valores de métrica sin formato. Los [tipos de agregación admitidos](./metrics-aggregation-explained.md#aggregation-types) son Minimum [Mínima], Maximum [Máxima], Average [Media], Total, Count [Recuento]: Average
 - Período (la ventana temporal según la cual se comprueban los valores de la métrica): En los últimos 5 minutos
 - Frecuencia (es decir, la frecuencia con la que la alerta de métricas comprueba si se cumplen las condiciones): 1 min
 - Operador: Mayor que
@@ -43,7 +43,7 @@ Supongamos que ha creado una regla de alerta de métrica simple de umbrales din�
 - Recurso de objetivo (el recurso de Azure que quiere supervisar): myVM
 - Métrica: Porcentaje de CPU
 - Tipo de condición: Dinámica
-- Agregación de tiempo (estadística que se ejecuta sobre valores de métrica sin procesar. [Las agregaciones de tiempo compatibles](metrics-charts.md#changing-aggregation) son Min, Max, Avg, Total y Count): Average
+- Tipo de agregación (una estadística que se ejecuta sobre valores de métrica sin formato. Los [tipos de agregación admitidos](./metrics-aggregation-explained.md#aggregation-types) son Minimum [Mínima], Maximum [Máxima], Average [Media], Total, Count [Recuento]: Average
 - Período (la ventana temporal según la cual se comprueban los valores de la métrica): En los últimos 5 minutos
 - Frecuencia (es decir, la frecuencia con la que la alerta de métricas comprueba si se cumplen las condiciones): 1 min
 - Operador: Mayor que
@@ -65,6 +65,10 @@ Después de algún tiempo, si el uso en "myVM" vuelve a ser normal y a estar por
 
 Cuando la notificación resuelta se envíe a través del webhook o del correo electrónico, el estado de la instancia de alerta (llamada estado de supervisión) de Azure Portal también se establecerá como Resuelta.
 
+> [!NOTE]
+>
+> Cuando una regla de alerta supervisa varias condiciones, se resuelve una alerta desencadenada si al menos una de las condiciones deja de cumplirse durante tres períodos consecutivos.
+
 ### <a name="using-dimensions"></a>Usar las dimensiones
 
 Las alertas de métricas en Azure Monitor también admiten la supervisión de las combinaciones de valores de varias dimensiones con una regla. Aquí le explicaremos por qué debería usar combinaciones de varias dimensiones con la ayuda de un ejemplo.
@@ -76,7 +80,7 @@ Supongamos que tiene un plan de App Service para su sitio web. Quiere supervisar
 - Tipo de condición: estática
 - Dimensions
   - Instance = InstanceName1, InstanceName2
-- Agregación de tiempo: Average
+- Tipo de agregación: Average
 - Período: En los últimos 5 minutos
 - Frecuencia: 1 min
 - Operador: GreaterThan
@@ -91,7 +95,7 @@ Supongamos que tiene una aplicación web con una demanda masiva y es necesario a
 - Tipo de condición: estática
 - Dimensions
   - Instancia: *
-- Agregación de tiempo: Average
+- Tipo de agregación: Average
 - Período: En los últimos 5 minutos
 - Frecuencia: 1 min
 - Operador: GreaterThan
@@ -108,7 +112,7 @@ Supongamos que tiene una aplicación web con muchas instancias y no sabe cuál e
 - Tipo de condición: Dinámica
 - Dimensions
   - Instancia: *
-- Agregación de tiempo: Average
+- Tipo de agregación: Average
 - Período: En los últimos 5 minutos
 - Frecuencia: 1 min
 - Operador: GreaterThan
@@ -176,7 +180,7 @@ En este [artículo](./alerts-metric-near-real-time.md#metrics-and-dimensions-sup
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Aprenda a crear, ver y administrar las alertas de métricas en Azure](alerts-metric.md)
-- [Aprenda a crear alertas en el Explorador de métricas de Azure Monitor](./metrics-charts.md#create-alert-rules)
+- [Aprenda a crear alertas en el Explorador de métricas de Azure Monitor](./metrics-charts.md#alert-rules)
 - [Aprenda a implementar alertas de métricas con plantillas de Azure Resource Manager](./alerts-metric-create-templates.md)
 - [Obtenga más información sobre los grupos de acciones](action-groups.md)
 - [Más información sobre el tipo de condición de umbrales dinámicos](alerts-dynamic-thresholds.md)

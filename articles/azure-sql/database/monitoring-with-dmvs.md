@@ -11,18 +11,18 @@ ms.topic: how-to
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sstein
-ms.date: 04/19/2020
-ms.openlocfilehash: 480e9f9031481621ac9d568a7bd97b942f47b947
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 1/14/2021
+ms.openlocfilehash: b87d0a2446eb2b65c20ae0bef408320686cb5165
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96493651"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219137"
 ---
 # <a name="monitoring-microsoft-azure-sql-database-and-azure-sql-managed-instance-performance-using-dynamic-management-views"></a>Supervisión del rendimiento de Microsoft Azure SQL Database e Instancia administrada de Azure SQL mediante vistas de administración dinámica
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Microsoft Azure SQL Database e Instancia administrada de Azure SQL habilitan un subconjunto de vistas de administración dinámica para diagnosticar problemas de rendimiento, que pueden deberse a consultas bloqueadas o de ejecución prolongada, cuellos de botella de recursos, planes de consulta deficientes, etc. En este tema se ofrece información sobre cómo encontrar problemas comunes de rendimiento con vistas de administración dinámica.
+Microsoft Azure SQL Database e Instancia administrada de Azure SQL habilitan un subconjunto de vistas de administración dinámica para diagnosticar problemas de rendimiento, que pueden deberse a consultas bloqueadas o de ejecución prolongada, cuellos de botella de recursos, planes de consulta deficientes, etc. En este artículo se ofrece información sobre cómo encontrar problemas comunes de rendimiento con vistas de administración dinámica.
 
 Microsoft Azure SQL Database e Instancia administrada de Azure SQL admiten parcialmente tres categorías de vistas de administración dinámica:
 
@@ -254,12 +254,12 @@ GO
 
 Cuando se identifican problemas de rendimiento de E/S, los principales tipos de espera asociados a problemas de `tempdb` son `PAGELATCH_*` (no `PAGEIOLATCH_*`). Pero las esperas `PAGELATCH_*` no siempre significan que tenga contención `tempdb`.  Esta espera también puede significar que tiene contención de páginas de datos de objeto de usuario debido a solicitudes simultáneas que se destinan a la misma página de datos. Para confirmar aún más el argumento `tempdb`, utilice [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) para confirmar que el valor wait_resource comienza con `2:x:y` donde 2 indica que `tempdb` es el id. de la base de datos, `x` es el id. del archivo y `y` es el id. de la página.  
 
-En el caso de la contención de tempdb, un método común consiste en reducir o reescribir el código de la aplicación que se basa en `tempdb`.  Las áreas de uso de `tempdb` comunes incluyen:
+En el caso de la contención de tempdb, un método común consiste en reducir o reescribir el código de la aplicación que necesita de `tempdb`.  Las áreas de uso de `tempdb` comunes incluyen:
 
 - Tablas temporales
 - Variables de tabla
 - Parámetros con valores de tabla
-- Uso del almacén de versiones (específicamente asociado a transacciones de larga ejecución)
+- Uso del almacén de versiones (asociado a transacciones de larga duración)
 - Consultas que tienen planes de consultas que usan ordenaciones, combinaciones hash y colas de impresión
 
 ### <a name="top-queries-that-use-table-variables-and-temporary-tables"></a>Principales consultas que utilizan tablas temporales y variables de tabla
@@ -563,14 +563,14 @@ SELECT resource_name, AVG(avg_cpu_percent) AS Average_Compute_Utilization
 FROM sys.server_resource_stats
 WHERE start_time BETWEEN @s AND @e  
 GROUP BY resource_name  
-HAVING AVG(avg_cpu_percent) >= 80
+HAVING AVG(avg_cpu_percent) >= 80;
 ```
 
 ### <a name="sysresource_stats"></a>sys.resource_stats
 
 La vista [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) de la base de datos **maestra** proporciona información adicional que puede ayudar a supervisar el rendimiento de la base de datos en su nivel de servicio y tamaño de proceso específicos. Los datos se recopilan cada cinco minutos y se mantienen durante aproximadamente 14 días. Esta vista es útil para realizar análisis históricos a largo plazo de cómo la base de datos usa los recursos.
 
-En el siguiente gráfico se muestra el uso de recursos de CPU para una base de datos Premium con el tamaño de proceso P2 durante cada hora de una semana. Este gráfico en concreto empieza el lunes, muestra 5 días laborables y, a continuación, un fin de semana cuando hay mucha menos actividad en la aplicación.
+En el siguiente gráfico se muestra el uso de recursos de CPU para una base de datos Premium con el tamaño de proceso P2 durante cada hora de una semana. Este gráfico en concreto empieza el lunes, muestra cinco días laborables y, a continuación, un fin de semana cuando hay mucha menos actividad en la aplicación.
 
 ![Uso de recursos de la base de datos](./media/monitoring-with-dmvs/sql_db_resource_utilization.png)
 
@@ -589,7 +589,7 @@ En este ejemplo se muestra cómo se exponen los datos en esta vista:
 SELECT TOP 10 *
 FROM sys.resource_stats
 WHERE database_name = 'resource1'
-ORDER BY start_time DESC
+ORDER BY start_time DESC;
 ```
 
 ![La vista de catálogo sys.resource_stats](./media/monitoring-with-dmvs/sys_resource_stats.png)
@@ -699,7 +699,7 @@ Para ver el número de sesiones activas actuales, ejecute esta consulta de Trans
 
 ```sql
 SELECT COUNT(*) AS [Sessions]
-FROM sys.dm_exec_connections
+FROM sys.dm_exec_connections;
 ```
 
 Si va a analizar una carga de trabajo de SQL Server, modifique la consulta para centrarse en una base de datos específica. Esta consulta le ayuda a determinar las posibles necesidades de sesión para esa base de datos si la mueve a Azure.
@@ -709,7 +709,7 @@ SELECT COUNT(*) AS [Sessions]
 FROM sys.dm_exec_connections C
 INNER JOIN sys.dm_exec_sessions S ON (S.session_id = C.session_id)
 INNER JOIN sys.databases D ON (D.database_id = S.database_id)
-WHERE D.name = 'MyDatabase'
+WHERE D.name = 'MyDatabase';
 ```
 
 Nuevamente, estas consultas devuelven un número puntual. Si recopila varias muestras a lo largo de un tiempo, entenderá mejor el uso de la sesión.
@@ -743,7 +743,7 @@ ORDER BY 2 DESC;
 
 ### <a name="monitoring-blocked-queries"></a>Supervisión de consultas bloqueadas
 
-Las consultas lentas o de larga ejecución pueden contribuir al consumo excesivo de recursos y ser la consecuencia de consultas bloqueadas. La causa del bloqueo puede ser un diseño deficiente de las aplicaciones, los planes de consulta incorrectos, la falta de índices útiles, etc. Puede usar la vista sys.dm_tran_locks para obtener información sobre la actividad de bloqueo actual en su base de datos. Para obtener código de ejemplo, consulte [sys.dm_tran_locks (Transact-SQL)](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-locks-transact-sql).
+Las consultas lentas o de larga ejecución pueden contribuir al consumo excesivo de recursos y ser la consecuencia de consultas bloqueadas. La causa del bloqueo puede ser un diseño deficiente de las aplicaciones, los planes de consulta incorrectos, la falta de índices útiles, etc. Puede usar la vista sys.dm_tran_locks para obtener información sobre la actividad de bloqueo actual en su base de datos. Para obtener código de ejemplo, consulte [sys.dm_tran_locks (Transact-SQL)](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-locks-transact-sql). Para obtener más información sobre la solución de problemas de bloqueo, consulte [Descripción y resolución de problemas de bloqueo en Azure SQL](understand-resolve-blocking.md).
 
 ### <a name="monitoring-query-plans"></a>Supervisión de planes de consulta
 

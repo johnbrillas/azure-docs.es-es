@@ -3,14 +3,14 @@ title: Aplicaciones de representación
 description: Todas las aplicaciones de representación se pueden usar con Azure Batch. Sin embargo, las imágenes de máquina virtual de Azure Marketplace están disponibles con aplicaciones comunes preinstaladas.
 ms.date: 09/19/2019
 ms.topic: how-to
-ms.openlocfilehash: f876671c6ac16137c2c1cf8d40bd70860c06975b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4eefa287575d68acccb2697e1d262c7e48dab62
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85960493"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234416"
 ---
-# <a name="pre-installed-applications-on-rendering-vm-images"></a>Aplicaciones preinstaladas en imágenes de máquina virtual de representación
+# <a name="pre-installed-applications-on-batch-rendering-vm-images"></a>Aplicaciones preinstaladas en imágenes de máquina virtual de representación de Batch
 
 Todas las aplicaciones de representación se pueden usar con Azure Batch. Sin embargo, las imágenes de máquina virtual de Azure Marketplace están disponibles con aplicaciones comunes preinstaladas.
 
@@ -87,4 +87,4 @@ La lista siguiente se aplica a las imágenes de representación de Windows Serv
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para usar las imágenes de máquina virtual de representación, deben especificarse en la configuración del grupo cuando se crea; consulte las [funcionalidades del grupo de Batch para la representación](./batch-rendering-functionality.md#batch-pools).
+Para usar las imágenes de máquina virtual de representación, deben especificarse en la configuración del grupo cuando se crea; consulte las [funcionalidades del grupo de Batch para la representación](./batch-rendering-functionality.md).

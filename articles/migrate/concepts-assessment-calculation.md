@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 05/27/2020
-ms.openlocfilehash: f8a4f29114f7e0a2ed7868f01e05e25c8a0d0ce1
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 9bdf907ede2c09f7e314df619cd81059956f17dc
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96752233"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567741"
 ---
 # <a name="server-assessment-overview-migrate-to-azure-vms"></a>Introducción a la evaluación del servidor (migración a máquinas virtuales de Azure)
 
@@ -268,8 +268,14 @@ En esta tabla se muestran las clasificaciones de confianza de la evaluación, qu
 Estos son algunos de los motivos por los que una evaluación puede obtener una clasificación de confianza baja:
 
 - No ha generado un perfil de su entorno durante el tiempo que ha estado creando la evaluación. Por ejemplo, si crea la evaluación con la duración de rendimiento establecida en un día, debe esperar al menos un día después de empezar la detección para que se recopilen todos los puntos de datos.
-- Se apagaron algunas máquinas virtuales en el período durante el que se calculó la evaluación. Si alguna máquina virtual se apaga durante un tiempo, Server Assessment no puede recopilar los datos de rendimiento de ese período.
-- Se crearon algunas máquinas virtuales en el período durante el que se calculó la evaluación. Por ejemplo, supongamos que ha creado una evaluación para el historial de rendimiento del último mes, pero algunas máquinas virtuales se han creado hace solo una semana. El historial de rendimiento de las nuevas máquinas virtuales no existirá durante todo el tiempo.
+- La evaluación no puede recopilar los datos de rendimiento de algunas o de todas las VM en el período de evaluación. Para obtener una clasificación de confianza alta, asegúrese de que: 
+    - Las VM estén activadas mientras dure la evaluación.
+    - Se permiten las conexiones salientes en los puertos 443.
+    - La memoria dinámica está habilitada en las VM dinámicas de Hyper-V. 
+    
+    "Recalcule" la evaluación para reflejar los cambios más recientes en la clasificación de confianza.
+
+- Se crearon algunas máquinas virtuales en el período durante el que se calculó la evaluación. Por ejemplo, supongamos que ha creado una evaluación para el historial de rendimiento del último mes, pero algunas máquinas virtuales se han creado hace solo una semana. En este caso, los datos de rendimiento de las nuevas máquinas virtuales no estarán disponibles en ningún momento y la clasificación de confianza sería baja.
 
 > [!NOTE]
 > Si la clasificación de confianza de una evaluación no llega a las cinco estrellas, se recomienda que espere al menos un día para que el dispositivo genere el perfil del entorno y luego recalcule la evaluación. De lo contrario, el tamaño basado en el rendimiento podría ser poco confiable. En ese caso, se recomienda cambiar la evaluación a un ajuste de tamaño local.

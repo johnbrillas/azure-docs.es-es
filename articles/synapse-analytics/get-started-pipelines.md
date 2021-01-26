@@ -9,13 +9,13 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: pipeline
 ms.topic: tutorial
-ms.date: 10/27/2020
-ms.openlocfilehash: af01d5b5e424dd5ea229115f7aa3570d0b7cd511
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.date: 12/31/2020
+ms.openlocfilehash: 2ea7c3c440fcf95e4512464333efe8461788bceb
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92744930"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219409"
 ---
 # <a name="integrate-with-pipelines"></a>Integración con las canalizaciones
 
@@ -26,14 +26,19 @@ En este tutorial, aprenderá a integrar las canalizaciones y las actividades med
 En Azure Synapse, puede organizar una gran variedad de tareas.
 
 1. En Synapse Studio, vaya al centro **Integrate** (Integración).
-1. Seleccione **+**  > **Canalización** para crear una canalización.
-1. Vaya al centro de conectividad **Develop** (Desarrollo) y seleccione uno de los cuadernos que creó anteriormente.
-1. Arrastre el cuaderno a la canalización ( **Nota** : Agregue el paso de los módulos de importación en el cuaderno, tal y como se especifica en el [documento](https://docs.microsoft.com/azure/synapse-analytics/spark/synapse-spark-sql-pool-import-export#transfer-data-to-or-from-a-sql-pool-attached-with-the-workspace). Estos módulos son necesarios durante la ejecución desde la canalización).
+1. Seleccione **+**  > **Canalización** para crear una canalización. Haga clic en el nuevo objeto de canalización para abrir el diseñador de canalizaciones.
+1. En **Actividades**, expanda la carpeta **Synapse** y arrastre un objeto **Cuaderno** al diseñador.
+1. Seleccione la pestaña **Configuración** de las propiedades de la actividad del cuaderno. Use la lista desplegable para seleccionar un cuaderno del área de trabajo actual de Synapse. 
 1. En la canalización, seleccione **Agregar desencadenador** > **Nuevo/editar**.
 1. En **Choose trigger** (Elegir desencadenador), seleccione **New** (Nuevo) y establezca el valor de **Recurrence** (Periodicidad) en "cada 1 hora".
 1. Seleccione **Aceptar**. 
-1. Seleccione **Publish All** (Publicar todo).
-1. Para que la canalización se ejecute inmediatamente sin esperar a la próxima hora, seleccione **Add trigger** > **Trigger now** (Agregar desencadenador > Desencadenar ahora).
+1. Seleccione **Publish All** (Publicar todo). 
+
+
+## <a name="monitor-pipeline"></a>Supervisión de la canalización
+
+1. Una vez que se publica la canalización, para que se ejecute inmediatamente sin esperar a la próxima hora, seleccione **Agregar desencadenador** > **Trigger now** (Desencadenar ahora).
+1. En Synapse Studio, vaya al centro **Supervisión** y seleccione **Pipeline runs** (Ejecuciones de canalización) para supervisar el progreso de la ejecución de la canalización.
 
 
 
@@ -41,4 +46,3 @@ En Azure Synapse, puede organizar una gran variedad de tareas.
 
 > [!div class="nextstepaction"]
 > [Visualización de datos con Power BI](get-started-visualize-power-bi.md)
-                                 

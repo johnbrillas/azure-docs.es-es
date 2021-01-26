@@ -2,15 +2,15 @@
 title: Resolución de problemas de Update Management de Azure Automation
 description: En este artículo se describe cómo solucionar y resolver problemas con Update Management de Azure Automation.
 services: automation
-ms.date: 12/04/2020
+ms.date: 01/13/2021
 ms.topic: conceptual
 ms.service: automation
-ms.openlocfilehash: c6d0f38eaa25f2fe033a5e2cf48ee6daa51fcbe6
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 55e58c92004f4f4cf4ba6a96620b4f037c80cdb4
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96929283"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246271"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Solución de problemas de Update Management
 
@@ -144,13 +144,11 @@ Este problema puede deberse a problemas de configuración local o a que la confi
    | summarize by Computer, Solutions
    ```
 
-4. Si no ve la máquina en los resultados de la consulta, significa que no se ha registrado recientemente. Probablemente haya un problema de configuración local y debe [volver a instalar el agente](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows).
+    Si no ve la máquina en los resultados de la consulta, significa que no se ha registrado recientemente. Probablemente haya un problema de configuración local y debe [volver a instalar el agente](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows).
 
-5. Si el equipo aparece en los resultados de la consulta, compruebe los problemas de configuración de ámbito. La [configuración de ámbito](../update-management/scope-configuration.md) determina qué máquinas se configuran para Update Management.
+    Si el equipo aparece en los resultados de la consulta, compruebe en la propiedad **Solutions** que aparezca **updates**. Así se comprueba si está registrado en Update Management. Si no es así, compruebe si hay problemas de configuración de ámbito. La [configuración de ámbito](../update-management/scope-configuration.md) determina qué máquinas se configuran para Update Management. Para configurar el ámbito para el equipo de destino, vea [Habilitación de máquinas en el área de trabajo](../update-management/enable-from-automation-account.md#enable-machines-in-the-workspace).
 
-6. Si la máquina aparece en el área de trabajo, pero no se muestra en Update Management, debe realizar la configuración de ámbito para dirigirse a la máquina. Para obtener información sobre cómo hacerlo, consulte [Habilitación de máquinas en el área de trabajo](../update-management/enable-from-automation-account.md#enable-machines-in-the-workspace).
-
-7. En el área de trabajo, ejecute esta consulta.
+4. En el área de trabajo, ejecute esta consulta.
 
    ```kusto
    Operation
@@ -158,13 +156,13 @@ Este problema puede deberse a problemas de configuración local o a que la confi
    | sort by TimeGenerated desc
    ```
 
-8. Si recibe el resultado `Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota`, significa que la cuota definida en el área de trabajo se ha alcanzado, lo que ha impedido que se guarden los datos. En el área de trabajo, vaya a **Administración del volumen de datos** en **Usos y costos estimados** y cambie o elimine su cuota.
+   Si recibe el resultado `Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota`, significa que la cuota definida en el área de trabajo se ha alcanzado, lo que ha impedido que se guarden los datos. En el área de trabajo, vaya a **Administración del volumen de datos** en **Usos y costos estimados** y cambie o elimine su cuota.
 
-9. Si el problema no se resuelve, siga los pasos descritos en [Implementación de Hybrid Runbook Worker en Windows](../automation-windows-hrw-install.md) para volver a instalar Hybrid Worker para Windows. Para Linux, siga los pasos que aparecen en [Implementación de Hybrid Runbook Worker en Linux](../automation-linux-hrw-install.md).
+5. Si el problema no se resuelve, siga los pasos descritos en [Implementación de Hybrid Runbook Worker en Windows](../automation-windows-hrw-install.md) para volver a instalar Hybrid Worker para Windows. Para Linux, siga los pasos que aparecen en [Implementación de Hybrid Runbook Worker en Linux](../automation-linux-hrw-install.md).
 
 ## <a name="scenario-unable-to-register-automation-resource-provider-for-subscriptions"></a><a name="rp-register"></a>Escenario: No se puede registrar el proveedor de recursos de Automation para las suscripciones
 
-### <a name="issue"></a>Problema
+### <a name="issue"></a>Incidencia
 
 Al trabajar con implementaciones de características en la cuenta de Automation, se produce el siguiente error:
 
@@ -192,7 +190,7 @@ Para registrar el proveedor de recursos de Automation, realice los pasos siguien
 
 ## <a name="scenario-scheduled-update-with-a-dynamic-schedule-missed-some-machines"></a><a name="scheduled-update-missed-machines"></a>Escenario: Faltan algunas máquinas en la actualización programada con una programación dinámica
 
-### <a name="issue"></a>Problema
+### <a name="issue"></a>Incidencia
 
 No aparecen todas las máquinas incluidas en una versión preliminar de la actualización en la lista de máquinas revisadas durante una ejecución programada.
 
@@ -242,7 +240,7 @@ Utilice el procedimiento siguiente si la suscripción está configurada para el 
 
 ## <a name="scenario-expected-machines-dont-appear-in-preview-for-dynamic-group"></a><a name="machines-not-in-preview"></a>Escenario: Las máquinas esperadas no aparecen en la versión preliminar del grupo dinámico
 
-### <a name="issue"></a>Problema
+### <a name="issue"></a>Incidencia
 
 Las máquinas virtuales de los ámbitos seleccionados de un grupo dinámico no aparecen en la lista de versión preliminar de Azure Portal. Esta lista consta de todas las máquinas recuperadas por una consulta de ARG para los ámbitos seleccionados. Los ámbitos se filtran para las máquinas que tienen instalado Hybrid Runbook Worker y para las que tiene permisos de acceso.
 
@@ -307,7 +305,7 @@ Las máquinas aparecen en los resultados de la consulta de ARG, pero todavía no
 
 ## <a name="scenario-update-management-components-enabled-while-vm-continues-to-show-as-being-configured"></a><a name="components-enabled-not-working"></a>Escenario: Componentes de Update Management habilitados, mientras la máquina virtual se sigue mostrando como configurada
 
-### <a name="issue"></a>Problema
+### <a name="issue"></a>Incidencia
 
 Continúa recibiendo el mensaje siguiente en una máquina virtual 15 minutos después de la implementación:
 
@@ -361,7 +359,7 @@ Si usa una imagen clonada, los distintos nombres de equipo tienen el mismo ident
 
 ## <a name="scenario-you-receive-a-linked-subscription-error-when-you-create-an-update-deployment-for-machines-in-another-azure-tenant"></a><a name="multi-tenant"></a>Escenario: Recibe un error de la suscripción vinculada al crear una implementación de actualización para las máquinas en otro inquilino de Azure
 
-### <a name="issue"></a>Problema
+### <a name="issue"></a>Incidencia
 
 Encuentra el error siguiente al intentar crear una implementación de actualización para las máquinas en otro inquilino de Azure:
 
@@ -389,7 +387,7 @@ New-AzAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationA
 
 ## <a name="scenario-unexplained-reboots"></a><a name="node-reboots"></a>Escenario: Reinicios inexplicables
 
-### <a name="issue"></a>Problema
+### <a name="issue"></a>Incidencia
 
 Aunque haya establecido la opción **Reboot Control** (Control de reinicio) en **No reiniciar nunca**, las máquinas todavía se reinician después de instalar las actualizaciones.
 
@@ -403,7 +401,7 @@ Revise las claves del Registro enumeradas en [Configuración de actualizaciones 
 
 ## <a name="scenario-machine-shows-failed-to-start-in-an-update-deployment"></a><a name="failed-to-start"></a>Escenario: Una máquina muestra "No se pudo iniciar" en una implementación de actualizaciones
 
-### <a name="issue"></a>Problema
+### <a name="issue"></a>Incidencia
 
 Una máquina muestra un estado `Failed to start`. Al ver los detalles específicos de la máquina, ve el siguiente error:
 
@@ -425,12 +423,12 @@ Este problema puede ocurrir debido a uno de los siguientes motivos:
 
 Cuando proceda, use [grupos dinámicos](../update-management/configure-groups.md) para las implementaciones de actualizaciones. Además, puede llevar a cabo los pasos siguientes.
 
-1. Compruebe si la máquina o el servidor cumplen los [requisitos](../update-management/overview.md#client-requirements).
+1. Compruebe si la máquina o el servidor cumplen los [requisitos](../update-management/overview.md#system-requirements).
 2. Compruebe la conectividad con el Hybrid Runbook Worker mediante el solucionador de problemas del agente de Hybrid Runbook Worker. Para más información sobre el solucionador de problemas, consulte el artículo sobre [cómo solucionar problemas con el agente de actualización](update-agent-issues.md).
 
 ## <a name="scenario-updates-are-installed-without-a-deployment"></a><a name="updates-nodeployment"></a>Escenario: Las actualizaciones se instalan sin una implementación
 
-### <a name="issue"></a>Problema
+### <a name="issue"></a>Incidencia
 
 Al inscribir una máquina Windows en Update Management, puede ver las actualizaciones instaladas sin una implementación.
 
@@ -448,7 +446,7 @@ Para más información, consulte [Configuración de actualizaciones automáticas
 
 ## <a name="scenario-machine-is-already-registered-to-a-different-account"></a><a name="machine-already-registered"></a>Escenario: La máquina ya está registrada en otra cuenta
 
-### <a name="issue"></a>Problema
+### <a name="issue"></a>Incidencia
 
 Aparece el siguiente mensaje de error:
 
@@ -467,7 +465,7 @@ La máquina ya se ha implementado en otra área de trabajo para Update Managemen
 
 ## <a name="scenario-machine-cant-communicate-with-the-service"></a><a name="machine-unable-to-communicate"></a>Escenario: La máquina no se puede comunicar con el servicio
 
-### <a name="issue"></a>Problema
+### <a name="issue"></a>Incidencia
 
 Aparece uno de los siguientes mensajes de error:
 
@@ -497,7 +495,7 @@ Revise la red y asegúrese de que están permitidas las direcciones y los puerto
 
 ## <a name="scenario-unable-to-create-self-signed-certificate"></a><a name="unable-to-create-selfsigned-cert"></a>Escenario: Error al crear el certificado autofirmado
 
-### <a name="issue"></a>Problema
+### <a name="issue"></a>Incidencia
 
 Aparece uno de los siguientes mensajes de error:
 
@@ -515,7 +513,7 @@ Verifique que la cuenta del sistema tiene acceso de lectura a la carpeta **C:\Pr
 
 ## <a name="scenario-the-scheduled-update-failed-with-a-maintenancewindowexceeded-error"></a><a name="mw-exceeded"></a>Escenario: Error en la actualización programada con un error MaintenanceWindowExceeded
 
-### <a name="issue"></a>Problema
+### <a name="issue"></a>Incidencia
 
 La ventana de mantenimiento predeterminada para las actualizaciones es de 120 minutos. Puede aumentar la ventana de mantenimiento a un máximo de seis 6 horas o 360 minutos.
 
@@ -529,7 +527,7 @@ Para más información sobre las ventanas de mantenimiento, consulte la [instala
 
 ## <a name="scenario-machine-shows-as-not-assessed-and-shows-an-hresult-exception"></a><a name="hresult"></a>Escenario: La máquina aparece como "No evaluado" y se muestra una excepción HRESULT
 
-### <a name="issue"></a>Problema
+### <a name="issue"></a>Incidencia
 
 * Tiene máquinas que aparecen como `Not assessed` en **Cumplimiento** y verá un mensaje de excepción debajo de él.
 * Se muestra un código de error HRESULT en el portal.
@@ -574,7 +572,7 @@ También puede descargar y ejecutar el [solucionador de problemas de Windows Upd
 
 ## <a name="scenario-update-run-returns-failed-status-linux"></a>Escenario: La ejecución de la actualización devuelve un estado Error (Linux)
 
-### <a name="issue"></a>Problema
+### <a name="issue"></a>Incidencia
 
 Se inicia una ejecución de actualización, pero encuentra errores durante la ejecución.
 

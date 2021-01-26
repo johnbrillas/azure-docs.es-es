@@ -5,14 +5,14 @@ services: iot-hub
 author: jlian
 ms.service: iot-fundamentals
 ms.topic: conceptual
-ms.date: 11/25/2020
+ms.date: 01/14/2020
 ms.author: jlian
-ms.openlocfilehash: f4438aebcb81d665a19a595ac7ade4fea27fc43f
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: d36a7917693aef9063ade473759f2f451d3a677f
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96621015"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234025"
 ---
 # <a name="transport-layer-security-tls-support-in-iot-hub"></a>Compatibilidad de la Seguridad de la capa de transporte (TLS) con IoT Hub
 
@@ -46,9 +46,16 @@ Para mayor seguridad, configure IoT Hub para que *solo* permita conexiones de c
 * Centro-sur de EE. UU.
 * Oeste de EE. UU. 2
 * US Gov: Arizona
-* US Gov - Virginia
+* US Gov Virginia (la compatibilidad con TLS 1.0/1.1 no está disponible en esta región: la aplicación TLS 1.2 debe estar habilitada o se producirá un error en la creación de un centro de IoT)
 
-Para ello, aprovisione un nuevo recurso de IoT Hub en cualquiera de las regiones admitidas y establezca la propiedad `minTlsVersion` como `1.2` en la especificación de recursos de IoT Hub de la plantilla de Azure Resource Manager:
+Para habilitar la aplicación de TLS 1.2, siga los pasos descritos en [Creación de una instancia de IoT Hub mediante Azure Portal](iot-hub-create-through-portal.md), con la siguiente variación
+
+- Elija una **Región** de entre la lista anterior.
+- En **Administración -> Avanzado -> Seguridad de capa de transporte (TLS) -> Versión de TLS mínima**, seleccione **1.2**. Esta configuración solo aparece para los centros de IoT creados en la región admitida.
+
+    :::image type="content" source="media/iot-hub-tls-12-enforcement.png" alt-text="Captura de pantalla que muestra cómo activar la aplicación de TLS 1.2 durante la creación de un centro de IoT":::
+
+Para usar una plantilla de ARM para la creación, aprovisione una nueva instancia de IoT Hub en cualquiera de las regiones admitidas y establezca la propiedad `minTlsVersion` en `1.2` en la especificación de recursos:
 
 ```json
 {

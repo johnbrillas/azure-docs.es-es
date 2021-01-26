@@ -6,12 +6,12 @@ ms.date: 11/04/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 7c5cac0b52fb0a224595ca7e328b551fd48d6661
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 953a9cfeed558291fba1cb517039f26860444904
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97614241"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233668"
 ---
 # <a name="configuration-options---azure-monitor-application-insights-for-java"></a>Opciones de configuración: Application Insights de Azure Monitor para Java
 
@@ -39,14 +39,14 @@ Encontrará más detalles y opciones de configuración adicionales a continuaci�
 
 ## <a name="configuration-file-path"></a>Ruta del archivo de configuración
 
-De forma predeterminada, Application Insights Java 3.0 espera que el archivo de configuración se denomine `applicationinsights.json` y que se encuentre en el mismo directorio que `applicationinsights-agent-3.0.0.jar`.
+De forma predeterminada, Application Insights Java 3.0 espera que el archivo de configuración se denomine `applicationinsights.json` y que se encuentre en el mismo directorio que `applicationinsights-agent-3.0.1.jar`.
 
 Puede especificar la ruta de acceso a su propio archivo de configuración mediante
 
 * la variable de entorno `APPLICATIONINSIGHTS_CONFIGURATION_FILE`, o
 * la propiedad del sistema Java `applicationinsights.configuration.file`.
 
-Si especifica una ruta de acceso relativa, se resolverá de forma relativa al directorio en el que se encuentra `applicationinsights-agent-3.0.0.jar`.
+Si especifica una ruta de acceso relativa, se resolverá de forma relativa al directorio en el que se encuentra `applicationinsights-agent-3.0.1.jar`.
 
 ## <a name="connection-string"></a>Cadena de conexión
 
@@ -170,7 +170,7 @@ Si desea agregar dimensiones personalizadas a toda la telemetría:
 `${...}` se puede usar para leer el valor de la variable de entorno especificada en el inicio.
 
 > [!NOTE]
-> A partir de la versión 3.0.1-BETA, si agrega una dimensión personalizada denominada `service.version`, el valor se almacenará en la columna `application_Version` de la tabla de registros de Application Insights en lugar de como una dimensión personalizada.
+> A partir de la versión 3.0.1, si agrega una dimensión personalizada denominada `service.version`, el valor se almacenará en la columna `application_Version` de la tabla de registros de Application Insights en lugar de como una dimensión personalizada.
 
 ## <a name="telemetry-processors-preview"></a>Procesadores de telemetría (versión preliminar)
 
@@ -233,6 +233,35 @@ Para deshabilitar la recopilación automática de métricas de Micrometer (inclu
 {
   "instrumentation": {
     "micrometer": {
+      "enabled": false
+    }
+  }
+}
+```
+
+## <a name="suppressing-specific-auto-collected-telemetry"></a>Supresión de la telemetría específica recopilada automáticamente
+
+A partir de la versión 3.0.1, se puede suprimir la telemetría específica recopilada automáticamente mediante estas opciones de configuración:
+
+```json
+{
+  "instrumentation": {
+    "cassandra": {
+      "enabled": false
+    },
+    "jdbc": {
+      "enabled": false
+    },
+    "kafka": {
+      "enabled": false
+    },
+    "micrometer": {
+      "enabled": false
+    },
+    "mongo": {
+      "enabled": false
+    },
+    "redis": {
       "enabled": false
     }
   }
@@ -309,7 +338,7 @@ De forma predeterminada, Application Insights Java 3.0 registra en el nivel `INF
 
 `level` puede ser uno de `OFF`, `ERROR`, `WARN`, `INFO`, `DEBUG` o `TRACE`.
 
-`path` incluye una ruta de acceso absoluta o relativa. Las rutas de acceso relativas se resuelven en el directorio donde se encuentra `applicationinsights-agent-3.0.0.jar`.
+`path` incluye una ruta de acceso absoluta o relativa. Las rutas de acceso relativas se resuelven en el directorio donde se encuentra `applicationinsights-agent-3.0.1.jar`.
 
 `maxSizeMb` es el tamaño máximo del archivo de registro antes de que se revierta.
 

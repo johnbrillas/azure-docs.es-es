@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 05/15/2020
+ms.date: 01/15/2021
 ms.author: jingwang
-ms.openlocfilehash: 4f5d691ef99ac4647d2031d6588d0b3922edd8cf
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: dfd2ed47c3fd963d7e119d235719771b25bdaf34
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505995"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98249523"
 ---
 # <a name="copy-data-securely-from-azure-blob-storage-to-a-sql-database-by-using-private-endpoints"></a>Copia de datos de forma segura desde Azure Blob Storage a SQL Database mediante puntos de conexión privados
 
@@ -78,22 +78,22 @@ En este paso, creará una factoría de datos e iniciará la interfaz de usuario 
 
 1. En el menú de la izquierda, seleccione **Crear un recurso** > **Analytics** > **Data Factory**.
 
-1. En la página **Nueva factoría de datos** , en **Nombre** , escriba **ADFTutorialDataFactory**.
+1. En la página **Nueva factoría de datos**, en **Nombre**, escriba **ADFTutorialDataFactory**.
 
    El nombre de la instancia de Azure Data Factory debe ser *único de forma global*. Si recibe un mensaje de error sobre el valor de nombre, escriba un nombre diferente para la factoría de datos (por ejemplo, yournameADFTutorialDataFactory). Para conocer las reglas de nomenclatura de los artefactos de Data Factory, consulte [Azure Data Factory: reglas de nomenclatura](./naming-rules.md).
 
 1. Seleccione la **suscripción** de Azure en la que quiere crear la factoría de datos.
 
-1. Para **Grupo de recursos** , realice uno de los siguientes pasos:
+1. Para **Grupo de recursos**, realice uno de los siguientes pasos:
 
     - Seleccione en primer lugar **Usar existente** y después un grupo de recursos de la lista desplegable.
     - Seleccione **Crear nuevo** y escriba el nombre de un grupo de recursos. 
      
     Para más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/management/overview.md). 
 
-1. En **Versión** , seleccione **V2**.
+1. En **Versión**, seleccione **V2**.
 
-1. En **Ubicación** , seleccione la ubicación de la factoría de datos. En la lista desplegable solo aparecen las ubicaciones que se admiten. Los almacenes de datos (por ejemplo, Azure Storage y SQL Database) y los procesos (por ejemplo, Azure HDInsight) que usa la factoría de datos pueden estar en otras regiones.
+1. En **Ubicación**, seleccione la ubicación de la factoría de datos. En la lista desplegable solo aparecen las ubicaciones que se admiten. Los almacenes de datos (por ejemplo, Azure Storage y SQL Database) y los procesos (por ejemplo, Azure HDInsight) que usa la factoría de datos pueden estar en otras regiones.
 
 1. Seleccione **Crear**.
 
@@ -107,7 +107,8 @@ En este paso se crea una instancia de Azure Integration Runtime y se habilita un
 1. En el portal de Data Factory, vaya a **Administrar** y seleccione **Nuevo** para crear una instancia nueva de Azure Integration Runtime.
 
    ![Captura de pantalla que muestra la creación de una nueva instancia de Azure Integration Runtime.](./media/tutorial-copy-data-portal-private/create-new-azure-ir.png)
-1. Elija crear un entorno de ejecución de integración de **Azure**.
+1. En la página **Integration runtime setup** (Configuración de Integration Runtime), elija qué entorno de ejecución de integración va a crear según las funcionalidades necesarias. En este tutorial, seleccione **Azure, Self-Hosted** (Azure, autohospedado) y, luego, haga clic en **Continuar**. 
+1. Seleccione **Azure** y, luego, haga clic en **Continuar** para crear un entorno de ejecución de integración de Azure.
 
    ![Captura de pantalla que muestra una nueva instancia de Azure Integration Runtime.](./media/tutorial-copy-data-portal-private/azure-ir.png)
 1. En **Configuración de red virtual (versión preliminar)** , seleccione **Habilitar**.
@@ -129,14 +130,14 @@ En este tutorial, comenzará por crear una canalización. A continuación, crear
    ![Captura de pantalla que muestra la creación de una canalización.](./media/doc-common-process/get-started-page.png)
 1. En el panel de propiedades de la canalización, escriba **CopyPipeline** como nombre de la canalización.
 
-1. En el cuadro de herramientas **Actividades** , expanda la categoría **Mover y transformar** y arrastre la actividad **Copiar datos** desde el cuadro de herramientas hasta la superficie de diseño de la canalización. Especifique **CopyFromBlobToSql** como nombre.
+1. En el cuadro de herramientas **Actividades**, expanda la categoría **Mover y transformar** y arrastre la actividad **Copiar datos** desde el cuadro de herramientas hasta la superficie de diseño de la canalización. Especifique **CopyFromBlobToSql** como nombre.
 
     ![Captura de pantalla que muestra la actividad de copia.](./media/tutorial-copy-data-portal-private/drag-drop-copy-activity.png)
 
 ### <a name="configure-a-source"></a>Configuración de un origen de datos
 
 >[!TIP]
->En este tutorial, usará **Clave de cuenta** como el tipo de autenticación para el almacén de datos de origen. También puede elegir otros métodos de autenticación admitidos, como **URI de SAS** , **Entidad de servicio** e **Identidad administrada** , si es necesario. Para obtener más información, consulte las secciones correspondientes en [Copia y transformación de datos en Azure Blob Storage mediante Azure Data Factory](./connector-azure-blob-storage.md#linked-service-properties).
+>En este tutorial, usará **Clave de cuenta** como el tipo de autenticación para el almacén de datos de origen. También puede elegir otros métodos de autenticación admitidos, como **URI de SAS**,**Entidad de servicio** e **Identidad administrada**, si es necesario. Para obtener más información, consulte las secciones correspondientes en [Copia y transformación de datos en Azure Blob Storage mediante Azure Data Factory](./connector-azure-blob-storage.md#linked-service-properties).
 >
 >Para almacenar los secretos de los almacenes de datos de forma segura, también se recomienda usar su instancia de Azure Key Vault. Para obtener más información e ilustraciones, consulte [Almacenamiento de credenciales en Azure Key Vault](./store-credentials-in-key-vault.md).
 
@@ -146,9 +147,9 @@ En este tutorial, comenzará por crear una canalización. A continuación, crear
 
 1. En el cuadro de diálogo **New Dataset** (Nuevo conjunto de datos), seleccione **Azure Blob Storage** y, después, seleccione **Continue** (Continuar). Los datos de origen están en Blob Storage, así que seleccionará **Azure Blob Storage** como conjunto de datos de origen.
 
-1. En el cuadro de diálogo **Seleccionar formato** , elija el tipo de formato de los datos y, después, seleccione **Continuar**.
+1. En el cuadro de diálogo **Seleccionar formato**, elija el tipo de formato de los datos y, después, seleccione **Continuar**.
 
-1. En el cuadro de diálogo **Establecer propiedades** , escriba **SourceBlobDataset** como **Nombre**. Active la casilla **First row as header** (Primera fila como encabezado). En el cuadro de texto **Linked service** (Servicio vinculado), seleccione **+ New** (+ Nuevo).
+1. En el cuadro de diálogo **Establecer propiedades**, escriba **SourceBlobDataset** como **Nombre**. Active la casilla **First row as header** (Primera fila como encabezado). En el cuadro de texto **Linked service** (Servicio vinculado), seleccione **+ New** (+ Nuevo).
 
 1. En el cuadro de diálogo **New linked service (Azure Blob Storage)** [Nuevo servicio vinculado (Azure Blob Storage)], escriba **AzureStorageLinkedService** como **Nombre** y seleccione su cuenta de almacenamiento en la lista **Nombre de la cuenta de almacenamiento**. 
 
@@ -168,9 +169,9 @@ En este tutorial, comenzará por crear una canalización. A continuación, crear
 
 1. Una vez creado el servicio vinculado, se dirige a la página **Establecer propiedades**. Junto a **File path** (Ruta de acceso del archivo), seleccione **Browse** (Examinar).
 
-1. Vaya a la carpeta **adftutorial/input** , seleccione el archivo **emp.txt** y, luego, **Finalizar**.
+1. Vaya a la carpeta **adftutorial/input**, seleccione el archivo **emp.txt** y, luego, **Finalizar**.
 
-1. Seleccione **Aceptar**. Se dirige automáticamente a la página de canalización. En la pestaña **Origen** , confirme que se selecciona **SourceBlobDataset**. Para obtener una vista previa de los datos de esta página, seleccione **Preview data** (Vista previa de los datos).
+1. Seleccione **Aceptar**. Se dirige automáticamente a la página de canalización. En la pestaña **Origen**, confirme que se selecciona **SourceBlobDataset**. Para obtener una vista previa de los datos de esta página, seleccione **Preview data** (Vista previa de los datos).
 
     ![Captura de pantalla que muestra el panel Conjunto de datos de origen.](./media/tutorial-copy-data-portal-private/source-dataset-selected.png)
 
@@ -215,16 +216,16 @@ Si no seleccionó el hipervínculo al probar la conexión, siga la ruta de acces
 
 ### <a name="configure-a-sink"></a>Configuración de un receptor
 >[!TIP]
->En este tutorial, usará **Autenticación de SQL** como el tipo de autenticación para el almacén de datos del receptor. También puede elegir otros métodos de autenticación admitidos, como **Entidad de servicio** e **Identidad administrada** , si es necesario. Para obtener más información, consulte las secciones correspondientes en [Copia y transformación de datos en Azure SQL Database mediante Azure Data Factory](./connector-azure-sql-database.md#linked-service-properties).
+>En este tutorial, usará **Autenticación de SQL** como el tipo de autenticación para el almacén de datos del receptor. También puede elegir otros métodos de autenticación admitidos, como **Entidad de servicio** e **Identidad administrada**, si es necesario. Para obtener más información, consulte las secciones correspondientes en [Copia y transformación de datos en Azure SQL Database mediante Azure Data Factory](./connector-azure-sql-database.md#linked-service-properties).
 >
 >Para almacenar los secretos de los almacenes de datos de forma segura, también se recomienda usar su instancia de Azure Key Vault. Para obtener más información e ilustraciones, consulte [Almacenamiento de credenciales en Azure Key Vault](./store-credentials-in-key-vault.md).
 
 #### <a name="create-a-sink-dataset-and-linked-service"></a>Creación de un conjunto de datos receptor y un servicio vinculado
 1. Vaya a la pestaña **Sink** (Receptor) y seleccione **+ New** (+Nuevo) para crear un conjunto de datos del receptor.
 
-1. En el cuadro de diálogo **Nuevo conjunto de datos** , escriba **SQL** en el cuadro de búsqueda para filtrar los conectores. Seleccione **Azure SQL Database** y luego **Continuar**. En este tutorial, copiará los datos en una base de datos SQL.
+1. En el cuadro de diálogo **Nuevo conjunto de datos**, escriba **SQL** en el cuadro de búsqueda para filtrar los conectores. Seleccione **Azure SQL Database** y luego **Continuar**. En este tutorial, copiará los datos en una base de datos SQL.
 
-1. En el cuadro de diálogo **Establecer propiedades** , escriba **OutputSqlDataset** como **Nombre**. En la lista desplegable **Servicio vinculado** , seleccione **+ Nuevo**. Un conjunto de datos debe estar asociado con un servicio vinculado. El servicio vinculado tiene la cadena de conexión que usa Data Factory para conectarse a la base de datos SQL en tiempo de ejecución. El conjunto de datos especifica el contenedor, la carpeta y el archivo (opcional) donde se copian los datos.
+1. En el cuadro de diálogo **Establecer propiedades**, escriba **OutputSqlDataset** como **Nombre**. En la lista desplegable **Servicio vinculado**, seleccione **+ Nuevo**. Un conjunto de datos debe estar asociado con un servicio vinculado. El servicio vinculado tiene la cadena de conexión que usa Data Factory para conectarse a la base de datos SQL en tiempo de ejecución. El conjunto de datos especifica el contenedor, la carpeta y el archivo (opcional) donde se copian los datos.
 
 1. En el cuadro de diálogo **New linked service (Azure SQL Database)** [Nuevo servicio vinculado (Azure SQL Database)], realice los siguientes pasos:
 

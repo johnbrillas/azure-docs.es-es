@@ -4,12 +4,12 @@ description: Referencia de Azure Monitor para conocer el esquema de los eventos 
 ms.subservice: logs
 ms.topic: reference
 ms.date: 12/09/2020
-ms.openlocfilehash: c7b2d48b40843930bba78f54d2294769d952daf6
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: aeac069b4e9382867664a82af62e29e72da7585e
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96931238"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98232255"
 ---
 # <a name="supported-categories-for-azure-resource-logs"></a>Categorías admitidas en los registros de recursos de Azure
 
@@ -34,7 +34,7 @@ Es posible que algunas categorías solo se admitan para tipos específicos de re
 Si todavía falta algo, puede escribir un comentario de GitHub en la parte inferior de este artículo.
 ## <a name="microsoftanalysisservicesservers"></a>Microsoft.AnalysisServices/servers
 
-Costo: Gratuito 
+Costo de exportación: Gratuito 
 
 |Category |Nombre para mostrar de categoría|
 |---|---|
@@ -44,7 +44,7 @@ Costo: Gratuito
 
 ## <a name="microsoftapimanagementservice"></a>Microsoft.ApiManagement/service
 
-Costo: Gratuito 
+Costo de exportación: Gratuito 
 
 |Category |Nombre para mostrar de categoría|
 |---|---|
@@ -53,7 +53,7 @@ Costo: Gratuito
 
 ## <a name="microsoftappplatformspring"></a>Microsoft.AppPlatform/Spring
 
-Costo: Gratuito 
+Costo de exportación: Gratuito 
 
 |Category |Nombre para mostrar de categoría|
 |---|---|
@@ -63,7 +63,7 @@ Costo: Gratuito
 
 ## <a name="microsoftautomationautomationaccounts"></a>Microsoft.Automation/automationAccounts
 
-Costo: Gratuito 
+Costo de exportación: Gratuito 
 
 |Category |Nombre para mostrar de categoría|
 |---|---|
@@ -74,7 +74,7 @@ Costo: Gratuito
 
 ## <a name="microsoftbatchbatchaccounts"></a>Microsoft.Batch/batchAccounts
 
-Costo: Gratuito 
+Costo de exportación: Gratuito 
 
 |Category |Nombre para mostrar de categoría|
 |---|---|
@@ -83,7 +83,7 @@ Costo: Gratuito
 
 ## <a name="microsoftbatchaiworkspaces"></a>Microsoft.BatchAI/workspaces
 
-Costo: Gratuito 
+Costo de exportación: Gratuito 
 
 |Category |Nombre para mostrar de categoría|
 |---|---|
@@ -94,7 +94,7 @@ Costo: Gratuito
 
 ## <a name="microsoftblockchainblockchainmembers"></a>Microsoft.Blockchain/blockchainMembers
 
-Costo: Gratuito 
+Costo de exportación: Gratuito 
 
 |Category |Nombre para mostrar de categoría|
 |---|---|
@@ -106,7 +106,7 @@ Costo: Gratuito
 
 ## <a name="microsoftblockchaincordamembers"></a>Microsoft.Blockchain/cordaMembers
 
-Costo: Gratuito 
+Costo de exportación: Gratuito 
 
 |Category |Nombre para mostrar de categoría|
 |---|---|
@@ -115,16 +115,16 @@ Costo: Gratuito
 
 ## <a name="microsoftcdncdnwebapplicationfirewallpolicies"></a>Microsoft.Cdn/cdnwebapplicationfirewallpolicies
 
-Costo: Gratuito 
+Costo de exportación: Gratuito 
 
 |Category |Nombre para mostrar de categoría|
 |---|---|
-|WebApplicationFirewallLogs|Registros de firewall de la aplicación web|
+|WebApplicationFirewallLogs|Registros de firewall de aplicaciones web|
 
 
 ## <a name="microsoftcdnprofiles"></a>Microsoft.Cdn/profiles
 
-Costo: Gratuito 
+Costo de exportación: Gratuito 
 
 |Category |Nombre para mostrar de categoría|
 |---|---|
@@ -133,7 +133,7 @@ Costo: Gratuito
 
 ## <a name="microsoftcdnprofilesendpoints"></a>Microsoft.Cdn/profiles/endpoints
 
-Costo: Gratuito 
+Costo de exportación: Gratuito 
 
 |Category |Nombre para mostrar de categoría|
 |---|---|
@@ -142,7 +142,7 @@ Costo: Gratuito
 
 ## <a name="microsoftclassicnetworknetworksecuritygroups"></a>Microsoft.ClassicNetwork/networkSecurityGroups
 
-Costo: Gratuito 
+Costo de exportación: Gratuito 
 
 |Category |Nombre para mostrar de categoría|
 |---|---|
@@ -151,7 +151,7 @@ Costo: Gratuito
 
 ## <a name="microsoftcognitiveservicesaccounts"></a>Microsoft.CognitiveServices/accounts
 
-Costo: Gratuito 
+Costo de exportación: Gratuito 
 
 |Category |Nombre para mostrar de categoría|
 |---|---|
@@ -162,7 +162,7 @@ Costo: Gratuito
 
 ## <a name="microsoftcontainerregistryregistries"></a>Microsoft.ContainerRegistry/registries
 
-Costo: Gratuito 
+Costo de exportación: Gratuito 
 
 |Category |Nombre para mostrar de categoría|
 |---|---|
@@ -172,7 +172,7 @@ Costo: Gratuito
 
 ## <a name="microsoftcontainerservicemanagedclusters"></a>Microsoft.ContainerService/managedClusters
 
-Costo: Gratuito 
+Costo de exportación: Gratuito 
 
 |Category |Nombre para mostrar de categoría|
 |---|---|
@@ -185,7 +185,7 @@ Costo: Gratuito
 
 ## <a name="microsoftcustomprovidersresourceproviders"></a>Microsoft.CustomProviders/resourceproviders
 
-Costo: Gratuito 
+Costo de exportación: Gratuito 
 
 |Category |Nombre para mostrar de categoría|
 |---|---|
@@ -194,7 +194,7 @@ Costo: Gratuito
 
 ## <a name="microsoftdatabricksworkspaces"></a>Microsoft.Databricks/workspaces
 
-Costo: Gratuito 
+Costo de exportación: Gratuito 
 
 |Category |Nombre para mostrar de categoría|
 |---|---|
@@ -212,7 +212,7 @@ Costo: Gratuito
 
 ## <a name="microsoftdatafactoryfactories"></a>Microsoft.DataFactory/factories
 
-Costo: Gratuito 
+Costo de exportación: Gratuito 
 
 |Category |Nombre para mostrar de categoría|
 |---|---|
@@ -223,7 +223,7 @@ Costo: Gratuito
 
 ## <a name="microsoftdatalakestoreaccounts"></a>Microsoft.DataLakeStore/accounts
 
-Costo: Gratuito 
+Costo de exportación: Gratuito 
 
 |Category |Nombre para mostrar de categoría|
 |---|---|
@@ -233,7 +233,7 @@ Costo: Gratuito
 
 ## <a name="microsoftdatashareaccounts"></a>Microsoft.DataShare/accounts
 
-Costo: Gratuito 
+Costo de exportación: Gratuito 
 
 |Category |Nombre para mostrar de categoría|
 |---|---|
@@ -245,7 +245,7 @@ Costo: Gratuito
 
 ## <a name="microsoftdbformariadbservers"></a>Microsoft.DBforMariaDB/servers
 
-Costo: Gratuito 
+Costo de exportación: Gratuito 
 
 |Category |Nombre para mostrar de categoría|
 |---|---|
@@ -255,7 +255,7 @@ Costo: Gratuito
 
 ## <a name="microsoftdbformysqlflexibleservers"></a>Microsoft.DBforMySQL/flexibleServers
 
-Costo: Gratuito 
+Costo de exportación: Gratuito 
 
 |Category |Nombre para mostrar de categoría|
 |---|---|
@@ -265,7 +265,7 @@ Costo: Gratuito
 
 ## <a name="microsoftdbformysqlservers"></a>Microsoft.DBforMySQL/servers
 
-Costo: Gratuito 
+Costo de exportación: Gratuito 
 
 |Category |Nombre para mostrar de categoría|
 |---|---|
@@ -275,7 +275,7 @@ Costo: Gratuito
 
 ## <a name="microsoftdbforpostgresqlflexibleservers"></a>Microsoft.DBforPostgreSQL/flexibleServers
 
-Costo: Gratuito 
+Costo de exportación: Gratuito 
 
 |Category |Nombre para mostrar de categoría|
 |---|---|
@@ -284,7 +284,7 @@ Costo: Gratuito
 
 ## <a name="microsoftdbforpostgresqlservers"></a>Microsoft.DBforPostgreSQL/servers
 
-Costo: Gratuito 
+Costo de exportación: Gratuito 
 
 |Category |Nombre para mostrar de categoría|
 |---|---|
@@ -295,7 +295,7 @@ Costo: Gratuito
 
 ## <a name="microsoftdbforpostgresqlserversv2"></a>Microsoft.DBforPostgreSQL/serversv2
 
-Costo: Gratuito 
+Costo de exportación: Gratuito 
 
 |Category |Nombre para mostrar de categoría|
 |---|---|
@@ -304,7 +304,7 @@ Costo: Gratuito
 
 ## <a name="microsoftdesktopvirtualizationapplicationgroups"></a>Microsoft.DesktopVirtualization/applicationgroups
 
-Costo: Gratuito 
+Costo de exportación: Gratuito 
 
 |Category |Nombre para mostrar de categoría|
 |---|---|
@@ -315,7 +315,7 @@ Costo: Gratuito
 
 ## <a name="microsoftdesktopvirtualizationhostpools"></a>Microsoft.DesktopVirtualization/hostpools
 
-Costo: Gratuito 
+Costo de exportación: Gratuito 
 
 |Category |Nombre para mostrar de categoría|
 |---|---|
@@ -328,7 +328,7 @@ Costo: Gratuito
 
 ## <a name="microsoftdesktopvirtualizationworkspaces"></a>Microsoft.DesktopVirtualization/workspaces
 
-Costo: Gratuito 
+Costo de exportación: Gratuito 
 
 |Category |Nombre para mostrar de categoría|
 |---|---|
@@ -340,7 +340,7 @@ Costo: Gratuito
 
 ## <a name="microsoftdevicesiothubs"></a>Microsoft.Devices/IotHubs
 
-Costo: Gratuito 
+Costo de exportación: Gratuito 
 
 |Category |Nombre para mostrar de categoría|
 |---|---|
@@ -362,7 +362,7 @@ Costo: Gratuito
 
 ## <a name="microsoftdevicesprovisioningservices"></a>Microsoft.Devices/provisioningServices
 
-Costo: Gratuito 
+Costo de exportación: Gratuito 
 
 |Category |Nombre para mostrar de categoría|
 |---|---|
@@ -372,7 +372,7 @@ Costo: Gratuito
 
 ## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.DocumentDB/databaseAccounts
 
-Costo: Gratuito 
+Costo de exportación: Gratuito 
 
 |Category |Nombre para mostrar de categoría|
 |---|---|
@@ -388,7 +388,7 @@ Costo: Gratuito
 
 ## <a name="microsofteventgriddomains"></a>Microsoft.EventGrid/domains
 
-Costo: Gratuito 
+Costo de exportación: Gratuito 
 
 |Category |Nombre para mostrar de categoría|
 |---|---|
@@ -398,7 +398,7 @@ Costo: Gratuito
 
 ## <a name="microsofteventgridsystemtopics"></a>Microsoft.EventGrid/systemTopics
 
-Costo: Gratuito 
+Costo de exportación: Gratuito 
 
 |Category |Nombre para mostrar de categoría|
 |---|---|
@@ -407,7 +407,7 @@ Costo: Gratuito
 
 ## <a name="microsofteventgridtopics"></a>Microsoft.EventGrid/topics
 
-Costo: Gratuito 
+Costo de exportación: Gratuito 
 
 |Category |Nombre para mostrar de categoría|
 |---|---|
@@ -417,7 +417,7 @@ Costo: Gratuito
 
 ## <a name="microsofteventhubnamespaces"></a>Microsoft.EventHub/namespaces
 
-Costo: Gratuito 
+Costo de exportación: Gratuito 
 
 |Category |Nombre para mostrar de categoría|
 |---|---|
@@ -432,7 +432,7 @@ Costo: Gratuito
 
 ## <a name="microsofthealthcareapisservices"></a>Microsoft.HealthcareApis/services
 
-Costo: Gratuito 
+Costo de exportación: Gratuito 
 
 |Category |Nombre para mostrar de categoría|
 |---|---|
@@ -441,7 +441,7 @@ Costo: Gratuito
 
 ## <a name="microsoftinsightsautoscalesettings"></a>Microsoft.Insights/AutoscaleSettings
 
-Costo: Gratuito 
+Costo de exportación: Gratuito 
 
 |Category |Nombre para mostrar de categoría|
 |---|---|
@@ -451,7 +451,7 @@ Costo: Gratuito
 
 ## <a name="microsoftinsightscomponents"></a>Microsoft.Insights/Components
 
-Costo: Gratuito 
+Costo de exportación: Gratuito 
 
 |Category |Nombre para mostrar de categoría|
 |---|---|
@@ -470,7 +470,7 @@ Costo: Gratuito
 
 ## <a name="microsoftkeyvaultvaults"></a>Microsoft.KeyVault/vaults
 
-Costo: Gratuito 
+Costo de exportación: Gratuito 
 
 |Category |Nombre para mostrar de categoría|
 |---|---|
@@ -479,7 +479,7 @@ Costo: Gratuito
 
 ## <a name="microsoftkustoclusters"></a>Microsoft.Kusto/Clusters
 
-Costo: Gratuito 
+Costo de exportación: Gratuito 
 
 |Category |Nombre para mostrar de categoría|
 |---|---|
@@ -494,7 +494,7 @@ Costo: Gratuito
 
 ## <a name="microsoftlogicintegrationaccounts"></a>Microsoft.Logic/integrationAccounts
 
-Costo: Gratuito 
+Costo de exportación: Gratuito 
 
 |Category |Nombre para mostrar de categoría|
 |---|---|
@@ -503,7 +503,7 @@ Costo: Gratuito
 
 ## <a name="microsoftlogicworkflows"></a>Microsoft.Logic/workflows
 
-Costo: Gratuito 
+Costo de exportación: Gratuito 
 
 |Category |Nombre para mostrar de categoría|
 |---|---|
@@ -512,7 +512,7 @@ Costo: Gratuito
 
 ## <a name="microsoftmachinelearningservicesworkspaces"></a>Microsoft.MachineLearningServices/workspaces
 
-Costo: Gratuito 
+Costo de exportación: Gratuito 
 
 |Category |Nombre para mostrar de categoría|
 |---|---|
@@ -525,7 +525,7 @@ Costo: Gratuito
 
 ## <a name="microsoftmediamediaservices"></a>Microsoft.Media/mediaservices
 
-Costo: Gratuito 
+Costo de exportación: Gratuito 
 
 |Category |Nombre para mostrar de categoría|
 |---|---|
@@ -534,7 +534,7 @@ Costo: Gratuito
 
 ## <a name="microsoftnetworkapplicationgateways"></a>Microsoft.Network/applicationGateways
 
-Costo: Gratuito 
+Costo de exportación: Gratuito 
 
 |Category |Nombre para mostrar de categoría|
 |---|---|
@@ -545,7 +545,7 @@ Costo: Gratuito
 
 ## <a name="microsoftnetworkazurefirewalls"></a>Microsoft.Network/azurefirewalls
 
-Costo: Gratuito 
+Costo de exportación: Gratuito 
 
 |Category |Nombre para mostrar de categoría|
 |---|---|
@@ -555,7 +555,7 @@ Costo: Gratuito
 
 ## <a name="microsoftnetworkbastionhosts"></a>Microsoft.Network/bastionHosts
 
-Costo: Gratuito 
+Costo de exportación: Gratuito 
 
 |Category |Nombre para mostrar de categoría|
 |---|---|
@@ -564,7 +564,7 @@ Costo: Gratuito
 
 ## <a name="microsoftnetworkexpressroutecircuits"></a>Microsoft.Network/expressRouteCircuits
 
-Costo: Gratuito 
+Costo de exportación: Gratuito 
 
 |Category |Nombre para mostrar de categoría|
 |---|---|
@@ -573,7 +573,7 @@ Costo: Gratuito
 
 ## <a name="microsoftnetworkfrontdoors"></a>Microsoft.Network/frontdoors
 
-Costo: Gratuito 
+Costo de exportación: Gratuito 
 
 |Category |Nombre para mostrar de categoría|
 |---|---|
@@ -583,7 +583,7 @@ Costo: Gratuito
 
 ## <a name="microsoftnetworkloadbalancers"></a>Microsoft.Network/loadBalancers
 
-Costo: Gratuito 
+Costo de exportación: Gratuito 
 
 |Category |Nombre para mostrar de categoría|
 |---|---|
@@ -593,7 +593,7 @@ Costo: Gratuito
 
 ## <a name="microsoftnetworknetworksecuritygroups"></a>Microsoft.Network/networksecuritygroups
 
-Costo: Gratuito 
+Costo de exportación: Gratuito 
 
 |Category |Nombre para mostrar de categoría|
 |---|---|
@@ -604,7 +604,7 @@ Costo: Gratuito
 
 ## <a name="microsoftnetworkpublicipaddresses"></a>Microsoft.Network/publicIPAddresses
 
-Costo: Gratuito 
+Costo de exportación: Gratuito 
 
 |Category |Nombre para mostrar de categoría|
 |---|---|
@@ -615,7 +615,7 @@ Costo: Gratuito
 
 ## <a name="microsoftnetworktrafficmanagerprofiles"></a>Microsoft.Network/trafficManagerProfiles
 
-Costo: Gratuito 
+Costo de exportación: Gratuito 
 
 |Category |Nombre para mostrar de categoría|
 |---|---|
@@ -624,7 +624,7 @@ Costo: Gratuito
 
 ## <a name="microsoftnetworkvirtualnetworkgateways"></a>Microsoft.Network/virtualNetworkGateways
 
-Costo: Gratuito 
+Costo de exportación: Gratuito 
 
 |Category |Nombre para mostrar de categoría|
 |---|---|
@@ -637,7 +637,7 @@ Costo: Gratuito
 
 ## <a name="microsoftnetworkvirtualnetworks"></a>Microsoft.Network/virtualNetworks
 
-Costo: Gratuito 
+Costo de exportación: Gratuito 
 
 |Category |Nombre para mostrar de categoría|
 |---|---|
@@ -646,7 +646,7 @@ Costo: Gratuito
 
 ## <a name="microsoftpowerbidedicatedcapacities"></a>Microsoft.PowerBIDedicated/capacities
 
-Costo: Gratuito 
+Costo de exportación: Gratuito 
 
 |Category |Nombre para mostrar de categoría|
 |---|---|
@@ -655,7 +655,7 @@ Costo: Gratuito
 
 ## <a name="microsoftrecoveryservicesvaults"></a>Microsoft.RecoveryServices/Vaults
 
-Costo: Gratuito 
+Costo de exportación: Gratuito 
 
 |Category |Nombre para mostrar de categoría|
 |---|---|
@@ -677,7 +677,7 @@ Costo: Gratuito
 
 ## <a name="microsoftrelaynamespaces"></a>Microsoft.Relay/namespaces
 
-Costo: Gratuito 
+Costo de exportación: Gratuito 
 
 |Category |Nombre para mostrar de categoría|
 |---|---|
@@ -686,7 +686,7 @@ Costo: Gratuito
 
 ## <a name="microsoftsearchsearchservices"></a>Microsoft.Search/searchServices
 
-Costo: Gratuito 
+Costo de exportación: Gratuito 
 
 |Category |Nombre para mostrar de categoría|
 |---|---|
@@ -695,7 +695,7 @@ Costo: Gratuito
 
 ## <a name="microsoftservicebusnamespaces"></a>Microsoft.ServiceBus/namespaces
 
-Costo: Gratuito 
+Costo de exportación: Gratuito 
 
 |Category |Nombre para mostrar de categoría|
 |---|---|
@@ -704,7 +704,7 @@ Costo: Gratuito
 
 ## <a name="microsoftsignalrservicesignalr"></a>Microsoft.SignalRService/SignalR
 
-Costo: Gratuito 
+Costo de exportación: Gratuito 
 
 |Category |Nombre para mostrar de categoría|
 |---|---|
@@ -713,7 +713,7 @@ Costo: Gratuito
 
 ## <a name="microsoftsqlmanagedinstances"></a>Microsoft.Sql/managedInstances
 
-Costo: Gratuito 
+Costo de exportación: Gratuito 
 
 |Category |Nombre para mostrar de categoría|
 |---|---|
@@ -724,7 +724,7 @@ Costo: Gratuito
 
 ## <a name="microsoftsqlmanagedinstancesdatabases"></a>Microsoft.Sql/managedInstances/databases
 
-Costo: Gratuito 
+Costo de exportación: Gratuito 
 
 |Category |Nombre para mostrar de categoría|
 |---|---|
@@ -736,7 +736,7 @@ Costo: Gratuito
 
 ## <a name="microsoftsqlserversdatabases"></a>Microsoft.Sql/servers/databases
 
-Costo: Gratuito 
+Costo de exportación: Gratuito 
 
 |Category |Nombre para mostrar de categoría|
 |---|---|
@@ -760,7 +760,7 @@ Costo: Gratuito
 
 ## <a name="microsoftstoragestorageaccountsblobservices"></a>Microsoft.Storage/storageAccounts/blobServices
 
-Costo: se paga como se indica en la sección de registros de plataforma de la [página Precios de Azure Monitor.](https://azure.microsoft.com/pricing/details/monitor/) 
+Costo de exportación: se paga como se indica en la sección de registros de plataforma de la [página Precios de Azure Monitor.](https://azure.microsoft.com/pricing/details/monitor/) 
 
 |Category |Nombre para mostrar de categoría|
 |---|---|
@@ -771,7 +771,7 @@ Costo: se paga como se indica en la sección de registros de plataforma de la [p
 
 ## <a name="microsoftstoragestorageaccountsfileservices"></a>Microsoft.Storage/storageAccounts/fileServices
 
-Costo: se paga como se indica en la sección de registros de plataforma de la [página Precios de Azure Monitor.](https://azure.microsoft.com/pricing/details/monitor/) 
+Costo de exportación: se paga como se indica en la sección de registros de plataforma de la [página Precios de Azure Monitor.](https://azure.microsoft.com/pricing/details/monitor/) 
 
 |Category |Nombre para mostrar de categoría|
 |---|---|
@@ -782,7 +782,7 @@ Costo: se paga como se indica en la sección de registros de plataforma de la [p
 
 ## <a name="microsoftstoragestorageaccountsqueueservices"></a>Microsoft.Storage/storageAccounts/queueServices
 
-Costo: se paga como se indica en la sección de registros de plataforma de la [página Precios de Azure Monitor.](https://azure.microsoft.com/pricing/details/monitor/) 
+Costo de exportación: se paga como se indica en la sección de registros de plataforma de la [página Precios de Azure Monitor.](https://azure.microsoft.com/pricing/details/monitor/) 
  
 |Category |Nombre para mostrar de categoría|
 |---|---|
@@ -793,7 +793,7 @@ Costo: se paga como se indica en la sección de registros de plataforma de la [p
 
 ## <a name="microsoftstoragestorageaccountstableservices"></a>Microsoft.Storage/storageAccounts/tableServices
 
-Costo: se paga como se indica en la sección de registros de plataforma de la [página Precios de Azure Monitor.](https://azure.microsoft.com/pricing/details/monitor/) 
+Costo de exportación: se paga como se indica en la sección de registros de plataforma de la [página Precios de Azure Monitor.](https://azure.microsoft.com/pricing/details/monitor/) 
  
 |Category |Nombre para mostrar de categoría|
 |---|---|
@@ -804,7 +804,7 @@ Costo: se paga como se indica en la sección de registros de plataforma de la [p
 
 ## <a name="microsoftstreamanalyticsstreamingjobs"></a>Microsoft.StreamAnalytics/streamingjobs
 
-Costo: Gratuito 
+Costo de exportación: Gratuito 
 
 |Category |Nombre para mostrar de categoría|
 |---|---|
@@ -814,7 +814,7 @@ Costo: Gratuito
 
 ## <a name="microsoftsynapseworkspaces"></a>Microsoft.Synapse/workspaces
 
-Costo: Gratuito 
+Costo de exportación: Gratuito 
 
 |Category |Nombre para mostrar de categoría|
 |---|---|
@@ -826,7 +826,7 @@ Costo: Gratuito
 
 ## <a name="microsoftsynapseworkspacesbigdatapools"></a>Microsoft.Synapse/workspaces/bigDataPools
 
-Costo: Gratuito 
+Costo de exportación: Gratuito 
 
 |Category |Nombre para mostrar de categoría|
 |---|---|
@@ -835,7 +835,7 @@ Costo: Gratuito
 
 ## <a name="microsoftsynapseworkspacessqlpools"></a>Microsoft.Synapse/workspaces/sqlPools
 
-Costo: Gratuito 
+Costo de exportación: Gratuito 
 
 |Category |Nombre para mostrar de categoría|
 |---|---|
@@ -849,7 +849,7 @@ Costo: Gratuito
 
 ## <a name="microsoftwebhostingenvironments"></a>microsoft.web/hostingenvironments
 
-Costo: Gratuito 
+Costo de exportación: Gratuito 
 
 |Category |Nombre para mostrar de categoría|
 |---|---|
@@ -858,7 +858,7 @@ Costo: Gratuito
 
 ## <a name="microsoftwebsites"></a>microsoft.web/sites
 
-Costo: Gratuito 
+Costo de exportación: Gratuito 
 
 
 |Category |Nombre para mostrar de categoría|
@@ -873,7 +873,7 @@ Costo: Gratuito
 
 ## <a name="microsoftwebsitesslots"></a>microsoft.web/sites/slots
 
-Costo: Gratuito 
+Costo de exportación: Gratuito 
 
 
 |Category |Nombre para mostrar de categoría|

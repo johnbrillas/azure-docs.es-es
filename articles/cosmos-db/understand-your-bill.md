@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2020
 ms.reviewer: sngun
-ms.openlocfilehash: b51be165d3d05ae753c7e0e5536a157fbbacf1ab
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: b0d27cb2f941db374a144cbd5c026444730e24e8
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96938637"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247512"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Entienda la factura de Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -215,8 +215,12 @@ La factura mensual total (suponiendo 30 días o 720 horas en un mes) se calcular
 | | |Factura de rendimiento para 2 regiones adicionales: Este de EE. UU., Norte de Europa (se puede escribir en todas las regiones)  |`(1 + 1) * (70 K RU/sec /100 * $0.016) * 20 hours = $448`  |224 USD  |
 || |**Costo mensual total**  | |**38 688 USD**   |
 
-## <a name="billing-examples-with-free-tier-accounts"></a>Ejemplos de facturación con cuentas de nivel Gratis
+## <a name="billing-examples-with-azure-cosmos-db-free-tier-accounts"></a><a id="azure-free-tier"></a>Ejemplos de facturación con cuentas de nivel Gratis de Azure Cosmos DB
+
 Con el nivel Gratis de Azure Cosmos DB, obtendrá en la cuenta las primeras 400 RU/s y 5 GB de almacenamiento gratis, que se aplicarán en el nivel de cuenta. Las RU/s y el almacenamiento que superen, respectivamente, las 400 RU/s y los 5 GB, se facturarán según las tarifas de precios habituales de la página de precios. En la factura no verá un cargo o una partida por las 400 RU/s y los 5 GB gratis, solo por las RU/s y el almacenamiento que supere lo que cubre el nivel Gratis. Las 400 RU/s se aplican a cualquier tipo de RU/s: rendimiento aprovisionado, escalabilidad automática y escrituras en varias regiones.  
+
+> [!NOTE]
+> El nivel Gratis de Azure Cosmos DB es diferente de la cuenta gratuita de Azure. La cuenta gratuita de Azure ofrece créditos y recursos de Azure de forma gratuita durante un tiempo limitado. Al usar Azure Cosmos DB como parte de esta cuenta gratuita, obtendrá 25 GB de almacenamiento y 400 RU/s de rendimiento aprovisionado durante 12 meses.
 
 ### <a name="billing-example---container-or-database-with-provisioned-throughput"></a>Ejemplo de facturación: contenedor o base de datos con capacidad de proceso aprovisionada
 - Supongamos que creamos una base de datos o un contenedor en una cuenta de nivel Gratis con 400 RU/s y 5 GB de almacenamiento.

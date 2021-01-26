@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.subservice: workloads
 ms.date: 08/17/2020
 ms.reviewer: cynthn
-ms.openlocfilehash: c3b3848e4e4f7b0445f882265dbe66bb10b48833
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 0bb0a7833e9ee3b499ae013b665ecf137c667005
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968594"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251002"
 ---
 # <a name="deploy-azure-monitor-for-sap-solutions-with-azure-portal"></a>Implementación de Azure Monitor para soluciones de SAP con Azure Portal
 
@@ -59,7 +59,7 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
 
 6. Escriba el nombre de usuario de la base de datos que quiere usar. Asegúrese de que el usuario de la base de datos tiene asignados los roles de **supervisión** y **lectura de catálogo**. 
 
-7. Cuando termine, seleccione **Agregar proveedor**. Siga agregando proveedores adicionales según sea necesario o seleccione **Revisar y crear** para completar la implementación.
+7. Cuando termine, seleccione **Agregar proveedor**. Siga agregando más proveedores según sea necesario o seleccione **Revisar y crear** para completar la implementación.
 
    :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-4.png" alt-text="Imagen de las opciones de configuración al agregar información del proveedor." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-4.png":::
 
@@ -74,9 +74,21 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
  
 3. Escriba el id. del sistema (SID), el nombre de host y el nombre del clúster.
 
-4. Cuando termine, seleccione **Agregar proveedor**. Siga agregando proveedores adicionales según sea necesario o seleccione **Revisar y crear** para completar la implementación.
+4. Cuando termine, seleccione **Agregar proveedor**. Siga agregando más proveedores según sea necesario o seleccione **Revisar y crear** para completar la implementación.
 
    :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-5.png" alt-text="La imagen muestra las opciones relacionadas con el proveedor de Pacemaker del clúster de alta disponibilidad." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-5.png":::
+
+
+### <a name="os-linux-provider"></a>Proveedor del SO (Linux) 
+
+1. Selección del SO (Linux) en la lista desplegable 
+
+> [!IMPORTANT]
+> Para configurar el proveedor del SO (Linux), asegúrese de que Node_Exporter está instalado en cada instancia de BareMetal. Para obtener más información, consulte  [Node_Exporter](https://github.com/prometheus/node_exporter)
+
+2. Escriba un nombre, que será el identificador de la instancia de BareMetal.
+3. Escriba el punto de conexión Node_Exporter con el formato http://IP:9100/metrics.
+4. Cuando termine, seleccione  **Agregar proveedor**. Continúe agregando más proveedores según sea necesario o seleccione  **Revisar y crear**  para completar la implementación. 
 
 
 ### <a name="microsoft-sql-server-provider"></a>Proveedor de Microsoft SQL Server
@@ -112,7 +124,7 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
 
 3. Rellene los campos con la información asociada a su instancia de Microsoft SQL Server. 
 
-4. Cuando termine, seleccione **Agregar proveedor**. Siga agregando proveedores adicionales según sea necesario o seleccione **Revisar y crear** para completar la implementación.
+4. Cuando termine, seleccione **Agregar proveedor**. Siga agregando más proveedores según sea necesario o seleccione **Revisar y crear** para completar la implementación.
 
      :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-6.png" alt-text="La imagen muestra información relacionada con la incorporación del proveedor de Microsoft SQL Server." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-6.png":::
 

@@ -7,12 +7,12 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/25/2020
-ms.openlocfilehash: f0699ed065da4c63bc88945d75a866abcfbb9053
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: f4981036ca92f6efe2d3e23ea1f507a3a1f3c70a
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121369"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234263"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-the-secrets-store-csi-driver-on-kubernetes"></a>Tutorial: Configuración y ejecución del proveedor de Azure Key Vault para el controlador Secrets Store CSI en Kubernetes
 
@@ -37,6 +37,8 @@ En este tutorial, aprenderá a:
 * Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 * Antes de iniciar este tutorial, instale la [CLI de Azure](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
+
+En este tutorial se da por supuesto que ejecuta Azure Kubernetes Service en nodos de Linux.
 
 ## <a name="use-managed-identities"></a>Uso de identidades administradas
 
@@ -77,6 +79,8 @@ Complete las secciones "Creación de un grupo de recursos", "Creación de un cl�
     ![Captura de pantalla de la CLI de Azure con los valores de principalId y clientId resaltados](../media/kubernetes-key-vault-2.png) ![Captura de pantalla de la CLI de Azure con los valores de subscriptionId y nodeResourceGroup resaltados](../media/kubernetes-key-vault-3.png)
     
 ## <a name="install-helm-and-the-secrets-store-csi-driver"></a>Instalación de Helm y el controlador Secrets Store CSI
+> [!NOTE]
+> La instalación siguiente solo funciona en AKS en Linux. Para más información sobre la instalación del controlador CSI del almacén de secretos, consulte [Proveedor de Azure Key Vault para el controlador CSI del almacén de secretos](https://github.com/Azure/secrets-store-csi-driver-provider-azure). 
 
 Para instalar el controlador Secrets Store CSI, primero debe instalar [Helm](https://helm.sh/docs/intro/install/).
 

@@ -3,15 +3,15 @@ title: Configuración de clúster en Azure Kubernetes Service (AKS)
 description: Aprenda a configurar un clúster en Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 09/21/2020
+ms.date: 01/13/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: ab9e2a5483f0699ad7bfca991539025adff34b11
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: eacca50e00dfe8625d86362c444544e2fd5d5511
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97606919"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201117"
 ---
 # <a name="configure-an-aks-cluster"></a>Configuración de un clúster de AKS
 
@@ -21,10 +21,52 @@ Como parte de la creación de un clúster de AKS, puede que tenga que personaliz
 
 AKS ahora es compatible con Ubuntu 18.04 como el sistema operativo del nodo (SO) en disponibilidad general para clústeres en versiones de Kubernetes posteriores a la 1.18.8. En el caso de las versiones anteriores a la 1.18.x, AKS Ubuntu 16.04 sigue siendo la imagen base predeterminada. A partir de Kubernetes v1.18.x y posteriores, la base predeterminada es AKS Ubuntu 18.04.
 
-> [!IMPORTANT]
-> Los grupos de nodos creados en Kubernetes v1.18 o versiones posteriores tienen una imagen de nodo `AKS Ubuntu 18.04` de forma predeterminada. Los grupos de nodos de una versión de Kubernetes compatible inferior a la versión 1.18 reciben `AKS Ubuntu 16.04` como la imagen de nodo, pero se actualizarán a `AKS Ubuntu 18.04` una vez que la versión Kubernetes del grupo de nodos se actualice a la versión 1.18 o posteriores.
-> 
-> Es muy recomendable que pruebe sus cargas de trabajo en los grupos de nodos de AKS Ubuntu 18.04 antes de usar los clústeres en la versión 1.18 o posteriores. Obtenga información sobre cómo [probar los grupos de nodos de Ubuntu 18.04](#use-aks-ubuntu-1804-existing-clusters-preview).
+### <a name="use-aks-ubuntu-1804-generally-available-on-new-clusters"></a>Uso de AKS Ubuntu 18.04 de disponibilidad general en clústeres nuevos
+
+Los clústeres nodos creados en Kubernetes v1.18 o versiones posteriores tienen una imagen de nodo `AKS Ubuntu 18.04` de forma predeterminada. Los grupos de nodos en versiones de Kubernetes compatibles anteriores a la versión 1.18 seguirán recibiendo `AKS Ubuntu 16.04` como imagen de nodo, pero se actualizarán a `AKS Ubuntu 18.04` una vez que la versión de Kubernetes del clúster o del grupo de nodos se actualice a la versión 1.18 o posteriores.
+
+Es muy recomendable que pruebe sus cargas de trabajo en los grupos de nodos de AKS Ubuntu 18.04 antes de usar los clústeres en la versión 1.18 o posteriores. Obtenga información sobre cómo [probar los grupos de nodos de Ubuntu 18.04](#test-aks-ubuntu-1804-generally-available-on-existing-clusters).
+
+Para crear un clúster con la imagen de nodo `AKS Ubuntu 18.04`, solo tiene que crear un clúster que ejecute kubernetes v1.18 o una versión posterior, tal como se muestra a continuación:
+
+```azurecli
+az aks create --name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.18.14
+```
+
+### <a name="use-aks-ubuntu-1804-generally-available-on-existing-clusters"></a>Uso de AKS Ubuntu 18.04 de disponibilidad general en clústeres existentes
+
+Los clústeres creados en Kubernetes v1.18 o versiones posteriores tienen una imagen de nodo `AKS Ubuntu 18.04` de forma predeterminada. Los grupos de nodos en versiones de Kubernetes compatibles anteriores a la versión 1.18 seguirán recibiendo `AKS Ubuntu 16.04` como imagen de nodo, pero se actualizarán a `AKS Ubuntu 18.04` una vez que la versión de Kubernetes del clúster o del grupo de nodos se actualice a la versión 1.18 o posteriores.
+
+Es muy recomendable que pruebe sus cargas de trabajo en los grupos de nodos de AKS Ubuntu 18.04 antes de usar los clústeres en la versión 1.18 o posteriores. Obtenga información sobre cómo [probar los grupos de nodos de Ubuntu 18.04](#test-aks-ubuntu-1804-generally-available-on-existing-clusters).
+
+Si los clústeres o grupos de nodos están listos para la imagen de nodo `AKS Ubuntu 18.04`, simplemente puede actualizarlos a una versión 1.18 o posterior, tal como se muestra a continuación.
+
+```azurecli
+az aks upgrade --name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.18.14
+```
+
+Si solo quiere actualizar un grupo de nodos:
+
+```azurecli
+az aks nodepool upgrade -name ubuntu1804 --cluster-name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.18.14
+```
+
+### <a name="test-aks-ubuntu-1804-generally-available-on-existing-clusters"></a>Prueba de AKS Ubuntu 18.04 de disponibilidad general en clústeres existentes
+
+Los grupos de nodos creados en Kubernetes v1.18 o versiones posteriores tienen una imagen de nodo `AKS Ubuntu 18.04` de forma predeterminada. Los grupos de nodos en versiones de Kubernetes compatibles anteriores a la versión 1.18 seguirán recibiendo `AKS Ubuntu 16.04` como imagen de nodo, pero se actualizarán a `AKS Ubuntu 18.04` una vez que la versión de Kubernetes del grupo de nodos se actualice a la versión 1.18 o posteriores.
+
+Es muy recomendable probar las cargas de trabajo en los grupos de nodos de AKS Ubuntu 18.04 antes de actualizar los grupos de nodos de producción.
+
+Para crear un grupo de nodos con la imagen de nodo `AKS Ubuntu 18.04`, solo tiene que crear un grupo de nodos que ejecute kubernetes v1.18 o una versión posterior. El plano de control del clúster tiene que estar como mínimo en la versión 1.18 o una versión posterior, pero los demás grupos de nodos pueden permanecer en una versión anterior de Kubernetes.
+En el ejemplo siguiente, primero se actualiza el plano de control y luego se crea un nuevo grupo de nodos con la versión 1.18 que recibirá la versión del sistema operativo de la nueva imagen de nodo.
+
+```azurecli
+az aks upgrade --name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.18.14 --control-plane-only
+
+az aks nodepool add --name ubuntu1804 --cluster-name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.18.14
+```
+
+### <a name="use-aks-ubuntu-1804-on-new-clusters-preview"></a>Uso de AKS Ubuntu 18.04 en clústeres nuevos (versión preliminar)
 
 En la sección siguiente se explicará cómo usar y probar AKS Ubuntu 18.04 en clústeres que todavía no usan la versión Kubernetes 1.18.x o posteriores o que se crearon antes de que esta característica estuviera disponible con carácter general, mediante la versión preliminar de la configuración del sistema operativo.
 
@@ -57,8 +99,6 @@ Cuando el estado se muestre como Registrado, actualice el registro del proveedor
 ```azurecli
 az provider register --namespace Microsoft.ContainerService
 ```
-
-### <a name="use-aks-ubuntu-1804-on-new-clusters-preview"></a>Uso de AKS Ubuntu 18.04 en clústeres nuevos (versión preliminar)
 
 Configure el clúster para que use Ubuntu 18.04 cuando se cree el clúster. Use la marca `--aks-custom-headers` para establecer Ubuntu 18.04 como sistema operativo predeterminado.
 

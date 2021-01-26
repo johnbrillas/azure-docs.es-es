@@ -7,13 +7,13 @@ ms.reviewer: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/19/2019
-ms.openlocfilehash: 9a4b57f3813adfeee53891f733dd4d303dbbef8d
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 01/15/2021
+ms.openlocfilehash: a5c93244862d72f9c8ea2928c41e699302b1752b
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96497136"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98249450"
 ---
 # <a name="transform-data-securely-by-using-mapping-data-flow"></a>Transformación de datos de forma segura mediante flujos de datos de asignación
 
@@ -34,6 +34,7 @@ En este tutorial, realizará los siguientes pasos:
 > * Supervisión de una actividad de flujo de datos.
 
 ## <a name="prerequisites"></a>Requisitos previos
+
 * **Suscripción de Azure**. Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
 * **Cuenta de Azure Storage**. Se usará Data Lake Storage como almacén de datos de *origen* y *receptor*. Si no tiene una cuenta de almacenamiento, consulte [Crear una cuenta de almacenamiento](../storage/common/storage-account-create.md?tabs=azure-portal) para crear una. *Asegúrese de que la cuenta de almacenamiento solo permita el acceso desde las redes seleccionadas.* 
 
@@ -64,12 +65,14 @@ En este paso, creará una factoría de datos y abrirá la interfaz de usuario de
 1. Haga clic en **Author & Monitor** (Creación y supervisión) para iniciar la interfaz de usuario de Data Factory en una pestaña independiente.
 
 ## <a name="create-an-azure-ir-in-data-factory-managed-virtual-network"></a>Creación de una instancia de Azure IR en una red virtual administrada por Data Factory
+
 En este paso se crea una instancia de Azure IR y se habilita una red virtual administrada por Data Factory.
 
 1. En el portal de Data Factory, vaya a **Administrar** y seleccione **Nuevo** para crear una instancia de Azure IR.
 
    ![Captura de pantalla que muestra la creación de una instancia de Azure IR.](./media/tutorial-copy-data-portal-private/create-new-azure-ir.png)
-1. Seleccione la opción **Azure IR**.
+1. En la página **Integration runtime setup** (Configuración de Integration Runtime), elija qué entorno de ejecución de integración va a crear según las funcionalidades necesarias. En este tutorial, seleccione **Azure, Self-Hosted** (Azure, autohospedado) y, luego, haga clic en **Continuar**. 
+1. Seleccione **Azure** y, luego, haga clic en **Continuar** para crear un entorno de ejecución de integración de Azure.
 
    ![Captura de pantalla que muestra una nueva instancia de Azure IR.](./media/tutorial-copy-data-portal-private/azure-ir.png)
 

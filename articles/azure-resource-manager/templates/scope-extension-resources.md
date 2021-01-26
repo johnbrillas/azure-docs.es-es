@@ -2,21 +2,24 @@
 title: Ámbito en tipos de recursos de extensión
 description: Aquí se describe cómo utilizar la propiedad del ámbito al implementar tipos de recursos de extensión.
 ms.topic: conceptual
-ms.date: 10/22/2020
-ms.openlocfilehash: bd468d31454c38bd314269243702d7df4f279a5e
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 01/13/2021
+ms.openlocfilehash: 75c2c8b8409cc9f8e7a8e71965589ece6660607a
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92681353"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98179986"
 ---
 # <a name="setting-scope-for-extension-resources-in-arm-templates"></a>Establecimiento del ámbito de los recursos de extensión en las plantillas de Resource Manager
 
-Un recurso de extensión es un recurso que modifica otro recurso. Por ejemplo, puede asignar un rol a un recurso para limitar el acceso al mismo. La asignación de roles es un tipo de recurso de extensión.
+Un recurso de extensión es un recurso que modifica otro recurso. Por ejemplo, puede asignar un rol a un recurso. La asignación de roles es un tipo de recurso de extensión.
 
 Para obtener una lista completa de los tipos de recursos de extensión, consulte los [Tipos de recursos que amplían las capacidades de otros recursos](../management/extension-resource-types.md).
 
 En este artículo se muestra cómo establecer el ámbito de un tipo de recurso de extensión cuando se implementa con una plantilla de Azure Resource Manager (plantilla de Resource Manager). Asimismo, describe la propiedad de ámbito que está disponible para los recursos de extensión cuando esta se aplica a un recurso.
+
+> [!NOTE]
+> La propiedad scope solo está disponible para los tipos de recursos de extensión. Para especificar un ámbito diferente para un tipo de recurso que no sea un tipo de extensión, use una implementación anidada o vinculada. Para obtener más información, consulte [implementaciones de grupos de recursos](deploy-to-resource-group.md), [implementaciones de suscripciones](deploy-to-subscription.md), [implementaciones de grupos de administración](deploy-to-management-group.md) e [implementaciones de inquilinos](deploy-to-tenant.md).
 
 ## <a name="apply-at-deployment-scope"></a>Aplicación en el ámbito de implementación
 

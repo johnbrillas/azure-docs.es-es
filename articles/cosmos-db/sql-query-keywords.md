@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 07/29/2020
+ms.date: 01/20/2021
 ms.author: tisande
-ms.openlocfilehash: 35232f95bc18432db05775807d95f23ceab66aea
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 09148e65e446d723fbfe7a54602db59ee0739f83
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93333790"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599346"
 ---
 # <a name="keywords-in-azure-cosmos-db"></a>Palabras clave en Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -107,6 +107,73 @@ No se admiten las consultas con una función del sistema agregada y una subconsu
 ```sql
 SELECT COUNT(1) FROM (SELECT DISTINCT f.lastName FROM f)
 ```
+
+## <a name="like"></a>LIKE
+
+Devuelve un valor booleano en función de si una cadena de caracteres específica coincide con un patrón especificado. Un patrón puede contener caracteres normales y caracteres comodín. Puede escribir consultas equivalentes de forma lógica mediante la palabra clave `LIKE` o la función del sistema [RegexMatch](sql-query-regexmatch.md). Observará que se usan los mismos índices con independencia del que elija. Por lo tanto, debe usar `LIKE` si su sintaxis le es más útil más que las expresiones regulares.
+
+> [!NOTE]
+> Dado que `LIKE` puede utilizar un índice, debe [crear un índice de intervalo](indexing-policy.md) para las propiedades que se van a comparar con `LIKE`.
+
+Puede usar los siguientes caracteres comodín con LIKE:
+
+| Carácter comodín | Descripción                                                  | Ejemplo                                     |
+| -------------------- | ------------------------------------------------------------ | ------------------------------------------- |
+| %                    | Cualquier cadena de cero o más caracteres.                      | WHERE   c.description LIKE   “%SO%PS%”      |
+| _   (carácter de subrayado)     | Cualquier carácter individual.                                       | WHERE   c.description LIKE   “%SO_PS%”      |
+| [ ]                  | Cualquier carácter individual del intervalo ([a-f]) o del conjunto ([abcdef]) que se haya especificado. | WHERE   c.description LIKE   “%SO[t-z]PS%”  |
+| [^]                  | Cualquier carácter individual que no se encuentre en el intervalo ([^a-f]) o el conjunto ([^abcdef]) que se haya especificado. | WHERE   c.description LIKE   “%SO[^abc]PS%” |
+
+
+### <a name="using-like-with-the--wildcard-character"></a>Utilizar LIKE con el carácter comodín %
+
+El carácter `%` coincide con cualquier cadena de cero o más caracteres. Por ejemplo, al colocar un valor `%` al principio y al final del patrón, la consulta siguiente devuelve todos los elementos que tienen una descripción que contiene `fruit`:
+
+```sql
+SELECT *
+FROM c
+WHERE c.description LIKE "%fruit%"
+```
+
+Si solo ha usado un carácter `%` al principio del patrón, solo se devolverán los elementos con una descripción que empiece con `fruit`:
+
+```sql
+SELECT *
+FROM c
+WHERE c.description LIKE "fruit%"
+```
+
+
+### <a name="using-not-like"></a>Uso de NOT LIKE
+
+En el ejemplo siguiente se devuelven todos los elementos con una descripción que no contiene `fruit`:
+
+```sql
+SELECT *
+FROM c
+WHERE c.description NOT LIKE "%fruit%"
+```
+
+### <a name="using-the-escape-clause"></a>Uso de la cláusula ESCAPE
+
+Puede buscar patrones que incluyan uno o más caracteres comodín mediante la cláusula ESCAPE. Por ejemplo, si quiere buscar descripciones que contengan la cadena `20-30%`, no debe interpretar el valor `%` como un carácter comodín.
+
+```sql
+SELECT *
+FROM c
+WHERE c.description LIKE '%20-30!%%' ESCAPE '!'
+```
+
+### <a name="using-wildcard-characters-as-literals"></a>Uso de caracteres comodín como caracteres literales
+
+Puede incluir caracteres comodín entre corchetes para tratarlos como caracteres literales. Cuando se escribe un carácter comodín entre corchetes, se quitan los atributos especiales. Estos son algunos ejemplos:
+
+| Modelo           | Significado |
+| ----------------- | ------- |
+| LIKE   “20-30[%]” | 20-30%  |
+| LIKE   “[_]n”     | _n      |
+| LIKE   “[ [ ]”    | [       |
+| LIKE   “]”        | ]       |
 
 ## <a name="in"></a>IN
 

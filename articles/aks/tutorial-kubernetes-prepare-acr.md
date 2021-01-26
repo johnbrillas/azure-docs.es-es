@@ -3,14 +3,14 @@ title: 'Kubernetes en el tutorial de Azure: Creación de un registro de contened
 description: En este tutorial de Azure Kubernetes Service (AKS) se crea una instancia de Azure Container Registry y se carga una imagen del contenedor de aplicaciones de ejemplo.
 services: container-service
 ms.topic: tutorial
-ms.date: 09/30/2020
+ms.date: 01/12/2021
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: b0f78c3969f3d02c19824fdb6d1e3b786dceb43c
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: d1dce1c59c4bf40eaead89e4a8a088e9a8ea4f76
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747072"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250628"
 ---
 # <a name="tutorial-deploy-and-use-azure-container-registry"></a>Tutorial: Implementación y uso de Azure Container Registry
 
@@ -22,7 +22,7 @@ Azure Container Registry (ACR) es un registro privado para imágenes de contened
 > * Cargar la imagen a ACR
 > * Ver las imágenes del registro
 
-En tutoriales adicionales, esta instancia de ACR se integra con un clúster de Kubernetes en AKS y se implementa una aplicación a partir de la imagen.
+En tutoriales posteriores, esta instancia de ACR se integra con un clúster de Kubernetes en AKS y se implementa una aplicación a partir de la imagen.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -34,7 +34,7 @@ Para realizar este tutorial es necesario ejecutar la versión 2.0.53, o superior
 
 Para crear una instancia de Azure Container Registry, es preciso tener antes un grupo de recursos. Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure.
 
-Para crear un grupo de recursos, use el comando [az group create][az-group-create]. En el siguiente ejemplo, se crea un grupo de recursos denominado *myResourceGroup* en la región *eastus* :
+Para crear un grupo de recursos, use el comando [az group create][az-group-create]. En el siguiente ejemplo, se crea un grupo de recursos denominado *myResourceGroup* en la región *eastus*:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -54,18 +54,18 @@ Para usar la instancia de ACR, primero debe iniciar sesión. Use el comando [az 
 az acr login --name <acrName>
 ```
 
-Al finalizar, el comando devuelve un mensaje que indica que el *inicio de sesión se ha realizado correctamente* .
+Al finalizar, el comando devuelve un mensaje que indica que el *inicio de sesión se ha realizado correctamente*.
 
 ## <a name="tag-a-container-image"></a>Etiquetado de una imagen de contenedor
 
 Para ver una lista de las imágenes locales actuales, use el comando [docker images][docker-images]:
 
-```azurecli
+```console
 $ docker images
 ```
 La salida del comando anterior muestra una lista de las imágenes locales actuales:
 
-```
+```output
 REPOSITORY                                     TAG                 IMAGE ID            CREATED             SIZE
 mcr.microsoft.com/azuredocs/azure-vote-front   v1                  84b41c268ad9        7 minutes ago       944MB
 mcr.microsoft.com/oss/bitnami/redis            6.0.8               3a54a920bb6c        2 days ago          103MB
@@ -122,7 +122,7 @@ az acr repository list --name <acrName> --output table
 
 En la siguiente salida de ejemplo se muestra la imagen *azure-vote-front* como disponible en el registro:
 
-```
+```output
 Result
 ----------------
 azure-vote-front
@@ -136,7 +136,7 @@ az acr repository show-tags --name <acrName> --repository azure-vote-front --out
 
 La salida de ejemplo siguiente muestra la imagen de *v1* etiquetada en un paso anterior:
 
-```
+```output
 Result
 --------
 v1

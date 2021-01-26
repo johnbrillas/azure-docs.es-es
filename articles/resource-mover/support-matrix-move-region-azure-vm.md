@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 10/11/2020
 ms.author: raynew
-ms.openlocfilehash: 4da707ab698599c8ea5dd8e1ea8647f543eb2a68
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 00b220e07dc3fa7580100d6d36108c14fe598d40
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95524256"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98572194"
 ---
 # <a name="support-for-moving-azure-vms-between-azure-regions"></a>Compatibilidad con la migración de máquinas virtuales de Azure entre regiones de Azure
 
@@ -113,7 +113,7 @@ Extensiones | No compatible | Las extensiones no se copian en la máquina virtua
 
 ## <a name="supported-vm-storage-settings"></a>Configuración de almacenamiento de máquina virtual admitida
 
-Esta tabla resume la compatibilidad con el disco del sistema operativo, el disco de datos y el disco temporal de Azure VM. Es importante respetar los límites y destinos de los discos de máquinas virtuales [Linux](../virtual-machines/linux/disk-scalability-targets.md) y [Windows](../virtual-machines/windows/disk-scalability-targets.md) para evitar cualquier problema de rendimiento.
+Esta tabla resume la compatibilidad con el disco del sistema operativo, el disco de datos y el disco temporal de Azure VM. Es importante respetar los límites y destinos de los discos de VM de los [discos administrados](../virtual-machines/disks-scalability-targets.md) para evitar cualquier problema de rendimiento.
 
 > [!NOTE]
 > El tamaño de la máquina virtual de destino debe ser igual o mayor que el de la máquina virtual de origen. Los parámetros usados para la validación son: Número de discos de datos, Número de NIC, CPU disponibles, Memoria en GB. Si no es así, se emite un error.

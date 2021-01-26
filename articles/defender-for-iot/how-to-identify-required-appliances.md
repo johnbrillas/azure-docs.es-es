@@ -4,15 +4,15 @@ description: Obtenga información sobre las aplicaciones virtuales y dispositivo
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/21/2020
+ms.date: 01/13/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: b22f880eee1b691b6b50b8151a64a2d501b891b3
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 25685d7e933c9d171e1547be2f5899c08443321a
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97836872"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246577"
 ---
 # <a name="identify-required-appliances"></a>Identificación de los dispositivos necesarios
 
@@ -254,28 +254,6 @@ Después de comprar el dispositivo, vaya a **Defender para IoT** > **Network Sen
 ## <a name="dell-r340-bom"></a>Lista de materiales de Dell R340
 
 :::image type="content" source="media/how-to-prepare-your-network/enterprise-deployment-for-azure-defender-for-iot-dell-r340-bom.png" alt-text="Lista de materiales de Dell R340.":::
-
-## <a name="smb-deployment-neousys-nuvo-5006lp"></a>Implementación SMB: Neousys Nuvo-5006LP
-
-| Componente | Especificaciones técnicas |
-|--|--|
-| Construcción | Diseño de aluminio, sin ventilador y a prueba de polvo |
-| Dimensions | 240 mm (ancho) x 225 mm (profundidad) x 77 mm (alto) |
-| Peso | 3,1 kg (incluida la CPU, memoria y HDD) |
-| CPU | Intel Core i5-6500TE (caché de 6 MB, hasta 3,30 GHz) S1151 |
-| Conjunto de chips | Concentrador de controlador de plataforma Intel Q170 |
-| Memoria | DDR4 de 8 GB a 2133 MHz SODIMM de temperatura extendida |
-| Storage | Disco SSD de 128 GB 3ME3 mSATA de temperatura extendida |
-| Controladora de red | 6 puertos Gigabit Ethernet de Intel I219 |
-| Acceso del dispositivo | 4 puertos USB: Dos frontales, dos traseros, uno interno |
-| Adaptador de alimentación | 120/240 V CA - 20 V CC/6 A |
-| Montaje | Kit de montaje, riel DIN |
-| Temperatura de funcionamiento | \-25 °C ~ 70 °C |
-| Temperatura de almacenamiento | \-40 °C ~ 85 °C |
-| Humedad | 10 % - 90 % sin condensación |
-| Vibración | Operativa, 5 GRMS, 5 a 500 Hz, 3 ejes <br>(con disco SSD, conforme a IEC60068-2-64) |
-| Choque | Operativo, 50 GRMS, semionda sinusoidal, 11 ms de duración (con SSD, conforme a IEC60068-2-27) |
-| CEM | CE/FCC clase A, conforme a EN 55022, EN 55024 y EN 55032 |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

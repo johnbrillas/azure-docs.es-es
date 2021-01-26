@@ -9,13 +9,13 @@ ms.custom: seo-lt-2019, OKR 11/2019, sqldbrb=1
 author: ramakoni1
 ms.author: ramakoni
 ms.reviewer: sstein,vanto
-ms.date: 01/14/2020
-ms.openlocfilehash: bcf11ef9b64a02383aad5175c19c5db58c3c39cf
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 01/14/2021
+ms.openlocfilehash: ec61f2c67576d6e144d8d4bb7e8ecaaa157db0a9
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791348"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233379"
 ---
 # <a name="troubleshooting-connectivity-issues-and-other-errors-with-azure-sql-database-and-azure-sql-managed-instance"></a>Solución de problemas de conectividad y otros errores con Azure SQL Database y Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -24,7 +24,7 @@ Cuando la conexión a Azure SQL Database o Azure SQL Managed Instance no se logr
 
 ## <a name="transient-fault-error-messages-40197-40613-and-others"></a>Mensajes de error transitorios (40197, 40613 y otros)
 
-La infraestructura de Azure ofrece la posibilidad de volver a configurar dinámicamente servidores cuando surgen cargas de trabajo pesadas en el servicio de SQL Database.  Este comportamiento dinámico podría dar lugar a que el programa cliente perdiera su conexión a la base de datos o la instancia. Este tipo de condición de error se conoce como *error transitorio* . Los eventos de reconfiguración de la base de datos se producen debido a un evento planeado (por ejemplo, una actualización de software) o a un evento no planeado (por ejemplo, el bloqueo de un proceso o un equilibrio de carga). La mayoría de los eventos de reconfiguración son generalmente de corta duración y se completarán en menos de 60 segundos. Sin embargo, ocasionalmente estos eventos pueden tardar más tiempo de finalizar, por ejemplo, cuando una transacción grande produce una recuperación de larga duración. En la tabla siguiente se enumeran varios errores transitorios que las aplicaciones pueden recibir al conectarse a SQL Database
+La infraestructura de Azure ofrece la posibilidad de volver a configurar dinámicamente servidores cuando surgen cargas de trabajo pesadas en el servicio de SQL Database.  Este comportamiento dinámico podría dar lugar a que el programa cliente perdiera su conexión a la base de datos o la instancia. Este tipo de condición de error se conoce como *error transitorio*. Los eventos de reconfiguración de la base de datos se producen debido a un evento planeado (por ejemplo, una actualización de software) o a un evento no planeado (por ejemplo, el bloqueo de un proceso o un equilibrio de carga). La mayoría de los eventos de reconfiguración son generalmente de corta duración y se completarán en menos de 60 segundos. Sin embargo, ocasionalmente estos eventos pueden tardar más tiempo de finalizar, por ejemplo, cuando una transacción grande produce una recuperación de larga duración. En la tabla siguiente se enumeran varios errores transitorios que las aplicaciones pueden recibir al conectarse a SQL Database
 
 ### <a name="list-of-transient-fault-error-codes"></a>Lista de códigos de error transitorios
 
@@ -42,13 +42,13 @@ La infraestructura de Azure ofrece la posibilidad de volver a configurar dinámi
 ### <a name="steps-to-resolve-transient-connectivity-issues"></a>Pasos para resolver los problemas de conectividad transitorios
 
 1. Compruebe el [panel de Estado de Microsoft Azure](https://azure.microsoft.com/status) para comprobar si hay interrupciones conocidas que se hayan producido durante el tiempo en el que la aplicación informó de los errores.
-2. Para las aplicaciones que se conectan a un servicio en la nube, como Azure SQL Database, se deben prever eventos periódicos de reconfiguración e implementación de la lógica de reintento para gestionar estos errores en lugar de mostrarlos como errores de la aplicación.
+2. Para las aplicaciones que se conectan a un servicio en la nube, como Azure SQL Database, se deben prever eventos periódicos de reconfiguración e implementar la lógica de reintento para gestionar estos errores en lugar de mostrar los errores de la aplicación a los usuarios.
 3. Conforme una base de datos se acerca a sus límites de recursos, puede parecer un problema de conectividad transitorio. Consulte [Límites de los recursos](resource-limits-logical-server.md#what-happens-when-database-resource-limits-are-reached).
 4. Si los problemas de conectividad continúan, si el tiempo de detección del error por parte de la aplicación supera los 60 segundos o si el error se repite varias veces en un día determinado, realice una solicitud de soporte técnico a Azure; para ello, seleccione **Obtener soporte** en el sitio [Soporte técnico de Azure](https://azure.microsoft.com/support/options) .
 
 #### <a name="implementing-retry-logic"></a>Implementar lógica de reintento
 
-Se recomienda encarecidamente que el programa cliente tenga lógica de reintento para poder tratar de restablecer una conexión después de dar tiempo a que se corrijan los errores transitorios.  Se recomienda un retraso de 5 segundos antes del primer reintento. Si se vuelve a intentar después de un retraso menor de 5 segundos, se correrá el riesgo de sobrecargar el servicio en la nube. Para cada intento siguiente el retraso debe aumentar exponencialmente, hasta un máximo de 60 segundos.
+Se recomienda encarecidamente que el programa cliente tenga lógica de reintento para poder tratar de restablecer una conexión después de dar tiempo a que se corrijan los errores transitorios.  Se recomienda un retraso de 5 segundos antes del primer reintento. Si se vuelve a intentar después de un retraso de menos de 5 segundos, se correrá el riesgo de sobrecargar el servicio en la nube. Para cada intento siguiente el retraso debe aumentar exponencialmente, hasta un máximo de 60 segundos.
 
 Para obtener ejemplos de lógica de reintento, vea:
 
@@ -104,49 +104,46 @@ Para resolver este problema, póngase en contacto con el administrador de servic
 Normalmente, el administrador de servicio puede usar los siguientes pasos para agregar las credenciales de inicio de sesión:
 
 1. Inicie sesión en el servidor mediante SQL Server Management Studio (SSMS).
-2. Ejecute la siguiente consulta SQL para comprobar si el nombre de inicio de sesión está deshabilitado:
+2. Ejecute la siguiente consulta SQL en la base de datos maestra para comprobar si el nombre de inicio de sesión está deshabilitado:
 
    ```sql
-   SELECT name, is_disabled FROM sys.sql_logins
+   SELECT name, is_disabled FROM sys.sql_logins;
    ```
 
 3. Si el nombre correspondiente está deshabilitado, habilítelo mediante la instrucción siguiente:
 
    ```sql
-   Alter login <User name> enable
+   ALTER LOGIN <User name> ENABLE;
    ```
 
-4. Si el nombre de usuario de inicio de sesión SQL no existe, créelo con estos pasos:
-
-   1. En SSMS, haga doble clic en **Seguridad** para expandirlo.
-   2. Haga clic con el botón derecho en **Inicios de sesión** y, a continuación, seleccione **Nuevo inicio de sesión** .
-   3. En el script generado con marcadores de posición, edite y ejecute la siguiente consulta SQL:
+4. Si el nombre de usuario de inicio de sesión SQL no existe, edite y ejecute la siguiente consulta SQL para crear un inicio de sesión SQL:
 
    ```sql
    CREATE LOGIN <SQL_login_name, sysname, login_name>
-   WITH PASSWORD = ‘<password, sysname, Change_Password>’
+   WITH PASSWORD = '<password, sysname, Change_Password>';
    GO
    ```
 
-5. Haga doble clic en **Base de datos** .
+5. En el Explorador de objetos de SSMS, expanda **Bases de datos**.
 6. Seleccione la base de datos para la que desea conceder permiso al usuario.
-7. Haga doble clic en **Seguridad** .
-8. Haga clic con el botón derecho en **Usuarios** y, a continuación, seleccione **Nuevo usuario** .
-9. En el script generado con marcadores de posición, edite y ejecute la siguiente consulta SQL:
+7. Haga clic con el botón derecho en **Seguridad** y, después, seleccione **Nuevo**, **Ususario**.
+8. En el script generado con marcadores de posición, edite y ejecute la siguiente consulta SQL:
 
    ```sql
    CREATE USER <user_name, sysname, user_name>
    FOR LOGIN <login_name, sysname, login_name>
-   WITH DEFAULT_SCHEMA = <default_schema, sysname, dbo>
+   WITH DEFAULT_SCHEMA = <default_schema, sysname, dbo>;
    GO
-   -- Add user to the database owner role
 
-   EXEC sp_addrolemember N’db_owner’, N’<user_name, sysname, user_name>’
+   -- Add user to the database owner role
+   EXEC sp_addrolemember N'db_owner', N'<user_name, sysname, user_name>';
    GO
    ```
 
+   también puede utilizar `sp_addrolemember` para asignar usuarios específicos a roles de base de datos específicos.
+
    > [!NOTE]
-   > también puede utilizar `sp_addrolemember` para asignar usuarios específicos a roles de base de datos específicos.
+   > En Azure SQL Database, considere la sintaxis [ALTER ROLE](/sql/t-sql/statements/alter-role-transact-sql) más reciente para administrar la pertenencia al rol de la base de datos.  
 
 Para más información, consulte [Administración de bases de datos e inicios de sesión en Azure SQL Database](./logins-create-manage.md).
 
@@ -183,22 +180,23 @@ Para resolver este problema, pruebe uno de los métodos siguientes:
 - Compruebe si hay consultas de larga duración:
 
   > [!NOTE]
-  > Se trata de un enfoque minimalista que puede que no resuelva el problema.
+  > Se trata de un enfoque minimalista que puede que no resuelva el problema. Para más información sobre cómo solucionar problemas de consultas de bloqueo o de larga duración, vea [Descripción y resolución de los problemas de bloqueo de Azure SQL Database](understand-resolve-blocking.md).
 
 1. Ejecute la siguiente consulta SQL para comprobar la vista [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) y ver las solicitudes de bloqueo:
 
    ```sql
-   SELECT * FROM dm_exec_requests
+   SELECT * FROM sys.dm_exec_requests;
    ```
 
-2. Determine el **búfer de entrada** para el bloqueador de encabezado.
-3. Optimice la consulta del bloqueador de encabezado.
+1. Determine el **búfer de entrada** del bloqueador de encabezado con la función de administración dinámica [sys.dm_exec_input_buffer](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-input-buffer-transact-sql), y el valor session_id de la consulta incorrecta; por ejemplo:
 
-   Para un procedimiento de solución de problemas detallado, consulte [¿Se ejecuta correctamente mi consulta en la nube?](/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud)
+   ```sql 
+   SELECT * FROM sys.dm_exec_input_buffer (100,0);
+   ```
 
-Si la base de datos alcanza el límite constantemente a pesar del bloqueo y las consultas de ejecución prolongada, considere la posibilidad de actualizar a una edición con más recursos en [Ediciones](https://azure.microsoft.com/pricing/details/sql-database/).
+1. Optimice la consulta del bloqueador de encabezado.
 
-Para más información sobre las vistas de administración dinámica, consulte [Vistas de administración dinámica del sistema](/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views).
+Si la base de datos alcanza el límite constantemente a pesar del bloqueo y las consultas de larga duración, considere la posibilidad de actualizar a una edición con más recursos en [Ediciones](https://azure.microsoft.com/pricing/details/sql-database/).
 
 Para más información sobre los límites de la base de datos, consulte [Límites de recursos de SQL Database para servidores](./resource-limits-logical-server.md).
 
@@ -234,7 +232,7 @@ Los pasos siguientes pueden ayudarle a solucionar el problema o proporcionarle o
    FROM sys.objects o
    JOIN sys.dm_db_partition_stats p on p.object_id = o.object_id
    GROUP BY o.name
-   ORDER BY [Table Size (MB)] DESC
+   ORDER BY [Table Size (MB)] DESC;
    ```
 
 2. Si el tamaño actual no supera el tamaño máximo admitido para la versión, puede usar ALTER DATABASE para aumentar el valor de MAXSIZE.
@@ -253,15 +251,21 @@ Si se encuentra con frecuencia este mensaje de error, siga estos pasos para inte
 1. Compruebe la vista sys.dm_exec_requests para ver todas las sesiones abiertas que tengan un valor alto para la columna total_elapsed_time. Para realizar esta comprobación, ejecute el siguiente script de SQL:
 
    ```sql
-   SELECT * FROM dm_exec_requests
+   SELECT * FROM sys.dm_exec_requests;
    ```
 
-2. Determine el búfer de entrada de la consulta de larga duración.
+2. Determine el **búfer de entrada** del bloqueador de encabezado con la función de administración dinámica [sys.dm_exec_input_buffer](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-input-buffer-transact-sql), y el valor session_id de la consulta incorrecta; por ejemplo:
+
+   ```sql 
+   SELECT * FROM sys.dm_exec_input_buffer (100,0);
+   ```
+
 3. Ajuste de la consulta.
 
-Considere también el procesamiento por lotes de las consultas. Para más información sobre el procesamiento por lotes, consulte [Uso del procesamiento por lotes para mejorar el rendimiento de las aplicaciones de SQL Database](../performance-improve-use-batching.md).
+    > [!Note]
+    > Para obtener más información sobre la solución de problemas de bloqueo en Azure SQL Database, consulte [Descripción y resolución de problemas de bloqueo en Azure SQL Database](understand-resolve-blocking.md).
 
-Para un procedimiento de solución de problemas detallado, consulte [¿Se ejecuta correctamente mi consulta en la nube?](/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud)
+Considere también el procesamiento por lotes de las consultas. Para más información sobre el procesamiento por lotes, consulte [Uso del procesamiento por lotes para mejorar el rendimiento de las aplicaciones de SQL Database](../performance-improve-use-batching.md).
 
 ### <a name="error-40551-the-session-has-been-terminated-because-of-excessive-tempdb-usage"></a>Error 40551: La sesión ha terminado debido al uso excesivo de TEMPDB
 
@@ -299,7 +303,7 @@ Para un procedimiento de solución de problemas detallado, consulte [¿Se ejecut
 | Código de error | severity | Descripción |
 | ---:| ---:|:--- |
 | 10928 |20 |Id. de recurso: %d. El límite %s para la base de datos es %d y se ha alcanzado. Para más información, consulte [Límites de recursos de SQL Database para bases de datos únicas y agrupadas](resource-limits-logical-server.md).<br/><br/>El identificador de recurso indica el recurso que ha alcanzado el límite. Para subprocesos de trabajo, el id. de recurso = 1. Para las sesiones, Identificador de recurso = 2.<br/><br/>Para más información sobre este error y cómo solucionarlo, consulte: <br/>&bull; &nbsp;[Límites de recursos de servidores SQL lógicos](resource-limits-logical-server.md)<br/>&bull; &nbsp;[Niveles de servicio en el modelo de compra basado en DTU](service-tiers-dtu.md)<br/>&bull; &nbsp;[Límites de recursos para grupos elásticos que usan el modelo de compra de DTU](resource-limits-dtu-elastic-pools.md)<br/>&bull; &nbsp;[Límites de recursos para bases de datos únicas que usan el modelo de compra en núcleos virtuales](resource-limits-vcore-single-databases.md)<br/>&bull; &nbsp;[Límites de recursos para grupos elásticos que usan el modelo de compra de núcleo virtual](resource-limits-vcore-elastic-pools.md)<br/>&bull; &nbsp;[Límites de recursos de Instancia administrada de Azure SQL](../managed-instance/resource-limits.md) |
-| 10929 |20 |Id. de recurso: %d. La garantía mínima de %s es de %d, el límite máximo es %d y el uso actual de la base de datos es %d. Sin embargo, el servidor está demasiado ocupado en estos momentos para admitir solicitudes mayores que %d para esta base de datos. El identificador de recurso indica el recurso que ha alcanzado el límite. Para subprocesos de trabajo, el id. de recurso = 1. Para las sesiones, Identificador de recurso = 2. Para más información, consulte: <br/>&bull; &nbsp;[Límites de recursos de servidores SQL lógicos](resource-limits-logical-server.md)<br/>&bull; &nbsp;[Niveles de servicio en el modelo de compra basado en DTU](service-tiers-dtu.md)<br/>&bull; &nbsp;[Límites de recursos para grupos elásticos que usan el modelo de compra de DTU](resource-limits-dtu-elastic-pools.md)<br/>&bull; &nbsp;[Límites de recursos para bases de datos únicas que usan el modelo de compra en núcleos virtuales](resource-limits-vcore-single-databases.md)<br/>&bull; &nbsp;[Límites de recursos para grupos elásticos que usan el modelo de compra de núcleo virtual](resource-limits-vcore-elastic-pools.md)<br/>&bull; &nbsp;[Límites de recursos de Instancia administrada de Azure SQL](../managed-instance/resource-limits.md) <br/>De lo contrario, inténtelo de nuevo más tarde. |
+| 10929 |20 |Id. de recurso: %d. La garantía mínima de %s es de %d, el límite máximo es %d y el uso actual de la base de datos es %d. Sin embargo, el servidor está demasiado ocupado en estos momentos para admitir solicitudes mayores que %d para esta base de datos. El identificador de recurso indica el recurso que ha alcanzado el límite. Para subprocesos de trabajo, el id. de recurso = 1. Para las sesiones, Identificador de recurso = 2. Para más información, consulte: <br/>&bull; &nbsp;[Límites de recursos de servidores SQL lógicos](resource-limits-logical-server.md)<br/>&bull; &nbsp;[Niveles de servicio en el modelo de compra basado en DTU](service-tiers-dtu.md)<br/>&bull; &nbsp;[Límites de recursos para grupos elásticos que usan el modelo de compra de DTU](resource-limits-dtu-elastic-pools.md)<br/>&bull; &nbsp;[Límites de recursos para bases de datos únicas que usan el modelo de compra en núcleos virtuales](resource-limits-vcore-single-databases.md)<br/>&bull; &nbsp;[Límites de recursos para grupos elásticos que usan el modelo de compra de núcleo virtual](resource-limits-vcore-elastic-pools.md)<br/>&bull; &nbsp;[Límites de recursos de Instancia administrada de Azure SQL](../managed-instance/resource-limits.md) <br/>De lo contrario, vuelva a intentarlo más tarde. |
 | 40544 |20 |La base de datos ha alcanzado su cuota de tamaño. Cree particiones o elimine datos, quite índices o consulte la documentación para obtener soluciones posibles. Para el escalado de la base de datos, consulte [Escalar recursos de base de datos única](single-database-scale.md) y [Escalar recursos de grupos elásticos](elastic-pool-scale.md).|
 | 40549 |16 |La sesión terminó porque tiene una transacción de larga duración. Intente reducir la transacción. Para más información sobre el procesamiento por lotes, consulte [Uso del procesamiento por lotes para mejorar el rendimiento de las aplicaciones de SQL Database](../performance-improve-use-batching.md).|
 | 40550 |16 |La sesión ha terminado porque ha adquirido demasiados bloqueos. Intente leer o modificar menos filas en una sola transacción. Para más información sobre el procesamiento por lotes, consulte [Uso del procesamiento por lotes para mejorar el rendimiento de las aplicaciones de SQL Database](../performance-improve-use-batching.md).|
@@ -313,14 +317,14 @@ Los errores siguientes están relacionados con la creación y el uso de grupos e
 
 | Código de error | severity | Descripción | Acción correctiva |
 |:--- |:--- |:--- |:--- |
-| 1132 | 17 |El grupo elástico ha alcanzado su límite de almacenamiento. El uso del almacenamiento del grupo elástico no puede superar (%d) MB. Se ha intentado escribir datos en una base de datos cuando se ha alcanzado el límite de almacenamiento del grupo elástico. Para obtener información sobre los límites de recursos, consulte: <br/>&bull; &nbsp;[Límites de recursos para grupos elásticos que usan el modelo de compra de DTU](resource-limits-dtu-elastic-pools.md)<br/>&bull; &nbsp;[Límites de recursos para grupos elásticos que usan el modelo de compra basado en núcleo virtual](resource-limits-vcore-elastic-pools.md). <br/> |Considere la posibilidad de incrementar el número de DTU y de agregar almacenamiento al grupo elástico si es posible para aumentar su límite de almacenamiento, reducir el almacenamiento usado por las bases de datos individuales del grupo elástico o quitar bases de datos de este. Para la escalada del grupo elástico, consulte [Escalar recursos de grupos elásticos](elastic-pool-scale.md).|
-| 10929 | 16 |La garantía mínima de %s es de %d, el límite máximo es %d y el uso actual de la base de datos es %d. Sin embargo, el servidor está demasiado ocupado en estos momentos para admitir solicitudes mayores que %d para esta base de datos. Para obtener información sobre los límites de recursos, consulte: <br/>&bull; &nbsp;[Límites de recursos para grupos elásticos que usan el modelo de compra de DTU](resource-limits-dtu-elastic-pools.md)<br/>&bull; &nbsp;[Límites de recursos para grupos elásticos que usan el modelo de compra basado en núcleo virtual](resource-limits-vcore-elastic-pools.md). <br/> De lo contrario, inténtelo de nuevo más tarde. Número mínimo de DTU o de núcleos virtuales por base de datos; número máximo de DTU o de núcleos virtuales por base de datos. El número total de trabajadores simultáneos (solicitudes) de todas las bases de datos del grupo elástico intentó superar el límite del grupo. |Considere la posibilidad de incrementar el número de DTU o de núcleos virtuales del grupo elástico si es posible para aumentar el límite de trabajadores, o bien quite bases de datos del grupo elástico. |
+| 1132 | 17 |El grupo elástico ha alcanzado su límite de almacenamiento. El uso del almacenamiento del grupo elástico no puede superar (%d) MB. Se ha intentado escribir datos en una base de datos cuando se ha alcanzado el límite de almacenamiento del grupo elástico. Para obtener información sobre los límites de recursos, consulte: <br/>&bull; &nbsp;[Límites de recursos para grupos elásticos que usan el modelo de compra de DTU](resource-limits-dtu-elastic-pools.md)<br/>&bull; &nbsp;[Límites de recursos para grupos elásticos que usan el modelo de compra basado en núcleo virtual](resource-limits-vcore-elastic-pools.md). <br/> |Considere la posibilidad de incrementar el número de DTU y de agregar almacenamiento al grupo elástico si es posible para aumentar su límite de almacenamiento, reducir el almacenamiento usado por las bases de datos individuales del grupo elástico o quitar bases de datos de este. Para la escalada del grupo elástico, consulte [Escalar recursos de grupos elásticos](elastic-pool-scale.md). Para obtener más información sobre cómo quitar el espacio no utilizado de las bases de datos, vea [Administración del espacio de archivo para bases de datos en Azure SQL Database](file-space-manage.md).|
+| 10929 | 16 |La garantía mínima de %s es de %d, el límite máximo es %d y el uso actual de la base de datos es %d. Sin embargo, el servidor está demasiado ocupado en estos momentos para admitir solicitudes mayores que %d para esta base de datos. Para obtener información sobre los límites de recursos, consulte: <br/>&bull; &nbsp;[Límites de recursos para grupos elásticos que usan el modelo de compra de DTU](resource-limits-dtu-elastic-pools.md)<br/>&bull; &nbsp;[Límites de recursos para grupos elásticos que usan el modelo de compra basado en núcleo virtual](resource-limits-vcore-elastic-pools.md). <br/> De lo contrario, vuelva a intentarlo más tarde. Número mínimo de DTU o de núcleos virtuales por base de datos; número máximo de DTU o de núcleos virtuales por base de datos. El número total de trabajadores simultáneos (solicitudes) de todas las bases de datos del grupo elástico intentó superar el límite del grupo. |Considere la posibilidad de incrementar el número de DTU o de núcleos virtuales del grupo elástico si es posible para aumentar el límite de trabajadores, o bien quite bases de datos del grupo elástico. |
 | 40844 | 16 |La base de datos '%ls' del servidor '%ls' es una base de datos de la versión '%ls' de un grupo elástico y no puede tener una relación de copia continua.  |N/D |
 | 40857 | 16 |Grupo elástico no encontrado para el servidor: '%ls', nombre del grupo elástico: '%ls'. El grupo elástico especificado no existe en el servidor especificado. | Especifique un nombre de grupo elástico válido. |
 | 40858 | 16 |El grupo elástico '%ls' ya existe en el servidor: '%ls'. El grupo elástico especificado ya existe en el servidor especificado. | Proporcione un nuevo nombre de grupo elástico. |
 | 40859 | 16 |El grupo elástico no admite el nivel de servicio '%ls'. El nivel de servicio especificado no se admite para el aprovisionamiento de grupo elástico. |Especifique la versión correcta o deje el nivel de servicio en blanco para usar el nivel de servicio predeterminado. |
 | 40860 | 16 |La combinación del grupo elástico '%ls' y del objetivo de servicio '%ls' no es válida. El grupo elástico y el nivel de servicio pueden especificarse juntos solo si se especifica el objetivo de servicio como "ElasticPool". |Especifique la combinación correcta de grupo elástico y nivel de servicio. |
-| 40861 | 16 |La versión de la base de datos '%. *ls' no puede ser distinta del nivel de servicio del grupo elástico, que es '%.* ls'. La versión de la base de datos es distinta del nivel de servicio del grupo elástico. |No especifique una versión de la base de datos distinta del nivel de servicio del grupo elástico.  Tenga en cuenta que no es necesario especificar la versión de la base de datos. |
+| 40861 | 16 |La versión de la base de datos '%.*ls' no puede ser distinta del nivel de servicio del grupo elástico, que es '%.* ls'. La versión de la base de datos es distinta del nivel de servicio del grupo elástico. |No especifique una edición de la base de datos distinta del nivel de servicio del grupo elástico.  Tenga en cuenta que no es necesario especificar la versión de la base de datos. |
 | 40862 | 16 |Debe especificarse el nombre del grupo elástico si se especifica el objetivo de servicio del grupo elástico. El objetivo del servicio de grupo elástico no identifica de manera única un grupo elástico. |Especifique el nombre del grupo elástico si usa el objetivo del servicio de grupo elástico. |
 | 40864 | 16 |El número de DTU del grupo elástico debe ser de al menos (%d) DTU para el nivel de servicio ' %.* ls'. Se intentó establecer el número de DTU para el grupo elástico por debajo del límite mínimo. |Vuelva a intentar establecer el número de DTU para el grupo elástico al menos en el límite mínimo. |
 | 40865 | 16 |El número de DTU del grupo elástico no puede superar (%d) DTU para el nivel de servicio ' %.* ls'. Se intentó establecer el número de DTU para el grupo elástico por encima del máximo. |Vuelva a intentar establecer el número de DTU para el grupo elástico en un valor inferior al límite máximo. |
@@ -340,14 +344,14 @@ Este problema se produce porque la cuenta no tiene permiso de acceso a la base d
 
 Para resolver el problema, siga estos pasos:
 
-1. En la pantalla de inicio de sesión de SSMS, seleccione **Opciones** y, luego, **Propiedades de la conexión** .
-2. En el campo **Conectar con base de datos** , escriba el nombre de la base de datos predeterminada del usuario como la base de datos de inicio de sesión predeterminada y seleccione **Conectar** .
+1. En la pantalla de inicio de sesión de SSMS, seleccione **Opciones** y, luego, **Propiedades de la conexión**.
+2. En el campo **Conectar con base de datos**, escriba el nombre de la base de datos predeterminada del usuario como la base de datos de inicio de sesión predeterminada y seleccione **Conectar**.
 
    ![Propiedades de la conexión](./media/troubleshoot-common-errors-issues/cannot-open-database-master.png)
 
 ## <a name="confirm-whether-an-error-is-caused-by-a-connectivity-issue"></a>Confirmación de si un error se debe a un problema de conectividad
 
-Para confirmar si un error se debe a un problema de conectividad, revise el seguimiento de la pila de los marcos que muestran llamadas para abrir una conexión como las siguientes (observe la referencia a la clase **SqlConnection** ):
+Para confirmar si un error se debe a un problema de conectividad, revise el seguimiento de la pila de los marcos que muestran llamadas para abrir una conexión como las siguientes (observe la referencia a la clase **SqlConnection**):
 
 ```
 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
@@ -356,7 +360,7 @@ System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
 ClientConnectionId:<Client connection ID>
 ```
 
-Cuando se produce la excepción por problemas de consulta, observará una pila de llamadas similar a la siguiente (observe la referencia a la clase **SqlCommand** ). En esta situación, [optimice las consultas ](/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud).
+Cuando se produce la excepción por problemas de consulta, observará una pila de llamadas similar a la siguiente (observe la referencia a la clase **SqlCommand**). En esta situación, [optimice las consultas ](/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud).
 
 ```
   at System.Data.SqlClient.SqlCommand.ExecuteReader()

@@ -10,13 +10,13 @@ ms.topic: reference
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein
-ms.date: 10/15/2020
-ms.openlocfilehash: e706f64a7caab6873a3eec86505eaee11374ae2c
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.date: 01/15/2021
+ms.openlocfilehash: 2daa07315be85e1fcd543480cd30a57c118d8547
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97882332"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251495"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-purchasing-model"></a>Límites de recursos para grupos elásticos que usan el modelo de compra de núcleo virtual
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -235,6 +235,39 @@ Puede establecer el nivel de servicio, el tamaño de proceso (objetivo de servic
 
 <sup>3</sup> Para obtener el máximo de trabajos simultáneos (solicitudes) para cualquier base de datos individual, consulte [Límites de recursos de base de datos única](resource-limits-vcore-single-databases.md). Por ejemplo, si el grupo elástico usa Gen5 y el valor máximo de núcleo virtual por base de datos se establece en 2, el valor de máximo de trabajos simultáneos es 200.  Si el número máximo de núcleo virtual por base de datos se establece en 0,5, el valor de máximo de trabajos simultáneos es 50, ya que en Gen5 hay un máximo de 100 trabajos simultáneos por núcleo virtual. Para otras configuraciones de memoria con núcleo virtual máximo por base de datos que sean un núcleo virtual o menos, la cantidad máxima de trabajos simultáneos se escala de forma similar.
 
+
+## <a name="general-purpose---provisioned-compute---dc-series"></a>Uso general: proceso aprovisionado: serie DC
+
+|Tamaño de proceso (objetivo de servicio)|GP_DC_2|GP_DC_4|GP_DC_6|GP_DC_8|
+|:--- | --: |--: |--: |--: |
+|Generación de procesos|DC|DC|DC|DC|
+|Núcleos virtuales|2|4|6|8|
+|Memoria (GB)|9|18|27|36|
+|Máximo número de bases de datos por grupo <sup>1</sup>|100|400|400|400|
+|Compatible con almacén de columnas|Sí|Sí|Sí|Sí|
+|Almacenamiento OLTP en memoria (GB)|N/D|N/D|N/D|N/D|
+|Tamaño máximo de datos (GB)|756|1536|2048|2048|
+|Tamaño máximo de registro (GB)|227|461|614|614|
+|Tamaño máximo de datos de TempDB (GB)|64|128|192|256|
+|Tipo de almacenamiento|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|
+|Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|
+|Número máximo de IOPS de datos por grupo <sup>2</sup>|800|1600|2400|3200|
+|Velocidad de registro máxima por grupo (MBps)|9,4|18,8|28,1|32,8|
+|Número máximo de trabajos simultáneos por grupo (solicitudes) <sup>3</sup>|168|336|504|672|
+|Número máximo de inicios de sesión simultáneos por grupo (solicitudes) <sup>3</sup>|168|336|504|672|
+|N.º máximo de sesiones simultáneas|30,000|30,000|30,000|30,000|
+|Opciones de núcleo virtual mín./máx. de grupos elásticos por base de datos|2|2...4|2...6|2...8|
+|Número de réplicas|1|1|1|1|
+|AZ múltiple|N/D|N/D|N/D|N/D|
+|Escalado horizontal de lectura|N/D|N/D|N/D|N/D|
+|Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
+
+<sup>1</sup> Consulte [Administración de recursos en grupos elásticos densos](elastic-pool-resource-management.md) para conocer las consideraciones adicionales.
+
+<sup>2</sup> El valor máximo de los tamaños de E/S que oscilan entre 8 KB y 64 KB. Las IOPS reales dependen de la carga de trabajo. Para más información, consulte [Regulación de E/S de los datos](resource-limits-logical-server.md#resource-governance).
+
+<sup>3</sup> Para obtener el máximo de trabajos simultáneos (solicitudes) para cualquier base de datos individual, consulte [Límites de recursos de base de datos única](resource-limits-vcore-single-databases.md). Por ejemplo, si el grupo elástico usa Gen5 y el valor máximo de núcleo virtual por base de datos se establece en 2, el valor de máximo de trabajos simultáneos es 200.  Si el número máximo de núcleo virtual por base de datos se establece en 0,5, el valor de máximo de trabajos simultáneos es 50, ya que en Gen5 hay un máximo de 100 trabajos simultáneos por núcleo virtual. Para otras configuraciones de memoria con núcleo virtual máximo por base de datos que sean un núcleo virtual o menos, la cantidad máxima de trabajos simultáneos se escala de forma similar.
+
 ## <a name="business-critical---provisioned-compute---gen4"></a>Crítico para la empresa: proceso aprovisionado: Gen4
 
 > [!IMPORTANT]
@@ -280,7 +313,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso (objetivo de servic
 |Núcleos virtuales|7|8|9|10|16|24|
 |Memoria (GB)|49|56|63|70|112|159,5|
 |Máximo número de bases de datos por grupo <sup>1</sup>|100|100|100|100|100|100|
-|Compatible con almacén de columnas|N/D|No aplicable|No aplicable|No aplicable|No aplicable|N/D|
+|Compatible con almacén de columnas|N/D|N/D|N/D|N/D|N/D|N/D|
 |Almacenamiento OLTP en memoria (GB)|7|8|9.5|11|20|36|
 |Tipo de almacenamiento|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
 |Tamaño máximo de datos (GB)|1024|1024|1024|1024|1024|1024|
@@ -406,8 +439,6 @@ Puede establecer el nivel de servicio, el tamaño de proceso (objetivo de servic
 
 Si todos los núcleos virtuales de un grupo elástico están ocupados, cada una de las bases de datos del grupo recibe la misma cantidad de recursos de proceso para procesar las consultas. Azure SQL Database proporciona ecuanimidad de uso compartido de recursos entre bases de datos garantizando los mismos segmentos de tiempo de proceso. La ecuanimidad de uso compartido de recursos del grupo elástico es adicional a cualquier cantidad de recursos garantizados de otro modo a cada base de datos cuando el número mínimo de núcleos virtuales por base de datos se establece en un valor distinto de cero.
 
-
-
 ### <a name="m-series-compute-generation-part-2"></a>Generación de proceso de la serie M (parte 2)
 
 |Tamaño de proceso (objetivo de servicio)|BC_M_20|BC_M_24|BC_M_32|BC_M_64|BC_M_128|
@@ -441,6 +472,37 @@ Si todos los núcleos virtuales de un grupo elástico están ocupados, cada una 
 
 Si todos los núcleos virtuales de un grupo elástico están ocupados, cada una de las bases de datos del grupo recibe la misma cantidad de recursos de proceso para procesar las consultas. Azure SQL Database proporciona ecuanimidad de uso compartido de recursos entre bases de datos garantizando los mismos segmentos de tiempo de proceso. La ecuanimidad de uso compartido de recursos del grupo elástico es adicional a cualquier cantidad de recursos garantizados de otro modo a cada base de datos cuando el número mínimo de núcleos virtuales por base de datos se establece en un valor distinto de cero.
 
+## <a name="business-critical---provisioned-compute---dc-series"></a>Crítico para la empresa: proceso aprovisionado: serie DC
+
+|Tamaño de proceso (objetivo de servicio)|BC_DC_2|BC_DC_4|BC_DC_6|BC_DC_8|
+|:--- | --: |--: |--: |--: |
+|Generación de procesos|DC|DC|DC|DC|
+|Núcleos virtuales|2|4|6|8|
+|Memoria (GB)|9|18|27|36|
+|Máximo número de bases de datos por grupo <sup>1</sup>|50|100|100|100|
+|Compatible con almacén de columnas|Sí|Sí|Sí|Sí|
+|Almacenamiento OLTP en memoria (GB)|1.7|3.7|5.9|8,2|
+|Tamaño máximo de datos (GB)|768|768|768|768|
+|Tamaño máximo de registro (GB)|230|230|230|230|
+|Tamaño máximo de datos de TempDB (GB)|64|128|192|256|
+|Tipo de almacenamiento|SSD local|SSD local|SSD local|SSD local|
+|Latencia de E/S (aproximada)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|
+|Número máximo de IOPS de datos por grupo <sup>2</sup>|15750|31500|47250|56 000|
+|Velocidad de registro máxima por grupo (MBps)|20|60|90|120|
+|Número máximo de trabajos simultáneos por grupo (solicitudes) <sup>3</sup>|168|336|504|672|
+|Número máximo de inicios de sesión simultáneos por grupo (solicitudes) <sup>3</sup>|168|336|504|672|
+|N.º máximo de sesiones simultáneas|30,000|30,000|30,000|30,000|
+|Opciones de núcleo virtual mín./máx. de grupos elásticos por base de datos|2|2...4|2...6|2...8|
+|Número de réplicas|4|4|4|4|
+|AZ múltiple|No|No|No|No|
+|Escalado horizontal de lectura|Sí|Sí|Sí|Sí|
+|Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
+
+<sup>1</sup> Consulte [Administración de recursos en grupos elásticos densos](elastic-pool-resource-management.md) para conocer las consideraciones adicionales.
+
+<sup>2</sup> El valor máximo de los tamaños de E/S que oscilan entre 8 KB y 64 KB. Las IOPS reales dependen de la carga de trabajo. Para más información, consulte [Regulación de E/S de los datos](resource-limits-logical-server.md#resource-governance).
+
+<sup>3</sup> Para obtener el máximo de trabajos simultáneos (solicitudes) para cualquier base de datos individual, consulte [Límites de recursos de base de datos única](resource-limits-vcore-single-databases.md). Por ejemplo, si el grupo elástico usa Gen5 y el valor máximo de núcleo virtual por base de datos se establece en 2, el valor de máximo de trabajos simultáneos es 200.  Si el número máximo de núcleo virtual por base de datos se establece en 0,5, el valor de máximo de trabajos simultáneos es 50, ya que en Gen5 hay un máximo de 100 trabajos simultáneos por núcleo virtual. Para otras configuraciones de memoria con núcleo virtual máximo por base de datos que sean un núcleo virtual o menos, la cantidad máxima de trabajos simultáneos se escala de forma similar.
 
 ## <a name="database-properties-for-pooled-databases"></a>Propiedades de base de datos para bases de datos agrupadas
 

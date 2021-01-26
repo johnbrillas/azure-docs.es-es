@@ -3,12 +3,12 @@ title: Preguntas frecuentes sobre Azure Relay | Microsoft Docs
 description: En este artículo se responden algunas de las preguntas más frecuentes relativas al servicio Azure Relay.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 77d3122942289654c0f651f9f648307123b23546
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 83cbc4b02bb8b63878abd046ed2314728546e87a
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131855"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250067"
 ---
 # <a name="azure-relay-faqs"></a>Preguntas frecuentes sobre Azure Relay
 
@@ -70,7 +70,7 @@ Las retransmisiones que se abren mediante el enlace WCF **netTCPRelay** tratan l
 ## <a name="quotas"></a>Cuotas
 | Nombre de cuota | Ámbito |  Notas | Value |
 | --- | --- | --- | --- |
-| Agentes de escucha simultáneos en una retransmisión |Entidad |Las solicitudes posteriores de conexiones adicionales se rechazarán y el código que realizó la llamada recibe una excepción. |25 |
+| Agentes de escucha simultáneos en una retransmisión |Entidad (conexión híbrida o WCF Relay) |Las solicitudes posteriores de conexiones adicionales se rechazarán y el código que realizó la llamada recibe una excepción. |25 |
 | Conexiones de retransmisión simultáneas por todos los puntos de conexión de retransmisión en un espacio de nombres de servicio |Espacio de nombres |- |5\.000 |
 | Puntos de conexión de retransmisión por espacio de nombres de servicio |Espacio de nombres |- |10 000 |
 | Tamaño de mensaje de las retransmisiones [NetOnewayRelayBinding](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) y [NetEventRelayBinding](/dotnet/api/microsoft.servicebus.neteventrelaybinding) |Espacio de nombres |Los mensajes entrantes que superen estas cuotas se rechazarán y el código que realizó la llamada recibe una excepción. |64 KB |

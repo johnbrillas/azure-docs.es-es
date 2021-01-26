@@ -13,12 +13,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
 - devx-track-azurecli
-ms.openlocfilehash: 892dad3963e9da3560acc2c782c3d14db246ea78
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 13130a7ea473b260ddc4f0ebca2ef5b496b34c66
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87500596"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98203015"
 ---
 # <a name="tutorial-use-the-azure-cli-and-azure-portal-to-configure-iot-hub-message-routing"></a>Tutorial: Uso de la CLI de Azure y Azure Portal para configurar el enrutamiento de mensajes de IoT Hub
 
@@ -140,13 +140,13 @@ Ahora, configure el enrutamiento de la cuenta de almacenamiento. Vaya al panel d
 
 2. Seleccione la instancia de IoT Hub en la lista de recursos. En este tutorial se usa **ContosoTestHub**.
 
-3. Seleccione **Enrutamiento de mensajes**. En el panel **Enrutamiento de mensajes**, seleccione +**Agregar**. En el panel **Agregar una ruta**, seleccione +**Agregar**, que se encuentra junto al campo Punto de conexión, para mostrar los puntos de conexión admitidos, tal como se muestra en la siguiente imagen:
+3. Seleccione **Enrutamiento de mensajes**. En el panel **Enrutamiento de mensajes**, seleccione +**Agregar**. En el panel **Agregar una ruta**, seleccione +**Agregar punto de conexión**, junto al campo Punto de conexión, para mostrar los puntos de conexión admitidos, tal como se muestra en la siguiente imagen:
 
-   ![Empezar a agregar un punto de conexión para una ruta](./media/tutorial-routing/message-routing-add-a-route-w-storage-ep.png)
+   ![Empezar a agregar un punto de conexión para una ruta](./media/tutorial-routing/message-routing-add-a-route-with-storage-endpoint-ver2.png)
 
-4. Seleccione **Blob Storage**. Verá el panel **Agregar un punto de conexión de almacenamiento**.
+4. Seleccione **Storage**. Verá el panel **Agregar un punto de conexión de almacenamiento**.
 
-   ![Adición de un punto de conexión](./media/tutorial-routing/message-routing-add-storage-ep.png)
+   ![Adición de un punto de conexión](./media/tutorial-routing/message-routing-add-storage-endpoint-ver2.png)
 
 5. Escriba el nombre del punto de conexión. En este tutorial se usa **ContosoStorageEndpoint**.
 

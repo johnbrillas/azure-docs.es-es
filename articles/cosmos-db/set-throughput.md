@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/10/2020
-ms.openlocfilehash: 4fea027663b55e87822eae1fd0cdb2d67dbc630b
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.date: 01/19/2021
+ms.openlocfilehash: a03ad1eb893c97671d7ab60cc38708115a73d260
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96170837"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602403"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Introducción al rendimiento aprovisionado en Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -109,7 +109,7 @@ La respuesta de estos métodos también contiene el [rendimiento mínimo aprovis
 El valor mínimo real de RU/s puede variar en función de la configuración de la cuenta. Pero generalmente es el máximo de:
 
 * 400 RU/s 
-* Almacenamiento actual en GB * 10 RU/s (a menos que el contenedor o la base de datos contengan más de 1 TB de datos, consulte nuestro [programa de almacenamiento alto y rendimiento bajo](#high-storage-low-throughput-program)).
+* Almacenamiento actual en GB * 10 RU/s (esta restricción se puede relajar en algunos casos, consulte nuestro [programa de almacenamiento alto y bajo rendimiento](#high-storage-low-throughput-program))
 * El mayor valor de RU/s aprovisionado en la base de datos o el contenedor / 100
 
 ### <a name="changing-the-provisioned-throughput"></a>Cambio del rendimiento aprovisionado
@@ -139,7 +139,7 @@ Tal y como se describe en la sección [Rendimiento aprovisionado actual](#curren
 
 Esto puede ser un problema en situaciones en las que necesite almacenar grandes cantidades de datos, pero que tengan requisitos de rendimiento bajo en comparación. Para adaptarse mejor a estos escenarios, Azure Cosmos DB ha presentado un **programa de "almacenamiento alto y bajo rendimiento"** que reduce la restricción de RU/s por GB en las cuentas válidas.
 
-En este momento, debe tener al menos un contenedor o una base de datos de rendimiento compartido que contenga más de 1 TB de datos en su cuenta para que sea válido. Para unirse a este programa y evaluar su idoneidad total, todo lo que tiene que hacer es cumplimentar [esta encuesta](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRzBPrdEMjvxPuDm8fCLUtXpUREdDU0pCR0lVVFY5T1lRVEhWNUZITUJGMC4u). El equipo de Azure Cosmos DB realizará un seguimiento y continuará con la incorporación.
+Para unirse a este programa y evaluar su idoneidad total, todo lo que tiene que hacer es cumplimentar [esta encuesta](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRzBPrdEMjvxPuDm8fCLUtXpUREdDU0pCR0lVVFY5T1lRVEhWNUZITUJGMC4u). El equipo de Azure Cosmos DB realizará un seguimiento y continuará con la incorporación.
 
 ## <a name="comparison-of-models"></a>Comparación de modelos
 En esta tabla se muestra una comparación entre el aprovisionamiento del rendimiento estándar (manual) en una base de datos frente a un contenedor. 

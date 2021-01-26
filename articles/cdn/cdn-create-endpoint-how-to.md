@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 06/12/2018
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 43718f8ebc851f27035f2999bfb4ff3ec12ca5b4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7bbd54ed68863a4704319a25af96b6463ad2377b
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021969"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539708"
 ---
 # <a name="create-an-azure-cdn-endpoint"></a>Creación de un punto de conexión de Azure CDN
 Este artículo describe toda la configuración para crear un punto de conexión de [Azure Content Delivery Network (CDN)](cdn-overview.md) en un perfil de CDN existente. Una vez haya creado un perfil y un punto de conexión, podrá iniciar la entrega de contenido a sus clientes. Para una guía de inicio rápido sobre cómo crear un perfil y un punto de conexión, consulte [Inicio rápido: Creación de un perfil y un punto de conexión de Azure CDN](cdn-create-new-endpoint.md).
@@ -97,7 +97,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com) con su cuenta de Azur
     Dado que se tarda un tiempo en que el registro se propague, el punto de conexión no estará disponible para su uso de forma inmediata: 
     - En los perfiles de **Azure CDN Estándar de Microsoft**, la propagación se completa normalmente en 10 minutos. 
     - En los perfiles de **Azure CDN estándar**, la propagación normalmente se completa en un minuto. 
-    - En los perfiles **Azure CDN de Verizon estándar** y **Azure CDN de Verizon premium**, la propagación se completa normalmente en 90 minutos. 
+    - En los perfiles **Azure CDN estándar de Verizon** y **Azure CDN prémium de Verizon**, la propagación se completa normalmente en 30 minutos. 
    
     Si intenta usar el nombre de dominio de la red CDN antes de que la configuración del punto de conexión se haya propagado a los servidores de punto de presencia (POP), puede recibir un estado de respuesta HTTP 404. Si han pasado varias horas desde que creó el punto de conexión y aún recibe un estado de respuesta 404, consulte [Solución de problemas de puntos de conexión de Azure CDN que devuelven un código de estado 404](cdn-troubleshoot-endpoint.md).
 

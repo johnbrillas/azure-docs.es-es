@@ -3,12 +3,12 @@ title: Migración de la configuración del grupo de Batch de Cloud Services a Vi
 description: Obtenga información acerca de cómo actualizar la configuración del grupo a la configuración más reciente y recomendada.
 ms.topic: how-to
 ms.date: 1/6/2021
-ms.openlocfilehash: b6f4184f7c4f133f74cb3157638b1621dad25fda
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: d987a185efb6593fd541dd14fa74b6c4d3ca41be
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97969034"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234314"
 ---
 # <a name="migrate-batch-pool-configuration-from-cloud-services-to-virtual-machines"></a>Migración de la configuración del grupo de Batch de Cloud Services a Virtual Machines
 
@@ -22,7 +22,7 @@ En este artículo se describe cómo migrar a "virtualMachineConfiguration".
 
 Los grupos activos existentes no se pueden actualizar de "cloudServiceConfiguration" a "virtualMachineConfiguration"; se deben crear nuevos grupos. La creación de grupos con "virtualMachineConfiguration" es compatible con todas las API de Batch, herramientas de línea de comandos, Azure Portal y la interfaz de usuario de Batch Explorer.
 
-Los tutoriales de [.NET](tutorial-parallel-dotnet.md) y [Python](tutorial-parallel-python.md) proporcionan ejemplos de creación de grupos con "virtualMachineConfiguration".
+**Los tutoriales de [.NET](tutorial-parallel-dotnet.md) y [Python](tutorial-parallel-python.md) proporcionan ejemplos de creación de grupos con "virtualMachineConfiguration"** .
 
 ## <a name="pool-configuration-differences"></a>Diferencias de configuración de grupos
 

@@ -3,14 +3,14 @@ title: 'Tutorial de Kubernetes en Azure: escalado de una aplicación'
 description: En este tutorial de Azure Kubernetes Service (AKS), obtendrá información sobre cómo escalar los nodos y los pods de Kubernetes e implementar el escalado horizontal automático de pods.
 services: container-service
 ms.topic: tutorial
-ms.date: 09/30/2020
+ms.date: 01/12/2021
 ms.custom: mvc
-ms.openlocfilehash: 7f16ba3ffe6b6f96f17df540eb67e9cec0bfea8c
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: dfebb6561e83c51063515ec655153aaaa7a09c0c
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825688"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251376"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>Tutorial: Escalado de aplicaciones en Azure Kubernetes Service (AKS)
 
@@ -21,7 +21,7 @@ Si ha seguido los tutoriales, tiene un clúster de Kubernetes en funcionamiento 
 > * Escalar de forma manual pods de Kubernetes que ejecutan la aplicación
 > * Configurar el escalado automático de pods que ejecutan el front-end de la aplicación
 
-En otros tutoriales, la aplicación Azure Vote se actualiza a una nueva versión.
+En tutoriales posteriores, la aplicación Azure Vote se actualiza a una nueva versión.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -39,7 +39,7 @@ kubectl get pods
 
 La salida del ejemplo siguiente muestra un pod de front-end y un pod de back-end:
 
-```
+```output
 NAME                               READY     STATUS    RESTARTS   AGE
 azure-vote-back-2549686872-4d2r5   1/1       Running   0          31m
 azure-vote-front-848767080-tf34m   1/1       Running   0          31m
@@ -51,7 +51,7 @@ Para cambiar manualmente el número de pods en la implementación *azure-vote-fr
 kubectl scale --replicas=5 deployment/azure-vote-front
 ```
 
-Ejecute de nuevo [kubectl get pods][kubectl-get] para comprobar que AKS crea los pods adicionales. Tras un minuto aproximadamente, los pods adicionales están disponibles en el clúster:
+Ejecute de nuevo el comando [kubectl get pods][kubectl-get] para comprobar que AKS crea los pods adicionales. Tras un minuto aproximadamente, los pods adicionales estarán disponibles en el clúster:
 
 ```console
 kubectl get pods
@@ -131,7 +131,7 @@ spec:
 
 Use `kubectl apply` para aplicar la escalabilidad automática definida en el archivo de manifiesto `azure-vote-hpa.yaml`.
 
-```
+```console
 kubectl apply -f azure-vote-hpa.yaml
 ```
 
@@ -158,7 +158,7 @@ az aks scale --resource-group myResourceGroup --name myAKSCluster --node-count 3
 
 Cuando el clúster se escaló correctamente, el resultado es similar al ejemplo siguiente:
 
-```
+```output
 "agentPoolProfiles": [
   {
     "count": 3,

@@ -6,16 +6,16 @@ ms.author: rahugup
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/14/2020
-ms.openlocfilehash: a1203133d8749b43a92d89e7251539a1e002bfd8
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: a3e8b19810a58031b4d11cc6e361215afbc85de2
+ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968575"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98562648"
 ---
 # <a name="support-matrix-for-physical-server-migration"></a>Matriz de compatibilidad para la migración de servidores físicos
 
-En este artículo se resumen los valores de compatibilidad y las limitaciones para migrar servidores físicos con [Azure Migrate: Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool). Si busca información sobre cómo evaluar servidores físicos para migrar a Azure, revise la [matriz de compatibilidad de evaluación](migrate-support-matrix-physical.md).
+En este artículo se resumen las opciones de compatibilidad y las limitaciones para migrar servidores físicos de Azure con [Azure Migrate: Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool). Si busca información sobre cómo evaluar servidores físicos para migrar a Azure, revise la [matriz de compatibilidad de evaluación](migrate-support-matrix-physical.md).
 
 ## <a name="migrating-machines-as-physical"></a>Migración de máquinas como físicas
 
@@ -57,7 +57,6 @@ En la tabla se resume la compatibilidad de los servidores físicos que desea mig
 **NFS** | Los volúmenes NFS montados como volúmenes en las máquinas no se replicarán.
 **Destinos iSCSI** | Las máquinas con destinos iSCSI no se admiten para la migración sin agente.
 **E/S de varias rutas** | No compatible.
-**Storage vMotion** | Compatible
 **NIC en equipo** | No compatible.
 **IPv6** | No compatible.
 

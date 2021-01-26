@@ -4,12 +4,12 @@ description: Configure pruebas web en Application Insights. Obtenga alertas si u
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 82b433407906c09d38a46c842334153525fb3c17
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 1b51c70dcebbfad5417a8478f4a956fb5d0608b1
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97007932"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98198669"
 ---
 # <a name="monitor-the-availability-of-any-website"></a>Supervisión de la disponibilidad de un sitio web
 
@@ -26,6 +26,9 @@ Hay tres tipos de pruebas de disponibilidad:
 * [Pruebas de disponibilidad de seguimiento personalizado](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability?view=azure-dotnet): Si decide crear una aplicación personalizada para ejecutar pruebas de disponibilidad, puede usar el método `TrackAvailability()` para enviar los resultados a Application Insights.
 
 **Puede crear hasta 100 pruebas de disponibilidad por recurso de Application Insights.**
+
+> [!IMPORTANT]
+> Tanto la [prueba de ping de URL](#create-a-url-ping-test) como la [prueba web de varios pasos](availability-multistep.md) se basan en la infraestructura DNS de la Internet pública para resolver los nombres de dominio de los puntos de conexión de prueba. Esto significa que, si usa un DNS privado, debe asegurarse de que todos los nombres de dominio de la prueba también pueden resolverse mediante los servidores de nombres de dominio públicos o, cuando no sea posible, puede usar las [pruebas de disponibilidad de seguimiento personalizadas](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability?view=azure-dotnet) en su lugar.
 
 ## <a name="create-an-application-insights-resource"></a>Creación de recursos en Application Insights
 

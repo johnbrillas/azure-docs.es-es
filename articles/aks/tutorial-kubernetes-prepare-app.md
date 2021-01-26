@@ -3,14 +3,14 @@ title: 'Tutorial de Kubernetes en Azure: Preparación de una aplicación'
 description: En este tutorial de Azure Kubernetes Service (AKS) aprenderá a preparar y compilar una aplicación con varios contenedor con Docker Compose que se puede implementar en AKS.
 services: container-service
 ms.topic: tutorial
-ms.date: 09/30/2020
+ms.date: 01/12/2021
 ms.custom: mvc
-ms.openlocfilehash: 15bf29c676c4ca41fc2d005f3500a89ed6b9c380
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 349bf90ea0b344d5232c885358814f39fba4c19f
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91576343"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251966"
 ---
 # <a name="tutorial-prepare-an-application-for-azure-kubernetes-service-aks"></a>Tutorial: Preparación de una aplicación para Azure Kubernetes Service (AKS)
 
@@ -23,9 +23,9 @@ En este tutorial, la primera parte de siete, se prepara una aplicación con vari
 
 Tras finalizar, la siguiente aplicación se ejecuta en su entorno de desarrollo local:
 
-![Imagen del clúster de Kubernetes en Azure](./media/container-service-tutorial-kubernetes-prepare-app/azure-vote.png)
+:::image type="content" source="./media/container-service-kubernetes-tutorials/azure-vote-local.png" alt-text="Captura de pantalla que muestra la imagen de contenedor de Azure Voting App que se ejecuta localmente en un explorador web local." lightbox="./media/container-service-kubernetes-tutorials/azure-vote-local.png":::
 
-En tutoriales adicionales, la imagen de contenedor se carga en una instancia de Azure Container Registry y después se implementa en un clúster de AKS.
+En tutoriales posteriores, la imagen de contenedor se carga en una instancia de Azure Container Registry y después se implementa en un clúster de AKS.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -33,11 +33,12 @@ En este tutorial se asume que el usuario tiene un conocimiento básico de los pr
 
 Para completar este tutorial, se necesita un entorno de desarrollo de Docker local en el que se ejecuten contenedores Linux. Docker proporciona paquetes que lo configuran en cualquier sistema [Mac][docker-for-mac], [Windows][docker-for-windows] o [Linux][docker-for-linux].
 
-Azure Cloud Shell no incluye los componentes de Docker necesarios para completar todos los pasos de este tutorial. Por lo tanto, se recomienda usar un entorno completo de desarrollo de Docker.
+> [!NOTE]
+> Azure Cloud Shell no incluye los componentes de Docker necesarios para completar todos los pasos de este tutorial. Por lo tanto, se recomienda usar un entorno completo de desarrollo de Docker.
 
 ## <a name="get-application-code"></a>Obtención del código de la aplicación
 
-La aplicación de ejemplo que se usa en este tutorial es una aplicación básica para votar. La aplicación consta de un componente web front-end y de una instancia back-end de Redis. El componente web se empaqueta en una imagen de contenedor personalizada. La instancia de Redis usa una imagen sin modificar de Docker Hub.
+La [aplicación de ejemplo][sample-application] que se usa en este tutorial es una aplicación de votación básica, con un componente web front-end y una instancia back-end de Redis. El componente web se empaqueta en una imagen de contenedor personalizada. La instancia de Redis usa una imagen sin modificar de Docker Hub.
 
 Use [git][] para clonar la aplicación en su entorno de desarrollo:
 
@@ -51,7 +52,35 @@ Cambie al directorio clonado.
 cd azure-voting-app-redis
 ```
 
-En el directorio se encuentra el código fuente de la aplicación, un archivo de Docker Compose creado previamente y un archivo de manifiesto de Kubernetes. Estos archivos se usan en todo el conjunto del tutorial.
+En el directorio se encuentra el código fuente de la aplicación, un archivo de Docker Compose creado previamente y un archivo de manifiesto de Kubernetes. Estos archivos se usan en todo el conjunto del tutorial. El contenido y la estructura del directorio son los siguientes:
+
+```output
+azure-voting-app-redis
+│   azure-vote-all-in-one-redis.yaml
+│   docker-compose.yaml
+│   LICENSE
+│   README.md
+│
+├───azure-vote
+│   │   app_init.supervisord.conf
+│   │   Dockerfile
+│   │   Dockerfile-for-app-service
+│   │   sshd_config
+│   │
+│   └───azure-vote
+│       │   config_file.cfg
+│       │   main.py
+│       │
+│       ├───static
+│       │       default.css
+│       │
+│       └───templates
+│               index.html
+│
+└───jenkins-tutorial
+        config-jenkins.sh
+        deploy-jenkins-vm.sh
+```
 
 ## <a name="create-container-images"></a>Creación de imágenes de contenedor
 
@@ -88,11 +117,11 @@ d10e5244f237        mcr.microsoft.com/azuredocs/azure-vote-front:v1   "/entrypoi
 
 Para ver la aplicación en ejecución, escriba `http://localhost:8080` en un explorador web local. Se carga la aplicación de ejemplo, como se muestra en el ejemplo siguiente:
 
-![Imagen del clúster de Kubernetes en Azure](./media/container-service-tutorial-kubernetes-prepare-app/azure-vote.png)
+:::image type="content" source="./media/container-service-kubernetes-tutorials/azure-vote-local.png" alt-text="Captura de pantalla que muestra la imagen de contenedor de Azure Voting App que se ejecuta localmente en un explorador web local." lightbox="./media/container-service-kubernetes-tutorials/azure-vote-local.png":::
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Ahora que la funcionalidad de la aplicación se ha validado, los contenedores en ejecución se pueden detener y eliminar. No elimine las imágenes de contenedor (en el siguiente tutorial, la imagen *azure-vote-front* se carga en una instancia de Azure Container Registry).
+Ahora que la funcionalidad de la aplicación se ha validado, los contenedores en ejecución se pueden detener y eliminar. ***No elimine las imágenes de contenedor**: en el siguiente tutorial, la imagen _azure-vote-front* se carga en una instancia de Azure Container Registry.
 
 Detenga y quite las instancias de contenedor y los recursos con el comando [docker-compose down][docker-compose-down]:
 
@@ -126,6 +155,7 @@ Pase al siguiente tutorial para aprender a almacenar imágenes de contenedor en 
 [docker-ps]: https://docs.docker.com/engine/reference/commandline/ps/
 [docker-compose-down]: https://docs.docker.com/compose/reference/down
 [git]: https://git-scm.com/downloads
+[sample-application]: https://github.com/Azure-Samples/azure-voting-app-redis
 
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-acr]: ./tutorial-kubernetes-prepare-acr.md

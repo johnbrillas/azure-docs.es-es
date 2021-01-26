@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 08/31/2020
 ms.custom: devx-track-python, data4ml
-ms.openlocfilehash: 6d8c04e48a3d0009a152830a4ee332cd706c4b2c
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 8b73676adbb9aa12e6f3b42dd26bed94b22780a8
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360180"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539899"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Acceso seguro a datos en Azure Machine Learning
 
@@ -42,7 +42,7 @@ Cuando esté listo para usar los datos de la solución de almacenamiento basada 
 
     1. consumirlo directamente en soluciones de Azure Machine Learning como las ejecuciones de experimentos de aprendizaje automático automatizado (ML automatizado), las canalizaciones de aprendizaje automático o el [diseñador de Azure Machine Learning](concept-designer.md).
 
-4. Cree [monitores de conjunto de datos](#data-drift) para el conjunto de datos de salida del modelo con el fin de detectar desfases de datos. 
+4. Cree [monitores de conjunto de datos](#drift) para el conjunto de datos de salida del modelo con el fin de detectar desfases de datos. 
 
 5. Si se detecta un desfase de datos, actualice el conjunto de datos de entrada y vuelva a entrenar el modelo como corresponde.
 
@@ -50,7 +50,8 @@ En el siguiente diagrama se ofrece una demostración visual de este flujo de tra
 
 ![En el diagrama se muestra el servicio Azure Storage que fluye a un almacén de datos, que fluye a un conjunto de datos. El conjunto de datos fluye al entrenamiento del modelo, que fluye al desfase de datos, que fluye de vuelta al conjunto de datos.](./media/concept-data/data-concept-diagram.svg)
 
-## <a name="datastores"></a>Almacenes de datos
+<a name="datastores"></a>
+## <a name="connect-to-storage-with-datastores"></a>Conexión al almacenamiento con almacenes de datos
 
 Los almacenes de datos de Azure Machine Learning conservan de forma segura la información de conexión en Azure Storage, por lo que no tiene que codificarla en los scripts. [Registre y cree un almacén de datos](how-to-access-data.md) para conectarse fácilmente a su cuenta de almacenamiento y acceder a los datos del servicio de almacenamiento de Azure subyacente. 
 
@@ -60,12 +61,13 @@ A continuación se indican los servicios de almacenamiento basados en la nube de
 + Recurso compartido de archivos de Azure
 + Azure Data Lake
 + Azure Data Lake Gen2
-+ Azure SQL Database
++ Azure SQL Database
 + Azure Database for PostgreSQL
 + Sistema de archivos de Databricks
 + Azure Database for MySQL
 
-## <a name="datasets"></a>Conjuntos de datos
+<a name="datasets"></a>
+## <a name="reference-data-in-storage-with-datasets"></a>Datos de referencia en el almacenamiento con conjuntos de datos
 
 Los conjuntos de datos de Azure Machine Learning no son copias de los datos. Mediante la creación de un conjunto de datos, puede crear una referencia a los datos en su servicio de almacenamiento, junto con una copia de sus metadatos. 
 
@@ -105,7 +107,7 @@ Con los conjuntos de datos puede realizar una serie de tareas de aprendizaje aut
 
 <a name="label"></a>
 
-## <a name="data-labeling"></a>Etiquetado de datos
+## <a name="label-data-with-data-labeling-projects"></a>Etiquetado de datos con proyectos de etiquetado de datos
 
 El etiquetado de grandes cantidades de datos a menudo ha resultado un dolor de cabeza en los proyectos de aprendizaje automático. Los que incluyen un componente de Computer Vision, como la clasificación de imágenes o la detección de objetos, normalmente requieren miles de imágenes y sus etiquetas correspondientes.
 
@@ -115,7 +117,7 @@ Cree un [proyecto de etiquetado de datos](how-to-create-labeling-projects.md) y 
 
 <a name="drift"></a>
 
-## <a name="data-drift"></a>Desfase de datos
+## <a name="monitor-model-performance-with-data-drift"></a>Supervisión del rendimiento del modelo con desfase de datos
 
 En el contexto de aprendizaje automático, el desfase de datos es el cambio en los datos de entrada del modelo que conduce a la degradación del rendimiento del modelo. Es uno de los principales motivos por los que la precisión del modelo se degrada con el tiempo. Por lo tanto, la supervisión del desfase de datos ayuda a detectar problemas de rendimiento del modelo.
 

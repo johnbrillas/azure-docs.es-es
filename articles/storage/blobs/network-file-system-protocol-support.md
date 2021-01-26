@@ -9,12 +9,12 @@ ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: c48a7f4b5b1512ec5bcd289e4fb8bd7884ca7394
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 52f7b328b013fd520787fca420a45ffdc5e9d9b1
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96922558"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250815"
 ---
 # <a name="network-file-system-nfs-30-protocol-support-in-azure-blob-storage-preview"></a>Compatibilidad del protocolo Network File System (NFS) 3.0 en Azure Blob Storage (versión preliminar)
 
@@ -102,6 +102,8 @@ Todavía no se admiten las siguientes características de NFS 3.0 con Azure Dat
 - Enumeración de los montajes (por ejemplo: mediante el comando `showmount -a`).
 
 - Enumeración de las exportaciones (por ejemplo: mediante el comando `showmount -e`).
+
+- Vínculo físico
 
 - Exportación de un contenedor como de solo lectura.
 

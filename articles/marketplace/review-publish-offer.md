@@ -8,12 +8,12 @@ ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 10/27/2020
-ms.openlocfilehash: b038834df3889a8b4b7f4a749568635e99f8408e
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 8b63dfb015c7337e36dac3812e92ddc53914206d
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96188758"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247172"
 ---
 # <a name="how-to-review-and-publish-an-offer-to-the-commercial-marketplace"></a>Procedimiento para revisar y publicar una oferta en el marketplace comercial
 
@@ -150,7 +150,7 @@ En la captura de pantalla siguiente se muestra la página de **Información gene
 ### <a name="previewing-and-approving-your-offer"></a>Obtención de la versión preliminar y aprobación de la oferta
 
 > [!IMPORTANT]
-> Para validar el flujo de compra y configuración de un extremo a otro, compre la oferta mientras está en versión preliminar. En primer lugar, informe a Microsoft con una [incidencia de soporte técnico](https://aka.ms/marketplacesupport) para asegurarse de que no se procesarán cargos.
+> Para validar el flujo de compra y configuración de un extremo a otro, compre la oferta mientras está en versión preliminar. En primer lugar, informe a Microsoft con una [incidencia de soporte técnico](https://aka.ms/marketplacesupport) para asegurarse de que no se procesarán cargos. Si su oferta es un anuncio Ponerse en contacto conmigo, pruebe la creación de un cliente potencial según lo previsto; para ello, proporcione los detalles de contacto durante la versión preliminar.
 
 En la página **Información general de la oferta**, verá vínculos de versión preliminar bajo el botón **Transmitir**. Habrá un vínculo para la versión preliminar de AppSource, la versión preliminar de Azure Marketplace o ambos según las opciones que elija al crear la oferta. Si elige vender la oferta mediante Microsoft, cualquiera que sea agregado a la audiencia de versión preliminar podrá probar la adquisición y la implementación de esta para asegurarse de que cumple sus requisitos durante esta etapa.
 

@@ -3,12 +3,12 @@ title: Novedades de Azure Backup
 description: Obtenga información acerca de las nuevas características de Azure Backup.
 ms.topic: conceptual
 ms.date: 11/11/2020
-ms.openlocfilehash: ba29ddea5d5f096640f2bfc012c44ab06bb3e131
-ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
+ms.openlocfilehash: 62a6146990863c339917777b2624fee76ebe60d8
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "96309671"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98569426"
 ---
 # <a name="whats-new-in-azure-backup"></a>Novedades de Azure Backup
 
@@ -18,6 +18,9 @@ Para obtener más información acerca de las nuevas versiones, puede marcar esta
 
 ## <a name="updates-summary"></a>Resumen de actualizaciones
 
+- Enero de 2021
+  - [Azure Disk Backup (en versión preliminar)](disk-backup-overview.md)
+  - [El cifrado en reposo mediante claves administradas por el cliente ahora está disponible con carácter general](encryption-at-rest-with-cmk.md)
 - Noviembre de 2020
   - [Plantilla de Azure Resource Manager para la copia de seguridad de recursos compartido de archivos de Azure (AFS)](#azure-resource-manager-template-for-afs-backup)
   - [Copias de seguridad incrementales para bases de datos de SAP HANA en máquinas virtuales de Azure](#incremental-backups-for-sap-hana-databases)
@@ -31,6 +34,18 @@ Para obtener más información acerca de las nuevas versiones, puede marcar esta
   - [Copia de seguridad de SAP HANA en máquinas virtuales de Azure de RHEL](#backup-sap-hana-in-rhel-azure-virtual-machines)
   - [Almacenamiento con redundancia de zona para datos de copia de seguridad](#zone-redundant-storage-zrs-for-backup-data)
   - [Eliminación temporal de las cargas de trabajo de SQL Server y SAP HANA en máquinas virtuales de Azure](#soft-delete-for-sql-server-and-sap-hana-workloads)
+
+## <a name="azure-disk-backup-in-preview"></a>Azure Disk Backup (en versión preliminar)
+
+Azure Disk Backup ofrece una solución inmediata que le proporciona la oportunidad de administrar el ciclo de vida de las instantáneas para [Azure Managed Disks](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview); para ello, solo debe automatizar la creación periódica de instantáneas y guardarlas durante la duración configurada mediante la directiva de copia de seguridad. Puede administrar las instantáneas de disco sin costos de infraestructura, sin necesidad de realizar un scripting personalizado y sin sufrir ninguna sobrecarga de administración. Esta solución de copia de seguridad coherente con los bloqueos realiza en un momento dado una copia de seguridad de un disco administrado mediante [instantáneas incrementales](https://docs.microsoft.com/azure/virtual-machines/windows/disks-incremental-snapshots), y admite la realización de varias copias de seguridad al día. También es una solución sin agente que no afecta al rendimiento de las aplicaciones de producción. Igualmente, admite las copias de seguridad y la restauración de los discos de datos y del sistema operativo (incluidos los discos compartidos), tanto si están conectados actualmente a una máquina virtual de Azure en ejecución como si no.
+
+Para más información, consulte [Azure Disk Backup (en versión preliminar)](disk-backup-overview.md).
+
+## <a name="encryption-at-rest-using-customer-managed-keys"></a>Cifrado en reposo con claves administradas por el cliente
+
+La compatibilidad con el cifrado en reposo mediante claves administradas por el cliente ahora está disponible con carácter general. Esto le ofrece la capacidad de cifrar los datos de copia de seguridad en los almacenes de Recovery Services con sus propias claves almacenadas en Azure Key Vault. La clave de cifrado utilizada para cifrar las copias de seguridad en el almacén de Recovery Services puede ser diferente de las que se usan para cifrar el origen. Los datos se protegen mediante una clave de cifrado de datos (DEK) basada en AES 256, que, a su vez, está protegida con las claves del usuario almacenadas en Key Vault. En comparación con el cifrado mediante claves administradas por la plataforma (que está disponible de manera predeterminada), esto le proporciona más control sobre las claves y puede ayudarlo a satisfacer mejor sus necesidades de cumplimiento.
+
+Para más información, consulte [Cifrado de datos de copia de seguridad mediante claves administradas por el cliente](encryption-at-rest-with-cmk.md).
 
 ## <a name="azure-resource-manager-template-for-afs-backup"></a>Plantilla de Azure Resource Manager para la copia de seguridad de AFS
 

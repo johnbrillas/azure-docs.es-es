@@ -4,12 +4,12 @@ description: Obtenga recuentos de sesiones y vistas de página, además de datos
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 6678c662c4646a8181b1617ccddf9b8718c957bf
-ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
+ms.openlocfilehash: 60b3e9229adb93ce32c97c2822a465f7f629d47d
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97858559"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234365"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights para páginas web
 
@@ -196,7 +196,7 @@ La mayoría de los campos de configuración tienen un nombre que permite estable
 | correlationHeaderDomains |  | Habilite encabezados de correlación para dominios específicos. |
 | disableFlushOnBeforeUnload | false | El valor predeterminado es false. Si es true, no se llamará al método Flush cuando se desencadene un evento onBeforeUnload. |
 | enableSessionStorageBuffer | true | El valor predeterminado es true. Si es true, el búfer con toda la telemetría no enviada se guarda en el almacenamiento de la sesión. El búfer se restaura al cargar la página. |
-| isCookieUseDisabled | false | El valor predeterminado es false. Si es true, el SDK no almacenará ni leerá ningún dato de las cookies.|
+| isCookieUseDisabled | false | El valor predeterminado es false. Si es true, el SDK no almacenará ni leerá ningún dato de las cookies. Tenga en cuenta que esto deshabilita las cookies de usuario y de sesión, y representa las hojas de uso y las experiencias que no son útiles. |
 | cookieDomain | null | Dominio de cookies personalizado. Resulta útil si desea compartir cookies de Application Insights entre subdominios. |
 | isRetryDisabled | false | El valor predeterminado es false. Si es false, se produce un reintento con los errores 206 (parcialmente correcto), 408 (tiempo de espera), 429 (demasiadas solicitudes), 500 (error interno del servidor), 503 (servicio no disponible) y 0 (sin conexión, solo si se detecta). |
 | isStorageUseDisabled | false | Si es true, el SDK no almacenará ni leerá ningún dato del almacenamiento local o de la sesión. El valor predeterminado es False. |
@@ -266,7 +266,8 @@ Actualmente, ofrecemos un [complemento React](javascript-react-plugin.md) indepe
 |---------------|
 | [React](javascript-react-plugin.md)|
 | [React Native](javascript-react-native-plugin.md)|
-| [Angular](javascript-angular-plugin.md) |
+| [Angular](javascript-angular-plugin.md)|
+| [Click Analytics Auto-collection](javascript-click-analytics-plugin.md)|
 
 ## <a name="explore-browserclient-side-data"></a>Exploración de datos del explorador o del lado cliente
 

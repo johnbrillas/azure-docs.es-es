@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: 639b810cbb99496f84b76fc96124145a019fb625
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 548cee262d874f5bc0f6024a857c2bb8a5466106
+ms.sourcegitcommit: 949c0a2b832d55491e03531f4ced15405a7e92e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97705547"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98541349"
 ---
 # <a name="tutorial-discover-physical-servers-with-server-assessment"></a>Tutorial: Detección de servidores físicos con Server Assessment
 
@@ -40,7 +40,7 @@ Antes de empezar este tutorial, compruebe que dispone de estos requisitos previo
 
 **Requisito** | **Detalles**
 --- | ---
-**Dispositivo** | Necesita una máquina en la que ejecutar el dispositivo Azure Migrate. La máquina debe tener:<br/><br/> - Windows Server 2016 instalado. _(Actualmente, la implementación del dispositivo solo se admite en Windows Server 2016)._<br/><br/> - 16 GB de RAM, 8 vCPU, alrededor de 80 GB de almacenamiento en disco<br/><br/> - Una dirección IP estática o dinámica, con acceso a Internet, ya sea directamente o mediante un proxy.
+**Dispositivo** | Necesita una máquina en la que ejecutar el dispositivo Azure Migrate. La máquina debe tener:<br/><br/> - Windows Server 2016 instalado.<br/> _(Actualmente, la implementación del dispositivo solo se admite en Windows Server 2016)._<br/><br/> - 16 GB de RAM, 8 CPU virtuales, alrededor de 80 GB de almacenamiento en disco<br/><br/> - Una dirección IP estática o dinámica, con acceso a Internet, ya sea directamente o mediante un proxy.
 **Servidores Windows** | Permita las conexiones entrantes en el puerto WinRM 5985 (HTTP), para que el dispositivo pueda extraer los metadatos de configuración y rendimiento.
 **Servidores Linux** | Permita las conexiones entrantes en el puerto 22 (TCP).
 
@@ -48,7 +48,7 @@ Antes de empezar este tutorial, compruebe que dispone de estos requisitos previo
 
 Para crear un proyecto de Azure Migrate y registrar el dispositivo Azure Migrate, necesita una cuenta con:
 - Permisos de nivel de colaborador o propietario en una suscripción de Azure.
-- Permisos para registrar aplicaciones de Azure Active Directory.
+- Permisos para registrar aplicaciones de Azure Active Directory (AAD).
 
 Si acaba de crear una cuenta de Azure gratuita, es el propietario de la suscripción. Si no es el propietario, trabaje con él para asignar los permisos, como se indica a continuación:
 
@@ -67,19 +67,20 @@ Si acaba de crear una cuenta de Azure gratuita, es el propietario de la suscripc
 
     ![Se abre la página Agregar asignación de roles para asignar un rol a la cuenta.](./media/tutorial-discover-physical/assign-role.png)
 
-7. En el portal, busque los usuarios y, en **Servicios**, seleccione **Usuarios**.
-8. En **Configuración de usuario**, compruebe que los usuarios de Azure AD puedan registrar aplicaciones (establecido en **Sí** de forma predeterminada).
+1. Con el fin de registrar el dispositivo, la cuenta de Azure necesita **permisos para registrar aplicaciones de AAD**.
+1. En Azure Portal, vaya a **Azure Active Directory** > **Usuarios** > **Configuración de usuario**.
+1. En **Configuración de usuario**, compruebe que los usuarios de Azure AD puedan registrar aplicaciones (establecido en **Sí** de forma predeterminada).
 
     ![Comprobación en la configuración de usuario de que los usuarios puedan registrar aplicaciones de Active Directory](./media/tutorial-discover-physical/register-apps.png)
 
-9. Como alternativa, el administrador de inquilinos o administrador global puede asignar el rol de **desarrollador de aplicaciones** a una cuenta para permitir el registro de aplicaciones de AAD. [Más información](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
+9. Si la configuración de "Registros de aplicaciones" se ha establecido en "No", solicite al administrador global o de inquilinos que asigne el permiso necesario. Como alternativa, el administrador global o de inquilinos puede asignar el rol **Desarrollador de aplicaciones** a una cuenta para permitir el registro de aplicaciones de AAD. [Más información](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ## <a name="prepare-physical-servers"></a>Preparación de los servidores físicos
 
 Configure una cuenta que el dispositivo pueda usar para acceder a los servidores físicos.
 
-- Para servidores Windows, use una cuenta de dominio para las máquinas unidas a un dominio y una cuenta local para las máquinas no unidas a un dominio. Debe agregar la cuenta de usuario a estos grupos: Usuarios de administración remota, Usuarios de Monitor de rendimiento y Usuarios del registro de rendimiento.
-- Para los servidores Linux, necesita una cuenta raíz en los servidores Linux que desee detectar. Como alternativa, puede establecer una cuenta que no sea raíz con las funcionalidades necesarias mediante los siguientes comandos:
+- Con **servidores Windows**, use una cuenta de dominio para las máquinas unidas a un dominio y una cuenta local para las máquinas no unidas a un dominio. Debe agregar la cuenta de usuario a estos grupos: Usuarios de administración remota, Usuarios de Monitor de rendimiento y Usuarios del registro de rendimiento.
+- Con **servidores Linux**, necesita una cuenta raíz en los servidores Linux que quiera detectar. Como alternativa, puede establecer una cuenta que no sea raíz con las funcionalidades necesarias mediante los siguientes comandos:
 
 **Comando** | **Propósito**
 --- | --- |
@@ -102,23 +103,25 @@ Configure un proyecto nuevo de Azure Migrate.
    ![Cuadros de nombre de proyecto y región](./media/tutorial-discover-physical/new-project.png)
 
 7. Seleccione **Crear**.
-8. Espere unos minutos para que se implemente el proyecto de Azure Migrate.
-
-La herramienta **Azure Migrate: Server Assessment** se agrega de forma predeterminada al nuevo proyecto.
+8. Espere unos minutos para que se implemente el proyecto de Azure Migrate. La herramienta **Azure Migrate: Server Assessment** se agrega de forma predeterminada al nuevo proyecto.
 
 ![Página que muestra la herramienta Server Assessment agregada de forma predeterminada](./media/tutorial-discover-physical/added-tool.png)
 
+> [!NOTE]
+> Si ya ha creado un proyecto, puede usarlo para registrar dispositivos adicionales con el fin de detectar y evaluar un número mayor de servidores.[Más información](create-manage-projects.md#find-a-project)
 
 ## <a name="set-up-the-appliance"></a>Configuración del dispositivo
 
-Para configurar el dispositivo:
-- Proporcione un nombre de dispositivo y genere una clave del proyecto de Azure Migrate en el portal.
-- Descargue un archivo comprimido con el script del instalador de Azure Migrate desde Azure Portal.
-- Extraiga el contenido del archivo comprimido. Inicie la consola de PowerShell con privilegios administrativos.
-- Ejecute el script de PowerShell para iniciar la aplicación web del dispositivo.
-- Configure el dispositivo por primera vez y regístrelo en el proyecto de Azure Migrate mediante la clave del proyecto de Azure Migrate.
+El dispositivo de Azure Migrate realiza la detección del servidor y envía los metadatos de configuración y rendimiento del servidor a Azure Migrate. El dispositivo se puede configurar ejecutando un script de PowerShell que se puede descargar del proyecto de Azure Migrate.
 
-### <a name="generate-the-azure-migrate-project-key"></a>Generación de la clave del proyecto de Azure Migrate
+Para configurar el dispositivo:
+1. Proporcione un nombre de dispositivo y genere una clave del proyecto de Azure Migrate en el portal.
+2. Descargue un archivo comprimido con el script del instalador de Azure Migrate desde Azure Portal.
+3. Extraiga el contenido del archivo comprimido. Inicie la consola de PowerShell con privilegios administrativos.
+4. Ejecute el script de PowerShell para iniciar la aplicación web del dispositivo.
+5. Configure el dispositivo por primera vez y regístrelo en el proyecto de Azure Migrate mediante la clave del proyecto de Azure Migrate.
+
+### <a name="1-generate-the-azure-migrate-project-key"></a>1. Generación de la clave del proyecto de Azure Migrate
 
 1. En **Objetivos de migración** > **Servidores** > **Azure Migrate: Server Assessment**, seleccione **Detectar**.
 2. En **Detectar máquinas** >  **¿Las máquinas están virtualizadas?** , seleccione **Físico o de otro tipo (AWS, GCP, Xen, etc.)** .
@@ -127,10 +130,9 @@ Para configurar el dispositivo:
 1. Después de la creación correcta de los recursos de Azure, se genera una **clave del proyecto Azure Migrate**.
 1. Copie la clave, ya que la necesitará para completar el registro del dispositivo durante su configuración.
 
-### <a name="download-the-installer-script"></a>Descarga del script del instalador
+### <a name="2-download-the-installer-script"></a>2. Descarga del script del instalador
 
 En **2: Descargar el dispositivo de Azure Migrate**, haga clic en **Descargar**.
-
 
 ### <a name="verify-security"></a>Comprobación de la seguridad
 
@@ -155,7 +157,7 @@ Compruebe que el archivo comprimido es seguro, antes de implementarlo.
         Físico (85,8 MB) | [La versión más reciente](https://go.microsoft.com/fwlink/?linkid=2140338) | ae132ebc574caf231bf41886891040ffa7abbe150c8b50436818b69e58622276
  
 
-### <a name="run-the-azure-migrate-installer-script"></a>Ejecución del script del instalador de Azure Migrate
+### <a name="3-run-the-azure-migrate-installer-script"></a>3. Ejecución del script del instalador de Azure Migrate
 El script del instalador hace lo siguiente:
 
 - Instala los agentes y una aplicación web para la detección y evaluación de los servidores físicos.
@@ -184,13 +186,11 @@ Ejecute el script como se indica a continuación:
 
 En caso de que surja algún problema, puede acceder a los registros de script en C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log para solucionarlo.
 
-
-
 ### <a name="verify-appliance-access-to-azure"></a>Comprobación de que el dispositivo puede acceder a Azure
 
 Asegúrese de que la VM del dispositivo pueda conectarse a las direcciones URL de Azure para las nubes [públicas](migrate-appliance.md#public-cloud-urls) y [gubernamentales](migrate-appliance.md#government-cloud-urls).
 
-### <a name="configure-the-appliance"></a>Configuración del dispositivo
+### <a name="4-configure-the-appliance"></a>4. Configuración del dispositivo
 
 Configure el dispositivo por primera vez.
 

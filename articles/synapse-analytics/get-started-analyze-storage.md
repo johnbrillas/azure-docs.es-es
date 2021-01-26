@@ -9,13 +9,13 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
-ms.date: 07/20/2020
-ms.openlocfilehash: 5e3fbd1868cc1216cb7b9d02b2aa8e690af33952
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.date: 12/31/2020
+ms.openlocfilehash: ad16b63360364acd88ab12fb4715d1fd3115c0fb
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917688"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209379"
 ---
 # <a name="analyze-data-in-a-storage-account"></a>Análisis de datos en una cuenta de almacenamiento
 
@@ -30,7 +30,7 @@ Hasta ahora, hemos descrito escenarios en los que los datos residían en las bas
 
 ### <a name="create-csv-and-parquet-files-in-your-storage-account"></a>Creación de archivos CSV y Parquet en la cuenta de almacenamiento
 
-Ejecute el siguiente código en un cuaderno. Crea un archivo .csv y un archivo Parquet en la cuenta de almacenamiento.
+Ejecute el siguiente código en una nueva celda de código de un cuaderno. Crea un archivo .csv y un archivo Parquet en la cuenta de almacenamiento.
 
 ```py
 %%pyspark
@@ -48,26 +48,27 @@ Puede analizar los datos de la cuenta de ADLS Gen2 predeterminada del área de t
 1. Vaya a **Cuentas de almacenamiento** > **myworkspace (Principal: contosolake)** .
 1. Seleccione **users (Primary)** (usuarios [Principal]). Debería ver la carpeta **NYCTaxi**. Dentro debería ver dos carpetas llamadas **PassengerCountStats_csvformat** y **PassengerCountStats_parquetformat**.
 1. Abra la carpeta **PassengerCountStats_parquetformat**. Dentro, verá un archivo Parquet con un nombre como `part-00000-2638e00c-0790-496b-a523-578da9a15019-c000.snappy.parquet`.
-1. Haga clic con el botón secundario en el archivo **.parquet** y, a continuación, seleccione **Nuevo cuaderno**. Se crea un cuaderno que tiene una celda similar a la siguiente:
+1. Haga clic con el botón derecho en el archivo **.parquet**, seleccione **Nuevo cuaderno** y, luego, **Load to DataFrame** (Cargar en Dataframe). Se crea un cuaderno con una celda como esta:
 
     ```py
     %%pyspark
-    data_path = spark.read.load('abfss://users@contosolake.dfs.core.windows.net/NYCTaxi/PassengerCountStats.parquet/part-00000-1f251a58-d8ac-4972-9215-8d528d490690-c000.snappy.parquet', format='parquet')
-    data_path.show(100)
+    df = spark.read.load('abfss://users@contosolake.dfs.core.windows.net/NYCTaxi/PassengerCountStats.parquet/part-00000-1f251a58-d8ac-4972-9215-8d528d490690-c000.snappy.parquet', format='parquet')
+    display(df.limit(10))
     ```
 
-1. Ejecute la celda.
-1. Haga clic con el botón derecho en el archivo Parquet que está dentro y seleccione **New SQL Script** > **Select TOP 100 Rows** (Nuevo script SQL > Seleccionar 100 primeras filas). Se crea un script SQL similar al siguiente:
+1. Asócielo al grupo de Spark llamado **Spark1**. Ejecute la celda.
+1. Vuelva a hacer clic en la carpeta **users**. De nuevo, haga clic con el botón derecho en el archivo **.parquet** y, luego, seleccione **New SQL Script** > **SELECT TOP 100 rows** (Nuevo script SQL > Seleccionar 100 primeras filas). Se crea un script SQL similar al siguiente:
 
     ```sql
-    SELECT TOP 100 *
+    SELECT 
+        TOP 100 *
     FROM OPENROWSET(
         BULK 'https://contosolake.dfs.core.windows.net/users/NYCTaxi/PassengerCountStats.parquet/part-00000-1f251a58-d8ac-4972-9215-8d528d490690-c000.snappy.parquet',
         FORMAT='PARQUET'
-    ) AS [r];
+    ) AS [result]
     ```
 
-    En la ventana del script, el campo **Conectarse a** se establece en **grupo de SQL sin servidor**.
+    En la ventana de script, asegúrese de que el campo **Conectarse a** esté establecido en el grupo de SQL sin servidor **Integrado**.
 
 1. Ejecute el script.
 

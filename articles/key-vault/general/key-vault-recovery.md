@@ -8,12 +8,12 @@ ms.author: mbaldwin
 author: msmbaldwin
 manager: rkarlin
 ms.date: 09/30/2020
-ms.openlocfilehash: a9a783333d8edd40556b7744eb7cf7dfb52953a7
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 4a6b3e4c6354c292d000a307bc25f8532aa9a096
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97933989"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250798"
 ---
 # <a name="azure-key-vault-recovery-management-with-soft-delete-and-purge-protection"></a>Administración de la recuperación de Azure Key Vault con eliminación temporal y protección contra purga
 
@@ -29,6 +29,8 @@ Para más información sobre Key Vault, consulte
 * [Módulo de PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
 * [CLI de Azure](/cli/azure/install-azure-cli)
 * Una instancia de Key Vault (se puede crear mediante [Azure Portal](../general/quick-create-portal.md), [la CLI de Azure](../general/quick-create-cli.md) o [Azure PowerShell](../general/quick-create-powershell.md))
+* El usuario necesitará los permisos siguientes (en el nivel de suscripción) para realizar operaciones en almacenes eliminados temporalmente: |Microsoft.KeyVault/locations/deletedVaults/read|Ve las propiedades de un almacén de claves eliminado temporalmente| |Microsoft.KeyVault/locations/deletedVaults/purge/action|Purga un almacén de claves eliminado temporalmente|
+
 
 ## <a name="what-are-soft-delete-and-purge-protection"></a>Qué es la eliminación temporal y la protección de purga
 

@@ -9,13 +9,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
-ms.date: 09/30/2020
-ms.openlocfilehash: b4473ea304176615c35205494f342922869b71ea
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 01/15/2021
+ms.openlocfilehash: 6589f451d4db8f2ed77ce70a2bdfa9d76927c1e2
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92793150"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251223"
 ---
 # <a name="vcore-model-overview---azure-sql-database-and-azure-sql-managed-instance"></a>Información general del modelo de núcleo virtual: Azure SQL Database y Azure SQL Managed Instance 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -34,8 +34,8 @@ Entre las opciones de nivel de servicio del modelo núcleo virtual se incluyen U
 |-|**Uso general**|**Crítico para la empresa**|**Hiperescala**|
 |---|---|---|---|
 |Más adecuado para|La mayoría de las cargas de trabajo empresariales. Ofrece opciones de proceso y almacenamiento equilibradas y escalables pensando en el presupuesto. |Ofrece a las aplicaciones empresariales la mayor resistencia a los errores mediante el uso de varias réplicas aisladas y proporciona el mayor rendimiento de E/S por réplica de base de datos.|La mayoría de las cargas de trabajo de una empresa que tengan requisitos altamente escalables de almacenamiento y escalado de lectura.  Ofrece mayor resistencia a los errores al permitir la configuración de más de una réplica de base de datos aislada. |
-|Storage|Usa el almacenamiento remoto.<br/>**Proceso aprovisionado de SQL Database** :<br/>5 GB – 4 TB<br/>**Proceso sin servidor** :<br/>5 GB - 3 TB<br/>**Instancia administrada de SQL** : 32 GB - 8 TB |Usa almacenamiento local de SSD.<br/>**Proceso aprovisionado de SQL Database** :<br/>5 GB – 4 TB<br/>**Instancia administrada de SQL** :<br/>32 GB - 4 TB |Crecimiento automático flexible de almacenamiento según sea necesario. Admite hasta 100 TB de almacenamiento. Utiliza almacenamiento SSD local para la caché del grupo de búferes local y almacenamiento de datos local. Utiliza almacenamiento remoto de Azure como almacén de datos final a largo plazo. |
-|IOPS y rendimiento (aproximado)|**SQL Database** : vea los límites de recursos para [bases de datos únicas](resource-limits-vcore-single-databases.md) y [grupos elásticos](resource-limits-vcore-elastic-pools.md).<br/>**Instancia administrada de SQL** : consulte [Introducción a los límites de recursos de Instancia administrada de Azure SQL](../managed-instance/resource-limits.md#service-tier-characteristics).|Vea los límites de recursos para [bases de datos únicas](resource-limits-vcore-single-databases.md) y [grupos elásticos](resource-limits-vcore-elastic-pools.md).|Hiperescala es una arquitectura de varios niveles con almacenamiento en caché en varios niveles. IOPS y el rendimiento efectivos dependen de la carga de trabajo.|
+|Storage|Usa el almacenamiento remoto.<br/>**Proceso aprovisionado de SQL Database**:<br/>5 GB – 4 TB<br/>**Proceso sin servidor**:<br/>5 GB - 3 TB<br/>**Instancia administrada de SQL**: 32 GB - 8 TB |Usa almacenamiento local de SSD.<br/>**Proceso aprovisionado de SQL Database**:<br/>5 GB – 4 TB<br/>**Instancia administrada de SQL**:<br/>32 GB - 4 TB |Crecimiento automático flexible de almacenamiento según sea necesario. Admite hasta 100 TB de almacenamiento. Utiliza almacenamiento SSD local para la caché del grupo de búferes local y almacenamiento de datos local. Utiliza almacenamiento remoto de Azure como almacén de datos final a largo plazo. |
+|IOPS y rendimiento (aproximado)|**SQL Database**: vea los límites de recursos para [bases de datos únicas](resource-limits-vcore-single-databases.md) y [grupos elásticos](resource-limits-vcore-elastic-pools.md).<br/>**Instancia administrada de SQL**: consulte [Introducción a los límites de recursos de Instancia administrada de Azure SQL](../managed-instance/resource-limits.md#service-tier-characteristics).|Vea los límites de recursos para [bases de datos únicas](resource-limits-vcore-single-databases.md) y [grupos elásticos](resource-limits-vcore-elastic-pools.md).|Hiperescala es una arquitectura de varios niveles con almacenamiento en caché en varios niveles. IOPS y el rendimiento efectivos dependen de la carga de trabajo.|
 |Disponibilidad|1 réplica, sin réplicas de escalado de lectura|3 réplicas, 1 [réplica de escalado de lectura](read-scale-out.md),<br/>Alta disponibilidad (HA) con redundancia de zona|1 réplica de lectura y escritura, además de 0 a 4 [réplicas de escalado de lectura](read-scale-out.md)|
 |Copias de seguridad|[Almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS)](../../storage/common/geo-redundant-design.md), de 7 a 35 días (7 días de forma predeterminada)|[RA-GRS](../..//storage/common/geo-redundant-design.md), de 7 a 35 días (7 días de forma predeterminada)|Copias de seguridad basadas en instantáneas en el almacenamiento remoto de Azure. Los procesos de restauración usan estas instantáneas para conseguir una recuperación rápida. Las copias de seguridad son instantáneas y no afectan al rendimiento de E/S del proceso. Las restauraciones son rápidas y no son operaciones relacionadas con el tamaño de los datos (tardan minutos en lugar de horas o días).|
 |En memoria|No compatible|Compatible|No compatible|
@@ -69,7 +69,7 @@ El [nivel de proceso sin servidor](serverless-tier-overview.md) escala automáti
 
 ## <a name="hardware-generations"></a>Generaciones de hardware
 
-Entre las opciones de generación de hardware del modelo de núcleo virtual se incluyen Gen 4/5, la serie M y la serie Fsv2. En general, la generación de hardware define los límites de proceso y de memoria, así como otras características que afectan al rendimiento de la carga de trabajo.
+Entre las opciones de generación de hardware del modelo de núcleo virtual se incluyen Gen 4/5, la serie M, la serie Fsv2 y la serie DC. En general, la generación de hardware define los límites de proceso y de memoria, así como otras características que afectan al rendimiento de la carga de trabajo.
 
 ### <a name="gen4gen5"></a>Gen4/Gen5
 
@@ -84,7 +84,6 @@ Para ver las regiones en las que Gen4/Gen5 está disponible, vea la [disponibili
 - Fsv2 proporciona menos memoria y tempdb por núcleo virtual que otro hardware, por lo que se pueden tomar en consideración las series Gen5 y M para las cargas de trabajo sensibles a esos límites.  
 
 La serie Fsv2 solo se admite en el nivel De uso general. Para las regiones en las que está disponible la serie Fsv2, consulte la [disponibilidad de la serie Fsv2](#fsv2-series-1).
-
 
 ### <a name="m-series"></a>Serie M
 
@@ -101,6 +100,22 @@ Para acceder a la serie M, la suscripción debe ser un tipo de oferta de pago, c
 To enable M-series hardware for a subscription and region, a support request must be opened. The subscription must be a paid offer type including Pay-As-You-Go or Enterprise Agreement (EA).  If the support request is approved, then the selection and provisioning experience of M-series follows the same pattern as for other hardware generations. For regions where M-series is available, see [M-series availability](#m-series).
 -->
 
+### <a name="dc-series"></a>Serie DC
+
+> [!NOTE]
+> Actualmente, la serie DC está en **versión preliminar pública**.
+
+- El hardware de la serie DC utiliza procesadores Intel con tecnología Software Guard Extensions (Intel SGX).
+- La serie DC es necesaria para [Always Encrypted con enclaves seguros](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-enclaves), que no es compatible con otras configuraciones de hardware.
+- La serie DC está diseñada para cargas de trabajo que procesan datos confidenciales y requieren funcionalidades de procesamiento de consultas confidenciales, proporcionadas por Always Encrypted con enclaves seguros.
+- El hardware de la serie DC proporciona recursos de proceso y memoria equilibrados.
+
+La serie DC solo es compatible con el proceso aprovisionado (no se admite sin servidor) y no admite la redundancia de zona. Para ver las regiones en las que la serie DC está disponible, consulte la [disponibilidad de la serie DC](#dc-series-1).
+
+#### <a name="azure-offer-types-supported-by-dc-series"></a>Tipos de oferta de Azure disponibles en la serie DC
+
+Para acceder a la serie DC, la suscripción debe ser un tipo de oferta de pago, como Pago por uso o Contrato Enterprise (EA).  Para ver una lista completa de los tipos de oferta de Azure disponibles en la serie DC, consulte las [ofertas actuales sin límites de gasto](https://azure.microsoft.com/support/legal/offer-details).
+
 ### <a name="compute-and-memory-specifications"></a>Especificaciones de memoria y proceso
 
 
@@ -110,6 +125,7 @@ To enable M-series hardware for a subscription and region, a support request mus
 |Gen5     |**Proceso aprovisionado**<br>- Procesadores Intel® E5-2673 v4 (Broadwell) de 2,3 GHz, Intel® SP-8160 (Skylake)\* e Intel® 8272CL (Cascade Lake) de 2,5 GHz\*<br>- Aprovisionamiento de hasta 80 núcleos virtuales (1 núcleo virtual = 1 hiperproceso)<br><br>**Proceso sin servidor**<br>- Procesadores Intel® E5-2673 v4 (Broadwell) de 2,3 GHz e Intel® SP-8160 (Skylake)*<br>- Escalado vertical automático de hasta 40 núcleos virtuales (1 núcleo virtual = 1 hiperproceso)|**Proceso aprovisionado**<br>- 5,1 GB por núcleo virtual<br>- Aprovisionamiento de hasta 408 GB<br><br>**Proceso sin servidor**<br>- Escalado vertical automático de hasta 24 GB por núcleo virtual<br>- Escalado vertical automático de hasta 120 GB máx.|
 |Serie Fsv2     |- Procesadores Intel® 8168 (Skylake)<br>- Presentación de una velocidad de reloj turbo sostenida de todos los núcleos de hasta 3,4 GHz y una velocidad de reloj turbo de un solo núcleo máxima de 3,7 GHz.<br>- Aprovisionamiento de hasta 72 núcleos virtuales (1 núcleo virtual = 1 hiperproceso)|1,9 GB por núcleo virtual<br>- Aprovisionamiento de hasta 136 GB|
 |Serie M     |- Procesadores Intel® E7-8890 v3 de 2,5 GHz e Intel® 8280M de 2,7 GHz (Cascade Lake)<br>- Aprovisionamiento de hasta 128 núcleos virtuales (1 núcleo virtual = 1 hiperproceso)|29 GB por núcleo virtual<br>- Aprovisionamiento de hasta 3,7 TB|
+|Serie DC     | - Procesadores Intel XEON E-2288G<br>- Presentación de Software Guard Extensions de Intel (Intel SGX)<br>- Aprovisionamiento de hasta 8 núcleos virtuales (1 núcleo virtual = 1 núcleo físico) | 4,5 GB por núcleo virtual |
 
 \* En la vista de administración dinámica [sys.dm_user_db_resource_governance](/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database), la generación de hardware para bases de datos que usan procesadores Intel® SP-8160 (Skylake) aparece como Gen6, mientras que la generación de hardware para bases de datos que usan procesadores Intel® 8272CL (Cascade Lake) aparece como Gen7. Los límites de recursos en todas las bases de datos Gen5 son los mismos, independientemente del tipo de procesador (Broadwell, Skylake o Cascade Lake).
 
@@ -123,7 +139,7 @@ En Azure Portal, puede seleccionar la generación de hardware para una base de d
 
 Para obtener información detallada, consulte [Creación de una instancia de SQL Database](single-database-create-quickstart.md).
 
-En la pestaña **Básico** , seleccione el vínculo **Configurar base de datos** en la sección **Compute + storage** (Proceso + almacenamiento) y, a continuación, seleccione el vínculo **Cambiar configuración** :
+En la pestaña **Básico**, seleccione el vínculo **Configurar base de datos** en la sección **Compute + storage** (Proceso + almacenamiento) y, a continuación, seleccione el vínculo **Cambiar configuración**:
 
   ![configurar base de datos](./media/service-tiers-vcore/configure-sql-database.png)
 
@@ -134,11 +150,11 @@ Seleccione la generación de hardware deseada:
 
 **Cambiar la generación de hardware de una instancia de SQL Database o un grupo SQL existente**
 
-En el caso de una base de datos, en la página de información general, seleccione el vínculo **Plan de tarifa** :
+En el caso de una base de datos, en la página de información general, seleccione el vínculo **Plan de tarifa**:
 
   ![cambiar hardware](./media/service-tiers-vcore/change-hardware.png)
 
-En la página de información general, seleccione **Configurar** .
+En la página de información general, seleccione **Configurar**.
 
 Siga los pasos para cambiar la configuración y seleccione la generación de hardware como se describe en los pasos anteriores.
 
@@ -146,7 +162,7 @@ Siga los pasos para cambiar la configuración y seleccione la generación de har
 
 Para obtener información detallada, consulte [Creación de una instancia administrada de SQL](../managed-instance/instance-create-quickstart.md).
 
-En la pestaña **Aspectos básicos** , seleccione el vínculo **Configurar base de datos** en la sección **Compute + storage** (Proceso y almacenamiento) y, a continuación, seleccione la generación de hardware deseada:
+En la pestaña **Aspectos básicos**, seleccione el vínculo **Configurar base de datos** en la sección **Compute + storage** (Proceso y almacenamiento) y, a continuación, seleccione la generación de hardware deseada:
 
   ![configurar la instancia administrada de SQL](./media/service-tiers-vcore/configure-managed-instance.png)
   
@@ -225,6 +241,15 @@ On the **Details** page, provide the following:
 
 Approved support requests are typically fulfilled within 5 business days.
 -->
+
+#### <a name="dc-series"></a>Serie DC
+
+> [!NOTE]
+> Actualmente, la serie DC está en **versión preliminar pública**.
+
+La serie DC está disponible en las siguientes regiones: Centro de Canadá, Este de Canadá, Este de EE. UU., Norte de Europa, Sur de Reino Unido, Oeste de Europa y Oeste de EE. UU.
+
+Si necesita la serie DC en una región no admitida actualmente, [envíe una incidencia de soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) siguiendo las instrucciones de [Solicitud de aumentos de cuota para Azure SQL Database y la instancia administrada de SQL](quota-increase-request.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

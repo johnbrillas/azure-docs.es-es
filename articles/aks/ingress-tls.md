@@ -5,12 +5,12 @@ description: Obtenga información sobre cómo instalar y configurar un controlad
 services: container-service
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: 88e2bdc1b516e55fb630b2fd31ff6a2977d57bfe
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: 0b0e26262f75ba8030188a2bffbce8282b38bca8
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96607915"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219647"
 ---
 # <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>Creación de un controlador de entrada HTTPS en Azure Kubernetes Service (AKS)
 
@@ -67,7 +67,7 @@ Durante la instalación se crea una dirección IP pública de Azure para el cont
 
 Para obtener la dirección IP pública, use el comando `kubectl get service`. La asignación de la dirección IP al servicio puede tardar hasta un minuto.
 
-```
+```console
 $ kubectl --namespace ingress-basic get services -o wide -w nginx-ingress-ingress-nginx-controller
 
 NAME                                     TYPE           CLUSTER-IP    EXTERNAL-IP     PORT(S)                      AGE   SELECTOR
@@ -91,7 +91,7 @@ az network dns record-set a add-record \
 > [!NOTE]
 > Si quiere, puede configurar un FQDN para la dirección IP del controlador de entrada en lugar de un dominio personalizado. Tenga en cuenta que este ejemplo es para un shell de Bash.
 > 
-> ```azurecli-interactive
+> ```bash
 > # Public IP address of your ingress controller
 > IP="MY_EXTERNAL_IP"
 > 
@@ -262,7 +262,7 @@ kubectl apply -f aks-helloworld-two.yaml --namespace ingress-basic
 
 Ambas aplicaciones ahora se ejecutan en el clúster de Kubernetes. Sin embargo, están configuradas con un servicio de tipo `ClusterIP` y no son accesibles desde Internet. Para que estén disponibles de manera pública, cree un recurso de entrada de Kubernetes. El recurso de entrada configura las reglas de enrutamiento del tráfico a una de las dos aplicaciones.
 
-En el ejemplo siguiente, el tráfico a la dirección *hello-world-ingress.MY_CUSTOM_DOMAIN* se enruta al servicio *aks-helloworld*. El tráfico a la dirección *hello-world-ingress.MY_CUSTOM_DOMAIN/hello-world-two* se enruta al servicio *aks-helloworld-two*. El tráfico a *hello-world-ingress.MY_CUSTOM_DOMAIN/static* se enruta al servicio denominado *aks-helloworld*  para los recursos estáticos.
+En el ejemplo siguiente, el tráfico a la dirección *hello-world-ingress.MY_CUSTOM_DOMAIN* se enruta al servicio *aks-helloworld-one*. El tráfico a la dirección *hello-world-ingress.MY_CUSTOM_DOMAIN/hello-world-two* se enruta al servicio *aks-helloworld-two*. El tráfico a *hello-world-ingress.MY_CUSTOM_DOMAIN/static* se enruta al servicio denominado *aks-helloworld-one* para los recursos estáticos.
 
 > [!NOTE]
 > Si ha configurado FQDN para la dirección IP del controlador de entrada en lugar de un dominio personalizado, use FQDN en lugar de *hello-world-ingress.MY_CUSTOM_DOMAIN*. Por ejemplo, si FQDN es *demo-aks-ingress.eastus.cloudapp.azure.com*, reemplace *hello-world-ingress.MY_CUSTOM_DOMAIN* por *demo-aks-ingress.eastus.cloudapp.azure.com* en `hello-world-ingress.yaml`.
@@ -337,7 +337,7 @@ A continuación, se debe crear un recurso de certificado. El recurso de certific
 
 Para verificar que el certificado se haya creado correctamente, use el comando `kubectl get certificate --namespace ingress-basic` y compruebe que la opción *LISTO*  esté establecida en *True*, lo que puede tardar varios minutos.
 
-```
+```console
 $ kubectl get certificate --namespace ingress-basic
 
 NAME         READY   SECRET       AGE
@@ -370,7 +370,7 @@ kubectl delete -f cluster-issuer.yaml --namespace ingress-basic
 
 Despliegue una lista de las versiones de Helm con el comando `helm list`. Busque los gráficos denominados *nginx* y *cert-manager*, tal y como se muestra en la salida del ejemplo siguiente:
 
-```
+```console
 $ helm list --namespace ingress-basic
 
 NAME                    NAMESPACE       REVISION        UPDATED                                 STATUS          CHART                   APP VERSION
@@ -380,7 +380,7 @@ nginx                   ingress-basic   1               2020-01-15 10:09:45.9826
 
 Desinstale las versiones con el comando `helm uninstall`. En el ejemplo siguiente se desinstalan las implementaciones de entrada de NGINX y de cert-manager.
 
-```
+```console
 $ helm uninstall cert-manager nginx --namespace ingress-basic
 
 release "cert-manager" uninstalled
@@ -423,7 +423,7 @@ También puede:
 - [Crear un controlador de entrada que usa Let's Encrypt para generar automáticamente certificados TLS con una dirección IP pública estática][aks-ingress-static-tls]
 
 <!-- LINKS - external -->
-[az-network-dns-record-set-a-add-record]: /cli/azure/network/dns/record-set/a?view=azure-cli-latest#az-network-dns-record-set-a-add-record
+[az-network-dns-record-set-a-add-record]: /cli/azure/network/dns/record-set/#az-network-dns-record-set-a-add-record
 [custom-domain]: ../app-service/manage-custom-dns-buy-domain.md#buy-an-app-service-domain
 [dns-zone]: ../dns/dns-getstarted-cli.md
 [helm]: https://helm.sh/

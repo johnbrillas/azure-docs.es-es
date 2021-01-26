@@ -13,12 +13,12 @@ ms.date: 08/7/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 018d67b3e4e730cd46eb524a8927b3a6d68d74e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c8167142876dfac0ae0aeff51e85b66c65c607b
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88958667"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208855"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Flujo con derechos delegados de OAuth 2.0 y Plataforma de identidad de Microsoft
 
@@ -27,8 +27,8 @@ El flujo con derechos delegados (OBO) de OAuth 2.0 se usa en los casos en que un
 
 En este artículo se describe cómo programar directamente con el protocolo de la aplicación.  Cuando sea posible, se recomienda usar las bibliotecas de autenticación de Microsoft (MSAL) admitidas, en lugar de [adquirir tokens y API web protegidas por llamadas](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Además, eche un vistazo a las [aplicaciones de ejemplo que usan MSAL](sample-v2-code.md).
 
-> [!NOTE]
-> A partir de mayo de 2018, algún token `id_token` derivado del flujo implícito no se puede usar para el flujo OBO. Las aplicaciones de una sola página (SPA) deben pasar un token de **acceso** a un cliente confidencial de nivel intermedio para ejecutar flujos de OBO en su lugar. Para más información sobre los clientes que pueden realizar llamadas OBO, vea [Limitaciones](#client-limitations).
+
+A partir de mayo de 2018, algún token `id_token` derivado del flujo implícito no se puede usar para el flujo OBO. Las aplicaciones de una sola página (SPA) deben pasar un token de **acceso** a un cliente confidencial de nivel intermedio para ejecutar flujos de OBO en su lugar. Para más información sobre los clientes que pueden realizar llamadas OBO, vea [Limitaciones](#client-limitations).
 
 ## <a name="protocol-diagram"></a>Diagrama de protocolo
 
@@ -42,10 +42,9 @@ Los pasos siguientes constituyen el flujo con derechos delegados y se explican c
 1. La API A se autentica en el punto de conexión de emisión de tokens de la Plataforma de identidad de Microsoft y solicita un token para obtener acceso a la API B.
 1. El punto de conexión de emisión de tokens de la Plataforma de identidad de Microsoft valida las credenciales de la API A con el token A y emite el token de acceso para la API B (token B).
 1. El token B lo establece la API A en el encabezado de autorización de la solicitud a la API B.
-1. La API B devuelve los datos del recurso protegido a la API A y desde allí hasta el cliente.
+1. La API B devuelve los datos del recurso protegido a la API A y después los devuelve al cliente.
 
-> [!NOTE]
-> En este caso, el servicio de nivel intermedio no tiene interacción con el usuario para obtener el consentimiento del usuario para obtener acceso a la API de bajada. Por lo tanto, la opción para conceder acceso a la API de bajada se presenta inicialmente como parte del paso de autorización durante la autenticación. Para obtener información sobre cómo configurar esta opción para la aplicación, vea [Obtener consentimiento para la aplicación de nivel intermedio](#gaining-consent-for-the-middle-tier-application).
+En este caso, el servicio de nivel intermedio no tiene interacción con el usuario para obtener el consentimiento del usuario para el acceso a la API de bajada. Por lo tanto, la opción para conceder acceso a la API de bajada se presenta inicialmente como parte del paso de autorización durante la autenticación. Para obtener información sobre cómo configurar esta opción para la aplicación, vea [Obtener consentimiento para la aplicación de nivel intermedio](#gaining-consent-for-the-middle-tier-application).
 
 ## <a name="middle-tier-access-token-request"></a>Solicitud de token de acceso de nivel intermedio
 
@@ -152,10 +151,9 @@ En el ejemplo siguiente se muestra una respuesta correcta a una solicitud de un 
 }
 ```
 
-> [!NOTE]
-> El token de acceso anterior es un token con formato v1.0 para Microsoft Graph. Esto se debe a que el formato del token se basa en el **recurso** al que se accede y no está relacionado con los puntos de conexión usados para solicitarlo. Microsoft Graph se configura para aceptar tokens v1.0, por lo que la Plataforma de identidad de Microsoft genera tokens de acceso v1.0 cuando un cliente solicita tokens para Microsoft Graph. Otras aplicaciones pueden indicar que quieren tokens con formato v2.0, tokens con formato v1.0 o incluso formatos de tokens de propiedad o cifrados.  Los puntos de conexión v1.0 y v2.0 pueden emitir cualquier formato de token: de este modo, el recurso siempre puede obtener el formato correcto del token, independientemente de cómo o dónde el cliente solicitó el token. 
->
-> Solo las aplicaciones deben revisar los tokens de acceso. Los clientes **no deben** inspeccionarlos. Al inspeccionar los tokens de acceso de otras aplicaciones en el código, la aplicación se interrumpirá inesperadamente cuando la aplicación cambie el formato de sus tokens o empiece a cifrarlos. 
+El token de acceso anterior es un token con formato v1.0 para Microsoft Graph. Esto se debe a que el formato del token se basa en el **recurso** al que se accede y no está relacionado con los puntos de conexión usados para solicitarlo. Microsoft Graph se configura para aceptar tokens v1.0, por lo que la Plataforma de identidad de Microsoft genera tokens de acceso v1.0 cuando un cliente solicita tokens para Microsoft Graph. Otras aplicaciones pueden indicar que quieren tokens con formato v2.0, tokens con formato v1.0 o incluso formatos de tokens de propiedad o cifrados.  Los puntos de conexión v1.0 y v2.0 pueden emitir cualquier formato de token: de este modo, el recurso siempre puede obtener el formato correcto del token, independientemente de cómo o dónde el cliente solicitó el token. 
+
+Solo las aplicaciones deben revisar los tokens de acceso. Los clientes **no deben** inspeccionarlos. Al inspeccionar los tokens de acceso de otras aplicaciones en el código, la aplicación se interrumpirá inesperadamente cuando la aplicación cambie el formato de sus tokens o empiece a cifrarlos. 
 
 ### <a name="error-response-example"></a>Ejemplo de respuesta de error
 
@@ -189,8 +187,7 @@ Authorization: Bearer eyJ0eXAiO ... 0X2tnSQLEANnSPHY0gKcgw
 
 Algunos servicios web basados en OAuth necesitan tener acceso a otras API de servicio web que aceptan aserciones de SAML en flujos no interactivos. Azure Active Directory puede proporcionar una aserción de SAML en respuesta a un flujo de On-Behalf-Of que usa un servicio web basado en SAML como un recurso de destino.
 
->[!NOTE]
->Se trata de una extensión no estándar del flujo de On-Behalf-Of de OAuth 2.0 que permite a una aplicación basada en OAuth2 acceder a puntos de conexión de API de servicio web que consumen tokens SAML.
+Se trata de una extensión no estándar del flujo de On-Behalf-Of de OAuth 2.0 que permite a una aplicación basada en OAuth2 acceder a puntos de conexión de API de servicio web que consumen tokens SAML.
 
 > [!TIP]
 > Cuando llama a un servicio web SAML protegido desde una aplicación web front-end, solo puede llamar a la API e iniciar un flujo de autenticación interactiva normal que usará la sesión existente del usuario. Solo debe considerar el uso de un flujo de OBO cuando una llamada entre servicios requiere que un token SAML proporcione el contexto del usuario.

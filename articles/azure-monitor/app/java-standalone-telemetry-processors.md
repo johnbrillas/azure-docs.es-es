@@ -6,12 +6,12 @@ ms.date: 10/29/2020
 author: kryalama
 ms.custom: devx-track-java
 ms.author: kryalama
-ms.openlocfilehash: ba4e6b8b5e9db494ab4c0c372c2086087a2d58cb
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 39897e490e4653fbaad7a64ecc0b33f161d1264b
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98133181"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165797"
 ---
 # <a name="telemetry-processors-preview---azure-monitor-application-insights-for-java"></a>Procesadores de telemetría (versión preliminar): Azure Monitor Application Insights para Java
 
@@ -23,58 +23,48 @@ Actualmente, el agente 3.0 de Java para Application Insights tiene las funcional
 Estos son algunos casos de uso de los procesadores de telemetría:
  * Enmascaran datos confidenciales
  * Agregan dimensiones personalizadas condicionalmente
- * Actualizan el nombre de telemetría que se usa para la agregación y visualización
- * Quitan o filtran atributos de intervalo para controlar el costo de ingestas
+ * Actualizan el nombre que se usa para la agregación y la visualización en Azure Portal
+ * Quitan atributos de intervalo para controlar el costo de ingestas
 
 ## <a name="terminology"></a>Terminología
 
-Antes de pasar a los procesadores de telemetría, es importante comprender qué son los seguimientos y los intervalos.
+Antes de pasar a los procesadores de telemetría, es importante entender a qué hace referencia el término intervalo.
 
-### <a name="traces"></a>Seguimientos
+Un intervalo es un término general para cualquiera de estas tres cosas:
 
-Los seguimientos supervisan el avance de una única solicitud, denominada `trace`, a medida que la controlan los servicios que componen una aplicación. La solicitud puede iniciarla un usuario o una aplicación. Cada unidad de trabajo de un `trace` se denomina `span`; un `trace` es un árbol de intervalos. Un `trace` está formado por un intervalo raíz único y cualquier cantidad de intervalos secundarios.
+* Un solicitud entrante
+* Una dependencia saliente (por ejemplo, una llamada remota a otro servicio)
+* Una dependencia en proceso (por ejemplo, trabajo realizado por los subcomponentes del servicio)
 
-### <a name="span"></a>Intervalo
+En el contexto de los procesadores de telemetría, los componentes importantes de un intervalo son:
 
-Los intervalos son objetos que representan el trabajo realizado por servicios o componentes individuales implicados en una solicitud a medida que avanza por un sistema. Cada `span` contiene un `span context`, que es un conjunto de identificadores únicos globales que representan a la solicitud única de la que forma parte cada intervalo. 
+* Nombre
+* Atributos
 
-Los intervalos encapsulan lo siguiente:
+El nombre del intervalo es el elemento mostrado principal que se usa para solicitudes y dependencias en Azure Portal.
 
-* El nombre del intervalo.
-* Un elemento `SpanContext` inmutable que identifica de forma única al intervalo.
-* Un intervalo primario en forma de `Span`, `SpanContext`o NULL.
-* `SpanKind`.
-* Una marca de tiempo de inicio.
-* Una marca de tiempo de finalización.
-* [`Attributes`](#attributes)
-* Una lista de eventos con marca de tiempo.
-* Objeto `Status`.
+Los atributos de intervalo representan tanto propiedades estándar como personalizadas de una determinada solicitud o dependencia.
 
-Por lo general, el ciclo de vida de un intervalo es similar al siguiente:
+## <a name="telemetry-processor-types"></a>Tipos de procesadores de telemetría
 
-* Un servicio recibe una solicitud. El contexto del intervalo se extrae de los encabezados de solicitud, si está disponible.
-* Un nuevo intervalo se crea como elemento secundario del contexto del intervalo extraído. Si no existe ninguno, se crea un nuevo intervalo raíz.
-* El servicio controla la solicitud. Se agregan atributos y eventos adicionales al intervalo que son útiles para comprender el contexto de la solicitud, como el nombre de host del equipo que controla la solicitud, o los identificadores de cliente.
-* Se pueden crear nuevos intervalos para representar el trabajo realizado por los subcomponentes del servicio.
-* Cuando el servicio realiza una llamada remota a otro servicio, el contexto de intervalo actual se serializa y se reenvía al siguiente servicio al insertar el contexto de intervalo en los encabezados o en el sobre de mensaje.
-* El trabajo que está realizando el servicio finaliza correctamente o no. El estado del intervalo se establece correctamente y dicho intervalo se marca como finalizado.
+Actualmente existen dos tipos de procesadores de telemetría.
 
-### <a name="attributes"></a>Atributos
+#### <a name="attribute-processor"></a>Procesador de atributos
 
-`Attributes` son una lista de cero o más pares clave-valor que están encapsulados en un elemento `span`. Un elemento Attribute debe tener las siguientes propiedades:
+Un procesador de atributos tiene la capacidad de insertar, actualizar, eliminar o aplicar algoritmos hash a atributos.
+También puede extraer (mediante una expresión regular) uno o más atributos nuevos de un atributo existente.
 
-La clave de atributo, que debe ser una cadena que no sea NULL ni esté vacía.
-El valor del atributo, que puede ser:
-* Un valor de tipo primitivo: cadena, booleano, punto flotante de precisión doble (IEEE 754-1985) o un entero de 64 bits con signo.
-* Una matriz de valores de tipo primitivo. La matriz debe ser homogénea; es decir, no debe contener valores de tipos diferentes. En el caso de los protocolos que no admiten de manera nativa valores de matriz, tales valores deben representarse como cadenas JSON.
+#### <a name="span-processor"></a>Procesador de intervalos
 
-## <a name="supported-processors"></a>Procesadores compatibles:
- * Procesador de atributos
- * Procesador de intervalos
+Un procesador de intervalos tiene la capacidad de actualizar el nombre de la telemetría.
+También puede extraer (mediante una expresión regular) uno o más atributos nuevos del nombre del intervalo.
 
-## <a name="to-get-started"></a>Inicio
+> [!NOTE]
+> Tenga en cuenta que actualmente los procesadores de telemetría solo procesan atributos de tipo cadena y no de tipo booleano o numérico.
 
-Cree un archivo de configuración denominado `applicationinsights.json` y colóquelo en el mismo directorio que `applicationinsights-agent-***.jar`, con la siguiente plantilla.
+## <a name="getting-started"></a>Introducción
+
+Cree un archivo de configuración denominado `applicationinsights.json` y colóquelo en el mismo directorio que `applicationinsights-agent-*.jar`, con la siguiente plantilla.
 
 ```json
 {
@@ -98,9 +88,14 @@ Cree un archivo de configuración denominado `applicationinsights.json` y colóq
 }
 ```
 
-## <a name="includeexclude-spans"></a>Intervalos de inclusión o exclusión
+## <a name="includeexclude-criteria"></a>Criterios de inclusión o exclusión
 
-El procesador de atributos y el procesador de intervalos exponen la opción de proporcionar un conjunto de propiedades de un intervalo con el que coincidir, con el fin de determinar si el intervalo debe incluirse o excluirse del procesador de telemetría. Para configurar esta opción, en `include` o `exclude`, al menos son necesarios un elemento `matchType` y uno de estos dos: `spanNames` o `attributes`. La configuración de inclusión o exclusión se admite para tener más de una condición especificada. Todas las condiciones especificadas deben evaluarse en true para que se produzca una coincidencia. 
+Tanto los procesadores de atributos como los procesadores de intervalos admiten criterios opcionales `include` y `exclude`.
+Un procesador solo se aplicará a los intervalos que coincidan con sus criterios `include` (si se proporcionan) _y_ que no coincidan con sus criterios `exclude` (si se proporcionan).
+
+Para configurar esta opción, en `include` o `exclude`, al menos son necesarios un elemento `matchType` y uno de estos dos: `spanNames` o `attributes`.
+La configuración de inclusión o exclusión permite especificar más de una condición.
+Todas las condiciones especificadas deben evaluarse en true para que se produzca una coincidencia. 
 
 **Campo obligatorio**: 
 * `matchType` controla cómo se interpretan los elementos de las matrices `spanNames` y `attributes`. Los valores posibles son `regexp` o `strict`. 
@@ -150,7 +145,7 @@ El procesador de atributos y el procesador de intervalos exponen la opción de p
 ```
 Para más información, consulte la documentación sobre [ejemplos del procesador de telemetría](./java-standalone-telemetry-processors-examples.md).
 
-## <a name="attribute-processor"></a>Procesador de atributos 
+## <a name="attribute-processor"></a>Procesador de atributos
 
 El procesador de atributos modifica los atributos de un intervalo. Opcionalmente, admite la capacidad de incluir o excluir intervalos. Toma una lista de acciones que se realizan en el orden especificado en el archivo de configuración. Las acciones admitidas son:
 
@@ -167,7 +162,7 @@ Inserta un nuevo atributo en intervalos en los que la clave aún no existe.
         "key": "attribute1",
         "value": "value1",
         "action": "insert"
-      },
+      }
     ]
   }
 ]
@@ -190,7 +185,7 @@ actualiza un atributo en intervalos en los que la clave existe
         "key": "attribute1",
         "value": "newValue",
         "action": "update"
-      },
+      }
     ]
   }
 ]
@@ -213,7 +208,7 @@ elimina un atributo de un intervalo
       {
         "key": "attribute1",
         "action": "delete"
-      },
+      }
     ]
   }
 ]
@@ -234,7 +229,7 @@ aplica el algoritmo hash (SHA1) a un valor de atributo existente
       {
         "key": "attribute1",
         "action": "hash"
-      },
+      }
     ]
   }
 ]
@@ -259,7 +254,7 @@ Usa una regla de expresión regular para extraer valores de la clave de entrada 
         "key": "attribute1",
         "pattern": "<regular pattern with named matchers>",
         "action": "extract"
-      },
+      }
     ]
   }
 ]
@@ -271,7 +266,7 @@ Se requieren los siguientes elementos para la acción `extract`.
 
 Para más información, consulte la documentación sobre [ejemplos del procesador de telemetría](./java-standalone-telemetry-processors-examples.md).
 
-## <a name="span-processors"></a>Procesadores de intervalos
+## <a name="span-processor"></a>Procesador de intervalos
 
 El procesador de intervalos modifica el nombre del intervalo o los atributos de un intervalo en función del nombre del intervalo. Opcionalmente, admite la capacidad de incluir o excluir intervalos.
 

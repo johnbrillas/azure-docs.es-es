@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: ec4917aa378f746eb2caac6a7b4ce99d1c44db90
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: 55e618a7e4e0d21f6d4afab270e257c26fa15634
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127658"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251121"
 ---
 # <a name="configure-and-submit-training-runs"></a>Configuración y envío de ejecuciones de entrenamiento
 
@@ -75,6 +75,9 @@ experiment = Experiment(workspace=ws, name=experiment_name)
 Seleccione el destino de proceso en el que se ejecutará el script de entrenamiento. Si no se especifica ningún destino de proceso en la configuración ScriptRunConfig, o bien si `compute_target='local'`, Azure ML ejecutará el script localmente. 
 
 El código de ejemplo de este artículo da por sentado que ya ha creado un destino de proceso `my_compute_target` en la sección "Requisitos previos".
+
+>[!Note]
+>Azure Databricks no se admite como destino de proceso para el entrenamiento de modelos. Puede usar Azure Databricks para la preparación de datos y las tareas de implementación. 
 
 ## <a name="create-an-environment"></a>Creación de un entorno
 Los [entornos](concept-environments.md) de Azure Machine Learning son una encapsulación del entorno en el que se produce el entrenamiento del aprendizaje automático. Especifican los paquetes, la imagen de Docker, las variables de entorno y la configuración de software de Python en torno a los scripts de entrenamiento y puntuación. También especifican los entornos de ejecución (Python, Spark o Docker).

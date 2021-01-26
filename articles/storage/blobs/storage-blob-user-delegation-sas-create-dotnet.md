@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/11/2020
+ms.date: 01/13/2021
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: 8667fc3c5224b1f75a9beeb95b6e1261c768c14d
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 512b949fceda850e968a6f97b3788ae3a602f56d
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347921"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98199264"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-net"></a>Creación de una SAS de delegación de usuarios para un contenedor o blob con .NET
 
@@ -96,6 +96,16 @@ En el ejemplo de código siguiente se muestra cómo generar una SAS de delegaci�
 En el ejemplo siguiente se prueba la SAS de delegación de usuarios creada en el ejemplo anterior desde una aplicación cliente simulada. Si la SAS es válida, la aplicación cliente puede leer el contenido del blob. Si la SAS no es válida, por ejemplo, si ha expirado, Azure Storage devuelve el código de error 403 (prohibido).
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Sas.cs" id="Snippet_ListBlobsWithSasAsync":::
+
+## <a name="get-a-user-delegation-sas-for-a-directory"></a>Obtención de una SAS de delegación de usuarios para un directorio
+
+En el ejemplo de código siguiente se muestra cómo generar una SAS de delegación de usuarios para un directorio cuando está habilitado un espacio de nombres jerárquico:
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Sas.cs" id="Snippet_GetUserDelegationSasDirectory":::
+
+En el ejemplo siguiente se prueba la SAS de delegación de usuarios creada en el ejemplo anterior desde una aplicación cliente simulada. Si la SAS es válida, la aplicación cliente puede mostrar las rutas de acceso de archivo de este directorio. Si la SAS no es válida, por ejemplo, si ha expirado, Azure Storage devuelve el código de error 403 (prohibido).
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Sas.cs" id="Snippet_ListFilePathsWithDirectorySasAsync":::
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 

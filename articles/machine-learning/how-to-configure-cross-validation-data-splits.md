@@ -1,7 +1,7 @@
 ---
-title: Configuración de la validación cruzada y las divisiones de datos en experimentos de aprendizaje automático automatizados
+title: Divisiones de datos y validación cruzada en el aprendizaje automático automatizado
 titleSuffix: Azure Machine Learning
-description: Obtenga información sobre cómo configurar la validación cruzada y las divisiones de datos en experimentos de aprendizaje automático automatizados
+description: Obtenga información sobre cómo configurar la validación cruzada y las divisiones de datos en experimentos de aprendizaje automático automatizados.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,25 +11,25 @@ ms.author: cesardl
 author: CESARDELATORRE
 ms.reviewer: nibaccam
 ms.date: 06/16/2020
-ms.openlocfilehash: c29c8ab31507c0ec904a7534e50ef6523e1aab96
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: a781900534156e455c125dffe3b1334820fdf4d5
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360112"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599057"
 ---
 # <a name="configure-data-splits-and-cross-validation-in-automated-machine-learning"></a>Configuración de las divisiones de datos y la validación cruzada en aprendizaje automático automatizado
 
-En este artículo, obtendrá información sobre las distintas opciones para configurar las divisiones de datos y la validación cruzada para entrenamiento y validación para los experimentos de aprendizaje automático automatizado (AutoML).
+En este artículo, obtendrá información sobre las distintas opciones para configurar los datos de entrenamiento y las divisiones de datos de validación junto con la configuración de validación cruzada para el aprendizaje automático automatizado y los experimentos automatizados.
 
-En Azure Machine Learning, cuando se usa AutoML para crear varios modelos de aprendizaje automático, cada ejecución secundaria debe validar el modelo relacionado al calcular las métricas de calidad para ese modelo, como la precisión o la AUC ponderada. Estas métricas se calculan al comparar las predicciones realizadas con cada modelo con las etiquetas reales de observaciones anteriores en los datos de validación. 
+En Azure Machine Learning, cuando se usa el aprendizaje automático automatizado para compilar varios modelos de aprendizaje automático, cada ejecución secundaria debe validar el modelo relacionado al calcular las métricas de calidad de ese modelo, como la precisión o la AUC ponderada. Estas métricas se calculan al comparar las predicciones realizadas con cada modelo con las etiquetas reales de observaciones anteriores en los datos de validación. [Obtenga más información sobre cómo se calculan las métricas en función del tipo de validación](#metric-calculation-for-cross-validation-in-machine-learning). 
 
-Los experimentos de AutoML realizan la validación de modelos de forma automática. En las secciones siguientes se describe cómo puede personalizar aún más la configuración de validación con el [SDK de Azure Machine Learning para Python](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py). 
+Los experimentos de aprendizaje automático automatizado realizan la validación de modelos de forma automática. En las secciones siguientes se describe cómo puede personalizar aún más la configuración de validación con el [SDK de Azure Machine Learning para Python](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py). 
 
 Para obtener una experiencia sin código o con poco código, consulte [Creación de experimentos de aprendizaje automático automatizados en Azure Machine Learning Studio](how-to-use-automated-ml-for-ml-models.md). 
 
 > [!NOTE]
-> En la actualidad, Studio admite las opciones de división de datos y validación cruzada para validación cruzada y entrenamiento, pero no permite especificar los archivos de datos individuales para el conjunto de validación. 
+> En la actualidad, Studio admite las opciones de división de datos de entrenamiento y validación y de validación cruzada, pero no permite especificar archivos de datos individuales para el conjunto de validación. 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -39,13 +39,13 @@ Para realizar este artículo, necesitará lo siguiente
 
 * Familiaridad básica con la configuración de una experimento de aprendizaje de automático automatizado con el SD de Azure Machine Learning. Siga el [tutorial](tutorial-auto-train-models.md) o los [procedimientos](how-to-configure-auto-train.md) para ver los principales modelos de diseño del experimento de aprendizaje automático automatizado.
 
-* Comprensión de los datos de validación cruzada y las divisiones de datos de entrenamiento y validación como conceptos de ML. Para obtener una explicación de alto nivel,
+* Comprensión de las divisiones de datos de entrenamiento y validación y de validación cruzada como conceptos de aprendizaje automático. Para obtener una explicación de alto nivel,
 
-    * [Acerca de los conjuntos de entrenamiento, validación y pruebas en Machine Learning](https://towardsdatascience.com/train-validation-and-test-sets-72cb40cba9e7)
+    * [Acerca de los datos de entrenamiento, validación y pruebas en el aprendizaje automático](https://towardsdatascience.com/train-validation-and-test-sets-72cb40cba9e7).
 
-    * [Información sobre la validación cruzada](https://towardsdatascience.com/understanding-cross-validation-419dbd47e9bd)
+    * [Descripción de la validación cruzada en el aprendizaje automático](https://towardsdatascience.com/understanding-cross-validation-419dbd47e9bd). 
 
-## <a name="default--data-splits-and-cross-validation"></a>Divisiones de datos y validación cruzada predeterminadas
+## <a name="default-data-splits-and-cross-validation-in-machine-learning"></a>Divisiones de datos y validación cruzada predeterminadas en el aprendizaje automático
 
 Use el objeto [AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?preserve-view=true&view=azure-ml-py) para definir la configuración del experimento y el entrenamiento. En el siguiente fragmento de código, observe que solo se han definido los parámetros necesarios; es decir, los parámetros de `n_cross_validation` o `validation_ data` **no** están incluidos.
 
@@ -62,16 +62,16 @@ automl_config = AutoMLConfig(compute_target = aml_remote_compute,
                             )
 ```
 
-Si no especifica explícitamente un parámetro `validation_data` o `n_cross_validation`, AutoML aplica las técnicas predeterminadas en función del número de filas del conjunto de datos `training_data` único proporcionado:
+Si no especifica explícitamente un parámetro `validation_data` o `n_cross_validation`, el aprendizaje automático automatizado aplicará las técnicas predeterminadas en función del número de filas proporcionadas en el conjunto de datos `training_data` único:
 
 |Tamaño&nbsp;de datos de&nbsp;entrenamiento| Técnica de validación |
 |---|-----|
 |**Mayor&nbsp;que&nbsp;20 000&nbsp;filas**| Se aplica la división de datos de entrenamiento o validación. El valor predeterminado consiste en usar el 10 % del conjunto de datos de entrenamiento inicial como conjunto de validación. A su vez, ese conjunto de validación se usa para calcular las métricas.
-|**Menor&nbsp;que&nbsp;20 000&nbsp;filas**| Se aplica el enfoque de validación cruzada. El número predeterminado de iteraciones depende del número de filas. <br> **Si el conjunto de datos tiene menos de 1000 filas** , se usan diez iteraciones. <br> **Si hay entre 1000 y 20 000 filas** , se usan tres iteraciones.
+|**Menor&nbsp;que&nbsp;20 000&nbsp;filas**| Se aplica el enfoque de validación cruzada. El número predeterminado de iteraciones depende del número de filas. <br> **Si el conjunto de datos tiene menos de 1000 filas**, se usan diez iteraciones. <br> **Si hay entre 1000 y 20 000 filas**, se usan tres iteraciones.
 
 ## <a name="provide-validation-data"></a>Especificación de datos de validación
 
-En este caso, puede empezar con un solo archivo de datos y dividirlo en conjuntos de entrenamiento y validación, o bien puede proporcionar un archivo de datos independiente como conjunto de validación. En cualquier caso, el parámetro `validation_data` del objeto `AutoMLConfig` asigna los datos que se van a usar como conjunto de validación. Este parámetro solo acepta los conjuntos de datos en forma de [conjunto de datos de Azure Machine Learning](how-to-create-register-datasets.md) o un dataframe de Pandas.   
+En este caso, puede empezar con un solo archivo de datos y dividirlo en conjuntos de datos de entrenamiento y validación, o bien puede proporcionar un archivo de datos independiente como conjunto de validación. En cualquier caso, el parámetro `validation_data` del objeto `AutoMLConfig` asigna los datos que se van a usar como conjunto de validación. Este parámetro solo acepta los conjuntos de datos en forma de [conjunto de datos de Azure Machine Learning](how-to-create-register-datasets.md) o un dataframe de Pandas.   
 
 En el ejemplo de código siguiente se define de forma explícita qué parte de los datos proporcionados de `dataset` se usará para el entrenamiento y la validación.
 
@@ -155,6 +155,13 @@ automl_config = AutoMLConfig(compute_target = aml_remote_compute,
 
 > [!NOTE]
 > Para usar `cv_split_column_names` con `training_data` y `label_column_name`, actualice el SDK de Azure Machine Learning para Python versión 1.6.0 o posterior. En el caso de las versiones anteriores del SDK, consulte cómo usar `cv_splits_indices`, pero tenga en cuenta que solo se usa con la entrada de conjunto de datos `X` e `y` únicamente. 
+
+
+## <a name="metric-calculation-for-cross-validation-in-machine-learning"></a>Cálculo de métricas para la validación cruzada en el aprendizaje automático
+
+Cuando se usa la validación cruzada de k iteraciones o de tipo Monte Carlo, las métricas se calculan en cada plegamiento de validación y, a continuación, se agregan. La operación de agregación es un promedio de las métricas escalares y la suma de los gráficos. Las métricas calculadas durante la validación cruzada se basan en todos los plegamientos y, por tanto, en todos los ejemplos del conjunto de entrenamiento. [Obtenga más información sobre las métricas del aprendizaje automático automatizado](how-to-understand-automated-ml.md).
+
+Cuando se usa un conjunto de validación personalizado o un conjunto de validación seleccionado automáticamente, las métricas de evaluación del modelo solo se calculan a partir del conjunto de validación y no de los datos de entrenamiento.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

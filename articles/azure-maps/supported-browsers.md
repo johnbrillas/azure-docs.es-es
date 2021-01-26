@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 43bf70d66c42bc0ecd5e26e4cc724456bd4bf84e
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: f51b46efcaf9be4f51e96b038b93562d0e3eae0b
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896929"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98601162"
 ---
 # <a name="web-sdk-supported-browsers"></a>Exploradores admitidos por el SDK web
 
@@ -36,7 +36,7 @@ El SDK web de Azure Maps admite los siguientes exploradores de escritorio:
 - Microsoft Edge (versión actual y anterior)
 - Google Chrome (versión actual y anterior)
 - Mozilla Firefox (versión actual y anterior)
-- Apple Safari (Mac OS X) (versión actual y anterior)
+- Apple Safari (macOS X) (versión actual y anterior)
 
 Consulte también [Selección de exploradores heredados](#Target-Legacy-Browsers) más adelante en este artículo.
 
@@ -63,7 +63,7 @@ También se admiten los siguientes módulos del SDK web en Node.js:
 
 ## <a name="target-legacy-browsers"></a><a name="Target-Legacy-Browsers"></a>Selección de exploradores heredados
 
-Puede seleccionar exploradores más antiguos que no sean compatibles con WebGL o que solo tengan compatibilidad limitada. En tales casos, se recomienda usar los servicios de Azure Maps junto con un control de mapa de código abierto como [Folleto](https://leafletjs.com/). Este es un ejemplo:
+Puede seleccionar exploradores más antiguos que no sean compatibles con WebGL o que solo tengan compatibilidad limitada. En tales casos, se recomienda usar los servicios de Azure Maps junto con un control de mapa de código abierto como [Folleto](https://leafletjs.com/). A continuación, se muestra un ejemplo que usa el [complemento Leaflet de Azure Maps](https://github.com/azure-samples/azure-maps-leaflet) de código abierto.
 
 <br/>
 
@@ -71,6 +71,7 @@ Puede seleccionar exploradores más antiguos que no sean compatibles con WebGL o
 Consulte el Pen <a href='https://codepen.io/azuremaps/pen/GeLgyx/'>Azure Maps + Folleto</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
+Puede encontrar más ejemplos de código con Azure Maps en Leaflet [aquí](https://azuremapscodesamples.azurewebsites.net/?search=leaflet).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

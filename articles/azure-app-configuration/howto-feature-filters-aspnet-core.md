@@ -8,12 +8,12 @@ author: AlexandraKemperMS
 ms.author: alkemper
 ms.topic: conceptual
 ms.date: 3/9/2020
-ms.openlocfilehash: 9a6ae1581b3958495010b032980b0de2e267088b
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 39455c4bc193cce036bd169c702b5c020d53d2f6
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96931884"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602247"
 ---
 # <a name="use-feature-filters-to-enable-conditional-feature-flags"></a>Uso de filtros de características para habilitar las marcas de características condicionales
 
@@ -31,7 +31,7 @@ También puede crear su propio filtro de características que implementa la [int
 
 ## <a name="registering-a-feature-filter"></a>Registro de un filtro de características
 
-Para registrar un filtro de características, llame al método `AddFeatureFilter` y especifique el nombre del filtro de características. Por ejemplo, el código siguiente registra `PercentageFilter`:
+Para registrar un filtro de características, llame al método `AddFeatureFilter` y especifique el nombre del tipo del filtro que desee. Por ejemplo, el código siguiente registra `PercentageFilter`:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -56,29 +56,29 @@ Puede configurar estas opciones para las marcas de característica definidas en 
     > [!div class="mx-imgBorder"]
     > ![Editar marca de característica Beta](./media/edit-beta-feature-flag.png)
 
-1. En la pantalla **Editar**, seleccione el botón de opción **Activar** si aún no está seleccionado. A continuación, haga clic en el botón **Agregar filtro**. (La etiqueta del botón de opción **Activar** cambiará a **Condicional**).
+1. En la pantalla **Edit** (Editar), active la casilla **Enable feature flag** (Habilitar la marca de característica) si aún no está seleccionada. A continuación, active la casilla **Use feature filter** (Usar filtro de características) y seleccione **Custom** (Personalizado). 
 
-1. En el campo **Clave**, escriba *Microsoft.Percentage*.
+1. En el campo **Name** (Nombre), seleccione *Microsoft.Percentage*.
 
     > [!div class="mx-imgBorder"]
     > ![Agregar filtro de características](./media/feature-flag-add-filter.png)
 
-1. Haga clic en el menú contextual situado junto a la clave de filtro de características. Haga clic en **Editar parámetros**.
+1. Haga clic en el menú contextual situado junto al nombre del filtro de características. Haga clic en **Edit filter parameters** (Editar parámetros de filtro).
 
     > [!div class="mx-imgBorder"]
-    > ![Edición de parámetros de filtro de características](./media/feature-flag-edit-filter-parameters.png)
+    > ![Edición de parámetros de filtro de características](./media/feature-flags-edit-filter-parameters.png)
 
-1. Mantenga el puntero sobre el encabezado **Nombre** para que aparezcan cuadros de texto en la cuadrícula. Escriba un **Nombre** de *Valor* y **Valor** de 50. El campo **Valor** indica el porcentaje de solicitudes para las que habilitar el filtro de características.
+1. Escriba un **Nombre** de *Valor* y **Valor** de 50. El campo **Valor** indica el porcentaje de solicitudes para las que habilitar el filtro de características.
 
     > [!div class="mx-imgBorder"]
     > ![Establecimiento de parámetros de filtro de características](./media/feature-flag-set-filter-parameters.png)
 
 1. Haga clic en **Aplicar** para volver a la pantalla **Editar marca de característica**. A continuación, haga clic en **Aplicar** de nuevo para guardar la configuración de la marca de característica.
 
-1. El **Estado** de la marca de característica aparece ahora como *Condicional*. Este estado indica que la marca de característica se habilitará o deshabilitará en función de cada solicitud, según los criterios que el filtro de características aplique.
+1. En la página **Feature manager** (Administrador de características), la marca de características tiene ahora el valor un valor *Custom* (Personalizado) en **Feature filter** (Filtro de características). 
 
     > [!div class="mx-imgBorder"]
-    > ![Marca de característica condicional](./media/feature-flag-filter-enabled.png)
+    > ![Marca de característica en la lista con un valor de filtro de características "Custom" (Personalizado)](./media/feature-flag-filter-custom.png)
 
 ## <a name="feature-filters-in-action"></a>Filtros de características en acción
 

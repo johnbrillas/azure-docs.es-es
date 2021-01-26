@@ -5,13 +5,13 @@ author: savjani
 ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: bca995f8b2cea33266e032b543abb18ee7140f3f
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.date: 01/15/2021
+ms.openlocfilehash: 164285b1fea3dce18161066e643aa165e47cc496
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541188"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233993"
 ---
 # <a name="monitor-azure-database-for-mariadb-performance-with-query-store"></a>Supervisión del rendimiento de Azure Database for MariaDB con el Almacén de consultas
 
@@ -21,7 +21,7 @@ La característica Almacén de consultas de Azure Database for MariaDB proporcio
 
 ## <a name="common-scenarios-for-using-query-store"></a>Escenarios habituales para usar el Almacén de consultas
 
-El Almacén de consultas se puede usar en diversos escenarios, incluidos los siguientes:
+El Almacén de consultas se puede usar en muchos escenarios, incluidos los siguientes:
 
 - Detectar consultas con regresión.
 - Determinar el número de veces que se ha ejecutado una consulta en un período determinado
@@ -34,14 +34,14 @@ El Almacén de consultas es una característica opcional, por lo que no está ac
 ### <a name="enable-query-store-using-the-azure-portal"></a>Habilitación del Almacén de consultas mediante Azure Portal
 
 1. Inicie sesión en Azure Portal y seleccione el servidor de Azure Database for MariaDB.
-1. Seleccione **Parámetros del servidor** en la sección **Configuración** del menú.
-1. Busque el parámetro query_store_capture_mode.
-1. Establezca el valor en ALL y seleccione **Guardar**.
+2. Seleccione **Parámetros del servidor** en la sección **Configuración** del menú.
+3. Busque el parámetro query_store_capture_mode.
+4. Establezca el valor en ALL y seleccione **Guardar**.
 
 Para habilitar las estadísticas de espera en el Almacén de consultas:
 
 1. Busque el parámetro query_store_wait_sampling_capture_mode.
-1. Establezca el valor en ALL y seleccione **Guardar**.
+2. Establezca el valor en ALL y seleccione **Guardar**.
 
 Espere hasta 20 minutos para que el primer lote de datos se conserve en la base de datos mysql.
 
@@ -108,9 +108,9 @@ Use [Azure Portal](howto-server-parameters.md) para obtener o establecer otro va
 
 ## <a name="views-and-functions"></a>Funciones y vistas
 
-Vea y administre el Almacén de consultas mediante las siguientes vistas y funciones. Cualquier usuario en el [rol público con privilegios seleccionado](howto-create-users.md#create-additional-admin-users) puede usar estas vistas para ver los datos en el Almacén de consultas. Estas vistas solo están disponibles en la base de datos **mysql**.
+Vea y administre el Almacén de consultas mediante las siguientes vistas y funciones. Cualquier usuario en el [rol público con privilegios seleccionado](howto-create-users.md#create-more-admin-users) puede usar estas vistas para ver los datos en el Almacén de consultas. Estas vistas solo están disponibles en la base de datos **mysql**.
 
-Las consultas se normalizan examinando su estructura después de quitar los literales y constantes. Si dos consultas son idénticas salvo por los valores literales, tienen el mismo hash.
+Las consultas se normalizan examinando su estructura después de quitar los literales y constantes. Si dos consultas son idénticas salvo por los valores literales, tendrán el mismo hash.
 
 ### <a name="mysqlquery_store"></a>mysql.query_store
 
@@ -138,8 +138,8 @@ Esta vista devuelve todos los datos del Almacén de consultas. Hay una fila por 
 | `sum_select_full_join` | bigint(20)| No| El número de combinaciones completas.|
 | `sum_select_scan` | bigint(20)| No| El número de exámenes seleccionados. |
 | `sum_sort_rows` | bigint(20)| No| El número de filas ordenadas.|
-| `sum_no_index_used` | bigint(20)| No| El número de veces que la consulta no usó índices.|
-| `sum_no_good_index_used` | bigint(20)| No| El número de veces que el motor de ejecución de consultas no usó índices correctos.|
+| `sum_no_index_used` | bigint(20)| No| Número de veces que la consulta no usó índices.|
+| `sum_no_good_index_used` | bigint(20)| No| Número de veces que el motor de ejecución de consultas no usó índices correctos.|
 | `sum_created_tmp_tables` | bigint(20)| No| El número total de tablas temporales creadas.|
 | `sum_created_tmp_disk_tables` | bigint(20)| No| El número total de tablas temporales creadas en el disco (genera E/S).|
 | `first_seen` | timestamp| No| La primera aparición (UTC) de la consulta durante el período de agregación.|

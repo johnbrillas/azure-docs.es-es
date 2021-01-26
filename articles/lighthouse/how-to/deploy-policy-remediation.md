@@ -1,14 +1,14 @@
 ---
 title: Implementación de una directiva que se pueda corregir
 description: Para implementar directivas que usan una tarea de corrección a través de Azure Lighthouse, deberá crear una identidad administrada en el inquilino del cliente.
-ms.date: 12/17/2020
+ms.date: 01/14/2021
 ms.topic: how-to
-ms.openlocfilehash: eb473fe2f589cf719e3944c887d46e75e9e7fdbf
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 01070133241117596bdf2b8e1e7c3fa101fc656c
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97670498"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233889"
 ---
 # <a name="deploy-a-policy-that-can-be-remediated-within-a-delegated-subscription"></a>Implementación de una directiva que se pueda corregir en una suscripción delegada
 
@@ -19,9 +19,9 @@ ms.locfileid: "97670498"
 
 ## <a name="create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant"></a>Creación de un usuario que pueda asignar roles a una identidad administrada en el inquilino del cliente
 
-Al incorporar un cliente a Azure Lighthouse, use una [plantilla de Azure Resource Manager](onboard-customer.md#create-an-azure-resource-manager-template), junto con un archivo de parámetros que define los usuarios, grupos de usuarios y entidades de servicio en el inquilino de administración que podrán acceder a los recursos delegados en el inquilino del cliente. En el archivo de parámetros, a cada uno de estos usuarios (**principalId**) se le asigna un [rol integrado](../../role-based-access-control/built-in-roles.md) (**roleDefinitionId**) que define el nivel de acceso.
+Al incorporar un cliente a Azure Lighthouse, use una [plantilla de Azure Resource Manager](onboard-customer.md#create-an-azure-resource-manager-template) junto con un archivo de parámetros para definir las autorizaciones que conceden acceso a los recursos delegados en el inquilino del cliente. Cada autorización especifica un elemento **principalId** que corresponde a un usuario de Azure AD, un grupo o una entidad de servicio en el inquilino de administración, además de un elemento **roleDefinitionId** que corresponde al [rol integrado de Azure](../../role-based-access-control/built-in-roles.md) que se va a conceder.
 
-Para permitir que **principalId**  cree una identidad administrada en el inquilino del cliente, debe establecer su **roleDefinitionId**  en **Administrador de acceso de usuario**. Aunque por lo general este rol no se admite, se puede usar en este escenario concreto, lo que permite a los usuarios con este permiso asignar uno o varios roles integrados específicos a identidades administradas. Estos roles se definen en la propiedad **delegatedRoleDefinitionIds** . Aquí puede incluir todos los roles integrados, excepto Administrador de acceso de usuario o Propietario.
+Para permitir que **principalId**  cree una identidad administrada en el inquilino del cliente, debe establecer su **roleDefinitionId**  en **Administrador de acceso de usuario**. Aunque por lo general este rol no se admite, se puede usar en este escenario concreto, lo que permite a las cuentas de usuario con este permiso asignar uno o varios roles integrados específicos a identidades administradas. Estos roles se definen en la propiedad **delegatedRoleDefinitionIds** y pueden incluir cualquier [rol integrado de Azure compatible](../concepts/tenants-users-roles.md#role-support-for-azure-lighthouse), excepto el propietario o administrador de acceso de usuario.
 
 Una vez que se incorpora el cliente, el **principalId**  creado en esta autorización podrá asignar estos roles integrados a identidades administradas en el inquilino del cliente. Sin embargo, no tendrán ningún otro permiso asociado normalmente al rol Administrador de acceso de usuario.
 

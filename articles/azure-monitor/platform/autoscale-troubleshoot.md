@@ -4,12 +4,12 @@ description: Seguimiento de problemas con la escalabilidad automática de Azure 
 ms.topic: conceptual
 ms.date: 11/4/2019
 ms.subservice: autoscale
-ms.openlocfilehash: a29b5d11a6ea06af9d5b6a8b5120c6f0caa6601e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c4589acd17e76d1341d5aceada67e565c8f8c37
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90979051"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251274"
 ---
 # <a name="troubleshooting-azure-autoscale"></a>Solución de problemas de escalabilidad automática de Azure
  
@@ -51,13 +51,13 @@ Vamos a revisar las métricas del servicio de escalabilidad automática.
 
 ![Ejemplo de porcentaje de CPU del conjunto de escalado de máquinas virtuales](media/autoscale-troubleshoot/autoscale-vmss-CPU-ex-full-2.png)
 
-***Figura 1a: porcentaje de métricas de CPU para el conjunto de escalado de máquinas virtuales y la métrica Valor de métrica observado para la configuración de escalabilidad automática***
+**_Figura 1a: porcentaje de métricas de CPU para el conjunto de escalado de máquinas virtuales y la métrica Valor de métrica observado para la configuración de escalabilidad automática_* _
 
 ![Umbral de métrica y capacidad observada](media/autoscale-troubleshoot/autoscale-metric-threshold-capacity-ex-full.png)
 
-***Figura 1b: Umbral de métrica y Capacidad observada***
+_*_Figura 1b: Umbral de métrica y Capacidad observada_*_
 
-En la ilustración 1b, el **Umbral de métrica** (línea azul claro) de la regla de escalabilidad horizontal es 70.  La **Capacidad observada** (línea azul oscura) muestra el número de instancias activas, que actualmente es de 3. 
+En la ilustración 1b, el _ *Umbral de métrica** (línea azul claro) de la regla de escalabilidad horizontal es 70.  La **Capacidad observada** (línea azul oscura) muestra el número de instancias activas, que actualmente es de 3. 
 
 > [!NOTE]
 > Tendrá que filtrar el **Umbral de métrica** por la regla de escalabilidad horizontal de la dimensión de la regla del desencadenador de métricas (aumento) para ver el umbral de escalabilidad horizontal y la escala en la regla (reducción). 
@@ -76,18 +76,18 @@ En este caso, el valor de métrica observado del motor de escalabilidad automát
 
 ![Ejemplo de gráficos de métricas de escalabilidad automática del conjunto de escalado de máquinas virtuales](media/autoscale-troubleshoot/autoscale-vmss-metric-chart-ex-2.png)
 
-***Figura 2: ejemplo de gráficos de métricas de escalabilidad automática del conjunto de escalado de máquinas virtuales***
+**_Figura 2: ejemplo de gráficos de métricas de escalabilidad automática del conjunto de escalado de máquinas virtuales_* _
 
 En la ilustración 2, puede ver dos gráficos de métricas. 
 
-En el gráfico de la parte superior se muestra el valor real de la métrica **Flujos salientes**. El valor real es 6. 
+En el gráfico de la parte superior se muestra el valor real de la métrica _ *Flujos salientes*.* El valor real es 6. 
 
 En el gráfico de la parte inferior se muestran algunos valores. 
  - El **Valor de métrica observado** (azul claro) es 3 porque hay 2 instancias activas y 6 dividido entre 2 es 3. 
  - La **Capacidad observada** (púrpura) muestra el recuento de instancias que detecta el motor de escalabilidad automática. 
  - El **Umbral de métrica** (verde claro) se establece en 10. 
 
-Si hay varias reglas de acción de escalado, puede usar la división o la opción **Agregar filtro** en el gráfico del Explorador de métricas para ver la métrica de una regla o un origen específico. Para más información sobre cómo dividir un gráfico de métricas, consulte [Características avanzadas de gráficos de métricas: división](metrics-charts.md#apply-splitting-to-a-chart)
+Si hay varias reglas de acción de escalado, puede usar la división o la opción **Agregar filtro** en el gráfico del Explorador de métricas para ver la métrica de una regla o un origen específico. Para más información sobre cómo dividir un gráfico de métricas, consulte [Características avanzadas de gráficos de métricas: división](metrics-charts.md#apply-splitting)
 
 ## <a name="example-3---understanding-autoscale-events"></a>Ejemplo 3: descripción de los eventos de escalabilidad automática
 

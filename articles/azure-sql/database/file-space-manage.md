@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: jrasnick, sstein
-ms.date: 03/12/2019
-ms.openlocfilehash: 3a46e47d6e12d52113bf63342c84a58ca98743d0
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 12/22/2020
+ms.openlocfilehash: 08cab806d6ad8b75821a92994dde0fa07db8b960
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789614"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233600"
 ---
 # <a name="manage-file-space-for-databases-in-azure-sql-database"></a>Administración del espacio de archivo para bases de datos en Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -84,7 +84,7 @@ Modifique la siguiente consulta para devolver la cantidad de espacio de datos de
 SELECT TOP 1 storage_in_megabytes AS DatabaseDataSpaceUsedInMB
 FROM sys.resource_stats
 WHERE database_name = 'db1'
-ORDER BY end_time DESC
+ORDER BY end_time DESC;
 ```
 
 ### <a name="database-data-space-allocated-and-unused-allocated-space"></a>Espacio de datos de base de datos asignado y espacio asignado sin usar
@@ -98,7 +98,7 @@ SELECT SUM(size/128.0) AS DatabaseDataSpaceAllocatedInMB,
 SUM(size/128.0 - CAST(FILEPROPERTY(name, 'SpaceUsed') AS int)/128.0) AS DatabaseDataSpaceAllocatedUnusedInMB
 FROM sys.database_files
 GROUP BY type_desc
-HAVING type_desc = 'ROWS'
+HAVING type_desc = 'ROWS';
 ```
 
 ### <a name="database-data-max-size"></a>Tamaño máximo de datos de base de datos
@@ -108,7 +108,7 @@ Modifique la siguiente consulta para devolver el tamaño máximo de datos de la 
 ```sql
 -- Connect to database
 -- Database data max size in bytes
-SELECT DATABASEPROPERTYEX('db1', 'MaxSizeInBytes') AS DatabaseDataMaxSizeInBytes
+SELECT DATABASEPROPERTYEX('db1', 'MaxSizeInBytes') AS DatabaseDataMaxSizeInBytes;
 ```
 
 ## <a name="understanding-types-of-storage-space-for-an-elastic-pool"></a>Descripción de los tipos de espacio de almacenamiento para un grupo elástico
@@ -121,6 +121,9 @@ Comprender las cantidades de espacio de almacenamiento siguientes es importante 
 |**Espacio de datos asignado**|La suma del espacio de datos asignado por todas las bases de datos en el grupo elástico.||
 |**Espacio de datos asignado, pero no usado**|La diferencia entre la cantidad de espacio de datos asignado y el espacio de datos usado por todas las base de datos del grupo elástico.|Esta cantidad representa la cantidad máxima de espacio asignado para el grupo elástico que se puede reclamar mediante la reducción de archivos de datos de base de datos.|
 |**Tamaño máximo de datos**|La cantidad máxima de espacio de datos que puede usar el grupo elástico para todas sus bases de datos.|El espacio asignado para el grupo elástico no puede exceder el tamaño máximo del grupo elástico.  Si se da esta condición, el espacio asignado que no se usa se puede reclamar mediante la reducción de archivos de datos de base de datos.|
+
+> [!NOTE]
+> El mensaje de error "El grupo elástico ha alcanzado su límite de almacenamiento" indica que se ha asignado suficiente espacio a los objetos de base de datos para cumplir el límite de almacenamiento del grupo elástico, pero puede haber espacio sin usar en la asignación de espacio de datos. Considere la posibilidad de aumentar el límite de almacenamiento del grupo elástico, o como una solución a corto plazo, la opción de liberar espacio de datos en la sección [**Reclamación del espacio asignado sin usar**](#reclaim-unused-allocated-space) disponible más adelante. También debe tener en cuenta el posible impacto negativo en el rendimiento por la reducción de los archivos de base de datos; vea la sección [**Recompilación de índices**](#rebuild-indexes) disponible más adelante.
 
 ## <a name="query-an-elastic-pool-for-storage-space-information"></a>Consulta de la información de espacio de almacenamiento en un grupo elástico
 
@@ -136,7 +139,7 @@ Modifique la siguiente consulta para devolver la cantidad de espacio usado de da
 SELECT TOP 1 avg_storage_percent / 100.0 * elastic_pool_storage_limit_mb AS ElasticPoolDataSpaceUsedInMB
 FROM sys.elastic_pool_resource_stats
 WHERE elastic_pool_name = 'ep1'
-ORDER BY end_time DESC
+ORDER BY end_time DESC;
 ```
 
 ### <a name="elastic-pool-data-space-allocated-and-unused-allocated-space"></a>Espacio de datos de grupo elástico asignado y espacio asignado sin usar
@@ -187,7 +190,7 @@ La captura de pantalla siguiente es un ejemplo de la salida del script:
 
 ### <a name="elastic-pool-data-max-size"></a>Tamaño máximo de datos del grupo elástico
 
-Modifique la siguiente consulta T-SQL para devolver el tamaño máximo de datos del grupo elástico.  Las unidades de resultado de la consulta están en MB.
+Modifique la siguiente consulta T-SQL para devolver el tamaño máximo de datos de los grupos elásticos grabados.  Las unidades de resultado de la consulta están en MB.
 
 ```sql
 -- Connect to master
@@ -195,13 +198,13 @@ Modifique la siguiente consulta T-SQL para devolver el tamaño máximo de datos 
 SELECT TOP 1 elastic_pool_storage_limit_mb AS ElasticPoolMaxSizeInMB
 FROM sys.elastic_pool_resource_stats
 WHERE elastic_pool_name = 'ep1'
-ORDER BY end_time DESC
+ORDER BY end_time DESC;
 ```
 
 ## <a name="reclaim-unused-allocated-space"></a>Reclamación del espacio asignado sin usar
 
 > [!NOTE]
-> Este comando puede afectar al rendimiento de la base de datos mientras se está ejecutando y, si es posible, se debe ejecutar durante períodos de poco uso.
+> Los comandos de reducción afectan al rendimiento de la base de datos mientras se está ejecutando y, si es posible, se deben ejecutar durante períodos de poco uso.
 
 ### <a name="dbcc-shrink"></a>Reducción de DBCC
 
@@ -209,24 +212,28 @@ Una vez que se han identificado las bases de datos para reclamar el espacio asig
 
 ```sql
 -- Shrink database data space allocated.
-DBCC SHRINKDATABASE (N'db1')
+DBCC SHRINKDATABASE (N'db1');
 ```
 
-Este comando puede afectar al rendimiento de la base de datos mientras se está ejecutando y, si es posible, se debe ejecutar durante períodos de poco uso.  
+Los comandos de reducción afectan al rendimiento de la base de datos mientras se está ejecutando y, si es posible, se deben ejecutar durante períodos de poco uso.  
 
-Para más información sobre este comando, consulte [SHRINKDATABASE](/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql).
+También debe tener en cuenta el posible impacto negativo en el rendimiento por la reducción de los archivos de base de datos; vea la sección [**Recompilación de índices**](#rebuild-indexes) disponible más adelante.
+
+Para más información sobre este comando, consulte [SHRINKDATABASE](/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql.md).
 
 ### <a name="auto-shrink"></a>Reducción automática
 
 Como alternativa, la reducción automática puede habilitarse para una base de datos.  La reducción automática reduce la complejidad de la administración de archivos y afecta menos al rendimiento de la base de datos que `SHRINKDATABASE` o `SHRINKFILE`.  La reducción automática puede resultar especialmente útil para administrar grupos elásticos con muchas bases de datos.  Sin embargo, la reducción automática es menos eficaz al reclamar espacio de archivo que `SHRINKDATABASE` y `SHRINKFILE`.
+De forma predeterminada, la opción Reducción automática está deshabilitada, como se recomienda para la mayoría de las bases de datos. Para más información, vea [Consideraciones para AUTO_SHRINK](/troubleshoot/sql/admin/considerations-autogrow-autoshrink#considerations-for-auto_shrink).
+
 Para habilitar la reducción automática, modifique el nombre de la base de datos en el siguiente comando.
 
 ```sql
 -- Enable auto-shrink for the database.
-ALTER DATABASE [db1] SET AUTO_SHRINK ON
+ALTER DATABASE [db1] SET AUTO_SHRINK ON;
 ```
 
-Para más información sobre este comando, consulte las opciones de [DATABASE SET](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current).
+Para más información sobre este comando, consulte las opciones de [DATABASE SET](/sql/t-sql/statements/alter-database-transact-sql-set-options).
 
 ### <a name="rebuild-indexes"></a>Recompilación de índices
 

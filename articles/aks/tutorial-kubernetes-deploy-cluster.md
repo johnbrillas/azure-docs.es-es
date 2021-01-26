@@ -3,14 +3,14 @@ title: 'Tutorial de Kubernetes en Azure: Implementación de un clúster'
 description: En este tutorial de Azure Kubernetes Service (AKS), se crea un clúster de AKS y se usa kubectl para conectarse al nodo maestro de Kubernetes.
 services: container-service
 ms.topic: tutorial
-ms.date: 09/30/2020
+ms.date: 01/12/2021
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 0e034ebede39a3fd9046ced9716323d0c7d874df
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: a8e0ddcd77c26a00cf784fb8c2372734314dc0bb
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94684077"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250645"
 ---
 # <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>Tutorial: Implementación de un clúster de Azure Kubernetes Service (AKS)
 
@@ -21,7 +21,7 @@ Kubernetes proporciona una plataforma distribuida para aplicaciones en contenedo
 > * Instalar la CLI de Kubernetes (kubectl)
 > * Configurar kubectl para conectarse a un clúster de AKS
 
-En tutoriales adicionales, la aplicación Azure Vote se implementa en el clúster, se escala y se actualiza.
+En tutoriales posteriores, la aplicación Azure Vote se implementa en el clúster, se escala y se actualiza.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -35,7 +35,7 @@ Los clústeres de AKS pueden usar los controles de acceso basado en rol de Kuber
 
 Cree un clúster de AKS mediante [az aks create][]. En el ejemplo siguiente se crea un clúster denominado *myAKSCluster* en el grupo de recursos denominado *myResourceGroup*. Este grupo de recursos se creó en el [tutorial anterior][aks-tutorial-prepare-acr] en la región *eastus*. En el ejemplo siguiente no se especifica una región, por lo que el clúster de AKS también se crea en la región *eastus*. Para más información sobre los límites de recursos y la disponibilidad de regiones para AKS, consulte [Cuotas, restricciones de tamaño de máquina virtual y disponibilidad de regiones en Azure Kubernetes Service (AKS)][quotas-skus-regions].
 
-Para permitir que un clúster de AKS interactúe con otros recursos de Azure, se crea automáticamente una entidad de servicio de Azure Active Directory, dado que no se especificó ninguna. Aquí, a esta entidad de servicio se le [concede el derecho a extraer imágenes][container-registry-integration] de la instancia de Azure Container Registry (ACR) que creó en el tutorial anterior. Tenga en cuenta que puede usar una [identidad administrada](use-managed-identity.md) en lugar de una entidad de servicio para facilitar la administración.
+Para permitir que un clúster de AKS interactúe con otros recursos de Azure, se crea automáticamente una entidad de servicio de Azure Active Directory, dado que no se especificó ninguna. Aquí, a esta entidad de servicio se le [concede el derecho a extraer imágenes][container-registry-integration] de la instancia de Azure Container Registry (ACR) que creó en el tutorial anterior. Para ejecutar el comando correctamente, es necesario tener un rol **Propietario** o **Administrador de cuenta de Azure** en la suscripción de Azure.
 
 ```azurecli
 az aks create \
@@ -46,7 +46,7 @@ az aks create \
     --attach-acr <acrName>
 ```
 
-También puede configurar manualmente una entidad de servicio para que extraiga imágenes de ACR. Para más información, consulte [Autenticación de ACR con entidades de servicio](../container-registry/container-registry-auth-service-principal.md) o [Autenticación desde Kubernetes con un secreto de extracción](../container-registry/container-registry-auth-kubernetes.md).
+Para evitar la necesidad de un rol **Propietario** o **Administrador de cuenta de Azure**, también puede configurar una entidad de servicio manualmente para extraer imágenes de ACR. Para más información, consulte [Autenticación de ACR con entidades de servicio](../container-registry/container-registry-auth-service-principal.md) o [Autenticación desde Kubernetes con un secreto de extracción](../container-registry/container-registry-auth-kubernetes.md). También puede usar una [identidad administrada](use-managed-identity.md) en lugar de una entidad de servicio para facilitar la administración.
 
 Al cabo de varios minutos, la implementación se completa y devuelve información en formato JSON sobre la implementación de AKS.
 
@@ -76,8 +76,9 @@ Para comprobar la conexión al clúster, use ejecute el comando [kubectl get nod
 ```
 $ kubectl get nodes
 
-NAME                       STATUS   ROLES   AGE   VERSION
-aks-nodepool1-12345678-0   Ready    agent   32m   v1.14.8
+NAME                                STATUS   ROLES   AGE     VERSION
+aks-nodepool1-37463671-vmss000000   Ready    agent   2m37s   v1.18.10
+aks-nodepool1-37463671-vmss000001   Ready    agent   2m28s   v1.18.10
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

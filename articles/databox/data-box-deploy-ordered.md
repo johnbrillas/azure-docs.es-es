@@ -2,24 +2,24 @@
 title: Tutorial para pedir Azure Data Box | Microsoft Docs
 description: En este tutorial obtendrá información sobre Azure Data Box, una solución híbrida que le permite importar datos locales en Azure y cómo pedir Azure Data Box.
 services: databox
-author: alkohli
+author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 11/19/2020
+ms.date: 01/13/2021
 ms.author: alkohli
-ms.openlocfilehash: aad6a3ef754b5ba2c65a9b93fbdfcfdc26348487
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: fd165795be85c26cdfcaee3c4fd01427274a7316
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/14/2021
-ms.locfileid: "98186165"
+ms.locfileid: "98210348"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Tutorial: Realización de pedidos de Azure Data Box
 
 Azure Data Box es una solución híbrida que permite importar datos locales en Azure de una forma rápida, fácil y confiable. Tiene que transferir los datos a un dispositivo de almacenamiento de 80 TB (capacidad utilizable) que suministra Microsoft y, después, devolver el dispositivo. Luego, dichos datos se cargan en Azure.
 
-En En este tutorial se describe cómo se puede solicitar Azure Data Box. En este tutorial, obtendrá información sobre lo siguiente:
+En En este tutorial se describe cómo se puede solicitar Azure Data Box. En este tutorial, obtendrá información sobre lo siguiente:  
 
 > [!div class="checklist"]
 >
@@ -245,7 +245,7 @@ Para solicitar un dispositivo, realice los pasos siguientes en Azure Portal.
     |Resource group    | Grupo de recursos especificado anteriormente. |
     |Nombre del pedido de importación | Especifique un nombre descriptivo para hacer un seguimiento del pedido. <br> El nombre puede tener entre 3 y 24 caracteres que pueden ser letras, números y guiones. <br> El nombre debe empezar y terminar con una letra o un número.    |
 
-    ![Asistente para pedidos de importación de Data Box, pantalla Aspectos básicos, con la información correcta rellena](media/data-box-deploy-ordered/select-data-box-import-06.png)<!--Generic subscription. Cut note. Box command.-->
+    ![Asistente para pedidos de importación de Data Box, pantalla Aspectos básicos, con la información correcta rellena](media/data-box-deploy-ordered/select-data-box-import-06.png)
 
 7. En la pantalla **Destino de datos**, seleccione el **destino de los datos**, ya sea Cuentas de almacenamiento o Discos administrados.
 
@@ -253,7 +253,11 @@ Para solicitar un dispositivo, realice los pasos siguientes en Azure Portal.
 
     ![Asistente para pedidos de importación de Data Box, pantalla de destino de datos, con cuentas de almacenamiento seleccionadas](media/data-box-deploy-ordered/select-data-box-import-07.png)
 
-    En función de la región de Azure especificada, seleccione una o varias cuentas de almacenamiento en la lista filtrada una cuenta de almacenamiento existente. Data Box se puede vincular con un máximo de diez cuentas de almacenamiento. También puede crear una nueva **cuenta de uso general v1**, **cuenta de uso general v2** o **cuenta de almacenamiento de blobs**.
+    En función de la región de Azure especificada, seleccione una o varias cuentas de almacenamiento en la lista filtrada de las cuentas de almacenamiento existentes. Data Box se puede vincular con un máximo de diez cuentas de almacenamiento. También puede crear una nueva **cuenta de uso general v1**, **cuenta de uso general v2** o **cuenta de almacenamiento de blobs**.
+
+   > [!NOTE]
+   > - Si selecciona cuentas de Azure Premium FileStorage, la cuota aprovisionada en el recurso compartido de la cuenta de almacenamiento aumentará hasta el tamaño de los datos que se copian en los recursos compartidos de archivos. Una vez que aumenta la cuota, no se vuelve a ajustar si, por ejemplo, por alguna razón Data Box no puede copiar los datos.
+   > - Esta cuota se utiliza para la facturación. Una vez cargados los datos en el centro de datos, debe ajustar la cuota a sus necesidades. Para más información, consulte [Descripción de la facturación](../../articles/storage/files/understanding-billing.md).
 
     Se admiten cuentas de almacenamiento con redes virtuales. Para permitir que el servicio de Data Box trabaje con cuentas de almacenamiento seguro, habilite los servicios de confianza dentro de la configuración de firewall de la red de la cuenta de almacenamiento. Para obtener más información, vea cómo [agregar Azure Data Box como un servicio de confianza](../storage/common/storage-network-security.md#exceptions).
 
@@ -419,7 +423,7 @@ Realice los pasos siguientes con la CLI de Azure para solicitar un dispositivo:
    |sku| El dispositivo Data Box específico que va a solicitar. Los valores válidos son: "DataBox", "DataBoxDisk" y "DataBoxHeavy"| "DataBox" |
    |email-list| Direcciones de correo electrónico asociadas al pedido.| "gusp@contoso.com" |
    |street-address1| Calle de la dirección postal a la que se enviará el pedido. | "15700 NE 39th St" |
-   |street-address2| Información secundaria de la dirección postal, como el número de apartamento o el número de edificio. | "Bld 123" |
+   |street-address2| Información secundaria de la dirección postal, como el número de apartamento o el número de edificio. | "Edificio 123" |
    |city| Ciudad a la que se enviará el dispositivo. | "Redmond" |
    |state-or-province| El estado o provincia al que se enviará el dispositivo.| "WA" |
    |country| País al que se enviará el dispositivo. | "Estados Unidos" |
@@ -538,7 +542,7 @@ Realice los pasos siguientes con Azure PowerShell para pedir un dispositivo:
     |DataBoxType [obligatorio]| El dispositivo Data Box específico que va a solicitar. Los valores válidos son: "DataBox", "DataBoxDisk" y "DataBoxHeavy"| "DataBox" |
     |EmailId [obligatorio]| Direcciones de correo electrónico asociadas al pedido.| "gusp@contoso.com" |
     |StreetAddress1 [obligatorio]| Calle de la dirección postal a la que se enviará el pedido. | "15700 NE 39th St" |
-    |StreetAddress2| Información secundaria de la dirección postal, como el número de apartamento o el número de edificio. | "Bld 123" |
+    |StreetAddress2| Información secundaria de la dirección postal, como el número de apartamento o el número de edificio. | "Edificio 123" |
     |StreetAddress3| Tercera línea de la dirección. | |
     |City [obligatorio]| Ciudad a la que se enviará el dispositivo. | "Redmond" |
     |StateOrProvinceCode [obligatorio]| El estado o provincia al que se enviará el dispositivo.| "WA" |
@@ -601,7 +605,7 @@ Luego, Microsoft prepara y envía el disco a través de un operador regional. Un
 
 ### <a name="track-a-single-order"></a>Seguimiento de un solo pedido
 
-Para obtener información de seguimiento de un único pedido de Azure Data Box que ya se haya realizado, ejecute [az databox job show](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-show&preserve-view=true). El comando muestra información sobre el pedido, entre otra: nombre, grupo de recursos, información de seguimiento, identificador de suscripción, información de contacto, tipo de envío y SKU del dispositivo.
+Para obtener información de seguimiento de un único pedido de Azure Data Box que ya se haya realizado, ejecute [`az databox job show`](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-show&preserve-view=true). El comando muestra información sobre el pedido, entre otra: nombre, grupo de recursos, información de seguimiento, identificador de suscripción, información de contacto, tipo de envío y SKU del dispositivo.
 
    ```azurecli
    az databox job show --resource-group <resource-group> --name <order-name>
@@ -642,7 +646,7 @@ Para obtener información de seguimiento de un único pedido de Azure Data Box q
 
 ### <a name="list-all-orders"></a>Listado de todos los pedidos
 
-Si ha solicitado varios dispositivos, puede ejecutar [az databox job list](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-list&preserve-view=true) para ver todos los pedidos de Azure Data Box. El comando muestra en una lista todos los pedidos que pertenecen a un grupo de recursos específico. También se muestra en el resultado: nombre del pedido, estado de envío, región de Azure, tipo de entrega, estado del pedido. Los pedidos cancelados también se incluyen en la lista.
+Si ha solicitado varios dispositivos, puede ejecutar [`az databox job list`](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-list&preserve-view=true) para ver todos los pedidos de Azure Data Box. El comando muestra en una lista todos los pedidos que pertenecen a un grupo de recursos específico. También se muestra en el resultado: nombre del pedido, estado de envío, región de Azure, tipo de entrega, estado del pedido. Los pedidos cancelados también se incluyen en la lista.
 El comando también muestra las marcas de tiempo de cada pedido.
 
 ```azurecli
@@ -718,7 +722,7 @@ Para obtener información de seguimiento de un único pedido de Azure Data Box q
 
 ### <a name="list-all-orders"></a>Listado de todos los pedidos
 
-Si ha solicitado varios dispositivos, puede ejecutar [Get-AzDataBoxJob](/powershell/module/az.databox/Get-AzDataBoxJob) para ver todos los pedidos de Azure Data Box. El comando muestra en una lista todos los pedidos que pertenecen a un grupo de recursos específico. También se muestra en el resultado: nombre del pedido, estado de envío, región de Azure, tipo de entrega, estado del pedido. Los pedidos cancelados también se incluyen en la lista.
+Si ha solicitado varios dispositivos, puede ejecutar [`Get-AzDataBoxJob`](/powershell/module/az.databox/Get-AzDataBoxJob) para ver todos los pedidos de Azure Data Box. El comando muestra en una lista todos los pedidos que pertenecen a un grupo de recursos específico. También se muestra en el resultado: nombre del pedido, estado de envío, región de Azure, tipo de entrega, estado del pedido. Los pedidos cancelados también se incluyen en la lista.
 El comando también muestra las marcas de tiempo de cada pedido.
 
 ```azurepowershell
@@ -761,7 +765,7 @@ Para eliminar un pedido cancelado, vaya a **Información general** y seleccione 
 
 ### <a name="cancel-an-order"></a>Cancelación de un pedido
 
-Para cancelar un pedido de Azure Data Box, ejecute [az databox job cancel](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-cancel&preserve-view=true). Se le pedirá que especifique el motivo para cancelar el pedido.
+Para cancelar un pedido de Azure Data Box, ejecute [`az databox job cancel`](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-cancel&preserve-view=true). Se le pedirá que especifique el motivo para cancelar el pedido.
 
    ```azurecli
    az databox job cancel --resource-group <resource-group> --name <order-name> --reason <cancel-description>
@@ -798,7 +802,7 @@ Para cancelar un pedido de Azure Data Box, ejecute [az databox job cancel](/cli/
 
 ### <a name="delete-an-order"></a>Eliminar un pedido
 
-Si ha cancelado un pedido de Azure Data Box, puede ejecutar [az databox job delete](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-delete&preserve-view=true) para eliminarlo.
+Si ha cancelado un pedido de Azure Data Box, puede ejecutar [`az databox job delete`](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-delete&preserve-view=true) para eliminarlo.
 
    ```azurecli
    az databox job delete --name [-n] <order-name> --resource-group <resource-group> [--yes] [--verbose]
@@ -871,7 +875,7 @@ PS C:\WINDOWS\system32>
 
 ### <a name="delete-an-order"></a>Eliminar un pedido
 
-Si ha cancelado un pedido de Azure Data Box, puede ejecutar [Remove-AzDataBoxJob](/powershell/module/az.databox/remove-azdataboxjob) para eliminarlo.
+Si ha cancelado un pedido de Azure Data Box, puede ejecutar [`Remove-AzDataBoxJob`](/powershell/module/az.databox/remove-azdataboxjob) para eliminarlo.
 
 ```azurepowershell
 Remove-AzDataBoxJob -Name <String> -ResourceGroup <String>

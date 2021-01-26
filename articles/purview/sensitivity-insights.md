@@ -1,18 +1,18 @@
 ---
-title: Etiqueta de confidencialidad que informa sobre los datos de Azure Blob Storage
-description: En esta guía paso a paso se describe cómo ver y usar los informes de etiqueta de confidencialidad de Purview de los datos de Azure Blob Storage.
+title: Informes de etiquetas de confidencialidad sobre los datos de Azure Purview mediante las conclusiones de Purview
+description: En esta guía paso a paso se describe cómo ver y usar los informes de etiqueta de confidencialidad de Purview de los datos.
 author: batamig
 ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/24/2020
-ms.openlocfilehash: e6a92282d2bcd316a771742048dacd9a7181de4f
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: dffecb48a8faa869cb3df450cc220e86195bbc87
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746189"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98199383"
 ---
 # <a name="sensitivity-label-insights-about-your-data-in-azure-purview"></a>Conclusiones de la etiqueta de confidencialidad sobre los datos de Azure Purview
 
@@ -27,6 +27,11 @@ En esta guía paso a paso, aprenderá a:
 > - Ver conclusiones del etiquetado de confidencialidad sobre los datos
 > - Explorar en profundidad para obtener más información sobre cómo el etiquetado de confidencialidad de los datos
 
+> [!NOTE]
+> Las etiquetas de confidencialidad que se encuentran en los [recursos de Power BI](register-scan-power-bi-tenant.md) que Purview examina no se muestran actualmente en el informe de conclusiones de etiquetas de confidencialidad. 
+>
+> Para ver las etiquetas de confidencialidad de los recursos de Power BI, consulte el recurso en [Purview Data Catalog](how-to-search-catalog.md).
+> 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Antes de empezar con las conclusiones de Purview, asegúrese de que ha completado los pasos siguientes:
@@ -37,6 +42,8 @@ Antes de empezar con las conclusiones de Purview, asegúrese de que ha completad
 
 - Configurar y completar un examen de los datos de prueba en cada origen de datos
 
+- Iniciar sesión en Purview con una cuenta con un [rol de lector o conservador de datos](catalog-permissions.md#azure-purviews-pre-defined-data-plane-roles).
+
 Para obtener más información, consulte [Administrar orígenes de datos en Azure Purview (versión preliminar)](manage-data-sources.md) y [Etiquetar automáticamente los datos en Azure Purview](create-sensitivity-label.md).
 
 ## <a name="use-purview-sensitivity-labeling-insights"></a>Uso de conclusiones del etiquetado de confidencialidad de Purview
@@ -45,9 +52,11 @@ En Purview, las clasificaciones son similares a las etiquetas de asunto y se usa
 
 Las etiquetas de confidencialidad permiten indicar el grado de confidencialidad de determinados datos de la organización. Por ejemplo, un nombre de proyecto específico puede ser muy confidencial dentro de la organización, mientras que el mismo término no es confidencial para otras organizaciones. 
 
-Mientras que las clasificaciones coinciden directamente (un número del seguro social tiene una clasificación de **Número del seguro social**), se aplican etiquetas de confidencialidad cuando se encuentran una o varias clasificaciones y escenarios juntos. 
+Las clasificaciones se hacen coincidir directamente, como un número del seguro social, que tiene una clasificación de **Número del seguro social**. 
 
-Purview usa las mismas clasificaciones, también conocidas como tipos de información confidencial, como Microsoft 365. Esto le permite extender las etiquetas de confidencialidad existentes a través de los recursos de Azure Purview.
+En cambio, las etiquetas de confidencialidad se aplican cuando una o varias clasificaciones y condiciones se encuentran juntas. En este contexto, las [condiciones](/microsoft-365/compliance/apply-sensitivity-label-automatically) hacen referencia a todos los parámetros que se pueden definir para los datos no estructurados, como la **proximidad a otra clasificación** y el **% de confianza**. 
+
+Purview usa las mismas clasificaciones que Microsoft 365, también conocidas como [tipos de información confidencial](/microsoft-365/compliance/sensitive-information-type-entity-definitions). Esto le permite extender las etiquetas de confidencialidad existentes a través de los recursos de Azure Purview.
 
 > [!NOTE]
 > Una vez que haya examinado los tipos de origen, conceda a las conclusiones del **etiquetado de confidencialidad** un par de horas para reflejar los nuevos recursos.

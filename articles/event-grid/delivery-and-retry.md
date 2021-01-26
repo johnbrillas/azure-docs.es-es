@@ -3,12 +3,12 @@ title: Entrega y reintento de entrega de Azure Event Grid
 description: Describe cómo Azure Event Grid entrega eventos y cómo administra los mensajes no entregados.
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: 51473cf457a1c713e6694edd23c344be8c4d439e
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 3c4ed6ec2c9eae4dbcf70a831e3e7f70a28a57a0
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96463246"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247376"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Entrega y reintento de entrega de mensajes de Event Grid
 
@@ -57,7 +57,7 @@ Para más información sobre el uso de la CLI de Azure con Event Grid, consulte 
 
 Cuando Event Grid recibe un error para un intento de entrega de eventos, Event Grid decide si se debe reintentar la entrega o los mensajes fallidos o anular el evento según el tipo de error. 
 
-Si el error devuelto por el punto de conexión suscrito es un error relacionado con la configuración que no se puede corregir con los reintentos (por ejemplo, si se elimina el punto de conexión), Event Grid llevará a cabo los mensajes fallidos del evento o anulará el evento si no se ha configurado un método para los mensajes fallidos.
+Si el error devuelto por el punto de conexión suscrito es un error relacionado con la configuración que no se puede corregir con los reintentos (por ejemplo, si se elimina el punto de conexión), Event Grid ejecutará los mensajes con problemas de entrega del evento o anulará el evento si no se ha configurado un método para los mensajes con problemas de entrega.
 
 A continuación, se indican los tipos de puntos de conexión para los que no se produce el reintento:
 
@@ -67,7 +67,7 @@ A continuación, se indican los tipos de puntos de conexión para los que no se 
 | webhook | 400 Solicitud incorrecta, 413 Entidad de solicitud demasiado larga, 403 Prohibido, 404 No encontrado, 401 No autorizado |
  
 > [!NOTE]
-> Si no se ha configurado un método para los mensajes fallidos para el punto de conexión, los eventos se anularán cuando se produzcan errores, por lo que considere la posibilidad de configurar un método para los mensajes fallidos si no quiere que se anulen estos tipos de eventos.
+> Si no se han configurado los mensajes con problemas de entrega para el punto de conexión, los eventos se eliminarán cuando se planteen los errores anteriores. Considere la posibilidad de configurar los mensajes con problemas de entrega si no desea que se eliminen estos tipos de eventos.
 
 Si el error devuelto por el punto de conexión suscrito no está en la lista anterior, Event Grid realiza el reintento con las directivas que se describen a continuación:
 
@@ -80,7 +80,10 @@ Event Grid espera 30 segundos para obtener una respuesta después de entregar un
 - 10 minutos
 - 30 minutos
 - 1 hora
-- Cada hora, hasta 24 horas
+- 3 horas
+- 6 horas
+- Cada 12 horas hasta 24 horas
+
 
 Si el punto de conexión responde en 3 minutos, Event Grid intentará eliminar el evento de la cola de reintentos en el mejor momento posible, pero aún se pueden recibir duplicados.
 
@@ -104,7 +107,7 @@ Cuando Event Grid no puede entregar un evento en un período de tiempo determina
 
 Si se cumple alguna de las condiciones, el evento se quita o pone en la cola de mensajes fallidos.  De forma predeterminada, Event Grid no tiene activada esta opción. Para habilitarla, debe especificar una cuenta de almacenamiento para contener los eventos no entregados al crear la suscripción a eventos. Puede extraer eventos de esta cuenta de almacenamiento para resolver las entregas.
 
-Event Grid envía un evento a la ubicación de la cola de mensajes fallidos cuando ha intentado todos los reintentos. Si Event Grid recibe un código de respuesta 400 (solicitud incorrecta) o 413 (entidad de solicitud demasiado grande), envía inmediatamente el evento al punto de conexión de la cola de mensajes fallidos. Estos códigos de respuesta indican que la entrega del evento nunca se realizará correctamente.
+Event Grid envía un evento a la ubicación de la cola de mensajes fallidos cuando ha intentado todos los reintentos. Si Event Grid recibe un código de respuesta 400 (solicitud incorrecta) o 413 (entidad de solicitud demasiado grande), programa inmediatamente el evento para los mensajes con problemas de entrega. Estos códigos de respuesta indican que la entrega del evento nunca se realizará correctamente.
 
 La expiración del período de vida SOLO se comprueba en el siguiente intento de entrega programada. Por lo tanto, incluso si expira el período de vida antes del siguiente intento de entrega programada, la expiración del evento se comprueba solo en el momento de la siguiente entrega y, a continuación, en la cola de mensajes fallidos. 
 

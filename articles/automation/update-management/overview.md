@@ -3,14 +3,14 @@ title: Introducción a Update Management en Azure Automation
 description: En este artículo se ofrece información general de la característica Update Management que implementa las actualizaciones de las máquinas Windows y Linux.
 services: automation
 ms.subservice: update-management
-ms.date: 12/09/2020
+ms.date: 01/13/2021
 ms.topic: conceptual
-ms.openlocfilehash: 4b557c9772e76b6b61cdf01799ee30ba6bc11807
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: d66d4d32c788317d8b0781f9f24120fbce2f6f8f
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928433"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185621"
 ---
 # <a name="update-management-overview"></a>Introducción a Update Management
 
@@ -65,16 +65,16 @@ No se permite tener registrada una máquina para Update Management en más de un
 
 ## <a name="clients"></a>Clientes
 
-### <a name="supported-client-types"></a>Tipos de cliente admitidos
+### <a name="supported-operating-systems"></a>Sistemas operativos admitidos
 
-En la tabla siguiente se muestra una lista de sistemas operativos compatibles para evaluaciones de actualizaciones y parches. La aplicación de revisiones requiere Hybrid Runbook Worker, que se instala automáticamente al habilitar la máquina virtual o el servidor para la administración mediante Update Management. Para obtener información sobre los requisitos del sistema para Hybrid Runbook Worker, consulte [Implementación de Hybrid Runbook Worker en Windows](../automation-windows-hrw-install.md) e [Implementación de Hybrid Runbook Worker en Linux](../automation-linux-hrw-install.md).
+En la tabla siguiente se muestra una lista de sistemas operativos compatibles para evaluaciones de actualizaciones y parches. La aplicación de revisiones requiere un sistema Hybrid Runbook Worker, que se instala automáticamente al habilitar la máquina virtual o el servidor para la administración mediante Update Management. Para obtener información sobre los requisitos del sistema para Hybrid Runbook Worker, consulte [Implementación de Hybrid Runbook Worker en Windows](../automation-windows-hrw-install.md) e [Implementación de Hybrid Runbook Worker en Linux](../automation-linux-hrw-install.md).
 
 > [!NOTE]
 > La evaluación de la actualización de máquinas Linux solo se admite en determinadas regiones tal como se muestra en la [tabla de asignaciones](../how-to/region-mappings.md#supported-mappings) del área de trabajo de Log Analytics y la cuenta de Automation.
 
 |Sistema operativo  |Notas  |
 |---------|---------|
-|Windows Server 2019 (Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2016 (Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2012 R2 (Datacenter/Standard)<br><br>Windows Server 2012 ||
+|Windows Server 2019 (Datacenter/Datacenter Core/Standard)<br>Windows Server 2016 (Datacenter/Datacenter Core/Standard)<br>Windows Server 2012 R2 (Datacenter/Standard)<br>Windows Server 2012 |
 |Windows Server 2008 R2 (RTM and SP1 Standard)| Update Management admite evaluaciones y parches para este sistema operativo. [Hybrid Runbook Worker](../automation-windows-hrw-install.md) es compatible con Windows Server 2008 R2. |
 |CentOS 6 y 7 (x64)      | Los agentes de Linux requieren acceso a un repositorio de actualización. La aplicación de revisiones basada en la clasificación requiere `yum` para devolver los datos de seguridad que CentOS no tiene en sus versiones RTM. Para más información sobre la aplicación de revisiones basadas en clasificaciones en CentOS, consulte [Actualización de clasificaciones en Linux](view-update-assessments.md#linux).          |
 |Red Hat Enterprise 6 y 7 (x64)     | Los agentes de Linux requieren acceso a un repositorio de actualización.        |
@@ -84,9 +84,9 @@ En la tabla siguiente se muestra una lista de sistemas operativos compatibles pa
 > [!NOTE]
 > Los conjuntos de escalado de máquinas virtuales de Azure se pueden administrar a través de Update Management. Update Management funciona en las propias instancias y no en la imagen base. Deberá programar las actualizaciones de forma incremental, de modo que no todas las instancias de VM se actualicen a la vez. Puede agregar nodos para conjuntos de escalado de máquinas virtuales siguiendo los pasos que se describen en [Incorporación de una máquina que no es de Azure a la característica Change Tracking e Inventario](../automation-tutorial-installed-software.md#add-a-non-azure-machine-to-change-tracking-and-inventory).
 
-### <a name="unsupported-client-types"></a>Tipos de cliente no admitidos
+### <a name="unsupported-operating-systems"></a>Sistemas operativos no admitidos
 
-En la tabla siguiente se enumeran los sistemas operativos no admitidos:
+En la tabla siguiente se enumeran los sistemas operativos no admitidos por Update Management:
 
 |Sistema operativo  |Notas  |
 |---------|---------|
@@ -94,15 +94,20 @@ En la tabla siguiente se enumeran los sistemas operativos no admitidos:
 |Windows Server 2016 Nano Server     | No compatible.       |
 |Nodos de Azure Kubernetes Service | No compatible. Use el proceso de aplicación de revisiones que se describe en [Aplicación de actualizaciones de kernel y seguridad en los nodos de Linux en Azure Kubernetes Service (AKS)](../../aks/node-updates-kured.md)|
 
-### <a name="client-requirements"></a>Requisitos del cliente
+### <a name="system-requirements"></a>Requisitos del sistema
 
-La información siguiente describe los requisitos del cliente específicos del sistema operativo. Para obtener más instrucciones, vea [Planeamiento de red](#ports). Para comprender los requisitos de cliente para TLS 1.2, consulte el artículo sobre el [cumplimiento de TLS 1.2 para Azure Automation](../automation-managing-data.md#tls-12-enforcement-for-azure-automation).
+La información siguiente describe los requisitos específicos del sistema operativo. Para obtener más instrucciones, vea [Planeamiento de red](#ports). Para comprender los requisitos para TLS 1.2, consulte el artículo sobre el [cumplimiento de TLS 1.2 para Azure Automation](../automation-managing-data.md#tls-12-enforcement-for-azure-automation).
 
 #### <a name="windows"></a>Windows
 
+Requisitos de software:
+
+- Se requiere .NET Framework 4.6 o posterior. ([Descargue .NET Framework](/dotnet/framework/install/guide-for-developers)).
+- Se requiere Windows PowerShell 5.1. ([Descargue Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616)).
+
 Los agentes de Windows deben estar configurados para comunicarse con un servidor de WSUS o requieren acceso a Microsoft Update. Para las máquinas híbridas, se recomienda instalar el agente de Log Analytics para Windows; para ello, primero debe conectar la máquina a los [servidores habilitados para Azure Arc](../../azure-arc/servers/overview.md) y, después, use Azure Policy para asignar la directiva integrada [Implementar el agente de Log Analytics en máquinas de Azure Arc con Windows](../../governance/policy/samples/built-in-policies.md#monitoring). Como alternativa, si planea supervisar las máquinas con Azure Monitor para VM, en su lugar, use la iniciativa [Habilitar Azure Monitor para VM](../../governance/policy/samples/built-in-initiatives.md#monitoring).
 
-Puede usar Update Management con Microsoft Endpoint Configuration Manager. Para más información sobre escenarios de integración, consulte este artículo sobre la [integración de Update Management con Endpoint Configuration Manager de Windows](mecmintegration.md). El [agente de Log Analytics para Windows](../../azure-monitor/platform/agent-windows.md) es necesario para los servidores Windows administrados por sitios en su entorno de Configuration Manager. 
+Puede usar Update Management con Microsoft Endpoint Configuration Manager. Para más información sobre escenarios de integración, consulte este artículo sobre la [integración de Update Management con Endpoint Configuration Manager de Windows](mecmintegration.md). El [agente de Log Analytics para Windows](../../azure-monitor/platform/agent-windows.md) es necesario para los servidores Windows administrados por sitios en su entorno de Configuration Manager.
 
 De forma predeterminada, las máquinas virtuales Windows implementadas desde Azure Marketplace se establecen para recibir actualizaciones automáticas del servicio de Windows Update. Este comportamiento no cambia cuando se agregan VM Windows al área de trabajo. Si no administra activamente las actualizaciones mediante Update Management, se aplica el comportamiento predeterminado (las actualizaciones se aplican automáticamente).
 
@@ -111,7 +116,11 @@ De forma predeterminada, las máquinas virtuales Windows implementadas desde Azu
 
 #### <a name="linux"></a>Linux
 
-En Linux, la máquina requiere acceso a un repositorio de actualización, privado o público. Se requiere TLS 1.1 o TLS 1.2 para interactuar con Update Management. Update Management no admite un agente de Log Analytics para Linux que esté configurado para informar a varias áreas de trabajo de Log Analytics. La máquina también debe tener instalado Python 2.x.
+Requisitos de software:
+
+- La máquina requiere acceso a un repositorio de actualización, privado o público.
+- Se requiere TLS 1.1 o TLS 1.2 para interactuar con Update Management.
+- Python 2.x instalado.
 
 > [!NOTE]
 > La evaluación de la actualización de máquinas Linux solo se admite en determinadas regiones. Consulte la [tabla de asignaciones](../how-to/region-mappings.md#supported-mappings) del área de trabajo de Log Analytics y la cuenta de Automation.
@@ -130,11 +139,11 @@ Update Management usa los recursos descritos en esta sección. Estos recursos se
 
 ### <a name="hybrid-runbook-worker-groups"></a>Grupos de Trabajos híbridos de runbook
 
-Después de habilitar Update Management, las máquinas Windows conectadas directamente al área de trabajo de Log Analytics se configuran automáticamente como Hybrid Runbook Worker para admitir los runbooks que admiten a su vez Update Management.
+Después de habilitar Update Management, las máquinas Windows conectadas directamente al área de trabajo de Log Analytics se configuran de modo automático como un sistema Hybrid Runbook Worker para admitir los runbooks que admiten a su vez Update Management.
 
 Cada máquina Windows administrada por Update Management se muestra en el panel Grupos de Hybrid Worker como un grupo Hybrid Worker del sistema para la cuenta de Automation. Los grupos usan la convención de nomenclatura `Hostname FQDN_GUID`. No puede usar estos grupos como destino con runbooks de su cuenta. Si lo intenta, se producirá un error. Estos grupos están diseñados únicamente para admitir Update Management. Para más información sobre la visualización de la lista de máquinas Windows configuradas como Hybrid Runbook Worker, consulte [Hybrid Runbook Worker](../automation-hybrid-runbook-worker.md#view-system-hybrid-runbook-workers).
 
-Puede agregar la máquina Windows a un grupo de Hybrid Runbook Worker en la cuenta de Automation para admitir runbooks de Automation si usa la misma cuenta para Update Management y la pertenencia a grupos de Hybrid Runbook Worker. Esta funcionalidad se agregó en la versión 7.2.12024.0 de Hybrid Runbook Worker.
+Puede agregar la máquina Windows a un grupo de Hybrid Runbook Worker de usuario en la cuenta de Automation para admitir runbooks de Automation si usa la misma cuenta para Update Management y la pertenencia a grupos de Hybrid Runbook Worker. Esta funcionalidad se agregó en la versión 7.2.12024.0 de Hybrid Runbook Worker.
 
 ### <a name="management-packs"></a>Módulos de administración
 

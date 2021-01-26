@@ -10,12 +10,12 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/14/2020
 ms.custom: designer
-ms.openlocfilehash: a27e18d9b6f6307f1cc8ed48ca897dd4d1f0f1f3
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 4d594115139321c8a4ad2b3aa6b065474bd426fa
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555505"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98556178"
 ---
 # <a name="example-pipelines--datasets-for-azure-machine-learning-designer"></a>Conjuntos de datos y canalizaciones de ejemplo en el diseñador de Azure Machine Learning
 
@@ -72,7 +72,7 @@ Explore estos ejemplos de regresión integrados.
 
 ## <a name="classification"></a>clasificación
 
-Explore estos ejemplos de clasificación integrados. Para más información sobre los ejemplos sin vínculos de documentación, abra los ejemplos y vea los comentarios del módulo en su lugar.
+Explore estos ejemplos de clasificación integrados. Para más información sobre los ejemplos, ábralos y vea los comentarios del módulo en el diseñador.
 
 | Título de ejemplo | Descripción | 
 | --- | --- |
@@ -84,13 +84,15 @@ Explore estos ejemplos de clasificación integrados. Para más información sobr
 
 ## <a name="computer-vision"></a>Visión del equipo
 
-Explore estos ejemplos de Computer Vision integrados. Para más información sobre los ejemplos sin vínculos de documentación, abra los ejemplos y vea los comentarios del módulo en su lugar.
+Explore estos ejemplos de Computer Vision integrados. Para más información sobre los ejemplos, ábralos y vea los comentarios del módulo en el diseñador.
 
-| Clasificación de imágenes mediante DenseNet |Uso de los módulos de Computer Vision para crear un modelo de clasificación de imágenes basado en PyTorch DenseNet.| 
+| Título de ejemplo | Descripción | 
+| --- | --- |
+| Clasificación de imágenes mediante DenseNet | Use los módulos de Computer Vision para compilar un modelo de clasificación de imágenes basado en PyTorch DenseNet.| 
 
 ## <a name="recommender"></a>Recomendador
 
-Explore estos ejemplos integrados de recomendación. Para más información sobre los ejemplos sin vínculos de documentación, abra los ejemplos y vea los comentarios del módulo en su lugar.
+Explore estos ejemplos integrados de recomendación. Para más información sobre los ejemplos, ábralos y vea los comentarios del módulo en el diseñador.
 
 | Título de ejemplo | Descripción | 
 | --- | --- |
@@ -99,7 +101,7 @@ Explore estos ejemplos integrados de recomendación. Para más información sobr
 
 ## <a name="utility"></a>Utilidad
 
-Obtenga más información sobre los ejemplos que muestran las características y utilidades de aprendizaje automático. Para más información sobre los ejemplos sin vínculos de documentación, abra los ejemplos y vea los comentarios del módulo en su lugar.
+Obtenga más información sobre los ejemplos que muestran las características y utilidades de aprendizaje automático. Para más información sobre los ejemplos, ábralos y vea los comentarios del módulo en el diseñador.
 
 | Título de ejemplo | Descripción | 
 | --- | --- |

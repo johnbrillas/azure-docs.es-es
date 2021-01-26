@@ -12,12 +12,12 @@ ms.date: 12/04/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 07acd71eb1a77592c82b80aa574d79b98c48f60e
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: 0067ed618f95e7f83fc041fe214bbc4d715a504f
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96608306"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567632"
 ---
 # <a name="azure-ad-connect-sync-v2-endpoint-api"></a>API de punto de conexión de Azure AD Connect Sync V2 
 Microsoft ha implementado un nuevo punto de conexión (API) para Azure AD Connect que mejora el rendimiento de las operaciones del servicio de sincronización para Azure Active Directory. Al usar el nuevo punto de conexión V2, experimentará mejoras de rendimiento notables en la exportación y la importación respecto a Azure AD. Este nuevo punto de conexión admite lo siguiente:
@@ -28,7 +28,7 @@ Microsoft ha implementado un nuevo punto de conexión (API) para Azure AD Conne
 > [!NOTE]
 > Actualmente, el nuevo punto de conexión no tiene ningún límite de tamaño de grupo configurado para los grupos de Microsoft 365 que se escriben de manera diferida. Esto puede afectar a las latencias del ciclo de sincronización de Active Directory. Se recomienda aumentar los tamaños de grupo por incrementos.  
 
-## <a name="pre-requisites"></a>Requisitos previos  
+## <a name="prerequisites"></a>Requisitos previos  
 Para poder usar el nuevo punto de conexión V2, debe usar [Azure AD Connect versión 1.5.30.0](https://www.microsoft.com/download/details.aspx?id=47594) o posterior y seguir los pasos de implementación que se proporcionan a continuación para habilitar el punto de conexión V2 para el servidor de Azure AD Connect.   
 
 ## <a name="deployment-guidance"></a>Guía para la implementación 

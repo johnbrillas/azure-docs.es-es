@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 536a9641b68ccd2510a7891b46483a322fb6ecb7
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: 6c065b7a7269c8da42493ede50466f44f7dd2658
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97900933"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219953"
 ---
 # <a name="conditional-access-grant"></a>Acceso condicional: Conceder
 
@@ -139,7 +139,7 @@ Esta configuración se aplica a las aplicaciones cliente siguientes:
 - Nine Mail - Email & Calendar
 
 > [!NOTE]
-> Microsoft Kaizala, Microsoft Skype Empresarial y Microsoft Visio no admiten la concesión **Requerir directiva de protección de aplicaciones**. Si necesita que estas aplicaciones funcionen, use exclusivamente la concesión **Requerir aplicaciones aprobadas**. El uso de la cláusula OR entre las dos concesiones no funciona para estas tres aplicaciones.
+> Microsoft Teams, Microsoft Kaizala, Microsoft Skype Empresarial y Microsoft Visio no admiten la concesión **Requerir la directiva de protección de aplicaciones**. Si necesita que estas aplicaciones funcionen, use exclusivamente la concesión **Requerir aplicaciones aprobadas**. El uso de la cláusula OR entre las dos concesiones no funciona para estas tres aplicaciones.
 
 **Comentarios:**
 

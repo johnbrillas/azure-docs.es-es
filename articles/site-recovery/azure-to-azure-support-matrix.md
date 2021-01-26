@@ -4,12 +4,12 @@ description: Resume la compatibilidad con la recuperación ante desastres de má
 ms.topic: article
 ms.date: 11/29/2020
 ms.author: raynew
-ms.openlocfilehash: 9670178a9c9d772d8966413371f998aa1f0cf5f3
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 2dbd7cd756e386b44c6933697ff50180021ac035
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968315"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98572313"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matriz de soporte para la recuperación ante desastres de máquinas virtuales de Azure entre regiones de Azure
 
@@ -44,13 +44,13 @@ Puede replicar y recuperar máquinas virtuales entre dos regiones cualesquiera d
 **Clúster geográfico** | **Regiones de Azure**
 -- | --
 America | Centro de Canadá y Este de Canadá, Centro-sur de EE. UU.., centro-oeste de EE. UU., este de EE. UU., este de EE. UU. 2, oeste de EE. UU., oeste de EE. UU. 2 centro de EE. UU., centro-norte de EE. UU.
-Europa | Oeste de Reino Unido, Sur de Reino Unido, Norte de Europa, Oeste de Europa, Oeste de Sudáfrica, Norte de Sudáfrica, Este de Noruega, Oeste de Noruega, Centro de Francia, Norte de Suiza
+Europa | Oeste de Reino Unido, Sur de Reino Unido, Norte de Europa, Oeste de Europa, Oeste de Sudáfrica, Norte de Sudáfrica, Este de Noruega, Centro de Francia, Norte de Suiza, Centro-oeste de Alemania
 Asia | Sur de la India, Centro de la India, India occidental, Sudeste de Asia, Este de Asia, Este de Japón, Oeste de Japón, Centro de Corea del Sur, Sur de Corea del Sur
 Australia    | Este de Australia, Sudeste de Australia, Centro de Australia, Centro de Australia 2
 Azure Government    | Virginia Gob. EE. UU., Iowa Gob. EE. UU., US Gov de Arizona, US Gov de Texas, US DOD este, US DOD central
 Alemania    | Centro de Alemania y Nordeste de Alemania
 China | Este de China, Norte de China, Norte de China 2 y Este de China 2
-Regiones restringidas reservadas para la recuperación ante desastres dentro de un país |La región Norte de Alemania está reservada para Centro-oeste de Alemania, la región Oeste de Suiza está reservada para Norte de Suiza, la región Sur de Francia está reservada para Centro de Francia y la región Centro de Emiratos Árabes Unidos está restringida para los clientes de Norte de Emiratos Árabes Unidos.
+Regiones restringidas reservadas para la recuperación ante desastres dentro de un país |La región Oeste de Suiza está reservada para el Norte de Suiza, la región Sur de Francia está reservada para el Centro de Francia, la región Centro de Emiratos Árabes Unidos está restringida para los clientes del Norte de Emiratos Árabes Unidos y la región Oeste de Noruega para los clientes del Este de Noruega.
 
 >[!NOTE]
 >
@@ -213,7 +213,7 @@ Cambios sin conexión en discos protegidos | Para desconectar discos y realizar 
 
 Esta tabla resume la compatibilidad con el disco del sistema operativo, el disco de datos y el disco temporal de Azure VM.
 
-- Es importante respetar los límites y destinos de los discos de máquinas virtuales [Linux](../virtual-machines/linux/disk-scalability-targets.md) y [Windows](../virtual-machines/windows/disk-scalability-targets.md) para evitar cualquier problema de rendimiento.
+- Es importante respetar los límites y destinos de los discos de VM de los [discos administrados](../virtual-machines/disks-scalability-targets.md) para evitar cualquier problema de rendimiento.
 - Si implementa con la configuración predeterminada, Site Recovery creará automáticamente las cuentas de almacenamiento y los discos necesarios en función de la configuración de origen.
 - Si desea personalizar, asegúrese de que sigue las directrices.
 
@@ -233,6 +233,7 @@ SSD estándar | Compatible |
 Redundancia | Se admiten LRS y GRS.<br/><br/> No se admite ZRS.
 Almacenamiento esporádico y almacenamiento frecuente | No compatible | Los discos de máquina virtual no admiten el almacenamiento esporádico ni el frecuente
 Espacios de almacenamiento | Compatible |
+Interfaz de almacenamiento de NVMe | No compatible
 Cifrado en reposo (SSE) | Compatible | SSE es la configuración predeterminada en las cuentas de almacenamiento.
 Cifrado en reposo (CMK) | Compatible | Para los discos administrados se admiten tanto claves de software como HSM
 Cifrado en reposo doble | Compatible | Más información sobre las regiones admitidas para [Windows](../virtual-machines/disk-encryption.md) y [Linux](../virtual-machines/disk-encryption.md)
@@ -260,7 +261,7 @@ Discos con el acelerador de escritura habilitado | No compatible
 Etiquetas  | Las etiquetas generadas por el usuario se replican cada 24 horas.
 
 >[!IMPORTANT]
-> Para evitar cualquier problema de rendimiento, asegúrese de respetar los objetivos de escalabilidad y rendimiento del disco de la máquina virtual de máquinas virtuales [Linux](../virtual-machines/linux/disk-scalability-targets.md) o [Windows](../virtual-machines/windows/disk-scalability-targets.md). Si usa la configuración predeterminada, Site Recovery crea las cuentas de almacenamiento y los discos necesarios en función de la configuración de origen. Si personaliza y selecciona su propia configuración, respete los objetivos de escalabilidad y rendimiento del disco de las máquinas virtuales de origen.
+> Para evitar cualquier problema de rendimiento, asegúrese de respetar los objetivos de escalabilidad y rendimiento del disco de la VM de los [discos administrados](../virtual-machines/disks-scalability-targets.md). Si usa la configuración predeterminada, Site Recovery crea las cuentas de almacenamiento y los discos necesarios en función de la configuración de origen. Si personaliza y selecciona su propia configuración, respete los objetivos de escalabilidad y rendimiento del disco de las máquinas virtuales de origen.
 
 ## <a name="limits-and-data-change-rates"></a>Límites y tasas de cambio de datos
 

@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff656887081681a804285e9a96352feef15fc675
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 7557985b23991f1a53d45f6f2d2283500c0d73f3
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97743819"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222418"
 ---
 # <a name="discover-the-current-state-of-external-collaboration-in-your-organization"></a>Detección del estado actual de la colaboración externa en su organización 
 
@@ -46,9 +46,9 @@ Las organizaciones externas pueden determinarse mediante los nombres de dominio 
 
 ### <a name="use-allow-or-deny-lists"></a>Uso de listas de permitidos o denegados
 
-Otra forma de detectar con quién está colaborando actualmente o con quién ha bloqueado la colaboración, es ver si ha agregado alguna organización a las [listas de permitidos o denegados](../external-identities/allow-deny-list.md).
+Considere si su organización desea permitir la colaboración solo con organizaciones específicas. O bien, considere si su organización desea bloquear la colaboración con organizaciones específicas.  En el nivel de inquilino, hay una [lista de permitidos o denegados](../external-identities/allow-deny-list.md), que se puede usar para controlar las invitaciones y los canjes de B2B globales, independientemente del origen (por ejemplo, Teams, SharePoint y Azure Portal).
+Si usa la administración de derechos, también puede limitar el ámbito de los paquetes de acceso a un subconjunto de sus asociados mediante el valor Organizaciones conectadas específicas, tal como se muestra a continuación.
 
-Considere si su organización desea permitir la colaboración con solo organizaciones específicas. Considere también si su organización desea bloquear la colaboración con organizaciones específicas. Esta configuración se puede aplicar al canje de B2B general o solo a un paquete de acceso específico.
 
 ![Captura de pantalla de la lista de permitidos o denegados al crear un nuevo paquete de acceso.](media/secure-external-access/2-new-access-package.png)
 

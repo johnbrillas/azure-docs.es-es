@@ -8,12 +8,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: banders
-ms.openlocfilehash: a527b75d376f05ab6190187b7a03d6da775055ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5a4f7de0cacb17087e346123f53dad45ae1de357
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81759286"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602611"
 ---
 # <a name="prepay-for-azure-software-plans"></a>Pago por adelantado de planes de software de Azure
 
@@ -32,7 +32,7 @@ Puede comprar planes de software SUSE y RedHat en Azure Portal. Para comprar un 
 Rellene todos los campos obligatorios. Cualquier máquina virtual de SUSE Linux o de RedHat que coincida con los atributos de lo que compra obtiene el descuento. El número real de implementaciones que obtienen el descuento depende del ámbito y la cantidad seleccionada.
 3. Seleccione una suscripción. Se utiliza para pagar el plan.
 Los costos anticipados de la reserva se cargan al método de pago de la suscripción. El tipo de suscripción debe ser Contrato Enterprise (números de oferta: MS-AZR-0017P o MS-AZR-0148P) o un contrato individual con precios de pago por uso (números de oferta: MS-AZR-0003P o MS-AZR-0023P).
-    - Para una suscripción Enterprise, los cargos se deducen del saldo de compromiso monetario de la inscripción o se cobran como uso por encima del límite.
+    - Para una suscripción Enterprise, los cargos se deducen del pago por adelantado de Azure (antes conocido como saldo de compromiso monetario) de la inscripción, o se cobran como uso por encima del límite.
     - Para una suscripción individual con precios de pago por uso, los cargos se cobran en el método de pago de la factura o la tarjeta de crédito de la suscripción.
 4. Seleccione un ámbito. El ámbito puede cubrir una o varias suscripciones (ámbito compartido).
     - Suscripción única: el descuento del plan se aplica al uso correspondiente en la suscripción.

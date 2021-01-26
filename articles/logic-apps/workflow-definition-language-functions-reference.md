@@ -4,14 +4,14 @@ description: Guía de referencia de las funciones en las expresiones para Azure 
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
-ms.topic: conceptual
-ms.date: 09/04/2020
-ms.openlocfilehash: 222f6ebacb6139ca26a6f1cdd0f896270c9b2fc2
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.topic: reference
+ms.date: 01/13/2021
+ms.openlocfilehash: fe40cbe84e8e3341b03c6c8e11701fe3db6bc3d0
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98034302"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234229"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Guía de referencia para usar las funciones en las expresiones para Azure Logic Apps y Power Automate
 
@@ -2532,11 +2532,17 @@ Este ejemplo crea una variable de contador y la incrementa en uno durante cada i
 
 ### <a name="json"></a>json
 
-Devuelve el valor o el objeto de tipo Notación de objetos JavaScript (JSON) de una cadena o XML.
+Devuelve la matriz de objetos, el objeto o el valor de tipo Notación de objetos JavaScript (JSON) para una cadena o XML.
 
 ```
 json('<value>')
+json(xml('value'))
 ```
+
+> [!IMPORTANT]
+> Sin un esquema XML que define la estructura de la salida, la función puede devolver resultados en los que la estructura difiere significativamente del formato esperado, dependiendo de la entrada.
+>  
+> Este comportamiento hace que esta función no sea adecuada para los escenarios en los que la salida debe cumplir un contrato bien definido, por ejemplo, en soluciones o sistemas empresariales críticos.
 
 | Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
@@ -2545,12 +2551,12 @@ json('<value>')
 
 | Valor devuelto | Tipo | Descripción |
 | ------------ | ---- | ----------- |
-| <*resultado-JSON*> | Objeto o tipo nativo de JSON | Objeto o valor de tipo nativo de JSON de la cadena o XML especificados. Si la cadena es NULL, la función devuelve un objeto vacío. |
+| <*resultado-JSON*> | Matriz, objeto o tipo nativo de JSON | La matriz de objetos, el objeto o el valor de tipo nativo de JSON de la cadena de entrada o XML. <p><p>- Si pasa XML que tiene un único elemento secundario en el elemento raíz, la función devuelve un único objeto JSON para ese elemento secundario. <p> - Si pasa XML que tiene varios elementos secundarios en el elemento raíz, la función devuelve una matriz que contiene objetos JSON para esos elementos secundarios. <p>- Si la cadena es NULL, la función devuelve un objeto vacío. |
 ||||
 
 *Ejemplo 1*
 
-Este ejemplo convierte esta cadena en el valor JSON:
+Este ejemplo convierte esta cadena en un valor JSON:
 
 ```
 json('[1, 2, 3]')
@@ -2560,7 +2566,7 @@ Y devuelve este resultado: `[1, 2, 3]`
 
 *Ejemplo 2*
 
-Este ejemplo convierte esta cadena a JSON:
+Este ejemplo convierte esta cadena en JSON:
 
 ```
 json('{"fullName": "Sophia Owen"}')
@@ -2568,7 +2574,7 @@ json('{"fullName": "Sophia Owen"}')
 
 Y devuelve este resultado:
 
-```
+```json
 {
   "fullName": "Sophia Owen"
 }
@@ -2576,23 +2582,53 @@ Y devuelve este resultado:
 
 *Ejemplo 3*
 
-Este ejemplo convierte este XML a JSON:
+En este ejemplo se usan las funciones `json()` y `xml()` para convertir XML que tiene un único elemento secundario en el elemento raíz en un objeto JSON denominado `person` para ese elemento secundario:
 
-```
-json(xml('<?xml version="1.0"?> <root> <person id='1'> <name>Sophia Owen</name> <occupation>Engineer</occupation> </person> </root>'))
-```
+`json(xml('<?xml version="1.0"?> <root> <person id='1'> <name>Sophia Owen</name> <occupation>Engineer</occupation> </person> </root>'))`
 
 Y devuelve este resultado:
 
 ```json
 {
-   "?xml": { "@version": "1.0" },
+   "?xml": { 
+      "@version": "1.0" 
+   },
    "root": {
-      "person": [ {
+      "person": {
          "@id": "1",
          "name": "Sophia Owen",
          "occupation": "Engineer"
-      } ]
+      }
+   }
+}
+```
+
+*Ejemplo 4*
+
+En este ejemplo se usan las funciones `json()` y `xml()` para convertir XML que tiene varios elementos secundarios en el elemento raíz en una matriz denominada `person` que contiene objetos JSON para esos elementos secundarios:
+
+`json(xml('<?xml version="1.0"?> <root> <person id='1'> <name>Sophia Owen</name> <occupation>Engineer</occupation> </person> <person id='2'> <name>John Doe</name> <occupation>Engineer</occupation> </person> </root>'))`
+
+Y devuelve este resultado:
+
+```json
+{
+   "?xml": {
+      "@version": "1.0"
+   },
+   "root": {
+      "person": [
+         {
+            "@id": "1",
+            "name": "Sophia Owen",
+            "occupation": "Engineer"
+         },
+         {
+            "@id": "2",
+            "name": "John Doe",
+            "occupation": "Engineer"
+         }
+      ]
    }
 }
 ```

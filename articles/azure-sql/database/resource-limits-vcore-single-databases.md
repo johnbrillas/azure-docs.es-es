@@ -10,13 +10,13 @@ ms.topic: reference
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 10/15/2020
-ms.openlocfilehash: 4ffe663c1a1651891af5f6e65ee231cbe3e8d650
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.date: 01/15/2021
+ms.openlocfilehash: db3b168826223e4eb958f7700e65623a115e5779
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97882325"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251478"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>Límites de recursos para bases de datos únicas que utilizan el modelo de compra en núcleos virtuales
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -231,6 +231,37 @@ El [nivel de proceso sin servidor](serverless-tier-overview.md) está actualment
 
 **Nota 2**: La latencia es de 1 o 2 ms para los datos de la unidad de estado sólido de la réplica de proceso local, que almacena en caché las páginas de datos más usadas. Mayor latencia de los datos recuperados de los servidores de páginas.
 
+## <a name="hyperscale---provisioned-compute---dc-series"></a>Hiperescala: proceso aprovisionado: serie DC
+
+|Tamaño de proceso (objetivo de servicio)|HS_DC_2|HS_DC_4|HS_DC_6|HS_DC_8|
+|:--- | --: |--: |--: |--: |---: | 
+|Generación de procesos|Serie DC|Serie DC|Serie DC|Serie DC|
+|Núcleos virtuales|2|4|6|8|
+|Memoria (GB)|9|18|27|36|
+|Tamaño de [RBPEX](service-tier-hyperscale.md#compute)|Memoria x3|Memoria x3|Memoria x3|Memoria x3|
+|Compatible con almacén de columnas|Sí|Sí|Sí|Sí|
+|Almacenamiento OLTP en memoria (GB)|N/D|N/D|N/D|N/D|
+|Tamaño máximo de datos (TB)|100 |100 |100 |100 |
+|Tamaño máximo de registro (TB)|Sin límite |Sin límite |Sin límite |Sin límite |
+|Tamaño máximo de datos de TempDB (GB)|64|128|192|256|
+|Tipo de almacenamiento| [Nota 1](#notes) |[Nota 1](#notes)|[Nota 1](#notes) |[Nota 1](#notes) |
+|IOPS de SSD local máx. *|8000 |16000 |24000 |32000 |
+|Velocidad de registro máx. (Mbps)|100 |100 |100 |100 |
+|Latencia de E/S (aproximada)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|
+|Cantidad máxima de trabajos (solicitudes) simultáneos|160|320|480|640|
+|N.º máximo de sesiones simultáneas|30,000|30,000|30,000|30,000|
+|Réplicas secundarias|0-4|0-4|0-4|0-4|
+|AZ múltiple|N/D|N/D|N/D|N/D|
+|Escalado horizontal de lectura|Sí|Sí|Sí|Sí|
+|Retención de almacenamiento de copia de seguridad|7 días|7 días|7 días|7 días|
+|||
+
+### <a name="notes"></a>Notas
+
+**Nota 1**: La hiperescala es una arquitectura de varios niveles con componentes de proceso y almacenamiento independientes: [Arquitectura de nivel de servicio Hiperescala](service-tier-hyperscale.md#distributed-functions-architecture)
+
+**Nota 2**: La latencia es de 1 o 2 ms para los datos de la unidad de estado sólido de la réplica de proceso local, que almacena en caché las páginas de datos más usadas. Mayor latencia de los datos recuperados de los servidores de páginas.
+
 ## <a name="general-purpose---provisioned-compute---gen4"></a>Uso general: proceso aprovisionado: Gen4
 
 > [!IMPORTANT]
@@ -348,7 +379,7 @@ El [nivel de proceso sin servidor](serverless-tier-overview.md) está actualment
 |Núcleos virtuales|8|10|12|14|16|
 |Memoria (GB)|15,1|18,9|22,7|26,5|30,2|
 |Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|
-|Almacenamiento OLTP en memoria (GB)|N/D|No aplicable|No aplicable|No aplicable|N/D|
+|Almacenamiento OLTP en memoria (GB)|N/D|N/D|N/D|N/D|N/D|
 |Tamaño máximo de datos (GB)|1024|1024|1024|1024|1536|
 |Tamaño máximo de registro (GB)|336|336|336|336|512|
 |Tamaño máximo de datos de TempDB (GB)|333|333|333|333|333|
@@ -360,8 +391,8 @@ El [nivel de proceso sin servidor](serverless-tier-overview.md) está actualment
 |Máximo de inicios de sesión simultáneos|800|1000|1200|1400|1600|
 |N.º máximo de sesiones simultáneas|30,000|30,000|30,000|30,000|30,000|
 |Número de réplicas|1|1|1|1|1|
-|AZ múltiple|No aplicable|No aplicable|No aplicable|No aplicable|No aplicable|
-|Escalado horizontal de lectura|N/D|No aplicable|No aplicable|No aplicable|N/D|
+|AZ múltiple|N/D|N/D|N/D|N/D|N/D|
+|Escalado horizontal de lectura|N/D|N/D|N/D|N/D|N/D|
 |Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
 
 \* El valor máximo de los tamaños de e/s que oscilan entre 8 KB y 64 KB. Las IOPS reales dependen de la carga de trabajo. Para obtener más información, consulte [Regulación de E/S de los datos](resource-limits-logical-server.md#resource-governance).
@@ -374,7 +405,7 @@ El [nivel de proceso sin servidor](serverless-tier-overview.md) está actualment
 |Núcleos virtuales|18|20|24|32|36|72|
 |Memoria (GB)|34,0|37,8|45,4|60,5|68,0|136,0|
 |Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|Sí|
-|Almacenamiento OLTP en memoria (GB)|No aplicable|No aplicable|No aplicable|No aplicable|No aplicable|No aplicable|
+|Almacenamiento OLTP en memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|
 |Tamaño máximo de datos (GB)|1536|1536|1536|3072|3072|4096|
 |Tamaño máximo de registro (GB)|512|512|512|1024|1024|1024|
 |Tamaño máximo de datos de TempDB (GB)|83,25|92,5|111|148|166,5|333|
@@ -386,9 +417,35 @@ El [nivel de proceso sin servidor](serverless-tier-overview.md) está actualment
 |Máximo de inicios de sesión simultáneos|1800|2000|2400|3200|3600|7200|
 |N.º máximo de sesiones simultáneas|30,000|30,000|30,000|30,000|30,000|30,000|
 |Número de réplicas|1|1|1|1|1|1|
-|AZ múltiple|No aplicable|No aplicable|No aplicable|No aplicable|No aplicable|No aplicable|
-|Escalado horizontal de lectura|N/D|No aplicable|No aplicable|No aplicable|No aplicable|N/D|
+|AZ múltiple|N/D|N/D|N/D|N/D|N/D|N/D|
+|Escalado horizontal de lectura|N/D|N/D|N/D|N/D|N/D|N/D|
 |Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
+
+\* El valor máximo de los tamaños de e/s que oscilan entre 8 KB y 64 KB. Las IOPS reales dependen de la carga de trabajo. Para más información, consulte [Regulación de E/S de los datos](resource-limits-logical-server.md#resource-governance).
+
+## <a name="general-purpose---provisioned-compute---dc-series"></a>Uso general: proceso aprovisionado: serie DC
+
+|Tamaño de proceso (objetivo de servicio)|GP_DC_2|GP_DC_4|GP_DC_6|GP_DC_8| 
+|:---| ---:|---:|---:|---:|
+|Generación de procesos|Serie DC|Serie DC|Serie DC|Serie DC|
+|Núcleos virtuales|2|4|6|8|
+|Memoria (GB)|9|18|27|36|
+|Compatible con almacén de columnas|Sí|Sí|Sí|Sí|
+|Almacenamiento OLTP en memoria (GB)|N/D|N/D|N/D|N/D|
+|Tamaño máximo de datos (GB)|1024|1536|3072|3072|
+|Tamaño máximo de registro (GB)|307|461|922|922|
+|Tamaño máximo de datos de TempDB (GB)|64|128|192|256|
+|Tipo de almacenamiento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
+|Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|
+|Número máx. de IOPS de datos *|640|1280|1920|2560|
+|Velocidad de registro máx. (Mbps)|9|18|27|36|
+|Cantidad máxima de trabajos (solicitudes) simultáneos|160|320|480|640|
+|N.º máximo de sesiones simultáneas|30,000|30,000|30,000|30,000|
+|Número de réplicas|1|1|1|1|
+|AZ múltiple|N/D|N/D|N/D|N/D|
+|Escalado horizontal de lectura|N/D|N/D|N/D|N/D|
+|Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
+
 
 \* El valor máximo de los tamaños de e/s que oscilan entre 8 KB y 64 KB. Las IOPS reales dependen de la carga de trabajo. Para obtener más información, consulte [Regulación de E/S de los datos](resource-limits-logical-server.md#resource-governance).
 
@@ -563,6 +620,31 @@ El [nivel de proceso sin servidor](serverless-tier-overview.md) está actualment
 > [!IMPORTANT]
 > En algunas circunstancias, puede que deba reducir una base de datos para reclamar el espacio no utilizado. Para obtener más información, consulte [Administración del espacio de archivo en Azure SQL Database](file-space-manage.md).
 
+## <a name="business-critical---provisioned-compute---dc-series"></a>Crítico para la empresa: proceso aprovisionado: serie DC
+
+|Tamaño de proceso (objetivo de servicio)|BC_DC_2|BC_DC_4|BC_DC_6|BC_DC_8|
+|:--- | --: |--: |--: |--: |
+|Generación de procesos|Serie DC|Serie DC|Serie DC|Serie DC|
+|Núcleos virtuales|2|4|6|8|
+|Memoria (GB)|9|18|27|36|
+|Compatible con almacén de columnas|Sí|Sí|Sí|Sí|
+|Almacenamiento OLTP en memoria (GB)|1.7|3.7|5.9|8,2|
+|Tamaño máximo de datos (GB)|768|768|768|768|
+|Tamaño máximo de registro (GB)|230|230|230|230|
+|Tamaño máximo de datos de TempDB (GB)|64|128|192|256|
+|Tipo de almacenamiento|SSD local|SSD local|SSD local|SSD local|
+|Latencia de E/S (aproximada)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|
+|Número máx. de IOPS de datos *|14000|28000|42000|56 000|
+|Velocidad de registro máx. (Mbps)|24|48|72|96|
+|Cantidad máxima de trabajos (solicitudes) simultáneos|200|400|600|800|
+|Máximo de inicios de sesión simultáneos|200|400|600|800|
+|N.º máximo de sesiones simultáneas|30,000|30,000|30,000|30,000|
+|Número de réplicas|4|4|4|4|
+|AZ múltiple|No|No|No|No|
+|Escalado horizontal de lectura|No|No|No|No|
+|Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
+
+\* El valor máximo de los tamaños de e/s que oscilan entre 8 KB y 64 KB. Las IOPS reales dependen de la carga de trabajo. Para más información, consulte [Regulación de E/S de los datos](resource-limits-logical-server.md#resource-governance).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -5,13 +5,13 @@ author: mksuni
 ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 01/13/2021
-ms.openlocfilehash: a65ac8d52c17a288447193fb8c0fba2c6e6c5554
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.date: 01/18/2021
+ms.openlocfilehash: e9e13f0254cdefd9a6b4887d8ab97dd54ad9810d
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201270"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539646"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mysql"></a>Descripción de los cambios en la CA raíz para Azure Database for MySQL
 
@@ -21,9 +21,7 @@ Azure Database for MySQL cambiará el certificado raíz de la aplicación client
 > En base a los comentarios de los clientes se ha extendido la puesta en desuso del certificado raíz de la entidad de certificación raíz Baltimore existente del 26 de octubre de 2020 hasta el 15 de febrero de 2021. Se espera que esta extensión proporcione el plazo suficiente para que los usuarios implementen los cambios de cliente en caso de verse afectados.
 
 > [!NOTE]
-> Comunicación sin prejuicios
->
-> Microsoft admite un entorno diverso e inclusivo. En este artículo se incluyen referencias a la palabra _maestro_ y _esclavo_. En la [guía de estilo para la comunicación sin prejuicios](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) de Microsoft se reconoce que se trata de palabras excluyentes. Se usan en este artículo por coherencia, ya que actualmente son las palabras que aparecen en el software. Cuando el software se actualice para quitarlas, este artículo se actualizará en consecuencia.
+> Este artículo contiene referencias al término _esclavo_, un término que Microsoft ya no usa. Cuando se elimine el término del software, se eliminará también de este artículo.
 >
 
 ## <a name="what-update-is-going-to-happen"></a>¿Qué actualización va a producirse?
@@ -46,7 +44,7 @@ Todas las aplicaciones que usan SSL/TLS y comprueban el certificado raíz tienen
 Si usa un cliente que abstrae la cadena de conexión, revise la documentación del cliente para saber si comprueba los certificados.
 Para comprender el parámetro sslmode de Azure Database for MySQL, consulte las [descripciones del modo SSL](concepts-ssl-connection-security.md#ssl-default-settings).
 
-Para evitar que se interrumpa la disponibilidad de la aplicación como resultado de la revocación inesperada de certificados, o para actualizar un certificado que se ha revocado, consulte la sección [ **"¿Qué tengo que hacer para mantener la conectividad?"** ](concepts-certificate-rotation.md#what-do-i-need-to-do-to-maintain-connectivity).
+Para evitar que se interrumpa la disponibilidad de la aplicación como resultado de la revocación inesperada de certificados, o para actualizar un certificado que se ha revocado, consulte la sección [ **"¿Qué tengo que hacer para mantener la conectividad?"**](concepts-certificate-rotation.md#what-do-i-need-to-do-to-maintain-connectivity).
 
 ## <a name="what-do-i-need-to-do-to-maintain-connectivity"></a>¿Qué tengo que hacer para mantener la conectividad?
 
@@ -76,13 +74,20 @@ Para evitar que se interrumpa la disponibilidad de la aplicación debido a la re
 
   * Para los usuarios de .NET (Conector de MySQL/NET, MySQLConnector), asegúrese de que **BaltimoreCyberTrustRoot** y **DigiCertGlobalRootG2** existan en el almacén de certificados de Windows, en las entidades de certificación raíz de confianza. Si no existe alguno de los certificados, importe el certificado que falta.
 
-        ![Azure Database for MySQL .net cert](media/overview/netconnecter-cert.png)
+    :::image type="content" source="media/overview/netconnecter-cert.png" alt-text="Diagrama de certificado .NET de Azure Database for MySQL":::
 
   * En el caso de los usuarios de .NET en Linux con SSL_CERT_DIR, debe asegurarse de que **BaltimoreCyberTrustRoot** y **DigiCertGlobalRootG2** existan en el directorio indicado por SSL_CERT_DIR. Si no existe alguno de los certificados, cree el archivo de certificado que falta.
 
-  * Para otros usuarios (MySQL Client/MySQL Workbench/C/C++/Go/Python/Ruby/PHP/NodeJS/Perl/Swift), puede combinar dos archivos de certificado de CA en de la forma siguiente:</b>
+  * Para otros usuarios (MySQL Client/MySQL Workbench/C/C++/Go/Python/Ruby/PHP/NodeJS/Perl/Swift), puede combinar dos archivos de certificado de CA en de la forma siguiente:
 
-     </br>-----BEGIN CERTIFICATE-----  </br>(Root CA1: BaltimoreCyberTrustRoot.crt.pem)  </br>-----END CERTIFICATE-----  </br>-----BEGIN CERTIFICATE-----  </br>(Root CA2: DigiCertGlobalRootG2.crt.pem)  </br>-----END CERTIFICATE-----
+      ```
+      -----BEGIN CERTIFICATE-----
+      (Root CA1: BaltimoreCyberTrustRoot.crt.pem)
+      -----END CERTIFICATE-----
+      -----BEGIN CERTIFICATE-----
+      (Root CA2: DigiCertGlobalRootG2.crt.pem)
+      -----END CERTIFICATE-----
+      ```
 
 * Reemplace el archivo PEM de la CA raíz original por el archivo de CA raíz combinado y reinicie la aplicación o el cliente.
 * En el futuro, después de que se implemente el nuevo certificado en el servidor, puede cambiar el archivo PEM de la CA a DigiCertGlobalRootG2.crt.pem.

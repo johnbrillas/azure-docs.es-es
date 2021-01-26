@@ -5,7 +5,7 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: daveba
-ms.date: 12/03/2020
+ms.date: 01/14/2020
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: enterprise-users
@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e940c6eb2710ea43e756e4ea7956a39df9e0ce8
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: bf2d0d3335468147575eb53a99940866baa18375
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575557"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222528"
 ---
 # <a name="restrict-guest-access-permissions-preview-in-azure-active-directory"></a>Restricción de los permisos de acceso de invitados (versión preliminar) en Azure Active Directory
 
@@ -139,14 +139,15 @@ Con "admitidos", se hace referencia a que la experiencia es la prevista, en part
 - Teams
 - Outlook (OWA)
 - SharePoint
+- Planner en Teams
+- Aplicación web de Planner
 
 ### <a name="services-currently-not-supported"></a>Servicios no admitidos actualmente
 
 Los servicios no admitidos actualmente pueden tener problemas de compatibilidad con la nueva configuración de la restricción de invitados.
 
 - Formularios
-- Planner en Teams
-- Aplicación Planner
+- Aplicación móvil de Planner
 - Project
 - Yammer
 
@@ -158,7 +159,7 @@ Pregunta | Respuesta
 ¿Cómo afectan los permisos restringidos a los grupos que pueden ver los invitados? | Independientemente de los permisos de invitado predeterminados o restringidos, los invitados no pueden enumerar la lista de grupos o usuarios. Los invitados pueden ver los grupos de los que son miembros tanto en Azure Portal como en el portal Mis aplicaciones, en función de los permisos:<li>**Permisos predeterminados**: para encontrar los grupos de los que forman parte en Azure Portal, el invitado debe buscar su id. de objeto en la lista **Todos los usuarios** y, a continuación, seleccionar **Grupos**. Aquí puede ver la lista de grupos de los que es miembro, incluidos todos los detalles del grupo, como el nombre, el correo electrónico, etc. En el portal Mis aplicaciones, puede ver una lista de los grupos que posee y los grupos de los que es miembro.</li><li>**Permisos de invitado predeterminados**: en Azure Portal, el invitado puede encontrar la lista de grupos a los que pertenece al buscar su id. de objeto en la lista Todos los usuarios y, a continuación, seleccionar Grupos. Solo puede ver detalles muy limitados sobre el grupo, en particular el id. de objeto. Por diseño, las columnas Nombre y Correo electrónico están en blanco y Tipo de grupo es No reconocido. En el portal Mis aplicaciones, no puede acceder a la lista de los grupos que posee o a los grupos de los que es miembro.</li><br>Para obtener una comparación más detallada de los permisos de directorio que provienen de Graph API, consulte [Permisos de usuario predeterminados](../fundamentals/users-default-permissions.md#member-and-guest-users).
 ¿A qué secciones del portal Mis aplicaciones afectará esta característica? | La funcionalidad de grupos del portal Mis aplicaciones respetará estos nuevos permisos. Esto incluye todas las rutas de acceso para ver la lista de grupos y la pertenencia a grupos en Mis aplicaciones. No se realizó ningún cambio en la disponibilidad del icono del grupo. La disponibilidad del icono del grupo todavía se controla mediante la configuración de grupo existente en Azure Portal.
 ¿Estos permisos invalidan la configuración de invitado de SharePoint o Microsoft Teams? | No. La configuración existente sigue controlando la experiencia con estas aplicaciones y el acceso a ellas. Por ejemplo, si ve problemas en SharePoint, compruebe la configuración de uso compartido externo.
-¿Cuáles son los problemas de compatibilidad conocidos en Planner y Yammer? | <li>Con los permisos establecidos en "restringido", los invitados que han iniciado sesión en la aplicación Planner o que acceden a Planner en Microsoft Teams no podrán acceder a sus planes ni a ninguna tarea.<li>Con los permisos establecidos en "restringido", los invitados que han iniciado sesión en Yammer no podrán abandonar el grupo.
+¿Cuáles son los problemas de compatibilidad conocidos en Planner y Yammer? | <li>Con los permisos establecidos en "restringido", los invitados que han iniciado sesión en la aplicación móvil de Planner no podrán acceder a sus planes ni a ninguna tarea.<li>Con los permisos establecidos en "restringido", los invitados que han iniciado sesión en Yammer no podrán abandonar el grupo.
 ¿Se modificarán los permisos de invitado existentes en mi inquilino? | No se realizó ningún cambio en la configuración actual. Mantenemos la compatibilidad de la configuración existente con versiones anteriores. El usuario es quien decide cuándo realizar los cambios.
 ¿Estos permisos se establecerán de forma predeterminada? | No. Los permisos predeterminados existentes permanecen invariables. Opcionalmente, puede configurar los permisos para que sean más restrictivos.
 ¿Existen requisitos de licencia para esta característica? | No, no hay ningún requisito de licencia nuevo con esta característica.

@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: MVC
-ms.openlocfilehash: f6d3c6f77b062939a88e7277cb7f0ab6ecff9fcb
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: e57084dab00210802edbd46e3380313e034eb036
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753083"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98566795"
 ---
 # <a name="tutorial-assess-vmware-vms-for-migration-to-avs"></a>Tutorial: Evaluación de máquinas virtuales de VMware para la migración a AVS
 
@@ -58,58 +58,63 @@ Las evaluaciones se realizan como se indica a continuación:
 
    ![Ubicación del botón Evaluar y migrar servidores](./media/tutorial-assess-vmware-azure-vmware-solution/assess.png)
 
-2. En **Azure Migrate: Server Assessment**, haga clic en **Evaluar**.
+1. En **Azure Migrate: Server Assessment**, haga clic en **Evaluar**.
 
-3. En **Evaluar los servidores** > **Tipo de evaluación**, seleccione **Azure VMware Solution (AVS) (versión preliminar)** .
-4. En **Origen de detección**:
+1. En **Evaluar los servidores** > **Tipo de evaluación**, seleccione **Azure VMware Solution (AVS) (versión preliminar)** .
+
+1. En **Origen de detección**:
 
     - Si ha detectado máquinas que usan el dispositivo, seleccione **Máquinas detectadas desde el dispositivo de Azure Migrate**.
     - Si ha detectado máquinas que usan un archivo CSV importado, seleccione **Máquinas importadas**. 
     
-5. Especifique un nombre para la valoración. 
-6. Haga clic en **View all** (Ver todo) para revisar la configuración de la valoración.
+1. Haga clic en **Editar** para revisar las propiedades de la evaluación.
 
-    ![Página para seleccionar la configuración de la evaluación](./media/tutorial-assess-vmware-azure-vmware-solution/assess-servers.png)
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/assess-servers.png" alt-text="Página para seleccionar la configuración de la evaluación":::
+ 
 
-
-7. En **Propiedades de evaluación** > **Propiedades de destino**:
+1. En **Assessment properties** (Propiedades de la evaluación)  > **Propiedades de destino**:
 
     - En **Ubicación de destino**, especifique la región de Azure a la que desee migrar.
        - Las recomendaciones de tamaño y costo se basan en la ubicación que especifique.
-       - Actualmente puede realizar evaluaciones en tres regiones (Este de EE. UU., Oeste de EE. UU. y Oeste de Europa)
-   - En **Tipo de almacenamiento**, deje **vSAN**. Es el predeterminado para una nube privada de AVS.
+       - Actualmente, puede evaluar cuatro regiones (Este de Australia, Este de EE. UU., Europa Occidental y Oeste de EE. UU.)
+   - El **tipo de almacenamiento** tiene como valor predeterminado **vSAN**. Es el predeterminado para una nube privada de AVS.
    - Las **instancias reservadas** no se admiten actualmente para los nodos AVS.
-8. En **Tamaño de VM**:
-    - En **Tipo de nodo**, seleccione un tipo de nodo en función de las cargas de trabajo que se ejecuten en las máquinas virtuales locales.
-        - Azure Migrate recomienda el tipo de nodos necesarios para migrar las máquinas virtuales a AVS.
-        - El tipo de nodo predeterminado es AV36.
-    - En **Configuración de FTT, nivel de RAID**, seleccione la combinación de tolerancia a errores y RAID.  La opción de FTT seleccionada junto con el requisito de disco de la máquina virtual local determinará el almacenamiento de vSAN total que se requiere en AVS.
+1. En **Tamaño de VM**:
+    - El **tipo de nodo** tiene como valor predeterminado **AV36**. Azure Migrate recomienda el tipo de nodos necesarios para migrar las máquinas virtuales a AVS.
+    - En **FTT setting, RAID level** (Configuración de FTT, nivel de RAID), seleccione la combinación de tolerancia a errores y RAID.  La opción de FTT seleccionada junto con el requisito de disco de la máquina virtual local determinará el almacenamiento de vSAN total que se requiere en AVS.
     - En **CPU Oversubscription** (Suscripción excesiva de CPU), especifique la proporción de núcleos virtuales asociados a un núcleo físico en el nodo AVS. Tenga en cuenta que una suscripción excesiva de vCPU mayor que 4:1 puede producir una degradación del rendimiento, pero se puede usar para cargas de trabajo del tipo del servidor web.
 
-9. En **Tamaño del nodo**: 
+1. En **Tamaño del nodo**: 
     - En **Criterio de tamaño**, seleccione si desea basar la evaluación en metadatos estáticos o en datos basados en el rendimiento. Si utiliza datos de rendimiento:
         - En **Historial de rendimiento**, indique la duración de los datos en los que desee basar la valoración.
         - En **Uso de percentil**, especifique el valor de percentil que desee utilizar para la muestra de rendimiento. 
     - En **Factor de confort**, indique el búfer que desee usar durante la valoración. Tiene en cuenta problemas como el uso estacional, el historial de rendimiento corto y los posibles aumentos en el uso futuro. Por ejemplo, si usa un factor de confort de dos:
     
         **Componente** | **Utilización efectiva** | **Agregar factor de confort (2,0)**
-        --- | --- | ---  
-        Núcleos | 2 | 4
-        Memoria | 8 GB | 16 GB     
+        --- | --- | ---
+        Núcleos | 2  | 4
+        Memoria | 8 GB | 16 GB  
 
-10. En **Precios**:
+1. En **Precios**:
     - En **Oferta**, la [oferta de Azure](https://azure.microsoft.com/support/legal/offer-details/) en la que se ha inscrito muestra el costo que Server Assessment calcula para esa oferta.
     - En **Moneda**, seleccione la moneda de facturación para la cuenta.
     - En **Descuento (%)** , agregue cualquier descuento específico de la suscripción que reciba a partir de la oferta de Azure. La configuración predeterminada es 0 %.
 
-11. Haga clic en **Guardar** si realiza cambios.
+1. Haga clic en **Guardar** si realiza cambios.
 
-    ![Propiedades de la evaluación](./media/tutorial-assess-vmware-azure-vmware-solution/view-all.png)
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/avs-view-all.png" alt-text="Propiedades de la evaluación":::
 
-12. En **Evaluar los servidores**, haga clic en **Siguiente**.
-13. En **Evaluar los servidores** > **Seleccione las máquinas que quiera evaluar**, para crear un nuevo grupo de servidores para la evaluación, seleccione **Crear nuevo** y especifique un nombre de grupo. 
-14. Seleccione el dispositivo y las máquinas virtuales que desee agregar al grupo. A continuación, haga clic en **Siguiente**.
-15. En **Revisar y crear valoración**, revise los detalles de la valoración y haga clic en **Crear evaluación** para crear el grupo y ejecutar la evaluación.
+1. En **Evaluar los servidores**, haga clic en **Siguiente**.
+
+1. En **Select machines to assess** >  (Seleccionar máquinas que evaluar) **Nombre de la evaluación**, especifique un nombre para la evaluación. 
+ 
+1. En **Seleccionar o crear un grupo**, elija **Crear nuevo** y especifique un nombre de grupo. 
+    
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/assess-group.png" alt-text="Adición de máquinas virtuales a un grupo":::
+ 
+1. Seleccione el dispositivo y las máquinas virtuales que desee agregar al grupo. A continuación, haga clic en **Siguiente**.
+
+1. En **Revisar y crear valoración**, revise los detalles de la valoración y haga clic en **Crear evaluación** para crear el grupo y ejecutar la evaluación.
 
     > [!NOTE]
     > En el caso de las valoraciones basadas en el rendimiento, se recomienda esperar al menos un día después de iniciar la detección antes de crear una. De este modo, gana tiempo para recopilar los datos de rendimiento con mayor confianza. Lo mejor es que, después de iniciar la detección, espere el tiempo que especifique (día/semana/mes) para que la confianza sea alta.
@@ -121,6 +126,8 @@ Una evaluación de AVS describe:
 - La preparación de AVS: para ver si las máquinas virtuales locales son adecuadas para la migración a Azure VMware Solution (AVS).
 - Número de nodos de AVS: número estimado de nodos de AVS necesarios para ejecutar las máquinas virtuales.
 - Uso en los nodos de AVS: uso previsto de CPU, memoria y almacenamiento en todos los nodos.
+    - El uso incluye la factorización inicial de las siguientes sobrecargas de administración del clúster, como vCenter Server, NSX Manager (grande) y NSX Edge; si HCX está implementado, también las de HCX Manager y el dispositivo IX que consume ~ 44 CPU virtuales (11 CPU), 75 GB de RAM y 722 GB de almacenamiento antes de la compresión y la desduplicación. 
+    - Actualmente, la utilización de la memoria está establecida en un 100 % y la desduplicación y la compresión en 1,5. En próximas versiones será una entrada definida por el usuario, lo que permitirá al usuario ajustar el tamaño necesario.
 - Estimación del costo mensual: los costos mensuales estimados de todos los nodos de Azure VMware Solution (AVS) que ejecutan las máquinas virtuales locales.
 
 ## <a name="view-an-assessment"></a>Visualización de una evaluación
@@ -128,8 +135,12 @@ Una evaluación de AVS describe:
 Para ver una evaluación:
 
 1. En **Servidores** > **Azure Migrate: Server Assessment**, haga clic en el número junto a **Valoraciones**.
-2. En **Evaluaciones**, seleccione una evaluación para abrirla. 
-3. Revise el resumen de valoraciones. También puede editar las propiedades de la valoración o volver a calcularla.
+
+1. En **Evaluaciones**, seleccione una evaluación para abrirla. Como ejemplo (solo estimaciones y costos, por ejemplo): 
+
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/avs-assessment-summary.png" alt-text="Resumen de la valoración de AVS":::
+
+1. Revise el resumen de valoraciones. También puede editar las propiedades de la valoración o volver a calcularla.
  
 
 ### <a name="review-readiness"></a>Revisión de la preparación

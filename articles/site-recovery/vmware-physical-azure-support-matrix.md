@@ -3,12 +3,12 @@ title: Matriz de compatibilidad para la recuperación ante desastres de VMware/f
 description: Resume la compatibilidad de la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos en Azure mediante Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: 6cc67a6af9e11e5667479eadfe277d400c2d4947
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 4bf0227cf11b21d7cde2807d465385bfc2b998b5
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492223"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98573061"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de compatibilidad para la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos en Azure.
 
@@ -57,6 +57,9 @@ IIS | Asegúrese de lo siguiente:<br/><br/> - No hay ningún sitio web preexiste
 Tipo de NIC | VMXNET3 (cuando se implementa como una máquina virtual VMware)
 Tipo de dirección IP | estática
 Puertos | 443 se usa para la orquestación del canal de control<br/>9443 se usa para el transporte de datos
+
+> [!NOTE]
+El sistema operativo debe instalarse con la configuración regional en inglés. La conversión de la configuración regional posterior a la instalación podría crear problemas.
 
 ## <a name="replicated-machines"></a>Máquinas replicadas
 
@@ -128,7 +131,7 @@ Debian 7 | [9.35](https://support.microsoft.com/help/4573888/), [9.36](https://s
 |||
 Debian 8 | [9.35](https://support.microsoft.com/help/4573888/), [9.36](https://support.microsoft.com/help/4578241/), [9.37](https://support.microsoft.com/help/4582666/), [9.38](https://support.microsoft.com/help/4590304/), [9.39](https://support.microsoft.com/help/4597409/) | 3.16.0-4-amd64 a 3.16.0-11-amd64, 4.9.0-0.bpo.4-amd64 a 4.9.0-0.bpo.11-amd64 |
 |||
-Debian 9.1 | [9.39](https://support.microsoft.com/help/4597409/) | 4.9.0-1-amd64 a 4.9.0-14-amd64, </br> 4.19.0-0.bpo.1-amd64 a 4.19.0-0.bpo.12-amd64, </br> 4.19.0-0.bpo.1-cloud-amd64 a 4.19.0-0.bpo.12-cloud-amd64, </br> Debian 9.1 | [9.38](https://support.microsoft.com/help/4590304/) | 4.9.0-1-amd64 a 4.9.0-13-amd64 </br> 4.19.0-0.bpo.1-amd64 a 4.19.0-0.bpo.11-amd64 </br> 4.19.0-0.bpo.1-cloud-amd64 a 4.19.0-0.bpo.11-cloud-amd64 </br> 
+Debian 9.1 | [9.39](https://support.microsoft.com/help/4597409/) | 4.9.0-1-amd64 a 4.9.0-14-amd64, </br> 4.19.0-0.bpo.1-amd64 a 4.19.0-0.bpo.12-amd64, </br> 4.19.0-0.bpo.1-cloud-amd64 a 4.19.0-0.bpo.12-cloud-amd64 </br> Debian 9.1 | [9.38](https://support.microsoft.com/help/4590304/) | 4.9.0-1-amd64 a 4.9.0-13-amd64 </br> 4.19.0-0.bpo.1-amd64 a 4.19.0-0.bpo.11-amd64 </br> 4.19.0-0.bpo.1-cloud-amd64 a 4.19.0-0.bpo.11-cloud-amd64 </br> 
 Debian 9.1 | [9.37](https://support.microsoft.com/help/4582666/) | 4.9.0-3-amd64 a 4.9.0-13-amd64, 4.19.0-0.bpo.6-amd64 a 4.19.0-0.bpo.10-amd64, 4.19.0-0.bpo.6-cloud-amd64 a 4.19.0-0.bpo.10-cloud-amd64
 
 ### <a name="suse-linux-enterprise-server-12-supported-kernel-versions"></a>Versiones de kernel admitidas de SUSE Linux Enterprise Server 12
@@ -231,6 +234,7 @@ Disco de invitado/servidor con tamaño de sector físico de 512 bytes y lógico 
 Volumen de invitado/servidor con disco seccionado > 4 TB | Sí
 Administración de volúmenes lógicos (LVM)| Aprovisionamiento grueso: sí <br></br> Aprovisionamiento fino: no
 Invitado/servidor: espacios de almacenamiento | No
+Invitado/servidor: interfaz NVMe | No
 Invitado/servidor: adición/eliminación de disco en caliente | No
 Invitado/servidor: disco de exclusión | Sí
 Varias rutas (MPIO) de invitado/servidor | No

@@ -13,21 +13,21 @@ ms.topic: end-user-help
 ms.date: 05/28/2020
 ms.author: curtand
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: c9d8bb85aac87503ca641f6633668a6dc582882f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 07303a0b0b3007ade9adb90af7397855a5014cc0
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90056088"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98179429"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>Administración de las contraseñas de aplicaciones para la verificación en dos pasos
 
->[!Important]
+> [!Important]
 >Es posible que el administrador no le permita utilizar contraseñas de aplicaciones. Si no ve **Contraseñas de aplicaciones** como una opción, no están disponibles en la organización.
 
 Al utilizar las contraseñas de aplicaciones, es importante recordar:
 
-- Las contraseñas de aplicaciones se generan automáticamente y deben crearse y escribirse una sola vez por cada aplicación.
+- Las contraseñas de aplicaciones se generan automáticamente y deben crearse y escribirse una vez por cada aplicación.
 
 - Hay un límite de 40 contraseñas por usuario. Si intenta crear una después de ese límite, se le pedirá que elimine una contraseña existente antes de que se le permita crear una nueva.
 
@@ -64,17 +64,17 @@ Puede crear y eliminar contraseñas de la aplicación en la página de **comprob
 
     ![Página Su contraseña de aplicación con la contraseña de la aplicación especificada](media/multi-factor-authentication-end-user-app-passwords/mfa-your-app-password-page.png)
 
-4. En la página **Contraseñas de aplicación**, asegúrese de que figura su aplicación.
+4. En la página **Contraseñas de aplicación**, asegúrese de que aparece su aplicación.
 
-     ![Página Contraseñas de aplicación, con la nueva aplicación mostrada en la lista](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page-with-new-password.png)  
+    ![Página Contraseñas de aplicación, con la nueva aplicación mostrada en la lista](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page-with-new-password.png)  
 
 5. Abra la aplicación para la que creó la contraseña de aplicación (por ejemplo, Outlook 2010) y, a continuación, pegue la contraseña de aplicación cuando se le solicite. Solo debe hacer esto una vez por aplicación.
 
 ### <a name="to-delete-an-app-password-using-the-app-passwords-page"></a>Para eliminar una contraseña de aplicación mediante la página Contraseñas de aplicación
 
-1. En la página **Contraseñas de aplicación**, seleccione **Eliminar** junto a la contraseña de la aplicación que desea eliminar.
+1. En la página **Contraseñas de aplicación**, seleccione **Eliminar** junto a la contraseña de la aplicación que quiere eliminar.
 
-   ![Eliminar una contraseña de aplicación](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page-delete.png)
+   ![Captura de pantalla que muestra la eliminación de una contraseña de aplicación en la página Contraseñas de aplicación](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page-delete.png)
 
 2. Seleccione **Sí** para confirmar que desea eliminar la contraseña y, a continuación, seleccione **Cerrar**.
 
@@ -86,35 +86,35 @@ Si utiliza la verificación en dos pasos con la cuenta profesional o educativa y
 
 ### <a name="to-create-app-passwords-using-the-office-365-portal"></a>Para crear contraseñas de aplicaciones en el portal de Office 365
 
-1. Inicie sesión en la cuenta profesional o educativa, vaya a la página [Mi cuenta](https://portal.office.com), seleccione **Seguridad y privacidad** y, a continuación, expanda **Comprobación de seguridad adicional**.
+1. Inicie sesión en su cuenta profesional o educativa, vaya a la [página Mi cuenta](https://myaccount.microsoft.com) y seleccione **Información de seguridad**.
 
-    ![Portal de Office que muestra la ampliación del área de comprobación de seguridad adicional](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-o365-my-account-page.png)
+    ![Portal de Office que muestra la pestaña Información de seguridad](media/multi-factor-authentication-end-user-app-passwords/mfa-security-info.png)
 
-2. Seleccione el vínculo **Crear y administrar contraseñas de aplicaciones** para abrir la página **Contraseñas de aplicación**.
+2. Seleccione **Agregar método**, **Contraseña de aplicación** en la lista desplegable y, a continuación, haga clic en **Agregar**.
 
-    ![Página de contraseñas de aplicación, con la pestaña de contraseñas de aplicación resaltada](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page.png)
+    ![Página Información de seguridad con la lista desplegable Agregar método](media/multi-factor-authentication-end-user-app-passwords/mfa-add-method.png)
 
-3. Seleccione **Crear**, escriba el nombre de la aplicación que requiere la contraseña de la aplicación y, a continuación, seleccione **Siguiente**.
+3. Escriba un nombre para la contraseña de aplicación y seleccione **Siguiente**.
 
-    ![Página de creación de contraseñas de aplicación, con el nombre de la aplicación que necesita contraseña](media/multi-factor-authentication-end-user-app-passwords/mfa-create-app-password-page.png)
+    ![Página de creación de contraseñas de aplicación con el nombre de la contraseña de aplicación](media/multi-factor-authentication-end-user-app-passwords/mfa-enter-app-password-name.png)
 
-4. Copie la contraseña de la página **Su contraseña de aplicación** y, luego, seleccione **Cerrar**.
+4. Copie la contraseña de la página **Contraseña de aplicación** y, luego, seleccione **Listo**.
 
-    ![Página Su contraseña de aplicación con la contraseña de la aplicación especificada](media/multi-factor-authentication-end-user-app-passwords/mfa-your-app-password-page.png)
+    ![Página Contraseña de aplicación con la nueva contraseña de aplicación que creó](media/multi-factor-authentication-end-user-app-passwords/mfa-copy-app-password.png)
 
-5. En la página **Contraseñas de aplicación**, asegúrese de que figura su aplicación.
+5. En la página **Información de seguridad**, asegúrese de que aparece su contraseña de aplicación.
 
-     ![Página Contraseñas de aplicación, con la nueva aplicación mostrada en la lista](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page-with-new-password.png)  
+    ![Página Información de seguridad con la nueva contraseña de aplicación mostrada en la lista](media/multi-factor-authentication-end-user-app-passwords/mfa-verify-app-password.png)  
 
-6. Abra la aplicación para la que creó la contraseña de aplicación (por ejemplo, Outlook 2010) y, a continuación, pegue la contraseña de aplicación cuando se le solicite. Solo debe hacer esto una vez por aplicación.
+6. Abra la aplicación para la que creó la contraseña de aplicación (por ejemplo, Outlook 2016) y, a continuación, pegue la contraseña de aplicación cuando se le solicite. Solo debe hacer esto una vez por aplicación.
 
-### <a name="to-delete-app-passwords-using-the-app-passwords-page"></a>Para eliminar contraseñas de aplicación mediante la página Contraseñas de aplicación
+### <a name="to-delete-app-passwords-using-the-security-info-page"></a>Eliminación de contraseñas de aplicación mediante la página Información de seguridad
 
-1. En la página **Contraseñas de aplicación**, seleccione **Eliminar** junto a la contraseña de la aplicación que desea eliminar.
+1. En la página **Información de seguridad**, seleccione **Eliminar** junto a la contraseña de aplicación que quiere eliminar.
 
-   ![Eliminar una contraseña de aplicación](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page-delete.png)
+   ![Captura de pantalla que muestra la eliminación de una contraseña de aplicación en la página Información de seguridad](media/multi-factor-authentication-end-user-app-passwords/mfa-delete-app-password.png)
 
-2. Seleccione **Sí** en el cuadro de confirmación y luego **Cerrar**.
+2. En el cuadro de confirmación, seleccione **Aceptar**.
 
     La contraseña de aplicación se eliminó correctamente.
 
