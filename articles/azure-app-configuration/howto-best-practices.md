@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 038d19270fbdb672d397eb2bd56bd27e17ea7af9
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: f407f9ee2ea0ca73b29e4fde9d542c005f78a929
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96929096"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200454"
 ---
 # <a name="azure-app-configuration-best-practices"></a>Procedimientos recomendados para Azure App Configuration
 
@@ -89,6 +89,10 @@ App Configuration ofrece la opción de [importación](./howto-import-export-data
 ## <a name="multi-region-deployment-in-app-configuration"></a>Implementación en varias regiones en App Configuration
 
 App Configuration es el servicio regional. En el caso de las aplicaciones con distintas configuraciones por región, el almacenamiento de estas configuraciones en una instancia puede crear un único punto de error. La implementación de una instancia de App Configuration por región en varias regiones puede ser mejor opción. Puede ayudar con la recuperación ante desastres regional, el rendimiento y el silo de seguridad. La configuración por región también mejora la latencia y usa cuotas de limitación independientes, ya que la limitación es por instancia. Para aplicar la mitigación de recuperación ante desastres, puede utilizar [varios almacenes de configuración](./concept-disaster-recovery.md). 
+
+## <a name="client-applications-in-app-configuration"></a>Aplicaciones cliente en App Configuration 
+
+Una cantidad excesiva de solicitudes a App Configuration puede dar lugar a cargos por superar el límite de ancho de banda o el de uso. Las aplicaciones aprovechan el almacenamiento en caché y la actualización inteligente disponible actualmente para optimizar el número de solicitudes que envían. Este proceso se puede reflejar en el elevado volumen de aplicaciones cliente, ya que se evitan las conexiones directas al almacén de configuración. En cambio, las aplicaciones cliente se conectan a un servicio personalizado y este servicio se comunica con el almacén de configuración. Esta solución proxy puede garantizar que las aplicaciones cliente no se aproximan al límite en el almacén de configuración. Para más información sobre el límite, consulte [las preguntas frecuentes](https://docs.microsoft.com/azure/azure-app-configuration/faq#are-there-any-limits-on-the-number-of-requests-made-to-app-configuration).  
 
 ## <a name="next-steps"></a>Pasos siguientes
 

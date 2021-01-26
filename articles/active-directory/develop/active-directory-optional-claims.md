@@ -12,12 +12,12 @@ ms.date: 1/06/2021
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 1debeab6e420d9021ebba1cecb2d551cf21c9fe2
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.openlocfilehash: 6b5c328503a28c6eb92c2c20ca54d4d3d80c9a15
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98028478"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98232478"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Procedimientos: Proporcionar notificaciones opcionales a la aplicación
 
@@ -45,7 +45,7 @@ Aunque las notificaciones opcionales se admiten en los tokens de formato de las 
 El conjunto de notificaciones opcionales disponibles de forma predeterminada para que las usen las aplicaciones se enumeran a continuación. Para agregar notificaciones opcionales personalizadas para la aplicación, consulte las [extensiones de directorio](#configuring-directory-extension-optional-claims) a continuación. Al agregar notificaciones al **token de acceso**, estas se aplicarán a los tokens de acceso solicitados *para* la aplicación (una API web), no a las notificaciones solicitadas *por* la aplicación. Independientemente de cómo el cliente acceda a la API, los datos correctos están presentes en el token de acceso que se usa para autenticarse en la API.
 
 > [!NOTE]
-> La mayoría de estas notificaciones puede incluirse en los JWT para los tokens v1.0 y v2.0, pero no en los tokens SAML, excepto donde se indique en la columna Tipo de token. Las cuentas de consumidor admiten un subconjunto de estas notificaciones, marcadas en la columna "Tipo de usuario".  Muchas de las notificaciones aquí incluidas no se aplican a los usuarios consumidores (no tienen inquilino, por lo que `tenant_ctry` no tiene ningún valor).
+>La mayoría de estas notificaciones puede incluirse en los JWT para los tokens v1.0 y v2.0, pero no en los tokens SAML, excepto donde se indique en la columna Tipo de token. Las cuentas de consumidor admiten un subconjunto de estas notificaciones, marcadas en la columna "Tipo de usuario".  Muchas de las notificaciones aquí incluidas no se aplican a los usuarios consumidores (no tienen inquilino, por lo que `tenant_ctry` no tiene ningún valor).
 
 **Tabla 2: Conjunto de notificaciones opcionales de las versiones 1.0 y 2.0**
 
@@ -148,13 +148,13 @@ Puede configurar notificaciones opcionales para la aplicación mediante la inter
 [![Configuración de notificaciones opcionales en la interfaz de usuario](./media/active-directory-optional-claims/token-configuration.png)](./media/active-directory-optional-claims/token-configuration.png)
 
 1. En **Administrar**, seleccione **Configuración del token**.
+   - La hoja **Configuración del token** de la opción de la interfaz de usuario no está disponible para las aplicaciones registradas en un inquilino de Azure AD B2C que se puede configurar mediante la modificación del manifiesto de aplicación. Para más información, consulte [Adición de notificaciones y personalización de la entrada del usuario mediante directivas personalizadas en Azure Active Directory B2C](../../active-directory-b2c/configure-user-input.md).  
+
 1. Seleccione **Agregar notificación opcional**.
 1. Seleccione el tipo de token que desea configurar.
 1. Seleccione las notificaciones opcionales que va a agregar.
 1. Seleccione **Agregar**.
 
-> [!NOTE]
-> La hoja **Configuración del token** de la opción de la interfaz de usuario no está disponible actualmente para las aplicaciones registradas en un inquilino de Azure AD B2C. En el caso de las aplicaciones registradas en un inquilino de B2C, las notificaciones opcionales se pueden configurar con la modificación del manifiesto de aplicación. Para más información, vea [Adición de notificaciones y personalización de la entrada del usuario mediante directivas personalizadas en Azure Active Directory B2C](../../active-directory-b2c/configure-user-input.md). 
 
 **Configuración de notificaciones opcionales mediante el manifiesto de aplicación:**
 
@@ -227,8 +227,7 @@ Además del conjunto de notificaciones opcionales estándar, también se pueden 
 
 Las notificaciones opcionales no admiten las extensiones abiertas y de esquema; solo las extensiones de directorio de estilo de AAD-Graph. Esta característica es útil para adjuntar información de usuario adicional que puede usar la aplicación, por ejemplo, un identificador adicional o la opción de configuración importante que el usuario haya establecido. Vea la parte inferior de esta página para obtener un ejemplo.
 
-> [!NOTE]
-> Las extensiones de esquema de directorio son una característica solo de Azure AD. Si el manifiesto de aplicación solicita una extensión personalizada y un usuario de MSA inicia sesión en la aplicación, estas extensiones no se devolverán.
+Las extensiones de esquema de directorio son una característica solo de Azure AD. Si el manifiesto de aplicación solicita una extensión personalizada y un usuario de MSA inicia sesión en la aplicación, estas extensiones no se devolverán.
 
 ### <a name="directory-extension-formatting"></a>Formato de extensión de directorio
 
@@ -290,8 +289,7 @@ En esta sección se describen las opciones de configuración de notificaciones o
    - accessToken para el token de acceso OAuth
    - Saml2Token para los token de SAML.
 
-   > [!NOTE]
-   > El tipo Saml2Token se aplica a los token con formato SAML 1.1 y SAML 2.0.
+   El tipo Saml2Token se aplica a los token con formato SAML 1.1 y SAML 2.0.
 
    Para cada tipo de token relevante, modifique las notificaciones de grupos para usar la sección OptionalClaims en el manifiesto. El esquema de OptionalClaims es el siguiente:
 
@@ -315,8 +313,7 @@ En esta sección se describen las opciones de configuración de notificaciones o
 
    Algunas aplicaciones requieren información de grupo sobre el usuario en la notificación de rol.  Para cambiar el tipo de notificación de una notificación de grupo a una notificación de rol, agregue "emit_as_roles" a las propiedades adicionales.  Los valores de grupo se emitirán en la notificación de rol.
 
-   > [!NOTE]
-   > Si se usa "emit_as_roles", cualquier rol de aplicación configurado que se asigne al usuario no aparecerá en la notificación de rol.
+   Si se usa "emit_as_roles", cualquier rol de aplicación configurado que se asigne al usuario no aparecerá en la notificación de rol.
 
 **Ejemplos:**
 

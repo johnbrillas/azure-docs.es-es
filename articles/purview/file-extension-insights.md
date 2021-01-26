@@ -1,18 +1,18 @@
 ---
-title: Informes de extensión de archivo en los datos mediante conclusiones de Purview
-description: En esta guía paso a paso se describe cómo ver y usar los informes de extensión de archivo de conclusiones de Purview en los datos.
+title: Informes de extensión de archivos sobre los datos de Azure Purview mediante las conclusiones de Purview
+description: En esta guía paso a paso se describe cómo ver y usar los informes de extensión de archivos de Purview sobre los datos.
 author: batamig
 ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/24/2020
-ms.openlocfilehash: 222106f5838a1eb237987afaa93924f1efe4a1f4
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 246a9dcfa35498d99fd403f10e5c17d7707efe84
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746291"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202630"
 ---
 # <a name="file-extension-insights-about-your-data-from-azure-purview"></a>Conclusiones de extensión de archivo sobre los datos en Azure Purview 
 
@@ -33,6 +33,9 @@ Antes de empezar con las conclusiones de Purview, asegúrese de que ha completad
 - Configurar los recursos de Azure y rellenar las cuentas pertinentes con los datos de prueba
 
 - Configurar y completar un examen de los datos de prueba en cada origen de datos
+
+- Ha iniciado sesión en Purview con una cuenta con el [rol de lector o conservador de datos](catalog-permissions.md#azure-purviews-pre-defined-data-plane-roles).
+
 
 Para más información, consulte [Administración de orígenes de datos en Azure Purview (versión preliminar)](manage-data-sources.md).
 

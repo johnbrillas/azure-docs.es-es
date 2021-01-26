@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc, devx-track-csharp
 manager: philmea
-ms.openlocfilehash: f6c8272f736e2f83b4d33f3d61ce83356aa40e5d
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: c79367ca8cf9e4a4884c829c675d794b2e734737
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126763"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98220273"
 ---
 # <a name="extend-azure-iot-central-with-custom-rules-using-stream-analytics-azure-functions-and-sendgrid"></a>Extensión de Azure IoT Central con reglas personalizadas mediante Stream Analytics, Azure Functions y SendGrid
 
@@ -155,7 +155,7 @@ El portal crea una función predeterminada denominada **HttpTrigger1**:
 Para enviar correos electrónicos con SendGrid, tiene que configurar los enlaces de la función como sigue:
 
 1. Seleccione **Integrar**, elija la salida **HTTP ($return)** y, a continuación, seleccione **Eliminar**.
-1. Elija **+ Nueva salida**, después **SendGrid**y, a continuación, elija **Seleccionar**. Elija **Instalar** para instalar la extensión de SendGrid.
+1. Elija **+ Nueva salida**, después **SendGrid** y, a continuación, elija **Seleccionar**. Elija **Instalar** para instalar la extensión de SendGrid.
 1. Cuando se complete la instalación, seleccione **Usar el valor devuelto de la función**. Agregar una **Dirección de destino** válida para recibir notificaciones por correo electrónico.  Agregar una **Dirección de origen** que se usará como remitente de correo electrónico.
 1. Seleccione **nueva** junto a **Configuración de aplicación de la clave de API de SendGrid**. Escriba **SendGridAPIKey** como la clave y la clave de API de SendGrid que anotó anteriormente como el valor. Seleccione **Crear**.
 1. Elija **Guardar** para guardar los enlaces de SendGrid para la función.
@@ -249,7 +249,7 @@ Esta solución utiliza una consulta de Stream Analytics para detectar cuándo un
     | Espacio de nombres del Centro de eventos | Espacio de nombres del centro de eventos |
     | Nombre del centro de eventos | Usar existente: **centralexport** |
 
-1. En **Topología de trabajo**, seleccione **Salidas**, elija **+ Agregar**y, a continuación, elija **función de Azure**.
+1. En **Topología de trabajo**, seleccione **Salidas**, elija **+ Agregar** y, luego, **función de Azure**.
 1. Use la información de la tabla siguiente para configurar la salida, y luego elija **Guardar**:
 
     | Configuración | Value |

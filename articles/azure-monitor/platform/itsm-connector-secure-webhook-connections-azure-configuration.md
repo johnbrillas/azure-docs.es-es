@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 01/03/2021
-ms.openlocfilehash: 5eb58c48acc7974a4379cf1993a73228c99f5e6d
-ms.sourcegitcommit: 697638c20ceaf51ec4ebd8f929c719c1e630f06f
+ms.openlocfilehash: 03a16bfbcb3a8d46a6cb4faa03aa6b6e96cf3db3
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97857561"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165967"
 ---
 # <a name="configure-azure-to-connect-itsm-tools-using-secure-export"></a>Configuración de Azure para conectar herramientas de ITSM mediante Exportación segura
 
@@ -39,9 +39,9 @@ Siga estos pasos para registrar la aplicación con Azure AD:
 
 ## <a name="define-service-principal"></a>Definición de la entidad de servicio
 
-Para autenticarse con el servicio ahora, el servicio Grupo de acciones necesitará permiso para adquirir tokens de autenticación de la aplicación de AAD. Para conceder esos permisos, tendrá que crear una entidad de servicio para el servicio Grupo de acciones en el inquilino.
-Para este fin, puede usar estos [comandos de PowerShell](./action-groups.md#secure-webhook-powershell-script). (Se requieren privilegios de administrador de inquilino).
-Como paso opcional, puede definir el rol de la aplicación en el manifiesto de la aplicación creada, lo que le permite restringir aún más el acceso de forma que solo determinadas aplicaciones con ese rol específico puedan enviar mensajes. Este rol se debe asignar a la entidad de servicio de Grupo de acciones. \
+El servicio Grupo de acciones es una aplicación de primera entidad, por lo que tiene permiso para adquirir tokens de autenticación de la aplicación de AAD con el fin de autenticarse en el servicio ahora.
+Como paso opcional, puede definir el rol de la aplicación en el manifiesto de la aplicación creada, lo que le permite restringir aún más el acceso de forma que solo determinadas aplicaciones con ese rol específico puedan enviar mensajes. Este rol debe asignarse a la entidad de servicio de Grupo de acciones (requiere privilegios de administrador de inquilinos).
+
 Este paso se puede realizar con los mismos [comandos de PowerShell](./action-groups.md#secure-webhook-powershell-script).
 
 ## <a name="create-a-secure-webhook-action-group"></a>Creación de un grupo de acciones Webhook seguro

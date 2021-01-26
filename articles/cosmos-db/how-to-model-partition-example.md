@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: c3cdc0a9fb9fa236fae37a52194f446278a42f72
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.openlocfilehash: d2f35ae7a6110acb2ca89bdaeb487eddabf84923
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616253"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185825"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>Procedimientos para modelar y crear particiones de datos en Azure Cosmos DB mediante un ejemplo real
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -60,7 +60,7 @@ Esta es la lista de solicitudes que se deberá exponer nuestra plataforma:
 
 En esta fase aún no hemos pensado en los detalles de lo que va a contener cada entidad (usuario, publicación, etc.). Este paso suele ser de los primeros en abordarse al diseñar en un almacén relacional, ya que tenemos que averiguar cómo se traducirán dichas entidades en términos de tablas, columnas, claves externas, etc. El problema es mucho menor cuando se trabaja con una base de datos documental que no exige ningún esquema en la escritura.
 
-El motivo principal por el que es importante identificar los patrones de acceso desde el principio, es que esta lista de solicitudes va a ser nuestro conjunto de pruebas. Cada vez que recorramos el modelo de datos, vamos a pasar por todas y cada una de las solicitudes y a comprobar su rendimiento y escalabilidad.
+El motivo principal por el que es importante identificar los patrones de acceso desde el principio, es que esta lista de solicitudes va a ser nuestro conjunto de pruebas. Cada vez que recorramos el modelo de datos, vamos a pasar por todas y cada una de las solicitudes y a comprobar su rendimiento y escalabilidad. Se calculan las unidades de solicitud consumidas en cada modelo y se optimizan. Todos estos modelos utilizan la directiva de indexación predeterminada, que se puede invalidar mediante la indexación de propiedades específicas. Esto puede mejorar aún más el consumo y la latencia de RU.
 
 ## <a name="v1-a-first-version"></a>V1: una primera versión
 

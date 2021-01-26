@@ -2,13 +2,13 @@
 title: Implementación de recursos en grupos de recursos
 description: Se describe cómo implementar recursos en una plantilla de Azure Resource Manager. Se muestra cómo seleccionar más de un grupo de recursos como destino.
 ms.topic: conceptual
-ms.date: 11/24/2020
-ms.openlocfilehash: 9d0bec51fa55ee377eb647a11fb554ec3b81e9eb
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.date: 01/13/2021
+ms.openlocfilehash: 9eb70e5ce69a2c7bc7ac9b8c9a7a558d09ecbef0
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95807721"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98186233"
 ---
 # <a name="resource-group-deployments-with-arm-templates"></a>Implementaciones de grupos de recursos con plantillas de Resource Manager
 
@@ -85,7 +85,8 @@ Al implementar en un grupo de recursos, puede implementar los recursos en:
 * otros grupos de recursos de la misma suscripción o de otras
 * cualquier suscripción en el inquilino
 * el inquilino del grupo de recursos
-* se pueden aplicar [recursos de extensión](scope-extension-resources.md) a los recursos
+
+Un [recurso de extensión](scope-extension-resources.md) se puede limitar a un destino distinto del destino de implementación.
 
 El usuario que implementa la plantilla debe tener acceso al ámbito especificado.
 
@@ -136,6 +137,8 @@ Puede usar una implementación anidada con los valores de `scope` y `location` e
 O bien, puede establecer el ámbito en `/` para algunos tipos de recursos, como los grupos de administración.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/resource-group-create-mg.json" highlight="12,15":::
+
+Para más información, consulte [Grupo de administración](deploy-to-management-group.md#management-group).
 
 ## <a name="deploy-to-target-resource-group"></a>Implementación en el grupo de recursos de destino
 

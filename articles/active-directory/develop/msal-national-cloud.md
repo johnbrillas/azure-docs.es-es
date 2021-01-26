@@ -13,12 +13,12 @@ ms.date: 11/22/2019
 ms.author: negoe
 ms.reviewer: marsma, nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 22b3ea9eb0e4c3379438b6c3fb58ccfb13b4ed32
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 5a032f45027cc4bffc7f2bc46c6ea1a69a1b83e4
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98064800"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178626"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>Uso de MSAL en un entorno de nube nacional
 
@@ -70,19 +70,21 @@ Para habilitar la aplicación MSAL.js para nubes soberanas:
 
 ### <a name="step-1-register-your-application"></a>Paso 1: Registrar su aplicación
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.us/).
+1. Inicie sesión en <a href="https://portal.azure.us/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
    Para buscar los puntos de conexión de Azure Portal para otras nubes nacionales, consulte [Puntos de conexión de registro de aplicaciones](authentication-national-cloud.md#app-registration-endpoints).
 
-1. Si la cuenta proporciona acceso a más de un inquilino, seleccione la cuenta en la esquina superior derecha y establezca la sesión del portal en el inquilino de Azure AD deseado.
-1. Vaya a la página [Registros de aplicaciones](https://aka.ms/ra/ff) de la plataforma de identidad de Microsoft para desarrolladores.
-1. Cuando se abra la página **Registrar una aplicación**, escriba el nombre de su aplicación.
+1. Si tiene acceso a varios inquilinos, use el filtro **Directorio + suscripción** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: del menú superior para seleccionar el inquilino en el que desea registrar una aplicación.
+1. Busque y seleccione **Azure Active Directory**.
+1. En **Administrar**, seleccione **Registros de aplicaciones** >  y, luego, **Nuevo registro**.
+1. Escriba el **nombre** de la aplicación. Los usuarios de la aplicación pueden ver este nombre, el cual se puede cambiar más tarde.
 1. En **Tipos de cuenta compatibles**, seleccione **Cuentas en cualquier directorio organizativo**.
 1. En la sección **URI de redirección**, seleccione la plataforma **web** y establezca el valor en la dirección URL de la aplicación según el servidor web. Consulte las secciones siguientes para obtener instrucciones sobre cómo establecer y obtener la dirección URL de redireccionamiento en Visual Studio y Node.
 1. Seleccione **Registrar**.
-1. En la página de **Información general** de la aplicación, anote el valor en **Id. de aplicación (cliente)** .
-1. Este tutorial requiere que habilite el [flujo de concesión implícita](v2-oauth2-implicit-grant-flow.md). En el panel izquierdo de la aplicación registrada, seleccione **Autenticación**.
-1. En **Configuración avanzada**, en **Concesión implícita**, active las casillas **Tokens de id.** y **Tokens de acceso**. Los tokens de identificador y los tokens de acceso son obligatorios, ya que esta aplicación tiene que iniciar la sesión de los usuarios y llamar a una API.
+1. En la página **Información general**, anote el valor de **Id. de aplicación (cliente)** para su uso posterior.
+    Este tutorial requiere que habilite el [flujo de concesión implícita](v2-oauth2-implicit-grant-flow.md). 
+1. En **Administrar**, seleccione **Autenticación**.
+1. En **Concesión implícita**, seleccione **Tokens de id.** y **Tokens de acceso**. Los tokens de identificador y los tokens de acceso son obligatorios, ya que esta aplicación tiene que iniciar la sesión de los usuarios y llamar a una API.
 1. Seleccione **Guardar**.
 
 ### <a name="step-2--set-up-your-web-server-or-project"></a>Paso 2:  Configuración de un proyecto o servidor web

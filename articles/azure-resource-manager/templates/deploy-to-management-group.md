@@ -2,13 +2,13 @@
 title: Implementación de recursos en el grupo de administración
 description: Se describe cómo implementar recursos en el ámbito de un grupo de administración en una plantilla de Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 11/24/2020
-ms.openlocfilehash: 79cdb35de40501dfc0794155dcf807cced94bfa7
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.date: 01/13/2021
+ms.openlocfilehash: d6c6b925ad1533fc1f3bf490a9b996280164bd57
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95798589"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98184023"
 ---
 # <a name="management-group-deployments-with-arm-templates"></a>Implementaciones de grupos de administración con plantillas de Resource Manager
 
@@ -44,6 +44,8 @@ Para plantillas anidadas que se implementan en suscripciones o grupos de recurso
 Para administrar los recursos, use:
 
 * [etiquetas](/azure/templates/microsoft.resources/tags)
+
+Los grupos de administración son recursos de nivel de inquilino. Sin embargo, puede crear grupos de administración en una implementación de tales grupos estableciendo el ámbito del nuevo grupo en el inquilino. Consulte [Grupo de administración](#management-group).
 
 ## <a name="schema"></a>Schema
 
@@ -123,7 +125,8 @@ Al implementar en un grupo de administración, puede implementar los recursos en
 * suscripciones en el grupo de administración
 * grupos de recursos en el grupo de administración
 * el inquilino del grupo de recursos
-* se pueden aplicar [recursos de extensión](scope-extension-resources.md) a los recursos
+
+Un [recurso de extensión](scope-extension-resources.md) se puede limitar a un destino distinto del destino de implementación.
 
 El usuario que implementa la plantilla debe tener acceso al ámbito especificado.
 
@@ -167,9 +170,55 @@ Puede usar una implementación anidada con los valores de `scope` y `location` e
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/management-group-to-tenant.json" highlight="9,10,14":::
 
-O bien, puede establecer el ámbito en `/` para algunos tipos de recursos, como los grupos de administración.
+O bien, puede establecer el ámbito en `/` para algunos tipos de recursos, como los grupos de administración. La creación de un grupo de administración se describe en la sección siguiente.
+
+## <a name="management-group"></a>Grupo de administración
+
+Para crear un grupo de administración en una implementación de grupos de administración, debe establecer el ámbito en `/` para el grupo.
+
+En el ejemplo siguiente se crea un grupo de administración en el grupo de administración raíz.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/management-group-create-mg.json" highlight="12,15":::
+
+En el ejemplo siguiente se crea un grupo de administración en el grupo de administración especificado como primario. Observe que el ámbito se establece en `/`.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "mgName": {
+            "type": "string",
+            "defaultValue": "[concat('mg-', uniqueString(newGuid()))]"
+        },
+        "parentMG": {
+            "type": "string"
+        }
+    },
+    "resources": [
+        {
+            "name": "[parameters('mgName')]",
+            "type": "Microsoft.Management/managementGroups",
+            "apiVersion": "2020-05-01",
+            "scope": "/",
+            "location": "eastus",
+            "properties": {
+                "details": {
+                    "parent": {
+                        "id": "[tenantResourceId('Microsoft.Management/managementGroups', parameters('parentMG'))]"
+                    }
+                }
+            }
+        }
+    ],
+    "outputs": {
+        "output": {
+            "type": "string",
+            "value": "[parameters('mgName')]"
+        }
+    }
+}
+```
 
 ## <a name="azure-policy"></a>Azure Policy
 

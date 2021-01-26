@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/04/2020
-ms.openlocfilehash: 50e199d2d56016086bb409f8690e9828f1d19984
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 728fd8f4705d24f719b6dd47ba88d89fb399fd5a
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97881516"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195881"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Uso de Application Change Analysis (versión preliminar) en Azure Monitor
 
@@ -194,6 +194,29 @@ Si es la primera vez que ve el historial de cambios después de su integración 
 ### <a name="azure-lighthouse-subscription-is-not-supported"></a>No se admite la suscripción de Azure Lighthouse.
 
 - **Error al consultar al proveedor de recursos Microsoft.ChangeAnalysis** con el mensaje *No se admite la suscripción de Azure Lighthouse; los cambios solo están disponibles en el inquilino principal de la suscripción*. Ahora existe una limitación para que el proveedor de recursos de Change Analysis se registre a través de la suscripción de Azure Lighthouse para los usuarios que no están en el inquilino principal. Esperamos que esta limitación se solucione en un futuro próximo. Si se trata de un problema de bloqueo, hay una solución alternativa que implica la creación de una entidad de servicio y la asignación explícita del rol para permitir el acceso.  Póngase en contacto con changeanalysishelp@microsoft.com para más información al respecto.
+
+### <a name="an-error-occurred-while-getting-changes-please-refresh-this-page-or-come-back-later-to-view-changes"></a>Error al obtener los cambios. Actualice esta página o vuelva más tarde para ver los cambios
+
+Este es el mensaje de error general que presenta el servicio Application Change Analysis cuando los cambios no se han podido cargar. Algunas de las causas conocidas son:
+- Error de conectividad a Internet desde el dispositivo cliente.
+- El servicio Change Analysis no está disponible temporalmente. Con la actualización de la página al cabo de unos minutos se suele corregir este problema. Si el error continúa, póngase en contacto con changeanalysishelp@micorosoft.com.
+
+### <a name="you-dont-have-enough-permissions-to-view-some-changes-contact-your-azure-subscription-administrator"></a>No tiene permisos suficientes para ver algunos cambios. Póngase en contacto con su administrador de suscripciones de Azure
+
+Este es el mensaje de error general de autorización, que explica que el usuario actual no tiene permisos suficientes para ver el cambio. Se requiere al menos acceso de lectura en el recurso para ver los cambios de infraestructura devueltos por Azure Resource Graph y Azure Resource Manager. En el caso de los cambios en el archivo en el invitado de la aplicación web y los cambios de configuración, se requiere un rol de colaborador como mínimo.
+
+### <a name="failed-to-register-microsoftchangeanalysis-resource-provider"></a>No se pudo registrar el proveedor de recursos Microsoft.ChangeAnalysis
+Este mensaje indica que ha habido un error inmediatamente después de que la interfaz de usuario enviara la solicitud para registrar el proveedor de recursos, y que no está relacionada con un problema de permisos. Lo más probable es que se deba a un problema temporal de conectividad a Internet. Intente actualizar la página y comprobar la conexión a Internet. Si el error continúa, póngase en contacto con changeanalysishelp@microsoft.com.
+ 
+### <a name="you-dont-have-enough-permissions-to-register-microsoftchangeanalysis-resource-provider-contact-your-azure-subscription-administrator"></a>No tiene permisos suficientes para registrar el proveedor de recursos Microsoft.ChangeAnalysis. Póngase en contacto con su administrador de suscripciones de Azure.
+Este mensaje de error significa que el rol de la suscripción actual no tiene el ámbito **Microsoft.support/register/action** asociado a ella. Esto puede ocurrir si no es el propietario de una suscripción y obtuvo permisos de acceso compartido a través de un compañero de trabajo, es decir, acceso de visualización en un grupo de recursos. Para corregirlo, puede ponerse en contacto con el propietario de la suscripción para registrar el proveedor de recursos **Microsoft.ChangeAnalysis**. Esto puede hacerse en Azure Portal a través de **Suscripciones | Proveedores de recursos** y buscar ```Microsoft.ChangeAnalysis``` y registrarse en la interfaz de usuario, o a través de Azure PowerShell o la CLI de Azure.
+
+Registre el proveedor de recursos a través de PowerShell: 
+
+```PowerShell
+# Register resource provider
+Register-AzResourceProvider -ProviderNamespace "Microsoft.ChangeAnalysis"
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

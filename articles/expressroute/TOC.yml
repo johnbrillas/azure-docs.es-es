@@ -20,7 +20,7 @@
   items:
     - name: Creación y modificación de la configuración de emparejamiento
       items:
-        - name: Azure portal
+        - name: Portal de Azure
           href: expressroute-howto-routing-portal-resource-manager.md
         - name: Azure PowerShell
           href: expressroute-howto-routing-arm.md
@@ -28,13 +28,13 @@
           href: howto-routing-cli.md
     - name: Configuración de una puerta de enlace de red virtual para ExpressRoute
       items:
-        - name: Azure portal
+        - name: Portal de Azure
           href: expressroute-howto-add-gateway-portal-resource-manager.md
         - name: Azure PowerShell
           href: expressroute-howto-add-gateway-resource-manager.md
     - name: Vinculación de una red virtual a un circuito ExpressRoute
       items:
-        - name: Azure portal
+        - name: Portal de Azure
           href: expressroute-howto-linkvnet-portal-resource-manager.md
         - name: Azure PowerShell
           href: expressroute-howto-linkvnet-arm.md
@@ -42,7 +42,7 @@
           href: howto-linkvnet-cli.md
     - name: Configuración de filtros de ruta para el emparejamiento de Microsoft
       items:
-        - name: Azure portal
+        - name: Portal de Azure
           href: how-to-routefilter-portal.md
         - name: Azure PowerShell
           href: how-to-routefilter-powershell.md
@@ -82,7 +82,7 @@
           href: about-upgrade-circuit-bandwidth.md
         - name: Movimiento de circuitos del portal clásico a Resource Manager
           href: expressroute-move.md
-    - name: Acerca de las puertas de enlace de Expressroute
+    - name: Acerca de las puertas de enlace de ExpressRoute
       href: expressroute-about-virtual-network-gateways.md
     - name: Acerca de FastPath de ExpressRoute
       href: about-fastpath.md
@@ -130,7 +130,7 @@
           href: expressroute-howto-macsec.md
     - name: Configuración de ExpressRoute Global Reach
       items:
-        - name: Azure portal
+        - name: Portal de Azure
           href: expressroute-howto-set-global-reach.md
         - name: Azure PowerShell
           href: expressroute-howto-set-global-reach.md
@@ -148,7 +148,7 @@
       items:
         - name: Habilitar y deshabilitar emparejamientos
           items:
-            - name: Azure portal
+            - name: Portal de Azure
               href: expressroute-howto-reset-peering-portal.md
             - name: Azure PowerShell
               href: expressroute-howto-reset-peering.md

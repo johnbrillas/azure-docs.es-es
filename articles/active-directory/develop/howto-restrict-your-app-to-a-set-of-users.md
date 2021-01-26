@@ -13,12 +13,12 @@ ms.date: 09/24/2018
 ms.author: kkrishna
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: f5a5242cb9448b3d11e0921b2272cf00bef8f6c1
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 5f6ac11fc5c7bbe7a8f81e6ea89e2c582ebcf264
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97722273"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178745"
 ---
 # <a name="how-to-restrict-your-azure-ad-app-to-a-set-of-users-in-an-azure-ad-tenant"></a>Procedimientos: Restricción de la aplicación de Azure AD a un conjunto de usuarios de un inquilino de Azure AD
 
@@ -34,8 +34,8 @@ Los administradores y desarrolladores de inquilinos pueden restringir una aplica
 
 La opción para restringir una aplicación a un conjunto específico de usuarios o a los grupos de seguridad de un inquilino funciona con los siguientes tipos de aplicaciones:
 
-- Aplicaciones configuradas para el inicio de sesión federado con autenticación basada en SAML
-- Aplicaciones de proxy de aplicación que usan la autenticación previa de Azure AD
+- Aplicaciones configuradas para el inicio de sesión único federado con autenticación basada en SAML.
+- Aplicaciones de proxy de aplicación que usan la autenticación previa de Azure AD.
 - Aplicaciones integradas directamente en la plataforma de aplicaciones de Azure AD que usan la autenticación de OAuth 2.0 u OpenID Connect después de que un usuario o un administrador han dado su consentimiento a esa aplicación.
 
      > [!NOTE]
@@ -47,50 +47,40 @@ Hay dos maneras de crear una aplicación con la asignación de usuarios habilita
 
 ### <a name="enterprise-applications-requires-the-global-administrator-role"></a>Aplicaciones empresariales (necesita el rol Administrador global)
 
-1. Vaya a [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **Administrador global**.
-1. En la barra superior, seleccione la cuenta con sesión iniciada. 
-1. En **Directory**, seleccione el inquilino de Azure AD donde se registrará la aplicación.
-1. En el panel de navegación izquierdo, seleccione **Azure Active Directory**. Si Azure Active Directory no está disponible en el panel de navegación, siga estos pasos:
-
-    1. Seleccione **Todos los servicios** en la parte superior del menú de navegación izquierdo principal.
-    1. Escriba **Azure Active Directory** en el cuadro de búsqueda de filtro y seleccione el elemento **Azure Active Directory** en el resultado.
-
-1. En el panel **Azure Active Directory**, seleccione **Aplicaciones empresariales** en el menú de navegación izquierdo **Azure Active Directory**.
-1. Seleccione **Todas las aplicaciones** para ver una lista de todas las aplicaciones.
-
-     Si no ve la aplicación que desea, utilice los distintos filtros de la parte superior de la lista **Registros de aplicaciones** para restringir la lista o desplácese hacia abajo en la lista para buscar la aplicación.
-
-1. Seleccione la aplicación que desea asignar a un usuario o a un grupo de seguridad.
-1. En la página **Información general** de la aplicación, seleccione **Propiedades** en el menú de navegación izquierdo de la aplicación.
+1. Inicie sesión en <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span></a> como **administrador global**.
+1. Si tiene acceso a varios inquilinos, use el filtro **Directorio + suscripción** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: del menú superior para seleccionar el inquilino en el que desea registrar una aplicación.
+1. Busque y seleccione **Azure Active Directory**.
+1. En **Administrar**, seleccione **Aplicaciones empresariales** > **Todas las aplicaciones**.
+1. En la lista, seleccione la aplicación que quiere asignar a un usuario o a un grupo de seguridad. 
+    Utilice los filtros de la parte superior de la ventana para buscar una aplicación específica.
+1. En la página **Información general** de la aplicación, en **Administrar**, seleccione **Propiedades**.
 1. Busque el valor **¿Asignación de usuarios?** y establézcalo en **Sí**. Cuando esta opción se establece en **Sí**, los usuarios del inquilino se deben asignar primero a esta aplicación o no podrán iniciar sesión en esta aplicación.
-1. Para guardar este cambio de configuración, seleccione **Guardar**.
+1. Seleccione **Guardar**.
 
-### <a name="app-registration"></a>Registro de aplicación
+### <a name="app-registration"></a>Registro de la aplicación
 
-1. Vaya a [**Azure Portal**](https://portal.azure.com/).
-1. En la barra superior, seleccione la cuenta con sesión iniciada. 
-1. En **Directory**, seleccione el inquilino de Azure AD donde se registrará la aplicación.
-1. En el panel de navegación izquierdo, seleccione **Azure Active Directory**.
-1. En el panel **Azure Active Directory**, seleccione **Registros de aplicaciones** en el menú de navegación de la izquierda de **Azure Active Directory**.
-1. Cree o seleccione la aplicación que quiere administrar. Debe ser **Propietario** de este registro de aplicación.
-1. En la página **Información general** de la aplicación, siga el vínculo **Aplicación administrada en el directorio local** en los elementos fundamentales que aparecen en la parte superior de la página. Esto lo llevará a la _aplicación empresarial administrada_ de su registro de aplicación.
-1. En la hoja de navegación de la izquierda, seleccione **Propiedades**.
+1. Inicie sesión en <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Si tiene acceso a varios inquilinos, use el filtro **Directorio + suscripción** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: del menú superior para seleccionar el inquilino en el que desea registrar una aplicación.
+1. Busque y seleccione **Azure Active Directory**.
+1. En **Administrar**, seleccione **Registros de aplicaciones**.
+1. Cree o seleccione la aplicación que quiere administrar. Debe ser el **propietario** de esta aplicación.
+1. En la página **Información general** de la aplicación, seleccione **Aplicación administrada en directorio local** en la sección **Essentials**.
+1. En **Administrar**, seleccione **Propiedades**.
 1. Busque el valor **¿Asignación de usuarios?** y establézcalo en **Sí**. Cuando esta opción se establece en **Sí**, los usuarios del inquilino se deben asignar primero a esta aplicación o no podrán iniciar sesión en esta aplicación.
-1. Para guardar este cambio de configuración, seleccione **Guardar**.
+1. Seleccione **Guardar**.
 
 ## <a name="assign-users-and-groups-to-the-app"></a>Asignación de usuarios y grupos a la aplicación
 
 Una vez que ha configurado la aplicación para permitir la asignación de usuarios, puede seguir adelante y asignar usuarios y grupos a la aplicación.
 
-1. Seleccione el panel **Usuarios y grupos** en el menú de navegación izquierdo de la aplicación empresarial.
-1. En la parte superior de la lista **Usuarios y grupos**, seleccione el botón **Agregar usuario** para abrir el panel **Agregar asignación**.
-1. Elija el selector **Usuarios** en el panel **Agregar asignación**. 
+1. En **Administrar**, seleccione **Usuarios y grupos** > **Add user/group** (Agregar usuario o grupo).
+1. Elija el selector **Usuarios**. 
 
      Se mostrará una lista de usuarios y grupos de seguridad junto con un cuadro de texto para buscar un usuario o grupo determinado. Esta pantalla permite seleccionar varios usuarios y grupos en una sola operación.
 
-1. Cuando haya terminado la selección de los usuarios y grupos, presione el botón **Seleccionar** en la parte inferior para desplazarse al apartado siguiente.
+1. Cuando haya terminado de seleccionar los usuarios y grupos, elija **Seleccionar**.
 1. (Opcional) Si ha definido roles de aplicación en su aplicación, puede usar la opción **Seleccionar rol** para asignar los usuarios y los grupos seleccionados a uno de los roles de la aplicación. 
-1. Presione el botón **Asignar** en la parte inferior para finalizar las asignaciones de usuarios y grupos a la aplicación. 
+1. Seleccione **Asignar** para completar las asignaciones de usuarios y grupos a la aplicación. 
 1. Confirme que los usuarios y grupos que agregó se muestran en la lista **Usuarios y grupos** actualizada.
 
 ## <a name="more-information"></a>Más información

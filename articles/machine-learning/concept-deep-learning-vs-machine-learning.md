@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
-ms.date: 12/15/2020
+ms.date: 01/14/2020
 ms.custom: contperf-fy21q1,contperfq1
-ms.openlocfilehash: 17c5cc265b4199d745325bf2c9d9fbca24cc6506
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 61305e4f9ba45cb7c13a96bee9d1aab81108bb4d
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97617126"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98220701"
 ---
 # <a name="deep-learning-vs-machine-learning-in-azure-machine-learning"></a>Aprendizaje profundo frente a aprendizaje automático en Azure Machine Learning
 
@@ -57,7 +57,7 @@ En la tabla siguiente se comparan las dos técnicas con más detalle:
 |  **Tiempo de ejecución** | Comparativamente, tarda menos tiempo en entrenarse; puede tardar unos segundos o unas pocas horas. | Normalmente, tarda demasiado tiempo en entrenarse, porque los algoritmos de aprendizaje profundo tienen muchas capas. |
 |  **Salida** | La salida suele ser un valor numérico, como una puntuación o una clasificación. | La salida puede tener varios formatos, como texto, una puntuación o un sonido. |
 
-## <a name="transfer-learning"></a>Transferencia de aprendizaje
+## <a name="what-is-transfer-learning"></a>Qué es el aprendizaje por transferencia
 
 Entrenar modelos de aprendizaje profundo a menudo requiere grandes cantidades de datos de entrenamiento, recursos de proceso de alto nivel (GPU, TPU) y un tiempo de entrenamiento más largo. En escenarios en los que no tenga ninguno de estos disponible, puede obtener acceso directo al proceso de entrenamiento mediante una técnica conocida como *aprendizaje por transferencia*.
 
@@ -65,7 +65,7 @@ El aprendizaje por transferencia es una técnica que aplica los conocimientos qu
 
 Debido a la estructura de redes neuronales, el primer conjunto de capas normalmente contiene características de nivel inferior, mientras que el conjunto final de capas contiene características de nivel superior que están más cerca del dominio en cuestión. Al reasignar las capas finales para su uso en un nuevo dominio o problema, puede reducir significativamente la cantidad de tiempo, datos y recursos de proceso necesarios para entrenar el nuevo modelo. Por ejemplo, si ya tiene un modelo que reconoce automóviles, puede reasignarlo con el aprendizaje por transferencia para que reconozca también camiones, motocicletas y otros tipos de vehículos.
 
-Aprenda a aplicar el aprendizaje por transferencia para la clasificación de imágenes mediante un marco de código abierto en Azure Machine Learning: [Clasificación de imágenes mediante un modelo Pytorch](./how-to-train-pytorch.md?WT.mc_id=docs-article-lazzeri).
+Aprenda a aplicar el aprendizaje por transferencia para la clasificación de imágenes mediante un marco de código abierto en Azure Machine Learning: [Entrenamiento de un modelo de PyTorch de aprendizaje profundo mediante aprendizaje por transferencia](./how-to-train-pytorch.md?WT.mc_id=docs-article-lazzeri).
 
 ## <a name="deep-learning-use-cases"></a>Casos de uso del aprendizaje profundo
 

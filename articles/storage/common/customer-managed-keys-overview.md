@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 8eaadc031039b22e209db1023c65da39e1e096b1
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 9afce964652d2bedbe105a8a750a93d2f37eef85
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96483290"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98179038"
 ---
 # <a name="customer-managed-keys-for-azure-storage-encryption"></a>Claves administradas por el cliente para el cifrado de Azure Storage
 
@@ -78,7 +78,7 @@ Al configurar el cifrado con claves administradas por el cliente, tiene dos opci
 
     Cuando se especifica la versión de la clave de manera explícita, debe actualizar manualmente la cuenta de almacenamiento para usar el nuevo URI de la versión de la clave cuando se crea una nueva versión. Para obtener más información sobre cómo actualizar la cuenta de almacenamiento para usar una nueva versión de la clave, consulte [Configuración del cifrado con claves administradas por el cliente almacenadas en Azure Key Vault](customer-managed-keys-configure-key-vault.md) o [Configuración del cifrado con claves administradas por el cliente almacenadas en HSM administrado de Azure Key Vault (versión preliminar)](customer-managed-keys-configure-key-vault-hsm.md).
 
-La actualización de la versión de una clave administrada por el cliente no desencadena un nuevo cifrado de los datos en la cuenta de almacenamiento. No es preciso que el usuario realice ninguna otra acción.
+Al actualizar la versión de la clave, la protección de la clave de cifrado raíz cambia, pero los datos de la cuenta de Azure Storage no se vuelven a cifrar. No es preciso que el usuario realice ninguna otra acción.
 
 > [!NOTE]
 > Para rotar una clave, cree una nueva versión de la clave en el almacén de claves o HSM administrado, según las directivas de cumplimiento. Puede rotar la clave manualmente o crear una función para rotarla según una planificación.

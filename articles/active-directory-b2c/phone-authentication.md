@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9d4fa80f669493e4dc47a9ad0f9bfe9390d4ab24
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 8d41f8959d0a1ec0d6e48cf2fa4711a8ef8d8ae5
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94953583"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178949"
 ---
 # <a name="set-up-phone-sign-up-and-sign-in-with-custom-policies-in-azure-ad-b2c"></a>Configuración del registro y el inicio de sesión en el teléfono con directivas personalizadas en Azure AD B2C
 
@@ -39,7 +39,7 @@ Con el registro y el inicio de sesión por teléfono, el usuario puede suscribir
 >
 > *&lt;insert: un vínculo a la declaración de privacidad&gt;*<br/>*&lt;insert: un vínculo a los términos de servicio&gt;*
 
-Para agregar su propia información de consentimiento, personalice el ejemplo siguiente e inclúyalo en el elemento LocalizedResources de ContentDefinition que usa la página autoafirmada con el control de pantalla (el archivo Phone-Email-Base.xml en el paquete de inicio de registro e inicio de sesión):
+Para agregar su propia información de consentimiento, personalice el ejemplo siguiente e inclúyalo en el elemento LocalizedResources de ContentDefinition que usa la página autoafirmada con el control de pantalla (el archivo *Phone-Email-Base.xml* del [paquete de inicio de registro e inicio de sesión][starter-pack-phone]):
 
 ```xml
 <LocalizedResources Id="phoneSignUp.en">        

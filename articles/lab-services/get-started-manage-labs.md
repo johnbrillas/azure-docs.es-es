@@ -3,12 +3,12 @@ title: Introducción a Azure Lab Services
 description: En este artículo se describe cómo empezar a usar Azure Lab Services.
 ms.topic: article
 ms.date: 11/18/2020
-ms.openlocfilehash: 44afe13fb6f555b12dfce939ce8e88e3af8dc7ef
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: d260ace7d7819c3ca2db96d6c4984bf834e170da
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602672"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165049"
 ---
 # <a name="get-started-with-lab-services"></a>Introducción a Lab Services 
 
@@ -109,56 +109,7 @@ Los profesores pueden conectarse a la máquina virtual de un alumno siempre que 
 
 ## <a name="manage-users-in-a-lab"></a>Administración de usuarios en un laboratorio
 
-Los profesores pueden agregar alumnos a un laboratorio y supervisar sus cuotas de hora. 
-
-### <a name="add-users-by-email-address"></a>Adición de usuarios por dirección de correo electrónico
-
-1. En el [sitio web de Azure Lab Services](https://labs.azure.com/), haga clic en **Usuarios** en la parte izquierda de la ventana.
-1. En la parte superior de la ventana, haga clic en **Agregar usuarios** y seleccione **Agregar por dirección de correo electrónico**. 
-1. En el panel **Agregar usuarios** que aparece a la derecha, escriba las direcciones de correo electrónico de los alumnos en varias líneas o en una sola, separadas por punto y coma.
-1. Haga clic en **Save**(Guardar).
-1. La lista de usuarios ahora se actualizará con los correos electrónicos, el estado, la invitación y las horas de cuota.
-
-    Una vez que los alumnos están registrados en un laboratorio, sus nombres se actualizarán con el nombre y los apellidos de Azure Active Directory.
-
-    > [!NOTE]
-    > Mantenga activado el botón de conmutación de la opción Restringir acceso para los usuarios. Esto significa que solo los usuarios de la lista pueden registrarse en el laboratorio mediante el vínculo de registro enviado.
-
-### <a name="add-users-using-a-spreadsheet"></a>Adición de usuarios mediante una hoja de cálculo 
-
-También puede agregar usuarios cargando un archivo CSV que contenga sus direcciones de correo electrónico.
-
-1. En Microsoft Excel, cree un archivo CSV e incluya en él las direcciones de correo electrónico de los estudiantes en una columna.
-1. En el [sitio web de Azure Lab Services](https://labs.azure.com/), en la parte superior de la página **Usuarios**, haga clic en el botón **Agregar usuarios**.
-1. Seleccione **Cargar CSV**.
-1. Seleccione el archivo CSV que contiene las direcciones de correo electrónico de los alumnos y, después, haga clic en **Abrir**.
-
-    :::image type="content" source="./media/get-started-manage-labs/add-users-spreadsheet.png" alt-text="Adición de usuarios mediante una hoja de cálculo":::
-1. Los correos electrónicos aparecerán ahora en la ventana de la derecha. Haga clic en **Save**(Guardar).
-
-    :::image type="content" source="./media/get-started-manage-labs/register-users.png" alt-text="Registro de usuarios":::
-
-### <a name="register-users"></a>Registro de usuarios
-
-Una vez que los usuarios se han agregado al laboratorio, tendrán que registrarse para acceder a las máquinas virtuales. Para ello, puede invitarlos desde el portal, que enviará un correo electrónico con el vínculo de registro del laboratorio. Otra manera es copiar y pegar el vínculo de registro en un correo electrónico u otra forma de comunicación con los alumnos.
-
-1. En la página **Usuarios**, seleccione uno o varios alumnos de la lista.
-
-    En la fila del alumno que ha seleccionado, seleccione el icono de sobre en la lista o haga clic en **Invitar** en la parte superior de la pantalla.
-
-    :::image type="content" source="./media/get-started-manage-labs/send-invitation.png" alt-text="Envío de una invitación":::
-    
-    En la ventana **Enviar invitación por correo electrónico**, escriba un mensaje opcional (por ejemplo, un nombre de usuario y una contraseña) para los alumnos y, luego, haga clic en **Enviar**. 
-    
-    :::image type="content" source="./media/get-started-manage-labs/send-invitation-mail.png" alt-text="Envío de una invitación por correo":::
-
-    Otra opción es, desde la misma página **Usuarios**, hacer clic en el botón **Vínculo de registro** de la parte superior de la pantalla. 
-
-    :::image type="content" source="./media/get-started-manage-labs/registration-link.png" alt-text="Vínculo de registro del usuario":::
-    
-    Copie el vínculo de registro del campo de texto y péguelo en el correo electrónico o en la herramienta de mensajería segura que prefiera.  
-    
-    :::image type="content" source="./media/get-started-manage-labs/user-registration.png" alt-text="Envío del registro del usuario":::
+Los profesores pueden agregar alumnos a un laboratorio y supervisar sus cuotas de hora. Para más información sobre cómo agregar usuarios por dirección de correo electrónico o mediante una lista de hojas de cálculo y cómo registrarlos, consulte [Incorporación y administración de usuarios de laboratorio](how-to-configure-student-usage.md).
 
 Después de haber invitado a los usuarios o de haber compartido el vínculo, podrá supervisar qué usuarios se han registrado correctamente en la página **Usuarios** de la columna **Estado**. 
 

@@ -13,17 +13,17 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 12/01/2020
 tags: azure-synapse
-ms.openlocfilehash: ece76f0017a72484f5c4e66b2ab8c7e71d32f1a7
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 41ad711de81f075727e4c177c318054677cb0ece
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98132093"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185366"
 ---
 # <a name="data-discovery--classification"></a>Clasificación y detección de datos
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-La clasificación y detección de datos está integrada en Azure SQL Database, Instancia administrada de Azure SQL y Azure Synapse Analytics. Ofrece funcionalidades avanzadas para detectar, clasificar, etiquetar e informar de los datos confidenciales de las bases de datos.
+La clasificación y detección de datos está integrada en Azure SQL Database, Instancia administrada de Azure SQL y Azure Synapse Analytics. Ofrece funcionalidades básicas para detectar, clasificar, etiquetar e informar de los datos confidenciales de las bases de datos.
 
 Los datos más confidenciales pueden incluir información empresarial, financiera, sanitaria o personal. La detección y clasificación de estos datos puede representar un rol fundamental en el enfoque de la protección de la información de la organización. Puede servir como infraestructura para lo siguiente:
 
@@ -36,11 +36,11 @@ Los datos más confidenciales pueden incluir información empresarial, financier
 
 ## <a name="what-is-data-discovery--classification"></a><a id="what-is-dc"></a>¿Qué es la clasificación y detección de datos?
 
-La clasificación y detección de datos presenta un conjunto de servicios avanzados y nuevas capacidades de Azure. Constituye un nuevo paradigma de protección de la información para SQL Database, Instancia administrada de SQL y Azure Synapse, destinado no solo a proteger la base de datos, sino también los datos. El paradigma incluye:
+La clasificación y detección de datos presenta un conjunto de servicios básicos y nuevas funcionalidades en Azure. Constituye un nuevo paradigma de protección de la información para SQL Database, Instancia administrada de SQL y Azure Synapse, destinado no solo a proteger la base de datos, sino también los datos. El paradigma incluye:
 
 - **Detección y recomendaciones:** el motor de clasificación examina la base de datos e identifica las columnas que contienen datos potencialmente confidenciales. A continuación, le proporciona una manera sencilla de revisar y aplicar la clasificación recomendada a través de Azure Portal.
 
-- **Etiquetado:** puede aplicar etiquetas de clasificación de confidencialidad de forma persistente a las columnas, usando los nuevos atributos de metadatos que se han agregado al motor de base de datos de SQL Server. A continuación, estos metadatos se pueden utilizar para escenarios avanzados de auditoría y protección basados en la confidencialidad.
+- **Etiquetado:** puede aplicar etiquetas de clasificación de confidencialidad de forma persistente a las columnas, usando los nuevos atributos de metadatos que se han agregado al motor de base de datos de SQL Server. A continuación, estos metadatos se pueden utilizar en escenarios de auditoría y protección basados en la confidencialidad.
 
 - **Confidencialidad del conjunto de resultados de consulta:** la confidencialidad del conjunto de resultados de consulta se calcula en tiempo real con fines de auditoría.
 

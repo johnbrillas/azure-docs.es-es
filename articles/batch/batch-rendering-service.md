@@ -3,14 +3,14 @@ title: Introducción a la representación
 description: Introducción al uso de Azure para la representación e información general de las funcionalidades de representación con Azure Batch
 author: mscurrell
 ms.author: markscu
-ms.date: 08/02/2018
+ms.date: 01/14/2021
 ms.topic: how-to
-ms.openlocfilehash: 9fac5d3efabc5d9f796c91d688f35e01aeefdca3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1cd07f9322837c03e15aaeabec993820deb3170a
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87092769"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98232121"
 ---
 # <a name="rendering-using-azure"></a>Representación mediante Azure
 
@@ -18,11 +18,11 @@ La representación es el proceso de tomar los modelos 3D y convertirlos en imág
 
 La carga de trabajo de representación se usa mucho como efectos especiales (VFX) en el sector multimedia y de entretenimiento. La representación también se usa en muchos otros sectores como la publicidad, el mercado minorista, petróleo y gas y fabricación.
 
-El proceso de representación es muy intenso desde el punto de vista computacional; puede haber muchos fotogramas e imágenes para generar y cada imagen puede tardar muchas horas en representarse.  Por lo tanto, la representación es una carga de trabajo de procesamiento por lotes perfecta que puede aprovechar Azure y Azure Batch para ejecutar muchas representaciones en paralelo.
+El proceso de representación es muy intenso desde el punto de vista computacional; puede haber muchos fotogramas e imágenes para generar y cada imagen puede tardar muchas horas en representarse.  Por lo tanto, la representación es una carga de trabajo de procesamiento por lotes perfecta que puede aprovechar Azure para ejecutar muchas representaciones en paralelo y usar una amplia variedad de hardware, incluidas las GPU.
 
 ## <a name="why-use-azure-for-rendering"></a>¿Por qué usar Azure para la representación?
 
-Por muchas razones, la representación es una carga de trabajo perfectamente adecuada para Azure y Azure Batch:
+Por muchas razones, la representación es una carga de trabajo perfectamente adecuada para Azure:
 
 * Los trabajos de representación se pueden dividir en muchas partes que se pueden ejecutar en paralelo mediante varias máquinas virtuales:
   * Las animaciones constan de muchos fotogramas y cada fotograma se puede representar en paralelo.  Cuantas más máquinas virtuales haya disponibles para procesar cada fotograma, más rápido podrán generarse todos los fotogramas y la animación.
@@ -36,68 +36,31 @@ Por muchas razones, la representación es una carga de trabajo perfectamente ade
 * Elija entre una gran variedad de hardware conforme a la aplicación, la carga de trabajo y el período de tiempo:
   * Hay una gran variedad de hardware disponible en Azure que se puede asignar y administrar con Batch.
   * Según el proyecto, el requisito puede ser la mejor relación precio/rendimiento o el mejor rendimiento global.  Diferentes escenas y/o aplicaciones de representación tendrán requisitos de memoria distintos.  Alguna aplicación de representación puede aprovechar las GPU para el mejor rendimiento o determinadas características. 
-* Las máquinas virtuales de prioridad baja reducen los costos:
-  * Las máquinas virtuales de baja prioridad están disponibles por un gran descuento en comparación con las máquinas virtuales convencionales a petición y son adecuadas para algunos tipos de trabajo.
-  * Azure Batch puede asignar máquinas virtuales de baja prioridad y proporciona flexibilidad sobre cómo se usan para satisfacer un amplio conjunto de requisitos.  Los grupos de Batch pueden constar tanto de máquinas virtuales dedicadas como de baja prioridad, siendo posible cambiar la combinación de tipos de máquina virtual en cualquier momento.
+* Las máquinas virtuales de prioridad baja o [al contado](https://azure.microsoft.com/pricing/spot/) reducen el costo:
+  * Las máquinas virtuales de prioridad baja y al contado están disponibles con un gran descuento en comparación con las máquinas virtuales convencionales, y son adecuadas para algunos tipos de trabajos.
+  
+## <a name="existing-on-premises-rendering-environment"></a>Entorno de representación local existente
 
-## <a name="options-for-rendering-on-azure"></a>Opciones de representación en Azure
+El caso más común es el de una granja de representaciones local administrada mediante una aplicación de administración de representaciones, como PipelineFX Qube, Royal Render, Thinkbox Deadline o una aplicación personalizada.  El requisito es ampliar la capacidad de la granja de representación local mediante máquinas virtuales de Azure.
 
-Existe una amplia gama de funcionalidades de Azure que se pueden usar para representar cargas de trabajo.  Cuáles de estas funcionalidades se deben utilizar depende del entorno existente y los requisitos.
+Los servicios y la infraestructura de Azure se usan para crear un entorno híbrido donde Azure se emplea para complementar la capacidad local. Por ejemplo:
 
-### <a name="existing-on-premises-rendering-environment-using-a-render-management-application"></a>Entorno de representación local existente mediante una aplicación de administración de representación
+* Use una [red virtual](../virtual-network/virtual-networks-overview.md) para colocar los recursos de Azure en la misma red que la granja de representaciones local.
+* Use [Avere vFXT for Azure](../avere-vfxt/avere-vfxt-overview.md) o [Azure HPC Cache](../hpc-cache/hpc-cache-overview.md) para almacenar en caché los archivos de origen de Azure con el fin de reducir el uso y la latencia del ancho de banda y aumentar el rendimiento.
+* Asegúrese de que el servidor de licencias existente se encuentre en la red virtual y compre las licencias que sean necesarias para satisfacer la capacidad adicional basada en Azure.
 
-El caso más común es que haya una granja de representación local que se administre mediante una aplicación de administración de representación, como PipelineFX Qube, Royal Render o Thinkbox Deadline.  El requisito es ampliar la capacidad de la granja de representación local mediante máquinas virtuales de Azure.
+## <a name="no-existing-render-farm"></a>Granja de representación no existente
 
-El software de administración de representación cuenta con soporte técnico de Azure integrado o hacemos que haya complementos disponibles que agregan soporte técnico de Azure. Para más información sobre los administradores de representación admitidos y la funcionalidad habilitada, consulte el artículo sobre el [uso de administradores de representación](./batch-rendering-render-managers.md).
+Las estaciones de trabajo cliente pueden estar realizando la representación, pero la carga de representación aumenta y se tarda demasiado en usar únicamente la capacidad de la estación de trabajo.
 
-### <a name="custom-rendering-workflow"></a>Flujo de trabajo de representación personalizado
+Hay dos opciones principales disponibles:
 
-El requisito es para que las máquinas virtuales amplíen una granja de representación existente.  Los grupos de Azure Batch pueden asignar grandes cantidades de máquinas virtuales, permitir el uso de máquinas virtuales de baja prioridad y el escalado automático dinámicamente con máquinas virtuales de precio completo, y proporcionar licencias de pago por uso para aplicaciones de representación populares.
+* Implementar un administrador de representaciones local, como Royal Render, y configurar un entorno híbrido para usar Azure cuando se necesite más capacidad o rendimiento. Un administrador de representaciones está específicamente adaptado a las cargas de trabajo de representación e incluye complementos para las aplicaciones cliente más conocidas, lo que permite el envío sencillo de los trabajos de representación.
 
-### <a name="no-existing-render-farm"></a>Granja de representación no existente
-
-Las estaciones de trabajo cliente pueden realizar la representación, pero la carga de trabajo de representación aumenta y se tarda demasiado en usar únicamente la capacidad de la estación de trabajo.  Azure Batch se puede usar tanto para asignar proceso de granja de representación a petición como para programar los trabajos de representación en la granja de representación de Azure.
-
-## <a name="azure-batch-rendering-capabilities"></a>Funcionalidades de representación de Azure Batch
-
-Azure Batch permite la ejecución de cargas de trabajo paralelas en Azure.  Permite la creación y administración de un gran número de máquinas virtuales en las que se instalan y ejecutan las aplicaciones.  También ofrece funcionalidades de programación de trabajo completas para ejecutar instancias de esas aplicaciones, lo que proporciona la asignación de tareas a las máquinas virtuales, la puesta en cola, la supervisión de aplicaciones, etc.
-
-Azure Batch se utiliza para muchas cargas de trabajo, pero las siguientes funcionalidades están disponibles para hacer que sea específicamente más fácil y rápido ejecutar cargas de trabajo de representación.
-
-* Imágenes de máquina virtual con aplicaciones de gráficos y representación preinstaladas:
-  * Hay imágenes de máquina virtual de Azure Marketplace disponibles que contienen aplicaciones de gráficos y representación populares, lo que evita la necesidad de instalar las aplicaciones por sí mismo o crear sus propias imágenes personalizadas con las aplicaciones instaladas. 
-* Licencias de pago por uso para aplicaciones de representación:
-  * Puede optar por pagar por las aplicaciones por minuto, además de pagar por las máquinas virtuales de proceso, lo que evita tener que comprar licencias y la posible configuración de un servidor de licencias para las aplicaciones.  Pagar por el uso también significa que es posible atender cargas variables e inesperadas, ya que no hay un número fijo de licencias.
-  * También es posible usar las aplicaciones preinstaladas con sus propias licencias y no usar las licencias de pago por uso. Para ello, normalmente se instala un servidor de licencias local o basado en Azure y se usa una red virtual de Azure para conectar el grupo de representación al servidor de licencias.
-* Complementos para aplicaciones de modelado y diseño de cliente:
-  * Los complementos permiten a los usuarios finales usar Azure Batch directamente desde la aplicación cliente, como Autodesk Maya, lo que les permite crear grupos, enviar trabajos y hacer uso de más capacidad de proceso a realizar representaciones más rápido.
-* Integración del administrador de representación:
-  * Azure Batch se integra en las aplicaciones de administración de presentación o hay complementos disponibles para proporcionar la integración de Azure Batch.
-
-Hay varias maneras de usar Azure Batch, que también se aplican a la representación con Azure Batch.
-
-* API:
-  * Escriba código mediante [REST](/rest/api/batchservice), [.NET](/dotnet/api/overview/azure/batch), [Python](/python/api/overview/azure/batch), [Java](/java/api/overview/azure/batch) u otras API admitidas.  Los desarrolladores pueden integrar funcionalidades de Azure Batch en sus aplicaciones o su flujo de trabajo existentes, independientemente de que se encuentre en la nube o de forma local.  Por ejemplo, el [complemento Autodesk Maya](https://github.com/Azure/azure-batch-maya) utiliza la API de Python de Batch para invocar a Batch, crear y administrar grupos, enviar trabajos y tareas y supervisar el estado.
-* Herramientas de línea de comandos:
-  * La [línea de comandos de Azure](/cli/azure/) o [Azure PowerShell](/powershell/azure/) se puede usar para crear un script de uso de Batch.
-  * En concreto, la compatibilidad con plantillas de la CLI de Batch facilita la creación de grupos y el envío de trabajos.
-* Interfaces de usuario:
-  * [Batch Explorer](https://github.com/Azure/BatchExplorer) es una herramienta de cliente multiplataforma que también permite administrar y supervisar las cuentas de Batch, pero proporciona algunas funcionalidades más versátiles en comparación con la interfaz de usuario de Azure Portal.  Se proporciona un conjunto de plantillas de grupo y trabajo adaptadas a cada aplicación admitida y se puede usar para crear fácilmente grupos y enviar trabajos.
-  * Azure Portal se puede usar para administrar y supervisar Azure Batch.
-* Complementos de aplicación cliente:
-  * Hay complementos disponibles que permiten que la representación de Batch se use directamente desde las aplicaciones de modelado y diseño del cliente. Los complementos principalmente invocan la aplicación Batch Explorer con información contextual sobre el modelo 3D actual.
-  * Están disponibles los siguientes complementos:
-    * [Azure Batch para Maya](https://github.com/Azure/azure-batch-maya)
-    * [3ds Max](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/3ds-max)
-    * [Blender](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/blender)
-
-## <a name="getting-started-with-azure-batch-rendering"></a>Introducción a la representación con Azure Batch
-
-Consulte los siguientes tutoriales de introducción para probar la representación con Azure Batch:
-
-* [Tutorial: Representación de una escena de Blender con Batch Explorer](./tutorial-rendering-batchexplorer-blender.md)
-* [Uso de la CLI de Batch para representar una escena de Autodesk 3ds Max](./tutorial-rendering-cli.md)
+* Una solución personalizada que use Azure Batch para asignar y administrar la capacidad de proceso, así como para proporcionar la programación de trabajos para ejecutar los trabajos de representación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Determine la lista de aplicaciones y versiones de representación incluidas en las imágenes de máquina virtual de Azure Marketplace en [este artículo](./batch-rendering-applications.md).
+ Aprenda a [usar la infraestructura y los servicios de Azure para ampliar una granja de representaciones local existente](https://azure.microsoft.com/solutions/high-performance-computing/rendering/).
+
+Más información sobre las [funcionalidades de representación de Azure Batch](batch-rendering-functionality.md).

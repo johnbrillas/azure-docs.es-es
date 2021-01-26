@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 12/10/2020
 ms.author: rolyon
-ms.openlocfilehash: 92b27690ab1f2ca8d98eb2231c5a27bc508613f8
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 81224b5e16f3bca5da641bbb2e9c82dd59000e79
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97095430"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185893"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory"></a>Transferencia de una suscripción de Azure a otro directorio de Azure AD
 
@@ -208,7 +208,7 @@ Las identidades administradas no se actualizan cuando una suscripción se transf
     | La propiedad `alternativeNames` no incluye `isExplicit`. | Asignada por el sistema |
     | La propiedad `alternativeNames` incluye `isExplicit=True`. | Asignada por el usuario |
 
-    También puede usar [az identity list](/cli/azure/identity#az_identity_list) para enumerar las identidades administradas asignadas por el usuario. Para obtener más información, consulte [Creación, enumeración o eliminación de una identidad administrada asignada por el usuario mediante la CLI de Azure](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md).
+    También puede usar [az identity list](/cli/azure/identity#az_identity_list) para enumerar las identidades administradas asignadas por el usuario. Para más información, consulte [Creación, enumeración o eliminación de una identidad administrada asignada por el usuario mediante la CLI de Azure](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md).
 
     ```azurecli
     az identity list

@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/14/2020
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: 4156308fa58ea1f02e6e3f2c5174839dc1cd381c
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 2731a7f263db223c258ddfc434bc84f59632d1f5
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96839708"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223370"
 ---
 # <a name="shared-image-galleries-overview"></a>Información general de Shared Image Galleries
 
@@ -316,6 +316,11 @@ Para implementaciones de VM y conjuntos de escalado de máquinas virtuales que u
 ### <a name="can-i-update-my-virtual-machine-scale-set-created-using-managed-image-to-use-shared-image-gallery-images"></a>¿Puedo actualizar mi conjunto de escalado de máquinas virtuales creado mediante una imagen administrada para usar imágenes de Shared Image Gallery?
 
 Sí, puede actualizar la referencia de imagen del conjunto de escalado desde una imagen administrada a una imagen de Shared Image Gallery, siempre que el tipo de sistema operativo, la generación de Hyper-V y el diseño del disco de datos coincidan entre las imágenes.
+
+## <a name="troubleshoot-shared-image-gallery-issues"></a>Solución de problemas de Shared Image Gallery
+Si tiene problemas para realizar operaciones en los recursos de la galería de imágenes compartidas, consulte la lista de errores comunes en la [guía de solución de problemas](troubleshooting-shared-images.md).
+
+Además, puede publicar y etiquetar la pregunta con `azure-virtual-machines-images` en [Preguntas y respuestas](/answers/topics/azure-virtual-machines-images.html).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

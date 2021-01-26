@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: dech
-ms.openlocfilehash: 381aa88326440aba91e02393cfe2bdb1e2c38097
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: b89fcf32ed033f359b4db601e36cc69bb899944d
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340420"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165831"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db-python-notebooks-preview"></a>Uso de los comandos y las características de cuadernos integrados en cuadernos de Python de Azure Cosmos DB (versión preliminar)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -123,6 +123,8 @@ Total time taken : 00:00:38.1228087 hours
 Total RUs consumed : 25022.58
 ```
 Con las estadísticas de salida, puede calcular las RU/s reales que se usan para cargar los elementos. Por ejemplo, si 25 000 RU se consumieron más de 38 segundos, las RU/s reales son 25 000 RU/38 segundos = 658 RU/s.
+
+Puede guardar archivos (por ejemplo, archivos CSV o JSON) en el área de trabajo local del cuaderno. Se recomienda agregar una celda al cuaderno para guardar los archivos. Estos archivos se pueden ver desde el terminal integrado del entorno del cuaderno. Puede usar el comando "ls" para ver los archivos guardados. Sin embargo, estos archivos se quitan al restablecer el área de trabajo. Por lo tanto, es mejor usar almacenamiento persistente, como GitHub o una cuenta de almacenamiento en lugar del área de trabajo local.
 
 ## <a name="run-another-notebook-in-current-notebook"></a>Ejecución de otro cuaderno en el actual 
 Puede usar el comando mágico ``%%run`` para ejecutar otro cuaderno en el área de trabajo desde el cuaderno actual. La sintaxis es la siguiente:

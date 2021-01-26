@@ -4,17 +4,17 @@ description: Rehidrate los blobs de Archive Storage para poder acceder a los dat
 services: storage
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 04/08/2020
+ms.date: 01/08/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: f74d4ffdd724039354a311234317dac889cd7cfe
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 5a89e5a9eca653a2d15e5b09605b78bc18d76b8f
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95545947"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165678"
 ---
 # <a name="rehydrate-blob-data-from-the-archive-tier"></a>Rehidratación de los datos de blob desde el nivel de archivo
 
@@ -29,9 +29,13 @@ Mientras un blob se encuentra en el nivel de acceso de archivo, se considera sin
 
 [!INCLUDE [storage-blob-rehydration](../../../includes/storage-blob-rehydrate-include.md)]
 
+## <a name="monitor-rehydration-progress"></a>Supervisión del progreso de la rehidratación
+
+Durante la rehidratación, use la operación de obtención de propiedades del blob para comprobar el atributo **Archive Status** y confirmar cuándo ha finalizado el cambio de nivel. El estado indica "rehydrate-pending-to-hot" (rehidratación pendiente para acceso frecuente) o "rehydrate-pending-to-cool" (rehidratación pendiente para acceso esporádico), según el nivel de destino. Al finalizar, se quita la propiedad de blob archive status y la propiedad de blob **Access Tier** refleja el nuevo nivel de acceso frecuente o esporádico.
+
 ## <a name="copy-an-archived-blob-to-an-online-tier"></a>Copia de un blob archivado en un nivel en línea
 
-Si no quiere rehidratar un archivo blob, puede elegir realizar una operación [Copiar blob](/rest/api/storageservices/copy-blob). Su blob original permanecerá sin modificaciones en el archivo, mientras se crea un nuevo blob en el nivel frecuente o esporádico en línea para que pueda trabajar. En la operación Copiar blob, también puede establecer la propiedad opcional *​​x-ms-rehydrate-priority* en Estándar o Alta para especificar la prioridad con la que desea que se cree su copia de blob.
+Si no quiere rehidratar un archivo blob, puede elegir realizar una operación [Copiar blob](/rest/api/storageservices/copy-blob). Su blob original permanecerá sin modificaciones en el archivo, mientras se crea un nuevo blob en el nivel frecuente o esporádico en línea para que pueda trabajar. En la operación **Copiar blob**, también puede establecer la propiedad opcional *​​x-ms-rehydrate-priority* en Estándar o Alta para especificar la prioridad con la que quiere que se cree su copia del blob.
 
 La copia de un BLOB desde el archivo puede tardar horas en completarse, en función de la prioridad de rehidratación seleccionada. En segundo plano, la operación **Copiar blob** lee el blob de origen de archivo para crear un nuevo blob en línea en el nivel de destino seleccionado. El nuevo blob puede ser visible cuando enumera los blobs, pero los datos no estarán disponibles hasta que la lectura del blob de archivo de origen esté completa y los datos se escriban en el nuevo blob de destino en línea. El nuevo BLOB es una copia independiente y cualquier modificación o eliminación en él no afecta al BLOB de archivo de origen.
 

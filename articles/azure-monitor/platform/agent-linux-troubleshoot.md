@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: 2b811b1ace646cc4e0a93b937fbb90cfbf7aec0f
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 26fb70592a75910ae21d327e53569eda12dfea97
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97704901"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98197377"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Cómo solucionar problemas relacionados con el agente de Log Analytics para Linux 
 
@@ -96,6 +96,7 @@ Hemos visto que una reinstalación limpia del agente corregirá la mayoría de l
 | 5 | La agrupación de shell se debe ejecutar como raíz, o bien se devolvió el error 403 durante la incorporación. Ejecute el comando con `sudo`. |
 | 6 | Arquitectura de paquete no válida, o bien se devolvió el error 200 durante la incorporación; los paquetes omsagent-*x64.sh solo pueden instalarse en sistemas de 64 bits, y los paquetes omsagent-* x86.sh solo pueden instalarse en sistemas de 32 bits. Descargue el paquete correcto para su arquitectura de la [versión más reciente](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/latest). |
 | 17 | No se pudo instalar el paquete de OMS. Examine el resultado del comando para conocer el error raíz. |
+| 18 | Error en la instalación del paquete OMSConfig. Examine el resultado del comando para conocer el error raíz. |
 | 19 | No se pudo instalar el paquete de OMI. Examine el resultado del comando para conocer el error raíz. |
 | 20 | No se pudo instalar el paquete de SCX. Examine el resultado del comando para conocer el error raíz. |
 | 21 | No se pudieron instalar los kits del proveedor. Examine el resultado del comando para conocer el error raíz. |

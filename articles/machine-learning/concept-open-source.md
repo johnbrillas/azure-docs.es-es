@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 12/16/2020
-ms.openlocfilehash: d987d21700e5f19ad8228b08508e8da842cc39eb
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.date: 01/14/2020
+ms.openlocfilehash: 983e037376be48f497118b06cce8b23c430b1501
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97914117"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223081"
 ---
 # <a name="open-source-integration-with-azure-machine-learning-projects"></a>Integración de código abierto con proyectos de Azure Machine Learning
 
@@ -42,11 +42,11 @@ Los algoritmos de aprendizaje automático de código abierto denominados redes n
 
 Los marcos de aprendizaje profundo y las guías de procedimientos de código abierto incluyen:
 
- *  [PyTorch](https://github.com/pytorch/pytorch): [entrenamiento de un modelo de clasificación de imágenes de aprendizaje profundo con aprendizaje por transferencia en PyTorch](how-to-train-pytorch.md) 
+ *  [PyTorch](https://github.com/pytorch/pytorch): [entrenamiento de un modelo de clasificación de imágenes de aprendizaje profundo con aprendizaje por transferencia](how-to-train-pytorch.md) 
  *  [TensorFlow](https://github.com/tensorflow/tensorflow): [reconocimiento de dígitos manuscritos con TensorFlow](how-to-train-tensorflow.md)
  *  [Keras](https://github.com/keras-team/keras): [creación de una red neuronal para analizar imágenes con Keras](how-to-train-keras.md)
 
-El entrenamiento de un modelo de aprendizaje profundo desde cero a menudo requiere grandes cantidades de tiempo, datos y recursos de proceso. Puede abreviar el proceso de entrenamiento mediante el aprendizaje por transferencia. El aprendizaje por transferencia es una técnica que aplica los conocimientos que se adquieren al resolver un problema en un problema diferente, pero relacionado. Esto significa que puede tomar un modelo existente y reasignarlo. Consulte el [artículo sobre aprendizaje profundo](concept-deep-learning-vs-machine-learning.md#transfer-learning) para obtener más información sobre el aprendizaje por transferencia.
+El entrenamiento de un modelo de aprendizaje profundo desde cero a menudo requiere grandes cantidades de tiempo, datos y recursos de proceso. Puede abreviar el proceso de entrenamiento mediante el aprendizaje por transferencia. El aprendizaje por transferencia es una técnica que aplica los conocimientos que se adquieren al resolver un problema en un problema diferente, pero relacionado. Esto significa que puede tomar un modelo existente y reasignarlo. Consulte el artículo [Aprendizaje profundo frente a aprendizaje automático](concept-deep-learning-vs-machine-learning.md#what-is-transfer-learning) para más información sobre el aprendizaje por transferencia.
 
 ### <a name="reinforcement-learning-ray-rllib"></a>Aprendizaje de refuerzo: Ray RLLib
 

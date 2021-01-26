@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/16/2020
 ms.author: sedusch
-ms.openlocfilehash: d57512d631685f1f8da7dcd22181bf4d4223937f
-ms.sourcegitcommit: 02ed9acd4390b86c8432cad29075e2204f6b1bc3
+ms.openlocfilehash: c70de186468eb3efacc82c1d5c8802612475fd4d
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97807576"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98232801"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Implementación de Azure Virtual Machines para SAP NetWeaver
 
@@ -73,7 +73,7 @@ ms.locfileid: "97807576"
 [2367194]:https://launchpad.support.sap.com/#/notes/2367194
 
 [azure-cli]:../../../cli-install-nodejs.md
-[azure-cli-2]:https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest
+[azure-cli-2]:https://docs.microsoft.com/cli/azure/install-azure-cli
 [azure-portal]:https://portal.azure.com
 [azure-ps]:/powershell/azure/
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
@@ -912,8 +912,8 @@ Para más información sobre las rutas definidas por el usuario, consulte [Rutas
 ### <a name="configure-the-azure-extension-for-sap"></a><a name="d98edcd3-f2a1-49f7-b26a-07448ceb60ca"></a>Configuración de la extensión de Azure para SAP
 
 > [!NOTE]
-> Declaración general de soporte técnico: Abra siempre un incidente con SAP en el componente BC-OP-NT-AZR para Windows o BC-OP-LNX-AZR si necesita soporte técnico para la extensión de Azure para SAP.
-> Hay ingenieros de Soporte técnico de Microsoft dedicados que trabajan en el sistema de soporte de SAP para ayudar a nuestros clientes conjuntos.
+> Declaración general de soporte técnico:  
+> La compatibilidad con la extensión de Azure para SAP se proporciona a través de los canales de soporte técnico de SAP. Si necesita ayuda con la extensión de Azure para SAP, abra un caso de soporte técnico con [Soporte técnico de SAP](https://support.sap.com/). 
 
 Cuando la máquina virtual esté preparada tal y como se describe en [Escenarios de implementación de máquinas virtuales para SAP en Azure][deployment-guide-3], el Agente de máquina virtual de Azure se instala en la máquina virtual. El siguiente paso es implementar la extensión de Azure para SAP, que está disponible en el repositorio de extensiones de Azure, en los centros de datos globales de Azure. Para más información, consulte [Planeación e implementación de Azure Virtual Machines para SAP en NetWeaver][planning-guide-9.1].
 

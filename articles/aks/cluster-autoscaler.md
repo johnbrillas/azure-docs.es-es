@@ -4,12 +4,12 @@ description: Aprenda a usar el escalado automático de clústeres para escalar a
 services: container-service
 ms.topic: article
 ms.date: 07/18/2019
-ms.openlocfilehash: e644a931152c83a5232c8233d519f7807ab708af
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 5f0754638be1aa29672b6a59218a6c9d695261a5
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92542648"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223149"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Escalar automáticamente un clúster para satisfacer las necesidades de la aplicación en Azure Kubernetes Service (AKS)
 
@@ -97,7 +97,7 @@ Tardará unos minutos en actualizar el clúster y configurar las opciones del es
 > [!IMPORTANT]
 > Si tiene varios grupos de nodos en el clúster de AKS, vaya a la sección de [escalado automático con varios grupos de agentes](#use-the-cluster-autoscaler-with-multiple-node-pools-enabled). Los clústeres con varios grupos de agentes habilitados requieren el uso del conjunto de comandos `az aks nodepool` para cambiar las propiedades específicas del grupo de nodos en lugar de `az aks`.
 
-En el paso anterior para crear un clúster de AKS o actualizar un grupo de nodos existente, el número mínimo de nodos del escalado automático de clústeres se estableció en *1* , y el número máximo de nodos se estableció en *3*. Como las necesidades de la aplicación van cambiando, es posible que deba ajustar el número de nodos del escalado automático de clústeres.
+En el paso anterior para crear un clúster de AKS o actualizar un grupo de nodos existente, el número mínimo de nodos del escalado automático de clústeres se estableció en *1*, y el número máximo de nodos se estableció en *3*. Como las necesidades de la aplicación van cambiando, es posible que deba ajustar el número de nodos del escalado automático de clústeres.
 
 Para cambiar el número de nodos, use el comando [az aks update][az-aks-update].
 
@@ -130,14 +130,15 @@ También puede configurar detalles más pormenorizados del escalador automático
 | scale-down-unneeded-time         | Cuánto tiempo debe ser innecesario un nodo antes de que sea válido para la reducción vertical                  | 10 minutos    |
 | scale-down-unready-time          | Cuánto tiempo debe ser innecesario un nodo no listo antes de que sea válido para la reducción vertical         | 20 minutos    |
 | scale-down-utilization-threshold | Nivel de uso del nodo, definido como la suma de los recursos solicitados dividida por la capacidad, por debajo del cual se puede considerar un nodo para la reducción vertical | 0.5 |
-| max-graceful-termination-sec     | Número máximo de segundos que el escalador automático del clúster espera la terminación del pod al intentar reducir verticalmente un nodo. | 600 segundos   |
+| max-graceful-termination-sec     | Número máximo de segundos que la escalabilidad automática del clúster espera la terminación del pod al intentar reducir verticalmente un nodo. | 600 segundos   |
 | balance-similar-node-groups      | Detecta grupos de nodos similares y equilibra el número de nodos entre ellos                 | false         |
-| expander                         | Tipo de grupo de nodos [expander](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-expanders) que se va a usar en el escalado vertical. Valores posibles: `most-pods`, `random`, `least-waste` | random | 
+| expander                         | Tipo de grupo de nodos [expander](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-expanders) que se va a usar en el escalado vertical. Valores posibles: `most-pods`, `random`, `least-waste`, `priority` | random | 
 | skip-nodes-with-local-storage    | Si es true, el escalador automático del clúster no eliminará nunca nodos con pods con almacenamiento local, por ejemplo, EmptyDir o HostPath | true |
 | skip-nodes-with-system-pods      | Si es true, el escalador automático del clúster nunca eliminará los nodos con pods de kube-system (excepto para DaemonSet o mirror) | true | 
-| max-empty-bulk-delete            | Número máximo de nodos vacíos que se pueden eliminar al mismo tiempo.                      | 10 nodos      |
-| new-pod-scale-up-delay           | En escenarios como la escala de ráfagas y lotes en los que no quiere que la CA actúe antes de que el programador de Kubernetes programe todos los pods, puede indicarle a la CA que ignore los pods no programados antes de que tengan una antigüedad concreta".                                                                                                                | 10 segundos    |
-| max-total-unready-percentage     | Porcentaje máximo de nodos no leídos en el clúster. Una vez que se haya superado este porcentaje, la CA detiene las operaciones | 45 % | 
+| max-empty-bulk-delete            | Número máximo de nodos vacíos que se pueden eliminar al mismo tiempo.                       | 10 nodos      |
+| new-pod-scale-up-delay           | En escenarios como la escala de ráfagas y lotes en los que no quiere que la CA actúe antes de que el programador de Kubernetes programe todos los pods, puede indicarle a la CA que ignore los pods no programados antes de que tengan una antigüedad concreta.                                                                                                                | 0 segundos    |
+| max-total-unready-percentage     | Porcentaje máximo de nodos no leídos en el clúster. Una vez que se haya superado este porcentaje, la CA detiene las operaciones | 45 % |
+| max-node-provision-time          | Tiempo máximo que la escalabilidad automática espera a que se aprovisione un nodo.                           | 15 minutos    |   
 | ok-total-unready-count           | Número de nodos no leídos permitidos, con independencia del valor de max-total-unready-percentage            | 3 nodos       |
 
 > [!IMPORTANT]

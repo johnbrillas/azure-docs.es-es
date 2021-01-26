@@ -10,13 +10,13 @@ ms.topic: troubleshooting
 author: danimir
 ms.author: danil
 ms.reviewer: wiassaf, sstein
-ms.date: 06/12/2020
-ms.openlocfilehash: c42db1445c939069f334d04ea26d54cdb843c336
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 1/14/2021
+ms.openlocfilehash: 3b57172daeffd1766da456e56cb5e445427a4858
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96488840"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98220395"
 ---
 # <a name="troubleshoot-azure-sql-database-and-azure-sql-managed-instance-performance-issues-with-intelligent-insights"></a>Solucione con Intelligent Insights los problemas de rendimiento de Azure SQL Database e Instancia administrada de Azure SQL.
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -128,7 +128,9 @@ El registro de diagnóstico genera detalles del bloqueos que puede usar como bas
 
 La forma más sencilla y segura de mitigar el problema es mantener cortas las transacciones y reducir la superficie de bloqueo de las consultas más costosas. Puede dividir un lote grande de operaciones en operaciones más pequeñas. Se recomienda reducir la superficie de bloqueo de consulta. Para ello, haga que la consulta sea tan eficaz como sea posible. Reduzca las exploraciones grandes porque aumentar las posibilidades de interbloqueos y afectan negativamente al rendimiento general de la base de datos. En el caso de consultas identificadas que provocan bloqueo, puede crear nuevos índices o agregar columnas al índice existente para evitar recorridos de tabla.
 
-Para obtener más sugerencias, vea [How to resolve blocking problems that are caused by lock escalation in SQL Server](https://support.microsoft.com/help/323630/how-to-resolve-blocking-problems-that-are-caused-by-lock-escalation-in) (Cómo resolver los problemas de bloqueo causados por la extensión de bloqueo en SQL Server).
+Para ver más sugerencias, consulte:
+- [Descripción y resolución de problemas de bloqueo en Azure SQL](understand-resolve-blocking.md)
+- [Resolución de problemas de bloqueo causados por la extensión de bloqueo en SQL Server](https://support.microsoft.com/help/323630/how-to-resolve-blocking-problems-that-are-caused-by-lock-escalation-in).
 
 ## <a name="increased-maxdop"></a>Aumento de MAXDOP
 

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 12/03/2020
-ms.openlocfilehash: c824e0abea7320a20441e51caa2a05d534ff61b3
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 003a71f962652b1a1436f5d9875835534090a77a
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97092693"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98196595"
 ---
 # <a name="automatically-label-your-data-in-azure-purview"></a>Etiquetado automático de los datos en Azure Purview
 
@@ -33,8 +33,9 @@ En Purview, las clasificaciones son similares a las etiquetas de asunto y se usa
 Purview usa las mismas clasificaciones, también conocidas como tipos de información confidencial, que Microsoft 365.  Las etiquetas de confidencialidad de MIP se crean en el Centro de seguridad y cumplimiento (SCC) de Microsoft 365. Esto le permite extender las etiquetas de confidencialidad existentes a través de los recursos de Azure Purview.
 
 > [!NOTE]
-> Mientras que las clasificaciones coinciden directamente (un número del seguro social tiene una clasificación de **Número del seguro social**), se aplican etiquetas de confidencialidad cuando se encuentran una o varias clasificaciones y escenarios juntos. 
-> 
+> Las clasificaciones se hacen coincidir directamente, como el número de la seguridad social, que tiene una clasificación de **Número del seguro social**. 
+>
+> En cambio, las etiquetas de confidencialidad se aplican cuando una o varias clasificaciones y condiciones se encuentran juntas. En este contexto, las [condiciones](/microsoft-365/compliance/apply-sensitivity-label-automatically) hacen referencia a todos los parámetros que se pueden definir para los datos no estructurados, como la **proximidad a otra clasificación** y el **% de confianza**. 
 
 Las etiquetas de confidencialidad de Azure Purview se pueden usar para aplicar automáticamente etiquetas a archivos y columnas de bases de datos.
 
@@ -91,11 +92,6 @@ Mediante la extensión de las etiquetas de confidencialidad de MIP con Azure Pur
 > Como Microsoft 365 y Azure Purview son servicios independientes, existe la posibilidad de que se implementen en regiones diferentes. Los nombres de etiqueta y los nombres de tipo de información confidencial se consideran datos de cliente y se mantienen dentro de la misma ubicación geográfica de manera predeterminada para proteger la confidencialidad de los datos y para evitar la legislación de RGPD.
 >
 > Por este motivo, las etiquetas y los tipos de información confidencial personalizada no se comparten en Azure Purview de manera predeterminada y requieren su consentimiento para usarlos en Azure Purview.
-
-> [!IMPORTANT]
-> Su consentimiento permite a Microsoft compartir el nombre de la etiqueta y el nombre del tipo de información confidencial personalizada *tanto en* Azure Purview como en Azure Security Center (ASC). Microsoft usa la información de la etiqueta de Azure Purview para enriquecer sus recomendaciones y alertas en ASC. 
->
-> El consentimiento del centro de cumplimiento de Microsoft 365 se aplica al uso compartido de estos datos con ambos servicios. Actualmente, no hay ninguna opción para compartir la información de etiquetado solo con Azure Purview.
 
 **Para extender las etiquetas de confidencialidad a Purview:**
 

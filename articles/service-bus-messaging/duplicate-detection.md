@@ -2,13 +2,13 @@
 title: Detección de mensajes duplicados de Azure Service Bus | Microsoft Docs
 description: En este artículo se explica cómo puede detectar duplicados en mensajes de Azure Service Bus. El mensaje duplicado se puede omitir y quitar.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: dbca1b4b4f894d35835e7d37e0b4e742a2d3b917
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/13/2021
+ms.openlocfilehash: 29972f756c66f524cc2e4684fcb7afd1ca628820
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87083895"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98184686"
 ---
 # <a name="duplicate-detection"></a>Detección de duplicados
 
@@ -18,16 +18,21 @@ También puede producirse un error en el nivel de cliente o de red un momento an
 
 La detección de duplicados elimina la duda en estas situaciones, ya que permite al remitente reenviar el mismo mensaje, y la cola o el tema descartan las copias duplicadas.
 
+## <a name="how-it-works"></a>¿Cómo funciona? 
 La habilitación de la detección de duplicados ayuda a mantener el seguimiento del valor *MessageId* controlado por la aplicación de todos los mensajes enviados a una cola o un tema durante una ventana de tiempo específica. Si se envía algún mensaje nuevo con *MessageId* que se haya registrado durante el periodo de tiempo, se notifica como aceptado (la operación de envío se realiza correctamente), pero el mensaje recién enviado se ignora y descarta al instante. No se tiene en cuenta ninguna otra parte del mensaje que no sea *MessageId*.
 
 El control de aplicación del identificador es esencial, ya que es lo único que permite que la aplicación enlace el valor *MessageId* a un contexto de proceso empresarial desde el que se pueda reconstruir de manera predecible en caso de error.
 
 En el caso de un proceso empresarial en el que se envían varios mensajes en el transcurso del control de algún contexto de aplicación, el valor *MessageId* puede constar del identificador de contexto de nivel de aplicación, como un número de orden de compra, y el asunto del mensaje, por ejemplo, **12345.2017/payment**.
 
-El valor *MessageId* siempre puede ser algún GUID, pero el anclaje del identificador al proceso empresarial produce una capacidad de repetición predecible, lo que resulta conveniente para aprovechar con efectividad la característica de detección de duplicados.
+El valor *MessageId* siempre puede ser algún GUID, pero el anclaje del identificador al proceso de negocio produce una capacidad de repetición predecible, lo que resulta conveniente para usar con efectividad la característica de detección de duplicados.
 
-> [!NOTE]
-> Si está habilitada la detección de duplicados y no se establece la clave de partición o el identificador de sesión, se usará el identificador de mensaje como clave de partición. Si tampoco se ha definido el identificador de mensaje, las bibliotecas de .NET y AMQP generarán automáticamente un identificador para el mensaje. Para más información, consulte [Uso de claves de partición](service-bus-partitioning.md#use-of-partition-keys).
+> [!IMPORTANT]
+>- Cuando la **creación de particiones** está **habilitada**, `MessageId+PartitionKey` se usa para determinar la unicidad. Cuando se habilitan las sesiones, la clave de partición y el identificador de sesión deben ser iguales. 
+>- Cuando la **creación de particiones** está **deshabilitada** (valor predeterminado), solo se usa `MessageId` para determinar la unicidad.
+>- Para información sobre SessionId, PartitionKey y MessageId, consulte [Uso de claves de partición](service-bus-partitioning.md#use-of-partition-keys).
+>- El [nivel premier](service-bus-premium-messaging.md) no admite la creación de particiones, por lo que se recomienda usar identificadores de mensaje únicos en las aplicaciones y no depender de claves de partición para la detección de duplicados. 
+
 
 ## <a name="enable-duplicate-detection"></a>Habilitación de la detección de duplicados
 
@@ -58,7 +63,7 @@ Para más información sobre la mensajería de Service Bus, consulte los siguien
 * [Introducción a las colas de Service Bus](service-bus-dotnet-get-started-with-queues.md)
 * [Uso de temas y suscripciones de Service Bus](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 
-En escenarios en los que el código de cliente no puede volver a enviar un mensaje con el mismo *MessageId* que lo hizo anteriormente, es importante diseñar mensajes que se puedan volver a procesar de forma segura. En esta [entrada de blog sobre idempotencia](https://particular.net/blog/what-does-idempotent-mean) se describen diversas técnicas de cómo hacerlo.
+En escenarios en los que el código de cliente no puede volver a enviar un mensaje con el mismo valor de *MessageId* que antes, es importante diseñar mensajes que se puedan volver a procesar de forma segura. En esta [entrada de blog sobre idempotencia](https://particular.net/blog/what-does-idempotent-mean) se describen diversas técnicas de cómo hacerlo.
 
 [1]: ./media/duplicate-detection/create-queue.png
 [2]: ./media/duplicate-detection/queue-prop.png

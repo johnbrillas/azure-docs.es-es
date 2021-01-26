@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/18/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 5d950598e4a0af86ac37b53722e80eb4ef0a71a4
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 53c0d37d4a25c2f2092a9e52bcae8ea494046bb0
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183063"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98210025"
 ---
 # <a name="app-service-networking-features"></a>Características de redes de App Service
 
@@ -110,7 +110,7 @@ Esta característica le permite crear una lista de reglas permitidas y denegadas
 
 La característica Restricciones de acceso basadas en IP es de utilidad cuando quiere restringir las direcciones IP que se pueden usar para llegar a la aplicación. Se admiten tanto IPv4 como IPv6. Los siguientes son algunos casos de uso para esta característica:
 * Restricción del acceso a la aplicación desde un conjunto de direcciones bien definidas. 
-* Restricción del acceso al tráfico que procede de un servicio de equilibrio de carga, como Azure Front Door. Si quiere bloquear el tráfico entrante a Azure Front Door, cree reglas para permitir el tráfico del intervalo entre 147.243.0.0/16 y 2a01:111:2050::/44. 
+* Restrinja el acceso al tráfico que llega a través de un servicio de equilibrio de carga externo u otros dispositivos de red con direcciones IP de salida conocidas. 
 
 Para obtener información sobre cómo habilitar esta característica, consulte [Configuración de restricciones de acceso][iprestrictions].
 
@@ -126,7 +126,20 @@ Los siguientes son algunos casos de uso para esta característica:
 ![Diagrama que muestra el uso de puntos de conexión de servicio con Application Gateway.](media/networking-features/service-endpoints-appgw.png)
 
 Para más información sobre la configuración de puntos de conexión de servicio con la aplicación, consulte [Restricciones de acceso de Azure App Service][serviceendpoints].
+#### <a name="access-restriction-rules-based-on-service-tags-preview"></a>Reglas de restricciones de acceso basadas en etiquetas de servicio (versión preliminar)
+Las [etiquetas de servicio de Azure][servicetags] son conjuntos bien definidos de direcciones IP de los servicios de Azure. Las etiquetas de servicio agrupan los intervalos IP que se usan en varios servicios de Azure y a menudo también se limitan a regiones específicas. Así, puede filtrar el tráfico *entrante* desde servicios específicos de Azure. 
 
+Para obtener una lista completa de etiquetas y más información, haga clic en el vínculo de la etiqueta de servicio anterior. Para obtener información sobre cómo habilitar esta característica, consulte [Configuración de restricciones de acceso][iprestrictions].
+#### <a name="http-header-filtering-for-access-restriction-rules-preview"></a>Filtrado de encabezados HTTP para reglas de restricción de acceso (versión preliminar)
+Para cada regla de restricción de acceso, puede agregar el filtrado adicional de encabezados HTTP. Esta acción le permite inspeccionar más a fondo la solicitud entrante y filtrar en función de los valores específicos de los encabezados HTTP. Cada encabezado puede tener hasta 8 valores por regla. Actualmente se admite la siguiente lista de encabezados HTTP: 
+* X-Forwarded-For
+* X-Forwarded-Host
+* X-Azure-FDID
+* X-FD-HealthProbe
+
+Algunos casos de uso del filtrado de encabezados HTTP son:
+* Restringir el acceso al tráfico procedente de los servidores proxy que reenvían el nombre de host.
+* Restringir el acceso a una instancia específica de Azure Front Door con una regla de etiqueta de servicio y una restricción de encabezado X-Azure-FDID.
 ### <a name="private-endpoint"></a>Punto de conexión privado
 
 Un punto de conexión privado es una interfaz de red que le conecta de manera privada y segura a la aplicación web con Azure Private Link. El punto de conexión privado usa una dirección IP privada de la red virtual para incorporar la aplicación web de manera eficaz a su red virtual. Esta característica es solo para flujos *entrantes* en la aplicación web.
@@ -299,3 +312,4 @@ Si examina App Service, encontrará varios puertos que se exponen para las conex
 [networkinfo]: ./environment/network-info.md
 [appgwserviceendpoints]: ./networking/app-gateway-with-service-endpoints.md
 [privateendpoints]: ./networking/private-endpoint.md
+[servicetags]: ../virtual-network/service-tags-overview.md

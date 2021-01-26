@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f625b7dd68d4b5a5e1af68aeb53dac453ff8cbfd
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 5e45c51735e0b7ab4b263d3f3047b5848c82439d
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400835"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185774"
 ---
 # <a name="create-powershell-scripts-for-msix-app-attach-preview"></a>Creación de scripts de PowerShell para la asociación de aplicaciones en formato MSIX (versión preliminar)
 
@@ -39,6 +39,17 @@ Si la aplicación usa un certificado que no es de confianza pública o que fue a
 6. Seleccione **Colocar todos los certificados en el siguiente almacén** y, después, **Examinar**.
 7. Cuando aparezca la ventana del almacén de certificados, seleccione **Trusted people** (Personas de confianza) y, luego, **Aceptar**.
 8. Seleccione **Siguiente** y **Finalizar**.
+
+## <a name="enable-microsoft-hyper-v"></a>Habilitación de Microsoft Hyper-V
+
+Microsoft Hyper-V debe estar habilitado porque el comando `Mount-VHD` es necesario para la copia intermedia y `Dismount-VHD` es necesario para eliminar la copia intermedia.
+
+```powershell
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
+```
+
+>[!NOTE]
+>Este cambio requerirá que se reinicie la máquina virtual.
 
 ## <a name="prepare-powershell-scripts-for-msix-app-attach"></a>Preparación de scripts para PowerShell para la asociación de aplicaciones en formato MSIX
 

@@ -6,17 +6,17 @@ ms.topic: how-to
 ms.date: 11/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 101b3a05591a7815ba28756bb5b07e855b64e769
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 85026092e513ecc9ec3c23e292a416297774a2e4
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505553"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98217845"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Uso de Microsoft Teams en Windows Virtual Desktop
 
 >[!IMPORTANT]
->La optimización multimedia para Teams es compatible con entornos de Microsoft 365 Government (GCC). La optimización multimedia para Teams no es compatible con GCC-High o DoD.
+>La optimización multimedia para Teams es compatible con entornos de Microsoft 365 Government (GCC) y GCC-High. La optimización multimedia para Teams no es compatible con GCC-High o DoD.
 
 >[!NOTE]
 >La optimización multimedia de Microsoft Teams solo está disponible para el cliente de escritorio de Windows en máquinas con Windows 10. Las optimizaciones multimedia requieren la versión de cliente de escritorio de Windows 1.2.1026.0 o posterior.
@@ -140,7 +140,7 @@ El uso de Teams en un entorno virtualizado es diferente de su uso en un entorno 
 
 ### <a name="calls-and-meetings"></a>Llamadas y reuniones
 
-- El cliente de escritorio de Teams del entorno de Windows Virtual Desktop no admite eventos en directo. Por ahora, se recomienda combinar eventos en directo desde el [cliente web de Teams](https://teams.microsoft.com) en su sesión remota.
+- El cliente de escritorio de Teams en entornos de Windows Virtual Desktop no admite la creación de eventos en directo, pero sí la unión a ellos. Por ahora, se recomienda crear eventos en directo desde el [cliente web de Teams](https://teams.microsoft.com) en su sesión remota.
 - Las llamadas o las reuniones no admiten actualmente el uso compartido de aplicaciones. Las sesiones de escritorio admiten el uso compartido de escritorio.
 - No se admiten actualmente las acciones de dar y tomar el control.
 - Teams en Windows Virtual Desktop solo admite una entrada de vídeo entrante cada vez. Esto significa que cada vez que alguien intente compartir su pantalla, la pantalla de esa persona aparecerá en lugar de la pantalla del coordinador de la reunión.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/02/2020
 ms.author: mnayak
-ms.openlocfilehash: 656f8a0e0530a20807fc8fddd4cd96d1d955c8ac
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: fa83c51469636eb269aa5dc3192ff7e65b53ce89
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97912706"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98186148"
 ---
 # <a name="what-is-routing-preference-preview"></a>¿Qué es la preferencia de enrutamiento (versión preliminar)?
 
@@ -74,7 +74,7 @@ La diferencia de precio entre ambas opciones se refleja en los precios de transf
 
 ## <a name="limitations"></a>Limitaciones
 
-* La preferencia de enrutamiento solo es compatible con la SKU estándar de la dirección IP pública. No se admite la SKU básica de la dirección IP pública.
+* La preferencia de enrutamiento solo es compatible con la SKU estándar con redundancia de zona de la dirección IP pública. No se admite la SKU básica de la dirección IP pública.
 * Actualmente, la preferencia de enrutamiento solo admite direcciones IP públicas IPv4. No se admiten direcciones IP públicas IPv6.
 * Las máquinas virtuales que tengan varias NIC solo pueden tener un tipo de preferencia de enrutamiento.
 

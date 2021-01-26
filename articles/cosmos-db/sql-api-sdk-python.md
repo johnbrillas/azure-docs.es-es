@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-python
-ms.openlocfilehash: b69b3a3888b2d6e19b8eaa92ba9b2fedf0e15545
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 27bcb220c67392661cc1b2875823abdca4593bd4
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93091130"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98220956"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>SDK de Python para Azure Cosmos DB para SQL API: Notas de la versión y recursos
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -320,34 +320,34 @@ La versión 4.0.0b1 es la primera versión preliminar de nuestros esfuerzos por 
 Microsoft notifica la retirada de un SDK con al menos **12 meses** de antelación para facilitar la transición a una versión compatible o más reciente. Solo se agregan nuevas características, funcionalidad y optimizaciones al SDK actual, por lo que se recomienda actualizar siempre a la última versión del SDK tan pronto como sea posible.
 
 > [!WARNING]
-> Después del 31 de agosto de 2022, Azure Cosmos DB ya no hará correcciones de errores, no agregará nuevas características ni proporcionará soporte técnico para las versiones 1.x o 2.x del SDK de Python de Azure Cosmos DB para la API de SQL. Si prefiere no realizar la actualización, el servicio Azure Cosmos DB seguirá atendiendo las solicitudes enviadas desde la versión 1.x y 2.x del SDK.
+> Después del 31 de agosto de 2022, Azure Cosmos DB ya no hará correcciones de errores ni proporcionará soporte técnico para las versiones 1.x o 2.x del SDK de Azure Cosmos DB para Python para SQL API. Si prefiere no realizar la actualización, el servicio Azure Cosmos DB seguirá atendiendo las solicitudes enviadas desde la versión 1.x y 2.x del SDK.
 
 | Versión | Fecha de la versión | Fecha de retirada |
 | --- | --- | --- |
 | [4.0.0](#400) |20 de mayo de 2020 |--- |
 | [3.0.2](#302) |15 de noviembre de 2018 |--- |
 | [3.0.1](#301) |04 de octubre de 2018 |--- |
-| [2.3.3](#233) |08 de septiembre de 2018 |30 de agosto de 2020 |
-| [2.3.2](#232) |8 de mayo de 2018 |30 de agosto de 2020 |
-| [2.3.1](#231) |21 de diciembre de 2017 |30 de agosto de 2020 |
-| [2.3.0](#230) |10 de noviembre de 2017 |30 de agosto de 2020 |
-| [2.2.1](#221) |29 de septiembre de 2017 |30 de agosto de 2020 |
-| [2.2.0](#220) |10 de mayo de 2017 |30 de agosto de 2020 |
-| [2.1.0](#210) |1 de mayo de 2017 |30 de agosto de 2020 |
-| [2.0.1](#201) |30 de octubre de 2016 |30 de agosto de 2020 |
-| [2.0.0](#200) |29 de septiembre de 2016 |30 de agosto de 2020 |
-| [1.9.0](#190) |7 de julio de 2016 |30 de agosto de 2020 |
-| [1.8.0](#180) |14 de junio de 2016 |30 de agosto de 2020 |
-| [1.7.0](#170) |26 de abril de 2016 |30 de agosto de 2020 |
-| [1.6.1](#161) |08 de abril de 2016 |30 de agosto de 2020 |
-| [1.6.0](#160) |29 de marzo de 2016 |30 de agosto de 2020 |
-| [1.5.0](#150) |3 de enero de 2016 |30 de agosto de 2020 |
-| [1.4.2](#142) |6 de octubre de 2015 |30 de agosto de 2020 |
-| 1.4.1 |6 de octubre de 2015 |30 de agosto de 2020 |
-| [1.2.0](#120) |6 de agosto de 2015 |30 de agosto de 2020 |
-| [1.1.0](#110) |09 de julio de 2015 |30 de agosto de 2020 |
-| [1.0.1](#101) |25 de mayo de 2015 |30 de agosto de 2020 |
-| 1.0.0 |07 de abril de 2015 |30 de agosto de 2020 |
+| [2.3.3](#233) |08 de septiembre de 2018 |31 de agosto de 2022 |
+| [2.3.2](#232) |8 de mayo de 2018 |31 de agosto de 2022 |
+| [2.3.1](#231) |21 de diciembre de 2017 |31 de agosto de 2022 |
+| [2.3.0](#230) |10 de noviembre de 2017 |31 de agosto de 2022 |
+| [2.2.1](#221) |29 de septiembre de 2017 |31 de agosto de 2022 |
+| [2.2.0](#220) |10 de mayo de 2017 |31 de agosto de 2022 |
+| [2.1.0](#210) |1 de mayo de 2017 |31 de agosto de 2022 |
+| [2.0.1](#201) |30 de octubre de 2016 |31 de agosto de 2022 |
+| [2.0.0](#200) |29 de septiembre de 2016 |31 de agosto de 2022 |
+| [1.9.0](#190) |7 de julio de 2016 |31 de agosto de 2022 |
+| [1.8.0](#180) |14 de junio de 2016 |31 de agosto de 2022 |
+| [1.7.0](#170) |26 de abril de 2016 |31 de agosto de 2022 |
+| [1.6.1](#161) |08 de abril de 2016 |31 de agosto de 2022 |
+| [1.6.0](#160) |29 de marzo de 2016 |31 de agosto de 2022 |
+| [1.5.0](#150) |3 de enero de 2016 |31 de agosto de 2022 |
+| [1.4.2](#142) |6 de octubre de 2015 |31 de agosto de 2022 |
+| 1.4.1 |6 de octubre de 2015 |31 de agosto de 2022 |
+| [1.2.0](#120) |6 de agosto de 2015 |31 de agosto de 2022 |
+| [1.1.0](#110) |09 de julio de 2015 |31 de agosto de 2022 |
+| [1.0.1](#101) |25 de mayo de 2015 |31 de agosto de 2022 |
+| 1.0.0 |07 de abril de 2015 |31 de agosto de 2022 |
 | 0.9.4-prelease |14 de enero de 2015 |29 de febrero de 2016 |
 | 0.9.3-prelease |9 de diciembre de 2014 |29 de febrero de 2016 |
 | 0.9.2-prelease |25 de noviembre de 2014 |29 de febrero de 2016 |

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 2418a8813e7b9de603b7e7cdc11fc756d73ac2a4
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 2a1455c5956297a19d640146879f93b61d035139
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350762"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185910"
 ---
 # <a name="access-control-lists-acls-in-azure-data-lake-storage-gen2"></a>Listas de control de acceso en Azure Data Lake Storage Gen2
 
@@ -60,7 +60,7 @@ Tanto las ACL de acceso como las ACL predeterminadas tienen la misma estructura.
 
 ## <a name="levels-of-permission"></a>Niveles de permiso
 
-Los permisos de un objeto de contenedor son **lectura**, **escritura** y **ejecución**, y se pueden usar en archivos y directorios, como se muestra en la tabla siguiente:
+Los permisos sobre directorios y archivos de un contenedor son **Lectura**, **Escritura** y **Ejecución**, y se pueden usar en archivos y directorios, como se muestra en la tabla siguiente:
 
 |            |    Archivo     |   Directorio |
 |------------|-------------|----------|
@@ -69,7 +69,7 @@ Los permisos de un objeto de contenedor son **lectura**, **escritura** y **ejecu
 | **Ejecución (X)** | No significa nada en el contexto de Data Lake Storage Gen2 | Se requiere para atravesar los elementos secundarios de un directorio. |
 
 > [!NOTE]
-> Si va a conceder permisos únicamente mediante listas de control de acceso (no mediante RBAC de Azure), para conceder a una entidad de seguridad acceso de lectura o escritura a un archivo, necesitará otorgarle permisos de **ejecución** en el contenedor y en cada carpeta de la jerarquía de carpetas que conduce al archivo.
+> Si va a conceder permisos únicamente mediante listas de control de acceso (y no por medio de Azure RBAC), para conceder a una entidad de seguridad acceso de lectura o escritura a un archivo, necesitará otorgarle permisos de **ejecución** sobre la carpeta raíz del contenedor, y sobre cada carpeta de la jerarquía de carpetas que conduzcan al archivo.
 
 ### <a name="short-forms-for-permissions"></a>Formas abreviadas de los permisos
 

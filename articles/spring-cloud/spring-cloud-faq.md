@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 0143b014328dfd5c164f0c3c62aeef7cabe1a17c
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 307afc8f1caafac1a511f0f9895cc73dd9b47eb4
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98065429"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98196051"
 ---
 # <a name="azure-spring-cloud-faq"></a>Preguntas frecuentes de Azure Spring Cloud
 
@@ -37,7 +37,7 @@ La seguridad y la privacidad se encuentran entre las principales prioridades par
 
 ### <a name="in-which-regions-is-azure-spring-cloud-available"></a>¿En qué regiones está disponible Azure Spring Cloud?
 
-Este de EE. UU., Este de EE. UU. 2, Centro de EE. UU., Centro-sur de EE. UU., Centro-norte de EE. UU., Oeste de EE. UU., Oeste de EE. UU. 2, Oeste de Europa, Norte de Europa, Sur de Reino Unido, Sudeste Asiático, Este de Australia, Centro de Canadá, Norte de Emiratos Árabes Unidos, Centro de la India, Centro de Corea del Sur y Este de Asia. [Más información](https://azure.microsoft.com/global-infrastructure/services/?products=spring-cloud)
+Este de EE. UU., Este de EE. UU. 2, Centro de EE. UU., Centro-sur de EE. UU., Centro-norte de EE. UU., Oeste de EE. UU., Oeste de EE. UU. 2, Oeste de Europa, Norte de Europa, Sur de Reino Unido, Sudeste Asiático, Este de Australia, Centro de Canadá, Norte de Emiratos Árabes Unidos, Centro de la India, Centro de Corea del Sur, Este de Asia y Este de China 2 (región de Mooncake). [Más información](https://azure.microsoft.com/global-infrastructure/services/?products=spring-cloud)
 
 ### <a name="is-any-customer-data-stored-outside-of-the-specified-region"></a>¿Los datos de clientes se almacenan fuera de la región especificada?
 

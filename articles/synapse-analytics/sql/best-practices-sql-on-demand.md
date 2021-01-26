@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 05/01/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: b8b93471b6d7f2555cfd71e524718ed0ea1ee191
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: c752bc6ae49f009056067545fde292dc29027d5d
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96457898"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208138"
 ---
 # <a name="best-practices-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Procedimientos recomendados para el grupo de SQL sin servidor en Azure Synapse Analytics
 
@@ -25,9 +25,9 @@ En este artículo, encontrará una colección de procedimientos recomendados par
 
 El grupo de SQL sin servidor permite consultar archivos de las cuentas de almacenamiento de Azure. No tiene funcionalidades de ingesta o almacenamiento local. Por ello, todos los archivos de destino de la consulta son externos al grupo de SQL sin servidor. Todo lo relacionado con la lectura de archivos desde el almacenamiento puede afectar el rendimiento de las consultas.
 
-## <a name="colocate-your-azure-storage-account-and-serverless-sql-pool"></a>Ubicación conjunta de la cuenta de Azure Storage y el grupo de SQL sin servidor
+## <a name="colocate-your-storage-and-serverless-sql-pool"></a>Ubicación conjunta del almacenamiento y del grupo de SQL sin servidor
 
-Para minimizar la latencia, ubique conjuntamente la cuenta de Azure Storage y el punto de conexión del grupo de SQL sin servidor. Las cuentas de almacenamiento y los puntos de conexión aprovisionados durante la creación del área de trabajo se encuentran en la misma región.
+Para reducir la latencia, ubique conjuntamente su cuenta de almacenamiento de Azure o almacenamiento analítico de CosmosDB con el punto de conexión del grupo de SQL sin servidor. Las cuentas de almacenamiento y los puntos de conexión aprovisionados durante la creación del área de trabajo se encuentran en la misma región.
 
 Para un rendimiento óptimo, si accede a otras cuentas de almacenamiento con el grupo de SQL sin servidor, asegúrese de que se encuentren en la misma región. Si no están en la misma región, aumentará la latencia de la transferencia de red de los datos entre la región remota y la del punto de conexión.
 
@@ -44,9 +44,9 @@ Cuando se detecta la limitación, el grupo de SQL sin servidor dispone de contro
 
 Si es posible, puede preparar los archivos para mejorar el rendimiento:
 
-- Convierta CSV y JSON a Parquet. Parquet es un formato de columnas. Dado que está comprimido, el tamaño de sus archivos es menor que el de los archivos CSV y JSON que contienen los mismos datos. El grupo de SQL sin servidor necesitará menos tiempo y solicitudes de almacenamiento para leerlos.
+- Convierta los archivos CSV y JSON de gran tamaño a Parquet. Parquet es un formato de columnas. Dado que está comprimido, el tamaño de sus archivos es menor que el de los archivos CSV y JSON que contienen los mismos datos. Si lee archivos Parquet, el grupo de SQL sin servidor puede omitir las columnas y filas que no son necesarias en la consulta. El grupo de SQL sin servidor necesitará menos tiempo y solicitudes de almacenamiento para leerlos.
 - Si una consulta tiene como destino un solo archivo de gran tamaño, se beneficiará de dividirlo en varios archivos más pequeños.
-- Intente mantener el tamaño del archivo CSV por debajo de los 10 GB.
+- Trate de mantener el tamaño del archivo CSV entre 100 MB y 10 GB.
 - Es mejor tener archivos de igual tamaño para una sola ruta de acceso OPENROWSET o una ubicación de tabla externa.
 - Para dividir los datos, almacene las particiones en diferentes carpetas o nombres de archivo. Consulte [Uso de las funciones filename y filepath para seleccionar particiones de destino específicas](#use-filename-and-filepath-functions-to-target-specific-partitions).
 
@@ -129,7 +129,7 @@ Puede usar el analizador optimizado para rendimiento al consultar archivos CSV. 
 
 ## <a name="manually-create-statistics-for-csv-files"></a>Creación manual de estadísticas para archivos .csv
 
-El grupo de SQL sin servidor se basa en las estadísticas para generar planes de ejecución de consulta óptimos. Se crearán automáticamente estadísticas de las columnas de los archivos Parquet cuando sea necesario. En este momento, no se crean automáticamente para las columnas de los archivos .csv, por lo que debe crear manualmente estadísticas para las columnas que se usan en las consultas, especialmente las que se usan en DISTINCT, JOIN, WHERE, ORDER BY y GROUP BY. Compruebe [las estadísticas en el grupo de SQL sin servidor] (develop-tables-statistics.md#statistics-in-serverless-sql-pool) para más información.
+El grupo de SQL sin servidor se basa en las estadísticas para generar planes de ejecución de consulta óptimos. Se crearán automáticamente estadísticas de las columnas de los archivos Parquet cuando sea necesario. En este momento, no se crean automáticamente para las columnas de los archivos .csv, por lo que debe crear manualmente estadísticas para las columnas que se usan en las consultas, especialmente las que se usan en DISTINCT, JOIN, WHERE, ORDER BY y GROUP BY. Para más información, consulte [Estadísticas en un grupo de SQL sin servidor](develop-tables-statistics.md#statistics-in-serverless-sql-pool).
 
 ## <a name="use-cetas-to-enhance-query-performance-and-joins"></a>Uso de CETAS para mejorar el rendimiento de las consultas y las combinaciones
 

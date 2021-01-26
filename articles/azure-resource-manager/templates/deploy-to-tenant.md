@@ -2,13 +2,13 @@
 title: Implementación de recursos en el inquilino
 description: Se describe cómo implementar recursos en el ámbito de un inquilino en una plantilla de Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 11/24/2020
-ms.openlocfilehash: 5733c5d6eb6cbd86207589244c22badc17fe7073
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.date: 01/13/2021
+ms.openlocfilehash: 0b3ddc63e49b272c93349ada91e9a1599ea4be4f
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95807631"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98186216"
 ---
 # <a name="tenant-deployments-with-arm-templates"></a>Implementaciones de inquilino con plantillas de Resource Manager
 
@@ -145,7 +145,8 @@ Al implementar en un inquilino, puede implementar los recursos en:
 * grupos de administración dentro del inquilino
 * subscriptions
 * grupos de recursos
-* se pueden aplicar [recursos de extensión](scope-extension-resources.md) a los recursos
+
+Un [recurso de extensión](scope-extension-resources.md) se puede limitar a un destino distinto del destino de implementación.
 
 El usuario que implementa la plantilla debe tener acceso al ámbito especificado.
 
@@ -184,6 +185,8 @@ Para establecer como destino un grupo de recursos dentro del inquilino, use una 
 La siguiente plantilla crea un grupo de administración.
 
 :::code language="json" source="~/quickstart-templates/tenant-deployments/new-mg/azuredeploy.json":::
+
+Si su cuenta no tiene permiso para la implementación en el inquilino, puede crear grupos de administración mediante la implementación en otro ámbito. Para más información, consulte [Grupo de administración](deploy-to-management-group.md#management-group).
 
 ## <a name="assign-role"></a>Asignación de un rol
 

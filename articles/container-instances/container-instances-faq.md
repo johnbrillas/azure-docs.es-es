@@ -5,12 +5,12 @@ author: macolso
 ms.author: macolso
 ms.topic: article
 ms.date: 06/02/2020
-ms.openlocfilehash: e4760463a4d71e4c097b082aa6b93d8b339f94ca
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 5de1188ee018e796f918d7559c0e2c24c77834f4
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92516977"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98186199"
 ---
 # <a name="frequently-asked-questions-about-azure-container-instances"></a>Preguntas más frecuentes sobre Azure Container Instances
 
@@ -53,7 +53,11 @@ Consulte una [guía más detallada](container-instances-troubleshooting.md#conta
 
 ### <a name="what-net-or-net-core-image-layer-should-i-use-in-my-container"></a>¿Qué capas de imagen .NET o .NET Core debo usar en mi contenedor? 
 
-Use la imagen más pequeña que satisfaga sus requisitos. Para Linux, puede usar una imagen *runtime-alpine* de .NET Core, que se admite desde el lanzamiento de .NET Core 2.1. Para Windows, si está utilizando .NET Framework completo, deberá usar una imagen de Windows Server Core (imagen runtime-only, como, por ejemplo, *4.7.2-windowsservercore-ltsc2016* ). Las imágenes runtime-only son más pequeñas pero no admiten cargas de trabajo que requieran el SDK de .NET.
+Use la imagen más pequeña que satisfaga sus requisitos. Para Linux, puede usar una imagen *runtime-alpine* de .NET Core, que se admite desde el lanzamiento de .NET Core 2.1. Para Windows, si está utilizando .NET Framework completo, deberá usar una imagen de Windows Server Core (imagen runtime-only, como, por ejemplo, *4.7.2-windowsservercore-ltsc2016*). Las imágenes runtime-only son más pequeñas pero no admiten cargas de trabajo que requieran el SDK de .NET.
+
+### <a name="what-types-of-container-registries-are-compatible-with-aci"></a>¿Qué tipos de registros de contenedor son compatibles con ACI?
+
+ACI admite la extracción de imágenes de ACR y otros registros de contenedores de terceros, como DockerHub. ACI también admite extracciones de imágenes de registros locales siempre que sean compatibles con OCR y tengan un punto de conexión que esté expuesto públicamente a Internet.
 
 ## <a name="availability-and-quotas"></a>Disponibilidad y cuotas
 

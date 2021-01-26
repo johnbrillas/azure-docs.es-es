@@ -31,7 +31,7 @@
       href: ../cloud-services/cloud-services-guestos-retirement-policy.md?toc=/azure/cloud-services-extended-support/toc.json&bc=/azure/cloud-services-extended-support/breadcrumb/toc.json
     - name: Novedades de la versión del SO invitado
       href: ../cloud-services/cloud-services-guestos-update-matrix.md?toc=/azure/cloud-services-extended-support/toc.json&bc=/azure/cloud-services-extended-support/breadcrumb/toc.json
-    - name: Esquema XML
+    - name: esquema XML
       items:
         - name: Esquema XML de .csdef
           href: schema-csdef-file.md
@@ -65,7 +65,7 @@
       href: certificates-and-key-vault.md
 - name: Ejemplos
   items:
-    - name: Creación de un servicio en la nube
+    - name: crea un nuevo servicio en la nube
       href: sample-create-cloud-service.md
     - name: Obtención de detalles del servicio en la nube
       href: sample-get-cloud-service.md
@@ -73,6 +73,8 @@
       href: sample-reset-cloud-service.md
 - name: Referencia
   items:
+    - name: Ejemplo de archivos de implementación
+      href: 'https://github.com/Azure-Samples/cloud-services-extended-support'
     - name: Módulo Az.CloudService
       href: 'https://www.powershellgallery.com/packages/Az.CloudService/0.1.0'
     - name: Cmdlets de PowerShell
