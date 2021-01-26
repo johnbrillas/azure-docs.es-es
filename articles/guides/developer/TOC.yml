@@ -15,7 +15,7 @@
         - name: Windows
           href: ../../virtual-machines/windows/quick-create-portal.md
     - name: Sin servidor
-      href: ../../azure-functions/functions-create-first-azure-function.md
+      href: ../../azure-functions/functions-get-started.md
     - name: Microservicios
       items:
         - name: Service Fabric
@@ -53,17 +53,17 @@
         - name: Web Apps
           href: ../../app-service/samples-cli.md
         - name: Máquina virtual de Linux
-          href: ../../virtual-machines/linux/cli-samples.md
+          href: 'https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine'
         - name: Máquina virtual de Windows
-          href: ../../virtual-machines/windows/cli-samples.md
+          href: 'https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine'
     - name: Azure PowerShell
       items:
         - name: Web Apps
           href: ../../app-service/samples-powershell.md
         - name: Máquina virtual de Linux
-          href: ../../virtual-machines/linux/powershell-samples.md
+          href: 'https://github.com/Azure/azure-docs-powershell-samples/tree/master/virtual-machine'
         - name: Máquina virtual de Windows
-          href: ../../virtual-machines/windows/powershell-samples.md
+          href: 'https://github.com/Azure/azure-docs-powershell-samples/tree/master/virtual-machine'
 - name: Conceptos
   items:
     - name: Facturación y suscripciones

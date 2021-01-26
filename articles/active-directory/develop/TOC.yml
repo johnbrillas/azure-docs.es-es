@@ -329,7 +329,7 @@
               href: msal-error-handling-dotnet.md
               displayName: 'handling, catch'
             - name: Registro en MSAL.NET
-              href: msal-logging.md?tabs=dotnet
+              href: msal-logging-dotnet.md
             - name: Adquisición de un token de la memoria caché
               href: msal-net-acquire-token-silently.md
             - name: Serialización del almacenamiento en caché de los tokens
@@ -371,7 +371,7 @@
               href: msal-error-handling-js.md
               displayName: 'handling, catch'
             - name: Registro en MSAL.js
-              href: msal-logging.md?tabs=javascript
+              href: msal-logging-js.md
         - name: MSAL para iOS y macOS
           items:
             - name: Diferencias entre MSAL en iOS y macOS
@@ -401,7 +401,7 @@
               href: msal-error-handling-ios.md
               displayName: 'handling, catch'
             - name: Inicio de sesión en MSAL para iOS/macOS
-              href: msal-logging.md?tabs=swift
+              href: msal-logging-ios.md
         - name: MSAL para Python
           items:
             - name: Serialización del almacenamiento en caché de tokens personalizados
@@ -414,7 +414,7 @@
               href: msal-error-handling-python.md
               displayName: 'handling, catch'
             - name: Inicio de sesión en MSAL para Python
-              href: msal-logging.md?tabs=python
+              href: msal-logging-python.md
         - name: MSAL para Java
           items:
             - name: Serialización del almacenamiento en caché de tokens personalizados
@@ -429,7 +429,7 @@
               href: msal-error-handling-java.md
               displayName: 'handling, catch'
             - name: Registro en MSAL para Java
-              href: msal-logging.md?tabs=java
+              href: msal-logging-java.md
         - name: MSAL para Android
           items:
             - name: Cuentas y perfiles de inquilinos
@@ -449,7 +449,7 @@
               href: msal-android-handling-exceptions.md
               displayName: 'android, mobile, handling, catch'
             - name: Inicio de sesión en MSAL para Android
-              href: msal-logging.md?tabs=android
+              href: msal-logging-android.md
     - name: Personalización de tokens y notificaciones
       items:
         - name: Configuración de notificación de rol

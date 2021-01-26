@@ -123,7 +123,7 @@
         - name: Recursos de Cosmos DB
           expanded: true
           items:
-            - name: Azure portal
+            - name: Portal de Azure
               href: create-cosmosdb-resources-portal.md
             - name: Plantilla ARM
               displayName: Resource Manager
@@ -1043,6 +1043,8 @@
           href: create-mongodb-xamarin.md
         - name: Golang
           href: create-mongodb-go.md
+        - name: Rust
+          href: create-mongodb-rust.md
     - name: Tutoriales
       items:
         - name: 1 - Creación y administración de datos

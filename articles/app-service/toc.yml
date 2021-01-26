@@ -125,7 +125,7 @@
           href: overview-security.md
     - name: Características de red
       items:
-        - name: Información general
+        - name: Introducción
           href: networking-features.md
         - name: Application Gateway con puntos de conexión de servicio
           href: networking/app-gateway-with-service-endpoints.md
@@ -259,6 +259,8 @@
           href: troubleshoot-diagnostic-logs.md
         - name: Obtención de eventos de recursos
           href: get-resource-events.md
+        - name: Comprobación de estado
+          href: monitor-instances-health-check.md
         - name: Apertura de una sesión de SSH en un contenedor Linux
           href: configure-linux-open-ssh-session.md
     - name: Administración de aplicaciones
