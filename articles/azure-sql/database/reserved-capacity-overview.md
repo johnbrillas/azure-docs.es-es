@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein
 ms.date: 10/13/2020
-ms.openlocfilehash: b4a8b809fc135a4af26fae10912890f2017153f4
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: cacd43502a01352c24f8fcfd85b12aac781dccbd
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92780927"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602522"
 ---
 # <a name="save-costs-for-resources-with-reserved-capacity---azure-sql-database--sql-managed-instance"></a>Ahorro de costos para los recursos con capacidad reservada: Azure SQL Database e Instancia administrada de SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)] 
@@ -47,8 +47,8 @@ Por ejemplo, supongamos que ejecuta un grupo elástico de propósito general Gen
 ## <a name="buy-reserved-capacity"></a>Compra de capacidad reservada
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-2. Seleccione **Todos los servicios** > **Reservations** .
-3. Seleccione **Agregar** y, en el panel **Comprar reservas** , seleccione **SQL Database** para comprar una nueva reserva para SQL Database.
+2. Seleccione **Todos los servicios** > **Reservations**.
+3. Seleccione **Agregar** y, en el panel **Comprar reservas**, seleccione **SQL Database** para comprar una nueva reserva para SQL Database.
 4. Rellene todos los campos obligatorios. Las bases de datos de SQL Database y SQL Managed Instance existentes que coincidan con los atributos seleccionados serán aptas para el descuento en la capacidad reservada. El número real de bases de datos o instancias administradas que obtienen el descuento depende del ámbito y la cantidad seleccionados.
 
     ![Captura de pantalla antes del envío de la compra de la capacidad reservada](./media/reserved-capacity-overview/sql-reserved-vcores-purchase.png)
@@ -57,16 +57,16 @@ Por ejemplo, supongamos que ejecuta un grupo elástico de propósito general Gen
     
     | Campo      | Descripción|
     |------------|--------------|
-    |Suscripción|Suscripción que se usa para pagar la reserva de capacidad. Los costos anticipados de la reserva se cobran en el método de pago de la suscripción. El tipo de suscripción debe ser un contrato Enterprise (número de la oferta: MS-AZR-0017P o MS-AZR-0148P) o un contrato individual con precio de pago por uso (número de la oferta: MS-AZR-0003P o MS-AZR-0023P). Para una suscripción Enterprise, los cargos se deducen del saldo de compromiso monetario de la inscripción o se cobran como uso por encima del límite. Para una suscripción individual con precios de pago por uso, los cargos se cobran en el método de pago de la factura o la tarjeta de crédito de la suscripción.|
-    |Ámbito       |El ámbito de la reserva de núcleos virtuales puede cubrir una suscripción o varias (ámbito compartido). Si selecciona: <br/><br/>**Compartido** : el descuento por la reserva de núcleos virtuales se aplica a la base de datos o la instancia administrada en ejecución en cualquiera de las suscripciones en el contexto de facturación. Para los clientes Enterprise, el ámbito compartido es la inscripción e incluye todas las suscripciones que esta contiene. Para los clientes de Pago por uso, el ámbito compartido incluye todas las suscripciones de Pago por uso creadas por el administrador de la cuenta.<br/><br/>**Suscripción única** : el descuento por la reserva de núcleos virtuales se aplica a las bases de datos o las instancias administradas de esta suscripción. <br/><br/>**Grupo de recursos único** : el descuento de reserva se aplica a las instancias de bases de datos o las instancias administradas de la suscripción seleccionada y al grupo de recursos seleccionado de esa suscripción.|
+    |Suscripción|Suscripción que se usa para pagar la reserva de capacidad. Los costos anticipados de la reserva se cobran en el método de pago de la suscripción. El tipo de suscripción debe ser un contrato Enterprise (número de la oferta: MS-AZR-0017P o MS-AZR-0148P) o un contrato individual con precio de pago por uso (número de la oferta: MS-AZR-0003P o MS-AZR-0023P). Para una suscripción Enterprise, los cargos se deducen del pago por adelantado de Azure (antes conocido como saldo de compromiso monetario) de la inscripción, o se cobran como uso por encima del límite. Para una suscripción individual con precios de pago por uso, los cargos se cobran en el método de pago de la factura o la tarjeta de crédito de la suscripción.|
+    |Ámbito       |El ámbito de la reserva de núcleos virtuales puede cubrir una suscripción o varias (ámbito compartido). Si selecciona: <br/><br/>**Compartido**: el descuento por la reserva de núcleos virtuales se aplica a la base de datos o la instancia administrada en ejecución en cualquiera de las suscripciones en el contexto de facturación. Para los clientes Enterprise, el ámbito compartido es la inscripción e incluye todas las suscripciones que esta contiene. Para los clientes de Pago por uso, el ámbito compartido incluye todas las suscripciones de Pago por uso creadas por el administrador de la cuenta.<br/><br/>**Suscripción única**: el descuento por la reserva de núcleos virtuales se aplica a las bases de datos o las instancias administradas de esta suscripción. <br/><br/>**Grupo de recursos único**: el descuento de reserva se aplica a las instancias de bases de datos o las instancias administradas de la suscripción seleccionada y al grupo de recursos seleccionado de esa suscripción.|
     |Region      |Región de Azure que está cubierta por la reserva de capacidad.|
     |Tipo de implementación|El tipo de recurso de SQL para el que desea adquirir la reserva.|
     |Nivel de rendimiento|Nivel de servicio para las bases de datos o las instancias administradas. |
     |Término        |Un año o tres años.|
     |Cantidad    |Número de recursos de proceso que se compran dentro de la reserva de capacidad reservada. La cantidad es un número de núcleos virtuales de la región de Azure y el nivel de rendimiento seleccionados que se están reservando y obtendrán el descuento de facturación. Por ejemplo, si ejecuta o planea ejecutar varias bases de datos con la capacidad total de proceso total de 16 núcleos virtuales Gen5 en la región Este de EE. UU., deberá especificar la cantidad como 16 para maximizar las ventajas para todas las bases de datos. |
 
-1. Revise el costo de la reserva de capacidad reservada en la sección **Costos** .
-1. Seleccione **Comprar** .
+1. Revise el costo de la reserva de capacidad reservada en la sección **Costos**.
+1. Seleccione **Comprar**.
 1. Haga clic en **Ver esta reserva** para conocer el estado de la compra.
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Cancelación, intercambio o reembolso de reservas

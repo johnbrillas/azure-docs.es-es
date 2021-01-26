@@ -7,12 +7,12 @@ ms.custom: subject-cost-optimization
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/19/2020
-ms.openlocfilehash: 3632c098f865b1e5c4e76709a83176035be7abc2
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 2bea2324817986654de6689a2be15d0cbf999b38
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96351834"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602132"
 ---
 # <a name="plan-and-manage-costs-for-azure-cosmos-db"></a>Planeamiento y administración de los costos de Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -71,9 +71,9 @@ Al comenzar a usar los recursos de Azure Cosmos DB desde Azure Portal, puede ve
 
    :::image type="content" source="./media/plan-manage-costs/cost-estimate-portal.png" alt-text="Estimación de costos en Azure Portal":::
 
-Si la suscripción de Azure tiene un límite de gasto, Azure le impide gastar por encima del importe del crédito. A medida que crea y usa recursos de Azure, se usan los créditos. Cuando alcanza el límite de crédito, los recursos que ha implementado se deshabilitan para el resto de ese período de facturación. No se puede cambiar el límite de crédito, pero sí puede quitarlo. Para más información sobre los límites de gasto, consulte [Límite de gasto de Azure](../cost-management-billing/manage/spending-limit.md).
+Si la suscripción de Azure tiene un límite de gasto, Azure le impide gastar por encima del importe del crédito. A medida que crea y usa recursos de Azure, se usan los créditos. Cuando alcanza el límite de crédito, los recursos que ha implementado se deshabilitan para el resto de ese período de facturación. No se puede cambiar el límite de crédito, pero sí puede quitarlo. Para más información sobre los límites de gasto, consulte [Límite de gasto de Azure](../cost-management-billing/manage/spending-limit.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 
-Puede pagar los cargos de Azure Cosmos DB con el crédito del compromiso monetario del Contrato Enterprise de Azure. Sin embargo, no puede usar el crédito del compromiso monetario para pagar los cargos de productos y servicios de terceros, incluidos los de Azure Marketplace.
+Puede pagar los cargos de Azure Cosmos DB con el crédito del pago por adelantado de Azure (antes conocido como compromiso monetario). Sin embargo, no puede usar el crédito del pago por adelantado de Azure para pagar los gastos de productos y servicios de terceros, incluidos los que proceden de Azure Marketplace.
 
 ## <a name="monitor-costs"></a>Supervisión de costos
 
@@ -83,7 +83,7 @@ Al usar el análisis de costos, puede ver los costos de Azure Cosmos DB en grá
 
 Para ver los costos de Azure Cosmos DB en el análisis de costos:
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 1. Abra el ámbito en Azure Portal y seleccione **Análisis de costos** en el menú. Por ejemplo, vaya a **Suscripciones**, seleccione una suscripción de la lista y, a continuación, seleccione **Análisis de costos** en el menú. Seleccione **Ámbito** para cambiar a otro ámbito del análisis de costos.
 

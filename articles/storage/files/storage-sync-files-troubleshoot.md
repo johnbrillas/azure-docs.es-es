@@ -4,15 +4,15 @@ description: Solucione los problemas comunes de una implementación en Azure Fil
 author: jeffpatt24
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 6/12/2020
+ms.date: 1/15/2021
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: c7405ada800bd5fb9161e9d96bd4c8b0484be620
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 71de1d17731e086d012da5365fa6671bcb9e6e3b
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96005351"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539251"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Solución de problemas de Azure Files Sync
 Use Azure File Sync para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -52,7 +52,9 @@ Para resolver este problema, instale [KB2919355](https://support.microsoft.com/h
 <a id="server-registration-missing-subscriptions"></a>**ServerRegistration no muestra todas las suscripciones de Azure**  
 Al registrar un servidor con ServerRegistration.exe, no aparecen las suscripciones cuando hace clic en la lista desplegable de suscripciones de Azure.
 
-Este problema se produce porque ServerRegistration.exe no admite actualmente entornos de varios inquilinos. Este problema se corregirá en una próxima actualización del agente de Azure File Sync.
+Este problema se produce porque ServerRegistration.exe solo recuperará las suscripciones de los cinco primeros inquilinos Azure AD. 
+
+Para aumentar el límite de inquilinos de registro del servidor en el servidor, cree un valor DWORD denominado ServerRegistrationTenantLimit en HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync con un valor mayor que 5.
 
 Para dar una solución alternativa a este problema, use los siguientes comandos de PowerShell para registrar el servidor:
 
@@ -199,10 +201,27 @@ En el servidor que se muestra como "Aparece sin conexión" en el portal, consult
 - Si **GetNextJob se ha completado con el estado: 0** se registra, el servidor puede comunicarse con el servicio de Azure File Sync. 
     - Abra el administrador de tareas en el servidor y compruebe que se está ejecutando el proceso del monitor de sincronización de almacenamiento (AzureStorageSyncMonitor.exe). Si no se está ejecutando el proceso, primero pruebe a reiniciar el servidor. Si no se resuelve el problema al reiniciar el servidor, actualice a la [versión del agente](./storage-files-release-notes.md) de Azure File Sync más reciente. 
 
-- Si **GetNextJob se ha completado con el estado: -2134347756** se registra, el servidor no puede comunicarse con el servicio de Azure File Sync debido a un firewall o proxy. 
+- Si **GetNextJob se ha completado con el estado: -2134347756** y se registra, el servidor no puede comunicarse con el servicio de Azure File Sync debido a un firewall, un proxy o la configuración del orden de conjuntos de cifrado TLS. 
     - Si el servidor está detrás de un firewall, compruebe que se permite el puerto 443 de salida. Si el firewall restringe el tráfico a dominios concretos, confirme que se puede acceder a los dominios enumerados en la [documentación](./storage-sync-files-firewall-and-proxy.md#firewall) del firewall.
     - Si el servidor está detrás de un proxy, configure los valores del proxy aplicables a toda la máquina o específicos de la aplicación mediante los pasos que se describen en la [documentación](./storage-sync-files-firewall-and-proxy.md#proxy) del proxy.
     - Use el cmdlet Test-StorageSyncNetworkConnectivity para comprobar la conectividad de red con los puntos de conexión de servicio. Para más información, vea [Prueba de la conectividad de red con los puntos de conexión de servicio](./storage-sync-files-firewall-and-proxy.md#test-network-connectivity-to-service-endpoints).
+    - Si el orden de conjuntos de cifrado TLS está configurado en el servidor, puede usar los cmdlets de TLS o la directiva de grupo para agregar conjuntos de cifrado:
+        - Para usar la directiva de grupo, consulte [Configuración del orden de conjuntos de cifrado TLS mediante directiva de grupo](https://docs.microsoft.com/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order-by-using-group-policy).
+        - Para usar los cmdlets de TLS, consulte [Configuración del orden de conjuntos de cifrado TLS mediante cmdlets de PowerShell de TLS](https://docs.microsoft.com/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order-by-using-tls-powershell-cmdlets).
+    
+        Actualmente, Azure File Sync admite los siguientes conjuntos de cifrado para el protocolo TLS 1.2:  
+        - TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384_P384  
+        - TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256_P256  
+        - TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384_P384  
+        - TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256_P256  
+        - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P256  
+        - TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256  
+        - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P256  
+        - TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P256  
+        - TLS_RSA_WITH_AES_256_GCM_SHA384  
+        - TLS_RSA_WITH_AES_128_GCM_SHA256  
+        - TLS_RSA_WITH_AES_256_CBC_SHA256  
+        - TLS_RSA_WITH_AES_128_CBC_SHA256  
 
 - Si **GetNextJob se ha completado con el estado: -2134347764** se registra, el servidor no puede comunicarse con el servicio de Azure File Sync debido a un certificado expirado o eliminado.  
     - Ejecute el siguiente comando de PowerShell en el servidor para restablecer el certificado usado para la autenticación:
@@ -318,7 +337,7 @@ Para ver estos errores, ejecute el script de PowerShell **FileSyncErrorsReport.p
 #### <a name="troubleshooting-per-filedirectory-sync-errors"></a>Solución de errores de sincronización de archivo o directorio
 **Registro de ItemResults: errores de sincronización por elemento**  
 
-| HRESULT | HRESULT (decimal) | Cadena de error | Problema | Corrección |
+| HRESULT | HRESULT (decimal) | Cadena de error | Incidencia | Corrección |
 |---------|-------------------|--------------|-------|-------------|
 | 0x80070043 | -2147942467 | ERROR_BAD_NET_NAME | No se puede acceder al archivo en niveles en el servidor. Este problema se produce si no se ha recuperado el archivo en niveles antes de eliminar un punto de conexión de servidor. | Para resolver este problema, consulte [No se puede acceder a los archivos en niveles en el servidor después de eliminar un punto de conexión de servidor](?tabs=portal1%252cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint). |
 | 0x80c80207 | -2134375929 | ECS_E_SYNC_CONSTRAINT_CONFLICT | El cambio de archivo o de directorio no se puede sincronizar todavía porque una carpeta dependiente aún no se ha sincronizado. Este elemento se sincronizará después de sincronizar los cambios dependientes. | No es necesaria ninguna acción. Si el error persiste durante varios días, use el script de PowerShell FileSyncErrorsReport.ps1 para determinar por qué la carpeta dependiente todavía no se ha sincronizado. |
@@ -898,6 +917,22 @@ Este error se produce porque Azure File Sync no admite el redireccionamiento de 
 
 Este error se produce cuando una operación de ingesta de datos supera el tiempo de espera. Este error se puede pasar por alto si la sincronización está progresando (AppliedItemCount es mayor que 0). Consulte [¿Cómo se puede supervisar el progreso de una sesión de sincronización actual?](#how-do-i-monitor-the-progress-of-a-current-sync-session)
 
+<a id="-2134375814"></a>**Error de sincronización porque no se encuentra la ruta de acceso del punto de conexión del servidor en el servidor.**  
+
+| | |
+|-|-|
+| **HRESULT** | 0x80c8027a |
+| **HRESULT (decimal)** | -2134375814 |
+| **Cadena de error** | ECS_E_SYNC_ROOT_DIRECTORY_NOT_FOUND |
+| **Se requiere una corrección** | Sí |
+
+Este error se produce si se ha cambiado el nombre o se ha eliminado el directorio utilizado como ruta de acceso del punto de conexión del servidor. Si se cambió el nombre del directorio, vuelva a cambiarlo al nombre original y reinicie el servicio del agente de sincronización de almacenamiento (FileSyncSvc).
+
+Si se eliminó el directorio, realice los pasos siguientes para quitar el punto de conexión del servidor existente y crear uno nuevo con una nueva ruta de acceso:
+
+1. Para quitar el punto de conexión del servidor del grupo de sincronización, siga los pasos descritos en [Eliminación de un punto de conexión del servidor](./storage-sync-files-server-endpoint.md#remove-a-server-endpoint).
+2. Para crear un nuevo punto de conexión del servidor del grupo de sincronización, siga los pasos descritos en [Adición de un punto de conexión del servidor](https://docs.microsoft.com/azure/storage/files/storage-sync-files-server-endpoint#add-a-server-endpoint).
+
 ### <a name="common-troubleshooting-steps"></a>Pasos comunes de solución de problemas
 <a id="troubleshoot-storage-account"></a>**Compruebe que la cuenta de almacenamiento existe.**  
 # <a name="portal"></a>[Portal](#tab/azure-portal)
@@ -1101,7 +1136,7 @@ Si no se pueden apilar archivos en Azure Files:
 
 ### <a name="tiering-errors-and-remediation"></a>Establecimiento en capas de errores y corrección
 
-| HRESULT | HRESULT (decimal) | Cadena de error | Problema | Corrección |
+| HRESULT | HRESULT (decimal) | Cadena de error | Incidencia | Corrección |
 |---------|-------------------|--------------|-------|-------------|
 | 0x80c86045 | -2134351803 | ECS_E_INITIAL_UPLOAD_PENDING | El archivo se pudo organizar en niveles debido a que la carga inicial está en curso. | No es necesaria ninguna acción. El archivo se almacenarán en capas una vez que se complete la carga inicial. |
 | 0x80c86043 | -2134351805 | ECS_E_GHOSTING_FILE_IN_USE | No se pudo establecer en capas el archivo porque está en uso. | No es necesaria ninguna acción. El archivo se establecerá en capas cuando ya no esté en uso. |
@@ -1144,7 +1179,7 @@ Si no se pueden recuperar archivos:
 
 ### <a name="recall-errors-and-remediation"></a>Errores de coincidencia y corrección
 
-| HRESULT | HRESULT (decimal) | Cadena de error | Problema | Corrección |
+| HRESULT | HRESULT (decimal) | Cadena de error | Incidencia | Corrección |
 |---------|-------------------|--------------|-------|-------------|
 | 0x80070079 | -2147942521 | ERROR_SEM_TIMEOUT | El archivo no se recuperó debido a un tiempo de expiración de E/S. Este problema puede aparecer por varias razones: las restricciones de recursos del servidor, una conectividad de red deficiente o un problema de Azure Storage (por ejemplo, la limitación). | No es necesaria ninguna acción. Si el error persiste durante varias horas, abra una incidencia de soporte técnico. |
 | 0x80070036 | -2147024842 | ERROR_NETWORK_BUSY | El archivo no se recuperó debido a una incidencia en la red.  | Si el error no desaparece, compruebe la conectividad de red con el recurso compartido de archivos de Azure. |

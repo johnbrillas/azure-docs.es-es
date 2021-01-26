@@ -3,19 +3,22 @@ title: Preparación y personalización de una imagen de disco duro virtual maest
 description: Cómo preparar, personalizar y cargar una imagen maestra de Windows Virtual Desktop en Azure.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 10/14/2019
+ms.date: 01/19/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 9e4cb4fe8a701600290d24c055e2be5187a711c5
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 33af83934e8ecc5745f2edad3a7832a870406452
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95023401"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602384"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Preparación y personalización de una imagen de disco duro virtual maestro
 
 En este artículo se explica cómo preparar una imagen de disco duro virtual (VHD) maestro para cargarla en Azure, así como el modo de crear máquinas virtuales e instalar software en ellos. Estas instrucciones son específicas de una configuración de Windows Virtual Desktop concreta que se puede usar con los procesos existentes de su organización.
+
+>[!IMPORTANT]
+>Se recomienda usar una imagen de la galería de imágenes de Azure. Sin embargo, si tiene que usar una imagen personalizada, asegúrese de no tener aún instalado el agente de Windows Virtual Desktop en el dispositivo. El uso de una imagen personalizada con el agente de Windows Virtual Desktop puede provocar problemas con la imagen.  
 
 ## <a name="create-a-vm"></a>Crear una VM
 

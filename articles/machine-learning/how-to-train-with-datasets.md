@@ -1,7 +1,7 @@
 ---
-title: Entrenamiento con azureml-datasets
+title: Entrenamiento de conjuntos de datos de aprendizaje automático
 titleSuffix: Azure Machine Learning
-description: Obtenga información sobre cómo poner los datos a disposición del proceso local o remoto para el entrenamiento de modelos de Machine Learning con conjuntos de datos de Azure Machine Learning.
+description: Obtenga información sobre cómo poner los datos a disposición del proceso local o remoto para el entrenamiento de modelos con conjuntos de datos de Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,15 +12,14 @@ ms.reviewer: nibaccam
 ms.date: 07/31/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, data4ml
-ms.openlocfilehash: 52b52c4c19b22fb1afd76d1e8dfa4163326c0244
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: 2d6282c527293abdb8b21e0591548cb51e1339a9
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98108597"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539672"
 ---
-# <a name="train-with-datasets-in-azure-machine-learning"></a>Entrenamiento con conjuntos de datos en Azure Machine Learning
-
+# <a name="train-models-with-azure-machine-learning-datasets"></a>Entrenamiento de modelos con conjuntos de datos de Azure Machine Learning 
 
 En este artículo va a aprender a usar [conjuntos de datos de Azure Machine Learning](/python/api/azureml-core/azureml.core.dataset%28class%29?preserve-view=true&view=azure-ml-py) para entrenar modelos de Machine Learning.  Puede usar conjuntos de datos en el destino de proceso local o remoto sin preocuparse por las cadenas de conexión o las rutas de acceso a datos. 
 
@@ -41,7 +40,7 @@ Para crear conjuntos de datos y entrenar con ellos, necesita:
 > [!Note]
 > Algunas clases Dataset tienen dependencias del paquete [azureml dataprep](/python/api/azureml-dataprep/?preserve-view=true&view=azure-ml-py). Para los usuarios de Linux, estas clases solo se admiten en las siguientes distribuciones:  Red Hat Enterprise Linux, Ubuntu, Fedora y CentOS.
 
-## <a name="use-datasets-directly-in-training-scripts"></a>Usar los conjuntos de datos directamente en los scripts de entrenamiento
+## <a name="consume-datasets-in-machine-learning-training-scripts"></a>Consumo de conjuntos de datos en scripts de entrenamiento de aprendizaje automático
 
 Si tiene datos estructurados que aún no se han registrado como un conjunto de datos, cree un conjunto de datos TabularDataset y úselo directamente en el script de entrenamiento para su experimento local o remoto.
 
@@ -90,6 +89,7 @@ df = dataset.to_pandas_dataframe()
 ```
 
 ### <a name="configure-the-training-run"></a>Configuración de la ejecución de entrenamiento
+
 Se usa un objeto [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrun?preserve-view=true&view=azure-ml-py) para configurar y enviar la ejecución de entrenamiento.
 
 Este código crea un objeto ScriptRunConfig, `src`, que especifica:
@@ -141,6 +141,7 @@ mnist_ds = Dataset.File.from_files(path = web_paths)
 ```
 
 ### <a name="configure-the-training-run"></a>Configuración de la ejecución de entrenamiento
+
 Se recomienda pasar el conjunto de datos como argumento cuando se realiza el montaje mediante el parámetro `arguments` del constructor de `ScriptRunConfig`. Al hacerlo, tendrá la ruta de acceso de datos (punto de montaje) en el script de entrenamiento mediante argumentos. En otras palabras, podrá usar el mismo script de entrenamiento para la depuración local y el entrenamiento remoto en todas las plataformas en la nube.
 
 En el ejemplo siguiente se crea un objeto ScriptRunConfig que pasa el conjunto de datos FileDataset mediante `arguments`. Después de enviar la ejecución, los archivos de datos a los que el conjunto de datos `mnist_ds` hace referencia se montarán en el destino de proceso.
@@ -160,7 +161,7 @@ run = experiment.submit(src)
 run.wait_for_completion(show_output=True)
 ```
 
-### <a name="retrieve-the-data-in-your-training-script"></a>Recuperación de los datos en el script de entrenamiento
+### <a name="retrieve-data-in-your-training-script"></a>Recuperación de los datos en el script de entrenamiento
 
 En el código siguiente se muestra cómo recuperar los datos en el script.
 
@@ -222,10 +223,9 @@ print(os.listdir(mounted_path))
 print (mounted_path)
 ```
 
+## <a name="get-datasets-in-machine-learning-scripts"></a>Obtención de conjuntos de datos en scripts de aprendizaje automático
 
-## <a name="directly-access-datasets-in-your-script"></a>Acceso directo a los conjuntos de datos en el script
-
-A los conjuntos de bases de datos registrados se puede acceder de local y remota en clústeres de proceso como el proceso de Azure Machine Learning. Para acceder a un conjunto de datos registrado en los experimentos, use el siguiente código para acceder al área de trabajo y al conjunto de datos registrado por nombre. De forma predeterminada, el método [`get_by_name()`](/python/api/azureml-core/azureml.core.dataset.dataset?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-by-name-workspace--name--version--latest--) de la clase `Dataset` devuelve la versión más reciente del conjunto de datos registrada en el área de trabajo.
+A los conjuntos de bases de datos registrados se puede acceder de local y remota en clústeres de proceso como el proceso de Azure Machine Learning. Para tener acceso a un conjunto de datos registrado en los experimentos, use el siguiente código para acceder al área de trabajo y obtener el conjunto de datos usado en la anterior ejecución enviada. De forma predeterminada, el método [`get_by_name()`](/python/api/azureml-core/azureml.core.dataset.dataset?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-by-name-workspace--name--version--latest--) de la clase `Dataset` devuelve la versión más reciente del conjunto de datos registrada en el área de trabajo.
 
 ```Python
 %%writefile $script_folder/train.py
@@ -244,7 +244,7 @@ titanic_ds = Dataset.get_by_name(workspace=workspace, name=dataset_name)
 df = titanic_ds.to_pandas_dataframe()
 ```
 
-## <a name="accessing-source-code-during-training"></a>Acceso al código fuente durante el entrenamiento
+## <a name="access-source-code-during-training"></a>Acceso al código fuente durante el entrenamiento
 
 Azure Blob Storage presenta mayores velocidades de rendimiento que un recurso compartido de archivos de Azure y se escala a un gran número de trabajos iniciados en paralelo. Por esta razón, se recomienda configurar las ejecuciones de manera que usen Blob Storage para transferir archivos de código fuente.
 

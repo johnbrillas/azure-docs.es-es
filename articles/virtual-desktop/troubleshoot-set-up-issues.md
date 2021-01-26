@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 126a8e48a8db1c41299a7cb7a34f172342110667
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 0a5439a9d1fd43154379c1dc1a95a6e98b6e877b
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95023129"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539634"
 ---
 # <a name="host-pool-creation"></a>Creación de grupos de hosts
 
@@ -269,6 +269,7 @@ the VM.\\\"
 
 - Para obtener información general sobre cómo solucionar problemas de Windows Virtual Desktop y las pistas de escalación, consulte [Introducción, comentarios y soporte técnico para solucionar problemas](troubleshoot-set-up-overview.md).
 - Para solucionar problemas al configurar una máquina virtual (VM) en Windows Virtual Desktop, consulte [Configuración de la máquina virtual del host de sesión](troubleshoot-vm-configuration.md).
+- Para solucionar problemas relacionados con el agente de Windows Virtual Desktop o la conectividad de sesión, consulte [Solución de problemas comunes del agente de Windows Virtual Desktop](troubleshoot-agent.md).
 - Para solucionar problemas con conexiones de cliente de Windows Virtual Desktop, consulte [Conexiones de servicios de Windows Virtual Desktop](troubleshoot-service-connection.md).
 - Para solucionar problemas con los clientes de Escritorio remoto, consulte [Solución de problemas del cliente de Escritorio remoto](troubleshoot-client.md).
 - Para solucionar problemas al usar PowerShell con Windows Virtual Desktop, consulte [PowerShell para Windows Virtual Desktop](troubleshoot-powershell.md).

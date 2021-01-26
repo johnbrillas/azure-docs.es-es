@@ -3,12 +3,12 @@ title: Ahorro de costos con la instancia reservada de Azure VMware Solution
 description: Obtenga información sobre cómo comprar una instancia reservada para Azure VMware Solution.
 ms.topic: how-to
 ms.date: 11/12/2020
-ms.openlocfilehash: 80780e9718001893b6960220b5004c1c29b2fec5
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 74344889cd107350e5026c4a0369382fb9c7ef51
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96327404"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600871"
 ---
 # <a name="save-costs-with-azure-vmware-solution"></a>Ahorro de costos con Azure VMware Solution
 
@@ -54,7 +54,7 @@ Estos requisitos se aplican a la compra de una instancia reservada de host dedic
 
    | Campo        |  Descripción |
    | ------------ | ------------ |
-   | Subscription | Suscripción que se usa para pagar la reserva. Los costos de la reserva se cobran en el método de pago de la suscripción. El tipo de suscripción debe ser Contrato Enterprise (números de oferta: MS-AZR-0017P o MS-AZR-0148P) o Contrato de cliente de Microsoft o una suscripción individual con tarifas de pago por uso (números de oferta: MS-AZR-0003P o MS-AZR-0023P). Los cargos se deducen del saldo de compromiso monetario, si está disponible, o se cobran como uso por encima del límite. En una suscripción con tarifas de pago por uso, los cargos se facturan a la tarjeta de crédito de la suscripción o un método de pago de factura. |
+   | Subscription | Suscripción que se usa para pagar la reserva. Los costos de la reserva se cobran en el método de pago de la suscripción. El tipo de suscripción debe ser Contrato Enterprise (números de oferta: MS-AZR-0017P o MS-AZR-0148P) o Contrato de cliente de Microsoft o una suscripción individual con tarifas de pago por uso (números de oferta: MS-AZR-0003P o MS-AZR-0023P). Los cargos se deducirán del saldo de prepago de Azure (anteriormente llamado compromiso monetario) si hay fondos disponibles o se cobrarán como parte del uso por encima del límite. En una suscripción con tarifas de pago por uso, los cargos se facturan a la tarjeta de crédito de la suscripción o un método de pago de factura. |
    | Ámbito        | El ámbito de la reserva puede cubrir una o varias suscripciones (ámbito compartido). Si selecciona:<br><ul><li>El ámbito <b>Grupo de recursos único</b>: el descuento por reserva se aplica a los recursos coincidentes solo del grupo de recursos seleccionado.</li><li>El ámbito <b>Suscripción única</b>: el descuento por reserva se aplica a los recursos coincidentes de la suscripción seleccionada.</li><li>El ámbito <b>Compartido</b>: el descuento por reserva se aplica a los recursos coincidentes en suscripciones válidas que están en el contexto de facturación. Para los clientes de EA, el contexto de facturación es la inscripción. En el caso de suscripciones individuales con tarifas de pago por uso, el ámbito de facturación son todas las suscripciones aptas creadas por el administrador de la cuenta.</li></ul>       |
    | Region       | Región de Azure que está cubierta por la reserva.   |
    | Tamaño de host    | AV36    |

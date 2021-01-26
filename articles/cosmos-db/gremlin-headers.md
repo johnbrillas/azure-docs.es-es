@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 09/03/2019
 author: christopheranderson
 ms.author: chrande
-ms.openlocfilehash: 3f5996b281c1985747f754e3796e9fb84f90fdd3
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 0442d21aebe1cf577c50d14a5aeff40bd1f6cd9c
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93356984"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600519"
 ---
 # <a name="azure-cosmos-db-gremlin-server-response-headers"></a>Encabezados de respuesta del servidor Gremlin en Azure Cosmos DB
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -36,13 +36,12 @@ Tenga en cuenta que, si depende de estos encabezados, estará limitando la porta
 
 ## <a name="status-codes"></a>Códigos de estado
 
-A continuación se indican los códigos de estado más comunes devueltos por el servidor.
+A continuación se indican los códigos más comunes devueltos por el servidor para el atributo de estado `x-ms-status-code`.
 
 | Status | Explicación |
 | --- | --- |
 | **401** | El mensaje de error `"Unauthorized: Invalid credentials provided"` aparece cuando la contraseña de autenticación no coincide con la clave de cuenta de Cosmos DB. Vaya a la cuenta de Gremlin de Cosmos DB en Azure Portal y confirme que la clave es correcta.|
 | **404** | Hay operaciones simultáneas que intentan eliminar y actualizar el mismo vértice o borde a la vez. El mensaje de error `"Owner resource does not exist"` indica que la base de datos o la colección especificadas son incorrectas en los parámetros de conexión en formato `/dbs/<database name>/colls/<collection or graph name>`.|
-| **408** | `"Server timeout"` indica que el recorrido tardó más de **30 segundos** y fue cancelado por el servidor. Optimice los recorridos para que se ejecuten rápidamente filtrando vértices o bordes en cada salto del recorrido para reducir el ámbito de búsqueda.|
 | **409** | `"Conflicting request to resource has been attempted. Retry to avoid conflicts."` Esto suele ocurrir cuando ya existe un vértice o un borde con un identificador en el grafo.| 
 | **412** | El código de estado va acompañado de un mensaje de error `"PreconditionFailedException": One of the specified pre-condition is not met`. Esto error indica una infracción del control de simultaneidad optimista entre la lectura de un borde o vértice y su escritura en el almacén después de realizar una modificación. Por lo general, esto suele producirse cuando se modifica una propiedad; por ejemplo, `g.V('identifier').property('name','value')`. El motor de Gremlin leerá el vértice, lo modificará y lo escribirá de nuevo. Si hay otro recorrido ejecutándose en paralelo y se intenta escribir el mismo vértice o borde, uno de ellos registrará este error. La aplicación deberá ejecutar de nuevo el recorrido en el servidor.| 
 | **429** | La solicitud se limitó y se debe reintentar después del valor especificado en **x-ms-retry-after-ms**.| 
@@ -53,6 +52,7 @@ A continuación se indican los códigos de estado más comunes devueltos por el 
 | **1004** | Este código de estado indica que una solicitud de grafo no tiene el formato correcto. La solicitud puede tener un formato incorrecto porque se han producido errores en la deserialización, se está deserializando un tipo que no tiene valor o la operación de Gremlin solicitada no es compatible. La aplicación no debe volver a intentar la solicitud, ya que no se realizará correctamente. | 
 | **1007** | Normalmente, este código de estado se devuelve junto con un mensaje de error `"Could not process request. Underlying connection has been closed."`. Esta situación puede producirse si el controlador del cliente intenta usar una conexión que el servidor está cerrando. La aplicación debería volver a intentar el recorrido con una conexión diferente.
 | **1008** | El servidor Gremlin de Cosmos DB puede terminar las conexiones para reequilibrar el tráfico del clúster. Los controladores del cliente deben ocuparse de esta situación y usar solo conexiones dinámicas para enviar solicitudes al servidor. En ocasiones, es posible que los controladores del cliente no detecten que la conexión está cerrada. Cuando la aplicación se encuentra con un error, `"Connection is too busy. Please retry after sometime or open more connections."` debe reintentar el recorrido con una conexión diferente.
+| **1009** | La operación no se completó en el tiempo asignado, y el servidor la canceló. Optimice los recorridos para que se ejecuten rápidamente filtrando vértices o bordes en cada salto del recorrido para restringir el ámbito de búsqueda. El tiempo de espera predeterminado de las solicitudes es de **60 segundos**. |
 
 ## <a name="samples"></a>Ejemplos
 

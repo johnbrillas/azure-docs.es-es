@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 31e9b4b065b2acb8378c2eeac332341f48b28165
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84a49ea2f6ce4a5119af024ab3de67fa2b89c02e
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88005230"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539742"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>Configuración de máquina virtual de host de sesión
 
@@ -348,6 +348,7 @@ Para obtener más información acerca de esta directiva, consulte [Permitir el i
 - Para obtener información general sobre cómo solucionar problemas de Windows Virtual Desktop y las pistas de escalación, consulte [Introducción, comentarios y soporte técnico para solucionar problemas](troubleshoot-set-up-overview.md).
 - Para solucionar problemas durante la creación de un grupo de hosts en un entorno de Windows Virtual Desktop, consulte [Creación de entornos y grupos de hosts](troubleshoot-set-up-issues.md).
 - Para solucionar problemas al configurar una máquina virtual (VM) en Windows Virtual Desktop, consulte [Configuración de la máquina virtual del host de sesión](troubleshoot-vm-configuration.md).
+- Para solucionar problemas relacionados con el agente de Windows Virtual Desktop o la conectividad de sesión, consulte [Solución de problemas comunes del agente de Windows Virtual Desktop](troubleshoot-agent.md).
 - Para solucionar problemas con conexiones de cliente de Windows Virtual Desktop, consulte [Conexiones de servicios de Windows Virtual Desktop](troubleshoot-service-connection.md).
 - Para solucionar problemas con los clientes de Escritorio remoto, consulte [Solución de problemas del cliente de Escritorio remoto](troubleshoot-client.md).
 - Para solucionar problemas al usar PowerShell con Windows Virtual Desktop, consulte [PowerShell para Windows Virtual Desktop](troubleshoot-powershell.md).

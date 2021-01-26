@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: e3a665e3615c9ff3a68cf13eeaef5e8f41632f6a
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: 55042c8d1e612598cc5728668c9e87b054fb3afa
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97900367"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98537836"
 ---
 # <a name="test-through-simulations"></a>Pruebas mediante simulaciones
 
@@ -42,9 +42,9 @@ Nos hemos asociado con [BreakingPoint Cloud](https://www.ixiacom.com/products/br
     |---------      |---------                                          |
     |Dirección IP de destino           | Escriba una de las direcciones IP públicas que desee probar.                     |
     |Número de puerto   | Escriba _443_.                       |
-    |Perfil de DDoS | Entre los valores posibles se incluyen **DNS Flood**, **NTPv2 Flood**, **SSDP Flood**, **TCP SYN Flood**, **UDP 64B Flood**, **UDP 128B Flood**, **UDP 256B Flood**, **UDP 512B Flood**, **UDP 1024B Flood**, **UDP 1514B Flood**, **UDP Fragmentation** **UDP Memcached**.|
-    |Tamaño de prueba       | Entre los valores posibles se incluyen **100K pps, 50 Mbps and 4 source IPs** (100 KB de PPS, 50 Mbps y 4 direcciones IP de origen), **200K pps, 100 Mbps and 8 source IPs** (200 000 PPS, 100 Mbps y 8 direcciones IP de origen), **400K pps, 200Mbps and 16 source IPs** (400 000 PPS, 200 Mbps y 16 direcciones IP de origen), **800K pps, 400 Mbps and 32 source IPs** (800 000 PPS, 400 Mbps y 32 direcciones IP de origen).                                  |
-    |Duración de la prueba | Los valores posibles incluyen **10 minutos**, **15 minutos**, **20 minutos**, **25 minutos** y **30 minutos**.|
+    |Perfil de DDoS | Los valores posibles son `DNS Flood`, `NTPv2 Flood`, `SSDP Flood`, `TCP SYN Flood`, `UDP 64B Flood`, `UDP 128B Flood`, `UDP 256B Flood`, `UDP 512B Flood`, `UDP 1024B Flood`, `UDP 1514B Flood`, `UDP Fragmentation` y `UDP Memcached`.|
+    |Tamaño de prueba       | Los valores posibles son `100K pps, 50 Mbps and 4 source IPs`, `200K pps, 100 Mbps and 8 source IPs`, `400K pps, 200Mbps and 16 source IPs` y `800K pps, 400 Mbps and 32 source IPs`.                                  |
+    |Duración de la prueba | Los valores posibles son `10 Minutes`, `15 Minutes`, `20 Minutes`, `25 Minutes` y `30 Minutes`.|
 
 Ahora debería aparecer como se muestra a continuación:
 

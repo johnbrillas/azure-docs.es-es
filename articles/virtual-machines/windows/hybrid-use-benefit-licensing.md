@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 4/22/2018
 ms.author: xujing
-ms.openlocfilehash: 43784fe2bb94d5abd012f22ed530e4631a304614
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c13203c076378e1ff8f213971466eb5f63dfc4f4
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91335993"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539175"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Ventaja para uso híbrido de Azure para Windows Server
 Para los clientes con Software Assurance, la ventaja para uso híbrido de Azure para Windows Server le permite usar las licencias de Windows Server locales y ejecutar máquinas virtuales de Windows en Azure a bajo costo. Puede usar la Ventaja híbrida de Azure para Windows Server para implementar nuevas máquinas virtuales con el SO Windows. En este artículo se recorren los pasos necesarios para implementar nuevas máquinas virtuales con la Ventaja híbrida de Azure para Windows Server y para actualizar las máquinas virtuales en funcionamiento existentes. Para obtener más información acerca de los ahorros de costos y la concesión de licencias de la ventaja para uso híbrido para Azure para Windows Server, vea la [página de concesión de licencias de la ventaja para uso híbrido de Azure para Windows Server](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
@@ -42,10 +42,9 @@ Hay varias maneras de utilizar máquinas virtuales de Windows con la ventaja par
 Todas las imágenes basadas en sistemas operativos de Windows Server son compatibles con la Ventaja híbrida de Azure para Windows Server. Puede usar imágenes compatibles con la plataforma de Azure o cargar sus propias imágenes personalizadas de Windows Server. 
 
 ### <a name="portal"></a>Portal
-Para crear una máquina virtual con la Ventaja híbrida de Azure para Windows Server, use el botón de alternancia de la sección "Ahorrar dinero".
+Para crear una máquina virtual con Ventaja híbrida de Azure para Windows Server, desplácese hasta la parte inferior de la pestaña **Datos básicos** durante el proceso de creación y, en **Licencias**, active la casilla para usar una licencia de Windows Server existente. 
 
 ### <a name="powershell"></a>PowerShell
-
 
 ```powershell
 New-AzVm `

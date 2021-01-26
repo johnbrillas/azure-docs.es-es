@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/08/2020
+ms.date: 01/18/2021
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: bc3640fecbe1138e46fd0d36975691740bc669dd
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: f6ae9ff27e773c36626812387b1284d660cbf39d
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97369266"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602471"
 ---
 # <a name="understand-azure-role-definitions"></a>Descripción de las definiciones de roles de Azure
 
@@ -291,11 +291,27 @@ El permiso `Actions` especifica las operaciones de administración que el rol pe
 
 ## <a name="notactions"></a>NotActions
 
-El permiso `NotActions` especifica las operaciones de administración que se excluyen de los `Actions` permitidos. Use el permiso `NotActions` si el conjunto de operaciones que quiere permitir se define más fácilmente mediante la exclusión de las operaciones restringidas. El acceso concedido por un rol (permisos vigentes) se calcula restando las operaciones de `NotActions` de las de `Actions`.
+El permiso `NotActions` especifica las operaciones de administración que se restan o excluyen de los `Actions` permitidos que tienen un carácter comodín (`*`). Use el permiso `NotActions` si el conjunto de operaciones que quiere permitir se define más fácilmente mediante la resta de los `Actions` que tienen un carácter comodín (`*`). El acceso concedido por un rol (permisos vigentes) se calcula restando las operaciones de `NotActions` de las de `Actions`.
+
+`Actions - NotActions = Effective management permissions`
+
+En la tabla siguiente se muestran dos ejemplos de los permisos efectivos para una operación con carácter comodín de [Microsoft.CostManagement](resource-provider-operations.md#microsoftcostmanagement):
+
+> [!div class="mx-tableFixed"]
+> | Actions | NotActions | Permisos de administración efectivos |
+> | --- | --- | --- |
+> | `Microsoft.CostManagement/exports/*` | *Ninguna* | `Microsoft.CostManagement/exports/action`</br>`Microsoft.CostManagement/exports/read`</br>`Microsoft.CostManagement/exports/write`</br>`Microsoft.CostManagement/exports/delete`</br>`Microsoft.CostManagement/exports/run/action` |
+> | `Microsoft.CostManagement/exports/*` | `Microsoft.CostManagement/exports/delete` | `Microsoft.CostManagement/exports/action`</br>`Microsoft.CostManagement/exports/read`</br>`Microsoft.CostManagement/exports/write`</br>`Microsoft.CostManagement/exports/run/action` |
 
 > [!NOTE]
 > Si un usuario tiene asignado un rol que excluye una operación en `NotActions` y se le asigna un segundo rol que sí que concede acceso a esa operación, el usuario puede realizar dicha operación. `NotActions` no es una regla de denegación, es simplemente una manera cómoda de crear un conjunto de operaciones permitidas cuando es necesario excluir operaciones específicas.
 >
+
+### <a name="differences-between-notactions-and-deny-assignments"></a>Diferencias entre NotActions y asignaciones de denegación
+
+`NotActions` y las asignaciones de denegación no son iguales y tienen diferentes fines. `NotActions` son una manera práctica de restar acciones específicas de una operación con un carácter comodín (`*`).
+
+Las asignaciones de denegación impiden que los usuarios realicen acciones concretas, aunque una asignación de roles les conceda acceso. Para más información, consulte [Descripción de las asignaciones de denegación de Azure](deny-assignments.md).
 
 ## <a name="dataactions"></a>DataActions
 
@@ -311,7 +327,17 @@ El permiso `DataActions` especifica las operaciones de datos que el rol permite 
 
 ## <a name="notdataactions"></a>NotDataActions
 
-El permiso `NotDataActions` especifica las operaciones de datos que se excluyen de los valores `DataActions` permitidos. El acceso concedido por un rol (permisos vigentes) se calcula restando las operaciones de `NotDataActions` de las de `DataActions`. Cada proveedor de recursos proporciona su conjunto respectivo de API para completar las operaciones de datos.
+El permiso `NotDataActions` especifica las operaciones de datos que se restan o excluyen de los `DataActions` permitidos que tienen un carácter comodín (`*`). Use el permiso `NotDataActions` si el conjunto de operaciones que quiere permitir se define más fácilmente mediante la resta de los `DataActions` que tienen un carácter comodín (`*`). El acceso concedido por un rol (permisos vigentes) se calcula restando las operaciones de `NotDataActions` de las de `DataActions`. Cada proveedor de recursos proporciona su conjunto respectivo de API para completar las operaciones de datos.
+
+`DataActions - NotDataActions = Effective data permissions`
+
+En la tabla siguiente se muestran dos ejemplos de los permisos efectivos para una operación con carácter comodín de [Microsoft.Storage](resource-provider-operations.md#microsoftstorage):
+
+> [!div class="mx-tableFixed"]
+> | DataActions | NotDataActions | Permisos de datos de efectivos |
+> | --- | --- | --- |
+> | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/*` | *Ninguna* | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/read`</br>`Microsoft.Storage/storageAccounts/queueServices/queues/messages/write`</br>`Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete`</br>`Microsoft.Storage/storageAccounts/queueServices/queues/messages/add/action`</br>`Microsoft.Storage/storageAccounts/queueServices/queues/messages/process/action` |
+> | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/*` | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete`</br> | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/read`</br>`Microsoft.Storage/storageAccounts/queueServices/queues/messages/write`</br>`Microsoft.Storage/storageAccounts/queueServices/queues/messages/add/action`</br>`Microsoft.Storage/storageAccounts/queueServices/queues/messages/process/action` |
 
 > [!NOTE]
 > Si un usuario tiene asignado un rol que excluye una operación de datos en `NotDataActions` y se le asigna un segundo rol que sí que concede acceso a esa operación de datos, el usuario puede realizar dicha operación de datos. `NotDataActions` no es una regla de denegación, es simplemente una manera cómoda de crear un conjunto de operaciones de datos permitidas cuando es necesario excluir operaciones de datos específicas.

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/18/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 27725b1a3dd6059010ce67977c39891a012c037e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 5c2d1d286572b21879742a1a9c6ab3975441373d
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995799"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602685"
 ---
 # <a name="optimize-cost-with-reserved-capacity-in-azure-cosmos-db"></a>Optimización del costo con capacidad reservada en Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -72,7 +72,7 @@ Esta recomendación de comprar una reserva de 30 000 RU/s indica que, entre las
    |Campo  |Descripción  |
    |---------|---------|
    |Ámbito   |   Opción que controla el número de suscripciones que pueden usar la ventaja de facturación asociada con la reserva. También controla cómo se aplica la reserva a suscripciones concretas. <br/><br/>  Si selecciona **Compartido**, el descuento de la reserva se aplica a las instancias de Azure Cosmos DB que se ejecutan en cualquier suscripción en el contexto de facturación. El contexto de facturación se basa en cómo se haya suscrito a Azure. Para los clientes Enterprise, el ámbito compartido es la inscripción e incluye todas las suscripciones que esta contiene. Para los clientes de pago por uso, el ámbito compartido incluye todas las suscripciones con tarifas de pago por uso creadas por el administrador de la cuenta.  <br/><br/>  Si selecciona **Suscripción única**, el descuento de reserva se aplica a las instancias de Azure Cosmos DB de la suscripción seleccionada. <br/><br/> Si selecciona **Grupo de recursos único**, el descuento de reserva se aplica a las instancias de Azure Cosmos DB de la suscripción seleccionada y al grupo de recursos seleccionado dentro de esa suscripción. <br/><br/> Puede cambiar el ámbito de reserva después de comprar la capacidad reservada.  |
-   |Suscripción  |   Suscripción usada para pagar la capacidad reservada de Azure Cosmos DB. El método de pago en la suscripción seleccionada se usa al cargar los costos. La suscripción debe ser uno de los tipos siguientes: <br/><br/>  Contrato Enterprise (números de oferta: MS-AZR-0017P o MS-AZR-0148P): Para una suscripción Enterprise, los cargos se deducen del saldo de compromiso monetario de la inscripción o se cobran como uso por encima del límite. <br/><br/> Suscripción individual con tarifas de pago por uso (números de la oferta: MS-AZR-0003P o MS-AZR-0023P): en una suscripción individual con tarifas de pago por uso, los cargos se cobran en el método de pago de tarjeta de crédito o factura de la suscripción.    |
+   |Suscripción  |   Suscripción usada para pagar la capacidad reservada de Azure Cosmos DB. El método de pago en la suscripción seleccionada se usa al cargar los costos. La suscripción debe ser uno de los tipos siguientes: <br/><br/>  Contrato Enterprise (números de oferta: MS-AZR-0017P o MS-AZR-0148P): En el caso de una suscripción Enterprise, los cargos se deducirán del saldo de pago por adelantado de la inscripción de Azure (anteriormente llamado compromiso monetario) o se cobrarán como parte del uso por encima del límite. <br/><br/> Suscripción individual con tarifas de pago por uso (números de la oferta: MS-AZR-0003P o MS-AZR-0023P): en una suscripción individual con tarifas de pago por uso, los cargos se cobran en el método de pago de tarjeta de crédito o factura de la suscripción.    |
    | Grupo de recursos | Grupo de recursos al que se aplica el descuento de capacidad reservada. |
    |Término  |   Un año o tres años.   |
    |Tipo de rendimiento   |  El rendimiento se aprovisiona como unidades de solicitud. Puede comprar una reserva para el rendimiento aprovisionado con ambas configuraciones: escrituras de una sola región y escrituras de varias regiones. El tipo de rendimiento tiene dos valores para elegir: 100 RU/s por hora y 100 RU/s de escrituras en varias regiones por hora.|
