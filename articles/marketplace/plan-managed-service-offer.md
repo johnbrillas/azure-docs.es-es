@@ -8,12 +8,12 @@ author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.reviewer: anbene
 ms.date: 12/23/2020
-ms.openlocfilehash: a504969d23fce8000119aadf9e45d599da0894f0
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 57a6883a2c4fff14507df27b55ac0f6621306bf5
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97917992"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879282"
 ---
 # <a name="how-to-plan-a-managed-service-offer-for-the-microsoft-commercial-marketplace"></a>Procedimiento para planear una oferta de servicio administrado en el marketplace comercial de Microsoft
 
@@ -25,7 +25,7 @@ Los servicios administrados son ofertas de Azure Marketplace que permiten la adm
 
 Para publicar un servicio administrado, debe haber obtenido una competencia Gold o Silver de Microsoft en la plataforma en la nube. Esta competencia demuestra a los clientes su experiencia. Para más información, consulte las [competencias de Microsoft Partner Network](https://partner.microsoft.com/membership/competencies).
 
-Las ofertas deben cumplir todas las [directivas de certificación del marketplace comercial](https://docs.microsoft.com/legal/marketplace/certification-policies) aplicables para que se publiquen en Azure Marketplace.
+Las ofertas deben cumplir todas las [directivas de certificación del marketplace comercial](/legal/marketplace/certification-policies) aplicables para que se publiquen en Azure Marketplace.
 
 ## <a name="customer-leads"></a>Clientes potenciales
 

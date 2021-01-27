@@ -7,16 +7,16 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 10/30/2019
 ms.author: cynthn
-ms.openlocfilehash: ee172203d6aa54b4b539356835f8a6bf2d21bad3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a264996c3a2d907e58746c0fcf3eb8b2aefe43ba
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87288409"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878874"
 ---
 # <a name="deploy-vms-to-proximity-placement-groups-using-azure-cli"></a>Implementación de máquinas virtuales en grupos de selección de ubicación de proximidad con la CLI de Azure
 
-Para acercar las máquinas virtuales lo máximo posible con la menor latencia, debe implementarlas dentro de un [grupo de selección de ubicación de proximidad](co-location.md#proximity-placement-groups).
+Para acercar las máquinas virtuales lo máximo posible con la menor latencia, debe implementarlas dentro de un [grupo de selección de ubicación de proximidad](../co-location.md#proximity-placement-groups).
 
 Un grupo de selección de ubicación de proximidad es una agrupación lógica que se usa para asegurarse de que los recursos de proceso de Azure se encuentran físicamente cercanos entre sí. Los grupos de selección de ubicación de proximidad son útiles para las cargas de trabajo en las que la latencia baja es un requisito.
 
@@ -67,7 +67,7 @@ También puede crear un conjunto de disponibilidad en el grupo de selección de 
 
 ## <a name="scale-sets"></a>Conjuntos de escalado
 
-También puede crear un conjunto de escalado en el grupo de selección de ubicación de proximidad. Use el mismo parámetro `--ppg` con [az vmss create](/cli/azure/vmss?view=azure-cli-latest#az-vmss-create) para crear un conjunto de escalado, y todas las instancias se crearán en el mismo grupo de selección de ubicación de proximidad.
+También puede crear un conjunto de escalado en el grupo de selección de ubicación de proximidad. Use el mismo parámetro `--ppg` con [az vmss create](/cli/azure/vmss#az_vmss_create) para crear un conjunto de escalado, y todas las instancias se crearán en el mismo grupo de selección de ubicación de proximidad.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

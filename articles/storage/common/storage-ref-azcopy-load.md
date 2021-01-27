@@ -9,12 +9,12 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: beae92cc83f648cf48ab0ede7ea21e936e0cd6b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d3d15b7dd5a44245a6a501dc4a4a324e93f3a7a6
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87293877"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879044"
 ---
 # <a name="azcopy-load"></a>azcopy load
 
@@ -27,7 +27,7 @@ Subcomandos relacionados con la transferencia de datos en formatos concretos, co
 ## <a name="related-conceptual-articles"></a>Artículos conceptuales relacionados
 
 - [Introducción a AzCopy](storage-use-azcopy-v10.md)
-- [Transferencia de datos con AzCopy y Blob Storage](storage-use-azcopy-blobs.md)
+- [Transferencia de datos con AzCopy y Blob Storage](./storage-use-azcopy-v10.md#transfer-data)
 - [Transferencia de datos con AzCopy y File Storage](storage-use-azcopy-files.md)
 - [Configurar, optimizar y solucionar problemas de AzCopy](storage-use-azcopy-configure.md)
 

@@ -8,12 +8,12 @@ ms.date: 12/11/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 6390aafca4937a480e4d92ff04003a294b9c0e20
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: c4e85195ace0a24aa11d4a03b8f429f2714399b0
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97356181"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879163"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -37,7 +37,7 @@ Para más información, consulte la sección de ejemplos de este artículo.
 ## <a name="related-conceptual-articles"></a>Artículos conceptuales relacionados
 
 - [Introducción a AzCopy](storage-use-azcopy-v10.md)
-- [Transferencia de datos con AzCopy y Blob Storage](storage-use-azcopy-blobs.md)
+- [Transferencia de datos con AzCopy y Blob Storage](./storage-use-azcopy-v10.md#transfer-data)
 - [Transferencia de datos con AzCopy y File Storage](storage-use-azcopy-files.md)
 - [Configurar, optimizar y solucionar problemas de AzCopy](storage-use-azcopy-configure.md)
 
@@ -284,7 +284,7 @@ Cadena **--blob-tags**: establece etiquetas en blobs para clasificar los datos d
 
 **--include-pattern** string Incluye solo estos archivos al copiar. Esta opción admite caracteres comodín (*). Separe los archivos con `;`.
 
-Cadena **--list-of-versions** Especifica un archivo en el que cada id. de versión aparece en una línea independiente. Asegúrese de que el origen apunte a un único blob y que todos los id. de versión especificados en el archivo con esta marca solo pertenezcan al blob de origen. AzCopy descargará las versiones especificadas en la carpeta de destino proporcionada. Para obtener más información, consulte [Descarga de versiones anteriores de un blob](storage-use-azcopy-blobs.md#download-previous-versions-of-a-blob).
+Cadena **--list-of-versions** Especifica un archivo en el que cada id. de versión aparece en una línea independiente. Asegúrese de que el origen apunte a un único blob y que todos los id. de versión especificados en el archivo con esta marca solo pertenezcan al blob de origen. AzCopy descargará las versiones especificadas en la carpeta de destino proporcionada. Para obtener más información, consulte [Descarga de versiones anteriores de un blob](./storage-use-azcopy-v10.md#transfer-data).
 
 **--log-level** string Define el nivel de detalle para el archivo de registro; los niveles disponibles son: INFO (todas las solicitudes y respuestas), WARNING (respuestas lentas), ERROR (solo solicitudes con error) y NONE (sin registros de salida). (El valor predeterminado es `INFO`). 
 

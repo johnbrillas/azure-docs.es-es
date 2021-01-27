@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 1/15/2021
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 71de1d17731e086d012da5365fa6671bcb9e6e3b
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 49184778c7d6592f074e04df535b9bc221f3162e
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98539251"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878806"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Solución de problemas de Azure Files Sync
 Use Azure File Sync para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -206,8 +206,8 @@ En el servidor que se muestra como "Aparece sin conexión" en el portal, consult
     - Si el servidor está detrás de un proxy, configure los valores del proxy aplicables a toda la máquina o específicos de la aplicación mediante los pasos que se describen en la [documentación](./storage-sync-files-firewall-and-proxy.md#proxy) del proxy.
     - Use el cmdlet Test-StorageSyncNetworkConnectivity para comprobar la conectividad de red con los puntos de conexión de servicio. Para más información, vea [Prueba de la conectividad de red con los puntos de conexión de servicio](./storage-sync-files-firewall-and-proxy.md#test-network-connectivity-to-service-endpoints).
     - Si el orden de conjuntos de cifrado TLS está configurado en el servidor, puede usar los cmdlets de TLS o la directiva de grupo para agregar conjuntos de cifrado:
-        - Para usar la directiva de grupo, consulte [Configuración del orden de conjuntos de cifrado TLS mediante directiva de grupo](https://docs.microsoft.com/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order-by-using-group-policy).
-        - Para usar los cmdlets de TLS, consulte [Configuración del orden de conjuntos de cifrado TLS mediante cmdlets de PowerShell de TLS](https://docs.microsoft.com/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order-by-using-tls-powershell-cmdlets).
+        - Para usar la directiva de grupo, consulte [Configuración del orden de conjuntos de cifrado TLS mediante directiva de grupo](/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order-by-using-group-policy).
+        - Para usar los cmdlets de TLS, consulte [Configuración del orden de conjuntos de cifrado TLS mediante cmdlets de PowerShell de TLS](/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order-by-using-tls-powershell-cmdlets).
     
         Actualmente, Azure File Sync admite los siguientes conjuntos de cifrado para el protocolo TLS 1.2:  
         - TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384_P384  
@@ -931,7 +931,7 @@ Este error se produce si se ha cambiado el nombre o se ha eliminado el directori
 Si se eliminó el directorio, realice los pasos siguientes para quitar el punto de conexión del servidor existente y crear uno nuevo con una nueva ruta de acceso:
 
 1. Para quitar el punto de conexión del servidor del grupo de sincronización, siga los pasos descritos en [Eliminación de un punto de conexión del servidor](./storage-sync-files-server-endpoint.md#remove-a-server-endpoint).
-2. Para crear un nuevo punto de conexión del servidor del grupo de sincronización, siga los pasos descritos en [Adición de un punto de conexión del servidor](https://docs.microsoft.com/azure/storage/files/storage-sync-files-server-endpoint#add-a-server-endpoint).
+2. Para crear un nuevo punto de conexión del servidor del grupo de sincronización, siga los pasos descritos en [Adición de un punto de conexión del servidor](./storage-sync-files-server-endpoint.md#add-a-server-endpoint).
 
 ### <a name="common-troubleshooting-steps"></a>Pasos comunes de solución de problemas
 <a id="troubleshoot-storage-account"></a>**Compruebe que la cuenta de almacenamiento existe.**  

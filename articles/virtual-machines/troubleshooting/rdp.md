@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 12/13/2018
 ms.author: genli
-ms.openlocfilehash: 2fd2efa9de3deff1fcf983ac0fa45e412357d312
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 512130928c8e18aad90bce351e3be85d6fbe03f0
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "71057266"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878653"
 ---
 # <a name="troubleshoot-rdp-issues"></a>Solución de problemas de RDP
 
@@ -36,7 +36,7 @@ En esta sección se tratan los siguientes problemas relacionados con la creació
 - [Solución de errores del tipo "Error interno"](Troubleshoot-rdp-internal-error.md)
 - [Solución de problemas de desconexión frecuentes](troubleshoot-rdp-intermittent-connectivity.md)
 - [Solución de problemas para un error general](troubleshoot-rdp-general-error.md)
-- [Solución de errores de autenticación](troubleshoot-authentication-error-rdp-vm.md)
+- [Solución de errores de autenticación](/troubleshoot/azure/virtual-machines/cannot-connect-rdp-azure-vm)
 - [Solución de problemas de conexión RDP de máquinas virtuales de Azure por identificador de evento](event-id-troubleshoot-vm-rdp-connecton.md)
 - [Solución de problemas de RDP en máquinas virtuales debidos a una dirección IP estática](troubleshoot-rdp-static-ip.md)
 - [Solución de problemas de RDP en máquinas virtuales debidos a que la NIC está deshabilitada](troubleshoot-rdp-nic-disabled.md)
@@ -46,4 +46,3 @@ En esta sección se tratan los siguientes problemas relacionados con la creació
 - [El firewall de SO invitado está bloqueando el tráfico entrante](guest-os-firewall-blocking-inbound-traffic.md)
 - [El firewall de SO invitado está mal configurado](guest-os-firewall-misconfigured.md) 
 - [Solución de problemas de RDP provocados por netvsc.sys](troubleshoot-rdp-driver-netvsc.md)
-

@@ -5,17 +5,18 @@ description: Obtenga información sobre las cuotas y límites de los recursos de
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-author: nishankgu
-ms.author: nigup
+ms.reviewer: jmartens
+author: SimranArora904
+ms.author: siarora
 ms.date: 12/1/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperf-fy20q4, contperf-fy21q2
-ms.openlocfilehash: 3f08f401f24d95431bcd3bba48976641cebb28e9
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: aa25a81068b25b7b8696a7472eb04542e8bb1a60
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98072214"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878959"
 ---
 # <a name="manage-and-increase-quotas-for-resources-with-azure-machine-learning"></a>Administración y aumento de las cuotas de los recursos con Azure Machine Learning
 
@@ -81,7 +82,7 @@ Recursos disponibles:
 + Los **clústeres por región** tienen un límite predeterminado de 200. Se comparten entre un clúster de entrenamiento y una instancia de proceso. (Una instancia de proceso se considera un clúster de un solo nodo para los fines de la cuota).
 
 > [!TIP]
-> Para obtener más información sobre la familia de máquinas virtuales para la que se va a solicitar un aumento de cuota, vea [Tamaños de las máquinas virtuales en Azure](https://docs.microsoft.com/azure/virtual-machines/sizes). Por ejemplo, las familias de máquinas virtuales de GPU comienzan por una "N" en su nombre de familia (por ejemplo, serie NCv3)
+> Para obtener más información sobre la familia de máquinas virtuales para la que se va a solicitar un aumento de cuota, vea [Tamaños de las máquinas virtuales en Azure](../virtual-machines/sizes.md). Por ejemplo, las familias de máquinas virtuales de GPU comienzan por una "N" en su nombre de familia (por ejemplo, serie NCv3)
 
 En la siguiente tabla se muestran los límites adicionales en la plataforma. Póngase en contacto con el equipo del producto de AzureML por medio de una incidencia de soporte **técnico** para solicitar una excepción.
 

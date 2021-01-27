@@ -8,12 +8,12 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 162946ca2de9e613f0ad92297944a9f5390ab378
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 987f5de78edc4c0fe2814259a1461e58018ec270
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87285261"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879027"
 ---
 # <a name="azcopy-logout"></a>azcopy logout
 
@@ -30,7 +30,7 @@ azcopy logout [flags]
 ## <a name="related-conceptual-articles"></a>Artículos conceptuales relacionados
 
 - [Introducción a AzCopy](storage-use-azcopy-v10.md)
-- [Transferencia de datos con AzCopy y Blob Storage](storage-use-azcopy-blobs.md)
+- [Transferencia de datos con AzCopy y Blob Storage](./storage-use-azcopy-v10.md#transfer-data)
 - [Transferencia de datos con AzCopy y File Storage](storage-use-azcopy-files.md)
 - [Configurar, optimizar y solucionar problemas de AzCopy](storage-use-azcopy-configure.md)
 

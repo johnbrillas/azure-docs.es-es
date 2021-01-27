@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
 ms.date: 10/06/2020
-ms.openlocfilehash: 2191a4df5b319ec16a4a6116aa99cfac50c87d9b
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 3be967b611f6b75705a60bfa14523832b0652931
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462917"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879231"
 ---
 # <a name="publishing-guide-by-offer-type"></a>Guía de publicación por tipo de oferta
 
@@ -36,7 +36,7 @@ En la tabla siguiente se muestran los tipos de oferta de Marketplace comercial e
 | [**Servicio de consultoría**](./plan-consulting-service-offer.md) | Los servicios de consultoría ayudan a conectar a los clientes con servicios que les permitan ser compatibles y extender el uso que hacen de Azure, Dynamics 365 o Power Suite.|
 | [**Dynamics 365**](appsource-offer-publishing-guide.md) | Puede publicar ofertas de AppSource que se basan en Dynamics 365 Business central, Dynamics 365 Customer Engagement, Power Apps y aplicaciones de Finance and Operations o que los amplían.|
 | [**Módulo IoT Edge**](iot-edge-module.md) | Los módulos de Azure IoT Edge son las unidades de cálculo más pequeñas que administra IoT Edge y pueden contener servicios de Microsoft (por ejemplo, Azure Stream Analytics), servicios de terceros o su propio código específico de la solución. |
-| [**Servicio administrado**](partner-center-portal/create-new-managed-service-offer.md) | Puede crear ofertas de servicios administrados y administrar suscripciones o grupos de recursos delegados al cliente a través de [Azure Lighthouse](../lighthouse/overview.md).|
+| [**Servicio administrado**](./plan-managed-service-offer.md) | Puede crear ofertas de servicios administrados y administrar suscripciones o grupos de recursos delegados al cliente a través de [Azure Lighthouse](../lighthouse/overview.md).|
 | [**Aplicación Power BI**<br/>**Microsoft 365**](appsource-offer-publishing-guide.md) | Puede publicar ofertas de AppSource que se basan en Power BI y Microsoft 365 o que los amplían.|
 | [**Software como servicio**](plan-saas-offer.md) | Use el tipo de oferta de software como servicio (SaaS) para permitir que el cliente compre su solución técnica basada en SaaS como suscripción. Para más información sobre los requisitos de inicio de sesión único de las ofertas de SaaS, consulte [Azure AD y ofertas de SaaS comercializable en el marketplace comercial](azure-ad-saas.md). |
 

@@ -7,19 +7,19 @@ ms.topic: conceptual
 author: navits09
 ms.author: navits
 ms.date: 01/19/2020
-ms.openlocfilehash: 6075027124352746a3adbb8f6937d3787eb22b9d
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: a1726b29c153bf680d29fe821ac34aa958064335
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98602581"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879248"
 ---
 # <a name="support-for-the-commercial-marketplace-program-in-partner-center"></a>Soporte técnico para el programa de marketplace comercial en el Centro de partners
 
 Microsoft ofrece soporte para una amplia variedad de productos y servicios. Encontrar el equipo de soporte técnico correcto es importante para garantizar una respuesta oportuna y adecuada. Considere los siguientes escenarios que le ayudarán a dirigir su consulta al equipo adecuado:
 
 - Si es anunciante y tiene una pregunta de un cliente, indíquele que solicite soporte técnico a través de los vínculos de soporte técnico en  [Azure Portal](https://portal.azure.com/).
-- Si es publicador y detectó una incidencia de seguridad con una aplicación que se ejecuta en Azure, consulte [Procedimientos para registrar una incidencia de soporte técnico de un evento de seguridad](/azure/security/fundamentals/event-support-ticket). Los anunciantes deben notificar lo antes posible los eventos de seguridad sospechosos, incluidos incidentes y vulnerabilidades de seguridad de sus ofertas de software y servicio de Azure Marketplace.
+- Si es publicador y detectó una incidencia de seguridad con una aplicación que se ejecuta en Azure, consulte [Procedimientos para registrar una incidencia de soporte técnico de un evento de seguridad](../security/fundamentals/event-support-ticket.md). Los anunciantes deben notificar lo antes posible los eventos de seguridad sospechosos, incluidos incidentes y vulnerabilidades de seguridad de sus ofertas de software y servicio de Azure Marketplace.
 - Si es anunciante y tiene una pregunta relacionada con la aplicación o el servicio, revise las siguientes opciones de soporte técnico.
 
 ## <a name="get-help-or-open-a-support-ticket"></a>Obtención de ayuda o apertura de una incidencia de soporte técnico

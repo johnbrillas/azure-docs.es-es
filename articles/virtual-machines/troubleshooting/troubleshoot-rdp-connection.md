@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 03/23/2018
 ms.author: akjosh
-ms.openlocfilehash: 66e4ea622f546981d1f0651b20368590e59056d3
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 33bd7c82568f836e498a05411d2b3cf1c6a950b9
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201627"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878636"
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>Solución de problemas de conexiones del Escritorio remoto a una máquina virtual de Azure
 La conexión de Protocolo de escritorio remoto (RDP) a la máquina virtual (VM) de Azure basada en Windows puede presentar errores por varios motivos que le impedirán acceder a la máquina virtual. El problema puede originar en el servicio de Escritorio remoto de la máquina virtual, la conexión de red o el cliente de Escritorio remoto en el equipo host. Este artículo le guía por algunos de los métodos más comunes para resolver problemas de conexión de RDP. 
@@ -46,7 +46,7 @@ Después de cada paso de solución de problemas, intente volver a conectarse a l
 Si necesita instrucciones más detalladas y explicaciones, siga leyendo. Compruebe que el equipo de red local, como enrutadores y firewalls, no están bloqueando el puerto TCP 3389 saliente, como se indicó en [los escenarios de solución de problemas de RDP detallados](detailed-troubleshoot-rdp.md).
 
 > [!TIP]
-> Si el botón **Conectar** de la máquina virtual está atenuado en el portal y no está conectado a Azure a través de una conexión [Express Route](../../expressroute/expressroute-introduction.md) o [VPN de sitio a sitio](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), deberá crear y asignar a la máquina virtual una dirección IP pública antes de poder usar RDP. Aquí puede leer más sobre [direcciones IP públicas en Azure](../../virtual-network/public-ip-addresses.md).
+> Si el botón **Conectar** de la máquina virtual está atenuado en el portal y no está conectado a Azure a través de una conexión [Express Route](../../expressroute/expressroute-introduction.md) o [VPN de sitio a sitio](../../vpn-gateway/tutorial-site-to-site-portal.md), deberá crear y asignar a la máquina virtual una dirección IP pública antes de poder usar RDP. Aquí puede leer más sobre [direcciones IP públicas en Azure](../../virtual-network/public-ip-addresses.md).
 
 
 ## <a name="ways-to-troubleshoot-rdp-issues"></a>Formas de solucionar problemas de RDP

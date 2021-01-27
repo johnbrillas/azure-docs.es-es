@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/06/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 1af80f208c72af9434d596f2c1219c08c0e3f719
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e7a4af2c18bfc2b8fbd6149dab12c0bcfc665341
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96016010"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878837"
 ---
 ## <a name="create-an-image-gallery"></a>Creación de una galería de imágenes
 
@@ -35,7 +35,7 @@ En el ejemplo siguiente se crea una galería denominada *myGallery* en el grupo 
 
 ## <a name="create-an-image-definition"></a>Creación de la definición de una imagen 
 
-Las definiciones de imagen crean una agrupación lógica de imágenes. Estas se usan para administrar la información sobre las versiones de la imagen que se crean dentro de ellas. Los nombres de las definiciones de imagen pueden estar formados por letras mayúsculas o minúsculas, números, puntos y guiones. Para más información sobre los valores que se pueden especificar para una definición de imagen, consulte [Definiciones de imagen](../articles/virtual-machines/windows/shared-image-galleries.md#image-definitions).
+Las definiciones de imagen crean una agrupación lógica de imágenes. Estas se usan para administrar la información sobre las versiones de la imagen que se crean dentro de ellas. Los nombres de las definiciones de imagen pueden estar formados por letras mayúsculas o minúsculas, números, puntos y guiones. Para más información sobre los valores que se pueden especificar para una definición de imagen, consulte [Definiciones de imagen](../articles/virtual-machines/shared-image-galleries.md#image-definitions).
 
 Cree la definición de imagen de la galería dentro de la galería. En este ejemplo, la imagen de la galería se denomina *myImageDefinition*.
 
@@ -44,7 +44,7 @@ Cree la definición de imagen de la galería dentro de la galería. En este ejem
 1. En **Nombre de definición de la imagen**, escriba *myImageDefinition*.
 1. En **Sistema operativo**, seleccione la opción correcta en función de la VM de origen.  
 1. En **Generación de VM**, seleccione la opción en función de la VM de origen. En la mayoría de los casos, será *Gen 1*. Para obtener más información, consulte [Compatibilidad para máquinas virtuales de generación 2 en Azure](../articles/virtual-machines/generation-2.md).
-1. En **Estado del sistema operativo**, seleccione la opción en función de la VM de origen. Para más información, consulte [Generalizada o Especializada](../articles/virtual-machines/linux/shared-image-galleries.md#generalized-and-specialized-images).
+1. En **Estado del sistema operativo**, seleccione la opción en función de la VM de origen. Para más información, consulte [Generalizada o Especializada](../articles/virtual-machines/shared-image-galleries.md#generalized-and-specialized-images).
 1. En **Publicador**, escriba *myPublisher*. 
 1. En **Oferta**, escriba *myOffer*.
 1. En **SKU**, escriba *mySKU*.

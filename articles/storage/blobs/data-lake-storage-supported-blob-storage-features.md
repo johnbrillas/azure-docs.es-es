@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/12/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 58a907a2ae17966f50a037f49a807ac0a3ad6867
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 2b195d865a07af9f3166c5225e8de3d0a9b0e749
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96545841"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879316"
 ---
 # <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Características de Blob Storage disponibles en Azure Data Lake Storage Gen2
 
@@ -45,7 +45,7 @@ En la tabla siguiente se muestra la compatibilidad de cada característica de Bl
 |Almacenamiento inmutable|Versión preliminar<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|Versión preliminar<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|[Almacenamiento inmutable de los datos críticos para la empresa en Azure Blob Storage](storage-blob-immutable-storage.md)|
 |Eliminación temporal de contenedores|Versión preliminar|Versión preliminar|[Eliminación temporal para contenedores (versión preliminar)](soft-delete-container-overview.md)|
 |Inventario de Azure Storage|Versión preliminar|Versión preliminar|[Uso del inventario de Azure Storage para administrar datos de blobs (versión preliminar)](blob-inventory.md)|
-|Eliminación temporal de blobs|Todavía no se admite|Todavía no se admite|[Eliminación temporal para blobs](storage-blob-soft-delete.md)|
+|Eliminación temporal de blobs|Todavía no se admite|Todavía no se admite|[Eliminación temporal para blobs](./soft-delete-blob-overview.md)|
 |Blobfuse|Disponibilidad general|Disponibilidad general|[Cómo montar el almacenamiento de blobs como sistema de archivos con blobfuse](storage-how-to-mount-container-linux.md)|
 |Acceso anónimo (público) |Disponibilidad general|Disponibilidad general| Consulte [Configuración de acceso de lectura público anónimo a contenedores y blobs](anonymous-read-access-configure.md).|
 |Conmutación por error de cuenta administrada por el cliente|Todavía no se admite|Todavía no se admite|[Recuperación ante desastres y conmutación por error de la cuenta](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|

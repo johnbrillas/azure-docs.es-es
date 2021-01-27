@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f0ae4ac4cf50eb6e54d41ff25e1cc671e76819ee
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 62030d1c208fc778476f49e5b3165e46e6aa0d66
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98200811"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878857"
 ---
 # <a name="azure-security-baseline-for-linux-virtual-machines"></a>Base de referencia de seguridad de Azure para Linux Virtual Machines
 
@@ -852,7 +852,7 @@ Además de usar Change Tracking para la supervisión de las aplicaciones de soft
 
 * [Configuración y administración de Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-* [Información sobre cómo descargar la plantilla de máquina virtual](../windows/download-template.md)
+* [Información sobre cómo descargar la plantilla de máquina virtual](/previous-versions/azure/virtual-machines/windows/download-template)
 
 **Supervisión de Azure Security Center**: No disponible
 
@@ -896,7 +896,7 @@ Además de usar Change Tracking para la supervisión de las aplicaciones de soft
 
 En la mayoría de los escenarios, las plantillas de máquina virtual base de Microsoft combinadas con Desired State Configuration de Azure Automation pueden ayudar a cumplir y mantener los requisitos de seguridad.
 
-* [Información sobre cómo descargar la plantilla de máquina virtual](../windows/download-template.md)
+* [Información sobre cómo descargar la plantilla de máquina virtual](/previous-versions/azure/virtual-machines/windows/download-template)
 
 * [Información sobre la creación de plantillas ARM](../windows/ps-template.md)
 

@@ -10,16 +10,16 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 2661715164cc6aa5f5ff587f2ddf28c0918445d4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 01d095a5506ec0886cdee875b57edbbbeca6fc86
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96016019"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878842"
 ---
 # <a name="create-a-shared-image-gallery-using-the-portal"></a>Creación de un servicio Shared Image Gallery mediante el portal
 
-Una [galería de imágenes compartidas](shared-image-galleries.md) simplifica el uso compartido de imágenes personalizadas en toda una organización. Las imágenes personalizadas son como las imágenes de Marketplace, pero las puede crear usted mismo. Las imágenes personalizadas se pueden usar para realizar tareas de implementación de arranque, como la carga previa de aplicaciones, configuraciones de aplicaciones y otras configuraciones del sistema operativo. 
+Una [galería de imágenes compartidas](../shared-image-galleries.md) simplifica el uso compartido de imágenes personalizadas en toda una organización. Las imágenes personalizadas son como las imágenes de Marketplace, pero las puede crear usted mismo. Las imágenes personalizadas se pueden usar para realizar tareas de implementación de arranque, como la carga previa de aplicaciones, configuraciones de aplicaciones y otras configuraciones del sistema operativo. 
 
 Shared Image Gallery le permite compartir sus imágenes de VM personalizadas con otros usuarios de su organización, ya sea dentro o entre regiones, en un inquilino de Azure AD. Elija las imágenes que desea compartir, qué regiones desea que estén disponibles en ellas y con quién desea compartirlas. Puede crear varias galerías que le permitirán agrupar lógicamente las imágenes compartidas. 
 
@@ -78,5 +78,4 @@ Puede crear también recursos de galería de imágenes compartidas con plantilla
 - [Creación de una versión de imagen en una galería de imágenes compartidas](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
 - [Creación de una máquina virtual a partir de la versión de la imagen](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)
 
-Para más información sobre las galerías de imágenes compartidas, consulte la [Introducción](shared-image-galleries.md). Si encuentra problemas, consulte [Solución de problemas de galerías de imágenes compartidas](../troubleshooting-shared-images.md).
-
+Para más información sobre las galerías de imágenes compartidas, consulte la [Introducción](../shared-image-galleries.md). Si encuentra problemas, consulte [Solución de problemas de galerías de imágenes compartidas](../troubleshooting-shared-images.md).

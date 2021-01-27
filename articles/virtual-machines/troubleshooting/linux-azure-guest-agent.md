@@ -11,23 +11,23 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/17/2020
 ms.author: axelg
-ms.openlocfilehash: 247324c30bbe0edaef78c0b0d5e6a6d593e8cac9
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 62b462d8e75fc291ac599ac99dbe4fb3a74fde2b
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97586404"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878704"
 ---
 # <a name="troubleshoot-the-azure-linux-agent"></a>Solución de problemas del agente de Linux de Azure
 
-El [agente de Linux de Azure](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) permite que la máquina virtual se comunique con el controlador de tejido (el servidor físico subyacente en el que se hospeda la máquina virtual) en la dirección IP 168.63.129.16.
+El [agente de Linux de Azure](../extensions/agent-linux.md) permite que la máquina virtual se comunique con el controlador de tejido (el servidor físico subyacente en el que se hospeda la máquina virtual) en la dirección IP 168.63.129.16.
 
 >[!NOTE]
 >Esta dirección IP es una dirección IP pública virtual que facilita la comunicación y no debe estar bloqueada. Para obtener más información, vea [¿Qué es la dirección IP 168.63.129.16?](../../virtual-network/what-is-ip-address-168-63-129-16.md).
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-Compruebe el estado y la versión del agente para asegurarse de que sigue siendo compatible. Consulte [Versión mínima admitida para los agentes de la máquina virtual en Azure](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/support-extensions-agent-version) para comprobar la compatibilidad de versiones, o consulte las [preguntas más frecuentes de WALinuxAgent](https://github.com/Azure/WALinuxAgent/wiki/FAQ#what-does-goal-state-agent-mean-in-waagent---version-output) para conocer los pasos para encontrar el estado y la versión.
+Compruebe el estado y la versión del agente para asegurarse de que sigue siendo compatible. Consulte [Versión mínima admitida para los agentes de la máquina virtual en Azure](/troubleshoot/azure/virtual-machines/support-extensions-agent-version) para comprobar la compatibilidad de versiones, o consulte las [preguntas más frecuentes de WALinuxAgent](https://github.com/Azure/WALinuxAgent/wiki/FAQ#what-does-goal-state-agent-mean-in-waagent---version-output) para conocer los pasos para encontrar el estado y la versión.
 
 ## <a name="troubleshoot-a-not-ready-status"></a>Solución de problemas con el estado No está listo
 
@@ -64,7 +64,7 @@ Compruebe el estado y la versión del agente para asegurarse de que sigue siendo
    AutoUpdate.Enabled=y
    ```
 
-   Para obtener más información sobre cómo actualizar el agente de Linux de Azure, consulte [Actualización del agente Linux de Azure en una máquina virtual](https://docs.microsoft.com/azure/virtual-machines/extensions/update-linux-agent).
+   Para obtener más información sobre cómo actualizar el agente de Linux de Azure, consulte [Actualización del agente Linux de Azure en una máquina virtual](../extensions/update-linux-agent.md).
 
 1. Asegúrese de que la máquina virtual se puede conectar al controlador de tejido. Use una herramienta como cURL para probar si la máquina virtual puede conectarse a 168.63.129.16 en los puertos 80, 443 y 32526. Si la máquina virtual no se conecta según lo previsto, compruebe si la comunicación saliente a través de los puertos 80, 443 y 32526 está abierta en el firewall local de la máquina virtual. Si esta dirección IP está bloqueada, el agente de máquina virtual podría mostrar un comportamiento inesperado.
 
