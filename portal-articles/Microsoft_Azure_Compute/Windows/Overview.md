@@ -8,12 +8,12 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
-ms.openlocfilehash: 0fa1ff016ed787725ffde10ade67040a09c7e238
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 5a5d9412ca77b73c08acbbfdbdc95371bb6f032b
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285924"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791213"
 ---
 # <a name="windows-virtual-machines-documentation"></a>Documentación sobre máquinas virtuales Windows
 
@@ -39,7 +39,7 @@ Aprenda a implementar, administrar y supervisar máquinas virtuales Windows en A
 - [Creación de un conjunto de escalado de máquinas virtuales](/azure/virtual-machines/windows/tutorial-create-vmss)
 - [Equilibrio de carga de máquinas virtuales](/azure/virtual-machines/windows/tutorial-load-balancer)
 - [Administración de máquinas virtuales con redes virtuales](/azure/virtual-machines/windows/tutorial-virtual-network)
-- [Copia de seguridad de máquinas virtuales](/azure/virtual-machines/windows/tutorial-backup-vms)
+- [Copia de seguridad de máquinas virtuales](/azure/backup/quick-backup-vm-portal)
 - [Supervisión de máquinas virtuales](/azure/virtual-machines/windows/tutorial-monitoring)
 - [Administración de seguridad en máquinas virtuales](/azure/virtual-machines/windows/tutorial-azure-security)
 

@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 52c0dd6825c8576d97e10d3f0568ca5fb81e789e
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 3ab1e6011a1c127c9ac5a2c7652a4bf458372e1e
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98210810"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98733944"
 ---
 # <a name="quickstart-set-up-azure-attestation-with-azure-portal"></a>Inicio rápido: Configuración de Azure Attestation con Azure Portal
 
@@ -58,7 +58,7 @@ Siga los pasos que se indican a continuación para administrar un proveedor de a
 
     d. **Location** (Ubicación): elija una ubicación. 
     
-    e. **Policy signer certificates file** (Archivo de firmantes de directivas de atestación): Para configurar el proveedor de atestación con certificados de firma de directivas, cargue el archivo de certificados. Puede consultar ejemplos [aquí](/azure/attestation/policy-signer-examples). 
+    e. **Policy signer certificates file** (Archivo de firmantes de directivas de atestación): Para configurar el proveedor de atestación con certificados de firma de directivas, cargue el archivo de certificados. Puede consultar ejemplos [aquí](./policy-signer-examples.md). 
 6.  Después de proporcionar las entradas necesarias, haga clic en **Review+Create** (Revisar y crear).
 7.  Corrija los problemas de validación, si los hay, y haga clic en **Create** (Crear).
 
@@ -98,7 +98,7 @@ a.  Compruebe el recuento de certificados y los certificados descargados.
 3.  Seleccione el proveedor de atestación y vaya a la página de información general.
 4.  Haga clic en **Policy signer certificates** (Firmantes de directivas de atestación) en el menú de recursos del lado izquierdo o en el panel inferior.
 5.  Haga clic en **Add** (Agregar) en el menú superior (el botón estará deshabilitado para los proveedores de atestación creados sin el requisito de firma de directivas).
-6.  Cargue el archivo del firmante de directivas de atestación y haga clic en **Add** (Agregar). Puede consultar ejemplos [aquí](/azure/attestation/policy-signer-examples).
+6.  Cargue el archivo del firmante de directivas de atestación y haga clic en **Add** (Agregar). Puede consultar ejemplos [aquí](./policy-signer-examples.md).
 
 ### <a name="delete-policy-signer-certificate"></a>Eliminación de un firmante de directivas de atestación
 
@@ -107,7 +107,7 @@ a.  Compruebe el recuento de certificados y los certificados descargados.
 3.  Seleccione el proveedor de atestación y vaya a la página de información general.
 4.  Haga clic en **Policy signer certificates** (Firmantes de directivas de atestación) en el menú de recursos del lado izquierdo o en el panel inferior.
 5.  Haga clic en **Delete** (Eliminar) en el menú superior (el botón estará deshabilitado para los proveedores de atestación creados sin el requisito de firma de directivas).
-6.  Cargue el archivo del firmante de directivas de atestación y haga clic en **Delete** (Eliminar). Puede consultar ejemplos [aquí](/azure/attestation/policy-signer-examples). 
+6.  Cargue el archivo del firmante de directivas de atestación y haga clic en **Delete** (Eliminar). Puede consultar ejemplos [aquí](./policy-signer-examples.md). 
 
 ## <a name="attestation-policy"></a>Directiva de atestación
 
@@ -132,7 +132,7 @@ a.  Compruebe el recuento de certificados y los certificados descargados.
 5.  Haga clic en **Configure** (Configurar) en el menú de la parte superior.
 6.  Cuando el proveedor de atestación se crea sin requisito de firma de directivas, el usuario puede cargar una directiva en formato **JWT** o formato de **Texto**.
 7.  Para **Policy Format** (Formato de la directiva), seleccione **JWT**.
-8.  Cargue el archivo de directiva con el contenido de la directiva en formato **JWT sin firmar o firmado** y haga clic en **Save** (Guardar). Puede consultar ejemplos [aquí](/azure/attestation/policy-examples).
+8.  Cargue el archivo de directiva con el contenido de la directiva en formato **JWT sin firmar o firmado** y haga clic en **Save** (Guardar). Puede consultar ejemplos [aquí](./policy-examples.md).
     
     En la opción de carga de archivo, la vista previa de la directiva se mostrará en formato de texto y la vista previa de la directiva no se puede modificar.
 
@@ -147,7 +147,7 @@ a.  Compruebe el recuento de certificados y los certificados descargados.
 5.  Haga clic en **Configure** (Configurar) en el menú de la parte superior.
 6.  Cuando el proveedor de atestación se crea sin requisito de firma de directivas, el usuario puede cargar una directiva en formato **JWT** o formato de **Texto**.
 7.  Para **Policy Format** (Formato de la directiva), seleccione **Text** (Texto).
-8.  Cargue el archivo de directiva con el contenido en formato de **texto** o escriba el contenido de la directiva en el área de texto y haga clic en **Save** (Guardar). Puede consultar ejemplos [aquí](/azure/attestation/policy-examples).
+8.  Cargue el archivo de directiva con el contenido en formato de **texto** o escriba el contenido de la directiva en el área de texto y haga clic en **Save** (Guardar). Puede consultar ejemplos [aquí](./policy-examples.md).
 
     En la opción de carga de archivo, la vista previa de la directiva se mostrará en formato de texto y la vista previa de la directiva no se puede modificar.
 
@@ -163,20 +163,9 @@ a.  Compruebe el recuento de certificados y los certificados descargados.
 4.  Haga clic en **Policy** (Directiva) en el menú de recursos del lado izquierdo o en el panel inferior.
 5.  Haga clic en **Configure** (Configurar) en el menú de la parte superior.
 6.  Cuando el proveedor de atestación se crea con el requisito de firma de directivas, el usuario solo puede cargar la directiva en **formato JWT firmado**.
-7.  Cargue el archivo de directiva en **formato JWT firmado** y haga clic en **Save** (Guardar). Puede consultar ejemplos [aquí](/azure/attestation/policy-examples).
+7.  Cargue el archivo de directiva en **formato JWT firmado** y haga clic en **Save** (Guardar). Puede consultar ejemplos [aquí](./policy-examples.md).
 
     En la opción de carga de archivo, la vista previa de la directiva se mostrará en formato de texto y la vista previa de la directiva no se puede modificar.
     
 8.  Haga clic en **Refresh** (Actualizar) para ver la directiva configurada.
-
- 
-
-
-
-
-
-
-
-
-
 

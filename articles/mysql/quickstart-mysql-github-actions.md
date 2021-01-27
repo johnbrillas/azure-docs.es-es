@@ -7,18 +7,18 @@ ms.topic: quickstart
 ms.author: jukullam
 ms.date: 10/12/2020
 ms.custom: github-actions-azure
-ms.openlocfilehash: f62ca85bd4e027595103b738c23c9997a05cc85c
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 5b59b395084e3f2c4e7ccb7f1e6db0e46de256b1
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98132824"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98763009"
 ---
 # <a name="quickstart-use-github-actions-to-connect-to-azure-mysql"></a>Inicio rápido: Uso de Acciones de GitHub para conectarse a Azure MySQL
 
 **SE APLICA A**: :::image type="icon" source="./media/applies-to/yes.png" border="false":::Azure Database for MySQL (servidor único):::image type="icon" source="./media/applies-to/yes.png" border="false":::Azure Database for MySQL (servidor flexible)
 
-Comience a trabajar con [Acciones de GitHub](https://docs.github.com/en/free-pro-team@latest/actions) usando un flujo de trabajo para implementar actualizaciones de base de datos en [Azure Database for MySQL](https://azure.microsoft.com/services/mysql/).
+Comience a trabajar con [Acciones de GitHub](https://docs.github.com/en/actions) usando un flujo de trabajo para implementar actualizaciones de base de datos en [Azure Database for MySQL](https://azure.microsoft.com/services/mysql/).
 
 
 ## <a name="prerequisites"></a>Requisitos previos

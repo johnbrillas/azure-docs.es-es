@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: quickstart
 ms.date: 11/23/2020
-ms.openlocfilehash: 7db546ec9038403bd9e34f637e9d9de368277d52
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 0698295688a4587a704e8cdba0a4796e8d1e6fcd
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400309"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880006"
 ---
 # <a name="quickstart-create-an-azure-purview-account-using-azure-powershellazure-cli"></a>Inicio rápido: Creación de una cuenta de Azure Purview mediante Azure PowerShell o la CLI de Azure
 
@@ -27,9 +27,9 @@ En este inicio rápido se crea una cuenta de Azure Purview mediante Azure PowerS
 
 * La cuenta de usuario que use para iniciar sesión en Azure debe ser miembro de los roles Colaborador o Propietario, o bien ser administrador de la suscripción de Azure.
 
-* Su propio [inquilino de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant).
+* Su propio [inquilino de Azure Active Directory](../active-directory/fundamentals/active-directory-access-create-new-tenant.md).
 
-* Instale Azure PowerShell o la CLI de Azure en la máquina cliente para implementar la plantilla: [Implementación desde la línea de comandos](https://docs.microsoft.com/azure/azure-resource-manager/templates/template-tutorial-create-first-template?tabs=azure-cli#command-line-deployment)
+* Instale Azure PowerShell o la CLI de Azure en la máquina cliente para implementar la plantilla: [Implementación desde la línea de comandos](../azure-resource-manager/templates/template-tutorial-create-first-template.md?tabs=azure-cli#command-line-deployment)
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 

@@ -2,23 +2,23 @@
 title: 'Eliminación de los límites para la creación de registros de aplicaciones: Azure AD | Microsoft Docs'
 description: Asignación de un rol personalizado para conceder registros de aplicaciones sin restricciones en Azure Active Directory
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: quickstart
 ms.date: 11/05/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, devx-track-azurepowershell
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a78296d3fd040b047c2a6cc3761d429883aa9d1
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 260b0621bf204c6d7593b3696c602665c42ad77e
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378795"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740863"
 ---
 # <a name="quickstart-grant-permission-to-create-unlimited-app-registrations"></a>Inicio rápido: Concesión de permisos para crear registros de aplicaciones ilimitados
 
@@ -29,19 +29,19 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 ## <a name="create-a-custom-role-using-the-azure-ad-portal"></a>Creación de un rol personalizado mediante el portal de Azure AD
 
 1. Inicie sesión en el [centro de administración de Azure AD](https://aad.portal.azure.com) con permisos de administrador de roles con privilegios o de administrador global en la organización de Azure AD.
-1. Seleccione **Azure Active Directory** , elija **Roles y administradores** y, luego, seleccione **Nuevo rol personalizado**.
+1. Seleccione **Azure Active Directory**, elija **Roles y administradores** y, luego, seleccione **Nuevo rol personalizado**.
 
     ![Creación o edición de roles en la página Roles y administradores](./media/quickstart-app-registration-limits/new-custom-role.png)
 
-1. En la pestaña **Conceptos básicos** , escriba "Creador del registro de aplicaciones" para el nombre del rol y "Puede crear un número ilimitado de registros de aplicaciones" para la descripción del rol. Por último, seleccione **Siguiente**.
+1. En la pestaña **Conceptos básicos**, escriba "Creador del registro de aplicaciones" para el nombre del rol y "Puede crear un número ilimitado de registros de aplicaciones" para la descripción del rol. Por último, seleccione **Siguiente**.
 
     ![Proporcione un nombre y una descripción para un rol personalizado en la pestaña Aspectos básicos](./media/quickstart-app-registration-limits/basics-tab.png)
 
-1. En la pestaña **Permisos** , escriba "microsoft.directory/applications/create" en el cuadro de búsqueda y luego active las casillas situadas junto a los permisos deseados. Por último, **Siguiente**.
+1. En la pestaña **Permisos**, escriba "microsoft.directory/applications/create" en el cuadro de búsqueda y luego active las casillas situadas junto a los permisos deseados. Por último, **Siguiente**.
 
     ![Selección de los permisos de un rol personalizado en la pestaña Permisos](./media/quickstart-app-registration-limits/permissions-tab.png)
 
-1. En la pestaña **Revisar y crear** , revise los detalles y seleccione **Crear**.
+1. En la pestaña **Revisar y crear**, revise los detalles y seleccione **Crear**.
 
 ### <a name="assign-the-role-in-the-azure-ad-portal"></a>Asignación del rol en el portal de Azure AD
 

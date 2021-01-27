@@ -3,12 +3,12 @@ title: 'Inicio rápido: Envío de eventos personalizados a una instancia de Azur
 description: 'Inicio rápido: Use Azure Event Grid y la CLI de Azure o el portal para publicar un tema y suscribirse a ese evento. Para el punto de conexión se usa una instancia de Azure Functions.'
 ms.date: 07/07/2020
 ms.topic: quickstart
-ms.openlocfilehash: aea52bcaa94d6f288e86e44e1a0f294796d8e4a3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4fe4753de41443a0537636933364c7b69b25cb27
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95996359"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791751"
 ---
 # <a name="quickstart-route-custom-events-to-an-azure-function-with-event-grid"></a>Inicio rápido: Enrutamiento de eventos personalizados a una instancia de Azure Functions con Event Grid
 
@@ -19,7 +19,7 @@ Azure Event Grid es un servicio de eventos para la nube. Azure Functions es uno 
 ## <a name="create-azure-function"></a>Creación de una función de Azure
 Antes de suscribirse al tema personalizado, cree una función para controlar los eventos. 
 
-1. Cree una aplicación de funciones mediante las instrucciones de [Creación de una aplicación de función](../azure-functions/functions-create-first-azure-function.md#create-a-function-app).
+1. Cree una aplicación de funciones mediante las instrucciones de [Creación de una aplicación de función](../azure-functions/functions-get-started.md).
 2. Cree una función mediante el **desencadenador de Event Grid**. Si es la primera vez que usa este desencadenador, es posible que tenga que hacer clic en "Instalar" para instalar la extensión.
     1. En la página **Aplicación de funciones**, seleccione **Funciones** en el menú de la izquierda, busque **Event Grid** en las plantillas y, a continuación, seleccione el **desencadenador de Azure Event Grid**. 
 

@@ -11,16 +11,16 @@ ms.date: 11/20/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 939a74a2bbedf6b00159f0c33a50eeb93595cda4
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 547f697c4f8ffb903006e48e94086433d64225c7
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98116082"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98681343"
 ---
 # <a name="quickstart-bulk-load-data-using-the-copy-statement"></a>Inicio rápido: carga masiva de datos mediante la instrucción COPY
 
-En este inicio rápido realizará una carga masiva de datos en un grupo de SQL dedicado mediante la [instrucción COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest), simple y flexible, para la ingesta de datos de alto rendimiento. La instrucción COPY es la utilidad de carga recomendada, ya que le permite cargar datos de forma fluida y flexible proporcionando la funcionalidad para:
+En este inicio rápido realizará una carga masiva de datos en un grupo de SQL dedicado mediante la [instrucción COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true), simple y flexible, para la ingesta de datos de alto rendimiento. La instrucción COPY es la utilidad de carga recomendada, ya que le permite cargar datos de forma fluida y flexible proporcionando la funcionalidad para:
 
 - Permitir la carga de usuarios con menos privilegios sin necesidad de estrictos permisos de CONTROL en el almacenamiento de datos
 - Aprovechar solo una instrucción T-SQL única sin tener que crear objetos de base de datos adicionales

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: quickstart
 ms.date: 10/23/2020
-ms.openlocfilehash: 6aeb4e29390b5b456d3aa820e4b3b8be762dbddd
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: dea881acc4cec90c4a8ad6169d94734f24d5b759
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98115793"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880040"
 ---
 # <a name="quickstart-create-an-azure-purview-account-in-the-azure-portal"></a>Inicio rápido: Creación de una cuenta de Azure Purview en Azure Portal
 
@@ -25,7 +25,7 @@ En este inicio rápido, creará una cuenta de Azure Purview.
 
 * Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* Su propio [inquilino de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant).
+* Su propio [inquilino de Azure Active Directory](../active-directory/fundamentals/active-directory-access-create-new-tenant.md).
 
 * La cuenta debe tener permiso para crear recursos en la suscripción
 
@@ -35,7 +35,7 @@ En este inicio rápido, creará una cuenta de Azure Purview.
     > No es preciso realizar este paso si no se tiene Azure Policy o si una instancia de Azure Policy no bloquea la creación de una **cuenta de Storage** y un **espacio de nombres de EventHub**.
 
     1. Vaya a Azure Portal y busque **Directiva**.
-    1. Consulte el tutorial [Creación de una definición de directiva personalizada](https://docs.microsoft.com/azure/governance/policy/tutorials/create-custom-policy-definition) o modifique la directiva existente para agregar dos excepciones con el operador `not` y la etiqueta `resourceBypass`:
+    1. Consulte el tutorial [Creación de una definición de directiva personalizada](../governance/policy/tutorials/create-custom-policy-definition.md) o modifique la directiva existente para agregar dos excepciones con el operador `not` y la etiqueta `resourceBypass`:
 
         ```json
         {
@@ -83,7 +83,7 @@ En este inicio rápido, creará una cuenta de Azure Purview.
 
         :::image type="content" source="./media/create-catalog-portal/policy-definition.png" alt-text="Captura de pantalla que muestra cómo crear una definición de directiva.":::
 
-    1. [Cree una asignación de directiva](https://docs.microsoft.com/azure/governance/policy/assign-policy-portal) mediante la directiva personalizada creada.
+    1. [Cree una asignación de directiva](../governance/policy/assign-policy-portal.md) mediante la directiva personalizada creada.
 
         [ ![Captura de pantalla que muestra cómo crear una asignación de directiva](./media/create-catalog-portal/policy-assignment.png)](./media/create-catalog-portal/policy-assignment.png#lightbox)
 
@@ -155,7 +155,7 @@ Si al hacer clic en Agregar aparecen dos opciones y aparecen ambas marcadas (des
 
 1. Seleccione **Agregar asignación de roles**.
 
-1. En Role type (Tipo de rol), escriba **Purview Data Curator Role** (Rol Administrador de datos de Purview) o **Purview Data Source Administrator Role** (Administrador de orígenes de datos de Purview), en función de la entidad de seguridad que se va a usar (para más información, consulte [Permisos del catálogo](catalog-permissions.md) y [Objetos de aplicación y de entidad de servicio de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)).
+1. En Role type (Tipo de rol), escriba **Purview Data Curator Role** (Rol Administrador de datos de Purview) o **Purview Data Source Administrator Role** (Administrador de orígenes de datos de Purview), en función de la entidad de seguridad que se va a usar (para más información, consulte [Permisos del catálogo](catalog-permissions.md) y [Objetos de aplicación y de entidad de servicio de Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md)).
 
 1. En **Assign access to** (Asignar acceso a), deje el valor predeterminado, **User, group, or service principal** (Usuario, grupo o entidad de servicio).
 

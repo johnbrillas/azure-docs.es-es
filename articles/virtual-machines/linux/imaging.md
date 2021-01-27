@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: e364578cdec8696688cf19e14fd0529f1ca3fbb3
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 223fdc215bc391bea5cad5d4cb9999b9d14ba570
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842624"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878789"
 ---
 # <a name="bringing-and-creating-linux-images-in-azure"></a>Creación y uso de imágenes de Linux en Azure
 
@@ -29,7 +29,7 @@ Azure permite llevar un disco duro virtual a la plataforma, con el fin de usarlo
 
 Los discos administrados de Azure son discos duros virtuales únicos. Puede tomar un disco duro virtual existente y crear un disco administrado a partir de él, o bien crear un disco administrado vacío desde cero. Puede crear máquinas virtuales a partir de discos administrados. Para ello, debe conectar el disco a la máquina virtual, pero solo puede usar un disco duro virtual con una máquina virtual. No puede modificar las propiedades del sistema operativo, Azure solo intentará encender la máquina virtual y empezar a usar ese disco. 
 
-Las imágenes de Azure pueden estar compuestas de varios discos de sistema operativo y discos de datos. Cuando se usa una imagen administrada para crear una máquina virtual, la plataforma realiza una copia de la imagen y la usa para crear la máquina virtual, por lo que las imágenes administradas permiten reutilizar la misma imagen para varias máquinas virtuales. Azure también proporciona funcionalidades de administración avanzadas para imágenes, como la replicación global y el control de versiones a través de [Shared Image Gallery](shared-image-galleries.md). 
+Las imágenes de Azure pueden estar compuestas de varios discos de sistema operativo y discos de datos. Cuando se usa una imagen administrada para crear una máquina virtual, la plataforma realiza una copia de la imagen y la usa para crear la máquina virtual, por lo que las imágenes administradas permiten reutilizar la misma imagen para varias máquinas virtuales. Azure también proporciona funcionalidades de administración avanzadas para imágenes, como la replicación global y el control de versiones a través de [Shared Image Gallery](../shared-image-galleries.md). 
 
 
 
@@ -65,7 +65,7 @@ Para estas imágenes no se necesitan agentes de aprovisionamiento; sin embargo, 
 Al usar la imagen de Linux, tiene dos opciones:
 
 - Imágenes administradas para la creación de una máquina virtual simple en un entorno de desarrollo y de prueba.
-- [Shared Image Gallery](shared-image-galleries.md) para crear y compartir imágenes a escala.
+- [Shared Image Gallery](../shared-image-galleries.md) para crear y compartir imágenes a escala.
 
 
 ### <a name="managed-images"></a>Imágenes administradas
@@ -76,7 +76,7 @@ Las imágenes administradas se pueden usar para los entornos de desarrollo y pru
 
 ### <a name="azure-shared-image-gallery-sig"></a>Azure Shared Image Gallery (SIG)
 
-Las [galerías de imágenes compartidas](shared-image-galleries.md) se recomiendan para crear, administrar y compartir imágenes a escala. Las galerías de imágenes compartidas le ayudan a crear cierta estructura y organización en torno a las imágenes.  
+Las [galerías de imágenes compartidas](../shared-image-galleries.md) se recomiendan para crear, administrar y compartir imágenes a escala. Las galerías de imágenes compartidas le ayudan a crear cierta estructura y organización en torno a las imágenes.  
 
 - Compatibilidad con imágenes generalizadas y especializadas.
 - Compatibilidad con imágenes de generación 1 y 2.

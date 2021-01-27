@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: mvc
-ms.openlocfilehash: 874da5ffcd2777648bb06c6e702932d64a32e59c
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 740563935e12d5a7418bada2a18b48fb573f6e7d
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97681920"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98679014"
 ---
 # <a name="quickstart-create-an-android-app-with-azure-maps"></a>Inicio rápido: Creación de una aplicación de Android con Azure Maps
 
@@ -59,7 +59,7 @@ Una vez que se haya creado correctamente la cuenta de Maps, recupere la clave pr
 3. Copie la **clave principal** al Portapapeles. Guárdela localmente para usarla más adelante en este tutorial.
 
 >[!NOTE]
-> Si usa la clave de suscripción de Azure en lugar de la clave principal de Azure Maps, la asignación no se representará correctamente. Además, por motivos de seguridad, se recomienda que rote entre las claves principal y secundaria. Para rotar las claves, actualice la aplicación para que use la clave secundaria, impleméntela y, luego, presione el botón de ciclo/actualización situado junto a la clave principal para generar una nueva clave principal. La clave principal anterior se deshabilitará. Para más información sobre la rotación de claves, consulte [Configuración de Azure Key Vault con la auditoría y la rotación de claves](https://docs.microsoft.com/azure/key-vault/secrets/key-rotation-log-monitoring).
+> Si usa la clave de suscripción de Azure en lugar de la clave principal de Azure Maps, la asignación no se representará correctamente. Además, por motivos de seguridad, se recomienda que rote entre las claves principal y secundaria. Para rotar las claves, actualice la aplicación para que use la clave secundaria, impleméntela y, luego, presione el botón de ciclo/actualización situado junto a la clave principal para generar una nueva clave principal. La clave principal anterior se deshabilitará. Para más información sobre la rotación de claves, consulte [Configuración de Azure Key Vault con la auditoría y la rotación de claves](../key-vault/secrets/tutorial-rotation-dual.md).
 
 ![Obtención de la clave principal de Azure Maps en Azure Portal](media/quick-android-map/get-key.png)
 

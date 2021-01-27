@@ -8,12 +8,12 @@ ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 8/26/2020
 ms.author: alkemper
-ms.openlocfilehash: 6996fdd9dce4314e9365177815d7d310ac80c7cb
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 96efc0ea6300e482ddeeda8fa177847f02b7e126
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98046080"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724261"
 ---
 # <a name="quickstart-add-feature-flags-to-an-azure-functions-app"></a>Inicio rápido: Adición de marcas de características a una aplicación de Azure Functions
 
@@ -46,7 +46,7 @@ Las bibliotecas de administración de características de .NET amplían la plata
 
 ## <a name="connect-to-an-app-configuration-store"></a>Conexión a un almacén de App Configuration
 
-En este proyecto se usa la [inserción de dependencias en Azure Functions para .NET](/azure/azure-functions/functions-dotnet-dependency-injection). Se agrega Azure App Configuration como origen de configuración adicional donde se almacenan las marcas de características.
+En este proyecto se usa la [inserción de dependencias en Azure Functions para .NET](../azure-functions/functions-dotnet-dependency-injection.md). Se agrega Azure App Configuration como origen de configuración adicional donde se almacenan las marcas de características.
 
 1. Haga clic con el botón derecho en el proyecto y seleccione **Administrar paquetes NuGet**. En la pestaña **Examinar**, busque los siguientes paquetes NuGet y agréguelos al proyecto.
    - [Microsoft.Extensions.Configuration.AzureAppConfiguration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.AzureAppConfiguration/), versión 4.1.0 o posterior

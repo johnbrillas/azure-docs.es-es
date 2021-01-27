@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: b8738b46359287ce1d4e410292cdce213ab80999
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 9077ce35065b1bf45646496cc4c43d6def82d958
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98115827"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685232"
 ---
 # <a name="what-is-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>¿Qué es un grupo de SQL dedicado (anteriormente SQL DW) en Azure Synapse Analytics?
 
@@ -29,7 +29,7 @@ Azure Synapse Analytics es un servicio de análisis que engloba el almacenamient
 
 Un grupo de SQL dedicado (anteriormente SQL DW) representa una colección de recursos de análisis que se aprovisionan al usar Synapse SQL. El tamaño de un grupo de SQL dedicado (anteriormente SQL DW) se determina mediante las unidades de almacenamiento de datos (DWU).
 
-Una vez que se crea un grupo de SQL dedicado, puede importar macrodatos con consultas T-SQL de [PolyBase](/sql/relational-databases/polybase/polybase-guide?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) simples y, después, usar la potencia del motor de consultas distribuidas para realizar un análisis de alto rendimiento. Al realizar la integración y el análisis de los datos, el grupo de SQL dedicado (anteriormente SQL DW) pasará a ser la versión única de certeza con la que puede contar su empresa para obtener información.
+Una vez que se crea un grupo de SQL dedicado, puede importar macrodatos con consultas T-SQL de [PolyBase](/sql/relational-databases/polybase/polybase-guide?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) simples y, después, usar la potencia del motor de consultas distribuidas para realizar un análisis de alto rendimiento. Al realizar la integración y el análisis de los datos, el grupo de SQL dedicado (anteriormente SQL DW) pasará a ser la versión única de certeza con la que puede contar su empresa para obtener información.
 
 > [!NOTE]
 >Explore la [documentación de Azure Synapse Analytics](../overview-what-is.md).

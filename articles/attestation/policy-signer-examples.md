@@ -7,17 +7,17 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 0b32158ad58a663f7d85b9814bb4f2c1c55e4178
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 5cb767c639c7ff1d9888085caa036571376cc596
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96922450"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734155"
 ---
 # <a name="examples-of-an-attestation-policy-signer-certificate"></a>Ejemplos de un certificado de firmante de directivas de atestación
 
 Microsoft Azure Attestation usará los certificados de firmante de directivas asociados a un proveedor de atestación para validar las directivas firmadas.
-Más información sobre las [ventajas de la firma de directivas](/azure/attestation/basic-concepts/#benefits-of-policy-signing)
+Más información sobre las [ventajas de la firma de directivas](./basic-concepts.md#benefits-of-policy-signing)
 
 **Formato de archivo del firmante de directivas de atestación que se usará para crear un flujo de proveedor**
 

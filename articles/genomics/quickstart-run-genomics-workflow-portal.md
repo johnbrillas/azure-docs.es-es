@@ -9,12 +9,12 @@ ms.service: genomics
 ms.topic: quickstart
 ms.date: 01/11/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 85665dbda2ed11ffa04b71e4317f2b34b83d317f
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: cefb0105a0a95d26aadea2a98fc4d3cec68ccc03
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96349374"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98787358"
 ---
 # <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>Inicio rápido: Ejecución de un flujo de trabajo mediante el servicio Microsoft Genomics
 
@@ -144,4 +144,4 @@ Una vez se complete el flujo de trabajo, puede ver los archivos de salida en la 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, ha cargado datos de entrada de ejemplo en Azure Storage y ha enviado un flujo de trabajo al servicio Microsoft Genomics mediante el cliente de Python `msgen`. Para más información sobre otros tipos de archivo de entrada que pueden utilizarse con el servicio Microsoft Genomics, consulte las páginas siguientes: [Archivos FASTQ emparejados](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | [Varios archivos FASTQ o BAM](quickstart-input-multiple.md). Este tutorial también se puede seguir con nuestro [ejemplo de Azure Notebooks](https://aka.ms/genomicsnotebook); para ello, descargue el archivo "Genomics Tutorial.ipynb" y use un lector de cuadernos como [Jupyter](../notebooks/tutorial-create-run-jupyter-notebook.md) para abrirlo y leerlo.
+En este artículo, ha cargado datos de entrada de ejemplo en Azure Storage y ha enviado un flujo de trabajo al servicio Microsoft Genomics mediante el cliente de Python `msgen`. Para más información sobre otros tipos de archivo de entrada que pueden utilizarse con el servicio Microsoft Genomics, consulte las páginas siguientes: [Archivos FASTQ emparejados](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | [Varios archivos FASTQ o BAM](quickstart-input-multiple.md). Este tutorial también se puede seguir con nuestro [ejemplo de Azure Notebooks](https://aka.ms/genomicsnotebook); para ello, descargue el archivo "Genomics Tutorial.ipynb" y use un lector de cuadernos como [Jupyter](https://notebooks.azure.com) para abrirlo y leerlo.

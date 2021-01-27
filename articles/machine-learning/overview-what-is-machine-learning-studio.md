@@ -8,12 +8,12 @@ ms.topic: overview
 author: peterclu
 ms.author: peterlu
 ms.date: 08/24/2020
-ms.openlocfilehash: f59ed16f98a22f77b2e67ec2bf829f58dccef611
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 4212c76d052fe1f272963003e836425b50d6f105
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97740511"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98677621"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>¿Qué es Azure Machine Learning Studio?
 
@@ -90,7 +90,7 @@ En la tabla siguiente se resumen las principales diferencias entre Machine Learn
 | Característica | ML Studio (clásico) | Azure Machine Learning |
 |---| --- | --- |
 | Interfaz que permite arrastrar y colocar | Experiencia clásica | Experiencia actualizada: [diseñador de Azure Machine Learning](concept-designer.md)| 
-| SDK de código | No compatible | Completamente integrado con los SDK de [Azure Machine Learning Python](/python/api/overview/azure/ml/) y [R](tutorial-1st-r-experiment.md) |
+| SDK de código | No compatible | Completamente integrado con los SDK de [Azure Machine Learning Python](/python/api/overview/azure/ml/) y [R](https://github.com/Azure/azureml-sdk-for-r) |
 | Experimento | Escalable (límite de datos de entrenamiento, 10 GB) | Escalar con destino de proceso |
 | Entrenamiento de destinos de proceso | Destino de proceso propietario, solo admite CPU | Amplia gama de [destinos de proceso de entrenamiento](concept-compute-target.md#train) personalizables. Incluye compatibilidad con GPU y CPU | 
 | Destinos de proceso de implementación | Formato del servicio web propietario, no personalizable | Amplia gama de [destinos de proceso de implementación](concept-compute-target.md#deploy) personalizables. Incluye compatibilidad con GPU y CPU |

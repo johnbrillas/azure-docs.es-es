@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2020
 ms.author: memildin
-ms.openlocfilehash: 4ecd436b548c29c520a7538970d4d703cc8488d2
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 31472b0a0eedee03d5cfcb6ff47a97033a8c78e0
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027574"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98796064"
 ---
 # <a name="enable-security-center-on-all-subscriptions-in-a-management-group"></a>Habilitación de Security Center en todas las suscripciones de un grupo de administración
 
@@ -25,7 +25,7 @@ Puede usar Azure Policy para habilitar Azure Security Center en todas las suscri
 
 Para incorporar un grupo de administración y todas sus suscripciones:
 
-1. Como usuario con permisos de **administrador de seguridad** , abra Azure Policy y busque la definición **Habilitar Azure Security Center en la suscripción**.
+1. Como usuario con permisos de **administrador de seguridad**, abra Azure Policy y busque la definición **Habilitar Azure Security Center en la suscripción**.
 
     :::image type="content" source="./media/security-center-get-started/enable-security-center-policy.png" alt-text="La definición de Azure Policy Habilitar Azure Security Center en la suscripción":::
 
@@ -55,7 +55,7 @@ Para incorporar un grupo de administración y todas sus suscripciones:
 
 Hay varias formas de modificar la definición de Azure Policy: 
 
-- **Definir el cumplimiento de forma diferente** : la directiva suministrada clasifica todas las suscripciones del grupo de administración que aún no están registradas en Security Center como "no compatibles". Puede elegir establecerla en todas las suscripciones sin Azure Defender.
+- **Definir el cumplimiento de forma diferente**: la directiva suministrada clasifica todas las suscripciones del grupo de administración que aún no están registradas en Security Center como "no compatibles". Puede elegir establecerla en todas las suscripciones sin Azure Defender.
 
     La definición suministrada, puede definir *cualquiera* de los valores de "precio" siguientes como compatibles. Esto significa que una suscripción establecida como "estándar" o "gratis" es compatible.
 
@@ -88,7 +88,7 @@ Hay varias formas de modificar la definición de Azure Policy:
     },
     ```
 
-- **Definir los planes de Azure Defender que se aplican al habilitar Security Center** : la directiva suministrada habilita Security Center sin ninguno de los planes de Azure Defender opcionales. Puede elegir habilitar uno o varios de ellos.
+- **Definir los planes de Azure Defender que se aplican al habilitar Security Center**: la directiva suministrada habilita Security Center sin ninguno de los planes de Azure Defender opcionales. Puede elegir habilitar uno o varios de ellos.
 
     La sección `deployment` de la definición suministrada incluye el parámetro `pricingTier`. De forma predeterminada, se establece en `free`, pero se puede modificar. 
 
@@ -98,4 +98,4 @@ Hay varias formas de modificar la definición de Azure Policy:
 Ahora que ha incorporado todo un grupo de administración, habilite las protecciones avanzadas de Azure Defender. 
 
 > [!div class="nextstepaction"]
-> [Habilitación de Azure Defender](security-center-pricing.md)
+> [Habilitación de Azure Defender](security-center-pricing.md#enable-azure-defender)

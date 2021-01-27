@@ -4,12 +4,12 @@ description: En este inicio rápido, compilará una imagen de Docker con la apli
 ms.topic: quickstart
 ms.date: 07/22/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 27d9c96643feb805a785e1e535cd8cac2602082b
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: f58b8feda0e88d8a5e7cddaabbc650b0f0ab3973
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92741913"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788169"
 ---
 # <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>Inicio rápido: Implementar contenedores Linux en Service Fabric
 
@@ -25,7 +25,7 @@ Para completar esta guía de inicio rápido:
 
 1. Cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar, si no tiene una suscripción a Azure.
 
-2. Instale la [CLI de Azure](/cli/azure/install-azure-cli-apt?view=azure-cli-latest).
+2. Instale la [CLI de Azure](/cli/azure/install-azure-cli-apt).
 
 3. Instale el [SDK de Service Fabric y la CLI](service-fabric-get-started-linux.md#installation-methods).
 
@@ -89,7 +89,7 @@ Service Fabric proporciona varias herramientas que puede usar para administrar u
 
 En este inicio rápido, se usan la CLI de Service Fabric y Service Fabric Explorer (una herramienta basada en web). Para usar Service Fabric Explorer, deberá importar el archivo PFX del certificado en el explorador. De forma predeterminada, el archivo PFX no tiene contraseña.
 
-Mozilla Firefox es el explorador predeterminado en Ubuntu 16.04. Para importar el certificado en Firefox, haga clic en el botón de menú en la esquina superior derecha del explorador y, a continuación, haga clic en **Opciones** . En la página **Preferencias** , utilice el cuadro de búsqueda para buscar "certificados". Haga clic en **Ver certificados** , seleccione la pestaña **Sus certificados** , haga clic en **Importar** y siga las indicaciones para importar el certificado.
+Mozilla Firefox es el explorador predeterminado en Ubuntu 16.04. Para importar el certificado en Firefox, haga clic en el botón de menú en la esquina superior derecha del explorador y, a continuación, haga clic en **Opciones**. En la página **Preferencias**, utilice el cuadro de búsqueda para buscar "certificados". Haga clic en **Ver certificados**, seleccione la pestaña **Sus certificados**, haga clic en **Importar** y siga las indicaciones para importar el certificado.
 
    ![Instalación del certificado en Firefox](./media/service-fabric-quickstart-containers-linux/install-cert-firefox.png)
 
@@ -101,13 +101,13 @@ Mozilla Firefox es el explorador predeterminado en Ubuntu 16.04. Para importar e
     sfctl cluster select --endpoint https://containertestcluster.eastus.cloudapp.azure.com:19080 --pem containertestcluster22019013100.pem --no-verify
     ```
 
-2. Use el script de instalación para copiar la definición de la aplicación de votación en el clúster, registrar el tipo de aplicación y crear una instancia de la aplicación.  El archivo de certificado PEM debe encontrarse en el mismo directorio que el archivo *install.sh* .
+2. Use el script de instalación para copiar la definición de la aplicación de votación en el clúster, registrar el tipo de aplicación y crear una instancia de la aplicación.  El archivo de certificado PEM debe encontrarse en el mismo directorio que el archivo *install.sh*.
 
     ```bash
     ./install.sh
     ```
 
-3. Abra un explorador web y navegue hasta el punto de conexión de Service Fabric Explorer del clúster. El punto de conexión tiene el siguiente formato: **https://\<my-azure-service-fabric-cluster-url>: 19080/Explorer** ; por ejemplo, `https://containertestcluster.eastus.cloudapp.azure.com:19080/Explorer`. </br>
+3. Abra un explorador web y navegue hasta el punto de conexión de Service Fabric Explorer del clúster. El punto de conexión tiene el siguiente formato: **https://\<my-azure-service-fabric-cluster-url>: 19080/Explorer**; por ejemplo, `https://containertestcluster.eastus.cloudapp.azure.com:19080/Explorer`. </br>
 
 4. Expanda el nodo **Aplicaciones** para comprobar que ahora hay una entrada para el tipo de aplicación de votación y la instancia que ha creado.
 
@@ -168,7 +168,7 @@ Para eliminar la instancia de la aplicación del clúster y anular el registro d
 
 La manera más sencilla de eliminar el clúster y todos los recursos que consume es eliminar el grupo de recursos.
 
-Inicie sesión en Azure y seleccione el identificador de suscripción con el que quiere quitar el clúster. Para encontrar el identificador de suscripción, inicie sesión en Azure Portal. Elimine el grupo de recursos y todos los recursos de clúster mediante el comando [az group delete](/cli/azure/group?view=azure-cli-latest).
+Inicie sesión en Azure y seleccione el identificador de suscripción con el que quiere quitar el clúster. Para encontrar el identificador de suscripción, inicie sesión en Azure Portal. Elimine el grupo de recursos y todos los recursos de clúster mediante el comando [az group delete](/cli/azure/group).
 
 ```azurecli
 az login
